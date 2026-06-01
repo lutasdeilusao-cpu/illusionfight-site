@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import TrialBanner from '../components/TrialBanner'
 import Navbar from '../components/Navbar'
 import HeroSlideshow from '../components/HeroSlideshow'
@@ -11,6 +12,9 @@ import Footer from '../components/Footer'
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Lutas de Ilusão — A dor é 100% real</title>
+      </Helmet>
       <TrialBanner />
       <Navbar />
       <HeroSlideshow />

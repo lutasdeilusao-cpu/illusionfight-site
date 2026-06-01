@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
@@ -42,6 +43,9 @@ export default function LivroCapitulo() {
   if (notFound) {
     return (
       <section className="livro-capitulo">
+        <Helmet>
+          <title>Capítulo não encontrado — Lutas de Ilusão</title>
+        </Helmet>
         <div className="container">
           <p className="livro-capitulo__erro">Este capítulo ainda não foi publicado.</p>
         </div>
@@ -57,6 +61,9 @@ export default function LivroCapitulo() {
 
   return (
     <section className="livro-capitulo">
+      <Helmet>
+        <title>{chapter[tituloKey]} — Lutas de Ilusão</title>
+      </Helmet>
       <div className="container">
         <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>
           ← VOLTAR AO ÍNDICE

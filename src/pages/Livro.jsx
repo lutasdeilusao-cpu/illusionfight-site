@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import index from '../data/livro-index.json'
@@ -11,6 +12,9 @@ export default function Livro() {
 
   return (
     <section className="livro-page">
+      <Helmet>
+        <title>Livro — Lutas de Ilusão</title>
+      </Helmet>
       <div className="container">
         <h2 className="section-title">CAPÍTULOS</h2>
         <div className="livro-page__list">

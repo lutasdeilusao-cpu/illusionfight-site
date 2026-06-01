@@ -18,6 +18,7 @@
 ├── .gitignore                          # Node, dist, .env, Retcon.md
 ├── public/
 │   ├── favicon.svg                     # Favicon LDI
+│   ├── og-image.jpg                    # Open Graph preview (1200×630)
 │   └── 404.html                        # Redirect SPA para GitHub Pages
 └── src/
     ├── App.jsx                         # React Router (rotas)
@@ -170,6 +171,7 @@
 - ✅ **GitHub Pages + Vite** — `base: '/illusionfight-site/'`, `gh-pages` package, deploy automático com `npm run deploy`
 - ✅ **BrowserRouter basename** — `basename="/illusionfight-site"` em `main.jsx` para roteamento no subpath
 - ✅ **SPA 404 fallback** — `public/404.html` redireciona qualquer 404 para `/?/{path}`, e o script no `index.html` restaura a URL limpa com `history.replaceState`
+- ✅ **SEO** — meta tags, Open Graph, Twitter Card, react-helmet-async titles dinâmicos, og-image.jpg
 
 ---
 
@@ -187,7 +189,7 @@
 - ❌ **Logo ES** — Apenas PT e EN têm logo em imagem
 - ❌ **Modo light** — Dark mode fixo, sem toggle
 - ❌ **Busca** — Pesquisa interna no site
-- ❌ **SEO** — Meta tags, Open Graph, sitemap.xml
+- ❌ **sitemap.xml** — Arquivo XML para crawlers
 - ❌ **Domínio customizado** — www.illusionfight.com apontando para o GitHub Pages
 
 ---

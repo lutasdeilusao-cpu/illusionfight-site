@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { usePersonagensAgrupados } from '../hooks/usePersonagens'
@@ -11,6 +12,9 @@ export default function Personagens() {
 
   return (
     <section className="personagens-page">
+      <Helmet>
+        <title>Personagens — Lutas de Ilusão</title>
+      </Helmet>
       <div className="container">
         <button className="personagens-page__back" onClick={() => navigate('/')}>
           ← {t('hero.cta.secondary')}

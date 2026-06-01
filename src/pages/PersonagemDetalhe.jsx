@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { usePersonagem } from '../hooks/usePersonagens'
@@ -14,6 +15,9 @@ export default function PersonagemDetalhe() {
   if (!personagem) {
     return (
       <section className="personagem-detail">
+        <Helmet>
+          <title>Personagem não encontrado — Lutas de Ilusão</title>
+        </Helmet>
         <div className="container">
           <button className="personagem-detail__back" onClick={() => navigate('/personagens')}>
             ← PERSONAGENS
@@ -38,6 +42,9 @@ export default function PersonagemDetalhe() {
 
   return (
     <section className="personagem-detail">
+      <Helmet>
+        <title>{personagem.nome} — Lutas de Ilusão</title>
+      </Helmet>
       <div className="container">
         <button className="personagem-detail__back" onClick={() => navigate('/personagens')}>
           ← PERSONAGENS
