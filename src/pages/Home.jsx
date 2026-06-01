@@ -35,6 +35,20 @@ export default function Home() {
       </section>
       <NowLive />
       <StoryProgress />
+      <section className="newsletter-cta">
+        <div className="container">
+          <h3>{t('newsletter.ctaTitulo')}</h3>
+          <p>{t('newsletter.ctaDescricao')}</p>
+          <a
+            href="https://illusionfight.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="newsletter-cta__btn"
+          >
+            {t('newsletter.ctaBotao')}
+          </a>
+        </div>
+      </section>
     </>
   )
 }

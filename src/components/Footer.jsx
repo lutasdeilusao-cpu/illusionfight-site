@@ -12,6 +12,10 @@ const routeMap = {
   'Sobre el Autor': '/autor',
 }
 
+const externalMap = {
+  'Newsletter': 'https://illusionfight.substack.com',
+}
+
 export default function Footer() {
   const { t } = useLanguage()
 
@@ -29,10 +33,13 @@ export default function Footer() {
                 <ul className="footer__list">
                   {Array.isArray(links) && links.map((link, i) => {
                     const route = routeMap[link]
+                    const external = externalMap[link]
                     return (
                       <li key={i}>
                         {route ? (
                           <Link to={route}>{link}</Link>
+                        ) : external ? (
+                          <a href={external} target="_blank" rel="noopener noreferrer">{link}</a>
                         ) : (
                           <a href="#">{link}</a>
                         )}

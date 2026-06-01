@@ -81,7 +81,7 @@
       },
       {
         "title": "Sobre",
-        "links": ["Apoiar o Projeto", "Sobre o Autor", "Contato", "FAQ", "Termos", "Privacidade"]
+        "links": ["Apoiar o Projeto", "Sobre o Autor", "Newsletter", "Contato", "FAQ", "Termos", "Privacidade"]
       }
     ],
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte gerada com auxílio de IA"
@@ -119,6 +119,15 @@
       "text": "Qualquer valor é bem-vindo.",
       "key": "chavepix@email.com (placeholder)"
     }
+  },
+  "newsletter": {
+    "titulo": "Fique por dentro",
+    "descricao": "Newsletter mensal com bastidores, novidades e conteúdo exclusivo do universo Lutas de Ilusão.",
+    "botao": "Assinar a Newsletter",
+    "gratis": "Gratuito. Sem spam.",
+    "ctaTitulo": "Receba as novidades",
+    "ctaDescricao": "Newsletter mensal — bastidores, lançamentos e universo expandido.",
+    "ctaBotao": "Assinar grátis"
   },
   "autor": {
     "blocks": [

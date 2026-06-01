@@ -168,6 +168,70 @@
   opacity: 0.85;
 }
 
+.assinar-newsletter {
+  padding: 2rem 0 0;
+}
+
+.assinar-newsletter__box {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-teal);
+  padding: 32px;
+  text-align: center;
+}
+
+.assinar-newsletter__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.assinar-newsletter__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.assinar-newsletter__desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.assinar-newsletter__btn {
+  display: inline-flex;
+  background: var(--accent-teal);
+  color: #000;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.assinar-newsletter__btn:hover {
+  opacity: 0.85;
+}
+
+.assinar-newsletter__gratis {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 12px 0 0;
+}
+
 .assinar-pix {
   padding: 4rem 0;
   background: var(--bg-secondary);

@@ -54,6 +54,30 @@ export default function Assinar() {
         </div>
       </section>
 
+      <section className="assinar-newsletter">
+        <div className="container">
+          <div className="assinar-newsletter__box">
+            <div className="assinar-newsletter__header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="2,4 12,13 22,4" />
+              </svg>
+              <h2 className="assinar-newsletter__title">{t('newsletter.titulo')}</h2>
+            </div>
+            <p className="assinar-newsletter__desc">{t('newsletter.descricao')}</p>
+            <a
+              href="https://illusionfight.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="assinar-newsletter__btn"
+            >
+              {t('newsletter.botao')}
+            </a>
+            <p className="assinar-newsletter__gratis">{t('newsletter.gratis')}</p>
+          </div>
+        </div>
+      </section>
+
       <section className="assinar-pix">
         <div className="container">
           <h2 className="assinar-pix__title">{t('assinar.pix.title')}</h2>

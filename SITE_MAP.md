@@ -185,6 +185,7 @@
 - ✅ **Navbar global** — TrialBanner, Navbar, Footer renderizados em App.jsx fora das rotas
 - ✅ **ScrollToTop** — Botão fixo canto inferior direito, aparece após 400px de scroll
 - ✅ **TrialBanner scroll** — Fundo fica sólido ao scrollar (>20px) para legibilidade
+- ✅ **Newsletter Substack** — link no footer, bloco na /assinar com border-left teal, CTA na home após StoryProgress
 
 ---
 

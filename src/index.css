@@ -229,3 +229,43 @@ ul, ol {
   background: var(--accent-amber);
   color: #000;
 }
+
+.newsletter-cta {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.newsletter-cta h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.newsletter-cta p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+}
+
+.newsletter-cta__btn {
+  display: inline-flex;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.65rem 1.75rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.newsletter-cta__btn:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
