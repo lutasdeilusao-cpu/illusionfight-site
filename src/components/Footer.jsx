@@ -4,7 +4,12 @@ import SocialBar from './SocialBar'
 import './Footer.css'
 
 const routeMap = {
-  'Autor': '/autor',
+  'Apoiar o Projeto': '/assinar',
+  'Sobre o Autor': '/autor',
+  'Support the Project': '/assinar',
+  'About the Author': '/autor',
+  'Apoyar el Proyecto': '/assinar',
+  'Sobre el Autor': '/autor',
 }
 
 export default function Footer() {

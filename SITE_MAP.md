@@ -67,8 +67,8 @@
 | `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | Detalhe do personagem (2 colunas) |
 | `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | Índice de capítulos com controle de publicação |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | Leitor com react-markdown + navegação |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | Página de planos de assinatura |
-| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História do autor |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | Página de planos de assinatura — link na navbar (âmbar), footer e CTA na home |
+| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História do autor — link no footer |
 
 ---
 
@@ -151,7 +151,7 @@
 
 ## 8. FEATURES IMPLEMENTADAS
 
-- ✅ **Navbar** — Logo LDI, 6 links, botão ENTRAR, background com scroll, drawer mobile, seletor de idioma (PT/ES/EN)
+- ✅ **Navbar** — Logo LDI, 7 links (incluindo APOIAR em âmbar destaque), botão ENTRAR, background com scroll, drawer mobile, seletor de idioma (PT/ES/EN)
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns (scale 1.0→1.08), overlays gradiente, scan lines, efeito chuva digital (HeroEffect canvas)
 - ✅ **Typewriter** — Frase com efeito de digitação (loop ~28s), container terminal HUD
 - ✅ **Personagens (home)** — Scroll horizontal com Kim, Jack, Nina

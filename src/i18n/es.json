@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes"],
+    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes", "APOYAR"],
     "cta": "ENTRAR",
     "aria": { "menu": "Abrir menú" }
   },
@@ -58,6 +58,11 @@
       }
     ]
   },
+  "homeSupport": {
+    "title": "APOYA EL PROYECTO",
+    "text": "Accede a contenido exclusivo y ayuda a mantener la obra viva.",
+    "cta": "VER PLANES"
+  },
   "trial": {
     "message": "Contenido exclusivo en acceso libre por tiempo limitado — ¡aprovéchalo!"
   },
@@ -73,7 +78,7 @@
       },
       {
         "title": "Sobre",
-        "links": ["Autor", "Contacto", "FAQ", "Términos", "Privacidad"]
+        "links": ["Apoyar el Proyecto", "Sobre el Autor", "Contacto", "FAQ", "Términos", "Privacidad"]
       }
     ],
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte generado con asistencia de IA"

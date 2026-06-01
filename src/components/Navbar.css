@@ -74,6 +74,15 @@
   width: 100%;
 }
 
+.navbar__link--highlight {
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.navbar__link--highlight:hover {
+  color: var(--accent-teal);
+}
+
 .navbar__cta {
   margin-left: auto;
   font-family: var(--font-display);
@@ -188,6 +197,15 @@
 }
 
 .drawer__link:hover {
+  color: var(--accent-teal);
+}
+
+.drawer__link--highlight {
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.drawer__link--highlight:hover {
   color: var(--accent-teal);
 }
 

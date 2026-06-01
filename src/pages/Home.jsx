@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import TrialBanner from '../components/TrialBanner'
 import Navbar from '../components/Navbar'
 import HeroSlideshow from '../components/HeroSlideshow'
@@ -10,6 +12,8 @@ import StoryProgress from '../components/StoryProgress'
 import Footer from '../components/Footer'
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
     <>
       <Helmet>
@@ -22,6 +26,17 @@ export default function Home() {
       <CharactersRow />
       <BookChaptersRow />
       <MusicSection />
+      <section className="home-support">
+        <div className="container">
+          <div className="home-support__inner">
+            <div className="home-support__content">
+              <h2 className="home-support__title">{t('homeSupport.title')}</h2>
+              <p className="home-support__text">{t('homeSupport.text')}</p>
+            </div>
+            <Link to="/assinar" className="home-support__cta">{t('homeSupport.cta')}</Link>
+          </div>
+        </div>
+      </section>
       <StoryProgress />
       <Footer />
     </>

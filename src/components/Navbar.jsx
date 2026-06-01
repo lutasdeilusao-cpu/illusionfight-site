@@ -19,7 +19,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'personagens']
+  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'personagens', 'assinar']
 
   const classList = [
     'navbar',
@@ -44,7 +44,12 @@ export default function Navbar() {
           <ul className="navbar__links">
             {navLinks.map((key, i) => (
               <li key={key}>
-                <Link to={`/${key}`} className="navbar__link">{t(`nav.links.${i}`)}</Link>
+                <Link
+                  to={`/${key}`}
+                  className={`navbar__link${key === 'assinar' ? ' navbar__link--highlight' : ''}`}
+                >
+                  {t(`nav.links.${i}`)}
+                </Link>
               </li>
             ))}
           </ul>
@@ -75,7 +80,13 @@ export default function Navbar() {
         <ul className="drawer__links">
           {navLinks.map((key, i) => (
             <li key={key}>
-              <Link to={`/${key}`} className="drawer__link" onClick={() => setMenuOpen(false)}>{t(`nav.links.${i}`)}</Link>
+              <Link
+                to={`/${key}`}
+                className={`drawer__link${key === 'assinar' ? ' drawer__link--highlight' : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(`nav.links.${i}`)}
+              </Link>
             </li>
           ))}
         </ul>
