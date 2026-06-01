@@ -47,7 +47,7 @@
     │       ├── pt/                     # 16 capítulos .md (PT)
     │       ├── en/                     # (vazio)
     │       └── es/                     # (vazio)
-    ├── hooks/                          # 7 hooks customizados
+    ├── hooks/                          # 5 hooks customizados
     ├── i18n/
     │   ├── pt.json                     # Traduções PT
     │   ├── en.json                     # Traduções EN
@@ -98,8 +98,6 @@
 | `useHeroEffect` | `useHeroEffect.js` | HeroEffect | Canvas com 40-60 linhas verticais caindo |
 | `useTypewriter` | `useTypewriter.js` | TypewriterPhrase | Digita/apaga em loop (~28s ciclo) |
 | `useScrollPosition` | `useScrollPosition.js` | Navbar | Detecta scroll > 20px para background |
-| ~~`useAnimatedCounter`~~ | ~~`useAnimatedCounter.js`~~ | ~~UniverseNumbers~~ | ~~Conta de 0 até valor com IntersectionObserver — órfão~~ |
-| ~~`useParticles`~~ | ~~`useParticles.js`~~ | ~~Hero~~ | ~~Partículas canvas (hero original) — órfão~~ |
 | `usePersonagens` | `usePersonagens.js` | CharactersRow, Personagens, PersonagemDetalhe | Carrega JSON + agrupa por categoria |
 
 ---
