@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext'
 import data from '../data/nowlive.json'
 import TwitterEmbed from './TwitterEmbed'
+import InstagramEmbed from './InstagramEmbed'
 import './NowLive.css'
 
 const icons = {
@@ -48,7 +49,7 @@ export default function NowLive() {
                   <iframe src={item.embedUrl} style={{ width: '100%', aspectRatio: '16/9' }} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={item.label} />
                 )}
                 {key === 'instagram' && (
-                  <iframe src={item.embedUrl} width="100%" height="480" frameBorder="0" scrolling="no" title={item.label} />
+                  <InstagramEmbed embedUrl={item.embedUrl} />
                 )}
                 {key === 'tiktok' && (
                   <iframe src={item.embedUrl} width="100%" height="480" frameBorder="0" allow="encrypted-media" title={item.label} />

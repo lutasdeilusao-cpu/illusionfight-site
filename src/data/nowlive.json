@@ -1,22 +1,22 @@
 {
   "youtube": {
     "ativo": true,
-    "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "embedUrl": "https://www.youtube.com/embed/uMb1L33u_Hw",
     "label": "YouTube"
   },
   "instagram": {
     "ativo": true,
-    "embedUrl": "https://www.instagram.com/p/C-example123/embed",
+    "embedUrl": "https://www.instagram.com/p/DYlWKuxs9jC/embed",
     "label": "Instagram"
   },
   "tiktok": {
     "ativo": true,
-    "embedUrl": "https://www.tiktok.com/embed/v2/7200000000000000000",
+    "embedUrl": "https://www.tiktok.com/embed/v2/7602676615604079890",
     "label": "TikTok"
   },
   "twitter": {
     "ativo": true,
-    "tweetUrl": "https://twitter.com/Nintendo/status/1768000000000000000",
+    "tweetUrl": "https://x.com/IsaiasLealOfc/status/1964883002837832025",
     "label": "X"
   }
 }
