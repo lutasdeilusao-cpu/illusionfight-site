@@ -29,6 +29,9 @@
     "title": "MÚSICAS",
     "comingSoon": "EM BREVE"
   },
+  "nowlive": {
+    "title": "NO AR AGORA"
+  },
   "progress": {
     "title": "ONDE ESTAMOS",
     "tracks": [

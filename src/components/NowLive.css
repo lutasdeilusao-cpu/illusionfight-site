@@ -1,0 +1,54 @@
+.nowlive-section {
+  padding: 5rem 0;
+  background: var(--bg-primary);
+}
+
+.nowlive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.nowlive-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nowlive-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nowlive-embed {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  transition: border-color 0.2s ease;
+}
+
+.nowlive-embed:hover {
+  border-color: var(--accent-teal);
+}
+
+.twitter-embed-container {
+  min-height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .nowlive-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -29,6 +29,9 @@
     "title": "MÚSICA",
     "comingSoon": "PRÓXIMAMENTE"
   },
+  "nowlive": {
+    "title": "EN VIVO"
+  },
   "progress": {
     "title": "DÓNDE ESTAMOS",
     "tracks": [

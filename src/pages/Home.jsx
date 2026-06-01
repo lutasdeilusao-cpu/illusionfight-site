@@ -6,6 +6,7 @@ import LatestEpisodes from '../components/LatestEpisodes'
 import CharactersRow from '../components/CharactersRow'
 import BookChaptersRow from '../components/BookChaptersRow'
 import MusicSection from '../components/MusicSection'
+import NowLive from '../components/NowLive'
 import StoryProgress from '../components/StoryProgress'
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <NowLive />
       <StoryProgress />
     </>
   )
