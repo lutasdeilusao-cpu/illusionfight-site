@@ -1,6 +1,11 @@
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import SocialBar from './SocialBar'
 import './Footer.css'
+
+const routeMap = {
+  'Autor': '/autor',
+}
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -11,16 +16,28 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
-          {colKeys.map((colKey, ci) => (
-            <div key={ci} className="footer__col">
-              <h4 className="footer__heading">{t(`${colKey}.title`)}</h4>
-              <ul className="footer__list">
-                {[0, 1, 2, 3].map(i => (
-                  <li key={i}><a href="#">{t(`${colKey}.links.${i}`)}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {colKeys.map((colKey, ci) => {
+            const links = t(`${colKey}.links`)
+            return (
+              <div key={ci} className="footer__col">
+                <h4 className="footer__heading">{t(`${colKey}.title`)}</h4>
+                <ul className="footer__list">
+                  {Array.isArray(links) && links.map((link, i) => {
+                    const route = routeMap[link]
+                    return (
+                      <li key={i}>
+                        {route ? (
+                          <Link to={route}>{link}</Link>
+                        ) : (
+                          <a href="#">{link}</a>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            )
+          })}
         </div>
 
         <SocialBar />

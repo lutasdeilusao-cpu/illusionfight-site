@@ -67,6 +67,8 @@
 | `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | Detalhe do personagem (2 colunas) |
 | `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | Índice de capítulos com controle de publicação |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | Leitor com react-markdown + navegação |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | Página de planos de assinatura |
+| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História do autor |
 
 ---
 
@@ -172,6 +174,8 @@
 - ✅ **BrowserRouter basename** — `basename="/illusionfight-site"` em `main.jsx` para roteamento no subpath
 - ✅ **SPA 404 fallback** — `public/404.html` redireciona qualquer 404 para `/?/{path}`, e o script no `index.html` restaura a URL limpa com `history.replaceState`
 - ✅ **SEO** — meta tags, Open Graph, Twitter Card, react-helmet-async titles dinâmicos, og-image.jpg
+- ✅ **Página de assinatura** — 2 planos (R$10/R$30), seção PIX, placeholders para links Stripe
+- ✅ **Página do autor** — história de Isaias Leal, CTA para assinar
 
 ---
 

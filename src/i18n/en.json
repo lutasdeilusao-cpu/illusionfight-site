@@ -73,9 +73,52 @@
       },
       {
         "title": "About",
-        "links": ["Contact", "FAQ", "Terms", "Privacy"]
+        "links": ["Author", "Contact", "FAQ", "Terms", "Privacy"]
       }
     ],
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Art generated with AI assistance"
+  },
+  "assinar": {
+    "hero": {
+      "title": "SUPPORT THE PROJECT",
+      "subtitle": "Access exclusive content and help keep the project alive."
+    },
+    "plans": {
+      "period": "/month",
+      "cta": "I WANT TO SUPPORT",
+      "apoiador": {
+        "name": "Supporter",
+        "price": "$10",
+        "benefits": [
+          "Early access to book chapters",
+          "Benefit coming soon",
+          "Benefit coming soon"
+        ]
+      },
+      "guerreiro": {
+        "name": "Warrior",
+        "price": "$30",
+        "badge": "MOST POPULAR",
+        "benefits": [
+          "Everything from the Supporter plan",
+          "Exclusive benefit coming soon",
+          "Exclusive benefit coming soon"
+        ]
+      }
+    },
+    "pix": {
+      "title": "Prefer to contribute via PIX?",
+      "text": "Any amount is welcome.",
+      "key": "pixkey@email.com (placeholder)"
+    }
+  },
+  "autor": {
+    "blocks": [
+      "I started working at 13, selling candy on buses. Back then I didn't know it, but I was living the story I would one day write.",
+      "At 17, during a history class, I realized we weren't telling the story of Brazil's native peoples — that space before the \"discovery\". I saw an entire universe waiting. That's when Lutas de Ilusão began to exist. I wrote in Word, printed at school, and distributed the pages. Every week people asked for the next chapter. I wrote terribly, but the story worked.",
+      "Life changed. Ten years in public service. A scholarship. I graduated, got married, had my daughter. I entered the games industry and worked on international projects — including titles like Five Nights at Freddy's and a publication that reached the God of War universe. Later I moved to traditional development. Today I'm 40 and finally publishing this story.",
+      "Lutas de Ilusão is an independent project. Every chapter, every webtoon page, every piece of music has real cost and work behind it. Supporting the work is the only way to keep it alive and growing."
+    ],
+    "cta": "SUPPORT THE PROJECT"
   }
 }

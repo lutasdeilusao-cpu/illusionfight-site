@@ -4,6 +4,8 @@ import Personagens from './pages/Personagens'
 import PersonagemDetalhe from './pages/PersonagemDetalhe'
 import Livro from './pages/Livro'
 import LivroCapitulo from './pages/LivroCapitulo'
+import Assinar from './pages/Assinar'
+import Autor from './pages/Autor'
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
       <Route path="/personagens/:id" element={<PersonagemDetalhe />} />
       <Route path="/livro" element={<Livro />} />
       <Route path="/livro/:id" element={<LivroCapitulo />} />
+      <Route path="/assinar" element={<Assinar />} />
+      <Route path="/autor" element={<Autor />} />
     </Routes>
   )
 }

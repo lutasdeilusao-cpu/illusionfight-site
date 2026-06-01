@@ -73,9 +73,52 @@
       },
       {
         "title": "Sobre",
-        "links": ["Contacto", "FAQ", "Términos", "Privacidad"]
+        "links": ["Autor", "Contacto", "FAQ", "Términos", "Privacidad"]
       }
     ],
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte generado con asistencia de IA"
+  },
+  "assinar": {
+    "hero": {
+      "title": "APOYA LA OBRA",
+      "subtitle": "Accede a contenido exclusivo y ayuda a mantener el proyecto vivo."
+    },
+    "plans": {
+      "period": "/mes",
+      "cta": "QUIERO APOYAR",
+      "apoiador": {
+        "name": "Partidario",
+        "price": "R$ 10",
+        "benefits": [
+          "Acceso anticipado a los capítulos del libro",
+          "Beneficio próximamente",
+          "Beneficio próximamente"
+        ]
+      },
+      "guerreiro": {
+        "name": "Guerrero",
+        "price": "R$ 30",
+        "badge": "MÁS POPULAR",
+        "benefits": [
+          "Todo del plan Partidario",
+          "Beneficio exclusivo próximamente",
+          "Beneficio exclusivo próximamente"
+        ]
+      }
+    },
+    "pix": {
+      "title": "¿Prefieres contribuir vía PIX?",
+      "text": "Cualquier valor es bienvenido.",
+      "key": "clavepix@email.com (placeholder)"
+    }
+  },
+  "autor": {
+    "blocks": [
+      "Empecé a trabajar a los 13 años vendiendo caramelos en autobuses. En ese entonces no lo sabía, pero estaba viviendo la historia que algún día escribiría.",
+      "A los 17, en una clase de historia, me di cuenta de que no contábamos la historia de los pueblos originarios de Brasil — ese espacio antes del \"descubrimiento\". Vi allí un universo entero esperando. Fue cuando Lutas de Ilusão comenzó a existir. Escribía en Word, imprimía en la escuela y distribuía las páginas. Cada semana la gente pedía el próximo capítulo. Escribía muy mal, pero la historia funcionaba.",
+      "La vida fue cambiando. Diez años en el servicio público. Una beca de estudios. Me gradué, me casé, tuve mi hija. Entré en el área de videojuegos y trabajé en proyectos internacionales — incluyendo títulos como Five Nights at Freddy's y una publicación que llegó al universo de God of War. Después migré al desarrollo tradicional. Hoy tengo 40 años y finalmente estoy publicando esta historia.",
+      "Lutas de Ilusão es un proyecto independiente. Cada capítulo, cada página del webtoon, cada canción tiene costo y trabajo real detrás. Apoyar la obra es la única forma de mantenerla viva y creciendo."
+    ],
+    "cta": "APOYAR EL PROYECTO"
   }
 }
