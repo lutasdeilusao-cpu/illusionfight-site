@@ -85,10 +85,11 @@
 | CharacterCard | `CharacterCard.jsx` | `CharacterCard.css` | CharactersRow, Personagens | Card 200×300 com hover Netflix |
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com capítulos publicados |
 | LatestEpisodes | `LatestEpisodes.jsx` | `LatestEpisodes.css` | Home | Grid 3 episódios + link Webtoon Canvas |
-| MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | CTA Spotify com ícone SVG + botão verde |
+| MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | Círculos de música com dropdown de plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal) |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal ONDE ESTAMOS |
 | SocialBar | `SocialBar.jsx` | `SocialBar.css` | Footer | Ícones X/Instagram/TikTok/YouTube |
 | Footer | `Footer.jsx` | `Footer.css` | Home | 3 colunas + SocialBar + copyright |
+| PlatformIcons | `PlatformIcons.jsx` | — | MusicSection | SVGs inline das 6 plataformas de música |
 
 ---
 
@@ -117,6 +118,7 @@
 | `personagens-es.json` | `src/data/` | ES | 9 personagens | usePersonagens hook |
 | `livro-index.json` | `src/data/` | PT/EN/ES | 16 capítulos + controle de publicação + resumo_pt/en/es | Livro, LivroCapitulo, BookChaptersRow |
 | `capitulo-01.md` ~ `16.md` | `src/data/livro/pt/` | PT | Conteúdo integral dos capítulos | LivroCapitulo (lazy load) |
+| `musicas.json` | `src/data/` | — | 5 faixas (1 publicada, 4 placeholders) com links para 6 plataformas | MusicSection |
 
 ---
 

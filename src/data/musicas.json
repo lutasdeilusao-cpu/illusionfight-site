@@ -1,0 +1,49 @@
+[
+  {
+    "id": "lutas-de-ilusao",
+    "titulo": "Lutas de Ilusão",
+    "artista": "Isaias Leal",
+    "capa": null,
+    "cor": "#6B0F1A",
+    "plataformas": [
+      { "nome": "Spotify", "url": "https://open.spotify.com/album/6tZYw93qw5T0uKSb1ELROe", "cor": "#1DB954", "icone": "spotify" },
+      { "nome": "YouTube", "url": "https://www.youtube.com/watch?v=uMb1L33u_Hw", "cor": "#FF0000", "icone": "youtube" },
+      { "nome": "Apple Music", "url": "https://music.apple.com/br/album/lutas-de-ilusão-single/1838575478", "cor": "#FC3C44", "icone": "apple" },
+      { "nome": "Amazon Music", "url": "https://music.amazon.com/albums/B0FQ4HM8PQ", "cor": "#00A8E1", "icone": "amazon" },
+      { "nome": "Deezer", "url": "https://www.deezer.com/us/album/817626301", "cor": "#A238FF", "icone": "deezer" },
+      { "nome": "Tidal", "url": "https://tidal.com/album/459125153", "cor": "#000000", "icone": "tidal" }
+    ]
+  },
+  {
+    "id": "placeholder-2",
+    "titulo": "Em breve",
+    "artista": "Isaias Leal",
+    "capa": null,
+    "cor": "#1A1D21",
+    "plataformas": []
+  },
+  {
+    "id": "placeholder-3",
+    "titulo": "Em breve",
+    "artista": "Isaias Leal",
+    "capa": null,
+    "cor": "#1A1D21",
+    "plataformas": []
+  },
+  {
+    "id": "placeholder-4",
+    "titulo": "Isaias Leal",
+    "artista": "Em breve",
+    "capa": null,
+    "cor": "#1A1D21",
+    "plataformas": []
+  },
+  {
+    "id": "placeholder-5",
+    "titulo": "Em breve",
+    "artista": "Isaias Leal",
+    "capa": null,
+    "cor": "#1A1D21",
+    "plataformas": []
+  }
+]
