@@ -1,0 +1,111 @@
+.episodes {
+  padding: 5rem 0;
+  background: var(--bg-secondary);
+}
+
+.episodes__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .episodes__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.episode__card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.episode__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 180, 216, 0.12);
+}
+
+.episode__thumb {
+  aspect-ratio: 3 / 4;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.episode__info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.episode__number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.episode__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.episode__badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+.badge--free {
+  background: rgba(0, 180, 216, 0.15);
+  color: var(--accent-teal);
+}
+
+.badge--premium {
+  background: rgba(244, 162, 39, 0.15);
+  color: var(--accent-amber);
+}
+
+.episodes__footer {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.episodes__webtoon {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.episodes__webtoon-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.episodes__webtoon-subs {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}

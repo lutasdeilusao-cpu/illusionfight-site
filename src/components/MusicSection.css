@@ -1,0 +1,42 @@
+.music {
+  padding: 5rem 0;
+  background: var(--bg-secondary);
+}
+
+.music__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.music__icon {
+  width: 48px;
+  height: 48px;
+}
+
+.music__title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 400px;
+}
+
+.btn--spotify {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.75rem;
+  border-radius: 2px;
+  background: #1DB954;
+  color: #fff;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.btn--spotify:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 16px rgba(29, 185, 84, 0.3);
+}

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "kim",
+    "nome": "Kim",
+    "nomeCompleto": "Joaquim Leal Reis",
+    "apelido": "Briguento 142536 / Kim Primordial",
+    "idade": 17,
+    "status": "vivo",
+    "grupo": "protagonista",
+    "ranking": "1.201",
+    "arma": "Xakixi",
+    "estilo": "Combate livre + Sangue Primordial",
+    "elemental": "Fogo / Trevas",
+    "descricaoBreve": "17 anos. Descendente Xakaxi. Vende balas em ônibus, bolsista na Elite Academy. Carrega algo ancestral que não pediu e não controla.",
+    "descricaoCompleta": "Kim cresceu sem passado e sem pai. Helena, a mulher que o criou, tinha doze anos quando o salvou de um lugar de onde nenhum dos dois deveria ter saído. Desde os doze anos Kim sustenta a casa vendendo balas em ônibus. Conseguiu uma bolsa na Elite Academy com a ajuda de Osvaldo, o porteiro. No LDI, sua primeira luta virou viral pelo mundo inteiro — não pela vitória, mas pelo que emergiu antes dela. Algo ancestral. Algo que não pede licença.",
+    "frase": "Eu não imploro pra ninguém. Nunca.",
+    "imagem": "/assets/images/characters/kim.png",
+    "relacoes": [
+      { "personagem": "Jack", "tipo": "Melhor amigo, irmão" },
+      { "personagem": "Helena", "tipo": "Mãe adotiva" },
+      { "personagem": "Nina", "tipo": "Amiga, atração mútua" },
+      { "personagem": "Pajé Yawanari", "tipo": "Guia espiritual" },
+      { "personagem": "David Kronos", "tipo": "Antagonista principal" }
+    ]
+  },
+  {
+    "id": "jack",
+    "nome": "Jack",
+    "nomeCompleto": "Jack",
+    "apelido": "Jack Cachorrão 987654321",
+    "idade": 17,
+    "status": "vivo",
+    "grupo": "protagonista",
+    "ranking": "10.776",
+    "arma": "Vitória",
+    "estilo": "Bengala / San Tien Kwan",
+    "elemental": "Pedra",
+    "descricaoBreve": "17 anos. Dreads verdes. Filma tudo, ri de tudo, e é mais perigoso do que parece.",
+    "descricaoCompleta": "Jack é o tipo de pessoa que parece leviana até você ver ele lutar. Dreads verdes, sempre com o celular na mão, sempre com uma câmera apontada para o momento mais inconveniente. É o melhor amigo de Kim desde os doze anos e a única pessoa no mundo que Kim não consegue mandar embora. No LDI desenvolveu um estilo único baseado na bengala Vitória — arma que no modo Xamã vira San Tien Kwan. Teatral na vida, preciso na batalha.",
+    "frase": "Eu precisava muito disso. Vai ser eterno, juro por tudo.",
+    "imagem": "/assets/images/characters/jack.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Melhor amigo, irmão" },
+      { "personagem": "Nina", "tipo": "Amiga, tensão cômica constante" }
+    ]
+  },
+  {
+    "id": "nina",
+    "nome": "Nina",
+    "nomeCompleto": "Nina",
+    "apelido": "",
+    "idade": null,
+    "status": "viva",
+    "grupo": "protagonista",
+    "ranking": "8.724",
+    "arma": "Angel",
+    "estilo": "Muay Thai + Katana",
+    "elemental": "Água",
+    "descricaoBreve": "Chegou sem avisar. Katana Angel, Muay Thai, e um passado que ela não explica.",
+    "descricaoCompleta": "Nina entrou na sala da Elite Academy no meio de uma aula e avaliou todo mundo antes de sentar. Passou quatro anos em Azuma pelo trabalho do pai — um trabalho que ela descreve como consultoria com uma pausa antes da palavra. Direta ao ponto, econômica nas palavras. Quando fala, muda a cena. Derrotou Kim na primeira luta séria entre os dois e desde então é parte inseparável do trio.",
+    "frase": "Receio que vocês ainda não sejam homens o suficiente pra dar conta do recado.",
+    "imagem": "/assets/images/characters/nina.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Amiga, atração mútua" },
+      { "personagem": "Jack", "tipo": "Amigo, tensão cômica constante" }
+    ]
+  },
+  {
+    "id": "helena",
+    "nome": "Helena",
+    "nomeCompleto": "Helena",
+    "apelido": "Dona Helena",
+    "idade": null,
+    "status": "viva",
+    "grupo": "apoio",
+    "ranking": null,
+    "arma": null,
+    "estilo": null,
+    "elemental": null,
+    "descricaoBreve": "Mãe adotiva de Kim. Não por escolha — por instinto. Tinha doze anos quando fugiu com ele no braço.",
+    "descricaoCompleta": "Helena não tem memória de antes de um certo ponto. O lugar mais antigo que lembra é um quarto com lâmpada quase apagando. Tinha por volta de doze anos quando apareceu um bebê naquele quarto e ela entendeu o que ia acontecer. Fugiu na mesma noite. Os anos que se seguiram foram o que foram. Hoje usa álcool como anestésico e Kim paga as contas. A relação entre os dois é um campo minado com raro terreno firme — mas o terreno existe.",
+    "frase": "Você era um bebezinho muito lindo, sabe. Muito lindo e muito gordo. Parecia uma bolinha.",
+    "imagem": "/assets/images/characters/helena.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Filho adotivo" }
+    ]
+  },
+  {
+    "id": "yawanari",
+    "nome": "Pajé Yawanari",
+    "nomeCompleto": "Pajé Yawanari",
+    "apelido": "",
+    "idade": null,
+    "status": "imortal",
+    "grupo": "apoio",
+    "ranking": null,
+    "arma": "Berimbau",
+    "estilo": "Xamanismo ancestral",
+    "elemental": null,
+    "descricaoBreve": "Xamã imortal da tribo Xakaxi. Guardião dos poderes sagrados. Enlouqueceu um pouco depois de séculos observando a humanidade.",
+    "descricaoCompleta": "Yawanari existe há mais tempo do que qualquer instituição viva consegue registrar. É o guardião dos poderes sagrados da tribo Xakaxi e o único ser que conhece a extensão do que Kim carrega. Cabelos e barba longos brancos, vestes cerimoniais com símbolos dourados, bombeta preta levemente inclinada, óculos juliet espelhados, berimbau na mão. Fala em sabedoria ancestral misturada com gírias modernas — o resultado de séculos observando a humanidade de perto demais.",
+    "frase": "Cheguei pra divar! Eita porra, se tá zuado pra caramba, véi.",
+    "imagem": "/assets/images/characters/yawanari.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Guia espiritual, protetor" }
+    ]
+  },
+  {
+    "id": "kronos",
+    "nome": "David Kronos",
+    "nomeCompleto": "David Kronos",
+    "apelido": "",
+    "idade": null,
+    "status": "vivo",
+    "grupo": "antagonista",
+    "ranking": null,
+    "arma": null,
+    "estilo": "Espírito ancestral corrompido",
+    "elemental": null,
+    "descricaoBreve": "Construiu um império sobre a paciência. Esperou séculos pelo momento certo. Kim é o momento certo.",
+    "descricaoCompleta": "Kronos opera de uma ilha privada no Pacífico Sul com a calma de quem tem tempo que humanos normais não têm. Espírito ancestral corrompido habitando corpo humano, construiu riqueza e influência ao longo de séculos como meio para um único fim: encontrar o portador do Corpo Primordial. Kim é a primeira pessoa em toda essa história cujo endereço o sistema demorou dezoito segundos para localizar. Isso foi suficiente para Kronos sorrir.",
+    "frase": "Ele será meu. Independentemente do preço.",
+    "imagem": "/assets/images/characters/kronos.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Antagonista principal — busca o Corpo Primordial" }
+    ]
+  },
+  {
+    "id": "shuntaro",
+    "nome": "Shuntaro",
+    "nomeCompleto": "Shuntaro Chirasu",
+    "apelido": "",
+    "idade": null,
+    "status": "vivo",
+    "grupo": "rival",
+    "ranking": "998",
+    "arma": "Ioiôs de metal",
+    "estilo": "Multiple Water Balls / Rei Xamã",
+    "elemental": "Água",
+    "descricaoBreve": "Veio de Azuma especificamente para lutar com Kim. Nove horas de viagem. Não veio para perder.",
+    "descricaoCompleta": "Shuntaro Chirasu é o melhor ranqueado que Kim enfrentou até agora — posição 998 mundial. Chegou à Elite Academy sem anunciar, se apresentou com educação genuína e desafiou Kim na mesma frase. Há respeito real no olhar dele, e há também a certeza calma de quem sabe que é mais forte. A luta entre os dois terminou sem vencedor declarado — da forma mais interessante possível.",
+    "frase": "Vim de Azuma especificamente pra isso. Nove horas de viagem.",
+    "imagem": "/assets/images/characters/shuntaro.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Rival respeitoso" },
+      { "personagem": "Nina", "tipo": "Conexão de Azuma" }
+    ]
+  },
+  {
+    "id": "lisa",
+    "nome": "Lisa",
+    "nomeCompleto": "Lisa",
+    "apelido": "",
+    "idade": null,
+    "status": "viva",
+    "grupo": "rival",
+    "ranking": "top 500",
+    "arma": null,
+    "estilo": null,
+    "elemental": null,
+    "descricaoBreve": "Top 500 mundial. Interesse romântico de Kim. Adversária no LDI.",
+    "descricaoCompleta": "Lisa está no top 500 do ranking mundial do LDI — território onde os adversários deixam de ser competidores casuais e passam a ser problemas reais. A relação com Kim ainda está se formando, mas há atração e há tensão, e no universo do LDI as duas coisas tendem a resolver na arena.",
+    "frase": "",
+    "imagem": "/assets/images/characters/lisa.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Interesse romântico / rival no LDI" }
+    ]
+  },
+  {
+    "id": "voidhunter",
+    "nome": "VoidHunter_X",
+    "nomeCompleto": "VoidHunter_X",
+    "apelido": "",
+    "idade": null,
+    "status": "derrotado",
+    "grupo": "antagonista",
+    "ranking": null,
+    "arma": "Gosma preta / fissuras no peitoral",
+    "estilo": "Desconhecido — não é um jogador",
+    "elemental": "Trevas",
+    "descricaoBreve": "O primeiro oponente de Kim no LDI. Os movimentos estão errados. O pescoço vira longe demais. O visor não reflete nada.",
+    "descricaoCompleta": "VoidHunter_X apareceu no sonho de Kim antes de aparecer na realidade. Armadura near-black com pauldrons exageradamente largos, braços longos demais, dedos que dobram no sentido errado. O visor é uma fenda horizontal com degradê âmbar nas bordas escurecendo para o centro — sem reflexo, sem vazio, só uma luz intrínseca que não deveria estar lá. Fissuras no peitoral deixam escapar uma gosma escura. Quando Kim arrancou o capacete, por baixo havia mais armadura. Idêntica, menor, aninhada dentro.",
+    "frase": "",
+    "imagem": "/assets/images/characters/voidhunter.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Primeiro oponente — prólogo" },
+      { "personagem": "David Kronos", "tipo": "Possível conexão" }
+    ]
+  }
+]

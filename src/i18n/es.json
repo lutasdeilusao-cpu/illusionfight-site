@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes"],
+    "cta": "ENTRAR",
+    "aria": { "menu": "Abrir menú" }
+  },
+  "hero": {
+    "title": "LUTAS DE ILUSIÓN",
+    "subtitle": "En un mundo donde el arena es virtual, las cicatrices son reales. Siempre lo fueron.",
+    "cta": { "primary": "LEER AHORA", "secondary": "SABER MÁS" }
+  },
+  "stats": {
+    "title": "UNIVERSO EN NÚMEROS",
+    "labels": ["Jugadores en SDR", "Año", "Dolor real"]
+  },
+  "episodes": {
+    "title": "EPISODIOS",
+    "titles": ["La Invitación", "Primer Round", "La Caída"],
+    "badge": { "free": "GRATIS", "premium": "PREMIUM" },
+    "thumbnail": "Miniatura",
+    "cta": "VER TODOS",
+    "webtoon": {
+      "text": "También disponible en Webtoon Canvas",
+      "subscribers": "— suscriptores",
+      "cta": "LEER EN WEBTOON"
+    }
+  },
+  "music": {
+    "title": "Escucha la banda sonora oficial de la serie",
+    "cta": "ESCUCHAR EN SPOTIFY"
+  },
+  "progress": {
+    "title": "DÓNDE ESTAMOS",
+    "tracks": [
+      {
+        "format": "WEBTOON",
+        "items": [
+          { "label": "Episodio 0", "status": "Publicado" },
+          { "label": "Capítulo 1", "status": "Próximamente" }
+        ]
+      },
+      {
+        "format": "LIBRO",
+        "items": [
+          { "label": "Capítulo 1", "status": "Publicado" },
+          { "label": "Capítulo 2", "status": "Publicado" },
+          { "label": "Capítulo 3", "status": "Publicado" },
+          { "label": "Capítulo 4", "status": "Próximamente" }
+        ]
+      },
+      {
+        "format": "MÚSICA",
+        "items": [
+          { "label": "Pista 1", "status": "Publicada" },
+          { "label": "Pista 2", "status": "Publicada" },
+          { "label": "Pista 3", "status": "Próximamente" }
+        ]
+      }
+    ]
+  },
+  "trial": {
+    "message": "Contenido exclusivo en acceso libre por tiempo limitado — ¡aprovéchalo!"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Navegación",
+        "links": ["Webtoon", "Libro", "Músicas", "Mundo"]
+      },
+      {
+        "title": "Universo",
+        "links": ["Personajes", "Curiosidades", "Episodios", "Rankings"]
+      },
+      {
+        "title": "Sobre",
+        "links": ["Contacto", "FAQ", "Términos", "Privacidad"]
+      }
+    ],
+    "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte generado con asistencia de IA"
+  }
+}

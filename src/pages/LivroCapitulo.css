@@ -1,0 +1,115 @@
+.livro-capitulo {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+.livro-capitulo__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.livro-capitulo__back:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+.livro-capitulo__content {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--text-primary);
+  padding: 48px 32px;
+  background: var(--bg-primary);
+}
+
+.livro-capitulo__content p {
+  margin-bottom: 1.5em;
+}
+
+.livro-capitulo__content em {
+  font-style: italic;
+}
+
+.livro-capitulo__content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2em 0;
+}
+
+.livro-capitulo__content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.livro-capitulo__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 680px;
+  margin: 2rem auto 0;
+  padding: 0 32px;
+}
+
+.livro-capitulo__nav-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.45rem 1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.livro-capitulo__nav-btn:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+.livro-capitulo__nav-btn--hidden {
+  visibility: hidden;
+}
+
+.livro-capitulo__erro {
+  text-align: center;
+  padding: 4rem 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.livro-capitulo__header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.livro-capitulo__header-numero {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.livro-capitulo__header-titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}

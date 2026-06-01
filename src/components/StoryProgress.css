@@ -1,0 +1,149 @@
+.progress {
+  padding: 5rem 0;
+  background: var(--bg-primary);
+}
+
+.progress__tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .progress__tracks {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.progress-track {
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .progress-track {
+    border-right: 1px solid var(--border-subtle);
+    padding-right: 2rem;
+  }
+
+  .progress-track:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .progress-track {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 2rem;
+  }
+
+  .progress-track:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.progress-track__format {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.progress-track__line {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.progress-track__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+.progress-track__item.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.progress-track__item:last-child {
+  padding-bottom: 0;
+}
+
+.progress-track__bullet-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.progress-track__bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-track__bullet--done {
+  background: var(--accent-teal);
+  box-shadow: 0 0 6px rgba(0, 180, 216, 0.4);
+}
+
+.progress-track__bullet--pending {
+  background: transparent;
+  border: 2px solid var(--text-muted);
+}
+
+.progress-track__connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border-subtle);
+  margin-left: 0;
+}
+
+.progress-track__connector--active {
+  background: rgba(0, 180, 216, 0.4);
+}
+
+.progress-track__label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.progress-track__label--done {
+  color: var(--text-primary);
+}
+
+.progress-track__label--pending {
+  color: var(--text-muted);
+}
+
+.progress-track__status {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.progress-track__status--done {
+  color: var(--accent-teal);
+}
+
+.progress-track__status--pending {
+  color: var(--text-muted);
+}

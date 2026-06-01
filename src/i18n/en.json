@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "links": ["Webtoon", "Book", "Music", "World", "Trivia", "Characters"],
+    "cta": "LOG IN",
+    "aria": { "menu": "Open menu" }
+  },
+  "hero": {
+    "title": "ILLUSION FIGHT",
+    "subtitle": "In a world where the arena is virtual, the scars are real. They always were.",
+    "cta": { "primary": "READ NOW", "secondary": "LEARN MORE" }
+  },
+  "stats": {
+    "title": "UNIVERSE BY NUMBERS",
+    "labels": ["Players in SDR", "Year", "Real pain"]
+  },
+  "episodes": {
+    "title": "EPISODES",
+    "titles": ["The Invitation", "First Round", "The Fall"],
+    "badge": { "free": "FREE", "premium": "PREMIUM" },
+    "thumbnail": "Thumbnail",
+    "cta": "VIEW ALL",
+    "webtoon": {
+      "text": "Also available on Webtoon Canvas",
+      "subscribers": "— subscribers",
+      "cta": "READ ON WEBTOON"
+    }
+  },
+  "music": {
+    "title": "Listen to the official series soundtrack",
+    "cta": "LISTEN ON SPOTIFY"
+  },
+  "progress": {
+    "title": "WHERE WE ARE",
+    "tracks": [
+      {
+        "format": "WEBTOON",
+        "items": [
+          { "label": "Episode 0", "status": "Published" },
+          { "label": "Chapter 1", "status": "Coming soon" }
+        ]
+      },
+      {
+        "format": "BOOK",
+        "items": [
+          { "label": "Chapter 1", "status": "Published" },
+          { "label": "Chapter 2", "status": "Published" },
+          { "label": "Chapter 3", "status": "Published" },
+          { "label": "Chapter 4", "status": "Coming soon" }
+        ]
+      },
+      {
+        "format": "MUSIC",
+        "items": [
+          { "label": "Track 1", "status": "Released" },
+          { "label": "Track 2", "status": "Released" },
+          { "label": "Track 3", "status": "Coming soon" }
+        ]
+      }
+    ]
+  },
+  "trial": {
+    "message": "Exclusive content in free access for a limited time — enjoy it!"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Navigation",
+        "links": ["Webtoon", "Book", "Music", "World"]
+      },
+      {
+        "title": "Universe",
+        "links": ["Characters", "Trivia", "Episodes", "Rankings"]
+      },
+      {
+        "title": "About",
+        "links": ["Contact", "FAQ", "Terms", "Privacy"]
+      }
+    ],
+    "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Art generated with AI assistance"
+  }
+}

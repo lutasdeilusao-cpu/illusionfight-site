@@ -1,0 +1,201 @@
+.personagem-detail {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.personagem-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.45rem 1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.personagem-detail__back:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+.personagem-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .personagem-detail__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.personagem-detail__image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.personagem-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personagem-detail__image-placeholder {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-muted);
+}
+
+.personagem-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.personagem-detail__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.personagem-detail__apelido {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-top: -0.5rem;
+}
+
+.personagem-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.personagem-detail__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.personagem-detail__meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.personagem-detail__meta-value {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.personagem-detail__meta-value--ranking {
+  font-family: var(--font-mono);
+  color: var(--accent-teal);
+  font-weight: 600;
+}
+
+.personagem-detail__combat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.personagem-detail__combat-row {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.personagem-detail__combat-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 80px;
+}
+
+.personagem-detail__combat-value {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+.personagem-detail__descricao {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.personagem-detail__frase {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-teal);
+  padding: 0.75rem 1rem;
+  background: rgba(0, 180, 216, 0.04);
+  line-height: 1.5;
+}
+
+.personagem-detail__relacoes-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.personagem-detail__relacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.personagem-detail__relacao {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.personagem-detail__relacao-personagem {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--accent-teal);
+}
+
+.personagem-detail__relacao-tipo {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+}

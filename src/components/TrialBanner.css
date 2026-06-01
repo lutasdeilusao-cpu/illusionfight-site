@@ -1,0 +1,19 @@
+.trial-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: rgba(244, 162, 39, 0.15);
+  border-bottom: 1px solid rgba(244, 162, 39, 0.3);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.trial-banner p {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-amber);
+  letter-spacing: 0.02em;
+}

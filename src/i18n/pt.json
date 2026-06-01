@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "links": ["Webtoon", "Livro", "Músicas", "Mundo", "Curiosidades", "Personagens"],
+    "cta": "ENTRAR",
+    "aria": { "menu": "Abrir menu" }
+  },
+  "hero": {
+    "title": "LUTAS DE ILUSÃO",
+    "subtitle": "Num mundo onde a arena é virtual, as cicatrizes são de verdade. Sempre foram.",
+    "cta": { "primary": "LER AGORA", "secondary": "SAIBA MAIS" }
+  },
+  "stats": {
+    "title": "UNIVERSO EM NÚMEROS",
+    "labels": ["Jogadores no SDR", "Ano", "Dor real"]
+  },
+  "episodes": {
+    "title": "EPISÓDIOS",
+    "titles": ["O Convite", "Primeiro Round", "A Queda"],
+    "badge": { "free": "FREE", "premium": "PREMIUM" },
+    "thumbnail": "Thumbnail",
+    "cta": "VER TODOS",
+    "webtoon": {
+      "text": "Também disponível no Webtoon Canvas",
+      "subscribers": "— inscritos",
+      "cta": "LER NO WEBTOON"
+    }
+  },
+  "music": {
+    "title": "Ouça a trilha oficial da série",
+    "cta": "OUVIR NO SPOTIFY"
+  },
+  "progress": {
+    "title": "ONDE ESTAMOS",
+    "tracks": [
+      {
+        "format": "WEBTOON",
+        "items": [
+          { "label": "Episódio 0", "status": "Publicado" },
+          { "label": "Capítulo 1", "status": "Em breve" }
+        ]
+      },
+      {
+        "format": "LIVRO",
+        "items": [
+          { "label": "Capítulo 1", "status": "Publicado" },
+          { "label": "Capítulo 2", "status": "Publicado" },
+          { "label": "Capítulo 3", "status": "Publicado" },
+          { "label": "Capítulo 4", "status": "Em breve" }
+        ]
+      },
+      {
+        "format": "MÚSICAS",
+        "items": [
+          { "label": "Faixa 1", "status": "Publicada" },
+          { "label": "Faixa 2", "status": "Publicada" },
+          { "label": "Faixa 3", "status": "Em breve" }
+        ]
+      }
+    ]
+  },
+  "trial": {
+    "message": "Conteúdo exclusivo em acesso livre por tempo limitado — aproveite."
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Navegação",
+        "links": ["Webtoon", "Livro", "Músicas", "Mundo"]
+      },
+      {
+        "title": "Universo",
+        "links": ["Personagens", "Curiosidades", "Episódios", "Rankings"]
+      },
+      {
+        "title": "Sobre",
+        "links": ["Contato", "FAQ", "Termos", "Privacidade"]
+      }
+    ],
+    "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte gerada com auxílio de IA"
+  }
+}

@@ -1,0 +1,49 @@
+.personagens-page {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.personagens-page__group {
+  margin-bottom: 3rem;
+}
+
+.personagens-page__group:last-child {
+  margin-bottom: 0;
+}
+
+.personagens-page__group-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.personagens-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.personagens-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.45rem 1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.personagens-page__back:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}

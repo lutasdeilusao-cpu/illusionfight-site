@@ -1,0 +1,35 @@
+.characters-row {
+  overflow: visible;
+  padding: 5rem 0;
+  background: var(--bg-primary);
+}
+
+.characters-row__scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 30px 24px;
+  margin-top: 2rem;
+}
+
+.characters-row__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.characters-row__fade {
+  position: relative;
+}
+
+.characters-row__fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  background: linear-gradient(to right, transparent, var(--bg-primary));
+  pointer-events: none;
+}
