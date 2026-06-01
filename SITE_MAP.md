@@ -15,8 +15,7 @@
 ├── package.json                        # Dependências e scripts (inclui predeploy/deploy)
 ├── vite.config.js                      # Configuração Vite (base: /illusionfight-site/)
 ├── SITE_MAP.md                         # Este arquivo
-├── Lutas de Ilusão - Retcon.md         # Fonte original do livro (capítulos 1-16)
-├── .gitignore                          # Node, dist, .env
+├── .gitignore                          # Node, dist, .env, Retcon.md
 ├── public/
 │   ├── favicon.svg                     # Favicon LDI
 │   └── 404.html                        # Redirect SPA para GitHub Pages
@@ -167,7 +166,6 @@
 - ✅ **i18n** — PT, EN, ES com JSONs separados e LanguageContext
 - ✅ **Scrollbar customizada** — Teal sutil, 6px
 - ✅ **Scroll horizontal sem scrollbar** — CharactersRow
-- ✅ **Animated Counters** — IntersectionObserver + requestAnimationFrame
 - ✅ **Git + Remote** — Repositório `lutasdeilusao-cpu/illusionfight-site`, remote configurado
 - ✅ **GitHub Pages + Vite** — `base: '/illusionfight-site/'`, `gh-pages` package, deploy automático com `npm run deploy`
 - ✅ **BrowserRouter basename** — `basename="/illusionfight-site"` em `main.jsx` para roteamento no subpath

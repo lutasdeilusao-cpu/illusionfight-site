@@ -2,3 +2,6 @@ node_modules
 dist
 .DS_Store
 *.log
+
+# Fonte original do livro — não publicar
+Lutas de Ilusão - Retcon.md
