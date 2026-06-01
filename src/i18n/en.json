@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Book", "Music", "World", "Trivia", "Characters", "SUPPORT"],
+    "links": ["Webtoon", "Book", "Music", "World", "Trivia", "Characters", "AUTHOR", "SUPPORT"],
     "cta": "LOG IN",
     "aria": { "menu": "Open menu" }
   },

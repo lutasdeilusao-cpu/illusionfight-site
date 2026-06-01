@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes", "APOYAR"],
+    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes", "AUTOR", "APOYAR"],
     "cta": "ENTRAR",
     "aria": { "menu": "Abrir menú" }
   },

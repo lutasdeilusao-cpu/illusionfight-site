@@ -19,7 +19,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'personagens', 'assinar']
+  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'personagens', 'autor', 'assinar']
 
   const classList = [
     'navbar',

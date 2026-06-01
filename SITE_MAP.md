@@ -151,7 +151,7 @@
 
 ## 8. FEATURES IMPLEMENTADAS
 
-- ✅ **Navbar** — Logo LDI, 7 links (incluindo APOIAR em âmbar destaque), botão ENTRAR, background com scroll, drawer mobile, seletor de idioma (PT/ES/EN)
+- ✅ **Navbar** — Logo LDI, 8 links (AUTOR + APOIAR em âmbar), botão ENTRAR, background com scroll, drawer mobile, seletor de idioma (PT/ES/EN)
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns (scale 1.0→1.08), overlays gradiente, scan lines, efeito chuva digital (HeroEffect canvas)
 - ✅ **Typewriter** — Frase com efeito de digitação (loop ~28s), container terminal HUD
 - ✅ **Personagens (home)** — Scroll horizontal com Kim, Jack, Nina
@@ -176,6 +176,9 @@
 - ✅ **SEO** — meta tags, Open Graph, Twitter Card, react-helmet-async titles dinâmicos, og-image.jpg
 - ✅ **Página de assinatura** — 2 planos (R$10/R$30), seção PIX, placeholders para links Stripe
 - ✅ **Página do autor** — história de Isaias Leal, CTA para assinar
+- ✅ **Navbar global** — TrialBanner, Navbar, Footer renderizados em App.jsx fora das rotas
+- ✅ **ScrollToTop** — Botão fixo canto inferior direito, aparece após 400px de scroll
+- ✅ **TrialBanner scroll** — Fundo fica sólido ao scrollar (>20px) para legibilidade
 
 ---
 
