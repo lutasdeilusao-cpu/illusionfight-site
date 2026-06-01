@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-01*
-*Versão: 1.0*
+*Versão: 1.1*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -12,12 +12,14 @@
 ```
 /
 ├── index.html                          # Entry point HTML
-├── package.json                        # Dependências e scripts
-├── vite.config.js                      # Configuração Vite
+├── package.json                        # Dependências e scripts (inclui predeploy/deploy)
+├── vite.config.js                      # Configuração Vite (base: /illusionfight-site/)
 ├── SITE_MAP.md                         # Este arquivo
 ├── Lutas de Ilusão - Retcon.md         # Fonte original do livro (capítulos 1-16)
+├── .gitignore                          # Node, dist, .env
 ├── public/
-│   └── favicon.svg                     # Favicon LDI
+│   ├── favicon.svg                     # Favicon LDI
+│   └── 404.html                        # Redirect SPA para GitHub Pages
 └── src/
     ├── App.jsx                         # React Router (rotas)
     ├── main.jsx                        # Entry point React
@@ -31,7 +33,7 @@
     │       ├── episodes/               # (vazio)
     │       └── logos/                  # logo-pt.png, logo-en.png
     │
-    ├── components/                     # 17 componentes (JSX + CSS)
+    ├── components/                     # 14 componentes (JSX + CSS, todos em src/components/)
     ├── config/
     │   └── site.js                     # SITE_CONFIG (TRIAL_MODE, SITE_NAME, etc.)
     ├── context/
@@ -77,17 +79,14 @@
 | HeroSlideshow | `HeroSlideshow.jsx` | `HeroSlideshow.css` | Home | Slideshow automático com crossfade + Ken Burns |
 | HeroEffect | `HeroEffect.jsx` | `HeroEffect.css` | HeroSlideshow | Canvas com linhas teal/âmbar caindo |
 | TypewriterPhrase | `TypewriterPhrase.jsx` | `TypewriterPhrase.css` | HeroSlideshow | Frase com efeito de digitação |
-| AboutStory | `AboutStory.jsx` | `AboutStory.css` | Home | Sinopse + placeholder key visual |
 | CharactersRow | `CharactersRow.jsx` | `CharactersRow.css` | Home | Scroll horizontal com Kim/Jack/Nina |
 | CharacterCard | `CharacterCard.jsx` | `CharacterCard.css` | CharactersRow, Personagens | Card 200×300 com hover Netflix |
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com capítulos publicados |
-| UniverseNumbers | `UniverseNumbers.jsx` | `UniverseNumbers.css` | — | **Substituído por CharactersRow** (mantido) |
 | LatestEpisodes | `LatestEpisodes.jsx` | `LatestEpisodes.css` | Home | Grid 3 episódios + link Webtoon Canvas |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | CTA Spotify com ícone SVG + botão verde |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal ONDE ESTAMOS |
 | SocialBar | `SocialBar.jsx` | `SocialBar.css` | Footer | Ícones X/Instagram/TikTok/YouTube |
 | Footer | `Footer.jsx` | `Footer.css` | Home | 3 colunas + SocialBar + copyright |
-| Hero | `Hero.jsx` | `Hero.css` | — | **Substituído por HeroSlideshow** (mantido) |
 
 ---
 
@@ -99,8 +98,8 @@
 | `useHeroEffect` | `useHeroEffect.js` | HeroEffect | Canvas com 40-60 linhas verticais caindo |
 | `useTypewriter` | `useTypewriter.js` | TypewriterPhrase | Digita/apaga em loop (~28s ciclo) |
 | `useScrollPosition` | `useScrollPosition.js` | Navbar | Detecta scroll > 20px para background |
-| `useAnimatedCounter` | `useAnimatedCounter.js` | UniverseNumbers | Conta de 0 até valor com IntersectionObserver |
-| `useParticles` | `useParticles.js` | Hero | Partículas canvas (hero original) |
+| ~~`useAnimatedCounter`~~ | ~~`useAnimatedCounter.js`~~ | ~~UniverseNumbers~~ | ~~Conta de 0 até valor com IntersectionObserver — órfão~~ |
+| ~~`useParticles`~~ | ~~`useParticles.js`~~ | ~~Hero~~ | ~~Partículas canvas (hero original) — órfão~~ |
 | `usePersonagens` | `usePersonagens.js` | CharactersRow, Personagens, PersonagemDetalhe | Carrega JSON + agrupa por categoria |
 
 ---
@@ -138,12 +137,15 @@
 
 | Arquivo | Localização | O que configura |
 |---|---|---|
-| `vite.config.js` | Raiz | Plugin React, build tool |
-| `package.json` | Raiz | Dependências, scripts dev/build/preview |
+| `vite.config.js` | Raiz | `base: '/illusionfight-site/'`, plugin React |
+| `package.json` | Raiz | Dependências, scripts dev/build/preview/predeploy/deploy |
 | `site.js` | `src/config/` | `TRIAL_MODE`, `SITE_NAME`, `SITE_NAME_PT`, `DOMAIN` |
 | `LanguageContext.jsx` | `src/context/` | Provider de i18n: `locale`, `t()`, `changeLocale()` |
 | `locales.js` | `src/i18n/` | Importa JSONs + `LOCALE_LABELS` |
-| `App.jsx` | `src/` | React Router (5 rotas) |
+| `App.jsx` | `src/` | React Router (5 rotas, sem basename — resolvido no BrowserRouter) |
+| `main.jsx` | `src/` | BrowserRouter com `basename="/illusionfight-site"` |
+| `public/404.html` | `public/` | Redirect SPA — captura 404 do GitHub Pages e redireciona com query param |
+| `index.html` | Raiz | Script de restauração de URL a partir do query param (`l.search[1] === '/'`) |
 
 ---
 
@@ -152,7 +154,6 @@
 - ✅ **Navbar** — Logo LDI, 6 links, botão ENTRAR, background com scroll, drawer mobile, seletor de idioma (PT/ES/EN)
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns (scale 1.0→1.08), overlays gradiente, scan lines, efeito chuva digital (HeroEffect canvas)
 - ✅ **Typewriter** — Frase com efeito de digitação (loop ~28s), container terminal HUD
-- ✅ **Sobre a História** — Sinopse + placeholder key visual
 - ✅ **Personagens (home)** — Scroll horizontal com Kim, Jack, Nina
 - ✅ **Últimos capítulos (home)** — BookChaptersRow, scroll horizontal, cards 200×300 com hover e overlay
 - ✅ **Bug hover personagem resolvido** — overflow: visible no card, overflow: hidden restrito à imagem, overflow-y: clip na row
@@ -169,6 +170,10 @@
 - ✅ **Scrollbar customizada** — Teal sutil, 6px
 - ✅ **Scroll horizontal sem scrollbar** — CharactersRow
 - ✅ **Animated Counters** — IntersectionObserver + requestAnimationFrame
+- ✅ **Git + Remote** — Repositório `lutasdeilusao-cpu/illusionfight-site`, remote configurado
+- ✅ **GitHub Pages + Vite** — `base: '/illusionfight-site/'`, `gh-pages` package, deploy automático com `npm run deploy`
+- ✅ **BrowserRouter basename** — `basename="/illusionfight-site"` em `main.jsx` para roteamento no subpath
+- ✅ **SPA 404 fallback** — `public/404.html` redireciona qualquer 404 para `/?/{path}`, e o script no `index.html` restaura a URL limpa com `history.replaceState`
 
 ---
 
@@ -187,6 +192,7 @@
 - ❌ **Modo light** — Dark mode fixo, sem toggle
 - ❌ **Busca** — Pesquisa interna no site
 - ❌ **SEO** — Meta tags, Open Graph, sitemap.xml
+- ❌ **Domínio customizado** — www.illusionfight.com apontando para o GitHub Pages
 
 ---
 
@@ -225,3 +231,28 @@ z-index 3 — HeroEffect (canvas rain)
 z-index 4 — scan lines
 z-index 5 — conteúdo (logo, frase, botões, scroll)
 ```
+
+### Deploy (GitHub Pages)
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | Dev server local (Vite) |
+| `npm run build` | Build de produção para `dist/` |
+| `npm run preview` | Preview local do build |
+| `npm run deploy` | Build + push do `dist/` para branch `gh-pages` |
+| `git push` | Sincroniza código fonte na `main` |
+
+- **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
+- **Site publicado:** https://lutasdeilusao-cpu.github.io/illusionfight-site/
+- **Branch de deploy:** `gh-pages` (automática via `gh-pages` package)
+- **Source no GitHub Pages:** Deploy from a branch → `gh-pages` / (root)
+
+### SPA no GitHub Pages (404 redirect)
+
+O GitHub Pages não tem um servidor backend, então rotas como `/personagens` retornam 404. A solução usa dois scripts:
+
+1. **`public/404.html`** — Quando o GitHub Pages retorna 404, este HTML é servido. O script extrai o path original, remove o prefixo do repositório (`/illusionfight-site`) e redireciona para `/?/{path}` (ex: `/?/personagens`).
+
+2. **`index.html`** (script no `<head>`) — Detecta se a URL tem query string começando com `/` (`l.search[1] === '/'`). Se sim, restaura a URL limpa via `history.replaceState(null, null, '/illusionfight-site' + decoded)`.
+
+**Fluxo completo:** `/personagens` → 404 → `404.html` redireciona para `/?/personagens` → `index.html` restaura para `/personagens` → React Router renderiza a rota.
