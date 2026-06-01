@@ -130,6 +130,7 @@
 | Logos | `src/assets/images/logos/` | `logo-pt.png`, `logo-en.png` | ✅ Final (arte real) |
 | Characters | `src/assets/images/characters/` | (vazio) | 🔲 Placeholder (cor sólida + nome) |
 | Episodes | `src/assets/images/episodes/` | (vazio) | 🔲 Placeholder (thumbnails cinza) |
+| Music | `src/assets/images/music/` | `lutas-de-ilusao.png` | ✅ Final (arte real) |
 | Fonts | `src/assets/fonts/` | (vazio) | 🔲 Via Google Fonts (Rajdhani, IBM Plex Sans, JetBrains Mono) |
 | Favicon | `public/` | `favicon.svg` | ✅ Final |
 

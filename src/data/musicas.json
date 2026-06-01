@@ -3,7 +3,7 @@
     "id": "lutas-de-ilusao",
     "titulo": "Lutas de Ilusão",
     "artista": "Isaias Leal",
-    "capa": null,
+    "capa": "lutas-de-ilusao.png",
     "cor": "#6B0F1A",
     "plataformas": [
       { "nome": "Spotify", "url": "https://open.spotify.com/album/6tZYw93qw5T0uKSb1ELROe", "cor": "#1DB954", "icone": "spotify" },
