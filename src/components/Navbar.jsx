@@ -90,8 +90,8 @@ export default function Navbar({ hidden, onSearchOpen }) {
 
           {user ? (
             <div className="navbar__user">
-              <Link to="/perfil" className="navbar__avatar">{perfil?.nome?.[0]?.toUpperCase() || '?'}</Link>
-              <span className="navbar__user-name">{perfil?.nome || ''}</span>
+              <Link to="/perfil" className="navbar__avatar">{perfil?.nome?.[0]?.toUpperCase() || '...'}</Link>
+              <span className="navbar__user-name">{perfil?.nome || '...'}</span>
               <button className="navbar__logout" onClick={logout}>Sair</button>
             </div>
           ) : (

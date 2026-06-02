@@ -9,14 +9,14 @@ export function AuthProvider({ children }) {
   const [carregando, setCarregando] = useState(true)
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setUser(session?.user ?? null)
-      if (session?.user) carregarPerfil(session.user.id)
+      if (session?.user) await carregarPerfil(session.user.id)
       setCarregando(false)
     })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null)
-      if (session?.user) carregarPerfil(session.user.id)
+      if (session?.user) await carregarPerfil(session.user.id)
       else setPerfil(null)
     })
     return () => subscription.unsubscribe()
@@ -25,6 +25,7 @@ export function AuthProvider({ children }) {
   async function carregarPerfil(userId) {
     const { data } = await supabase.from('profiles').select('*').eq('id', userId).single()
     setPerfil(data)
+    return data
   }
 
   async function logout() {

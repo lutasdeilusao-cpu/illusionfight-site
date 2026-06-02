@@ -15,8 +15,8 @@ export default function Perfil() {
   return (
     <section className="perfil-page">
       <div className="perfil-header">
-        <div className="perfil-avatar">{perfil?.nome?.[0]?.toUpperCase() || '?'}</div>
-        <h1 className="perfil-nome">{perfil?.nome || 'Usuário'}</h1>
+        <div className="perfil-avatar">{perfil?.nome?.[0]?.toUpperCase() || '...'}</div>
+        <h1 className="perfil-nome">{perfil?.nome || '...'}</h1>
         <p className="perfil-email">{user.email}</p>
       </div>
 
