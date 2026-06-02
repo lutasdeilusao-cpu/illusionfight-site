@@ -79,13 +79,25 @@
   color: var(--accent-teal);
 }
 
-.navbar__user {
+.navbar-usuario {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.navbar__avatar {
+.navbar-usuario-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.navbar-usuario-link:hover {
+  opacity: 0.8;
+}
+
+.navbar-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -97,21 +109,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: opacity 0.2s;
+  flex-shrink: 0;
 }
 
-.navbar__avatar:hover {
-  opacity: 0.8;
-}
-
-.navbar__user-name {
+.navbar-nome {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.8rem;
   color: var(--text-primary);
 }
 
-.navbar__logout {
+.navbar-sair {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
   color: var(--text-muted);
@@ -122,7 +129,7 @@
   transition: color 0.2s;
 }
 
-.navbar__logout:hover {
+.navbar-sair:hover {
   color: #e74c3c;
 }
 

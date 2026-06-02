@@ -89,10 +89,12 @@ export default function Navbar({ hidden, onSearchOpen }) {
           </div>
 
           {user ? (
-            <div className="navbar__user">
-              <Link to="/perfil" className="navbar__avatar">{perfil?.nome?.[0]?.toUpperCase() || '...'}</Link>
-              <span className="navbar__user-name">{perfil?.nome || '...'}</span>
-              <button className="navbar__logout" onClick={logout}>Sair</button>
+            <div className="navbar-usuario">
+              <Link to="/perfil" className="navbar-usuario-link">
+                <div className="navbar-avatar">{perfil?.nome?.[0]?.toUpperCase()}</div>
+                <span className="navbar-nome">{perfil?.nome}</span>
+              </Link>
+              <button className="navbar-sair" onClick={logout}>Sair</button>
             </div>
           ) : (
             <Link to="/login" className="navbar__cta">{t('nav.cta')}</Link>
