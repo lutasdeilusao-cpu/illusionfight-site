@@ -1,18 +1,33 @@
+import { useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { usePersonagens } from '../hooks/usePersonagens'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import CharacterCard from '../components/CharacterCard'
-import data from '../data/mundo-pt.json'
+import dataPt from '../data/mundo-pt.json'
+import dataEn from '../data/mundo-en.json'
+import dataEs from '../data/mundo-es.json'
 import './Mundo.css'
+
+const dataMap = { pt: dataPt, en: dataEn, es: dataEs }
 
 const PROTAGONIST_IDS = ['kim', 'jack', 'nina']
 
 export default function Mundo() {
-  const { t } = useLanguage()
+  const { locale } = useLanguage()
+  const data = dataMap[locale] ?? dataPt
   const navigate = useNavigate()
   const all = usePersonagens()
   const protagonists = all.filter(p => PROTAGONIST_IDS.includes(p.id))
+  const trackRef = useRef(null)
+  const ref = useScrollReveal()
+
+  const scroll = (dir) => {
+    const track = trackRef.current
+    if (!track) return
+    track.scrollBy({ left: dir * 280, behavior: 'smooth' })
+  }
 
   return (
     <>
@@ -28,20 +43,10 @@ export default function Mundo() {
       <section className="mundo-section" id="bravara">
         <div className="container">
           <h2 className="section-title">BRAVARA</h2>
-          <div className="mundo-two-cols">
-            <div className="mundo-col">
-              <h3 className="mundo-col-title">O País</h3>
-              <p className="mundo-text">Bravara é uma nação de contrastes violentos. Florestas tropicais densas convivem com centros urbanos onde a tecnologia da Yohualticit coexiste com casas invadidas, vielas sem infraestrutura e jovens que vendem balas em ônibus para pagar a conta de luz.</p>
-            </div>
-            <div className="mundo-col">
-              <h3 className="mundo-col-title">2030</h3>
-              <p className="mundo-text">Em 2030, Bravara é um país com um pé no futuro e outro num passado que nunca foi resolvido. A Elite Academy usa realidade aumentada nas salas de aula. A periferia de Marelia não tem saneamento básico. O LDI é o maior fenômeno cultural do mundo. E três bilhões de pessoas escolhem sentir dor de verdade por ranking.</p>
-            </div>
-          </div>
-
           <div className="mundo-locais-grid">
             {data.localizacoes.map(l => (
               <div key={l.nome} className="mundo-local-card">
+                <span className="mundo-local-tag">{l.tag}</span>
                 <h4 className="mundo-local-nome">{l.nome}</h4>
                 <p className="mundo-local-desc">{l.descricao}</p>
               </div>
@@ -53,13 +58,18 @@ export default function Mundo() {
       <section className="mundo-section mundo-section--alt" id="timeline">
         <div className="container">
           <h2 className="section-title">LINHA DO TEMPO</h2>
-          <div className="timeline-track">
-            {data.timeline.map((p, i) => (
-              <div key={p.ano} className={`timeline-point${p.ano === '2030' ? ' timeline-point--now' : ''}`}>
-                <span className="timeline-ano">{p.ano}</span>
-                <span className="timeline-texto">{p.texto}</span>
-              </div>
-            ))}
+          <div className="timeline-wrapper">
+            <button className="timeline-arrow timeline-arrow--left" onClick={() => scroll(-1)}>←</button>
+            <div className="timeline-track" ref={trackRef}>
+              {data.timeline.map(p => (
+                <div key={p.ano} className={`timeline-point${p.ano === '2030' ? ' timeline-point--now' : ''}`}>
+                  <span className="timeline-titulo">{p.titulo}</span>
+                  <span className="timeline-ano">{p.ano}</span>
+                  <span className="timeline-texto">{p.texto}</span>
+                </div>
+              ))}
+            </div>
+            <button className="timeline-arrow timeline-arrow--right" onClick={() => scroll(1)}>→</button>
           </div>
         </div>
       </section>
@@ -67,24 +77,34 @@ export default function Mundo() {
       <section className="mundo-section" id="ldi">
         <div className="container">
           <h2 className="section-title">LUTAS DE ILUSÃO</h2>
-          <p className="mundo-subtitle">"Uma arena virtual. Dor 100% real."</p>
-          <p className="mundo-text mundo-text--max">O LDI foi criado pela Yohualticit em 2022. O hardware SBI — capacete e luva tecnológica — conecta o sistema nervoso do jogador ao MDI, o Mundo de Ilusões. Dentro do LDI, você manifesta poderes elementais, empunha armas criadas pelo próprio espírito e sente cada golpe como se fosse real. Três bilhões de jogadores escolhem isso todos os dias.</p>
 
           <div className="mundo-combat-grid">
-            <div className="mundo-combat-card">
-              <span className="mundo-combat-icon">⚡</span>
-              <h3 className="mundo-combat-title">Mãos Livres</h3>
-              <p className="mundo-combat-desc">O modo básico. Menor gasto de energia. Força e velocidade sobre-humanas. A escolha de quem sabe o que está fazendo.</p>
+            {data.modos_combate.map(m => (
+              <div key={m.nome} className="mundo-combat-card">
+                <span className="mundo-combat-icon">{m.icone}</span>
+                <h3 className="mundo-combat-title">{m.nome}</h3>
+                <p className="mundo-combat-desc">{m.descricao}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mundo-elementais">
+            <p className="mundo-text mundo-text--max" style={{ textAlign: 'center', margin: '0 auto 2rem' }}>
+              {data.elementais.intro}
+            </p>
+            <div className="mundo-elementais-grid">
+              {data.elementais.primarios.map(el => (
+                <span key={el} className="mundo-elemental-badge">{el}</span>
+              ))}
             </div>
-            <div className="mundo-combat-card">
-              <span className="mundo-combat-icon">⚔️</span>
-              <h3 className="mundo-combat-title">Modo de Armas</h3>
-              <p className="mundo-combat-desc">Cada arma tem forma Normal e forma Xamã. Algumas se manifestam espontaneamente — e isso não é normal.</p>
-            </div>
-            <div className="mundo-combat-card">
-              <span className="mundo-combat-icon">🔥</span>
-              <h3 className="mundo-combat-title">Modo de Poder</h3>
-              <p className="mundo-combat-desc">Elementais primários: Fogo, Terra, Ar, Água, Luz, Escuridão. A energia mental determina o poder, não o físico.</p>
+            <div className="mundo-elementais-exemplos">
+              {data.elementais.exemplos.map(ex => (
+                <div key={ex.personagem} className="mundo-elemental-ex">
+                  <strong>{ex.personagem}</strong>
+                  <span>{ex.elemental}</span>
+                  {ex.nota && <em>{ex.nota}</em>}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -92,8 +112,11 @@ export default function Mundo() {
           <div className="mundo-ranking">
             {data.ranking_sdr.map(r => (
               <div key={r.faixa} className="mundo-ranking-item" style={{ '--rank-color': r.cor }}>
-                <span className="mundo-ranking-faixa">{r.faixa}</span>
-                <span className="mundo-ranking-label">{r.label}</span>
+                <div>
+                  <span className="mundo-ranking-faixa">{r.faixa}</span>
+                  <span className="mundo-ranking-label">{r.label}</span>
+                  <p className="mundo-ranking-desc">{r.descricao}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -103,19 +126,17 @@ export default function Mundo() {
       <section className="mundo-section mundo-section--alt" id="xakaxi">
         <div className="container">
           <h2 className="section-title">OS XAKAXI</h2>
-          <p className="mundo-subtitle">"Em 1450, eles eram o povo mais avançado do mundo. Cinquenta anos depois, não existiam mais."</p>
-          <p className="mundo-text mundo-text--max">A tribo Xakaxi habitava o território que hoje é Bravara. Dominavam seis elementos. Possuíam fibra de carbono, agricultura robotizada, óculos amplificadores e um metal único chamado Xakaxium. Eram uma civilização que não deveria existir naquele século — e não existe mais.</p>
-          <p className="mundo-text mundo-text--max">O que os destruiu não foi a invasão de 1500. Foi o ritual proibido do filho do próprio Pajé. Powa abriu uma porta que não devia ser aberta. Para fechá-la, Yawanari sacrificou o próprio corpo. A tribo perdeu a memória tecnológica. Quando os invasores chegaram, não havia mais nada para defender.</p>
-
+          <p className="mundo-text mundo-text--max" style={{ textAlign: 'center', margin: '0 auto 2rem' }}>
+            {data.xakaxi.intro}
+          </p>
           <div className="mundo-tech-grid">
-            {data.tecnologias_xakaxi.map(t => (
+            {data.xakaxi.tecnologias.map(t => (
               <div key={t.nome} className="mundo-tech-card">
                 <h4 className="mundo-tech-nome">{t.nome}</h4>
                 <p className="mundo-tech-desc">{t.descricao}</p>
               </div>
             ))}
           </div>
-
           <div className="mundo-premium-badge">
             <p>Ritual do Selamento detalhado, fichas de Yawanari, Powa e Tawira, e as Sagas Primordiais</p>
             <span className="mundo-premium-tag">PREMIUM</span>
@@ -139,7 +160,7 @@ export default function Mundo() {
         </div>
       </section>
 
-      <section className="mundo-section mundo-section--alt" id="personagens">
+      <section ref={ref} className="mundo-section mundo-section--alt reveal" id="personagens">
         <div className="container">
           <h2 className="section-title">CONHEÇA OS PERSONAGENS</h2>
           <div className="mundo-personagens-row">

@@ -9,7 +9,6 @@ const capaMap = { 'lutas-de-ilusao.png': lutasDeIlusaoImg }
 
 export default function Musicas() {
   const { t } = useLanguage()
-  const publicadas = musicas.filter(m => m.plataformas.length > 0)
 
   return (
     <>
@@ -23,33 +22,42 @@ export default function Musicas() {
 
       <section className="musicas-faixas">
         <div className="container">
-          {publicadas.map(m => {
+          {musicas.map(m => {
             const capa = capaMap[m.capa]
+            const isPlaceholder = !m.publicado
+            const hasRealLinks = m.publicado && m.plataformas.some(p => p.url)
             return (
-              <div key={m.id} className="musica-card">
+              <div key={m.id} className={`musica-card${isPlaceholder ? ' musica-card--placeholder' : ''}`}>
                 <div className="musica-card__capa" style={capa ? {} : { background: m.cor }}>
                   {capa && <img src={capa} alt={m.titulo} />}
+                  {isPlaceholder && <span className="musica-card__coming-soon">EM BREVE</span>}
                 </div>
                 <div className="musica-card__info">
                   <h2 className="musica-card__titulo">{m.titulo}</h2>
-                  <p className="musica-card__artista">{m.artista} · 2024</p>
-                  <div className="musica-card__plataformas">
-                    {m.plataformas.map(p => {
-                      const Icon = platformIconMap[p.icone]
-                      return (
-                        <a
-                          key={p.nome}
-                          href={p.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="musica-card__plataforma"
-                          title={p.nome}
-                        >
-                          {Icon && <Icon />}
-                        </a>
-                      )
-                    })}
-                  </div>
+                  <p className="musica-card__artista">{m.artista} {m.ano ? `· ${m.ano}` : ''}</p>
+                  {isPlaceholder ? (
+                    <span className="musica-card__badge-placeholder">EM BREVE</span>
+                  ) : (
+                    <div className="musica-card__plataformas">
+                      {m.plataformas.map(p => {
+                        const Icon = platformIconMap[p.icone]
+                        const isDisabled = !p.url
+                        return (
+                          <a
+                            key={p.nome}
+                            href={p.url || '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`musica-card__plataforma${isDisabled ? ' musica-card__plataforma--disabled' : ''}`}
+                            title={p.nome}
+                            onClick={isDisabled ? (e) => e.preventDefault() : undefined}
+                          >
+                            {Icon && <Icon />}
+                          </a>
+                        )
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             )

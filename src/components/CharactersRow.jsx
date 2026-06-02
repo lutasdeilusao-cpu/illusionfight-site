@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { usePersonagens } from '../hooks/usePersonagens'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -15,13 +16,16 @@ export default function CharactersRow() {
   return (
     <section ref={ref} className="characters-row reveal">
       <div className="container">
-        <h2 className="section-title">PERSONAGENS</h2>
+        <h2 className="section-title">MUNDO</h2>
         <div className="characters-row__fade">
           <div className="characters-row__scroll">
             {protagonists.map(p => (
               <CharacterCard key={p.id} character={p} />
             ))}
           </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <Link to="/mundo" className="btn btn--outline">EXPLORAR O UNIVERSO</Link>
         </div>
       </div>
     </section>

@@ -1,0 +1,168 @@
+{
+  "localizacoes": [
+    {
+      "nome": "Bravara",
+      "tag": "Country",
+      "descricao": "The fictional nation equivalent to colonial Brazil. In 2030, it's a land of extremes: cutting-edge technology side by side with favelas, armored wealth, and a drifting periphery. Birthplace of the Xakaxi and the stage for Kim's story."
+    },
+    {
+      "nome": "Marelia",
+      "tag": "City",
+      "descricao": "The fictional São Paulo. A chaotic metropolis with corporate towers, dangerous outskirts, and the invisible presence of Yohualticit on every corner. This is where Kim sells candy on buses — and where everything begins."
+    },
+    {
+      "nome": "Elite Academy",
+      "tag": "School",
+      "descricao": "Bravara's most advanced school. Augmented reality classrooms, AI assistants, facial recognition cameras. Kim and Jack study here on a 50% scholarship — secured with the help of gatekeeper Osvaldo."
+    },
+    {
+      "nome": "Abandoned Annex",
+      "tag": "Trio HQ",
+      "descricao": "A deactivated building on Elite Academy's campus. Kim and Jack's secret refuge — and later the trio's headquarters. House rule: no fighting here. Anyone who risks it loses access."
+    },
+    {
+      "nome": "Risca a Faca",
+      "tag": "Nightclub",
+      "descricao": "A nightclub in one of Marelia's most degraded areas. Kim and Jack work night security here. Violent environment, R$300 a night — negotiated up from R$200 by Jack. The 'Big Man' owns the place."
+    },
+    {
+      "nome": "Abandoned Parking Lot",
+      "tag": "Hangout",
+      "descricao": "A decommissioned police station turned parking lot, full of rusted impounded cars. Where the trio drinks, talks, and plans. No hierarchy, no cameras. Their confessional booth."
+    },
+    {
+      "nome": "Davoss",
+      "tag": "Private Island",
+      "descricao": "An island in the South Pacific. David Kronos's private property. Home of the LDI World Tournament — held every 4 years with the top 128 players on Earth. A place where prestige and threat coexist."
+    },
+    {
+      "nome": "Azuma",
+      "tag": "Nation",
+      "descricao": "The fictional Japan of the ISA universe. Home of Shuntaro Chirasu, ranked 998th worldwide in the SDR. He traveled 9 hours to personally challenge Kim at Elite Academy."
+    }
+  ],
+  "timeline": [
+    {
+      "ano": "1450",
+      "titulo": "Xakaxi at Peak",
+      "texto": "The Xakaxi tribe thrives: carbon fiber, robotic agriculture, Xakaxium metal, six elements mastered. Then Powa — the shaman's son — performs a forbidden ritual. Pajé Yawanari sacrifices his own body to seal the Sangue Primordial. The tribe's technological memory is erased."
+    },
+    {
+      "ano": "1500",
+      "titulo": "Feudal Invasion",
+      "texto": "Feudal invaders arrive in Bravara. The Xakaxi, stripped of spiritual protection and technological memory, are conquered. Yawanari watches helplessly as a guardian spirit."
+    },
+    {
+      "ano": "1637",
+      "titulo": "Colonial Massacre",
+      "texto": "Conquistadors massacre and enslave the native populations of Bravara. Yawanari witnesses every death, trapped in the spirit realm."
+    },
+    {
+      "ano": "1789",
+      "titulo": "Durkria Revolt",
+      "texto": "Rebellion in Bravara — met with mass public executions. More blood for the spirit who cannot intervene."
+    },
+    {
+      "ano": "1905",
+      "titulo": "First Global War",
+      "texto": "The first world-scale conflict. Yawanari watches humanity destroy itself for the first time at industrial scale."
+    },
+    {
+      "ano": "1939",
+      "titulo": "Second Global War",
+      "texto": "Concentration camps. Bombs. Systematic destruction. The guardian spirit witnesses human cruelty reach new heights."
+    },
+    {
+      "ano": "2001",
+      "titulo": "Global Attacks",
+      "texto": "Towers fall. The world's relationship with security and paranoia changes forever. Yawanari no longer understands the species he swore to guard."
+    },
+    {
+      "ano": "2020",
+      "titulo": "The Great Void",
+      "texto": "Global pandemic reshapes society. Isolation, mass death, economic collapse. The world that emerges is different — more digital, more unequal."
+    },
+    {
+      "ano": "2022",
+      "titulo": "LDI Is Born",
+      "texto": "Yohualticit creates LDI. Within one year, it outsells every console ever released. Three billion people. Real pain. Global rankings. A new kind of sport is born."
+    },
+    {
+      "ano": "2024",
+      "titulo": "The PowWow Era",
+      "texto": "Short-video platforms arrive and dominate the world. PowWow explodes. Yawanari, condemned to watch humanity, discovers 15-second videos. He finally loses his mind completely."
+    },
+    {
+      "ano": "2030",
+      "titulo": "The Story Begins",
+      "texto": "Kim is 17, sells candy on buses, and studies at Elite Academy on a 50% scholarship. A bet with Thunderbolt throws him into LDI. The Sangue Primordial wakes up. David Kronos notices. Nothing is ever the same."
+    }
+  ],
+  "modos_combate": [
+    {
+      "nome": "Free Hands",
+      "icone": "✊",
+      "descricao": "Pure combat without weapons. Consumes the least energy while granting superhuman speed and strength. Ideal for reading your opponent before committing resources. Kim uses it as his base before calling the Xakixi."
+    },
+    {
+      "nome": "Weapon Mode",
+      "icone": "⚔️",
+      "descricao": "Player's personal weapon in action. Acquired through random loot packages or rare spontaneous manifestation (like Kim's Xakixi). Each weapon has Normal Mode and Xamã Mode — Xamã is far more powerful but drains energy fast."
+    },
+    {
+      "nome": "Power Mode",
+      "icone": "⚡",
+      "descricao": "Uses the player's elemental affinity. Three durations: Instant (low cost), Medium, and Long (high power, high cost — player is vulnerable during charging). Max 4 active powers per battle. New powers can emerge spontaneously mid-fight."
+    }
+  ],
+  "elementais": {
+    "intro": "Every player connects to an elemental upon registration. There is no power difference between primary and secondary elementals — only origin. Kim's anomaly (registered Fire, manifested Darkness) is technically impossible by LDI's system. Cause: the Sangue Primordial overwriting the code.",
+    "primarios": ["Fire", "Earth", "Air", "Water", "Light", "Darkness"],
+    "exemplos": [
+      { "personagem": "Kim", "elemental": "Fire (official) / Darkness (manifested)", "nota": "Anomaly caused by Sangue Primordial" },
+      { "personagem": "Thunderbolt", "elemental": "Electricity (secondary of Light)", "nota": "" },
+      { "personagem": "Shuntaro", "elemental": "Water", "nota": "Channeled through Rei yo-yos" }
+    ]
+  },
+  "ranking_sdr": [
+    { "faixa": "Rank 1M+", "label": "Beginner", "descricao": "Newcomers. No relevance in the scene.", "cor": "#4F5359" },
+    { "faixa": "Rank 500k–1M", "label": "Low Relevance", "descricao": "Almost no audience. Fights generate no income.", "cor": "#4F5359" },
+    { "faixa": "Rank 100k–500k", "label": "Some Gain", "descricao": "Starting to appear in PowWow searches.", "cor": "#6B7280" },
+    { "faixa": "Rank 10k–100k", "label": "40k Free", "descricao": "Widely watched. Open public matches. Possible income.", "cor": "#00B4D8" },
+    { "faixa": "Rank 1k–10k", "label": "10k Specials", "descricao": "Real income. Sponsors, donations, and significant bets. Kim entered this tier in a single battle.", "cor": "#00B4D8" },
+    { "faixa": "Top 128", "label": "World Tournament", "descricao": "Global elite. Every 4 years on Davoss Island. Wealth, fame — and David Kronos waiting.", "cor": "#F4A227" }
+  ],
+  "xakaxi": {
+    "intro": "In 1450, the Xakaxi were an indigenous civilization centuries ahead of their time. Not primitive — advanced. Until a forbidden ritual changed everything.",
+    "tecnologias": [
+      { "nome": "Carbon Fiber", "descricao": "Ultra-resistant material used in weapons and construction. Exclusive to the tribe in that era." },
+      { "nome": "Robotic Agriculture", "descricao": "Automated food production systems. The tribe did not depend on manual labor to survive." },
+      { "nome": "Amplifier Glasses", "descricao": "Optical devices that enhanced vision for hunting, warfare, and precision craftsmanship." },
+      { "nome": "Xakaxium Metal", "descricao": "Metal exclusive to the Xakaxi. Exceptional durability and energy conductivity. Used in weapons and ceremonial items. Vanished after the 1450 sealing." },
+      { "nome": "Nexium Metal", "descricao": "Decorative metal used in Xakaxi adornments and jewelry. Nara, the matriarch, wore Nexium jewelry." },
+      { "nome": "The Six Elements", "descricao": "Fire, Earth, Air, Water, Light, and Darkness — mastered by the Xakaxi as real spiritual powers. They became the foundation of LDI's elemental system, recreated by Yohualticit centuries later." }
+    ]
+  },
+  "glossario": [
+    { "sigla": "LDI", "nome": "Illusion Fight", "descricao": "The virtual arena created by Yohualticit in 2022. 100% real pain. Three billion players. The most-watched sport in the world by 2030.", "premium": false },
+    { "sigla": "SBI", "nome": "Illusion Battle Simulator", "descricao": "Hardware that connects the nervous system to the MDI. Composed of Immersor (body), Goggles (visual immersion), and Tech Glove (movement translation). Limited editions cost 60–70k units.", "premium": false },
+    { "sigla": "MDI", "nome": "World of Illusions", "descricao": "The virtual dimension where LDI battles take place. Built by Yohualticit. Inside it, the laws of the real world are partially rewritten.", "premium": false },
+    { "sigla": "MDR", "nome": "World of Reality", "descricao": "The physical real world — outside the SBI. This is where Kim sells candy, pays electricity bills, and lives with Helena.", "premium": false },
+    { "sigla": "SDR", "nome": "Ranking Challenge System", "descricao": "LDI's global ranking system. Classifies every player in the world by performance. Determines income, visibility, and access to the World Tournament.", "premium": false },
+    { "sigla": "PowWow", "nome": "PowWow", "descricao": "The dominant short-video social network of 2030, dedicated to LDI. Kim vs. Thunderbolt went top 10 worldwide on the same day.", "premium": false },
+    { "sigla": "DIX", "nome": "DIX", "descricao": "Bravara's instant digital payment system. The fictional Pix. Helena asks Kim for DIX regularly. Kim and Jack use it to receive their nightclub pay.", "premium": false },
+    { "sigla": "NeoGuide", "nome": "NeoGuide", "descricao": "LDI's AI assistant. Guides new players through avatar creation and game mechanics. Communicates directly into the player's mind. Auto-generates nicknames for newcomers.", "premium": false },
+    { "sigla": "Sangue Primordial", "nome": "Primordial Blood", "descricao": "Ancestral power of the Xakaxi sealed by Pajé Yawanari in 1450. Manifests as black flames, white hair, and tribal tattoos. Kim is the current host — and he doesn't control it consciously.", "premium": false },
+    { "sigla": "Corpo Primordial", "nome": "Primordial Body", "descricao": "The only physical vessel capable of containing David Kronos's essence. Kim is the only Primordial Body in existence. That's why Kronos hunts him.", "premium": false },
+    { "sigla": "Kim Primordial", "nome": "Kim Primordial", "descricao": "Kim's transformed state when Sangue Primordial is active. Appearance: white hair, Xakaxi tattoos, black flames. Personality: predatory, ancient. Temporary — Kim has no memory of the transformations.", "premium": false },
+    { "sigla": "Xakixi", "nome": "Xakixi", "descricao": "Kim's weapon. A pair of tribal hatchets with high-tech handles and a retractable steel cable. Spontaneous manifestation — not purchased. Xamã Mode: merges into a throwable double-bladed axe.", "premium": false },
+    { "sigla": "SDA", "nome": "Betting System", "descricao": "Allows spectators to wager points on LDI battles. The winner receives up to 10% of all points bet. One of the income sources for high-ranking players.", "premium": true },
+    { "sigla": "SDD", "nome": "Donation System", "descricao": "Spectators donate to players during matches. Larger donations can request name mentions, specific moves, or shoutouts — pre-approved by the CLI.", "premium": true },
+    { "sigla": "SAL", "nome": "Limited Access System", "descricao": "Allows fights to be made private, pay-per-view, or exclusive to paying groups. Used by high-level players to monetize special matchups.", "premium": true },
+    { "sigla": "STE", "nome": "Exclusive Training System", "descricao": "Paid training sessions, classes, and demonstrations of special techniques. Famous players monetize by coaching others.", "premium": true },
+    { "sigla": "SDP", "nome": "Partnership System", "descricao": "Connects players to brands and sponsors. Yohu handles everything — the player just receives payment. Avatars and arenas may be modified per partner requirements.", "premium": true },
+    { "sigla": "SVN", "nome": "NFT Sales System", "descricao": "Every 6 months, a player can create 10–30 unique NFTs in partnership with a Yohu designer. Buyers receive rewards and can trade the NFTs on the internal market.", "premium": true },
+    { "sigla": "Xakaxium", "nome": "Xakaxium", "descricao": "The Xakaxi's exclusive metal from 1450. Exceptional durability and energy conductivity. Used in weapons and ceremonial items. Vanished after the sealing — but Kim's Xakixi uses derived technology.", "premium": true },
+    { "sigla": "Grande Purificação", "nome": "Great Purification", "descricao": "David Kronos's plan to destroy and renew the world. Requires the Primordial Body — Kim's body — to execute. The final objective of the series' main antagonist.", "premium": true }
+  ]
+}

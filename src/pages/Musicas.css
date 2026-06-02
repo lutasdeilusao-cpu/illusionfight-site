@@ -39,12 +39,16 @@
 }
 
 .musica-card__capa {
+  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 6px;
   overflow: hidden;
   flex-shrink: 0;
   background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .musica-card__capa img {
@@ -91,6 +95,36 @@
 
 .musica-card__plataforma:hover {
   border-color: var(--accent-teal);
+}
+
+.musica-card__plataforma--disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.musica-card__plataforma--disabled:hover {
+  border-color: var(--border-subtle);
+}
+
+.musica-card--placeholder {
+  opacity: 0.6;
+}
+
+.musica-card__coming-soon {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent-teal);
+  letter-spacing: 0.1em;
+}
+
+.musica-card__badge-placeholder {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  border: 1px solid var(--text-muted);
+  padding: 0.15rem 0.5rem;
+  display: inline-block;
 }
 
 .musicas-clipes {
