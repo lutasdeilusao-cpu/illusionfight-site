@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import index from '../data/livro-index.json'
 import './BookChaptersRow.css'
 
 export default function BookChaptersRow() {
+  const ref = useScrollReveal()
   const navigate = useNavigate()
   const { locale } = useLanguage()
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
@@ -14,7 +16,7 @@ export default function BookChaptersRow() {
     .sort((a, b) => b.numero - a.numero)
 
   return (
-    <section className="book-chapters-row">
+    <section ref={ref} className="book-chapters-row reveal">
       <div className="container">
         <h2 className="section-title">ÚLTIMOS CAPÍTULOS</h2>
         <div className="book-chapters-row__fade">

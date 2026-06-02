@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import musicas from '../data/musicas.json'
 import lutasDeIlusaoImg from '../assets/images/music/lutas-de-ilusao.png'
 import { platformIconMap } from './PlatformIcons'
@@ -8,9 +9,9 @@ import './MusicSection.css'
 const capaMap = { 'lutas-de-ilusao.png': lutasDeIlusaoImg }
 
 export default function MusicSection() {
+  const ref = useScrollReveal()
   const { t } = useLanguage()
   const [openId, setOpenId] = useState(null)
-  const sectionRef = useRef(null)
   const hoverTimer = useRef(null)
 
   const isTouch = useRef(window.matchMedia('(hover: none)').matches).current
@@ -22,14 +23,14 @@ export default function MusicSection() {
   useEffect(() => {
     if (!openId || isTouch) return
     const handler = (e) => {
-      if (sectionRef.current && !sectionRef.current.contains(e.target)) close()
+      if (ref.current && !ref.current.contains(e.target)) close()
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [openId, isTouch, close])
 
   return (
-    <section className="music-section" ref={sectionRef}>
+    <section ref={ref} className="music-section reveal">
       <div className="container">
         <h2 className="section-title">{t('music.title')}</h2>
         <div className="music-grid">

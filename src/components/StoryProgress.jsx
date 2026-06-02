@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './StoryProgress.css'
 
 const DONE_MAP = [
@@ -9,6 +10,7 @@ const DONE_MAP = [
 ]
 
 export default function StoryProgress() {
+  const ref = useScrollReveal()
   const { t } = useLanguage()
   const containerRef = useRef(null)
   const hasAnimated = useRef(false)
@@ -37,7 +39,7 @@ export default function StoryProgress() {
   const tracks = ['progress.tracks.0', 'progress.tracks.1', 'progress.tracks.2']
 
   return (
-    <section className="progress">
+    <section ref={ref} className="progress reveal">
       <div className="container">
         <h2 className="section-title">{t('progress.title')}</h2>
         <div className="progress__tracks" ref={containerRef}>

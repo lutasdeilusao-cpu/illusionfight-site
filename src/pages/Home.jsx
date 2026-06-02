@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import HeroSlideshow from '../components/HeroSlideshow'
 import LatestEpisodes from '../components/LatestEpisodes'
 import CharactersRow from '../components/CharactersRow'
@@ -10,6 +11,7 @@ import NowLive from '../components/NowLive'
 import StoryProgress from '../components/StoryProgress'
 
 export default function Home() {
+  const newsletterRef = useScrollReveal()
   const { t } = useLanguage()
 
   return (
@@ -35,7 +37,7 @@ export default function Home() {
       </section>
       <NowLive />
       <StoryProgress />
-      <section className="newsletter-cta">
+      <section ref={newsletterRef} className="newsletter-cta reveal">
         <div className="container">
           <h3>{t('newsletter.ctaTitulo')}</h3>
           <p>{t('newsletter.ctaDescricao')}</p>
