@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.5*
+*Versão: 1.6*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -74,6 +74,9 @@
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 | `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR e Curiosidades |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
+| `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
+| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha |
+| `/perfil` | Perfil | `src/pages/Perfil.jsx` | ✅ | Perfil do usuário com grid de achievements |
 | `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Dentro de /extras — lore, easter eggs e bastidores |
 
 ---
@@ -91,6 +94,7 @@
 | CharactersRow | `CharactersRow.jsx` | `CharactersRow.css` | Home | Scroll horizontal (Kim, Jack, Nina) com fade gradient nas bordas |
 | CharacterCard | `CharacterCard.jsx` | `CharacterCard.css` | CharactersRow, Personagens | Card 200×300, hover scale(1.12), overlay com bio e CTA, ranking |
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados, hover overlay |
+| AchievementToast | `AchievementToast/AchievementToast.jsx` | `AchievementToast/AchievementToast.css` | App (global) | Toast centralizado com partículas, overlay escuro e foto do Jack |
 | Quiz | `Quiz.jsx` | `Quiz.css` | /quiz | Quiz SDR com 3 modos, timer 30s, ajudas universitários, rank final |
 | Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com cards para Quiz SDR e Curiosidades |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal), capa real na 1ª música |
@@ -142,6 +146,7 @@
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
 | `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
+| `achievements-pt.json` | `src/data/` | PT | 8 achievements com triggers, ícones e tiers | AchievementsContext |
 | `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
 ---
@@ -170,6 +175,9 @@
 | `package.json` | Raiz | Dependências, scripts dev/build/preview/predeploy/deploy |
 | `site.js` | `src/config/` | SITE_NAME, SITE_NAME_PT, DOMAIN |
 | `trial.js` | `src/config/` | TRIAL_ACTIVE — true libera todo conteúdo, false ativa paywall |
+| `supabase.js` | `src/lib/` | Cliente Supabase com URL e anon key |
+| `AuthContext.jsx` | `src/context/` | Provider global de autenticação (user, perfil, login, logout) |
+| `AchievementsContext.jsx` | `src/context/` | Provider global de achievements (desbloquear, toast, persistência localStorage/Supabase) |
 | `LanguageContext.jsx` | `src/context/` | Provider de i18n: locale, t(), changeLocale() |
 | `ReaderContext.jsx` | `src/context/` | readerMode — esconde Navbar e TrialBanner em WebtoonEpisodio e LivroCapitulo |
 | `locales.js` | `src/i18n/` | Importa JSONs + LOCALE_LABELS |
@@ -228,6 +236,15 @@
 - ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
 - ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
+### Autenticação + Achievements
+- ✅ **AuthContext** — Provider global, sessão Supabase, carregamento de perfil, listener onAuthStateChange
+- ✅ **AchievementsContext** — Provider global, 8 achievements persistidos em localStorage (anônimo) ou Supabase (logado)
+- ✅ **Migração automática** — Achievements do localStorage migram para Supabase ao cadastrar/logar
+- ✅ **Toast de achievement** — Centralizado com overlay, partículas, foto do Jack, auto-fecha 5s
+- ✅ **Páginas /login, /cadastro, /perfil** — Auth completo com validações
+- ✅ **Navbar adaptativa** — Botão ENTRAR quando anônimo, avatar + nome + sair quando logado
+- ✅ **Triggers** — 1min no site, cadastro, livro cap01, webtoon ep00, quiz completo, 80% score ranqueado, gangue completa
+
 ### Personagens
 - ✅ **Página Personagens** — Grid completo com 9 personagens agrupados por categoria
 - ✅ **Personagem Detalhe** — 2 colunas, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações
@@ -271,7 +288,6 @@
 
 ## 9. FEATURES PENDENTES
 
-- ❌ **Autenticação** — Login, cadastro, sessão
 - ❌ **Extras / Curiosidades** — Conteúdo JSON completo para a página /curiosidades (lore, easter eggs, bastidores)
 - ❌ **Músicas — player dedicado** — Player embutido, letras e contexto narrativo por faixa
 - ❌ **Personagens: imagens reais** — Substituir placeholders por artwork final
@@ -283,6 +299,9 @@
 - ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
 - ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto da gangue por avatares visuais
 - ❌ **Quiz — leaderboard** — Ranking global de pontuações
+- ❌ **Achievements EN/ES** — Tradução dos achievements para inglês e espanhol
+- ❌ **Leaderboard de achievements** — Comparação entre usuários
+- ❌ **Página de perfil com avatar customizável** — Upload de foto, capa, bio
 
 ---
 

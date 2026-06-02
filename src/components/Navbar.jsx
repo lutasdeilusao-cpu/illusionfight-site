@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '../config/site'
 import { useLanguage } from '../context/LanguageContext'
 import { LOCALE_LABELS } from '../i18n/locales'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { useAuth } from '../context/AuthContext'
 import SocialBar from './SocialBar'
 import './Navbar.css'
 
@@ -14,6 +15,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
   const scrolled = useScrollPosition(20)
   const [menuOpen, setMenuOpen] = useState(false)
   const { t, locale, changeLocale } = useLanguage()
+  const { user, perfil, logout } = useAuth()
 
   useEffect(() => {
     const handler = (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); onSearchOpen?.() } }
@@ -86,7 +88,15 @@ export default function Navbar({ hidden, onSearchOpen }) {
             <SocialBar size="small" />
           </div>
 
-          <button className="navbar__cta">{t('nav.cta')}</button>
+          {user ? (
+            <div className="navbar__user">
+              <Link to="/perfil" className="navbar__avatar">{perfil?.nome?.[0]?.toUpperCase() || '?'}</Link>
+              <span className="navbar__user-name">{perfil?.nome || ''}</span>
+              <button className="navbar__logout" onClick={logout}>Sair</button>
+            </div>
+          ) : (
+            <Link to="/login" className="navbar__cta">{t('nav.cta')}</Link>
+          )}
         </div>
       </nav>
 
@@ -124,7 +134,14 @@ export default function Navbar({ hidden, onSearchOpen }) {
         <div className="drawer__social">
           <SocialBar size="medium" />
         </div>
-        <button className="drawer__cta" onClick={() => setMenuOpen(false)}>{t('nav.cta')}</button>
+        {user ? (
+          <>
+            <Link to="/perfil" className="drawer__link" onClick={() => setMenuOpen(false)}>Meu Perfil</Link>
+            <button className="drawer__cta" onClick={() => { logout(); setMenuOpen(false) }}>Sair</button>
+          </>
+        ) : (
+          <Link to="/login" className="drawer__cta" onClick={() => setMenuOpen(false)}>{t('nav.cta')}</Link>
+        )}
       </aside>
     </>
   )

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { useAchievements } from '../context/AchievementsContext'
 import bancoPT from '../data/quiz-pt.json'
 import './Quiz.css'
 
@@ -59,6 +60,7 @@ function calcularRank(acertos, total, tempoMedio) {
 
 export default function Quiz() {
   const { t } = useLanguage()
+  const { desbloquear } = useAchievements()
 
   const [fase, setFase] = useState("entrada")
   const [modo, setModo] = useState(null)
@@ -78,6 +80,8 @@ export default function Quiz() {
   const [bloqueioModo, setBloqueioModo] = useState(null)
   const [transicao, setTransicao] = useState(null)
   const [rankExibido, setRankExibido] = useState(2847391000)
+  const [gangueUsados, setGangueUsados] = useState(new Set())
+  const [quizJaCompletou, setQuizJaCompletou] = useState(false)
   const timerRef = useRef(null)
 
   useEffect(() => {
@@ -174,9 +178,15 @@ export default function Quiz() {
         setTimeout(() => setTransicao(null), 200)
       }, 150)
     } else {
+      const acertosFinais = acertos + (historico[historico.length - 1]?.acertou ? 1 : 0)
       const tempoMedio = [...tempos, 30 - timer].reduce((a, b) => a + b, 0) / total
-      setResultadoCalculado(calcularRank(acertos + (historico[historico.length - 1]?.acertou ? 1 : 0), total, tempoMedio))
+      setResultadoCalculado(calcularRank(acertosFinais, total, tempoMedio))
       setFase("resultado")
+      if (!quizJaCompletou) {
+        setQuizJaCompletou(true)
+        desbloquear('ranqueado_sdr')
+        if (acertosFinais / total >= 0.8 && modo === 'ranqueado') desbloquear('briguento')
+      }
     }
   }
 
@@ -199,6 +209,12 @@ export default function Quiz() {
     setDicaGangue({ ...dica, personagem })
     setDicaIndice(dica.indice)
     setMostraGangue(false)
+    setGangueUsados(prev => {
+      const novo = new Set(prev)
+      novo.add(personagem)
+      if (novo.size === 3) desbloquear('conhece_a_gangue')
+      return novo
+    })
   }
 
   const reiniciar = () => {

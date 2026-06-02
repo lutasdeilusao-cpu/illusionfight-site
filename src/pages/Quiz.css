@@ -377,14 +377,14 @@
 }
 
 .quiz-alt-gangue {
-  border-color: rgba(232, 133, 58, 0.7) !important;
-  background: rgba(232, 133, 58, 0.08) !important;
+  border-color: rgba(232, 133, 58, 0.9) !important;
+  background: rgba(232, 133, 58, 0.2) !important;
   animation: gangue-pulse 1.2s ease infinite;
 }
 
 @keyframes gangue-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(232, 133, 58, 0); }
-  50%       { box-shadow: 0 0 0 4px rgba(232, 133, 58, 0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(232, 133, 58, 0.35); }
 }
 
 @keyframes erro-shake {

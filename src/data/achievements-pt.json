@@ -1,0 +1,74 @@
+[
+  {
+    "id": "primeiro_acesso",
+    "nome": "Primeiro Acesso à Arena",
+    "descricao": "Você entrou. O LDI registrou sua presença.",
+    "icone": "⚔",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "tempo_1min"
+  },
+  {
+    "id": "recrutado",
+    "nome": "Recrutado",
+    "descricao": "Você criou sua conta. Bem-vindo ao SDR.",
+    "icone": "🎖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "cadastro"
+  },
+  {
+    "id": "leitor_marelia",
+    "nome": "Leitor de Marelia",
+    "descricao": "Você leu o primeiro capítulo do livro.",
+    "icone": "📖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "livro_cap01"
+  },
+  {
+    "id": "episodio_zero",
+    "nome": "Episódio Zero",
+    "descricao": "Você assistiu o prólogo do webtoon.",
+    "icone": "🎬",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "webtoon_ep00_completo"
+  },
+  {
+    "id": "conhece_a_gangue",
+    "nome": "Conhece a Gangue",
+    "descricao": "Você consultou os três membros da gangue no quiz.",
+    "icone": "👊",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "gangue_todos"
+  },
+  {
+    "id": "ranqueado_sdr",
+    "nome": "Ranqueado no SDR",
+    "descricao": "Você completou o quiz pela primeira vez.",
+    "icone": "🏆",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_completo"
+  },
+  {
+    "id": "briguento",
+    "nome": "Briguento",
+    "descricao": "Você acertou 8 de 10 no modo Ranqueado.",
+    "icone": "💥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_score_80"
+  },
+  {
+    "id": "sangue_primordial",
+    "nome": "???",
+    "descricao": "O sistema registrou uma anomalia no seu perfil.",
+    "icone": "🩸",
+    "secreto": true,
+    "tier": 1,
+    "trigger": "tempo_10min"
+  }
+]

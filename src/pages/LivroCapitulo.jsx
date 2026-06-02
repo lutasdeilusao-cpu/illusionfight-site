@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { useAchievements } from '../context/AchievementsContext'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -15,6 +16,7 @@ export default function LivroCapitulo() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale } = useLanguage()
+  const { desbloquear } = useAchievements()
 
   useEffect(() => {
     setReaderMode(true)
@@ -53,6 +55,7 @@ export default function LivroCapitulo() {
         try {
           const content = await loader()
           setMd(content)
+          if (id === 'capitulo-01') desbloquear('leitor_marelia')
           return
         } catch {}
       }

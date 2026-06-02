@@ -1,0 +1,123 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 3rem;
+  background: #0B0D0F;
+}
+
+.auth-card {
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #EAEAEA;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.auth-sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #8B8F96;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-erro {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(231,76,60,0.1);
+  border-radius: 4px;
+}
+
+.auth-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.75rem;
+  background: #0B0D0F;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #EAEAEA;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  border-color: #e8853a;
+}
+
+.auth-btn {
+  width: 100%;
+  margin-top: 1rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.75rem;
+  background: #6B0F1A;
+  color: #EAEAEA;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-btn:hover {
+  opacity: 0.85;
+}
+
+.auth-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.auth-link-text {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+  margin-top: 1.25rem;
+}
+
+.auth-sucesso {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #1ea064;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(30,160,100,0.1);
+  border-radius: 4px;
+}
+
+.auth-link {
+  color: #e8853a;
+  text-decoration: underline;
+}

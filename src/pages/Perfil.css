@@ -1,0 +1,121 @@
+.perfil-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 680px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+.perfil-carregando {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #8B8F96;
+  padding-top: 3rem;
+}
+
+.perfil-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.perfil-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e8853a;
+  color: #000;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.perfil-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin-bottom: 0.25rem;
+}
+
+.perfil-email {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+}
+
+.perfil-section-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e8853a;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.perfil-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.perfil-achievement-card {
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.perfil-achievement-card--locked {
+  opacity: 0.3;
+}
+
+.perfil-achievement-icone {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.perfil-achievement-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.perfil-achievement-desc {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  line-height: 1.3;
+}
+
+.perfil-logout {
+  display: block;
+  margin: 0 auto;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 2rem;
+  background: transparent;
+  color: #8B8F96;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.perfil-logout:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}

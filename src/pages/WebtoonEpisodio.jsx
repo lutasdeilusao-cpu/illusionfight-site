@@ -1,8 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
+import { useAchievements } from '../context/AchievementsContext'
 import episodios from '../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -11,6 +12,8 @@ export default function WebtoonEpisodio() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale } = useLanguage()
+  const { desbloquear } = useAchievements()
+  const ultimaPaginaRef = useRef(null)
 
   useEffect(() => {
     setReaderMode(true)
@@ -22,6 +25,15 @@ export default function WebtoonEpisodio() {
   useEffect(() => {
     const saved = localStorage.getItem(`ldi-webtoon-scroll-${id}`)
     if (saved) window.scrollTo(0, parseInt(saved))
+  }, [id])
+
+  useEffect(() => {
+    if (!ultimaPaginaRef.current) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && id === 'episodio-00') desbloquear('episodio_zero')
+    }, { threshold: 0.5 })
+    observer.observe(ultimaPaginaRef.current)
+    return () => observer.disconnect()
   }, [id])
 
   const ep = episodios.find(e => e.id === id)
@@ -60,6 +72,7 @@ export default function WebtoonEpisodio() {
         {pages.map(num => (
           <img
             key={num}
+            ref={num === ep.paginas ? ultimaPaginaRef : null}
             src={`/illusionfight-site/webtoon/${ep.id}/pt/${String(num).padStart(2, '0')}.png`}
             width="100%"
             style={{ display: 'block' }}

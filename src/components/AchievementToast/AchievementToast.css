@@ -1,0 +1,131 @@
+.achievement-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: achievement-fadein 0.3s ease;
+}
+
+@keyframes achievement-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.achievement-card {
+  position: relative;
+  background: #0d0b08;
+  border: 2px solid #e8853a;
+  border-radius: 12px;
+  padding: 2.5rem 2rem 2rem;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  animation: achievement-enter 0.5s ease forwards;
+  overflow: hidden;
+}
+
+@keyframes achievement-enter {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.achievement-jack {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #e8853a;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.achievement-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #e8853a;
+  margin-bottom: 0.75rem;
+}
+
+.achievement-icone {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.achievement-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f0ece0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.achievement-descricao {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #a0998a;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.achievement-btn {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 2rem;
+  background: transparent;
+  color: #e8853a;
+  border: 1.5px solid #e8853a;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.achievement-btn:hover {
+  background: #e8853a;
+  color: #0d0b08;
+}
+
+/* ---- PARTICLES ---- */
+
+.achievement-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: particle-burst 0.8s ease-out 0.2s both;
+}
+
+@keyframes particle-burst {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: var(--tx, 60px) var(--ty, -60px) scale(0); opacity: 0; }
+}
+
+.p-0  { background: #e8853a; --tx: translateX(80px);  --ty: translateY(-40px); }
+.p-1  { background: #00c8a8; --tx: translateX(-80px); --ty: translateY(-40px); }
+.p-2  { background: #f0ece0; --tx: translateX(0px);   --ty: translateY(-90px); }
+.p-3  { background: #e8853a; --tx: translateX(60px);  --ty: translateY(60px);  }
+.p-4  { background: #6B0F1A; --tx: translateX(-60px); --ty: translateY(60px);  }
+.p-5  { background: #00c8a8; --tx: translateX(90px);  --ty: translateY(20px);  }
+.p-6  { background: #f0ece0; --tx: translateX(-90px); --ty: translateY(20px);  }
+.p-7  { background: #e8853a; --tx: translateX(50px);  --ty: translateY(-70px); }
+.p-8  { background: #00c8a8; --tx: translateX(-50px); --ty: translateY(-70px); }
+.p-9  { background: #f0ece0; --tx: translateX(70px);  --ty: translateY(50px);  }
+.p-10 { background: #6B0F1A; --tx: translateX(-70px); --ty: translateY(50px);  }
+.p-11 { background: #e8853a; --tx: translateX(0px);   --ty: translateY(90px);  }

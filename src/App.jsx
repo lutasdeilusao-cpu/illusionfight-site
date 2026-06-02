@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
+import { useAchievements } from './context/AchievementsContext'
 import TrialBanner from './components/TrialBanner'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -9,6 +10,7 @@ import ScrollToTopOnNav from './components/ScrollToTopOnNav'
 import NotificationBalloon from './components/NotificationBalloon'
 import CookieBanner from './components/CookieBanner'
 import SearchModal from './components/SearchModal/SearchModal'
+import AchievementToast from './components/AchievementToast/AchievementToast'
 import Home from './pages/Home'
 import Musicas from './pages/Musicas'
 import Personagens from './pages/Personagens'
@@ -23,10 +25,20 @@ import Mundo from './pages/Mundo'
 import Curiosidades from './pages/Curiosidades'
 import Quiz from './pages/Quiz'
 import Extras from './pages/Extras'
+import Login from './pages/Login'
+import Cadastro from './pages/Cadastro'
+import Perfil from './pages/Perfil'
 
 export default function App() {
   const { readerMode } = useReader()
   const [searchOpen, setSearchOpen] = useState(false)
+  const { desbloquear, toastPendente, fecharToast } = useAchievements()
+
+  useEffect(() => {
+    const t1 = setTimeout(() => desbloquear('primeiro_acesso'), 60000)
+    const t2 = setTimeout(() => desbloquear('sangue_primordial'), 600000)
+    return () => { clearTimeout(t1); clearTimeout(t2) }
+  }, [])
 
   return (
     <>
@@ -49,11 +61,15 @@ export default function App() {
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/perfil" element={<Perfil />} />
       </Routes>
       <Footer />
       <ScrollToTop />
       <NotificationBalloon />
       <CookieBanner />
+      {toastPendente && <AchievementToast achievement={toastPendente} fecharToast={fecharToast} />}
     </>
   )
 }
