@@ -45,7 +45,11 @@ export function AchievementsProvider({ children }) {
     if (!achievement) return
     if (user) {
       const { error } = await supabase.from('user_achievements').insert({ user_id: user.id, achievement_id: achievementId })
-      if (error) { console.error('ERRO AO SALVAR ACHIEVEMENT:', error); return }
+      if (error) {
+        console.error('ERRO AO SALVAR ACHIEVEMENT:', error)
+        const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...salvos, achievementId]))
+      }
     } else {
       const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...salvos, achievementId]))
