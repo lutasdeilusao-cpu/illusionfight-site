@@ -65,7 +65,7 @@ export default function Perfil() {
           return (
             <div
               key={a.id}
-              className={`perfil-achievement-card${desbloqueado ? '' : ' perfil-achievement-card--locked'}`}
+              className={`perfil-achievement-card${desbloqueado ? ' perfil-achievement-card--unlocked' : ' perfil-achievement-card--locked'}`}
             >
               <span className="perfil-achievement-icone">
                 {secretoNaoVisto ? '🔒' : a.icone}
