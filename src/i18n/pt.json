@@ -15,7 +15,7 @@
   },
   "episodes": {
     "title": "EPISÓDIOS",
-    "titles": ["O Convite", "Primeiro Round", "A Queda"],
+    "titles": ["Apresentação", "O Convite", "Primeiro Round"],
     "badge": { "free": "FREE", "premium": "PREMIUM" },
     "thumbnail": "Thumbnail",
     "cta": "VER TODOS",

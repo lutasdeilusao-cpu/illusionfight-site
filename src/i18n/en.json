@@ -15,7 +15,7 @@
   },
   "episodes": {
     "title": "EPISODES",
-    "titles": ["The Invitation", "First Round", "The Fall"],
+    "titles": ["Introduction", "The Invitation", "First Round"],
     "badge": { "free": "FREE", "premium": "PREMIUM" },
     "thumbnail": "Thumbnail",
     "cta": "VIEW ALL",

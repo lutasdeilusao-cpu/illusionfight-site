@@ -15,7 +15,7 @@
   },
   "episodes": {
     "title": "EPISODIOS",
-    "titles": ["La Invitación", "Primer Round", "La Caída"],
+    "titles": ["Presentación", "La Invitación", "Primer Round"],
     "badge": { "free": "GRATIS", "premium": "PREMIUM" },
     "thumbnail": "Miniatura",
     "cta": "VER TODOS",

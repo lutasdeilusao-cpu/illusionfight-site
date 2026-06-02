@@ -10,6 +10,8 @@ import Livro from './pages/Livro'
 import LivroCapitulo from './pages/LivroCapitulo'
 import Assinar from './pages/Assinar'
 import Autor from './pages/Autor'
+import Webtoon from './pages/Webtoon'
+import WebtoonEpisodio from './pages/WebtoonEpisodio'
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/livro/:id" element={<LivroCapitulo />} />
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
+        <Route path="/webtoon" element={<Webtoon />} />
+        <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
       </Routes>
       <Footer />
       <ScrollToTop />

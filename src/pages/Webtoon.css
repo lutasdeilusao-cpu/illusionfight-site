@@ -1,0 +1,85 @@
+.webtoon-page {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.webtoon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.webtoon-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.webtoon-card:hover {
+  border-color: var(--accent-teal);
+  transform: translateY(-4px);
+}
+
+.webtoon-card__thumb {
+  aspect-ratio: 16 / 9;
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.webtoon-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.webtoon-card__num {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--text-muted);
+}
+
+.webtoon-card__info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.webtoon-card__numero {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-teal);
+  letter-spacing: 0.05em;
+}
+
+.webtoon-card__titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.webtoon-card__langs {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.webtoon-card__lang {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 0.1rem 0.4rem;
+}

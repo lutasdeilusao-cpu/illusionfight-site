@@ -1,0 +1,56 @@
+import { Helmet } from 'react-helmet-async'
+import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
+import episodios from '../data/episodios.json'
+import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
+import './Webtoon.css'
+
+const thumbMap = { 'thumb-ep00.png': thumbEp00 }
+
+export default function Webtoon() {
+  const { t, locale } = useLanguage()
+  const navigate = useNavigate()
+  const published = episodios.filter(ep => ep.publicado)
+
+  const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
+
+  return (
+    <>
+      <Helmet><title>Webtoon — Lutas de Ilusão</title></Helmet>
+      <section className="webtoon-page">
+        <div className="container">
+          <h1 className="section-title">WEBTOON</h1>
+          <div className="webtoon-grid">
+            {published.map(ep => {
+              const thumb = thumbMap[ep.thumbnail]
+              return (
+                <div
+                  key={ep.id}
+                  className="webtoon-card"
+                  onClick={() => navigate(`/webtoon/${ep.id}`)}
+                >
+                  <div className="webtoon-card__thumb">
+                    {thumb ? (
+                      <img src={thumb} alt={ep[tituloKey]} />
+                    ) : (
+                      <span className="webtoon-card__num">EP. {String(ep.numero).padStart(2, '0')}</span>
+                    )}
+                  </div>
+                  <div className="webtoon-card__info">
+                    <span className="webtoon-card__numero">EP. {String(ep.numero).padStart(2, '0')}</span>
+                    <h3 className="webtoon-card__titulo">{ep[tituloKey]}</h3>
+                    <div className="webtoon-card__langs">
+                      {ep.idiomas.map(lang => (
+                        <span key={lang} className="webtoon-card__lang">{lang.toUpperCase()}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

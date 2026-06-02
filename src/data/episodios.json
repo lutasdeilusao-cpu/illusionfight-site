@@ -1,0 +1,17 @@
+[
+  {
+    "id": "00",
+    "numero": 0,
+    "titulo_pt": "Apresentação",
+    "titulo_en": "Introduction",
+    "titulo_es": "Presentación",
+    "descricao_pt": "Uma introdução ao universo Lutas de Ilusão e ao seu protagonista.",
+    "descricao_en": "An introduction to the Illusion Fight universe and its protagonist.",
+    "descricao_es": "Una introducción al universo Lutas de Ilusão y su protagonista.",
+    "publicado": true,
+    "paginas": 21,
+    "idiomas": ["pt"],
+    "thumbnail": "thumb-ep00.png",
+    "data": "2026-06-01"
+  }
+]

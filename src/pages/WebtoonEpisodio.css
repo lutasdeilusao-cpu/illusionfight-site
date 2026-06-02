@@ -1,0 +1,91 @@
+.webtoon-ep-page {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.webtoon-ep-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.webtoon-ep-header .container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.webtoon-ep-header__back {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  background: none;
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.webtoon-ep-header__back:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+.webtoon-ep-header__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.webtoon-ep-reader {
+  background: #000;
+  max-width: 800px;
+  margin: 56px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.webtoon-ep-nav {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 1rem 0;
+}
+
+.webtoon-ep-nav .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.webtoon-ep-nav__btn {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  background: none;
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.webtoon-ep-nav__btn:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}

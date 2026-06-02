@@ -69,6 +69,8 @@
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | Leitor com react-markdown + navegação |
 | `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | 3 tiers: RANQUEADO (free), ELITE (R$10), PRIMORDIAL (R$30) — nomenclatura do universo LDI |
 | `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História do autor — link no footer |
+| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | Grid de episódios publicados com thumbnails |
+| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, navegação entre episódios |
 
 ---
 
@@ -121,6 +123,7 @@
 | `capitulo-01.md` ~ `16.md` | `src/data/livro/pt/` | PT | Conteúdo integral dos capítulos | LivroCapitulo (lazy load) |
 | `musicas.json` | `src/data/` | — | 5 faixas (1 publicada, 4 placeholders) com links para 6 plataformas | MusicSection |
 | `planos.json` | `src/data/` | — | 3 tiers: Ranqueado (free), Elite (R$10), Primordial (R$30) com benefícios em PT/EN/ES | Assinar |
+| `episodios.json` | `src/data/` | PT/EN/ES | Metadados dos episódios do webtoon | Webtoon, WebtoonEpisodio |
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 
 ---
@@ -132,7 +135,8 @@
 | Banners | `src/assets/images/banners/` | `banner-01.png` ~ `banner-04.png` | ✅ Final (arte real do usuário, ~2.3MB cada) |
 | Logos | `src/assets/images/logos/` | `logo-pt.png`, `logo-en.png` | ✅ Final (arte real) |
 | Characters | `src/assets/images/characters/` | (vazio) | 🔲 Placeholder (cor sólida + nome) |
-| Episodes | `src/assets/images/episodes/` | (vazio) | 🔲 Placeholder (thumbnails cinza) |
+| Episodes | `src/assets/images/episodes/` | `thumb-ep00.png` | ✅ Final |
+| Webtoon  | `public/webtoon/` | `00/pt/01~21.png` | ✅ Episódio 00 PT |
 | Music | `src/assets/images/music/` | `lutas-de-ilusao.png` | ✅ Final (arte real) |
 | Fonts | `src/assets/fonts/` | (vazio) | 🔲 Via Google Fonts (Rajdhani, IBM Plex Sans, JetBrains Mono) |
 | Favicon | `public/` | `favicon.svg` | ✅ Final |
@@ -187,6 +191,8 @@
 - ✅ **TrialBanner scroll** — Fundo fica sólido ao scrollar (>20px) para legibilidade
 - ✅ **Newsletter Substack** — link no footer, bloco na /assinar com border-left teal, CTA na home após StoryProgress
 - ✅ **Google Analytics** — G-QVDGMZ1F58, script no index.html
+- ✅ **Leitor de Webtoon** — scroll vertical, lazy load, max 800px, fundo preto, navegação entre episódios
+- ✅ **Página de episódios** — grid com thumbnails, badges de idioma e tier
 
 ---
 
@@ -196,10 +202,9 @@
 - ❌ **Rankings** — Página de ranking SDR
 - ❌ **Mundo** — Página do universo (mapa, lore)
 - ❌ **Curiosidades** — Página de curiosidades/trivia
-- ❌ **Webtoon** — Página/seção do webtoon
+- ❌ **Webtoon episódios futuros** — Episódios 01+ em produção
 - ❌ **Músicas** — Página com playlist/player
 - ❌ **Personagens: imagens reais** — Substituir placeholders por artwork final
-- ❌ **Episódios: thumbnails reais** — Substituir placeholders cinza
 - ❌ **Páginas EN/ES completas** — Apenas PT tem capítulos do livro
 - ❌ **Logo ES** — Apenas PT e EN têm logo em imagem
 - ❌ **Modo light** — Dark mode fixo, sem toggle
