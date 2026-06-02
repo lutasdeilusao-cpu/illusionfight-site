@@ -14,6 +14,10 @@ export default function Perfil() {
   const [shareStatus, setShareStatus] = useState(null)
 
   useEffect(() => {
+    if (!user && !carregando) navigate('/login')
+  }, [user, carregando])
+
+  useEffect(() => {
     if (!user) return
     const mesAtual = new Date().toISOString().slice(0, 7)
     supabase
@@ -28,7 +32,7 @@ export default function Perfil() {
   }, [user])
 
   if (carregando) return <section className="perfil-page"><p className="perfil-carregando">Carregando...</p></section>
-  if (!user) { navigate('/login'); return null }
+  if (!user) return null
 
   async function enviarShare() {
     if (!shareLink.trim()) return
