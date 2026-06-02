@@ -90,8 +90,7 @@
 | SocialBar | `SocialBar.jsx` | `SocialBar.css` | Footer | Ícones X/Instagram/TikTok/YouTube |
 | Footer | `Footer.jsx` | `Footer.css` | Home | 3 colunas + SocialBar + copyright |
 | PlatformIcons | `PlatformIcons.jsx` | — | MusicSection | SVGs inline das 6 plataformas de música |
-| NowLive | `NowLive.jsx` | `NowLive.css` | Home | Grid 2×2 de embeds YouTube, Instagram, TikTok, X |
-| TwitterEmbed | `TwitterEmbed.jsx` | — | NowLive | Renderiza tweet via widgets.js do Twitter |
+| NowLive | `NowLive.jsx` | `NowLive.css` | Home | Row horizontal de cards estáticos clicáveis — YouTube, TikTok, X, Instagram |
 
 ---
 
@@ -121,7 +120,7 @@
 | `livro-index.json` | `src/data/` | PT/EN/ES | 16 capítulos + controle de publicação + resumo_pt/en/es | Livro, LivroCapitulo, BookChaptersRow |
 | `capitulo-01.md` ~ `16.md` | `src/data/livro/pt/` | PT | Conteúdo integral dos capítulos | LivroCapitulo (lazy load) |
 | `musicas.json` | `src/data/` | — | 5 faixas (1 publicada, 4 placeholders) com links para 6 plataformas | MusicSection |
-| `nowlive.json` | `src/data/` | — | Controle de 4 embeds (YouTube, Instagram, TikTok, X) com flag ativo | NowLive |
+| `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 
 ---
 

@@ -1,62 +1,171 @@
 .nowlive-section {
-  padding: 5rem 0;
-  background: var(--bg-primary);
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    #0D1117 40%,
+    #0D1117 60%,
+    var(--bg-primary) 100%
+  );
+  padding: 64px 0;
 }
 
-.nowlive-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.nowlive-subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+}
+
+.nowlive-row {
+  display: flex;
+  justify-content: center;
   gap: 24px;
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
-.nowlive-item {
+.nowlive-card {
+  width: 260px;
+  height: 340px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.nowlive-label {
+.nowlive-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.5);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.3);
+}
+
+.nowlive-card-thumb {
+  height: 220px;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.25) 0%,
+    rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.08) 50%,
+    var(--bg-elevated) 100%
+  );
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.nowlive-embed {
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
+}
+
+.nowlive-card-thumb::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.4) 0%,
+    transparent 70%
+  );
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+.nowlive-card:hover .nowlive-card-thumb::before {
+  width: 140px;
+  height: 140px;
+}
+
+.nowlive-card-icon {
+  width: 96px;
+  height: 96px;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nowlive-card-icon svg {
+  width: 96px;
+  height: 96px;
+}
+
+.nowlive-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.nowlive-card:hover .nowlive-card-overlay {
+  opacity: 1;
+}
+
+.nowlive-card-footer {
+  padding: 16px;
   background: var(--bg-elevated);
-  transition: border-color 0.2s ease;
-}
-
-.nowlive-embed:hover {
-  border-color: var(--accent-teal);
-}
-
-.twitter-embed-container {
-  min-height: 300px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  flex: 1;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 16px;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.instagram-embed-container {
-  min-height: 400px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 16px;
+.nowlive-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-  .nowlive-grid {
-    grid-template-columns: 1fr;
+.nowlive-card-titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.nowlive-card-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .nowlive-card {
+    width: 220px;
+    height: 300px;
+  }
+
+  .nowlive-card-thumb {
+    height: 180px;
+  }
+
+  .nowlive-card-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .nowlive-card-icon svg {
+    width: 64px;
+    height: 64px;
   }
 }
