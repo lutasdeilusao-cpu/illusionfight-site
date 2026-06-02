@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
@@ -85,17 +85,18 @@ export default function Quiz() {
   const [mostraUniversitarios, setMostraUniversitarios] = useState(false)
   const [dicaUniversitario, setDicaUniversitario] = useState(null)
   const [bloqueioModo, setBloqueioModo] = useState(null)
+  const timerRef = useRef(null)
 
   useEffect(() => {
     if (fase !== "pergunta" || confirmada) return
     setTimer(30)
-    const iv = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setTimer(t => {
-        if (t <= 1) { clearInterval(iv); return 0 }
+        if (t <= 1) { clearInterval(timerRef.current); return 0 }
         return t - 1
       })
     }, 1000)
-    return () => clearInterval(iv)
+    return () => clearInterval(timerRef.current)
   }, [fase, indice, confirmada])
 
   useEffect(() => {
@@ -131,6 +132,7 @@ export default function Quiz() {
 
   const confirmarResposta = (resposta) => {
     if (confirmada) return
+    clearInterval(timerRef.current)
     setConfirmada(true)
     setUltimaResposta(resposta)
     const pergunta = perguntas[indice]
@@ -138,6 +140,9 @@ export default function Quiz() {
     if (acertou) setAcertos(s => s + 1)
     setTempos(s => [...s, 30 - timer])
     setHistorico(s => [...s, { pergunta, resposta, acertou }])
+    setTimeout(() => {
+      document.getElementById("quiz-narrador")?.scrollIntoView({ behavior: "smooth", block: "nearest" })
+    }, 100)
   }
 
   const cliqueAlternativa = (i) => {
@@ -333,18 +338,16 @@ export default function Quiz() {
             </div>
           )}
 
-          {confirmada && (
-            <div className="quiz-actions">
-              <button className="quiz-next-btn" onClick={proximaPergunta}>
-                {indice + 1 < total ? 'PRÓXIMA →' : 'VER RESULTADO →'}
-              </button>
-            </div>
-          )}
-
-          <div className="quiz-narrador">
+          <div className="quiz-narrador" id="quiz-narrador">
             <strong>{t('quiz.nexus_tag')}:</strong> {pergunta.narrador}
           </div>
         </div>
+
+        {confirmada && (
+          <button className="quiz-proxima-flutuante" onClick={proximaPergunta}>
+            {indice + 1 < total ? 'PRÓXIMA →' : 'VER RESULTADO →'}
+          </button>
+        )}
       </section>
     )
   }

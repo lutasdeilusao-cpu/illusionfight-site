@@ -470,6 +470,39 @@
   font-style: italic;
 }
 
+.quiz-proxima-flutuante {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  animation: slideUp 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.quiz-proxima-flutuante:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .quiz-proxima-flutuante {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
 /* ---- RESULT SCREEN ---- */
 
 .quiz-resultado {
