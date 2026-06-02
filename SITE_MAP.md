@@ -130,7 +130,8 @@
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 | `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder (livro, eBook, camisetas, boné, caneca, pôster, quadrinho, chaveiro) | ShopSection |
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
-| `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→2030, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
+| `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
+| `search-index.js` | `src/data/` | — | Índice flat de personagens, capítulos, webtoon, músicas, lore para busca | SearchModal |
 
 ---
 
@@ -183,7 +184,8 @@
 - ✅ **Navegação flutuante** — Botões fixos ← anterior / próximo → no canto inferior esquerdo do leitor de capítulos
 - ✅ **Página /musicas** — Hero + faixas com capa e plataformas + placeholder videoclipes
 - ✅ **Modo imersivo** — Navbar e TrialBanner ocultos em WebtoonEpisodio e LivroCapitulo via ReaderContext
-- ✅ **Página /mundo** — Hero, Bravara + localizações, Timeline 1450→2030, LDI + SDR, Xakaxi + tecnologias, Glossário FREE/PREMIUM, seção Personagens
+- ✅ **Página /mundo** — Hero, Bravara + localizações, Timeline 1450→20XX, LDI + SDR, Xakaxi + tecnologias, Glossário FREE/PREMIUM, seção Personagens
+- ✅ **Busca global** — Lupa na navbar (desktop + drawer), modal overlay, Ctrl+K, indexa personagens/livro/webtoon/músicas/lore, badge PREMIUM respeita TRIAL_ACTIVE
 
 ### Home
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns, scanlines, HeroEffect (chuva digital), Typewriter

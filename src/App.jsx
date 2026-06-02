@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
 import TrialBanner from './components/TrialBanner'
@@ -7,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopOnNav from './components/ScrollToTopOnNav'
 import NotificationBalloon from './components/NotificationBalloon'
 import CookieBanner from './components/CookieBanner'
+import SearchModal from './components/SearchModal/SearchModal'
 import Home from './pages/Home'
 import Musicas from './pages/Musicas'
 import Personagens from './pages/Personagens'
@@ -22,11 +24,13 @@ import Curiosidades from './pages/Curiosidades'
 
 export default function App() {
   const { readerMode } = useReader()
+  const [searchOpen, setSearchOpen] = useState(false)
 
   return (
     <>
       <ScrollToTopOnNav />
-      <Navbar hidden={readerMode} />
+      <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <TrialBanner hidden={readerMode} />
       <Routes>
         <Route path="/" element={<Home />} />

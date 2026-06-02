@@ -9,10 +9,16 @@ import './Navbar.css'
 
 const LOCALES = ['pt', 'es', 'en']
 
-export default function Navbar({ hidden }) {
+export default function Navbar({ hidden, onSearchOpen }) {
   const scrolled = useScrollPosition(20)
   const [menuOpen, setMenuOpen] = useState(false)
   const { t, locale, changeLocale } = useLanguage()
+
+  useEffect(() => {
+    const handler = (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); onSearchOpen?.() } }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [onSearchOpen])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -55,6 +61,13 @@ export default function Navbar({ hidden }) {
             ))}
           </ul>
 
+          <button className="navbar__search-btn" onClick={() => onSearchOpen?.()} aria-label="Buscar (Ctrl+K)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+
           <div className="navbar__lang">
             {LOCALES.map(code => (
               <button
@@ -78,6 +91,9 @@ export default function Navbar({ hidden }) {
       <div className={`drawer-overlay${menuOpen ? ' is-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <aside className={`drawer${menuOpen ? ' is-open' : ''}`}>
         <button className="drawer__close" onClick={() => setMenuOpen(false)}>&times;</button>
+        <button className="drawer__search" onClick={() => { setMenuOpen(false); onSearchOpen?.() }}>
+          🔍 Buscar
+        </button>
         <ul className="drawer__links">
           {navLinks.map((key, i) => (
             <li key={key}>

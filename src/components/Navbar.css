@@ -174,7 +174,28 @@
   align-self: flex-end;
   font-size: 2rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.drawer__search {
+  width: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-teal);
+  background: none;
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.drawer__search:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
 }
 
 .drawer__links {
@@ -239,6 +260,27 @@
   padding: 0.2rem 0.4rem;
   border-radius: 2px;
   transition: color 0.2s, background 0.2s;
+}
+
+.navbar__search-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.navbar__search-btn:hover {
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .navbar__search-btn {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navbar__lang-btn:hover {
