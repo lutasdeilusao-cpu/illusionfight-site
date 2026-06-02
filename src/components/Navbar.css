@@ -1,7 +1,3 @@
-.navbar[data-hidden="true"] {
-  display: none;
-}
-
 .navbar {
   position: fixed;
   top: 0;

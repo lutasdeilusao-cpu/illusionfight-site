@@ -151,6 +151,7 @@
 | `package.json` | Raiz | Dependências, scripts dev/build/preview/predeploy/deploy |
 | `site.js` | `src/config/` | `TRIAL_MODE`, `SITE_NAME`, `SITE_NAME_PT`, `DOMAIN` |
 | `LanguageContext.jsx` | `src/context/` | Provider de i18n: `locale`, `t()`, `changeLocale()` |
+| `ReaderContext.jsx` | `src/context/` | Estado global readerMode — esconde Navbar e TrialBanner nos leitores |
 | `locales.js` | `src/i18n/` | Importa JSONs + `LOCALE_LABELS` |
 | `App.jsx` | `src/` | React Router (5 rotas, sem basename — resolvido no BrowserRouter) |
 | `main.jsx` | `src/` | BrowserRouter com `basename="/illusionfight-site"` |
@@ -189,6 +190,7 @@
 - ✅ **Navbar global** — TrialBanner, Navbar, Footer renderizados em App.jsx fora das rotas
 - ✅ **ScrollToTop** — Botão fixo canto inferior direito, aparece após 400px de scroll
 - ✅ **TrialBanner scroll** — Fundo fica sólido ao scrollar (>20px) para legibilidade
+- ✅ **Modo imersivo** — Navbar e TrialBanner ocultos em WebtoonEpisodio e LivroCapitulo via ReaderContext
 - ✅ **Newsletter Substack** — link no footer, bloco na /assinar com border-left teal, CTA na home após StoryProgress
 - ✅ **Google Analytics** — G-QVDGMZ1F58, script no index.html
 - ✅ **Leitor de Webtoon** — scroll vertical, lazy load, max 800px, fundo preto, navegação entre episódios

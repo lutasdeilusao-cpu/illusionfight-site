@@ -3,15 +3,22 @@ import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
+import { useReader } from '../context/ReaderContext'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
 const chapterLoaders = import.meta.glob('../data/livro/pt/*.md', { query: '?raw', import: 'default' })
 
 export default function LivroCapitulo() {
+  const { setReaderMode } = useReader()
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale } = useLanguage()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
   const [md, setMd] = useState('')
   const [notFound, setNotFound] = useState(false)
 

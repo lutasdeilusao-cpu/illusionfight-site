@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { SITE_CONFIG } from '../config/site'
 import { useLanguage } from '../context/LanguageContext'
-import { useReader } from '../context/ReaderContext'
 import './TrialBanner.css'
 
-export default function TrialBanner() {
-  const { readerMode } = useReader()
+export default function TrialBanner({ hidden }) {
   const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
 
@@ -16,9 +14,10 @@ export default function TrialBanner() {
   }, [])
 
   if (!SITE_CONFIG.TRIAL_MODE) return null
+  if (hidden) return null
 
   return (
-    <div className={`trial-banner${scrolled ? ' scrolled' : ''}`} data-hidden={readerMode}>
+    <div className={`trial-banner${scrolled ? ' scrolled' : ''}`}>
       <p>{t('trial.message')}</p>
     </div>
   )

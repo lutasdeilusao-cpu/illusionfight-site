@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { ReaderProvider } from './context/ReaderContext'
+import { useReader } from './context/ReaderContext'
 import TrialBanner from './components/TrialBanner'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -15,10 +15,12 @@ import Webtoon from './pages/Webtoon'
 import WebtoonEpisodio from './pages/WebtoonEpisodio'
 
 export default function App() {
+  const { readerMode } = useReader()
+
   return (
-    <ReaderProvider>
-      <TrialBanner />
-      <Navbar />
+    <>
+      <TrialBanner hidden={readerMode} />
+      <Navbar hidden={readerMode} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/personagens" element={<Personagens />} />
@@ -32,6 +34,6 @@ export default function App() {
       </Routes>
       <Footer />
       <ScrollToTop />
-    </ReaderProvider>
+    </>
   )
 }

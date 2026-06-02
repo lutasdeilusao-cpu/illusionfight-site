@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { SITE_CONFIG } from '../config/site'
 import { useLanguage } from '../context/LanguageContext'
-import { useReader } from '../context/ReaderContext'
 import { LOCALE_LABELS } from '../i18n/locales'
 import SocialBar from './SocialBar'
 import './Navbar.css'
 
 const LOCALES = ['pt', 'es', 'en']
 
-export default function Navbar() {
-  const { readerMode } = useReader()
+export default function Navbar({ hidden }) {
   const scrolled = useScrollPosition(20)
   const [menuOpen, setMenuOpen] = useState(false)
   const { t, locale, changeLocale } = useLanguage()
@@ -23,6 +21,8 @@ export default function Navbar() {
 
   const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'personagens', 'autor', 'assinar']
 
+  if (hidden) return null
+
   const classList = [
     'navbar',
     scrolled ? 'navbar--scrolled' : '',
@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={classList} data-hidden={readerMode}>
+      <nav className={classList}>
         <div className="navbar__inner container">
           <Link to="/" className="navbar__logo">LDI</Link>
 
