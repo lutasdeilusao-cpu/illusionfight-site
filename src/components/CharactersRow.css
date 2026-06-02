@@ -33,3 +33,41 @@
   background: linear-gradient(to right, transparent, var(--bg-primary));
   pointer-events: none;
 }
+
+.characters-row__timeline-teaser {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2rem 0 1.5rem;
+  padding: 1.25rem;
+  border-top: 1px solid rgba(0,180,216,0.15);
+  border-bottom: 1px solid rgba(0,180,216,0.15);
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.characters-row__timeline-teaser:hover {
+  border-color: rgba(0,180,216,0.4);
+}
+
+.crt-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.crt-ano {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-teal);
+}
+
+.crt-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
