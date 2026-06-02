@@ -34,13 +34,13 @@
   },
   {
     "id": "instagram",
-    "ativo": false,
+    "ativo": true,
     "plataforma": "Instagram",
     "icone": "instagram",
     "corPlataforma": "#E1306C",
-    "url": "",
+    "url": "https://www.instagram.com/illusionfight/",
     "thumbnail": null,
-    "titulo": "Em breve",
-    "descricao": "Ver no Instagram"
+    "titulo": "@illusionfight",
+    "descricao": "Seguir no Instagram"
   }
 ]
