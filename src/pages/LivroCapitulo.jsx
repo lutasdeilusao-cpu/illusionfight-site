@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
+import { TRIAL_ACTIVE } from '../config/trial'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -40,7 +41,7 @@ export default function LivroCapitulo() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   useEffect(() => {
-    if (!chapter || !chapter.publicado) {
+    if (!chapter || (!chapter.publicado && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
     }

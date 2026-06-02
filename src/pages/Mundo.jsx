@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { TRIAL_ACTIVE } from '../config/trial'
 import { usePersonagens } from '../hooks/usePersonagens'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import CharacterCard from '../components/CharacterCard'
@@ -137,10 +138,12 @@ export default function Mundo() {
               </div>
             ))}
           </div>
-          <div className="mundo-premium-badge">
-            <p>Ritual do Selamento detalhado, fichas de Yawanari, Powa e Tawira, e as Sagas Primordiais</p>
-            <span className="mundo-premium-tag">PREMIUM</span>
-          </div>
+          {!TRIAL_ACTIVE && (
+            <div className="mundo-premium-badge">
+              <p>Ritual do Selamento detalhado, fichas de Yawanari, Powa e Tawira, e as Sagas Primordiais</p>
+              <span className="mundo-premium-tag">PREMIUM</span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -149,7 +152,7 @@ export default function Mundo() {
           <h2 className="section-title">GLOSSÁRIO</h2>
           <div className="mundo-glossario-grid">
             {data.glossario.map(g => (
-              <div key={g.sigla} className={`mundo-glossario-card${g.premium ? ' mundo-glossario-card--premium' : ''}`}>
+              <div key={g.sigla} className={`mundo-glossario-card${g.premium && !TRIAL_ACTIVE ? ' mundo-glossario-card--premium' : ''}`}>
                 <span className="mundo-glossario-sigla">{g.sigla}</span>
                 <span className="mundo-glossario-nome">{g.nome}</span>
                 <p className="mundo-glossario-desc">{g.descricao}</p>

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { TRIAL_ACTIVE } from '../config/trial'
 import index from '../data/livro-index.json'
 import './BookChaptersRow.css'
 
@@ -12,7 +13,7 @@ export default function BookChaptersRow() {
   const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
 
   const published = index
-    .filter(ch => ch.publicado)
+    .filter(ch => ch.publicado || TRIAL_ACTIVE)
     .sort((a, b) => b.numero - a.numero)
 
   return (
