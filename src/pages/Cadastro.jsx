@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import './Login.css'
 
 export default function Cadastro() {
+  const { carregarPerfil } = useAuth()
   const { migrarLocalParaSupabase, desbloquear } = useAchievements()
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', senha: '', confirmarSenha: '' })
   const [erro, setErro] = useState('')
@@ -35,9 +37,18 @@ export default function Cadastro() {
     })
     if (error) { setErro(error.message); setCarregando(false); return }
     if (data.user) {
-      await supabase.from('profiles').insert({ id: data.user.id, nome: form.nome, telefone: form.telefone })
+      const { error: perfilError } = await supabase
+        .from('profiles')
+        .insert({ id: data.user.id, nome: form.nome, telefone: form.telefone })
+      if (perfilError) {
+        console.error('Erro perfil:', perfilError)
+        setErro('Conta criada mas erro ao salvar perfil. Tente novamente.')
+        setCarregando(false)
+        return
+      }
       await migrarLocalParaSupabase(data.user.id)
       await desbloquear('recrutado')
+      await carregarPerfil(data.user.id)
     }
     setCarregando(false)
     setSucesso('Verifique seu email para confirmar o cadastro.')
