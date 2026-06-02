@@ -28,6 +28,7 @@ import Extras from './pages/Extras'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil'
+import Admin from './pages/Admin'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -64,6 +65,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
       <ScrollToTop />

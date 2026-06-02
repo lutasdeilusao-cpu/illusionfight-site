@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.6*
+*Versão: 1.7*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -76,7 +76,8 @@
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha |
-| `/perfil` | Perfil | `src/pages/Perfil.jsx` | ✅ | Perfil do usuário com grid de achievements |
+| `/perfil` | Perfil | `src/pages/Perfil.jsx` | ✅ | Perfil do usuário com grid de achievements + seção de compartilhamento mensal |
+| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel de auditoria de compartilhamentos — acesso restrito ao admin |
 | `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Dentro de /extras — lore, easter eggs e bastidores |
 
 ---
@@ -236,6 +237,13 @@
 - ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
 - ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
+### Achievement Mensal de Compartilhamento
+- ✅ **Tabela share_submissions** — Supabase, 1 envio/mês/usuário, status pendente/aprovado/rejeitado
+- ✅ **Seção no perfil** — Input de link, validação de URL, feedback de status
+- ✅ **Painel /admin** — Lista submissões pendentes, aprova/rejeita com clique, insere achievement automaticamente
+- ✅ **Achievement divulgador** — 🔥 "Divulgador da Arena", concedido pelo admin após auditoria manual
+- ✅ **Policy de admin** — UPDATE em share_submissions e INSERT em user_achievements liberados
+
 ### Autenticação + Achievements
 - ✅ **AuthContext** — Provider global, sessão Supabase, carregamento de perfil, listener onAuthStateChange
 - ✅ **AchievementsContext** — Provider global, 8 achievements persistidos em localStorage (anônimo) ou Supabase (logado)
@@ -299,6 +307,7 @@
 - ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
 - ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto da gangue por avatares visuais
 - ❌ **Quiz — leaderboard** — Ranking global de pontuações
+- ❌ **Achievement divulgador — automação futura** — Verificação automática via API do X/YouTube em vez de auditoria manual
 - ❌ **Achievements EN/ES** — Tradução dos achievements para inglês e espanhol
 - ❌ **Leaderboard de achievements** — Comparação entre usuários
 - ❌ **Página de perfil com avatar customizável** — Upload de foto, capa, bio

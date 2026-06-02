@@ -70,5 +70,15 @@
     "secreto": true,
     "tier": 1,
     "trigger": "tempo_10min"
+  },
+  {
+    "id": "divulgador",
+    "nome": "Divulgador da Arena",
+    "descricao": "Você compartilhou o LDI nas redes. A arena cresce.",
+    "icone": "🔥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "share_aprovado",
+    "recorrente": true
   }
 ]

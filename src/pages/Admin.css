@@ -1,0 +1,126 @@
+.admin-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 720px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+.admin-bloqueado {
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  color: #e74c3c;
+  padding-top: 3rem;
+}
+
+.admin-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #EAEAEA;
+  margin-bottom: 0.5rem;
+}
+
+.admin-contador {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: #8B8F96;
+  margin-bottom: 1.5rem;
+}
+
+.admin-card {
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.admin-mes {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+}
+
+.admin-link {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  color: #00B4D8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}
+
+.admin-data {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.65rem;
+  color: #4F5359;
+}
+
+.admin-acoes {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.admin-btn-aprovar,
+.admin-btn-rejeitar {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.admin-btn-aprovar {
+  background: #1ea064;
+  color: #fff;
+}
+
+.admin-btn-rejeitar {
+  background: #c0392b;
+  color: #fff;
+}
+
+.admin-btn-aprovar:hover,
+.admin-btn-rejeitar:hover {
+  opacity: 0.8;
+}
+
+.admin-vazio {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #8B8F96;
+  text-align: center;
+  padding-top: 2rem;
+}
