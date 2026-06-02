@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-01*
-*Versão: 1.2*
+*Versão: 1.3*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -15,11 +15,13 @@
 ├── package.json                        # Dependências e scripts (inclui predeploy/deploy)
 ├── vite.config.js                      # Configuração Vite (base: /illusionfight-site/)
 ├── SITE_MAP.md                         # Este arquivo
+├── PREMIUM_AUDIT.md                    # Auditoria de conteúdo premium
 ├── .gitignore                          # Node, dist, .env, Retcon.md
 ├── public/
 │   ├── favicon.svg                     # Favicon LDI
 │   ├── og-image.jpg                    # Open Graph preview (1200×630)
 │   ├── 404.html                        # Redirect SPA para GitHub Pages
+│   ├── sitemap.xml                     # Sitemap 8 URLs para crawlers
 │   └── webtoon/
 │       └── 00/pt/01~21.png             # 21 páginas do webtoon Ep. 00
 └── src/
@@ -34,9 +36,12 @@
     │   ├── logos/                      # logo-pt.png, logo-en.png
     │   └── music/                      # lutas-de-ilusao.png
     │
-    ├── components/                     # 19 componentes
+    ├── components/
+    │   ├── SearchModal/                # Modal de busca global
+    │   └── ...                         # 19 componentes + SearchModal
     ├── config/
-    │   └── site.js                     # SITE_CONFIG (TRIAL_MODE, SITE_NAME, etc.)
+    │   ├── site.js                     # SITE_NAME, SITE_NAME_PT, DOMAIN
+    │   └── trial.js                    # TRIAL_ACTIVE — true libera conteúdo premium
     ├── context/
     │   ├── LanguageContext.jsx          # Provider de i18n: locale, t(), changeLocale()
     │   └── ReaderContext.jsx           # Estado global readerMode — esconde Navbar e TrialBanner nos leitores
@@ -94,6 +99,7 @@
 | ScrollToTopOnNav | `ScrollToTopOnNav.jsx` | — | App (global) | Escuta mudanças de rota e faz scrollTo(0,0) |
 | NotificationBalloon | `NotificationBalloon.jsx` | `NotificationBalloon.css` | App (global) | Balão com foto do Jack, 10 mensagens aleatórias Fisher-Yates, 3min primeira, 10min entre cada, auto-fecha 8s |
 | CookieBanner | `CookieBanner.jsx` | `CookieBanner.css` | App (global) | Banner LGPD/GDPR, persiste aceitação em localStorage('ldi-cookies-accepted'), slideUp |
+| SearchModal | `SearchModal/SearchModal.jsx` | `SearchModal/SearchModal.css` | App (global) | Modal de busca global, overlay z-index 2000, resultados agrupados por tipo, badge PREMIUM, respeita TRIAL_ACTIVE |
 | PlatformIcons | `PlatformIcons.jsx` | — | MusicSection, NowLive | SVGs inline: Spotify, YouTube, Apple Music, Amazon Music, Deezer, Tidal, TikTok, X, Instagram |
 
 ---
@@ -131,7 +137,7 @@
 | `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder (livro, eBook, camisetas, boné, caneca, pôster, quadrinho, chaveiro) | ShopSection |
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
-| `search-index.js` | `src/data/` | — | Índice flat de personagens, capítulos, webtoon, músicas, lore para busca | SearchModal |
+| `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas e lore para busca global | SearchModal |
 
 ---
 
@@ -185,7 +191,10 @@
 - ✅ **Página /musicas** — Hero + faixas com capa e plataformas + placeholder videoclipes
 - ✅ **Modo imersivo** — Navbar e TrialBanner ocultos em WebtoonEpisodio e LivroCapitulo via ReaderContext
 - ✅ **Página /mundo** — Hero, Bravara + localizações, Timeline 1450→20XX, LDI + SDR, Xakaxi + tecnologias, Glossário FREE/PREMIUM, seção Personagens
-- ✅ **Busca global** — Lupa na navbar (desktop + drawer), modal overlay, Ctrl+K, indexa personagens/livro/webtoon/músicas/lore, badge PREMIUM respeita TRIAL_ACTIVE
+- ✅ **Busca global** — Lupa na navbar (desktop + drawer mobile), modal overlay (z-index 2000), Ctrl+K / Cmd+K, indexa personagens/livro/webtoon/músicas/lore, badge PREMIUM informativo, acesso respeita TRIAL_ACTIVE
+- ✅ **Trial system** — src/config/trial.js, TRIAL_ACTIVE = true/false controla acesso global a conteúdo premium. Badge sempre visível. Conteúdo liberado em trial
+- ✅ **Auditoria premium** — PREMIUM_AUDIT.md na raiz, 26 itens catalogados, 4 bugs corrigidos (LivroCapitulo, BookChaptersRow, Mundo glossário, Mundo Xakaxi badge)
+- ✅ **sitemap.xml** — public/sitemap.xml com 8 rotas públicas + link rel no index.html
 
 ### Home
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns, scanlines, HeroEffect (chuva digital), Typewriter
@@ -249,8 +258,6 @@
 - ❌ **Páginas EN/ES completas** — Capítulos do livro traduzidos
 - ❌ **Logo ES** — Apenas PT e EN têm logo em imagem
 - ❌ **Modo light** — Dark mode fixo, sem toggle
-- ❌ **Busca** — Pesquisa interna no site
-- ❌ **sitemap.xml** — Arquivo XML para crawlers
 - ❌ **Domínio customizado** — www.illusionfight.com
 - ❌ **Integração Stripe** — Links reais de pagamento
 
@@ -292,11 +299,12 @@
 
 ### Camadas de z-index
 ```
-z-index 200 — CookieBanner
-z-index 150 — NotificationBalloon
-z-index 100 — ScrollToTop
+z-index 2000 — SearchModal overlay
 z-index 1000 — Navbar
 z-index 998  — TrialBanner
+z-index 200  — CookieBanner
+z-index 150  — NotificationBalloon
+z-index 100  — ScrollToTop
 z-index 50   — MusicSection dropdown
 z-index 10   — BookCard, CharacterCard hover (scale)
 ```
