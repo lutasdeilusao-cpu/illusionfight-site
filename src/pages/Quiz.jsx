@@ -27,13 +27,13 @@ function gerarDicaGangue(personagem, pergunta) {
   const acertou = Math.random() < 0.9
   if (acertou) {
     const dicaTexto = pergunta.dicas?.[personagem]
-    if (dicaTexto) return { texto: dicaTexto, correto: true }
+    if (dicaTexto) return { texto: dicaTexto, correto: true, indice: pergunta.correta }
     const fallbacks = {
       kim: "Olha... eu acho que é essa, mas não me pergunta qual.",
       jack: "É ESSA AÍ, PODE CONFiar!",
       nina: "Óbvio que é essa."
     }
-    return { texto: fallbacks[personagem] || fallbacks.kim, correto: true }
+    return { texto: fallbacks[personagem] || fallbacks.kim, correto: true, indice: pergunta.correta }
   } else {
     const erradas = pergunta.alternativas.map((_, i) => i).filter(i => i !== pergunta.correta)
     const indiceErrado = erradas[Math.floor(Math.random() * erradas.length)]
@@ -42,7 +42,7 @@ function gerarDicaGangue(personagem, pergunta) {
       jack: `Com certeza é a ${String.fromCharCode(65 + indiceErrado)}, pode marcar!`,
       nina: `${String.fromCharCode(65 + indiceErrado)}.`
     }
-    return { texto: textoErrado[personagem], correto: false }
+    return { texto: textoErrado[personagem], correto: false, indice: indiceErrado }
   }
 }
 
@@ -74,6 +74,7 @@ export default function Quiz() {
   const [ajudasDisponiveis, setAjudasDisponiveis] = useState({ pular: 2, gangue: 1 })
   const [mostraGangue, setMostraGangue] = useState(false)
   const [dicaGangue, setDicaGangue] = useState(null)
+  const [dicaIndice, setDicaIndice] = useState(null)
   const [bloqueioModo, setBloqueioModo] = useState(null)
   const [transicao, setTransicao] = useState(null)
   const [rankExibido, setRankExibido] = useState(2847391000)
@@ -130,6 +131,7 @@ export default function Quiz() {
     setHistorico([])
     setAjudasDisponiveis({ pular: 2, gangue: 1 })
     setDicaGangue(null)
+    setDicaIndice(null)
     setMostraGangue(false)
     setModo(modoKey)
     setFase("pergunta")
@@ -139,6 +141,7 @@ export default function Quiz() {
     if (confirmada) return
     clearInterval(timerRef.current)
     setConfirmada(true)
+    setDicaIndice(null)
     setUltimaResposta(resposta)
     const pergunta = perguntas[indice]
     const acertou = resposta === pergunta.correta
@@ -165,6 +168,7 @@ export default function Quiz() {
         setUltimaResposta(null)
         setTimer(30)
         setDicaGangue(null)
+        setDicaIndice(null)
         setMostraGangue(false)
         setTransicao("entrando")
         setTimeout(() => setTransicao(null), 200)
@@ -193,6 +197,7 @@ export default function Quiz() {
     setAjudasDisponiveis(s => ({ ...s, gangue: s.gangue - 1 }))
     const dica = gerarDicaGangue(personagem, perguntas[indice])
     setDicaGangue({ ...dica, personagem })
+    setDicaIndice(dica.indice)
     setMostraGangue(false)
   }
 
@@ -286,6 +291,7 @@ export default function Quiz() {
             {pergunta.alternativas.map((alt, i) => {
               const letra = String.fromCharCode(65 + i)
               let classe = 'quiz-alternativa'
+              if (dicaIndice === i && !confirmada) classe += ' quiz-alt-gangue'
               if (confirmada) {
                 if (i === pergunta.correta) classe += ' quiz-alt-correta'
                 else if (ultimaResposta === i) classe += ' quiz-alt-errada'
