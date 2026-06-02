@@ -15,33 +15,48 @@
     ]
   },
   {
-    "id": "placeholder-2",
+    "id": "sinfonia-imperfeita",
+    "titulo": "Sinfonia Imperfeita",
+    "artista": "Isaias Leal",
+    "ano": "2024",
+    "publicado": true,
+    "capa": null,
+    "cor": "#1A1D21",
+    "plataformas": [
+      { "nome": "Spotify", "url": "", "cor": "#1DB954", "icone": "spotify" },
+      { "nome": "YouTube", "url": "", "cor": "#FF0000", "icone": "youtube" },
+      { "nome": "Apple Music", "url": "", "cor": "#FC3C44", "icone": "apple" },
+      { "nome": "Amazon Music", "url": "", "cor": "#00A8E1", "icone": "amazon" },
+      { "nome": "Deezer", "url": "", "cor": "#A238FF", "icone": "deezer" },
+      { "nome": "Tidal", "url": "", "cor": "#000000", "icone": "tidal" }
+    ]
+  },
+  {
+    "id": "faixa-3",
     "titulo": "Em breve",
     "artista": "Isaias Leal",
+    "ano": "—",
+    "publicado": false,
     "capa": null,
     "cor": "#1A1D21",
     "plataformas": []
   },
   {
-    "id": "placeholder-3",
+    "id": "faixa-4",
     "titulo": "Em breve",
     "artista": "Isaias Leal",
+    "ano": "—",
+    "publicado": false,
     "capa": null,
     "cor": "#1A1D21",
     "plataformas": []
   },
   {
-    "id": "placeholder-4",
-    "titulo": "Isaias Leal",
-    "artista": "Em breve",
-    "capa": null,
-    "cor": "#1A1D21",
-    "plataformas": []
-  },
-  {
-    "id": "placeholder-5",
+    "id": "faixa-5",
     "titulo": "Em breve",
     "artista": "Isaias Leal",
+    "ano": "—",
+    "publicado": false,
     "capa": null,
     "cor": "#1A1D21",
     "plataformas": []

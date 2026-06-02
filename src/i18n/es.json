@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "Personajes", "AUTOR", "APOYAR"],
+    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "AUTOR", "APOYAR"],
     "cta": "ENTRAR",
     "aria": { "menu": "Abrir menú" }
   },
@@ -69,7 +69,7 @@
   "homeSupport": {
     "title": "APOYA EL PROYECTO",
     "text": "Accede a contenido exclusivo y ayuda a mantener la obra viva.",
-    "cta": "VER PLANES"
+    "cta": "CÓMO COLABORAR"
   },
   "trial": {
     "message": "Contenido exclusivo en acceso libre por tiempo limitado — ¡aprovéchalo!"
@@ -95,6 +95,13 @@
     "titulo": "Elige tu clase",
     "subtitulo": "En el LDI, tu rango define lo que accedes. Aquí no es diferente.",
     "nota": "* Los precios en USD y EUR son aproximados. Pago via Stripe o PIX.",
+    "doacao": {
+      "title": "¿Prefieres apoyar sin suscribirte?",
+      "text": "Toda donación ayuda al proyecto a continuar.",
+      "benefit1": "€10 o más = 1 mes de ELITE gratis",
+      "benefit2": "€50 o más = 1 mes de PRIMORDIAL gratis",
+      "cta": "HACER UNA DONACIÓN"
+    },
     "pix": {
       "title": "¿Prefieres contribuir vía PIX?",
       "text": "Cualquier valor es bienvenido.",

@@ -76,6 +76,20 @@ export default function Assinar() {
         </div>
       </section>
 
+      <section className="assinar-doacao">
+        <div className="container">
+          <div className="assinar-doacao__box">
+            <h2 className="assinar-doacao__title">{t('assinar.doacao.title')}</h2>
+            <p className="assinar-doacao__text">{t('assinar.doacao.text')}</p>
+            <ul className="assinar-doacao__benefits">
+              <li>{t('assinar.doacao.benefit1')}</li>
+              <li>{t('assinar.doacao.benefit2')}</li>
+            </ul>
+            <a href="#" className="assinar-doacao__btn">{t('assinar.doacao.cta')}</a>
+          </div>
+        </div>
+      </section>
+
       <section className="assinar-newsletter">
         <div className="container">
           <div className="assinar-newsletter__box">

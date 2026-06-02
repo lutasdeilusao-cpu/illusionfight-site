@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Book", "Music", "World", "Trivia", "Characters", "AUTHOR", "SUPPORT"],
+    "links": ["Webtoon", "Book", "Music", "World", "AUTHOR", "SUPPORT"],
     "cta": "LOG IN",
     "aria": { "menu": "Open menu" }
   },
@@ -69,7 +69,7 @@
   "homeSupport": {
     "title": "SUPPORT THE PROJECT",
     "text": "Access exclusive content and help keep the work alive.",
-    "cta": "VIEW PLANS"
+    "cta": "HOW TO SUPPORT"
   },
   "trial": {
     "message": "Exclusive content in free access for a limited time — enjoy it!"
@@ -95,6 +95,13 @@
     "titulo": "Choose your class",
     "subtitulo": "In LDI, your rank defines what you access. Here it's no different.",
     "nota": "* USD and EUR prices are approximate. Payment via Stripe or PIX.",
+    "doacao": {
+      "title": "Prefer to support without subscribing?",
+      "text": "Every donation helps the project continue.",
+      "benefit1": "$10 or more = 1 free month of ELITE",
+      "benefit2": "$50 or more = 1 free month of PRIMORDIAL",
+      "cta": "MAKE A DONATION"
+    },
     "pix": {
       "title": "Prefer to contribute via PIX?",
       "text": "Any amount is welcome.",
