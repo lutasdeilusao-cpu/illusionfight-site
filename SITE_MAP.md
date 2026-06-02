@@ -95,6 +95,7 @@
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | Row horizontal de cards estáticos clicáveis — YouTube, TikTok, X, Instagram |
 | ShopSection | `ShopSection.jsx` | `ShopSection.css` | Home | Carrossel infinito drag/swipe de produtos — 10 placeholders |
 | NotificationBalloon | `NotificationBalloon.jsx` | `NotificationBalloon.css` | App (global) | Balão de notificação com Jack — 10 mensagens, 3min primeira, 10min entre cada |
+| CookieBanner | `CookieBanner.jsx` | `CookieBanner.css` | App (global) | Banner de cookies LGPD/GDPR — aparece na primeira visita, some ao aceitar |
 
 ---
 
@@ -199,6 +200,7 @@
 - ✅ **Google Analytics** — G-QVDGMZ1F58, script no index.html
 - ✅ **Leitor de Webtoon** — scroll vertical, lazy load, max 800px, fundo preto, navegação entre episódios
 - ✅ **Seção de produtos** — carrossel infinito drag/swipe sem botões, 10 placeholders, estilo Netflix
+- ✅ **Cookie Banner** — barra fixa no rodapé, LGPD/GDPR básico, persiste aceitação em localStorage
 - ✅ **Página de episódios** — grid com thumbnails, badges de idioma e tier
 
 ---

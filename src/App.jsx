@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import NotificationBalloon from './components/NotificationBalloon'
+import CookieBanner from './components/CookieBanner'
 import Home from './pages/Home'
 import Personagens from './pages/Personagens'
 import PersonagemDetalhe from './pages/PersonagemDetalhe'
@@ -36,6 +37,7 @@ export default function App() {
       <Footer />
       <ScrollToTop />
       <NotificationBalloon />
+      <CookieBanner />
     </>
   )
 }
