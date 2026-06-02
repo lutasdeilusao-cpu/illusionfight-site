@@ -40,6 +40,7 @@ export function AchievementsProvider({ children }) {
   }
 
   const desbloquear = useCallback(async (achievementId) => {
+    console.log('desbloquear:', achievementId, 'user:', user?.id ?? 'NULO')
     if (desbloqueados.includes(achievementId)) return
     const achievement = todosAchievements.find(a => a.id === achievementId)
     if (!achievement) return
