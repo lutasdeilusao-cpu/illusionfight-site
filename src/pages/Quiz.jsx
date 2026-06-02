@@ -1,46 +1,37 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import bancoPT from '../data/quiz-pt.json'
 import './Quiz.css'
 
 const MODOS = {
-  recruta: { label: "RECRUTA", total: 10, dificuldades: ["facil"], cor: "verde", premium: true, descricao: "Básico — qualquer fã entra" },
-  ranqueado: { label: "RANQUEADO", total: 10, dificuldades: ["facil", "medio"], cor: "teal", premium: false, descricao: "Free — 5 fáceis + 5 médias" },
-  elite: { label: "ELITE", total: 20, dificuldades: ["facil", "medio", "dificil"], cor: "carmesim", premium: true, descricao: "Completo — do prólogo ao Kronos" }
+  ranqueado: { label: "RANQUEADO", total: 10, dificuldades: ["facil","medio"], premium: false, split: [5,5] },
+  elite:     { label: "ELITE",     total: 20, dificuldades: ["facil","medio","dificil"], premium: true, split: [7,7,6] },
+  primordial:{ label: "PRIMORDIAL",total: 30, dificuldades: ["facil","medio","dificil"], premium: true, split: [10,10,10] },
 }
 
 function embaralhar(arr) {
   return [...arr].sort(() => Math.random() - 0.5)
 }
 
-function selecionarPerguntasRanqueado(banco) {
-  const faceis = embaralhar(banco.filter(q => q.dificuldade === "facil")).slice(0, 5)
-  const medias = embaralhar(banco.filter(q => q.dificuldade === "medio")).slice(0, 5)
-  return [...faceis, ...medias]
-}
-
-function selecionarPerguntasRecruta(banco) {
-  return embaralhar(banco.filter(q => q.dificuldade === "facil")).slice(0, 10)
-}
-
-function selecionarPerguntasElite(banco) {
-  const faceis = embaralhar(banco.filter(q => q.dificuldade === "facil")).slice(0, 6)
-  const medias = embaralhar(banco.filter(q => q.dificuldade === "medio")).slice(0, 7)
-  const dificeis = embaralhar(banco.filter(q => q.dificuldade === "dificil")).slice(0, 7)
+function selecionarPerguntas(modo) {
+  const cfg = MODOS[modo]
+  const faceis   = embaralhar(bancoPT.filter(q => q.dificuldade === "facil")).slice(0, cfg.split[0])
+  const medias   = embaralhar(bancoPT.filter(q => q.dificuldade === "medio")).slice(0, cfg.split[1])
+  const dificeis = cfg.split[2] ? embaralhar(bancoPT.filter(q => q.dificuldade === "dificil")).slice(0, cfg.split[2]) : []
   return [...faceis, ...medias, ...dificeis]
 }
 
-function gerarDicaUniversitario(personagem, pergunta) {
+function gerarDicaGangue(personagem, pergunta) {
   const acertou = Math.random() < 0.9
   if (acertou) {
     const dicaTexto = pergunta.dicas?.[personagem]
     if (dicaTexto) return { texto: dicaTexto, correto: true }
     const fallbacks = {
-      kim: `Olha... eu acho que é a alternativa certa, mas não me pergunta qual.`,
-      jack: `É ESSA AÍ, PODE CONFiar!`,
-      nina: `Óbvio que é essa.`
+      kim: "Olha... eu acho que é essa, mas não me pergunta qual.",
+      jack: "É ESSA AÍ, PODE CONFiar!",
+      nina: "Óbvio que é essa."
     }
     return { texto: fallbacks[personagem] || fallbacks.kim, correto: true }
   } else {
@@ -68,7 +59,6 @@ function calcularRank(acertos, total, tempoMedio) {
 
 export default function Quiz() {
   const { t } = useLanguage()
-  const navigate = useNavigate()
 
   const [fase, setFase] = useState("entrada")
   const [modo, setModo] = useState(null)
@@ -81,10 +71,12 @@ export default function Quiz() {
   const [timer, setTimer] = useState(30)
   const [resultadoCalculado, setResultadoCalculado] = useState(null)
   const [historico, setHistorico] = useState([])
-  const [ajudasDisponiveis, setAjudasDisponiveis] = useState({ pular: 2, universitario: 1 })
-  const [mostraUniversitarios, setMostraUniversitarios] = useState(false)
-  const [dicaUniversitario, setDicaUniversitario] = useState(null)
+  const [ajudasDisponiveis, setAjudasDisponiveis] = useState({ pular: 2, gangue: 1 })
+  const [mostraGangue, setMostraGangue] = useState(false)
+  const [dicaGangue, setDicaGangue] = useState(null)
   const [bloqueioModo, setBloqueioModo] = useState(null)
+  const [transicao, setTransicao] = useState(null)
+  const [rankExibido, setRankExibido] = useState(2847391000)
   const timerRef = useRef(null)
 
   useEffect(() => {
@@ -105,17 +97,30 @@ export default function Quiz() {
     }
   }, [timer])
 
+  useEffect(() => {
+    if (fase !== "resultado" || !resultadoCalculado) return
+    setRankExibido(2847391000)
+    const inicio = 2847391000
+    const fim = resultadoCalculado.posicao
+    const duracao = 1800
+    const startTime = Date.now()
+    const iv = setInterval(() => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duracao, 1)
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
+      setRankExibido(Math.round(inicio - (inicio - fim) * ease))
+      if (progress === 1) clearInterval(iv)
+    }, 16)
+    return () => clearInterval(iv)
+  }, [fase])
+
   const iniciarModo = (modoKey) => {
     const config = MODOS[modoKey]
     if (config.premium && !TRIAL_ACTIVE) {
       setBloqueioModo(modoKey)
       return
     }
-    let selecionadas
-    if (modoKey === 'recruta') selecionadas = selecionarPerguntasRecruta(bancoPT)
-    else if (modoKey === 'ranqueado') selecionadas = selecionarPerguntasRanqueado(bancoPT)
-    else selecionadas = selecionarPerguntasElite(bancoPT)
-    setPerguntas(selecionadas)
+    setPerguntas(selecionarPerguntas(modoKey))
     setIndice(0)
     setConfirmada(false)
     setUltimaResposta(null)
@@ -123,9 +128,9 @@ export default function Quiz() {
     setTempos([])
     setResultadoCalculado(null)
     setHistorico([])
-    setAjudasDisponiveis({ pular: 2, universitario: 1 })
-    setDicaUniversitario(null)
-    setMostraUniversitarios(false)
+    setAjudasDisponiveis({ pular: 2, gangue: 1 })
+    setDicaGangue(null)
+    setMostraGangue(false)
     setModo(modoKey)
     setFase("pergunta")
   }
@@ -153,12 +158,17 @@ export default function Quiz() {
   const proximaPergunta = () => {
     const total = perguntas.length
     if (indice + 1 < total) {
-      setIndice(s => s + 1)
-      setConfirmada(false)
-      setUltimaResposta(null)
-      setTimer(30)
-      setDicaUniversitario(null)
-      setMostraUniversitarios(false)
+      setTransicao("saindo")
+      setTimeout(() => {
+        setIndice(prev => prev + 1)
+        setConfirmada(false)
+        setUltimaResposta(null)
+        setTimer(30)
+        setDicaGangue(null)
+        setMostraGangue(false)
+        setTransicao("entrando")
+        setTimeout(() => setTransicao(null), 200)
+      }, 150)
     } else {
       const tempoMedio = [...tempos, 30 - timer].reduce((a, b) => a + b, 0) / total
       setResultadoCalculado(calcularRank(acertos + (historico[historico.length - 1]?.acertou ? 1 : 0), total, tempoMedio))
@@ -174,16 +184,16 @@ export default function Quiz() {
     confirmarResposta(null)
   }
 
-  const abrirUniversitarios = () => {
-    if (ajudasDisponiveis.universitario <= 0) return
-    setMostraUniversitarios(true)
+  const abrirGangue = () => {
+    if (ajudasDisponiveis.gangue <= 0) return
+    setMostraGangue(true)
   }
 
-  const escolherUniversitario = (personagem) => {
-    setAjudasDisponiveis(s => ({ ...s, universitario: s.universitario - 1 }))
-    const dica = gerarDicaUniversitario(personagem, perguntas[indice])
-    setDicaUniversitario({ ...dica, personagem })
-    setMostraUniversitarios(false)
+  const escolherGangue = (personagem) => {
+    setAjudasDisponiveis(s => ({ ...s, gangue: s.gangue - 1 }))
+    const dica = gerarDicaGangue(personagem, perguntas[indice])
+    setDicaGangue({ ...dica, personagem })
+    setMostraGangue(false)
   }
 
   const reiniciar = () => {
@@ -194,10 +204,10 @@ export default function Quiz() {
 
   if (fase === "entrada") {
     return (
-      <section className="quiz-page">
+      <section className="quiz-page-entrada">
         <div className="quiz-header">
           <span className="quiz-nexus-tag">{t('quiz.nexus_tag')}</span>
-          <h1>{t('quiz.titulo')}</h1>
+          <h1 className="quiz-titulo">{t('quiz.titulo')}</h1>
           <p>{t('quiz.subtitulo')}</p>
         </div>
 
@@ -205,24 +215,23 @@ export default function Quiz() {
           {Object.entries(MODOS).map(([key, config]) => (
             <div
               key={key}
-              className="quiz-modo-card"
-              style={{ '--modo-cor': config.cor }}
+              className={`quiz-modo-card ${key}`}
               onClick={() =>
                 config.premium && !TRIAL_ACTIVE
                   ? setBloqueioModo(key)
                   : iniciarModo(key)
               }
             >
-              <div className="quiz-modo-card-header">
-                <span className="quiz-modo-label">{config.label}</span>
-                {config.premium ? (
-                  <span className="quiz-modo-badge quiz-modo-badge--premium">PREMIUM</span>
-                ) : (
-                  <span className="quiz-modo-badge quiz-modo-badge--free">FREE</span>
-                )}
-              </div>
+              <span className={`quiz-modo-badge ${config.premium ? 'premium' : 'free'}`}>
+                {config.premium ? 'PREMIUM' : 'FREE'}
+              </span>
+              <span className="quiz-modo-label">{config.label}</span>
               <p className="quiz-modo-total">{config.total} perguntas</p>
-              <p className="quiz-modo-desc">{config.descricao}</p>
+              <p className="quiz-modo-desc">
+                {key === 'ranqueado' && '5 fáceis + 5 médias'}
+                {key === 'elite' && '7 fáceis + 7 médias + 6 difíceis'}
+                {key === 'primordial' && '10 de cada dificuldade'}
+              </p>
               {config.premium && !TRIAL_ACTIVE && (
                 <span className="quiz-modo-lock">🔒</span>
               )}
@@ -234,14 +243,12 @@ export default function Quiz() {
 
         {bloqueioModo && (
           <div className="quiz-block">
-            <div className="quiz-block-content">
-              <h2>{t('quiz.bloqueio_titulo')}</h2>
-              <p>{t('quiz.bloqueio_desc')}</p>
-              <Link to="/assinar" className="quiz-block-btn">{t('quiz.bloqueio_btn')}</Link>
-              <button className="quiz-block-voltar" onClick={() => setBloqueioModo(null)}>
-                {t('quiz.bloqueio_voltar')}
-              </button>
-            </div>
+            <h2>{t('quiz.bloqueio_titulo')}</h2>
+            <p>{t('quiz.bloqueio_desc')}</p>
+            <Link to="/assinar" className="quiz-block-btn">{t('quiz.bloqueio_btn')}</Link>
+            <button className="quiz-block-voltar" onClick={() => setBloqueioModo(null)}>
+              {t('quiz.bloqueio_voltar')}
+            </button>
           </div>
         )}
       </section>
@@ -251,7 +258,6 @@ export default function Quiz() {
   if (fase === "pergunta") {
     const pergunta = perguntas[indice]
     if (!pergunta) return null
-
     const total = perguntas.length
 
     return (
@@ -272,7 +278,7 @@ export default function Quiz() {
           <span className="quiz-hud-acertos">ACERTOS: {acertos}</span>
         </div>
 
-        <div className="quiz-pergunta-container">
+        <div className={`quiz-pergunta-container${transicao ? ` ${transicao}` : ''}`}>
           <span className="quiz-categoria">{pergunta.categoria}</span>
           <h2 className="quiz-pergunta-texto">{pergunta.pergunta}</h2>
 
@@ -281,8 +287,8 @@ export default function Quiz() {
               const letra = String.fromCharCode(65 + i)
               let classe = 'quiz-alternativa'
               if (confirmada) {
-                if (i === pergunta.correta) classe += ' quiz-alternativa--correct'
-                else if (ultimaResposta === i) classe += ' quiz-alternativa--wrong'
+                if (i === pergunta.correta) classe += ' quiz-alt-correta'
+                else if (ultimaResposta === i) classe += ' quiz-alt-errada'
                 else classe += ' quiz-alternativa--disabled'
               }
               return (
@@ -311,20 +317,20 @@ export default function Quiz() {
             </button>
             <button
               className="quiz-ajuda-btn"
-              disabled={ajudasDisponiveis.universitario <= 0 || confirmada}
-              onClick={abrirUniversitarios}
+              disabled={ajudasDisponiveis.gangue <= 0 || confirmada}
+              onClick={abrirGangue}
             >
-              UNIVERSITÁRIOS ({ajudasDisponiveis.universitario})
+              GANGUE ({ajudasDisponiveis.gangue})
             </button>
           </div>
 
-          {mostraUniversitarios && (
-            <div className="quiz-universitarios">
+          {mostraGangue && (
+            <div className="quiz-gangue">
               {['kim', 'jack', 'nina'].map(p => (
                 <button
                   key={p}
-                  className="quiz-universitario-card"
-                  onClick={() => escolherUniversitario(p)}
+                  className="quiz-gangue-card"
+                  onClick={() => escolherGangue(p)}
                 >
                   {p}
                 </button>
@@ -332,9 +338,9 @@ export default function Quiz() {
             </div>
           )}
 
-          {dicaUniversitario && (
+          {dicaGangue && (
             <div className="quiz-dica">
-              <strong>{dicaUniversitario.personagem}:</strong> {dicaUniversitario.texto}
+              <strong>{dicaGangue.personagem}:</strong> {dicaGangue.texto}
             </div>
           )}
 
@@ -361,21 +367,21 @@ export default function Quiz() {
       <section className="quiz-page">
         <div className="quiz-resultado">
           <span className="quiz-nexus-tag">NEXUS PHANTASM — RESULTADO OFICIAL</span>
-          <h1 className="quiz-tier">{resultadoCalculado.tier}</h1>
-          <h2 className="quiz-posicao">#{resultadoCalculado.posicao.toLocaleString('pt-BR')}</h2>
+          <h1 className="quiz-resultado-tier">{resultadoCalculado.tier}</h1>
+          <h2 className="quiz-posicao">#{rankExibido.toLocaleString('pt-BR')}</h2>
           <p className="quiz-posicao-label">posição estimada no SDR</p>
           <p className="quiz-descricao"><em>{resultadoCalculado.descricao}</em></p>
 
           <div className="quiz-stats">
-            <div className="quiz-stat quiz-stat--acertos">
+            <div className="quiz-stat">
               <span className="quiz-stat-valor">{acertos}</span>
               <span className="quiz-stat-label">ACERTOS</span>
             </div>
-            <div className="quiz-stat quiz-stat--erros">
+            <div className="quiz-stat">
               <span className="quiz-stat-valor">{erros}</span>
               <span className="quiz-stat-label">ERROS</span>
             </div>
-            <div className="quiz-stat quiz-stat--aproveitamento">
+            <div className="quiz-stat">
               <span className="quiz-stat-valor">{aproveitamento}%</span>
               <span className="quiz-stat-label">APROVEITAMENTO</span>
             </div>

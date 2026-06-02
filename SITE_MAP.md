@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.4*
+*Versão: 1.5*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -214,12 +214,15 @@
 - ✅ **Scroll Reveal** — Animações fade+translateY em todas as seções via IntersectionObserver
 
 ### Quiz SDR
-- ✅ **3 modos de jogo** — RECRUTA (premium, 10 fáceis), RANQUEADO (free, 5+5), ELITE (premium, 20 adaptativas)
+- ✅ **3 modos de jogo** — RANQUEADO (free, 10 perguntas 5+5), ELITE (premium R$10, 20 perguntas 7+7+6), PRIMORDIAL (premium R$30, 30 perguntas 10+10+10)
 - ✅ **Timer** — 30s por pergunta com barra visual, fica vermelha <10s, timeout = erro automático
-- ✅ **Ajudas** — Pular (2/sessão) e Universitários (1/sessão, 90% dica certa, 10% errada)
+- ✅ **Ajudas** — Pular (2/sessão) e Gangue (1/sessão, 90% dica certa, 10% errada)
 - ✅ **Rank final** — Score + bônus de velocidade → ELITE/RANQUEADO/ASPIRANTE/NOVATO/RECRUTA
 - ✅ **Clique único** — Clique na alternativa confirma imediatamente, sem etapa intermediária
 - ✅ **85 perguntas PT** — 4 categorias (mundo, personagem, mecanica, lore), dicas kim/jack/nina
+- ✅ **Redesign entrada** — Scanlines, cards com glow por tier, badge separado no canto superior direito
+- ✅ **Animações** — Flash verde no acerto, shake vermelho no erro, fade entre perguntas, contagem regressiva do rank
+- ✅ **Tier reveal** — Rank conta de 2.8B até o valor real em 1.8s, tier aparece com delay de 0.6s
 
 ### Extras
 - ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
@@ -278,7 +281,7 @@
 - ❌ **Domínio customizado** — www.illusionfight.com
 - ❌ **Integração Stripe** — Links reais de pagamento
 - ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
-- ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto dos universitários por avatares visuais
+- ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto da gangue por avatares visuais
 - ❌ **Quiz — leaderboard** — Ranking global de pontuações
 
 ---
