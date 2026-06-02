@@ -101,6 +101,21 @@
   opacity: 0.4;
 }
 
+.perfil-achievement-status {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.5rem;
+}
+
+.status-unlocked {
+  color: #4de87a;
+}
+
+.status-locked {
+  color: #666;
+}
+
 .perfil-achievement-card--locked .perfil-achievement-nome {
   color: #666;
 }

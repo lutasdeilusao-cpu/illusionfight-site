@@ -59,26 +59,23 @@ export default function Perfil() {
 
       <h2 className="perfil-section-title">ACHIEVEMENTS</h2>
       <div className="perfil-achievements">
-        {todosAchievements.map(a => {
-          const desbloqueado = desbloqueados.includes(a.id)
-          const secretoNaoVisto = a.secreto && !desbloqueado
-          return (
-            <div
-              key={a.id}
-              className={`perfil-achievement-card${desbloqueado ? ' perfil-achievement-card--unlocked' : ' perfil-achievement-card--locked'}`}
-            >
-              <span className="perfil-achievement-icone">
-                {secretoNaoVisto ? '🔒' : a.icone}
-              </span>
-              <span className="perfil-achievement-nome">
-                {secretoNaoVisto ? '???' : a.nome}
-              </span>
-              <span className="perfil-achievement-desc">
-                {secretoNaoVisto ? 'Achievement secreto' : a.descricao}
-              </span>
-            </div>
-          )
-        })}
+          {todosAchievements.map(a => {
+            const unlocked = desbloqueados.includes(a.id)
+            const secretoNaoVisto = a.secreto && !unlocked
+            return (
+              <div
+                key={a.id}
+                className={`perfil-achievement-card ${unlocked ? 'perfil-achievement-card--unlocked' : 'perfil-achievement-card--locked'}`}
+              >
+                <div className="perfil-achievement-icone">{a.icone}</div>
+                <div className="perfil-achievement-nome">{secretoNaoVisto ? '???' : a.nome}</div>
+                <div className="perfil-achievement-desc">{secretoNaoVisto ? 'Achievement secreto' : a.descricao}</div>
+                <div className={`perfil-achievement-status ${unlocked ? 'status-unlocked' : 'status-locked'}`}>
+                  {unlocked ? '✓ DESBLOQUEADO' : '🔒 BLOQUEADO'}
+                </div>
+              </div>
+            )
+          })}
       </div>
 
       <div className="perfil-share-section">
