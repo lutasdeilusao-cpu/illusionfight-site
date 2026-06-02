@@ -88,33 +88,9 @@
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte gerada com auxílio de IA"
   },
   "assinar": {
-    "hero": {
-      "title": "APOIE A OBRA",
-      "subtitle": "Acesse conteúdo exclusivo e ajude a manter o projeto vivo."
-    },
-    "plans": {
-      "period": "/mês",
-      "cta": "QUERO APOIAR",
-      "apoiador": {
-        "name": "Apoiador",
-        "price": "R$ 10",
-        "benefits": [
-          "Acesso antecipado aos capítulos do livro",
-          "Benefício em breve",
-          "Benefício em breve"
-        ]
-      },
-      "guerreiro": {
-        "name": "Guerreiro",
-        "price": "R$ 30",
-        "badge": "MAIS POPULAR",
-        "benefits": [
-          "Tudo do plano Apoiador",
-          "Benefício exclusivo em breve",
-          "Benefício exclusivo em breve"
-        ]
-      }
-    },
+    "titulo": "Escolha sua classe",
+    "subtitulo": "No LDI, seu nível define o que você acessa. Aqui não é diferente.",
+    "nota": "* Preços em USD e EUR são aproximações. Pagamentos via Stripe ou PIX.",
     "pix": {
       "title": "Prefere contribuir via PIX?",
       "text": "Qualquer valor é bem-vindo.",

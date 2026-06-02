@@ -67,7 +67,7 @@
 | `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | Detalhe do personagem (2 colunas) |
 | `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | Índice de capítulos com controle de publicação |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | Leitor com react-markdown + navegação |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | Página de planos de assinatura — link na navbar (âmbar), footer e CTA na home |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ | 3 tiers: RANQUEADO (free), ELITE (R$10), PRIMORDIAL (R$30) — nomenclatura do universo LDI |
 | `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História do autor — link no footer |
 
 ---
@@ -120,6 +120,7 @@
 | `livro-index.json` | `src/data/` | PT/EN/ES | 16 capítulos + controle de publicação + resumo_pt/en/es | Livro, LivroCapitulo, BookChaptersRow |
 | `capitulo-01.md` ~ `16.md` | `src/data/livro/pt/` | PT | Conteúdo integral dos capítulos | LivroCapitulo (lazy load) |
 | `musicas.json` | `src/data/` | — | 5 faixas (1 publicada, 4 placeholders) com links para 6 plataformas | MusicSection |
+| `planos.json` | `src/data/` | — | 3 tiers: Ranqueado (free), Elite (R$10), Primordial (R$30) com benefícios em PT/EN/ES | Assinar |
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 
 ---

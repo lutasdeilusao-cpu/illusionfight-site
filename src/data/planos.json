@@ -1,0 +1,121 @@
+[
+  {
+    "id": "ranqueado",
+    "nome": "RANQUEADO",
+    "nome_en": "RANKED",
+    "nome_es": "RANQUEADO",
+    "preco": null,
+    "preco_label": "Gratuito",
+    "preco_label_en": "Free",
+    "preco_label_es": "Gratis",
+    "destaque": false,
+    "badge": null,
+    "cor": "#4F5359",
+    "beneficios_pt": [
+      "3 primeiros capítulos do livro",
+      "Episódios FREE do webtoon",
+      "Músicas nas plataformas",
+      "Perfis básicos dos personagens",
+      "Universo e lore público"
+    ],
+    "beneficios_en": [
+      "First 3 book chapters",
+      "FREE webtoon episodes",
+      "Music on all platforms",
+      "Basic character profiles",
+      "Public universe & lore"
+    ],
+    "beneficios_es": [
+      "Primeros 3 capítulos del libro",
+      "Episodios GRATIS del webtoon",
+      "Música en todas las plataformas",
+      "Perfiles básicos de personajes",
+      "Universo y lore público"
+    ],
+    "cta_pt": "VOCÊ JÁ É RANQUEADO",
+    "cta_en": "YOU'RE ALREADY RANKED",
+    "cta_es": "YA ERES RANQUEADO",
+    "cta_url": null,
+    "cta_disabled": true
+  },
+  {
+    "id": "elite",
+    "nome": "ELITE",
+    "nome_en": "ELITE",
+    "nome_es": "ELITE",
+    "preco": 10,
+    "preco_label": "R$10/mês",
+    "preco_label_en": "$5/mo",
+    "preco_label_es": "€5/mes",
+    "destaque": false,
+    "badge": null,
+    "cor": "#00B4D8",
+    "beneficios_pt": [
+      "Tudo do Ranqueado",
+      "Acesso antecipado aos capítulos — 1 semana antes do público",
+      "Acesso antecipado aos episódios do webtoon",
+      "Newsletter exclusiva com bastidores mensais",
+      "Nome nos agradecimentos digitais"
+    ],
+    "beneficios_en": [
+      "Everything in Ranked",
+      "Early access to chapters — 1 week before public",
+      "Early access to webtoon episodes",
+      "Exclusive newsletter with monthly behind-the-scenes",
+      "Name in digital credits"
+    ],
+    "beneficios_es": [
+      "Todo lo de Ranqueado",
+      "Acceso anticipado a los capítulos — 1 semana antes del público",
+      "Acceso anticipado a los episodios del webtoon",
+      "Newsletter exclusiva con bastidores mensuales",
+      "Nombre en los agradecimientos digitales"
+    ],
+    "cta_pt": "ENTRAR NA ELITE",
+    "cta_en": "JOIN ELITE",
+    "cta_es": "UNIRSE A LA ELITE",
+    "cta_url": "#",
+    "cta_disabled": false
+  },
+  {
+    "id": "primordial",
+    "nome": "PRIMORDIAL",
+    "nome_en": "PRIMORDIAL",
+    "nome_es": "PRIMORDIAL",
+    "preco": 30,
+    "preco_label": "R$30/mês",
+    "preco_label_en": "$15/mo",
+    "preco_label_es": "€15/mes",
+    "destaque": true,
+    "badge_pt": "MAIS POPULAR",
+    "badge_en": "MOST POPULAR",
+    "badge_es": "MÁS POPULAR",
+    "cor": "#F4A227",
+    "beneficios_pt": [
+      "Tudo do Elite",
+      "Acesso antecipado — 2 semanas antes do público",
+      "Universo expandido exclusivo — lore, glossário e fichas completas",
+      "Fragmentos em desenvolvimento — rascunhos e cenas inéditas",
+      "Participação em enquetes criativas que influenciam a obra"
+    ],
+    "beneficios_en": [
+      "Everything in Elite",
+      "Early access — 2 weeks before public",
+      "Exclusive expanded universe — full lore, glossary & character sheets",
+      "Development fragments — drafts and unreleased scenes",
+      "Creative polls that influence the story"
+    ],
+    "beneficios_es": [
+      "Todo lo de Elite",
+      "Acceso anticipado — 2 semanas antes del público",
+      "Universo expandido exclusivo — lore completo, glosario y fichas",
+      "Fragmentos en desarrollo — borradores y escenas inéditas",
+      "Encuestas creativas que influyen en la obra"
+    ],
+    "cta_pt": "DESPERTAR O PRIMORDIAL",
+    "cta_en": "AWAKEN THE PRIMORDIAL",
+    "cta_es": "DESPERTAR EL PRIMORDIAL",
+    "cta_url": "#",
+    "cta_disabled": false
+  }
+]

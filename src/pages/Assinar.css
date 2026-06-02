@@ -43,10 +43,21 @@
 
 .assinar-plans__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 720px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 960px;
   margin: 0 auto;
+  align-items: start;
+}
+
+.assinar-plans__nota {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 2rem auto 0;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
 .assinar-card {
@@ -54,15 +65,16 @@
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.assinar-card:hover {
-  border-color: var(--accent-teal);
+.assinar-card--base {
+  border-color: var(--text-muted);
+  opacity: 0.85;
 }
 
 .assinar-card--destaque {
@@ -92,18 +104,14 @@
 
 .assinar-card__name {
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.5rem;
-  color: var(--text-primary);
   margin: 0 0 1rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .assinar-card__price {
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
   margin-bottom: 1.5rem;
 }
 
@@ -111,14 +119,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: 2.5rem;
-  color: var(--accent-teal);
   line-height: 1;
-}
-
-.assinar-card__price-period {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
 .assinar-card__benefits {
@@ -133,38 +134,62 @@
 
 .assinar-card__benefit {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: var(--text-primary);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
+  line-height: 1.4;
+}
+
+.assinar-card__benefit--muted {
+  color: var(--text-muted);
 }
 
 .assinar-card__check {
-  color: var(--accent-teal);
   font-weight: 700;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .assinar-card__cta {
   display: inline-block;
-  background: var(--accent-teal);
-  color: #000;
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 6px;
   text-decoration: none;
   transition: opacity 0.2s;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  border: 1.5px solid;
 }
 
-.assinar-card__cta:hover {
+.assinar-card__cta--disabled {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  cursor: default;
+  pointer-events: none;
+}
+
+.assinar-card__cta--outline {
+  background: transparent;
+}
+
+.assinar-card__cta--outline:hover {
+  opacity: 0.8;
+}
+
+.assinar-card__cta--filled {
+  border: none;
+}
+
+.assinar-card__cta--filled:hover {
   opacity: 0.85;
 }
 
@@ -264,4 +289,11 @@
   border-radius: 6px;
   padding: 0.75rem 1.5rem;
   word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .assinar-plans__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
 }
