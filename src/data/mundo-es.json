@@ -3,7 +3,7 @@
     {
       "nome": "Bravara",
       "tag": "País",
-      "descricao": "La nación ficticia equivalente al Brasil colonial. En 2030, es un país de extremos: tecnología de punta conviviendo con favelas, riqueza blindada y periferia a la deriva. Cuna de los Xakaxi y escenario de la historia de Kim."
+      "descricao": "La nación ficticia equivalente al Brasil colonial. En 20XX, es un país de extremos: tecnología de punta conviviendo con favelas, riqueza blindada y periferia a la deriva. Cuna de los Xakaxi y escenario de la historia de Kim."
     },
     {
       "nome": "Marelia",
@@ -93,7 +93,7 @@
       "texto": "Las plataformas de video corto llegan y dominan el mundo. PowWow explota. Yawanari, condenado a observar a la humanidad, descubre los videos de 15 segundos. Finalmente enloquece del todo."
     },
     {
-      "ano": "2030",
+      "ano": "20XX",
       "titulo": "La Historia Comienza",
       "texto": "Kim tiene 17 años, vende dulces en autobuses y estudia en Elite Academy con una beca del 50%. Una apuesta con Thunderbolt lo lanza al LDI. El Sangue Primordial despierta. David Kronos lo nota. Nada vuelve a ser igual."
     }
@@ -144,12 +144,12 @@
     ]
   },
   "glossario": [
-    { "sigla": "LDI", "nome": "Lutas de Ilusão", "descricao": "La arena virtual creada por Yohualticit en 2022. Dolor 100% real. Tres mil millones de jugadores. El deporte más visto del mundo en 2030.", "premium": false },
+    { "sigla": "LDI", "nome": "Lutas de Ilusão", "descricao": "La arena virtual creada por Yohualticit en 2022. Dolor 100% real. Tres mil millones de jugadores. El deporte más visto del mundo en 20XX.", "premium": false },
     { "sigla": "SBI", "nome": "Simulador de Batallas de Ilusión", "descricao": "Hardware que conecta el sistema nervioso al MDI. Compuesto por Immersor (cuerpo), Gafas (inmersión visual) y Guante Tecnológico (movimientos). Las ediciones limitadas cuestan 60–70k unidades.", "premium": false },
     { "sigla": "MDI", "nome": "Mundo de Ilusiones", "descricao": "La dimensión virtual donde se llevan a cabo las batallas del LDI. Construida por Yohualticit. Dentro de ella, las leyes del mundo real se reescriben parcialmente.", "premium": false },
     { "sigla": "MDR", "nome": "Mundo de Realidad", "descricao": "El mundo físico real — fuera del SBI. Aquí es donde Kim vende dulces, paga las facturas y vive con Helena.", "premium": false },
     { "sigla": "SDR", "nome": "Sistema de Desafíos de Clasificación", "descricao": "El sistema de ranking global del LDI. Clasifica a todos los jugadores del mundo por desempeño. Determina ingresos, visibilidad y acceso al Torneo Mundial.", "premium": false },
-    { "sigla": "PowWow", "nome": "PowWow", "descricao": "La red social de video corto dominante en 2030, dedicada al LDI. La pelea Kim vs. Thunderbolt llegó al top 10 mundial el mismo día.", "premium": false },
+    { "sigla": "PowWow", "nome": "PowWow", "descricao": "La red social de video corto dominante en 20XX, dedicada al LDI. La pelea Kim vs. Thunderbolt llegó al top 10 mundial el mismo día.", "premium": false },
     { "sigla": "DIX", "nome": "DIX", "descricao": "Sistema de pago digital instantáneo de Bravara. El Pix ficcional. Helena le pide DIX a Kim con regularidad. Kim y Jack lo usan para cobrar su paga de la discoteca.", "premium": false },
     { "sigla": "NeoGuide", "nome": "NeoGuide", "descricao": "La IA asistente del LDI. Guía a los nuevos jugadores en la creación del avatar y las mecánicas del juego. Se comunica directamente en la mente del jugador. Genera apodos automáticos para los novatos.", "premium": false },
     { "sigla": "Sangue Primordial", "nome": "Sangre Primordial", "descricao": "Poder ancestral de los Xakaxi sellado por Pajé Yawanari en 1450. Se manifiesta como llamas negras, cabello blanco y tatuajes tribales. Kim es el anfitrión actual — y no lo controla conscientemente.", "premium": false },

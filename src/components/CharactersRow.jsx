@@ -16,7 +16,7 @@ export default function CharactersRow() {
             { ano: '1450', label: 'Xakaxi no Auge' },
             { ano: '1500', label: 'Invasão' },
             { ano: '2022', label: 'LDI Nasce' },
-            { ano: '2030', label: 'Kim Entra' },
+            { ano: '20XX', label: 'Kim Entra' },
           ].map(p => (
             <div key={p.ano} className="crt-point">
               <span className="crt-ano">{p.ano}</span>

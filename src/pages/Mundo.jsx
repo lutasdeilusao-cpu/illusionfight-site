@@ -36,7 +36,7 @@ export default function Mundo() {
       <section className="mundo-hero">
         <div className="container">
           <h1 className="mundo-hero__title">O UNIVERSO</h1>
-          <p className="mundo-hero__subtitle">Bravara. 2030. Uma arena onde a dor é 100% real.</p>
+          <p className="mundo-hero__subtitle">Bravara. 20XX. Uma arena onde a dor é 100% real.</p>
         </div>
       </section>
 
@@ -62,7 +62,7 @@ export default function Mundo() {
             <button className="timeline-arrow timeline-arrow--left" onClick={() => scroll(-1)}>←</button>
             <div className="timeline-track" ref={trackRef}>
               {data.timeline.map(p => (
-                <div key={p.ano} className={`timeline-point${p.ano === '2030' ? ' timeline-point--now' : ''}`}>
+                <div key={p.ano} className={`timeline-point${p.ano === '20XX' ? ' timeline-point--now' : ''}`}>
                   <span className="timeline-titulo">{p.titulo}</span>
                   <span className="timeline-ano">{p.ano}</span>
                   <span className="timeline-texto">{p.texto}</span>
