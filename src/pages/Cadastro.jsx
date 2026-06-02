@@ -46,6 +46,10 @@ export default function Cadastro() {
         setCarregando(false)
         return
       }
+      await supabase.from('user_achievements').upsert({
+        user_id: data.user.id,
+        achievement_id: 'recrutado'
+      }, { onConflict: 'user_id,achievement_id' })
       await migrarLocalParaSupabase(data.user.id)
       await desbloquear('recrutado')
       await carregarPerfil(data.user.id)
