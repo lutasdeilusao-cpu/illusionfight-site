@@ -1,14 +1,17 @@
-.book-chapters-row {
-  padding: 64px 0;
-  background: var(--bg-primary);
+.book-chapters-section {
+  padding: 60px 0 40px;
 }
 
-.book-chapters-row__header {
-  padding: 0 24px;
-  margin-bottom: 24px;
+.book-chapters-title {
+  padding: 0 24px 24px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
 }
 
-.book-chapters-row__scroll {
+.book-chapters-scroll {
   display: flex;
   gap: 16px;
   overflow-x: scroll;
@@ -17,109 +20,99 @@
   -webkit-overflow-scrolling: touch;
   padding: 8px 24px 24px;
   scrollbar-width: none;
-  -ms-overflow-style: none;
+  cursor: grab;
 }
 
-.book-chapters-row__scroll::-webkit-scrollbar {
+.book-chapters-scroll:active {
+  cursor: grabbing;
+}
+
+.book-chapters-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.book-card {
+.book-chapter-card {
   flex: 0 0 200px;
-  height: 300px;
   scroll-snap-align: start;
-  position: relative;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  overflow: visible;
-  cursor: pointer;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
-
-.book-card:hover {
-  transform: scale(1.12);
-  z-index: 10;
-  border-color: var(--accent-teal);
-  box-shadow: 0 8px 32px rgba(0, 180, 216, 0.2);
-}
-
-.book-card__thumb {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background: var(--bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.book-card__numero {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
-}
-
-.book-card__info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.75rem;
-  background: linear-gradient(to top, rgba(11,13,15,0.9) 0%, transparent 100%);
-}
-
-.book-card__label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: inherit;
   display: block;
 }
 
-.book-card__overlay {
+.book-chapter-card__inner {
+  position: relative;
+  width: 200px;
+  height: 280px;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.book-chapter-card:hover .book-chapter-card__inner {
+  transform: scale(1.04);
+}
+
+.book-chapter-card__num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+}
+
+.book-chapter-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-end;
   padding: 16px;
 }
 
-.book-card:hover .book-card__overlay {
+.book-chapter-card:hover .book-chapter-card__overlay {
   opacity: 1;
 }
 
-.book-card__tagline {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
+.book-chapter-card__tagline {
+  font-size: 0.8rem;
   font-style: italic;
   color: rgba(255,255,255,0.9);
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 
-.book-card__badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+.book-chapter-card__footer {
+  padding: 8px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-chapter-card__titulo {
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-chapter-card__badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 4px 10px;
-  align-self: flex-start;
-  margin-top: 12px;
-}
-
-.book-card__badge--FREE {
-  background: var(--accent-teal);
-  color: var(--bg-primary);
-}
-
-.book-card__badge--PREMIUM {
+  padding: 2px 6px;
   background: var(--accent-amber);
-  color: var(--bg-primary);
+  color: #000;
+  border-radius: 2px;
+  width: fit-content;
 }
