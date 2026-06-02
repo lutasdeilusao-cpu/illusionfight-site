@@ -156,7 +156,8 @@
 |---|---|---|
 | `vite.config.js` | Raiz | `base: '/illusionfight-site/'`, plugin React |
 | `package.json` | Raiz | Dependências, scripts dev/build/preview/predeploy/deploy |
-| `site.js` | `src/config/` | TRIAL_MODE, SITE_NAME, SITE_NAME_PT, DOMAIN |
+| `site.js` | `src/config/` | SITE_NAME, SITE_NAME_PT, DOMAIN |
+| `trial.js` | `src/config/` | TRIAL_ACTIVE — true libera todo conteúdo, false ativa paywall |
 | `LanguageContext.jsx` | `src/context/` | Provider de i18n: locale, t(), changeLocale() |
 | `ReaderContext.jsx` | `src/context/` | readerMode — esconde Navbar e TrialBanner em WebtoonEpisodio e LivroCapitulo |
 | `locales.js` | `src/i18n/` | Importa JSONs + LOCALE_LABELS |

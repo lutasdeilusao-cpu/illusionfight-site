@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { SITE_CONFIG } from '../config/site'
+import { TRIAL_ACTIVE } from '../config/trial'
 import { useLanguage } from '../context/LanguageContext'
 import './TrialBanner.css'
 
@@ -13,7 +13,7 @@ export default function TrialBanner({ hidden }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  if (!SITE_CONFIG.TRIAL_MODE) return null
+  if (!TRIAL_ACTIVE) return null
   if (hidden) return null
 
   return (
