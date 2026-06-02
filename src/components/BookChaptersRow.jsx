@@ -18,37 +18,35 @@ export default function BookChaptersRow() {
 
   return (
     <section ref={ref} className="book-chapters-row reveal">
-      <div className="container">
+      <div className="book-chapters-row__header">
         <h2 className="section-title">ÚLTIMOS CAPÍTULOS</h2>
-        <div className="book-chapters-row__fade">
-          <div className="book-chapters-row__scroll">
-            {published.map(ch => (
-              <div
-                key={ch.id}
-                className="book-card"
-                onClick={() => navigate(`/livro/${ch.id}`)}
-              >
-                <div className="book-card__thumb">
-                  <span className="book-card__numero">
-                    CAP. {String(ch.numero).padStart(2, '0')}
-                  </span>
-                </div>
-                <div className="book-card__info">
-                  <span className="book-card__label">{ch[tituloKey]}</span>
-                  {!ch.publicado && (
-                    <span className="book-card__badge book-card__badge--PREMIUM">PREMIUM</span>
-                  )}
-                </div>
-                <div className="book-card__overlay">
-                  <p className="book-card__tagline">{ch[taglineKey]}</p>
-                  <span className={`book-card__badge ${ch.publicado ? 'book-card__badge--FREE' : 'book-card__badge--PREMIUM'}`}>
-                    {ch.publicado ? 'FREE' : 'PREMIUM'}
-                  </span>
-                </div>
-              </div>
-            ))}
+      </div>
+      <div className="book-chapters-row__scroll">
+        {published.map(ch => (
+          <div
+            key={ch.id}
+            className="book-card"
+            onClick={() => navigate(`/livro/${ch.id}`)}
+          >
+            <div className="book-card__thumb">
+              <span className="book-card__numero">
+                CAP. {String(ch.numero).padStart(2, '0')}
+              </span>
+            </div>
+            <div className="book-card__info">
+              <span className="book-card__label">{ch[tituloKey]}</span>
+              {!ch.publicado && (
+                <span className="book-card__badge book-card__badge--PREMIUM">PREMIUM</span>
+              )}
+            </div>
+            <div className="book-card__overlay">
+              <p className="book-card__tagline">{ch[taglineKey]}</p>
+              <span className={`book-card__badge ${ch.publicado ? 'book-card__badge--FREE' : 'book-card__badge--PREMIUM'}`}>
+                {ch.publicado ? 'FREE' : 'PREMIUM'}
+              </span>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   )
