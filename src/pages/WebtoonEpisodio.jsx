@@ -33,7 +33,7 @@ export default function WebtoonEpisodio() {
     if (!ultimaPaginaRef.current) return
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && id === 'episodio-00') desbloquearRef.current('episodio_zero')
-    }, { threshold: 0.5 })
+    }, { threshold: 0.1 })
     observer.observe(ultimaPaginaRef.current)
     return () => observer.disconnect()
   }, [id])
