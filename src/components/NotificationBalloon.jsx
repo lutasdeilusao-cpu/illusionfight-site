@@ -4,11 +4,6 @@ import jackImg from '../assets/images/characters/jack-balloon.png'
 import notificacoes from '../data/notificacoes.json'
 import './NotificationBalloon.css'
 
-const TEST_MODE = import.meta.env.DEV
-const FIRST_DELAY = TEST_MODE ? 5 * 1000 : 3 * 60 * 1000
-const NEXT_DELAY  = TEST_MODE ? 10 * 1000 : 10 * 60 * 1000
-const AUTO_CLOSE  = TEST_MODE ? 6 * 1000 : 8 * 1000
-
 function shuffle(arr) {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -34,14 +29,14 @@ export default function NotificationBalloon() {
       setNotif(shuffled[0])
       setVisible(true)
       setQueueIndex(1)
-    }, FIRST_DELAY)
+    }, 3 * 60 * 1000)
 
     return () => clearTimeout(first)
   }, [])
 
   useEffect(() => {
     if (visible) {
-      autoCloseRef.current = setTimeout(() => handleClose(), AUTO_CLOSE)
+      autoCloseRef.current = setTimeout(() => handleClose(), 8000)
     }
     return () => clearTimeout(autoCloseRef.current)
   }, [visible])
@@ -55,7 +50,7 @@ export default function NotificationBalloon() {
       setNotif(queue[nextIndex])
       setQueueIndex(nextIndex + 1)
       setVisible(true)
-    }, NEXT_DELAY)
+    }, 10 * 60 * 1000)
   }
 
   if (!visible || !notif) return null
