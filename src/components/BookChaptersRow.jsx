@@ -10,7 +10,7 @@ export default function BookChaptersRow() {
   const navigate = useNavigate()
   const { locale } = useLanguage()
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
-  const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
+  const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
 
   const published = index
     .filter(ch => ch.publicado || TRIAL_ACTIVE)
@@ -35,12 +35,15 @@ export default function BookChaptersRow() {
                 </div>
                 <div className="book-card__info">
                   <span className="book-card__label">{ch[tituloKey]}</span>
-                  <p className="book-card__resumo">{ch[resumoKey]}</p>
+                  {!ch.publicado && (
+                    <span className="book-card__badge book-card__badge--PREMIUM">PREMIUM</span>
+                  )}
                 </div>
                 <div className="book-card__overlay">
-                  <div className="book-card__overlay-label">{ch[tituloKey]}</div>
-                  <p className="book-card__overlay-resumo">{ch[resumoKey]}</p>
-                  <button className="book-card__overlay-btn">LER AGORA</button>
+                  <p className="book-card__tagline">{ch[taglineKey]}</p>
+                  <span className={`book-card__badge ${ch.publicado ? 'book-card__badge--FREE' : 'book-card__badge--PREMIUM'}`}>
+                    {ch.publicado ? 'FREE' : 'PREMIUM'}
+                  </span>
                 </div>
               </div>
             ))}
