@@ -13,8 +13,7 @@ export function AchievementsProvider({ children }) {
 
   useEffect(() => {
     if (user) {
-      carregarDoSupabase()
-      migrarLocalParaSupabase(user.id)
+      migrarLocalParaSupabase(user.id).then(() => carregarDoSupabase())
     } else {
       carregarDoLocal()
     }
