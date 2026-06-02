@@ -26,7 +26,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'livro', 'musicas', 'quiz', 'mundo', 'curiosidades', 'autor', 'assinar']
+  const navLinks = ['webtoon', 'livro', 'musicas', 'extras', 'mundo', 'autor', 'assinar']
 
   if (hidden) return null
 
@@ -57,7 +57,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
                   className={`navbar__link${key === 'assinar' ? ' navbar__link--highlight' : ''}`}
                 >
                   {t(`nav.links.${i}`)}
-                  {key === 'quiz' && !TRIAL_ACTIVE && <span className="navbar__badge">PREMIUM</span>}
+                  {key === 'extras' && !TRIAL_ACTIVE && <span className="navbar__badge">PREMIUM</span>}
                 </Link>
               </li>
             ))}
@@ -105,7 +105,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
                 onClick={() => setMenuOpen(false)}
               >
                 {t(`nav.links.${i}`)}
-                {key === 'quiz' && !TRIAL_ACTIVE && <span className="navbar__badge">PREMIUM</span>}
+                {key === 'extras' && !TRIAL_ACTIVE && <span className="navbar__badge">PREMIUM</span>}
               </Link>
             </li>
           ))}

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-01*
-*Versão: 1.3*
+*Última atualização: 2026-06-02*
+*Versão: 1.4*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -72,7 +72,9 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Lore, easter eggs e bastidores — aguardando conteúdo JSON |
+| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR e Curiosidades |
+| `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
+| `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Dentro de /extras — lore, easter eggs e bastidores |
 
 ---
 
@@ -89,6 +91,8 @@
 | CharactersRow | `CharactersRow.jsx` | `CharactersRow.css` | Home | Scroll horizontal (Kim, Jack, Nina) com fade gradient nas bordas |
 | CharacterCard | `CharacterCard.jsx` | `CharacterCard.css` | CharactersRow, Personagens | Card 200×300, hover scale(1.12), overlay com bio e CTA, ranking |
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados, hover overlay |
+| Quiz | `Quiz.jsx` | `Quiz.css` | /quiz | Quiz SDR com 3 modos, timer 30s, ajudas universitários, rank final |
+| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com cards para Quiz SDR e Curiosidades |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal), capa real na 1ª música |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal "ONDE ESTAMOS" com tracks (Webtoon, Livro, Música) e bullets done/pending animados |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | 4 cards estáticos Netflix-style (YouTube, TikTok, X, Instagram) com gradiente da plataforma, overlay "ABRIR →" no hover |
@@ -137,7 +141,8 @@
 | `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder (livro, eBook, camisetas, boné, caneca, pôster, quadrinho, chaveiro) | ShopSection |
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
-| `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas e lore para busca global | SearchModal |
+| `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
+| `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
 ---
 
@@ -199,7 +204,7 @@
 ### Home
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns, scanlines, HeroEffect (chuva digital), Typewriter
 - ✅ **Latest Episodes** — Grid 3 cards, Ep. 00 com thumbnail real + overlay hover com frase do protagonista (zoom 1.15)
-- ✅ **Últimos capítulos (home)** — BookChaptersRow scroll horizontal com cards 200×300
+- ✅ **Últimos capítulos (home)** — BookChaptersRow scroll horizontal com cards 200×300, hover overlay com tagline, setas navegação desktop
 - ✅ **Personagens (home)** — CharactersRow scroll horizontal com Kim, Jack, Nina
 - ✅ **Música** — 5 círculos com dropdown de 6 plataformas, capa real, hover/click responsivo
 - ✅ **No Ar Agora** — 4 cards estáticos Netflix-style (YouTube, TikTok, X, Instagram), gradiente da plataforma
@@ -207,6 +212,18 @@
 - ✅ **Itens do Universo** — ShopSection carrossel infinito drag/swipe com 10 produtos placeholder
 - ✅ **Newsletter CTA** — Bloco "RECEBA AS NOVIDADES" com link para Substack
 - ✅ **Scroll Reveal** — Animações fade+translateY em todas as seções via IntersectionObserver
+
+### Quiz SDR
+- ✅ **3 modos de jogo** — RECRUTA (premium, 10 fáceis), RANQUEADO (free, 5+5), ELITE (premium, 20 adaptativas)
+- ✅ **Timer** — 30s por pergunta com barra visual, fica vermelha <10s, timeout = erro automático
+- ✅ **Ajudas** — Pular (2/sessão) e Universitários (1/sessão, 90% dica certa, 10% errada)
+- ✅ **Rank final** — Score + bônus de velocidade → ELITE/RANQUEADO/ASPIRANTE/NOVATO/RECRUTA
+- ✅ **Clique único** — Clique na alternativa confirma imediatamente, sem etapa intermediária
+- ✅ **85 perguntas PT** — 4 categorias (mundo, personagem, mecanica, lore), dicas kim/jack/nina
+
+### Extras
+- ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
+- ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
 ### Personagens
 - ✅ **Página Personagens** — Grid completo com 9 personagens agrupados por categoria
@@ -252,7 +269,7 @@
 ## 9. FEATURES PENDENTES
 
 - ❌ **Autenticação** — Login, cadastro, sessão
-- ❌ **Curiosidades** — Página /curiosidades com lore, easter eggs e bastidores
+- ❌ **Extras / Curiosidades** — Conteúdo JSON completo para a página /curiosidades (lore, easter eggs, bastidores)
 - ❌ **Músicas — player dedicado** — Player embutido, letras e contexto narrativo por faixa
 - ❌ **Personagens: imagens reais** — Substituir placeholders por artwork final
 - ❌ **Páginas EN/ES completas** — Capítulos do livro traduzidos
@@ -260,6 +277,9 @@
 - ❌ **Modo light** — Dark mode fixo, sem toggle
 - ❌ **Domínio customizado** — www.illusionfight.com
 - ❌ **Integração Stripe** — Links reais de pagamento
+- ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
+- ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto dos universitários por avatares visuais
+- ❌ **Quiz — leaderboard** — Ranking global de pontuações
 
 ---
 

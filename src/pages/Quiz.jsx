@@ -74,8 +74,8 @@ export default function Quiz() {
   const [modo, setModo] = useState(null)
   const [perguntas, setPerguntas] = useState([])
   const [indice, setIndice] = useState(0)
-  const [selecionada, setSelecionada] = useState(null)
   const [confirmada, setConfirmada] = useState(false)
+  const [ultimaResposta, setUltimaResposta] = useState(null)
   const [acertos, setAcertos] = useState(0)
   const [tempos, setTempos] = useState([])
   const [timer, setTimer] = useState(30)
@@ -116,8 +116,8 @@ export default function Quiz() {
     else selecionadas = selecionarPerguntasElite(bancoPT)
     setPerguntas(selecionadas)
     setIndice(0)
-    setSelecionada(null)
     setConfirmada(false)
+    setUltimaResposta(null)
     setAcertos(0)
     setTempos([])
     setResultadoCalculado(null)
@@ -129,14 +129,10 @@ export default function Quiz() {
     setFase("pergunta")
   }
 
-  const selecionarAlternativa = (i) => {
-    if (confirmada) return
-    setSelecionada(i)
-  }
-
   const confirmarResposta = (resposta) => {
     if (confirmada) return
     setConfirmada(true)
+    setUltimaResposta(resposta)
     const pergunta = perguntas[indice]
     const acertou = resposta === pergunta.correta
     if (acertou) setAcertos(s => s + 1)
@@ -144,12 +140,17 @@ export default function Quiz() {
     setHistorico(s => [...s, { pergunta, resposta, acertou }])
   }
 
+  const cliqueAlternativa = (i) => {
+    if (confirmada) return
+    confirmarResposta(i)
+  }
+
   const proximaPergunta = () => {
     const total = perguntas.length
     if (indice + 1 < total) {
       setIndice(s => s + 1)
-      setSelecionada(null)
       setConfirmada(false)
+      setUltimaResposta(null)
       setTimer(30)
       setDicaUniversitario(null)
       setMostraUniversitarios(false)
@@ -165,7 +166,7 @@ export default function Quiz() {
     setAjudasDisponiveis(s => ({ ...s, pular: s.pular - 1 }))
     setHistorico(s => [...s, { pergunta: perguntas[indice], resposta: -1, acertou: null, pulada: true }])
     setTempos(s => [...s, 30 - timer])
-    setConfirmada(true)
+    confirmarResposta(null)
   }
 
   const abrirUniversitarios = () => {
@@ -274,23 +275,22 @@ export default function Quiz() {
             {pergunta.alternativas.map((alt, i) => {
               const letra = String.fromCharCode(65 + i)
               let classe = 'quiz-alternativa'
-              if (!confirmada && selecionada === i) classe += ' quiz-alternativa--selected'
               if (confirmada) {
                 if (i === pergunta.correta) classe += ' quiz-alternativa--correct'
-                else if (selecionada === i) classe += ' quiz-alternativa--wrong'
+                else if (ultimaResposta === i) classe += ' quiz-alternativa--wrong'
                 else classe += ' quiz-alternativa--disabled'
               }
               return (
                 <button
                   key={i}
                   className={classe}
-                  onClick={() => selecionarAlternativa(i)}
+                  onClick={() => cliqueAlternativa(i)}
                   disabled={confirmada}
                 >
                   <span className="quiz-alternativa-letra">{letra}</span>
                   <span className="quiz-alternativa-texto">{alt}</span>
                   {confirmada && i === pergunta.correta && <span className="quiz-alternativa-icon"> ✓</span>}
-                  {confirmada && selecionada === i && i !== pergunta.correta && <span className="quiz-alternativa-icon"> ✗</span>}
+                  {confirmada && ultimaResposta === i && i !== pergunta.correta && <span className="quiz-alternativa-icon"> ✗</span>}
                 </button>
               )
             })}
