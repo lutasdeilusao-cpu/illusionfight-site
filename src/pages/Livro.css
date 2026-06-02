@@ -82,4 +82,9 @@
   border: 1px solid var(--text-muted);
 }
 
+.livro-page__badge--premium {
+  color: var(--accent-amber);
+  border-color: var(--accent-amber);
+}
+
 
