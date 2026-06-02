@@ -239,7 +239,6 @@
 ## 9. FEATURES PENDENTES
 
 - ❌ **Autenticação** — Login, cadastro, sessão
-- ❌ **Rankings** — Página de ranking SDR
 - ❌ **Rankings** — Página de ranking SDR dedicada
 - ❌ **Curiosidades** — Página de curiosidades/trivia
 - ❌ **Webtoon episódios futuros** — Episódios 01+ em produção
