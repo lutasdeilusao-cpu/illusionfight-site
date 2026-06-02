@@ -42,7 +42,7 @@ export default function Home() {
           <h3>{t('newsletter.ctaTitulo')}</h3>
           <p>{t('newsletter.ctaDescricao')}</p>
           <a
-            href="https://illusionfight.substack.com"
+            href="https://illusionfight.substack.com/subscribe"
             target="_blank"
             rel="noopener noreferrer"
             className="newsletter-cta__btn"

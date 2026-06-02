@@ -88,7 +88,7 @@ export default function Assinar() {
             </div>
             <p className="assinar-newsletter__desc">{t('newsletter.descricao')}</p>
             <a
-              href="https://illusionfight.substack.com"
+              href="https://illusionfight.substack.com/subscribe"
               target="_blank"
               rel="noopener noreferrer"
               className="assinar-newsletter__btn"

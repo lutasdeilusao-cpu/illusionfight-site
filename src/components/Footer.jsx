@@ -13,7 +13,7 @@ const routeMap = {
 }
 
 const externalMap = {
-  'Newsletter': 'https://illusionfight.substack.com',
+  'Newsletter': 'https://illusionfight.substack.com/subscribe',
 }
 
 export default function Footer() {
