@@ -1,13 +1,21 @@
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { useReader } from '../context/ReaderContext'
 import episodios from '../data/episodios.json'
 import './WebtoonEpisodio.css'
 
 export default function WebtoonEpisodio() {
+  const { setReaderMode } = useReader()
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale } = useLanguage()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   const ep = episodios.find(e => e.id === id)
   const idx = episodios.findIndex(e => e.id === id)

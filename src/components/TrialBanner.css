@@ -1,3 +1,7 @@
+.trial-banner[data-hidden="true"] {
+  display: none;
+}
+
 .trial-banner {
   position: fixed;
   top: 0;

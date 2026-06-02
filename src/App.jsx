@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { ReaderProvider } from './context/ReaderContext'
 import TrialBanner from './components/TrialBanner'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -15,7 +16,7 @@ import WebtoonEpisodio from './pages/WebtoonEpisodio'
 
 export default function App() {
   return (
-    <>
+    <ReaderProvider>
       <TrialBanner />
       <Navbar />
       <Routes>
@@ -31,6 +32,6 @@ export default function App() {
       </Routes>
       <Footer />
       <ScrollToTop />
-    </>
+    </ReaderProvider>
   )
 }
