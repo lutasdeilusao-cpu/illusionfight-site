@@ -26,8 +26,9 @@ export function AchievementsProvider({ children }) {
   }
 
   async function carregarDoSupabase() {
-    const { data } = await supabase.from('user_achievements').select('achievement_id').eq('user_id', user.id)
-    if (data) setDesbloqueados(data.map(d => d.achievement_id))
+    const { data, error } = await supabase.from('user_achievements').select('achievement_id').eq('user_id', user.id)
+    if (error) { console.error('Erro ao carregar achievements:', error); return }
+    if (data && data.length > 0) setDesbloqueados(data.map(d => d.achievement_id))
   }
 
   async function migrarLocalParaSupabase(userId) {
