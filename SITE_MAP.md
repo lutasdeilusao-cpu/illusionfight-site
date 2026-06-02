@@ -67,6 +67,7 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
+| `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Lore, easter eggs e bastidores — aguardando conteúdo JSON |
 
 ---
 
@@ -239,18 +240,16 @@
 ## 9. FEATURES PENDENTES
 
 - ❌ **Autenticação** — Login, cadastro, sessão
-- ❌ **Rankings** — Página de ranking SDR dedicada
-- ❌ **Curiosidades** — Página de curiosidades/trivia
-- ❌ **Webtoon episódios futuros** — Episódios 01+ em produção
-- ❌ **Músicas** — Página com playlist/player dedicada
-- ❌ **Personagens: imagens reais** — Substituir placeholders dos cards por artwork final
-- ❌ **Páginas EN/ES completas** — Apenas PT tem capítulos do livro traduzidos
+- ❌ **Curiosidades** — Página /curiosidades com lore, easter eggs e bastidores
+- ❌ **Músicas — player dedicado** — Player embutido, letras e contexto narrativo por faixa
+- ❌ **Personagens: imagens reais** — Substituir placeholders por artwork final
+- ❌ **Páginas EN/ES completas** — Capítulos do livro traduzidos
 - ❌ **Logo ES** — Apenas PT e EN têm logo em imagem
 - ❌ **Modo light** — Dark mode fixo, sem toggle
 - ❌ **Busca** — Pesquisa interna no site
 - ❌ **sitemap.xml** — Arquivo XML para crawlers
-- ❌ **Domínio customizado** — www.illusionfight.com apontando para o GitHub Pages
-- ❌ **Integração Stripe** — Links reais de pagamento nos tiers de assinatura
+- ❌ **Domínio customizado** — www.illusionfight.com
+- ❌ **Integração Stripe** — Links reais de pagamento
 
 ---
 

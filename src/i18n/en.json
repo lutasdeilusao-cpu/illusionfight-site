@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Book", "Music", "World", "AUTHOR", "SUPPORT"],
+    "links": ["Webtoon", "Book", "Music", "World", "Trivia", "AUTHOR", "SUPPORT"],
     "cta": "LOG IN",
     "aria": { "menu": "Open menu" }
   },
@@ -24,6 +24,10 @@
       "subscribers": "— subscribers",
       "cta": "READ ON WEBTOON"
     }
+  },
+  "curiosidades": {
+    "title": "TRIVIA",
+    "subtitle": "What lies between the lines."
   },
   "musicas": {
     "subtitle": "The soundtrack of the Illusion Fight universe",

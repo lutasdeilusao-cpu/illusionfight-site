@@ -1,0 +1,22 @@
+.curiosidades-hero {
+  padding: 8rem 0 4rem;
+  background: var(--bg-primary);
+  text-align: center;
+}
+
+.curiosidades-hero__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--accent-teal);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.curiosidades-hero__subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 0;
+}

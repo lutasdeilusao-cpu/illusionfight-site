@@ -19,7 +19,7 @@ export default function Navbar({ hidden }) {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'autor', 'assinar']
+  const navLinks = ['webtoon', 'livro', 'musicas', 'mundo', 'curiosidades', 'autor', 'assinar']
 
   if (hidden) return null
 
