@@ -186,6 +186,7 @@
 - ✅ **ScrollToTop** — Botão fixo canto inferior direito, aparece após 400px de scroll
 - ✅ **TrialBanner scroll** — Fundo fica sólido ao scrollar (>20px) para legibilidade
 - ✅ **Newsletter Substack** — link no footer, bloco na /assinar com border-left teal, CTA na home após StoryProgress
+- ✅ **Google Analytics** — G-QVDGMZ1F58, script no index.html
 
 ---
 
