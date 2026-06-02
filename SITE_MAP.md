@@ -93,6 +93,7 @@
 | Footer | `Footer.jsx` | `Footer.css` | Home | 3 colunas + SocialBar + copyright |
 | PlatformIcons | `PlatformIcons.jsx` | — | MusicSection | SVGs inline das 6 plataformas de música |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | Row horizontal de cards estáticos clicáveis — YouTube, TikTok, X, Instagram |
+| ShopSection | `ShopSection.jsx` | `ShopSection.css` | Home | Carrossel infinito drag/swipe de produtos — 10 placeholders |
 
 ---
 
@@ -124,6 +125,7 @@
 | `musicas.json` | `src/data/` | — | 5 faixas (1 publicada, 4 placeholders) com links para 6 plataformas | MusicSection |
 | `planos.json` | `src/data/` | — | 3 tiers: Ranqueado (free), Elite (R$10), Primordial (R$30) com benefícios em PT/EN/ES | Assinar |
 | `episodios.json` | `src/data/` | PT/EN/ES | Metadados dos episódios do webtoon | Webtoon, WebtoonEpisodio |
+| `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder com nome, tipo, badge e url | ShopSection |
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 
 ---
@@ -194,6 +196,7 @@
 - ✅ **Newsletter Substack** — link no footer, bloco na /assinar com border-left teal, CTA na home após StoryProgress
 - ✅ **Google Analytics** — G-QVDGMZ1F58, script no index.html
 - ✅ **Leitor de Webtoon** — scroll vertical, lazy load, max 800px, fundo preto, navegação entre episódios
+- ✅ **Seção de produtos** — carrossel infinito drag/swipe sem botões, 10 placeholders, estilo Netflix
 - ✅ **Página de episódios** — grid com thumbnails, badges de idioma e tier
 
 ---
