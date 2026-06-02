@@ -13,6 +13,8 @@ export default function WebtoonEpisodio() {
   const navigate = useNavigate()
   const { locale } = useLanguage()
   const { desbloquear } = useAchievements()
+  const desbloquearRef = useRef(desbloquear)
+  useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
   const ultimaPaginaRef = useRef(null)
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function WebtoonEpisodio() {
   useEffect(() => {
     if (!ultimaPaginaRef.current) return
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && id === 'episodio-00') desbloquear('episodio_zero')
+      if (entry.isIntersecting && id === 'episodio-00') desbloquearRef.current('episodio_zero')
     }, { threshold: 0.5 })
     observer.observe(ultimaPaginaRef.current)
     return () => observer.disconnect()

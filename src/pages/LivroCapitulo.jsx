@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
@@ -17,6 +17,8 @@ export default function LivroCapitulo() {
   const navigate = useNavigate()
   const { locale } = useLanguage()
   const { desbloquear } = useAchievements()
+  const desbloquearRef = useRef(desbloquear)
+  useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
   useEffect(() => {
     setReaderMode(true)
@@ -55,7 +57,7 @@ export default function LivroCapitulo() {
         try {
           const content = await loader()
           setMd(content)
-          if (id === 'capitulo-01') desbloquear('leitor_marelia')
+          if (id === 'capitulo-01') desbloquearRef.current('leitor_marelia')
           return
         } catch {}
       }
