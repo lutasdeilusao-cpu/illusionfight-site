@@ -1,0 +1,60 @@
+{
+  "localizacoes": [
+    { "nome": "Marelia", "descricao": "A São Paulo ficcional. Periferia e tecnologia coladas." },
+    { "nome": "Elite Academy", "descricao": "A escola mais avançada de Bravara. Bolsas condicionais." },
+    { "nome": "Anexo Abandonado", "descricao": "O QG do trio. Fora das regras da escola." },
+    { "nome": "Risca a Faca", "descricao": "A boate onde Kim e Jack trabalham como segurança." },
+    { "nome": "Estacionamento Abandonado", "descricao": "Onde o trio bebe, fala e planeja. A cabine de confissão." }
+  ],
+  "timeline": [
+    { "ano": "1450", "texto": "Tribo Xakaxi no auge. Tecnologia avançada, seis elementos dominados. Pajé Yawanari sela o Sangue Primordial ao custo da própria vida." },
+    { "ano": "1500", "texto": "Invasores feudais chegam a Bravara. Os Xakaxi, sem proteção espiritual, são conquistados." },
+    { "ano": "1637", "texto": "Conquistadores massacram e escravizam as populações nativas." },
+    { "ano": "1789", "texto": "Revolta de Durkria. Execuções públicas em massa." },
+    { "ano": "1905", "texto": "Primeira Guerra Global." },
+    { "ano": "1939", "texto": "Segunda Guerra Global. Campos de concentração. Bombas." },
+    { "ano": "2001", "texto": "Atentados às Torres Gêmeas. O mundo muda." },
+    { "ano": "2020", "texto": "Grande Vazio. Pandemia global remodela a sociedade." },
+    { "ano": "2022", "texto": "Yohualticit cria o LDI. Em um ano, supera qualquer console já lançado." },
+    { "ano": "2024", "texto": "PowWow chega. Vídeos curtos dominam. Yawanari finalmente enlouquece de vez." },
+    { "ano": "2030", "texto": "A história de Kim começa." }
+  ],
+  "tecnologias_xakaxi": [
+    { "nome": "Fibra de Carbono", "descricao": "Material ultrarresistente em armas e construção" },
+    { "nome": "Agricultura Robótica", "descricao": "Sistemas automatizados de produção de alimento" },
+    { "nome": "Óculos Amplificadores", "descricao": "Visão aumentada para caça, guerra e artesanato" },
+    { "nome": "Metal Xakaxium", "descricao": "Alta durabilidade e condutividade energética" },
+    { "nome": "Metal Nexium", "descricao": "Decorativo, usado em adornos e joias" },
+    { "nome": "Os Seis Elementos", "descricao": "Fogo, Terra, Ar, Água, Luz, Escuridão — base do sistema LDI" }
+  ],
+  "glossario": [
+    { "sigla": "LDI", "nome": "Lutas de Ilusão", "descricao": "A arena virtual onde a dor é real e três bilhões de pessoas lutam por ranking.", "premium": false },
+    { "sigla": "SBI", "nome": "Sistema de Batalha com Ilusão", "descricao": "Hardware (capacete + luva) que conecta o sistema nervoso ao MDI.", "premium": false },
+    { "sigla": "MDI", "nome": "Mundo de Ilusões", "descricao": "O ambiente virtual do LDI, criado pela Yohualticit.", "premium": false },
+    { "sigla": "MDR", "nome": "Mundo de Ilusões Restrito", "descricao": "Área virtual controlada para competições e testes.", "premium": false },
+    { "sigla": "SDR", "nome": "Sistema de Desempenho em Ranking", "descricao": "O ranking global que determina o nível de cada jogador.", "premium": false },
+    { "sigla": "SDA", "nome": "Sistema de Dados de Aprendizado", "descricao": "Monitora e analisa o desempenho dos jogadores no LDI.", "premium": false },
+    { "sigla": "SDD", "nome": "Sistema de Danos Digitais", "descricao": "Responsável por traduzir dano virtual em sensação física real.", "premium": false },
+    { "sigla": "DIX", "nome": "Dor em X", "descricao": "Sensação de dor amplificada ao extremo, usada como punição.", "premium": false },
+    { "sigla": "PowWow", "nome": "PowWow", "descricao": "Rede social de vídeos curtos que domina o mundo em 2024.", "premium": false },
+    { "sigla": "Sangue Primordial", "nome": "Sangue Primordial", "descricao": "A fonte de poder ancestral dos Xakaxi, selada por Yawanari.", "premium": false },
+    { "sigla": "Corpo Primordial", "nome": "Corpo Primordial", "descricao": "Um dos hospedeiros do Sangue Primordial na atualidade.", "premium": false },
+    { "sigla": "Grande Purificação", "nome": "Grande Purificação", "descricao": "O evento que extinguiu a memória tecnológica dos Xakaxi.", "premium": false },
+    { "sigla": "SAL", "nome": "Sistema de Alocação de Lutas", "descricao": "Algoritmo que define os confrontos no ranking.", "premium": true },
+    { "sigla": "STE", "nome": "Sistema de Transformação de Energia", "descricao": "Converte energia mental dos jogadores em poder elemental.", "premium": true },
+    { "sigla": "SDP", "nome": "Sistema de Dobra de Percepção", "descricao": "Altera a percepção temporal dentro do MDI.", "premium": true },
+    { "sigla": "SVN", "nome": "Sistema de Visualização Neural", "descricao": "Projeta as imagens do MDI diretamente no córtex visual.", "premium": true },
+    { "sigla": "LT", "nome": "Luta de Treino", "descricao": "Modo de treino sem risco de lesão real.", "premium": true },
+    { "sigla": "Xakaxium", "nome": "Xakaxium", "descricao": "Metal de alta durabilidade e condutividade energética dos Xakaxi.", "premium": true },
+    { "sigla": "Nexium", "nome": "Nexium", "descricao": "Metal decorativo usado em adornos e joias Xakaxi.", "premium": true },
+    { "sigla": "Kumara", "nome": "Kumara", "descricao": "Ritual de passagem dos Xakaxi.", "premium": true }
+  ],
+  "ranking_sdr": [
+    { "faixa": "Rank +1M", "label": "Iniciante", "cor": "#4F5359" },
+    { "faixa": "Rank 500k–1M", "label": "Pouca relevância", "cor": "#4F5359" },
+    { "faixa": "Rank 100k–500k", "label": "Algum ganho", "cor": "#4F5359" },
+    { "faixa": "Rank 10k–50k", "label": "40k Free — muito assistidos", "cor": "#00B4D8" },
+    { "faixa": "Rank 1k–10k", "label": "10k Specials — renda real", "cor": "#00B4D8" },
+    { "faixa": "Top 128", "label": "Torneio Mundial — Ilha Davoss", "cor": "#F4A227" }
+  ]
+}

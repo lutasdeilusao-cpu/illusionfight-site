@@ -17,6 +17,7 @@ import Assinar from './pages/Assinar'
 import Autor from './pages/Autor'
 import Webtoon from './pages/Webtoon'
 import WebtoonEpisodio from './pages/WebtoonEpisodio'
+import Mundo from './pages/Mundo'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />
+        <Route path="/mundo" element={<Mundo />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
       </Routes>

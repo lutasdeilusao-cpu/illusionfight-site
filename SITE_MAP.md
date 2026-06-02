@@ -66,6 +66,7 @@
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | Grid de episódios publicados com thumbnails e badges de idioma |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
+| `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 
 ---
 
@@ -74,7 +75,7 @@
 | Componente | Arquivo JSX | Arquivo CSS | Usado em | Descrição |
 |---|---|---|---|---|
 | TrialBanner | `TrialBanner.jsx` | `TrialBanner.css` | App (global) | Faixa âmbar fixa abaixo da navbar (TRIAL_MODE), fundo sólido ao scroll |
-| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 8 links (Webtoon, Livro, Músicas, Mundo, Curiosidades, Personagens, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, botão ENTRAR |
+| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 6 links (Webtoon, Livro, Músicas, Mundo, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, botão ENTRAR |
 | HeroSlideshow | `HeroSlideshow.jsx` | `HeroSlideshow.css` | Home | 4 imagens com crossfade 1.2s, Ken Burns (1.0→1.08), overlays, scanlines, HeroEffect canvas |
 | HeroEffect | `HeroEffect.jsx` | `HeroEffect.css` | HeroSlideshow | Canvas com 40-60 linhas teal/âmbar caindo |
 | TypewriterPhrase | `TypewriterPhrase.jsx` | `TypewriterPhrase.css` | HeroSlideshow | Frase com efeito de digitação em loop (~28s) |
@@ -128,6 +129,7 @@
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 | `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder (livro, eBook, camisetas, boné, caneca, pôster, quadrinho, chaveiro) | ShopSection |
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
+| `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→2030, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
 
 ---
 
@@ -167,7 +169,7 @@
 ## 8. FEATURES IMPLEMENTADAS
 
 ### Navegação & Layout
-- ✅ **Navbar global** — Logo LDI, 8 links (AUTOR + APOIAR em âmbar destaque), lang switcher (PT/ES/EN), drawer mobile, SocialBar, botão ENTRAR, background ao scroll
+- ✅ **Navbar global** — Logo LDI, 6 links (Webtoon, Livro, Músicas, Mundo, AUTOR, APOIAR âmbar), lang switcher (PT/ES/EN), drawer mobile, SocialBar, botão ENTRAR, background ao scroll
 - ✅ **Navbar acima do TrialBanner** — Navbar z-index 1000 (topo), TrialBanner z-index 998 (abaixo, top: 56px)
 - ✅ **Footer** — 3 colunas com links dinâmicos, Newsletter (Substack), SocialBar, copyright
 - ✅ **Trial Banner** — Faixa âmbar fixa controlada por TRIAL_MODE, fundo sólido ao scrollar
@@ -179,6 +181,7 @@
 - ✅ **Navegação flutuante** — Botões fixos ← anterior / próximo → no canto inferior esquerdo do leitor de capítulos
 - ✅ **Página /musicas** — Hero + faixas com capa e plataformas + placeholder videoclipes
 - ✅ **Modo imersivo** — Navbar e TrialBanner ocultos em WebtoonEpisodio e LivroCapitulo via ReaderContext
+- ✅ **Página /mundo** — Hero, Bravara + localizações, Timeline 1450→2030, LDI + SDR, Xakaxi + tecnologias, Glossário FREE/PREMIUM, seção Personagens
 
 ### Home
 - ✅ **Hero Slideshow** — 4 imagens com crossfade 1.2s, Ken Burns, scanlines, HeroEffect (chuva digital), Typewriter
@@ -237,7 +240,7 @@
 
 - ❌ **Autenticação** — Login, cadastro, sessão
 - ❌ **Rankings** — Página de ranking SDR
-- ❌ **Mundo** — Página do universo (mapa, lore)
+- ❌ **Rankings** — Página de ranking SDR dedicada
 - ❌ **Curiosidades** — Página de curiosidades/trivia
 - ❌ **Webtoon episódios futuros** — Episódios 01+ em produção
 - ❌ **Músicas** — Página com playlist/player dedicada

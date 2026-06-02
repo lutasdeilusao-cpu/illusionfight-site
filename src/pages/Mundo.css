@@ -1,0 +1,393 @@
+.mundo-hero {
+  padding: 8rem 0 4rem;
+  background: var(--bg-primary);
+  text-align: center;
+}
+
+.mundo-hero__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--accent-teal);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.mundo-hero__subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.mundo-section {
+  padding: 5rem 0;
+  background: var(--bg-primary);
+}
+
+.mundo-section--alt {
+  background: var(--bg-secondary);
+}
+
+.mundo-section-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 3rem 0 1.5rem;
+  text-align: center;
+}
+
+.mundo-subtitle {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+  margin: -1rem 0 2rem;
+}
+
+.mundo-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.mundo-text--max {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+.mundo-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.mundo-col-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent-teal);
+  margin: 0 0 0.5rem;
+}
+
+.mundo-locais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mundo-local-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.mundo-local-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-teal);
+  margin: 0 0 0.35rem;
+}
+
+.mundo-local-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.timeline-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 2rem 1rem 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+}
+
+.timeline-track::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: var(--border-subtle);
+}
+
+.timeline-point {
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.timeline-point::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-teal);
+  border: 2px solid var(--bg-primary);
+  z-index: 1;
+}
+
+.timeline-point--now::before {
+  background: var(--accent-amber);
+  box-shadow: 0 0 12px rgba(244, 162, 39, 0.6);
+  animation: timelinePulse 2s ease infinite;
+}
+
+@keyframes timelinePulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(244, 162, 39, 0.6); }
+  50% { box-shadow: 0 0 24px rgba(244, 162, 39, 0.9); }
+}
+
+.timeline-ano {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent-teal);
+}
+
+.timeline-texto {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.mundo-combat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.mundo-combat-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.mundo-combat-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.mundo-combat-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent-teal);
+  margin: 0 0 0.5rem;
+}
+
+.mundo-combat-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mundo-ranking {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mundo-ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--rank-color);
+}
+
+.mundo-ranking-faixa {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-teal);
+  font-weight: 600;
+}
+
+.mundo-ranking-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mundo-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.mundo-tech-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.mundo-tech-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent-teal);
+  margin: 0 0 0.35rem;
+}
+
+.mundo-tech-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mundo-premium-badge {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px dashed var(--accent-amber);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mundo-premium-badge p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+}
+
+.mundo-premium-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-amber);
+  color: #000;
+}
+
+.mundo-premium-tag--sm {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.mundo-glossario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mundo-glossario-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mundo-glossario-card--premium {
+  opacity: 0.6;
+}
+
+.mundo-glossario-sigla {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin-bottom: 0.25rem;
+}
+
+.mundo-glossario-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.mundo-glossario-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.mundo-personagens-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.mundo-ver-todos {
+  display: block;
+  margin: 2rem auto 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  border: 1.5px solid var(--accent-teal);
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mundo-ver-todos:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .mundo-two-cols { grid-template-columns: 1fr; }
+  .mundo-combat-grid { grid-template-columns: 1fr; }
+  .mundo-tech-grid { grid-template-columns: 1fr; }
+}
