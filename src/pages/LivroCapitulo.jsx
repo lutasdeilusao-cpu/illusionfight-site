@@ -18,7 +18,7 @@ export default function LivroCapitulo() {
   useEffect(() => {
     setReaderMode(true)
     return () => setReaderMode(false)
-  }, [setReaderMode])
+  }, [])
   const [md, setMd] = useState('')
   const [notFound, setNotFound] = useState(false)
 
