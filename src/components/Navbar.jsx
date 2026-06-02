@@ -26,7 +26,6 @@ export default function Navbar({ hidden }) {
   const classList = [
     'navbar',
     scrolled ? 'navbar--scrolled' : '',
-    SITE_CONFIG.TRIAL_MODE ? 'navbar--has-trial' : '',
   ].filter(Boolean).join(' ')
 
   return (

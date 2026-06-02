@@ -1,9 +1,9 @@
 .trial-banner {
   position: fixed;
-  top: 0;
+  top: 56px;
   left: 0;
   right: 0;
-  z-index: 1001;
+  z-index: 998;
   background: rgba(244, 162, 39, 0.08);
   border-bottom: 1px solid rgba(244, 162, 39, 0.25);
   padding: 0.5rem 1rem;

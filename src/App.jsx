@@ -21,8 +21,8 @@ export default function App() {
 
   return (
     <>
-      <TrialBanner hidden={readerMode} />
       <Navbar hidden={readerMode} />
+      <TrialBanner hidden={readerMode} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/personagens" element={<Personagens />} />
