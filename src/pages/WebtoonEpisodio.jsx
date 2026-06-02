@@ -15,7 +15,14 @@ export default function WebtoonEpisodio() {
   useEffect(() => {
     setReaderMode(true)
     return () => setReaderMode(false)
-  }, [setReaderMode])
+  }, [])
+
+  useEffect(() => { localStorage.setItem('ldi-webtoon-ultimo', id) }, [id])
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`ldi-webtoon-scroll-${id}`)
+    if (saved) window.scrollTo(0, parseInt(saved))
+  }, [id])
 
   const ep = episodios.find(e => e.id === id)
   const idx = episodios.findIndex(e => e.id === id)

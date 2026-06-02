@@ -4,9 +4,11 @@ import TrialBanner from './components/TrialBanner'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import ScrollToTopOnNav from './components/ScrollToTopOnNav'
 import NotificationBalloon from './components/NotificationBalloon'
 import CookieBanner from './components/CookieBanner'
 import Home from './pages/Home'
+import Musicas from './pages/Musicas'
 import Personagens from './pages/Personagens'
 import PersonagemDetalhe from './pages/PersonagemDetalhe'
 import Livro from './pages/Livro'
@@ -21,6 +23,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTopOnNav />
       <Navbar hidden={readerMode} />
       <TrialBanner hidden={readerMode} />
       <Routes>
@@ -31,6 +34,7 @@ export default function App() {
         <Route path="/livro/:id" element={<LivroCapitulo />} />
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
+        <Route path="/musicas" element={<Musicas />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
       </Routes>

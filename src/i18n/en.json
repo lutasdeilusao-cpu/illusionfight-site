@@ -25,6 +25,10 @@
       "cta": "READ ON WEBTOON"
     }
   },
+  "musicas": {
+    "subtitle": "The soundtrack of the Illusion Fight universe",
+    "clipesPlaceholder": "Music videos in production — coming soon."
+  },
   "music": {
     "title": "MUSIC",
     "comingSoon": "COMING SOON"

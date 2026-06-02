@@ -85,6 +85,36 @@
   visibility: hidden;
 }
 
+.livro-nav-flutuante {
+  position: fixed;
+  bottom: 90px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.livro-nav-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 10px;
+  text-decoration: none;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.livro-nav-btn:hover {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+}
+
 .livro-capitulo__erro {
   text-align: center;
   padding: 4rem 0;

@@ -65,6 +65,7 @@
 | `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História de Isaias Leal em 4 blocos, CTA para assinar |
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | Grid de episódios publicados com thumbnails e badges de idioma |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
+| `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 
 ---
 
@@ -88,6 +89,7 @@
 | SocialBar | `SocialBar.jsx` | `SocialBar.css` | Navbar, Footer | Ícones X, Instagram, TikTok, YouTube (size small/medium) |
 | Footer | `Footer.jsx` | `Footer.css` | App (global) | 3 colunas (Navegação, Universo, Sobre) com links internos (Link) e externos (Substack), SocialBar, copyright |
 | ScrollToTop | `ScrollToTop.jsx` | `ScrollToTop.css` | App (global) | Botão fixo canto inferior direito, aparece após 400px de scroll |
+| ScrollToTopOnNav | `ScrollToTopOnNav.jsx` | — | App (global) | Escuta mudanças de rota e faz scrollTo(0,0) |
 | NotificationBalloon | `NotificationBalloon.jsx` | `NotificationBalloon.css` | App (global) | Balão com foto do Jack, 10 mensagens aleatórias Fisher-Yates, 3min primeira, 10min entre cada, auto-fecha 8s |
 | CookieBanner | `CookieBanner.jsx` | `CookieBanner.css` | App (global) | Banner LGPD/GDPR, persiste aceitação em localStorage('ldi-cookies-accepted'), slideUp |
 | PlatformIcons | `PlatformIcons.jsx` | — | MusicSection, NowLive | SVGs inline: Spotify, YouTube, Apple Music, Amazon Music, Deezer, Tidal, TikTok, X, Instagram |
@@ -171,6 +173,11 @@
 - ✅ **Trial Banner** — Faixa âmbar fixa controlada por TRIAL_MODE, fundo sólido ao scrollar
 - ✅ **ScrollToTop** — Botão fixo canto inferior direito, aparece após 400px, scroll suave
 - ✅ **Cookie Banner** — LGPD/GDPR, barra fixa no rodapé, persiste aceitação em localStorage
+- ✅ **ScrollToTop on Nav** — Volta ao topo ao trocar de rota via ScrollToTopOnNav
+- ✅ **Save point Livro** — localStorage ldi-livro-ultimo, restaura scroll ao voltar, botão Continuar lendo no índice
+- ✅ **Save point Webtoon** — localStorage ldi-webtoon-ultimo, restaura scroll, botão Continuar na página de episódios
+- ✅ **Navegação flutuante** — Botões fixos ← anterior / próximo → no canto inferior esquerdo do leitor de capítulos
+- ✅ **Página /musicas** — Hero + faixas com capa e plataformas + placeholder videoclipes
 - ✅ **Modo imersivo** — Navbar e TrialBanner ocultos em WebtoonEpisodio e LivroCapitulo via ReaderContext
 
 ### Home

@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import episodios from '../data/episodios.json'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
@@ -8,9 +9,14 @@ import './Webtoon.css'
 const thumbMap = { 'thumb-ep00.png': thumbEp00 }
 
 export default function Webtoon() {
+  const [ultimo, setUltimo] = useState(null)
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const published = episodios.filter(ep => ep.publicado)
+
+  useEffect(() => {
+    setUltimo(localStorage.getItem('ldi-webtoon-ultimo'))
+  }, [])
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
@@ -19,6 +25,11 @@ export default function Webtoon() {
       <Helmet><title>Webtoon — Lutas de Ilusão</title></Helmet>
       <section className="webtoon-page">
         <div className="container">
+          {ultimo && (
+            <Link to={`/webtoon/${ultimo}`} className="livro-continuar">
+              → Continuar
+            </Link>
+          )}
           <h1 className="section-title">WEBTOON</h1>
           <div className="webtoon-grid">
             {published.map(ep => {

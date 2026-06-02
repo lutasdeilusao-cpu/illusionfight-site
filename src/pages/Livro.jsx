@@ -1,12 +1,18 @@
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import index from '../data/livro-index.json'
 import './Livro.css'
 
 export default function Livro() {
+  const [ultimo, setUltimo] = useState(null)
   const navigate = useNavigate()
   const { locale } = useLanguage()
+
+  useEffect(() => {
+    setUltimo(localStorage.getItem('ldi-livro-ultimo'))
+  }, [])
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
@@ -16,6 +22,11 @@ export default function Livro() {
         <title>Livro — Lutas de Ilusão</title>
       </Helmet>
       <div className="container">
+        {ultimo && (
+          <Link to={`/livro/${ultimo}`} className="livro-continuar">
+            → Continuar lendo
+          </Link>
+        )}
         <h2 className="section-title">CAPÍTULOS</h2>
         <div className="livro-page__list">
           {index.map(ch => (

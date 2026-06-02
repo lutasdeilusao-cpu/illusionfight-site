@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
@@ -19,6 +19,20 @@ export default function LivroCapitulo() {
     setReaderMode(true)
     return () => setReaderMode(false)
   }, [])
+
+  useEffect(() => { localStorage.setItem('ldi-livro-ultimo', id) }, [id])
+
+  useEffect(() => {
+    const saveScroll = () => localStorage.setItem(`ldi-livro-scroll-${id}`, window.scrollY)
+    window.addEventListener('beforeunload', saveScroll)
+    return () => { saveScroll(); window.removeEventListener('beforeunload', saveScroll) }
+  }, [id])
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`ldi-livro-scroll-${id}`)
+    if (saved) window.scrollTo(0, parseInt(saved))
+  }, [id])
+
   const [md, setMd] = useState('')
   const [notFound, setNotFound] = useState(false)
 
@@ -65,6 +79,10 @@ export default function LivroCapitulo() {
   const next = idx < index.length - 1 ? index[idx + 1] : null
   const prevPublished = prev?.publicado ? prev : null
   const nextPublished = next?.publicado ? next : null
+  const capitulos = index.filter(c => c.publicado)
+  const currentIndex = capitulos.findIndex(c => c.id === id)
+  const anterior = capitulos[currentIndex - 1]
+  const proximo = capitulos[currentIndex + 1]
 
   return (
     <section className="livro-capitulo">
@@ -85,6 +103,19 @@ export default function LivroCapitulo() {
 
         <div className="livro-capitulo__content">
           <ReactMarkdown>{md}</ReactMarkdown>
+        </div>
+
+        <div className="livro-nav-flutuante">
+          {anterior && (
+            <Link to={`/livro/${anterior.id}`} className="livro-nav-btn">
+              ← {anterior[tituloKey]}
+            </Link>
+          )}
+          {proximo && (
+            <Link to={`/livro/${proximo.id}`} className="livro-nav-btn livro-nav-btn--proximo">
+              {proximo[tituloKey]} →
+            </Link>
+          )}
         </div>
 
         <div className="livro-capitulo__nav">
