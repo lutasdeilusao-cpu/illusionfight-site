@@ -1,0 +1,105 @@
+.notif-balloon {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 280px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-teal);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(0, 180, 216, 0.2);
+  z-index: 150;
+  animation: balloonIn 0.3s ease;
+}
+
+@keyframes balloonIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.notif-balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 28px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--accent-teal);
+  border-bottom: 1px solid var(--accent-teal);
+  transform: rotate(45deg);
+}
+
+.notif-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.notif-close:hover {
+  color: var(--text-primary);
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.notif-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-teal);
+}
+
+.notif-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-teal);
+  letter-spacing: 0.05em;
+}
+
+.notif-message {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.notif-cta {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-teal);
+  text-decoration: none;
+  border: 1px solid var(--accent-teal);
+  padding: 5px 12px;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.notif-cta:hover {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}

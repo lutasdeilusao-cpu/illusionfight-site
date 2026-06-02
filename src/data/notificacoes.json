@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "mensagem": "Ei! Sabia que sua ajuda mantém o projeto vivo? A gente não para enquanto tiver apoio.",
+    "cta": "Acessa lá",
+    "url": "/assinar"
+  },
+  {
+    "id": 2,
+    "mensagem": "Ô! Tô gravando tudo aqui e preciso de patrocínio, meus mimos têm custos. Sério.",
+    "cta": "Nos apoia lá",
+    "url": "/assinar"
+  },
+  {
+    "id": 3,
+    "mensagem": "Newsletter exclusiva? Tem sim! Histórias que não vão aparecer em LUGAR NENHUM. Só lá.",
+    "cta": "Entra aqui",
+    "url": "https://illusionfight.substack.com/subscribe"
+  },
+  {
+    "id": 4,
+    "mensagem": "Produtos do universo LDI chegando. Camiseta, boné, caneca... você vai querer estar na lista.",
+    "cta": "Confere",
+    "url": "/assinar"
+  },
+  {
+    "id": 5,
+    "mensagem": "Kim não sabe mas eu tô te convidando pra ver o webtoon. Episódio 00 tá free, vai lá.",
+    "cta": "Ler agora",
+    "url": "/webtoon/00"
+  },
+  {
+    "id": 6,
+    "mensagem": "Seis meses de treino e o cara ainda não é Elite? Ajuda aí.",
+    "cta": "Virar Elite",
+    "url": "/assinar"
+  },
+  {
+    "id": 7,
+    "mensagem": "Segue a gente nas redes! X, TikTok, Instagram... onde tiver eu tô filmando algo épico.",
+    "cta": "Seguir",
+    "url": "https://x.com/IsaiasLealOfc"
+  },
+  {
+    "id": 8,
+    "mensagem": "Você sabia que o livro tem mais de 15 capítulos escritos e ainda tá em andamento? Os 3 primeiros são de graça.",
+    "cta": "Ler grátis",
+    "url": "/livro"
+  },
+  {
+    "id": 9,
+    "mensagem": "A trilha oficial do universo tá no Spotify. Ouve aí enquanto lê, melhora tudo.",
+    "cta": "Ouvir agora",
+    "url": "https://open.spotify.com/album/6tZYw93qw5T0uKSb1ELROe"
+  },
+  {
+    "id": 10,
+    "mensagem": "Tem livro físico e digital na Amazon! Leva um pra casa, apoia o projeto e ainda fica com algo real na mão.",
+    "cta": "Ver na Amazon",
+    "url": "https://www.amazon.com.br"
+  }
+]

@@ -94,6 +94,7 @@
 | PlatformIcons | `PlatformIcons.jsx` | — | MusicSection | SVGs inline das 6 plataformas de música |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | Row horizontal de cards estáticos clicáveis — YouTube, TikTok, X, Instagram |
 | ShopSection | `ShopSection.jsx` | `ShopSection.css` | Home | Carrossel infinito drag/swipe de produtos — 10 placeholders |
+| NotificationBalloon | `NotificationBalloon.jsx` | `NotificationBalloon.css` | App (global) | Balão de notificação com Jack — 10 mensagens, 3min primeira, 10min entre cada |
 
 ---
 
@@ -126,6 +127,7 @@
 | `planos.json` | `src/data/` | — | 3 tiers: Ranqueado (free), Elite (R$10), Primordial (R$30) com benefícios em PT/EN/ES | Assinar |
 | `episodios.json` | `src/data/` | PT/EN/ES | Metadados dos episódios do webtoon | Webtoon, WebtoonEpisodio |
 | `produtos.json` | `src/data/` | PT/EN/ES | 10 produtos placeholder com nome, tipo, badge e url | ShopSection |
+| `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `nowlive.json` | `src/data/` | — | 4 cards (YouTube, TikTok, X, Instagram) com ativo, url, corPlataforma, título | NowLive |
 
 ---
@@ -136,7 +138,7 @@
 |---|---|---|---|
 | Banners | `src/assets/images/banners/` | `banner-01.png` ~ `banner-04.png` | ✅ Final (arte real do usuário, ~2.3MB cada) |
 | Logos | `src/assets/images/logos/` | `logo-pt.png`, `logo-en.png` | ✅ Final (arte real) |
-| Characters | `src/assets/images/characters/` | (vazio) | 🔲 Placeholder (cor sólida + nome) |
+| Characters | `src/assets/images/characters/` | `jack-balloon.png` | ✅ Final |
 | Episodes | `src/assets/images/episodes/` | `thumb-ep00.png` | ✅ Final |
 | Webtoon  | `public/webtoon/` | `00/pt/01~21.png` | ✅ Episódio 00 PT |
 | Music | `src/assets/images/music/` | `lutas-de-ilusao.png` | ✅ Final (arte real) |
