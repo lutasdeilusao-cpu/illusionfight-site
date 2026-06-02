@@ -1,0 +1,1492 @@
+[
+  {
+    "id": 1,
+    "categoria": "mundo",
+    "dificuldade": "facil",
+    "pergunta": "O que significa a sigla LDI?",
+    "alternativas": [
+      "Liga de Ilusões Digitais",
+      "Lutas de Ilusão",
+      "Laboratório de Instâncias",
+      "Liga de Duelos Interativos"
+    ],
+    "correta": 1,
+    "narrador": "Isso era pra qualquer recruta saber, Briguento."
+  },
+  {
+    "id": 2,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o hardware necessário para acessar o LDI?",
+    "alternativas": [
+      "NeoGuide Deluxe",
+      "SBI — Simulador de Batalhas de Ilusão",
+      "SDR Pro Helmet",
+      "Yohu Gear Alpha"
+    ],
+    "correta": 1,
+    "narrador": "Sem o capacete, você nem entra na arena."
+  },
+  {
+    "id": 3,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o nome completo do protagonista?",
+    "alternativas": [
+      "Joaquim Leal Reis",
+      "Kim Leal Santos",
+      "Joaquim Ramos",
+      "Kim Briguento"
+    ],
+    "correta": 0,
+    "narrador": "Briguento nem lembra do próprio nome às vezes."
+  },
+  {
+    "id": 4,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o nick de Kim no LDI?",
+    "alternativas": [
+      "Sangue_X",
+      "KimPrimordial",
+      "Briguento",
+      "XakaxiWarrior"
+    ],
+    "correta": 2,
+    "narrador": "O sistema escolheu melhor do que ele escolheria."
+  },
+  {
+    "id": 5,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "O que Jack carrega como arma no LDI?",
+    "alternativas": [
+      "Espada de plasma",
+      "Bengala chamada Vitória",
+      "Ioiôs duplos",
+      "Luvas de combate"
+    ],
+    "correta": 1,
+    "narrador": "Uma bengala. Ele venceu batalhas com uma bengala. Respeito."
+  },
+  {
+    "id": 6,
+    "categoria": "mundo",
+    "dificuldade": "facil",
+    "pergunta": "Quantos jogadores disputam o SDR globalmente?",
+    "alternativas": [
+      "1 bilhão",
+      "3 bilhões",
+      "500 milhões",
+      "10 bilhões"
+    ],
+    "correta": 1,
+    "narrador": "Três bilhões de almas jogando. E você ainda acha que é especial."
+  },
+  {
+    "id": 7,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "Qual recurso determina o poder de um lutador no LDI?",
+    "alternativas": [
+      "Condicionamento físico",
+      "Experiência de vida",
+      "Energia mental",
+      "Nível de equipamento"
+    ],
+    "correta": 2,
+    "narrador": "Não adianta ter músculos se a cabeça não aguenta."
+  },
+  {
+    "id": 8,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual era o ranking de Kim após sua PRIMEIRA batalha ranqueada?",
+    "alternativas": [
+      "30.156",
+      "10.776",
+      "1.201",
+      "998"
+    ],
+    "correta": 2,
+    "narrador": "Estreante entrou no top 1.500 mundial. Acontece."
+  },
+  {
+    "id": 9,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "O que acontece quando um jogador MORRE dentro do LDI?",
+    "alternativas": [
+      "Desconecta automaticamente",
+      "Perde todos os pontos",
+      "Fica em modo observador até o vencedor encerrar",
+      "Reinicia no ponto de entrada"
+    ],
+    "correta": 2,
+    "narrador": "Você morre, mas ainda tem que assistir. Brutal, não é?"
+  },
+  {
+    "id": 10,
+    "categoria": "mundo",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o equivalente ficcional de São Paulo no universo LDI?",
+    "alternativas": [
+      "Bravara",
+      "Davoss",
+      "Marelia",
+      "Azuma"
+    ],
+    "correta": 2,
+    "narrador": "Concreto, caos e totens Yohualticit. Casa."
+  },
+  {
+    "id": 11,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "Quais são os três modos de combate disponíveis no LDI?",
+    "alternativas": [
+      "Físico, Mental, Espiritual",
+      "Mãos Livres, Armas, Poder",
+      "Solo, Dupla, Equipe",
+      "Normal, Ranqueado, Elite"
+    ],
+    "correta": 1,
+    "narrador": "Conhecimento básico de arena. Analfabeto do LDI seria desclassificado."
+  },
+  {
+    "id": 12,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Como se chamam as armas de Kim no LDI?",
+    "alternativas": [
+      "Primordial Blades",
+      "Xakixi",
+      "Sangue Duplo",
+      "Machadinha Ancestral"
+    ],
+    "correta": 1,
+    "narrador": "O nome estava gravado como se sempre tivesse estado lá."
+  },
+  {
+    "id": 13,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "Quem criou o LDI em 2022?",
+    "alternativas": [
+      "David Kronos",
+      "Pajé Yawanari",
+      "A Yohualticit",
+      "O governo de Bravara"
+    ],
+    "correta": 2,
+    "narrador": "A empresa por trás de tudo. Mas quem está por trás da empresa?"
+  },
+  {
+    "id": 14,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Quantas vitórias tinha Thunderbolt quando enfrentou Kim?",
+    "alternativas": [
+      "100",
+      "501",
+      "1.201",
+      "1.201 vitórias e 305 derrotas"
+    ],
+    "correta": 3,
+    "narrador": "Histórico respeitável. Não serviu de nada."
+  },
+  {
+    "id": 15,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o nome da rede social viral do universo LDI?",
+    "alternativas": [
+      "StreamBattle",
+      "FightHub",
+      "PowWow",
+      "ArenaCast"
+    ],
+    "correta": 2,
+    "narrador": "Onde as glórias viram memes e os memes viram lendas."
+  },
+  {
+    "id": 16,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "O que é o Sangue Primordial que Kim carrega?",
+    "alternativas": [
+      "Um vírus digital implantado pela Yohualticit",
+      "Uma condição rara da linhagem Xakaxi que sustenta poder ancestral",
+      "O resultado de um experimento do Thunderbolt",
+      "Um elemental secreto desbloqueado no top 500"
+    ],
+    "correta": 1,
+    "narrador": "O que David Kronos passou quinhentos anos procurando."
+  },
+  {
+    "id": 17,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "O que Powa — filho de Yawanari — fez na clareira que destruiu a tribo Xakaxi?",
+    "alternativas": [
+      "Invocou David Kronos acidentalmente",
+      "Realizou um ritual proibido sugando a vida dos próprios seguidores",
+      "Quebrou o pacto de selamento do poder sagrado",
+      "Entregou os segredos da tribo para os invasores"
+    ],
+    "correta": 1,
+    "narrador": "O filho do pajé. A tragédia que Yawanari carrega há séculos."
+  },
+  {
+    "id": 18,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "De onde veio Shuntaro Chirasu para desafiar Kim?",
+    "alternativas": [
+      "Davoss",
+      "Marelia",
+      "Azuma",
+      "Elite Academy"
+    ],
+    "correta": 2,
+    "narrador": "Nove horas de viagem. Só pra testar o Briguento. Dedicação."
+  },
+  {
+    "id": 19,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o plano de David Kronos chamado Grande Purificação?",
+    "alternativas": [
+      "Destruir o LDI e expor a Yohualticit",
+      "Destruição e renovação do mundo usando o Corpo Primordial de Kim",
+      "Eliminar todos os descendentes Xakaxi",
+      "Assumir o controle do SDR globalmente"
+    ],
+    "correta": 1,
+    "narrador": "Quinhentos anos de espera por um garoto que vende bala no ônibus."
+  },
+  {
+    "id": 20,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Por que Yawanari mistura sabedoria ancestral com gírias modernas?",
+    "alternativas": [
+      "É uma estratégia para aproximar Kim",
+      "A sanidade foi cedendo após séculos observando a humanidade",
+      "Está fingindo loucura para enganar Kronos",
+      "É o jeito Xakaxi de falar com descendentes jovens"
+    ],
+    "correta": 1,
+    "narrador": "Quinhentos anos de guerras, massacres e redes sociais de vídeos curtos. Alguém ia quebrar."
+  },
+  {
+    "id": 21,
+    "categoria": "mecanica",
+    "dificuldade": "dificil",
+    "pergunta": "O que é o SVN no sistema de monetização SDM do LDI?",
+    "alternativas": [
+      "Sistema de votação em batalhas ao vivo",
+      "Coleções de NFTs criadas a cada seis meses com um designer da Yohu",
+      "Serviço de vídeo de análise de combate",
+      "Acesso exclusivo a treinos com top 100"
+    ],
+    "correta": 1,
+    "narrador": "Cara, até os NFTs do LDI valem mais que os seus."
+  },
+  {
+    "id": 22,
+    "categoria": "mecanica",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o modo Xamã das armas de Kim — as Xakixi?",
+    "alternativas": [
+      "Espada dupla de fogo",
+      "Machado duplo de cabo longo",
+      "Correntes com lâminas",
+      "Escudo com guilhotinas"
+    ],
+    "correta": 1,
+    "narrador": "As duas machadinhas se fundem. O resultado não é pra amadores."
+  },
+  {
+    "id": 23,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o equivalente ficcional do PIX no universo de Bravara?",
+    "alternativas": [
+      "PowWow Pay",
+      "Yohu Coins",
+      "DIX",
+      "BravaCash"
+    ],
+    "correta": 2,
+    "narrador": "Kim paga a conta de luz no DIX. A vida continua."
+  },
+  {
+    "id": 24,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Quem é Osvaldo na vida de Kim?",
+    "alternativas": [
+      "O professor de matemática da Elite Academy",
+      "O porteiro que arranjou a bolsa de Kim e ensinou violão",
+      "O gerente que contratou Kim para vender balas",
+      "O treinador de luta que descobriu o Sangue Primordial"
+    ],
+    "correta": 1,
+    "narrador": "Porteiro. Mentor. A academia não merece ele."
+  },
+  {
+    "id": 25,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o modo Xamã da arma de Jack — a Vitória?",
+    "alternativas": [
+      "Sabre de Plasma Verde",
+      "San Tien Kwan",
+      "Bengala Amplificada",
+      "Bastão Duplo de Trovão"
+    ],
+    "correta": 1,
+    "narrador": "Uma bengala que vira isso. Jack nunca foi o que parecia."
+  },
+  {
+    "id": 26,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a cor dos dreads do Jack?",
+    "alternativas": [
+      "Azul",
+      "Vermelho",
+      "Verde",
+      "Roxo"
+    ],
+    "correta": 2,
+    "narrador": "Impossível errar isso. Ele é o único verde ambulante da escola.",
+    "dicas": {
+      "kim": "Cara, o Jack é... verde. Bem verde.",
+      "jack": "MEU CABELO É ICÔNICO, óbvio que é verde.",
+      "nina": "Verde. Próxima pergunta."
+    }
+  },
+  {
+    "id": 27,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "O que Kim vende para sobreviver?",
+    "alternativas": [
+      "Salgados",
+      "Balas em ônibus",
+      "Revistas",
+      "Água mineral"
+    ],
+    "correta": 1,
+    "narrador": "Desde os 13 anos. Respeito.",
+    "dicas": {
+      "kim": "...você tá me perguntando sobre o meu trabalho.",
+      "jack": "Balas! E ele é incrível nisso, confia.",
+      "nina": "Balas. Em ônibus. Desde os 13."
+    }
+  },
+  {
+    "id": 28,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a cor do cabelo da Nina?",
+    "alternativas": [
+      "Azul",
+      "Loiro",
+      "Rosa",
+      "Preto"
+    ],
+    "correta": 2,
+    "narrador": "Cor que combina com a personalidade dela. Sem rodeios.",
+    "dicas": {
+      "kim": "Rosa. Igual a personalidade dela... espera, ela não tem personalidade cor-de-rosa.",
+      "jack": "ROSA! Bonito demais.",
+      "nina": "Rosa. Pode continuar."
+    }
+  },
+  {
+    "id": 29,
+    "categoria": "mundo",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o nome do Brasil no universo ficcional do LDI?",
+    "alternativas": [
+      "Brazoria",
+      "Bravara",
+      "Novaterra",
+      "Latinex"
+    ],
+    "correta": 1,
+    "narrador": "Bravara. Casa.",
+    "dicas": {
+      "kim": "Bravara. Tipo Brasil mas com mais caos e tecnologia da Yohu espalhada.",
+      "jack": "BRAVARA! País deles, país nosso!",
+      "nina": "Bravara. Simples."
+    }
+  },
+  {
+    "id": 30,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "O que é o SDR no universo LDI?",
+    "alternativas": [
+      "Sistema de Dano Real",
+      "Sistema de Ranqueamento Dinâmico",
+      "Servidor de Dados Remotos",
+      "Sistema de Duelos Ranqueados"
+    ],
+    "correta": 1,
+    "narrador": "O sistema que classifica 3 bilhões de lutadores.",
+    "dicas": {
+      "kim": "Ranqueamento. O negócio que me colocou no top 1.201 sem eu pedir.",
+      "jack": "SDR = o que vai te fazer famoso. Ou não.",
+      "nina": "Sistema de Ranqueamento Dinâmico. Memorize."
+    }
+  },
+  {
+    "id": 31,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o estilo de luta principal da Nina?",
+    "alternativas": [
+      "Jiu-Jitsu",
+      "Boxe",
+      "Muay Thai",
+      "Capoeira"
+    ],
+    "correta": 2,
+    "narrador": "Muay Thai. Eficiente. Como ela.",
+    "dicas": {
+      "kim": "Muay Thai. Ela quase me quebrou numa demonstração.",
+      "jack": "Muay Thai, mano. Ela é VIOLENTA.",
+      "nina": "Muay Thai."
+    }
+  },
+  {
+    "id": 32,
+    "categoria": "mundo",
+    "dificuldade": "facil",
+    "pergunta": "Como se chama a escola onde Kim e Jack estudam?",
+    "alternativas": [
+      "Academy Prime",
+      "Elite Academy",
+      "Marelia High",
+      "Tech Institute"
+    ],
+    "correta": 1,
+    "narrador": "Elite Academy. 50% de bolsa. Bem diferente de elite.",
+    "dicas": {
+      "kim": "Elite Academy. O nome é uma piada quando você paga com bolsa.",
+      "jack": "Elite Academy! Onde a gente domina!",
+      "nina": "Elite Academy."
+    }
+  },
+  {
+    "id": 33,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o Japan ficcional no universo LDI?",
+    "alternativas": [
+      "Nippon",
+      "Azuma",
+      "Tokyara",
+      "Shinja"
+    ],
+    "correta": 1,
+    "narrador": "Azuma. De lá veio alguém que Kim nunca esqueceu.",
+    "dicas": {
+      "kim": "Azuma. É tipo o Japão, mas ficcional.",
+      "jack": "AZUMA! De lá veio o cara dos ioiôs!",
+      "nina": "Azuma."
+    }
+  },
+  {
+    "id": 34,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o apelido do professor de matemática da Elite Academy?",
+    "alternativas": [
+      "O Robô",
+      "A Máquina",
+      "O Calculista",
+      "O Professor"
+    ],
+    "correta": 1,
+    "narrador": "A Máquina. Justo.",
+    "dicas": {
+      "kim": "A Máquina. Ele não sorri. Não descansa. Só cobra.",
+      "jack": "A MÁQUINA! Cara sem coração.",
+      "nina": "A Máquina. Autoexplicativo."
+    }
+  },
+  {
+    "id": 35,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a cor predominante do boné que Kim usa fora do LDI?",
+    "alternativas": [
+      "Vermelho",
+      "Preto",
+      "Teal/Verde-azulado",
+      "Laranja"
+    ],
+    "correta": 2,
+    "narrador": "Teal. Com símbolo circular. Detalhe pequeno, mas é do Kim.",
+    "dicas": {
+      "kim": "Teal. Com um símbolo circular. É o meu.",
+      "jack": "Teal! Estiloso, né?",
+      "nina": "Teal."
+    }
+  },
+  {
+    "id": 36,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a cor da mochila que Kim carrega no dia a dia?",
+    "alternativas": [
+      "Preta",
+      "Verde",
+      "Laranja",
+      "Azul"
+    ],
+    "correta": 2,
+    "narrador": "Laranja. Entre os livros e as cervejas.",
+    "dicas": {
+      "kim": "Laranja. É minha.",
+      "jack": "Laranja! Igual a minha!",
+      "nina": "Laranja. Segue em frente."
+    }
+  },
+  {
+    "id": 37,
+    "categoria": "lore",
+    "dificuldade": "facil",
+    "pergunta": "O que é a NeoGuide no LDI?",
+    "alternativas": [
+      "Uma arena especial",
+      "Uma IA que orienta novos jogadores",
+      "A fundadora da Yohualticit",
+      "Um modo de treino exclusivo"
+    ],
+    "correta": 1,
+    "narrador": "IA tutorial. Útil para quem lê tutorial.",
+    "dicas": {
+      "kim": "É a IA que explica as regras. Eu ignorei metade.",
+      "jack": "NeoGuide! Ela me ensinou TUDO. Basicamente.",
+      "nina": "IA de orientação para iniciantes."
+    }
+  },
+  {
+    "id": 38,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Quem é David Kronos no universo LDI?",
+    "alternativas": [
+      "O criador da Yohualticit",
+      "O antagonista principal, espírito ancestral corrompido",
+      "O treinador secreto de Kim",
+      "O dono da Elite Academy"
+    ],
+    "correta": 1,
+    "narrador": "Quinhentos anos esperando pelo garoto errado entrar na arena.",
+    "dicas": {
+      "kim": "O cara que quer meu corpo. Literalmente.",
+      "jack": "O vilão! O careta! O cara de terno!",
+      "nina": "Antagonista principal. Espírito ancestral corrompido."
+    }
+  },
+  {
+    "id": 39,
+    "categoria": "mundo",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o equivalente ficcional do Japão no universo LDI?",
+    "alternativas": [
+      "Nippon",
+      "Shinja",
+      "Azuma",
+      "Tokyara"
+    ],
+    "correta": 2,
+    "narrador": "Azuma. Terra de guerreiros com ioiôs.",
+    "dicas": {
+      "kim": "Azuma.",
+      "jack": "Azuma! De lá veio o cara que veio me ver jogar!",
+      "nina": "Azuma."
+    }
+  },
+  {
+    "id": 40,
+    "categoria": "lore",
+    "dificuldade": "facil",
+    "pergunta": "A dor dentro do LDI é real ou simulada?",
+    "alternativas": [
+      "Simulada, apenas sensação",
+      "100% real",
+      "50% atenuada",
+      "Depende do modo de combate"
+    ],
+    "correta": 1,
+    "narrador": "100% real. É o ponto. Todo mundo sabe quando entra.",
+    "dicas": {
+      "kim": "Real. Eu senti. Muito.",
+      "jack": "REAL! Que é a graça, né?",
+      "nina": "100% real. Por isso leva-se a sério."
+    }
+  },
+  {
+    "id": 41,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual tribo ancestral Kim descende?",
+    "alternativas": [
+      "Guarani",
+      "Tupinambá",
+      "Xakaxi",
+      "Krenak"
+    ],
+    "correta": 2,
+    "narrador": "Xakaxi. Civilização que o mundo esqueceu. Kronos não.",
+    "dicas": {
+      "kim": "Xakaxi. Tribo que eu mal conhecia até o Yawanari aparecer na minha cabeça.",
+      "jack": "Xakaxi! A tribo do Kim!",
+      "nina": "Xakaxi."
+    }
+  },
+  {
+    "id": 42,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Qual é a relação entre Kim e Helena?",
+    "alternativas": [
+      "Mãe biológica",
+      "Mãe adotiva",
+      "Tia",
+      "Tutora escolar"
+    ],
+    "correta": 1,
+    "narrador": "Adotiva. A diferença importa.",
+    "dicas": {
+      "kim": "...mãe adotiva. Não biológica.",
+      "jack": "Mãe adotiva. Complicado.",
+      "nina": "Mãe adotiva."
+    }
+  },
+  {
+    "id": 43,
+    "categoria": "mecanica",
+    "dificuldade": "facil",
+    "pergunta": "Quais são os componentes do hardware SBI?",
+    "alternativas": [
+      "Teclado e mouse especiais",
+      "Luva e óculos",
+      "Capacete e gauntlet",
+      "Cadeira e headset"
+    ],
+    "correta": 2,
+    "narrador": "Capacete e gauntlet. Simples. Eficiente. Doloroso.",
+    "dicas": {
+      "kim": "Capacete e gauntlet. Coloca, sente dor real, aprende.",
+      "jack": "Capacete + gauntlet! Parece mais do que é.",
+      "nina": "Capacete e gauntlet."
+    }
+  },
+  {
+    "id": 44,
+    "categoria": "personagem",
+    "dificuldade": "facil",
+    "pergunta": "Como Kim paga seus estudos na Elite Academy?",
+    "alternativas": [
+      "Trabalho na escola",
+      "Bolsa de 50%",
+      "Bolsa integral",
+      "Empréstimo estudantil"
+    ],
+    "correta": 1,
+    "narrador": "50%. O resto ele cobre vendendo bala.",
+    "dicas": {
+      "kim": "Bolsa de 50%. O Osvaldo que conseguiu.",
+      "jack": "Bolsa de 50%! Ele ainda paga a outra metade.",
+      "nina": "Bolsa de 50%."
+    }
+  },
+  {
+    "id": 45,
+    "categoria": "lore",
+    "dificuldade": "facil",
+    "pergunta": "Qual é o nome da empresa criadora do LDI?",
+    "alternativas": [
+      "NeoVirtual",
+      "TechFight Corp",
+      "Yohualticit",
+      "DigiArena"
+    ],
+    "correta": 2,
+    "narrador": "Yohualticit. O nome diz mais do que parece.",
+    "dicas": {
+      "kim": "Yohualticit. Empresa por trás do LDI. Por trás da empresa... não sei ainda.",
+      "jack": "Yohualticit! Big tech do LDI!",
+      "nina": "Yohualticit."
+    }
+  },
+  {
+    "id": 46,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o ranking de Jack no SDR?",
+    "alternativas": [
+      "5.432",
+      "10.776",
+      "8.724",
+      "15.001"
+    ],
+    "correta": 1,
+    "narrador": "10.776. Ele apostou no Kim e subiu junto.",
+    "dicas": {
+      "kim": "10.776. Menos que o meu primeiro rank, o que deve irritar ele.",
+      "jack": "10.776! Tô subindo, tô subindo.",
+      "nina": "10.776."
+    }
+  },
+  {
+    "id": 47,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o ranking de Nina no SDR?",
+    "alternativas": [
+      "3.100",
+      "10.776",
+      "8.724",
+      "500"
+    ],
+    "correta": 2,
+    "narrador": "8.724. Profissional. Conquistado com esforço.",
+    "dicas": {
+      "kim": "8.724. Ela sabe o que está fazendo.",
+      "jack": "8.724! Ela apostou no Kim por brincadeira e subiu!",
+      "nina": "8.724. Conquistado com trabalho."
+    }
+  },
+  {
+    "id": 48,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o nome real de Thunderbolt?",
+    "alternativas": [
+      "Rafael Cunha",
+      "Bruno Ribeiro",
+      "Gabriel Torres",
+      "Lucas Mendes"
+    ],
+    "correta": 1,
+    "narrador": "Bruno Ribeiro. Filho de empresário. Adotou o nick como identidade.",
+    "dicas": {
+      "kim": "Bruno Ribeiro. Ele prefere Thunderbolt. Covardia.",
+      "jack": "Bruno Ribeiro! Filho do papai!",
+      "nina": "Bruno Ribeiro."
+    }
+  },
+  {
+    "id": 49,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "O que é o SDA no sistema de monetização SDM?",
+    "alternativas": [
+      "Sistema de Danos Acumulados",
+      "Sistema de apostas onde espectadores apostam pontos",
+      "Sala de Duelo Aberto",
+      "Servidor de Dados de Arena"
+    ],
+    "correta": 1,
+    "narrador": "Apostas. O espectador aposta, o vencedor leva até 10% dos pontos do perdedor.",
+    "dicas": {
+      "kim": "Apostas de pontos. Ganho se ganhar. Faz sentido.",
+      "jack": "APOSTAS! É onde a gente vai ficar rico!",
+      "nina": "Sistema de apostas entre espectadores e lutadores."
+    }
+  },
+  {
+    "id": 50,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é a arma de Nina no LDI?",
+    "alternativas": [
+      "Lança Lunar",
+      "Katana Angel",
+      "Espada Primordial",
+      "Bastão de Fogo"
+    ],
+    "correta": 1,
+    "narrador": "Angel. Uma katana. Cortante como a dona.",
+    "dicas": {
+      "kim": "Katana Angel. Ela usa bem demais.",
+      "jack": "Angel! A katana da Nina!",
+      "nina": "Angel."
+    }
+  },
+  {
+    "id": 51,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "O que aconteceu com a tribo Xakaxi após o selamento de Yawanari?",
+    "alternativas": [
+      "Foi destruída por invasores",
+      "Migrou para outra região",
+      "Suas construções e memórias desapareceram em 32 anos",
+      "Fundiu-se com outra tribo"
+    ],
+    "correta": 2,
+    "narrador": "Apagamento. Médicos esqueceram remédios no meio de uma frase.",
+    "dicas": {
+      "kim": "Sumiu. Não foi invasão. Yawanari apagou tudo pra proteger o poder.",
+      "jack": "Tipo... desapareceu da memória do mundo? Perturbador.",
+      "nina": "Construções e memórias apagadas em 32 anos após o selamento."
+    }
+  },
+  {
+    "id": 52,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o rank de Lisa no SDR?",
+    "alternativas": [
+      "Top 1.000",
+      "Top 500",
+      "Top 100",
+      "Top 50"
+    ],
+    "correta": 1,
+    "narrador": "Top 500. E ficou interessada no Kim depois do vídeo viral.",
+    "dicas": {
+      "kim": "Top 500. Ela é boa.",
+      "jack": "Top 500! E ela notou o Kim!",
+      "nina": "Top 500."
+    }
+  },
+  {
+    "id": 53,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Por que o avatar de Kim no LDI é idêntico à sua aparência real?",
+    "alternativas": [
+      "É obrigatório no LDI",
+      "Ele não personalizou o avatar no primeiro acesso",
+      "A Yohualticit escolheu por ele",
+      "É o efeito do Sangue Primordial"
+    ],
+    "correta": 1,
+    "narrador": "Ele não configurou nada. Entrou e foi direto.",
+    "dicas": {
+      "kim": "Não mexi nas configurações. Entrei e pronto.",
+      "jack": "Ele não customizou! Por isso o Ryan reconheceu!",
+      "nina": "Não personalizou antes da primeira batalha."
+    }
+  },
+  {
+    "id": 54,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o nome do narrador oficial das arenas do LDI?",
+    "alternativas": [
+      "Arena Voice X",
+      "Nexus Phantasm",
+      "Battle Caster",
+      "Yohu Narrator"
+    ],
+    "correta": 1,
+    "narrador": "Nexus Phantasm. Arauto das Arenas. Sarcástico por natureza.",
+    "dicas": {
+      "kim": "Nexus Phantasm. Ele me chamou de Briguento na frente de todo mundo.",
+      "jack": "NEXUS PHANTASM! O cara é incrível!",
+      "nina": "Nexus Phantasm. Arauto das Arenas."
+    }
+  },
+  {
+    "id": 55,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "O que é o SAL no sistema de monetização SDM?",
+    "alternativas": [
+      "Sistema de Acesso Limitado — lutas privadas com cobrança",
+      "Sala de Ação ao Vivo",
+      "Servidor de Arena Livre",
+      "Sistema de Análise de Lutadores"
+    ],
+    "correta": 0,
+    "narrador": "Acesso limitado. Cobra entrada, cria grupos exclusivos.",
+    "dicas": {
+      "kim": "Você pode tornar suas lutas privadas e cobrar pra assistir.",
+      "jack": "SAL = cobra entrada! Monetização raiz!",
+      "nina": "Acesso limitado — lutas privadas com cobrança de entrada."
+    }
+  },
+  {
+    "id": 56,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "O que Osvaldo ensinou a Kim além de conseguir a bolsa?",
+    "alternativas": [
+      "Matemática",
+      "Capoeira",
+      "Violão",
+      "Programação"
+    ],
+    "correta": 2,
+    "narrador": "Violão. O porteiro que ensina mais que a escola.",
+    "dicas": {
+      "kim": "Violão. O Osvaldo é diferente.",
+      "jack": "VIOLÃO! Kim toca violão! Poucos sabem!",
+      "nina": "Violão."
+    }
+  },
+  {
+    "id": 57,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "O que é o STE no sistema de monetização SDM?",
+    "alternativas": [
+      "Sistema de Transferência de Experiência",
+      "Treinamento exclusivo — aulas e mentoria pagas",
+      "Serviço de Transmissão ao Vivo",
+      "Sistema de Torneios Exclusivos"
+    ],
+    "correta": 1,
+    "narrador": "Aulas pagas. Golpes específicos, mentoria, demonstrações.",
+    "dicas": {
+      "kim": "Você ensina e cobra. Faz sentido.",
+      "jack": "STE = dar aula! Eu daria aulas incríveis.",
+      "nina": "Treinamento exclusivo. Você cobra pelo seu conhecimento."
+    }
+  },
+  {
+    "id": 58,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual elemento o LDI registrou para Kim?",
+    "alternativas": [
+      "Trevas",
+      "Fogo",
+      "Água",
+      "Terra"
+    ],
+    "correta": 1,
+    "narrador": "Fogo no sistema. Trevas na batalha. A inconsistência é a anomalia.",
+    "dicas": {
+      "kim": "Fogo. Mas o que apareceu na batalha foi outra coisa.",
+      "jack": "Fogo! Mas ele manifestou trevas! ANOMALIA!",
+      "nina": "Fogo registrado. Trevas manifestadas. Inconsistência que identifica o Sangue Primordial."
+    }
+  },
+  {
+    "id": 59,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o nome da ilha de David Kronos?",
+    "alternativas": [
+      "Azuma",
+      "Bravara",
+      "Davoss",
+      "Kronisla"
+    ],
+    "correta": 2,
+    "narrador": "Davoss. Lá ele espera, observa e planeja há séculos.",
+    "dicas": {
+      "kim": "Davoss. O cara tem uma ilha particular.",
+      "jack": "Davoss! O cara TEM UMA ILHA!",
+      "nina": "Davoss."
+    }
+  },
+  {
+    "id": 60,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o rank de Shuntaro Chirasu no SDR?",
+    "alternativas": [
+      "Top 100",
+      "1.201",
+      "998",
+      "5.000"
+    ],
+    "correta": 2,
+    "narrador": "998. Conquistado em seis meses. Ele é sério.",
+    "dicas": {
+      "kim": "998. Em seis meses. O cara é dedicado.",
+      "jack": "998 mundial em seis meses! ABSURDO.",
+      "nina": "998. Seis meses de jogo. Alta capacidade."
+    }
+  },
+  {
+    "id": 61,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Como Shuntaro chegou até Kim na Elite Academy?",
+    "alternativas": [
+      "Pelo perfil da PowWow",
+      "Perguntou por Joaquim Leal Reis pelo nome real",
+      "Através da Yohualticit",
+      "Foi apresentado por Nina"
+    ],
+    "correta": 1,
+    "narrador": "Perguntou pelo nome real. Nove horas de viagem para isso.",
+    "dicas": {
+      "kim": "Ele perguntou pelo meu nome real. Não pelo nick. Isso me incomodou.",
+      "jack": "Pelo nome real! JOAQUIM LEAL REIS! Como ele sabia?",
+      "nina": "Pediu por Joaquim Leal Reis pelo nome completo."
+    }
+  },
+  {
+    "id": 62,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "Quantos anos Kim vende balas em ônibus?",
+    "alternativas": [
+      "2 anos",
+      "Desde os 13 — cerca de 4 anos",
+      "Desde os 10",
+      "1 ano"
+    ],
+    "correta": 1,
+    "narrador": "Desde os 13. Quatro anos aprendendo a sobreviver.",
+    "dicas": {
+      "kim": "Desde os 13. Não foi escolha.",
+      "jack": "Desde os 13! Quatro anos vendendo bala.",
+      "nina": "Desde os 13 anos."
+    }
+  },
+  {
+    "id": 63,
+    "categoria": "mecanica",
+    "dificuldade": "medio",
+    "pergunta": "Qual é a diferença entre Poder Constante e Poder Explosivo no LDI?",
+    "alternativas": [
+      "Constante é mais raro",
+      "Explosivo começa baixo e libera muito no pico; Constante é saída estável",
+      "Constante é exclusivo do top 100",
+      "Explosivo causa mais dano mas quebra a arma"
+    ],
+    "correta": 1,
+    "narrador": "Dois perfis de energia. Kim parece ter o Explosivo.",
+    "dicas": {
+      "kim": "Constante sai igual o tempo todo. Explosivo acumula e explode. Eu sou o segundo tipo.",
+      "jack": "Explosivo = fraco no começo, ABSURDO no pico. É o Kim.",
+      "nina": "Constante = output estável. Explosivo = baixo inicial, alto máximo. Kim é Explosivo."
+    }
+  },
+  {
+    "id": 64,
+    "categoria": "personagem",
+    "dificuldade": "medio",
+    "pergunta": "Qual é o visual do VoidHunter_X no LDI?",
+    "alternativas": [
+      "Armadura branca brilhante com visor azul",
+      "Armadura near-black com pauldrons largos e visor com degradê âmbar",
+      "Armadura vermelha com capacete esférico",
+      "Figura encapuzada sem armadura"
+    ],
+    "correta": 1,
+    "narrador": "Near-black. Pauldrons impossíveis. Visor que não reflete.",
+    "dicas": {
+      "kim": "Armadura escura, pauldrons absurdamente largos, visor âmbar que não te reflete.",
+      "jack": "Near-black total! Assustador demais.",
+      "nina": "Armadura near-black, pauldrons exagerados, visor âmbar/laranja degradê."
+    }
+  },
+  {
+    "id": 65,
+    "categoria": "lore",
+    "dificuldade": "medio",
+    "pergunta": "O que é o SDP no sistema de monetização SDM?",
+    "alternativas": [
+      "Sistema de Duelos Privados",
+      "Parcerias com marcas — avatar modificado nas transmissões",
+      "Serviço de Dados Premium",
+      "Sistema de Destaque na PowWow"
+    ],
+    "correta": 1,
+    "narrador": "Parcerias. Sua arena vira propaganda. Vale muito no top 10K.",
+    "dicas": {
+      "kim": "Marcas pagam pra aparecer no seu avatar durante as lutas.",
+      "jack": "SDP = parcerias! Minha arena ia ter propaganda em tudo!",
+      "nina": "Parcerias com marcas. A Yohu conecta você ao anunciante."
+    }
+  },
+  {
+    "id": 66,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Quem foi Powa para Yawanari?",
+    "alternativas": [
+      "Irmão mais novo",
+      "Discípulo mais próximo",
+      "Filho",
+      "Rival ancestral"
+    ],
+    "correta": 2,
+    "narrador": "Filho. A tragédia que Yawanari carrega há séculos não tem nome maior.",
+    "dicas": {
+      "kim": "Filho do Yawanari. O cara que destruiu a tribo.",
+      "jack": "FILHO! Imagina carregar isso por quinhentos anos.",
+      "nina": "Filho de Yawanari. O responsável pelo ritual proibido na clareira."
+    }
+  },
+  {
+    "id": 67,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Quais são os três 'amigos imaginários' de Yawanari?",
+    "alternativas": [
+      "Kawa, Nara e Powa",
+      "Tukiri, Lohiru e Arkani",
+      "Kim, Jack e Nina",
+      "Xakaxi, Kronos e Powa"
+    ],
+    "correta": 1,
+    "narrador": "Tukiri, Lohiru, Arkani. Séculos de solidão geram companhia.",
+    "dicas": {
+      "kim": "Tukiri, Lohiru e Arkani. Ele fala com eles regularmente. Não é loucura, é...complicado.",
+      "jack": "Tukiri, Lohiru e Arkani! Eu quase errei isso também.",
+      "nina": "Tukiri, Lohiru e Arkani. Mecanismo de defesa após séculos de isolamento."
+    }
+  },
+  {
+    "id": 68,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Qual era a tecnologia que a tribo Xakaxi possuía antes do selamento?",
+    "alternativas": [
+      "Magia pura sem base tecnológica",
+      "Fibra de carbono, agricultura robotizada, óculos amplificadores e o metal Xakaxium",
+      "Tecnologia equivalente à Roma Antiga",
+      "Apenas conhecimento herbal avançado"
+    ],
+    "correta": 1,
+    "narrador": "Civilização avançada. Não o estereótipo dos livros de história europeus.",
+    "dicas": {
+      "kim": "Fibra de carbono, robótica, óculos amplificadores, Xakaxium. Eles eram avançados demais.",
+      "jack": "TECNOLOGIA AVANÇADA! E o mundo esqueceu!",
+      "nina": "Fibra de carbono, agricultura robotizada, óculos amplificadores, metal Xakaxium. Civilização avançada."
+    }
+  },
+  {
+    "id": 69,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o sinal físico de que David Kronos está corroendo o hospedeiro atual?",
+    "alternativas": [
+      "O hospedeiro desenvolve superpoderes visíveis",
+      "Envelhecimento prematuro visível e veias com coloração azulada",
+      "Cabelo fica branco imediatamente",
+      "O hospedeiro perde a voz"
+    ],
+    "correta": 1,
+    "narrador": "O corpo deteriora. Cada possessão acelera o processo.",
+    "dicas": {
+      "kim": "O hospedeiro envelhece mais rápido. As veias ficam azuladas. Plantas murcham perto dele.",
+      "jack": "Envelhece! As veias ficam azuis! Plantas fogem!",
+      "nina": "Envelhecimento prematuro e veias com coloração azulada. O Sangue Primordial é o único recipiente que não deteriora."
+    }
+  },
+  {
+    "id": 70,
+    "categoria": "mecanica",
+    "dificuldade": "dificil",
+    "pergunta": "Quantos poderes ativos um jogador pode ter em batalha no LDI?",
+    "alternativas": [
+      "Ilimitado",
+      "Apenas 1",
+      "Máximo de 4",
+      "Depende do rank"
+    ],
+    "correta": 2,
+    "narrador": "4. Estratégia dentro da limitação.",
+    "dicas": {
+      "kim": "4 poderes ativos por batalha. Escolha com cuidado.",
+      "jack": "QUATRO! Estratégia pura!",
+      "nina": "Máximo de 4 poderes ativos por batalha. Gestão de recursos."
+    }
+  },
+  {
+    "id": 71,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "O que Kim fez em vez de implorar na luta contra Thunderbolt?",
+    "alternativas": [
+      "Ativou o Sangue Primordial imediatamente",
+      "Cuspiu sangue no rosto de Thunderbolt",
+      "Chamou Yawanari para ajuda",
+      "Quebrou o capacete de Thunderbolt"
+    ],
+    "correta": 1,
+    "narrador": "Cuspiu sangue no rosto. Recusa até o fim.",
+    "dicas": {
+      "kim": "Cuspi sangue nele. Não implorei.",
+      "jack": "CUSPIU SANGUE! ICÔNICO! ETERNO!",
+      "nina": "Cuspiu sangue no rosto do Thunderbolt. Recusou a implorar até ser aniquilado."
+    }
+  },
+  {
+    "id": 72,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Por que Yawanari escolheu selar o poder sagrado da Xakaxi?",
+    "alternativas": [
+      "Para esconder da invasão colonial",
+      "Porque Powa realizou um ritual proibido que ameaçou destruir a tribo",
+      "Por ordem do Cacique Xakaxi",
+      "Para se tornar imortal"
+    ],
+    "correta": 1,
+    "narrador": "O filho destruiu. O pai apagou tudo para proteger o que restava.",
+    "dicas": {
+      "kim": "Powa, o filho dele, fez um ritual proibido que matou os próprios seguidores para obter poder.",
+      "jack": "Por causa do Powa! O filho causou o caos!",
+      "nina": "Resposta ao ritual proibido de Powa. Prevenção de propagação do poder corrompido."
+    }
+  },
+  {
+    "id": 73,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Quais são as armas de Shuntaro Chirasu?",
+    "alternativas": [
+      "Katanas gêmeas",
+      "Ioiôs com controle de elemento Água",
+      "Espadas de energia mental",
+      "Correntes de gelo"
+    ],
+    "correta": 1,
+    "narrador": "Ioiôs. Com Água. Mais perigoso do que parece.",
+    "dicas": {
+      "kim": "Ioiôs de água. Parece brincadeira até você levar um.",
+      "jack": "IOIÔS! DE ÁGUA! Como isso é possível?",
+      "nina": "Ioiôs com elemento Água. Técnicas de Multiple Water Balls e Fatal Slices."
+    }
+  },
+  {
+    "id": 74,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Quais são os seis elementos que a tribo Xakaxi dominava?",
+    "alternativas": [
+      "Fogo, Água, Terra, Ar, Metal, Madeira",
+      "Fogo, Terra, Ar, Água, Luz e Trevas",
+      "Fogo, Água, Raio, Gelo, Luz, Sombra",
+      "Fogo, Terra, Vento, Mar, Sol, Lua"
+    ],
+    "correta": 1,
+    "narrador": "Seis. Incluindo Luz e Trevas. Nenhuma civilização modernal domina isso.",
+    "dicas": {
+      "kim": "Fogo, Terra, Ar, Água, Luz e Trevas. Seis.",
+      "jack": "SEIS ELEMENTOS! Incluindo Luz e Trevas!",
+      "nina": "Fogo, Terra, Ar, Água, Luz e Trevas. Os seis elementais completos."
+    }
+  },
+  {
+    "id": 75,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o modo Xamã de Shuntaro Chirasu?",
+    "alternativas": [
+      "Multiple Water Storm",
+      "Rei Xamã — cria uma grande serra no braço direito",
+      "Aqua Dragon",
+      "Fatal Current"
+    ],
+    "correta": 1,
+    "narrador": "Rei Xamã. Serra no braço. Consome energia rápido. É o finalizador.",
+    "dicas": {
+      "kim": "Rei Xamã. Uma serra gigante no braço. Ele precisa acabar rápido ou perde energia.",
+      "jack": "REI XAMÃ! Serra no braço! Assustador demais!",
+      "nina": "Rei Xamã. Serra no braço direito. Alto custo energético, força o uso como finalizador."
+    }
+  },
+  {
+    "id": 76,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "O que Kronos instalou nos servidores da Yohualticit antes de Kim existir?",
+    "alternativas": [
+      "Um vírus para controlar avatares",
+      "Um sistema de alarme para detectar Sangue Primordial",
+      "Acesso secreto ao top 1 global",
+      "Código para sequestrar jogadores do top 500"
+    ],
+    "correta": 1,
+    "narrador": "Alarme. Esperou. Quando Kim ativou o poder, os servidores dispararam globalmente.",
+    "dicas": {
+      "kim": "Um alarme pra me detectar. Ele operava dentro da Yohualticit.",
+      "jack": "ALARME DE SANGUE PRIMORDIAL! Ele estava esperando há séculos!",
+      "nina": "Sistema de alarme para detecção de Sangue Primordial. Instalado antes mesmo de Kim nascer."
+    }
+  },
+  {
+    "id": 77,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Quanto tempo Kim precisou de recuperação após a luta contra Thunderbolt?",
+    "alternativas": [
+      "24 horas",
+      "48 horas",
+      "96 horas",
+      "1 semana"
+    ],
+    "correta": 2,
+    "narrador": "96 horas. A dor do LDI é real. A recuperação também.",
+    "dicas": {
+      "kim": "96 horas. Quatro dias. A dor real tem recuperação real.",
+      "jack": "96 HORAS! Quatro dias!",
+      "nina": "96 horas de recuperação após batalha de alta intensidade. A dor do LDI é real."
+    }
+  },
+  {
+    "id": 78,
+    "categoria": "mecanica",
+    "dificuldade": "dificil",
+    "pergunta": "Quais são os três tipos de duração de ataque Poder no LDI?",
+    "alternativas": [
+      "Rápido, Normal, Lento",
+      "Instantâneo, Médio e Longo",
+      "Básico, Avançado, Ultimate",
+      "Simples, Duplo, Triple"
+    ],
+    "correta": 1,
+    "narrador": "Instantâneo, Médio e Longo. Quanto mais longo, mais potente e mais vulnerável.",
+    "dicas": {
+      "kim": "Instantâneo, Médio, Longo. Longo deixa abertura enorme mas destrói.",
+      "jack": "Instantâneo Médio e Longo! Longo é aposta!",
+      "nina": "Instantâneo, Médio e Longo. Relação direta entre potência e vulnerabilidade durante carregamento."
+    }
+  },
+  {
+    "id": 79,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Quem contratou Brock e depois Roxy para atacar Kim e Jack fisicamente?",
+    "alternativas": [
+      "David Kronos",
+      "Nexus Phantasm",
+      "Thunderbolt",
+      "Um fã perturbado"
+    ],
+    "correta": 2,
+    "narrador": "Thunderbolt. Covarde. Escondeu-se atrás de dinheiro após a derrota.",
+    "dicas": {
+      "kim": "Thunderbolt. Quando perde na arena, manda capangas.",
+      "jack": "THUNDERBOLT! Covarde! Mandou capanga!",
+      "nina": "Thunderbolt. Padrão de quem tem dinheiro e não tem honra."
+    }
+  },
+  {
+    "id": 80,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "O que é o Xakaxium?",
+    "alternativas": [
+      "O ritual sagrado de selamento da tribo",
+      "Um metal exclusivo da tecnologia da tribo Xakaxi",
+      "O nome do poder ancestral de Kim",
+      "A ilha original da tribo"
+    ],
+    "correta": 1,
+    "narrador": "Metal. Parte da tecnologia perdida com o selamento.",
+    "dicas": {
+      "kim": "Um metal da tecnologia Xakaxi. Perdido com o selamento.",
+      "jack": "Metal exclusivo! A tecnologia deles era AVANÇADA DEMAIS!",
+      "nina": "Metal exclusivo da civilização Xakaxi. Tecnologia perdida após o selamento."
+    }
+  },
+  {
+    "id": 81,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Qual foi a tarefa que Thunderbolt criou com a NeoGuide antes de lutar com Kim?",
+    "alternativas": [
+      "Ganhar em menos de 3 minutos",
+      "Fazer Kim ajoelhar, chorar e implorar",
+      "Quebrar todas as armas de Kim",
+      "Vencer sem levar nenhum golpe"
+    ],
+    "correta": 1,
+    "narrador": "Ajoelhar, chorar, implorar. Conseguiu dois. O terceiro Kim recusou até o fim.",
+    "dicas": {
+      "kim": "Fazer eu ajoelhar, chorar e implorar. Conseguiu os dois primeiros.",
+      "jack": "FAZER O KIM IMPLORAR! E o Kim CUSPIU SANGUE NELE!",
+      "nina": "Ajoelhar, chorar e implorar. Os dois primeiros aconteceram. O terceiro nunca."
+    }
+  },
+  {
+    "id": 82,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Em que ano o LDI foi criado pela Yohualticit?",
+    "alternativas": [
+      "2018",
+      "2020",
+      "2022",
+      "2025"
+    ],
+    "correta": 2,
+    "narrador": "2022. Mais popular que qualquer console no primeiro ano.",
+    "dicas": {
+      "kim": "2022.",
+      "jack": "2022! E dominou o mundo em um ano!",
+      "nina": "2022."
+    }
+  },
+  {
+    "id": 83,
+    "categoria": "personagem",
+    "dificuldade": "dificil",
+    "pergunta": "Qual é o elemental secundário de Thunderbolt?",
+    "alternativas": [
+      "Fogo",
+      "Trevas",
+      "Luz",
+      "Raio Duplo"
+    ],
+    "correta": 2,
+    "narrador": "Eletricidade primário, Luz secundário. Combinação de impacto visual.",
+    "dicas": {
+      "kim": "Luz é o secundário dele. Eletricidade é o principal.",
+      "jack": "LUZ! Eletricidade primário, Luz secundário!",
+      "nina": "Elemental secundário de Luz. Primário é Eletricidade."
+    }
+  },
+  {
+    "id": 84,
+    "categoria": "lore",
+    "dificuldade": "dificil",
+    "pergunta": "Por que Yawanari desenvolveu a personalidade 'Vovô Descolado' com gírias modernas?",
+    "alternativas": [
+      "Para se aproximar de Kim",
+      "Estratégia para enganar Kronos",
+      "Mecanismo de defesa após séculos observando a humanidade, incluindo redes sociais",
+      "É o jeito tradicional Xakaxi de falar"
+    ],
+    "correta": 2,
+    "narrador": "Quinhentos anos de atrocidades humanas. As redes de vídeos curtos quebraram o que restava.",
+    "dicas": {
+      "kim": "A sanidade foi cedendo. Séculos de guerras, massacres, pandemias. Aí vieram os vídeos curtos.",
+      "jack": "Séculos de trauma! E as redes sociais de vídeos curtos foram a gota!",
+      "nina": "Mecanismo de defesa desenvolvido após séculos de trauma acumulado. As redes sociais de vídeos curtos foram o ponto de ruptura final."
+    }
+  },
+  {
+    "id": 85,
+    "categoria": "mecanica",
+    "dificuldade": "dificil",
+    "pergunta": "O que é necessário para que um jogador acesse o sistema de monetização SDM?",
+    "alternativas": [
+      "Qualquer jogador pode acessar",
+      "Estar no top 100 mundial",
+      "Estar entre os 10 mil especiais — top 10.000",
+      "Ter pelo menos 1 ano de conta"
+    ],
+    "correta": 2,
+    "narrador": "Top 10.000. Os '10 mil specials'. Abaixo disso, só glória sem dinheiro.",
+    "dicas": {
+      "kim": "Top 10.000. Eu passei reto pra top 1.201 no primeiro dia.",
+      "jack": "10 MIL ESPECIAIS! Top 10.000!",
+      "nina": "Top 10.000. Threshold mínimo para acesso ao SDM."
+    }
+  }
+]

@@ -21,6 +21,7 @@ import Webtoon from './pages/Webtoon'
 import WebtoonEpisodio from './pages/WebtoonEpisodio'
 import Mundo from './pages/Mundo'
 import Curiosidades from './pages/Curiosidades'
+import Quiz from './pages/Quiz'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="/curiosidades" element={<Curiosidades />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
       <Footer />
       <ScrollToTop />

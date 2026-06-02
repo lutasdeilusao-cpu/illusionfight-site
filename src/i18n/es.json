@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Libro", "Músicas", "Mundo", "Curiosidades", "AUTOR", "APOYAR"],
+    "links": ["Webtoon", "Libro", "Músicas", "Quiz", "Mundo", "Curiosidades", "AUTOR", "APOYAR"],
     "cta": "ENTRAR",
     "aria": { "menu": "Abrir menú" }
   },
@@ -120,6 +120,33 @@
     "ctaTitulo": "Recibe las novedades",
     "ctaDescricao": "Newsletter mensual — bastidores, lanzamientos y universo expandido.",
     "ctaBotao": "Suscribirse gratis"
+  },
+  "quiz": {
+    "titulo": "PON A PRUEBA TU RANKING",
+    "subtitulo": "Tres mil millones de luchadores. Un ranking. ¿Cuánto sabes realmente sobre el LDI?",
+    "nexus_tag": "NEXUS PHANTASM — HERALDO DE LAS ARENAS",
+    "nexus_resultado": "NEXUS PHANTASM — RESULTADO OFICIAL",
+    "timer_aviso": "30 segundos por pregunta · la velocidad cuenta en el ranking final",
+    "ajuda_pular": "SALTAR",
+    "ajuda_universitarios": "UNIVERSITARIOS",
+    "ajuda_consultar": "¿A quién quieres consultar?",
+    "proxima": "SIGUIENTE →",
+    "ver_resultado": "VER RESULTADO →",
+    "rank_label": "posición estimada en el SDR",
+    "stat_acertos": "aciertos",
+    "stat_erros": "errores",
+    "stat_aproveitamento": "aprovechamiento",
+    "revisao_titulo": "REVISIÓN",
+    "revisao_correta": "Correcta:",
+    "btn_reiniciar": "JUGAR DE NUEVO",
+    "btn_home": "VOLVER AL INICIO",
+    "bloqueio_titulo": "Modo exclusivo ELITE / PRIMORDIAL",
+    "bloqueio_desc": "Suscríbete para desbloquear los modos RECRUTA y ELITE, historial de rangos y universitarios ilimitados.",
+    "bloqueio_btn": "VER PLANES",
+    "bloqueio_voltar": "Volver",
+    "modo_recruta_desc": "Básico — cualquier fan entra",
+    "modo_ranqueado_desc": "Gratis — 5 fáciles + 5 medias",
+    "modo_elite_desc": "Completo — del prólogo a Kronos"
   },
   "autor": {
     "blocks": [

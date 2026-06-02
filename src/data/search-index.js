@@ -82,4 +82,12 @@ if (mundo.timeline) {
   })
 }
 
+index.push({
+  tipo: 'Quiz',
+  titulo: 'Quiz SDR — Teste seu Ranking',
+  descricao: 'Responda perguntas sobre o universo LDI e descubra sua posição no SDR entre 3 bilhões de jogadores.',
+  url: '/quiz',
+  premium: false,
+})
+
 export default index
