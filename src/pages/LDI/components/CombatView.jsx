@@ -26,10 +26,14 @@ export default function CombatView({
 
   const pvMax = (sheet?.attributes?.R || 0) * 5 || 1
   const pmMax = (sheet?.attributes?.PdF || 0) * 4 || 2
-  const pvPct = Math.max(0, ((save?.pv_current ?? pvMax) / pvMax) * 100)
+  const [playerPv, setPlayerPv] = useState(save?.pv_current ?? pvMax)
+  useEffect(() => {
+    if (save?.pv_current !== undefined) setPlayerPv(save.pv_current)
+  }, [save?.pv_current])
+  const pvPct = Math.max(0, (playerPv / pvMax) * 100)
   const enemyPvMax = combat.enemy?.pv_max || 1
   const enemyPvPct = Math.max(0, ((combat.enemy?.pv_current ?? enemyPvMax) / enemyPvMax) * 100)
-  const nearDeath = checkNearDeath(sheet, save?.pv_current ?? pvMax)
+  const nearDeath = checkNearDeath(sheet, playerPv)
 
   const log = combat.log || []
   const visibleLog = log.slice(-8)
@@ -69,18 +73,20 @@ export default function CombatView({
     const enemyResult = onEnemyAttack()
     if (enemyResult) {
       setEnemyDice({ result: enemyResult.fa, success: enemyResult.damage > 0 })
-      if (enemyResult.damage > 0) setDamageNumber({ value: enemyResult.damage, target: 'player', x: 20, y: 20 })
-    }
-
-    const newPlayerPv = Math.max(0, (save?.pv_current ?? pvMax) - (enemyResult?.damage || 0))
-    console.log('[COMBAT-VIEW] newPlayerPv:', newPlayerPv, 'pvMax:', pvMax)
-    if (newPlayerPv <= 0) {
-      await new Promise(r => setTimeout(r, 800))
-      setShowOnomatopeia(null)
-      setFlashRed(false)
-      setAnimating(false)
-      handleEndCombat('defeat')
-      return
+      if (enemyResult.damage > 0) {
+        setDamageNumber({ value: enemyResult.damage, target: 'player', x: 20, y: 20 })
+        const newPv = Math.max(0, playerPv - enemyResult.damage)
+        setPlayerPv(newPv)
+        console.log('[COMBAT-VIEW] playerPv local atualizado:', newPv)
+        if (newPv <= 0) {
+          await new Promise(r => setTimeout(r, 1200))
+          setShowOnomatopeia(null)
+          setFlashRed(false)
+          setAnimating(false)
+          handleEndCombat('defeat')
+          return
+        }
+      }
     }
 
     await new Promise(r => setTimeout(r, 800))
@@ -122,7 +128,7 @@ export default function CombatView({
           <div className="ldi-combat-hp-bar">
             <div className="ldi-combat-hp-label">
               <span>PV</span>
-              <span>{save?.pv_current ?? pvMax}/{pvMax}</span>
+              <span>{playerPv}/{pvMax}</span>
             </div>
             <motion.div
               className="ldi-combat-hp-track"
