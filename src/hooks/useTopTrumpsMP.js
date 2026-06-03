@@ -34,27 +34,14 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
 
 export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   console.log('[MP] entrarFilaPublica chamado', { userId, modo, turnos: turnosDesejados })
-  const { data: sala } = await supabase
-    .from('toptrumps_salas').select('*').eq('status', 'aguardando').eq('tipo_sala', 'publica').eq('modo', modo)
-    .neq('jogador1_id', userId)
-    .gte('criada_em', new Date(Date.now() - 5 * 60 * 1000).toISOString()).single()
-  console.log('[MP] sala encontrada:', sala)
-  if (sala) {
-    const total = Math.min(sala.turnos_j1, turnosDesejados)
-    const { error: updateError } = await supabase.from('toptrumps_salas').update({
-      jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
-      status: 'em_jogo', turno_atual: 1, jogador_da_vez: sala.jogador1_id
-    }).eq('id', sala.id)
-    console.log('[MP] UPDATE sala resultado:', { updateError, salaId: sala.id })
-    if (updateError) { console.error('[MP] erro no UPDATE:', updateError); return null }
-    const ret = { salaId: sala.id, novo: false }
-    console.log('[MP] retornando (entrou em sala existente):', ret)
-    return ret
-  }
-  const r = await criarSala(userId, modo, 'publica', turnosDesejados)
-  const ret = { ...r, novo: true }
-  console.log('[MP] sala criada:', ret)
-  return ret
+  const { data, error } = await supabase.rpc('entrar_fila_publica', {
+    p_user_id: userId,
+    p_modo: modo,
+    p_turnos: turnosDesejados
+  })
+  if (error) { console.error('[MP] erro RPC entrar_fila_publica:', error); return null }
+  console.log('[MP] RPC retornou:', data)
+  return data
 }
 
 export async function definirAposta(salaId, userId, cartaId, ehJ1) {

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.21*
+*Versão: 1.22*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -269,6 +269,7 @@
 - ✅ **Bugfix console.log** — Referência `turnos` corrigida para `turnosDesejados` em `entrarFilaPublica`
 - ✅ **Bugfix salas fantasma** — Filtro `.gte('criada_em', 5min)` na query de busca de sala pública impede reaproveitamento de salas órfãs
 - ✅ **Bugfix .single() → .maybeSingle()** — 3 queries em `toptrumps_mp_stats` trocadas para evitar erro 406 quando usuário ainda não tem stats
+- ✅ **RPC entrar_fila_publica** — Lógica de busca/inserção de sala pública movida para uma única chamada `supabase.rpc()`, eliminando race conditions entre SELECT e INSERT
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
