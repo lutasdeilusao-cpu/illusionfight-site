@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import bancoPT from '../data/quiz-pt.json'
 import './Quiz.css'
@@ -60,6 +61,8 @@ function calcularRank(acertos, total, tempoMedio) {
 
 export default function Quiz() {
   const { t } = useLanguage()
+  const navigate = useNavigate()
+  const { user } = useAuth()
   const { desbloquear, registrarGangue } = useAchievements()
 
   const [fase, setFase] = useState("entrada")
@@ -117,6 +120,10 @@ export default function Quiz() {
     }, 16)
     return () => clearInterval(iv)
   }, [fase])
+
+  useEffect(() => {
+    if (!user && fase !== "entrada") navigate('/login')
+  }, [user, fase])
 
   const iniciarModo = (modoKey) => {
     const config = MODOS[modoKey]
@@ -226,33 +233,42 @@ export default function Quiz() {
           <p>{t('quiz.subtitulo')}</p>
         </div>
 
-        <div className="quiz-modos-grid">
-          {Object.entries(MODOS).map(([key, config]) => (
-            <div
-              key={key}
-              className={`quiz-modo-card ${key}`}
-              onClick={() =>
-                config.premium && !TRIAL_ACTIVE
-                  ? setBloqueioModo(key)
-                  : iniciarModo(key)
-              }
-            >
-              <span className={`quiz-modo-badge ${config.premium ? 'premium' : 'free'}`}>
-                {config.premium ? 'PREMIUM' : 'FREE'}
-              </span>
-              <span className="quiz-modo-label">{config.label}</span>
-              <p className="quiz-modo-total">{config.total} perguntas</p>
-              <p className="quiz-modo-desc">
-                {key === 'ranqueado' && '5 fáceis + 5 médias'}
-                {key === 'elite' && '7 fáceis + 7 médias + 6 difíceis'}
-                {key === 'primordial' && '10 de cada dificuldade'}
-              </p>
-              {config.premium && !TRIAL_ACTIVE && (
-                <span className="quiz-modo-lock">🔒</span>
-              )}
-            </div>
-          ))}
-        </div>
+        {user ? (
+          <div className="quiz-modos-grid">
+            {Object.entries(MODOS).map(([key, config]) => (
+              <div
+                key={key}
+                className={`quiz-modo-card ${key}`}
+                onClick={() =>
+                  config.premium && !TRIAL_ACTIVE
+                    ? setBloqueioModo(key)
+                    : iniciarModo(key)
+                }
+              >
+                <span className={`quiz-modo-badge ${config.premium ? 'premium' : 'free'}`}>
+                  {config.premium ? 'PREMIUM' : 'FREE'}
+                </span>
+                <span className="quiz-modo-label">{config.label}</span>
+                <p className="quiz-modo-total">{config.total} perguntas</p>
+                <p className="quiz-modo-desc">
+                  {key === 'ranqueado' && '5 fáceis + 5 médias'}
+                  {key === 'elite' && '7 fáceis + 7 médias + 6 difíceis'}
+                  {key === 'primordial' && '10 de cada dificuldade'}
+                </p>
+                {config.premium && !TRIAL_ACTIVE && (
+                  <span className="quiz-modo-lock">🔒</span>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="tt-login-block">
+            <div className="tt-login-lock">🔒</div>
+            <p className="tt-login-texto">Para jogar o Quiz SDR você precisa ter uma conta.</p>
+            <Link to="/cadastro" className="quiz-btn-jogar">CRIAR CONTA GRÁTIS</Link>
+            <Link to="/login" className="tt-login-link">Já tenho conta — entrar</Link>
+          </div>
+        )}
 
         <p className="quiz-timer-aviso">{t('quiz.timer_aviso')}</p>
 
