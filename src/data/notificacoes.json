@@ -58,5 +58,11 @@
     "mensagem": "Tem livro físico e digital na Amazon! Leva um pra casa, apoia o projeto e ainda fica com algo real na mão.",
     "cta": "Ver na Amazon",
     "url": "https://www.amazon.com.br"
+  },
+  {
+    "id": 11,
+    "mensagem": "Ei, recruta. Você precisa de uma conta para entrar na arena. Cria a sua agora — é gratuito e leva menos de um minuto.",
+    "cta": "Criar minha conta",
+    "url": "/cadastro"
   }
 ]
