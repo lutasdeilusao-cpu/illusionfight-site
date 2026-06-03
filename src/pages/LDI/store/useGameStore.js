@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.6'
+const LDI_VERSION = '1.0.7'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -81,6 +81,7 @@ export const useGameStore = create((set, get) => ({
     }
 
     console.log('[LDI] Navegando para cena:', sceneId)
+    console.log('[LDI] setScene executando, sceneId:', sceneId, 'cena atual:', get().currentScene?.id)
 
     if (sceneId.startsWith('combat_')) {
       const enemyId = sceneId.replace('combat_', '')
@@ -120,6 +121,7 @@ export const useGameStore = create((set, get) => ({
   },
 
   makeChoice: async (choice) => {
+    console.log('[LDI] makeChoice executando, choice.next_scene:', choice.next_scene, 'choice.id:', choice.id)
     const state = get()
 
     const newFlags = (choice.flags_set || []).reduce((acc, f) => {

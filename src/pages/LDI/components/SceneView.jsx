@@ -14,6 +14,7 @@ export default function SceneView({ scene, choices, onChoice }) {
   const handleSkip = () => setShowChoices(true)
 
   const handleChoiceClick = async (choice) => {
+    console.log('[LDI] onChoice chamado, choice:', choice.id, choice.label)
     setSelectedId(choice.id)
     setTransitioning(true)
     setTimeout(() => {

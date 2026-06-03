@@ -2,6 +2,7 @@ let scenesCache = {}
 let allScenes = []
 
 export async function loadScene(sceneId) {
+  console.log('[LDI] loadScene chamado, sceneId:', sceneId, 'cache hit:', !!scenesCache[sceneId])
   if (!sceneId) {
     console.error('[LDI] loadScene chamado sem sceneId')
     return allScenes.find(s => s.id === '1.2') || null
