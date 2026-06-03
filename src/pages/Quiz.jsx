@@ -208,7 +208,7 @@ export default function Quiz() {
     setDicaGangue({ ...dica, personagem })
     setDicaIndice(dica.indice)
     setMostraGangue(false)
-    registrarGangue(personagem)
+    registrarGangue()
   }
 
   const reiniciar = () => {

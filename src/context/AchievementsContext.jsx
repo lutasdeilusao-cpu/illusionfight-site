@@ -4,16 +4,12 @@ import { useAuth } from './AuthContext'
 import todosAchievements from '../data/achievements-pt.json'
 
 const STORAGE_KEY = 'ldi-achievements'
-const GANGUE_KEY = 'ldi-gangue-usados'
 const AchievementsContext = createContext(null)
 
 export function AchievementsProvider({ children }) {
   const { user } = useAuth()
   const [desbloqueados, setDesbloqueados] = useState([])
   const [toastPendente, setToastPendente] = useState(null)
-  const [gangueUsados, setGangueUsados] = useState(
-    () => new Set(JSON.parse(localStorage.getItem(GANGUE_KEY) || '[]'))
-  )
 
   useEffect(() => {
     if (user) {
@@ -62,15 +58,8 @@ export function AchievementsProvider({ children }) {
     setToastPendente(achievement)
   }, [desbloqueados, user])
 
-  function registrarGangue(personagem) {
-    const novo = new Set(gangueUsados)
-    novo.add(personagem)
-    localStorage.setItem(GANGUE_KEY, JSON.stringify([...novo]))
-    setGangueUsados(novo)
-    if (novo.size >= 3) {
-      desbloquear('conhece_a_gangue')
-      localStorage.removeItem(GANGUE_KEY)
-    }
+  function registrarGangue() {
+    desbloquear('conhece_a_gangue')
   }
 
   function fecharToast() {

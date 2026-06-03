@@ -38,7 +38,7 @@
   {
     "id": "conhece_a_gangue",
     "nome": "Conhece a Gangue",
-    "descricao": "Você consultou os três membros da gangue no quiz.",
+    "descricao": "Você consultou a gangue no quiz.",
     "icone": "👊",
     "secreto": false,
     "tier": 1,
