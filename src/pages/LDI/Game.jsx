@@ -6,6 +6,7 @@ import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
 import SceneView from './components/SceneView'
+import ManualDrawer from './components/ManualDrawer'
 import './LDI.css'
 
 const ATTR_NAMES = {
@@ -23,6 +24,7 @@ export default function Game() {
   const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp } = useGameStore()
   const combat = useCombatStore()
   const [levelUpAttr, setLevelUpAttr] = useState(null)
+  const [showManual, setShowManual] = useState(false)
 
   useEffect(() => {
     setReaderMode(true)
@@ -136,6 +138,9 @@ export default function Game() {
         <span className="ldi-game-hud-item" onClick={() => navigate('/extras/ldi/clues')}>
           📓 Pistas ({save.clues_collected?.length || 0})
         </span>
+        <span className="ldi-game-hud-item" onClick={() => setShowManual(true)} style={{ cursor: 'pointer' }}>
+          📖 Manual
+        </span>
         <span className="ldi-game-hud-item ldi-game-hud-pv">
           ❤️ {save.pv_current}/{Math.max(1, (sheet?.attributes?.R || 0) * 5)}
         </span>
@@ -147,6 +152,8 @@ export default function Game() {
         onChoice={handleChoice}
         sceneNav={sceneNav}
       />
+
+      <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
     </div>
   )
 }

@@ -6,6 +6,8 @@ import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
 import CombatView from './components/CombatView'
+import ManualDrawer from './components/ManualDrawer'
+import { POWERS_BY_ELEMENTAL } from './data/powersData'
 import './LDI.css'
 
 export default function Combat() {
@@ -15,6 +17,9 @@ export default function Combat() {
   const { sheet, save, updateSave, updateSheet, setScene, saveToCloud, gainXp } = useGameStore()
   const combat = useCombatStore()
   const [showXpToast, setShowXpToast] = useState(false)
+  const [showPowerSelect, setShowPowerSelect] = useState(true)
+  const [selectedPowers, setSelectedPowers] = useState([])
+  const [showManual, setShowManual] = useState(false)
 
   useEffect(() => {
     setReaderMode(true)
@@ -27,6 +32,27 @@ export default function Combat() {
       navigate('/extras/ldi/game')
     }
   }, [combat.active, navigate])
+
+  const elemental = sheet?.elemental || 'neutro'
+  const availablePowers = POWERS_BY_ELEMENTAL[elemental] || POWERS_BY_ELEMENTAL.neutro
+
+  const togglePower = (powerId) => {
+    setSelectedPowers(prev =>
+      prev.includes(powerId) ? prev.filter(id => id !== powerId) : prev.length < 4 ? [...prev, powerId] : prev
+    )
+  }
+
+  const handleStartCombat = () => {
+    setShowPowerSelect(false)
+    const powerNames = selectedPowers.map(id => {
+      const p = availablePowers.find(x => x.id === id)
+      return p?.name || id
+    })
+    combat.addLog({
+      type: 'initiative',
+      text: `🔮 Poderes preparados: ${powerNames.join(', ') || 'nenhum'}`,
+    })
+  }
 
   const handleAttack = () => {
     const result = combat.executeAttack(sheet)
@@ -48,10 +74,7 @@ export default function Combat() {
 
   const handleEndCombat = async (result) => {
     console.log('[COMBAT] handleEndCombat chamado, result:', result)
-    console.log('[COMBAT] save.status atual:', save?.status)
-    console.log('[COMBAT] save.pv_current:', save?.pv_current)
     if (result === 'victory') {
-      console.log('[COMBAT] victory - atualizando save')
       const creditsGain = 50 + Math.floor(Math.random() * 30)
       updateSave({
         credits: (save?.credits || 0) + creditsGain,
@@ -61,16 +84,13 @@ export default function Combat() {
       const xpGain = 50
       gainXp(xpGain)
       setShowXpToast(true)
-      console.log('[COMBAT] XP toast exibido:', xpGain)
       await new Promise(r => setTimeout(r, 2000))
       setShowXpToast(false)
       const gs = useGameStore.getState()
       const base = gs.save?.post_combat_scene || gs.save?.current_scene_id || '1.3'
       const returnScene = base.endsWith('-luta') ? base.replace('-luta', '-pos') : base
-      console.log('[LDI] pós-combate victory, returnScene:', returnScene)
       await setScene(returnScene)
       if (user) saveToCloud(user.id)
-      console.log('[COMBAT] victory - navegando para game, returnScene:', returnScene)
       navigate('/extras/ldi/game')
     } else if (result === 'defeat') {
       updateSave({ status: 'ended_defeat' })
@@ -88,8 +108,60 @@ export default function Combat() {
     handleEndCombat('flee')
   }
 
+  if (showPowerSelect && combat.active) {
+    return (
+      <div className="ldi-page ldi-page--combat">
+        <div className="ldi-power-select">
+          <motion.div
+            className="ldi-power-select-box"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h2 className="ldi-power-select-title">Preparar Poderes</h2>
+            <p className="ldi-power-select-sub">
+              Selecione até 4 poderes elementais ({elemental}) para usar neste combate.
+              <button className="ldi-power-select-manual" onClick={() => setShowManual(true)}>📖</button>
+            </p>
+            <div className="ldi-power-select-grid">
+              {availablePowers.map(p => {
+                const selected = selectedPowers.includes(p.id)
+                return (
+                  <motion.button
+                    key={p.id}
+                    className={`ldi-power-select-card ${selected ? 'ldi-power-select-card--selected' : ''}`}
+                    onClick={() => togglePower(p.id)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="ldi-power-select-card-header">
+                      <span className="ldi-power-select-card-name">{p.name}</span>
+                      <span className="ldi-power-select-card-cost">⚡{p.cost} PM</span>
+                    </div>
+                    <p className="ldi-power-select-card-desc">{p.desc}</p>
+                  </motion.button>
+                )
+              })}
+            </div>
+            <div className="ldi-power-select-footer">
+              <span className="ldi-power-select-count">{selectedPowers.length}/4 selecionados</span>
+              <button
+                className="ldi-btn ldi-btn--primary"
+                onClick={handleStartCombat}
+              >
+                {selectedPowers.length === 0 ? 'ENTRAR EM COMBATE (SEM PODERES)' : `ENTRAR EM COMBATE (${selectedPowers.length} PODERES)`}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+        <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
+      </div>
+    )
+  }
+
   return (
     <div className="ldi-page ldi-page--combat">
+      <div className="ldi-combat-manual-btn" onClick={() => setShowManual(true)} title="Manual">📖</div>
       <AnimatePresence>
         {showXpToast && (
           <motion.div
@@ -99,7 +171,7 @@ export default function Combat() {
             exit={{ opacity: 0, scale: 1.5 }}
             transition={{ duration: 0.3 }}
           >
-            +{50} XP
+            +50 XP
           </motion.div>
         )}
       </AnimatePresence>
@@ -113,6 +185,7 @@ export default function Combat() {
         onEndCombat={handleEndCombat}
         onFlee={handleFlee}
       />
+      <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
     </div>
   )
 }
