@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.14*
+*Versão: 1.15*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -52,7 +52,10 @@
     │   ├── en.json                     # Traduções EN
     │   ├── es.json                     # Traduções ES
     │   └── locales.js                  # Import aggregator + LOCALE_LABELS
-    └── pages/                          # 9 páginas
+    ├── pages/
+    │   ├── Perfil/                      # Hub com abas (Conquistas, Arena, Coleção, Conta)
+    │   │   └── abas/                    # Componentes de cada aba
+    │   └── ...
 ```
 
 ---
@@ -78,7 +81,7 @@
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha |
-| `/perfil` | Perfil | `src/pages/Perfil.jsx` | ✅ | Perfil do usuário com grid de achievements + seção de compartilhamento mensal |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | Hub com 4 abas navegáveis via query param: Conquistas, Arena (stats Top Trumps + posição leaderboard), Coleção (álbum de cartas com filtro), Conta (compartilhamento + configurações) |
 | `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel de auditoria de compartilhamentos — acesso restrito ao admin |
 | `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Dentro de /extras — lore, easter eggs e bastidores |
 

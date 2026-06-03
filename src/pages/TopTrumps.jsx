@@ -270,7 +270,7 @@ export default function TopTrumps() {
                 {jaGanhouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje. Volte amanhã!</p>}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={iniciarJogo}>JOGAR</button>
-                <Link to="/perfil" className="tt-link-album">Ver meu álbum de cartas →</Link>
+                <Link to="/perfil?aba=colecao" className="tt-link-album">Ver meu álbum de cartas →</Link>
               </div>
             )}
           </LoginGate>

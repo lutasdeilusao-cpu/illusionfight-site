@@ -29,7 +29,7 @@ import TopTrumps from './pages/TopTrumps'
 import Leaderboard from './pages/Leaderboard'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
-import Perfil from './pages/Perfil'
+import Perfil from './pages/Perfil/Perfil'
 import Admin from './pages/Admin'
 
 export default function App() {

@@ -456,6 +456,151 @@
   50% { opacity: 0.6; }
 }
 
+.perfil-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #2A2D31;
+}
+
+.perfil-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4F5359;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.perfil-tab:hover {
+  color: #EAEAEA;
+}
+
+.perfil-tab--ativa {
+  color: #EAEAEA;
+  border-bottom-color: #e8853a;
+}
+
+.perfil-tab-icone {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .perfil-tab-label {
+    display: none;
+  }
+}
+
+/* ---- Arena section ---- */
+
+.perfil-arena, .perfil-colecao, .perfil-conta {
+  margin-bottom: 2.5rem;
+}
+
+.perfil-jogo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.perfil-jogo-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin: 0;
+}
+
+.perfil-jogo-rank {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #e8853a;
+  text-decoration: none;
+}
+
+.perfil-jogo-rank:hover {
+  text-decoration: underline;
+}
+
+/* ---- Colecao filters ---- */
+
+.perfil-colecao-filtros {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.perfil-colecao-filtro-btn {
+  padding: 0.4rem 0.75rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.perfil-colecao-filtro-btn:hover {
+  border-color: #e8853a;
+  color: #EAEAEA;
+}
+
+.perfil-colecao-filtro-btn--ativo {
+  border-color: #e8853a;
+  color: #EAEAEA;
+  background: rgba(232,133,58,0.1);
+}
+
+/* ---- Conta ---- */
+
+.perfil-conta-info {
+  margin-bottom: 2rem;
+}
+
+.perfil-conta-campo {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+}
+
+.perfil-conta-label {
+  color: #8B8F96;
+}
+
+.perfil-conta-valor {
+  color: #EAEAEA;
+}
+
+.perfil-conta-upgrade {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #e8853a;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+.perfil-conta-upgrade:hover {
+  text-decoration: underline;
+}
+
 .perfil-logout {
   display: block;
   margin: 0 auto;
