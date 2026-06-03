@@ -14,6 +14,21 @@
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* LDI Game vars */
+  --ldi-bg: #0A0A0F;
+  --ldi-surface: #111118;
+  --ldi-card: #1A1A24;
+  --ldi-accent-red: #E02020;
+  --ldi-accent-blue: #1E6FBF;
+  --ldi-text: #F0EEE8;
+  --ldi-muted: #888882;
+  --ldi-success: #1D9E75;
+  --ldi-warning: #EF9F27;
+  --ldi-danger: #E24B4A;
+  --font-narrative: 'Share Tech Mono', monospace;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-onomatopeia: 'Bangers', cursive;
 }
 
 *, *::before, *::after {

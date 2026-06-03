@@ -86,6 +86,13 @@
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | Hub com 4 abas navegáveis via query param: Conquistas, Arena (stats Top Trumps + posição leaderboard), Coleção (álbum de cartas com filtro), Conta (compartilhamento + configurações) |
 | `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel de auditoria de compartilhamentos — acesso restrito ao admin |
 | `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | 🚧 | Dentro de /extras — lore, easter eggs e bastidores |
+| `/extras/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | Lendas do LDI — lobby (hub do RPG narrativo) |
+| `/extras/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide — criação de ficha disfarçada de onboarding |
+| `/extras/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
+| `/extras/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos |
+| `/extras/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | Ficha do personagem (consulta) |
+| `/extras/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | Caderno de pistas |
+| `/extras/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
 
 ---
 
@@ -383,7 +390,131 @@
 
 ---
 
-## 10. NOTAS TÉCNICAS
+---
+
+## 10. LENDAS DO LDI — RPG Narrativo
+
+**Tipo:** Jogo interativo (livro-jogo digital)  
+**Status:** ✅ Arco 1 implementado  
+**Acesso:** FREE  
+**Stack:** React 19 · Zustand · Framer Motion · Supabase  
+**Rota:** `/extras/ldi/*`
+
+### Rotas internas do jogo
+| Rota | Descrição |
+|------|-----------|
+| `/extras/ldi` | Lobby — cria nova ficha ou continua |
+| `/extras/ldi/create` | NeoGuide — criação de ficha disfarçada de onboarding |
+| `/extras/ldi/game` | Tela principal — cenas narrativas com typewriter |
+| `/extras/ldi/combat` | Sistema de combate 3D&T com 3 modos |
+| `/extras/ldi/sheet` | Ficha do personagem — consulta |
+| `/extras/ldi/clues` | Caderno de pistas com conexões automáticas |
+| `/extras/ldi/end` | Tela de fim de jogo com retrospecto |
+
+### Estrutura de arquivos
+```
+src/pages/LDI/
+├── Lobby.jsx / LDI.css          # Lobby + estilos globais do jogo
+├── Create.jsx                    # NeoGuide — criação de ficha
+├── Game.jsx                      # Tela principal de cena
+├── Combat.jsx                    # Tela de combate
+├── Sheet.jsx                     # Ficha do personagem
+├── Clues.jsx                     # Caderno de pistas
+├── End.jsx                       # Tela de fim de jogo
+├── engine/                       # Lógica pura (sem React)
+│   ├── dice.js                   # Rolagem de dados (d6, testAttribute)
+│   ├── combat.js                 # Cálculos 3D&T (FA, FD, dano, status)
+│   ├── flags.js                  # Sistema de flags narrativas
+│   ├── scenes.js                 # Carregamento e filtragem de cenas
+│   └── character.js              # PV, PM, XP, Perto da Morte
+├── store/                        # Estado global (Zustand)
+│   ├── useGameStore.js           # Save, sheet, cena, ações
+│   └── useCombatStore.js         # Estado de combate
+├── data/
+│   ├── scenes/act1.json          # Cenas do Ato I (1.1 → 2.1)
+│   └── enemies/enemies.json      # Inimigos (6 fichas)
+└── components/                   # Componentes React
+    ├── Typewriter.jsx            # Efeito de digitação com skip
+    ├── SceneView.jsx             # Container de cena + transição
+    ├── ChoiceList.jsx            # Escolhas com stagger + bloqueio
+    ├── CombatView.jsx            # Grid de combate 3 colunas
+    ├── DiceRoll.jsx              # Dado animado + onomatopeias
+    ├── CharacterSheetView.jsx    # Ficha visual com barras
+    ├── ClueBook.jsx              # Caderno de pistas
+    ├── PuzzleSlidingTiles.jsx    # Puzzle 3×3 / 4×4
+    ├── PuzzleStealthGrid.jsx     # Puzzle stealth com câmeras
+    └── PuzzleDecoder.jsx         # Puzzle de frequência
+```
+
+### Supabase — Tabelas criadas
+| Tabela | Descrição |
+|--------|-----------|
+| `character_sheets` | Fichas dos personagens — persistem entre runs |
+| `game_saves` | Estado de cada run — vinculado à ficha |
+
+**Migration:** `supabase/migrations/003_lendas_ldi.sql`  
+**RLS:** `auth.uid() = user_id` (mesmo padrão dos outros jogos)  
+
+### Sistemas implementados
+- Engine de combate 3D&T (dice.js · combat.js · character.js)
+- Sistema de flags e cenas em JSON
+- 3 puzzles: Sliding Tiles · Stealth Grid · Decoder
+- Efeitos visuais: typewriter · onomatopeias · flash de dano · dado animado
+- Auto-save por transição de cena (debounce 500ms)
+- Transições de cena com split VHS / tela preta
+
+### Efeitos Visuais (Adendo UI/UX)
+- [x] Typewriter com skip por Enter/Espaço/clique
+- [x] Choices com stagger de entrada (80ms cada)
+- [x] Flash vermelho em dano recebido
+- [x] Vinheta Perto da Morte pulsando
+- [x] Onomatopeias de combate (POW!, SLASH!, BOOM!, CRITICAL!!)
+- [x] Dado com efeito slot machine (400ms)
+- [x] Barras de PV/PM animadas com gradiente dinâmico
+- [x] Log de combate com scroll automático
+- [x] Tela de Game Over dramática (K.O.!! + retrospecto)
+
+### Inimigos — Arco 1
+| ID | Nome | Dificuldade | Notas |
+|----|------|-------------|-------|
+| stormbyte_91 | StormByte_91 | easy | Tutorial de combate |
+| kaeda | Kaeda | medium | Primeiro contato |
+| ghostpulse | GhostPulse | medium | Ataque elemental |
+| ironveil | IronVeil | hard | Tanque |
+| null_entity_encounter1 | NULL_ENTITY (1) | medium | Primeiro encontro |
+| null_entity_encounter2 | NULL_ENTITY (2) | hard | Segundo encontro |
+| null_entity_final | NULL_ENTITY (Final) | very_hard | Chefe final |
+
+### Cenas — Ato I
+| ID | Título |
+|----|--------|
+| 1.1 → 1.1d | NeoGuide (criação disfarçada) |
+| 1.2 | Desconexão |
+| 1.3 | Primeiro Dia — Praça Central (6 opções) |
+| 1.3a–f | Sub-cenas da Praça |
+| 1.3-mafama | Assombro dos Dados |
+| 1.4 | Dia 2 — Rotina |
+| 1.4a–c | Sub-cenas do Dia 2 |
+| 1.5 | Dia 3 — O Prazo |
+| 1.5a | Missão Oficial |
+| 2.1 → 2.1d | O Contato (Kaeda) |
+| end_act1 | Fim do Ato I |
+
+### Dependências adicionadas
+| Pacote | Versão | Motivo |
+|--------|--------|--------|
+| framer-motion | ^12.x | Animações e transições |
+| zustand | ^5.x | Estado global |
+
+### Observações
+- Lógica 100% client-side — Supabase só persiste estado
+- Paleta alinhada ao illusionfight-site (+ vars LDI específicas)
+- RLS aplicado seguindo padrão dos outros jogos
+- Fonte Share Tech Mono para narrativa · Bangers para onomatopeias
+
+---
+
+## 11. NOTAS TÉCNICAS
 
 ### Stack
 - **Vite 8** — Build tool. Zero config para JSX, CSS, assets.

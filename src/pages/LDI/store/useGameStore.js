@@ -1,0 +1,183 @@
+import { create } from 'zustand'
+import { loadScene, filterChoices, getSceneFromCache } from '../engine/scenes'
+import { setFlag, hasFlag } from '../engine/flags'
+import { useCombatStore } from './useCombatStore'
+import enemiesData from '../data/enemies/enemies.json'
+
+const SAVE_DEBOUNCE = 500
+let saveTimer = null
+
+const defaultSheet = () => ({
+  id: null,
+  sheet_name: '',
+  attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 },
+  advantages: [],
+  disadvantages: [],
+  perks: [],
+  specializations: [],
+  special_skills: [],
+  weapon: '',
+  elemental: '',
+  xp_total: 0,
+})
+
+const defaultSave = () => ({
+  id: null,
+  sheet_id: null,
+  arc: 1,
+  current_scene_id: '1.1',
+  day_in_game: 1,
+  credits: 0,
+  pv_current: 1,
+  pm_current: 1,
+  clues_collected: [],
+  flags: {},
+  inventory: [],
+  status: 'active',
+})
+
+function applySheetEffect(sheet, effect) {
+  if (!effect) return sheet
+  const attr = { ...sheet.attributes }
+  for (const [key, val] of Object.entries(effect)) {
+    if (key in attr) attr[key] = (attr[key] || 0) + val
+  }
+  return { ...sheet, attributes: attr }
+}
+
+export const useGameStore = create((set, get) => ({
+  save: defaultSave(),
+  sheet: defaultSheet(),
+  currentScene: null,
+  choices: [],
+
+  newSheet: () => {
+    set({ sheet: defaultSheet(), save: { ...defaultSave(), pv_current: 1, pm_current: 1 } })
+  },
+
+  updateSheet: (partial) => {
+    set(state => ({ sheet: { ...state.sheet, ...partial } }))
+  },
+
+  updateSave: (partial) => {
+    set(state => {
+      const newSave = { ...state.save, ...partial }
+      return { save: newSave }
+    })
+  },
+
+  applySceneEffect: (effect) => {
+    set(state => {
+      const sheet = applySheetEffect(state.sheet, effect)
+      return { sheet }
+    })
+  },
+
+  setScene: async (sceneId) => {
+    if (!sceneId) return
+
+    if (sceneId.startsWith('combat_')) {
+      const enemyId = sceneId.replace('combat_', '')
+      const enemy = enemiesData.find(e => e.id === enemyId)
+      if (enemy) {
+        const sheet = get().sheet
+        useCombatStore.getState().startCombat(enemy, sheet)
+      }
+      return
+    }
+
+    if (sceneId === 'end_act1') {
+      set(state => {
+        const updatedSave = { ...state.save, status: 'ended_victory' }
+        return { save: updatedSave, currentScene: null, choices: [] }
+      })
+      return
+    }
+
+    const scene = await loadScene(sceneId)
+    if (!scene) return
+
+    set(state => {
+      const sheet = state.sheet
+      const flags = state.save.flags
+      const credits = state.save.credits
+      const filtered = filterChoices(scene.choices || [], sheet, flags, credits)
+      return { currentScene: scene, choices: filtered }
+    })
+  },
+
+  makeChoice: async (choice) => {
+    const state = get()
+
+    const newFlags = (choice.flags_set || []).reduce((acc, f) => {
+      acc[f] = true
+      return acc
+    }, { ...state.save.flags })
+
+    const updatedSave = {
+      ...state.save,
+      flags: newFlags,
+    }
+
+    if (choice.sheet_effect) {
+      const updatedSheet = applySheetEffect(state.sheet, choice.sheet_effect)
+      set({ sheet: updatedSheet })
+    }
+
+    set({ save: updatedSave })
+
+    if (choice.next_scene) {
+      await get().setScene(choice.next_scene)
+    }
+  },
+
+  addClue: (clue) => {
+    set(state => ({
+      save: {
+        ...state.save,
+        clues_collected: [...(state.save.clues_collected || []), clue],
+      },
+    }))
+  },
+
+  setFlag: (key) => {
+    set(state => ({
+      save: {
+        ...state.save,
+        flags: setFlag(state.save.flags, key),
+      },
+    }))
+  },
+
+  hasFlag: (key) => {
+    return hasFlag(get().save.flags, key)
+  },
+
+  spendCredits: (amount) => {
+    set(state => ({
+      save: { ...state.save, credits: Math.max(0, state.save.credits - amount) },
+    }))
+  },
+
+  gainCredits: (amount) => {
+    set(state => ({
+      save: { ...state.save, credits: state.save.credits + amount },
+    }))
+  },
+
+  loadSave: (saveData, sheetData) => {
+    set({
+      save: { ...defaultSave(), ...saveData },
+      sheet: { ...defaultSheet(), ...sheetData },
+    })
+  },
+
+  resetGame: () => {
+    set({
+      save: defaultSave(),
+      sheet: defaultSheet(),
+      currentScene: null,
+      choices: [],
+    })
+  },
+}))

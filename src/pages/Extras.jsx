@@ -3,6 +3,13 @@ import './Extras.css'
 
 const extras = [
   {
+    titulo: 'Lendas do LDI',
+    descricao: 'RPG narrativo de livro-jogo digital. Crie seu avatar, explore a arena, enfrente inimigos e descubra os segredos do LDI.',
+    badge: 'FREE',
+    url: '/extras/ldi',
+    cor: 'teal'
+  },
+  {
     titulo: 'Quiz SDR',
     descricao: 'Teste seu conhecimento sobre o universo LDI e descubra sua posição no ranking entre 3 bilhões de jogadores.',
     badge: 'FREE',

@@ -34,6 +34,13 @@ import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil/Perfil'
 import Admin from './pages/Admin'
+import LDILobby from './pages/LDI/Lobby'
+import LDICreate from './pages/LDI/Create'
+import LDIGame from './pages/LDI/Game'
+import LDICombat from './pages/LDI/Combat'
+import LDISheet from './pages/LDI/Sheet'
+import LDIClues from './pages/LDI/Clues'
+import LDIEnd from './pages/LDI/End'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -70,6 +77,13 @@ export default function App() {
         <Route path="/extras/toptrumps" element={<TopTrumps />} />
         <Route path="/extras/toptrumps/lobby" element={<LoginGate feature="o Top Trumps Multiplayer"><TopTrumpsLobby /></LoginGate>} />
         <Route path="/extras/toptrumps/multiplayer" element={<LoginGate feature="a partida multiplayer"><TopTrumpsMP /></LoginGate>} />
+        <Route path="/extras/ldi" element={<LDILobby />} />
+        <Route path="/extras/ldi/create" element={<LDICreate />} />
+        <Route path="/extras/ldi/game" element={<LDIGame />} />
+        <Route path="/extras/ldi/combat" element={<LDICombat />} />
+        <Route path="/extras/ldi/sheet" element={<LDISheet />} />
+        <Route path="/extras/ldi/clues" element={<LDIClues />} />
+        <Route path="/extras/ldi/end" element={<LDIEnd />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />
