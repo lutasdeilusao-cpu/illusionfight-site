@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.24` (console: `[LDI] versão carregada: 1.0.24`)  
+**Versão atual:** `1.0.26` (console: `[LDI] versão carregada: 1.0.26`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -500,6 +500,17 @@ src/pages/LDI/
 - ✅ **Seleção de Poderes** — tela pré-combate com até 4 poderes baseados no elemental da ficha (42 poderes em 7 elementais)
 - ✅ **Arquivos de dados** — `characterData.js`, `manualData.js`, `powersData.js`
 - `LDI_VERSION 1.0.24`. Commit: `d95eb44`
+
+### Changelog — v1.0.25 to v1.0.26 (Críticos + Visual/UX)
+- ✅ **readerMode debug** — console.log em Game.jsx e Combat.jsx confirmam setReaderMode(true/false)
+- ✅ **Validação de criação** — botão ENTRAR NO LDI desabilitado até pontos restantes === 0. Mensagem contextual: "Distribua todos os pontos" / "Você ultrapassou o limite"
+- ✅ **Título Lobby com Share Tech Mono** + glitch mantido
+- ✅ **Texto introdução** — font-size 1.1rem, max-width 500px, cor #E0E0E0, line-height 1.8
+- ✅ **Log WhatsApp** — bolhas: player à direita (teal escuro), inimigo à esquerda (vermelho escuro), provocação (âmbar itálico), sistema (centro azul)
+- ✅ **Pausa dramática** — overlay "=== VEZ DO INIMIGO ===" por 1.5s com blink antes do ataque inimigo
+- ✅ **Perto da Morte** — tela inteira pulse-red 0.5s + badge piscando no card do jogador (playerPv ≤ R)
+- ✅ **Modo Poder** — exibe lista de poderes preparados como botões (nome, custo PM). Substitui botão ATACAR no modo power
+- `LDI_VERSION 1.0.26`. Commit: `b06ca15`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
