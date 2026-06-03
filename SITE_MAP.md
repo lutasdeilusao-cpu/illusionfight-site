@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.30*
+*Versão: 1.31*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -279,6 +279,7 @@
 - ✅ **Bugfix: J1 preso em carregando ao J2 entrar** — No handler do `subscribeToSala`, adicionada detecção de transição `aguardando→em_jogo` com `jogador2_id` setado, forçando `setFase('ppt')` no J1 que estava esperando. Antes o J1 ficava preso em `carregando` porque o código só tratava a mudança de fase no cliente que fez a ação (J2), não no que estava ouvindo via Realtime.
 - ✅ **Bugfix: resultado duplicado ("Todo mundo vence")** — `meuPapelRef.current` podia ser `null` quando `resolverRodada` era chamada via Realtime, fazendo `ganhei` sempre `false` e exibindo 'perdeu' para ambos (ou o inverso). Substituído por derivação direta `const papel = s.jogador1_id === user.id ? 'j1' : 'j2'` nos dois blocos de resolução (`movs.length >= 2` e `movs.length === 1`). Também corrigido `setCartaOponente` no bloco single-move para usar `papel` em vez de comparar apenas com `s.jogador1_id`.
 - ✅ **Bugfix: alternância de turno — só um jogador escolhia a partida inteira** — `salaRef.current` mantinha `jogador_da_vez` desatualizado após `resolverRodada` porque só o banco era atualizado, não o estado local. Ao clicar "PRÓXIMA RODADA", `seguirParaProximaRodada` usava o valor velho. Adicionado `setSala(prev => ({...prev, ...}))` imediatamente após `atualizarSala` nos dois blocos (else branch), forçando o estado local com os novos `pontos_j1`, `pontos_j2`, `turno_atual` e `jogador_da_vez`.
+- ✅ **Fix: carta_id_oponente no INSERT + deck determinístico** — Adicionado parâmetro `cartaIdOponente` em `registrarMovimento` e inserido no banco como `carta_id_oponente`. Decks agora são carregados em ordem de `carta_id` ASC (sem `embaralhar`), garantindo índice determinístico consistente entre os dois clientes. `resolverRodada` no branch single-move lê `mov.carta_id_oponente` diretamente, eliminando a busca no banco do deck do oponente. Adicionados `deckOponente` state + ref, usados em `jogarAtributo` e no timeout auto-move.
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
