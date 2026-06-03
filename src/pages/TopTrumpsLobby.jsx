@@ -38,7 +38,8 @@ export default function TopTrumpsLobby() {
 
   const location = useLocation()
 
-  const salaEntradaRef = useRef(false)
+  const [avisoApostadoConfirmado, setAvisoApostadoConfirmado] = useState(false)
+  const [showAviso, setShowAviso] = useState(false)
   const timerRef = useRef(null)
 
   const FRASES = [
@@ -292,7 +293,29 @@ export default function TopTrumpsLobby() {
                   </div>
                 ))}
               </div>
-              <button className="ttmp-btn" disabled={!cartaAposta} onClick={handleConfirmarAposta}>CONFIRMAR APOSTA</button>
+              <button className="ttmp-btn" disabled={!cartaAposta}
+                onClick={() => { if (!avisoApostadoConfirmado) setShowAviso(true); else handleConfirmarAposta() }}>
+                CONFIRMAR APOSTA
+              </button>
+            </div>
+          )}
+
+          {showAviso && (
+            <div className="ttmp-aviso-overlay" onClick={() => setShowAviso(false)}>
+              <div className="ttmp-aviso-modal" onClick={e => e.stopPropagation()}>
+                <h2 className="ttmp-aviso-titulo">MODO APOSTADO — LEIA ANTES DE CONTINUAR</h2>
+                <p className="ttmp-aviso-texto">
+                  Se você desconectar durante a partida por qualquer motivo — queda de internet, fechar o app, bateria acabando — você perde automaticamente e perde a carta apostada. Sem exceções.
+                </p>
+                <div className="ttmp-aviso-botoes">
+                  <button className="ttmp-btn ttmp-btn--teal" onClick={() => { setAvisoApostadoConfirmado(true); setShowAviso(false); handleConfirmarAposta() }}>
+                    ENTENDI, QUERO APOSTAR
+                  </button>
+                  <button className="ttmp-btn ttmp-btn--transparente" onClick={() => setShowAviso(false)}>
+                    VOLTAR
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
