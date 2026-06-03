@@ -13,6 +13,7 @@ export default function Combat() {
   const combat = useCombatStore()
 
   useEffect(() => {
+    console.log('[COMBAT] useEffect combat.active:', combat.active)
     if (!combat.active) {
       navigate('/extras/ldi/game')
     }
@@ -37,7 +38,11 @@ export default function Combat() {
   }
 
   const handleEndCombat = async (result) => {
+    console.log('[COMBAT] handleEndCombat chamado, result:', result)
+    console.log('[COMBAT] save.status atual:', save?.status)
+    console.log('[COMBAT] save.pv_current:', save?.pv_current)
     if (result === 'victory') {
+      console.log('[COMBAT] victory - atualizando save')
       const creditsGain = 50 + Math.floor(Math.random() * 30)
       updateSave({
         credits: (save?.credits || 0) + creditsGain,
@@ -50,6 +55,7 @@ export default function Combat() {
       console.log('[LDI] pós-combate victory, returnScene:', returnScene)
       await setScene(returnScene)
       if (user) saveToCloud(user.id)
+      console.log('[COMBAT] victory - navegando para game, returnScene:', returnScene)
       navigate('/extras/ldi/game')
     } else if (result === 'defeat') {
       updateSave({ status: 'ended_defeat' })

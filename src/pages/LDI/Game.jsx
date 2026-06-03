@@ -29,6 +29,7 @@ export default function Game() {
   }, [combat.active, navigate])
 
   useEffect(() => {
+    console.log('[GAME] useEffect save.status:', save?.status)
     if (save.status === 'ended_victory' || save.status === 'ended_defeat' || save.status === 'ended_fork') {
       if (user) saveToCloud(user.id)
       navigate('/extras/ldi/end')

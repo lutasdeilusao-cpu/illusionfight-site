@@ -52,6 +52,7 @@ export default function CombatView({
 
     await new Promise(r => setTimeout(r, 800))
 
+    console.log('[COMBAT-VIEW] result.defeated:', result?.defeated, 'damage:', result?.damage)
     if (result?.defeated) {
       setShowOnomatopeia(null)
       setAnimating(false)
@@ -72,6 +73,7 @@ export default function CombatView({
     }
 
     const newPlayerPv = Math.max(0, (save?.pv_current ?? pvMax) - (enemyResult?.damage || 0))
+    console.log('[COMBAT-VIEW] newPlayerPv:', newPlayerPv, 'pvMax:', pvMax)
     if (newPlayerPv <= 0) {
       await new Promise(r => setTimeout(r, 800))
       setShowOnomatopeia(null)
