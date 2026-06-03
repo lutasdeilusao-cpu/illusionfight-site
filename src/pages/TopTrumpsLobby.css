@@ -48,6 +48,40 @@
   border-color: #e8853a;
 }
 
+.ttmp-modo-card--disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.ttmp-modo-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.ttmp-modo-badge {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #000;
+  background: #00B4D8;
+  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  text-transform: uppercase;
+}
+
+.ttmp-modo-restricao {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  margin: 0.35rem 0 0;
+  line-height: 1.3;
+}
+
 .ttmp-modo-titulo {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.1rem;

@@ -18,13 +18,13 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.7'
+const MP_VERSION = '1.0.8'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
@@ -280,8 +280,10 @@ export default function TopTrumpsMP() {
           const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
           const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
           await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
-          await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
-          await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+          if (perfil?.tier === 'elite' || perfil?.tier === 'primordial') {
+            await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+            await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+          }
         } else {
           await atualizarSala(s.id, {
             pontos_j1: novosPontosJ1,
@@ -353,8 +355,10 @@ export default function TopTrumpsMP() {
           const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
           const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
           await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
-          await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
-          await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+          if (perfil?.tier === 'elite' || perfil?.tier === 'primordial') {
+            await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+            await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+          }
         } else {
           await atualizarSala(s.id, {
             pontos_j1: novosPontosJ1,

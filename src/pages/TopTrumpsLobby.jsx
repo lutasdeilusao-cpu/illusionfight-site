@@ -196,8 +196,10 @@ export default function TopTrumpsLobby() {
 
   const podeJogar = !limiteInfo || limiteInfo.pode
 
-  return (
-    <section className="ttmp-page">
+      const ehFree = perfil?.tier !== 'elite' && perfil?.tier !== 'primordial'
+
+      return (
+        <section className="ttmp-page">
       <h1 className="ttmp-titulo">MULTIPLAYER</h1>
 
       {etapa === 'modo' && (
@@ -206,9 +208,14 @@ export default function TopTrumpsLobby() {
             <h3 className="ttmp-modo-titulo">MODO FREE</h3>
             <p className="ttmp-modo-desc">Ganhe uma carta aleatória do seu tier</p>
           </div>
-          <div className="ttmp-modo-card ttmp-modo-card--warning" onClick={() => selecionarModo('apostado')}>
-            <h3 className="ttmp-modo-titulo">MODO APOSTADO</h3>
+          <div className={`ttmp-modo-card ttmp-modo-card--warning${ehFree ? ' ttmp-modo-card--disabled' : ''}`}
+            onClick={() => { if (!ehFree) selecionarModo('apostado') }}>
+            <div className="ttmp-modo-card-header">
+              <h3 className="ttmp-modo-titulo">MODO APOSTADO</h3>
+              {ehFree && <span className="ttmp-modo-badge">ELITE+</span>}
+            </div>
             <p className="ttmp-modo-desc">Aposte uma carta. Vencedor leva tudo.</p>
+            {ehFree && <p className="ttmp-modo-restricao">Exclusivo para assinantes Elite e Primordial</p>}
           </div>
         </div>
       )}
