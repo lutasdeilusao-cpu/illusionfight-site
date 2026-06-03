@@ -162,7 +162,13 @@ export function subscribeToSala(salaId, callback) {
 }
 
 export function subscribeToMovimentos(salaId, callback) {
+  console.log('[RT] subscribeToMovimentos iniciado para sala:', salaId)
   return supabase.channel(`mov-${salaId}`)
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'toptrumps_movimentos', filter: `sala_id=eq.${salaId}` }, callback)
-    .subscribe()
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'toptrumps_movimentos', filter: `sala_id=eq.${salaId}` }, (payload) => {
+      console.log('[RT] movimento recebido na tabela movimentos:', payload.new)
+      callback(payload)
+    })
+    .subscribe((status) => {
+      console.log('[RT] status canal movimentos:', status)
+    })
 }
