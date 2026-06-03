@@ -52,14 +52,10 @@ export default function TopTrumpsMP() {
   const salaRef = useRef(sala)
   const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
-  const jaMoviRef = useRef(jaMovi)
-  const movimentoRecebidoRef = useRef(movimentoRecebido)
   const cartaLocalRef = useRef(cartaLocal)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
-  useEffect(() => { jaMoviRef.current = jaMovi }, [jaMovi])
-  useEffect(() => { movimentoRecebidoRef.current = movimentoRecebido }, [movimentoRecebido])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { faseRef.current = fase }, [fase])
 
@@ -133,6 +129,12 @@ export default function TopTrumpsMP() {
     return () => clearInterval(iv)
   }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
+  useEffect(() => {
+    if (fase !== 'revelacao') return
+    const timer = setTimeout(() => setFase('resultado'), 1800)
+    return () => clearTimeout(timer)
+  }, [fase])
+
   function jogarAtributo(atributoId) {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal) return
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false).then(() => {
@@ -149,73 +151,162 @@ export default function TopTrumpsMP() {
       .select('*')
       .eq('sala_id', s.id)
       .eq('turno', s.turno_atual)
-      .order('created_at', { ascending: true })
+      .order('criado_em', { ascending: true })
     console.log('[MP] resolverRodada movimentos encontrados:', movs?.length, movs)
     if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
-    if (!movs || movs.length < 2) { console.log('[MP] resolverRodada aguardando segundo movimento, saindo'); return }
 
-    const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
-    const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
-    if (!movJ1 || !movJ2) return
+    // Caso padrão: dois movimentos (ambos jogadores jogaram)
+    if (movs && movs.length >= 2) {
+      const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
+      const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
+      if (!movJ1 || !movJ2) return
 
-    const cartaJ1 = todasCartas.find(c => c.id_num === movJ1.carta_id)
-    const cartaJ2 = todasCartas.find(c => c.id_num === movJ2.carta_id)
-    if (!cartaJ1 || !cartaJ2) return
+      const cartaJ1 = todasCartas.find(c => c.id_num === movJ1.carta_id)
+      const cartaJ2 = todasCartas.find(c => c.id_num === movJ2.carta_id)
+      if (!cartaJ1 || !cartaJ2) return
 
-    const attr = atributos.find(a => a.id === movJ1.atributo)
-    if (!attr) return
+      const attr = atributos.find(a => a.id === movJ1.atributo)
+      if (!attr) return
 
-    const v1 = cartaJ1.atributos[movJ1.atributo]
-    const v2 = cartaJ2.atributos[movJ2.atributo]
+      const v1 = cartaJ1.atributos[movJ1.atributo]
+      const v2 = cartaJ2.atributos[movJ2.atributo]
 
-    let res
-    if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
-    else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+      let res
+      if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
+      else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
-    const papel = meuPapelRef.current
-    const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
-    const empatou = res === 'empate'
+      // segue lógica existente para atualizar estado e sala
+      const papel = meuPapelRef.current
+      const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
+      const empatou = res === 'empate'
 
-    setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
-    setAtributoEscolhido(movJ1.atributo)
-    setCartaOponente(papel === 'j1' ? cartaJ2 : cartaJ1)
+      setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
+      setAtributoEscolhido(movJ1.atributo)
+      setCartaOponente(papel === 'j1' ? cartaJ2 : cartaJ1)
 
-    const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
-    const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
-    const novoTurno = s.turno_atual + 1
-    const fim = novoTurno > s.total_turnos
+      const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
+      const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
+      const novoTurno = s.turno_atual + 1
+      const fim = novoTurno > s.total_turnos
 
-    setFase('resultado')
+      setFase('revelacao')
 
-    if (fim) {
-      const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
-      const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+      if (fim) {
+        const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
+        const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
 
-      await atualizarSala(s.id, {
-        pontos_j1: novosPontosJ1,
-        pontos_j2: novosPontosJ2,
-        turno_atual: s.total_turnos,
-        status: 'encerrada'
-      })
+        await atualizarSala(s.id, {
+          pontos_j1: novosPontosJ1,
+          pontos_j2: novosPontosJ2,
+          turno_atual: s.total_turnos,
+          status: 'encerrada'
+        })
 
-      await encerrarSala(s.id, vencedor, perdedor, s.modo, null, null)
-      await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
-      await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
-    } else {
-      await atualizarSala(s.id, {
-        pontos_j1: novosPontosJ1,
-        pontos_j2: novosPontosJ2,
-        turno_atual: novoTurno,
-        jogador_da_vez: res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
-      })
+        await encerrarSala(s.id, vencedor, perdedor, s.modo, null, null)
+        await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+        await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+      } else {
+        await atualizarSala(s.id, {
+          pontos_j1: novosPontosJ1,
+          pontos_j2: novosPontosJ2,
+          turno_atual: novoTurno,
+          jogador_da_vez: res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+        })
+      }
+
+      return
     }
+
+    // Caso especial: apenas um movimento registrado — Top Trumps (jogador ativo escolhe e basta)
+    if (movs && movs.length === 1) {
+      const mov = movs[0]
+      const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
+      if (!cartaAtiva) { console.log('[MP] resolverRodada sem carta ativa encontrada'); return }
+
+      // identifica o oponente
+      const jogadorAtivoId = mov.jogador_id
+      const jogadorOponenteId = jogadorAtivoId === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+
+      // tenta obter a carta do oponente a partir do toptrumps_decks (fallback se disponível)
+      let cartaOponenteObj = null
+      try {
+        const { data: deckOpp } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', jogadorOponenteId)
+        const idx = Math.max(0, (s.turno_atual || 1) - 1)
+        const cartaIdOpp = deckOpp && deckOpp.length > idx ? deckOpp[idx].carta_id : deckOpp && deckOpp.length ? deckOpp[0].carta_id : null
+        if (cartaIdOpp) cartaOponenteObj = todasCartas.find(c => c.id_num === cartaIdOpp)
+      } catch (e) {
+        console.error('[MP] resolverRodada erro ao buscar deck oponente:', e)
+      }
+
+      if (!cartaOponenteObj) { console.log('[MP] resolverRodada sem carta do oponente — aguardando'); return }
+
+      const attr = atributos.find(a => a.id === mov.atributo)
+      if (!attr) return
+
+      // define j1/j2 valores de acordo com sala
+      let v1, v2
+      if (mov.jogador_id === s.jogador1_id) {
+        v1 = cartaAtiva.atributos[mov.atributo]
+        v2 = cartaOponenteObj.atributos[mov.atributo]
+      } else {
+        v2 = cartaAtiva.atributos[mov.atributo]
+        v1 = cartaOponenteObj.atributos[mov.atributo]
+      }
+
+      let res
+      if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
+      else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+
+      const papel = meuPapelRef.current
+      const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
+      const empatou = res === 'empate'
+
+      setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
+      setAtributoEscolhido(mov.atributo)
+      setCartaOponente(mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva)
+
+      const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
+      const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
+      const novoTurno = s.turno_atual + 1
+      const fim = novoTurno > s.total_turnos
+
+      setFase('revelacao')
+
+      if (fim) {
+        const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
+        const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+
+        await atualizarSala(s.id, {
+          pontos_j1: novosPontosJ1,
+          pontos_j2: novosPontosJ2,
+          turno_atual: s.total_turnos,
+          status: 'encerrada'
+        })
+
+        await encerrarSala(s.id, vencedor, perdedor, s.modo, null, null)
+        await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+        await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+      } else {
+        await atualizarSala(s.id, {
+          pontos_j1: novosPontosJ1,
+          pontos_j2: novosPontosJ2,
+          turno_atual: novoTurno,
+          jogador_da_vez: res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+        })
+      }
+
+      return
+    }
+
+    // nenhum movimento encontrado
+    console.log('[MP] resolverRodada: nenhum movimento encontrado para este turno')
+    return
   }
 
-  useEffect(() => {
-    if (!jaMovi || !movimentoRecebido || fase !== 'jogando') return
-    console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
-    resolverRodada()
-  }, [jaMovi, movimentoRecebido])
+  // NOTE: Para Top Trumps (um jogador por rodada) não dependemos mais
+  // dos refs jaMovi/movimentoRecebido para decidir quando resolver a rodada.
+  // A resolução é acionada imediatamente ao receber o INSERT na tabela
+  // `toptrumps_movimentos` (veja subscribeToMovimentos abaixo).
 
   useEffect(() => {
     if (fase !== 'resultado') return
@@ -287,7 +378,7 @@ export default function TopTrumpsMP() {
         return
       }
 
-      if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo') {
+      if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') {
         setFase('jogando')
         console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
@@ -298,29 +389,26 @@ export default function TopTrumpsMP() {
         setUltimoMovimento(null)
         setEhMinhaVez(s.jogador_da_vez === user.id)
       }
-      if (s.status === 'encerrada') setFase('fim')
+      if (s.status === 'encerrada' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') setFase('fim')
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
       console.log('[MP] Realtime UPDATE recebido, novo:', JSON.stringify(p.new))
-      console.log('[MP] jaMoviRef.current:', jaMoviRef.current, 'movimentoRecebidoRef.current:', movimentoRecebidoRef.current)
       const mov = p.new
       setUltimoMovimento(mov)
-      if (mov.jogador_id !== user.id) {
-        console.log('[MP] verificando se chama resolverRodada, condicao: movimento oponente, jaMoviRef:', jaMoviRef.current)
-        if (jaMoviRef.current) {
-          console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
-          resolverRodada()
-        } else {
-          setMovimentoRecebido(true)
-        }
-      } else {
+
+      // Atualiza flags de UI (jaMovi / movimentoRecebido) para manter o comportamento
+      // visual, mas NÃO usamos mais essas flags para decidir quando resolver a rodada.
+      if (mov.jogador_id === user.id) {
         setJaMovi(true)
-        console.log('[MP] verificando se chama resolverRodada, condicao: meu movimento, movimentoRecebidoRef:', movimentoRecebidoRef.current)
-        if (movimentoRecebidoRef.current) {
-          console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
-          resolverRodada()
-        }
+      } else {
+        setMovimentoRecebido(true)
       }
+
+      // Em Top Trumps, apenas o jogador ativo faz o movimento por rodada.
+      // Assim que chega um INSERT na tabela de movimentos, chamamos
+      // resolverRodada imediatamente.
+      console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
+      resolverRodada()
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
   }, [salaId, user?.id])
@@ -530,6 +618,82 @@ export default function TopTrumpsMP() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (fase === 'revelacao') {
+    if (!cartaLocal || !cartaOponente) return null
+    const attr = atributos.find(a => a.id === atributoEscolhido)
+    const vezTexto = sala?.jogador_da_vez === user.id ? 'Sua vez no próximo turno' : `${oponenteNome} começa o próximo turno`
+
+    return (
+      <section className="ttmp-page">
+        <div className="ttmp-revelacao-banner">
+          <div>
+            <span className="ttmp-revelacao-title">Revelação da rodada</span>
+            <span className="ttmp-revelacao-subtitle">{vezTexto}</span>
+          </div>
+          <span className={`ttmp-resultado-badge ttmp-resultado--${resultadoRodada}`}>
+            {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU' : 'EMPATE'}
+          </span>
+        </div>
+
+        <div className="ttmp-hud">
+          <div className="ttmp-hud-jogador">
+            <span className="ttmp-hud-nome">VOCÊ</span>
+            <span className="ttmp-hud-placar-valor">{placar.eu}</span>
+          </div>
+          <div className="ttmp-hud-centro">
+            <span className="ttmp-hud-rodada">RODADA {sala?.turno_atual}/{sala?.total_turnos}</span>
+            <span className="ttmp-revelacao-note">Atributo escolhido: {attr?.nome}</span>
+          </div>
+          <div className="ttmp-hud-oponente">
+            <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
+            <span className="ttmp-hud-placar-valor">{placar.oponente}</span>
+          </div>
+        </div>
+
+        <div className="ttmp-mesa ttmp-mesa--revelacao">
+          <div className="ttmp-card ttmp-card--revelado">
+            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaLocal.id) }}>
+              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
+            </div>
+            <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
+            <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
+            <div className="ttmp-card-atributos">
+              {atributos.map(a => (
+                <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
+                  <span className="ttmp-atributo-nome">{a.nome}</span>
+                  <span className="ttmp-atributo-valor">{cartaLocal.atributos[a.id]}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="ttmp-vs">
+            <span className="ttmp-vs-texto">REVELANDO</span>
+          </div>
+
+          <div className="ttmp-card ttmp-card--revelado">
+            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaOponente.id) }}>
+              <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
+            </div>
+            <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
+            <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
+            <div className="ttmp-card-atributos">
+              {atributos.map(a => {
+                let c = `ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`
+                return (
+                  <div key={a.id} className={c}>
+                    <span className="ttmp-atributo-nome">{a.nome}</span>
+                    <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
