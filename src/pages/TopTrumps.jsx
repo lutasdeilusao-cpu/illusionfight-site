@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
+import { useAchievements } from '../context/AchievementsContext'
 import LoginGate from '../components/LoginGate/LoginGate'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumps.css'
 
@@ -25,6 +27,7 @@ function keyPorUser(user, suffix) {
 
 export default function TopTrumps() {
   const { user } = useAuth()
+  const { desbloquear } = useAchievements()
 
   const [fase, setFase] = useState('menu')
   const [deckJogador, setDeckJogador] = useState([])
@@ -61,7 +64,7 @@ export default function TopTrumps() {
     return embaralhar(todasCartas).slice(0, qtd)
   }
 
-  function carregarDeck() {
+  async function carregarDeckLocal() {
     if (!user) return []
     const chave = getDeckKey()
     const salvo = localStorage.getItem(chave)
@@ -154,6 +157,12 @@ export default function TopTrumps() {
 
   function finalizarPartida() {
     const venceu = placar.jogador > placar.ia
+    const resultado = venceu ? 'vitoria' : placar.jogador === placar.ia ? 'empate' : 'derrota'
+    const jogadas = historicoRodadas.length
+    const vitorias = historicoRodadas.filter(h => h.resultado === 'ganhou').length
+    const derrotas = historicoRodadas.filter(h => h.resultado === 'perdeu').length
+    const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
+
     if (venceu) {
       const hoje = new Date().toISOString().slice(0, 10)
       const chaveData = getUltimaDataKey()
@@ -172,6 +181,7 @@ export default function TopTrumps() {
           localStorage.setItem(chaveTent, JSON.stringify({ data: hoje, count: novoCount }))
           localStorage.setItem(chaveData, hoje)
           setTentativasRestantes(Math.max(0, 3 - novoCount))
+          registrarPartida(user.id, { jogadas, vitorias, derrotas, empates, resultado })
           return
         }
       } else {
@@ -179,6 +189,13 @@ export default function TopTrumps() {
       }
     }
     setFase('fim_jogo')
+    registrarPartida(user.id, { jogadas, vitorias, derrotas, empates, resultado }).then(stats => {
+      if (stats.total_vitorias === 1) desbloquear('primeira_vitoria_trumps')
+      if (stats.total_derrotas === 1) desbloquear('primeira_derrota_trumps')
+      if (stats.total_partidas === 10) desbloquear('veterano_trumps_10')
+      if (stats.total_partidas === 100) desbloquear('centuriao_trumps')
+      if (stats.total_partidas === 1000) desbloquear('lenda_trumps')
+    })
   }
 
   function escolherRecompensa(carta) {
@@ -187,12 +204,23 @@ export default function TopTrumps() {
     ids.push(carta.id)
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
+    salvarCartasDeck(user.id, [carta.id])
     setFase('fim_jogo')
   }
 
   useEffect(() => {
     if (user) {
-      setDeckUsuario(carregarDeck())
+      migrarLocalStorageParaSupabase(user.id).then(async () => {
+        const ids = await carregarDeckDB(user.id)
+        if (ids && ids.length > 0) {
+          const cartas = ids.map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
+          setDeckUsuario(cartas)
+        } else {
+          const iniciais = await carregarDeckLocal()
+          salvarCartasDeck(user.id, iniciais.map(c => c.id))
+          setDeckUsuario(iniciais)
+        }
+      })
       verificarTentativas()
     }
   }, [user])

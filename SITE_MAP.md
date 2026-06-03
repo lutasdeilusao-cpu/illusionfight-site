@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.13*
+*Versão: 1.14*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -151,6 +151,9 @@
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
 | `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
 | `supertrunfo-pt.json` | `src/data/` | PT | 76 cartas com 8 atributos (rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo) em 5 tiers (29 free, 32 elite, 4 primordial, 6 lendario, 5 sombra) | TopTrumps |
+| `achievements-pt.json` | `src/data/` | PT | 14 achievements (inclui 5 novos do Top Trumps: primeira_vitoria_trumps, primeira_derrota_trumps, veterano_trumps_10, centuriao_trumps, lenda_trumps) | AchievementsContext, Perfil |
+| `useTopTrumpsDB.js` | `src/hooks/` | — | Hook com funções Supabase: carregarDeck, salvarCartasDeck, registrarPartida, atualizarStats, carregarStats, carregarUltimasPartidas, migrarLocalStorageParaSupabase | TopTrumps |
+| `001_toptrumps.sql` | `supabase/migrations/` | — | Schema SQL: toptrumps_decks, toptrumps_partidas, toptrumps_stats com RLS policies | (rodar no Supabase SQL Editor) |
 | `achievements-pt.json` | `src/data/` | PT | 8 achievements com triggers, ícones e tiers | AchievementsContext |
 | `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
@@ -250,6 +253,9 @@
 - ✅ **Controle de acesso** — TRIAL_ACTIVE libera tudo, free tem teto de 30 cartas
 - ✅ **Menu redesign** — Layout 2 colunas, cartas decorativas CSS, barra de coleção, seleção de modo (single/multiplayer) e configuração de turnos separados
 - ✅ **Bugfix tentativas** — Reset automático ao mudar o dia restaura fase 'menu'
+- ✅ **Migração Supabase** — Deck, partidas e stats persistidos no banco; localStorage migrado automaticamente
+- ✅ **5 novos achievements** — Primeira Vitória, Aprendiz, Veterano (10), Centurião (100), Lenda (1000)
+- ✅ **Histórico no perfil** — Stats (partidas/vitórias/derrotas/streak) + últimas 10 partidas com resultados
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro

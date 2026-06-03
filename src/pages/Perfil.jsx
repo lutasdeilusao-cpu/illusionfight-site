@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
+import { carregarStats, carregarUltimasPartidas } from '../hooks/useTopTrumpsDB'
 import todosAchievements from '../data/achievements-pt.json'
 import deck from '../data/supertrunfo-pt.json'
 import './Perfil.css'
@@ -14,12 +15,26 @@ export default function Perfil() {
   const [shareLink, setShareLink] = useState('')
   const [shareStatus, setShareStatus] = useState(null)
   const [deckIds, setDeckIds] = useState([])
+  const [trumpStats, setTrumpStats] = useState({ total_partidas: 0, total_vitorias: 0, total_derrotas: 0, melhor_streak: 0 })
+  const [trumpPartidas, setTrumpPartidas] = useState([])
+  const [trumpCarregando, setTrumpCarregando] = useState(false)
   const DECK_KEY = 'ldi-toptrumps-deck'
 
   useEffect(() => {
     const salvos = JSON.parse(localStorage.getItem(DECK_KEY) || '[]')
     setDeckIds(salvos)
   }, [])
+
+  useEffect(() => {
+    if (!user) return
+    setTrumpCarregando(true)
+    Promise.all([carregarStats(user.id), carregarUltimasPartidas(user.id)])
+      .then(([stats, partidas]) => {
+        setTrumpStats(stats)
+        setTrumpPartidas(partidas)
+        setTrumpCarregando(false)
+      })
+  }, [user])
 
   useEffect(() => {
     if (!user && !carregando) navigate('/login')
@@ -168,6 +183,39 @@ export default function Perfil() {
           </div>
         </div>
       )}
+
+      <div className="perfil-trump-section">
+        <h2 className="perfil-section-title">🃏 ARENA — TOP TRUMPS</h2>
+        {trumpCarregando ? (
+          <div className="perfil-trump-skeleton">
+            <div className="perfil-skeleton-card" /><div className="perfil-skeleton-card" /><div className="perfil-skeleton-card" /><div className="perfil-skeleton-card" />
+          </div>
+        ) : trumpStats.total_partidas > 0 ? (
+          <>
+            <div className="perfil-trump-stats">
+              <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{trumpStats.total_partidas}</span><span className="perfil-trump-stat-label">Partidas</span></div>
+              <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{trumpStats.total_vitorias}</span><span className="perfil-trump-stat-label">Vitórias</span></div>
+              <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{trumpStats.total_derrotas}</span><span className="perfil-trump-stat-label">Derrotas</span></div>
+              <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{trumpStats.melhor_streak}</span><span className="perfil-trump-stat-label">Melhor Streak</span></div>
+            </div>
+            <div className="perfil-trump-lista">
+              {trumpPartidas.map((p, i) => (
+                <div key={p.id} className={`perfil-trump-linha${i % 2 === 1 ? ' perfil-trump-linha--alt' : ''}`}>
+                  <span className="perfil-trump-linha-data">{new Date(p.criada_em).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</span>
+                  <span className="perfil-trump-linha-icone">{p.resultado === 'vitoria' ? '🏆' : p.resultado === 'derrota' ? '💀' : '🤝'}</span>
+                  <span className="perfil-trump-linha-info">{p.jogadas} jogadas</span>
+                  <span className="perfil-trump-linha-placar">{p.vitorias}×{p.derrotas}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="perfil-trump-empty">
+            <p>Você ainda não jogou Top Trumps. Vá para a Arena e dispute sua primeira partida!</p>
+            <Link to="/extras/toptrumps" className="perfil-trump-cta">IR PARA ARENA →</Link>
+          </div>
+        )}
+      </div>
 
       <button className="perfil-logout" onClick={logout}>SAIR</button>
     </section>

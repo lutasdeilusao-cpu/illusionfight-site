@@ -324,6 +324,138 @@
   margin-top: 0.3rem;
 }
 
+.perfil-trump-section {
+  margin-bottom: 2.5rem;
+}
+
+.perfil-trump-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-trump-stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.perfil-trump-stat-val {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.perfil-trump-stat-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  color: #8B8F96;
+  letter-spacing: 0.06em;
+  margin-top: 0.15rem;
+}
+
+.perfil-trump-lista {
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.perfil-trump-linha {
+  display: grid;
+  grid-template-columns: 60px 30px 1fr 70px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.perfil-trump-linha:last-child {
+  border-bottom: none;
+}
+
+.perfil-trump-linha--alt {
+  background: rgba(255,255,255,0.015);
+}
+
+.perfil-trump-linha-data {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #4F5359;
+}
+
+.perfil-trump-linha-icone {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.perfil-trump-linha-placar {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  text-align: right;
+}
+
+.perfil-trump-empty {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+}
+
+.perfil-trump-empty p {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.perfil-trump-cta {
+  display: inline-block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.5rem;
+  background: #e8853a;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.perfil-trump-cta:hover {
+  opacity: 0.85;
+}
+
+.perfil-trump-skeleton {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-skeleton-card {
+  height: 80px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  animation: perfil-skeleton-pulse 1.5s ease infinite;
+}
+
+@keyframes perfil-skeleton-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
 .perfil-logout {
   display: block;
   margin: 0 auto;

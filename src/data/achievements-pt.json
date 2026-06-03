@@ -80,5 +80,50 @@
     "tier": 1,
     "trigger": "share_aprovado",
     "recorrente": true
+  },
+  {
+    "id": "primeira_vitoria_trumps",
+    "nome": "Primeira Vitória na Arena",
+    "descricao": "Você venceu sua primeira partida de Top Trumps.",
+    "icone": "🃏",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_primeira_vitoria"
+  },
+  {
+    "id": "primeira_derrota_trumps",
+    "nome": "Aprendiz da Arena",
+    "descricao": "Você perdeu sua primeira partida. A lição dói, mas fica.",
+    "icone": "💀",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "trumps_primeira_derrota"
+  },
+  {
+    "id": "veterano_trumps_10",
+    "nome": "Veterano da Arena",
+    "descricao": "10 partidas de Top Trumps disputadas.",
+    "icone": "🎴",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_10_partidas"
+  },
+  {
+    "id": "centuriao_trumps",
+    "nome": "Centurião da Arena",
+    "descricao": "100 partidas de Top Trumps disputadas. Respeito.",
+    "icone": "👑",
+    "secreto": true,
+    "tier": 2,
+    "trigger": "trumps_100_partidas"
+  },
+  {
+    "id": "lenda_trumps",
+    "nome": "Lenda Viva",
+    "descricao": "1000 partidas. Você é o LDI.",
+    "icone": "🌑",
+    "secreto": true,
+    "tier": 3,
+    "trigger": "trumps_1000_partidas"
   }
 ]
