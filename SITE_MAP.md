@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.23*
+*Versão: 1.24*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -272,6 +272,8 @@
 - ✅ **RPC entrar_fila_publica** — Lógica de busca/inserção de sala pública movida para uma única chamada `supabase.rpc()`, eliminando race conditions entre SELECT e INSERT
 - ✅ **Timeout 2min na partida** — Se o Realtime não receber o segundo jogador em 2min, a sala é deletada e o J1 redirecionado ao lobby com mensagem âmbar
 - ✅ **Mensagem âmbar no lobby** — `location.state.mensagem` exibida por 5s em destaque com borda dourada
+- ✅ **PPT antes da partida** — Pedra-papel-tesoura para definir quem começa; empate repete; armazenado nos campos `carta_aposta_j1/j2` com sentinela -1
+- ✅ **Logs em registrarMovimento e resolverRodada** — Console logs para depuração do fluxo multiplayer
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro

@@ -279,32 +279,136 @@
   letter-spacing: 0.1em;
 }
 
-/* ---- RESULTADO ---- */
+/* ---- PPT ---- */
 
-.ttmp-resultado-texto {
-  text-align: center;
+.ttmp-ppt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1.5rem;
+}
+
+.ttmp-ppt-titulo {
   font-family: "Rajdhani", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.6rem;
   font-weight: 700;
+  color: #EAEAEA;
+  margin: 0;
 }
 
-.ttmp-resultado--ganhou {
-  color: #1ea064;
+.ttmp-ppt-subtitulo {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+  margin: 0;
 }
 
-.ttmp-resultado--perdeu {
-  color: #e74c3c;
+.ttmp-ppt-opcoes {
+  display: flex;
+  gap: 1rem;
 }
 
-.ttmp-resultado--empate {
+.ttmp-ppt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1.75rem;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid #2A2D31;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.ttmp-ppt-btn:hover:not(:disabled) {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.08);
+}
+
+.ttmp-ppt-btn:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.ttmp-ppt-icone {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.ttmp-ppt-nome {
+  letter-spacing: 0.05em;
+}
+
+.ttmp-ppt-aguardando {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
   color: #e8853a;
+  animation: ttmp-pulse 1.2s ease-in-out infinite;
+  margin: 0;
 }
 
-.ttmp-resultado-atributo {
+.ttmp-ppt-resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ttmp-ppt-jogadores {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ttmp-ppt-jogada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ttmp-ppt-jogada-label {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.6rem;
   color: #8B8F96;
+  letter-spacing: 0.08em;
 }
+
+.ttmp-ppt-jogada-icone {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.ttmp-ppt-resultado-texto {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ---- ADVERSARIO ESCOLHENDO ---- */
+
+.ttmp-vez-message {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  color: #e8853a;
+  letter-spacing: 0.05em;
+  animation: ttmp-pulse 1.2s ease-in-out infinite;
+  text-align: center;
+}
+
+@keyframes ttmp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---- RESULTADO ---- */
 
 /* ---- FIM ---- */
 

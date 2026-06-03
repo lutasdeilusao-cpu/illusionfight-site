@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import { supabase } from '../lib/supabase'
-import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats } from '../hooks/useTopTrumpsMP'
+import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsMP.css'
 
@@ -44,8 +44,13 @@ export default function TopTrumpsMP() {
   const [meuPapel, setMeuPapel] = useState(null)
   const [deckLocal, setDeckLocal] = useState([])
   const [oponenteNome, setOponenteNome] = useState('Oponente')
+  const [pptEscolhi, setPptEscolhi] = useState(false)
+  const [pptEscolhaOponente, setPptEscolhaOponente] = useState(null)
+  const [pptResultado, setPptResultado] = useState(null)
+  const [pptAmbosEscolheram, setPptAmbosEscolheram] = useState(false)
 
   const salaRef = useRef(sala)
+  const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
   const jaMoviRef = useRef(jaMovi)
   const movimentoRecebidoRef = useRef(movimentoRecebido)
@@ -56,6 +61,7 @@ export default function TopTrumpsMP() {
   useEffect(() => { jaMoviRef.current = jaMovi }, [jaMovi])
   useEffect(() => { movimentoRecebidoRef.current = movimentoRecebido }, [movimentoRecebido])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
+  useEffect(() => { faseRef.current = fase }, [fase])
 
   const placar = sala ? {
     eu: meuPapel === 'j1' ? (sala.pontos_j1 || 0) : (sala.pontos_j2 || 0),
@@ -71,7 +77,14 @@ export default function TopTrumpsMP() {
       const papel = data.jogador1_id === user.id ? 'j1' : data.jogador2_id === user.id ? 'j2' : null
       setMeuPapel(papel)
       setEhMinhaVez(data.jogador_da_vez === user.id)
-      if (data.status === 'em_jogo') setFase('jogando')
+      if (data.status === 'em_jogo' && data.carta_aposta_j1 === -1) {
+        setFase('jogando')
+      } else if (data.status === 'em_jogo') {
+        setFase('ppt')
+        if (papel === 'j1' ? data.aposta_confirmada_j1 : data.aposta_confirmada_j2) {
+          setPptEscolhi(true)
+        }
+      }
 
       const opId = data.jogador1_id === user.id ? data.jogador2_id : data.jogador1_id
       if (opId) {
@@ -128,14 +141,16 @@ export default function TopTrumpsMP() {
 
   async function resolverRodada() {
     const s = salaRef.current
-    if (!s) return
-    const { data: movs } = await supabase
+    if (!s) { console.log('[MP] resolverRodada — sem sala'); return }
+    console.log('[MP] resolverRodada chamado', { salaId: s.id, turno: s.turno_atual })
+    const { data: movs, error: errMovs } = await supabase
       .from('toptrumps_movimentos')
       .select('*')
       .eq('sala_id', s.id)
       .eq('turno', s.turno_atual)
       .order('created_at', { ascending: true })
-    if (!movs || movs.length < 2) return
+    if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
+    if (!movs || movs.length < 2) { console.log('[MP] resolverRodada — aguardando segundo movimento'); return }
 
     const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
     const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
@@ -238,6 +253,34 @@ export default function TopTrumpsMP() {
       const s = p.new
       const anterior = salaRef.current
       setSala(s)
+
+      // PPT: ambos escolheram
+      if (faseRef.current === 'ppt' && s.aposta_confirmada_j1 && s.aposta_confirmada_j2) {
+        const escolhaJ1 = s.carta_aposta_j1
+        const escolhaJ2 = s.carta_aposta_j2
+        const ehJ1 = meuPapelRef.current === 'j1'
+        setPptEscolhaOponente(ehJ1 ? escolhaJ2 : escolhaJ1)
+        setPptAmbosEscolheram(true)
+        const diff = (3 + escolhaJ1 - escolhaJ2) % 3
+        if (diff === 0) setPptResultado('empate')
+        else if ((diff === 1 && ehJ1) || (diff === 2 && !ehJ1)) setPptResultado('ganhou')
+        else setPptResultado('perdeu')
+        return
+      }
+
+      // PPT finalizado -> jogando
+      if (anterior && s.carta_aposta_j1 === -1 && anterior.carta_aposta_j1 !== -1) {
+        setFase('jogando')
+        setAtributoEscolhido(null)
+        setResultadoRodada(null)
+        setMovimentoRecebido(false)
+        setJaMovi(false)
+        setCartaOponente(null)
+        setUltimoMovimento(null)
+        setEhMinhaVez(s.jogador_da_vez === user.id)
+        return
+      }
+
       if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo') {
         setFase('jogando')
         setAtributoEscolhido(null)
@@ -269,12 +312,103 @@ export default function TopTrumpsMP() {
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
   }, [salaId, user?.id])
 
+  useEffect(() => {
+    if (!pptAmbosEscolheram || !salaId) return
+    const s = salaRef.current
+    if (!s) return
+    const escolhaJ1 = s.carta_aposta_j1
+    const escolhaJ2 = s.carta_aposta_j2
+    const diff = (3 + escolhaJ1 - escolhaJ2) % 3
+
+    const t = setTimeout(async () => {
+      if (diff === 0) {
+        await supabase.from('toptrumps_salas').update({
+          carta_aposta_j1: null,
+          carta_aposta_j2: null,
+          aposta_confirmada_j1: false,
+          aposta_confirmada_j2: false
+        }).eq('id', salaId)
+        setPptEscolhi(false)
+        setPptEscolhaOponente(null)
+        setPptResultado(null)
+        setPptAmbosEscolheram(false)
+      } else {
+        const vencedorId = diff === 1 ? s.jogador1_id : s.jogador2_id
+        await supabase.from('toptrumps_salas').update({
+          jogador_da_vez: vencedorId,
+          turno_atual: 1,
+          carta_aposta_j1: -1,
+          carta_aposta_j2: null,
+          aposta_confirmada_j1: false,
+          aposta_confirmada_j2: false
+        }).eq('id', salaId)
+      }
+    }, 2000)
+    return () => clearTimeout(t)
+  }, [pptAmbosEscolheram, salaId])
+
   if (fase === 'carregando') {
     return (
       <section className="ttmp-page">
         <div className="ttmp-loading">
           <div className="ttmp-loading-spinner" />
           <p>Carregando partida...</p>
+        </div>
+      </section>
+    )
+  }
+
+  if (fase === 'ppt') {
+    const opcoes = [
+      { valor: 0, nome: 'Pedra', icone: '\u270A' },
+      { valor: 1, nome: 'Papel', icone: '\u270B' },
+      { valor: 2, nome: 'Tesoura', icone: '\u270C\uFE0F' }
+    ]
+    const minhaEscolha = meuPapel === 'j1' ? sala?.carta_aposta_j1 : sala?.carta_aposta_j2
+    return (
+      <section className="ttmp-page">
+        <div className="ttmp-ppt-container">
+          <h2 className="ttmp-ppt-titulo">Pedra, Papel, Tesoura</h2>
+          <p className="ttmp-ppt-subtitulo">O vencedor come&ccedil;a!</p>
+          {!pptAmbosEscolheram ? (
+            <>
+              <div className="ttmp-ppt-opcoes">
+                {opcoes.map(op => (
+                  <button key={op.valor}
+                    className="ttmp-ppt-btn"
+                    disabled={pptEscolhi}
+                    onClick={() => {
+                      setPptEscolhi(true)
+                      escolherPPT(salaId, user.id, op.valor, meuPapel === 'j1')
+                    }}>
+                    <span className="ttmp-ppt-icone">{op.icone}</span>
+                    <span className="ttmp-ppt-nome">{op.nome}</span>
+                  </button>
+                ))}
+              </div>
+              {pptEscolhi && <p className="ttmp-ppt-aguardando">Aguardando oponente...</p>}
+            </>
+          ) : (
+            <div className="ttmp-ppt-resultado">
+              <div className="ttmp-ppt-jogadores">
+                <div className="ttmp-ppt-jogada">
+                  <span className="ttmp-ppt-jogada-label">Voc&ecirc;</span>
+                  <span className="ttmp-ppt-jogada-icone">
+                    {opcoes.find(o => o.valor === minhaEscolha)?.icone}
+                  </span>
+                </div>
+                <div className="ttmp-ppt-jogada">
+                  <span className="ttmp-ppt-jogada-label">{oponenteNome}</span>
+                  <span className="ttmp-ppt-jogada-icone">
+                    {opcoes.find(o => o.valor === pptEscolhaOponente)?.icone}
+                  </span>
+                </div>
+              </div>
+              <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${pptResultado}`}>
+                {pptResultado === 'ganhou' ? 'Voc&ecirc; venceu!' : pptResultado === 'perdeu' ? 'Voc&ecirc; perdeu!' : 'Empate!'}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     )
@@ -335,6 +469,9 @@ export default function TopTrumpsMP() {
           </div>
           <div className="ttmp-vs">
             <span className="ttmp-vs-texto">VS</span>
+            {!ehMinhaVez && !jaMovi && (
+              <span className="ttmp-vez-message">Advers&aacute;rio escolhendo...</span>
+            )}
           </div>
           <div className="ttmp-card">
             {cartaOponente ? (

@@ -62,11 +62,39 @@ export async function confirmarAposta(salaId, ehJ1) {
   }
 }
 
+export async function escolherPPT(salaId, userId, escolha, ehJ1) {
+  const campoEscolha = ehJ1 ? 'carta_aposta_j1' : 'carta_aposta_j2'
+  const campoConfirmar = ehJ1 ? 'aposta_confirmada_j1' : 'aposta_confirmada_j2'
+  console.log('[MP] escolherPPT', { salaId, userId, escolha, ehJ1 })
+  const { error } = await supabase.from('toptrumps_salas').update({
+    [campoEscolha]: escolha,
+    [campoConfirmar]: true
+  }).eq('id', salaId)
+  if (error) console.error('[MP] escolherPPT erro:', error)
+}
+
+export async function finalizarPPT(salaId, vencedorId) {
+  console.log('[MP] finalizarPPT', { salaId, vencedorId })
+  const { error } = await supabase.from('toptrumps_salas').update({
+    jogador_da_vez: vencedorId,
+    turno_atual: 1,
+    carta_aposta_j1: -1,
+    carta_aposta_j2: null,
+    aposta_confirmada_j1: false,
+    aposta_confirmada_j2: false
+  }).eq('id', salaId)
+  if (error) console.error('[MP] finalizarPPT erro:', error)
+}
+
 export async function registrarMovimento(salaId, userId, cartaId, atributo, foiIA = false) {
-  const { data: sala } = await supabase.from('toptrumps_salas').select('turno_atual').eq('id', salaId).single()
-  await supabase.from('toptrumps_movimentos').insert({
+  console.log('[MP] registrarMovimento chamado', { salaId, userId, cartaId, atributo, foiIA })
+  const { data: sala, error: errSala } = await supabase.from('toptrumps_salas').select('turno_atual').eq('id', salaId).single()
+  if (errSala || !sala) { console.error('[MP] registrarMovimento erro ao buscar sala:', errSala); return }
+  const { error } = await supabase.from('toptrumps_movimentos').insert({
     sala_id: salaId, turno: sala.turno_atual, jogador_id: userId, carta_id: cartaId, atributo, foi_ia: foiIA
   })
+  if (error) console.error('[MP] registrarMovimento erro no insert:', error)
+  else console.log('[MP] registrarMovimento resultado: inserido turno', sala.turno_atual)
 }
 
 export async function atualizarSala(salaId, updates) {
