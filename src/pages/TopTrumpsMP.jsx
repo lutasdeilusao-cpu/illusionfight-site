@@ -424,6 +424,7 @@ export default function TopTrumpsMP() {
   }
 
   if (fase === 'jogando') {
+    console.log('[MP] render turno, jogador_da_vez:', sala?.jogador_da_vez, 'meu userId:', user?.id, 'sou eu:', sala?.jogador_da_vez === user?.id)
     if (!cartaLocal) return (
       <section className="ttmp-page">
         <div className="ttmp-loading">
