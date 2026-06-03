@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.27` (console: `[LDI] versão carregada: 1.0.27`)  
+**Versão atual:** `1.0.30` (console: `[LDI] versão carregada: 1.0.30`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -518,6 +518,17 @@ src/pages/LDI/
 - ✅ **Level Up corrigido** — contador de 1 ponto, + chama updateSheet e zera contador, CONFIRMAR só habilita quando 0 pontos, mostra valor antigo → novo (3 → 4), saveToCloud no confirmar
 - ✅ **Destaque em cenas** — `.ldi-scene--destaque` com borda teal pulsante, título maior em teal, fundo sutil. Aplicado em `1.3d-pos` e `2.1d` no act1.json
 - `LDI_VERSION 1.0.27`. Commit: `2174e05`
+
+### Changelog — v1.0.28 (Cor título teal/ciano)
+- ✅ **Título "LENDAS DO LDI"** — cor alterada para teal #00B4D8 (antes vermelho). Glitch agora usa teal + âmbar (#F5A623) em vez de vermelho
+- `LDI_VERSION 1.0.28`. Commit: `856f77f`
+
+### Changelog — v1.0.30 (Fix detecção personagem por sceneId)
+- ✅ **detectPersonagem removido** — textos do act1.json não têm prefixo `NomePersonagem:`, então a detecção por regex nunca funcionava. Substituído por mapeamento `CENA_PERSONAGEM[sceneId]`
+- ✅ **Cenas mapeadas**: `1.1`–`1.1d`: NeoGuide, `2.1`–`2.1d`: Kaeda
+- ✅ **Estilo aplicado apenas em falas** — `isFala(para)` determina se recebe cor/fonte do personagem. Narrativa sem estilo especial
+- ✅ **sceneId propagado** — SceneView.jsx passa `sceneId={scene.id}` para Typewriter
+- `LDI_VERSION 1.0.30`. Commit: `5b9ce9c`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
