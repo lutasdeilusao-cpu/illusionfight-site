@@ -298,9 +298,11 @@ export default function TopTrumpsMP() {
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
       console.log('[MP] Realtime UPDATE recebido, novo:', JSON.stringify(p.new))
+      console.log('[MP] jaMoviRef.current:', jaMoviRef.current, 'movimentoRecebidoRef.current:', movimentoRecebidoRef.current)
       const mov = p.new
       setUltimoMovimento(mov)
       if (mov.jogador_id !== user.id) {
+        console.log('[MP] verificando se chama resolverRodada, condicao: movimento oponente, jaMoviRef:', jaMoviRef.current)
         if (jaMoviRef.current) {
           console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
           resolverRodada()
@@ -309,6 +311,7 @@ export default function TopTrumpsMP() {
         }
       } else {
         setJaMovi(true)
+        console.log('[MP] verificando se chama resolverRodada, condicao: meu movimento, movimentoRecebidoRef:', movimentoRecebidoRef.current)
         if (movimentoRecebidoRef.current) {
           console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
           resolverRodada()
