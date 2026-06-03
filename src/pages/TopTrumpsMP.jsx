@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.6'
+const MP_VERSION = '1.0.7'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -391,6 +391,45 @@ export default function TopTrumpsMP() {
     }, 120000)
     return () => clearTimeout(timer)
   }, [fase, salaId, navigate])
+
+  // Heartbeat: atualiza ping a cada 15s durante o jogo
+  useEffect(() => {
+    if (!salaId || !user || fase !== 'jogando' || !meuPapelRef.current) return
+    const coluna = meuPapelRef.current === 'j1' ? 'ultimo_ping_j1' : 'ultimo_ping_j2'
+    const interval = setInterval(async () => {
+      await supabase.from('toptrumps_salas').update({ [coluna]: new Date().toISOString() }).eq('id', salaId)
+    }, 15000)
+    return () => clearInterval(interval)
+  }, [salaId, user, fase, meuPapel])
+
+  // Watchdog: a cada 20s verifica se oponente desconectou (>60s sem ping)
+  useEffect(() => {
+    if (!salaId || !user || fase !== 'jogando' || !meuPapelRef.current) return
+    const colunaOponente = meuPapelRef.current === 'j1' ? 'ultimo_ping_j2' : 'ultimo_ping_j1'
+    const interval = setInterval(async () => {
+      const s = salaRef.current
+      if (!s) return
+      const ultimoPing = s[colunaOponente]
+      if (ultimoPing && Date.now() - new Date(ultimoPing).getTime() > 60000) {
+        await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
+        setFase('fim')
+      }
+    }, 20000)
+    return () => clearInterval(interval)
+  }, [salaId, user, fase, meuPapel])
+
+  // beforeunload: jogador fechou o browser → ele perde
+  useEffect(() => {
+    if (!salaId || !user) return
+    const handleUnload = () => {
+      navigator.sendBeacon(
+        'https://dvxfrzixtetdzmdrzkpx.supabase.co/rest/v1/rpc/encerrar_por_desconexao',
+        JSON.stringify({ p_sala_id: salaId, p_user_id: user.id })
+      )
+    }
+    window.addEventListener('beforeunload', handleUnload)
+    return () => window.removeEventListener('beforeunload', handleUnload)
+  }, [salaId, user])
 
   useEffect(() => {
     if (!salaId) return
