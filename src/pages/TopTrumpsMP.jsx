@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.3'
+const MP_VERSION = '1.0.4'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -276,7 +276,9 @@ export default function TopTrumpsMP() {
           status: 'encerrada'
         })
 
-        await encerrarSala(s.id, vencedor, perdedor, s.modo, null, null)
+        const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+        const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+        await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
         await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
         await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
       } else {
@@ -350,7 +352,9 @@ export default function TopTrumpsMP() {
           status: 'encerrada'
         })
 
-        await encerrarSala(s.id, vencedor, perdedor, s.modo, null, null)
+        const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+        const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+        await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
         await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
         await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
       } else {
