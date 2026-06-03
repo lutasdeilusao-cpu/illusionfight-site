@@ -142,15 +142,16 @@ export default function TopTrumpsMP() {
   async function resolverRodada() {
     const s = salaRef.current
     if (!s) { console.log('[MP] resolverRodada — sem sala'); return }
-    console.log('[MP] resolverRodada chamado', { salaId: s.id, turno: s.turno_atual })
+    console.log('[MP] resolverRodada chamada, turno:', s.turno_atual, 'salaId:', s.id)
     const { data: movs, error: errMovs } = await supabase
       .from('toptrumps_movimentos')
       .select('*')
       .eq('sala_id', s.id)
       .eq('turno', s.turno_atual)
       .order('created_at', { ascending: true })
+    console.log('[MP] resolverRodada movimentos encontrados:', movs?.length, movs)
     if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
-    if (!movs || movs.length < 2) { console.log('[MP] resolverRodada — aguardando segundo movimento'); return }
+    if (!movs || movs.length < 2) { console.log('[MP] resolverRodada aguardando segundo movimento, saindo'); return }
 
     const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
     const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
