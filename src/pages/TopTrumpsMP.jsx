@@ -250,7 +250,7 @@ export default function TopTrumpsMP() {
   }, [fase, salaId, navigate])
 
   useEffect(() => {
-    console.log('[RT] verificando subscribe movimentos, salaId:', salaId, 'fase:', fase)
+    console.log('[RT] useEffect movimentos disparou, salaId:', salaId, 'user:', user?.id, 'fase:', fase)
     if (!salaId) return
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
