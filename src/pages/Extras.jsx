@@ -10,10 +10,10 @@ const extras = [
     cor: 'teal'
   },
   {
-    titulo: 'Super Trunfo LDI',
-    descricao: 'Jogo de cartas com os personagens do universo LDI. Compare atributos e vença a IA.',
+    titulo: 'Top Trumps LDI',
+    descricao: 'Jogo de cartas colecionáveis com os personagens do universo LDI. Monte seu deck, vença a IA e ganhe cartas novas todo dia.',
     badge: 'FREE',
-    url: '/extras/supertrunfo',
+    url: '/extras/toptrumps',
     cor: 'teal'
   },
   {

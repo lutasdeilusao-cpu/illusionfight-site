@@ -1,0 +1,294 @@
+.tt-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+.tt-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  text-align: center;
+}
+
+.tt-sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #8B8F96;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tt-deck-info {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  text-align: center;
+}
+
+.tt-turnos {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.tt-turno-btn {
+  padding: 0.6rem 1.2rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  cursor: pointer;
+}
+
+.tt-turno-btn--active {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.1);
+}
+
+.tt-btn {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  background: #e8853a;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tt-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tt-btn--secundario {
+  background: transparent;
+  border: 1px solid #2A2D31;
+  color: #8B8F96;
+}
+
+.tt-tentativas {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.tt-hud {
+  display: flex;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  margin-bottom: 1rem;
+}
+
+.tt-mesa {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.tt-carta {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #2A2D31;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.tt-carta--jogador {
+  border-color: rgba(232,133,58,0.3);
+}
+
+.tt-carta-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tt-carta-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.tt-carta-desc {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.tt-atributos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tt-atributo-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #EAEAEA;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.tt-atributo-btn:hover {
+  border-color: #e8853a;
+}
+
+.tt-atributo--ganhou {
+  border-color: #1ea064;
+  background: rgba(30,160,100,0.1);
+}
+
+.tt-atributo--perdeu {
+  border-color: #e74c3c;
+  background: rgba(231,76,60,0.1);
+}
+
+.tt-atributo--empate {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.1);
+}
+
+.tt-carta-verso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  font-size: 3rem;
+  color: rgba(255,255,255,0.15);
+  font-family: "Rajdhani", sans-serif;
+}
+
+.tt-resultado-texto {
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+}
+
+.tt-resultado-texto.ganhou {
+  color: #1ea064;
+}
+
+.tt-resultado-texto.perdeu {
+  color: #e74c3c;
+}
+
+.tt-resultado-texto.empate {
+  color: #e8853a;
+}
+
+.tt-recompensa {
+  text-align: center;
+}
+
+.tt-recompensa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.tt-carta-fechada {
+  background: #1A1D21;
+  border: 2px solid #2A2D31;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+  text-align: center;
+}
+
+.tt-carta-fechada:hover {
+  transform: translateY(-4px);
+  border-color: #e8853a;
+}
+
+.tt-fim-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #EAEAEA;
+}
+
+.tt-placar-final {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e8853a;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.tt-acoes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.tt-breve {
+  font-size: 0.55rem;
+  opacity: 0.6;
+  margin-left: 0.3rem;
+}
+
+.tt-ja-ganhou {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #e8853a;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .tt-mesa {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-recompensa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-carta-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+}

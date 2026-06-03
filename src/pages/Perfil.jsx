@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import todosAchievements from '../data/achievements-pt.json'
+import deck from '../data/supertrunfo-pt.json'
 import './Perfil.css'
 
 export default function Perfil() {
@@ -12,6 +13,13 @@ export default function Perfil() {
   const { desbloqueados } = useAchievements()
   const [shareLink, setShareLink] = useState('')
   const [shareStatus, setShareStatus] = useState(null)
+  const [deckIds, setDeckIds] = useState([])
+  const DECK_KEY = 'ldi-toptrumps-deck'
+
+  useEffect(() => {
+    const salvos = JSON.parse(localStorage.getItem(DECK_KEY) || '[]')
+    setDeckIds(salvos)
+  }, [])
 
   useEffect(() => {
     if (!user && !carregando) navigate('/login')
@@ -115,6 +123,51 @@ export default function Perfil() {
           </div>
         )}
       </div>
+
+      {deckIds.length > 0 && (
+        <div className="perfil-deck-section">
+          <h2 className="perfil-section-title">MEU DECK TOP TRUMPS</h2>
+          <p className="perfil-deck-count">{deckIds.length} / {deck.cartas.length} cartas</p>
+          <div className="perfil-deck-grid">
+            {deck.cartas.map((carta, i) => {
+              const tem = deckIds.includes(carta.id)
+              const tierNomes = { free: 'FREE', elite: 'ELITE', primordial: 'PRIMORDIAL', lendario: 'LENDÁRIO', sombra: 'SOMBRA' }
+              const tierCor = { free: '#00c8a8', elite: '#e8853a', primordial: '#6B0F1A', lendario: '#9b59b6', sombra: '#2c3e50' }
+              return (
+                <div key={carta.id} className={`perfil-deck-card ${tem ? 'perfil-deck-card--tem' : 'perfil-deck-card--falta'}`}>
+                  {tem ? (
+                    <>
+                      <div className="perfil-deck-avatar" style={{ background: `hsl(${i * 47}, 65%, 45%)` }}>{carta.nome[0]}</div>
+                      <div className="perfil-deck-nome">{carta.nome}</div>
+                      <div className="perfil-deck-atributos">
+                        {['rank_sdr','poder_mental','velocidade','resistencia','nivel_xama','fator_caos'].map(a => (
+                          <div key={a} className="perfil-deck-attr">
+                            <span className="perfil-deck-attr-nome">{a === 'rank_sdr' ? 'SDR' : a === 'poder_mental' ? 'MEN' : a === 'velocidade' ? 'VEL' : a === 'resistencia' ? 'RES' : a === 'nivel_xama' ? 'XAM' : 'CAOS'}</span>
+                            <span className="perfil-deck-attr-val">{carta.atributos[a]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="perfil-deck-silhueta">
+                      <div className="perfil-deck-avatar perfil-deck-avatar--ghost">?</div>
+                      <div className="perfil-deck-nome perfil-deck-nome--ghost">???</div>
+                      <div className="perfil-deck-atributos">
+                        {[1,2,3,4,5,6].map(j => (
+                          <div key={j} className="perfil-deck-attr"><span>—</span><span>—</span></div>
+                        ))}
+                      </div>
+                      {carta.tier !== 'free' && (
+                        <div className="perfil-deck-tier-tag" style={{ background: tierCor[carta.tier] }}>{tierNomes[carta.tier]}</div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       <button className="perfil-logout" onClick={logout}>SAIR</button>
     </section>

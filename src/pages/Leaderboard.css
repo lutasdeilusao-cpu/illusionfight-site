@@ -1,0 +1,225 @@
+.lb-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+.lb-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  text-align: center;
+}
+
+.lb-sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.lb-abas {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.lb-aba {
+  padding: 0.5rem 1.25rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  cursor: pointer;
+}
+
+.lb-aba--ativa {
+  border-color: #e8853a;
+  color: #EAEAEA;
+}
+
+.lb-breve {
+  font-size: 0.5rem;
+  opacity: 0.6;
+  margin-left: 0.3rem;
+}
+
+.lb-podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.lb-podium-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 8px;
+}
+
+.lb-podium-item.primeiro {
+  min-width: 160px;
+  padding-top: 2rem;
+}
+
+.lb-podium-item.segundo {
+  min-width: 130px;
+}
+
+.lb-podium-item.terceiro {
+  min-width: 130px;
+}
+
+.lb-podium-pos {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+}
+
+.lb-podium-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.lb-podium-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.lb-podium-pontos {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #e8853a;
+}
+
+.lb-tabela {
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lb-tabela-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 50px 50px 60px 70px;
+  padding: 0.75rem 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #4F5359;
+  border-bottom: 1px solid #2A2D31;
+}
+
+.lb-linha {
+  display: grid;
+  grid-template-columns: 40px 1fr 50px 50px 60px 70px;
+  padding: 0.6rem 1rem;
+  align-items: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #8B8F96;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.lb-linha:last-child {
+  border-bottom: none;
+}
+
+.lb-linha-pos {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #4F5359;
+}
+
+.lb-linha-jogador {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lb-linha-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.lb-user-card {
+  margin-top: 2rem;
+  background: rgba(232,133,58,0.06);
+  border: 1px solid rgba(232,133,58,0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.lb-user-pos {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #e8853a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.lb-user-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 70px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lb-user-pontos {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #e8853a;
+}
+
+.lb-user-cta {
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+}
+
+.lb-user-cta a {
+  color: #e8853a;
+}
+
+@media (max-width: 640px) {
+  .lb-podium {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lb-tabela-header {
+    grid-template-columns: 30px 1fr 40px 40px 40px 50px;
+  }
+
+  .lb-linha {
+    grid-template-columns: 30px 1fr 40px 40px 40px 50px;
+  }
+}

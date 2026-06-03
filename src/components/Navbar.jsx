@@ -28,7 +28,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'livro', 'musicas', 'extras', 'mundo', 'autor', 'assinar']
+  const navLinks = ['webtoon', 'livro', 'musicas', 'extras', 'mundo', 'leaderboard', 'autor', 'assinar']
 
   if (hidden) return null
 

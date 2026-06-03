@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.8*
+*Versão: 1.9*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -73,7 +73,8 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 | `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
-| `/extras/supertrunfo` | SuperTrunfo | `src/pages/SuperTrunfo.jsx` | ✅ | Jogo Super Trunfo com cartas dos personagens do LDI |
+| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado e recompensa diária |
+| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha |
@@ -239,11 +240,18 @@
 - ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
 - ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
-### Super Trunfo LDI
-- ✅ **Jogo de cartas vs IA** — 10 cartas dos personagens, 6 atributos cada, modo free/elite/primordial baseado no TRIAL_ACTIVE
-- ✅ **Atributos inversos** — Rank SDR: menor valor vence (diferente dos outros atributos)
-- ✅ **Visual dark** — Cartas com avatar circular, borda âmbar, verso da IA com flip animation
-- ✅ **Controle de acesso** — TRIAL_ACTIVE libera todas as 10 cartas, senão só 5 free
+### Top Trumps LDI
+- ✅ **Jogo de cartas vs IA** — 76 cartas dos personagens, 8 atributos cada, tiers free/elite/primordial/lendario/sombra
+- ✅ **Seleção de turnos** — Escolha 5, 10, 15 ou 20 turnos por partida
+- ✅ **Deck personalizado** — localStorage salva cartas do jogador, inicia com 5-10 conforme login
+- ✅ **Recompensa diária** — Até 3 tentativas/dia, ganhe 1 carta nova por vitória (escolha entre 3 opções)
+- ✅ **Álbum no perfil** — Grid completo com cartas obtidas, silhuetas das faltantes e badges de tier
+- ✅ **Controle de acesso** — TRIAL_ACTIVE libera tudo, free tem teto de 30 cartas
+
+### Leaderboard
+- ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
+- ✅ **Seção "Sua posição"** — Card destacado para usuários logados, CTA para cadastro se anônimo
+- ✅ **Navbar** — Link "Leaderboard" entre Extras e AUTOR
 
 ### Achievement Mensal de Compartilhamento
 - ✅ **Tabela share_submissions** — Supabase, 1 envio/mês/usuário, status pendente/aprovado/rejeitado
@@ -315,9 +323,9 @@
 - ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
 - ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto da gangue por avatares visuais
 - ❌ **Quiz — leaderboard** — Ranking global de pontuações
-- ❌ **Super Trunfo multiplayer via Supabase Realtime** — Jogar contra outros usuários em tempo real
-- ❌ **Super Trunfo EN/ES** — Tradução das cartas e atributos para inglês e espanhol
-- ❌ **Super Trunfo — imagens reais dos personagens** — Substituir placeholders (iniciais) por artwork final
+- ❌ **Top Trumps multiplayer via Supabase Realtime** — Jogar contra outros usuários em tempo real
+- ❌ **Top Trumps EN/ES** — Tradução das cartas e atributos para inglês e espanhol
+- ❌ **Top Trumps — imagens reais dos personagens** — Substituir placeholders (iniciais) por artwork final
 - ❌ **Achievement divulgador — automação futura** — Verificação automática via API do X/YouTube em vez de auditoria manual
 - ❌ **Achievements EN/ES** — Tradução dos achievements para inglês e espanhol
 - ❌ **Leaderboard de achievements** — Comparação entre usuários
