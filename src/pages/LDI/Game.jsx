@@ -27,8 +27,13 @@ export default function Game() {
   const [showManual, setShowManual] = useState(false)
 
   useEffect(() => {
+    console.log('[LDI] readerMode setado')
+    console.log('[LDI] readerMode setado para true (Game)')
     setReaderMode(true)
-    return () => setReaderMode(false)
+    return () => {
+      console.log('[LDI] readerMode setado para false (Game cleanup)')
+      setReaderMode(false)
+    }
   }, [setReaderMode])
 
   useEffect(() => {

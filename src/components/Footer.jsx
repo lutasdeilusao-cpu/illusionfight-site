@@ -16,10 +16,12 @@ const externalMap = {
   'Newsletter': 'https://illusionfight.substack.com/subscribe',
 }
 
-export default function Footer() {
+export default function Footer({ hidden }) {
   const { t } = useLanguage()
 
   const colKeys = ['footer.columns.0', 'footer.columns.1', 'footer.columns.2']
+
+  if (hidden) return null
 
   return (
     <footer className="footer">

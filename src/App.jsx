@@ -94,7 +94,7 @@ export default function App() {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
-      <Footer />
+      <Footer hidden={readerMode} />
       <ScrollToTop />
       <NotificationBalloon />
       <CookieBanner />

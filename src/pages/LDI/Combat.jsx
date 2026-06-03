@@ -22,8 +22,13 @@ export default function Combat() {
   const [showManual, setShowManual] = useState(false)
 
   useEffect(() => {
+    console.log('[LDI] readerMode setado')
+    console.log('[LDI] readerMode setado para true (Combat)')
     setReaderMode(true)
-    return () => setReaderMode(false)
+    return () => {
+      console.log('[LDI] readerMode setado para false (Combat cleanup)')
+      setReaderMode(false)
+    }
   }, [setReaderMode])
 
   useEffect(() => {
@@ -184,6 +189,8 @@ export default function Combat() {
         onSelectMode={handleSelectMode}
         onEndCombat={handleEndCombat}
         onFlee={handleFlee}
+        selectedPowers={selectedPowers.map(id => availablePowers.find(p => p.id === id)).filter(Boolean)}
+        availablePowers={availablePowers}
       />
       <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
     </div>

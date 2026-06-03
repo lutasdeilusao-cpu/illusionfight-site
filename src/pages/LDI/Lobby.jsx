@@ -146,7 +146,7 @@ export default function Lobby() {
         transition={{ duration: 0.6 }}
       >
         <div className="ldi-lobby-brand">
-          <h1 className={`ldi-lobby-title ${titlePhase === 'glitch' ? 'ldi-glitch' : ''}`}>
+          <h1 className={`ldi-lobby-title ${titlePhase === 'glitch' ? 'ldi-glitch' : ''}`} style={{ fontFamily: "'Share Tech Mono', monospace" }}>
             {titleText}
             {titlePhase === 'typing' && <span className="ldi-typewriter-cursor" />}
           </h1>

@@ -26,7 +26,7 @@
 }
 
 .ldi-lobby-title {
-  font-family: var(--font-onomatopeia);
+  font-family: 'Share Tech Mono', monospace;
   font-size: 3rem;
   color: var(--ldi-text);
   letter-spacing: 0.05em;
@@ -78,10 +78,13 @@
 
 .ldi-lobby-desc {
   font-family: var(--font-narrative);
-  font-size: 0.85rem;
-  color: var(--ldi-muted);
-  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #E0E0E0;
+  line-height: 1.8;
   margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ldi-lobby-actions {
@@ -1396,6 +1399,159 @@
 .ldi-log-entry--taunt { color: var(--ldi-warning); border-left: 2px solid var(--ldi-warning); font-style: italic; text-align: right; background: rgba(239, 159, 39, 0.06); }
 .ldi-log-taunt-name { font-weight: 700; color: var(--ldi-danger); }
 
+/* ===== WHATSAPP LOG BUBBLES ===== */
+
+.ldi-combat-log--whatsapp {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.ldi-log-bubble {
+  max-width: 80%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-narrative);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+.ldi-log-bubble--player {
+  background: rgba(0, 137, 123, 0.15);
+  border: 1px solid rgba(0, 137, 123, 0.3);
+  color: #B2DFDB;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+  border-radius: 12px 4px 12px 12px;
+}
+
+.ldi-log-bubble--enemy {
+  background: rgba(224, 32, 32, 0.1);
+  border: 1px solid rgba(224, 32, 32, 0.25);
+  color: #EF9A9A;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 4px 12px 12px 12px;
+}
+
+.ldi-log-bubble--taunt {
+  background: rgba(239, 159, 39, 0.08);
+  border-color: rgba(239, 159, 39, 0.3);
+  color: #FFD54F;
+  font-style: italic;
+  border-radius: 4px 12px 12px 12px;
+}
+
+.ldi-log-bubble--system {
+  background: rgba(30, 111, 191, 0.08);
+  border: 1px solid rgba(30, 111, 191, 0.2);
+  color: #90CAF9;
+  align-self: center;
+  text-align: center;
+  max-width: 90%;
+  font-size: 0.72rem;
+  border-radius: 8px;
+}
+
+.ldi-log-bubble--turn {
+  background: rgba(224, 32, 32, 0.12);
+  border: 1px solid rgba(224, 32, 32, 0.3);
+  color: #EF5350;
+  align-self: center;
+  text-align: center;
+  max-width: 90%;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  border-radius: 8px;
+}
+
+/* ===== ENEMY TURN DRAMATIC OVERLAY ===== */
+
+.ldi-enemy-turn-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.ldi-enemy-turn-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2rem;
+  color: #E02020;
+  text-shadow: 0 0 20px rgba(224, 32, 32, 0.5), 0 0 40px rgba(224, 32, 32, 0.3);
+  letter-spacing: 0.15em;
+}
+
+/* ===== POWER BATTLE BUTTONS ===== */
+
+.ldi-combat-power-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ldi-power-attack-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  background: rgba(30, 111, 191, 0.1);
+  border: 1px solid rgba(30, 111, 191, 0.3);
+  color: var(--ldi-text);
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  transition: all 0.2s;
+}
+
+.ldi-power-attack-btn:hover:not(:disabled) {
+  border-color: var(--ldi-accent-blue);
+  background: rgba(30, 111, 191, 0.2);
+  box-shadow: 0 0 12px rgba(30, 111, 191, 0.2);
+}
+
+.ldi-power-attack-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ldi-power-attack-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ldi-power-attack-cost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--ldi-accent-blue);
+}
+
+.ldi-power-attack-nopm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--ldi-danger);
+  display: block;
+}
+
+/* ===== NEAR DEATH SCREEN PULSE ===== */
+
+.ldi-screen-pulse {
+  position: fixed;
+  inset: 0;
+  background: rgba(224, 32, 32, 0.08);
+  pointer-events: none;
+  z-index: 100;
+  animation: pulse-red 0.5s infinite;
+}
+
 .ldi-combat-mode-select {
   display: flex;
   gap: 0.35rem;
@@ -2329,6 +2485,11 @@
 @keyframes pulse-text {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
+}
+
+@keyframes pulse-red {
+  0%, 100% { background: rgba(224, 32, 32, 0.08); }
+  50% { background: rgba(224, 32, 32, 0.18); }
 }
 
 @keyframes pulse-vignette {

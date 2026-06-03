@@ -67,6 +67,8 @@ export default function CombatView({
   onSelectMode,
   onEndCombat,
   onFlee,
+  selectedPowers = [],
+  availablePowers = [],
 }) {
   const [showOnomatopeia, setShowOnomatopeia] = useState(null)
   const [flashRed, setFlashRed] = useState(false)
@@ -74,6 +76,7 @@ export default function CombatView({
   const [enemyDice, setEnemyDice] = useState(null)
   const [animating, setAnimating] = useState(false)
   const [damageNumber, setDamageNumber] = useState(null)
+  const [showEnemyTurnOverlay, setShowEnemyTurnOverlay] = useState(false)
   const logEndRef = useRef(null)
 
   const pvMax = (sheet?.attributes?.R || 0) * 5 || 1
@@ -86,9 +89,11 @@ export default function CombatView({
   const enemyPvMax = combat.enemy?.pv_max || 1
   const enemyPvPct = Math.max(0, ((combat.enemy?.pv_current ?? enemyPvMax) / enemyPvMax) * 100)
   const nearDeath = checkNearDeath(sheet, playerPv)
+  const isNearDeath = playerPv <= (sheet?.attributes?.R || 0)
+  const pmCurrent = save?.pm_current ?? pmMax
 
   const log = combat.log || []
-  const visibleLog = log.slice(-8)
+  const visibleLog = log.slice(-10)
 
   useEffect(() => {
     logEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
@@ -98,7 +103,6 @@ export default function CombatView({
     if (animating) return
     setAnimating(true)
 
-    // Player attack
     setShowOnomatopeia({ mode: combat.playerMode, critical: false })
     const result = onAttack()
     if (result) {
@@ -108,7 +112,6 @@ export default function CombatView({
 
     await new Promise(r => setTimeout(r, 800))
 
-    console.log('[COMBAT-VIEW] result.defeated:', result?.defeated, 'damage:', result?.damage)
     if (result?.defeated) {
       setShowOnomatopeia(null)
       setAnimating(false)
@@ -117,13 +120,18 @@ export default function CombatView({
     }
 
     setShowOnomatopeia(null)
+    setPlayerDice(null)
+    setDamageNumber(null)
 
-    // Enemy attack
-    await new Promise(r => setTimeout(r, 300))
+    // Dramatic pause - VEZ DO INIMIGO
     combat.addLog({
       type: 'enemy_turn',
-      text: `═══ VEZ DO INIMIGO ═══`,
+      text: `=== VEZ DO INIMIGO ===`,
     })
+    setShowEnemyTurnOverlay(true)
+    await new Promise(r => setTimeout(r, 1500))
+    setShowEnemyTurnOverlay(false)
+
     setFlashRed(true)
     setShowOnomatopeia({ mode: combat.enemy?.preferred_mode || 'fists', critical: false })
     const enemyResult = onEnemyAttack()
@@ -133,7 +141,79 @@ export default function CombatView({
         setDamageNumber({ value: enemyResult.damage, target: 'player', x: 20, y: 20 })
         const newPv = Math.max(0, playerPv - enemyResult.damage)
         setPlayerPv(newPv)
-        console.log('[COMBAT-VIEW] playerPv local atualizado:', newPv)
+        const enemyId = combat.enemy?.id || 'default'
+        const frases = FRASES_INIMIGO[enemyId] || FRASES_INIMIGO.default
+        const frase = frases[Math.floor(Math.random() * frases.length)]
+        combat.addLog({
+          type: 'taunt',
+          text: `<span class="ldi-log-taunt-name">${combat.enemy.name}:</span> ${frase}`,
+        })
+        if (newPv <= 0) {
+          await new Promise(r => setTimeout(r, 1200))
+          setShowOnomatopeia(null)
+          setFlashRed(false)
+          setAnimating(false)
+          handleEndCombat('defeat')
+          return
+        }
+      }
+    }
+
+    await new Promise(r => setTimeout(r, 800))
+    setShowOnomatopeia(null)
+    setFlashRed(false)
+    setPlayerDice(null)
+    setEnemyDice(null)
+    setDamageNumber(null)
+    setAnimating(false)
+  }
+
+  const handleAttackWithPower = async (power) => {
+    if (animating || pmCurrent < (power.cost || 1)) return
+    setAnimating(true)
+
+    combat.addLog({
+      type: 'attack',
+      text: `Você usou ${power.name}! ⚡${power.cost} PM`,
+    })
+
+    setShowOnomatopeia({ mode: 'power', critical: false })
+    const result = onAttack()
+    if (result) {
+      setPlayerDice({ result: result.fa, success: result.damage > 0 })
+      if (result.damage > 0) setDamageNumber({ value: result.damage + 1, target: 'enemy', x: 60, y: 20 })
+    }
+
+    await new Promise(r => setTimeout(r, 800))
+
+    if (result?.defeated) {
+      setShowOnomatopeia(null)
+      setAnimating(false)
+      handleEndCombat('victory')
+      return
+    }
+
+    setShowOnomatopeia(null)
+    setPlayerDice(null)
+    setDamageNumber(null)
+
+    combat.addLog({
+      type: 'enemy_turn',
+      text: `=== VEZ DO INIMIGO ===`,
+    })
+    setShowEnemyTurnOverlay(true)
+    await new Promise(r => setTimeout(r, 1500))
+    setShowEnemyTurnOverlay(false)
+
+    setFlashRed(true)
+    setShowOnomatopeia({ mode: combat.enemy?.preferred_mode || 'fists', critical: false })
+    const enemyResult = onEnemyAttack()
+    if (enemyResult) {
+      setEnemyDice({ result: enemyResult.fa, success: enemyResult.damage > 0 })
+      if (enemyResult.damage > 0) {
+        setDamageNumber({ value: enemyResult.damage, target: 'player', x: 20, y: 20 })
+        const newPv = Math.max(0, playerPv - enemyResult.damage)
+        setPlayerPv(newPv)
         const enemyId = combat.enemy?.id || 'default'
         const frases = FRASES_INIMIGO[enemyId] || FRASES_INIMIGO.default
         const frase = frases[Math.floor(Math.random() * frases.length)]
@@ -167,6 +247,11 @@ export default function CombatView({
 
   if (!combat.active || !combat.enemy) return null
 
+  const playerEntries = ['attack', 'power']
+  const enemyEntries = ['enemy_attack']
+  const isPlayerLog = (type) => playerEntries.includes(type)
+  const isEnemyLog = (type) => enemyEntries.includes(type)
+
   return (
     <div className="ldi-combat">
       {flashRed && <ScreenFlash color="red" intensity={0.4} duration={300} />}
@@ -183,8 +268,27 @@ export default function CombatView({
         )}
       </AnimatePresence>
 
+      <AnimatePresence>
+        {showEnemyTurnOverlay && (
+          <motion.div
+            className="ldi-enemy-turn-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.span
+              className="ldi-enemy-turn-text"
+              animate={{ opacity: [1, 0.2, 1, 0.2, 1] }}
+              transition={{ duration: 1.5, repeat: 0 }}
+            >
+              === VEZ DO INIMIGO ===
+            </motion.span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="ldi-combat-grid">
-        {/* Player Column */}
         <div className="ldi-combat-player">
           <h3 className="ldi-combat-name">{sheet?.sheet_name || 'Você'}</h3>
 
@@ -213,9 +317,9 @@ export default function CombatView({
               {Array.from({ length: pmMax }, (_, i) => (
                 <motion.span
                   key={i}
-                  className={`ldi-pm-icon ${i < (save?.pm_current ?? pmMax) ? 'ldi-pm-icon--active' : ''}`}
+                  className={`ldi-pm-icon ${i < pmCurrent ? 'ldi-pm-icon--active' : ''}`}
                   initial={false}
-                  animate={i === (save?.pm_current ?? pmMax) ? { scale: [1, 0.5, 0], opacity: [1, 0.5, 0] } : {}}
+                  animate={i === pmCurrent ? { scale: [1, 0.5, 0], opacity: [1, 0.5, 0] } : {}}
                   transition={{ duration: 0.3 }}
                 >◆</motion.span>
               ))}
@@ -235,27 +339,74 @@ export default function CombatView({
             ))}
           </div>
 
-          {nearDeath && (
-            <div className="ldi-near-death-badge">⚠ PERTO DA MORTE</div>
+          {isNearDeath && (
+            <motion.div
+              className="ldi-near-death-badge"
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 0.5, repeat: Infinity }}
+            >
+              ⚠ PERTO DA MORTE
+            </motion.div>
           )}
         </div>
 
-        {/* Combat Log */}
-        <div className="ldi-combat-log">
+        <div className="ldi-combat-log ldi-combat-log--whatsapp">
           <div className="ldi-combat-log-feed">
-            {visibleLog.map((entry, i) => (
-              <motion.div
-                key={i}
-                className={`ldi-log-entry ldi-log-entry--${entry.type}`}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                {entry.type === 'taunt' ? (
-                  <span dangerouslySetInnerHTML={{ __html: entry.text }} />
-                ) : entry.text}
-              </motion.div>
-            ))}
+            {visibleLog.map((entry, i) => {
+              if (entry.type === 'enemy_turn') {
+                return (
+                  <motion.div
+                    key={i}
+                    className="ldi-log-bubble ldi-log-bubble--turn"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {entry.text}
+                  </motion.div>
+                )
+              }
+              if (entry.type === 'taunt') {
+                return (
+                  <motion.div
+                    key={i}
+                    className="ldi-log-bubble ldi-log-bubble--enemy ldi-log-bubble--taunt"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: entry.text }} />
+                  </motion.div>
+                )
+              }
+              if (entry.type === 'initiative') {
+                return (
+                  <motion.div
+                    key={i}
+                    className="ldi-log-bubble ldi-log-bubble--system"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {entry.text}
+                  </motion.div>
+                )
+              }
+              const alignRight = isPlayerLog(entry.type)
+              return (
+                <motion.div
+                  key={i}
+                  className={`ldi-log-bubble ${alignRight ? 'ldi-log-bubble--player' : 'ldi-log-bubble--enemy'}`}
+                  initial={{ x: alignRight ? 20 : -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {entry.type === 'taunt' ? (
+                    <span dangerouslySetInnerHTML={{ __html: entry.text }} />
+                  ) : entry.text}
+                </motion.div>
+              )
+            })}
             <div ref={logEndRef} />
           </div>
 
@@ -279,16 +430,44 @@ export default function CombatView({
             </button>
           </div>
 
-          <button
-            className="ldi-combat-attack-btn"
-            onClick={handleAttack}
-            disabled={animating}
-          >
-            {animating ? '⚔️ ROLANDO...' : '⚔️ ATACAR'}
-          </button>
+          {combat.playerMode === 'power' && selectedPowers.length > 0 ? (
+            <div className="ldi-combat-power-buttons">
+              {selectedPowers.map(fullPower => {
+                if (!fullPower) return null
+                const cost = fullPower.cost || 1
+                const canUse = pmCurrent >= cost
+                return (
+                  <button
+                    key={fullPower.id}
+                    className="ldi-power-attack-btn"
+                    onClick={() => handleAttackWithPower(fullPower)}
+                    disabled={animating || !canUse}
+                  >
+                    <span className="ldi-power-attack-name">{fullPower.name}</span>
+                    <span className="ldi-power-attack-cost">⚡{cost} PM</span>
+                    {!canUse && <span className="ldi-power-attack-nopm">PM insuficiente</span>}
+                  </button>
+                )
+              })}
+              <button
+                className="ldi-combat-attack-btn"
+                onClick={handleAttack}
+                disabled={animating}
+              >
+                {animating ? '⚔️ ROLANDO...' : '⚔️ ATACAR (Básico)'}
+              </button>
+            </div>
+          ) : (
+            <button
+              className="ldi-combat-attack-btn"
+              onClick={handleAttack}
+              disabled={animating}
+            >
+              {animating ? '⚔️ ROLANDO...' : '⚔️ ATACAR'}
+            </button>
+          )}
         </div>
 
-        {/* Enemy Column */}
         <div className="ldi-combat-enemy">
           <h3 className="ldi-combat-name ldi-combat-name--enemy">{combat.enemy.name}</h3>
 
@@ -333,6 +512,8 @@ export default function CombatView({
           <DiceRollDisplay result={playerDice.result} success={playerDice.success} onDone={() => setPlayerDice(null)} />
         )}
       </AnimatePresence>
+
+      {isNearDeath && <div className="ldi-screen-pulse" />}
     </div>
   )
 }

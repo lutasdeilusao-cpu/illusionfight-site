@@ -214,6 +214,7 @@ export default function Create() {
   }
 
   const handleFinishFull = () => {
+    if (availablePoints !== 0) return
     let finalAttr = { ...fullAttr }
     if (!finalAttr.R || finalAttr.R < 1) finalAttr.R = 1
     for (const k of Object.keys(finalAttr)) {
@@ -394,8 +395,17 @@ export default function Create() {
             <span className="ldi-full-total">Disponível: {availablePoints}</span>
           </div>
 
-          <button className="ldi-btn ldi-btn--primary" onClick={handleFinishFull} style={{ marginTop: '1rem' }}>
-            ENTRAR NO LDI
+          <button
+            className="ldi-btn ldi-btn--primary"
+            onClick={handleFinishFull}
+            disabled={availablePoints !== 0}
+            style={{
+              marginTop: '1rem',
+              opacity: availablePoints !== 0 ? 0.5 : 1,
+              cursor: availablePoints !== 0 ? 'not-allowed' : 'pointer',
+            }}
+          >
+            {availablePoints > 0 ? 'Distribua todos os pontos antes de continuar' : availablePoints < 0 ? 'Você ultrapassou o limite de pontos' : 'ENTRAR NO LDI'}
           </button>
         </motion.div>
       </div>
@@ -454,8 +464,13 @@ export default function Create() {
 
           <p className="ldi-create-points">Pontos restantes: {freePoints}</p>
 
-          <button className="ldi-btn ldi-btn--primary" onClick={handleFinishGuided}>
-            ENTRAR NO LDI
+          <button
+            className="ldi-btn ldi-btn--primary"
+            onClick={handleFinishGuided}
+            disabled={freePoints !== 0}
+            style={freePoints !== 0 ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+          >
+            {freePoints > 0 ? 'Distribua todos os pontos antes de continuar' : freePoints < 0 ? 'Você ultrapassou o limite de pontos' : 'ENTRAR NO LDI'}
           </button>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*  
-*Versão: 1.38*
+*Versão: 1.39*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -398,14 +398,14 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.1` (console: `[LDI] versão carregada: 1.0.1`)  
+**Versão atual:** `1.0.24` (console: `[LDI] versão carregada: 1.0.24`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
 | Rota | Descrição |
 |------|-----------|
-| `/extras/ldi` | Lobby — cria nova ficha ou continua |
-| `/extras/ldi/create` | NeoGuide — criação de ficha disfarçada de onboarding |
+| `/extras/ldi` | Lobby — título animado, cards redesenhados, modal Nova Ficha, manual drawer |
+| `/extras/ldi/create` | NeoGuide (guiado) ou Ficha Completa (vantagens, desvantagens, perícias, especializações) |
 | `/extras/ldi/game` | Tela principal — cenas narrativas com typewriter |
 | `/extras/ldi/combat` | Sistema de combate 3D&T com 3 modos |
 | `/extras/ldi/sheet` | Ficha do personagem — consulta |
@@ -415,8 +415,8 @@
 ### Estrutura de arquivos
 ```
 src/pages/LDI/
-├── Lobby.jsx / LDI.css          # Lobby + estilos globais do jogo
-├── Create.jsx                    # NeoGuide — criação de ficha
+├── Lobby.jsx / LDI.css          # Lobby (título animado, cards badges, modal, manual) + estilos globais
+├── Create.jsx                    # NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perks, spec)
 ├── Game.jsx                      # Tela principal de cena
 ├── Combat.jsx                    # Tela de combate
 ├── Sheet.jsx                     # Ficha do personagem
@@ -435,7 +435,10 @@ src/pages/LDI/
 │   └── useCombatStore.js         # Estado de combate
 ├── data/
 │   ├── scenes/act1.json          # Cenas do Ato I (1.1 → 2.1)
-│   └── enemies/enemies.json      # Inimigos (6 fichas)
+│   ├── enemies/enemies.json      # Inimigos (6 fichas)
+│   ├── characterData.js          # Vantagens, Desvantagens, Perícias, Especializações, Tooltips
+│   ├── manualData.js             # Seções do Manual do Jogo
+│   └── powersData.js             # 42 poderes em 7 elementais
 └── components/                   # Componentes React
     ├── Typewriter.jsx            # Efeito de digitação com skip
     ├── SceneView.jsx             # Container de cena + transição
@@ -446,7 +449,8 @@ src/pages/LDI/
     ├── ClueBook.jsx              # Caderno de pistas
     ├── PuzzleSlidingTiles.jsx    # Puzzle 3×3 / 4×4
     ├── PuzzleStealthGrid.jsx     # Puzzle stealth com câmeras
-    └── PuzzleDecoder.jsx         # Puzzle de frequência
+    ├── PuzzleDecoder.jsx         # Puzzle de frequência
+    └── ManualDrawer.jsx          # Drawer lateral do Manual do Jogo
 ```
 
 ### Supabase — Tabelas criadas
@@ -472,6 +476,12 @@ src/pages/LDI/
 - Efeitos visuais: typewriter · onomatopeias · flash de dano · dado animado
 - Auto-save no Supabase por transição de cena (usuário logado)
 - Transições de cena com split VHS / tela preta
+- Manual do Jogo (drawer lateral) com 9 seções explicativas
+- Sistema de criação completa: Vantagens (custo), Desvantagens (ganho), Perícias, Especializações
+- Tooltips de atributos explicando função e modo de combate
+- Seleção de até 4 poderes elementais antes do combate (42 poderes em 7 elementais)
+- Título animado typewriter + glitch no Lobby
+- Cards de ficha redesenhados com badges de atributos, arma, elemental, arco
 
 ### Bugfixes aplicados
 - ✅ **NeoGuide repetindo (CRÍTICO)** — Create.jsx setava `current_scene_id: '1.1'` (cena NeoGuide no jogo). Corrigido para `'1.2'`, pulando as cenas 1.1→1.1d já respondidas no formulário. Adicionado `useEffect` guard que redireciona ao jogo se ficha já existe. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
@@ -479,6 +489,17 @@ src/pages/LDI/
 - ✅ **Jogo trava após perguntas (CRÍTICO)** — `loadScene` retornava `null` silenciosamente se sceneId inexistente. Corrigido com fallback automático pra cena `1.2`, cache persistente e logs detalhados no console. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
 - ✅ **1.3-mafama com next_scene:null** — choices A e B apontavam para `null`, causando retorno forçado para cena 1.2 via fallback. Corrigido para `"next_scene": "1.4"`, avançando para o Dia 2. `LDI_VERSION 1.0.5`. Commit: `TBD`.
 - ✅ **Progressão do Dia 1** — cena 1.3 não oferecia saída para o Dia 2. Adicionada choice G com label "Já explorei o suficiente — descansar e esperar o Dia 2" que leva a `1.4`. `LDI_VERSION 1.0.5`. Commit: `TBD`.
+
+### Changelog — v1.0.24 (LOBBY UI + TASK C)
+- ✅ **Título animado** — "LENDAS DO LDI" typewriter + glitch + rewrite em loop
+- ✅ **Cards de ficha redesenhados** — badges de atributos (F:4 H:2), ícone de arma, cor elemental, arco. Botão CONTINUAR em teal
+- ✅ **Modal Nova Ficha** — opção A (guiada/NeoGuide) vs opção B (construir do zero)
+- ✅ **Manual do Jogo** — drawer lateral com 9 seções de regras. Acessível via Lobby, Game (HUD) e Combat
+- ✅ **Create.jsx — Ficha Completa** — nova aba com vantagens (custo), desvantagens (ganho), perícias, especializações, tooltips de atributo
+- ✅ **Sistema de pontos** — 10 base + ganhos de desvantagens − custos de vantagens/perícias
+- ✅ **Seleção de Poderes** — tela pré-combate com até 4 poderes baseados no elemental da ficha (42 poderes em 7 elementais)
+- ✅ **Arquivos de dados** — `characterData.js`, `manualData.js`, `powersData.js`
+- `LDI_VERSION 1.0.24`. Commit: `d95eb44`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
