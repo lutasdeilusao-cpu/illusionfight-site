@@ -321,6 +321,18 @@
   margin: 0.75rem 0;
 }
 
+.ttmp-mensagem {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #EAEAEA;
+  background: #B8860B22;
+  border: 1px solid #B8860B;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 480px) {

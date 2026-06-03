@@ -221,6 +221,18 @@ export default function TopTrumpsMP() {
   }, [fase])
 
   useEffect(() => {
+    if (fase !== 'carregando' || !salaId) return
+    const timer = setTimeout(async () => {
+      console.log('[MP] Timeout 2min — nenhum adversário entrou')
+      await supabase.from('toptrumps_salas').delete().eq('id', salaId)
+      navigate('/extras/toptrumps/lobby', {
+        state: { mensagem: 'Nenhum adversário encontrado. Tente novamente.' }
+      })
+    }, 120000)
+    return () => clearTimeout(timer)
+  }, [fase, salaId, navigate])
+
+  useEffect(() => {
     if (!salaId) return
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new

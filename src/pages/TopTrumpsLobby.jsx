@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
 import { carregarDeck as carregarDeckDB } from '../hooks/useTopTrumpsDB'
@@ -34,6 +34,9 @@ export default function TopTrumpsLobby() {
   const [charIdx, setCharIdx] = useState(0)
   const [digitando, setDigitando] = useState(true)
   const [glitch, setGlitch] = useState(false)
+  const [mensagem, setMensagem] = useState('')
+
+  const location = useLocation()
 
   const salaEntradaRef = useRef(false)
   const timerRef = useRef(null)
@@ -53,6 +56,17 @@ export default function TopTrumpsLobby() {
       setDeckUsuario(cartas)
     })
   }, [user])
+
+  useEffect(() => {
+    if (location.state?.mensagem) {
+      setMensagem(location.state.mensagem)
+      const t = setTimeout(() => {
+        setMensagem('')
+        window.history.replaceState({}, document.title)
+      }, 5000)
+      return () => clearTimeout(t)
+    }
+  }, [location.state])
 
   useEffect(() => {
     console.log('[LOBBY] useEffect subscription disparou, salaId:', salaId)
@@ -285,6 +299,7 @@ export default function TopTrumpsLobby() {
           {apostaConfirmada && <p className="ttmp-info">Aposta confirmada. Aguardando oponente...</p>}
           {apostaOponente && <p className="ttmp-info">Oponente já apostou.</p>}
           {erro && <p className="ttmp-erro">{erro}</p>}
+          {mensagem && <p className="ttmp-mensagem">{mensagem}</p>}
         </div>
       )}
     </section>
