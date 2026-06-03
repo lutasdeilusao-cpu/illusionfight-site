@@ -468,6 +468,19 @@
   animation: blink 0.53s step-end infinite;
 }
 
+.ldi-text-narrativa {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #C8C8C8;
+}
+
+.ldi-text-fala {
+  font-family: 'Share Tech Mono', monospace;
+  color: #00B4D8;
+  border-left: 2px solid #00B4D8;
+  padding-left: 0.75rem;
+  margin: 0.5rem 0;
+}
+
 .ldi-typewriter-hint {
   display: block;
   font-family: var(--font-narrative);
@@ -746,6 +759,7 @@
 .ldi-log-entry--enemy_attack { color: var(--ldi-danger); border-left: 2px solid var(--ldi-danger); }
 .ldi-log-entry--initiative { color: var(--ldi-warning); border-left: 2px solid var(--ldi-warning); }
 .ldi-log-entry--end { color: var(--ldi-success); border-left: 2px solid var(--ldi-success); font-weight: 700; }
+.ldi-log-entry--enemy_turn { color: var(--ldi-danger); text-align: center; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; background: rgba(224,32,32,0.06); }
 .ldi-log-entry--taunt { color: var(--ldi-warning); border-left: 2px solid var(--ldi-warning); font-style: italic; text-align: right; background: rgba(239, 159, 39, 0.06); }
 .ldi-log-taunt-name { font-weight: 700; color: var(--ldi-danger); }
 

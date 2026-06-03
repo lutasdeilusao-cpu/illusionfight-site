@@ -10,11 +10,48 @@ const FRASES_INIMIGO = {
     "Vai chorar pra sua mamãe desligar o SBI?",
     "Nem registrei esse ataque no meu histórico.",
     "Você nem deveria estar aqui.",
+    "Já vi uns 500 como você. Todos caíram no primeiro round.",
+    "Desiste. O LDI não foi feito para fracos.",
+  ],
+  kaeda: [
+    "O sistema me alimenta. Você me alimenta.",
+    "Você é só mais um pixel no meu feed.",
+    "Já esqueci seu nome. O algoritmo não registra lixo.",
+    "Dados são a única coisa real. E você é só ruído.",
+    "A rede não perdoa. E eu sou a rede.",
+    "Cada batida sua aqui dentro vira informação. Obrigado.",
+  ],
+  ghostpulse: [
+    "Você não deveria ter vindo aqui. Ninguém devia.",
+    "As pessoas somem neste nível do LDI. Você sabia?",
+    "Você ouviu isso? Não? Exato. É o som do nada.",
+    "Não há saída. Só o reset infinito.",
+    "Eu tentei avisar os outros. Ninguém me escuta mais.",
+    "A escuridão aqui tem fome. E você acabou de chegar.",
+  ],
+  ironveil: [
+    "Especificação: oponente classificado como irrelevante.",
+    "Cálculo de dano concluído. Chance de vitória: 0,02%.",
+    "Você é um erro de sistema. E eu sou a correção.",
+    "Escaneamento completo. Nenhuma ameaça detectada.",
+    "Protocolo de eliminação ativado. Motivo: você existe.",
+    "Iron Veil não falha. Iron Veil não sente. Iron Veil executa.",
+  ],
+  null_entity: [
+    "...",
+    "VOCÊ NÃO DEVERIA ESTAR AQUI.",
+    "ANOMALIA DETECTADA. INICIANDO PROTOCOLO DE PURGA.",
+    "NULL_ENTITY não reconhece sua assinatura digital.",
+    "SUA EXISTÊNCIA NESTE NÍVEL É UM ERRO.",
+    "O VAZIO TE OBSERVA DE VOLTA.",
   ],
   default: [
     "Isso foi só o aquecimento.",
     "Você está perdendo tempo meu.",
     "Patético.",
+    "Não me faça rir — ah, você já me fez.",
+    "O LDI não precisa de perdedores.",
+    "Você veio até aqui para isso? Que decepção.",
   ],
 }
 
@@ -83,6 +120,10 @@ export default function CombatView({
 
     // Enemy attack
     await new Promise(r => setTimeout(r, 300))
+    combat.addLog({
+      type: 'enemy_turn',
+      text: `═══ VEZ DO INIMIGO ═══`,
+    })
     setFlashRed(true)
     setShowOnomatopeia({ mode: combat.enemy?.preferred_mode || 'fists', critical: false })
     const enemyResult = onEnemyAttack()

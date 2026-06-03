@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const CURSOR_BLINK = 530
 
+function isFala(text) {
+  return text?.startsWith('"') || text?.includes('—')
+}
+
 export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300, onComplete, onSkip }) {
   const [displayedTexts, setDisplayedTexts] = useState([])
   const [currentPara, setCurrentPara] = useState(0)
@@ -83,7 +87,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
   return (
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
       {paragraphs.map((para, i) => (
-        <p key={i} className="ldi-typewriter-para" style={{ opacity: i <= currentPara ? 1 : 0.2 }}>
+        <p key={i} className={`ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`} style={{ opacity: i <= currentPara ? 1 : 0.2 }}>
           {displayedTexts[i] || ''}
           {showCursor && i === displayedTexts.length - 1 && (
             <motion.span
