@@ -86,12 +86,12 @@ export async function finalizarPPT(salaId, vencedorId) {
   if (error) console.error('[MP] finalizarPPT erro:', error)
 }
 
-export async function registrarMovimento(salaId, userId, cartaId, atributo, foiIA = false) {
-  console.log('[MP] registrarMovimento chamado', { salaId, userId, cartaId, atributo, foiIA })
+export async function registrarMovimento(salaId, userId, cartaId, atributo, foiIA = false, cartaIdOponente = null) {
+  console.log('[MP] registrarMovimento chamado', { salaId, userId, cartaId, atributo, foiIA, cartaIdOponente })
   const { data: sala, error: errSala } = await supabase.from('toptrumps_salas').select('turno_atual').eq('id', salaId).single()
   if (errSala || !sala) { console.error('[MP] registrarMovimento erro ao buscar sala:', errSala); return }
   const { error } = await supabase.from('toptrumps_movimentos').insert({
-    sala_id: salaId, turno: sala.turno_atual, jogador_id: userId, carta_id: cartaId, atributo, foi_ia: foiIA
+    sala_id: salaId, turno: sala.turno_atual, jogador_id: userId, carta_id: cartaId, atributo, foi_ia: foiIA, carta_id_oponente: cartaIdOponente
   })
   if (error) console.error('[MP] registrarMovimento erro no insert:', error)
   else console.log('[MP] registrarMovimento resultado: inserido turno', sala.turno_atual)

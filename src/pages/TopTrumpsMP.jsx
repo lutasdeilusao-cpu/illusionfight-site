@@ -13,8 +13,6 @@ const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descr
   descricao, inverso: id === 'rank_sdr'
 }))
 
-function embaralhar(arr) { return [...arr].sort(() => Math.random() - 0.5) }
-
 function avatarCor(id) {
   let hash = 0; for (let i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash)
   return `hsl(${hash % 360}, 65%, 45%)`
@@ -45,6 +43,7 @@ export default function TopTrumpsMP() {
   const [jaMovi, setJaMovi] = useState(false)
   const [meuPapel, setMeuPapel] = useState(null)
   const [deckLocal, setDeckLocal] = useState([])
+  const [deckOponente, setDeckOponente] = useState([])
   const [oponenteNome, setOponenteNome] = useState('Oponente')
   const [pptEscolhi, setPptEscolhi] = useState(false)
   const [pptEscolhaOponente, setPptEscolhaOponente] = useState(null)
@@ -55,11 +54,13 @@ export default function TopTrumpsMP() {
   const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
   const cartaLocalRef = useRef(cartaLocal)
+  const deckOponenteRef = useRef(deckOponente)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { faseRef.current = fase }, [fase])
+  useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
 
   const placar = sala ? {
     eu: meuPapel === 'j1' ? (sala.pontos_j1 || 0) : (sala.pontos_j2 || 0),
@@ -96,12 +97,21 @@ export default function TopTrumpsMP() {
   useEffect(() => {
     if (!user || !sala?.total_turnos) return;
     (async () => {
-      const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', user.id)
-      if (!data?.length) return
-      const cartas = data.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
+      const { data: meuDeck } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', user.id).order('carta_id', { ascending: true })
+      if (!meuDeck?.length) return
+      const cartas = meuDeck.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
       if (!cartas.length) return
       const qtd = Math.min(sala.total_turnos, cartas.length)
-      setDeckLocal(embaralhar(cartas).slice(0, qtd))
+      setDeckLocal(cartas.slice(0, qtd))
+
+      const opId = sala.jogador1_id === user.id ? sala.jogador2_id : sala.jogador1_id
+      if (opId) {
+        const { data: deckOpp } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', opId).order('carta_id', { ascending: true })
+        if (deckOpp?.length) {
+          const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
+          setDeckOponente(cartasOpp.slice(0, qtd))
+        }
+      }
     })()
   }, [user, sala?.total_turnos])
 
@@ -120,7 +130,10 @@ export default function TopTrumpsMP() {
           clearInterval(iv)
           const attrs = atributos.map(a => a.id)
           const rand = attrs[Math.floor(Math.random() * attrs.length)]
-          registrarMovimento(salaRef.current.id, user.id, cartaLocalRef.current?.id_num, rand, true).then(() => {
+          const s = salaRef.current
+          const idxOp = ((s.turno_atual || 1) - 1) % Math.max(deckOponenteRef.current.length, 1)
+          const cartaOp = deckOponenteRef.current[idxOp] || null
+          registrarMovimento(s.id, user.id, cartaLocalRef.current?.id_num, rand, true, cartaOp?.id_num || null).then(() => {
             setJaMovi(true)
           })
           return 0
@@ -152,7 +165,9 @@ export default function TopTrumpsMP() {
 
   function jogarAtributo(atributoId) {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
-    registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false).then(() => {
+    const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
+    const cartaOp = deckOponente[idxOp] || null
+    registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
       setJaMovi(true)
     })
   }
@@ -270,22 +285,15 @@ export default function TopTrumpsMP() {
       const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
       if (!cartaAtiva) { console.log('[MP] resolverRodada sem carta ativa encontrada'); return }
 
-      // identifica o oponente
-      const jogadorAtivoId = mov.jogador_id
-      const jogadorOponenteId = jogadorAtivoId === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+      // carta do oponente já veio no insert via carta_id_oponente
+      const cartaOponenteObj = mov.carta_id_oponente
+        ? todasCartas.find(c => c.id_num === mov.carta_id_oponente)
+        : null
 
-      // tenta obter a carta do oponente a partir do toptrumps_decks (fallback se disponível)
-      let cartaOponenteObj = null
-      try {
-        const { data: deckOpp } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', jogadorOponenteId)
-        const idx = Math.max(0, (s.turno_atual || 1) - 1)
-        const cartaIdOpp = deckOpp && deckOpp.length > idx ? deckOpp[idx].carta_id : deckOpp && deckOpp.length ? deckOpp[0].carta_id : null
-        if (cartaIdOpp) cartaOponenteObj = todasCartas.find(c => c.id_num === cartaIdOpp)
-      } catch (e) {
-        console.error('[MP] resolverRodada erro ao buscar deck oponente:', e)
+      if (!cartaOponenteObj) {
+        console.log('[MP] resolverRodada sem carta_id_oponente no movimento — aguardando')
+        return
       }
-
-      if (!cartaOponenteObj) { console.log('[MP] resolverRodada sem carta do oponente — aguardando'); return }
 
       const attr = atributos.find(a => a.id === mov.atributo)
       if (!attr) return
