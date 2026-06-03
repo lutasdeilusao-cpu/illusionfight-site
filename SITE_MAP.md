@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.10*
+*Versão: 1.11*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -73,7 +73,7 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 | `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
-| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | 🚧 | Top Trumps — jogo de cartas colecionáveis com deck personalizado e recompensa diária (bugs de menu pendentes de correção) |
+| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign (2 colunas, seleção de modo, barra de coleção) |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -247,7 +247,8 @@
 - ✅ **Recompensa diária** — Até 3 tentativas/dia, ganhe 1 carta nova por vitória (escolha entre 3 opções viradas com flip animation)
 - ✅ **Álbum no perfil** — Grid completo com todas as 76 cartas, obtidas visíveis, faltantes como silhueta, badges de tier
 - ✅ **Controle de acesso** — TRIAL_ACTIVE libera tudo, free tem teto de 30 cartas
-- 🚧 **Bugs de menu** — Pendentes de correção (fase 'sem_tentativas', fluxo de reinício)
+- ✅ **Menu redesign** — Layout 2 colunas, cartas decorativas CSS, barra de coleção, seleção de modo (single/multiplayer) e configuração de turnos separados
+- ✅ **Bugfix tentativas** — Reset automático ao mudar o dia restaura fase 'menu'
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro

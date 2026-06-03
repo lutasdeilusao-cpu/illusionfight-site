@@ -46,6 +46,7 @@ export default function TopTrumps() {
   const [jaJogouHoje, setJaJogouHoje] = useState(false)
   const [tentativasRestantes, setTentativasRestantes] = useState(3)
   const [cartaRecompensaSelecionada, setCartaRecompensaSelecionada] = useState(null)
+  const [menuStep, setMenuStep] = useState(null) // null | 'modo' | 'config'
 
   function getTierTeto() {
     if (TRIAL_ACTIVE) return Infinity
@@ -80,6 +81,7 @@ export default function TopTrumps() {
         localStorage.setItem(TENT_KEY, JSON.stringify({ data: hoje, count: 0 }))
         setTentativasRestantes(3)
         setJaJogouHoje(false)
+        setFase('menu')
       } else {
         setTentativasRestantes(Math.max(0, 3 - count))
         if (count >= 3) setFase('sem_tentativas')
@@ -177,64 +179,120 @@ export default function TopTrumps() {
 
   if (fase === 'sem_tentativas') {
     return (
-      <section className="tt-page">
-        <div className="tt-header">
-          <h1 className="tt-title">TOP TRUMPS — LDI</h1>
-          <p className="tt-subtitle">Jogo de cartas colecionáveis do universo LDI</p>
+      <section className="tt-page tt-page--menu">
+        <div className="tt-menu-bg" />
+        <div className="tt-menu-layout">
+          <div className="tt-menu-cards">
+            <div className="tt-card-stack">
+              <div className="tt-card-sample tt-card-sample--1" />
+              <div className="tt-card-sample tt-card-sample--2" />
+              <div className="tt-card-sample tt-card-sample--3">
+                <div className="tt-card-sample-pattern" />
+                <div className="tt-card-sample-logo">LDI</div>
+              </div>
+            </div>
+          </div>
+          <div className="tt-menu-content">
+            <div className="tt-title-group">
+              <h1 className="tt-title-main">TOP TRUMPS</h1>
+              <span className="tt-title-sub">— LDI</span>
+            </div>
+            <p className="tt-title-desc">Jogo de cartas colecionáveis do universo LDI</p>
+            <div className="tt-sem-tentativas">
+              <h2>SEM TENTATIVAS</h2>
+              <p>Você já usou todas as suas 3 tentativas hoje. Volte amanhã para jogar novamente!</p>
+            </div>
+            <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
+          </div>
         </div>
-        <div className="tt-sem-tentativas">
-          <h2>SEM TENTATIVAS</h2>
-          <p>Você já usou todas as suas 3 tentativas hoje. Volte amanhã para jogar novamente!</p>
-        </div>
-        <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
       </section>
     )
   }
 
   if (fase === 'menu') {
+    const pct = deckUsuario.length / todasCartas.length * 100
     return (
-      <section className="tt-page">
-        <div className="tt-header">
-          <h1 className="tt-title">TOP TRUMPS — LDI</h1>
-          <p className="tt-subtitle">Jogo de cartas colecionáveis do universo LDI</p>
-          <p className="tt-deck-size">{deckUsuario.length} / {todasCartas.length} cartas no seu deck</p>
-        </div>
+      <section className="tt-page tt-page--menu">
+        <div className="tt-menu-bg" />
+        <div className="tt-menu-layout">
+          <div className="tt-menu-cards">
+            <div className="tt-card-stack">
+              <div className="tt-card-sample tt-card-sample--1" />
+              <div className="tt-card-sample tt-card-sample--2" />
+              <div className="tt-card-sample tt-card-sample--3">
+                <div className="tt-card-sample-pattern" />
+                <div className="tt-card-sample-logo">LDI</div>
+              </div>
+            </div>
+          </div>
 
-        <div className="tt-turnos">
-          <p className="tt-turnos-label">NÚMERO DE TURNOS</p>
-          <div className="tt-turnos-grid">
-            {[5, 10, 15, 20].map(n => (
-              <button
-                key={n}
-                className={`tt-turno-btn${totalTurnos === n ? ' tt-turno-btn--ativo' : ''}`}
-                disabled={n > deckUsuario.length}
-                onClick={() => setTotalTurnos(n)}
-              >
-                {n}
-              </button>
-            ))}
+          <div className="tt-menu-content">
+            <div className="tt-title-group">
+              <h1 className="tt-title-main">TOP TRUMPS</h1>
+              <span className="tt-title-sub">— LDI</span>
+            </div>
+            <p className="tt-title-desc">Jogo de cartas colecionáveis do universo LDI</p>
+
+            <div className="tt-colecao">
+              <span className="tt-colecao-label">{deckUsuario.length} / {todasCartas.length} CARTAS COLETADAS</span>
+              <div className="tt-colecao-bar">
+                <div className="tt-colecao-bar-fill" style={{ width: `${pct}%` }} />
+              </div>
+            </div>
+
+            {(menuStep === null || menuStep === 'modo') && (
+              <div className="tt-modos">
+                <div className="tt-modo-card" onClick={() => { setMenuStep('config'); setModoJogo('ia') }}>
+                  <h3 className="tt-modo-titulo">SINGLE PLAYER</h3>
+                  <p className="tt-modo-desc">Jogue contra a IA</p>
+                </div>
+                <div className="tt-modo-card tt-modo-card--disabled">
+                  <h3 className="tt-modo-titulo">MULTIPLAYER</h3>
+                  <p className="tt-modo-desc">2 jogadores</p>
+                  <span className="tt-modo-breve">EM BREVE</span>
+                </div>
+              </div>
+            )}
+
+            {menuStep === 'config' && (
+              <div className="tt-config tt-fade-in">
+                <span className="tt-config-label">NÚMERO DE TURNOS</span>
+                <div className="tt-config-turnos">
+                  {[5, 10, 15, 20].map(n => (
+                    <button
+                      key={n}
+                      className={`tt-config-turno-btn${totalTurnos === n ? ' tt-config-turno-btn--ativo' : ''}`}
+                      onClick={() => setTotalTurnos(n)}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="tt-config-tentativas">
+                  {[0, 1, 2].map(i => (
+                    <span key={i} className={`tt-tentativa-dot${i < (3 - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />
+                  ))}
+                  <span className="tt-tentativa-texto">{tentativasRestantes} tentativa(s) restante(s) hoje</span>
+                </div>
+
+                {jaJogouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje, volte amanhã</p>}
+
+                <button
+                  className={`tt-btn-jogar${totalTurnos !== null && tentativasRestantes > 0 ? '' : ' tt-btn-jogar--disabled'}`}
+                  disabled={totalTurnos === null || tentativasRestantes <= 0}
+                  onClick={iniciarJogo}
+                >
+                  JOGAR
+                </button>
+
+                <Link to="/perfil" className="tt-link-album">Ver meu álbum de cartas →</Link>
+              </div>
+            )}
+
+            <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
           </div>
         </div>
-
-        <div className="tt-info">
-          <p className="tt-tentativas">Tentativas hoje: {tentativasRestantes}/3</p>
-          {jaJogouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje, volte amanhã</p>}
-        </div>
-
-        <div className="tt-actions">
-          <button
-            className="tt-btn-jogar"
-            disabled={totalTurnos === null || tentativasRestantes <= 0}
-            onClick={iniciarJogo}
-          >
-            JOGAR CONTRA IA
-          </button>
-          <button className="tt-btn-multi" disabled>
-            MULTIPLAYER <span className="tt-em-breve">EM BREVE</span>
-          </button>
-        </div>
-
-        <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
       </section>
     )
   }
