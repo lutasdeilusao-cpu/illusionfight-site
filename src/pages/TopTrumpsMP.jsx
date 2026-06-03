@@ -160,7 +160,6 @@ export default function TopTrumpsMP() {
       setFase('fim')
       return
     }
-
     setAtributoEscolhido(null)
     setResultadoRodada(null)
     setMovimentoRecebido(false)
@@ -168,8 +167,8 @@ export default function TopTrumpsMP() {
     setCartaOponente(null)
     setUltimoMovimento(null)
     setGirando(false)
-    setFase('jogando')
     setEhMinhaVez(s.jogador_da_vez === user.id)
+    setFase('jogando')
   }
 
   function jogarAtributo(atributoId) {
