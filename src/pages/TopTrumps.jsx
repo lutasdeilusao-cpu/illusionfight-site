@@ -204,12 +204,12 @@ export default function TopTrumps() {
   function escolherRecompensa(carta) {
     const chave = getDeckKey()
     const ids = JSON.parse(localStorage.getItem(chave) || '[]')
-    ids.push(carta.id)
+    ids.push(carta.id_num)
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
-    salvarCartasDeck(user.id, [carta.id])
+    salvarCartasDeck(user.id, [carta.id_num])
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
-    registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id }).then(stats => {
+    registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
       console.log('[TT] registrarPartida resolveu (escolherRecompensa) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
