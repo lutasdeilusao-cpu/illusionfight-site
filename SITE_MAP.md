@@ -98,6 +98,7 @@
 | CharacterCard | `CharacterCard.jsx` | `CharacterCard.css` | CharactersRow, Personagens | Card 200×300, hover scale(1.12), overlay com bio e CTA, ranking |
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados, hover overlay |
 | AchievementToast | `AchievementToast/AchievementToast.jsx` | `AchievementToast/AchievementToast.css` | App (global) | Toast centralizado com partículas, overlay escuro e foto do Jack |
+| LoginGate | `LoginGate/LoginGate.jsx` | `LoginGate/LoginGate.css` | TopTrumps, Quiz, Leaderboard | Bloco de aviso reutilizável para conteúdo que exige login — recebe prop feature (nome da seção) e children (conteúdo logado) |
 | Quiz | `Quiz.jsx` | `Quiz.css` | /quiz | Quiz SDR com 3 modos, timer 30s, ajudas universitários, rank final |
 | Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com 4 cards: Quiz SDR (FREE), Top Trumps LDI (FREE), Leaderboard (FREE), Curiosidades (PREMIUM) |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal), capa real na 1ª música |

@@ -734,63 +734,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---- LOGIN BLOCK (shared with TopTrumps) ---- */
-
-.tt-login-block {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  border: 1px solid rgba(232,133,58,0.2);
-  border-radius: 8px;
-}
-
-.tt-login-lock {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.tt-login-texto {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.85rem;
-  color: #8B8F96;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-}
-
-.quiz-btn-jogar {
-  display: inline-block;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 14px 2.5rem;
-  background: #e8853a;
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: filter 0.2s;
-}
-
-.quiz-btn-jogar:hover {
-  filter: brightness(1.1);
-}
-
-.tt-login-link {
-  display: block;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.75rem;
-  color: #4F5359;
-  text-decoration: underline;
-  margin-top: 0.75rem;
-  transition: color 0.2s;
-}
-
-.tt-login-link:hover {
-  color: #8B8F96;
-}
-
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 768px) {

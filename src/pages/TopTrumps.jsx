@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
+import LoginGate from '../components/LoginGate/LoginGate'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumps.css'
 
@@ -199,31 +200,6 @@ export default function TopTrumps() {
   if (fase === 'menu') {
     const pct = deckUsuario.length / todasCartas.length * 100
     const maxTurnos = Math.floor(deckUsuario.length / 2)
-    if (!user) {
-      return (
-        <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
-          <div className="tt-menu-cards"><div className="tt-card-stack">
-            <div className="tt-card-sample tt-card-sample--1" /><div className="tt-card-sample tt-card-sample--2" />
-            <div className="tt-card-sample tt-card-sample--3"><div className="tt-card-sample-pattern" /><div className="tt-card-sample-logo">LDI</div></div>
-          </div></div>
-          <div className="tt-menu-content">
-            <div className="tt-title-group"><h1 className="tt-title-main">TOP TRUMPS</h1><span className="tt-title-sub">— LDI</span></div>
-            <p className="tt-title-desc">Jogo de cartas colecionáveis do universo LDI</p>
-            <div className="tt-colecao">
-              <span className="tt-colecao-label">0 / {todasCartas.length} CARTAS COLETADAS</span>
-              <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" style={{ width: '0%' }} /></div>
-            </div>
-            <div className="tt-login-block">
-              <div className="tt-login-lock">🔒</div>
-              <p className="tt-login-texto">Para jogar Top Trumps você precisa ter uma conta.</p>
-              <Link to="/cadastro" className="tt-btn-jogar">CRIAR CONTA GRÁTIS</Link>
-              <Link to="/login" className="tt-login-link">Já tenho conta — entrar</Link>
-            </div>
-            <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
-          </div>
-        </div></section>
-      )
-    }
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
         <div className="tt-menu-cards"><div className="tt-card-stack">
@@ -237,37 +213,39 @@ export default function TopTrumps() {
             <span className="tt-colecao-label">{deckUsuario.length} / {todasCartas.length} CARTAS COLETADAS</span>
             <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" style={{ width: `${pct}%` }} /></div>
           </div>
-          {(menuStep === null || menuStep === 'modo') && (
-            <div className="tt-modos">
-              <div className="tt-modo-card" onClick={() => { setMenuStep('config'); }}>
-                <h3 className="tt-modo-titulo">SINGLE PLAYER</h3><p className="tt-modo-desc">Jogue contra a IA</p>
+          <LoginGate feature="o Top Trumps">
+            {(menuStep === null || menuStep === 'modo') && (
+              <div className="tt-modos">
+                <div className="tt-modo-card" onClick={() => { setMenuStep('config'); }}>
+                  <h3 className="tt-modo-titulo">SINGLE PLAYER</h3><p className="tt-modo-desc">Jogue contra a IA</p>
+                </div>
+                <div className="tt-modo-card tt-modo-card--disabled">
+                  <h3 className="tt-modo-titulo">MULTIPLAYER</h3><p className="tt-modo-desc">2 jogadores</p><span className="tt-modo-breve">EM BREVE</span>
+                </div>
               </div>
-              <div className="tt-modo-card tt-modo-card--disabled">
-                <h3 className="tt-modo-titulo">MULTIPLAYER</h3><p className="tt-modo-desc">2 jogadores</p><span className="tt-modo-breve">EM BREVE</span>
+            )}
+            {menuStep === 'config' && (
+              <div className="tt-config tt-fade-in">
+                <span className="tt-config-label">NÚMERO DE TURNOS</span>
+                <div className="tt-config-turnos">
+                  {[5, 10, 15, 20].map(n => (
+                    <button key={n}
+                      className={`tt-config-turno-btn${totalTurnos === n ? ' tt-config-turno-btn--ativo' : ''}`}
+                      disabled={n > maxTurnos}
+                      onClick={() => setTotalTurnos(n)}>{n}</button>
+                  ))}
+                </div>
+                <div className="tt-config-tentativas">
+                  {[0, 1, 2].map(i => (<span key={i} className={`tt-tentativa-dot${i < (3 - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
+                  <span className="tt-tentativa-texto">{tentativasRestantes} chance(s) de ganhar carta hoje</span>
+                </div>
+                {jaGanhouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje. Volte amanhã!</p>}
+                <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
+                  disabled={totalTurnos === null} onClick={iniciarJogo}>JOGAR</button>
+                <Link to="/perfil" className="tt-link-album">Ver meu álbum de cartas →</Link>
               </div>
-            </div>
-          )}
-          {menuStep === 'config' && (
-            <div className="tt-config tt-fade-in">
-              <span className="tt-config-label">NÚMERO DE TURNOS</span>
-              <div className="tt-config-turnos">
-                {[5, 10, 15, 20].map(n => (
-                  <button key={n}
-                    className={`tt-config-turno-btn${totalTurnos === n ? ' tt-config-turno-btn--ativo' : ''}`}
-                    disabled={n > maxTurnos}
-                    onClick={() => setTotalTurnos(n)}>{n}</button>
-                ))}
-              </div>
-              <div className="tt-config-tentativas">
-                {[0, 1, 2].map(i => (<span key={i} className={`tt-tentativa-dot${i < (3 - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
-                <span className="tt-tentativa-texto">{tentativasRestantes} chance(s) de ganhar carta hoje</span>
-              </div>
-              {jaGanhouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje. Volte amanhã!</p>}
-              <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
-                disabled={totalTurnos === null} onClick={iniciarJogo}>JOGAR</button>
-              <Link to="/perfil" className="tt-link-album">Ver meu álbum de cartas →</Link>
-            </div>
-          )}
+            )}
+          </LoginGate>
           <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
         </div>
       </div></section>

@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
+import LoginGate from '../components/LoginGate/LoginGate'
 import bancoPT from '../data/quiz-pt.json'
 import './Quiz.css'
 
@@ -233,7 +234,7 @@ export default function Quiz() {
           <p>{t('quiz.subtitulo')}</p>
         </div>
 
-        {user ? (
+        <LoginGate feature="o Quiz SDR">
           <div className="quiz-modos-grid">
             {Object.entries(MODOS).map(([key, config]) => (
               <div
@@ -261,14 +262,7 @@ export default function Quiz() {
               </div>
             ))}
           </div>
-        ) : (
-          <div className="tt-login-block">
-            <div className="tt-login-lock">🔒</div>
-            <p className="tt-login-texto">Para jogar o Quiz SDR você precisa ter uma conta.</p>
-            <Link to="/cadastro" className="quiz-btn-jogar">CRIAR CONTA GRÁTIS</Link>
-            <Link to="/login" className="tt-login-link">Já tenho conta — entrar</Link>
-          </div>
-        )}
+        </LoginGate>
 
         <p className="quiz-timer-aviso">{t('quiz.timer_aviso')}</p>
 
