@@ -3,6 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const CURSOR_BLINK = 530
 
+const PERSONAGEM_STYLE = {
+  'NeoGuide': { cor: '#00B4D8', fonte: 'Share Tech Mono' },
+  'Kaeda': { cor: '#FF6B6B', fonte: 'Rajdhani' },
+  'Voz': { cor: '#A855F4', fonte: 'JetBrains Mono' },
+  'StormByte_91': { cor: '#F97316', fonte: 'Share Tech Mono' },
+  'sistema': { cor: '#22C55E', fonte: 'JetBrains Mono' },
+  'default': { cor: '#00B4D8', fonte: 'Share Tech Mono' },
+}
+
+const PERSONAGEM_NAMES = Object.keys(PERSONAGEM_STYLE)
+
+function detectPersonagem(text) {
+  if (!text) return null
+  const found = PERSONAGEM_NAMES.find(name => {
+    const pattern1 = new RegExp(`^["']?${name}:`)
+    const pattern2 = new RegExp(`^["']?${name}\\s+disse`, 'i')
+    const pattern3 = text.startsWith(`"${name}:`) || text.startsWith(`${name}:`)
+    return pattern1.test(text) || pattern2.test(text) || pattern3
+  })
+  return found
+}
+
 function isFala(text) {
   return text?.startsWith('"') || text?.includes('—')
 }
@@ -86,18 +108,33 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
 
   return (
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
-      {paragraphs.map((para, i) => (
-        <p key={i} className={`ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`} style={{ opacity: i <= currentPara ? 1 : 0.2 }}>
-          {displayedTexts[i] || ''}
-          {showCursor && i === displayedTexts.length - 1 && (
-            <motion.span
-              className="ldi-typewriter-cursor"
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.53, repeat: Infinity, repeatType: 'reverse' }}
-            >█</motion.span>
-          )}
-        </p>
-      ))}
+      {paragraphs.map((para, i) => {
+        const nomePersonagem = detectPersonagem(para)
+        let estiloPersonagem = null
+        if (nomePersonagem) {
+          estiloPersonagem = PERSONAGEM_STYLE[nomePersonagem] || PERSONAGEM_STYLE.default
+        }
+        const className = `ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`
+        return (
+          <p
+            key={i}
+            className={className}
+            style={{
+              opacity: i <= currentPara ? 1 : 0.2,
+              ...(estiloPersonagem ? { color: estiloPersonagem.cor, fontFamily: estiloPersonagem.fonte } : {}),
+            }}
+          >
+            {displayedTexts[i] || ''}
+            {showCursor && i === displayedTexts.length - 1 && (
+              <motion.span
+                className="ldi-typewriter-cursor"
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.53, repeat: Infinity, repeatType: 'reverse' }}
+              >█</motion.span>
+            )}
+          </p>
+        )
+      })}
       {done && (
         <motion.span
           className="ldi-typewriter-hint"

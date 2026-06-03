@@ -24,10 +24,17 @@ export default function Game() {
   const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp } = useGameStore()
   const combat = useCombatStore()
   const [levelUpAttr, setLevelUpAttr] = useState(null)
+  const [levelUpPoints, setLevelUpPoints] = useState(1)
   const [showManual, setShowManual] = useState(false)
 
   useEffect(() => {
-    console.log('[LDI] readerMode setado')
+    if (save?.level_up_available) {
+      setLevelUpPoints(1)
+      setLevelUpAttr(null)
+    }
+  }, [save?.level_up_available])
+
+  useEffect(() => {
     console.log('[LDI] readerMode setado para true (Game)')
     setReaderMode(true)
     return () => {
@@ -66,16 +73,20 @@ export default function Game() {
   }, [makeChoice, user, saveToCloud])
 
   const handleLevelUpAttr = (attr) => {
+    if (levelUpPoints <= 0) return
+    const current = sheet?.attributes?.[attr] || 0
+    if (current >= 4) return
+    const newAttrs = { ...sheet.attributes, [attr]: current + 1 }
+    updateSheet({ attributes: newAttrs })
+    setLevelUpPoints(0)
     setLevelUpAttr(attr)
   }
 
   const handleConfirmLevelUp = () => {
-    if (!levelUpAttr) return
-    const attrs = { ...sheet.attributes }
-    attrs[levelUpAttr] = Math.min(4, (attrs[levelUpAttr] || 0) + 1)
-    updateSheet({ attributes: attrs })
     clearLevelUp()
     setLevelUpAttr(null)
+    setLevelUpPoints(1)
+    if (user) saveToCloud(user.id)
   }
 
   if (save?.level_up_available) {
@@ -90,18 +101,22 @@ export default function Game() {
           >
             <div className="ldi-levelup-title">LEVEL UP</div>
             <div className="ldi-levelup-sub">Escolha um atributo para aprimorar:</div>
+            <div className="ldi-levelup-points">Pontos disponíveis: {levelUpPoints}</div>
             {Object.entries(ATTR_NAMES).map(([key, label]) => {
               const current = sheet?.attributes?.[key] || 0
               const atMax = current >= 4
+              const isUpgraded = levelUpAttr === key
               return (
-                <div key={key} className="ldi-levelup-attr">
+                <div key={key} className="ldi-levelup-attr" style={isUpgraded ? { borderColor: '#FFD700' } : {}}>
                   <span className="ldi-levelup-attr-label">{label}</span>
-                  <span className="ldi-levelup-attr-value">{current}</span>
+                  <span className="ldi-levelup-attr-value">
+                    {isUpgraded ? `${current - 1} → ${current}` : current}
+                  </span>
                   <button
                     className="ldi-levelup-attr-btn"
                     onClick={() => handleLevelUpAttr(key)}
-                    disabled={atMax}
-                    style={levelUpAttr === key ? { borderColor: '#F5B84A', background: 'rgba(239,159,39,0.15)' } : {}}
+                    disabled={atMax || levelUpPoints <= 0}
+                    style={isUpgraded ? { borderColor: '#FFD700', background: 'rgba(255,215,0,0.15)' } : {}}
                   >+</button>
                 </div>
               )
@@ -109,10 +124,10 @@ export default function Game() {
             <button
               className="ldi-levelup-confirm"
               onClick={handleConfirmLevelUp}
-              disabled={!levelUpAttr}
-              style={!levelUpAttr ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
+              disabled={levelUpPoints > 0}
+              style={levelUpPoints > 0 ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
             >
-              CONFIRMAR
+              {levelUpPoints > 0 ? 'Selecione um atributo para aprimorar' : 'CONFIRMAR'}
             </button>
           </motion.div>
         </div>

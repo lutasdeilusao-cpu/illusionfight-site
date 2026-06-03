@@ -30,7 +30,7 @@ export default function SceneView({ scene, choices, onChoice, sceneNav }) {
     <AnimatePresence mode="wait">
       <motion.div
         key={`${scene.id}_${sceneNav}`}
-        className="ldi-scene"
+        className={`ldi-scene ${scene.destaque ? 'ldi-scene--destaque' : ''}`}
         initial={{ clipPath: 'inset(0 50% 0 50%)' }}
         animate={{ clipPath: 'inset(0 0% 0 0%)' }}
         exit={{ clipPath: 'inset(0 50% 0 50%)' }}

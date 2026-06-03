@@ -426,6 +426,7 @@
     "id": "1.3d-pos",
     "title": "Primeira Vitória",
     "image": "",
+    "destaque": true,
     "text": [
       "StormByte cai. O sistema registra a vitória com um bipe seco.",
       "Você fica parado olhando para onde ele estava. A dor que ficou é real. A satisfação também.",
@@ -909,6 +910,7 @@
     "id": "2.1d",
     "title": "O Abrigo",
     "image": "",
+    "destaque": true,
     "text": [
       "Kaeda te leva para uma sala escondida atrás de um mercado abandonado.",
       "O lugar é pequeno: um terminal, duas cadeiras, mapas do LDI nas paredes.",

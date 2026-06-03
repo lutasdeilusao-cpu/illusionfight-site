@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.26'
+const LDI_VERSION = '1.0.27'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -8,7 +8,7 @@ import { useCombatStore } from './useCombatStore'
 import { saveSheet, saveGameSave, loadFullSheet, loadActiveSave } from '../hooks/useLDIStorage'
 import enemiesData from '../data/enemies/enemies.json'
 
-const XP_THRESHOLDS = [50, 100, 150, 200]
+const XP_THRESHOLDS = [100]
 
 const defaultSheet = () => ({
   id: null,

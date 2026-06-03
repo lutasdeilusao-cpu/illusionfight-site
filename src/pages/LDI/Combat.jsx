@@ -86,7 +86,7 @@ export default function Combat() {
         status: 'active',
       })
       combat.resetCombat()
-      const xpGain = 50
+      const xpGain = 10
       gainXp(xpGain)
       setShowXpToast(true)
       await new Promise(r => setTimeout(r, 2000))
@@ -176,7 +176,7 @@ export default function Combat() {
             exit={{ opacity: 0, scale: 1.5 }}
             transition={{ duration: 0.3 }}
           >
-            +50 XP
+            +10 XP
           </motion.div>
         )}
       </AnimatePresence>
