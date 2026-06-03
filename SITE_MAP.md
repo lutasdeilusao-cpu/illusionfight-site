@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.26` (console: `[LDI] versão carregada: 1.0.26`)  
+**Versão atual:** `1.0.27` (console: `[LDI] versão carregada: 1.0.27`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -511,6 +511,13 @@ src/pages/LDI/
 - ✅ **Perto da Morte** — tela inteira pulse-red 0.5s + badge piscando no card do jogador (playerPv ≤ R)
 - ✅ **Modo Poder** — exibe lista de poderes preparados como botões (nome, custo PM). Substitui botão ATACAR no modo power
 - `LDI_VERSION 1.0.26`. Commit: `b06ca15`
+
+### Changelog — v1.0.27 (Diálogos + XP + Level Up + Destaque)
+- ✅ **Diálogos com identidade** — `PERSONAGEM_STYLE` map em Typewriter.jsx: NeoGuide (teal/Share Tech Mono), Kaeda (red/Rajdhani), Voz (purple/JetBrains), StormByte_91 (orange/Share Tech Mono), sistema (green/JetBrains). Detecta `"Nome:"` ou `"Nome disse"` no início do parágrafo
+- ✅ **XP recalibrado** — 10 XP por vitória (antes 50). Threshold único: 100 XP para level up
+- ✅ **Level Up corrigido** — contador de 1 ponto, + chama updateSheet e zera contador, CONFIRMAR só habilita quando 0 pontos, mostra valor antigo → novo (3 → 4), saveToCloud no confirmar
+- ✅ **Destaque em cenas** — `.ldi-scene--destaque` com borda teal pulsante, título maior em teal, fundo sutil. Aplicado em `1.3d-pos` e `2.1d` no act1.json
+- `LDI_VERSION 1.0.27`. Commit: `2174e05`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
