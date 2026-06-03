@@ -68,7 +68,8 @@ export default function Create() {
     const newAttr = { ...tempAttr }
     if (opt.effect) {
       for (const [k, v] of Object.entries(opt.effect)) {
-        newAttr[k] = (newAttr[k] || 0) + v
+        const val = (newAttr[k] || 0) + v
+        newAttr[k] = Math.min(val, 4)
       }
     }
     setTempAttr(newAttr)
@@ -85,7 +86,9 @@ export default function Create() {
 
   const handleFreePoint = (attr) => {
     if (freePoints <= 0) return
-    setTempAttr(p => ({ ...p, [attr]: (p[attr] || 0) + 1 }))
+    const current = tempAttr[attr] || 0
+    if (current >= 4) return
+    setTempAttr(p => ({ ...p, [attr]: current + 1 }))
     setFreePoints(p => p - 1)
   }
 
@@ -109,6 +112,9 @@ export default function Create() {
       if (finalAttr.F > 1) { finalAttr.F -= shortage; finalAttr.R = 1 }
       else if (finalAttr.H > 1) { finalAttr.H -= shortage; finalAttr.R = 1 }
       else { finalAttr.R = 1 }
+    }
+    for (const k of Object.keys(finalAttr)) {
+      if (finalAttr[k] > 4) finalAttr[k] = 4
     }
     updateSheet({
       sheet_name: name || 'Aventureiro',
