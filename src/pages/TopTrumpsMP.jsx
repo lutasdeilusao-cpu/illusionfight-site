@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.5'
+const MP_VERSION = '1.0.6'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -217,162 +217,163 @@ export default function TopTrumpsMP() {
   }
 
   async function resolverRodada() {
-    const s = salaRef.current
-    if (!s) { return }
-    console.log('[MP] resolverRodada chamada, turno:', s.turno_atual)
-    const { data: movs, error: errMovs } = await supabase
-      .from('toptrumps_movimentos')
-      .select('*')
-      .eq('sala_id', s.id)
-      .eq('turno', s.turno_atual)
-      .order('criado_em', { ascending: true })
-    console.log('[MP] resolverRodada movimentos:', movs?.length, 'carta_id_oponente:', movs?.[0]?.carta_id_oponente)
-    if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
+    try {
+      const s = salaRef.current
+      if (!s) { return }
+      console.log('[MP] resolverRodada chamada, turno:', s.turno_atual)
+      const { data: movs, error: errMovs } = await supabase
+        .from('toptrumps_movimentos')
+        .select('*')
+        .eq('sala_id', s.id)
+        .eq('turno', s.turno_atual)
+        .order('criado_em', { ascending: true })
+      console.log('[MP] resolverRodada movimentos:', movs?.length, 'carta_id_oponente:', movs?.[0]?.carta_id_oponente)
+      if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
-    // Caso padrão: dois movimentos (ambos jogadores jogaram)
-    if (movs && movs.length >= 2) {
-      const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
-      const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
-      if (!movJ1 || !movJ2) return
+      // Caso padrão: dois movimentos (ambos jogadores jogaram)
+      if (movs && movs.length >= 2) {
+        const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
+        const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
+        if (!movJ1 || !movJ2) return
 
-      const cartaJ1 = todasCartas.find(c => c.id_num === movJ1.carta_id)
-      const cartaJ2 = todasCartas.find(c => c.id_num === movJ2.carta_id)
-      if (!cartaJ1 || !cartaJ2) return
+        const cartaJ1 = todasCartas.find(c => c.id_num === movJ1.carta_id)
+        const cartaJ2 = todasCartas.find(c => c.id_num === movJ2.carta_id)
+        if (!cartaJ1 || !cartaJ2) return
 
-      const attr = atributos.find(a => a.id === movJ1.atributo)
-      if (!attr) return
+        const attr = atributos.find(a => a.id === movJ1.atributo)
+        if (!attr) return
 
-      const v1 = cartaJ1.atributos[movJ1.atributo]
-      const v2 = cartaJ2.atributos[movJ2.atributo]
+        const v1 = cartaJ1.atributos[movJ1.atributo]
+        const v2 = cartaJ2.atributos[movJ2.atributo]
 
-      let res
-      if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
-      else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+        let res
+        if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
+        else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
-      // segue lógica existente para atualizar estado e sala
-      const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
-      const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
-      const empatou = res === 'empate'
+        // segue lógica existente para atualizar estado e sala
+        const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
+        const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
+        const empatou = res === 'empate'
 
-      setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
-      setAtributoEscolhido(movJ1.atributo)
-      setCartaOponente(papel === 'j1' ? cartaJ2 : cartaJ1)
+        setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
+        setAtributoEscolhido(movJ1.atributo)
+        setCartaOponente(papel === 'j1' ? cartaJ2 : cartaJ1)
 
-      const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
-      const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
-      const novoTurno = s.turno_atual + 1
-      const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
-      const fim = novoTurno > s.total_turnos
-      const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
+        const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
+        const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
+        const novoTurno = s.turno_atual + 1
+        const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+        const fim = novoTurno > s.total_turnos
+        const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
-      if (fim) {
-        const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
-        const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+        if (fim) {
+          const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
+          const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
 
-        await atualizarSala(s.id, {
-          pontos_j1: novosPontosJ1,
-          pontos_j2: novosPontosJ2,
-          turno_atual: s.total_turnos,
-          status: 'encerrada'
-        })
+          await atualizarSala(s.id, {
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: s.total_turnos,
+            status: 'encerrada'
+          })
 
-        const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
-        const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
-        await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
-        await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
-        await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
-      } else {
-        await atualizarSala(s.id, {
-          pontos_j1: novosPontosJ1,
-          pontos_j2: novosPontosJ2,
-          turno_atual: novoTurno,
-          jogador_da_vez: proximoJogador
-        })
-        setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
-        setEhMinhaVez(proximoJogador === user.id)
+          const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+          const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+          await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
+          await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+          await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+        } else {
+          await atualizarSala(s.id, {
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: novoTurno,
+            jogador_da_vez: proximoJogador
+          })
+          setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
+          setEhMinhaVez(proximoJogador === user.id)
+        }
+
+        iniciarRevelacao(resultadoFinal)
+        return
       }
 
-      iniciarRevelacao(resultadoFinal)
+      if (movs && movs.length === 1) {
+        const mov = movs[0]
+        const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
+        if (!cartaAtiva) { return }
+
+        const cartaOponenteObj = mov.carta_id_oponente
+          ? todasCartas.find(c => c.id_num === mov.carta_id_oponente)
+          : null
+
+        if (!cartaOponenteObj) { return }
+
+        const attr = atributos.find(a => a.id === mov.atributo)
+        if (!attr) return
+
+        let v1, v2
+        if (mov.jogador_id === s.jogador1_id) {
+          v1 = cartaAtiva.atributos[mov.atributo]
+          v2 = cartaOponenteObj.atributos[mov.atributo]
+        } else {
+          v2 = cartaAtiva.atributos[mov.atributo]
+          v1 = cartaOponenteObj.atributos[mov.atributo]
+        }
+
+        let res
+        if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
+        else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+
+        const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
+        const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
+        const empatou = res === 'empate'
+
+        setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
+        setAtributoEscolhido(mov.atributo)
+        setCartaOponente(papel === 'j1' ? (mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva) : (mov.jogador_id === s.jogador2_id ? cartaOponenteObj : cartaAtiva))
+
+        const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
+        const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
+        const novoTurno = s.turno_atual + 1
+        const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+        const fim = novoTurno > s.total_turnos
+        const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
+
+        if (fim) {
+          const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
+          const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
+
+          await atualizarSala(s.id, {
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: s.total_turnos,
+            status: 'encerrada'
+          })
+
+          const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+          const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
+          await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
+          await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
+          await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
+        } else {
+          await atualizarSala(s.id, {
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: novoTurno,
+            jogador_da_vez: proximoJogador
+          })
+          setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
+          setEhMinhaVez(proximoJogador === user.id)
+        }
+
+        iniciarRevelacao(resultadoFinal)
+        return
+      }
+
       return
+    } catch (err) {
+      console.error('[MP] resolverRodada erro crítico:', err)
     }
-
-    // Caso especial: apenas um movimento registrado — Top Trumps (jogador ativo escolhe e basta)
-    if (movs && movs.length === 1) {
-      const mov = movs[0]
-      const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
-      if (!cartaAtiva) { return }
-
-      // carta do oponente já veio no insert via carta_id_oponente
-      const cartaOponenteObj = mov.carta_id_oponente
-        ? todasCartas.find(c => c.id_num === mov.carta_id_oponente)
-        : null
-
-      if (!cartaOponenteObj) { return }
-
-      const attr = atributos.find(a => a.id === mov.atributo)
-      if (!attr) return
-
-      // define j1/j2 valores de acordo com sala
-      let v1, v2
-      if (mov.jogador_id === s.jogador1_id) {
-        v1 = cartaAtiva.atributos[mov.atributo]
-        v2 = cartaOponenteObj.atributos[mov.atributo]
-      } else {
-        v2 = cartaAtiva.atributos[mov.atributo]
-        v1 = cartaOponenteObj.atributos[mov.atributo]
-      }
-
-      let res
-      if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
-      else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
-
-      const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
-      const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
-      const empatou = res === 'empate'
-
-      setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
-      setAtributoEscolhido(mov.atributo)
-      setCartaOponente(papel === 'j1' ? (mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva) : (mov.jogador_id === s.jogador2_id ? cartaOponenteObj : cartaAtiva))
-
-      const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
-      const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
-      const novoTurno = s.turno_atual + 1
-      const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
-      const fim = novoTurno > s.total_turnos
-      const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
-
-      if (fim) {
-        const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
-        const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
-
-        await atualizarSala(s.id, {
-          pontos_j1: novosPontosJ1,
-          pontos_j2: novosPontosJ2,
-          turno_atual: s.total_turnos,
-          status: 'encerrada'
-        })
-
-        const cartaVencedor = vencedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
-        const cartaPerdedor = perdedor === s.jogador1_id ? s.carta_aposta_j1 : s.carta_aposta_j2
-        await encerrarSala(s.id, vencedor, perdedor, s.modo, cartaVencedor, cartaPerdedor)
-        await atualizarMPStats(s.jogador1_id, novosPontosJ1 > novosPontosJ2 ? 'vitoria' : novosPontosJ1 < novosPontosJ2 ? 'derrota' : 'empate')
-        await atualizarMPStats(s.jogador2_id, novosPontosJ2 > novosPontosJ1 ? 'vitoria' : novosPontosJ2 < novosPontosJ1 ? 'derrota' : 'empate')
-      } else {
-        await atualizarSala(s.id, {
-          pontos_j1: novosPontosJ1,
-          pontos_j2: novosPontosJ2,
-          turno_atual: novoTurno,
-          jogador_da_vez: proximoJogador
-        })
-        setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
-        setEhMinhaVez(proximoJogador === user.id)
-      }
-
-      iniciarRevelacao(resultadoFinal)
-      return
-    }
-
-    return
   }
 
   // NOTE: Para Top Trumps (um jogador por rodada) não dependemos mais
