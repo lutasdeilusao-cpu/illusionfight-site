@@ -18,6 +18,9 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
+const MP_VERSION = '1.0.0'
+console.log('[MP] versão carregada:', MP_VERSION)
+
 export default function TopTrumpsMP() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
