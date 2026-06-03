@@ -27,20 +27,17 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
     jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
     status: 'em_jogo', turno_atual: 1, jogador_da_vez: sala.jogador1_id
   }).eq('id', sala.id)
-  console.log('[MP] UPDATE sala codigo resultado:', { error, salaId: sala.id })
   if (error) { console.error('[TTMP] erro entrar sala:', error); return { erro: 'Erro ao entrar na sala.' } }
   return { salaId: sala.id }
 }
 
 export async function entrarFilaPublica(userId, modo, turnosDesejados) {
-  console.log('[MP] entrarFilaPublica chamado', { userId, modo, turnos: turnosDesejados })
   const { data, error } = await supabase.rpc('entrar_fila_publica', {
     p_user_id: userId,
     p_modo: modo,
     p_turnos: turnosDesejados
   })
   if (error) { console.error('[MP] erro RPC entrar_fila_publica:', error); return null }
-  console.log('[MP] RPC retornou:', data)
   return data
 }
 
@@ -65,7 +62,6 @@ export async function confirmarAposta(salaId, ehJ1) {
 export async function escolherPPT(salaId, userId, escolha, ehJ1) {
   const campoEscolha = ehJ1 ? 'carta_aposta_j1' : 'carta_aposta_j2'
   const campoConfirmar = ehJ1 ? 'aposta_confirmada_j1' : 'aposta_confirmada_j2'
-  console.log('[MP] escolherPPT', { salaId, userId, escolha, ehJ1 })
   const { error } = await supabase.from('toptrumps_salas').update({
     [campoEscolha]: escolha,
     [campoConfirmar]: true
@@ -74,7 +70,6 @@ export async function escolherPPT(salaId, userId, escolha, ehJ1) {
 }
 
 export async function finalizarPPT(salaId, vencedorId) {
-  console.log('[MP] finalizarPPT', { salaId, vencedorId })
   const { error } = await supabase.from('toptrumps_salas').update({
     jogador_da_vez: vencedorId,
     turno_atual: 1,
@@ -87,14 +82,12 @@ export async function finalizarPPT(salaId, vencedorId) {
 }
 
 export async function registrarMovimento(salaId, userId, cartaId, atributo, foiIA = false, cartaIdOponente = null) {
-  console.log('[MP] registrarMovimento chamado', { salaId, userId, cartaId, atributo, foiIA, cartaIdOponente })
   const { data: sala, error: errSala } = await supabase.from('toptrumps_salas').select('turno_atual').eq('id', salaId).single()
   if (errSala || !sala) { console.error('[MP] registrarMovimento erro ao buscar sala:', errSala); return }
   const { error } = await supabase.from('toptrumps_movimentos').insert({
     sala_id: salaId, turno: sala.turno_atual, jogador_id: userId, carta_id: cartaId, atributo, foi_ia: foiIA, carta_id_oponente: cartaIdOponente
   })
   if (error) console.error('[MP] registrarMovimento erro no insert:', error)
-  else console.log('[MP] registrarMovimento resultado: inserido turno', sala.turno_atual)
 }
 
 export async function atualizarSala(salaId, updates) {
@@ -103,7 +96,6 @@ export async function atualizarSala(salaId, updates) {
 
 export async function encerrarSala(salaId, vencedorId, perdedorId, modo, cartaApostaVencedor, cartaApostaPerdedor) {
   if (modo === 'apostado' && cartaApostaPerdedor) {
-    console.log('[TTMP] transferindo carta', cartaApostaPerdedor, 'de', perdedorId, 'para', vencedorId)
     await supabase.from('toptrumps_decks').delete().eq('user_id', perdedorId).eq('carta_id', cartaApostaPerdedor)
     if (cartaApostaPerdedor) {
       await supabase.from('toptrumps_decks').insert({ user_id: vencedorId, carta_id: cartaApostaPerdedor })
@@ -150,25 +142,17 @@ export async function atualizarMPStats(userId, resultado) {
 }
 
 export function subscribeToSala(salaId, callback) {
-  console.log('[RT] subscribeToSala iniciado para sala:', salaId)
   return supabase.channel(`sala-${salaId}`)
     .on('postgres_changes', { event: '*', schema: 'public', table: 'toptrumps_salas', filter: `id=eq.${salaId}` }, (payload) => {
-      console.log('[RT] evento recebido:', payload)
       callback(payload)
     })
-    .subscribe((status) => {
-      console.log('[RT] status do canal:', status)
-    })
+    .subscribe()
 }
 
 export function subscribeToMovimentos(salaId, callback) {
-  console.log('[RT] subscribeToMovimentos iniciado para sala:', salaId)
   return supabase.channel(`mov-${salaId}`)
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'toptrumps_movimentos', filter: `sala_id=eq.${salaId}` }, (payload) => {
-      console.log('[RT] movimento recebido na tabela movimentos:', payload.new)
       callback(payload)
     })
-    .subscribe((status) => {
-      console.log('[RT] status canal movimentos:', status)
-    })
+    .subscribe()
 }

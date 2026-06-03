@@ -78,7 +78,6 @@ export default function TopTrumpsMP() {
       setEhMinhaVez(data.jogador_da_vez === user.id)
       if (data.status === 'em_jogo' && data.carta_aposta_j1 === -1) {
         setFase('jogando')
-        console.log('[MP] iniciando jogando, jogador_da_vez:', data.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', data.jogador_da_vez === user?.id)
       } else if (data.status === 'em_jogo') {
         setFase('ppt')
         if (papel === 'j1' ? data.aposta_confirmada_j1 : data.aposta_confirmada_j2) {
@@ -112,7 +111,6 @@ export default function TopTrumpsMP() {
       const { data: s } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).single()
       if (!s) return
       const opId = s.jogador1_id === user.id ? s.jogador2_id : s.jogador1_id
-      console.log('[MP] useEffect deckOponente disparou, salaId:', salaId, 'opId:', opId)
       if (!opId) return
       const qtd = s.total_turnos
       const { data: deckOpp } = await supabase
@@ -120,11 +118,9 @@ export default function TopTrumpsMP() {
         .select('carta_id')
         .eq('user_id', opId)
         .order('carta_id', { ascending: true })
-      console.log('[MP] deckOponente — deckOpp length:', deckOpp?.length)
       if (!deckOpp?.length) return
       const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
       setDeckOponente(cartasOpp.slice(0, qtd))
-      console.log('[MP] deckOponente carregado:', cartasOpp.slice(0, qtd).length, 'cartas')
     })()
   }, [salaId, user, sala?.jogador2_id])
 
@@ -180,7 +176,6 @@ export default function TopTrumpsMP() {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
-    console.log('[MP] jogarAtributo — deckOponente:', deckOponente.length, 'idxOp:', idxOp, 'cartaOp:', cartaOp?.id_num)
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
       setJaMovi(true)
     })
@@ -217,15 +212,13 @@ export default function TopTrumpsMP() {
 
   async function resolverRodada() {
     const s = salaRef.current
-    if (!s) { console.log('[MP] resolverRodada — sem sala'); return }
-    console.log('[MP] resolverRodada chamada, turno:', s.turno_atual, 'salaId:', s.id)
+    if (!s) { return }
     const { data: movs, error: errMovs } = await supabase
       .from('toptrumps_movimentos')
       .select('*')
       .eq('sala_id', s.id)
       .eq('turno', s.turno_atual)
       .order('criado_em', { ascending: true })
-    console.log('[MP] resolverRodada movimentos encontrados:', movs?.length, movs)
     if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
     // Caso padrão: dois movimentos (ambos jogadores jogaram)
@@ -297,17 +290,14 @@ export default function TopTrumpsMP() {
     if (movs && movs.length === 1) {
       const mov = movs[0]
       const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
-      if (!cartaAtiva) { console.log('[MP] resolverRodada sem carta ativa encontrada'); return }
+      if (!cartaAtiva) { return }
 
       // carta do oponente já veio no insert via carta_id_oponente
       const cartaOponenteObj = mov.carta_id_oponente
         ? todasCartas.find(c => c.id_num === mov.carta_id_oponente)
         : null
 
-      if (!cartaOponenteObj) {
-        console.log('[MP] resolverRodada sem carta_id_oponente no movimento — aguardando')
-        return
-      }
+      if (!cartaOponenteObj) { return }
 
       const attr = atributos.find(a => a.id === mov.atributo)
       if (!attr) return
@@ -370,8 +360,6 @@ export default function TopTrumpsMP() {
       return
     }
 
-    // nenhum movimento encontrado
-    console.log('[MP] resolverRodada: nenhum movimento encontrado para este turno')
     return
   }
 
@@ -383,7 +371,6 @@ export default function TopTrumpsMP() {
   useEffect(() => {
     if (fase !== 'carregando' || !salaId) return
     const timer = setTimeout(async () => {
-      console.log('[MP] Timeout 2min — nenhum adversário entrou')
       await supabase.from('toptrumps_salas').delete().eq('id', salaId)
       navigate('/extras/toptrumps/lobby', {
         state: { mensagem: 'Nenhum adversário encontrado. Tente novamente.' }
@@ -393,7 +380,6 @@ export default function TopTrumpsMP() {
   }, [fase, salaId, navigate])
 
   useEffect(() => {
-    console.log('[RT] useEffect movimentos disparou, salaId:', salaId, 'user:', user?.id, 'fase:', fase)
     if (!salaId) return
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
@@ -423,7 +409,6 @@ export default function TopTrumpsMP() {
       // PPT finalizado -> jogando
       if (anterior && s.carta_aposta_j1 === -1 && anterior.carta_aposta_j1 !== -1) {
         setFase('jogando')
-        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
         setResultadoRodada(null)
         setMovimentoRecebido(false)
@@ -436,7 +421,6 @@ export default function TopTrumpsMP() {
 
       if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') {
         setFase('jogando')
-        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
         setResultadoRodada(null)
         setMovimentoRecebido(false)
@@ -448,22 +432,15 @@ export default function TopTrumpsMP() {
       if (s.status === 'encerrada' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') setFase('fim')
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
-      console.log('[MP] Realtime UPDATE recebido, novo:', JSON.stringify(p.new))
       const mov = p.new
       setUltimoMovimento(mov)
 
-      // Atualiza flags de UI (jaMovi / movimentoRecebido) para manter o comportamento
-      // visual, mas NÃO usamos mais essas flags para decidir quando resolver a rodada.
       if (mov.jogador_id === user.id) {
         setJaMovi(true)
       } else {
         setMovimentoRecebido(true)
       }
 
-      // Em Top Trumps, apenas o jogador ativo faz o movimento por rodada.
-      // Assim que chega um INSERT na tabela de movimentos, chamamos
-      // resolverRodada imediatamente.
-      console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
       resolverRodada()
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
@@ -491,7 +468,6 @@ export default function TopTrumpsMP() {
         setPptAmbosEscolheram(false)
       } else {
         const vencedorId = diff === 1 ? s.jogador1_id : s.jogador2_id
-        console.log('[MP] chamando finalizarPPT, vencedorId:', vencedorId, 'meu id:', user?.id, 'sou o vencedor:', vencedorId === user?.id)
         await supabase.from('toptrumps_salas').update({
           jogador_da_vez: vencedorId,
           turno_atual: 1,
@@ -573,7 +549,6 @@ export default function TopTrumpsMP() {
   }
 
   if (fase === 'jogando') {
-    console.log('[MP] render turno, jogador_da_vez:', sala?.jogador_da_vez, 'meu userId:', user?.id, 'sou eu:', sala?.jogador_da_vez === user?.id)
     if (!cartaLocal) return (
       <section className="ttmp-page">
         <div className="ttmp-loading">
