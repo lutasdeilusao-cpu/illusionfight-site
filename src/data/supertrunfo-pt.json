@@ -1,0 +1,152 @@
+{
+  "atributos": [
+    { "id": "rank_sdr", "nome": "Rank SDR", "descricao": "Posição no ranking mundial. Menor = melhor.", "inverso": true },
+    { "id": "poder_mental", "nome": "Poder Mental", "descricao": "Capacidade de energia mental em batalha.", "inverso": false },
+    { "id": "velocidade", "nome": "Velocidade", "descricao": "Velocidade de reação e movimento.", "inverso": false },
+    { "id": "resistencia", "nome": "Resistência", "descricao": "Capacidade de absorver dano e continuar lutando.", "inverso": false },
+    { "id": "nivel_xama", "nome": "Nível Xamã", "descricao": "Domínio sobre poderes ancestrais.", "inverso": false },
+    { "id": "fator_caos", "nome": "Fator Caos", "descricao": "Imprevisibilidade em combate. Ninguém sabe o que esperar.", "inverso": false }
+  ],
+  "cartas": [
+    {
+      "id": "kim",
+      "nome": "Kim — Briguento",
+      "tier": "free",
+      "descricao": "Descendente Xakaxi. Portador do Sangue Primordial. Entrou no LDI sem querer e chegou ao top 1201 na primeira batalha.",
+      "atributos": {
+        "rank_sdr": 1201,
+        "poder_mental": 94,
+        "velocidade": 78,
+        "resistencia": 85,
+        "nivel_xama": 9,
+        "fator_caos": 99
+      }
+    },
+    {
+      "id": "jack",
+      "nome": "Jack — Vitória",
+      "tier": "free",
+      "descricao": "Arma: bengala Vitória. Modo Xamã: San Tien Kwan. Teatral, rápido e nunca genuinamente assustado.",
+      "atributos": {
+        "rank_sdr": 10776,
+        "poder_mental": 71,
+        "velocidade": 88,
+        "resistencia": 62,
+        "nivel_xama": 5,
+        "fator_caos": 82
+      }
+    },
+    {
+      "id": "nina",
+      "nome": "Nina — Angel",
+      "tier": "free",
+      "descricao": "Muay Thai e katana Angel. Rank 8.724. Quando fala, muda a cena.",
+      "atributos": {
+        "rank_sdr": 8724,
+        "poder_mental": 76,
+        "velocidade": 85,
+        "resistencia": 79,
+        "nivel_xama": 4,
+        "fator_caos": 61
+      }
+    },
+    {
+      "id": "thunderbolt",
+      "nome": "Thunderbolt — Trovão",
+      "tier": "free",
+      "descricao": "Bruno Ribeiro. Rank 30.156. Elemental: Eletricidade. 1.201 vitórias antes de encontrar o Kim.",
+      "atributos": {
+        "rank_sdr": 30156,
+        "poder_mental": 68,
+        "velocidade": 91,
+        "resistencia": 70,
+        "nivel_xama": 2,
+        "fator_caos": 45
+      }
+    },
+    {
+      "id": "shuntaro",
+      "nome": "Shuntaro — Rei Xamã",
+      "tier": "free",
+      "descricao": "Rank 998. Ioiôs de Água. Viajou 9 horas de Azuma só para desafiar Kim. Modo Xamã: serra no braço direito.",
+      "atributos": {
+        "rank_sdr": 998,
+        "poder_mental": 83,
+        "velocidade": 87,
+        "resistencia": 74,
+        "nivel_xama": 7,
+        "fator_caos": 68
+      }
+    },
+    {
+      "id": "lisa",
+      "nome": "Lisa — Top 500",
+      "tier": "elite",
+      "descricao": "Rank top 500. Ficou interessada em Kim após o vídeo viral. Confiante, enigmática, competitiva mas justa.",
+      "atributos": {
+        "rank_sdr": 500,
+        "poder_mental": 88,
+        "velocidade": 82,
+        "resistencia": 80,
+        "nivel_xama": 6,
+        "fator_caos": 73
+      }
+    },
+    {
+      "id": "nexus_phantasm",
+      "nome": "Nexus Phantasm — Arauto",
+      "tier": "elite",
+      "descricao": "Arauto das Arenas. Não é humano, não é IA convencional. Criado por hackers, oficializado pela Yohu. Sarcástico por natureza.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 95,
+        "velocidade": 70,
+        "resistencia": 99,
+        "nivel_xama": 3,
+        "fator_caos": 96
+      }
+    },
+    {
+      "id": "yawanari",
+      "nome": "Pajé Yawanari — Imortal",
+      "tier": "elite",
+      "descricao": "Xamã imortal da tribo Xakaxi. Quinhentos anos observando a humanidade. Sabedoria ancestral em gírias modernas.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 100,
+        "velocidade": 40,
+        "resistencia": 100,
+        "nivel_xama": 10,
+        "fator_caos": 88
+      }
+    },
+    {
+      "id": "voidhunter",
+      "nome": "VoidHunter_X — Void",
+      "tier": "elite",
+      "descricao": "Entidade do LDI. Não é jogador. O visor não reflete. Os dedos dobram ao contrário. Gosma preta nas fissuras do peitoral.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 91,
+        "velocidade": 76,
+        "resistencia": 97,
+        "nivel_xama": 8,
+        "fator_caos": 94
+      }
+    },
+    {
+      "id": "kronos",
+      "nome": "David Kronos — Primordial",
+      "tier": "primordial",
+      "descricao": "Espírito ancestral corrompido. Cinco séculos esperando pelo Corpo Primordial. Cada possessão deteriora o hospedeiro.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 99,
+        "velocidade": 55,
+        "resistencia": 98,
+        "nivel_xama": 10,
+        "fator_caos": 91
+      }
+    }
+  ]
+}

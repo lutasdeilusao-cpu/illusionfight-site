@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.7*
+*Versão: 1.8*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -72,7 +72,8 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR e Curiosidades |
+| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
+| `/extras/supertrunfo` | SuperTrunfo | `src/pages/SuperTrunfo.jsx` | ✅ | Jogo Super Trunfo com cartas dos personagens do LDI |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha |
@@ -147,6 +148,7 @@
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
 | `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
+| `supertrunfo-pt.json` | `src/data/` | PT | 10 cartas com atributos (Rank SDR, Poder Mental, Velocidade, Resistência, Nível Xamã, Fator Caos) | SuperTrunfo |
 | `achievements-pt.json` | `src/data/` | PT | 8 achievements com triggers, ícones e tiers | AchievementsContext |
 | `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
@@ -237,6 +239,12 @@
 - ✅ **Página hub /extras** — Cards para Quiz SDR (FREE) e Curiosidades (PREMIUM)
 - ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
+### Super Trunfo LDI
+- ✅ **Jogo de cartas vs IA** — 10 cartas dos personagens, 6 atributos cada, modo free/elite/primordial baseado no TRIAL_ACTIVE
+- ✅ **Atributos inversos** — Rank SDR: menor valor vence (diferente dos outros atributos)
+- ✅ **Visual dark** — Cartas com avatar circular, borda âmbar, verso da IA com flip animation
+- ✅ **Controle de acesso** — TRIAL_ACTIVE libera todas as 10 cartas, senão só 5 free
+
 ### Achievement Mensal de Compartilhamento
 - ✅ **Tabela share_submissions** — Supabase, 1 envio/mês/usuário, status pendente/aprovado/rejeitado
 - ✅ **Seção no perfil** — Input de link, validação de URL, feedback de status
@@ -307,6 +315,9 @@
 - ❌ **Quiz EN/ES** — Banco de perguntas traduzido para inglês e espanhol
 - ❌ **Quiz — silhuetas dos personagens** — Substituir cards de texto da gangue por avatares visuais
 - ❌ **Quiz — leaderboard** — Ranking global de pontuações
+- ❌ **Super Trunfo multiplayer via Supabase Realtime** — Jogar contra outros usuários em tempo real
+- ❌ **Super Trunfo EN/ES** — Tradução das cartas e atributos para inglês e espanhol
+- ❌ **Super Trunfo — imagens reais dos personagens** — Substituir placeholders (iniciais) por artwork final
 - ❌ **Achievement divulgador — automação futura** — Verificação automática via API do X/YouTube em vez de auditoria manual
 - ❌ **Achievements EN/ES** — Tradução dos achievements para inglês e espanhol
 - ❌ **Leaderboard de achievements** — Comparação entre usuários

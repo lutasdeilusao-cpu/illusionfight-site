@@ -25,6 +25,7 @@ import Mundo from './pages/Mundo'
 import Curiosidades from './pages/Curiosidades'
 import Quiz from './pages/Quiz'
 import Extras from './pages/Extras'
+import SuperTrunfo from './pages/SuperTrunfo'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil'
@@ -62,6 +63,7 @@ export default function App() {
         <Route path="/curiosidades" element={<Curiosidades />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
+        <Route path="/extras/supertrunfo" element={<SuperTrunfo />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/login" element={<Login />} />

@@ -10,6 +10,13 @@ const extras = [
     cor: 'teal'
   },
   {
+    titulo: 'Super Trunfo LDI',
+    descricao: 'Jogo de cartas com os personagens do universo LDI. Compare atributos e vença a IA.',
+    badge: 'FREE',
+    url: '/extras/supertrunfo',
+    cor: 'teal'
+  },
+  {
     titulo: 'Curiosidades',
     descricao: 'Lore, easter eggs e bastidores do universo Lutas de Ilusão — o que está entre as linhas.',
     badge: 'PREMIUM',
