@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-03*
-*Versão: 1.34*
+*Última atualização: 2026-06-03*  
+*Versão: 1.35*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -398,6 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
+**Versão atual:** `1.0.1` (console: `[LDI] versão carregada: 1.0.1`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -471,6 +472,11 @@ src/pages/LDI/
 - Efeitos visuais: typewriter · onomatopeias · flash de dano · dado animado
 - Auto-save no Supabase por transição de cena (usuário logado)
 - Transições de cena com split VHS / tela preta
+
+### Bugfixes aplicados
+- ✅ **NeoGuide repetindo (CRÍTICO)** — Create.jsx setava `current_scene_id: '1.1'` (cena NeoGuide no jogo). Corrigido para `'1.2'`, pulando as cenas 1.1→1.1d já respondidas no formulário. Adicionado `useEffect` guard que redireciona ao jogo se ficha já existe. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
+- ✅ **Texto no topo (ALTO)** — `.ldi-scene` sem `justify-content: center`. Corrigido com `justify-content: center` + padding vertical + choices fixas no bottom com `position: fixed`. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
+- ✅ **Jogo trava após perguntas (CRÍTICO)** — `loadScene` retornava `null` silenciosamente se sceneId inexistente. Corrigido com fallback automático pra cena `1.2`, cache persistente e logs detalhados no console. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique

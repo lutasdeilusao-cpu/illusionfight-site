@@ -1,3 +1,6 @@
+const LDI_VERSION = '1.0.1'
+console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
+
 import { create } from 'zustand'
 import { loadScene, filterChoices, getSceneFromCache } from '../engine/scenes'
 import { setFlag, hasFlag } from '../engine/flags'
