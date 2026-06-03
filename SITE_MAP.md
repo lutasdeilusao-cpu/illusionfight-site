@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.32*
+*Versão: 1.33*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -283,6 +283,7 @@
 - ✅ **Fix: deckOponente carregado antes da primeira jogada** — O carregamento do deck do oponente estava dentro do `useEffect` de `[user, sala?.total_turnos]`, que podia atrasar se `sala?.total_turnos` demorasse a ficar disponível. Separado em um `useEffect` próprio com dependências `[salaId, user]` que busca a sala diretamente no banco e carrega `deckOponente` independentemente. Adicionado log de diagnóstico em `jogarAtributo`.
 - ✅ **Fix: deckOponente recarrega quando jogador2 entra** — O `useEffect` de carregamento do `deckOponente` tinha dependências `[salaId, user]` — para o J1, `sala.jogador2_id` é `null` no mount, então `opId` ficava `null` e o effect saía sem carregar nada. Adicionada dependência `sala?.jogador2_id` para que o effect re-dispare quando J2 entrar na sala e o Realtime atualizar o estado.
 - ✅ **Fix: remove todos console.log de debug do MP** — 19 `console.log` removidos de `TopTrumpsMP.jsx` e 14 de `useTopTrumpsMP.js`. Mantidos apenas `console.error` para erros reais. A limpeza inclui logs de diagnóstico de fluxo (`registrarMovimento`, `resolverRodada`, `deckOponente`, `jogarAtributo`, `subscribeToSala`, `subscribeToMovimentos`, `escolherPPT`, `finalizarPPT`, `entrarFilaPublica`, render turno) e remoção dos callbacks de status dos subscriptions Realtime. Bundle hash: `index-zp3AcZfn.js`. Commit: `bd64629`.
+- ✅ **Fix: travamento na terceira rodada** — `setEhMinhaVez` movido para antes de `setFase('jogando')` em `seguirParaProximaRodada`. A ordem importa porque o React batcha os setStates — se `setFase` dispara primeiro, o componente renderiza `jogando` com `ehMinhaVez` ainda obsoleto do turno anterior, e o botão de jogar não aparece. Bundle hash: `index-M5tbNxZr.js`. Commit: `8f129e6`.
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
