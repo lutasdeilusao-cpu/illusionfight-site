@@ -41,6 +41,7 @@ import LDICombat from './pages/LDI/Combat'
 import LDISheet from './pages/LDI/Sheet'
 import LDIClues from './pages/LDI/Clues'
 import LDIEnd from './pages/LDI/End'
+import Diagnostico from './pages/LDI/Diagnostico'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -84,6 +85,7 @@ export default function App() {
         <Route path="/extras/ldi/sheet" element={<LDISheet />} />
         <Route path="/extras/ldi/clues" element={<LDIClues />} />
         <Route path="/extras/ldi/end" element={<LDIEnd />} />
+        <Route path="/extras/ldi/diagnostico" element={<Diagnostico />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />
