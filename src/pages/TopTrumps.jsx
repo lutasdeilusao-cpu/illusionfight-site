@@ -181,7 +181,7 @@ export default function TopTrumps() {
           localStorage.setItem(chaveTent, JSON.stringify({ data: hoje, count: novoCount }))
           localStorage.setItem(chaveData, hoje)
           setTentativasRestantes(Math.max(0, 3 - novoCount))
-          registrarPartida(user.id, { jogadas, vitorias, derrotas, empates, resultado })
+          window.__partidaPendente = { jogadas, vitorias, derrotas, empates, resultado }
           return
         }
       } else {
@@ -205,6 +205,14 @@ export default function TopTrumps() {
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id])
+    const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
+    registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id }).then(stats => {
+      if (stats.total_vitorias === 1) desbloquear('primeira_vitoria_trumps')
+      if (stats.total_partidas === 10) desbloquear('veterano_trumps_10')
+      if (stats.total_partidas === 100) desbloquear('centuriao_trumps')
+      if (stats.total_partidas === 1000) desbloquear('lenda_trumps')
+    })
+    window.__partidaPendente = null
     setFase('fim_jogo')
   }
 
