@@ -9,7 +9,7 @@ import './LDI.css'
 export default function Game() {
   const navigate = useNavigate()
   const { user } = useAuth()
-  const { sheet, save, currentScene, choices, setScene, makeChoice, updateSave, saveToCloud } = useGameStore()
+  const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud } = useGameStore()
   const combat = useCombatStore()
 
   useEffect(() => {
@@ -72,6 +72,7 @@ export default function Game() {
         scene={currentScene}
         choices={choices}
         onChoice={handleChoice}
+        sceneNav={sceneNav}
       />
     </div>
   )

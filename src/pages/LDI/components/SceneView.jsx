@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Typewriter from './Typewriter'
 import ChoiceList from './ChoiceList'
 
-export default function SceneView({ scene, choices, onChoice }) {
+export default function SceneView({ scene, choices, onChoice, sceneNav }) {
   const [showChoices, setShowChoices] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
   const [selectedId, setSelectedId] = useState(null)
@@ -14,18 +14,22 @@ export default function SceneView({ scene, choices, onChoice }) {
   const handleSkip = () => setShowChoices(true)
 
   const handleChoiceClick = async (choice) => {
+    if (transitioning) return
     console.log('[LDI] onChoice chamado, choice:', choice.id, choice.label)
     setSelectedId(choice.id)
     setTransitioning(true)
     setTimeout(() => {
       onChoice(choice)
+      setTransitioning(false)
+      setSelectedId(null)
+      setShowChoices(false)
     }, 300)
   }
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={scene.id}
+        key={`${scene.id}_${sceneNav}`}
         className="ldi-scene"
         initial={{ clipPath: 'inset(0 50% 0 50%)' }}
         animate={{ clipPath: 'inset(0 0% 0 0%)' }}

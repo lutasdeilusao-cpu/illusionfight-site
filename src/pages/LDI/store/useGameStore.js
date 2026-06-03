@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.7'
+const LDI_VERSION = '1.0.8'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -51,6 +51,7 @@ export const useGameStore = create((set, get) => ({
   sheet: defaultSheet(),
   currentScene: null,
   choices: [],
+  sceneNav: 0,
 
   newSheet: () => {
     set({ sheet: defaultSheet(), save: { ...defaultSave(), pv_current: 1, pm_current: 1 } })
@@ -116,7 +117,7 @@ export const useGameStore = create((set, get) => ({
       const flags = state.save.flags
       const credits = state.save.credits
       const filtered = filterChoices(scene.choices || [], sheet, flags, credits)
-      return { currentScene: scene, choices: filtered }
+      return { currentScene: scene, choices: filtered, sceneNav: state.sceneNav + 1 }
     })
   },
 
