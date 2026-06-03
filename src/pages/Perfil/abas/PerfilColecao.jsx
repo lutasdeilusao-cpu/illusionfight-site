@@ -22,8 +22,8 @@ export default function PerfilColecao({ userId }) {
   const tierCor = { free: '#00c8a8', elite: '#e8853a', primordial: '#6B0F1A', lendario: '#9b59b6', sombra: '#2c3e50' }
 
   const cartasFiltradas = deck.cartas.filter((_, i) => {
-    if (filtro === 'obtidas') return deckIds.includes(deck.cartas[i].id)
-    if (filtro === 'faltando') return !deckIds.includes(deck.cartas[i].id)
+    if (filtro === 'obtidas') return deckIds.includes(deck.cartas[i].id_num)
+    if (filtro === 'faltando') return !deckIds.includes(deck.cartas[i].id_num)
     return true
   })
 
@@ -38,7 +38,7 @@ export default function PerfilColecao({ userId }) {
       </div>
       <div className="perfil-deck-grid">
         {cartasFiltradas.map((carta, i) => {
-          const tem = deckIds.includes(carta.id)
+          const tem = deckIds.includes(carta.id_num)
           return (
             <div key={carta.id} className={`perfil-deck-card ${tem ? 'perfil-deck-card--tem' : 'perfil-deck-card--falta'}`}>
               {tem ? (
