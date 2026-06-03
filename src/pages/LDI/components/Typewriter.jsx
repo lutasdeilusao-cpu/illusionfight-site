@@ -12,24 +12,23 @@ const PERSONAGEM_STYLE = {
   'default': { cor: '#00B4D8', fonte: 'Share Tech Mono' },
 }
 
-const PERSONAGEM_NAMES = Object.keys(PERSONAGEM_STYLE)
-
-function detectPersonagem(text) {
-  if (!text) return null
-  const found = PERSONAGEM_NAMES.find(name => {
-    const pattern1 = new RegExp(`^["']?${name}:`)
-    const pattern2 = new RegExp(`^["']?${name}\\s+disse`, 'i')
-    const pattern3 = text.startsWith(`"${name}:`) || text.startsWith(`${name}:`)
-    return pattern1.test(text) || pattern2.test(text) || pattern3
-  })
-  return found
+const CENA_PERSONAGEM = {
+  '1.1': 'NeoGuide',
+  '1.1b': 'NeoGuide',
+  '1.1c': 'NeoGuide',
+  '1.1d': 'NeoGuide',
+  '2.1': 'Kaeda',
+  '2.1a': 'Kaeda',
+  '2.1b': 'Kaeda',
+  '2.1c': 'Kaeda',
+  '2.1d': 'Kaeda',
 }
 
 function isFala(text) {
   return text?.startsWith('"') || text?.includes('—')
 }
 
-export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300, onComplete, onSkip }) {
+export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300, onComplete, onSkip, sceneId }) {
   const [displayedTexts, setDisplayedTexts] = useState([])
   const [currentPara, setCurrentPara] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
@@ -109,11 +108,8 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
   return (
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
       {paragraphs.map((para, i) => {
-        const nomePersonagem = detectPersonagem(para)
-        let estiloPersonagem = null
-        if (nomePersonagem) {
-          estiloPersonagem = PERSONAGEM_STYLE[nomePersonagem] || PERSONAGEM_STYLE.default
-        }
+        const personagemId = CENA_PERSONAGEM[sceneId] || null
+        const estiloPersonagem = personagemId && isFala(para) ? (PERSONAGEM_STYLE[personagemId] || PERSONAGEM_STYLE.default) : null
         const className = `ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`
         return (
           <p
