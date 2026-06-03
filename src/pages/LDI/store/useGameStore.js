@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.20'
+const LDI_VERSION = '1.0.21'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -227,10 +227,11 @@ export const useGameStore = create((set, get) => ({
     if (!userId || !sheetId) return false
     const sheetData = await loadFullSheet(sheetId)
     const saveData = await loadActiveSave(sheetId)
-    if (sheetData && saveData) {
+    console.log('[LOAD] sheetData:', sheetData?.sheet_name, 'saveData:', saveData?.status, saveData?.current_scene_id)
+    if (sheetData) {
       set({
         sheet: { ...defaultSheet(), ...sheetData },
-        save: { ...defaultSave(), ...saveData },
+        save: { ...defaultSave(), ...(saveData || {}) },
       })
       return true
     }

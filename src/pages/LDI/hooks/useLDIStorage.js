@@ -96,12 +96,11 @@ export async function loadActiveSave(sheetId) {
     .from('game_saves')
     .select('*')
     .eq('sheet_id', sheetId)
-    .eq('status', 'active')
     .order('created_at', { ascending: false })
     .limit(1)
 
   if (error) {
-    console.error('[LDI] Erro ao carregar save ativo:', error)
+    console.error('[LDI] Erro ao carregar save:', error)
     return null
   }
   return data?.[0] || null
