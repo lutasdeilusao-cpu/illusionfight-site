@@ -838,13 +838,7 @@
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  max-height: 70vh;
-  overflow-y: auto;
-  padding-right: 4px;
 }
-
-.tt-relatorio::-webkit-scrollbar { width: 4px; }
-.tt-relatorio::-webkit-scrollbar-thumb { background: #2A2D31; border-radius: 2px; }
 
 .tt-relatorio-titulo {
   font-family: "Rajdhani", sans-serif;
