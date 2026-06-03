@@ -40,6 +40,8 @@ export default function TopTrumpsMP() {
   const [tempoRestante, setTempoRestante] = useState(30)
   const [movimentoRecebido, setMovimentoRecebido] = useState(false)
   const [ultimoMovimento, setUltimoMovimento] = useState(null)
+  const [girando, setGirando] = useState(false)
+  const [particulas, setParticulas] = useState([])
   const [jaMovi, setJaMovi] = useState(false)
   const [meuPapel, setMeuPapel] = useState(null)
   const [deckLocal, setDeckLocal] = useState([])
@@ -129,17 +131,59 @@ export default function TopTrumpsMP() {
     return () => clearInterval(iv)
   }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
-  useEffect(() => {
-    if (fase !== 'revelacao') return
-    const timer = setTimeout(() => setFase('resultado'), 1800)
-    return () => clearTimeout(timer)
-  }, [fase])
+  function seguirParaProximaRodada() {
+    const s = salaRef.current
+    if (!s) return
+    if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
+      setFase('fim')
+      return
+    }
+
+    setAtributoEscolhido(null)
+    setResultadoRodada(null)
+    setMovimentoRecebido(false)
+    setJaMovi(false)
+    setCartaOponente(null)
+    setUltimoMovimento(null)
+    setGirando(false)
+    setFase('jogando')
+    setEhMinhaVez(s.jogador_da_vez === user.id)
+  }
 
   function jogarAtributo(atributoId) {
-    if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal) return
+    if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false).then(() => {
       setJaMovi(true)
     })
+  }
+
+  function gerarParticulasMP(tipo) {
+    const qtd = tipo === 'empate' ? 20 : 35
+    const cores = tipo === 'ganhou' ? ['#e8853a', '#F4A227', '#fff'] : tipo === 'perdeu' ? ['#e74c3c', '#c0392b', '#6B0F1A'] : ['#fff', '#8B8F96', '#4F5359']
+    const nova = []
+    for (let i = 0; i < qtd; i++) {
+      nova.push({
+        id: Date.now() + i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        cor: cores[Math.floor(Math.random() * cores.length)],
+        tam: Math.floor(Math.random() * 8) + 6,
+        duracao: (Math.random() * 0.6 + 0.8).toFixed(2),
+        angle: Math.random() * 360,
+        dist: Math.floor(Math.random() * 120) + 80
+      })
+    }
+    setParticulas(nova)
+    setTimeout(() => setParticulas([]), 1800)
+  }
+
+  function iniciarRevelacao(resultadoFinal) {
+    setGirando(true)
+    setTimeout(() => {
+      setGirando(false)
+      gerarParticulasMP(resultadoFinal)
+      setFase('revelacao')
+    }, 800)
   }
 
   async function resolverRodada() {
@@ -187,9 +231,9 @@ export default function TopTrumpsMP() {
       const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
       const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
       const novoTurno = s.turno_atual + 1
+      const proximoJogador = res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
       const fim = novoTurno > s.total_turnos
-
-      setFase('revelacao')
+      const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
       if (fim) {
         const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
@@ -210,10 +254,12 @@ export default function TopTrumpsMP() {
           pontos_j1: novosPontosJ1,
           pontos_j2: novosPontosJ2,
           turno_atual: novoTurno,
-          jogador_da_vez: res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+          jogador_da_vez: proximoJogador
         })
+        setEhMinhaVez(proximoJogador === user.id)
       }
 
+      iniciarRevelacao(resultadoFinal)
       return
     }
 
@@ -268,9 +314,9 @@ export default function TopTrumpsMP() {
       const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
       const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
       const novoTurno = s.turno_atual + 1
+      const proximoJogador = res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
       const fim = novoTurno > s.total_turnos
-
-      setFase('revelacao')
+      const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
       if (fim) {
         const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
@@ -291,10 +337,12 @@ export default function TopTrumpsMP() {
           pontos_j1: novosPontosJ1,
           pontos_j2: novosPontosJ2,
           turno_atual: novoTurno,
-          jogador_da_vez: res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+          jogador_da_vez: proximoJogador
         })
+        setEhMinhaVez(proximoJogador === user.id)
       }
 
+      iniciarRevelacao(resultadoFinal)
       return
     }
 
@@ -307,28 +355,6 @@ export default function TopTrumpsMP() {
   // dos refs jaMovi/movimentoRecebido para decidir quando resolver a rodada.
   // A resolução é acionada imediatamente ao receber o INSERT na tabela
   // `toptrumps_movimentos` (veja subscribeToMovimentos abaixo).
-
-  useEffect(() => {
-    if (fase !== 'resultado') return
-    const t = setTimeout(() => {
-      const s = salaRef.current
-      if (!s) return
-      if (s.status === 'encerrada' || s.turno_atual >= s.total_turnos) {
-        setFase('fim')
-      } else {
-        setFase('jogando')
-        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
-        setAtributoEscolhido(null)
-        setResultadoRodada(null)
-        setMovimentoRecebido(false)
-        setJaMovi(false)
-        setCartaOponente(null)
-        setUltimoMovimento(null)
-        setEhMinhaVez(s.jogador_da_vez === user.id)
-      }
-    }, 2000)
-    return () => clearTimeout(t)
-  }, [fase])
 
   useEffect(() => {
     if (fase !== 'carregando' || !salaId) return
@@ -349,6 +375,12 @@ export default function TopTrumpsMP() {
       const s = p.new
       const anterior = salaRef.current
       setSala(s)
+
+      // J2 entrou na sala → PPT phase para ambos os clientes
+      if (s.status === 'em_jogo' && s.jogador2_id && (!anterior || !anterior.jogador2_id)) {
+        setFase('ppt')
+        return
+      }
 
       // PPT: ambos escolheram
       if (faseRef.current === 'ppt' && s.aposta_confirmada_j1 && s.aposta_confirmada_j2) {
@@ -576,7 +608,7 @@ export default function TopTrumpsMP() {
               <span className="ttmp-vez-message">Advers&aacute;rio escolhendo...</span>
             )}
           </div>
-          <div className="ttmp-card">
+          <div className={`ttmp-card${girando ? ' ttmp-spinning-reveal' : ''}`}>
             {cartaOponente ? (
               <>
                 <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaOponente.id) }}>
@@ -631,6 +663,20 @@ export default function TopTrumpsMP() {
 
     return (
       <section className="ttmp-page">
+        {particulas.map(p => (
+          <div key={p.id}
+            className="ttmp-particula"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: `${p.tam}px`,
+              height: `${p.tam}px`,
+              background: p.cor,
+              animationDuration: `${p.duracao}s`,
+              '--angle': `${p.angle}deg`,
+              '--dist': `${p.dist}px`
+            }} />
+        ))}
         <div className="ttmp-revelacao-banner">
           <div>
             <span className="ttmp-revelacao-title">Revelação da rodada</span>
@@ -674,7 +720,10 @@ export default function TopTrumpsMP() {
           </div>
 
           <div className="ttmp-vs">
-            <span className="ttmp-vs-texto">REVELANDO</span>
+            <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
+              {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU!' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU!' : 'EMPATE!'}
+            </span>
+            <span className="ttmp-resultado-atributo">{attr?.nome}</span>
           </div>
 
           <div className="ttmp-card ttmp-card--revelado">
@@ -684,86 +733,19 @@ export default function TopTrumpsMP() {
             <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
             <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
             <div className="ttmp-card-atributos">
-              {atributos.map(a => {
-                let c = `ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`
-                return (
-                  <div key={a.id} className={c}>
-                    <span className="ttmp-atributo-nome">{a.nome}</span>
-                    <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  if (fase === 'resultado') {
-    if (!cartaLocal || !cartaOponente) return null
-    const attr = atributos.find(a => a.id === atributoEscolhido)
-    return (
-      <section className="ttmp-page">
-        <div className="ttmp-hud">
-          <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">VOCÊ</span>
-            <span className="ttmp-hud-placar-valor">{placar.eu}</span>
-          </div>
-          <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">RODADA {sala?.turno_atual}/{sala?.total_turnos}</span>
-          </div>
-          <div className="ttmp-hud-oponente">
-            <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
-            <span className="ttmp-hud-placar-valor">{placar.oponente}</span>
-          </div>
-        </div>
-        <div className="ttmp-mesa">
-          <div className="ttmp-card">
-            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaLocal.id) }}>
-              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
-            </div>
-            <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
-            <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
-            <div className="ttmp-card-atributos">
               {atributos.map(a => (
                 <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
                   <span className="ttmp-atributo-nome">{a.nome}</span>
-                  <span className="ttmp-atributo-valor">{cartaLocal.atributos[a.id]}</span>
+                  <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="ttmp-vs">
-            <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
-              {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU!' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU!' : 'EMPATE!'}
-            </span>
-            <span className="ttmp-resultado-atributo">{attr?.nome}</span>
-          </div>
-          <div className="ttmp-card">
-            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaOponente.id) }}>
-              <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
-            </div>
-            <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
-            <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
-            <div className="ttmp-card-atributos">
-              {atributos.map(a => {
-                let c = 'ttmp-atributo-btn'
-                if (a.id === atributoEscolhido) {
-                  if (resultadoRodada === 'ganhou') c += ' ttmp-atributo--perdeu'
-                  else if (resultadoRodada === 'perdeu') c += ' ttmp-atributo--ganhou'
-                  else c += ' ttmp-atributo--empate'
-                }
-                return (
-                  <div key={a.id} className={c}>
-                    <span className="ttmp-atributo-nome">{a.nome}</span>
-                    <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
         </div>
+
+        <button className="ttmp-proxima-btn" onClick={seguirParaProximaRodada}>
+          PRÓXIMA RODADA
+        </button>
       </section>
     )
   }
