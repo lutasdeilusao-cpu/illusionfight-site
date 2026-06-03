@@ -58,6 +58,54 @@
   align-items: center;
 }
 
+.ldi-save-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  background: rgba(255,255,255,0.03);
+}
+
+.ldi-save-card-name {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.ldi-save-card-meta {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  margin-top: 0.2rem;
+}
+
+.ldi-save-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ldi-btn--danger {
+  background: transparent;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.ldi-btn--danger:hover {
+  background: rgba(231, 76, 60, 0.15);
+}
+
 .ldi-lobby-disclaimer {
   margin-top: 2rem;
   font-size: 0.75rem;

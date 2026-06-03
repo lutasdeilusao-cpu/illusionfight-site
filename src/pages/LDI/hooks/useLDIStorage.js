@@ -108,6 +108,7 @@ export async function loadActiveSave(sheetId) {
 }
 
 export async function deleteSheet(sheetId) {
+  await supabase.from('game_saves').delete().eq('sheet_id', sheetId)
   const { error } = await supabase
     .from('character_sheets')
     .delete()

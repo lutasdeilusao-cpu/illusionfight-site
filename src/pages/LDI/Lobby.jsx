@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { useGameStore } from './store/useGameStore'
-import { loadSheets } from './hooks/useLDIStorage'
+import { loadSheets, deleteSheet } from './hooks/useLDIStorage'
 import './LDI.css'
 
 export default function Lobby() {
@@ -27,6 +27,12 @@ export default function Lobby() {
     if (!user) return
     const ok = await loadFromCloud(user.id, sheetId)
     if (ok) navigate('/extras/ldi/game')
+  }
+
+  const handleDelete = async (sheetId) => {
+    if (!window.confirm('Deletar esta ficha permanentemente?')) return
+    await deleteSheet(sheetId)
+    setSaves(prev => prev.filter(s => s.id !== sheetId))
   }
 
   const handleNew = () => {
@@ -64,18 +70,19 @@ export default function Lobby() {
             {loading && <p>Carregando...</p>}
             {!loading && saves.length === 0 && <p>Nenhuma ficha salva ainda.</p>}
             {saves.map(s => (
-              <div key={s.id} className="ldi-lobby-save-item">
-                <span className="ldi-lobby-save-name">{s.sheet_name}</span>
-                <span className="ldi-lobby-save-stats">
-                  {s.weapon && `Arma: ${s.weapon}`}
-                  {s.xp_total > 0 && ` | XP: ${s.xp_total}`}
-                </span>
-                <button
-                  onClick={() => handleContinue(s.id)}
-                  className="ldi-btn ldi-btn--small"
-                >
-                  CONTINUAR
-                </button>
+              <div key={s.id} className="ldi-save-card">
+                <div className="ldi-save-card-info">
+                  <span className="ldi-save-card-name">{s.sheet_name}</span>
+                  <span className="ldi-save-card-meta">Arma: {s.weapon} · Arco {s.arc || 1}</span>
+                </div>
+                <div className="ldi-save-card-actions">
+                  <button className="ldi-btn ldi-btn--primary" onClick={() => handleContinue(s.id)}>
+                    CONTINUAR
+                  </button>
+                  <button className="ldi-btn ldi-btn--danger" onClick={() => handleDelete(s.id)}>
+                    🗑
+                  </button>
+                </div>
               </div>
             ))}
           </div>
