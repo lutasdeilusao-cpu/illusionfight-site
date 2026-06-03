@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.1'
+const MP_VERSION = '1.0.2'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -427,7 +427,8 @@ export default function TopTrumpsMP() {
         return
       }
 
-      if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') {
+      console.log('[MP] subscribeToSala turno mudou, faseRef:', faseRef.current)
+      if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'revelacao' && faseRef.current !== 'fim') {
         setFase('jogando')
         setAtributoEscolhido(null)
         setResultadoRodada(null)
