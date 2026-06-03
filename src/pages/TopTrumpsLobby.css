@@ -337,3 +337,103 @@
     padding: 1rem;
   }
 }
+
+/* ---- FILA DE ESPERA ---- */
+
+.ttmp-fila {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.ttmp-fila-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e8853a;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.ttmp-fila-frase {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ttmp-fila-texto {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.05rem;
+  color: #EAEAEA;
+  transition: none;
+}
+
+.ttmp-fila-glitch {
+  animation: ttmp-glitch 0.15s ease 3;
+}
+
+@keyframes ttmp-glitch {
+  0%   { transform: translateX(0); color: #EAEAEA; }
+  25%  { transform: translateX(-3px); color: #00B4D8; }
+  50%  { transform: translateX(3px); color: #EAEAEA; }
+  75%  { transform: translateX(-2px); color: #00B4D8; }
+  100% { transform: translateX(0); color: #EAEAEA; }
+}
+
+.ttmp-fila-cursor {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.1rem;
+  color: #e8853a;
+  animation: ttmp-cursor-pulse 0.8s ease infinite;
+}
+
+@keyframes ttmp-cursor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ttmp-fila-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 1.5rem;
+}
+
+.ttmp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e8853a;
+  animation: ttmp-dot-fade 1.4s ease infinite;
+}
+
+.ttmp-dot:nth-child(1) { animation-delay: 0s; }
+.ttmp-dot:nth-child(2) { animation-delay: 0.2s; }
+.ttmp-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes ttmp-dot-fade {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+
+.ttmp-fila-sair {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.6rem 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: 1.5px solid #c0392b;
+  color: #e74c3c;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ttmp-fila-sair:hover {
+  background: #c0392b;
+  color: #fff;
+}

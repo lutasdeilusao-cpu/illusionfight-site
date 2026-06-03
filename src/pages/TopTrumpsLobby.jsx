@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
@@ -29,8 +29,22 @@ export default function TopTrumpsLobby() {
   const [limiteInfo, setLimiteInfo] = useState(null)
   const [souJ1, setSouJ1] = useState(true)
   const [salaAposEntrada, setSalaAposEntrada] = useState(false)
+  const [naFila, setNaFila] = useState(false)
+  const [fraseIdx, setFraseIdx] = useState(0)
+  const [charIdx, setCharIdx] = useState(0)
+  const [digitando, setDigitando] = useState(true)
+  const [glitch, setGlitch] = useState(false)
 
   const salaEntradaRef = useRef(false)
+  const timerRef = useRef(null)
+
+  const FRASES = [
+    "Analisando o SDR...",
+    "Aguarde, a arena está te localizando.",
+    "Preparando o campo de batalha.",
+    "Seu adversário está chegando.",
+    "NeoGuide: combinação em andamento.",
+  ]
 
   useEffect(() => {
     if (!user) return
@@ -104,8 +118,48 @@ export default function TopTrumpsLobby() {
     setSalaId(result.salaId)
     setSouJ1(result.novo !== false)
     salaEntradaRef.current = false
-    setAguardando(false)
+    if (result.novo) {
+      setNaFila(true)
+      setAguardando(false)
+    } else {
+      setAguardando(false)
+    }
   }
+
+  function handleSairFila() {
+    setNaFila(false)
+    setSalaId(null)
+    setFraseIdx(0)
+    setCharIdx(0)
+  }
+
+  // Typewriter effect for waiting screen
+  useEffect(() => {
+    if (!naFila) return
+    const frase = FRASES[fraseIdx]
+    if (digitando) {
+      if (charIdx < frase.length) {
+        const t = setTimeout(() => setCharIdx(i => i + 1), 40)
+        return () => clearTimeout(t)
+      } else {
+        setDigitando(false)
+        const t = setTimeout(() => {
+          setGlitch(true)
+          setTimeout(() => setGlitch(false), 150)
+          setTimeout(() => { setGlitch(true); setTimeout(() => setGlitch(false), 120); }, 400)
+          setTimeout(() => { setGlitch(true); setTimeout(() => setGlitch(false), 100); }, 800)
+        }, 1500)
+        return () => clearTimeout(t)
+      }
+    } else {
+      const t = setTimeout(() => {
+        setFraseIdx(i => (i + 1) % FRASES.length)
+        setCharIdx(0)
+        setDigitando(true)
+      }, 2800)
+      return () => clearTimeout(t)
+    }
+  }, [naFila, fraseIdx, charIdx, digitando])
 
   async function handleConfirmarAposta() {
     if (!user || !salaId || !cartaAposta) return
@@ -151,7 +205,23 @@ export default function TopTrumpsLobby() {
         </div>
       )}
 
-      {etapa === 'matchmaking' && (
+      {naFila && (
+        <div className="ttmp-fila">
+          <h2 className="ttmp-fila-titulo">PROCURANDO ADVERSÁRIO</h2>
+          <div className="ttmp-fila-frase">
+            <span className={`ttmp-fila-texto${glitch ? ' ttmp-fila-glitch' : ''}`}>
+              {FRASES[fraseIdx].slice(0, charIdx)}
+            </span>
+            <span className="ttmp-fila-cursor">|</span>
+          </div>
+          <div className="ttmp-fila-dots">
+            <span className="ttmp-dot" /><span className="ttmp-dot" /><span className="ttmp-dot" />
+          </div>
+          <button className="ttmp-fila-sair" onClick={handleSairFila}>SAIR DA FILA</button>
+        </div>
+      )}
+
+      {!naFila && etapa === 'matchmaking' && (
         <div className="ttmp-matchmaking">
           {!podeJogar ? (
             <div className="ttmp-limite">
@@ -171,7 +241,7 @@ export default function TopTrumpsLobby() {
                     ENTRAR
                   </button>
                 </div>
-                <button className="ttmp-btn" onClick={handleFilaPublica} disabled={aguardando}>
+                <button className="ttmp-btn" onClick={handleFilaPublica} disabled={aguardando || naFila}>
                   {aguardando ? 'PROCURANDO...' : 'FILA PÚBLICA'}
                 </button>
               </div>
