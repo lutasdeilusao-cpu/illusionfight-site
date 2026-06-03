@@ -26,6 +26,8 @@ import Curiosidades from './pages/Curiosidades'
 import Quiz from './pages/Quiz'
 import Extras from './pages/Extras'
 import TopTrumps from './pages/TopTrumps'
+import TopTrumpsLobby from './pages/TopTrumpsLobby'
+import TopTrumpsMP from './pages/TopTrumpsMP'
 import Leaderboard from './pages/Leaderboard'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
@@ -65,6 +67,8 @@ export default function App() {
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/extras/toptrumps" element={<TopTrumps />} />
+        <Route path="/extras/toptrumps/lobby" element={<LoginGate feature="o Top Trumps Multiplayer"><TopTrumpsLobby /></LoginGate>} />
+        <Route path="/extras/toptrumps/multiplayer" element={<LoginGate feature="a partida multiplayer"><TopTrumpsMP /></LoginGate>} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />

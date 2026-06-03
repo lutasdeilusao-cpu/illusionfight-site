@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.18*
+*Versão: 1.19*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -77,6 +77,8 @@
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 | `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
 | `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign (2 colunas, seleção de modo, barra de coleção) |
+| `/extras/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), turnos, matchmaking (sala privada/código/fila pública) e aposta de cartas |
+| `/extras/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, atributos, placar, transferência de cartas no modo apostado |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -259,6 +261,7 @@
 - ✅ **Migração Supabase** — Deck, partidas e stats persistidos no banco; localStorage migrado automaticamente
 - ✅ **5 novos achievements** — Primeira Vitória, Aprendiz, Veterano (10), Centurião (100), Lenda (1000)
 - ✅ **Histórico no perfil** — Stats (partidas/vitórias/derrotas/streak) + últimas 10 partidas com resultados
+- ✅ **Multiplayer via Supabase Realtime** — Lobby com 3 etapas, matchmaking, timer 30s, IA fallback, transferência de cartas no modo apostado, stats e leaderboard separados
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro

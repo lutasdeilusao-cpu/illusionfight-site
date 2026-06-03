@@ -1,0 +1,453 @@
+.ttmp-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+/* ---- LOADING ---- */
+
+.ttmp-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1rem;
+}
+
+.ttmp-loading p {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #8B8F96;
+}
+
+.ttmp-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #2A2D31;
+  border-top-color: #e8853a;
+  border-radius: 50%;
+  animation: ttmp-spin 0.8s linear infinite;
+}
+
+/* ---- HUD ---- */
+
+.ttmp-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.ttmp-hud-jogador,
+.ttmp-hud-oponente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 80px;
+}
+
+.ttmp-hud-oponente {
+  align-items: center;
+}
+
+.ttmp-hud-nome {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.ttmp-hud-placar-valor {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  line-height: 1;
+}
+
+.ttmp-hud-centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ttmp-hud-rodada {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  letter-spacing: 0.08em;
+}
+
+/* ---- TIMER ---- */
+
+.ttmp-timer {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttmp-timer-svg {
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.ttmp-timer-bg {
+  fill: none;
+  stroke: #2A2D31;
+  stroke-width: 4;
+}
+
+.ttmp-timer-fill {
+  fill: none;
+  stroke: #1ea064;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 163.36;
+  transition: stroke-dashoffset 0.3s linear, stroke 0.3s;
+}
+
+.ttmp-timer--warn .ttmp-timer-fill {
+  stroke: #e74c3c;
+}
+
+.ttmp-timer-texto {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  z-index: 1;
+}
+
+.ttmp-timer--warn .ttmp-timer-texto {
+  color: #e74c3c;
+}
+
+/* ---- MESA ---- */
+
+.ttmp-mesa {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ---- CARD ---- */
+
+.ttmp-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(232,133,58,0.3);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.ttmp-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ttmp-card-avatar-iniciais {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ttmp-card-avatar--oponente {
+  opacity: 0.4;
+}
+
+.ttmp-card-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  text-align: center;
+  margin: 0 0 0.2rem;
+}
+
+.ttmp-card-elemental {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.6rem;
+  color: #4F5359;
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.ttmp-card-atributos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* ---- FACE DOWN ---- */
+
+.ttmp-card--face-down {
+  border-color: rgba(107,15,26,0.5);
+}
+
+.ttmp-card--face-down .ttmp-card-avatar {
+  background: #1a1a2e !important;
+}
+
+/* ---- ATRIBUTO BUTTON ---- */
+
+.ttmp-atributo-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0.6rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.65rem;
+  color: #EAEAEA;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.ttmp-atributo-btn:hover:not(:disabled) {
+  border-color: #e8853a;
+}
+
+.ttmp-atributo-btn--disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.ttmp-atributo-btn--disabled:hover {
+  border-color: #2A2D31;
+}
+
+.ttmp-atributo-nome {
+  color: #8B8F96;
+  font-size: 0.6rem;
+}
+
+.ttmp-atributo-valor {
+  color: #EAEAEA;
+  font-weight: 600;
+}
+
+.ttmp-atributo--ganhou {
+  border-color: #1ea064 !important;
+  background: rgba(30,160,100,0.1);
+}
+
+.ttmp-atributo--perdeu {
+  border-color: #e74c3c !important;
+  background: rgba(231,76,60,0.1);
+}
+
+.ttmp-atributo--empate {
+  border-color: #e8853a !important;
+  background: rgba(232,133,58,0.1);
+}
+
+/* ---- VS ---- */
+
+.ttmp-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 2.5rem;
+}
+
+.ttmp-vs-texto {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4F5359;
+  letter-spacing: 0.1em;
+}
+
+/* ---- RESULTADO ---- */
+
+.ttmp-resultado-texto {
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ttmp-resultado--ganhou {
+  color: #1ea064;
+}
+
+.ttmp-resultado--perdeu {
+  color: #e74c3c;
+}
+
+.ttmp-resultado--empate {
+  color: #e8853a;
+}
+
+.ttmp-resultado-atributo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+}
+
+/* ---- FIM ---- */
+
+.ttmp-fim {
+  text-align: center;
+  padding-top: 3rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ttmp-fim-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin-bottom: 1rem;
+}
+
+.ttmp-fim-icone {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.ttmp-fim-resultado {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.ttmp-fim-titulo--vitoria {
+  color: #1ea064;
+}
+
+.ttmp-fim-titulo--empate {
+  color: #e8853a;
+}
+
+.ttmp-fim-titulo--derrota {
+  color: #e74c3c;
+}
+
+.ttmp-fim-placar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ttmp-fim-placar-item {
+  text-align: center;
+}
+
+.ttmp-fim-placar-valor {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.ttmp-fim-placar-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  letter-spacing: 0.1em;
+}
+
+.ttmp-fim-placar-divisor {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  color: #4F5359;
+}
+
+.ttmp-fim-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.ttmp-btn-voltar {
+  display: inline-block;
+  padding: 14px 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #e8853a;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.ttmp-btn-voltar:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* ---- KEYFRAMES ---- */
+
+@keyframes ttmp-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+  .ttmp-page {
+    padding: 5rem 0.75rem 2rem;
+  }
+
+  .ttmp-mesa {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .ttmp-vs {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .ttmp-hud-placar-valor {
+    font-size: 1.4rem;
+  }
+
+  .ttmp-card {
+    padding: 1rem;
+  }
+
+  .ttmp-card-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ttmp-card-avatar-iniciais {
+    font-size: 1.2rem;
+  }
+}

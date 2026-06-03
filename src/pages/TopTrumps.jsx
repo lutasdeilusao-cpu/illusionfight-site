@@ -239,9 +239,9 @@ export default function TopTrumps() {
                 <div className="tt-modo-card" onClick={() => { setMenuStep('config'); }}>
                   <h3 className="tt-modo-titulo">SINGLE PLAYER</h3><p className="tt-modo-desc">Jogue contra a IA</p>
                 </div>
-                <div className="tt-modo-card tt-modo-card--disabled">
-                  <h3 className="tt-modo-titulo">MULTIPLAYER</h3><p className="tt-modo-desc">2 jogadores</p><span className="tt-modo-breve">EM BREVE</span>
-                </div>
+                <Link to="/extras/toptrumps/lobby" className="tt-modo-card">
+                  <h3 className="tt-modo-titulo">MULTIPLAYER</h3><p className="tt-modo-desc">Jogue contra outros jogadores em tempo real</p>
+                </Link>
               </div>
             )}
             {menuStep === 'config' && (

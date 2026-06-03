@@ -1,0 +1,339 @@
+.ttmp-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 680px;
+  margin: 0 auto;
+  background: #0B0D0F;
+}
+
+.ttmp-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #EAEAEA;
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+
+/* ---- MODE SELECTION ---- */
+
+.ttmp-modos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ttmp-modo-card {
+  padding: 1.5rem;
+  border: 1px solid #2A2D31;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.ttmp-modo-card:hover {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.08);
+  transform: translateY(-2px);
+}
+
+.ttmp-modo-card--warning {
+  border-color: rgba(232,133,58,0.3);
+}
+
+.ttmp-modo-card--warning:hover {
+  border-color: #e8853a;
+}
+
+.ttmp-modo-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin: 0 0 0.35rem;
+}
+
+.ttmp-modo-desc {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #8B8F96;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ---- TURN SELECTION ---- */
+
+.ttmp-turnos-wrap {
+  text-align: center;
+}
+
+.ttmp-turnos {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.ttmp-turno-btn {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e8853a;
+  border-radius: 6px;
+  background: transparent;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ttmp-turno-btn:hover {
+  background: rgba(232,133,58,0.15);
+}
+
+.ttmp-turno-btn--ativo {
+  background: #e8853a;
+  color: #000;
+}
+
+/* ---- MATCHMAKING ---- */
+
+.ttmp-matchmaking {
+  text-align: center;
+}
+
+.ttmp-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.ttmp-input-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.ttmp-input {
+  flex: 1;
+  padding: 0.65rem 0.75rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #EAEAEA;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ttmp-input::placeholder {
+  color: #4F5359;
+}
+
+.ttmp-input:focus {
+  border-color: #e8853a;
+}
+
+/* ---- CODE DISPLAY ---- */
+
+.ttmp-codigo-container {
+  margin-top: 1.5rem;
+}
+
+.ttmp-codigo-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #8B8F96;
+  margin-bottom: 0.5rem;
+}
+
+.ttmp-codigo {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+  background: rgba(232,133,58,0.1);
+  border: 1px solid #e8853a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  letter-spacing: 0.2em;
+  color: #EAEAEA;
+  display: inline-block;
+}
+
+.ttmp-codigo-btn {
+  display: block;
+  margin: 0.75rem auto 0;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #e8853a;
+  background: transparent;
+  border: 1px solid #e8853a;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ttmp-codigo-btn:hover {
+  background: #e8853a;
+  color: #000;
+}
+
+/* ---- SPINNER ---- */
+
+.ttmp-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #2A2D31;
+  border-top-color: #e8853a;
+  border-radius: 50%;
+  animation: ttmp-spin 0.7s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes ttmp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- BETTING ---- */
+
+.ttmp-aposta {
+  margin-top: 1.5rem;
+}
+
+.ttmp-aposta-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin-bottom: 0.5rem;
+}
+
+.ttmp-aposta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 0.75rem 0;
+}
+
+.ttmp-aposta-card {
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ttmp-aposta-card:hover {
+  border-color: #4F5359;
+}
+
+.ttmp-aposta-card--selected {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.1);
+}
+
+.ttmp-aposta-card-nome {
+  display: block;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.65rem;
+  color: #EAEAEA;
+  line-height: 1.2;
+}
+
+.ttmp-aposta-card-tier {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.5rem;
+  color: #8B8F96;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ttmp-aposta-aviso {
+  color: #e74c3c;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* ---- BUTTONS ---- */
+
+.ttmp-btn {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #e8853a;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+  width: 100%;
+  max-width: 360px;
+}
+
+.ttmp-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.ttmp-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+  filter: none;
+}
+
+/* ---- INFO / ERROR ---- */
+
+.ttmp-info {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #8B8F96;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
+.ttmp-erro {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #e74c3c;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 480px) {
+  .ttmp-modos {
+    grid-template-columns: 1fr;
+  }
+
+  .ttmp-aposta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ttmp-codigo {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
