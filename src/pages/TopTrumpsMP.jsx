@@ -79,6 +79,7 @@ export default function TopTrumpsMP() {
       setEhMinhaVez(data.jogador_da_vez === user.id)
       if (data.status === 'em_jogo' && data.carta_aposta_j1 === -1) {
         setFase('jogando')
+        console.log('[MP] iniciando jogando, jogador_da_vez:', data.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', data.jogador_da_vez === user?.id)
       } else if (data.status === 'em_jogo') {
         setFase('ppt')
         if (papel === 'j1' ? data.aposta_confirmada_j1 : data.aposta_confirmada_j2) {
@@ -225,6 +226,7 @@ export default function TopTrumpsMP() {
         setFase('fim')
       } else {
         setFase('jogando')
+        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
         setResultadoRodada(null)
         setMovimentoRecebido(false)
@@ -274,6 +276,7 @@ export default function TopTrumpsMP() {
       // PPT finalizado -> jogando
       if (anterior && s.carta_aposta_j1 === -1 && anterior.carta_aposta_j1 !== -1) {
         setFase('jogando')
+        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
         setResultadoRodada(null)
         setMovimentoRecebido(false)
@@ -286,6 +289,7 @@ export default function TopTrumpsMP() {
 
       if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo') {
         setFase('jogando')
+        console.log('[MP] iniciando jogando, jogador_da_vez:', s.jogador_da_vez, 'meu id:', user?.id, 'ehMinhaVez:', s.jogador_da_vez === user?.id)
         setAtributoEscolhido(null)
         setResultadoRodada(null)
         setMovimentoRecebido(false)
@@ -343,6 +347,7 @@ export default function TopTrumpsMP() {
         setPptAmbosEscolheram(false)
       } else {
         const vencedorId = diff === 1 ? s.jogador1_id : s.jogador2_id
+        console.log('[MP] chamando finalizarPPT, vencedorId:', vencedorId, 'meu id:', user?.id, 'sou o vencedor:', vencedorId === user?.id)
         await supabase.from('toptrumps_salas').update({
           jogador_da_vez: vencedorId,
           turno_atual: 1,

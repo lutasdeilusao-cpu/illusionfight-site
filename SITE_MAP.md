@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.25*
+*Versão: 1.26*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -275,6 +275,7 @@
 - ✅ **PPT antes da partida** — Pedra-papel-tesoura para definir quem começa; empate repete; armazenado nos campos `carta_aposta_j1/j2` com sentinela -1
 - ✅ **Logs em registrarMovimento e resolverRodada** — Console logs para depuração do fluxo multiplayer
 - ✅ **Diagnóstico Realtime movimentos** — Log de status e callback no `subscribeToMovimentos` para verificar se canal recebe eventos
+- ✅ **Bugfix: toptrumps_movimentos na supabase_realtime** — Diagnóstico concluiu que `subscribeToMovimentos` e transição PPT→jogando estão corretos no código; o problema é que a tabela `toptrumps_movimentos` não foi adicionada à `supabase_realtime` publication no banco
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
