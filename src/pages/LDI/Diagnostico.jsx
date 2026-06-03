@@ -14,9 +14,25 @@ const STEP_LABELS = {
   rls: 'RLS — CRUD usuário logado',
   fluxo: 'Fluxo completo save/load',
   aux: 'Tabelas auxiliares',
+  gameplay: 'Gameplay Traversal — grafo de cenas',
 }
 
-function Step({ label, status, detail, sql }) {
+function TraversalPath({ p }) {
+  const icon = p.status === 'ok' ? '🟢' : p.status === 'dead_link' ? '🔴' : p.status === 'loop' ? '🟡' : '🟢'
+  return (
+    <div className="ldi-traversal-path" style={{
+      fontFamily: 'var(--font-narrative)',
+      fontSize: '0.78rem',
+      color: p.status === 'dead_link' ? 'var(--ldi-danger)' : p.status === 'loop' ? 'var(--ldi-warning)' : 'var(--ldi-text)',
+      padding: '0.2rem 0',
+      paddingLeft: '2rem',
+    }}>
+      {icon} {p.path}
+    </div>
+  )
+}
+
+function Step({ label, status, detail, sql, subResults }) {
   const icon = status === 'ok' ? '🟢' : status === 'fail' ? '🔴' : status === 'running' ? '⏳' : '⚪'
   return (
     <div className="ldi-diagnostico-step">
@@ -31,6 +47,55 @@ function Step({ label, status, detail, sql }) {
       </div>
       {detail && <div className="ldi-diagnostico-detail">{detail}</div>}
       {sql && <pre className="ldi-diagnostico-sql">{sql}</pre>}
+      {subResults && subResults.length > 0 && (
+        <div className="ldi-traversal-list" style={{ marginTop: '0.5rem' }}>
+          <div style={{
+            fontFamily: 'var(--font-onomatopeia)',
+            fontSize: '0.9rem',
+            color: 'var(--ldi-text)',
+            marginBottom: '0.3rem',
+            paddingLeft: '0.5rem',
+            borderBottom: '1px solid var(--ldi-border)',
+          }}>
+            TRAVERSAL PATHS
+          </div>
+          {subResults.map((r, i) => {
+            if (r.status === 'divider') {
+              return <div key={i} style={{ borderTop: '1px dashed var(--ldi-border)', margin: '0.4rem 0' }} />
+            }
+            if (r.status === 'summary') {
+              return (
+                <div key={i} className="ldi-traversal-summary" style={{
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '0.8rem',
+                  color: 'var(--ldi-muted)',
+                  padding: '0.3rem 0.5rem',
+                  display: 'flex',
+                  gap: '1rem',
+                  flexWrap: 'wrap',
+                }}>
+                  {r.data.map((s, j) => (
+                    <span key={j} style={{ whiteSpace: 'nowrap' }}>{s}</span>
+                  ))}
+                </div>
+              )
+            }
+            const ic = r.status === 'dead_link' ? '🔴' : r.status === 'loop' ? '🟡' : r.status === 'terminal_inesp' ? '🟡' : '🟢'
+            const cl = r.status === 'dead_link' ? 'var(--ldi-danger)' : r.status === 'loop' ? 'var(--ldi-warning)' : 'var(--ldi-text)'
+            return (
+              <div key={i} style={{
+                fontFamily: 'var(--font-narrative)',
+                fontSize: '0.78rem',
+                color: cl,
+                padding: '0.15rem 0.5rem',
+                paddingLeft: '2rem',
+              }}>
+                {ic} {r.path}
+              </div>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }
@@ -42,8 +107,8 @@ export default function Diagnostico() {
   const [running, setRunning] = useState(false)
   const [output, setOutput] = useState([])
 
-  const updateResult = useCallback((key, status, detail, sql) => {
-    setResults(r => ({ ...r, [key]: { status, detail, sql } }))
+  const updateResult = useCallback((key, status, detail, sql, subResults) => {
+    setResults(r => ({ ...r, [key]: { status, detail, sql, subResults } }))
     setOutput(o => [...o, `[${status.toUpperCase()}] ${STEP_LABELS[key] || key}${detail ? ': ' + detail : ''}`])
   }, [])
 
@@ -268,6 +333,77 @@ export default function Diagnostico() {
     } else {
       const failed = auxResults.filter(r => !r.ok).map(r => r.table)
       updateResult('aux', 'ok', `${okCount}/${auxTables.length} disponíveis. Ausentes: ${failed.join(', ')}`)
+    }
+
+    // 7. Gameplay Traversal — grafo de cenas
+    updateResult('gameplay', 'running')
+    await sleep(200)
+    try {
+      const { default: scenes } = await import('./data/scenes/act1.json')
+
+      function walk(sceneId, incomingEdge, visited, results) {
+        const isRevisit = visited.has(sceneId)
+        const scene = scenes.find(s => s.id === sceneId)
+
+        if (isRevisit) {
+          if (incomingEdge) results.push({ status: 'loop', path: incomingEdge })
+          return
+        }
+
+        if (!scene) {
+          results.push({ status: 'dead_link', path: incomingEdge || `ENTRY → ${sceneId}` })
+          return
+        }
+
+        if (!scene.choices || scene.choices.length === 0) {
+          results.push({ status: 'terminal', path: incomingEdge || `${sceneId} (entry)` })
+          return
+        }
+
+        if (incomingEdge) results.push({ status: 'ok', path: incomingEdge })
+        visited.add(sceneId)
+
+        for (const choice of scene.choices) {
+          const edge = `${sceneId} → [${choice.label}] → ${choice.next}`
+          walk(choice.next, edge, new Set(visited), results)
+        }
+      }
+
+      const traversalResults = []
+      walk('1.2', null, new Set(), traversalResults)
+
+      const deadLinks = traversalResults.filter(r => r.status === 'dead_link')
+      const loops = traversalResults.filter(r => r.status === 'loop')
+      const terminals = traversalResults.filter(r => r.status === 'terminal')
+      const expectedCount = traversalResults.filter(r => r.status === 'ok').length
+
+      const summaryParts = [
+        `${traversalResults.length} arestas percorridas`,
+      ]
+      if (expectedCount > 0) summaryParts.push(`${expectedCount} OK`)
+      summaryParts.push(`${terminals.length} terminais`)
+      summaryParts.push(`${deadLinks.length} dead links`)
+      summaryParts.push(`${loops.length} loops`)
+
+      const lines = traversalResults.map(r => ({
+        status: r.status,
+        path: r.path,
+      }))
+      lines.push({ status: 'divider' })
+      lines.push({ status: 'summary', data: summaryParts })
+
+      let detail = ''
+      if (deadLinks.length > 0) {
+        detail += `🔴 ${deadLinks.length} dead link(s) — cena destino não existe em act1.json\n`
+      }
+      if (loops.length > 0) {
+        detail += `🟡 ${loops.length} loop(s) — cena aponta para si mesma ou ciclo fechado\n`
+      }
+
+      const traversalStatus = deadLinks.length > 0 ? 'fail' : 'ok'
+      updateResult('gameplay', traversalStatus, detail || 'Todas as arestas OK.', '', lines)
+    } catch (err) {
+      updateResult('gameplay', 'fail', `Erro ao carregar act1.json: ${err.message}`)
     }
 
     setRunning(false)
