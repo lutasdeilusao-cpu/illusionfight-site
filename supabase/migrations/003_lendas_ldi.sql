@@ -20,7 +20,7 @@ create table if not exists character_sheets (
 
 alter table character_sheets enable row level security;
 
-create policy if not exists "user owns sheet"
+create policy "user owns sheet"
   on character_sheets
   for all
   using (auth.uid() = user_id);
@@ -47,7 +47,7 @@ create table if not exists game_saves (
 
 alter table game_saves enable row level security;
 
-create policy if not exists "user owns save"
+create policy "user owns save"
   on game_saves
   for all
   using (auth.uid() = user_id);
