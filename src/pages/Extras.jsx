@@ -17,6 +17,13 @@ const extras = [
     cor: 'teal'
   },
   {
+    titulo: 'Leaderboard',
+    descricao: 'Ranking global de vitórias na arena. Veja quem domina o Top Trumps e o Quiz SDR.',
+    badge: 'FREE',
+    url: '/leaderboard',
+    cor: 'teal'
+  },
+  {
     titulo: 'Curiosidades',
     descricao: 'Lore, easter eggs e bastidores do universo Lutas de Ilusão — o que está entre as linhas.',
     badge: 'PREMIUM',

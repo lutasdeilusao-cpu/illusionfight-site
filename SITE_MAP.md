@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.11*
+*Versão: 1.13*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -89,7 +89,7 @@
 | Componente | Arquivo JSX | Arquivo CSS | Usado em | Descrição |
 |---|---|---|---|---|
 | TrialBanner | `TrialBanner.jsx` | `TrialBanner.css` | App (global) | Faixa âmbar fixa abaixo da navbar (TRIAL_MODE), fundo sólido ao scroll |
-| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 8 links (Webtoon, Livro, Músicas, Extras, Mundo, Leaderboard, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, usuário logado (avatar + nome + sair) ou botão ENTRAR → /login |
+| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 7 links (Webtoon, Livro, Músicas, Extras, Mundo, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, usuário logado (avatar + nome + sair) ou botão ENTRAR → /login |
 | HeroSlideshow | `HeroSlideshow.jsx` | `HeroSlideshow.css` | Home | 4 imagens com crossfade 1.2s, Ken Burns (1.0→1.08), overlays, scanlines, HeroEffect canvas |
 | HeroEffect | `HeroEffect.jsx` | `HeroEffect.css` | HeroSlideshow | Canvas com 40-60 linhas teal/âmbar caindo |
 | TypewriterPhrase | `TypewriterPhrase.jsx` | `TypewriterPhrase.css` | HeroSlideshow | Frase com efeito de digitação em loop (~28s) |
@@ -99,7 +99,7 @@
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados, hover overlay |
 | AchievementToast | `AchievementToast/AchievementToast.jsx` | `AchievementToast/AchievementToast.css` | App (global) | Toast centralizado com partículas, overlay escuro e foto do Jack |
 | Quiz | `Quiz.jsx` | `Quiz.css` | /quiz | Quiz SDR com 3 modos, timer 30s, ajudas universitários, rank final |
-| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com 3 cards: Quiz SDR (FREE), Top Trumps LDI (FREE), Curiosidades (PREMIUM) |
+| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com 4 cards: Quiz SDR (FREE), Top Trumps LDI (FREE), Leaderboard (FREE), Curiosidades (PREMIUM) |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal), capa real na 1ª música |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal "ONDE ESTAMOS" com tracks (Webtoon, Livro, Música) e bullets done/pending animados |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | 4 cards estáticos Netflix-style (YouTube, TikTok, X, Instagram) com gradiente da plataforma, overlay "ABRIR →" no hover |
@@ -253,7 +253,7 @@
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
 - ✅ **Seção "Sua posição"** — Card destacado para usuários logados, CTA para cadastro se anônimo
-- ✅ **Navbar** — Link "Leaderboard" entre Extras e AUTOR
+- ✅ **Acessível via /extras** — Card no hub de Extras, rota /leaderboard independente
 
 ### Achievement Mensal de Compartilhamento
 - ✅ **Tabela share_submissions** — Supabase, 1 envio/mês/usuário, status pendente/aprovado/rejeitado
