@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
@@ -28,6 +28,8 @@ function keyPorUser(user, suffix) {
 export default function TopTrumps() {
   const { user } = useAuth()
   const { desbloquear } = useAchievements()
+  const desbloquearRef = useRef(desbloquear)
+  useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
   const [fase, setFase] = useState('menu')
   const [deckJogador, setDeckJogador] = useState([])
@@ -190,11 +192,12 @@ export default function TopTrumps() {
     }
     setFase('fim_jogo')
     registrarPartida(user.id, { jogadas, vitorias, derrotas, empates, resultado }).then(stats => {
-      if (stats.total_vitorias === 1) desbloquear('primeira_vitoria_trumps')
-      if (stats.total_derrotas === 1) desbloquear('primeira_derrota_trumps')
-      if (stats.total_partidas === 10) desbloquear('veterano_trumps_10')
-      if (stats.total_partidas === 100) desbloquear('centuriao_trumps')
-      if (stats.total_partidas === 1000) desbloquear('lenda_trumps')
+      console.log('[TT] registrarPartida resolveu (finalizarPartida) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
+      if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
+      if (stats.total_derrotas === 1) desbloquearRef.current('primeira_derrota_trumps')
+      if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
+      if (stats.total_partidas === 100) desbloquearRef.current('centuriao_trumps')
+      if (stats.total_partidas === 1000) desbloquearRef.current('lenda_trumps')
     })
   }
 
@@ -207,10 +210,11 @@ export default function TopTrumps() {
     salvarCartasDeck(user.id, [carta.id])
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id }).then(stats => {
-      if (stats.total_vitorias === 1) desbloquear('primeira_vitoria_trumps')
-      if (stats.total_partidas === 10) desbloquear('veterano_trumps_10')
-      if (stats.total_partidas === 100) desbloquear('centuriao_trumps')
-      if (stats.total_partidas === 1000) desbloquear('lenda_trumps')
+      console.log('[TT] registrarPartida resolveu (escolherRecompensa) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
+      if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
+      if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
+      if (stats.total_partidas === 100) desbloquearRef.current('centuriao_trumps')
+      if (stats.total_partidas === 1000) desbloquearRef.current('lenda_trumps')
     })
     window.__partidaPendente = null
     setFase('fim_jogo')
@@ -218,13 +222,18 @@ export default function TopTrumps() {
 
   useEffect(() => {
     if (user) {
+      console.log('[TT] init — user:', user.id)
       migrarLocalStorageParaSupabase(user.id).then(async () => {
+        console.log('[TT] após migração localStorage')
         const ids = await carregarDeckDB(user.id)
+        console.log('[TT] carregarDeck retornou:', ids?.length || 0, 'cartas')
         if (ids && ids.length > 0) {
           const cartas = ids.map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
           setDeckUsuario(cartas)
         } else {
           const iniciais = await carregarDeckLocal()
+          console.log('[TT] deck inicial criado localmente:', iniciais.length, 'cartas')
+          console.log('[TT] salvarCartasDeck chamado com deck inicial')
           salvarCartasDeck(user.id, iniciais.map(c => c.id))
           setDeckUsuario(iniciais)
         }

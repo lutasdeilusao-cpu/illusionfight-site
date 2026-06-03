@@ -1,20 +1,23 @@
 import { supabase } from '../lib/supabase'
 
 export async function carregarDeck(userId) {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from('toptrumps_decks')
     .select('carta_id')
     .eq('user_id', userId)
+  console.log('[TT] carregarDeck resultado — data:', data?.length || 0, 'itens, error:', error)
   if (data && data.length > 0) return data.map(d => d.carta_id)
   return null
 }
 
 export async function salvarCartasDeck(userId, cartaIds) {
   if (!cartaIds || cartaIds.length === 0) return
+  console.log('[TT] salvarCartasDeck chamado — userId:', userId, 'cartas:', cartaIds.length)
   const inserts = cartaIds.map(id => ({ user_id: userId, carta_id: id }))
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('toptrumps_decks')
     .upsert(inserts, { onConflict: 'user_id,carta_id', ignoreDuplicates: true })
+  console.log('[TT] salvarCartasDeck resultado — data:', data, 'error:', error)
   if (error) console.error('Erro ao salvar cartas no deck:', error)
 }
 
