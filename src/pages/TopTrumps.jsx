@@ -232,7 +232,7 @@ export default function TopTrumps() {
 
   if (fase === 'menu') {
     const pct = deckUsuario.length / todasCartas.length * 100
-    const maxTurnos = Math.floor(deckUsuario.length / 2)
+    const maxTurnos = deckUsuario.length
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
         <div className="tt-menu-cards"><div className="tt-card-stack">

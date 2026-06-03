@@ -37,7 +37,8 @@ export function AuthProvider({ children }) {
     if (data && data.length > 0) { console.log('[Auth] deck já existe, pulando criação'); return }
     const todasCartas = (await import('../data/supertrunfo-pt.json')).default
     const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
-    const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, 10)
+    const qtdInicial = 5
+    const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, qtdInicial)
     const rows = embaralhadas.map(c => ({ user_id: userId, carta_id: c.id_num }))
     const { error } = await supabase.from('toptrumps_decks').insert(rows)
     if (error) console.error('[Auth] erro ao criar deck inicial:', error)
