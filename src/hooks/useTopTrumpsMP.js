@@ -23,13 +23,11 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
   if (!sala) return { erro: 'Sala não encontrada ou já iniciada.' }
   if (sala.jogador1_id === userId) return { erro: 'Você já está nesta sala.' }
   const total = Math.min(sala.turnos_j1, turnosDesejados)
-  const updates = {
+  const { error } = await supabase.from('toptrumps_salas').update({
     jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
-    status: sala.modo === 'free' ? 'em_jogo' : 'aguardando',
-    turno_atual: sala.modo === 'free' ? 1 : undefined,
-    jogador_da_vez: sala.modo === 'free' ? sala.jogador1_id : undefined
-  }
-  const { error } = await supabase.from('toptrumps_salas').update(updates).eq('id', sala.id)
+    status: 'em_jogo', turno_atual: 1, jogador_da_vez: sala.jogador1_id
+  }).eq('id', sala.id)
+  console.log('[MP] UPDATE sala codigo resultado:', { error, salaId: sala.id })
   if (error) { console.error('[TTMP] erro entrar sala:', error); return { erro: 'Erro ao entrar na sala.' } }
   return { salaId: sala.id }
 }
@@ -43,12 +41,12 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   console.log('[MP] sala encontrada:', sala)
   if (sala) {
     const total = Math.min(sala.turnos_j1, turnosDesejados)
-    await supabase.from('toptrumps_salas').update({
+    const { error: updateError } = await supabase.from('toptrumps_salas').update({
       jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
-      status: modo === 'free' ? 'em_jogo' : 'aguardando',
-      turno_atual: modo === 'free' ? 1 : undefined,
-      jogador_da_vez: modo === 'free' ? sala.jogador1_id : undefined
+      status: 'em_jogo', turno_atual: 1, jogador_da_vez: sala.jogador1_id
     }).eq('id', sala.id)
+    console.log('[MP] UPDATE sala resultado:', { updateError, salaId: sala.id })
+    if (updateError) { console.error('[MP] erro no UPDATE:', updateError); return null }
     const ret = { salaId: sala.id, novo: false }
     console.log('[MP] retornando (entrou em sala existente):', ret)
     return ret
