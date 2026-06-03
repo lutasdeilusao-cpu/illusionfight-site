@@ -41,6 +41,7 @@ export default function Combat() {
       const creditsGain = 50 + Math.floor(Math.random() * 30)
       updateSave({
         credits: (save?.credits || 0) + creditsGain,
+        status: 'active',
       })
       combat.resetCombat()
       const gs = useGameStore.getState()

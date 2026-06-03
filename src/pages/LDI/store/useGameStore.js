@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.12'
+const LDI_VERSION = '1.0.13'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -214,6 +214,7 @@ export const useGameStore = create((set, get) => ({
     const savePayload = {
       ...currentSave,
       sheet_id: get().sheet.id,
+      post_combat_scene: currentSave.post_combat_scene || null,
       id: currentSave.id || undefined,
     }
     const saveId = await saveGameSave(userId, savePayload)

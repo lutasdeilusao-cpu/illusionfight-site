@@ -26,7 +26,26 @@ export default function Lobby() {
   const handleContinue = async (sheetId) => {
     if (!user) return
     const ok = await loadFromCloud(user.id, sheetId)
-    if (ok) navigate('/extras/ldi/game')
+    if (ok) {
+      const currentSave = useGameStore.getState().save
+      if (currentSave.status !== 'active') {
+        const sheet = useGameStore.getState().sheet
+        useGameStore.getState().updateSave({
+          id: null,
+          status: 'active',
+          current_scene_id: '1.2',
+          post_combat_scene: null,
+          day_in_game: 1,
+          credits: 0,
+          pv_current: Math.max(1, (sheet?.attributes?.R || 0) * 5),
+          pm_current: Math.max(2, (sheet?.attributes?.PdF || 0) * 4),
+          clues_collected: [],
+          flags: {},
+          arc: 1,
+        })
+      }
+      navigate('/extras/ldi/game')
+    }
   }
 
   const handleDelete = async (sheetId) => {
