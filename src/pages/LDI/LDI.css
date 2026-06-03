@@ -560,7 +560,7 @@
 
 .ldi-page--combat {
   min-height: calc(100vh - 56px);
-  padding-top: 1rem;
+  padding-top: calc(56px + 1rem);
   background: var(--ldi-bg);
 }
 
@@ -572,30 +572,32 @@
 }
 
 .ldi-combat-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .ldi-combat-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-  }
+  padding: 1rem;
 }
 
 .ldi-combat-player,
 .ldi-combat-enemy {
-  background: var(--ldi-surface);
-  border: 1px solid var(--ldi-card);
-  padding: 1rem;
-  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
 }
+
+.ldi-combat-log {
+  order: 2;
+}
+
+.ldi-combat-player { order: 1; border-color: rgba(0,180,216,0.3); }
+.ldi-combat-enemy  { order: 3; border-color: rgba(231,76,60,0.3); }
 
 .ldi-combat-name {
   font-family: var(--font-ui);

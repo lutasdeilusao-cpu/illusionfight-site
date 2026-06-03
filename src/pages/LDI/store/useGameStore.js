@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.10'
+const LDI_VERSION = '1.0.11'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -85,6 +85,8 @@ export const useGameStore = create((set, get) => ({
     console.log('[LDI] setScene executando, sceneId:', sceneId, 'cena atual:', get().currentScene?.id)
 
     if (sceneId.startsWith('combat_')) {
+      const currentSceneId = get().currentScene?.id || '1.3'
+      set(state => ({ save: { ...state.save, post_combat_scene: currentSceneId } }))
       const enemyId = sceneId.replace('combat_', '')
       const enemy = enemiesData.find(e => e.id === enemyId)
       if (enemy) {
