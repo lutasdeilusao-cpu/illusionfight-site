@@ -107,11 +107,12 @@ export default function TopTrumpsMP() {
   }, [user, sala?.total_turnos])
 
   useEffect(() => {
-    if (!salaId || !user) return;
-    (async () => {
+    if (!salaId || !user) return
+    ;(async () => {
       const { data: s } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).single()
       if (!s) return
       const opId = s.jogador1_id === user.id ? s.jogador2_id : s.jogador1_id
+      console.log('[MP] useEffect deckOponente disparou, salaId:', salaId, 'opId:', opId)
       if (!opId) return
       const qtd = s.total_turnos
       const { data: deckOpp } = await supabase
@@ -119,12 +120,13 @@ export default function TopTrumpsMP() {
         .select('carta_id')
         .eq('user_id', opId)
         .order('carta_id', { ascending: true })
+      console.log('[MP] deckOponente — deckOpp length:', deckOpp?.length)
       if (!deckOpp?.length) return
       const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
       setDeckOponente(cartasOpp.slice(0, qtd))
       console.log('[MP] deckOponente carregado:', cartasOpp.slice(0, qtd).length, 'cartas')
     })()
-  }, [salaId, user])
+  }, [salaId, user, sala?.jogador2_id])
 
   useEffect(() => {
     if (!deckLocal.length || !sala) return
