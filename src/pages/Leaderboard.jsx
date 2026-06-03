@@ -51,53 +51,45 @@ export default function Leaderboard() {
         ))}
       </div>
 
-      {/* Podium */}
-      <div className="lb-podium">
-        {[top3[1], top3[0], top3[2]].map((j, i) => (
-          <div key={j.pos} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
-            <div className="lb-podium-pos">#{j.pos}</div>
-            <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
-            <div className="lb-podium-nome">{j.nome}</div>
-            <div className="lb-podium-pontos">{j.pontos} pts</div>
+      {user ? (
+        <>
+          <div className="lb-podium">
+            {[top3[1], top3[0], top3[2]].map((j, i) => (
+              <div key={j.pos} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
+                <div className="lb-podium-pos">#{j.pos}</div>
+                <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
+                <div className="lb-podium-nome">{j.nome}</div>
+                <div className="lb-podium-pontos">{j.pontos} pts</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* Table */}
-      <div className="lb-tabela">
-        <div className="lb-tabela-header">
-          <span>#</span><span>Jogador</span><span>V</span><span>D</span><span>Cartas</span><span>Pts</span>
-        </div>
-        {restante.map(j => (
-          <div key={j.pos} className="lb-linha">
-            <span className="lb-linha-pos">{j.pos}</span>
-            <span className="lb-linha-jogador">
-              <span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>
-              {j.nome}
-            </span>
-            <span>{j.vitorias}</span><span>{j.derrotas}</span><span>{j.cartas}</span><span>{j.pontos}</span>
+          <div className="lb-tabela">
+            <div className="lb-tabela-header"><span>#</span><span>Jogador</span><span>V</span><span>D</span><span>Cartas</span><span>Pts</span></div>
+            {restante.map(j => (
+              <div key={j.pos} className="lb-linha">
+                <span className="lb-linha-pos">{j.pos}</span>
+                <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>{j.nome}</span>
+                <span>{j.vitorias}</span><span>{j.derrotas}</span><span>{j.cartas}</span><span>{j.pontos}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* User position */}
-      <div className="lb-user-card">
-        {user ? (
-          <>
+          <div className="lb-user-card">
             <span className="lb-user-pos">SUA POSIÇÃO</span>
             <div className="lb-user-row">
               <span className="lb-linha-pos">#42</span>
-              <span className="lb-linha-jogador">
-                <span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>
-                {perfil?.nome || user.email}
-              </span>
+              <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>
               <span className="lb-user-pontos">3.240 pts</span>
             </div>
-          </>
-        ) : (
-          <p className="lb-user-cta">Crie uma conta para aparecer no ranking! <Link to="/cadastro">Cadastre-se</Link></p>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <div className="tt-login-block">
+          <div className="tt-login-lock">🔒</div>
+          <p className="tt-login-texto">Para ver o ranking da arena você precisa ter uma conta.</p>
+          <Link to="/cadastro" className="quiz-btn-jogar">CRIAR CONTA GRÁTIS</Link>
+          <Link to="/login" className="tt-login-link">Já tenho conta — entrar</Link>
+        </div>
+      )}
     </section>
   )
 }
