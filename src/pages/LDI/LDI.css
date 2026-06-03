@@ -349,10 +349,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  justify-content: center;
+  padding: 80px 1.5rem 160px;
   max-width: 680px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
 }
 
 .ldi-scene-image {
@@ -382,12 +384,19 @@
 }
 
 .ldi-scene-text {
-  flex: 1;
   margin-bottom: 2rem;
 }
 
 .ldi-scene-choices {
-  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 680px;
+  padding: 1rem 1.5rem 2rem;
+  background: linear-gradient(180deg, transparent, var(--ldi-bg) 30%);
+  z-index: 10;
 }
 
 /* ===== TYPEWRITER ===== */

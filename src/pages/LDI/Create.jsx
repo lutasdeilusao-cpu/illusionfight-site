@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
@@ -95,6 +95,13 @@ export default function Create() {
     setFreePoints(p => p + 1)
   }
 
+  useEffect(() => {
+    const state = useGameStore.getState()
+    if (state.sheet?.sheet_name) {
+      navigate('/extras/ldi/game', { replace: true })
+    }
+  }, [navigate])
+
   const handleFinish = () => {
     const finalAttr = tempAttr
     updateSheet({
@@ -105,19 +112,19 @@ export default function Create() {
     })
     flags.forEach(f => setFlag(f))
 
-    const save = useGameStore.getState().save
     const pvMax = Math.max(1, finalAttr.R * 5)
     const pmMax = Math.max(2, finalAttr.PdF * 4)
     useGameStore.getState().updateSave({
       pv_current: pvMax,
       pm_current: pmMax,
+      current_scene_id: '1.2',
     })
 
     if (user) {
       saveToCloud(user.id)
     }
 
-    navigate('/extras/ldi/game')
+    navigate('/extras/ldi/game', { replace: true })
   }
 
   if (showFinal) {

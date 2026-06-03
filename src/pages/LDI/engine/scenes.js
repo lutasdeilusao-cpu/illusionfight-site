@@ -1,14 +1,30 @@
 let scenesCache = {}
+let allScenes = []
 
 export async function loadScene(sceneId) {
+  if (!sceneId) {
+    console.error('[LDI] loadScene chamado sem sceneId')
+    return allScenes.find(s => s.id === '1.2') || null
+  }
+
   if (scenesCache[sceneId]) return scenesCache[sceneId]
+
   try {
-    const { default: act1 } = await import('../data/scenes/act1.json')
-    const allScenes = [...act1]
+    if (allScenes.length === 0) {
+      const { default: act1 } = await import('../data/scenes/act1.json')
+      allScenes = [...act1]
+    }
     const scene = allScenes.find(s => s.id === sceneId)
-    if (scene) scenesCache[sceneId] = scene
-    return scene || null
-  } catch {
+    if (scene) {
+      scenesCache[sceneId] = scene
+      return scene
+    }
+    console.error(`[LDI] Cena não encontrada: "${sceneId}" — redirecionando para fallback 1.2`)
+    const fallback = allScenes.find(s => s.id === '1.2')
+    if (fallback) scenesCache['1.2'] = fallback
+    return fallback || null
+  } catch (err) {
+    console.error('[LDI] Erro ao carregar cenas:', err)
     return null
   }
 }

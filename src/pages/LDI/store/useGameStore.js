@@ -72,7 +72,12 @@ export const useGameStore = create((set, get) => ({
   },
 
   setScene: async (sceneId) => {
-    if (!sceneId) return
+    if (!sceneId) {
+      console.error('[LDI] setScene chamado sem sceneId')
+      return
+    }
+
+    console.log('[LDI] Navegando para cena:', sceneId)
 
     if (sceneId.startsWith('combat_')) {
       const enemyId = sceneId.replace('combat_', '')
@@ -80,6 +85,8 @@ export const useGameStore = create((set, get) => ({
       if (enemy) {
         const sheet = get().sheet
         useCombatStore.getState().startCombat(enemy, sheet)
+      } else {
+        console.error('[LDI] Inimigo não encontrado:', enemyId)
       }
       return
     }
@@ -93,7 +100,12 @@ export const useGameStore = create((set, get) => ({
     }
 
     const scene = await loadScene(sceneId)
-    if (!scene) return
+    if (!scene) {
+      console.error('[LDI] Falha ao carregar cena, mantendo cena atual')
+      return
+    }
+
+    console.log('[LDI] Cena carregada:', scene.title)
 
     set(state => {
       const sheet = state.sheet
