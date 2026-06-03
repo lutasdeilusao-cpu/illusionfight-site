@@ -24,8 +24,13 @@ export default function Lobby() {
   }, [user])
 
   const handleContinue = async (sheetId) => {
+    console.log('[LOBBY] handleContinue chamado, sheetId:', sheetId)
+    console.log('[LOBBY] user:', user?.id)
     if (!user) return
     const ok = await loadFromCloud(user.id, sheetId)
+    console.log('[LOBBY] loadFromCloud resultado:', ok)
+    console.log('[LOBBY] save após load:', useGameStore.getState().save)
+    console.log('[LOBBY] sheet após load:', useGameStore.getState().sheet?.sheet_name)
     if (ok) {
       const currentSave = useGameStore.getState().save
       if (currentSave.status !== 'active') {
