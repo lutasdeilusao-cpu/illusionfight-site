@@ -45,7 +45,8 @@ export default function Combat() {
       })
       combat.resetCombat()
       const gs = useGameStore.getState()
-      const returnScene = gs.save?.post_combat_scene || gs.save?.current_scene_id || '1.3'
+      const base = gs.save?.post_combat_scene || gs.save?.current_scene_id || '1.3'
+      const returnScene = base.endsWith('-luta') ? base.replace('-luta', '-pos') : base
       console.log('[LDI] pós-combate victory, returnScene:', returnScene)
       await setScene(returnScene)
       if (user) saveToCloud(user.id)

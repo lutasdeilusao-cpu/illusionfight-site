@@ -386,7 +386,7 @@
         "cost": null,
         "flags_required": [],
         "flags_set": ["COMBATE_STORMBYTE"],
-        "next_scene": "combat_stormbyte_91",
+        "next_scene": "1.3d-luta",
         "sheet_effect": {}
       },
       {
@@ -397,6 +397,50 @@
         "flags_required": [],
         "flags_set": ["FUGIU_STORMBYTE"],
         "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3d-luta",
+    "title": "Teste de Equipamento",
+    "image": "",
+    "text": [
+      "Você empunha sua arma e assume posição de combate.",
+      "O lutador rankeado sorri. \"Isso vai doer em você, não em mim.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Lutar!",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "combat_stormbyte_91",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3d-pos",
+    "title": "Primeira Vitória",
+    "image": "",
+    "text": [
+      "StormByte cai. O sistema registra a vitória com um bipe seco.",
+      "Você fica parado olhando para onde ele estava. A dor que ficou é real. A satisfação também.",
+      "No display flutuando na sua frente: +80 créditos. Rank atualizado.",
+      "Você voltou para a praça com algo novo na postura."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Continuar explorando a praça",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["VENCEU_STORMBYTE"],
+        "next_scene": "1.4",
         "sheet_effect": {}
       }
     ]
