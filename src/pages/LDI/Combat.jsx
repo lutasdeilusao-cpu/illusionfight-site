@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
@@ -11,8 +12,9 @@ export default function Combat() {
   const navigate = useNavigate()
   const { user } = useAuth()
   const { setReaderMode } = useReader()
-  const { sheet, save, updateSave, setScene, saveToCloud } = useGameStore()
+  const { sheet, save, updateSave, updateSheet, setScene, saveToCloud, gainXp } = useGameStore()
   const combat = useCombatStore()
+  const [showXpToast, setShowXpToast] = useState(false)
 
   useEffect(() => {
     setReaderMode(true)
@@ -56,6 +58,12 @@ export default function Combat() {
         status: 'active',
       })
       combat.resetCombat()
+      const xpGain = 50
+      gainXp(xpGain)
+      setShowXpToast(true)
+      console.log('[COMBAT] XP toast exibido:', xpGain)
+      await new Promise(r => setTimeout(r, 2000))
+      setShowXpToast(false)
       const gs = useGameStore.getState()
       const base = gs.save?.post_combat_scene || gs.save?.current_scene_id || '1.3'
       const returnScene = base.endsWith('-luta') ? base.replace('-luta', '-pos') : base
@@ -82,6 +90,19 @@ export default function Combat() {
 
   return (
     <div className="ldi-page ldi-page--combat">
+      <AnimatePresence>
+        {showXpToast && (
+          <motion.div
+            className="ldi-xp-toast"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.5 }}
+            transition={{ duration: 0.3 }}
+          >
+            +{50} XP
+          </motion.div>
+        )}
+      </AnimatePresence>
       <CombatView
         sheet={sheet}
         save={save}

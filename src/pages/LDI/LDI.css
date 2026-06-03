@@ -830,6 +830,115 @@
   color: var(--ldi-muted);
 }
 
+.ldi-xp-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-onomatopeia);
+  font-size: 4rem;
+  color: #FFD700;
+  text-shadow: 3px 3px 0 #000, 0 0 30px rgba(255, 215, 0, 0.5);
+  z-index: 300;
+  pointer-events: none;
+}
+
+/* ===== LEVEL UP OVERLAY ===== */
+
+.ldi-levelup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+}
+
+.ldi-levelup-box {
+  background: var(--ldi-surface);
+  border: 1px solid var(--ldi-warning);
+  border-radius: 4px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.ldi-levelup-title {
+  font-family: var(--font-onomatopeia);
+  font-size: 2.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255,215,0,0.3);
+  margin-bottom: 1rem;
+}
+
+.ldi-levelup-sub {
+  font-family: var(--font-narrative);
+  color: var(--ldi-muted);
+  margin-bottom: 1.5rem;
+}
+
+.ldi-levelup-attr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--ldi-card);
+}
+
+.ldi-levelup-attr-label {
+  font-family: var(--font-ui);
+  color: var(--ldi-text);
+}
+
+.ldi-levelup-attr-value {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  color: var(--ldi-accent-blue);
+  min-width: 24px;
+  text-align: center;
+}
+
+.ldi-levelup-attr-btn {
+  width: 32px;
+  height: 32px;
+  background: var(--ldi-card);
+  border: 1px solid var(--ldi-muted);
+  color: var(--ldi-text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.ldi-levelup-attr-btn:hover:not(:disabled) {
+  border-color: var(--ldi-warning);
+  background: rgba(239, 159, 39, 0.1);
+}
+
+.ldi-levelup-attr-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.ldi-levelup-confirm {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--ldi-warning);
+  color: #000;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ldi-levelup-confirm:hover {
+  box-shadow: 0 0 20px rgba(239, 159, 39, 0.4);
+}
+
 /* ===== ONOMATOPEIA ===== */
 
 .ldi-onomatopeia {

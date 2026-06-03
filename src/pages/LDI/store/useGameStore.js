@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.22'
+const LDI_VERSION = '1.0.23'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -7,6 +7,8 @@ import { setFlag, hasFlag } from '../engine/flags'
 import { useCombatStore } from './useCombatStore'
 import { saveSheet, saveGameSave, loadFullSheet, loadActiveSave } from '../hooks/useLDIStorage'
 import enemiesData from '../data/enemies/enemies.json'
+
+const XP_THRESHOLDS = [50, 100, 150, 200]
 
 const defaultSheet = () => ({
   id: null,
@@ -35,6 +37,7 @@ const defaultSave = () => ({
   flags: {},
   inventory: [],
   status: 'active',
+  level_up_available: false,
 })
 
 function applySheetEffect(sheet, effect) {
@@ -181,6 +184,21 @@ export const useGameStore = create((set, get) => ({
     set(state => ({
       save: { ...state.save, credits: state.save.credits + amount },
     }))
+  },
+
+  gainXp: (amount) => {
+    const state = get()
+    const oldXp = state.sheet.xp_total || 0
+    const newXp = oldXp + amount
+    const crossed = XP_THRESHOLDS.some(t => oldXp < t && newXp >= t)
+    set({
+      sheet: { ...state.sheet, xp_total: newXp },
+      save: crossed ? { ...state.save, level_up_available: true } : state.save,
+    })
+  },
+
+  clearLevelUp: () => {
+    set(state => ({ save: { ...state.save, level_up_available: false } }))
   },
 
   loadSave: (saveData, sheetData) => {
