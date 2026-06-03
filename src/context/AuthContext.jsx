@@ -14,10 +14,14 @@ export function AuthProvider({ children }) {
       if (session?.user) await carregarPerfil(session.user.id)
       setCarregando(false)
     })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       setUser(session?.user ?? null)
-      if (session?.user) await carregarPerfil(session.user.id)
-      else setPerfil(null)
+      if (session?.user) {
+        await carregarPerfil(session.user.id)
+        if (event === 'SIGNED_IN') await garantirDeckInicial(session.user.id)
+      } else {
+        setPerfil(null)
+      }
     })
     return () => subscription.unsubscribe()
   }, [])
@@ -26,6 +30,18 @@ export function AuthProvider({ children }) {
     const { data } = await supabase.from('profiles').select('*').eq('id', userId).single()
     setPerfil(data)
     return data
+  }
+
+  async function garantirDeckInicial(userId) {
+    const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', userId).limit(1)
+    if (data && data.length > 0) { console.log('[Auth] deck já existe, pulando criação'); return }
+    const todasCartas = (await import('../data/supertrunfo-pt.json')).default
+    const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
+    const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, 10)
+    const rows = embaralhadas.map(c => ({ user_id: userId, carta_id: c.id }))
+    const { error } = await supabase.from('toptrumps_decks').insert(rows)
+    if (error) console.error('[Auth] erro ao criar deck inicial:', error)
+    else console.log('[Auth] deck inicial criado com', rows.length, 'cartas')
   }
 
   async function logout() {

@@ -221,25 +221,13 @@ export default function TopTrumps() {
   }
 
   useEffect(() => {
-    if (user) {
-      console.log('[TT] init — user:', user.id)
-      migrarLocalStorageParaSupabase(user.id).then(async () => {
-        console.log('[TT] após migração localStorage')
-        const ids = await carregarDeckDB(user.id)
-        console.log('[TT] carregarDeck retornou:', ids?.length || 0, 'cartas')
-        if (ids && ids.length > 0) {
-          const cartas = ids.map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
-          setDeckUsuario(cartas)
-        } else {
-          const iniciais = await carregarDeckLocal()
-          console.log('[TT] deck inicial criado localmente:', iniciais.length, 'cartas')
-          console.log('[TT] salvarCartasDeck chamado com deck inicial')
-          salvarCartasDeck(user.id, iniciais.map(c => c.id))
-          setDeckUsuario(iniciais)
-        }
-      })
-      verificarTentativas()
-    }
+    if (!user) return
+    console.log('[TT] init — carregando deck do banco para user:', user.id)
+    carregarDeckDB(user.id).then(cartas => {
+      console.log('[TT] deck carregado:', cartas?.length || 0, 'cartas')
+      setDeckUsuario(cartas || [])
+    })
+    verificarTentativas()
   }, [user])
 
   if (fase === 'menu') {

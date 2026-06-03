@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.15*
+*Versão: 1.16*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -280,6 +280,8 @@
 - ✅ **Páginas /login, /cadastro, /perfil** — Auth completo com validações
 - ✅ **Navbar adaptativa** — Botão ENTRAR quando anônimo, avatar + nome + sair quando logado
 - ✅ **Triggers** — 1min no site, cadastro, livro cap01, webtoon ep00, quiz completo, 80% score ranqueado, gangue completa
+- ✅ **Deck inicial gerado no login** — `garantirDeckInicial(userId)` no AuthContext, chamado no SIGNED_IN. TopTrumps.jsx só lê o banco, nunca cria deck.
+- ✅ **Fix stale closure desbloquear** — `useRef` em TopTrumps.jsx e em todos os arquivos com `.then()` assíncrono
 
 ### Personagens
 - ✅ **Página Personagens** — Grid completo com 9 personagens agrupados por categoria
