@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.0'
+const MP_VERSION = '1.0.1'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -158,6 +158,7 @@ export default function TopTrumpsMP() {
   }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
   function seguirParaProximaRodada() {
+    console.log('[MP] seguirParaProximaRodada chamada, salaRef turno:', salaRef.current?.turno_atual, 'status:', salaRef.current?.status)
     const s = salaRef.current
     if (!s) return
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
@@ -206,6 +207,7 @@ export default function TopTrumpsMP() {
   }
 
   function iniciarRevelacao(resultadoFinal) {
+    console.log('[MP] iniciando revelação, resultado:', resultadoFinal)
     setGirando(true)
     setTimeout(() => {
       setGirando(false)
