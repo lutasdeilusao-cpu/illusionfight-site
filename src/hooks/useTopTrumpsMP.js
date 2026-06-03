@@ -35,7 +35,7 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
 }
 
 export async function entrarFilaPublica(userId, modo, turnosDesejados) {
-  console.log('[MP] entrarFilaPublica chamado', { userId, modo, turnos })
+  console.log('[MP] entrarFilaPublica chamado', { userId, modo, turnos: turnosDesejados })
   const { data: sala } = await supabase
     .from('toptrumps_salas').select('*').eq('status', 'aguardando').eq('tipo_sala', 'publica').eq('modo', modo)
     .neq('jogador1_id', userId).single()
