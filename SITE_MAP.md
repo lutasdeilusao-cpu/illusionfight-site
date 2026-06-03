@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-02*
-*Versão: 1.9*
+*Versão: 1.10*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -73,7 +73,7 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
 | `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
-| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado e recompensa diária |
+| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | 🚧 | Top Trumps — jogo de cartas colecionáveis com deck personalizado e recompensa diária (bugs de menu pendentes de correção) |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -89,7 +89,7 @@
 | Componente | Arquivo JSX | Arquivo CSS | Usado em | Descrição |
 |---|---|---|---|---|
 | TrialBanner | `TrialBanner.jsx` | `TrialBanner.css` | App (global) | Faixa âmbar fixa abaixo da navbar (TRIAL_MODE), fundo sólido ao scroll |
-| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 6 links (Webtoon, Livro, Músicas, Mundo, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, botão ENTRAR |
+| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 8 links (Webtoon, Livro, Músicas, Extras, Mundo, Leaderboard, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, usuário logado (avatar + nome + sair) ou botão ENTRAR → /login |
 | HeroSlideshow | `HeroSlideshow.jsx` | `HeroSlideshow.css` | Home | 4 imagens com crossfade 1.2s, Ken Burns (1.0→1.08), overlays, scanlines, HeroEffect canvas |
 | HeroEffect | `HeroEffect.jsx` | `HeroEffect.css` | HeroSlideshow | Canvas com 40-60 linhas teal/âmbar caindo |
 | TypewriterPhrase | `TypewriterPhrase.jsx` | `TypewriterPhrase.css` | HeroSlideshow | Frase com efeito de digitação em loop (~28s) |
@@ -99,7 +99,7 @@
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados, hover overlay |
 | AchievementToast | `AchievementToast/AchievementToast.jsx` | `AchievementToast/AchievementToast.css` | App (global) | Toast centralizado com partículas, overlay escuro e foto do Jack |
 | Quiz | `Quiz.jsx` | `Quiz.css` | /quiz | Quiz SDR com 3 modos, timer 30s, ajudas universitários, rank final |
-| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com cards para Quiz SDR e Curiosidades |
+| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub com 3 cards: Quiz SDR (FREE), Top Trumps LDI (FREE), Curiosidades (PREMIUM) |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas (Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal), capa real na 1ª música |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal "ONDE ESTAMOS" com tracks (Webtoon, Livro, Música) e bullets done/pending animados |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | 4 cards estáticos Netflix-style (YouTube, TikTok, X, Instagram) com gradiente da plataforma, overlay "ABRIR →" no hover |
@@ -149,7 +149,7 @@
 | `notificacoes.json` | `src/data/` | PT | 10 mensagens na voz do Jack com CTA e URL | NotificationBalloon |
 | `mundo-pt.json` | `src/data/` | PT | Localizações, Timeline 1450→20XX, Tecnologias Xakaxi, Glossário, Ranking SDR | Mundo |
 | `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
-| `supertrunfo-pt.json` | `src/data/` | PT | 10 cartas com atributos (Rank SDR, Poder Mental, Velocidade, Resistência, Nível Xamã, Fator Caos) | SuperTrunfo |
+| `supertrunfo-pt.json` | `src/data/` | PT | 76 cartas com 8 atributos (rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo) em 5 tiers (29 free, 32 elite, 4 primordial, 6 lendario, 5 sombra) | TopTrumps |
 | `achievements-pt.json` | `src/data/` | PT | 8 achievements com triggers, ícones e tiers | AchievementsContext |
 | `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
@@ -241,12 +241,13 @@
 - ✅ **Navbar consolidada** — Link único "Extras" substitui Quiz e Curiosidades no menu
 
 ### Top Trumps LDI
-- ✅ **Jogo de cartas vs IA** — 76 cartas dos personagens, 8 atributos cada, tiers free/elite/primordial/lendario/sombra
+- ✅ **Jogo de cartas vs IA** — 76 cartas do universo LDI, 8 atributos cada, 5 tiers (29 free, 32 elite, 4 primordial, 6 lendario, 5 sombra)
 - ✅ **Seleção de turnos** — Escolha 5, 10, 15 ou 20 turnos por partida
 - ✅ **Deck personalizado** — localStorage salva cartas do jogador, inicia com 5-10 conforme login
-- ✅ **Recompensa diária** — Até 3 tentativas/dia, ganhe 1 carta nova por vitória (escolha entre 3 opções)
-- ✅ **Álbum no perfil** — Grid completo com cartas obtidas, silhuetas das faltantes e badges de tier
+- ✅ **Recompensa diária** — Até 3 tentativas/dia, ganhe 1 carta nova por vitória (escolha entre 3 opções viradas com flip animation)
+- ✅ **Álbum no perfil** — Grid completo com todas as 76 cartas, obtidas visíveis, faltantes como silhueta, badges de tier
 - ✅ **Controle de acesso** — TRIAL_ACTIVE libera tudo, free tem teto de 30 cartas
+- 🚧 **Bugs de menu** — Pendentes de correção (fase 'sem_tentativas', fluxo de reinício)
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
