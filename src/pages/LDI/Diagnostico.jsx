@@ -5,7 +5,7 @@ import { supabase } from '../../lib/supabase'
 import './LDI.css'
 
 const ADMIN_EMAIL = 'isaiasgamedev@gmail.com'
-const LDI_VERSION = '1.0.3'
+const LDI_VERSION = '1.0.4'
 
 const STEP_LABELS = {
   supabase: 'Conexão Supabase',
@@ -137,39 +137,20 @@ export default function Diagnostico() {
     updateResult('schema_cs', 'running')
     await sleep(200)
     try {
-      const { data: cols, error } = await supabase
-        .rpc('get_schema_info', { table_name: 'character_sheets' })
-      if (error || !cols) {
-        // fallback: query information_schema directly
-        const { data: fallback, error: fbErr } = await supabase
-          .from('information_schema.columns')
-          .select('column_name, column_default, is_nullable')
-          .eq('table_name', 'character_sheets')
-          .eq('table_schema', 'public')
-        if (fbErr) throw fbErr
-        const colNames = (fallback || []).map(c => c.column_name)
-        const checks = {
-          existe: true,
-          id: colNames.includes('id'),
-          user_id: colNames.includes('user_id'),
-          updated_at: colNames.includes('updated_at'),
-          created_at: colNames.includes('created_at'),
-        }
-        const idCol = (fallback || []).find(c => c.column_name === 'id')
-        const idDefault = idCol?.column_default
-        if (idDefault && idDefault.includes('gen_random_uuid')) checks.id_default = true
-        const failed = Object.entries(checks).filter(([k, v]) => !v && k !== 'existe')
-        if (failed.length === 0) {
-          updateResult('schema_cs', 'ok', 'Todas as colunas obrigatórias presentes.')
-        } else {
-          const missing = failed.map(([k]) => k).join(', ')
-          const sqlHint = missing.includes('updated_at')
-            ? 'ALTER TABLE character_sheets ADD COLUMN updated_at timestamptz DEFAULT now();'
-            : ''
-          updateResult('schema_cs', 'fail', `Colunas ausentes: ${missing}`, sqlHint)
-        }
+      const CS_COLS = ['id', 'user_id', 'updated_at', 'created_at']
+      const { error } = await supabase
+        .from('character_sheets')
+        .select(CS_COLS.join(', '))
+        .limit(0)
+      if (error) {
+        const msg = (error.message || error.details || error.code || '').toLowerCase()
+        const missing = CS_COLS.filter(col => msg.includes(col.toLowerCase()))
+        const sqlHint = missing.includes('updated_at')
+          ? 'ALTER TABLE character_sheets ADD COLUMN updated_at timestamptz DEFAULT now();'
+          : ''
+        updateResult('schema_cs', 'fail', `Colunas ausentes: ${missing.join(', ')}`, sqlHint)
       } else {
-        updateResult('schema_cs', 'ok', 'Todas as colunas verificadas via RPC.')
+        updateResult('schema_cs', 'ok', 'Todas as colunas obrigatórias presentes.')
       }
     } catch (err) {
       updateResult('schema_cs', 'fail', `Erro ao verificar schema: ${err.message}`)
@@ -180,31 +161,20 @@ export default function Diagnostico() {
     updateResult('schema_gs', 'running')
     await sleep(200)
     try {
-      const { data: fallback, error: fbErr } = await supabase
-        .from('information_schema.columns')
-        .select('column_name, column_default, is_nullable')
-        .eq('table_name', 'game_saves')
-        .eq('table_schema', 'public')
-      if (fbErr) throw fbErr
-      const colNames = (fallback || []).map(c => c.column_name)
-      const checks = {
-        existe: true,
-        id: colNames.includes('id'),
-        sheet_id: colNames.includes('sheet_id'),
-        updated_at: colNames.includes('updated_at'),
-        created_at: colNames.includes('created_at'),
-      }
-      const idCol = (fallback || []).find(c => c.column_name === 'id')
-      if (idCol?.column_default?.includes('gen_random_uuid')) checks.id_default = true
-      const failed = Object.entries(checks).filter(([k, v]) => !v && k !== 'existe')
-      if (failed.length === 0) {
-        updateResult('schema_gs', 'ok', 'Todas as colunas obrigatórias presentes.')
-      } else {
-        const missing = failed.map(([k]) => k).join(', ')
+      const GS_COLS = ['id', 'sheet_id', 'updated_at', 'created_at']
+      const { error } = await supabase
+        .from('game_saves')
+        .select(GS_COLS.join(', '))
+        .limit(0)
+      if (error) {
+        const msg = (error.message || error.details || error.code || '').toLowerCase()
+        const missing = GS_COLS.filter(col => msg.includes(col.toLowerCase()))
         const sqlHint = missing.includes('updated_at')
           ? 'ALTER TABLE game_saves ADD COLUMN updated_at timestamptz DEFAULT now();'
           : ''
-        updateResult('schema_gs', 'fail', `Colunas ausentes: ${missing}`, sqlHint)
+        updateResult('schema_gs', 'fail', `Colunas ausentes: ${missing.join(', ')}`, sqlHint)
+      } else {
+        updateResult('schema_gs', 'ok', 'Todas as colunas obrigatórias presentes.')
       }
     } catch (err) {
       updateResult('schema_gs', 'fail', `Erro ao verificar schema: ${err.message}`)

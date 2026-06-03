@@ -35,9 +35,9 @@ export default function Game() {
     }
   }, [save.status, navigate, user, saveToCloud])
 
-  const handleChoice = useCallback(async (choice) => {
-    await makeChoice(choice)
-    if (user) saveToCloud(user.id)
+  const handleChoice = useCallback((choice) => {
+    makeChoice(choice).catch(e => console.error('[LDI] choice error:', e))
+    if (user) saveToCloud(user.id).catch(e => console.error('[LDI] save falhou:', e))
   }, [makeChoice, user, saveToCloud])
 
   if (!currentScene) {
