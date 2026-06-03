@@ -60,7 +60,7 @@ function calcularRank(acertos, total, tempoMedio) {
 
 export default function Quiz() {
   const { t } = useLanguage()
-  const { desbloquear } = useAchievements()
+  const { desbloquear, registrarGangue } = useAchievements()
 
   const [fase, setFase] = useState("entrada")
   const [modo, setModo] = useState(null)
@@ -80,7 +80,6 @@ export default function Quiz() {
   const [bloqueioModo, setBloqueioModo] = useState(null)
   const [transicao, setTransicao] = useState(null)
   const [rankExibido, setRankExibido] = useState(2847391000)
-  const [gangueUsados, setGangueUsados] = useState(new Set())
   const [quizJaCompletou, setQuizJaCompletou] = useState(false)
   const timerRef = useRef(null)
 
@@ -209,12 +208,7 @@ export default function Quiz() {
     setDicaGangue({ ...dica, personagem })
     setDicaIndice(dica.indice)
     setMostraGangue(false)
-    setGangueUsados(prev => {
-      const novo = new Set(prev)
-      novo.add(personagem)
-      if (novo.size === 3) desbloquear('conhece_a_gangue')
-      return novo
-    })
+    registrarGangue(personagem)
   }
 
   const reiniciar = () => {
