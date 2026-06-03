@@ -103,7 +103,13 @@ export default function Create() {
   }, [navigate])
 
   const handleFinish = () => {
-    const finalAttr = tempAttr
+    let finalAttr = { ...tempAttr }
+    if (!finalAttr.R || finalAttr.R < 1) {
+      const shortage = 1 - (finalAttr.R || 0)
+      if (finalAttr.F > 1) { finalAttr.F -= shortage; finalAttr.R = 1 }
+      else if (finalAttr.H > 1) { finalAttr.H -= shortage; finalAttr.R = 1 }
+      else { finalAttr.R = 1 }
+    }
     updateSheet({
       sheet_name: name || 'Aventureiro',
       attributes: finalAttr,
