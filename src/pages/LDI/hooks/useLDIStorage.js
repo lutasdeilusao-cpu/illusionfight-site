@@ -14,7 +14,6 @@ export async function saveSheet(userId, sheet) {
     weapon: sheet.weapon || '',
     elemental: sheet.elemental || '',
     xp_total: sheet.xp_total || 0,
-    updated_at: new Date().toISOString()
   }
 
   const { data, error } = await supabase
@@ -44,7 +43,6 @@ export async function saveGameSave(userId, save) {
     flags: save.flags || {},
     inventory: save.inventory || [],
     status: save.status || 'active',
-    updated_at: new Date().toISOString()
   }
 
   const { data, error } = await supabase
@@ -62,9 +60,9 @@ export async function saveGameSave(userId, save) {
 export async function loadSheets(userId) {
   const { data, error } = await supabase
     .from('character_sheets')
-    .select('id, sheet_name, attributes, weapon, elemental, xp_total, updated_at')
+    .select('id, sheet_name, attributes, weapon, elemental, xp_total, created_at')
     .eq('user_id', userId)
-    .order('updated_at', { ascending: false })
+    .order('created_at', { ascending: false })
 
   if (error) {
     console.error('[LDI] Erro ao carregar fichas:', error)
@@ -93,7 +91,7 @@ export async function loadActiveSave(sheetId) {
     .select('*')
     .eq('sheet_id', sheetId)
     .eq('status', 'active')
-    .order('updated_at', { ascending: false })
+    .order('created_at', { ascending: false })
     .limit(1)
 
   if (error) {

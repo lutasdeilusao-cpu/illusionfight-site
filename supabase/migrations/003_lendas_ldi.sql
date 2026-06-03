@@ -15,7 +15,8 @@ create table if not exists character_sheets (
   weapon text not null,
   elemental text not null,
   xp_total integer default 0,
-  created_at timestamptz default now()
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
 );
 
 alter table character_sheets enable row level security;
@@ -42,7 +43,8 @@ create table if not exists game_saves (
   status text default 'active'
     constraint game_saves_status_check
     check (status in ('active','ended_defeat','ended_victory','ended_fork')),
-  last_updated timestamptz default now()
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
 );
 
 alter table game_saves enable row level security;
@@ -51,3 +53,20 @@ create policy "user owns save"
   on game_saves
   for all
   using (auth.uid() = user_id);
+
+-- Trigger function para auto-update de updated_at
+create or replace function update_updated_at_column()
+returns trigger as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$ language plpgsql;
+
+create trigger update_character_sheets_updated_at
+  before update on character_sheets
+  for each row execute function update_updated_at_column();
+
+create trigger update_game_saves_updated_at
+  before update on game_saves
+  for each row execute function update_updated_at_column();
