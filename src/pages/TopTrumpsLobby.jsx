@@ -108,6 +108,7 @@ export default function TopTrumpsLobby() {
     setSouJ1(false)
     salaEntradaRef.current = false
     setAguardando(false)
+    if (modo === 'free') navigate(`/extras/toptrumps/multiplayer?sala=${result.salaId}`)
   }
 
   async function handleFilaPublica() {
@@ -123,6 +124,7 @@ export default function TopTrumpsLobby() {
       setAguardando(false)
     } else {
       setAguardando(false)
+      if (modo === 'free') navigate(`/extras/toptrumps/multiplayer?sala=${result.salaId}`)
     }
   }
 

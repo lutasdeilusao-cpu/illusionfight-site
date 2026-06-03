@@ -23,9 +23,13 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
   if (!sala) return { erro: 'Sala não encontrada ou já iniciada.' }
   if (sala.jogador1_id === userId) return { erro: 'Você já está nesta sala.' }
   const total = Math.min(sala.turnos_j1, turnosDesejados)
-  const { error } = await supabase.from('toptrumps_salas').update({
-    jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total
-  }).eq('id', sala.id)
+  const updates = {
+    jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
+    status: sala.modo === 'free' ? 'em_jogo' : 'aguardando',
+    turno_atual: sala.modo === 'free' ? 1 : undefined,
+    jogador_da_vez: sala.modo === 'free' ? sala.jogador1_id : undefined
+  }
+  const { error } = await supabase.from('toptrumps_salas').update(updates).eq('id', sala.id)
   if (error) { console.error('[TTMP] erro entrar sala:', error); return { erro: 'Erro ao entrar na sala.' } }
   return { salaId: sala.id }
 }
@@ -37,7 +41,10 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   if (sala) {
     const total = Math.min(sala.turnos_j1, turnosDesejados)
     await supabase.from('toptrumps_salas').update({
-      jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total
+      jogador2_id: userId, turnos_j2: turnosDesejados, total_turnos: total,
+      status: modo === 'free' ? 'em_jogo' : 'aguardando',
+      turno_atual: modo === 'free' ? 1 : undefined,
+      jogador_da_vez: modo === 'free' ? sala.jogador1_id : undefined
     }).eq('id', sala.id)
     return { salaId: sala.id, novo: false }
   }
