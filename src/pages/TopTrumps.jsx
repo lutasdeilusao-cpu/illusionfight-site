@@ -223,9 +223,11 @@ export default function TopTrumps() {
   useEffect(() => {
     if (!user) return
     console.log('[TT] init — carregando deck do banco para user:', user.id)
-    carregarDeckDB(user.id).then(cartas => {
-      console.log('[TT] deck carregado:', cartas?.length || 0, 'cartas')
-      setDeckUsuario(cartas || [])
+    carregarDeckDB(user.id).then(ids => {
+      console.log('[TT] deck carregado:', ids?.length || 0, 'cartas')
+      const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
+      console.log('[TT] cartas montadas:', cartas.length)
+      setDeckUsuario(cartas)
     })
     verificarTentativas()
   }, [user])
