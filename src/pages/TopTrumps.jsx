@@ -235,6 +235,12 @@ export default function TopTrumps() {
     verificarTentativas()
   }, [user])
 
+  useEffect(() => {
+    if (totalTurnos !== null || deckUsuario.length === 0) return
+    const opcoes = [5, 10, 15, 20].filter(n => n <= deckUsuario.length)
+    if (opcoes.length === 1) setTotalTurnos(opcoes[0])
+  }, [deckUsuario, totalTurnos])
+
   if (fase === 'menu') {
     const pct = deckUsuario.length / todasCartas.length * 100
     const maxTurnos = deckUsuario.length
