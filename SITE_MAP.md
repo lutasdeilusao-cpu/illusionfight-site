@@ -283,6 +283,7 @@
 - ✅ **Deck inicial gerado no login** — `garantirDeckInicial(userId)` no AuthContext, chamado no SIGNED_IN. TopTrumps.jsx só lê o banco, nunca cria deck.
 - ✅ **Fix stale closure desbloquear** — `useRef` em TopTrumps.jsx e em todos os arquivos com `.then()` assíncrono
 - ✅ **Cartas do Top Trumps receberam campo id_num inteiro** — Sequencial (1-76) para persistência no Supabase como int4
+- ✅ **Contador de tentativas diárias migrado do localStorage para Supabase** — Colunas `tentativas_data` + `tentativas_usadas` em `toptrumps_stats`, funções `carregarTentativas` e `incrementarTentativa` no hook
 
 ### Personagens
 - ✅ **Página Personagens** — Grid completo com 9 personagens agrupados por categoria
