@@ -179,10 +179,6 @@ export default function TopTrumps() {
         if (pool.length > 0) {
           setRecompensaOpcoes(embaralhar(pool).slice(0, 3))
           setFase('recompensa')
-          const novoCount = salva.data === hoje ? (salva.count || 0) + 1 : 1
-          localStorage.setItem(chaveTent, JSON.stringify({ data: hoje, count: novoCount }))
-          localStorage.setItem(chaveData, hoje)
-          setTentativasRestantes(Math.max(0, 3 - novoCount))
           window.__partidaPendente = { jogadas, vitorias, derrotas, empates, resultado }
           return
         }
@@ -208,6 +204,13 @@ export default function TopTrumps() {
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id_num])
+    const hoje = new Date().toISOString().slice(0, 10)
+    const chaveTent = getTentativasKey()
+    const salva = JSON.parse(localStorage.getItem(chaveTent) || '{"data":"","count":0}')
+    const novoCount = salva.data === hoje ? (salva.count || 0) + 1 : 1
+    localStorage.setItem(chaveTent, JSON.stringify({ data: hoje, count: novoCount }))
+    localStorage.setItem(getUltimaDataKey(), hoje)
+    setTentativasRestantes(Math.max(0, 3 - novoCount))
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
       console.log('[TT] registrarPartida resolveu (escolherRecompensa) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
