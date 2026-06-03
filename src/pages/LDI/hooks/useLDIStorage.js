@@ -1,8 +1,9 @@
 import { supabase } from '../../../lib/supabase'
 
 export async function saveSheet(userId, sheet) {
+  const sheetId = sheet.id || crypto.randomUUID()
   const payload = {
-    id: sheet.id,
+    id: sheetId,
     user_id: userId,
     sheet_name: sheet.sheet_name || 'Aventureiro',
     attributes: sheet.attributes,
@@ -25,12 +26,17 @@ export async function saveSheet(userId, sheet) {
     console.error('[LDI] Erro ao salvar ficha:', error)
     return null
   }
-  return data[0]?.id || payload.id
+  return data[0]?.id || sheetId
 }
 
 export async function saveGameSave(userId, save) {
+  if (!save.sheet_id) {
+    console.error('[LDI] sheet_id ausente ao salvar game_save')
+    return null
+  }
+  const saveId = save.id || undefined
   const payload = {
-    id: save.id,
+    ...(saveId ? { id: saveId } : {}),
     user_id: userId,
     sheet_id: save.sheet_id,
     arc: save.arc || 1,
@@ -54,7 +60,7 @@ export async function saveGameSave(userId, save) {
     console.error('[LDI] Erro ao salvar save:', error)
     return null
   }
-  return data[0]?.id || payload.id
+  return data[0]?.id || saveId
 }
 
 export async function loadSheets(userId) {
