@@ -212,6 +212,7 @@ export default function TopTrumpsMP() {
 
   useEffect(() => {
     if (!jaMovi || !movimentoRecebido || fase !== 'jogando') return
+    console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
     resolverRodada()
   }, [jaMovi, movimentoRecebido])
 
@@ -295,10 +296,12 @@ export default function TopTrumpsMP() {
       if (s.status === 'encerrada') setFase('fim')
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
+      console.log('[MP] Realtime UPDATE recebido, novo:', JSON.stringify(p.new))
       const mov = p.new
       setUltimoMovimento(mov)
       if (mov.jogador_id !== user.id) {
         if (jaMoviRef.current) {
+          console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
           resolverRodada()
         } else {
           setMovimentoRecebido(true)
@@ -306,6 +309,7 @@ export default function TopTrumpsMP() {
       } else {
         setJaMovi(true)
         if (movimentoRecebidoRef.current) {
+          console.log('[MP] chamando resolverRodada, turno:', salaRef.current?.turno_atual, 'salaId:', salaId)
           resolverRodada()
         }
       }
