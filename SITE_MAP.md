@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*
-*Versão: 1.33*
+*Versão: 1.34*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -421,6 +421,8 @@ src/pages/LDI/
 ├── Sheet.jsx                     # Ficha do personagem
 ├── Clues.jsx                     # Caderno de pistas
 ├── End.jsx                       # Tela de fim de jogo
+├── hooks/                        # Integração Supabase
+│   └── useLDIStorage.js          # CRUD: saveSheet, saveGameSave, loadSheets, loadFullSheet, loadActiveSave
 ├── engine/                       # Lógica pura (sem React)
 │   ├── dice.js                   # Rolagem de dados (d6, testAttribute)
 │   ├── combat.js                 # Cálculos 3D&T (FA, FD, dano, status)
@@ -428,7 +430,7 @@ src/pages/LDI/
 │   ├── scenes.js                 # Carregamento e filtragem de cenas
 │   └── character.js              # PV, PM, XP, Perto da Morte
 ├── store/                        # Estado global (Zustand)
-│   ├── useGameStore.js           # Save, sheet, cena, ações
+│   ├── useGameStore.js           # Save, sheet, cena, ações, saveToCloud, loadFromCloud
 │   └── useCombatStore.js         # Estado de combate
 ├── data/
 │   ├── scenes/act1.json          # Cenas do Ato I (1.1 → 2.1)
@@ -455,12 +457,19 @@ src/pages/LDI/
 **Migration:** `supabase/migrations/003_lendas_ldi.sql`  
 **RLS:** `auth.uid() = user_id` (mesmo padrão dos outros jogos)  
 
+### Cloud Save — Fluxo
+- **Usuário logado:** save automático no Supabase após criação de ficha, cada escolha, fim de combate e fim de jogo
+- **Visitante:** joga sem persistência (sessão apenas)
+- **Lobby:** lista fichas salvas do usuário logado com botão CONTINUAR
+- **Funções:** `saveToCloud(userId)`, `loadFromCloud(userId, sheetId)` no useGameStore
+- **Hook:** `useLDIStorage.js` — CRUD puro nas tabelas `character_sheets` e `game_saves` 
+
 ### Sistemas implementados
 - Engine de combate 3D&T (dice.js · combat.js · character.js)
 - Sistema de flags e cenas em JSON
 - 3 puzzles: Sliding Tiles · Stealth Grid · Decoder
 - Efeitos visuais: typewriter · onomatopeias · flash de dano · dado animado
-- Auto-save por transição de cena (debounce 500ms)
+- Auto-save no Supabase por transição de cena (usuário logado)
 - Transições de cena com split VHS / tela preta
 
 ### Efeitos Visuais (Adendo UI/UX)
@@ -511,6 +520,7 @@ src/pages/LDI/
 - Paleta alinhada ao illusionfight-site (+ vars LDI específicas)
 - RLS aplicado seguindo padrão dos outros jogos
 - Fonte Share Tech Mono para narrativa · Bangers para onomatopeias
+- Visitante joga sem save na nuvem; login necessário para persistência
 
 ---
 

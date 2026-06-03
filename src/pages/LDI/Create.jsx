@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
+import { useAuth } from '../../context/AuthContext'
 import './LDI.css'
 
 const STEPS = [
@@ -52,7 +53,8 @@ const ATTR_NAMES = {
 
 export default function Create() {
   const navigate = useNavigate()
-  const { sheet, updateSheet, applySceneEffect, setFlag } = useGameStore()
+  const { user } = useAuth()
+  const { sheet, updateSheet, applySceneEffect, setFlag, saveToCloud } = useGameStore()
   const [step, setStep] = useState(0)
   const [name, setName] = useState('')
   const [showFinal, setShowFinal] = useState(false)
@@ -110,6 +112,10 @@ export default function Create() {
       pv_current: pvMax,
       pm_current: pmMax,
     })
+
+    if (user) {
+      saveToCloud(user.id)
+    }
 
     navigate('/extras/ldi/game')
   }

@@ -2,10 +2,8 @@ import { create } from 'zustand'
 import { loadScene, filterChoices, getSceneFromCache } from '../engine/scenes'
 import { setFlag, hasFlag } from '../engine/flags'
 import { useCombatStore } from './useCombatStore'
+import { saveSheet, saveGameSave, loadFullSheet, loadActiveSave } from '../hooks/useLDIStorage'
 import enemiesData from '../data/enemies/enemies.json'
-
-const SAVE_DEBOUNCE = 500
-let saveTimer = null
 
 const defaultSheet = () => ({
   id: null,
@@ -179,5 +177,42 @@ export const useGameStore = create((set, get) => ({
       currentScene: null,
       choices: [],
     })
+  },
+
+  saveToCloud: async (userId) => {
+    if (!userId) return
+    const state = get()
+    if (!state.sheet.id) {
+      const sheetId = await saveSheet(userId, state.sheet)
+      if (sheetId) {
+        set(state => ({ sheet: { ...state.sheet, id: sheetId } }))
+      }
+    } else {
+      await saveSheet(userId, state.sheet)
+    }
+    const currentSave = get().save
+    const savePayload = {
+      ...currentSave,
+      sheet_id: get().sheet.id,
+      id: currentSave.id || undefined,
+    }
+    const saveId = await saveGameSave(userId, savePayload)
+    if (saveId) {
+      set(state => ({ save: { ...state.save, id: saveId } }))
+    }
+  },
+
+  loadFromCloud: async (userId, sheetId) => {
+    if (!userId || !sheetId) return false
+    const sheetData = await loadFullSheet(sheetId)
+    const saveData = await loadActiveSave(sheetId)
+    if (sheetData && saveData) {
+      set({
+        sheet: { ...defaultSheet(), ...sheetData },
+        save: { ...defaultSave(), ...saveData },
+      })
+      return true
+    }
+    return false
   },
 }))

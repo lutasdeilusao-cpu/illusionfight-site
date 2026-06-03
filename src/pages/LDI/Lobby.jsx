@@ -1,8 +1,39 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useAuth } from '../../context/AuthContext'
+import { useGameStore } from './store/useGameStore'
+import { loadSheets } from './hooks/useLDIStorage'
 import './LDI.css'
 
 export default function Lobby() {
+  const { user } = useAuth()
+  const navigate = useNavigate()
+  const loadFromCloud = useGameStore(s => s.loadFromCloud)
+  const resetGame = useGameStore(s => s.resetGame)
+  const [saves, setSaves] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!user) return
+    setLoading(true)
+    loadSheets(user.id).then(data => {
+      setSaves(data || [])
+      setLoading(false)
+    })
+  }, [user])
+
+  const handleContinue = async (sheetId) => {
+    if (!user) return
+    const ok = await loadFromCloud(user.id, sheetId)
+    if (ok) navigate('/extras/ldi/game')
+  }
+
+  const handleNew = () => {
+    resetGame()
+    navigate('/extras/ldi/create')
+  }
+
   return (
     <div className="ldi-lobby">
       <div className="ldi-lobby-bg" />
@@ -22,17 +53,40 @@ export default function Lobby() {
         </div>
 
         <div className="ldi-lobby-actions">
-          <Link to="/extras/ldi/create" className="ldi-btn ldi-btn--primary">
+          <button onClick={handleNew} className="ldi-btn ldi-btn--primary">
             NOVA FICHA
-          </Link>
-          <Link to="/extras/ldi/create" className="ldi-btn ldi-btn--outline">
-            CONTINUAR
-          </Link>
+          </button>
         </div>
 
-        <div className="ldi-lobby-disclaimer">
-          <p>Salvamento automático via navegador. Faça login para salvar na nuvem.</p>
-        </div>
+        {user && (
+          <div className="ldi-lobby-saves">
+            <h3>Suas Fichas</h3>
+            {loading && <p>Carregando...</p>}
+            {!loading && saves.length === 0 && <p>Nenhuma ficha salva ainda.</p>}
+            {saves.map(s => (
+              <div key={s.id} className="ldi-lobby-save-item">
+                <span className="ldi-lobby-save-name">{s.sheet_name}</span>
+                <span className="ldi-lobby-save-stats">
+                  {s.weapon && `Arma: ${s.weapon}`}
+                  {s.xp_total > 0 && ` | XP: ${s.xp_total}`}
+                </span>
+                <button
+                  onClick={() => handleContinue(s.id)}
+                  className="ldi-btn ldi-btn--small"
+                >
+                  CONTINUAR
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {!user && (
+          <div className="ldi-lobby-guest">
+            <p>Modo visitante — sem salvamento na nuvem.</p>
+            <p><Link to="/login">Faça login</Link> para salvar seu progresso.</p>
+          </div>
+        )}
       </motion.div>
     </div>
   )

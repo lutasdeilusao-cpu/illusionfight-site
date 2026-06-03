@@ -2,12 +2,14 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
+import { useAuth } from '../../context/AuthContext'
 import CombatView from './components/CombatView'
 import './LDI.css'
 
 export default function Combat() {
   const navigate = useNavigate()
-  const { sheet, save, updateSave, setScene } = useGameStore()
+  const { user } = useAuth()
+  const { sheet, save, updateSave, setScene, saveToCloud } = useGameStore()
   const combat = useCombatStore()
 
   useEffect(() => {
@@ -43,13 +45,16 @@ export default function Combat() {
       combat.resetCombat()
       const currentId = save?.current_scene_id || '1.3'
       await setScene(currentId)
+      if (user) saveToCloud(user.id)
       navigate('/extras/ldi/game')
     } else if (result === 'defeat') {
       updateSave({ status: 'ended_defeat' })
       combat.resetCombat()
+      if (user) saveToCloud(user.id)
       navigate('/extras/ldi/end')
     } else {
       combat.resetCombat()
+      if (user) saveToCloud(user.id)
       navigate('/extras/ldi/game')
     }
   }

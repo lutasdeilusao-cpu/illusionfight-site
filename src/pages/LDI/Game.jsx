@@ -1,13 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
+import { useAuth } from '../../context/AuthContext'
 import SceneView from './components/SceneView'
 import './LDI.css'
 
 export default function Game() {
   const navigate = useNavigate()
-  const { sheet, save, currentScene, choices, setScene, makeChoice, updateSave } = useGameStore()
+  const { user } = useAuth()
+  const { sheet, save, currentScene, choices, setScene, makeChoice, updateSave, saveToCloud } = useGameStore()
   const combat = useCombatStore()
 
   useEffect(() => {
@@ -28,13 +30,15 @@ export default function Game() {
 
   useEffect(() => {
     if (save.status === 'ended_victory' || save.status === 'ended_defeat' || save.status === 'ended_fork') {
+      if (user) saveToCloud(user.id)
       navigate('/extras/ldi/end')
     }
-  }, [save.status, navigate])
+  }, [save.status, navigate, user, saveToCloud])
 
-  const handleChoice = (choice) => {
-    makeChoice(choice)
-  }
+  const handleChoice = useCallback(async (choice) => {
+    await makeChoice(choice)
+    if (user) saveToCloud(user.id)
+  }, [makeChoice, user, saveToCloud])
 
   if (!currentScene) {
     return (
