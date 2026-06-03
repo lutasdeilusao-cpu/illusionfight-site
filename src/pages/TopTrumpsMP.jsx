@@ -121,6 +121,7 @@ export default function TopTrumpsMP() {
       if (!deckOpp?.length) return
       const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
       setDeckOponente(cartasOpp.slice(0, qtd))
+      console.log('[MP] deckOponente carregado:', cartasOpp.slice(0, qtd).length, 'cartas')
     })()
   }, [salaId, user, sala?.jogador2_id])
 
@@ -175,6 +176,7 @@ export default function TopTrumpsMP() {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
+    console.log('[MP] jogarAtributo — deckOponente:', deckOponente.length, 'cartaOp:', cartaOp?.id_num)
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
       setJaMovi(true)
     })
@@ -212,12 +214,14 @@ export default function TopTrumpsMP() {
   async function resolverRodada() {
     const s = salaRef.current
     if (!s) { return }
+    console.log('[MP] resolverRodada chamada, turno:', s.turno_atual)
     const { data: movs, error: errMovs } = await supabase
       .from('toptrumps_movimentos')
       .select('*')
       .eq('sala_id', s.id)
       .eq('turno', s.turno_atual)
       .order('criado_em', { ascending: true })
+    console.log('[MP] resolverRodada movimentos:', movs?.length, 'carta_id_oponente:', movs?.[0]?.carta_id_oponente)
     if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
     // Caso padrão: dois movimentos (ambos jogadores jogaram)
@@ -440,6 +444,7 @@ export default function TopTrumpsMP() {
         setMovimentoRecebido(true)
       }
 
+      console.log('[MP] movimento recebido, turno:', mov.turno, 'carta_id_oponente:', mov.carta_id_oponente)
       resolverRodada()
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
