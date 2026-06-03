@@ -55,6 +55,7 @@ export default function TopTrumpsLobby() {
   }, [user])
 
   useEffect(() => {
+    console.log('[LOBBY] useEffect subscription disparou, salaId:', salaId)
     if (!salaId) return
     const sub = subscribeToSala(salaId, (payload) => {
       setStatusSala(payload.new.status)
@@ -112,11 +113,14 @@ export default function TopTrumpsLobby() {
   }
 
   async function handleFilaPublica() {
+    console.log('[LOBBY] handleFilaPublica chamado')
     if (!user || !modo || !turnos) return
     setAguardando(true)
     setErro('')
     const result = await entrarFilaPublica(user.id, modo, turnos)
+    console.log('[LOBBY] resultado fila:', result)
     setSalaId(result.salaId)
+    console.log('[LOBBY] salaId setado:', result.salaId)
     setSouJ1(result.novo !== false)
     salaEntradaRef.current = false
     if (result.novo) {

@@ -35,9 +35,11 @@ export async function entrarSalaPorCodigo(userId, codigo, turnosDesejados) {
 }
 
 export async function entrarFilaPublica(userId, modo, turnosDesejados) {
+  console.log('[MP] entrarFilaPublica chamado', { userId, modo, turnos })
   const { data: sala } = await supabase
     .from('toptrumps_salas').select('*').eq('status', 'aguardando').eq('tipo_sala', 'publica').eq('modo', modo)
     .neq('jogador1_id', userId).single()
+  console.log('[MP] sala encontrada:', sala)
   if (sala) {
     const total = Math.min(sala.turnos_j1, turnosDesejados)
     await supabase.from('toptrumps_salas').update({
@@ -46,9 +48,14 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
       turno_atual: modo === 'free' ? 1 : undefined,
       jogador_da_vez: modo === 'free' ? sala.jogador1_id : undefined
     }).eq('id', sala.id)
-    return { salaId: sala.id, novo: false }
+    const ret = { salaId: sala.id, novo: false }
+    console.log('[MP] retornando (entrou em sala existente):', ret)
+    return ret
   }
-  return criarSala(userId, modo, 'publica', turnosDesejados).then(r => ({ ...r, novo: true }))
+  const r = await criarSala(userId, modo, 'publica', turnosDesejados)
+  const ret = { ...r, novo: true }
+  console.log('[MP] sala criada:', ret)
+  return ret
 }
 
 export async function definirAposta(salaId, userId, cartaId, ehJ1) {
@@ -129,9 +136,15 @@ export async function atualizarMPStats(userId, resultado) {
 }
 
 export function subscribeToSala(salaId, callback) {
+  console.log('[RT] subscribeToSala iniciado para sala:', salaId)
   return supabase.channel(`sala-${salaId}`)
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'toptrumps_salas', filter: `id=eq.${salaId}` }, callback)
-    .subscribe()
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'toptrumps_salas', filter: `id=eq.${salaId}` }, (payload) => {
+      console.log('[RT] evento recebido:', payload)
+      callback(payload)
+    })
+    .subscribe((status) => {
+      console.log('[RT] status do canal:', status)
+    })
 }
 
 export function subscribeToMovimentos(salaId, callback) {
