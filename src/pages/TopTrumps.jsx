@@ -100,7 +100,8 @@ export default function TopTrumps() {
   }
 
   function iniciarJogo() {
-    if (!user || totalTurnos > Math.floor(deckUsuario.length / 2)) return
+    console.log('[TT] iniciarJogo executou — deck:', deckUsuario.length, 'turnos:', totalTurnos)
+    if (!user || totalTurnos > deckUsuario.length) return
     const d = embaralhar([...deckUsuario])
     const metade = Math.ceil(d.length / 2)
     setDeckJogador(d.slice(0, metade))
@@ -229,20 +230,23 @@ export default function TopTrumps() {
     carregarDeckDB(user.id).then(ids => {
       console.log('[TT] deck carregado:', ids?.length || 0, 'cartas')
       const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
-      console.log('[TT] cartas montadas:', cartas.length)
+      console.log('[TT] cartas montadas:', cartas.length, '| deckUsuario.length será:', cartas.length, '| totalTurnos antes:', totalTurnos)
       setDeckUsuario(cartas)
     })
     verificarTentativas()
   }, [user])
 
   useEffect(() => {
-    if (totalTurnos !== null || deckUsuario.length === 0) return
+    console.log('[TT] auto-select disparou — deck:', deckUsuario.length, 'totalTurnos atual:', totalTurnos)
+    if (totalTurnos !== null || deckUsuario.length === 0) { console.log('[TT] auto-select ignorado — condicao nao satisfeita'); return }
     const opcoes = [5, 10, 15, 20].filter(n => n <= deckUsuario.length)
-    if (opcoes.length === 1) setTotalTurnos(opcoes[0])
+    console.log('[TT] opcoes válidas:', opcoes)
+    if (opcoes.length === 1) { console.log('[TT] setTotalTurnos chamado com:', opcoes[0]); setTotalTurnos(opcoes[0]) }
   }, [deckUsuario, totalTurnos])
 
   if (fase === 'menu') {
     const pct = deckUsuario.length / todasCartas.length * 100
+    console.log('[TT] render botao — totalTurnos:', totalTurnos, 'disabled:', totalTurnos === null)
     const maxTurnos = deckUsuario.length
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
@@ -285,7 +289,10 @@ export default function TopTrumps() {
                 </div>
                 {jaGanhouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje. Volte amanhã!</p>}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
-                  disabled={totalTurnos === null} onClick={iniciarJogo}>JOGAR</button>
+                  disabled={totalTurnos === null} onClick={() => {
+                    console.log('[TT] JOGAR clicado — totalTurnos:', totalTurnos, 'disabled:', totalTurnos === null)
+                    iniciarJogo()
+                  }}>JOGAR</button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">Ver meu álbum de cartas →</Link>
               </div>
             )}
