@@ -18,7 +18,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-const MP_VERSION = '1.0.2'
+const MP_VERSION = '1.0.3'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
@@ -261,7 +261,7 @@ export default function TopTrumpsMP() {
       const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
       const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
       const novoTurno = s.turno_atual + 1
-      const proximoJogador = res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+      const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
       const fim = novoTurno > s.total_turnos
       const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
@@ -335,7 +335,7 @@ export default function TopTrumpsMP() {
       const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
       const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
       const novoTurno = s.turno_atual + 1
-      const proximoJogador = res === 'j1_venceu' ? s.jogador1_id : res === 'j2_venceu' ? s.jogador2_id : s.jogador_da_vez
+      const proximoJogador = s.jogador_da_vez === s.jogador1_id ? s.jogador2_id : s.jogador1_id
       const fim = novoTurno > s.total_turnos
       const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
