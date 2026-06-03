@@ -559,15 +559,16 @@
 /* ===== COMBAT ===== */
 
 .ldi-page--combat {
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
+  padding-top: 1rem;
   background: var(--ldi-bg);
 }
 
 .ldi-combat {
-  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
 
 .ldi-combat-grid {

@@ -55,6 +55,7 @@ export default function CombatView({
     if (result?.defeated) {
       setShowOnomatopeia(null)
       setAnimating(false)
+      handleEndCombat('victory')
       return
     }
 
@@ -68,6 +69,16 @@ export default function CombatView({
     if (enemyResult) {
       setEnemyDice({ result: enemyResult.fa, success: enemyResult.damage > 0 })
       if (enemyResult.damage > 0) setDamageNumber({ value: enemyResult.damage, target: 'player', x: 20, y: 20 })
+    }
+
+    const newPlayerPv = Math.max(0, (save?.pv_current ?? pvMax) - (enemyResult?.damage || 0))
+    if (newPlayerPv <= 0) {
+      await new Promise(r => setTimeout(r, 800))
+      setShowOnomatopeia(null)
+      setFlashRed(false)
+      setAnimating(false)
+      handleEndCombat('defeat')
+      return
     }
 
     await new Promise(r => setTimeout(r, 800))
