@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-02*
-*Versão: 1.19*
+*Última atualização: 2026-06-03*
+*Versão: 1.21*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -46,7 +46,7 @@
     │   ├── LanguageContext.jsx          # Provider de i18n: locale, t(), changeLocale()
     │   └── ReaderContext.jsx           # Estado global readerMode — esconde Navbar e TrialBanner nos leitores
     ├── data/                           # 11 arquivos JSON
-    ├── hooks/                          # 6 hooks customizados
+    ├── hooks/                          # 8 hooks customizados
     ├── i18n/
     │   ├── pt.json                     # Traduções PT
     │   ├── en.json                     # Traduções EN
@@ -131,6 +131,8 @@
 | `useScrollPosition` | `useScrollPosition.js` | Navbar | Detecta scroll > 20px para background |
 | `usePersonagens` | `usePersonagens.js` | CharactersRow, Personagens, PersonagemDetalhe | Carrega JSON + agrupa por categoria |
 | `useScrollReveal` | `useScrollReveal.js` | CharactersRow, BookChaptersRow, LatestEpisodes, MusicSection, NowLive, StoryProgress, ShopSection, newsletter-cta | IntersectionObserver, adiciona classe `revealed` ao entrar na viewport |
+| `useTopTrumpsDB.js` | `useTopTrumpsDB.js` | TopTrumps | Funções Supabase: carregarDeck, salvarCartasDeck, registrarPartida, atualizarStats, carregarStats, migrarLocalStorageParaSupabase |
+| `useTopTrumpsMP.js` | `useTopTrumpsMP.js` | TopTrumpsLobby, TopTrumpsMP | Funções de multiplayer: criarSala, entrarSalaPorCodigo, entrarFilaPublica, definirAposta, confirmarLeitura, fazerJogada, encerrarPartida, carregarTentativas, incrementarTentativa, resetarTentativas, gerarCanalSala, gerarCanalMovimentos |
 
 ---
 
@@ -157,8 +159,8 @@
 | `quiz-pt.json` | `src/data/` | PT | 85 perguntas com categorias, dificuldades, dicas (kim/jack/nina) e narrador | Quiz |
 | `supertrunfo-pt.json` | `src/data/` | PT | 76 cartas com 8 atributos (rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo) em 5 tiers (29 free, 32 elite, 4 primordial, 6 lendario, 5 sombra) | TopTrumps |
 | `achievements-pt.json` | `src/data/` | PT | 14 achievements (inclui 5 novos do Top Trumps: primeira_vitoria_trumps, primeira_derrota_trumps, veterano_trumps_10, centuriao_trumps, lenda_trumps) | AchievementsContext, Perfil |
-| `useTopTrumpsDB.js` | `src/hooks/` | — | Hook com funções Supabase: carregarDeck, salvarCartasDeck, registrarPartida, atualizarStats, carregarStats, carregarUltimasPartidas, migrarLocalStorageParaSupabase | TopTrumps |
 | `001_toptrumps.sql` | `supabase/migrations/` | — | Schema SQL: toptrumps_decks, toptrumps_partidas, toptrumps_stats com RLS policies | (rodar no Supabase SQL Editor) |
+| `002_toptrumps_mp.sql` | `supabase/migrations/` | — | Schema SQL: toptrumps_salas, toptrumps_movimentos, toptrumps_mp_stats com RLS policies | (rodar no Supabase SQL Editor) |
 | `achievements-pt.json` | `src/data/` | PT | 8 achievements com triggers, ícones e tiers | AchievementsContext |
 | `search-index.js` | `src/data/` | PT | Índice flat de personagens, capítulos, webtoon, músicas, lore e extras para busca global | SearchModal |
 
@@ -262,6 +264,11 @@
 - ✅ **5 novos achievements** — Primeira Vitória, Aprendiz, Veterano (10), Centurião (100), Lenda (1000)
 - ✅ **Histórico no perfil** — Stats (partidas/vitórias/derrotas/streak) + últimas 10 partidas com resultados
 - ✅ **Multiplayer via Supabase Realtime** — Lobby com 3 etapas, matchmaking, timer 30s, IA fallback, transferência de cartas no modo apostado, stats e leaderboard separados
+- ✅ **Bugfix matchmaking free mode** — Status `em_jogo` setado corretamente na entrada de J2, impedindo jogadores presos
+- ✅ **Fila pública assíncrona** — UI com typewriter, glitch, dots animados, sem timeout de saída
+- ✅ **Bugfix console.log** — Referência `turnos` corrigida para `turnosDesejados` em `entrarFilaPublica`
+- ✅ **Bugfix salas fantasma** — Filtro `.gte('criada_em', 5min)` na query de busca de sala pública impede reaproveitamento de salas órfãs
+- ✅ **Bugfix .single() → .maybeSingle()** — 3 queries em `toptrumps_mp_stats` trocadas para evitar erro 406 quando usuário ainda não tem stats
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro

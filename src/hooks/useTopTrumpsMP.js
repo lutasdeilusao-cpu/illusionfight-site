@@ -99,7 +99,7 @@ export async function encerrarSala(salaId, vencedorId, perdedorId, modo, cartaAp
 }
 
 export async function verificarLimiteDiario(userId, tier) {
-  const { data } = await supabase.from('toptrumps_mp_stats').select('partidas_hoje, partidas_hoje_data').eq('user_id', userId).single()
+  const { data } = await supabase.from('toptrumps_mp_stats').select('partidas_hoje, partidas_hoje_data').eq('user_id', userId).maybeSingle()
   const hoje = new Date().toISOString().split('T')[0]
   const usadas = (data?.partidas_hoje_data === hoje) ? (data.partidas_hoje || 0) : 0
   const limite = LIMITES[tier] ?? 1
@@ -108,7 +108,7 @@ export async function verificarLimiteDiario(userId, tier) {
 
 export async function incrementarPartidaDiaria(userId) {
   const hoje = new Date().toISOString().split('T')[0]
-  const { data } = await supabase.from('toptrumps_mp_stats').select('partidas_hoje, partidas_hoje_data').eq('user_id', userId).single()
+  const { data } = await supabase.from('toptrumps_mp_stats').select('partidas_hoje, partidas_hoje_data').eq('user_id', userId).maybeSingle()
   const usadas = (data?.partidas_hoje_data === hoje) ? (data.partidas_hoje || 0) + 1 : 1
   await supabase.from('toptrumps_mp_stats').upsert({
     user_id: userId, partidas_hoje: usadas, partidas_hoje_data: hoje
@@ -116,7 +116,7 @@ export async function incrementarPartidaDiaria(userId) {
 }
 
 export async function carregarMPStats(userId) {
-  const { data } = await supabase.from('toptrumps_mp_stats').select('*').eq('user_id', userId).single()
+  const { data } = await supabase.from('toptrumps_mp_stats').select('*').eq('user_id', userId).maybeSingle()
   return data || { total_partidas: 0, total_vitorias: 0, total_derrotas: 0, total_empates: 0, streak_atual: 0, partidas_hoje: 0 }
 }
 
