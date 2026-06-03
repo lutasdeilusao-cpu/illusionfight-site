@@ -103,17 +103,28 @@ export default function TopTrumpsMP() {
       if (!cartas.length) return
       const qtd = Math.min(sala.total_turnos, cartas.length)
       setDeckLocal(cartas.slice(0, qtd))
-
-      const opId = sala.jogador1_id === user.id ? sala.jogador2_id : sala.jogador1_id
-      if (opId) {
-        const { data: deckOpp } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', opId).order('carta_id', { ascending: true })
-        if (deckOpp?.length) {
-          const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
-          setDeckOponente(cartasOpp.slice(0, qtd))
-        }
-      }
     })()
   }, [user, sala?.total_turnos])
+
+  useEffect(() => {
+    if (!salaId || !user) return;
+    (async () => {
+      const { data: s } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).single()
+      if (!s) return
+      const opId = s.jogador1_id === user.id ? s.jogador2_id : s.jogador1_id
+      if (!opId) return
+      const qtd = s.total_turnos
+      const { data: deckOpp } = await supabase
+        .from('toptrumps_decks')
+        .select('carta_id')
+        .eq('user_id', opId)
+        .order('carta_id', { ascending: true })
+      if (!deckOpp?.length) return
+      const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
+      setDeckOponente(cartasOpp.slice(0, qtd))
+      console.log('[MP] deckOponente carregado:', cartasOpp.slice(0, qtd).length, 'cartas')
+    })()
+  }, [salaId, user])
 
   useEffect(() => {
     if (!deckLocal.length || !sala) return
@@ -167,6 +178,7 @@ export default function TopTrumpsMP() {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
+    console.log('[MP] jogarAtributo — deckOponente:', deckOponente.length, 'idxOp:', idxOp, 'cartaOp:', cartaOp?.id_num)
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
       setJaMovi(true)
     })
