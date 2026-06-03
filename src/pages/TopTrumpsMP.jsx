@@ -220,7 +220,7 @@ export default function TopTrumpsMP() {
       else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
       // segue lógica existente para atualizar estado e sala
-      const papel = meuPapelRef.current
+      const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
       const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
       const empatou = res === 'empate'
 
@@ -256,6 +256,7 @@ export default function TopTrumpsMP() {
           turno_atual: novoTurno,
           jogador_da_vez: proximoJogador
         })
+        setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
         setEhMinhaVez(proximoJogador === user.id)
       }
 
@@ -303,13 +304,13 @@ export default function TopTrumpsMP() {
       if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
       else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
-      const papel = meuPapelRef.current
+      const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
       const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
       const empatou = res === 'empate'
 
       setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
       setAtributoEscolhido(mov.atributo)
-      setCartaOponente(mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva)
+      setCartaOponente(papel === 'j1' ? (mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva) : (mov.jogador_id === s.jogador2_id ? cartaOponenteObj : cartaAtiva))
 
       const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
       const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
@@ -339,6 +340,7 @@ export default function TopTrumpsMP() {
           turno_atual: novoTurno,
           jogador_da_vez: proximoJogador
         })
+        setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
         setEhMinhaVez(proximoJogador === user.id)
       }
 
