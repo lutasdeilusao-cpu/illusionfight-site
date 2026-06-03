@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import LoginGate from '../components/LoginGate/LoginGate'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
 import { carregarDeck as carregarDeckDB } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
@@ -124,93 +123,94 @@ export default function TopTrumpsLobby() {
 
   return (
     <section className="ttmp-page">
-      <LoginGate feature="o Multiplayer">
-        <h1 className="ttmp-titulo">MULTIPLAYER</h1>
+      <h1 className="ttmp-titulo">MULTIPLAYER</h1>
 
-        {etapa === 'modo' && (
-          <div className="ttmp-modos">
-            <div className="ttmp-modo-card" onClick={() => selecionarModo('free')}>
-              <h3 className="ttmp-modo-titulo">MODO FREE</h3>
-              <p className="ttmp-modo-desc">Ganhe uma carta aleatória do seu tier</p>
-            </div>
-            <div className="ttmp-modo-card ttmp-modo-card--warning" onClick={() => selecionarModo('apostado')}>
-              <h3 className="ttmp-modo-titulo">MODO APOSTADO</h3>
-              <p className="ttmp-modo-desc">Aposte uma carta. Vencedor leva tudo.</p>
-            </div>
+      {etapa === 'modo' && (
+        <div className="ttmp-modos">
+          <div className="ttmp-modo-card" onClick={() => selecionarModo('free')}>
+            <h3 className="ttmp-modo-titulo">MODO FREE</h3>
+            <p className="ttmp-modo-desc">Ganhe uma carta aleatória do seu tier</p>
           </div>
-        )}
-
-        {etapa === 'turnos' && (
-          <div className="ttmp-turnos-wrap">
-            <p className="ttmp-info">A partida usa o menor número entre os dois jogadores.</p>
-            <div className="ttmp-turnos">
-              {[5, 10, 15, 20].map(n => (
-                <button key={n}
-                  className={`ttmp-turno-btn${turnos === n ? ' ttmp-turno-btn--ativo' : ''}`}
-                  onClick={() => selecionarTurnos(n)}>{n}</button>
-              ))}
-            </div>
+          <div className="ttmp-modo-card ttmp-modo-card--warning" onClick={() => selecionarModo('apostado')}>
+            <h3 className="ttmp-modo-titulo">MODO APOSTADO</h3>
+            <p className="ttmp-modo-desc">Aposte uma carta. Vencedor leva tudo.</p>
           </div>
-        )}
+        </div>
+      )}
 
-        {etapa === 'matchmaking' && (
-          <div className="ttmp-matchmaking">
-            {limiteInfo && !podeJogar ? (
-              <p className="ttmp-erro">Limite diário atingido ({limiteInfo.usadas}/{limiteInfo.limite}). Volte amanhã!</p>
-            ) : !salaId ? (
-              !aguardando ? (
-                <div className="ttmp-acoes">
-                  <button className="ttmp-btn" onClick={handleCriarSala}>CRIAR SALA PRIVADA</button>
-                  <div className="ttmp-input-group">
-                    <input className="ttmp-input" placeholder="Código da sala" value={codigoInput} onChange={e => setCodigoInput(e.target.value)} />
-                    <button className="ttmp-btn" onClick={handleEntrarCodigo}>ENTRAR</button>
+      {etapa === 'turnos' && (
+        <div className="ttmp-turnos-wrap">
+          <p className="ttmp-info">A partida usa o menor número entre os dois jogadores.</p>
+          <div className="ttmp-turnos">
+            {[5, 10, 15, 20].map(n => (
+              <button key={n}
+                className={`ttmp-turno-btn${turnos === n ? ' ttmp-turno-btn--ativo' : ''}`}
+                onClick={() => selecionarTurnos(n)}>{n}</button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {etapa === 'matchmaking' && (
+        <div className="ttmp-matchmaking">
+          {!podeJogar ? (
+            <div className="ttmp-limite">
+              <p>Você já jogou {limiteInfo?.usadas}/{limiteInfo?.limite} partidas hoje. Volte amanhã!</p>
+            </div>
+          ) : (
+            <>
+              <p className="ttmp-info">Escolha como deseja jogar:</p>
+              <div className="ttmp-matchmaking-botoes">
+                <button className="ttmp-btn" onClick={handleCriarSala} disabled={aguardando}>
+                  {aguardando ? 'CRIANDO...' : 'CRIAR SALA PRIVADA'}
+                </button>
+                <div className="ttmp-entrar-codigo">
+                  <input type="text" className="ttmp-input" placeholder="Código (LDI-XXXX)" value={codigoInput}
+                    onChange={e => setCodigoInput(e.target.value.toUpperCase())} maxLength={8} />
+                  <button className="ttmp-btn" onClick={handleEntrarCodigo} disabled={codigoInput.length < 8 || aguardando}>
+                    ENTRAR
+                  </button>
+                </div>
+                <button className="ttmp-btn" onClick={handleFilaPublica} disabled={aguardando}>
+                  {aguardando ? 'PROCURANDO...' : 'FILA PÚBLICA'}
+                </button>
+              </div>
+              {aguardando && <div className="ttmp-spinner" />}
+            </>
+          )}
+
+          {codigoSala && (
+            <div className="ttmp-codigo-container">
+              <p className="ttmp-codigo-label">Código da sala:</p>
+              <div className="ttmp-codigo">{codigoSala}</div>
+              <button className="ttmp-codigo-btn" onClick={copyCodigo}>COPIAR CÓDIGO</button>
+              <p className="ttmp-info">Compartilhe o código para seu oponente entrar.</p>
+            </div>
+          )}
+
+          {modo === 'apostado' && salaId && !apostaConfirmada && (
+            <div className="ttmp-aposta">
+              <p className="ttmp-aposta-title">Selecione a carta que deseja apostar:</p>
+              <p className="ttmp-aposta-aviso">⚠️ Se você perder, esta carta some do seu deck para sempre</p>
+              <div className="ttmp-aposta-grid">
+                {deckUsuario.map(carta => (
+                  <div key={carta.id}
+                    className={`ttmp-aposta-card${cartaAposta?.id === carta.id ? ' ttmp-aposta-card--selected' : ''}`}
+                    onClick={() => setCartaAposta(carta)}>
+                    <span className="ttmp-aposta-card-nome">{carta.nome}</span>
+                    <span className="ttmp-aposta-card-tier">{carta.tier}</span>
                   </div>
-                  <button className="ttmp-btn" onClick={handleFilaPublica}>FILA PÚBLICA</button>
-                </div>
-              ) : (
-                <div className="ttmp-spinner" />
-              )
-            ) : null}
-
-            {codigoSala && (
-              <div className="ttmp-codigo-container">
-                <p className="ttmp-codigo-label">Código da sala:</p>
-                <div className="ttmp-codigo">{codigoSala}</div>
-                <button className="ttmp-codigo-btn" onClick={copyCodigo}>COPIAR CÓDIGO</button>
-                <p className="ttmp-info">Compartilhe o código para seu oponente entrar.</p>
+                ))}
               </div>
-            )}
+              <button className="ttmp-btn" disabled={!cartaAposta} onClick={handleConfirmarAposta}>CONFIRMAR APOSTA</button>
+            </div>
+          )}
 
-            {modo === 'apostado' && salaId && !apostaConfirmada && (
-              <div className="ttmp-aposta">
-                <p className="ttmp-aposta-title">Selecione a carta que deseja apostar:</p>
-                <p className="ttmp-aposta-aviso">⚠️ Se você perder, esta carta some do seu deck para sempre</p>
-                <div className="ttmp-aposta-grid">
-                  {deckUsuario.map(carta => (
-                    <div key={carta.id}
-                      className={`ttmp-aposta-card${cartaAposta?.id === carta.id ? ' ttmp-aposta-card--selected' : ''}`}
-                      onClick={() => setCartaAposta(carta)}>
-                      <span className="ttmp-aposta-card-nome">{carta.nome}</span>
-                      <span className="ttmp-aposta-card-tier">{carta.tier}</span>
-                    </div>
-                  ))}
-                </div>
-                <button className="ttmp-btn" disabled={!cartaAposta} onClick={handleConfirmarAposta}>CONFIRMAR APOSTA</button>
-              </div>
-            )}
-
-            {apostaConfirmada && (
-              <p className="ttmp-info">Aposta confirmada. Aguardando oponente...</p>
-            )}
-
-            {apostaOponente && (
-              <p className="ttmp-info">Oponente já apostou.</p>
-            )}
-
-            {erro && <p className="ttmp-erro">{erro}</p>}
-          </div>
-        )}
-      </LoginGate>
+          {apostaConfirmada && <p className="ttmp-info">Aposta confirmada. Aguardando oponente...</p>}
+          {apostaOponente && <p className="ttmp-info">Oponente já apostou.</p>}
+          {erro && <p className="ttmp-erro">{erro}</p>}
+        </div>
+      )}
     </section>
   )
 }
