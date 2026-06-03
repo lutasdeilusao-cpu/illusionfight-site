@@ -3,14 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
+import { useReader } from '../../context/ReaderContext'
 import CombatView from './components/CombatView'
 import './LDI.css'
 
 export default function Combat() {
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { setReaderMode } = useReader()
   const { sheet, save, updateSave, setScene, saveToCloud } = useGameStore()
   const combat = useCombatStore()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   useEffect(() => {
     console.log('[COMBAT] useEffect combat.active:', combat.active)

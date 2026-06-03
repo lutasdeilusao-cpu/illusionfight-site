@@ -3,14 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
+import { useReader } from '../../context/ReaderContext'
 import SceneView from './components/SceneView'
 import './LDI.css'
 
 export default function Game() {
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { setReaderMode } = useReader()
   const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud } = useGameStore()
   const combat = useCombatStore()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   useEffect(() => {
     if (!sheet?.sheet_name) {

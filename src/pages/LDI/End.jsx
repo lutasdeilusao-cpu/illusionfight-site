@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
+import { useReader } from '../../context/ReaderContext'
 import './LDI.css'
 
 const END_MESSAGES = {
@@ -23,7 +25,13 @@ const END_MESSAGES = {
 }
 
 export default function End() {
+  const { setReaderMode } = useReader()
   const { sheet, save, resetGame } = useGameStore()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
   const endType = save?.status || 'ended_victory'
   const msg = END_MESSAGES[endType] || END_MESSAGES.ended_victory
 

@@ -102,6 +102,10 @@ export const useCombatStore = create((set, get) => ({
     return result
   },
 
+  addLog: (entry) => {
+    set(state => ({ log: [...state.log, entry] }))
+  },
+
   resetCombat: () => {
     set({
       active: false,

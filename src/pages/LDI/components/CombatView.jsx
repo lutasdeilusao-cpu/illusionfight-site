@@ -3,6 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Onomatopeia, DiceRollDisplay, ScreenFlash } from './DiceRoll'
 import { checkNearDeath } from '../engine/character'
 
+const FRASES_INIMIGO = {
+  stormbyte_91: [
+    "Novato no LDI é tudo igual. Carne fresca.",
+    "Rank zero. Isso explica tudo.",
+    "Vai chorar pra sua mamãe desligar o SBI?",
+    "Nem registrei esse ataque no meu histórico.",
+    "Você nem deveria estar aqui.",
+  ],
+  default: [
+    "Isso foi só o aquecimento.",
+    "Você está perdendo tempo meu.",
+    "Patético.",
+  ],
+}
+
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = { fists: 'Mãos Livres', armed: 'Armado', power: 'Poder' }
 
@@ -39,7 +54,7 @@ export default function CombatView({
   const visibleLog = log.slice(-8)
 
   useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    logEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
   }, [log.length])
 
   const handleAttack = async () => {
@@ -78,6 +93,13 @@ export default function CombatView({
         const newPv = Math.max(0, playerPv - enemyResult.damage)
         setPlayerPv(newPv)
         console.log('[COMBAT-VIEW] playerPv local atualizado:', newPv)
+        const enemyId = combat.enemy?.id || 'default'
+        const frases = FRASES_INIMIGO[enemyId] || FRASES_INIMIGO.default
+        const frase = frases[Math.floor(Math.random() * frases.length)]
+        combat.addLog({
+          type: 'taunt',
+          text: `<span class="ldi-log-taunt-name">${combat.enemy.name}:</span> ${frase}`,
+        })
         if (newPv <= 0) {
           await new Promise(r => setTimeout(r, 1200))
           setShowOnomatopeia(null)
@@ -188,7 +210,9 @@ export default function CombatView({
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                {entry.text}
+                {entry.type === 'taunt' ? (
+                  <span dangerouslySetInnerHTML={{ __html: entry.text }} />
+                ) : entry.text}
               </motion.div>
             ))}
             <div ref={logEndRef} />
