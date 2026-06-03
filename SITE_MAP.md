@@ -276,6 +276,7 @@
 - ✅ **Logs em registrarMovimento e resolverRodada** — Console logs para depuração do fluxo multiplayer
 - ✅ **Diagnóstico Realtime movimentos** — Log de status e callback no `subscribeToMovimentos` para verificar se canal recebe eventos
 - ✅ **Bugfix: toptrumps_movimentos na supabase_realtime** — Diagnóstico concluiu que `subscribeToMovimentos` e transição PPT→jogando estão corretos no código; o problema é que a tabela `toptrumps_movimentos` não foi adicionada à `supabase_realtime` publication no banco
+- ✅ **Bugfix: J1 preso em carregando ao J2 entrar** — No handler do `subscribeToSala`, adicionada detecção de transição `aguardando→em_jogo` com `jogador2_id` setado, forçando `setFase('ppt')` no J1 que estava esperando. Antes o J1 ficava preso em `carregando` porque o código só tratava a mudança de fase no cliente que fez a ação (J2), não no que estava ouvindo via Realtime.
 
 ### Leaderboard
 - ✅ **Página /leaderboard** — Ranking global com pódio visual (top 3), tabela (posições 4-20), abas de filtro
