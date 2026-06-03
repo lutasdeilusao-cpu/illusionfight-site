@@ -261,6 +261,16 @@
         "flags_set": ["OBSERVAR"],
         "next_scene": "1.3f",
         "sheet_effect": {}
+      },
+      {
+        "id": "G",
+        "label": "Já explorei o suficiente — descansar e esperar o Dia 2",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["EXPLOROU_PRACA"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
       }
     ]
   },
@@ -480,7 +490,7 @@
         "cost": null,
         "flags_required": [],
         "flags_set": ["IGNOU_MAFAMA"],
-        "next_scene": null,
+        "next_scene": "1.4",
         "sheet_effect": {}
       },
       {
@@ -490,7 +500,7 @@
         "cost": null,
         "flags_required": [],
         "flags_set": ["ANOTOU_MAFAMA"],
-        "next_scene": null,
+        "next_scene": "1.4",
         "sheet_effect": {}
       }
     ]

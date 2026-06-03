@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-03*  
-*Versão: 1.35*
+*Versão: 1.36*
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -477,6 +477,8 @@ src/pages/LDI/
 - ✅ **NeoGuide repetindo (CRÍTICO)** — Create.jsx setava `current_scene_id: '1.1'` (cena NeoGuide no jogo). Corrigido para `'1.2'`, pulando as cenas 1.1→1.1d já respondidas no formulário. Adicionado `useEffect` guard que redireciona ao jogo se ficha já existe. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
 - ✅ **Texto no topo (ALTO)** — `.ldi-scene` sem `justify-content: center`. Corrigido com `justify-content: center` + padding vertical + choices fixas no bottom com `position: fixed`. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
 - ✅ **Jogo trava após perguntas (CRÍTICO)** — `loadScene` retornava `null` silenciosamente se sceneId inexistente. Corrigido com fallback automático pra cena `1.2`, cache persistente e logs detalhados no console. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
+- ✅ **1.3-mafama com next_scene:null** — choices A e B apontavam para `null`, causando retorno forçado para cena 1.2 via fallback. Corrigido para `"next_scene": "1.4"`, avançando para o Dia 2. `LDI_VERSION 1.0.5`. Commit: `TBD`.
+- ✅ **Progressão do Dia 1** — cena 1.3 não oferecia saída para o Dia 2. Adicionada choice G com label "Já explorei o suficiente — descansar e esperar o Dia 2" que leva a `1.4`. `LDI_VERSION 1.0.5`. Commit: `TBD`.
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
@@ -505,7 +507,7 @@ src/pages/LDI/
 |----|--------|
 | 1.1 → 1.1d | NeoGuide (criação disfarçada) |
 | 1.2 | Desconexão |
-| 1.3 | Primeiro Dia — Praça Central (6 opções) |
+| 1.3 | Primeiro Dia — Praça Central (7 opções) |
 | 1.3a–f | Sub-cenas da Praça |
 | 1.3-mafama | Assombro dos Dados |
 | 1.4 | Dia 2 — Rotina |
