@@ -43,7 +43,8 @@ export default function Combat() {
         credits: (save?.credits || 0) + creditsGain,
       })
       combat.resetCombat()
-      const returnScene = save?.post_combat_scene || save?.current_scene_id || '1.3'
+      const gs = useGameStore.getState()
+      const returnScene = gs.save?.post_combat_scene || gs.save?.current_scene_id || '1.3'
       console.log('[LDI] pós-combate victory, returnScene:', returnScene)
       await setScene(returnScene)
       if (user) saveToCloud(user.id)
