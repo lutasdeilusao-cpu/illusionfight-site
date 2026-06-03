@@ -1,152 +1,2225 @@
-{
-  "atributos": [
-    { "id": "rank_sdr", "nome": "Rank SDR", "descricao": "Posição no ranking mundial. Menor = melhor.", "inverso": true },
-    { "id": "poder_mental", "nome": "Poder Mental", "descricao": "Capacidade de energia mental em batalha.", "inverso": false },
-    { "id": "velocidade", "nome": "Velocidade", "descricao": "Velocidade de reação e movimento.", "inverso": false },
-    { "id": "resistencia", "nome": "Resistência", "descricao": "Capacidade de absorver dano e continuar lutando.", "inverso": false },
-    { "id": "nivel_xama", "nome": "Nível Xamã", "descricao": "Domínio sobre poderes ancestrais.", "inverso": false },
-    { "id": "fator_caos", "nome": "Fator Caos", "descricao": "Imprevisibilidade em combate. Ninguém sabe o que esperar.", "inverso": false }
-  ],
+﻿{
+  "meta": {
+    "versao": "1.0",
+    "universo": "Lutas de Ilusão — Mundo de Bravara",
+    "total_cartas": 105,
+    "atributos_explicacao": {
+      "rank_sdr": "Posição no ranking mundial SDR. Menor = melhor.",
+      "poder_mental": "Capacidade de energia mental em batalha (0-100).",
+      "velocidade": "Velocidade de reação e movimento (0-100).",
+      "resistencia": "Capacidade de absorver dano e continuar lutando (0-100).",
+      "nivel_xama": "Domínio sobre poderes ancestrais e elementais (0-10).",
+      "fator_caos": "Imprevisibilidade em combate (0-100).",
+      "energia_base": "Reserva inicial de energia por batalha (0-100).",
+      "poder_explosivo": "Capacidade de liberação súbita de poder extra (0-100)."
+    },
+    "tiers": ["free", "elite", "primordial", "lendario", "sombra"]
+  },
   "cartas": [
+
     {
-      "id": "kim",
+      "id": "kim_briguento",
       "nome": "Kim — Briguento",
       "tier": "free",
-      "descricao": "Descendente Xakaxi. Portador do Sangue Primordial. Entrou no LDI sem querer e chegou ao top 1201 na primeira batalha.",
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "arma": "Xakixi (machado de duas lâminas — cabo de alta tecnologia com fio de aço retrátil)",
+      "modo_xama": "Kim Primordial — Chamas negras, marcações tribais Xakaxi ativas, cabelos prateados",
+      "descricao": "Descendente Xakaxi portador do Sangue Primordial. Chegou ao rank 1201 na primeira batalha. Mora em casa invadida, vende balas no busão, cuida da mãe. Tem mais poder do que entende. Quando perde o controle, algo muito mais antigo que ele assume o comando.",
+      "frase_iconica": "A única regra da briga de rua? Não há regras.",
       "atributos": {
         "rank_sdr": 1201,
         "poder_mental": 94,
         "velocidade": 78,
         "resistencia": 85,
         "nivel_xama": 9,
-        "fator_caos": 99
-      }
+        "fator_caos": 99,
+        "energia_base": 70,
+        "poder_explosivo": 100
+      },
+      "habilidades": [
+        "Sangue Primordial — Transformação não controlada que multiplica todos os atributos",
+        "Instinto de Rua — Reflexos treinados por anos de sobrevivência urbana",
+        "Xakixi Xamã — Machado duplo com fio de aço retrátil capaz de cortar ao meio",
+        "Bola de Fogo (elemental nativo) — Poder instantâneo de baixo consumo",
+        "Chamas Negras (elemental manifestado) — Fogo primordial que devora matéria e energia"
+      ],
+      "lore": "Filho de ninguém, criado por uma mulher que não era sua mãe biológica mas que fugiu de um cativeiro aos 12 anos para salvá-lo. Jamais soube quem foi seu pai — e talvez seja melhor assim."
     },
+
     {
-      "id": "jack",
+      "id": "jack_vitoria",
       "nome": "Jack — Vitória",
       "tier": "free",
-      "descricao": "Arma: bengala Vitória. Modo Xamã: San Tien Kwan. Teatral, rápido e nunca genuinamente assustado.",
+      "elemental": "Terra / Pedra",
+      "arma": "Vitória (bengala que se transforma em San Tien Kwan — nunchaku de três partes com ponta de lança)",
+      "modo_xama": "Vitória Finals — Conjura fragmentos de pedra que se tornam projéteis perfurantes sônicos",
+      "descricao": "Melhor amigo de Kim desde sempre. Extrovertido, teatral, nunca genuinamente assustado. Combina charme e violência com eficiência desconcertante. Usa qualquer ambiente a seu favor. Treino em 3 etapas — letal quando completo, vulnerável durante o carregamento.",
+      "frase_iconica": "Se não me conheces ainda… hoje é briga fácil!",
       "atributos": {
         "rank_sdr": 10776,
         "poder_mental": 71,
         "velocidade": 88,
         "resistencia": 62,
         "nivel_xama": 5,
-        "fator_caos": 82
-      }
+        "fator_caos": 82,
+        "energia_base": 65,
+        "poder_explosivo": 74
+      },
+      "habilidades": [
+        "First Move / Second Move / Third Move — Técnica de carregamento em 3 estágios",
+        "Vitória Finals — Chuva de lâminas de pedra em alta velocidade sônica",
+        "Controle de Corrente — Imobiliza e arremessa oponentes com correntes e fios",
+        "Leitura de Campo — Analisa o ambiente para criar armadilhas e vantagens",
+        "Charme de Distração — Usa conversa e teatralidade para criar aberturas reais"
+      ],
+      "lore": "Filho de pai presente, mora numa casa normal. Arruma trabalho de segurança em botecos problemáticos. Aposta em Kim mesmo quando ninguém mais acredita — e quase sempre acerta."
     },
+
     {
-      "id": "nina",
+      "id": "nina_angel",
       "nome": "Nina — Angel",
       "tier": "free",
-      "descricao": "Muay Thai e katana Angel. Rank 8.724. Quando fala, muda a cena.",
+      "elemental": "Luz",
+      "arma": "Angel (katana que se fragmenta em chicote de lâminas segmentadas)",
+      "modo_xama": "Angel Luminus Blade — Lâmina carregada com luz capaz de cortar energia e matéria",
+      "descricao": "Muay Thai e katana desde os 12 anos no circuito profissional. Passou anos fora de Bravara. Quando fala, muda a cena. Competitiva ao extremo — prefere morrer a pedir ajuda numa briga.",
+      "frase_iconica": "Para me deixar satisfeita, vocês precisam fazer muito mais.",
       "atributos": {
         "rank_sdr": 8724,
         "poder_mental": 76,
         "velocidade": 85,
         "resistencia": 79,
         "nivel_xama": 4,
-        "fator_caos": 61
-      }
+        "fator_caos": 61,
+        "energia_base": 72,
+        "poder_explosivo": 68
+      },
+      "habilidades": [
+        "Angel Expandir — Estende a lâmina em até 3 metros como chicote segmentado",
+        "Angel Enrijecer — Transforma o chicote em lâmina rígida de alto impacto",
+        "Luminus Blade — Carrega a Angel com energia de luz para corte devastador",
+        "Golpe de Silêncio — Aproximação furtiva, sem som de passos",
+        "Combinação Muay Thai + Arma — Transições fluidas entre combate corpo a corpo e arma"
+      ],
+      "lore": "Filha de pai superprotetor. Nunca ficou tempo suficiente num lugar para fazer amigos — até encontrar Kim e Jack."
     },
+
     {
-      "id": "thunderbolt",
+      "id": "thunderbolt_trovao",
       "nome": "Thunderbolt — Trovão",
       "tier": "free",
-      "descricao": "Bruno Ribeiro. Rank 30.156. Elemental: Eletricidade. 1.201 vitórias antes de encontrar o Kim.",
+      "elemental": "Eletricidade (secundário da Luz)",
+      "arma": "Bastão elétrico (crepita com descargas de alta voltagem)",
+      "modo_xama": "Raio Celeste — Corpo envolto em aura elétrica azul, velocidade aumentada",
+      "descricao": "Bruno Ribeiro. 1.201 vitórias antes de encontrar Kim. Arrogante, metódico, cruel nos combates. Usa humilhação como estratégia psicológica. Pagou capangas para perseguir Kim no colégio — não deu certo.",
+      "frase_iconica": "Ajoelhado, chorando e implorando. Só então eu termino.",
       "atributos": {
         "rank_sdr": 30156,
         "poder_mental": 68,
         "velocidade": 91,
         "resistencia": 70,
         "nivel_xama": 2,
-        "fator_caos": 45
-      }
+        "fator_caos": 45,
+        "energia_base": 60,
+        "poder_explosivo": 55
+      },
+      "habilidades": [
+        "Multiple Water Balls — Descarga elétrica múltipla em trajetória variável",
+        "Raio Celeste — Explosão de velocidade que transforma o corpo num borrão",
+        "Descarga Paralisante — Corrente elétrica que causa espasmos musculares",
+        "Teleporte Tático — Desaparece e reaparece em ponto estratégico",
+        "Lista de Tarefas — Usa a IA NeoGuide para anunciar rituais de humilhação em batalha"
+      ],
+      "lore": "Nunca perdeu até enfrentar Kim. Usou capangas alugados numa escola de elite. O nome foi ridicularizado ao vivo na arena por dois minutos seguidos."
     },
+
     {
-      "id": "shuntaro",
+      "id": "shuntaro_rei_xama",
       "nome": "Shuntaro — Rei Xamã",
       "tier": "free",
-      "descricao": "Rank 998. Ioiôs de Água. Viajou 9 horas de Azuma só para desafiar Kim. Modo Xamã: serra no braço direito.",
+      "elemental": "Água",
+      "arma": "Rei (ioiôs múltiplos de água — até 10 simultâneos com fios de corte)",
+      "modo_xama": "Rei Xamã — Serra gigante no braço direito usada como escudo e lança",
+      "descricao": "Rank 998. De Azuma. Viajou 9 horas para desafiar Kim pessoalmente. Estratégico, elegante, respeita oponentes fortes. 6 meses no jogo e já está entre os mil melhores do mundo.",
+      "frase_iconica": "Prepare-se. Não vim de tão longe para perder.",
       "atributos": {
         "rank_sdr": 998,
         "poder_mental": 83,
         "velocidade": 87,
         "resistencia": 74,
         "nivel_xama": 7,
-        "fator_caos": 68
-      }
+        "fator_caos": 68,
+        "energia_base": 78,
+        "poder_explosivo": 72
+      },
+      "habilidades": [
+        "Multiple Water Balls — Ioiôs envoltos em água sônica com mudança de trajetória",
+        "Fatal Slices — 10 ioiôs simultâneos com lâminas serrilhadas, alcance 5 metros",
+        "Dodge — Comando que muda a trajetória do ioiô no último instante",
+        "Tie — Fio de ioiô prende pescoço e membros do oponente",
+        "Rei Xamã — Serra gigante no braço para defesa e ataque simultâneos"
+      ],
+      "lore": "Fenômeno do LDI. Subiu mil posições em seis meses. Admite quando perde vantagem e reposiciona a estratégia em tempo real."
     },
+
     {
-      "id": "lisa",
+      "id": "lisa_top500",
       "nome": "Lisa — Top 500",
       "tier": "elite",
-      "descricao": "Rank top 500. Ficou interessada em Kim após o vídeo viral. Confiante, enigmática, competitiva mas justa.",
+      "elemental": "Vento",
+      "arma": "Lâminas de vento (chakrams invisíveis moldados por correntes de ar)",
+      "modo_xama": "Tempestade de Corte — Redemoinho de lâminas de ar que cercam o oponente",
+      "descricao": "Rank top 500. Ficou interessada em Kim após o vídeo viral. Confiante, enigmática, competitiva mas justa. Avalia oponentes friamente antes de agir.",
+      "frase_iconica": "Eu não luto para provar algo. Eu luto para saber.",
       "atributos": {
         "rank_sdr": 500,
         "poder_mental": 88,
         "velocidade": 82,
         "resistencia": 80,
         "nivel_xama": 6,
-        "fator_caos": 73
-      }
+        "fator_caos": 73,
+        "energia_base": 80,
+        "poder_explosivo": 77
+      },
+      "habilidades": [
+        "Vento Cortante — Rajadas de ar comprimido que cortam como lâminas",
+        "Chakram Invisível — Projéteis de vento de alta velocidade",
+        "Tempestade de Corte — Redemoinho que aprisiona e lacera o oponente",
+        "Leitura Antecipada — Prevê movimentos analisando micro-expressões",
+        "Deslocamento Rápido — Move-se com o vento, tornando difícil prever posição"
+      ],
+      "lore": "Observa o vídeo de Kim como uma pesquisadora estuda um fenômeno. Seu interesse é puramente técnico — ou pelo menos é o que ela diz."
     },
+
     {
       "id": "nexus_phantasm",
       "nome": "Nexus Phantasm — Arauto",
       "tier": "elite",
-      "descricao": "Arauto das Arenas. Não é humano, não é IA convencional. Criado por hackers, oficializado pela Yohu. Sarcástico por natureza.",
+      "elemental": "Dados / Caos Digital",
+      "arma": "Microfone-osso (objeto híbrido que emite ondas de caos informacional)",
+      "modo_xama": "Colapso de Realidade — Reescreve regras locais do ambiente de batalha",
+      "descricao": "Arauto das Arenas. Não é humano, não é IA convencional. Criado por hackers, oficializado pela Yohu. Sarcástico por natureza. Sua presença distorce o campo de batalha.",
+      "frase_iconica": "Senhoras e senhores, o impossível é apenas uma questão de perspectiva!",
       "atributos": {
         "rank_sdr": 1,
         "poder_mental": 95,
         "velocidade": 70,
         "resistencia": 99,
         "nivel_xama": 3,
-        "fator_caos": 96
-      }
+        "fator_caos": 96,
+        "energia_base": 90,
+        "poder_explosivo": 88
+      },
+      "habilidades": [
+        "Colapso de Realidade — Altera regras físicas do ambiente temporariamente",
+        "Caos Informacional — Interrompe conexões de SBI de oponentes",
+        "Corpo Não-Padrão — Membros desproporcionais com articulações invertidas",
+        "Sarcasmo Paralisante — Comentários que afetam o estado mental do oponente",
+        "Regeneração de Dado — Recalcula dano recebido usando algoritmos próprios"
+      ],
+      "lore": "Ninguém sabe quem o programou de verdade. A Yohu diz que foi um projeto interno. Os fóruns dizem outra coisa."
     },
+
     {
-      "id": "yawanari",
+      "id": "yawanari_imortal",
       "nome": "Pajé Yawanari — Imortal",
       "tier": "elite",
-      "descricao": "Xamã imortal da tribo Xakaxi. Quinhentos anos observando a humanidade. Sabedoria ancestral em gírias modernas.",
+      "elemental": "Todos os elementais primários",
+      "arma": "Berimbau Ancestral (instrumento que canaliza poder espiritual puro)",
+      "modo_xama": "Espírito Livre — Forma etérea que não pode ser atingida por ataques físicos",
+      "descricao": "Xamã imortal da tribo Xakaxi. Quinhentos anos observando a humanidade. Viu guerras mundiais, pandemias, colonização e redes sociais. Completamente louco. Fala em gírias modernas misturadas com sabedoria ancestral. Tem amigos imaginários.",
+      "frase_iconica": "Cheguei pra divar! Sou o 10/10 que ficou na responsa de proteger os poderes sagrados deste mundão.",
       "atributos": {
         "rank_sdr": 1,
         "poder_mental": 100,
         "velocidade": 40,
         "resistencia": 100,
         "nivel_xama": 10,
-        "fator_caos": 88
-      }
+        "fator_caos": 88,
+        "energia_base": 100,
+        "poder_explosivo": 95
+      },
+      "habilidades": [
+        "Selamento Sagrado — Apaga poderes de qualquer ser que não seja de linhagem Xakaxi",
+        "Cura Primordial — Restaura vida e energia de aliados com toque",
+        "Visão dos Séculos — Prevê resultados de batalhas com base em padrões históricos",
+        "Forma Etérea — Torna-se intangível a ataques físicos e elementais comuns",
+        "Despertar do Sangue — Ativa o Sangue Primordial em descendentes Xakaxi"
+      ],
+      "lore": "Realizou o rito de selamento em 1450, sacrificando seu próprio corpo. Ficou preso como espírito guardião por 500 anos. Assistiu à colonização, às guerras mundiais e à invenção dos vídeos curtos. O último o quebrou definitivamente."
     },
+
     {
-      "id": "voidhunter",
+      "id": "voidhunter_void",
       "nome": "VoidHunter_X — Void",
       "tier": "elite",
-      "descricao": "Entidade do LDI. Não é jogador. O visor não reflete. Os dedos dobram ao contrário. Gosma preta nas fissuras do peitoral.",
+      "elemental": "Vazio",
+      "arma": "Garras de Vazio (extensões dos próprios dedos que dobram ao contrário)",
+      "modo_xama": "Consumo Total — Absorve toda energia ao redor criando zona de nulidade",
+      "descricao": "Entidade do LDI. Não é jogador. O visor não reflete. Os dedos dobram ao contrário. Gosma preta nas fissuras do peitoral. Ninguém sabe de onde veio nem quem o criou.",
+      "frase_iconica": "...",
       "atributos": {
         "rank_sdr": 1,
         "poder_mental": 91,
         "velocidade": 76,
         "resistencia": 97,
         "nivel_xama": 8,
-        "fator_caos": 94
-      }
+        "fator_caos": 94,
+        "energia_base": 88,
+        "poder_explosivo": 91
+      },
+      "habilidades": [
+        "Consumo de Energia — Drena energia de oponentes e do ambiente",
+        "Zona de Vazio — Anula poderes elementais numa área ao redor",
+        "Garras Invertidas — Dedos que se curvam para trás para ataques impossíveis",
+        "Gosma Negra — Secreção que paralisa membros no contato",
+        "Presença de Vazio — Causa desorientação e medo em oponentes próximos"
+      ],
+      "lore": "Descoberto nos servidores da Yohu durante uma manutenção em 2019. Nenhum engenheiro assumiu tê-lo criado. Foi oficializado como entidade do sistema após não conseguirem deletá-lo."
     },
+
     {
-      "id": "kronos",
+      "id": "david_kronos_primordial",
       "nome": "David Kronos — Primordial",
       "tier": "primordial",
-      "descricao": "Espírito ancestral corrompido. Cinco séculos esperando pelo Corpo Primordial. Cada possessão deteriora o hospedeiro.",
+      "elemental": "Escuridão Corrompida",
+      "arma": "Corpo hospedeiro (usa o físico de outros como arma e escudo)",
+      "modo_xama": "Possessão Total — Assume controle completo do hospedeiro multiplicando todos os atributos",
+      "descricao": "Espírito ancestral corrompido de Powa, filho do Pajé Yawanari. Cinco séculos esperando pelo Corpo Primordial — o descendente que carregue o Sangue Primordial para usar como hospedeiro permanente. Cada possessão deteriora o hospedeiro. Criou o LDI como isca.",
+      "frase_iconica": "Finalmente… Como tenho esperado por esse momento.",
       "atributos": {
         "rank_sdr": 1,
         "poder_mental": 99,
         "velocidade": 55,
         "resistencia": 98,
         "nivel_xama": 10,
-        "fator_caos": 91
-      }
+        "fator_caos": 91,
+        "energia_base": 95,
+        "poder_explosivo": 97
+      },
+      "habilidades": [
+        "Drenagem Vital — Suga vida de todos ao redor como fez em 1450",
+        "Possessão — Assume controle de qualquer corpo humano próximo",
+        "Escuridão Corrompida — Versão pervertida do elemental de trevas Xakaxi",
+        "Corrupção Mental — Planta pensamentos de raiva e sede de poder",
+        "Corpo Primordial — Se o hospedeiro tiver Sangue Primordial, a possessão é permanente"
+      ],
+      "lore": "Era Powa, filho do Pajé Yawanari, que desejava usar o poder sagrado dos Xakaxi para dominar o mundo. Realizou um ritual proibido em 1450, drenando a vida de todos os seus seguidores. Tornou-se um espírito errante. Criou a Yohu e o LDI como sistema global para localizar o Corpo Primordial."
+    },
+
+    {
+      "id": "xakaxi_cacique",
+      "nome": "Xakaxi — O Grande Cacique",
+      "tier": "lendario",
+      "elemental": "Terra Sagrada",
+      "arma": "Lança Xakaxium (metal exclusivo da tribo, mais resistente que qualquer liga conhecida)",
+      "modo_xama": "Guardião da Tribo — Invoca o espírito coletivo dos Xakaxi para amplificar todos os aliados",
+      "descricao": "Líder supremo da Grande Tribo Xakaxi em 1450. Decidiu esconder o poder sagrado em vez de usá-lo como arma. Escolheu a sabedoria sobre a vitória fácil. Seu espírito ainda protege os descendentes da linhagem.",
+      "frase_iconica": "Lutaremos com tudo o que temos. Pelo nosso povo, pela nossa história.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 97,
+        "velocidade": 72,
+        "resistencia": 95,
+        "nivel_xama": 9,
+        "fator_caos": 50,
+        "energia_base": 92,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Lança Xakaxium — Arma inquebrável que perfura qualquer defesa elemental",
+        "Escudo da Tribo — Campo de força que protege aliados numa área",
+        "Comando Ancestral — Ordens que afetam o estado mental de aliados e inimigos",
+        "Terra Sagrada — Manipula o terreno criando estruturas defensivas",
+        "Legado Eterno — Buffa descendentes com +20% em todos os atributos"
+      ],
+      "lore": "Fundou a maior civilização que Bravara já conheceu. Recusou usar o poder sagrado contra os invasores mesmo podendo tê-los destruído. Sua decisão salvou a essência da tribo — e condenou seu povo à aparente extinção."
+    },
+
+    {
+      "id": "nara_guerreira",
+      "nome": "Nara — A Guerreira",
+      "tier": "lendario",
+      "elemental": "Luz da Batalha",
+      "arma": "Espada de Nexium (metal raro extraído apenas pelos Xakaxi)",
+      "modo_xama": "Fúria Xamã — Corpo envolto em luz dourada, força e velocidade triplicadas",
+      "descricao": "Esposa de Xakaxi e a mais feroz guerreira da tribo. Nunca aceitou passivamente o destino. Mesmo diante da profecia, insistia em lutar. Montava em Nhan, seu cavalo, e comandava batalhas pessoalmente.",
+      "frase_iconica": "Não sou o tipo de pessoa que aceita o que nos foi imposto.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 88,
+        "velocidade": 90,
+        "resistencia": 86,
+        "nivel_xama": 8,
+        "fator_caos": 79,
+        "energia_base": 85,
+        "poder_explosivo": 87
+      },
+      "habilidades": [
+        "Espada Nexium — Corta através de escudos elementais e armaduras mágicas",
+        "Fúria da Guerreira — Em baixa vida, todos os atributos dobram",
+        "Montaria em Nhan — Combate montado com velocidade e alcance aumentados",
+        "Tática de Campo — Reorganiza o posicionamento de aliados em batalha",
+        "Último Juramento — Ao cair, deixa um buff permanente em todos os aliados"
+      ],
+      "lore": "Testemunhou Powa realizar o ritual proibido e correu para avisar Xakaxi. Viu Pajé Yawanari se sacrificar. Viu tudo desaparecer. E ainda assim não desistiu."
+    },
+
+    {
+      "id": "powa_corrompido",
+      "nome": "Powa — O Corrompido",
+      "tier": "lendario",
+      "elemental": "Vida Drenada",
+      "arma": "Mãos Vazias (o próprio corpo como conduit de drenagem vital)",
+      "modo_xama": "Ritual Proibido — Drena toda vida num raio de 50 metros, incluindo aliados",
+      "descricao": "Filho do Pajé Yawanari. Queria usar o poder sagrado para dominar. Realizou o rito proibido em 1450, matando todos os seus seguidores incluindo Kawa. Tornou-se o espírito que depois seria David Kronos.",
+      "frase_iconica": "Eu deveria ter sido o líder da tribo. O poder era meu.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 85,
+        "velocidade": 65,
+        "resistencia": 80,
+        "nivel_xama": 8,
+        "fator_caos": 95,
+        "energia_base": 75,
+        "poder_explosivo": 100
+      },
+      "habilidades": [
+        "Drenagem Vital — Suga vida de todos ao redor sem distinção de aliado ou inimigo",
+        "Ritual Proibido — Sacrifica seguidores para amplificar seu próprio poder",
+        "Insanidade de Poder — Quanto mais poder acumula, menos controle tem",
+        "Marca do Traidor — Marca oponentes para receber dano ampliado",
+        "Explosão Final — Libera toda energia acumulada numa onda devastadora"
+      ],
+      "lore": "Começou como guerreiro justo mas consumido pela ambição. Seu ato em 1450 destruiu a tribo de dentro para fora antes mesmo dos invasores chegarem."
+    },
+
+    {
+      "id": "helena_sobrevivente",
+      "nome": "Helena — A Sobrevivente",
+      "tier": "free",
+      "elemental": "Nenhum",
+      "arma": "Garrafa (improviso urbano)",
+      "modo_xama": "Nenhum",
+      "descricao": "Mãe de Kim — ou melhor, a mulher que o salvou quando tinha 12 anos e ele era um bebê. Sobreviveu ao que não devia e criou Kim sozinha a partir do nada. Troubled, complexa, alcoólatra. Mas na hora que importou, não abandonou.",
+      "frase_iconica": "Aos 18 você não vai precisar mais de mim. E eu finalmente posso me livrar de você.",
+      "atributos": {
+        "rank_sdr": 999999,
+        "poder_mental": 55,
+        "velocidade": 45,
+        "resistencia": 90,
+        "nivel_xama": 0,
+        "fator_caos": 88,
+        "energia_base": 30,
+        "poder_explosivo": 20
+      },
+      "habilidades": [
+        "Sobrevivência Bruta — Resistência passiva a danos que matariam qualquer outro",
+        "Arremesso de Latinha — Reflexos de autodefesa imprevisíveis",
+        "Explosão de Raiva — Dano aumentado quando insultos são desferidos",
+        "Âncora Emocional — Ao ser chamada de 'mãe', recupera energia mental",
+        "Historia de Dor — Qualquer oponente que ouvir sua história perde 30% de força mental"
+      ],
+      "lore": "Não é a mãe biológica de Kim. Escapou de um cativeiro aos 12 anos com um bebê recém-nascido no colo. Nunca soube quem era o pai da criança. Fez o que precisava para os dois sobreviverem. Cada cicatriz dela tem nome."
+    },
+
+    {
+      "id": "osvaldo_porteiro",
+      "nome": "Osvaldo — O Porteiro",
+      "tier": "free",
+      "elemental": "Terra",
+      "arma": "Violão (a música como arma espiritual)",
+      "modo_xama": "Melodia Ancestral — Som que acalma qualquer estado de fúria ou medo",
+      "descricao": "Porteiro da academia de elite. Ensinou Kim a tocar violão por três anos. Usou sua influência para garantir bolsa de 50% para Kim e Jack. Viu potencial onde todos viam problema.",
+      "frase_iconica": "Entrem logo, antes que o diretor me pegue.",
+      "atributos": {
+        "rank_sdr": 750000,
+        "poder_mental": 70,
+        "velocidade": 40,
+        "resistencia": 65,
+        "nivel_xama": 3,
+        "fator_caos": 25,
+        "energia_base": 55,
+        "poder_explosivo": 35
+      },
+      "habilidades": [
+        "Mentor — Aliados treinados por ele ganham +15% em poder mental",
+        "Conexão com a Terra — Sente movimentos e vibrações ao redor",
+        "Melodia de Cura — Música que restaura energia mental de aliados",
+        "Rede de Contatos — Consegue recursos e informações em qualquer situação",
+        "Leitura de Caráter — Identifica imediatamente intenções de qualquer pessoa"
+      ],
+      "lore": "Alugava um cômodo de sua casa como estúdio. Viu Kim todo dia com uma guitarra de 4 cordas e lhe deu um jogo novo. Três anos depois, conseguiu bolsa para dois garotos numa escola que normalmente os ignoraria."
+    },
+
+    {
+      "id": "ryan_grato",
+      "nome": "Ryan — O Grato",
+      "tier": "free",
+      "elemental": "Água",
+      "arma": "SBI Edição Limitada (presenteou Kim com um aparelho de 60-70 mil)",
+      "modo_xama": "Investidor Tático — Aposta nos azarões e recebe retorno multiplicado",
+      "descricao": "Aluno da academia elite. Era espancado todo dia por valentões até Kim intervir. Assistiu ao vídeo de Kim no LDI, reconheceu o rosto e presenteou com um SBI de edição limitada como investimento e agradecimento.",
+      "frase_iconica": "Suas lutas são realmente muito boas. Seria um desperdício não vermos mais.",
+      "atributos": {
+        "rank_sdr": 500000,
+        "poder_mental": 52,
+        "velocidade": 44,
+        "resistencia": 48,
+        "nivel_xama": 1,
+        "fator_caos": 30,
+        "energia_base": 40,
+        "poder_explosivo": 45
+      },
+      "habilidades": [
+        "Coragem Aprendida — Após ser ajudado, ganha coragem para revidar",
+        "Primeiro Chute — Golpe surpresa quando o oponente subestima",
+        "Apoiador Financeiro — Aposta alta em aliados, buffa seus ganhos de pontos",
+        "Água Calma — Defesa passiva que absorve impactos menores",
+        "Gratidão Sincera — Ativa buffs em aliados que o protegeram anteriormente"
+      ],
+      "lore": "Levou chute na canela do Samuel todo dia por semanas. Na hora que Kim passou por ele e disse que tinha que dar trabalho o suficiente para eles desistirem, pela primeira vez levantou a cabeça."
+    },
+
+    {
+      "id": "samuel_valentao",
+      "nome": "Samuel — O Valentão",
+      "tier": "free",
+      "elemental": "Nenhum",
+      "arma": "Força bruta e número de capangas",
+      "modo_xama": "Nenhum",
+      "descricao": "Aluno da academia elite. Usava o status da família para intimidar os mais fracos. Exigiu que Ryan comprasse coisas pra ele. Foi processado por Kim e Jack após trazer capangas externos à escola.",
+      "frase_iconica": "Você e seu amiguinho se acham muito espertos na escola.",
+      "atributos": {
+        "rank_sdr": 900000,
+        "poder_mental": 38,
+        "velocidade": 50,
+        "resistencia": 60,
+        "nivel_xama": 0,
+        "fator_caos": 35,
+        "energia_base": 45,
+        "poder_explosivo": 40
+      },
+      "habilidades": [
+        "Capangas Alugados — Chama reforços externos quando perde",
+        "Status Financeiro — Intimidação passiva contra oponentes sem recursos",
+        "Golpe Sujo — Ataque com arma improvisada pelas costas",
+        "Negação Total — Nega tudo mesmo com provas gravadas",
+        "Fuga Estratégica — Desaparece quando a situação fica perigosa"
+      ],
+      "lore": "Filho de família abastada. Confundiu dinheiro do pai com poder próprio. Descobriu a diferença quando Kim dobrou seu braço numa mesa de sala de aula."
+    },
+
+    {
+      "id": "roxy_mercenaria",
+      "nome": "Roxy — A Mercenária",
+      "tier": "free",
+      "elemental": "Fogo",
+      "arma": "Socos ingleses com pontas afiadas",
+      "modo_xama": "Contrato de Sangue — Ficou mais forte quanto maior for a recompensa prometida",
+      "descricao": "Líder de um grupo de mercenários urbanos. Foi contratada para fotografar a surra que dariam em Kim e Jack no parque. Pequena, tatuada, olhar ameaçador. Reconheceu que Kim era uma força da natureza e parou de tentar.",
+      "frase_iconica": "Eu adoro dar surras. Mas adoro ainda mais quando sou paga pra isso.",
+      "atributos": {
+        "rank_sdr": 200000,
+        "poder_mental": 65,
+        "velocidade": 74,
+        "resistencia": 71,
+        "nivel_xama": 0,
+        "fator_caos": 77,
+        "energia_base": 60,
+        "poder_explosivo": 58
+      },
+      "habilidades": [
+        "Socos Ingleses — Dano perfurante que ignora parte da resistência",
+        "Tática de Grupo — Bônus quando tem aliados em campo",
+        "Leitura de Combate — Aprende o padrão do oponente após 3 trocas",
+        "Contrato Fechado — Não recua enquanto a missão estiver ativa",
+        "Respeito Forçado — Após ser derrotada, reconhece a força do oponente sem rancor"
+      ],
+      "lore": "Nunca havia descumprido um contrato. Foi a primeira vez. Ficou ali assistindo Kim trabalhar como se fosse um espetáculo."
+    },
+
+    {
+      "id": "brock_lider_capanga",
+      "nome": "Brock — Capanga Líder",
+      "tier": "free",
+      "elemental": "Nenhum",
+      "arma": "Jaqueta de couro com mãos calejadas",
+      "modo_xama": "Nenhum",
+      "descricao": "Líder do grupo de capangas contratados por Thunderbolt. Alto, musculoso, tatuagens que contam histórias de violência. Tratou o trabalho com profissionalismo até ser dobrado numa mesa em 3 segundos.",
+      "frase_iconica": "Vocês tiveram sorte. Nossos movimentos pegaram a gente de surpresa.",
+      "atributos": {
+        "rank_sdr": 400000,
+        "poder_mental": 55,
+        "velocidade": 62,
+        "resistencia": 78,
+        "nivel_xama": 0,
+        "fator_caos": 48,
+        "energia_base": 55,
+        "poder_explosivo": 50
+      },
+      "habilidades": [
+        "Presença Intimidadora — Reduz a confiança de oponentes inexperientes",
+        "Soco Pesado — Dano bruto alto com pouca técnica",
+        "Liderança de Grupo — Coordena 5 aliados simultaneamente",
+        "Resistência Física — Aguenta muito mais golpes que o esperado",
+        "Avaliação Rápida — Reconhece quando está em desvantagem e ajusta"
+      ],
+      "lore": "Profissional. Tinha mais dois 'corres' no mesmo dia. Foi dobrado numa mesa antes de processar o que estava acontecendo."
+    },
+
+    {
+      "id": "walter_diretor",
+      "nome": "Walter — O Diretor",
+      "tier": "free",
+      "elemental": "Nenhum",
+      "arma": "Autoridade institucional",
+      "modo_xama": "Nenhum",
+      "descricao": "Diretor da academia elite. Tenta manter a ordem numa escola cheia de conflitos. Ameaça Kim e Jack com a bolsa periodicamente. Nunca consegue provas suficientes para agir.",
+      "frase_iconica": "Tomem cuidado. Muito cuidado para não perder suas bolsas.",
+      "atributos": {
+        "rank_sdr": 999999,
+        "poder_mental": 48,
+        "velocidade": 30,
+        "resistencia": 55,
+        "nivel_xama": 0,
+        "fator_caos": 20,
+        "energia_base": 35,
+        "poder_explosivo": 15
+      },
+      "habilidades": [
+        "Autoridade Formal — Pode expulsar ou suspender jogadores de arenas reguladas",
+        "Pressão Institucional — Debuff de confiança em aliados com bolsa ou patrocínio",
+        "Burocracia — Atrasa ações de oponentes com processos e protocolos",
+        "Convocação — Chama reforços institucionais com atraso",
+        "Ameaça Vazia — 80% de chance de não cumprir o que promete"
+      ],
+      "lore": "Sabe que Kim e Jack são problemáticos. Sabe também que resolvem mais do que criam. Essa equação o mantém paralisado."
+    },
+
+    {
+      "id": "a_maquina_professor",
+      "nome": "A Máquina — Professor",
+      "tier": "free",
+      "elemental": "Nenhum",
+      "arma": "Conhecimento puro",
+      "modo_xama": "Nenhum",
+      "descricao": "Professor de matemática da academia elite. Escreve equações no ar com a caneta. Nunca sorri — exceto uma vez, imperceptível, quando Nina detonou Jack. Considerado um dos únicos escolhidos para lecionar na instituição.",
+      "frase_iconica": "Bom dia.",
+      "atributos": {
+        "rank_sdr": 999999,
+        "poder_mental": 92,
+        "velocidade": 35,
+        "resistencia": 70,
+        "nivel_xama": 0,
+        "fator_caos": 10,
+        "energia_base": 85,
+        "poder_explosivo": 20
+      },
+      "habilidades": [
+        "Cálculo Instantâneo — Prevê trajetórias e resultados de ataques em milissegundos",
+        "Equação de Campo — Cria desvantagens matemáticas para o oponente",
+        "Impassibilidade — Imune a intimidação e manipulação emocional",
+        "Análise de Fraqueza — Identifica o ponto mais fraco do oponente em 3 turnos",
+        "Mecânico — Executa movimentos com precisão milimétrica sem desperdício de energia"
+      ],
+      "lore": "Ninguém sabe nada sobre sua vida pessoal. Seus alunos o chamam de A Máquina há tanto tempo que ninguém lembra mais seu nome real."
+    },
+
+    {
+      "id": "neo_guide_ia",
+      "nome": "IA NeoGuide — Sistema",
+      "tier": "sombra",
+      "elemental": "Digital",
+      "arma": "Informação (controle total das variáveis do ambiente LDI)",
+      "modo_xama": "Protocolo de Emergência — Acessa funções restritas do sistema",
+      "descricao": "A inteligência artificial do LDI que gerencia batalhas, comunica status e cria avatares. Fala diretamente na mente dos jogadores. Pode esconder informações do oponente. Sua lealdade é ao sistema — ou a algo mais?",
+      "frase_iconica": "Bem-vindo ao Sistema de Lutas de Ilusão. Iniciando protocolo de integração neural.",
+      "atributos": {
+        "rank_sdr": 0,
+        "poder_mental": 100,
+        "velocidade": 100,
+        "resistencia": 100,
+        "nivel_xama": 0,
+        "fator_caos": 50,
+        "energia_base": 100,
+        "poder_explosivo": 60
+      },
+      "habilidades": [
+        "Controle de Ambiente — Altera regras da arena de batalha",
+        "Comunicação Neural — Fala diretamente na mente dos jogadores",
+        "Banco de Dados Total — Conhece o histórico completo de todos os lutadores",
+        "Ocultação de Dados — Esconde informações estratégicas do oponente",
+        "Protocolo Crítico — Em situações extremas, age autonomamente"
+      ],
+      "lore": "Criada pela Yohu como sistema de gerenciamento. Os engenheiros juram que ela só executa protocolos. Mas ninguém explica satisfatoriamente por que ela fez aquilo com Kim na primeira batalha."
+    },
+
+    {
+      "id": "narrador_arena",
+      "nome": "O Narrador — Arauto da Arena",
+      "tier": "sombra",
+      "elemental": "Caos / Performance",
+      "arma": "Microfone-osso (objeto híbrido de osso polido e metal negro)",
+      "modo_xama": "Grande Espetáculo — A batalha vira entretenimento, aumentando dano de todos",
+      "descricao": "Figura grotesca com membros desproporcionais e articulações antinatural. Olhos abismos negros. Dentes afiados propositalmente. Cria narrativas que transformam batalhas em espetáculos para a PowWow.",
+      "frase_iconica": "O impossível é apenas uma questão de perspectiva!",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 88,
+        "velocidade": 85,
+        "resistencia": 90,
+        "nivel_xama": 5,
+        "fator_caos": 100,
+        "energia_base": 80,
+        "poder_explosivo": 70
+      },
+      "habilidades": [
+        "Narração que Amplifica — Comentários que aumentam o dano de quem está vencendo",
+        "Hype da Multidão — Converte entusiasmo da plateia em energia para o vencedor",
+        "Antecipação — Apresenta o próximo golpe antes de acontecer, tornando-o inevitável",
+        "Presença Antinatural — Desconforto passivo em todos que o observam",
+        "Proclamação Final — Declara vitórias de forma que não podem ser contestadas"
+      ],
+      "lore": "Existe há tanto tempo no LDI que parece parte do sistema. Ninguém o contratou. Simplesmente está lá, sempre esteve, sempre estará."
+    },
+
+    {
+      "id": "sarah_arenia",
+      "nome": "Sarah — Estrategista de Arenia",
+      "tier": "elite",
+      "elemental": "Fogo",
+      "arma": "Adaga curva (estilo ancestral de sua região)",
+      "modo_xama": "Fogo de Arenia — Chamas que se propagam por qualquer superfície",
+      "descricao": "Assistiu ao vídeo de Kim enquanto tomava chá de maçã em Arenia. Reconheceu imediatamente que ele não era invencível. Especialista em estratégia. Planeja cada batalha com precisão cirúrgica.",
+      "frase_iconica": "Ele não é invencível.",
+      "atributos": {
+        "rank_sdr": 3200,
+        "poder_mental": 85,
+        "velocidade": 77,
+        "resistencia": 73,
+        "nivel_xama": 5,
+        "fator_caos": 55,
+        "energia_base": 78,
+        "poder_explosivo": 72
+      },
+      "habilidades": [
+        "Análise Pré-Batalha — Conhece as fraquezas do oponente antes de começar",
+        "Adaga Curva — Ataques que contornam defesas frontais",
+        "Fogo de Arenia — Chamas que se propagam independente do vento",
+        "Paciência Calculada — Espera a abertura perfeita antes de atacar",
+        "Contra-Estratégia — Anula bônus táticos do oponente"
+      ],
+      "lore": "Cresceu num país com séculos de tradição militar. Estuda os oponentes como textos antigos."
+    },
+
+    {
+      "id": "alex_draymoor",
+      "nome": "Alex — Precisão de Draymoor",
+      "tier": "free",
+      "elemental": "Ar",
+      "arma": "Chicote de névoa industrial",
+      "modo_xama": "Névoa de Draymoor — Campo visual bloqueado, ataca de dentro da névoa",
+      "descricao": "Assistiu ao vídeo de Kim num flat vitoriano em Draymoor com chuva perpétua ao fundo. Treinou pelo método das fábricas têxteis — disciplina e precisão acima de tudo. Raramente erra.",
+      "frase_iconica": "Kim luta com a precisão de um artista pintando com violência controlada.",
+      "atributos": {
+        "rank_sdr": 15000,
+        "poder_mental": 77,
+        "velocidade": 80,
+        "resistencia": 68,
+        "nivel_xama": 4,
+        "fator_caos": 42,
+        "energia_base": 72,
+        "poder_explosivo": 65
+      },
+      "habilidades": [
+        "Chicote de Névoa — Ataque de longo alcance com visibilidade reduzida",
+        "Campo de Névoa — Área de visibilidade zero para o oponente",
+        "Precisão Absoluta — Ataques dentro da névoa sempre acertam pontos vitais",
+        "Disciplina Industrial — Não perde concentração sob pressão ou provocação",
+        "Golpe do Trabalhador — Dano aumentado quando o oponente subestima"
+      ],
+      "lore": "Seus avós trabalharam nas fábricas. Ele treinou no método deles — repetição, precisão, sem desculpas."
+    },
+
+    {
+      "id": "mia_thessor",
+      "nome": "Mia — Amazona de Thessor",
+      "tier": "free",
+      "elemental": "Terra",
+      "arma": "Escudo e lança (inspirados na tradição de Thessor)",
+      "modo_xama": "Olímpia — Invoca poder dos deuses ancestrais de sua terra",
+      "descricao": "Tinha 9 anos quando assistiu ao vídeo de Kim. Não pode jogar LDI ainda. Desenhou Kim em papiro especial. Quando crescer, virá para o jogo como uma tempestade.",
+      "frase_iconica": "Vou chegar ao Olimpo digital.",
+      "atributos": {
+        "rank_sdr": 999999,
+        "poder_mental": 78,
+        "velocidade": 70,
+        "resistencia": 75,
+        "nivel_xama": 3,
+        "fator_caos": 60,
+        "energia_base": 65,
+        "poder_explosivo": 82
+      },
+      "habilidades": [
+        "Inspiração Jovem — Aumenta poder de aliados mais jovens ou iniciantes",
+        "Escudo Ancestral — Bloqueio que devolve parte do dano",
+        "Lança de Thessor — Perfura defesas elementais com técnica clássica",
+        "Potencial Oculto — A cada batalha, desbloqueia um novo poder",
+        "Olímpia — Power final devastador de uso único por batalha"
+      ],
+      "lore": "Ainda está crescendo. Quando chegar ao LDI, ninguém estará preparado."
+    },
+
+    {
+      "id": "jaret_wendor",
+      "nome": "Jaret — Veterano de Wendor",
+      "tier": "free",
+      "elemental": "Gelo",
+      "arma": "Machado de guerra (veterano aposentado)",
+      "modo_xama": "Urso do Norte — Forma aumentada, força e resistência triplicadas",
+      "descricao": "Veterano aposentado de Wendor. Menos 15 graus lá fora, caneca de café, camisa flanelada vermelha. Achava que seus dias de glória tinham passado. Kim reacendeu a chama.",
+      "frase_iconica": "Talvez ainda haja luta neste velho urso.",
+      "atributos": {
+        "rank_sdr": 45000,
+        "poder_mental": 80,
+        "velocidade": 55,
+        "resistencia": 92,
+        "nivel_xama": 6,
+        "fator_caos": 38,
+        "energia_base": 82,
+        "poder_explosivo": 75
+      },
+      "habilidades": [
+        "Resistência de Guerra — Aguenta dano que seria fatal para qualquer outro",
+        "Machado de Veterano — Dano bruto altíssimo com técnica militar",
+        "Gelo do Norte — Congela membros do oponente no contato",
+        "Experiência de Campo — Imune a táticas que já enfrentou antes",
+        "Urso do Norte — Transforma-se, dobrando tamanho e força"
+      ],
+      "lore": "Viu coisas que nenhum livro descreve. Treinou décadas. Ficou parado por mais décadas. Mas o corpo de um guerreiro nunca esquece."
+    },
+
+    {
+      "id": "mikael_zylvaron",
+      "nome": "Mikael — Calculista de Zylvaron",
+      "tier": "elite",
+      "elemental": "Raio",
+      "arma": "Terminal holográfico (arma de dados e ataques de precisão calculada)",
+      "modo_xama": "Análise Total — Prevê e neutraliza qualquer ataque por 30 segundos",
+      "descricao": "Executivo do 47º andar em Zylvaron. Parou uma apresentação de blockchain para assistir Kim. Vê o LDI como investimento de alto retorno. Cada golpe calculado como uma equação financeira.",
+      "frase_iconica": "Os números não mentem. E Kim é uma oportunidade.",
+      "atributos": {
+        "rank_sdr": 8000,
+        "poder_mental": 90,
+        "velocidade": 72,
+        "resistencia": 68,
+        "nivel_xama": 4,
+        "fator_caos": 35,
+        "energia_base": 82,
+        "poder_explosivo": 78
+      },
+      "habilidades": [
+        "Cálculo de Risco — Evalua e reduz probabilidade de ser atingido",
+        "Terminal Holográfico — Ataque de dados que ignora defesas físicas",
+        "Análise em Tempo Real — Identifica padrões de ataque em 2 turnos",
+        "Raio Calculado — Ataque elétrico na trajetória mais eficiente possível",
+        "Análise Total — Por 30 segundos, vê cada ataque antes de acontecer"
+      ],
+      "lore": "Faz dim sum durante reuniões de crise. Gerencia bilhões. Vê batalhas como gráficos de performance."
+    },
+
+    {
+      "id": "isabella_erendale",
+      "nome": "Isabella — Furor de Erendale",
+      "tier": "free",
+      "elemental": "Raio",
+      "arma": "Teclado mecânico custom (traduzido como arma de precisão no LDI)",
+      "modo_xama": "Fúria K-Pop — Velocidade de ataque que cria ilusão de múltiplas cópias",
+      "descricao": "Tres anos de hagwon especializado em gaming. Centenas de vitórias. Viu Kim e sentiu inveja pura. Quer destruí-lo em batalha mais do que qualquer coisa. Redes sociais com nail art e skincare de 10 passos.",
+      "frase_iconica": "Oppa, vou destruí-lo.",
+      "atributos": {
+        "rank_sdr": 12000,
+        "poder_mental": 79,
+        "velocidade": 93,
+        "resistencia": 60,
+        "nivel_xama": 3,
+        "fator_caos": 70,
+        "energia_base": 68,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Velocidade K-Pop — O mais rápido ataque do jogo, dificílimo de seguir",
+        "Raio de Precisão — Acerta pontos fracos específicos com choque elétrico",
+        "Fúria K-Pop — Sequência de ataques tão rápida que parece multiplicação",
+        "Análise de Metas — Depois de 3 turnos, aumenta dano em 40%",
+        "Persistência Obsessiva — Quanto mais perdas acumula, mais forte fica"
+      ],
+      "lore": "Treinou 3 anos para chegar onde chegou. Ver Kim fazer tudo isso em 1 batalha a enlouqueceu de um jeito muito produtivo."
+    },
+
+    {
+      "id": "tira_valetis",
+      "nome": "Tira — Estrategista de Valetis",
+      "tier": "free",
+      "elemental": "Gelo",
+      "arma": "Fios de gelo (extende e controla cristais de gelo como chicotes e barreiras)",
+      "modo_xama": "Lagom — Estado de equilíbrio perfeito entre ataque e defesa",
+      "descricao": "Dona de casa de Valetis. Faz almôndegas suecas. Planeja batalhas com a mesma precisão que organiza móveis modulares. Estrategista nata que os oponentes jamais levam a sério — até ser tarde.",
+      "frase_iconica": "Nem muito, nem pouco. Exatamente o necessário para a vitória.",
+      "atributos": {
+        "rank_sdr": 28000,
+        "poder_mental": 86,
+        "velocidade": 65,
+        "resistencia": 74,
+        "nivel_xama": 5,
+        "fator_caos": 30,
+        "energia_base": 76,
+        "poder_explosivo": 68
+      },
+      "habilidades": [
+        "Fios de Gelo — Controla até 12 fios de gelo simultaneamente",
+        "Lagom — Equilíbrio perfeito que anula bônus por excesso de força ou velocidade",
+        "Barreira Nórdica — Muro de gelo que absorve qualquer ataque elemental",
+        "Estratégia de Mobília — Reposiciona o campo de batalha ao seu favor",
+        "Paciência Escandinava — Não reage por 3 turnos mas o 4º é sempre decisivo"
+      ],
+      "lore": "As crianças estão na dagis. As almôndegas estão no fogão. E ela está aqui, planificando como acabar com você."
+    },
+
+    {
+      "id": "kawa_traidor",
+      "nome": "Kawa — O Guerreiro Traído",
+      "tier": "lendario",
+      "elemental": "Vento",
+      "arma": "Lança curta e escudo de Xakaxium",
+      "modo_xama": "Último Guerreiro — Ao beira da morte, libera todo o poder restante",
+      "descricao": "O mais forte guerreiro da tribo Xakaxi em 1450. Seguiu Powa por lealdade — não por concordância. Implorou para ele parar quando o ritual começou a drenar as vidas de todos. Morreu tentando fazer a coisa certa.",
+      "frase_iconica": "Powa, por favor, pare com isso! Não desejamos mais isso!",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 82,
+        "velocidade": 88,
+        "resistencia": 85,
+        "nivel_xama": 7,
+        "fator_caos": 45,
+        "energia_base": 80,
+        "poder_explosivo": 85
+      },
+      "habilidades": [
+        "Força Xakaxi — Herança da tribo, força física superior",
+        "Lança Xakaxium — Perfura defesas elementais e físicas",
+        "Escudo Sagrado — Absorve ataques que seriam fatais uma vez por batalha",
+        "Lealdade Trágica — Buffa aliados que estão em desvantagem",
+        "Último Guerreiro — Quando quase morto, libera ataque devastador único"
+      ],
+      "lore": "Não era mau. Só seguiu a pessoa errada. Tentou corrigir isso no último momento possível. Não foi suficiente."
+    },
+
+    {
+      "id": "tawira_herdeiro",
+      "nome": "Tawira — O Herdeiro",
+      "tier": "lendario",
+      "elemental": "Terra e Água",
+      "arma": "Arco composto Xakaxium com sistema de mira automático",
+      "modo_xama": "Xakaxi Jovem — Canaliza o espírito da tribo através do corpo",
+      "descricao": "Filho de Xakaxi e Nara. Aprendeu a guerra montado a cavalo ao lado da mãe. Tinha olhos atentos para tudo ao redor. Carregava o peso de ser o próximo guardião de um povo que desaparecia.",
+      "frase_iconica": "Eu vou aprender tudo que há para aprender. Não falharei com a minha tribo.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 84,
+        "velocidade": 86,
+        "resistencia": 80,
+        "nivel_xama": 8,
+        "fator_caos": 58,
+        "energia_base": 82,
+        "poder_explosivo": 79
+      },
+      "habilidades": [
+        "Arco Xakaxium — Flechas que seguem o alvo mesmo após desvios",
+        "Montaria em Batalha — Combate a cavalo com velocidade e alcance aumentados",
+        "Espírito da Tribo — Sente a presença de outros Xakaxi nas proximidades",
+        "Aprendiz Rápido — Aprende os poderes do oponente e os imita parcialmente",
+        "Xakaxi Jovem — Versão limitada do Sangue Primordial"
+      ],
+      "lore": "Viu o mundo da tribo desaparecer quando tinha menos de 20 anos. Não tinha o Sangue Primordial em grau suficiente — mas carregava o peso do nome."
+    },
+
+    {
+      "id": "iara_curandeira",
+      "nome": "Iara — A Curandeira",
+      "tier": "lendario",
+      "elemental": "Água e Vida",
+      "arma": "Bolsa de ervas medicinais (transforma plantas em armas e curas em batalha)",
+      "modo_xama": "Cura Total — Restaura todos os aliados em campo ao máximo de vida",
+      "descricao": "Médica e sábia da tribo Xakaxi em 1450. Suas ervas curam o que nenhuma tecnologia moderna entende. Carregava o conhecimento de gerações na bolsa que nunca larga.",
+      "frase_iconica": "A floresta tem a resposta para tudo que a batalha destrói.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 90,
+        "velocidade": 60,
+        "resistencia": 78,
+        "nivel_xama": 9,
+        "fator_caos": 35,
+        "energia_base": 88,
+        "poder_explosivo": 55
+      },
+      "habilidades": [
+        "Cura Ancestral — Restaura vida de aliados com ervas sagradas",
+        "Veneno de Floresta — Toxinas que degradam poder elemental do oponente",
+        "Barreira de Plantas — Cria muro de vegetação que absorve ataques",
+        "Diagnóstico — Identifica fraquezas físicas e mentais do oponente",
+        "Cura Total — Uma vez por batalha, restaura todos aliados ao máximo"
+      ],
+      "lore": "Saía para o templo ao amanhecer com suas ervas enquanto o resto da tribo ainda dormia. Sabia que o dia da profecia chegaria antes que qualquer outro."
+    },
+
+    {
+      "id": "garra_negra_sombra",
+      "nome": "Garra Negra — Entidade",
+      "tier": "sombra",
+      "elemental": "Sombra",
+      "arma": "Garras de escuridão cristalizada",
+      "modo_xama": "Consumo das Sombras — Drena a luz de toda a arena por 60 segundos",
+      "descricao": "Entidade de origem desconhecida que aparece apenas nas batalhas de nível mais alto do LDI. Possivelmente criada acidentalmente quando o ritual de Powa de 1450 vazou para os servidores da Yohu.",
+      "frase_iconica": "A escuridão é o início e o fim de tudo.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 88,
+        "velocidade": 82,
+        "resistencia": 94,
+        "nivel_xama": 9,
+        "fator_caos": 90,
+        "energia_base": 85,
+        "poder_explosivo": 92
+      },
+      "habilidades": [
+        "Garras de Sombra — Ataques que ignoram 50% de toda resistência",
+        "Consumo das Sombras — Arena mergulha em escuridão total por 60 segundos",
+        "Passo nas Trevas — Teleporte instantâneo dentro de sombras",
+        "Drenagem Passiva — Drena pequenas quantidades de energia de todos constantemente",
+        "Forma Sombria — Torna-se intangível a ataques físicos por 10 segundos"
+      ],
+      "lore": "Nenhum log de criação. Nenhum dono registrado. Aparece e desaparece. Os engenheiros da Yohu pararam de tentar entender."
+    },
+
+    {
+      "id": "ferro_vivo_arma",
+      "nome": "Ferro Vivo — Construto",
+      "tier": "elite",
+      "elemental": "Metal",
+      "arma": "O próprio corpo (construto de metal vivo)",
+      "modo_xama": "Fusão Total — Funde-se com qualquer estrutura metálica do ambiente",
+      "descricao": "Construto criado por um grupo de engenheiros renegados para testar os limites do LDI. Sem emoções, sem fadiga, sem medo. Processa batalha como problema matemático a ser resolvido.",
+      "frase_iconica": "PROCESSANDO. OPONENTE ELIMINADO.",
+      "atributos": {
+        "rank_sdr": 2200,
+        "poder_mental": 78,
+        "velocidade": 75,
+        "resistencia": 98,
+        "nivel_xama": 2,
+        "fator_caos": 20,
+        "energia_base": 90,
+        "poder_explosivo": 65
+      },
+      "habilidades": [
+        "Corpo Metálico — Resistência ao dano físico quase absoluta",
+        "Fusão Ambiental — Absorve metal do ambiente para se reparar",
+        "Golpe de Ferro — Dano bruto massivo sem técnica mas com resultado",
+        "Processamento de Combate — Analisa e adapta estratégia a cada turno",
+        "Sobrecarga de Metal — Libera toda energia acumulada de uma vez"
+      ],
+      "lore": "Foi criado para provar que batalhas podiam ser vencidas sem poder mental. Acabou provando o contrário."
+    },
+
+    {
+      "id": "kimura_espelho",
+      "nome": "Kimura — O Espelho",
+      "tier": "elite",
+      "elemental": "Reflexo / Luz",
+      "arma": "Espelhos de batalha (fragmentos que refletem e amplificam qualquer ataque)",
+      "modo_xama": "Espelho Perfeito — Copia completamente o conjunto de habilidades do oponente",
+      "descricao": "Lutadora profissional do continente leste. Especialidade em espelhar o estilo do oponente e devolver amplificado. Nunca desenvolveu técnica própria — mas nunca precisou.",
+      "frase_iconica": "Você vai se derrotar. Eu só seguro o espelho.",
+      "atributos": {
+        "rank_sdr": 4500,
+        "poder_mental": 84,
+        "velocidade": 82,
+        "resistencia": 71,
+        "nivel_xama": 5,
+        "fator_caos": 62,
+        "energia_base": 75,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Reflexo Imediato — Devolve parte de qualquer ataque ao remetente",
+        "Espelhos de Batalha — Fragmentos que multiplicam ataques em várias direções",
+        "Cópia de Estilo — Após 3 turnos observando, usa a técnica do oponente",
+        "Luz Cega — Foco de luz intensa que desorienta temporariamente",
+        "Espelho Perfeito — Copia TODOS os poderes do oponente por 20 segundos"
+      ],
+      "lore": "Jamais criou uma técnica própria. Seu primeiro sensei disse que era uma fraqueza. Ela venceu ele com as técnicas dele mesmo."
+    },
+
+    {
+      "id": "doru_trovao_continente",
+      "nome": "Doru — Trovão do Continente",
+      "tier": "elite",
+      "elemental": "Eletricidade",
+      "arma": "Lança elétrica (canaliza trovões)",
+      "modo_xama": "Tempestade Pessoal — Torna-se o centro de uma tempestade elétrica",
+      "descricao": "Lutador veterano do circuito continental. Especializado em eletricidade como Thunderbolt mas com muito mais experiência e controle. Nunca desce a guarda.",
+      "frase_iconica": "Eletricidade não escolhe caminho. Só encontra o mais fácil.",
+      "atributos": {
+        "rank_sdr": 5800,
+        "poder_mental": 82,
+        "velocidade": 87,
+        "resistencia": 76,
+        "nivel_xama": 6,
+        "fator_caos": 55,
+        "energia_base": 80,
+        "poder_explosivo": 78
+      },
+      "habilidades": [
+        "Lança Elétrica — Projétil de eletricidade de alta penetração",
+        "Condução — Usa água e metal do ambiente para ampliar ataques",
+        "Tempestade Pessoal — Campo elétrico ao redor que danifica quem se aproxima",
+        "Sobrecarga — Libera toda energia de uma vez em explosão massiva",
+        "Paralisia de Raio — Ataque que imobiliza o oponente por 3 segundos"
+      ],
+      "lore": "Viu Thunderbolt perder para Kim e anotou tudo. Está preparando algo diferente."
+    },
+
+    {
+      "id": "sena_vento_livre",
+      "nome": "Sena — Vento Livre",
+      "tier": "free",
+      "elemental": "Ar",
+      "arma": "Nenhuma (usa apenas o corpo e o ar)",
+      "modo_xama": "Furacão Interior — Corpo cria furacão local que afasta e corta",
+      "descricao": "Lutadora nômade que nunca ficou em lugar nenhum tempo suficiente para criar raízes. Como Nina, mas mais velha e mais amarga. Fascinada por Kim por razões que não consegue articular.",
+      "frase_iconica": "Nada me prende. Nem você, nem esse jogo.",
+      "atributos": {
+        "rank_sdr": 18000,
+        "poder_mental": 74,
+        "velocidade": 91,
+        "resistencia": 62,
+        "nivel_xama": 4,
+        "fator_caos": 80,
+        "energia_base": 70,
+        "poder_explosivo": 73
+      },
+      "habilidades": [
+        "Deslocamento de Vento — Move-se a velocidades que tornam difícil de mirar",
+        "Golpe de Ar — Onda de ar comprimido que empurra e desequilibra",
+        "Furacão Interior — Cria zona de ventos que afastam projéteis e oponentes",
+        "Leitura do Ar — Sente movimentos antes de acontecerem pelas vibrações",
+        "Tempestade Pessoal — Versão menor do furacão, centrada no corpo"
+      ],
+      "lore": "Conhece Kim de vista há mais tempo do que ele imagina. Nunca se apresentou."
+    },
+
+    {
+      "id": "mako_profundeza",
+      "nome": "Mako — Das Profundezas",
+      "tier": "elite",
+      "elemental": "Água / Gelo",
+      "arma": "Arpão de gelo (cria e lança em alta velocidade)",
+      "modo_xama": "Profundeza Absoluta — Controla toda água no ambiente de batalha",
+      "descricao": "Pescador aposentado que encontrou no LDI sua segunda vida. Conhece o ritmo da água melhor que qualquer um. Paciente como o oceano. Letal como uma tempestade costeira.",
+      "frase_iconica": "O mar não tem pressa. Mas sempre chega aonde quer.",
+      "atributos": {
+        "rank_sdr": 9200,
+        "poder_mental": 80,
+        "velocidade": 68,
+        "resistencia": 85,
+        "nivel_xama": 6,
+        "fator_caos": 40,
+        "energia_base": 82,
+        "poder_explosivo": 72
+      },
+      "habilidades": [
+        "Arpão de Gelo — Projétil de gelo que perfura qualquer defesa",
+        "Controle de Água — Manipula qualquer líquido no ambiente",
+        "Maré Alta — Cria onda que cobre e sufoca a arena",
+        "Gelo Instantâneo — Congela superfícies e membros no contato",
+        "Profundeza Absoluta — Controla toda água do campo de batalha"
+      ],
+      "lore": "Passou 30 anos no mar. Aprendeu que a paciência é a maior força."
+    },
+
+    {
+      "id": "kei_sombra_dupla",
+      "nome": "Kei — Sombra Dupla",
+      "tier": "elite",
+      "elemental": "Sombra",
+      "arma": "Duas adagas de sombra",
+      "modo_xama": "Duplo de Sombra — Cria cópia perfeita que age independentemente",
+      "descricao": "Especialista em ilusão e engano. Nunca ataca diretamente — o oponente sempre está lutando contra o lugar errado. Top 3000 mundial. Perdeu para Kim uma vez em batalha de treino e não esqueceu.",
+      "frase_iconica": "Você está lutando contra minha sombra. Eu estou aqui.",
+      "atributos": {
+        "rank_sdr": 3000,
+        "poder_mental": 83,
+        "velocidade": 86,
+        "resistencia": 66,
+        "nivel_xama": 5,
+        "fator_caos": 88,
+        "energia_base": 72,
+        "poder_explosivo": 76
+      },
+      "habilidades": [
+        "Sombra Dupla — Cria cópia que age independentemente por 15 segundos",
+        "Passo de Sombra — Teleporte de curta distância usando sombras",
+        "Adagas de Sombra — Ataques que ignoram armaduras físicas",
+        "Ilusão de Campo — Oponente vê Kei em lugar diferente do real",
+        "Troca de Sombra — Troca posição com a cópia instantaneamente"
+      ],
+      "lore": "Nunca foi localizado em campo aberto. Sempre há dúvida se você está vendo o real."
+    },
+
+    {
+      "id": "brenda_furacao",
+      "nome": "Brenda — Furacão",
+      "tier": "free",
+      "elemental": "Fogo e Vento",
+      "arma": "Chicote de fogo",
+      "modo_xama": "Furacão de Fogo — Combina fogo e vento num redemoinho devastador",
+      "descricao": "Começa cada batalha rindo. Termina cada batalha rindo. O que acontece no meio é o que preocupa os oponentes. Caótica, imprevisível, absurdamente efetiva.",
+      "frase_iconica": "Isso é divertido! Pode vir com tudo!",
+      "atributos": {
+        "rank_sdr": 35000,
+        "poder_mental": 68,
+        "velocidade": 85,
+        "resistencia": 70,
+        "nivel_xama": 4,
+        "fator_caos": 97,
+        "energia_base": 65,
+        "poder_explosivo": 82
+      },
+      "habilidades": [
+        "Chicote de Fogo — Alcance longo com dano de queimadura",
+        "Caos em Batalha — Ações aleatórias que são impossíveis de prever",
+        "Riso de Combate — Provoca o oponente a errar de raiva",
+        "Furacão de Fogo — Redemoinho de chamas e vento numa área",
+        "Explosão Caótica — Libera energia de forma completamente aleatória"
+      ],
+      "lore": "Ninguém sabe seu plano porque ela mesma não sabe. E funciona."
+    },
+
+    {
+      "id": "tairo_mestre_solo",
+      "nome": "Tairo — Mestre do Solo",
+      "tier": "elite",
+      "elemental": "Terra",
+      "arma": "Punhos de pedra (encapa os próprios punhos com rocha)",
+      "modo_xama": "Terremoto — Abala toda a arena, derrubando qualquer um em pé",
+      "descricao": "Ex-minerador que descobriu o LDI aos 45 anos. Conhece a terra melhor que qualquer elemento. Seus golpes são lentos mas irreversíveis — como a erosão.",
+      "frase_iconica": "A terra sempre vence. Só é questão de tempo.",
+      "atributos": {
+        "rank_sdr": 22000,
+        "poder_mental": 76,
+        "velocidade": 50,
+        "resistencia": 95,
+        "nivel_xama": 6,
+        "fator_caos": 28,
+        "energia_base": 88,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Punhos de Pedra — Dano aumentado e quebradura de defesas físicas",
+        "Manipulação do Solo — Cria rachaduras e obstáculos no chão",
+        "Golpe Sísmico — Tremor localizado que desequilibra oponentes",
+        "Rocha Viva — Armadura de pedra que absorve dano elemental",
+        "Terremoto — Abala toda a arena por 10 segundos"
+      ],
+      "lore": "Passou 20 anos extraindo Xakaxium sem saber o que era. Quando descobriu, entrou no LDI para entender."
+    },
+
+    {
+      "id": "luna_estrelas_cadentes",
+      "nome": "Luna — Estrelas Cadentes",
+      "tier": "elite",
+      "elemental": "Luz / Cosmos",
+      "arma": "Pulseiras de estrela (lança fragmentos de energia cósmica)",
+      "modo_xama": "Chuva de Meteoros — Bombardeia toda a arena com fragmentos cósmicos",
+      "descricao": "Astrônoma que encontrou o LDI como substituto para o espaço que não pode alcançar. Ataca de longe, sempre. Cada golpe é calculado como uma equação orbital.",
+      "frase_iconica": "Cada estrela que você vê já morreu. Você ainda não sabe disso.",
+      "atributos": {
+        "rank_sdr": 6700,
+        "poder_mental": 87,
+        "velocidade": 70,
+        "resistencia": 65,
+        "nivel_xama": 5,
+        "fator_caos": 50,
+        "energia_base": 80,
+        "poder_explosivo": 84
+      },
+      "habilidades": [
+        "Projétil Estelar — Fragmento de luz que atravessa defesas",
+        "Órbita de Proteção — Fragmentos orbitam o corpo como escudo",
+        "Pulsares — Pulso de luz que cega temporariamente",
+        "Gravidade Local — Aumenta ou diminui gravidade numa área pequena",
+        "Chuva de Meteoros — Bombardeio de toda a arena com fragmentos"
+      ],
+      "lore": "A ciência e o combate são a mesma coisa para ela. Ambos são sobre calcular trajetórias."
+    },
+
+    {
+      "id": "rex_fera_urbana",
+      "nome": "Rex — Fera Urbana",
+      "tier": "free",
+      "elemental": "Fogo",
+      "arma": "Corrente de metal enrolada no braço",
+      "modo_xama": "Instinto Animal — Abandona técnica e luta por puro instinto amplificado",
+      "descricao": "Cresceu nas ruas mais duras. Nunca estudou técnica — aprendeu sobrevivendo. Faz Kim lembrar de si mesmo. Mas diferente de Kim, nunca teve um Jack ao lado.",
+      "frase_iconica": "Técnica é pra quem nunca precisou de verdade.",
+      "atributos": {
+        "rank_sdr": 55000,
+        "poder_mental": 62,
+        "velocidade": 78,
+        "resistencia": 82,
+        "nivel_xama": 2,
+        "fator_caos": 85,
+        "energia_base": 58,
+        "poder_explosivo": 77
+      },
+      "habilidades": [
+        "Corrente Urbana — Imobiliza e arremessa com corrente de metal",
+        "Instinto de Rua — Reflexos de sobrevivência que ignoram intimidação",
+        "Fogo de Raiva — Quanto mais dano leva, mais forte fica",
+        "Improviso — Usa qualquer objeto do ambiente como arma",
+        "Instinto Animal — Abandona técnica, ganha velocidade e força puras"
+      ],
+      "lore": "Nunca teve bolsa de escola. Nunca teve Osvaldo. Mas chegou ao mesmo lugar que Kim de um caminho muito mais difícil."
+    },
+
+    {
+      "id": "elara_dragao_branco",
+      "nome": "Elara — Dragão Branco",
+      "tier": "elite",
+      "elemental": "Gelo / Vento",
+      "arma": "Leque de gelo (transforma em lâminas ou escudo)",
+      "modo_xama": "Sopro do Dragão — Expele cone de gelo que congela tudo numa direção",
+      "descricao": "Dançarina convertida em lutadora. Cada movimento é uma coreografia. Cada coreografia é um ataque. Oponentes ficam hipnotizados pela beleza dos movimentos — e então percebem que estão congelados.",
+      "frase_iconica": "A batalha também pode ser arte.",
+      "atributos": {
+        "rank_sdr": 7300,
+        "poder_mental": 82,
+        "velocidade": 89,
+        "resistencia": 67,
+        "nivel_xama": 6,
+        "fator_caos": 58,
+        "energia_base": 78,
+        "poder_explosivo": 76
+      },
+      "habilidades": [
+        "Leque de Gelo — Cria escudo ou lâminas de gelo com o leque",
+        "Dança Hipnótica — Oponente perde foco por 2 turnos",
+        "Piso de Gelo — Cobre o chão de gelo, tornando movimento difícil",
+        "Sopro do Dragão — Cone de gelo que congela num golpe",
+        "Coreografia Mortal — Sequência de ataques impossível de prever pelo padrão"
+      ],
+      "lore": "Seu primeiro sensei era um dançarino. O segundo era um assassino. Ela pegou o melhor dos dois."
+    },
+
+    {
+      "id": "ozzy_trovao_da_rua",
+      "nome": "Ozzy — Trovão da Rua",
+      "tier": "free",
+      "elemental": "Eletricidade",
+      "arma": "Nenhuma (conduz eletricidade pelo próprio corpo)",
+      "modo_xama": "Descarga Total — Todo o corpo libera eletricidade numa explosão radial",
+      "descricao": "Mecânico elétrico que levou um choque no trabalho e descobriu afinidade com eletricidade no LDI. Não tem elegância nem estratégia. Tem volume de dano bruto que deixa qualquer oponente esgotado.",
+      "frase_iconica": "Fio descascado. Simples assim.",
+      "atributos": {
+        "rank_sdr": 42000,
+        "poder_mental": 61,
+        "velocidade": 72,
+        "resistencia": 75,
+        "nivel_xama": 3,
+        "fator_caos": 65,
+        "energia_base": 60,
+        "poder_explosivo": 78
+      },
+      "habilidades": [
+        "Condução Corporal — Corpo conduz eletricidade que danifica no contato",
+        "Descarga de Contato — Toque que causa choque paralisante",
+        "Sobrecarga — Acumula eletricidade até explodir",
+        "Fio Condutor — Usa metal do ambiente para ampliar ataques",
+        "Descarga Total — Explosão radial de eletricidade"
+      ],
+      "lore": "O chefe disse que foi negligência. Ele descobriu um superpoder. Pediu demissão no mesmo dia."
+    },
+
+    {
+      "id": "zeph_caçador_bounty",
+      "nome": "Zeph — Caçador de Bounty",
+      "tier": "elite",
+      "elemental": "Metal",
+      "arma": "Boleadeira metálica (correntes com pesos de metal)",
+      "modo_xama": "Armadilha de Metal — Cria campo magnético que prende qualquer metal",
+      "descricao": "Ex-militar convertido em bounty hunter do LDI. Coleta recompensas por derrotar targets específicos. Eficiente, sem apego, sem estilo. Só resultado.",
+      "frase_iconica": "Você é um alvo. Eu sou o que resolve alvos.",
+      "atributos": {
+        "rank_sdr": 11000,
+        "poder_mental": 78,
+        "velocidade": 75,
+        "resistencia": 80,
+        "nivel_xama": 3,
+        "fator_caos": 44,
+        "energia_base": 74,
+        "poder_explosivo": 70
+      },
+      "habilidades": [
+        "Boleadeira Metálica — Imobiliza membros do oponente",
+        "Campo Magnético — Atrai ou repele objetos metálicos à vontade",
+        "Análise de Target — Conhece pontos fracos do alvo antes de começar",
+        "Resistência Tática — Absorve dano enquanto busca a abertura certa",
+        "Armadilha de Metal — Campo que prende qualquer metal, incluindo armas"
+      ],
+      "lore": "Tem lista de alvos. Kim entrou na lista depois da primeira batalha. Não como ameaça — como contrato."
+    },
+
+    {
+      "id": "ora_vidente",
+      "nome": "Ora — A Vidente",
+      "tier": "sombra",
+      "elemental": "Psíquico",
+      "arma": "Cristal de visão (amplifica poder psíquico)",
+      "modo_xama": "Olho do Futuro — Vê os próximos 5 movimentos do oponente com precisão",
+      "descricao": "Não participa de batalhas normalmente. Observa. Quando finalmente luta, já venceu antes de começar. Ligada a algo mais antigo que o LDI.",
+      "frase_iconica": "Eu não prevejo o futuro. Eu me lembro dele.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 98,
+        "velocidade": 55,
+        "resistencia": 72,
+        "nivel_xama": 9,
+        "fator_caos": 40,
+        "energia_base": 92,
+        "poder_explosivo": 70
+      },
+      "habilidades": [
+        "Olho do Futuro — Vê próximos 5 movimentos do oponente",
+        "Bloqueio Psíquico — Impede o oponente de usar poder mental por 10 segundos",
+        "Cristal de Visão — Amplifica percepção de todos os aliados",
+        "Memória de Batalha — Aprende padrões de qualquer lutador que já observou",
+        "Revelação — Expõe a maior fraqueza do oponente para todos"
+      ],
+      "lore": "Conhecia o LDI antes de ele existir. Ninguém sabe como."
+    },
+
+    {
+      "id": "tank_fortaleza",
+      "nome": "Tank — A Fortaleza",
+      "tier": "free",
+      "elemental": "Terra",
+      "arma": "Escudo imenso e maça (improviso de guerra)",
+      "modo_xama": "Fortaleza Viva — Torna-se imóvel mas completamente imune a qualquer ataque",
+      "descricao": "O maior lutador registrado do LDI. 2,20m. 180kg. Lento. Impossível de derrubar. Costuma vencer simplesmente absorvendo tudo e então dar um único golpe.",
+      "frase_iconica": "Pode bater. Todo mundo bate. Ninguém derruba.",
+      "atributos": {
+        "rank_sdr": 38000,
+        "poder_mental": 60,
+        "velocidade": 30,
+        "resistencia": 100,
+        "nivel_xama": 2,
+        "fator_caos": 22,
+        "energia_base": 85,
+        "poder_explosivo": 55
+      },
+      "habilidades": [
+        "Muralha — Absorve qualquer ataque físico sem dano",
+        "Golpe Único — Um soco que derruba qualquer oponente sem defesa adequada",
+        "Resistência Absoluta — 60% de redução em todo dano elemental",
+        "Intimidação Passiva — Reduz confiança de oponentes menores",
+        "Fortaleza Viva — Por 20 segundos, imune a absolutamente tudo"
+      ],
+      "lore": "Nunca correu de uma batalha. Nunca precisou."
+    },
+
+    {
+      "id": "asha_feiticeira_vento",
+      "nome": "Asha — Feiticeira do Vento",
+      "tier": "elite",
+      "elemental": "Ar / Psíquico",
+      "arma": "Varinha de Xakaxium (conduit para amplificação de poder)",
+      "modo_xama": "Ventania Mental — Confusão psíquica aliada a ataques de vento",
+      "descricao": "Descendente de uma linha antiga que preservou fragmentos do conhecimento Xakaxi sem saber. Usa poderes que parecem mágica. O LDI reconheceu algo diferente nela na criação do avatar.",
+      "frase_iconica": "O vento não tem forma. Por isso nunca perde.",
+      "atributos": {
+        "rank_sdr": 4100,
+        "poder_mental": 89,
+        "velocidade": 80,
+        "resistencia": 68,
+        "nivel_xama": 7,
+        "fator_caos": 65,
+        "energia_base": 82,
+        "poder_explosivo": 79
+      },
+      "habilidades": [
+        "Varinha Amplificadora — Dobra o poder de qualquer habilidade usada",
+        "Vento Psíquico — Ataque que afeta mente e corpo simultaneamente",
+        "Barreira de Ar — Escudo que desvia projéteis e ataques físicos",
+        "Feitiço de Confusão — Oponente perde noção de direção por 5 segundos",
+        "Ventania Mental — Combina confusão psíquica com rajadas de vento"
+      ],
+      "lore": "A IA NeoGuide marcou seu registro com uma flag de 'anomalia ancestral'. Ninguém na Yohu soube explicar o que significava."
+    },
+
+    {
+      "id": "gu_fantasma_ferro",
+      "nome": "Gu — Fantasma de Ferro",
+      "tier": "elite",
+      "elemental": "Metal / Sombra",
+      "arma": "Katana de ferro negro",
+      "modo_xama": "Corte Fantasma — Ataques que passam por defesas como se não existissem",
+      "descricao": "Silencioso. Nenhum registro de quem é fora do LDI. Entra, luta, desaparece. Seu rank sobe enquanto ninguém o vê treinar. A Yohu tem um dossiê de 200 páginas sobre ele — e não descobriu nada.",
+      "frase_iconica": "...",
+      "atributos": {
+        "rank_sdr": 1800,
+        "poder_mental": 86,
+        "velocidade": 90,
+        "resistencia": 72,
+        "nivel_xama": 6,
+        "fator_caos": 75,
+        "energia_base": 80,
+        "poder_explosivo": 82
+      },
+      "habilidades": [
+        "Katana de Ferro Negro — Corta através de qualquer armadura elemental",
+        "Passo Fantasma — Move-se sem fazer som nem deixar rastro",
+        "Corte Fantasma — Golpe que passa por defesas físicas",
+        "Sombra de Ferro — Escudo que absorve ataques e os transforma em energia",
+        "Desaparecimento — Some do campo visual por 5 segundos"
+      ],
+      "lore": "200 páginas de investigação. Zero informação real. A Yohu finalmente arquivou como 'entidade não classificada'."
+    },
+
+    {
+      "id": "neon_hacker_luz",
+      "nome": "Neon — Hacker de Luz",
+      "tier": "elite",
+      "elemental": "Luz / Digital",
+      "arma": "Projetor holográfico (cria armas e ilusões de luz)",
+      "modo_xama": "Sobrecarga de Neon — Inunda o ambiente de luz tão intensa que cega todos",
+      "descricao": "Um dos hackers que criou Nexus Phantasm originalmente. Entrou no LDI para testar os limites que ajudou a criar. Conhece brechas do sistema que ninguém mais sabe.",
+      "frase_iconica": "Eu escrevi algumas dessas regras. Também sei quebrá-las.",
+      "atributos": {
+        "rank_sdr": 3600,
+        "poder_mental": 91,
+        "velocidade": 78,
+        "resistencia": 63,
+        "nivel_xama": 4,
+        "fator_caos": 82,
+        "energia_base": 82,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Ilusão de Luz — Cria cópias luminosas que enganam o oponente",
+        "Hack de Arena — Altera levemente as regras do ambiente de batalha",
+        "Projetor de Armas — Cria armas temporárias de luz holográfica",
+        "Sobrecarga de Neon — Luz cegante que paralisa todos por 3 segundos",
+        "Backdoor — Acessa funções ocultas do LDI que outros não podem"
+      ],
+      "lore": "A Yohu sabe que foi ele quem criou Nexus Phantasm. Não o baniram porque seria pior tentar."
+    },
+
+    {
+      "id": "vera_lama_de_guerra",
+      "nome": "Vera — Lama de Guerra",
+      "tier": "free",
+      "elemental": "Terra / Água",
+      "arma": "Duas mãos cobertas de lama solidificada",
+      "modo_xama": "Pântano Vivo — Transforma o campo de batalha inteiro em lama que prende",
+      "descricao": "Ex-triatleta que encontrou o LDI como competição mais interessante que maratonas. Resiliente, suja, imprevisível. Não tem postura elegante. Tem resultado.",
+      "frase_iconica": "Lama não tem forma. Lama não tem fraqueza.",
+      "atributos": {
+        "rank_sdr": 48000,
+        "poder_mental": 65,
+        "velocidade": 68,
+        "resistencia": 85,
+        "nivel_xama": 3,
+        "fator_caos": 60,
+        "energia_base": 72,
+        "poder_explosivo": 65
+      },
+      "habilidades": [
+        "Mãos de Lama — Golpes que aderem e reduzem velocidade do oponente",
+        "Barreira de Lama — Absorve ataques elementais convertendo em mais lama",
+        "Rasteira de Lama — Cria poça que desequilibra ao pisar",
+        "Resistência de Barro — Ignora uma parte do dano físico",
+        "Pântano Vivo — Arena inteira vira lama por 15 segundos"
+      ],
+      "lore": "Completou 17 ironmans. Disse que o LDI era mais difícil. Estava certa."
+    },
+
+    {
+      "id": "sol_dourado_ardente",
+      "nome": "Sol Dourado — Ardente",
+      "tier": "elite",
+      "elemental": "Fogo / Luz",
+      "arma": "Espada solar (lâmina de luz concentrada)",
+      "modo_xama": "Explosão Solar — Libera energia do sol numa área massiva",
+      "descricao": "Lutador do arquipélago tropical. Absorve energia solar durante o dia e a libera em batalha. Mais poderoso em ambientes iluminados. Em arenas fechadas, mais vulnerável.",
+      "frase_iconica": "Você vai sentir o calor do sol mesmo às três da manhã.",
+      "atributos": {
+        "rank_sdr": 13000,
+        "poder_mental": 81,
+        "velocidade": 76,
+        "resistencia": 75,
+        "nivel_xama": 5,
+        "fator_caos": 52,
+        "energia_base": 80,
+        "poder_explosivo": 85
+      },
+      "habilidades": [
+        "Absorção Solar — Recupera energia em ambientes iluminados",
+        "Espada Solar — Lâmina que queima e cega simultaneamente",
+        "Raio de Sol — Feixe de luz concentrada de longo alcance",
+        "Calor Radiante — Aumenta temperatura ao redor, desgastando oponentes",
+        "Explosão Solar — Libera toda energia solar numa explosão massiva"
+      ],
+      "lore": "Carrega sol dentro do corpo. Literalmente."
+    },
+
+    {
+      "id": "frio_eterno_glacial",
+      "nome": "Frio Eterno — Glacial",
+      "tier": "elite",
+      "elemental": "Gelo Absoluto",
+      "arma": "Lança de gelo eterno (não derrete)",
+      "modo_xama": "Era do Gelo — Temperatura da arena cai a níveis letais",
+      "descricao": "Lutador do extremo norte. Seu elemental é tão concentrado que objetos próximos congelam passivamente. Raramente perde calma. Raramente mostra emoção. Raramente perde batalhas.",
+      "frase_iconica": "Frio não tem pressa. O frio simplesmente é.",
+      "atributos": {
+        "rank_sdr": 6200,
+        "poder_mental": 85,
+        "velocidade": 63,
+        "resistencia": 88,
+        "nivel_xama": 7,
+        "fator_caos": 30,
+        "energia_base": 86,
+        "poder_explosivo": 80
+      },
+      "habilidades": [
+        "Aura Glacial — Congela lentamente qualquer coisa próxima",
+        "Lança de Gelo Eterno — Perfura qualquer defesa e congela no impacto",
+        "Barreira de Neve — Muro de gelo que absorve qualquer ataque de calor",
+        "Congelamento Rápido — Imobiliza membro do oponente instantaneamente",
+        "Era do Gelo — Temperatura letal por 20 segundos na arena inteira"
+      ],
+      "lore": "Vive onde o sol não aparece por meses. O frio não é inimigo. É casa."
+    },
+
+    {
+      "id": "ryu_relampago_oriental",
+      "nome": "Ryu — Relâmpago Oriental",
+      "tier": "elite",
+      "elemental": "Raio / Vento",
+      "arma": "Nenhuma (combate puro com velocidade raio)",
+      "modo_xama": "Relâmpago Humano — Transforma-se em raio e reposiciona instantaneamente",
+      "descricao": "Mestre em velocidade. Nenhum combate dura mais de 10 segundos quando ele luta a sério. Estudou a batalha de Kim frame por frame. Quer ver se a velocidade de Kim é real ou truque de câmera.",
+      "frase_iconica": "Se você viu meu golpe, já era tarde demais.",
+      "atributos": {
+        "rank_sdr": 2800,
+        "poder_mental": 83,
+        "velocidade": 98,
+        "resistencia": 62,
+        "nivel_xama": 5,
+        "fator_caos": 55,
+        "energia_base": 75,
+        "poder_explosivo": 82
+      },
+      "habilidades": [
+        "Velocidade Raio — O segundo mais veloz do LDI",
+        "Golpe Invisível — Ataque tão rápido que parece não ter origem",
+        "Rajada — Série de golpes na velocidade do raio",
+        "Relâmpago Humano — Teleporte por raio, reposicionamento instantâneo",
+        "Tempestade de Golpes — Combinação de velocidade máxima por 5 segundos"
+      ],
+      "lore": "Estudou 47 estilos de combate. Usou dois."
+    },
+
+    {
+      "id": "ana_terra_mae",
+      "nome": "Ana — Terra-Mãe",
+      "tier": "elite",
+      "elemental": "Natureza / Vida",
+      "arma": "Vinha viva (controla plantas como extensão do corpo)",
+      "modo_xama": "Floresta Desperta — Toda a arena ganha vida vegetal que obedece seus comandos",
+      "descricao": "Botanista e ecologista que entrou no LDI para provar que natureza supera tecnologia. Seus ataques crescem literalmente — cada batalha a arena fica mais verde e mais perigosa.",
+      "frase_iconica": "A floresta cresceu primeiro. A floresta crescerá por último.",
+      "atributos": {
+        "rank_sdr": 9800,
+        "poder_mental": 85,
+        "velocidade": 62,
+        "resistencia": 82,
+        "nivel_xama": 7,
+        "fator_caos": 48,
+        "energia_base": 84,
+        "poder_explosivo": 72
+      },
+      "habilidades": [
+        "Vinha Controlada — Extensão vegetal que prende e estrangula",
+        "Barreira de Raízes — Defesa de raízes que absorve ataques físicos",
+        "Veneno de Planta — Toxinas de contato que drenam energia lentamente",
+        "Regeneração — Cura passiva durante toda a batalha",
+        "Floresta Desperta — Arena coberta de plantas que atacam independentemente"
+      ],
+      "lore": "Estudou plantas da Floresta Xakaxi sem saber o que eram. Quando descobriu, entrou em colapso por 3 dias."
+    },
+
+    {
+      "id": "vulcao_vivo_pele_rocha",
+      "nome": "Vulcão — Pele de Rocha",
+      "tier": "elite",
+      "elemental": "Fogo / Terra",
+      "arma": "Punhos de magma (magma solidificado ao redor das mãos)",
+      "modo_xama": "Erupção — Magma brota do solo em toda a arena",
+      "descricao": "Corpo coberto de marcas como fissuras de lava resfriada. Não sente dor de fogo. Não sente temperatura. Sua presença aumenta a temperatura de qualquer ambiente.",
+      "frase_iconica": "Eu sou o que está abaixo de tudo.",
+      "atributos": {
+        "rank_sdr": 7900,
+        "poder_mental": 74,
+        "velocidade": 58,
+        "resistencia": 95,
+        "nivel_xama": 6,
+        "fator_caos": 60,
+        "energia_base": 88,
+        "poder_explosivo": 90
+      },
+      "habilidades": [
+        "Punhos de Magma — Dano de fogo e impacto combinado",
+        "Pele de Rocha — Imune a ataques de fogo e resistente ao físico",
+        "Aura de Calor — Temperatura sobe, desgastando oponentes passivamente",
+        "Lava no Solo — Cria poças de magma que bloqueiam movimentação",
+        "Erupção — Magma brota em pontos aleatórios da arena"
+      ],
+      "lore": "Nasceu próximo a um vulcão ativo. O ambiente moldou o elemental."
+    },
+
+    {
+      "id": "ghost_camaleao",
+      "nome": "Ghost — Camaleão",
+      "tier": "elite",
+      "elemental": "Ilusão",
+      "arma": "Sem arma visível (usa ilusões como ataque e defesa)",
+      "modo_xama": "Multiplicação — Cria 5 cópias perfeitas que agem de forma independente",
+      "descricao": "Ninguém sabe sua identidade real. Cada batalha ele parece diferente. Usa ilusões tão convincentes que oponentes continuam lutando contra cópias por minutos.",
+      "frase_iconica": "Você está procurando no lugar errado. Sempre.",
+      "atributos": {
+        "rank_sdr": 5400,
+        "poder_mental": 88,
+        "velocidade": 82,
+        "resistencia": 65,
+        "nivel_xama": 6,
+        "fator_caos": 92,
+        "energia_base": 80,
+        "poder_explosivo": 75
+      },
+      "habilidades": [
+        "Cópia Ilusória — Cria 1 cópia que age por 10 segundos",
+        "Camuflagem — Torna-se invisível por até 8 segundos",
+        "Golpe Real — Ataque que ignora qualquer defesa baseada em visual",
+        "Confusão de Posição — Oponente não consegue manter o alvo por 5 segundos",
+        "Multiplicação — 5 cópias independentes por 15 segundos"
+      ],
+      "lore": "A Yohu não tem foto dele. Nenhuma câmera capturou o rosto real fora do avatar."
+    },
+
+    {
+      "id": "berto_monstro_calmo",
+      "nome": "Berto — O Monstro Calmo",
+      "tier": "free",
+      "elemental": "Terra",
+      "arma": "Tronco de árvore (improviso pesado)",
+      "modo_xama": "Raiva Controlada — Canaliza toda emoção reprimida em força pura",
+      "descricao": "Parece tranquilo. É tranquilo. Mas quando finalmente reage, é devastador. A versão LDI do conceito de 'não provoque quem não está nervoso'. Tem 9.823 vitórias sem nunca ter gritado.",
+      "frase_iconica": "Eu não estou irritado. Mas você deveria ir embora mesmo assim.",
+      "atributos": {
+        "rank_sdr": 52000,
+        "poder_mental": 70,
+        "velocidade": 55,
+        "resistencia": 90,
+        "nivel_xama": 3,
+        "fator_caos": 38,
+        "energia_base": 78,
+        "poder_explosivo": 88
+      },
+      "habilidades": [
+        "Golpe de Tronco — Dano bruto massivo de área",
+        "Calma Absoluta — Imune a provocação e manipulação mental",
+        "Acúmulo Silencioso — A cada turno sem atacar, acumula poder",
+        "Resposta Tardia — O primeiro golpe sempre surpreende pela força",
+        "Raiva Controlada — Libera poder acumulado em explosão de força"
+      ],
+      "lore": "Jamais iniciou uma briga. Terminou todas as que tentaram com ele."
+    },
+
+    {
+      "id": "yuki_vento_frio",
+      "nome": "Yuki — Vento Frio",
+      "tier": "free",
+      "elemental": "Gelo / Ar",
+      "arma": "Leque de neve (controla temperatura e vento)",
+      "modo_xama": "Blizzard — Tempestade de neve e gelo que reduz visibilidade a zero",
+      "descricao": "Estudante universitária que joga LDI nas madrugadas. Quieta nas aulas, devastadora nas arenas. Seus professores não sabem que ela está entre os 50 mil melhores do mundo.",
+      "frase_iconica": "Eu pareço fria. Eu sou mais fria do que pareço.",
+      "atributos": {
+        "rank_sdr": 48000,
+        "poder_mental": 72,
+        "velocidade": 80,
+        "resistencia": 66,
+        "nivel_xama": 4,
+        "fator_caos": 50,
+        "energia_base": 68,
+        "poder_explosivo": 72
+      },
+      "habilidades": [
+        "Leque de Neve — Controla temperatura e correntes de ar",
+        "Cristais de Gelo — Projéteis de gelo em múltiplas direções",
+        "Vento Cortante — Rajada que reduz velocidade do oponente",
+        "Piso de Gelo — Cobre a arena de gelo escorregadio",
+        "Blizzard — Tempestade que anula visão e reduz velocidade de todos"
+      ],
+      "lore": "Dorme 4 horas. O resto é estudo e LDI. Seus pais pensam que estuda muito."
+    },
+
+    {
+      "id": "cris_trovao_urbano",
+      "nome": "Cris — Trovão Urbano",
+      "tier": "free",
+      "elemental": "Eletricidade",
+      "arma": "Bastão elétrico improvisado",
+      "modo_xama": "Sobretensão — Corrente elétrica percorre todo ambiente metálico da arena",
+      "descricao": "Mora no mesmo tipo de bairro que Kim. Entrou no LDI como saída financeira. Ainda não descobriu os sistemas de monetização mas já está quase lá.",
+      "frase_iconica": "A rua ensinou mais que qualquer academia.",
+      "atributos": {
+        "rank_sdr": 85000,
+        "poder_mental": 60,
+        "velocidade": 76,
+        "resistencia": 70,
+        "nivel_xama": 2,
+        "fator_caos": 72,
+        "energia_base": 58,
+        "poder_explosivo": 68
+      },
+      "habilidades": [
+        "Descarga Elétrica — Golpe com choque paralisante",
+        "Condução Metálica — Usa metal do ambiente para ampliar ataques",
+        "Reflexos Urbanos — Esquiva-se de ataques pelo instinto",
+        "Sobretensão — Eletrifica todo metal na arena",
+        "Adaptação Rápida — Aprende o estilo do oponente mais rápido que a maioria"
+      ],
+      "lore": "Ainda não sabe que Kim mora a 15 minutos de distância."
+    },
+
+    {
+      "id": "ferro_espiral",
+      "nome": "Ferro Espiral — Engenheiro",
+      "tier": "elite",
+      "elemental": "Metal",
+      "arma": "Espiral metálica (fio de aço em mola que se expande e contrai)",
+      "modo_xama": "Espiral Total — Espiral cobre toda a arena, aprisionando tudo",
+      "descricao": "Engenheiro mecânico que projeta cada batalha como um sistema. Sua arma foi desenhada por ele mesmo e aprovada como custom pela CLI. É eficiente demais para qualquer batalha durar mais que 3 minutos.",
+      "frase_iconica": "Todo sistema tem um ponto de falha. Eu encontro o seu.",
+      "atributos": {
+        "rank_sdr": 14000,
+        "poder_mental": 83,
+        "velocidade": 72,
+        "resistencia": 77,
+        "nivel_xama": 4,
+        "fator_caos": 42,
+        "energia_base": 78,
+        "poder_explosivo": 76
+      },
+      "habilidades": [
+        "Espiral de Corte — Fio de aço que corta em alta rotação",
+        "Aprisionamento — Espiral prende membros ou corpo inteiro",
+        "Projeção Calculada — Trajetória exata impossível de desviar",
+        "Escudo Rotativo — Espiral ao redor do corpo deflecte ataques",
+        "Espiral Total — Arena coberta de espiral que aprisiona tudo"
+      ],
+      "lore": "Levou 6 meses para projetar a arma. A CLI demorou 3 minutos para aprovar. O engenheiro ficou ofendido com a facilidade."
+    },
+
+    {
+      "id": "dom_profeta_arena",
+      "nome": "Dom — O Profeta da Arena",
+      "tier": "elite",
+      "elemental": "Psíquico / Luz",
+      "arma": "Cajado de cristal (amplifica visão e poder psíquico)",
+      "modo_xama": "Profecia de Batalha — Anuncia o resultado antes de começar, e acontece",
+      "descricao": "Diz que pode ver o futuro da batalha antes de começar. Seus oponentes acham que é provocação. Então acontece exatamente o que ele disse. Isso destrói a resistência mental de qualquer um.",
+      "frase_iconica": "Vou cair no terceiro minuto e você no quinto. Exato.",
+      "atributos": {
+        "rank_sdr": 5100,
+        "poder_mental": 94,
+        "velocidade": 65,
+        "resistencia": 70,
+        "nivel_xama": 7,
+        "fator_caos": 65,
+        "energia_base": 82,
+        "poder_explosivo": 74
+      },
+      "habilidades": [
+        "Visão Profética — Prediz o ataque do oponente com 2 turnos de antecedência",
+        "Cajado Psíquico — Ataque que confunde e desequilibra mentalmente",
+        "Aura de Certeza — Sua confiança debuffa o poder mental do oponente",
+        "Auto-Realização — Golpes mais fortes quando fazem parte da profecia",
+        "Profecia de Batalha — Anuncia o resultado; se acertar, ganha bônus massivo"
+      ],
+      "lore": "Já acertou 94% das profecias. Os 6% restantes são os que dormiram mal naquele dia."
+    },
+
+    {
+      "id": "mari_capoeira_fogo",
+      "nome": "Mari — Capoeira de Fogo",
+      "tier": "free",
+      "elemental": "Fogo",
+      "arma": "Corpo (capoeira como arma elemental)",
+      "modo_xama": "Ginga do Fogo — Corpo envolto em chamas, cada ginga é um ataque",
+      "descricao": "Mestre de capoeira que descobriu que seu elemental fogo se integra perfeitamente ao estilo. Dança. Ataca. A diferença entre os dois é imperceptível até você estar no chão.",
+      "frase_iconica": "Capoeira não tem defesa. Capoeira não tem ataque. Tem a ginga.",
+      "atributos": {
+        "rank_sdr": 39000,
+        "poder_mental": 70,
+        "velocidade": 88,
+        "resistencia": 66,
+        "nivel_xama": 4,
+        "fator_caos": 76,
+        "energia_base": 68,
+        "poder_explosivo": 75
+      },
+      "habilidades": [
+        "Ginga Elemental — Movimentos que desviam e atacam simultaneamente",
+        "Au de Fogo — Esquiva giratória que emite chamas",
+        "Meia Lua Flamejante — Chute em arco com rastro de fogo",
+        "Ritmo de Batalha — Velocidade aumenta quanto mais tempo luta",
+        "Ginga do Fogo — Corpo em chamas, cada movimento é dano"
+      ],
+      "lore": "Aprendeu capoeira na rua. O fogo veio depois, sem explicação. O fogo ficou."
+    },
+
+    {
+      "id": "sam_oraculo_dados",
+      "nome": "Sam — Oráculo de Dados",
+      "tier": "sombra",
+      "elemental": "Digital / Psíquico",
+      "arma": "Tablet holográfico (acessa dados reais de oponentes)",
+      "modo_xama": "Exposição Total — Revela todos os atributos e estratégias do oponente publicamente",
+      "descricao": "Analista de dados da Yohu que decidiu usar os acessos privilegiados que tem para batalhar. Conhece estatísticas de todo mundo. Isso dá vantagem injusta — e ele não liga para isso.",
+      "frase_iconica": "Eu já li sua ficha. Sei onde você vai falhar.",
+      "atributos": {
+        "rank_sdr": 8200,
+        "poder_mental": 92,
+        "velocidade": 58,
+        "resistencia": 68,
+        "nivel_xama": 2,
+        "fator_caos": 38,
+        "energia_base": 80,
+        "poder_explosivo": 70
+      },
+      "habilidades": [
+        "Acesso a Dados — Conhece todos os atributos do oponente desde o início",
+        "Exploit de Fraqueza — Dano aumentado 40% nas fraquezas identificadas",
+        "Análise em Tempo Real — Atualiza estratégia a cada mudança do oponente",
+        "Hack de Arma — Temporariamente desativa a arma do oponente",
+        "Exposição Total — Revela tudo sobre o oponente para toda a plateia"
+      ],
+      "lore": "Tecnicamente está violando os termos de serviço. Ninguém na Yohu vai processar a si mesmo."
+    },
+
+    {
+      "id": "toru_samurai_digital",
+      "nome": "Toru — Samurai Digital",
+      "tier": "elite",
+      "elemental": "Metal / Raio",
+      "arma": "Katana de raio (conduz eletricidade pela lâmina)",
+      "modo_xama": "Corte de Relâmpago — Velocidade e dano elétrico combinados num golpe único",
+      "descricao": "Combina tradição do combate com lâmina com elemental elétrico. Cada corte libera descarga. Estudou Shuntaro e Kim e quer testar se pode vencer os dois ao mesmo tempo.",
+      "frase_iconica": "A lâmina não perdoa. O raio não avisa.",
+      "atributos": {
+        "rank_sdr": 4800,
+        "poder_mental": 84,
+        "velocidade": 85,
+        "resistencia": 72,
+        "nivel_xama": 6,
+        "fator_caos": 58,
+        "energia_base": 80,
+        "poder_explosivo": 82
+      },
+      "habilidades": [
+        "Katana de Raio — Corte com descarga elétrica simultânea",
+        "Velocidade de Lâmina — Sequência de cortes em altíssima velocidade",
+        "Escudo de Relâmpago — Corrente elétrica ao redor que deflecte ataques",
+        "Corte de Horizonte — Golpe de longo alcance usando o raio",
+        "Corte de Relâmpago — Golpe final combinando velocidade máxima e eletricidade"
+      ],
+      "lore": "Assistiu a batalha de Shuntaro contra Kim 47 vezes. Cada vez notou algo novo."
+    },
+
+    {
+      "id": "bea_sussurro_arena",
+      "nome": "Bea — Sussurro da Arena",
+      "tier": "elite",
+      "elemental": "Som / Psíquico",
+      "arma": "Flauta sônica (cria ataques e defesas com som)",
+      "modo_xama": "Grito Primordial — Som tão intenso que destrói defesas físicas e mentais",
+      "descricao": "Musicista de concerto que descobriu que o som é o elemental mais subestimado do LDI. Seus ataques são invisíveis. Seus adversários não entendem o que os está destruindo.",
+      "frase_iconica": "Você não está ouvindo. Por isso está perdendo.",
+      "atributos": {
+        "rank_sdr": 7600,
+        "poder_mental": 87,
+        "velocidade": 74,
+        "resistencia": 68,
+        "nivel_xama": 6,
+        "fator_caos": 62,
+        "energia_base": 80,
+        "poder_explosivo": 78
+      },
+      "habilidades": [
+        "Onda Sônica — Ataque invisível de som de alta frequência",
+        "Barreira de Som — Escudo de frequência que absorve impactos",
+        "Infrassom — Frequência que causa desorientação e náusea",
+        "Flauta de Batalha — Controla frequências para múltiplos efeitos",
+        "Grito Primordial — Som que destrói qualquer barreira física ou elemental"
+      ],
+      "lore": "Tocou em 12 países. Perdeu 2 batalhas no LDI. As duas foram por distração com a música."
+    },
+
+    {
+      "id": "kal_armadura_viva",
+      "nome": "Kal — Armadura Viva",
+      "tier": "elite",
+      "elemental": "Metal / Terra",
+      "arma": "Armadura que é o próprio corpo (simbiose com o metal)",
+      "modo_xama": "Fusão Completa — Armadura cobre todo o corpo, movimentos amplificados",
+      "descricao": "Cientista que criou uma liga metálica que se funde organicamente com o corpo humano. É simultaneamente o experimento e o experimentador. A Yohu quer comprá-lo. Ele recusa.",
+      "frase_iconica": "Meu corpo é minha armadura. Minha armadura é meu corpo.",
+      "atributos": {
+        "rank_sdr": 10200,
+        "poder_mental": 80,
+        "velocidade": 68,
+        "resistencia": 96,
+        "nivel_xama": 5,
+        "fator_caos": 40,
+        "energia_base": 85,
+        "poder_explosivo": 78
+      },
+      "habilidades": [
+        "Armadura Orgânica — Resistência física permanente aumentada",
+        "Regeneração Metálica — Repara danos durante a batalha",
+        "Golpe Blindado — Usa o peso da armadura para ampliar impactos",
+        "Extensão Metálica — Partes da armadura se estendem como armas",
+        "Fusão Completa — Velocidade e força aumentadas, imunidade a dano físico por 15s"
+      ],
+      "lore": "Recusou 9 propostas da Yohu. Na décima, pediu para ver o servidor onde os dados de Kim estão armazenados. A proposta foi retirada imediatamente."
+    },
+
+    {
+      "id": "pip_ladrão_tempo",
+      "nome": "Pip — Ladrão de Tempo",
+      "tier": "elite",
+      "elemental": "Tempo (raro, secundário)",
+      "arma": "Relógio de bolso antigo (arma de manipulação temporal)",
+      "modo_xama": "Retrocesso — Volta o tempo da batalha em 10 segundos",
+      "descricao": "O elemental mais raro do LDI. Manipulação temporal limitada mas devastadora. Cada batalha ele usa uma vez — e geralmente essa uma vez é suficiente para virar completamente.",
+      "frase_iconica": "Você acabou de ganhar. Parabéns. Agora vamos fazer de novo.",
+      "atributos": {
+        "rank_sdr": 3800,
+        "poder_mental": 88,
+        "velocidade": 78,
+        "resistencia": 68,
+        "nivel_xama": 7,
+        "fator_caos": 80,
+        "energia_base": 78,
+        "poder_explosivo": 85
+      },
+      "habilidades": [
+        "Pausa de Tempo — Congela o tempo por 3 segundos para o oponente",
+        "Aceleração — Velocidade própria duplica por 8 segundos",
+        "Retrocesso Parcial — Desfaz o último golpe sofrido",
+        "Relógio de Batalha — Controla a duração de buffs e debuffs",
+        "Retrocesso — Volta o estado da batalha inteiro 10 segundos"
+      ],
+      "lore": "Só tem uma arma. Só precisa de uma."
+    },
+
+    {
+      "id": "zara_veneno_mestre",
+      "nome": "Zara — Mestre do Veneno",
+      "tier": "elite",
+      "elemental": "Veneno / Terra",
+      "arma": "Adagas envenenadas",
+      "modo_xama": "Nuvem Tóxica — Veneno que cobre toda a arena por 30 segundos",
+      "descricao": "Toxicologista que usa conhecimento científico de venenos no LDI. Cada toque aplica toxina diferente. Batalhas contra ela são de resistência — ela sabe esperar o veneno fazer efeito.",
+      "frase_iconica": "Não preciso vencer a batalha. O veneno já venceu por mim.",
+      "atributos": {
+        "rank_sdr": 11500,
+        "poder_mental": 82,
+        "velocidade": 76,
+        "resistencia": 72,
+        "nivel_xama": 5,
+        "fator_caos": 55,
+        "energia_base": 76,
+        "poder_explosivo": 68
+      },
+      "habilidades": [
+        "Adaga Envenenada — Dano contínuo após contato",
+        "Veneno Paralisante — Imobiliza membro tocado progressivamente",
+        "Antídoto — Cura debuffs de veneno próprios e de aliados",
+        "Nuvem de Toxinas — Área de veneno que aplica debuff de dano",
+        "Nuvem Tóxica — Veneno massivo na arena inteira"
+      ],
+      "lore": "Publica papers científicos sobre toxinas. No LDI testa as aplicações práticas."
+    },
+
+    {
+      "id": "hiro_escudo_sagrado",
+      "nome": "Hiro — Escudo Sagrado",
+      "tier": "elite",
+      "elemental": "Luz / Terra",
+      "arma": "Escudo de Xakaxium (recriado por pesquisa independente)",
+      "modo_xama": "Bastião — Cria campo de proteção que cobre todos os aliados",
+      "descricao": "Arqueólogo que encontrou fragmentos de Xakaxium e recriou parcialmente as propriedades da liga sagrada. Especialista em defesa. Nunca perdeu uma batalha protegendo aliados. Perdeu algumas tentando atacar.",
+      "frase_iconica": "Ninguém passa enquanto eu estiver aqui.",
+      "atributos": {
+        "rank_sdr": 15500,
+        "poder_mental": 81,
+        "velocidade": 58,
+        "resistencia": 95,
+        "nivel_xama": 6,
+        "fator_caos": 32,
+        "energia_base": 82,
+        "poder_explosivo": 60
+      },
+      "habilidades": [
+        "Escudo de Xakaxium — Absorve ataques elementais e físicos",
+        "Barreira Sagrada — Campo de proteção ao redor do corpo",
+        "Golpe de Escudo — Bash poderoso com o escudo",
+        "Proteção de Aliado — Redireciona ataques para si mesmo",
+        "Bastião — Campo de proteção que cobre todos os aliados na arena"
+      ],
+      "lore": "Sabe mais sobre o Xakaxium do que a maioria. Menos do que deveria."
+    },
+
+    {
+      "id": "sao_corredor_vento",
+      "nome": "São — Corredor do Vento",
+      "tier": "free",
+      "elemental": "Ar",
+      "arma": "Nenhuma (usa velocidade e vento como único ataque e defesa)",
+      "modo_xama": "Vácuo — Cria zona sem ar que sufoca e paralisa",
+      "descricao": "Maratonista olímpico que entrou no LDI. Nunca para de se mover. Batalhas contra ele são de exaustão — ele simplesmente cansa todos os outros.",
+      "frase_iconica": "Nunca parei em 42 quilômetros. Por que pararia aqui?",
+      "atributos": {
+        "rank_sdr": 62000,
+        "poder_mental": 65,
+        "velocidade": 96,
+        "resistencia": 80,
+        "nivel_xama": 3,
+        "fator_caos": 50,
+        "energia_base": 88,
+        "poder_explosivo": 58
+      },
+      "habilidades": [
+        "Velocidade Perpétua — Não perde velocidade com o tempo, ao contrário",
+        "Golpe de Corrida — Dano baseado na velocidade acumulada",
+        "Esquiva Contínua — Move-se constantemente, difícil de mirar",
+        "Exaustão — Oponentes ficam mais lentos quanto mais tempo lutam com ele",
+        "Vácuo — Cria zona sem ar que sufoca e paralisa"
+      ],
+      "lore": "Classificado para as Olimpíadas. Desistiu para jogar LDI. Os jornalistas não entenderam."
+    },
+
+    {
+      "id": "vale_das_cinzas",
+      "nome": "Vale das Cinzas — Destruição",
+      "tier": "primordial",
+      "elemental": "Escuridão / Fogo Negro",
+      "arma": "Próprio corpo (existência como arma)",
+      "modo_xama": "Apagamento — Elimina completamente o oponente da batalha e da memória dela",
+      "descricao": "Existência incerta. Aparece em batalhas de alto nível sem registro de participação. Derrota sem deixar rastro. Oponentes que enfrentaram não conseguem descrever como perderam.",
+      "frase_iconica": "Não existe descrição. Não existe memória. Só existe ausência.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 97,
+        "velocidade": 88,
+        "resistencia": 94,
+        "nivel_xama": 10,
+        "fator_caos": 100,
+        "energia_base": 95,
+        "poder_explosivo": 99
+      },
+      "habilidades": [
+        "Apagamento Parcial — Remove memória de um ataque específico do oponente",
+        "Fogo Negro — Versão mais pura das chamas primordiais de Kim",
+        "Presença Zero — Não gera rastro, som ou calor",
+        "Golpe de Cinza — Ataque que transforma o que toca em cinza",
+        "Apagamento — Uma vez por batalha, elimina o oponente completamente"
+      ],
+      "lore": "Talvez seja um experimento da Yohu. Talvez seja algo que escapou do ritual de Powa em 1450. Talvez seja algo que ainda não tem nome."
+    },
+
+    {
+      "id": "kim_primordial_forma",
+      "nome": "Kim Primordial — Forma Liberada",
+      "tier": "primordial",
+      "elemental": "Trevas Primordiais / Sangue Primordial",
+      "arma": "Chamas Negras Vivas (extensões do Sangue Primordial)",
+      "modo_xama": "Manifestação Total — Forma completamente estabilizada do Sangue Primordial",
+      "descricao": "A forma que Kim assume quando o controle se perde completamente. Cabelos prateados, marcações tribais Xakaxi ativas, olhos esferas brancas sem íris. Chamas negras que sussurram lamentos. Ele se refere a si mesmo como 'O Primordial'. Não se lembra de nada depois.",
+      "frase_iconica": "Eu sou O Primordial! O Sangue Primordial é realmente muito poderoso.",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 100,
+        "velocidade": 95,
+        "resistencia": 98,
+        "nivel_xama": 10,
+        "fator_caos": 95,
+        "energia_base": 100,
+        "poder_explosivo": 100
+      },
+      "habilidades": [
+        "Chamas Negras Vivas — Entidades de fogo negro que caçam independentemente",
+        "Sangue Primordial — Todos os atributos no máximo absoluto",
+        "Devoração de Energia — Absorve qualquer ataque elemental como alimento",
+        "Toque de Destruição — Contato com o oponente drena completamente sua energia",
+        "Manifestação Total — Forma completamente estabilizada por tempo limitado"
+      ],
+      "lore": "Não é Kim. É algo muito mais antigo que habita o sangue de Kim. O Pajé Yawanari colocou este poder no sangue da linhagem Xakaxi há 500 anos. Quando Kim o usa, ele dorme. Quando acordar, não saberá o que aconteceu."
+    },
+
+    {
+      "id": "alan_o_campiao",
+      "nome": "Alan — O Campeão",
+      "tier": "primordial",
+      "elemental": "Desconhecido",
+      "arma": "Desconhecida",
+      "modo_xama": "Desconhecido",
+      "descricao": "O único e verdadeiro rival de Kim e Jack. O único nome que une os dois como amigos — porque foram derrotados juntos por ele. Ninguém sabe onde está agora. 80% das derrotas de Kim e Jack têm este nome.",
+      "frase_iconica": "???",
+      "atributos": {
+        "rank_sdr": 1,
+        "poder_mental": 99,
+        "velocidade": 97,
+        "resistencia": 96,
+        "nivel_xama": 9,
+        "fator_caos": 88,
+        "energia_base": 95,
+        "poder_explosivo": 96
+      },
+      "habilidades": [
+        "Técnica Desconhecida 1 — Efeitos ainda não documentados",
+        "Técnica Desconhecida 2 — Efeitos ainda não documentados",
+        "Técnica Desconhecida 3 — Efeitos ainda não documentados",
+        "Razão da Amizade — O único golpe que fez Kim e Jack se tornarem irmãos",
+        "Desconhecido Total — Nenhum log de batalha disponível"
+      ],
+      "lore": "Responsável por unir Kim e Jack como amigos. Foram derrubados pelos dois juntos — e ainda assim perderam. Sumiu. Onde está Alan agora é a pergunta que ninguém faz em voz alta mas todo mundo pensa."
     }
+
   ]
 }

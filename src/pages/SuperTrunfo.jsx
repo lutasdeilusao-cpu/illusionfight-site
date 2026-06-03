@@ -4,27 +4,23 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import deck from '../data/supertrunfo-pt.json'
 import './SuperTrunfo.css'
 
-const atributos = deck.atributos
 const cartas = deck.cartas
+const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
+  id,
+  nome: id === 'rank_sdr' ? 'Rank SDR' : id === 'poder_mental' ? 'Poder Mental' : id === 'velocidade' ? 'Velocidade' : id === 'resistencia' ? 'Resistência' : id === 'nivel_xama' ? 'Nível Xamã' : id === 'fator_caos' ? 'Fator Caos' : id === 'energia_base' ? 'Energia Base' : 'Poder Explosivo',
+  descricao,
+  inverso: id === 'rank_sdr'
+}))
 
 function embaralhar(arr) {
   return [...arr].sort(() => Math.random() - 0.5)
 }
 
 function avatarCor(id) {
-  const cores = {
-    kim: '#00B4D8',
-    jack: '#4de87a',
-    nina: '#e8853a',
-    thunderbolt: '#F4A227',
-    shuntaro: '#9b59b6',
-    lisa: '#e74c3c',
-    nexus_phantasm: '#8e44ad',
-    yawanari: '#1ea064',
-    voidhunter: '#2c3e50',
-    kronos: '#6B0F1A'
-  }
-  return cores[id] || '#555'
+  let hash = 0
+  for (let i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash)
+  const hue = hash % 360
+  return `hsl(${hue}, 65%, 45%)`
 }
 
 export default function SuperTrunfo() {
