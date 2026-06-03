@@ -4,7 +4,7 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import LoginGate from '../components/LoginGate/LoginGate'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumps.css'
 
@@ -51,8 +51,6 @@ export default function TopTrumps() {
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
 
-  function getUltimaDataKey() { return keyPorUser(user, 'ultima-data') }
-  function getTentativasKey() { return keyPorUser(user, 'tentativas') }
   function getDeckKey() { return keyPorUser(user, 'deck') }
 
   function getTierInicial() {
@@ -77,26 +75,6 @@ export default function TopTrumps() {
     const iniciais = getCartasIniciais()
     localStorage.setItem(chave, JSON.stringify(iniciais.map(c => c.id)))
     return iniciais
-  }
-
-  function verificarTentativas() {
-    if (!user) return
-    const hoje = new Date().toISOString().slice(0, 10)
-    const chave = getTentativasKey()
-    const salva = localStorage.getItem(chave)
-    if (salva) {
-      const { data, count } = JSON.parse(salva)
-      if (data !== hoje) {
-        localStorage.setItem(chave, JSON.stringify({ data: hoje, count: 0 }))
-        setTentativasRestantes(3)
-        setJaGanhouHoje(false)
-      } else {
-        setTentativasRestantes(Math.max(0, 3 - count))
-      }
-    } else {
-      localStorage.setItem(chave, JSON.stringify({ data: hoje, count: 0 }))
-      setTentativasRestantes(3)
-    }
   }
 
   function iniciarJogo() {
@@ -167,12 +145,7 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
 
     if (venceu) {
-      const hoje = new Date().toISOString().slice(0, 10)
-      const chaveData = getUltimaDataKey()
-      const chaveTent = getTentativasKey()
-      const ultima = localStorage.getItem(chaveData)
-      const salva = JSON.parse(localStorage.getItem(chaveTent) || '{"data":"","count":0}')
-      const podeGanhar = ultima !== hoje && (salva.data !== hoje || salva.count < 3)
+      const podeGanhar = tentativasRestantes > 0
       if (podeGanhar) {
         const teto = TRIAL_ACTIVE ? Infinity : 49
         const idsTem = new Set(JSON.parse(localStorage.getItem(getDeckKey()) || '[]'))
@@ -205,13 +178,9 @@ export default function TopTrumps() {
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id_num])
-    const hoje = new Date().toISOString().slice(0, 10)
-    const chaveTent = getTentativasKey()
-    const salva = JSON.parse(localStorage.getItem(chaveTent) || '{"data":"","count":0}')
-    const novoCount = salva.data === hoje ? (salva.count || 0) + 1 : 1
-    localStorage.setItem(chaveTent, JSON.stringify({ data: hoje, count: novoCount }))
-    localStorage.setItem(getUltimaDataKey(), hoje)
-    setTentativasRestantes(Math.max(0, 3 - novoCount))
+    incrementarTentativa(user.id).then(usadas => {
+      setTentativasRestantes(Math.max(0, 3 - usadas))
+    })
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
       console.log('[TT] registrarPartida resolveu (escolherRecompensa) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
@@ -230,10 +199,13 @@ export default function TopTrumps() {
     carregarDeckDB(user.id).then(ids => {
       console.log('[TT] deck carregado:', ids?.length || 0, 'cartas')
       const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
-      console.log('[TT] cartas montadas:', cartas.length, '| deckUsuario.length será:', cartas.length, '| totalTurnos antes:', totalTurnos)
+      console.log('[TT] cartas montadas:', cartas.length)
       setDeckUsuario(cartas)
     })
-    verificarTentativas()
+    carregarTentativas(user.id).then(({ usadas }) => {
+      console.log('[TT] tentativas carregadas:', usadas)
+      setTentativasRestantes(Math.max(0, 3 - usadas))
+    })
   }, [user])
 
   useEffect(() => {

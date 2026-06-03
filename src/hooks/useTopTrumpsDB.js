@@ -76,6 +76,36 @@ export async function carregarUltimasPartidas(userId, limite = 10) {
   return data || []
 }
 
+export async function carregarTentativas(userId) {
+  const { data, error } = await supabase
+    .from('toptrumps_stats')
+    .select('tentativas_data, tentativas_usadas')
+    .eq('user_id', userId)
+    .single()
+  if (error || !data) return { usadas: 0, data: null }
+  const hoje = new Date().toISOString().split('T')[0]
+  if (data.tentativas_data !== hoje) return { usadas: 0, data: hoje }
+  return { usadas: data.tentativas_usadas, data: data.tentativas_data }
+}
+
+export async function incrementarTentativa(userId) {
+  const hoje = new Date().toISOString().split('T')[0]
+  const { data } = await supabase
+    .from('toptrumps_stats')
+    .select('tentativas_data, tentativas_usadas')
+    .eq('user_id', userId)
+    .single()
+  const usadas = (data?.tentativas_data === hoje) ? (data.tentativas_usadas + 1) : 1
+  await supabase
+    .from('toptrumps_stats')
+    .upsert({
+      user_id: userId,
+      tentativas_data: hoje,
+      tentativas_usadas: usadas
+    }, { onConflict: 'user_id' })
+  return usadas
+}
+
 export async function migrarLocalStorageParaSupabase(userId) {
   const chave = `ldi-toptrumps-deck-${userId}`
   const salvo = localStorage.getItem(chave)
