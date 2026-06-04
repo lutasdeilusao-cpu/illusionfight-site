@@ -65,14 +65,15 @@ function gerarCameras(size, count) {
 export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const size = config.size || 4
   const hasTimer = config.hasTimer || false
-  const cameraCount = Math.min(size, 3)
+  const timerInicial = config.timerSegundos || 30
+  const cameraCount = config.cameraCount || Math.min(size - 1, 3)
 
   const [playerPos, setPlayerPos] = useState({ r: 0, c: 0 })
   const [cameras, setCameras] = useState([])
   const [visionCells, setVisionCells] = useState(new Set())
   const [alarm, setAlarm] = useState(false)
   const [caughtCell, setCaughtCell] = useState(null)
-  const [timeLeft, setTimeLeft] = useState(30)
+  const [timeLeft, setTimeLeft] = useState(timerInicial)
   const [done, setDone] = useState(false)
   const [toast, setToast] = useState(false)
 
@@ -135,7 +136,31 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       if (delta) { e.preventDefault(); handleMove(delta[0], delta[1]) }
     }
     window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
+
+    // Touch/swipe
+    let touchStartX = 0, touchStartY = 0
+    const handleTouchStart = (e) => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY }
+    const handleTouchEnd = (e) => {
+      if (done) return
+      const dx = e.changedTouches[0].clientX - touchStartX
+      const dy = e.changedTouches[0].clientY - touchStartY
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return
+      if (Math.abs(dx) > Math.abs(dy)) handleMove(0, dx > 0 ? 1 : -1)
+      else handleMove(dy > 0 ? 1 : -1, 0)
+    }
+    const gridEl = document.querySelector('.puzzle-stealth-grid')
+    if (gridEl) {
+      gridEl.addEventListener('touchstart', handleTouchStart, { passive: true })
+      gridEl.addEventListener('touchend', handleTouchEnd, { passive: true })
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKey)
+      if (gridEl) {
+        gridEl.removeEventListener('touchstart', handleTouchStart)
+        gridEl.removeEventListener('touchend', handleTouchEnd)
+      }
+    }
   }, [playerPos, cameras, done, alarm])
 
   const handleMove = useCallback((dr, dc) => {

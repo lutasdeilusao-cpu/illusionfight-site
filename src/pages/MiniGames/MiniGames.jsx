@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama } from '../../components/Puzzles'
+import { useFichas } from '../../context/FichasContext'
 import './MiniGames.css'
 
 const GAMES = [
@@ -11,6 +12,12 @@ const GAMES = [
   { id: 'anagrama', nome: 'Anagrama', tagline: 'as letras estão certas. a ordem não.', emoji: '🔤', cor: '#22C55E', desc: 'reorganize as letras para formar a palavra correta.', dificuldade: '★☆☆' },
 ]
 
+const STEALTH_CONFIG = {
+  easy: { size: 4, hasTimer: true, timerSegundos: 30, cameras: 3 },
+  medium: { size: 8, hasTimer: true, timerSegundos: 60, cameras: 5 },
+  hard: { size: 12, hasTimer: true, timerSegundos: 90, cameras: 7 },
+}
+
 function formatTempo(ms) {
   if (!ms) return '--'
   const s = Math.floor(ms / 1000)
@@ -20,11 +27,16 @@ function formatTempo(ms) {
 
 export default function MiniGames() {
   const navigate = useNavigate()
+  const { isAdmin } = useFichas()
+  const tier = 'free'
+  const podeElite = isAdmin || tier !== 'free'
+
   const [jogoAtivo, setJogoAtivo] = useState(null)
   const [fase, setFase] = useState('hub')
   const [tempoInicio, setTempoInicio] = useState(null)
   const [tempoFinal, setTempoFinal] = useState(null)
   const [recordes, setRecordes] = useState({})
+  const [dificuldadeSelecionada, setDificuldadeSelecionada] = useState(null)
 
   useEffect(() => {
     try {
@@ -34,44 +46,46 @@ export default function MiniGames() {
     console.log('[MINIGAMES] hub carregado | recordes:', Object.keys(recordes).length)
   }, [])
 
-  const iniciarJogo = (game) => {
+  const tentarIniciar = (game) => {
+    if (game.id === 'stealth') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    iniciarJogo(game, 'easy')
+  }
+
+  const iniciarJogo = (game, dif = 'easy') => {
     setJogoAtivo(game)
+    setDificuldadeSelecionada(dif)
     setFase('jogando')
     setTempoInicio(Date.now())
     setTempoFinal(null)
-    console.log('[MINIGAMES] iniciando:', game.id)
+    console.log('[MINIGAMES] iniciando:', game.id, '| dificuldade:', dif)
   }
 
   const handleVitoria = () => {
     const tempo = Date.now() - tempoInicio
     setTempoFinal(tempo)
     setFase('vitoria')
+    const key = jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id
     const novosRecordes = { ...recordes }
-    if (!novosRecordes[jogoAtivo.id] || tempo < novosRecordes[jogoAtivo.id]) {
-      novosRecordes[jogoAtivo.id] = tempo
+    if (!novosRecordes[key] || tempo < novosRecordes[key]) {
+      novosRecordes[key] = tempo
       setRecordes(novosRecordes)
       try { localStorage.setItem('ldi-minigames-recordes', JSON.stringify(novosRecordes)) } catch (_) {}
-      console.log('[MINIGAMES] novo recorde:', jogoAtivo.id, formatTempo(tempo))
+      console.log('[MINIGAMES] novo recorde:', key, formatTempo(tempo))
     }
   }
 
-  const handleDerrota = () => {
-    setFase('derrota')
-    console.log('[MINIGAMES] derrota em:', jogoAtivo.id)
-  }
+  const handleDerrota = () => { setFase('derrota'); console.log('[MINIGAMES] derrota em:', jogoAtivo.id) }
 
-  const voltarHub = () => {
-    setJogoAtivo(null)
-    setFase('hub')
-    setTempoInicio(null)
-    setTempoFinal(null)
-  }
+  const voltarHub = () => { setJogoAtivo(null); setFase('hub'); setTempoInicio(null); setTempoFinal(null); setDificuldadeSelecionada(null) }
 
   const renderPuzzle = () => {
     if (!jogoAtivo) return null
     const props = { onSolve: handleVitoria, onFail: handleDerrota }
     switch (jogoAtivo.id) {
-      case 'stealth': return <PuzzleStealthGrid {...props} config={{ size: 4, hasTimer: true }} />
+      case 'stealth': {
+        const cfg = STEALTH_CONFIG[dificuldadeSelecionada || 'easy']
+        return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras }} />
+      }
       case 'decoder': return <PuzzleDecoder {...props} />
       case 'sliding': return <PuzzleSlidingTiles {...props} config={{ size: 3 }} />
       case 'labirinto': return <PuzzleLabirinto {...props} />
@@ -80,23 +94,57 @@ export default function MiniGames() {
     }
   }
 
-  if (fase === 'vitoria') return (
+  if (fase === 'selecionar_dificuldade') return (
     <div className="mg-page">
       <div className="mg-scanlines" />
+      <div className="mg-dif-select">
+        <div className="mg-dif-header">
+          <button className="mg-back" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
+          <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text="INFILTRAÇÃO">INFILTRAÇÃO</span></h2>
+          <p className="mg-dif-sub">escolha a dificuldade</p>
+        </div>
+        <div className="mg-dif-grid">
+          <div className="mg-dif-card mg-dif-card--easy" onClick={() => iniciarJogo(jogoAtivo, 'easy')}>
+            <div className="mg-dif-card-inner">
+              <span className="mg-dif-nivel">FÁCIL</span><span className="mg-dif-emoji">🟢</span>
+              <div className="mg-dif-specs"><span>grid 4×4</span><span>3 câmeras</span><span>⏱ 30s</span></div>
+              <div className="mg-dif-preview">{Array.from({length:16}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
+              <span className="mg-dif-badge mg-dif-badge--free">FREE</span>
+            </div>
+          </div>
+          <div className={`mg-dif-card mg-dif-card--medium ${!podeElite ? 'mg-dif-card--locked' : ''}`}
+            onClick={() => podeElite && iniciarJogo(jogoAtivo, 'medium')}>
+            <div className="mg-dif-card-inner">
+              <span className="mg-dif-nivel">MÉDIO</span><span className="mg-dif-emoji">{podeElite ? '🟡' : '🔒'}</span>
+              <div className="mg-dif-specs"><span>grid 8×8</span><span>5 câmeras</span><span>⏱ 60s</span></div>
+              <div className="mg-dif-preview mg-dif-preview--medium">{Array.from({length:64}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
+              <span className={`mg-dif-badge ${podeElite ? 'mg-dif-badge--elite' : 'mg-dif-badge--locked'}`}>{podeElite ? 'ELITE' : 'ELITE+'}</span>
+              {!podeElite && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
+            </div>
+          </div>
+          <div className="mg-dif-card mg-dif-card--locked mg-dif-card--hard">
+            <div className="mg-dif-card-inner">
+              <span className="mg-dif-nivel">DIFÍCIL</span><span className="mg-dif-emoji">🔴</span>
+              <div className="mg-dif-specs"><span>grid 12×12</span><span>7 câmeras</span><span>⏱ 90s</span></div>
+              <div className="mg-dif-preview mg-dif-preview--hard">{Array.from({length:144}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
+              <span className="mg-dif-badge mg-dif-badge--locked">EM BREVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
+  if (fase === 'vitoria') return (
+    <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-resultado">
         <div className="mg-resultado-emoji">🏆</div>
         <h2 className="mg-resultado-titulo" style={{ color: jogoAtivo.cor }}>MISSÃO COMPLETA</h2>
-        <p className="mg-resultado-jogo">{jogoAtivo.nome}</p>
-        <div className="mg-resultado-tempo">
-          <span className="mg-resultado-tempo-label">TEMPO</span>
-          <span className="mg-resultado-tempo-val" style={{ color: jogoAtivo.cor }}>{formatTempo(tempoFinal)}</span>
-        </div>
-        {recordes[jogoAtivo.id] === tempoFinal && <p className="mg-resultado-recorde">★ NOVO RECORDE ★</p>}
-        {recordes[jogoAtivo.id] && recordes[jogoAtivo.id] !== tempoFinal && (
-          <p className="mg-resultado-recorde-atual">recorde: {formatTempo(recordes[jogoAtivo.id])}</p>
-        )}
+        <p className="mg-resultado-jogo">{jogoAtivo.nome}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</p>
+        <div className="mg-resultado-tempo"><span className="mg-resultado-tempo-label">TEMPO</span><span className="mg-resultado-tempo-val" style={{ color: jogoAtivo.cor }}>{formatTempo(tempoFinal)}</span></div>
+        {recordes[jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id] === tempoFinal && <p className="mg-resultado-recorde">★ NOVO RECORDE ★</p>}
         <div className="mg-resultado-btns">
-          <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo)}>[ jogar de novo ]</button>
+          <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>[ jogar de novo ]</button>
           <button className="mg-btn" onClick={voltarHub}>[ voltar ]</button>
         </div>
       </div>
@@ -104,15 +152,13 @@ export default function MiniGames() {
   )
 
   if (fase === 'derrota') return (
-    <div className="mg-page">
-      <div className="mg-scanlines" />
+    <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-resultado">
         <div className="mg-resultado-emoji">💀</div>
         <h2 className="mg-resultado-titulo" style={{ color: '#8B0000' }}>GAME OVER</h2>
         <p className="mg-resultado-jogo">{jogoAtivo.nome}</p>
-        {recordes[jogoAtivo.id] && <p className="mg-resultado-recorde-atual">seu recorde: {formatTempo(recordes[jogoAtivo.id])}</p>}
         <div className="mg-resultado-btns">
-          <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo)}>[ tentar de novo ]</button>
+          <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>[ tentar de novo ]</button>
           <button className="mg-btn" onClick={voltarHub}>[ voltar ]</button>
         </div>
       </div>
@@ -120,11 +166,10 @@ export default function MiniGames() {
   )
 
   if (fase === 'jogando') return (
-    <div className="mg-page">
-      <div className="mg-scanlines" />
+    <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-jogando">
         <div className="mg-jogando-header">
-          <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {jogoAtivo.nome}</span>
+          <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {jogoAtivo.nome}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
           <button className="mg-btn mg-btn--small" onClick={voltarHub}>[ sair ]</button>
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
@@ -133,8 +178,7 @@ export default function MiniGames() {
   )
 
   return (
-    <div className="mg-page">
-      <div className="mg-scanlines" />
+    <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-header">
         <button className="mg-back" onClick={() => navigate('/extras')}>← extras</button>
         <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text="MINI GAMES">MINI GAMES</span></h1>
@@ -142,16 +186,11 @@ export default function MiniGames() {
       </div>
       <div className="mg-grid">
         {GAMES.map(game => (
-          <div key={game.id} className="mg-card" style={{ '--cor': game.cor }} onClick={() => iniciarJogo(game)}>
+          <div key={game.id} className="mg-card" style={{ '--cor': game.cor }} onClick={() => tentarIniciar(game)}>
             <div className="mg-card-inner">
-              <div className="mg-card-top">
-                <span className="mg-card-dificuldade">{game.dificuldade}</span>
-                {recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}
-              </div>
+              <div className="mg-card-top"><span className="mg-card-dificuldade">{game.dificuldade}</span>{recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}</div>
               <div className="mg-card-emoji">{game.emoji}</div>
-              <h2 className="mg-card-nome">{game.nome}</h2>
-              <p className="mg-card-tagline">{game.tagline}</p>
-              <p className="mg-card-desc">{game.desc}</p>
+              <h2 className="mg-card-nome">{game.nome}</h2><p className="mg-card-tagline">{game.tagline}</p><p className="mg-card-desc">{game.desc}</p>
               <div className="mg-card-cta">JOGAR</div>
             </div>
             <div className="mg-card-borda" />

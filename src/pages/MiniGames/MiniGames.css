@@ -66,3 +66,35 @@
   .mg-card-cta { opacity: 1; }
   .mg-jogando-area { padding: 1rem; }
 }
+
+/* ===== SELEÇÃO DE DIFICULDADE ===== */
+.mg-dif-select { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; padding: 1rem 0; }
+.mg-dif-header { text-align: center; padding: 2rem 0 2rem; position: relative; }
+.mg-dif-titulo { font-size: clamp(1.5rem, 5vw, 3rem); font-weight: 900; letter-spacing: 0.2em; margin: 0 0 0.3rem; display: inline-block; }
+.mg-dif-sub { font-size: 0.75rem; color: #555; letter-spacing: 0.2em; margin: 0; }
+.mg-dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.mg-dif-card { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
+.mg-dif-card--easy { --cor: #22C55E; }
+.mg-dif-card--medium { --cor: #F5A623; }
+.mg-dif-card--hard { --cor: #8B0000; }
+.mg-dif-card:not(.mg-dif-card--locked):hover { transform: translateY(-4px); border-color: var(--cor); box-shadow: 0 0 20px rgba(245,166,35,0.1); }
+.mg-dif-card--locked { cursor: default; opacity: 0.5; filter: grayscale(0.6); }
+.mg-dif-card-inner { padding: 1.2rem 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+.mg-dif-nivel { font-size: 0.7rem; font-weight: bold; letter-spacing: 0.2em; color: var(--cor); }
+.mg-dif-emoji { font-size: 1.5rem; }
+.mg-dif-specs { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.6rem; color: #555; letter-spacing: 0.05em; }
+.mg-dif-preview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; width: 48px; height: 48px; margin: 0.3rem 0; }
+.mg-dif-preview--medium { grid-template-columns: repeat(8, 1fr); }
+.mg-dif-preview--hard { grid-template-columns: repeat(12, 1fr); }
+.mg-dif-preview-cell { background: #1a1a1a; border-radius: 1px; }
+.mg-dif-badge { font-size: 0.55rem; padding: 0.15rem 0.5rem; border-radius: 2px; letter-spacing: 0.15em; border: 1px solid; }
+.mg-dif-badge--free { color: #22C55E; border-color: #22C55E44; background: #22C55E11; }
+.mg-dif-badge--elite { color: #00B4D8; border-color: #00B4D844; background: #00B4D811; }
+.mg-dif-badge--locked { color: #444; border-color: #333; background: transparent; }
+.mg-dif-locked-msg { font-size: 0.58rem; color: #444; margin: 0; letter-spacing: 0.05em; }
+@media (max-width: 500px) {
+  .mg-dif-grid { grid-template-columns: 1fr; gap: 0.7rem; }
+  .mg-dif-card-inner { flex-direction: row; text-align: left; padding: 0.8rem; gap: 0.8rem; }
+  .mg-dif-preview { width: 36px; height: 36px; flex-shrink: 0; }
+  .mg-dif-specs { flex-direction: row; gap: 0.5rem; }
+}
