@@ -12,7 +12,7 @@ export default function ArenaVictory({ onNavigate }) {
   const pm = (sheet.attributes?.PdF || 0) * 5
 
   return (
-    <div className="arena-victory">
+    <div className="arena-victory arena-container">
       <div className="arena-victory-header">
         <h1 className={`arena-victory-title ${isVitoria ? 'arena-victory-win' : 'arena-victory-lose'}`}>
           {isVitoria ? '⚔️ VITÓRIA!' : '💀 DERROTA'}
@@ -42,8 +42,8 @@ export default function ArenaVictory({ onNavigate }) {
       </div>
 
       <div className="arena-victory-btns">
-        <button className="arena-btn-primary" onClick={() => { store.newSheet(); onNavigate('lobby') }}>LUTAR DE NOVO</button>
-        <button className="arena-btn-sair" onClick={() => onNavigate('lobby')}>VOLTAR PRO LOBBY</button>
+        <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>
+        <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>ESCOLHER OUTRA FICHA</button>
       </div>
     </div>
   )

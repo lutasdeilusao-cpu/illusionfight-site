@@ -9,7 +9,15 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "básico",
     "difficulty": "easy", "tier": 1,
-    "notes": "Bot de treino. Quase não revida."
+    "notes": "Bot de treino. Quase não revida.",
+    "trash_talk": {
+      "attack_miss": ["Nem encostou.", "Isso foi um ataque?", "Tô dormindo aqui."],
+      "attack_hit": ["Sentiu?", "Dói, né?", "Tem mais."],
+      "take_damage": ["Sorte sua.", "Foi quase nada.", "Interessante."],
+      "take_critical": ["Ok. Isso doeu.", "Não esperava isso.", "Bom golpe."],
+      "player_near_death": ["Acabou pra você.", "Devia ter fugido.", "Quer que eu pare?"],
+      "enemy_near_death": ["Não acabou ainda.", "Tô só aquecendo.", "Me subestimou."]
+    }
   },
   {
     "id": "kaeda",
@@ -21,7 +29,15 @@
     "elemental": "fogo", "preferred_mode": "armed",
     "ai_pattern": "agressivo",
     "difficulty": "easy", "tier": 1,
-    "notes": "Lutadora veterana de Marelia. Agressiva com a katana."
+    "notes": "Lutadora veterana de Marelia. Agressiva com a katana.",
+    "trash_talk": {
+      "attack_miss": ["Você teve sorte dessa vez.", "Minha katana não perdoa duas vezes.", "Esquiva barata."],
+      "attack_hit": ["A lâmina não mente.", "Sangue na arena.", "Corte limpo."],
+      "take_damage": ["Isso é tudo?", "Já levei pior treinando.", "Não vai me derrubar com isso."],
+      "take_critical": ["...Respeito.", "Finalmente um oponente de verdade.", "Assim a luta fica interessante."],
+      "player_near_death": ["Desiste enquanto pode.", "Não preciso te matar.", "A derrota é honrosa também."],
+      "enemy_near_death": ["Ainda tenho fôlego.", "Não me subestime.", "A luta só começou."]
+    }
   },
   {
     "id": "thunderbolt",
@@ -33,7 +49,15 @@
     "elemental": "ar", "preferred_mode": "power",
     "ai_pattern": "tático",
     "difficulty": "medium", "tier": 2,
-    "notes": "Usuário de raios. Combina velocidade com poder elemental."
+    "notes": "Usuário de raios. Combina velocidade com poder elemental.",
+    "trash_talk": {
+      "attack_miss": ["Rápido demais pra você?", "Não adianta correr.", "O trovão sempre alcança."],
+      "attack_hit": ["Sentiu a descarga?", "Voltagem máxima.", "Eletrizante, não?"],
+      "take_damage": ["Boa tentativa.", "Vou sentir isso amanhã.", "Continue assim."],
+      "take_critical": ["CARAMBA!", "Isso foi elétrico!", "Tá tentando me dar choque também?"],
+      "player_near_death": ["O ranking vai subir hoje.", "Nada pessoal.", "Acaba logo, não gosto de sofrimento."],
+      "enemy_near_death": ["Tempestade ainda não passou.", "Você não viu nada ainda.", "Hora de acelerar."]
+    }
   },
   {
     "id": "stormbyte",
@@ -45,7 +69,15 @@
     "elemental": "trevas", "preferred_mode": "power",
     "ai_pattern": "evasivo",
     "difficulty": "medium", "tier": 2,
-    "notes": "Hacker de elite. Move-se nas sombras do sistema."
+    "notes": "Hacker de elite. Move-se nas sombras do sistema.",
+    "trash_talk": {
+      "attack_miss": ["Erro 404: ataque não encontrado.", "Debugando sua estratégia... falha detectada.", "Seu padrão é previsível."],
+      "attack_hit": ["Dano registrado no log.", "Vulnerabilidade explorada.", "Patch note: você perdeu."],
+      "take_damage": ["Isso não vai me crashar.", "Firewall aguentou.", "Precisa de mais processamento."],
+      "take_critical": ["SISTEMA SOBRECARREGADO.", "Isso... não estava no algoritmo.", "Exceção não tratada."],
+      "player_near_death": ["Seu HP se aproxima de zero.", "Log de derrota sendo gerado.", "Sessão encerrando em 3... 2..."],
+      "enemy_near_death": ["Reboot em andamento.", "Ainda tenho exploits.", "Você não vai me dar shutdown."]
+    }
   },
   {
     "id": "viran",
@@ -57,7 +89,15 @@
     "elemental": "terra", "preferred_mode": "fists",
     "ai_pattern": "mestre",
     "difficulty": "hard", "tier": 3,
-    "notes": "Mestre do Dojô de Karnazar. Defesa impenetrável."
+    "notes": "Mestre do Dojô de Karnazar. Defesa impenetrável.",
+    "trash_talk": {
+      "attack_miss": ["Você precisa alinhar o centro.", "Respire. Foque.", "A pressa é inimiga da precisão."],
+      "attack_hit": ["Técnica impecável. Quase.", "A montanha não se move.", "O chão não treme por qualquer um."],
+      "take_damage": ["Isso é bom. Continue.", "Aprendendo com a dor.", "Cada golpe ensina."],
+      "take_critical": ["HA! Finalmente.", "Você tem disciplina.", "O discípulo supera o mestre?"],
+      "player_near_death": ["A luta já ensinou o que precisava.", "Não há vergonha em recuar.", "Você lutou bem."],
+      "enemy_near_death": ["A rocha ainda não rachou.", "Minha defesa é meu ataque.", "O Dojô não cai."]
+    }
   },
   {
     "id": "campeao",
@@ -69,7 +109,15 @@
     "elemental": "neutro", "preferred_mode": "fists",
     "ai_pattern": "campeao",
     "difficulty": "hard", "tier": 3,
-    "notes": "O lutador que Kim e Jack nunca conseguiram derrotar."
+    "notes": "O lutador que Kim e Jack nunca conseguiram derrotar.",
+    "trash_talk": {
+      "attack_miss": ["Você é lento.", "Já lutei com gente mais rápida.", "Tá com medo de acertar?"],
+      "attack_hit": ["Esse foi de verdade.", "Socos que contam.", "Nocaute técnico."],
+      "take_damage": ["Isso é sparring.", "Meu queixo é de ferro.", "Continua tentando."],
+      "take_critical": ["Agora sim!", "Faz tempo que não sangrava.", "Você tem meu respeito."],
+      "player_near_death": ["Fica de pé.", "Não me decepcione agora.", "O público quer ver sangue."],
+      "enemy_near_death": ["O campeão não cai fácil.", "Eu sou o ranking.", "Ninguém tira esse cinturão."]
+    }
   },
   {
     "id": "kronos",
@@ -81,7 +129,15 @@
     "elemental": "trevas", "preferred_mode": "power",
     "ai_pattern": "primordial",
     "difficulty": "very_hard", "tier": 4,
-    "notes": "Entidade que habita a Torre Kronos. Poder incomensurável."
+    "notes": "Entidade que habita a Torre Kronos. Poder incomensurável.",
+    "trash_talk": {
+      "attack_miss": ["Você ousa desafiar o vazio?", "Séculos e você é o que me mandam?", "Sua luz não alcança aqui."],
+      "attack_hit": ["Sinta o peso da eternidade.", "Cada golpe meu é uma era.", "O tempo me obedece."],
+      "take_damage": ["Curioso. Você fere o tempo.", "Isso dói? Não sei mais.", "Interessante. Continue."],
+      "take_critical": ["DOR. FINALMENTE.", "Há milênios não sentia isso.", "Você... é real."],
+      "player_near_death": ["Você será esquecido como todos.", "Sua linha do tempo termina aqui.", "O vazio te recebe."],
+      "enemy_near_death": ["EU SOU O TEMPO.", "Você não pode matar o que sempre existiu.", "O ciclo não termina."]
+    }
   },
   {
     "id": "primordial_jack",
@@ -93,6 +149,14 @@
     "elemental": "fogo", "preferred_mode": "power",
     "ai_pattern": "primordial",
     "difficulty": "very_hard", "tier": 4,
-    "notes": "A forma despertada de Jack com chamas negras. O topo do ranking."
+    "notes": "A forma despertada de Jack com chamas negras. O topo do ranking.",
+    "trash_talk": {
+      "attack_miss": ["Tá com medo do escuro?", "Essa arena é minha casa.", "Você não dura um round."],
+      "attack_hit": ["As chamas não perdoam.", "Isso é só o começo.", "Black flame. Lembra desse nome."],
+      "take_damage": ["Você tem garra.", "Talvez você sobreviva.", "Não é todo dia que alguém me acerta."],
+      "take_critical": ["...Desde o Kim ninguém fazia isso.", "Você não é qualquer um.", "Ok. Vou levar a sério agora."],
+      "player_near_death": ["Acorda. Ainda não acabou.", "Eu não luto com fracos.", "Levanta. Me enfrenta de novo."],
+      "enemy_near_death": ["Isso... não pode estar acontecendo.", "Eu sou o PRIMORDIAL.", "NINGUÉM ME VENCE."]
+    }
   }
 ]
