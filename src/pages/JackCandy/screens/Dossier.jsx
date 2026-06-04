@@ -18,8 +18,8 @@ export default function Dossier() {
     return null
   }
 
-  const pistasSuficientes = store.pistasColetadas.length >= caso.pistasNecessarias
-  const suspeitosAtivos = store.suspeitos.filter(s => s.status === 'ativo')
+  const pistasSuficientes = (store.pistasColetadas?.length || 0) >= (caso?.pistasNecessarias || 0)
+  const suspeitosAtivos = store.suspeitos?.filter(s => s.status === 'ativo') || []
 
   const handleAcusar = (suspeitoId) => {
     const suspeitoDoCaso = caso.suspeitos.find(x => x.id === suspeitoId)

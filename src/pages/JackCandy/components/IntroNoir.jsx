@@ -18,18 +18,18 @@ export default function IntroNoir({ onFim }) {
           animate={{ opacity: fase === 'fadeout' ? 0 : 1 }}
           transition={{ duration: 0.6 }}
           style={{
-            position: 'absolute', inset: 0,
+            position: 'fixed', inset: 0,
             background: '#000', overflow: 'hidden', zIndex: 50,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}
           onClick={() => { setFase('fadeout'); setTimeout(() => onFim?.(), 600) }}
         >
-          <motion.div
-            style={{
-              position: 'absolute', inset: 0,
-              background: 'radial-gradient(circle 180px at 0% 55%, rgba(255,255,200,0.13) 0%, transparent 70%)',
-              pointerEvents: 'none',
-            }}
+            <motion.div
+              style={{
+                position: 'fixed', inset: 0,
+                background: 'radial-gradient(circle 180px at 0% 55%, rgba(255,255,200,0.13) 0%, transparent 70%)',
+                pointerEvents: 'none',
+              }}
             animate={{ backgroundPosition: ['0% 55%', '110% 55%'] }}
             transition={{ duration: 2.5, ease: 'linear', repeat: 0 }}
           />

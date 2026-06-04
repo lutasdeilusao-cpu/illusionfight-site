@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react'
 
 function getVisionCone(r, c, dir, size) {
   const cells = new Set()
-  // Direções: 0=Norte, 1=Leste, 2=Sul, 3=Oeste
   const deltas = [[-1, 0], [0, 1], [1, 0], [0, -1]]
   const [dr, dc] = deltas[dir]
   for (let i = 1; i <= 2; i++) {
@@ -22,6 +21,47 @@ function calculateAllVision(cams, size) {
   return all
 }
 
+function temCaminhoLivre(blockedCells, cameras, size) {
+  const blocked = new Set(blockedCells)
+  cameras.forEach(cam => blocked.add(`${cam.r},${cam.c}`))
+  if (blocked.has('0,0') || blocked.has(`${size-1},${size-1}`)) return false
+  const visited = new Set(['0,0'])
+  const queue = [[0, 0]]
+  const dirs = [[-1,0],[1,0],[0,-1],[0,1]]
+  while (queue.length) {
+    const [r, c] = queue.shift()
+    if (`${r},${c}` === `${size-1},${size-1}`) return true
+    for (const [dr, dc] of dirs) {
+      const nr = r+dr, nc = c+dc
+      const key = `${nr},${nc}`
+      if (nr>=0 && nr<size && nc>=0 && nc<size && !blocked.has(key) && !visited.has(key)) {
+        visited.add(key)
+        queue.push([nr, nc])
+      }
+    }
+  }
+  return false
+}
+
+function gerarCameras(size, count) {
+  const cams = []
+  const used = new Set(['0,0', `${size-1},${size-1}`])
+  const dirs = ['horizontal', 'vertical', 'diagonal']
+  for (let i = 0; i < count; i++) {
+    let r, c, attempts = 0
+    do {
+      r = Math.floor(Math.random() * size)
+      c = Math.floor(Math.random() * size)
+      attempts++
+      if (attempts > 50) break
+    } while (used.has(`${r},${c}`))
+    if (attempts > 50) continue
+    used.add(`${r},${c}`)
+    cams.push({ r, c, direcao: Math.floor(Math.random() * 4), intervalo: 2000 + Math.random() * 2000 })
+  }
+  return cams
+}
+
 export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const size = config.size || 4
   const hasTimer = config.hasTimer || false
@@ -38,37 +78,27 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   const goalPos = { r: size - 1, c: size - 1 }
 
-  // Init fixo — posições e intervalos aleatórios
   useEffect(() => {
-    const cams = []
-    const used = new Set(['0,0', `${size - 1},${size - 1}`])
-    for (let i = 0; i < cameraCount; i++) {
-      let r, c, attempts = 0
-      do {
-        r = Math.floor(Math.random() * size)
-        c = Math.floor(Math.random() * size)
-        attempts++
-        if (attempts > 50) break
-      } while (used.has(`${r},${c}`))
-      if (attempts > 50) continue
-      used.add(`${r},${c}`)
-      cams.push({
-        r, c,
-        direcao: Math.floor(Math.random() * 4),
-        intervalo: 2000 + Math.random() * 2000,
-      })
-    }
-    setCameras(cams)
-    setVisionCells(calculateAllVision(cams, size))
+    let tentativas = 0
+    let camsValidas, visionValida
+    do {
+      camsValidas = gerarCameras(size, cameraCount)
+      visionValida = calculateAllVision(camsValidas, size)
+      visionValida.delete('0,0')
+      visionValida.delete(`${size-1},${size-1}`)
+      tentativas++
+      console.log('[STEALTH] tentativa', tentativas, '| caminho livre:', temCaminhoLivre(visionValida, camsValidas, size))
+    } while (!temCaminhoLivre(visionValida, camsValidas, size) && tentativas < 10)
 
-    // Tick individual por câmera
-    const timers = cams.map((cam, idx) => {
+    setCameras(camsValidas)
+    setVisionCells(visionValida)
+
+    const timers = camsValidas.map((cam, idx) => {
       return setInterval(() => {
         setCameras(prev => {
           const next = [...prev]
           const cur = next[idx]
           if (!cur) return prev
-          // 70% avança, 30% volta
           let newDir
           if (Math.random() < 0.7) newDir = (cur.direcao + 1) % 4
           else newDir = (cur.direcao + 3) % 4
@@ -81,13 +111,11 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     return () => timers.forEach(t => clearInterval(t))
   }, [])
 
-  // Recalcula visão quando câmeras mudam direção
   useEffect(() => {
     if (cameras.length === 0) return
     setVisionCells(calculateAllVision(cameras, size))
   }, [cameras])
 
-  // Timer geral
   useEffect(() => {
     if (!hasTimer || done) return
     const t = setInterval(() => {
@@ -99,7 +127,6 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     return () => clearInterval(t)
   }, [hasTimer, done])
 
-  // Keyboard
   useEffect(() => {
     const handleKey = (e) => {
       if (done) return
@@ -118,8 +145,8 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     if (nr < 0 || nr >= size || nc < 0 || nc >= size) return
 
     const onCamera = cameras.some(cam => cam.r === nr && cam.c === nc)
-  const currentVision = calculateAllVision(cameras, size)
-  const inVision = currentVision.has(`${nr},${nc}`)
+    const currentVision = calculateAllVision(cameras, size)
+    const inVision = currentVision.has(`${nr},${nc}`)
 
     if (onCamera || inVision) {
       setPlayerPos({ r: nr, c: nc })
@@ -138,7 +165,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       setDone(true)
       setTimeout(() => onSolve?.(), 300)
     }
-  }, [playerPos, cameras, done, alarm, visionCells])
+  }, [playerPos, cameras, done, alarm])
 
   return (
     <div className="puzzle-container">
@@ -148,9 +175,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       {done && !alarm && <p style={{ color: '#22C55E', textAlign: 'center', fontFamily: "'Share Tech Mono', monospace" }}>✓ passou.</p>}
 
       <div className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, 1fr)`, position: 'relative' }}>
-        {toast && (
-          <div className="puzzle-stealth-toast">você foi capturado</div>
-        )}
+        {toast && <div className="puzzle-stealth-toast">você foi capturado</div>}
         {Array.from({ length: size * size }, (_, i) => {
           const r = Math.floor(i / size)
           const c = i % size
@@ -159,23 +184,16 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
           const isCam = cameras.some(cam => cam.r === r && cam.c === c)
           const isVision = visionCells.has(`${r},${c}`)
           const isCaught = caughtCell?.r === r && caughtCell?.c === c
-
           let cellClass = 'puzzle-stealth-cell'
           if (isPlayer) cellClass += isCaught ? ' puzzle-stealth-cell--caught' : ' puzzle-stealth-cell--player'
           else if (isGoal) cellClass += ' puzzle-stealth-cell--goal'
           else if (isCam) cellClass += ' puzzle-stealth-cell--camera'
           else if (isVision) cellClass += ' puzzle-stealth-cell--vision'
-
           let icon = ''
           if (isPlayer) icon = isCaught ? '💀' : '🕵️'
           else if (isGoal) icon = '🏁'
           else if (isCam) icon = '📹'
-
-          return (
-            <div key={i} className={cellClass}>
-              {icon && <span style={{ position: 'relative', zIndex: 2 }}>{icon}</span>}
-            </div>
-          )
+          return (<div key={i} className={cellClass}>{icon && <span style={{ position: 'relative', zIndex: 2 }}>{icon}</span>}</div>)
         })}
       </div>
 
