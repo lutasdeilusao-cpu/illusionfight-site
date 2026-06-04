@@ -42,7 +42,7 @@ export default function Dossier() {
 
   return (
     <motion.div className="jdc-dossier" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      {import.meta.env.DEV && (
+      {true && (
         <div style={{ marginBottom: '0.5rem', display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}>
           <button className="jack-btn" style={{ fontSize: '0.6rem', borderColor: '#333', color: '#555' }}
             onClick={() => {

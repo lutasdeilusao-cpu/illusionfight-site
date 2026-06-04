@@ -79,7 +79,7 @@ export default function Intro() {
         </motion.div>
       )}
 
-      {import.meta.env.DEV && (
+      {true && (
         <button className="jack-btn" onClick={() => {
           useJackStore.setState({
             cervejas: 500,
