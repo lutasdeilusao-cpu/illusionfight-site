@@ -403,13 +403,13 @@
 
 ---
 
-## 11. JACK DREAM BEER — Idle Noir (v2.1.0)
+## 11. JACK DREAM BEER — Idle Noir Investigativo (v3.3.2)
 
 **Tipo:** Idle game narrativo com dungeons automáticas  
 **Status:** ✅ v2.1.0 — 3 cidades, 11 dungeons, 28 itens, 10 NPCs, 3 sistemas  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `2.1.0` (console: `[JACK] versão carregada: 2.1.0`)  
+**Versão atual:** `3.3.2` (console: `[JACK] versão carregada: 3.3.2`)  
 **Rota:** `/extras/jackcandy`
 **GDD completo:** `docs/JACK_BEER_GDD.md`
 
