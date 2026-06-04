@@ -78,10 +78,11 @@ export default function JackCandy() {
   }
 
   const fase = store.fase || 'intro'
-  const isDungeon = fase.startsWith('dungeon_') && fase !== 'dungeon_select'
-  const isInterior = fase.startsWith('interior_')
+  const isDungeon = fase?.startsWith('dungeon_') && fase !== 'dungeon_select'
+  const isInterior = fase?.startsWith('interior_')
   const npcId = isInterior ? fase.replace('interior_', '') : null
   const dungeonId = isDungeon ? fase.replace('dungeon_', '') : null
+  console.log('[JACK] render fase:', fase, 'isDungeon:', isDungeon, 'dungeonId:', dungeonId)
 
   return (
     <div className="jack-body">

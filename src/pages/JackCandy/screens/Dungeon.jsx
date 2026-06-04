@@ -45,6 +45,15 @@ export default function Dungeon({ dungeonId }) {
 
   const totalInimigos = dungeon?.inimigos || 0
 
+  if (!dungeon) {
+    return (
+      <div className="jdc-dungeon">
+        <p className="jack-text jack-text--crimson">dungeon não encontrada: {dungeonId}</p>
+        <button className="jack-btn" onClick={() => store.setFase('dungeon_select')}>[ voltar ]</button>
+      </div>
+    )
+  }
+
   useEffect(() => {
     if (dungeon) {
       setLog([`${dungeon.nome}`])
@@ -187,7 +196,7 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
           <p style={{ fontSize: '3rem' }}>✅</p>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon.nome} — completo!</p>
+          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon?.nome || 'Dungeon'} — completo!</p>
           <p className="jack-text">+{dungeon.dropCap} capangas{dungeon.dropNotas > 0 ? `, +${dungeon.dropNotas} notas` : ''}</p>
           {dungeon.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
           <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>[ voltar ]</button>
@@ -200,7 +209,7 @@ export default function Dungeon({ dungeonId }) {
     <div className="jdc-dungeon">
       {/* Status */}
       <div className="jdc-dungeon-status">
-        <span className="jdc-dungeon-status-loc">{dungeon.nome}</span>
+        <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
         <span className="jdc-dungeon-status-hp">
           <span className="jdc-dungeon-status-hp-label">HP</span>
           <span className="jdc-dungeon-status-hp-val">{hp}/{hpMax}</span>
