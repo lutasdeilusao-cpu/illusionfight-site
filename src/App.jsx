@@ -43,6 +43,7 @@ import LDIClues from './pages/LDI/Clues'
 import LDIEnd from './pages/LDI/End'
 import LDIPuzzle from './pages/LDI/PuzzlePage'
 import Diagnostico from './pages/LDI/Diagnostico'
+import JackCandy from './pages/JackCandy/JackCandy'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -88,6 +89,7 @@ export default function App() {
         <Route path="/extras/ldi/end" element={<LDIEnd />} />
         <Route path="/extras/ldi/diagnostico" element={<Diagnostico />} />
         <Route path="/extras/ldi/puzzle" element={<LDIPuzzle />} />
+        <Route path="/extras/jackcandy" element={<JackCandy />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />

@@ -398,8 +398,41 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.57` (console: `[LDI] versão carregada: 1.0.57`)  
+**Versão atual:** `1.0.58` (console: `[LDI] versão carregada: 1.0.58`)  
 **Rota:** `/extras/ldi/*`
+
+---
+
+## 11. JACK DREAM CANDY — Idle Noir
+
+**Tipo:** Idle game narrativo  
+**Status:** ✅ v0.1.0 — Core idle + Pajé + bengala  
+**Acesso:** FREE  
+**Stack:** React 19 · Zustand · Framer Motion  
+**Versão atual:** `0.1.0` (console: `[JACK] versão carregada: 0.1.0`)  
+**Rota:** `/extras/jackcandy`
+
+### Mecânicas Implementadas
+- ✅ Balas acumulam automaticamente (+1/s)
+- ✅ Guardar / Rolar no chão (descarta balas)
+- ✅ Pajé aparece com 100 balas
+- ✅ Barraca do Pajé com Bengala Steampunk (100 balas)
+- ✅ Inventário com item equipado
+- ✅ Abas: balas / inventário (após comprar bengala)
+- ✅ Monólogo em primeira pessoa (estilo noir)
+- ✅ Chuva de caracteres ASCII no fundo
+- ✅ Título com efeito typewriter
+- ✅ Auto-save localStorage a cada 30s
+- ✅ Modo imersivo (sem navbar/footer)
+
+### Estrutura de Arquivos
+```
+src/pages/JackCandy/
+├── JackCandy.jsx              # Componente principal
+├── JackCandy.css               # Estilos preto e branco + carmesim + âmbar
+└── store/
+    └── useJackStore.js         # Estado global Zustand + localStorage
+```
 
 ### Rotas internas do jogo
 | Rota | Descrição |

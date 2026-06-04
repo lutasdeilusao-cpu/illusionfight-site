@@ -78,6 +78,15 @@
   border-color: var(--accent-amber);
 }
 
+.extras-card__inner--crimson {
+  border-color: #8B0000;
+}
+
+.extras-card__inner--crimson:hover {
+  border-color: #8B0000;
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
 .extras-card__titulo {
   font-family: var(--font-display);
   font-size: 1.4rem;
