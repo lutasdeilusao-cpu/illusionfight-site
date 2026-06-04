@@ -109,6 +109,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
       {paragraphs.map((para, i) => {
         const personagemId = CENA_PERSONAGEM[sceneId] || null
+        if (i === 0) console.log('[TW] sceneId recebido:', JSON.stringify(sceneId), 'personagemId:', personagemId)
         const estiloPersonagem = personagemId && isFala(para) ? (PERSONAGEM_STYLE[personagemId] || PERSONAGEM_STYLE.default) : null
         const className = `ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`
         return (
