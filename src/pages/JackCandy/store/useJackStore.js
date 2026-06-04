@@ -1,4 +1,4 @@
-const JACK_VERSION = '2.0.3'
+const JACK_VERSION = '2.1.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -44,8 +44,9 @@ function loadLocal() {
 
 function persistLocal(state) {
   try {
+    if (!state._slot) return
     const faseSave = state.fase.startsWith('dungeon_') || state.fase === 'dungeon_select' || state.fase.startsWith('interior_') ? 'vila' : state.fase
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    localStorage.setItem(`jack_beer_slot_${state._slot}`, JSON.stringify({
       cervejas: state.cervejas, cervejasPorSegundo: state.cervejasPorSegundo, cervejasTotais: state.cervejasTotais,
       fragmentos: state.fragmentos, notas: state.notas,
       fase: faseSave, flags: state.flags,
@@ -57,6 +58,7 @@ function persistLocal(state) {
       cidadeAtual: state.cidadeAtual, periodo: state.periodo,
       medidorPrimordial: state.medidorPrimordial,
       aliadoAtual: state.aliadoAtual,
+      _slot: state._slot,
     }))
   } catch (_) {}
 }
@@ -71,6 +73,7 @@ const defaultState = {
   cidadeAtual: 'marelia', periodo: 'DIA',
   medidorPrimordial: 0, aliadoAtual: null,
   _userId: null,
+  _slot: null,
 }
 
 export const useJackStore = create((set, get) => {
@@ -306,9 +309,10 @@ export const useJackStore = create((set, get) => {
     },
 
     reset: () => {
-      localStorage.removeItem(STORAGE_KEY)
+      const slot = get()._slot
+      if (slot) localStorage.removeItem(`jack_beer_slot_${slot}`)
       localStorage.removeItem('jack_candy_save')
-      set({ ...defaultState })
+      set({ ...defaultState, _slot: slot })
     },
     persistNow: () => persistLocal(get()),
   }

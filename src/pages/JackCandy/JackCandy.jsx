@@ -5,6 +5,8 @@ import { useJackStore } from './store/useJackStore'
 import LoginGate from '../../components/LoginGate/LoginGate'
 import StatusBar from './components/StatusBar'
 import Monologue from './components/Monologue'
+import DicaToast from './components/DicaToast'
+import MainMenu from './screens/MainMenu'
 import Intro from './screens/Intro'
 import Vila from './screens/Vila'
 import Interior from './screens/Interior'
@@ -19,27 +21,34 @@ export default function JackCandy() {
   const { setReaderMode } = useReader()
   const store = useJackStore()
   const [loaded, setLoaded] = useState(false)
+  const [currentSlot, setCurrentSlot] = useState(null)
 
   useEffect(() => {
     setReaderMode(true)
     return () => setReaderMode(false)
   }, [setReaderMode])
 
+  // Check for active game on mount
   useEffect(() => {
     if (!user) return
-    store.loadFromCloud(user.id).then(() => {
-      useJackStore.setState({ _userId: user.id })
-      setLoaded(true)
-    })
+    // Try to detect if a game is already in progress via main save
+    const active = store._slot
+    if (active) {
+      setCurrentSlot(active)
+      store.loadFromCloud(user.id).then(() => {
+        useJackStore.setState({ _userId: user.id })
+        setLoaded(true)
+      })
+    }
   }, [user])
 
   useEffect(() => {
-    if (!user) return
+    if (!user || !currentSlot) return
     const t1 = setInterval(() => store.tick(), 1000)
     const t2 = setInterval(() => store.regenHp(), 10000)
     const t3 = setInterval(() => store.saveToCloud(user.id), 30000)
     return () => { clearInterval(t1); clearInterval(t2); clearInterval(t3) }
-  }, [user])
+  }, [user, currentSlot])
 
   useEffect(() => {
     if (store.flags.TEM_BENGALA && store.fase === 'intro') {
@@ -54,7 +63,6 @@ export default function JackCandy() {
     }
   }, [store.fase, store.flags.TEM_BENGALA, store.flags.JA_VIU_VILA])
 
-  // Auto-unlock flags based on dungeons completed
   useEffect(() => {
     if (!store.flags) return
     const dc = store.dungeonsCompletas || []
@@ -66,7 +74,7 @@ export default function JackCandy() {
       if (!store.flags.RISCA_FACA_LIBERADO) store.setFlag('RISCA_FACA_LIBERADO')
       if (!store.flags.CORTICO_LIBERADO) store.setFlag('CORTICO_LIBERADO')
     }
-    if (dc.includes('onibus') && dc.includes('rua') && dc.includes('porto_velho') && dc.includes('doca_abandonada') && dc.includes('torre_kronos')) {
+    if (dc.includes('porto_velho') && dc.includes('doca_abandonada') && dc.includes('torre_kronos')) {
       if (store.nivel >= 8 && store.flags.TERMINAL_OUVIU && !store.flags.AURANIS_LIBERADO) {
         store.setFlag('AURANIS_LIBERADO')
         store.setMonologo(MONOLOGUES.chega_auranis)
@@ -81,11 +89,8 @@ export default function JackCandy() {
     }
   }, [store.dungeonsCompletas, store.flags, store.nivel])
 
-  // Fragmentos unlock
   useEffect(() => {
-    if (store.fragmentos > 0 && !store.flags.JA_VIU_FRAGMENTOS) {
-      store.setFlag('JA_VIU_FRAGMENTOS')
-    }
+    if (store.fragmentos > 0 && !store.flags.JA_VIU_FRAGMENTOS) store.setFlag('JA_VIU_FRAGMENTOS')
   }, [store.fragmentos])
 
   if (!user) {
@@ -93,6 +98,20 @@ export default function JackCandy() {
       <div className="jack-body">
         <div className="jack-content" style={{ textAlign: 'center', paddingTop: '4rem' }}>
           <LoginGate feature="Jack Dream Beer" />
+        </div>
+      </div>
+    )
+  }
+
+  // Main Menu
+  if (!currentSlot) {
+    return (
+      <div className="jack-body">
+        <div className="jack-content">
+          <MainMenu onStart={(slot) => {
+            setCurrentSlot(slot)
+            setLoaded(true)
+          }} />
         </div>
       </div>
     )
@@ -126,10 +145,8 @@ export default function JackCandy() {
         {isDungeon && <Dungeon dungeonId={dungeonId} />}
       </div>
 
-      <Monologue
-        text={store.monologoAtual}
-        onClose={store.limparMonologo}
-      />
+      <DicaToast />
+      <Monologue text={store.monologoAtual} onClose={store.limparMonologo} />
     </div>
   )
 }

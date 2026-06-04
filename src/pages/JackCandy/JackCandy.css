@@ -1018,7 +1018,102 @@
   min-width: 0;
 }
 
-/* ===== VILA CITY NAV ===== */
+/* ===== MAIN MENU ===== */
+
+.jdc-main-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2rem;
+  color: #F5A623;
+  text-align: center;
+  text-shadow: 0 0 30px rgba(245, 166, 35, 0.4);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.jdc-slot-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #222;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: left;
+  color: #C8C8C8;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.jdc-slot-card:hover {
+  border-color: #F5A623;
+  background: rgba(245,166,35,0.04);
+}
+
+.jdc-slot-card--selected {
+  border-color: #F5A623;
+}
+
+.jdc-slot-card--filled {
+  border-left: 3px solid #8B0000;
+}
+
+.jdc-slot-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: #666;
+  min-width: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.jdc-slot-info {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jdc-slot-stat {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #C8C8C8;
+}
+
+.jdc-slot-delete {
+  font-size: 0.8rem;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  padding: 0.2rem;
+}
+
+.jdc-slot-delete:hover {
+  opacity: 1;
+  color: #8B0000;
+}
+
+/* ===== CARD GLOW ===== */
+
+.jdc-vila-card--glow {
+  animation: jdc-glow 2s ease-in-out infinite;
+  border-color: #F5A623 !important;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.2);
+}
+
+@keyframes jdc-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 166, 35, 0.15); }
+  50% { box-shadow: 0 0 20px rgba(245, 166, 35, 0.35), 0 0 40px rgba(245, 166, 35, 0.1); }
+}
 
 .jdc-vila-nav-cidades {
   display: flex;

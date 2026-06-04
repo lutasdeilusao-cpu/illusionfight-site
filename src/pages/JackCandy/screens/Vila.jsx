@@ -45,6 +45,23 @@ export default function Vila() {
     return false
   }
 
+  // Determinar próximo objetivo (card que deve glow)
+  const getNextObjectiveId = () => {
+    const f = store.flags || {}
+    const dc = store.dungeonsCompletas || []
+    if (!f.TEM_BENGALA) return 'paje'
+    if (dc.length === 0) return null // manual: tem que ir pra dungeon
+    if (dc.includes('onibus') && !dc.includes('rua')) return null // dungeon
+    if (dc.includes('onibus') && !f.KIM_LIBERADO) return 'kim'
+    if (dc.includes('rua') && !f.NINA_LIBERADO) return 'nina'
+    if (dc.includes('rua') && !f.OSVALDO_LIBERADO) return 'osvaldo'
+    if (f.KIM_LIBERADO && store.cervejasPorSegundo < 2) return 'kim'
+    if (f.OSVALDO_LIBERADO && !store.equipado.armadura) return 'osvaldo'
+    if (store.notas > 100 && store.cervejas > 300) return 'kim'
+    return null
+  }
+  const nextId = getNextObjectiveId()
+
   const irParaCidade = (id) => {
     if (id === 'auranis' && !store.flags.AURANIS_LIBERADO) return
     if (id === 'karnazar' && !store.flags.KARNAZAR_LIBERADO) return
@@ -97,7 +114,7 @@ export default function Vila() {
           return (
             <motion.button
               key={local.id}
-              className={`jdc-vila-card ${locked ? 'jdc-vila-card--locked' : ''}`}
+              className={`jdc-vila-card ${locked ? 'jdc-vila-card--locked' : ''} ${local.id === nextId ? 'jdc-vila-card--glow' : ''}`}
               onClick={() => {
                 if (locked) return
                 if (local.dungeon) {
