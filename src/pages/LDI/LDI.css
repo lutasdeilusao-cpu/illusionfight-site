@@ -1123,9 +1123,11 @@
 
 .ldi-text-fala {
   color: var(--personagem-cor, #00B4D8);
+  background: var(--personagem-bg, transparent);
   border-left: 2px solid var(--personagem-cor, #00B4D8);
-  padding-left: 0.75rem;
+  padding: 0.4rem 0.75rem;
   margin: 0.5rem 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .ldi-typewriter-hint {

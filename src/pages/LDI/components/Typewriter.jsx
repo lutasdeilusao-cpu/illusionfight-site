@@ -2,11 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 const PERSONAGEM_STYLE = {
-  'NEOGULDE': { cor: '#00B4D8', fonte: 'Arial, Helvetica, sans-serif' },
-  'KAEDA': { cor: '#FF6B6B', fonte: 'Georgia, Times New Roman, serif' },
-  'VOZ': { cor: '#A855F4', fonte: "'Trebuchet MS', Lucida Grande, sans-serif" },
-  'STORMBYTE': { cor: '#F97316', fonte: "'Courier New', Courier, monospace" },
-  'SISTEMA': { cor: '#22C55E', fonte: "'Impact', Haettenschweiler, Arial Black, sans-serif" },
+  'NEOGULDE': { cor: '#00B4D8', bg: 'rgba(0, 180, 216, 0.06)', fonte: 'Arial, Helvetica, sans-serif' },
+  'KAEDA': { cor: '#FF6B6B', bg: 'rgba(255, 107, 107, 0.06)', fonte: 'Georgia, Times New Roman, serif' },
+  'VOZ': { cor: '#A855F4', bg: 'rgba(168, 85, 244, 0.06)', fonte: "'Trebuchet MS', Lucida Grande, sans-serif" },
+  'STORMBYTE': { cor: '#F97316', bg: 'rgba(249, 115, 22, 0.06)', fonte: "'Courier New', Courier, monospace" },
+  'SISTEMA': { cor: '#22C55E', bg: 'rgba(34, 197, 94, 0.06)', fonte: "'Impact', Haettenschweiler, Arial Black, sans-serif" },
 }
 
 function detectarPrefixo(texto) {
@@ -112,7 +112,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
             className={className}
             style={{
               opacity: i <= currentPara ? 1 : 0.2,
-              ...(estilo && isFala(textoLimpo) ? { '--personagem-cor': estilo.cor, fontFamily: estilo.fonte } : {}),
+              ...(estilo && isFala(textoLimpo) ? { '--personagem-cor': estilo.cor, '--personagem-bg': estilo.bg, fontFamily: estilo.fonte } : {}),
             }}
           >
             {displayedTexts[i] || ''}
