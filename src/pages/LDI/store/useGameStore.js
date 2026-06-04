@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.52'
+const LDI_VERSION = '1.0.53'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -90,7 +90,9 @@ export const useGameStore = create((set, get) => ({
 
     if (sceneId.startsWith('combat_')) {
       const currentSceneId = get().currentScene?.id || '1.3'
-      set(state => ({ save: { ...state.save, post_combat_scene: currentSceneId } }))
+      const customPost = get().save?.next_after_combat
+      const postScene = customPost || currentSceneId
+      set(state => ({ save: { ...state.save, post_combat_scene: postScene, next_after_combat: null } }))
       const enemyId = sceneId.replace('combat_', '')
       const enemy = enemiesData.find(e => e.id === enemyId)
       if (enemy) {
@@ -120,11 +122,16 @@ export const useGameStore = create((set, get) => ({
     }
 
     if (sceneId === 'end_act2') {
-      set(state => ({
-        save: { ...state.save, status: 'active', arc: 2 },
-        currentScene: null,
-        choices: [],
-      }))
+      const s = get()
+      set(state => ({ save: { ...state.save, status: 'active', arc: 2 } }))
+      await get().setScene('3.1')
+      return
+    }
+
+    if (sceneId === 'end_act3') {
+      const s = get()
+      set(state => ({ save: { ...state.save, status: 'active', arc: 3 } }))
+      await get().setScene('4.1')
       return
     }
 
@@ -165,6 +172,10 @@ export const useGameStore = create((set, get) => ({
     }
 
     set({ save: updatedSave })
+
+    if (choice.next_scene && choice.next_scene.startsWith('combat_') && choice.next_after_combat) {
+      set(state => ({ save: { ...state.save, next_after_combat: choice.next_after_combat } }))
+    }
 
     if (choice.next_scene) {
       await get().setScene(choice.next_scene)
