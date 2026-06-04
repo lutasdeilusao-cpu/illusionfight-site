@@ -10,7 +10,8 @@ const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = { fists: 'Mãos Livres', armed: 'Armado', power: 'Poder' }
-const DICE_FACES = ['⚀','⚁','⚂','⚃','⚄','⚅']
+
+const delay = ms => new Promise(res => setTimeout(res, ms))
 
 function getOnomatopeia(mode) {
   if (mode === 'fists') return ONOMATOPEIAS_FISTS[Math.floor(Math.random() * ONOMATOPEIAS_FISTS.length)]
@@ -25,7 +26,7 @@ function pickTrash(arr) {
 }
 
 function DiceSlot({ finalValue, onDone }) {
-  const [display, setDisplay] = useState(DICE_FACES[0])
+  const [display, setDisplay] = useState('?')
   const [phase, setPhase] = useState('rolling')
 
   useEffect(() => {
@@ -36,11 +37,11 @@ function DiceSlot({ finalValue, onDone }) {
     function roll() {
       const elapsed = Date.now() - start
       if (elapsed < rollDuration) {
-        setDisplay(DICE_FACES[Math.floor(Math.random() * 6)])
+        setDisplay(Math.floor(Math.random() * 6) + 1)
         frame = requestAnimationFrame(roll)
       } else {
         setPhase('landing')
-        setDisplay(DICE_FACES[finalValue - 1])
+        setDisplay(finalValue)
         setTimeout(() => {
           setPhase('showing')
           setTimeout(() => onDone && onDone(), 1200)
@@ -52,9 +53,9 @@ function DiceSlot({ finalValue, onDone }) {
   }, [])
 
   const isCritical = finalValue === 6
-  const faceClass = phase === 'rolling'
-    ? 'arena-dice-face arena-dice-face--rolling'
-    : `arena-dice-face arena-dice-face--showing${isCritical ? ' arena-dice-face--critico' : ' arena-dice-face--normal'}`
+  const numberClass = phase === 'rolling'
+    ? 'arena-dice-number arena-dice-number--rolling'
+    : `arena-dice-number arena-dice-number--showing${isCritical ? ' arena-dice-number--critico' : ''}`
   const labelClass = isCritical ? 'arena-dice-label arena-dice-label--critico' : 'arena-dice-label'
 
   const rotationAnim = phase === 'rolling'
@@ -71,9 +72,9 @@ function DiceSlot({ finalValue, onDone }) {
     <motion.div className="arena-dice-overlay"
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}>
-      <motion.div className={faceClass}
+      <motion.div className={numberClass}
         animate={rotationAnim} transition={rotationTransition}>
-        {display}
+        🎲 {display}
       </motion.div>
       {phase === 'showing' && (
         <motion.div className={labelClass}
@@ -112,6 +113,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const saidNearDeath = useRef(false)
   const saidEnemyLow = useRef(false)
+  const diceDoneRef = useRef(null)
 
   const logRef = useRef(null)
   const elemental = sheet?.elemental || 'neutro'
@@ -132,14 +134,23 @@ export default function ArenaCombat({ onNavigate }) {
 
   const addLog = (type, text) => setLog(l => [...l, { type, text }])
 
-  const addTrash = (category) => {
+  const addTrash = (category, immediate = false) => {
     const talk = enemy?.trash_talk?.[category]
     const line = pickTrash(talk)
-    if (line) {
-      setTimeout(() => {
-        setLog(l => [...l, { type: 'trash', text: `${enemy.name}: ${line}` }])
-      }, 400)
+    if (!line) return
+    const text = `${enemy.name}: ${line}`
+    if (immediate) {
+      setLog(l => [...l, { type: 'trash', text }])
+    } else {
+      setTimeout(() => { setLog(l => [...l, { type: 'trash', text }]) }, 400)
     }
+  }
+
+  const showDice = (value) => {
+    return new Promise(resolve => {
+      diceDoneRef.current = resolve
+      setDiceValue(value)
+    })
   }
 
   const togglePower = (id) => {
@@ -163,47 +174,7 @@ export default function ArenaCombat({ onNavigate }) {
     return { attributes: { F: Number(a.F)||0, H: Number(a.H)||0, R: Number(a.R)||0, A: Number(a.A)||0, PdF: Number(a.PdF)||0 } }
   }
 
-  const executeEnemyTurn = (playerDmg) => {
-    setShowEnemyTurn(true)
-    setTimeout(() => {
-      setShowEnemyTurn(false)
-      setFlashRed(true)
-      const eMode = enemy.preferred_mode || 'fists'
-      const wBonus = Number(enemy.weapon_damage) || 0
-      const fa = calcFA(eMode, getEnemySheet(), wBonus)
-      const fd = calcFD(getPlayerSheet(), true)
-      const dmg = Math.max(0, calcDamage(Number(fa.value)||0, Number(fd.value)||0))
-      setDiceValue(fa.roll)
-      setShowOnomatopeia(eMode)
-
-      addLog('enemy', `${enemy.name} ataca (${fa.breakdown}) vs sua FD ${fd.value} = ${dmg} dano`)
-
-      if (dmg > 0) {
-        addTrash('attack_hit')
-        const nextPv = Math.max(0, playerPv - dmg)
-        setPlayerPv(nextPv)
-        setDamageFloat({ value: dmg, target: 'player' })
-        setTimeout(() => setDamageFloat(null), 800)
-
-        if (nextPv <= 0) {
-          addLog('system', '💀 Você foi derrotado!')
-          setTimeout(() => { setFlashRed(false); setShowOnomatopeia(null); setDiceValue(null); endMatch('defeat') }, 800)
-          return
-        }
-
-        if (nextPv <= isR && !saidNearDeath.current) {
-          saidNearDeath.current = true
-          addTrash('player_near_death')
-        }
-      } else {
-        addTrash('attack_miss')
-      }
-
-      setTimeout(() => { setFlashRed(false); setShowOnomatopeia(null); setDiceValue(null) }, 600)
-    }, 1500)
-  }
-
-  const handleAttack = (powerCost = 0) => {
+  const handleAttack = async (powerCost = 0) => {
     if (animating) return
     setAnimating(true)
 
@@ -213,49 +184,101 @@ export default function ArenaCombat({ onNavigate }) {
     const fd = calcFD(getEnemySheet(), true)
     const baseDmg = Math.max(0, calcDamage(Number(fa.value)||0, Number(fd.value)||0))
     const dmg = baseDmg + pBonus
-
-    setShowOnomatopeia(mode)
-    setDiceValue(fa.roll)
-
     const playerSide = mode === 'power' ? 'power' : 'player'
 
-    setTimeout(() => {
-      setDiceValue(null)
-      if (powerCost > 0) {
-        setPlayerPm(p => Math.max(0, p - powerCost))
-        const pname = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
-        addLog(playerSide, `⚡ ${pname} gastou ${powerCost} PM (+${pBonus} dano)`)
-      }
-      addLog(playerSide, `Você ataca (${fa.breakdown}) vs FD ${fd.value} = ${dmg} dano`)
+    // 1-3. DiceSlot do jogador (rolando + mostrando)
+    await showDice(fa.roll)
+    setDiceValue(null)
 
-      const nextEpv = Math.max(0, enemyPv - dmg)
-      setEnemyPv(nextEpv)
-      if (dmg > 0) {
-        setDamageFloat({ value: dmg, target: 'enemy' })
-        if (fa.roll === 6) {
-          addTrash('take_critical')
-        } else {
-          addTrash('take_damage')
-        }
-      }
-      setTimeout(() => setDamageFloat(null), 800)
+    // 4-5. Onomatopeia
+    setShowOnomatopeia(mode)
+    await delay(600)
+    setShowOnomatopeia(null)
 
-      if (nextEpv <= 0) {
-        setShowOnomatopeia(null)
-        addLog('system', '⚔️ VITÓRIA!')
-        setTimeout(() => { setAnimating(false); store.endMatch('victory'); onNavigate('victory') }, 600)
+    // 6. Log de ataque do jogador
+    if (powerCost > 0) {
+      setPlayerPm(p => Math.max(0, p - powerCost))
+      const pname = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
+      addLog(playerSide, `⚡ ${pname} gastou ${powerCost} PM (+${pBonus} dano)`)
+    }
+    addLog(playerSide, `Você ataca (${fa.breakdown}) vs FD ${fd.value} = ${dmg} dano`)
+
+    // 7. Dano flutuante sobre o inimigo
+    const nextEpv = Math.max(0, enemyPv - dmg)
+    setEnemyPv(nextEpv)
+    if (dmg > 0) {
+      setDamageFloat({ value: dmg, target: 'enemy' })
+      if (fa.roll === 6) addTrash('take_critical')
+      else addTrash('take_damage')
+    }
+    await delay(800)
+    setDamageFloat(null)
+
+    // 8. Inimigo morreu → vitória
+    if (nextEpv <= 0) {
+      addLog('system', '⚔️ VITÓRIA!')
+      await delay(600)
+      endMatch('victory')
+      return
+    }
+
+    if (nextEpv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
+      saidEnemyLow.current = true
+      addTrash('enemy_near_death')
+    }
+
+    // ======== FASE DO INIMIGO ========
+
+    // 9. Overlay "VEZ DO INIMIGO"
+    setShowEnemyTurn(true)
+    await delay(1500)
+    setShowEnemyTurn(false)
+
+    // 10-11. Flash + DiceSlot do inimigo
+    setFlashRed(true)
+    const eMode = enemy.preferred_mode || 'fists'
+    const eBonus = Number(enemy.weapon_damage) || 0
+    const eFA = calcFA(eMode, getEnemySheet(), eBonus)
+    const eFD = calcFD(getPlayerSheet(), true)
+    const eDmg = Math.max(0, calcDamage(Number(eFA.value)||0, Number(eFD.value)||0))
+    setShowOnomatopeia(eMode)
+
+    await showDice(eFA.roll)
+    setDiceValue(null)
+    setFlashRed(false)
+    setShowOnomatopeia(null)
+
+    // 12. Log de ataque do inimigo
+    addLog('enemy', `${enemy.name} ataca (${eFA.breakdown}) vs sua FD ${eFD.value} = ${eDmg} dano`)
+
+    // 13. Dano flutuante sobre o jogador
+    if (eDmg > 0) {
+      const nextPv = Math.max(0, playerPv - eDmg)
+      setPlayerPv(nextPv)
+      setDamageFloat({ value: eDmg, target: 'player' })
+      addTrash('attack_hit')
+
+      await delay(800)
+      setDamageFloat(null)
+
+      if (nextPv <= 0) {
+        addLog('system', '💀 Você foi derrotado!')
+        await delay(600)
+        endMatch('defeat')
         return
       }
 
-      if (nextEpv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
-        saidEnemyLow.current = true
-        addTrash('enemy_near_death')
+      if (nextPv <= isR && !saidNearDeath.current) {
+        saidNearDeath.current = true
+        addTrash('player_near_death')
       }
+    } else {
+      addTrash('attack_miss')
+      await delay(800)
+    }
 
-      setShowOnomatopeia(null)
-      executeEnemyTurn(dmg)
-      setAnimating(false)
-    }, 500)
+    // 14. Reabilitar botão
+    setAnimating(false)
   }
 
   if (!enemy) return null
@@ -314,7 +337,11 @@ export default function ArenaCombat({ onNavigate }) {
       </AnimatePresence>
 
       <AnimatePresence>
-        {diceValue && <DiceSlot finalValue={diceValue} onDone={() => {}} />}
+        {diceValue && (
+          <DiceSlot finalValue={diceValue} onDone={() => {
+            if (diceDoneRef.current) { const cb = diceDoneRef.current; diceDoneRef.current = null; cb() }
+          }} />
+        )}
       </AnimatePresence>
 
       <AnimatePresence>

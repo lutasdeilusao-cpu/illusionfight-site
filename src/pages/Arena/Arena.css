@@ -198,7 +198,7 @@
 .arena-btn-salvar:hover { background: #a00000; }
 
 /* ===== COMBAT HUD PANELS ===== */
-.arena-combat { padding: 0 20px 20px; }
+.arena-combat { padding: 80px 20px 20px; }
 .arena-combat-header { display: flex; align-items: center; gap: 16px; padding: 16px 0; }
 .arena-combat-vs { font-size: 18px; color: #F5A623; margin: 0; }
 
@@ -335,7 +335,7 @@
   animation: arena-onoma-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* ===== DICE OVERLAY ===== */
+/* ===== DICE OVERLAY (Lendas-style numbers) ===== */
 .arena-dice-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.88);
@@ -344,24 +344,19 @@
   z-index: 200; pointer-events: none;
 }
 
-.arena-dice-face {
+.arena-dice-number {
   line-height: 1;
   transition: font-size 0.2s, color 0.3s;
-  filter: var(--dice-glow, none);
   color: var(--dice-color, #fff);
+  filter: var(--dice-glow, none);
 }
 
-.arena-dice-face--rolling { font-size: 80px; }
-.arena-dice-face--showing { font-size: 120px; }
+.arena-dice-number--rolling { font-size: 80px; }
+.arena-dice-number--showing { font-size: 120px; }
 
-.arena-dice-face--critico {
+.arena-dice-number--critico {
   --dice-glow: drop-shadow(0 0 30px #F5A623) drop-shadow(0 0 60px #F5A623);
   --dice-color: #F5A623;
-}
-
-.arena-dice-face--normal {
-  --dice-glow: drop-shadow(0 0 20px #00B4D8);
-  --dice-color: #fff;
 }
 
 .arena-dice-label {
