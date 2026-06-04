@@ -16,7 +16,7 @@ const GAMES = [
 const STEALTH_CONFIG = {
   easy:   { size: 4,  hasTimer: true, timerSegundos: 30, cameras: 3, visionRange: 2 },
   medium: { size: 8,  hasTimer: true, timerSegundos: 60, cameras: 5, visionRange: 2 },
-  hard:   { size: 12, hasTimer: true, timerSegundos: 90, cameras: 7, visionRange: 3 },
+  hard:   { size: 12, hasTimer: true, timerSegundos: 90, cameras: 8, visionRange: 3 },
 }
 
 function formatTempo(ms) {
