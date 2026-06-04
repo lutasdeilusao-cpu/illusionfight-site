@@ -2,14 +2,14 @@
 
 ## 1. Estado Atual vs GDD
 
-| Métrica | Atual | GDD Alvo |
-|---|---|---|
-| Cenas | 26 (até 2.1d) | ~120+ estimado |
-| Inimigos | 7 | 12+ |
-| Parágrafos | 129 | ~800+ |
-| Escolhas | 58 | ~400+ |
-| Arcos cobertos | ~30% do Ato I | Atos I a IV completos |
-| Tempo de jogo | ~10 min | ~2-4h (completo) |
+| Métrica | Inicial (v1.0.24) | Atual (v1.0.55) | GDD Alvo |
+|---|---|---|---|---|
+| Cenas | 26 (até 2.1d) | **~62** (4 atos completos) | ~120+ |
+| Inimigos | 7 | **10** | 12+ |
+| Parágrafos | 129 | **~650+** | ~800+ |
+| Escolhas | 58 | **~280+** | ~400+ |
+| Arcos cobertos | ~30% do Ato I | **Atos I a IV completos** | Atos I a IV |
+| Tempo de jogo | ~10 min | **~30-45 min** | ~2-4h (completo) |
 
 **O que já temos funcional:**
 - Motor de cenas (JSON → Typewriter → escolhas)

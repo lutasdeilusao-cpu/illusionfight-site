@@ -1,39 +1,129 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useReader } from '../../context/ReaderContext'
 import './LDI.css'
 
 const END_MESSAGES = {
-  defeat_combat: {
+  ended_defeat: {
     title: 'K.O.',
     text: 'Você foi longe. Mas não longe o suficiente.',
+    icon: '💀',
   },
-  fork_refused: {
+  ended_fork: {
     title: 'RECUSA',
     text: 'Você estava certo em recusar. Mas isso não foi suficiente.',
-  },
-  fork_betrayal: {
-    title: 'TRAIÇÃO',
-    text: 'Você escolheu o lado errado. Ou o certo, dependendo de como mede.',
+    icon: '🚪',
   },
   ended_victory: {
     title: 'VITÓRIA',
     text: 'O Arco 1 está completo. Mas a lenda apenas começou.',
+    icon: '🏆',
   },
 }
+
+const ACHIEVEMENTS = [
+  { id: 'punho_puro', name: 'Punho Puro', desc: 'Termine o jogo sem usar Poder nenhuma vez', check: (s) => !s?.flags?.CONFRONTO_FINAL && s?.status === 'ended_victory' },
+  { id: 'diplomata', name: 'Diplomata', desc: 'Resolva o Ato IV por negociação', check: (s) => s?.flags?.VITORIA_NEGOCIACAO },
+  { id: 'investigador', name: 'Investigador', desc: 'Resolva o Ato IV por exposição', check: (s) => s?.flags?.VITORIA_EXPOSICAO },
+  { id: 'guerreiro', name: 'Guerreiro', desc: 'Derrote NULL_ENTITY em combate direto', check: (s) => s?.flags?.CONFRONTO_FINAL && s?.status === 'ended_victory' },
+  { id: 'teimoso', name: 'Teimoso', desc: 'Enfrente o boss despreparado e vença', check: (s) => s?.flags?.CONFRONTO_DESPREPARADO && s?.status === 'ended_victory' },
+  { id: 'recruta', name: 'Recruta', desc: 'Aceite entrar para a Organização', check: (s) => s?.flags?.ACEITOU_ORGANIZACAO },
+  { id: 'sobrevivente', name: 'Sobrevivente', desc: 'Complete o Arco 1', check: (s) => s?.status === 'ended_victory' },
+  { id: 'acordo', name: 'Acordo Escuro', desc: 'Aceite o acordo do vilão', check: (s) => s?.flags?.ACEITOU_ACORDO },
+  { id: 'honra', name: 'Honrado', desc: 'Mantenha o código de honra até o fim', check: (s) => s?.status === 'ended_victory' },
+]
 
 export default function End() {
   const { setReaderMode } = useReader()
   const { sheet, save, resetGame } = useGameStore()
+  const [showRetro, setShowRetro] = useState(false)
 
-  useEffect(() => {
-    setReaderMode(true)
-    return () => setReaderMode(false)
-  }, [setReaderMode])
   const endType = save?.status || 'ended_victory'
   const msg = END_MESSAGES[endType] || END_MESSAGES.ended_victory
+  const lastChoices = save?.last_choices || []
+  const clues = save?.clues_collected || []
+  const unlocked = ACHIEVEMENTS.filter(a => a.check(save))
+  const xpGained = sheet?.xp_total || 0
+
+  if (showRetro) {
+    return (
+      <div className="ldi-end">
+        <motion.div className="ldi-end-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <div className="ldi-end-retro-title">📜 Retrospecto</div>
+          
+          <div className="ldi-end-retro-section">
+            <h3>🏅 Conquistas ({unlocked.length}/{ACHIEVEMENTS.length})</h3>
+            <div className="ldi-end-achievements">
+              {ACHIEVEMENTS.map(a => {
+                const has = unlocked.find(u => u.id === a.id)
+                return (
+                  <div key={a.id} className={`ldi-end-achievement ${has ? 'ldi-end-achievement--ok' : ''}`}>
+                    <span className="ldi-end-achievement-icon">{has ? '✅' : '⬜'}</span>
+                    <div>
+                      <div className="ldi-end-achievement-name">{a.name}</div>
+                      <div className="ldi-end-achievement-desc">{a.desc}</div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {lastChoices.length > 0 && (
+            <div className="ldi-end-retro-section">
+              <h3>🎯 Decisões que Mais Impactaram</h3>
+              <ul className="ldi-end-retro-list">
+                {lastChoices.map((c, i) => (
+                  <li key={i} className="ldi-end-retro-item">{c}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="ldi-end-retro-section">
+            <h3>📊 Estatísticas</h3>
+            <div className="ldi-end-stats">
+              <div className="ldi-end-stat">
+                <span className="ldi-end-stat-label">Dia in-game</span>
+                <span className="ldi-end-stat-value">{save?.day_in_game || 1}</span>
+              </div>
+              <div className="ldi-end-stat">
+                <span className="ldi-end-stat-label">Pistas</span>
+                <span className="ldi-end-stat-value">{clues.length}</span>
+              </div>
+              <div className="ldi-end-stat">
+                <span className="ldi-end-stat-label">XP total</span>
+                <span className="ldi-end-stat-value">{xpGained}</span>
+              </div>
+              <div className="ldi-end-stat">
+                <span className="ldi-end-stat-label">Créditos</span>
+                <span className="ldi-end-stat-value">{save?.credits || 0}</span>
+              </div>
+            </div>
+          </div>
+
+          {clues.length > 0 && (
+            <div className="ldi-end-retro-section">
+              <h3>📋 Pistas Coletadas</h3>
+              <ul className="ldi-end-retro-list">
+                {clues.map((c, i) => (
+                  <li key={i} className="ldi-end-retro-item">{c.text || c}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="ldi-end-actions" style={{ marginTop: '1.5rem' }}>
+            <button className="ldi-btn ldi-btn--ghost" onClick={() => setShowRetro(false)}>
+              VOLTAR
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    )
+  }
 
   return (
     <div className="ldi-end">
@@ -49,7 +139,7 @@ export default function End() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
         >
-          {msg.title}
+          {msg.icon} {msg.title}
         </motion.div>
 
         <motion.p
@@ -72,16 +162,20 @@ export default function End() {
             <span className="ldi-end-stat-value">{save?.day_in_game || 1}</span>
           </div>
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">Pistas Coletadas</span>
-            <span className="ldi-end-stat-value">{save?.clues_collected?.length || 0}</span>
+            <span className="ldi-end-stat-label">Pistas</span>
+            <span className="ldi-end-stat-value">{clues.length}</span>
           </div>
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">Créditos</span>
-            <span className="ldi-end-stat-value">{save?.credits || 0}</span>
+            <span className="ldi-end-stat-label">XP</span>
+            <span className="ldi-end-stat-value">{xpGained}</span>
+          </div>
+          <div className="ldi-end-stat">
+            <span className="ldi-end-stat-label">Conquistas</span>
+            <span className="ldi-end-stat-value">{unlocked.length}/{ACHIEVEMENTS.length}</span>
           </div>
         </motion.div>
 
-        {save?.clues_collected?.length > 0 && (
+        {clues.length > 0 && (
           <motion.div
             className="ldi-end-clues"
             initial={{ opacity: 0 }}
@@ -90,10 +184,24 @@ export default function End() {
           >
             <h3>Pistas:</h3>
             <ul>
-              {save.clues_collected.map((clue, i) => (
-                <li key={i}>{clue.text}</li>
+              {clues.map((clue, i) => (
+                <li key={i}>{clue.text || clue}</li>
               ))}
             </ul>
+          </motion.div>
+        )}
+
+        {unlocked.length > 0 && (
+          <motion.div
+            className="ldi-end-achievements-bar"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 3, duration: 0.5 }}
+          >
+            {unlocked.slice(0, 3).map(a => (
+              <span key={a.id} className="ldi-end-ach-badge">✅ {a.name}</span>
+            ))}
+            {unlocked.length > 3 && <span className="ldi-end-ach-badge">+{unlocked.length - 3}</span>}
           </motion.div>
         )}
 
@@ -101,8 +209,11 @@ export default function End() {
           className="ldi-end-actions"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3, duration: 0.5 }}
+          transition={{ delay: 3.5, duration: 0.5 }}
         >
+          <button className="ldi-btn ldi-btn--outline" onClick={() => setShowRetro(true)}>
+            📜 VER RETROSPECTO
+          </button>
           <Link
             to="/extras/ldi/game"
             className="ldi-btn ldi-btn--primary"
