@@ -9,8 +9,10 @@ export default function Dossier() {
   const store = useJackStore()
   const caso = CASOS[store.casoAtivo]
   const [showAcusar, setShowAcusar] = useState(false)
+  const [resolucaoAtiva, setResolucaoAtiva] = useState(false)
+  const [casoResolvidoId, setCasoResolvidoId] = useState(null)
 
-  if (!caso) {
+  if (!caso && !resolucaoAtiva) {
     store.setFase('vila')
     return null
   }
@@ -24,15 +26,12 @@ export default function Dossier() {
     console.log('[DOSSIER] confronto:', caso.confronto)
     if (suspeitoDoCaso?.culpado) {
       store.acusar(suspeitoId)
+      setCasoResolvidoId(caso.id)
+      store.resolverCaso(caso.flagResolucao)
       store.setMonologo('é ele. sempre foi ele.')
-      if (caso.confronto?.especial === 'interrogatorio') {
-        store.setFase('interrogatorio')
-      } else if (caso.confronto?.dungeon) {
-        store.setFase(`dungeon_${caso.confronto.dungeon}`)
-      } else {
-        store.resolverCaso(caso.flagResolucao)
-        store.setFase('dossier')
-      }
+      setResolucaoAtiva(true)
+      setShowAcusar(false)
+      console.log('[DOSSIER] caso resolvido:', caso.id, '| flag:', caso.flagResolucao)
     } else {
       store.acusar(suspeitoId)
       store.acusacaoErrada()
@@ -146,6 +145,33 @@ export default function Dossier() {
           </div>
         )}
       </div>
+
+      {resolucaoAtiva && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          style={{ textAlign: 'center', padding: '1rem', marginTop: '1rem' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>✅</div>
+          <p className="jack-text jack-text--amber" style={{ fontSize: '1rem', marginBottom: '0.3rem' }}>
+            caso resolvido.
+          </p>
+          <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem' }}>
+            {CASOS[casoResolvidoId]?.resolucao?.monologo}
+          </p>
+          {CASOS[casoResolvidoId]?.confronto?.dungeon && (
+            <button className="jack-btn jack-btn--crimson" onClick={() => store.setFase(`dungeon_${CASOS[casoResolvidoId].confronto.dungeon}`)}>
+              [ confronto final ]
+            </button>
+          )}
+          {CASOS[casoResolvidoId]?.confronto?.especial === 'interrogatorio' && (
+            <button className="jack-btn jack-btn--crimson" onClick={() => store.setFase('interrogatorio')}>
+              [ interrogatório ]
+            </button>
+          )}
+          <br />
+          <button className="jack-btn" onClick={() => store.setFase('caso_select')} style={{ marginTop: '0.5rem' }}>
+            [ voltar aos casos ]
+          </button>
+        </motion.div>
+      )}
 
       <div className="jdc-dossier-locais">
         <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
