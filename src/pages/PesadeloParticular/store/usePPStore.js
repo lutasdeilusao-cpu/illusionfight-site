@@ -7,6 +7,9 @@ const defaultState = () => ({
   pistasColetadas: [],
   cadernoSuspeitas: [],
   acusacoesErradas: 0,
+  hp: 30,
+  hpMax: 30,
+  dormindoAte: 0,
   fase: 'mapa',
   casoAtivo: null,
   casoDados: null,
@@ -17,6 +20,20 @@ export const usePPStore = create((set, get) => ({
   ...defaultState(),
 
   setUserId: (id) => set({ _userId: id }),
+
+  danoHP: (valor) => set(state => {
+    const novoHp = Math.max(0, state.hp - valor)
+    if (novoHp <= 0) {
+      return {
+        hp: 0,
+        fase: 'dormindo',
+        dormindoAte: Date.now() + 5 * 60 * 1000,
+      }
+    }
+    return { hp: novoHp }
+  }),
+
+  acordar: () => set({ hp: 30, fase: 'mapa', dormindoAte: 0 }),
 
   iniciarCaso: (caso) => set({
     fase: 'abertura',
@@ -61,18 +78,15 @@ export const usePPStore = create((set, get) => ({
 
   acusacaoErrada: () => set(state => {
     const acErradas = (state.casoDados?.acusacoesErradas || 0) + 1
-    const totalErradas = state.acusacoesErradas + 1
     return {
-      acusacoesErradas: totalErradas,
+      acusacoesErradas: state.acusacoesErradas + 1,
       casoDados: state.casoDados ? { ...state.casoDados, acusacoesErradas: acErradas } : state.casoDados,
     }
   }),
 
   resolverCaso: (casoId) => set(state => {
     if (state.casosResolvidos.includes(casoId)) return state
-    return {
-      casosResolvidos: [...state.casosResolvidos, casoId],
-    }
+    return { casosResolvidos: [...state.casosResolvidos, casoId] }
   }),
 
   ganharReputacao: (valor) => set(state => ({
@@ -90,7 +104,9 @@ export const usePPStore = create((set, get) => ({
       pistas_coletadas: s.pistasColetadas,
       caderno_suspeitas: s.cadernoSuspeitas,
       acusacoes_erradas: s.acusacoesErradas,
-      fase: s.fase,
+      hp: s.hp,
+      dormindo_ate: s.dormindoAte,
+      fase: s.hp <= 0 ? 'dormindo' : s.fase,
       caso_ativo: s.casoAtivo,
     }, { onConflict: 'user_id' })
   },
@@ -99,13 +115,17 @@ export const usePPStore = create((set, get) => ({
     if (!userId) return null
     const { data } = await supabase.from('pp_saves').select('*').eq('user_id', userId).maybeSingle()
     if (!data) return null
+    const dormindoAte = data.dormindo_ate || 0
+    const acordou = dormindoAte > 0 && Date.now() >= dormindoAte
     set({
       reputacao: data.reputacao || 0,
       casosResolvidos: data.casos_resolvidos || [],
       pistasColetadas: data.pistas_coletadas || [],
       cadernoSuspeitas: data.caderno_suspeitas || [],
       acusacoesErradas: data.acusacoes_erradas || 0,
-      fase: 'mapa',
+      hp: acordou ? 30 : (data.hp || 30),
+      dormindoAte: acordou ? 0 : dormindoAte,
+      fase: acordou ? 'mapa' : (data.hp <= 0 ? 'dormindo' : 'mapa'),
       casoAtivo: null,
       casoDados: null,
     })

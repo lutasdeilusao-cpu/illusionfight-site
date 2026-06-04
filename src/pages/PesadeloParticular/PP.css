@@ -2,167 +2,322 @@
 .pp-page {
   min-height: 100vh;
   background: #000;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, #1a1508 0%, #000 55%),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(245,166,35,0.01) 80px, rgba(245,166,35,0.01) 81px),
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(245,166,35,0.01) 80px, rgba(245,166,35,0.01) 81px);
   color: #C8C8C8;
   font-family: 'Courier New', monospace;
-  position: relative;
   overflow-x: hidden;
 }
 
-.pp-scanlines {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none; z-index: 10;
-  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1px, transparent 1px, transparent 3px);
-}
-
+.pp-container { max-width: 780px; margin: 0 auto; padding: 80px 24px 24px; }
 .pp-loading { text-align: center; padding: 60px 20px; color: #F5A623; }
-.pp-container { max-width: 780px; margin: 0 auto; padding: 24px 20px; }
 
+/* ===== HEADER / BACK ===== */
 .pp-back {
   background: none; border: 1px solid #333; color: #666;
-  padding: 4px 12px; cursor: pointer; font-family: inherit; font-size: 12px;
+  padding: 4px 12px; cursor: pointer; font-family: inherit; font-size: 11px;
 }
 .pp-back:hover { border-color: #F5A623; color: #F5A623; }
 
+/* ===== TITULO GLITCH ===== */
 .pp-title {
-  font-family: 'Share Tech Mono', monospace; font-size: 28px;
-  color: #F5A623; margin: 0; letter-spacing: 4px;
+  font-family: 'Courier New', monospace; font-size: 30px; color: #F5A623;
+  letter-spacing: 6px; margin: 0; position: relative; display: inline-block;
 }
-.pp-subtitle { font-size: 13px; color: #666; margin: 4px 0 0; }
+.pp-title-glitch {
+  position: relative; display: inline-block;
+}
+.pp-title-glitch::before, .pp-title-glitch::after {
+  content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.pp-title-glitch::before {
+  color: #8B0000; animation: pp-glitch-1 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+}
+.pp-title-glitch::after {
+  color: #FFD700; animation: pp-glitch-2 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+@keyframes pp-glitch-1 {
+  0%{transform:translate(0)} 20%{transform:translate(-2px,1px)} 100%{transform:translate(1px,-1px)}
+}
+@keyframes pp-glitch-2 {
+  0%{transform:translate(0)} 20%{transform:translate(2px,-1px)} 100%{transform:translate(-1px,1px)}
+}
+.pp-subtitle { font-size: 13px; color: #555; margin: 6px 0 0; }
+.pp-cursor { animation: pp-blink 1s step-end infinite; color: #F5A623; }
+@keyframes pp-blink { 50% { opacity: 0; } }
 
+/* ===== REP DISPLAY ===== */
+.pp-rep-display {
+  position: fixed; top: 12px; right: 20px; z-index: 20;
+  font-size: 13px; color: #FFD700; letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== SECTIONS ===== */
 .pp-section { margin: 24px 0; }
 .pp-section-label {
-  font-size: 11px; color: #555; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 10px; color: #444; letter-spacing: 4px; text-transform: uppercase;
   border-bottom: 1px solid #1a1a1a; padding-bottom: 6px; margin-bottom: 12px;
 }
 
-/* ===== MAPA ===== */
-.pp-mapa-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 10px;
+/* ===== MAPA SVG ===== */
+.pp-mapa-wrap { position: relative; width: 100%; min-height: 520px; margin: 16px 0; }
+.pp-mapa-svg { width: 100%; height: 100%; }
+.pp-mapa-line { fill: none; stroke: #1a1a1a; stroke-width: 2; transition: stroke 0.4s; }
+.pp-mapa-line--active { stroke: #F5A623; stroke-opacity: 0.4; }
+.pp-mapa-node { cursor: pointer; transition: transform 0.2s, opacity 0.2s; }
+.pp-mapa-node:hover { transform: scale(1.15); }
+.pp-mapa-node--disponivel { fill: #F5A623; animation: pp-pulse 2s ease-in-out infinite; }
+.pp-mapa-node--resolvido { fill: #22C55E; opacity: 0.5; cursor: default; }
+.pp-mapa-node--bloqueado { fill: #333; cursor: default; opacity: 0.3; }
+.pp-mapa-node--bloqueado:hover { transform: none; }
+@keyframes pp-pulse {
+  0%,100% { filter: drop-shadow(0 0 4px rgba(245,166,35,0.4)); }
+  50% { filter: drop-shadow(0 0 12px rgba(245,166,35,0.8)); }
 }
-.pp-mapa-node {
-  background: #0a0a0a; border: 1px solid #1a1a1a; padding: 14px;
-  cursor: pointer; transition: all 0.2s;
-  border-left: 4px solid #333; position: relative;
+.pp-mapa-tooltip {
+  position: absolute; pointer-events: none;
+  background: #111; border: 1px solid #F5A623; padding: 8px 12px;
+  font-size: 11px; color: #eee; white-space: nowrap; z-index: 30;
+  transform: translate(-50%, -120%);
 }
-.pp-mapa-node--disponivel { border-left-color: #F5A623; }
-.pp-mapa-node--disponivel:hover { border-left-color: #FFD700; transform: translateX(3px); }
-.pp-mapa-node--resolvido { border-left-color: #22C55E; opacity: 0.45; }
-.pp-mapa-node--bloqueado { border-left-color: #222; opacity: 0.35; cursor: default; }
+.pp-mapa-tooltip-name { color: #F5A623; font-weight: bold; }
+.pp-mapa-tooltip-diff { color: #888; font-size: 10px; }
 
-.pp-mapa-diff {
-  position: absolute; top: 8px; right: 10px;
-  font-size: 9px; color: #F5A623; letter-spacing: 2px;
+/* ===== BUTTONS ===== */
+.pp-btn {
+  display: inline-block; padding: 8px 20px; border: 1px solid #F5A623;
+  background: none; color: #F5A623; cursor: pointer; font-family: inherit; font-size: 12px;
+  letter-spacing: 3px; transition: all 0.15s;
 }
-.pp-mapa-nome { font-size: 15px; color: #eee; margin-bottom: 4px; }
-.pp-mapa-rep { font-size: 10px; color: #555; }
+.pp-btn:hover:not(:disabled) { background: rgba(245,166,35,0.1); border-color: #FFD700; }
+.pp-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.pp-btn--danger { border-color: #8B0000; color: #8B0000; }
+.pp-btn--danger:hover:not(:disabled) { background: rgba(139,0,0,0.1); }
+.pp-btn--primary {
+  background: linear-gradient(135deg, #F5A623 0%, #FFD700 100%);
+  color: #000; border: none; font-weight: bold; box-shadow: 0 0 16px rgba(245,166,35,0.2);
+}
+.pp-btn--primary:hover:not(:disabled) { box-shadow: 0 0 28px rgba(245,166,35,0.4); transform: translateY(-1px); }
 
 /* ===== ABERTURA ===== */
-.pp-abertura-dialogo { padding: 20px 0; }
+.pp-abertura-dialogo { padding: 12px 0; }
+.pp-dialogo-linha { margin-bottom: 14px; line-height: 1.6; font-size: 14px; }
 
 /* ===== INVESTIGACAO ===== */
-.pp-invest-local { padding: 8px 0; }
-.pp-invest-nome { font-size: 16px; color: #F5A623; margin-bottom: 6px; }
+.pp-invest-nome { font-size: 18px; color: #F5A623; margin-bottom: 4px; letter-spacing: 2px; }
 .pp-invest-desc {
-  font-size: 12px; color: #888; line-height: 1.6; margin-bottom: 16px;
-  border-left: 2px solid #F5A62333; padding-left: 12px; font-style: italic;
+  font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 16px;
+  border-left: 3px solid rgba(245,166,35,0.2); padding-left: 14px; font-style: italic;
 }
-.pp-invest-puzzle-area {
-  background: #0a0a0a; border: 1px solid #1a1a1a; padding: 16px; margin: 12px 0;
+
+/* ===== PUZZLE WRAPPER ===== */
+.pp-puzzle-area {
+  background: #080808; border: 1px dashed #2a2000; padding: 20px; margin: 16px 0;
   text-align: center;
 }
 
 /* ===== DOSSIER ===== */
 .pp-dossier-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .pp-dossier-suspeito {
-  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
   border: 1px solid #1a1a1a; margin-bottom: 4px; cursor: pointer; transition: all 0.15s;
+  position: relative;
 }
 .pp-dossier-suspeito:hover { border-color: #F5A623; }
 .pp-dossier-suspeito--acusado { border-left: 3px solid #EC4899; background: rgba(236,72,153,0.05); }
-.pp-dossier-suspeito--culpado { border-left: 3px solid #8B0000; background: rgba(139,0,0,0.05); }
 
 .pp-dossier-local {
-  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
-  border: 1px solid #1a1a1a; border-left: 3px solid #F5A623; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border: 1px solid #1a1a1a; border-left: 4px solid #F5A623; margin-bottom: 4px;
   cursor: pointer; transition: all 0.15s;
 }
-.pp-dossier-local:hover { border-color: #F5A623; background: rgba(245,166,35,0.03); }
-.pp-dossier-local--visitado { border-left-color: #22C55E; opacity: 0.5; }
-
-.pp-btn {
-  display: inline-block; padding: 8px 20px; border: 1px solid #F5A623;
-  background: none; color: #F5A623; cursor: pointer; font-family: inherit; font-size: 13px;
-  letter-spacing: 2px; transition: all 0.15s;
-}
-.pp-btn:hover:not(:disabled) { background: rgba(245,166,35,0.1); }
-.pp-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-.pp-btn--danger {
-  border-color: #8B0000; color: #8B0000;
-}
-.pp-btn--danger:hover:not(:disabled) { background: rgba(139,0,0,0.1); }
-
-.pp-btn--primary {
-  background: #F5A623; color: #000; border: none;
-  font-weight: bold;
-}
-.pp-btn--primary:hover:not(:disabled) { background: #FFD700; }
+.pp-dossier-local:hover { border-color: #F5A623; background: rgba(245,166,35,0.02); }
+.pp-dossier-local--visitado { border-left-color: #22C55E; opacity: 0.45; cursor: default; }
 
 /* ===== PISTA CARD ===== */
 .pp-pista-card {
-  background: rgba(0,0,0,0.25); border: 1px solid #1a1a1a;
-  border-left: 3px solid #F5A623; padding: 8px 12px; margin: 4px 0;
+  background: rgba(0,0,0,0.3); border: 1px solid #1a1a1a;
+  border-left: 3px solid #F5A623; padding: 10px 14px; margin: 4px 0; margin-bottom: 6px;
 }
-.pp-pista-tipo { font-size: 10px; color: #F5A623; letter-spacing: 1px; margin-bottom: 2px; }
-.pp-pista-texto { font-size: 11px; color: #C8C8C8; font-style: italic; line-height: 1.5; }
+.pp-pista-tipo { font-size: 9px; color: #F5A623; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+.pp-pista-texto { font-size: 12px; color: #C8C8C8; font-style: italic; line-height: 1.5; }
 .pp-pista-fio { border-left-color: #FFD700; animation: pp-fio-pulse 2s ease-in-out infinite; }
-@keyframes pp-fio-pulse { 0%, 100% { border-left-color: #FFD700; } 50% { border-left-color: #FFA50044; } }
+@keyframes pp-fio-pulse {
+  0%,100% { border-left-color: #FFD700; }
+  50% { border-left-color: rgba(255,215,0,0.2); }
+}
 
 /* ===== CADERNO ===== */
 .pp-caderno-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 12px; margin: 16px 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px; margin: 12px 0;
 }
 .pp-fio-card {
-  background: #0a0a0a; border: 1px solid #2a2000; padding: 12px;
-  border-left: 3px solid #FFD700;
+  background: #0a0a0a; border: 1px solid #2a2000; padding: 14px;
+  border-left: 4px solid #FFD700;
 }
-.pp-fio-card-vazia {
-  text-align: center; color: #555; font-style: italic; padding: 40px 20px;
-}
+.pp-fio-card-vazia { text-align: center; color: #444; font-style: italic; padding: 40px 20px; }
 
-/* ===== CONFRONTO ===== */
-.pp-combat-stats {
-  display: flex; justify-content: space-between; gap: 20px; margin-bottom: 16px;
+/* ===== COMBAT HUD (Arena-style) ===== */
+.pp-combat-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
 }
-.pp-combat-side { flex: 1; }
-.pp-combat-name { font-size: 14px; color: #F5A623; margin-bottom: 6px; }
-.pp-combat-hp-bar { height: 12px; background: #1a1a1a; overflow: hidden; margin-bottom: 4px; }
-.pp-combat-hp-fill { height: 100%; background: #22C55E; transition: width 0.4s ease; width: var(--hp-pct, 100%); }
-.pp-combat-hp-fill--danger { background: #8B0000; }
-.pp-combat-log {
+.pp-combat-side {
+  padding: 16px;
+  background: linear-gradient(135deg, #0a1f2a 0%, #0d0d0d 100%);
+  border: 1px solid #1a3a4a; border-top: 2px solid #00B4D8;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  position: relative;
+}
+.pp-combat-side::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 14px; height: 14px; background: #00B4D8;
+  clip-path: polygon(0 0, 100% 100%, 100% 0); opacity: 0.6;
+}
+.pp-combat-side h3 {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: #00B4D8; margin: 0 0 10px; font-family: 'Courier New', monospace;
+}
+.pp-combat-enemy {
+  background: linear-gradient(225deg, #1f0a0a 0%, #0d0d0d 100%);
+  border: 1px solid #4a1a1a; border-top: 2px solid #8B0000;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px);
+}
+.pp-combat-enemy::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 14px; height: 14px; background: #8B0000;
+  clip-path: polygon(0 0, 100% 0, 0 100%); opacity: 0.6;
+}
+.pp-combat-enemy h3 { color: #cc4444; }
+
+.pp-bar-wrap { margin-bottom: 8px; }
+.pp-bar-label { font-size: 10px; color: #555; display: block; margin-bottom: 3px; }
+.pp-bar { height: 10px; background: #1a1a1a; border: 1px solid #222; overflow: hidden; }
+.pp-bar-fill { height: 100%; transition: width 0.4s ease; width: var(--hp-pct, 100%); }
+.pp-bar-green { background: #22C55E; }
+.pp-bar-red { background: #8B0000; }
+.pp-bar-danger { background: #8B0000; animation: pp-bar-pulse 0.5s ease-in-out infinite alternate; }
+@keyframes pp-bar-pulse { from{opacity:1} to{opacity:0.5} }
+
+/* ===== CHAT LOG (Arena-style) ===== */
+.pp-chat-area {
   background: #060606; border: 1px solid #1a1a1a; padding: 10px;
-  max-height: 140px; overflow-y: auto; margin-bottom: 12px;
-  font-size: 11px; color: #888;
+  min-height: 100px; max-height: 160px; overflow-y: auto; margin-bottom: 12px;
 }
-.pp-combat-log-line { padding: 2px 0; border-bottom: 1px solid #111; }
+.pp-chat-feed { display: flex; flex-direction: column; gap: 2px; }
+.pp-chat-msg { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 6px; }
+.pp-chat-msg--player { flex-direction: row-reverse; }
+.pp-chat-avatar {
+  width: 28px; height: 28px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 10px; font-weight: bold;
+  flex-shrink: 0; font-family: 'Courier New', monospace;
+}
+.pp-chat-avatar--player { background: #0d2a35; border: 1px solid #00B4D8; color: #00B4D8; }
+.pp-chat-avatar--enemy { background: #2a0d0d; border: 1px solid #8B0000; color: #cc4444; }
+.pp-chat-bubble {
+  max-width: 80%; padding: 8px 12px; font-size: 11px; line-height: 1.4;
+  font-family: 'Courier New', monospace;
+}
+.pp-chat-bubble--player {
+  background: #0a1f2a; border: 1px solid #0d3040; border-bottom-right-radius: 2px; color: #00B4D8;
+}
+.pp-chat-bubble--enemy {
+  background: #1a0808; border: 1px solid #2a0d0d; border-bottom-left-radius: 2px; color: #cc5555;
+}
+.pp-chat-system {
+  text-align: center; font-size: 9px; color: #444; padding: 4px 0; border-bottom: 1px solid #111;
+}
 
-/* ===== RESOLUCAO ===== */
+/* ===== ONOMATOPEIA ===== */
+@keyframes pp-onoma-pop {
+  0%{transform:translate(-50%,-50%) scale(0.2) rotate(-12deg);opacity:0}
+  30%{transform:translate(-50%,-50%) scale(1.35) rotate(5deg);opacity:1}
+  50%{transform:translate(-50%,-50%) scale(0.9) rotate(-2deg);opacity:1}
+  65%{transform:translate(-50%,-50%) scale(1.05) rotate(1deg);opacity:1}
+  80%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:0.6}
+}
+.pp-onomatopeia {
+  position: fixed; top: 50%; left: 50%; z-index: 200; pointer-events: none;
+  font-family: 'Impact','Arial Black',sans-serif; font-size: 48px; color: #F5A623;
+  text-shadow: 3px 3px 0 #8B0000, 0 0 30px rgba(245,166,35,0.8), 0 0 60px rgba(245,166,35,0.4);
+  animation: pp-onoma-pop 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+
+/* ===== DICE OVERLAY ===== */
+.pp-dice-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 250; pointer-events: none;
+}
+.pp-dice-number {
+  line-height: 1; transition: font-size 0.2s, color 0.3s;
+  color: var(--dice-color, #fff); filter: var(--dice-glow, none);
+}
+.pp-dice-rolling { font-size: 80px; }
+.pp-dice-showing { font-size: 120px; }
+.pp-dice-crit {
+  --dice-glow: drop-shadow(0 0 30px #FFD700) drop-shadow(0 0 60px #F5A623);
+  --dice-color: #FFD700;
+}
+.pp-dice-label {
+  margin-top: 12px; font-size: 12px; letter-spacing: 6px;
+  font-family: 'Courier New', monospace; text-transform: uppercase; color: #888;
+}
+.pp-dice-label--crit { color: #FFD700; }
+
+/* ===== FLASH / FLOAT ===== */
+.pp-flash {
+  position: fixed; inset: 0; background: #ff0000; z-index: 190; pointer-events: none;
+}
+.pp-dmg-float {
+  position: fixed; font-family: 'Impact','Arial Black',sans-serif;
+  font-size: 26px; font-weight: bold; z-index: 220; pointer-events: none;
+}
+.pp-dmg-float--enemy { top: 20%; right: 15%; color: #F5A623; }
+.pp-dmg-float--player { top: 20%; left: 15%; color: #ff4444; }
+
+/* ===== ATTACK BTN ===== */
+.pp-atk-btn {
+  display: block; margin: 12px auto 0; width: fit-content; min-width: 200px;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #8B0000 0%, #a00000 100%);
+  border: 1px solid #cc0000; box-shadow: 0 0 20px rgba(139,0,0,0.4);
+  letter-spacing: 6px; color: #eee; cursor: pointer; font-family: inherit;
+  font-size: 15px; font-weight: bold;
+}
+.pp-atk-btn:hover:not(:disabled) {
+  box-shadow: 0 0 35px rgba(139,0,0,0.7); transform: translateY(-1px);
+}
+.pp-atk-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* ===== DORMINDO ===== */
+.pp-dormindo {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 60vh; text-align: center; padding: 40px 20px;
+}
+.pp-dormindo-title { font-size: 28px; color: #8B0000; letter-spacing: 6px; margin-bottom: 16px; }
+.pp-dormindo-text { color: #888; font-style: italic; max-width: 420px; line-height: 1.7; margin-bottom: 24px; }
+.pp-dormindo-timer { font-size: 48px; color: #F5A623; font-family: 'Courier New', monospace; letter-spacing: 4px; }
+
+/* ===== RESOLUCAO / FINAL ===== */
 .pp-resol-card { text-align: center; }
-.pp-resol-nome { font-size: 20px; color: #F5A623; margin-bottom: 8px; }
-.pp-resol-rep { font-size: 14px; color: #FFD700; margin: 12px 0; }
-.pp-resol-badge { display: inline-block; padding: 4px 12px; border: 1px solid #22C55E; color: #22C55E; font-size: 11px; letter-spacing: 2px; margin-bottom: 16px; }
-
-/* ===== FINAL ===== */
+.pp-resol-nome { font-size: 20px; color: #F5A623; margin-bottom: 8px; letter-spacing: 2px; }
+.pp-resol-badge {
+  display: inline-block; padding: 4px 14px; border: 1px solid #22C55E;
+  color: #22C55E; font-size: 10px; letter-spacing: 3px; margin-bottom: 16px;
+}
 .pp-final-completo { color: #FFD700; }
 .pp-final-fragmentado { color: #8B0000; }
 
-/* ===== UTIL ===== */
-.pp-header { padding: 20px 0; text-align: center; }
-.pp-rep-display {
-  position: fixed; top: 12px; right: 16px; z-index: 20;
-  font-size: 12px; color: #FFD700; letter-spacing: 2px;
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .pp-combat-grid { grid-template-columns: 1fr; }
+  .pp-combat-side, .pp-combat-enemy { clip-path: none; }
+  .pp-container { padding: 60px 14px 20px; }
 }
-.pp-flex-row { display: flex; gap: 12px; align-items: center; }
-.pp-mt { margin-top: 16px; }

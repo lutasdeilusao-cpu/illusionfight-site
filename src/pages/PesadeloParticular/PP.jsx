@@ -9,9 +9,10 @@ import CadernoSuspeitas from './screens/CadernoSuspeitas'
 import Confronto from './screens/Confronto'
 import Resolucao from './screens/Resolucao'
 import FinalScreen from './screens/FinalScreen'
+import Dormindo from './screens/Dormindo'
 import './PP.css'
 
-const PP_VERSION = '1.0.0'
+const PP_VERSION = '1.1.0'
 console.log(`[PP] versão carregada: ${PP_VERSION}`)
 
 export default function PP() {
@@ -34,7 +35,7 @@ export default function PP() {
 
   return (
     <div className="pp-page">
-      <div className="pp-scanlines" />
+      {fase === 'dormindo' && <Dormindo />}
       {fase === 'mapa' && <MapaCidade />}
       {fase === 'abertura' && <CasoAbertura />}
       {fase === 'investigar' && <Investigacao />}

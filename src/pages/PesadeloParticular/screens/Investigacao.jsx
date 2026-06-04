@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { usePPStore } from '../store/usePPStore'
 import { getCaso, getLocaisParaCaso, getPistasParaCaso } from '../data/resolver'
-import PuzzleDecoder from '../../../components/Puzzles/PuzzleDecoder'
-import PuzzleStealthGrid from '../../../components/Puzzles/PuzzleStealthGrid'
-import PuzzleSlidingTiles from '../../../components/Puzzles/PuzzleSlidingTiles'
-import PuzzleLabirinto from '../../../components/Puzzles/PuzzleLabirinto'
-import PuzzleAnagrama from '../../../components/Puzzles/PuzzleAnagrama'
+import PuzzleWrapper from '../components/PuzzleWrapper'
 import { useAuth } from '../../../context/AuthContext'
 
 export default function Investigacao() {
@@ -15,7 +11,7 @@ export default function Investigacao() {
   const caso = getCaso(store.casoAtivo)
   const [localIdx, setLocalIdx] = useState(0)
   const [puzzleAtivo, setPuzzleAtivo] = useState(false)
-  const [puzzleResolvido, setPuzzleResolvido] = useState(false)
+  const [pistaRevelada, setPistaRevelada] = useState(false)
 
   if (!caso || !store.casoDados) { store.setFase('mapa'); return null }
 
@@ -27,32 +23,35 @@ export default function Investigacao() {
   if (naoVisitados.length === 0) {
     return (
       <div className="pp-container">
-        <p className="pp-loading">Todos os locais foram investigados.</p>
-        <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>
-          VOLTAR AO DOSSIER
-        </button>
+        <div className="pp-section-label">Todos os locais foram investigados</div>
+        <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
       </div>
     )
   }
 
   const local = naoVisitados[localIdx]
-  const pistasLocal = pistas.filter(p => local.pistas.includes(p.id))
+  const pistasLocal = pistas.filter(p => local.pistas?.includes(p.id))
 
-  const handleRevelar = () => {
-    if (local.puzzle && !puzzleResolvido) {
+  const handlePuzzleSolve = (sucesso) => {
+    setPuzzleAtivo(false)
+    if (sucesso) {
+      store.visitarLocal(local.id)
+      pistasLocal.forEach(p => store.coletarPista(p.id, p.tipo))
+      setPistaRevelada(true)
+    } else {
+      store.danoHP(10)
+      if (user) store.saveToCloud(user.id)
+    }
+  }
+
+  const handleInvestigar = () => {
+    if (local.puzzle && local.puzzle !== 'nenhum') {
       setPuzzleAtivo(true)
       return
     }
     store.visitarLocal(local.id)
     pistasLocal.forEach(p => store.coletarPista(p.id, p.tipo))
-    setPuzzleResolvido(false)
-    setPuzzleAtivo(false)
-  }
-
-  const handleResolverPuzzle = () => {
-    setPuzzleResolvido(true)
-    setPuzzleAtivo(false)
-    handleRevelar()
+    setPistaRevelada(true)
   }
 
   if (!local) return null
@@ -60,25 +59,22 @@ export default function Investigacao() {
   return (
     <div className="pp-container">
       <button className="pp-back" onClick={() => store.setFase('dossier')}>← dossier</button>
+      <div className="pp-section-label">HP: {store.hp}/30</div>
 
-      <div className="pp-invest-local">
+      <div style={{ marginTop: 16 }}>
         <div className="pp-invest-nome">{local.nome}</div>
         <div className="pp-invest-desc">{local.desc}</div>
 
-        {puzzleAtivo && (
-          <div className="pp-invest-puzzle-area">
-            <p style={{ color: '#666', fontSize: 12, marginBottom: 12 }}>Resolva o puzzle para investigar este local.</p>
-            {local.puzzle === 'decoder' && <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={() => setPuzzleAtivo(false)} />}
-            {local.puzzle === 'stealth' && <PuzzleStealthGrid config={{ size: 4 }} onSolve={handleResolverPuzzle} onFail={() => setPuzzleAtivo(false)} />}
-            {local.puzzle === 'sliding' && <PuzzleSlidingTiles config={{ size: 3 }} onSolve={handleResolverPuzzle} onFail={() => setPuzzleAtivo(false)} />}
-            {local.puzzle === 'labirinto' && <PuzzleLabirinto onSolve={handleResolverPuzzle} onFail={() => setPuzzleAtivo(false)} />}
-            {local.puzzle === 'anagrama' && <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={() => setPuzzleAtivo(false)} />}
-            <button className="pp-btn" onClick={() => setPuzzleAtivo(false)} style={{ marginTop: 8 }}>voltar</button>
-          </div>
+        {puzzleAtivo && <PuzzleWrapper tipo={local.puzzle} onSolve={handlePuzzleSolve} />}
+
+        {!puzzleAtivo && !pistaRevelada && (
+          <button className="pp-btn pp-btn--primary" onClick={handleInvestigar}>
+            {local.puzzle && local.puzzle !== 'nenhum' ? 'INVESTIGAR (puzzle)' : 'INVESTIGAR'}
+          </button>
         )}
 
-        {!puzzleAtivo && (
-          <div>
+        {pistaRevelada && pistasLocal.length > 0 && (
+          <div style={{ marginTop: 12 }}>
             {pistasLocal.map(p => (
               <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
@@ -86,16 +82,18 @@ export default function Investigacao() {
                 <div className="pp-pista-texto">{p.texto}</div>
               </motion.div>
             ))}
-            <button className="pp-btn pp-btn--primary" style={{ marginTop: 12 }} onClick={handleRevelar}>
-              {local.puzzle ? `INVESTIGAR (puzzle)` : 'INVESTIGAR'}
-            </button>
-            {naoVisitados.length > 1 && (
-              <button className="pp-btn" style={{ marginTop: 8, marginLeft: 8 }}
-                onClick={() => setLocalIdx((localIdx + 1) % naoVisitados.length)}>
-                próximo local →
-              </button>
-            )}
           </div>
+        )}
+
+        {naoVisitados.length > 1 && pistaRevelada && (
+          <button className="pp-btn" style={{ marginTop: 12 }}
+            onClick={() => { setPistaRevelada(false); setLocalIdx((localIdx + 1) % naoVisitados.length) }}>
+            próximo local →
+          </button>
+        )}
+        {pistaRevelada && (
+          <button className="pp-btn pp-btn--primary" style={{ marginTop: 8, marginLeft: 8 }}
+            onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
         )}
       </div>
     </div>
