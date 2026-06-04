@@ -1,6 +1,23 @@
 # LDI ARENA MODE — Proposta de Extração
 
-*Data: 2026-06-04*
+*Data: 2026-06-04 | Baseado no Manual de Batalha v1.0*
+
+---
+
+## 0. MANUAL DE REFERÊNCIA
+
+**Arena Mode usa o Manual de Batalha completo:** `docs/importantes/MANUAL_BATALHA_LDI.md`
+
+Este documento de proposta descreve COMO implementar. O manual define O QUE implementar:
+- 30+ vantagens de batalha (vs 8 do LDI narrativo)
+- 20 desvantagens (vs 8)
+- 6 vantagens únicas (Sintético, Espírito, Predador, Metamorfo, Arcano, Predador Digital)
+- 4 escalas de poder (Ningen ×1, Sugoi ×10, Kiodai ×100, Kami ×1000)
+- 10 perícias de combate
+- 42 poderes elementais em 7 elementais
+- XP progressivo por faixa de atributo (10/20/30/50/100 XP)
+
+**O LDI narrativo NÃO MUDA.** Suas regras simplificadas continuam servindo ao propósito do jogo de história.
 
 ---
 
@@ -27,8 +44,7 @@ Extrair o sistema de criação de ficha + combate do **Lendas do LDI** para cria
 | `src/pages/LDI/engine/character.js` | `calcMaxPV()`, `calcMaxPM()`, `applyXP()`, `checkNearDeath()` — matemática pura |
 | `src/pages/LDI/store/useCombatStore.js` | Loop completo de combate: `startCombat()`, `executeAttack()`, `executeEnemyAttack()`, `endCombat()` — recebe `sheet` e `enemy` como argumentos, zero conhecimento de cenas |
 | `src/pages/LDI/data/enemies/enemies.json` | Dados estáticos de inimigos. Arena pode adicionar mais inimigos sem mexer no original |
-| `src/pages/LDI/data/characterData.js` | Vantagens, Desvantagens, Perícias, Especializações — dados estáticos |
-| `src/pages/LDI/data/powersData.js` | 42 poderes em 7 elementais — dados estáticos |
+| `src/pages/LDI/data/powersData.js` | 42 poderes em 7 elementais — compatível com ambos os sistemas |
 
 ### 2.2 ARQUIVOS DUPLICADOS (adaptação da lógica existente)
 
@@ -68,8 +84,8 @@ Extrair o sistema de criação de ficha + combate do **Lendas do LDI** para cria
   match: {
     enemy_id,           // qual inimigo está enfrentando
     round: 1,           // round atual (opcional, para scaling)
-    pv_current: 20,     // PV no início do combate (calculado de R × 5)
-    pm_current: 8,      // PM no início do combate (calculado de PdF × 4)
+    pv_current: 20,     // PV no início do combate (R × 5)
+    pm_current: 10,      // PM no início do combate (R × 5 no Arena, vs PdF × 4 no LDI narrativo)
     score: 0,           // placar de vitórias
     status: 'idle',     // idle | fighting | victory | defeat
   },
@@ -186,7 +202,9 @@ Extrair o sistema de criação de ficha + combate do **Lendas do LDI** para cria
 ```
 
 ### 5.2 ArenaCreate.jsx
-**Função:** Criação de ficha (reaproveita UI do LDI Create.jsx).
+**Função:** Criação de ficha usando o Manual de Batalha completo.
+
+**Diferença do LDI narrativo:** A Arena usa o sistema expandido de vantagens (30+), desvantagens (20), vantagens únicas (6) e escalas de poder. O LDI narrativo mantém seu sistema simplificado de 8 vantagens e 8 desvantagens.
 
 Campos:
 - Nome do lutador (input)
