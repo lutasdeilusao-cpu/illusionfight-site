@@ -4,6 +4,9 @@ import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, 
 import { useFichas } from '../../context/FichasContext'
 import './MiniGames.css'
 
+const MINIGAMES_VERSION = '1.0.0'
+console.log(`[MINIGAMES] versão carregada: ${MINIGAMES_VERSION}`)
+
 const GAMES = [
   { id: 'stealth', nome: 'Infiltração', tagline: 'evite as câmeras. chegue ao objetivo.', emoji: '🥷', cor: '#00B4D8', desc: 'câmeras com cone de visão rotativo. uma rota existe. encontre.', dificuldade: '★★☆' },
   { id: 'decoder', nome: 'Decoder', tagline: 'mensagem cifrada. descubra o código.', emoji: '📡', cor: '#F5A623', desc: 'cada símbolo representa uma letra. decodifique antes do tempo acabar.', dificuldade: '★☆☆' },
@@ -122,12 +125,14 @@ export default function MiniGames() {
               {!podeElite && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
             </div>
           </div>
-          <div className="mg-dif-card mg-dif-card--locked mg-dif-card--hard">
+          <div className={`mg-dif-card mg-dif-card--hard ${!podeElite ? 'mg-dif-card--locked' : ''}`}
+            onClick={() => podeElite && iniciarJogo(jogoAtivo, 'hard')}>
             <div className="mg-dif-card-inner">
-              <span className="mg-dif-nivel">DIFÍCIL</span><span className="mg-dif-emoji">🔴</span>
+              <span className="mg-dif-nivel">DIFÍCIL</span><span className="mg-dif-emoji">{podeElite ? '🔴' : '🔒'}</span>
               <div className="mg-dif-specs"><span>grid 12×12</span><span>7 câmeras</span><span>⏱ 90s</span></div>
               <div className="mg-dif-preview mg-dif-preview--hard">{Array.from({length:144}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
-              <span className="mg-dif-badge mg-dif-badge--locked">EM BREVE</span>
+              <span className={`mg-dif-badge ${podeElite ? 'mg-dif-badge--elite' : 'mg-dif-badge--locked'}`}>{podeElite ? 'ELITE' : 'ELITE+'}</span>
+              {!podeElite && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
             </div>
           </div>
         </div>

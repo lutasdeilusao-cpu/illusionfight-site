@@ -70,7 +70,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const cameraCountConfig = config.cameraCount || Math.min(size - 1, 3)
   const isMobile = window.innerWidth < 600
 
-  const viewportCells = isMobile ? Math.min(6, size) : size
+  const viewportCells = isMobile ? (size >= 12 ? 7 : Math.min(6, size)) : size
   const viewportPx = viewportCells * CELL_SIZE
 
   const [playerPos, setPlayerPos] = useState({ r: 0, c: 0 })
@@ -88,10 +88,11 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   const goalPos = { r: size-1, c: size-1 }
 
-  console.log('[STEALTH] mobile:', isMobile, '| size:', size, '| viewportCells:', viewportCells, '| zoom:', zoom)
+    console.log('[STEALTH] size:', size, '| maxTentativas:', maxTentativas, '| tentativas usadas:', tentativas)
 
   useEffect(() => {
     let camsValidas, visionValida
+    const maxTentativas = size >= 12 ? 30 : size >= 8 ? 20 : 10
     let tentativas = 0
     do {
       camsValidas = gerarCameras(size, cameraCountConfig)
@@ -100,7 +101,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       visionValida.delete(`${size-1},${size-1}`)
       tentativas++
       console.log(`[STEALTH] tentativa ${tentativas} | caminho livre:`, temCaminhoLivre(visionValida, camsValidas, size))
-    } while (!temCaminhoLivre(visionValida, camsValidas, size) && tentativas < 10)
+    } while (!temCaminhoLivre(visionValida, camsValidas, size) && tentativas < maxTentativas)
     setCameras(camsValidas)
     setVisionCells(visionValida)
 
@@ -208,7 +209,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   }
 
   const distToGoal = Math.abs(playerPos.r - goalPos.r) + Math.abs(playerPos.c - goalPos.c)
-  const showGoalArrow = isMobile && distToGoal > viewportCells && zoom < 3
+  const showGoalArrow = isMobile && (distToGoal > viewportCells || size >= 12) && zoom < 3
   const goalArrowDir = (() => {
     const dr = goalPos.r - playerPos.r
     const dc = goalPos.c - playerPos.c
