@@ -24,8 +24,8 @@ Personagens recém-criados nunca podem ter nenhum atributo acima de 5, independe
 Recursos Derivados
 Pontos de Vida (PV): R × 5
 Representa a barra de energia do lutador na arena. Ao chegar a zero, o lutador vai a teste de morte.
-Pontos de Magia (PM): R × 5
-Combustível para ativar vantagens, poderes elementais e manobras especiais. Qualquer lutador pode ter vantagens que custam PM mesmo sem ser um usuário elemental avançado.
+Pontos de Magia (PM): PdF × 5
+Combustível para ativar vantagens, poderes elementais e manobras especiais. Vem do poder elemental — quanto mais afinidade elemental, mais energia para gastar.
 Iniciativa: H + 1d6
 Determina quem age primeiro em cada turno.
 
@@ -550,7 +550,7 @@ DANO: FA - FD (mínimo 0)
 CRÍTICO: Dado = 6 → dobra F, PdF ou A no cálculo
 
 PV: R × 5
-PM: R × 5
+PM: PdF × 5
 
 PERTO DA MORTE: PV ≤ R (mínimo 5 PV)
 Checklist de Criação

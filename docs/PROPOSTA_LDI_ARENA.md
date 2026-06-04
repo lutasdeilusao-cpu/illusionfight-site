@@ -23,7 +23,7 @@ Este documento de proposta descreve COMO implementar. O manual define O QUE impl
 
 | Regra | LDI Narrativo | LDI Arena |
 |---|---|---|
-| PM | `PdF × 4` (balanceamento história — menos PM incentiva gestão de recursos) | `R × 5` (Manual de Batalha — mais PM permite combates mais longos e táticos) |
+| PM | `PdF × 4` (balanceamento história — menos PM incentiva gestão de recursos) | `PdF × 5` (Manual de Batalha — PM vem do poder elemental, mais charmoso) |
 | Vantagens | 8 (sistema simplificado para jogo de história) | 30+ (sistema completo, requer UI de seleção robusta) |
 | Desvantagens | 8 | 20 |
 | Vantagens Únicas | Não existem | 6 (Sintético, Espírito, Predador, Metamorfo, Arcano, Predador Digital) |
@@ -106,8 +106,8 @@ O `enemies.json` do LDI narrativo **não deve ser compartilhado** porque:
   match: {
     enemy_id,           // qual inimigo está enfrentando
     round: 1,           // round atual (opcional, para scaling)
-    pv_current: 20,     // PV no início do combate (R × 5)
-    pm_current: 10,      // PM no início do combate (R × 5 no Arena, vs PdF × 4 no LDI narrativo)
+    pv_current: 20,     // PV = R × 5
+    pm_current: 10,      // PM = PdF × 5 (poder elemental define mana)
     score: 0,           // placar de vitórias
     status: 'idle',     // idle | fighting | victory | defeat
   },
