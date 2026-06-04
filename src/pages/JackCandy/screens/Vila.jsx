@@ -4,6 +4,7 @@ import { useJackStore } from '../store/useJackStore'
 import { NPCS } from '../data/npcs'
 import { MONOLOGUES } from '../data/monologues'
 import { getCidade, getLocaisVisiveis, getCidadeNavegacao } from '../data/cidades'
+import { CASOS } from '../data/casos'
 
 export default function Vila() {
   const store = useJackStore()
@@ -62,6 +63,19 @@ export default function Vila() {
   }
   const nextId = getNextObjectiveId()
 
+  // Verificar casos disponíveis nesta cidade
+  const casoDisponivel = Object.values(CASOS).find(c => {
+    if (store.casosResolvidos?.includes(c.id)) return false
+    if (store.casoAtivo) return false
+    if (c.flagRequisito && !store.flags[c.flagRequisito]) return false
+    if (c.cidade !== cidadeId && c.cidade !== 'revisita') return false
+    // Caso 4: revisita em qualquer cidade, precisa dos 3 anteriores resolvidos
+    if (c.cidade === 'revisita') {
+      return store.casosResolvidos?.length >= 3
+    }
+    return true
+  })
+
   const irParaCidade = (id) => {
     if (id === 'auranis' && !store.flags.AURANIS_LIBERADO) return
     if (id === 'karnazar' && !store.flags.KARNAZAR_LIBERADO) return
@@ -106,6 +120,32 @@ export default function Vila() {
 
       {/* Grid de locais */}
       <div className="jdc-vila-grid">
+        {/* Caso disponível — card destacado */}
+        {casoDisponivel && (
+          <motion.button
+            className="jdc-vila-card jdc-vila-card--glow"
+            onClick={() => {
+              store.iniciarCaso(casoDisponivel.id, casoDisponivel.suspeitos)
+              store.setMonologo(casoDisponivel.abertura[0])
+            }}
+            whileHover={{ scale: 1.03, borderColor: '#EC4899' }}
+            whileTap={{ scale: 0.97 }}
+            style={{ borderLeftColor: '#EC4899', gridColumn: '1 / -1' }}
+          >
+            <div className="jdc-vila-card-emoji">📋</div>
+            <div className="jdc-vila-card-info">
+              <span className="jdc-vila-card-nome" style={{ color: '#EC4899' }}>
+                NOVO CASO
+              </span>
+              <span className="jdc-vila-card-desc">{casoDisponivel.nome}</span>
+              <span className="jdc-vila-card-detail" style={{ color: '#EC4899' }}>
+                {casoDisponivel.cliente ? `cliente: ${casoDisponivel.cliente}` : 'sem cliente'}
+              </span>
+            </div>
+            <div className="jdc-vila-card-arrow" style={{ color: '#EC4899' }}>→</div>
+          </motion.button>
+        )}
+
         {locais.map(local => {
           const locked = local.requerFlag && !store.flags[local.requerFlag]
           const done = store.flags[local.requerFlag] && local.interior === false && !local.npc

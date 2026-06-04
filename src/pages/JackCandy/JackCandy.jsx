@@ -13,6 +13,9 @@ import Interior from './screens/Interior'
 import Inventario from './screens/Inventario'
 import Dungeon from './screens/Dungeon'
 import Descanso from './screens/Descanso'
+import Dossier from './screens/Dossier'
+import Investigacao from './screens/Investigacao'
+import Interrogatorio from './screens/Interrogatorio'
 import DungeonSelect from './screens/DungeonSelect'
 import { MONOLOGUES } from './data/monologues'
 import './JackCandy.css'
@@ -144,6 +147,9 @@ export default function JackCandy() {
         {fase === 'dungeon_select' && <DungeonSelect />}
         {isInterior && <Interior npcId={npcId} />}
         {isDungeon && <Dungeon dungeonId={dungeonId} />}
+        {fase === 'dossier' && <Dossier />}
+        {fase?.startsWith('investigar_') && <Investigacao localId={fase.replace('investigar_', '')} />}
+        {fase === 'interrogatorio' && <Interrogatorio />}
       </div>
 
       <DicaToast />

@@ -1,4 +1,4 @@
-const JACK_VERSION = '2.2.2'
+const JACK_VERSION = '3.0.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -25,6 +25,9 @@ function persistLocal(state) {
       cidadeAtual: state.cidadeAtual, periodo: state.periodo,
       medidorPrimordial: state.medidorPrimordial,
       aliadoAtual: state.aliadoAtual,
+      casoAtivo: state.casoAtivo, pistasColetadas: state.pistasColetadas,
+      suspeitos: state.suspeitos, locaisVisitados: state.locaisVisitados,
+      acusacoesErradas: state.acusacoesErradas, casosResolvidos: state.casosResolvidos,
       _slot: state._slot,
     }))
   } catch (_) {}
@@ -39,6 +42,9 @@ const defaultState = {
   tempoJogo: 0, titleDone: false, monologoAtual: null,
   cidadeAtual: 'marelia', periodo: 'DIA',
   medidorPrimordial: 0, aliadoAtual: null,
+  // Investigação
+  casoAtivo: null, pistasColetadas: [], suspeitos: [],
+  locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
   _userId: null,
   _slot: null,
 }
@@ -87,6 +93,55 @@ export const useJackStore = create((set, get) => {
       return { medidorPrimordial: novo }
     }),
     zerarMedidor: () => set({ medidorPrimordial: 0 }),
+
+    // === Investigação ===
+    iniciarCaso: (casoId, suspeitosIniciais) => set({
+      casoAtivo: casoId,
+      pistasColetadas: [],
+      suspeitos: suspeitosIniciais.map(s => ({ ...s, status: 'ativo' })),
+      locaisVisitados: [],
+      acusacoesErradas: 0,
+      fase: 'dossier',
+    }),
+
+    coletarPista: (pistaId) => set(state => ({
+      pistasColetadas: [...state.pistasColetadas, pistaId],
+    })),
+
+    visitarLocal: (localId) => set(state => ({
+      locaisVisitados: [...state.locaisVisitados, localId],
+    })),
+
+    eliminarSuspeito: (suspeitoId) => set(state => ({
+      suspeitos: state.suspeitos.map(s =>
+        s.id === suspeitoId ? { ...s, status: 'eliminado' } : s
+      ),
+    })),
+
+    acusar: (suspeitoId) => {
+      set(state => ({
+        suspeitos: state.suspeitos.map(s =>
+          s.id === suspeitoId ? { ...s, status: 'acusado' } : s
+        ),
+      }))
+      return get()
+    },
+
+    acusacaoErrada: () => set(state => ({
+      acusacoesErradas: state.acusacoesErradas + 1,
+      cervejas: Math.max(0, state.cervejas - 50),
+      monologoAtual: 'errei. típico. pelo menos não cobrei adiantado.',
+    })),
+
+    resolverCaso: (flagResolucao) => set(state => ({
+      casosResolvidos: [...state.casosResolvidos, state.casoAtivo],
+      flags: { ...state.flags, [flagResolucao]: true },
+      casoAtivo: null,
+      pistasColetadas: [],
+      suspeitos: [],
+      locaisVisitados: [],
+      acusacoesErradas: 0,
+    })),
 
     // Compat: wrapper para dungeon (renomeado internamente)
     ganharCapangas: (qtd) => {
@@ -244,6 +299,9 @@ export const useJackStore = create((set, get) => {
         tempo_jogo: state.tempoJogo, title_done: state.titleDone,
         cidade_atual: state.cidadeAtual, periodo: state.periodo,
         medidor_primordial: state.medidorPrimordial,
+        caso_ativo: state.casoAtivo, pistas_coletadas: state.pistasColetadas,
+        suspeitos: state.suspeitos, locais_visitados: state.locaisVisitados,
+        acusacoes_erradas: state.acusacoesErradas, casos_resolvidos: state.casosResolvidos,
         version: JACK_VERSION,
       }
       const { data } = await supabase.from('jack_saves').select('id').eq('user_id', uid).maybeSingle()
@@ -267,6 +325,9 @@ export const useJackStore = create((set, get) => {
           tempoJogo: data.tempo_jogo ?? 0, titleDone: data.title_done ?? false,
           cidadeAtual: data.cidade_atual ?? 'marelia', periodo: data.periodo ?? 'DIA',
           medidorPrimordial: data.medidor_primordial ?? 0,
+          casoAtivo: data.caso_ativo ?? null, pistasColetadas: data.pistas_coletadas ?? [],
+          suspeitos: data.suspeitos ?? [], locaisVisitados: data.locais_visitados ?? [],
+          acusacoesErradas: data.acusacoes_erradas ?? 0, casosResolvidos: data.casos_resolvidos ?? [],
           _userId: userId,
         })
         return true
