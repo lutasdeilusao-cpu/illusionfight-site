@@ -92,14 +92,21 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
   }, [sliders, targets, done, attempts, allAligned, cfg])
 
   const updateSlider = (idx, val) => { setSliders(prev => prev.map((s, i) => i === idx ? val : s)) }
-  const timerColor = timeLeft <= 10 ? '#8B0000' : timeLeft <= 20 ? '#F5A623' : '#555'
 
   return (
     <div className="puzzle-container">
       <div className="puzzle-title">📡 Decodificador de Frequência</div>
       <p className="puzzle-desc">sintonize {cfg.bars > 1 ? 'todas as frequências' : 'na frequência correta'} para decifrar a mensagem.</p>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.3rem' }}>
-        <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: timerColor }}>⏱ {timeLeft}s</span>
+        <span style={{
+          fontFamily: "'Share Tech Mono',monospace",
+          fontSize: timeLeft <= 10 ? '1.1rem' : timeLeft <= 20 ? '0.9rem' : '0.75rem',
+          color: timeLeft <= 10 ? '#DC143C' : timeLeft <= 20 ? '#F5A623' : '#888',
+          fontWeight: timeLeft <= 20 ? 'bold' : 'normal',
+          animation: timeLeft <= 10 ? 'timer-urgent 0.5s ease-in-out infinite' : timeLeft <= 20 ? 'timer-warn 1s ease-in-out infinite' : 'none',
+          transition: 'font-size 0.3s, color 0.3s',
+          letterSpacing: '0.1em',
+        }}>⏱ {timeLeft}s</span>
         <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: '#555' }}>tentativas: {attempts}/{cfg.attempts}</span>
       </div>
       <Waveform sliders={sliders} targets={targets} tolerance={cfg.tolerance} solved={solved} heartbeat={heartbeat} />
