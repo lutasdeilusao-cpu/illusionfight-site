@@ -404,13 +404,113 @@
   letter-spacing: 0.05em;
 }
 
-/* ===== VILA ===== */
+/* ===== VILA 2.0 ===== */
 
-.jdc-vila {
-  background: rgba(0,0,0,0.3);
-  border: 1px solid #1a1a1a;
-  padding: 0.75rem;
+.jdc-vila-bg {
   text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+  filter: grayscale(0.5);
+}
+
+.jdc-vila-skyline {
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.jdc-vila-street {
+  font-family: 'Share Tech Mono', monospace;
+  color: #444;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.jdc-vila-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-vila-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid #1a1a1a;
+  border-left: 3px solid #F5A623;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.jdc-vila-card:hover:not(:disabled) {
+  background: rgba(0,0,0,0.4);
+  border-color: #444;
+}
+
+.jdc-vila-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.jdc-vila-card--done {
+  border-left-color: #22C55E;
+  opacity: 0.6;
+}
+
+.jdc-vila-card--done:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.jdc-vila-card-emoji {
+  font-size: 1.3rem;
+  min-width: 28px;
+  text-align: center;
+}
+
+.jdc-vila-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.jdc-vila-card-nome {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.jdc-vila-card-desc {
+  display: block;
+  font-size: 0.65rem;
+  color: #666;
+}
+
+.jdc-vila-card-detail {
+  display: block;
+  font-size: 0.6rem;
+  color: #F5A623;
+  margin-top: 0.15rem;
+}
+
+.jdc-vila-card-arrow {
+  font-size: 1rem;
+  min-width: 16px;
+  text-align: center;
+}
+
+.jdc-vila-legend {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #444;
 }
 
 .jdc-vila-title {
