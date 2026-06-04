@@ -24,19 +24,18 @@ export default function DungeonSelect() {
               key={d.id}
               className={`jdc-vila-npc-btn ${bloqueada ? 'jdc-vila-npc-btn--locked' : ''}`}
               onClick={() => {
-                if (completa) return
                 if (bloqueada) return
                 store.setFase(`dungeon_${d.id}`)
               }}
-              disabled={bloqueada || completa}
+              disabled={bloqueada}
             >
               <span className="jdc-vila-npc-icon">
-                {completa ? '✅' : bloqueada ? '🔒' : '⚔️'}
+                {completa ? '🔄' : bloqueada ? '🔒' : '⚔️'}
               </span>
               <span className="jdc-vila-npc-nome">{d.nome}</span>
               <span className="jdc-vila-npc-desc">{d.desc}</span>
               <span className="jdc-vila-npc-desc">
-                {completa ? 'completa' : `${d.inimigos} inimigos · ${d.dropCap} cap`}
+                {completa ? `rejogar (${Math.floor(d.dropCap / 2)} cap)` : `${d.inimigos} inimigos · ${d.dropCap} cap`}
                 {d.dropNotas > 0 ? `, ${d.dropNotas} notas` : ''}
               </span>
             </button>

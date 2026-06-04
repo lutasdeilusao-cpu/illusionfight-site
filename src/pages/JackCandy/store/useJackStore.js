@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.4.2'
+const JACK_VERSION = '1.4.3'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -115,8 +115,8 @@ export const useJackStore = create((set, get) => {
             arma: { ...state.equipado.arma, dano: (state.equipado.arma?.dano || 0) + item.danoBonus },
           }
         }
-        // Só adiciona ao inventário itens SEM slot (ex: consumíveis, upgrades)
-        if (!item.slot) {
+        // Só adiciona ao inventário itens SEM slot E SEM danoBonus (consumíveis)
+        if (!item.slot && !item.danoBonus) {
           novoState.inventario = [...state.inventario.filter(i => i.id !== itemId), { id: item.id, nome: item.nome }]
         }
         return novoState
