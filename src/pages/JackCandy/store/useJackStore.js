@@ -1,4 +1,4 @@
-const JACK_VERSION = '0.2.0'
+const JACK_VERSION = '0.2.1'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -34,7 +34,7 @@ function loadSave() {
 function persist(state) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      balas: state.balas, balasTotais: state.balasTotais,
+      capangas: state.capangas, capangasTotais: state.capangasTotais,
       notas: state.notas, inventario: state.inventario,
       flags: state.flags, fase: state.fase,
       titleDone: state.titleDone, pajéApareceu: state.pajéApareceu,
@@ -48,7 +48,7 @@ function persist(state) {
 }
 
 const defaultState = {
-  balas: 0, balasTotais: 0, notas: 0,
+  capangas: 0, capangasTotais: 0, notas: 0,
   inventario: [], flags: {}, fase: 'inicio',
   titleDone: false, pajéApareceu: false, mostraBarraca: false,
   monologoAtual: null,
@@ -72,21 +72,21 @@ export const useJackStore = create((set, get) => {
 
     tick: () => {
       set(state => {
-        const b = state.balas + 1
-        const t = state.balasTotais + 1
-        const m = t > 0 && t % 500 === 0 ? 'as balas continuavam chegando. como sempre. como todo dia.' : state.monologoAtual
-        return { balas: b, balasTotais: t, monologoAtual: m }
+        const b = state.capangas + 1
+        const t = state.capangasTotais + 1
+        const m = t > 0 && t % 500 === 0 ? 'os capangas continuavam chegando. como sempre. como todo dia.' : state.monologoAtual
+        return { capangas: b, capangasTotais: t, monologoAtual: m }
       })
     },
 
-    guardar: () => set(state => ({ monologoAtual: `você guardou as balas. ${state.balas} balas seguras no bolso.` })),
-    rolarNoChao: () => set(state => ({ balas: 0, monologoAtual: `você jogou ${state.balas} balas no chão. foram longe.` })),
+    guardar: () => set(state => ({ monologoAtual: `você empilhou os capangas. ${state.capangas} corpos no chão.` })),
+    rolarNoChao: () => set(state => ({ capangas: 0, monologoAtual: `você jogou ${state.capangas} capangas pela janela. foram longe.` })),
 
     comprarBengala: () => {
       set(state => {
-        if (state.balas < 100 || state.flags.TEM_BENGALA) return state
+        if (state.capangas < 100 || state.flags.TEM_BENGALA) return state
         return {
-          balas: state.balas - 100,
+          capangas: state.capangas - 100,
           inventario: [...state.inventario, { id: 'bengala_steampunk', nome: 'Bengala Steampunk', desc: 'bengala de madeira com engrenagens douradas. parece pesada. parece certa.', icone: '⚙' }],
           flags: { ...state.flags, TEM_BENGALA: true },
           danoBengala: 1,
@@ -125,14 +125,14 @@ export const useJackStore = create((set, get) => {
       let inimigosRestantes = state.questInimigosRestantes
       let resultado = null
       let hp = state.questHp
-      let balas = state.balas
+      let capangas = state.capangas
       let inimsRest = inimigosRestantes
       let monologo = null
 
       if (step >= totalSteps) {
         const completa = !state.areasCompletas.includes(area.id)
         const recompensa = completa ? area.recompensa : Math.floor(area.recompensa / 2)
-        balas += recompensa
+        capangas += recompensa
         const novasAreas = completa ? [...state.areasCompletas, area.id] : state.areasCompletas
         const novoItem = completa && area.item ? [...state.inventario, area.item] : state.inventario
         if (area.id === 'boteco' && completa && !state.flags.KIM_LIBERADO) {
@@ -140,7 +140,7 @@ export const useJackStore = create((set, get) => {
         }
         set({
           questAtiva: null, questStep: 0, questProgress: 0, questInimigosRestantes: 0,
-          questResultado: 'completo', balas, inventario: novoItem,
+          questResultado: 'completo', capangas, inventario: novoItem,
           areasCompletas: novasAreas, monologoAtual: monologo,
           flags: { ...state.flags, [`${area.id.toUpperCase()}_COMPLETO`]: true, ...(area.id === 'boteco' && completa ? { KIM_LIBERADO: true } : {}) },
         })
@@ -180,10 +180,10 @@ export const useJackStore = create((set, get) => {
     comprarUpgradeBengala: () => {
       const custo = (get().danoBengala || 1) >= 3 ? 300 : 200
       set(state => {
-        if (state.balas < custo) return state
+        if (state.capangas < custo) return state
         const novoDano = (state.danoBengala || 1) + 1
         return {
-          balas: state.balas - custo,
+          capangas: state.capangas - custo,
           danoBengala: novoDano,
           monologoAtual: `a bengala parece mais pesada agora. dano: +${novoDano}.`,
         }
@@ -192,9 +192,9 @@ export const useJackStore = create((set, get) => {
 
     comprarPocao: () => {
       set(state => {
-        if (state.balas < 50) return state
+        if (state.capangas < 50) return state
         return {
-          balas: state.balas - 50,
+          capangas: state.capangas - 50,
           questMaxHp: state.questMaxHp + 1,
           questHp: Math.min(state.questMaxHp + 1, state.questHp + 2),
           inventario: [...state.inventario, { id: 'pocao_energetico', nome: 'Poção Energética', desc: 'lata amassada. gosto de infância.', icone: '🥫', consumivel: true }],

@@ -53,13 +53,13 @@ function TypewriterText({ text, speed = 50, onDone }) {
 }
 
 const NARRACOES = {
-  inicio: "sonhos não têm lógica. esse tem balas.",
+  inicio: "sonhos não têm lógica. esse tem capangas.",
 }
 
 export default function JackCandy() {
   const { setReaderMode } = useReader()
   const store = useJackStore()
-  const [tab, setTab] = useState('balas')
+  const [tab, setTab] = useState('capangas')
   const [titleText, setTitleText] = useState('')
   const [showTitle, setShowTitle] = useState(false)
   const [showPajeIntro, setShowPajeIntro] = useState(false)
@@ -73,7 +73,7 @@ export default function JackCandy() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Auto-tick balas a cada segundo
+  // Auto-tick capangas a cada segundo
   useEffect(() => {
     tickRef.current = setInterval(() => store.tick(), 1000)
     return () => clearInterval(tickRef.current)
@@ -96,16 +96,16 @@ export default function JackCandy() {
     return () => clearInterval(t)
   }, [])
 
-  // Pajé aparece com 100 balas
+  // Pajé aparece com 100 capangas
   useEffect(() => {
-    if (store.balas >= 100 && !store.pajéApareceu) {
+    if (store.capangas >= 100 && !store.pajéApareceu) {
       setShowPajeIntro(true)
       setTimeout(() => {
         setShowPajeFala(true)
         useJackStore.setState({ pajéApareceu: true })
       }, 2000)
     }
-  }, [store.balas, store.pajéApareceu])
+  }, [store.capangas, store.pajéApareceu])
 
   const handleCloseMonologo = useCallback(() => {
     store.limparMonologo()
@@ -145,20 +145,20 @@ export default function JackCandy() {
         {/* Tabs (after bengala) */}
         {store.flags.TEM_BENGALA && (
           <div className="jack-tabs">
-            <button className={`jack-tab ${tab === 'balas' ? 'jack-tab--active' : ''}`} onClick={() => setTab('balas')}>balas</button>
+            <button className={`jack-tab ${tab === 'capangas' ? 'jack-tab--active' : ''}`} onClick={() => setTab('capangas')}>capangas</button>
             <button className={`jack-tab ${tab === 'inventario' ? 'jack-tab--active' : ''}`} onClick={() => setTab('inventario')}>inventário</button>
           </div>
         )}
 
-        {/* Bala counter */}
-        {showTitle && (tab === 'balas' || !store.flags.TEM_BENGALA) && (
+        {/* Capanga counter */}
+        {showTitle && (tab === 'capangas' || !store.flags.TEM_BENGALA) && (
           <>
-            <p className="jack-counter">balas: {store.balas}</p>
+            <p className="jack-counter">capangas: {store.capangas}</p>
 
-            {store.balas < 100 && (
+            {store.capangas < 100 && (
               <div className="jack-buttons">
                 <button className="jack-btn" onClick={store.guardar}>[ guardar ]</button>
-                <button className="jack-btn jack-btn--crimson" onClick={store.rolarNoChao} disabled={store.balas <= 0}>[ rolar no chão ]</button>
+                <button className="jack-btn jack-btn--crimson" onClick={store.rolarNoChao} disabled={store.capangas <= 0}>[ rolar no chão ]</button>
               </div>
             )}
           </>
@@ -203,7 +203,7 @@ export default function JackCandy() {
                     'o pajé acena. "volta quando quiser, fio."'
                   ) : (
                     <>
-                      <p><span className="jack-text--amber">Bengala Steampunk</span> — 100 balas</p>
+                      <p><span className="jack-text--amber">Bengala Steampunk</span> — 100 capangas</p>
                       <p>bengala de madeira com engrenagens douradas. parece pesada. parece certa.</p>
                     </>
                   )}
@@ -213,9 +213,9 @@ export default function JackCandy() {
                     <button
                       className="jack-btn jack-btn--amber"
                       onClick={store.comprarBengala}
-                      disabled={store.balas < 100}
+                      disabled={store.capangas < 100}
                     >
-                      {store.balas >= 100 ? '[ comprar ]' : `[ precisa de ${100 - store.balas} balas ]`}
+                      {store.capangas >= 100 ? '[ comprar ]' : `[ precisa de ${100 - store.capangas} capangas ]`}
                     </button>
                   )}
                   <button className="jack-btn" onClick={store.fecharBarraca}>[ sair ]</button>
@@ -245,7 +245,7 @@ export default function JackCandy() {
                       store.iniciarQuest(area.id)
                     }}
                   >
-                    {completa ? '✅ ' : ''}[ {area.nome} ] {completa ? `(${Math.floor(area.recompensa / 2)} balas)` : ''}
+                    {completa ? '✅ ' : ''}[ {area.nome} ] {completa ? `(${Math.floor(area.recompensa / 2)} capangas)` : ''}
                   </button>
                 )
               })}
@@ -285,10 +285,10 @@ export default function JackCandy() {
         )}
 
         {/* Balas tab (pos-bengala) */}
-        {store.flags.TEM_BENGALA && tab === 'balas' && (
+        {store.flags.TEM_BENGALA && tab === 'capangas' && (
           <div className="jack-buttons">
             <button className="jack-btn" onClick={store.guardar}>[ guardar ]</button>
-            <button className="jack-btn jack-btn--crimson" onClick={store.rolarNoChao} disabled={store.balas <= 0}>[ rolar no chão ]</button>
+            <button className="jack-btn jack-btn--crimson" onClick={store.rolarNoChao} disabled={store.capangas <= 0}>[ rolar no chão ]</button>
           </div>
         )}
       </div>
@@ -304,11 +304,11 @@ export default function JackCandy() {
                 <p>"pega o que precisa e vai."</p>
               </div>
               <div className="jack-buttons">
-                <button className="jack-btn" onClick={store.comprarUpgradeBengala} disabled={store.balas < ((store.danoBengala || 1) >= 3 ? 300 : 200)}>
-                  [ upgrade bengala +1 — {(store.danoBengala || 1) >= 3 ? '300' : '200'} balas ] (atual: +{store.danoBengala || 1})
+                <button className="jack-btn" onClick={store.comprarUpgradeBengala} disabled={store.capangas < ((store.danoBengala || 1) >= 3 ? 300 : 200)}>
+                  [ upgrade bengala +1 — {(store.danoBengala || 1) >= 3 ? '300' : '200'} capangas ] (atual: +{store.danoBengala || 1})
                 </button>
-                <button className="jack-btn" onClick={store.comprarPocao} disabled={store.balas < 50}>
-                  [ poção energética — 50 balas ] (HP máx +1)
+                <button className="jack-btn" onClick={store.comprarPocao} disabled={store.capangas < 50}>
+                  [ poção energética — 50 capangas ] (HP máx +1)
                 </button>
                 <button className="jack-btn" onClick={store.fecharKimShop}>[ sair ]</button>
               </div>

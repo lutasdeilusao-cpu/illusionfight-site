@@ -62,7 +62,7 @@ export default function QuestScreen({ areaId, onBack }) {
         <div className="jdc-quest-check">✅</div>
         <div className="jdc-quest-result-title">{area.nome} — completo</div>
         <div className="jdc-quest-result-reward">
-          +{store.areasCompletas.includes(areaId) ? Math.floor(area.recompensa / 2) : area.recompensa} balas
+          +{store.areasCompletas.includes(areaId) ? Math.floor(area.recompensa / 2) : area.recompensa} capangas
           {!store.areasCompletas.includes(areaId) && area.item && <span> · {area.item.icone} {area.item.nome}</span>}
         </div>
         <button className="jack-btn" onClick={onBack}>[ voltar ]</button>
