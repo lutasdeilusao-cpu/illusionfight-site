@@ -104,6 +104,7 @@ export default function Dungeon({ dungeonId }) {
         const novoHp = hpRef.current - dmg
         hpRef.current = novoHp
         setHp(novoHp)
+        store.setHpAtual(novoHp)
         setAnimDano(true)
         setTimeout(() => setAnimDano(false), 300)
         addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
@@ -214,6 +215,7 @@ export default function Dungeon({ dungeonId }) {
       const novoHp = hpRef.current - dmgFinal
       hpRef.current = novoHp
       setHp(novoHp)
+      store.setHpAtual(novoHp)
 
       if (dmgFinal > 0) {
         setAnimDano(true)
@@ -255,6 +257,7 @@ export default function Dungeon({ dungeonId }) {
       const novoHp = hpRef.current - dmgB
       hpRef.current = novoHp
       setHp(novoHp)
+      store.setHpAtual(novoHp)
       setAnimDano(true)
       setTimeout(() => setAnimDano(false), 300)
       addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
@@ -330,6 +333,7 @@ export default function Dungeon({ dungeonId }) {
           <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
             <button className="jack-btn" onClick={() => {
               if (store._retornoInvestigacao) {
+                store.visitarLocal(store._localPendente)
                 store.setFase(`investigar_${store._localPendente}`)
                 useJackStore.setState({ _retornoInvestigacao: false, _localPendente: null })
               } else {
