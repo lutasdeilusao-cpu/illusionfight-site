@@ -403,66 +403,82 @@
 
 ---
 
-## 11. JACK DREAM CANDY — Idle Noir
+## 11. JACK DREAM BEER — Idle Noir (v2.1.0)
 
-**Tipo:** Idle game narrativo  
-**Status:** ✅ v1.0.0 — Store + StatusBar + Intro + Save Supabase  
+**Tipo:** Idle game narrativo com dungeons automáticas  
+**Status:** ✅ v2.1.0 — 3 cidades, 11 dungeons, 28 itens, 10 NPCs, 3 sistemas  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `2.0.0` (console: `[JACK] versão carregada: 2.0.0`)  
+**Versão atual:** `2.1.0` (console: `[JACK] versão carregada: 2.1.0`)  
 **Rota:** `/extras/jackcandy`
+**GDD completo:** `docs/JACK_BEER_GDD.md`
 
-### Mecânicas Implementadas (v1.0.0)
-- ✅ Capangas acumulam automaticamente (+1/s)
-- ✅ Guardar / Jogar fora (descarta capangas)
-- ✅ Pajé aparece com 100 capangas → vende Bengala Steampunk
-- ✅ Fase Intro → Vila (após comprar bengala)
-- ✅ HP com regen automática (1 a cada 10s)
-- ✅ Nível e XP (framework, sem uso ainda)
-- ✅ StatusBar fixa com recursos, HP bar, abas VILA/INV/MAP/SAVE
+### Mecânicas Implementadas
+- ✅ Main Menu com 3 save slots (F5 volta ao menu)
+- ✅ Cervejas acumulam automaticamente (+1/s + passivos de itens)
+- ✅ 3 moedas: 🍺 cervejas, 💵 notas, 💎 fragmentos
+- ✅ Pajé aparece com 100 cervejas → vende Bengala Steampunk
+- ✅ Fase Intro → Mundo (após comprar bengala)
+- ✅ HP com regen automática (1 a cada 10s, pausa em dungeon)
+- ✅ 3 cidades: Marelia, Auranis, Karnazar (desbloqueio progressivo)
+- ✅ 11 dungeons com 3 mecânicas: combate, stealth, fuga
+- ✅ 10 NPCs com lojas, missões e aliados
+- ✅ 28 itens em 5 categorias (arma, armadura, acessório, consumível, upgrade)
+- ✅ Inventário com equip slots, swap, desequipar, abas
+- ✅ Lojas com balão de saudação, ícones, abas de categoria
+- ✅ Sistema Dia/Noite com cooldown 30s (afeta dungeons e diálogos)
+- ✅ Sistema Primordial: medidor 0-10, dobra dano ao encher
+- ✅ Sistema de Aliados: Kim/Nina/Shuntaro para dungeons
+- ✅ Professor Máquina: dicas contextuais após idle + cards glow
+- ✅ StatusBar com HP bar CSS, recursos, navegação MND/INV/DUN, 🌙/☀️, 🔥, SAVE, RST
+- ✅ Monólogos narrativos (55 frases) em balão fixo no rodapé
+- ✅ Chuva de caracteres no fundo (efeito noir)
+- ✅ Título typewriter "jack dream beer."
 - ✅ Avatar do Jack em círculo carmesim pulsante
-- ✅ Chuva de caracteres ASCII no fundo
-- ✅ Título com efeito typewriter
-- ✅ Auto-save localStorage a cada 30s
+- ✅ Auto-save localStorage por slot a cada 30s
 - ✅ Save cloud no Supabase (tabela `jack_saves`)
+- ✅ Migração automática de saves v1 (jack_candy_save) para v2
 - ✅ LoginGate — requer conta no site
 - ✅ Modo imersivo (sem navbar/footer)
 
-### Supabase — Tabela `jack_saves`
-
-| Campo | Tipo | Descrição |
-|---|---|---|
-| id | uuid PK | Gerado automaticamente |
-| user_id | uuid FK → auth.users | Dono do save |
-| capangas | int | Recursos atuais |
-| capangas_totais | int | Total acumulado |
-| notas | int | Moeda premium |
-| fase | text | 'intro' / 'vila' / ... |
-| flags | jsonb | Flags narrativas |
-| hp_atual / hp_max | int | Vida |
-| nivel / xp | int | Progressão |
-| inventario | jsonb | Itens do jogador |
-| equipado | jsonb | { arma, armadura, acessorio } |
-| dungeons_completas | text[] | Progressão de áreas |
-| tempo_jogo | int | Segundos totais |
-| title_done | boolean | Intro já viu |
-| version | text | Versão do save |
-| created_at / updated_at | timestamptz | Controle |
-
-### Estrutura de Arquivos
+### Estrutura de Arquivos (v2.1.0)
 ```
 src/pages/JackCandy/
-├── JackCandy.jsx              # Container principal (login gate, fase routing, intervals)
-├── JackCandy.css               # Estilos noir
+├── JackCandy.jsx                   # Container: MainMenu gate, fase routing, intervals, auto-unlock flags
+├── JackCandy.css                   # 1140 linhas estilos noir
 ├── store/
-│   └── useJackStore.js         # Estado global + cloud save (Supabase) + local save
-├── components/
-│   └── StatusBar.jsx           # Barra fixa no topo: recursos, HP, abas, SAVE
-└── screens/
-    ├── Intro.jsx               # Tela inicial: typewriter, avatar, Pajé, bengala
-    └── Vila.jsx                # Hub principal (stub — dungeons em breve)
+│   └── useJackStore.js             # Zustand: 3 recursos, equipamento, dungeons, Primordial, dia/noite, aliado, cloud/local save
+├── data/
+│   ├── flags.js                    # 30 flags narrativas
+│   ├── cidades.js                  # 3 cidades + 22 locais + sistema de navegação
+│   ├── npcs.js                     # 10 NPCs (Pajé, Kim, Nina, Osvaldo, Lara, Karim, Operativo, Viran, Tira, Shuntaro)
+│   ├── itens.js                    # 28 itens em 3 moedas
+│   ├── dungeons.js                 # 11 dungeons com 3 mecânicas
+│   └── monologues.js               # 55 monólogos narrativos
+├── screens/
+│   ├── MainMenu.jsx                # 3 save slots: novo jogo, continuar, deletar
+│   ├── Intro.jsx                   # Typewriter + Pajé + compra da bengala
+│   ├── Vila.jsx                    # Hub multi-cidade: cards, navegação, glow no próximo objetivo
+│   ├── Interior.jsx                # Loja: balão NPC, abas, ícones, missões
+│   ├── Inventario.jsx              # Equip slots com swap, dropdown, abas
+│   ├── Dungeon.jsx                 # Combate auto + stealth + fuga + Primordial + aliados
+│   └── DungeonSelect.jsx           # Grid de dungeons com filtro progressivo
+└── components/
+    ├── StatusBar.jsx               # HP bar CSS, recursos, MND/INV/DUN, 🌙/☀️, 🔥, SAVE, RST
+    ├── DicaToast.jsx               # Professor Máquina: dicas pós-idle com 👓
+    ├── Monologue.jsx               # Balão de monólogo fixo no rodapé
+    └── CombatLog.jsx               # (legado)
 ```
 
+### Fluxo de Progressão
+1. **Main Menu** → escolhe slot → Intro
+2. **Intro** → 100🍺 → comprar Bengala → Marelia
+3. **Marelia** → Anexo (tutorial) → Ônibus → Rua → desbloqueia Kim/Nina/Osvaldo/Lara
+4. **Marelia** → Risca a Faca + Ônibus Noturno + Terminal 3x
+5. **Desbloqueio Auranis** → Nv 8 + Terminal + dungeons
+6. **Auranis** → Porto Velho → Karim → Mercado Negro → Doca → Torre Kronos
+7. **Desbloqueio Karnazar** → Nv 15 + Kronos + Doca
+8. **Karnazar** → Viran → Rua Branca → Porto Seco → O Escuro → Tira → Ilha Privada (Kronos final)
 ### Rotas internas do jogo
 | Rota | Descrição |
 |------|-----------|
