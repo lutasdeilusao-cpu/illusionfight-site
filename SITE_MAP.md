@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-04*  
-*Versão: 1.43*  |  `[SITE] versão carregada: 1.43`
+*Versão: 1.44*  |  `[SITE] versão carregada: 1.44`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -112,7 +112,7 @@
 | `/extras/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
 | `/extras/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
 | `/extras/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
-| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.3.1 | LDI Arena Mode — criação de ficha + combate CPU standalone |
+| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.3.3 | LDI Arena Mode — criação de ficha + combate CPU standalone |
 | `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v4.0.11 | Jack Dream Beer — idle noir investigativo |
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.3.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n |
@@ -363,8 +363,8 @@
 **Rota:** `/extras/ldi/*`
 
 ### LDI Arena Mode
-**Status:** ✅ v1.3.1 implementado
-**Console:** `[ARENA] versão carregada: 1.3.1`
+**Status:** ✅ v1.3.3 implementado
+**Console:** `[ARENA] versão carregada: 1.3.3`
 **Rota:** `/extras/ldi-arena`
 **Stack:** React 19 · Zustand · Framer Motion · Supabase
 **Descrição:** Extração do sistema de combate + criação de ficha como jogo standalone sem narrativa. 30+ vantagens, 20 desvantagens, 6 vantagens únicas, 10 perícias, PM = PdF × 5, 8 inimigos (tier 1-4).

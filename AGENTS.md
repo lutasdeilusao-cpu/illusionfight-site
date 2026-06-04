@@ -60,6 +60,8 @@ No exceptions. Every modification to any game file:
 6. **`npm run deploy`**
 7. **Verify** the deploy published without errors
 
+**Automation:** `python deploy.py -g <game> -m "description"` does steps 1-6 in one command. Use `--minor` or `--major` for non-patch bumps. Accepts multiple `-g` values.
+
 At the end of every task, deliver a report table: file modified | what changed | old version → new version | commit hash | deploy status.
 
 ## Conduct rules
