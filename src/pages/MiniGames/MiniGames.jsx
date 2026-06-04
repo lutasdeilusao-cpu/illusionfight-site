@@ -121,13 +121,30 @@ export default function MiniGames() {
         { id: 'hard',    label: 'DIFÍCIL', specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
         { id: 'extreme', label: 'EXTREME', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
       ],
+      sliding: [
+        { id: 'easy', label: 'FÁCIL', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', badge: 'FREE', free: true, cor: '#22C55E' },
+        { id: 'medium', label: 'MÉDIO', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
+      labirinto: [
+        { id: 'easy',   label: 'FÁCIL',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', badge: 'FREE',  free: true, cor: '#22C55E'  },
+        { id: 'medium', label: 'MÉDIO',   specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard',   label: 'DIFÍCIL', specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
+      anagrama: [
+        { id: 'easy',    label: 'FÁCIL',   specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', badge: 'FREE',  free: true,  cor: '#22C55E' },
+        { id: 'medium',  label: 'MÉDIO',   specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard',    label: 'DIFÍCIL', specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'extreme', label: 'EXTREME', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'epic',    label: 'ÉPICO',   specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
     }
     const difs = DIF_CONFIGS[jogoAtivo.id] || []
     return (
       <div className="mg-page"><div className="mg-scanlines" />
         <div className="mg-dif-select">
           <div className="mg-dif-header">
-            <button className="mg-back" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
+            <button className="mg-btn-sair" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
             <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text={jogoAtivo.nome.toUpperCase()}>{jogoAtivo.nome.toUpperCase()}</span></h2>
             <p className="mg-dif-sub">escolha a dificuldade</p>
           </div>
@@ -191,7 +208,7 @@ export default function MiniGames() {
       <div className="mg-jogando">
         <div className="mg-jogando-header">
           <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {jogoAtivo.nome}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
-          <button className="mg-btn mg-btn--small" onClick={voltarHub}>[ sair ]</button>
+          <button className="mg-btn-sair" onClick={voltarHub}>[ ← sair ]</button>
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
       </div>

@@ -57,6 +57,20 @@
 .mg-btn:hover { border-color: #888; color: #e8e8e8; }
 .mg-btn--small { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
 
+.mg-btn-sair {
+  background: #0a0a0a;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: background 0.15s;
+  border-radius: 2px;
+}
+.mg-btn-sair:hover { background: rgba(245,166,35,0.1); }
+
 .mg-footer { text-align: center; padding-top: 3rem; position: relative; z-index: 2; font-size: 0.6rem; color: #222; letter-spacing: 0.2em; animation: mg-blink 4s ease-in-out infinite; }
 
 @media (max-width: 600px) {
