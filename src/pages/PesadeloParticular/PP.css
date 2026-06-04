@@ -88,6 +88,7 @@
 .pp-top-bar-rep { background: var(--pp-surface2); border: 1px solid var(--pp-border); border-radius: 20px; padding: 0.2rem 0.6rem; font-size: 0.7rem; color: var(--pp-amber); font-weight: 600; }
 
 .pp-content { flex: 1; overflow-y: auto; padding-bottom: calc(var(--pp-bottom-nav) + 0.5rem); -webkit-overflow-scrolling: touch; }
+.pp-content--no-scroll { overflow-y: hidden; padding-bottom: 0; }
 .pp-content::-webkit-scrollbar { display: none; }
 
 .pp-bottom-nav { height: var(--pp-bottom-nav); background: var(--pp-surface); border-top: 1px solid var(--pp-border); display: flex; align-items: center; justify-content: space-around; position: sticky; bottom: 0; z-index: 100; }

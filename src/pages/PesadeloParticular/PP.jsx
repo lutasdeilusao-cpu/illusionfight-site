@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.9'
+const PP_VERSION = '1.3.10'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -322,8 +322,10 @@ function ConvoView({ caso, tipo, onBack }) {
   }, [])
 
   useEffect(() => {
-    if (msgsContainerRef.current) {
-      msgsContainerRef.current.scrollTop = msgsContainerRef.current.scrollHeight
+    const el = msgsContainerRef.current
+    if (!el) return
+    if (el.scrollHeight > el.clientHeight) {
+      el.scrollTop = el.scrollHeight
     }
   }, [msgs, digitandoDe])
 
@@ -1020,7 +1022,7 @@ export default function PP() {
         )}
 
         {/* Conteúdo */}
-        <div className="pp-content">
+        <div className={`pp-content ${faseInterna?.tipo === 'convo' ? 'pp-content--no-scroll' : ''}`}>
           <AnimatePresence mode="wait">
             <motion.div key={`${aba}-${faseInterna?.tipo}-${faseInterna?.convoTipo}`}
               initial={{ opacity:0, x:10 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-10 }}
