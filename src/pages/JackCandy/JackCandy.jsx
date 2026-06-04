@@ -22,7 +22,10 @@ export default function JackCandy() {
   // Load from cloud on mount
   useEffect(() => {
     if (!user) return
-    store.loadFromCloud(user.id).then(() => setLoaded(true))
+    store.loadFromCloud(user.id).then(() => {
+      useJackStore.setState({ _userId: user.id })
+      setLoaded(true)
+    })
   }, [user])
 
   // Auto-tick capangas a cada 1s

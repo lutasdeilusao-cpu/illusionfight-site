@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useAuth } from '../../../context/AuthContext'
 import { useJackStore } from '../store/useJackStore'
 
 export default function StatusBar() {
+  const { user } = useAuth()
   const store = useJackStore()
   const [saving, setSaving] = useState(false)
 
@@ -9,8 +11,9 @@ export default function StatusBar() {
   const hpBar = '█'.repeat(hpPct) + '░'.repeat(20 - hpPct)
 
   const handleSave = async () => {
+    if (!user) return
     setSaving(true)
-    await store.saveToCloud()
+    await store.saveToCloud(user.id)
     setTimeout(() => setSaving(false), 1000)
   }
 

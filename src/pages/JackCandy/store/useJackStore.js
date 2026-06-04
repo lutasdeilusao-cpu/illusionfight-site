@@ -34,6 +34,7 @@ const defaultState = {
   fase: 'intro', flags: {}, dungeonsCompletas: [],
   inventario: [], equipado: { arma: null, armadura: null, acessorio: null },
   tempoJogo: 0, titleDone: false, monologoAtual: null,
+  _userId: null,
 }
 
 export const useJackStore = create((set, get) => {
@@ -85,7 +86,8 @@ export const useJackStore = create((set, get) => {
     // === Cloud Save ===
 
     saveToCloud: async (userId) => {
-      if (!userId) return
+      const uid = userId || get()._userId
+      if (!uid) return
       const state = get()
       const payload = {
         user_id: userId,
@@ -98,11 +100,11 @@ export const useJackStore = create((set, get) => {
         tempo_jogo: state.tempoJogo, title_done: state.titleDone,
         version: JACK_VERSION,
       }
-      const { data } = await supabase.from('jack_saves').select('id').eq('user_id', userId).maybeSingle()
+      const { data } = await supabase.from('jack_saves').select('id').eq('user_id', uid).maybeSingle()
       if (data?.id) {
         await supabase.from('jack_saves').update(payload).eq('id', data.id)
       } else {
-        await supabase.from('jack_saves').insert(payload)
+        await supabase.from('jack_saves').insert({ ...payload, user_id: uid })
       }
     },
 
@@ -118,6 +120,7 @@ export const useJackStore = create((set, get) => {
           inventario: data.inventario ?? [], equipado: data.equipado ?? { arma: null, armadura: null, acessorio: null },
           dungeonsCompletas: data.dungeons_completas ?? [],
           tempoJogo: data.tempo_jogo ?? 0, titleDone: data.title_done ?? false,
+          _userId: userId,
         })
         return true
       }
