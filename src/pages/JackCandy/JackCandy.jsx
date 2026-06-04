@@ -16,6 +16,7 @@ import DungeonSelect from './screens/DungeonSelect'
 import Descanso from './screens/Descanso'
 import Dossier from './screens/Dossier'
 import CasoSelect from './screens/CasoSelect'
+import CasoAbertura from './screens/CasoAbertura'
 import Investigacao from './screens/Investigacao'
 import Interrogatorio from './screens/Interrogatorio'
 import { ResultCard } from '../../components/ResultCard'
@@ -191,6 +192,7 @@ export default function JackCandy() {
         {isDungeon && <Dungeon dungeonId={dungeonId} />}
         {fase === 'dossier' && <Dossier />}
         {fase === 'caso_select' && <CasoSelect />}
+        {fase === 'caso_abertura' && <CasoAbertura />}
         {fase?.startsWith('investigar_') && <Investigacao localId={fase.replace('investigar_', '')} />}
         {fase === 'interrogatorio' && <Interrogatorio />}
       </div>

@@ -41,7 +41,8 @@ export default function CasoSelect() {
             if (store.casoAtivo === caso.id) {
               store.setFase('dossier')
             } else {
-              store.iniciarCaso(caso.id, caso.suspeitos)
+              useJackStore.setState({ _casoPreview: caso.id })
+              store.setFase('caso_abertura')
             }
           }}
           whileHover={{ x: 4 }}

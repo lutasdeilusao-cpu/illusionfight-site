@@ -370,6 +370,19 @@
   50% { text-shadow: 0 0 12px rgba(236,72,153,0.6); }
 }
 
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.jdc-caso-dialogo {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+
 .jdc-sb-hp-label {
   color: #8B0000;
   min-width: 20px;

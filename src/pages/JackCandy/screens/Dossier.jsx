@@ -4,6 +4,7 @@ import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 import { PISTAS } from '../data/pistas'
 import PistaCard from '../components/PistaCard'
+import DialogoCaso from '../components/DialogoCaso'
 
 export default function Dossier() {
   const store = useJackStore()
@@ -148,28 +149,26 @@ export default function Dossier() {
 
       {resolucaoAtiva && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          style={{ textAlign: 'center', padding: '1rem', marginTop: '1rem' }}>
-          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>✅</div>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1rem', marginBottom: '0.3rem' }}>
-            caso resolvido.
+          style={{ marginTop: '1rem' }}>
+          <p className="jack-text jack-text--amber" style={{ fontSize: '0.75rem', marginBottom: '0.5rem' }}>
+            ✅ caso resolvido.
           </p>
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem' }}>
-            {CASOS[casoResolvidoId]?.resolucao?.monologo}
-          </p>
-          {CASOS[casoResolvidoId]?.confronto?.dungeon && (
-            <button className="jack-btn jack-btn--crimson" onClick={() => store.setFase(`dungeon_${CASOS[casoResolvidoId].confronto.dungeon}`)}>
-              [ confronto final ]
-            </button>
-          )}
-          {CASOS[casoResolvidoId]?.confronto?.especial === 'interrogatorio' && (
-            <button className="jack-btn jack-btn--crimson" onClick={() => store.setFase('interrogatorio')}>
-              [ interrogatório ]
-            </button>
-          )}
-          <br />
-          <button className="jack-btn" onClick={() => store.setFase('caso_select')} style={{ marginTop: '0.5rem' }}>
-            [ voltar aos casos ]
-          </button>
+          <div className="jdc-caso-dialogo">
+            <DialogoCaso
+              linhas={CASOS[casoResolvidoId]?.dialogoResolucao
+                || [{ personagem: 'jack', texto: CASOS[casoResolvidoId]?.resolucao?.monologo || 'resolvido.' }]}
+              onFim={() => {
+                const casoData = CASOS[casoResolvidoId]
+                if (casoData?.confronto?.dungeon) {
+                  store.setFase(`dungeon_${casoData.confronto.dungeon}`)
+                } else if (casoData?.confronto?.especial === 'interrogatorio') {
+                  store.setFase('interrogatorio')
+                } else {
+                  store.setFase('caso_select')
+                }
+              }}
+            />
+          </div>
         </motion.div>
       )}
 

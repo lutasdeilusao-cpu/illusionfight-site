@@ -1,4 +1,4 @@
-const JACK_VERSION = '3.3.7'
+const JACK_VERSION = '3.3.8'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -46,7 +46,7 @@ const defaultState = {
   casoAtivo: null, pistasColetadas: [], suspeitos: [],
   locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
   _userId: null, _slot: null, _savePending: false, _resultCard: null,
-  _retornoInvestigacao: false, _localPendente: null,
+  _retornoInvestigacao: false, _localPendente: null, _casoPreview: null,
 }
 
 let saveTimeout = null
