@@ -1017,7 +1017,8 @@ export const CASOS = [
             "desc": "A mancha no asfalto. Já lavada."
           }
         },
-        "pista_id": "p04a"
+        "pista_id": "p04a",
+        "batalha": true
       },
       {
         "id": "beco_lateral",
@@ -1846,7 +1847,8 @@ export const CASOS = [
             "desc": "Placeholder."
           }
         },
-        "pista_id": "pcaso_07_01"
+        "pista_id": "pcaso_07_01",
+        "batalha": true
       },
       {
         "id": "loc2",
@@ -2527,7 +2529,8 @@ export const CASOS = [
             "desc": "Placeholder."
           }
         },
-        "pista_id": "pcaso_10_02"
+        "pista_id": "pcaso_10_02",
+        "batalha": true
       },
       {
         "id": "loc3",
@@ -3171,7 +3174,8 @@ export const CASOS = [
             "desc": "Placeholder."
           }
         },
-        "pista_id": "pcaso_13_01"
+        "pista_id": "pcaso_13_01",
+        "batalha": true
       },
       {
         "id": "loc2",
@@ -4071,7 +4075,8 @@ export const CASOS = [
             "desc": "Placeholder."
           }
         },
-        "pista_id": "pcaso_17_02"
+        "pista_id": "pcaso_17_02",
+        "batalha": true
       },
       {
         "id": "loc3",
@@ -4271,7 +4276,8 @@ export const CASOS = [
             "desc": "Placeholder."
           }
         },
-        "pista_id": "pcaso_18_01"
+        "pista_id": "pcaso_18_01",
+        "batalha": true
       },
       {
         "id": "loc2",

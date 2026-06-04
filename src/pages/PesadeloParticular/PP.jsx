@@ -1,49 +1,122 @@
-import { useState, useEffect } from 'react'
-import { useAuth } from '../../context/AuthContext'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CASOS } from './data/casos'
 import { usePPStore } from './store/usePPStore'
-import MapaCidade from './screens/MapaCidade'
-import CasoAbertura from './screens/CasoAbertura'
-import Investigacao from './screens/Investigacao'
-import Dossier from './screens/Dossier'
-import CadernoSuspeitas from './screens/CadernoSuspeitas'
-import Confronto from './screens/Confronto'
-import Resolucao from './screens/Resolucao'
-import FinalScreen from './screens/FinalScreen'
-import Dormindo from './screens/Dormindo'
+import { useAuth } from '../../context/AuthContext'
+import PuzzleDecoder from '../../components/Puzzles/PuzzleDecoder'
+import PuzzleStealthGrid from '../../components/Puzzles/PuzzleStealthGrid'
+import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
+import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
+import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.1.1'
-console.log(`[PP] versão carregada: ${PP_VERSION}`)
+const PP_VERSION = '1.3.0'
+const LOCALE = 'pt'
+
+const AVATARES = {
+  jack:     { emoji: '🕵️', cor: '#1a3a2a', textCor: '#00ff88',  label: 'Jack' },
+  nina:     { emoji: '⚔️',  cor: '#2a1a1a', textCor: '#ff8888',  label: 'Nina' },
+  kim:      { emoji: '🔥',  cor: '#1a2a3a', textCor: '#00ccff',  label: 'Kim' },
+  pajé:     { emoji: '🪄',  cor: '#2a2a1a', textCor: '#ffd700',  label: 'Pajé' },
+  anonimo:  { emoji: '❓',  cor: '#1a1a1a', textCor: '#888888',  label: 'Desconhecido' },
+  helena:   { emoji: '🚬',  cor: '#1a1a1a', textCor: '#c8c8c8',  label: 'Helena' },
+  shuntaro: { emoji: '⚡',  cor: '#1a1a2a', textCor: '#8888ff',  label: 'Shuntaro' },
+}
+
+const PUZZLE_EMOJI = { decoder: '📻', stealth: '🥷', labirinto: '🌀', anagrama: '🔤', sliding: '🧩', nenhum: '🔍' }
+
+const INIMIGOS_NIVEL = {
+  1:  { nome: 'Capanga de Terno',     hp: 30, dano: [2,5],  xp: 20,  emoji: '🕴️' },
+  2:  { nome: 'Segurança Corrupto',   hp: 45, dano: [3,7],  xp: 30,  emoji: '👮' },
+  3:  { nome: 'Detetive Infiltrado',  hp: 60, dano: [4,8],  xp: 40,  emoji: '🔎' },
+  4:  { nome: 'Assassino de Aluguel', hp: 80, dano: [5,10], xp: 55,  emoji: '🗡️' },
+  5:  { nome: 'Agente de Kronos',     hp: 100,dano: [6,12], xp: 70,  emoji: '⚓' },
+}
+
+function getInimigo(nivel) { return INIMIGOS_NIVEL[Math.min(5, Math.ceil(nivel / 4))] }
+function getJackStats(nivel) { return { hp: 30 + nivel * 5, dano: [3 + nivel, 6 + nivel * 2], emoji: '🕵️' } }
+function rolar(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min }
+
+function IntroNoir({ onComplete }) {
+  const [text, setText] = useState('')
+  const [fase, setFase] = useState('typing')
+  const fullText = 'Marelia, 1954. A chuva não para há três dias.\n\nVocê não é detetive.\n\nMas o sonho não liga pra isso.'
+  const idx = useRef(0)
+  const timerRef = useRef(null)
+  useEffect(() => {
+    console.log(`[PP] versão carregada: ${PP_VERSION}`)
+    const rain = document.querySelector('.pp-rain')
+    if (rain) for (let i = 0; i < 40; i++) { const d = document.createElement('div'); d.className = 'pp-rain-drop'; d.style.cssText = `left:${Math.random()*100}%;height:${60+Math.random()*80}px;animation-duration:${0.6+Math.random()*0.8}s;animation-delay:${Math.random()*2}s;opacity:${0.2+Math.random()*0.4}`; rain.appendChild(d) }
+    timerRef.current = setInterval(() => { idx.current++; setText(fullText.slice(0, idx.current)); if (idx.current >= fullText.length) { clearInterval(timerRef.current); setFase('pause'); setTimeout(() => setFase('glitch'), 2000); setTimeout(() => onComplete(), 3200) } }, 45)
+    return () => clearInterval(timerRef.current)
+  }, [])
+  return (<div className="pp-intro" onClick={() => { clearInterval(timerRef.current); onComplete() }}><div className="pp-rain" /><div className="pp-intro-label">PESADELO PARTICULAR</div><div className="pp-intro-text">{text.split('\n').map((l,i,a)=><span key={i}>{l}{i<a.length-1&&<><br/><br/></>}</span>)}{fase==='typing'&&<span className="pp-intro-cursor"/>}</div>{fase==='glitch'&&<div className="pp-glitch-overlay"/>}<div className="pp-intro-skip">toque para pular</div></div>)
+}
+
+function AnimacaoInvestigacao({ onComplete }) {
+  const [f, setF] = useState('pegadas')
+  useEffect(() => { const t1=setTimeout(()=>setF('lupa'),2000); const t2=setTimeout(()=>setF('revelando'),3500); const t3=setTimeout(()=>onComplete(),4800); return ()=>{clearTimeout(t1);clearTimeout(t2);clearTimeout(t3)} }, [])
+  return (<div className="pp-anim-invest"><AnimatePresence mode="wait">{f==='pegadas'&&<motion.div key="p" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="pp-anim-pegadas">{['👣','👣','👣'].map((p,i)=><motion.span key={i} initial={{opacity:0,x:-10}} animate={{opacity:1,x:0}} transition={{delay:i*0.4}} className="pp-anim-pegada">{p}</motion.span>)}</motion.div>}{f==='lupa'&&<motion.div key="l" initial={{opacity:0,scale:0.5}} animate={{opacity:1,scale:1}} transition={{type:'spring',stiffness:200}}><span className="pp-anim-lupa">🔍</span></motion.div>}{f==='revelando'&&<motion.div key="r" initial={{opacity:0,y:10}} animate={{opacity:1,y:0}}><span className="pp-anim-revelado">EVIDÊNCIA ENCONTRADA</span></motion.div>}</AnimatePresence><div className="pp-anim-bar"><motion.div initial={{width:'0%'}} animate={{width:'100%'}} transition={{duration:4.5,ease:'linear'}} className="pp-anim-bar-fill"/></div></div>)
+}
+
+function BatalhaView({ nivel, onVitoria, onDerrota }) {
+  const inimigo = getInimigo(nivel); const jackBase = getJackStats(nivel)
+  const [jh, setJh] = useState(jackBase.hp); const [ih, setIh] = useState(inimigo.hp)
+  const [log, setLog] = useState([]); const [turno, setTurno] = useState('player')
+  const [res, setRes] = useState(null); const [anim, setAnim] = useState(null); const lr = useRef(null)
+  const addLog = (t, tp='normal') => { setLog(p=>[...p,{texto:t,tipo:tp,id:Date.now()+Math.random()}]); setTimeout(()=>lr.current?.scrollTo({top:99999,behavior:'smooth'}),50) }
+  const atacar = () => { if(turno!=='player'||res)return; const d=rolar(...jackBase.dano); const nh=Math.max(0,ih-d); setAnim('jack'); setTimeout(()=>setAnim(null),400); setIh(nh); addLog(`Jack ataca: ${d} de dano`,'player'); if(nh<=0){addLog('Inimigo derrotado!','vitoria');setRes('vitoria');setTurno('fim');setTimeout(()=>onVitoria(),1500);return}; setTurno('inimigo'); setTimeout(()=>{const di=rolar(...inimigo.dano);const nj=Math.max(0,jh-di);setAnim('inimigo');setTimeout(()=>setAnim(null),400);setJh(nj);addLog(`${inimigo.nome} ataca: ${di} de dano`,'inimigo');if(nj<=0){addLog('Jack foi derrotado...','derrota');setRes('derrota');setTurno('fim');setTimeout(()=>onDerrota(),1500);return};setTurno('player')},900) }
+  const hpPct=(hp,mx)=>Math.max(0,(hp/mx)*100)
+  return (<div className="pp-batalha"><div className="pp-batalha-label">CONFRONTO · NÍVEL {nivel}</div><motion.div animate={anim==='inimigo'?{x:[0,8,-8,0]}:{}} className="pp-batalha-card"><div className="pp-batalha-row"><span className="pp-batalha-emoji">{inimigo.emoji}</span><div className="pp-batalha-info"><div className="pp-batalha-nome-enemy">{inimigo.nome}</div><div className="pp-batalha-hp">HP: {ih}/{inimigo.hp}</div></div></div><div className="pp-batalha-bar"><motion.div animate={{width:`${hpPct(ih,inimigo.hp)}%`}} transition={{duration:0.3}} className="pp-batalha-bar-fill-enemy"/></div></motion.div><div ref={lr} className="pp-batalha-log">{log.length===0&&<div className="pp-batalha-log-empty">O confronto começa.</div>}{log.map(l=><div key={l.id} className={`pp-batalha-log-line pp-batalha-log-${l.tipo}`}>{l.texto}</div>)}</div><motion.div animate={anim==='jack'?{x:[0,-8,8,0]}:{}} className="pp-batalha-card"><div className="pp-batalha-row"><span className="pp-batalha-emoji">🕵️</span><div className="pp-batalha-info"><div className="pp-batalha-nome-jack">Jack</div><div className="pp-batalha-hp">HP: {jh}/{jackBase.hp}</div></div></div><div className="pp-batalha-bar"><motion.div animate={{width:`${hpPct(jh,jackBase.hp)}%`}} transition={{duration:0.3}} className="pp-batalha-bar-fill-jack"/></div></motion.div><button onClick={atacar} disabled={turno!=='player'||!!res} className={`pp-batalha-btn ${turno==='player'&&!res?'pp-batalha-btn-active':''}`}>{turno==='player'?'⚔️ ATACAR':turno==='inimigo'?'⏳ Inimigo agindo...':res==='vitoria'?'✓ Vitória!':'✗ Derrota'}</button></div>)
+}
+
+function ConvoView({ caso, tipo, onBack }) {
+  const [msgs, setMsgs] = useState([]); const [dd, setDd] = useState(null); const er = useRef(null)
+  const dlg = tipo==='abertura'?caso.dialogo.abertura:caso.dialogo.resolucao
+  const narr = tipo==='abertura'?caso.dialogo.narracao_abertura:caso.dialogo.narracao_final
+  useEffect(()=>{setMsgs([{tipo:'narracao',texto:narr[LOCALE],id:'ns'}]);dlg.forEach((m,i)=>{const db=m.delay+800;setTimeout(()=>setDd(m.de),db);setTimeout(()=>{setDd(null);setMsgs(p=>[...p,{id:`m${i}`,de:m.de,texto:m.i18n[LOCALE],hora:new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}]);if(i===dlg.length-1)setTimeout(()=>setMsgs(p=>[...p,{tipo:'narracao',texto:narr[LOCALE],id:'ne'}]),1000)},db+700)})},[])
+  useEffect(()=>{er.current?.scrollIntoView({behavior:'smooth'})},[msgs,dd])
+  return (<div className="pp-convo"><div className="pp-convo-header"><button className="pp-convo-back" onClick={onBack}>←</button><div className="pp-chat-avatar-chat" style={{background:AVATARES.jack.cor,borderColor:AVATARES.jack.textCor}}>{AVATARES.jack.emoji}</div><div><div className="pp-chat-name" style={{color:AVATARES.jack.textCor}}>Jack Cachorrão</div><div className="pp-chat-online-label">● online</div></div></div><div className="pp-convo-scroll">{msgs.map(m=>{if(m.tipo==='narracao')return<div key={m.id} className="pp-msg narracao">{m.texto}</div>;const av=AVATARES[m.de]||AVATARES.anonimo;const ij=m.de==='jack';return(<motion.div key={m.id} initial={{opacity:0,scale:0.85,y:8}} animate={{opacity:1,scale:1,y:0}} transition={{type:'spring',stiffness:300,damping:25}} className={`pp-msg-wrap ${ij?'pp-msg-wrap-right':''}`}><div className="pp-msg-av" style={{background:av.cor,borderColor:av.textCor}}>{av.emoji}</div><div className="pp-msg-bubble" style={{background:av.cor,borderColor:av.textCor+'22',borderRadius:ij?'16px 16px 4px 16px':'16px 16px 16px 4px'}}>{!ij&&<div className="pp-msg-sender" style={{color:av.textCor}}>{av.label}</div>}<div className="pp-msg-text" style={{color:av.textCor}}>{m.texto}</div><div className="pp-msg-time" style={{color:av.textCor}}>{m.hora}</div></div></motion.div>)})}{dd&&(()=>{const av=AVATARES[dd]||AVATARES.anonimo;return(<div className="pp-msg-wrap"><div className="pp-msg-av" style={{background:av.cor,borderColor:av.textCor}}>{av.emoji}</div><div className="pp-msg-bubble" style={{background:av.cor,borderColor:av.textCor+'22'}}><div className="pp-msg-typing"><div className="pp-msg-typing-dot" style={{background:av.textCor}}/><div className="pp-msg-typing-dot" style={{background:av.textCor,animationDelay:'0.2s'}}/><div className="pp-msg-typing-dot" style={{background:av.textCor,animationDelay:'0.4s'}}/></div></div></div>)})()}<div ref={er}/></div></div>)
+}
+
+function StoryViewer({ pista, onClose }) {
+  const info = pista.i18n[LOCALE]
+  return (<motion.div className="pp-story-viewer" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="pp-story-viewer-bar"><div className="pp-story-viewer-seg"><div className="pp-story-viewer-seg-fill"/></div></div><button className="pp-story-viewer-close" onClick={onClose}>✕</button><div className="pp-story-viewer-content"><div className="pp-story-viewer-emoji">{pista.tipo==='fio'?'🕸️':pista.tipo==='testemunho'?'💬':pista.tipo==='documento'?'📄':'🔍'}</div><div className="pp-story-viewer-tipo">{pista.tipo}</div>{pista.fio&&<div className="pp-story-viewer-fio-label">⚡ FIO DA CONSPIRAÇÃO</div>}<div className="pp-story-viewer-title">{info.titulo}</div><div className="pp-story-viewer-desc">{info.desc}</div></div></motion.div>)
+}
+
+function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
+  const [e, setE] = useState('inicio'); const li = local.i18n[LOCALE]; const p = caso.pistas.find(pp=>pp.id===local.pista_id)
+  const iniciar = () => { if(local.batalha)setE('batalha'); else if(local.puzzle&&local.puzzle!=='nenhum')setE('puzzle'); else setE('animacao') }
+  const ps={onSolve:()=>{setE('revelado');onPistaColetada(p)},onFail:()=>setE('inicio'),config:{}}
+  const rp = () => { switch(local.puzzle){case'decoder':return<PuzzleDecoder {...ps}/>;case'stealth':return<PuzzleStealthGrid {...ps}/>;case'labirinto':return<PuzzleLabirinto {...ps}/>;case'anagrama':return<PuzzleAnagrama {...ps}/>;case'sliding':return<PuzzleSlidingTiles {...ps}/>;default:return null} }
+  return (<div className="pp-local"><div className="pp-convo-header"><button className="pp-convo-back" onClick={onBack}>←</button><span style={{color:'var(--pp-amber)',fontFamily:'Courier New',fontSize:'0.85rem'}}>{li.nome}</span></div><div className="pp-local-hero"><div className="pp-local-emoji">🏚️</div><div className="pp-local-nome">{li.nome}</div><div className="pp-local-desc">{li.desc}</div></div><AnimatePresence mode="wait">{e==='inicio'&&<motion.div key="ini" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="pp-local-puzzle-cta" onClick={iniciar}><div className="pp-local-puzzle-icon">{local.batalha?'⚔️':PUZZLE_EMOJI[local.puzzle||'nenhum']}</div><div className="pp-local-puzzle-label">{local.batalha?'Confronto Necessário':local.puzzle&&local.puzzle!=='nenhum'?'Resolver Puzzle para Investigar':'Investigar Local'}</div>{local.puzzle&&local.puzzle!=='nenhum'&&<div className="pp-local-puzzle-sub">{local.puzzle.toUpperCase()}</div>}</div></motion.div>}{e==='animacao'&&<motion.div key="ani" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><AnimacaoInvestigacao onComplete={()=>{setE('revelado');onPistaColetada(p)}}/></motion.div>}{e==='puzzle'&&<motion.div key="puz" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="pp-puzzle-wrap">{rp()}</motion.div>}{e==='batalha'&&<motion.div key="bat" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><BatalhaView nivel={nivel} onVitoria={()=>{setE('revelado');onPistaColetada(p)}} onDerrota={()=>setE('inicio')}/></motion.div>}{e==='revelado'&&<motion.div key="rev" initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="pp-local-pista-reveal-wrap"><span className={`pp-local-pista-tipo-badge ${p.tipo}`}>{p.tipo}</span>{p.fio&&<span className="pp-local-pista-tipo-badge fio" style={{marginLeft:'0.4rem'}}>⚡ fio</span>}<div className="pp-local-pista-title">{p.i18n[LOCALE].titulo}</div><div className="pp-local-pista-desc">{p.i18n[LOCALE].desc}</div></motion.div>}</AnimatePresence><button className="pp-local-voltar" onClick={onBack}>← Voltar ao Dossier</button></div>)
+}
 
 export default function PP() {
-  const { user } = useAuth()
-  const store = usePPStore()
-  const [loading, setLoading] = useState(true)
+  const { user } = useAuth(); const store = usePPStore()
+  const [appFase, setAppFase] = useState('intro'); const [aba, setAba] = useState('feed')
+  const [casoAtivo,setCasoAtivo]=useState(null);const [faseInterna,setFaseInterna]=useState(null)
+  const [storyAtivo,setStoryAtivo]=useState(null);const [susSelecionado,setSusSelecionado]=useState(null)
+  const {reputacao,casosResolvidos,pistasColetadas,nivel,carregado}=store
+  useEffect(()=>{if(user)store.loadSave(user.id);else store.loadSave(null)},[user])
+  const cd = CASOS.filter(c=>c.desbloqueado||casosResolvidos.some(r=>CASOS.find(cc=>cc.id===r)?.desbloqueia?.includes(c.id)))
+  const gp = (cid)=>pistasColetadas[cid]||[]
+  const gf = ()=>Object.entries(pistasColetadas).flatMap(([cid,pids])=>{const c=CASOS.find(cc=>cc.id===cid);return(pids||[]).map(pid=>{const p=c?.pistas.find(pp=>pp.id===pid);return p?.fio?{pista:p,caso:c}:null}).filter(Boolean)})
+  const hpc = useCallback((pista)=>{if(!casoAtivo)return;store.coletarPista(casoAtivo.id,pista.id,user?.id)},[casoAtivo,user])
+  const ha = ()=>{if(!susSelecionado||!casoAtivo)return;const s=casoAtivo.suspeitos.find(x=>x.id===susSelecionado);if(s?.culpado){const p=gp(casoAtivo.id);const er=store.acusacoesErradas[casoAtivo.id]||0;const b=er===0&&p.length===casoAtivo.pistas.length?1.2:er>=2?0.4:er===1?0.7:1;store.resolverCaso(casoAtivo.id,Math.round(casoAtivo.reputacao_ganho*b),user?.id);setFaseInterna({tipo:'convo',convoTipo:'resolucao'})}else{store.registrarAcusacaoErrada(casoAtivo.id,user?.id);setSusSelecionado(null)}}
 
-  useEffect(() => {
-    if (user) {
-      store.setUserId(user.id)
-      store.loadFromCloud(user.id).finally(() => setLoading(false))
-    } else {
-      setLoading(false)
-    }
-  }, [user])
+  const rc = () => {
+    if(faseInterna?.tipo==='local')return<LocalView local={faseInterna.local} caso={casoAtivo} nivel={nivel} onPistaColetada={hpc} onBack={()=>setFaseInterna({tipo:'dossier'})}/>
+    if(faseInterna?.tipo==='convo')return<ConvoView caso={casoAtivo} tipo={faseInterna.convoTipo} onBack={()=>setFaseInterna({tipo:'dossier'})}/>
+    if(faseInterna?.tipo==='dossier'&&casoAtivo){const p=gp(casoAtivo.id);const pf=casoAtivo.pistas_necessarias-p.length;const rv=casosResolvidos.includes(casoAtivo.id)
+      return(<div className="pp-dossier"><div className="pp-dossier-topbar"><button className="pp-convo-back" onClick={()=>{setFaseInterna(null);setCasoAtivo(null);setSusSelecionado(null)}}>←</button><span className="pp-dossier-title">{casoAtivo.i18n[LOCALE].nome}</span></div>{!rv&&<div onClick={()=>setFaseInterna({tipo:'convo',convoTipo:'abertura'})} className="pp-dossier-briefing"><span className="pp-dossier-briefing-emoji">💬</span><div className="pp-dossier-briefing-text"><div className="pp-dossier-briefing-label">Briefing do Caso</div><div className="pp-dossier-briefing-sub">Ver conversa de abertura</div></div><span className="pp-dossier-arrow">→</span></div>}<div className="pp-pistas-counter"><span className="pp-pistas-counter-label">PISTAS COLETADAS</span><span className="pp-pistas-counter-value">{p.length} / {casoAtivo.pistas_necessarias}</span></div>{p.length>0&&<div className="pp-dossier-section"><div className="pp-dossier-section-title">EVIDÊNCIAS</div>{p.map(pid=>{const ppi=casoAtivo.pistas.find(pp=>pp.id===pid);if(!ppi)return null;return(<div key={pid} onClick={()=>setStoryAtivo(ppi)} className="pp-dossier-pista-item" style={{borderColor:ppi.fio?'var(--pp-fio)':'var(--pp-border)'}}><span>{ppi.tipo==='fio'?'🕸️':ppi.tipo==='testemunho'?'💬':ppi.tipo==='documento'?'📄':'🔍'}</span><div className="pp-dossier-pista-text"><div className="pp-dossier-pista-titulo" style={{color:ppi.fio?'var(--pp-fio)':'var(--pp-text)'}}>{ppi.i18n[LOCALE].titulo}</div></div>{ppi.fio&&<span className="pp-dossier-pista-fio-badge">⚡ FIO</span>}</div>)})}</div>}<div className="pp-dossier-section-title">SUSPEITOS</div>{casoAtivo.suspeitos.map(s=>(<div key={s.id} className={`pp-suspeito-card ${susSelecionado===s.id?'selected':''}`} onClick={()=>!rv&&setSusSelecionado(s.id)}><div className="pp-suspeito-avatar">{s.avatar}</div><div className="pp-suspeito-info"><div className="pp-suspeito-nome">{s.i18n[LOCALE].nome}</div><div className="pp-suspeito-bio">{s.i18n[LOCALE].bio}</div></div>{!rv&&<div className="pp-suspeito-radio"/>}{rv&&s.culpado&&<span style={{fontSize:'1.2rem'}}>✓</span>}</div>))}<div className="pp-dossier-section-title" style={{marginTop:'1rem'}}>LOCAIS</div>{casoAtivo.locais.map(l=>{const col=p.includes(l.pista_id);return(<div key={l.id} onClick={()=>!col&&setFaseInterna({tipo:'local',local:l})} className={`pp-dossier-local-card ${col?'pp-dossier-local-card-done':''}`}><span>{l.batalha?'⚔️':PUZZLE_EMOJI[l.puzzle||'nenhum']}</span><div className="pp-dossier-local-info"><div className="pp-dossier-local-nome" style={{color:col?'var(--pp-success)':'var(--pp-text)'}}>{l.i18n[LOCALE].nome}</div><div className="pp-dossier-local-desc">{l.i18n[LOCALE].desc}</div></div>{col?<span style={{color:'var(--pp-success)'}}>✓</span>:<span style={{color:'var(--pp-text-muted)'}}>→</span>}</div>)})}{!rv&&<button className="pp-acusar-btn" disabled={!susSelecionado||p.length<casoAtivo.pistas_necessarias} onClick={ha}>{p.length<casoAtivo.pistas_necessarias?`Colete mais ${pf} pista${pf>1?'s':''}`:`ACUSAR ${casoAtivo.suspeitos.find(s=>s.id===susSelecionado)?.i18n[LOCALE].nome||'...'}`}</button>}</div>)}
+    if(aba==='feed'){const ap=cd.flatMap(c=>gp(c.id).map(pid=>{const p=c.pistas.find(pp=>pp.id===pid);return p?{pista:p,caso:c}:null}).filter(Boolean));return(<div className="pp-feed">{ap.length>0&&<div className="pp-stories-bar">{ap.slice(0,8).map(({pista})=>(<div key={pista.id} className="pp-story-thumb" onClick={()=>setStoryAtivo(pista)}><div className={`pp-story-ring ${pista.fio?'fio':''}`}><div className="pp-story-inner">{pista.tipo==='fio'?'🕸️':'🔍'}</div></div><div className="pp-story-label">{pista.i18n[LOCALE].titulo.split(' ')[0]}</div></div>))}</div>}{cd.map(c=>{const rv=casosResolvidos.includes(c.id);return(<div key={c.id} className={`pp-caso-card ${rv?'resolvido':''}`}><div className="pp-caso-header"><div className="pp-caso-avatar">🌆</div><div className="pp-caso-meta"><div className="pp-caso-nome">{c.i18n[LOCALE].nome}</div><div className="pp-caso-sub">Marelia, 1954 · {'★'.repeat(c.dificuldade)}</div></div><div className="pp-caso-dif">+{c.reputacao_ganho} REP</div></div><div className="pp-caso-thumbnail"><span style={{fontSize:'4rem'}}>{c.thumbnail}</span><div className="pp-caso-thumbnail-text">{c.i18n[LOCALE].subtitulo}</div>{rv&&<div className="pp-caso-resolv-badge">RESOLVIDO ✓</div>}</div><div className="pp-caso-actions"><div className="pp-caso-action-btn"><span>💬</span> {c.dialogo?.abertura?.length||0}</div><div className="pp-caso-action-btn"><span>🔍</span> {gp(c.id).length}/{c.pistas_necessarias}</div>{!rv&&<button className="pp-caso-open-btn" onClick={()=>{setCasoAtivo(c);setFaseInterna({tipo:'dossier'});setSusSelecionado(null)}}>INVESTIGAR</button>}</div></div>)})}</div>)}
+    if(aba==='mensagens'){const cont=[{id:'nina',ultima:'o Osvaldo sumiu',hora:'23:14',unread:1},{id:'kim',ultima:'alguém me fotografou de costas',hora:'01:32',unread:0},{id:'pajé',ultima:'CHEGUEEEEI PRA DIVAR',hora:'02:00',unread:1},{id:'helena',ultima:'preciso de alguém que não vá à polícia',hora:'21:47',unread:0},{id:'shuntaro',ultima:'vim ao Brasil a negócios',hora:'14:23',unread:0},{id:'anonimo',ultima:'me indicaram o senhor',hora:'ontem',unread:3}];return(<div className="pp-chat-list"><div className="pp-section-header">MENSAGENS</div>{cont.map(c=>{const av=AVATARES[c.id]||AVATARES.anonimo;const cdc=CASOS.find(caso=>cd.some(cc=>cc.id===caso.id)&&caso.dialogo?.abertura?.some(m=>m.de===c.id));return(<div key={c.id} className="pp-chat-item" onClick={()=>{if(cdc){setCasoAtivo(cdc);setFaseInterna({tipo:'convo',convoTipo:'abertura'})}}}><div className="pp-chat-avatar-wrap"><div className="pp-chat-avatar" style={{background:av.cor,border:`2px solid ${av.textCor}`}}>{av.emoji}</div>{c.unread>0&&<div className="pp-chat-online"/>}</div><div className="pp-chat-info"><div className="pp-chat-name" style={{color:av.textCor}}>{av.label}</div><div className="pp-chat-preview">{c.ultima}</div></div><div className="pp-chat-meta"><div className="pp-chat-time">{c.hora}</div>{c.unread>0&&<div className="pp-chat-unread">{c.unread}</div>}</div></div>)})}</div>)}
+    if(aba==='stories'){const tp=cd.flatMap(c=>gp(c.id).map(pid=>{const p=c.pistas.find(pp=>pp.id===pid);return p?{pista:p,caso:c}:null}).filter(Boolean));if(tp.length===0)return<div className="pp-empty">Nenhuma pista coletada ainda.</div>;return(<div className="pp-stories-grid">{tp.map(({pista})=>(<div key={pista.id} className="pp-story-card" onClick={()=>setStoryAtivo(pista)}><div className="pp-story-card-bg">{pista.tipo==='fio'?'🕸️':pista.tipo==='testemunho'?'💬':pista.tipo==='documento'?'📄':'🔍'}</div><div className="pp-story-card-overlay"/>{pista.fio&&<div className="pp-story-card-fio-border"/>}<div className="pp-story-card-content"><div className={`pp-story-card-tipo ${pista.tipo}`}>{pista.tipo}</div><div className="pp-story-card-title">{pista.i18n[LOCALE].titulo}</div></div></div>))}</div>)}
+    if(aba==='arquivos'){const fi=gf();return(<div className="pp-caderno"><div className="pp-dossier-section-title">CADERNO DE SUSPEITAS</div>{fi.length===0?<div className="pp-caderno-empty">"ainda não sei quem é.<br/>mas cada pista liga um ponto a outro."</div>:fi.map(({pista,caso})=>(<div key={pista.id} className="pp-caderno-node" onClick={()=>setStoryAtivo(pista)} style={{cursor:'pointer'}}><div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div><div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div><div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div></div>))}<div className="pp-dossier-section-title" style={{marginTop:'2rem',marginBottom:'1rem'}}>STATUS</div><div className="pp-status-grid"><div><div className="pp-status-num">{reputacao}</div><div className="pp-status-label">REPUTAÇÃO</div></div><div><div className="pp-status-num" style={{color:'var(--pp-jack)'}}>{casosResolvidos.length}</div><div className="pp-status-label">CASOS</div></div><div><div className="pp-status-num" style={{color:'var(--pp-kim)'}}>{nivel}</div><div className="pp-status-label">NÍVEL</div></div><div><div className="pp-status-num" style={{color:'var(--pp-fio)'}}>{fi.length}</div><div className="pp-status-label">FIOS</div></div></div></div>)}
+  }
 
-  if (loading) return <div className="pp-page"><p className="pp-loading">acordando do pesadelo...</p></div>
-
-  const { fase } = store
-
-  return (
-    <div className="pp-page">
-      {fase === 'dormindo' && <Dormindo />}
-      {fase === 'mapa' && <MapaCidade />}
-      {fase === 'abertura' && <CasoAbertura />}
-      {fase === 'investigar' && <Investigacao />}
-      {fase === 'dossier' && <Dossier />}
-      {fase === 'caderno' && <CadernoSuspeitas />}
-      {fase === 'confronto' && <Confronto />}
-      {fase === 'resolucao' && <Resolucao />}
-      {fase === 'final' && <FinalScreen />}
-    </div>
-  )
+  if(!carregado)return<div className="pp-loading-screen">CARREGANDO...</div>
+  if(appFase==='intro')return<div className="pp-intro-wrapper"><IntroNoir onComplete={()=>setAppFase('app')}/></div>
+  return(<div className="pp-wrapper"><motion.div className="pp-app" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.4}}><div className="pp-status-bar"><span className="pp-status-time">{new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span><div className="pp-status-icons"><span>📶</span><span>🔋</span></div></div>{!faseInterna&&<div className="pp-top-bar"><div className="pp-top-bar-avatar">🌙</div><div className="pp-top-bar-info"><div className="pp-top-bar-name">Pesadelo Particular</div><div className="pp-top-bar-sub">Marelia, 1954 · Nível {nivel}</div></div><div className="pp-top-bar-rep">⭐ {reputacao} REP</div></div>}<div className="pp-content"><AnimatePresence mode="wait"><motion.div key={`${aba}-${faseInterna?.tipo}`} initial={{opacity:0,x:10}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-10}} transition={{duration:0.15}}>{rc()}</motion.div></AnimatePresence></div>{!faseInterna&&<div className="pp-bottom-nav">{[{id:'feed',icon:'🏠',label:'Casos'},{id:'mensagens',icon:'💬',label:'Chat',badge:cd.filter(c=>!casosResolvidos.includes(c.id)).length},{id:'stories',icon:'📖',label:'Pistas',badge:gf().length},{id:'arquivos',icon:'🗂️',label:'Arquivos'}].map(nav=>(<button key={nav.id} className={`pp-nav-btn ${aba===nav.id?'active':''}`} onClick={()=>setAba(nav.id)}>{nav.badge>0&&<span className="pp-nav-badge">{nav.badge}</span>}<span className="pp-nav-btn-icon">{nav.icon}</span>{nav.label}</button>))}</div>}</motion.div><AnimatePresence>{storyAtivo&&<StoryViewer pista={storyAtivo} onClose={()=>setStoryAtivo(null)}/>}</AnimatePresence></div>)
 }

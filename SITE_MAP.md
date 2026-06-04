@@ -115,7 +115,7 @@
 | `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.3.1 | LDI Arena Mode — criação de ficha + combate CPU standalone |
 | `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v4.0.11 | Jack Dream Beer — idle noir investigativo |
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
-| `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.2.1 | Pesadelo Particular — 20 casos, Instagram-style, i18n PT/EN/ES |
+| `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.3.0 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
