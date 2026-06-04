@@ -282,8 +282,9 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: #0A0A0A;
-  border-bottom: 1px solid #222;
+  background: linear-gradient(180deg, #0a0a0a 0%, #0d0505 100%);
+  border-bottom: 1px solid #8B0000;
+  box-shadow: 0 2px 12px rgba(139, 0, 0, 0.15);
   padding: 0.4rem 1rem;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.75rem;
@@ -304,6 +305,7 @@
 .jdc-sb-resources {
   color: #F5A623;
   white-space: pre;
+  text-shadow: 0 0 4px rgba(245, 166, 35, 0.2);
 }
 
 .jdc-sb-nav {
@@ -322,17 +324,20 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: all 0.2s;
+  position: relative;
 }
 
 .jdc-sb-btn:hover:not(:disabled) {
   border-color: #F5A623;
   color: #F5A623;
+  text-shadow: 0 0 8px rgba(245, 166, 35, 0.3);
 }
 
 .jdc-sb-btn--active {
-  border-color: #F5A623;
+  border-color: #8B0000;
   color: #F5A623;
-  background: rgba(245, 166, 35, 0.08);
+  background: rgba(139, 0, 0, 0.12);
+  text-shadow: 0 0 8px rgba(245, 166, 35, 0.2);
 }
 
 .jdc-sb-btn--disabled {
@@ -348,17 +353,20 @@
 .jdc-sb-btn--save:hover:not(:disabled) {
   border-color: #CC0000;
   color: #CC0000;
+  text-shadow: 0 0 8px rgba(204, 0, 0, 0.3);
 }
 
 .jdc-sb-hp-label {
   color: #8B0000;
   min-width: 20px;
+  font-weight: 600;
 }
 
 .jdc-sb-hp-bar {
   color: #8B0000;
   letter-spacing: 0.05em;
   font-size: 0.8rem;
+  text-shadow: 0 0 4px rgba(139, 0, 0, 0.3);
 }
 
 .jdc-sb-hp-text {
@@ -370,6 +378,7 @@
 .jdc-sb-level {
   color: #F5A623;
   margin-left: auto;
+  font-size: 0.65rem;
 }
 
 /* ===== Intro ===== */
@@ -397,7 +406,12 @@
 
 /* ===== VILA ===== */
 
-.jdc-vila { text-align: center; }
+.jdc-vila {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #1a1a1a;
+  padding: 0.75rem;
+  text-align: center;
+}
 
 .jdc-vila-title {
   font-size: 1.3rem;
@@ -575,7 +589,12 @@
 
 /* ===== DUNGEON ===== */
 
-.jdc-dungeon { padding: 0.5rem 0; }
+.jdc-dungeon {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
 
 .jdc-dungeon-header {
   font-size: 1rem;
@@ -592,9 +611,12 @@
 
 .jdc-dungeon-ascii {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.75rem;
-  line-height: 1.3;
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: #C8C8C8;
+  background: rgba(0,0,0,0.3);
+  padding: 0.5rem;
+  border: 1px solid #1a1a1a;
 }
 
 .jdc-dungeon-actions {
