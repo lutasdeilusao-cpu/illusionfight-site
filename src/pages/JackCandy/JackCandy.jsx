@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useReader } from '../../context/ReaderContext'
 import { useJackStore } from './store/useJackStore'
+import jackImg from '../../assets/images/characters/jack-balloon.png'
 import './JackCandy.css'
 
 const RAIN_CHARS = ['|', '/', '\\', '░', '▒', '▓']
@@ -120,6 +121,11 @@ export default function JackCandy() {
       </div>
 
       <div className="jack-content">
+        {/* Avatar */}
+        <div className="jdc-avatar">
+          <img src={jackImg} alt="Jack" />
+        </div>
+
         {/* Title */}
         <div className="jack-title">
           {titleText}
