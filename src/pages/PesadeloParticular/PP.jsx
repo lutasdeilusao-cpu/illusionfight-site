@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.6'
+const PP_VERSION = '1.3.7'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -525,12 +525,82 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
 }
 
 // ══════════════════════════════════════════════════
+// MENU INICIAL
+// ══════════════════════════════════════════════════
+function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
+  const [confirmando, setConfirmando] = useState(false)
+  const rainRef = useRef(null)
+
+  useEffect(() => {
+    const rain = rainRef.current
+    if (rain) {
+      for (let i = 0; i < 40; i++) {
+        const d = document.createElement('div')
+        d.className = 'pp-rain-drop'
+        d.style.cssText = `left:${Math.random()*100}%;height:${60+Math.random()*80}px;animation-duration:${0.6+Math.random()*0.8}s;animation-delay:${Math.random()*2}s;opacity:${0.2+Math.random()*0.4}`
+        rain.appendChild(d)
+      }
+    }
+  }, [])
+
+  if (confirmando) {
+    return (
+      <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+        <div ref={rainRef} className="pp-rain" />
+        <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
+          <div style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem', marginBottom:'2rem', lineHeight:1.6 }}>
+            tem certeza?<br/>isso apaga tudo.
+          </div>
+          <div style={{ display:'flex', gap:'1rem', justifyContent:'center' }}>
+            <button onClick={() => setConfirmando(false)}
+              style={{ padding:'0.6rem 1.5rem', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer' }}>
+              NÃO
+            </button>
+            <button onClick={onNovoJogo}
+              style={{ padding:'0.6rem 1.5rem', background:'#300', color:'var(--pp-nina)', border:'1px solid var(--pp-nina)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer', fontWeight:700 }}>
+              SIM
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+      <div ref={rainRef} className="pp-rain" />
+      <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
+        <div style={{ fontFamily:'Courier New', fontSize:'0.6rem', letterSpacing:'0.4em', color:'var(--pp-amber)', marginBottom:'1rem', textTransform:'uppercase' }}>
+          Marelia, 1954
+        </div>
+        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'2.5rem', lineHeight:1.3 }}>
+          PESADELO<br/>PARTICULAR
+        </h1>
+
+        <button onClick={onContinuar}
+          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 1rem', padding:'0.85rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
+          ● CONTINUAR
+          <div style={{ fontSize:'0.6rem', fontWeight:400, color:'var(--pp-text-muted)', marginTop:4, letterSpacing:0 }}>
+            nível {nivel}, {casosResolvidos.length} casos resolvidos
+          </div>
+        </button>
+
+        <button onClick={() => setConfirmando(true)}
+          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto', padding:'0.85rem 0', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.1em', cursor:'pointer' }}>
+          ○ NOVO JOGO
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// ══════════════════════════════════════════════════
 // APP PRINCIPAL
 // ══════════════════════════════════════════════════
 export default function PP() {
   const { user } = useAuth()
   const store = usePPStore()
-  const [appFase, setAppFase] = useState('intro') // intro | app
+  const [appFase, setAppFase] = useState(null) // null=loading | menu | intro | app
   const [aba, setAba] = useState('feed')
   const [casoAtivo, setCasoAtivo] = useState(null)
   const [faseInterna, setFaseInterna] = useState(null)
@@ -544,6 +614,19 @@ export default function PP() {
     if (user) store.loadSave(user.id)
     else store.loadSave(null)
   }, [user])
+
+  // Decide menu vs intro after load
+  useEffect(() => {
+    if (carregado && appFase === null) {
+      const hasSave = casosResolvidos.length > 0
+      setAppFase(hasSave ? 'menu' : 'intro')
+    }
+  }, [carregado, appFase])
+
+  const handleNovoJogo = async () => {
+    await store.resetSave(user?.id)
+    setAppFase('intro')
+  }
 
   const casosDisponiveis = CASOS.filter(c =>
     c.desbloqueado ||
@@ -888,6 +971,18 @@ export default function PP() {
       <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.2em' }}>
         CARREGANDO...
       </div>
+    )
+  }
+
+  // Menu (save existente)
+  if (appFase === 'menu') {
+    return (
+      <MenuInicial
+        nivel={nivel}
+        casosResolvidos={casosResolvidos}
+        onContinuar={() => setAppFase('app')}
+        onNovoJogo={handleNovoJogo}
+      />
     )
   }
 
