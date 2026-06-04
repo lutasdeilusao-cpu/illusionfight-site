@@ -88,8 +88,6 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   const goalPos = { r: size-1, c: size-1 }
 
-    console.log('[STEALTH] size:', size, '| maxTentativas:', maxTentativas, '| tentativas usadas:', tentativas)
-
   useEffect(() => {
     let camsValidas, visionValida
     const maxTentativas = size >= 12 ? 30 : size >= 8 ? 20 : 10
@@ -102,6 +100,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       tentativas++
       console.log(`[STEALTH] tentativa ${tentativas} | caminho livre:`, temCaminhoLivre(visionValida, camsValidas, size))
     } while (!temCaminhoLivre(visionValida, camsValidas, size) && tentativas < maxTentativas)
+    console.log('[STEALTH] size:', size, '| maxTentativas:', maxTentativas, '| tentativas usadas:', tentativas)
     setCameras(camsValidas)
     setVisionCells(visionValida)
 
