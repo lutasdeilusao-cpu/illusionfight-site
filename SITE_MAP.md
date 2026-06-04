@@ -115,7 +115,7 @@
 | `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.3.3 | LDI Arena Mode — criação de ficha + combate CPU standalone |
 | `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v4.0.11 | Jack Dream Beer — idle noir investigativo |
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
-| `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.4.0 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n |
+| `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.4.0 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -380,6 +380,23 @@
 **Versão atual:** `4.0.11` (console: `[JACK] versão carregada: 4.0.11`)  
 **Rota:** `/extras/jackcandy`
 **GDD completo:** `docs/JACK_BEER_GDD.md`
+
+### Pesadelo Particular — FINALIZADO ✅ v1.4.0
+**Status:** PRONTO PARA LANÇAMENTO  
+**Rota:** `/extras/pesadelo`  
+**Stack:** React 19 · Zustand · Framer Motion · Supabase  
+**Console:** `[PP] versão carregada: 1.4.0`
+- ✅ 20 casos investigativos com dados reais (01-05 completos, 06-20 placeholder)
+- ✅ Sistema de batalha com nível escalável
+- ✅ 5 puzzles reutilizáveis embedded (Decoder, StealthGrid, Labirinto, Anagrama, SlidingTiles)
+- ✅ Save cloud via Supabase (UPSERT com RLS `auth.uid() = user_id`)
+- ✅ Modo imersivo (navbar/footer/trial banner ocultos via ReaderContext)
+- ✅ Menu inicial com CONTINUAR (mantém save) e NOVO JOGO (reseta Supabase + estado)
+- ✅ Chat WhatsApp-style (ConvoView) com typewriter e avatares por personagem
+- ✅ Story viewer de evidências estilo Instagram (click to close, X button)
+- ✅ i18n PT com estrutura pronta para EN/ES
+- ✅ Sistema de reputação, acusações erradas, bloqueio por excesso de erros
+- ✅ Layout responsivo mobile-first (480px max, altura 100vh fixa, scroll contido)
 
 ### Mini Games — Arcade Puzzles
 **Versão:** `1.1.8` (console: `[MINIGAMES] versão carregada: 1.1.8`)  
