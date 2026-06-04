@@ -117,7 +117,10 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
             className={className}
             style={{
               opacity: i <= currentPara ? 1 : 0.2,
-              ...(estiloPersonagem ? { color: estiloPersonagem.cor, fontFamily: estiloPersonagem.fonte } : {}),
+              ...(estiloPersonagem ? {
+                '--personagem-cor': estiloPersonagem.cor,
+                '--personagem-fonte': `'${estiloPersonagem.fonte}', monospace`,
+              } : {}),
             }}
           >
             {displayedTexts[i] || ''}
