@@ -42,7 +42,14 @@ export default function Interior({ npcId }) {
         </div>
       )}
       <div className="jdc-interior-itens">
-        {npc.itens.map(itemId => {
+        {npc.itens.filter(itemId => {
+          const e = store.equipado
+          const inv = store.inventario
+          if (store.flags.TEM_BENGALA && itemId === 'bengala_steampunk') return false
+          if (e.arma?.id === itemId || e.armadura?.id === itemId || e.acessorio?.id === itemId) return false
+          if (inv.find(i => i.id === itemId)) return false
+          return true
+        }).map(itemId => {
           const item = ITENS[itemId]
           if (!item) return null
           const podeComprar = item.moeda === 'nota' ? store.notas >= item.preco : store.capangas >= item.preco
