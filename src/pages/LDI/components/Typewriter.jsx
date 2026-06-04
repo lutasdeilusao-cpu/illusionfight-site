@@ -2,11 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 const PERSONAGEM_STYLE = {
-  'NEOGULDE': { cor: '#00B4D8', fonte: "'Share Tech Mono', monospace" },
-  'KAEDA': { cor: '#FF6B6B', fonte: 'Rajdhani, sans-serif' },
-  'VOZ': { cor: '#A855F4', fonte: "'JetBrains Mono', monospace" },
-  'STORMBYTE': { cor: '#F97316', fonte: "'Share Tech Mono', monospace" },
-  'SISTEMA': { cor: '#22C55E', fonte: "'JetBrains Mono', monospace" },
+  'NEOGULDE': { cor: '#00B4D8', fonte: 'Arial, Helvetica, sans-serif' },
+  'KAEDA': { cor: '#FF6B6B', fonte: 'Georgia, Times New Roman, serif' },
+  'VOZ': { cor: '#A855F4', fonte: "'Trebuchet MS', Lucida Grande, sans-serif" },
+  'STORMBYTE': { cor: '#F97316', fonte: "'Courier New', Courier, monospace" },
+  'SISTEMA': { cor: '#22C55E', fonte: "'Impact', Haettenschweiler, Arial Black, sans-serif" },
 }
 
 function detectarPrefixo(texto) {
