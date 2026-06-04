@@ -25,6 +25,7 @@ export default function Game() {
   const combat = useCombatStore()
   const [levelUpAttr, setLevelUpAttr] = useState(null)
   const [levelUpPoints, setLevelUpPoints] = useState(1)
+  const [tempAttrs, setTempAttrs] = useState(null)
   const [showManual, setShowManual] = useState(false)
   const [searchParams] = useSearchParams()
 
@@ -39,6 +40,7 @@ export default function Game() {
     if (save?.level_up_available) {
       setLevelUpPoints(1)
       setLevelUpAttr(null)
+      setTempAttrs(null)
     }
   }, [save?.level_up_available])
 
@@ -91,22 +93,40 @@ export default function Game() {
 
   const handleLevelUpAttr = (attr) => {
     if (levelUpPoints <= 0) return
-    const current = sheet?.attributes?.[attr] || 0
+    const base = sheet?.attributes || {}
+    const temp = tempAttrs || { ...base }
+    const current = temp[attr] || 0
     if (current >= 4) return
-    const newAttrs = { ...sheet.attributes, [attr]: current + 1 }
-    updateSheet({ attributes: newAttrs })
-    setLevelUpPoints(0)
+    temp[attr] = current + 1
+    setTempAttrs(temp)
+    setLevelUpPoints(p => p - 1)
     setLevelUpAttr(attr)
   }
 
+  const handleRemoveLevelUp = (attr) => {
+    const base = sheet?.attributes || {}
+    const temp = tempAttrs || { ...base }
+    const current = temp[attr] || 0
+    if (current <= (base[attr] || 0)) return
+    temp[attr] = current - 1
+    setTempAttrs(temp)
+    setLevelUpPoints(p => p + 1)
+    setLevelUpAttr(null)
+  }
+
   const handleConfirmLevelUp = () => {
+    if (levelUpPoints > 0) return
+    if (tempAttrs) updateSheet({ attributes: tempAttrs })
     clearLevelUp()
+    setTempAttrs(null)
     setLevelUpAttr(null)
     setLevelUpPoints(1)
     if (user) saveToCloud(user.id)
   }
 
   if (save?.level_up_available) {
+    const baseAttrs = sheet?.attributes || {}
+    const displayAttrs = tempAttrs || baseAttrs
     return (
       <div className="ldi-game">
         <div className="ldi-levelup-overlay">
@@ -116,19 +136,26 @@ export default function Game() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="ldi-levelup-title">LEVEL UP</div>
-            <div className="ldi-levelup-sub">Escolha um atributo para aprimorar:</div>
+            <div className="ldi-levelup-title">PONTOS DE AÇÃO</div>
+            <div className="ldi-levelup-sub">Distribua seu ponto de atributo:</div>
             <div className="ldi-levelup-points">Pontos disponíveis: {levelUpPoints}</div>
             {Object.entries(ATTR_NAMES).map(([key, label]) => {
-              const current = sheet?.attributes?.[key] || 0
-              const atMax = current >= 4
-              const isUpgraded = levelUpAttr === key
+              const baseVal = baseAttrs[key] || 0
+              const currentVal = displayAttrs[key] || 0
+              const atMax = currentVal >= 4
+              const isUpgraded = currentVal > baseVal
               return (
                 <div key={key} className="ldi-levelup-attr" style={isUpgraded ? { borderColor: '#FFD700' } : {}}>
                   <span className="ldi-levelup-attr-label">{label}</span>
                   <span className="ldi-levelup-attr-value">
-                    {isUpgraded ? `${current - 1} → ${current}` : current}
+                    {isUpgraded ? `${baseVal} → ${currentVal}` : baseVal}
                   </span>
+                  <button
+                    className="ldi-levelup-attr-btn"
+                    onClick={() => handleRemoveLevelUp(key)}
+                    disabled={!isUpgraded}
+                    style={{ marginRight: '0.25rem' }}
+                  >−</button>
                   <button
                     className="ldi-levelup-attr-btn"
                     onClick={() => handleLevelUpAttr(key)}
@@ -144,7 +171,7 @@ export default function Game() {
               disabled={levelUpPoints > 0}
               style={levelUpPoints > 0 ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
             >
-              {levelUpPoints > 0 ? 'Selecione um atributo para aprimorar' : 'CONFIRMAR'}
+              {levelUpPoints > 0 ? `Distribua ${levelUpPoints} ponto(s) restante(s)` : 'CONFIRMAR'}
             </button>
           </motion.div>
         </div>
