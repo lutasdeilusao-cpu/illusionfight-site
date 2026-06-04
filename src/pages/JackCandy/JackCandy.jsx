@@ -28,26 +28,15 @@ export default function JackCandy() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Check for active game on mount
-  useEffect(() => {
-    if (!user) return
-    // Try to detect if a game is already in progress via main save
-    const active = store._slot
-    if (active) {
-      setCurrentSlot(active)
-      store.loadFromCloud(user.id).then(() => {
-        useJackStore.setState({ _userId: user.id })
-        setLoaded(true)
-      })
-    }
-  }, [user])
+  // Sempre mostra MainMenu no mount (F5 = volta pro menu)
+  // O slot é definido quando o usuário escolhe no menu
 
   useEffect(() => {
     if (!user || !currentSlot) return
-    const t1 = setInterval(() => store.tick(), 1000)
-    const t2 = setInterval(() => store.regenHp(), 10000)
-    const t3 = setInterval(() => store.saveToCloud(user.id), 30000)
-    return () => { clearInterval(t1); clearInterval(t2); clearInterval(t3) }
+    store.loadFromCloud(user.id).then(() => {
+      useJackStore.setState({ _userId: user.id })
+      setLoaded(true)
+    })
   }, [user, currentSlot])
 
   useEffect(() => {

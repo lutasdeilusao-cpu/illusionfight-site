@@ -1,4 +1,4 @@
-const JACK_VERSION = '2.1.0'
+const JACK_VERSION = '2.1.1'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -17,6 +17,7 @@ function loadLocal() {
       if (data.fase?.startsWith('dungeon_') || data.fase === 'dungeon_select' || data.fase?.startsWith('interior_')) {
         data.fase = 'vila'
       }
+      data._slot = null
       return data
     }
   } catch (_) {}
@@ -36,6 +37,7 @@ function loadLocal() {
       data.periodo = 'DIA'
       data.cidadeAtual = 'marelia'
       data.aliadoAtual = null
+      data._slot = null
       return data
     }
   } catch (_) {}
