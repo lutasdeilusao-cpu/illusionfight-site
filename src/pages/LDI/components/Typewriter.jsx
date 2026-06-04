@@ -2,11 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 
 const PERSONAGEM_STYLE = {
-  'NEOGULDE': { cor: '#00B4D8' },
-  'KAEDA': { cor: '#FF6B6B' },
-  'VOZ': { cor: '#A855F4' },
-  'STORMBYTE': { cor: '#F97316' },
-  'SISTEMA': { cor: '#22C55E' },
+  'NEOGULDE': { cor: '#00B4D8', fonte: 'Share Tech Mono, monospace' },
+  'KAEDA': { cor: '#FF6B6B', fonte: 'Rajdhani, sans-serif' },
+  'VOZ': { cor: '#A855F4', fonte: 'JetBrains Mono, monospace' },
+  'STORMBYTE': { cor: '#F97316', fonte: 'Share Tech Mono, monospace' },
+  'SISTEMA': { cor: '#22C55E', fonte: 'JetBrains Mono, monospace' },
 }
 
 function detectarPrefixo(texto) {
@@ -104,17 +104,15 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
         const { personagem, textoLimpo } = detectarPrefixo(para)
         if (personagem) console.log('[TW] prefixo detectado:', personagem, '| textoLimpo:', textoLimpo.slice(0, 50))
         const estilo = PERSONAGEM_STYLE[personagem] || null
-        const personagemLower = personagem ? personagem.toLowerCase() : ''
         const classeFala = isFala(textoLimpo) ? 'ldi-text-fala' : 'ldi-text-narrativa'
-        const classePersonagem = estilo && isFala(textoLimpo) ? `ldi-text-fala--${personagemLower}` : ''
-        const className = `ldi-typewriter-para ${classeFala} ${classePersonagem}`.trim()
+        const className = `ldi-typewriter-para ${classeFala}`.trim()
         return (
           <p
             key={i}
             className={className}
             style={{
               opacity: i <= currentPara ? 1 : 0.2,
-              ...(estilo && isFala(textoLimpo) ? { '--personagem-cor': estilo.cor } : {}),
+              ...(estilo && isFala(textoLimpo) ? { '--personagem-cor': estilo.cor, fontFamily: estilo.fonte } : {}),
             }}
           >
             {displayedTexts[i] || ''}

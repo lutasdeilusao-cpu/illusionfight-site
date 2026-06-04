@@ -1128,12 +1128,6 @@
   margin: 0.5rem 0;
 }
 
-.ldi-text-fala--neogulde { font-family: 'Share Tech Mono', monospace; }
-.ldi-text-fala--kaeda { font-family: 'Rajdhani', sans-serif; }
-.ldi-text-fala--voz { font-family: 'JetBrains Mono', monospace; }
-.ldi-text-fala--stormbyte { font-family: 'Share Tech Mono', monospace; }
-.ldi-text-fala--sistema { font-family: 'JetBrains Mono', monospace; }
-
 .ldi-typewriter-hint {
   display: block;
   font-family: var(--font-narrative);
