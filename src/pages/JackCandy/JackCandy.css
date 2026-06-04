@@ -622,11 +622,18 @@
 .jdc-dungeon-player-art {
   display: flex;
   align-items: flex-end;
-  gap: 2rem;
+  gap: 0.5rem;
   justify-content: center;
   min-height: 110px;
   margin-bottom: 0.5rem;
   position: relative;
+  flex-wrap: wrap;
+}
+
+.jdc-dungeon-enemy-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .jdc-dungeon-player-body {

@@ -206,20 +206,18 @@ export default function Dungeon({ dungeonId }) {
           ))}
         </motion.div>
         <AnimatePresence>
-          {inimigosRef.current > 0 && (
-            <motion.div className="jdc-dungeon-enemy-group"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+          {inimigosRef.current > 0 && Array.from({ length: Math.min(restantes, 5) }).map((_, i) => (
+            <motion.div key={i} className="jdc-dungeon-enemy-group"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ delay: i * 0.05 }}
             >
               <pre className="jdc-dungeon-enemy-line"> ╭───╮ </pre>
-              <pre className="jdc-dungeon-enemy-line"> │{killAnim ? '💥' : ' x'}│ </pre>
+              <pre className="jdc-dungeon-enemy-line"> │ x │ </pre>
               <pre className="jdc-dungeon-enemy-line"> ╰───╯ </pre>
-              <span className="jack-text jack-text--dim" style={{ fontSize: '0.6rem' }}>
-                x{inimigosRef.current}
-              </span>
             </motion.div>
-          )}
+          ))}
         </AnimatePresence>
       </div>
 
