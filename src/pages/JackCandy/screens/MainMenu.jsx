@@ -1,36 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useJackStore } from '../store/useJackStore'
 import { getCidade } from '../data/cidades'
 
-function loadSlot(slot) {
-  try {
-    const raw = localStorage.getItem(`jack_beer_slot_${slot}`)
-    if (raw) return JSON.parse(raw)
-  } catch (_) {}
-  return null
-}
-
-export default function MainMenu({ onStart }) {
-  const store = useJackStore()
+export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
   const [selectedSlot, setSelectedSlot] = useState(null)
-  const [slots, setSlots] = useState([null, null, null])
   const [confirmNew, setConfirmNew] = useState(null)
 
-  useEffect(() => {
-    setSlots([loadSlot(1), loadSlot(2), loadSlot(3)])
-  }, [])
-
   const handleStart = (slotNum) => {
-    const save = slots[slotNum - 1]
+    const save = slotsData[slotNum - 1]
     setSelectedSlot(slotNum)
     if (save) {
-      const data = { ...save, _slot: slotNum, fase: save.fase || 'intro' }
-      if (data.fase?.startsWith('dungeon_') || data.fase === 'dungeon_select' || data.fase?.startsWith('interior_')) {
-        data.fase = 'vila'
-      }
-      useJackStore.setState(data)
-      onStart(slotNum)
+      onStart(slotNum, save)
     } else {
       setConfirmNew(slotNum)
     }
@@ -38,27 +18,13 @@ export default function MainMenu({ onStart }) {
 
   const handleNewGame = () => {
     if (confirmNew === null) return
-    const slotNum = confirmNew
-    useJackStore.setState({
-      ...useJackStore.getState(),
-      cervejas: 0, cervejasPorSegundo: 1, cervejasTotais: 0,
-      fragmentos: 0, notas: 0,
-      hpAtual: 20, hpMax: 20, nivel: 1, xp: 0,
-      fase: 'intro', flags: {}, dungeonsCompletas: [],
-      inventario: [], equipado: { arma: null, armadura: null, acessorio: null },
-      tempoJogo: 0, titleDone: false, monologoAtual: null,
-      cidadeAtual: 'marelia', periodo: 'DIA',
-      medidorPrimordial: 0, aliadoAtual: null,
-      _slot: slotNum,
-    })
-    onStart(slotNum)
+    onStart(confirmNew, null)
   }
 
   const handleDelete = (slotNum, e) => {
     e.stopPropagation()
     if (!window.confirm(`Apagar save do slot ${slotNum}?`)) return
-    localStorage.removeItem(`jack_beer_slot_${slotNum}`)
-    setSlots(s => { const n = [...s]; n[slotNum - 1] = null; return n })
+    onDeleteSlot(slotNum)
   }
 
   return (
@@ -90,9 +56,9 @@ export default function MainMenu({ onStart }) {
       ) : (
         <div className="jdc-slots">
           {[1, 2, 3].map(num => {
-            const save = slots[num - 1]
+            const save = slotsData[num - 1]
             const isSelected = selectedSlot === num
-            const cidade = save?.cidadeAtual ? getCidade(save.cidadeAtual) : null
+            const cidade = save?.cidade_atual ? getCidade(save.cidade_atual) : null
             return (
               <motion.button
                 key={num}
@@ -108,7 +74,10 @@ export default function MainMenu({ onStart }) {
                     <div className="jdc-slot-stat">LV {save.nivel || 1}</div>
                     <div className="jdc-slot-stat">{cidade?.nome || 'Marelia'}</div>
                     <div className="jdc-slot-stat" style={{ fontSize: '0.6rem', color: '#666' }}>
-                      {save.dungeonsCompletas?.length || 0} dungeons · cap/s {(save.cervejasPorSegundo || 1)}
+                      {save.dungeons_completas?.length || 0} dungeons · cap/s {(save.cervejas_por_segundo || 1)}
+                    </div>
+                    <div className="jdc-slot-stat" style={{ fontSize: '0.55rem', color: '#F5A623' }}>
+                      {save.casos_resolvidos?.length > 0 ? `🔍 ${save.casos_resolvidos.length} caso(s)` : ''}
                     </div>
                   </div>
                 ) : (
