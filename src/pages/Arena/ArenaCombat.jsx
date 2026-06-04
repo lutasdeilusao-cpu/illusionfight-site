@@ -213,7 +213,7 @@ export default function ArenaCombat({ onNavigate }) {
         setDiceOn(null)
         setOnomaMode(mode)
         stepRef.current = 1
-        timerRef.current = setTimeout(nextStep, 600)
+        timerRef.current = setTimeout(nextStep, 1000)
         break
       }
 
@@ -257,7 +257,7 @@ export default function ArenaCombat({ onNavigate }) {
         setFlashOn(false)
         setOnomaMode(d.eMode)
         stepRef.current = 4
-        timerRef.current = setTimeout(nextStep, 600)
+        timerRef.current = setTimeout(nextStep, 1000)
         break
       }
 
