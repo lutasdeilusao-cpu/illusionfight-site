@@ -59,8 +59,12 @@ export default function Combat() {
     })
   }
 
-  const handleAttack = () => {
-    const result = combat.executeAttack(sheet)
+  const handleAttack = (powerCost = 0) => {
+    if (powerCost > 0) {
+      const newPm = Math.max(0, (save?.pm_current ?? 0) - powerCost)
+      updateSave({ pm_current: newPm })
+    }
+    const result = combat.executeAttack(sheet, powerCost * 2)
     return result
   }
 

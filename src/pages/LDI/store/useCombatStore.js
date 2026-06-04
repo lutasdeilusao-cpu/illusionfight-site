@@ -35,14 +35,15 @@ export const useCombatStore = create((set, get) => ({
 
   selectMode: (mode) => set({ playerMode: mode }),
 
-  executeAttack: (sheet) => {
+  executeAttack: (sheet, powerBonus = 0) => {
     const state = get()
     if (!sheet || !state.enemy) return null
 
     const weaponBonus = state.enemy.weapon_damage || 0
     const fa = calcFA(state.playerMode, sheet, weaponBonus)
     const fd = calcFD({ attributes: state.enemy.stats }, true)
-    const damage = calcDamage(fa.value, fd.value)
+    const danoBase = calcDamage(fa.value, fd.value)
+    const damage = danoBase + powerBonus
 
     const enemyPv = Math.max(0, (state.enemy.pv_current ?? state.enemy.pv_max) - damage)
 
@@ -55,7 +56,7 @@ export const useCombatStore = create((set, get) => ({
       damage,
       faBreakdown: fa.breakdown,
       fdBreakdown: fd.breakdown,
-      text: `Seu ataque (${fa.breakdown}) vs FD ${fd.value} (${fd.breakdown}) = ${damage} de dano`,
+      text: `Seu ataque (${fa.breakdown}) vs FD ${fd.value} (${fd.breakdown}) = ${damage} de dano${powerBonus > 0 ? ` (poder +${powerBonus})` : ''}`,
     }
 
     const updatedEnemy = { ...state.enemy, pv_current: enemyPv }

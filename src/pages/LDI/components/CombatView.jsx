@@ -172,13 +172,16 @@ export default function CombatView({
     if (animating || pmCurrent < (power.cost || 1)) return
     setAnimating(true)
 
+    const cost = power.cost || 1
+    const powerBonus = cost * 2
+
     combat.addLog({
       type: 'attack',
-      text: `Você usou ${power.name}! ⚡${power.cost} PM`,
+      text: `Você usou ${power.name}! ⚡${cost} PM (poder +${powerBonus})`,
     })
 
     setShowOnomatopeia({ mode: 'power', critical: false })
-    const result = onAttack()
+    const result = onAttack(cost)
     if (result) {
       setPlayerDice({ result: result.fa, success: result.damage > 0 })
       if (result.damage > 0) setDamageNumber({ value: result.damage + 1, target: 'enemy', x: 60, y: 20 })
