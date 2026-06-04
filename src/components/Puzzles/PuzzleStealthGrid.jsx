@@ -118,7 +118,8 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     if (nr < 0 || nr >= size || nc < 0 || nc >= size) return
 
     const onCamera = cameras.some(cam => cam.r === nr && cam.c === nc)
-    const inVision = visionCells.has(`${nr},${nc}`)
+  const currentVision = calculateAllVision(cameras, size)
+  const inVision = currentVision.has(`${nr},${nc}`)
 
     if (onCamera || inVision) {
       setPlayerPos({ r: nr, c: nc })
