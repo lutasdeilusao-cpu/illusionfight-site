@@ -44,7 +44,7 @@ export default function StatusBar() {
         <span className="jdc-sb-nav">
           <button className={`jdc-sb-btn ${store.fase === 'vila' ? 'jdc-sb-btn--active' : ''}`}
             onClick={() => store.flags.TEM_BENGALA && store.setFase('vila')}
-            disabled={!store.flags.TEM_BENGALA}>VILA</button>
+            disabled={!store.flags.TEM_BENGALA}>MND</button>
           <button className={`jdc-sb-btn ${store.fase === 'inventario' ? 'jdc-sb-btn--active' : ''}`}
             onClick={() => store.flags.TEM_BENGALA && store.setFase('inventario')}
             disabled={!store.flags.TEM_BENGALA}>INV</button>
