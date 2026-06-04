@@ -22,6 +22,12 @@ export default function StatusBar() {
 
   const alternarPeriodo = () => {
     if (periodoCd > 0) return
+    // HP baixo: descansar em vez de alternar periodo
+    if (store.hpAtual <= 0 || store.hpAtual < store.hpMax * 0.5) {
+      if (store.fase !== 'vila') store.setFase('vila')
+      store.setFase('descanso')
+      return
+    }
     store.alternarPeriodo()
     setPeriodoCd(30)
   }
@@ -33,7 +39,7 @@ export default function StatusBar() {
   }, [periodoCd])
 
   const temFragmentos = store.flags.JA_VIU_FRAGMENTOS || store.fragmentos > 0
-  const mostraPrimordial = store.flags.KRONOS_VIU || store.medidorPrimordial > 0
+  const mostraPrimordial = store.flags.KRONOS_VIU
 
   return (
     <div className="jdc-statusbar">
@@ -55,7 +61,7 @@ export default function StatusBar() {
             onClick={alternarPeriodo}
             disabled={periodoCd > 0}
             style={{ borderColor: '#F5A62333', color: periodoCd > 0 ? '#444' : '#F5A62366' }}>
-            {periodoCd > 0 ? `${periodoCd}s` : store.periodo === 'DIA' ? '🌙' : '☀️'}
+            {periodoCd > 0 ? `${periodoCd}s` : store.hpAtual < store.hpMax * 0.5 ? '😴' : store.periodo === 'DIA' ? '🌙' : '☀️'}
           </button>
           {mostraPrimordial && (
             <span className="jdc-sb-primordial" title={`Medidor Primordial: ${store.medidorPrimordial}/10`}>

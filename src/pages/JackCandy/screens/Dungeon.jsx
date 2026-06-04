@@ -19,8 +19,6 @@ export default function Dungeon({ dungeonId }) {
   const [hp, setHp] = useState(store.hpAtual)
   const hpMax = store.hpMax
   const [fase, setFase] = useState('combat')
-  const [progresso, setProgresso] = useState(0)
-  const [restantes, setRestantes] = useState(dungeon?.inimigos || 0)
   const [animAtk, setAnimAtk] = useState(false)
   const [animDano, setAnimDano] = useState(false)
   const [animKill, setAnimKill] = useState(false)
@@ -28,15 +26,39 @@ export default function Dungeon({ dungeonId }) {
   const [stealthDetectado, setStealthDetectado] = useState(false)
   const [fugaRound, setFugaRound] = useState(0)
   const [fugaVivo, setFugaVivo] = useState(true)
+
+  // Generate enemies for infinite dungeon
+  const getInfiniteEnemies = () => {
+    if (!dungeon?.infinito) return dungeon?.inimigos || 0
+    return 3 + Math.floor(store.nivel * 1.5)
+  }
+  const getInfiniteEnemyHp = () => {
+    if (!dungeon?.infinito) return dungeon?.inimigoHp || 3
+    return 3 + Math.floor(store.nivel * 0.8)
+  }
+  const getInfiniteEnemyDmg = () => {
+    if (!dungeon?.infinito) return dungeon?.inimigoDmg || 1
+    return 1 + Math.floor(store.nivel * 0.3)
+  }
+  const getInfiniteDrop = () => {
+    if (!dungeon?.infinito) return dungeon?.dropCap || 0
+    return (dungeon?.dropCap || 30) + Math.floor(store.nivel * 2)
+  }
+
+  const totalInimigos = dungeon?.infinito ? getInfiniteEnemies() : (dungeon?.inimigos || 0)
+  const dropCap = dungeon?.infinito ? getInfiniteDrop() : (dungeon?.dropCap || 0)
+  const [totalInimigosState] = useState(totalInimigos)
+  const [dropCapState] = useState(dropCap)
+  const [restantes, setRestantes] = useState(totalInimigos)
+  const [progresso, setProgresso] = useState(0)
   const [onomatopeias, setOnomatopeias] = useState([])
 
-  const inimigosRef = useRef(dungeon?.inimigos || 0)
+  const inimigosRef = useRef(totalInimigos)
   const hpRef = useRef(store.hpAtual)
   const stopRef = useRef(false)
   const danoArmaRef = useRef(store.equipado?.arma?.dano || 0)
   const defesaRef = useRef(store.equipado?.armadura?.reducaoDano || 0)
   const reducaoRef = useRef(0)
-  const totalInimigos = dungeon?.inimigos || 0
   const aliado = store.aliadoAtual
   const primordialAtivo = store.flags.KRONOS_VIU && store.medidorPrimordial >= 10
   const onoIdRef = useRef(0)
@@ -260,14 +282,19 @@ export default function Dungeon({ dungeonId }) {
   }
 
   const finalizarDungeon = (d, rewardMult = 1) => {
-    const dropCap = Math.floor((d.dropCap || 0) * rewardMult)
+    const dCap = dungeon?.infinito ? getInfiniteDrop() : (d.dropCap || 0)
+    const dropCapResult = Math.floor(dCap * rewardMult)
     const dropNotas = d.dropNotas || 0
     const dropFrag = d.dropFragmentos || 0
-    store.completarDungeon(d.id, dropCap, dropNotas, dropFrag)
-    if (d.desbloqueiaFlag) store.setFlag(d.desbloqueiaFlag)
-    store.incrementarMedidor()
+    if (dungeon?.infinito) {
+      store.ganharCervejas(dropCapResult)
+    } else {
+      store.completarDungeon(d.id, dropCapResult, dropNotas, dropFrag)
+      if (d.desbloqueiaFlag) store.setFlag(d.desbloqueiaFlag)
+      store.incrementarMedidor()
+    }
     if (aliado?.id === 'nina') useJackStore.setState(state => ({ notas: state.notas + Math.floor(dropNotas * 0.5) }))
-    if (primordialAtivo && rewardMult === 1) store.zerarMedidor()
+    if (primordialAtivo && rewardMult === 1 && !dungeon?.infinito) store.zerarMedidor()
   }
 
   const pct = totalInimigos > 0 ? Math.round((progresso / totalInimigos) * 100) : 0
@@ -281,7 +308,7 @@ export default function Dungeon({ dungeonId }) {
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
           <div className="jdc-dungeon-end-icon" style={{ color: '#8B0000' }}>💀</div>
           <p className="jack-text jack-text--crimson" style={{ fontSize: '1.2rem' }}>você morreu.</p>
-          <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+          <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>[ voltar ]</button>
         </motion.div>
       </div>
     )
@@ -294,7 +321,7 @@ export default function Dungeon({ dungeonId }) {
           <div className="jdc-dungeon-end-icon" style={{ color: '#F5A623' }}>✅</div>
           <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon?.nome || 'Dungeon'} completo!</p>
           <p className="jack-text">
-            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.dropCap || 0) * 3) : dungeon?.dropCap || 0} cervejas
+            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas
             {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} notas` : ''}
             {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} fragmentos` : ''}
           </p>

@@ -12,6 +12,7 @@ import Vila from './screens/Vila'
 import Interior from './screens/Interior'
 import Inventario from './screens/Inventario'
 import Dungeon from './screens/Dungeon'
+import Descanso from './screens/Descanso'
 import DungeonSelect from './screens/DungeonSelect'
 import { MONOLOGUES } from './data/monologues'
 import './JackCandy.css'
@@ -128,6 +129,7 @@ export default function JackCandy() {
       <div className="jack-content" style={{ paddingTop: isDungeon ? '4rem' : '6rem' }}>
         {fase === 'intro' && <Intro />}
         {fase === 'vila' && <Vila />}
+        {fase === 'descanso' && <Descanso />}
         {fase === 'inventario' && <Inventario />}
         {fase === 'dungeon_select' && <DungeonSelect />}
         {isInterior && <Interior npcId={npcId} />}

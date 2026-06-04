@@ -1268,3 +1268,36 @@
   text-shadow: 0 0 6px rgba(224, 32, 32, 0.4);
   font-size: 1.3rem;
 }
+
+/* ===== DESCANSO ===== */
+
+.jdc-descanso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.jdc-descanso-card {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 2rem;
+  max-width: 350px;
+  width: 100%;
+}
+
+.jdc-descanso-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-descanso-hpbar {
+  height: 10px;
+  background: #1a0a0a;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
