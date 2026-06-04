@@ -53,7 +53,20 @@ export default function Interior({ npcId }) {
   const todosItens = [
     ...(npc.itens || []),
     ...(npc.loja_secreta && store.flags[npc.requerFlagLoja] ? npc.loja_secreta : [])
-  ]
+  ].filter(itemId => {
+    const item = ITENS[itemId]
+    if (!item) return false
+    // Já equipado → esconde
+    const eq = store.equipado
+    if (eq.arma?.id === itemId || eq.armadura?.id === itemId || eq.acessorio?.id === itemId) return false
+    // Já no inventário → esconde
+    if (store.inventario.find(i => i.id === itemId)) return false
+    // Bengala só aparece antes de comprar
+    if (itemId === 'bengala_steampunk' && store.flags.TEM_BENGALA) return false
+    // Itens únicos só aparecem se nunca comprados
+    if (item.unico && store.flags[`COMPROU_${itemId.toUpperCase()}`]) return false
+    return true
+  })
 
   const categorias = ['todos', 'arma', 'armadura', 'consumivel', 'acessorio']
   const itensFiltrados = todosItens.filter(itemId => {

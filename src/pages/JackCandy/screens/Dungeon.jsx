@@ -154,7 +154,9 @@ export default function Dungeon({ dungeonId }) {
           if (dungeon?.boss) {
             setTimeout(() => bossBattle(dungeon), 1000)
           } else {
+            store.setHpAtual(hpRef.current)
             finalizarDungeon(dungeon)
+            setTimeout(() => setFase('vitoria'), 500)
           }
           return
         }
