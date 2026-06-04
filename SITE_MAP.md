@@ -75,7 +75,7 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, header fixo próprio, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ | Hub com cards para Quiz SDR, Super Trunfo e Curiosidades |
+| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ v2.0 | Hub arcade anos 90: 4 cards JOGOS (LDI, Jack, Top Trumps, Arena) + 3 CONTEÚDO (Quiz, Leaderboard, Curiosidades) |
 | `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign (2 colunas, seleção de modo, barra de coleção) |
 | `/extras/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), turnos, matchmaking (sala privada/código/fila pública) e aposta de cartas |
 | `/extras/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, atributos, placar, transferência de cartas no modo apostado |
@@ -409,7 +409,7 @@
 **Status:** ✅ v2.1.0 — 3 cidades, 11 dungeons, 28 itens, 10 NPCs, 3 sistemas  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `3.3.2` (console: `[JACK] versão carregada: 3.3.2`)  
+**Versão atual:** `3.3.16` (console: `[JACK] versão carregada: 3.3.16`)  
 **Rota:** `/extras/jackcandy`
 **GDD completo:** `docs/JACK_BEER_GDD.md`
 
