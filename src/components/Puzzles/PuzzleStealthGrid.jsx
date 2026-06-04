@@ -151,6 +151,43 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     setVisionCells(v)
   }, [cameras])
 
+  const handleMove = useCallback((dr, dc) => {
+    if (done || alarm) return
+    const nr = playerPos.r + dr
+    const nc = playerPos.c + dc
+    if (nr < 0 || nr >= size || nc < 0 || nc >= size) return
+    const currentVision = calculateAllVision(cameras, size, visionRange)
+    currentVision.delete('0,0')
+    currentVision.delete(`${size-1},${size-1}`)
+    const onCamera = cameras.some(cam => cam.r === nr && cam.c === nc)
+    const inVision = currentVision.has(`${nr},${nc}`)
+    if (onCamera || inVision) {
+      setPlayerPos({ r: nr, c: nc })
+      setCaughtCell({ r: nr, c: nc })
+      setAlarm(true); setDone(true); setToast(true)
+      setTimeout(() => setToast(false), 1500)
+      setTimeout(() => onFail?.(), 1800)
+      return
+    }
+    setPlayerPos({ r: nr, c: nc })
+    if (nr === goalPos.r && nc === goalPos.c) {
+      setDone(true)
+      setTimeout(() => onSolve?.(), 300)
+    }
+  }, [playerPos, cameras, done, alarm, visionCells, visionRange])
+
+  // Keyboard
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (done) return
+      const moves = { ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1], w:[-1,0], s:[1,0], a:[0,-1], d:[0,1] }
+      const delta = moves[e.key]
+      if (delta) { e.preventDefault(); handleMove(delta[0], delta[1]) }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [playerPos, cameras, done, alarm, visionCells, handleMove])
+
   // Viewport scroll via hook
   const gridOffset = useViewportScroll(playerPos, cellSize, viewportPx, size)
 
@@ -188,42 +225,6 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     pegadasTimerRef.current = t
     return () => clearInterval(t)
   }, [done, size])
-
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (done) return
-      const moves = { ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1], w:[-1,0], s:[1,0], a:[0,-1], d:[0,1] }
-      const delta = moves[e.key]
-      if (delta) { e.preventDefault(); handleMove(delta[0], delta[1]) }
-    }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [playerPos, cameras, done, alarm, visionCells])
-
-  const handleMove = useCallback((dr, dc) => {
-    if (done || alarm) return
-    const nr = playerPos.r + dr
-    const nc = playerPos.c + dc
-    if (nr < 0 || nr >= size || nc < 0 || nc >= size) return
-    const currentVision = calculateAllVision(cameras, size, visionRange)
-    currentVision.delete('0,0')
-    currentVision.delete(`${size-1},${size-1}`)
-    const onCamera = cameras.some(cam => cam.r === nr && cam.c === nc)
-    const inVision = currentVision.has(`${nr},${nc}`)
-    if (onCamera || inVision) {
-      setPlayerPos({ r: nr, c: nc })
-      setCaughtCell({ r: nr, c: nc })
-      setAlarm(true); setDone(true); setToast(true)
-      setTimeout(() => setToast(false), 1500)
-      setTimeout(() => onFail?.(), 1800)
-      return
-    }
-    setPlayerPos({ r: nr, c: nc })
-    if (nr === goalPos.r && nc === goalPos.c) {
-      setDone(true)
-      setTimeout(() => onSolve?.(), 300)
-    }
-  }, [playerPos, cameras, done, alarm, visionCells, visionRange])
 
   console.log('[HOOKS] useSwipe, useZoom, useViewportScroll extraídos e aplicados no Stealth')
 

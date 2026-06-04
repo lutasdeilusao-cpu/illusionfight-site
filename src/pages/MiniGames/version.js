@@ -1,2 +1,2 @@
-export const MINIGAMES_VERSION = '1.1.1'
+export const MINIGAMES_VERSION = '1.1.2'
 console.log(`[MINIGAMES] versão carregada: ${MINIGAMES_VERSION}`)
