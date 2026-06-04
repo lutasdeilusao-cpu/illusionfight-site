@@ -590,6 +590,60 @@
   margin: 1rem 0;
 }
 
+.jdc-dungeon-ascii {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: #C8C8C8;
+}
+
+.jdc-dungeon-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== CB2 Style ===== */
+
+.jdc-cb2-hp {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #C8C8C8;
+  margin-bottom: 0.25rem;
+}
+
+.jdc-cb2-hp-label {
+  background: rgba(20, 212, 0, 0.15);
+  padding: 0.1rem 0.3rem;
+}
+
+.jdc-cb2-hp-text {
+  color: #8B0000;
+}
+
+.jdc-cb2-sep {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #444;
+  letter-spacing: 0.05em;
+  margin: 0.25rem 0;
+}
+
+.jdc-cb2-log {
+  max-height: 250px;
+  overflow-y: auto;
+  margin: 0.25rem 0;
+}
+
+.jdc-cb2-log-entry {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #C8C8C8;
+  line-height: 1.5;
+  margin: 0;
+}
+
 /* ===== INVENTARIO ===== */
 
 .jdc-inventario-screen { padding: 0.5rem 0; }

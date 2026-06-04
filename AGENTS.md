@@ -54,6 +54,7 @@ LDI_VERSION → '1.0.xx'. Deploy + commit + push + hash + SITE_MAP.
 5. ✅ `git push`
 6. ✅ `npm run deploy`
 7. ✅ Confirme que o deploy publicou sem erros
+8. ✅Quando terminar qualquer task entregar relatório completo do que foi feito 
 
 **Não existe "só um commit rápido". Não existe "depois eu atualizo".**
 **Cada alteração = ciclo completo. Sempre.**
@@ -194,3 +195,4 @@ Use sparingly: only when the reformulation unlocks a materially better response,
 
 *ADAPTA.ORG · Ten operational directives that organize how responses are shaped.*
 
+Quando terminar qualquer task entregar relatório completo do que foi feito 
