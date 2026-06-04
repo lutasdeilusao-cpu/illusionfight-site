@@ -2,23 +2,62 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CASOS } from './data/casos'
 import { usePPStore } from './store/usePPStore'
+import { useAuth } from '../../context/AuthContext'
+import PuzzleDecoder from '../../components/Puzzles/PuzzleDecoder'
+import PuzzleStealthGrid from '../../components/Puzzles/PuzzleStealthGrid'
+import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
+import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
+import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.0'
-console.log(`[PP] versão carregada: ${PP_VERSION}`)
+const PP_VERSION = '1.3.1'
+const LOCALE = 'pt'
 
 const AVATARES = {
-  jack: { emoji: '🕵️', cor: '#1a3a2a', textCor: '#00ff88', label: 'Jack' },
-  nina: { emoji: '⚔️', cor: '#2a1a1a', textCor: '#ff8888', label: 'Nina' },
-  kim: { emoji: '🔥', cor: '#1a2a3a', textCor: '#00ccff', label: 'Kim' },
-  pajé: { emoji: '🪄', cor: '#2a2a1a', textCor: '#ffd700', label: 'Pajé Yawanari' },
-  anonimo: { emoji: '❓', cor: '#1a1a1a', textCor: '#888888', label: 'Desconhecido' },
-  helena: { emoji: '🚬', cor: '#1a1a1a', textCor: '#c8c8c8', label: 'Helena' },
-  shuntaro: { emoji: '⚡', cor: '#1a1a2a', textCor: '#8888ff', label: 'Shuntaro' },
+  jack:     { emoji: '🕵️', cor: '#1a3a2a', textCor: '#00ff88',  label: 'Jack' },
+  nina:     { emoji: '⚔️',  cor: '#2a1a1a', textCor: '#ff8888',  label: 'Nina' },
+  kim:      { emoji: '🔥',  cor: '#1a2a3a', textCor: '#00ccff',  label: 'Kim' },
+  pajé:     { emoji: '🪄',  cor: '#2a2a1a', textCor: '#ffd700',  label: 'Pajé' },
+  anonimo:  { emoji: '❓',  cor: '#1a1a1a', textCor: '#888888',  label: 'Desconhecido' },
+  helena:   { emoji: '🚬',  cor: '#1a1a1a', textCor: '#c8c8c8',  label: 'Helena' },
+  shuntaro: { emoji: '⚡',  cor: '#1a1a2a', textCor: '#8888ff',  label: 'Shuntaro' },
 }
 
-const PUZZLE_EMOJI = { decoder: '📻', stealth: '🥷', labirinto: '🌀', anagrama: '🔤', sliding: '🧩', nenhum: '🔍' }
+const PUZZLE_EMOJI = {
+  decoder: '📻', stealth: '🥷', labirinto: '🌀',
+  anagrama: '🔤', sliding: '🧩', nenhum: '🔍',
+}
 
+// ── INIMIGOS POR NÍVEL ──────────────────────────────
+const INIMIGOS_NIVEL = {
+  1:  { nome: 'Capanga de Terno',     hp: 30, dano: [2,5],  xp: 20,  emoji: '🕴️' },
+  2:  { nome: 'Segurança Corrupto',   hp: 45, dano: [3,7],  xp: 30,  emoji: '👮' },
+  3:  { nome: 'Detetive Infiltrado',  hp: 60, dano: [4,8],  xp: 40,  emoji: '🔎' },
+  4:  { nome: 'Assassino de Aluguel', hp: 80, dano: [5,10], xp: 55,  emoji: '🗡️' },
+  5:  { nome: 'Agente de Kronos',     hp: 100,dano: [6,12], xp: 70,  emoji: '⚓' },
+}
+
+function getInimigo(nivel) {
+  const tier = Math.min(5, Math.ceil(nivel / 4))
+  return INIMIGOS_NIVEL[tier]
+}
+
+function getJackStats(nivel) {
+  return {
+    hp: 30 + nivel * 5,
+    dano: [3 + nivel, 6 + nivel * 2],
+    emoji: '🕵️',
+  }
+}
+
+// ── UTILS ──────────────────────────────────────────
+function rolar(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+// ══════════════════════════════════════════════════
+// INTRO NOIR
+// ══════════════════════════════════════════════════
 function IntroNoir({ onComplete }) {
   const [text, setText] = useState('')
   const [fase, setFase] = useState('typing')
@@ -27,17 +66,15 @@ function IntroNoir({ onComplete }) {
   const timerRef = useRef(null)
 
   useEffect(() => {
+    console.log(`[PP] versão carregada: ${PP_VERSION}`)
+    // gotas de chuva
     const rain = document.querySelector('.pp-rain')
     if (rain) {
       for (let i = 0; i < 40; i++) {
-        const drop = document.createElement('div')
-        drop.className = 'pp-rain-drop'
-        drop.style.left = `${Math.random() * 100}%`
-        drop.style.height = `${60 + Math.random() * 80}px`
-        drop.style.animationDuration = `${0.6 + Math.random() * 0.8}s`
-        drop.style.animationDelay = `${Math.random() * 2}s`
-        drop.style.opacity = 0.2 + Math.random() * 0.4
-        rain.appendChild(drop)
+        const d = document.createElement('div')
+        d.className = 'pp-rain-drop'
+        d.style.cssText = `left:${Math.random()*100}%;height:${60+Math.random()*80}px;animation-duration:${0.6+Math.random()*0.8}s;animation-delay:${Math.random()*2}s;opacity:${0.2+Math.random()*0.4}`
+        rain.appendChild(d)
       }
     }
     timerRef.current = setInterval(() => {
@@ -58,81 +95,313 @@ function IntroNoir({ onComplete }) {
       <div className="pp-rain" />
       <div className="pp-intro-label">PESADELO PARTICULAR</div>
       <div className="pp-intro-text">
-        {text.split('\n').map((line, i) => (
-          <span key={i}>{line}{i < text.split('\n').length - 1 && <><br /><br /></>}</span>
+        {text.split('\n').map((line, i, arr) => (
+          <span key={i}>{line}{i < arr.length - 1 && <><br /><br /></>}</span>
         ))}
         {fase === 'typing' && <span className="pp-intro-cursor" />}
       </div>
       {fase === 'glitch' && <div className="pp-glitch-overlay" />}
-      <div style={{ position: 'absolute', bottom: '2rem', left: 0, right: 0, textAlign: 'center', fontSize: '0.65rem', color: 'rgba(255,255,255,0.2)', fontFamily: 'Courier New', letterSpacing: '0.1em' }}>
+      <div style={{ position:'absolute',bottom:'2rem',left:0,right:0,textAlign:'center',fontSize:'0.65rem',color:'rgba(255,255,255,0.2)',fontFamily:'Courier New',letterSpacing:'0.1em' }}>
         toque para pular
       </div>
     </div>
   )
 }
 
+// ══════════════════════════════════════════════════
+// ANIMAÇÃO INVESTIGAÇÃO SEM PUZZLE
+// ══════════════════════════════════════════════════
+function AnimacaoInvestigacao({ onComplete }) {
+  const [fase, setFase] = useState('pegadas') // pegadas | lupa | revelando
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setFase('lupa'), 2000)
+    const t2 = setTimeout(() => setFase('revelando'), 3500)
+    const t3 = setTimeout(() => onComplete(), 4800)
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+  }, [])
+
+  return (
+    <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'3rem 1rem', gap:'1.5rem' }}>
+      <AnimatePresence mode="wait">
+        {fase === 'pegadas' && (
+          <motion.div key="pegadas" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
+            style={{ display:'flex', gap:'0.5rem', alignItems:'center' }}>
+            {['👣','👣','👣'].map((p,i) => (
+              <motion.span key={i} style={{ fontSize:'1.5rem' }}
+                initial={{ opacity:0, x:-10 }}
+                animate={{ opacity:1, x:0 }}
+                transition={{ delay: i * 0.4 }}>
+                {p}
+              </motion.span>
+            ))}
+          </motion.div>
+        )}
+        {fase === 'lupa' && (
+          <motion.div key="lupa" initial={{ opacity:0, scale:0.5 }} animate={{ opacity:1, scale:1 }}
+            transition={{ type:'spring', stiffness:200 }}>
+            <span style={{ fontSize:'3rem' }}>🔍</span>
+          </motion.div>
+        )}
+        {fase === 'revelando' && (
+          <motion.div key="revelando" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}>
+            <span style={{ fontSize:'0.8rem', color:'var(--pp-amber)', fontFamily:'Courier New', letterSpacing:'0.15em' }}>
+              EVIDÊNCIA ENCONTRADA
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div style={{ width:'80%', height:'2px', background:'var(--pp-border)', borderRadius:1, overflow:'hidden' }}>
+        <motion.div style={{ height:'100%', background:'var(--pp-amber)', borderRadius:1 }}
+          initial={{ width:'0%' }} animate={{ width:'100%' }} transition={{ duration:4.5, ease:'linear' }} />
+      </div>
+    </div>
+  )
+}
+
+// ══════════════════════════════════════════════════
+// SISTEMA DE BATALHA
+// ══════════════════════════════════════════════════
+function BatalhaView({ nivel, onVitoria, onDerrota }) {
+  const inimigo = getInimigo(nivel)
+  const jackBase = getJackStats(nivel)
+
+  const [jackHp, setJackHp] = useState(jackBase.hp)
+  const [inimigoHp, setInimigoHp] = useState(inimigo.hp)
+  const [log, setLog] = useState([])
+  const [turno, setTurno] = useState('player') // player | inimigo | fim
+  const [resultado, setResultado] = useState(null)
+  const [animAtaque, setAnimAtaque] = useState(null)
+  const logRef = useRef(null)
+
+  const addLog = (texto, tipo = 'normal') => {
+    setLog(prev => [...prev, { texto, tipo, id: Date.now() + Math.random() }])
+    setTimeout(() => logRef.current?.scrollTo({ top: 99999, behavior: 'smooth' }), 50)
+  }
+
+  const atacarInimigo = () => {
+    if (turno !== 'player' || resultado) return
+    const dano = rolar(...jackBase.dano)
+    const novoHp = Math.max(0, inimigoHp - dano)
+    setAnimAtaque('jack')
+    setTimeout(() => setAnimAtaque(null), 400)
+    setInimigoHp(novoHp)
+    addLog(`Jack ataca: ${dano} de dano`, 'player')
+
+    if (novoHp <= 0) {
+      addLog('Inimigo derrotado!', 'vitoria')
+      setResultado('vitoria')
+      setTurno('fim')
+      setTimeout(() => onVitoria(), 1500)
+      return
+    }
+
+    setTurno('inimigo')
+    setTimeout(() => {
+      const danoInimigo = rolar(...inimigo.dano)
+      const novoJackHp = Math.max(0, jackHp - danoInimigo)
+      setAnimAtaque('inimigo')
+      setTimeout(() => setAnimAtaque(null), 400)
+      setJackHp(novoJackHp)
+      addLog(`${inimigo.nome} ataca: ${danoInimigo} de dano`, 'inimigo')
+
+      if (novoJackHp <= 0) {
+        addLog('Jack foi derrotado...', 'derrota')
+        setResultado('derrota')
+        setTurno('fim')
+        setTimeout(() => onDerrota(), 1500)
+        return
+      }
+      setTurno('player')
+    }, 900)
+  }
+
+  const hpPct = (hp, max) => Math.max(0, (hp / max) * 100)
+
+  return (
+    <div style={{ padding:'1rem', display:'flex', flexDirection:'column', gap:'1rem' }}>
+      <div style={{ textAlign:'center', fontFamily:'Courier New', fontSize:'0.65rem', letterSpacing:'0.2em', color:'var(--pp-text-muted)', marginBottom:'0.5rem' }}>
+        CONFRONTO · NÍVEL {nivel}
+      </div>
+
+      {/* Inimigo */}
+      <motion.div animate={animAtaque === 'inimigo' ? { x: [0, 8, -8, 0] } : {}} style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'0.5rem' }}>
+          <span style={{ fontSize:'2rem' }}>{inimigo.emoji}</span>
+          <div style={{ flex:1 }}>
+            <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-nina)' }}>{inimigo.nome}</div>
+            <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>HP: {inimigoHp}/{inimigo.hp}</div>
+          </div>
+        </div>
+        <div style={{ height:6, background:'var(--pp-border)', borderRadius:3, overflow:'hidden' }}>
+          <motion.div animate={{ width: `${hpPct(inimigoHp, inimigo.hp)}%` }} transition={{ duration:0.3 }}
+            style={{ height:'100%', background:'var(--pp-nina)', borderRadius:3 }} />
+        </div>
+      </motion.div>
+
+      {/* Log */}
+      <div ref={logRef} style={{ background:'#050505', border:'1px solid var(--pp-border)', borderRadius:8, padding:'0.75rem', height:120, overflowY:'auto', display:'flex', flexDirection:'column', gap:'0.3rem' }}>
+        {log.length === 0 && <div style={{ color:'var(--pp-text-muted)', fontSize:'0.75rem', fontFamily:'Georgia', fontStyle:'italic' }}>O confronto começa.</div>}
+        {log.map(l => (
+          <div key={l.id} style={{ fontSize:'0.75rem', fontFamily:'Courier New', color: l.tipo === 'player' ? 'var(--pp-jack)' : l.tipo === 'inimigo' ? 'var(--pp-nina)' : l.tipo === 'vitoria' ? 'var(--pp-success)' : l.tipo === 'derrota' ? 'var(--pp-danger)' : 'var(--pp-text-muted)' }}>
+            {l.texto}
+          </div>
+        ))}
+      </div>
+
+      {/* Jack */}
+      <motion.div animate={animAtaque === 'jack' ? { x: [0, -8, 8, 0] } : {}} style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'0.5rem' }}>
+          <span style={{ fontSize:'2rem' }}>🕵️</span>
+          <div style={{ flex:1 }}>
+            <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-jack)' }}>Jack</div>
+            <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>HP: {jackHp}/{jackBase.hp}</div>
+          </div>
+        </div>
+        <div style={{ height:6, background:'var(--pp-border)', borderRadius:3, overflow:'hidden' }}>
+          <motion.div animate={{ width: `${hpPct(jackHp, jackBase.hp)}%` }} transition={{ duration:0.3 }}
+            style={{ height:'100%', background:'var(--pp-jack)', borderRadius:3 }} />
+        </div>
+      </motion.div>
+
+      {/* Botão */}
+      <button
+        onClick={atacarInimigo}
+        disabled={turno !== 'player' || !!resultado}
+        style={{ padding:'0.85rem', background: turno === 'player' && !resultado ? 'var(--pp-amber)' : 'var(--pp-surface2)', color: turno === 'player' && !resultado ? '#000' : 'var(--pp-text-muted)', border:'none', borderRadius:12, fontSize:'0.9rem', fontWeight:700, cursor: turno === 'player' && !resultado ? 'pointer' : 'default', transition:'all 0.2s' }}>
+        {turno === 'player' ? '⚔️ ATACAR' : turno === 'inimigo' ? '⏳ Inimigo agindo...' : resultado === 'vitoria' ? '✓ Vitória!' : '✗ Derrota'}
+      </button>
+    </div>
+  )
+}
+
+// ══════════════════════════════════════════════════
+// CONVERSA (WHATSAPP STYLE)
+// ══════════════════════════════════════════════════
 function ConvoView({ caso, tipo, onBack }) {
   const [msgs, setMsgs] = useState([])
-  const [digitando, setDigitando] = useState(false)
-  const [done, setDone] = useState(false)
+  const [digitandoDe, setDigitandoDe] = useState(null)
   const endRef = useRef(null)
-  const locale = 'pt'
 
   const dialogo = tipo === 'abertura' ? caso.dialogo.abertura : caso.dialogo.resolucao
   const narracao = tipo === 'abertura' ? caso.dialogo.narracao_abertura : caso.dialogo.narracao_final
 
   useEffect(() => {
-    setMsgs([{ tipo: 'narracao', texto: typeof narracao === 'object' ? narracao[locale] : narracao, id: 'narr-start' }])
+    // Narração inicial
+    setMsgs([{ tipo: 'narracao', texto: narracao[LOCALE], id: 'narr-start' }])
+
     dialogo.forEach((msg, i) => {
+      // Mostra "digitando..." antes
+      const delayBase = msg.delay + 800
+      setTimeout(() => setDigitandoDe(msg.de), delayBase)
       setTimeout(() => {
-        setDigitando(true)
-        setTimeout(() => {
-          setDigitando(false)
-          setMsgs(prev => [...prev, { id: `msg-${i}`, de: msg.de, texto: msg.i18n[locale], hora: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) }])
-          if (i === dialogo.length - 1) {
-            setTimeout(() => {
-              setMsgs(prev => [...prev, { tipo: 'narracao', texto: typeof narracao === 'object' ? narracao[locale] : narracao, id: 'narr-end' }])
-              setDone(true)
-            }, 1200)
-          }
-        }, 600)
-      }, msg.delay + 800)
+        setDigitandoDe(null)
+        setMsgs(prev => [...prev, {
+          id: `msg-${i}`,
+          de: msg.de,
+          texto: msg.i18n[LOCALE],
+          hora: new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' }),
+        }])
+        if (i === dialogo.length - 1) {
+          setTimeout(() => {
+            setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao[LOCALE], id:'narr-end' }])
+          }, 1000)
+        }
+      }, delayBase + 700)
     })
   }, [])
 
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [msgs, digitando])
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior:'smooth' })
+  }, [msgs, digitandoDe])
 
   return (
     <div className="pp-convo">
+      {/* Header */}
       <div className="pp-convo-header">
         <button className="pp-convo-back" onClick={onBack}>←</button>
-        <div className="pp-chat-avatar" style={{ background: AVATARES.jack.cor, borderColor: AVATARES.jack.textCor }}>{AVATARES.jack.emoji}</div>
-        <div><div className="pp-chat-name">Jack Cachorrão</div><div className="pp-chat-preview" style={{ color: '#00ff88', fontSize: '0.7rem' }}>● online</div></div>
+        <div className="pp-chat-avatar" style={{ background: AVATARES.jack.cor, border:`2px solid ${AVATARES.jack.textCor}`, width:32, height:32, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1rem', flexShrink:0 }}>
+          {AVATARES.jack.emoji}
+        </div>
+        <div>
+          <div style={{ fontSize:'0.9rem', fontWeight:700, color:'var(--pp-jack)' }}>Jack Cachorrão</div>
+          <div style={{ fontSize:'0.65rem', color:'var(--pp-success)' }}>● online</div>
+        </div>
       </div>
-      <div className="pp-convo-messages">
+
+      {/* Mensagens — scrollável independente */}
+      <div style={{ flex:1, overflowY:'auto', padding:'1rem', display:'flex', flexDirection:'column', gap:'0.5rem', maxHeight:'calc(100vh - 180px)' }}>
         {msgs.map(msg => {
-          if (msg.tipo === 'narracao') return <div key={msg.id} className="pp-msg narracao">{msg.texto}</div>
-          return (<div key={msg.id} className={`pp-msg ${msg.de}`}>{msg.texto}<span className="pp-msg-time">{msg.hora}</span></div>)
+          if (msg.tipo === 'narracao') {
+            return (
+              <div key={msg.id} style={{ textAlign:'center', padding:'0.5rem 1rem', color:'var(--pp-text-muted)', fontFamily:'Georgia', fontStyle:'italic', fontSize:'0.78rem', maxWidth:'90%', alignSelf:'center' }}>
+                {msg.texto}
+              </div>
+            )
+          }
+          const av = AVATARES[msg.de] || AVATARES.anonimo
+          const isJack = msg.de === 'jack'
+
+          return (
+            <motion.div key={msg.id}
+              initial={{ opacity:0, scale:0.85, y:8 }}
+              animate={{ opacity:1, scale:1, y:0 }}
+              transition={{ type:'spring', stiffness:300, damping:25 }}
+              style={{ display:'flex', flexDirection: isJack ? 'row-reverse' : 'row', alignItems:'flex-end', gap:'0.5rem', alignSelf: isJack ? 'flex-end' : 'flex-start', maxWidth:'78%' }}>
+
+              {/* Avatar fora da bolha */}
+              <div style={{ width:28, height:28, borderRadius:'50%', background:av.cor, border:`1.5px solid ${av.textCor}`, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0, marginBottom:2 }}>
+                {av.emoji}
+              </div>
+
+              <div style={{ background:av.cor, borderRadius: isJack ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding:'0.55rem 0.85rem', border:`1px solid ${av.textCor}22` }}>
+                {!isJack && <div style={{ fontSize:'0.62rem', fontWeight:700, color:av.textCor, marginBottom:3 }}>{av.label}</div>}
+                <div style={{ fontSize:'0.88rem', color:av.textCor, lineHeight:1.5 }}>{msg.texto}</div>
+                <div style={{ fontSize:'0.62rem', opacity:0.4, marginTop:3, textAlign:'right', color:av.textCor }}>{msg.hora}</div>
+              </div>
+            </motion.div>
+          )
         })}
-        {digitando && (
-          <div className="pp-msg jack" style={{ padding: '0.4rem 0.75rem' }}>
-            <div className="pp-msg-typing"><div className="pp-msg-typing-dot" /><div className="pp-msg-typing-dot" /><div className="pp-msg-typing-dot" /></div>
-          </div>
-        )}
+
+        {/* Digitando */}
+        {digitandoDe && (() => {
+          const av = AVATARES[digitandoDe] || AVATARES.anonimo
+          return (
+            <div style={{ display:'flex', alignItems:'flex-end', gap:'0.5rem' }}>
+              <div style={{ width:28, height:28, borderRadius:'50%', background:av.cor, border:`1.5px solid ${av.textCor}`, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0 }}>
+                {av.emoji}
+              </div>
+              <div style={{ background:av.cor, borderRadius:'16px 16px 16px 4px', padding:'0.5rem 0.85rem', border:`1px solid ${av.textCor}22` }}>
+                <div className="pp-msg-typing">
+                  <div className="pp-msg-typing-dot" style={{ background:av.textCor }} />
+                  <div className="pp-msg-typing-dot" style={{ background:av.textCor, animationDelay:'0.2s' }} />
+                  <div className="pp-msg-typing-dot" style={{ background:av.textCor, animationDelay:'0.4s' }} />
+                </div>
+              </div>
+            </div>
+          )
+        })()}
+
         <div ref={endRef} />
       </div>
     </div>
   )
 }
 
+// ══════════════════════════════════════════════════
+// STORY VIEWER
+// ══════════════════════════════════════════════════
 function StoryViewer({ pista, onClose }) {
-  const locale = 'pt'; const info = pista.i18n[locale]
+  const info = pista.i18n[LOCALE]
+  const TIPO_EMOJI = { objeto:'🔍', testemunho:'💬', documento:'📄', rastro:'👣', fio:'🕸️' }
   return (
-    <motion.div className="pp-story-viewer" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}>
-      <div className="pp-story-viewer-bar"><div className="pp-story-viewer-seg"><div className="pp-story-viewer-seg-fill" /></div></div>
+    <motion.div className="pp-story-viewer" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
+      <div className="pp-story-viewer-bar">
+        <div className="pp-story-viewer-seg"><div className="pp-story-viewer-seg-fill" /></div>
+      </div>
       <button className="pp-story-viewer-close" onClick={onClose}>✕</button>
       <div className="pp-story-viewer-content">
-        <div className="pp-story-viewer-emoji">{pista.tipo === 'fio' ? '🕸️' : pista.tipo === 'testemunho' ? '💬' : pista.tipo === 'documento' ? '📄' : '🔍'}</div>
+        <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
         {pista.fio && <div className="pp-story-viewer-fio-label">⚡ FIO DA CONSPIRAÇÃO</div>}
         <div className="pp-story-viewer-title">{info.titulo}</div>
@@ -142,180 +411,349 @@ function StoryViewer({ pista, onClose }) {
   )
 }
 
-function LocalView({ local, caso, onPistaColetada, onBack }) {
-  const [pistaRevelada, setPistaRevelada] = useState(false)
-  const locale = 'pt'; const pista = caso.pistas.find(p => p.id === local.pista_id)
-  const locInfo = local.i18n ? local.i18n[locale] : { nome: local.id, desc: '' }
+// ══════════════════════════════════════════════════
+// LOCAL VIEW
+// ══════════════════════════════════════════════════
+function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
+  const [etapa, setEtapa] = useState('inicio') // inicio | animacao | puzzle | batalha | revelado
+  const locInfo = local.i18n[LOCALE]
+  const pista = caso.pistas.find(p => p.id === local.pista_id)
 
-  const handleInvestigar = () => {
-    setPistaRevelada(true)
-    onPistaColetada(pista)
+  const iniciarInvestigacao = () => {
+    if (local.batalha) {
+      setEtapa('batalha')
+    } else if (local.puzzle && local.puzzle !== 'nenhum') {
+      setEtapa('puzzle')
+    } else {
+      setEtapa('animacao')
+    }
+  }
+
+  const handlePuzzleSolve = () => { setEtapa('revelado'); onPistaColetada(pista) }
+  const handlePuzzleFail = () => { setEtapa('inicio') }
+  const handleBatalhaVitoria = () => { setEtapa('revelado'); onPistaColetada(pista) }
+  const handleBatalhaDerrota = () => { setEtapa('inicio') }
+  const handleAnimacaoComplete = () => { setEtapa('revelado'); onPistaColetada(pista) }
+
+  const puzzleProps = { onSolve: handlePuzzleSolve, onFail: handlePuzzleFail, config: { difficulty: 'easy' } }
+
+  const renderPuzzle = () => {
+    switch (local.puzzle) {
+      case 'decoder':  return <PuzzleDecoder {...puzzleProps} />
+      case 'stealth':  return <PuzzleStealthGrid {...puzzleProps} />
+      case 'labirinto': return <PuzzleLabirinto {...puzzleProps} />
+      case 'anagrama': return <PuzzleAnagrama {...puzzleProps} />
+      case 'sliding':  return <PuzzleSlidingTiles {...puzzleProps} />
+      default: return null
+    }
   }
 
   return (
     <div className="pp-local">
       <div className="pp-convo-header">
         <button className="pp-convo-back" onClick={onBack}>←</button>
-        <span style={{ color: 'var(--pp-amber)', fontFamily: 'Courier New', fontSize: '0.85rem' }}>{locInfo.nome}</span>
+        <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{locInfo.nome}</span>
       </div>
+
+      {/* Hero do local */}
       <div className="pp-local-hero">
         <div className="pp-local-emoji">🏚️</div>
         <div className="pp-local-nome">{locInfo.nome}</div>
         <div className="pp-local-desc">{locInfo.desc}</div>
       </div>
-      {!pistaRevelada ? (
-        <div className="pp-local-puzzle-cta" onClick={handleInvestigar}>
-          <div className="pp-local-puzzle-icon">{PUZZLE_EMOJI[local.puzzle || 'nenhum']}</div>
-          <div className="pp-local-puzzle-label">{local.puzzle && local.puzzle !== 'nenhum' ? 'Resolver Puzzle para Investigar' : 'Investigar Local'}</div>
-          {local.puzzle && <div className="pp-local-puzzle-sub">{local.puzzle.toUpperCase()}</div>}
-        </div>
-      ) : (
-        <div className="pp-local-pista-reveal" style={{ margin: '1rem' }}>
-          <span className={`pp-local-pista-tipo-badge ${pista.tipo}`}>{pista.tipo}</span>
-          {pista.fio && <span className="pp-local-pista-tipo-badge fio" style={{ marginLeft: '0.4rem' }}>⚡ fio</span>}
-          <div className="pp-local-pista-title">{pista.i18n[locale].titulo}</div>
-          <div className="pp-local-pista-desc">{pista.i18n[locale].desc}</div>
-        </div>
-      )}
+
+      <AnimatePresence mode="wait">
+        {etapa === 'inicio' && (
+          <motion.div key="inicio" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
+            <div className="pp-local-puzzle-cta" onClick={iniciarInvestigacao}>
+              <div className="pp-local-puzzle-icon">
+                {local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}
+              </div>
+              <div className="pp-local-puzzle-label">
+                {local.batalha ? 'Confronto Necessário' : local.puzzle && local.puzzle !== 'nenhum' ? 'Resolver Puzzle para Investigar' : 'Investigar Local'}
+              </div>
+              {local.puzzle && local.puzzle !== 'nenhum' && (
+                <div className="pp-local-puzzle-sub">{local.puzzle.toUpperCase()}</div>
+              )}
+            </div>
+          </motion.div>
+        )}
+
+        {etapa === 'animacao' && (
+          <motion.div key="anim" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
+            <AnimacaoInvestigacao onComplete={handleAnimacaoComplete} />
+          </motion.div>
+        )}
+
+        {etapa === 'puzzle' && (
+          <motion.div key="puzzle" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} style={{ padding:'0 0.5rem' }}>
+            {renderPuzzle()}
+          </motion.div>
+        )}
+
+        {etapa === 'batalha' && (
+          <motion.div key="batalha" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
+            <BatalhaView nivel={nivel} onVitoria={handleBatalhaVitoria} onDerrota={handleBatalhaDerrota} />
+          </motion.div>
+        )}
+
+        {etapa === 'revelado' && (
+          <motion.div key="revelado" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
+            style={{ margin:'1rem' }}>
+            <span className={`pp-local-pista-tipo-badge ${pista.tipo}`}>{pista.tipo}</span>
+            {pista.fio && <span className="pp-local-pista-tipo-badge fio" style={{ marginLeft:'0.4rem' }}>⚡ fio</span>}
+            <div className="pp-local-pista-title" style={{ marginTop:'0.5rem' }}>{pista.i18n[LOCALE].titulo}</div>
+            <div className="pp-local-pista-desc">{pista.i18n[LOCALE].desc}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <button className="pp-local-voltar" onClick={onBack}>← Voltar ao Dossier</button>
     </div>
   )
 }
 
+// ══════════════════════════════════════════════════
+// APP PRINCIPAL
+// ══════════════════════════════════════════════════
 export default function PP() {
-  // DEBUG: log estrutura do primeiro caso pra confirmar arrays corretos
-  const c0 = CASOS[0]
-  console.log('[PP-DEBUG] caso_01 suspeitos:', c0.suspeitos?.length, '| locais:', c0.locais?.length, '| pistas:', c0.pistas?.length)
-  console.log('[PP-DEBUG] suspeitos[0]:', c0.suspeitos?.[0]?.id, c0.suspeitos?.[0]?.i18n?.pt?.nome)
-  console.log('[PP-DEBUG] locais[0]:', c0.locais?.[0]?.id, c0.locais?.[0]?.i18n?.pt?.nome)
+  const { user } = useAuth()
   const store = usePPStore()
-  const [fase, setFase] = useState('intro')
+  const [appFase, setAppFase] = useState('intro') // intro | app
   const [aba, setAba] = useState('feed')
   const [casoAtivo, setCasoAtivo] = useState(null)
   const [faseInterna, setFaseInterna] = useState(null)
   const [storyAtivo, setStoryAtivo] = useState(null)
-  const [reputacao, setReputacao] = useState(0)
-  const [pistasColetadas, setPistasColetadas] = useState({})
-  const [casosResolvidos, setCasosResolvidos] = useState([])
   const [suspeitoSelecionado, setSuspeitoSelecionado] = useState(null)
-  const locale = 'pt'
 
-  useEffect(() => { store.loadSave() }, [])
+  const { reputacao, casosResolvidos, pistasColetadas, nivel, carregado } = store
+
+  // Load save
+  useEffect(() => {
+    if (user) store.loadSave(user.id)
+    else store.loadSave(null)
+  }, [user])
 
   const casosDisponiveis = CASOS.filter(c =>
-    c.desbloqueado || casosResolvidos.some(r => {
-      const cr = CASOS.find(cc => cc.id === r)
-      return cr?.desbloqueia?.includes(c.id)
-    })
+    c.desbloqueado ||
+    casosResolvidos.some(r => CASOS.find(cc => cc.id === r)?.desbloqueia?.includes(c.id))
   )
 
-  const getPistasDoCase = (cid) => pistasColetadas[cid] || []
-  const getFiosPistas = () => Object.entries(pistasColetadas).flatMap(([cid, pids]) => {
-    const caso = CASOS.find(c => c.id === cid)
-    return pids.map(pid => { const p = caso?.pistas.find(pp => pp.id === pid); return p?.fio ? { pista: p, caso } : null }).filter(Boolean)
-  })
+  const getPistasDoCase = (casoId) => pistasColetadas[casoId] || []
+
+  const getFiosPistas = () =>
+    Object.entries(pistasColetadas).flatMap(([casoId, pids]) => {
+      const caso = CASOS.find(c => c.id === casoId)
+      return (pids || []).map(pid => {
+        const p = caso?.pistas.find(pp => pp.id === pid)
+        return p?.fio ? { pista: p, caso } : null
+      }).filter(Boolean)
+    })
 
   const handlePistaColetada = useCallback((pista) => {
     if (!casoAtivo) return
-    setPistasColetadas(prev => {
-      const existentes = prev[casoAtivo.id] || []
-      if (existentes.includes(pista.id)) return prev
-      return { ...prev, [casoAtivo.id]: [...existentes, pista.id] }
-    })
-  }, [casoAtivo])
+    store.coletarPista(casoAtivo.id, pista.id, user?.id)
+  }, [casoAtivo, user])
 
   const handleAcusar = () => {
     if (!suspeitoSelecionado || !casoAtivo) return
-    const s = casoAtivo.suspeitos.find(x => x.id === suspeitoSelecionado)
-    if (s?.culpado) {
-      setCasosResolvidos(prev => [...prev, casoAtivo.id])
-      setReputacao(prev => prev + casoAtivo.reputacao_ganho)
+    const suspeito = casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)
+    if (suspeito?.culpado) {
+      const pistas = getPistasDoCase(casoAtivo.id)
+      const erros = store.acusacoesErradas[casoAtivo.id] || 0
+      const bonus = erros === 0 && pistas.length === casoAtivo.pistas.length ? 1.2 : erros >= 2 ? 0.4 : erros === 1 ? 0.7 : 1
+      store.resolverCaso(casoAtivo.id, Math.round(casoAtivo.reputacao_ganho * bonus), user?.id)
       setFaseInterna({ tipo: 'convo', convoTipo: 'resolucao' })
     } else {
+      store.registrarAcusacaoErrada(casoAtivo.id, user?.id)
       setSuspeitoSelecionado(null)
     }
   }
 
-  const renderAba = () => {
-    if (faseInterna?.tipo === 'local') return <LocalView local={faseInterna.local} caso={casoAtivo} onPistaColetada={handlePistaColetada} onBack={() => setFaseInterna({ tipo: 'dossier' })} />
-    if (faseInterna?.tipo === 'convo') return <ConvoView caso={casoAtivo} tipo={faseInterna.convoTipo} onBack={() => setFaseInterna(null)} />
+  // ── RENDER CONTEÚDO ──────────────────────────────
+  const renderConteudo = () => {
+    // Local investigação
+    if (faseInterna?.tipo === 'local') {
+      return (
+        <LocalView
+          local={faseInterna.local}
+          caso={casoAtivo}
+          nivel={nivel}
+          onPistaColetada={handlePistaColetada}
+          onBack={() => setFaseInterna({ tipo: 'dossier' })}
+        />
+      )
+    }
 
+    // Conversa
+    if (faseInterna?.tipo === 'convo') {
+      return (
+        <ConvoView
+          caso={casoAtivo}
+          tipo={faseInterna.convoTipo}
+          onBack={() => setFaseInterna({ tipo: 'dossier' })}
+        />
+      )
+    }
+
+    // Dossier
     if (faseInterna?.tipo === 'dossier' && casoAtivo) {
       const pistas = getPistasDoCase(casoAtivo.id)
-      const pf = casoAtivo.pistas_necessarias - pistas.length
+      const pistasFaltam = casoAtivo.pistas_necessarias - pistas.length
       const resolvido = casosResolvidos.includes(casoAtivo.id)
+
       return (
         <div className="pp-dossier">
-          <div className="pp-convo-header" style={{ margin: '0 -1rem 1rem', padding: '0.75rem 1rem', background: 'var(--pp-surface)', borderBottom: '1px solid var(--pp-border)' }}>
-            <button className="pp-convo-back" onClick={() => { setFaseInterna(null); setCasoAtivo(null) }}>←</button>
-            <span style={{ color: 'var(--pp-amber)', fontFamily: 'Courier New', fontSize: '0.85rem' }}>{casoAtivo.i18n[locale].nome}</span>
+          {/* Header */}
+          <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'1rem', padding:'0.75rem 0', borderBottom:'1px solid var(--pp-border)' }}>
+            <button className="pp-convo-back" onClick={() => { setFaseInterna(null); setCasoAtivo(null); setSuspeitoSelecionado(null) }}>←</button>
+            <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{casoAtivo.i18n[LOCALE].nome}</span>
           </div>
+
+          {/* Briefing */}
           {!resolvido && (
-            <div style={{ background: 'var(--pp-surface)', border: '1px solid var(--pp-border)', borderRadius: 12, padding: '0.75rem 1rem', marginBottom: '1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.75rem' }}
-              onClick={() => setFaseInterna({ tipo: 'convo', convoTipo: 'abertura' })}>
-              <span style={{ fontSize: '1.5rem' }}>💬</span>
-              <div><div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--pp-text)' }}>Briefing do Caso</div><div style={{ fontSize: '0.7rem', color: 'var(--pp-text-muted)' }}>Ver conversa de abertura</div></div>
-              <span style={{ marginLeft: 'auto', color: 'var(--pp-amber)' }}>→</span>
+            <div onClick={() => setFaseInterna({ tipo:'convo', convoTipo:'abertura' })}
+              style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'0.75rem 1rem', marginBottom:'1rem', cursor:'pointer', display:'flex', alignItems:'center', gap:'0.75rem' }}>
+              <span style={{ fontSize:'1.5rem' }}>💬</span>
+              <div style={{ flex:1 }}>
+                <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-text)' }}>Briefing do Caso</div>
+                <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>Ver conversa de abertura</div>
+              </div>
+              <span style={{ color:'var(--pp-amber)' }}>→</span>
             </div>
           )}
-          <div className="pp-pistas-counter"><span className="pp-pistas-counter-label">PISTAS COLETADAS</span><span className="pp-pistas-counter-value">{pistas.length} / {casoAtivo.pistas_necessarias}</span></div>
+
+          {/* Pistas counter */}
+          <div className="pp-pistas-counter">
+            <span className="pp-pistas-counter-label">PISTAS COLETADAS</span>
+            <span className="pp-pistas-counter-value">{pistas.length} / {casoAtivo.pistas_necessarias}</span>
+          </div>
+
+          {/* Pistas coletadas — clicáveis */}
+          {pistas.length > 0 && (
+            <div style={{ marginBottom:'1rem' }}>
+              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>EVIDÊNCIAS</div>
+              {pistas.map(pid => {
+                const p = casoAtivo.pistas.find(pp => pp.id === pid)
+                if (!p) return null
+                return (
+                  <div key={pid} onClick={() => setStoryAtivo(p)}
+                    style={{ background:'var(--pp-surface2)', border:`1px solid ${p.fio ? 'var(--pp-fio)' : 'var(--pp-border)'}`, borderRadius:8, padding:'0.6rem 0.85rem', marginBottom:'0.4rem', cursor:'pointer', display:'flex', alignItems:'center', gap:'0.5rem' }}>
+                    <span style={{ fontSize:'1rem' }}>{p.tipo === 'fio' ? '🕸️' : p.tipo === 'testemunho' ? '💬' : p.tipo === 'documento' ? '📄' : '🔍'}</span>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontSize:'0.78rem', fontWeight:700, color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[LOCALE].titulo}</div>
+                    </div>
+                    {p.fio && <span style={{ fontSize:'0.6rem', color:'var(--pp-fio)' }}>⚡ FIO</span>}
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Suspeitos */}
           <div className="pp-dossier-section-title">SUSPEITOS</div>
           {casoAtivo.suspeitos.map(s => (
-            <div key={s.id} className={`pp-suspeito-card ${suspeitoSelecionado === s.id ? 'selected' : ''}`} onClick={() => !resolvido && setSuspeitoSelecionado(s.id)}>
+            <div key={s.id} className={`pp-suspeito-card ${suspeitoSelecionado === s.id ? 'selected' : ''}`}
+              onClick={() => !resolvido && setSuspeitoSelecionado(s.id)}>
               <div className="pp-suspeito-avatar">{s.avatar}</div>
-              <div className="pp-suspeito-info"><div className="pp-suspeito-nome">{s.i18n[locale].nome}</div><div className="pp-suspeito-bio">{s.i18n[locale].bio}</div></div>
+              <div className="pp-suspeito-info">
+                <div className="pp-suspeito-nome">{s.i18n[LOCALE].nome}</div>
+                <div className="pp-suspeito-bio">{s.i18n[LOCALE].bio}</div>
+              </div>
               {!resolvido && <div className="pp-suspeito-radio" />}
-              {resolvido && s.culpado && <span style={{ fontSize: '1.2rem' }}>✓</span>}
+              {resolvido && s.culpado && <span style={{ fontSize:'1.2rem' }}>✓</span>}
             </div>
           ))}
-          <div className="pp-dossier-section-title" style={{ marginTop: '1rem' }}>LOCAIS</div>
-          {casoAtivo.locais.map(l => {
-            const col = pistas.includes(l.pista_id)
+
+          {/* Locais */}
+          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>LOCAIS</div>
+          {casoAtivo.locais.map(local => {
+            const pistaColetada = pistas.includes(local.pista_id)
+            const locInfo = local.i18n[LOCALE]
             return (
-              <div key={l.id} style={{ background: 'var(--pp-surface)', border: `1px solid ${col ? 'var(--pp-success)' : 'var(--pp-border)'}`, borderRadius: 12, padding: '0.85rem 1rem', marginBottom: '0.5rem', cursor: resolvido || col ? 'default' : 'pointer', display: 'flex', alignItems: 'center', gap: '0.75rem' }}
-                onClick={() => !resolvido && !col && setFaseInterna({ tipo: 'local', local: l })}>
-                <span style={{ fontSize: '1.3rem' }}>{PUZZLE_EMOJI[l.puzzle || 'nenhum']}</span>
-                <div style={{ flex: 1 }}><div style={{ fontSize: '0.85rem', fontWeight: 700, color: col ? 'var(--pp-success)' : 'var(--pp-text)' }}>{l.i18n ? l.i18n[locale].nome : l.id}</div><div style={{ fontSize: '0.7rem', color: 'var(--pp-text-muted)', marginTop: 2 }}>{l.i18n ? l.i18n[locale].desc : ''}</div></div>
-                {col ? <span style={{ color: 'var(--pp-success)', fontSize: '1.1rem' }}>✓</span> : <span style={{ color: 'var(--pp-text-muted)' }}>→</span>}
+              <div key={local.id}
+                style={{ background:'var(--pp-surface)', border:`1px solid ${pistaColetada ? 'var(--pp-success)' : 'var(--pp-border)'}`, borderRadius:12, padding:'0.85rem 1rem', marginBottom:'0.5rem', cursor: pistaColetada ? 'default' : 'pointer', display:'flex', alignItems:'center', gap:'0.75rem' }}
+                onClick={() => !pistaColetada && setFaseInterna({ tipo:'local', local })}>
+                <span style={{ fontSize:'1.3rem' }}>{local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}</span>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontSize:'0.85rem', fontWeight:700, color: pistaColetada ? 'var(--pp-success)' : 'var(--pp-text)' }}>{locInfo.nome}</div>
+                  <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)', marginTop:2 }}>{locInfo.desc}</div>
+                </div>
+                {pistaColetada ? <span style={{ color:'var(--pp-success)' }}>✓</span> : <span style={{ color:'var(--pp-text-muted)' }}>→</span>}
               </div>
             )
           })}
+
+          {/* Acusar */}
           {!resolvido && (
-            <button className="pp-acusar-btn" disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias} onClick={handleAcusar}>
-              {pistas.length < casoAtivo.pistas_necessarias ? `Colete mais ${pf} pista${pf > 1 ? 's' : ''}` : `ACUSAR ${casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[locale].nome || '...'}`}
+            <button className="pp-acusar-btn"
+              disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias}
+              onClick={handleAcusar}>
+              {pistas.length < casoAtivo.pistas_necessarias
+                ? `Colete mais ${pistasFaltam} pista${pistasFaltam > 1 ? 's' : ''}`
+                : `ACUSAR ${casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[LOCALE].nome || '...'}`
+              }
             </button>
           )}
         </div>
       )
     }
 
+    // ── ABAS ────────────────────────────────────────
     if (aba === 'feed') {
+      const allPistas = casosDisponiveis.flatMap(c =>
+        getPistasDoCase(c.id).map(pid => {
+          const p = c.pistas.find(pp => pp.id === pid)
+          return p ? { pista:p, caso:c } : null
+        }).filter(Boolean)
+      )
+
       return (
         <div className="pp-feed">
-          <div className="pp-stories-bar">
-            {casosDisponiveis.flatMap(c => getPistasDoCase(c.id).map(pid => { const p = c.pistas.find(pp => pp.id === pid); return p ? { pista: p, caso: c } : null }).filter(Boolean)).slice(0, 8).map(({ pista, caso }) => (
-              <div key={pista.id} className="pp-story-thumb" onClick={() => setStoryAtivo(pista)}>
-                <div className={`pp-story-ring ${pista.fio ? 'fio' : ''}`}><div className="pp-story-inner">{pista.tipo === 'fio' ? '🕸️' : '🔍'}</div></div>
-                <div className="pp-story-label">{String(pista?.i18n?.[locale]?.titulo || '?').split(' ')[0]}</div>
-              </div>
-            ))}
-            {getPistasDoCase(casoAtivo?.id)?.length === 0 && <div style={{ padding: '1rem', color: 'var(--pp-text-muted)', fontSize: '0.75rem', fontFamily: 'Georgia', fontStyle: 'italic' }}>Investigue locais para coletar pistas</div>}
-          </div>
+          {/* Stories bar */}
+          {allPistas.length > 0 && (
+            <div className="pp-stories-bar">
+              {allPistas.slice(0, 8).map(({ pista }) => (
+                <div key={pista.id} className="pp-story-thumb" onClick={() => setStoryAtivo(pista)}>
+                  <div className={`pp-story-ring ${pista.fio ? 'fio' : ''}`}>
+                    <div className="pp-story-inner">{pista.tipo === 'fio' ? '🕸️' : '🔍'}</div>
+                  </div>
+                  <div className="pp-story-label">{pista.i18n[LOCALE].titulo.split(' ')[0]}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Casos como posts */}
           {casosDisponiveis.map(caso => {
             const resolvido = casosResolvidos.includes(caso.id)
+            const cInfo = caso.i18n[LOCALE]
             return (
               <div key={caso.id} className={`pp-caso-card ${resolvido ? 'resolvido' : ''}`}>
                 <div className="pp-caso-header">
                   <div className="pp-caso-avatar">🌆</div>
-                  <div className="pp-caso-meta"><div className="pp-caso-nome">{caso.i18n[locale].nome}</div><div className="pp-caso-sub">Marelia, 1954 · Dif. {'★'.repeat(caso.dificuldade)}</div></div>
+                  <div className="pp-caso-meta">
+                    <div className="pp-caso-nome">{cInfo.nome}</div>
+                    <div className="pp-caso-sub">Marelia, 1954 · {'★'.repeat(caso.dificuldade)}</div>
+                  </div>
                   <div className="pp-caso-dif">+{caso.reputacao_ganho} REP</div>
                 </div>
-                <div className="pp-caso-thumbnail"><span style={{ fontSize: '4rem' }}>{caso.thumbnail}</span><div className="pp-caso-thumbnail-text">{caso.i18n[locale].subtitulo}</div>{resolvido && <div className="pp-caso-resolv-badge">RESOLVIDO ✓</div>}</div>
+
+                <div className="pp-caso-thumbnail">
+                  <span style={{ fontSize:'4rem' }}>{caso.thumbnail}</span>
+                  <div className="pp-caso-thumbnail-text">{cInfo.subtitulo}</div>
+                  {resolvido && <div className="pp-caso-resolv-badge">RESOLVIDO ✓</div>}
+                </div>
+
                 <div className="pp-caso-actions">
                   <div className="pp-caso-action-btn"><span>💬</span> {caso.dialogo?.abertura?.length || 0}</div>
                   <div className="pp-caso-action-btn"><span>🔍</span> {getPistasDoCase(caso.id).length}/{caso.pistas_necessarias}</div>
-                  <span className="pp-caso-hashtag">#{caso.i18n[locale].nome.replace(/\s/g, '')}</span>
-                  {!resolvido && <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo: 'dossier' }) }}>INVESTIGAR</button>}
+                  <span className="pp-caso-hashtag">#{cInfo.nome.replace(/\s/g,'')}</span>
+                  {!resolvido && (
+                    <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo:'dossier' }); setSuspeitoSelecionado(null) }}>
+                      INVESTIGAR
+                    </button>
+                  )}
                 </div>
               </div>
             )
@@ -326,27 +764,38 @@ export default function PP() {
 
     if (aba === 'mensagens') {
       const contatos = [
-        { id: 'nina', ultima: 'o Osvaldo sumiu', hora: '23:14', unread: 1 },
-        { id: 'kim', ultima: 'alguém me fotografou de costas', hora: '01:32', unread: 0 },
-        { id: 'pajé', ultima: 'CHEGUEEEEI PRA DIVAR', hora: '02:00', unread: 1 },
-        { id: 'helena', ultima: 'preciso de alguém que não vá à polícia', hora: '21:47', unread: 0 },
-        { id: 'shuntaro', ultima: 'vim ao Brasil a negócios', hora: '14:23', unread: 0 },
-        { id: 'anonimo', ultima: 'me indicaram o senhor', hora: 'ontem', unread: 3 },
+        { id:'nina', ultima:'o Osvaldo sumiu', hora:'23:14', unread:1 },
+        { id:'kim', ultima:'alguém me fotografou de costas', hora:'01:32', unread:0 },
+        { id:'pajé', ultima:'CHEGUEEEEI PRA DIVAR', hora:'02:00', unread:1 },
+        { id:'helena', ultima:'preciso de alguém que não vá à polícia', hora:'21:47', unread:0 },
+        { id:'shuntaro', ultima:'vim ao Brasil a negócios', hora:'14:23', unread:0 },
+        { id:'anonimo', ultima:'me indicaram o senhor', hora:'ontem', unread:3 },
       ]
       return (
         <div className="pp-chat-list">
           <div className="pp-section-header">MENSAGENS</div>
           {contatos.map(c => {
             const av = AVATARES[c.id] || AVATARES.anonimo
-            const casoDoContato = CASOS.find(caso => caso.dialogo?.abertura?.some(m => m.de === c.id) && casosDisponiveis.includes(caso))
+            const casoDoContato = CASOS.find(caso =>
+              casosDisponiveis.some(cd => cd.id === caso.id) &&
+              caso.dialogo?.abertura?.some(m => m.de === c.id)
+            )
             return (
-              <div key={c.id} className="pp-chat-item" onClick={() => { if (casoDoContato) { setCasoAtivo(casoDoContato); setFaseInterna({ tipo: 'convo', convoTipo: 'abertura' }) } }}>
+              <div key={c.id} className="pp-chat-item" onClick={() => {
+                if (casoDoContato) { setCasoAtivo(casoDoContato); setFaseInterna({ tipo:'convo', convoTipo:'abertura' }) }
+              }}>
                 <div className="pp-chat-avatar-wrap">
-                  <div className="pp-chat-avatar" style={{ background: av.cor, borderColor: av.textCor }}>{av.emoji}</div>
+                  <div className="pp-chat-avatar" style={{ background:av.cor, border:`2px solid ${av.textCor}` }}>{av.emoji}</div>
                   {c.unread > 0 && <div className="pp-chat-online" />}
                 </div>
-                <div className="pp-chat-info"><div className="pp-chat-name" style={{ color: av.textCor }}>{av.label}</div><div className="pp-chat-preview">{c.ultima}</div></div>
-                <div className="pp-chat-meta"><div className="pp-chat-time">{c.hora}</div>{c.unread > 0 && <div className="pp-chat-unread">{c.unread}</div>}</div>
+                <div className="pp-chat-info">
+                  <div className="pp-chat-name" style={{ color:av.textCor }}>{av.label}</div>
+                  <div className="pp-chat-preview">{c.ultima}</div>
+                </div>
+                <div className="pp-chat-meta">
+                  <div className="pp-chat-time">{c.hora}</div>
+                  {c.unread > 0 && <div className="pp-chat-unread">{c.unread}</div>}
+                </div>
               </div>
             )
           })}
@@ -355,15 +804,24 @@ export default function PP() {
     }
 
     if (aba === 'stories') {
-      const tp = casosDisponiveis.flatMap(c => getPistasDoCase(c.id).map(pid => { const p = c.pistas.find(pp => pp.id === pid); return p ? { pista: p, caso: c } : null }).filter(Boolean))
-      if (tp.length === 0) return <div className="pp-empty">Nenhuma pista coletada ainda.<br /><br />Investigue os locais dos casos para revelar evidências.</div>
+      const todasPistas = casosDisponiveis.flatMap(c =>
+        getPistasDoCase(c.id).map(pid => {
+          const p = c.pistas.find(pp => pp.id === pid)
+          return p ? { pista:p, caso:c } : null
+        }).filter(Boolean)
+      )
+      if (todasPistas.length === 0) return <div className="pp-empty">Nenhuma pista coletada ainda.<br /><br />Investigue os locais dos casos para revelar evidências.</div>
       return (
         <div className="pp-stories-grid">
-          {tp.map(({ pista }) => (
+          {todasPistas.map(({ pista }) => (
             <div key={pista.id} className="pp-story-card" onClick={() => setStoryAtivo(pista)}>
               <div className="pp-story-card-bg">{pista.tipo === 'fio' ? '🕸️' : pista.tipo === 'testemunho' ? '💬' : pista.tipo === 'documento' ? '📄' : '🔍'}</div>
-              <div className="pp-story-card-overlay" />{pista.fio && <div className="pp-story-card-fio-border" />}
-              <div className="pp-story-card-content"><div className={`pp-story-card-tipo ${pista.tipo}`}>{pista.tipo}</div><div className="pp-story-card-title">{pista.i18n[locale].titulo}</div></div>
+              <div className="pp-story-card-overlay" />
+              {pista.fio && <div className="pp-story-card-fio-border" />}
+              <div className="pp-story-card-content">
+                <div className={`pp-story-card-tipo ${pista.tipo}`}>{pista.tipo}</div>
+                <div className="pp-story-card-title">{pista.i18n[LOCALE].titulo}</div>
+              </div>
             </div>
           ))}
         </div>
@@ -374,55 +832,118 @@ export default function PP() {
       const fios = getFiosPistas()
       return (
         <div className="pp-caderno">
-          <div className="pp-dossier-section-title" style={{ marginBottom: '1rem' }}>CADERNO DE SUSPEITAS</div>
-          {fios.length === 0 ? <div className="pp-caderno-empty">"ainda não sei quem é.<br />mas cada pista liga um ponto a outro.<br />e os pontos estão se conectando."</div>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>CADERNO DE SUSPEITAS</div>
+          {fios.length === 0
+            ? <div className="pp-caderno-empty">"ainda não sei quem é.<br />mas cada pista liga um ponto a outro."</div>
             : fios.map(({ pista, caso }) => (
-              <div key={pista.id} className="pp-caderno-node">
-                <div className="pp-caderno-node-caso">{caso.i18n[locale].nome}</div>
-                <div className="pp-caderno-node-title">⚡ {pista.i18n[locale].titulo}</div>
-                <div className="pp-caderno-node-desc">{pista.i18n[locale].desc}</div>
+              <div key={pista.id} className="pp-caderno-node" onClick={() => setStoryAtivo(pista)} style={{ cursor:'pointer' }}>
+                <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
+                <div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div>
+                <div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div>
               </div>
-            ))}
-          <div className="pp-dossier-section-title" style={{ marginTop: '2rem', marginBottom: '1rem' }}>REPUTAÇÃO</div>
-          <div style={{ background: 'var(--pp-surface)', border: '1px solid var(--pp-border)', borderRadius: 12, padding: '1rem' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--pp-amber)', fontFamily: 'Courier New' }}>{reputacao}</div>
-            <div style={{ fontSize: '0.7rem', color: 'var(--pp-text-muted)', marginTop: 4 }}>pontos de reputação · {casosResolvidos.length} casos resolvidos</div>
+            ))
+          }
+
+          <div className="pp-dossier-section-title" style={{ marginTop:'2rem', marginBottom:'1rem' }}>STATUS</div>
+          <div style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+            <div>
+              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-amber)', fontFamily:'Courier New' }}>{reputacao}</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>REPUTAÇÃO</div>
+            </div>
+            <div>
+              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-jack)', fontFamily:'Courier New' }}>{casosResolvidos.length}</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>CASOS RESOLVIDOS</div>
+            </div>
+            <div>
+              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-kim)', fontFamily:'Courier New' }}>{nivel}</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>NÍVEL</div>
+            </div>
+            <div>
+              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-fio)', fontFamily:'Courier New' }}>{fios.length}</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>FIOS DA CONSPIRAÇÃO</div>
+            </div>
           </div>
         </div>
       )
     }
   }
 
-  if (fase === 'intro') return <div className="pp-wrapper"><IntroNoir onComplete={() => setFase('app')} /></div>
+  // Loading
+  if (!carregado) {
+    return (
+      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.2em' }}>
+        CARREGANDO...
+      </div>
+    )
+  }
+
+  // Intro
+  if (appFase === 'intro') {
+    return (
+      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center' }}>
+        <div style={{ width:'100%', maxWidth:480 }}>
+          <IntroNoir onComplete={() => setAppFase('app')} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="pp-wrapper">
-      <motion.div className="pp-app" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-        <div className="pp-status-bar"><span className="pp-status-time">{new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</span><div className="pp-status-icons"><span>📶</span><span>🔋</span></div></div>
+      <motion.div className="pp-app" initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
+
+        {/* Fake status bar */}
+        <div className="pp-status-bar">
+          <span className="pp-status-time">{new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' })}</span>
+          <div className="pp-status-icons"><span>📶</span><span>🔋</span></div>
+        </div>
+
+        {/* Top bar — só quando não tem fase interna */}
         {!faseInterna && (
           <div className="pp-top-bar">
             <div className="pp-top-bar-avatar">🌙</div>
-            <div className="pp-top-bar-info"><div className="pp-top-bar-name">Pesadelo Particular</div><div className="pp-top-bar-sub">Marelia, 1954</div></div>
+            <div className="pp-top-bar-info">
+              <div className="pp-top-bar-name">Pesadelo Particular</div>
+              <div className="pp-top-bar-sub">Marelia, 1954 · Nível {nivel}</div>
+            </div>
             <div className="pp-top-bar-rep">⭐ {reputacao} REP</div>
           </div>
         )}
-        <div className="pp-content"><AnimatePresence mode="wait"><motion.div key={`${aba}-${faseInterna?.tipo}`} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.15 }}>{renderAba()}</motion.div></AnimatePresence></div>
+
+        {/* Conteúdo */}
+        <div className="pp-content">
+          <AnimatePresence mode="wait">
+            <motion.div key={`${aba}-${faseInterna?.tipo}-${faseInterna?.convoTipo}`}
+              initial={{ opacity:0, x:10 }} animate={{ opacity:1, x:0 }} exit={{ opacity:0, x:-10 }}
+              transition={{ duration:0.15 }}>
+              {renderConteudo()}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Bottom nav — só fora de fase interna */}
         {!faseInterna && (
           <div className="pp-bottom-nav">
             {[
-              { id: 'feed', icon: '🏠', label: 'Casos' },
-              { id: 'mensagens', icon: '💬', label: 'Chat', badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
-              { id: 'stories', icon: '📖', label: 'Pistas', badge: getFiosPistas().length },
-              { id: 'arquivos', icon: '🗂️', label: 'Arquivos' },
+              { id:'feed',      icon:'🏠', label:'Casos' },
+              { id:'mensagens', icon:'💬', label:'Chat',    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
+              { id:'stories',   icon:'📖', label:'Pistas',  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
+              { id:'arquivos',  icon:'🗂️', label:'Arquivos' },
             ].map(nav => (
               <button key={nav.id} className={`pp-nav-btn ${aba === nav.id ? 'active' : ''}`} onClick={() => setAba(nav.id)}>
-                {nav.badge > 0 && <span className="pp-nav-badge">{nav.badge}</span>}<span className="pp-nav-btn-icon">{nav.icon}</span>{nav.label}
+                {nav.badge > 0 && <span className="pp-nav-badge">{nav.badge}</span>}
+                <span className="pp-nav-btn-icon">{nav.icon}</span>
+                {nav.label}
               </button>
             ))}
           </div>
         )}
       </motion.div>
-      <AnimatePresence>{storyAtivo && <StoryViewer pista={storyAtivo} onClose={() => setStoryAtivo(null)} />}</AnimatePresence>
+
+      {/* Story viewer overlay */}
+      <AnimatePresence>
+        {storyAtivo && <StoryViewer pista={storyAtivo} onClose={() => setStoryAtivo(null)} />}
+      </AnimatePresence>
     </div>
   )
 }
