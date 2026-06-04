@@ -1170,3 +1170,101 @@
   gap: 0.2rem;
   margin-bottom: 0.5rem;
 }
+
+/* ===== DUNGEON BATTLE HORIZONTAL ===== */
+
+.jdc-dungeon-end-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-dungeon-battle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 80px;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.jdc-dungeon-player-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  z-index: 2;
+}
+
+.jdc-dungeon-player-sprite {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 8px rgba(245, 166, 35, 0.3));
+}
+
+.jdc-dungeon-player-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: #F5A623;
+  margin-top: 0.15rem;
+}
+
+.jdc-dungeon-combat-center {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  z-index: 3;
+}
+
+.jdc-dungeon-enemies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  max-width: 100px;
+  justify-content: center;
+  min-width: 60px;
+}
+
+.jdc-dungeon-enemy-sprite {
+  transition: all 0.3s;
+}
+
+.jdc-dungeon-enemy-emoji {
+  font-size: 1.4rem;
+}
+
+/* Onomatopeias */
+
+.jdc-dungeon-onomato {
+  position: absolute;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 700;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.jdc-dungeon-onomato--hit {
+  color: #F5A623;
+  text-shadow: 0 0 8px rgba(245, 166, 35, 0.5);
+  font-size: 1.5rem;
+}
+
+.jdc-dungeon-onomato--miss {
+  color: #999;
+  text-shadow: none;
+  font-size: 1.1rem;
+}
+
+.jdc-dungeon-onomato--damage {
+  color: #E02020;
+  text-shadow: 0 0 6px rgba(224, 32, 32, 0.4);
+  font-size: 1.3rem;
+}

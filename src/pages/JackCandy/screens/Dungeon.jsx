@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
 import { DUNGEONS } from '../data/dungeons'
@@ -9,6 +9,9 @@ function rollD6() { return Math.floor(Math.random() * 6) + 1 }
 
 const INTERVALO = 1200
 
+const HIT_WORDS = ['CRACK!', 'POW!', 'WHAM!', 'BAM!', 'KAPOW!']
+const DAMAGE_WORDS = ['OOF!', 'UGH!', 'ARGH!', 'NNGH!', 'ACK!']
+
 export default function Dungeon({ dungeonId }) {
   const store = useJackStore()
   const dungeon = DUNGEONS[dungeonId]
@@ -18,12 +21,14 @@ export default function Dungeon({ dungeonId }) {
   const [fase, setFase] = useState('combat')
   const [progresso, setProgresso] = useState(0)
   const [restantes, setRestantes] = useState(dungeon?.inimigos || 0)
-  const [animHit, setAnimHit] = useState(false)
+  const [animAtk, setAnimAtk] = useState(false)
+  const [animDano, setAnimDano] = useState(false)
   const [animKill, setAnimKill] = useState(false)
   const [stealthMode, setStealthMode] = useState(dungeon?.mecanica === 'stealth')
   const [stealthDetectado, setStealthDetectado] = useState(false)
   const [fugaRound, setFugaRound] = useState(0)
   const [fugaVivo, setFugaVivo] = useState(true)
+  const [onomatopeias, setOnomatopeias] = useState([])
 
   const inimigosRef = useRef(dungeon?.inimigos || 0)
   const hpRef = useRef(store.hpAtual)
@@ -34,6 +39,15 @@ export default function Dungeon({ dungeonId }) {
   const totalInimigos = dungeon?.inimigos || 0
   const aliado = store.aliadoAtual
   const primordialAtivo = store.flags.KRONOS_VIU && store.medidorPrimordial >= 10
+  const onoIdRef = useRef(0)
+
+  const addOnomatopeia = useCallback((text, type) => {
+    const id = ++onoIdRef.current
+    setOnomatopeias(prev => [...prev, { id, text, type }])
+    setTimeout(() => {
+      setOnomatopeias(prev => prev.filter(o => o.id !== id))
+    }, 800)
+  }, [])
 
   if (!dungeon) {
     return (
@@ -67,8 +81,9 @@ export default function Dungeon({ dungeonId }) {
         const novoHp = hpRef.current - dmg
         hpRef.current = novoHp
         setHp(novoHp)
-        setAnimHit(true)
-        setTimeout(() => setAnimHit(false), 400)
+        setAnimDano(true)
+        setTimeout(() => setAnimDano(false), 300)
+        addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
         setLog(l => [...l, `🎲 rolou ${rolagem}... falhou! (-${dmg} HP)`])
         if (novoHp <= 0) {
           stopRef.current = true
@@ -120,10 +135,10 @@ export default function Dungeon({ dungeonId }) {
           setAnimKill(true)
           setTimeout(() => setAnimKill(false), 400)
           setProgresso(prev => prev + 1)
+          addOnomatopeia('SLY...', 'hit')
           setLog(l => [...l, `🥷 passou sem ser visto. (-1 inimigo)`])
-
           if (inimigosRef.current <= 0) {
-            finalizarDungeon(dungeon, 3) // 3x reward stealth
+            finalizarDungeon(dungeon, 3)
           }
           return
         } else {
@@ -139,7 +154,12 @@ export default function Dungeon({ dungeonId }) {
       const def = rollD6()
       const acertou = atq > def
 
+      // Attack animation
+      setAnimAtk(true)
+      setTimeout(() => setAnimAtk(false), 400)
+
       if (acertou) {
+        addOnomatopeia(HIT_WORDS[Math.floor(Math.random() * HIT_WORDS.length)], 'hit')
         store.ganharCervejas(1)
         inimigosRef.current--
         setRestantes(inimigosRef.current)
@@ -150,7 +170,6 @@ export default function Dungeon({ dungeonId }) {
         if (inimigosRef.current <= 0) {
           stopRef.current = true
           setLog(l => [...l, `💥 derrubou! (${atq} vs ${def})`, `✅ todos derrubados!`])
-
           if (dungeon?.boss) {
             setTimeout(() => bossBattle(dungeon), 1000)
           } else {
@@ -164,14 +183,20 @@ export default function Dungeon({ dungeonId }) {
         return
       }
 
+      // Miss
+      addOnomatopeia('MISS!', 'miss')
       const dmgBase = Math.max(1, rollD6() - defesa)
       const dmg = Math.min(3, dmgBase) - reducaoRef.current
       const dmgFinal = Math.max(0, dmg)
       const novoHp = hpRef.current - dmgFinal
       hpRef.current = novoHp
       setHp(novoHp)
-      setAnimHit(true)
-      setTimeout(() => setAnimHit(false), 400)
+
+      if (dmgFinal > 0) {
+        setAnimDano(true)
+        setTimeout(() => setAnimDano(false), 300)
+        addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
+      }
 
       if (novoHp <= 0) {
         stopRef.current = true
@@ -191,30 +216,41 @@ export default function Dungeon({ dungeonId }) {
   const bossBattle = (d) => {
     const boss = d.boss
     if (!boss) { finalizarDungeon(d); return }
+    setAnimAtk(true)
+    setTimeout(() => setAnimAtk(false), 400)
     const atqB = rollD6() + danoArmaRef.current
     const defB = rollD6()
     if (atqB > defB) {
+      addOnomatopeia(HIT_WORDS[Math.floor(Math.random() * HIT_WORDS.length)], 'hit')
       store.setHpAtual(hpRef.current)
       finalizarDungeon(d, 1)
       setLog(l => [...l, `🎯 acertou ${boss.nome}!`, `🏆 ${boss.nome} derrotado!`])
       setTimeout(() => setFase('vitoria'), 500)
     } else {
+      addOnomatopeia('MISS!', 'miss')
       const dmgB = Math.max(1, rollD6() + (boss.dmg || 3) - defesaRef.current - reducaoRef.current)
       const novoHp = hpRef.current - dmgB
       hpRef.current = novoHp
       setHp(novoHp)
+      setAnimDano(true)
+      setTimeout(() => setAnimDano(false), 300)
+      addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
       if (novoHp <= 0) {
         store.setHpAtual(0)
         setLog(l => [...l, `${boss.nome} revidou! (-${dmgB} HP)`, `💀 derrotado pelo boss.`])
         setTimeout(() => setFase('derrota'), 100)
       } else {
+        setAnimAtk(true)
+        setTimeout(() => setAnimAtk(false), 400)
         const atqB2 = rollD6() + danoArmaRef.current
         if (atqB2 > defB) {
+          addOnomatopeia(HIT_WORDS[Math.floor(Math.random() * HIT_WORDS.length)], 'hit')
           store.setHpAtual(hpRef.current)
           finalizarDungeon(d, 1)
           setLog(l => [...l, `🎯 ${boss.nome} derrotado!`])
           setTimeout(() => setFase('vitoria'), 500)
         } else {
+          addOnomatopeia('MISS!', 'miss')
           store.setHpAtual(0)
           setLog(l => [...l, `${boss.nome} contra-atacou!`, `💀 derrotado.`])
           setTimeout(() => setFase('derrota'), 100)
@@ -287,22 +323,46 @@ export default function Dungeon({ dungeonId }) {
 
       {dungeon?.mecanica !== 'fuga' && (
         <>
-          {/* Battle scene */}
+          {/* Battle scene: horizontal layout */}
           <div className="jdc-dungeon-battle">
-            <motion.div className="jdc-dungeon-player-hero"
-              animate={{ x: ['-5%', '5%', '-5%'], y: [0, -4, 0] }}
-              transition={{ duration: 0.6, repeat: Infinity }}>
-              <motion.div className="jdc-dungeon-player-sprite"
-                animate={{ scale: animHit ? 1.1 : 1 }}>
+            {/* Jack (left) */}
+            <div className="jdc-dungeon-player-area">
+              <motion.div
+                className="jdc-dungeon-player-sprite"
+                animate={{
+                  x: animAtk ? 30 : animDano ? -8 : 0,
+                }}
+                transition={{
+                  type: animDano ? 'tween' : 'spring',
+                  duration: animAtk ? 0.4 : animDano ? 0.15 : 0.2,
+                  stiffness: animDano ? 500 : 200,
+                  damping: animDano ? 8 : 15,
+                }}
+              >
                 {primordialAtivo ? '🔥' : '🕵️'}
               </motion.div>
               <span className="jdc-dungeon-player-label">Jack{primordialAtivo ? '*' : ''}</span>
-            </motion.div>
-
-            <div className="jdc-dungeon-vs">
-              <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.3, repeat: Infinity }}>⚡</motion.span>
             </div>
 
+            {/* VS zone */}
+            <div className="jdc-dungeon-combat-center">
+              <AnimatePresence>
+                {onomatopeias.map(o => (
+                  <motion.div
+                    key={o.id}
+                    className={`jdc-dungeon-onomato jdc-dungeon-onomato--${o.type}`}
+                    initial={{ opacity: 1, scale: 0.5, y: 0 }}
+                    animate={{ opacity: 0, scale: 1.2, y: -30 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    {o.text}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {/* Enemies (right) */}
             <div className="jdc-dungeon-enemies">
               {Array.from({ length: visibleEnemies }).map((_, i) => (
                 <motion.div key={i} className="jdc-dungeon-enemy-sprite"
@@ -310,7 +370,9 @@ export default function Dungeon({ dungeonId }) {
                   transition={{ duration: 0.5, repeat: Infinity }}
                   style={{ opacity: 1 - i * 0.1 }}>
                   <motion.span className="jdc-dungeon-enemy-emoji"
-                    animate={animKill ? { opacity: 0, scale: 0 } : {}}>👤</motion.span>
+                    animate={animKill ? { opacity: 0, scale: 0, x: 20 } : {}}
+                    transition={{ duration: 0.3 }}
+                  >👤</motion.span>
                 </motion.div>
               ))}
               {restantes > 5 && <span className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>+{restantes - 5}</span>}
