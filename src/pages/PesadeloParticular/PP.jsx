@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.4'
+const PP_VERSION = '1.3.5'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -286,16 +286,22 @@ function ConvoView({ caso, tipo, onBack }) {
   const dialogo = tipo === 'abertura'
     ? caso.dialogo?.abertura || []
     : caso.dialogo?.resolucao || []
-  const narracao = tipo === 'abertura'
-    ? caso.dialogo?.narracao_abertura || { pt:'...', en:'...', es:'...' }
-    : caso.dialogo?.narracao_final || { pt:'...', en:'...', es:'...' }
+  const narracaoRaw = tipo === 'abertura'
+    ? caso.dialogo?.narracao_abertura || ['Caso aberto.']
+    : caso.dialogo?.narracao_final || ['Caso encerrado.']
+  const narracao = (typeof narracaoRaw === 'object' && !Array.isArray(narracaoRaw))
+    ? (narracaoRaw[LOCALE] || Object.values(narracaoRaw)[0] || '...')
+    : Array.isArray(narracaoRaw) ? (narracaoRaw[0] || '...') : (narracaoRaw || '...')
 
   useEffect(() => {
-    // Narração inicial
-    setMsgs([{ tipo: 'narracao', texto: narracao[LOCALE], id: 'narr-start' }])
+    if (!dialogo.length) {
+      setTimeout(() => onBack(), 1000)
+      return
+    }
+
+    setMsgs([{ tipo: 'narracao', texto: narracao, id: 'narr-start' }])
 
     dialogo.forEach((msg, i) => {
-      // Mostra "digitando..." antes
       const delayBase = msg.delay + 800
       setTimeout(() => setDigitandoDe(msg.de), delayBase)
       setTimeout(() => {
@@ -308,7 +314,7 @@ function ConvoView({ caso, tipo, onBack }) {
         }])
         if (i === dialogo.length - 1) {
           setTimeout(() => {
-            setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao[LOCALE], id:'narr-end' }])
+            setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao, id:'narr-end' }])
           }, 1000)
         }
       }, delayBase + 700)
