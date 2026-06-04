@@ -1,4 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { useSwipe } from '../../hooks/useSwipe'
+import { useZoom } from '../../hooks/useZoom'
+import { useViewportScroll } from '../../hooks/useViewportScroll'
 
 function getVisionCone(r, c, dir, size, range = 2) {
   const cells = new Set()
@@ -84,8 +87,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const [timeLeft, setTimeLeft] = useState(timerInicial)
   const [done, setDone] = useState(false)
   const [toast, setToast] = useState(false)
-  const [zoom, setZoom] = useState(1)
-  const [zoomBtnVisible, setZoomBtnVisible] = useState(false)
+  const { zoom, setZoom, controlsVisible, showControls } = useZoom({ min: 1, max: 3 })
   const zoomTimerRef = useRef(null)
   const pegadasTimerRef = useRef(null)
 
@@ -149,12 +151,11 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     setVisionCells(v)
   }, [cameras])
 
-  useEffect(() => {
-    if (!isMobile || !viewportRef.current) return
-    const targetX = playerPos.c * cellSize - viewportPx / 2 + cellSize / 2
-    const targetY = playerPos.r * cellSize - viewportPx / 2 + cellSize / 2
-    viewportRef.current.scrollTo({ left: Math.max(0, targetX), top: Math.max(0, targetY), behavior: 'smooth' })
-  }, [playerPos, isMobile])
+  // Viewport scroll via hook
+  const gridOffset = useViewportScroll(playerPos, cellSize, viewportPx, size)
+
+  // Swipe via hook
+  useSwipe(viewportRef, handleMove)
 
   useEffect(() => {
     if (!hasTimer || done) return
@@ -224,30 +225,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     }
   }, [playerPos, cameras, done, alarm, visionCells, visionRange])
 
-  useEffect(() => {
-    const container = viewportRef.current
-    if (!container) return
-    let touchStartX = 0, touchStartY = 0
-    const onStart = (e) => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY }
-    const onEnd = (e) => {
-      if (done) return
-      const dx = e.changedTouches[0].clientX - touchStartX
-      const dy = e.changedTouches[0].clientY - touchStartY
-      const absDx = Math.abs(dx), absDy = Math.abs(dy)
-      if (Math.max(absDx, absDy) < 15) return
-      if (absDx > absDy) handleMove(0, dx > 0 ? 1 : -1)
-      else handleMove(dy > 0 ? 1 : -1, 0)
-    }
-    container.addEventListener('touchstart', onStart, { passive: true })
-    container.addEventListener('touchend', onEnd, { passive: true })
-    return () => { container.removeEventListener('touchstart', onStart); container.removeEventListener('touchend', onEnd) }
-  }, [handleMove, done])
-
-  const showZoomBtns = () => {
-    setZoomBtnVisible(true)
-    if (zoomTimerRef.current) clearTimeout(zoomTimerRef.current)
-    zoomTimerRef.current = setTimeout(() => setZoomBtnVisible(false), 2000)
-  }
+  console.log('[HOOKS] useSwipe, useZoom, useViewportScroll extraídos e aplicados no Stealth')
 
   const distToGoal = Math.abs(playerPos.r - goalPos.r) + Math.abs(playerPos.c - goalPos.c)
   const showGoalArrow = isMobile && (distToGoal > viewportCells || size >= 12) && zoom < 3
@@ -269,10 +247,10 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
       <div ref={viewportRef} className="puzzle-stealth-viewport"
         style={{ width: viewportPx, height: viewportPx, overflow: isMobile && zoom < 3 ? 'hidden' : 'visible', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}
-        onTouchStart={showZoomBtns} onClick={showZoomBtns}>
+        onTouchStart={showControls} onClick={showControls}>
         {toast && <div className="puzzle-stealth-toast">você foi capturado</div>}
 
-        <div ref={gridRef} className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale})`, transformOrigin: 'top left', width: size * cellSize, position: 'relative' }}>
+        <div ref={gridRef} className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale}) translate(${gridOffset.x}px, ${gridOffset.y}px)`, transformOrigin: 'top left', width: size * cellSize, position: 'relative' }}>
           {Array.from({ length: size * size }, (_, i) => {
             const r = Math.floor(i / size)
             const c = i % size
@@ -302,10 +280,10 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       </div>
 
       {isMobile && (
-        <div className="puzzle-stealth-zoom-btns" style={{ opacity: zoomBtnVisible ? 1 : 0.2, transition: 'opacity 0.3s' }}>
-          <button onClick={() => { setZoom(z => Math.max(1, z-1)); showZoomBtns() }} className="puzzle-stealth-zoom-btn">−</button>
+        <div className="puzzle-stealth-zoom-btns" style={{ opacity: controlsVisible ? 1 : 0.2, transition: 'opacity 0.3s' }}>
+          <button onClick={() => { setZoom(z => Math.max(1, z-1)); showControls() }} className="puzzle-stealth-zoom-btn">−</button>
           <span className="puzzle-stealth-zoom-label">{zoom === 1 ? 'NORMAL' : zoom === 2 ? 'WIDE' : 'MAPA'}</span>
-          <button onClick={() => { setZoom(z => Math.min(3, z+1)); showZoomBtns() }} className="puzzle-stealth-zoom-btn">+</button>
+          <button onClick={() => { setZoom(z => Math.min(3, z+1)); showControls() }} className="puzzle-stealth-zoom-btn">+</button>
         </div>
       )}
 
