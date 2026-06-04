@@ -221,6 +221,22 @@
   text-align: center;
 }
 
+.puzzle-stealth-pegada {
+  position: absolute;
+  font-size: 0.7em;
+  opacity: 0;
+  animation: pegada-fade 3s ease forwards;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes pegada-fade {
+  0% { opacity: 0; transform: scale(0.5); }
+  20% { opacity: 0.7; transform: scale(1); }
+  80% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
 @media (max-width: 900px) and (orientation: landscape) {
   .puzzle-container { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
   .puzzle-stealth-viewport { flex-shrink: 0; }

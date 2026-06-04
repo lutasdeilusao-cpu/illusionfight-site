@@ -14,9 +14,9 @@ const GAMES = [
 ]
 
 const STEALTH_CONFIG = {
-  easy: { size: 4, hasTimer: true, timerSegundos: 30, cameras: 3 },
-  medium: { size: 8, hasTimer: true, timerSegundos: 60, cameras: 5 },
-  hard: { size: 12, hasTimer: true, timerSegundos: 90, cameras: 7 },
+  easy:   { size: 4,  hasTimer: true, timerSegundos: 30, cameras: 3, visionRange: 2 },
+  medium: { size: 8,  hasTimer: true, timerSegundos: 60, cameras: 5, visionRange: 2 },
+  hard:   { size: 12, hasTimer: true, timerSegundos: 90, cameras: 7, visionRange: 3 },
 }
 
 function formatTempo(ms) {
@@ -85,7 +85,7 @@ export default function MiniGames() {
     switch (jogoAtivo.id) {
       case 'stealth': {
         const cfg = STEALTH_CONFIG[dificuldadeSelecionada || 'easy']
-        return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras }} />
+        return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras, visionRange: cfg.visionRange }} />
       }
       case 'decoder': return <PuzzleDecoder {...props} />
       case 'sliding': return <PuzzleSlidingTiles {...props} config={{ size: 3 }} />

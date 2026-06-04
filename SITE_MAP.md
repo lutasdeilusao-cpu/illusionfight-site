@@ -409,12 +409,12 @@
 **Status:** ✅ v2.1.0 — 3 cidades, 11 dungeons, 28 itens, 10 NPCs, 3 sistemas  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `4.0.7` (console: `[JACK] versão carregada: 4.0.7`)  
+**Versão atual:** `4.0.9` (console: `[JACK] versão carregada: 4.0.9`)  
 **Rota:** `/extras/jackcandy`
 **GDD completo:** `docs/JACK_BEER_GDD.md`
 
 ### Mini Games — Arcade Puzzles
-**Versão:** `1.0.0` (console: `[MINIGAMES] versão carregada: 1.0.0`)  
+**Versão:** `1.0.2` (console: `[MINIGAMES] versão carregada: 1.0.2`)  
 **Rota:** `/extras/minigames`
 **Status:** ✅ 5 puzzles standalone (Infiltração 3 dificuldades, Decoder, Sliding Tiles, Labirinto, Anagrama)
 
