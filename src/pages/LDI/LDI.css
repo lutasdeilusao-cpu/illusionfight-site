@@ -1,5 +1,13 @@
 /* ===== LENDAS DO LDI — Global Styles ===== */
 
+@font-face {
+  font-family: 'Bring Race';
+  src: url('/illusionfight-site/fonts/BringRace.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .ldi-lobby {
   min-height: 100vh;
   background: var(--ldi-bg);
@@ -26,7 +34,7 @@
 }
 
 .ldi-lobby-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Bring Race', 'Orbitron', sans-serif;
   font-size: 3rem;
   color: #00B4D8;
   letter-spacing: 0.05em;
