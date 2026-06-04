@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
 import { DUNGEONS } from '../data/dungeons'
+import { ITENS } from '../data/itens'
 import { MONOLOGUES } from '../data/monologues'
 
 function rollD6() { return Math.floor(Math.random() * 6) + 1 }
@@ -19,13 +20,20 @@ export default function Dungeon({ dungeonId }) {
   const [restantes, setRestantes] = useState(dungeon?.inimigos || 0)
   const [animHit, setAnimHit] = useState(false)
   const [animKill, setAnimKill] = useState(false)
+  const [stealthMode, setStealthMode] = useState(dungeon?.mecanica === 'stealth')
+  const [stealthDetectado, setStealthDetectado] = useState(false)
+  const [fugaRound, setFugaRound] = useState(0)
+  const [fugaVivo, setFugaVivo] = useState(true)
 
   const inimigosRef = useRef(dungeon?.inimigos || 0)
   const hpRef = useRef(store.hpAtual)
   const stopRef = useRef(false)
   const danoArmaRef = useRef(store.equipado?.arma?.dano || 0)
-  const defesaRef = useRef(store.equipado?.armadura?.dano || 0)
+  const defesaRef = useRef(store.equipado?.armadura?.reducaoDano || 0)
+  const reducaoRef = useRef(0)
   const totalInimigos = dungeon?.inimigos || 0
+  const aliado = store.aliadoAtual
+  const primordialAtivo = store.flags.KRONOS_VIU && store.medidorPrimordial >= 10
 
   if (!dungeon) {
     return (
@@ -39,19 +47,91 @@ export default function Dungeon({ dungeonId }) {
   useEffect(() => {
     if (dungeon) {
       setLog([`${dungeon.nome}`])
-      store.setMonologo(MONOLOGUES.dungeon1_inicio || '')
     }
     danoArmaRef.current = store.equipado?.arma?.dano || 0
-    defesaRef.current = store.equipado?.armadura?.dano || 0
+    defesaRef.current = store.equipado?.armadura?.reducaoDano || 0
+    if (aliado?.id === 'kim') reducaoRef.current = 1
+    if (aliado?.id === 'shuntaro') danoArmaRef.current += 2
+    if (primordialAtivo) danoArmaRef.current *= 2
   }, [])
 
+  // Escape dungeon
+  useEffect(() => {
+    if (!dungeon || dungeon.mecanica !== 'fuga') return
+    stopRef.current = false
+    const tick = () => {
+      if (stopRef.current) return
+      const rolagem = rollD6()
+      if (rolagem <= 3) {
+        const dmg = dungeon.danoPorFalha || 5
+        const novoHp = hpRef.current - dmg
+        hpRef.current = novoHp
+        setHp(novoHp)
+        setAnimHit(true)
+        setTimeout(() => setAnimHit(false), 400)
+        setLog(l => [...l, `🎲 rolou ${rolagem}... falhou! (-${dmg} HP)`])
+        if (novoHp <= 0) {
+          stopRef.current = true
+          store.setHpAtual(0)
+          setFugaVivo(false)
+          setTimeout(() => setFase('derrota'), 100)
+          return
+        }
+      } else {
+        setLog(l => [...l, `🎲 rolou ${rolagem}! esquivou.`])
+      }
+      setFugaRound(r => {
+        const novo = r + 1
+        if (novo >= (dungeon.rounds || 15)) {
+          stopRef.current = true
+          store.setHpAtual(hpRef.current)
+          if (dungeon.desbloqueiaFlag) store.setFlag(dungeon.desbloqueiaFlag)
+          if (dungeon.dropCap) store.ganharCervejas(dungeon.dropCap)
+          store.incrementarMedidor()
+          setLog(l => [...l, `🗼 Kronos: "você é mais interessante do que achei."`, `💨 ejetado de volta.`])
+          store.setMonologo(MONOLOGUES.kronos_aparece)
+          setTimeout(() => setFase('vitoria'), 500)
+          return novo
+        }
+        return novo
+      })
+    }
+    const interval = setInterval(tick, INTERVALO)
+    return () => { clearInterval(interval); stopRef.current = true }
+  }, [])
+
+  // Combat mode
   useEffect(() => {
     if (fase !== 'combat') return
+    if (dungeon?.mecanica === 'fuga') return
     stopRef.current = false
 
     const tick = () => {
       if (stopRef.current) return
       if (inimigosRef.current <= 0) return
+
+      // Stealth mode
+      if (stealthMode && !stealthDetectado) {
+        const stealthRoll = rollD6()
+        if (stealthRoll >= 4) {
+          store.ganharCervejas(1)
+          inimigosRef.current--
+          setRestantes(inimigosRef.current)
+          setAnimKill(true)
+          setTimeout(() => setAnimKill(false), 400)
+          setProgresso(prev => prev + 1)
+          setLog(l => [...l, `🥷 passou sem ser visto. (-1 inimigo)`])
+
+          if (inimigosRef.current <= 0) {
+            finalizarDungeon(dungeon, 3) // 3x reward stealth
+          }
+          return
+        } else {
+          setStealthDetectado(true)
+          setLog(l => [...l, `👀 foi detectado! combate inicia.`])
+          return
+        }
+      }
 
       const danoArma = danoArmaRef.current
       const defesa = defesaRef.current
@@ -60,7 +140,7 @@ export default function Dungeon({ dungeonId }) {
       const acertou = atq > def
 
       if (acertou) {
-        store.ganharCapangas(1)
+        store.ganharCervejas(1)
         inimigosRef.current--
         setRestantes(inimigosRef.current)
         setAnimKill(true)
@@ -69,62 +149,23 @@ export default function Dungeon({ dungeonId }) {
 
         if (inimigosRef.current <= 0) {
           stopRef.current = true
-          setLog(l => [...l, `💥 derrubou! (${atq} vs ${def}) +1 cap`, `✅ todos derrubados!`])
+          setLog(l => [...l, `💥 derrubou! (${atq} vs ${def})`, `✅ todos derrubados!`])
+
           if (dungeon?.boss) {
-            // Boss battle - auto resolve
-            setTimeout(() => {
-              const atqB = rollD6() + danoArma
-              const defB = rollD6()
-              if (atqB > defB) {
-                store.setHpAtual(hpRef.current)
-                store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
-                setLog(l => [...l, `🎯 acertou ${dungeon.boss.nome}!`, `🏆 ${dungeon.boss.nome} derrotado!`])
-                setTimeout(() => setFase('vitoria'), 500)
-              } else {
-                const dmgB = rollD6() + (dungeon.boss?.dmg || 3)
-                const novoHp = hpRef.current - dmgB
-                hpRef.current = novoHp
-                setHp(novoHp)
-                if (novoHp <= 0) {
-                  store.setHpAtual(0)
-                  store.setMonologo(MONOLOGUES.morre || '')
-                  setTimeout(() => setFase('derrota'), 100)
-                } else {
-                  // Second try
-                  const atqB2 = rollD6() + danoArma
-                  if (atqB2 > defB) {
-                    store.setHpAtual(hpRef.current)
-                    store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
-                    setLog(l => [...l, `🎯 acertou boss!`, `🏆 derrotado!`])
-                    setTimeout(() => setFase('vitoria'), 500)
-                  } else {
-                    store.setHpAtual(0)
-                    store.setMonologo(MONOLOGUES.morre || '')
-                    setTimeout(() => setFase('derrota'), 100)
-                  }
-                }
-              }
-            }, 1000)
+            setTimeout(() => bossBattle(dungeon), 1000)
           } else {
-            const hpReal = useJackStore.getState().hpAtual
-            if (hpReal <= 0 || hpRef.current <= 0) {
-              store.setHpAtual(0)
-              store.setMonologo(MONOLOGUES.morre || '')
-              setFase('derrota')
-            } else {
-              store.setHpAtual(hpRef.current)
-              store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
-              setFase('vitoria')
-            }
+            finalizarDungeon(dungeon)
           }
           return
         }
-        setLog(l => [...l, `💥 derrubou! (${atq} vs ${def}) +1 cap`])
+        setLog(l => [...l, `💥 derrubou! (${atq} vs ${def})`])
         return
       }
 
-      const dmg = Math.min(3, Math.max(1, rollD6() - defesa))
-      const novoHp = hpRef.current - dmg
+      const dmgBase = Math.max(1, rollD6() - defesa)
+      const dmg = Math.min(3, dmgBase) - reducaoRef.current
+      const dmgFinal = Math.max(0, dmg)
+      const novoHp = hpRef.current - dmgFinal
       hpRef.current = novoHp
       setHp(novoHp)
       setAnimHit(true)
@@ -133,17 +174,63 @@ export default function Dungeon({ dungeonId }) {
       if (novoHp <= 0) {
         stopRef.current = true
         store.setHpAtual(0)
-        setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ capanga ataca! (-${dmg} hp)`, `💀 você morreu.`])
-        store.setMonologo(MONOLOGUES.morre || '')
+        setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ ataque inimigo! (-${dmgFinal} HP)`, `💀 você morreu.`])
+        store.setMonologo(MONOLOGUES.morre)
         setTimeout(() => setFase('derrota'), 100)
         return
       }
-      setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ capanga ataca! (-${dmg} hp)`])
+      setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ ataque inimigo! (-${dmgFinal} HP)`])
     }
 
     const interval = setInterval(tick, INTERVALO)
     return () => { clearInterval(interval); stopRef.current = true }
-  }, [fase])
+  }, [fase, stealthMode, stealthDetectado])
+
+  const bossBattle = (d) => {
+    const boss = d.boss
+    if (!boss) { finalizarDungeon(d); return }
+    const atqB = rollD6() + danoArmaRef.current
+    const defB = rollD6()
+    if (atqB > defB) {
+      store.setHpAtual(hpRef.current)
+      finalizarDungeon(d, 1)
+      setLog(l => [...l, `🎯 acertou ${boss.nome}!`, `🏆 ${boss.nome} derrotado!`])
+      setTimeout(() => setFase('vitoria'), 500)
+    } else {
+      const dmgB = Math.max(1, rollD6() + (boss.dmg || 3) - defesaRef.current - reducaoRef.current)
+      const novoHp = hpRef.current - dmgB
+      hpRef.current = novoHp
+      setHp(novoHp)
+      if (novoHp <= 0) {
+        store.setHpAtual(0)
+        setLog(l => [...l, `${boss.nome} revidou! (-${dmgB} HP)`, `💀 derrotado pelo boss.`])
+        setTimeout(() => setFase('derrota'), 100)
+      } else {
+        const atqB2 = rollD6() + danoArmaRef.current
+        if (atqB2 > defB) {
+          store.setHpAtual(hpRef.current)
+          finalizarDungeon(d, 1)
+          setLog(l => [...l, `🎯 ${boss.nome} derrotado!`])
+          setTimeout(() => setFase('vitoria'), 500)
+        } else {
+          store.setHpAtual(0)
+          setLog(l => [...l, `${boss.nome} contra-atacou!`, `💀 derrotado.`])
+          setTimeout(() => setFase('derrota'), 100)
+        }
+      }
+    }
+  }
+
+  const finalizarDungeon = (d, rewardMult = 1) => {
+    const dropCap = Math.floor((d.dropCap || 0) * rewardMult)
+    const dropNotas = d.dropNotas || 0
+    const dropFrag = d.dropFragmentos || 0
+    store.completarDungeon(d.id, dropCap, dropNotas, dropFrag)
+    if (d.desbloqueiaFlag) store.setFlag(d.desbloqueiaFlag)
+    store.incrementarMedidor()
+    if (aliado?.id === 'nina') store.set(state => ({ notas: state.notas + Math.floor(dropNotas * 0.5) }))
+    if (primordialAtivo && rewardMult === 1) store.zerarMedidor()
+  }
 
   const pct = totalInimigos > 0 ? Math.round((progresso / totalInimigos) * 100) : 0
   const hpPct = hpMax > 0 ? Math.max(0, Math.round((hp / hpMax) * 100)) : 0
@@ -167,9 +254,13 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
           <div className="jdc-dungeon-end-icon" style={{ color: '#F5A623' }}>✅</div>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon?.nome || 'Dungeon'} — completo!</p>
-          <p className="jack-text">+{dungeon.dropCap} capangas{dungeon.dropNotas > 0 ? `e +${dungeon.dropNotas} notas` : ''}</p>
-          {dungeon.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
+          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon?.nome || 'Dungeon'} completo!</p>
+          <p className="jack-text">
+            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.dropCap || 0) * 3) : dungeon?.dropCap || 0} cervejas
+            {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} notas` : ''}
+            {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} fragmentos` : ''}
+          </p>
+          {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
           <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>[ voltar ]</button>
         </motion.div>
       </div>
@@ -180,74 +271,68 @@ export default function Dungeon({ dungeonId }) {
     <div className="jdc-dungeon">
       <div className="jdc-dungeon-status">
         <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
+        {dungeon?.mecanica === 'fuga' && (
+          <span className="jack-text--amber" style={{ fontSize: '0.7rem' }}>round {fugaRound}/{dungeon.rounds || 15}</span>
+        )}
+        {stealthMode && !stealthDetectado && (
+          <span className="jack-text--crimson" style={{ fontSize: '0.7rem' }}>🥷 stealth</span>
+        )}
         <span className="jdc-dungeon-status-hp">
           <span className="jdc-dungeon-status-hp-label">HP</span>
           <span className="jdc-dungeon-status-hp-val">{hp}/{hpMax}</span>
         </span>
       </div>
 
-      {/* Battle scene */}
-      <div className="jdc-dungeon-battle">
-        <motion.div
-          className="jdc-dungeon-player-hero"
-          animate={{
-            x: ['-5%', '5%', '-5%'],
-            y: [0, -4, 0],
-          }}
-          transition={{ duration: 0.6, repeat: Infinity }}
-        >
-          <motion.div
-            className="jdc-dungeon-player-sprite"
-            animate={{ scale: animHit ? 1.1 : 1 }}
-          >🕵️</motion.div>
-          <span className="jdc-dungeon-player-label">Jack</span>
-        </motion.div>
-
-        <div className="jdc-dungeon-vs">
-          <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.3, repeat: Infinity }}>⚡</motion.span>
-        </div>
-
-        <div className="jdc-dungeon-enemies">
-          {Array.from({ length: visibleEnemies }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="jdc-dungeon-enemy-sprite"
-              animate={i === visibleEnemies - 1 ? { scale: [1, 1.05, 1] } : {}}
-              transition={{ duration: 0.5, repeat: Infinity }}
-              style={{ opacity: 1 - i * 0.1 }}
-            >
-              <motion.span
-                className="jdc-dungeon-enemy-emoji"
-                animate={animKill ? { opacity: 0, scale: 0 } : {}}
-              >👤</motion.span>
+      {dungeon?.mecanica !== 'fuga' && (
+        <>
+          {/* Battle scene */}
+          <div className="jdc-dungeon-battle">
+            <motion.div className="jdc-dungeon-player-hero"
+              animate={{ x: ['-5%', '5%', '-5%'], y: [0, -4, 0] }}
+              transition={{ duration: 0.6, repeat: Infinity }}>
+              <motion.div className="jdc-dungeon-player-sprite"
+                animate={{ scale: animHit ? 1.1 : 1 }}>
+                {primordialAtivo ? '🔥' : '🕵️'}
+              </motion.div>
+              <span className="jdc-dungeon-player-label">Jack{primordialAtivo ? '*' : ''}</span>
             </motion.div>
-          ))}
-          {restantes > 5 && (
-            <span className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>+{restantes - 5}</span>
-          )}
-        </div>
-      </div>
 
-      {/* Progress bar */}
-      <div className="jdc-dungeon-progress-wrap">
-        <motion.div
-          className="jdc-dungeon-progress-fill"
-          initial={{ width: 0 }}
-          animate={{ width: `${pct}%` }}
-          transition={{ duration: 0.3 }}
-        />
-      </div>
-      <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem', textAlign: 'center', margin: '0.25rem 0' }}>
-        {restantes} inimigo{restantes !== 1 ? 's' : ''} restante{restantes !== 1 ? 's' : ''}
-      </p>
+            <div className="jdc-dungeon-vs">
+              <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.3, repeat: Infinity }}>⚡</motion.span>
+            </div>
+
+            <div className="jdc-dungeon-enemies">
+              {Array.from({ length: visibleEnemies }).map((_, i) => (
+                <motion.div key={i} className="jdc-dungeon-enemy-sprite"
+                  animate={i === visibleEnemies - 1 ? { scale: [1, 1.05, 1] } : {}}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                  style={{ opacity: 1 - i * 0.1 }}>
+                  <motion.span className="jdc-dungeon-enemy-emoji"
+                    animate={animKill ? { opacity: 0, scale: 0 } : {}}>👤</motion.span>
+                </motion.div>
+              ))}
+              {restantes > 5 && <span className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>+{restantes - 5}</span>}
+            </div>
+          </div>
+
+          <div className="jdc-dungeon-progress-wrap">
+            <motion.div className="jdc-dungeon-progress-fill"
+              initial={{ width: 0 }}
+              animate={{ width: `${pct}%` }}
+              transition={{ duration: 0.3 }} />
+          </div>
+          <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem', textAlign: 'center', margin: '0.25rem 0' }}>
+            {restantes} inimigo{restantes !== 1 ? 's' : ''} restante{restantes !== 1 ? 's' : ''}
+          </p>
+        </>
+      )}
 
       {/* HP bar */}
       <div className="jdc-dungeon-hpbar">
         <motion.div className="jdc-dungeon-hpbar-fill"
           animate={{ width: `${hpPct}%` }}
           transition={{ duration: 0.3 }}
-          style={{ backgroundColor: hpColor }}
-        />
+          style={{ backgroundColor: hpColor }} />
       </div>
 
       <div className="jdc-dungeon-sep"></div>
@@ -258,8 +343,7 @@ export default function Dungeon({ dungeonId }) {
             <motion.p key={i} className="jdc-dungeon-log-entry"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.2 }}
-            >{entry}</motion.p>
+              transition={{ duration: 0.2 }}>{entry}</motion.p>
           ))}
         </AnimatePresence>
       </div>
@@ -268,21 +352,34 @@ export default function Dungeon({ dungeonId }) {
 
       {/* Use item */}
       <div className="jdc-dungeon-items">
-        {store.inventario.filter(i => i.id === 'energetico').length > 0 && (
-          <button className="jack-btn" onClick={() => {
-            store.usarItem('energetico')
-            const novaHp = Math.min(hpMax, hp + 10)
+        {store.inventario.filter(i => i.id === 'energetico' || i.id === 'cachaca' || i.id === 'kit_medico' || i.id === 'antidoto' || i.id === 'cigarro_marelia').map(item => (
+          <button key={item.id} className="jack-btn" onClick={() => {
+            const full = ITENS[item.id]
+            store.usarItem(item.id)
+            const novaHp = Math.min(hpMax, hp + (full.cura || 0))
             setHp(novaHp)
             hpRef.current = novaHp
-            setLog(l => [...l, `🥫 usou energético. +10 HP`])
-          }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>
-            [ 🥫 energético +10 HP ]
+            setLog(l => [...l, `🧪 usou ${item.nome}. +${full.cura || 0} HP`])
+          }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
+            [ 🧪 {item.nome} ]
           </button>
-        )}
+        ))}
+        {store.inventario.filter(i => i.id === 'ultimo_cigarro').map(item => (
+          <button key={item.id} className="jack-btn jack-btn--crimson" onClick={() => {
+            store.usarItem(item.id)
+            const novaHp = hpMax
+            setHp(novaHp)
+            hpRef.current = novaHp
+            setLog(l => [...l, `🚬 último cigarro. HP total.`])
+          }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
+            [ 🚬 último cigarro ]
+          </button>
+        ))}
       </div>
 
       <div className="jdc-dungeon-footer">
-        <span className="jack-text jack-text--dim">progresso: {pct}%</span>
+        {dungeon?.mecanica !== 'fuga' && <span className="jack-text jack-text--dim">progresso: {pct}%</span>}
+        {dungeon?.mecanica === 'fuga' && <span className="jack-text jack-text--dim">esquiva: {fugaRound}/{dungeon.rounds || 15}</span>}
         <button className="jack-btn jack-btn--crimson" onClick={() => { stopRef.current = true; store.setFase('vila') }}>
           [ fugir ]
         </button>

@@ -753,3 +753,325 @@
   color: #C8C8C8;
   margin-bottom: 1.5rem;
 }
+
+/* ===== INTERIOR 2.0 ===== */
+
+.jdc-interior-balao {
+  background: rgba(139, 0, 0, 0.08);
+  border: 1px solid #8B000022;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.jdc-interior-balao::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #8B000022;
+}
+
+.jdc-interior-balao-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #C8C8C8;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+.jdc-interior-dono {
+  font-size: 0.75rem;
+  color: #666;
+  margin-left: 0.25rem;
+}
+
+.jdc-interior-missoes {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-interior-missao {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.jdc-interior-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.jdc-interior-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.5rem;
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  transition: all 0.2s;
+  background: rgba(0,0,0,0.15);
+}
+
+.jdc-interior-item-icon {
+  font-size: 1.5rem;
+  min-width: 36px;
+  text-align: center;
+}
+
+.jdc-interior-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.jdc-interior-item-nome {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #F5A623;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.jdc-interior-item-desc {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #666;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.jdc-interior-item-stats {
+  display: flex;
+  gap: 0.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: #888;
+  flex-wrap: wrap;
+}
+
+.jdc-interior-item-preco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  min-width: 80px;
+}
+
+.jdc-interior-baloes-flutuantes {
+  position: fixed;
+  bottom: 5rem;
+  right: 1rem;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+
+.jdc-interior-balao-float {
+  background: rgba(0,0,0,0.9);
+  border: 1px solid #F5A62333;
+  color: #F5A623;
+  padding: 0.3rem 0.6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  border-radius: 2px;
+}
+
+/* ===== INVENTARIO 2.0 ===== */
+
+.jdc-inv-equipment {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.jdc-inv-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.jdc-inv-slot {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #222;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(0,0,0,0.2);
+}
+
+.jdc-inv-slot:hover {
+  border-color: #444;
+  background: rgba(0,0,0,0.35);
+}
+
+.jdc-inv-slot--filled {
+  border-color: #F5A62333;
+  background: rgba(245,166,35,0.03);
+}
+
+.jdc-inv-slot--selected {
+  border-color: #F5A623;
+  background: rgba(245,166,35,0.06);
+}
+
+.jdc-inv-slot-icon {
+  font-size: 1.3rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.jdc-inv-slot-info {
+  flex: 1;
+}
+
+.jdc-inv-slot-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: #666;
+  display: block;
+  text-transform: uppercase;
+}
+
+.jdc-inv-slot-item {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  display: block;
+}
+
+.jdc-inv-slot-stats {
+  display: flex;
+  gap: 0.3rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: #888;
+}
+
+.jdc-inv-slot-action {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2rem;
+}
+
+.jdc-inv-slot-action:hover {
+  color: #8B0000;
+}
+
+.jdc-inv-swap {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-top: 1px solid #1a1a1a;
+  overflow: hidden;
+}
+
+.jdc-inv-stats {
+  display: flex;
+  gap: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-inv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.jdc-inv-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #111;
+  transition: background 0.15s;
+}
+
+.jdc-inv-list-icon {
+  font-size: 1.2rem;
+  min-width: 28px;
+  text-align: center;
+}
+
+.jdc-inv-list-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== VILA CITY NAV ===== */
+
+.jdc-vila-nav-cidades {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.jdc-vila-nav-indicador {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.jdc-vila-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  border: 1px solid #333;
+}
+
+.jdc-vila-nav-dot--active {
+  background: #F5A623;
+  border-color: #F5A623;
+  box-shadow: 0 0 4px rgba(245,166,35,0.4);
+}
+
+.jdc-vila-nav-dot--locked {
+  opacity: 0.3;
+}
+
+.jdc-vila-periodo {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* ===== STATUS BAR EXTRAS ===== */
+
+.jdc-sb-primordial {
+  font-size: 0.6rem;
+  letter-spacing: -1px;
+  margin-left: 0.25rem;
+  opacity: 0.8;
+}
+
+/* ===== DUNGEON ITEMS ===== */
+
+.jdc-dungeon-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
