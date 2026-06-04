@@ -57,6 +57,13 @@ export default function StatusBar() {
           <button className={`jdc-sb-btn ${store.fase === 'dungeon_select' || store.fase.startsWith('dungeon_') ? 'jdc-sb-btn--active' : ''}`}
             onClick={() => store.flags.TEM_BENGALA && store.setFase('dungeon_select')}
             disabled={!store.flags.TEM_BENGALA}>DUN</button>
+          <button className={`jdc-sb-btn ${store.fase === 'dossier' || store.fase?.startsWith('investigar_') ? 'jdc-sb-btn--active' : ''} ${store.casoAtivo ? 'jdc-sb-btn--glow' : ''}`}
+            onClick={() => {
+              if (!store.flags.TEM_BENGALA) return
+              if (store.casoAtivo) store.setFase('dossier')
+            }}
+            disabled={!store.casoAtivo}
+            style={store.casoAtivo ? { borderColor: '#EC4899', color: '#EC4899' } : {}}>CASOS</button>
           <button className="jdc-sb-btn"
             onClick={alternarPeriodo}
             disabled={periodoCd > 0}

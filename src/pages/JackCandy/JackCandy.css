@@ -361,6 +361,15 @@
   text-shadow: 0 0 8px rgba(204, 0, 0, 0.3);
 }
 
+.jdc-sb-btn--glow {
+  animation: jdc-sb-glow 2s ease-in-out infinite;
+}
+
+@keyframes jdc-sb-glow {
+  0%, 100% { text-shadow: 0 0 4px rgba(236,72,153,0.3); }
+  50% { text-shadow: 0 0 12px rgba(236,72,153,0.6); }
+}
+
 .jdc-sb-hp-label {
   color: #8B0000;
   min-width: 20px;

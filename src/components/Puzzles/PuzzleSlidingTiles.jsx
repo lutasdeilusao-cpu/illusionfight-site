@@ -101,6 +101,9 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
       </div>
 
       <p className="puzzle-hint">objetivo: ordenar 1-{total - 1} da esquerda pra direita, espaço vazio no canto inferior direito</p>
+      <button className="jack-btn" onClick={() => onFail?.()} style={{ fontSize: '0.7rem', borderColor: '#8B000033', color: '#666' }}>
+        [ desistir ]
+      </button>
     </div>
   )
 }

@@ -14,14 +14,6 @@ export default function Investigacao({ localId }) {
   const [puzzleResolvido, setPuzzleResolvido] = useState(false)
   const [puzzleFalhou, setPuzzleFalhou] = useState(false)
 
-  const CUSTO_ARROMBAR = {
-    decoder: 1500,
-    stealth: 2000,
-    sliding: 1000,
-    default: 1000,
-  }
-  const custoPuzzle = CUSTO_ARROMBAR[local?.puzzle] || CUSTO_ARROMBAR.default
-
   if (!caso) {
     store.setFase('dossier')
     return null
@@ -32,6 +24,14 @@ export default function Investigacao({ localId }) {
     store.setFase('dossier')
     return null
   }
+
+  const CUSTO_ARROMBAR = {
+    decoder: 1500,
+    stealth: 2000,
+    sliding: 1000,
+    default: 1000,
+  }
+  const custoPuzzle = CUSTO_ARROMBAR[local?.puzzle] || CUSTO_ARROMBAR.default
 
   const jaVisitado = store.locaisVisitados.includes(localId)
   const pistaId = local.pistas?.[0]
@@ -138,7 +138,7 @@ export default function Investigacao({ localId }) {
               <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />
             )}
             {local.puzzle === 'stealth' && (
-              <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 4 }} />
+              <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 4, hasTimer: true }} />
             )}
             {local.puzzle === 'sliding' && (
               <PuzzleSlidingTiles onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 3 }} />

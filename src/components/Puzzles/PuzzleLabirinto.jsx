@@ -104,6 +104,9 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
         <button className="puzzle-dpad-btn puzzle-dpad-btn--down" onClick={() => move(1, 0)} disabled={done}>▼</button>
         <button className="puzzle-dpad-btn puzzle-dpad-btn--right" onClick={() => move(0, 1)} disabled={done}>▶</button>
       </div>
+      <button className="jack-btn" onClick={() => onFail?.()} style={{ fontSize: '0.7rem', borderColor: '#8B000033', color: '#666', marginTop: '0.5rem' }}>
+        [ desistir ]
+      </button>
     </div>
   )
 }

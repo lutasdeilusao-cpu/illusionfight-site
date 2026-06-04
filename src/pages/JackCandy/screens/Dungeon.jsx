@@ -332,7 +332,7 @@ export default function Dungeon({ dungeonId }) {
                 store.setFase(`investigar_${store._localPendente}`)
                 useJackStore.setState({ _retornoInvestigacao: false, _localPendente: null })
               } else {
-                store.setFase('vila')
+                store.setFase('dungeon_select')
               }
             }}>{store._retornoInvestigacao ? '[ voltar pra investigação ]' : '[ voltar ]'}</button>
             <button className="jack-btn jack-btn--amber" onClick={() => store.showResultCard({
