@@ -9,41 +9,6 @@ import { FLAGS } from '../data/flags'
 
 const STORAGE_KEY = 'jack_beer_save_v2'
 
-function loadLocal() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) {
-      const data = JSON.parse(raw)
-      if (data.fase?.startsWith('dungeon_') || data.fase === 'dungeon_select' || data.fase?.startsWith('interior_')) {
-        data.fase = 'vila'
-      }
-      data._slot = null
-      return data
-    }
-  } catch (_) {}
-  try {
-    const raw = localStorage.getItem('jack_candy_save')
-    if (raw) {
-      const data = JSON.parse(raw)
-      localStorage.removeItem('jack_candy_save')
-      if (data.fase?.startsWith('dungeon_') || data.fase === 'dungeon_select' || data.fase?.startsWith('interior_')) {
-        data.fase = 'vila'
-      }
-      data.cervejas = data.capangas ?? 0
-      data.cervejasTotais = data.capangasTotais ?? 0
-      data.cervejasPorSegundo = data.capangasPorSegundo ?? 1
-      data.fragmentos = 0
-      data.medidorPrimordial = 0
-      data.periodo = 'DIA'
-      data.cidadeAtual = 'marelia'
-      data.aliadoAtual = null
-      data._slot = null
-      return data
-    }
-  } catch (_) {}
-  return null
-}
-
 function persistLocal(state) {
   try {
     if (!state._slot) return
@@ -79,9 +44,8 @@ const defaultState = {
 }
 
 export const useJackStore = create((set, get) => {
-  const saved = loadLocal()
   return {
-    ...defaultState, ...(saved || {}),
+    ...defaultState,
 
     tick: () => set(state => ({
       cervejas: state.cervejas + state.cervejasPorSegundo,
