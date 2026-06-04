@@ -48,7 +48,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
-    if (game.id === 'stealth' || game.id === 'decoder') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (game.id === 'stealth' || game.id === 'decoder' || game.id === 'sliding') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -88,7 +88,11 @@ export default function MiniGames() {
         return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras, visionRange: cfg.visionRange }} />
       }
       case 'decoder': return <PuzzleDecoder {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
-      case 'sliding': return <PuzzleSlidingTiles {...props} config={{ size: 3 }} />
+      case 'sliding':
+        const difSliding = dificuldadeSelecionada || 'easy'
+        const slidingSize = difSliding === 'hard' ? 5 : difSliding === 'medium' ? 4 : 3
+        console.log('[SLIDING] difficulty:', difSliding, '| size:', slidingSize)
+        return <PuzzleSlidingTiles {...props} config={{ size: slidingSize }} />
       case 'labirinto': return <PuzzleLabirinto {...props} />
       case 'anagrama': return <PuzzleAnagrama {...props} />
       default: return null
@@ -97,18 +101,25 @@ export default function MiniGames() {
 
   if (fase === 'selecionar_dificuldade') {
     const isStealth = jogoAtivo.id === 'stealth'
-    const difs = isStealth
-      ? [
-          { id: 'easy', label: 'FÁCIL', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, badge: 'FREE', free: true, cor: '#22C55E' },
-          { id: 'medium', label: 'MÉDIO', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, badge: 'ELITE', free: false, cor: '#F5A623' },
-          { id: 'hard', label: 'DIFÍCIL', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, badge: 'ELITE', free: false, cor: '#8B0000' },
-        ]
-      : [
-          { id: 'easy', label: 'FÁCIL', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', badge: 'FREE', free: true, cor: '#22C55E' },
-          { id: 'medium', label: 'MÉDIO', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#F5A623' },
-          { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
-          { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
-        ]
+    const DIF_CONFIGS = {
+      stealth: [
+        { id: 'easy', label: 'FÁCIL', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, badge: 'FREE', free: true, cor: '#22C55E' },
+        { id: 'medium', label: 'MÉDIO', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
+      decoder: [
+        { id: 'easy', label: 'FÁCIL', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', badge: 'FREE', free: true, cor: '#22C55E' },
+        { id: 'medium', label: 'MÉDIO', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
+      sliding: [
+        { id: 'easy', label: 'FÁCIL', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', badge: 'FREE', free: true, cor: '#22C55E' },
+        { id: 'medium', label: 'MÉDIO', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#8B0000' },
+      ],
+    }
+    const difs = DIF_CONFIGS[jogoAtivo.id] || []
     return (
       <div className="mg-page"><div className="mg-scanlines" />
         <div className="mg-dif-select">
