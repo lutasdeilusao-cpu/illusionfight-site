@@ -326,7 +326,20 @@ export default function Dungeon({ dungeonId }) {
             {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} fragmentos` : ''}
           </p>
           {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
-          <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+          <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <button className="jack-btn" onClick={() => store.setFase('vila')}>[ voltar ]</button>
+            <button className="jack-btn jack-btn--amber" onClick={() => store.showResultCard({
+              title: `${dungeon?.nome || 'Dungeon'} completo`,
+              subtitle: `${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas`,
+              context: 'dungeon',
+              stats: [
+                { label: 'Cervejas', value: `🍺 ${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)}` },
+                { label: 'Notas', value: `💵 ${dungeon?.dropNotas || 0}` },
+                { label: 'Fragmentos', value: `💎 ${dungeon?.dropFragmentos || 0}` },
+                { label: 'Dungeons', value: store.dungeonsCompletas?.length || 0 },
+              ],
+            })}>[ compartilhar ]</button>
+          </div>
         </motion.div>
       </div>
     )

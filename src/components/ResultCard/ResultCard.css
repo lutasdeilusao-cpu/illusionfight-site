@@ -1,0 +1,139 @@
+.resultcard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 1rem;
+}
+
+.resultcard-modal {
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.resultcard-preview {
+  width: 100%;
+  padding: 1.5rem 1.5rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.resultcard-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.15rem;
+}
+
+.resultcard-tagline {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.resultcard-sep {
+  border-bottom: 1px solid;
+  margin: 0.5rem 2rem;
+}
+
+.resultcard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.resultcard-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.resultcard-player {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.resultcard-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.resultcard-stat {
+  text-align: center;
+  min-width: 60px;
+}
+
+.resultcard-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.resultcard-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.resultcard-frase {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.resultcard-url {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.resultcard-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.resultcard-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #333;
+  color: #C8C8C8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.resultcard-btn:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245,166,35,0.05);
+}
+
+.resultcard-btn--x:hover { border-color: #1DA1F2; color: #1DA1F2; }
+.resultcard-btn--whatsapp:hover { border-color: #25D366; color: #25D366; }
+.resultcard-btn--download:hover { border-color: #22C55E; color: #22C55E; }
+.resultcard-btn--copy:hover { border-color: #A855F4; color: #A855F4; }
+
+.resultcard-close {
+  background: transparent;
+  border: 1px solid #333;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resultcard-close:hover {
+  border-color: #8B0000;
+  color: #8B0000;
+}

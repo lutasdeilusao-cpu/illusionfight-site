@@ -37,6 +37,17 @@ export default function Interrogatorio() {
   const finalizar = () => {
     store.resolverCaso('CASO4_RESOLVIDO')
     store.setFlag('KIM_REVELADO')
+    store.showResultCard({
+      title: 'Quem Sabotou o Sonho',
+      subtitle: 'Caso 4 resolvido',
+      context: 'caso',
+      stats: [
+        { label: 'Casos', value: '4/4' },
+        { label: 'Cervejas', value: `🍺 ${store.cervejas}` },
+        { label: 'Dungeons', value: store.dungeonsCompletas?.length || 0 },
+        { label: 'Nível', value: `LV ${store.nivel}` },
+      ],
+    })
     store.setMonologo('kim caiu. mas ele estava sorrindo. eu odeio quando ele faz isso. "te preparando", ele disse. "acorda, jack." eu acordei. kim tava do meu lado mandando meme no whatsapp. típico.')
     store.setFase('vila')
   }

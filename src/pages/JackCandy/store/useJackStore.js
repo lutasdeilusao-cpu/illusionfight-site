@@ -45,7 +45,7 @@ const defaultState = {
   medidorPrimordial: 0, aliadoAtual: null,
   casoAtivo: null, pistasColetadas: [], suspeitos: [],
   locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
-  _userId: null, _slot: null, _savePending: false,
+  _userId: null, _slot: null, _savePending: false, _resultCard: null,
 }
 
 let saveTimeout = null
@@ -93,6 +93,8 @@ export const useJackStore = create((set, get) => {
       set({ fase })
       get()._autoSave()
     },
+    showResultCard: (data) => set({ _resultCard: data }),
+    hideResultCard: () => set({ _resultCard: null }),
     setMonologo: (text) => set({ monologoAtual: text }),
     limparMonologo: () => set({ monologoAtual: null }),
     setTitleDone: () => set({ titleDone: true }),

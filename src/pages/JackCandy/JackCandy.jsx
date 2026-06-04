@@ -17,6 +17,7 @@ import Descanso from './screens/Descanso'
 import Dossier from './screens/Dossier'
 import Investigacao from './screens/Investigacao'
 import Interrogatorio from './screens/Interrogatorio'
+import { ResultCard } from '../../components/ResultCard'
 import { MONOLOGUES } from './data/monologues'
 import './JackCandy.css'
 
@@ -27,6 +28,7 @@ export default function JackCandy() {
   const [loaded, setLoaded] = useState(false)
   const [currentSlot, setCurrentSlot] = useState(null)
   const [slotsData, setSlotsData] = useState([null, null, null])
+  const [cardResultado, setCardResultado] = useState(null)
 
   useEffect(() => {
     setReaderMode(true)
@@ -191,6 +193,15 @@ export default function JackCandy() {
       </div>
       <DicaToast />
       <Monologue text={store.monologoAtual} onClose={store.limparMonologo} />
+      <ResultCard
+        open={!!store._resultCard}
+        onClose={() => store.hideResultCard()}
+        game="jack"
+        title={store._resultCard?.title || ''}
+        subtitle={store._resultCard?.subtitle || ''}
+        context={store._resultCard?.context || 'default'}
+        stats={store._resultCard?.stats || []}
+      />
     </div>
   )
 }
