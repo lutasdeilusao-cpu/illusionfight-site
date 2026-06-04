@@ -298,3 +298,113 @@
   0%, 100% { box-shadow: 0 0 6px #8B0000; }
   50% { box-shadow: 0 0 18px #8B0000, 0 0 32px rgba(139, 0, 0, 0.27); }
 }
+
+/* ===== Quest ===== */
+
+.jdc-quest {
+  padding: 1rem 0;
+}
+
+.jdc-quest-header {
+  font-size: 1rem;
+  color: #F5A623;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+.jdc-quest-desc {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.jdc-quest-track-container {
+  background: #0A0A0A;
+  border: 1px solid #222;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.jdc-quest-track {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  color: #C8C8C8;
+  letter-spacing: 0.15em;
+  white-space: pre;
+  min-height: 1.5rem;
+}
+
+.jdc-quest-hp {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-quest-hp-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #8B0000;
+  min-width: 24px;
+}
+
+.jdc-quest-hp-bar {
+  flex: 1;
+  height: 8px;
+  background: #1A0A0A;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.jdc-quest-hp-fill {
+  height: 100%;
+  background: #8B0000;
+  transition: width 0.3s;
+}
+
+.jdc-quest-hp-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #C8C8C8;
+  min-width: 40px;
+  text-align: right;
+}
+
+.jdc-quest-info {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-quest-log {
+  background: #0A0A0A;
+  border: 1px solid #222;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  min-height: 2rem;
+}
+
+.jdc-quest-result {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.jdc-quest-check {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-quest-result-title {
+  font-size: 1.1rem;
+  color: #F5A623;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-quest-result-reward {
+  font-size: 0.85rem;
+  color: #C8C8C8;
+  margin-bottom: 1.5rem;
+}

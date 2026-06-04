@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useReader } from '../../context/ReaderContext'
-import { useJackStore } from './store/useJackStore'
+import { useJackStore, AREAS } from './store/useJackStore'
+import QuestScreen from './QuestScreen'
 import jackImg from '../../assets/images/characters/jack-balloon.png'
 import './JackCandy.css'
 
@@ -63,6 +64,7 @@ export default function JackCandy() {
   const [showTitle, setShowTitle] = useState(false)
   const [showPajeIntro, setShowPajeIntro] = useState(false)
   const [showPajeFala, setShowPajeFala] = useState(false)
+  const [questScreen, setQuestScreen] = useState(null)
   const tickRef = useRef(null)
 
   // Immersive mode
@@ -227,6 +229,43 @@ export default function JackCandy() {
         {store.flags.TEM_BENGALA && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <p className="jack-text jack-text--amber">você tem uma arma agora. no sonho isso significa alguma coisa.</p>
+            <p className="jack-text jack-text--dim">a rua estava lá. sempre estava.</p>
+            <div className="jack-buttons">
+              {!questScreen && Object.values(AREAS).map(area => {
+                const completa = store.areasCompletas.includes(area.id)
+                const locked = area.id === 'rua' && !store.areasCompletas.includes('onibus')
+                const locked2 = area.id === 'boteco' && !store.areasCompletas.includes('rua')
+                if (locked || locked2) return null
+                return (
+                  <button
+                    key={area.id}
+                    className="jack-btn"
+                    onClick={() => {
+                      setQuestScreen(area.id)
+                      store.iniciarQuest(area.id)
+                    }}
+                  >
+                    {completa ? '✅ ' : ''}[ {area.nome} ] {completa ? `(${Math.floor(area.recompensa / 2)} balas)` : ''}
+                  </button>
+                )
+              })}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Quest screen */}
+        {questScreen && (
+          <QuestScreen areaId={questScreen} onBack={() => setQuestScreen(null)} />
+        )}
+
+        {/* Kim shop */}
+        {store.flags.KIM_LIBERADO && !questScreen && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            <p className="jack-text jack-text--amber">[KIM] — sem olhar pra você</p>
+            <p className="jack-text">"você sobreviveu. parabéns."</p>
+            <div className="jack-buttons">
+              <button className="jack-btn jack-btn--amber" onClick={store.abrirKimShop}>[ ver o que ele tem ]</button>
+            </div>
           </motion.div>
         )}
 
@@ -253,6 +292,30 @@ export default function JackCandy() {
           </div>
         )}
       </div>
+
+      {/* Kim shop modal */}
+      <AnimatePresence>
+        {store.kimShopAberto && (
+          <motion.div className="jack-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div className="jack-modal" initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}>
+              <div className="jack-modal-title">⟐ kim — miudezas</div>
+              <div className="jack-modal-text">
+                <p>kim não olha pra você enquanto fala.</p>
+                <p>"pega o que precisa e vai."</p>
+              </div>
+              <div className="jack-buttons">
+                <button className="jack-btn" onClick={store.comprarUpgradeBengala} disabled={store.balas < ((store.danoBengala || 1) >= 3 ? 300 : 200)}>
+                  [ upgrade bengala +1 — {(store.danoBengala || 1) >= 3 ? '300' : '200'} balas ] (atual: +{store.danoBengala || 1})
+                </button>
+                <button className="jack-btn" onClick={store.comprarPocao} disabled={store.balas < 50}>
+                  [ poção energética — 50 balas ] (HP máx +1)
+                </button>
+                <button className="jack-btn" onClick={store.fecharKimShop}>[ sair ]</button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Monólogo flutuante */}
       <AnimatePresence>
