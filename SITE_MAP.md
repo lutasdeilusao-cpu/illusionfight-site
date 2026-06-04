@@ -406,32 +406,61 @@
 ## 11. JACK DREAM CANDY — Idle Noir
 
 **Tipo:** Idle game narrativo  
-**Status:** ✅ v0.1.0 — Core idle + Pajé + bengala  
-**Acesso:** FREE  
-**Stack:** React 19 · Zustand · Framer Motion  
-**Versão atual:** `0.1.0` (console: `[JACK] versão carregada: 0.1.0`)  
+**Status:** ✅ v1.0.0 — Store + StatusBar + Intro + Save Supabase  
+**Acesso:** FREE (requer login)  
+**Stack:** React 19 · Zustand · Framer Motion · Supabase  
+**Versão atual:** `1.0.0` (console: `[JACK] versão carregada: 1.0.0`)  
 **Rota:** `/extras/jackcandy`
 
-### Mecânicas Implementadas
-- ✅ Balas acumulam automaticamente (+1/s)
-- ✅ Guardar / Rolar no chão (descarta balas)
-- ✅ Pajé aparece com 100 balas
-- ✅ Barraca do Pajé com Bengala Steampunk (100 balas)
-- ✅ Inventário com item equipado
-- ✅ Abas: balas / inventário (após comprar bengala)
-- ✅ Monólogo em primeira pessoa (estilo noir)
+### Mecânicas Implementadas (v1.0.0)
+- ✅ Capangas acumulam automaticamente (+1/s)
+- ✅ Guardar / Jogar fora (descarta capangas)
+- ✅ Pajé aparece com 100 capangas → vende Bengala Steampunk
+- ✅ Fase Intro → Vila (após comprar bengala)
+- ✅ HP com regen automática (1 a cada 10s)
+- ✅ Nível e XP (framework, sem uso ainda)
+- ✅ StatusBar fixa com recursos, HP bar, abas VILA/INV/MAP/SAVE
+- ✅ Avatar do Jack em círculo carmesim pulsante
 - ✅ Chuva de caracteres ASCII no fundo
 - ✅ Título com efeito typewriter
 - ✅ Auto-save localStorage a cada 30s
+- ✅ Save cloud no Supabase (tabela `jack_saves`)
+- ✅ LoginGate — requer conta no site
 - ✅ Modo imersivo (sem navbar/footer)
+
+### Supabase — Tabela `jack_saves`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| id | uuid PK | Gerado automaticamente |
+| user_id | uuid FK → auth.users | Dono do save |
+| capangas | int | Recursos atuais |
+| capangas_totais | int | Total acumulado |
+| notas | int | Moeda premium |
+| fase | text | 'intro' / 'vila' / ... |
+| flags | jsonb | Flags narrativas |
+| hp_atual / hp_max | int | Vida |
+| nivel / xp | int | Progressão |
+| inventario | jsonb | Itens do jogador |
+| equipado | jsonb | { arma, armadura, acessorio } |
+| dungeons_completas | text[] | Progressão de áreas |
+| tempo_jogo | int | Segundos totais |
+| title_done | boolean | Intro já viu |
+| version | text | Versão do save |
+| created_at / updated_at | timestamptz | Controle |
 
 ### Estrutura de Arquivos
 ```
 src/pages/JackCandy/
-├── JackCandy.jsx              # Componente principal
-├── JackCandy.css               # Estilos preto e branco + carmesim + âmbar
-└── store/
-    └── useJackStore.js         # Estado global Zustand + localStorage
+├── JackCandy.jsx              # Container principal (login gate, fase routing, intervals)
+├── JackCandy.css               # Estilos noir
+├── store/
+│   └── useJackStore.js         # Estado global + cloud save (Supabase) + local save
+├── components/
+│   └── StatusBar.jsx           # Barra fixa no topo: recursos, HP, abas, SAVE
+└── screens/
+    ├── Intro.jsx               # Tela inicial: typewriter, avatar, Pajé, bengala
+    └── Vila.jsx                # Hub principal (stub — dungeons em breve)
 ```
 
 ### Rotas internas do jogo

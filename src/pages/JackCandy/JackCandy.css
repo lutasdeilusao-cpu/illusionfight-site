@@ -274,7 +274,126 @@
   50% { opacity: 0; }
 }
 
-/* ===== Avatar ===== */
+/* ===== StatusBar ===== */
+
+.jdc-statusbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #0A0A0A;
+  border-bottom: 1px solid #222;
+  padding: 0.4rem 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.jdc-statusbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.jdc-statusbar-row:last-child {
+  margin-bottom: 0;
+}
+
+.jdc-sb-resources {
+  color: #F5A623;
+  white-space: pre;
+}
+
+.jdc-sb-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.jdc-sb-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+
+.jdc-sb-btn:hover:not(:disabled) {
+  border-color: #F5A623;
+  color: #F5A623;
+}
+
+.jdc-sb-btn--active {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245, 166, 35, 0.08);
+}
+
+.jdc-sb-btn--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.jdc-sb-btn--save {
+  border-color: #8B0000;
+  color: #8B0000;
+}
+
+.jdc-sb-btn--save:hover:not(:disabled) {
+  border-color: #CC0000;
+  color: #CC0000;
+}
+
+.jdc-sb-hp-label {
+  color: #8B0000;
+  min-width: 20px;
+}
+
+.jdc-sb-hp-bar {
+  color: #8B0000;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+.jdc-sb-hp-text {
+  color: #C8C8C8;
+  min-width: 50px;
+  text-align: right;
+}
+
+.jdc-sb-level {
+  color: #F5A623;
+  margin-left: auto;
+}
+
+/* ===== Intro ===== */
+
+.jdc-intro {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.jdc-intro-title {
+  font-size: 1.8rem;
+  color: #F5A623;
+  text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
+  margin-bottom: 2rem;
+  min-height: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+.jdc-intro-counter {
+  font-size: 1.1rem;
+  color: #C8C8C8;
+  margin: 1rem 0;
+  letter-spacing: 0.05em;
+}
 
 .jdc-avatar {
   width: 120px;

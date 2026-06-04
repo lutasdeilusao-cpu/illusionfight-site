@@ -1,29 +1,12 @@
-const JACK_VERSION = '0.2.0'
+const JACK_VERSION = '1.0.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
+import { supabase } from '../../../lib/supabase'
 
 const STORAGE_KEY = 'jack_candy_save'
 
-const AREAS = {
-  onibus: {
-    id: 'onibus', nome: 'O Ônibus', desc: 'um ônibus abandonado. dentro, avatares sem rosto.',
-    inimigos: 3, recompensa: 50, item: null, chefe: false,
-    inimigoNome: 'avatar vazio',
-  },
-  rua: {
-    id: 'rua', nome: 'A Rua de Marelia', desc: 'a rua que não termina. os passos ecoam.',
-    inimigos: 5, recompensa: 80, item: { id: 'sapatos_couro', nome: 'Sapatos de Couro', desc: 'sapatos pretos. gastos. firmes.', icone: '👞' }, chefe: false,
-    inimigoNome: 'vulto na neblina',
-  },
-  boteco: {
-    id: 'boteco', nome: 'O Boteco do Jazz', desc: 'música ao fundo. copos sujos. gente pior.',
-    inimigos: 6, recompensa: 150, item: null, chefe: true,
-    inimigoNome: 'frequentador', chefeNome: 'gerente do boteco',
-  },
-}
-
-function loadSave() {
+function loadLocal() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) return JSON.parse(raw)
@@ -31,190 +14,123 @@ function loadSave() {
   return null
 }
 
-function persist(state) {
+function persistLocal(state) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       capangas: state.capangas, capangasTotais: state.capangasTotais,
-      notas: state.notas, inventario: state.inventario,
-      flags: state.flags, fase: state.fase,
-      titleDone: state.titleDone, pajéApareceu: state.pajéApareceu,
-      mostraBarraca: state.mostraBarraca,
-      areasCompletas: state.areasCompletas,
-      questHp: state.questHp, questMaxHp: state.questMaxHp,
-      danoBengala: state.danoBengala,
-      kimShopAberto: state.kimShopAberto,
+      notas: state.notas, fase: state.fase, flags: state.flags,
+      hpAtual: state.hpAtual, hpMax: state.hpMax,
+      nivel: state.nivel, xp: state.xp,
+      inventario: state.inventario, equipado: state.equipado,
+      dungeonsCompletas: state.dungeonsCompletas,
+      tempoJogo: state.tempoJogo, titleDone: state.titleDone,
     }))
   } catch (_) {}
 }
 
 const defaultState = {
-  capangas: 0, capangasTotais: 0, notas: 0,
-  inventario: [], flags: {}, fase: 'inicio',
-  titleDone: false, pajéApareceu: false, mostraBarraca: false,
-  monologoAtual: null,
-  areasCompletas: [],
-  questHp: 5, questMaxHp: 5,
-  danoBengala: 1,
-  kimShopAberto: false,
-  questAtiva: null,
-  questStep: 0,
-  questProgress: 0,
-  questInimigosRestantes: 0,
-  questResultado: null,
+  capangas: 0, capangasPorSegundo: 1, capangasTotais: 0, notas: 0,
+  hpAtual: 20, hpMax: 20, nivel: 1, xp: 0,
+  fase: 'intro', flags: {}, dungeonsCompletas: [],
+  inventario: [], equipado: { arma: null, armadura: null, acessorio: null },
+  tempoJogo: 0, titleDone: false, monologoAtual: null,
 }
 
-function rollD6() { return Math.floor(Math.random() * 6) + 1 }
-
 export const useJackStore = create((set, get) => {
-  const saved = loadSave()
+  const saved = loadLocal()
   return {
     ...defaultState, ...(saved || {}),
 
     tick: () => {
       set(state => {
-        const b = state.capangas + 1
-        const t = state.capangasTotais + 1
-        const m = t > 0 && t % 500 === 0 ? 'eram tantos que perdi a conta. no sonho isso era normal.' : state.monologoAtual
-        return { capangas: b, capangasTotais: t, monologoAtual: m }
+        const cap = state.capangas + state.capangasPorSegundo
+        const tot = state.capangasTotais + state.capangasPorSegundo
+        return { capangas: cap, capangasTotais: tot, tempoJogo: state.tempoJogo + 1 }
+      })
+    },
+
+    regenHp: () => {
+      set(state => {
+        if (state.hpAtual >= state.hpMax) return state
+        return { hpAtual: Math.min(state.hpMax, state.hpAtual + 1) }
+      })
+    },
+
+    gastar: (qtd) => set(state => ({ capangas: Math.max(0, state.capangas - qtd) })),
+    gastarNotas: (qtd) => set(state => ({ notas: Math.max(0, state.notas - qtd) })),
+    setFlag: (flag) => set(state => ({ flags: { ...state.flags, [flag]: true } })),
+    setFase: (fase) => set({ fase }),
+
+    addInventario: (item) => set(state => ({ inventario: [...state.inventario, item] })),
+    equiparItem: (slot, item) => set(state => ({ equipado: { ...state.equipado, [slot]: item } })),
+    setTitleDone: () => set({ titleDone: true }),
+    limparMonologo: () => set({ monologoAtual: null }),
+
+    comprarBengala: () => {
+      const state = get()
+      if (state.capangas < 100 || state.flags.TEM_BENGALA) return
+      set({
+        capangas: state.capangas - 100,
+        fase: 'vila',
+        flags: { ...state.flags, TEM_BENGALA: true },
+        inventario: [...state.inventario, { id: 'bengala_steampunk', nome: 'Bengala Steampunk', icone: '⚙', slot: 'arma' }],
+        equipado: { ...state.equipado, arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 1 } },
+        monologoAtual: 'no sonho eu sempre soube que ia precisar de algo pra bater.',
       })
     },
 
     guardar: () => set(state => ({ monologoAtual: `você empilhou os capangas. ${state.capangas} corpos no chão.` })),
-    rolarNoChao: () => set(state => ({ capangas: 0, monologoAtual: `você jogou ${state.capangas} capangas pela janela. foram longe.` })),
+    jogarFora: () => set(state => ({ capangas: 0, monologoAtual: `você jogou ${state.capangas} capangas pela janela. foram longe.` })),
 
-    comprarBengala: () => {
-      set(state => {
-        if (state.capangas < 100 || state.flags.TEM_BENGALA) return state
-        return {
-          capangas: state.capangas - 100,
-          inventario: [...state.inventario, { id: 'bengala_steampunk', nome: 'Bengala Steampunk', desc: 'bengala de madeira com engrenagens douradas. parece pesada. parece certa.', icone: '⚙' }],
-          flags: { ...state.flags, TEM_BENGALA: true },
-          danoBengala: 1,
-          monologoAtual: 'no sonho eu sempre soube que ia precisar de algo pra bater. só não sabia que ia ser uma bengala.',
-          mostraBarraca: false,
-        }
-      })
-    },
-    fecharBarraca: () => set({ mostraBarraca: false }),
-    abrirBarraca: () => set({ mostraBarraca: true }),
+    // === Cloud Save ===
 
-    // === QUESTS ===
-
-    iniciarQuest: (areaId) => {
-      const area = AREAS[areaId]
-      if (!area) return
-      set({
-        questAtiva: areaId,
-        questStep: 0,
-        questProgress: 0,
-        questInimigosRestantes: area.inimigos,
-        questResultado: null,
-        questHp: get().questMaxHp,
-        monologoAtual: 'a rua no sonho tinha o mesmo cheiro da rua de verdade. só que aqui eu sabia que podia bater em todo mundo.',
-      })
-    },
-
-    tickQuest: () => {
+    saveToCloud: async (userId) => {
+      if (!userId) return
       const state = get()
-      if (!state.questAtiva || state.questResultado) return
-      const area = AREAS[state.questAtiva]
-      if (!area) return
-      const step = state.questStep + 1
-      const totalSteps = 15
-      const spawnInterval = Math.floor(totalSteps / (area.inimigos + 1))
-      let inimigosRestantes = state.questInimigosRestantes
-      let resultado = null
-      let hp = state.questHp
-      let capangas = state.capangas
-      let inimsRest = inimigosRestantes
-      let monologo = null
-
-      if (step >= totalSteps) {
-        const completa = !state.areasCompletas.includes(area.id)
-        const recompensa = completa ? area.recompensa : Math.floor(area.recompensa / 2)
-        capangas += recompensa
-        const novasAreas = completa ? [...state.areasCompletas, area.id] : state.areasCompletas
-        const novoItem = completa && area.item ? [...state.inventario, area.item] : state.inventario
-        if (area.id === 'boteco' && completa && !state.flags.KIM_LIBERADO) {
-          monologo = 'kim nunca falava muito. no sonho era igual. pelo menos era consistente.'
-        }
-        set({
-          questAtiva: null, questStep: 0, questProgress: 0, questInimigosRestantes: 0,
-          questResultado: 'completo', capangas, inventario: novoItem,
-          areasCompletas: novasAreas, monologoAtual: monologo,
-          flags: { ...state.flags, [`${area.id.toUpperCase()}_COMPLETO`]: true, ...(area.id === 'boteco' && completa ? { KIM_LIBERADO: true } : {}) },
-        })
-        return
+      const payload = {
+        user_id: userId,
+        capangas: state.capangas, capangas_totais: state.capangasTotais,
+        notas: state.notas, fase: state.fase, flags: state.flags,
+        hp_atual: state.hpAtual, hp_max: state.hpMax,
+        nivel: state.nivel, xp: state.xp,
+        inventario: state.inventario, equipado: state.equipado,
+        dungeons_completas: state.dungeonsCompletas,
+        tempo_jogo: state.tempoJogo, title_done: state.titleDone,
+        version: JACK_VERSION,
       }
-
-      if (step % spawnInterval === 0 && inimsRest > 0) {
-        const ataqueJogador = rollD6() + (state.danoBengala || 1)
-        const ataqueInimigo = rollD6()
-        const dano = Math.max(0, ataqueJogador - ataqueInimigo)
-        hp -= Math.max(0, ataqueInimigo - (state.danoBengala || 1))
-        inimsRest--
-        if (hp <= 0) {
-          set({
-            questResultado: 'derrota', questAtiva: null, questStep: 0,
-            questHp: state.questMaxHp, questInimigosRestantes: inimsRest,
-            monologoAtual: 'acordei. não de verdade. só dentro do sonho mesmo.',
-          })
-          return
-        }
-        set({
-          questStep: step, questProgress: step / totalSteps,
-          questInimigosRestantes: inimsRest, questHp: hp,
-          monologoAtual: `batalha: você ${ataqueJogador} vs ${ataqueInimigo}. ${dano > 0 ? `inimigo levou ${dano} de dano.` : `você defendeu.`}`,
-        })
-        return
+      const { data } = await supabase.from('jack_saves').select('id').eq('user_id', userId).maybeSingle()
+      if (data?.id) {
+        await supabase.from('jack_saves').update(payload).eq('id', data.id)
+      } else {
+        await supabase.from('jack_saves').insert(payload)
       }
-
-      set({ questStep: step, questProgress: step / totalSteps })
     },
 
-    // === KIM ===
-
-    abrirKimShop: () => set({ kimShopAberto: true }),
-    fecharKimShop: () => set({ kimShopAberto: false }),
-
-    comprarUpgradeBengala: () => {
-      const nivel = get().danoBengala || 1
-      const custo = nivel >= 2 ? 250 : 100
-      set(state => {
-        if (state.capangas < custo) return state
-        return {
-          capangas: state.capangas - custo,
-          danoBengala: nivel + 1,
-          monologoAtual: `a bengala parece mais pesada agora. dano: +${nivel + 1}.`,
-        }
-      })
+    loadFromCloud: async (userId) => {
+      if (!userId) return false
+      const { data } = await supabase.from('jack_saves').select('*').eq('user_id', userId).maybeSingle()
+      if (data) {
+        set({
+          capangas: data.capangas ?? 0, capangasTotais: data.capangas_totais ?? 0,
+          notas: data.notas ?? 0, fase: data.fase ?? 'intro', flags: data.flags ?? {},
+          hpAtual: data.hp_atual ?? 20, hpMax: data.hp_max ?? 20,
+          nivel: data.nivel ?? 1, xp: data.xp ?? 0,
+          inventario: data.inventario ?? [], equipado: data.equipado ?? { arma: null, armadura: null, acessorio: null },
+          dungeonsCompletas: data.dungeons_completas ?? [],
+          tempoJogo: data.tempo_jogo ?? 0, titleDone: data.title_done ?? false,
+        })
+        return true
+      }
+      return false
     },
 
-    comprarPocao: () => {
-      set(state => {
-        if (state.capangas < 30) return state
-        return {
-          capangas: state.capangas - 30,
-          questMaxHp: state.questMaxHp + 1,
-          questHp: Math.min(state.questMaxHp + 1, state.questHp + 2),
-          inventario: [...state.inventario, { id: 'pocao_energetico', nome: 'Poção Energética', desc: 'lata amassada. gosto de infância.', icone: '🥫', consumivel: true }],
-          monologoAtual: 'energético quente. o gosto de quando tudo era mais simples.',
-        }
-      })
-    },
-
-    // === MISC ===
-
-    setTitleDone: () => set({ titleDone: true }),
-    limparMonologo: () => set({ monologoAtual: null }),
     reset: () => set({ ...defaultState }),
-    persistNow: () => persist(get()),
+    persistNow: () => persistLocal(get()),
   }
 })
 
+// Auto-save local a cada 30s
 setInterval(() => {
   const state = useJackStore.getState()
-  if (state.fase) persist(state)
+  if (state.fase) persistLocal(state)
 }, 30000)
-
-export { AREAS }
