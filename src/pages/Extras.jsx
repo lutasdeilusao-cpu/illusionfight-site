@@ -1,74 +1,84 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Extras.css'
 
-const extras = [
-  {
-    titulo: 'Lendas do LDI',
-    descricao: 'RPG narrativo de livro-jogo digital. Crie seu avatar, explore a arena, enfrente inimigos e descubra os segredos do LDI.',
-    badge: 'FREE',
-    url: '/extras/ldi',
-    cor: 'teal'
-  },
-  {
-    titulo: 'Quiz SDR',
-    descricao: 'Teste seu conhecimento sobre o universo LDI e descubra sua posição no ranking entre 3 bilhões de jogadores.',
-    badge: 'FREE',
-    url: '/quiz',
-    cor: 'teal'
-  },
-  {
-    titulo: 'Top Trumps LDI',
-    descricao: 'Jogo de cartas colecionáveis com os personagens do universo LDI. Monte seu deck, vença a IA e ganhe cartas novas todo dia.',
-    badge: 'FREE',
-    url: '/extras/toptrumps',
-    cor: 'teal'
-  },
-  {
-    titulo: 'Leaderboard',
-    descricao: 'Ranking de jogadores do LDI. Veja sua posição, compare decks e acompanhe os melhores do Top Trumps.',
-    badge: 'FREE',
-    url: '/leaderboard',
-    cor: 'teal'
-  },
-  {
-    titulo: 'Curiosidades',
-    descricao: 'Bastidores, conceitos e histórias do universo LDI. Tudo que você sempre quis saber mas não tinha onde ler.',
-    badge: 'FREE',
-    url: '/curiosidades',
-    cor: 'teal'
-  },
-  {
-    titulo: 'Jack Dream Candy',
-    descricao: 'Um sonho preto e branco com balas, um pajé e uma bengala steampunk. Idle game noir.',
-    badge: 'FREE',
-    url: '/extras/jackcandy',
-    cor: 'crimson'
-  },
+const JOGOS = [
+  { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/extras/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
+  { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/extras/jackcandy', badge: 'FREE', badgeCor: '#F5A623' },
+  { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/extras/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
+  { id: 'arena', nome: 'Arena LDI', tagline: 'combate em tempo real. em breve.', emoji: '🏟️', cor: '#8B0000', rota: null, badge: 'EM BREVE', badgeCor: '#8B0000', bloqueado: true },
+]
+
+const CONTEUDO = [
+  { id: 'quiz', nome: 'Quiz SDR', tagline: 'teste seu conhecimento do universo LDI.', emoji: '🎯', cor: '#22C55E', rota: '/quiz', badge: 'FREE' },
+  { id: 'leaderboard', nome: 'Leaderboard', tagline: 'ranking global de jogadores.', emoji: '🏆', cor: '#F5A623', rota: '/leaderboard', badge: 'FREE' },
+  { id: 'curiosidades', nome: 'Curiosidades', tagline: 'bastidores e segredos do universo.', emoji: '📖', cor: '#00B4D8', rota: '/curiosidades', badge: 'FREE' },
 ]
 
 export default function Extras() {
+  const navigate = useNavigate()
+
   return (
-    <section className="extras-page">
+    <div className="extras-page">
+      <div className="extras-scanlines" />
+
       <div className="extras-header">
-        <span className="extras-tag">CONTEÚDO COMPLEMENTAR</span>
-        <h1 className="extras-title">EXTRAS</h1>
-        <p className="extras-sub">
-          Explore além da história principal — quizzes, lore, bastidores e mais.
+        <h1 className="extras-titulo">
+          <span className="extras-titulo-glitch" data-text="EXTRAS">EXTRAS</span>
+        </h1>
+        <p className="extras-subtitulo">
+          <span className="extras-cursor">█</span> explore além da história principal
         </p>
       </div>
-      <div className="extras-grid">
-        {extras.map(item => (
-          <Link key={item.url} to={item.url} className="extras-card">
-            <div className={`extras-card__inner extras-card__inner--${item.cor}`}>
-              <h2 className="extras-card__titulo">{item.titulo}</h2>
-              <p className="extras-card__desc">{item.descricao}</p>
-              <span className={`extras-card__badge extras-card__badge--${item.badge.toLowerCase()}`}>
-                {item.badge}
-              </span>
+
+      <section className="extras-secao">
+        <div className="extras-secao-label">
+          <span>▶ JOGOS</span>
+          <div className="extras-secao-linha" />
+        </div>
+        <div className="extras-jogos-grid">
+          {JOGOS.map(jogo => (
+            <div key={jogo.id} className={`extras-jogo-card ${jogo.bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
+              style={{ '--cor-neon': jogo.cor }}
+              onClick={() => !jogo.bloqueado && jogo.rota && navigate(jogo.rota)}>
+              <div className="extras-jogo-card-inner">
+                <div className="extras-jogo-badge" style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>
+                  {jogo.badge}
+                </div>
+                <div className="extras-jogo-emoji">{jogo.emoji}</div>
+                <h2 className="extras-jogo-nome">{jogo.nome}</h2>
+                <p className="extras-jogo-tagline">{jogo.tagline}</p>
+                {!jogo.bloqueado && <div className="extras-jogo-cta">INSERIR FICHA</div>}
+                {jogo.bloqueado && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">EM BREVE</div>}
+              </div>
+              <div className="extras-jogo-card-borda" />
             </div>
-          </Link>
-        ))}
+          ))}
+        </div>
+      </section>
+
+      <section className="extras-secao">
+        <div className="extras-secao-label">
+          <span>▶ CONTEÚDO</span>
+          <div className="extras-secao-linha" />
+        </div>
+        <div className="extras-conteudo-grid">
+          {CONTEUDO.map(item => (
+            <div key={item.id} className="extras-conteudo-card" style={{ '--cor-neon': item.cor }}
+              onClick={() => item.rota && navigate(item.rota)}>
+              <span className="extras-conteudo-emoji">{item.emoji}</span>
+              <div>
+                <p className="extras-conteudo-nome">{item.nome}</p>
+                <p className="extras-conteudo-tagline">{item.tagline}</p>
+              </div>
+              <span className="extras-conteudo-badge" style={{ color: item.cor, borderColor: item.cor + '44' }}>{item.badge}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="extras-footer-arcade">
+        <span className="extras-footer-credits">© {new Date().getFullYear()} LUTAS DE ILUSÃO — 1 PLAYER</span>
       </div>
-    </section>
+    </div>
   )
 }
