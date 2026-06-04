@@ -47,7 +47,7 @@ export default function Inventario() {
               <span className="jack-text">{item.nome}</span>
               {fullItem?.cura && <span className="jack-text jack-text--dim">cura +{fullItem.cura} HP</span>}
               <button className="jack-btn" onClick={() => handleItemAction(item.id)} style={{ fontSize: '0.65rem', padding: '0.15rem 0.4rem' }}>
-                {isConsumivel ? '[ usar ]' : '[ equipar ]'}
+                {isConsumivel ? '[ usar ]' : fullItem?.slot ? '[ equipar ]' : '[ aplicar ]'}
               </button>
             </div>
           )

@@ -88,6 +88,7 @@ export default function Dungeon({ dungeonId }) {
               const atqB = rollD6() + danoArma
               const defB = rollD6()
               if (atqB > defB) {
+                store.setHpAtual(hpRef.current)
                 store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
                 setLog(l => [...l, `🎯 acertou ${dungeon.boss.nome}!`, `🏆 ${dungeon.boss.nome} derrotado!`])
                 setTimeout(() => setFase('vitoria'), 500)
@@ -126,6 +127,8 @@ export default function Dungeon({ dungeonId }) {
               store.setMonologo(MONOLOGUES.morre || '')
               setFase('derrota')
             } else {
+              hpRef.current = Math.max(0, hpRef.current)
+              store.setHpAtual(hpRef.current)
               store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
               setFase('vitoria')
             }
@@ -147,6 +150,7 @@ export default function Dungeon({ dungeonId }) {
 
       if (novoHp <= 0) {
         stopRef.current = true
+        store.setHpAtual(0)
         console.log('[DUN] morte por dano. hp era:', hpRef.current + dmg, 'dano:', dmg, 'inimigos rest:', inimigosRef.current)
         setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ capanga ataca! (-${dmg} hp)`, `💀 você morreu.`])
         store.setMonologo(MONOLOGUES.morre || '')
@@ -268,6 +272,21 @@ export default function Dungeon({ dungeonId }) {
       </div>
 
       <div className="jdc-dungeon-sep"></div>
+
+      {/* Use item */}
+      <div className="jdc-dungeon-items">
+        {store.inventario.filter(i => i.id === 'energetico').length > 0 && (
+          <button className="jack-btn" onClick={() => {
+            store.usarItem('energetico')
+            const novaHp = Math.min(hpMax, hp + 10)
+            setHp(novaHp)
+            hpRef.current = novaHp
+            setLog(l => [...l, `🥫 usou energético. +10 HP`])
+          }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>
+            [ 🥫 energético +10 HP ]
+          </button>
+        )}
+      </div>
 
       <div className="jdc-dungeon-footer">
         <span className="jack-text jack-text--dim">progresso: {pct}%</span>

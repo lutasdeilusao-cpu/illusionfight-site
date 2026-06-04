@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.3.9'
+const JACK_VERSION = '1.4.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -69,6 +69,7 @@ export const useJackStore = create((set, get) => {
     }),
 
     ganharCapangas: (qtd) => set(state => ({ capangas: state.capangas + qtd, capangasTotais: state.capangasTotais + qtd })),
+    setHpAtual: (hp) => set(state => ({ hpAtual: Math.min(state.hpMax, Math.max(0, hp)) })),
     gastar: (qtd) => set(state => ({ capangas: Math.max(0, state.capangas - qtd) })),
     gastarNotas: (qtd) => set(state => ({ notas: Math.max(0, state.notas - qtd) })),
     setFlag: (flag) => set(state => ({ flags: { ...state.flags, [flag]: true } })),
