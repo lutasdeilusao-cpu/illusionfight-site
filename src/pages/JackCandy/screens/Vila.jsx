@@ -120,6 +120,33 @@ export default function Vila() {
 
       {/* Grid de locais */}
       <div className="jdc-vila-grid">
+        {/* Caso em andamento — sempre visível no topo */}
+        {store.casoAtivo && (() => {
+          const casoAtivo = CASOS[store.casoAtivo]
+          if (!casoAtivo) return null
+          return (
+            <motion.button
+              className="jdc-vila-card jdc-vila-card--glow"
+              onClick={() => store.setFase('dossier')}
+              whileHover={{ scale: 1.03, borderColor: '#EC4899' }}
+              whileTap={{ scale: 0.97 }}
+              style={{ borderLeftColor: '#EC4899', gridColumn: '1 / -1' }}
+            >
+              <div className="jdc-vila-card-emoji">🔍</div>
+              <div className="jdc-vila-card-info">
+                <span className="jdc-vila-card-nome" style={{ color: '#EC4899' }}>
+                  caso em andamento
+                </span>
+                <span className="jdc-vila-card-desc">{casoAtivo.nome}</span>
+                <span className="jdc-vila-card-detail" style={{ color: '#F5A623' }}>
+                  {store.pistasColetadas.length} pistas · {casoAtivo.locais.length - store.locaisVisitados.length} locais restantes
+                </span>
+              </div>
+              <div className="jdc-vila-card-arrow" style={{ color: '#EC4899' }}>→</div>
+            </motion.button>
+          )
+        })()}
+
         {/* Caso disponível — card destacado */}
         {casoDisponivel && (
           <motion.button

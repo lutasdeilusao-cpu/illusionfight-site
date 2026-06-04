@@ -12,6 +12,15 @@ export default function Investigacao({ localId }) {
   const [pistaRevelada, setPistaRevelada] = useState(false)
   const [puzzleAtivo, setPuzzleAtivo] = useState(false)
   const [puzzleResolvido, setPuzzleResolvido] = useState(false)
+  const [puzzleFalhou, setPuzzleFalhou] = useState(false)
+
+  const CUSTO_ARROMBAR = {
+    decoder: 1500,
+    stealth: 2000,
+    sliding: 1000,
+    default: 1000,
+  }
+  const custoPuzzle = CUSTO_ARROMBAR[local?.puzzle] || CUSTO_ARROMBAR.default
 
   if (!caso) {
     store.setFase('dossier')
@@ -54,6 +63,7 @@ export default function Investigacao({ localId }) {
   const handleResolverPuzzle = () => {
     setPuzzleResolvido(true)
     setPuzzleAtivo(false)
+    setPuzzleFalhou(false)
     if (temDungeon) {
       useJackStore.setState({ _retornoInvestigacao: true, _localPendente: localId })
       store.setFase(`dungeon_${local.dungeon}`)
@@ -62,6 +72,17 @@ export default function Investigacao({ localId }) {
     store.visitarLocal(localId)
     if (pistaId) store.coletarPista(pistaId)
     setPistaRevelada(true)
+  }
+
+  const handlePuzzleFail = () => {
+    setPuzzleFalhou(true)
+  }
+
+  const handleArrombar = () => {
+    if (store.cervejas < custoPuzzle) return
+    store.gastar(custoPuzzle)
+    store.setMonologo(`custou ${custoPuzzle} cervejas. literalmente.`)
+    handleResolverPuzzle()
   }
 
   const irParaDungeon = () => {
@@ -103,31 +124,53 @@ export default function Investigacao({ localId }) {
       </div>
 
       {/* Puzzle gate */}
-      {puzzleAtivo && (
+      {puzzleAtivo && !puzzleFalhou && (
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem' }}>🧩 {local.puzzleLabel}</p>
           <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem' }}>
             {local.puzzle === 'decoder' && 'o documento está cifrado. use o decoder para revelar a mensagem.'}
             {local.puzzle === 'stealth' && 'o local está vigiado. passe sem ser visto.'}
             {local.puzzle === 'sliding' && 'o documento foi rasgado. reconstitua os pedaços.'}
+            {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && 'resolva o puzzle para continuar.'}
           </p>
           <div className="jdc-investigacao-puzzle-area">
             {local.puzzle === 'decoder' && (
-              <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} />
+              <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />
             )}
             {local.puzzle === 'stealth' && (
-              <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} config={{ size: 4 }} />
+              <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 4 }} />
             )}
             {local.puzzle === 'sliding' && (
-              <PuzzleSlidingTiles onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} config={{ size: 3 }} />
+              <PuzzleSlidingTiles onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 3 }} />
             )}
             {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && (
-              <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} />
+              <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />
             )}
           </div>
-          <button className="jack-btn jack-btn--amber" onClick={handleResolverPuzzle} style={{ marginTop: '0.5rem' }}>
-            [ resolver puzzle ]
-          </button>
+        </motion.div>
+      )}
+
+      {/* Puzzle falhou — opções */}
+      {puzzleFalhou && (
+        <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <p className="jack-text jack-text--crimson" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>❌ puzzle falhou</p>
+          <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem', marginBottom: '1rem' }}>
+            você pode tentar de novo ou arrombar a porta. arrombar não é elegante. mas funciona.
+          </p>
+          <div className="jack-buttons" style={{ margin: '0 auto', maxWidth: '280px' }}>
+            <button className="jack-btn jack-btn--amber" onClick={() => { setPuzzleFalhou(false); setPuzzleAtivo(true) }}>
+              [ tentar de novo ]
+            </button>
+            <button
+              className="jack-btn jack-btn--crimson"
+              onClick={handleArrombar}
+              disabled={store.cervejas < custoPuzzle}
+            >
+              {store.cervejas >= custoPuzzle
+                ? `[ arrombar — ${custoPuzzle}🍺 ]`
+                : `[ cervejas insuficientes (${store.cervejas}/${custoPuzzle}🍺) ]`}
+            </button>
+          </div>
         </motion.div>
       )}
 
