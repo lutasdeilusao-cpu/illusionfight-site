@@ -19,17 +19,20 @@ export default function Dossier() {
   const suspeitosAtivos = store.suspeitos.filter(s => s.status === 'ativo')
 
   const handleAcusar = (suspeitoId) => {
-    const s = store.acusar(suspeitoId)
-    const suspeito = s.suspeitos.find(x => x.id === suspeitoId)
-    if (suspeito?.culpado) {
-      // Acusação correta → confronto
+    const suspeitoDoCaso = caso.suspeitos.find(x => x.id === suspeitoId)
+    if (suspeitoDoCaso?.culpado) {
+      store.acusar(suspeitoId)
       store.setMonologo('é ele. sempre foi ele.')
       if (caso.confronto?.especial === 'interrogatorio') {
         store.setFase('interrogatorio')
       } else if (caso.confronto?.dungeon) {
         store.setFase(`dungeon_${caso.confronto.dungeon}`)
+      } else {
+        store.resolverCaso(caso.flagResolucao)
+        store.setFase('dossier')
       }
     } else {
+      store.acusar(suspeitoId)
       store.acusacaoErrada()
       setShowAcusar(false)
     }
