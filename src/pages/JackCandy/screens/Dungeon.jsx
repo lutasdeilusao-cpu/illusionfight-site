@@ -59,8 +59,8 @@ export default function Dungeon({ dungeonId }) {
     stopRef.current = false
 
     const tick = () => {
-      if (stopRef.current) return
-      if (inimigosRef.current <= 0) return
+      if (stopRef.current) { console.log('[DUN] tick ignorado: stop'); return }
+      if (inimigosRef.current <= 0) { console.log('[DUN] tick ignorado: sem inimigos'); return }
 
       const danoArma = danoArmaRef.current
       const defesa = defesaRef.current
@@ -71,7 +71,6 @@ export default function Dungeon({ dungeonId }) {
       const acertou = atq > def
 
       if (acertou) {
-        // Killed! Enemy doesn't attack back
         store.ganharCapangas(1)
         inimigosRef.current--
         setRestantes(inimigosRef.current)
@@ -82,6 +81,7 @@ export default function Dungeon({ dungeonId }) {
 
         if (restantes <= 0) {
           stopRef.current = true
+          console.log('[DUN] ultimo inimigo morto. hpRef:', hpRef.current, 'hpState:', hp)
           setLog(l => [...l, `💥 derrubou! (${atq} vs ${def}) +1 cap`, `✅ todos derrubados!`])
           if (dungeon?.boss) {
             setTimeout(() => {
@@ -119,7 +119,10 @@ export default function Dungeon({ dungeonId }) {
               }
             }, 1000)
           } else {
-            if (hpRef.current <= 0) {
+            const hpReal = useJackStore.getState().hpAtual
+            console.log('[DUN] vitoria check: hpRef=', hpRef.current, 'hpStore=', hpReal)
+            if (hpReal <= 0 || hpRef.current <= 0) {
+              console.log('[DUN] jogador morto antes da vitoria')
               store.setMonologo(MONOLOGUES.morre || '')
               setFase('derrota')
             } else {
@@ -144,6 +147,7 @@ export default function Dungeon({ dungeonId }) {
 
       if (novoHp <= 0) {
         stopRef.current = true
+        console.log('[DUN] morte por dano. hp era:', hpRef.current + dmg, 'dano:', dmg, 'inimigos rest:', inimigosRef.current)
         setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ capanga ataca! (-${dmg} hp)`, `💀 você morreu.`])
         store.setMonologo(MONOLOGUES.morre || '')
         setTimeout(() => setFase('derrota'), 100)
