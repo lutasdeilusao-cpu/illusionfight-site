@@ -72,6 +72,7 @@ export default function Dungeon({ dungeonId }) {
   }, [])
 
   if (!dungeon) {
+    console.error('[JACK] Dungeon não encontrada:', dungeonId, 'keys disponíveis:', Object.keys(DUNGEONS))
     return (
       <div className="jdc-dungeon">
         <p className="jack-text jack-text--crimson">dungeon não encontrada: {dungeonId}</p>
