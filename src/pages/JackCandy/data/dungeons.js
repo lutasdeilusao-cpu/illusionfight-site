@@ -32,7 +32,7 @@ export const DUNGEONS = {
     desbloqueiaFlag: 'NINA_LIBERADO',
     requerDungeon: 'onibus',
   },
-  risca_a_faca_interior: {
+  risca_faca_interior: {
     id: 'risca_faca_interior', nome: 'Risca a Faca (Interior)', desc: 'o clube por dentro. música alta. gente demais.',
     emoji: '💃', inimigos: 10, inimigoHp: 7, inimigoDmg: 2,
     boss: { nome: 'Segurança Veterano', hp: 25, dmg: 4 },
