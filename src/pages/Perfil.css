@@ -120,35 +120,43 @@
   position: relative;
   z-index: 1;
   flex-shrink: 0;
+  background: rgba(245,166,35,0.06);
+  border: 1px solid rgba(245,166,35,0.2);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
 }
 
 .perfil-fichas-saldo {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #F5A623;
   line-height: 1;
+  text-shadow: 0 0 20px rgba(245,166,35,0.5);
 }
 
 .perfil-fichas-label {
-  font-size: 0.55rem;
-  color: #555;
-  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  color: #F5A623;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
 }
 
 .perfil-fichas-coletar {
-  font-size: 0.6rem;
-  color: #F5A623;
-  border: 1px solid #F5A623;
-  background: none;
+  font-size: 0.65rem;
+  color: #000;
+  background: #F5A623;
+  border: none;
   font-family: 'Share Tech Mono', monospace;
-  padding: 0.15rem 0.5rem;
+  padding: 0.2rem 0.6rem;
   cursor: pointer;
   letter-spacing: 0.1em;
   animation: ficha-pulse 1.5s ease-in-out infinite;
-  transition: background 0.15s;
+  transition: opacity 0.15s;
+  width: 100%;
+  text-align: center;
 }
 
-.perfil-fichas-coletar:hover { background: rgba(245,166,35,0.1); }
+.perfil-fichas-coletar:hover { opacity: 0.85; }
 
 @keyframes ficha-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
