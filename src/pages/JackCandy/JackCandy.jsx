@@ -19,6 +19,7 @@ import Investigacao from './screens/Investigacao'
 import Interrogatorio from './screens/Interrogatorio'
 import { ResultCard } from '../../components/ResultCard'
 import { MONOLOGUES } from './data/monologues'
+import '../../components/Puzzles/Puzzles.css'
 import './JackCandy.css'
 
 export default function JackCandy() {

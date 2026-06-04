@@ -327,7 +327,14 @@ export default function Dungeon({ dungeonId }) {
           </p>
           {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
           <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
-            <button className="jack-btn" onClick={() => store.setFase('vila')}>[ voltar ]</button>
+            <button className="jack-btn" onClick={() => {
+              if (store._retornoInvestigacao) {
+                store.setFase(`investigar_${store._localPendente}`)
+                useJackStore.setState({ _retornoInvestigacao: false, _localPendente: null })
+              } else {
+                store.setFase('vila')
+              }
+            }}>{store._retornoInvestigacao ? '[ voltar pra investigação ]' : '[ voltar ]'}</button>
             <button className="jack-btn jack-btn--amber" onClick={() => store.showResultCard({
               title: `${dungeon?.nome || 'Dungeon'} completo`,
               subtitle: `${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas`,

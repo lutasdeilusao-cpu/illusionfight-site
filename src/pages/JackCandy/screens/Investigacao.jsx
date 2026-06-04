@@ -4,6 +4,7 @@ import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 import { PISTAS } from '../data/pistas'
 import PistaCard from '../components/PistaCard'
+import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama } from '../../../components/Puzzles'
 
 export default function Investigacao({ localId }) {
   const store = useJackStore()
@@ -36,17 +37,17 @@ export default function Investigacao({ localId }) {
   }, [jaVisitado])
 
   const handleRevelar = () => {
-    store.visitarLocal(localId)
-    if (pistaId) store.coletarPista(pistaId)
-
     if (temPuzzle) {
       setPuzzleAtivo(true)
       return
     }
     if (temDungeon) {
+      useJackStore.setState({ _retornoInvestigacao: true, _localPendente: localId })
       store.setFase(`dungeon_${local.dungeon}`)
       return
     }
+    store.visitarLocal(localId)
+    if (pistaId) store.coletarPista(pistaId)
     setPistaRevelada(true)
   }
 
@@ -54,18 +55,38 @@ export default function Investigacao({ localId }) {
     setPuzzleResolvido(true)
     setPuzzleAtivo(false)
     if (temDungeon) {
+      useJackStore.setState({ _retornoInvestigacao: true, _localPendente: localId })
       store.setFase(`dungeon_${local.dungeon}`)
       return
     }
+    store.visitarLocal(localId)
+    if (pistaId) store.coletarPista(pistaId)
     setPistaRevelada(true)
   }
 
-  // Quando volta da dungeon com o local visitado
+  const irParaDungeon = () => {
+    useJackStore.setState({ _retornoInvestigacao: true, _localPendente: localId })
+    store.setFase(`dungeon_${local.dungeon}`)
+  }
+
+  // Quando volta da dungeon: detecta retorno e revela pista
   useEffect(() => {
-    if (store.locaisVisitados.includes(localId) && !pistaRevelada && !temDungeon) {
+    // Se o local foi visitado (retorno de dungeon) e a pista ainda não foi revelada
+    if (store.locaisVisitados.includes(localId)) {
+      if (!pistaRevelada) {
+        setPistaRevelada(true)
+        if (pistaId && !store.pistasColetadas.includes(pistaId)) {
+          store.coletarPista(pistaId)
+        }
+      }
+      return
+    }
+    // Se voltou de dungeon mas local ainda não visitado, visita e revela
+    if (store._localPendente === localId && !store._retornoInvestigacao) {
+      store.visitarLocal(localId)
       setPistaRevelada(true)
     }
-  }, [store.locaisVisitados])
+  }, [store.locaisVisitados, store._retornoInvestigacao])
 
   return (
     <motion.div className="jdc-investigacao" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -91,9 +112,18 @@ export default function Investigacao({ localId }) {
             {local.puzzle === 'sliding' && 'o documento foi rasgado. reconstitua os pedaços.'}
           </p>
           <div className="jdc-investigacao-puzzle-area">
-            <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', textAlign: 'center' }}>
-              [ puzzle {local.puzzle} ]
-            </p>
+            {local.puzzle === 'decoder' && (
+              <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} />
+            )}
+            {local.puzzle === 'stealth' && (
+              <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} config={{ size: 4 }} />
+            )}
+            {local.puzzle === 'sliding' && (
+              <PuzzleSlidingTiles onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} config={{ size: 3 }} />
+            )}
+            {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && (
+              <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={handleResolverPuzzle} />
+            )}
           </div>
           <button className="jack-btn jack-btn--amber" onClick={handleResolverPuzzle} style={{ marginTop: '0.5rem' }}>
             [ resolver puzzle ]
@@ -105,7 +135,7 @@ export default function Investigacao({ localId }) {
       {temDungeon && !puzzleAtivo && !pistaRevelada && (
         <div className="jdc-investigacao-dungeon-gate">
           <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>⚔️ {local.dungeonLabel}</p>
-          <button className="jack-btn jack-btn--crimson" onClick={() => store.setFase(`dungeon_${local.dungeon}`)} style={{ marginTop: '0.5rem' }}>
+          <button className="jack-btn jack-btn--crimson" onClick={irParaDungeon} style={{ marginTop: '0.5rem' }}>
             [ enfrentar ]
           </button>
         </div>

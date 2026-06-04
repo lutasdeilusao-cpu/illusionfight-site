@@ -1,4 +1,4 @@
-const JACK_VERSION = '3.1.0'
+const JACK_VERSION = '3.2.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -46,6 +46,7 @@ const defaultState = {
   casoAtivo: null, pistasColetadas: [], suspeitos: [],
   locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
   _userId: null, _slot: null, _savePending: false, _resultCard: null,
+  _retornoInvestigacao: false, _localPendente: null,
 }
 
 let saveTimeout = null
@@ -296,20 +297,10 @@ export const useJackStore = create((set, get) => {
         updated_at: new Date().toISOString(),
         version: JACK_VERSION,
       }
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('jack_saves')
-        .select('id')
-        .eq('user_id', uid)
-        .eq('slot_num', state._slot || 1)
-        .maybeSingle()
-      if (error) { console.error('[JACK] saveToCloud select error:', error); return }
-      if (data?.id) {
-        const { error: updErr } = await supabase.from('jack_saves').update(payload).eq('id', data.id)
-        if (updErr) console.error('[JACK] saveToCloud update error:', updErr)
-      } else {
-        const { error: insErr } = await supabase.from('jack_saves').insert({ ...payload, user_id: uid })
-        if (insErr) console.error('[JACK] saveToCloud insert error:', insErr)
-      }
+        .upsert(payload, { onConflict: 'user_id,slot_num' })
+      if (error) console.error('[JACK] saveToCloud error:', error)
       cacheLocal(state)
     },
 

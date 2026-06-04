@@ -1,0 +1,5 @@
+export { default as PuzzleDecoder } from './PuzzleDecoder'
+export { default as PuzzleStealthGrid } from './PuzzleStealthGrid'
+export { default as PuzzleSlidingTiles } from './PuzzleSlidingTiles'
+export { default as PuzzleLabirinto } from './PuzzleLabirinto'
+export { default as PuzzleAnagrama } from './PuzzleAnagrama'
