@@ -26,19 +26,19 @@
 }
 
 .ldi-lobby-title {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
   color: #00B4D8;
   letter-spacing: 0.05em;
   margin-bottom: 0.3rem;
-  text-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+  text-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
   min-height: 3.5rem;
 }
 
 .ldi-lobby-title.ldi-glitch {
   animation: glitch-skew 0.3s infinite alternate;
   color: #00B4D8;
-  text-shadow: 3px 0 #F5A623, -3px 0 #00B4D8;
+  text-shadow: 3px 0 #8B0000, -3px 0 #4A0E0E;
   position: relative;
 }
 
@@ -47,7 +47,7 @@
   position: absolute;
   left: 2px;
   top: 0;
-  color: #F5A623;
+  color: #8B0000;
   clip: rect(0, 900px, 0, 0);
   animation: glitch-top 0.3s infinite linear alternate-reverse;
 }
@@ -57,7 +57,7 @@
   position: absolute;
   left: -2px;
   top: 0;
-  color: #00B4D8;
+  color: #4A0E0E;
   clip: rect(0, 900px, 0, 0);
   animation: glitch-bottom 0.3s infinite linear alternate;
 }
