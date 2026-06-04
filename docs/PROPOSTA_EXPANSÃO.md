@@ -162,3 +162,40 @@ Em vez de esticar o número de atos, **preencho cada ato com mais conteúdo**:
 5. **Dificuldade:** o combate atual tá fácil demais? Os inimigos atuais (StormByte, Kaeda) são tutorial — o GDD tem oponentes mais difíceis (GhostPulse, IronVeil, NULL_ENTITY). Quer escala progressiva ou manter fácil?
 
 Me fala o que pensar disso e a gente alinha antes de eu escrever uma linha de código.
+
+---
+
+## 7. Decisões Tomadas (v1.0.50+)
+
+### 7.1 — Puzzles
+✅ **Mais puzzles, mais tipos, mais recompensas.**
+- Integrar os 3 puzzles atuais (Sliding Tiles, Stealth Grid, Decodificador)
+- Criar novos tipos com recompensas variadas: itens, pistas, XP (como batalhas)
+- Puzzles opcionais mas recompensadores — resolver = bônus, pular = perde a recompensa mas não bloqueia o jogo
+
+### 7.2 — Dificuldade e Progressão
+✅ **Tutorial fácil, depois balanceamento adaptativo.**
+
+**Progressão de XP (Custo Progressivo):**
+| Pontos de Atributo Ganhos | Custo do Próximo Ponto |
+|---|---|
+| 1º | 10 XP |
+| 2º | 12 XP |
+| 3º | 14 XP |
+| 4º | 16 XP |
+| 5º | 18 XP |
+| n | `10 + (n-1) × 2` XP |
+
+**Balanceamento de Inimigos (pós-tutorial):**
+- Inimigos se adaptam ao total de atributos do jogador
+- Cálculo: `poder_base_inimigo × (soma_atributos_jogador / soma_base_esperada)`
+- Garante desafio equilibrado tanto pra quem upa pouco quanto pra quem upa muito
+- Tutorial fixo (StormByte_91, Robô de rank baixo) — sempre fácil
+
+### 7.3 — Prioridade de Implementação
+1. ✅ Sistemas base (já: ato1, ato2, combate, economia)
+2. 🔄 Puzzles + XP progressivo + balanceamento adaptativo (AGORA)
+3. Ato III (loop de investigação + batalhas como cobertura)
+4. Ato IV (confronto final + rotas)
+5. Polimento + conquistas + retrospecto
+

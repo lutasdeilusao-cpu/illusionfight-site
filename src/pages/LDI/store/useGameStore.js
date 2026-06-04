@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.50'
+const LDI_VERSION = '1.0.51'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -7,8 +7,6 @@ import { setFlag, hasFlag } from '../engine/flags'
 import { useCombatStore } from './useCombatStore'
 import { saveSheet, saveGameSave, loadFullSheet, loadActiveSave } from '../hooks/useLDIStorage'
 import enemiesData from '../data/enemies/enemies.json'
-
-const XP_THRESHOLDS = [100]
 
 const defaultSheet = () => ({
   id: null,
@@ -22,6 +20,7 @@ const defaultSheet = () => ({
   weapon: '',
   elemental: '',
   xp_total: 0,
+  attribute_points_gained: 0,
 })
 
 const defaultSave = () => ({
@@ -262,7 +261,11 @@ export const useGameStore = create((set, get) => ({
     const state = get()
     const oldXp = state.sheet.xp_total || 0
     const newXp = oldXp + amount
-    const crossed = XP_THRESHOLDS.some(t => oldXp < t && newXp >= t)
+    const pointsSpent = state.sheet.attribute_points_gained || 0
+    const nextCost = 10 + pointsSpent * 2
+    const totalOldNeeded = Array.from({ length: pointsSpent }, (_, i) => 10 + i * 2).reduce((a, b) => a + b, 0)
+    const totalNewNeeded = Array.from({ length: pointsSpent + 1 }, (_, i) => 10 + i * 2).reduce((a, b) => a + b, 0)
+    const crossed = oldXp < totalNewNeeded && newXp >= totalNewNeeded
     set({
       sheet: { ...state.sheet, xp_total: newXp },
       save: crossed ? { ...state.save, level_up_available: true } : state.save,
@@ -270,7 +273,10 @@ export const useGameStore = create((set, get) => ({
   },
 
   clearLevelUp: () => {
-    set(state => ({ save: { ...state.save, level_up_available: false } }))
+    set(state => ({
+      sheet: { ...state.sheet, attribute_points_gained: (state.sheet.attribute_points_gained || 0) + 1 },
+      save: { ...state.save, level_up_available: false },
+    }))
   },
 
   loadSave: (saveData, sheetData) => {
