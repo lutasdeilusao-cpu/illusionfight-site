@@ -73,6 +73,7 @@ export default function Assinar() {
             })}
           </div>
           <p className="assinar-plans__nota">{t('assinar.nota')}</p>
+          <p className="assinar-plans__anchor">{t('assinar.fichaAnchor')}</p>
         </div>
       </section>
 

@@ -16,25 +16,31 @@
       "Episódios FREE do webtoon",
       "Músicas nas plataformas",
       "Perfis básicos dos personagens",
-      "Universo e lore público"
+      "Universo e lore público",
+      "3 fichas de personagem por dia",
+      "Achievements e ranking global"
     ],
     "beneficios_en": [
       "First 3 book chapters",
       "FREE webtoon episodes",
       "Music on all platforms",
       "Basic character profiles",
-      "Public universe & lore"
+      "Public universe & lore",
+      "3 character tokens per day",
+      "Achievements & global ranking"
     ],
     "beneficios_es": [
       "Primeros 3 capítulos del libro",
       "Episodios GRATIS del webtoon",
       "Música en todas las plataformas",
       "Perfiles básicos de personajes",
-      "Universo y lore público"
+      "Universo y lore público",
+      "3 fichas de personaje por día",
+      "Logros y ranking global"
     ],
-    "cta_pt": "VOCÊ JÁ É RANQUEADO",
-    "cta_en": "YOU'RE ALREADY RANKED",
-    "cta_es": "YA ERES RANQUEADO",
+    "cta_pt": "VOCÊ JÁ ESTÁ NA ARENA",
+    "cta_en": "YOU'RE ALREADY IN THE ARENA",
+    "cta_es": "YA ESTÁS EN LA ARENA",
     "cta_url": null,
     "cta_disabled": true
   },
@@ -50,29 +56,38 @@
     "destaque": false,
     "badge": null,
     "cor": "#00B4D8",
+    "badge_pt": "RANKING SUBIU",
+    "badge_en": "RANK UP",
+    "badge_es": "RANGO SUPERIOR",
     "beneficios_pt": [
       "Tudo do Ranqueado",
-      "Acesso antecipado aos capítulos — 1 semana antes do público",
-      "Acesso antecipado aos episódios do webtoon",
-      "Newsletter exclusiva com bastidores mensais",
-      "Nome nos agradecimentos digitais",
-      "Acesso ao jogo online (em breve)"
+      "Webtoon 1 semana antes do público",
+      "Livro 1 semana antes do público",
+      "Jogos multiplayer online — exclusivo para assinantes",
+      "10 fichas de personagem por dia (free recebe 3)",
+      "Features exclusivas dentro dos jogos",
+      "Newsletter com bastidores mensais",
+      "Nome nos agradecimentos digitais"
     ],
     "beneficios_en": [
       "Everything in Ranked",
-      "Early access to chapters — 1 week before public",
-      "Early access to webtoon episodes",
-      "Exclusive newsletter with monthly behind-the-scenes",
-      "Name in digital credits",
-      "Online game access (coming soon)"
+      "Webtoon 1 week before public",
+      "Book 1 week before public",
+      "Online multiplayer games — subscriber exclusive",
+      "10 character tokens per day (free gets 3)",
+      "Exclusive in-game features",
+      "Monthly behind-the-scenes newsletter",
+      "Name in digital credits"
     ],
     "beneficios_es": [
       "Todo lo de Ranqueado",
-      "Acceso anticipado a los capítulos — 1 semana antes del público",
-      "Acceso anticipado a los episodios del webtoon",
-      "Newsletter exclusiva con bastidores mensuales",
-      "Nombre en los agradecimientos digitales",
-      "Acceso al juego online (próximamente)"
+      "Webtoon 1 semana antes del público",
+      "Libro 1 semana antes del público",
+      "Juegos multiplayer online — exclusivo suscriptores",
+      "10 fichas de personaje por día (free recibe 3)",
+      "Features exclusivas en los juegos",
+      "Newsletter con bastidores mensuales",
+      "Nombre en los agradecimientos digitales"
     ],
     "cta_pt": "ENTRAR NA ELITE",
     "cta_en": "JOIN ELITE",
@@ -96,33 +111,39 @@
     "cor": "#F4A227",
     "beneficios_pt": [
       "Tudo do Elite",
-      "Acesso antecipado — 2 semanas antes do público",
-      "Universo expandido exclusivo — lore, glossário e fichas completas",
+      "Webtoon 2 semanas antes do público",
+      "Universo expandido — lore completo, glossário e fichas secretas",
       "Fragmentos em desenvolvimento — rascunhos e cenas inéditas",
-      "Participação em enquetes criativas que influenciam a obra",
+      "Participação em enquetes que influenciam a obra",
       "Crédito de colaborador nos capítulos do livro",
       "Nome na página de colaboradores do webtoon",
-      "Acesso ao jogo online (em breve)"
+      "Dedicatória personalizada no livro digital",
+      "30 fichas de personagem por dia",
+      "Recompensas exclusivas nos jogos"
     ],
     "beneficios_en": [
       "Everything in Elite",
-      "Early access — 2 weeks before public",
-      "Exclusive expanded universe — full lore, glossary & character sheets",
+      "Webtoon 2 weeks before public",
+      "Expanded universe — full lore, glossary & secret sheets",
       "Development fragments — drafts and unreleased scenes",
-      "Creative polls that influence the story",
+      "Polls that influence the story",
       "Collaborator credit in book chapters",
-      "Name on the webtoon collaborators page",
-      "Online game access (coming soon)"
+      "Name on webtoon collaborators page",
+      "Personalized dedication in the digital book",
+      "30 character tokens per day",
+      "Exclusive in-game rewards"
     ],
     "beneficios_es": [
       "Todo lo de Elite",
-      "Acceso anticipado — 2 semanas antes del público",
-      "Universo expandido exclusivo — lore completo, glosario y fichas",
+      "Webtoon 2 semanas antes del público",
+      "Universo expandido — lore completo, glosario y fichas secretas",
       "Fragmentos en desarrollo — borradores y escenas inéditas",
-      "Encuestas creativas que influyen en la obra",
+      "Encuestas que influyen en la obra",
       "Crédito de colaborador en los capítulos del libro",
-      "Nombre en la página de colaboradores del webtoon",
-      "Acceso al juego online (próximamente)"
+      "Nombre en página de colaboradores del webtoon",
+      "Dedicatoria personalizada en el libro digital",
+      "30 fichas de personaje por día",
+      "Recompensas exclusivas en los juegos"
     ],
     "cta_pt": "DESPERTAR O PRIMORDIAL",
     "cta_en": "AWAKEN THE PRIMORDIAL",

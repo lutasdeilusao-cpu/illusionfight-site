@@ -96,8 +96,9 @@
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte gerada com auxílio de IA"
   },
   "assinar": {
-    "titulo": "Escolha sua classe",
-    "subtitulo": "No LDI, seu nível define o que você acessa. Aqui não é diferente.",
+    "titulo": "Sua classe. Sua escolha.",
+    "subtitulo": "Cada tier desbloqueia um novo nível de acesso ao universo. O ranking é real.",
+    "fichaAnchor": "No Free, você recebe 3 fichas por dia. No Primordial, 900 por mês. A escolha é sua.",
     "nota": "* Preços em USD e EUR são aproximações. Pagamentos via Stripe ou PIX.",
     "doacao": {
       "title": "Prefere apoiar sem assinar?",

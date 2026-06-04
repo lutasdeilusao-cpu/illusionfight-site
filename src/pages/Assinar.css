@@ -60,6 +60,17 @@
   line-height: 1.5;
 }
 
+.assinar-plans__anchor {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  color: var(--accent-amber);
+  text-align: center;
+  margin: 1.5rem auto 0;
+  max-width: 700px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
 .assinar-card {
   position: relative;
   background: var(--bg-elevated);

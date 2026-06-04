@@ -96,8 +96,9 @@
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Art generated with AI assistance"
   },
   "assinar": {
-    "titulo": "Choose your class",
-    "subtitulo": "In LDI, your rank defines what you access. Here it's no different.",
+    "titulo": "Your class. Your choice.",
+    "subtitulo": "Each tier unlocks a new level of access to the universe. The ranking is real.",
+    "fichaAnchor": "On Free, you get 3 tokens per day. On Primordial, 900 per month. The choice is yours.",
     "nota": "* USD and EUR prices are approximate. Payment via Stripe or PIX.",
     "doacao": {
       "title": "Prefer to support without subscribing?",
