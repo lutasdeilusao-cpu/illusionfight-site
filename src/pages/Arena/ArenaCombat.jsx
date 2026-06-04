@@ -98,7 +98,7 @@ export default function ArenaCombat({ onNavigate }) {
   const dadosRef = useRef({})
   const timerRef = useRef(null)
   const pvRef = useRef({ player: playerPv, enemy: enemyPv })
-  const stepRef = useRef(0)
+  const stepRef = useRef(-1)
   const saidNearDeath = useRef(false)
   const saidEnemyLow = useRef(false)
   const chatQueue = useRef(Promise.resolve())
