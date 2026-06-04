@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
+import { CASOS } from '../data/casos'
 import jackImg from '../../../assets/images/characters/jack-balloon.png'
 
 export default function Intro() {
@@ -46,6 +47,16 @@ export default function Intro() {
           fase: 'caso_select',
           equipado: { arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 2 }, armadura: null, acessorio: null },
         })
+        const caso = CASOS['caso1']
+        useJackStore.setState({
+          casoAtivo: 'caso1',
+          suspeitos: caso.suspeitos.map(s => ({ ...s, status: 'ativo' })),
+          pistasColetadas: ['p1_1', 'p1_2', 'p1_3', 'p1_4'],
+          locaisVisitados: ['loc1_1', 'loc1_2', 'loc1_3', 'loc1_4'],
+          acusacoesErradas: 0,
+          fase: 'dossier',
+        })
+        console.log('[DEBUG] save dev com caso1 pronto para acusar')
       }
     }
     window.addEventListener('keydown', handler)
