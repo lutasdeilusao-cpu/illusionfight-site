@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.3'
+const PP_VERSION = '1.3.4'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -283,8 +283,12 @@ function ConvoView({ caso, tipo, onBack }) {
   const [digitandoDe, setDigitandoDe] = useState(null)
   const endRef = useRef(null)
 
-  const dialogo = tipo === 'abertura' ? caso.dialogo.abertura : caso.dialogo.resolucao
-  const narracao = tipo === 'abertura' ? caso.dialogo.narracao_abertura : caso.dialogo.narracao_final
+  const dialogo = tipo === 'abertura'
+    ? caso.dialogo?.abertura || []
+    : caso.dialogo?.resolucao || []
+  const narracao = tipo === 'abertura'
+    ? caso.dialogo?.narracao_abertura || { pt:'...', en:'...', es:'...' }
+    : caso.dialogo?.narracao_final || { pt:'...', en:'...', es:'...' }
 
   useEffect(() => {
     // Narração inicial
@@ -563,7 +567,10 @@ export default function PP() {
       const pistas = getPistasDoCase(casoAtivo.id)
       const erros = store.acusacoesErradas[casoAtivo.id] || 0
       const bonus = erros === 0 && pistas.length === casoAtivo.pistas.length ? 1.2 : erros >= 2 ? 0.4 : erros === 1 ? 0.7 : 1
-      store.resolverCaso(casoAtivo.id, Math.round(casoAtivo.reputacao_ganho * bonus), user?.id)
+      const reputationGanho = Math.round(casoAtivo.reputacao_ganho * bonus)
+      console.log('[PP] acusar resolverCaso inicio', casoAtivo.id, reputationGanho)
+      store.resolverCaso(casoAtivo.id, reputationGanho, user?.id)
+      console.log('[PP] acusar resolverCaso fim')
       setFaseInterna({ tipo: 'convo', convoTipo: 'resolucao' })
     } else {
       store.registrarAcusacaoErrada(casoAtivo.id, user?.id)
