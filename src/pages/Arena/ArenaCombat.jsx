@@ -10,7 +10,27 @@ const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = { fists: 'Mãos Livres', armed: 'Armado', power: 'Poder' }
-const DIFF_COLORS = { easy: '#22C55E', medium: '#F5A623', hard: '#8B0000', very_hard: '#A855F4' }
+
+const DURACAO = {
+  player_dado: 2200,
+  player_onoma: 600,
+  enemy_turno: 1500,
+  enemy_dado: 2200,
+  enemy_onoma: 600,
+  enemy_trash: 1200,
+  fim_turno: 100,
+}
+
+const ESTADOS = {
+  IDLE: 'idle',
+  PLAYER_DADO: 'player_dado',
+  PLAYER_ONOMA: 'player_onoma',
+  ENEMY_TURNO: 'enemy_turno',
+  ENEMY_DADO: 'enemy_dado',
+  ENEMY_ONOMA: 'enemy_onoma',
+  ENEMY_TRASH: 'enemy_trash',
+  FIM_TURNO: 'fim_turno',
+}
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
 
@@ -26,7 +46,7 @@ function pickTrash(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-function DiceSlot({ finalValue, onDone }) {
+function DiceSlot({ finalValue }) {
   const [display, setDisplay] = useState('?')
   const [phase, setPhase] = useState('rolling')
 
@@ -34,6 +54,7 @@ function DiceSlot({ finalValue, onDone }) {
     let frame
     const start = Date.now()
     const rollDuration = 800
+
     function roll() {
       const elapsed = Date.now() - start
       if (elapsed < rollDuration) {
@@ -42,10 +63,7 @@ function DiceSlot({ finalValue, onDone }) {
       } else {
         setPhase('landing')
         setDisplay(finalValue)
-        setTimeout(() => {
-          setPhase('showing')
-          setTimeout(() => onDone && onDone(), 1200)
-        }, 200)
+        setTimeout(() => setPhase('showing'), 200)
       }
     }
     frame = requestAnimationFrame(roll)
@@ -100,20 +118,17 @@ export default function ArenaCombat({ onNavigate }) {
   const [playerPm, setPlayerPm] = useState(Math.max(2, match.pm_current || pmMax))
   const [enemyPv, setEnemyPv] = useState(Number(enemy?.pv_current) || Number(enemy?.pv_max) || 10)
   const [log, setLog] = useState([])
-  const [animating, setAnimating] = useState(false)
   const [mode, setMode] = useState('fists')
   const [showPowerSelect, setShowPowerSelect] = useState(true)
   const [selectedPowers, setSelectedPowers] = useState([])
-
-  const [showOnomatopeia, setShowOnomatopeia] = useState(null)
-  const [flashRed, setFlashRed] = useState(false)
-  const [diceValue, setDiceValue] = useState(null)
-  const [showEnemyTurn, setShowEnemyTurn] = useState(false)
   const [damageFloat, setDamageFloat] = useState(null)
 
+  const [turnoEstado, setTurnoEstado] = useState('idle')
+  const turnoEstadoRef = useRef('idle')
+  const dadosTurnoRef = useRef({})
   const saidNearDeath = useRef(false)
   const saidEnemyLow = useRef(false)
-  const diceDoneRef = useRef(null)
+  const timerRef = useRef(null)
   const chatQueue = useRef(Promise.resolve())
 
   const logRef = useRef(null)
@@ -123,14 +138,19 @@ export default function ArenaCombat({ onNavigate }) {
   const playerInitial = (sheet?.sheet_name || 'V')[0].toUpperCase()
   const enemyInitial = (enemy?.name || 'I')[0].toUpperCase()
 
+  const animating = turnoEstado !== 'idle'
+  const diceValue = (turnoEstado === 'player_dado') ? dadosTurnoRef.current.playerDado
+    : (turnoEstado === 'enemy_dado') ? dadosTurnoRef.current.enemyDado : null
+  const showOnoma = (turnoEstado === 'player_onoma') ? mode
+    : (turnoEstado === 'enemy_onoma') ? dadosTurnoRef.current.enemyMode : null
+  const showTurno = turnoEstado === 'enemy_turno'
+  const showFlash = turnoEstado === 'enemy_dado'
+
   useEffect(() => {
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
-    setLog([{
-      type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}`,
-      id: Date.now()
-    }])
+    setLog([{ type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}`, id: Date.now() }])
     saidNearDeath.current = false
     saidEnemyLow.current = false
   }, [])
@@ -138,6 +158,10 @@ export default function ArenaCombat({ onNavigate }) {
   useEffect(() => {
     logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
   }, [log.length])
+
+  useEffect(() => {
+    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
+  }, [])
 
   const addLogWithDelay = (type, text, sender) => {
     const msgId = Date.now() + Math.random()
@@ -164,16 +188,7 @@ export default function ArenaCombat({ onNavigate }) {
   }
 
   const addSystemLog = (text) => {
-    chatQueue.current = chatQueue.current.then(async () => {
-      setLog(l => [...l, { type: 'system', text, id: Date.now() }])
-    })
-  }
-
-  const showDice = (value) => {
-    return new Promise(resolve => {
-      diceDoneRef.current = resolve
-      setDiceValue(value)
-    })
+    setLog(l => [...l, { type: 'system', text, id: Date.now() }])
   }
 
   const togglePower = (id) => {
@@ -183,6 +198,9 @@ export default function ArenaCombat({ onNavigate }) {
   }
 
   const endMatch = (result) => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    turnoEstadoRef.current = 'idle'
+    setTurnoEstado('idle')
     store.endMatch(result)
     onNavigate('victory')
   }
@@ -197,109 +215,141 @@ export default function ArenaCombat({ onNavigate }) {
     return { attributes: { F: Number(a.F)||0, H: Number(a.H)||0, R: Number(a.R)||0, A: Number(a.A)||0, PdF: Number(a.PdF)||0 } }
   }
 
-  const handleAttack = async (powerCost = 0) => {
-    if (animating) return
-    setAnimating(true)
+  const avancarEstado = (estado, duracao) => {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    turnoEstadoRef.current = estado
+    setTurnoEstado(estado)
 
+    if (duracao > 0) {
+      timerRef.current = setTimeout(() => {
+        onEstadoCompleto(estado)
+      }, duracao)
+    }
+  }
+
+  const onEstadoCompleto = (estado) => {
+    const d = dadosTurnoRef.current
+
+    switch (estado) {
+      case 'player_dado': {
+        const nextEpv = Math.max(0, enemyPv - d.playerDmg)
+        setEnemyPv(nextEpv)
+        if (d.playerDmg > 0) setDamageFloat({ value: d.playerDmg, target: 'enemy' })
+
+        const playerSide = mode === 'power' ? 'power' : 'player'
+        if (d.powerCost > 0) {
+          const pname = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
+          addLogWithDelay(playerSide, `⚡ ${pname} gastou ${d.powerCost} PM (+${d.powerBonus} dano)`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
+        }
+        addLogWithDelay(playerSide, `Você ataca (${d.playerBreakdown}) vs FD ${d.playerFD} = ${d.playerDmg} dano`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
+
+        if (d.playerRoll === 6) addTrashWithDelay('take_critical')
+        else if (d.playerDmg > 0) addTrashWithDelay('take_damage')
+
+        if (nextEpv <= 0) {
+          addSystemLog('⚔️ VITÓRIA!')
+          setTimeout(() => endMatch('victory'), 600)
+          return
+        }
+
+        if (nextEpv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
+          saidEnemyLow.current = true
+          addTrashWithDelay('enemy_near_death')
+        }
+
+        avancarEstado('player_onoma', DURACAO.player_onoma)
+        break
+      }
+
+      case 'player_onoma':
+        setDamageFloat(null)
+        avancarEstado('enemy_turno', DURACAO.enemy_turno)
+        break
+
+      case 'enemy_turno':
+        avancarEstado('enemy_dado', DURACAO.enemy_dado)
+        break
+
+      case 'enemy_dado': {
+        const nextPv = Math.max(0, playerPv - d.enemyDmg)
+        setPlayerPv(nextPv)
+        if (d.enemyDmg > 0) setDamageFloat({ value: d.enemyDmg, target: 'player' })
+
+        addLogWithDelay('enemy', `${enemy.name} ataca (${d.enemyBreakdown}) vs sua FD ${d.enemyFD} = ${d.enemyDmg} dano`, { name: enemy.name, initial: enemyInitial, side: 'enemy' })
+
+        if (d.enemyDmg > 0) {
+          addTrashWithDelay('attack_hit')
+        } else {
+          addTrashWithDelay('attack_miss')
+        }
+
+        if (nextPv <= 0) {
+          addSystemLog('💀 Você foi derrotado!')
+          setTimeout(() => endMatch('defeat'), 600)
+          return
+        }
+
+        if (nextPv <= isR && !saidNearDeath.current) {
+          saidNearDeath.current = true
+          addTrashWithDelay('player_near_death')
+        }
+
+        avancarEstado('enemy_onoma', DURACAO.enemy_onoma)
+        break
+      }
+
+      case 'enemy_onoma':
+        setDamageFloat(null)
+        avancarEstado('enemy_trash', DURACAO.enemy_trash)
+        break
+
+      case 'enemy_trash':
+        avancarEstado('fim_turno', DURACAO.fim_turno)
+        break
+
+      case 'fim_turno':
+        turnoEstadoRef.current = 'idle'
+        setTurnoEstado('idle')
+        break
+    }
+  }
+
+  const handleAttack = (powerCost = 0) => {
+    if (turnoEstadoRef.current !== 'idle') return
+
+    // Calcular TUDO antes de começar
     const wBonus = Number(enemy?.weapon_damage) || 0
     const pBonus = Number(powerCost) * 2
     const fa = calcFA(mode, getPlayerSheet(), wBonus)
     const fd = calcFD(getEnemySheet(), true)
     const baseDmg = Math.max(0, calcDamage(Number(fa.value)||0, Number(fd.value)||0))
-    const dmg = baseDmg + pBonus
+    const playerDmg = baseDmg + pBonus
 
-    // 1-2. DiceSlot do jogador
-    await showDice(fa.roll)
-    setDiceValue(null)
-
-    // 3. Onomatopeia
-    setShowOnomatopeia(mode)
-    await delay(600)
-    setShowOnomatopeia(null)
-
-    // 4. Log de ataque (com typing)
-    if (powerCost > 0) {
-      setPlayerPm(p => Math.max(0, p - powerCost))
-      const pname = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
-      addLogWithDelay('player', `⚡ ${pname} gastou ${powerCost} PM (+${pBonus} dano)`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
-    }
-    addLogWithDelay('player', `Você ataca (${fa.breakdown}) vs FD ${fd.value} = ${dmg} dano`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
-
-    // 5. Dano flutuante sobre o inimigo
-    const nextEpv = Math.max(0, enemyPv - dmg)
-    setEnemyPv(nextEpv)
-    if (dmg > 0) {
-      setDamageFloat({ value: dmg, target: 'enemy' })
-      if (fa.roll === 6) addTrashWithDelay('take_critical')
-      else addTrashWithDelay('take_damage')
-    }
-    await delay(800)
-    setDamageFloat(null)
-
-    // 6. Inimigo morreu → vitória
-    if (nextEpv <= 0) {
-      addSystemLog('⚔️ VITÓRIA!')
-      await delay(600)
-      endMatch('victory')
-      return
-    }
-
-    if (nextEpv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
-      saidEnemyLow.current = true
-      addTrashWithDelay('enemy_near_death')
-    }
-
-    // ======== FASE DO INIMIGO ========
-
-    // 7. Overlay
-    setShowEnemyTurn(true)
-    await delay(1500)
-    setShowEnemyTurn(false)
-
-    // 8-9. Flash + DiceSlot
-    setFlashRed(true)
     const eMode = enemy.preferred_mode || 'fists'
     const eBonus = Number(enemy.weapon_damage) || 0
     const eFA = calcFA(eMode, getEnemySheet(), eBonus)
     const eFD = calcFD(getPlayerSheet(), true)
-    const eDmg = Math.max(0, calcDamage(Number(eFA.value)||0, Number(eFD.value)||0))
-    setShowOnomatopeia(eMode)
+    const enemyDmg = Math.max(0, calcDamage(Number(eFA.value)||0, Number(eFD.value)||0))
 
-    await showDice(eFA.roll)
-    setDiceValue(null)
-    setFlashRed(false)
-    setShowOnomatopeia(null)
-
-    // 10. Log inimigo (com typing)
-    addLogWithDelay('enemy', `${enemy.name} ataca (${eFA.breakdown}) vs sua FD ${eFD.value} = ${eDmg} dano`, { name: enemy.name, initial: enemyInitial, side: 'enemy' })
-
-    // 11. Dano no jogador
-    if (eDmg > 0) {
-      const nextPv = Math.max(0, playerPv - eDmg)
-      setPlayerPv(nextPv)
-      setDamageFloat({ value: eDmg, target: 'player' })
-      addTrashWithDelay('attack_hit')
-      await delay(800)
-      setDamageFloat(null)
-
-      if (nextPv <= 0) {
-        addSystemLog('💀 Você foi derrotado!')
-        await delay(600)
-        endMatch('defeat')
-        return
-      }
-
-      if (nextPv <= isR && !saidNearDeath.current) {
-        saidNearDeath.current = true
-        addTrashWithDelay('player_near_death')
-      }
-    } else {
-      addTrashWithDelay('attack_miss')
-      await delay(800)
+    dadosTurnoRef.current = {
+      playerRoll: fa.roll,
+      playerDmg,
+      playerBreakdown: fa.breakdown,
+      playerFD: fd.value,
+      playerDado: fa.roll,
+      powerCost,
+      powerBonus: pBonus,
+      enemyRoll: eFA.roll,
+      enemyDmg,
+      enemyBreakdown: eFA.breakdown,
+      enemyFD: eFD.value,
+      enemyDado: eFA.roll,
+      enemyMode: eMode,
     }
 
-    // 12. Reabilitar
-    setAnimating(false)
+    if (powerCost > 0) setPlayerPm(p => Math.max(0, p - powerCost))
+
+    avancarEstado('player_dado', DURACAO.player_dado)
   }
 
   if (!enemy) return null
@@ -362,16 +412,15 @@ export default function ArenaCombat({ onNavigate }) {
   return (
     <div className="arena-combat arena-container">
       <AnimatePresence>
-        {flashRed && (
+        {showFlash && (
           <motion.div className="arena-flash"
             initial={{ opacity: 0.4 }} animate={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-            onAnimationComplete={() => setFlashRed(false)} />
+            transition={{ duration: 0.4, ease: 'easeOut' }} />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
-        {showEnemyTurn && (
+        {showTurno && (
           <motion.div className="arena-enemy-turn-overlay"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <motion.span className="arena-enemy-turn-text"
@@ -382,27 +431,23 @@ export default function ArenaCombat({ onNavigate }) {
       </AnimatePresence>
 
       <AnimatePresence>
-        {diceValue && (
-          <DiceSlot finalValue={diceValue} onDone={() => {
-            if (diceDoneRef.current) { const cb = diceDoneRef.current; diceDoneRef.current = null; cb() }
-          }} />
-        )}
+        {diceValue && <DiceSlot finalValue={diceValue} />}
       </AnimatePresence>
 
       <AnimatePresence>
-        {showOnomatopeia && (
+        {showOnoma && (
           <motion.div className="arena-onomatopeia"
             initial={{ scale: 0.3, opacity: 0, rotate: -8 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.175, 0.885, 0.32, 1.275] }}>
-            {getOnomatopeia(showOnomatopeia)}
+            {getOnomatopeia(showOnoma)}
           </motion.div>
         )}
       </AnimatePresence>
 
       <div className="arena-combat-header">
-        <button className="arena-back" onClick={() => { store.endMatch('defeat'); onNavigate('lobby') }}>← lobby</button>
+        <button className="arena-back" onClick={() => { if (timerRef.current) clearTimeout(timerRef.current); store.endMatch('defeat'); onNavigate('lobby') }}>← lobby</button>
         <h2 className="arena-combat-vs">{sheet?.sheet_name} vs {enemy.name}</h2>
       </div>
 
@@ -472,7 +517,7 @@ export default function ArenaCombat({ onNavigate }) {
               onClick={() => setMode(m)} disabled={animating}>{icon} {MODE_LABELS[m]}</button>
           ))}
         </div>
-        <button className="arena-btn-flee" onClick={() => { store.endMatch('defeat'); onNavigate('lobby') }} disabled={animating}>FUGIR</button>
+        <button className="arena-btn-flee" onClick={() => { if (timerRef.current) clearTimeout(timerRef.current); store.endMatch('defeat'); onNavigate('lobby') }} disabled={animating}>FUGIR</button>
         {mode === 'power' && selectedPowers.length > 0 && (
           <div className="arena-power-attacks">
             {selectedPowers.map(id => {
