@@ -38,7 +38,11 @@ const defaultState = {
 }
 
 export const useJackStore = create((set, get) => {
-  const saved = loadLocal()
+  let saved = loadLocal()
+  // Migration: TEM_BENGALA sem bengala no inventário → reset
+  if (saved?.flags?.TEM_BENGALA && !saved?.inventario?.find?.(i => i.id === 'bengala_steampunk')) {
+    saved = { ...saved, flags: { ...saved.flags, TEM_BENGALA: false }, fase: 'intro' }
+  }
   return {
     ...defaultState, ...(saved || {}),
 
