@@ -23,14 +23,18 @@ export default function Perfil() {
   const { saldo, podeColetarHoje, coletarDiarias, isAdmin, loading: fichasLoading } = useFichas()
   const abaAtiva = searchParams.get('aba') || 'conquistas'
 
-  const tier = 'free'
+  const tier = 'free' // integrar com profiles depois
   const tierCfg = TIER_CONFIG[tier]
 
-  console.log('[PERFIL] render | aba:', abaAtiva, '| fichas:', saldo, '| podeColetarHoje:', podeColetarHoje)
+  useEffect(() => {
+    if (!user && !carregando) navigate('/login')
+  }, [user, carregando])
 
-  useEffect(() => { if (!user && !carregando) navigate('/login') }, [user, carregando])
-
-  if (carregando) return <section className="perfil-page"><p className="perfil-carregando">CARREGANDO...</p></section>
+  if (carregando) return (
+    <section className="perfil-page">
+      <p className="perfil-carregando">CARREGANDO...</p>
+    </section>
+  )
   if (!user) return null
 
   const ABAS = [
@@ -43,39 +47,55 @@ export default function Perfil() {
 
   return (
     <section className="perfil-page">
+      {/* Header */}
       <div className="perfil-header">
         <div className="perfil-header-inner">
-          <div className="perfil-avatar" style={{ background: `hsl(${(perfil?.nome || 'U').length * 47}, 55%, 35%)` }}>
+          <div className="perfil-avatar"
+            style={{ background: `hsl(${(perfil?.nome || 'U').length * 47}, 55%, 35%)` }}>
             {perfil?.nome?.[0]?.toUpperCase() || '?'}
           </div>
           <div className="perfil-header-info">
             <h1 className="perfil-nome">{perfil?.nome || '...'}</h1>
             <p className="perfil-email">{user.email}</p>
-            <span className="perfil-tier-badge" style={{ color: tierCfg.cor, borderColor: tierCfg.bordaCor + '44', background: tierCfg.cor + '11' }}>
+            <span className="perfil-tier-badge"
+              style={{ color: tierCfg.cor, borderColor: tierCfg.bordaCor + '44', background: tierCfg.cor + '11' }}>
               ★ {tierCfg.label}
             </span>
           </div>
           <div className="perfil-header-fichas">
-            <span className="perfil-fichas-saldo">{isAdmin ? '∞' : fichasLoading ? '—' : saldo} 🎰</span>
+            <span className="perfil-fichas-saldo">
+              {isAdmin ? '∞' : fichasLoading ? '—' : saldo} 🎰
+            </span>
             <span className="perfil-fichas-label">FICHAS</span>
             {podeColetarHoje && !isAdmin && (
-              <button className="perfil-fichas-coletar" onClick={coletarDiarias}>COLETAR</button>
+              <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
+                COLETAR
+              </button>
             )}
           </div>
         </div>
       </div>
 
+      {/* Tabs */}
       <div className="perfil-tabs">
         {ABAS.map(aba => (
-          <button key={aba.id} className={`perfil-tab${abaAtiva === aba.id ? (aba.id === 'recompensas' ? ' perfil-tab--ativa-fichas' : ' perfil-tab--ativa') : ''}`}
-            onClick={() => setSearchParams({ aba: aba.id })}>
+          <button
+            key={aba.id}
+            className={`perfil-tab${abaAtiva === aba.id
+              ? aba.id === 'recompensas' ? ' perfil-tab--ativa-fichas' : ' perfil-tab--ativa'
+              : ''}`}
+            onClick={() => setSearchParams({ aba: aba.id })}
+          >
             <span className="perfil-tab-icone">{aba.icone}</span>
             <span className="perfil-tab-label">{aba.label}</span>
-            {aba.pulse && abaAtiva !== aba.id && <span className="perfil-tab-pulse" />}
+            {aba.pulse && abaAtiva !== aba.id && (
+              <span className="perfil-tab-pulse" />
+            )}
           </button>
         ))}
       </div>
 
+      {/* Conteúdo */}
       <div className="perfil-conteudo">
         {abaAtiva === 'recompensas' && <Recompensas />}
         {abaAtiva === 'conquistas' && <PerfilConquistas />}
