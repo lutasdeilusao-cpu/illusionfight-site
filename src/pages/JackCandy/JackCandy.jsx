@@ -33,12 +33,22 @@ export default function JackCandy() {
   // O slot é definido quando o usuário escolhe no menu
 
   useEffect(() => {
-    if (!user || !currentSlot) return
-    store.loadFromCloud(user.id).then(() => {
-      useJackStore.setState({ _userId: user.id })
-      setLoaded(true)
-    })
-  }, [user, currentSlot])
+    if (!user) return
+    // Intervals rodam sempre, mesmo sem slot ativo
+    const t1 = setInterval(() => {
+      const s = useJackStore.getState()
+      if (s._slot && s.fase !== 'intro') useJackStore.getState().tick()
+    }, 1000)
+    const t2 = setInterval(() => {
+      const s = useJackStore.getState()
+      if (s._slot && s.fase !== 'intro') useJackStore.getState().regenHp()
+    }, 10000)
+    const t3 = setInterval(() => {
+      const s = useJackStore.getState()
+      if (s._slot) s.saveToCloud(user.id)
+    }, 30000)
+    return () => { clearInterval(t1); clearInterval(t2); clearInterval(t3) }
+  }, [user])
 
   useEffect(() => {
     if (store.flags.TEM_BENGALA && store.fase === 'intro') {

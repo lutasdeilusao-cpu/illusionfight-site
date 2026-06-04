@@ -169,7 +169,11 @@ export default function Interior({ npcId }) {
           )
         })}
         {itensFiltrados.length === 0 && (
-          <p className="jack-text jack-text--dim">nada disponível nesta categoria.</p>
+          <p className="jack-text jack-text--dim" style={{ textAlign: 'center', padding: '1rem' }}>
+            {npc.id === 'paje' && store.flags.TEM_BENGALA && !todosItens.length
+              ? 'você já comprou todos os itens disponíveis aqui.'
+              : 'nada disponível nesta categoria.'}
+          </p>
         )}
       </div>
 
