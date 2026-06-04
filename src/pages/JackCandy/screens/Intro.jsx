@@ -32,6 +32,24 @@ export default function Intro() {
 
   const titleDone = store.titleDone
 
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'D' && e.shiftKey) {
+        useJackStore.setState({
+          cervejas: 500,
+          cervejasTotais: 500,
+          notas: 20,
+          flags: { TEM_BENGALA: true, NINA_LIBERADO: true, NOTAS_LIBERADO: true, JA_VIU_VILA: true },
+          fase: 'caso_select',
+          equipado: { arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 2 }, armadura: null, acessorio: null },
+        })
+        console.log('[DEBUG] shift+D: save de desenvolvimento carregado')
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
+
   return (
     <div className="jdc-intro">
       <div className="jdc-avatar">
@@ -77,22 +95,6 @@ export default function Intro() {
             </button>
           </div>
         </motion.div>
-      )}
-
-      {true && (
-        <button className="jack-btn" onClick={() => {
-          useJackStore.setState({
-            cervejas: 500,
-            cervejasTotais: 500,
-            notas: 20,
-            flags: { TEM_BENGALA: true, NINA_LIBERADO: true, NOTAS_LIBERADO: true, JA_VIU_VILA: true },
-            fase: 'caso_select',
-            equipado: { arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 2 }, armadura: null, acessorio: null },
-          })
-          console.log('[DEBUG] save de desenvolvimento carregado')
-        }} style={{ marginTop: '1rem', fontSize: '0.65rem', borderColor: '#333', color: '#555' }}>
-          [debug: pular intro]
-        </button>
       )}
     </div>
   )
