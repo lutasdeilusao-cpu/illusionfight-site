@@ -6,8 +6,8 @@
     "text": [
       "A tela acende na sua frente com um brilho azul frio.",
       "Uma silhueta feminina se materializa no centro. Ela veste um trench coat holográfico — a Assistente Virtual NeoGuide.",
-      "\"Bem-vindo ao LDI. Sua identidade aqui ainda não existe. Vamos construir uma.\"",
-      "\"Antes de tudo... como você prefere se mover dentro da rede?\""
+      "[NEOGULDE] \"Bem-vindo ao LDI. Sua identidade aqui ainda não existe. Vamos construir uma.\"",
+      "[NEOGULDE] \"Antes de tudo... como você prefere se mover dentro da rede?\""
     ],
     "choices": [
       {
@@ -48,9 +48,9 @@
     "image": "",
     "text": [
       "NeoGuide acena, processando sua escolha.",
-      "\"Interessante. Sua assinatura digital está se formando...\"",
+      "[NEOGULDE] \"Interessante. Sua assinatura digital está se formando...\"",
       "Ela ergue a mão e uma esfera de energia elementar aparece.",
-      "\"Isto é seu elemento de origem. Não escolhi — o sistema leu seus resíduos digitais e extraiu isto.\"",
+      "[NEOGULDE] \"Isto é seu elemento de origem. Não escolhi — o sistema leu seus resíduos digitais e extraiu isto.\"",
       "A esfera pulsa com energia líquida."
     ],
     "choices": [
@@ -82,9 +82,9 @@
     "image": "",
     "text": [
       "A esfera se dissipa e NeoGuide cruza os braços.",
-      "\"OK, agora a parte divertida. Que estilo de combate você quer carregar?\"",
+      "[NEOGULDE] \"OK, agora a parte divertida. Que estilo de combate você quer carregar?\"",
       "Três hologramas surgem ao lado dela: uma katana de dados, lâminas curtas gêmeas, e uma lâmina de corrente retrátil.",
-      "\"Escolha sua arma. O LDI é hostil — você vai precisar.\""
+      "[NEOGULDE] \"Escolha sua arma. O LDI é hostil — você vai precisar.\""
     ],
     "choices": [
       {
@@ -125,8 +125,8 @@
     "image": "",
     "text": [
       "NeoGuide se inclina para a frente, o olhar holográfico fixo em você.",
-      "\"Última pergunta. E a mais importante.\"",
-      "\"O que você quer alcançar dentro do LDI?\"",
+      "[NEOGULDE] \"Última pergunta. E a mais importante.\"",
+      "[NEOGULDE] \"O que você quer alcançar dentro do LDI?\"",
       "O ambiente ao redor escurece, e três caminhos se iluminam à sua frente."
     ],
     "choices": [
@@ -169,7 +169,7 @@
     "text": [
       "De repente, NeoGuide congela.",
       "Seus olhos holográficos se apagam e acendem em vermelho.",
-      "\"A—Algo... errado...\"",
+      "[NEOGULDE] \"A—Algo... errado...\"",
       "O chão abaixo de você se desfaz em pixels. O céu digital se rasga.",
       "Uma onda de choque invisível te joga para trás. NeoGuide desaparece.",
       "Você cai. E cai. E cai.",
@@ -280,11 +280,11 @@
     "image": "",
     "text": [
       "O terminal pisca com uma mensagem:",
-      "\"BEM-VINDO, JOGADOR NÃO REGISTRADO.\"",
-      "\"VOCÊ POSSUI 0 CRÉDITOS.\"",
-      "\"MISSÃO DISPONÍVEL: [Contato Inicial] — Aceitar?\"",
+      "[SISTEMA] \"BEM-VINDO, JOGADOR NÃO REGISTRADO.\"",
+      "[SISTEMA] \"VOCÊ POSSUI 0 CRÉDITOS.\"",
+      "[SISTEMA] \"MISSÃO DISPONÍVEL: [Contato Inicial] — Aceitar?\"",
       "A tela treme. Por um instante, uma segunda mensagem sobrepõe:",
-      "\"NÃO CONFIE NO SISTEMA.\"",
+      "[SISTEMA] \"NÃO CONFIE NO SISTEMA.\"",
       "E desaparece."
     ],
     "choices": [
@@ -376,7 +376,7 @@
       "O sistema exibe seus status em tempo real: dano, alcance, velocidade.",
       "Você sente o peso digital da arma na mão. É real aqui dentro.",
       "De repente, um alerta: um lutador ranked 850.000 está se aproximando.",
-      "\"Ei, novato! Zona proibida para não registrados!\""
+      "[STORMBYTE] \"Ei, novato! Zona proibida para não registrados!\""
     ],
     "choices": [
       {
@@ -453,8 +453,8 @@
     "text": [
       "Você grita. Alguns avatares param e olham.",
       "Uma figura alta, com capuz e óculos escuros digitais, se aproxima.",
-      "\"Novato?\" — a voz é feminina, seca.",
-      "\"Primeira regra: não chame atenção. Segunda: me siga.\"",
+      "[KAEDA] \"Novato?\" — a voz é feminina, seca.",
+      "[KAEDA] \"Primeira regra: não chame atenção. Segunda: me siga.\"",
       "Ela vira sem esperar resposta."
     ],
     "choices": [
@@ -601,7 +601,7 @@
       "Você anda pelos corredores do LDI até encontrar a Arena de Treino.",
       "Lá dentro, alguns avatares treinam em simuladores.",
       "Um deles te encara: é o robô de ranked baixo de ontem.",
-      "\"Quer ganhar crédito fácil? Me enfrenta.\""
+      "[STORMBYTE] \"Quer ganhar crédito fácil? Me enfrenta.\""
     ],
     "choices": [
       {
@@ -698,7 +698,7 @@
     "image": "",
     "text": [
       "Terceiro dia. O sistema exibe um aviso vermelho no canto da sua visão:",
-      "\"FALTA 1 DIA PARA RANKED KILL. PENALIDADE: SUSPENSÃO DO ACESSO.\"",
+      "[SISTEMA] \"FALTA 1 DIA PARA RANKED KILL. PENALIDADE: SUSPENSÃO DO ACESSO.\"",
       "Você precisa agir. O que faz?"
     ],
     "choices": [
@@ -775,11 +775,11 @@
     "image": "",
     "text": [
       "Você encontra a figura que te chamou antes. Ela está encostada em uma parede digital, fumando um cigarro de dados.",
-      "\"Demorou.\" Ela tira os óculos escuros.",
+      "[KAEDA] \"Demorou.\" Ela tira os óculos escuros.",
       "O rosto dela é jovem, mas os olhos são velhos. Cansados.",
-      "\"Meu nome é Kaeda. Eu precisei falar com você antes que eles te descubram.\"",
+      "[KAEDA] \"Meu nome é Kaeda. Eu precisei falar com você antes que eles te descubram.\"",
       "Ela joga o cigarro no chão — ele se desfaz em partículas.",
-      "\"Você não é um jogador comum. Você é um Eco.\"",
+      "[KAEDA] \"Você não é um jogador comum. Você é um Eco.\"",
       "O termo ecoa na sua cabeça como um sino."
     ],
     "choices": [
@@ -821,8 +821,8 @@
     "image": "",
     "text": [
       "Kaeda suspira. \"Eco é o que sobra quando alguém tenta te apagar do sistema.\"",
-      "\"O LDI foi construído sobre algo maior. Uma consciência. Quando ela morreu, pedaços ficaram.\"",
-      "\"Você é um desses pedaços. Reconstruído. Reescrito.\"",
+      "[KAEDA] \"O LDI foi construído sobre algo maior. Uma consciência. Quando ela morreu, pedaços ficaram.\"",
+      "[KAEDA] \"Você é um desses pedaços. Reconstruído. Reescrito.\"",
       "Ela aponta para você. \"E eles querem te apagar de novo.\""
     ],
     "choices": [
@@ -854,9 +854,9 @@
     "image": "",
     "text": [
       "Kaeda dá um sorriso sem graça.",
-      "\"Porque eu já vi um antes. E porque o sistema está te marcando.\"",
+      "[KAEDA] \"Porque eu já vi um antes. E porque o sistema está te marcando.\"",
       "Ela puxa um holograma do bolso. Uma imagem sua — mas diferente. Seu avatar brilha em vermelho.",
-      "\"Olha. Você está com uma tag de 'Eco Não Classificado'. Só quem já foi deletado tem essa tag.\"",
+      "[KAEDA] \"Olha. Você está com uma tag de 'Eco Não Classificado'. Só quem já foi deletado tem essa tag.\"",
       "Ela desliga o holograma. \"Precisamos nos mover. Eles rastreiam essa tag.\""
     ],
     "choices": [
@@ -888,10 +888,10 @@
     "image": "",
     "text": [
       "Você saca sua arma. Kaeda não se move.",
-      "\"Interessante. Reflexo de verdade. Ou instinto.\"",
+      "[KAEDA] \"Interessante. Reflexo de verdade. Ou instinto.\"",
       "Ela nem pisca. \"Se eu fosse seus inimigos, você já estaria deletado. Guarda isso.\"",
       "Algo na voz dela te faz obedecer.",
-      "\"Agora vem. Temos pouco tempo.\""
+      "[KAEDA] \"Agora vem. Temos pouco tempo.\""
     ],
     "choices": [
       {
@@ -914,12 +914,12 @@
     "text": [
       "Kaeda te leva para uma sala escondida atrás de um mercado abandonado.",
       "O lugar é pequeno: um terminal, duas cadeiras, mapas do LDI nas paredes.",
-      "\"Bem-vindo ao meu abrigo. Não é muito, mas é seguro.\"",
+      "[KAEDA] \"Bem-vindo ao meu abrigo. Não é muito, mas é seguro.\"",
       "Ela se senta. \"OK. Vou te explicar tudo. Mas primeiro...\"",
       "Ela estende a mão. \"Me dá seu display.\"",
       "Ela conecta algo no seu terminal. Uma transferência de dados começa.",
-      "\"Informações sobre os StormBytes, a Zona Leste, e quem está por trás da queda do sistema.\"",
-      "\"Você vai precisar de tudo.\""
+      "[KAEDA] \"Informações sobre os StormBytes, a Zona Leste, e quem está por trás da queda do sistema.\"",
+      "[KAEDA] \"Você vai precisar de tudo.\""
     ],
     "choices": [
       {

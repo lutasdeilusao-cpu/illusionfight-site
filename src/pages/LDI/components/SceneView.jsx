@@ -53,7 +53,6 @@ export default function SceneView({ scene, choices, onChoice, sceneNav }) {
             pauseBetween={300}
             onComplete={handleComplete}
             onSkip={handleSkip}
-            sceneId={scene.id}
           />
         </div>
 

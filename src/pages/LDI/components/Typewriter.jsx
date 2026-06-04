@@ -1,34 +1,25 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-
-const CURSOR_BLINK = 530
+import { motion } from 'framer-motion'
 
 const PERSONAGEM_STYLE = {
-  'NeoGuide': { cor: '#00B4D8', fonte: 'Share Tech Mono' },
-  'Kaeda': { cor: '#FF6B6B', fonte: 'Rajdhani' },
-  'Voz': { cor: '#A855F4', fonte: 'JetBrains Mono' },
-  'StormByte_91': { cor: '#F97316', fonte: 'Share Tech Mono' },
-  'sistema': { cor: '#22C55E', fonte: 'JetBrains Mono' },
-  'default': { cor: '#00B4D8', fonte: 'Share Tech Mono' },
+  'NEOGULDE': { cor: '#00B4D8', fonte: "'Share Tech Mono', monospace" },
+  'KAEDA': { cor: '#FF6B6B', fonte: "'Rajdhani', sans-serif" },
+  'VOZ': { cor: '#A855F4', fonte: "'JetBrains Mono', monospace" },
+  'STORMBYTE': { cor: '#F97316', fonte: "'Share Tech Mono', monospace" },
+  'SISTEMA': { cor: '#22C55E', fonte: "'JetBrains Mono', monospace" },
 }
 
-const CENA_PERSONAGEM = {
-  '1.1': 'NeoGuide',
-  '1.1b': 'NeoGuide',
-  '1.1c': 'NeoGuide',
-  '1.1d': 'NeoGuide',
-  '2.1': 'Kaeda',
-  '2.1a': 'Kaeda',
-  '2.1b': 'Kaeda',
-  '2.1c': 'Kaeda',
-  '2.1d': 'Kaeda',
+function detectarPrefixo(texto) {
+  const match = texto.match(/^\[([A-Z_]+)\]\s*/)
+  if (match) return { personagem: match[1], textoLimpo: texto.replace(match[0], '') }
+  return { personagem: null, textoLimpo: texto }
 }
 
 function isFala(text) {
   return text?.startsWith('"') || text?.includes('—')
 }
 
-export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300, onComplete, onSkip, sceneId }) {
+export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300, onComplete, onSkip }) {
   const [displayedTexts, setDisplayedTexts] = useState([])
   const [currentPara, setCurrentPara] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
@@ -36,15 +27,17 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
   const [skipped, setSkipped] = useState(false)
   const containerRef = useRef(null)
 
+  const cleanTexts = paragraphs.map(p => detectarPrefixo(p).textoLimpo)
+
   const skip = useCallback(() => {
     if (done) return
     setSkipped(true)
     setDone(true)
-    setDisplayedTexts(paragraphs)
+    setDisplayedTexts(cleanTexts)
     setCurrentPara(paragraphs.length)
     onSkip?.()
     if (onComplete) setTimeout(onComplete, 100)
-  }, [done, paragraphs, onSkip, onComplete])
+  }, [done, cleanTexts, paragraphs.length, onSkip, onComplete])
 
   useEffect(() => {
     setDisplayedTexts([])
@@ -62,7 +55,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
       return
     }
 
-    const text = paragraphs[currentPara]
+    const text = cleanTexts[currentPara]
     if (!text) {
       setCurrentPara(p => p + 1)
       return
@@ -89,7 +82,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
       }, pauseBetween)
       return () => clearTimeout(timer)
     }
-  }, [currentPara, charIndex, paragraphs, speed, pauseBetween, skipped, onComplete])
+  }, [currentPara, charIndex, paragraphs, speed, pauseBetween, skipped, onComplete, cleanTexts])
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -108,19 +101,18 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
   return (
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
       {paragraphs.map((para, i) => {
-        const personagemId = CENA_PERSONAGEM[sceneId] || null
-        if (i === 0) console.log('[TW] sceneId recebido:', JSON.stringify(sceneId), 'personagemId:', personagemId)
-        const estiloPersonagem = personagemId && isFala(para) ? (PERSONAGEM_STYLE[personagemId] || PERSONAGEM_STYLE.default) : null
-        const className = `ldi-typewriter-para ${isFala(para) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`
+        const { personagem, textoLimpo } = detectarPrefixo(para)
+        const estilo = PERSONAGEM_STYLE[personagem] || null
+        const className = `ldi-typewriter-para ${isFala(textoLimpo) ? 'ldi-text-fala' : 'ldi-text-narrativa'}`
         return (
           <p
             key={i}
             className={className}
             style={{
               opacity: i <= currentPara ? 1 : 0.2,
-              ...(estiloPersonagem ? {
-                '--personagem-cor': estiloPersonagem.cor,
-                '--personagem-fonte': `'${estiloPersonagem.fonte}', monospace`,
+              ...(estilo ? {
+                '--personagem-cor': estilo.cor,
+                '--personagem-fonte': estilo.fonte,
               } : {}),
             }}
           >
