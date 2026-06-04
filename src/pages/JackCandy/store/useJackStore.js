@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.1.2'
+const JACK_VERSION = '1.1.3'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -71,7 +71,13 @@ export const useJackStore = create((set, get) => {
     limparMonologo: () => set({ monologoAtual: null }),
     setTitleDone: () => set({ titleDone: true }),
 
+    comprarBengala: () => {
+      console.log('[JACK] comprarBengala chamado. capangas:', get().capangas, 'TEM_BENGALA:', get().flags.TEM_BENGALA)
+      get().comprarItem('bengala_steampunk')
+    },
+
     comprarItem: (itemId) => {
+      console.log('[JACK] comprarItem chamado:', itemId, 'capangas:', get().capangas, 'TEM_BENGALA:', get().flags.TEM_BENGALA)
       const item = ITENS[itemId]
       if (!item) return
       const state = get()

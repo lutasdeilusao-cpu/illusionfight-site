@@ -26,6 +26,7 @@ export default function Intro() {
 
   // Pajé at 100 capangas
   useEffect(() => {
+    console.log('[JACK] Intro checando Pajé: capangas=', store.capangas, 'TEM_BENGALA=', store.flags.TEM_BENGALA)
     if (store.capangas >= 100 && !store.flags.TEM_BENGALA) {
       const t = setTimeout(() => setShowPaje(true), 500)
       return () => clearTimeout(t)
@@ -80,7 +81,10 @@ export default function Intro() {
           <div className="jack-buttons">
             <button
               className="jack-btn jack-btn--amber"
-              onClick={store.comprarBengala}
+              onClick={() => {
+                console.log('[JACK] clique comprar bengala')
+                store.comprarBengala()
+              }}
             >
               [ bengala steampunk — 100 capangas ]
             </button>
