@@ -79,6 +79,7 @@ export default function Investigacao({ localId }) {
   }
 
   const handlePuzzleFail = () => {
+    console.log('[INV] puzzle falhou. moral antes:', store.hpAtual, '| após:', store.hpAtual - DANO_PUZZLE_FALHOU)
     store.setHpAtual(store.hpAtual - DANO_PUZZLE_FALHOU)
     store.setMonologo(`fui visto. custa ${DANO_PUZZLE_FALHOU} de moral.`)
     setPuzzleFalhou(true)
@@ -120,13 +121,13 @@ export default function Investigacao({ localId }) {
             {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && 'resolva o puzzle para continuar.'}
           </p>
           <div className="jdc-investigacao-puzzle-area">
-            {local.puzzle === 'decoder' && <PuzzleDecoder onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
-            {local.puzzle === 'stealth' && <PuzzleStealthGrid onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 4, hasTimer: true }} />}
-            {local.puzzle === 'sliding' && <PuzzleSlidingTiles onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 3 }} />}
-            {local.puzzle === 'labirinto' && <PuzzleLabirinto onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
-            {local.puzzle === 'anagrama' && <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
+            {local.puzzle === 'decoder' && <PuzzleDecoder key={`decoder-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
+            {local.puzzle === 'stealth' && <PuzzleStealthGrid key={`stealth-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 4, hasTimer: true }} />}
+            {local.puzzle === 'sliding' && <PuzzleSlidingTiles key={`sliding-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} config={{ size: 3 }} />}
+            {local.puzzle === 'labirinto' && <PuzzleLabirinto key={`labirinto-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
+            {local.puzzle === 'anagrama' && <PuzzleAnagrama key={`anagrama-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
             {!['decoder', 'stealth', 'sliding', 'labirinto', 'anagrama'].includes(local.puzzle) && (
-              <PuzzleAnagrama onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />
+              <PuzzleAnagrama key={`anagrama-fallback-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />
             )}
           </div>
         </motion.div>

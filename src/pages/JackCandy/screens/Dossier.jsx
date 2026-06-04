@@ -20,6 +20,8 @@ export default function Dossier() {
 
   const handleAcusar = (suspeitoId) => {
     const suspeitoDoCaso = caso.suspeitos.find(x => x.id === suspeitoId)
+    console.log('[DOSSIER] acusando:', suspeitoId, '| culpado:', suspeitoDoCaso?.culpado)
+    console.log('[DOSSIER] confronto:', caso.confronto)
     if (suspeitoDoCaso?.culpado) {
       store.acusar(suspeitoId)
       store.setMonologo('é ele. sempre foi ele.')
@@ -40,6 +42,30 @@ export default function Dossier() {
 
   return (
     <motion.div className="jdc-dossier" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      {import.meta.env.DEV && (
+        <div style={{ marginBottom: '0.5rem', display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}>
+          <button className="jack-btn" style={{ fontSize: '0.6rem', borderColor: '#333', color: '#555' }}
+            onClick={() => {
+              useJackStore.setState({
+                suspeitos: caso.suspeitos.map(s => ({ ...s, status: 'ativo' })),
+                pistasColetadas: caso.locais.flatMap(l => l.pistas || []),
+                locaisVisitados: caso.locais.map(l => l.id),
+                acusacoesErradas: 0,
+              })
+              console.log('[DEBUG] caso preenchido:', store.casoAtivo)
+            }}>
+            [debug: preencher caso]
+          </button>
+          <button className="jack-btn" style={{ fontSize: '0.6rem', borderColor: '#333', color: '#555' }}
+            onClick={() => {
+              useJackStore.setState({ casoAtivo: null, pistasColetadas: [], suspeitos: [], locaisVisitados: [], acusacoesErradas: 0 })
+              console.log('[DEBUG] caso limpo')
+            }}>
+            [debug: limpar caso]
+          </button>
+        </div>
+      )}
+
       <div className="jdc-dossier-header">
         <span className="jdc-dossier-titulo">📋 {caso.nome}</span>
         <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>
@@ -47,14 +73,12 @@ export default function Dossier() {
         </button>
       </div>
 
-      {/* Narração de abertura */}
       <div className="jdc-dossier-abertura">
         {caso.abertura.map((p, i) => (
           <p key={i} className="jack-text jack-text--dim" style={{ fontStyle: 'italic' }}>{p}</p>
         ))}
       </div>
 
-      {/* Suspeitos */}
       <div className="jdc-dossier-suspeitos">
         <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>SUSPEITOS</p>
         {store.suspeitos.map(s => (
@@ -68,7 +92,6 @@ export default function Dossier() {
         ))}
       </div>
 
-      {/* Pistas coletadas */}
       <div className="jdc-dossier-pistas">
         <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
           PISTAS ({store.pistasColetadas.length}/{caso.pistasNecessarias} mínimo)
@@ -79,7 +102,6 @@ export default function Dossier() {
         {store.pistasColetadas.map(pid => (
           <PistaCard key={pid} pista={PISTAS[pid]} />
         ))}
-
         {store.pistasColetadas.length >= caso.pistasNecessarias && (
           <div className="jdc-dossier-dica">
             👓 "você tem evidências suficientes para uma acusação. mas mais pistas aumentam suas chances." — Prof. Máquina
@@ -87,12 +109,22 @@ export default function Dossier() {
         )}
       </div>
 
-      {/* Acusar */}
       <div className="jdc-dossier-acusar">
         {!showAcusar ? (
-          <button className="jack-btn jack-btn--crimson" onClick={() => setShowAcusar(true)} disabled={!pistasSuficientes}>
-            {pistasSuficientes ? '[ acusar ]' : `[ acusar — ${store.pistasColetadas.length}/${caso.pistasNecessarias} pistas ]`}
-          </button>
+          <>
+            <button className="jack-btn jack-btn--crimson" onClick={() => setShowAcusar(true)} disabled={!pistasSuficientes}
+              style={{ marginBottom: '0.3rem' }}>
+              {pistasSuficientes ? '[ acusar ]' : `[ acusar — ${store.pistasColetadas.length}/${caso.pistasNecessarias} pistas ]`}
+            </button>
+            {suspeitosAtivos.length === 0 && (
+              <button className="jack-btn" onClick={() => {
+                useJackStore.setState({ suspeitos: caso.suspeitos.map(s => ({ ...s, status: 'ativo' })) })
+                setShowAcusar(false)
+              }} style={{ fontSize: '0.65rem', borderColor: '#444', color: '#666' }}>
+                [ reiniciar suspeitos ]
+              </button>
+            )}
+          </>
         ) : (
           <div>
             <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>quem é o culpado?</p>
@@ -115,7 +147,6 @@ export default function Dossier() {
         )}
       </div>
 
-      {/* Locais do caso */}
       <div className="jdc-dossier-locais">
         <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
           LOCAIS PARA INVESTIGAR
@@ -123,15 +154,9 @@ export default function Dossier() {
         {caso.locais.map(loc => {
           const visitado = store.locaisVisitados.includes(loc.id)
           return (
-            <button
-              key={loc.id}
-              className={`jdc-dossier-local ${visitado ? 'jdc-dossier-local--visitado' : ''}`}
-              onClick={() => {
-                store.setMonologo(loc.desc)
-                store.setFase(`investigar_${loc.id}`)
-              }}
-              style={{ borderLeftColor: visitado ? '#22C55E' : '#F5A623' }}
-            >
+            <button key={loc.id} className={`jdc-dossier-local ${visitado ? 'jdc-dossier-local--visitado' : ''}`}
+              onClick={() => { store.setMonologo(loc.desc); store.setFase(`investigar_${loc.id}`) }}
+              style={{ borderLeftColor: visitado ? '#22C55E' : '#F5A623' }}>
               <span>{visitado ? '✅' : '🔍'}</span>
               <div className="jdc-dossier-local-info">
                 <span className="jack-text" style={{ fontSize: '0.8rem' }}>{loc.nome}</span>
