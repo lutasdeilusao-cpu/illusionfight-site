@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.7'
+const PP_VERSION = '1.3.8'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -281,7 +281,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
 function ConvoView({ caso, tipo, onBack }) {
   const [msgs, setMsgs] = useState([])
   const [digitandoDe, setDigitandoDe] = useState(null)
-  const endRef = useRef(null)
+  const msgsContainerRef = useRef(null)
 
   const dialogo = tipo === 'abertura'
     ? caso.dialogo?.abertura || []
@@ -322,7 +322,9 @@ function ConvoView({ caso, tipo, onBack }) {
   }, [])
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior:'smooth' })
+    if (msgsContainerRef.current) {
+      msgsContainerRef.current.scrollTop = msgsContainerRef.current.scrollHeight
+    }
   }, [msgs, digitandoDe])
 
   return (
@@ -340,7 +342,7 @@ function ConvoView({ caso, tipo, onBack }) {
       </div>
 
       {/* Mensagens — scrollável independente */}
-      <div style={{ flex:1, overflowY:'auto', padding:'1rem', display:'flex', flexDirection:'column', gap:'0.5rem', maxHeight:'calc(100vh - 180px)' }}>
+      <div ref={msgsContainerRef} style={{ flex:1, overflowY:'auto', padding:'1rem', display:'flex', flexDirection:'column', gap:'0.5rem' }}>
         {msgs.map(msg => {
           if (msg.tipo === 'narracao') {
             return (
@@ -391,8 +393,6 @@ function ConvoView({ caso, tipo, onBack }) {
             </div>
           )
         })()}
-
-        <div ref={endRef} />
       </div>
     </div>
   )
