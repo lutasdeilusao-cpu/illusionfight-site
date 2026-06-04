@@ -78,7 +78,7 @@ export default function JackCandy() {
   }
 
   const fase = store.fase || 'intro'
-  const isDungeon = fase.startsWith('dungeon_')
+  const isDungeon = fase.startsWith('dungeon_') && fase !== 'dungeon_select'
   const isInterior = fase.startsWith('interior_')
   const npcId = isInterior ? fase.replace('interior_', '') : null
   const dungeonId = isDungeon ? fase.replace('dungeon_', '') : null
