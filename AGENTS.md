@@ -43,6 +43,12 @@ LDI_VERSION → '1.0.xx'. Deploy + commit + push + hash + SITE_MAP.
 ```
 (substituir LDI_VERSION pela versão do jogo trabalhado)
 
+**RELATÓRIO OBRIGATÓRIO:** Toda task concluída DEVE entregar tabela com:
+- Arquivo modificado | O que mudou
+- Versão anterior → nova versão
+- Commit hash
+- Status do deploy
+
 ## ⚠️ REGRA ABSOLUTA — Toda alteração, sem exceção
 
 **Toda vez que você modificar qualquer arquivo de qualquer jogo, ANTES de encerrar a conversa ou passar pra próxima task:**

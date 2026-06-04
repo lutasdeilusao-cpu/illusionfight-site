@@ -48,7 +48,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
-    if (game.id === 'stealth' || game.id === 'decoder' || game.id === 'sliding') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (['stealth','decoder','sliding','labirinto'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -93,7 +93,7 @@ export default function MiniGames() {
         const slidingSize = difSliding === 'hard' ? 5 : difSliding === 'medium' ? 4 : 3
         console.log('[SLIDING] difficulty:', difSliding, '| size:', slidingSize)
         return <PuzzleSlidingTiles {...props} config={{ size: slidingSize }} />
-      case 'labirinto': return <PuzzleLabirinto {...props} />
+      case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} />
       default: return null
     }
@@ -113,10 +113,10 @@ export default function MiniGames() {
         { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
         { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
       ],
-      sliding: [
-        { id: 'easy', label: 'FÁCIL', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', badge: 'FREE', free: true, cor: '#22C55E' },
-        { id: 'medium', label: 'MÉDIO', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#8B0000' },
+      labirinto: [
+        { id: 'easy',   label: 'FÁCIL',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', badge: 'FREE',  free: true, cor: '#22C55E'  },
+        { id: 'medium', label: 'MÉDIO',   specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard',   label: 'DIFÍCIL', specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#8B0000' },
       ],
     }
     const difs = DIF_CONFIGS[jogoAtivo.id] || []
