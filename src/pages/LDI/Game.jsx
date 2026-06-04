@@ -45,7 +45,7 @@ export default function Game() {
 
   useEffect(() => {
     if (!sheet?.sheet_name) {
-      navigate('/extras/ldi/create')
+      navigate('/extras/ldi')
       return
     }
     if (!currentScene && save.status === 'active') {
