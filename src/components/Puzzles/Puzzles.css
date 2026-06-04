@@ -126,8 +126,12 @@
 }
 
 .puzzle-stealth-cell--vision {
-  background: rgba(224,32,32,0.08);
-  border-color: rgba(224,32,32,0.2);
+  background-color: rgba(139, 0, 0, 0.35);
+  border-color: rgba(139, 0, 0, 0.5);
+}
+
+.puzzle-stealth-cell--caught {
+  background-color: rgba(139, 0, 0, 0.7);
 }
 
 /* DPAD */
