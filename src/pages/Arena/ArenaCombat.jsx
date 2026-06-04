@@ -10,6 +10,7 @@ const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = { fists: 'Mãos Livres', armed: 'Armado', power: 'Poder' }
+const DIFF_COLORS = { easy: '#22C55E', medium: '#F5A623', hard: '#8B0000', very_hard: '#A855F4' }
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
 
@@ -33,7 +34,6 @@ function DiceSlot({ finalValue, onDone }) {
     let frame
     const start = Date.now()
     const rollDuration = 800
-
     function roll() {
       const elapsed = Date.now() - start
       if (elapsed < rollDuration) {
@@ -114,16 +114,23 @@ export default function ArenaCombat({ onNavigate }) {
   const saidNearDeath = useRef(false)
   const saidEnemyLow = useRef(false)
   const diceDoneRef = useRef(null)
+  const chatQueue = useRef(Promise.resolve())
 
   const logRef = useRef(null)
   const elemental = sheet?.elemental || 'neutro'
   const availablePowers = POWERS_BY_ELEMENTAL[elemental] || POWERS_BY_ELEMENTAL.neutro
 
+  const playerInitial = (sheet?.sheet_name || 'V')[0].toUpperCase()
+  const enemyInitial = (enemy?.name || 'I')[0].toUpperCase()
+
   useEffect(() => {
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
-    setLog([{ type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}` }])
+    setLog([{
+      type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}`,
+      id: Date.now()
+    }])
     saidNearDeath.current = false
     saidEnemyLow.current = false
   }, [])
@@ -132,18 +139,34 @@ export default function ArenaCombat({ onNavigate }) {
     logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
   }, [log.length])
 
-  const addLog = (type, text) => setLog(l => [...l, { type, text }])
+  const addLogWithDelay = (type, text, sender) => {
+    const msgId = Date.now() + Math.random()
+    const typingTime = Math.min(300 + text.length * 18, 1800)
+    chatQueue.current = chatQueue.current.then(async () => {
+      setLog(l => [...l, { type, text: '__typing__', id: msgId + '-typing', sender }])
+      await delay(typingTime)
+      setLog(l => l.map(m => m.id === msgId + '-typing' ? { ...m, text, id: msgId } : m))
+    })
+  }
 
-  const addTrash = (category, immediate = false) => {
+  const addTrashWithDelay = (category) => {
     const talk = enemy?.trash_talk?.[category]
     const line = pickTrash(talk)
     if (!line) return
-    const text = `${enemy.name}: ${line}`
-    if (immediate) {
-      setLog(l => [...l, { type: 'trash', text }])
-    } else {
-      setTimeout(() => { setLog(l => [...l, { type: 'trash', text }]) }, 400)
-    }
+    chatQueue.current = chatQueue.current.then(async () => {
+      await delay(600)
+      const text = `${enemy.name}: ${line}`
+      const typingTime = Math.min(300 + text.length * 18, 1800)
+      setLog(l => [...l, { type: 'trash', text: '__typing__', id: Date.now() + '-typing', sender: { name: enemy.name, initial: enemyInitial, side: 'enemy' } }])
+      await delay(typingTime)
+      setLog(l => l.map(m => m.text === '__typing__' && m.type === 'trash' ? { ...m, text, id: Date.now() } : m))
+    })
+  }
+
+  const addSystemLog = (text) => {
+    chatQueue.current = chatQueue.current.then(async () => {
+      setLog(l => [...l, { type: 'system', text, id: Date.now() }])
+    })
   }
 
   const showDice = (value) => {
@@ -184,39 +207,38 @@ export default function ArenaCombat({ onNavigate }) {
     const fd = calcFD(getEnemySheet(), true)
     const baseDmg = Math.max(0, calcDamage(Number(fa.value)||0, Number(fd.value)||0))
     const dmg = baseDmg + pBonus
-    const playerSide = mode === 'power' ? 'power' : 'player'
 
-    // 1-3. DiceSlot do jogador (rolando + mostrando)
+    // 1-2. DiceSlot do jogador
     await showDice(fa.roll)
     setDiceValue(null)
 
-    // 4-5. Onomatopeia
+    // 3. Onomatopeia
     setShowOnomatopeia(mode)
     await delay(600)
     setShowOnomatopeia(null)
 
-    // 6. Log de ataque do jogador
+    // 4. Log de ataque (com typing)
     if (powerCost > 0) {
       setPlayerPm(p => Math.max(0, p - powerCost))
       const pname = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
-      addLog(playerSide, `⚡ ${pname} gastou ${powerCost} PM (+${pBonus} dano)`)
+      addLogWithDelay('player', `⚡ ${pname} gastou ${powerCost} PM (+${pBonus} dano)`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
     }
-    addLog(playerSide, `Você ataca (${fa.breakdown}) vs FD ${fd.value} = ${dmg} dano`)
+    addLogWithDelay('player', `Você ataca (${fa.breakdown}) vs FD ${fd.value} = ${dmg} dano`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
 
-    // 7. Dano flutuante sobre o inimigo
+    // 5. Dano flutuante sobre o inimigo
     const nextEpv = Math.max(0, enemyPv - dmg)
     setEnemyPv(nextEpv)
     if (dmg > 0) {
       setDamageFloat({ value: dmg, target: 'enemy' })
-      if (fa.roll === 6) addTrash('take_critical')
-      else addTrash('take_damage')
+      if (fa.roll === 6) addTrashWithDelay('take_critical')
+      else addTrashWithDelay('take_damage')
     }
     await delay(800)
     setDamageFloat(null)
 
-    // 8. Inimigo morreu → vitória
+    // 6. Inimigo morreu → vitória
     if (nextEpv <= 0) {
-      addLog('system', '⚔️ VITÓRIA!')
+      addSystemLog('⚔️ VITÓRIA!')
       await delay(600)
       endMatch('victory')
       return
@@ -224,17 +246,17 @@ export default function ArenaCombat({ onNavigate }) {
 
     if (nextEpv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
       saidEnemyLow.current = true
-      addTrash('enemy_near_death')
+      addTrashWithDelay('enemy_near_death')
     }
 
     // ======== FASE DO INIMIGO ========
 
-    // 9. Overlay "VEZ DO INIMIGO"
+    // 7. Overlay
     setShowEnemyTurn(true)
     await delay(1500)
     setShowEnemyTurn(false)
 
-    // 10-11. Flash + DiceSlot do inimigo
+    // 8-9. Flash + DiceSlot
     setFlashRed(true)
     const eMode = enemy.preferred_mode || 'fists'
     const eBonus = Number(enemy.weapon_damage) || 0
@@ -248,21 +270,20 @@ export default function ArenaCombat({ onNavigate }) {
     setFlashRed(false)
     setShowOnomatopeia(null)
 
-    // 12. Log de ataque do inimigo
-    addLog('enemy', `${enemy.name} ataca (${eFA.breakdown}) vs sua FD ${eFD.value} = ${eDmg} dano`)
+    // 10. Log inimigo (com typing)
+    addLogWithDelay('enemy', `${enemy.name} ataca (${eFA.breakdown}) vs sua FD ${eFD.value} = ${eDmg} dano`, { name: enemy.name, initial: enemyInitial, side: 'enemy' })
 
-    // 13. Dano flutuante sobre o jogador
+    // 11. Dano no jogador
     if (eDmg > 0) {
       const nextPv = Math.max(0, playerPv - eDmg)
       setPlayerPv(nextPv)
       setDamageFloat({ value: eDmg, target: 'player' })
-      addTrash('attack_hit')
-
+      addTrashWithDelay('attack_hit')
       await delay(800)
       setDamageFloat(null)
 
       if (nextPv <= 0) {
-        addLog('system', '💀 Você foi derrotado!')
+        addSystemLog('💀 Você foi derrotado!')
         await delay(600)
         endMatch('defeat')
         return
@@ -270,14 +291,14 @@ export default function ArenaCombat({ onNavigate }) {
 
       if (nextPv <= isR && !saidNearDeath.current) {
         saidNearDeath.current = true
-        addTrash('player_near_death')
+        addTrashWithDelay('player_near_death')
       }
     } else {
-      addTrash('attack_miss')
+      addTrashWithDelay('attack_miss')
       await delay(800)
     }
 
-    // 14. Reabilitar botão
+    // 12. Reabilitar
     setAnimating(false)
   }
 
@@ -313,6 +334,30 @@ export default function ArenaCombat({ onNavigate }) {
   const pvPct = Math.max(0, (playerPv / pvMax) * 100)
   const epvPct = Math.max(0, (enemyPv / (Number(enemy.pv_max) || 10)) * 100)
   const nearDeath = playerPv <= isR
+
+  const renderBubble = (type, text, sender) => {
+    const avatarClass = type === 'player' ? 'arena-chat-avatar--player' : type === 'trash' ? 'arena-chat-avatar--trash' : 'arena-chat-avatar--enemy'
+    const bubbleClass = type === 'player' ? 'arena-chat-bubble--player' : type === 'trash' ? 'arena-chat-bubble--trash' : 'arena-chat-bubble--enemy'
+    const msgClass = type === 'player' ? 'arena-chat-msg arena-chat-msg--player' : 'arena-chat-msg'
+
+    if (text === '__typing__') {
+      return (
+        <motion.div key={Math.random()} className={msgClass} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+          <div className={`arena-chat-avatar ${avatarClass}`}>{sender?.initial || '?'}</div>
+          <div className="arena-chat-bubble arena-chat-typing">
+            <div className="arena-chat-dot" /><div className="arena-chat-dot" /><div className="arena-chat-dot" />
+          </div>
+        </motion.div>
+      )
+    }
+
+    return (
+      <motion.div key={Math.random()} className={msgClass} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+        <div className={`arena-chat-avatar ${avatarClass}`}>{sender?.initial || '?'}</div>
+        <div className={`arena-chat-bubble ${bubbleClass}`}>{text}</div>
+      </motion.div>
+    )
+  }
 
   return (
     <div className="arena-combat arena-container">
@@ -398,11 +443,15 @@ export default function ArenaCombat({ onNavigate }) {
 
       <div className="arena-log-area">
         <div className="arena-log-feed">
-          {log.slice(-8).map((l, i) => {
-            if (l.type === 'system') return <div key={i} className="arena-log-system">{l.text}</div>
-            if (l.type === 'trash') return <div key={i} className="arena-log-bubble arena-log-bubble--trash">{l.text}</div>
-            if (l.type === 'enemy') return <div key={i} className="arena-log-bubble arena-log-bubble--enemy">{l.text}</div>
-            return <div key={i} className="arena-log-bubble arena-log-bubble--player">{l.text}</div>
+          {log.map(l => {
+            if (l.type === 'system') {
+              return (
+                <motion.div key={l.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
+                  <div className="arena-chat-bubble arena-chat-bubble--system">{l.text}</div>
+                </motion.div>
+              )
+            }
+            return renderBubble(l.type, l.text, l.sender)
           })}
           <div ref={logRef} />
         </div>
@@ -423,7 +472,7 @@ export default function ArenaCombat({ onNavigate }) {
               onClick={() => setMode(m)} disabled={animating}>{icon} {MODE_LABELS[m]}</button>
           ))}
         </div>
-        <button className="arena-btn-flee" onClick={() => { addLog('system', '🏃 Você fugiu!'); store.endMatch('defeat'); onNavigate('lobby') }} disabled={animating}>FUGIR</button>
+        <button className="arena-btn-flee" onClick={() => { store.endMatch('defeat'); onNavigate('lobby') }} disabled={animating}>FUGIR</button>
         {mode === 'power' && selectedPowers.length > 0 && (
           <div className="arena-power-attacks">
             {selectedPowers.map(id => {

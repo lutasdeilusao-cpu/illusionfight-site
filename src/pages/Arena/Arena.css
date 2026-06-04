@@ -64,48 +64,102 @@
 .arena-loading, .arena-empty { text-align: center; color: #666; padding: 40px; }
 
 /* ===== LOBBY ===== */
-.arena-sheet-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px; padding: 0 20px 20px;
+.arena-lobby-intro {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; padding: 48px 20px 32px;
 }
-.arena-sheet-card {
-  background: #111; border: 1px solid #222; padding: 16px; cursor: pointer;
-  transition: border-color 0.2s;
+.arena-ng-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #0d2a35; border: 2px solid #00B4D8; color: #00B4D8;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
 }
-.arena-sheet-card:hover { border-color: #00B4D8; }
-.arena-sheet-emoji { font-size: 28px; margin-bottom: 6px; }
-.arena-sheet-name { font-size: 16px; color: #F5A623; margin-bottom: 4px; }
-.arena-sheet-attrs { font-size: 10px; color: #555; margin-bottom: 4px; }
-.arena-sheet-xp { font-size: 10px; color: #00B4D8; }
-.arena-sheet-cta {
-  margin-top: 8px; text-align: center; color: #8B0000; font-weight: bold;
-  font-size: 14px; border: 1px solid #8B0000; padding: 4px;
+.arena-ng-text {
+  font-family: 'Courier New', monospace; font-size: 14px;
+  color: #aaa; text-align: center; line-height: 1.7; max-width: 420px;
 }
+.arena-ng-cursor {
+  display: inline-block; width: 8px; height: 16px; background: #00B4D8;
+  vertical-align: text-bottom; margin-left: 2px;
+  animation: arena-blink 0.8s step-end infinite;
+}
+.arena-ng-btn {
+  margin-top: 8px; background: #111; border: 1px solid #00B4D8; color: #00B4D8;
+  padding: 8px 24px; cursor: pointer; font-family: inherit; font-size: 13px;
+  letter-spacing: 2px; transition: all 0.2s;
+}
+.arena-ng-btn:hover { background: #0a1a1f; border-color: #00B4D8; }
+
+.arena-sheet-list {
+  display: flex; flex-direction: column; gap: 8px; padding: 0 20px;
+  max-width: 600px; margin: 0 auto;
+}
+.arena-sheet-card-v {
+  display: flex; align-items: center; gap: 12px;
+  background: #111; border: 1px solid #222; padding: 14px 16px;
+  cursor: pointer; transition: all 0.2s;
+  border-left: 4px solid var(--elem-cor, #444);
+}
+.arena-sheet-card-v:hover { border-left-color: var(--elem-cor-hover, #fff); transform: translateX(4px); }
+.arena-sheet-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--elem-cor, #444);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: bold; color: #fff;
+  flex-shrink: 0; font-family: 'Courier New', monospace;
+}
+.arena-sheet-info { flex: 1; min-width: 0; }
+.arena-sheet-name-v { font-size: 15px; color: #eee; margin-bottom: 2px; }
+.arena-sheet-sub {
+  font-size: 10px; color: #666; margin-bottom: 4px;
+  display: flex; gap: 8px; align-items: center;
+}
+.arena-sheet-attrs-v {
+  font-size: 9px; color: #555; letter-spacing: 1px;
+}
+.arena-sheet-arrow { color: #00B4D8; font-size: 18px; flex-shrink: 0; }
 
 .arena-new-sheet {
-  margin: 0 20px 30px; padding: 14px; text-align: center;
+  margin: 16px auto 30px; padding: 14px; text-align: center;
   border: 2px dashed #222; color: #F5A623; cursor: pointer; font-size: 14px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s; max-width: 600px;
 }
 .arena-new-sheet:hover { border-color: #F5A623; }
 
 /* ===== ENEMY SELECT ===== */
-.arena-enemy-select { padding: 0 20px; }
-.arena-enemy-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 10px; padding: 8px 20px 20px;
+.arena-enemy-list {
+  display: flex; flex-direction: column; gap: 8px; padding: 0 20px;
+  max-width: 600px; margin: 0 auto;
 }
-.arena-enemy-card {
-  background: #111; border: 1px solid #222; padding: 12px; cursor: pointer;
-  transition: border-color 0.2s; border-left: 3px solid var(--cor);
+.arena-enemy-tier-sep {
+  font-size: 10px; color: #444; letter-spacing: 4px; text-transform: uppercase;
+  padding: 12px 0 4px; border-top: 1px solid #1a1a1a; margin-top: 8px;
 }
-.arena-enemy-card:hover { border-color: var(--cor); }
-.arena-enemy-tier { font-size: 9px; color: var(--cor); letter-spacing: 2px; }
-.arena-enemy-name { font-size: 14px; color: #eee; margin: 4px 0; }
-.arena-enemy-rank { font-size: 10px; color: #666; }
-.arena-enemy-stats { font-size: 9px; color: #555; margin-top: 4px; }
-.arena-enemy-mode { font-size: 11px; color: #F5A623; margin-top: 2px; }
-.arena-enemy-elemental { font-size: 10px; color: var(--cor); margin-top: 2px; }
+.arena-enemy-card-v {
+  display: flex; align-items: center; gap: 12px;
+  background: #111; border: 1px solid #222; padding: 12px 16px;
+  cursor: pointer; transition: all 0.2s;
+  border-left: 4px solid var(--cor, #444);
+  position: relative;
+}
+.arena-enemy-card-v:hover { border-left-color: var(--cor, #F5A623); transform: translateX(4px); }
+.arena-enemy-diff {
+  position: absolute; top: 8px; right: 10px;
+  font-size: 8px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor, #888);
+}
+.arena-enemy-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--cor, #333);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: bold; color: #fff;
+  flex-shrink: 0; font-family: 'Courier New', monospace;
+  opacity: 0.8;
+}
+.arena-enemy-info { flex: 1; min-width: 0; }
+.arena-enemy-name-v { font-size: 14px; color: #eee; margin-bottom: 2px; }
+.arena-enemy-rank-v { font-size: 9px; color: #555; margin-bottom: 2px; }
+.arena-enemy-attrs-v { font-size: 9px; color: #555; letter-spacing: 1px; }
 
 .arena-btn-sair {
   display: block; margin: 0 20px 20px; background: none; border: 1px solid #333;
@@ -281,37 +335,59 @@
   font-weight: bold; letter-spacing: 2px;
 }
 
-/* ===== LOG ===== */
+/* ===== CHAT LOG ===== */
 .arena-log-area {
   background: #060606; border: 1px solid #1a1a1a; padding: 10px;
-  min-height: 120px; max-height: 180px; overflow-y: auto; margin-bottom: 12px;
+  min-height: 120px; max-height: 200px; overflow-y: auto; margin-bottom: 12px;
   position: relative;
 }
-.arena-log-feed { display: flex; flex-direction: column; gap: 4px; }
-.arena-log-system {
-  text-align: center; font-size: 10px; color: #444; padding: 4px 0;
-  border-bottom: 1px solid #111;
+.arena-log-feed { display: flex; flex-direction: column; gap: 2px; }
+
+.arena-chat-msg { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 8px; }
+.arena-chat-msg--player { flex-direction: row-reverse; }
+
+.arena-chat-avatar {
+  width: 28px; height: 28px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 11px;
+  font-weight: bold; flex-shrink: 0; font-family: 'Courier New', monospace;
 }
-.arena-log-bubble {
-  max-width: 85%; padding: 6px 10px; border-radius: 8px; font-size: 11px;
-  line-height: 1.4; word-break: break-word;
+.arena-chat-avatar--player { background: #0d2a35; border: 1px solid #00B4D8; color: #00B4D8; }
+.arena-chat-avatar--enemy { background: #2a0d0d; border: 1px solid #8B0000; color: #cc4444; }
+.arena-chat-avatar--trash { background: #1a1508; border: 1px solid #F5A623; color: #F5A623; }
+
+.arena-chat-bubble {
+  max-width: 80%; padding: 8px 12px; font-size: 11px; line-height: 1.5;
+  font-family: 'Courier New', monospace;
 }
-.arena-log-bubble--player {
-  align-self: flex-end; background: #0a1a1f; color: #00B4D8;
-  border: 1px solid #0d2a35; border-bottom-right-radius: 2px;
+.arena-chat-bubble--player {
+  background: #0a1f2a; border: 1px solid #0d3040;
+  border-bottom-right-radius: 2px; color: #00B4D8;
 }
-.arena-log-bubble--enemy {
-  align-self: flex-start; background: #1a0a0a; color: #cc5555;
-  border: 1px solid #2a0d0d; border-bottom-left-radius: 2px;
+.arena-chat-bubble--enemy {
+  background: #1a0808; border: 1px solid #2a0d0d;
+  border-bottom-left-radius: 2px; color: #cc5555;
 }
-.arena-log-bubble--trash {
-  align-self: flex-start;
-  background: #0f0f0f;
-  color: #F5A623;
-  border: 1px solid #2a2000;
-  border-left: 3px solid #F5A623;
-  font-style: italic;
-  font-size: 11px;
+.arena-chat-bubble--trash {
+  background: #0f0f0a; border: 1px solid #2a2000;
+  border-left: 3px solid #F5A623; color: #F5A623; font-style: italic;
+}
+.arena-chat-bubble--system {
+  background: transparent; border: none; color: #444; font-size: 10px;
+  text-align: center; width: 100%; padding: 4px 0;
+}
+
+.arena-chat-typing {
+  display: flex; gap: 4px; align-items: center; padding: 8px 12px;
+}
+.arena-chat-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #cc4444;
+  animation: arena-typing 1s infinite;
+}
+.arena-chat-dot:nth-child(2) { animation-delay: 0.2s; }
+.arena-chat-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes arena-typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
 }
 
 /* ===== ONOMATOPEIA ===== */
