@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.58` (console: `[LDI] versão carregada: 1.0.58`)  
+**Versão atual:** `1.0.60` (console: `[LDI] versão carregada: 1.0.60`)  
 **Rota:** `/extras/ldi/*`
 
 ---
@@ -409,7 +409,7 @@
 **Status:** ✅ v1.0.0 — Store + StatusBar + Intro + Save Supabase  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.1.0` (console: `[JACK] versão carregada: 1.1.0`)  
+**Versão atual:** `1.1.1` (console: `[JACK] versão carregada: 1.1.1`)  
 **Rota:** `/extras/jackcandy`
 
 ### Mecânicas Implementadas (v1.0.0)
