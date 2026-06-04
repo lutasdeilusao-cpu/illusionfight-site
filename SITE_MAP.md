@@ -482,6 +482,8 @@ src/pages/LDI/
 - Seleção de até 4 poderes elementais antes do combate (42 poderes em 7 elementais)
 - Título animado typewriter + glitch no Lobby
 - Cards de ficha redesenhados com badges de atributos, arma, elemental, arco
+- Sistema de personagem por prefixo `[NOME]` no texto → cor, fonte e bg sutil por personagem
+- F5 no jogo redireciona pro Lobby em vez de recriar ficha
 
 ### Bugfixes aplicados
 - ✅ **NeoGuide repetindo (CRÍTICO)** — Create.jsx setava `current_scene_id: '1.1'` (cena NeoGuide no jogo). Corrigido para `'1.2'`, pulando as cenas 1.1→1.1d já respondidas no formulário. Adicionado `useEffect` guard que redireciona ao jogo se ficha já existe. `LDI_VERSION 1.0.1`. Commit: `2e5e77a`.
@@ -548,6 +550,31 @@ src/pages/LDI/
 - ✅ **skip function** — ao pular digitação, exibe todos os textos sem prefixo
 - ✅ **Log [TW] removido** — debug temporário removido
 - `LDI_VERSION 1.0.35`. Commit: `fc7170b`
+
+### Changelog — v1.0.36 a v1.0.42 (Fontes por personagem — o debug)
+- ✅ **v1.0.36** — Tentativa de fontFamily inline direto no style (não funcionou, conflito com CSS)
+- ✅ **v1.0.37** — Fonte via classes CSS específicas (`.ldi-text-fala--kaeda`) com maior especificidade
+- ✅ **v1.0.38** — Log `[TW] prefixo detectado` debug (só no primeiro parágrafo — bug)
+- ✅ **v1.0.39** — Log corrigido: `if (personagem)` em vez de `if (i === 0)` 
+- ✅ **v1.0.40** — `font-family` removido de `.ldi-text-fala` base para evitar conflito com classes específicas
+- ✅ **v1.0.41** — Volta ao inline fontFamily direto (removidas classes CSS), mas **sem quotes** nos nomes compostos — `JetBrains Mono` sem aspas = browser não encontrava a fonte
+- ✅ **v1.0.42** — **BUG REAL ENCONTRADO**: nomes de fonte com espaço (JetBrains Mono, Share Tech Mono) precisam de quotes! `fonte: "'JetBrains Mono', monospace"` → `font-family: 'JetBrains Mono', monospace` válido
+- `LDI_VERSION 1.0.42`. Commit: `73f20f3`
+
+### Changelog — v1.0.43 (Fontes definitivas por personagem)
+- ✅ **NEOGULDE** → Arial, Helvetica, sans-serif (clean, tech)
+- ✅ **KAEDA** → Georgia, Times New Roman, serif (clássico, sério)
+- ✅ **VOZ** → Trebuchet MS, Lucida Grande, sans-serif (largo, distinto)
+- ✅ **STORMBYTE** → Courier New, Courier, monospace (digital/máquina)
+- ✅ **SISTEMA** → Impact, Haettenschweiler, Arial Black (pesado, dramático)
+- Todas são fontes nativas do sistema (sem dependência de Google Fonts)
+- `LDI_VERSION 1.0.43`. Commit: `ee63a56`
+
+### Changelog — v1.0.44 a v1.0.46 (BG sutil + F5 redirect)
+- ✅ **v1.0.44** — `--personagem-bg` com rgba 6% opacidade + `border-radius: 0 4px 4px 0` nas falas
+- ✅ **v1.0.45** — F5 no Game.jsx redireciona pro Lobby (`/extras/ldi`) em vez da Create
+- ✅ **v1.0.46** — BG de personagem aumentado pra 12% opacidade (mais visível no fundo escuro)
+- `LDI_VERSION 1.0.46`. Commit: `c39b537`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
