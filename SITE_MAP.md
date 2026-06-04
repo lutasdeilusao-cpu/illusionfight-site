@@ -398,8 +398,14 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.60` (console: `[LDI] versão carregada: 1.0.60`)  
+**Versão atual:** `1.0.61` (console: `[LDI] versão carregada: 1.0.61`)  
 **Rota:** `/extras/ldi/*`
+
+### LDI Arena Mode — Proposta
+**Status:** 📋 Proposta documentada  
+**Documento:** `docs/PROPOSTA_LDI_ARENA.md`  
+**Manual de Batalha:** `docs/importantes/MANUAL_BATALHA_LDI.md` (v1.0)
+**Descrição:** Extração do sistema de combate + criação de ficha como jogo standalone sem narrativa.
 
 ---
 
