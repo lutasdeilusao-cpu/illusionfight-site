@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.49` (console: `[LDI] versão carregada: 1.0.49`)  
+**Versão atual:** `1.0.50` (console: `[LDI] versão carregada: 1.0.50`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -575,6 +575,13 @@ src/pages/LDI/
 - ✅ **v1.0.45** — F5 no Game.jsx redireciona pro Lobby (`/extras/ldi`) em vez da Create
 - ✅ **v1.0.46** — BG de personagem aumentado pra 12% opacidade (mais visível no fundo escuro)
 - `LDI_VERSION 1.0.46`. Commit: `c39b537`
+
+### Changelog — v1.0.47 a v1.0.50 (SITE_MAP + Fontes + Expansão)
+- ✅ **v1.0.47** — SITE_MAP atualizado com histórico completo
+- ✅ **v1.0.48** — Fonte Orbitron + glitch vinho + sombra vinho no título do Lobby
+- ✅ **v1.0.49** — Fonte Bring Race (custom) no título, via @font-face
+- ✅ **v1.0.50** — act2.json (Ato II completo), scenes.js multi-act, 3 novos inimigos, economia expandida, special routing fork/act2, docs PROPOSTA_EXPANSÃO + FLUXOGRAMA
+- `LDI_VERSION 1.0.50`. Commit: `TBD`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique

@@ -14,6 +14,18 @@ export async function loadScene(sceneId) {
     if (allScenes.length === 0) {
       const { default: act1 } = await import('../data/scenes/act1.json')
       allScenes = [...act1]
+      try {
+        const { default: act2 } = await import('../data/scenes/act2.json')
+        allScenes = [...allScenes, ...act2]
+      } catch (_) {}
+      try {
+        const { default: act3 } = await import('../data/scenes/act3.json')
+        allScenes = [...allScenes, ...act3]
+      } catch (_) {}
+      try {
+        const { default: act4 } = await import('../data/scenes/act4.json')
+        allScenes = [...allScenes, ...act4]
+      } catch (_) {}
     }
     const scene = allScenes.find(s => s.id === sceneId)
     if (scene) {

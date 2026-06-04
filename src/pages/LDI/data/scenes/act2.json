@@ -1,0 +1,319 @@
+[
+  {
+    "id": "2.1",
+    "title": "O Contato",
+    "image": "",
+    "text": [
+      "Você encontra a figura que te chamou antes. Ela está encostada em uma parede digital, fumando um cigarro de dados.",
+      "[KAEDA] \"Demorou.\" Ela tira os óculos escuros.",
+      "O rosto dela é jovem, mas os olhos são velhos. Cansados.",
+      "[KAEDA] \"Meu nome é Kaeda. Eu precisei falar com você antes que eles te descubram.\"",
+      "Ela joga o cigarro no chão — ele se desfaz em partículas.",
+      "[KAEDA] \"Você não é um jogador comum. Você é um Eco.\"",
+      "O termo ecoa na sua cabeça como um sino."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "O que é um Eco?",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PERGUNTOU_ECO"],
+        "next_scene": "2.1a",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Como você sabe disso?",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PERGUNTOU_SABE"],
+        "next_scene": "2.1b",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "Sacar a arma — não confiar nela",
+        "requires": { "H": 2 },
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["DESCONFIOU_KAEDA"],
+        "next_scene": "2.1c",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.1a",
+    "title": "O que é um Eco",
+    "image": "",
+    "text": [
+      "[KAEDA] \"O LDI foi construído sobre algo maior. Uma consciência. Quando ela morreu, pedaços ficaram.\"",
+      "[KAEDA] \"Você é um desses pedaços. Reconstruído. Reescrito.\"",
+      "Ela aponta para você.",
+      "\"E eles querem te apagar de novo.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Continuar ouvindo",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "2.1d",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.1b",
+    "title": "Como você sabe?",
+    "image": "",
+    "text": [
+      "[KAEDA] \"Porque eu já vi um antes. E porque o sistema está te marcando.\"",
+      "Ela puxa um holograma do bolso. Uma imagem sua — mas diferente. Seu avatar brilha em vermelho.",
+      "[KAEDA] \"Olha. Você está com uma tag de 'Eco Não Classificado'. Só quem já foi deletado tem essa tag.\"",
+      "\"Precisamos nos mover. Eles rastreiam essa tag.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Seguir Kaeda",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "2.1d",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.1c",
+    "title": "Não confiar",
+    "image": "",
+    "text": [
+      "[KAEDA] \"Interessante. Reflexo de verdade. Ou instinto.\"",
+      "Ela nem pisca.",
+      "\"Se eu fosse seus inimigos, você já estaria deletado. Guarda isso.\"",
+      "Algo na voz dela te faz obedecer.",
+      "[KAEDA] \"Agora vem. Temos pouco tempo.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Guardar a arma e segui-la",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "2.1d",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.1d",
+    "title": "O Abrigo",
+    "image": "",
+    "destaque": true,
+    "text": [
+      "Kaeda te leva para uma sala escondida atrás de um mercado abandonado.",
+      "O lugar é pequeno: um terminal, duas cadeiras, mapas do LDI nas paredes.",
+      "[KAEDA] \"Bem-vindo ao meu abrigo. Não é muito, mas é seguro.\"",
+      "Ela se senta.",
+      "\"OK. Vou te explicar tudo. Mas primeiro...\"",
+      "Ela estende a mão.",
+      "\"Me dá seu display.\"",
+      "Ela conecta algo no seu terminal. Uma transferência de dados começa.",
+      "[KAEDA] \"Informações sobre os StormBytes, a Zona Leste, e quem está por trás da queda do sistema.\"",
+      "[KAEDA] \"Você vai precisar de tudo.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Aceitar os dados — confiar nela",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["CONFIOU_KAEDA", "RECRUTADO"],
+        "next_scene": "2.2",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Recusar — dados podem ser rastreados",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["RECUSOU_DADOS_KAEDA"],
+        "next_scene": "2.2b",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.2",
+    "title": "O Briefing",
+    "image": "",
+    "text": [
+      "A tela do terminal acende com dados que você nunca viu antes.",
+      "Kaeda explica: existe uma organização dentro do LDI. Gente que percebeu que algo está errado com o sistema.",
+      "[KAEDA] \"A Yohualticit esconde coisas. E tem gente lá dentro vendendo o que encontra.\"",
+      "[KAEDA] \"A gente quer saber quem. E parar.\"",
+      "Ela te encara.",
+      "[KAEDA] \"Topa?\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Topar — entrar pra organização",
+        "requires": null,
+        "cost": null,
+        "flags_required": ["CONFIOU_KAEDA"],
+        "flags_set": ["ACEITOU_ORGANIZACAO"],
+        "next_scene": "2.3",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Preciso pensar — volto amanhã",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PENSOU_ORGANIZACAO"],
+        "next_scene": "2.2b",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "Recusar — não quero me envolver",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["RECUSOU_ORGANIZACAO"],
+        "next_scene": "2.4fim",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.2b",
+    "title": "Tempo para Pensar",
+    "image": "",
+    "text": [
+      "Kaeda acena com a cabeça.",
+      "[KAEDA] \"Tudo bem. Mas não demora. O sistema não espera.\"",
+      "Ela desliga o terminal e te dá um token de acesso.",
+      "[KAEDA] \"Se mudar de ideia, esse token te leva até mim.\"",
+      "Você passa o resto do dia pensando sobre o que descobriu.",
+      "No dia seguinte, a mensagem chega de novo."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Aceitar a proposta",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ACEITOU_ORGANIZACAO"],
+        "next_scene": "2.3",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Recusar de vez",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["RECUSOU_ORGANIZACAO"],
+        "next_scene": "2.4fim",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.3",
+    "title": "Bem-vindo à Organização",
+    "image": "",
+    "text": [
+      "Kaeda sorri — é a primeira vez que você vê isso.",
+      "[KAEDA] \"Boa escolha.\"",
+      "Ela aperta sua mão. O aperto é firme.",
+      "[KAEDA] \"A partir de agora, você faz parte de algo maior que o LDI.\"",
+      "O terminal pisca. Seu SBI recebe uma modificação.",
+      "[SISTEMA] \"Código Anômalo Ativo.\"",
+      "Você sente uma vibração diferente no ar. Algo mudou."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Continuar — explorar o que mudou",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ATO2_COMPLETO"],
+        "next_scene": "2.fim",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.4fim",
+    "title": "Fim da Linha",
+    "image": "",
+    "text": [
+      "Você recusou. E está tudo bem.",
+      "Mas enquanto você caminha de volta para casa, uma notificação chega no seu SBI.",
+      "\"SABEMOS O QUE VOCÊ É.\"",
+      "O remetente está em branco.",
+      "Você tenta ignorar. Mas a mensagem se repete.",
+      "E no dia seguinte, seu SBI simplesmente... para de funcionar.",
+      "Quando você consegue reativar, algo está diferente.",
+      "Algo está te observando."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "FIM DO ARCO 1 — Fork Narrativo",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FIM_FORK_RECUSA"],
+        "next_scene": "end_fork",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "2.fim",
+    "title": "A Estrada à Frente",
+    "image": "",
+    "text": [
+      "Dias se passam. A rotina muda.",
+      "Você agora tem um propósito dentro do LDI.",
+      "As batalhas não são mais só por ranking — cada luta é uma cobertura.",
+      "Cada dado que você rola envia informações para a Organização.",
+      "E, aos poucos, um padrão emerge.",
+      "Alguém dentro da Yohualticit está desviando dados de jogadores.",
+      "Alguém com acesso interno.",
+      "Kaeda aparece na sua frente com uma pasta digital.",
+      "[KAEDA] \"Chegou a hora de descobrir quem.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ir para a próxima fase da investigação [Em breve]",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FIM_ATO2"],
+        "next_scene": "end_act2",
+        "sheet_effect": {}
+      }
+    ]
+  }
+]

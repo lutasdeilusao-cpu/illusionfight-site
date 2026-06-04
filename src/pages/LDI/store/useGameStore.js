@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.49'
+const LDI_VERSION = '1.0.50'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -38,6 +38,8 @@ const defaultSave = () => ({
   inventory: [],
   status: 'active',
   level_up_available: false,
+  week_counter: 0,
+  last_choices: [],
 })
 
 function applySheetEffect(sheet, effect) {
@@ -106,6 +108,24 @@ export const useGameStore = create((set, get) => ({
         const updatedSave = { ...state.save, status: 'ended_victory' }
         return { save: updatedSave, currentScene: null, choices: [] }
       })
+      return
+    }
+
+    if (sceneId === 'end_fork') {
+      set(state => ({
+        save: { ...state.save, status: 'ended_fork' },
+        currentScene: null,
+        choices: [],
+      }))
+      return
+    }
+
+    if (sceneId === 'end_act2') {
+      set(state => ({
+        save: { ...state.save, status: 'active', arc: 2 },
+        currentScene: null,
+        choices: [],
+      }))
       return
     }
 
@@ -184,6 +204,58 @@ export const useGameStore = create((set, get) => ({
     set(state => ({
       save: { ...state.save, credits: state.save.credits + amount },
     }))
+  },
+
+  payWeeklyExpenses: () => {
+    const state = get()
+    const week = state.save.week_counter || 0
+    const newWeek = week + 1
+    const expense = 410
+    const canPay = state.save.credits >= expense
+    set({
+      save: {
+        ...state.save,
+        credits: canPay ? state.save.credits - expense : state.save.credits,
+        week_counter: newWeek,
+        flags: canPay ? state.save.flags : { ...state.save.flags, SEM_CREDITOS: true },
+      },
+    })
+    return canPay
+  },
+
+  trackChoice: (choiceId) => {
+    set(state => {
+      const recent = [...(state.save.last_choices || []), choiceId].slice(-3)
+      return { save: { ...state.save, last_choices: recent } }
+    })
+  },
+
+  advanceDay: () => {
+    set(state => {
+      const newDay = state.save.day_in_game + 1
+      const newWeek = state.save.week_counter || 0
+      const expenseWeek = Math.floor((newDay - 1) / 7)
+      let credits = state.save.credits
+      let flags = { ...state.save.flags }
+      if (expenseWeek > (state.save.week_counter || 0)) {
+        const expense = 410
+        if (credits >= expense) {
+          credits -= expense
+        } else {
+          credits = 0
+          flags.SEM_CREDITOS = true
+        }
+      }
+      return {
+        save: {
+          ...state.save,
+          day_in_game: newDay,
+          credits,
+          week_counter: expenseWeek,
+          flags,
+        },
+      }
+    })
   },
 
   gainXp: (amount) => {

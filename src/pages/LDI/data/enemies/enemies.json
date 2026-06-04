@@ -104,5 +104,50 @@
     "difficulty": "very_hard",
     "notes": "Chefe final do Arco 1",
     "weakness": { "elemental": "luz", "modifier": -1 }
+  },
+  {
+    "id": "robo_rank_baixo",
+    "name": "Robô de Rank Baixo",
+    "rank": 950000,
+    "stats": { "F": 1, "H": 1, "R": 1, "A": 1, "PdF": 0 },
+    "pv_max": 5,
+    "pm_max": 2,
+    "weapon": "soco_mecanico",
+    "weapon_damage": 0,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "aggressive_fists",
+    "difficulty": "easy",
+    "notes": "Lutador robô inexperiente — aparece no beco"
+  },
+  {
+    "id": "stormbyte_elite",
+    "name": "StormByte_Elite",
+    "rank": 620000,
+    "stats": { "F": 2, "H": 3, "R": 2, "A": 2, "PdF": 1 },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "soco_energetico",
+    "weapon_damage": 1,
+    "elemental": "fogo",
+    "preferred_mode": "fists",
+    "ai_pattern": "aggressive_fists",
+    "difficulty": "medium",
+    "notes": "StormByte mais experiente — versão 2"
+  },
+  {
+    "id": "sombra_digital",
+    "name": "Sombra Digital",
+    "rank": 400000,
+    "stats": { "F": 1, "H": 3, "R": 2, "A": 4, "PdF": 2 },
+    "pv_max": 10,
+    "pm_max": 8,
+    "weapon": "lâmina_sombria",
+    "weapon_damage": 1,
+    "elemental": "escuridão",
+    "preferred_mode": "power",
+    "ai_pattern": "hit_and_run",
+    "difficulty": "hard",
+    "notes": "Ataca com furtividade e poder elemental"
   }
 ]
