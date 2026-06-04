@@ -590,40 +590,133 @@
 /* ===== DUNGEON ===== */
 
 .jdc-dungeon {
-  background: #0a0a0a;
-  border: 1px solid #222;
+  background: linear-gradient(180deg, #0a0a0a 0%, #0d0505 100%);
+  border: 1px solid #333;
+  border-radius: 4px;
   padding: 1rem;
+  margin: 0.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.jdc-dungeon-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.jdc-dungeon-status-loc {
+  color: #F5A623;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.jdc-dungeon-status-hp-label {
+  color: #8B0000;
+  font-weight: 700;
+}
+
+.jdc-dungeon-status-hp-val {
+  color: #C8C8C8;
+  margin-left: 0.3rem;
+}
+
+.jdc-dungeon-track-wrap {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.jdc-dungeon-track {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  color: #C8C8C8;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.jdc-dungeon-player {
+  animation: jdc-walk 0.3s ease-in-out infinite;
+}
+
+@keyframes jdc-walk {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.jdc-dungeon-spark {
+  position: absolute;
+  right: 20%;
+  top: 30%;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+.jdc-dungeon-dmgfloat {
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.jdc-dungeon-hpbar {
+  height: 10px;
+  background: #1a0a0a;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-dungeon-hpbar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.jdc-dungeon-sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #333, transparent);
   margin: 0.5rem 0;
 }
 
-.jdc-dungeon-header {
-  font-size: 1rem;
-  color: #F5A623;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+.jdc-dungeon-log {
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
 }
 
-.jdc-dungeon-over {
-  font-size: 3rem;
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.jdc-dungeon-ascii {
+.jdc-dungeon-log-entry {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #C8C8C8;
-  background: rgba(0,0,0,0.3);
-  padding: 0.5rem;
-  border: 1px solid #1a1a1a;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.1rem 0;
 }
 
-.jdc-dungeon-actions {
+.jdc-dungeon-log-entry:nth-child(odd) {
+  color: #C8C8C8;
+}
+
+.jdc-dungeon-log-entry:nth-child(even) {
+  color: #999;
+}
+
+.jdc-dungeon-footer {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ===== CB2 Style ===== */
