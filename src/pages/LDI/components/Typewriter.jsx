@@ -102,7 +102,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
     <div className="ldi-typewriter" ref={containerRef} onClick={skip}>
       {paragraphs.map((para, i) => {
         const { personagem, textoLimpo } = detectarPrefixo(para)
-        if (i === 0) console.log('[TW] prefixo detectado:', personagem, '| textoLimpo:', textoLimpo.slice(0, 40))
+        if (personagem) console.log('[TW] prefixo detectado:', personagem, '| textoLimpo:', textoLimpo.slice(0, 50))
         const estilo = PERSONAGEM_STYLE[personagem] || null
         const personagemLower = personagem ? personagem.toLowerCase() : ''
         const classeFala = isFala(textoLimpo) ? 'ldi-text-fala' : 'ldi-text-narrativa'
