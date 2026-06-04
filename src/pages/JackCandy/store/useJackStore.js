@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.3.6'
+const JACK_VERSION = '1.3.7'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -13,7 +13,9 @@ function loadLocal() {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       const data = JSON.parse(raw)
-      if (data.flags?.TEM_BENGALA && !data.inventario?.find?.(i => i.id === 'bengala_steampunk')) {
+      const temNoInventario = data.inventario?.find?.(i => i.id === 'bengala_steampunk')
+      const temNoEquipado = data.equipado?.arma?.id === 'bengala_steampunk'
+      if (data.flags?.TEM_BENGALA && !temNoInventario && !temNoEquipado) {
         data.flags.TEM_BENGALA = false
         data.fase = 'intro'
       }
