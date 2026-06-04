@@ -195,7 +195,7 @@ export default function ArenaLobby({ onNavigate }) {
               <div className="arena-sheet-info">
                 <div className="arena-sheet-name-v">{sheet.sheet_name}</div>
                 <div className="arena-sheet-sub">
-                  {sheet.elemental && <span>{String.fromCodePoint(...{ fogo: 0x1F525, agua: 0x1F4A7, terra: 0x1FAA8, ar: 0x1F4A8, trevas: 0x1F311, luz: 0x2728, neutro: 0x26AA }[sheet.elemental] || 0x26AA)} {sheet.elemental}</span>}
+                  {sheet.elemental && <span>{String.fromCodePoint({ fogo: 0x1F525, agua: 0x1F4A7, terra: 0x1FAA8, ar: 0x1F4A8, trevas: 0x1F311, luz: 0x2728, neutro: 0x26AA }[sheet.elemental] || 0x26AA)} {sheet.elemental}</span>}
                   <span>LV {sheet.attribute_points_gained ? sheet.attribute_points_gained + 1 : 1}</span>
                   <span>{sheet.xp_total || 0} XP</span>
                 </div>
