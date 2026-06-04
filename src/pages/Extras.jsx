@@ -5,6 +5,7 @@ const JOGOS = [
   { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/extras/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
   { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/extras/jackcandy', badge: 'FREE', badgeCor: '#F5A623' },
   { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/extras/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
+  { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/extras/minigames', badge: 'FREE', badgeCor: '#22C55E' },
   { id: 'arena', nome: 'Arena LDI', tagline: 'combate em tempo real. em breve.', emoji: '🏟️', cor: '#8B0000', rota: null, badge: 'EM BREVE', badgeCor: '#8B0000', bloqueado: true },
 ]
 

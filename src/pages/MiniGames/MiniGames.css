@@ -1,0 +1,68 @@
+/* ===== MINI GAMES — ARCADE ===== */
+
+.mg-page { min-height: 100vh; background: #000; color: #e8e8e8; font-family: 'Share Tech Mono', monospace; padding: 2rem 1.5rem 4rem; position: relative; overflow-x: hidden; }
+
+.mg-scanlines { position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px); pointer-events: none; z-index: 1; }
+
+.mg-header { text-align: center; padding: 2rem 0 2.5rem; position: relative; z-index: 2; }
+.mg-back { position: absolute; left: 0; top: 2rem; background: none; border: none; color: #555; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; cursor: pointer; letter-spacing: 0.1em; transition: color 0.15s; }
+.mg-back:hover { color: #e8e8e8; }
+
+.mg-titulo { font-size: clamp(2rem, 7vw, 4rem); font-weight: 900; letter-spacing: 0.2em; margin: 0 0 0.5rem; display: inline-block; position: relative; }
+.mg-titulo-glitch { position: relative; display: inline-block; color: #fff; text-shadow: 0 0 20px rgba(34,197,94,0.5); }
+.mg-titulo-glitch::before { content: attr(data-text); position: absolute; top: 0; left: 0; color: #22C55E; animation: mg-glitch-1 3s infinite; clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); opacity: 0.7; }
+.mg-titulo-glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; color: #8B0000; animation: mg-glitch-2 3s infinite; clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); opacity: 0.7; }
+@keyframes mg-glitch-1 { 0%,90%,100% { transform: translate(0) } 92% { transform: translate(-3px,1px) } 95% { transform: translate(3px,-1px) } }
+@keyframes mg-glitch-2 { 0%,90%,100% { transform: translate(0) } 93% { transform: translate(3px,1px) } 96% { transform: translate(-2px,0) } }
+
+.mg-subtitulo { font-size: 0.8rem; color: #22C55E; letter-spacing: 0.12em; margin: 0; }
+.mg-cursor { animation: mg-blink 0.8s step-end infinite; margin-right: 0.3rem; }
+@keyframes mg-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.mg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
+
+.mg-card { position: relative; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
+.mg-card:hover { transform: translateY(-6px); border-color: var(--cor); box-shadow: 0 0 24px rgba(245,166,35,0.1); }
+.mg-card-inner { padding: 1.2rem 1rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.4rem; position: relative; z-index: 2; }
+.mg-card-top { display: flex; justify-content: space-between; width: 100%; font-size: 0.6rem; }
+.mg-card-dificuldade { color: #555; }
+.mg-card-recorde { letter-spacing: 0.05em; }
+.mg-card-emoji { font-size: 2.5rem; animation: mg-idle 3s ease-in-out infinite; line-height: 1; margin: 0.3rem 0; }
+@keyframes mg-idle { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+.mg-card-nome { font-size: 0.95rem; font-weight: bold; letter-spacing: 0.1em; color: #fff; margin: 0; text-transform: uppercase; }
+.mg-card-tagline { font-size: 0.68rem; color: #555; margin: 0; line-height: 1.4; }
+.mg-card-desc { font-size: 0.62rem; color: #444; margin: 0; line-height: 1.4; }
+.mg-card-cta { font-size: 0.65rem; color: var(--cor); border: 1px solid var(--cor); padding: 0.2rem 0.7rem; letter-spacing: 0.2em; margin-top: 0.4rem; opacity: 0; transition: opacity 0.2s; animation: mg-cta-pulse 1.5s ease-in-out infinite; }
+.mg-card:hover .mg-card-cta { opacity: 1; }
+@keyframes mg-cta-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.mg-card-borda { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%); pointer-events: none; z-index: 1; }
+
+.mg-jogando { max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+.mg-jogando-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.mg-jogando-nome { font-size: 1rem; font-weight: bold; letter-spacing: 0.1em; }
+.mg-jogando-area { background: #0a0a0a; border: 1px solid #222; border-radius: 4px; padding: 1.5rem; }
+
+.mg-resultado { max-width: 400px; margin: 4rem auto; text-align: center; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.mg-resultado-emoji { font-size: 3rem; }
+.mg-resultado-titulo { font-size: 1.8rem; font-weight: 900; letter-spacing: 0.2em; margin: 0; }
+.mg-resultado-jogo { font-size: 0.8rem; color: #555; margin: 0; letter-spacing: 0.1em; }
+.mg-resultado-tempo { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; margin: 0.5rem 0; }
+.mg-resultado-tempo-label { font-size: 0.6rem; color: #444; letter-spacing: 0.2em; }
+.mg-resultado-tempo-val { font-size: 2rem; font-weight: bold; letter-spacing: 0.1em; }
+.mg-resultado-recorde { font-size: 0.75rem; color: #F5A623; letter-spacing: 0.2em; animation: mg-blink 1s step-end infinite; }
+.mg-resultado-recorde-atual { font-size: 0.65rem; color: #444; letter-spacing: 0.1em; }
+.mg-resultado-btns { display: flex; gap: 0.8rem; margin-top: 0.5rem; flex-wrap: wrap; justify-content: center; }
+
+.mg-btn { background: none; border: 1px solid #333; color: #888; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; padding: 0.4rem 0.8rem; cursor: pointer; letter-spacing: 0.1em; transition: border-color 0.15s, color 0.15s; }
+.mg-btn:hover { border-color: #888; color: #e8e8e8; }
+.mg-btn--small { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+
+.mg-footer { text-align: center; padding-top: 3rem; position: relative; z-index: 2; font-size: 0.6rem; color: #222; letter-spacing: 0.2em; animation: mg-blink 4s ease-in-out infinite; }
+
+@media (max-width: 600px) {
+  .mg-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .mg-card-emoji { font-size: 1.8rem; }
+  .mg-card-nome { font-size: 0.75rem; }
+  .mg-card-cta { opacity: 1; }
+  .mg-jogando-area { padding: 1rem; }
+}

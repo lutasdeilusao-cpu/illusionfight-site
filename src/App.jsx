@@ -26,6 +26,7 @@ import Mundo from './pages/Mundo'
 import Curiosidades from './pages/Curiosidades'
 import Quiz from './pages/Quiz'
 import Extras from './pages/Extras'
+import MiniGames from './pages/MiniGames/MiniGames'
 import TopTrumps from './pages/TopTrumps'
 import TopTrumpsLobby from './pages/TopTrumpsLobby'
 import TopTrumpsMP from './pages/TopTrumpsMP'
@@ -90,6 +91,7 @@ export default function App() {
         <Route path="/extras/ldi/diagnostico" element={<Diagnostico />} />
         <Route path="/extras/ldi/puzzle" element={<LDIPuzzle />} />
         <Route path="/extras/jackcandy" element={<JackCandy />} />
+        <Route path="/extras/minigames" element={<MiniGames />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />
