@@ -77,7 +77,10 @@ export default function ArenaLobby({ onNavigate }) {
 
   useEffect(() => {
     if (!user) return
-    store.loadSheets(user.id).then(data => { setSheets(data); setLoading(false) })
+    store.loadSheets(user.id).then(data => {
+      setSheets(Array.isArray(data) ? data : [])
+      setLoading(false)
+    })
   }, [user])
 
   const handleLutar = (sheet) => {
@@ -179,7 +182,7 @@ export default function ArenaLobby({ onNavigate }) {
       )}
 
       <div className="arena-sheet-list">
-        {sheets.map(sheet => {
+        {(Array.isArray(sheets) ? sheets : []).map(sheet => {
           const sElem = sheet.elemental || 'neutro'
           const sColor = elemColor(sElem)
           return (

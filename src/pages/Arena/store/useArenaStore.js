@@ -95,7 +95,7 @@ export const useArenaStore = create((set, get) => ({
   loadSheets: async (userId) => {
     if (!userId) return []
     const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations').eq('user_id', userId).order('created_at', { ascending: false })
-    return data || []
+    return Array.isArray(data) ? data : []
   },
 
   deleteSheet: async (sheetId) => {

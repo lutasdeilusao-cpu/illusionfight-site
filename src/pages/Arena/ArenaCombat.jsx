@@ -443,7 +443,7 @@ export default function ArenaCombat({ onNavigate }) {
 
       <div className="arena-log-area">
         <div className="arena-log-feed">
-          {log.map(l => {
+          {(Array.isArray(log) ? log : []).map(l => {
             if (l.type === 'system') {
               return (
                 <motion.div key={l.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
