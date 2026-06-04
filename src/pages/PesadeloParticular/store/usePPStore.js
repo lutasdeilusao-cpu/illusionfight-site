@@ -101,6 +101,7 @@ export const usePPStore = create((set, get) => ({
 
   // ── RESET SAVE ──
   async resetSave(userId) {
+    set({ ...DEFAULT_STATE, carregado: true })
     if (userId) {
       try {
         await supabase.from('pp_saves').delete().eq('user_id', userId)
@@ -109,6 +110,5 @@ export const usePPStore = create((set, get) => ({
         console.error('[PP] erro ao deletar save:', e)
       }
     }
-    set({ ...DEFAULT_STATE, carregado: true })
   },
 }))

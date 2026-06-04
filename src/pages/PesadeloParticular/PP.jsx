@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.8'
+const PP_VERSION = '1.3.9'
 const LOCALE = 'pt'
 
 const AVATARES = {
