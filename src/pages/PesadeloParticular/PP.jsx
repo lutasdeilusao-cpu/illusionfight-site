@@ -183,6 +183,11 @@ function LocalView({ local, caso, onPistaColetada, onBack }) {
 }
 
 export default function PP() {
+  // DEBUG: log estrutura do primeiro caso pra confirmar arrays corretos
+  const c0 = CASOS[0]
+  console.log('[PP-DEBUG] caso_01 suspeitos:', c0.suspeitos?.length, '| locais:', c0.locais?.length, '| pistas:', c0.pistas?.length)
+  console.log('[PP-DEBUG] suspeitos[0]:', c0.suspeitos?.[0]?.id, c0.suspeitos?.[0]?.i18n?.pt?.nome)
+  console.log('[PP-DEBUG] locais[0]:', c0.locais?.[0]?.id, c0.locais?.[0]?.i18n?.pt?.nome)
   const store = usePPStore()
   const [fase, setFase] = useState('intro')
   const [aba, setAba] = useState('feed')
@@ -291,7 +296,7 @@ export default function PP() {
             {casosDisponiveis.flatMap(c => getPistasDoCase(c.id).map(pid => { const p = c.pistas.find(pp => pp.id === pid); return p ? { pista: p, caso: c } : null }).filter(Boolean)).slice(0, 8).map(({ pista, caso }) => (
               <div key={pista.id} className="pp-story-thumb" onClick={() => setStoryAtivo(pista)}>
                 <div className={`pp-story-ring ${pista.fio ? 'fio' : ''}`}><div className="pp-story-inner">{pista.tipo === 'fio' ? '🕸️' : '🔍'}</div></div>
-                <div className="pp-story-label">{pista.i18n[locale].titulo.split(' ')[0]}</div>
+                <div className="pp-story-label">{String(pista?.i18n?.[locale]?.titulo || '?').split(' ')[0]}</div>
               </div>
             ))}
             {getPistasDoCase(casoAtivo?.id)?.length === 0 && <div style={{ padding: '1rem', color: 'var(--pp-text-muted)', fontSize: '0.75rem', fontFamily: 'Georgia', fontStyle: 'italic' }}>Investigue locais para coletar pistas</div>}
