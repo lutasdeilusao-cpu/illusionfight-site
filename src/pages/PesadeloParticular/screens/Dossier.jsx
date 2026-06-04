@@ -16,20 +16,19 @@ export default function Dossier() {
   const locais = getLocaisParaCaso(caso.id)
   const pistas = getPistasParaCaso(caso.id)
   const suspeitos = getSuspeitosParaCaso(caso.id)
-  const casoDados = store.casoDados
-  const pistasColetadas = casoDados.pistasCaso || []
+  const cd = store.casoDados
+  const pistasColetadas = cd.pistasCaso || []
   const pistasSuficientes = pistasColetadas.length >= caso.pistasNecessarias
 
   const handleAcusar = (suspeitoId) => {
     store.acusar(suspeitoId)
     if (suspeitoId === caso.culpado) {
-      // Calcular reputação
-      const erradas = casoDados.acusacoesErradas || 0
+      const erradas = cd.acusacoesErradas || 0
       const bonusPistas = pistasColetadas.length >= caso.pistas.length ? 0.2 : 0
       const bonusFio = caso.fios.filter(f => pistasColetadas.includes(f)).length * 0.1
-      let multiplicador = erradas === 0 ? 1.0 : erradas === 1 ? 0.7 : 0.4
-      multiplicador += bonusPistas + bonusFio
-      const ganho = Math.floor(caso.reputacao_ganho * Math.min(multiplicador, 1.5))
+      let m = erradas === 0 ? 1.0 : erradas === 1 ? 0.7 : 0.4
+      m += bonusPistas + bonusFio
+      const ganho = Math.floor(caso.reputacao_ganho * Math.min(m, 1.5))
       store.ganharReputacao(ganho)
       store.resolverCaso(caso.id)
       if (user) store.saveToCloud(user.id)
@@ -45,10 +44,10 @@ export default function Dossier() {
     return (
       <div className="pp-container">
         <div className="pp-resol-card">
-          <div className="pp-resol-nome">{caso.nome} — Resolvido</div>
           <div className="pp-resol-badge">CASO ENCERRADO</div>
-          <div className="pp-resol-rep">+{resultado.ganho} reputação</div>
-          <p style={{ color: '#888', fontSize: 13, marginBottom: 16 }}>
+          <div className="pp-resol-nome">{caso.nome}</div>
+          <p style={{ color: '#666', fontSize: 14 }}>+{resultado.ganho} reputação</p>
+          <p style={{ color: '#888', fontSize: 12, maxWidth: 400, margin: '16px auto', lineHeight: 1.7 }}>
             {caso.dialogoResolucao.map((l, i) => (
               <span key={i} style={{ display: 'block', marginBottom: 8, color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
                 {l.texto}
@@ -67,82 +66,107 @@ export default function Dossier() {
     <div className="pp-container">
       <div className="pp-dossier-header">
         <button className="pp-back" onClick={() => store.setFase('mapa')}>← mapa</button>
-        <h2 style={{ color: '#F5A623', margin: 0 }}>{caso.nome}</h2>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ color: '#F5A623', margin: 0, fontSize: 18, letterSpacing: 3 }}>{caso.nome}</h2>
+          <div style={{ display: 'flex', gap: 12, marginTop: 4, fontSize: 10, color: '#555' }}>
+            <span style={{ border: '1px solid #F5A62344', padding: '1px 6px', color: '#F5A623', letterSpacing: 2 }}>
+              {'◆'.repeat(caso.dificuldade)}
+            </span>
+            <span>+{caso.reputacao_ganho} rep</span>
+            <span>HP: {store.hp}/30</span>
+          </div>
+        </div>
       </div>
 
       {resultado?.tipo === 'inocente' && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: '#8B0000', textAlign: 'center', padding: 10, border: '1px solid #8B0000', marginBottom: 12 }}>
-          Inocente! Você perdeu reputação.
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          style={{ textAlign: 'center', padding: 10, border: '1px solid #8B0000', color: '#8B0000', fontSize: 12, marginBottom: 12 }}>
+          Inocente! Perdeu reputação.
         </motion.div>
       )}
 
-      {/* Suspeitos */}
+      {/* SUSPEITOS */}
       <div className="pp-section">
         <div className="pp-section-label">Suspeitos</div>
         {suspeitos.map(s => {
-          const estado = casoDados.suspeitosAtivos.find(sa => sa.id === s.id)
+          const estado = cd.suspeitosAtivos.find(sa => sa.id === s.id)
           const acusado = estado?.status === 'acusado'
+          const isCulpado = acusado && s.id === caso.culpado
           return (
-            <div key={s.id} className={`pp-dossier-suspeito ${acusado ? 'pp-dossier-suspeito--acusado' : ''}`}>
-              <span style={{ fontSize: 14 }}>👤</span>
+            <div key={s.id} className="pp-dossier-suspeito"
+              style={acusado ? { borderTop: `2px solid ${isCulpado ? '#8B0000' : '#EC4899'}`, clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)' } : {}}>
+              <div className="pp-avatar pp-avatar--enemy">
+                {s.nome[0]}
+              </div>
               <div style={{ flex: 1 }}>
                 <div style={{ color: '#eee', fontSize: 13 }}>{s.nome}</div>
-                <div style={{ color: '#666', fontSize: 10 }}>{s.desc}</div>
+                <div style={{ color: '#555', fontSize: 10 }}>{s.desc}</div>
               </div>
-              {acusado && <span style={{ color: '#EC4899', fontSize: 10 }}>ACUSADO</span>}
+              {acusado && <span style={{ color: isCulpado ? '#8B0000' : '#EC4899', fontSize: 10, fontWeight: 'bold', letterSpacing: 2 }}>
+                {isCulpado ? 'CULPADO' : 'ACUSADO'}
+              </span>}
             </div>
           )
         })}
       </div>
 
-      {/* Pistas */}
+      {/* PISTAS */}
       <div className="pp-section">
         <div className="pp-section-label">Pistas ({pistasColetadas.length}/{caso.pistasNecessarias} mínimo)</div>
         {pistas.filter(p => pistasColetadas.includes(p.id)).map(p => (
           <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+            initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
             <div className="pp-pista-tipo">{p.tipo === 'fio' ? '✨ FIO' : p.tipo.toUpperCase()}</div>
             <div className="pp-pista-texto">{p.texto}</div>
           </motion.div>
         ))}
+        {pistasColetadas.length === 0 && (
+          <div style={{ color: '#444', fontSize: 11, fontStyle: 'italic', padding: '8px 0' }}>
+            Nenhuma pista coletada ainda. Investigue os locais abaixo.
+          </div>
+        )}
       </div>
 
-      {/* Locais */}
+      {/* LOCAIS */}
       <div className="pp-section">
         <div className="pp-section-label">Locais</div>
         {locais.map(l => {
-          const visitado = (casoDados.locaisInvestidos || []).includes(l.id)
+          const visitado = (cd.locaisInvestidos || []).includes(l.id)
           return (
             <div key={l.id} className={`pp-dossier-local ${visitado ? 'pp-dossier-local--visitado' : ''}`}
               onClick={() => { if (!visitado) store.setFase('investigar') }}>
-              <span>{visitado ? '✓' : '🔍'}</span>
+              <span style={{ fontSize: 14 }}>🔍</span>
               <div style={{ flex: 1 }}>
                 <div style={{ color: '#eee', fontSize: 13 }}>{l.nome}</div>
                 <div style={{ color: '#666', fontSize: 10 }}>{l.desc}</div>
               </div>
-              {!visitado && <span style={{ color: '#F5A623' }}>→</span>}
+              {visitado ? <span style={{ color: '#22C55E', fontSize: 12 }}>✓</span> :
+                <span style={{ color: '#F5A623', fontSize: 14 }}>→</span>}
             </div>
           )
         })}
       </div>
 
-      {/* Acusar */}
+      {/* ACUSAR */}
       <div className="pp-section">
         {!showAcusar ? (
-          <button className="pp-btn pp-btn--danger" disabled={!pistasSuficientes}
+          <button className="pp-atk-btn" disabled={!pistasSuficientes}
             onClick={() => setShowAcusar(true)}>
-            {pistasSuficientes ? 'ACUSAR' : `Precisa de ${caso.pistasNecessarias} pistas (${pistasColetadas.length})`}
+            {pistasSuficientes ? 'ACUSAR' : `Pistas: ${pistasColetadas.length}/${caso.pistasNecessarias}`}
           </button>
         ) : (
           <div>
             <div className="pp-section-label">QUEM É O CULPADO?</div>
             {suspeitos.map(s => (
-              <button key={s.id} className="pp-btn pp-btn--danger" style={{ display: 'block', width: '100%', marginBottom: 4 }}
+              <button key={s.id} className="pp-btn pp-btn--danger"
+                style={{ display: 'block', width: '100%', marginBottom: 4, textAlign: 'left' }}
                 onClick={() => handleAcusar(s.id)}>
-                {s.nome}
+                ⚡ {s.nome}
               </button>
             ))}
-            <button className="pp-btn" onClick={() => setShowAcusar(false)}>cancelar</button>
+            <button className="pp-btn pp-btn-sair" onClick={() => setShowAcusar(false)} style={{ marginTop: 4 }}>
+              cancelar
+            </button>
           </div>
         )}
       </div>

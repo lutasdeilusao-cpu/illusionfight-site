@@ -12,7 +12,7 @@ import FinalScreen from './screens/FinalScreen'
 import Dormindo from './screens/Dormindo'
 import './PP.css'
 
-const PP_VERSION = '1.1.0'
+const PP_VERSION = '1.1.1'
 console.log(`[PP] versão carregada: ${PP_VERSION}`)
 
 export default function PP() {

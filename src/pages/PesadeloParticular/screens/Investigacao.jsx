@@ -19,11 +19,12 @@ export default function Investigacao() {
   const pistas = getPistasParaCaso(caso.id)
   const visitados = store.casoDados.locaisInvestidos || []
   const naoVisitados = locais.filter(l => !visitados.includes(l.id))
+  const hpPct = Math.max(0, (store.hp / 30) * 100)
 
   if (naoVisitados.length === 0) {
     return (
       <div className="pp-container">
-        <div className="pp-section-label">Todos os locais foram investigados</div>
+        <div className="pp-section-label">Todos os locais investigados</div>
         <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
       </div>
     )
@@ -59,25 +60,50 @@ export default function Investigacao() {
   return (
     <div className="pp-container">
       <button className="pp-back" onClick={() => store.setFase('dossier')}>← dossier</button>
-      <div className="pp-section-label">HP: {store.hp}/30</div>
 
-      <div style={{ marginTop: 16 }}>
+      <div style={{ marginTop: 8 }}>
+        <div className="pp-section-label">HP</div>
+        <div className="pp-bar" style={{ marginBottom: 16 }}>
+          <div className={`pp-bar-fill ${hpPct < 30 ? 'pp-bar-danger' : 'pp-bar-green'}`}
+            style={{ '--hp-pct': `${hpPct}%` }} />
+        </div>
+        <span style={{ fontSize: 10, color: '#555', display: 'block', textAlign: 'right', marginTop: -12, marginBottom: 12 }}>
+          {store.hp}/30
+        </span>
+      </div>
+
+      <div className="pp-section-label">Local ({naoVisitados.length} restantes)</div>
+
+      <div style={{ marginTop: 12 }}>
         <div className="pp-invest-nome">{local.nome}</div>
         <div className="pp-invest-desc">{local.desc}</div>
 
-        {puzzleAtivo && <PuzzleWrapper tipo={local.puzzle} onSolve={handlePuzzleSolve} />}
+        {puzzleAtivo && (
+          <div style={{
+            background: 'linear-gradient(135deg, #0a1f00 0%, #0a0a0a 100%)',
+            border: '1px solid #1a3a1a', borderTop: '2px solid #F5A623',
+            clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)',
+            padding: 24, margin: '16px 0',
+            position: 'relative'
+          }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, width: 14, height: 14, background: '#F5A623', clipPath: 'polygon(0 0, 100% 100%, 100% 0)', opacity: 0.4 }} />
+            <PuzzleWrapper tipo={local.puzzle} onSolve={handlePuzzleSolve} />
+          </div>
+        )}
 
         {!puzzleAtivo && !pistaRevelada && (
-          <button className="pp-btn pp-btn--primary" onClick={handleInvestigar}>
+          <button className="pp-btn pp-btn--primary" onClick={handleInvestigar}
+            style={{ marginTop: 12 }}>
             {local.puzzle && local.puzzle !== 'nenhum' ? 'INVESTIGAR (puzzle)' : 'INVESTIGAR'}
           </button>
         )}
 
         {pistaRevelada && pistasLocal.length > 0 && (
-          <div style={{ marginTop: 12 }}>
-            {pistasLocal.map(p => (
+          <div style={{ marginTop: 16 }}>
+            {pistasLocal.map((p, i) => (
               <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}>
                 <div className="pp-pista-tipo">{p.tipo === 'fio' ? '✨ FIO' : p.tipo.toUpperCase()}</div>
                 <div className="pp-pista-texto">{p.texto}</div>
               </motion.div>
@@ -86,13 +112,14 @@ export default function Investigacao() {
         )}
 
         {naoVisitados.length > 1 && pistaRevelada && (
-          <button className="pp-btn" style={{ marginTop: 12 }}
-            onClick={() => { setPistaRevelada(false); setLocalIdx((localIdx + 1) % naoVisitados.length) }}>
-            próximo local →
-          </button>
+          <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
+            <button className="pp-btn" onClick={() => { setPistaRevelada(false); setLocalIdx((localIdx + 1) % naoVisitados.length) }}>
+              próximo local →
+            </button>
+          </div>
         )}
         {pistaRevelada && (
-          <button className="pp-btn pp-btn--primary" style={{ marginTop: 8, marginLeft: 8 }}
+          <button className="pp-btn pp-btn--primary" style={{ marginTop: 12 }}
             onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
         )}
       </div>
