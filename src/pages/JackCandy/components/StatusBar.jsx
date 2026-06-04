@@ -41,6 +41,12 @@ export default function StatusBar() {
             DUN
           </button>
           <button className="jdc-sb-btn jdc-sb-btn--disabled" disabled>MAP</button>
+          <button className="jdc-sb-btn" onClick={() => {
+            if (window.confirm('Resetar todo o progresso do Jack Dream Candy?')) {
+              localStorage.removeItem('jack_candy_save')
+              window.location.reload()
+            }
+          }} style={{ borderColor: '#8B000033', color: '#8B000066', fontSize: '0.6rem' }}>RST</button>
           <button className="jdc-sb-btn jdc-sb-btn--save" onClick={handleSave} disabled={saving}>
             {saving ? '...' : 'SAVE'}
           </button>

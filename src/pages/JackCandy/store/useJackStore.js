@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.4.3'
+const JACK_VERSION = '1.4.4'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -129,6 +129,19 @@ export const useJackStore = create((set, get) => {
       set(state => ({
         equipado: { ...state.equipado, [item.slot]: { id: item.id, nome: item.nome, dano: item.dano || 0 } },
         inventario: state.inventario.filter(i => i.id !== itemId),
+      }))
+    },
+
+    aplicarUpgrade: (itemId) => {
+      const item = ITENS[itemId]
+      if (!item || !item.danoBonus) return
+      set(state => ({
+        equipado: {
+          ...state.equipado,
+          arma: { ...state.equipado.arma, dano: (state.equipado.arma?.dano || 0) + item.danoBonus },
+        },
+        inventario: state.inventario.filter(i => i.id !== itemId),
+        monologoAtual: `${item.nome} aplicado. dano +${item.danoBonus}.`,
       }))
     },
 

@@ -12,6 +12,8 @@ export default function Inventario() {
       store.usarItem(itemId)
     } else if (item.slot) {
       store.equiparPorId(itemId)
+    } else if (item.danoBonus) {
+      store.aplicarUpgrade(itemId)
     }
   }
 
