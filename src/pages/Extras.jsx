@@ -9,6 +9,7 @@ const JOGOS = [
   { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/extras/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
   { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/extras/minigames', badge: 'FREE', badgeCor: '#22C55E' },
   { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/extras/ldi-arena', badge: 'NEW', badgeCor: '#8B0000' },
+  { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: 'noir investigativo. 20 casos. um vilão.', emoji: '🕵️', cor: '#FFD700', rota: '/extras/pesadelo', badge: 'NEW', badgeCor: '#FFD700' },
 ]
 
 const CONTEUDO = [
