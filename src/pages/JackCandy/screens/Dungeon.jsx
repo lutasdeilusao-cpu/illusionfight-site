@@ -129,8 +129,8 @@ export default function Dungeon({ dungeonId }) {
         return
       }
 
-      // Missed - enemy attacks back
-      const dmg = Math.max(1, rollD6() - defesa)
+      // Missed - enemy attacks back (dano capado em 3)
+      const dmg = Math.min(3, Math.max(1, rollD6() - defesa))
       const novoHp = hpRef.current - dmg
       hpRef.current = novoHp
       setHp(novoHp)
