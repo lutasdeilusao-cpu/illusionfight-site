@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.30` (console: `[LDI] versão carregada: 1.0.30`)  
+**Versão atual:** `1.0.33` (console: `[LDI] versão carregada: 1.0.33`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -529,6 +529,12 @@ src/pages/LDI/
 - ✅ **Estilo aplicado apenas em falas** — `isFala(para)` determina se recebe cor/fonte do personagem. Narrativa sem estilo especial
 - ✅ **sceneId propagado** — SceneView.jsx passa `sceneId={scene.id}` para Typewriter
 - `LDI_VERSION 1.0.30`. Commit: `5b9ce9c`
+
+### Changelog — v1.0.31 to v1.0.33 (sceneId passado + CSS sobrescrita + CSS custom properties)
+- ✅ **v1.0.31** — `sceneId={scene.id}` já estava presente em SceneView.jsx. Bump de versão
+- ✅ **v1.0.32** — Removido `color: #00B4D8` de `.ldi-text-fala` que sobrescrevia o inline style do React
+- ✅ **v1.0.33** — Trocado inline style (`color`/`fontFamily`) para CSS custom properties (`--personagem-cor`, `--personagem-fonte`). CSS usa `var(--personagem-cor, #00B4D8)` e `var(--personagem-fonte, 'Share Tech Mono', monospace)` com fallback. JS só injeta os valores das variáveis
+- `LDI_VERSION 1.0.33`. Commit: `e4d3970`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
