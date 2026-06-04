@@ -45,7 +45,7 @@ export default function Intro() {
       {/* Title */}
       <div className="jdc-intro-title">
         {titleText}
-        {!titleDone && <span className="jack-cursor">█</span>}
+        {!titleDone && <span className="jack-cursor" />}
       </div>
 
       {/* Narration */}

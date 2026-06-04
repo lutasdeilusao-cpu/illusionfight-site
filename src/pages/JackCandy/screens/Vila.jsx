@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
 import { NPCS } from '../data/npcs'
-import { DUNGEONS } from '../data/dungeons'
 import { MONOLOGUES } from '../data/monologues'
 
 const LOCAIS = [
@@ -9,8 +8,6 @@ const LOCAIS = [
   { id: 'kim', nome: 'Kim', emoji: '🍺', desc: 'Boteco do Jazz', cor: '#8B0000', npc: 'kim' },
   { id: 'nina', nome: 'Nina', emoji: '⭐', desc: 'Delegacia', cor: '#A855F4', npc: 'nina' },
   { id: 'osvaldo', nome: 'Osvaldo', emoji: '🔧', desc: 'Oficina', cor: '#F97316', npc: 'osvaldo' },
-  { id: 'onibus', nome: 'Ônibus', emoji: '🚌', desc: 'Dungeon', cor: '#666', dungeon: 'onibus' },
-  { id: 'rua', nome: 'Rua Marelia', emoji: '🏚️', desc: 'Dungeon', cor: '#666', dungeon: 'rua' },
 ]
 
 export default function Vila() {
@@ -46,7 +43,6 @@ export default function Vila() {
           const locked = status === 'locked'
           const done = status === 'done'
           const npc = NPCS[local.npc]
-          const dungeon = DUNGEONS[local.dungeon]
 
           return (
             <motion.button
@@ -55,7 +51,6 @@ export default function Vila() {
               onClick={() => {
                 if (locked) return
                 if (local.npc) store.setFase(`interior_${local.npc}`)
-                if (local.dungeon) store.setFase(`dungeon_${local.dungeon}`)
               }}
               disabled={locked}
               whileHover={{ scale: 1.03, borderColor: local.cor }}
@@ -68,17 +63,8 @@ export default function Vila() {
                   {local.nome}
                 </span>
                 <span className="jdc-vila-card-desc">
-                  {locked ? 'trancado' : done ? 'completo' : local.desc}
+                  {locked ? 'trancado' : local.desc}
                 </span>
-                {dungeon && !locked && !done && (
-                  <span className="jdc-vila-card-detail">
-                    {dungeon.inimigos} inimigos · {dungeon.dropCap} cap
-                    {dungeon.boss ? ` · boss: ${dungeon.boss.nome}` : ''}
-                  </span>
-                )}
-                {done && dungeon && (
-                  <span className="jdc-vila-card-detail">rejogar ({Math.floor(dungeon.dropCap / 2)} cap)</span>
-                )}
               </div>
               <div className="jdc-vila-card-arrow" style={{ color: local.cor }}>→</div>
             </motion.button>

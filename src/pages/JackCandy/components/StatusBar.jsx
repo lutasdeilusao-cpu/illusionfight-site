@@ -7,8 +7,8 @@ export default function StatusBar() {
   const store = useJackStore()
   const [saving, setSaving] = useState(false)
 
-  const hpPct = store.hpMax > 0 ? Math.max(0, Math.round((store.hpAtual / store.hpMax) * 20)) : 0
-  const hpBar = '█'.repeat(hpPct) + '░'.repeat(20 - hpPct)
+  const hpPct = store.hpMax > 0 ? Math.max(0, Math.round((store.hpAtual / store.hpMax) * 100)) : 0
+  const hpColor = hpPct > 60 ? '#22C55E' : hpPct > 30 ? '#F5A623' : '#8B0000'
 
   const handleSave = async () => {
     if (!user) return
@@ -54,7 +54,9 @@ export default function StatusBar() {
       </div>
       <div className="jdc-statusbar-row">
         <span className="jdc-sb-hp-label">HP</span>
-        <span className="jdc-sb-hp-bar">{hpBar}</span>
+        <div className="jdc-sb-hpbar-wrap">
+          <div className="jdc-sb-hpbar-fill" style={{ width: `${hpPct}%`, backgroundColor: hpColor }} />
+        </div>
         <span className="jdc-sb-hp-text">{store.hpAtual}/{store.hpMax}</span>
         <span className="jdc-sb-level">LV {store.nivel} | cap/s {store.capangasPorSegundo}</span>
       </div>

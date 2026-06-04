@@ -11,7 +11,7 @@
   overflow-x: hidden;
 }
 
-/* ===== ASCII Rain ===== */
+/* ===== Efeito Chuva ===== */
 
 .jack-rain {
   position: fixed;
@@ -266,8 +266,13 @@
 /* ===== Typewriter ===== */
 
 .jack-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #F5A623;
+  vertical-align: text-bottom;
+  margin-left: 2px;
   animation: jack-blink 0.6s step-end infinite;
-  color: #F5A623;
 }
 
 @keyframes jack-blink {
@@ -362,11 +367,20 @@
   font-weight: 600;
 }
 
-.jdc-sb-hp-bar {
-  color: #8B0000;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-  text-shadow: 0 0 4px rgba(139, 0, 0, 0.3);
+.jdc-sb-hpbar-wrap {
+  flex: 1;
+  height: 8px;
+  background: #1a0a0a;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.jdc-sb-hpbar-fill {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 0.3s, background-color 0.3s;
 }
 
 .jdc-sb-hp-text {
@@ -518,404 +532,6 @@
   color: #F5A623;
   letter-spacing: 0.3em;
   margin-bottom: 1rem;
-}
-
-.jdc-vila-map {
-  overflow-x: auto;
-  padding: 0.5rem;
-  background: #0A0A0A;
-  border: 1px solid #222;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.jdc-vila-ascii {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.7rem;
-  line-height: 1.2;
-  color: #C8C8C8;
-  white-space: pre;
-  min-width: fit-content;
-}
-
-.jdc-vila-npc {
-  text-decoration: underline;
-  text-decoration-color: #F5A623;
-  text-underline-offset: 2px;
-  transition: all 0.2s;
-  color: #F5A623;
-}
-
-.jdc-vila-npc:hover {
-  text-shadow: 0 0 8px rgba(245, 166, 35, 0.4);
-}
-
-.jdc-vila-npc--locked {
-  text-decoration-color: #444;
-  color: #666;
-}
-
-/* ===== VILA NPC LIST ===== */
-
-.jdc-vila-npcs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.jdc-vila-npc-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  background: #0A0A0A;
-  border: 1px solid #222;
-  color: #C8C8C8;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.85rem;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s;
-  border-radius: 2px;
-}
-
-.jdc-vila-npc-btn:hover:not(:disabled) {
-  border-color: #F5A623;
-  background: rgba(245, 166, 35, 0.05);
-}
-
-.jdc-vila-npc-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.jdc-vila-npc-icon { font-size: 1.1rem; min-width: 24px; }
-.jdc-vila-npc-nome { color: #F5A623; font-weight: 600; min-width: 80px; }
-.jdc-vila-npc-desc { color: #666; font-size: 0.75rem; flex: 1; }
-.jdc-vila-npc-lock { margin-left: auto; }
-
-/* ===== INTERIOR ===== */
-
-.jdc-interior { padding: 0.5rem 0; }
-
-.jdc-interior-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.jdc-interior-nome {
-  font-size: 1rem;
-  color: #F5A623;
-  letter-spacing: 0.05em;
-}
-
-.jdc-interior-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #1A1A1A;
-}
-
-/* ===== COMBAT LOG ===== */
-
-.jdc-combat-log {
-  background: #0A0A0A;
-  border: 1px solid #222;
-  border-radius: 4px;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.jdc-combat-log-hp {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #1A1A1A;
-}
-
-.jdc-combat-log-hp-label {
-  font-size: 0.75rem;
-  color: #8B0000;
-  min-width: 20px;
-}
-
-.jdc-combat-log-hp-bar {
-  flex: 1;
-  height: 8px;
-  background: #1A0A0A;
-  border: 1px solid #333;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.jdc-combat-log-hp-fill {
-  height: 100%;
-  background: #8B0000;
-  transition: width 0.3s;
-}
-
-.jdc-combat-log-hp-text {
-  font-size: 0.7rem;
-  color: #C8C8C8;
-  min-width: 40px;
-  text-align: right;
-}
-
-.jdc-combat-log-feed {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 0.5rem;
-}
-
-.jdc-combat-log-entry {
-  font-size: 0.8rem;
-  color: #C8C8C8;
-  line-height: 1.5;
-  padding: 0.15rem 0;
-  border-bottom: 1px solid #111;
-}
-
-.jdc-combat-log-footer {
-  font-size: 0.75rem;
-  color: #F5A623;
-  border-top: 1px solid #1A1A1A;
-  padding-top: 0.4rem;
-}
-
-/* ===== DUNGEON ===== */
-
-.jdc-dungeon {
-  background: linear-gradient(180deg, #0a0a0a 0%, #0d0505 100%);
-  border: 1px solid #333;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.jdc-dungeon-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.75rem;
-}
-
-.jdc-dungeon-status-loc {
-  color: #F5A623;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.jdc-dungeon-status-hp-label { color: #8B0000; font-weight: 700; }
-.jdc-dungeon-status-hp-val { color: #C8C8C8; margin-left: 0.3rem; }
-
-/* ===== Player Art ===== */
-
-.jdc-dungeon-player-art {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.5rem;
-  justify-content: center;
-  min-height: 110px;
-  margin-bottom: 0.5rem;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-.jdc-dungeon-enemy-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.jdc-dungeon-player-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.jdc-dungeon-player-line {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.7rem;
-  line-height: 1.15;
-  margin: 0;
-  color: #F5A623;
-  text-shadow: 0 0 4px rgba(245, 166, 35, 0.2);
-}
-
-.jdc-dungeon-face {
-  color: #C8C8C8;
-}
-
-.jdc-dungeon-enemy-art {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.jdc-dungeon-enemy-line {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem;
-  line-height: 1.1;
-  margin: 0;
-  color: #E02020;
-  text-shadow: 0 0 4px rgba(224, 32, 32, 0.3);
-}
-
-/* ===== Track ===== */
-
-.jdc-dungeon-track-wrap {
-  background: rgba(0,0,0,0.4);
-  border: 1px solid #1a1a1a;
-  border-radius: 2px;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-}
-
-.jdc-dungeon-track {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.9rem;
-  color: #C8C8C8;
-  letter-spacing: 0.25em;
-  margin: 0;
-  text-align: center;
-}
-
-.jdc-dungeon-dmgfloat {
-  position: absolute;
-  right: 10%;
-  top: 40%;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1.3rem;
-  font-weight: 700;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.jdc-dungeon-hpbar {
-  height: 10px;
-  background: #1a0a0a;
-  border: 1px solid #333;
-  border-radius: 2px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-}
-
-.jdc-dungeon-hpbar-fill {
-  height: 100%;
-  border-radius: 2px;
-  transition: background-color 0.3s;
-}
-
-.jdc-dungeon-sep {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #333, transparent);
-  margin: 0.5rem 0;
-}
-
-.jdc-dungeon-log {
-  max-height: 150px;
-  overflow-y: auto;
-  margin-bottom: 0.5rem;
-}
-
-.jdc-dungeon-log-entry {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0.1rem 0;
-  color: #C8C8C8;
-}
-
-.jdc-dungeon-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ===== DUNGEON BATTLE SCENE ===== */
-
-.jdc-dungeon-end-icon {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-}
-
-.jdc-dungeon-battle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 100px;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem;
-  background: rgba(0,0,0,0.2);
-  border: 1px solid #1a1a1a;
-  border-radius: 4px;
-}
-
-.jdc-dungeon-player-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.jdc-dungeon-player-sprite {
-  font-size: 2.5rem;
-  filter: drop-shadow(0 0 8px rgba(245, 166, 35, 0.3));
-}
-
-.jdc-dungeon-player-label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem;
-  color: #F5A623;
-}
-
-.jdc-dungeon-vs {
-  font-size: 1.5rem;
-  color: #F5A623;
-}
-
-.jdc-dungeon-enemies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  max-width: 120px;
-  justify-content: center;
-}
-
-.jdc-dungeon-enemy-sprite {
-  transition: all 0.3s;
-}
-
-.jdc-dungeon-enemy-emoji {
-  font-size: 1.5rem;
-}
-
-.jdc-dungeon-progress-wrap {
-  height: 6px;
-  background: #1a0a0a;
-  border: 1px solid #222;
-  border-radius: 2px;
-  overflow: hidden;
-  margin-bottom: 0.3rem;
-}
-
-.jdc-dungeon-progress-fill {
-  height: 100%;
-  background: #444;
-  transition: width 0.3s;
 }
 
 /* ===== CB2 Style ===== */

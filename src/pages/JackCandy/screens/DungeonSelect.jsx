@@ -9,38 +9,55 @@ export default function DungeonSelect() {
   return (
     <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-vila-title">DUNGEONS</div>
-      <p className="jack-text jack-text--dim" style={{ marginBottom: '1rem' }}>
-        selecione uma dungeon
+      <p className="jack-text jack-text--dim" style={{ marginBottom: '1rem', textAlign: 'center' }}>
+        entre onde a noite é mais escura
       </p>
-      <div className="jdc-vila-npcs">
+
+      <div className="jdc-vila-grid">
         {dungeons.map(d => {
           const completa = store.dungeonsCompletas.includes(d.id)
           const locked = d.id === 'rua' && !store.dungeonsCompletas.includes('onibus')
-          const locked2 = d.id === 'boteco' && !store.dungeonsCompletas.includes('rua')
-          const bloqueada = locked || locked2
+          const bloqueada = locked
 
           return (
-            <button
+            <motion.button
               key={d.id}
-              className={`jdc-vila-npc-btn ${bloqueada ? 'jdc-vila-npc-btn--locked' : ''}`}
+              className={`jdc-vila-card ${bloqueada ? 'jdc-vila-card--locked' : ''} ${completa ? 'jdc-vila-card--done' : ''}`}
               onClick={() => {
                 if (bloqueada) return
                 store.setFase(`dungeon_${d.id}`)
               }}
               disabled={bloqueada}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              style={{ borderLeftColor: completa ? '#22C55E' : bloqueada ? '#444' : '#8B0000' }}
             >
-              <span className="jdc-vila-npc-icon">
-                {completa ? '🔄' : bloqueada ? '🔒' : '⚔️'}
-              </span>
-              <span className="jdc-vila-npc-nome">{d.nome}</span>
-              <span className="jdc-vila-npc-desc">{d.desc}</span>
-              <span className="jdc-vila-npc-desc">
-                {completa ? `rejogar (${Math.floor(d.dropCap / 2)} cap)` : `${d.inimigos} inimigos · ${d.dropCap} cap`}
-                {d.dropNotas > 0 ? `, ${d.dropNotas} notas` : ''}
-              </span>
-            </button>
+              <div className="jdc-vila-card-emoji">
+                {completa ? '🔄' : bloqueada ? '🔒' : d.emoji || '⚔️'}
+              </div>
+              <div className="jdc-vila-card-info">
+                <span className="jdc-vila-card-nome" style={{ color: bloqueada ? '#444' : '#C8C8C8' }}>
+                  {d.nome}
+                </span>
+                <span className="jdc-vila-card-desc">{d.desc}</span>
+                <span className="jdc-vila-card-detail">
+                  {completa
+                    ? `rejogar (${Math.floor(d.dropCap / 2)} cervejas)`
+                    : `${d.inimigos} inimigos · ${d.dropCap} cervejas`}
+                  {d.dropNotas > 0 ? ` · ${d.dropNotas} notas` : ''}
+                  {d.boss ? ` · boss: ${d.boss.nome}` : ''}
+                </span>
+              </div>
+              <div className="jdc-vila-card-arrow" style={{ color: bloqueada ? '#444' : '#8B0000' }}>→</div>
+            </motion.button>
           )
         })}
+      </div>
+
+      <div className="jdc-vila-legend">
+        <span>⚔️ Nova</span>
+        <span>🔒 Trancada</span>
+        <span>🔄 Rejogar</span>
       </div>
     </motion.div>
   )
