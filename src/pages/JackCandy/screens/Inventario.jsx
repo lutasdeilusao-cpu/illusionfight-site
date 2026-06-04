@@ -1,8 +1,19 @@
 import { motion } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
+import { ITENS } from '../data/itens'
 
 export default function Inventario() {
   const store = useJackStore()
+
+  const handleItemAction = (itemId) => {
+    const item = ITENS[itemId]
+    if (!item) return
+    if (item.cura) {
+      store.usarItem(itemId)
+    } else if (item.slot) {
+      store.equiparPorId(itemId)
+    }
+  }
 
   return (
     <motion.div className="jdc-inventario-screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -28,23 +39,19 @@ export default function Inventario() {
       <div className="jdc-inventario-section">
         <p className="jack-text jack-text--dim">mochila</p>
         {store.inventario.length === 0 && <p className="jack-text jack-text--dim">vazia.</p>}
-        {store.inventario.filter(item => {
-          const equipadoIds = Object.values(store.equipado).filter(Boolean).map(e => e.id)
-          return !equipadoIds.includes(item.id)
-        }).length === 0 && store.inventario.length > 0 && (
-          <p className="jack-text jack-text--dim">todos os itens estão equipados.</p>
-        )}
-        {store.inventario.filter(item => {
-          const equipadoIds = Object.values(store.equipado).filter(Boolean).map(e => e.id)
-          return !equipadoIds.includes(item.id)
-        }).map((item, i) => (
-          <div key={i} className="jdc-inv-item">
-            <span className="jack-text">{item.nome}</span>
-            <button className="jack-btn" onClick={() => store.equiparPorId(item.id)} style={{ fontSize: '0.65rem', padding: '0.15rem 0.4rem' }}>
-              [ equipar ]
-            </button>
-          </div>
-        ))}
+        {store.inventario.map((item, i) => {
+          const fullItem = ITENS[item.id]
+          const isConsumivel = fullItem?.cura
+          return (
+            <div key={i} className="jdc-inv-item">
+              <span className="jack-text">{item.nome}</span>
+              {fullItem?.cura && <span className="jack-text jack-text--dim">cura +{fullItem.cura} HP</span>}
+              <button className="jack-btn" onClick={() => handleItemAction(item.id)} style={{ fontSize: '0.65rem', padding: '0.15rem 0.4rem' }}>
+                {isConsumivel ? '[ usar ]' : '[ equipar ]'}
+              </button>
+            </div>
+          )
+        })}
       </div>
     </motion.div>
   )

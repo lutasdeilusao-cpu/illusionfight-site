@@ -119,6 +119,21 @@ export const useJackStore = create((set, get) => {
       }))
     },
 
+    usarItem: (itemId) => {
+      const item = ITENS[itemId]
+      if (!item) return
+      set(state => {
+        if (item.cura) {
+          return {
+            hpAtual: Math.min(state.hpMax, state.hpAtual + item.cura),
+            inventario: state.inventario.filter(i => i.id !== itemId),
+            monologoAtual: `você usou ${item.nome}. +${item.cura} HP.`,
+          }
+        }
+        return state
+      })
+    },
+
     completarDungeon: (dungeonId, dropCap, dropNotas) => {
       set(state => {
         if (state.dungeonsCompletas.includes(dungeonId)) {
