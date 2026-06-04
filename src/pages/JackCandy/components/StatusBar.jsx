@@ -17,6 +17,13 @@ export default function StatusBar() {
     setTimeout(() => setSaving(false), 1000)
   }
 
+  const irPara = (fase) => {
+    if (!store.flags.TEM_BENGALA) return
+    if (fase === 'dungeon_onibus' && !store.dungeonsCompletas.includes('onibus')) store.setFase('dungeon_onibus')
+    else if (fase === 'dungeon_rua' && store.dungeonsCompletas.includes('onibus')) store.setFase('dungeon_rua')
+    else store.setFase(fase)
+  }
+
   return (
     <div className="jdc-statusbar">
       <div className="jdc-statusbar-row">
@@ -24,14 +31,10 @@ export default function StatusBar() {
           capangas: {store.capangas}  |  notas: {store.notas}
         </span>
         <span className="jdc-sb-nav">
-          <button
-            className={`jdc-sb-btn ${store.fase === 'vila' ? 'jdc-sb-btn--active' : ''}`}
-            onClick={() => store.setFase('vila')}
-            disabled={!store.flags.TEM_BENGALA}
-          >
-            VILA
-          </button>
-          <button className="jdc-sb-btn jdc-sb-btn--disabled" disabled>INV</button>
+          <button className={`jdc-sb-btn ${store.fase === 'vila' ? 'jdc-sb-btn--active' : ''}`}
+            onClick={() => irPara('vila')} disabled={!store.flags.TEM_BENGALA}>VILA</button>
+          <button className={`jdc-sb-btn ${store.fase === 'inventario' ? 'jdc-sb-btn--active' : ''}`}
+            onClick={() => irPara('inventario')} disabled={!store.flags.TEM_BENGALA}>INV</button>
           <button className="jdc-sb-btn jdc-sb-btn--disabled" disabled>MAP</button>
           <button className="jdc-sb-btn jdc-sb-btn--save" onClick={handleSave} disabled={saving}>
             {saving ? '...' : 'SAVE'}
@@ -42,7 +45,7 @@ export default function StatusBar() {
         <span className="jdc-sb-hp-label">HP</span>
         <span className="jdc-sb-hp-bar">{hpBar}</span>
         <span className="jdc-sb-hp-text">{store.hpAtual}/{store.hpMax}</span>
-        <span className="jdc-sb-level">LV {store.nivel}</span>
+        <span className="jdc-sb-level">LV {store.nivel} | cap/s {store.capangasPorSegundo}</span>
       </div>
     </div>
   )

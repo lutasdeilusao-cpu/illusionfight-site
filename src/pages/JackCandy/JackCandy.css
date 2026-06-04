@@ -395,6 +395,209 @@
   letter-spacing: 0.05em;
 }
 
+/* ===== VILA ===== */
+
+.jdc-vila { text-align: center; }
+
+.jdc-vila-title {
+  font-size: 1.3rem;
+  color: #F5A623;
+  letter-spacing: 0.3em;
+  margin-bottom: 1rem;
+}
+
+.jdc-vila-map {
+  overflow-x: auto;
+  padding: 0.5rem;
+  background: #0A0A0A;
+  border: 1px solid #222;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.jdc-vila-ascii {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  color: #C8C8C8;
+  white-space: pre;
+  min-width: fit-content;
+}
+
+.jdc-vila-npc {
+  text-decoration: underline;
+  text-decoration-color: #F5A623;
+  text-underline-offset: 2px;
+  transition: all 0.2s;
+  color: #F5A623;
+}
+
+.jdc-vila-npc:hover {
+  text-shadow: 0 0 8px rgba(245, 166, 35, 0.4);
+}
+
+.jdc-vila-npc--locked {
+  text-decoration-color: #444;
+  color: #666;
+}
+
+/* ===== INTERIOR ===== */
+
+.jdc-interior { padding: 0.5rem 0; }
+
+.jdc-interior-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.jdc-interior-nome {
+  font-size: 1rem;
+  color: #F5A623;
+  letter-spacing: 0.05em;
+}
+
+.jdc-interior-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+/* ===== COMBAT LOG ===== */
+
+.jdc-combat-log {
+  background: #0A0A0A;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-combat-log-hp {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.jdc-combat-log-hp-label {
+  font-size: 0.75rem;
+  color: #8B0000;
+  min-width: 20px;
+}
+
+.jdc-combat-log-hp-bar {
+  flex: 1;
+  height: 8px;
+  background: #1A0A0A;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.jdc-combat-log-hp-fill {
+  height: 100%;
+  background: #8B0000;
+  transition: width 0.3s;
+}
+
+.jdc-combat-log-hp-text {
+  font-size: 0.7rem;
+  color: #C8C8C8;
+  min-width: 40px;
+  text-align: right;
+}
+
+.jdc-combat-log-feed {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-combat-log-entry {
+  font-size: 0.8rem;
+  color: #C8C8C8;
+  line-height: 1.5;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid #111;
+}
+
+.jdc-combat-log-footer {
+  font-size: 0.75rem;
+  color: #F5A623;
+  border-top: 1px solid #1A1A1A;
+  padding-top: 0.4rem;
+}
+
+/* ===== DUNGEON ===== */
+
+.jdc-dungeon { padding: 0.5rem 0; }
+
+.jdc-dungeon-header {
+  font-size: 1rem;
+  color: #F5A623;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.jdc-dungeon-over {
+  font-size: 3rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* ===== INVENTARIO ===== */
+
+.jdc-inventario-screen { padding: 0.5rem 0; }
+
+.jdc-inventario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.jdc-inventario-section {
+  margin-bottom: 1rem;
+}
+
+.jdc-inv-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #1A1A1A;
+  font-size: 0.85rem;
+}
+
+/* ===== MONOLOGUE ===== */
+
+.jdc-monologo {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  padding: 0.75rem 1rem;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.jdc-monologo-text {
+  font-size: 0.8rem;
+  color: #8B0000;
+  font-style: italic;
+  line-height: 1.5;
+}
+
 .jdc-avatar {
   width: 120px;
   height: 120px;

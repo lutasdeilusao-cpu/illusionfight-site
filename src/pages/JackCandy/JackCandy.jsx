@@ -4,8 +4,14 @@ import { useReader } from '../../context/ReaderContext'
 import { useJackStore } from './store/useJackStore'
 import LoginGate from '../../components/LoginGate/LoginGate'
 import StatusBar from './components/StatusBar'
+import Monologue from './components/Monologue'
 import Intro from './screens/Intro'
 import Vila from './screens/Vila'
+import Interior from './screens/Interior'
+import Inventario from './screens/Inventario'
+import Dungeon from './screens/Dungeon'
+import { MONOLOGUES } from './data/monologues'
+import { DUNGEONS } from './data/dungeons'
 import './JackCandy.css'
 
 export default function JackCandy() {
@@ -19,7 +25,6 @@ export default function JackCandy() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Load from cloud on mount
   useEffect(() => {
     if (!user) return
     store.loadFromCloud(user.id).then(() => {
@@ -28,26 +33,21 @@ export default function JackCandy() {
     })
   }, [user])
 
-  // Auto-tick capangas a cada 1s
   useEffect(() => {
     if (!user) return
-    const t = setInterval(() => store.tick(), 1000)
-    return () => clearInterval(t)
+    const t1 = setInterval(() => store.tick(), 1000)
+    const t2 = setInterval(() => store.regenHp(), 10000)
+    const t3 = setInterval(() => store.saveToCloud(user.id), 30000)
+    return () => { clearInterval(t1); clearInterval(t2); clearInterval(t3) }
   }, [user])
 
-  // Regen HP a cada 10s
+  // Monologue ao entrar na vila
   useEffect(() => {
-    if (!user) return
-    const t = setInterval(() => store.regenHp(), 10000)
-    return () => clearInterval(t)
-  }, [user])
-
-  // Auto save to cloud a cada 30s
-  useEffect(() => {
-    if (!user) return
-    const t = setInterval(() => store.saveToCloud(user.id), 30000)
-    return () => clearInterval(t)
-  }, [user])
+    if (store.fase === 'vila' && store.flags.TEM_BENGALA && !store.flags.JA_VIU_VILA) {
+      store.setMonologo(MONOLOGUES.entra_vila)
+      store.setFlag('JA_VIU_VILA')
+    }
+  }, [store.fase, store.flags.TEM_BENGALA, store.flags.JA_VIU_VILA])
 
   if (!user) {
     return (
@@ -69,13 +69,27 @@ export default function JackCandy() {
     )
   }
 
+  const fase = store.fase || 'intro'
+  const isDungeon = fase.startsWith('dungeon_')
+  const isInterior = fase.startsWith('interior_')
+  const npcId = isInterior ? fase.replace('interior_', '') : null
+  const dungeonId = isDungeon ? fase.replace('dungeon_', '') : null
+
   return (
     <div className="jack-body">
       <StatusBar />
-      <div className="jack-content" style={{ paddingTop: '6rem' }}>
-        {store.fase === 'intro' && <Intro />}
-        {store.fase === 'vila' && <Vila />}
+      <div className="jack-content" style={{ paddingTop: isDungeon ? '4rem' : '6rem' }}>
+        {fase === 'intro' && <Intro />}
+        {fase === 'vila' && <Vila />}
+        {fase === 'inventario' && <Inventario />}
+        {isInterior && <Interior npcId={npcId} />}
+        {isDungeon && <Dungeon dungeonId={dungeonId} />}
       </div>
+
+      <Monologue
+        text={store.monologoAtual}
+        onClose={store.limparMonologo}
+      />
     </div>
   )
 }
