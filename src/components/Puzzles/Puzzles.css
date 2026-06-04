@@ -397,3 +397,22 @@
   color: #F5A623;
   letter-spacing: 0.2em;
 }
+
+/* === Força === */
+
+.puzzle-forca-cell {
+  width: 28px;
+  height: 32px;
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  border-bottom: 2px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #F5A623;
+  border-radius: 2px;
+  transition: all 0.2s;
+}

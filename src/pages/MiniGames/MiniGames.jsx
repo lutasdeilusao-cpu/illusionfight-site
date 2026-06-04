@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama } from '../../components/Puzzles'
+import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
 import { MINIGAMES_VERSION } from './version'
 import './MiniGames.css'
@@ -11,6 +11,7 @@ const GAMES = [
   { id: 'sliding', nome: 'Sliding Tiles', tagline: 'documento rasgado. reconstitua as peças.', emoji: '🧩', cor: '#A855F4', desc: 'mova as peças até reconstituir a imagem. sem desfazer.', dificuldade: '★★☆' },
   { id: 'labirinto', nome: 'Labirinto', tagline: 'sem mapa. sem saída óbvia.', emoji: '🌀', cor: '#8B0000', desc: 'navegue pelo labirinto. cada geração é única.', dificuldade: '★★★' },
   { id: 'anagrama', nome: 'Anagrama', tagline: 'as letras estão certas. a ordem não.', emoji: '🔤', cor: '#22C55E', desc: 'reorganize as letras para formar a palavra correta.', dificuldade: '★☆☆' },
+  { id: 'forca', nome: 'Palavra Secreta', tagline: 'descubra a palavra. uma letra de cada vez.', emoji: '🎡', cor: '#EC4899', desc: 'adivinhe letras e acuse a palavra certa.', dificuldade: '★★☆' },
 ]
 
 const STEALTH_CONFIG = {
@@ -48,7 +49,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
-    if (['stealth','decoder','sliding','labirinto','anagrama'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (['stealth','decoder','sliding','labirinto','anagrama','forca'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -87,6 +88,7 @@ export default function MiniGames() {
         const cfg = STEALTH_CONFIG[dificuldadeSelecionada || 'easy']
         return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras, visionRange: cfg.visionRange }} />
       }
+      case 'forca': return <PuzzleForça {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'decoder': return <PuzzleDecoder {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'sliding':
         const difSliding = dificuldadeSelecionada || 'easy'
@@ -113,12 +115,11 @@ export default function MiniGames() {
         { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
         { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
       ],
-      anagrama: [
-        { id: 'easy',    label: 'FÁCIL',   specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', badge: 'FREE',  free: true,  cor: '#22C55E' },
-        { id: 'medium',  label: 'MÉDIO',   specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard',    label: 'DIFÍCIL', specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'extreme', label: 'EXTREME', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'epic',    label: 'ÉPICO',   specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
+      forca: [
+        { id: 'easy',    label: 'FÁCIL',   specs: ['6 erros', 'sem timer', '6 opções'],  emoji: '🎡', badge: 'FREE',  free: true,  cor: '#22C55E' },
+        { id: 'medium',  label: 'MÉDIO',   specs: ['5 erros', '⏱ 60s',    '8 opções'],  emoji: '🎡', badge: 'ELITE', free: false, cor: '#F5A623' },
+        { id: 'hard',    label: 'DIFÍCIL', specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'extreme', label: 'EXTREME', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
       ],
     }
     const difs = DIF_CONFIGS[jogoAtivo.id] || []

@@ -83,8 +83,9 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
   const handleClick = useCallback((idx) => { if (done) return; setSelected(prev => prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]) }, [done])
   const handleSubmit = useCallback(() => {
     if (done || selected.length === 0) return
-    const formado = selected.map(i => unidades[i]).join('').trim()
+    const formado = selected.map(i => unidades[i]).join(cfg.tipo === 'palavra' ? ' ' : '').trim()
     const correto = palavraAtual
+    console.log('[ANAGRAMA] formado:', JSON.stringify(formado), '| correto:', JSON.stringify(correto), '| match:', formado === correto)
     if (formado === correto) {
       const novasResolvidas = [...palavrasResolvidas, palavraAtual]
       setPalavrasResolvidas(novasResolvidas); setSelected([]); setMsg(`✓ "${palavraAtual}"`)
