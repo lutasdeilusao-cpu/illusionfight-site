@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.50` (console: `[LDI] versão carregada: 1.0.50`)  
+**Versão atual:** `1.0.57` (console: `[LDI] versão carregada: 1.0.57`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
