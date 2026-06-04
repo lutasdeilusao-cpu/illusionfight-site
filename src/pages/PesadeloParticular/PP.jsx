@@ -10,7 +10,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.1'
+const PP_VERSION = '1.3.2'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -395,11 +395,12 @@ function StoryViewer({ pista, onClose }) {
   const info = pista.i18n[LOCALE]
   const TIPO_EMOJI = { objeto:'🔍', testemunho:'💬', documento:'📄', rastro:'👣', fio:'🕸️' }
   return (
-    <motion.div className="pp-story-viewer" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
+    <motion.div className="pp-story-viewer" onClick={onClose}
+      initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
       <div className="pp-story-viewer-bar">
         <div className="pp-story-viewer-seg"><div className="pp-story-viewer-seg-fill" /></div>
       </div>
-      <button className="pp-story-viewer-close" onClick={onClose}>✕</button>
+      <button className="pp-story-viewer-close" onClick={(e) => { e.stopPropagation(); onClose() }}>✕</button>
       <div className="pp-story-viewer-content">
         <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
