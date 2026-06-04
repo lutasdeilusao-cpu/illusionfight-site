@@ -98,10 +98,19 @@ export default function Combat() {
       if (user) saveToCloud(user.id)
       navigate('/extras/ldi/game')
     } else if (result === 'defeat') {
-      updateSave({ status: 'ended_defeat' })
-      combat.resetCombat()
-      if (user) saveToCloud(user.id)
-      navigate('/extras/ldi/end')
+      const gs = useGameStore.getState()
+      const postScene = gs.save?.post_combat_scene || ''
+      if (postScene.startsWith('4.')) {
+        combat.resetCombat()
+        await setScene('4.2_derrota')
+        if (user) saveToCloud(user.id)
+        navigate('/extras/ldi/game')
+      } else {
+        updateSave({ status: 'ended_defeat' })
+        combat.resetCombat()
+        if (user) saveToCloud(user.id)
+        navigate('/extras/ldi/end')
+      }
     } else {
       combat.resetCombat()
       if (user) saveToCloud(user.id)

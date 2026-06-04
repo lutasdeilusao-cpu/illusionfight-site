@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.53'
+const LDI_VERSION = '1.0.54'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
@@ -129,9 +129,24 @@ export const useGameStore = create((set, get) => ({
     }
 
     if (sceneId === 'end_act3') {
-      const s = get()
       set(state => ({ save: { ...state.save, status: 'active', arc: 3 } }))
       await get().setScene('4.1')
+      return
+    }
+
+    if (sceneId === 'end_act1_vitoria') {
+      set(state => ({
+        save: { ...state.save, status: 'ended_victory' },
+        currentScene: null, choices: [],
+      }))
+      return
+    }
+
+    if (sceneId === 'end_act1_derrota') {
+      set(state => ({
+        save: { ...state.save, status: 'ended_defeat' },
+        currentScene: null, choices: [],
+      }))
       return
     }
 
