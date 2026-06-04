@@ -213,7 +213,7 @@ export default function ArenaCombat({ onNavigate }) {
         setDiceOn(null)
         setOnomaMode(mode)
         stepRef.current = 1
-        timerRef.current = setTimeout(nextStep, 1000)
+        timerRef.current = setTimeout(nextStep, 1800)
         break
       }
 
@@ -223,7 +223,7 @@ export default function ArenaCombat({ onNavigate }) {
         setDamageFloat(null)
         setTurnOverlay(true)
         stepRef.current = 2
-        timerRef.current = setTimeout(nextStep, 1500)
+        timerRef.current = setTimeout(nextStep, 2800)
         break
       }
 
@@ -257,7 +257,7 @@ export default function ArenaCombat({ onNavigate }) {
         setFlashOn(false)
         setOnomaMode(d.eMode)
         stepRef.current = 4
-        timerRef.current = setTimeout(nextStep, 1000)
+        timerRef.current = setTimeout(nextStep, 1800)
         break
       }
 
@@ -266,7 +266,7 @@ export default function ArenaCombat({ onNavigate }) {
         setOnomaMode(null)
         setDamageFloat(null)
         stepRef.current = 5
-        timerRef.current = setTimeout(nextStep, 1200)
+        timerRef.current = setTimeout(nextStep, 2000)
         break
       }
 
