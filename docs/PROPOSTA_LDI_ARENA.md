@@ -19,6 +19,19 @@ Este documento de proposta descreve COMO implementar. O manual define O QUE impl
 
 **O LDI narrativo NÃO MUDA.** Suas regras simplificadas continuam servindo ao propósito do jogo de história.
 
+### ⚠️ Diferenças críticas entre Arena e LDI narrativo
+
+| Regra | LDI Narrativo | LDI Arena |
+|---|---|---|
+| PM | `PdF × 4` (balanceamento história — menos PM incentiva gestão de recursos) | `R × 5` (Manual de Batalha — mais PM permite combates mais longos e táticos) |
+| Vantagens | 8 (sistema simplificado para jogo de história) | 30+ (sistema completo, requer UI de seleção robusta) |
+| Desvantagens | 8 | 20 |
+| Vantagens Únicas | Não existem | 6 (Sintético, Espírito, Predador, Metamorfo, Arcano, Predador Digital) |
+| Escalas de Poder | Não se aplica | 4 (Ningen/Sugoi/Kiodai/Kami) |
+| Perícias | 8 (compartilha tabela `characterData.js`) | 10 |
+| Modos de Combate | 3 (Mãos Livres, Armado, Poder) | 3 (Corpo a Corpo, Distância, Elemental) |
+
+
 ---
 
 ## 1. OBJETIVO
@@ -45,6 +58,15 @@ Extrair o sistema de criação de ficha + combate do **Lendas do LDI** para cria
 | `src/pages/LDI/store/useCombatStore.js` | Loop completo de combate: `startCombat()`, `executeAttack()`, `executeEnemyAttack()`, `endCombat()` — recebe `sheet` e `enemy` como argumentos, zero conhecimento de cenas |
 | `src/pages/LDI/data/enemies/enemies.json` | Dados estáticos de inimigos. Arena pode adicionar mais inimigos sem mexer no original |
 | `src/pages/LDI/data/powersData.js` | 42 poderes em 7 elementais — compatível com ambos os sistemas |
+
+### ⚠️ enemies.json — NÃO compartilhar, DUPLICAR
+
+O `enemies.json` do LDI narrativo **não deve ser compartilhado** porque:
+- A Arena vai adicionar inimigos Tier 3 e Tier 4 (Mestre Viran, Kronos, Campeão, Primordial)
+- Um bug ou inimigo mal formatado na Arena quebraria também o LDI narrativo
+- Os dois jogos têm necessidades diferentes de balanceamento
+
+**Solução:** Criar `arena-enemies.json` separado que importa os 6 inimigos existentes do LDI + adiciona os novos. O arquivo original do LDI permanece intocado.
 
 ### 2.2 ARQUIVOS DUPLICADOS (adaptação da lógica existente)
 
@@ -305,6 +327,10 @@ character_sheets (
 
 ### ArenaRoute.jsx (roteador interno)
 ```jsx
+// Versão
+const ARENA_VERSION = '1.0.0'
+console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
+
 const [fase, setFase] = useState('lobby')
 // lobby → create → combat → victory → lobby
 
@@ -340,6 +366,20 @@ Scanlines arcade (igual MiniGames/Extras). Título glitch "LDI ARENA".
 | 8 | Adicionar rota em `App.jsx` | `/extras/ldi-arena` |
 | 9 | Adicionar card em `Extras.jsx` | "LDI Arena" no hub arcade |
 | 10 | Adicionar ao `SITE_MAP.md` | Documentação |
+
+### Card no Extras.jsx
+```js
+{
+  id: 'ldiarena',
+  nome: 'LDI Arena',
+  tagline: 'crie sua ficha. lute contra a CPU. suba no ranking.',
+  emoji: '⚔️',
+  cor: '#00B4D8',
+  rota: '/extras/ldi-arena',
+  badge: 'FREE',
+  badgeCor: '#00B4D8',
+}
+```
 
 ---
 
