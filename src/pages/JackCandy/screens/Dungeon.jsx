@@ -172,11 +172,10 @@ export default function Dungeon({ dungeonId }) {
   }
 
   return (
-    <div>
+    <div className="jdc-dungeon">
       {/* Walking track */}
       <pre className="jdc-dungeon-ascii" style={{ textAlign: 'center', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
         <div>{track}</div>
-        <div>{'·'.repeat(playerPos)}{'@'.repeat(Math.min(inimigos, 1))}{' '.repeat(TRACK_LEN - playerPos - 1)}</div>
       </pre>
 
       <div className="jdc-cb2-hp">
