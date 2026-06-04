@@ -10,7 +10,7 @@ const DICAS = {
   rua_disponivel: '👓 "a rua de marelia não termina. nina está na delegacia depois dela." — Prof. Máquina',
   nina_disponivel: '👓 "nina está na delegacia. ela sabe mais do que conta." — Prof. Máquina',
   notas_sem_gasto: '👓 "você tem notas acumuladas. gaste com itens melhores." — Prof. Máquina',
-  hp_baixo: '👓 "seu HP está baixo. compre um energético ou volte quando estiver curado." — Prof. Máquina',
+  hp_baixo: '👓 "sua moral está baixa. compre um energético ou descanse." — Prof. Máquina',
   dungeon_livre: '👓 "você tem dungeons disponíveis. complete uma para progredir." — Prof. Máquina',
   sem_upgrade: '👓 "kim vende upgrades de bengala no boteco. cada um aumenta seu dano." — Prof. Máquina',
   auranis_dica: '👓 "auranis só abre quando você estiver pronto. visite o terminal três vezes." — Prof. Máquina',

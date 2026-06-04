@@ -54,7 +54,7 @@ export default function Descanso() {
           <div className="jdc-descanso-icon">🌅</div>
           <p className="jack-text jack-text--amber">você acordou.</p>
           <p className="jack-text jack-text--dim">
-            HP recuperado até {hp}/{hpMax} ({hpPct}%).
+            Moral recuperado até {hp}/{hpMax} ({hpPct}%).
           </p>
           <button className="jack-btn jack-btn--amber" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>
             [ levantar ]
@@ -83,7 +83,7 @@ export default function Descanso() {
             style={{ backgroundColor: hpColor }} />
         </div>
         <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>
-          HP: {hp}/{hpMax}
+          Moral: {hp}/{hpMax}
         </p>
 
         {!eraZero && (

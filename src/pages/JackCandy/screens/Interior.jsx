@@ -149,8 +149,8 @@ export default function Interior({ npcId }) {
                 <div className="jdc-interior-item-stats">
                   {item.dano && <span>⚔️ +{item.dano}</span>}
                   {item.capPerSeg && <span>🍺/s +{item.capPerSeg}</span>}
-                  {item.hpMaxBonus && <span>❤️ +{item.hpMaxBonus}</span>}
-                  {item.cura && <span>🧪 +{item.cura} HP</span>}
+                  {item.hpMaxBonus && <span>❤️ +{item.hpMaxBonus} Moral</span>}
+                  {item.cura && <span>🧪 +{item.cura} Moral</span>}
                   {item.reducaoDano && <span>🛡️ -{item.reducaoDano} dmg</span>}
                 </div>
               </div>

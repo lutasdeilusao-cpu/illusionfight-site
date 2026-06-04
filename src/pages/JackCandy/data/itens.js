@@ -23,7 +23,7 @@ export const ITENS = {
   },
   paleto_noir: {
     id: 'paleto_noir', nome: 'Paletó Noir', preco: 350, moeda: 'cerveja',
-    desc: 'escuro como a noite. +1 dano, +5 HP max.', dano: 1, hpMaxBonus: 5, slot: 'armadura',
+    desc: 'escuro como a noite. +1 dano, +5 Moral max.', dano: 1, hpMaxBonus: 5, slot: 'armadura',
   },
   gravata_vermelha: {
     id: 'gravata_vermelha', nome: 'Gravata Vermelha', preco: 180, moeda: 'cerveja',
@@ -45,7 +45,7 @@ export const ITENS = {
   // === ARCO I - MARELIA - Osvaldo (Oficina) ===
   armadura_couro: {
     id: 'armadura_couro', nome: 'Armadura de Couro', preco: 400, moeda: 'cerveja',
-    desc: 'proteção contra facadas. +10 HP max.', hpMaxBonus: 10, slot: 'armadura',
+    desc: 'proteção contra facadas. +10 Moral max.', hpMaxBonus: 10, slot: 'armadura',
     desbloqueiaFlag: 'CORTICO_LIBERADO',
   },
   bengala_encantada: {
@@ -70,7 +70,7 @@ export const ITENS = {
   // === ARCO II - AURANIS - Karim ===
   protetor_costelas: {
     id: 'protetor_costelas', nome: 'Protetor de Costelas', preco: 800, moeda: 'cerveja',
-    desc: 'acolchoado. +15 HP max.', hpMaxBonus: 15, slot: 'armadura',
+    desc: 'acolchoado. +15 Moral max.', hpMaxBonus: 15, slot: 'armadura',
   },
   luvas_pesadas: {
     id: 'luvas_pesadas', nome: 'Luvas Pesadas', preco: 500, moeda: 'cerveja',
@@ -84,7 +84,7 @@ export const ITENS = {
   // === ARCO II - AURANIS - Operativo (Mercado Negro) ===
   casaco_kevlar: {
     id: 'casaco_kevlar', nome: 'Casaco de Kevlar', preco: 15, moeda: 'fragmento',
-    desc: '+20 HP max. reduz dano em 2.', hpMaxBonus: 20, reducaoDano: 2, slot: 'armadura',
+    desc: '+20 Moral max. reduz dano em 2.', hpMaxBonus: 20, reducaoDano: 2, slot: 'armadura',
   },
   bengala_choque: {
     id: 'bengala_choque', nome: 'Bengala de Choque', preco: 20, moeda: 'fragmento',
@@ -98,7 +98,7 @@ export const ITENS = {
   // === ARCO III - KARNAZAR - Tira (loja secreta) ===
   trench_coat: {
     id: 'trench_coat', nome: 'Trench Coat Noir', preco: 40, moeda: 'fragmento',
-    desc: 'pesado. faz você parecer maior. dano +3, HP +20.', dano: 3, hpMaxBonus: 20, slot: 'armadura',
+    desc: 'pesado. faz você parecer maior. dano +3, Moral +20.', dano: 3, hpMaxBonus: 20, slot: 'armadura',
   },
   bengala_avo: {
     id: 'bengala_avo', nome: 'Bengala do Avô', preco: 60, moeda: 'fragmento',
@@ -106,6 +106,6 @@ export const ITENS = {
   },
   ultimo_cigarro: {
     id: 'ultimo_cigarro', nome: 'Último Cigarro', preco: 25, moeda: 'fragmento',
-    desc: 'o último. cura HP total.', cura: 9999, unico: true,
+    desc: 'o último. cura Moral total.', cura: 9999, unico: true,
   },
 }

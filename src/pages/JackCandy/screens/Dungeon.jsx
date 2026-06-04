@@ -363,7 +363,7 @@ export default function Dungeon({ dungeonId }) {
           <span className="jack-text--crimson" style={{ fontSize: '0.7rem' }}>🥷 stealth</span>
         )}
         <span className="jdc-dungeon-status-hp">
-          <span className="jdc-dungeon-status-hp-label">HP</span>
+          <span className="jdc-dungeon-status-hp-label">MORAL</span>
           <span className="jdc-dungeon-status-hp-val">{hp}/{hpMax}</span>
         </span>
       </div>
@@ -438,7 +438,7 @@ export default function Dungeon({ dungeonId }) {
         </>
       )}
 
-      {/* HP bar */}
+      {/* Moral bar */}
       <div className="jdc-dungeon-hpbar">
         <motion.div className="jdc-dungeon-hpbar-fill"
           animate={{ width: `${hpPct}%` }}
@@ -481,7 +481,7 @@ export default function Dungeon({ dungeonId }) {
             const novaHp = hpMax
             setHp(novaHp)
             hpRef.current = novaHp
-            setLog(l => [...l, `🚬 último cigarro. HP total.`])
+            setLog(l => [...l, `🚬 último cigarro. Moral total.`])
           }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
             [ 🚬 último cigarro ]
           </button>

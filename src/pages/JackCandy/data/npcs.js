@@ -74,7 +74,7 @@ export const NPCS = {
     interior: 'Dojô de Viran',
     itens: [],
     missoes: [
-      { id: 'viran_1', nome: 'Primeira Sessão', flag: 'VIRAN_1', desc: 'Complete Rua Branca com HP > 50%' },
+      { id: 'viran_1', nome: 'Primeira Sessão', flag: 'VIRAN_1', desc: 'Complete Rua Branca com Moral > 50%' },
       { id: 'viran_2', nome: 'Segunda Sessão', flag: 'VIRAN_2', desc: 'Complete Porto Seco' },
       { id: 'viran_3', nome: 'Última Lição', flag: 'VIRAN_APROVOU', desc: 'Visite O Escuro' },
     ],

@@ -87,7 +87,7 @@ export default function StatusBar() {
         </span>
       </div>
       <div className="jdc-statusbar-row">
-        <span className="jdc-sb-hp-label">HP</span>
+        <span className="jdc-sb-hp-label">MORAL</span>
         <div className="jdc-sb-hpbar-wrap">
           <div className="jdc-sb-hpbar-fill" style={{ width: `${hpPct}%`, backgroundColor: hpColor }} />
         </div>

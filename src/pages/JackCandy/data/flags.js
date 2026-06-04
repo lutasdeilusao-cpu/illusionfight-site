@@ -12,7 +12,7 @@ export const FLAGS = {
   ANEXO_COMPLETO: 'completou a dungeon tutorial Anexo',
   RISCA_FACA_LIBERADO: 'Risca a Faca está disponível',
   CORTICO_LIBERADO: 'Cortiço está disponível',
-  TEM_ABRIGO: 'pagou o Cortiço e ganhou +5 HP max permanente',
+  TEM_ABRIGO: 'pagou o Cortiço e ganhou +5 Moral max permanente',
   TERMINAL_OUVIU: 'ouviu a Analista no Terminal 3 vezes',
   TERMINAL_OUVIDAS: 'contador de visitas ao Terminal (1-3)',
   ESCADARIA_VISITADA: 'encontrou a Escadaria secreta',
