@@ -1,4 +1,4 @@
-const LDI_VERSION = '1.0.41'
+const LDI_VERSION = '1.0.42'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
