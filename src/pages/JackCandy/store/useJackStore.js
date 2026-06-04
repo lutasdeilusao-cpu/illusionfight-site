@@ -102,7 +102,10 @@ export const useJackStore = create((set, get) => {
             arma: { ...state.equipado.arma, dano: (state.equipado.arma?.dano || 0) + item.danoBonus },
           }
         }
-        novoState.inventario = [...state.inventario.filter(i => i.id !== itemId), { id: item.id, nome: item.nome }]
+        // Só adiciona ao inventário itens SEM slot (ex: consumíveis, upgrades)
+        if (!item.slot) {
+          novoState.inventario = [...state.inventario.filter(i => i.id !== itemId), { id: item.id, nome: item.nome }]
+        }
         return novoState
       })
     },
@@ -112,6 +115,7 @@ export const useJackStore = create((set, get) => {
       if (!item?.slot) return
       set(state => ({
         equipado: { ...state.equipado, [item.slot]: { id: item.id, nome: item.nome, dano: item.dano || 0 } },
+        inventario: state.inventario.filter(i => i.id !== itemId),
       }))
     },
 
