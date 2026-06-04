@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { LanguageProvider } from './context/LanguageContext'
 import { ReaderProvider } from './context/ReaderContext'
 import { AuthProvider } from './context/AuthContext'
+import { FichasProvider } from './context/FichasContext'
 import { AchievementsProvider } from './context/AchievementsContext'
 import App from './App'
 import './index.css'
@@ -15,11 +16,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <HelmetProvider>
         <BrowserRouter basename="/illusionfight-site">
           <AuthProvider>
+          <FichasProvider>
             <AchievementsProvider>
               <LanguageProvider>
                 <App />
               </LanguageProvider>
             </AchievementsProvider>
+          </FichasProvider>
           </AuthProvider>
         </BrowserRouter>
       </HelmetProvider>

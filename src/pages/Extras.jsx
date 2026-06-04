@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom'
+import { useFichaGate } from '../hooks/useFichaGate'
+import ModalSemFichas from '../components/ModalSemFichas/ModalSemFichas'
 import './Extras.css'
 
 const JOGOS = [
@@ -17,6 +19,17 @@ const CONTEUDO = [
 
 export default function Extras() {
   const navigate = useNavigate()
+  const { tentarEntrar: entrarLdi, modalVisivel: modalLdi, fecharModal: fecharLdi } = useFichaGate('lendas_ldi')
+  const { tentarEntrar: entrarJack, modalVisivel: modalJack, fecharModal: fecharJack } = useFichaGate('jack_dream_beer')
+  const { tentarEntrar: entrarTrumps, modalVisivel: modalTrumps, fecharModal: fecharTrumps } = useFichaGate('top_trumps')
+
+  const handleJogoClick = (jogo) => {
+    if (jogo.bloqueado || !jogo.rota) return
+    if (jogo.id === 'jackcandy') entrarJack(() => navigate(jogo.rota))
+    else if (jogo.id === 'ldi') entrarLdi(() => navigate(jogo.rota))
+    else if (jogo.id === 'toptrumps') entrarTrumps(() => navigate(jogo.rota))
+    else navigate(jogo.rota)
+  }
 
   return (
     <div className="extras-page">
@@ -40,11 +53,9 @@ export default function Extras() {
           {JOGOS.map(jogo => (
             <div key={jogo.id} className={`extras-jogo-card ${jogo.bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
               style={{ '--cor-neon': jogo.cor }}
-              onClick={() => !jogo.bloqueado && jogo.rota && navigate(jogo.rota)}>
+              onClick={() => handleJogoClick(jogo)}>
               <div className="extras-jogo-card-inner">
-                <div className="extras-jogo-badge" style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>
-                  {jogo.badge}
-                </div>
+                <div className="extras-jogo-badge" style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>{jogo.badge}</div>
                 <div className="extras-jogo-emoji">{jogo.emoji}</div>
                 <h2 className="extras-jogo-nome">{jogo.nome}</h2>
                 <p className="extras-jogo-tagline">{jogo.tagline}</p>
@@ -67,10 +78,7 @@ export default function Extras() {
             <div key={item.id} className="extras-conteudo-card" style={{ '--cor-neon': item.cor }}
               onClick={() => item.rota && navigate(item.rota)}>
               <span className="extras-conteudo-emoji">{item.emoji}</span>
-              <div>
-                <p className="extras-conteudo-nome">{item.nome}</p>
-                <p className="extras-conteudo-tagline">{item.tagline}</p>
-              </div>
+              <div><p className="extras-conteudo-nome">{item.nome}</p><p className="extras-conteudo-tagline">{item.tagline}</p></div>
               <span className="extras-conteudo-badge" style={{ color: item.cor, borderColor: item.cor + '44' }}>{item.badge}</span>
             </div>
           ))}
@@ -80,6 +88,10 @@ export default function Extras() {
       <div className="extras-footer-arcade">
         <span className="extras-footer-credits">© {new Date().getFullYear()} LUTAS DE ILUSÃO — 1 PLAYER</span>
       </div>
+
+      <ModalSemFichas visivel={modalJack} onFechar={fecharJack} jogo="Jack Dream Beer" />
+      <ModalSemFichas visivel={modalLdi} onFechar={fecharLdi} jogo="Lendas do LDI" />
+      <ModalSemFichas visivel={modalTrumps} onFechar={fecharTrumps} jogo="Top Trumps LDI" />
     </div>
   )
 }

@@ -1,0 +1,26 @@
+.recomp-page { display: flex; flex-direction: column; gap: 1.5rem; padding: 0.5rem 0; font-family: 'Share Tech Mono', monospace; }
+.recomp-saldo { display: flex; align-items: center; gap: 1rem; background: #0a0a0a; border: 1px solid #F5A623; border-radius: 4px; padding: 1rem 1.2rem; box-shadow: 0 0 20px rgba(245,166,35,0.1); }
+.recomp-saldo-emoji { font-size: 2rem; }
+.recomp-saldo-val { font-size: 2rem; font-weight: bold; color: #F5A623; margin: 0; }
+.recomp-saldo-label { font-size: 0.65rem; color: #555; margin: 0; letter-spacing: 0.1em; }
+.recomp-admin { font-size: 0.7rem; color: #F5A623; text-align: center; letter-spacing: 0.1em; border: 1px solid #F5A62333; padding: 0.4rem; border-radius: 2px; }
+.recomp-secao-label { font-size: 0.65rem; color: #444; letter-spacing: 0.2em; margin: 0 0 0.6rem; }
+.recomp-ticket { background: #0a0a0a; border-radius: 4px; overflow: hidden; position: relative; border: 1px solid #333; }
+.recomp-ticket--disponivel { border-color: #F5A623; cursor: pointer; box-shadow: 0 0 16px rgba(245,166,35,0.15); }
+.recomp-ticket--coletado { opacity: 0.5; }
+.recomp-ticket-inner { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.2rem; }
+.recomp-ticket-emoji { font-size: 1.8rem; flex-shrink: 0; }
+.recomp-ticket-titulo { font-size: 0.85rem; color: #e8e8e8; margin: 0; font-weight: bold; }
+.recomp-ticket-sub { font-size: 0.65rem; color: #555; margin: 0.15rem 0 0; }
+.recomp-ticket-cta { margin-left: auto; font-size: 0.65rem; color: #F5A623; border: 1px solid #F5A623; padding: 0.2rem 0.6rem; letter-spacing: 0.15em; animation: recomp-pulse 1.5s ease-in-out infinite; flex-shrink: 0; }
+@keyframes recomp-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.recomp-ticket-perfurado { height: 4px; background: repeating-linear-gradient(90deg, #111 0px, #111 8px, transparent 8px, transparent 14px); }
+.recomp-coletado-msg { font-size: 0.75rem; color: #22C55E; text-align: center; letter-spacing: 0.1em; margin: 0.3rem 0 0; }
+.recomp-como-grid { display: flex; flex-direction: column; gap: 0.4rem; }
+.recomp-como-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.8rem; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 2px; font-size: 0.72rem; }
+.recomp-como-acao { flex: 1; color: #888; }
+.recomp-como-fichas { color: #F5A623; font-weight: bold; flex-shrink: 0; }
+.recomp-hist-item { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; border-bottom: 1px solid #111; font-size: 0.7rem; }
+.recomp-hist-item--ganho .recomp-hist-qtd { color: #22C55E; }
+.recomp-hist-item--gasto .recomp-hist-qtd { color: #8B0000; }
+.recomp-hist-motivo { color: #555; }
