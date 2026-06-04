@@ -61,8 +61,6 @@ function gerarCameras(size, count) {
   return cams
 }
 
-const CELL_SIZE = 44
-
 export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const size = config.size || 4
   const hasTimer = config.hasTimer || false
@@ -70,8 +68,12 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const cameraCountConfig = config.cameraCount || Math.min(size - 1, 3)
   const isMobile = window.innerWidth < 600
 
+  const containerRef = useRef(null)
+  const gridRef = useRef(null)
+  const [cellSize, setCellSize] = useState(44)
+
   const viewportCells = isMobile ? (size >= 12 ? 7 : Math.min(6, size)) : size
-  const viewportPx = viewportCells * CELL_SIZE
+  const viewportPx = viewportCells * cellSize
 
   const [playerPos, setPlayerPos] = useState({ r: 0, c: 0 })
   const [cameras, setCameras] = useState([])
@@ -84,9 +86,16 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const [zoom, setZoom] = useState(1)
   const [zoomBtnVisible, setZoomBtnVisible] = useState(false)
   const zoomTimerRef = useRef(null)
-  const gridRef = useRef(null)
 
   const goalPos = { r: size-1, c: size-1 }
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const w = containerRef.current.offsetWidth || 400
+    const maxCells = isMobile ? viewportCells : size
+    const computed = Math.floor((w - 4) / maxCells)
+    setCellSize(Math.max(20, Math.min(44, computed)))
+  }, [size, isMobile, viewportCells])
 
   useEffect(() => {
     let camsValidas, visionValida
@@ -129,8 +138,8 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (!isMobile || !gridRef.current) return
-    const targetX = playerPos.c * CELL_SIZE - viewportPx / 2 + CELL_SIZE / 2
-    const targetY = playerPos.r * CELL_SIZE - viewportPx / 2 + CELL_SIZE / 2
+    const targetX = playerPos.c * cellSize - viewportPx / 2 + cellSize / 2
+    const targetY = playerPos.r * cellSize - viewportPx / 2 + cellSize / 2
     gridRef.current.scrollTo({ left: Math.max(0, targetX), top: Math.max(0, targetY), behavior: 'smooth' })
   }, [playerPos, isMobile])
 
@@ -216,10 +225,10 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     return dc > 0 ? '→' : '←'
   })()
 
-  const zoomScale = zoom === 3 ? viewportPx / (size * CELL_SIZE) : zoom === 2 ? 0.65 : 1
+  const zoomScale = zoom === 3 ? viewportPx / (size * cellSize) : zoom === 2 ? 0.65 : 1
 
   return (
-    <div className="puzzle-container" style={{ userSelect: 'none' }}>
+    <div ref={containerRef} className="puzzle-container" style={{ userSelect: 'none' }}>
       <div className="puzzle-title">🥷 Grade de Infiltração</div>
       <p className="puzzle-desc">evite as câmeras e seus cones de visão. use WASD, setas ou swipe.</p>
       {hasTimer && <p className="puzzle-timer">⏱️ {timeLeft}s</p>}
@@ -230,7 +239,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
         onTouchStart={showZoomBtns} onClick={showZoomBtns}>
         {toast && <div className="puzzle-stealth-toast">você foi capturado</div>}
 
-        <div className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${CELL_SIZE}px)`, transform: `scale(${zoomScale})`, transformOrigin: 'top left', width: size * CELL_SIZE }}>
+        <div className="puzzle-stealth-grid"           style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale})`, transformOrigin: 'top left', width: size * cellSize }}>
           {Array.from({ length: size * size }, (_, i) => {
             const r = Math.floor(i / size)
             const c = i % size
@@ -245,7 +254,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
             else if (isCam) cellClass += ' puzzle-stealth-cell--camera'
             else if (isVision) cellClass += ' puzzle-stealth-cell--vision'
             return (
-              <div key={i} className={cellClass} style={{ width: CELL_SIZE, height: CELL_SIZE }}>
+              <div key={i} className={cellClass} style={{ width: cellSize, height: cellSize }}>
                 {isPlayer ? (isCaught ? '💀' : '🕵️') : isGoal ? <span className="puzzle-stealth-goal-icon">🏁</span> : isCam ? '📹' : ''}
               </div>
             )

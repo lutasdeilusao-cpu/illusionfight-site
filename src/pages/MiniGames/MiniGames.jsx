@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
+import { MINIGAMES_VERSION } from './version'
 import './MiniGames.css'
-
-const MINIGAMES_VERSION = '1.0.0'
-console.log(`[MINIGAMES] versão carregada: ${MINIGAMES_VERSION}`)
 
 const GAMES = [
   { id: 'stealth', nome: 'Infiltração', tagline: 'evite as câmeras. chegue ao objetivo.', emoji: '🥷', cor: '#00B4D8', desc: 'câmeras com cone de visão rotativo. uma rota existe. encontre.', dificuldade: '★★☆' },
