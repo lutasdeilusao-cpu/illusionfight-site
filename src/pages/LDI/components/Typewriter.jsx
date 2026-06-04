@@ -113,6 +113,7 @@ export default function Typewriter({ paragraphs, speed = 30, pauseBetween = 300,
               ...(estilo ? {
                 '--personagem-cor': estilo.cor,
                 '--personagem-fonte': estilo.fonte,
+                fontFamily: estilo.fonte,
               } : {}),
             }}
           >
