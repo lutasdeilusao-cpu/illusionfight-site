@@ -48,7 +48,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
-    if (game.id === 'stealth') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (game.id === 'stealth' || game.id === 'decoder') { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -87,7 +87,7 @@ export default function MiniGames() {
         const cfg = STEALTH_CONFIG[dificuldadeSelecionada || 'easy']
         return <PuzzleStealthGrid {...props} config={{ size: cfg.size, hasTimer: cfg.hasTimer, timerSegundos: cfg.timerSegundos, cameraCount: cfg.cameras, visionRange: cfg.visionRange }} />
       }
-      case 'decoder': return <PuzzleDecoder {...props} />
+      case 'decoder': return <PuzzleDecoder {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'sliding': return <PuzzleSlidingTiles {...props} config={{ size: 3 }} />
       case 'labirinto': return <PuzzleLabirinto {...props} />
       case 'anagrama': return <PuzzleAnagrama {...props} />
@@ -95,48 +95,52 @@ export default function MiniGames() {
     }
   }
 
-  if (fase === 'selecionar_dificuldade') return (
-    <div className="mg-page">
-      <div className="mg-scanlines" />
-      <div className="mg-dif-select">
-        <div className="mg-dif-header">
-          <button className="mg-back" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
-          <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text="INFILTRAÇÃO">INFILTRAÇÃO</span></h2>
-          <p className="mg-dif-sub">escolha a dificuldade</p>
-        </div>
-        <div className="mg-dif-grid">
-          <div className="mg-dif-card mg-dif-card--easy" onClick={() => iniciarJogo(jogoAtivo, 'easy')}>
-            <div className="mg-dif-card-inner">
-              <span className="mg-dif-nivel">FÁCIL</span><span className="mg-dif-emoji">🟢</span>
-              <div className="mg-dif-specs"><span>grid 4×4</span><span>3 câmeras</span><span>⏱ 30s</span></div>
-              <div className="mg-dif-preview">{Array.from({length:16}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
-              <span className="mg-dif-badge mg-dif-badge--free">FREE</span>
-            </div>
+  if (fase === 'selecionar_dificuldade') {
+    const isStealth = jogoAtivo.id === 'stealth'
+    const difs = isStealth
+      ? [
+          { id: 'easy', label: 'FÁCIL', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, badge: 'FREE', free: true, cor: '#22C55E' },
+          { id: 'medium', label: 'MÉDIO', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, badge: 'ELITE', free: false, cor: '#F5A623' },
+          { id: 'hard', label: 'DIFÍCIL', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, badge: 'ELITE', free: false, cor: '#8B0000' },
+        ]
+      : [
+          { id: 'easy', label: 'FÁCIL', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', badge: 'FREE', free: true, cor: '#22C55E' },
+          { id: 'medium', label: 'MÉDIO', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#F5A623' },
+          { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
+          { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
+        ]
+    return (
+      <div className="mg-page"><div className="mg-scanlines" />
+        <div className="mg-dif-select">
+          <div className="mg-dif-header">
+            <button className="mg-back" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
+            <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text={jogoAtivo.nome.toUpperCase()}>{jogoAtivo.nome.toUpperCase()}</span></h2>
+            <p className="mg-dif-sub">escolha a dificuldade</p>
           </div>
-          <div className={`mg-dif-card mg-dif-card--medium ${!podeElite ? 'mg-dif-card--locked' : ''}`}
-            onClick={() => podeElite && iniciarJogo(jogoAtivo, 'medium')}>
-            <div className="mg-dif-card-inner">
-              <span className="mg-dif-nivel">MÉDIO</span><span className="mg-dif-emoji">{podeElite ? '🟡' : '🔒'}</span>
-              <div className="mg-dif-specs"><span>grid 8×8</span><span>5 câmeras</span><span>⏱ 60s</span></div>
-              <div className="mg-dif-preview mg-dif-preview--medium">{Array.from({length:64}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
-              <span className={`mg-dif-badge ${podeElite ? 'mg-dif-badge--elite' : 'mg-dif-badge--locked'}`}>{podeElite ? 'ELITE' : 'ELITE+'}</span>
-              {!podeElite && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
-            </div>
-          </div>
-          <div className={`mg-dif-card mg-dif-card--hard ${!podeElite ? 'mg-dif-card--locked' : ''}`}
-            onClick={() => podeElite && iniciarJogo(jogoAtivo, 'hard')}>
-            <div className="mg-dif-card-inner">
-              <span className="mg-dif-nivel">DIFÍCIL</span><span className="mg-dif-emoji">{podeElite ? '🔴' : '🔒'}</span>
-              <div className="mg-dif-specs"><span>grid 12×12</span><span>7 câmeras</span><span>⏱ 90s</span></div>
-              <div className="mg-dif-preview mg-dif-preview--hard">{Array.from({length:144}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>
-              <span className={`mg-dif-badge ${podeElite ? 'mg-dif-badge--elite' : 'mg-dif-badge--locked'}`}>{podeElite ? 'ELITE' : 'ELITE+'}</span>
-              {!podeElite && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
-            </div>
+          <div className="mg-dif-grid">
+            {difs.map(d => {
+              const locked = !d.free && !podeElite
+              return (
+                <div key={d.id} className={`mg-dif-card ${locked ? 'mg-dif-card--locked' : ''}`}
+                  onClick={() => !locked && iniciarJogo(jogoAtivo, d.id)}>
+                  <div className="mg-dif-card-inner">
+                    <span className="mg-dif-nivel" style={{ color: d.cor }}>{d.label}</span>
+                    <span className="mg-dif-emoji">{locked ? '🔒' : d.emoji || '🟢'}</span>
+                    <div className="mg-dif-specs">{d.specs.map(s => <span key={s}>{s}</span>)}</div>
+                    {isStealth && <div className="mg-dif-preview">{Array.from({length:d.preview}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>}
+                    <span className={`mg-dif-badge ${d.free ? 'mg-dif-badge--free' : locked ? 'mg-dif-badge--locked' : 'mg-dif-badge--elite'}`}>
+                      {locked ? 'ELITE+' : d.badge}
+                    </span>
+                    {locked && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   if (fase === 'vitoria') return (
     <div className="mg-page"><div className="mg-scanlines" />

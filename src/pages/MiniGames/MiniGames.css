@@ -1,6 +1,6 @@
 /* ===== MINI GAMES — ARCADE ===== */
 
-.mg-page { min-height: 100vh; background: #000; color: #e8e8e8; font-family: 'Share Tech Mono', monospace; padding: 2rem 1.5rem 4rem; position: relative; overflow-x: hidden; }
+.mg-page { min-height: 100vh; background: #000; color: #e8e8e8; font-family: 'Share Tech Mono', monospace; padding: 5rem 1.5rem 4rem; position: relative; overflow-x: hidden; }
 
 .mg-scanlines { position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px); pointer-events: none; z-index: 1; }
 
