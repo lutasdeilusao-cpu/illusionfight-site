@@ -28,8 +28,8 @@ export const useArenaStore = create((set, get) => ({
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
-    const pv = (data.attributes?.R || 0) * 5
-    const pm = (data.attributes?.PdF || 0) * 5
+    const pv = Math.max(1, (data.attributes?.R || 0) * 5)
+    const pm = Math.max(2, (data.attributes?.PdF || 0) * 5)
     set({ sheet: { ...defaultSheet(), ...data }, match: { enemy_id: null, pv_current: pv, pm_current: pm, score: 0, status: 'idle' } })
   },
 
@@ -37,8 +37,8 @@ export const useArenaStore = create((set, get) => ({
 
   startMatch: (enemy) => {
     const s = get().sheet
-    const pv = (s.attributes?.R || 0) * 5
-    const pm = (s.attributes?.PdF || 0) * 5
+    const pv = Math.max(1, (s.attributes?.R || 0) * 5)
+    const pm = Math.max(2, (s.attributes?.PdF || 0) * 5)
     set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: pv, pm_current: pm, score: 0, status: 'fighting' } })
   },
 

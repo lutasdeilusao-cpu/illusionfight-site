@@ -218,11 +218,78 @@
 
 .arena-mode { font-size: 10px; color: #666; margin-top: 4px; }
 
-.arena-log {
-  background: #090909; border: 1px solid #1a1a1a; padding: 10px;
-  max-height: 160px; overflow-y: auto; margin-bottom: 12px;
+.arena-bar-fill--danger-pulse {
+  background: #8B0000; animation: arena-bar-pulse 0.5s ease-in-out infinite alternate;
 }
-.arena-log-line { font-size: 11px; color: #666; padding: 2px 0; border-bottom: 1px solid #111; }
+@keyframes arena-bar-pulse { from { opacity: 1; } to { opacity: 0.5; } }
+
+.arena-near-death {
+  font-size: 10px; color: #8B0000; text-align: center; margin-top: 6px;
+  font-weight: bold; letter-spacing: 2px;
+}
+
+/* ===== WHATSAPP-STYLE LOG ===== */
+.arena-log-area {
+  background: #060606; border: 1px solid #1a1a1a; padding: 10px;
+  min-height: 120px; max-height: 180px; overflow-y: auto; margin-bottom: 12px;
+  position: relative;
+}
+.arena-log-feed { display: flex; flex-direction: column; gap: 4px; }
+.arena-log-system {
+  text-align: center; font-size: 10px; color: #444; padding: 4px 0;
+  border-bottom: 1px solid #111;
+}
+.arena-log-bubble {
+  max-width: 85%; padding: 6px 10px; border-radius: 8px; font-size: 11px;
+  line-height: 1.4; word-break: break-word;
+}
+.arena-log-bubble--player {
+  align-self: flex-end; background: #0a1a1f; color: #00B4D8;
+  border: 1px solid #0d2a35; border-bottom-right-radius: 2px;
+}
+.arena-log-bubble--enemy {
+  align-self: flex-start; background: #1a0a0a; color: #cc5555;
+  border: 1px solid #2a0d0d; border-bottom-left-radius: 2px;
+}
+
+/* ===== ONOMATOPEIA ===== */
+.arena-onomatopeia {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: 'Impact', 'Arial Black', sans-serif; font-size: 48px;
+  color: #F5A623; text-shadow: 0 0 20px rgba(245,166,35,0.6), 0 0 40px rgba(245,166,35,0.3);
+  pointer-events: none; z-index: 100;
+}
+
+/* ===== DICE SLOT ===== */
+.arena-dice-slot {
+  position: fixed; bottom: 30%; left: 50%; transform: translateX(-50%);
+  font-size: 40px; z-index: 100; pointer-events: none;
+}
+
+/* ===== SCREEN FLASH ===== */
+.arena-flash {
+  position: fixed; inset: 0; background: #ff0000; z-index: 90;
+  pointer-events: none;
+}
+
+/* ===== ENEMY TURN OVERLAY ===== */
+.arena-enemy-turn-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 95; pointer-events: none;
+}
+.arena-enemy-turn-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 24px;
+  color: #8B0000; letter-spacing: 6px; font-weight: bold;
+}
+
+/* ===== DAMAGE FLOAT ===== */
+.arena-dmg-float {
+  position: fixed; font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 28px; font-weight: bold; z-index: 110; pointer-events: none;
+}
+.arena-dmg-float--enemy { top: 20%; right: 15%; color: #F5A623; }
+.arena-dmg-float--player { top: 20%; left: 15%; color: #ff4444; }
 
 .arena-combat-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .arena-mode-btns { display: flex; gap: 6px; }
