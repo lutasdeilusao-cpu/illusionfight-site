@@ -69,6 +69,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   const isMobile = window.innerWidth < 600
 
   const containerRef = useRef(null)
+  const viewportRef = useRef(null)
   const gridRef = useRef(null)
   const [cellSize, setCellSize] = useState(44)
 
@@ -96,11 +97,17 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   console.log('[STEALTH] hard mode | visionRange:', visionRange, '| pegadas ativas:', pegadasVisiveis)
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const w = containerRef.current.offsetWidth || 400
-    const maxCells = isMobile ? viewportCells : size
-    const computed = Math.floor((w - 4) / maxCells)
-    setCellSize(Math.max(20, Math.min(44, computed)))
+    const update = () => {
+      const el = containerRef.current
+      if (!el) return
+      const w = el.offsetWidth || 400
+      const maxCells = isMobile ? viewportCells : size
+      const computed = Math.floor((w - 8) / maxCells)
+      setCellSize(Math.max(24, Math.min(44, computed)))
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
   }, [size, isMobile, viewportCells])
 
   useEffect(() => {
@@ -143,10 +150,10 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   }, [cameras])
 
   useEffect(() => {
-    if (!isMobile || !gridRef.current) return
+    if (!isMobile || !viewportRef.current) return
     const targetX = playerPos.c * cellSize - viewportPx / 2 + cellSize / 2
     const targetY = playerPos.r * cellSize - viewportPx / 2 + cellSize / 2
-    gridRef.current.scrollTo({ left: Math.max(0, targetX), top: Math.max(0, targetY), behavior: 'smooth' })
+    viewportRef.current.scrollTo({ left: Math.max(0, targetX), top: Math.max(0, targetY), behavior: 'smooth' })
   }, [playerPos, isMobile])
 
   useEffect(() => {
@@ -218,7 +225,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
   }, [playerPos, cameras, done, alarm, visionCells, visionRange])
 
   useEffect(() => {
-    const container = gridRef.current
+    const container = viewportRef.current
     if (!container) return
     let touchStartX = 0, touchStartY = 0
     const onStart = (e) => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY }
@@ -260,12 +267,12 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       {hasTimer && <p className="puzzle-timer">⏱️ {timeLeft}s</p>}
       {done && !alarm && <p style={{ color: '#22C55E', textAlign: 'center', fontFamily: "'Share Tech Mono',monospace" }}>✓ passou.</p>}
 
-      <div ref={gridRef} className="puzzle-stealth-viewport"
+      <div ref={viewportRef} className="puzzle-stealth-viewport"
         style={{ width: viewportPx, height: viewportPx, overflow: isMobile && zoom < 3 ? 'hidden' : 'visible', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}
         onTouchStart={showZoomBtns} onClick={showZoomBtns}>
         {toast && <div className="puzzle-stealth-toast">você foi capturado</div>}
 
-        <div className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale})`, transformOrigin: 'top left', width: size * cellSize }}>
+        <div ref={gridRef} className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale})`, transformOrigin: 'top left', width: size * cellSize, position: 'relative' }}>
           {Array.from({ length: size * size }, (_, i) => {
             const r = Math.floor(i / size)
             const c = i % size
