@@ -1,0 +1,98 @@
+[
+  {
+    "id": "treinamento",
+    "name": "Bot de Treinamento",
+    "rank": 999999,
+    "stats": { "F": 1, "H": 1, "R": 1, "A": 1, "PdF": 1 },
+    "pv_max": 10, "pm_max": 5,
+    "weapon": "punhos", "weapon_damage": 1,
+    "elemental": null, "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy", "tier": 1,
+    "notes": "Bot de treino. Quase não revida."
+  },
+  {
+    "id": "kaeda",
+    "name": "Kaeda",
+    "rank": 3214,
+    "stats": { "F": 3, "H": 3, "R": 3, "A": 2, "PdF": 2 },
+    "pv_max": 15, "pm_max": 10,
+    "weapon": "katana", "weapon_damage": 3,
+    "elemental": "fogo", "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "easy", "tier": 1,
+    "notes": "Lutadora veterana de Marelia. Agressiva com a katana."
+  },
+  {
+    "id": "thunderbolt",
+    "name": "Thunderbolt",
+    "rank": 30156,
+    "stats": { "F": 4, "H": 4, "R": 3, "A": 2, "PdF": 3 },
+    "pv_max": 20, "pm_max": 15,
+    "weapon": "bastao", "weapon_damage": 4,
+    "elemental": "ar", "preferred_mode": "power",
+    "ai_pattern": "tático",
+    "difficulty": "medium", "tier": 2,
+    "notes": "Usuário de raios. Combina velocidade com poder elemental."
+  },
+  {
+    "id": "stormbyte",
+    "name": "StormByte_91",
+    "rank": 847,
+    "stats": { "F": 3, "H": 5, "R": 4, "A": 3, "PdF": 4 },
+    "pv_max": 25, "pm_max": 20,
+    "weapon": "lamina_corrente", "weapon_damage": 3,
+    "elemental": "trevas", "preferred_mode": "power",
+    "ai_pattern": "evasivo",
+    "difficulty": "medium", "tier": 2,
+    "notes": "Hacker de elite. Move-se nas sombras do sistema."
+  },
+  {
+    "id": "viran",
+    "name": "Mestre Viran",
+    "rank": 156,
+    "stats": { "F": 5, "H": 5, "R": 5, "A": 5, "PdF": 5 },
+    "pv_max": 30, "pm_max": 25,
+    "weapon": "maos", "weapon_damage": 5,
+    "elemental": "terra", "preferred_mode": "fists",
+    "ai_pattern": "mestre",
+    "difficulty": "hard", "tier": 3,
+    "notes": "Mestre do Dojô de Karnazar. Defesa impenetrável."
+  },
+  {
+    "id": "campeao",
+    "name": "O Campeão",
+    "rank": 47,
+    "stats": { "F": 6, "H": 5, "R": 6, "A": 4, "PdF": 4 },
+    "pv_max": 35, "pm_max": 20,
+    "weapon": "punhos", "weapon_damage": 6,
+    "elemental": "neutro", "preferred_mode": "fists",
+    "ai_pattern": "campeao",
+    "difficulty": "hard", "tier": 3,
+    "notes": "O lutador que Kim e Jack nunca conseguiram derrotar."
+  },
+  {
+    "id": "kronos",
+    "name": "Kronos",
+    "rank": 3,
+    "stats": { "F": 7, "H": 7, "R": 8, "A": 6, "PdF": 8 },
+    "pv_max": 50, "pm_max": 40,
+    "weapon": null, "weapon_damage": 0,
+    "elemental": "trevas", "preferred_mode": "power",
+    "ai_pattern": "primordial",
+    "difficulty": "very_hard", "tier": 4,
+    "notes": "Entidade que habita a Torre Kronos. Poder incomensurável."
+  },
+  {
+    "id": "primordial_jack",
+    "name": "Jack Primordial",
+    "rank": 1,
+    "stats": { "F": 8, "H": 6, "R": 10, "A": 5, "PdF": 10 },
+    "pv_max": 60, "pm_max": 50,
+    "weapon": "bengala", "weapon_damage": 5,
+    "elemental": "fogo", "preferred_mode": "power",
+    "ai_pattern": "primordial",
+    "difficulty": "very_hard", "tier": 4,
+    "notes": "A forma despertada de Jack com chamas negras. O topo do ranking."
+  }
+]

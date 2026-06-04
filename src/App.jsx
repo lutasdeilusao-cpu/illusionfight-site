@@ -45,6 +45,7 @@ import LDIEnd from './pages/LDI/End'
 import LDIPuzzle from './pages/LDI/PuzzlePage'
 import Diagnostico from './pages/LDI/Diagnostico'
 import JackCandy from './pages/JackCandy/JackCandy'
+import ArenaRoute from './pages/Arena/ArenaRoute'
 
 export default function App() {
   const { readerMode } = useReader()
@@ -92,6 +93,7 @@ export default function App() {
         <Route path="/extras/ldi/puzzle" element={<LDIPuzzle />} />
         <Route path="/extras/jackcandy" element={<JackCandy />} />
         <Route path="/extras/minigames" element={<MiniGames />} />
+        <Route path="/extras/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />

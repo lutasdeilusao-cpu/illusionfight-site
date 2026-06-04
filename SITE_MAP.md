@@ -93,6 +93,7 @@
 | `/extras/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | Ficha do personagem (consulta) |
 | `/extras/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | Caderno de pistas |
 | `/extras/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
+| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.0.0 | LDI Arena Mode — criação de ficha + combate CPU standalone |
 
 ---
 
@@ -401,11 +402,12 @@
 **Versão atual:** `1.0.61` (console: `[LDI] versão carregada: 1.0.61`)  
 **Rota:** `/extras/ldi/*`
 
-### LDI Arena Mode — Proposta
-**Status:** 📋 Proposta documentada  
-**Documento:** `docs/PROPOSTA_LDI_ARENA.md`  
-**Manual de Batalha:** `docs/importantes/MANUAL_BATALHA_LDI.md` (v1.0)
-**Descrição:** Extração do sistema de combate + criação de ficha como jogo standalone sem narrativa.
+### LDI Arena Mode
+**Status:** ✅ v1.0.0 implementado
+**Console:** `[ARENA] versão carregada: 1.0.0`
+**Rota:** `/extras/ldi-arena`
+**Stack:** React 19 · Zustand · Framer Motion · Supabase
+**Descrição:** Extração do sistema de combate + criação de ficha como jogo standalone sem narrativa. 30+ vantagens, 20 desvantagens, 6 vantagens únicas, 10 perícias, PM = PdF × 5, 8 inimigos (tier 1-4).
 
 ---
 
