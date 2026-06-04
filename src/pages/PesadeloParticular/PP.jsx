@@ -11,7 +11,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.11'
+const PP_VERSION = '1.3.12'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -433,6 +433,8 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
   const pista = caso.pistas.find(p => p.id === local.pista_id)
 
   const iniciarInvestigacao = () => {
+    console.log('[PP] etapa mudou:', 'inicio ->',
+      local.batalha ? 'batalha' : local.puzzle && local.puzzle !== 'nenhum' ? 'puzzle' : 'animacao')
     if (local.batalha) {
       setEtapa('batalha')
     } else if (local.puzzle && local.puzzle !== 'nenhum') {
@@ -442,11 +444,11 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
     }
   }
 
-  const handlePuzzleSolve = () => { setEtapa('revelado'); onPistaColetada(pista) }
-  const handlePuzzleFail = () => { setEtapa('inicio') }
-  const handleBatalhaVitoria = () => { setEtapa('revelado'); onPistaColetada(pista) }
-  const handleBatalhaDerrota = () => { setEtapa('inicio') }
-  const handleAnimacaoComplete = () => { setEtapa('revelado'); onPistaColetada(pista) }
+  const handlePuzzleSolve = () => { console.log('[PP] etapa mudou:', 'puzzle -> revelado'); setEtapa('revelado'); onPistaColetada(pista) }
+  const handlePuzzleFail = () => { console.log('[PP] etapa mudou:', 'puzzle -> inicio (fail)'); setEtapa('inicio') }
+  const handleBatalhaVitoria = () => { console.log('[PP] etapa mudou:', 'batalha -> revelado'); setEtapa('revelado'); onPistaColetada(pista) }
+  const handleBatalhaDerrota = () => { console.log('[PP] etapa mudou:', 'batalha -> inicio (derrota)'); setEtapa('inicio') }
+  const handleAnimacaoComplete = () => { console.log('[PP] etapa mudou:', 'anim -> revelado'); setEtapa('revelado'); onPistaColetada(pista) }
 
   const puzzleProps = { onSolve: handlePuzzleSolve, onFail: handlePuzzleFail, config: { difficulty: 'easy' } }
 
@@ -499,7 +501,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
         )}
 
         {etapa === 'puzzle' && (
-          <motion.div key="puzzle" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} style={{ padding:'0 0.5rem' }}>
+          <motion.div key="puzzle-container" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} style={{ padding:'0 0.5rem' }}>
             {renderPuzzle()}
           </motion.div>
         )}
@@ -609,6 +611,7 @@ export default function PP() {
   const [faseInterna, setFaseInterna] = useState(null)
   const [storyAtivo, setStoryAtivo] = useState(null)
   const [suspeitoSelecionado, setSuspeitoSelecionado] = useState(null)
+  const [feedbackAcusacao, setFeedbackAcusacao] = useState(null) // null | 'errado' | 'bloqueado'
 
   const { reputacao, casosResolvidos, pistasColetadas, nivel, carregado } = store
 
@@ -674,6 +677,14 @@ export default function PP() {
     } else {
       store.registrarAcusacaoErrada(casoAtivo.id, user?.id)
       setSuspeitoSelecionado(null)
+      const errosAgora = (store.acusacoesErradas[casoAtivo.id] || 0) + 1
+      const maxErros = casoAtivo.max_acusacoes || 2
+      if (errosAgora >= maxErros) {
+        setFeedbackAcusacao('bloqueado')
+      } else {
+        setFeedbackAcusacao('errado')
+        setTimeout(() => setFeedbackAcusacao(null), 2500)
+      }
     }
   }
 
@@ -793,14 +804,26 @@ export default function PP() {
 
           {/* Acusar */}
           {!resolvido && (
-            <button className="pp-acusar-btn"
-              disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias}
-              onClick={handleAcusar}>
+            <>
+              {feedbackAcusacao === 'errado' && (
+                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                  pista errada. tente novamente.
+                </div>
+              )}
+              {feedbackAcusacao === 'bloqueado' && (
+                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                  caso fracassado. reinicie para tentar novamente.
+                </div>
+              )}
+              <button className="pp-acusar-btn"
+                disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias || feedbackAcusacao === 'bloqueado'}
+                onClick={handleAcusar}>
               {pistas.length < casoAtivo.pistas_necessarias
                 ? `Colete mais ${pistasFaltam} pista${pistasFaltam > 1 ? 's' : ''}`
                 : `ACUSAR ${casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[LOCALE].nome || '...'}`
               }
             </button>
+            </>
           )}
         </div>
       )
