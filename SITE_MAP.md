@@ -398,7 +398,7 @@
 **Status:** ✅ Arco 1 implementado  
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.0.33` (console: `[LDI] versão carregada: 1.0.33`)  
+**Versão atual:** `1.0.35` (console: `[LDI] versão carregada: 1.0.35`)  
 **Rota:** `/extras/ldi/*`
 
 ### Rotas internas do jogo
@@ -535,6 +535,19 @@ src/pages/LDI/
 - ✅ **v1.0.32** — Removido `color: #00B4D8` de `.ldi-text-fala` que sobrescrevia o inline style do React
 - ✅ **v1.0.33** — Trocado inline style (`color`/`fontFamily`) para CSS custom properties (`--personagem-cor`, `--personagem-fonte`). CSS usa `var(--personagem-cor, #00B4D8)` e `var(--personagem-fonte, 'Share Tech Mono', monospace)` com fallback. JS só injeta os valores das variáveis
 - `LDI_VERSION 1.0.33`. Commit: `e4d3970`
+
+### Changelog — v1.0.34 (Log debug sceneId)
+- ✅ **Log temporário** — `console.log('[TW] sceneId recebido:', ...)` no Typewriter.jsx para diagnosticar por que o personagemId vinha nulo
+- `LDI_VERSION 1.0.34`. Commit: `1ecc890`
+
+### Changelog — v1.0.35 (Sistema de personagem por prefixo `[NOME]`)
+- ✅ **CENA_PERSONAGEM removido** — substituído por `detectarPrefixo()` que procura `[NOME]` no início do texto
+- ✅ **Typewriter.jsx** — exibe `textoLimpo` (sem prefixo), injeta `--personagem-cor` e `--personagem-fonte` apenas se prefixo encontrado
+- ✅ **PERSONAGEM_STYLE** — chaves em uppercase: NEOGULDE, KAEDA, VOZ, STORMBYTE, SISTEMA. Font-family completas
+- ✅ **act1.json** — adicionados prefixos: `[NEOGULDE]` nas falas da NeoGuide, `[KAEDA]` nas falas da Kaeda, `[SISTEMA]` em mensagens de terminal, `[STORMBYTE]` nas falas do StormByte
+- ✅ **skip function** — ao pular digitação, exibe todos os textos sem prefixo
+- ✅ **Log [TW] removido** — debug temporário removido
+- `LDI_VERSION 1.0.35`. Commit: `fc7170b`
 
 ### Efeitos Visuais (Adendo UI/UX)
 - [x] Typewriter com skip por Enter/Espaço/clique
