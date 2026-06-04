@@ -61,6 +61,19 @@
       },
       {
         "id": "C",
+        "label": "🧩 Investigar — hackear terminal",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["DIA8_PUZZLE"],
+        "isPuzzle": true,
+        "puzzleType": "terminal",
+        "puzzleDiff": 3,
+        "next_scene": "3.3_dia9",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
         "label": "💼 Trabalhar — ganhar créditos",
         "requires": null,
         "cost": null,
@@ -183,6 +196,19 @@
         "flags_required": [],
         "flags_set": ["DIA9_INVESTIGACAO"],
         "next_scene": "3.3_investiga",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "🧩 Decodificar sinal da Organização",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["DIA9_PUZZLE"],
+        "isPuzzle": true,
+        "puzzleType": "decoder",
+        "puzzleDiff": 4,
+        "next_scene": "3.4_dia10",
         "sheet_effect": {}
       },
       {
@@ -313,6 +339,9 @@
         "cost": null,
         "flags_required": [],
         "flags_set": ["PUZZLE_TERMINAL_OK"],
+        "isPuzzle": true,
+        "puzzleType": "stealth",
+        "puzzleDiff": 4,
         "next_scene": "3.4_puzzle_ok",
         "sheet_effect": {}
       },
@@ -323,6 +352,29 @@
         "cost": null,
         "flags_required": [],
         "flags_set": ["PUZZLE_TERMINAL_FAIL"],
+        "next_scene": "3.4_puzzle_fail",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "3.4_puzzle_fail",
+    "title": "Sem Acesso",
+    "image": "",
+    "text": [
+      "Você não conseguiu passar pela segurança do terminal.",
+      "Mas as pistas que já tem são suficientes para continuar.",
+      "Kaeda acena quando você volta.",
+      "[KAEDA] \"Sem problema. A gente segue com o que tem.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Próximo dia",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
         "next_scene": "3.5_dia11",
         "sheet_effect": {}
       }

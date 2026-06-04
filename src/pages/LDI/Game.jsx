@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
@@ -26,6 +26,14 @@ export default function Game() {
   const [levelUpAttr, setLevelUpAttr] = useState(null)
   const [levelUpPoints, setLevelUpPoints] = useState(1)
   const [showManual, setShowManual] = useState(false)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const sceneParam = searchParams.get('scene')
+    if (sceneParam && sceneParam !== currentScene?.id) {
+      setScene(sceneParam)
+    }
+  }, [searchParams])
 
   useEffect(() => {
     if (save?.level_up_available) {
@@ -68,9 +76,18 @@ export default function Game() {
   }, [save.status, navigate, user, saveToCloud])
 
   const handleChoice = useCallback((choice) => {
+    if (choice.isPuzzle) {
+      const pType = choice.puzzleType || 'simon'
+      const pDiff = choice.puzzleDiff || 3
+      const returnScene = choice.next_scene || currentScene?.id || '3.2_dia8'
+      const puzzleUrl = `/extras/ldi/puzzle?type=${pType}&diff=${pDiff}&return=${returnScene}`
+      setReaderMode(false)
+      navigate(puzzleUrl)
+      return
+    }
     makeChoice(choice).catch(e => console.error('[LDI] choice error:', e))
     if (user) saveToCloud(user.id).catch(e => console.error('[LDI] save falhou:', e))
-  }, [makeChoice, user, saveToCloud])
+  }, [makeChoice, user, saveToCloud, currentScene, navigate, setReaderMode])
 
   const handleLevelUpAttr = (attr) => {
     if (levelUpPoints <= 0) return
