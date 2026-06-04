@@ -119,8 +119,13 @@ export default function Dungeon({ dungeonId }) {
               }
             }, 1000)
           } else {
-            store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
-            setTimeout(() => setFase('vitoria'), 500)
+            if (hpRef.current <= 0) {
+              store.setMonologo(MONOLOGUES.morre || '')
+              setFase('derrota')
+            } else {
+              store.completarDungeon(dungeonId, dungeon.dropCap, dungeon.dropNotas)
+              setFase('vitoria')
+            }
           }
           return
         }
