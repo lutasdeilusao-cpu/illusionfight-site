@@ -11,10 +11,11 @@ const MAX_VISIBLE_ENEMIES = 5
 const ENEMY_SPACING = 4
 
 const PLAYER_ART = [
-  '__/=====\\__',
-  '  ( -  - )',
-  '   \\_∧_/',
-  '  /|___|\\',
+  '   __/⟃____\\__',
+  '  (  •  - •  )',
+  '   ⎛  \\_∧_/  ⎞',
+  '  /⎜  /|⎺|\\  ⎝',
+  ' ⎛_⎝ ⎠_⎞',
 ]
 
 const ENEMY_ART = [
@@ -162,7 +163,9 @@ export default function Dungeon({ dungeonId }) {
   const { line: trackLine, enemyPositions } = renderTrack(playerPos, inimigos)
   const hpPct = hpMax > 0 ? Math.max(0, Math.round((hp / hpMax) * 100)) : 0
   const hpColor = hpPct > 60 ? '#22C55E' : hpPct > 30 ? '#F5A623' : '#E02020'
-  const playerArt = hitAnim ? PLAYER_ART.map(l => l.replace('( -  - )', '( x  x )')) : PLAYER_ART
+  const playerArt = hitAnim
+    ? ['   __/⟃____\\__', '  (  x  x  )', '   ⎛  \\_∧_/  ⎞', '  /⎜  /|⎺|\\  ⎝', ' ⎛_⎝ ⎠_⎞']
+    : PLAYER_ART
 
   if (fase === 'derrota') {
     return (
