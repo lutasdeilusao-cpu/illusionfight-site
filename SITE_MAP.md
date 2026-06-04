@@ -409,7 +409,7 @@
 **Status:** ✅ v1.0.0 — Store + StatusBar + Intro + Save Supabase  
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
-**Versão atual:** `1.2.0` (console: `[JACK] versão carregada: 1.2.0`)  
+**Versão atual:** `1.3.5` (console: `[JACK] versão carregada: 1.3.5`)  
 **Rota:** `/extras/jackcandy`
 
 ### Mecânicas Implementadas (v1.0.0)
