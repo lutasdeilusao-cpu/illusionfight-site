@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const PERSONAGEM_STYLE = {
-  jack: { fonte: "'Share Tech Mono', monospace", cor: '#e8e8e8', label: null, italico: false },
+  jack: { fonte: "'Share Tech Mono', monospace", cor: '#00FF88', label: 'Jack', italico: false, peso: 'bold' },
   nina: { fonte: 'Georgia, serif', cor: '#FF6B6B', label: 'Nina', italico: true },
   kim: { fonte: "'Courier New', monospace", cor: '#F5A623', label: 'Kim', italico: false },
   paje: { fonte: 'Georgia, serif', cor: '#A855F4', label: 'Pajé', italico: true },
@@ -67,7 +67,8 @@ export default function DialogoCaso({ linhas, onFim }) {
           </span>
         )}
         <span style={{ fontFamily: estilo.fonte, color: digitando ? estilo.cor : `${estilo.cor}cc`,
-          fontSize: '0.82rem', fontStyle: estilo.italico ? 'italic' : 'normal', lineHeight: '1.5' }}>
+          fontSize: '0.82rem', fontStyle: estilo.italico ? 'italic' : 'normal', lineHeight: '1.5',
+          fontWeight: estilo.peso || 'normal' }}>
           {digitando ? textoDigitado : linha.texto}
           {digitando && <span style={{ animation: 'cursor-blink 0.7s infinite', opacity: 1 }}>▌</span>}
         </span>

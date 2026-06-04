@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 
@@ -16,8 +17,10 @@ export default function CasoSelect() {
     store.casosResolvidos?.includes(c.id)
   )
 
-  console.log('[CASOS] disponíveis:', casosDisponiveis.map(c => c.id))
-  console.log('[CASOS] resolvidos:', casosResolvidos.map(c => c.id))
+  useEffect(() => {
+    console.log('[CASOS] disponíveis:', casosDisponiveis.map(c => c.id))
+    console.log('[CASOS] resolvidos:', casosResolvidos.map(c => c.id))
+  }, [store.casosResolvidos, store.flags])
 
   return (
     <motion.div className="jdc-dungeon-select" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

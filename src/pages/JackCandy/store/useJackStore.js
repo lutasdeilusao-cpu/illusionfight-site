@@ -1,4 +1,4 @@
-const JACK_VERSION = '3.3.11'
+const JACK_VERSION = '3.3.12'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'

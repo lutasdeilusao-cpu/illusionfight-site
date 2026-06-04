@@ -14,7 +14,7 @@ export default function Dossier() {
   const [casoResolvidoId, setCasoResolvidoId] = useState(null)
 
   if (!caso && !resolucaoAtiva) {
-    store.setFase('vila')
+    store.setFase('caso_select')
     return null
   }
 
@@ -27,11 +27,11 @@ export default function Dossier() {
     console.log('[DOSSIER] confronto:', caso.confronto)
     if (suspeitoDoCaso?.culpado) {
       store.acusar(suspeitoId)
-      setCasoResolvidoId(caso.id)
-      store.resolverCaso(caso.flagResolucao)
-      store.setMonologo('é ele. sempre foi ele.')
       setResolucaoAtiva(true)
       setShowAcusar(false)
+      setCasoResolvidoId(caso.id)
+      store.setMonologo('é ele. sempre foi ele.')
+      store.resolverCaso(caso.flagResolucao)
       console.log('[DOSSIER] caso resolvido:', caso.id, '| flag:', caso.flagResolucao)
     } else {
       store.acusar(suspeitoId)

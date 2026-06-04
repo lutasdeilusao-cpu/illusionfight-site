@@ -33,8 +33,11 @@ export default function Intro() {
   const titleDone = store.titleDone
 
   useEffect(() => {
+    console.log('[DEBUG] listener Shift+D registrado na Intro')
     const handler = (e) => {
+      console.log('[DEBUG] tecla pressionada:', e.key, 'shift:', e.shiftKey)
       if (e.key === 'D' && e.shiftKey) {
+        console.log('[DEBUG] Shift+D detectado — carregando save de dev')
         useJackStore.setState({
           cervejas: 500,
           cervejasTotais: 500,
@@ -43,11 +46,13 @@ export default function Intro() {
           fase: 'caso_select',
           equipado: { arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 2 }, armadura: null, acessorio: null },
         })
-        console.log('[DEBUG] shift+D: save de desenvolvimento carregado')
       }
     }
     window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
+    return () => {
+      console.log('[DEBUG] listener Shift+D removido')
+      window.removeEventListener('keydown', handler)
+    }
   }, [])
 
   return (
