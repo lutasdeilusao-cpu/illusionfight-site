@@ -78,6 +78,22 @@ export default function Intro() {
           </div>
         </motion.div>
       )}
+
+      {import.meta.env.DEV && (
+        <button className="jack-btn" onClick={() => {
+          useJackStore.setState({
+            cervejas: 500,
+            cervejasTotais: 500,
+            notas: 20,
+            flags: { TEM_BENGALA: true, NINA_LIBERADO: true, NOTAS_LIBERADO: true, JA_VIU_VILA: true },
+            fase: 'caso_select',
+            equipado: { arma: { id: 'bengala_steampunk', nome: 'Bengala Steampunk', dano: 2 }, armadura: null, acessorio: null },
+          })
+          console.log('[DEBUG] save de desenvolvimento carregado')
+        }} style={{ marginTop: '1rem', fontSize: '0.65rem', borderColor: '#333', color: '#555' }}>
+          [debug: pular intro]
+        </button>
+      )}
     </div>
   )
 }
