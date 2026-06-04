@@ -41,6 +41,13 @@ export default function JackCandy() {
     return () => { clearInterval(t1); clearInterval(t2); clearInterval(t3) }
   }, [user])
 
+  // Safety: TEM_BENGALA sem fase vila → corrige
+  useEffect(() => {
+    if (store.flags.TEM_BENGALA && store.fase === 'intro') {
+      store.setFase('vila')
+    }
+  }, [store.flags.TEM_BENGALA, store.fase])
+
   // Monologue ao entrar na vila
   useEffect(() => {
     if (store.fase === 'vila' && store.flags.TEM_BENGALA && !store.flags.JA_VIU_VILA) {
