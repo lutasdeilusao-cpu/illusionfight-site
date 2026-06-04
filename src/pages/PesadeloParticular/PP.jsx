@@ -11,6 +11,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
 const PP_VERSION = '1.3.0'
+console.log(`[PP] versão carregada: ${PP_VERSION}`)
 const LOCALE = 'pt'
 
 const AVATARES = {
