@@ -18,16 +18,16 @@ const BANCO = {
     'SANGUE PRIMORDIAL', 'MODO OBSERVADOR', 'SALA PRIVADA',
     'JACK CACHORRAO', 'XAKAXI EDITION', 'DREADS VERDES',
     'MESTRE VIRAN', 'HYPER MOMENT', 'PRIMEIRA REGRA',
-    'MODO XAMA', 'TREVAS PRIMORDIAIS', 'BRIGUENTO',
-    'ILHA PRIVADA', 'MODO TREVAS', 'RANK MUNDIAL',
+    'TREVAS PRIMORDIAIS', 'JACK E NINA LUTAM', 'KIM NO LDI',
+    'BENGALA DO JACK', 'KATANA DE NINA', 'PAJÉ YAWANARI',
   ],
   extreme: [
-    'LUTAS DE ILUSAO', 'SANGUE PRIMORDIAL ATIVO',
-    'KRONOS NA ILHA PRIVADA', 'JACK E KIM JUNTOS',
-    'PRIMEIRA REGRA DA BRIGA', 'MODO OBSERVADOR ATIVO',
-    'TREVAS DEVORANDO TUDO', 'SALA PRIVADA DE TREINO',
-    'NAO HA REGRAS NA BRIGA DE RUA', 'TREIS BILHOES DE JOGADORES',
-    'KIM NAO IMPLORA PRA NINGUEM', 'PAJÉ YAWANARI CHEGOU PRA DIVAR',
+    'LUTAS DE ILUSAO', 'KIM NAO IMPLORA PRA NINGUEM',
+    'PAJÉ YAWANARI CHEGOU PRA DIVAR', 'EU VOU MATAR ESSE CARA',
+    'A DOR E CEM POR CENTO REAL', 'NAO HA REGRAS NA BRIGA DE RUA',
+    'HELENA TINHA DOZE ANOS', 'JACK CACHORRAO GRAVA TUDO',
+    'SHUNTARO VEIO DE AZUMA', 'TREIS BILHOES DE JOGADORES',
+    'KRONOS QUER O CORPO PRIMORDIAL', 'NINA CORTOU COM A KATANA',
   ],
 }
 
@@ -147,20 +147,22 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
         <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.6rem', color:'#444', letterSpacing:'0.15em', marginBottom:'0.4rem', textAlign:'center' }}>
           POSSÍVEIS ({possíveis.length}/{opcoes.length})
         </p>
-        <div style={{ display:'flex', flexDirection:'column', gap:'0.3rem' }}>
-          {opcoes.map((op, i) => {
-            const possivel = possíveis.includes(op)
-            return <motion.button key={i} onClick={() => possivel && !done ? acusarPalavra(op) : null} disabled={!possivel || done}
-              animate={acusou === op ? { x:[0,-4,4,-4,0] } : {}} transition={{ duration:0.3 }}
-              style={{ background: possivel ? '#0a0a0a' : 'transparent', border:`1px solid ${possivel ? '#2a2a2a' : 'transparent'}`,
-                borderLeft:`3px solid ${possivel ? '#F5A623' : 'transparent'}`, color: possivel ? '#888' : '#222',
-                fontFamily:"'Share Tech Mono',monospace", fontSize:'0.7rem', padding:'0.35rem 0.6rem',
-                cursor: possivel && !done ? 'pointer' : 'default', textAlign:'left', borderRadius:2,
-                textDecoration: !possivel ? 'line-through' : 'none', transition:'all 0.2s', letterSpacing:'0.05em' }}>
-              {possivel ? `[ ${op} ]` : op}
-            </motion.button>
-          })}
-        </div>
+        {(difficulty === 'easy' || (difficulty === 'medium' && possíveis.length <= 4) || (difficulty === 'hard' && possíveis.length <= 2)) && (
+          <div style={{ display:'flex', flexDirection:'column', gap:'0.3rem' }}>
+            {opcoes.map((op, i) => {
+              const possivel = possíveis.includes(op)
+              return <motion.button key={i} onClick={() => possivel && !done ? acusarPalavra(op) : null} disabled={!possivel || done}
+                animate={acusou === op ? { x:[0,-4,4,-4,0] } : {}} transition={{ duration:0.3 }}
+                style={{ background: possivel ? '#0a0a0a' : 'transparent', border:`1px solid ${possivel ? '#2a2a2a' : 'transparent'}`,
+                  borderLeft:`3px solid ${possivel ? '#F5A623' : 'transparent'}`, color: possivel ? '#888' : '#222',
+                  fontFamily:"'Share Tech Mono',monospace", fontSize:'0.7rem', padding:'0.35rem 0.6rem',
+                  cursor: possivel && !done ? 'pointer' : 'default', textAlign:'left', borderRadius:2,
+                  textDecoration: !possivel ? 'line-through' : 'none', transition:'all 0.2s', letterSpacing:'0.05em' }}>
+                {possivel ? `[ ${op} ]` : op}
+              </motion.button>
+            })}
+          </div>
+        )}
         <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.58rem', color:'#333', textAlign:'center', marginTop:'0.4rem' }}>
           clique numa palavra para acusar · acusação errada = -2 tentativas
         </p>
