@@ -1123,11 +1123,17 @@
 
 .ldi-text-fala {
   color: var(--personagem-cor, #00B4D8);
-  font-family: var(--personagem-fonte, 'Share Tech Mono', monospace);
+  font-family: 'Share Tech Mono', monospace;
   border-left: 2px solid var(--personagem-cor, #00B4D8);
   padding-left: 0.75rem;
   margin: 0.5rem 0;
 }
+
+.ldi-text-fala--neogulde { font-family: 'Share Tech Mono', monospace; }
+.ldi-text-fala--kaeda { font-family: 'Rajdhani', sans-serif; }
+.ldi-text-fala--voz { font-family: 'JetBrains Mono', monospace; }
+.ldi-text-fala--stormbyte { font-family: 'Share Tech Mono', monospace; }
+.ldi-text-fala--sistema { font-family: 'JetBrains Mono', monospace; }
 
 .ldi-typewriter-hint {
   display: block;
