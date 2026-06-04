@@ -1,4 +1,4 @@
-const JACK_VERSION = '1.3.8'
+const JACK_VERSION = '1.3.9'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -13,6 +13,9 @@ function loadLocal() {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       const data = JSON.parse(raw)
+      if (data.fase?.startsWith('dungeon_') || data.fase?.startsWith('interior_')) {
+        data.fase = 'vila'
+      }
       const temNoInventario = data.inventario?.find?.(i => i.id === 'bengala_steampunk')
       const temNoEquipado = data.equipado?.arma?.id === 'bengala_steampunk'
       if (data.flags?.TEM_BENGALA && !temNoInventario && !temNoEquipado) {
@@ -27,9 +30,10 @@ function loadLocal() {
 
 function persistLocal(state) {
   try {
+    const faseSave = state.fase.startsWith('dungeon_') || state.fase.startsWith('interior_') ? 'vila' : state.fase
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       capangas: state.capangas, capangasTotais: state.capangasTotais,
-      notas: state.notas, fase: state.fase, flags: state.flags,
+      notas: state.notas, fase: faseSave, flags: state.flags,
       hpAtual: state.hpAtual, hpMax: state.hpMax,
       nivel: state.nivel, xp: state.xp,
       inventario: state.inventario, equipado: state.equipado,
