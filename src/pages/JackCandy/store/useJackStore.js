@@ -1,4 +1,4 @@
-const JACK_VERSION = '0.2.1'
+const JACK_VERSION = '0.2.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -74,7 +74,7 @@ export const useJackStore = create((set, get) => {
       set(state => {
         const b = state.capangas + 1
         const t = state.capangasTotais + 1
-        const m = t > 0 && t % 500 === 0 ? 'os capangas continuavam chegando. como sempre. como todo dia.' : state.monologoAtual
+        const m = t > 0 && t % 500 === 0 ? 'eram tantos que perdi a conta. no sonho isso era normal.' : state.monologoAtual
         return { capangas: b, capangasTotais: t, monologoAtual: m }
       })
     },
@@ -178,23 +178,23 @@ export const useJackStore = create((set, get) => {
     fecharKimShop: () => set({ kimShopAberto: false }),
 
     comprarUpgradeBengala: () => {
-      const custo = (get().danoBengala || 1) >= 3 ? 300 : 200
+      const nivel = get().danoBengala || 1
+      const custo = nivel >= 2 ? 250 : 100
       set(state => {
         if (state.capangas < custo) return state
-        const novoDano = (state.danoBengala || 1) + 1
         return {
           capangas: state.capangas - custo,
-          danoBengala: novoDano,
-          monologoAtual: `a bengala parece mais pesada agora. dano: +${novoDano}.`,
+          danoBengala: nivel + 1,
+          monologoAtual: `a bengala parece mais pesada agora. dano: +${nivel + 1}.`,
         }
       })
     },
 
     comprarPocao: () => {
       set(state => {
-        if (state.capangas < 50) return state
+        if (state.capangas < 30) return state
         return {
-          capangas: state.capangas - 50,
+          capangas: state.capangas - 30,
           questMaxHp: state.questMaxHp + 1,
           questHp: Math.min(state.questMaxHp + 1, state.questHp + 2),
           inventario: [...state.inventario, { id: 'pocao_energetico', nome: 'Poção Energética', desc: 'lata amassada. gosto de infância.', icone: '🥫', consumivel: true }],

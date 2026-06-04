@@ -304,11 +304,11 @@ export default function JackCandy() {
                 <p>"pega o que precisa e vai."</p>
               </div>
               <div className="jack-buttons">
-                <button className="jack-btn" onClick={store.comprarUpgradeBengala} disabled={store.capangas < ((store.danoBengala || 1) >= 3 ? 300 : 200)}>
-                  [ upgrade bengala +1 — {(store.danoBengala || 1) >= 3 ? '300' : '200'} capangas ] (atual: +{store.danoBengala || 1})
+                <button className="jack-btn" onClick={store.comprarUpgradeBengala} disabled={store.capangas < ((store.danoBengala || 1) >= 2 ? 250 : 100)}>
+                  [ upgrade bengala +1 — {(store.danoBengala || 1) >= 2 ? '250' : '100'} capangas ] (atual: +{store.danoBengala || 1})
                 </button>
-                <button className="jack-btn" onClick={store.comprarPocao} disabled={store.capangas < 50}>
-                  [ poção energética — 50 capangas ] (HP máx +1)
+                <button className="jack-btn" onClick={store.comprarPocao} disabled={store.capangas < 30}>
+                  [ energético — 30 capangas ] (HP máx +1)
                 </button>
                 <button className="jack-btn" onClick={store.fecharKimShop}>[ sair ]</button>
               </div>
