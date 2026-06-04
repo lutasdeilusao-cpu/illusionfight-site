@@ -10,55 +10,626 @@
   overflow-x: hidden;
 }
 
+/* Scanlines */
 .perfil-page::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px
+  );
   pointer-events: none;
   z-index: 0;
 }
 
-.perfil-carregando { text-align: center; color: #555; padding-top: 6rem; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; letter-spacing: 0.2em; }
+.perfil-carregando {
+  text-align: center;
+  color: #555;
+  padding-top: 6rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
 
-.perfil-header { position: relative; z-index: 1; padding: 5rem 1.5rem 0; max-width: 720px; margin: 0 auto; }
-.perfil-header-inner { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; position: relative; overflow: hidden; }
-.perfil-header-inner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,166,35,0.04) 0%, transparent 60%); pointer-events: none; }
+/* ===== HEADER ===== */
+.perfil-header {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1.5rem 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
-.perfil-avatar { width: 64px; height: 64px; border-radius: 50%; color: #000; font-family: 'Share Tech Mono', monospace; font-size: 1.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 2px solid #F5A623; box-shadow: 0 0 16px rgba(245,166,35,0.3); position: relative; z-index: 1; }
+.perfil-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
 
-.perfil-header-info { flex: 1; position: relative; z-index: 1; }
-.perfil-nome { font-size: 1.2rem; font-weight: 900; letter-spacing: 0.15em; color: #fff; margin: 0 0 0.15rem; text-transform: uppercase; }
-.perfil-email { font-size: 0.65rem; color: #444; margin: 0 0 0.5rem; letter-spacing: 0.05em; }
+.perfil-header-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,166,35,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
 
-.perfil-tier-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.6rem; border: 1px solid; padding: 0.1rem 0.5rem; border-radius: 2px; letter-spacing: 0.15em; }
+.perfil-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #000;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #F5A623;
+  box-shadow: 0 0 16px rgba(245,166,35,0.3);
+  position: relative;
+  z-index: 1;
+}
 
-.perfil-header-fichas { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; position: relative; z-index: 1; flex-shrink: 0; }
-.perfil-fichas-saldo { font-size: 1.5rem; font-weight: bold; color: #F5A623; line-height: 1; }
-.perfil-fichas-label { font-size: 0.55rem; color: #555; letter-spacing: 0.15em; }
-.perfil-fichas-coletar { font-size: 0.6rem; color: #F5A623; border: 1px solid #F5A623; background: none; font-family: 'Share Tech Mono', monospace; padding: 0.15rem 0.5rem; cursor: pointer; letter-spacing: 0.1em; animation: ficha-pulse 1.5s ease-in-out infinite; transition: background 0.15s; }
+.perfil-header-info {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.perfil-nome {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #fff;
+  margin: 0 0 0.15rem;
+  text-transform: uppercase;
+}
+
+.perfil-email {
+  font-size: 0.65rem;
+  color: #444;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.perfil-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.6rem;
+  border: 1px solid;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.15em;
+}
+
+.perfil-header-fichas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.perfil-fichas-saldo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F5A623;
+  line-height: 1;
+}
+
+.perfil-fichas-label {
+  font-size: 0.55rem;
+  color: #555;
+  letter-spacing: 0.15em;
+}
+
+.perfil-fichas-coletar {
+  font-size: 0.6rem;
+  color: #F5A623;
+  border: 1px solid #F5A623;
+  background: none;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  animation: ficha-pulse 1.5s ease-in-out infinite;
+  transition: background 0.15s;
+}
+
 .perfil-fichas-coletar:hover { background: rgba(245,166,35,0.1); }
+
 @keyframes ficha-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-.perfil-tabs { display: flex; gap: 0; margin: 1.5rem auto 0; max-width: 720px; padding: 0 1.5rem; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 1; overflow-x: auto; scrollbar-width: none; }
+/* ===== TABS ===== */
+.perfil-tabs {
+  display: flex;
+  gap: 0;
+  margin: 1.5rem auto 0;
+  max-width: 720px;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
 .perfil-tabs::-webkit-scrollbar { display: none; }
-.perfil-tab { flex-shrink: 0; display: flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1rem; background: none; border: none; border-bottom: 2px solid transparent; font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: #444; cursor: pointer; letter-spacing: 0.1em; transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
+
+.perfil-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: #444;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
 .perfil-tab:hover { color: #888; }
-.perfil-tab--ativa { color: #e8e8e8; border-bottom-color: #F5A623; }
-.perfil-tab--ativa-fichas { color: #F5A623; border-bottom-color: #F5A623; }
+
+.perfil-tab--ativa {
+  color: #e8e8e8;
+  border-bottom-color: #F5A623;
+}
+
+.perfil-tab--ativa-fichas {
+  color: #F5A623;
+  border-bottom-color: #F5A623;
+}
+
 .perfil-tab-icone { font-size: 0.9rem; }
-.perfil-tab-pulse { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #F5A623; animation: ficha-pulse 1s ease-in-out infinite; margin-left: 0.2rem; }
 
-.perfil-conteudo { max-width: 720px; margin: 0 auto; padding: 1.5rem; position: relative; z-index: 1; }
+.perfil-tab-pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #F5A623;
+  animation: ficha-pulse 1s ease-in-out infinite;
+  margin-left: 0.2rem;
+}
 
-.perfil-section-title { font-size: 0.65rem; letter-spacing: 0.2em; color: #444; margin: 0 0 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-.perfil-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, #1a1a1a, transparent); }
+/* ===== CONTEÚDO ===== */
+.perfil-conteudo {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
 
-.perfil-logout { display: block; margin: 2rem auto 0; font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.5rem 1.5rem; background: transparent; color: #333; border: 1px solid #1a1a1a; cursor: pointer; transition: border-color 0.15s, color 0.15s; position: relative; z-index: 1; }
+/* ===== SECTION TITLE ===== */
+.perfil-section-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #444;
+  margin: 0 0 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.perfil-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, #1a1a1a, transparent);
+}
+
+/* ===== ACHIEVEMENTS ===== */
+.perfil-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.perfil-achievement-card {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.perfil-achievement-card--unlocked {
+  border-color: rgba(245,166,35,0.4);
+  background: rgba(245,166,35,0.04);
+}
+
+.perfil-achievement-card--unlocked:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245,166,35,0.7);
+}
+
+.perfil-achievement-card--locked {
+  opacity: 0.35;
+}
+
+.perfil-achievement-icone {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.perfil-achievement-card--locked .perfil-achievement-icone {
+  filter: grayscale(1);
+}
+
+.perfil-achievement-nome {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #e8e8e8;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.perfil-achievement-card--locked .perfil-achievement-nome { color: #444; }
+
+.perfil-achievement-desc {
+  font-size: 0.6rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+.perfil-achievement-status {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.3rem;
+}
+
+.status-unlocked { color: #22C55E; }
+.status-locked { color: #333; }
+
+/* ===== ARENA ===== */
+.perfil-trump-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.perfil-trump-stat {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.perfil-trump-stat-val {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #F5A623;
+  line-height: 1;
+}
+
+.perfil-trump-stat-label {
+  display: block;
+  font-size: 0.52rem;
+  color: #555;
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+}
+
+.perfil-trump-lista {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.perfil-trump-linha {
+  display: grid;
+  grid-template-columns: 60px 30px 1fr 70px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.65rem;
+  color: #666;
+  border-bottom: 1px solid #111;
+}
+
+.perfil-trump-linha:last-child { border-bottom: none; }
+.perfil-trump-linha--alt { background: rgba(255,255,255,0.01); }
+.perfil-trump-linha-data { font-size: 0.55rem; color: #333; }
+.perfil-trump-linha-icone { text-align: center; }
+.perfil-trump-linha-placar { font-size: 0.6rem; text-align: right; }
+
+.perfil-trump-empty {
+  text-align: center;
+  padding: 2rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+}
+
+.perfil-trump-empty p {
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.perfil-trump-cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.perfil-trump-cta:hover { background: rgba(245,166,35,0.1); }
+
+/* ===== COLEÇÃO ===== */
+.perfil-colecao-filtros {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.perfil-colecao-filtro-btn {
+  padding: 0.3rem 0.7rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: #555;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.15s;
+}
+
+.perfil-colecao-filtro-btn:hover { border-color: #444; color: #888; }
+
+.perfil-colecao-filtro-btn--ativo {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245,166,35,0.06);
+}
+
+.perfil-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+
+.perfil-deck-card {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 0.7rem;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+
+.perfil-deck-card--tem {
+  border-color: rgba(245,166,35,0.3);
+}
+
+.perfil-deck-card--falta { opacity: 0.4; }
+
+.perfil-deck-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0 auto 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.perfil-deck-avatar--ghost { background: #1a1a1a !important; color: #333; }
+
+.perfil-deck-nome {
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: #e8e8e8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.perfil-deck-nome--ghost { color: #333; }
+
+.perfil-deck-tier-tag {
+  display: inline-block;
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+  padding: 1px 4px;
+  color: #fff;
+  border-radius: 2px;
+  margin-top: 0.2rem;
+}
+
+.perfil-deck-atributos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+
+.perfil-deck-attr {
+  font-size: 0.48rem;
+  color: #444;
+  display: flex;
+  gap: 2px;
+}
+
+.perfil-deck-attr-nome { color: #333; }
+.perfil-deck-silhueta { opacity: 0.5; }
+.perfil-deck-count { font-size: 0.65rem; color: #555; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+
+/* ===== CONTA ===== */
+.perfil-conta-info { margin-bottom: 1.5rem; }
+
+.perfil-conta-campo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #111;
+  font-size: 0.72rem;
+}
+
+.perfil-conta-label { color: #555; letter-spacing: 0.05em; }
+.perfil-conta-valor { color: #e8e8e8; }
+
+.perfil-conta-upgrade {
+  font-size: 0.6rem;
+  color: #F5A623;
+  text-decoration: none;
+  border: 1px solid rgba(245,166,35,0.3);
+  padding: 0.1rem 0.4rem;
+  margin-left: 0.5rem;
+  transition: background 0.15s;
+}
+
+.perfil-conta-upgrade:hover { background: rgba(245,166,35,0.1); }
+
+/* ===== SHARE ===== */
+.perfil-share-section {
+  background: #0a0a0a;
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: 4px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-share-desc {
+  font-size: 0.72rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.perfil-share-status {
+  font-size: 0.72rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  margin-bottom: 0.8rem;
+}
+
+.perfil-share-status.aprovado { background: rgba(34,197,94,0.08); color: #22C55E; border: 1px solid rgba(34,197,94,0.25); }
+.perfil-share-status.pendente { background: rgba(245,166,35,0.06); color: #F5A623; border: 1px solid rgba(245,166,35,0.2); }
+.perfil-share-status.rejeitado { background: rgba(139,0,0,0.08); color: #8B0000; border: 1px solid rgba(139,0,0,0.25); }
+
+.perfil-share-form { display: flex; gap: 0.6rem; }
+
+.perfil-share-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  border: 1px solid #1a1a1a;
+  border-radius: 2px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: #e8e8e8;
+  outline: none;
+}
+
+.perfil-share-input:focus { border-color: #F5A623; }
+
+.perfil-share-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0.8rem;
+  background: #F5A623;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.perfil-share-btn:hover { opacity: 0.85; }
+
+/* ===== LOGOUT ===== */
+.perfil-logout {
+  display: block;
+  margin: 2rem auto 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  color: #333;
+  border: 1px solid #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  position: relative;
+  z-index: 1;
+}
+
 .perfil-logout:hover { border-color: #8B0000; color: #8B0000; }
 
+/* ===== SKELETON ===== */
+.perfil-trump-skeleton { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.6rem; margin-bottom: 1.2rem; }
+
+.perfil-skeleton-card {
+  height: 75px;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  animation: skel-pulse 1.5s ease infinite;
+}
+
+@keyframes skel-pulse { 0%,100%{opacity:0.3} 50%{opacity:0.6} }
+
+/* ===== JOGO HEADER ===== */
+.perfil-jogo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.perfil-jogo-titulo { font-size: 0.85rem; font-weight: bold; color: #e8e8e8; margin: 0; letter-spacing: 0.1em; }
+.perfil-jogo-rank { font-size: 0.6rem; color: #F5A623; text-decoration: none; }
+.perfil-jogo-rank:hover { text-decoration: underline; }
+
+/* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .perfil-header-inner { flex-wrap: wrap; gap: 1rem; }
   .perfil-header-fichas { flex-direction: row; align-items: center; width: 100%; justify-content: space-between; }
+  .perfil-trump-stats { grid-template-columns: repeat(2,1fr); }
   .perfil-tab-label { display: none; }
+  .perfil-achievements { grid-template-columns: repeat(2,1fr); }
 }
