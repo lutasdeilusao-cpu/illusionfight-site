@@ -441,6 +441,45 @@
   color: #666;
 }
 
+/* ===== VILA NPC LIST ===== */
+
+.jdc-vila-npcs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.jdc-vila-npc-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #0A0A0A;
+  border: 1px solid #222;
+  color: #C8C8C8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.jdc-vila-npc-btn:hover:not(:disabled) {
+  border-color: #F5A623;
+  background: rgba(245, 166, 35, 0.05);
+}
+
+.jdc-vila-npc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.jdc-vila-npc-icon { font-size: 1.1rem; min-width: 24px; }
+.jdc-vila-npc-nome { color: #F5A623; font-weight: 600; min-width: 80px; }
+.jdc-vila-npc-desc { color: #666; font-size: 0.75rem; flex: 1; }
+.jdc-vila-npc-lock { margin-left: auto; }
+
 /* ===== INTERIOR ===== */
 
 .jdc-interior { padding: 0.5rem 0; }
