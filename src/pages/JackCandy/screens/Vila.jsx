@@ -37,6 +37,16 @@ export default function Vila() {
       <pre className="jdc-vila-ascii" style={{ textAlign: 'center', marginBottom: '1rem' }}>
         {MAPA.map((l, i) => <div key={i}>{l}</div>)}
       </pre>
+      {!store.dungeonsCompletas.includes('onibus') && (
+        <p className="jack-text jack-text--dim" style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          🚌 dungeon disponível: O Ônibus (clique DUN na barra superior)
+        </p>
+      )}
+      {store.dungeonsCompletas.includes('onibus') && !store.dungeonsCompletas.includes('rua') && (
+        <p className="jack-text jack-text--dim" style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          🏙️ dungeon disponível: A Rua de Marelia (clique DUN)
+        </p>
+      )}
       <div className="jdc-vila-npcs">
         {NPC_LIST.map(npc => {
           const locked = npc.req && !store.flags[npc.req]

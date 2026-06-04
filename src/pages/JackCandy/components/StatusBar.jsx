@@ -35,6 +35,11 @@ export default function StatusBar() {
             onClick={() => irPara('vila')} disabled={!store.flags.TEM_BENGALA}>VILA</button>
           <button className={`jdc-sb-btn ${store.fase === 'inventario' ? 'jdc-sb-btn--active' : ''}`}
             onClick={() => irPara('inventario')} disabled={!store.flags.TEM_BENGALA}>INV</button>
+          <button className={`jdc-sb-btn ${store.fase.startsWith('dungeon') ? 'jdc-sb-btn--active' : ''}`}
+            onClick={() => irPara(store.dungeonsCompletas.includes('onibus') ? 'dungeon_rua' : 'dungeon_onibus')}
+            disabled={!store.flags.TEM_BENGALA}>
+            {store.dungeonsCompletas.includes('rua') ? '✓DUN' : 'DUN'}
+          </button>
           <button className="jdc-sb-btn jdc-sb-btn--disabled" disabled>MAP</button>
           <button className="jdc-sb-btn jdc-sb-btn--save" onClick={handleSave} disabled={saving}>
             {saving ? '...' : 'SAVE'}
