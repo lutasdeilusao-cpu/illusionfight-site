@@ -1456,7 +1456,7 @@
 
 /* Investigacao */
 
-.jdc-investigacao { padding: 0.5rem 0; }
+.jdc-investigacao { padding: 0.5rem 0; position: relative; }
 
 .jdc-investigacao-header {
   display: flex;
