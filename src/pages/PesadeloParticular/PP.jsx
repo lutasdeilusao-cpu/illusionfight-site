@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { CASOS } from './data/casos'
 import { usePPStore } from './store/usePPStore'
 import { useAuth } from '../../context/AuthContext'
+import { useReader } from '../../context/ReaderContext'
 import PuzzleDecoder from '../../components/Puzzles/PuzzleDecoder'
 import PuzzleStealthGrid from '../../components/Puzzles/PuzzleStealthGrid'
 import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
@@ -10,7 +11,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.3.10'
+const PP_VERSION = '1.3.11'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -66,7 +67,6 @@ function IntroNoir({ onComplete }) {
   const timerRef = useRef(null)
 
   useEffect(() => {
-    console.log(`[PP] versão carregada: ${PP_VERSION}`)
     // gotas de chuva
     const rain = document.querySelector('.pp-rain')
     if (rain) {
@@ -601,6 +601,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 // ══════════════════════════════════════════════════
 export default function PP() {
   const { user } = useAuth()
+  const { setReaderMode } = useReader()
   const store = usePPStore()
   const [appFase, setAppFase] = useState(null) // null=loading | menu | intro | app
   const [aba, setAba] = useState('feed')
@@ -613,9 +614,16 @@ export default function PP() {
 
   // Load save
   useEffect(() => {
+    console.log(`[PP] versão carregada: ${PP_VERSION}`)
     if (user) store.loadSave(user.id)
     else store.loadSave(null)
   }, [user])
+
+  // Reader mode (hide navbar/footer/trial banner)
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   // Decide menu vs intro after load
   useEffect(() => {
