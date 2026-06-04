@@ -20,7 +20,7 @@ export default function Inventario() {
   const handleDesequipar = (slot) => {
     const equipado = store.equipado[slot]
     if (!equipado) return
-    set(state => ({
+    useJackStore.setState(state => ({
       equipado: { ...state.equipado, [slot]: null },
       inventario: [...state.inventario, { id: equipado.id, nome: equipado.nome }],
     }))

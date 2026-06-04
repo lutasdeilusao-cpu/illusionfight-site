@@ -230,7 +230,7 @@ export default function Dungeon({ dungeonId }) {
     store.completarDungeon(d.id, dropCap, dropNotas, dropFrag)
     if (d.desbloqueiaFlag) store.setFlag(d.desbloqueiaFlag)
     store.incrementarMedidor()
-    if (aliado?.id === 'nina') store.set(state => ({ notas: state.notas + Math.floor(dropNotas * 0.5) }))
+    if (aliado?.id === 'nina') useJackStore.setState(state => ({ notas: state.notas + Math.floor(dropNotas * 0.5) }))
     if (primordialAtivo && rewardMult === 1) store.zerarMedidor()
   }
 
