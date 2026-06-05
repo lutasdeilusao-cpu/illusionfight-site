@@ -195,7 +195,13 @@ export default function Vila() {
                   const atual = store.flags.TERMINAL_OUVIDAS
                   const contagem = (typeof atual === 'number' ? atual : atual ? 1 : 0) + 1
                   useJackStore.setState(s => ({ flags: { ...s.flags, TERMINAL_OUVIDAS: contagem } }))
-                  if (contagem >= 3) store.setFlag('TERMINAL_OUVIU')
+                  if (contagem >= 3) {
+                    store.setFlag('TERMINAL_OUVIU')
+                    const dc = store.dungeonsCompletas || []
+                    if (dc.includes('onibus') && dc.includes('rua') && store.nivel >= 8) {
+                      store.setFlag('AURANIS_LIBERADO')
+                    }
+                  }
                 } else if (local.id === 'escuro') {
                   store.setFlag('ESCURO_VISITADO')
                   store.setMonologo(MONOLOGUES.entra_escuro)
