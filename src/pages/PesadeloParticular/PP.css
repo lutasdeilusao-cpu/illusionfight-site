@@ -93,10 +93,10 @@
 .pp-content--no-scroll { overflow-y: hidden; padding-bottom: 0; }
 .pp-content::-webkit-scrollbar { display: none; }
 
-.pp-bottom-nav { height: var(--pp-bottom-nav); background: var(--pp-surface); border-top: 1px solid var(--pp-border); display: flex; align-items: center; position: sticky; bottom: 0; z-index: 100; }
-.pp-nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 0; background: none; border: none; color: var(--pp-text-muted); font-size: 0.6rem; transition: color 0.2s; position: relative; min-height: 48px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.pp-bottom-nav { height: var(--pp-bottom-nav); background: var(--pp-surface); border-top: 1px solid var(--pp-border); display: flex; align-items: center; position: sticky; bottom: 0; z-index: 200; }
+.pp-nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0.5rem 0; width: 100%; min-width: 0; background: none; border: none; color: var(--pp-text-muted); font-size: 0.65rem; transition: color 0.2s; position: relative; min-height: 64px; z-index: 1; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .pp-nav-btn.active { color: var(--pp-amber); }
-.pp-nav-btn-icon { font-size: 1.3rem; pointer-events: none; }
+.pp-nav-btn-icon { display: block; font-size: 1.4rem; pointer-events: none; line-height: 1; }
 .pp-nav-badge { position: absolute; top: 4px; right: calc(50% - 14px); background: var(--pp-active); color: white; font-size: 0.55rem; font-weight: 700; border-radius: 10px; padding: 0 4px; min-width: 14px; text-align: center; pointer-events: none; }
 
 .pp-feed { padding: 0; }
