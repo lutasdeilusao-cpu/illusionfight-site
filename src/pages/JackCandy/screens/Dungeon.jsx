@@ -87,6 +87,15 @@ export default function Dungeon({ dungeonId }) {
   const primordialAtivo = store.flags.KRONOS_VIU && store.medidorPrimordial >= 10
   const onoIdRef = useRef(0)
 
+  const autoDungeonId = store.autoMode.ativo ? store.autoMode.dungeonId : null
+  const irParaVitoriaOuAuto = () => {
+    if (autoDungeonId) {
+      store.setFase(`dungeon_${autoDungeonId}`)
+    } else {
+      setTimeout(() => setFase('vitoria'), 500)
+    }
+  }
+
   const addOnomatopeia = useCallback((text, type) => {
     const id = ++onoIdRef.current
     setOnomatopeias(prev => [...prev, { id, text, type }])
@@ -153,7 +162,7 @@ export default function Dungeon({ dungeonId }) {
           store.incrementarMedidor()
           setLog(l => [...l, `🗼 Kronos: "você é mais interessante do que achei."`, `💨 ejetado de volta.`])
           store.setMonologo(MONOLOGUES.kronos_aparece)
-          setTimeout(() => setFase('vitoria'), 500)
+          irParaVitoriaOuAuto()
           return novo
         }
         return novo
@@ -223,7 +232,7 @@ export default function Dungeon({ dungeonId }) {
           } else {
             store.setHpAtual(hpRef.current)
             finalizarDungeon(dungeon)
-            setTimeout(() => setFase('vitoria'), 500)
+            irParaVitoriaOuAuto()
           }
           return
         }
@@ -262,15 +271,6 @@ export default function Dungeon({ dungeonId }) {
     return () => { clearInterval(interval); stopRef.current = true }
   }, [fase, stealthMode, stealthDetectado])
 
-  // Auto-mode: restart on victory
-  useEffect(() => {
-    if (!store.autoMode.ativo || fase !== 'vitoria') return
-    const id = setTimeout(() => {
-      store.setFase(`dungeon_${store.autoMode.dungeonId}`)
-    }, 2000)
-    return () => clearTimeout(id)
-  }, [store.autoMode.ativo, fase])
-
   // Auto-mode: HP recovery on death
   useEffect(() => {
     if (!store.autoMode.ativo || fase !== 'derrota') return
@@ -298,7 +298,7 @@ export default function Dungeon({ dungeonId }) {
       store.setHpAtual(hpRef.current)
       finalizarDungeon(d, 1)
       setLog(l => [...l, `🎯 acertou ${boss.nome}!`, `🏆 ${boss.nome} derrotado!`])
-      setTimeout(() => setFase('vitoria'), 500)
+      irParaVitoriaOuAuto()
     } else {
       addOnomatopeia('MISS!', 'miss')
       const dmgB = Math.max(1, rollD6() + (boss.dmg || 3) - defesaRef.current - reducaoRef.current)
@@ -322,7 +322,7 @@ export default function Dungeon({ dungeonId }) {
           store.setHpAtual(hpRef.current)
           finalizarDungeon(d, 1)
           setLog(l => [...l, `🎯 ${boss.nome} derrotado!`])
-          setTimeout(() => setFase('vitoria'), 500)
+          irParaVitoriaOuAuto()
         } else {
           addOnomatopeia('MISS!', 'miss')
           store.setHpAtual(0)
