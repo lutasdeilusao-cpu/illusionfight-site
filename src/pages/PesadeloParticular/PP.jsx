@@ -12,7 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.5.1'
+const PP_VERSION = '1.5.2'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -376,6 +376,9 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
   const [msgs, setMsgs] = useState([])
   const [digitandoDe, setDigitandoDe] = useState(null)
   const msgsContainerRef = useRef(null)
+  const mountedRef = useRef(true)
+  const runIdRef = useRef(Date.now())
+  const timeoutsRef = useRef([])
 
   const dialogo = tipo === 'abertura'
     ? caso.dialogo?.abertura || []
@@ -388,32 +391,59 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
     : Array.isArray(narracaoRaw) ? (narracaoRaw[0] || '...') : (narracaoRaw || '...')
 
   useEffect(() => {
+    const runId = runIdRef.current
+    mountedRef.current = true
+    timeoutsRef.current.forEach(t => clearTimeout(t))
+    timeoutsRef.current = []
+
     if (!dialogo.length) {
-      setTimeout(() => onBack(), 1000)
-      return
+      const t = setTimeout(() => onBack(), 1000)
+      timeoutsRef.current.push(t)
+      return () => { clearTimeout(t); mountedRef.current = false }
     }
 
-    setMsgs([{ tipo: 'narracao', texto: narracao, id: 'narr-start' }])
+    setMsgs([{ tipo: 'narracao', texto: narracao, id: `narr-start-${runId}` }])
 
     dialogo.forEach((msg, i) => {
       const delayBase = msg.delay + 800
-      setTimeout(() => setDigitandoDe(msg.de), delayBase)
-      setTimeout(() => {
+      const t1 = setTimeout(() => {
+        if (!mountedRef.current) return
+        setDigitandoDe(msg.de)
+      }, delayBase)
+      timeoutsRef.current.push(t1)
+
+      const t2 = setTimeout(() => {
+        if (!mountedRef.current) return
         setDigitandoDe(null)
         setMsgs(prev => [...prev, {
-          id: `msg-${i}`,
+          id: `msg-${runId}-${i}`,
           de: msg.de,
           texto: msg.i18n[LOCALE],
           hora: new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' }),
         }])
         if (i === dialogo.length - 1) {
-          setTimeout(() => {
-            setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao, id:'narr-end' }])
-            if (onConvoEnd) setTimeout(() => onConvoEnd(), 2000)
+          const t3 = setTimeout(() => {
+            if (!mountedRef.current) return
+            setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao, id: `narr-end-${runId}` }])
+            if (onConvoEnd) {
+              const t4 = setTimeout(() => {
+                if (!mountedRef.current) return
+                onConvoEnd()
+              }, 2000)
+              timeoutsRef.current.push(t4)
+            }
           }, 1000)
+          timeoutsRef.current.push(t3)
         }
       }, delayBase + 700)
+      timeoutsRef.current.push(t2)
     })
+
+    return () => {
+      mountedRef.current = false
+      timeoutsRef.current.forEach(t => clearTimeout(t))
+      timeoutsRef.current = []
+    }
   }, [])
 
   useEffect(() => {
