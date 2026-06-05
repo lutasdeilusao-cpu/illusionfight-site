@@ -8,10 +8,10 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '1.60'
+export const SITE_VERSION = '1.61'
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION     = '1.5.23'   // Pesadelo Particular
+export const PP_VERSION     = '1.5.24'   // Pesadelo Particular
 export const LDI_VERSION    = '1.0.61'   // Lendas do LDI
 export const JACK_VERSION   = '5.1.1'    // Jack Dream Beer
 export const ARENA_VERSION  = '1.7.3'    // LDI Arena Mode

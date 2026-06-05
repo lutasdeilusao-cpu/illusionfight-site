@@ -222,13 +222,16 @@ export const CLASSES = {
   },
 }
 
-/** Retorna as classes disponíveis baseado no tier do usuário */
+/** Retorna todas as classes com flag locked se não disponível para o tier */
 export function getClassesDisponiveis(tier, rotacaoSemanal = 0) {
   const todas = Object.keys(CLASSES)
-  if (tier === 'elite' || tier === 'primordial') return todas
-  // Free: 2 classes em rodízio
+  if (tier === 'elite' || tier === 'primordial') {
+    return todas.map(id => ({ ...CLASSES[id], id, locked: false }))
+  }
+  // Free: mostra todas, mas só 2 estão desbloqueadas (rodízio semanal)
   const idx = rotacaoSemanal % todas.length
-  return [todas[idx], todas[(idx + 1) % todas.length]]
+  const disponiveis = [todas[idx], todas[(idx + 1) % todas.length]]
+  return todas.map(id => ({ ...CLASSES[id], id, locked: !disponiveis.includes(id) }))
 }
 
 /** Evolução de classe por nível */
