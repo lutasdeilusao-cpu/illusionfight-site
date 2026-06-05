@@ -3,6 +3,7 @@ console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { useReader } from '../../context/ReaderContext'
 import { useTamagoshiStore } from './store/useTamagoshiStore'
 import { supabase } from '../../lib/supabase'
 import { calcularFase } from './data/moedas'
@@ -21,6 +22,7 @@ import './Tamagoshi.css'
 
 export default function Tamagoshi() {
   const { user, perfil } = useAuth()
+  const { setReaderMode } = useReader()
   const store = useTamagoshiStore()
   const loaded = useRef(false)
   const [subFase, setSubFase] = useState(null)
@@ -35,6 +37,11 @@ export default function Tamagoshi() {
       store.loadFromCloud(user.id, 1)
     }
   }, [user])
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   useEffect(() => {
     if (store._userId && store.criaturaId && (store.status === 'vivo' || store.status === 'critico')) {
