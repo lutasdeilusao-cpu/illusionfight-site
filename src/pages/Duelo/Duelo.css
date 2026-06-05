@@ -20,6 +20,7 @@
   padding: 8px;
   min-height: 0;
   overflow: visible;
+  background: transparent;
 }
 
 .duelo-field-row {
