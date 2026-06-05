@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 
@@ -187,12 +187,17 @@ function ManualBatalha() {
   )
 }
 
-export default function ArenaCreate({ onNavigate }) {
+export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit }) {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const store = useArenaStore()
-  const [step, setStep] = useState('intro')
+  const [step, setStep] = useState(skipIntro ? 'attrs' : 'intro')
   const [errors, setErrors] = useState({})
   const [manualOpen, setManualOpen] = useState(false)
+
+  useEffect(() => {
+    if (!skipIntro && onFirstVisit) onFirstVisit()
+  }, [])
 
   const s = store.sheet
   const attrs = s.attributes
@@ -258,7 +263,7 @@ export default function ArenaCreate({ onNavigate }) {
 
       {step !== 'intro' && (
         <div className="arena-create-header">
-          <button className="arena-back" onClick={() => onNavigate('lobby')}>← lobby</button>
+          <button className="arena-back" onClick={() => navigate('/extras')}>← extras</button>
           <h2 className="arena-create-titulo">NOVA FICHA</h2>
           <div className="arena-create-steps">
             {['attrs','sheet_name','specs'].map((st, i) => (

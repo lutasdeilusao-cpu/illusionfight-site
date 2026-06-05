@@ -18,6 +18,7 @@ export default function ArenaRoute() {
   const { setReaderMode } = useReader()
   const store = useArenaStore()
   const [fase, setFase] = useState('lobby')
+  const [createVisited, setCreateVisited] = useState(false)
 
   useEffect(() => {
     if (user) store.setUserId(user.id)
@@ -30,15 +31,14 @@ export default function ArenaRoute() {
 
   return (
     <div className="arena-page">
-      <button
-        className="arena-back"
-        style={{ position: 'fixed', top: 16, left: 16, zIndex: 300 }}
-        onClick={() => navigate('/extras')}
-      >
-        ← extras
-      </button>
       {fase === 'lobby' && <ArenaLobby onNavigate={setFase} />}
-      {fase === 'create' && <ArenaCreate onNavigate={setFase} />}
+      {fase === 'create' && (
+        <ArenaCreate
+          onNavigate={setFase}
+          skipIntro={createVisited}
+          onFirstVisit={() => setCreateVisited(true)}
+        />
+      )}
       {fase === 'combat' && <ArenaCombat onNavigate={setFase} />}
       {fase === 'victory' && <ArenaVictory onNavigate={setFase} />}
     </div>
