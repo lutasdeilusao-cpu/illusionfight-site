@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.2'
+const TAMA_VERSION = '1.3.3'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
@@ -83,11 +83,17 @@ function cacheLoad(slot = 1) {
 export const useTamagoshiStore = create((set, get) => ({
   ...defaultState,
 
-  setFase: (fase) => set({ fase }),
+  setFase: (fase) => {
+    set({ fase })
+    get().saveToCloud(get()._userId)
+  },
 
   setAdmin: (val) => set({ _isAdmin: val }),
 
-  eclodir: () => set({ fase: 'selecao' }),
+  eclodir: () => {
+    set({ fase: 'selecao' })
+    get().saveToCloud(get()._userId)
+  },
 
   escolherCriatura: (criaturaId) => {
     const { CRIATURAS } = require('../data/criaturas')
@@ -106,50 +112,62 @@ export const useTamagoshiStore = create((set, get) => ({
 
   setNomeCustom: (nome) => set({ nomeCustom: nome }),
 
-  alimentar: () => set(state => {
-    if (state.status !== 'vivo' && state.status !== 'critico') return state
-    const novaFome = Math.min(100, (state.fome || 0) + 30)
-    const status = (novaFome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
-    return {
-      fome: novaFome, ultimaAlimentacao: Date.now(),
-      _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
-      status,
-    }
-  }),
+  alimentar: () => {
+    set(state => {
+      if (state.status !== 'vivo' && state.status !== 'critico') return state
+      const novaFome = Math.min(100, (state.fome || 0) + 30)
+      const status = (novaFome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
+      return {
+        fome: novaFome, ultimaAlimentacao: Date.now(),
+        _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
+        status,
+      }
+    })
+    get().saveToCloud(get()._userId)
+  },
 
-  banhar: () => set(state => {
-    if (state.status !== 'vivo' && state.status !== 'critico') return state
-    const novaHigiene = Math.min(100, (state.higiene || 0) + 40)
-    const status = (state.fome > 0 && novaHigiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
-    return {
-      higiene: novaHigiene, ultimaHigiene: Date.now(),
-      _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
-      status,
-    }
-  }),
+  banhar: () => {
+    set(state => {
+      if (state.status !== 'vivo' && state.status !== 'critico') return state
+      const novaHigiene = Math.min(100, (state.higiene || 0) + 40)
+      const status = (state.fome > 0 && novaHigiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
+      return {
+        higiene: novaHigiene, ultimaHigiene: Date.now(),
+        _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
+        status,
+      }
+    })
+    get().saveToCloud(get()._userId)
+  },
 
-  passear: (localId) => set(state => {
-    if (state.status !== 'vivo' && state.status !== 'critico') return state
-    const bonus = 25
-    let novaEnergia = Math.min(100, (state.energia || 0) + bonus)
-    const status = (state.fome > 0 && state.higiene > 0 && novaEnergia > 0 && state.humor > 0) ? 'vivo' : state.status
-    return {
-      energia: novaEnergia, ultimoPasseio: Date.now(),
-      _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
-      status, fase: 'criatura',
-    }
-  }),
+  passear: (localId) => {
+    set(state => {
+      if (state.status !== 'vivo' && state.status !== 'critico') return state
+      const bonus = 25
+      let novaEnergia = Math.min(100, (state.energia || 0) + bonus)
+      const status = (state.fome > 0 && state.higiene > 0 && novaEnergia > 0 && state.humor > 0) ? 'vivo' : state.status
+      return {
+        energia: novaEnergia, ultimoPasseio: Date.now(),
+        _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
+        status, fase: 'criatura',
+      }
+    })
+    get().saveToCloud(get()._userId)
+  },
 
-  brincar: () => set(state => {
-    if (state.status !== 'vivo' && state.status !== 'critico') return state
-    const novoHumor = Math.min(100, (state.humor || 0) + 35)
-    const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && novoHumor > 0) ? 'vivo' : state.status
-    return {
-      humor: novoHumor, ultimaBrincadeira: Date.now(),
-      _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
-      status, fase: 'criatura',
-    }
-  }),
+  brincar: () => {
+    set(state => {
+      if (state.status !== 'vivo' && state.status !== 'critico') return state
+      const novoHumor = Math.min(100, (state.humor || 0) + 35)
+      const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && novoHumor > 0) ? 'vivo' : state.status
+      return {
+        humor: novoHumor, ultimaBrincadeira: Date.now(),
+        _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
+        status, fase: 'criatura',
+      }
+    })
+    get().saveToCloud(get()._userId)
+  },
 
   calcularDecaimento: () => {
     set(state => {
