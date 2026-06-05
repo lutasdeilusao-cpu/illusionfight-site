@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.15'
+const PP_VERSION = '1.5.16'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -744,7 +744,8 @@ function PhoneCall({ caso, onAccept, onReject }) {
   const suspeitoCulpado = caso.suspeitos.find(s => s.culpado)
   const linhas = [
     { de: 'jack', texto: tf.jack_abertura[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
-    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: suspeitoCulpado?.avatar || '👤', cor: '#ff4444', label: suspeitoCulpado?.i18n?.[LOCALE]?.nome || 'Desconhecido' },
+    // Mostrar apenas 'Suspeito' para preservar o mistério (não revelar o nome real do culpado)
+    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: '👤', cor: '#ff4444', label: 'Suspeito' },
     { de: 'jack', texto: tf.jack_fechamento[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
   ]
 
