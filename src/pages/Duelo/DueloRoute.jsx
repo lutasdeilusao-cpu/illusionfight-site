@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useDueloStore } from './store/useDueloStore'
+import { useReader } from '../../context/ReaderContext'
 import DueloMenu from './screens/DueloMenu'
 import DueloVitoria from './screens/DueloVitoria'
 import DueloDerrota from './screens/DueloDerrota'
