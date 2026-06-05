@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.14'
+const PP_VERSION = '1.5.15'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -887,9 +887,13 @@ export default function PP() {
 
   const casosNaoResolvidosDisponiveis = casosDesbloqueados.filter(c => !casosResolvidos.includes(c.id))
   const proximoCasoDisponivel = casosNaoResolvidosDisponiveis.length > 0 ? [casosNaoResolvidosDisponiveis[0]] : []
+
+  // Mostrar o caso recém-liberado no topo e, em seguida, os casos resolvidos
+  // em ordem de resolução (mais recente primeiro).
+  const resolvedCases = casosResolvidos.slice().reverse().map(id => CASOS.find(c => c.id === id)).filter(Boolean)
   const casosDisponiveis = [
-    ...CASOS.filter(c => casosResolvidos.includes(c.id)),
-    ...proximoCasoDisponivel
+    ...proximoCasoDisponivel,
+    ...resolvedCases
   ]
 
   const getPistasDoCase = (casoId) => pistasColetadas[casoId] || []
