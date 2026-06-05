@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import os
+
+star = '\u2B50'
+heart = '\u2764\uFE0F'
+bheart = '\U0001F5A4'
+
+jsx = """import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import kronikIdle from '../../../assets/images/tamagoshi/kroniki-idle.png'
@@ -37,7 +43,7 @@ export default function Passear({ onConcluir }) {
     for (let y = -(48+24) + (s.roadOff % (48+24)); y < H + (48+24); y += 48+24) {
       for (let lane = 1; lane < LANE_COUNT; lane++) { ctx.beginPath(); ctx.moveTo(lw * lane, y); ctx.lineTo(lw * lane, y + 48); ctx.stroke() }
     }
-    ctx.font = '32px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
+    ctx.font = '32px \"Segoe UI Emoji\",\"Apple Color Emoji\",sans-serif'
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
     for (const ob of s.obstacles) { ctx.fillText(ob.e, ob.x + 21, ob.y + 21) }
     for (const c of s.coins) { ctx.fillText(c.e, c.x + 15, c.y + 15) }
@@ -58,9 +64,9 @@ export default function Passear({ onConcluir }) {
     ctx.restore()
     ctx.fillStyle = 'rgba(0,0,0,0.8)'; ctx.fillRect(0, 0, W, 40)
     ctx.fillStyle = '#fff'; ctx.font = 'bold 14px monospace'; ctx.textBaseline = 'middle'
-    ctx.textAlign = 'left'; ctx.fillText('⭐ ' + s.score, 12, 20)
+    ctx.textAlign = 'left'; ctx.fillText('""" + star + """ ' + s.score, 12, 20)
     ctx.textAlign = 'right'
-    let h = ''; for (let i = 0; i < LIVES; i++) h += i < s.lives ? '❤️' : '🖤'
+    let h = ''; for (let i = 0; i < LIVES; i++) h += i < s.lives ? '""" + heart + """' : '""" + bheart + """'
     ctx.fillText(h, W - 12, 20)
     ctx.fillStyle = '#aaa'; ctx.textAlign = 'center'; ctx.font = '12px monospace'
     ctx.fillText('pista ' + s.stage + '/' + STAGE_COUNT, W / 2, 20)
@@ -74,11 +80,11 @@ export default function Passear({ onConcluir }) {
       const lw = GAME_W / LANE_COUNT
       if (s.frame - (s.lastObs || 0) > Math.max(30, 70 - (s.stage - 1) * 5)) {
         s.lastObs = s.frame
-        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -42, e: ['🚗','🪨','🌳','🚙','🛻'][Math.floor(Math.random() * 5)] })
+        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -42, e: ['\U0001F697','\U0001FAA8','\U0001F333','\U0001F699','\U0001F6FB'][Math.floor(Math.random() * 5)] })
       }
       if (s.frame - (s.lastCoin || 0) > 10) {
         s.lastCoin = s.frame
-        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -30, e: ['⭐','🍎','💎'][Math.floor(Math.random() * 3)] })
+        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -30, e: ['""" + star + """','\U0001F34E','\U0001F48E'][Math.floor(Math.random() * 3)] })
       }
       const cx = lw * s.lane + lw / 2
       const cy = GAME_H - 50 - 16 + 25
@@ -157,9 +163,9 @@ export default function Passear({ onConcluir }) {
         {phase === 'ready' && (
           <motion.div key="ready" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
-            <div style={{ fontSize: 48, marginBottom: 8 }}>🏎</div>
+            <div style={{ fontSize: 48, marginBottom: 8 }}>\U0001F3CE</div>
             <p style={{ fontSize: 16, marginBottom: 4, fontWeight: 700, letterSpacing: '0.05em', color: '#F5A623' }}>ENDURO KRONIKI</p>
-            <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{STAGE_COUNT} pistas desvie colete ⭐</p>
+            <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{STAGE_COUNT} pistas desvie colete """ + star + """</p>
             <p style={{ fontSize: 12, color: '#666', marginBottom: 20 }}>setas ou arraste</p>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">[ INICIAR ]</motion.button>
           </motion.div>
@@ -177,10 +183,10 @@ export default function Passear({ onConcluir }) {
         {phase === 'gameover' && (
           <motion.div key="gameover" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
-            <div style={{ fontSize: 48, marginBottom: 8 }}>💥</div>
+            <div style={{ fontSize: 48, marginBottom: 8 }}>\U0001F4A5</div>
             <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>FIM DE PASSEIO</p>
             {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>Todas as pistas concluidas!</p>}
-            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, color: '#F5A623' }}>⭐ {dispScore}</p>
+            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, color: '#F5A623' }}>""" + star + """ {dispScore}</p>
             <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>pista {stage}/{STAGE_COUNT}</p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">[ JOGAR DE NOVO ]</motion.button>
@@ -192,3 +198,9 @@ export default function Passear({ onConcluir }) {
     </div>
   )
 }
+"""
+
+path = 'src/pages/Tamagoshi/screens/Passear.jsx'
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(jsx)
+print('Written', len(jsx), 'bytes to', path)
