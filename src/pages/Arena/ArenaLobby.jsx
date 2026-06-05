@@ -72,7 +72,7 @@ export default function ArenaLobby({ onNavigate }) {
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
   const [loading, setLoading] = useState(true)
-  const [showIntro, setShowIntro] = useState(false)
+  const [showIntro, setShowIntro] = useState(true)
   const [showEnemies, setShowEnemies] = useState(null)
 
   useEffect(() => {
@@ -108,9 +108,9 @@ export default function ArenaLobby({ onNavigate }) {
   if (showIntro) {
     return (
       <div className="arena-lobby">
-        <div className="arena-header">
-          <button className="arena-back" onClick={() => window.history.back()}>← extras</button>
-          <h1 className="arena-titulo"><span className="arena-titulo-glitch" data-text="LDI ARENA">LDI ARENA</span></h1>
+        <div className="arena-lobby-hero" style={{ paddingTop: 48 }}>
+          <p className="arena-lobby-titulo">modo standalone</p>
+          <h1 className="arena-lobby-nome">LDI ARENA</h1>
         </div>
         <NeoGuideIntro onShow={() => setShowIntro(false)} />
       </div>
@@ -122,55 +122,75 @@ export default function ArenaLobby({ onNavigate }) {
   if (showEnemies) {
     const selectedSheet = showEnemies
     const sElem = selectedSheet.elemental || 'neutro'
-    const sColor = elemColor(sElem)
+    const ec = elemCores[sElem] || elemCores.neutro
     const unlockedIds = store.sheet.enemies_unlocked || ['treinamento']
     const visibleEnemies = enemiesData.filter(e => unlockedIds.includes(e.id))
-    const visibleByTier = tiers.map(t => visibleEnemies.filter(e => e.tier === t)).filter(g => g.length > 0)
+
+    const diffCores = {
+      easy:      { cor: '#22C55E', glow: 'rgba(34,197,94,0.15)' },
+      medium:    { cor: '#F5A623', glow: 'rgba(245,166,35,0.15)' },
+      hard:      { cor: '#8B0000', glow: 'rgba(139,0,0,0.15)' },
+      very_hard: { cor: '#A855F4', glow: 'rgba(168,85,244,0.15)' },
+    }
+
     return (
       <div className="arena-lobby">
-        <div className="arena-header">
-          <button className="arena-back" onClick={() => setShowEnemies(null)}>← fichas</button>
-          <h2 className="arena-titulo-menor">selecione o inimigo</h2>
+
+        <div className="arena-lobby-hero" style={{ paddingTop: 48, marginBottom: 24 }}>
+          <p className="arena-lobby-titulo">selecione o oponente</p>
+          <h1 className="arena-lobby-nome" style={{ fontSize: 32 }}>{selectedSheet.sheet_name}</h1>
+          <p className="arena-lobby-sub">
+            {selectedSheet.elemental || 'neutro'} · {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
+          </p>
         </div>
 
-        <div className="arena-sheet-card-v" style={{ '--elem-cor': sColor, '--elem-cor-hover': sColor, maxWidth: 600, margin: '0 auto 16px', cursor: 'default', borderLeftWidth: 2 }}>
-          <div className="arena-sheet-avatar" style={{ background: sColor }}>
-            {selectedSheet.sheet_name?.[0]?.toUpperCase() || '?'}
-          </div>
-          <div className="arena-sheet-info">
-            <div className="arena-sheet-name-v">{selectedSheet.sheet_name}</div>
-            <div className="arena-sheet-attrs-v">
-              F:{selectedSheet.attributes?.F||0} H:{selectedSheet.attributes?.H||0} R:{selectedSheet.attributes?.R||0} A:{selectedSheet.attributes?.A||0} PdF:{selectedSheet.attributes?.PdF||0}
-            </div>
-          </div>
-          <div className="arena-sheet-arrow">⚔️</div>
-        </div>
+        <div className="arena-lobby-divider" />
 
-        <div className="arena-enemy-list">
-          {visibleByTier.map((group, gi) => [
-            <div key={`tier-${gi}`} className="arena-enemy-tier-sep">TIER {gi + 1}</div>,
-            ...group.map(enemy => {
-              const diffColor = DIFF_COLORS[enemy.difficulty] || '#888'
-              const eColor = elemColor(enemy.elemental)
-              return (
-                <motion.div key={enemy.id} className="arena-enemy-card-v"
-                  style={{ '--cor': eColor }}
-                  onClick={() => handleSelectEnemy(enemy)} whileHover={{}}>
-                  <div className="arena-enemy-diff" style={{ color: diffColor }}>{DIFF_LABELS[enemy.difficulty] || enemy.difficulty}</div>
-                  <div className="arena-enemy-av" style={{ background: eColor }}>{enemy.name[0]}</div>
-                  <div className="arena-enemy-info">
-                    <div className="arena-enemy-name-v">{enemy.name}</div>
-                    <div className="arena-enemy-rank-v">Rank #{enemy.rank}</div>
-                    <div className="arena-enemy-attrs-v">
-                      F:{enemy.stats.F} H:{enemy.stats.H} R:{enemy.stats.R} A:{enemy.stats.A} PdF:{enemy.stats.PdF}
-                    </div>
+        <p className="arena-lobby-section-label">inimigos desbloqueados</p>
+
+        <div className="arena-sheet-list">
+          {visibleEnemies.map(enemy => {
+            const dc = diffCores[enemy.difficulty] || { cor: '#666', glow: 'rgba(100,100,100,0.1)' }
+            return (
+              <div
+                key={enemy.id}
+                className="arena-sheet-card-v"
+                style={{ '--elem-cor': dc.cor, '--elem-glow': dc.glow }}
+                onClick={() => handleSelectEnemy(enemy)}
+              >
+                <div className="arena-sheet-avatar" style={{
+                  background: `radial-gradient(circle at 35% 35%, ${dc.cor}, #0a0a0a)`,
+                  boxShadow: `0 0 20px ${dc.glow}`
+                }}>
+                  {enemy.name[0]}
+                </div>
+                <div className="arena-sheet-info">
+                  <div className="arena-sheet-name-v">{enemy.name}</div>
+                  <div className="arena-sheet-meta">
+                    rank #{enemy.rank} · tier {enemy.tier} · {DIFF_LABELS[enemy.difficulty] || enemy.difficulty}
                   </div>
-                  <div className="arena-sheet-arrow">→</div>
-                </motion.div>
-              )
-            })
-          ])}
+                  <div className="arena-sheet-stats">
+                    {['F','H','R','A','PdF'].map(attr => (
+                      <div key={attr} className="arena-sheet-stat">
+                        <span className="arena-sheet-stat-label">{attr}</span>
+                        <span className="arena-sheet-stat-val" style={{ color: dc.cor }}>
+                          {enemy.stats[attr] ?? 0}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <span className="arena-sheet-arrow">→</span>
+              </div>
+            )
+          })}
         </div>
+
+        <button className="arena-new-sheet" style={{ borderColor: 'rgba(255,255,255,0.1)', color: '#666' }}
+          onClick={() => setShowEnemies(null)}>
+          ← voltar às fichas
+        </button>
+
       </div>
     )
   }
@@ -190,8 +210,9 @@ export default function ArenaLobby({ onNavigate }) {
       {/* Lista de fichas */}
       <p className="arena-lobby-section-label">suas fichas</p>
 
-      {loading && <p className="arena-lobby-empty">carregando...</p>}
-      {!loading && sheets.length === 0 ? (
+      {loading ? (
+        <div className="arena-lobby-empty">carregando...</div>
+      ) : sheets.length === 0 ? (
         <div className="arena-sheet-list">
           <div className="arena-lobby-empty">nenhuma ficha encontrada</div>
         </div>
