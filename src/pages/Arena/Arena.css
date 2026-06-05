@@ -407,42 +407,6 @@
   border-color: #00B4D8;
 }
 
-/* Melhorar attr-row */
-.arena-attr-row {
-  background: rgba(255,255,255,0.02) !important;
-  border: 1px solid rgba(255,255,255,0.06) !important;
-  transition: background 0.15s;
-}
-.arena-attr-row:hover {
-  background: rgba(255,255,255,0.04) !important;
-}
-
-/* Melhorar chips */
-.arena-elemental-chip,
-.arena-spec-chip,
-.arena-advantage-chip {
-  background: rgba(255,255,255,0.02) !important;
-  border: 1px solid rgba(255,255,255,0.06) !important;
-  transition: all 0.15s !important;
-}
-.arena-elemental-chip:hover,
-.arena-spec-chip:hover,
-.arena-advantage-chip:hover {
-  background: rgba(255,255,255,0.05) !important;
-  border-color: rgba(255,255,255,0.15) !important;
-}
-
-/* Botão salvar */
-.arena-btn-salvar {
-  background: linear-gradient(135deg, #8B0000 0%, #a00000 100%) !important;
-  border: 1px solid #cc0000 !important;
-  box-shadow: 0 0 20px rgba(139,0,0,0.3) !important;
-  letter-spacing: 4px !important;
-}
-.arena-btn-salvar:hover {
-  box-shadow: 0 0 35px rgba(139,0,0,0.6) !important;
-}
-
 /* ===== CREATE INTRO ===== */
 .arena-create-intro {
   display: flex;
@@ -690,8 +654,14 @@
 
 .arena-attr-grid { display: flex; flex-direction: column; gap: 6px; }
 .arena-attr-row {
-  display: flex; align-items: center; gap: 10px; background: #111;
-  border: 1px solid #222; padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.15s;
+}
+.arena-attr-row:hover {
+  background: rgba(255,255,255,0.04);
 }
 .arena-attr-emoji { font-size: 18px; width: 30px; }
 .arena-attr-name { flex: 1; font-size: 14px; color: #aaa; }
@@ -719,24 +689,43 @@
 
 .arena-elemental-grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 0 16px; }
 .arena-elemental-chip {
-  padding: 8px 14px; background: #111; border: 1px solid #222; color: #aaa;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #aaa;
   cursor: pointer; font-size: 13px; transition: all 0.15s;
 }
-.arena-elemental-chip:hover { border-color: #00B4D8; }
+.arena-elemental-chip:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+}
 .arena-elemental-active { border-color: #00B4D8; color: #00B4D8; background: #0a1a1f; }
 
 .arena-spec-grid { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 16px; }
 .arena-spec-chip {
-  padding: 6px 12px; background: #111; border: 1px solid #222; color: #888;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #888;
   cursor: pointer; font-size: 11px; transition: all 0.15s;
 }
-.arena-spec-chip:hover { border-color: #00B4D8; }
+.arena-spec-chip:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+}
 .arena-spec-active { border-color: #00B4D8; color: #00B4D8; background: #0a1a1f; }
 
 .arena-advantage-grid { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 16px; }
 .arena-advantage-chip {
-  padding: 6px 12px; background: #111; border: 1px solid #222; color: #888;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #888;
   cursor: pointer; font-size: 11px; position: relative; transition: all 0.15s;
+}
+.arena-advantage-chip:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
 }
 .arena-advantage-active { border-color: #F5A623; color: #F5A623; background: #1a1508; }
 .arena-disadvantage-active { border-color: #8B0000; color: #8B0000; background: #1a0808; }
@@ -762,11 +751,17 @@
   padding: 8px 20px; cursor: pointer; font-family: inherit;
 }
 .arena-btn-salvar {
-  background: #8B0000; border: 1px solid #8B0000; color: #eee;
-  padding: 8px 20px; cursor: pointer; font-family: inherit; font-size: 13px;
-  letter-spacing: 2px;
+  background: linear-gradient(135deg, #8B0000 0%, #a00000 100%);
+  border: 1px solid #cc0000;
+  box-shadow: 0 0 20px rgba(139,0,0,0.3);
+  color: #eee;
+  padding: 8px 20px;
+  cursor: pointer; font-family: inherit; font-size: 13px;
+  letter-spacing: 4px;
 }
-.arena-btn-salvar:hover { background: #a00000; }
+.arena-btn-salvar:hover {
+  box-shadow: 0 0 35px rgba(139,0,0,0.6);
+}
 
 /* ===== COMBAT HUD PANELS ===== */
 .arena-combat { padding: 80px 20px 20px; }
