@@ -187,6 +187,27 @@ function ManualBatalha() {
   )
 }
 
+function AdvTooltip({ label, desc, x, y }) {
+  const style = {
+    position: 'fixed',
+    left: Math.min(x, window.innerWidth - 260),
+    top: y - 8,
+    transform: 'translateY(-100%)',
+    zIndex: 600,
+    background: '#0d0d0d',
+    border: '1px solid rgba(245,166,35,0.3)',
+    padding: '10px 14px',
+    maxWidth: 240,
+    pointerEvents: 'none',
+  }
+  return (
+    <div className="arena-adv-tooltip" style={style}>
+      <div className="arena-adv-tooltip-label">{label}</div>
+      <div className="arena-adv-tooltip-desc">{desc}</div>
+    </div>
+  )
+}
+
 export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit }) {
   const { user } = useAuth()
   const navigate = useNavigate()
@@ -194,6 +215,23 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const [step, setStep] = useState(skipIntro ? 'attrs' : 'intro')
   const [errors, setErrors] = useState({})
   const [manualOpen, setManualOpen] = useState(false)
+  const [tooltip, setTooltip] = useState(null)
+  const longPressRef = useRef(null)
+
+  const handleAdvEnter = (e, item) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    setTooltip({ label: item.label, desc: item.desc, x: r.left, y: r.top })
+  }
+  const handleAdvLeave = () => setTooltip(null)
+  const handleAdvPointerDown = (e, item) => {
+    longPressRef.current = setTimeout(() => {
+      const r = e.currentTarget.getBoundingClientRect()
+      setTooltip({ label: item.label, desc: item.desc, x: r.left, y: r.top })
+    }, 400)
+  }
+  const handleAdvPointerUp = () => {
+    clearTimeout(longPressRef.current)
+  }
 
   useEffect(() => {
     if (!skipIntro && onFirstVisit) onFirstVisit()
@@ -398,10 +436,14 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {advantages.map(adv => {
               const has = (s.advantages || []).find(x => x.label === adv.label)
               return (
-                <div key={adv.label} className={`arena-advantage-chip ${has ? 'arena-advantage-active' : ''}`}
-                  onClick={() => toggleFromList('advantages', adv)}>
+                <div key={adv.label}
+                  className={`arena-advantage-chip ${has ? 'arena-advantage-active' : ''}`}
+                  onClick={() => toggleFromList('advantages', adv)}
+                  onMouseEnter={e => handleAdvEnter(e, adv)}
+                  onMouseLeave={handleAdvLeave}
+                  onPointerDown={e => handleAdvPointerDown(e, adv)}
+                  onPointerUp={handleAdvPointerUp}>
                   <span className="arena-adv-cost">{adv.cost} pts</span> {adv.label}
-                  {has && <div className="arena-adv-desc">{adv.desc}</div>}
                 </div>
               )
             })}
@@ -415,10 +457,14 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {disadvantages.map(dis => {
               const has = (s.disadvantages || []).find(x => x.label === dis.label)
               return (
-                <div key={dis.label} className={`arena-advantage-chip arena-disadvantage ${has ? 'arena-disadvantage-active' : ''}`}
-                  onClick={() => toggleFromList('disadvantages', dis)}>
+                <div key={dis.label}
+                  className={`arena-advantage-chip arena-disadvantage ${has ? 'arena-disadvantage-active' : ''}`}
+                  onClick={() => toggleFromList('disadvantages', dis)}
+                  onMouseEnter={e => handleAdvEnter(e, dis)}
+                  onMouseLeave={handleAdvLeave}
+                  onPointerDown={e => handleAdvPointerDown(e, dis)}
+                  onPointerUp={handleAdvPointerUp}>
                   <span className="arena-adv-cost">{dis.gain} pts</span> {dis.label}
-                  {has && <div className="arena-adv-desc">{dis.desc}</div>}
                 </div>
               )
             })}
@@ -432,10 +478,14 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {perks.map(p => {
               const has = (s.perks || []).find(x => x.label === p.label)
               return (
-                <div key={p.label} className={`arena-advantage-chip ${has ? 'arena-advantage-active' : ''}`}
-                  onClick={() => toggleFromList('perks', p)}>
+                <div key={p.label}
+                  className={`arena-advantage-chip ${has ? 'arena-advantage-active' : ''}`}
+                  onClick={() => toggleFromList('perks', p)}
+                  onMouseEnter={e => handleAdvEnter(e, p)}
+                  onMouseLeave={handleAdvLeave}
+                  onPointerDown={e => handleAdvPointerDown(e, p)}
+                  onPointerUp={handleAdvPointerUp}>
                   <span className="arena-adv-cost">{p.cost} pts</span> {p.label}
-                  {has && <div className="arena-adv-desc">{p.desc}</div>}
                 </div>
               )
             })}
@@ -455,6 +505,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
       {/* Manual Drawer */}
       <div className={`arena-manual-drawer ${manualOpen ? 'arena-manual-drawer--open' : ''}`}>
+
+      {tooltip && <AdvTooltip {...tooltip} />}
         <div className="arena-manual-drawer-header">
           <span className="arena-manual-drawer-titulo">MANUAL DE BATALHA</span>
           <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>✕</button>
