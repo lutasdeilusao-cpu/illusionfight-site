@@ -207,7 +207,7 @@ export const useTamagoshiStore = create((set, get) => ({
     const payload = {
       user_id: uid, slot: state._slot || 1,
       criatura_id: state.criaturaId, nome_custom: state.nomeCustom,
-      personalidade: state.personalidade, fase: state.fase, estagio: state.estagio,
+      personalidade: state.personalidade, fase: state.fase,
       fome: state.fome, higiene: state.higiene, energia: state.energia, humor: state.humor,
       ultima_alimentacao: state.ultimaAlimentacao ? new Date(state.ultimaAlimentacao).toISOString() : null,
       ultima_higiene: state.ultimaHigiene ? new Date(state.ultimaHigiene).toISOString() : null,
