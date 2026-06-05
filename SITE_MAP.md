@@ -112,7 +112,7 @@
 | `/extras/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
 | `/extras/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
 | `/extras/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
-| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.4.2 | LDI Arena Mode — criação de ficha + combate CPU standalone |
+| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.4.3 | LDI Arena Mode — criação de ficha + combate CPU standalone |
 | `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v4.0.11 | Jack Dream Beer — idle noir investigativo |
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
@@ -363,8 +363,8 @@
 **Rota:** `/extras/ldi/*`
 
 ### LDI Arena Mode
-**Status:** ✅ v1.4.2 implementado
-**Console:** `[ARENA] versão carregada: 1.4.2`
+**Status:** ✅ v1.4.3 implementado
+**Console:** `[ARENA] versão carregada: 1.4.3`
 **Rota:** `/extras/ldi-arena`
 **Stack:** React 19 · Zustand · Framer Motion · Supabase
 **Descrição:** Extração do sistema de combate + criação de ficha como jogo standalone sem narrativa. 30+ vantagens, 20 desvantagens, 6 vantagens únicas, 10 perícias, PM = PdF × 5, 8 inimigos (tier 1-4).
