@@ -70,6 +70,24 @@ function DiceSlot({ finalValue }) {
   )
 }
 
+function OnomaPopup({ word, onDone }) {
+  useEffect(() => {
+    const t = setTimeout(onDone, 1200)
+    return () => clearTimeout(t)
+  }, [])
+  return (
+    <motion.div
+      className="arena-onomatopeia"
+      initial={{ scale: 0.3, opacity: 0, rotate: -8 }}
+      animate={{ scale: 1, opacity: 1, rotate: 0 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.35, ease: [0.175, 0.885, 0.32, 1.275] }}
+    >
+      {word}
+    </motion.div>
+  )
+}
+
 export default function ArenaCombat({ onNavigate }) {
   const store = useArenaStore()
   const { sheet, match } = store
@@ -90,7 +108,7 @@ export default function ArenaCombat({ onNavigate }) {
   const [damageFloat, setDamageFloat] = useState(null)
 
   const [diceOn, setDiceOn] = useState(null)
-  const [onomaMode, setOnomaMode] = useState(null)
+  const [onomaQueue, setOnomaQueue] = useState([])
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
   const [atkDisabled, setAtkDisabled] = useState(false)
@@ -159,7 +177,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = null
     setDiceOn(null)
-    setOnomaMode(null)
+    setOnomaQueue([])
     setTurnOverlay(false)
     setFlashOn(false)
     setAtkDisabled(false)
@@ -171,6 +189,11 @@ export default function ArenaCombat({ onNavigate }) {
     store.endMatch(result)
     onNavigate('victory')
   }
+
+  const fireOnoma = useCallback((mode) => {
+    const word = getOnomatopeia(mode)
+    setOnomaQueue(q => [...q, { id: Date.now() + Math.random(), word }])
+  }, [])
 
   const getEnemySheet = () => {
     const stats = enemy?.stats || {}
@@ -211,7 +234,7 @@ export default function ArenaCombat({ onNavigate }) {
         }
 
         setDiceOn(null)
-        setOnomaMode(mode)
+        fireOnoma(mode)
         stepRef.current = 1
         chatQueue.current.then(() => { timerRef.current = setTimeout(nextStep, 1800) })
         break
@@ -219,7 +242,6 @@ export default function ArenaCombat({ onNavigate }) {
 
       // 1 → onomatopeia do player terminou, mostra overlay VEZ DO INIMIGO
       case 1: {
-        setOnomaMode(null)
         setDamageFloat(null)
         setTurnOverlay(true)
         stepRef.current = 2
@@ -254,7 +276,7 @@ export default function ArenaCombat({ onNavigate }) {
 
         setDiceOn(null)
         setFlashOn(false)
-        setOnomaMode(d.eMode)
+        fireOnoma(d.eMode)
         stepRef.current = 4
         chatQueue.current.then(() => { timerRef.current = setTimeout(nextStep, 1800) })
         break
@@ -262,7 +284,6 @@ export default function ArenaCombat({ onNavigate }) {
 
       // 4 → onomatopeia do inimigo terminou, mostra trash talk
       case 4: {
-        setOnomaMode(null)
         setDamageFloat(null)
         stepRef.current = 5
         timerRef.current = setTimeout(nextStep, 2000)
@@ -361,15 +382,11 @@ export default function ArenaCombat({ onNavigate }) {
         {diceOn !== null && <DiceSlot key={`d-${stepRef.current}`} finalValue={diceOn} />}
       </AnimatePresence>
       <AnimatePresence>
-        {onomaMode && (
-          <motion.div className="arena-onomatopeia"
-            initial={{ scale: 0.3, opacity: 0, rotate: -8 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.175, 0.885, 0.32, 1.275] }}>
-            {getOnomatopeia(onomaMode)}
-          </motion.div>
-        )}
+        {onomaQueue.map(o => (
+          <OnomaPopup key={o.id} word={o.word} onDone={() =>
+            setOnomaQueue(q => q.filter(x => x.id !== o.id))
+          } />
+        ))}
       </AnimatePresence>
 
       <div className="arena-combat-header">

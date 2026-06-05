@@ -121,17 +121,17 @@ export default function ArenaVictory({ onNavigate }) {
   // Fase 3 — vitória
   return (
     <div className="arena-victory arena-container">
-      <AnimatePresence>
-        <motion.div className="arena-onomatopeia"
+      <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
+        <motion.div
           initial={{ scale: 0.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
-          style={{ position:'absolute', top:'30%', left:0, right:0, fontSize:'3rem', pointerEvents:'none', zIndex:10 }}>
+          style={{ textAlign:'center', fontSize:'3.5rem', fontFamily:"'Impact','Arial Black',sans-serif",
+            color:'#F5A623', textShadow:'3px 3px 0 #8B0000, 0 0 30px rgba(245,166,35,0.8)',
+            marginBottom:'1rem', letterSpacing:'4px' }}
+        >
           K.O.!
         </motion.div>
-      </AnimatePresence>
-
-      <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
         <div className="arena-victory-header">
           <h1 className="arena-victory-title arena-victory-win">⚔️ VITÓRIA!</h1>
           <p className="arena-victory-sub">Você derrotou <strong>{enemy?.name}</strong> e provou seu valor na arena.</p>
