@@ -72,7 +72,7 @@ export default function ArenaLobby({ onNavigate }) {
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
   const [loading, setLoading] = useState(true)
-  const [showIntro, setShowIntro] = useState(true)
+  const [showIntro, setShowIntro] = useState(false)
   const [showEnemies, setShowEnemies] = useState(null)
 
   useEffect(() => {
