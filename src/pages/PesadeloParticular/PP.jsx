@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.10'
+const PP_VERSION = '1.5.11'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -866,11 +866,11 @@ export default function PP() {
 
   // Decide menu vs intro after load
   useEffect(() => {
-    if (!carregado) return
+    if (!carregado || appFase !== null) return
     const hasSave = saveExists || casosResolvidos.length > 0 || reputacao > 0 || Object.keys(pistasColetadas).length > 0 || Object.keys(acusacoesErradas).length > 0
-    if (hasSave && appFase !== 'menu') {
+    if (hasSave) {
       setAppFase('menu')
-    } else if (!hasSave && appFase === null) {
+    } else {
       setAppFase('intro')
     }
   }, [carregado, appFase, casosResolvidos, reputacao, pistasColetadas, acusacoesErradas, saveExists])
