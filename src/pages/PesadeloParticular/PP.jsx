@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.11'
+const PP_VERSION = '1.5.12'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -735,7 +735,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 // ══════════════════════════════════════════════════
 function PhoneCall({ caso, onAccept, onReject }) {
   const [stage, setStage] = useState('ringing')
-  const [msgAtual, setMsgAtual] = useState(-1)
+  const [msgAtual, setMsgAtual] = useState(0)
   const [textoExibido, setTextoExibido] = useState('')
   const charIdx = useRef(0)
   const timerRef = useRef(null)
@@ -785,7 +785,7 @@ function PhoneCall({ caso, onAccept, onReject }) {
           <div className="pp-phone-label">CHAMADA RECEBIDA</div>
           <div className="pp-phone-conhecido">{caso.i18n[LOCALE]?.nome || caso.id}</div>
           <div className="pp-phone-buttons">
-            <button className="pp-phone-btn pp-phone-btn--accept" onClick={() => setStage('accepted')}>
+            <button className="pp-phone-btn pp-phone-btn--accept" onClick={() => { setStage('accepted'); setMsgAtual(0) }}>
               <span>📞</span> ATENDER
             </button>
             <button className="pp-phone-btn pp-phone-btn--reject" onClick={onReject}>
