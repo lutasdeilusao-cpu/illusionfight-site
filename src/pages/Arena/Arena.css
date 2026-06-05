@@ -607,13 +607,31 @@
 
 .arena-power-counter {
   font-size: 11px;
-  color: #333;
+  color: #555;
   font-family: 'Courier New', monospace;
   letter-spacing: 3px;
 }
 
 .arena-power-counter strong {
   color: #F5A623;
+  font-size: 14px;
+}
+
+.arena-power-footer .arena-btn-primary {
+  background: rgba(0, 180, 216, 0.12);
+  border: 1px solid #00B4D8;
+  color: #00B4D8;
+  padding: 10px 28px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arena-power-footer .arena-btn-primary:hover {
+  background: rgba(0, 180, 216, 0.22);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
 /* ===== VICTORY ===== */
