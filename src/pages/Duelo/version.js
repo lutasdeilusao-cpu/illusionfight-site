@@ -1,2 +1,2 @@
-export const DUELO_VERSION = '1.2.5'
+export const DUELO_VERSION = '1.2.6'
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)

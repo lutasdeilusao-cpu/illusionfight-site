@@ -10,6 +10,7 @@ import StatusBar from './components/StatusBar'
 import BattleLog from './components/BattleLog'
 import TributeSelector from './components/TributeSelector'
 import CardPreviewModal from './components/CardPreviewModal'
+import TrapActivator from './components/TrapActivator'
 import { aiMainPhase, aiBattlePhase } from './engine/ai'
 import './Duelo.css'
 
@@ -30,6 +31,7 @@ export default function DueloRoute() {
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
+  const [pendingTrap, setPendingTrap] = useState(null) // { trap, onResolve }
 
   const startGame = () => { console.log('[BTN] startGame'); store.resetGame(); setFase('game') }
 
@@ -116,24 +118,51 @@ export default function DueloRoute() {
         const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
         if (attIdx < 0) return
 
-        // Checar armadilha do jogador durante ataque do jogador
+        const doAttack = () => {
+          const current = useDueloStore.getState()
+          if (card) {
+            console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
+            current.declareAttack(attIdx, zoneIndex)
+          } else {
+            const enemyHasMonsters = current.aiMonsterZones.some(m => m)
+            if (!enemyHasMonsters) {
+              console.log('[ATAQUE DIRETO] atacante:', sel.name)
+              current.declareAttack(attIdx, -1)
+            }
+          }
+        }
+
+        // Prompt armadilha do jogador
         if (card) {
           const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (playerTrap) {
-            s.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
-            s.setState(state => {
-              const zones = [...state.playerSpellZones]
-              const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
-              if (idx >= 0) zones[idx] = null
-              return { playerSpellZones: zones }
+            setPendingTrap({
+              trap: playerTrap,
+              onActivate: () => {
+                const cur = useDueloStore.getState()
+                cur.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
+                cur.setState(st => {
+                  const zones = [...st.playerSpellZones]
+                  const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
+                  if (idx >= 0) zones[idx] = null
+                  return { playerSpellZones: zones }
+                })
+                doAttack()
+                setPendingTrap(null)
+              },
+              onSkip: () => { doAttack(); setPendingTrap(null) },
             })
+            return
           }
-          // Checar armadilha da IA durante ataque do jogador
+        }
+
+        // IA trap auto-activa (sem prompt)
+        if (card) {
           const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (aiTrap && card.atk > 1500) {
             s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
-            s.setState(state => {
-              const zones = [...state.aiSpellZones]
+            s.setState(st => {
+              const zones = [...st.aiSpellZones]
               const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
               if (idx >= 0) zones[idx] = null
               return { aiSpellZones: zones }
@@ -141,17 +170,7 @@ export default function DueloRoute() {
           }
         }
 
-        if (card) {
-          console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
-          s.declareAttack(attIdx, zoneIndex)
-        } else {
-          // Ataque direto
-          const enemyHasMonsters = s.aiMonsterZones.some(m => m)
-          if (!enemyHasMonsters) {
-          console.log('[ATAQUE DIRETO] atacante:', sel.name)
-            s.declareAttack(attIdx, -1)
-          }
-        }
+        doAttack()
       }
     }
 
@@ -193,25 +212,48 @@ export default function DueloRoute() {
       }
 
       const battleResult = aiBattlePhase(useDueloStore.getState())
+      const finishAiTurn = async () => {
+        store.endPhase()
+        await delay(500)
+        store.drawPhase()
+        setIaPending(false)
+      }
+
       if (battleResult) {
         const s = useDueloStore.getState()
-        // Player traps activate during AI attack
+        // Prompt player trap during AI attack
         const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
         if (playerTrap) {
-          store.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
-          store.setState(state => {
-            const zones = [...state.playerSpellZones]
-            const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
-            if (idx >= 0) zones[idx] = null
-            return { playerSpellZones: zones }
+          setIaPending(false)
+          setPendingTrap({
+            trap: playerTrap,
+            onActivate: () => {
+              const cur = useDueloStore.getState()
+              cur.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
+              cur.setState(st => {
+                const zones = [...st.playerSpellZones]
+                const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
+                if (idx >= 0) zones[idx] = null
+                return { playerSpellZones: zones }
+              })
+              setPendingTrap(null)
+              store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
+              finishAiTurn()
+            },
+            onSkip: () => {
+              setPendingTrap(null)
+              store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
+              finishAiTurn()
+            },
           })
+          return
         }
-        // AI traps activate during AI attack
+        // AI trap auto-activate
         const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
         if (aiTrap) {
           store.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
-          store.setState(state => {
-            const zones = [...state.aiSpellZones]
+          store.setState(st => {
+            const zones = [...st.aiSpellZones]
             const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
             if (idx >= 0) zones[idx] = null
             return { aiSpellZones: zones }
@@ -220,11 +262,9 @@ export default function DueloRoute() {
         store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
         await delay(1200)
       }
-      store.endPhase()
-      await delay(500)
-      store.drawPhase()
-      setIaPending(false)
+      finishAiTurn()
     }
+
     runAI()
   }, [store.currentTurn, store.gamePhase, fase])
 
@@ -279,6 +319,10 @@ export default function DueloRoute() {
       )}
 
       {previewCard && <CardPreviewModal card={previewCard} onClose={() => { console.log('[BTN] Fechar preview | card:', previewCard?.name); setPreviewCard(null) }} />}
+
+      {pendingTrap && (
+        <TrapActivator trap={pendingTrap.trap} onActivate={pendingTrap.onActivate} onSkip={pendingTrap.onSkip} />
+      )}
     </div>
   )
 }
