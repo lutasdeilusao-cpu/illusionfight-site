@@ -2,6 +2,12 @@ export const DIX_POR_ACAO = 10
 export const DIX_LOGIN_DIARIO = 25
 export const DIX_BONUS_LOCAL = 5
 
+export const DIX_BOAS_VINDAS = {
+  free: 100,
+  elite: 500,
+  primordial: 1000,
+}
+
 export function calcularFase(nascidoEm) {
   if (!nascidoEm) return 'ovo'
   const dias = Math.floor((Date.now() - new Date(nascidoEm).getTime()) / 86400000)

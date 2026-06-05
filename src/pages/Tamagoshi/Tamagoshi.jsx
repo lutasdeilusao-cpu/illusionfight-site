@@ -69,6 +69,7 @@ export default function Tamagoshi() {
   const handleEscolher = async (criaturaId) => {
     await store.escolherCriatura(criaturaId)
     store.verificarBadge(store._userId, 'filhote')
+    store.darDixBoasVindas(store._userId, userTier)
   }
 
   const handleAction = (action) => {

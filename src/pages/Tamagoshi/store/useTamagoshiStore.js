@@ -3,7 +3,7 @@ console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
-import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA } from '../data/moedas'
+import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA, DIX_BOAS_VINDAS } from '../data/moedas'
 import { CRIATURAS } from '../data/criaturas'
 
 const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2 }
@@ -312,6 +312,16 @@ export const useTamagoshiStore = create((set, get) => ({
     const saldo = data?.saldo ?? 0
     set({ _dixSaldo: saldo })
     return saldo
+  },
+
+  darDixBoasVindas: async (userId, tier) => {
+    const uid = userId || get()._userId
+    if (!uid || get()._isAdmin) return 0
+    const { data } = await supabase.from('dix_wallet').select('saldo').eq('user_id', uid).maybeSingle()
+    if (data?.saldo > 0) return 0
+    const bonus = DIX_BOAS_VINDAS[tier] || DIX_BOAS_VINDAS.free
+    await get().ganharDix(uid, bonus, 'boas-vindas tamagoshi')
+    return bonus
   },
 
   ganharDix: async (userId, valor, motivo) => {
