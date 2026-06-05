@@ -132,31 +132,7 @@ export default function DueloRoute() {
           }
         }
 
-        // Prompt armadilha do jogador
-        if (card) {
-          const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
-          if (playerTrap) {
-            setPendingTrap({
-              trap: playerTrap,
-              onActivate: () => {
-                const cur = useDueloStore.getState()
-                cur.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
-                cur.setState(st => {
-                  const zones = [...st.playerSpellZones]
-                  const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
-                  if (idx >= 0) zones[idx] = null
-                  return { playerSpellZones: zones }
-                })
-                doAttack()
-                setPendingTrap(null)
-              },
-              onSkip: () => { doAttack(); setPendingTrap(null) },
-            })
-            return
-          }
-        }
-
-        // IA trap auto-activa (sem prompt)
+        // IA trap auto-activa durante ataque do jogador (sem prompt)
         if (card) {
           const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (aiTrap && card.atk > 1500) {
