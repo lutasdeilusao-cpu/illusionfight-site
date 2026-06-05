@@ -57,6 +57,18 @@ export default function Tamagoshi() {
   }, [store.criaturaId, store.status])
 
   useEffect(() => {
+    if (!store._userId) return
+    const id = setInterval(() => {
+      store.getSaldoDix(store._userId).then(saldo => {
+        const ts = new Date().toISOString().slice(11, 19)
+        const exibicao = store._isAdmin ? '∞' : saldo
+        console.log(`[TAMA:DIX] ${ts} saldo=${exibicao}`)
+      })
+    }, 600000)
+    return () => clearInterval(id)
+  }, [store._userId])
+
+  useEffect(() => {
     if (store._userId && store.nascidoEm) {
       const fase = calcularFase(store.nascidoEm)
       if (fase === 'partida' && store.status !== 'partida') {
