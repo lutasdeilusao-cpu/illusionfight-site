@@ -7,7 +7,7 @@ import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
 
-export default function Criatura({ isAdmin, onAction, onLoja }) {
+export default function Criatura({ isAdmin, onAction, onLoja, onVoltar }) {
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -129,6 +129,16 @@ export default function Criatura({ isAdmin, onAction, onLoja }) {
             </AnimatePresence>
           </div>
         )}
+
+        <motion.button
+          className="tama-btn"
+          style={{ marginTop: '0.8rem', opacity: 0.5 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onVoltar}
+        >
+          [ voltar aos extras ]
+        </motion.button>
       </div>
     </div>
   )

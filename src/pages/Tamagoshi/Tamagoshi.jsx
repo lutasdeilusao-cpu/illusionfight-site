@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.1'
+const TAMA_VERSION = '1.3.3'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
@@ -86,6 +86,10 @@ export default function Tamagoshi() {
     store.getSaldoDix(store._userId)
   }
 
+  const handleVoltarExtras = () => {
+    window.location.href = '/illusionfight-site/games'
+  }
+
   const handleNovaAdocao = async () => {
     store.reset()
     if (store._userId) {
@@ -109,7 +113,7 @@ export default function Tamagoshi() {
         {fase === 'partida' && <Partida onSalaoFama={() => window.location.href = '/perfil?aba=tamagoshi'} onNovaAdocao={handleNovaAdocao} />}
         {(!fase || fase === 'ovo') && <Ovo onEclodir={handleOvoEclodir} />}
         {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} />}
-        {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} />}
+        {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} onVoltar={handleVoltarExtras} />}
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}
         {fase === 'luto' && <Luto />}
