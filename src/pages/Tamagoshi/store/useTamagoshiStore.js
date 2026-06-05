@@ -216,7 +216,7 @@ export const useTamagoshiStore = create((set, get) => ({
       dias_cuidado_streak: state.diasCuidadoStreak, dias_perfeito_streak: state.diasPerfeitoStreak,
       nascido_em: state.nascidoEm ? new Date(state.nascidoEm).toISOString() : null,
       status: state.status, cooldown_ate: state.cooldownAte ? new Date(state.cooldownAte).toISOString() : null,
-      updated_at: new Date().toISOString(), version: TAMA_VERSION,
+      updated_at: new Date().toISOString(),
       inventario: state.inventario || {},
       flags: state.flags || {},
     }
