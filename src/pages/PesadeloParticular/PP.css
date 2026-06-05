@@ -234,3 +234,18 @@
 
 .pp-section-header { padding: 0.75rem 1rem 0.25rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pp-text-muted); font-family: 'Courier New',monospace; }
 .pp-empty { padding: 3rem 1rem; text-align: center; color: var(--pp-text-muted); font-family: 'Georgia',serif; font-style: italic; font-size: 0.85rem; }
+
+.pp-credits-roll {
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  position: relative; z-index: 2;
+  animation: pp-credits-roll 9s linear forwards;
+}
+.pp-credits-title { font-size: 1.5rem; font-weight: 900; color: var(--pp-amber); letter-spacing: 0.15em; margin-bottom: 0.3rem; }
+.pp-credits-sub { font-size: 0.8rem; color: var(--pp-text-muted); letter-spacing: 0.2em; }
+.pp-credits-line { font-size: 0.85rem; color: #c8c8c8; margin: 0.3rem 0; }
+.pp-credits-space { height: 1.5rem; }
+@keyframes pp-credits-roll {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(-120%); }
+}

@@ -11,7 +11,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.4.0'
+const PP_VERSION = '1.5.0'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -103,6 +103,99 @@ function IntroNoir({ onComplete }) {
       {fase === 'glitch' && <div className="pp-glitch-overlay" />}
       <div style={{ position:'absolute',bottom:'2rem',left:0,right:0,textAlign:'center',fontSize:'0.65rem',color:'rgba(255,255,255,0.2)',fontFamily:'Courier New',letterSpacing:'0.1em' }}>
         toque para pular
+      </div>
+    </div>
+  )
+}
+
+// ══════════════════════════════════════════════════
+// TELA FINAL — CRÉDITOS
+// ══════════════════════════════════════════════════
+function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
+  const [fase, setFase] = useState('chat')
+  const [texto, setTexto] = useState('')
+  const idxRef = useRef(0)
+
+  const msgFinal = 'foi um prazer trabalhar contigo.\nmarelia vai continuar precisando de alguém como você.'
+
+  useEffect(() => {
+    if (fase !== 'chat') return
+    const t = setInterval(() => {
+      idxRef.current++
+      setTexto(msgFinal.slice(0, idxRef.current))
+      if (idxRef.current >= msgFinal.length) { clearInterval(t); setTimeout(() => setFase('creditos'), 3000) }
+    }, 40)
+    return () => clearInterval(t)
+  }, [fase])
+
+  useEffect(() => {
+    if (fase !== 'creditos') return
+    const t = setTimeout(() => setFase('final'), 9000)
+    return () => clearTimeout(t)
+  }, [fase])
+
+  if (fase === 'chat') {
+    return (
+      <div style={{ minHeight:'100vh', background:'#0a0a0a', display:'flex', flexDirection:'column', padding:'1rem' }}>
+        <div className="pp-convo-header">
+          <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>Jack Cachorrão</span>
+        </div>
+        <div style={{ flex:1, display:'flex', alignItems:'center', padding:'2rem' }}>
+          <div style={{ display:'flex', gap:'0.75rem', alignItems:'flex-end', maxWidth:'78%' }}>
+            <div style={{ width:28, height:28, borderRadius:'50%', background:'#1a3a2a', border:'1.5px solid var(--pp-jack)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0 }}>🕵️</div>
+            <div style={{ background:'#1a3a2a', borderRadius:'16px 16px 4px 16px', padding:'0.75rem 1rem', border:'1px solid rgba(0,255,136,0.13)' }}>
+              <div style={{ fontSize:'0.95rem', color:'var(--pp-jack)', lineHeight:1.6, whiteSpace:'pre-line' }}>
+                {texto}
+                <span style={{ display:'inline-block', width:2, height:'1.1em', background:'var(--pp-jack)', verticalAlign:'text-bottom', animation:'pp-blink 1s step-end infinite' }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (fase === 'creditos') {
+    return (
+      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', position:'relative' }}>
+        <div className="pp-rain" />
+        <div className="pp-credits-roll">
+          <p className="pp-credits-title">PESADELO PARTICULAR</p>
+          <p className="pp-credits-sub">Temporada 1</p>
+          <p className="pp-credits-space" />
+          <p className="pp-credits-line">uma história de</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>MARELIA, 1954</p>
+          <p className="pp-credits-space" />
+          <p className="pp-credits-line">escrito e dirigido por</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>ISAIAS LEAL</p>
+          <p className="pp-credits-space" />
+          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>obrigado por jogar</p>
+          <p className="pp-credits-space" />
+          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>nos vemos na próxima temporada.</p>
+          <p style={{ height:200 }} />
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+      <div className="pp-rain" />
+      <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
+        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'1rem' }}>PESADELO PARTICULAR</h1>
+        <p style={{ color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.75rem', marginBottom:'2rem' }}>nível {nivel} · {casosResolvidos.length} casos resolvidos</p>
+        <button onClick={() => {
+          const txt = `terminei Pesadelo Particular — nível ${nivel}, ${casosResolvidos.length} casos resolvidos.\nlutasdeilusao-cpu.github.io/illusionfight-site`
+          if (navigator.share) navigator.share({ title:'Pesadelo Particular', text:txt })
+          else navigator.clipboard?.writeText(txt).then(() => alert('link copiado!'))
+        }}
+          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 0.75rem', padding:'0.75rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
+          compartilhar com amigos
+        </button>
+        <button onClick={onVoltarInicio}
+          style={{ background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', textDecoration:'underline' }}>
+          voltar ao início
+        </button>
       </div>
     </div>
   )
@@ -278,7 +371,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
 // ══════════════════════════════════════════════════
 // CONVERSA (WHATSAPP STYLE)
 // ══════════════════════════════════════════════════
-function ConvoView({ caso, tipo, onBack }) {
+function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
   const [msgs, setMsgs] = useState([])
   const [digitandoDe, setDigitandoDe] = useState(null)
   const msgsContainerRef = useRef(null)
@@ -315,6 +408,7 @@ function ConvoView({ caso, tipo, onBack }) {
         if (i === dialogo.length - 1) {
           setTimeout(() => {
             setMsgs(prev => [...prev, { tipo:'narracao', texto: narracao, id:'narr-end' }])
+            if (onConvoEnd) setTimeout(() => onConvoEnd(), 2000)
           }, 1000)
         }
       }, delayBase + 700)
@@ -673,7 +767,9 @@ export default function PP() {
       console.log('[PP] acusar resolverCaso inicio', casoAtivo.id, reputationGanho)
       store.resolverCaso(casoAtivo.id, reputationGanho, user?.id)
       console.log('[PP] acusar resolverCaso fim')
-      setFaseInterna({ tipo: 'convo', convoTipo: 'resolucao' })
+      const totalCasos = CASOS.filter(c => c.desbloqueado || casosResolvidos.some(r => CASOS.find(cc => cc.id === r)?.desbloqueia?.includes(c.id))).length
+      const isUltimo = casosResolvidos.length + 1 >= totalCasos
+      setFaseInterna({ tipo: 'convo', convoTipo: 'resolucao', isFinal: isUltimo })
     } else {
       store.registrarAcusacaoErrada(casoAtivo.id, user?.id)
       setSuspeitoSelecionado(null)
@@ -710,6 +806,7 @@ export default function PP() {
           caso={casoAtivo}
           tipo={faseInterna.convoTipo}
           onBack={() => setFaseInterna({ tipo: 'dossier' })}
+          onConvoEnd={faseInterna.isFinal ? () => setAppFase('final') : undefined}
         />
       )
     }
@@ -1027,6 +1124,17 @@ export default function PP() {
           <IntroNoir onComplete={() => setAppFase('app')} />
         </div>
       </div>
+    )
+  }
+
+  // Final
+  if (appFase === 'final') {
+    return (
+      <TelaFinal
+        nivel={nivel}
+        casosResolvidos={casosResolvidos}
+        onVoltarInicio={() => { store.resetStore(); setAppFase('menu') }}
+      />
     )
   }
 
