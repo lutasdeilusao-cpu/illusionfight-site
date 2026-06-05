@@ -1,5 +1,11 @@
 export const FALAS_CRIATURA = {
   voidling: {
+    boasVindas: [
+      "...você veio me ver no vazio... obrigado",
+      "assombrar é solitário, mas você aparece",
+      "senti sua presença antes de você chegar",
+      "a escuridão fica mais leve quando você vem",
+    ],
     fome: [
       '"sou só um eco vazio… e o eco também sente fome"',
       '"será que comida existe se ninguém me ver comer?"',
@@ -44,6 +50,12 @@ export const FALAS_CRIATURA = {
   },
 
   aquori: {
+    boasVindas: [
+      "ai que bom você veio me ver!",
+      "tava quase transbordando de saudade",
+      "que bom que você apareceu antes de eu evaporar",
+      "gotinha de alegria vendo você",
+    ],
     fome: [
       '"tô me sentindo vazio… tipo um copo pela metade"',
       '"comida? eu prefiro água mas tudo bem, aceito"',
@@ -88,6 +100,12 @@ export const FALAS_CRIATURA = {
   },
 
   sinalo: {
+    boasVindas: [
+      "sinal estabilizado! você chegou!",
+      "conexão estabelecida com sucesso",
+      "tava transmitindo no vácuo até você aparecer",
+      "frequência sintonizada na sua presença",
+    ],
     fome: [
       '"sinal fraco… preciso de combustível"',
       '"minhas baterias estão acabando, manda comida"',
@@ -132,6 +150,12 @@ export const FALAS_CRIATURA = {
   },
 
   grafiko: {
+    boasVindas: [
+      "a paleta ficou mais colorida com você",
+      "que bom te ver! nova inspiração!",
+      "tava sem musa até você chegar",
+      "sua visita é a melhor cor do dia",
+    ],
     fome: [
       '"minha paleta tá desbotando de fome"',
       '"tô sem criatividade… e sem comida"',
@@ -176,6 +200,12 @@ export const FALAS_CRIATURA = {
   },
 
   sangueko: {
+    boasVindas: [
+      "...você voltou. o sangue reage.",
+      "sua presença aquece o carmesim",
+      "estava na escuridão esperando você",
+      "o vermelho pulsa mais forte quando você vem",
+    ],
     fome: [
       '"preciso de… nutrientes. urgentemente."',
       '"o vermelho tá desbotando de fome"',
@@ -220,6 +250,12 @@ export const FALAS_CRIATURA = {
   },
 
   igniko: {
+    boasVindas: [
+      "finalmente apareceu. não que eu tava esperando.",
+      "ah, é você. tava quase botando fogo aqui.",
+      "demorou. mas tô em chamas de alegria.",
+      "sua visita aquece mais que fogo",
+    ],
     fome: [
       '"me alimenta antes que eu queime tudo"',
       '"tô queimando baixo… e não é bom"',
@@ -264,6 +300,12 @@ export const FALAS_CRIATURA = {
   },
 
   voidspawn: {
+    boasVindas: [
+      "> USUÁRIO IDENTIFICADO. BEM-VINDO. <",
+      "conexão reconhecida. saudação.",
+      "voidspawn aguardava. você chegou.",
+      "sistema em modo de boas-vindas",
+    ],
     fome: [
       '"> INGESTÃO NECESSÁRIA <"',
       '"CONSUMO. AGORA."',
@@ -308,6 +350,12 @@ export const FALAS_CRIATURA = {
   },
 
   kroniki: {
+    boasVindas: [
+      "tick tock… você chegou na hora certa",
+      "o tempo passou voando esperando você",
+      "cada segundo valeu por essa visita",
+      "pontualidade é virtude. e você veio.",
+    ],
     fome: [
       '"o tempo tá passando e eu de estômago vazio"',
       '"cada minuto sem comida é uma hora perdida"',
@@ -352,6 +400,12 @@ export const FALAS_CRIATURA = {
   },
 
   jaguaroki: {
+    boasVindas: [
+      "o predador recebe sua visita",
+      "ah, a presa voltou… digo, amigo.",
+      "jaguaroki aguardava na toca. você veio.",
+      "a selva recebe você de patas abertas",
+    ],
     fome: [
       '"a caça não foi boa hoje. me alimenta."',
       '"um predador faminto é um predador perigoso"',
@@ -396,6 +450,12 @@ export const FALAS_CRIATURA = {
   },
 
   fissuraki: {
+    boasVindas: [
+      "não explodi de ansiedade esperando você",
+      "as trincas seguraram até você chegar",
+      "sua visita alivia as fissuras",
+      "rachaduras de felicidade vendo você",
+    ],
     fome: [
       '"vou EXPLODIR de fome"',
       '"treme terra que eu preciso comer AGORA"',
@@ -440,6 +500,12 @@ export const FALAS_CRIATURA = {
   },
 
   lumiki: {
+    boasVindas: [
+      "Brilhei mais forte quando você chegou!",
+      "luz renovada com sua presença!",
+      "tava iluminando o vazio até você vir",
+      "sua visita acendeu meu dia!",
+    ],
     fome: [
       '"meu brilho tá fraco de fome…"',
       '"tô perdendo o viço, preciso de comida"',
@@ -484,6 +550,12 @@ export const FALAS_CRIATURA = {
   },
 
   ventro: {
+    boasVindas: [
+      "soprei de alegria quando você chegou",
+      "brisa fresca de boas-vindas pra você",
+      "o vento mudou pra melhor com sua visita",
+      "que bom ter você aqui, vento leve",
+    ],
     fome: [
       '"sem comida o vento para"',
       '"tô uma brisa fraca… quase nada"',
@@ -528,6 +600,12 @@ export const FALAS_CRIATURA = {
   },
 
   tucari: {
+    boasVindas: [
+      "PIU! que bom ver você!",
+      "cantei uma música de boas-vindas",
+      "tava no ninho pensando em você",
+      "piu piu de felicidade com sua chegada",
+    ],
     fome: [
       '"piu… piu… tô com fome…"',
       '"meu canto tá fraco de fome"',
@@ -572,6 +650,12 @@ export const FALAS_CRIATURA = {
   },
 
   pixeiro: {
+    boasVindas: [
+      "bolhas de alegria vendo você!",
+      "nadei em círculos de felicidade",
+      "tava no fundo do aquário esperando",
+      "escamas brilhando de contentamento",
+    ],
     fome: [
       '"tô com fome… bolhas… bolhas…"',
       '"peixe fora dágua com fome é pior"',
@@ -616,6 +700,12 @@ export const FALAS_CRIATURA = {
   },
 
   gamako: {
+    boasVindas: [
+      "ribbit! que bom que você veio!",
+      "pulei de felicidade quando cheguei",
+      "sapo feliz com sua visita!",
+      "ribbit ribbit de boas-vindas!",
+    ],
     fome: [
         '"ribbit… tô com fome…"',
         '"sapo sem comer vira príncipe? não. vira sapo morto."',
@@ -660,6 +750,12 @@ export const FALAS_CRIATURA = {
   },
 
   terrako: {
+    boasVindas: [
+      "a terra reconhece seu passo",
+      "estável. contente. você chegou.",
+      "presença registrada. bem-vindo.",
+      "o solo firme te saúda",
+    ],
     fome: [
       '"preciso de nutrientes. é tudo."',
       '"a terra também sente fome"',
@@ -704,6 +800,12 @@ export const FALAS_CRIATURA = {
   },
 
   umbrio: {
+    boasVindas: [
+      "…você veio.",
+      "…a escuridão se alegra.",
+      "…sua presença na sombra.",
+      "…bem-vindo ao breu.",
+    ],
     fome: [
       '"…"',
       '"…fome."',
@@ -748,6 +850,12 @@ export const FALAS_CRIATURA = {
   },
 
   serpentara: {
+    boasVindas: [
+      "deslizei de alegria quando você veio",
+      "a serpente recebe você de bom grado",
+      "que bom… uma visita digna",
+      "suas curvas se encontram com as minhas",
+    ],
     fome: [
       '"deslizo sem força… preciso comer"',
       '"a fome aperta como jiboia"',
@@ -792,6 +900,12 @@ export const FALAS_CRIATURA = {
   },
 
   oncara: {
+    boasVindas: [
+      "a pantera recebe você com dignidade",
+      "sua visita honra a toca",
+      "oncara aguardava. você veio. bom.",
+      "a noite fica mais leve com você",
+    ],
     fome: [
       '"a caçadora precisa de alimento"',
       '"jejuar é elegante mas enche o saco"',
@@ -836,6 +950,12 @@ export const FALAS_CRIATURA = {
   },
 
   nulliki: {
+    boasVindas: [
+      "…presença detectada no vazio.",
+      "o nada reconhece você.",
+      "…você é real? …obrigado por vir.",
+      "a nulidade se alegra com sua existência",
+    ],
     fome: [
       '"nulo."',
       '"…fome não deveria existir no vazio."',
@@ -880,6 +1000,12 @@ export const FALAS_CRIATURA = {
   },
 
   harpiako: {
+    boasVindas: [
+      "das alturas eu vi você chegar",
+      "a águia recebe você de asas abertas",
+      "que bom… uma visita lá de cima",
+      "o horizonte melhorou com sua chegada",
+    ],
     fome: [
       '"das alturas venho e das alturas sinto fome"',
       '"águia sem caça é só pássaro grande"',
@@ -924,6 +1050,12 @@ export const FALAS_CRIATURA = {
   },
 
   anacori: {
+    boasVindas: [
+      "minhas folhas se ergueram quando você veio",
+      "a planta floresceu com sua visita",
+      "raízes contentes com sua presença",
+      "que bom te ver… cresço mais feliz",
+    ],
     fome: [
       '"a planta precisa de luz… e de comida também"',
       '"fotossíntese não basta quando se tem estômago"',
@@ -968,6 +1100,12 @@ export const FALAS_CRIATURA = {
   },
 
   gosmacho: {
+    boasVindas: [
+      "devagar… mas fiquei feliz de ver você",
+      "demorou pra você chegar… mas valeu a espera",
+      "gosmacho contente com sua visita lenta",
+      "cada passo seu vale uma era de felicidade",
+    ],
     fome: [
       '"com calma… vou digerir essa fome… devagar…"',
       '"a pressa é inimiga da alimentação… mas tô com fome"',
@@ -1012,6 +1150,12 @@ export const FALAS_CRIATURA = {
   },
 
   tempestari: {
+    boasVindas: [
+      "relâmpagos de alegria com sua chegada!",
+      "a tempestade se acalmou quando você veio",
+      "trovejei seu nome de felicidade",
+      "que bom… a tormenta te recebe",
+    ],
     fome: [
       '"trovões no estômago de fome"',
       '"relâmpagos fracos… preciso de energia"',
@@ -1056,6 +1200,12 @@ export const FALAS_CRIATURA = {
   },
 
   totekko: {
+    boasVindas: [
+      "a tartaruga mais velha saúda você",
+      "sua visita é um presente do tempo",
+      "mais um ciclo… e você aqui. perfeito.",
+      "a sabedoria do casco agradece sua presença",
+    ],
     fome: [
       '"a sabedoria não enche a barriga… infelizmente"',
       '"até a tartaruga mais sábia precisa comer"',
@@ -1100,6 +1250,12 @@ export const FALAS_CRIATURA = {
   },
 
   capivaroki: {
+    boasVindas: [
+      "capivaroki vê você. capivaroki feliz.",
+      "que bom que você veio. tudo em paz.",
+      "presença calma. coração tranquilo.",
+      "capivaroki recebe você na lagoa da vida",
+    ],
     fome: [
       '"capivaroki quer comida. capivaroki feliz com comida."',
       '"fome é ruim. comida é bom."',
@@ -1144,6 +1300,12 @@ export const FALAS_CRIATURA = {
   },
 
   cameloko: {
+    boasVindas: [
+      "cameloko feliz em ver você!",
+      "sua chegada é melhor que oásis",
+      "tava no deserto esperando você",
+      "reserva de alegria renovada com você",
+    ],
     fome: [
       '"tô armazenando energia… ou tentando"',
       '"cameloko sem comida é só lorota"',
@@ -1188,6 +1350,12 @@ export const FALAS_CRIATURA = {
   },
 
   buziko: {
+    boasVindas: [
+      "BZZZ de felicidade vendo você!",
+      "a colmeia inteira sabe que você chegou",
+      "buziko polinizou de alegria",
+      "BZZZ bem-vindo BZZZ que bom!",
+    ],
     fome: [
         '"bzzz… tô com fome… bzzz…"',
         '"néctar… cadê o néctar… BZZZ"',
@@ -1232,6 +1400,12 @@ export const FALAS_CRIATURA = {
   },
 
   conkrito: {
+    boasVindas: [
+      "RÁPIDO! você chegou! que festa!",
+      "corri em círculos de alegria",
+      "tava acelerando de ansiedade esperando",
+      "velocidade máxima de felicidade com você",
+    ],
     fome: [
       '"correndo… sem parar… mas com fome!"',
       '"tanta energia que preciso de comida AGORA"',
@@ -1276,6 +1450,12 @@ export const FALAS_CRIATURA = {
   },
 
   tatuki: {
+    boasVindas: [
+      "espinhos relaxaram quando você chegou",
+      "tatuki feliz em te ver!",
+      "tava enrolado esperando você",
+      "ouriço contente com sua visita",
+    ],
     fome: [
       '"espinhos murchos de fome… que deprê"',
       '"tatuki precisa comer. senão fica espinhentO."',

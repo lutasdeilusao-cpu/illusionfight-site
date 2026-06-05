@@ -116,9 +116,9 @@
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.2.0 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.2.1 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
 
-**Versão atual:** `1.2.0` (console: `[TAMA] versão carregada: 1.2.0`)
+**Versão atual:** `1.2.1` (console: `[TAMA] versão carregada: 1.2.1`)
 
 ### Estrutura de arquivos
 

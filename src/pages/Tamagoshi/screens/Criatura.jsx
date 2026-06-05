@@ -16,26 +16,24 @@ export default function Criatura({ isAdmin }) {
 
   const metricasBaixas = useMemo(() => {
     const baixas = []
-    if (store.fome < 30) baixas.push('fome')
-    if (store.higiene < 30) baixas.push('sede')
-    if (store.energia < 30) baixas.push('passeio')
-    if (store.humor < 30) baixas.push('critico')
-    return baixas
+    if (store.fome < 60) baixas.push({ key: 'fome', valor: store.fome })
+    if (store.higiene < 60) baixas.push({ key: 'sede', valor: store.higiene })
+    if (store.energia < 60) baixas.push({ key: 'passeio', valor: store.energia })
+    if (store.humor < 60) baixas.push({ key: 'critico', valor: store.humor })
+    return baixas.sort((a, b) => a.valor - b.valor)
   }, [store.fome, store.higiene, store.energia, store.humor])
 
   useEffect(() => {
     if (store.status === 'critico') {
       setFala(getFala(store.personalidade, 'critico', store.criaturaId))
       setMostrando('critico')
-    } else if (metricasBaixas.length > 1) {
-      setFala(getFala(store.personalidade, 'critico', store.criaturaId))
-      setMostrando('critico')
-    } else if (metricasBaixas.length === 1) {
-      setFala(getFala(store.personalidade, metricasBaixas[0], store.criaturaId))
-      setMostrando(metricasBaixas[0])
+    } else if (metricasBaixas.length) {
+      const { key } = metricasBaixas[0]
+      setFala(getFala(store.personalidade, key, store.criaturaId))
+      setMostrando(key)
     } else {
-      setFala(getFala(store.personalidade, 'fome', store.criaturaId))
-      setMostrando('fome')
+      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId))
+      setMostrando('boasVindas')
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])
 

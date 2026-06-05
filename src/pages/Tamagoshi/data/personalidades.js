@@ -3,6 +3,7 @@ export const PERSONALIDADES = {
     nome: 'Carente',
     desc: 'dramático, apegado, notifica antes de precisar',
     notificacoes: {
+      boasVindas: '"ah… você veio. tava contando os segundos."',
       fome: '"tô com fome mas tudo bem, fica aí, eu aguento... provavelmente"',
       sede: '"três horas sem água. três. horas. tá tudo bem comigo não"',
       passeio: '"você não me levou passear hoje. eu fiquei aqui sozinho. olhando pra parede."',
@@ -15,6 +16,7 @@ export const PERSONALIDADES = {
     nome: 'Agressivo',
     desc: 'ameaças vazias, raiva performática, no fundo só quer atenção',
     notificacoes: {
+      boasVindas: '"ah, chegou. demorou. mas tudo bem."',
       fome: '"me alimenta. agora."',
       sede: '"água. já."',
       passeio: '"se você não me tirar daqui eu destruo tudo aqui dentro"',
@@ -27,6 +29,7 @@ export const PERSONALIDADES = {
     nome: 'Fofo',
     desc: 'entusiasmo total, transforma tudo em festa',
     notificacoes: {
+      boasVindas: '"OI! QUE BOM QUE VOCÊ VEIO! TÔ TÃO FELIZ!"',
       fome: '"oi! tô com fominha! mas tudo bem! você vem logo né? né? né?"',
       sede: '"aguinha por favor por favor por favor obrigado te amo"',
       passeio: '"PASSEIO? VAI TER PASSEIO HOJE? pergunta só, sem pressão, mas VAI?"',
@@ -39,6 +42,7 @@ export const PERSONALIDADES = {
     nome: 'Independente',
     desc: 'frio, econômico, nunca implora',
     notificacoes: {
+      boasVindas: '"presença registrada. prossiga."',
       fome: '"alimento necessário."',
       sede: '"hidratação pendente."',
       passeio: '"seria útil sair hoje."',
@@ -51,6 +55,7 @@ export const PERSONALIDADES = {
     nome: 'Filósofo',
     desc: 'reflexivo, transforma necessidade em observação existencial',
     notificacoes: {
+      boasVindas: '"sua presença levanta questões interessantes. como vai?"',
       fome: '"o vazio no estômago é parente do vazio no universo. os dois têm solução."',
       sede: '"a água não pertence a ninguém. mas eu precisaria de um pouco agora."',
       passeio: '"faz tempo que não vejo o céu de Marelia. ou qualquer céu."',
@@ -63,6 +68,7 @@ export const PERSONALIDADES = {
     nome: 'Cômico',
     desc: 'alheio ao drama, confusão genuína, comentários fora de contexto',
     notificacoes: {
+      boasVindas: '"ah! é você! que coincidência! tava justamente pensando em… outra coisa."',
       fome: '"mano. biscoito. simples assim."',
       sede: '"água. suco. qualquer coisa. até aquela água sem gás sem graça tá bom"',
       passeio: '"precisamos sair. eu vi uma pomba aqui que tô querendo conhecer melhor"',
