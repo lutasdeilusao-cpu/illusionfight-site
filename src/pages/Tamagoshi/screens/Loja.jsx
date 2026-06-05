@@ -10,7 +10,7 @@ export default function Loja({ onVoltar }) {
   const inv = store.inventario || {}
 
   useEffect(() => {
-    if (store._userId) store.getSaldoDix(store._userId).then(setSaldo)
+    if (store._userId) store.getSaldoDix(store._userId).then(s => setSaldo(store._isAdmin ? '∞' : s))
   }, [])
 
   const handleComprar = async (item) => {
@@ -60,7 +60,7 @@ export default function Loja({ onVoltar }) {
               </div>
               <button
                 className="tama-btn tama-btn--sm"
-                disabled={saldo < item.preco}
+                disabled={!store._isAdmin && saldo < item.preco}
                 onClick={() => handleComprar(item)}
               >
                 comprar

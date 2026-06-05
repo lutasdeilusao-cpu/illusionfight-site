@@ -31,6 +31,7 @@ export default function Tamagoshi() {
   useEffect(() => {
     if (!loaded.current && user) {
       loaded.current = true
+      store.setAdmin(isAdmin)
       store.loadFromCloud(user.id, 1)
     }
   }, [user])

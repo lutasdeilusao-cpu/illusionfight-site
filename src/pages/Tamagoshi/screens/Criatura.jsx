@@ -46,7 +46,7 @@ export default function Criatura({ isAdmin, onAction, onLoja }) {
     setAdminTrocaAberta(false)
   }
 
-  const dixSaldo = store._dixSaldo
+  const dixSaldo = store._isAdmin ? '∞' : store._dixSaldo
 
   return (
     <div className="tama-screen">

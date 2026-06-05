@@ -58,6 +58,7 @@ const defaultState = {
   _ultimoUpdate: Date.now(), _criticoDesde: null, _ultimoLogin: Date.now(),
   _userId: null, _slot: 1,
   adminFastMode: false,
+  _isAdmin: false,
   inventario: {},
   flags: {},
   _dixSaldo: 0,
@@ -83,6 +84,8 @@ export const useTamagoshiStore = create((set, get) => ({
   ...defaultState,
 
   setFase: (fase) => set({ fase }),
+
+  setAdmin: (val) => set({ _isAdmin: val }),
 
   eclodir: () => set({ fase: 'selecao' }),
 
@@ -262,6 +265,7 @@ export const useTamagoshiStore = create((set, get) => ({
   getSaldoDix: async (userId) => {
     const uid = userId || get()._userId
     if (!uid) return 0
+    if (get()._isAdmin) { set({ _dixSaldo: Infinity }); return Infinity }
     const { data } = await supabase.from('dix_wallet').select('saldo').eq('user_id', uid).maybeSingle()
     const saldo = data?.saldo ?? 0
     set({ _dixSaldo: saldo })
@@ -270,7 +274,7 @@ export const useTamagoshiStore = create((set, get) => ({
 
   ganharDix: async (userId, valor, motivo) => {
     const uid = userId || get()._userId
-    if (!uid) return
+    if (!uid || get()._isAdmin) return
     const atual = await get().getSaldoDix(uid)
     const novo = atual + valor
     const { error } = await supabase.from('dix_wallet').upsert(
@@ -285,6 +289,7 @@ export const useTamagoshiStore = create((set, get) => ({
   gastarDix: async (userId, valor, motivo) => {
     const uid = userId || get()._userId
     if (!uid) throw new Error('usuário não autenticado')
+    if (get()._isAdmin) return
     const atual = await get().getSaldoDix(uid)
     if (atual < valor) throw new Error('DIX insuficiente')
     const novo = atual - valor
