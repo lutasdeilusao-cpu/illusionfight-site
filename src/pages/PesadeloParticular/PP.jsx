@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.16'
+const PP_VERSION = '1.5.17'
 const LOCALE = 'pt'
 
 const AVATARES = {
