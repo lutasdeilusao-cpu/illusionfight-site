@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, getFala } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
@@ -7,7 +7,7 @@ import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
 
-export default function Criatura() {
+export default function Criatura({ isAdmin }) {
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -49,6 +49,13 @@ export default function Criatura() {
   }
 
   const icones = { fome: '🍖', higiene: '🧼', energia: '⚡', humor: '🎭' }
+
+  const [adminTrocaAberta, setAdminTrocaAberta] = useState(false)
+
+  const handleAdminTrocar = (id) => {
+    store.trocarCriatura(id)
+    setAdminTrocaAberta(false)
+  }
 
   return (
     <div className="tama-screen">
@@ -92,6 +99,37 @@ export default function Criatura() {
             [ brincar ]
           </motion.button>
         </div>
+
+        {isAdmin && (
+          <div className="tama-admin">
+            <div className="tama-admin-header">
+              <span className="tama-admin-label">⚙ admin</span>
+              <button className={`tama-btn tama-btn--sm ${store.adminFastMode ? 'tama-btn--active' : ''}`}
+                onClick={() => store.toggleAdminFastMode()}>
+                {store.adminFastMode ? '⏩ fast: on' : '▶ fast: off'}
+              </button>
+              <button className="tama-btn tama-btn--sm"
+                onClick={() => setAdminTrocaAberta(!adminTrocaAberta)}>
+                [ trocar ]
+              </button>
+            </div>
+            <AnimatePresence>
+              {adminTrocaAberta && (
+                <motion.div className="tama-admin-grid"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}>
+                  {CRIATURAS.map(c => (
+                    <button key={c.id} className="tama-btn tama-btn--tiny"
+                      onClick={() => handleAdminTrocar(c.id)}>
+                      {c.emoji} {c.nome}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
     </div>
   )

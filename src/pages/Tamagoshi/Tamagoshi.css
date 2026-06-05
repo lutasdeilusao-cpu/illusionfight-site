@@ -410,3 +410,46 @@
   color: #F5A623;
   letter-spacing: 0.1em;
 }
+
+/* ===== ADMIN PANEL ===== */
+.tama-admin {
+  margin-top: 1.2rem;
+  border-top: 1px solid #333;
+  padding-top: 0.8rem;
+  width: 100%;
+}
+.tama-admin-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.tama-admin-label {
+  color: #ff4444;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+.tama-btn--sm {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.6rem;
+}
+.tama-btn--active {
+  border-color: #22C55E;
+  color: #22C55E;
+}
+.tama-btn--tiny {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.4rem;
+}
+.tama-admin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  overflow: hidden;
+}
+.tama-admin-grid .tama-btn--tiny {
+  flex: 0 0 auto;
+}

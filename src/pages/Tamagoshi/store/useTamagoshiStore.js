@@ -56,6 +56,7 @@ const defaultState = {
   cooldownAte: null,
   _ultimoUpdate: Date.now(), _criticoDesde: null, _ultimoLogin: Date.now(),
   _userId: null, _slot: 1,
+  adminFastMode: false,
 }
 
 function cacheLocal(state) {
@@ -91,7 +92,7 @@ export const useTamagoshiStore = create((set, get) => ({
       status: 'vivo',
       _ultimoUpdate: Date.now(), _ultimoLogin: Date.now(),
     })
-    get()._autoSave()
+    get().saveToCloud(get()._userId)
   },
 
   setNomeCustom: (nome) => set({ nomeCustom: nome }),
@@ -145,7 +146,8 @@ export const useTamagoshiStore = create((set, get) => ({
     set(state => {
       if (!state.criaturaId || (state.status !== 'vivo' && state.status !== 'critico')) return state
       const horas = (Date.now() - state._ultimoUpdate) / (1000 * 60 * 60)
-      return calcDecaimento(state, horas)
+      const mult = state.adminFastMode ? 100 : 1
+      return calcDecaimento(state, horas * mult)
     })
   },
 
@@ -153,7 +155,8 @@ export const useTamagoshiStore = create((set, get) => ({
     set(state => {
       if (!state.criaturaId || (state.status !== 'vivo' && state.status !== 'critico')) return state
       const horas = (Date.now() - state._ultimoUpdate) / (1000 * 60 * 60)
-      return calcDecaimento(state, horas)
+      const mult = state.adminFastMode ? 100 : 1
+      return calcDecaimento(state, horas * mult)
     })
   },
 
@@ -218,6 +221,23 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   reset: () => set({ ...defaultState, _ultimoUpdate: Date.now(), _ultimoLogin: Date.now() }),
+
+  trocarCriatura: (criaturaId) => {
+    const { CRIATURAS } = require('../data/criaturas')
+    const c = CRIATURAS.find(x => x.id === criaturaId)
+    if (!c) return
+    set({
+      criaturaId, personalidade: c.tipo, nomeCustom: c.nome,
+      fase: 'criatura', estagio: 1,
+      fome: 100, higiene: 100, energia: 100, humor: 100,
+      nascidoEm: Date.now(),
+      status: 'vivo',
+      _ultimoUpdate: Date.now(), _ultimoLogin: Date.now(),
+    })
+    get().saveToCloud(get()._userId)
+  },
+
+  toggleAdminFastMode: () => set(state => ({ adminFastMode: !state.adminFastMode })),
 
   // === TRADE SYSTEM ===
 

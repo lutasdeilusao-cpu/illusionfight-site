@@ -18,6 +18,7 @@ export default function Tamagoshi() {
   const loaded = useRef(false)
 
   const userTier = perfil?.role || 'free'
+  const isAdmin = user?.email === 'isaiasgamedev@gmail.com' || perfil?.is_admin === true
 
   useEffect(() => {
     if (!loaded.current && user) {
@@ -51,7 +52,7 @@ export default function Tamagoshi() {
       <div className="tama-content">
         {(!fase || fase === 'ovo') && <Ovo onEclodir={handleOvoEclodir} />}
         {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} />}
-        {fase === 'criatura' && <Criatura />}
+        {fase === 'criatura' && <Criatura isAdmin={isAdmin} />}
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}
         {fase === 'luto' && <Luto />}
