@@ -748,7 +748,73 @@
 
 .arena-power-counter strong {
   color: #F5A623;
-  font-size: 14px;
+}
+
+/* ══════════════════════════════════════════════════
+   ARENA TÁTICA v2.0.0 — Novos estilos
+   ══════════════════════════════════════════════════ */
+
+.tatica-container {
+  min-height: 100vh;
+  background: #000;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+}
+
+/* Glitch effect for logo */
+.tatica-glitch {
+  position: relative;
+  animation: tatica-glitch-skew 4s infinite linear;
+}
+
+.tatica-glitch::before,
+.tatica-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.tatica-glitch::before {
+  color: #ff0040;
+  animation: tatica-glitch-before 4s infinite linear;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.tatica-glitch::after {
+  color: #00fff7;
+  animation: tatica-glitch-after 4s infinite linear;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes tatica-glitch-skew {
+  0%, 90%, 92%, 100% { transform: skew(0deg); }
+  91% { transform: skew(2deg); }
+}
+
+@keyframes tatica-glitch-before {
+  0%, 5%, 7%, 100% { opacity: 0; }
+  6% { opacity: 0.8; }
+}
+
+@keyframes tatica-glitch-after {
+  0%, 8%, 10%, 100% { opacity: 0; }
+  9% { opacity: 0.8; }
+}
+
+/* Skill modal scroll */
+.tatica-skills-list::-webkit-scrollbar {
+  width: 4px;
+}
+.tatica-skills-list::-webkit-scrollbar-track {
+  background: #111;
+}
+.tatica-skills-list::-webkit-scrollbar-thumb {
+  background: #FFD70044;
+  border-radius: 2px;
 }
 
 .arena-power-footer .arena-btn-primary {

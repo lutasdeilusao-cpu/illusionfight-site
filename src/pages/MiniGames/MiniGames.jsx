@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
-import { MINIGAMES_VERSION } from './version'
+import { MINIGAMES_VERSION } from '../../config/version'
 import './MiniGames.css'
 
 const GAMES = [

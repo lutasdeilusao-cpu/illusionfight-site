@@ -1,117 +1,95 @@
+/**
+ * ARENA TÁTICA — Zustand Store v2.0.0
+ * Personagem, time, batalha, SDR, save
+ */
+
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 
-const defaultSheet = () => ({
-  id: null,
-  sheet_name: '',
-  attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 },
-  advantages: [],
-  disadvantages: [],
-  perks: [],
-  specializations: [],
-  weapon: '',
-  elemental: '',
-  xp_total: 0,
-  attribute_points_gained: 0,
-  enemies_unlocked: ['treinamento'],
-})
+const XP_TABLE = [0, 100, 250, 500, 800, 1200, 1700, 2300, 3000, 3800, 4700, 5700, 6800, 8000, 9500]
+
+function calcNivel(xp) {
+  for (let i = XP_TABLE.length - 1; i >= 0; i--) if (xp >= XP_TABLE[i]) return i + 1
+  return 1
+}
+
+const INIT = {
+  personagem: null, nome: '', classe: null, elemental: null,
+  pronome: 'ele', cor_secundaria: '#888', time: [],
+  atributos: { forca: 8, velocidade: 8, resistencia: 8, energia: 8, precisao: 8, tenacidade: 8 },
+  pontos_livres: 48, sdr: 0, xp: 0, nivel: 1,
+  vitorias: 0, derrotas: 0, streak: 0,
+  batalha: null, fase: 'intro',
+  timesSalvos: [], slotsTime: 3, carregado: false, userId: null,
+}
 
 export const useArenaStore = create((set, get) => ({
-  sheet: defaultSheet(),
-  match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' },
-  points_available: 5,
-  temp_attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 },
-  level_up_active: false,
-  _userId: null,
-
-  newSheet: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' }, points_available: 5, temp_attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 }, level_up_active: false }),
-
-  updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
-
-  loadSheet: (data) => {
-    const pv = Math.max(1, (data.attributes?.R || 0) * 5)
-    const pm = Math.max(2, (data.attributes?.PdF || 0) * 5)
-    set({ sheet: { ...defaultSheet(), ...data }, match: { enemy_id: null, pv_current: pv, pm_current: pm, score: 0, status: 'idle' } })
-  },
-
-  setUserId: (id) => set({ _userId: id }),
-
-  startMatch: (enemy) => {
-    const s = get().sheet
-    const pv = Math.max(1, (s.attributes?.R || 0) * 5)
-    const pm = Math.max(2, (s.attributes?.PdF || 0) * 5)
-    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: pv, pm_current: pm, score: 0, status: 'fighting' } })
-  },
-
-  setMatchPV: (pv) => set(state => ({ match: { ...state.match, pv_current: Math.max(0, pv) } })),
-  setMatchPM: (pm) => set(state => ({ match: { ...state.match, pm_current: Math.max(0, pm) } })),
-
-  endMatch: (result) => set(state => {
-    const newScore = result === 'victory' ? state.match.score + 1 : state.match.score
-    return { match: { ...state.match, score: newScore, status: result === 'victory' ? 'victory' : 'defeat' } }
+  ...INIT,
+  setUserId: (id) => set({ userId: id, carregado: true }),
+  setFase: (f) => set({ fase: f }),
+  setPersonagem: (d) => set((s) => ({ ...s, ...d, personagem: d.nome || s.nome })),
+  setClasse: (c) => set({ classe: c }),
+  setElemental: (e) => set({ elemental: e }),
+  setNome: (n) => set({ nome: n }),
+  setPronome: (p) => set({ pronome: p }),
+  setCorSecundaria: (c) => set({ cor_secundaria: c }),
+  setAtributo: (a, v) => set((s) => {
+    const d = v - s.atributos[a]
+    if (s.pontos_livres - d < 0) return s
+    return { atributos: { ...s.atributos, [a]: Math.max(1, Math.min(20, v)) }, pontos_livres: s.pontos_livres - d }
   }),
+  addToTeam: (m) => set((s) => ({ time: s.time.length < 3 ? [...s.time, m] : s.time })),
+  removeFromTeam: (id) => set((s) => ({ time: s.time.filter((m) => m.id !== id) })),
 
-  gainXp: (amount) => set(state => {
-    const newXp = (state.sheet.xp_total || 0) + amount
-    const pointsGained = state.sheet.attribute_points_gained || 0
-    const cost = 10 + pointsGained * 2
-    if (newXp >= cost) {
-      return { sheet: { ...state.sheet, xp_total: newXp, attribute_points_gained: pointsGained + 1 }, level_up_active: true, temp_attributes: { ...state.sheet.attributes } }
+  iniciarBatalha: (inimigos) => set((s) => {
+    const p = {
+      id: 'player', nome: s.nome || 'Briguento',
+      classe: s.classe, elemental: s.elemental, nivel: s.nivel,
+      atributos: s.atributos,
+      hp: 30 + s.atributos.resistencia * 3, hpMax: 30 + s.atributos.resistencia * 3,
+      energia: 10 + s.atributos.energia, energiaMax: 10 + s.atributos.energia,
+      x: 0, y: 5,
     }
-    return { sheet: { ...state.sheet, xp_total: newXp } }
+    return {
+      batalha: { turno: 1, fase: 'player', aliados: [p, ...s.time], inimigos, rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [] },
+      fase: 'pre',
+    }
   }),
 
-  incrementTempAttr: (attr) => set(state => {
-    if (state.temp_attributes[attr] >= 5) return state
-    return { temp_attributes: { ...state.temp_attributes, [attr]: state.temp_attributes[attr] + 1 }, points_available: Math.max(0, state.points_available - 1) }
+  iniciarCombate: () => set((s) => ({ fase: 'combate', batalha: s.batalha ? { ...s.batalha, fase: 'player' } : null })),
+  executarAcao: (a) => set((s) => s.batalha ? { batalha: { ...s.batalha, log: [...s.batalha.log, a] } } : s),
+  avancarTurno: () => set((s) => s.batalha ? { batalha: { ...s.batalha, turno: s.batalha.turno + 1, fase: 'player' } } : s),
+  setTurnoFase: (f) => set((s) => ({ batalha: s.batalha ? { ...s.batalha, fase: f } : null })),
+
+  registrarVitoria: (g) => set((s) => {
+    const x = s.xp + g; const n = calcNivel(x)
+    return { sdr: s.sdr + g, xp: x, nivel: n, vitorias: s.vitorias + 1, streak: s.streak + 1, fase: 'vitoria', batalha: null }
   }),
-
-  decrementTempAttr: (attr) => set(state => {
-    if (state.temp_attributes[attr] <= (state.sheet.attributes[attr] || 0)) return state
-    return { temp_attributes: { ...state.temp_attributes, [attr]: state.temp_attributes[attr] - 1 }, points_available: state.points_available + 1 }
-  }),
-
-  confirmLevelUp: () => set(state => ({
-    sheet: { ...state.sheet, attributes: { ...state.temp_attributes }, level_up_active: false },
-    level_up_active: false,
-  })),
-
-  clearLevelUp: () => set({ level_up_active: false }),
-
-  spendPoints: (pts) => set(state => ({ points_available: Math.max(0, state.points_available - pts) })),
-  gainPoints: (pts) => set(state => ({ points_available: state.points_available + pts })),
+  registrarDerrota: () => set((s) => ({ derrotas: s.derrotas + 1, streak: 0, fase: 'derrota', batalha: null })),
 
   saveToCloud: async (userId) => {
-    const uid = userId || get()._userId
-    if (!uid) return
-    const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
-    if (s.id) await supabase.from('character_sheets').update(payload).eq('id', s.id)
-    else {
-      const { data } = await supabase.from('character_sheets').insert(payload).select('id').single()
-      if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
-    }
+    if (!userId) return; const s = get()
+    await supabase.from('arena_saves').upsert({
+      user_id: userId, personagem: s.personagem, nome: s.nome, classe: s.classe,
+      elemental: s.elemental, atributos: s.atributos, pontos_livres: s.pontos_livres,
+      sdr: s.sdr, xp: s.xp, nivel: s.nivel, vitorias: s.vitorias, derrotas: s.derrotas, timesSalvos: s.timesSalvos,
+    }, { onConflict: 'user_id' })
   },
 
-  loadSheets: async (userId) => {
-    if (!userId) return []
-    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
-    return Array.isArray(data) ? data : []
+  loadSave: async (userId) => {
+    if (!userId) { set({ carregado: true }); return }
+    const { data } = await supabase.from('arena_saves').select('*').eq('user_id', userId).single()
+    if (data) set({
+      personagem: data.personagem, nome: data.nome || '', classe: data.classe, elemental: data.elemental,
+      atributos: data.atributos || INIT.atributos, pontos_livres: data.pontos_livres ?? 48,
+      sdr: data.sdr || 0, xp: data.xp || 0, nivel: data.nivel || 1,
+      vitorias: data.vitorias || 0, derrotas: data.derrotas || 0, timesSalvos: data.timesSalvos || [], carregado: true,
+    })
+    else set({ carregado: true })
   },
-
-  deleteSheet: async (sheetId) => {
-    await supabase.from('character_sheets').delete().eq('id', sheetId)
-  },
-
-  unlockNextEnemy: (defeatedEnemyId) => set(state => {
-    const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
-    const current = state.sheet.enemies_unlocked || ['treinamento']
-    const idx = ENEMY_ORDER.indexOf(defeatedEnemyId)
-    if (idx === -1 || idx >= ENEMY_ORDER.length - 1) return state
-    const nextId = ENEMY_ORDER[idx + 1]
-    if (current.includes(nextId)) return state
-    return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
-  }),
-
-  reset: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' } }),
+  resetStore: () => set(INIT),
 }))
+
+export function getXpProximoNivel(xp) {
+  const n = calcNivel(xp); return n >= XP_TABLE.length ? 0 : XP_TABLE[n] - XP_TABLE[n - 1]
+}
