@@ -213,7 +213,7 @@ export default function ArenaCombat({ onNavigate }) {
         setDiceOn(null)
         setOnomaMode(mode)
         stepRef.current = 1
-        timerRef.current = setTimeout(nextStep, 1800)
+        chatQueue.current.then(() => { timerRef.current = setTimeout(nextStep, 1800) })
         break
       }
 
@@ -230,7 +230,6 @@ export default function ArenaCombat({ onNavigate }) {
       // 2 → overlay terminou, mostra dado do inimigo
       case 2: {
         setTurnOverlay(false)
-        setFlashOn(true)
         setDiceOn(d.eDado)
         stepRef.current = 3
         timerRef.current = setTimeout(nextStep, 2200)
@@ -257,7 +256,7 @@ export default function ArenaCombat({ onNavigate }) {
         setFlashOn(false)
         setOnomaMode(d.eMode)
         stepRef.current = 4
-        timerRef.current = setTimeout(nextStep, 1800)
+        chatQueue.current.then(() => { timerRef.current = setTimeout(nextStep, 1800) })
         break
       }
 
