@@ -33,10 +33,10 @@ export default function DueloRoute() {
   const handleCardClick = useCallback((card) => {
     if (!card || store.currentTurn !== 'PLAYER') return
     if (store.gamePhase === 'MAIN') {
-      store.setState({ selectedCard: store.selectedCard?.id === card.id ? null : card })
+      store.setState({ selectedCard: store.selectedCard?.id_num === card.id_num ? null : card })
     }
     if (store.gamePhase === 'BATTLE' && card.type === 'MONSTER' && card.position === 'ATK') {
-      store.setState({ selectedCard: store.selectedCard?.id === card.id ? null : card })
+      store.setState({ selectedCard: store.selectedCard?.id_num === card.id_num ? null : card })
     }
   }, [store])
 
@@ -54,7 +54,7 @@ export default function DueloRoute() {
           setShowTribute({ card: sel, needed, available })
           return
         }
-        store.placeCardInZone(sel.id, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
+        store.placeCardInZone(sel.id_num, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
       } else if (sel.type === 'SPELL') {
         store.activateEffect(sel, 'PLAYER')
       } else if (sel.type === 'TRAP') {
@@ -65,7 +65,7 @@ export default function DueloRoute() {
           zones[freeIdx] = { ...sel, faceDown: true, placedOnTurn: state.turnNumber }
           return {
             playerSpellZones: zones,
-            playerHand: state.playerHand.filter(c => c.id !== sel.id),
+            playerHand: state.playerHand.filter(c => c.id_num !== sel.id_num),
             selectedCard: null,
             battleLog: [...state.battleLog, `Você colocou ${sel.name} face-down.`],
           }
@@ -75,14 +75,14 @@ export default function DueloRoute() {
 
     if (store.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
       if (zoneType === 'MONSTER' && card) {
-        const attIdx = store.playerMonsterZones.findIndex(m => m?.id === sel.id)
+        const attIdx = store.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
         if (attIdx >= 0) {
           const aiTrap = store.aiSpellZones.find(s => s?.type === 'TRAP' && s.faceDown && (s.placedOnTurn || 0) < store.turnNumber)
           if (aiTrap && card.atk > 1500) {
-            store.activateEffect({ ...aiTrap, id: aiTrap.id }, 'AI')
+            store.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
             store.setState(state => {
               const zones = [...state.aiSpellZones]
-              const idx = zones.findIndex(s => s?.id === aiTrap.id)
+              const idx = zones.findIndex(s => s?.id_num === aiTrap.id_num)
               if (idx >= 0) zones[idx] = null
               return { aiSpellZones: zones }
             })
@@ -90,7 +90,7 @@ export default function DueloRoute() {
           store.declareAttack(attIdx, zoneIndex)
         }
       } else if (!card && !store.aiMonsterZones.some(m => m)) {
-        const attIdx = store.playerMonsterZones.findIndex(m => m?.id === sel.id)
+        const attIdx = store.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
         if (attIdx >= 0) store.declareAttack(attIdx, -1)
       }
     }
@@ -107,9 +107,9 @@ export default function DueloRoute() {
     zones[freeIdx] = { ...showTribute.card, position: 'ATK', placedOnTurn: store.turnNumber }
     store.setState({
       playerMonsterZones: zones, playerGraveyard: graveyard,
-      playerHand: store.playerHand.filter(c => c.id !== showTribute.card.id),
+      playerHand: store.playerHand.filter(c => c.id_num !== showTribute.card.id_num),
       selectedCard: null, hasNormalSummonedThisTurn: true,
-      summonTurn: { ...store.summonTurn, [showTribute.card.id]: store.turnNumber },
+      summonTurn: { ...store.summonTurn, [showTribute.card.id_num]: store.turnNumber },
       battleLog: [...store.battleLog, `Você invocou ${showTribute.card.name} com ${indices.length} tributo(s).`],
     })
     setShowTribute(null)
@@ -157,7 +157,7 @@ export default function DueloRoute() {
 
       {store.playerHand.length > 0 && (
         <Hand cards={store.playerHand} onCardClick={handleCardClick} onCardHover={handleCardHover}
-          selectedCardId={store.selectedCard?.id} disabled={store.currentTurn !== 'PLAYER'} />
+          selectedCardId={store.selectedCard?.id_num} disabled={store.currentTurn !== 'PLAYER'} />
       )}
 
       <StatusBar card={hoveredCard || store.selectedCard || store.focusedCard} />

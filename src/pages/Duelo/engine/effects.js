@@ -25,7 +25,7 @@ export function applySpellEffect(state, card, caster = 'PLAYER') {
       const monsterZones = caster === 'PLAYER' ? state.playerMonsterZones : state.aiMonsterZones
       const monster = monsterZones.find(m => m)
       if (monster) {
-        updates.tempBuffs = [...state.tempBuffs, { cardId: monster.id, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
+        updates.tempBuffs = [...state.tempBuffs, { cardId: monster.id_num, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
         log = `${card.name}: ${monster.name} ganha +${card.effectValue} ATK.`
       } else {
         log = `${card.name} ativado, mas não há monstro para buffar.`
@@ -83,7 +83,7 @@ export function applySpellEffect(state, card, caster = 'PLAYER') {
       const zones = state[enemyZonesKey]
       const target = zones.find(m => m)
       if (target) {
-        updates.tempBuffs = [...state.tempBuffs, { cardId: target.id, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
+        updates.tempBuffs = [...state.tempBuffs, { cardId: target.id_num, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
         log = `${card.name}: ${target.name} perde ${card.effectValue} ATK.`
       }
       break

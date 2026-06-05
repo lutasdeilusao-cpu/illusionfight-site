@@ -30,14 +30,14 @@ export function aiMainPhase(state) {
         }
         const free = newZones.findIndex(m => !m)
         newZones[free] = { ...card, position: 'ATK', placedOnTurn: state.turnNumber }
-        const newHand = hand.filter(c => c.id !== card.id)
+        const newHand = hand.filter(c => c.id_num !== card.id_num)
         const log = `IA invocou ${card.name} com ${needed} tributo(s).`
         return {
           aiMonsterZones: newZones,
           aiGraveyard: newGrave,
           aiHand: newHand,
           hasNormalSummonedThisTurn: true,
-          summonTurn: { ...state.summonTurn, [card.id]: state.turnNumber },
+          summonTurn: { ...state.summonTurn, [card.id_num]: state.turnNumber },
           battleLog: [...state.battleLog, log],
         }
       }
@@ -47,13 +47,13 @@ export function aiMainPhase(state) {
     // Invocação normal
     const newZones = [...monsters]
     newZones[freeZone] = { ...card, position: 'ATK', placedOnTurn: state.turnNumber }
-    const newHand = hand.filter(c => c.id !== card.id)
+    const newHand = hand.filter(c => c.id_num !== card.id_num)
     const log = `IA invocou ${card.name} (${card.atk}/${card.def}).`
     return {
       aiMonsterZones: newZones,
       aiHand: newHand,
       hasNormalSummonedThisTurn: true,
-      summonTurn: { ...state.summonTurn, [card.id]: state.turnNumber },
+      summonTurn: { ...state.summonTurn, [card.id_num]: state.turnNumber },
       battleLog: [...state.battleLog, log],
     }
   }
@@ -63,7 +63,7 @@ export function aiMainPhase(state) {
   if (spells2.length > 0) {
     const burnSpell = spells2.find(c => c.effect === 'BURN' && playerLP <= c.effectValue)
     if (burnSpell) {
-      const newHand = hand.filter(c => c.id !== burnSpell.id)
+      const newHand = hand.filter(c => c.id_num !== burnSpell.id_num)
       const newLP = Math.max(0, playerLP - burnSpell.effectValue)
       const winner = newLP <= 0 ? 'AI' : null
       return {
@@ -77,7 +77,7 @@ export function aiMainPhase(state) {
     // Usa heal se LP baixo
     const healSpell = spells2.find(c => c.effect === 'HEAL' && aiLP < 4000)
     if (healSpell) {
-      const newHand = hand.filter(c => c.id !== healSpell.id)
+      const newHand = hand.filter(c => c.id_num !== healSpell.id_num)
       return {
         aiHand: newHand,
         aiGraveyard: [...state.aiGraveyard, healSpell],
@@ -94,7 +94,7 @@ export function aiMainPhase(state) {
     const trap = traps[0]
     const newSpells = [...spells]
     newSpells[freeSpell] = { ...trap, faceDown: true, placedOnTurn: state.turnNumber }
-    const newHand = hand.filter(c => c.id !== trap.id)
+    const newHand = hand.filter(c => c.id_num !== trap.id_num)
     return {
       aiSpellZones: newSpells,
       aiHand: newHand,
@@ -114,11 +114,11 @@ export function aiBattlePhase(state) {
   for (let aiIdx = 0; aiIdx < monsters.length; aiIdx++) {
     const m = monsters[aiIdx]
     if (!m || m.type !== 'MONSTER' || m.position !== 'ATK') continue
-    if (state.attackedThisTurn.includes(m.id)) continue
+    if (state.attackedThisTurn.includes(m.id_num)) continue
     // Summoning sickness
-    if ((state.summonTurn[m.id] || 0) >= state.turnNumber) continue
+    if ((state.summonTurn[m.id_num] || 0) >= state.turnNumber) continue
 
-    const attAtk = m.atk + (state.tempBuffs.find(b => b.cardId === m.id)?.atkBonus || 0)
+    const attAtk = m.atk + (state.tempBuffs.find(b => b.cardId === m.id_num)?.atkBonus || 0)
 
     if (!playerHasMonsters) {
       // Ataque direto

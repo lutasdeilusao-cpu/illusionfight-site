@@ -5,7 +5,7 @@ const TYPE_LABELS = { MONSTER: 'MONSTRO', SPELL: 'MAGIA', TRAP: 'ARMADILHA' }
 
 export default function Card({ card, faceDown = false, small = false, onClick, onMouseEnter, onMouseLeave, disabled }) {
   const store = useDueloStore()
-  const buff = card ? store.tempBuffs.find(b => b.cardId === card.id) : null
+  const buff = card ? store.tempBuffs.find(b => b.cardId === card.id_num) : null
   const effectiveAtk = card ? (card.atk || 0) + (buff?.atkBonus || 0) : 0
 
   if (!card && !faceDown) return null

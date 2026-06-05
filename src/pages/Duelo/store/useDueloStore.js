@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { createInitialState } from '../engine/gameState'
 
-export const DUELO_VERSION = '1.1.0'
+export const DUELO_VERSION = '1.1.1'
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
 
 export const useDueloStore = create((set, get) => ({
@@ -68,16 +68,16 @@ export const useDueloStore = create((set, get) => ({
       ? (zoneType === 'MONSTER' ? 'playerMonsterZones' : 'playerSpellZones')
       : (zoneType === 'MONSTER' ? 'aiMonsterZones' : 'aiSpellZones')
     const hand = state[handKey]
-    const card = hand.find(c => c.id === cardId)
+    const card = hand.find(c => c.id_num === cardId)
     if (!card) return
-    const newHand = hand.filter(c => c.id !== cardId)
+    const newHand = hand.filter(c => c.id_num !== cardId)
     const zones = [...state[zoneKey]]
     const placedCard = { ...card, position, placedOnTurn: state.turnNumber }
     zones[zoneIndex] = placedCard
     const logMsg = owner === 'PLAYER'
       ? `Você invocou ${card.name}${card.type === 'MONSTER' ? ` (${card.atk}/${card.def})` : ''}`
       : `IA invocou ${card.name}`
-    const summonTurn = { ...state.summonTurn, [card.id]: state.turnNumber }
+    const summonTurn = { ...state.summonTurn, [card.id_num]: state.turnNumber }
     set({
       [handKey]: newHand,
       [zoneKey]: zones,
@@ -100,12 +100,12 @@ export const useDueloStore = create((set, get) => ({
     const target = defZones[targetZoneIndex]
 
     if (!attacker || attacker.type !== 'MONSTER' || attacker.position !== 'ATK') return
-    if (state.attackedThisTurn.includes(attacker.id)) return
+    if (state.attackedThisTurn.includes(attacker.id_num)) return
     // Summoning sickness
-    if ((state.summonTurn[attacker.id] || 0) >= state.turnNumber) return
+    if ((state.summonTurn[attacker.id_num] || 0) >= state.turnNumber) return
 
     const getAtk = (card) => {
-      const buff = state.tempBuffs.find(b => b.cardId === card.id)
+      const buff = state.tempBuffs.find(b => b.cardId === card.id_num)
       return (card.atk || 0) + (buff?.atkBonus || 0)
     }
 
@@ -173,7 +173,7 @@ export const useDueloStore = create((set, get) => ({
       [isPlayerTurn ? 'playerGraveyard' : 'aiGraveyard']: newAttGraveyard,
       playerLP,
       aiLP,
-      attackedThisTurn: [...state.attackedThisTurn, attacker.id],
+      attackedThisTurn: [...state.attackedThisTurn, attacker.id_num],
       battleLog: [...state.battleLog, log],
       gamePhase: winner ? 'OVER' : state.gamePhase,
       winner,
@@ -185,7 +185,7 @@ export const useDueloStore = create((set, get) => ({
     const state = get()
     // Remove da mão ou zona
     let newHand = caster === 'PLAYER' ? [...state.playerHand] : [...state.aiHand]
-    newHand = newHand.filter(c => c.id !== card.id)
+    newHand = newHand.filter(c => c.id_num !== card.id_num)
     const graveKey = caster === 'PLAYER' ? 'playerGraveyard' : 'aiGraveyard'
 
     let playerLP = state.playerLP, aiLP = state.aiLP
@@ -207,7 +207,7 @@ export const useDueloStore = create((set, get) => ({
         const target = caster === 'PLAYER' ? state.playerMonsterZones : state.aiMonsterZones
         const monster = target.find(m => m)
         if (monster) {
-          newBuffs.push({ cardId: monster.id, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 })
+          newBuffs.push({ cardId: monster.id_num, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 })
           log = `${card.name}: ${monster.name} ganha +${card.effectValue} ATK até o fim do turno.`
         }
         break
@@ -258,7 +258,7 @@ export const useDueloStore = create((set, get) => ({
         const enemyZones = caster === 'PLAYER' ? state.aiMonsterZones : state.playerMonsterZones
         const target = enemyZones.find(m => m)
         if (target) {
-          newBuffs.push({ cardId: target.id, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 })
+          newBuffs.push({ cardId: target.id_num, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 })
           log = `${card.name}: ${target.name} perde ${card.effectValue} ATK por 1 turno.`
         }
         break
