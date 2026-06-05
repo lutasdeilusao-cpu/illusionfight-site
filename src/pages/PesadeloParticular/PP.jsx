@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.7'
+const PP_VERSION = '1.5.9'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -866,11 +866,14 @@ export default function PP() {
 
   // Decide menu vs intro after load
   useEffect(() => {
-    if (carregado && appFase === null) {
-      const hasSave = casosResolvidos.length > 0
-      setAppFase(hasSave ? 'menu' : 'intro')
+    if (!carregado) return
+    const hasSave = casosResolvidos.length > 0
+    if (hasSave && appFase !== 'menu') {
+      setAppFase('menu')
+    } else if (!hasSave && appFase === null) {
+      setAppFase('intro')
     }
-  }, [carregado, appFase])
+  }, [carregado, appFase, casosResolvidos])
 
   const handleNovoJogo = async () => {
     await store.resetSave(user?.id)
@@ -895,8 +898,8 @@ export default function PP() {
 
   const handlePistaColetada = useCallback((pista) => {
     if (!casoAtivo) return
-    const currentPistas = getPistasDoCase(casoAtivo.id)
-    const newCount = currentPistas.length + 1
+    const pistasAtuais = usePPStore.getState().pistasColetadas[casoAtivo.id] || []
+    const newCount = pistasAtuais.length + 1
     const total = casoAtivo.pistas.length
     const pct = newCount / total
 
