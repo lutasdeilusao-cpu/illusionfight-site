@@ -10,10 +10,10 @@ import { CLASSES } from '../data/classes'
 import { getMultiplicadorElemental } from '../data/elementais'
 import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
-import { useArenaStore } from '../store/useArenaStore'
+import { useArenaTaticaStore } from '../store/useArenaTaticaStore'
 
 export default function Batalha({ onVitoria, onDerrota }) {
-  const store = useArenaStore()
+  const store = useArenaTaticaStore()
   const batalha = store.batalha
   const [selectedAlly, setSelectedAlly] = useState(null)
   const [showSkillModal, setShowSkillModal] = useState(false)

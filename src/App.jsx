@@ -46,6 +46,7 @@ import LDIPuzzle from './pages/LDI/PuzzlePage'
 import Diagnostico from './pages/LDI/Diagnostico'
 import JackCandy from './pages/JackCandy/JackCandy'
 import ArenaRoute from './pages/Arena/ArenaRoute'
+import ArenaTaticaRoute from './pages/ArenaTatica/ArenaTaticaRoute'
 import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
 import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
@@ -97,6 +98,7 @@ export default function App() {
         <Route path="/games/jackcandy" element={<JackCandy />} />
         <Route path="/games/minigames" element={<MiniGames />} />
         <Route path="/games/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
+        <Route path="/games/ldi-tatica" element={<LoginGate feature="a Arena LDI Tático"><ArenaTaticaRoute /></LoginGate>} />
         <Route path="/games/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
         <Route path="/games/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
         <Route path="/games/tamagoshi" element={<Tamagoshi />} />

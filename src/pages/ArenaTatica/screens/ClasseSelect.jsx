@@ -4,6 +4,8 @@ import { CLASSES, getClassesDisponiveis } from '../data/classes'
 import { ELEMENTAIS } from '../data/elementais'
 import { getCorPorElemental } from '../data/cosmeticos'
 
+const LOCALE = 'pt'
+
 export default function ClasseSelect({ tier, rotacao, onSelect }) {
   const [info, setInfo] = useState(null)
   const classes = getClassesDisponiveis(tier, rotacao)
