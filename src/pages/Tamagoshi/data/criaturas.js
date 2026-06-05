@@ -1,3 +1,6 @@
+import kronikBase from '../../../../src/assets/images/tamagoshi/kroniki-base.png'
+import kronikFome from '../../../../src/assets/images/tamagoshi/kroniki-fome.gif'
+
 export const CRIATURAS = [
   { id: 'voidling',    nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    emoji: '👻' },
   { id: 'aquori',      nome: 'Aquori',      tipo: 'CARENTE',      raridade: 'incomum',  emoji: '💧' },
@@ -7,7 +10,7 @@ export const CRIATURAS = [
 
   { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    emoji: '🔥' },
   { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  emoji: '👾' },
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: '/assets/images/tamagoshi/kroniki-base.png', gifs: { alimentar: '/assets/images/tamagoshi/kroniki-fome.gif' } },
+  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: kronikBase, gifs: { alimentar: kronikFome } },
   { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    emoji: '🐆' },
   { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', emoji: '💥' },
 

@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const BASE = import.meta.env.BASE_URL || '/'
-
 const ESTADO_ANIM = {
   vivo: { scale: 1, y: 0 },
   critico: { scale: 0.85, y: 5 },
@@ -35,10 +33,9 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   const tam = estagio >= 2 ? 140 : estagio === 1 ? 110 : 80
   const temImagem = !!c.imagem && !erroImg
 
-  // Monta URL correta com BASE_URL
+  // Imagens usam import estático Vite — caminhos já são absolutos corretos
   const gifAtivo = acao && c.gifs?.[acao]
-  const src = gifAtivo || c.imagem
-  const url = src?.startsWith('/') ? BASE.replace(/\/$/, '') + src : src
+  const url = gifAtivo || c.imagem
 
   const bounceVariants = {
     idle: { y: 0, scale: 1 },
