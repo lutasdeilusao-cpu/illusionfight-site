@@ -1,4 +1,4 @@
-const JACK_VERSION = '4.0.19'
+const JACK_VERSION = '5.0.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -45,6 +45,7 @@ const defaultState = {
   medidorPrimordial: 0, aliadoAtual: null,
   casoAtivo: null, pistasColetadas: [], suspeitos: [],
   locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
+  autoMode: { ativo: false, dungeonId: null },
   _userId: null, _slot: null, _savePending: false, _resultCard: null,
   _retornoInvestigacao: false, _localPendente: null, _casoPreview: null,
 }
@@ -94,6 +95,9 @@ export const useJackStore = create((set, get) => {
       set({ fase })
       get()._autoSave()
     },
+    setAutoMode: (dungeonId) => set({
+      autoMode: dungeonId ? { ativo: true, dungeonId } : { ativo: false, dungeonId: null }
+    }),
     showResultCard: (data) => set({ _resultCard: data }),
     hideResultCard: () => set({ _resultCard: null }),
     setMonologo: (text) => set({ monologoAtual: text }),

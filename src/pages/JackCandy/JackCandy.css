@@ -1579,3 +1579,107 @@
   text-align: center;
   padding: 3rem 1rem;
 }
+
+/* Auto-mode */
+
+.jdc-auto-tag {
+  position: fixed;
+  top: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  background: #1a1a1a;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  letter-spacing: 0.1em;
+  animation: jdc-auto-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes jdc-auto-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.jdc-auto-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.jdc-auto-picker {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1.25rem;
+  max-width: 380px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.jdc-auto-picker-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #F5A623;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.jdc-auto-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.jdc-auto-picker-item {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  background: #111;
+  transition: border-color 0.2s;
+}
+
+.jdc-auto-picker-item:hover {
+  border-color: #F5A623;
+}
+
+.jdc-auto-picker-item-emoji {
+  font-size: 1.2rem;
+  width: 1.8rem;
+  text-align: center;
+}
+
+.jdc-auto-picker-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.jdc-auto-picker-item-nome {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #C8C8C8;
+}
+
+.jdc-auto-picker-item-desc {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #666;
+}

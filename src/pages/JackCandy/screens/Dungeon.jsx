@@ -5,6 +5,29 @@ import { DUNGEONS } from '../data/dungeons'
 import { ITENS } from '../data/itens'
 import { MONOLOGUES } from '../data/monologues'
 
+function getDungeonsDisponiveis(store) {
+  const flags = store.flags || {}
+  const dc = store.dungeonsCompletas || []
+  return Object.values(DUNGEONS).filter(d => {
+    if (d.tutorial) return flags.TEM_BENGALA
+    if (d.requerDungeon && !dc.includes(d.requerDungeon)) return false
+    if (d.requerFlag && !flags[d.requerFlag]) return false
+    if (d.noturna && store.periodo !== 'NOITE') return false
+    if (d.id === 'porto_velho' || d.id === 'doca_abandonada' || d.id === 'torre_kronos') {
+      if (!flags.AURANIS_LIBERADO) return false
+    }
+    if (d.id === 'rua_branca' || d.id === 'porto_seco' || d.id === 'ilha_privada') {
+      if (!flags.KARNAZAR_LIBERADO) return false
+    }
+    if (d.id === 'rua' && !dc.includes('onibus')) return false
+    if (d.id === 'onibus_noturno' && !flags.NOTAS_LIBERADO) return false
+    if (d.id === 'risca_faca_interior' && !flags.RISCA_FACA_LIBERADO) return false
+    if (d.id === 'anexo') return flags.TEM_BENGALA
+    if (d.id === 'onibus') return flags.TEM_BENGALA
+    return flags.TEM_BENGALA
+  })
+}
+
 function rollD6() { return Math.floor(Math.random() * 6) + 1 }
 
 const INTERVALO = 1200
@@ -26,6 +49,7 @@ export default function Dungeon({ dungeonId }) {
   const [stealthDetectado, setStealthDetectado] = useState(false)
   const [fugaRound, setFugaRound] = useState(0)
   const [fugaVivo, setFugaVivo] = useState(true)
+  const [showAutoPicker, setShowAutoPicker] = useState(false)
 
   // Generate enemies for infinite dungeon
   const getInfiniteEnemies = () => {
@@ -238,6 +262,30 @@ export default function Dungeon({ dungeonId }) {
     return () => { clearInterval(interval); stopRef.current = true }
   }, [fase, stealthMode, stealthDetectado])
 
+  // Auto-mode: restart on victory
+  useEffect(() => {
+    if (!store.autoMode.ativo || fase !== 'vitoria') return
+    const id = setTimeout(() => {
+      store.setFase(`dungeon_${store.autoMode.dungeonId}`)
+    }, 2000)
+    return () => clearTimeout(id)
+  }, [store.autoMode.ativo, fase])
+
+  // Auto-mode: HP recovery on death
+  useEffect(() => {
+    if (!store.autoMode.ativo || fase !== 'derrota') return
+    const id = setInterval(() => {
+      const s = useJackStore.getState()
+      if (s.hpAtual >= s.hpMax) {
+        clearInterval(id)
+        store.setFase(`dungeon_${store.autoMode.dungeonId}`)
+      } else {
+        store.setHpAtual(Math.min(s.hpMax, s.hpAtual + 2))
+      }
+    }, 2000)
+    return () => clearInterval(id)
+  }, [store.autoMode.ativo, fase])
+
   const bossBattle = (d) => {
     const boss = d.boss
     if (!boss) { finalizarDungeon(d); return }
@@ -311,9 +359,16 @@ export default function Dungeon({ dungeonId }) {
     return (
       <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-          <div className="jdc-dungeon-end-icon" style={{ color: '#8B0000' }}>💀</div>
+          <div className="jdc-dungeon-end-icon" style={{ color: '#8B0000' }}>{store.autoMode.ativo ? '💀🤖' : '💀'}</div>
           <p className="jack-text jack-text--crimson" style={{ fontSize: '1.2rem' }}>você morreu.</p>
-          <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+          {store.autoMode.ativo ? (
+            <>
+              <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>🤖 AUTO — recuperando HP...</p>
+              <p className="jack-text" style={{ fontSize: '1rem', marginTop: '0.3rem' }}>{store.hpAtual}/{store.hpMax}</p>
+            </>
+          ) : (
+            <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+          )}
         </motion.div>
       </div>
     )
@@ -360,6 +415,7 @@ export default function Dungeon({ dungeonId }) {
 
   return (
     <div className="jdc-dungeon">
+      {store.autoMode.ativo && <div className="jdc-auto-tag">🤖 AUTO</div>}
       <div className="jdc-dungeon-status">
         <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
         {dungeon?.mecanica === 'fuga' && (
@@ -497,10 +553,61 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon-footer">
         {dungeon?.mecanica !== 'fuga' && <span className="jack-text jack-text--dim">progresso: {pct}%</span>}
         {dungeon?.mecanica === 'fuga' && <span className="jack-text jack-text--dim">esquiva: {fugaRound}/{dungeon.rounds || 15}</span>}
+        <button
+          className={`jack-btn ${store.autoMode.ativo ? 'jack-btn--amber' : ''}`}
+          onClick={() => {
+            if (store.autoMode.ativo) {
+              store.setAutoMode(null)
+            } else {
+              setShowAutoPicker(true)
+            }
+          }}
+          style={{ fontSize: '0.65rem', padding: '0.2rem 0.4rem' }}
+        >
+          {store.autoMode.ativo ? '[ 🤖 AUTO ]' : '[ 🤖 auto ]'}
+        </button>
         <button className="jack-btn jack-btn--crimson" onClick={() => { stopRef.current = true; store.setFase('vila') }}>
           [ fugir ]
         </button>
       </div>
+
+      {/* Auto-mode dungeon picker modal */}
+      {showAutoPicker && (
+        <div className="jdc-auto-picker-overlay" onClick={() => setShowAutoPicker(false)}>
+          <div className="jdc-auto-picker" onClick={e => e.stopPropagation()}>
+            <div className="jdc-auto-picker-title">Selecionar dungeon pra automático</div>
+            <div className="jdc-auto-picker-list">
+              {getDungeonsDisponiveis(store).map(d => {
+                const completa = store.dungeonsCompletas?.includes(d.id)
+                return (
+                  <button
+                    key={d.id}
+                    className="jdc-auto-picker-item"
+                    onClick={() => {
+                      store.setAutoMode(d.id)
+                      setShowAutoPicker(false)
+                      if (dungeonId && dungeonId !== d.id) {
+                        stopRef.current = true
+                        store.setFase(`dungeon_${d.id}`)
+                      }
+                    }}
+                  >
+                    <span className="jdc-auto-picker-item-emoji">{d.emoji || '⚔️'}</span>
+                    <span className="jdc-auto-picker-item-info">
+                      <span className="jdc-auto-picker-item-nome">{d.nome}</span>
+                      <span className="jdc-auto-picker-item-desc">
+                        {completa ? `🔄 ${Math.floor((d.dropCap || 0) / 2)} 🍺` : `${d.inimigos || '?'} inim · ${d.dropCap || 0} 🍺`}
+                        {d.infinito ? ' · ♾️' : ''}
+                      </span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+            <button className="jack-btn" onClick={() => setShowAutoPicker(false)} style={{ marginTop: '0.5rem' }}>[ cancelar ]</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
