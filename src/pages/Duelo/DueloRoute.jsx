@@ -31,7 +31,7 @@ export default function DueloRoute() {
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
-  const [pendingTrap, setPendingTrap] = useState(null) // { trap, onResolve }
+  const [pendingTrap, setPendingTrap] = useState(null)
 
   const startGame = () => { console.log('[BTN] startGame'); store.resetGame(); setFase('game') }
 
@@ -74,6 +74,7 @@ export default function DueloRoute() {
     const sel = s.selectedCard
     console.log('[SEL]', sel?.name, '| sel.type:', sel?.type, '| zoneType:', zoneType, '| owner:', owner, '| card vazio?', !card)
 
+    // ── MAIN phase ──
     if (s.gamePhase === 'MAIN' && sel && !card && owner === 'PLAYER') {
       console.log('[PASSOU condição principal]')
       if (sel.type === 'MONSTER' && zoneType === 'MONSTER') {
@@ -109,47 +110,57 @@ export default function DueloRoute() {
       } else {
         console.log('[NENHUM BLOCO] sel.type não reconhecido:', sel?.type)
       }
-    } else {
-      console.log('[FALHOU condição principal] gamePhase:', s.gamePhase, '| sel:', sel?.name, '| !card:', !card, '| owner:', owner)
+      return
     }
 
-    if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
-      if (zoneType === 'MONSTER') {
-        const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
-        if (attIdx < 0) return
+    // ── BATTLE phase — jogador atacando monstro da IA ──
+    // Fluxo: jogador tem atacante selecionado → clica em monstro da IA
+    // Nesse momento pergunta se a IA quer ativar armadilha (auto, IA decide)
+    // e pergunta se o JOGADOR quer ativar armadilha da IA não — isso não faz sentido
+    // O correto: armadilha da IA ativa automaticamente (IA decide), jogador só vê resultado
+    if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI' && zoneType === 'MONSTER') {
+      const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
+      if (attIdx < 0) { console.log('[BLOQUEIO] atacante não encontrado no board'); return }
 
-        const doAttack = () => {
-          const current = useDueloStore.getState()
-          if (card) {
-            console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
-            current.declareAttack(attIdx, zoneIndex)
-          } else {
-            const enemyHasMonsters = current.aiMonsterZones.some(m => m)
-            if (!enemyHasMonsters) {
-              console.log('[ATAQUE DIRETO] atacante:', sel.name)
-              current.declareAttack(attIdx, -1)
-            }
-          }
-        }
-
-        // IA trap auto-activa durante ataque do jogador (sem prompt)
+      const executeAttack = () => {
+        const cur = useDueloStore.getState()
         if (card) {
-          const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
-          if (aiTrap && card.atk > 1500) {
-            s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
-            s.setState(st => {
-              const zones = [...st.aiSpellZones]
-              const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
-              if (idx >= 0) zones[idx] = null
-              return { aiSpellZones: zones }
-            })
-          }
+          console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
+          cur.declareAttack(attIdx, zoneIndex)
+        } else if (!cur.aiMonsterZones.some(m => m)) {
+          console.log('[ATAQUE DIRETO] atacante:', sel.name)
+          cur.declareAttack(attIdx, -1)
         }
-
-        doAttack()
       }
+
+      // IA tem armadilha face-down? IA decide ativar automaticamente
+      const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
+      if (aiTrap) {
+        console.log('[TRAP IA] ativando automaticamente:', aiTrap.name)
+        s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
+        s.setState(st => {
+          const zones = [...st.aiSpellZones]
+          const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
+          if (idx >= 0) zones[idx] = null
+          return { aiSpellZones: zones }
+        })
+      }
+
+      executeAttack()
+      return
     }
 
+    // ── BATTLE phase — ataque direto (campo da IA vazio) ──
+    if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI' && !card && !s.aiMonsterZones.some(m => m)) {
+      const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
+      if (attIdx >= 0) {
+        console.log('[ATAQUE DIRETO] atacante:', sel.name)
+        s.declareAttack(attIdx, -1)
+      }
+      return
+    }
+
+    console.log('[FALHOU] nenhum bloco executou')
     if (card) setHoveredCard(card)
   }, [])
 
@@ -174,6 +185,7 @@ export default function DueloRoute() {
   // ── IA Turn ──
   useEffect(() => {
     if (store.currentTurn !== 'AI' || store.gamePhase === 'OVER' || iaPending || fase !== 'game') return
+
     const runAI = async () => {
       setIaPending(true)
       await delay(800)
@@ -188,22 +200,23 @@ export default function DueloRoute() {
       }
 
       const battleResult = aiBattlePhase(useDueloStore.getState())
-      const finishAiTurn = async () => {
-        store.endPhase()
-        await delay(500)
-        store.drawPhase()
-        setIaPending(false)
-      }
 
       if (battleResult) {
         const s = useDueloStore.getState()
-        // Prompt player trap during AI attack
-        const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
+
+        // Jogador tem armadilha face-down? Pergunta se quer ativar (defesa do jogador)
+        const playerTrap = s.playerSpellZones.find(
+          t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber
+        )
+
         if (playerTrap) {
+          console.log('[TRAP JOGADOR] perguntando se quer ativar:', playerTrap.name)
           setIaPending(false)
+
           setPendingTrap({
             trap: playerTrap,
             onActivate: () => {
+              console.log('[TRAP JOGADOR] ativada:', playerTrap.name)
               const cur = useDueloStore.getState()
               cur.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
               cur.setState(st => {
@@ -214,31 +227,39 @@ export default function DueloRoute() {
               })
               setPendingTrap(null)
               store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
-              finishAiTurn()
+              setIaPending(true)
+              setTimeout(async () => {
+                store.endPhase()
+                await delay(500)
+                store.drawPhase()
+                setIaPending(false)
+              }, 1200)
             },
             onSkip: () => {
+              console.log('[TRAP JOGADOR] pulada')
               setPendingTrap(null)
               store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
-              finishAiTurn()
+              setIaPending(true)
+              setTimeout(async () => {
+                store.endPhase()
+                await delay(500)
+                store.drawPhase()
+                setIaPending(false)
+              }, 1200)
             },
           })
           return
         }
-        // AI trap auto-activate
-        const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
-        if (aiTrap) {
-          store.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
-          store.setState(st => {
-            const zones = [...st.aiSpellZones]
-            const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
-            if (idx >= 0) zones[idx] = null
-            return { aiSpellZones: zones }
-          })
-        }
+
+        // Sem armadilha do jogador — ataca direto
         store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
         await delay(1200)
       }
-      finishAiTurn()
+
+      store.endPhase()
+      await delay(500)
+      store.drawPhase()
+      setIaPending(false)
     }
 
     runAI()
@@ -294,10 +315,16 @@ export default function DueloRoute() {
           onSelect={handleTributeSelect} onCancel={() => { console.log('[BTN] Cancelar tribute'); setShowTribute(null) }} />
       )}
 
-      {previewCard && <CardPreviewModal card={previewCard} onClose={() => { console.log('[BTN] Fechar preview | card:', previewCard?.name); setPreviewCard(null) }} />}
+      {previewCard && (
+        <CardPreviewModal card={previewCard} onClose={() => { console.log('[BTN] Fechar preview | card:', previewCard?.name); setPreviewCard(null) }} />
+      )}
 
       {pendingTrap && (
-        <TrapActivator trap={pendingTrap.trap} onActivate={pendingTrap.onActivate} onSkip={pendingTrap.onSkip} />
+        <TrapActivator
+          trap={pendingTrap.trap}
+          onActivate={pendingTrap.onActivate}
+          onSkip={pendingTrap.onSkip}
+        />
       )}
     </div>
   )
