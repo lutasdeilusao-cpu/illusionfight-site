@@ -48,6 +48,7 @@ import JackCandy from './pages/JackCandy/JackCandy'
 import ArenaRoute from './pages/Arena/ArenaRoute'
 import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
+import './pages/Duelo/version' // side-effect: console.log version
 
 export default function App() {
   const { readerMode } = useReader()
