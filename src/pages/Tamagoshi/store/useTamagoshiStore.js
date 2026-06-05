@@ -69,6 +69,8 @@ const defaultState = {
 function cacheLocal(state) {
   try {
     const key = `tama_save_${state._slot || 1}`
+    const ts = new Date().toISOString().slice(11, 19)
+    console.log(`[TAMA:CACHE] ${ts} slot=${state._slot || 1} fase=${state.fase} status=${state.status} criatura=${state.criaturaId}`)
     localStorage.setItem(key, JSON.stringify(state))
   } catch { /* quota */ }
 }
@@ -76,7 +78,13 @@ function cacheLocal(state) {
 function cacheLoad(slot = 1) {
   try {
     const raw = localStorage.getItem(`tama_save_${slot}`)
-    return raw ? JSON.parse(raw) : null
+    if (raw) {
+      const ts = new Date().toISOString().slice(11, 19)
+      const parsed = JSON.parse(raw)
+      console.log(`[TAMA:CACHE] ${ts} LOADED slot=${slot} fase=${parsed.fase} status=${parsed.status} criatura=${parsed.criaturaId}`)
+      return parsed
+    }
+    return null
   } catch { return null }
 }
 
@@ -192,6 +200,8 @@ export const useTamagoshiStore = create((set, get) => ({
   saveToCloud: async (userId) => {
     const state = get()
     const uid = userId || state._userId
+    const ts = new Date().toISOString().slice(11, 19)
+    console.log(`[TAMA:SAVE] ${ts} uid=${uid ? uid.slice(0,8) : 'null'} fase=${state.fase} criatura=${state.criaturaId} status=${state.status}`)
     cacheLocal(state)
     if (!uid) return
     const payload = {
@@ -215,11 +225,17 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   loadFromCloud: async (userId, slot = 1) => {
+    const ts = new Date().toISOString().slice(11, 19)
     if (!userId) {
       const local = cacheLoad(slot)
-      if (local) { set({ ...local, _userId: null, _slot: slot }); return local }
+      if (local) {
+        console.log(`[TAMA:LOAD] ${ts} from localStorage slot=${slot} fase=${local.fase} criatura=${local.criaturaId}`)
+        set({ ...local, _userId: null, _slot: slot }); return local
+      }
+      console.log(`[TAMA:LOAD] ${ts} no user + no cache → ovo`)
       return null
     }
+    console.log(`[TAMA:LOAD] ${ts} fetching Supabase for user=${userId.slice(0,8)} slot=${slot}`)
     const { data, error } = await supabase
       .from('tamagoshi_saves')
       .select('*')
@@ -227,6 +243,7 @@ export const useTamagoshiStore = create((set, get) => ({
       .eq('slot', slot)
       .maybeSingle()
     if (!error && data) {
+      console.log(`[TAMA:LOAD] ${ts} Supabase found fase=${data.fase} criatura=${data.criatura_id}`)
       const mapped = {
         criaturaId: data.criatura_id, nomeCustom: data.nome_custom,
         personalidade: data.personalidade, fase: data.fase, estagio: data.estagio || 0,
@@ -256,8 +273,14 @@ export const useTamagoshiStore = create((set, get) => ({
       cacheLocal(get())
       return mapped
     }
+    if (error) console.error(`[TAMA:LOAD] ${ts} Supabase error:`, error.message)
+    console.log(`[TAMA:LOAD] ${ts} Supabase no data, trying localStorage`)
     const local = cacheLoad(slot)
-    if (local) { set({ ...local, _userId: userId, _slot: slot }); return local }
+    if (local) {
+      console.log(`[TAMA:LOAD] ${ts} localStorage fallback OK fase=${local.fase} criatura=${local.criaturaId}`)
+      set({ ...local, _userId: userId, _slot: slot }); return local
+    }
+    console.log(`[TAMA:LOAD] ${ts} nothing found → ovo`)
     return null
   },
 
