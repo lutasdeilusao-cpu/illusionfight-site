@@ -411,6 +411,24 @@
   text-align: right;
 }
 
+.jdc-sb-xpbar-wrap {
+  width: 40px;
+  height: 4px;
+  background: #1a0a0a;
+  border: 1px solid #333;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.jdc-sb-xpbar-fill {
+  height: 100%;
+  background: #F5A623;
+  border-radius: 1px;
+  transition: width 0.3s;
+}
+
 .jdc-sb-level {
   color: #F5A623;
   margin-left: auto;
