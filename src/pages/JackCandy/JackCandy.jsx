@@ -119,7 +119,7 @@ export default function JackCandy() {
       if (!store.flags.RISCA_FACA_LIBERADO) store.setFlag('RISCA_FACA_LIBERADO')
       if (!store.flags.CORTICO_LIBERADO) store.setFlag('CORTICO_LIBERADO')
     }
-    if (dc.includes('porto_velho') && dc.includes('doca_abandonada') && dc.includes('torre_kronos')) {
+    if (dc.includes('onibus') && dc.includes('rua')) {
       if (store.nivel >= 8 && store.flags.TERMINAL_OUVIU && !store.flags.AURANIS_LIBERADO) {
         store.setFlag('AURANIS_LIBERADO')
       }
