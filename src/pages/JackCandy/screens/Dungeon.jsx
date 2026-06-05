@@ -125,7 +125,7 @@ export default function Dungeon({ dungeonId }) {
           stopRef.current = true
           store.setHpAtual(hpRef.current)
           if (dungeon.desbloqueiaFlag) store.setFlag(dungeon.desbloqueiaFlag)
-          if (dungeon.dropCap) store.ganharCervejas(dungeon.dropCap)
+          if (dungeon.dropCap) { store.ganharCervejas(dungeon.dropCap); store.ganharXp(Math.max(1, Math.floor(dungeon.dropCap / 8))) }
           store.incrementarMedidor()
           setLog(l => [...l, `🗼 Kronos: "você é mais interessante do que achei."`, `💨 ejetado de volta.`])
           store.setMonologo(MONOLOGUES.kronos_aparece)
@@ -292,6 +292,7 @@ export default function Dungeon({ dungeonId }) {
     const dropFrag = d.dropFragmentos || 0
     if (dungeon?.infinito) {
       store.ganharCervejas(dropCapResult)
+      store.ganharXp(Math.max(1, Math.floor(dropCapResult / 8)))
     } else {
       store.completarDungeon(d.id, dropCapResult, dropNotas, dropFrag)
       if (d.desbloqueiaFlag) store.setFlag(d.desbloqueiaFlag)

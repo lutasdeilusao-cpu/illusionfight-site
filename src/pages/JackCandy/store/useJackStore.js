@@ -1,4 +1,4 @@
-const JACK_VERSION = '4.0.12'
+const JACK_VERSION = '4.0.13'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -263,13 +263,40 @@ export const useJackStore = create((set, get) => {
           rua_branca: 'RUA_BRANCA_COMPLETA', porto_seco: 'PORTO_SECO_COMPLETO', ilha_privada: 'KRONOS_DERROTADO',
           risca_faca_interior: 'RISCA_FACA_VITORIA',
         }
+        const xpGanho = Math.max(1, Math.floor(dropCap / 8))
+        const xpNova = state.xp + xpGanho
+        const xpNeeded = state.nivel * 15
+        let nivelNovo = state.nivel
+        let xpFinal = xpNova
+        if (xpNova >= xpNeeded) {
+          nivelNovo = state.nivel + 1
+          xpFinal = xpNova - xpNeeded
+        }
         return {
           cervejas: state.cervejas + cervejasGanhas, notas: state.notas + (dropNotas || 0), fragmentos: state.fragmentos + (dropFrag || 0),
           dungeonsCompletas: novasCompletas,
           flags: { ...state.flags, [flagMap[dungeonId]]: true },
           medidorPrimordial: Math.min(10, state.medidorPrimordial + 1),
-          monologoAtual: MONOLOGUES.dungeon1_vitoria || '', aliadoAtual: null,
+          monologoAtual: xpNova >= xpNeeded ? `nível ${nivelNovo}!` : MONOLOGUES.dungeon1_vitoria || '',
+          aliadoAtual: null,
+          nivel: nivelNovo, xp: xpFinal,
         }
+      })
+      get()._autoSave()
+    },
+
+    ganharXp: (quantidade) => {
+      set(state => {
+        const xpNova = state.xp + quantidade
+        const xpNeeded = state.nivel * 15
+        if (xpNova >= xpNeeded) {
+          return {
+            xp: xpNova - xpNeeded,
+            nivel: state.nivel + 1,
+            monologoAtual: `nível ${state.nivel + 1}!`,
+          }
+        }
+        return { xp: xpNova }
       })
       get()._autoSave()
     },
