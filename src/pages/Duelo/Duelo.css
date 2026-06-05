@@ -5,7 +5,8 @@
   flex-direction: column;
   color: #aaa;
   font-family: 'Rajdhani', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -19,6 +20,7 @@
   gap: 0;
   padding: 8px;
   min-height: 0;
+  overflow: visible;
 }
 
 .duelo-field-row {
