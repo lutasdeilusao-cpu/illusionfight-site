@@ -47,12 +47,14 @@ export default function DueloRoute() {
     const isBattle = s.gamePhase === 'BATTLE' && card.type === 'MONSTER' && card.position === 'ATK'
     if (isMain || isBattle) {
       s.setState({ selectedCard: s.selectedCard?.id_num === card.id_num ? null : card })
+      console.log('[SET] selectedCard:', useDueloStore.getState().selectedCard?.name ?? 'null')
     }
   }, [])
 
   const handleSlotClick = useCallback((owner, zoneType, zoneIndex, card) => {
     console.log('[CLICK] handleSlotClick | owner:', owner, '| zoneType:', zoneType, '| zoneIndex:', zoneIndex, '| card:', card?.name ?? 'vazio')
     const s = useDueloStore.getState()
+    console.log('[STATE] selectedCard:', s.selectedCard?.name ?? 'null', '| gamePhase:', s.gamePhase, '| turn:', s.currentTurn)
     if (s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') return
     const sel = s.selectedCard
 
