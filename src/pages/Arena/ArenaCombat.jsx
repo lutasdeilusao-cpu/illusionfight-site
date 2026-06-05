@@ -141,13 +141,19 @@ export default function ArenaCombat({ onNavigate }) {
   useEffect(() => { logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [log.length])
   useEffect(() => { return () => { if (timerRef.current) clearTimeout(timerRef.current) } }, [])
 
-  const addLogWithDelay = (type, text, sender) => {
+  const addLogWithDelay = (type, text, sender, extra = {}) => {
     const msgId = Date.now() + Math.random()
-    const typingTime = Math.min(300 + text.length * 18, 1800)
+    const isCard = type === 'attack_card'
+    const typingTime = isCard ? 400 : Math.min(300 + text.length * 18, 1800)
     chatQueue.current = chatQueue.current.then(async () => {
-      setLog(l => [...l, { type, text: '__typing__', id: msgId + '-typing', sender }])
-      await delay(typingTime)
-      setLog(l => l.map(m => m.id === msgId + '-typing' ? { ...m, text, id: msgId } : m))
+      if (!isCard) {
+        setLog(l => [...l, { type, text: '__typing__', id: msgId + '-typing', sender }])
+        await delay(typingTime)
+        setLog(l => l.map(m => m.id === msgId + '-typing' ? { ...m, text, id: msgId } : m))
+      } else {
+        await delay(typingTime)
+        setLog(l => [...l, { type: 'attack_card', id: msgId, sender, ...extra }])
+      }
     })
   }
 
@@ -217,12 +223,11 @@ export default function ArenaCombat({ onNavigate }) {
         setEnemyPv(nEPv)
         if (d.pDmg > 0) setDamageFloat({ value: d.pDmg, target: 'enemy' })
 
-        const side = mode === 'power' ? 'player' : 'player'
-        if (d.pCost > 0) {
-          const pn = selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]
-          addLogWithDelay(side, `⚡ ${pn} gastou ${d.pCost} PM (+${d.pBonus} dano)`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
-        }
-        addLogWithDelay(side, `Você ataca (${d.pBreak}) vs FD ${d.pFD} = ${d.pDmg} dano`, { name: sheet?.sheet_name, initial: playerInitial, side: 'player' })
+        const powerName = d.pCost > 0 ? (selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]) : null
+        addLogWithDelay('attack_card', '', { name: sheet?.sheet_name, initial: playerInitial, side: 'player' }, {
+          side: 'player', breakdown: d.pBreak, fd: d.pFD, dmg: d.pDmg,
+          powerName, powerBonus: d.pBonus
+        })
 
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
@@ -264,7 +269,9 @@ export default function ArenaCombat({ onNavigate }) {
         setPlayerPv(nPPv)
         if (d.eDmg > 0) setDamageFloat({ value: d.eDmg, target: 'player' })
 
-        addLogWithDelay('enemy', `${enemy.name} ataca (${d.eBreak}) vs sua FD ${d.eFD} = ${d.eDmg} dano`, { name: enemy.name, initial: enemyInitial, side: 'enemy' })
+        addLogWithDelay('attack_card', '', { name: enemy.name, initial: enemyInitial, side: 'enemy' }, {
+          side: 'enemy', breakdown: d.eBreak, fd: d.eFD, dmg: d.eDmg
+        })
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
 
@@ -370,10 +377,20 @@ export default function ArenaCombat({ onNavigate }) {
 
   const pvPct = Math.max(0, (playerPv / pvMax) * 100)
   const epvPct = Math.max(0, (enemyPv / (Number(enemy.pv_max) || 10)) * 100)
+  const pmPct = Math.max(0, (playerPm / pmMax) * 100)
   const nearDeath = playerPv <= isR
+
+  const elemCores = {
+    fogo: '#FF4500', agua: '#00B4D8', terra: '#8B6914', ar: '#A8DADC',
+    eletrico: '#F5A623', trevas: '#9B59B6', neutro: '#00B4D8',
+  }
+  const playerElemCor = elemCores[elemental] || '#00B4D8'
+  const enemyElemCor = elemCores[enemy.elemental] || '#cc4444'
+  const MODE_EMOJI = { fists: '✊', armed: '⚔️', power: '⚡' }
 
   return (
     <div className="arena-combat arena-container">
+
       <AnimatePresence>
         {flashOn && (
           <motion.div className="arena-flash" initial={{ opacity: 0.4 }} animate={{ opacity: 0 }}
@@ -394,80 +411,9 @@ export default function ArenaCombat({ onNavigate }) {
       </AnimatePresence>
       <AnimatePresence>
         {onomaCurrent && (
-          <OnomaPopup
-            key={onomaCurrent.id}
-            word={onomaCurrent.word}
-            onDone={() => setOnomaCurrentState(null)}
-          />
+          <OnomaPopup key={onomaCurrent.id} word={onomaCurrent.word} onDone={() => setOnomaCurrentState(null)} />
         )}
       </AnimatePresence>
-
-      <div className="arena-combat-header">
-        <button className="arena-back" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }}>← lobby</button>
-        <h2 className="arena-combat-vs">{sheet?.sheet_name} vs {enemy.name}</h2>
-      </div>
-
-      <div className="arena-combat-grid">
-        <div className="arena-combat-side">
-          <h3>{sheet?.sheet_name}</h3>
-          <div className="arena-bar-wrap">
-            <span>PV {playerPv}/{pvMax}</span>
-            <div className="arena-bar">
-              <div className={`arena-bar-fill ${nearDeath ? 'arena-bar-fill--danger-pulse' : 'arena-bar-green'}`}
-                style={{ '--bar-pct': `${pvPct}%` }} />
-            </div>
-          </div>
-          <div className="arena-bar-wrap">
-            <span>PM</span>
-            <div className="arena-pm-icons">{Array.from({ length: pmMax }, (_, i) => <span key={i} className={`arena-pm-dot ${i < playerPm ? 'arena-pm-dot--on' : ''}`}>◆</span>)}</div>
-          </div>
-          <div className="arena-mode-label">Modo: {MODE_ICONS[mode]} {MODE_LABELS[mode]}</div>
-          {nearDeath && (
-            <motion.div className="arena-near-death" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.5, repeat: Infinity }}>
-              ⚠ PERTO DA MORTE
-            </motion.div>
-          )}
-        </div>
-        <div className="arena-combat-side arena-combat-enemy">
-          <h3>{enemy.name}</h3>
-          <div className="arena-bar-wrap">
-            <span>PV {enemyPv}/{Number(enemy.pv_max) || 10}</span>
-            <div className="arena-bar">
-              <div className="arena-bar-fill arena-bar-red" style={{ '--bar-pct': `${epvPct}%` }} />
-            </div>
-          </div>
-          <div className="arena-mode-label">Modo: {MODE_ICONS[enemy.preferred_mode || 'fists']} {MODE_LABELS[enemy.preferred_mode || 'fists']}</div>
-        </div>
-      </div>
-
-      <div className="arena-log-area">
-        <div className="arena-log-feed">
-          {(Array.isArray(log) ? log : []).map(l => {
-            if (l.type === 'system') return (
-              <motion.div key={l.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
-                <div className="arena-chat-bubble arena-chat-bubble--system">{l.text}</div>
-              </motion.div>
-            )
-            const av = l.type === 'player' ? 'arena-chat-avatar--player' : l.type === 'trash' ? 'arena-chat-avatar--trash' : 'arena-chat-avatar--enemy'
-            const bb = l.type === 'player' ? 'arena-chat-bubble--player' : l.type === 'trash' ? 'arena-chat-bubble--trash' : 'arena-chat-bubble--enemy'
-            const mc = l.type === 'player' ? 'arena-chat-msg arena-chat-msg--player' : 'arena-chat-msg'
-            if (l.text === '__typing__') return (
-              <motion.div key={Math.random()} className={mc} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
-                <div className={`arena-chat-avatar ${av}`}>{l.sender?.initial || '?'}</div>
-                <div className="arena-chat-bubble arena-chat-typing"><div className="arena-chat-dot" /><div className="arena-chat-dot" /><div className="arena-chat-dot" /></div>
-              </motion.div>
-            )
-            return (
-              <motion.div key={Math.random()} className={mc} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
-                <div className={`arena-chat-avatar ${av}`}>{l.sender?.initial || '?'}</div>
-                <div className={`arena-chat-bubble ${bb}`}>{l.text}</div>
-              </motion.div>
-            )
-          })}
-          <div ref={logRef} />
-        </div>
-      </div>
-
       <AnimatePresence>
         {damageFloat && (
           <motion.div className={`arena-dmg-float arena-dmg-float--${damageFloat.target}`}
@@ -477,14 +423,153 @@ export default function ArenaCombat({ onNavigate }) {
         )}
       </AnimatePresence>
 
-      <div className="arena-combat-actions">
+      {/* player strip */}
+      <div className="arena-fighter-strip" style={{ '--elem-cor': playerElemCor }}>
+        <div className="arena-fighter-avatar">
+          {playerInitial}
+          <span className="arena-fighter-avatar-elem" style={{ background: playerElemCor }} />
+        </div>
+        <div className="arena-fighter-info">
+          <div className="arena-fighter-name">{sheet?.sheet_name}</div>
+          <div className="arena-fighter-bars">
+            <div className="arena-fighter-bar-row">
+              <span className="arena-fighter-bar-label">PV</span>
+              <div className="arena-fighter-bar-track">
+                <div className={`arena-fighter-bar-fill ${nearDeath ? 'arena-fighter-bar-fill--danger' : 'arena-fighter-bar-fill--hp-player'}`}
+                  style={{ '--bar-pct': `${pvPct}%` }} />
+              </div>
+              <span className="arena-fighter-bar-val">{playerPv}/{pvMax}</span>
+            </div>
+            <div className="arena-fighter-bar-row">
+              <span className="arena-fighter-bar-label">PM</span>
+              <div className="arena-fighter-bar-track">
+                <div className="arena-fighter-bar-fill arena-fighter-bar-fill--pm"
+                  style={{ '--bar-pct': `${pmPct}%` }} />
+              </div>
+              <span className="arena-fighter-bar-val">{playerPm}/{pmMax}</span>
+            </div>
+          </div>
+          {nearDeath && <div className="arena-near-death-strip">⚠ PERTO DA MORTE</div>}
+        </div>
+      </div>
+
+      {/* vs bar */}
+      <div className="arena-vs-bar">
+        <button className="arena-vs-bar-back" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }}>← lobby</button>
+        <div className="arena-vs-bar-line" />
+        <span className="arena-vs-bar-label">VS</span>
+        <div className="arena-vs-bar-line" />
+      </div>
+
+      {/* chat log */}
+      <div className="arena-log-area">
+        {(Array.isArray(log) ? log : []).map(l => {
+          if (l.type === 'system') return (
+            <motion.div key={l.id} className="arena-msg-wrap arena-msg-wrap--system"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <span className="arena-bubble arena-bubble--system">{l.text}</span>
+            </motion.div>
+          )
+
+          if (l.type === 'attack_card') {
+            const isPlayer = l.side === 'player'
+            return (
+              <motion.div key={l.id} className={`arena-msg-wrap ${isPlayer ? 'arena-msg-wrap--player' : ''}`}
+                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+                <div className={`arena-msg-avatar ${isPlayer ? 'arena-msg-avatar--player' : 'arena-msg-avatar--enemy'}`}>
+                  {isPlayer ? playerInitial : enemyInitial}
+                </div>
+                <div className={`arena-attack-card arena-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
+                  <div className="arena-attack-card-header">
+                    {isPlayer ? '⚔ ataque' : '⚔ ataque inimigo'}
+                  </div>
+                  <div className="arena-attack-card-body">
+                    <div className="arena-attack-card-row">
+                      <span className="arena-attack-card-key">FA</span>
+                      <span className="arena-attack-card-val">{l.breakdown}</span>
+                    </div>
+                    <div className="arena-attack-card-row">
+                      <span className="arena-attack-card-key">FD</span>
+                      <span className="arena-attack-card-val">{l.fd}</span>
+                    </div>
+                    {l.powerName && (
+                      <div className="arena-attack-card-row">
+                        <span className="arena-attack-card-key">poder</span>
+                        <span className="arena-attack-card-val">⚡ {l.powerName} +{l.powerBonus}</span>
+                      </div>
+                    )}
+                    <div className="arena-attack-card-divider" />
+                    <div className="arena-attack-card-damage">
+                      <span className="arena-attack-card-damage-label">dano</span>
+                      <span className={`arena-attack-card-damage-val ${l.dmg === 0 ? 'arena-attack-card-damage-val--zero' : ''}`}>
+                        {l.dmg === 0 ? 'bloqueado' : l.dmg}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          }
+
+          const isPlayer = l.type === 'player'
+          const isTrash = l.type === 'trash'
+          const avClass = isPlayer ? 'arena-msg-avatar--player' : isTrash ? 'arena-msg-avatar--trash' : 'arena-msg-avatar--enemy'
+          const bbClass = isPlayer ? 'arena-bubble--player' : isTrash ? 'arena-bubble--trash' : 'arena-bubble--enemy'
+
+          if (l.text === '__typing__') return (
+            <motion.div key={l.id} className={`arena-msg-wrap ${isPlayer ? 'arena-msg-wrap--player' : ''}`}
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+              <div className={`arena-msg-avatar ${avClass}`}>{l.sender?.initial || '?'}</div>
+              <div className={`arena-bubble ${bbClass}`}>
+                <div className="arena-typing-dots">
+                  <div className="arena-typing-dot" /><div className="arena-typing-dot" /><div className="arena-typing-dot" />
+                </div>
+              </div>
+            </motion.div>
+          )
+
+          return (
+            <motion.div key={l.id} className={`arena-msg-wrap ${isPlayer ? 'arena-msg-wrap--player' : ''}`}
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+              <div className={`arena-msg-avatar ${avClass}`}>{l.sender?.initial || '?'}</div>
+              <div className={`arena-bubble ${bbClass}`}>{l.text}</div>
+            </motion.div>
+          )
+        })}
+        <div ref={logRef} />
+      </div>
+
+      {/* inimigo strip */}
+      <div className="arena-fighter-strip arena-fighter-strip--enemy" style={{ '--elem-cor': enemyElemCor }}>
+        <div className="arena-fighter-avatar arena-fighter-avatar--enemy"
+          style={{ borderColor: `${enemyElemCor}66`, background: `radial-gradient(circle at 35% 35%, ${enemyElemCor}33, #0a0a0a)` }}>
+          {enemyInitial}
+          <span className="arena-fighter-avatar-elem" style={{ background: enemyElemCor }} />
+        </div>
+        <div className="arena-fighter-info">
+          <div className="arena-fighter-name">{enemy.name}</div>
+          <div className="arena-fighter-bars">
+            <div className="arena-fighter-bar-row">
+              <span className="arena-fighter-bar-label">PV</span>
+              <div className="arena-fighter-bar-track">
+                <div className="arena-fighter-bar-fill arena-fighter-bar-fill--hp-enemy"
+                  style={{ '--bar-pct': `${epvPct}%` }} />
+              </div>
+              <span className="arena-fighter-bar-val">{enemyPv}/{Number(enemy.pv_max)||10}</span>
+            </div>
+          </div>
+          <div className="arena-fighter-mode">{MODE_EMOJI[enemy.preferred_mode||'fists']} {MODE_LABELS[enemy.preferred_mode||'fists']}</div>
+        </div>
+      </div>
+
+      {/* actions */}
+      <div className="arena-actions-bar">
         <div className="arena-mode-btns">
           {Object.entries(MODE_ICONS).map(([m, icon]) => (
             <button key={m} className={`arena-mode-btn ${mode === m ? 'arena-mode-btn--active' : ''}`}
               onClick={() => setMode(m)} disabled={atkDisabled}>{icon} {MODE_LABELS[m]}</button>
           ))}
         </div>
-        <button className="arena-btn-flee" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>FUGIR</button>
         {mode === 'power' && selectedPowers.length > 0 && (
           <div className="arena-power-attacks">
             {selectedPowers.map(id => {
@@ -496,10 +581,14 @@ export default function ArenaCombat({ onNavigate }) {
             })}
           </div>
         )}
-        <button className="arena-attack-btn" onClick={() => handleAttack()} disabled={atkDisabled}>
-          {atkDisabled ? '...' : 'ATACAR'}
-        </button>
+        <div className="arena-actions-row">
+          <button className="arena-btn-flee" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>FUGIR</button>
+          <button className="arena-attack-btn" onClick={() => handleAttack()} disabled={atkDisabled}>
+            {atkDisabled ? '...' : 'ATACAR'}
+          </button>
+        </div>
       </div>
+
     </div>
   )
 }
