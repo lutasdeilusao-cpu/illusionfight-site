@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.1.0'
+const TAMA_VERSION = '1.1.2'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useRef } from 'react'
