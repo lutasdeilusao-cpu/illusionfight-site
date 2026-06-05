@@ -30,15 +30,17 @@ export default function DueloRoute() {
   const [previewCard, setPreviewCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
 
-  const startGame = () => { store.resetGame(); setFase('game') }
+  const startGame = () => { console.log('[BTN] startGame'); store.resetGame(); setFase('game') }
 
   const handleCardHover = useCallback((card) => setHoveredCard(card), [])
 
   const handleCardLongPress = useCallback((card) => {
+    console.log('[LONGPRESS] card:', card?.name, card?.id_num)
     if (card) setPreviewCard(card)
   }, [])
 
   const handleCardClick = useCallback((card) => {
+    console.log('[CLICK] handleCardClick | card:', card?.name, card?.id_num)
     const s = useDueloStore.getState()
     if (!card || s.currentTurn !== 'PLAYER') return
     const isMain = s.gamePhase === 'MAIN'
@@ -49,6 +51,7 @@ export default function DueloRoute() {
   }, [])
 
   const handleSlotClick = useCallback((owner, zoneType, zoneIndex, card) => {
+    console.log('[CLICK] handleSlotClick | owner:', owner, '| zoneType:', zoneType, '| zoneIndex:', zoneIndex, '| card:', card?.name ?? 'vazio')
     const s = useDueloStore.getState()
     if (s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') return
     const sel = s.selectedCard
@@ -108,6 +111,7 @@ export default function DueloRoute() {
   }, [])
 
   const handleTributeSelect = (indices) => {
+    console.log('[BTN] handleTributeSelect | indices:', indices, '| card:', showTribute?.card?.name)
     if (!showTribute) return
     const zones = [...store.playerMonsterZones]
     const graveyard = [...store.playerGraveyard]
@@ -157,8 +161,8 @@ export default function DueloRoute() {
 
   // ── RENDER ──
   if (fase === 'menu') return <><DueloMenu onStart={startGame} /></>
-  if (fase === 'victory') return <DueloVitoria onRevanche={startGame} onMenu={() => setFase('menu')} />
-  if (fase === 'defeat') return <DueloDerrota onRevanche={startGame} onMenu={() => setFase('menu')} />
+  if (fase === 'victory') return <DueloVitoria onRevanche={() => { console.log('[BTN] Revanche'); startGame() }} onMenu={() => { console.log('[BTN] Menu (vitória)'); setFase('menu') }} />
+  if (fase === 'defeat') return <DueloDerrota onRevanche={() => { console.log('[BTN] Revanche'); startGame() }} onMenu={() => { console.log('[BTN] Menu (derrota)'); setFase('menu') }} />
 
   return (
     <div className="duelo-page">
@@ -178,12 +182,12 @@ export default function DueloRoute() {
         </span>
         {store.currentTurn === 'PLAYER' && store.gamePhase !== 'OVER' && (
           <>
-            <button className="duelo-phase-btn" onClick={() => store.drawPhase()} disabled={store.gamePhase !== 'DRAW'}>DRAW</button>
+            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] DRAW | gamePhase:', store.gamePhase, '| currentTurn:', store.currentTurn); store.drawPhase(); }} disabled={store.gamePhase !== 'DRAW'}>DRAW</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'MAIN' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => store.setState({ gamePhase: 'MAIN' })} disabled={store.gamePhase === 'DRAW'}>MAIN</button>
+              onClick={() => { console.log('[BTN] MAIN | gamePhase:', store.gamePhase); store.setState({ gamePhase: 'MAIN' }) }} disabled={store.gamePhase === 'DRAW'}>MAIN</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'BATTLE' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => store.endMainPhase()} disabled={store.gamePhase !== 'MAIN'}>BATTLE</button>
-            <button className="duelo-phase-btn" onClick={() => { store.endPhase(); setTimeout(() => store.drawPhase(), 600) }} disabled={store.gamePhase !== 'BATTLE'}>END</button>
+              onClick={() => { console.log('[BTN] BATTLE | gamePhase:', store.gamePhase); store.endMainPhase() }} disabled={store.gamePhase !== 'MAIN'}>BATTLE</button>
+            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] END | gamePhase:', store.gamePhase); store.endPhase(); setTimeout(() => store.drawPhase(), 600) }} disabled={store.gamePhase !== 'BATTLE'}>END</button>
           </>
         )}
         {store.gamePhase === 'OVER' && (
@@ -195,10 +199,10 @@ export default function DueloRoute() {
 
       {showTribute && (
         <TributeSelector tributesNeeded={showTribute.needed} availableMonsters={showTribute.available}
-          onSelect={handleTributeSelect} onCancel={() => setShowTribute(null)} />
+          onSelect={handleTributeSelect} onCancel={() => { console.log('[BTN] Cancelar tribute'); setShowTribute(null) }} />
       )}
 
-      {previewCard && <CardPreviewModal card={previewCard} onClose={() => setPreviewCard(null)} />}
+      {previewCard && <CardPreviewModal card={previewCard} onClose={() => { console.log('[BTN] Fechar preview | card:', previewCard?.name); setPreviewCard(null) }} />}
     </div>
   )
 }
