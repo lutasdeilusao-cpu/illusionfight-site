@@ -7,7 +7,7 @@ export const CRIATURAS = [
 
   { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    emoji: '🔥' },
   { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  emoji: '👾' },
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: '/assets/images/tamagoshi/kroniki-base.png', gifs: { fome: '/assets/images/tamagoshi/kroniki-fome.gif' } },
+  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: '/assets/images/tamagoshi/kroniki-base.png', gifs: { alimentar: '/assets/images/tamagoshi/kroniki-fome.gif' } },
   { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    emoji: '🐆' },
   { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', emoji: '💥' },
 

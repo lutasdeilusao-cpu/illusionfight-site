@@ -129,7 +129,7 @@ export default function Tamagoshi() {
         {fase === 'partida' && <Partida onSalaoFama={() => window.location.href = '/perfil?aba=tamagoshi'} onNovaAdocao={handleNovaAdocao} />}
         {(!fase || fase === 'ovo') && <Ovo onEclodir={handleOvoEclodir} />}
         {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} />}
-        {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} onVoltar={handleVoltarExtras} />}
+        {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} onVoltar={handleVoltarExtras} subFase={subFase} />}
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}
         {fase === 'luto' && <Luto />}

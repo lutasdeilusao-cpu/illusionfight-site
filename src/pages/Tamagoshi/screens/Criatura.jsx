@@ -7,7 +7,7 @@ import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
 
-export default function Criatura({ isAdmin, onAction, onLoja, onVoltar }) {
+export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase }) {
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -67,7 +67,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar }) {
           status={store.status}
           estagio={store.estagio}
           criaturas={CRIATURAS}
-          acao={store.subFase}
+          acao={subFase}
         />
 
         <div className="tama-metricas">
