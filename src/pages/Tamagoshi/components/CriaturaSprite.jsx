@@ -38,8 +38,8 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   const url = gifAtivo || c.imagem
 
   const bounceVariants = {
-    idle: { y: 0, scale: 1 },
-    pulando: { y: [0, -12, -18, -12, 0], scale: [1, 1.05, 1.1, 1.05, 1], transition: { duration: 0.5 } },
+    idle: { y: 0, scale: 1, opacity: 1 },
+    pulando: { y: [0, -12, -18, -12, 0], scale: [1, 1.05, 1.1, 1.05, 1], opacity: 1, transition: { duration: 0.5 } },
   }
 
   return (
