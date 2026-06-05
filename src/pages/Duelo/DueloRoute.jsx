@@ -60,23 +60,23 @@ export default function DueloRoute() {
 
     if (s.gamePhase === 'MAIN' && sel && !card && owner === 'PLAYER') {
       if (sel.type === 'MONSTER' && zoneType === 'MONSTER') {
-        console.log('[DEBUG] hasNormalSummoned:', s.hasNormalSummonedThisTurn, '| level:', sel.level)
-        if (s.hasNormalSummonedThisTurn) { console.log('[BLOQUEIO] já invocou este turno'); return }
+        console.log('[DEBUG] type OK | level:', sel.level, '| hasNormalSummoned:', s.hasNormalSummonedThisTurn)
+        if (s.hasNormalSummonedThisTurn) { console.log('[BLOQUEIO] já invocou'); return }
         if (sel.level >= 4) {
           const needed = sel.level >= 6 ? 2 : 1
           const available = s.playerMonsterZones.filter(m => m)
-          console.log('[DEBUG] tribute needed:', needed, '| available:', available.length)
-          if (available.length < needed) { console.log('[BLOQUEIO] sem monstros pra tributar (precisa de', needed + ')'); return }
+          console.log('[TRIBUTE] needed:', needed, '| available:', available.length)
+          if (available.length < needed) { console.log('[BLOQUEIO] sem tributo'); return }
           setShowTribute({ card: sel, needed, available })
           return
         }
-        console.log('[DEBUG] invocando:', sel.name, 'no slot', zoneIndex)
+        console.log('[INVOCAR] chamando placeCardInZone')
         s.placeCardInZone(sel.id_num, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
       } else if (sel.type === 'SPELL' && zoneType === 'SPELL') {
-        console.log('[DEBUG] ativando magia:', sel.name)
+        console.log('[INVOCAR] ativando magia:', sel.name)
         s.activateEffect(sel, 'PLAYER')
       } else if (sel.type === 'TRAP' && zoneType === 'SPELL') {
-        console.log('[DEBUG] colocando armadilha:', sel.name)
+        console.log('[INVOCAR] colocando armadilha:', sel.name)
         s.setState(state => {
           const zones = [...state.playerSpellZones]
           const freeIdx = zones.findIndex(z => z === null)
