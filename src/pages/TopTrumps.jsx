@@ -239,7 +239,7 @@ export default function TopTrumps() {
                 <div className="tt-modo-card" onClick={() => { setMenuStep('config'); }}>
                   <h3 className="tt-modo-titulo">SINGLE PLAYER</h3><p className="tt-modo-desc">Jogue contra a IA</p>
                 </div>
-                <Link to="/extras/toptrumps/lobby" className="tt-modo-card">
+                <Link to="/games/toptrumps/lobby" className="tt-modo-card">
                   <h3 className="tt-modo-titulo">MULTIPLAYER</h3><p className="tt-modo-desc">Jogue contra outros jogadores em tempo real</p>
                 </Link>
               </div>
@@ -269,7 +269,7 @@ export default function TopTrumps() {
               </div>
             )}
           </LoginGate>
-          <Link to="/extras" className="tt-voltar">VOLTAR AOS EXTRAS</Link>
+          <Link to="/games" className="tt-voltar">VOLTAR AOS GAMES</Link>
         </div>
       </div></section>
     )
@@ -399,7 +399,7 @@ export default function TopTrumps() {
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">Você já ganhou sua carta hoje. Volte amanhã para ganhar mais!</p>}
           <div className="tt-fim-actions">
             <button className="tt-btn-jogar" onClick={() => setFase('menu')}>JOGAR NOVAMENTE</button>
-            <Link to="/extras" className="tt-btn-jogar tt-btn-jogar--secondary">VOLTAR AOS EXTRAS</Link>
+            <Link to="/games" className="tt-btn-jogar tt-btn-jogar--secondary">VOLTAR AOS GAMES</Link>
           </div>
         </div>
       </section>

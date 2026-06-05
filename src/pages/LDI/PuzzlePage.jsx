@@ -30,7 +30,7 @@ export default function PuzzlePage() {
 
   const handleComplete = (solved, rewards) => {
     if (!rewards) {
-      navigate(`/extras/ldi/game?scene=${returnScene}`)
+      navigate(`/games/ldi/game?scene=${returnScene}`)
       return
     }
     for (const r of rewards) {
@@ -40,7 +40,7 @@ export default function PuzzlePage() {
       if (r.label === 'pista') addClue({ text: r.desc, type: 'puzzle' })
     }
     setTimeout(() => {
-      navigate(`/extras/ldi/game?scene=${returnScene}`)
+      navigate(`/games/ldi/game?scene=${returnScene}`)
     }, 1500)
   }
 

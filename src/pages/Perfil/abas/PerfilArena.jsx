@@ -57,7 +57,7 @@ export default function PerfilArena({ userId }) {
       ) : (
         <div className="perfil-trump-empty">
           <p>Sem ranking ainda — jogue sua primeira partida!</p>
-          <Link to="/extras/toptrumps" className="perfil-trump-cta">IR PARA ARENA →</Link>
+          <Link to="/games/toptrumps" className="perfil-trump-cta">IR PARA ARENA →</Link>
         </div>
       )}
     </div>

@@ -266,7 +266,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* HEADER steps */}
       {step !== 'intro' && (
         <div className="arc-header">
-          <button className="arena-back" onClick={() => navigate('/extras')}>← extras</button>
+          <button className="arena-back" onClick={() => navigate('/games')}>← extras</button>
           <div className="arc-header-center">
             <p className="arena-lobby-titulo" style={{ margin: 0, fontSize: 10 }}>nova ficha</p>
             {s.sheet_name && <p className="arc-header-name">{s.sheet_name}</p>}

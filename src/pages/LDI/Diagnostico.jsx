@@ -390,7 +390,7 @@ export default function Diagnostico() {
       <div className="ldi-page--sheet">
         <div className="ldi-sheet" style={{ textAlign: 'center', padding: '3rem' }}>
           <p style={{ color: 'var(--ldi-danger)', fontFamily: 'var(--font-ui)' }}>Acesso negado.</p>
-          <button onClick={() => navigate('/extras')} className="ldi-btn ldi-btn--outline" style={{ marginTop: '1rem' }}>
+          <button onClick={() => navigate('/games')} className="ldi-btn ldi-btn--outline" style={{ marginTop: '1rem' }}>
             Voltar
           </button>
         </div>

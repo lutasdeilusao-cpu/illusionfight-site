@@ -1,6 +1,6 @@
 {
   "nav": {
-    "links": ["Webtoon", "Libro", "Músicas", "Extras", "Mundo", "AUTOR", "APOYAR"],
+    "links": ["Webtoon", "Libro", "Músicas", "Games", "Mundo", "AUTOR", "APOYAR"],
     "cta": "ENTRAR",
     "aria": { "menu": "Abrir menú" }
   },
@@ -24,10 +24,6 @@
       "subscribers": "— suscriptores",
       "cta": "LEER EN WEBTOON"
     }
-  },
-  "curiosidades": {
-    "title": "CURIOSIDADES",
-    "subtitle": "Lo que está entre las líneas."
   },
   "musicas": {
     "subtitle": "La banda sonora del universo Lutas de Ilusão",
@@ -86,7 +82,7 @@
       },
       {
         "title": "Universo",
-        "links": ["Personajes", "Curiosidades", "Episodios", "Rankings"]
+        "links": ["Personajes", "Games", "Episodios", "Rankings"]
       },
       {
         "title": "Sobre",

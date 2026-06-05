@@ -83,10 +83,10 @@ if (mundo.timeline) {
 }
 
 index.push({
-  tipo: 'Extras',
-  titulo: 'Extras — Quiz SDR e Curiosidades',
-  descricao: 'Quiz interativo, lore, easter eggs e bastidores do universo LDI.',
-  url: '/extras',
+  tipo: 'Games',
+  titulo: 'Games — Quiz SDR e Leaderboard',
+  descricao: 'Jogos, quiz interativo e ranking global do universo LDI.',
+  url: '/games',
   premium: false,
 })
 

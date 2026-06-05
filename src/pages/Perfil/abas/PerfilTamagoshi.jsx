@@ -62,7 +62,7 @@ export default function PerfilTamagoshi() {
       const c = CRIATURAS.find(x => x.id === result.criaturaId)
       const boasVindas = getFala(result.personalidade, 'fome')
       setMsg({ texto: `troca confirmada! ${c?.emoji || ''} ${c?.nome || 'nova criatura'} chegou: ${boasVindas}`, tipo: 'ok' })
-      notifStore.push(`${c?.emoji || ''} ${c?.nome || 'Nova criatura'}: ${boasVindas}`, 'ver tamagoshi', '/extras/tamagoshi')
+      notifStore.push(`${c?.emoji || ''} ${c?.nome || 'Nova criatura'}: ${boasVindas}`, 'ver tamagoshi', '/games/tamagoshi')
       setKeyGerada(null)
       setKeyInput('')
       carregarTama()
@@ -86,7 +86,7 @@ export default function PerfilTamagoshi() {
       </div>
 
       {!tama ? (
-        <p className="perfil-tama-vazio">você ainda não tem um tamagoshi. vá em /extras/tamagoshi para começar.</p>
+        <p className="perfil-tama-vazio">você ainda não tem um tamagoshi. vá em /games/tamagoshi para começar.</p>
       ) : (
         <>
           <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade) }}>

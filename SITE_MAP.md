@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-04*  
-*Versão: 1.44*  |  `[SITE] versão carregada: 1.44`
+*Última atualização: 2026-06-05*  
+*Versão: 1.47*  |  `[SITE] versão carregada: 1.47`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -98,26 +98,25 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/curiosidades` | Curiosidades | `src/pages/Curiosidades.jsx` | ✅ | Lore, easter eggs e bastidores do universo LDI |
-| `/extras` | Extras | `src/pages/Extras.jsx` | ✅ v2.0 | Hub arcade anos 90: 5 cards JOGOS (LDI, Jack, Top Trumps, MiniGames, Arena) + 3 CONTEÚDO (Quiz, Leaderboard, Curiosidades) |
-| `/extras/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign |
-| `/extras/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
-| `/extras/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
-| `/extras/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | Lendas do LDI — lobby do RPG narrativo |
-| `/extras/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
-| `/extras/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
-| `/extras/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos + seleção de poderes |
-| `/extras/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | Ficha do personagem (consulta) |
-| `/extras/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | Caderno de pistas |
-| `/extras/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
-| `/extras/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
-| `/extras/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
-| `/extras/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI Arena Mode — criação de ficha + combate CPU standalone com progressão de inimigos — **PRONTO PARA LANÇAMENTO** |
-| `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.1 | Jack Dream Beer — idle noir investigativo |
-| `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
-| `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
-| `/extras/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/extras/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.1.0 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
+| `/games` | Games | `src/pages/Games/Games.jsx` | ✅ v1.0 | Hub arcade anos 90: 8 cards JOGOS (LDI, Jack, Top Trumps, MiniGames, Arena, Pesadelo, Duelo, Tamagoshi) + 2 CONTEÚDO (Quiz, Leaderboard) |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign |
+| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | Lendas do LDI — lobby do RPG narrativo |
+| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
+| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
+| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos + seleção de poderes |
+| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | Ficha do personagem (consulta) |
+| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | Caderno de pistas |
+| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
+| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
+| `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI Arena Mode — criação de ficha + combate CPU standalone com progressão de inimigos — **PRONTO PARA LANÇAMENTO** |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.1 | Jack Dream Beer — idle noir investigativo |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.1.0 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -132,7 +131,7 @@
 | Componente | Arquivo JSX | Arquivo CSS | Usado em | Descrição |
 |---|---|---|---|---|
 | TrialBanner | `TrialBanner.jsx` | `TrialBanner.css` | App (global) | Faixa âmbar fixa abaixo da navbar (TRIAL_MODE) |
-| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 7 links (Webtoon, Livro, Músicas, Extras, Mundo, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, avatar+saída ou ENTRAR |
+| Navbar | `Navbar.jsx` | `Navbar.css` | App (global) | Logo LDI, 7 links (Webtoon, Livro, Músicas, Games, Mundo, AUTOR, APOIAR âmbar), lang switcher, drawer mobile, avatar+saída ou ENTRAR |
 | HeroSlideshow | `HeroSlideshow.jsx` | `HeroSlideshow.css` | Home | 4 imagens com crossfade 1.2s, Ken Burns (1.0→1.08), overlays, scanlines, HeroEffect canvas |
 | HeroEffect | `HeroEffect.jsx` | `HeroEffect.css` | HeroSlideshow | Canvas com 40-60 linhas teal/âmbar caindo |
 | TypewriterPhrase | `TypewriterPhrase.jsx` | `TypewriterPhrase.css` | HeroSlideshow | Frase com efeito de digitação em loop (~28s) |
@@ -142,7 +141,7 @@
 | BookChaptersRow | `BookChaptersRow.jsx` | `BookChaptersRow.css` | Home | Scroll horizontal com cards de capítulos publicados |
 | AchievementToast | `AchievementToast/AchievementToast.jsx` | `AchievementToast/AchievementToast.css` | App (global) | Toast centralizado com partículas, overlay escuro e foto do Jack |
 | LoginGate | `LoginGate/LoginGate.jsx` | `LoginGate/LoginGate.css` | TopTrumps, Arena, Quiz | Bloco de aviso que exige login — recebe prop feature (nome) e children (conteúdo logado) |
-| Extras | `Extras.jsx` | `Extras.css` | /extras | Hub arcade anos 90: 5 JOGOS + 3 CONTEÚDO, scanlines, glitch, INSERIR FICHA pulsante |
+| Games | `Games.jsx` | `Games.css` | /games | Hub arcade anos 90: 8 JOGOS + 2 CONTEÚDO, scanlines, glitch, INSERIR FICHA pulsante |
 | MusicSection | `MusicSection.jsx` | `MusicSection.css` | Home | 5 círculos (140px), hover abre dropdown com 6 plataformas |
 | StoryProgress | `StoryProgress.jsx` | `StoryProgress.css` | Home | Timeline horizontal "ONDE ESTAMOS" com tracks e bullets animados |
 | NowLive | `NowLive.jsx` | `NowLive.css` | Home | 4 cards Netflix-style com gradiente da plataforma |
@@ -162,7 +161,7 @@
 | PuzzleAnagrama | `Puzzles/PuzzleAnagrama.jsx` | `Puzzles/Puzzles.css` | MiniGames, Jack | Anagrama multi-palavra/frase com 5 dificuldades |
 | PuzzleForça | `Puzzles/PuzzleForça.jsx` | `Puzzles/Puzzles.css` | MiniGames | Palavra Secreta/Forca com filtro de possíveis e hangman |
 | ResultCard | `ResultCard/ResultCard.jsx` | `ResultCard/ResultCard.css` | MiniGames | Canvas share card com paletas por jogo |
-| ModalSemFichas | `ModalSemFichas/ModalSemFichas.jsx` | `ModalSemFichas/ModalSemFichas.css` | Extras, Perfil | Modal arcade "SEM FICHAS" com opções de recarga |
+| ModalSemFichas | `ModalSemFichas/ModalSemFichas.jsx` | `ModalSemFichas/ModalSemFichas.css` | Games, Perfil | Modal arcade "SEM FICHAS" com opções de recarga |
 
 ---
 
@@ -181,7 +180,7 @@
 | `useSwipe` | `useSwipe.js` | PuzzleStealthGrid, ShopSection | Touch swipe reutilizável |
 | `useZoom` | `useZoom.js` | PuzzleStealthGrid | Zoom + controlsVisible auto-hide |
 | `useViewportScroll` | `useViewportScroll.js` | PuzzleStealthGrid | Offset {x,y} para centralizar player |
-| `useFichaGate` | `useFichaGate.js` | Extras, Perfil | Gate de fichas para jogos — check + modal |
+| `useFichaGate` | `useFichaGate.js` | Games, Perfil | Gate de fichas para jogos — check + modal |
 
 ---
 
@@ -259,7 +258,7 @@
 ## 8. FEATURES IMPLEMENTADAS
 
 ### Navegação & Layout
-- ✅ **Navbar global** — Logo LDI, 7 links (Webtoon, Livro, Músicas, Extras, Mundo, AUTOR, APOIAR âmbar), lang switcher (PT/ES/EN), drawer mobile, SocialBar, avatar+saída ou ENTRAR
+- ✅ **Navbar global** — Logo LDI, 7 links (Webtoon, Livro, Músicas, Games, Mundo, AUTOR, APOIAR âmbar), lang switcher (PT/ES/EN), drawer mobile, SocialBar, avatar+saída ou ENTRAR
 - ✅ **Navbar acima do TrialBanner** — z-index 1000 (topo), TrialBanner z-index 998 (abaixo)
 - ✅ **Footer** — 3 colunas com links dinâmicos, Newsletter (Substack), SocialBar, copyright
 - ✅ **Trial Banner** — Faixa âmbar fixa controlada por TRIAL_MODE, fundo sólido ao scrollar
@@ -289,8 +288,9 @@
 - ✅ **85 perguntas PT** — 4 categorias, dicas kim/jack/nina
 - ✅ **Animações** — Flash verde acerto, shake vermelho erro, contagem regressiva do rank
 
-### Extras Hub
-- ✅ **Página /extras** — 5 cards JOGOS + 3 CONTEÚDO, scanlines, glitch "EXTRAS", INSERIR FICHA pulsante
+### Games Hub
+
+- ✅ **Página /games** — 8 cards JOGOS + 2 CONTEÚDO, scanlines, glitch "GAMES", INSERIR FICHA pulsante
 - ✅ **Ficha gate** — Controle de acesso por fichas para LDI, Jack e Top Trumps
 
 ### Top Trumps LDI — v1.0.9
@@ -332,7 +332,6 @@
 
 ## 9. FEATURES PENDENTES
 
-- ❌ **Curiosidades** — Conteúdo JSON completo para a página /curiosidades
 - ❌ **Músicas — player dedicado** — Letras e contexto narrativo por faixa
 - ❌ **Personagens: imagens reais** — Substituir placeholders por artwork final
 - ❌ **Páginas EN/ES completas** — Capítulos do livro traduzidos
@@ -362,11 +361,11 @@
 **Acesso:** FREE  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
 **Versão atual:** `1.0.61` (console: `[LDI] versão carregada: 1.0.61`)  
-**Rota:** `/extras/ldi/*`
+**Rota:** `/games/ldi/*`
 
 ### LDI Arena Mode — FINALIZADO ✅ v1.7.2
 **Status:** PRONTO PARA LANÇAMENTO
-**Rota:** `/extras/ldi-arena`
+**Rota:** `/games/ldi-arena`
 **Stack:** React 19 · Zustand · Framer Motion · Supabase
 **Console:** `[ARENA] versão carregada: 1.7.2`
 - ✅ Criação de ficha 3D&T com intro + manual drawer + skipIntro
@@ -389,12 +388,12 @@
 **Acesso:** FREE (requer login)  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
 **Versão atual:** `5.1.1` (console: `[JACK] versão carregada: 5.1.1`)  
-**Rota:** `/extras/jackcandy`
+**Rota:** `/games/jackcandy`
 **GDD completo:** `docs/JACK_BEER_GDD.md`
 
 ### Pesadelo Particular — FINALIZADO ✅ v1.5.1
 **Status:** PRONTO PARA LANÇAMENTO  
-**Rota:** `/extras/pesadelo`  
+**Rota:** `/games/pesadelo`  
 **Stack:** React 19 · Zustand · Framer Motion · Supabase  
 **Console:** `[PP] versão carregada: 1.5.1`
 - ✅ 20 casos investigativos com dados reais (01-05 completos, 06-20 placeholder)
@@ -411,7 +410,7 @@
 
 ### Mini Games — Arcade Puzzles
 **Versão:** `1.1.8` (console: `[MINIGAMES] versão carregada: 1.1.8`)  
-**Rota:** `/extras/minigames`
+**Rota:** `/games/minigames`
 **Status:** ✅ 6 puzzles standalone (Infiltração 3 dificuldades, Decoder, Sliding Tiles, Labirinto, Anagrama, Palavra Secreta/Força)
 
 ### Mecânicas Implementadas

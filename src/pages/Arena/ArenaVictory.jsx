@@ -89,7 +89,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>ESCOLHER OUTRA FICHA</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/extras/ldi-arena')}>← VOLTAR AO SITE</button>
+          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>← VOLTAR AO SITE</button>
         </div>
       </div>
     )
@@ -199,7 +199,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>ESCOLHER OUTRA FICHA</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/extras/ldi-arena')}>← VOLTAR AO SITE</button>
+          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>← VOLTAR AO SITE</button>
         </div>
       </motion.div>
     </div>

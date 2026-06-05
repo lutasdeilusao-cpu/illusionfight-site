@@ -81,7 +81,7 @@ export default function TopTrumpsLobby() {
       if (souJ1 && payload.new.aposta_confirmada_j2) setApostaOponente(true)
       if (!souJ1 && payload.new.aposta_confirmada_j1) setApostaOponente(true)
       if (payload.new.status === 'em_jogo') {
-        navigate(`/extras/toptrumps/multiplayer?sala=${salaId}`)
+        navigate(`/games/toptrumps/multiplayer?sala=${salaId}`)
       }
     })
     return () => sub.unsubscribe()
@@ -124,7 +124,7 @@ export default function TopTrumpsLobby() {
     setSouJ1(false)
     salaEntradaRef.current = false
     setAguardando(false)
-    if (modo === 'free') navigate(`/extras/toptrumps/multiplayer?sala=${result.salaId}`)
+    if (modo === 'free') navigate(`/games/toptrumps/multiplayer?sala=${result.salaId}`)
   }
 
   async function handleFilaPublica() {
@@ -143,7 +143,7 @@ export default function TopTrumpsLobby() {
       setAguardando(false)
     } else {
       setAguardando(false)
-      if (modo === 'free') navigate(`/extras/toptrumps/multiplayer?sala=${result.salaId}`)
+      if (modo === 'free') navigate(`/games/toptrumps/multiplayer?sala=${result.salaId}`)
     }
   }
 

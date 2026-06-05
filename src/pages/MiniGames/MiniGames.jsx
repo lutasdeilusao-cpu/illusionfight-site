@@ -218,7 +218,7 @@ export default function MiniGames() {
   return (
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-header">
-        <button className="mg-back" onClick={() => navigate('/extras')}>← extras</button>
+        <button className="mg-back" onClick={() => navigate('/games')}>← extras</button>
         <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text="MINI GAMES">MINI GAMES</span></h1>
         <p className="mg-subtitulo"><span className="mg-cursor">█</span> puzzles standalone. sem login. sem save. só habilidade.</p>
       </div>

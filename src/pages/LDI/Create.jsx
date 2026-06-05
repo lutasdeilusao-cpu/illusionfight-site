@@ -95,7 +95,7 @@ export default function Create() {
   useEffect(() => {
     const state = useGameStore.getState()
     if (state.sheet?.sheet_name) {
-      navigate('/extras/ldi/game', { replace: true })
+      navigate('/games/ldi/game', { replace: true })
     }
   }, [navigate])
 
@@ -165,7 +165,7 @@ export default function Create() {
       current_scene_id: '1.2',
     })
     if (user) saveToCloud(user.id)
-    navigate('/extras/ldi/game', { replace: true })
+    navigate('/games/ldi/game', { replace: true })
   }
 
   // === FULL FORM ===
@@ -239,7 +239,7 @@ export default function Create() {
       current_scene_id: '1.2',
     })
     if (user) saveToCloud(user.id)
-    navigate('/extras/ldi/game', { replace: true })
+    navigate('/games/ldi/game', { replace: true })
   }
 
   // === RENDER ===

@@ -76,7 +76,7 @@ At the end of every task, deliver a report table: file modified | what changed |
 
 ## Architecture notes
 
-- **Game pages** (`/extras/ldi`, `/extras/jackcandy`, `/extras/toptrumps`, etc.) have their own data/, store/, components/ subdirectories with independent Zustand stores. They do not share state.
+- **Game pages** (`/games/ldi`, `/games/jackcandy`, `/games/toptrumps`, etc.) have their own data/, store/, components/ subdirectories with independent Zustand stores. They do not share state.
 - **i18n** uses `LanguageContext` (persisted as `ldi-locale` in localStorage) with JSON files in `src/i18n/`. The `t("key.path")` function resolves translations.
 - **ReaderContext** wraps the app — when `readerMode` is true, Navbar and TrialBanner are hidden (used by WebtoonEpisodio and LivroCapitulo).
 - **z-index layers** are defined and must not collide: SearchModal (2000), Navbar (1000), TrialBanner (998), CookieBanner (200), NotificationBalloon (150), ScrollToTop (100), MusicSection dropdown (50).

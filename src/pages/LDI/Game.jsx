@@ -55,7 +55,7 @@ export default function Game() {
 
   useEffect(() => {
     if (!sheet?.sheet_name) {
-      navigate('/extras/ldi')
+      navigate('/games/ldi')
       return
     }
     if (!currentScene && save.status === 'active') {
@@ -65,7 +65,7 @@ export default function Game() {
 
   useEffect(() => {
     if (combat.active) {
-      navigate('/extras/ldi/combat')
+      navigate('/games/ldi/combat')
     }
   }, [combat.active, navigate])
 
@@ -73,7 +73,7 @@ export default function Game() {
     console.log('[GAME] useEffect save.status:', save?.status)
     if (save.status === 'ended_victory' || save.status === 'ended_defeat' || save.status === 'ended_fork') {
       if (user) saveToCloud(user.id)
-      navigate('/extras/ldi/end')
+      navigate('/games/ldi/end')
     }
   }, [save.status, navigate, user, saveToCloud])
 
@@ -82,7 +82,7 @@ export default function Game() {
       const pType = choice.puzzleType || 'simon'
       const pDiff = choice.puzzleDiff || 3
       const returnScene = choice.next_scene || currentScene?.id || '3.2_dia8'
-      const puzzleUrl = `/extras/ldi/puzzle?type=${pType}&diff=${pDiff}&return=${returnScene}`
+      const puzzleUrl = `/games/ldi/puzzle?type=${pType}&diff=${pDiff}&return=${returnScene}`
       setReaderMode(false)
       navigate(puzzleUrl)
       return
@@ -190,7 +190,7 @@ export default function Game() {
   return (
     <div className="ldi-game">
       <div className="ldi-game-hud">
-        <span className="ldi-game-hud-item" onClick={() => navigate('/extras/ldi/sheet')}>
+        <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/sheet')}>
           📋 Ficha
         </span>
         <span className="ldi-game-hud-item">
@@ -199,7 +199,7 @@ export default function Game() {
         <span className="ldi-game-hud-item">
           💰 {save.credits}
         </span>
-        <span className="ldi-game-hud-item" onClick={() => navigate('/extras/ldi/clues')}>
+        <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/clues')}>
           📓 Pistas ({save.clues_collected?.length || 0})
         </span>
         <span className="ldi-game-hud-item" onClick={() => setShowManual(true)} style={{ cursor: 'pointer' }}>

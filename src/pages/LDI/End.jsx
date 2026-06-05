@@ -215,21 +215,21 @@ export default function End() {
             📜 VER RETROSPECTO
           </button>
           <Link
-            to="/extras/ldi/game"
+            to="/games/ldi/game"
             className="ldi-btn ldi-btn--primary"
             onClick={resetGame}
           >
             NOVO RUN COM ESTA FICHA
           </Link>
           <Link
-            to="/extras/ldi/create"
+            to="/games/ldi/create"
             className="ldi-btn ldi-btn--outline"
             onClick={resetGame}
           >
             CRIAR NOVA FICHA
           </Link>
           <Link
-            to="/extras"
+            to="/games"
             className="ldi-btn ldi-btn--ghost"
           >
             VOLTAR AOS EXTRAS

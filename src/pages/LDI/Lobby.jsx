@@ -114,7 +114,7 @@ export default function Lobby() {
           arc: 1,
         })
       }
-      navigate('/extras/ldi/game')
+      navigate('/games/ldi/game')
     }
   }
 
@@ -127,13 +127,13 @@ export default function Lobby() {
   const handleNewGuided = () => {
     setShowNewModal(false)
     resetGame()
-    navigate('/extras/ldi/create?mode=guided')
+    navigate('/games/ldi/create?mode=guided')
   }
 
   const handleNewFull = () => {
     setShowNewModal(false)
     resetGame()
-    navigate('/extras/ldi/create?mode=full')
+    navigate('/games/ldi/create?mode=full')
   }
 
   return (

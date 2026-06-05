@@ -389,7 +389,7 @@ export default function TopTrumpsMP() {
     if (fase !== 'carregando' || !salaId) return
     const timer = setTimeout(async () => {
       await supabase.from('toptrumps_salas').delete().eq('id', salaId)
-      navigate('/extras/toptrumps/lobby', {
+      navigate('/games/toptrumps/lobby', {
         state: { mensagem: 'Nenhum adversário encontrado. Tente novamente.' }
       })
     }, 120000)
@@ -833,7 +833,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <Link to="/extras" className="ttmp-btn-voltar">VOLTAR AOS EXTRAS</Link>
+            <Link to="/games" className="ttmp-btn-voltar">VOLTAR AOS GAMES</Link>
           </div>
         </div>
       </section>

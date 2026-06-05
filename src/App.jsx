@@ -23,9 +23,9 @@ import Autor from './pages/Autor'
 import Webtoon from './pages/Webtoon'
 import WebtoonEpisodio from './pages/WebtoonEpisodio'
 import Mundo from './pages/Mundo'
-import Curiosidades from './pages/Curiosidades'
+
 import Quiz from './pages/Quiz'
-import Extras from './pages/Extras'
+import Games from './pages/Games/Games'
 import MiniGames from './pages/MiniGames/MiniGames'
 import TopTrumps from './pages/TopTrumps'
 import TopTrumpsLobby from './pages/TopTrumpsLobby'
@@ -80,28 +80,27 @@ export default function App() {
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />
         <Route path="/mundo" element={<Mundo />} />
-        <Route path="/curiosidades" element={<Curiosidades />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
-        <Route path="/extras/toptrumps" element={<TopTrumps />} />
-        <Route path="/extras/toptrumps/lobby" element={<LoginGate feature="o Top Trumps Multiplayer"><TopTrumpsLobby /></LoginGate>} />
-        <Route path="/extras/toptrumps/multiplayer" element={<LoginGate feature="a partida multiplayer"><TopTrumpsMP /></LoginGate>} />
-        <Route path="/extras/ldi" element={<LDILobby />} />
-        <Route path="/extras/ldi/create" element={<LDICreate />} />
-        <Route path="/extras/ldi/game" element={<LDIGame />} />
-        <Route path="/extras/ldi/combat" element={<LDICombat />} />
-        <Route path="/extras/ldi/sheet" element={<LDISheet />} />
-        <Route path="/extras/ldi/clues" element={<LDIClues />} />
-        <Route path="/extras/ldi/end" element={<LDIEnd />} />
-        <Route path="/extras/ldi/diagnostico" element={<Diagnostico />} />
-        <Route path="/extras/ldi/puzzle" element={<LDIPuzzle />} />
-        <Route path="/extras/jackcandy" element={<JackCandy />} />
-        <Route path="/extras/minigames" element={<MiniGames />} />
-        <Route path="/extras/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
-        <Route path="/extras/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
-        <Route path="/extras/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
-        <Route path="/extras/tamagoshi" element={<Tamagoshi />} />
-        <Route path="/extras" element={<Extras />} />
+        <Route path="/games/toptrumps" element={<TopTrumps />} />
+        <Route path="/games/toptrumps/lobby" element={<LoginGate feature="o Top Trumps Multiplayer"><TopTrumpsLobby /></LoginGate>} />
+        <Route path="/games/toptrumps/multiplayer" element={<LoginGate feature="a partida multiplayer"><TopTrumpsMP /></LoginGate>} />
+        <Route path="/games/ldi" element={<LDILobby />} />
+        <Route path="/games/ldi/create" element={<LDICreate />} />
+        <Route path="/games/ldi/game" element={<LDIGame />} />
+        <Route path="/games/ldi/combat" element={<LDICombat />} />
+        <Route path="/games/ldi/sheet" element={<LDISheet />} />
+        <Route path="/games/ldi/clues" element={<LDIClues />} />
+        <Route path="/games/ldi/end" element={<LDIEnd />} />
+        <Route path="/games/ldi/diagnostico" element={<Diagnostico />} />
+        <Route path="/games/ldi/puzzle" element={<LDIPuzzle />} />
+        <Route path="/games/jackcandy" element={<JackCandy />} />
+        <Route path="/games/minigames" element={<MiniGames />} />
+        <Route path="/games/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
+        <Route path="/games/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
+        <Route path="/games/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
+        <Route path="/games/tamagoshi" element={<Tamagoshi />} />
+        <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/login" element={<Login />} />

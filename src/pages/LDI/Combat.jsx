@@ -34,7 +34,7 @@ export default function Combat() {
   useEffect(() => {
     console.log('[COMBAT] useEffect combat.active:', combat.active)
     if (!combat.active) {
-      navigate('/extras/ldi/game')
+      navigate('/games/ldi/game')
     }
   }, [combat.active, navigate])
 
@@ -100,7 +100,7 @@ export default function Combat() {
       const returnScene = base.endsWith('-luta') ? base.replace('-luta', '-pos') : base
       await setScene(returnScene)
       if (user) saveToCloud(user.id)
-      navigate('/extras/ldi/game')
+      navigate('/games/ldi/game')
     } else if (result === 'defeat') {
       const gs = useGameStore.getState()
       const postScene = gs.save?.post_combat_scene || ''
@@ -108,17 +108,17 @@ export default function Combat() {
         combat.resetCombat()
         await setScene('4.2_derrota')
         if (user) saveToCloud(user.id)
-        navigate('/extras/ldi/game')
+        navigate('/games/ldi/game')
       } else {
         updateSave({ status: 'ended_defeat' })
         combat.resetCombat()
         if (user) saveToCloud(user.id)
-        navigate('/extras/ldi/end')
+        navigate('/games/ldi/end')
       }
     } else {
       combat.resetCombat()
       if (user) saveToCloud(user.id)
-      navigate('/extras/ldi/game')
+      navigate('/games/ldi/game')
     }
   }
 

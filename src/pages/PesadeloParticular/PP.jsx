@@ -690,7 +690,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
           ○ NOVO JOGO
         </button>
 
-        <button onClick={() => navigate('/extras')}
+        <button onClick={() => navigate('/games')}
           style={{ marginTop:'1.5rem', background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', letterSpacing:'0.1em' }}>
           ← voltar ao site
         </button>
@@ -1159,7 +1159,7 @@ export default function PP() {
         {/* Top bar — só quando não tem fase interna */}
         {!faseInterna && (
           <div className="pp-top-bar">
-            <button className="pp-exit-btn" onClick={() => navigate('/extras')}>←</button>
+            <button className="pp-exit-btn" onClick={() => navigate('/games')}>←</button>
             <div className="pp-top-bar-avatar">🌙</div>
             <div className="pp-top-bar-info">
               <div className="pp-top-bar-name">Pesadelo Particular</div>

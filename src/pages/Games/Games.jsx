@@ -1,26 +1,25 @@
 import { useNavigate } from 'react-router-dom'
-import { useFichaGate } from '../hooks/useFichaGate'
-import ModalSemFichas from '../components/ModalSemFichas/ModalSemFichas'
-import './Extras.css'
+import { useFichaGate } from '../../hooks/useFichaGate'
+import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
+import './Games.css'
 
 const JOGOS = [
-  { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/extras/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
-  { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/extras/jackcandy', badge: 'FREE', badgeCor: '#F5A623' },
-  { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/extras/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
-  { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/extras/minigames', badge: 'FREE', badgeCor: '#22C55E' },
-  { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/extras/ldi-arena', badge: 'NEW', badgeCor: '#8B0000' },
-  { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/extras/pesadelo', badge: 'NEW', badgeCor: '#EC4899' },
-  { id: 'duelo', nome: 'Duelo LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/extras/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
-  { id: 'tamagoshi', nome: 'Tamagoshi LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/extras/tamagoshi', badge: 'NOVO', badgeCor: '#F5A623' },
+  { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
+  { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badge: 'FREE', badgeCor: '#F5A623' },
+  { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
+  { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badge: 'FREE', badgeCor: '#22C55E' },
+  { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badge: 'NEW', badgeCor: '#8B0000' },
+  { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badge: 'NEW', badgeCor: '#EC4899' },
+  { id: 'duelo', nome: 'Duelo LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/games/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
+  { id: 'tamagoshi', nome: 'Tamagoshi LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badge: 'NOVO', badgeCor: '#F5A623' },
 ]
 
 const CONTEUDO = [
   { id: 'quiz', nome: 'Quiz SDR', tagline: 'teste seu conhecimento do universo LDI.', emoji: '🎯', cor: '#22C55E', rota: '/quiz', badge: 'FREE' },
   { id: 'leaderboard', nome: 'Leaderboard', tagline: 'ranking global de jogadores.', emoji: '🏆', cor: '#F5A623', rota: '/leaderboard', badge: 'FREE' },
-  { id: 'curiosidades', nome: 'Curiosidades', tagline: 'bastidores e segredos do universo.', emoji: '📖', cor: '#00B4D8', rota: '/curiosidades', badge: 'FREE' },
 ]
 
-export default function Extras() {
+export default function Games() {
   const navigate = useNavigate()
   const { tentarEntrar: entrarLdi, modalVisivel: modalLdi, fecharModal: fecharLdi } = useFichaGate('lendas_ldi')
   const { tentarEntrar: entrarJack, modalVisivel: modalJack, fecharModal: fecharJack } = useFichaGate('jack_dream_beer')
@@ -40,7 +39,7 @@ export default function Extras() {
 
       <div className="extras-header">
         <h1 className="extras-titulo">
-          <span className="extras-titulo-glitch" data-text="EXTRAS">EXTRAS</span>
+          <span className="extras-titulo-glitch" data-text="GAMES">GAMES</span>
         </h1>
         <p className="extras-subtitulo">
           <span className="extras-cursor">█</span> explore além da história principal
