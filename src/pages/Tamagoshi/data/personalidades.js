@@ -73,6 +73,12 @@ export const PERSONALIDADES = {
   },
 }
 
-export function getFala(tipo, chave) {
+import { FALAS_CRIATURA } from './falas-criatura'
+
+export function getFala(tipo, chave, criaturaId) {
+  if (criaturaId && FALAS_CRIATURA[criaturaId]?.[chave]) {
+    const arr = FALAS_CRIATURA[criaturaId][chave]
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
   return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
 }

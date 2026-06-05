@@ -60,7 +60,7 @@ export default function PerfilTamagoshi() {
     try {
       const result = await store.confirmarTroca(keyInput.trim().toUpperCase(), user.id, slotB, userTier)
       const c = CRIATURAS.find(x => x.id === result.criaturaId)
-      const boasVindas = getFala(result.personalidade, 'fome')
+      const boasVindas = getFala(result.personalidade, 'fome', result.criaturaId)
       setMsg({ texto: `troca confirmada! ${c?.emoji || ''} ${c?.nome || 'nova criatura'} chegou: ${boasVindas}`, tipo: 'ok' })
       notifStore.push(`${c?.emoji || ''} ${c?.nome || 'Nova criatura'}: ${boasVindas}`, 'ver tamagoshi', '/games/tamagoshi')
       setKeyGerada(null)

@@ -63,6 +63,12 @@ GAMES = {
         "label": "Pesadelo Particular",
         "sm_context": ["Pesadelo Particular", "PP"],
     },
+    "tama": {
+        "const": "TAMA_VERSION",
+        "file": ROOT / "src/pages/Tamagoshi/store/useTamagoshiStore.js",
+        "label": "Tamagoshi LDI",
+        "sm_context": ["tama", "Tamagoshi", "TAMAGOSHI"],
+    },
     "site": {
         "const": "SITE_VERSION",
         "file": ROOT / "src/config/version.js",

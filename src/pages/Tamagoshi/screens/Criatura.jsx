@@ -25,16 +25,16 @@ export default function Criatura({ isAdmin }) {
 
   useEffect(() => {
     if (store.status === 'critico') {
-      setFala(getFala(store.personalidade, 'critico'))
+      setFala(getFala(store.personalidade, 'critico', store.criaturaId))
       setMostrando('critico')
     } else if (metricasBaixas.length > 1) {
-      setFala(getFala(store.personalidade, 'critico'))
+      setFala(getFala(store.personalidade, 'critico', store.criaturaId))
       setMostrando('critico')
     } else if (metricasBaixas.length === 1) {
-      setFala(getFala(store.personalidade, metricasBaixas[0]))
+      setFala(getFala(store.personalidade, metricasBaixas[0], store.criaturaId))
       setMostrando(metricasBaixas[0])
     } else {
-      setFala(getFala(store.personalidade, 'fome'))
+      setFala(getFala(store.personalidade, 'fome', store.criaturaId))
       setMostrando('fome')
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])
@@ -44,7 +44,7 @@ export default function Criatura({ isAdmin }) {
     else if (action === 'banhar') store.banhar()
     else if (action === 'passeio') store.setFase('passeio')
     else if (action === 'brincar') store.brincar()
-    setFala(getFala(store.personalidade, action === 'passeio' ? 'passeio' : action === 'brincar' ? 'fome' : action))
+    setFala(getFala(store.personalidade, action === 'passeio' ? 'passeio' : action === 'brincar' ? 'fome' : action, store.criaturaId))
     setMostrando(action)
   }
 
