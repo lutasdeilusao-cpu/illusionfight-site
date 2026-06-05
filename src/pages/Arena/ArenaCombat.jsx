@@ -72,7 +72,7 @@ function DiceSlot({ finalValue }) {
 
 function OnomaPopup({ word, onDone }) {
   useEffect(() => {
-    const t = setTimeout(onDone, 1200)
+    const t = setTimeout(onDone, 900)
     return () => clearTimeout(t)
   }, [])
   return (
@@ -108,7 +108,7 @@ export default function ArenaCombat({ onNavigate }) {
   const [damageFloat, setDamageFloat] = useState(null)
 
   const [diceOn, setDiceOn] = useState(null)
-  const [onomaQueue, setOnomaQueue] = useState([])
+  const [onomaCurrent, setOnomaCurrentState] = useState(null)
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
   const [atkDisabled, setAtkDisabled] = useState(false)
@@ -177,7 +177,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = null
     setDiceOn(null)
-    setOnomaQueue([])
+    setOnomaCurrentState(null)
     setTurnOverlay(false)
     setFlashOn(false)
     setAtkDisabled(false)
@@ -192,7 +192,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const fireOnoma = useCallback((mode) => {
     const word = getOnomatopeia(mode)
-    setOnomaQueue(q => [...q, { id: Date.now() + Math.random(), word }])
+    setOnomaCurrentState({ id: Date.now() + Math.random(), word })
   }, [])
 
   const getEnemySheet = () => {
@@ -382,11 +382,13 @@ export default function ArenaCombat({ onNavigate }) {
         {diceOn !== null && <DiceSlot key={`d-${stepRef.current}`} finalValue={diceOn} />}
       </AnimatePresence>
       <AnimatePresence>
-        {onomaQueue.map(o => (
-          <OnomaPopup key={o.id} word={o.word} onDone={() =>
-            setOnomaQueue(q => q.filter(x => x.id !== o.id))
-          } />
-        ))}
+        {onomaCurrent && (
+          <OnomaPopup
+            key={onomaCurrent.id}
+            word={onomaCurrent.word}
+            onDone={() => setOnomaCurrentState(null)}
+          />
+        )}
       </AnimatePresence>
 
       <div className="arena-combat-header">
