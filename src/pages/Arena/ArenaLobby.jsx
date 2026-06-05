@@ -165,53 +165,73 @@ export default function ArenaLobby({ onNavigate }) {
 
   return (
     <div className="arena-lobby">
-      <div className="arena-header">
-        <button className="arena-back" onClick={() => window.history.back()}>← extras</button>
-        <h1 className="arena-titulo"><span className="arena-titulo-glitch" data-text="LDI ARENA">LDI ARENA</span></h1>
-        <p className="arena-sub"><span className="arena-cursor">█</span> crie sua ficha. lute contra a CPU. suba no ranking.</p>
+
+      {/* Hero */}
+      <div className="arena-lobby-hero">
+        <p className="arena-lobby-titulo">modo standalone</p>
+        <h1 className="arena-lobby-nome">LDI ARENA</h1>
+        <p className="arena-lobby-sub">crie sua ficha · lute contra a CPU · suba no ranking</p>
       </div>
 
-      <div className="arena-section-label">
-        <span>▶ SUAS FICHAS</span>
-        <div className="arena-section-linha" />
-      </div>
+      <div className="arena-lobby-divider" />
 
-      {loading && <p className="arena-loading">carregando...</p>}
-      {!loading && sheets.length === 0 && (
-        <p className="arena-empty">nenhuma ficha ainda. crie sua primeira!</p>
+      {/* Lista de fichas */}
+      <p className="arena-lobby-section-label">suas fichas</p>
+
+      {loading && <p className="arena-lobby-empty">carregando...</p>}
+      {!loading && sheets.length === 0 ? (
+        <div className="arena-sheet-list">
+          <div className="arena-lobby-empty">nenhuma ficha encontrada</div>
+        </div>
+      ) : (
+        <div className="arena-sheet-list">
+          {sheets.map(s => {
+            const elemCores = {
+              fogo: { cor: '#FF4500', glow: 'rgba(255,69,0,0.15)' },
+              agua: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
+              terra: { cor: '#8B6914', glow: 'rgba(139,105,20,0.15)' },
+              ar:   { cor: '#A8DADC', glow: 'rgba(168,218,220,0.15)' },
+              eletrico: { cor: '#F5A623', glow: 'rgba(245,166,35,0.15)' },
+              neutro: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.1)' },
+            }
+            const ec = elemCores[s.elemental] || elemCores.neutro
+            return (
+              <div
+                key={s.id}
+                className="arena-sheet-card-v"
+                style={{ '--elem-cor': ec.cor, '--elem-glow': ec.glow }}
+                onClick={() => handleLutar(s)}
+              >
+                <div className="arena-sheet-avatar">
+                  {(s.sheet_name || 'X')[0].toUpperCase()}
+                </div>
+                <div className="arena-sheet-info">
+                  <div className="arena-sheet-name-v">{s.sheet_name}</div>
+                  <div className="arena-sheet-meta">
+                    {s.elemental || 'neutro'} · LV {s.level || 1} · {s.xp_total || 0} XP
+                  </div>
+                  <div className="arena-sheet-stats">
+                    {['F','H','R','A','PdF'].map(attr => (
+                      <div key={attr} className="arena-sheet-stat">
+                        <span className="arena-sheet-stat-label">{attr}</span>
+                        <span className="arena-sheet-stat-val">{s.attributes?.[attr] ?? 0}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <span className="arena-sheet-arrow">→</span>
+              </div>
+            )
+          })}
+        </div>
       )}
 
-      <div className="arena-sheet-list">
-        {(Array.isArray(sheets) ? sheets : []).map(sheet => {
-          const sElem = sheet.elemental || 'neutro'
-          const sColor = elemColor(sElem)
-          return (
-            <motion.div key={sheet.id} className="arena-sheet-card-v"
-              style={{ '--elem-cor': sColor, '--elem-cor-hover': sColor }}
-              whileHover={{}} onClick={() => handleLutar(sheet)}>
-              <div className="arena-sheet-avatar" style={{ background: sColor }}>
-                {sheet.sheet_name?.[0]?.toUpperCase() || '?'}
-              </div>
-              <div className="arena-sheet-info">
-                <div className="arena-sheet-name-v">{sheet.sheet_name}</div>
-                <div className="arena-sheet-sub">
-                  {sheet.elemental && <span>{String.fromCodePoint({ fogo: 0x1F525, agua: 0x1F4A7, terra: 0x1FAA8, ar: 0x1F4A8, trevas: 0x1F311, luz: 0x2728, neutro: 0x26AA }[sheet.elemental] || 0x26AA)} {sheet.elemental}</span>}
-                  <span>LV {sheet.attribute_points_gained ? sheet.attribute_points_gained + 1 : 1}</span>
-                  <span>{sheet.xp_total || 0} XP</span>
-                </div>
-                <div className="arena-sheet-attrs-v">
-                  F:{sheet.attributes?.F||0} H:{sheet.attributes?.H||0} R:{sheet.attributes?.R||0} A:{sheet.attributes?.A||0} PdF:{sheet.attributes?.PdF||0}
-                </div>
-              </div>
-              <div className="arena-sheet-arrow">→</div>
-            </motion.div>
-          )
-        })}
-      </div>
+      {/* Nova ficha */}
+      <button className="arena-new-sheet" onClick={() => { store.newSheet(); onNavigate('create') }}>
+        <span className="arena-new-sheet-icon">+</span>
+        nova ficha
+      </button>
 
-      <div className="arena-new-sheet" onClick={() => { store.newSheet(); onNavigate('create') }}>
-        ➕ NOVA FICHA
-      </div>
     </div>
   )
 }
