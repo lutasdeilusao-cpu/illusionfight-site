@@ -12,9 +12,9 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import { t } from './data/pp-i18n'
+import { PP_VERSION } from '../../config/version'
 import './PP.css'
 
-const PP_VERSION = '1.5.20'
 const LOCALE = 'pt'
 
 const AVATARES = {

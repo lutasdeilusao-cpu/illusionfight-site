@@ -2,10 +2,11 @@ import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { supabase } from '../../lib/supabase'
+import { LDI_DIAG_VERSION } from '../../config/version'
 import './LDI.css'
 
 const ADMIN_EMAIL = 'isaiasgamedev@gmail.com'
-const LDI_VERSION = '1.0.4'
+const LDI_VERSION = LDI_DIAG_VERSION
 
 const STEP_LABELS = {
   supabase: 'Conexão Supabase',
