@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.5'
+const TAMA_VERSION = '1.3.6'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
@@ -58,13 +58,15 @@ export default function Tamagoshi() {
 
   useEffect(() => {
     if (!store._userId) return
-    const id = setInterval(() => {
+    const logDix = () => {
       store.getSaldoDix(store._userId).then(saldo => {
         const ts = new Date().toISOString().slice(11, 19)
         const exibicao = store._isAdmin ? '∞' : saldo
         console.log(`[TAMA:DIX] ${ts} saldo=${exibicao}`)
       })
-    }, 600000)
+    }
+    logDix()
+    const id = setInterval(logDix, 600000)
     return () => clearInterval(id)
   }, [store._userId])
 
