@@ -1635,6 +1635,14 @@
   letter-spacing: 0.1em;
 }
 
+.jdc-auto-picker-warn {
+  font-size: 0.65rem;
+  color: #E02020;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
 .jdc-auto-picker-list {
   display: flex;
   flex-direction: column;

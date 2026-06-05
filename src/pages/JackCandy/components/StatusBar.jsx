@@ -12,7 +12,7 @@ export default function StatusBar() {
   const hpColor = hpPct > 60 ? '#22C55E' : hpPct > 30 ? '#F5A623' : '#8B0000'
   const reducao = (store.equipado?.armadura?.reducaoDano || 0)
   const danoArma = store.equipado?.arma?.dano || 0
-  const xpNeeded = store.nivel * 15
+  const xpNeeded = store.nivel * 30
   const xpPct = xpNeeded > 0 ? Math.min(100, Math.round((store.xp / xpNeeded) * 100)) : 0
 
   const handleSave = async () => {

@@ -1,4 +1,4 @@
-const JACK_VERSION = '5.0.2'
+const JACK_VERSION = '5.1.0'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -274,8 +274,9 @@ export const useJackStore = create((set, get) => {
           risca_faca_interior: 'RISCA_FACA_VITORIA',
         }
         const xpGanho = Math.max(1, Math.floor(dropCap / 8))
-        const xpNova = state.xp + xpGanho
-        const xpNeeded = state.nivel * 15
+        const xpGanhoFinal = state.autoMode?.ativo ? Math.max(1, Math.floor(xpGanho * 0.05)) : xpGanho
+        const xpNova = state.xp + xpGanhoFinal
+        const xpNeeded = state.nivel * 30
         let nivelNovo = state.nivel
         let xpFinal = xpNova
         let hpMaxNovo = state.hpMax
@@ -301,8 +302,9 @@ export const useJackStore = create((set, get) => {
 
     ganharXp: (quantidade) => {
       set(state => {
-        const xpNova = state.xp + quantidade
-        const xpNeeded = state.nivel * 15
+        const xpNeeded = state.nivel * 30
+        const xpFinal = state.autoMode?.ativo ? Math.max(1, Math.floor(quantidade * 0.05)) : quantidade
+        const xpNova = state.xp + xpFinal
         if (xpNova >= xpNeeded) {
           return {
             xp: xpNova - xpNeeded,

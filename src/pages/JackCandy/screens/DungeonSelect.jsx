@@ -121,6 +121,7 @@ export default function DungeonSelect() {
             <div className="jdc-auto-picker-title">
               {store.autoMode.ativo ? '🤖 AUTO ativo — trocar dungeon?' : 'Selecionar dungeon pra automático'}
             </div>
+            {!store.autoMode.ativo && <div className="jdc-auto-picker-warn">⚠️ modo automático demora mais para passar de nível</div>}
             <div className="jdc-auto-picker-list">
               {dungeons.map(d => {
                 const completa = dc.includes(d.id)
