@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.1.0'
+const TAMA_VERSION = '1.1.1'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
@@ -152,7 +152,8 @@ export const useTamagoshiStore = create((set, get) => ({
   tick: () => {
     set(state => {
       if (!state.criaturaId || (state.status !== 'vivo' && state.status !== 'critico')) return state
-      return calcDecaimento(state, 1 / 360)
+      const horas = (Date.now() - state._ultimoUpdate) / (1000 * 60 * 60)
+      return calcDecaimento(state, horas)
     })
   },
 
