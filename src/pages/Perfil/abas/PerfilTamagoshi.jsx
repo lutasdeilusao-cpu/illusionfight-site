@@ -36,6 +36,22 @@ export default function PerfilTamagoshi() {
       .eq('user_id', user.id)
       .eq('slot', 1)
       .maybeSingle()
+
+    if (!data) {
+      const st = useTamagoshiStore.getState()
+      if (st.criaturaId && st.fase) {
+        setTama({
+          criatura_id: st.criaturaId,
+          nome_custom: st.nomeCustom,
+          personalidade: st.personalidade,
+          fase: st.fase,
+          status: st.status,
+        })
+        setCarregando(false)
+        return
+      }
+    }
+
     setTama(data)
 
     const { data: famaData } = await supabase

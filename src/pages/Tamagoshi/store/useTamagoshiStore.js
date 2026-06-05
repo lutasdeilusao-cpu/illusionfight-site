@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.9'
+const TAMA_VERSION = '1.4.0'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
@@ -279,7 +279,10 @@ export const useTamagoshiStore = create((set, get) => ({
     if (local) {
       console.log(`[TAMA:LOAD] ${ts} localStorage fallback OK fase=${local.fase} criatura=${local.criaturaId}`)
       set({ ...local, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: userId, _slot: slot })
-      if (userId) get().getSaldoDix(userId)
+      if (userId) {
+        get().getSaldoDix(userId)
+        get().saveToCloud(userId)
+      }
       return local
     }
     console.log(`[TAMA:LOAD] ${ts} nothing found → ovo`)
