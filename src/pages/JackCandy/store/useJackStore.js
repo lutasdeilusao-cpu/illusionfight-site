@@ -1,4 +1,4 @@
-const JACK_VERSION = '4.0.16'
+const JACK_VERSION = '4.0.17'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -328,7 +328,7 @@ export const useJackStore = create((set, get) => {
         caso_ativo: state.casoAtivo, pistas_coletadas: state.pistasColetadas,
         suspeitos: state.suspeitos, locais_visitados: state.locaisVisitados,
         acusacoes_erradas: state.acusacoesErradas, casos_resolvidos: state.casosResolvidos,
-        comprou: state.comprou, updated_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
         version: JACK_VERSION,
       }
       const { error } = await supabase
