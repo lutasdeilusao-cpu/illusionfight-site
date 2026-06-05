@@ -4,6 +4,7 @@ console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA } from '../data/moedas'
+import { CRIATURAS } from '../data/criaturas'
 
 const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2 }
 const CRITICO_EM_HORAS = 24
@@ -104,7 +105,6 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   escolherCriatura: (criaturaId) => {
-    const { CRIATURAS } = require('../data/criaturas')
     const c = CRIATURAS.find(x => x.id === criaturaId)
     if (!c) return
     set({
@@ -287,7 +287,6 @@ export const useTamagoshiStore = create((set, get) => ({
   reset: () => set({ ...defaultState, _ultimoUpdate: Date.now(), _ultimoLogin: Date.now() }),
 
   trocarCriatura: (criaturaId) => {
-    const { CRIATURAS } = require('../data/criaturas')
     const c = CRIATURAS.find(x => x.id === criaturaId)
     if (!c) return
     set({
