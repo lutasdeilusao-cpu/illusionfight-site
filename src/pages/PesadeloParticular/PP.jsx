@@ -12,7 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.5.3'
+const PP_VERSION = '1.5.4'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -805,8 +805,7 @@ export default function PP() {
       console.log('[PP] acusar resolverCaso inicio', casoAtivo.id, reputationGanho)
       store.resolverCaso(casoAtivo.id, reputationGanho, user?.id)
       console.log('[PP] acusar resolverCaso fim')
-      const totalCasos = CASOS.filter(c => c.desbloqueado || casosResolvidos.some(r => CASOS.find(cc => cc.id === r)?.desbloqueia?.includes(c.id))).length
-      const isUltimo = casosResolvidos.length + 1 >= totalCasos
+      const isUltimo = casosResolvidos.length + 1 >= CASOS.length
       setFaseInterna({ tipo: 'convo', convoTipo: 'resolucao', isFinal: isUltimo })
     } else {
       store.registrarAcusacaoErrada(casoAtivo.id, user?.id)
