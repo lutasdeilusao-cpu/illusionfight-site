@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.1'
+const TAMA_VERSION = '1.3.2'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
@@ -158,6 +158,7 @@ export const useTamagoshiStore = create((set, get) => ({
       const mult = state.adminFastMode ? 100 : 1
       return calcDecaimento(state, horas * mult)
     })
+    cacheLocal(get())
   },
 
   tick: () => {
@@ -167,12 +168,14 @@ export const useTamagoshiStore = create((set, get) => ({
       const mult = state.adminFastMode ? 100 : 1
       return calcDecaimento(state, horas * mult)
     })
+    cacheLocal(get())
   },
 
   saveToCloud: async (userId) => {
-    const uid = userId || get()._userId
-    if (!uid) return
     const state = get()
+    const uid = userId || state._userId
+    cacheLocal(state)
+    if (!uid) return
     const payload = {
       user_id: uid, slot: state._slot || 1,
       criatura_id: state.criaturaId, nome_custom: state.nomeCustom,
@@ -191,7 +194,6 @@ export const useTamagoshiStore = create((set, get) => ({
     }
     const { error } = await supabase.from('tamagoshi_saves').upsert(payload, { onConflict: 'user_id,slot' })
     if (error) console.error('[TAMA] save error:', error)
-    cacheLocal(state)
   },
 
   loadFromCloud: async (userId, slot = 1) => {
@@ -539,7 +541,7 @@ export const useTamagoshiStore = create((set, get) => ({
 
 setInterval(() => {
   const state = useTamagoshiStore.getState()
-  if (state._userId && state.criaturaId) {
+  if (state.criaturaId) {
     useTamagoshiStore.getState().saveToCloud()
   }
 }, 30000)

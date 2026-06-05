@@ -31,10 +31,10 @@ export default function Tamagoshi() {
   const isAdmin = user?.email === 'isaiasgamedev@gmail.com' || perfil?.is_admin === true
 
   useEffect(() => {
-    if (!loaded.current && user) {
+    if (!loaded.current) {
       loaded.current = true
       store.setAdmin(isAdmin)
-      store.loadFromCloud(user.id, 1)
+      store.loadFromCloud(user?.id, 1)
     }
   }, [user])
 
