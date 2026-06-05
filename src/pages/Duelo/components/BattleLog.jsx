@@ -16,10 +16,13 @@ export default function BattleLog({ log }) {
       padding: '4px 16px',
       maxHeight: 80,
       overflowY: 'auto',
+      overflowX: 'visible',
       fontFamily: "'Courier New', monospace",
       fontSize: 9,
       letterSpacing: 0.5,
-    }}>
+      position: 'relative',
+      zIndex: 1,
+      }}>
       {last5.map((msg, i) => (
         <div key={i} style={{
           padding: '2px 0', color: '#555',

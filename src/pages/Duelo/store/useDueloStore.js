@@ -1,9 +1,6 @@
 import { create } from 'zustand'
 import { createInitialState } from '../engine/gameState'
 
-export const DUELO_VERSION = '1.1.5'
-console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
-
 export const useDueloStore = create((set, get) => ({
   ...createInitialState(),
 
