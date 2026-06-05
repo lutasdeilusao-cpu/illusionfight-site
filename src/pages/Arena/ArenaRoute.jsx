@@ -9,7 +9,7 @@ import ArenaCombat from './ArenaCombat'
 import ArenaVictory from './ArenaVictory'
 import './Arena.css'
 
-const ARENA_VERSION = '1.6.3'
+const ARENA_VERSION = '1.6.4'
 console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
 
 export default function ArenaRoute() {
