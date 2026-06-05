@@ -426,16 +426,186 @@
 .arena-power-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
 /* ===== POWER SELECT ===== */
-.arena-power-select { padding: 20px; text-align: center; }
-.arena-power-title { font-size: 20px; color: #F5A623; margin: 0 0 4px; }
-.arena-power-sub { font-size: 12px; color: #555; margin-bottom: 16px; }
-.arena-power-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-bottom: 16px; }
-.arena-power-card { background: #111; border: 1px solid #222; padding: 10px; color: #888; cursor: pointer; font-family: inherit; text-align: left; transition: all 0.15s; }
-.arena-power-card:hover { border-color: #00B4D8; }
-.arena-power-card--selected { border-color: #F5A623; color: #F5A623; background: #1a1508; }
-.arena-power-header { font-size: 13px; display: flex; justify-content: space-between; margin-bottom: 4px; }
-.arena-power-card p { font-size: 10px; color: #555; margin: 0; }
-.arena-power-footer { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.arena-power-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0 40px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.arena-power-title {
+  font-size: 13px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin: 0 0 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 900;
+}
+
+.arena-power-sub {
+  font-size: 10px;
+  color: #333;
+  letter-spacing: 3px;
+  font-family: 'Courier New', monospace;
+  margin: 0 0 40px;
+  text-transform: uppercase;
+}
+
+.arena-power-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.arena-power-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid rgba(0, 180, 216, 0.25);
+  padding: 16px 20px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  text-align: left;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.arena-power-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 180, 216, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.arena-power-card:hover {
+  transform: translateX(6px);
+  border-left-color: #00B4D8;
+  box-shadow: -6px 0 28px rgba(0, 180, 216, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.arena-power-card--selected {
+  border-left-color: #F5A623;
+  background: rgba(245, 166, 35, 0.04);
+  box-shadow: -6px 0 28px rgba(245, 166, 35, 0.12);
+}
+
+.arena-power-card--selected::before {
+  background: linear-gradient(90deg, rgba(245, 166, 35, 0.05) 0%, transparent 60%);
+}
+
+.arena-power-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 180, 216, 0.06);
+  border: 1px solid rgba(0, 180, 216, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.arena-power-card--selected .arena-power-card-icon {
+  background: rgba(245, 166, 35, 0.08);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+
+.arena-power-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.arena-power-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.arena-power-header-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ccc;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+
+.arena-power-card--selected .arena-power-header-name {
+  color: #F5A623;
+}
+
+.arena-power-header-cost {
+  font-size: 10px;
+  color: #444;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+}
+
+.arena-power-card--selected .arena-power-header-cost {
+  color: rgba(245, 166, 35, 0.6);
+  border-color: rgba(245, 166, 35, 0.2);
+}
+
+.arena-power-card p {
+  font-size: 10px;
+  color: #444;
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.arena-power-card--selected p {
+  color: #666;
+}
+
+.arena-power-card-check {
+  color: #F5A623;
+  font-size: 14px;
+  font-weight: bold;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.arena-power-card--selected .arena-power-card-check {
+  opacity: 1;
+}
+
+.arena-power-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 28px 0 0;
+}
+
+.arena-power-counter {
+  font-size: 11px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 3px;
+}
+
+.arena-power-counter strong {
+  color: #F5A623;
+}
 
 /* ===== VICTORY ===== */
 .arena-victory { padding: 40px 20px; text-align: center; }

@@ -340,14 +340,25 @@ export default function ArenaCombat({ onNavigate }) {
             {availablePowers.map(p => (
               <motion.button key={p.id}
                 className={`arena-power-card ${selectedPowers.includes(p.id) ? 'arena-power-card--selected' : ''}`}
-                onClick={() => togglePower(p.id)} whileHover={{ scale: 1.02 }}>
-                <div className="arena-power-header">{p.name} <span>⚡{p.cost} PM</span></div>
-                <p>{p.desc}</p>
+                onClick={() => togglePower(p.id)}
+                whileHover={{ x: 0 }}
+              >
+                <div className="arena-power-card-icon">⚡</div>
+                <div className="arena-power-card-body">
+                  <div className="arena-power-header">
+                    <span className="arena-power-header-name">{p.name}</span>
+                    <span className="arena-power-header-cost">⚡ {p.cost} PM</span>
+                  </div>
+                  <p>{p.desc}</p>
+                </div>
+                <span className="arena-power-card-check">✓</span>
               </motion.button>
             ))}
           </div>
           <div className="arena-power-footer">
-            <span>{selectedPowers.length}/4</span>
+            <span className="arena-power-counter">
+              <strong>{selectedPowers.length}</strong>/4 selecionados
+            </span>
             <button className="arena-btn-primary" onClick={() => setShowPowerSelect(false)}>
               {selectedPowers.length === 0 ? 'ENTRAR (sem poderes)' : `ENTRAR (${selectedPowers.length} poderes)`}
             </button>
