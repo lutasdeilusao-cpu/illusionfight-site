@@ -25,6 +25,7 @@ export default function Tamagoshi() {
   const { setReaderMode } = useReader()
   const store = useTamagoshiStore()
   const lastUserId = useRef(undefined)
+  const [subFase, setSubFase] = useState(null)
 
   const userTier = perfil?.role || 'free'
   const isAdmin = perfil?.is_admin === true || user?.email === 'isaiasgamedev@gmail.com' || user?.email === 'gramikgames@gmail.com'
