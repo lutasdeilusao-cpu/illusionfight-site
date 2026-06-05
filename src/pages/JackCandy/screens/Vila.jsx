@@ -192,8 +192,9 @@ export default function Vila() {
                   store.setMonologo(MONOLOGUES.entra_cortico)
                 } else if (local.id === 'terminal' || local.id === 'terminal_auranis') {
                   store.setMonologo(MONOLOGUES.terminal_ouviu)
-                  const contagem = (store.flags.TERMINAL_OUVIDAS || 0) + 1
-                  store.setFlag('TERMINAL_OUVIDAS')
+                  const atual = store.flags.TERMINAL_OUVIDAS
+                  const contagem = (typeof atual === 'number' ? atual : atual ? 1 : 0) + 1
+                  useJackStore.setState(s => ({ flags: { ...s.flags, TERMINAL_OUVIDAS: contagem } }))
                   if (contagem >= 3) store.setFlag('TERMINAL_OUVIU')
                 } else if (local.id === 'escuro') {
                   store.setFlag('ESCURO_VISITADO')
