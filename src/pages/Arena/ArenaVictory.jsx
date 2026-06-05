@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
+
+const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
+const ENEMY_NAMES = {
+  kaeda: 'Kaeda', thunderbolt: 'Thunderbolt', stormbyte: 'StormByte_91',
+  viran: 'Mestre Viran', campeao: 'O Campeao', kronos: 'Kronos',
+  primordial_jack: 'Jack Primordial',
+}
 
 const DEFEAT_FALLBACKS = ['isso não pode ser...', 'subestimei você. que droga.', 'impossível.']
 
 export default function ArenaVictory({ onNavigate }) {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const store = useArenaStore()
   const { sheet, match } = store
   const enemy = match.enemy
@@ -18,8 +27,9 @@ export default function ArenaVictory({ onNavigate }) {
   const pm = (sheet.attributes?.PdF || 0) * 5
   const pvMax = enemy?.pv_max || 10
 
-  const [fase, setFase] = useState('mensagem') // mensagem | hpzero | resultado
+  const [fase, setFase] = useState('mensagem')
   const [hpAtual, setHpAtual] = useState(pvMax)
+  const [nextUnlock, setNextUnlock] = useState(null)
 
   // Fase 1 — mensagem final do inimigo
   useEffect(() => {
@@ -45,6 +55,19 @@ export default function ArenaVictory({ onNavigate }) {
     frame = requestAnimationFrame(step)
     return () => cancelAnimationFrame(frame)
   }, [fase, pvMax])
+
+  // Desbloquear próximo inimigo na vitória
+  useEffect(() => {
+    if (!isVitoria || fase !== 'resultado') return
+    const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
+    const nextId = ENEMY_ORDER[defeatedIdx + 1]
+    const before = sheet.enemies_unlocked || ['treinamento']
+    store.unlockNextEnemy(match.enemy_id)
+    if (nextId && !before.includes(nextId)) {
+      setNextUnlock(ENEMY_NAMES[nextId] || nextId)
+    }
+    setTimeout(() => store.saveToCloud(user?.id), 400)
+  }, [fase, isVitoria])
 
   if (!isVitoria) {
     return (
@@ -155,6 +178,23 @@ export default function ArenaVictory({ onNavigate }) {
             +{xpGain} XP
           </motion.div>
         </div>
+
+        {nextUnlock && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            style={{
+              margin: '12px auto', padding: '10px 20px',
+              border: '1px solid rgba(245,166,35,0.3)',
+              background: 'rgba(245,166,35,0.05)',
+              color: '#F5A623', fontFamily: "'Courier New', monospace",
+              fontSize: '11px', letterSpacing: '2px', maxWidth: 360,
+            }}
+          >
+            🔓 NOVO OPONENTE DESBLOQUEADO: {nextUnlock}
+          </motion.div>
+        )}
 
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>

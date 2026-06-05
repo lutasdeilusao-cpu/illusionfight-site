@@ -13,6 +13,7 @@ const defaultSheet = () => ({
   elemental: '',
   xp_total: 0,
   attribute_points_gained: 0,
+  enemies_unlocked: ['treinamento'],
 })
 
 export const useArenaStore = create((set, get) => ({
@@ -84,7 +85,7 @@ export const useArenaStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total }
+    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
     if (s.id) await supabase.from('character_sheets').update(payload).eq('id', s.id)
     else {
       const { data } = await supabase.from('character_sheets').insert(payload).select('id').single()
@@ -94,13 +95,23 @@ export const useArenaStore = create((set, get) => ({
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations').eq('user_id', userId).order('created_at', { ascending: false })
+    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
     return Array.isArray(data) ? data : []
   },
 
   deleteSheet: async (sheetId) => {
     await supabase.from('character_sheets').delete().eq('id', sheetId)
   },
+
+  unlockNextEnemy: (defeatedEnemyId) => set(state => {
+    const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
+    const current = state.sheet.enemies_unlocked || ['treinamento']
+    const idx = ENEMY_ORDER.indexOf(defeatedEnemyId)
+    if (idx === -1 || idx >= ENEMY_ORDER.length - 1) return state
+    const nextId = ENEMY_ORDER[idx + 1]
+    if (current.includes(nextId)) return state
+    return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
+  }),
 
   reset: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' } }),
 }))

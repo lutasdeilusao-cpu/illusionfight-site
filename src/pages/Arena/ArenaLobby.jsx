@@ -108,12 +108,14 @@ export default function ArenaLobby({ onNavigate }) {
   }
 
   const tiers = [1, 2, 3, 4]
-  const enemiesByTier = tiers.map(t => enemiesData.filter(e => e.tier === t)).filter(g => g.length > 0)
 
   if (showEnemies) {
     const selectedSheet = showEnemies
     const sElem = selectedSheet.elemental || 'neutro'
     const sColor = elemColor(sElem)
+    const unlockedIds = store.sheet.enemies_unlocked || ['treinamento']
+    const visibleEnemies = enemiesData.filter(e => unlockedIds.includes(e.id))
+    const visibleByTier = tiers.map(t => visibleEnemies.filter(e => e.tier === t)).filter(g => g.length > 0)
     return (
       <div className="arena-lobby">
         <div className="arena-header">
@@ -135,7 +137,7 @@ export default function ArenaLobby({ onNavigate }) {
         </div>
 
         <div className="arena-enemy-list">
-          {enemiesByTier.map((group, gi) => [
+          {visibleByTier.map((group, gi) => [
             <div key={`tier-${gi}`} className="arena-enemy-tier-sep">TIER {gi + 1}</div>,
             ...group.map(enemy => {
               const diffColor = DIFF_COLORS[enemy.difficulty] || '#888'
