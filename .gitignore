@@ -3,6 +3,10 @@ dist
 .DS_Store
 *.log
 
+# Environment variables — apenas arquivos .local (sobrescrita local)
+.env.local
+.env.*.local
+
 # Fonte original do livro — não publicar
 Lutas de Ilusão - Retcon.md
 
