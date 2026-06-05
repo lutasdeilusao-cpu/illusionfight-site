@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useArenaStore } from './store/useArenaStore'
 import { calcFA, calcFD, calcDamage, calcInitiative } from '../LDI/engine/combat'
 import { POWERS_BY_ELEMENTAL } from '../LDI/data/powersData'
+import trashTalkNPCs from './data/trash_talk.json'
 import './Arena.css'
 
 const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
@@ -120,6 +121,7 @@ export default function ArenaCombat({ onNavigate }) {
   const saidNearDeath = useRef(false)
   const saidEnemyLow = useRef(false)
   const chatQueue = useRef(Promise.resolve())
+  const npcPersonality = useRef(null)
 
   const logRef = useRef(null)
   const elemental = sheet?.elemental || 'neutro'
@@ -136,6 +138,8 @@ export default function ArenaCombat({ onNavigate }) {
     setLog([{ type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}`, id: Date.now() }])
     saidNearDeath.current = false
     saidEnemyLow.current = false
+    npcPersonality.current = trashTalkNPCs[Math.floor(Math.random() * trashTalkNPCs.length)]
+    setTimeout(() => addTrashWithDelay('battle_start'), 800)
   }, [])
 
   useEffect(() => { logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [log.length])
@@ -158,14 +162,16 @@ export default function ArenaCombat({ onNavigate }) {
   }
 
   const addTrashWithDelay = (category) => {
-    const talk = enemy?.trash_talk?.[category]
+    const npc = npcPersonality.current
+    const talk = npc?.trash_talk?.[category] || enemy?.trash_talk?.[category]
     const line = pickTrash(talk)
     if (!line) return
+    const senderName = npc?.nome || enemy?.name || '???'
     chatQueue.current = chatQueue.current.then(async () => {
       await delay(600)
-      const text = `${enemy.name}: ${line}`
+      const text = `${senderName}: ${line}`
       const typingTime = Math.min(300 + text.length * 18, 1800)
-      setLog(l => [...l, { type: 'trash', text: '__typing__', id: Date.now() + '-typing', sender: { name: enemy.name, initial: enemyInitial, side: 'enemy' } }])
+      setLog(l => [...l, { type: 'trash', text: '__typing__', id: Date.now() + '-typing', sender: { name: senderName, initial: (senderName[0] || '?').toUpperCase(), side: 'enemy' } }])
       await delay(typingTime)
       setLog(l => l.map(m => m.text === '__typing__' && m.type === 'trash' ? { ...m, text, id: Date.now() } : m))
     })
@@ -224,9 +230,10 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pDmg > 0) setDamageFloat({ value: d.pDmg, target: 'enemy' })
 
         const powerName = d.pCost > 0 ? (selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]) : null
+        const onoma = getOnomatopeia(mode)
         addLogWithDelay('attack_card', '', { name: sheet?.sheet_name, initial: playerInitial, side: 'player' }, {
           side: 'player', breakdown: d.pBreak, fd: d.pFD, dmg: d.pDmg,
-          powerName, powerBonus: d.pBonus
+          powerName, powerBonus: d.pBonus, diceRoll: d.pRoll, onoma
         })
 
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
@@ -269,8 +276,10 @@ export default function ArenaCombat({ onNavigate }) {
         setPlayerPv(nPPv)
         if (d.eDmg > 0) setDamageFloat({ value: d.eDmg, target: 'player' })
 
+        const onoma = getOnomatopeia(d.eMode)
         addLogWithDelay('attack_card', '', { name: enemy.name, initial: enemyInitial, side: 'enemy' }, {
-          side: 'enemy', breakdown: d.eBreak, fd: d.eFD, dmg: d.eDmg
+          side: 'enemy', breakdown: d.eBreak, fd: d.eFD, dmg: d.eDmg,
+          diceRoll: d.eRoll, onoma
         })
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
@@ -407,14 +416,6 @@ export default function ArenaCombat({ onNavigate }) {
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {diceOn !== null && <DiceSlot key={`d-${stepRef.current}`} finalValue={diceOn} />}
-      </AnimatePresence>
-      <AnimatePresence>
-        {onomaCurrent && (
-          <OnomaPopup key={onomaCurrent.id} word={onomaCurrent.word} onDone={() => setOnomaCurrentState(null)} />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
         {damageFloat && (
           <motion.div className={`arena-dmg-float arena-dmg-float--${damageFloat.target}`}
             initial={{ y: 0, opacity: 1 }} animate={{ y: -30, opacity: 0 }} transition={{ duration: 0.8 }}>
@@ -479,33 +480,61 @@ export default function ArenaCombat({ onNavigate }) {
                 <div className={`arena-msg-avatar ${isPlayer ? 'arena-msg-avatar--player' : 'arena-msg-avatar--enemy'}`}>
                   {isPlayer ? playerInitial : enemyInitial}
                 </div>
-                <div className={`arena-attack-card arena-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
-                  <div className="arena-attack-card-header">
-                    {isPlayer ? '⚔ ataque' : '⚔ ataque inimigo'}
-                  </div>
-                  <div className="arena-attack-card-body">
-                    <div className="arena-attack-card-row">
-                      <span className="arena-attack-card-key">FA</span>
-                      <span className="arena-attack-card-val">{l.breakdown}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  <div className={`arena-attack-card arena-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
+                    <div className="arena-attack-card-header">
+                      {isPlayer ? '⚔ ataque' : '⚔ ataque inimigo'}
                     </div>
-                    <div className="arena-attack-card-row">
-                      <span className="arena-attack-card-key">FD</span>
-                      <span className="arena-attack-card-val">{l.fd}</span>
-                    </div>
-                    {l.powerName && (
+                    <div className="arena-attack-card-body">
                       <div className="arena-attack-card-row">
-                        <span className="arena-attack-card-key">poder</span>
-                        <span className="arena-attack-card-val">⚡ {l.powerName} +{l.powerBonus}</span>
+                        <span className="arena-attack-card-key">FA</span>
+                        <span className="arena-attack-card-val">{l.breakdown}</span>
                       </div>
-                    )}
-                    <div className="arena-attack-card-divider" />
-                    <div className="arena-attack-card-damage">
-                      <span className="arena-attack-card-damage-label">dano</span>
-                      <span className={`arena-attack-card-damage-val ${l.dmg === 0 ? 'arena-attack-card-damage-val--zero' : ''}`}>
-                        {l.dmg === 0 ? 'bloqueado' : l.dmg}
-                      </span>
+                      <div className="arena-attack-card-row">
+                        <span className="arena-attack-card-key">FD</span>
+                        <span className="arena-attack-card-val">{l.fd}</span>
+                      </div>
+                      {l.diceRoll != null && (
+                        <div className="arena-attack-card-row">
+                          <span className="arena-attack-card-key">🎲</span>
+                          <span className="arena-attack-card-val" style={{ color: l.diceRoll === 6 ? '#F5A623' : '#888', fontSize: 14, fontWeight: 700 }}>
+                            {l.diceRoll}
+                          </span>
+                        </div>
+                      )}
+                      {l.powerName && (
+                        <div className="arena-attack-card-row">
+                          <span className="arena-attack-card-key">poder</span>
+                          <span className="arena-attack-card-val">⚡ {l.powerName} +{l.powerBonus}</span>
+                        </div>
+                      )}
+                      <div className="arena-attack-card-divider" />
+                      <div className="arena-attack-card-damage">
+                        <span className="arena-attack-card-damage-label">dano</span>
+                        <span className={`arena-attack-card-damage-val ${l.dmg === 0 ? 'arena-attack-card-damage-val--zero' : ''}`}>
+                          {l.dmg === 0 ? 'bloqueado' : l.dmg}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  {l.onoma && (
+                    <motion.div
+                      initial={{ scale: 0.3, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
+                      style={{
+                        textAlign: 'center',
+                        fontFamily: "'Impact','Arial Black',sans-serif",
+                        fontSize: 22,
+                        color: '#F5A623',
+                        textShadow: '2px 2px 0 #8B0000, 0 0 16px rgba(245,166,35,0.6)',
+                        letterSpacing: 3,
+                        padding: '4px 0',
+                      }}
+                    >
+                      {l.onoma}
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
             )

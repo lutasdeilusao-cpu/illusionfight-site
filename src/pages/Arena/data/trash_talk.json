@@ -1,0 +1,114 @@
+[
+  {
+    "id": "npc_arrogante_marelia",
+    "nome": "Garoto de Marelia",
+    "personalidade": "arrogante",
+    "trash_talk": {
+      "battle_start": ["olha quem resolveu aparecer 😏","você sabe com quem tá lutando né 😤","isso vai ser rápido. spoiler: não pra você 💅","já avisa pro próximo na fila 😂","minha mãe me disse pra não bater em quem não tem chance. vou ignorar 🙄"],
+      "attack_miss": ["nem encostou 💀","isso foi um ataque?? 😭","você fechou os olhos na hora? 😂","faz de novo, quero gravar 📱😂","mano você errou FEIO 😭💀"],
+      "attack_hit": ["SENTIU? 🔥","dói né 😈","tem mais vindo 👊💥","eu aviso quando parar 😏","seu HP tá chorando agora 📉😂"],
+      "take_damage": ["sorte sua 🙄","foi quase nada lol 😒","interessante... 🤨","tá bem, você tem braço 😒","esse eu não bloqueei de propósito. teste 🧪"],
+      "take_critical": ["OK ISSO DOEU 😤💢","não esperava isso ngl 😳","bom golpe. respeitei. 👏","tá bom tá bom você sabe lutar um pouco 😤","isso não vai mudar o resultado 😤🔥"],
+      "player_near_death": ["acabou pra você mano 💀💀","devia ter fugido quando teve chance 🏃‍♂️💨","quer que eu pare? 🥹","posso chamar o NeoGuide pra te ajudar 😂","já imaginou perder pra MIM 💀 que vergonha"],
+      "enemy_near_death": ["ainda não acabou NÃO 😤","tô só aquecendo juro 🔥","me subestimou hein 😏","você não vai conseguir terminar isso 😡","errou feio mano. ERROU FEIO 😤💢"]
+    }
+  },
+  {
+    "id": "npc_frio_azuma",
+    "nome": "Visitante de Azuma",
+    "personalidade": "frio",
+    "trash_talk": {
+      "battle_start": ["vamos terminar isso.","você vai entender a diferença em breve.","não vou subestimar. é respeito, não fraqueza.","eu analisei sua última luta. foi suficiente.","pode começar quando quiser. já terminei de me preparar."],
+      "attack_miss": ["erro calculado. próxima não erra.","você tem instinto. bom.","desvio eficiente. 0.3 segundos. registrado.","interessante. adaptou a trajetória.","esquiva real ou reação de pânico? vou descobrir."],
+      "attack_hit": ["conforme esperado.","ponto de impacto correto.","dano aplicado. continue.","você vai sentir esse amanhã.","estrutura cedeu como previsto."],
+      "take_damage": ["dano recebido. ajustando.","você encontrou uma abertura. não vai encontrar duas.","eficiente. anoto.","isso foi bom. não repete.","interessante escolha de alvo."],
+      "take_critical": ["...recalculando.","você me surpreendeu. não é fácil.","esse não estava no modelo.","registrado. não acontece de novo.","força real. diferente do vídeo."],
+      "player_near_death": ["não precisa continuar.","você lutou com técnica. descanse.","a diferença de nível está clara agora.","sua postura ainda está boa. mas acabou.","encerra aqui. sem desonra."],
+      "enemy_near_death": ["você é melhor do que os dados indicavam.","preciso de mais informação. continue.","boa. mas ainda não chega.","interessante. você pode ser um problema futuro.","ajustando estratégia. agora termina."]
+    }
+  },
+  {
+    "id": "npc_caotico_sdr",
+    "nome": "Jogador Caótico do SDR",
+    "personalidade": "caótico",
+    "trash_talk": {
+      "battle_start": ["NÃO ACREDITO QUE VOCÊ ACEITOU LUTAR COMIGO 😭🔥","cara eu precisava de uma luta AGORA e você apareceu que sorte 😂","aviso: eu não tenho estratégia. isso te assusta mais do que deveria 😈","meu NeoGuide disse pra eu não lutar hoje. não ouvi 🥴","tô no modo caos total. boa sorte pra mim também 😭😂"],
+      "attack_miss": ["ESPERA ISSO NÃO ERA PRA ERRAR 😭","o lag ou eu errei mesmo?? 🤔","faz de conta que foi de propósito 😂","eu vi uma borboleta e perdi o foco juro 🦋😭","PRÓXIMA EU ACERTO JURO POR TUDO 😤"],
+      "attack_hit": ["EU ACERTEI?? EU ACERTEI!! 🎉😭","OLHA SÓ MÃE 😂🔥","toma isso!! e isso!! e mais um pouco!! 💥💥💥","NÃO ACREDITO QUE FUNCIONOU 😱🔥","seu HP caiu. MEU SONHO 😭💕"],
+      "take_damage": ["VALEU PELA DICA DE ONDE DÓI 😭","isso foi necessário?? foi necessário??? 😤","okay OKAY eu senti 😤💢","você achou mesmo que fosse machucar?? (doeu muito) 😭","tô bem tô bem tô definitivamente não tô bem 😮‍💨"],
+      "take_critical": ["AMIGO?? 😱💀","isso foi um crítico?? ISSO FOI UM CRÍTICO?? 😭😭","okay você tem meu respeito e meu ódio simultâneo 😤👏","minha avó acertou mais suave que isso 💀","REGISTRANDO TRAUMA 🧠💥"],
+      "player_near_death": ["NÃO DESISTE AINDA EU PRECISO DA LUTA 😭","você ainda tá de pé?? respeito máximo mano 🫡","fica mais um round por favor eu tô me divertindo 🥹","já que vai perder pelo menos cai com estilo 💅","tchau 😭✋ foi bom enquanto durou"],
+      "enemy_near_death": ["NÃO AGORA NÃO 😭😭","como você tá ainda de pé?????? 😱","meu plano era diferente isso não devia estar acontecendo 😤","RECALCULANDO RECALCULANDO 🔄😤","tá bom você é bom. eu odeio você. respeito. odeio. 😤💕"]
+    }
+  },
+  {
+    "id": "npc_veterano_ranqueado",
+    "nome": "Veterano do Ranking",
+    "personalidade": "veterano",
+    "trash_talk": {
+      "battle_start": ["quantas lutas você tem? sério, perguntando. 🤔","tudo bem perder pra alguém mais experiente. faz parte 😌","já vi esse estilo antes. sei como termina. 😏","você tem potencial. hoje não é seu dia. 😤","o ranking não mente. mas às vezes surpreende 😌"],
+      "attack_miss": ["bom reflexo pra sua experiência 👏","você leu o ângulo. impressionante pra um novato 😌","desvio inteligente. mas eu aprendo 🧠","errei. acontece. uma vez 😒","você vai contar pra todo mundo que desviou de mim né 😂"],
+      "attack_hit": ["técnica primeiro, força depois 💪","você vai entender o padrão quando for tarde demais 😏","dano acumulado. é assim que se vence 📊","cada golpe tem propósito. esse tinha três 😌","aprende com isso 🧠"],
+      "take_damage": ["você tem mais do que parece 😌","bom golpe. notei 👏","isso me custou algo. não acontece duas vezes 😤","você tem instinto, não só técnica. raro 🧠","okay. você é melhor do que eu esperava 😒"],
+      "take_critical": ["você me pegou. dou crédito 🫡","isso não estava no meu mapa de batalha. registrado 📋","parabéns. genuinamente 👏","seu timing nesse golpe foi perfeito. aprende isso, não esquece 🧠","há quanto tempo você treina isso? 🤔"],
+      "player_near_death": ["você lutou bem pra sua posição no ranking 😌","próxima vez você vai mais longe. isso é sério, não condescendência 🫡","não desiste ainda não. termina de pé 😤","a derrota ensina mais que a vitória. vai aprender muito hoje 🧠","respeito pela resistência. sério 👏"],
+      "enemy_near_death": ["você é melhor do que meu histórico de adversários sugeria 😤","precisei usar mais do que planejava. isso é raro 😌","você pode chegar longe nesse jogo. hoje não, mas pode 🧠","não esperava que durasse até aqui. erro meu de análise 😒","isso foi uma luta de verdade. obrigado por isso 🫡"]
+    }
+  },
+  {
+    "id": "npc_provocador_bravara",
+    "nome": "Provocador de Bravara",
+    "personalidade": "provocador",
+    "trash_talk": {
+      "battle_start": ["você pagou pra entrar no SDR e chegou até aqui. corajoso ou burro 😂","já vi seu histórico. não é intimidador 😏","tem gente na fila esperando essa sala. não demoro 😂","você tem cara de quem nunca chegou no top 10k 😏","não é pessoal. é só que você vai perder 😂"],
+      "attack_miss": ["você se esquivou?? VOCÊ SE ESQUIVOU?? ok respeito mínimo 😤","foi sorte. próxima eu to ligado 😒","tá bom, você se move. que novidade 🙄","quase. dói mais quando quase acerta, sabia? 😂","okay isso foi um erro meu. anota aí, não acontece mais 😤"],
+      "attack_hit": ["era pra doer mais mas já tá bom 😂","você vai sentir isso amanhã quando acordar 😈","toma! e mais um! generoso né? 😂💥","seu HP tá reclamando de mim 📉😂","olha o dano. olha. olha. 😂🔥"],
+      "take_damage": ["foi mal, errei o bloqueio 😒","você tem sorte que eu to de boa hoje 🙄","okay isso foi ok 😤","acertou. parabéns. foi seu momento do dia 😂","aproveita porque não rola mais 😏"],
+      "take_critical": ["ISSO NÃO VAI NO HISTÓRICO NÃO 😤💢","você tava guardando isso?? safado 😂","ok tá bom você tem um golpe bom. UM 😤","isso doeu no avatar E no ego 😭","não fala pra ninguém 😤"],
+      "player_near_death": ["já acabou vai 😂","posso parar quando você quiser admitir que perdeu 😏","imagina explicar essa derrota no fórum 💀😂","seu ranking vai cair bonito hoje 📉😂","não precisa de KO, você já perdeu lá atrás 😏"],
+      "enemy_near_death": ["ESPERA ESPERA como você tá assim 😤","você não devia ter chegado até aqui pelo histórico 😠","tá bom, você é melhor do que parece. FELIZ? 😤","isso não vai pro meu resumo de luta de jeito nenhum 😭","eu não tô perdendo. tô testando você. é diferente 😤"]
+    }
+  },
+  {
+    "id": "npc_mistico_xakaxi",
+    "nome": "Descendente Xakaxi",
+    "personalidade": "místico",
+    "trash_talk": {
+      "battle_start": ["a arena sente o que você traz antes de você chegar 🌑","você veio até aqui. o resto não é escolha sua 🔥","cada luta é um ciclo. esse já começou antes de você perceber 🌀","eu não luto contra você. luto com o que você representa 🌑","você vai entender no final. ou não. também tá tudo certo 🔥"],
+      "attack_miss": ["você se moveu certo. mas por razão errada 🌑","o espaço entre nós também luta 🌀","esquiva. mas você está mais perto do que percebe 🔥","o erro foi meu. o próximo não será 🌑","você desviu de onde eu estava. não de onde vou estar 🌀"],
+      "attack_hit": ["sentiu? não é só dano 🔥","o golpe já havia chegado antes de sair 🌑","isso ficará com você por um tempo 🌀","cada impacto conta uma história diferente 🔥","você vai entender o padrão quando for tarde 🌑"],
+      "take_damage": ["bom. você tem presença real 🔥","a dor confirma que a luta é verdadeira 🌑","você encontrou uma abertura que eu deixei ou que existia sozinha? 🌀","interessante. você ataca como quem conhece o alvo 🔥","isso chegou de um lugar que não vi vir. respeito 🌑"],
+      "take_critical": ["...você tem algo além da técnica 🔥","esse golpe veio de um lugar diferente 🌑","você me surpreendeu no sentido que importa 🌀","há algo em você que ainda não acordou completamente 🔥","o ancestral no seu sangue se manifestou nesse golpe 🌑"],
+      "player_near_death": ["você ainda está aqui. isso é tudo que importa agora 🌑","cair não é o fim de nada. só de uma coisa 🌀","a luta já te ensinou o que precisava 🔥","você lutou com o que tem. é o que se pede 🌑","o ciclo fecha aqui por hoje 🌀"],
+      "enemy_near_death": ["você forçou algo que não esperava precisar 🔥","o ciclo ainda não fechou. continue 🌑","você tem mais do que seu ranking mostra 🌀","você me fez recalcular o que trago pra arena 🔥","isso não termina como eu previa. melhor assim 🌑"]
+    }
+  },
+  {
+    "id": "npc_hacker_sdr",
+    "nome": "Hacker do SDR",
+    "personalidade": "hacker",
+    "trash_talk": {
+      "battle_start": ["já analisei seus últimos doze rounds antes de aceitar a luta 🖥️","seus padrões de ataque foram catalogados. bem-vindo à desvantagem 💻😏","eu sei o que você vai fazer antes de você decidir 🖥️😈","você aceitou a luta sem ler os termos. clássico 💻😂","sistema iniciado. previsão de duração: curta 🖥️"],
+      "attack_miss": ["variável inesperada. atualizo o modelo 🖥️","você fez algo fora do padrão catalogado. interessante 💻🤔","erro de predição. 0.4% de chance. parabéns 🖥️😒","a esquiva não estava no dataset. registro feito 💻","você quebrou meu padrão por um segundo. só um 🖥️😏"],
+      "attack_hit": ["dano aplicado conforme cálculo 💻","vulnerabilidade explorada com sucesso 🖥️😈","o sistema não falha quando os dados estão corretos 💻🔥","erro encontrado no seu código de combate 🖥️😂","patch note: você levou dano 💻😂"],
+      "take_damage": ["dado registrado. ajustando defesa 🖥️","você encontrou uma falha não documentada 💻😒","isso não estava nos logs de análise. curioso 🖥️🤔","firewall parcial. reviso a configuração 💻","input inesperado. processando 🖥️"],
+      "take_critical": ["EXCEÇÃO NÃO TRATADA 💻🚨","você... saiu completamente do modelo 🖥️😳","isso vai exigir reconstrução do dataset inteiro 💻💢","o sistema não previu isso. e é um problema sério 🖥️","parabéns. você encontrou um bug no meu algoritmo 💻👏"],
+      "player_near_death": ["sequência de encerramento iniciada 🖥️","HP crítico detectado. recomendo rendição 💻😏","log de derrota sendo preparado 🖥️😈","você vai aparecer no meu histórico de análise como anomalia resolvida 💻","sistema adversário em colapso. confirmado 🖥️"],
+      "enemy_near_death": ["você foi além do previsto. recalculo tudo 🖥️😤","dados insuficientes para esta situação. improviso 💻😤","você quebrou o modelo. isso é impressionante e irritante 🖥️","o dataset estava incompleto. sua culpa por ser imprevisível 💻😤","sistema em estado crítico. mas ainda funcional 🖥️😤"]
+    }
+  },
+  {
+    "id": "npc_nordico_karnazar",
+    "nome": "Lutador de Karnazar",
+    "personalidade": "nordico",
+    "trash_talk": {
+      "battle_start": ["Karnazar manda os seus melhores. você vai sentir isso 💪","a distância que percorri pra essa luta já vale mais do que você 😤","os de Karnazar não recuam. aprende 😠","você sabe o que vem de Karnazar né? então sabe o que vai acontecer 😤","arena ou rua, é tudo igual quando você é de Karnazar 💪"],
+      "attack_miss": ["você recuou. certo 😒","inteligente. mas inteligência não vence força 😤","bom desvio. ruim posicionamento 💪","você está longe porque tem medo. justo 😠","errei por subestimar. não erro duas vezes 😤"],
+      "attack_hit": ["KARNAZAR 💪😤","você sentiu o peso do norte 😠","em Karnazar a gente chama isso de boa manhã 😂💪","isso foi um golpe de brincadeira. próximo é sério 😤","a arena tremeu um pouco? não? pareceu que tremeu 💪😂"],
+      "take_damage": ["você tem braço 💪","isso eu senti. bom pra você 😤","em Karnazar a gente recebe pior no treino 😒","você tem força de verdade. respeito parcial 😤","mais uma vez. quero ver se aguenta a resposta 😠"],
+      "take_critical": ["CARAMBA 😤💢","você tem algo de Karnazar no braço 💪","esse eu não esperava de alguém de fora 😳","tá bom. você luta de verdade 💪😤","respeito total agora. não muda o resultado 😤"],
+      "player_near_death": ["fica de pé. não aceito vitória sobre alguém no chão 😤","você lutou com honra. isso conta em Karnazar 💪","não desiste ainda. me decepciona 😠","a queda é parte da luta. levanta e cai de novo se precisar 💪","em Karnazar ninguém fica no chão antes de tentar mais três vezes 😤"],
+      "enemy_near_death": ["você foi longe demais pra alguém que não é de Karnazar 😤","eu precisei de tudo. isso não acontece sempre 💪","você tem garra nórdica sem ter nascido lá 😳","a arena te respeitou hoje. e eu também 💪","isso foi uma luta de verdade. Karnazar aprova 😤💪"]
+    }
+  }
+]
