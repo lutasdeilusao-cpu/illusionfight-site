@@ -12,7 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.5.4'
+const PP_VERSION = '1.5.5'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -1120,20 +1120,8 @@ export default function PP() {
       const fios = getFiosPistas()
       return (
         <div className="pp-caderno">
-          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>CADERNO DE SUSPEITAS</div>
-          {fios.length === 0
-            ? <div className="pp-caderno-empty">"ainda não sei quem é.<br />mas cada pista liga um ponto a outro."</div>
-            : fios.map(({ pista, caso }) => (
-              <div key={pista.id} className="pp-caderno-node" onClick={() => setStoryAtivo(pista)} style={{ cursor:'pointer' }}>
-                <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
-                <div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div>
-                <div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div>
-              </div>
-            ))
-          }
-
-          <div className="pp-dossier-section-title" style={{ marginTop:'2rem', marginBottom:'1rem' }}>STATUS</div>
-          <div style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>STATUS</div>
+          <div style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem', marginBottom:'1.5rem' }}>
             <div>
               <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-amber)', fontFamily:'Courier New' }}>{reputacao}</div>
               <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>REPUTAÇÃO</div>
@@ -1151,6 +1139,18 @@ export default function PP() {
               <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>FIOS DA CONSPIRAÇÃO</div>
             </div>
           </div>
+
+          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>CADERNO DE SUSPEITAS</div>
+          {fios.length === 0
+            ? <div className="pp-caderno-empty">"ainda não sei quem é.<br />mas cada pista liga um ponto a outro."</div>
+            : fios.map(({ pista, caso }) => (
+              <div key={pista.id} className="pp-caderno-node" onClick={() => setStoryAtivo(pista)} style={{ cursor:'pointer' }}>
+                <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
+                <div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div>
+                <div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div>
+              </div>
+            ))
+          }
         </div>
       )
     }
