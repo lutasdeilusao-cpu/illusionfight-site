@@ -790,6 +790,37 @@
   .arena-combat-side { clip-path: none; }
   .arena-combat-enemy { clip-path: none; }
   .arena-mode-btns { flex-wrap: wrap; }
-  .arena-container { padding: 0 12px; }
+  .arena-container { padding: 0; }
   .arc-intro-grid { flex-direction: column; }
+
+  .arena-fighter-strip { padding: 10px 12px 8px; gap: 8px; }
+  .arena-fighter-avatar { width: 36px; height: 36px; font-size: 15px; }
+  .arena-fighter-name { font-size: 12px; margin-bottom: 3px; }
+  .arena-fighter-bar-row { gap: 4px; }
+  .arena-fighter-bar-label { width: 16px; font-size: 8px; }
+  .arena-fighter-bar-val { font-size: 8px; min-width: 24px; }
+  .arena-fighter-bar-track { height: 5px; }
+
+  .arena-vs-bar { padding: 3px 12px; gap: 8px; }
+  .arena-vs-bar-label { font-size: 9px; }
+  .arena-vs-bar-back { font-size: 9px; }
+
+  .arena-log-area {
+    flex: 1;
+    padding: 8px 10px;
+    max-height: none;
+    min-height: 0;
+    gap: 6px;
+  }
+  .arena-bubble { max-width: 82%; font-size: 11px; padding: 6px 10px; }
+  .arena-attack-card { max-width: 88%; }
+  .arena-attack-card-damage-val { font-size: 18px; }
+  .arena-msg-wrap { gap: 6px; }
+  .arena-msg-avatar { width: 24px; height: 24px; font-size: 10px; }
+
+  .arena-actions-bar { padding: 8px 12px 12px; gap: 6px; }
+  .arena-mode-btn { padding: 5px 10px; font-size: 10px; }
+  .arena-attack-btn { padding: 10px; font-size: 12px; letter-spacing: 4px; }
+  .arena-btn-flee { padding: 6px 10px; font-size: 10px; }
+  .arena-power-btn { padding: 5px 10px; font-size: 10px; }
 }
