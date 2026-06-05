@@ -67,6 +67,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar }) {
           status={store.status}
           estagio={store.estagio}
           criaturas={CRIATURAS}
+          acao={store.subFase}
         />
 
         <div className="tama-metricas">
