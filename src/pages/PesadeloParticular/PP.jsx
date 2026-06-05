@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.12'
+const PP_VERSION = '1.5.13'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -880,10 +880,17 @@ export default function PP() {
     setAppFase('intro')
   }
 
-  const casosDisponiveis = CASOS.filter(c =>
+  const casosDesbloqueados = CASOS.filter(c =>
     c.desbloqueado ||
     casosResolvidos.some(r => CASOS.find(cc => cc.id === r)?.desbloqueia?.includes(c.id))
   )
+
+  const casosNaoResolvidosDisponiveis = casosDesbloqueados.filter(c => !casosResolvidos.includes(c.id))
+  const proximoCasoDisponivel = casosNaoResolvidosDisponiveis.length > 0 ? [casosNaoResolvidosDisponiveis[0]] : []
+  const casosDisponiveis = [
+    ...CASOS.filter(c => casosResolvidos.includes(c.id)),
+    ...proximoCasoDisponivel
+  ]
 
   const getPistasDoCase = (casoId) => pistasColetadas[casoId] || []
 
@@ -913,9 +920,14 @@ export default function PP() {
 
   const handleAcusar = () => {
     if (!suspeitoSelecionado || !casoAtivo) return
+    const pistas = getPistasDoCase(casoAtivo.id)
+    if (pistas.length < casoAtivo.pistas_necessarias) {
+      setFeedbackAcusacao('incompleto')
+      setTimeout(() => setFeedbackAcusacao(null), 2500)
+      return
+    }
     const suspeito = casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)
     if (suspeito?.culpado) {
-      const pistas = getPistasDoCase(casoAtivo.id)
       const erros = store.acusacoesErradas[casoAtivo.id] || 0
       const bonus = erros === 0 && pistas.length === casoAtivo.pistas.length ? 1.2 : erros >= 2 ? 0.4 : erros === 1 ? 0.7 : 1
       const reputationGanho = Math.round(casoAtivo.reputacao_ganho * bonus)
@@ -1066,6 +1078,11 @@ export default function PP() {
                   caso fracassado. reinicie para tentar novamente.
                 </div>
               )}
+              {feedbackAcusacao === 'incompleto' && (
+                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                  complete todas as pistas antes de acusar.
+                </div>
+              )}
               <button className="pp-acusar-btn"
                 disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias || feedbackAcusacao === 'bloqueado'}
                 onClick={handleAcusar}>
@@ -1130,11 +1147,9 @@ export default function PP() {
                   <div className="pp-caso-action-btn"><span>💬</span> {caso.dialogo?.abertura?.length || 0}</div>
                   <div className="pp-caso-action-btn"><span>🔍</span> {getPistasDoCase(caso.id).length}/{caso.pistas_necessarias}</div>
                   <span className="pp-caso-hashtag">#{cInfo.nome.replace(/\s/g,'')}</span>
-                  {!resolvido && (
-                    <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo:'dossier' }); setSuspeitoSelecionado(null) }}>
-                      INVESTIGAR
-                    </button>
-                  )}
+                  <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo:'dossier' }); setSuspeitoSelecionado(null) }}>
+                    {resolvido ? 'REVISITAR' : 'INVESTIGAR'}
+                  </button>
                 </div>
               </div>
             )
