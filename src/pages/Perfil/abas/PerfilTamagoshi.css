@@ -213,3 +213,69 @@
   border: 1px solid #E0202033;
   background: #E0202011;
 }
+
+/* ===== Salão da Fama + Badges ===== */
+.perfil-tama-secao {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.perfil-tama-secao-title {
+  font-size: 0.8rem;
+  color: #00B4D8;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.perfil-tama-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.perfil-tama-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 20px;
+  font-size: 0.7rem;
+}
+.perfil-tama-badge-emoji {
+  font-size: 1rem;
+}
+.perfil-tama-badge-nome {
+  color: #888;
+}
+.perfil-tama-badge-criatura {
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+}
+.perfil-tama-fama-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.perfil-tama-fama-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  background: #111;
+  border: 1px solid #F5A62322;
+  border-radius: 8px;
+}
+.perfil-tama-fama-emoji {
+  font-size: 1.8rem;
+}
+.perfil-tama-fama-nome {
+  font-size: 0.8rem;
+  color: #F5A623;
+  font-weight: bold;
+  flex: 1;
+}
+.perfil-tama-fama-badges {
+  font-size: 0.65rem;
+  color: #666;
+}

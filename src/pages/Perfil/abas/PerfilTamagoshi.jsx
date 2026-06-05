@@ -5,6 +5,7 @@ import { useNotificationStore } from '../../../store/notificationStore'
 import { supabase } from '../../../lib/supabase'
 import { PERSONALIDADES, getFala } from '../../Tamagoshi/data/personalidades'
 import { CRIATURAS } from '../../Tamagoshi/data/criaturas'
+import { BADGES } from '../../Tamagoshi/data/moedas'
 import './PerfilTamagoshi.css'
 
 export default function PerfilTamagoshi() {
@@ -23,6 +24,9 @@ export default function PerfilTamagoshi() {
   const [propondo, setPropondo] = useState(false)
   const [confirmando, setConfirmando] = useState(false)
 
+  const [fama, setFama] = useState([])
+  const [badges, setBadges] = useState([])
+
   const carregarTama = useCallback(async () => {
     if (!user) return
     setCarregando(true)
@@ -33,6 +37,21 @@ export default function PerfilTamagoshi() {
       .eq('slot', 1)
       .maybeSingle()
     setTama(data)
+
+    const { data: famaData } = await supabase
+      .from('tamagoshi_fama')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+    setFama(famaData || [])
+
+    const { data: badgeData } = await supabase
+      .from('tamagoshi_badges')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+    setBadges(badgeData || [])
+
     setCarregando(false)
   }, [user])
 
@@ -160,6 +179,43 @@ export default function PerfilTamagoshi() {
             </div>
           )}
         </>
+      )}
+
+      {badges.length > 0 && (
+        <div className="perfil-tama-secao">
+          <span className="perfil-tama-secao-title">🏅 badges conquistadas</span>
+          <div className="perfil-tama-badges-grid">
+            {badges.map(b => {
+              const badgeEntry = Object.values(BADGES).find(bv => bv.id === b.badge_id)
+              const c = CRIATURAS.find(cr => cr.id === b.criatura_id)
+              return (
+                <div key={b.id} className="perfil-tama-badge-item" title={badgeEntry?.nome || b.badge_id}>
+                  <span className="perfil-tama-badge-emoji">{badgeEntry?.emoji || '🏅'}</span>
+                  <span className="perfil-tama-badge-nome">{badgeEntry?.nome || b.badge_id}</span>
+                  {c && <span className="perfil-tama-badge-criatura">{c.emoji}</span>}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {fama.length > 0 && (
+        <div className="perfil-tama-secao">
+          <span className="perfil-tama-secao-title">🏛️ salão da fama</span>
+          <div className="perfil-tama-fama-grid">
+            {fama.map(f => {
+              const c = CRIATURAS.find(cr => cr.id === f.criatura_id)
+              return (
+                <div key={f.id} className="perfil-tama-fama-card">
+                  <span className="perfil-tama-fama-emoji">{c?.emoji || '✨'}</span>
+                  <span className="perfil-tama-fama-nome">{f.nome_custom || 'sem nome'}</span>
+                  <span className="perfil-tama-fama-badges">{f.badges?.length || 0} badges</span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       )}
     </div>
   )

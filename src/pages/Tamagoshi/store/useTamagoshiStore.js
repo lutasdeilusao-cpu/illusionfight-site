@@ -1,8 +1,9 @@
-const TAMA_VERSION = '1.2.1'
+const TAMA_VERSION = '1.3.0'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
+import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA } from '../data/moedas'
 
 const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2 }
 const CRITICO_EM_HORAS = 24
@@ -57,6 +58,11 @@ const defaultState = {
   _ultimoUpdate: Date.now(), _criticoDesde: null, _ultimoLogin: Date.now(),
   _userId: null, _slot: 1,
   adminFastMode: false,
+  inventario: {},
+  flags: {},
+  _dixSaldo: 0,
+  _ultimoLoginDix: null,
+  _faseAtual: null,
 }
 
 function cacheLocal(state) {
@@ -177,6 +183,8 @@ export const useTamagoshiStore = create((set, get) => ({
       nascido_em: state.nascidoEm ? new Date(state.nascidoEm).toISOString() : null,
       status: state.status, cooldown_ate: state.cooldownAte ? new Date(state.cooldownAte).toISOString() : null,
       updated_at: new Date().toISOString(), version: TAMA_VERSION,
+      inventario: state.inventario || {},
+      flags: state.flags || {},
     }
     const { error } = await supabase.from('tamagoshi_saves').upsert(payload, { onConflict: 'user_id,slot' })
     if (error) console.error('[TAMA] save error:', error)
@@ -208,10 +216,20 @@ export const useTamagoshiStore = create((set, get) => ({
         diasPerfeitoStreak: data.dias_perfeito_streak || 0,
         nascidoEm: data.nascido_em ? new Date(data.nascido_em).getTime() : null,
         status: data.status, cooldownAte: data.cooldown_ate ? new Date(data.cooldown_ate).getTime() : null,
+        inventario: data.inventario || {},
+        flags: data.flags || {},
         _ultimoUpdate: Date.now(), _userId: userId, _slot: slot,
       }
       set(mapped)
       get().calcularDecaimento()
+      get().getSaldoDix(userId)
+      const faseAtual = calcularFase(mapped.nascidoEm)
+      if (faseAtual === 'partida' && mapped.status !== 'partida') {
+        set({ fase: 'partida' })
+      } else if (faseAtual !== 'ovo' && faseAtual !== mapped._faseAtual) {
+        get().verificarBadge(userId, faseAtual)
+        set({ _faseAtual: faseAtual })
+      }
       cacheLocal(get())
       return mapped
     }
@@ -238,6 +256,140 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   toggleAdminFastMode: () => set(state => ({ adminFastMode: !state.adminFastMode })),
+
+  // === DIX SYSTEM ===
+
+  getSaldoDix: async (userId) => {
+    const uid = userId || get()._userId
+    if (!uid) return 0
+    const { data } = await supabase.from('dix_wallet').select('saldo').eq('user_id', uid).maybeSingle()
+    const saldo = data?.saldo ?? 0
+    set({ _dixSaldo: saldo })
+    return saldo
+  },
+
+  ganharDix: async (userId, valor, motivo) => {
+    const uid = userId || get()._userId
+    if (!uid) return
+    const atual = await get().getSaldoDix(uid)
+    const novo = atual + valor
+    const { error } = await supabase.from('dix_wallet').upsert(
+      { user_id: uid, saldo: novo, updated_at: new Date().toISOString() },
+      { onConflict: 'user_id' }
+    )
+    if (error) { console.error('[DIX] ganhar error:', error); return }
+    await supabase.from('dix_historico').insert({ user_id: uid, valor, motivo })
+    set({ _dixSaldo: novo })
+  },
+
+  gastarDix: async (userId, valor, motivo) => {
+    const uid = userId || get()._userId
+    if (!uid) throw new Error('usuário não autenticado')
+    const atual = await get().getSaldoDix(uid)
+    if (atual < valor) throw new Error('DIX insuficiente')
+    const novo = atual - valor
+    const { error } = await supabase.from('dix_wallet').upsert(
+      { user_id: uid, saldo: novo, updated_at: new Date().toISOString() },
+      { onConflict: 'user_id' }
+    )
+    if (error) { console.error('[DIX] gastar error:', error); throw new Error('erro ao gastar DIX') }
+    await supabase.from('dix_historico').insert({ user_id: uid, valor: -valor, motivo })
+    set({ _dixSaldo: novo })
+  },
+
+  coletarDixDiario: async (userId) => {
+    const uid = userId || get()._userId
+    if (!uid) return false
+    const flags = get().flags || {}
+    const hoje = new Date().toDateString()
+    if (flags._dixHoje === hoje) return false
+    await get().ganharDix(uid, DIX_LOGIN_DIARIO, 'login diário')
+    const novasFlags = { ...get().flags, _dixHoje: hoje }
+    set({ _ultimoLoginDix: Date.now(), flags: novasFlags })
+    await supabase.from('tamagoshi_saves').update({ flags: novasFlags })
+      .eq('user_id', uid).eq('slot', get()._slot || 1)
+    return true
+  },
+
+  // === INVENTORY ===
+
+  comprarItem: async (userId, itemId, preco) => {
+    const uid = userId || get()._userId
+    if (!uid) throw new Error('usuário não autenticado')
+    await get().gastarDix(uid, preco, `compra: ${itemId}`)
+    const inv = { ...(get().inventario || {}) }
+    inv[itemId] = (inv[itemId] || 0) + 1
+    set({ inventario: inv })
+    await supabase.from('tamagoshi_saves').update({ inventario: inv })
+      .eq('user_id', uid).eq('slot', get()._slot || 1)
+  },
+
+  consumirItem: async (itemId) => {
+    const inv = { ...(get().inventario || {}) }
+    if (!inv[itemId] || inv[itemId] <= 0) throw new Error('item não disponível no inventário')
+    inv[itemId]--
+    if (inv[itemId] <= 0) delete inv[itemId]
+    set({ inventario: inv })
+    const uid = get()._userId
+    if (uid) {
+      await supabase.from('tamagoshi_saves').update({ inventario: inv })
+        .eq('user_id', uid).eq('slot', get()._slot || 1)
+    }
+  },
+
+  // === LIFECYCLE ===
+
+  verificarFase: () => {
+    const state = get()
+    if (!state.nascidoEm) return 'ovo'
+    const fase = calcularFase(state.nascidoEm)
+    if (fase === 'partida') {
+      set({ fase: 'partida' })
+    }
+    return fase
+  },
+
+  verificarBadge: async (userId, fase) => {
+    const uid = userId || get()._userId
+    if (!uid) return
+    const badge = BADGES[fase]
+    if (!badge) return
+    const { data: existente } = await supabase.from('tamagoshi_badges')
+      .select('id').eq('user_id', uid).eq('badge_id', badge.id).maybeSingle()
+    if (existente) return
+    await supabase.from('tamagoshi_badges').insert({
+      user_id: uid, criatura_id: get().criaturaId, badge_id: badge.id,
+    })
+    return badge
+  },
+
+  executarPartida: async (userId) => {
+    const uid = userId || get()._userId
+    if (!uid) return
+    const state = get()
+    const { data: badges } = await supabase.from('tamagoshi_badges')
+      .select('badge_id').eq('user_id', uid).eq('criatura_id', state.criaturaId)
+    const badgeIds = (badges || []).map(b => b.badge_id)
+    await supabase.from('tamagoshi_fama').insert({
+      user_id: uid, criatura_id: state.criaturaId,
+      nome_custom: state.nomeCustom, fase_final: 'anciao',
+      badges: badgeIds,
+    })
+    const badge = BADGES.partida
+    const { data: existente } = await supabase.from('tamagoshi_badges')
+      .select('id').eq('user_id', uid).eq('badge_id', badge.id).maybeSingle()
+    if (!existente) {
+      await supabase.from('tamagoshi_badges').insert({
+        user_id: uid, criatura_id: state.criaturaId, badge_id: badge.id,
+      })
+    }
+    set({
+      status: 'partida', fase: 'partida', fome: 0, higiene: 0, energia: 0, humor: 0,
+    })
+    await supabase.from('tamagoshi_saves').update({
+      status: 'partida', fome: 0, higiene: 0, energia: 0, humor: 0,
+    }).eq('user_id', uid).eq('slot', state._slot || 1)
+  },
 
   // === TRADE SYSTEM ===
 

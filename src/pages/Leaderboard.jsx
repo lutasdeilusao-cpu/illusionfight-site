@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabase'
 import LoginGate from '../components/LoginGate/LoginGate'
 import './Leaderboard.css'
 
@@ -31,8 +32,61 @@ export default function Leaderboard() {
   const { user, perfil } = useAuth()
   const [aba, setAba] = useState('toptrumps')
 
+  const [cuidadores, setCuidadores] = useState([])
+  const [carregandoFama, setCarregandoFama] = useState(false)
+
+  useEffect(() => {
+    if (aba !== 'cuidadores' || cuidadores.length > 0) return
+    setCarregandoFama(true)
+    const carregar = async () => {
+      const { data: fama } = await supabase
+        .from('tamagoshi_fama')
+        .select('*')
+      if (!fama) { setCarregandoFama(false); return }
+      const { data: badges } = await supabase
+        .from('tamagoshi_badges')
+        .select('*')
+      const badgeCount = {}
+      ;(badges || []).forEach(b => {
+        badgeCount[b.user_id] = (badgeCount[b.user_id] || 0) + 1
+      })
+      const userCount = {}
+      fama.forEach(f => {
+        if (!userCount[f.user_id]) {
+          userCount[f.user_id] = { partidas: 0, badges: badgeCount[f.user_id] || 0, nomes: new Set() }
+        }
+        userCount[f.user_id].partidas++
+        if (f.nome_custom) userCount[f.user_id].nomes.add(f.nome_custom)
+      })
+      const userIds = Object.keys(userCount)
+      const { data: profiles } = await supabase
+        .from('profiles')
+        .select('id, nome')
+        .in('id', userIds)
+      const profileMap = {}
+      ;(profiles || []).forEach(p => { profileMap[p.id] = p.nome })
+      const ranked = Object.entries(userCount)
+        .map(([uid, info]) => ({
+          userId: uid,
+          nome: profileMap[uid] || uid.slice(0, 8),
+          iniciais: (profileMap[uid] || '?')[0].toUpperCase(),
+          partidas: info.partidas,
+          badges: info.badges,
+        }))
+        .sort((a, b) => b.partidas - a.partidas || b.badges - a.badges)
+        .slice(0, 50)
+        .map((j, i) => ({ ...j, pos: i + 1 }))
+      setCuidadores(ranked)
+      setCarregandoFama(false)
+    }
+    carregar()
+  }, [aba])
+
   const top3 = ranking.slice(0, 3)
   const restante = ranking.slice(3)
+
+  const cuidadoresTop3 = cuidadores.slice(0, 3)
+  const cuidadoresRest = cuidadores.slice(3)
 
   return (
     <section className="lb-page">
@@ -40,47 +94,98 @@ export default function Leaderboard() {
       <p className="lb-sub">Os melhores jogadores de Top Trumps do universo LDI</p>
 
       <div className="lb-abas">
-        {['toptrumps', 'quiz', 'geral'].map(a => (
+        {['toptrumps', 'quiz', 'geral', 'cuidadores'].map(a => (
           <button
             key={a}
             className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`}
             onClick={() => setAba(a)}
           >
-            {a === 'toptrumps' ? 'TOP TRUMPS' : a === 'quiz' ? 'QUIZ SDR' : 'GERAL'}
-            {a !== 'toptrumps' && <span className="lb-breve">EM BREVE</span>}
+            {a === 'toptrumps' ? 'TOP TRUMPS' : a === 'quiz' ? 'QUIZ SDR' : a === 'geral' ? 'GERAL' : 'CUIDADORES'}
+            {(a === 'quiz' || a === 'geral') && <span className="lb-breve">EM BREVE</span>}
           </button>
         ))}
       </div>
 
       <LoginGate feature="o ranking da arena">
-        <div className="lb-podium">
-          {[top3[1], top3[0], top3[2]].map((j, i) => (
-            <div key={j.pos} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
-              <div className="lb-podium-pos">#{j.pos}</div>
-              <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
-              <div className="lb-podium-nome">{j.nome}</div>
-              <div className="lb-podium-pontos">{j.pontos} pts</div>
+        {aba === 'cuidadores' ? (
+          carregandoFama ? (
+            <p className="lb-sub">CARREGANDO...</p>
+          ) : cuidadores.length === 0 ? (
+            <p className="lb-sub">Nenhum cuidador registrado ainda. Adote um Tamagoshi!</p>
+          ) : (
+            <>
+              <div className="lb-podium">
+                {[cuidadoresTop3[1], cuidadoresTop3[0], cuidadoresTop3[2]].filter(Boolean).map((j, i) => (
+                  <div key={j.userId} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
+                    <div className="lb-podium-pos">#{j.pos}</div>
+                    <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
+                    <div className="lb-podium-nome">{j.nome}</div>
+                    <div className="lb-podium-pontos">{j.partidas} partidas</div>
+                    <div className="lb-podium-pontos" style={{ fontSize: '0.6rem', color: '#888' }}>{j.badges} badges</div>
+                  </div>
+                ))}
+              </div>
+              <div className="lb-tabela">
+                <div className="lb-tabela-header"><span>#</span><span>Cuidador</span><span>Partidas</span><span>Badges</span></div>
+                {cuidadoresRest.map(j => (
+                  <div key={j.userId} className="lb-linha" style={{ gridTemplateColumns: '40px 1fr 70px 70px' }}>
+                    <span className="lb-linha-pos">{j.pos}</span>
+                    <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>{j.nome}</span>
+                    <span>{j.partidas}</span><span>{j.badges}</span>
+                  </div>
+                ))}
+              </div>
+              {user && (
+                <div className="lb-user-card">
+                  <span className="lb-user-pos">SUA POSIÇÃO</span>
+                  {(() => {
+                    const meu = cuidadores.find(j => j.userId === user.id)
+                    return meu ? (
+                      <div className="lb-user-row" style={{ gridTemplateColumns: '40px 1fr 70px 70px' }}>
+                        <span className="lb-linha-pos">#{meu.pos}</span>
+                        <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>
+                        <span>{meu.partidas}</span><span>{meu.badges}</span>
+                      </div>
+                    ) : (
+                      <p className="lb-sub" style={{ textAlign: 'left', margin: 0 }}>Você ainda não aparece no ranking. Adote e cuide de um Tamagoshi!</p>
+                    )
+                  })()}
+                </div>
+              )}
+            </>
+          )
+        ) : (
+          <>
+            <div className="lb-podium">
+              {[top3[1], top3[0], top3[2]].map((j, i) => (
+                <div key={j.pos} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
+                  <div className="lb-podium-pos">#{j.pos}</div>
+                  <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
+                  <div className="lb-podium-nome">{j.nome}</div>
+                  <div className="lb-podium-pontos">{j.pontos} pts</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="lb-tabela">
-          <div className="lb-tabela-header"><span>#</span><span>Jogador</span><span>V</span><span>D</span><span>Cartas</span><span>Pts</span></div>
-          {restante.map(j => (
-            <div key={j.pos} className="lb-linha">
-              <span className="lb-linha-pos">{j.pos}</span>
-              <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>{j.nome}</span>
-              <span>{j.vitorias}</span><span>{j.derrotas}</span><span>{j.cartas}</span><span>{j.pontos}</span>
+            <div className="lb-tabela">
+              <div className="lb-tabela-header"><span>#</span><span>Jogador</span><span>V</span><span>D</span><span>Cartas</span><span>Pts</span></div>
+              {restante.map(j => (
+                <div key={j.pos} className="lb-linha">
+                  <span className="lb-linha-pos">{j.pos}</span>
+                  <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>{j.nome}</span>
+                  <span>{j.vitorias}</span><span>{j.derrotas}</span><span>{j.cartas}</span><span>{j.pontos}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="lb-user-card">
-          <span className="lb-user-pos">SUA POSIÇÃO</span>
-          <div className="lb-user-row">
-            <span className="lb-linha-pos">#42</span>
-            <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>
-            <span className="lb-user-pontos">3.240 pts</span>
-          </div>
-        </div>
+            <div className="lb-user-card">
+              <span className="lb-user-pos">SUA POSIÇÃO</span>
+              <div className="lb-user-row">
+                <span className="lb-linha-pos">#42</span>
+                <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>
+                <span className="lb-user-pontos">3.240 pts</span>
+              </div>
+            </div>
+          </>
+        )}
       </LoginGate>
     </section>
   )

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 1.47*  |  `[SITE] versão carregada: 1.47`
+*Versão: 1.48*  |  `[SITE] versão carregada: 1.48`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -116,30 +116,37 @@
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.2.1 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.3.0 | Tamagoshi LDI — ciclo de vida completo (ovo→ancião→partida), DIX economy, loja, inventário, 3 minigames (alimentar, banhar, passear), Hall da Fama + badges |
 
-**Versão atual:** `1.2.1` (console: `[TAMA] versão carregada: 1.2.1`)
+**Versão atual:** `1.3.0` (console: `[TAMA] versão carregada: 1.3.0`)
 
 ### Estrutura de arquivos
 
 ```
 src/pages/Tamagoshi/
-├── Tamagoshi.jsx              # Container: fase routing, decay init, intervals
-├── Tamagoshi.css              # ~450 linhas estilo dark neon
+├── Tamagoshi.jsx              # Container: fase routing, subFase (alimentar/banhar/passear/loja), lifecycle init
+├── Tamagoshi.css              # ~580 linhas estilo dark neon
 ├── store/
-│   └── useTamagoshiStore.js   # Zustand: métricas, decaimento offline, Supabase save
+│   └── useTamagoshiStore.js   # Zustand: métricas, decaimento, DIX wallet, inventário, lifecycle, troca, Supabase
 ├── data/
 │   ├── criaturas.js           # 30 criaturas, 6 personalidades, 5 raridades
 │   ├── personalidades.js      # 6 tipos com textos de notificação por urgência (fallback)
 │   │   └── falas-criatura.js  # 30 criaturas com 4+ falas únicas por ação
 │   ├── passeios.js            # 6 locais de Marelia com bônus por personalidade
-│   └── evolucoes.js           # 4 estágios (ovo→filhote→adulto→ancião) + variantes
+│   ├── evolucoes.js           # 4 estágios (ovo→filhote→adulto→ancião) + variantes
+│   ├── moedas.js              # DIX constants, fases lifecycle, badges map, textos partida
+│   └── itens_loja.js          # 7 itens (comida/sabonete/shampoo/guia/pente/guloseima/apito) + COMIDA_TEMATICA
 ├── screens/
 │   ├── Ovo.jsx                # Ovo pulsante, clique para eclodir
 │   ├── Selecao.jsx            # Escolha da criatura (varia por tier)
-│   ├── Criatura.jsx           # Tela principal: métricas, sprite, balão, ações
+│   ├── Criatura.jsx           # Tela principal: métricas, sprite, balão, ações, DIX display, admin
 │   ├── Passeio.jsx            # Seleção de local com bônus de personalidade
 │   ├── Brincadeira.jsx        # 4 mini-interações com feedback
+│   ├── Alimentar.jsx          # Minigame: clicar item 4x para encher barra, consome inventário
+│   ├── Banhar.jsx             # Minigame: arrastar mouse/touch up-down, bolhas, consome sabonete
+│   ├── Passear.jsx            # Minigame: grid 8x4 com obstáculos, setas/swipe até bandeira
+│   ├── Loja.jsx               # Loja de itens com DIX, inventário por criatura
+│   ├── Partida.jsx            # Animação de despedida + salão da fama + nova adoção
 │   └── Luto.jsx               # Morte + cooldown de 24h + recomeço
 └── components/
     ├── MetricBar.jsx          # Barra animada fome/higiene/energia/humor
@@ -163,10 +170,37 @@ src/pages/Tamagoshi/
 
 ### Supabase
 
-**Tabela:** `tamagoshi_saves` (migration `006_tamagoshi.sql`)
-- PK: `(user_id, slot)`
-- Colunas: `criatura_id, personalidade, fase, estagio, fome, higiene, energia, humor, status, cooldown_ate, ...`
-- RLS: `auth.uid() = user_id`
+**Tabelas:** (migrations `006_tamagoshi.sql` + `009_tamagoshi_v2.sql`)
+
+| Tabela | PK | Descrição |
+|--------|----|-----------|
+| `tamagoshi_saves` | `(user_id, slot)` | Save state: métricas, fase, inventario (JSONB), flags (JSONB), status, cooldown |
+| `tamagoshi_trocas` | `key` (UUID8) | Pedidos de troca entre jogadores, status pendente/confirmado/24h expira |
+| `dix_wallet` | `user_id` | Saldo de DIX por jogador |
+| `dix_historico` | auto-increment | Log de transações DIX (valor, motivo, timestamp) |
+| `tamagoshi_badges` | auto-increment | Badges conquistadas por fase (user_id, criatura_id, badge_id) |
+| `tamagoshi_fama` | auto-increment | Criaturas que completaram o ciclo (user_id, criatura_id, nome_custom, badges[]) |
+
+- RLS: `auth.uid() = user_id` em todas
+
+### Ciclo de Vida (v1.3.0)
+
+| Fase | Duração | Badge | Transição |
+|------|---------|-------|-----------|
+| Ovo | 0–3 dias | — | Eclode em filhote |
+| Filhote | 4–60 dias | 🐣 `filhote` | — |
+| Jovem | 61–120 dias | 🌱 `jovem` | — |
+| Adulto | 121–180 dias | 🌳 `adulto` | — |
+| Veterano | 181–270 dias | ⚔️ `veterano` | — |
+| Ancião | 271–365 dias | 👑 `anciao` | — |
+| Partida | >365 dias | ✨ `partida` | Escreve em `tamagoshi_fama`, zera save |
+
+### DIX Economy
+
+- **Ganhos:** +10 DIX por ação (alimentar/banhar/passear/brincar), +25 DIX login diário, +5 bônus se passear no local temático
+- **Gastos:** itens na loja (5–30 DIX)
+- **Saldo:** tabela `dix_wallet`, histórico em `dix_historico`
+- **Inventário:** coluna JSONB `inventario` em `tamagoshi_saves`, persistido por criatura
 
 ### Seleção por tier
 

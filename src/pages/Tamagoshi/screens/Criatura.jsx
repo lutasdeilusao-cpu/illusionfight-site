@@ -7,7 +7,7 @@ import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
 
-export default function Criatura({ isAdmin }) {
+export default function Criatura({ isAdmin, onAction, onLoja }) {
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -37,15 +37,6 @@ export default function Criatura({ isAdmin }) {
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])
 
-  const handleAction = (action) => {
-    if (action === 'alimentar') store.alimentar()
-    else if (action === 'banhar') store.banhar()
-    else if (action === 'passeio') store.setFase('passeio')
-    else if (action === 'brincar') store.brincar()
-    setFala(getFala(store.personalidade, action === 'passeio' ? 'passeio' : action === 'brincar' ? 'fome' : action, store.criaturaId))
-    setMostrando(action)
-  }
-
   const icones = { fome: '🍖', higiene: '🧼', energia: '⚡', humor: '🎭' }
 
   const [adminTrocaAberta, setAdminTrocaAberta] = useState(false)
@@ -55,12 +46,18 @@ export default function Criatura({ isAdmin }) {
     setAdminTrocaAberta(false)
   }
 
+  const dixSaldo = store._dixSaldo
+
   return (
     <div className="tama-screen">
       <div className="tama-criatura">
         <div className="tama-criatura-header">
           <span className="tama-criatura-nome">{store.nomeCustom}</span>
           {store.status === 'critico' && <span className="tama-critico-badge">CRÍTICO</span>}
+        </div>
+
+        <div className="tama-dix-display" onClick={onLoja} style={{ cursor: 'pointer', fontSize: '0.75rem', color: '#F5A623', marginBottom: '0.3rem' }}>
+          🪙 {dixSaldo} DIX <span style={{ color: '#666', fontSize: '0.6rem' }}>[loja]</span>
         </div>
 
         <BalloonFala texto={fala} cor={pers.cor} />
@@ -81,20 +78,24 @@ export default function Criatura({ isAdmin }) {
 
         <div className="tama-acoes">
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => handleAction('alimentar')}>
+            onClick={() => onAction('alimentar')}>
             [ alimentar ]
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => handleAction('banhar')}>
+            onClick={() => onAction('banhar')}>
             [ banhar ]
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => handleAction('passeio')}>
+            onClick={() => onAction('passear')}>
             [ passear ]
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => handleAction('brincar')}>
+            onClick={() => onAction('brincar')}>
             [ brincar ]
+          </motion.button>
+          <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+            onClick={onLoja}>
+            [ loja ]
           </motion.button>
         </div>
 
