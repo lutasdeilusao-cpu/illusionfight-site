@@ -72,7 +72,8 @@ export default function ArenaLobby({ onNavigate }) {
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
   const [loading, setLoading] = useState(true)
-  const [showIntro, setShowIntro] = useState(true)
+  const introKey = user ? `arena-intro-seen-${user.id}` : 'arena-intro-seen'
+  const [showIntro, setShowIntro] = useState(() => !localStorage.getItem(introKey))
   const [showEnemies, setShowEnemies] = useState(null)
 
   useEffect(() => {
@@ -91,6 +92,18 @@ export default function ArenaLobby({ onNavigate }) {
   const handleSelectEnemy = (enemy) => {
     store.startMatch(enemy)
     onNavigate('combat')
+  }
+
+  const handleIntroDone = () => {
+    localStorage.setItem(introKey, '1')
+    setShowIntro(false)
+  }
+
+  const handleDelete = async (e, sheetId) => {
+    e.stopPropagation()
+    if (!window.confirm('Excluir esta ficha permanentemente?')) return
+    await store.deleteSheet(sheetId)
+    setSheets(prev => prev.filter(s => s.id !== sheetId))
   }
 
   const elemColor = (el) => ELEM_COLORS[el] || '#666'
@@ -112,7 +125,7 @@ export default function ArenaLobby({ onNavigate }) {
           <p className="arena-lobby-titulo">modo standalone</p>
           <h1 className="arena-lobby-nome">LDI ARENA</h1>
         </div>
-        <NeoGuideIntro onShow={() => setShowIntro(false)} />
+        <NeoGuideIntro onShow={handleIntroDone} />
       </div>
     )
   }
@@ -244,7 +257,10 @@ export default function ArenaLobby({ onNavigate }) {
                     ))}
                   </div>
                 </div>
-                <span className="arena-sheet-arrow">→</span>
+                <div className="arena-sheet-card-actions">
+                  <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title="Excluir ficha">✕</button>
+                  <span className="arena-sheet-arrow">→</span>
+                </div>
               </div>
             )
           })}

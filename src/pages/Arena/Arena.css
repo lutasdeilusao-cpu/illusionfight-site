@@ -141,6 +141,15 @@
 .arena-new-sheet:hover { background: rgba(245,166,35,0.04); border-color: rgba(245,166,35,0.5); }
 .arena-new-sheet-icon { font-size: 18px; line-height: 1; }
 
+.arena-sheet-card-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.arena-sheet-delete-btn {
+  background: none; border: 1px solid rgba(139, 0, 0, 0.3); color: #444;
+  width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 10px; font-family: 'Courier New', monospace;
+  transition: all 0.2s ease; flex-shrink: 0; border-radius: 2px;
+}
+.arena-sheet-delete-btn:hover { border-color: #8B0000; color: #cc4444; background: rgba(139, 0, 0, 0.1); }
+
 .arena-lobby-empty { text-align: center; color: #333; font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
 
 /* ===== LOBBY INTRO (NeoGuide) ===== */
