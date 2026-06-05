@@ -17,7 +17,13 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 
 export default function DueloRoute() {
   const store = useDueloStore()
-  const [fase, setFase] = useState('menu') // menu | game | victory | defeat
+  const { setReaderMode } = useReader()
+  const [fase, setFase] = useState('menu')
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode]) // menu | game | victory | defeat
   const [hoveredCard, setHoveredCard] = useState(null)
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
