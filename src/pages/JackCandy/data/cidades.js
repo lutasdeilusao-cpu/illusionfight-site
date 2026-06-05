@@ -15,7 +15,7 @@ export const CIDADES = {
       { id: 'osvaldo', nome: 'Osvaldo', emoji: '🔧', desc: 'Oficina', cor: '#F97316', npc: 'osvaldo', requerFlag: 'OSVALDO_LIBERADO' },
       { id: 'risca_faca', nome: 'Risca a Faca', emoji: '💃', desc: 'Clube noturno', cor: '#EC4899', npc: 'lara', requerFlag: 'RISCA_FACA_LIBERADO' },
       { id: 'cortico', nome: 'Cortiço', emoji: '🏠', desc: 'Quarto alugado', cor: '#78716C', interior: false, requerFlag: 'CORTICO_LIBERADO', missao: 'abrigo' },
-      { id: 'terminal', nome: 'Terminal', emoji: '📟', desc: 'Cabine de comunicação', cor: '#06B6D4', interior: false, requerFlag: 'TERMINAL_OUVIU', antesFlag: true },
+      { id: 'terminal', nome: 'Terminal', emoji: '📟', desc: 'Cabine de comunicação', cor: '#06B6D4', interior: false },
       { id: 'escadaria', nome: 'Escadaria', emoji: '🪜', desc: '?????', cor: '#444', interior: false, requerFlag: 'ESCADARIA_VISITADA', secreto: true },
     ],
   },
