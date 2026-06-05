@@ -1655,6 +1655,11 @@
   transition: border-color 0.2s;
 }
 
+.jdc-auto-picker-item--ativa {
+  border-color: #F5A623;
+  background: #1a1a1a;
+}
+
 .jdc-auto-picker-item:hover {
   border-color: #F5A623;
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
 import { DUNGEONS } from '../data/dungeons'
@@ -6,6 +7,7 @@ export default function DungeonSelect() {
   const store = useJackStore()
   const flags = store.flags || {}
   const dc = store.dungeonsCompletas || []
+  const [showAutoPicker, setShowAutoPicker] = useState(false)
 
   const todas = Object.values(DUNGEONS)
 
@@ -55,9 +57,19 @@ export default function DungeonSelect() {
   return (
     <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-vila-title">DUNGEONS</div>
-      <p className="jack-text jack-text--dim" style={{ marginBottom: '1rem', textAlign: 'center' }}>
+      <p className="jack-text jack-text--dim" style={{ marginBottom: '0.6rem', textAlign: 'center' }}>
         entre onde a noite é mais escura
       </p>
+
+      <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
+        <button
+          className={`jack-btn ${store.autoMode.ativo ? 'jack-btn--amber' : ''}`}
+          onClick={() => setShowAutoPicker(true)}
+          style={{ fontSize: '0.7rem' }}
+        >
+          {store.autoMode.ativo ? '[ 🤖 AUTO ]' : '[ 🤖 auto ]'}
+        </button>
+      </div>
 
       <div className="jdc-vila-grid">
         {dungeons.map(d => {
@@ -101,6 +113,52 @@ export default function DungeonSelect() {
         <span>🔄 Rejogar</span>
         {store.periodo === 'NOITE' && <span>🌙 Noturna</span>}
       </div>
+
+      {/* Auto-mode dungeon picker modal */}
+      {showAutoPicker && (
+        <div className="jdc-auto-picker-overlay" onClick={() => setShowAutoPicker(false)}>
+          <div className="jdc-auto-picker" onClick={e => e.stopPropagation()}>
+            <div className="jdc-auto-picker-title">
+              {store.autoMode.ativo ? '🤖 AUTO ativo — trocar dungeon?' : 'Selecionar dungeon pra automático'}
+            </div>
+            <div className="jdc-auto-picker-list">
+              {dungeons.map(d => {
+                const completa = dc.includes(d.id)
+                const isAtiva = store.autoMode.ativo && store.autoMode.dungeonId === d.id
+                return (
+                  <button
+                    key={d.id}
+                    className={`jdc-auto-picker-item ${isAtiva ? 'jdc-auto-picker-item--ativa' : ''}`}
+                    onClick={() => {
+                      store.setAutoMode(d.id)
+                      setShowAutoPicker(false)
+                      store.setFase(`dungeon_${d.id}`)
+                    }}
+                  >
+                    <span className="jdc-auto-picker-item-emoji">{isAtiva ? '🤖' : (d.emoji || '⚔️')}</span>
+                    <span className="jdc-auto-picker-item-info">
+                      <span className="jdc-auto-picker-item-nome">{d.nome}{isAtiva ? ' (auto)' : ''}</span>
+                      <span className="jdc-auto-picker-item-desc">
+                        {completa ? `🔄 ${Math.floor((d.dropCap || 0) / 2)} 🍺` : `${d.inimigos || '?'} inim · ${d.dropCap || 0} 🍺`}
+                        {d.infinito ? ' · ♾️' : ''}
+                        {d.boss ? ` · boss` : ''}
+                      </span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+            <div style={{ display: 'flex', gap: '0.4rem', marginTop: '0.5rem', justifyContent: 'center' }}>
+              {store.autoMode.ativo && (
+                <button className="jack-btn jack-btn--crimson" onClick={() => { store.setAutoMode(null); setShowAutoPicker(false) }}>
+                  [ desligar auto ]
+                </button>
+              )}
+              <button className="jack-btn" onClick={() => setShowAutoPicker(false)}>[ cancelar ]</button>
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   )
 }
