@@ -321,6 +321,89 @@
 
 /* ===== CREATE ===== */
 .arena-create { padding-bottom: 20px; }
+
+/* ===== CREATE HEADER ===== */
+.arena-create-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 24px;
+}
+
+.arena-create-titulo {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: #F5A623;
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+}
+
+.arena-create-steps {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.arena-create-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  border: 1px solid #333;
+  transition: all 0.2s;
+}
+
+.arena-create-step-dot--active {
+  background: #F5A623;
+  border-color: #F5A623;
+  box-shadow: 0 0 8px rgba(245,166,35,0.6);
+}
+
+.arena-create-step-dot--done {
+  background: #00B4D8;
+  border-color: #00B4D8;
+}
+
+/* Melhorar attr-row */
+.arena-attr-row {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  transition: background 0.15s;
+}
+.arena-attr-row:hover {
+  background: rgba(255,255,255,0.04) !important;
+}
+
+/* Melhorar chips */
+.arena-elemental-chip,
+.arena-spec-chip,
+.arena-advantage-chip {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  transition: all 0.15s !important;
+}
+.arena-elemental-chip:hover,
+.arena-spec-chip:hover,
+.arena-advantage-chip:hover {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Botão salvar */
+.arena-btn-salvar {
+  background: linear-gradient(135deg, #8B0000 0%, #a00000 100%) !important;
+  border: 1px solid #cc0000 !important;
+  box-shadow: 0 0 20px rgba(139,0,0,0.3) !important;
+  letter-spacing: 4px !important;
+}
+.arena-btn-salvar:hover {
+  box-shadow: 0 0 35px rgba(139,0,0,0.6) !important;
+}
+
 .arena-step { padding: 0 20px; }
 
 .arena-attr-grid { display: flex; flex-direction: column; gap: 6px; }

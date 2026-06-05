@@ -151,42 +151,19 @@ export default function ArenaCreate({ onNavigate }) {
       return
     }
     await store.saveToCloud(user?.id)
-    setShowEnemySelect(true)
-  }
-
-  const [showEnemySelect, setShowEnemySelect] = useState(false)
-
-  if (showEnemySelect) {
-    return (
-      <div className="arena-create">
-        <div className="arena-section-label">
-          <span>▶ SELECIONE O INIMIGO</span>
-          <div className="arena-section-linha" />
-        </div>
-        <div className="arena-enemy-grid">
-          {enemiesData.map(enemy => (
-            <motion.div key={enemy.id} className="arena-enemy-card"
-              style={{ '--cor': enemy.difficulty === 'easy' ? '#22C55E' : enemy.difficulty === 'medium' ? '#F5A623' : enemy.difficulty === 'hard' ? '#8B0000' : '#A855F4' }}
-              onClick={() => { store.startMatch(enemy); onNavigate('combat') }} whileHover={{ scale: 1.02 }}>
-              <div className="arena-enemy-tier">TIER {enemy.tier}</div>
-              <div className="arena-enemy-name">{enemy.name}</div>
-              <div className="arena-enemy-rank">Rank #{enemy.rank}</div>
-              <div className="arena-enemy-stats">
-                F:{enemy.stats.F} H:{enemy.stats.H} R:{enemy.stats.R} A:{enemy.stats.A} PdF:{enemy.stats.PdF}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <button className="arena-btn-sair" onClick={() => setShowEnemySelect(false)}>← voltar</button>
-      </div>
-    )
+    onNavigate('lobby')
   }
 
   return (
     <div className="arena-create">
-      <div className="arena-header">
+      <div className="arena-create-header">
         <button className="arena-back" onClick={() => onNavigate('lobby')}>← lobby</button>
-        <h2 className="arena-titulo-menor">criação de ficha</h2>
+        <h2 className="arena-create-titulo">NOVA FICHA</h2>
+        <div className="arena-create-steps">
+          {['attrs','sheet_name','specs'].map((st, i) => (
+            <div key={st} className={`arena-create-step-dot ${step === st ? 'arena-create-step-dot--active' : i < ['attrs','sheet_name','specs'].indexOf(step) ? 'arena-create-step-dot--done' : ''}`} />
+          ))}
+        </div>
       </div>
 
       {step === 'attrs' && (
