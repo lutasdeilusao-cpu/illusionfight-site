@@ -48,6 +48,17 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
 
   const dixSaldo = store._isAdmin ? '∞' : store._dixSaldo
 
+  // Mapeamento de estado da criatura
+  const MAP_ACAO_ESTADO = { alimentar: 'comendo', banhar: 'satisfeito', passear: 'satisfeito', brincar: 'feliz' }
+  const estado = useMemo(() => {
+    if (subFase) return MAP_ACAO_ESTADO[subFase] || subFase
+    if (store.status === 'critico') return 'abandonado'
+    if (store.humor < 30) return 'triste'
+    if (store.energia < 30) return 'raiva'
+    if (store.humor > 70 && store.energia > 70 && store.fome > 70 && store.higiene > 70) return 'feliz'
+    return 'idle'
+  }, [subFase, store.status, store.humor, store.energia, store.fome, store.higiene])
+
   return (
     <div className="tama-screen">
       <div className="tama-criatura">
@@ -67,6 +78,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           status={store.status}
           estagio={store.estagio}
           criaturas={CRIATURAS}
+          estado={estado}
           acao={subFase}
         />
 

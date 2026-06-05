@@ -1,5 +1,10 @@
-import kronikBase from '../../../../src/assets/images/tamagoshi/kroniki-base.png'
-import kronikFome from '../../../../src/assets/images/tamagoshi/kroniki-fome.gif'
+import kronikIdle from '../../../../src/assets/images/tamagoshi/kroniki-idle.png'
+import kronikHunger from '../../../../src/assets/images/tamagoshi/kroniki-hunger.png'
+import kronikEnjoy from '../../../../src/assets/images/tamagoshi/kroniki-enjoy.png'
+import kronikHappy from '../../../../src/assets/images/tamagoshi/kroniki-happy.png'
+import kronikAbandoned from '../../../../src/assets/images/tamagoshi/kroniki-abandoned.png'
+import kronikSad from '../../../../src/assets/images/tamagoshi/kroniki-sad.png'
+import kronikAnger from '../../../../src/assets/images/tamagoshi/kroniki-anger.png'
 
 export const CRIATURAS = [
   { id: 'voidling',    nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    emoji: '👻' },
@@ -10,7 +15,7 @@ export const CRIATURAS = [
 
   { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    emoji: '🔥' },
   { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  emoji: '👾' },
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: kronikBase, gifs: { alimentar: kronikFome } },
+  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: kronikIdle, gifs: { comendo: kronikHunger, satisfeito: kronikEnjoy, feliz: kronikHappy, abandonado: kronikAbandoned, triste: kronikSad, raiva: kronikAnger } },
   { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    emoji: '🐆' },
   { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', emoji: '💥' },
 

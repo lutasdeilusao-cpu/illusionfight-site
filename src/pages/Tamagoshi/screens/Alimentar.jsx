@@ -62,7 +62,7 @@ export default function Alimentar({ onConcluir }) {
             status={store.status}
             estagio={store.estagio}
             criaturas={CRIATURAS}
-            acao="alimentar"
+            estado="comendo"
           />
         </div>
       </div>

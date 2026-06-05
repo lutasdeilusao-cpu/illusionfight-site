@@ -160,7 +160,45 @@
   background: #111;
   border-radius: 50%;
   border: 1px solid #222;
+  transition: box-shadow 0.4s ease;
 }
+
+/* ── Efeitos por estado ── */
+/* feliz: pulso suave brilhando */
+.tama-sprite--feliz {
+  animation: pulse-glow 2s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+  50%      { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); }
+}
+
+/* triste: círculo escurece levemente */
+.tama-sprite--triste {
+  filter: brightness(0.75) saturate(0.6);
+}
+
+/* abandonado: pulso lento em roxo/escuro */
+.tama-sprite--abandonado {
+  animation: pulse-abandon 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(80, 0, 120, 0.3);
+}
+@keyframes pulse-abandon {
+  0%, 100% { box-shadow: 0 0 10px rgba(80, 0, 120, 0.3); }
+  50%      { box-shadow: 0 0 25px rgba(120, 0, 180, 0.6); }
+}
+
+/* raiva: pisca vermelho */
+.tama-sprite--raiva {
+  animation: flash-rage 0.6s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+@keyframes flash-rage {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); }
+  50%      { box-shadow: 0 0 35px rgba(255, 0, 0, 0.9); }
+}
+
 .tama-sprite-placeholder {
   font-size: 3rem;
   opacity: 0.3;

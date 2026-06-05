@@ -7,7 +7,7 @@ const ESTADO_ANIM = {
   morto: { scale: 0, y: 20 },
 }
 
-export default function CriaturaSprite({ criaturaId, status, estagio, criaturas, acao }) {
+export default function CriaturaSprite({ criaturaId, status, estagio, criaturas, acao, estado }) {
   const c = criaturas.find(x => x.id === criaturaId)
   const [pulando, setPulando] = useState(false)
   const [erroImg, setErroImg] = useState(false)
@@ -33,9 +33,11 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   const tam = estagio >= 2 ? 280 : estagio === 1 ? 220 : 160
   const temImagem = !!c.imagem && !erroImg
 
-  // Imagens usam import estático Vite — caminhos já são absolutos corretos
-  const gifAtivo = acao && c.gifs?.[acao]
-  const url = gifAtivo || c.imagem
+  // Resolve imagem: estado → ação → status → base
+  const imgEstado = estado && c.gifs?.[estado]
+  const imgAcao = !imgEstado && acao && c.gifs?.[acao]
+  const imgStatus = !imgEstado && !imgAcao && status && c.gifs?.[status]
+  const url = imgEstado || imgAcao || imgStatus || c.imagem
 
   const bounceVariants = {
     idle: { y: 0, scale: 1, opacity: 1 },
@@ -45,8 +47,8 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={`${criaturaId}-${status}-${acao}`}
-        className="tama-sprite"
+        key={`${criaturaId}-${estado || status}-${acao}`}
+        className={`tama-sprite${estado && estado !== 'idle' ? ` tama-sprite--${estado}` : ''}`}
         initial={{ scale: 0, opacity: 0 }}
         animate={temImagem ? (pulando ? 'pulando' : 'idle') : { scale: anim.scale, opacity: 1, y: anim.y }}
         exit={{ scale: 0, opacity: 0 }}
