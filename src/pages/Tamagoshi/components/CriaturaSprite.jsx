@@ -30,7 +30,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   if (!c) return <div className="tama-sprite-placeholder">?</div>
 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
-  const tam = estagio >= 2 ? 560 : estagio === 1 ? 440 : 320
+  const tam = estagio >= 2 ? 280 : estagio === 1 ? 220 : 160
   const temImagem = !!c.imagem && !erroImg
 
   // Imagens usam import estático Vite — caminhos já são absolutos corretos
