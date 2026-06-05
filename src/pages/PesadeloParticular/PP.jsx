@@ -13,7 +13,7 @@ import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.9'
+const PP_VERSION = '1.5.10'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -849,7 +849,7 @@ export default function PP() {
   const [suspeitoSelecionado, setSuspeitoSelecionado] = useState(null)
   const [feedbackAcusacao, setFeedbackAcusacao] = useState(null) // null | 'errado' | 'bloqueado'
 
-  const { reputacao, casosResolvidos, pistasColetadas, nivel, carregado } = store
+  const { reputacao, casosResolvidos, pistasColetadas, acusacoesErradas, nivel, carregado, saveExists } = store
 
   // Load save
   useEffect(() => {
@@ -867,13 +867,13 @@ export default function PP() {
   // Decide menu vs intro after load
   useEffect(() => {
     if (!carregado) return
-    const hasSave = casosResolvidos.length > 0
+    const hasSave = saveExists || casosResolvidos.length > 0 || reputacao > 0 || Object.keys(pistasColetadas).length > 0 || Object.keys(acusacoesErradas).length > 0
     if (hasSave && appFase !== 'menu') {
       setAppFase('menu')
     } else if (!hasSave && appFase === null) {
       setAppFase('intro')
     }
-  }, [carregado, appFase, casosResolvidos])
+  }, [carregado, appFase, casosResolvidos, reputacao, pistasColetadas, acusacoesErradas, saveExists])
 
   const handleNovoJogo = async () => {
     await store.resetSave(user?.id)

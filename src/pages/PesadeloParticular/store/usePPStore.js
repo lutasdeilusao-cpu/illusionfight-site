@@ -10,6 +10,7 @@ const DEFAULT_STATE = {
   acusacoesErradas: {},  // { caso_id: count }
   nivel: 1,              // sobe a cada caso resolvido, afeta batalhas
   carregado: false,
+  saveExists: false,
 }
 
 export const usePPStore = create((set, get) => ({
@@ -17,7 +18,7 @@ export const usePPStore = create((set, get) => ({
 
   // ── LOAD ──
   async loadSave(userId) {
-    if (!userId) { set({ carregado: true }); return }
+    if (!userId) { set({ carregado: true, saveExists: false }); return }
     try {
       const { data } = await supabase
         .from('pp_saves')
@@ -32,14 +33,15 @@ export const usePPStore = create((set, get) => ({
           acusacoesErradas: data.acusacoes_erradas || {},
           nivel: Math.max(1, (data.casos_resolvidos?.length || 0)),
           carregado: true,
+          saveExists: true,
         })
         console.log('[PP] save carregado | nivel:', Math.max(1, (data.casos_resolvidos?.length || 0)))
       } else {
-        set({ carregado: true })
+        set({ carregado: true, saveExists: false })
       }
     } catch (e) {
       console.error('[PP] erro ao carregar save:', e)
-      set({ carregado: true })
+      set({ carregado: true, saveExists: false })
     }
   },
 
@@ -55,6 +57,7 @@ export const usePPStore = create((set, get) => ({
         pistas_coletadas: pistasColetadas,
         acusacoes_erradas: acusacoesErradas,
       }, { onConflict: 'user_id' })
+      set({ saveExists: true })
       console.log('[PP] save persistido')
     } catch (e) {
       console.error('[PP] erro ao salvar:', e)
@@ -97,11 +100,11 @@ export const usePPStore = create((set, get) => ({
     setTimeout(() => get().persistSave(userId), 300)
   },
 
-  resetStore() { set({ ...DEFAULT_STATE, carregado: true }) },
+  resetStore() { set({ ...DEFAULT_STATE, carregado: true, saveExists: false }) },
 
   // ── RESET SAVE ──
   async resetSave(userId) {
-    set({ ...DEFAULT_STATE, carregado: true })
+    set({ ...DEFAULT_STATE, carregado: true, saveExists: false })
     if (userId) {
       try {
         await supabase.from('pp_saves').delete().eq('user_id', userId)
