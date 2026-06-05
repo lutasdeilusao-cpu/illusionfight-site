@@ -1,0 +1,78 @@
+export const PERSONALIDADES = {
+  CARENTE: {
+    nome: 'Carente',
+    desc: 'dramático, apegado, notifica antes de precisar',
+    notificacoes: {
+      fome: '"tô com fome mas tudo bem, fica aí, eu aguento... provavelmente"',
+      sede: '"três horas sem água. três. horas. tá tudo bem comigo não"',
+      passeio: '"você não me levou passear hoje. eu fiquei aqui sozinho. olhando pra parede."',
+      critico: '"tô mal. muito mal. mas vai lá que eu fico"',
+      morte: '"então era isso... sabia que ia acabar assim... pelo menos tava com você no final"',
+    },
+    cor: '#EC4899',
+  },
+  AGRESSIVO: {
+    nome: 'Agressivo',
+    desc: 'ameaças vazias, raiva performática, no fundo só quer atenção',
+    notificacoes: {
+      fome: '"me alimenta. agora."',
+      sede: '"água. já."',
+      passeio: '"se você não me tirar daqui eu destruo tudo aqui dentro"',
+      critico: '"tô no limite. não tô pedindo. tô avisando."',
+      morte: '"...tudo bem. eu entendo. foi bom enquanto durou. seu idiota."',
+    },
+    cor: '#E02020',
+  },
+  FOFO: {
+    nome: 'Fofo',
+    desc: 'entusiasmo total, transforma tudo em festa',
+    notificacoes: {
+      fome: '"oi! tô com fominha! mas tudo bem! você vem logo né? né? né?"',
+      sede: '"aguinha por favor por favor por favor obrigado te amo"',
+      passeio: '"PASSEIO? VAI TER PASSEIO HOJE? pergunta só, sem pressão, mas VAI?"',
+      critico: '"oi... tô um pouquinho mal... mas fico bem quando você chegar tá?"',
+      morte: '"foi tão bom... obrigado por tudo... eu vou sentir saudade... muita saudade..."',
+    },
+    cor: '#F5A623',
+  },
+  INDEPENDENTE: {
+    nome: 'Independente',
+    desc: 'frio, econômico, nunca implora',
+    notificacoes: {
+      fome: '"alimento necessário."',
+      sede: '"hidratação pendente."',
+      passeio: '"seria útil sair hoje."',
+      critico: '"situação crítica. sua decisão."',
+      morte: '"entendido."',
+    },
+    cor: '#A855F4',
+  },
+  FILOSOFO: {
+    nome: 'Filósofo',
+    desc: 'reflexivo, transforma necessidade em observação existencial',
+    notificacoes: {
+      fome: '"o vazio no estômago é parente do vazio no universo. os dois têm solução."',
+      sede: '"a água não pertence a ninguém. mas eu precisaria de um pouco agora."',
+      passeio: '"faz tempo que não vejo o céu de Marelia. ou qualquer céu."',
+      critico: '"estou chegando numa fronteira interessante. prefiro não atravessá-la hoje."',
+      morte: '"a fronteira foi atravessada. não se preocupe. é apenas mais uma jornada."',
+    },
+    cor: '#22C55E',
+  },
+  COMICO: {
+    nome: 'Cômico',
+    desc: 'alheio ao drama, confusão genuína, comentários fora de contexto',
+    notificacoes: {
+      fome: '"mano. biscoito. simples assim."',
+      sede: '"água. suco. qualquer coisa. até aquela água sem gás sem graça tá bom"',
+      passeio: '"precisamos sair. eu vi uma pomba aqui que tô querendo conhecer melhor"',
+      critico: '"cara. isso tá ficando sério. eu acho. não sei. tô zonzo"',
+      morte: '"não acredito que vou morrer por causa de biscoito. que história pra contar lá do outro lado"',
+    },
+    cor: '#00B4D8',
+  },
+}
+
+export function getFala(tipo, chave) {
+  return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
+}

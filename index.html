@@ -60,5 +60,10 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('/illusionfight-site/sw.js').catch(() => {})
+      }
+    </script>
   </body>
 </html>

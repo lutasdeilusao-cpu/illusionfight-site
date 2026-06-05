@@ -48,6 +48,7 @@ import JackCandy from './pages/JackCandy/JackCandy'
 import ArenaRoute from './pages/Arena/ArenaRoute'
 import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
+import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
 import './pages/Duelo/version' // side-effect: console.log version
 
 export default function App() {
@@ -99,6 +100,7 @@ export default function App() {
         <Route path="/extras/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
         <Route path="/extras/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
         <Route path="/extras/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
+        <Route path="/extras/tamagoshi" element={<Tamagoshi />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />

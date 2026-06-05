@@ -117,6 +117,7 @@
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
 | `/extras/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
+| `/extras/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | 🆕 v1.0.0 | Tamagoshi LDI — criatura virtual com personalidade, decaimento em tempo real, Supabase save |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |
@@ -582,6 +583,67 @@ src/pages/LDI/
 |---|---|---|
 | framer-motion | ^12.x | Animações e transições |
 | zustand | ^5.x | Estado global |
+
+---
+
+## 12. TAMAGOSHI LDI — Criatura Virtual
+
+**Versão atual:** `1.0.0` (console: `[TAMA] versão carregada: 1.0.0`)
+
+### Estrutura de arquivos
+
+```
+src/pages/Tamagoshi/
+├── Tamagoshi.jsx              # Container: fase routing, decay init, intervals
+├── Tamagoshi.css              # ~450 linhas estilo dark neon
+├── store/
+│   └── useTamagoshiStore.js   # Zustand: métricas, decaimento offline, Supabase save
+├── data/
+│   ├── criaturas.js           # 30 criaturas, 6 personalidades, 5 raridades
+│   ├── personalidades.js      # 6 tipos com textos de notificação por urgência
+│   ├── passeios.js            # 6 locais de Marelia com bônus por personalidade
+│   └── evolucoes.js           # 4 estágios (ovo→filhote→adulto→ancião) + variantes
+├── screens/
+│   ├── Ovo.jsx                # Ovo pulsante, clique para eclodir
+│   ├── Selecao.jsx            # Escolha da criatura (varia por tier)
+│   ├── Criatura.jsx           # Tela principal: métricas, sprite, balão, ações
+│   ├── Passeio.jsx            # Seleção de local com bônus de personalidade
+│   ├── Brincadeira.jsx        # 4 mini-interações com feedback
+│   └── Luto.jsx               # Morte + cooldown de 24h + recomeço
+└── components/
+    ├── MetricBar.jsx          # Barra animada fome/higiene/energia/humor
+    ├── CriaturaSprite.jsx     # Emoji com animação por status/estágio
+    ├── BalloonFala.jsx        # Balão de fala com texto da personalidade
+    └── CooldownTimer.jsx      # Contador regressivo pós-morte
+```
+
+### Decaimento das métricas (tempo real + offline)
+
+| Métrica | Decaimento/h | Crítico em | Personalidade afeta |
+|---------|-------------|------------|-------------------|
+| Fome | -6 | ~16h | Independente: ×0.8 |
+| Higiene | -3 | ~33h | Independente: ×0.8 |
+| Energia | -4 | ~25h | Independente: ×0.8 |
+| Humor | -2 | ~50h | Carente: ×1.2 / Fofo: mínimo 20 (se login ≤12h) |
+
+- Status `critico` quando qualquer métrica ≤ 0
+- Morte após 24h contínuas em crítico
+- Cooldown de 24h pós-morte
+
+### Supabase
+
+**Tabela:** `tamagoshi_saves` (migration `006_tamagoshi.sql`)
+- PK: `(user_id, slot)`
+- Colunas: `criatura_id, personalidade, fase, estagio, fome, higiene, energia, humor, status, cooldown_ate, ...`
+- RLS: `auth.uid() = user_id`
+
+### Seleção por tier
+
+| Tier | Opções |
+|------|--------|
+| Free | 1 criatura aleatória |
+| Elite | 3 criaturas (uma por tipo) |
+| Primordial | 10 criaturas |
 
 ---
 
