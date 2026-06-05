@@ -19,12 +19,6 @@ export default function DueloRoute() {
   const store = useDueloStore()
   const { setReaderMode } = useReader()
   const [fase, setFase] = useState('menu')
-
-  useEffect(() => {
-    setReaderMode(true)
-    return () => setReaderMode(false)
-  }, [setReaderMode])
-
   const [hoveredCard, setHoveredCard] = useState(null)
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
@@ -40,7 +34,7 @@ export default function DueloRoute() {
 
   const handleCardClick = useCallback((card) => {
     if (!card || store.currentTurn !== 'PLAYER') return
-    if (store.gamePhase === 'MAIN') {
+    if (store.gamePhase === 'MAIN') {vc
       store.setState({ selectedCard: store.selectedCard?.id_num === card.id_num ? null : card })
     }
     if (store.gamePhase === 'BATTLE' && card.type === 'MONSTER' && card.position === 'ATK') {
