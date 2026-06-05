@@ -19,6 +19,12 @@ export default function DueloRoute() {
   const store = useDueloStore()
   const { setReaderMode } = useReader()
   const [fase, setFase] = useState('menu')
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
+
   const [hoveredCard, setHoveredCard] = useState(null)
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
