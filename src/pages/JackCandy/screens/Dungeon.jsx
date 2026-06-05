@@ -49,7 +49,7 @@ export default function Dungeon({ dungeonId }) {
   const [stealthDetectado, setStealthDetectado] = useState(false)
   const [fugaRound, setFugaRound] = useState(0)
   const [fugaVivo, setFugaVivo] = useState(true)
-  const [showAutoPicker, setShowAutoPicker] = useState(false)
+
 
   // Generate enemies for infinite dungeon
   const getInfiniteEnemies = () => {
@@ -553,61 +553,17 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon-footer">
         {dungeon?.mecanica !== 'fuga' && <span className="jack-text jack-text--dim">progresso: {pct}%</span>}
         {dungeon?.mecanica === 'fuga' && <span className="jack-text jack-text--dim">esquiva: {fugaRound}/{dungeon.rounds || 15}</span>}
-        <button
-          className={`jack-btn ${store.autoMode.ativo ? 'jack-btn--amber' : ''}`}
-          onClick={() => {
-            if (store.autoMode.ativo) {
-              store.setAutoMode(null)
-            } else {
-              setShowAutoPicker(true)
-            }
-          }}
+        {store.autoMode.ativo && <button
+          className="jack-btn jack-btn--amber"
+          onClick={() => store.setAutoMode(null)}
           style={{ fontSize: '0.65rem', padding: '0.2rem 0.4rem' }}
         >
-          {store.autoMode.ativo ? '[ 🤖 AUTO ]' : '[ 🤖 auto ]'}
-        </button>
+          [ desligar 🤖 ]
+        </button>}
         <button className="jack-btn jack-btn--crimson" onClick={() => { stopRef.current = true; store.setFase('vila') }}>
           [ fugir ]
         </button>
       </div>
-
-      {/* Auto-mode dungeon picker modal */}
-      {showAutoPicker && (
-        <div className="jdc-auto-picker-overlay" onClick={() => setShowAutoPicker(false)}>
-          <div className="jdc-auto-picker" onClick={e => e.stopPropagation()}>
-            <div className="jdc-auto-picker-title">Selecionar dungeon pra automático</div>
-            <div className="jdc-auto-picker-list">
-              {getDungeonsDisponiveis(store).map(d => {
-                const completa = store.dungeonsCompletas?.includes(d.id)
-                return (
-                  <button
-                    key={d.id}
-                    className="jdc-auto-picker-item"
-                    onClick={() => {
-                      store.setAutoMode(d.id)
-                      setShowAutoPicker(false)
-                      if (dungeonId && dungeonId !== d.id) {
-                        stopRef.current = true
-                        store.setFase(`dungeon_${d.id}`)
-                      }
-                    }}
-                  >
-                    <span className="jdc-auto-picker-item-emoji">{d.emoji || '⚔️'}</span>
-                    <span className="jdc-auto-picker-item-info">
-                      <span className="jdc-auto-picker-item-nome">{d.nome}</span>
-                      <span className="jdc-auto-picker-item-desc">
-                        {completa ? `🔄 ${Math.floor((d.dropCap || 0) / 2)} 🍺` : `${d.inimigos || '?'} inim · ${d.dropCap || 0} 🍺`}
-                        {d.infinito ? ' · ♾️' : ''}
-                      </span>
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
-            <button className="jack-btn" onClick={() => setShowAutoPicker(false)} style={{ marginTop: '0.5rem' }}>[ cancelar ]</button>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
