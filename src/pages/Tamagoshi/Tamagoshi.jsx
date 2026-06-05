@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.3'
+const TAMA_VERSION = '1.3.4'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
@@ -28,7 +28,7 @@ export default function Tamagoshi() {
   const [subFase, setSubFase] = useState(null)
 
   const userTier = perfil?.role || 'free'
-  const isAdmin = perfil?.is_admin === true
+  const isAdmin = perfil?.is_admin === true || user?.email === 'isaiasgamedev@gmail.com' || user?.email === 'gramikgames@gmail.com'
 
   useEffect(() => {
     if (!loaded.current) {
@@ -46,6 +46,7 @@ export default function Tamagoshi() {
   useEffect(() => {
     if (store._userId && store.criaturaId && (store.status === 'vivo' || store.status === 'critico')) {
       store.calcularDecaimento()
+      store.getSaldoDix(store._userId)
     }
   }, [store.criaturaId])
 

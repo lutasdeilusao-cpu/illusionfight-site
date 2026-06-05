@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.3'
+const TAMA_VERSION = '1.3.4'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
