@@ -1,6 +1,7 @@
 import { usePPStore } from '../store/usePPStore'
 import { PISTAS } from '../data/pistas'
 import { CASOS } from '../data/casos'
+import { t } from '../data/pp-i18n'
 
 export default function CadernoSuspeitas() {
   const store = usePPStore()
@@ -14,17 +15,17 @@ export default function CadernoSuspeitas() {
   return (
     <div className="pp-container">
       <div className="pp-dossier-header">
-        <button className="pp-back" onClick={() => store.setFase('mapa')}>← mapa</button>
-        <h2 style={{ color: '#FFD700', margin: 0 }}>Caderno de Suspeitas</h2>
+        <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pt', 'local.mapa_voltar')}</button>
+        <h2 style={{ color: '#FFD700', margin: 0 }}>{t('pt', 'caderno.titulo')}</h2>
       </div>
 
       <p style={{ color: '#888', fontSize: 12, marginBottom: 20 }}>
-        Pistas do tipo Fio coletadas formam um padrão. Alguém está conectando todos os casos.
+        {t('pt', 'caderno.desc')}
       </p>
 
       <div style={{ marginBottom: 16 }}>
         <div style={{ color: '#555', fontSize: 10, marginBottom: 4 }}>
-          Progresso da conspiração: {progresso}%
+          {t('pt', 'caderno.progresso', { pct: progresso })}
         </div>
         <div style={{ height: 4, background: '#1a1a1a' }}>
           <div style={{ height: '100%', background: '#FFD700', transition: 'width 0.5s', width: `${progresso}%` }} />
@@ -33,7 +34,7 @@ export default function CadernoSuspeitas() {
 
       {fios.length === 0 ? (
         <div className="pp-fio-card-vazia">
-          Nenhuma pista Fio coletada ainda. Resolva casos para encontrar conexões.
+          {t('pt', 'caderno.vazio')}
         </div>
       ) : (
         <div className="pp-caderno-grid">
@@ -57,10 +58,10 @@ export default function CadernoSuspeitas() {
         <div style={{ marginTop: 24, padding: 16, border: '1px solid #FFD70033', background: 'rgba(255,215,0,0.03)' }}>
           <p style={{ color: '#FFD700', fontSize: 13, fontStyle: 'italic' }}>
             {fios.length >= 15
-              ? 'O padrão é claro. Kim está no centro de tudo. Cada caso, cada morte, cada pista leva ao bar da esquina.'
+              ? t('pt', 'caderno.conspiracao_15')
               : fios.length >= 10
-              ? 'As peças começam a se encaixar. Alguém está orquestrando o crime em Marelia. Alguém que conhece todos os envolvidos.'
-              : 'Um nome começa a surgir repetidamente. Kim. O dono do bar. Sempre presente, nunca suspeito.'}
+              ? t('pt', 'caderno.conspiracao_10')
+              : t('pt', 'caderno.conspiracao_5')}
           </p>
         </div>
       )}

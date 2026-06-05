@@ -7,7 +7,7 @@
  * Uso: import { PP } from './pp-i18n' → PP[locale].chave
  *
  * Última atualização: 2026-06-05
- * Versão: 1.5.17
+ * Versão: 1.5.18
  */
 
 const PP = {
@@ -157,6 +157,20 @@ const PP = {
     "geral.reputacao": "★ {valor}",
     "geral.casos_resolvidos": "{n}/{total}",
     "geral.hp": "HP: {hp}/30",
+
+    // ── Feed ──
+    "feed.revisitar": "REVISITAR",
+    "feed.investigar": "INVESTIGAR",
+    "feed.mensagens": "MENSAGENS",
+    "feed.stories_vazio": "Nenhuma pista coletada ainda.\n\nInvestigue os locais dos casos para revelar evidências.",
+    "feed.status_reputacao": "REPUTAÇÃO",
+    "feed.status_casos": "CASOS RESOLVIDOS",
+    "feed.status_nivel": "NÍVEL",
+    "feed.status_fios": "FIOS DA CONSPIRAÇÃO",
+    "feed.topbar_nome": "Pesadelo Particular",
+    "feed.topbar_sub": "Marelia, 1954 · Nível {nivel}",
+    "feed.loading": "CARREGANDO...",
+    "feed.caderno_vazio": "\"ainda não sei quem é.\nmas cada pista liga um ponto a outro.\"",
   },
 
   en: {
@@ -288,6 +302,20 @@ const PP = {
     "geral.reputacao": "★ {valor}",
     "geral.casos_resolvidos": "{n}/{total}",
     "geral.hp": "HP: {hp}/30",
+
+    // ── Feed ──
+    "feed.revisitar": "REVISIT",
+    "feed.investigar": "INVESTIGATE",
+    "feed.mensagens": "MESSAGES",
+    "feed.stories_vazio": "No clues collected yet.\n\nInvestigate the case locations to reveal evidence.",
+    "feed.status_reputacao": "REPUTATION",
+    "feed.status_casos": "CASES SOLVED",
+    "feed.status_nivel": "LEVEL",
+    "feed.status_fios": "CONSPIRACY THREADS",
+    "feed.topbar_nome": "Private Nightmare",
+    "feed.topbar_sub": "Marelia, 1954 · Level {nivel}",
+    "feed.loading": "LOADING...",
+    "feed.caderno_vazio": "\"I still don't know who it is.\nbut every clue connects one point to another.\"",
   },
 
   es: {
@@ -419,6 +447,20 @@ const PP = {
     "geral.reputacao": "★ {valor}",
     "geral.casos_resolvidos": "{n}/{total}",
     "geral.hp": "HP: {hp}/30",
+
+    // ── Feed ──
+    "feed.revisitar": "REVISITAR",
+    "feed.investigar": "INVESTIGAR",
+    "feed.mensagens": "MENSAJES",
+    "feed.stories_vazio": "Aún no se han recolectado pistas.\n\nInvestiga los lugares de los casos para revelar evidencias.",
+    "feed.status_reputacao": "REPUTACIÓN",
+    "feed.status_casos": "CASOS RESUELTOS",
+    "feed.status_nivel": "NIVEL",
+    "feed.status_fios": "HILOS DE CONSPIRACIÓN",
+    "feed.topbar_nome": "Pesadilla Privada",
+    "feed.topbar_sub": "Marelia, 1954 · Nivel {nivel}",
+    "feed.loading": "CARGANDO...",
+    "feed.caderno_vazio": "\"aún no sé quién es.\npero cada pista conecta un punto con otro.\"",
   }
 }
 

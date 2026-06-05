@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { usePPStore } from '../store/usePPStore'
 import { CASOS } from '../data/casos'
 import { casosDisponiveis } from '../data/resolver'
+import { t } from '../data/pp-i18n'
 
 const NODES = {
   caso_01: { x: 390, y: 30 },
@@ -63,12 +64,12 @@ export default function MapaCidade() {
     <div className="pp-container" style={{ paddingTop: 40 }}>
       <div style={{ textAlign: 'center', marginBottom: 8 }}>
         <h1 className="pp-title">
-          <span className="pp-title-glitch" data-text="PESADELO PARTICULAR">PESADELO PARTICULAR</span>
+          <span className="pp-title-glitch" data-text={t('pt', 'intro.titulo')}>{t('pt', 'intro.titulo')}</span>
         </h1>
-        <p className="pp-subtitle"><span className="pp-cursor">█</span> Marelia, 1954. O sonho escolheu você.</p>
+        <p className="pp-subtitle"><span className="pp-cursor">█</span> {t('pt', 'mapa.subtitulo')}</p>
       </div>
 
-      <div className="pp-rep-display">★ {reputacao}</div>
+      <div className="pp-rep-display">{t('pt', 'geral.reputacao', { valor: reputacao })}</div>
 
       <div className="pp-mapa-wrap">
         <svg className="pp-mapa-svg" viewBox="0 0 780 860" preserveAspectRatio="xMidYMin meet">
@@ -101,7 +102,7 @@ export default function MapaCidade() {
           <div className="pp-mapa-tooltip" style={{ left: tooltip.x, top: tooltip.y }}>
             <div className="pp-mapa-tooltip-name">{tooltip.nome}</div>
             <div className="pp-mapa-tooltip-diff">
-              {'◆'.repeat(tooltip.dificuldade)} · {tooltip.reputacao_minima > 0 ? `${tooltip.reputacao_minima} rep` : 'sem requisito'}
+              {'◆'.repeat(tooltip.dificuldade)} · {tooltip.reputacao_minima > 0 ? `${tooltip.reputacao_minima} rep` : t('pt', 'mapa.sem_requisito')}
             </div>
           </div>
         )}

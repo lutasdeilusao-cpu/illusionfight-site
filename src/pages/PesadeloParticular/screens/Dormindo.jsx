@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { usePPStore } from '../store/usePPStore'
 import { useAuth } from '../../../context/AuthContext'
+import { t } from '../data/pp-i18n'
 
 export default function Dormindo() {
   const { user } = useAuth()
@@ -29,17 +30,18 @@ export default function Dormindo() {
   return (
     <div className="pp-container">
       <div className="pp-dormindo">
-        <h1 className="pp-dormindo-title">INCONSCIENTE</h1>
+        <h1 className="pp-dormindo-title">{t('pt', 'dormindo.titulo')}</h1>
         <p className="pp-dormindo-text">
-          Você foi derrotado. O sonho escurece. Jack está caído no beco, a chuva lavando o sangue do asfalto.<br /><br />
-          Em alguns minutos, alguém vai encontrá-lo. Ou talvez ninguém encontre. Isso é Marelia.
+          {t('pt', 'dormindo.texto').split('\n').map((l, i, arr) => (
+            <span key={i}>{l}{i < arr.length - 1 && <><br /><br /></>}</span>
+          ))}
         </p>
         <div className="pp-dormindo-timer">
           {String(min).padStart(2, '0')}:{String(seg).padStart(2, '0')}
         </div>
         {restante <= 0 && (
           <button className="pp-btn pp-btn--primary" onClick={() => { store.acordar(); if (user) store.saveToCloud(user.id) }}>
-            ACORDAR
+            {t('pt', 'dormindo.acordar')}
           </button>
         )}
       </div>

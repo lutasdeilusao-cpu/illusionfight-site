@@ -11,9 +11,10 @@ import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
 import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
+import { t } from './data/pp-i18n'
 import './PP.css'
 
-const PP_VERSION = '1.5.17'
+const PP_VERSION = '1.5.18'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -64,7 +65,7 @@ function rolar(min, max) {
 function IntroNoir({ onComplete }) {
   const [text, setText] = useState('')
   const [fase, setFase] = useState('typing')
-  const fullText = 'Marelia, 1954. A chuva não para há três dias.\n\nVocê não é detetive.\n\nMas o sonho não liga pra isso.'
+  const fullText = t('pt', 'intro.texto')
   const idx = useRef(0)
   const timerRef = useRef(null)
 
@@ -95,7 +96,7 @@ function IntroNoir({ onComplete }) {
   return (
     <div className="pp-intro" onClick={() => { clearInterval(timerRef.current); onComplete() }}>
       <div className="pp-rain" />
-      <div className="pp-intro-label">PESADELO PARTICULAR</div>
+      <div className="pp-intro-label">{t('pt', 'intro.titulo')}</div>
       <div className="pp-intro-text">
         {text.split('\n').map((line, i, arr) => (
           <span key={i}>{line}{i < arr.length - 1 && <><br /><br /></>}</span>
@@ -104,7 +105,7 @@ function IntroNoir({ onComplete }) {
       </div>
       {fase === 'glitch' && <div className="pp-glitch-overlay" />}
       <div style={{ position:'absolute',bottom:'2rem',left:0,right:0,textAlign:'center',fontSize:'0.65rem',color:'rgba(255,255,255,0.2)',fontFamily:'Courier New',letterSpacing:'0.1em' }}>
-        toque para pular
+        {t('pt', 'intro.pular')}
       </div>
     </div>
   )
@@ -118,7 +119,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
   const [texto, setTexto] = useState('')
   const idxRef = useRef(0)
 
-  const msgFinal = 'foi um prazer trabalhar contigo.\nmarelia vai continuar precisando de alguém como você.'
+  const msgFinal = t('pt', 'final.msg_jack')
 
   useEffect(() => {
     if (fase !== 'chat') return
@@ -140,7 +141,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
     return (
       <div style={{ minHeight:'100vh', background:'#0a0a0a', display:'flex', flexDirection:'column', padding:'1rem' }}>
         <div className="pp-convo-header">
-          <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>Jack Cachorrão</span>
+          <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{t('pt', 'final.jack_label')}</span>
         </div>
         <div style={{ flex:1, display:'flex', alignItems:'center', padding:'2rem' }}>
           <div style={{ display:'flex', gap:'0.75rem', alignItems:'flex-end', maxWidth:'78%' }}>
@@ -162,18 +163,18 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
       <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', position:'relative' }}>
         <div className="pp-rain" />
         <div className="pp-credits-roll">
-          <p className="pp-credits-title">PESADELO PARTICULAR</p>
-          <p className="pp-credits-sub">Temporada 1</p>
+          <p className="pp-credits-title">{t('pt', 'final.creditos_titulo')}</p>
+          <p className="pp-credits-sub">{t('pt', 'final.creditos_temporada')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line">uma história de</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>MARELIA, 1954</p>
+          <p className="pp-credits-line">{t('pt', 'final.creditos_historia')}</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>{t('pt', 'final.creditos_marelia')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line">escrito e dirigido por</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>ISAIAS LEAL</p>
+          <p className="pp-credits-line">{t('pt', 'final.creditos_escrito')}</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>{t('pt', 'final.creditos_autor')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>obrigado por jogar</p>
+          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>{t('pt', 'final.creditos_obrigado')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>nos vemos na próxima temporada.</p>
+          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>{t('pt', 'final.creditos_prox_temp')}</p>
           <p style={{ height:200 }} />
         </div>
       </div>
@@ -184,19 +185,19 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
     <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
       <div className="pp-rain" />
       <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
-        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'1rem' }}>PESADELO PARTICULAR</h1>
-        <p style={{ color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.75rem', marginBottom:'2rem' }}>nível {nivel} · {casosResolvidos.length} casos resolvidos</p>
+        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'1rem' }}>{t('pt', 'final.creditos_titulo')}</h1>
+        <p style={{ color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.75rem', marginBottom:'2rem' }}>{t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
         <button onClick={() => {
-          const txt = `terminei Pesadelo Particular — nível ${nivel}, ${casosResolvidos.length} casos resolvidos.\nlutasdeilusao-cpu.github.io/illusionfight-site`
-          if (navigator.share) navigator.share({ title:'Pesadelo Particular', text:txt })
-          else navigator.clipboard?.writeText(txt).then(() => alert('link copiado!'))
+          const txt = `${t('pt', 'final.compartilhar')} — ${t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}.\nlutasdeilusao-cpu.github.io/illusionfight-site`
+          if (navigator.share) navigator.share({ title:t('pt', 'final.creditos_titulo'), text:txt })
+          else navigator.clipboard?.writeText(txt).then(() => alert(t('pt', 'final.link_copiado')))
         }}
           style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 0.75rem', padding:'0.75rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
-          compartilhar com amigos
+          {t('pt', 'final.compartilhar')}
         </button>
         <button onClick={onVoltarInicio}
           style={{ background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', textDecoration:'underline' }}>
-          voltar ao início
+          {t('pt', 'final.voltar_inicio')}
         </button>
       </div>
     </div>
@@ -241,7 +242,7 @@ function AnimacaoInvestigacao({ onComplete }) {
         {fase === 'revelando' && (
           <motion.div key="revelando" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}>
             <span style={{ fontSize:'0.8rem', color:'var(--pp-amber)', fontFamily:'Courier New', letterSpacing:'0.15em' }}>
-              EVIDÊNCIA ENCONTRADA
+              {t('pt', 'local.evidencia_encontrada')}
             </span>
           </motion.div>
         )}
@@ -281,10 +282,10 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
     setAnimAtaque('jack')
     setTimeout(() => setAnimAtaque(null), 400)
     setInimigoHp(novoHp)
-    addLog(`Jack ataca: ${dano} de dano`, 'player')
+    addLog(t('pt', 'batalha.jack_ataca', { dano }), 'player')
 
     if (novoHp <= 0) {
-      addLog('Inimigo derrotado!', 'vitoria')
+      addLog(t('pt', 'batalha.inimigo_derrotado'), 'vitoria')
       setResultado('vitoria')
       setTurno('fim')
       setTimeout(() => onVitoria(), 1500)
@@ -298,10 +299,10 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
       setAnimAtaque('inimigo')
       setTimeout(() => setAnimAtaque(null), 400)
       setJackHp(novoJackHp)
-      addLog(`${inimigo.nome} ataca: ${danoInimigo} de dano`, 'inimigo')
+      addLog(t('pt', 'batalha.inimigo_ataca', { nome: inimigo.nome, dano: danoInimigo }), 'inimigo')
 
       if (novoJackHp <= 0) {
-        addLog('Jack foi derrotado...', 'derrota')
+        addLog(t('pt', 'batalha.jack_derrotado'), 'derrota')
         setResultado('derrota')
         setTurno('fim')
         setTimeout(() => onDerrota(), 1500)
@@ -316,7 +317,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
   return (
     <div style={{ padding:'1rem', display:'flex', flexDirection:'column', gap:'1rem' }}>
       <div style={{ textAlign:'center', fontFamily:'Courier New', fontSize:'0.65rem', letterSpacing:'0.2em', color:'var(--pp-text-muted)', marginBottom:'0.5rem' }}>
-        CONFRONTO · NÍVEL {nivel}
+        {t('pt', 'batalha.titulo', { nivel })}
       </div>
 
       {/* Inimigo */}
@@ -336,7 +337,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
 
       {/* Log */}
       <div ref={logRef} style={{ background:'#050505', border:'1px solid var(--pp-border)', borderRadius:8, padding:'0.75rem', height:120, overflowY:'auto', display:'flex', flexDirection:'column', gap:'0.3rem' }}>
-        {log.length === 0 && <div style={{ color:'var(--pp-text-muted)', fontSize:'0.75rem', fontFamily:'Georgia', fontStyle:'italic' }}>O confronto começa.</div>}
+        {log.length === 0 && <div style={{ color:'var(--pp-text-muted)', fontSize:'0.75rem', fontFamily:'Georgia', fontStyle:'italic' }}>{t('pt', 'batalha.comeca')}</div>}
         {log.map(l => (
           <div key={l.id} style={{ fontSize:'0.75rem', fontFamily:'Courier New', color: l.tipo === 'player' ? 'var(--pp-jack)' : l.tipo === 'inimigo' ? 'var(--pp-nina)' : l.tipo === 'vitoria' ? 'var(--pp-success)' : l.tipo === 'derrota' ? 'var(--pp-danger)' : 'var(--pp-text-muted)' }}>
             {l.texto}
@@ -364,7 +365,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
         onClick={atacarInimigo}
         disabled={turno !== 'player' || !!resultado}
         style={{ padding:'0.85rem', background: turno === 'player' && !resultado ? 'var(--pp-amber)' : 'var(--pp-surface2)', color: turno === 'player' && !resultado ? '#000' : 'var(--pp-text-muted)', border:'none', borderRadius:12, fontSize:'0.9rem', fontWeight:700, cursor: turno === 'player' && !resultado ? 'pointer' : 'default', transition:'all 0.2s' }}>
-        {turno === 'player' ? '⚔️ ATACAR' : turno === 'inimigo' ? '⏳ Inimigo agindo...' : resultado === 'vitoria' ? '✓ Vitória!' : '✗ Derrota'}
+        {turno === 'player' ? t('pt', 'batalha.atacar') : turno === 'inimigo' ? t('pt', 'batalha.inimigo_agindo') : resultado === 'vitoria' ? t('pt', 'batalha.vitoria') : t('pt', 'batalha.derrota')}
       </button>
     </div>
   )
@@ -385,8 +386,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
     ? caso.dialogo?.abertura || []
     : caso.dialogo?.resolucao || []
   const narracaoRaw = tipo === 'abertura'
-    ? caso.dialogo?.narracao_abertura || ['Caso aberto.']
-    : caso.dialogo?.narracao_final || ['Caso encerrado.']
+    ? caso.dialogo?.narracao_abertura || [t('pt', 'convo.caso_aberto')]
+    : caso.dialogo?.narracao_final || [t('pt', 'convo.caso_encerrado')]
   const narracao = (typeof narracaoRaw === 'object' && !Array.isArray(narracaoRaw))
     ? (narracaoRaw[LOCALE] || Object.values(narracaoRaw)[0] || '...')
     : Array.isArray(narracaoRaw) ? (narracaoRaw[0] || '...') : (narracaoRaw || '...')
@@ -464,8 +465,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
           {AVATARES.jack.emoji}
         </div>
         <div>
-          <div style={{ fontSize:'0.9rem', fontWeight:700, color:'var(--pp-jack)' }}>Jack Cachorrão</div>
-          <div style={{ fontSize:'0.65rem', color:'var(--pp-success)' }}>● online</div>
+          <div style={{ fontSize:'0.9rem', fontWeight:700, color:'var(--pp-jack)' }}>{t('pt', 'convo.jack_nome')}</div>
+          <div style={{ fontSize:'0.65rem', color:'var(--pp-success)' }}>{t('pt', 'convo.online')}</div>
         </div>
       </div>
 
@@ -542,7 +543,7 @@ function StoryViewer({ pista, onClose }) {
       <div className="pp-story-viewer-content">
         <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
-        {pista.fio && <div className="pp-story-viewer-fio-label">⚡ FIO DA CONSPIRAÇÃO</div>}
+        {pista.fio && <div className="pp-story-viewer-fio-label">{t('pt', 'story.fio_label')}</div>}
         <div className="pp-story-viewer-title">{info.titulo}</div>
         <div className="pp-story-viewer-desc">{info.desc}</div>
       </div>
@@ -611,7 +612,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
                 {local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}
               </div>
               <div className="pp-local-puzzle-label">
-                {local.batalha ? 'Confronto Necessário' : local.puzzle && local.puzzle !== 'nenhum' ? 'Resolver Puzzle para Investigar' : 'Investigar Local'}
+                {local.batalha ? t('pt', 'local.confronto') : local.puzzle && local.puzzle !== 'nenhum' ? t('pt', 'local.puzzle') : t('pt', 'local.investigar')}
               </div>
               {local.puzzle && local.puzzle !== 'nenhum' && (
                 <div className="pp-local-puzzle-sub">{local.puzzle.toUpperCase()}</div>
@@ -649,7 +650,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
         )}
       </AnimatePresence>
 
-      <button className="pp-local-voltar" onClick={onBack}>← Voltar ao Dossier</button>
+      <button className="pp-local-voltar" onClick={onBack}>{t('pt', 'local.voltar_dossier')}</button>
     </div>
   )
 }
@@ -680,16 +681,16 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
         <div ref={rainRef} className="pp-rain" />
         <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
           <div style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem', marginBottom:'2rem', lineHeight:1.6 }}>
-            tem certeza?<br/>isso apaga tudo.
+            {t('pt', 'menu.confirmar').split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
           </div>
           <div style={{ display:'flex', gap:'1rem', justifyContent:'center' }}>
             <button onClick={() => setConfirmando(false)}
               style={{ padding:'0.6rem 1.5rem', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer' }}>
-              NÃO
+              {t('pt', 'menu.nao')}
             </button>
             <button onClick={onNovoJogo}
               style={{ padding:'0.6rem 1.5rem', background:'#300', color:'var(--pp-nina)', border:'1px solid var(--pp-nina)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer', fontWeight:700 }}>
-              SIM
+              {t('pt', 'menu.sim')}
             </button>
           </div>
         </div>
@@ -702,28 +703,28 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
       <div ref={rainRef} className="pp-rain" />
       <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
         <div style={{ fontFamily:'Courier New', fontSize:'0.6rem', letterSpacing:'0.4em', color:'var(--pp-amber)', marginBottom:'1rem', textTransform:'uppercase' }}>
-          Marelia, 1954
+          {t('pt', 'menu.marelia')}
         </div>
         <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'2.5rem', lineHeight:1.3 }}>
-          PESADELO<br/>PARTICULAR
+          {t('pt', 'menu.titulo_linha1')}<br/>{t('pt', 'menu.titulo_linha2')}
         </h1>
 
         <button onClick={onContinuar}
           style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 1rem', padding:'0.85rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
-          ● CONTINUAR
+          {t('pt', 'menu.continuar')}
           <div style={{ fontSize:'0.6rem', fontWeight:400, color:'var(--pp-text-muted)', marginTop:4, letterSpacing:0 }}>
-            nível {nivel}, {casosResolvidos.length} casos resolvidos
+            {t('pt', 'menu.nivel_casos', { nivel, casos: casosResolvidos.length })}
           </div>
         </button>
 
         <button onClick={() => setConfirmando(true)}
           style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto', padding:'0.85rem 0', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.1em', cursor:'pointer' }}>
-          ○ NOVO JOGO
+          {t('pt', 'menu.novo_jogo')}
         </button>
 
         <button onClick={() => navigate('/games')}
           style={{ marginTop:'1.5rem', background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', letterSpacing:'0.1em' }}>
-          ← voltar ao site
+          {t('pt', 'menu.voltar_site')}
         </button>
       </div>
     </div>
@@ -745,7 +746,7 @@ function PhoneCall({ caso, onAccept, onReject }) {
   const linhas = [
     { de: 'jack', texto: tf.jack_abertura[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
     // Mostrar apenas 'Suspeito' para preservar o mistério (não revelar o nome real do culpado)
-    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: '👤', cor: '#ff4444', label: 'Suspeito' },
+    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: '👤', cor: '#ff4444', label: t('pt', 'phone.suspeito_label') },
     { de: 'jack', texto: tf.jack_fechamento[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
   ]
 
@@ -783,14 +784,14 @@ function PhoneCall({ caso, onAccept, onReject }) {
           <div className="pp-phone-icon-wrap">
             <div className="pp-phone-vibrate">📞</div>
           </div>
-          <div className="pp-phone-label">CHAMADA RECEBIDA</div>
+          <div className="pp-phone-label">{t('pt', 'phone.chamada')}</div>
           <div className="pp-phone-conhecido">{caso.i18n[LOCALE]?.nome || caso.id}</div>
           <div className="pp-phone-buttons">
             <button className="pp-phone-btn pp-phone-btn--accept" onClick={() => { setStage('accepted'); setMsgAtual(0) }}>
-              <span>📞</span> ATENDER
+              <span>📞</span> {t('pt', 'phone.atender')}
             </button>
             <button className="pp-phone-btn pp-phone-btn--reject" onClick={onReject}>
-              <span>✕</span> RECUSAR
+              <span>✕</span> {t('pt', 'phone.recusar')}
             </button>
           </div>
         </div>
@@ -1002,8 +1003,8 @@ export default function PP() {
               style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'0.75rem 1rem', marginBottom:'1rem', cursor:'pointer', display:'flex', alignItems:'center', gap:'0.75rem' }}>
               <span style={{ fontSize:'1.5rem' }}>💬</span>
               <div style={{ flex:1 }}>
-                <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-text)' }}>Briefing do Caso</div>
-                <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>Ver conversa de abertura</div>
+                <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-text)' }}>{t('pt', 'dossier.briefing')}</div>
+                <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>{t('pt', 'dossier.ver_abertura')}</div>
               </div>
               <span style={{ color:'var(--pp-amber)' }}>→</span>
             </div>
@@ -1011,14 +1012,14 @@ export default function PP() {
 
           {/* Pistas counter */}
           <div className="pp-pistas-counter">
-            <span className="pp-pistas-counter-label">PISTAS COLETADAS</span>
+            <span className="pp-pistas-counter-label">{t('pt', 'dossier.pistas_label')}</span>
             <span className="pp-pistas-counter-value">{pistas.length} / {casoAtivo.pistas_necessarias}</span>
           </div>
 
           {/* Pistas coletadas — clicáveis */}
           {pistas.length > 0 && (
             <div style={{ marginBottom:'1rem' }}>
-              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>EVIDÊNCIAS</div>
+              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>{t('pt', 'dossier.evidencias')}</div>
               {pistas.map(pid => {
                 const p = casoAtivo.pistas.find(pp => pp.id === pid)
                 if (!p) return null
@@ -1029,7 +1030,7 @@ export default function PP() {
                     <div style={{ flex:1 }}>
                       <div style={{ fontSize:'0.78rem', fontWeight:700, color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[LOCALE].titulo}</div>
                     </div>
-                    {p.fio && <span style={{ fontSize:'0.6rem', color:'var(--pp-fio)' }}>⚡ FIO</span>}
+                    {p.fio && <span style={{ fontSize:'0.6rem', color:'var(--pp-fio)' }}>{t('pt', 'story.fio_label')}</span>}
                   </div>
                 )
               })}
@@ -1037,7 +1038,7 @@ export default function PP() {
           )}
 
           {/* Suspeitos */}
-          <div className="pp-dossier-section-title">SUSPEITOS</div>
+          <div className="pp-dossier-section-title">{t('pt', 'dossier.suspeitos')}</div>
           {casoAtivo.suspeitos.map(s => (
             <div key={s.id} className={`pp-suspeito-card ${suspeitoSelecionado === s.id ? 'selected' : ''}`}
               onClick={() => !resolvido && setSuspeitoSelecionado(s.id)}>
@@ -1052,7 +1053,7 @@ export default function PP() {
           ))}
 
           {/* Locais */}
-          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>LOCAIS</div>
+          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>{t('pt', 'dossier.locais')}</div>
           {casoAtivo.locais.map(local => {
             const pistaColetada = pistas.includes(local.pista_id)
             const locInfo = local.i18n[LOCALE]
@@ -1075,25 +1076,25 @@ export default function PP() {
             <>
               {feedbackAcusacao === 'errado' && (
                 <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
-                  pista errada. tente novamente.
+                  {t('pt', 'acusar.errada')}
                 </div>
               )}
               {feedbackAcusacao === 'bloqueado' && (
                 <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
-                  caso fracassado. reinicie para tentar novamente.
+                  {t('pt', 'acusar.bloqueada')}
                 </div>
               )}
               {feedbackAcusacao === 'incompleto' && (
                 <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
-                  complete todas as pistas antes de acusar.
+                  {t('pt', 'acusar.incompleta')}
                 </div>
               )}
               <button className="pp-acusar-btn"
                 disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias || feedbackAcusacao === 'bloqueado'}
                 onClick={handleAcusar}>
               {pistas.length < casoAtivo.pistas_necessarias
-                ? `Colete mais ${pistasFaltam} pista${pistasFaltam > 1 ? 's' : ''}`
-                : `ACUSAR ${casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[LOCALE].nome || '...'}`
+                ? t('pt', 'acusar.colete_mais', { n: pistasFaltam, plural: pistasFaltam > 1 ? 's' : '' })
+                : t('pt', 'acusar.btn', { nome: casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[LOCALE].nome || '...' })
               }
             </button>
             </>
@@ -1145,7 +1146,7 @@ export default function PP() {
                 <div className="pp-caso-thumbnail">
                   <span style={{ fontSize:'4rem' }}>{caso.thumbnail}</span>
                   <div className="pp-caso-thumbnail-text">{cInfo.subtitulo}</div>
-                  {resolvido && <div className="pp-caso-resolv-badge">RESOLVIDO ✓</div>}
+                  {resolvido && <div className="pp-caso-resolv-badge">{t('pt', 'dossier.resolvido_badge')}</div>}
                 </div>
 
                 <div className="pp-caso-actions">
@@ -1153,7 +1154,7 @@ export default function PP() {
                   <div className="pp-caso-action-btn"><span>🔍</span> {getPistasDoCase(caso.id).length}/{caso.pistas_necessarias}</div>
                   <span className="pp-caso-hashtag">#{cInfo.nome.replace(/\s/g,'')}</span>
                   <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo:'dossier' }); setSuspeitoSelecionado(null) }}>
-                    {resolvido ? 'REVISITAR' : 'INVESTIGAR'}
+                    {resolvido ? t('pt', 'feed.revisitar') : t('pt', 'feed.investigar')}
                   </button>
                 </div>
               </div>
@@ -1198,7 +1199,7 @@ export default function PP() {
       ]
       return (
         <div className="pp-chat-list">
-          <div className="pp-section-header">MENSAGENS</div>
+          <div className="pp-section-header">{t('pt', 'feed.mensagens')}</div>
           {contatos.map(c => {
             const av = AVATARES[c.id] || AVATARES.anonimo
             const casoDoContato = CASOS.find(caso =>
@@ -1235,7 +1236,7 @@ export default function PP() {
           return p ? { pista:p, caso:c } : null
         }).filter(Boolean)
       )
-      if (todasPistas.length === 0) return <div className="pp-empty">Nenhuma pista coletada ainda.<br /><br />Investigue os locais dos casos para revelar evidências.</div>
+      if (todasPistas.length === 0) return <div className="pp-empty">{t('pt', 'feed.stories_vazio').split('\n').map((l,i) => <span key={i}>{i > 0 && <><br /><br /></>}{l}</span>)}</div>
       return (
         <div className="pp-stories-grid">
           {todasPistas.map(({ pista }) => (
@@ -1257,29 +1258,29 @@ export default function PP() {
       const fios = getFiosPistas()
       return (
         <div className="pp-caderno">
-          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>STATUS</div>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>{t('pt', 'caderno.titulo').toUpperCase()}</div>
           <div style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem', marginBottom:'1.5rem' }}>
             <div>
               <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-amber)', fontFamily:'Courier New' }}>{reputacao}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>REPUTAÇÃO</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_reputacao')}</div>
             </div>
             <div>
               <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-jack)', fontFamily:'Courier New' }}>{casosResolvidos.length}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>CASOS RESOLVIDOS</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_casos')}</div>
             </div>
             <div>
               <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-kim)', fontFamily:'Courier New' }}>{nivel}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>NÍVEL</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_nivel')}</div>
             </div>
             <div>
               <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-fio)', fontFamily:'Courier New' }}>{fios.length}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>FIOS DA CONSPIRAÇÃO</div>
+              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_fios')}</div>
             </div>
           </div>
 
-          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>CADERNO DE SUSPEITAS</div>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>{t('pt', 'caderno.titulo').toUpperCase()}</div>
           {fios.length === 0
-            ? <div className="pp-caderno-empty">"ainda não sei quem é.<br />mas cada pista liga um ponto a outro."</div>
+            ? <div className="pp-caderno-empty">{t('pt', 'feed.caderno_vazio')}</div>
             : fios.map(({ pista, caso }) => (
               <div key={pista.id} className="pp-caderno-node" onClick={() => setStoryAtivo(pista)} style={{ cursor:'pointer' }}>
                 <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
@@ -1297,7 +1298,7 @@ export default function PP() {
   if (!carregado) {
     return (
       <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.2em' }}>
-        CARREGANDO...
+        {t('pt', 'feed.loading')}
       </div>
     )
   }
@@ -1352,10 +1353,10 @@ export default function PP() {
             <button className="pp-exit-btn" onClick={() => navigate('/games')}>←</button>
             <div className="pp-top-bar-avatar">🌙</div>
             <div className="pp-top-bar-info">
-              <div className="pp-top-bar-name">Pesadelo Particular</div>
-              <div className="pp-top-bar-sub">Marelia, 1954 · Nível {nivel}</div>
+              <div className="pp-top-bar-name">{t('pt', 'feed.topbar_nome')}</div>
+              <div className="pp-top-bar-sub">{t('pt', 'feed.topbar_sub', { nivel })}</div>
             </div>
-            <div className="pp-top-bar-rep">⭐ {reputacao} REP</div>
+            <div className="pp-top-bar-rep">{t('pt', 'geral.reputacao', { valor: reputacao })} REP</div>
           </div>
         )}
 
@@ -1374,10 +1375,10 @@ export default function PP() {
         {!faseInterna && (
           <div className="pp-bottom-nav">
             {[
-              { id:'feed',      icon:'🏠', label:'Casos' },
-              { id:'mensagens', icon:'💬', label:'Chat',    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
+              { id:'feed',      icon:'🏠', label:t('pt', 'feed.investigar') },
+              { id:'mensagens', icon:'💬', label:t('pt', 'feed.mensagens'),    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
               { id:'stories',   icon:'📖', label:'Pistas',  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
-              { id:'arquivos',  icon:'🗂️', label:'Arquivos' },
+              { id:'arquivos',  icon:'🗂️', label:t('pt', 'caderno.titulo') },
             ].map(nav => (
               <button key={nav.id} className={`pp-nav-btn ${aba === nav.id ? 'active' : ''}`} onClick={() => setAba(nav.id)}>
                 {nav.badge > 0 && <span className="pp-nav-badge">{nav.badge}</span>}

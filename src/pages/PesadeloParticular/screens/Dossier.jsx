@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { usePPStore } from '../store/usePPStore'
 import { getCaso, getLocaisParaCaso, getPistasParaCaso, getSuspeitosParaCaso } from '../data/resolver'
 import { useAuth } from '../../../context/AuthContext'
+import { t } from '../data/pp-i18n'
 
 export default function Dossier() {
   const { user } = useAuth()
@@ -44,9 +45,9 @@ export default function Dossier() {
     return (
       <div className="pp-container">
         <div className="pp-resol-card">
-          <div className="pp-resol-badge">CASO ENCERRADO</div>
+          <div className="pp-resol-badge">{t('pt', 'dossier.caso_encerrado')}</div>
           <div className="pp-resol-nome">{caso.nome}</div>
-          <p style={{ color: '#666', fontSize: 14 }}>+{resultado.ganho} reputação</p>
+          <p style={{ color: '#666', fontSize: 14 }}>{t('pt', 'dossier.reputacao', { valor: resultado.ganho })}</p>
           <p style={{ color: '#888', fontSize: 12, maxWidth: 400, margin: '16px auto', lineHeight: 1.7 }}>
             {caso.dialogoResolucao.map((l, i) => (
               <span key={i} style={{ display: 'block', marginBottom: 8, color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
@@ -55,7 +56,7 @@ export default function Dossier() {
             ))}
           </p>
           <button className="pp-btn pp-btn--primary" onClick={() => { store.setFase('mapa'); if (user) store.saveToCloud(user.id) }}>
-            VOLTAR AO MAPA
+            {t('pt', 'dossier.voltar_mapa')}
           </button>
         </div>
       </div>
@@ -65,7 +66,7 @@ export default function Dossier() {
   return (
     <div className="pp-container">
       <div className="pp-dossier-header">
-        <button className="pp-back" onClick={() => store.setFase('mapa')}>← mapa</button>
+        <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pt', 'local.mapa_voltar')}</button>
         <div style={{ flex: 1 }}>
           <h2 style={{ color: '#F5A623', margin: 0, fontSize: 18, letterSpacing: 3 }}>{caso.nome}</h2>
           <div style={{ display: 'flex', gap: 12, marginTop: 4, fontSize: 10, color: '#555' }}>
@@ -73,7 +74,7 @@ export default function Dossier() {
               {'◆'.repeat(caso.dificuldade)}
             </span>
             <span>+{caso.reputacao_ganho} rep</span>
-            <span>HP: {store.hp}/30</span>
+            <span>{t('pt', 'geral.hp', { hp: store.hp })}</span>
           </div>
         </div>
       </div>
@@ -81,13 +82,13 @@ export default function Dossier() {
       {resultado?.tipo === 'inocente' && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           style={{ textAlign: 'center', padding: 10, border: '1px solid #8B0000', color: '#8B0000', fontSize: 12, marginBottom: 12 }}>
-          Inocente! Perdeu reputação.
+          {t('pt', 'dossier.inocente')}
         </motion.div>
       )}
 
       {/* SUSPEITOS */}
       <div className="pp-section">
-        <div className="pp-section-label">Suspeitos</div>
+        <div className="pp-section-label">{t('pt', 'dossier.suspeitos')}</div>
         {suspeitos.map(s => {
           const estado = cd.suspeitosAtivos.find(sa => sa.id === s.id)
           const acusado = estado?.status === 'acusado'
@@ -112,7 +113,7 @@ export default function Dossier() {
 
       {/* PISTAS */}
       <div className="pp-section">
-        <div className="pp-section-label">Pistas ({pistasColetadas.length}/{caso.pistasNecessarias} mínimo)</div>
+        <div className="pp-section-label">{t('pt', 'dossier.pistas_label')} ({pistasColetadas.length}/{caso.pistasNecessarias} mínimo)</div>
         {pistas.filter(p => pistasColetadas.includes(p.id)).map(p => (
           <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
             initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
@@ -122,14 +123,14 @@ export default function Dossier() {
         ))}
         {pistasColetadas.length === 0 && (
           <div style={{ color: '#444', fontSize: 11, fontStyle: 'italic', padding: '8px 0' }}>
-            Nenhuma pista coletada ainda. Investigue os locais abaixo.
+            {t('pt', 'feed.stories_vazio')}
           </div>
         )}
       </div>
 
       {/* LOCAIS */}
       <div className="pp-section">
-        <div className="pp-section-label">Locais</div>
+        <div className="pp-section-label">{t('pt', 'dossier.locais')}</div>
         {locais.map(l => {
           const visitado = (cd.locaisInvestidos || []).includes(l.id)
           return (
@@ -152,7 +153,7 @@ export default function Dossier() {
         {!showAcusar ? (
           <button className="pp-atk-btn" disabled={!pistasSuficientes}
             onClick={() => setShowAcusar(true)}>
-            {pistasSuficientes ? 'ACUSAR' : `Pistas: ${pistasColetadas.length}/${caso.pistasNecessarias}`}
+            {pistasSuficientes ? t('pt', 'abertura.investigar').replace('INVESTIGAR','ACUSAR') : `Pistas: ${pistasColetadas.length}/${caso.pistasNecessarias}`}
           </button>
         ) : (
           <div>

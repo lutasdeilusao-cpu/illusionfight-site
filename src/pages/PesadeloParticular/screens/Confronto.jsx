@@ -4,6 +4,7 @@ import { usePPStore } from '../store/usePPStore'
 import { getCaso } from '../data/resolver'
 import { getInimigo } from '../data/inimigos'
 import { useAuth } from '../../../context/AuthContext'
+import { t } from '../data/pp-i18n'
 
 const rollD6 = () => Math.floor(Math.random() * 6) + 1
 const delay = ms => new Promise(r => setTimeout(r, ms))
@@ -25,7 +26,7 @@ function DicePP({ value, onDone }) {
   return (
     <motion.div className="pp-dice-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
       <motion.div className={cls} animate={phase === 'rolling' ? { rotate: [0, 15, -15, 10, -10, 0], scale: [1, 1.05, 0.95, 1] } : { scale: 1 }} transition={phase === 'rolling' ? { duration: 0.15, repeat: Infinity } : {}}>🎲 {n}</motion.div>
-      {phase === 'showing' && <motion.div className={`pp-dice-label${crit ? ' pp-dice-label--crit' : ''}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>{crit ? '⚡ CRÍTICO!' : `resultado: ${value}`}</motion.div>}
+      {phase === 'showing' && <motion.div className={`pp-dice-label${crit ? ' pp-dice-label--crit' : ''}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>{crit ? t('pt', 'batalha.critico') : t('pt', 'batalha.resultado', { valor: value })}</motion.div>}
     </motion.div>
   )
 }
@@ -70,9 +71,9 @@ export default function Confronto() {
       case 0: {
         const nEhp = Math.max(0, eHp - d.pDmg); setEHp(nEhp)
         if (d.pDmg > 0) { setDmgFloat({ v: d.pDmg, t: 'enemy' }); await delay(800); setDmgFloat(null) }
-        addLog('player', `Você ataca e causa ${d.pDmg} de dano.`)
+        addLog('player', t('pt', 'batalha.voce_ataca', { dano: d.pDmg }))
         setDiceOn(null); setOnoma('fists')
-        if (nEhp <= 0) { addLog('system', '⚔️ VITÓRIA!'); await delay(800); cleanup(); store.setFase('dossier'); return }
+        if (nEhp <= 0) { addLog('system', t('pt', 'batalha.vitoria_msg')); await delay(800); cleanup(); store.setFase('dossier'); return }
         stepRef.current = 1; timerRef.current = setTimeout(nextStep, 1000)
         break
       }
@@ -85,11 +86,11 @@ export default function Confronto() {
       }
       case 2: {
         await showDice(d.eRoll); setDiceOn(null); setFlashOn(false); setOnoma('fists')
-        addLog('enemy', `${inimigo.nome} ataca e causa ${d.eDmg} de dano.`)
+        addLog('enemy', t('pt', 'batalha.inimigo_ataca_log', { nome: inimigo.nome, dano: d.eDmg }))
         if (d.eDmg > 0) { setDmgFloat({ v: d.eDmg, t: 'player' }); await delay(800); setDmgFloat(null) }
         const finalPHp = Math.max(0, playerHp - d.eDmg); setPlayerHp(finalPHp)
         if (finalPHp <= 0) {
-          store.danoHP(15); addLog('system', '💀 Você foi derrotado!')
+          store.danoHP(15); addLog('system', t('pt', 'batalha.derrota_msg'))
           await delay(800); cleanup()
           if (user) store.saveToCloud(user.id)
           return
@@ -116,7 +117,7 @@ export default function Confronto() {
     return (
       <div className="pp-container">
         <div className="pp-dossier-header">
-          <button className="pp-back" onClick={() => store.setFase('dossier')}>← dossier</button>
+          <button className="pp-back" onClick={() => store.setFase('dossier')}>{t('pt', 'local.dossier_voltar')}</button>
           <h2 style={{ color: '#F5A623', margin: 0 }}>Interrogatório: {caso.confronto?.alvo}</h2>
         </div>
         <p style={{ color: '#888', fontStyle: 'italic', lineHeight: 1.7, marginBottom: 20 }}>
@@ -137,20 +138,20 @@ export default function Confronto() {
       <AnimatePresence>{onoma && <motion.div className="pp-onomatopeia" initial={{ scale: 0.3, opacity: 0, rotate: -8 }} animate={{ scale: 1, opacity: 1, rotate: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>POW!</motion.div>}</AnimatePresence>
 
       <div className="pp-dossier-header">
-        <button className="pp-back" onClick={() => { cleanup(); store.setFase('dossier') }}>← dossier</button>
+        <button className="pp-back" onClick={() => { cleanup(); store.setFase('dossier') }}>{t('pt', 'local.dossier_voltar')}</button>
         <h2 style={{ color: '#F5A623', margin: 0 }}>VS {inimigo.nome}</h2>
       </div>
 
       <div className="pp-combat-grid">
         <div className="pp-combat-side">
           <h3>Jack</h3>
-          <div className="pp-bar-wrap"><span className="pp-bar-label">HP {playerHp}/{pHpMax}</span>
+          <div className="pp-bar-wrap"><span className="pp-bar-label">{t('pt', 'geral.hp', { hp: playerHp })}/{pHpMax}</span>
             <div className="pp-bar"><div className={`pp-bar-fill ${ppPct < 30 ? 'pp-bar-danger' : 'pp-bar-green'}`} style={{ '--hp-pct': `${ppPct}%` }} /></div>
           </div>
         </div>
         <div className="pp-combat-side pp-combat-enemy">
           <h3>{inimigo.nome}</h3>
-          <div className="pp-bar-wrap"><span className="pp-bar-label">HP {eHp}/{eHpMax}</span>
+          <div className="pp-bar-wrap"><span className="pp-bar-label">{t('pt', 'geral.hp', { hp: eHp })}/{eHpMax}</span>
             <div className="pp-bar"><div className="pp-bar-fill pp-bar-red" style={{ '--hp-pct': `${epPct}%` }} /></div>
           </div>
         </div>
@@ -171,7 +172,7 @@ export default function Confronto() {
 
       <AnimatePresence>{dmgFloat && <motion.div className={`pp-dmg-float pp-dmg-float--${dmgFloat.t}`} initial={{ y: 0, opacity: 1 }} animate={{ y: -30, opacity: 0 }} transition={{ duration: 0.8 }}>-{dmgFloat.v}</motion.div>}</AnimatePresence>
 
-      <button className="pp-atk-btn" onClick={handleAtacar} disabled={atkDisabled}>{atkDisabled ? '...' : 'ATACAR'}</button>
+      <button className="pp-atk-btn" onClick={handleAtacar} disabled={atkDisabled}>{atkDisabled ? '...' : t('pt', 'batalha.atacar')}</button>
     </div>
   )
 }

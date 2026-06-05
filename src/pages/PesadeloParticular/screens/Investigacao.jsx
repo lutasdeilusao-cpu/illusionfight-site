@@ -4,6 +4,7 @@ import { usePPStore } from '../store/usePPStore'
 import { getCaso, getLocaisParaCaso, getPistasParaCaso } from '../data/resolver'
 import PuzzleWrapper from '../components/PuzzleWrapper'
 import { useAuth } from '../../../context/AuthContext'
+import { t } from '../data/pp-i18n'
 
 export default function Investigacao() {
   const { user } = useAuth()
@@ -24,8 +25,8 @@ export default function Investigacao() {
   if (naoVisitados.length === 0) {
     return (
       <div className="pp-container">
-        <div className="pp-section-label">Todos os locais investigados</div>
-        <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
+        <div className="pp-section-label">{t('pt', 'local.todos_investigados')}</div>
+        <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>{t('pt', 'local.voltar_dossier_btn')}</button>
       </div>
     )
   }
@@ -59,20 +60,20 @@ export default function Investigacao() {
 
   return (
     <div className="pp-container">
-      <button className="pp-back" onClick={() => store.setFase('dossier')}>← dossier</button>
+      <button className="pp-back" onClick={() => store.setFase('dossier')}>{t('pt', 'local.dossier_voltar')}</button>
 
       <div style={{ marginTop: 8 }}>
-        <div className="pp-section-label">HP</div>
+        <div className="pp-section-label">{t('pt', 'local.hp_label')}</div>
         <div className="pp-bar" style={{ marginBottom: 16 }}>
           <div className={`pp-bar-fill ${hpPct < 30 ? 'pp-bar-danger' : 'pp-bar-green'}`}
             style={{ '--hp-pct': `${hpPct}%` }} />
         </div>
         <span style={{ fontSize: 10, color: '#555', display: 'block', textAlign: 'right', marginTop: -12, marginBottom: 12 }}>
-          {store.hp}/30
+          {t('pt', 'geral.hp', { hp: store.hp })}
         </span>
       </div>
 
-      <div className="pp-section-label">Local ({naoVisitados.length} restantes)</div>
+      <div className="pp-section-label">{t('pt', 'local.restantes', { n: naoVisitados.length })}</div>
 
       <div style={{ marginTop: 12 }}>
         <div className="pp-invest-nome">{local.nome}</div>
@@ -94,7 +95,7 @@ export default function Investigacao() {
         {!puzzleAtivo && !pistaRevelada && (
           <button className="pp-btn pp-btn--primary" onClick={handleInvestigar}
             style={{ marginTop: 12 }}>
-            {local.puzzle && local.puzzle !== 'nenhum' ? 'INVESTIGAR (puzzle)' : 'INVESTIGAR'}
+            {local.puzzle && local.puzzle !== 'nenhum' ? t('pt', 'local.investigar_puzzle_btn') : t('pt', 'local.investigar_btn')}
           </button>
         )}
 
@@ -120,7 +121,7 @@ export default function Investigacao() {
         )}
         {pistaRevelada && (
           <button className="pp-btn pp-btn--primary" style={{ marginTop: 12 }}
-            onClick={() => store.setFase('dossier')}>VOLTAR AO DOSSIER</button>
+            onClick={() => store.setFase('dossier')}>{t('pt', 'local.voltar_dossier_btn')}</button>
         )}
       </div>
     </div>
