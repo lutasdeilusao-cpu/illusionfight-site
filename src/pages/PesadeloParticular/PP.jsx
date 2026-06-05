@@ -10,9 +10,10 @@ import PuzzleStealthGrid from '../../components/Puzzles/PuzzleStealthGrid'
 import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
 import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
+import { getTelefonema } from './data/telefonema'
 import './PP.css'
 
-const PP_VERSION = '1.5.6'
+const PP_VERSION = '1.5.7'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -730,6 +731,107 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 }
 
 // ══════════════════════════════════════════════════
+// PHONE CALL — 50% pistas trigger
+// ══════════════════════════════════════════════════
+function PhoneCall({ caso, onAccept, onReject }) {
+  const [stage, setStage] = useState('ringing')
+  const [msgAtual, setMsgAtual] = useState(-1)
+  const [textoExibido, setTextoExibido] = useState('')
+  const charIdx = useRef(0)
+  const timerRef = useRef(null)
+  const tf = getTelefonema(caso.id)
+
+  const suspeitoCulpado = caso.suspeitos.find(s => s.culpado)
+  const linhas = [
+    { de: 'jack', texto: tf.jack_abertura[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
+    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: suspeitoCulpado?.avatar || '👤', cor: '#ff4444', label: suspeitoCulpado?.i18n?.[LOCALE]?.nome || 'Desconhecido' },
+    { de: 'jack', texto: tf.jack_fechamento[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
+  ]
+
+  // Aceitar → mostrar diálogo linha a linha
+  useEffect(() => {
+    if (stage !== 'accepted') return
+    if (msgAtual >= linhas.length) {
+      const t = setTimeout(() => onReject(), 2000)
+      return () => clearTimeout(t)
+    }
+    const linha = linhas[msgAtual]
+    if (!linha) return
+
+    charIdx.current = 0
+    setTextoExibido('')
+    timerRef.current = setInterval(() => {
+      charIdx.current++
+      setTextoExibido(linha.texto.slice(0, charIdx.current))
+      if (charIdx.current >= linha.texto.length) {
+        clearInterval(timerRef.current)
+        const t = setTimeout(() => {
+          setMsgAtual(prev => prev + 1)
+        }, 1200)
+        timerRef.current = t
+      }
+    }, 30)
+    return () => { clearInterval(timerRef.current) }
+  }, [stage, msgAtual])
+
+  if (stage === 'ringing') {
+    return (
+      <motion.div className="pp-phone-call"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <div className="pp-phone-ringing">
+          <div className="pp-phone-icon-wrap">
+            <div className="pp-phone-vibrate">📞</div>
+          </div>
+          <div className="pp-phone-label">CHAMADA RECEBIDA</div>
+          <div className="pp-phone-conhecido">{caso.i18n[LOCALE]?.nome || caso.id}</div>
+          <div className="pp-phone-buttons">
+            <button className="pp-phone-btn pp-phone-btn--accept" onClick={() => setStage('accepted')}>
+              <span>📞</span> ATENDER
+            </button>
+            <button className="pp-phone-btn pp-phone-btn--reject" onClick={onReject}>
+              <span>✕</span> RECUSAR
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
+
+  if (stage === 'accepted') {
+    return (
+      <motion.div className="pp-phone-call pp-phone-call--accepted"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <div className="pp-phone-accepted">
+          {linhas.map((linha, i) => {
+            if (i > msgAtual) return null
+            const completo = i < msgAtual
+            const texto = completo ? linha.texto : textoExibido
+            return (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`pp-phone-msg ${linha.de === 'jack' ? 'pp-phone-msg--jack' : 'pp-phone-msg--suspeito'}`}
+                style={{ '--pp-phone-cor': linha.cor }}>
+                <div className="pp-phone-msg-avatar">{linha.avatar}</div>
+                <div className="pp-phone-msg-content">
+                  {linha.de !== 'jack' && <div className="pp-phone-msg-label">{linha.label}</div>}
+                  <div className="pp-phone-msg-text" style={{ color: linha.cor }}>
+                    {texto}
+                    {!completo && <span className="pp-phone-cursor" />}
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+      </motion.div>
+    )
+  }
+
+  return null
+}
+
+// ══════════════════════════════════════════════════
 // APP PRINCIPAL
 // ══════════════════════════════════════════════════
 export default function PP() {
@@ -742,6 +844,8 @@ export default function PP() {
   const [casoAtivo, setCasoAtivo] = useState(null)
   const [faseInterna, setFaseInterna] = useState(null)
   const [storyAtivo, setStoryAtivo] = useState(null)
+  const [phoneCall, setPhoneCall] = useState(null)
+  const phoneCallTriggered = useRef(new Set())
   const [suspeitoSelecionado, setSuspeitoSelecionado] = useState(null)
   const [feedbackAcusacao, setFeedbackAcusacao] = useState(null) // null | 'errado' | 'bloqueado'
 
@@ -791,8 +895,18 @@ export default function PP() {
 
   const handlePistaColetada = useCallback((pista) => {
     if (!casoAtivo) return
+    const currentPistas = getPistasDoCase(casoAtivo.id)
+    const newCount = currentPistas.length + 1
+    const total = casoAtivo.pistas.length
+    const pct = newCount / total
+
     store.coletarPista(casoAtivo.id, pista.id, user?.id)
-  }, [casoAtivo, user])
+
+    if (pct >= 0.5 && !phoneCallTriggered.current.has(casoAtivo.id) && !casosResolvidos.includes(casoAtivo.id)) {
+      phoneCallTriggered.current.add(casoAtivo.id)
+      setPhoneCall(casoAtivo)
+    }
+  }, [casoAtivo, user, casosResolvidos])
 
   const handleAcusar = () => {
     if (!suspeitoSelecionado || !casoAtivo) return
@@ -1255,6 +1369,11 @@ export default function PP() {
       {/* Story viewer overlay */}
       <AnimatePresence>
         {storyAtivo && <StoryViewer pista={storyAtivo} onClose={() => setStoryAtivo(null)} />}
+      </AnimatePresence>
+
+      {/* Phone call overlay */}
+      <AnimatePresence>
+        {phoneCall && <PhoneCall caso={phoneCall} onReject={() => setPhoneCall(null)} />}
       </AnimatePresence>
     </div>
   )

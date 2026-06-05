@@ -251,3 +251,97 @@
   from { transform: translateY(100vh); }
   to   { transform: translateY(-120%); }
 }
+
+/* ── PHONE CALL ─────────────────────────── */
+.pp-phone-call {
+  position: fixed; inset: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.92);
+}
+.pp-phone-ringing {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+}
+.pp-phone-icon-wrap {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: var(--pp-surface); border: 2px solid var(--pp-jack);
+  display: flex; align-items: center; justify-content: center;
+  animation: pp-phone-ring 1.2s ease-in-out infinite;
+}
+.pp-phone-vibrate {
+  font-size: 2.8rem;
+  animation: pp-phone-vibrate 0.15s ease-in-out infinite;
+}
+.pp-phone-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem; letter-spacing: 0.2em;
+  color: var(--pp-jack); font-weight: 700;
+  animation: pp-phone-blink 1s step-end infinite;
+}
+.pp-phone-conhecido {
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem; color: var(--pp-text-muted); font-style: italic;
+}
+.pp-phone-buttons {
+  display: flex; gap: 1.5rem;
+}
+.pp-phone-btn {
+  padding: 0.75rem 1.5rem;
+  border: none; border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem; font-weight: 700;
+  display: flex; align-items: center; gap: 0.5rem;
+  min-width: 120px; justify-content: center;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+.pp-phone-btn span { pointer-events: none; }
+.pp-phone-btn--accept { background: #003d1a; color: var(--pp-jack); border: 1px solid var(--pp-jack); }
+.pp-phone-btn--reject { background: #3d0000; color: var(--pp-nina); border: 1px solid var(--pp-nina); }
+.pp-phone-btn:active { opacity: 0.7; }
+
+.pp-phone-call--accepted { align-items: flex-end; }
+.pp-phone-accepted {
+  width: 100%; max-width: 480px; padding: 1rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.pp-phone-msg {
+  display: flex; align-items: flex-end; gap: 0.5rem;
+  max-width: 78%;
+}
+.pp-phone-msg--jack { align-self: flex-end; flex-direction: row-reverse; }
+.pp-phone-msg--suspeito { align-self: flex-start; }
+.pp-phone-msg-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--pp-surface2); border: 1.5px solid var(--pp-phone-cor);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; flex-shrink: 0;
+}
+.pp-phone-msg-content {
+  background: var(--pp-surface2); border-radius: 16px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.pp-phone-msg--jack .pp-phone-msg-content { border-radius: 16px 16px 4px 16px; }
+.pp-phone-msg--suspeito .pp-phone-msg-content { border-radius: 16px 16px 16px 4px; }
+.pp-phone-msg-label { font-size: 0.62rem; font-weight: 700; color: var(--pp-phone-cor); margin-bottom: 3px; }
+.pp-phone-msg-text { font-size: 0.88rem; line-height: 1.5; }
+.pp-phone-cursor {
+  display: inline-block; width: 2px; height: 1.1em;
+  background: var(--pp-phone-cor); vertical-align: text-bottom;
+  animation: pp-blink 1s step-end infinite;
+}
+
+@keyframes pp-phone-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(0,255,136,0); }
+}
+@keyframes pp-phone-vibrate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+@keyframes pp-phone-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
