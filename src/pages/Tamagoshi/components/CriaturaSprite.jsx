@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const BASE = import.meta.env.BASE_URL || '/'
+
 const ESTADO_ANIM = {
   vivo: { scale: 1, y: 0 },
   critico: { scale: 0.85, y: 5 },
@@ -10,6 +12,7 @@ const ESTADO_ANIM = {
 export default function CriaturaSprite({ criaturaId, status, estagio, criaturas, acao }) {
   const c = criaturas.find(x => x.id === criaturaId)
   const [pulando, setPulando] = useState(false)
+  const [erroImg, setErroImg] = useState(false)
   const timerRef = useRef(null)
 
   // Pulinho a cada 10-15s
@@ -30,11 +33,12 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
   const tam = estagio >= 2 ? 140 : estagio === 1 ? 110 : 80
-  const temImagem = !!c.imagem
+  const temImagem = !!c.imagem && !erroImg
 
-  // Se tem GIF de ação específica, usa ele
+  // Monta URL correta com BASE_URL
   const gifAtivo = acao && c.gifs?.[acao]
   const src = gifAtivo || c.imagem
+  const url = src?.startsWith('/') ? BASE.replace(/\/$/, '') + src : src
 
   const bounceVariants = {
     idle: { y: 0, scale: 1 },
@@ -59,8 +63,9 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
       >
         {temImagem ? (
           <img
-            src={src}
+            src={url}
             alt={c.nome}
+            onError={() => setErroImg(true)}
             style={{
               width: '100%', height: '100%', objectFit: 'contain',
               borderRadius: '50%', filter: status === 'morto' ? 'grayscale(1) brightness(0.3)' : status === 'critico' ? 'brightness(0.7)' : 'none',
