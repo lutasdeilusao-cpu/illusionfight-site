@@ -5,7 +5,7 @@ import { ITENS_LOJA } from '../data/itens_loja'
 
 export default function Loja({ onVoltar }) {
   const store = useTamagoshiStore()
-  const [saldo, setSaldo] = useState(store._dixSaldo || 0)
+  const [saldo, setSaldo] = useState(store._isAdmin ? '∞' : (store._dixSaldo || 0))
   const [msg, setMsg] = useState('')
   const inv = store.inventario || {}
 
@@ -17,13 +17,14 @@ export default function Loja({ onVoltar }) {
     try {
       await store.comprarItem(store._userId, item.id, item.preco)
       setMsg(`${item.emoji} ${item.nome} comprado!`)
-      setSaldo(s => s - item.preco)
       setTimeout(() => setMsg(''), 2000)
     } catch (e) {
       setMsg(e.message)
       setTimeout(() => setMsg(''), 3000)
     }
   }
+
+  const itensComprados = ITENS_LOJA.filter(item => (inv[item.id] || 0) > 0)
 
   return (
     <div className="tama-acao-screen">
@@ -41,9 +42,25 @@ export default function Loja({ onVoltar }) {
         </motion.p>
       )}
 
+      {itensComprados.length > 0 && (
+        <div className="tama-loja-inventario">
+          <h3 className="tama-loja-inventario-title">🎒 seu inventário</h3>
+          <div className="tama-loja-inventario-grid">
+            {itensComprados.map(item => (
+              <div key={item.id} className="tama-loja-inventario-item">
+                <span className="tama-loja-inventario-emoji">{item.emoji}</span>
+                <span className="tama-loja-inventario-nome">{item.nome}</span>
+                <span className="tama-loja-inventario-qtd">{inv[item.id]}x</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="tama-loja-grid">
         {ITENS_LOJA.map((item, i) => {
           const qtd = inv[item.id] || 0
+          const podeComprar = store._isAdmin || saldo >= item.preco
           return (
             <motion.div
               key={item.id}
@@ -60,10 +77,10 @@ export default function Loja({ onVoltar }) {
               </div>
               <button
                 className="tama-btn tama-btn--sm"
-                disabled={!store._isAdmin && saldo < item.preco}
+                disabled={!podeComprar}
                 onClick={() => handleComprar(item)}
               >
-                comprar
+                {store._isAdmin ? '🎁 pegar' : 'comprar'}
               </button>
             </motion.div>
           )

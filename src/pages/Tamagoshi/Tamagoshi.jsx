@@ -28,7 +28,7 @@ export default function Tamagoshi() {
   const [subFase, setSubFase] = useState(null)
 
   const userTier = perfil?.role || 'free'
-  const isAdmin = user?.email === 'isaiasgamedev@gmail.com' || perfil?.is_admin === true
+  const isAdmin = perfil?.is_admin === true
 
   useEffect(() => {
     if (!loaded.current) {

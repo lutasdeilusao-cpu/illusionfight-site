@@ -674,6 +674,47 @@
   flex-shrink: 0;
 }
 
+.tama-loja-inventario {
+  margin-bottom: 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: #0d0d14;
+}
+.tama-loja-inventario-title {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tama-loja-inventario-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tama-loja-inventario-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  background: #15151f;
+  border: 1px solid #2a2a3a;
+  border-radius: 6px;
+  font-size: 0.7rem;
+}
+.tama-loja-inventario-emoji {
+  font-size: 1rem;
+}
+.tama-loja-inventario-nome {
+  color: #ccc;
+}
+.tama-loja-inventario-qtd {
+  color: #F5A623;
+  font-weight: bold;
+  margin-left: 0.2rem;
+}
+
 /* ===== PARTIDA ===== */
 .tama-partida-animacao {
   display: flex;
