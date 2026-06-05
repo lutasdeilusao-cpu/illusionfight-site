@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.0.0'
+const TAMA_VERSION = '1.1.0'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
@@ -217,6 +217,146 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   reset: () => set({ ...defaultState, _ultimoUpdate: Date.now(), _ultimoLogin: Date.now() }),
+
+  // === TRADE SYSTEM ===
+
+  gerarKeyTroca: () => {
+    return crypto.randomUUID().replace(/-/g, '').slice(0, 8).toUpperCase()
+  },
+
+  verificarPermissaoTroca: (tama, tier) => {
+    const agora = new Date()
+    const ultimaTroca = tama.ultima_troca ? new Date(tama.ultima_troca) : null
+
+    if (tier === 'free' || !tier) {
+      if (ultimaTroca) {
+        const diasDesde = (agora - ultimaTroca) / (1000 * 60 * 60 * 24)
+        if (diasDesde < 90) {
+          const restam = Math.ceil(90 - diasDesde)
+          throw new Error(`conta free só pode trocar a cada 3 meses. faltam ${restam} dias.`)
+        }
+      }
+    }
+
+    if (tier === 'elite') {
+      if (ultimaTroca) {
+        const mesUltima = `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}`
+        const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
+        if (mesUltima === mesAgora) {
+          throw new Error('conta elite já usou a troca deste mês.')
+        }
+      }
+    }
+
+    if (tier === 'primordial') {
+      if (ultimaTroca) {
+        const diasDesde = (agora - ultimaTroca) / (1000 * 60 * 60 * 24)
+        if (diasDesde < 15) {
+          const restam = Math.ceil(15 - diasDesde)
+          throw new Error(`primordial precisa esperar 15 dias entre trocas. faltam ${restam} dias.`)
+        }
+      }
+      const mesUltima = ultimaTroca ? `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}` : null
+      const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
+      if (mesUltima === mesAgora && (tama.trocas_no_mes || 0) >= 2) {
+        throw new Error('primordial já usou as 2 trocas deste mês.')
+      }
+    }
+  },
+
+  proporTroca: async (userId, slotA) => {
+    const { data: tama, error: err } = await supabase
+      .from('tamagoshi_saves')
+      .select('*')
+      .eq('user_id', userId)
+      .eq('slot', slotA)
+      .maybeSingle()
+    if (err || !tama) throw new Error('tamagoshi não encontrado')
+    if (tama.status !== 'vivo') throw new Error('só pode trocar tamagoshi vivo')
+
+    const key = crypto.randomUUID().replace(/-/g, '').slice(0, 8).toUpperCase()
+
+    const { error: insertErr } = await supabase.from('tamagoshi_trocas').insert({
+      key,
+      user_id_a: userId,
+      slot_a: slotA,
+      criatura_id_a: tama.criatura_id,
+      status: 'pendente',
+      expira_em: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+    })
+    if (insertErr) throw new Error('erro ao criar pedido de troca')
+    return key
+  },
+
+  confirmarTroca: async (key, userId, slotB, tierB) => {
+    const { data: troca, error: err } = await supabase
+      .from('tamagoshi_trocas')
+      .select('*')
+      .eq('key', key)
+      .eq('status', 'pendente')
+      .gte('expira_em', new Date().toISOString())
+      .maybeSingle()
+    if (err || !troca) throw new Error('key inválida ou expirada')
+    if (troca.user_id_a === userId) throw new Error('não pode trocar consigo mesmo')
+
+    const [tamaA, tamaB] = await Promise.all([
+      supabase.from('tamagoshi_saves').select('*').eq('user_id', troca.user_id_a).eq('slot', troca.slot_a).maybeSingle(),
+      supabase.from('tamagoshi_saves').select('*').eq('user_id', userId).eq('slot', slotB).maybeSingle(),
+    ])
+    if (!tamaA.data || !tamaB.data) throw new Error('tamagoshi não encontrado')
+    if (tamaA.data.status !== 'vivo' || tamaB.data.status !== 'vivo') throw new Error('ambos precisam estar vivos para trocar')
+
+    const { data: perfilA } = await supabase.from('profiles').select('role').eq('id', troca.user_id_a).maybeSingle()
+    const tierA = perfilA?.role || 'free'
+
+    const isMesmoMes = (a, b) => a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear()
+
+    const calcularNovoContador = (tama, agora) => {
+      const ult = tama.ultima_troca ? new Date(tama.ultima_troca) : null
+      if (!ult || !isMesmoMes(ult, agora)) return 1
+      return (tama.trocas_no_mes || 0) + 1
+    }
+
+    const agora = new Date()
+    try { get().verificarPermissaoTroca(tamaA.data, tierA) } catch (e) { throw new Error(`dono A: ${e.message}`) }
+    try { get().verificarPermissaoTroca(tamaB.data, tierB) } catch (e) { throw new Error(`você: ${e.message}`) }
+
+    const resetFields = {
+      fase: 'ovo', fome: 100, higiene: 100, energia: 100, humor: 100,
+      dias_cuidado_streak: 0, dias_perfeito_streak: 0,
+      nascido_em: agora.toISOString(),
+      ultima_alimentacao: null, ultima_higiene: null, ultimo_passeio: null, ultima_brincadeira: null,
+      status: 'vivo', flags: '{}',
+      nome_custom: null,
+      ultima_troca: agora.toISOString(),
+      trocas_no_mes: calcularNovoContador(tamaB.data, agora),
+    }
+    const resetFieldsA = {
+      ...resetFields,
+      trocas_no_mes: calcularNovoContador(tamaA.data, agora),
+    }
+
+    await supabase.from('tamagoshi_saves').update({
+      criatura_id: tamaB.data.criatura_id,
+      personalidade: tamaB.data.personalidade,
+      ...resetFieldsA,
+    }).eq('user_id', troca.user_id_a).eq('slot', troca.slot_a)
+
+    await supabase.from('tamagoshi_saves').update({
+      criatura_id: tamaA.data.criatura_id,
+      personalidade: tamaA.data.personalidade,
+      ...resetFields,
+    }).eq('user_id', userId).eq('slot', slotB)
+
+    await supabase.from('tamagoshi_trocas').update({
+      status: 'confirmado',
+      user_id_b: userId,
+      slot_b: slotB,
+      confirmado_em: agora.toISOString(),
+    }).eq('key', key)
+
+    return { criaturaId: tamaA.data.criatura_id, personalidade: tamaA.data.personalidade }
+  },
 }))
 
 setInterval(() => {

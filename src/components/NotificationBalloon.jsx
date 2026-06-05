@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import jackImg from '../assets/images/characters/jack-balloon.png'
 import notificacoes from '../data/notificacoes.json'
+import { useNotificationStore } from '../store/notificationStore'
 import './NotificationBalloon.css'
 
 function shuffle(arr) {
@@ -20,6 +21,7 @@ export default function NotificationBalloon() {
   const [queueIndex, setQueueIndex] = useState(0)
   const autoCloseRef = useRef(null)
   const nextRef = useRef(null)
+  const notifStore = useNotificationStore()
 
   useEffect(() => {
     const shuffled = shuffle(notificacoes)
@@ -31,7 +33,17 @@ export default function NotificationBalloon() {
       setQueueIndex(1)
     }, 3 * 60 * 1000)
 
-    return () => clearTimeout(first)
+    const polling = setInterval(() => {
+      const item = notifStore.pop()
+      if (item) {
+        clearTimeout(autoCloseRef.current)
+        clearTimeout(nextRef.current)
+        setNotif(item)
+        setVisible(true)
+      }
+    }, 3000)
+
+    return () => { clearTimeout(first); clearInterval(polling) }
   }, [])
 
   useEffect(() => {

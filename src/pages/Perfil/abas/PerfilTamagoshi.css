@@ -1,0 +1,215 @@
+.perfil-tama {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.perfil-tama-loading {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+.perfil-tama-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.perfil-tama-title {
+  font-size: 0.95rem;
+  color: #00B4D8;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.perfil-tama-tier {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  border: 1px solid currentColor;
+  padding: 0.1rem 0.4rem;
+}
+.perfil-tama-vazio {
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Card */
+.perfil-tama-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+.perfil-tama-card-emoji {
+  font-size: 2.5rem;
+}
+.perfil-tama-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.perfil-tama-card-nome {
+  font-size: 0.9rem;
+  color: #F5A623;
+  font-weight: bold;
+}
+.perfil-tama-card-pers {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.perfil-tama-card-status {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+}
+
+/* Limites */
+.perfil-tama-limites {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.7rem;
+  color: #666;
+  padding: 0.5rem;
+  border: 1px dashed #222;
+  border-radius: 4px;
+}
+.perfil-tama-limites-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.perfil-tama-limites-valor {
+  color: #888;
+}
+
+/* Acoes */
+.perfil-tama-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.perfil-tama-btn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+.perfil-tama-btn:hover:not(:disabled) {
+  border-color: #00B4D8;
+  color: #00B4D8;
+}
+.perfil-tama-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.perfil-tama-btn--propor {
+  border-color: #22C55E;
+  color: #22C55E;
+}
+.perfil-tama-btn--propor:hover:not(:disabled) {
+  background: #22C55E11;
+}
+.perfil-tama-btn--confirmar {
+  border-color: #F5A623;
+  color: #F5A623;
+}
+.perfil-tama-btn--confirmar:hover:not(:disabled) {
+  background: #F5A62311;
+}
+
+.perfil-tama-confirmar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.perfil-tama-input {
+  flex: 1;
+  min-width: 120px;
+  background: #0a0a0f;
+  border: 1px solid #333;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.perfil-tama-input::placeholder {
+  color: #444;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.perfil-tama-select {
+  background: #111;
+  border: 1px solid #333;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.4rem;
+}
+
+/* Key box */
+.perfil-tama-key-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem;
+  border: 1px dashed #F5A623;
+  border-radius: 8px;
+}
+.perfil-tama-key-label {
+  font-size: 0.65rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.perfil-tama-key {
+  font-size: 1.5rem;
+  color: #F5A623;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #F5A62333;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.perfil-tama-key:hover {
+  background: #F5A62311;
+}
+.perfil-tama-key-hint {
+  font-size: 0.6rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* Msg */
+.perfil-tama-msg {
+  font-size: 0.75rem;
+  padding: 0.6rem;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.5;
+}
+.perfil-tama-msg--ok {
+  color: #22C55E;
+  border: 1px solid #22C55E33;
+  background: #22C55E11;
+}
+.perfil-tama-msg--erro {
+  color: #E02020;
+  border: 1px solid #E0202033;
+  background: #E0202011;
+}

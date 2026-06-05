@@ -8,6 +8,7 @@ import PerfilArena from './abas/PerfilArena'
 import PerfilColecao from './abas/PerfilColecao'
 import PerfilConta from './abas/PerfilConta'
 import Recompensas from './abas/Recompensas'
+import PerfilTamagoshi from './abas/PerfilTamagoshi'
 import '../Perfil.css'
 
 const TIER_CONFIG = {
@@ -42,6 +43,7 @@ export default function Perfil() {
     { id: 'conquistas', label: 'Conquistas', icone: '🏆' },
     { id: 'arena', label: 'Arena', icone: '⚔️' },
     { id: 'colecao', label: 'Coleção', icone: '🃏' },
+    { id: 'tamagoshi', label: 'Tamagoshi', icone: '🥚' },
     { id: 'conta', label: 'Conta', icone: '⚙️' },
   ]
 
@@ -101,6 +103,7 @@ export default function Perfil() {
         {abaAtiva === 'conquistas' && <PerfilConquistas />}
         {abaAtiva === 'arena' && <PerfilArena userId={user.id} />}
         {abaAtiva === 'colecao' && <PerfilColecao userId={user.id} />}
+        {abaAtiva === 'tamagoshi' && <PerfilTamagoshi />}
         {abaAtiva === 'conta' && <PerfilConta />}
       </div>
 
