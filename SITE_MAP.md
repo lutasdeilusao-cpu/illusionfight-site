@@ -116,6 +116,7 @@
 | `/extras/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v4.0.11 | Jack Dream Beer — idle noir investigativo |
 | `/extras/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
 | `/extras/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ FINALIZADO v1.5.1 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, i18n — **PRONTO PARA LANÇAMENTO** |
+| `/extras/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | 🚧 v1.0.0 | Duelo LDI — card game 1v1 vs IA. Sprint 0: fundação |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com pódio, tabela e posição do usuário |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR interativo com 3 modos, timer, ajudas e rank |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase |

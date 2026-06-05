@@ -10,6 +10,7 @@ const JOGOS = [
   { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/extras/minigames', badge: 'FREE', badgeCor: '#22C55E' },
   { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/extras/ldi-arena', badge: 'NEW', badgeCor: '#8B0000' },
   { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/extras/pesadelo', badge: 'NEW', badgeCor: '#EC4899' },
+  { id: 'duelo', nome: 'Duelo LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/extras/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
 ]
 
 const CONTEUDO = [

@@ -1,0 +1,26 @@
+.duelo-page {
+  min-height: 100vh;
+  background: #0A0A0F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5A623;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.duelo-placeholder {
+  text-align: center;
+  max-width: 480px;
+  padding: 40px;
+}
+
+.duelo-placeholder h1 {
+  font-size: 32px;
+  letter-spacing: 8px;
+  margin: 0 0 4px;
+}
+
+.duelo-placeholder p {
+  margin: 4px 0;
+  color: #aaa;
+}
