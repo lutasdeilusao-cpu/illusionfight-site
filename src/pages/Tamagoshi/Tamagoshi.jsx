@@ -1,4 +1,4 @@
-const TAMA_VERSION = '1.3.7'
+const TAMA_VERSION = '1.3.8'
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
@@ -24,18 +24,17 @@ export default function Tamagoshi() {
   const { user, perfil } = useAuth()
   const { setReaderMode } = useReader()
   const store = useTamagoshiStore()
-  const loaded = useRef(false)
-  const [subFase, setSubFase] = useState(null)
+  const lastUserId = useRef(undefined)
 
   const userTier = perfil?.role || 'free'
   const isAdmin = perfil?.is_admin === true || user?.email === 'isaiasgamedev@gmail.com' || user?.email === 'gramikgames@gmail.com'
 
   useEffect(() => {
-    if (!loaded.current) {
-      loaded.current = true
-      store.setAdmin(isAdmin)
-      store.loadFromCloud(user?.id, 1)
-    }
+    const uid = user?.id || null
+    if (lastUserId.current === uid) return
+    lastUserId.current = uid
+    store.setAdmin(isAdmin)
+    store.loadFromCloud(uid, 1)
   }, [user])
 
   useEffect(() => {
