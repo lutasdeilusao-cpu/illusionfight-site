@@ -64,11 +64,12 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
           <img
             src={url}
             alt={c.nome}
+            draggable={false}
             onError={() => setErroImg(true)}
             style={{
               width: '100%', height: '100%', objectFit: 'cover',
               borderRadius: '50%', filter: status === 'morto' ? 'grayscale(1) brightness(0.3)' : status === 'critico' ? 'brightness(0.7)' : 'none',
-              imageRendering: 'auto',
+              imageRendering: 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none',
             }}
           />
         ) : (

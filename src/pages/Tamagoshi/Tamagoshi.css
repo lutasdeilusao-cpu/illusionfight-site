@@ -588,6 +588,8 @@
   background: #0d1a2a;
   border-radius: 50%;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .tama-acao-banho-bolha {
   position: absolute;
