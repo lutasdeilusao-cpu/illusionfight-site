@@ -63,8 +63,8 @@ export default function Interior({ npcId }) {
     if (store.inventario.find(i => i.id === itemId)) return false
     // Bengala só aparece antes de comprar
     if (itemId === 'bengala_steampunk' && store.flags.TEM_BENGALA) return false
-    // Itens únicos só aparecem se nunca comprados
-    if (item.unico && store.flags[`COMPROU_${itemId.toUpperCase()}`]) return false
+    // Não-consumíveis já comprados não aparecem
+    if (!item.cura && (store.comprou || []).includes(itemId)) return false
     return true
   })
 

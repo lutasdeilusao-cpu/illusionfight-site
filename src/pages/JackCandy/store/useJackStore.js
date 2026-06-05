@@ -1,4 +1,4 @@
-const JACK_VERSION = '4.0.14'
+const JACK_VERSION = '4.0.15'
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
@@ -21,7 +21,7 @@ function cacheLocal(state) {
       medidorPrimordial: state.medidorPrimordial, aliadoAtual: state.aliadoAtual,
       casoAtivo: state.casoAtivo, pistasColetadas: state.pistasColetadas,
       suspeitos: state.suspeitos, locaisVisitados: state.locaisVisitados,
-      acusacoesErradas: state.acusacoesErradas, casosResolvidos: state.casosResolvidos,
+      acusacoesErradas: state.acusacoesErradas, casosResolvidos: state.casosResolvidos, comprou: state.comprou,
     }))
   } catch (_) {}
 }
@@ -38,7 +38,7 @@ const defaultState = {
   cervejas: 0, cervejasPorSegundo: 1, cervejasTotais: 0,
   fragmentos: 0, notas: 0,
   hpAtual: 20, hpMax: 20, nivel: 1, xp: 0,
-  fase: 'intro', flags: {}, dungeonsCompletas: [],
+  fase: 'intro', flags: {}, dungeonsCompletas: [], comprou: [],
   inventario: [], equipado: { arma: null, armadura: null, acessorio: null },
   tempoJogo: 0, titleDone: false, monologoAtual: null,
   cidadeAtual: 'marelia', periodo: 'DIA',
@@ -205,6 +205,7 @@ export const useJackStore = create((set, get) => {
         }
         if (item.desbloqueiaFlag) novoState.flags = { ...state.flags, [item.desbloqueiaFlag]: true }
         if (!item.slot && !item.danoBonus) novoState.inventario = [...state.inventario, { id: item.id, nome: item.nome }]
+        if (!item.cura) novoState.comprou = [...(state.comprou || []), itemId]
         if (item.id === 'ultimo_cigarro') novoState.monologoAtual = MONOLOGUES.ultimo_cigarro
         return novoState
       })
@@ -268,9 +269,13 @@ export const useJackStore = create((set, get) => {
         const xpNeeded = state.nivel * 15
         let nivelNovo = state.nivel
         let xpFinal = xpNova
+        let hpMaxNovo = state.hpMax
+        let hpAtualNovo = state.hpAtual
         if (xpNova >= xpNeeded) {
           nivelNovo = state.nivel + 1
           xpFinal = xpNova - xpNeeded
+          hpMaxNovo = state.hpMax + 5
+          hpAtualNovo = hpMaxNovo
         }
         return {
           cervejas: state.cervejas + cervejasGanhas, notas: state.notas + (dropNotas || 0), fragmentos: state.fragmentos + (dropFrag || 0),
@@ -279,7 +284,7 @@ export const useJackStore = create((set, get) => {
           medidorPrimordial: Math.min(10, state.medidorPrimordial + 1),
           monologoAtual: xpNova >= xpNeeded ? `nível ${nivelNovo}!` : MONOLOGUES.dungeon1_vitoria || '',
           aliadoAtual: null,
-          nivel: nivelNovo, xp: xpFinal,
+          nivel: nivelNovo, xp: xpFinal, hpMax: hpMaxNovo, hpAtual: hpAtualNovo,
         }
       })
       get()._autoSave()
@@ -293,6 +298,8 @@ export const useJackStore = create((set, get) => {
           return {
             xp: xpNova - xpNeeded,
             nivel: state.nivel + 1,
+            hpMax: state.hpMax + 5,
+            hpAtual: state.hpMax + 5,
             monologoAtual: `nível ${state.nivel + 1}!`,
           }
         }
@@ -321,7 +328,7 @@ export const useJackStore = create((set, get) => {
         caso_ativo: state.casoAtivo, pistas_coletadas: state.pistasColetadas,
         suspeitos: state.suspeitos, locais_visitados: state.locaisVisitados,
         acusacoes_erradas: state.acusacoesErradas, casos_resolvidos: state.casosResolvidos,
-        updated_at: new Date().toISOString(),
+        comprou: state.comprou, updated_at: new Date().toISOString(),
         version: JACK_VERSION,
       }
       const { error } = await supabase
