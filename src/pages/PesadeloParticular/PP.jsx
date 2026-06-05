@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CASOS } from './data/casos'
 import { usePPStore } from './store/usePPStore'
@@ -11,7 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.5.0'
+const PP_VERSION = '1.5.1'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -627,6 +628,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
 // ══════════════════════════════════════════════════
 function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
   const [confirmando, setConfirmando] = useState(false)
+  const navigate = useNavigate()
   const rainRef = useRef(null)
 
   useEffect(() => {
@@ -687,6 +689,11 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
           style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto', padding:'0.85rem 0', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.1em', cursor:'pointer' }}>
           ○ NOVO JOGO
         </button>
+
+        <button onClick={() => navigate('/extras')}
+          style={{ marginTop:'1.5rem', background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', letterSpacing:'0.1em' }}>
+          ← voltar ao site
+        </button>
       </div>
     </div>
   )
@@ -698,6 +705,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 export default function PP() {
   const { user } = useAuth()
   const { setReaderMode } = useReader()
+  const navigate = useNavigate()
   const store = usePPStore()
   const [appFase, setAppFase] = useState(null) // null=loading | menu | intro | app
   const [aba, setAba] = useState('feed')
@@ -1151,6 +1159,7 @@ export default function PP() {
         {/* Top bar — só quando não tem fase interna */}
         {!faseInterna && (
           <div className="pp-top-bar">
+            <button className="pp-exit-btn" onClick={() => navigate('/extras')}>←</button>
             <div className="pp-top-bar-avatar">🌙</div>
             <div className="pp-top-bar-info">
               <div className="pp-top-bar-name">Pesadelo Particular</div>
