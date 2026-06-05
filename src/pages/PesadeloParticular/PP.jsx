@@ -14,7 +14,7 @@ import { getTelefonema } from './data/telefonema'
 import { t } from './data/pp-i18n'
 import './PP.css'
 
-const PP_VERSION = '1.5.19'
+const PP_VERSION = '1.5.20'
 const LOCALE = 'pt'
 
 const AVATARES = {
