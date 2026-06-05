@@ -30,7 +30,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   if (!c) return <div className="tama-sprite-placeholder">?</div>
 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
-  const tam = estagio >= 2 ? 140 : estagio === 1 ? 110 : 80
+  const tam = estagio >= 2 ? 560 : estagio === 1 ? 440 : 320
   const temImagem = !!c.imagem && !erroImg
 
   // Imagens usam import estático Vite — caminhos já são absolutos corretos
@@ -39,7 +39,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
 
   const bounceVariants = {
     idle: { y: 0, scale: 1, opacity: 1 },
-    pulando: { y: [0, -12, -18, -12, 0], scale: [1, 1.05, 1.1, 1.05, 1], opacity: 1, transition: { duration: 0.5 } },
+    pulando: { y: [0, -48, -72, -48, 0], scale: [1, 1.05, 1.1, 1.05, 1], opacity: 1, transition: { duration: 0.5 } },
   }
 
   return (
