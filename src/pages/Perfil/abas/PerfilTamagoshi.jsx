@@ -125,8 +125,14 @@ export default function PerfilTamagoshi() {
       ) : (
         <>
           <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade) }}>
-            <div className="perfil-tama-card-emoji">
-              {CRIATURAS.find(c => c.id === tama.criatura_id)?.emoji || '🥚'}
+            <div className="perfil-tama-card-avatar">
+              {(() => {
+                const c = CRIATURAS.find(cr => cr.id === tama.criatura_id)
+                if (c?.imagem) {
+                  return <img src={c.imagem} alt={c.nome} className="perfil-tama-card-img" draggable={false} />
+                }
+                return <span className="perfil-tama-card-emoji">{c?.emoji || '🥚'}</span>
+              })()}
             </div>
             <div className="perfil-tama-card-info">
               <span className="perfil-tama-card-nome">{tama.nome_custom || 'sem nome'}</span>
