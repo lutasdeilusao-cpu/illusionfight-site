@@ -112,10 +112,23 @@ export default function DueloRoute() {
     }
 
     if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
-      if (zoneType === 'MONSTER' && card) {
+      if (zoneType === 'MONSTER') {
         const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
-        if (attIdx >= 0) {
-          console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
+        if (attIdx < 0) return
+
+        // Checar armadilha do jogador durante ataque do jogador
+        if (card) {
+          const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
+          if (playerTrap) {
+            s.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
+            s.setState(state => {
+              const zones = [...state.playerSpellZones]
+              const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
+              if (idx >= 0) zones[idx] = null
+              return { playerSpellZones: zones }
+            })
+          }
+          // Checar armadilha da IA durante ataque do jogador
           const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (aiTrap && card.atk > 1500) {
             s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
@@ -126,13 +139,18 @@ export default function DueloRoute() {
               return { aiSpellZones: zones }
             })
           }
-          s.declareAttack(attIdx, zoneIndex)
         }
-      } else if (!card && !s.aiMonsterZones.some(m => m)) {
-        const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
-        if (attIdx >= 0) {
+
+        if (card) {
+          console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
+          s.declareAttack(attIdx, zoneIndex)
+        } else {
+          // Ataque direto
+          const enemyHasMonsters = s.aiMonsterZones.some(m => m)
+          if (!enemyHasMonsters) {
           console.log('[ATAQUE DIRETO] atacante:', sel.name)
-          s.declareAttack(attIdx, -1)
+            s.declareAttack(attIdx, -1)
+          }
         }
       }
     }
@@ -176,6 +194,29 @@ export default function DueloRoute() {
 
       const battleResult = aiBattlePhase(useDueloStore.getState())
       if (battleResult) {
+        const s = useDueloStore.getState()
+        // Player traps activate during AI attack
+        const playerTrap = s.playerSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
+        if (playerTrap) {
+          store.activateEffect({ ...playerTrap, id: playerTrap.id_num }, 'PLAYER')
+          store.setState(state => {
+            const zones = [...state.playerSpellZones]
+            const idx = zones.findIndex(t => t?.id_num === playerTrap.id_num)
+            if (idx >= 0) zones[idx] = null
+            return { playerSpellZones: zones }
+          })
+        }
+        // AI traps activate during AI attack
+        const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
+        if (aiTrap) {
+          store.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
+          store.setState(state => {
+            const zones = [...state.aiSpellZones]
+            const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
+            if (idx >= 0) zones[idx] = null
+            return { aiSpellZones: zones }
+          })
+        }
         store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
         await delay(1200)
       }
