@@ -1,11 +1,14 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useDueloStore } from './store/useDueloStore'
+import DueloMenu from './screens/DueloMenu'
+import DueloVitoria from './screens/DueloVitoria'
+import DueloDerrota from './screens/DueloDerrota'
 import Board from './components/Board'
 import Hand from './components/Hand'
 import StatusBar from './components/StatusBar'
 import BattleLog from './components/BattleLog'
 import TributeSelector from './components/TributeSelector'
-import TrapActivator from './components/TrapActivator'
+import CardPreviewModal from './components/CardPreviewModal'
 import { aiMainPhase, aiBattlePhase } from './engine/ai'
 import './Duelo.css'
 
@@ -13,13 +16,19 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 
 export default function DueloRoute() {
   const store = useDueloStore()
+  const [fase, setFase] = useState('menu') // menu | game | victory | defeat
   const [hoveredCard, setHoveredCard] = useState(null)
   const [showTribute, setShowTribute] = useState(null)
-  const [showTrap, setShowTrap] = useState(null) // AI trap activation prompt
+  const [previewCard, setPreviewCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
-  const [attackAnim, setAttackAnim] = useState(null) // { attackerIdx, targetIdx, dmg }
+
+  const startGame = () => { store.resetGame(); setFase('game') }
 
   const handleCardHover = useCallback((card) => setHoveredCard(card), [])
+
+  const handleCardLongPress = useCallback((card) => {
+    if (card) setPreviewCard(card)
+  }, [])
 
   const handleCardClick = useCallback((card) => {
     if (!card || store.currentTurn !== 'PLAYER') return
@@ -68,12 +77,9 @@ export default function DueloRoute() {
       if (zoneType === 'MONSTER' && card) {
         const attIdx = store.playerMonsterZones.findIndex(m => m?.id === sel.id)
         if (attIdx >= 0) {
-          // Checar armadilha da IA
           const aiTrap = store.aiSpellZones.find(s => s?.type === 'TRAP' && s.faceDown && (s.placedOnTurn || 0) < store.turnNumber)
           if (aiTrap && card.atk > 1500) {
-            // IA tem armadilha e monstro atacante é ameaça
             store.activateEffect({ ...aiTrap, id: aiTrap.id }, 'AI')
-            // Remove armadilha do campo após ativar
             store.setState(state => {
               const zones = [...state.aiSpellZones]
               const idx = zones.findIndex(s => s?.id === aiTrap.id)
@@ -84,7 +90,6 @@ export default function DueloRoute() {
           store.declareAttack(attIdx, zoneIndex)
         }
       } else if (!card && !store.aiMonsterZones.some(m => m)) {
-        // Ataque direto
         const attIdx = store.playerMonsterZones.findIndex(m => m?.id === sel.id)
         if (attIdx >= 0) store.declareAttack(attIdx, -1)
       }
@@ -97,8 +102,7 @@ export default function DueloRoute() {
     if (!showTribute) return
     const zones = [...store.playerMonsterZones]
     const graveyard = [...store.playerGraveyard]
-    const sacrificed = []
-    indices.forEach(i => { sacrificed.push(zones[i]); zones[i] = null; graveyard.push(sacrificed[sacrificed.length - 1]) })
+    indices.forEach(i => { graveyard.push(zones[i]); zones[i] = null })
     const freeIdx = zones.findIndex(z => z === null)
     zones[freeIdx] = { ...showTribute.card, position: 'ATK', placedOnTurn: store.turnNumber }
     store.setState({
@@ -113,42 +117,39 @@ export default function DueloRoute() {
 
   // ── IA Turn ──
   useEffect(() => {
-    if (store.currentTurn !== 'AI' || store.gamePhase === 'OVER' || iaPending) return
-
+    if (store.currentTurn !== 'AI' || store.gamePhase === 'OVER' || iaPending || fase !== 'game') return
     const runAI = async () => {
       setIaPending(true)
       await delay(800)
-
-      // Draw
       store.drawPhase()
       await delay(600)
-
-      // Main Phase
       let mainResult = aiMainPhase(store)
       while (mainResult) {
         store.setState({ ...mainResult, gamePhase: 'MAIN' })
         await delay(1000)
         mainResult = aiMainPhase(store)
       }
-
-      // Battle Phase
       const battleResult = aiBattlePhase(store)
-      if (battleResult) {
-        store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
-        await delay(1200)
-      }
-
-      // End
+      if (battleResult) { store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx); await delay(1200) }
       store.endPhase()
       await delay(500)
-
-      // Auto-draw for player
       store.drawPhase()
       setIaPending(false)
     }
-
     runAI()
-  }, [store.currentTurn, store.gamePhase])
+  }, [store.currentTurn, store.gamePhase, fase])
+
+  // ── Check game over ──
+  useEffect(() => {
+    if (store.gamePhase === 'OVER' && fase === 'game') {
+      setTimeout(() => setFase(store.winner === 'PLAYER' ? 'victory' : 'defeat'), 1200)
+    }
+  }, [store.gamePhase, fase])
+
+  // ── RENDER ──
+  if (fase === 'menu') return <><DueloMenu onStart={startGame} /></>
+  if (fase === 'victory') return <DueloVitoria onRevanche={startGame} onMenu={() => setFase('menu')} />
+  if (fase === 'defeat') return <DueloDerrota onRevanche={startGame} onMenu={() => setFase('menu')} />
 
   return (
     <div className="duelo-page">
@@ -187,6 +188,8 @@ export default function DueloRoute() {
         <TributeSelector tributesNeeded={showTribute.needed} availableMonsters={showTribute.available}
           onSelect={handleTributeSelect} onCancel={() => setShowTribute(null)} />
       )}
+
+      {previewCard && <CardPreviewModal card={previewCard} onClose={() => setPreviewCard(null)} />}
     </div>
   )
 }
