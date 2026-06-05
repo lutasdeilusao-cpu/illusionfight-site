@@ -33,34 +33,35 @@ export default function DueloRoute() {
   }, [])
 
   const handleCardClick = useCallback((card) => {
-    if (!card || store.currentTurn !== 'PLAYER') return
-    if (store.gamePhase === 'MAIN') {vc
-      store.setState({ selectedCard: store.selectedCard?.id_num === card.id_num ? null : card })
+    const s = useDueloStore.getState()
+    if (!card || s.currentTurn !== 'PLAYER') return
+    const isMain = s.gamePhase === 'MAIN'
+    const isBattle = s.gamePhase === 'BATTLE' && card.type === 'MONSTER' && card.position === 'ATK'
+    if (isMain || isBattle) {
+      s.setState({ selectedCard: s.selectedCard?.id_num === card.id_num ? null : card })
     }
-    if (store.gamePhase === 'BATTLE' && card.type === 'MONSTER' && card.position === 'ATK') {
-      store.setState({ selectedCard: store.selectedCard?.id_num === card.id_num ? null : card })
-    }
-  }, [store])
+  }, [])
 
   const handleSlotClick = useCallback((owner, zoneType, zoneIndex, card) => {
-    if (store.currentTurn !== 'PLAYER' || store.gamePhase === 'OVER') return
-    const sel = store.selectedCard
+    const s = useDueloStore.getState()
+    if (s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') return
+    const sel = s.selectedCard
 
-    if (store.gamePhase === 'MAIN' && sel && !card && owner === 'PLAYER') {
+    if (s.gamePhase === 'MAIN' && sel && !card && owner === 'PLAYER') {
       if (sel.type === 'MONSTER' && zoneType === 'MONSTER') {
-        if (store.hasNormalSummonedThisTurn) return
+        if (s.hasNormalSummonedThisTurn) return
         if (sel.level >= 4) {
           const needed = sel.level >= 6 ? 2 : 1
-          const available = store.playerMonsterZones.filter(m => m)
+          const available = s.playerMonsterZones.filter(m => m)
           if (available.length < needed) return
           setShowTribute({ card: sel, needed, available })
           return
         }
-        store.placeCardInZone(sel.id_num, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
+        s.placeCardInZone(sel.id_num, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
       } else if (sel.type === 'SPELL') {
-        store.activateEffect(sel, 'PLAYER')
+        s.activateEffect(sel, 'PLAYER')
       } else if (sel.type === 'TRAP') {
-        store.setState(state => {
+        s.setState(state => {
           const zones = [...state.playerSpellZones]
           const freeIdx = zones.findIndex(z => z === null)
           if (freeIdx < 0) return state
@@ -75,30 +76,30 @@ export default function DueloRoute() {
       }
     }
 
-    if (store.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
+    if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
       if (zoneType === 'MONSTER' && card) {
-        const attIdx = store.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
+        const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
         if (attIdx >= 0) {
-          const aiTrap = store.aiSpellZones.find(s => s?.type === 'TRAP' && s.faceDown && (s.placedOnTurn || 0) < store.turnNumber)
+          const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (aiTrap && card.atk > 1500) {
-            store.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
-            store.setState(state => {
+            s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
+            s.setState(state => {
               const zones = [...state.aiSpellZones]
-              const idx = zones.findIndex(s => s?.id_num === aiTrap.id_num)
+              const idx = zones.findIndex(t => t?.id_num === aiTrap.id_num)
               if (idx >= 0) zones[idx] = null
               return { aiSpellZones: zones }
             })
           }
-          store.declareAttack(attIdx, zoneIndex)
+          s.declareAttack(attIdx, zoneIndex)
         }
-      } else if (!card && !store.aiMonsterZones.some(m => m)) {
-        const attIdx = store.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
-        if (attIdx >= 0) store.declareAttack(attIdx, -1)
+      } else if (!card && !s.aiMonsterZones.some(m => m)) {
+        const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
+        if (attIdx >= 0) s.declareAttack(attIdx, -1)
       }
     }
 
     if (card) setHoveredCard(card)
-  }, [store])
+  }, [])
 
   const handleTributeSelect = (indices) => {
     if (!showTribute) return
@@ -171,12 +172,12 @@ export default function DueloRoute() {
         </span>
         {store.currentTurn === 'PLAYER' && store.gamePhase !== 'OVER' && (
           <>
-            <button className="duelo-phase-btn" onClick={() => handlePhase('DRAW')} disabled={store.gamePhase !== 'DRAW'}>DRAW</button>
+            <button className="duelo-phase-btn" onClick={() => store.drawPhase()} disabled={store.gamePhase !== 'DRAW'}>DRAW</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'MAIN' ? 'duelo-phase-btn--active' : ''}`}
               onClick={() => store.setState({ gamePhase: 'MAIN' })} disabled={store.gamePhase === 'DRAW'}>MAIN</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'BATTLE' ? 'duelo-phase-btn--active' : ''}`}
               onClick={() => store.endMainPhase()} disabled={store.gamePhase !== 'MAIN'}>BATTLE</button>
-            <button className="duelo-phase-btn" onClick={() => handlePhase('END')} disabled={store.gamePhase !== 'BATTLE'}>END</button>
+            <button className="duelo-phase-btn" onClick={() => { store.endPhase(); setTimeout(() => store.drawPhase(), 600) }} disabled={store.gamePhase !== 'BATTLE'}>END</button>
           </>
         )}
         {store.gamePhase === 'OVER' && (
@@ -194,10 +195,4 @@ export default function DueloRoute() {
       {previewCard && <CardPreviewModal card={previewCard} onClose={() => setPreviewCard(null)} />}
     </div>
   )
-}
-
-function handlePhase(phase) {
-  const store = useDueloStore.getState()
-  if (phase === 'DRAW') store.drawPhase()
-  if (phase === 'END') { store.endPhase(); setTimeout(() => store.drawPhase(), 600) }
 }
