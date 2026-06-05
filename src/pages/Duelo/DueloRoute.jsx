@@ -23,7 +23,8 @@ export default function DueloRoute() {
   useEffect(() => {
     setReaderMode(true)
     return () => setReaderMode(false)
-  }, [setReaderMode]) // menu | game | victory | defeat
+  }, [setReaderMode])
+
   const [hoveredCard, setHoveredCard] = useState(null)
   const [showTribute, setShowTribute] = useState(null)
   const [previewCard, setPreviewCard] = useState(null)
