@@ -5,7 +5,7 @@ export default function CardSlot({ card, faceDown, isDefense, onClick, onMouseEn
     return (
       <div
         className={`duelo-slot ${small ? 'duelo-slot--small' : 'duelo-slot--normal'}`}
-        onClick={onClick}
+        onClick={() => onClick(null)}
         style={{ cursor: onClick ? 'pointer' : 'default' }}
       />
     )

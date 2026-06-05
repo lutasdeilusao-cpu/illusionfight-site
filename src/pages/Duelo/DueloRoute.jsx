@@ -17,6 +17,7 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 
 export default function DueloRoute() {
   const store = useDueloStore()
+  window.__dueloStore = useDueloStore
   const { setReaderMode } = useReader()
   const [fase, setFase] = useState('menu')
 
@@ -54,13 +55,27 @@ export default function DueloRoute() {
   const handleSlotClick = useCallback((owner, zoneType, zoneIndex, card) => {
     console.log('[CLICK] handleSlotClick | owner:', owner, '| zoneType:', zoneType, '| zoneIndex:', zoneIndex, '| card:', card?.name ?? 'vazio')
     const s = useDueloStore.getState()
-    console.log('[STATE] selectedCard:', s.selectedCard?.name ?? 'null', '| gamePhase:', s.gamePhase, '| turn:', s.currentTurn)
-    if (s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') return
+    console.log('[STATE] selectedCard:', s.selectedCard?.name, '| gamePhase:', s.gamePhase, '| turn:', s.currentTurn)
+
+    if (s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') {
+      console.log('[BLOQUEIO] turno ou fase incorreta')
+      return
+    }
+
+    // ── Selecionar atacante no board em BATTLE ──
+    if (s.gamePhase === 'BATTLE' && owner === 'PLAYER' && card && card.type === 'MONSTER' && card.position === 'ATK') {
+      console.log('[BATTLE] selecionando atacante:', card.name)
+      s.setState({ selectedCard: card })
+      return
+    }
+
     const sel = s.selectedCard
+    console.log('[SEL]', sel?.name, '| sel.type:', sel?.type, '| zoneType:', zoneType, '| owner:', owner, '| card vazio?', !card)
 
     if (s.gamePhase === 'MAIN' && sel && !card && owner === 'PLAYER') {
+      console.log('[PASSOU condição principal]')
       if (sel.type === 'MONSTER' && zoneType === 'MONSTER') {
-        console.log('[DEBUG] type OK | level:', sel.level, '| hasNormalSummoned:', s.hasNormalSummonedThisTurn)
+        console.log('[MONSTER] hasNormalSummoned:', s.hasNormalSummonedThisTurn, '| level:', sel.level)
         if (s.hasNormalSummonedThisTurn) { console.log('[BLOQUEIO] já invocou'); return }
         if (sel.level >= 4) {
           const needed = sel.level >= 6 ? 2 : 1
@@ -70,13 +85,13 @@ export default function DueloRoute() {
           setShowTribute({ card: sel, needed, available })
           return
         }
-        console.log('[INVOCAR] chamando placeCardInZone')
+        console.log('[INVOCAR] placeCardInZone', sel.id_num, zoneIndex)
         s.placeCardInZone(sel.id_num, 'MONSTER', zoneIndex, 'ATK', 'PLAYER')
-      } else if (sel.type === 'SPELL' && zoneType === 'SPELL') {
-        console.log('[INVOCAR] ativando magia:', sel.name)
+      } else if (sel.type === 'SPELL') {
+        console.log('[SPELL] ativando:', sel.name)
         s.activateEffect(sel, 'PLAYER')
-      } else if (sel.type === 'TRAP' && zoneType === 'SPELL') {
-        console.log('[INVOCAR] colocando armadilha:', sel.name)
+      } else if (sel.type === 'TRAP') {
+        console.log('[TRAP] colocando face-down:', sel.name)
         s.setState(state => {
           const zones = [...state.playerSpellZones]
           const freeIdx = zones.findIndex(z => z === null)
@@ -89,13 +104,18 @@ export default function DueloRoute() {
             battleLog: [...state.battleLog, `Você colocou ${sel.name} face-down.`],
           }
         })
+      } else {
+        console.log('[NENHUM BLOCO] sel.type não reconhecido:', sel?.type)
       }
+    } else {
+      console.log('[FALHOU condição principal] gamePhase:', s.gamePhase, '| sel:', sel?.name, '| !card:', !card, '| owner:', owner)
     }
 
     if (s.gamePhase === 'BATTLE' && sel?.type === 'MONSTER' && sel.position === 'ATK' && owner === 'AI') {
       if (zoneType === 'MONSTER' && card) {
         const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
         if (attIdx >= 0) {
+          console.log('[ATAQUE] atacante:', sel.name, '→ alvo:', card.name)
           const aiTrap = s.aiSpellZones.find(t => t?.type === 'TRAP' && t.faceDown && (t.placedOnTurn || 0) < s.turnNumber)
           if (aiTrap && card.atk > 1500) {
             s.activateEffect({ ...aiTrap, id: aiTrap.id_num }, 'AI')
@@ -110,7 +130,10 @@ export default function DueloRoute() {
         }
       } else if (!card && !s.aiMonsterZones.some(m => m)) {
         const attIdx = s.playerMonsterZones.findIndex(m => m?.id_num === sel.id_num)
-        if (attIdx >= 0) s.declareAttack(attIdx, -1)
+        if (attIdx >= 0) {
+          console.log('[ATAQUE DIRETO] atacante:', sel.name)
+          s.declareAttack(attIdx, -1)
+        }
       }
     }
 
@@ -143,14 +166,19 @@ export default function DueloRoute() {
       await delay(800)
       store.drawPhase()
       await delay(600)
-      let mainResult = aiMainPhase(store)
+
+      let mainResult = aiMainPhase(useDueloStore.getState())
       while (mainResult) {
         store.setState({ ...mainResult, gamePhase: 'MAIN' })
         await delay(1000)
-        mainResult = aiMainPhase(store)
+        mainResult = aiMainPhase(useDueloStore.getState())
       }
-      const battleResult = aiBattlePhase(store)
-      if (battleResult) { store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx); await delay(1200) }
+
+      const battleResult = aiBattlePhase(useDueloStore.getState())
+      if (battleResult) {
+        store.declareAttack(battleResult.attackerIdx, battleResult.targetIdx)
+        await delay(1200)
+      }
       store.endPhase()
       await delay(500)
       store.drawPhase()

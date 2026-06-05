@@ -12,6 +12,8 @@ export function aiMainPhase(state) {
     .filter(c => c.type === 'MONSTER')
     .sort((a, b) => b.atk - a.atk)
 
+  if (state.hasNormalSummonedThisTurn) return null
+
   for (const card of playableMonsters) {
     const freeZone = monsters.findIndex(m => !m)
     if (freeZone < 0) continue
