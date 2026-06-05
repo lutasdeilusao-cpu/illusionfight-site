@@ -38,14 +38,14 @@ export default function PerfilTamagoshi() {
       .maybeSingle()
 
     if (!data) {
-      const st = useTamagoshiStore.getState()
-      if (st.criaturaId && st.fase) {
+      const local = await store.loadFromCloud(user.id, 1)
+      if (local) {
         setTama({
-          criatura_id: st.criaturaId,
-          nome_custom: st.nomeCustom,
-          personalidade: st.personalidade,
-          fase: st.fase,
-          status: st.status,
+          criatura_id: local.criaturaId,
+          nome_custom: local.nomeCustom,
+          personalidade: local.personalidade,
+          fase: local.fase,
+          status: local.status,
         })
         setCarregando(false)
         return
