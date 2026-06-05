@@ -95,6 +95,16 @@ export default function ArenaLobby({ onNavigate }) {
 
   const elemColor = (el) => ELEM_COLORS[el] || '#666'
 
+  const elemCores = {
+    fogo:     { cor: '#FF4500', glow: 'rgba(255,69,0,0.15)' },
+    agua:     { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
+    terra:    { cor: '#8B6914', glow: 'rgba(139,105,20,0.15)' },
+    ar:       { cor: '#A8DADC', glow: 'rgba(168,218,220,0.15)' },
+    eletrico: { cor: '#F5A623', glow: 'rgba(245,166,35,0.15)' },
+    trevas:   { cor: '#9B59B6', glow: 'rgba(155,89,182,0.15)' },
+    neutro:   { cor: '#00B4D8', glow: 'rgba(0,180,216,0.1)' },
+  }
+
   if (showIntro) {
     return (
       <div className="arena-lobby">
@@ -188,14 +198,6 @@ export default function ArenaLobby({ onNavigate }) {
       ) : (
         <div className="arena-sheet-list">
           {sheets.map(s => {
-            const elemCores = {
-              fogo: { cor: '#FF4500', glow: 'rgba(255,69,0,0.15)' },
-              agua: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
-              terra: { cor: '#8B6914', glow: 'rgba(139,105,20,0.15)' },
-              ar:   { cor: '#A8DADC', glow: 'rgba(168,218,220,0.15)' },
-              eletrico: { cor: '#F5A623', glow: 'rgba(245,166,35,0.15)' },
-              neutro: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.1)' },
-            }
             const ec = elemCores[s.elemental] || elemCores.neutro
             return (
               <div
