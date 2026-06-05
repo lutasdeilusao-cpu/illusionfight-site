@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
-import enemiesData from './data/arena-enemies.json'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
 const ATTR_LABELS = { F: 'Força', H: 'Habilidade', R: 'Resistência', A: 'Armadura', PdF: 'Poder Elemental' }
@@ -89,11 +88,111 @@ const specializations = [
   'Manipulação elemental', 'Furtividade', 'Persuasão', 'Investigação', 'Sobrevivência', 'Primeiros socorros',
 ]
 
+const MANUAL_SECTIONS = [
+  {
+    id: 'fundamentos',
+    titulo: 'Fundamentos',
+    conteudo: 'O LDI é um sistema de combate virtual onde a dor é real.\nTrês bilhões de jogadores disputam posição no ranking SDR.\nCada lutador escolhe um elemental primário que define seus poderes.',
+  },
+  {
+    id: 'atributos',
+    titulo: 'Atributos',
+    tabela: [
+      ['F — Potência', 'Dano corpo a corpo'],
+      ['H — Agilidade', 'Iniciativa, esquiva, velocidade'],
+      ['R — Resistência', 'PV e PM base'],
+      ['A — Proteção', 'Absorção de dano, defesa passiva'],
+      ['PdF — Poder Elemental', 'Dano e força dos ataques elementais'],
+    ],
+    extra: 'Escala: 0 = comum | 1 = praticante | 2 = experiente | 3 = veterano | 4 = elite | 5 = topo absoluto\nPV = R × 5 | PM = PdF × 5',
+  },
+  {
+    id: 'combate',
+    titulo: 'Sistema de Batalha',
+    conteudo: 'INICIATIVA: H + 1d6 — maior age primeiro\n\nFA (Corpo a Corpo): F + H + 1d6\nFA (Elemental): PdF + H + 1d6\n\nFD (Normal): A + H + 1d6\nFD (Indefeso): A + 1d6\n\nDANO: FA − FD (mínimo 0)\nCRÍTICO: dado = 6 → dobra F, PdF ou A',
+  },
+  {
+    id: 'elementais',
+    titulo: 'Os 7 Elementais',
+    tabela: [
+      ['🔥 Fogo', 'Explosivo, agressivo. Alto dano, pressão constante'],
+      ['💧 Água', 'Fluido, adaptável. Controle, cura, versatilidade'],
+      ['🪨 Terra', 'Sólido, resistente. Defesa, atordoamento, sustentação'],
+      ['💨 Ar', 'Veloz, esquivo. Iniciativa, evasão, mobilidade'],
+      ['🌑 Trevas', 'Corrosivo, drenante. Absorção, debuff, enfraquecimento'],
+      ['✨ Luz', 'Purificador, protetor. Cura, proteção, cegueira'],
+      ['⚪ Neutro', 'Equilibrado. Versátil, sem fraquezas, sem picos'],
+    ],
+  },
+  {
+    id: 'vantagens',
+    titulo: 'Vantagens e Desvantagens',
+    conteudo: 'Vantagens custam pontos de personagem e representam técnicas e poderes especiais.\nDesvantagens concedem pontos extras mas impõem restrições reais.\n\nExemplos de vantagens: Aceleração, Ataque Especial, Cura, Deflexão, Invisível, Paralisia, Regeneração, Teleporte...\n\nO saldo final deve ser zero: custo das vantagens = ganho das desvantagens.',
+  },
+  {
+    id: 'poderes',
+    titulo: 'Poderes Elementais',
+    conteudo: 'Antes de cada batalha você seleciona poderes do seu elemental.\nLimite de poderes equipados: H + 1 (máximo 5).\n\nPoderes custam PM para ativar. Cada elemental tem 6 poderes disponíveis.\nExemplo (Fogo): Chama Rápida (2 PM, +2 PdF) | Inferno (3 PM, PdF×2) | Escudo de Fogo (2 PM, +2 A)...',
+  },
+  {
+    id: 'pericia',
+    titulo: 'Perícias',
+    conteudo: 'Perícias custam 1 ponto e representam treinamento especializado.\n\nEspecialização em Arma: +1 FA com a arma escolhida\nEspecialização Elemental: −1 PM em todos os poderes do seu elemental\nCombate Defensivo: troca até 2 FA por 2 FD a cada turno\nGolpe Pesado: +2 de dano quando FA − FD ≥ 5\nSobrevivência: uma vez por batalha, fica com 1 PV em vez de ir a 0',
+  },
+  {
+    id: 'xp',
+    titulo: 'XP e Evolução',
+    conteudo: 'Vitória em batalha justa: +10 XP\nDerrota em batalha justa: +1 XP\n\nA cada 100 XP: 1 ponto de personagem para gastar em atributo ou vantagem.\nAtributos acima de 5 têm custo progressivo.',
+  },
+]
+
+function ManualBatalha() {
+  const [aberta, setAberta] = useState(null)
+  return (
+    <div className="arena-manual-sections">
+      {MANUAL_SECTIONS.map(sec => (
+        <div key={sec.id} className="arena-manual-section">
+          <button
+            className={`arena-manual-section-btn ${aberta === sec.id ? 'arena-manual-section-btn--open' : ''}`}
+            onClick={() => setAberta(aberta === sec.id ? null : sec.id)}
+          >
+            {sec.titulo}
+            <span className="arena-manual-section-arrow">{aberta === sec.id ? '▲' : '▼'}</span>
+          </button>
+          {aberta === sec.id && (
+            <div className="arena-manual-section-body">
+              {sec.conteudo && (
+                <pre className="arena-manual-pre">{sec.conteudo}</pre>
+              )}
+              {sec.tabela && (
+                <table className="arena-manual-table">
+                  <tbody>
+                    {sec.tabela.map((row, i) => (
+                      <tr key={i}>
+                        <td className="arena-manual-td-key">{row[0]}</td>
+                        <td className="arena-manual-td-val">{row[1]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              {sec.extra && (
+                <pre className="arena-manual-pre arena-manual-pre--extra">{sec.extra}</pre>
+              )}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function ArenaCreate({ onNavigate }) {
   const { user } = useAuth()
   const store = useArenaStore()
-  const [step, setStep] = useState('attrs')
+  const [step, setStep] = useState('intro')
   const [errors, setErrors] = useState({})
+  const [manualOpen, setManualOpen] = useState(false)
 
   const s = store.sheet
   const attrs = s.attributes
@@ -156,16 +255,51 @@ export default function ArenaCreate({ onNavigate }) {
 
   return (
     <div className="arena-create">
-      <div className="arena-create-header">
-        <button className="arena-back" onClick={() => onNavigate('lobby')}>← lobby</button>
-        <h2 className="arena-create-titulo">NOVA FICHA</h2>
-        <div className="arena-create-steps">
-          {['attrs','sheet_name','specs'].map((st, i) => (
-            <div key={st} className={`arena-create-step-dot ${step === st ? 'arena-create-step-dot--active' : i < ['attrs','sheet_name','specs'].indexOf(step) ? 'arena-create-step-dot--done' : ''}`} />
-          ))}
-        </div>
-      </div>
 
+      {step !== 'intro' && (
+        <div className="arena-create-header">
+          <button className="arena-back" onClick={() => onNavigate('lobby')}>← lobby</button>
+          <h2 className="arena-create-titulo">NOVA FICHA</h2>
+          <div className="arena-create-steps">
+            {['attrs','sheet_name','specs'].map((st, i) => (
+              <div key={st} className={`arena-create-step-dot ${step === st ? 'arena-create-step-dot--active' : i < ['attrs','sheet_name','specs'].indexOf(step) ? 'arena-create-step-dot--done' : ''}`} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Intro */}
+      {step === 'intro' && (
+        <div className="arena-create-intro">
+          <div className="arena-lobby-hero" style={{ paddingTop: 48, marginBottom: 32 }}>
+            <p className="arena-lobby-titulo">modo standalone</p>
+            <h1 className="arena-lobby-nome" style={{ fontSize: 36 }}>NOVA FICHA</h1>
+            <p className="arena-lobby-sub">você já conhece o sistema de batalha?</p>
+          </div>
+          <div className="arena-intro-cards">
+            <div className="arena-intro-card" onClick={() => setManualOpen(true)}>
+              <div className="arena-intro-card-icon">📖</div>
+              <div className="arena-intro-card-titulo">LER O MANUAL</div>
+              <div className="arena-intro-card-sub">aprenda o sistema antes de criar sua ficha. recomendado para iniciantes.</div>
+            </div>
+            <div className="arena-intro-card arena-intro-card--primary" onClick={() => setStep('attrs')}>
+              <div className="arena-intro-card-icon">⚔️</div>
+              <div className="arena-intro-card-titulo">CRIAR DIRETO</div>
+              <div className="arena-intro-card-sub">já sei o que estou fazendo. vamos montar a ficha.</div>
+            </div>
+          </div>
+          <p className="arena-intro-hint">
+            💡 o manual fica sempre acessível pelo botão <strong>?</strong> durante a criação
+          </p>
+        </div>
+      )}
+
+      {/* Botão de ajuda flutuante */}
+      {step !== 'intro' && (
+        <button className="arena-manual-btn" onClick={() => setManualOpen(true)} title="Manual de Batalha">?</button>
+      )}
+
+      {/* Atributos */}
       {step === 'attrs' && (
         <div className="arena-step">
           <div className="arena-section-label">
@@ -193,6 +327,7 @@ export default function ArenaCreate({ onNavigate }) {
         </div>
       )}
 
+      {/* Nome + Elemental */}
       {step === 'sheet_name' && (
         <div className="arena-step">
           <div className="arena-section-label">
@@ -231,6 +366,7 @@ export default function ArenaCreate({ onNavigate }) {
         </div>
       )}
 
+      {/* Specs */}
       {step === 'specs' && (
         <div className="arena-step">
           <div className="arena-section-label">
@@ -311,6 +447,22 @@ export default function ArenaCreate({ onNavigate }) {
           </div>
         </div>
       )}
+
+      {/* Manual Drawer */}
+      <div className={`arena-manual-drawer ${manualOpen ? 'arena-manual-drawer--open' : ''}`}>
+        <div className="arena-manual-drawer-header">
+          <span className="arena-manual-drawer-titulo">MANUAL DE BATALHA</span>
+          <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>✕</button>
+        </div>
+        <div className="arena-manual-drawer-body">
+          <ManualBatalha />
+        </div>
+      </div>
+
+      {manualOpen && (
+        <div className="arena-manual-overlay" onClick={() => setManualOpen(false)} />
+      )}
+
     </div>
   )
 }

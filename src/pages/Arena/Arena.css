@@ -443,6 +443,249 @@
   box-shadow: 0 0 35px rgba(139,0,0,0.6) !important;
 }
 
+/* ===== CREATE INTRO ===== */
+.arena-create-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 40px;
+}
+
+.arena-intro-cards {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 560px;
+  margin-bottom: 24px;
+}
+
+.arena-intro-card {
+  flex: 1;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.arena-intro-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(0,180,216,0.3);
+  transform: translateY(-2px);
+}
+
+.arena-intro-card--primary {
+  border-color: rgba(139,0,0,0.4);
+  background: rgba(139,0,0,0.05);
+}
+
+.arena-intro-card--primary:hover {
+  border-color: rgba(139,0,0,0.7);
+  background: rgba(139,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.arena-intro-card-icon { font-size: 28px; }
+
+.arena-intro-card-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #eee;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.arena-intro-card-sub {
+  font-size: 10px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.arena-intro-hint {
+  font-size: 10px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.arena-intro-hint strong { color: #555; }
+
+/* ===== MANUAL BTN ===== */
+.arena-manual-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,180,216,0.1);
+  border: 1px solid rgba(0,180,216,0.3);
+  color: #00B4D8;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 400;
+  transition: all 0.2s;
+  font-family: 'Courier New', monospace;
+}
+
+.arena-manual-btn:hover {
+  background: rgba(0,180,216,0.2);
+  border-color: #00B4D8;
+  box-shadow: 0 0 16px rgba(0,180,216,0.3);
+}
+
+/* ===== MANUAL DRAWER ===== */
+.arena-manual-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 490;
+}
+
+.arena-manual-drawer {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 480px;
+  max-width: 95vw;
+  height: 100vh;
+  background: #0d0d0d;
+  border-left: 1px solid rgba(0,180,216,0.15);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  overflow: hidden;
+}
+
+.arena-manual-drawer--open { right: 0; }
+
+.arena-manual-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.arena-manual-drawer-titulo {
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: #00B4D8;
+  font-family: 'Courier New', monospace;
+}
+
+.arena-manual-drawer-close {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px 8px;
+}
+
+.arena-manual-drawer-close:hover { color: #eee; }
+
+.arena-manual-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* ===== MANUAL SECTIONS ===== */
+.arena-manual-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arena-manual-section {
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.arena-manual-section-btn {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: none;
+  color: #aaa;
+  padding: 12px 16px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+.arena-manual-section-btn:hover {
+  background: rgba(255,255,255,0.05);
+  color: #eee;
+}
+
+.arena-manual-section-btn--open {
+  color: #00B4D8;
+  background: rgba(0,180,216,0.05);
+}
+
+.arena-manual-section-arrow { font-size: 8px; color: #444; }
+
+.arena-manual-section-body {
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.2);
+}
+
+.arena-manual-pre {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #888;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.arena-manual-pre--extra {
+  margin-top: 12px;
+  color: #F5A623;
+  border-top: 1px solid rgba(245,166,35,0.1);
+  padding-top: 12px;
+}
+
+.arena-manual-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+}
+
+.arena-manual-td-key {
+  color: #00B4D8;
+  padding: 5px 12px 5px 0;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 40%;
+}
+
+.arena-manual-td-val {
+  color: #666;
+  padding: 5px 0;
+  line-height: 1.5;
+}
+
 .arena-step { padding: 0 20px; }
 
 .arena-attr-grid { display: flex; flex-direction: column; gap: 6px; }
