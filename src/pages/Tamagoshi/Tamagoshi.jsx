@@ -91,10 +91,7 @@ export default function Tamagoshi() {
     if (action === 'alimentar') setSubFase('alimentar')
     else if (action === 'banhar') setSubFase('banhar')
     else if (action === 'passear') setSubFase('passear')
-    else if (action === 'brincar') {
-      store.brincar()
-      store.ganharDix(store._userId, 10, 'brincou com criatura')
-    }
+    else if (action === 'brincar') setSubFase('brincar')
   }
 
   const handleVoltar = () => {
@@ -121,6 +118,7 @@ export default function Tamagoshi() {
   if (subFase === 'alimentar') return <div className="tama-body"><div className="tama-content"><Alimentar onConcluir={handleVoltar} /></div></div>
   if (subFase === 'banhar') return <div className="tama-body"><div className="tama-content"><Banhar onConcluir={handleVoltar} /></div></div>
   if (subFase === 'passear') return <div className="tama-body"><div className="tama-content"><Passear onConcluir={handleVoltar} /></div></div>
+  if (subFase === 'brincar') return <div className="tama-body"><div className="tama-content"><Brincadeira onConcluir={handleVoltar} /></div></div>
   if (subFase === 'loja') return <div className="tama-body"><div className="tama-content"><Loja onVoltar={handleVoltar} /></div></div>
 
   return (
