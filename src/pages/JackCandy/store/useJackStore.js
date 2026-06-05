@@ -46,6 +46,7 @@ const defaultState = {
   casoAtivo: null, pistasColetadas: [], suspeitos: [],
   locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
   autoMode: { ativo: false, dungeonId: null },
+  _autoRun: 0,
   _userId: null, _slot: null, _savePending: false, _resultCard: null,
   _retornoInvestigacao: false, _localPendente: null, _casoPreview: null,
 }
@@ -93,6 +94,10 @@ export const useJackStore = create((set, get) => {
     },
     setFase: (fase) => {
       set({ fase })
+      get()._autoSave()
+    },
+    autoRestart: (dungeonId) => {
+      set(state => ({ fase: `dungeon_${dungeonId}`, _autoRun: state._autoRun + 1 }))
       get()._autoSave()
     },
     setAutoMode: (dungeonId) => set({

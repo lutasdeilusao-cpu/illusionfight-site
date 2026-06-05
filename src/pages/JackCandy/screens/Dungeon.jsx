@@ -90,7 +90,7 @@ export default function Dungeon({ dungeonId }) {
   const autoDungeonId = store.autoMode.ativo ? store.autoMode.dungeonId : null
   const irParaVitoriaOuAuto = () => {
     if (autoDungeonId) {
-      store.setFase(`dungeon_${autoDungeonId}`)
+      store.autoRestart(autoDungeonId)
     } else {
       setTimeout(() => setFase('vitoria'), 500)
     }
@@ -278,7 +278,7 @@ export default function Dungeon({ dungeonId }) {
       const s = useJackStore.getState()
       if (s.hpAtual >= s.hpMax) {
         clearInterval(id)
-        store.setFase(`dungeon_${store.autoMode.dungeonId}`)
+        store.autoRestart(store.autoMode.dungeonId)
       } else {
         store.setHpAtual(Math.min(s.hpMax, s.hpAtual + 2))
       }

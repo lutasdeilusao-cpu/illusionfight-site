@@ -189,7 +189,7 @@ export default function JackCandy() {
         {fase === 'inventario' && <Inventario />}
         {fase === 'dungeon_select' && <DungeonSelect />}
         {isInterior && <Interior npcId={npcId} />}
-        {isDungeon && <Dungeon dungeonId={dungeonId} />}
+        {isDungeon && <Dungeon key={store._autoRun} dungeonId={dungeonId} />}
         {fase === 'dossier' && <Dossier />}
         {fase === 'caso_select' && <CasoSelect />}
         {fase === 'caso_abertura' && <CasoAbertura />}
