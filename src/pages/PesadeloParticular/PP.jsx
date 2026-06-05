@@ -12,7 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import './PP.css'
 
-const PP_VERSION = '1.5.2'
+const PP_VERSION = '1.5.3'
 const LOCALE = 'pt'
 
 const AVATARES = {
@@ -1028,13 +1028,37 @@ export default function PP() {
     }
 
     if (aba === 'mensagens') {
-      const contatos = [
-        { id:'nina', ultima:'o Osvaldo sumiu', hora:'23:14', unread:1 },
+      const CORE_CONTATOS = [
         { id:'kim', ultima:'alguém me fotografou de costas', hora:'01:32', unread:0 },
-        { id:'pajé', ultima:'CHEGUEEEEI PRA DIVAR', hora:'02:00', unread:1 },
         { id:'helena', ultima:'preciso de alguém que não vá à polícia', hora:'21:47', unread:0 },
         { id:'shuntaro', ultima:'vim ao Brasil a negócios', hora:'14:23', unread:0 },
-        { id:'anonimo', ultima:'me indicaram o senhor', hora:'ontem', unread:3 },
+      ]
+      const coreIds = CORE_CONTATOS.map(c => c.id)
+
+      // Build contact list from available cases
+      const casoContatos = new Set()
+      casosDisponiveis.forEach(caso => {
+        ;(caso.dialogo?.abertura || []).forEach(msg => {
+          if (msg.de !== 'jack') casoContatos.add(msg.de)
+        })
+      })
+
+      const contatos = [
+        ...CORE_CONTATOS,
+        ...[...casoContatos]
+          .filter(id => !coreIds.includes(id))
+          .map(id => {
+            const caso = casosDisponiveis.find(c =>
+              c.dialogo?.abertura?.some(m => m.de === id)
+            )
+            const primeiraMsg = caso?.dialogo?.abertura?.find(m => m.de === id)
+            return {
+              id,
+              ultima: primeiraMsg?.i18n?.[LOCALE] || '',
+              hora: '--:--',
+              unread: casosResolvidos.includes(caso?.id) ? 0 : 1,
+            }
+          }),
       ]
       return (
         <div className="pp-chat-list">
