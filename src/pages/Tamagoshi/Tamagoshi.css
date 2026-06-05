@@ -529,11 +529,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
 }
 .tama-acao-sprite {
-  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .tama-acao-item-voando {
   position: absolute;
@@ -544,13 +544,11 @@
 /* ===== BANHO ===== */
 .tama-acao-banho-area {
   position: relative;
-  width: 120px;
-  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #0d1a2a;
-  border-radius: 60px;
+  border-radius: 50%;
   overflow: hidden;
 }
 .tama-acao-banho-bolha {

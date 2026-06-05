@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
+import CriaturaSprite from '../components/CriaturaSprite'
 import { DIX_POR_ACAO } from '../data/moedas'
 
 export default function Banhar({ onConcluir }) {
@@ -44,8 +45,6 @@ export default function Banhar({ onConcluir }) {
 
   const resetTracking = () => { lastY.current = null; acumulado.current = 0 }
 
-  const criaturaEmoji = CRIATURAS.find(c => c.id === store.criaturaId)?.emoji || '?'
-
   return (
     <div className="tama-acao-screen"
       ref={containerRef}
@@ -64,7 +63,15 @@ export default function Banhar({ onConcluir }) {
       </div>
 
       <div className="tama-acao-banho-area">
-        <div className="tama-acao-sprite">{criaturaEmoji}</div>
+        <div className="tama-acao-sprite">
+          <CriaturaSprite
+            criaturaId={store.criaturaId}
+            status={store.status}
+            estagio={store.estagio}
+            criaturas={CRIATURAS}
+            acao="banhar"
+          />
+        </div>
         {bolhas.map(b => (
           <motion.div
             key={b.id}

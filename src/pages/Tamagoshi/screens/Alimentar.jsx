@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
+import CriaturaSprite from '../components/CriaturaSprite'
 import { ITENS_LOJA, COMIDA_TEMATICA } from '../data/itens_loja'
 import { DIX_POR_ACAO } from '../data/moedas'
 
@@ -33,8 +34,6 @@ export default function Alimentar({ onConcluir }) {
     setAnimando(false)
   }
 
-  const criaturaEmoji = CRIATURAS.find(c => c.id === store.criaturaId)?.emoji || '?'
-
   return (
     <div className="tama-acao-screen">
       <h2 className="tama-acao-title">🍖 alimentar</h2>
@@ -57,7 +56,15 @@ export default function Alimentar({ onConcluir }) {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="tama-acao-sprite">{criaturaEmoji}</div>
+        <div className="tama-acao-sprite">
+          <CriaturaSprite
+            criaturaId={store.criaturaId}
+            status={store.status}
+            estagio={store.estagio}
+            criaturas={CRIATURAS}
+            acao="alimentar"
+          />
+        </div>
       </div>
 
       {temAlguma ? (
