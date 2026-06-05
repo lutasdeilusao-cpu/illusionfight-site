@@ -2,25 +2,261 @@
   min-height: 100vh;
   background: #0A0A0F;
   display: flex;
+  flex-direction: column;
+  color: #aaa;
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── BOARD ── */
+.duelo-board {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 8px;
+  min-height: 0;
+}
+
+.duelo-field-row {
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: #F5A623;
-  font-family: 'Rajdhani', sans-serif;
+  gap: 12px;
+  padding: 8px 0;
 }
 
-.duelo-placeholder {
-  text-align: center;
-  max-width: 480px;
-  padding: 40px;
+.duelo-field-row--ai {
+  padding-top: 0;
 }
 
-.duelo-placeholder h1 {
-  font-size: 32px;
-  letter-spacing: 8px;
-  margin: 0 0 4px;
+.duelo-field-row--player {
+  padding-bottom: 0;
 }
 
-.duelo-placeholder p {
+.duelo-field-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 70px;
+}
+
+.duelo-deck-count {
+  font-size: 10px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.duelo-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1A1A2E, transparent);
   margin: 4px 0;
+}
+
+/* ── LP ── */
+.duelo-lp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 50px;
+}
+
+.duelo-lp-label {
+  font-size: 9px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.duelo-lp-val {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.duelo-lp--critical .duelo-lp-val {
+  animation: duelo-lp-pulse 0.5s infinite alternate;
+}
+
+@keyframes duelo-lp-pulse {
+  from { opacity: 1; }
+  to { opacity: 0.4; }
+}
+
+.duelo-lp-bar-track {
+  width: 40px;
+  height: 3px;
+  background: #1A1A1A;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.duelo-lp-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s ease, background 0.3s;
+}
+
+/* ── HAND ── */
+.duelo-hand {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 4px 12px;
+  overflow-x: auto;
+  min-height: 110px;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.duelo-hand-card {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+
+.duelo-hand-card:hover {
+  transform: translateY(-8px);
+  z-index: 2;
+}
+
+.duelo-hand-card--selected {
+  z-index: 3;
+}
+
+.duelo-hand::-webkit-scrollbar { display: none; }
+
+/* ── STATUSBAR ── */
+.duelo-statusbar {
+  background: #0D0D1A;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.duelo-statusbar-hint {
+  color: #2A2A2A;
+  font-style: italic;
+  font-size: 10px;
+}
+
+.duelo-statusbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.duelo-statusbar-name {
+  color: #F5A623;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.duelo-statusbar-stars {
+  color: #F5A623;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.duelo-statusbar-atk {
   color: #aaa;
+  font-size: 11px;
+}
+
+.duelo-statusbar-type {
+  color: #666;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.duelo-statusbar-desc {
+  color: #444;
+  font-size: 9px;
+  font-style: italic;
+  flex: 1;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── PHASE CONTROLS ── */
+.duelo-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.duelo-phase-btn {
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #555;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: all 0.15s;
+}
+
+.duelo-phase-btn:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245,166,35,0.06);
+}
+
+.duelo-phase-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.duelo-phase-btn--active {
+  border-color: #F5A623;
+  color: #F5A623;
+  background: rgba(245,166,35,0.08);
+}
+
+.duelo-turn-indicator {
+  font-size: 10px;
+  color: #444;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.duelo-turn-indicator span {
+  color: #F5A623;
+  font-weight: 700;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .duelo-page { max-width: 100%; }
+  .duelo-board { padding: 4px; }
+  .duelo-field-meta { min-width: 50px; }
+  .duelo-lp-val { font-size: 18px; }
+  .duelo-hand { padding: 6px 2px 10px; gap: 0; }
 }
