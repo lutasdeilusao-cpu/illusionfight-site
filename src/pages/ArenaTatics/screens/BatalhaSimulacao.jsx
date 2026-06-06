@@ -27,10 +27,12 @@ function posicionar(personagens, lado) {
   }).filter(Boolean)
 }
 
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+
 export default function BatalhaSimulacao({ config, onFim }) {
   const { numChars, numIAs, ias: iasConfig, speed } = config
 
-  // Estado inicial único — tudo num useState pra evitar stale closures
+  // Estado inicial
   const [state, setState] = useState(() => {
     const chars = pickChars(numChars)
     const aliados = posicionar(chars.slice(0, numChars), 'aliado')
@@ -50,15 +52,16 @@ export default function BatalhaSimulacao({ config, onFim }) {
   stateRef.current = state
 
   const [danos, setDanos] = useState([])
-  const [log, setLog] = useState('')
+  const [log, setLog] = useState('Pronto')
   const [combatResult, setCombatResult] = useState(null)
   const [enemyBanner, setEnemyBanner] = useState(null)
   const [terminou, setTerminou] = useState(false)
   const gridRef = useRef(null)
   const danoId = useRef(0)
   const rodando = useRef(true)
+  const iniciado = useRef(false)
 
-  const addLog = (msg) => { setLog(msg) }
+  const addLog = (msg) => { setLog(msg); console.log(`[SIM] ${msg}`) }
   const showDano = (v, x, y, crit = false) => {
     const id = danoId.current++
     setDanos(d => [...d, { id, valor: v, x, y, critico: crit }])
@@ -66,22 +69,39 @@ export default function BatalhaSimulacao({ config, onFim }) {
   }
   const upd = (fn) => setState(prev => { const n = fn(prev); stateRef.current = n; return n })
 
-  // Ação de um personagem
-  const agir = (p, timeAliados, timeInimigos, iasDoTime, lado) => new Promise(resolve => {
-    if (!rodando.current || p.hp <= 0) { resolve(); return }
-    const ia = iasDoTime[Math.floor(Math.random() * iasDoTime.length)]
-    const acao = resolverAcaoIA(p, ia, ia, timeAliados, timeInimigos)
+  // Ação de UM personagem
+  const agir = async (p, iasDoTime, lado) => {
+    if (!rodando.current || p.hp <= 0) return false
+
+    const cur = stateRef.current
+    const timeAliados = cur.aliados
+    const timeInimigos = cur.inimigos
+    const key = lado === 'aliado' ? 'aliados' : 'inimigos'
+
+    // Escolhe IA (divide igualmente)
+    const idx = cur[key].findIndex(x => x.id === p.id)
+    const ia = iasDoTime[Math.floor(idx / Math.ceil(cur[key].filter(x => x.hp > 0).length / iasDoTime.length)) % iasDoTime.length]
+
+    // Resolve ação da IA
+    const oponentes = key === 'aliados' ? timeInimigos : timeAliados
+    const acao = resolverAcaoIA(p, ia, ia, key === 'aliados' ? timeAliados : timeInimigos, oponentes)
+
     if (!acao?.skill || !acao?.alvo) {
+      // Move p/ frente
       const novaX = lado === 'aliado' ? Math.min(7, p.x + 1) : Math.max(0, p.x - 1)
-      const key = lado === 'aliado' ? 'aliados' : 'inimigos'
-      upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, x: novaX, jaMoveu: true, jaAtacou: true } : a) }))
       addLog(`🚶 ${p.nome} avançou`)
-      setTimeout(resolve, speed * 0.5)
-      return
+      upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, x: novaX, jaMoveu: true, jaAtacou: true } : a) }))
+      await sleep(speed * 0.5)
+      return false
     }
+
     const { skill, alvo } = acao
     addLog(`⚡ ${p.nome} → ${skill.nome} → ${alvo.nome}`)
+
+    // Calcula dano
     const resultado = resolverAtaque(p, alvo, skill, getMultiplicadorElemental(p.elemental, alvo.elemental))
+
+    // Juice
     const elem = getElem(p.elemental)
     screenShake(elem.shakePerfil, gridRef)
     flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, p.elemental, 'recebe')
@@ -92,41 +112,41 @@ export default function BatalhaSimulacao({ config, onFim }) {
       skill, dano: resultado.acertou ? resultado.dano : 0, critico: resultado.critico,
       acertou: resultado.acertou, missTipo: resultado.missTipo, status: resultado.status,
     })
+
     if (resultado.acertou) {
       const danoFinal = Math.max(0, resultado.dano)
       showDano(danoFinal, alvo.x * 48 + 24, alvo.y * 48 + 24, resultado.critico)
-      const ladoAlvo = timeAliados.includes(alvo) ? 'aliados' : 'inimigos'
-      const ladoAtk = lado === 'aliado' ? 'aliados' : 'inimigos'
+      const ladoAlvo = key === 'aliados' ? 'inimigos' : 'aliados'
       upd(prev => ({
         ...prev,
         [ladoAlvo]: prev[ladoAlvo].map(x => x.id === alvo.id ? { ...x, hp: Math.max(0, x.hp - danoFinal) } : x),
-        [ladoAtk]: prev[ladoAtk].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x),
+        [key]: prev[key].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x),
       }))
     } else {
       showDano(0, alvo.x * 48 + 24, alvo.y * 48 + 24, false)
-      const ladoAtk = lado === 'aliado' ? 'aliados' : 'inimigos'
-      upd(prev => ({ ...prev, [ladoAtk]: prev[ladoAtk].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x) }))
+      upd(prev => ({ ...prev, [key]: prev[key].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x) }))
     }
-    setTimeout(resolve, speed)
-  })
 
-  // Processa um time
-  const processarTime = async (time, oponentes, iasDoTime, lado) => {
+    await sleep(speed)
+    return false
+  }
+
+  // Processa um time INTEIRO (com pausas visuais)
+  const processarTime = async (lado) => {
     const key = lado === 'aliado' ? 'aliados' : 'inimigos'
-    for (const p of time.filter(x => x.hp > 0)) {
-      if (!rodando.current) break
+    const iasDoTime = lado === 'aliado' ? stateRef.current.ias.timeAzul : stateRef.current.ias.timeVermelho
+
+    while (rodando.current) {
       const cur = stateRef.current
-      await agir(p, cur[key], key === 'aliados' ? cur.inimigos : cur.aliados, iasDoTime, lado)
+      const vivos = cur[key].filter(x => x.hp > 0)
+      const pronto = vivos.find(x => !x.jaMoveu || !x.jaAtacou)
+      if (!pronto) break
+
+      await agir(pronto, iasDoTime, lado)
+
+      // Check fim
       const d = stateRef.current
-      const av = d.aliados.filter(a => a.hp > 0)
-      const iv = d.inimigos.filter(i => i.hp > 0)
-      if (av.length === 0 || iv.length === 0) {
-        rodando.current = false; setTerminou(true)
-        const vencedor = av.length > 0 ? 'TIME AZUL' : 'TIME VERMELHO'
-        const iaV = av.length > 0 ? d.ias.timeAzul.map(ia => ia.nome).join(' + ') : d.ias.timeVermelho.map(ia => ia.nome).join(' + ')
-        const desc = av.length > 0 ? getDescricaoIA(d.ias.timeAzul[0], d.ias.timeAzul[1] || d.ias.timeAzul[0]) : getDescricaoIA(d.ias.timeVermelho[0], d.ias.timeVermelho[1] || d.ias.timeVermelho[0])
-        addLog(`🏆 ${vencedor} venceu! (${desc})`)
-        setTimeout(() => onFim?.({ vencedor, iaVencedora: iaV, turnos: d.turno, descricao: desc, aliadosSobreviventes: av.map(a => a.nome), inimigosSobreviventes: iv.map(i => i.nome) }), 1500)
+      if (d.aliados.filter(a => a.hp > 0).length === 0 || d.inimigos.filter(i => i.hp > 0).length === 0) {
         return true
       }
     }
@@ -135,23 +155,56 @@ export default function BatalhaSimulacao({ config, onFim }) {
 
   // Loop principal
   useEffect(() => {
-    if (terminou) return
+    if (iniciado.current) return
+    iniciado.current = true
+
     let cancelled = false
     const loop = async () => {
-      while (rodando.current && !cancelled) {
-        let cur = stateRef.current
-        addLog(`=== TURNO ${cur.turno} ===`)
-        upd(p => ({ ...p, fase: 'player' }))
-        if (await processarTime(cur.aliados, cur.inimigos, cur.ias.timeAzul, 'aliado') || !rodando.current || cancelled) break
-        cur = stateRef.current
-        upd(p => ({ ...p, fase: 'enemy' }))
-        if (await processarTime(cur.inimigos, cur.aliados, cur.ias.timeVermelho, 'inimigo') || !rodando.current || cancelled) break
-        upd(p => ({ ...p, turno: p.turno + 1, aliados: p.aliados.map(a => ({ ...a, jaMoveu: false, jaAtacou: false })), inimigos: p.inimigos.map(i => ({ ...i, jaMoveu: false, jaAtacou: false })) }))
+      try {
+        while (rodando.current && !cancelled) {
+          const cur = stateRef.current
+          addLog(`=== TURNO ${cur.turno} ===`)
+
+          // Time Azul
+          upd(p => ({ ...p, fase: 'player' }))
+          await sleep(speed * 0.3)
+          if (await processarTime('aliado') || !rodando.current || cancelled) break
+
+          // Time Vermelho
+          upd(p => ({ ...p, fase: 'enemy' }))
+          await sleep(speed * 0.3)
+          if (await processarTime('inimigo') || !rodando.current || cancelled) break
+
+          // Fim do turno — reseta flags
+          upd(p => ({
+            ...p, turno: p.turno + 1,
+            aliados: p.aliados.map(a => ({ ...a, jaMoveu: false, jaAtacou: false })),
+            inimigos: p.inimigos.map(i => ({ ...i, jaMoveu: false, jaAtacou: false })),
+          }))
+        }
+      } catch (err) {
+        console.error('[SIM] Erro no loop:', err)
+        addLog(`❌ ERRO: ${err.message}`)
+      }
+
+      // Fim da batalha
+      const d = stateRef.current
+      const av = d.aliados.filter(a => a.hp > 0)
+      const iv = d.inimigos.filter(i => i.hp > 0)
+      if (av.length === 0 || iv.length === 0) {
+        rodando.current = false
+        setTerminou(true)
+        const vencedor = av.length > 0 ? 'TIME AZUL' : 'TIME VERMELHO'
+        const iaV = av.length > 0
+          ? d.ias.timeAzul.map(ia => ia.nome).join(' + ')
+          : d.ias.timeVermelho.map(ia => ia.nome).join(' + ')
+        addLog(`🏆 ${vencedor} venceu! (${iaV})`)
       }
     }
+
     loop()
     return () => { cancelled = true; rodando.current = false }
-  }, [terminou])
+  }, [])
 
   const { aliados, inimigos, obstrucoes, turno, fase, ias } = state
 
@@ -180,6 +233,7 @@ export default function BatalhaSimulacao({ config, onFim }) {
           <div className="tatics-sim-fim-card">
             <div className="tatics-sim-fim-title">BATALHA ENCERRADA</div>
             <div className="tatics-sim-fim-info">{aliados.filter(a => a.hp > 0).length > 0 ? '🏆 TIME AZUL VENCEU!' : '🔥 TIME VERMELHO VENCEU!'}</div>
+            <div className="tatics-sim-fim-sub" style={{ fontFamily: 'JetBrains Mono', fontSize: '0.5rem', color: '#4F5359', marginTop: 4 }}>{ias.timeAzul.map(ia => ia.nome).join(' + ')} vs {ias.timeVermelho.map(ia => ia.nome).join(' + ')}</div>
           </div>
         </div>
       )}

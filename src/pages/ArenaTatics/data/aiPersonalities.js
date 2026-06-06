@@ -401,8 +401,8 @@ export function sortearIAs() {
  * Resolve ação de IA para um personagem inimigo
  */
 export function resolverAcaoIA(personagem, ia1, ia2, meusPersonagens, inimigos) {
-  // Personagens ímpares usam ia1, pares usam ia2
-  const idx = meusPersonagens.indexOf(personagem)
+  // Encontra por ID (não por referência — evita stale reference bug)
+  const idx = meusPersonagens.findIndex(p => p.id === personagem.id)
   const ia = idx % 2 === 0 ? ia1 : ia2
 
   // Prioridade
