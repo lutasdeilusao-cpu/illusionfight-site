@@ -7,46 +7,58 @@
 - [x] Atributos convertidos: forca=FOR, velocidade=AGI, resistencia=VIT, energia=INT, precisao=DES, tenacidade=SOR
 - [x] Cada personagem com 2 skills (ataque básico + especial) usando DMG/RNG/CD/FX
 - [x] Ataque físico funcional com cálculo de dano
+- [x] Grid 8×16 com posicionamento de aliados (3) e inimigos (4)
 - [x] `/LDI` — deploy v4.3.0
 
-## Sprint 2
+## Sprint 2 ✅ FINALIZADA
 **Sistema de precisão, esquiva e crítico**
 
-- [ ] Implementar sequência de resolução de combate (seção 12)
-- [ ] Precisão vs Esquiva (chance de acerto)
-- [ ] Esquiva Perfeita (SOR)
-- [ ] Crítico (dano ×1.4)
-- [ ] DEF leve e DEF pesada
-- [ ] Aplicar no combate jogador e inimigo
-- [ ] `/LDI` — deploy
+- [x] Implementar sequência de resolução de combate (seção 12)
+- [x] Precisão vs Esquiva (chance de acerto)
+- [x] Esquiva Perfeita (SOR)
+- [x] Crítico (dano ×1.4)
+- [x] DEF leve e DEF pesada
+- [x] Aplicar no combate jogador e inimigo
+- [x] BFS pathfinding para inimigos
+- [x] `/LDI` — deploy v4.4.0
 
-## Sprint 3
+## Sprint 3 ✅ FINALIZADA
 **Efeitos de status**
 
-- [ ] Sistema de status negativos (Sangramento, Veneno, Atordoamento, etc.)
-- [ ] Tolerância por atributo
-- [ ] Duração por atributo
-- [ ] Aplicar nas skills dos personagens
-- [ ] `/LDI` — deploy
+- [x] Sistema de status negativos (Sangramento, Veneno, Atordoamento, etc.)
+- [x] Tolerância por atributo
+- [x] Duração por atributo
+- [x] Aplicar nas skills dos personagens
+- [x] Renderização de ícones de status no StatusBar
+- [x] `/LDI` — deploy
 
-## Sprint 4
+## Sprint 4 ✅ FINALIZADA
 **UI para 3 personagens + desbloqueio**
 
-- [ ] Grid adaptado para 3 aliados
-- [ ] Sistema de desbloqueio (2 iniciais, até 8)
-- [ ] Tela de progressão
-- [ ] `/LDI` — deploy
+- [x] Grid adaptado para 3 aliados (posições fixas espaçadas)
+- [x] Sistema de desbloqueio (`maxSlots`, `personagensDesbloqueados`)
+- [x] Slots de seleção: admin escolhe até `maxSlots`, normal randomiza 2
+- [x] Persistência no Supabase (`max_slots`, `personagens_desbloqueados`)
+- [x] `/LDI` — deploy v4.6.0
 
-## Sprint 5
+## Sprint 5 ✅ FINALIZADA
 **Sistema de equipamentos**
 
-- [ ] Slots de equipamento (Arma, Armadura, Acessório)
-- [ ] ATQ de arma, DEF de armadura
-- [ ] Tela de equipar no modal do personagem
-- [ ] `/LDI` — deploy
+- [x] 8 armas, 5 armaduras, 6 acessórios com ATQ/DEF/CRIT/HP
+- [x] Slots funcionais no modal de detalhe do personagem
+- [x] Painel de seleção de equipamento com bônus visíveis
+- [x] Equipamento afeta ATQ total no `resolverAtaque`
+- [x] Equipamento afeta DEF leve e chance de crítico
+- [x] Persistência no Supabase (`equipamento_map`)
+- [x] `/LDI` — deploy v4.7.0
 
-## Sprint 6
+## Sprint 6 ✅ FINALIZADA
 **Balanceamento e polimento**
+
+- [x] HP reduzido: 40 + VIT × 10 (era 40 + VIT × 15)
+- [x] Dano base aumentado: `danoBase * 5` (era `danoBase * 3`)
+- [x] Documentação atualizada (sprint-plan.md, SITE_MAP.md, docs)
+- [x] `/LDI` — deploy v4.8.0
 
 - [ ] Ajuste de valores
 - [ ] Teste de gameplay

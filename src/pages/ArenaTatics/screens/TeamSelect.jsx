@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ROSTER } from '../data/roster'
+import { getAllEquipamentos, ARMES, ARMADURAS, ACESSORIOS, calcularBonus } from '../data/equipment'
 
 const EMOJI = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
 const ELEM_COR = {
@@ -8,15 +9,17 @@ const ELEM_COR = {
   eletrico: '#FFD700', trevas: '#9932CC',
 }
 
-export default function TeamSelect({ isAdmin, onConfirm }) {
+export default function TeamSelect({ isAdmin, onConfirm, maxSlots = 3 }) {
   const [cards, setCards] = useState(() => ROSTER.map(r => ({ ...r, sel: false })))
   const [scrollX, setScrollX] = useState(0)
   const [detail, setDetail] = useState(null)
+  const [equipando, setEquipando] = useState(null) // qual slot está selecionando: 'arma'|'armadura'|'acessorio'|null
+  const [equipMap, setEquipMap] = useState({}) // { [rosterId]: { arma: {...}, armadura: {...}, acessorio: {...} } }
   const drag = useRef({ start: 0, offset: 0, down: false, moved: false })
   const ref = useRef(null)
 
   const sel = cards.filter(c => c.sel)
-  const ok = sel.length >= 2
+  const ok = sel.length >= 2 && sel.length <= maxSlots
 
   const CARD_W = 184 // 170px card + 14px gap
   const TOTAL_W = cards.length * CARD_W
@@ -55,7 +58,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
 
       <div className="tatics-select-header">
         <div className="tatics-select-glitch">SELECIONAR ESQUADRÃO</div>
-        <div className="tatics-select-sub">{isAdmin ? `Toque para ver · ${sel.length}/6` : 'SEUS PERSONAGENS'}</div>
+        <div className="tatics-select-sub">{isAdmin ? `Toque para ver · ${sel.length}/${maxSlots}` : 'SEUS PERSONAGENS'}</div>
       </div>
 
       <div className="tatics-select-car"
@@ -82,7 +85,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
                   <div className="tatics-select-celem" style={{ color: co }}>{c.elemental.toUpperCase()}</div>
                   {isAdmin && (
                     <div className={`tatics-select-ck ${c.sel ? 'ck-on' : ''}`}
-                      onClick={e => { e.stopPropagation(); setCards(p => p.map(x => x.id === c.id ? { ...x, sel: !x.sel } : x)) }}
+                      onClick={e => { e.stopPropagation(); setCards(p => { const s = p.find(x => x.id === c.id); if (s && !s.sel && p.filter(x => x.sel).length >= maxSlots) return p; return p.map(x => x.id === c.id ? { ...x, sel: !x.sel } : x) }) }}
                     >{c.sel ? '✓' : '+'}</div>
                   )}
                 </div>
@@ -103,7 +106,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
       )}
 
       <motion.button className="tatics-select-go" whileTap={{ scale: 0.95 }}
-        onClick={() => onConfirm(isAdmin ? sel.map(c => c.id) : [])}
+        onClick={() => onConfirm(isAdmin ? sel.map(c => c.id) : [], equipMap)}
         disabled={!ok && isAdmin}
         style={{ opacity: ok || !isAdmin ? 1 : 0.35 }}
       >{isAdmin ? `BATALHAR (${sel.length})` : 'IR PARA BATALHA'}</motion.button>
@@ -149,12 +152,12 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
               <div className="tatics-detail-derived-bar">
                 <div className="tatics-detail-derived-item">
                   <span>❤️</span>
-                  <span className="tatics-detail-derived-num">{30 + detail.atributos.resistencia * 3}</span>
+                  <span className="tatics-detail-derived-num">{40 + detail.atributos.resistencia * 10}</span>
                   <span className="tatics-detail-derived-label">HP</span>
                 </div>
                 <div className="tatics-detail-derived-item">
                   <span>⚡</span>
-                  <span className="tatics-detail-derived-num">{10 + detail.atributos.energia}</span>
+                  <span className="tatics-detail-derived-num">{20 + detail.atributos.energia * 5}</span>
                   <span className="tatics-detail-derived-label">MP</span>
                 </div>
                 <div className="tatics-detail-derived-item">
@@ -167,13 +170,62 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
               <div className="tatics-detail-section">
                 <div className="tatics-detail-section-title">EQUIPAMENTOS</div>
                 <div className="tatics-detail-slots">
-                  {['Arma', 'Armadura', 'Acessório'].map(s => (
-                    <div key={s} className="tatics-detail-slot vazio">
-                      <span className="tatics-detail-slot-icon">○</span>
-                      <span className="tatics-detail-slot-label">{s}</span>
-                    </div>
-                  ))}
+                  {[
+                    { key: 'arma', label: 'Arma', lista: ARMES, icon: '⚔️' },
+                    { key: 'armadura', label: 'Armadura', lista: ARMADURAS, icon: '🛡️' },
+                    { key: 'acessorio', label: 'Acessório', lista: ACESSORIOS, icon: '💍' },
+                  ].map(({ key, label, lista, icon }) => {
+                    const eq = equipMap[detail.id]?.[key]
+                    const bonus = calcularBonus(equipMap[detail.id] || {})
+                    const eqBonus = eq ? `${eq.atq ? `+${eq.atq}ATQ` : ''}${eq.def ? ` +${eq.def}DEF` : ''}${eq.crit ? ` +${eq.crit}%CRIT` : ''}${eq.hp ? ` +${eq.hp}HP` : ''}`.trim() : null
+                    return (
+                      <div key={key} className={`tatics-detail-slot ${eq ? '' : 'vazio'}`}
+                        onClick={isAdmin ? () => setEquipando(equipando === key ? null : key) : undefined}
+                        style={{ cursor: isAdmin ? 'pointer' : 'default' }}
+                      >
+                        <span className="tatics-detail-slot-icon">{eq ? icon : '○'}</span>
+                        <span className="tatics-detail-slot-label">{eq ? eq.nome : label}</span>
+                        {eq && <span className="tatics-detail-slot-bonus">{eqBonus || ''}</span>}
+                      </div>
+                    )
+                  })}
                 </div>
+                {/* Painel de seleção de equipamento */}
+                {equipando && isAdmin && (
+                  <div className="tatics-equip-panel">
+                    <div className="tatics-equip-panel-title">
+                      SELECIONAR {equipando.toUpperCase()}
+                      <button className="tatics-equip-close" onClick={() => setEquipando(null)}>✕</button>
+                    </div>
+                    <div className="tatics-equip-lista">
+                      {(() => {
+                        const lista = equipando === 'arma' ? ARMES : equipando === 'armadura' ? ARMADURAS : ACESSORIOS
+                        return [
+                          <div key="none" className={`tatics-equip-item ${!equipMap[detail.id]?.[equipando] ? 'eq-ativo' : ''}`}
+                            onClick={() => { setEquipMap(p => ({ ...p, [detail.id]: { ...(p[detail.id] || {}), [equipando]: null } })); setEquipando(null) }}
+                          >
+                            <span className="tatics-equip-item-icon">✕</span>
+                            <span className="tatics-equip-item-nome">Nenhum</span>
+                          </div>,
+                          ...lista.map(eq => {
+                            const ativo = equipMap[detail.id]?.[equipando]?.id === eq.id
+                            const eqBonus = `${eq.atq ? `+${eq.atq} ATQ ` : ''}${eq.def ? `+${eq.def} DEF ` : ''}${eq.crit ? `+${eq.crit}% CRIT ` : ''}${eq.hp ? `+${eq.hp} HP` : ''}`.trim()
+                            return (
+                              <div key={eq.id} className={`tatics-equip-item ${ativo ? 'eq-ativo' : ''}`}
+                                onClick={() => { setEquipMap(p => ({ ...p, [detail.id]: { ...(p[detail.id] || {}), [equipando]: eq } })); setEquipando(null) }}
+                              >
+                                <span className="tatics-equip-item-icon">{ativo ? '✓' : '+'}</span>
+                                <span className="tatics-equip-item-nome">{eq.nome}</span>
+                                <span className="tatics-equip-item-bonus">{eqBonus}</span>
+                                <span className="tatics-equip-item-desc">{eq.desc}</span>
+                              </div>
+                            )
+                          })
+                        ]
+                      })()}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="tatics-detail-section">
@@ -192,7 +244,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
                 <div className="tatics-detail-actions">
                   <motion.button whileTap={{ scale: 0.95 }} className="tatics-detail-action-btn"
                     style={{ '--cor-elem': ELEM_COR[detail.elemental] || '#00B4D8' }}
-                    onClick={() => { setCards(p => p.map(x => x.id === detail.id ? { ...x, sel: !x.sel } : x)); setDetail(null) }}
+                    onClick={() => { setCards(p => { const s = p.find(x => x.id === detail.id); if (s && !s.sel && p.filter(x => x.sel).length >= maxSlots) return p; return p.map(x => x.id === detail.id ? { ...x, sel: !x.sel } : x) }); setDetail(null) }}
                   >{cards.find(c => c.id === detail.id)?.sel ? '− REMOVER' : '+ ADICIONAR'}</motion.button>
                 </div>
               )}

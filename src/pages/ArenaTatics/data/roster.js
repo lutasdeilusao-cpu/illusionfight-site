@@ -134,7 +134,7 @@ export const ROSTER = [
 export function construirPersonagem(rosterId, posX, posY, lado = 'aliado') {
   const t = ROSTER.find(r => r.id === rosterId)
   if (!t) return null
-  const hp = 40 + t.atributos.resistencia * 15 // VIT-based
+  const hp = 40 + t.atributos.resistencia * 10 // VIT-based (reduzido de 15)
   const energia = 20 + t.atributos.energia * 5 // INT-based
   return {
     id: `${lado}_${rosterId}`,
@@ -154,6 +154,8 @@ export function construirPersonagem(rosterId, posX, posY, lado = 'aliado') {
     status: [],
     jaMoveu: false,
     jaAtacou: false,
+    equipamento: { arma: null, armadura: null, acessorio: null },
+    itens: [null, null, null],
   }
 }
 

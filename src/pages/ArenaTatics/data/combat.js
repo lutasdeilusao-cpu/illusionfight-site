@@ -74,10 +74,24 @@ export const FX_INFO = {
  * Calcula dano completo + aplica status
  */
 export function resolverAtaque(atacante, defensor, skill, multElemental = 1.0) {
+  // ── 0. Bônus de Equipamento ──
+  const bonusAtq = atacante.equipamento
+    ? Object.values(atacante.equipamento).reduce((s, e) => s + (e?.atq || 0), 0)
+    : 0
+  const bonusDef = defensor.equipamento
+    ? Object.values(defensor.equipamento).reduce((s, e) => s + (e?.def || 0), 0)
+    : 0
+  const bonusCrit = atacante.equipamento
+    ? Object.values(atacante.equipamento).reduce((s, e) => s + (e?.crit || 0), 0)
+    : 0
+  const bonusHpDef = defensor.equipamento
+    ? Object.values(defensor.equipamento).reduce((s, e) => s + (e?.hp || 0), 0)
+    : 0
+
   // ── 1. Dano Bruto ──
   const danoBase = skill?.dano || 1
   const atqAtributos = atacante.atributos?.forca || 0
-  const atqTotal = atqAtributos + danoBase * 3
+  const atqTotal = atqAtributos + danoBase * 5 + bonusAtq
   let danoBruto = Math.round(atqTotal * multElemental)
 
   // ── 2. Esquiva Perfeita (SOR/10 %) ──
@@ -98,7 +112,7 @@ export function resolverAtaque(atacante, defensor, skill, multElemental = 1.0) {
   let critico = false
   let danoFinal = danoBruto
   if (skill?.tipo === 'fisico' || !skill?.tipo) {
-    const chanceCrit = atacante.crit || calcCrit(atacante)
+    const chanceCrit = (atacante.crit || calcCrit(atacante)) + bonusCrit
     if (Math.random() * 100 < chanceCrit) {
       danoFinal = Math.round(danoBruto * 1.4)
       critico = true
@@ -106,7 +120,7 @@ export function resolverAtaque(atacante, defensor, skill, multElemental = 1.0) {
   }
 
   // ── 5. DEF ──
-  const defLeve = defensor.def_leve || calcDefLeve(defensor)
+  const defLeve = (defensor.def_leve || calcDefLeve(defensor)) + bonusDef
   const defPesada = defensor.def_pesada || calcDefPesada(defensor)
   const reducaoPesada = defPesada / (defPesada + 500)
 

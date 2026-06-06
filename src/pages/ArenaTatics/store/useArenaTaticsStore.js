@@ -19,7 +19,10 @@ const INIT = {
   vitorias: 0, derrotas: 0, streak: 0,
   batalha: null, fase: 'intro',
   carregado: false, userId: null,
-  personagensIds: [], // [id1, id2] — IDs do roster salvos no Supabase
+  personagensIds: [], // IDs salvos no Supabase
+  maxSlots: 2, // Slots iniciais, desbloqueia até 8
+  personagensDesbloqueados: [], // IDs disponíveis para o jogador (inclui eventuais)
+  equipamentoMap: {}, // { [rosterId]: { arma: {...}, armadura: {...}, acessorio: {...} } }
 }
 
 export const useArenaTaticsStore = create((set, get) => ({
@@ -27,14 +30,28 @@ export const useArenaTaticsStore = create((set, get) => ({
   setUserId: (id) => set({ userId: id, carregado: true }),
   setFase: (f) => set({ fase: f }),
   setPersonagensIds: (ids) => set({ personagensIds: ids }),
+  setMaxSlots: (n) => set({ maxSlots: Math.min(8, Math.max(2, n)) }),
+  desbloquearPersonagem: (id) => set(s => ({
+    personagensDesbloqueados: s.personagensDesbloqueados.includes(id)
+      ? s.personagensDesbloqueados : [...s.personagensDesbloqueados, id]
+  })),
+  setEquipamentoMap: (m) => set({ equipamentoMap: m }),
 
   /**
    * Inicia batalha com múltiplos aliados do roster + 4 inimigos padrão
    */
   iniciarBatalha: (aliadosRoster) => set((s) => {
-    // Posiciona aliados no lado esquerdo (colunas 0-2)
-    const aliados = aliadosRoster.map((rosterId, i) => {
-      return construirPersonagem(rosterId, 1 + (i % 2), 3 + i * 4, 'aliado')
+    // Aplica equipamento do mapa aos personagens
+    const applyEquip = (rosterId, p) => {
+      const eq = s.equipamentoMap[rosterId]
+      if (!eq) return p
+      return { ...p, equipamento: { ...p.equipamento, ...eq } }
+    }
+    // Máximo 3 aliados, posicionados no lado esquerdo
+    const posicoes = [[1, 3], [2, 7], [1, 11]]
+    const aliados = aliadosRoster.slice(0, 3).map((rosterId, i) => {
+      const p = construirPersonagem(rosterId, posicoes[i][0], posicoes[i][1], 'aliado')
+      return p ? applyEquip(rosterId, p) : null
     }).filter(Boolean)
 
     // 4 inimigos padrão
@@ -84,6 +101,8 @@ export const useArenaTaticsStore = create((set, get) => ({
     await supabase.from('arena_tatica_saves').upsert({
       user_id: userId, personagens_ids: s.personagensIds,
       sdr: s.sdr, xp: s.xp, nivel: s.nivel, vitorias: s.vitorias, derrotas: s.derrotas,
+      max_slots: s.maxSlots, personagens_desbloqueados: s.personagensDesbloqueados,
+      equipamento_map: s.equipamentoMap,
     }, { onConflict: 'user_id' })
   },
 
@@ -94,6 +113,9 @@ export const useArenaTaticsStore = create((set, get) => ({
       personagensIds: data.personagens_ids || [],
       sdr: data.sdr || 0, xp: data.xp || 0, nivel: data.nivel || 1,
       vitorias: data.vitorias || 0, derrotas: data.derrotas || 0, carregado: true,
+      maxSlots: data.max_slots || 2,
+      personagensDesbloqueados: data.personagens_desbloqueados || [],
+      equipamentoMap: data.equipamento_map || {},
     })
     else set({ carregado: true })
   },

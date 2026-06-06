@@ -66,14 +66,18 @@ export default function ArenaTaticsRoute() {
     setLoading(false)
   }
 
-  const handleTeamConfirm = async (selectedIds) => {
+  const handleTeamConfirm = async (selectedIds, equipMap = {}) => {
     setLoading(true)
-    const ids = selectedIds.length > 0 ? selectedIds : randomPick(ROSTER, 2)
+    const ids = selectedIds.length > 0 ? selectedIds.slice(0, store.maxSlots) : randomPick(ROSTER, 2)
     store.setPersonagensIds(ids)
+    store.setEquipamentoMap(equipMap)
+    // Desbloqueia todos os personagens selecionados
+    ids.forEach(id => store.desbloquearPersonagem(id))
     await supabase.from('arena_tatica_saves').upsert({
       user_id: user.id,
       personagens_ids: ids,
       sdr: 0, xp: 0, nivel: 1, vitorias: 0, derrotas: 0,
+      equipamento_map: equipMap,
     }, { onConflict: 'user_id' })
     store.iniciarBatalha(ids)
     setFase('combate')
@@ -113,7 +117,7 @@ export default function ArenaTaticsRoute() {
   return (
     <div className="tatics-container">
       {fase === 'intro' && <Intro onEnter={handleIntroEnter} />}
-      {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} />}
+      {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} maxSlots={store.maxSlots} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
       {fase === 'vitoria' && <Vitoria sdrGanho={10} vitorias={store.vitorias} streak={store.streak} onContinuar={handleRevanche} />}
       {fase === 'derrota' && <Derrota onRevanche={handleRevanche} onSair={handleSair} />}
