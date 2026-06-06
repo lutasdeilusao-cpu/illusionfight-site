@@ -82,7 +82,7 @@
     │   │   ├── store/                   # useArenaTaticsStore.js
     │   │   ├── data/                    # Personagens, IAs, habilidades
     │   │   ├── screens/                 # Telas do jogo
-    │   │   └── components/             # Grid, UI, painéis
+    │   │   └── components/             # GridCanvas (isométrico), Grid (legado), UI, painéis
     │   ├── Duelo/                       # DUELO LDI — card game 1v1 vs IA
     │   │   ├── store/                   # useDueloStore.js
     │   │   ├── data/                    # Cartas, habilidades
