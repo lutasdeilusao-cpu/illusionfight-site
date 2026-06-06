@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 1.92*  |  `[SITE] versão carregada: 1.92`
+*Versão: 1.93*  |  `[SITE] versão carregada: 1.93`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -70,7 +70,7 @@
     │   │   ├── data/                    # flags, cidades, npcs, itens, dungeons, monologues, casos, pistas
     │   │   ├── screens/                 # 13 screens
     │   │   └── components/             # 6 componentes
-    │   ├── LDI/                         # Lendas do LDI — RPG narrativo
+    │   ├── LDI/                         # LDI LENDAS — RPG narrativo
     │   │   ├── engine/                  # dice.js, combat.js, character.js, flags.js, scenes.js
     │   │   ├── store/                   # useGameStore.js, useCombatStore.js
     │   │   ├── data/                    # scenes/*.json, enemies/*.json, characterData, manualData, powersData
@@ -98,11 +98,11 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/games` | Games | `src/pages/Games/Games.jsx` | ✅ v1.0 | Hub arcade anos 90: 8 cards JOGOS (LDI, Jack, Top Trumps, MiniGames, Arena, Pesadelo, Duelo, Tamagoshi) + 2 CONTEÚDO (Quiz, Leaderboard) |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | Top Trumps — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign |
+| `/games` | Games | `src/pages/Games/Games.jsx` | ✅ v1.0 | Hub arcade anos 90: 9 cards JOGOS (LDI LENDAS, Jack, PRESADELO, Arena, TAMA LDI, LDI TRUMPS, TATICO, MINI GAMES, DUELO) + 2 CONTEÚDO (Quiz, Leaderboard) |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
-| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | Lendas do LDI — lobby do RPG narrativo |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | LDI LENDAS — lobby do RPG narrativo |
 | `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
 | `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
 | `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos + seleção de poderes |
@@ -111,13 +111,13 @@
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
 | `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI Arena Mode — criação de ficha + combate CPU standalone com progressão de inimigos — **PRONTO PARA LANÇAMENTO** |
-| `/games/ldi-tatica` | ArenaTaticaRoute | `src/pages/ArenaTatica/ArenaTaticaRoute.jsx` | ✅ v2.0.0 | Arena LDI Tático — sistema de classes Ragnarok, grid 6×10, 3v3 tático por turnos, árvore de evolução — **NOVO JOGO** |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **PRONTO PARA LANÇAMENTO** |
+| `/games/ldi-tatica` | ArenaTaticaRoute | `src/pages/ArenaTatica/ArenaTaticaRoute.jsx` | ✅ v2.0.0 | LDI TATICO — sistema de classes Ragnarok, grid 6×10, 3v3 tático por turnos, árvore de evolução — **NOVO JOGO** |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.1 | Jack Dream Beer — idle noir investigativo — **testado até Aruane** (core loop ok, balanceamento futuro) |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
-| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, **i18n completa** |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.9.0 | Tamagoshi LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.0 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate, **i18n completa** |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.9.0 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
 
 **Versão atual:** `1.9.2` (console: `[TAMA] versão carregada: 1.9.2`)
 

@@ -4,15 +4,15 @@ import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import './Games.css'
 
 const JOGOS = [
-  { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
+  { id: 'ldi', nome: 'LDI LENDAS', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
   { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badge: 'LANÇADO', badgeCor: '#22C55E' },
-  { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badge: 'LANÇADO', badgeCor: '#22C55E' },
-  { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badge: 'FREE', badgeCor: '#22C55E' },
-  { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badge: 'LANÇADO', badgeCor: '#22C55E' },
-  { id: 'tatica', nome: 'LDI Tático', tagline: '6 classes. grid tático. 3v3. batalha por turnos.', emoji: '♟️', cor: '#FF4500', rota: '/games/ldi-tatica', badge: 'NOVO', badgeCor: '#FF4500' },
-  { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badge: 'LANÇADO', badgeCor: '#22C55E' },
-  { id: 'duelo', nome: 'Duelo LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/games/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
-  { id: 'tamagoshi', nome: 'Tamagoshi LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badge: 'LANÇADO', badgeCor: '#22C55E' },
+  { id: 'pesadelo', nome: 'PRESADELO PARTICULAR', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badge: 'LANÇADO', badgeCor: '#22C55E' },
+  { id: 'arena', nome: 'LDI ARENA', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badge: 'LANÇADO', badgeCor: '#22C55E' },
+  { id: 'tamagoshi', nome: 'TAMA LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badge: 'LANÇADO', badgeCor: '#22C55E' },
+  { id: 'toptrumps', nome: 'LDI TRUMPS', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badge: 'LANÇADO', badgeCor: '#22C55E' },
+  { id: 'tatica', nome: 'LDI TATICO', tagline: '6 classes. grid tático. 3v3. batalha por turnos.', emoji: '♟️', cor: '#FF4500', rota: '/games/ldi-tatica', badge: 'NOVO', badgeCor: '#FF4500' },
+  { id: 'minigames', nome: 'MINI GAMES', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badge: 'FREE', badgeCor: '#22C55E' },
+  { id: 'duelo', nome: 'DUELO LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/games/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
 ]
 
 const CONTEUDO = [
