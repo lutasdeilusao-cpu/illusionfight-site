@@ -241,7 +241,12 @@ export default function Batalha({ onVitoria, onDerrota }) {
         setAnimPos(null)
         setCaminhoAtivo(null)
         setAlcance([])
-        setFaseAcao('actionMenu')
+        // Se já atacou também → ambos usados → fim do turno
+        if (jaAtacou) {
+          setTimeout(() => turnoInimigo(), 600)
+        } else {
+          setFaseAcao('actionMenu')
+        }
         return
       }
       setAnimPos(path[step])
