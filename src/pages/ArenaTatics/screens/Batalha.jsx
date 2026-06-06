@@ -10,7 +10,7 @@ import { CLASSES } from '../data/classes'
 import { getMultiplicadorElemental } from '../data/elementais'
 import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
-import { useArenaTaticaStore } from '../store/useArenaTaticaStore'
+import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
 
 // ── Helpers ──
 function getSkills(p) { const c = CLASSES[p.classe]; return c?.skills_base || [] }
@@ -32,7 +32,7 @@ function getAlcanceSkill(p, skill, l = 6, c = 10) {
 }
 
 export default function Batalha({ onVitoria, onDerrota }) {
-  const store = useArenaTaticaStore()
+  const store = useArenaTaticsStore()
   const batalha = store.batalha
   const [faseAcao, setFaseAcao] = useState('idle') // idle | mover | skill | target | inimigo
   const [selectedAlly, setSelectedAlly] = useState(null)
@@ -123,7 +123,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid vertical */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
-        <Grid aliados={aliados} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} mobile={true} />
+        <Grid aliados={aliados} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} />
       </div>
 
       <StatusBar personagens={aliados.filter(a => a.hp > 0)} lado="aliado" />

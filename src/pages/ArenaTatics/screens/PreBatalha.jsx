@@ -4,12 +4,12 @@ import { getCorPorElemental } from '../data/cosmeticos'
 
 export default function PreBatalha({ aliados, inimigos, onIniciar }) {
   return (
-    <div style={{ minHeight: '100vh', background: '#000', padding: '1rem', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', background: '#000', padding: '1rem', display: 'flex', flexDirection: 'column', maxWidth: 480, margin: '0 auto' }}>
       <div style={{ textAlign: 'center', color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>PRÉ-BATALHA</div>
 
-      <div style={{ flex: 1, display: 'flex', gap: 8 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
         {/* Aliados */}
-        <div style={{ flex: 1 }}>
+        <div>
           <div style={{ color: '#00ff88', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>SEU TIME</div>
           {aliados.map(a => {
             const cor = getCorPorElemental(a.elemental || 'fogo')
@@ -26,12 +26,12 @@ export default function PreBatalha({ aliados, inimigos, onIniciar }) {
         </div>
 
         {/* VS */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40 }}>
-          <span style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '1.2rem', fontWeight: 900 }}>VS</span>
+        <div style={{ textAlign: 'center', padding: '0.25rem 0' }}>
+          <span style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '1.2rem', fontWeight: 900 }}>⚔️ VS ⚔️</span>
         </div>
 
         {/* Inimigos */}
-        <div style={{ flex: 1 }}>
+        <div>
           <div style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>INIMIGOS</div>
           {inimigos.map(i => (
             <div key={i.nome} style={{

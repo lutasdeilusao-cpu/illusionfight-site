@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
-import { useArenaTaticaStore } from './store/useArenaTaticaStore'
+import { useArenaTaticsStore } from './store/useArenaTaticsStore'
 import { gerarTimeInimigo } from './data/enemies'
-import { TATICA_VERSION } from '../../config/version'
+import { TATICS_VERSION } from '../../config/version'
 
 import Intro from './screens/Intro'
 import ClasseSelect from './screens/ClasseSelect'
@@ -15,15 +15,15 @@ import Batalha from './screens/Batalha'
 import Vitoria from './screens/Vitoria'
 import Derrota from './screens/Derrota'
 
-import './ArenaTatica.css'
+import './ArenaTatics.css'
 
-console.log(`[TÁTICA] versão carregada: ${TATICA_VERSION}`)
+console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 
-export default function ArenaTaticaRoute() {
+export default function ArenaTaticsRoute() {
   const { user } = useAuth()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
-  const store = useArenaTaticaStore()
+  const store = useArenaTaticsStore()
   const [fase, setFase] = useState('intro')
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function ArenaTaticaRoute() {
   const handleSair = () => navigate('/games')
 
   return (
-    <div className="tatica-container">
+    <div className="tatics-container">
       {fase === 'intro' && <Intro onEnter={handleIntroEnter} />}
       {fase === 'select' && <ClasseSelect tier={user?.tier || 'free'} rotacao={0} onSelect={handleClasseSelect} />}
       {fase === 'custom' && <Customizacao classe={store.classe} onConfirm={handleCustomConfirm} onBack={() => setFase('select')} />}

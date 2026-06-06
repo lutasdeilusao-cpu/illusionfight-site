@@ -22,7 +22,7 @@ export default function Intro({ onEnter }) {
   return (
     <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
       {/* Glitch logo */}
-      <div className="tatica-glitch" data-text="LDI ARENA" style={{
+      <div className="tatics-glitch" data-text="LDI ARENA" style={{
         fontFamily: 'Courier New', fontSize: '2.2rem', fontWeight: 900,
         color: '#FFD700', letterSpacing: '0.15em', marginBottom: '2rem',
         position: 'relative',

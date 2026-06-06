@@ -1,23 +1,29 @@
 /* ══════════════════════════════════════════════════
-   ARENA TÁTICA v2.0.0 — Estilos exclusivos
-   Jogo novo e independente do LDI Arena original
+   ARENA TÁTICS v2.1.0 — Estilos exclusivos
+   Mobile-first — vertical em qualquer viewport
    ══════════════════════════════════════════════════ */
 
-.tatica-container {
+.tatics-container {
   min-height: 100vh;
+  min-height: 100dvh;
   background: #000;
   color: #eee;
   font-family: 'Courier New', monospace;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Glitch effect for logo */
-.tatica-glitch {
+.tatics-glitch {
   position: relative;
-  animation: tatica-glitch-skew 4s infinite linear;
+  animation: tatics-glitch-skew 4s infinite linear;
 }
 
-.tatica-glitch::before,
-.tatica-glitch::after {
+.tatics-glitch::before,
+.tatics-glitch::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -27,29 +33,29 @@
   opacity: 0;
 }
 
-.tatica-glitch::before {
+.tatics-glitch::before {
   color: #ff0040;
-  animation: tatica-glitch-before 4s infinite linear;
+  animation: tatics-glitch-before 4s infinite linear;
   clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
 }
 
-.tatica-glitch::after {
+.tatics-glitch::after {
   color: #00fff7;
-  animation: tatica-glitch-after 4s infinite linear;
+  animation: tatics-glitch-after 4s infinite linear;
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
 }
 
-@keyframes tatica-glitch-skew {
+@keyframes tatics-glitch-skew {
   0%, 90%, 92%, 100% { transform: skew(0deg); }
   91% { transform: skew(2deg); }
 }
 
-@keyframes tatica-glitch-before {
+@keyframes tatics-glitch-before {
   0%, 5%, 7%, 100% { opacity: 0; }
   6% { opacity: 0.8; }
 }
 
-@keyframes tatica-glitch-after {
+@keyframes tatics-glitch-after {
   0%, 8%, 10%, 100% { opacity: 0; }
   9% { opacity: 0.8; }
 }

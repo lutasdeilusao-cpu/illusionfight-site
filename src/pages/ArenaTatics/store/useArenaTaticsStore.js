@@ -1,5 +1,5 @@
 /**
- * ARENA TÁTICA — Zustand Store v2.0.0
+ * ARENA TÁTICS — Zustand Store v2.1.0
  * Jogo novo e independente — não mexe no LDI Arena original
  */
 
@@ -23,7 +23,7 @@ const INIT = {
   timesSalvos: [], slotsTime: 3, carregado: false, userId: null,
 }
 
-export const useArenaTaticaStore = create((set, get) => ({
+export const useArenaTaticsStore = create((set, get) => ({
   ...INIT,
   setUserId: (id) => set({ userId: id, carregado: true }),
   setFase: (f) => set({ fase: f }),
