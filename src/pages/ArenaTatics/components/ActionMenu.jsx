@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose }) {
+export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, jaMoveu }) {
   return (
     <motion.div
       initial={{ y: '100%' }}
@@ -33,15 +33,26 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
 
         <div style={{ display: 'flex', gap: 8 }}>
           <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={onMover}
+            whileTap={!jaMoveu ? { scale: 0.95 } : {}}
+            onClick={!jaMoveu ? onMover : undefined}
             style={{
-              flex: 1, padding: '0.8rem 0.5rem', borderRadius: 12, cursor: 'pointer',
-              background: 'linear-gradient(135deg, #FFD70022, #0d0d0d)',
-              border: '1px solid #FFD70055', textAlign: 'center',
+              flex: 1, padding: '0.8rem 0.5rem', borderRadius: 12,
+              cursor: jaMoveu ? 'default' : 'pointer',
+              background: jaMoveu ? '#0a0a0a' : 'linear-gradient(135deg, #FFD70022, #0d0d0d)',
+              border: `1px solid ${jaMoveu ? '#333' : '#FFD70055'}`,
+              textAlign: 'center', opacity: jaMoveu ? 0.35 : 1,
+              transition: 'all 0.2s',
             }}>
-            <div style={{ fontSize: '1.3rem', marginBottom: 4 }}>👣</div>
-            <div style={{ color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em' }}>MOVER</div>
+            <div style={{ fontSize: '1.3rem', marginBottom: 4 }}>
+              {jaMoveu ? '🔒' : '👣'}
+            </div>
+            <div style={{
+              color: jaMoveu ? '#555' : '#FFD700',
+              fontFamily: 'Courier New', fontSize: '0.7rem',
+              fontWeight: 700, letterSpacing: '0.1em',
+            }}>
+              {jaMoveu ? 'JÁ MOVIDO' : 'MOVER'}
+            </div>
           </motion.button>
 
           <motion.button

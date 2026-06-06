@@ -127,7 +127,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     alvo.hp = Math.max(0, alvo.hp - dano)
     showDano(dano, x * 48 + 24, y * 48 + 24, crit)
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
-    limparSelecao(); setFaseAcao('idle')
+    limparSelecao()
 
     if (alvo.hp <= 0) {
       const rest = inimigos.filter(i => i.hp > 0)
@@ -136,6 +136,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         return setTimeout(() => onVitoria(g), 500)
       }
     }
+    // Atacou → turno acaba automaticamente
     setTimeout(() => turnoInimigo(), 600)
   }
 
@@ -212,6 +213,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         {faseAcao === 'actionMenu' && selectedAlly && (
           <ActionMenu
             personagem={selectedAlly}
+            jaMoveu={jaMoveu}
             onMover={handleActionMover}
             onAtacar={handleActionAtacar}
             onItem={() => {}} // placeholder
