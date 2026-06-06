@@ -738,6 +738,37 @@
   color: #8B8F96;
 }
 
+/* ── Free look button ── */
+.tatics-freelook-btn {
+  position: absolute;
+  top: 50px;
+  right: 8px;
+  z-index: 100;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.55);
+  color: #8B8F96;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+.tatics-freelook-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.tatics-freelook-btn.active {
+  border-color: #F4A227;
+  color: #F4A227;
+  background: rgba(244,162,39,0.15);
+  box-shadow: 0 0 12px rgba(244,162,39,0.3);
+}
+
 /* ══════════════════════════════════════════════════
    GRID — Tabuleiro Tático
    ══════════════════════════════════════════════════ */

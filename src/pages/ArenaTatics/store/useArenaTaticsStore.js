@@ -61,11 +61,11 @@ export const useArenaTaticsStore = create((set, get) => ({
     const todos = [...aliados, ...inimigos]
     const ocupadas = new Set(todos.map(t => `${t.x},${t.y}`))
     const obstrucoes = []
-    const numObs = 4 + Math.floor(Math.random() * 3)
+    const numObs = 8 + Math.floor(Math.random() * 5)
     let tentativas = 0
     while (obstrucoes.length < numObs && tentativas < 300) {
       tentativas++
-      const x = 1 + Math.floor(Math.random() * 6)
+      const x = 1 + Math.floor(Math.random() * 14)
       const y = 1 + Math.floor(Math.random() * 14)
       const key = `${x},${y}`
       if (ocupadas.has(key)) continue

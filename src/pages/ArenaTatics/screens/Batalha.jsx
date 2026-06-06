@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import GridCanvas from '../components/GridCanvas'
 import StatusBar from '../components/StatusBar'
@@ -37,7 +37,7 @@ function getOcupadas(aliados, inimigos, obstrucoes, ignoreId = null) {
   return set
 }
 
-function getAlcanceMovimento(p, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 8) {
+function getAlcanceMovimento(p, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 16) {
   const r = 3; const casas = []
   const ocup = getOcupadas(aliados, inimigos, obstrucoes, p.id)
   for (let dx = -r; dx <= r; dx++)
@@ -68,7 +68,7 @@ function getAlvoOcupadas(aliados, obstrucoes) {
   return set
 }
 
-function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 8) {
+function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 16) {
   const casas = []
   // Apenas aliados e obstáculos bloqueiam — inimigos são ALVOS válidos
   const bloqueadas = getAlvoOcupadas(aliados, obstrucoes)
@@ -89,7 +89,7 @@ function estahEmAlcance(x, y, alcance) {
 }
 
 // ── Path calculator — BFS para contornar obstáculos corretamente ──
-function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 8) {
+function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16) {
   if (x1 === x2 && y1 === y2) return []
   
   // BFS: encontra caminho mais curto evitando bloqueadas
@@ -167,6 +167,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [combatResult, setCombatResult] = useState(null)
   const [enemyBanner, setEnemyBanner] = useState(null)
   const [iaInfo, setIaInfo] = useState(() => sortearIAs())
+  const [freeLook, setFreeLook] = useState(false)
   const V = 600
 
   if (!batalha) return null
@@ -379,8 +380,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setSelectedSkill(null); setAlcance([]); setFaseAcao('skillSelect')
   }
 
-  // ── Grid click dispatcher ──
+  // ── Grid click dispatcher (bloqueado no freeLook) ──
   const handleGridClick = (x, y, cel) => {
+    if (freeLook) return // modo visualização: não executa ações
     if (faseAcao === 'mover') handleMoveClick(x, y, cel)
     else if (faseAcao === 'target') handleTargetClick(x, y, cel)
     else if (faseAcao === 'idle' && cel.aliado) handleAllyClick(cel.aliado)
@@ -407,7 +409,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const inimigosVivos = [...inimigos].filter(i => i.hp > 0)
     const aliadosVivos = [...aliados].filter(a => a.hp > 0)
     if (inimigosVivos.length === 0 || aliadosVivos.length === 0) {
-      store.avancarTurno(); setFaseAcao('idle'); return
+      store.avancarTurno();
+      // Reseta flags de ação dos aliados para o novo turno
+      aliados.forEach(a => { a.jaMoveu = false; a.jaAtacou = false })
+      setFaseAcao('idle'); return
     }
 
     let currentIdx = 0
@@ -430,7 +435,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
             store.atualizarPersonagem(lado, p.id, { hp: p.hp })
           }
         })
-        store.avancarTurno(); setFaseAcao('idle')
+        store.avancarTurno();
+        // Reseta flags de ação dos aliados para o novo turno
+        aliados.forEach(a => { a.jaMoveu = false; a.jaAtacou = false })
+        setFaseAcao('idle')
         return
       }
 
@@ -752,6 +760,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
         <DanoPopup danos={danos} />
         <GridCanvas aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} />
       </div>
+
+      {/* Free look toggle */}
+      <button className={`tatics-freelook-btn${freeLook ? ' active' : ''}`}
+        onClick={() => setFreeLook(f => !f)}
+        title={freeLook ? 'Voltar ao modo combate' : 'Visualizar mapa'}
+      >
+        {freeLook ? '⚔' : '🔍'}
+      </button>
 
       {/* Enemy log */}
       {enemyLog && (

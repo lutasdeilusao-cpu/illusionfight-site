@@ -3,7 +3,7 @@ import { useRef, useEffect, useCallback } from 'react'
 // ── Isometric constants ──
 const TILE_W = 100, TILE_H = 50
 const HW = TILE_W / 2, HH = TILE_H / 2
-const GRID_W = 8, GRID_H = 16
+const GRID_W = 16, GRID_H = 16
 const LERP = 0.08
 
 function isoToScreen(x, y) { return { sx: (x - y) * HW, sy: (x + y) * HH } }
