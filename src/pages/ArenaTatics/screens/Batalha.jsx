@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Grid from '../components/Grid'
+import GridCanvas from '../components/GridCanvas'
 import StatusBar from '../components/StatusBar'
 import TurnoIndicator from '../components/TurnoIndicator'
 import ActionMenu from '../components/ActionMenu'

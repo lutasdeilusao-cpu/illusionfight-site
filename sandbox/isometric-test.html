@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Isometric Test — Movement System</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#0a0a0a;display:flex;align-items:center;justify-content:center;user-select:none}
+#game-wrap{
+  width:min(100vw,calc(100dvh*9/16));
+  height:min(100dvh,calc(100vw*16/9));
+  max-width:520px;
+  overflow:hidden;position:relative;
+  background:#111;
+  border-radius:12px;border:1px solid #333;
+  box-shadow:0 0 60px rgba(0,0,0,0.8);
+  touch-action:none;
+}
+#canvas-wrap{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  overflow:hidden;cursor:default;
+}
+#iso-canvas{position:absolute;image-rendering:pixelated;will-change:transform;top:0;left:0}
+#hud{
+  position:absolute;top:8px;left:8px;z-index:200;
+  font-family:monospace;font-size:10px;color:#8a8a6a;
+  pointer-events:none;line-height:1.5;text-shadow:0 0 6px #000;
+}
+#hud-title{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  z-index:200;font-family:monospace;font-size:9px;color:#555;
+  pointer-events:none;text-align:center;text-shadow:0 0 4px #000;
+}
+#controls-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  z-index:200;font-family:monospace;font-size:9px;color:#444;
+  pointer-events:none;text-align:center;text-shadow:0 0 4px #000;
+}
+#minimap-wrap{
+  position:absolute;top:8px;right:8px;z-index:150;
+  width:140px;height:140px;
+  border:2px solid rgba(255,255,255,0.1);
+  border-radius:8px;
+  overflow:hidden;
+  background:rgba(0,0,0,0.6);
+  box-shadow:0 0 24px rgba(0,0,0,0.7);
+  pointer-events:none;
+}
+#minimap-canvas{width:100%;height:100%;display:block}
+#mm-label{
+  position:absolute;top:10px;right:150px;z-index:151;
+  font-family:monospace;font-size:7px;color:rgba(255,255,255,0.25);
+  pointer-events:none;text-shadow:0 0 4px #000;
+}
+</style>
+</head>
+<body>
+<div id="game-wrap">
+  <div id="canvas-wrap">
+    <canvas id="iso-canvas"></canvas>
+  </div>
+  <div id="hud">
+    <div id="hud-info">TILE: 0, 0 | Ferro Velho</div>
+  </div>
+  <div id="hud-title">✦ LDI TATICS — Movimento Isométrico ✦</div>
+  <div id="controls-hint">clique num tile laranja para mover</div>
+  <div id="mm-label">MINIMAPA</div>
+  <div id="minimap-wrap">
+    <canvas id="minimap-canvas"></canvas>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════════════════
+const GRID_W = 24;
+const GRID_H = 24;
+const TILE_W = 100;     // isometric tile width
+const TILE_H = 50;      // isometric tile height (metade = 2:1)
+const HALF_W = TILE_W / 2;
+const HALF_H = TILE_H / 2;
+
+const ALCANCE_R = 3;    // raio de movimento (Manhattan)
+const STEP_MS = 300;    // ms por passo
+const LERP_CAM = 0.12;  // lerp mais rápido pra resposta imediata
+
+console.log('[CONFIG] GRID', GRID_W, '×', GRID_H, '| TILE', TILE_W, '×', TILE_H);
+
+// ═══════════════════════════════════════════════════════
+// ROSTER
+// ═══════════════════════════════════════════════════════
+const ROSTER = [
+  { id: 1, nome: 'Ferro Velho',        cor: '#CD853F', elemental: 'terra',     ex: '⚔️' },
+  { id: 2, nome: 'Relâmpago Branco',   cor: '#FFD700', elemental: 'relampago', ex: '⚡' },
+  { id: 3, nome: 'Espiral',            cor: '#00BFFF', elemental: 'luz',       ex: '🌀' },
+  { id: 4, nome: 'Dente de Sabre',     cor: '#C0C0C0', elemental: 'vento',     ex: '🐺' },
+  { id: 5, nome: 'Sombra de Gelo',     cor: '#4A90D9', elemental: 'gelo',      ex: '❄️' },
+  { id: 6, nome: 'Montanha Viva',      cor: '#6B4226', elemental: 'terra',     ex: '🏔️' },
+  { id: 7, nome: 'Tocha Sagrada',      cor: '#FF6347', elemental: 'fogo',      ex: '🔥' },
+];
+console.log('[ROSTER]', ROSTER.length, 'personagens');
+
+// ═══════════════════════════════════════════════════════
+// ISO MATH
+// ═══════════════════════════════════════════════════════
+function isoToScreen(x, y) {
+  return { sx: (x - y) * HALF_W, sy: (x + y) * HALF_H };
+}
+
+function screenToIso(px, py) {
+  const gx = (px / HALF_W + py / HALF_H) / 2;
+  const gy = (py / HALF_H - px / HALF_W) / 2;
+  return { x: Math.round(gx), y: Math.round(gy) };
+}
+
+// Verifica se um ponto (px, py) está dentro do losango do tile (tx, ty)
+// ATENÇÃO: nosso losango NÃO é simétrico —
+//   topo = centro do tile (cx, cy)
+//   baixo = (cx, cy + TILE_H)
+//   direita = (cx + HALF_W, cy + HALF_H)
+//   esquerda = (cx - HALF_W, cy + HALF_H)
+function dentroDoLosango(px, py, tx, ty) {
+  const c = isoToScreen(tx, ty);
+  const dx = Math.abs(px - c.sx);
+  const dy = py - c.sy;
+  const TOL = 1.04;
+
+  // Deve estar abaixo do vértice de cima e acima do de baixo
+  if (dy < 0 || dy > TILE_H) return false;
+
+  // Borda lateral: |dx|/HALF_W <= dy/HALF_H
+  if (dx * HALF_H > dy * HALF_W * TOL) return false;
+
+  // Borda de baixo: dy/HALF_H <= 2 - |dx|/HALF_W
+  if (dy * HALF_W + dx * HALF_H > 2 * HALF_W * HALF_H * TOL) return false;
+
+  return true;
+}
+
+// ★ ENCONTRA TILE: varre 3×3 em volta do candidato e acha qual losango contém o clique
+function encontrarTile(px, py) {
+  const cand = screenToIso(px, py);
+  for (let dx = -1; dx <= 1; dx++) {
+    for (let dy = -1; dy <= 1; dy++) {
+      const nx = cand.x + dx, ny = cand.y + dy;
+      if (nx >= 0 && nx < GRID_W && ny >= 0 && ny < GRID_H) {
+        if (dentroDoLosango(px, py, nx, ny)) {
+          return { x: nx, y: ny };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+// Dimensões totais do mundo
+const MIN_SX = isoToScreen(0, GRID_H - 1).sx;
+const MAX_SX = isoToScreen(GRID_W - 1, 0).sx;
+const MIN_SY = isoToScreen(0, 0).sy;
+const MAX_SY = isoToScreen(GRID_W - 1, GRID_H - 1).sy;
+const WORLD_W = MAX_SX - MIN_SX;
+const WORLD_H = MAX_SY - MIN_SY;
+console.log('[WORLD] bounds x:', MIN_SX, '→', MAX_SX, '| y:', MIN_SY, '→', MAX_SY);
+console.log('[WORLD] size:', WORLD_W, '×', WORLD_H);
+
+// ═══════════════════════════════════════════════════════
+// DOM
+// ═══════════════════════════════════════════════════════
+const wrap   = document.getElementById('game-wrap');
+const canvas = document.getElementById('iso-canvas');
+const ctx    = canvas.getContext('2d');
+const hudInfo = document.getElementById('hud-info');
+const miniCanvas = document.getElementById('minimap-canvas');
+const miniCtx = miniCanvas.getContext('2d');
+const MINI_SIZE = 140;
+const MINI_CELL = Math.floor(MINI_SIZE / Math.max(GRID_W, GRID_H));
+const MINI_OFFX = Math.floor((MINI_SIZE - GRID_W * MINI_CELL) / 2);
+const MINI_OFFY = Math.floor((MINI_SIZE - GRID_H * MINI_CELL) / 2);
+console.log('[DOM] wrap:', wrap.clientWidth, '×', wrap.clientHeight);
+console.log('[MINI] cell:', MINI_CELL, 'offset:', MINI_OFFX, MINI_OFFY);
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+// Cam starts centered on player
+const INIT_VW = wrap.clientWidth || 360;
+const INIT_VH = wrap.clientHeight || 640;
+let camX = isoToScreen(1,1).sx - INIT_VW / 2;
+let camY = isoToScreen(1,1).sy - INIT_VH / 2;
+console.log('[CAM] init pos:', Math.round(camX), Math.round(camY), 'viewport:', INIT_VW, '×', INIT_VH);
+let fase = 'idle'; // idle | range | animating
+let animando = false;
+
+const player = {
+  x: 1, y: 1,
+  px: 0, py: 0,
+  char: ROSTER[0],
+};
+const startPos = isoToScreen(player.x, player.y);
+player.px = startPos.sx; player.py = startPos.sy;
+console.log('[PLAYER] start at tile (1,1) → screen', player.px, player.py);
+
+// Tiles ocupados
+const ocupados = new Set([
+  '3,3','6,2','8,8','1,7','5,8','7,5','2,6','4,1',
+  '10,3','3,10','9,9','11,2',
+  '14,5','18,7','20,12','22,4','16,18','12,20','7,15',
+  '19,19','21,14','15,22','5,18','11,14','17,11'
+]);
+const inimigos = [
+  { x: 3, y: 3, char: ROSTER[2] },
+  { x: 6, y: 2, char: ROSTER[3] },
+  { x: 8, y: 8, char: ROSTER[4] },
+  { x: 1, y: 7, char: ROSTER[5] },
+  { x: 5, y: 8, char: ROSTER[6] },
+  { x: 10, y: 3, char: ROSTER[1] },
+  { x: 3, y: 10, char: ROSTER[2] },
+  { x: 9, y: 9, char: ROSTER[3] },
+  { x: 11, y: 2, char: ROSTER[4] },
+  { x: 15, y: 5, char: ROSTER[5] },
+  { x: 20, y: 12, char: ROSTER[6] },
+  { x: 22, y: 4, char: ROSTER[0] },
+  { x: 14, y: 18, char: ROSTER[1] },
+  { x: 19, y: 19, char: ROSTER[2] },
+  { x: 7, y: 15, char: ROSTER[3] },
+  { x: 5, y: 18, char: ROSTER[4] },
+  { x: 21, y: 14, char: ROSTER[5] },
+  { x: 17, y: 11, char: ROSTER[6] },
+  { x: 12, y: 20, char: ROSTER[0] },
+];
+console.log('[INIMIGOS]', inimigos.length, 'inimigos posicionados');
+
+let alcance = [];
+let caminhoAtivo = [];
+let passoAtual = 0;
+let frameCount = 0;
+let hoverTile = null; // tile sob o mouse
+
+// ═══════════════════════════════════════════════════════
+// MOVEMENT RANGE
+// ═══════════════════════════════════════════════════════
+function getAlcance(p) {
+  console.log('[ALCANCE] calculando para', p.x, p.y, 'raio', ALCANCE_R);
+  const casas = [];
+  for (let dx = -ALCANCE_R; dx <= ALCANCE_R; dx++) {
+    for (let dy = -ALCANCE_R; dy <= ALCANCE_R; dy++) {
+      if (Math.abs(dx) + Math.abs(dy) <= ALCANCE_R) {
+        const nx = p.x + dx, ny = p.y + dy;
+        if (nx >= 0 && nx < GRID_W && ny >= 0 && ny < GRID_H) {
+          if (!ocupados.has(`${nx},${ny}`) && !(nx === p.x && ny === p.y)) {
+            casas.push({ x: nx, y: ny });
+          }
+        }
+      }
+    }
+  }
+  console.log('[ALCANCE]', casas.length, 'tiles disponíveis');
+  return casas;
+}
+
+// ═══════════════════════════════════════════════════════
+// PATHFINDING — BFS
+// ═══════════════════════════════════════════════════════
+function calcularCaminho(x1, y1, x2, y2) {
+  console.log('[BFS] procurando caminho de (' + x1 + ',' + y1 + ') → (' + x2 + ',' + y2 + ')');
+  if (x1 === x2 && y1 === y2) { console.log('[BFS] mesmo tile'); return []; }
+  const bloqueadas = new Set(ocupados);
+  bloqueadas.delete(`${x1},${y1}`);
+  const queue = [{ x: x1, y: y1, path: [] }];
+  const visited = new Set([`${x1},${y1}`]);
+  while (queue.length > 0) {
+    const { x, y, path } = queue.shift();
+    const dirs = [[0,-1],[0,1],[-1,0],[1,0]];
+    for (const [dx, dy] of dirs) {
+      const nx = x + dx, ny = y + dy;
+      if (nx < 0 || nx >= GRID_W || ny < 0 || ny >= GRID_H) continue;
+      const key = `${nx},${ny}`;
+      if (visited.has(key) || bloqueadas.has(key)) continue;
+      const newPath = [...path, { x: nx, y: ny }];
+      if (nx === x2 && ny === y2) {
+        console.log('[BFS] caminho encontrado:', newPath.length, 'passos');
+        return newPath;
+      }
+      visited.add(key);
+      queue.push({ x: nx, y: ny, path: newPath });
+    }
+  }
+  console.warn('[BFS] sem rota!');
+  return [];
+}
+
+// ═══════════════════════════════════════════════════════
+// SCREEN SHAKE
+// ═══════════════════════════════════════════════════════
+function screenShake() {
+  console.log('[SHAKE] tela tremendo!');
+  const shakes = [
+    { x: -3, y: 0 }, { x: 3, y: 1 }, { x: -2, y: -1 },
+    { x: 2, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 0 },
+  ];
+  let i = 0;
+  const id = setInterval(() => {
+    if (i >= shakes.length) { clearInterval(id); return; }
+    canvas.style.transform = `translate(${shakes[i].x}px, ${shakes[i].y}px)`;
+    i++;
+  }, 50);
+}
+
+// ═══════════════════════════════════════════════════════
+// START MOVEMENT
+// ═══════════════════════════════════════════════════════
+function iniciarMovimento(destX, destY) {
+  console.log('[MOVE] iniciarMovimento(' + destX + ',' + destY + ')');
+  console.log('[MOVE] fase:', fase, '| animando:', animando);
+  if (animando || fase !== 'range') {
+    console.warn('[MOVE] bloqueado — fase errada ou já animando');
+    return;
+  }
+
+  const path = calcularCaminho(player.x, player.y, destX, destY);
+  if (path.length === 0) {
+    console.warn('[MOVE] caminho vazio, cancelando');
+    return;
+  }
+
+  caminhoAtivo = path;
+  passoAtual = 0;
+  fase = 'animating';
+  animando = true;
+  console.log('[MOVE] iniciando animação,', path.length, 'passos');
+
+  let step = 0;
+  function tick() {
+    if (step >= path.length) {
+      console.log('[MOVE] chegou ao destino!');
+      player.x = destX;
+      player.y = destY;
+      const destScreen = isoToScreen(destX, destY);
+      player.px = destScreen.sx;
+      player.py = destScreen.sy;
+      animando = false;
+      caminhoAtivo = [];
+      alcance = [];
+      screenShake();
+      fase = 'idle';
+      console.log('[MOVE] pronto para novo movimento');
+      return;
+    }
+    const target = path[step];
+    const screenPos = isoToScreen(target.x, target.y);
+    player.px = screenPos.sx;
+    player.py = screenPos.sy;
+    passoAtual = step + 1;
+    console.log('[MOVE] passo', step + 1, '/', path.length, '→ tile (' + target.x + ',' + target.y + ')');
+    step++;
+    setTimeout(tick, STEP_MS);
+  }
+  setTimeout(tick, STEP_MS);
+}
+
+// ★ CLICK / TOUCH HANDLER
+function handleClick(clientX, clientY) {
+  console.log('[CLICK] em', clientX, clientY);
+  console.log('[CLICK] fase atual:', fase, '| animando:', animando);
+
+  if (animando) {
+    console.warn('[CLICK] ignorado — animando');
+    return;
+  }
+
+  const rect = canvas.getBoundingClientRect();
+  const mx = clientX - rect.left;
+  const my = clientY - rect.top;
+  console.log('[CLICK] mouse relativo ao canvas:', mx, my);
+
+  // Converter para coordenadas do mundo
+  const worldX = mx + camX;
+  const worldY = my + camY;
+  console.log('[CLICK] mundo:', worldX, worldY);
+
+  // ★ FASE RANGE: varre direto os tiles do alcance (mais robusto)
+  if (fase === 'range') {
+    for (const tile of alcance) {
+      if (dentroDoLosango(worldX, worldY, tile.x, tile.y)) {
+        console.log('[CLICK] range tile encontrado:', tile.x, tile.y);
+        iniciarMovimento(tile.x, tile.y);
+        return;
+      }
+    }
+    // Clique num tile vazio ou fora → limpa
+    // Mas verifica se clicou no player de novo (re-abre alcance)
+    if (dentroDoLosango(worldX, worldY, player.x, player.y)) {
+      console.log('[CLICK] clicou no player de novo');
+      alcance = getAlcance(player);
+      fase = 'range';
+      return;
+    }
+    console.log('[CLICK] clicou fora do alcance, limpando');
+    alcance = [];
+    fase = 'idle';
+    return;
+  }
+
+  // ★ FASE IDLE: encontra qual tile foi clicado
+  const tile = encontrarTile(worldX, worldY);
+  if (!tile) {
+    console.warn('[CLICK] nenhum tile encontrado');
+    return;
+  }
+  console.log('[CLICK] tile:', tile.x, tile.y);
+
+  // Se clicou no player
+  if (tile.x === player.x && tile.y === player.y) {
+    console.log('[CLICK] clicou no player! mostrando alcance');
+    alcance = getAlcance(player);
+    fase = 'range';
+    return;
+  }
+}
+
+// ── Event Listeners ──
+canvas.addEventListener('click', function(e) {
+  console.log('[EVENT] click no canvas');
+  handleClick(e.clientX, e.clientY);
+});
+canvas.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  console.log('[EVENT] touchstart no canvas');
+  const touch = e.changedTouches[0];
+  handleClick(touch.clientX, touch.clientY);
+}, { passive: false });
+
+// ── Hover (mouse) ──
+canvas.addEventListener('mousemove', function(e) {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  const wx = mx + camX;
+  const wy = my + camY;
+  if (fase === 'range') {
+    const tile = encontrarTile(wx, wy);
+    if (tile && alcance.some(a => a.x === tile.x && a.y === tile.y)) {
+      hoverTile = tile;
+      canvas.style.cursor = 'pointer';
+    } else {
+      hoverTile = null;
+      canvas.style.cursor = 'default';
+    }
+  } else {
+    hoverTile = null;
+    canvas.style.cursor = 'default';
+  }
+});
+canvas.addEventListener('mouseleave', function() {
+  hoverTile = null;
+});
+
+console.log('[EVENTS] listeners registrados');
+
+// ═══════════════════════════════════════════════════════
+// DRAW
+// ═══════════════════════════════════════════════════════
+
+function drawIsometric(ctx, offX, offY) {
+  // Painter's algorithm: de trás (y=0) pra frente
+  for (let y = 0; y < GRID_H; y++) {
+    for (let x = 0; x < GRID_W; x++) {
+      const pos = isoToScreen(x, y);
+      const sx = pos.sx + offX;
+      const sy = pos.sy + offY;
+      const key = `${x},${y}`;
+      const isPlayer = (x === player.x && y === player.y && !animando);
+      const isAlcance = fase === 'range' && alcance.some(a => a.x === x && a.y === y);
+      const isCaminho = animando && caminhoAtivo.some((c, i) => i >= passoAtual && c.x === x && c.y === y);
+      const isOcupado = ocupados.has(key);
+      const isInimigo = inimigos.find(inimigo => inimigo.x === x && inimigo.y === y);
+
+      // Tile base
+      const corBase = (x + y) % 2 === 0 ? '#2a3a2a' : '#2e3e2e';
+      ctx.fillStyle = corBase;
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(sx + HALF_W, sy + HALF_H);
+      ctx.lineTo(sx, sy + TILE_H);
+      ctx.lineTo(sx - HALF_W, sy + HALF_H);
+      ctx.closePath();
+      ctx.fill();
+
+      // Borda
+      ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Alcance (laranja)
+      if (isAlcance) {
+        ctx.fillStyle = 'rgba(244, 162, 39, 0.25)';
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(sx + HALF_W, sy + HALF_H);
+        ctx.lineTo(sx, sy + TILE_H);
+        ctx.lineTo(sx - HALF_W, sy + HALF_H);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(244, 162, 39, 0.5)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      // Hover glow — tile de alcance sob o mouse
+      const isHover = isAlcance && hoverTile && hoverTile.x === x && hoverTile.y === y;
+      if (isHover) {
+        const pulse = Math.sin(frameCount * 0.1) * 0.25 + 0.75;
+        ctx.shadowColor = '#f4a227';
+        ctx.shadowBlur = 20 * pulse;
+        ctx.strokeStyle = `rgba(255, 220, 120, ${pulse})`;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(sx + HALF_W, sy + HALF_H);
+        ctx.lineTo(sx, sy + TILE_H);
+        ctx.lineTo(sx - HALF_W, sy + HALF_H);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        ctx.shadowColor = 'transparent';
+      }
+
+      // Caminho restante — destaque brilhante
+      if (isCaminho) {
+        // Glow externo
+        ctx.shadowColor = '#f4a227';
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = '#f4a227';
+        ctx.globalAlpha = 0.8;
+        ctx.beginPath();
+        ctx.arc(sx, sy + HALF_H, 10, 0, Math.PI * 2);
+        ctx.fill();
+        // Centro branco
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = '#fff7e0';
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        ctx.arc(sx, sy + HALF_H, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.shadowBlur = 0;
+        ctx.shadowColor = 'transparent';
+      }
+
+      // Ocupado (X)
+      if (isOcupado && !isInimigo) {
+        ctx.strokeStyle = 'rgba(200,50,50,0.3)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(sx - 6, sy + HALF_H - 6);
+        ctx.lineTo(sx + 6, sy + HALF_H + 6);
+        ctx.moveTo(sx + 6, sy + HALF_H - 6);
+        ctx.lineTo(sx - 6, sy + HALF_H + 6);
+        ctx.stroke();
+      }
+
+      // Inimigos
+      if (isInimigo) {
+        desenhaChar(ctx, sx, sy - 4, isInimigo.char, 14, false);
+      }
+    }
+  }
+
+  // Player (por cima)
+  const playerScreen = isoToScreen(player.x, player.y);
+  const ppx = animando ? player.px : playerScreen.sx;
+  const ppy = animando ? player.py : playerScreen.sy;
+  desenhaChar(ctx, ppx + offX, ppy + offY - 4, player.char, 18, true);
+}
+
+function desenhaChar(ctx, sx, sy, char, size, isPlayer) {
+  // Sombra
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.beginPath();
+  ctx.ellipse(sx, sy + size - 2, size/2.2, size/7, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Corpo
+  ctx.fillStyle = char.cor;
+  ctx.beginPath();
+  ctx.moveTo(sx, sy - 2);
+  ctx.lineTo(sx + size/2, sy + size/3);
+  ctx.lineTo(sx + size/2.5, sy + size - 2);
+  ctx.lineTo(sx - size/2.5, sy + size - 2);
+  ctx.lineTo(sx - size/2, sy + size/3);
+  ctx.closePath();
+  ctx.fill();
+
+  // Brilho
+  ctx.fillStyle = 'rgba(255,255,255,0.2)';
+  ctx.beginPath();
+  ctx.moveTo(sx, sy);
+  ctx.lineTo(sx + size/4, sy + size/4);
+  ctx.lineTo(sx, sy + size/2);
+  ctx.lineTo(sx - size/4, sy + size/4);
+  ctx.closePath();
+  ctx.fill();
+
+  // Nome
+  ctx.fillStyle = isPlayer ? '#e8c96a' : '#999';
+  ctx.font = '8px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText(char.nome, sx, sy + size + 10);
+
+  // Ícone
+  ctx.font = '10px sans-serif';
+  ctx.fillText(char.ex, sx, sy - 6);
+
+  // Aura dourada
+  if (isPlayer) {
+    ctx.strokeStyle = 'rgba(232,201,106,0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(sx, sy + size/3, size/2 + 3, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// MINIMAPA
+// ═══════════════════════════════════════════════════════
+function screenToIsoFloat(px, py) {
+  return {
+    gx: (px / HALF_W + py / HALF_H) / 2,
+    gy: (py / HALF_H - px / HALF_W) / 2
+  };
+}
+
+function desenharMiniMapa() {
+  const C = MINI_CELL;
+  const OX = MINI_OFFX;
+  const OY = MINI_OFFY;
+  const W = GRID_W * C;
+  const H = GRID_H * C;
+
+  // Clear com fundo
+  miniCtx.fillStyle = '#0d0d0d';
+  miniCtx.fillRect(0, 0, MINI_SIZE, MINI_SIZE);
+  miniCtx.fillStyle = '#151515';
+  miniCtx.fillRect(OX, OY, W, H);
+
+  // Grid tiles
+  for (let y = 0; y < GRID_H; y++) {
+    for (let x = 0; x < GRID_W; x++) {
+      const px = OX + x * C;
+      const py = OY + y * C;
+      const key = `${x},${y}`;
+      const isOcupado = ocupados.has(key);
+      const isInimigo = inimigos.find(e => e.x === x && e.y === y);
+
+      // Tile alternado
+      miniCtx.fillStyle = (x + y) % 2 === 0 ? '#1e2a1e' : '#222e22';
+      miniCtx.fillRect(px, py, C, C);
+
+      // Bloqueio (X) — desenha ANTES do inimigo pra não sumir
+      if (isOcupado && !isInimigo) {
+        miniCtx.strokeStyle = 'rgba(200,50,50,0.4)';
+        miniCtx.lineWidth = 1.5;
+        miniCtx.beginPath();
+        const p = 3;
+        miniCtx.moveTo(px + p, py + p);
+        miniCtx.lineTo(px + C - p, py + C - p);
+        miniCtx.moveTo(px + C - p, py + p);
+        miniCtx.lineTo(px + p, py + C - p);
+        miniCtx.stroke();
+      }
+
+      // Inimigos
+      if (isInimigo) {
+        miniCtx.fillStyle = isInimigo.char.cor;
+        miniCtx.beginPath();
+        miniCtx.arc(px + C/2, py + C/2, Math.max(3, C/3 - 1), 0, Math.PI * 2);
+        miniCtx.fill();
+        miniCtx.strokeStyle = 'rgba(255,255,255,0.3)';
+        miniCtx.lineWidth = 1;
+        miniCtx.stroke();
+      }
+    }
+  }
+
+  // ── Viewport da câmera ──
+  const VW = wrap.clientWidth;
+  const VH = wrap.clientHeight;
+  const corners = [
+    { sx: camX, sy: camY },
+    { sx: camX + VW, sy: camY },
+    { sx: camX, sy: camY + VH },
+    { sx: camX + VW, sy: camY + VH },
+  ];
+  const pts = corners.map(c => screenToIsoFloat(c.sx, c.sy));
+  const minX = Math.max(0, Math.floor(Math.min(...pts.map(p => p.gx))));
+  const maxX = Math.min(GRID_W, Math.ceil(Math.max(...pts.map(p => p.gx))));
+  const minY = Math.max(0, Math.floor(Math.min(...pts.map(p => p.gy))));
+  const maxY = Math.min(GRID_H, Math.ceil(Math.max(...pts.map(p => p.gy))));
+
+  miniCtx.strokeStyle = 'rgba(255,255,255,0.5)';
+  miniCtx.lineWidth = 1.5;
+  miniCtx.strokeRect(
+    OX + minX * C, OY + minY * C,
+    (maxX - minX) * C, (maxY - minY) * C
+  );
+
+  // ── Player (por cima de tudo) ──
+  const ppX = OX + player.x * C + C/2;
+  const ppY = OY + player.y * C + C/2;
+  // Glow
+  miniCtx.shadowColor = '#f4a227';
+  miniCtx.shadowBlur = 8;
+  miniCtx.fillStyle = '#f4a227';
+  miniCtx.beginPath();
+  miniCtx.arc(ppX, ppY, Math.max(4, C/2 - 1), 0, Math.PI * 2);
+  miniCtx.fill();
+  // Centro
+  miniCtx.shadowBlur = 0;
+  miniCtx.fillStyle = '#fff7e0';
+  miniCtx.beginPath();
+  miniCtx.arc(ppX, ppY, Math.max(2, C/3 - 1), 0, Math.PI * 2);
+  miniCtx.fill();
+  miniCtx.shadowColor = 'transparent';
+}
+
+// ═══════════════════════════════════════════════════════
+// GAME LOOP
+// ═══════════════════════════════════════════════════════
+function atualizarHUD() {
+  const tileInfo = animando ? '(animando)' : `${player.x}, ${player.y}`;
+  const faseInfo = fase === 'range' ? ' | 🔸 selecione destino' : fase === 'animating' ? ' | 🚶 andando...' : ' | clique no herói';
+  hudInfo.textContent = `TILE: ${tileInfo} | ${player.char.nome}${faseInfo}`;
+}
+
+function gameLoop() {
+  const VW = wrap.clientWidth;
+  const VH = wrap.clientHeight;
+
+  // Posição atual do player no mundo isométrico
+  const displayX = animando ? player.px : isoToScreen(player.x, player.y).sx;
+  const displayY = animando ? player.py : isoToScreen(player.x, player.y).sy;
+
+  // Camera quer centralizar o player no viewport
+  const targetCamX = displayX - VW / 2;
+  const targetCamY = displayY - VH / 2;
+
+  camX += (targetCamX - camX) * LERP_CAM;
+  camY += (targetCamY - camY) * LERP_CAM;
+
+  // Clamp: não deixar ver fora do mundo
+  const margem = 30;
+  // Horizontal: se o mundo é mais largo que a viewport, permite scroll com margem
+  if (WORLD_W > VW) {
+    camX = Math.max(MIN_SX - margem, Math.min(MAX_SX + margem - VW, camX));
+  } else {
+    // Mundo cabe na horizontal → centraliza
+    camX = (MIN_SX + MAX_SX) / 2 - VW / 2;
+  }
+  // Vertical: se o mundo é mais alto que a viewport, permite scroll com margem
+  if (WORLD_H > VH) {
+    camY = Math.max(MIN_SY - margem, Math.min(MAX_SY + margem - VH, camY));
+  } else {
+    // Mundo cabe na vertical → centraliza
+    camY = (MIN_SY + MAX_SY) / 2 - VH / 2;
+  }
+
+  // Log câmera a cada 30 frames
+  if (frameCount % 30 === 0) {
+    console.log('[LOOP] cam:', Math.round(camX), Math.round(camY), '| player:', player.x, player.y, '| fase:', fase);
+  }
+  frameCount++;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawIsometric(ctx, -camX, -camY);
+  desenharMiniMapa();
+  atualizarHUD();
+
+  requestAnimationFrame(gameLoop);
+}
+
+// ═══════════════════════════════════════════════════════
+// RESIZE
+// ═══════════════════════════════════════════════════════
+function resize() {
+  canvas.width = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+  miniCanvas.width = MINI_SIZE;
+  miniCanvas.height = MINI_SIZE;
+  console.log('[RESIZE] canvas:', canvas.width, '×', canvas.height);
+}
+window.addEventListener('resize', resize);
+resize();
+
+console.log('[INIT] starting game loop');
+gameLoop();
+</script>
+</body>
+</html>
