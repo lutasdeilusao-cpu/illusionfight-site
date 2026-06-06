@@ -321,9 +321,22 @@ export default function Batalha({ onVitoria, onDerrota }) {
     // Juice: flash na célula do alvo
     flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, selectedAlly.elemental, 'recebe')
 
+    // Aplica dano + consome energia via store (garante re-render da UI)
+    const danoFinal = resultado.acertou ? Math.max(0, dano) : 0
+    const custoEnergia = selectedSkill.custo || 0
+
+    store.atualizarPersonagem('inimigos', alvo.id, { hp: Math.max(0, alvo.hp - danoFinal) })
+    store.atualizarPersonagem('aliados', selectedAlly.id, {
+      energia: Math.max(0, selectedAlly.energia - custoEnergia),
+      jaAtacou: true,
+    })
+    // Mutação direta também para manter referência local consistente
+    alvo.hp = Math.max(0, alvo.hp - danoFinal)
+    selectedAlly.energia = Math.max(0, selectedAlly.energia - custoEnergia)
+    selectedAlly.jaAtacou = true
+
     if (resultado.acertou) {
-      alvo.hp = Math.max(0, alvo.hp - dano)
-      showDano(dano, x * 48 + 24, y * 48 + 24, crit)
+      showDano(danoFinal, x * 48 + 24, y * 48 + 24, crit)
     } else {
       showDano(0, x * 48 + 24, y * 48 + 24, false)
       setEnemyLog(`😤 ${selectedAlly.nome} errou!`)
@@ -332,18 +345,19 @@ export default function Batalha({ onVitoria, onDerrota }) {
     // Juice: show combat result modal
     setCombatResult({
       atacante: { nome: selectedAlly.nome, elemental: selectedAlly.elemental },
-      alvo: { nome: alvo.nome, elemental: alvo.elemental, hp: alvo.hp, hpMax: alvo.hpMax },
+      alvo: { nome: alvo.nome, elemental: alvo.elemental, hp: Math.max(0, alvo.hp - danoFinal), hpMax: alvo.hpMax },
       skill: selectedSkill,
-      dano: resultado.acertou ? dano : 0,
+      dano: danoFinal,
       critico: crit,
       acertou: resultado.acertou,
       missTipo: resultado.missTipo,
       status: resultado.status,
     })
 
-    store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
+    store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano: danoFinal, critico: crit })
 
-    if (alvo.hp <= 0) {
+    const hpApos = Math.max(0, alvo.hp - danoFinal)
+    if (hpApos <= 0) {
       const rest = inimigos.filter(i => i.hp > 0)
       if (rest.length === 0) {
         const g = Math.round(inimigos.reduce((a, i) => a + (i.recompensa_sdr || 10), 0) * (1 + turno * 0.05))
@@ -351,8 +365,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
       }
     }
 
-    // Marca que atacou neste personagem
-    selectedAlly.jaAtacou = true
     limparAcao()
 
     // Se já moveu → exausto, verifica se todos acabaram
@@ -413,6 +425,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
           const r = processarStatus(p)
           if (r.danoTotal > 0) {
             showDano(r.danoTotal, p.x * 48 + 24, p.y * 48 + 24, false)
+            // Sincroniza HP alterado por status com a store
+            const lado = aliados.includes(p) ? 'aliados' : 'inimigos'
+            store.atualizarPersonagem(lado, p.id, { hp: p.hp })
           }
         })
         store.avancarTurno(); setFaseAcao('idle')
@@ -460,10 +475,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
             setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
 
             if (r.acertou) {
-              alvo.hp = Math.max(0, alvo.hp - dano)
-              showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-              store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-              setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+              const danoFinal = Math.max(0, r.dano)
+              alvo.hp = Math.max(0, alvo.hp - danoFinal)
+              inimigo.energia = Math.max(0, inimigo.energia - (melhorSkill.custo || 0))
+              showDano(danoFinal, alvo.x * 48 + 24, alvo.y * 48 + 24)
+              store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
+              store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
+              store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoFinal })
+              setEnemyLog(`💥 ${inimigo.nome} causou ${danoFinal} em ${alvo.nome}`)
             } else {
               setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
             }
@@ -536,10 +555,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
                 setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
 
                 if (r.acertou) {
-                  alvo.hp = Math.max(0, alvo.hp - dano)
-                  showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-                  store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-                  setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                  const danoF = Math.max(0, r.dano)
+                  alvo.hp = Math.max(0, alvo.hp - danoF)
+                  inimigo.energia = Math.max(0, inimigo.energia - (melhorSkill.custo || 0))
+                  showDano(danoF, alvo.x * 48 + 24, alvo.y * 48 + 24)
+                  store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
+                  store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
+                  store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoF })
+                  setEnemyLog(`💥 ${inimigo.nome} causou ${danoF} em ${alvo.nome}`)
                 } else {
                   setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
                 }
@@ -652,10 +675,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
                   setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
 
                   if (r.acertou) {
-                    alvo.hp = Math.max(0, alvo.hp - dano)
-                    showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-                    store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-                    setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                    const danoFinal2 = Math.max(0, r.dano)
+                    alvo.hp = Math.max(0, alvo.hp - danoFinal2)
+                    inimigo.energia = Math.max(0, inimigo.energia - (melhorSkill.custo || 0))
+                    showDano(danoFinal2, alvo.x * 48 + 24, alvo.y * 48 + 24)
+                    store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
+                    store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
+                    store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoFinal2 })
+                    setEnemyLog(`💥 ${inimigo.nome} causou ${danoFinal2} em ${alvo.nome}`)
                   } else {
                     setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
                   }

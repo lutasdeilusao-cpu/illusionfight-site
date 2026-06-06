@@ -90,6 +90,23 @@ export const useArenaTaticsStore = create((set, get) => ({
   avancarTurno: () => set((s) => s.batalha ? { batalha: { ...s.batalha, turno: s.batalha.turno + 1, fase: 'player' } } : s),
   setTurnoFase: (f) => set((s) => ({ batalha: s.batalha ? { ...s.batalha, fase: f } : null })),
 
+  /**
+   * Atualiza um personagem no estado da batalha (HP, energia, status, etc.)
+   * Garante que o Zustand detecte a mudança e re-renderize a UI.
+   */
+  atualizarPersonagem: (lado, id, updates) => set((s) => {
+    if (!s.batalha) return s
+    const key = lado === 'aliados' ? 'aliados' : 'inimigos'
+    return {
+      batalha: {
+        ...s.batalha,
+        [key]: s.batalha[key].map(p =>
+          p.id === id ? { ...p, ...updates } : p
+        ),
+      },
+    }
+  }),
+
   registrarVitoria: (g) => set((s) => {
     const x = s.xp + g; const n = calcNivel(x)
     return { sdr: s.sdr + g, xp: x, nivel: n, vitorias: s.vitorias + 1, streak: s.streak + 1, fase: 'vitoria', batalha: null }
