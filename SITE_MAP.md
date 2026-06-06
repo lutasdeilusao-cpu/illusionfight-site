@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 1.85*  |  `[SITE] versão carregada: 1.85`
+*Versão: 1.86*  |  `[SITE] versão carregada: 1.86`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -117,9 +117,9 @@
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.0 | 6 puzzles standalone arcade + Enduro Kroniki |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, **i18n completa** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.8.8 | Tamagoshi LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.8.9 | Tamagoshi LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
 
-**Versão atual:** `1.8.8` (console: `[TAMA] versão carregada: 1.8.8`)
+**Versão atual:** `1.8.9` (console: `[TAMA] versão carregada: 1.8.9`)
 
 ### Estrutura de arquivos
 

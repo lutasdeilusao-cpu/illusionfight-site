@@ -177,7 +177,7 @@ export default function Passear({ onConcluir }) {
             <p style={{ fontSize: 16, marginBottom: 4, fontWeight: 700, letterSpacing: '0.05em', color: '#F5A623' }}>ENDURO KRONIKI</p>
             <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{STAGE_COUNT} pistas desvie colete ⭐</p>
             <p style={{ fontSize: 12, color: '#666', marginBottom: 20 }}>setas ou arraste</p>
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">[ INICIAR ]</motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">INICIAR</motion.button>
           </motion.div>
         )}
         {phase === 'playing' && (
@@ -191,7 +191,7 @@ export default function Passear({ onConcluir }) {
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
               onClick={() => { g.current.running = false; if (intervalRef.current) clearInterval(intervalRef.current); onConcluir?.() }}
               className="tama-btn" style={{ marginTop: 8, opacity: 0.5, fontSize: '0.7rem' }}>
-              [ desistir ]
+              desistir
             </motion.button>
           </motion.div>
         )}
@@ -204,8 +204,8 @@ export default function Passear({ onConcluir }) {
             <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, color: '#F5A623' }}>⭐ {dispScore}</p>
             <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>pista {stage}/{STAGE_COUNT}</p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">[ JOGAR DE NOVO ]</motion.button>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>[ VOLTAR ]</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">JOGAR DE NOVO</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>VOLTAR</motion.button>
             </div>
           </motion.div>
         )}
