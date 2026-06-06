@@ -115,14 +115,14 @@ export default function BatalhaSimulacao({ config, onFim }) {
       addLog(`💀 ${p.nome} morreu devido a status!`)
       return true
     }
-    await sleep(speed * 0.3)
+    await sleep(speed * 0.5)
 
     // ── Verifica se pode agir (atordoado) ──
     if (!podeAgir(p)) {
       addLog(`😵 ${p.nome} está atordoado(a) — passou o turno`)
       console.log(`[SIM] ${p.nome} está atordoado, pulando turno`)
       upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, jaMoveu: true, jaAtacou: true } : a) }))
-      await sleep(speed * 0.5)
+      await sleep(speed * 0.8)
       return false
     }
 
@@ -133,9 +133,9 @@ export default function BatalhaSimulacao({ config, onFim }) {
     const ia = iasDoTime[iaIdx]
     console.log(`[SIM] IA escolhida: ${ia.nome} (idx=${idx}, nvivos=${nvivos}, iaIdx=${iaIdx})`)
 
-    // Fase: PENSAMENTO
+    // Fase: PENSAMENTO — IA processando a decisão
     addLog(`🤔 ${p.nome} pensando (${ia.nome})...`)
-    await sleep(speed * 0.3)
+    await sleep(speed * 0.6)
 
     // Resolve ação da IA — passa as DUAS IAs (ia1, ia2) para o resolver distribuir
     const oponentes = key === 'aliados' ? timeInimigos : timeAliados
@@ -148,7 +148,7 @@ export default function BatalhaSimulacao({ config, onFim }) {
       console.log(`[SIM] ${p.nome} SEM AÇÃO — passando turno`)
       addLog(`😐 ${p.nome} não encontrou ação`)
       upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, jaMoveu: true, jaAtacou: true } : a) }))
-      await sleep(speed * 0.5)
+      await sleep(speed * 0.8)
       return false
     }
 
@@ -184,7 +184,7 @@ export default function BatalhaSimulacao({ config, onFim }) {
         console.log(`[SIM] MOVENDO: ${p.nome} de (${p.x},${p.y}) para (${novaX},${novaY})`)
         upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, x: novaX, y: novaY } : a) }))
         moveu = true
-        await sleep(speed * 0.5)
+        await sleep(speed * 0.8)
       } else {
         addLog(`🚫 ${p.nome} sem caminho livre para o alvo`)
         console.log(`[SIM] ${p.nome} não conseguiu se mover — caminho bloqueado`)
@@ -196,7 +196,7 @@ export default function BatalhaSimulacao({ config, onFim }) {
     // ── Fase: PREVIEW DO ATAQUE ──
     addLog(`🎯 ${p.nome} → ${skill.nome} → ${alvo.nome}`)
     console.log(`[SIM] PREVIEW ATAQUE: ${p.nome} mirando ${alvo.nome} com ${skill.nome}`)
-    await sleep(speed * 0.3)
+    await sleep(speed * 0.5)
 
     // ── Fase: EXECUTAR ATAQUE ──
     console.log(`[SIM] Calculando dano: resolverAtaque(${p.nome}, ${alvo.nome}, ${skill.nome})`)
@@ -253,7 +253,8 @@ export default function BatalhaSimulacao({ config, onFim }) {
       console.log(`[SIM] TIME ${av.length > 0 ? 'AZUL' : 'VERMELHO'} VENCEU!`)
     }
 
-    await sleep(speed * 0.8)
+    // ── Fase: PAUSA PÓS-AÇÃO — mostra resultado com calma ──
+    await sleep(speed * 1.2)
     return false
   }
 
@@ -293,16 +294,18 @@ export default function BatalhaSimulacao({ config, onFim }) {
           addLog(`=== TURNO ${cur.turno} ===`)
 
           // Time Azul
+          addLog(`⏳ Vez do TIME AZUL (${ias.timeAzul.map(i => i.nome).join(' + ')})`)
           upd(p => ({ ...p, fase: 'player' }))
-          await sleep(speed * 0.3)
+          await sleep(speed * 0.5)
 
           if (!localRodando || cancelled || instanceId !== instanceRef.current) break
           if (await processarTime('aliado')) break
 
           // Time Vermelho
           if (!localRodando || cancelled || instanceId !== instanceRef.current) break
+          addLog(`⏳ Vez do TIME VERMELHO (${ias.timeVermelho.map(i => i.nome).join(' + ')})`)
           upd(p => ({ ...p, fase: 'enemy' }))
-          await sleep(speed * 0.3)
+          await sleep(speed * 0.5)
 
           if (!localRodando || cancelled || instanceId !== instanceRef.current) break
           if (await processarTime('inimigo')) break

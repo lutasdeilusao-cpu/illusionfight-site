@@ -8,7 +8,7 @@ const EMOJI = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
 export default function SimulacaoAuto({ onIniciar }) {
   const [numChars, setNumChars] = useState(3)
   const [numIAs, setNumIAs] = useState(2)
-  const [speed, setSpeed] = useState(600) // ms entre ações
+  const [speed, setSpeed] = useState(1500) // ms entre ações (mais lento p/ visualizar)
   const [iasSorteadas, setIasSorteadas] = useState(() => {
     const shuffled = [...TODAS_IAS].sort(() => Math.random() - 0.5)
     return shuffled.slice(0, 2)

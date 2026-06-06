@@ -123,7 +123,7 @@ export default function ArenaTaticsRoute() {
   const handleTesteSim = () => {
     console.log('[TATICS] INICIANDO TESTE SIMULAÇÃO DIRETA')
     const shuffled = [...TODAS_IAS].sort(() => Math.random() - 0.5)
-    setSimConfig({ numChars: 3, numIAs: 2, ias: shuffled.slice(0, 2), speed: 800 })
+    setSimConfig({ numChars: 3, numIAs: 2, ias: shuffled.slice(0, 2), speed: 1500 })
     setFase('batalhaSim')
   }
 
