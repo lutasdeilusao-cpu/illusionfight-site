@@ -68,18 +68,21 @@ export const useArenaTaticsStore = create((set, get) => ({
       x: 5 + (i % 2),
       y: 5 + i * 4,
     }))
-    // Gerar obstáculos em posições aleatórias (evitando spawns)
+    // Gerar obstáculos espalhados (distância mínima 3 entre si)
     const todos = [p, ...aliadosTime, ...inimigosPos]
     const ocupadas = new Set(todos.map(t => `${t.x},${t.y}`))
     const obstrucoes = []
-    const numObs = 5 + Math.floor(Math.random() * 4)
+    const numObs = 4 + Math.floor(Math.random() * 3) // 4-6 obstáculos
     let tentativas = 0
-    while (obstrucoes.length < numObs && tentativas < 200) {
+    while (obstrucoes.length < numObs && tentativas < 300) {
       tentativas++
-      const x = 1 + Math.floor(Math.random() * 6) // margem 1-6
-      const y = 2 + Math.floor(Math.random() * 12) // margem 2-13
+      const x = 1 + Math.floor(Math.random() * 6)
+      const y = 1 + Math.floor(Math.random() * 14)
       const key = `${x},${y}`
-      if (!ocupadas.has(key)) {
+      if (ocupadas.has(key)) continue
+      // Checa distância mínima 3 de outros obstáculos e spawns
+      const perto = obstrucoes.some(o => Math.abs(o.x - x) + Math.abs(o.y - y) < 3)
+      if (!perto) {
         ocupadas.add(key)
         obstrucoes.push({ x, y })
       }

@@ -50,14 +50,22 @@ function temLinhaVisao(x1, y1, x2, y2, obstrucoes = []) {
   return true
 }
 
+function getAlvoOcupadas(aliados, obstrucoes) {
+  const set = new Set()
+  aliados.forEach(a => { if (a.hp > 0) set.add(`${a.x},${a.y}`) })
+  obstrucoes.forEach(o => set.add(`${o.x},${o.y}`))
+  return set
+}
+
 function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 8) {
   const casas = []
-  const ocup = getOcupadas(aliados, inimigos, obstrucoes)
+  // Apenas aliados e obstáculos bloqueiam — inimigos são ALVOS válidos
+  const bloqueadas = getAlvoOcupadas(aliados, obstrucoes)
   for (let dx = -skill.alcance; dx <= skill.alcance; dx++)
     for (let dy = -skill.alcance; dy <= skill.alcance; dy++)
       if (Math.abs(dx) + Math.abs(dy) <= skill.alcance) {
         const nx = p.x + dx, ny = p.y + dy
-        if (nx >= 0 && nx < c && ny >= 0 && ny < l && !ocup.has(`${nx},${ny}`))
+        if (nx >= 0 && nx < c && ny >= 0 && ny < l && !bloqueadas.has(`${nx},${ny}`))
           if (temLinhaVisao(p.x, p.y, nx, ny, obstrucoes))
             casas.push({ x: nx, y: ny })
       }
