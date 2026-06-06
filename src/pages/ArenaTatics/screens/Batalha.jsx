@@ -72,6 +72,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [animPos, setAnimPos] = useState(null) // { x, y } | null — posição animada do movimento
   const [enemyTarget, setEnemyTarget] = useState(null) // { x, y } | null — destaque do alvo do inimigo
   const [enemyLog, setEnemyLog] = useState('') // texto da ação atual do inimigo
+  const [caminhoAtivo, setCaminhoAtivo] = useState(null) // array de {x,y} — caminho sendo animado
+  const [passoAtual, setPassoAtual] = useState(0) // quantos passos do caminho já foram percorridos
   const eventosUsados = useRef([])
   const danoId = useRef(0)
   const tickRef = useRef(0) // força re-render após mutações no store
@@ -84,6 +86,11 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const aliadosVisiveis = animPos && selectedAlly
     ? aliados.map(a => a.id === selectedAlly.id ? { ...a, x: animPos.x, y: animPos.y } : a)
     : aliados
+
+  // Durante animação do caminho, mostra só as células do caminho ainda não visitadas
+  const alcanceVisivel = faseAcao === 'animando' && caminhoAtivo
+    ? caminhoAtivo.slice(passoAtual)
+    : alcance
 
   // ── Helpers visuais ──
   const showDano = (v, x, y, crit = false) => {
@@ -118,30 +125,38 @@ export default function Batalha({ onVitoria, onDerrota }) {
     limparSelecao(); setFaseAcao('idle')
   }
 
-  // ── 3. MOVER → clicou numa casa → anima caminho ──
+  // ── 3. MOVER → clicou numa casa → anima caminho (lento, célula por célula) ──
   const handleMoveClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedAlly) return
-    setAlcance([])
 
     const path = calcularCaminho(selectedAlly.x, selectedAlly.y, x, y)
     if (path.length === 0) { setFaseAcao('actionMenu'); return }
 
-    setJaMoveu(true); setFaseAcao('animando')
+    // Mostra só o caminho, apaga o resto
+    setAlcance(path)
+    setCaminhoAtivo(path)
+    setPassoAtual(0)
+    setJaMoveu(true)
+    setFaseAcao('animando')
+
     let step = 0
+    const VELOCIDADE = 300 // ms por célula (5x mais lento que 65ms)
 
     const tick = () => {
       if (step >= path.length) {
-        // Animation done — set final position
         selectedAlly.x = x; selectedAlly.y = y
         setAnimPos(null)
+        setCaminhoAtivo(null)
+        setAlcance([])
         setFaseAcao('actionMenu')
         return
       }
       setAnimPos(path[step])
+      setPassoAtual(step + 1)
       step++
-      setTimeout(tick, 65)
+      setTimeout(tick, VELOCIDADE)
     }
-    tick()
+    setTimeout(tick, VELOCIDADE)
   }
 
   const handleCancelMove = () => {
@@ -294,14 +309,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
               }
 
               currentIdx++
-              setTimeout(processarInimigo, 700)
-            }, 500)
-          }, 300)
-        }, 400)
+              setTimeout(processarInimigo, 1200)
+            }, 800)
+          }, 600)
+        }, 700)
       }
     }
 
-    setTimeout(processarInimigo, 500)
+    setTimeout(processarInimigo, 800)
   }, [aliados, inimigos, turno, store])
 
   // ── END TURN ──
@@ -332,7 +347,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
-        <Grid aliados={aliadosVisiveis} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} />
+        <Grid aliados={aliadosVisiveis} inimigos={inimigos} alcance={alcanceVisivel} turnoFase={faseAcao} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} />
       </div>
 
       <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
