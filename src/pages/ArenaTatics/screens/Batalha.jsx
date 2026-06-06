@@ -33,6 +33,17 @@ function getAlcanceSkill(p, skill, l = 16, c = 8) {
   return casas
 }
 
+// ── Path calculator for movement animation ──
+function calcularCaminho(x1, y1, x2, y2) {
+  const path = []
+  let cx = x1, cy = y1
+  // Move horizontal first
+  while (cx !== x2) { cx += cx < x2 ? 1 : -1; path.push({ x: cx, y: cy }) }
+  // Then vertical
+  while (cy !== y2) { cy += cy < y2 ? 1 : -1; path.push({ x: cx, y: cy }) }
+  return path
+}
+
 // ── Fase label helper ──
 function getFaseLabel(fase) {
   switch (fase) {
@@ -41,6 +52,7 @@ function getFaseLabel(fase) {
     case 'mover': return { texto: 'MOVENDO', icone: '👣', cor: '#FFD700' }
     case 'skillSelect': return { texto: 'SELECIONE UM ATAQUE', icone: '⚡', cor: '#FF4444' }
     case 'target': return { texto: 'MIRANDO', icone: '🎯', cor: '#FF4444' }
+    case 'animando': return { texto: 'ANIMANDO...', icone: '👣', cor: '#FFD700' }
     case 'inimigo': return { texto: 'INIMIGO AGINDO...', icone: '⏳', cor: '#ff4444' }
     default: return { texto: '', icone: '', cor: '#888' }
   }
@@ -57,12 +69,18 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [eventoAtual, setEventoAtual] = useState(null)
   const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu nesta ação
   const [showEndConfirm, setShowEndConfirm] = useState(false)
+  const [animPos, setAnimPos] = useState(null) // { x, y } | null — posição animada do movimento
   const eventosUsados = useRef([])
   const danoId = useRef(0)
 
   if (!batalha) return null
   const { aliados, inimigos, turno } = batalha
   const faseLabel = getFaseLabel(faseAcao)
+
+  // Se estiver animando movimento, mostra o ally na posição animada
+  const aliadosVisiveis = animPos && selectedAlly
+    ? aliados.map(a => a.id === selectedAlly.id ? { ...a, x: animPos.x, y: animPos.y } : a)
+    : aliados
 
   // ── Helpers visuais ──
   const showDano = (v, x, y, crit = false) => {
@@ -97,11 +115,30 @@ export default function Batalha({ onVitoria, onDerrota }) {
     limparSelecao(); setFaseAcao('idle')
   }
 
-  // ── 3. MOVER → clicou numa casa ──
+  // ── 3. MOVER → clicou numa casa → anima caminho ──
   const handleMoveClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedAlly) return
-    selectedAlly.x = x; selectedAlly.y = y
-    setJaMoveu(true); setAlcance([]); setFaseAcao('actionMenu')
+    setAlcance([])
+
+    const path = calcularCaminho(selectedAlly.x, selectedAlly.y, x, y)
+    if (path.length === 0) { setFaseAcao('actionMenu'); return }
+
+    setJaMoveu(true); setFaseAcao('animando')
+    let step = 0
+
+    const tick = () => {
+      if (step >= path.length) {
+        // Animation done — set final position
+        selectedAlly.x = x; selectedAlly.y = y
+        setAnimPos(null)
+        setFaseAcao('actionMenu')
+        return
+      }
+      setAnimPos(path[step])
+      step++
+      setTimeout(tick, 65)
+    }
+    tick()
   }
 
   const handleCancelMove = () => {
@@ -202,10 +239,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
-        <Grid aliados={aliados} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} />
+        <Grid aliados={aliadosVisiveis} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} />
       </div>
 
-      <StatusBar personagens={aliados.filter(a => a.hp > 0)} lado="aliado" />
+      <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
       <StatusBar personagens={inimigos.filter(i => i.hp > 0)} lado="inimigo" />
 
       {/* ── ACTION MENU (bottom sheet) ── */}
