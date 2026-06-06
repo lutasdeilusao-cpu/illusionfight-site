@@ -220,10 +220,8 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
         }
       }
       const M = 150
-      if (WORLD_W > VW) cam.x = Math.max(MIN_SX - M, Math.min(MAX_SX + M - VW, cam.x))
-      else cam.x = (MIN_SX + MAX_SX) / 2 - VW / 2
-      if (WORLD_H > VH) cam.y = Math.max(MIN_SY - M, Math.min(MAX_SY + M - VH, cam.y))
-      else cam.y = (MIN_SY + MAX_SY) / 2 - VH / 2
+      cam.x = Math.max(MIN_SX - M, Math.min(MAX_SX + M - VW, cam.x))
+      cam.y = Math.max(MIN_SY - M, Math.min(MAX_SY + M - VH, cam.y))
 
       const ox = -cam.x, oy = -cam.y
       ctx.clearRect(0, 0, VW, VH)
