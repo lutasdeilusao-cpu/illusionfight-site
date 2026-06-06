@@ -24,7 +24,9 @@
 .mg-card { position: relative; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
 .mg-card:hover { transform: translateY(-6px); border-color: var(--cor); box-shadow: 0 0 24px rgba(245,166,35,0.1); }
 .mg-card-inner { padding: 1.2rem 1rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.4rem; position: relative; z-index: 2; }
-.mg-card-top { display: flex; justify-content: space-between; width: 100%; font-size: 0.6rem; }
+.mg-card-top { display: flex; justify-content: space-between; width: 100%; font-size: 0.6rem; gap: 0.3rem; align-items: center; }
+.mg-card-badge { font-size: 0.5rem; letter-spacing: 0.1em; padding: 0.1rem 0.3rem; border-radius: 2px; text-transform: uppercase; white-space: nowrap; }
+.mg-card-warn { font-size: 0.6rem; margin-left: 0.2rem; vertical-align: super; cursor: help; }
 .mg-card-dificuldade { color: #555; }
 .mg-card-recorde { letter-spacing: 0.05em; }
 .mg-card-emoji { font-size: 2.5rem; animation: mg-idle 3s ease-in-out infinite; line-height: 1; margin: 0.3rem 0; }

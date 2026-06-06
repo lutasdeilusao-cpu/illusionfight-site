@@ -13,7 +13,7 @@ const GAMES = [
   { id: 'labirinto', nome: 'Labirinto', tagline: 'sem mapa. sem saída óbvia.', emoji: '🌀', cor: '#8B0000', desc: 'navegue pelo labirinto. cada geração é única.', dificuldade: '★★★' },
   { id: 'anagrama', nome: 'Anagrama', tagline: 'as letras estão certas. a ordem não.', emoji: '🔤', cor: '#22C55E', desc: 'reorganize as letras para formar a palavra correta.', dificuldade: '★☆☆' },
   { id: 'forca', nome: 'Palavra Secreta', tagline: 'descubra a palavra. uma letra de cada vez.', emoji: '🎡', cor: '#EC4899', desc: 'adivinhe letras e acuse a palavra certa.', dificuldade: '★★☆' },
-  { id: 'enduro', nome: 'Enduro Kroniki', tagline: 'pista infinita. desvie dos obstáculos. colete moedas.', emoji: '🏎️', cor: '#FF3366', desc: 'corrida infinita com 10 pistas. obstáculos e moedas. sobreviva até o fim.', dificuldade: '★★☆' },
+  { id: 'enduro', nome: 'Enduro Kroniki', tagline: 'pista infinita. desvie dos obstáculos. colete moedas.', emoji: '🏎️', cor: '#FF3366', desc: 'corrida infinita com 10 pistas. obstáculos e moedas. sobreviva até o fim.', dificuldade: '★★☆', badge: 'LANÇADO', badgeCor: '#22C55E', semImagens: true },
 ]
 
 const STEALTH_CONFIG = {
@@ -231,8 +231,8 @@ export default function MiniGames() {
         {GAMES.map(game => (
           <div key={game.id} className="mg-card" style={{ '--cor': game.cor }} onClick={() => tentarIniciar(game)}>
             <div className="mg-card-inner">
-              <div className="mg-card-top"><span className="mg-card-dificuldade">{game.dificuldade}</span>{recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}</div>
-              <div className="mg-card-emoji">{game.emoji}</div>
+              <div className="mg-card-top"><span className="mg-card-dificuldade">{game.dificuldade}</span>{game.badge && <span className="mg-card-badge" style={{ background: game.badgeCor+'22', border: '1px solid '+game.badgeCor, color: game.badgeCor }}>{game.badge}</span>}{recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}</div>
+              <div className="mg-card-emoji">{game.emoji}{game.semImagens && <span className="mg-card-warn" title="imagens oficiais pendentes">⛔</span>}</div>
               <h2 className="mg-card-nome">{game.nome}</h2><p className="mg-card-tagline">{game.tagline}</p><p className="mg-card-desc">{game.desc}</p>
               <div className="mg-card-cta">JOGAR</div>
             </div>

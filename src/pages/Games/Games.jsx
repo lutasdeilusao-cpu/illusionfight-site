@@ -12,7 +12,7 @@ const JOGOS = [
   { id: 'tatica', nome: 'LDI Tático', tagline: '6 classes. grid tático. 3v3. batalha por turnos.', emoji: '♟️', cor: '#FF4500', rota: '/games/ldi-tatica', badge: 'NOVO', badgeCor: '#FF4500' },
   { id: 'pesadelo', nome: 'Pesadelo Particular', tagline: '20 casos. uma conspiração. um amigo em perigo.', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badge: 'NEW', badgeCor: '#EC4899' },
   { id: 'duelo', nome: 'Duelo LDI', tagline: 'card game 1v1. invocar, atacar, vencer.', emoji: '⚔️', cor: '#F5A623', rota: '/games/duelo', badge: 'BETA', badgeCor: '#00B4D8' },
-  { id: 'tamagoshi', nome: 'Tamagoshi LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badge: 'NOVO', badgeCor: '#F5A623' },
+  { id: 'tamagoshi', nome: 'Tamagoshi LDI', tagline: 'seu bicho te espera. alimente, cuide, não deixe morrer.', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badge: 'LANÇADO', badgeCor: '#22C55E' },
 ]
 
 const CONTEUDO = [
