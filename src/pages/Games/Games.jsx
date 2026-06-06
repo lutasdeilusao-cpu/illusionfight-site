@@ -5,7 +5,7 @@ import './Games.css'
 
 const JOGOS = [
   { id: 'ldi', nome: 'Lendas do LDI', tagline: 'RPG narrativo. crie seu avatar. enfrente a arena.', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badge: 'FREE', badgeCor: '#00B4D8' },
-  { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badge: 'FREE', badgeCor: '#F5A623' },
+  { id: 'jackcandy', nome: 'Jack Dream Beer', tagline: 'idle noir. sonhos não têm lógica. esse tem cervejas.', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badge: 'LANÇADO', badgeCor: '#22C55E' },
   { id: 'toptrumps', nome: 'Top Trumps LDI', tagline: 'cartas colecionáveis. monte seu deck. vença a IA.', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badge: 'FREE', badgeCor: '#A855F4' },
   { id: 'minigames', nome: 'Mini Games', tagline: 'puzzles standalone. sem login. só habilidade.', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badge: 'FREE', badgeCor: '#22C55E' },
   { id: 'arena', nome: 'LDI Arena', tagline: 'combate em tempo real contra a CPU.', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badge: 'LANÇADO', badgeCor: '#22C55E' },
