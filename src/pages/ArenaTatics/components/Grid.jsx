@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
-const COLUNAS = 6
-const LINHAS = 10
+const COLUNAS = 8
+const LINHAS = 14
 
 /**
  * Grid vertical — mobile-first, portrait-optimized
