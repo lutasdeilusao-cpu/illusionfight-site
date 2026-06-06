@@ -356,27 +356,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
       setEnemyDisplay({ subFase: 'thinking', alcance: [], animPos: null, currentEnemyId: inimigo.id })
       tickRef.current++
 
-      if (podeAtacar) {
-        // ── JÁ ESTÁ EM ALCANCE: mostra grid de ataque ──
-        const attackRange = getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes)
+      const attackRange = podeAtacar ? getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes) : []
+      const temVisao = podeAtacar && estahEmAlcance(alvo.x, alvo.y, attackRange)
 
+      if (podeAtacar && temVisao) {
+        // ── LINHA DE VISÃO LIVRE: ataca direto ──
         setTimeout(() => {
           setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
           setEnemyLog(`⚡ ${inimigo.nome} usa ${melhorSkill.nome}`)
           tickRef.current++
 
           setTimeout(() => {
-            // ── VALIDA: alvo está realmente no alcance (linha de visão)? ──
-            if (!estahEmAlcance(alvo.x, alvo.y, attackRange)) {
-              setEnemyLog(`😐 ${inimigo.nome} perdeu a mira!`)
-              setEnemyTarget(null)
-              setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
-              tickRef.current++
-              currentIdx++
-              setTimeout(processarInimigo, V * 0.5)
-              return
-            }
-
             const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
             const dano = Math.round(8 * mult)
             alvo.hp = Math.max(0, alvo.hp - dano)
@@ -396,6 +386,90 @@ export default function Batalha({ onVitoria, onDerrota }) {
             setTimeout(processarInimigo, V * 0.5)
           }, V)
         }, V * 0.8)
+      } else if (podeAtacar && !temVisao) {
+        // ── OBSTÁCULO NO MEIO: tenta mover para uma célula com visão livre ──
+        const moveRange = getAlcanceMovimento(inimigo, aliados, inimigos, obstrucoes)
+        const ocup2 = getOcupadas(aliados, inimigos, obstrucoes, inimigo.id)
+
+        // Procura célula onde o inimigo consegue atacar (alcance + linha de visão)
+        let melhorCelula = null
+        let melhorDist = Infinity
+        for (const cell of moveRange) {
+          // Simula o ataque dessa célula candidata
+          const cellSkillRange = getAlcanceSkill(
+            { ...inimigo, x: cell.x, y: cell.y },
+            melhorSkill, aliados, inimigos, obstrucoes
+          )
+          if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange)) {
+            // Se a célula já está no caminho sem bloquear
+            const caminho = calcularCaminho(inimigo.x, inimigo.y, cell.x, cell.y, ocup2)
+            if (caminho.length > 0 || (cell.x === inimigo.x && cell.y === inimigo.y)) {
+              const d = Math.abs(cell.x - alvo.x) + Math.abs(cell.y - alvo.y)
+              if (d < melhorDist) { melhorDist = d; melhorCelula = cell }
+            }
+          }
+        }
+
+        if (melhorCelula) {
+          // Achou célula viável → move e ataca
+          const path = calcularCaminho(inimigo.x, inimigo.y, melhorCelula.x, melhorCelula.y, ocup2)
+          setEnemyDisplay({ subFase: 'movePreview', alcance: moveRange, animPos: null, currentEnemyId: inimigo.id })
+          setEnemyLog(`👣 ${inimigo.nome} contorna obstáculo`)
+          setEnemyTarget(null)
+          tickRef.current++
+
+          const TICK = V
+          let step = 0
+          const tickMove = () => {
+            if (step >= path.length) {
+              inimigo.x = melhorCelula.x; inimigo.y = melhorCelula.y
+              tickRef.current++
+
+              // Ataca da nova posição
+              const cellSkillRange2 = getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes)
+              setEnemyDisplay({ subFase: 'attackPreview', alcance: cellSkillRange2, animPos: null, currentEnemyId: inimigo.id })
+              setEnemyLog(`⚡ ${inimigo.nome} usa ${melhorSkill.nome}`)
+              setEnemyTarget({ x: alvo.x, y: alvo.y })
+              tickRef.current++
+
+              setTimeout(() => {
+                const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
+                const dano = Math.round(8 * mult)
+                alvo.hp = Math.max(0, alvo.hp - dano)
+                showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+                store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+                setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                setEnemyTarget(null)
+                setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
+                tickRef.current++
+
+                if (alvo.hp <= 0 && aliados.filter(a => a.hp > 0).length === 0) {
+                  setTimeout(() => onDerrota(), 800); return
+                }
+                currentIdx++
+                setTimeout(processarInimigo, V * 0.5)
+              }, V)
+              return
+            }
+            setEnemyDisplay({
+              subFase: 'moveAnim',
+              alcance: path.slice(step),
+              animPos: path[step],
+              currentEnemyId: inimigo.id,
+            })
+            step++
+            setTimeout(tickMove, TICK)
+          }
+          setTimeout(tickMove, TICK)
+        } else {
+          // Nenhuma célula viável → pula
+          setEnemyLog(`😐 ${inimigo.nome} sem rota de ataque`)
+          setEnemyTarget(null)
+          setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
+          tickRef.current++
+          currentIdx++
+          setTimeout(processarInimigo, V * 0.5)
+        }
       } else {
         // ── PRECISA MOVER: mostra grid de movimento ──
         const moveRange = getAlcanceMovimento(inimigo, aliados, inimigos, obstrucoes)
@@ -406,13 +480,26 @@ export default function Batalha({ onVitoria, onDerrota }) {
           setEnemyTarget(null)
           tickRef.current++
 
-          // Escolhe melhor célula: mais perto do alvo
+          // Escolhe melhor célula: prefere com linha de visão, senão a mais perto
           let bestCell = null
           let bestDist = Infinity
+          let fallbackCell = null
+          let fallbackDist = Infinity
           for (const cell of moveRange) {
             const d = Math.abs(cell.x - alvo.x) + Math.abs(cell.y - alvo.y)
-            if (d < bestDist) { bestDist = d; bestCell = cell }
+            // Tenta simular ataque dessa célula
+            const cellSkillRange = getAlcanceSkill(
+              { ...inimigo, x: cell.x, y: cell.y },
+              melhorSkill, aliados, inimigos, obstrucoes
+            )
+            if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange) && d < bestDist) {
+              bestDist = d; bestCell = cell
+            }
+            // Fallback: célula mais perto do alvo
+            if (d < fallbackDist) { fallbackDist = d; fallbackCell = cell }
           }
+          // Se nenhuma célula tem visão, usa a mais perto
+          if (!bestCell) bestCell = fallbackCell
 
           if (!bestCell) { currentIdx++; setTimeout(processarInimigo, V * 0.3); return }
 

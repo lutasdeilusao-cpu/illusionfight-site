@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 2.13*  |  `[SITE] versão carregada: 2.13`
+*Versão: 2.14*  |  `[SITE] versão carregada: 2.14`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
