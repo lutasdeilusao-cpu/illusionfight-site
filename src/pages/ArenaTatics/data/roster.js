@@ -1,10 +1,13 @@
 /**
- * ROSTER — 20 Personagens (Refactory v4.3)
- * Cada personagem: atributos, 2 skills (ataque + especial), elemental
+ * ROSTER — 20 Personagens (Refactory v4.3 → v5.4 Level Progression)
+ * Cada personagem: atributos, skills que desbloqueiam nos níveis 5, 25, 50 e 75
  *
  * Atributos: forca(FOR), velocidade(AGI), resistencia(VIT), energia(INT), precisao(DES), tenacidade(SOR)
  * Skills: { dano: DMG, alcance: RNG, cd: CD, fx: efeito }
  */
+
+import { construirPersonagemNivelado } from './levelProgression'
+
 export const ROSTER = [
   { id: 1, nome: 'Ferro Velho', classe: 'karuak', elemental: 'terra',
     atributos: { forca: 80, velocidade: 20, resistencia: 99, energia: 10, precisao: 15, tenacidade: 10 },
@@ -162,11 +165,13 @@ export function construirPersonagem(rosterId, posX, posY, lado = 'aliado') {
 /**
  * Cria time de inimigos (4) com posições próximas ao player
  */
-export function getInimigosPadrao() {
+export function getInimigosPadrao(nivel = 99) {
   // IDs variados para inimigos: ferro velho, dente de sabre, sombra de gelo, lobo de wendor
   const ids = [1, 4, 5, 8]
   return ids.map((id, i) => {
-    const p = construirPersonagem(id, 4 + (i % 2) * 2, 2 + i * 2, 'inimigo')
+    const entry = ROSTER.find(r => r.id === id)
+    if (!entry) return null
+    const p = construirPersonagemNivelado(entry, nivel, 4 + (i % 2) * 2, 2 + i * 2, 'inimigo')
     return { ...p, id: `enemy_${i}` }
-  })
+  }).filter(Boolean)
 }

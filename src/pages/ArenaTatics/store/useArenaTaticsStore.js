@@ -6,6 +6,8 @@
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 import { construirPersonagem, getInimigosPadrao } from '../data/roster'
+import { construirPersonagemNivelado } from '../data/levelProgression'
+import { ROSTER } from '../data/roster'
 
 const XP_TABLE = [0, 100, 250, 500, 800, 1200, 1700, 2300, 3000, 3800, 4700, 5700, 6800, 8000, 9500]
 
@@ -47,15 +49,17 @@ export const useArenaTaticsStore = create((set, get) => ({
       if (!eq) return p
       return { ...p, equipamento: { ...p.equipamento, ...eq } }
     }
-    // Máximo 3 aliados, posicionados no lado esquerdo
+    // Máximo 3 aliados, posicionados no lado esquerdo — nível 99
     const posicoes = [[1, 3], [2, 7], [1, 11]]
     const aliados = aliadosRoster.slice(0, 3).map((rosterId, i) => {
-      const p = construirPersonagem(rosterId, posicoes[i][0], posicoes[i][1], 'aliado')
+      const entry = ROSTER.find(r => r.id === rosterId)
+      if (!entry) return null
+      const p = construirPersonagemNivelado(entry, 99, posicoes[i][0], posicoes[i][1], 'aliado')
       return p ? applyEquip(rosterId, p) : null
     }).filter(Boolean)
 
-    // 4 inimigos padrão
-    const inimigos = getInimigosPadrao()
+    // 4 inimigos padrão — nível 99
+    const inimigos = getInimigosPadrao(99)
 
     // Gera obstáculos
     const todos = [...aliados, ...inimigos]
