@@ -122,14 +122,14 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 8) 
 // ── Fase label helper ──
 function getFaseLabel(fase) {
   switch (fase) {
-    case 'idle': return { texto: 'SUA VEZ', icone: '⚔️', cor: '#00ff88' }
-    case 'actionMenu': return { texto: 'ESCOLHA UMA AÇÃO', icone: '🎯', cor: '#FFD700' }
-    case 'mover': return { texto: 'MOVENDO', icone: '👣', cor: '#FFD700' }
-    case 'skillSelect': return { texto: 'SELECIONE UM ATAQUE', icone: '⚡', cor: '#FF4444' }
-    case 'target': return { texto: 'MIRANDO', icone: '🎯', cor: '#FF4444' }
-    case 'animando': return { texto: 'ANIMANDO...', icone: '👣', cor: '#FFD700' }
-    case 'inimigo': return { texto: 'INIMIGO AGINDO...', icone: '⏳', cor: '#ff4444' }
-    default: return { texto: '', icone: '', cor: '#888' }
+    case 'idle': return { texto: 'SEU TURNO', icone: '⚔️', cor: '#00B4D8' }
+    case 'actionMenu': return { texto: 'ESCOLHA UMA AÇÃO', icone: '🎯', cor: '#F4A227' }
+    case 'mover': return { texto: 'SELECIONE DESTINO', icone: '👣', cor: '#F4A227' }
+    case 'skillSelect': return { texto: 'SELECIONE UM ATAQUE', icone: '⚡', cor: '#E24B4A' }
+    case 'target': return { texto: 'MIRANDO', icone: '🎯', cor: '#E24B4A' }
+    case 'animando': return { texto: 'ANIMANDO...', icone: '👣', cor: '#F4A227' }
+    case 'inimigo': return { texto: 'INIMIGO AGINDO...', icone: '⏳', cor: '#E24B4A' }
+    default: return { texto: '', icone: '', cor: '#4F5359' }
   }
 }
 
@@ -591,7 +591,12 @@ export default function Batalha({ onVitoria, onDerrota }) {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', position: 'relative', maxWidth: 480, margin: '0 auto' }}>
+    <div className="tatics-batalha">
+      {/* Batalha background effects */}
+      <div className="tatics-batalha-bg" />
+      <div className="tatics-batalha-scanlines" />
+      <div className="tatics-batalha-vignette" />
+
       {/* Evento banner */}
       <AnimatePresence>{eventoAtual && <EventoBanner evento={eventoAtual} onClose={() => setEventoAtual(null)} />}</AnimatePresence>
 
@@ -600,21 +605,24 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       {/* Phase context bar */}
       {faseAcao !== 'inimigo' && (
-        <div style={{
-          textAlign: 'center', padding: '2px 0',
-          fontFamily: 'Courier New', fontSize: '0.6rem',
-          color: faseLabel.cor, letterSpacing: '0.1em',
-          background: `linear-gradient(90deg, transparent, ${faseLabel.cor}11, transparent)`,
-        }}>
-          {faseLabel.icone} {faseLabel.texto}
+        <div className="tatics-fasebar" style={{ '--fase-cor': faseLabel.cor }}>
+          <span className="tatics-fasebar-texto">{faseLabel.icone} {faseLabel.texto}</span>
         </div>
       )}
 
       {/* Grid */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
+      <div className="tatics-batalha-gridarea">
         <DanoPopup danos={danos} />
         <Grid aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} />
       </div>
+
+      {/* Enemy log */}
+      {enemyLog && (
+        <div className="tatics-enemy-log">
+          <span className="tatics-enemy-log-prompt">&gt;</span>
+          <span className="tatics-enemy-log-text">{enemyLog}</span>
+        </div>
+      )}
 
       <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
       <StatusBar personagens={inimigosVisiveis.filter(i => i.hp > 0)} lado="inimigo" />
@@ -646,24 +654,22 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       {/* ── IDLE: ally buttons + END TURN ── */}
       {faseAcao === 'idle' && (
-        <div style={{ background: 'linear-gradient(0deg, #0a0a0a, transparent)' }}>
-          {/* Ally buttons */}
-          <div style={{ display: 'flex', gap: 6, padding: '8px 8px 4px' }}>
+        <div className="tatics-ally-section">
+          <div className="tatics-ally-list">
             {aliados.filter(a => a.hp > 0).map(a => {
               const cor = getCorPorElemental(a.elemental || 'fogo')
               return (
                 <motion.button key={a.id} whileTap={{ scale: 0.95 }} onClick={() => handleAllyClick(a)}
+                  className="tatics-ally-btn"
                   style={{
-                    flex: 1, padding: '0.6rem 0.4rem', borderRadius: 10,
                     background: `linear-gradient(135deg, ${cor}22, #0d0d0d)`,
-                    border: `1px solid ${cor}44`, color: '#eee', fontFamily: 'Courier New',
-                    fontSize: '0.65rem', cursor: 'pointer', textAlign: 'center',
+                    border: `1px solid ${cor}44`,
                   }}>
-                  <div style={{ fontSize: '1rem', marginBottom: 2 }}>
+                  <div className="tatics-ally-btn-icon">
                     {a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
                   </div>
-                  <div style={{ fontWeight: 700, fontSize: '0.6rem' }}>{a.nome}</div>
-                  <div style={{ fontSize: '0.5rem', color: '#888' }}>{a.hp}/{a.hpMax}</div>
+                  <div className="tatics-ally-btn-name">{a.nome}</div>
+                  <div className="tatics-ally-btn-hp">{a.hp}/{a.hpMax}</div>
                 </motion.button>
               )
             })}
@@ -673,35 +679,23 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       {/* ── Mover instruction ── */}
       {faseAcao === 'mover' && (
-        <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
-          <span style={{ color: '#FFD700' }}>👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
-          <button onClick={handleCancelMove}
-            style={{ marginLeft: 8, background: 'none', border: '1px solid #555', color: '#888', borderRadius: 6, padding: '2px 10px', fontSize: '0.6rem', cursor: 'pointer', fontFamily: 'Courier New' }}>
-            CANCELAR ✕
-          </button>
+        <div className="tatics-instruction">
+          <span className="tatics-instruction-move">👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
+          <button onClick={handleCancelMove} className="tatics-instruction-btn">CANCELAR ✕</button>
         </div>
       )}
 
       {/* ── Target instruction ── */}
       {faseAcao === 'target' && (
-        <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
-          <span style={{ color: '#FF4444' }}>⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</span>
-          <button onClick={handleBackToSkills}
-            style={{ marginLeft: 8, background: 'none', border: '1px solid #FFD700', color: '#FFD700', borderRadius: 6, padding: '2px 10px', fontSize: '0.6rem', cursor: 'pointer', fontFamily: 'Courier New' }}>
-            VOLTAR ◀
-          </button>
+        <div className="tatics-instruction">
+          <span className="tatics-instruction-attack">⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</span>
+          <button onClick={handleBackToSkills} className="tatics-instruction-btn">VOLTAR ◀</button>
         </div>
       )}
 
       {/* ── Inimigo agindo ── */}
       {faseAcao === 'inimigo' && (
-        <div style={{
-          textAlign: 'center', padding: '6px 8px',
-          color: enemyLog ? '#ff4444' : '#888',
-          fontFamily: 'Courier New', fontSize: '0.65rem',
-          background: 'linear-gradient(0deg, #0a0a0a, transparent)',
-          borderTop: '1px solid #ff444422',
-        }}>
+        <div className="tatics-enemy-turn-info">
           {enemyLog || '⏳ INIMIGO AGINDO...'}
         </div>
       )}

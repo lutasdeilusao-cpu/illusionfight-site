@@ -6,18 +6,17 @@ export default function DanoPopup({ danos = [] }) {
       {danos.map(d => (
         <motion.div
           key={d.id}
-          initial={{ opacity: 1, y: 0, scale: 0.5 }}
-          animate={{ opacity: 0, y: -40, scale: 1.2 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 0, scale: 0.3 }}
+          animate={{ opacity: 1, y: -50, scale: 1.3 }}
+          exit={{ opacity: 0, scale: 1.5 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="tatics-dano-popup"
           style={{
-            position: 'absolute', left: d.x, top: d.y,
-            color: d.critico ? '#FFD700' : d.curativo ? '#00FF88' : '#FF4444',
-            fontSize: d.critico ? '1.8rem' : '1.2rem',
-            fontWeight: 900, fontFamily: 'Courier New',
-            pointerEvents: 'none', zIndex: 50,
-            textShadow: `0 0 10px ${d.critico ? '#FFD700' : '#FF4444'}88`,
-          }}>
+            left: d.x, top: d.y,
+            '--dano-cor': d.critico ? '#F4A227' : d.curativo ? '#1D9E75' : '#E24B4A',
+            fontSize: d.critico ? '2rem' : '1.4rem',
+          }}
+        >
           {d.curativo ? `+${d.valor}` : d.critico ? `⚡${d.valor}` : `-${d.valor}`}
         </motion.div>
       ))}

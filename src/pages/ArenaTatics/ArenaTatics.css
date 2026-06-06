@@ -330,3 +330,999 @@
   0%, 8%, 10%, 100% { opacity: 0; }
   9% { opacity: 0.8; }
 }
+
+/* ══════════════════════════════════════════════════
+   BATALHA — Layout Principal
+   ══════════════════════════════════════════════════ */
+
+.tatics-batalha {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #08080C;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tatics-batalha-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 180, 216, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 80%, rgba(226, 75, 74, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tatics-batalha-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: tatics-scanlines 8s linear infinite;
+}
+
+.tatics-batalha-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Phase bar ── */
+.tatics-fasebar {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3px 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--fase-cor);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--fase-cor) 7%, transparent), transparent);
+}
+
+.tatics-fasebar-texto {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Grid area ── */
+.tatics-batalha-gridarea {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+}
+
+/* ── Enemy log ── */
+.tatics-enemy-log {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #8B8F96;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(0, 180, 216, 0.08);
+  border-bottom: 1px solid rgba(0, 180, 216, 0.08);
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.tatics-enemy-log-prompt {
+  color: #00B4D8;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.tatics-enemy-log-text {
+  color: #8B8F96;
+}
+
+/* ══════════════════════════════════════════════════
+   GRID — Tabuleiro Tático
+   ══════════════════════════════════════════════════ */
+
+.tatics-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tatics-grid {
+  display: grid;
+  gap: 2px;
+  padding: 6px;
+  background: #0A0A0F;
+  border-radius: 10px;
+  width: fit-content;
+  border: 1px solid rgba(0, 180, 216, 0.15);
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.05), inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.tatics-cell {
+  width: 46px;
+  height: 46px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cell-vazia {
+  background: #0D0D14;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cell-aliado {
+  background: rgba(0, 180, 216, 0.08);
+  border: 1px solid rgba(0, 180, 216, 0.15);
+}
+
+.cell-inimigo {
+  background: rgba(226, 75, 74, 0.08);
+  border: 1px solid rgba(226, 75, 74, 0.15);
+}
+
+.cell-obstrucao {
+  background: #0D0D14;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cell-alcance {
+  background: rgba(0, 180, 216, 0.08);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  cursor: pointer;
+}
+
+.cell-alcance:hover {
+  background: rgba(0, 180, 216, 0.15);
+  border-color: rgba(0, 180, 216, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 180, 216, 0.1);
+}
+
+.cell-move {
+  background: rgba(244, 162, 39, 0.2);
+  border: 2px solid rgba(244, 162, 39, 0.5);
+  cursor: pointer;
+  animation: cell-pulse-move 1.5s ease-in-out infinite;
+}
+
+.cell-move:hover {
+  background: rgba(244, 162, 39, 0.3);
+  border-color: rgba(244, 162, 39, 0.7);
+}
+
+.cell-attack {
+  background: rgba(226, 75, 74, 0.2);
+  border: 2px solid rgba(226, 75, 74, 0.5);
+  cursor: pointer;
+  animation: cell-pulse-attack 1.5s ease-in-out infinite;
+}
+
+.cell-attack:hover {
+  background: rgba(226, 75, 74, 0.3);
+  border-color: rgba(226, 75, 74, 0.7);
+}
+
+.cell-alvo {
+  background: rgba(226, 75, 74, 0.35) !important;
+  border: 2px solid #E24B4A !important;
+  animation: cell-pulse-alvo 0.8s ease-in-out infinite;
+}
+
+@keyframes cell-pulse-move {
+  0%, 100% { box-shadow: inset 0 0 6px rgba(244, 162, 39, 0.1); }
+  50% { box-shadow: inset 0 0 12px rgba(244, 162, 39, 0.25); }
+}
+
+@keyframes cell-pulse-attack {
+  0%, 100% { box-shadow: inset 0 0 6px rgba(226, 75, 74, 0.1); }
+  50% { box-shadow: inset 0 0 12px rgba(226, 75, 74, 0.25); }
+}
+
+@keyframes cell-pulse-alvo {
+  0%, 100% { box-shadow: 0 0 8px rgba(226, 75, 74, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(226, 75, 74, 0.6); }
+}
+
+/* ── Tokens (personagens) ── */
+.tatics-obstaculo {
+  font-size: 16px;
+  opacity: 0.4;
+}
+
+.tatics-token {
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.1;
+  padding: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.token-aliado {
+  cursor: pointer;
+}
+
+.token-inimigo {
+  cursor: default;
+}
+
+/* ══════════════════════════════════════════════════
+   TURNO INDICATOR
+   ══════════════════════════════════════════════════ */
+
+.tatics-turno {
+  position: relative;
+  z-index: 1;
+  padding: 6px 12px 0;
+}
+
+.tatics-turno-linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.turno-player .tatics-turno-linha {
+  color: #00B4D8;
+}
+
+.turno-inimigo .tatics-turno-linha {
+  color: #E24B4A;
+}
+
+.tatics-turno-icone {
+  font-size: 0.9rem;
+}
+
+.tatics-turno-texto {
+  font-weight: 700;
+  flex: 1;
+}
+
+.tatics-turno-rodada {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  opacity: 0.5;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
+.tatics-turno-bar {
+  height: 1px;
+  margin-top: 6px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.15;
+}
+
+/* ══════════════════════════════════════════════════
+   STATUSBAR
+   ══════════════════════════════════════════════════ */
+
+.tatics-statusbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+  padding: 4px 8px;
+}
+
+.statusbar-aliado { --cor-lado: #00B4D8; }
+.statusbar-inimigo { --cor-lado: #E24B4A; }
+
+.tatics-status-card {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid color-mix(in srgb, var(--cor-lado) 20%, transparent);
+  border-radius: 8px;
+  padding: 4px 8px;
+  min-width: 0;
+  backdrop-filter: blur(4px);
+}
+
+.tatics-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.tatics-status-nome {
+  color: #EAEAEA;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.tatics-status-hp {
+  font-size: 0.55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--cor-lado);
+}
+
+.tatics-status-bar-bg {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tatics-status-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--fill-color), color-mix(in srgb, var(--fill-color) 53%, transparent));
+  box-shadow: 0 0 6px color-mix(in srgb, var(--fill-color) 27%, transparent);
+}
+
+/* ══════════════════════════════════════════════════
+   ACTION MENU — Bottom Sheet
+   ══════════════════════════════════════════════════ */
+
+.tatics-action-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.tatics-action-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.tatics-action-sheet {
+  background: #0D0D14;
+  border-top: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 20px 20px 0 0;
+  padding: 0.5rem 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.tatics-action-handle {
+  width: 36px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin: 0 auto 1rem;
+}
+
+.tatics-action-char {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.tatics-action-char-token {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-elem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--cor-elem) 53%, transparent), #111);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cor-elem) 27%, transparent);
+}
+
+.tatics-action-char-info {
+  flex: 1;
+}
+
+.tatics-action-char-nome {
+  color: #EAEAEA;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tatics-action-mp {
+  color: #F4A227;
+}
+
+.tatics-skill-custo-valor {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.tatics-action-char-stats {
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  margin-top: 2px;
+}
+
+.tatics-action-close {
+  background: none;
+  border: none;
+  color: #4F5359;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.tatics-action-close:hover {
+  color: #8B8F96;
+}
+
+.tatics-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.tatics-action-btn {
+  flex: 1;
+  padding: 0.8rem 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.tatics-action-btn-icone {
+  font-size: 1.3rem;
+}
+
+.tatics-action-btn-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.btn-mover {
+  border-color: rgba(244, 162, 39, 0.4);
+  background: linear-gradient(135deg, rgba(244, 162, 39, 0.1), transparent);
+}
+
+.btn-mover .tatics-action-btn-label {
+  color: #F4A227;
+}
+
+.btn-mover:hover {
+  border-color: rgba(244, 162, 39, 0.7);
+  background: linear-gradient(135deg, rgba(244, 162, 39, 0.15), transparent);
+}
+
+.btn-atacar {
+  border-color: rgba(226, 75, 74, 0.4);
+  background: linear-gradient(135deg, rgba(226, 75, 74, 0.1), transparent);
+}
+
+.btn-atacar .tatics-action-btn-label {
+  color: #E24B4A;
+}
+
+.btn-atacar:hover {
+  border-color: rgba(226, 75, 74, 0.7);
+  background: linear-gradient(135deg, rgba(226, 75, 74, 0.15), transparent);
+}
+
+.btn-item {
+  border-color: rgba(79, 83, 89, 0.4);
+  opacity: 0.4;
+}
+
+.btn-item .tatics-action-btn-label {
+  color: #4F5359;
+}
+
+.btn-usado {
+  border-color: #2A2D31;
+  opacity: 0.35;
+}
+
+.btn-usado .tatics-action-btn-label {
+  color: #4F5359;
+}
+
+.tatics-action-endturn {
+  display: block;
+  margin: 0.75rem auto 0;
+  background: none;
+  border: none;
+  color: #4F5359;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.65rem;
+  cursor: pointer;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  transition: color 0.2s;
+}
+
+.tatics-action-endturn:hover {
+  color: #8B8F96;
+}
+
+/* ══════════════════════════════════════════════════
+   SKILL MODAL — Bottom Sheet
+   ══════════════════════════════════════════════════ */
+
+.tatics-skill-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.tatics-skill-sheet {
+  background: #0D0D14;
+  border-top: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 20px 20px 0 0;
+  padding: 0.5rem 1rem 1.5rem;
+  max-height: 45vh;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+
+.tatics-skill-handle {
+  width: 36px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin: 0 auto 1rem;
+}
+
+.tatics-skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tatics-skill-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tatics-skill-header-nome {
+  color: #EAEAEA;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tatics-skill-header-mp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+}
+
+.tatics-skill-close {
+  background: none;
+  border: none;
+  color: #4F5359;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.tatics-skill-close:hover {
+  color: #8B8F96;
+}
+
+.tatics-skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tatics-skill-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  text-align: left;
+  width: 100%;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.skill-disponivel {
+  background: rgba(0, 180, 216, 0.06);
+  border: 1px solid rgba(0, 180, 216, 0.2);
+}
+
+.skill-disponivel:hover {
+  background: rgba(0, 180, 216, 0.1);
+  border-color: rgba(0, 180, 216, 0.4);
+}
+
+.skill-indisponivel {
+  background: transparent;
+  border: 1px solid #2A2D31;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.skill-disponivel .tatics-skill-custo {
+  background: rgba(0,180,216,0.15);
+  border-color: rgba(0,180,216,0.3);
+}
+
+.skill-indisponivel .tatics-skill-custo {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.tatics-skill-custo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tatics-skill-custo-label {
+  font-size: 0.45rem;
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.6;
+}
+
+.custo-disponivel .tatics-skill-custo-valor {
+  color: #00B4D8;
+}
+
+.custo-indisponivel .tatics-skill-custo-valor {
+  color: #555;
+}
+
+.tatics-skill-info {
+  flex: 1;
+}
+
+.tatics-skill-nome {
+  color: #EAEAEA;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.tatics-skill-desc {
+  color: #4F5359;
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 2px;
+}
+
+.tatics-skill-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.55rem;
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* ══════════════════════════════════════════════════
+   DANO POPUP
+   ══════════════════════════════════════════════════ */
+
+.tatics-dano-popup {
+  position: absolute;
+  font-weight: 900;
+  font-family: 'Rajdhani', sans-serif;
+  pointer-events: none;
+  z-index: 50;
+  line-height: 1;
+  color: var(--dano-cor);
+  text-shadow: 0 0 15px color-mix(in srgb, var(--dano-cor) 60%, transparent),
+               0 0 30px color-mix(in srgb, var(--dano-cor) 30%, transparent);
+}
+
+/* ══════════════════════════════════════════════════
+   EVENTO BANNER
+   ══════════════════════════════════════════════════ */
+
+.tatics-evento-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: linear-gradient(135deg, rgba(0, 10, 20, 0.95), rgba(10, 0, 20, 0.95));
+  border-bottom: 1px solid rgba(244, 162, 39, 0.3);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.tatics-evento-label {
+  color: #F4A227;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 4px;
+}
+
+.tatics-evento-desc {
+  color: #8B8F96;
+  font-size: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-style: italic;
+}
+
+.tatics-evento-btn {
+  margin-top: 6px;
+  background: none;
+  border: 1px solid rgba(244, 162, 39, 0.3);
+  color: #F4A227;
+  border-radius: 6px;
+  padding: 2px 12px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+
+.tatics-evento-btn:hover {
+  border-color: rgba(244, 162, 39, 0.6);
+  background: rgba(244, 162, 39, 0.1);
+}
+
+/* ══════════════════════════════════════════════════
+   CONFIRM END TURN
+   ══════════════════════════════════════════════════ */
+
+.tatics-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.tatics-confirm-modal {
+  background: #0D0D14;
+  border: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 300px;
+  width: 90%;
+  text-align: center;
+}
+
+.tatics-confirm-icone {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tatics-confirm-titulo {
+  color: #EAEAEA;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.tatics-confirm-desc {
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.tatics-confirm-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.tatics-confirm-btn {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1px solid;
+  transition: all 0.2s;
+}
+
+.tatics-confirm-btn-nao {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: #2A2D31;
+  color: #4F5359;
+}
+
+.tatics-confirm-btn-nao:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #4F5359;
+}
+
+.tatics-confirm-btn-sim {
+  background: rgba(226, 75, 74, 0.1);
+  border-color: rgba(226, 75, 74, 0.4);
+  color: #E24B4A;
+}
+
+.tatics-confirm-btn-sim:hover {
+  background: rgba(226, 75, 74, 0.2);
+  border-color: rgba(226, 75, 74, 0.7);
+}
+
+/* ══════════════════════════════════════════════════
+   ALLY BUTTONS
+   ══════════════════════════════════════════════════ */
+
+.tatics-ally-section {
+  background: linear-gradient(0deg, #0a0a0a, transparent);
+}
+
+.tatics-ally-list {
+  display: flex;
+  gap: 6px;
+  padding: 8px 8px 4px;
+}
+
+.tatics-ally-btn {
+  flex: 1;
+  padding: 0.6rem 0.4rem;
+  border-radius: 10px;
+  border: 1px solid;
+  color: #EAEAEA;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.65rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.tatics-ally-btn:hover {
+  filter: brightness(1.3);
+}
+
+.tatics-ally-btn-icon {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.tatics-ally-btn-name {
+  font-weight: 700;
+  font-size: 0.6rem;
+}
+
+.tatics-ally-btn-hp {
+  font-size: 0.5rem;
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ══════════════════════════════════════════════════
+   INSTRUCTION BARS
+   ══════════════════════════════════════════════════ */
+
+.tatics-instruction {
+  text-align: center;
+  padding: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.tatics-instruction-move {
+  color: #F4A227;
+}
+
+.tatics-instruction-attack {
+  color: #E24B4A;
+}
+
+.tatics-instruction-btn {
+  margin-left: 8px;
+  background: none;
+  border: 1px solid #2A2D31;
+  color: #4F5359;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.2s;
+}
+
+.tatics-instruction-btn:hover {
+  border-color: #4F5359;
+  color: #8B8F96;
+}
+
+/* ══════════════════════════════════════════════════
+   ENEMY TURN INFO
+   ══════════════════════════════════════════════════ */
+
+.tatics-enemy-turn-info {
+  text-align: center;
+  padding: 6px 8px;
+  color: #E24B4A;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: linear-gradient(0deg, #0a0a0a, transparent);
+  border-top: 1px solid rgba(226, 75, 74, 0.15);
+}
