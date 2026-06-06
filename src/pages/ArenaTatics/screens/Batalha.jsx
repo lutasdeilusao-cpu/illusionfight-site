@@ -189,7 +189,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
   // Grid display: enemy phases override with their own alcance/turnoFase
   const gridTurnoFase = faseAcao === 'inimigo' && enemyDisplay.subFase !== 'idle'
-    ? (enemyDisplay.subFase.startsWith('move') ? 'mover' : 'target')
+    ? (enemyDisplay.subFase === 'moveAnim' ? 'animando' : enemyDisplay.subFase.startsWith('move') ? 'mover' : 'target')
     : faseAcao
   const gridAlcance = faseAcao === 'inimigo' ? enemyDisplay.alcance : alcanceVisivel
 
