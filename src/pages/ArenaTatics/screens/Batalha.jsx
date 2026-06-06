@@ -13,9 +13,14 @@ import { getMultiplicadorElemental } from '../data/elementais'
 import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
 import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
+import { resolverAtaque } from '../data/combat'
 
 // ── Helpers ──
-function getSkills(p) { const c = CLASSES[p.classe]; return c?.skills_base || [] }
+function getSkills(p) {
+  // Novos personagens já têm skills embutidas
+  if (p.skills && p.skills.length > 0 && p.skills[0].dano !== undefined) return p.skills
+  const c = CLASSES[p.classe]; return c?.skills_base || []
+}
 
 // Conjunto de células ocupadas (aliados, inimigos, obstáculos)
 function getOcupadas(aliados, inimigos, obstrucoes, ignoreId = null) {
@@ -292,9 +297,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const alvo = inimigos.find(i => i.x === x && i.y === y)
     if (!alvo) return
     const mult = getMultiplicadorElemental(selectedAlly.elemental, alvo.elemental)
-    const dano = Math.round((selectedSkill.dano || 10) * mult); const crit = Math.random() < 0.2
-    alvo.hp = Math.max(0, alvo.hp - dano)
-    showDano(dano, x * 48 + 24, y * 48 + 24, crit)
+    const resultado = resolverAtaque(selectedAlly, alvo, selectedSkill, mult)
+    const dano = resultado.dano
+    const crit = resultado.critico
+
+    if (resultado.acertou) {
+      alvo.hp = Math.max(0, alvo.hp - dano)
+      showDano(dano, x * 48 + 24, y * 48 + 24, crit)
+    } else {
+      showDano(0, x * 48 + 24, y * 48 + 24, false)
+      setEnemyLog(`😤 ${selectedAlly.nome} errou!`)
+    }
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
 
     if (alvo.hp <= 0) {
@@ -395,12 +408,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
           setTimeout(() => {
             const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
-            const dano = Math.round(8 * mult)
-            alvo.hp = Math.max(0, alvo.hp - dano)
-            showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-            store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-
-            setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+            const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
+            const dano = r.dano
+            if (r.acertou) {
+              alvo.hp = Math.max(0, alvo.hp - dano)
+              showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+              store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+              setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+            } else {
+              setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
+            }
             setEnemyTarget(null)
             setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
             tickRef.current++
@@ -461,11 +478,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
               setTimeout(() => {
                 const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
-                const dano = Math.round(8 * mult)
-                alvo.hp = Math.max(0, alvo.hp - dano)
-                showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-                store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-                setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
+                const dano = r.dano
+                if (r.acertou) {
+                  alvo.hp = Math.max(0, alvo.hp - dano)
+                  showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+                  store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+                  setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                } else {
+                  setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
+                }
                 setEnemyTarget(null)
                 setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
                 tickRef.current++
@@ -566,11 +588,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
                   }
 
                   const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
-                  const dano = Math.round(8 * mult)
-                  alvo.hp = Math.max(0, alvo.hp - dano)
-                  showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-                  store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-                  setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                  const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
+                  const dano = r.dano
+                  if (r.acertou) {
+                    alvo.hp = Math.max(0, alvo.hp - dano)
+                    showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+                    store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+                    setEnemyLog(`💥 ${inimigo.nome} causou ${dano} em ${alvo.nome}`)
+                  } else {
+                    setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
+                  }
                   setEnemyTarget(null)
                   setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
                   tickRef.current++
