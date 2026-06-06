@@ -9,7 +9,7 @@ export default function SkillModal({ personagem, skills, onSelect, onClose }) {
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       style={{
         position: 'fixed', bottom: 0, left: 0, right: 0,
-        height: '75vh', background: '#0d0d0d', borderTop: '2px solid #FFD700',
+        height: 'auto', maxHeight: '45vh', background: '#0d0d0d', borderTop: '2px solid #FFD700',
         borderRadius: '20px 20px 0 0', padding: '1rem',
         overflowY: 'auto', zIndex: 100,
       }}>

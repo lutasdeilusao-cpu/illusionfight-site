@@ -53,13 +53,13 @@ export default function TeamBuilder({ personagemPrincipal, onAdd, onRemove, time
         onClick={onConfirm}
         style={{
           width: '100%', padding: '0.85rem', marginTop: '1rem',
-          background: preenchidos >= 2 ? '#00ff8822' : '#111',
-          border: `2px solid ${preenchidos >= 2 ? '#00ff88' : '#333'}`,
-          borderRadius: 12, color: preenchidos >= 2 ? '#00ff88' : '#555',
+          background: preenchidos >= 1 ? '#00ff8822' : '#111',
+          border: `2px solid ${preenchidos >= 1 ? '#00ff88' : '#333'}`,
+          borderRadius: 12, color: preenchidos >= 1 ? '#00ff88' : '#555',
           fontFamily: 'Courier New', fontSize: '0.85rem',
-          fontWeight: 700, cursor: preenchidos >= 2 ? 'pointer' : 'default',
+          fontWeight: 700, cursor: preenchidos >= 1 ? 'pointer' : 'default',
         }}>
-        {preenchidos >= 2 ? 'CONFIRMAR TIME' : `Mínimo 2 personagens (${preenchidos}/2)`}
+        {preenchidos >= 1 ? 'CONFIRMAR TIME' : `Mínimo 1 personagem (${preenchidos}/1)`}
       </motion.button>
     </div>
   )
