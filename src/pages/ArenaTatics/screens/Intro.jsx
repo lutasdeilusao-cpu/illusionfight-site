@@ -10,7 +10,7 @@ const LINES = [
   { text: 'INICIANDO PROTOCOLO DE SELEÇÃO', delay: 3600 },
 ]
 
-export default function Intro({ onEnter }) {
+export default function Intro({ onEnter, onSimulacao }) {
   const [visibleLines, setVisibleLines] = useState([])
   const [showButton, setShowButton] = useState(false)
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
@@ -112,19 +112,37 @@ export default function Intro({ onEnter }) {
         {/* Button */}
         <AnimatePresence>
           {showButton && (
-            <motion.button
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onEnter}
-              className="tatics-intro-btn"
-            >
-              <span className="tatics-intro-btn-text">ACESSAR SISTEMA</span>
-              <span className="tatics-intro-btn-glow" />
-            </motion.button>
+            <>
+              <motion.button
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onEnter}
+                className="tatics-intro-btn"
+              >
+                <span className="tatics-intro-btn-text">ACESSAR SISTEMA</span>
+                <span className="tatics-intro-btn-glow" />
+              </motion.button>
+
+              {onSimulacao && (
+                <motion.button
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={onSimulacao}
+                  className="tatics-intro-btn tatics-intro-btn-sim"
+                >
+                  <span className="tatics-intro-btn-text">⚙ SIMULAÇÃO IA</span>
+                  <span className="tatics-intro-btn-glow" />
+                </motion.button>
+              )}
+            </>
           )}
         </AnimatePresence>
 

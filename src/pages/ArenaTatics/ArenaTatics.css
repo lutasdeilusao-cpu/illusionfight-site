@@ -278,6 +278,306 @@
   z-index: 1;
 }
 
+/* Simulation button variant (admin only) */
+.tatics-intro-btn-sim {
+  margin-top: 0.8rem;
+  border-color: rgba(226, 75, 26, 0.4);
+  color: #E24B1A;
+  font-size: 0.8rem;
+  padding: 0.7rem 2rem;
+}
+
+.tatics-intro-btn-sim:hover {
+  border-color: #E24B1A;
+  box-shadow: 0 0 25px rgba(226, 75, 26, 0.2), inset 0 0 25px rgba(226, 75, 26, 0.05);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════
+   SIMULAÇÃO AUTOMÁTICA — Config Screen
+   ═══════════════════════════════════════════ */
+
+.tatics-sim-panel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.tatics-sim-config {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.tatics-sim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+}
+
+.tatics-sim-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  color: #C4C6C9;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.tatics-sim-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tatics-sim-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: #EAEAEA;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.tatics-sim-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.tatics-sim-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #00B4D8;
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* IAs preview */
+.tatics-sim-ias {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tatics-sim-ias-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tatics-sim-reshuffle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: #4F5359;
+  font-size: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  padding: 3px 8px;
+  transition: all 0.15s;
+}
+
+.tatics-sim-reshuffle:hover {
+  color: #EAEAEA;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.tatics-sim-ias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tatics-sim-ia-card {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  border-left: 3px solid var(--ia-cor);
+}
+
+.tatics-sim-ia-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.45rem;
+  color: var(--ia-cor);
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.tatics-sim-ia-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.tatics-sim-ia-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.45rem;
+  color: #4F5359;
+  margin-top: 2px;
+}
+
+.tatics-sim-matchup {
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(0,180,216,0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0,180,216,0.15);
+}
+
+.tatics-sim-matchup-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  color: #00B4D8;
+  letter-spacing: 0.1em;
+}
+
+/* Roster preview */
+.tatics-sim-roster-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tatics-sim-roster-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  color: #4F5359;
+  letter-spacing: 0.1em;
+}
+
+.tatics-sim-roster-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tatics-sim-roster-chip {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.55rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #C4C6C9;
+}
+
+/* Start button */
+.tatics-sim-start {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #E24B1A, #A855F7);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.tatics-sim-start:hover {
+  box-shadow: 0 0 30px rgba(226, 75, 26, 0.3);
+  transform: scale(1.02);
+}
+
+/* IA bar during simulation */
+.tatics-sim-ia-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.tatics-sim-ia-bar-item {
+  flex: 1;
+  font-weight: 700;
+}
+
+.tatics-sim-ia-bar-vs {
+  color: #4F5359;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+/* Fim overlay */
+.tatics-sim-fim-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+  animation: modal-entrada 0.3s ease-out;
+}
+
+.tatics-sim-fim-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: #0E0E14;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.tatics-sim-fim-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #00B4D8;
+  letter-spacing: 0.15em;
+}
+
+.tatics-sim-fim-info {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #EAEAEA;
+}
+
 /* ── Version ── */
 .tatics-intro-version {
   font-family: 'JetBrains Mono', monospace;

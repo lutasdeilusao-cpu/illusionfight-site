@@ -12,6 +12,8 @@ import TeamSelect from './screens/TeamSelect'
 import Batalha from './screens/Batalha'
 import Vitoria from './screens/Vitoria'
 import Derrota from './screens/Derrota'
+import SimulacaoAuto from './screens/SimulacaoAuto'
+import BatalhaSimulacao from './screens/BatalhaSimulacao'
 
 import './ArenaTatics.css'
 
@@ -29,6 +31,7 @@ export default function ArenaTaticsRoute() {
   const store = useArenaTaticsStore()
   const [fase, setFase] = useState('intro')
   const [loading, setLoading] = useState(false)
+  const [simConfig, setSimConfig] = useState(null)
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
 
@@ -103,6 +106,18 @@ export default function ArenaTaticsRoute() {
 
   const handleSair = () => navigate('/games')
 
+  const handleSimulacao = () => setFase('simulacao')
+
+  const handleIniciarSimulacao = (config) => {
+    setSimConfig(config)
+    setFase('batalhaSim')
+  }
+
+  const handleFimSimulacao = () => {
+    setSimConfig(null)
+    setFase('intro')
+  }
+
   if (!user) {
     return (
       <div className="tatics-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#08080C', color: '#4F5359', fontFamily: 'Rajdhani', fontSize: '1rem', padding: '2rem', textAlign: 'center' }}>
@@ -116,9 +131,11 @@ export default function ArenaTaticsRoute() {
 
   return (
     <div className="tatics-container">
-      {fase === 'intro' && <Intro onEnter={handleIntroEnter} />}
+      {fase === 'intro' && <Intro onEnter={handleIntroEnter} onSimulacao={isAdmin ? handleSimulacao : undefined} />}
       {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} maxSlots={store.maxSlots} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
+      {fase === 'simulacao' && <SimulacaoAuto onIniciar={handleIniciarSimulacao} />}
+      {fase === 'batalhaSim' && <BatalhaSimulacao config={simConfig} onFim={handleFimSimulacao} />}
       {fase === 'vitoria' && <Vitoria sdrGanho={10} vitorias={store.vitorias} streak={store.streak} onContinuar={handleRevanche} />}
       {fase === 'derrota' && <Derrota onRevanche={handleRevanche} onSair={handleSair} />}
       {loading && (
