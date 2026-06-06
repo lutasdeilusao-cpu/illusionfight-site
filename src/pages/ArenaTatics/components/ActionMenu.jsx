@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, jaMoveu, jaAtacou }) {
+export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, onEndTurn, jaMoveu, jaAtacou }) {
   return (
     <motion.div
       initial={{ y: '100%' }}
@@ -89,6 +89,22 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             <div style={{ fontSize: '1.3rem', marginBottom: 4 }}>🎒</div>
             <div style={{ color: '#888', fontFamily: 'Courier New', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em' }}>ITEM</div>
           </motion.button>
+        </div>
+
+        {/* End Turn — dentro do modal */}
+        <div style={{ textAlign: 'center', marginTop: '0.75rem' }}>
+          <button
+            onClick={onEndTurn}
+            style={{
+              background: 'none', border: 'none',
+              color: '#555', fontFamily: 'Courier New', fontSize: '0.6rem',
+              cursor: 'pointer', letterSpacing: '0.1em', padding: '4px 12px',
+            }}
+            onMouseEnter={e => e.target.style.color = '#888'}
+            onMouseLeave={e => e.target.style.color = '#555'}
+          >
+            ⏭ FINALIZAR TURNO
+          </button>
         </div>
       </div>
     </motion.div>

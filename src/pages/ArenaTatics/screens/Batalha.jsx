@@ -477,6 +477,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
             onAtacar={handleActionAtacar}
             onItem={() => {}} // placeholder
             onClose={handleActionClose}
+            onEndTurn={() => setShowEndConfirm(true)}
           />
         )}
       </AnimatePresence>
@@ -513,21 +514,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
                 </motion.button>
               )
             })}
-          </div>
-          {/* End Turn button — sutil, sem destaque */}
-          <div style={{ padding: '2px 8px 8px', textAlign: 'center' }}>
-            <button
-              onClick={() => setShowEndConfirm(true)}
-              style={{
-                background: 'none', border: 'none',
-                color: '#555', fontFamily: 'Courier New', fontSize: '0.6rem',
-                cursor: 'pointer', letterSpacing: '0.1em', padding: '4px 12px',
-              }}
-              onMouseEnter={e => e.target.style.color = '#888'}
-              onMouseLeave={e => e.target.style.color = '#555'}
-            >
-              ⏭ FINALIZAR TURNO
-            </button>
           </div>
         </div>
       )}
