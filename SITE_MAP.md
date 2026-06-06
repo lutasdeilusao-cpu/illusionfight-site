@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 1.83*  |  `[SITE] versão carregada: 1.83`
+*Versão: 1.84*  |  `[SITE] versão carregada: 1.84`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -114,12 +114,12 @@
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI Arena Mode — criação de ficha + combate CPU standalone com progressão de inimigos — **PRONTO PARA LANÇAMENTO** |
 | `/games/ldi-tatica` | ArenaTaticaRoute | `src/pages/ArenaTatica/ArenaTaticaRoute.jsx` | ✅ v2.0.0 | Arena LDI Tático — sistema de classes Ragnarok, grid 6×10, 3v3 tático por turnos, árvore de evolução — **NOVO JOGO** |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.1 | Jack Dream Beer — idle noir investigativo |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.8 | 6 puzzles standalone arcade |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.1.9 | 6 puzzles standalone arcade + Enduro Kroniki |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | Pesadelo Particular — 20 casos, Supabase save, puzzles reais, combate, **i18n completa** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | Duelo LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.8.6 | Tamagoshi LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.8.7 | Tamagoshi LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama |
 
-**Versão atual:** `1.8.6` (console: `[TAMA] versão carregada: 1.8.6`)
+**Versão atual:** `1.8.7` (console: `[TAMA] versão carregada: 1.8.7`)
 
 ### Estrutura de arquivos
 

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
 import { MINIGAMES_VERSION } from '../../config/version'
+import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
 
 const GAMES = [
@@ -12,6 +13,7 @@ const GAMES = [
   { id: 'labirinto', nome: 'Labirinto', tagline: 'sem mapa. sem saída óbvia.', emoji: '🌀', cor: '#8B0000', desc: 'navegue pelo labirinto. cada geração é única.', dificuldade: '★★★' },
   { id: 'anagrama', nome: 'Anagrama', tagline: 'as letras estão certas. a ordem não.', emoji: '🔤', cor: '#22C55E', desc: 'reorganize as letras para formar a palavra correta.', dificuldade: '★☆☆' },
   { id: 'forca', nome: 'Palavra Secreta', tagline: 'descubra a palavra. uma letra de cada vez.', emoji: '🎡', cor: '#EC4899', desc: 'adivinhe letras e acuse a palavra certa.', dificuldade: '★★☆' },
+  { id: 'enduro', nome: 'Enduro Kroniki', tagline: 'pista infinita. desvie dos obstáculos. colete moedas.', emoji: '🏎️', cor: '#FF3366', desc: 'corrida infinita com 10 pistas. obstáculos e moedas. sobreviva até o fim.', dificuldade: '★★☆' },
 ]
 
 const STEALTH_CONFIG = {
@@ -49,6 +51,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
+    if (game.id === 'enduro') { setJogoAtivo(game); setFase('jogando'); return }
     if (['stealth','decoder','sliding','labirinto','anagrama','forca'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
@@ -97,6 +100,8 @@ export default function MiniGames() {
         return <PuzzleSlidingTiles {...props} config={{ size: slidingSize }} />
       case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
+      case 'enduro':
+        return <PassearEnduro onConcluir={voltarHub} />
       default: return null
     }
   }

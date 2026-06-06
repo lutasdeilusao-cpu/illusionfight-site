@@ -14,6 +14,9 @@ import {
   PuzzleForça,
 } from '../../../components/Puzzles'
 
+// ATENÇÃO: Enduro (Passear) NÃO pode entrar aqui — é exclusivo do botão "passear"
+// e também aparece como card standalone no MiniGames. Se adicionar novos puzzles,
+// mantenha o Enduro fora desta lista.
 const PUZZLES = [
   { id: 'stealth',  nome: 'Infiltração',     Component: PuzzleStealthGrid },
   { id: 'decoder',  nome: 'Decoder',          Component: PuzzleDecoder },

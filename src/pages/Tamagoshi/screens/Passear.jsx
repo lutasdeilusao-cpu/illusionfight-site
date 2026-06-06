@@ -11,10 +11,11 @@ export default function Passear({ onConcluir }) {
   const canvasRef = useRef(null)
   const intervalRef = useRef(null)
   const imgRef = useRef(null)
-  const g = useRef({ running: false, lane: 2, score: 0, lives: LIVES, stage: 1, frame: 0, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] })
+  const g = useRef({ running: false, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 0, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] })
   const [phase, setPhase] = useState('ready')
   const [stage, setStage] = useState(1)
   const [dispScore, setDisp] = useState(0)
+  const [dispCoins, setDispCoins] = useState(0)
 
   useEffect(() => {
     const img = new Image()
@@ -62,7 +63,9 @@ export default function Passear({ onConcluir }) {
     ctx.textAlign = 'right'
     let h = ''; for (let i = 0; i < LIVES; i++) h += i < s.lives ? '❤️' : '🖤'
     ctx.fillText(h, W - 12, 20)
-    ctx.fillStyle = '#aaa'; ctx.textAlign = 'center'; ctx.font = '12px monospace'
+    ctx.fillStyle = '#FFD700'; ctx.textAlign = 'left'; ctx.font = '11px monospace'; ctx.textBaseline = 'bottom'
+    ctx.fillText('\u25C6 ' + s.coinsCollected, 12, H - 8)
+    ctx.fillStyle = '#aaa'; ctx.textAlign = 'center'; ctx.font = '12px monospace'; ctx.textBaseline = 'middle'
     ctx.fillText('pista ' + s.stage + '/' + STAGE_COUNT, W / 2, 20)
   }
 
@@ -96,12 +99,12 @@ export default function Passear({ onConcluir }) {
         c.y += s.speed
         if (c.y > GAME_H) return false
         if (c.x < cx + 25 - 4 && c.x + 30 > cx - 25 + 4 && c.y < cy + 25 - 4 && c.y + 30 > cy - 25 + 4) {
-          s.score += 50; return false
+          s.score += 50; s.coinsCollected++; return false
         }
         return true
       })
       if (s.score >= s.stage * 500 && s.stage < STAGE_COUNT) { s.stage++; setStage(s.stage) }
-      if (s.frame % 10 === 0) setDisp(s.score)
+      if (s.frame % 10 === 0) { setDisp(s.score); setDispCoins(s.coinsCollected) }
       draw()
     } catch (e) { console.error('[ENDURO]', e); s.running = false }
   }
@@ -115,7 +118,7 @@ export default function Passear({ onConcluir }) {
   }
 
   function startGame() {
-    g.current = { running: true, lane: 2, score: 0, lives: LIVES, stage: 1, frame: 1, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] }
+    g.current = { running: true, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 1, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] }
     setStage(1); setDisp(0); setPhase('playing')
     if (intervalRef.current) clearInterval(intervalRef.current)
     intervalRef.current = setInterval(tick, 30)
@@ -169,9 +172,14 @@ export default function Passear({ onConcluir }) {
             <canvas ref={canvasRef} width={GAME_W} height={GAME_H}
               style={{ display: 'block', borderRadius: 12, touchAction: 'none', cursor: 'grab', maxWidth: '100%', boxShadow: '0 0 30px rgba(0,0,0,0.5)' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: '#888', fontFamily: 'monospace' }}>
-              <span>setas ou arraste</span>
+              <span>moedas: {dispCoins}</span>
               <span>pista {stage}/{STAGE_COUNT}</span>
             </div>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+              onClick={() => { g.current.running = false; if (intervalRef.current) clearInterval(intervalRef.current); onConcluir?.() }}
+              className="tama-btn" style={{ marginTop: 8, opacity: 0.5, fontSize: '0.7rem' }}>
+              [ desistir ]
+            </motion.button>
           </motion.div>
         )}
         {phase === 'gameover' && (
