@@ -4,6 +4,7 @@ import Grid from '../components/Grid'
 import StatusBar from '../components/StatusBar'
 import TurnoIndicator from '../components/TurnoIndicator'
 import SkillModal from '../components/SkillModal'
+import ActionMenu from '../components/ActionMenu'
 import DanoPopup from '../components/DanoPopup'
 import EventoBanner from '../components/EventoBanner'
 import { CLASSES } from '../data/classes'
@@ -31,49 +32,90 @@ function getAlcanceSkill(p, skill, l = 16, c = 8) {
   return casas
 }
 
+// ── Fase label helper ──
+function getFaseLabel(fase) {
+  switch (fase) {
+    case 'idle': return { texto: 'SUA VEZ', icone: '⚔️', cor: '#00ff88' }
+    case 'actionMenu': return { texto: 'ESCOLHA UMA AÇÃO', icone: '🎯', cor: '#FFD700' }
+    case 'mover': return { texto: 'MOVENDO', icone: '👣', cor: '#FFD700' }
+    case 'skillSelect': return { texto: 'SELECIONE UM ATAQUE', icone: '⚡', cor: '#FF4444' }
+    case 'target': return { texto: 'MIRANDO', icone: '🎯', cor: '#FF4444' }
+    case 'inimigo': return { texto: 'INIMIGO AGINDO...', icone: '⏳', cor: '#ff4444' }
+    default: return { texto: '', icone: '', cor: '#888' }
+  }
+}
+
 export default function Batalha({ onVitoria, onDerrota }) {
   const store = useArenaTaticsStore()
   const batalha = store.batalha
-  const [faseAcao, setFaseAcao] = useState('idle') // idle | mover | skill | target | inimigo
+  const [faseAcao, setFaseAcao] = useState('idle') // idle | actionMenu | mover | skillSelect | target | inimigo
   const [selectedAlly, setSelectedAlly] = useState(null)
   const [selectedSkill, setSelectedSkill] = useState(null)
   const [alcance, setAlcance] = useState([])
   const [danos, setDanos] = useState([])
   const [eventoAtual, setEventoAtual] = useState(null)
+  const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu nesta ação
   const eventosUsados = useRef([])
   const danoId = useRef(0)
 
   if (!batalha) return null
   const { aliados, inimigos, turno } = batalha
+  const faseLabel = getFaseLabel(faseAcao)
 
+  // ── Helpers visuais ──
   const showDano = (v, x, y, crit = false) => {
     const id = danoId.current++; setDanos(d => [...d, { id, valor: v, x, y, critico: crit }])
     setTimeout(() => setDanos(d => d.filter(dd => dd.id !== id)), 900)
   }
 
-  const handleAllyClick = (a) => {
-    if (faseAcao !== 'idle') return
-    setSelectedAlly(a); setAlcance(getAlcanceMovimento(a)); setFaseAcao('mover')
+  const limparSelecao = () => {
+    setSelectedAlly(null); setSelectedSkill(null); setAlcance([]); setJaMoveu(false)
   }
 
+  // ── 1. IDLE → clicou no personagem → ACTION MENU ──
+  const handleAllyClick = (a) => {
+    if (faseAcao !== 'idle') return
+    setSelectedAlly(a); setJaMoveu(false); setFaseAcao('actionMenu')
+  }
+
+  // ── 2. ACTION MENU → escolheu MOVER ──
+  const handleActionMover = () => {
+    if (!selectedAlly) return
+    setAlcance(getAlcanceMovimento(selectedAlly)); setFaseAcao('mover')
+  }
+
+  // ── 2b. ACTION MENU → escolheu ATACAR ──
+  const handleActionAtacar = () => {
+    if (!selectedAlly) return
+    setAlcance([]); setFaseAcao('skillSelect')
+  }
+
+  // ── 2c. ACTION MENU → fechou (volta pra idle) ──
+  const handleActionClose = () => {
+    limparSelecao(); setFaseAcao('idle')
+  }
+
+  // ── 3. MOVER → clicou numa casa ──
   const handleMoveClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedAlly) return
     selectedAlly.x = x; selectedAlly.y = y
-    setAlcance([]); setFaseAcao('skill')
+    setJaMoveu(true); setAlcance([]); setFaseAcao('actionMenu')
   }
 
   const handleCancelMove = () => {
-    setSelectedAlly(null); setAlcance([]); setFaseAcao('idle')
+    setAlcance([]); setFaseAcao('actionMenu')
   }
 
-  const handleBackToSkills = () => {
-    setSelectedSkill(null); setAlcance([]); setFaseAcao('skill')
-  }
-
+  // ── 4. SKILL SELECT → escolheu uma skill ──
   const handleSkillSelect = (skill) => {
     setSelectedSkill(skill); setAlcance(getAlcanceSkill(selectedAlly, skill)); setFaseAcao('target')
   }
 
+  const handleCloseSkill = () => {
+    setSelectedSkill(null); setFaseAcao('actionMenu')
+  }
+
+  // ── 5. TARGET → clicou no grid ──
   const handleTargetClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedSkill || !selectedAlly) return
     const alvo = inimigos.find(i => i.x === x && i.y === y)
@@ -83,7 +125,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     alvo.hp = Math.max(0, alvo.hp - dano)
     showDano(dano, x * 48 + 24, y * 48 + 24, crit)
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
-    setAlcance([]); setSelectedAlly(null); setSelectedSkill(null); setFaseAcao('idle')
+    limparSelecao(); setFaseAcao('idle')
 
     if (alvo.hp <= 0) {
       const rest = inimigos.filter(i => i.hp > 0)
@@ -95,12 +137,18 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setTimeout(() => turnoInimigo(), 600)
   }
 
+  const handleBackToSkills = () => {
+    setSelectedSkill(null); setAlcance([]); setFaseAcao('skillSelect')
+  }
+
+  // ── Grid click dispatcher ──
   const handleGridClick = (x, y, cel) => {
     if (faseAcao === 'mover') handleMoveClick(x, y, cel)
     else if (faseAcao === 'target') handleTargetClick(x, y, cel)
-    else if (cel.aliado) handleAllyClick(cel.aliado)
+    else if (faseAcao === 'idle' && cel.aliado) handleAllyClick(cel.aliado)
   }
 
+  // ── ENEMY TURN ──
   const turnoInimigo = useCallback(() => {
     setFaseAcao('inimigo')
     const alvo = [...aliados].sort((a, b) => a.hp - b.hp)[0]
@@ -123,12 +171,32 @@ export default function Batalha({ onVitoria, onDerrota }) {
     }, 900)
   }, [aliados, inimigos, turno, store])
 
+  // ── END TURN ──
+  const handleEndTurn = () => {
+    limparSelecao(); turnoInimigo()
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', position: 'relative', maxWidth: 480, margin: '0 auto' }}>
+      {/* Evento banner */}
       <AnimatePresence>{eventoAtual && <EventoBanner evento={eventoAtual} onClose={() => setEventoAtual(null)} />}</AnimatePresence>
+
+      {/* Phase indicator */}
       <TurnoIndicator turno={turno} fase={faseAcao === 'inimigo' ? 'inimigo' : 'player'} />
 
-      {/* Grid vertical */}
+      {/* Phase context bar */}
+      {faseAcao !== 'inimigo' && (
+        <div style={{
+          textAlign: 'center', padding: '2px 0',
+          fontFamily: 'Courier New', fontSize: '0.6rem',
+          color: faseLabel.cor, letterSpacing: '0.1em',
+          background: `linear-gradient(90deg, transparent, ${faseLabel.cor}11, transparent)`,
+        }}>
+          {faseLabel.icone} {faseLabel.texto}
+        </div>
+      )}
+
+      {/* Grid */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
         <Grid aliados={aliados} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} />
@@ -137,38 +205,71 @@ export default function Batalha({ onVitoria, onDerrota }) {
       <StatusBar personagens={aliados.filter(a => a.hp > 0)} lado="aliado" />
       <StatusBar personagens={inimigos.filter(i => i.hp > 0)} lado="inimigo" />
 
+      {/* ── ACTION MENU (bottom sheet) ── */}
       <AnimatePresence>
-        {faseAcao === 'skill' && selectedAlly && (
-          <SkillModal personagem={selectedAlly} skills={getSkills(selectedAlly)}
-            onSelect={handleSkillSelect}
-            onClose={() => { setFaseAcao('idle'); setSelectedAlly(null); setAlcance([]) }} />
+        {faseAcao === 'actionMenu' && selectedAlly && (
+          <ActionMenu
+            personagem={selectedAlly}
+            onMover={handleActionMover}
+            onAtacar={handleActionAtacar}
+            onItem={() => {}} // placeholder
+            onClose={handleActionClose}
+          />
         )}
       </AnimatePresence>
 
-      {/* Botões de aliado */}
+      {/* ── SKILL MODAL ── */}
+      <AnimatePresence>
+        {faseAcao === 'skillSelect' && selectedAlly && (
+          <SkillModal personagem={selectedAlly} skills={getSkills(selectedAlly)}
+            onSelect={handleSkillSelect}
+            onClose={handleCloseSkill} />
+        )}
+      </AnimatePresence>
+
+      {/* ── IDLE: ally buttons + END TURN ── */}
       {faseAcao === 'idle' && (
-        <div style={{ display: 'flex', gap: 6, padding: '8px', background: 'linear-gradient(0deg, #0a0a0a, transparent)' }}>
-          {aliados.filter(a => a.hp > 0).map(a => {
-            const cor = getCorPorElemental(a.elemental || 'fogo')
-            return (
-              <motion.button key={a.id} whileTap={{ scale: 0.95 }} onClick={() => handleAllyClick(a)}
-                style={{
-                  flex: 1, padding: '0.6rem 0.4rem', borderRadius: 10,
-                  background: `linear-gradient(135deg, ${cor}22, #0d0d0d)`,
-                  border: `1px solid ${cor}44`, color: '#eee', fontFamily: 'Courier New',
-                  fontSize: '0.65rem', cursor: 'pointer', textAlign: 'center',
-                }}>
-                <div style={{ fontSize: '1rem', marginBottom: 2 }}>
-                  {a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
-                </div>
-                <div style={{ fontWeight: 700, fontSize: '0.6rem' }}>{a.nome}</div>
-                <div style={{ fontSize: '0.5rem', color: '#888' }}>{a.hp}/{a.hpMax}</div>
-              </motion.button>
-            )
-          })}
+        <div style={{ background: 'linear-gradient(0deg, #0a0a0a, transparent)' }}>
+          {/* Ally buttons */}
+          <div style={{ display: 'flex', gap: 6, padding: '8px 8px 4px' }}>
+            {aliados.filter(a => a.hp > 0).map(a => {
+              const cor = getCorPorElemental(a.elemental || 'fogo')
+              return (
+                <motion.button key={a.id} whileTap={{ scale: 0.95 }} onClick={() => handleAllyClick(a)}
+                  style={{
+                    flex: 1, padding: '0.6rem 0.4rem', borderRadius: 10,
+                    background: `linear-gradient(135deg, ${cor}22, #0d0d0d)`,
+                    border: `1px solid ${cor}44`, color: '#eee', fontFamily: 'Courier New',
+                    fontSize: '0.65rem', cursor: 'pointer', textAlign: 'center',
+                  }}>
+                  <div style={{ fontSize: '1rem', marginBottom: 2 }}>
+                    {a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.6rem' }}>{a.nome}</div>
+                  <div style={{ fontSize: '0.5rem', color: '#888' }}>{a.hp}/{a.hpMax}</div>
+                </motion.button>
+              )
+            })}
+          </div>
+          {/* End Turn button */}
+          <div style={{ padding: '4px 8px 8px' }}>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={handleEndTurn}
+              style={{
+                width: '100%', padding: '0.5rem', borderRadius: 8, cursor: 'pointer',
+                background: 'linear-gradient(135deg, #333, #111)',
+                border: '1px solid #555', color: '#888',
+                fontFamily: 'Courier New', fontSize: '0.65rem',
+                fontWeight: 700, letterSpacing: '0.15em',
+              }}>
+              ⏭ TERMINAR TURNO
+            </motion.button>
+          </div>
         </div>
       )}
 
+      {/* ── Mover instruction ── */}
       {faseAcao === 'mover' && (
         <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
           <span style={{ color: '#FFD700' }}>👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
@@ -178,6 +279,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
           </button>
         </div>
       )}
+
+      {/* ── Target instruction ── */}
       {faseAcao === 'target' && (
         <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
           <span style={{ color: '#FF4444' }}>⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</span>
@@ -185,6 +288,13 @@ export default function Batalha({ onVitoria, onDerrota }) {
             style={{ marginLeft: 8, background: 'none', border: '1px solid #FFD700', color: '#FFD700', borderRadius: 6, padding: '2px 10px', fontSize: '0.6rem', cursor: 'pointer', fontFamily: 'Courier New' }}>
             VOLTAR ◀
           </button>
+        </div>
+      )}
+
+      {/* ── Inimigo agindo ── */}
+      {faseAcao === 'inimigo' && (
+        <div style={{ textAlign: 'center', padding: 6, color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.65rem' }}>
+          ⏳ INIMIGO AGINDO...
         </div>
       )}
     </div>
