@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-06*  
-*Versão: 2.28*  |  `[SITE] versão carregada: 2.28`
+*Versão: 2.29*  |  `[SITE] versão carregada: 2.29`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -78,11 +78,11 @@
     │   │   ├── data/                    # arena-enemies.json (8 inimigos tier 1-4)
     │   │   ├── screens/                 # Telas de combate
     │   │   └── components/             # Componentes auxiliares
-    │   ├── ArenaTatics/                 # LDI TATICS — sistema tático por turnos
-    │   │   ├── store/                   # useArenaTaticsStore.js
-    │   │   ├── data/                    # Personagens, IAs, habilidades
-    │   │   ├── screens/                 # Telas do jogo
-    │   │   └── components/             # GridCanvas (isométrico), Grid (legado), UI, painéis
+    │   ├── ArenaTatics/                 # LDI TATICS — sistema tático por turnos EM REFATORAÇÃO
+    │   │   ├── store/                   # useArenaTaticsStore.js (Zustand + Supabase save)
+    │   │   ├── data/                    # roster.js (20 personagens), aiPersonalities.js (16 IAs), classes.js, combat.js, elementais.js, eventos.js, juice.js
+    │   │   ├── screens/                 # Intro, TeamSelect, Batalha, PreBatalha, Vitoria, Derrota, SimulacaoAuto, ClasseSelect, Customizacao, TeamBuilder
+    │   │   └── components/             # GridCanvas (isométrico Canvas 2D), ActionMenu, SkillModal, StatusBar, DanoPopup, TurnoIndicator, TiledMap
     │   ├── Duelo/                       # DUELO LDI — card game 1v1 vs IA
     │   │   ├── store/                   # useDueloStore.js
     │   │   ├── data/                    # Cartas, habilidades
@@ -136,7 +136,7 @@
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
 | `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v5.3.8 | LDI TATICS — sistema tático por turnos, grid 16×16 isométrico (TILE 80×40), câmera com margem 150px, 20 personagens, 3v3, equipamentos, desbloqueio, juice visual, 16 IAs, simulação automática |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v5.3.8 | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Próximo: city overworld top-down para explorar e iniciar batalhas.** |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
