@@ -26,12 +26,13 @@ function randomPick(arr, n) {
 }
 
 export default function ArenaTaticsRoute() {
-  const { user, perfil } = useAuth()
+  const { user, perfil, carregando: authCarregando } = useAuth()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useArenaTaticsStore()
   const [fase, setFase] = useState('intro')
   const [loading, setLoading] = useState(false)
+  const [erro, setErro] = useState(null)
   const [simConfig, setSimConfig] = useState(null)
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
@@ -43,31 +44,69 @@ export default function ArenaTaticsRoute() {
   useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
   const handleIntroEnter = async () => {
-    if (!user) return
-    setLoading(true)
+    setErro(null)
 
-    let ids = store.personagensIds
-
-    if (!ids || ids.length === 0) {
-      if (isAdmin) {
-        // Admin vai para tela de seleção
+    // Se auth ainda estiver carregando, mostra loading e tenta de novo
+    if (authCarregando) {
+      console.log('[TATICS] Auth ainda carregando... user=', !!user, 'carregando=', authCarregando)
+      setLoading(true)
+      // Aguarda um pouco e tenta novamente
+      await new Promise(r => setTimeout(r, 1500))
+      // Se ainda não tem user, falha
+      if (!user) {
+        console.log('[TATICS] Usuário não autenticado após espera')
         setLoading(false)
-        setFase('teamSelect')
+        setErro('Faça login para acessar o sistema')
         return
       }
-      // Usuário normal: randomiza 2
-      ids = randomPick(ROSTER, 2)
-      store.setPersonagensIds(ids)
-      await supabase.from('arena_tatica_saves').upsert({
-        user_id: user.id,
-        personagens_ids: ids,
-        sdr: 0, xp: 0, nivel: 1, vitorias: 0, derrotas: 0,
-      }, { onConflict: 'user_id' })
     }
 
-    store.iniciarBatalha(ids)
-    setFase('combate')
-    setLoading(false)
+    if (!user) {
+      console.log('[TATICS] handleIntroEnter: user é null — abortando')
+      setErro('Faça login para acessar o sistema')
+      return
+    }
+
+    console.log('[TATICS] handleIntroEnter: user logado, perfil=', perfil, 'isAdmin=', isAdmin)
+    setLoading(true)
+
+    try {
+      let ids = store.personagensIds
+      console.log('[TATICS] personagensIds do save:', ids)
+
+      if (!ids || ids.length === 0) {
+        if (isAdmin) {
+          console.log('[TATICS] Admin detectado — enviando para TeamSelect')
+          setLoading(false)
+          setFase('teamSelect')
+          return
+        }
+        // Usuário normal: randomiza 2
+        console.log('[TATICS] Usuário normal — randomizando personagens')
+        ids = randomPick(ROSTER, 2)
+        store.setPersonagensIds(ids)
+        const { error: upsertError } = await supabase.from('arena_tatica_saves').upsert({
+          user_id: user.id,
+          personagens_ids: ids,
+          sdr: 0, xp: 0, nivel: 1, vitorias: 0, derrotas: 0,
+        }, { onConflict: 'user_id' })
+        if (upsertError) {
+          console.error('[TATICS] Erro ao upsert save:', upsertError)
+          setLoading(false)
+          setErro('Erro ao salvar progresso: ' + upsertError.message)
+          return
+        }
+      }
+
+      console.log('[TATICS] Iniciando batalha com', ids.length, 'personagens')
+      store.iniciarBatalha(ids)
+      setFase('combate')
+      setLoading(false)
+    } catch (err) {
+      console.error('[TATICS] Erro em handleIntroEnter:', err)
+      setLoading(false)
+      setErro(err.message || 'Erro ao acessar o sistema')
+    }
   }
 
   const handleTeamConfirm = async (selectedIds, equipMap = {}) => {
@@ -139,6 +178,16 @@ export default function ArenaTaticsRoute() {
       {loading && (
         <div className="tatics-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#08080C', color: '#00B4D8', fontFamily: 'Rajdhani', fontSize: '0.8rem', letterSpacing: '0.15em' }}>
           CARREGANDO SISTEMA...
+        </div>
+      )}
+      {erro && fase === 'intro' && (
+        <div className="tatics-container" style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(8,8,12,0.92)', zIndex: 9999, flexDirection: 'column', gap: 16 }}>
+          <div style={{ color: '#E24B4A', fontFamily: 'Rajdhani', fontSize: '0.7rem', letterSpacing: '0.15em', textAlign: 'center', padding: 24, border: '1px solid #E24B4A', background: 'rgba(226,75,74,0.08)', borderRadius: 8, maxWidth: 400 }}>
+            ⚠️ {erro}
+          </div>
+          <button onClick={() => setErro(null)} className="tatics-intro-btn" style={{ fontSize: '0.5rem', padding: '8px 24px' }}>
+            VOLTAR
+          </button>
         </div>
       )}
     </div>
