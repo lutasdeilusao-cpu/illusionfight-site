@@ -16,6 +16,7 @@ export default function Passear({ onConcluir }) {
   const [stage, setStage] = useState(1)
   const [dispScore, setDisp] = useState(0)
   const [dispCoins, setDispCoins] = useState(0)
+  const [historico, setHistorico] = useState([])
 
   useEffect(() => {
     const img = new Image()
@@ -72,7 +73,7 @@ export default function Passear({ onConcluir }) {
     ctx.restore()
     ctx.fillStyle = 'rgba(0,0,0,0.8)'; ctx.fillRect(0, 0, W, 40)
     ctx.fillStyle = '#fff'; ctx.font = 'bold 14px monospace'; ctx.textBaseline = 'middle'
-    ctx.textAlign = 'left'; ctx.fillText('⭐ ' + s.score, 12, 20)
+    ctx.textAlign = 'left'; ctx.fillText('\uD83D\uDEE3\uFE0F ' + s.score, 12, 20)
     ctx.textAlign = 'right'
     let h = ''; for (let i = 0; i < LIVES; i++) h += i < s.lives ? '❤️' : '🖤'
     ctx.fillText(h, W - 12, 20)
@@ -123,9 +124,20 @@ export default function Passear({ onConcluir }) {
   }
 
   function endGame() {
-    g.current.running = false
+    const s = g.current
+    s.running = false
     if (intervalRef.current) clearInterval(intervalRef.current)
-    setDisp(g.current.score)
+    setDisp(s.score)
+    setDispCoins(s.coinsCollected)
+    // Salva no historico local
+    const entry = { score: s.score, coins: s.coinsCollected, stage: s.stage, date: new Date().toLocaleString() }
+    try {
+      const saved = JSON.parse(localStorage.getItem('enduro-historico') || '[]')
+      saved.unshift(entry)
+      if (saved.length > 5) saved.length = 5
+      localStorage.setItem('enduro-historico', JSON.stringify(saved))
+      setHistorico(saved)
+    } catch (e) {}
     setPhase('gameover')
     try { store.passear(); store.verificarBadge?.(store._userId, 'passeio') } catch (e) {}
   }
@@ -165,6 +177,14 @@ export default function Passear({ onConcluir }) {
     ca.addEventListener('mouseup', oe); ca.addEventListener('mouseleave', oe)
   }, [phase])
 
+  useEffect(() => {
+    // Carrega historico ao montar
+    try {
+      const saved = JSON.parse(localStorage.getItem('enduro-historico') || '[]')
+      setHistorico(saved)
+    } catch (e) {}
+  }, [])
+
   useEffect(() => { return () => { if (intervalRef.current) clearInterval(intervalRef.current); g.current.running = false } }, [])
 
   return (
@@ -201,8 +221,22 @@ export default function Passear({ onConcluir }) {
             <div style={{ fontSize: 48, marginBottom: 8 }}>💥</div>
             <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>FIM DE PASSEIO</p>
             {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>Todas as pistas concluidas!</p>}
-            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 8, color: '#F5A623' }}>⭐ {dispScore}</p>
-            <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>pista {stage}/{STAGE_COUNT}</p>
+            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 4, color: '#F5A623' }}>\uD83D\uDEE3\uFE0F {dispScore}</p>
+            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 16 }}>\u2B50 {dispCoins} coletadas</p>
+            <p style={{ fontSize: 13, color: '#888', marginBottom: 8 }}>pista {stage}/{STAGE_COUNT}</p>
+            {historico.length > 0 && (
+              <div style={{ fontSize: 10, color: '#555', marginBottom: 12, width: '100%', textAlign: 'left' }}>
+                <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ultimos resultados:</p>
+                {historico.map((h, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '1px 0', fontFamily: 'monospace' }}>
+                    <span>\uD83D\uDEE3\uFE0F {h.score}</span>
+                    <span>\u2B50 {h.coins}</span>
+                    <span>p{h.stage}</span>
+                    <span style={{ color: '#444' }}>{h.date}</span>
+                  </div>
+                ))}
+              </div>
+            )}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">JOGAR DE NOVO</motion.button>
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>VOLTAR</motion.button>
