@@ -149,7 +149,7 @@
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase Auth, redireciona para /perfil |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha — migra achievements locais |
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier |
-| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard
+| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard |
 
 ### Estrutura de arquivos
 
