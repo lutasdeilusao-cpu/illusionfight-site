@@ -68,8 +68,24 @@ export const useArenaTaticsStore = create((set, get) => ({
       x: 5 + (i % 2),
       y: 5 + i * 4,
     }))
+    // Gerar obstáculos em posições aleatórias (evitando spawns)
+    const todos = [p, ...aliadosTime, ...inimigosPos]
+    const ocupadas = new Set(todos.map(t => `${t.x},${t.y}`))
+    const obstrucoes = []
+    const numObs = 5 + Math.floor(Math.random() * 4)
+    let tentativas = 0
+    while (obstrucoes.length < numObs && tentativas < 200) {
+      tentativas++
+      const x = 1 + Math.floor(Math.random() * 6) // margem 1-6
+      const y = 2 + Math.floor(Math.random() * 12) // margem 2-13
+      const key = `${x},${y}`
+      if (!ocupadas.has(key)) {
+        ocupadas.add(key)
+        obstrucoes.push({ x, y })
+      }
+    }
     return {
-      batalha: { turno: 1, fase: 'player', aliados: [p, ...aliadosTime], inimigos: inimigosPos, rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [] },
+      batalha: { turno: 1, fase: 'player', aliados: [p, ...aliadosTime], inimigos: inimigosPos, obstrucoes, rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [] },
       fase: 'pre',
     }
   }),

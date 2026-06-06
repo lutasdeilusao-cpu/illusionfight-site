@@ -17,29 +17,58 @@ import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
 // ── Helpers ──
 function getSkills(p) { const c = CLASSES[p.classe]; return c?.skills_base || [] }
 
-function getAlcanceMovimento(p, l = 16, c = 8) {
+// Conjunto de células ocupadas (aliados, inimigos, obstáculos)
+function getOcupadas(aliados, inimigos, obstrucoes, ignoreId = null) {
+  const set = new Set()
+  aliados.forEach(a => { if (a.id !== ignoreId && a.hp > 0) set.add(`${a.x},${a.y}`) })
+  inimigos.forEach(i => { if (i.hp > 0) set.add(`${i.x},${i.y}`) })
+  obstrucoes.forEach(o => set.add(`${o.x},${o.y}`))
+  return set
+}
+
+function getAlcanceMovimento(p, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 8) {
   const r = 3; const casas = []
+  const ocup = getOcupadas(aliados, inimigos, obstrucoes, p.id)
   for (let dx = -r; dx <= r; dx++)
     for (let dy = -r; dy <= r; dy++)
-      if (Math.abs(dx) + Math.abs(dy) <= r) { const nx = p.x + dx, ny = p.y + dy; if (nx >= 0 && nx < c && ny >= 0 && ny < l) casas.push({ x: nx, y: ny }) }
+      if (Math.abs(dx) + Math.abs(dy) <= r) {
+        const nx = p.x + dx, ny = p.y + dy
+        if (nx >= 0 && nx < c && ny >= 0 && ny < l && !ocup.has(`${nx},${ny}`))
+          casas.push({ x: nx, y: ny })
+      }
   return casas
 }
 
-function getAlcanceSkill(p, skill, l = 16, c = 8) {
+function temLinhaVisao(x1, y1, x2, y2, obstrucoes = []) {
+  // Verifica cada célula no caminho horizontal→vertical
+  let cx = x1, cy = y1
+  const obsSet = new Set(obstrucoes.map(o => `${o.x},${o.y}`))
+  // Horizontal
+  while (cx !== x2) { cx += cx < x2 ? 1 : -1; if ((cx !== x2 || cy !== y2) && obsSet.has(`${cx},${cy}`)) return false }
+  // Vertical
+  while (cy !== y2) { cy += cy < y2 ? 1 : -1; if ((cx !== x2 || cy !== y2) && obsSet.has(`${cx},${cy}`)) return false }
+  return true
+}
+
+function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 8) {
   const casas = []
+  const ocup = getOcupadas(aliados, inimigos, obstrucoes)
   for (let dx = -skill.alcance; dx <= skill.alcance; dx++)
     for (let dy = -skill.alcance; dy <= skill.alcance; dy++)
-      if (Math.abs(dx) + Math.abs(dy) <= skill.alcance) { const nx = p.x + dx, ny = p.y + dy; if (nx >= 0 && nx < c && ny >= 0 && ny < l) casas.push({ x: nx, y: ny }) }
+      if (Math.abs(dx) + Math.abs(dy) <= skill.alcance) {
+        const nx = p.x + dx, ny = p.y + dy
+        if (nx >= 0 && nx < c && ny >= 0 && ny < l && !ocup.has(`${nx},${ny}`))
+          if (temLinhaVisao(p.x, p.y, nx, ny, obstrucoes))
+            casas.push({ x: nx, y: ny })
+      }
   return casas
 }
 
-// ── Path calculator for movement animation ──
+// ── Path calculator for movement animation (assume destino válido) ──
 function calcularCaminho(x1, y1, x2, y2) {
   const path = []
   let cx = x1, cy = y1
-  // Move horizontal first
   while (cx !== x2) { cx += cx < x2 ? 1 : -1; path.push({ x: cx, y: cy }) }
-  // Then vertical
   while (cy !== y2) { cy += cy < y2 ? 1 : -1; path.push({ x: cx, y: cy }) }
   return path
 }
@@ -81,7 +110,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const V = 600 // base speed ms (slower = more strategic)
 
   if (!batalha) return null
-  const { aliados, inimigos, turno } = batalha
+  const { aliados, inimigos, turno, obstrucoes = [] } = batalha
   const faseLabel = getFaseLabel(faseAcao)
 
   // Se estiver animando movimento, mostra o ally na posição animada
@@ -124,7 +153,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
   // ── 2. ACTION MENU → escolheu MOVER ──
   const handleActionMover = () => {
     if (!selectedAlly) return
-    setAlcance(getAlcanceMovimento(selectedAlly)); setFaseAcao('mover')
+    setAlcance(getAlcanceMovimento(selectedAlly, aliados, inimigos, obstrucoes)); setFaseAcao('mover')
   }
 
   // ── 2b. ACTION MENU → escolheu ATACAR ──
@@ -178,7 +207,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
   // ── 4. SKILL SELECT → escolheu uma skill ──
   const handleSkillSelect = (skill) => {
-    setSelectedSkill(skill); setAlcance(getAlcanceSkill(selectedAlly, skill)); setFaseAcao('target')
+    setSelectedSkill(skill); setAlcance(getAlcanceSkill(selectedAlly, skill, aliados, inimigos, obstrucoes)); setFaseAcao('target')
   }
 
   const handleCloseSkill = () => {
@@ -270,7 +299,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       if (podeAtacar) {
         // ── JÁ ESTÁ EM ALCANCE: mostra grid de ataque ──
-        const attackRange = getAlcanceSkill(inimigo, melhorSkill)
+        const attackRange = getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes)
 
         setTimeout(() => {
           setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
@@ -299,7 +328,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         }, V * 0.8)
       } else {
         // ── PRECISA MOVER: mostra grid de movimento ──
-        const moveRange = getAlcanceMovimento(inimigo)
+        const moveRange = getAlcanceMovimento(inimigo, aliados, inimigos, obstrucoes)
 
         setTimeout(() => {
           setEnemyDisplay({ subFase: 'movePreview', alcance: moveRange, animPos: null, currentEnemyId: inimigo.id })
@@ -334,7 +363,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
               const pode2 = skill2 && skill2.alcance >= dist2
 
               if (pode2) {
-                const attackRange = getAlcanceSkill(inimigo, skill2)
+                const attackRange = getAlcanceSkill(inimigo, skill2, aliados, inimigos, obstrucoes)
                 setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
                 setEnemyLog(`⚡ ${inimigo.nome} usa ${skill2.nome}`)
                 setEnemyTarget({ x: alvo.x, y: alvo.y })
@@ -381,7 +410,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     }
 
     setTimeout(processarInimigo, V * 0.8)
-  }, [aliados, inimigos, turno, store])
+  }, [aliados, inimigos, turno, store, obstrucoes])
 
   // ── END TURN ──
   const handleEndTurn = () => {
@@ -411,7 +440,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
-        <Grid aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} />
+        <Grid aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} />
       </div>
 
       <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
