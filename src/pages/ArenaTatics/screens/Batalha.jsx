@@ -72,28 +72,46 @@ function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [],
   return casas
 }
 
-// ── Path calculator — evita células bloqueadas tentanto rotas alternativas ──
-function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set()) {
-  function montarRota(primeiroHorizontal) {
-    const pts = []
-    let cx = x1, cy = y1
-    if (primeiroHorizontal) {
-      while (cx !== x2) { cx += cx < x2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
-      while (cy !== y2) { cy += cy < y2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
-    } else {
-      while (cy !== y2) { cy += cy < y2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
-      while (cx !== x2) { cx += cx < x2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
+// ── Path calculator — BFS para contornar obstáculos corretamente ──
+function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 8) {
+  if (x1 === x2 && y1 === y2) return []
+  
+  // BFS: encontra caminho mais curto evitando bloqueadas
+  const queue = [{ x: x1, y: y1, path: [] }]
+  const visited = new Set([`${x1},${y1}`])
+  
+  while (queue.length > 0) {
+    const { x, y, path } = queue.shift()
+    
+    // 4 direções: cima, baixo, esquerda, direita
+    const neighbors = [
+      { nx: x, ny: y - 1 }, // cima
+      { nx: x, ny: y + 1 }, // baixo
+      { nx: x - 1, ny: y }, // esquerda
+      { nx: x + 1, ny: y }  // direita
+    ]
+    
+    for (const { nx, ny } of neighbors) {
+      // Verifica limites do grid
+      if (nx < 0 || nx >= c || ny < 0 || ny >= l) continue
+      
+      const key = `${nx},${ny}`
+      // Pula se já visitou ou se está bloqueado
+      if (visited.has(key) || bloqueadas.has(key)) continue
+      
+      const newPath = [...path, { x: nx, y: ny }]
+      
+      // Chegou no destino!
+      if (nx === x2 && ny === y2) return newPath
+      
+      visited.add(key)
+      queue.push({ x: nx, y: ny, path: newPath })
     }
-    return pts
   }
-  // Tenta horizontal→vertical
-  const rotaA = montarRota(true)
-  if (!rotaA.some(p => bloqueadas.has(`${p.x},${p.y}`))) return rotaA
-  // Tenta vertical→horizontal (contorno)
-  const rotaB = montarRota(false)
-  if (!rotaB.some(p => bloqueadas.has(`${p.x},${p.y}`))) return rotaB
-  // Fallback: rotaA mesmo que passe por cima
-  return rotaA
+  
+  // Sem rota possível
+  console.warn(`[Pathfinding] Sem rota de (${x1},${y1}) para (${x2},${y2})`)
+  return []
 }
 
 // ── Fase label helper ──
