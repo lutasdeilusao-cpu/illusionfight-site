@@ -72,13 +72,28 @@ function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [],
   return casas
 }
 
-// ── Path calculator for movement animation (assume destino válido) ──
-function calcularCaminho(x1, y1, x2, y2) {
-  const path = []
-  let cx = x1, cy = y1
-  while (cx !== x2) { cx += cx < x2 ? 1 : -1; path.push({ x: cx, y: cy }) }
-  while (cy !== y2) { cy += cy < y2 ? 1 : -1; path.push({ x: cx, y: cy }) }
-  return path
+// ── Path calculator — evita células bloqueadas tentanto rotas alternativas ──
+function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set()) {
+  function montarRota(primeiroHorizontal) {
+    const pts = []
+    let cx = x1, cy = y1
+    if (primeiroHorizontal) {
+      while (cx !== x2) { cx += cx < x2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
+      while (cy !== y2) { cy += cy < y2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
+    } else {
+      while (cy !== y2) { cy += cy < y2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
+      while (cx !== x2) { cx += cx < x2 ? 1 : -1; pts.push({ x: cx, y: cy }) }
+    }
+    return pts
+  }
+  // Tenta horizontal→vertical
+  const rotaA = montarRota(true)
+  if (!rotaA.some(p => bloqueadas.has(`${p.x},${p.y}`))) return rotaA
+  // Tenta vertical→horizontal (contorno)
+  const rotaB = montarRota(false)
+  if (!rotaB.some(p => bloqueadas.has(`${p.x},${p.y}`))) return rotaB
+  // Fallback: rotaA mesmo que passe por cima
+  return rotaA
 }
 
 // ── Fase label helper ──
@@ -183,7 +198,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const handleMoveClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedAlly) return
 
-    const path = calcularCaminho(selectedAlly.x, selectedAlly.y, x, y)
+    const ocup = getOcupadas(aliados, inimigos, obstrucoes, selectedAlly.id)
+    const path = calcularCaminho(selectedAlly.x, selectedAlly.y, x, y, ocup)
     if (path.length === 0) { setFaseAcao('actionMenu'); return }
 
     // Mostra só o caminho, apaga o resto
@@ -367,7 +383,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
           if (!bestCell) { currentIdx++; setTimeout(processarInimigo, V * 0.3); return }
 
           // ── ANIMA CAMINHO ──
-          const path = calcularCaminho(inimigo.x, inimigo.y, bestCell.x, bestCell.y)
+          const ocup = getOcupadas(aliados, inimigos, obstrucoes, inimigo.id)
+          const path = calcularCaminho(inimigo.x, inimigo.y, bestCell.x, bestCell.y, ocup)
           const TICK = V
           let step = 0
 
