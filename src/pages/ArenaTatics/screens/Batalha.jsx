@@ -292,7 +292,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const alvo = inimigos.find(i => i.x === x && i.y === y)
     if (!alvo) return
     const mult = getMultiplicadorElemental(selectedAlly.elemental, alvo.elemental)
-    const dano = Math.round(10 * mult); const crit = Math.random() < 0.2
+    const dano = Math.round((selectedSkill.dano || 10) * mult); const crit = Math.random() < 0.2
     alvo.hp = Math.max(0, alvo.hp - dano)
     showDano(dano, x * 48 + 24, y * 48 + 24, crit)
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
@@ -330,9 +330,13 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
   // ── Helper: skills do inimigo por ID ──
   function getInimigoSkills(inimigo) {
+    // Novos personagens já têm skills embutidas
+    if (inimigo.skills && inimigo.skills.length > 0 && inimigo.skills[0].dano !== undefined) {
+      return inimigo.skills
+    }
+    // Fallback: busca da classe
     const cls = CLASSES[inimigo.classe]
     if (!cls) return []
-    // Se não tem skills específicas, usa todas as base
     const skillIds = inimigo.skills || cls.skills_base.map(s => s.id)
     return skillIds.map(id => cls.skills_base.find(s => s.id === id)).filter(Boolean)
   }

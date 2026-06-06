@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '2.24'
+export const SITE_VERSION = '2.25'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION     = '1.5.29'   // Pesadelo Particular
@@ -20,7 +20,7 @@ export const DUELO_VERSION  = '1.2.8'    // Duelo LDI
 export const MINIGAMES_VERSION = '1.2.1' // MiniGames
 export const MP_VERSION     = '1.1.0'    // Top Trumps Multiplayer
 export const LDI_DIAG_VERSION = '1.0.4'  // LDI Diagnóstico
-export const TATICS_VERSION  = '4.2.3'   // Arena LDI Tatics
+export const TATICS_VERSION  = '4.3.0'   // Arena LDI Tatics
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
