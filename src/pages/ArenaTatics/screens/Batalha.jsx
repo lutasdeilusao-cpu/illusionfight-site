@@ -13,7 +13,7 @@ import { getMultiplicadorElemental } from '../data/elementais'
 import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
 import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
-import { resolverAtaque } from '../data/combat'
+import { resolverAtaque, processarStatus, temStatus, podeAgir, podeMover } from '../data/combat'
 
 // ── Helpers ──
 function getSkills(p) {
@@ -218,6 +218,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const handleAllyClick = (a) => {
     if (faseAcao !== 'idle') return
     if (a.jaMoveu && a.jaAtacou) return // exausto
+    if (temStatus(a, 'atordoamento')) return // atordoado
+    if (temStatus(a, 'silencio')) return // silenciado
+    if (temStatus(a, 'congelado')) return // congelado
     setSelectedAlly(a); setFaseAcao('actionMenu')
   }
 
@@ -375,6 +378,13 @@ export default function Batalha({ onVitoria, onDerrota }) {
         }
         setEnemyLog(''); setEnemyTarget(null)
         setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
+        // Processa status em todos os personagens ao fim do turno inimigo
+        ;[...aliados, ...inimigos].forEach(p => {
+          const r = processarStatus(p)
+          if (r.danoTotal > 0) {
+            showDano(r.danoTotal, p.x * 48 + 24, p.y * 48 + 24, false)
+          }
+        })
         store.avancarTurno(); setFaseAcao('idle')
         return
       }

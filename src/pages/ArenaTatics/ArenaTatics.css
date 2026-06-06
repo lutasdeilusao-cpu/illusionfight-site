@@ -676,6 +676,12 @@
   letter-spacing: 0.05em;
 }
 
+.tatics-status-icon {
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.6rem;
+}
+
 .tatics-status-hp {
   font-size: 0.55rem;
   font-family: 'JetBrains Mono', monospace;

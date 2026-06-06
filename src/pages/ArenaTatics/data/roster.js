@@ -151,6 +151,7 @@ export function construirPersonagem(rosterId, posX, posY, lado = 'aliado') {
     def_leve: Math.floor(t.atributos.resistencia * 0.5 + t.atributos.velocidade * 0.2),
     def_pesada: 50 + t.atributos.resistencia * 3,
     crit: Math.floor(t.atributos.tenacidade * 0.3),
+    status: [],
     jaMoveu: false,
     jaAtacou: false,
   }

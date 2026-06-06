@@ -1,3 +1,10 @@
+const STATUS_ICONS = {
+  sangramento: '🩸', envenenamento: '☠️', atordoamento: '💫',
+  imobilizacao: '⛓️', cegueira: '👁️‍🗨️', silencio: '🔇',
+  congelado: '❄️', queimadura: '🔥', medo: '😨', esmagado: '🗿',
+  lentidao: '🐢',
+}
+
 export default function StatusBar({ personagens = [], lado = 'aliado' }) {
   return (
     <div className={`tatics-statusbar ${lado === 'aliado' ? 'statusbar-aliado' : 'statusbar-inimigo'}`}>
@@ -6,7 +13,14 @@ export default function StatusBar({ personagens = [], lado = 'aliado' }) {
         return (
           <div key={p.id} className="tatics-status-card">
             <div className="tatics-status-header">
-              <span className="tatics-status-nome">{p.nome}</span>
+              <span className="tatics-status-nome">
+                {p.nome}
+                {p.status?.filter(s => STATUS_ICONS[s.tipo]).map(s => (
+                  <span key={s.tipo} className="tatics-status-icon" title={s.tipo}>
+                    {STATUS_ICONS[s.tipo]}
+                  </span>
+                ))}
+              </span>
               <span className="tatics-status-hp">{p.hp}/{p.hpMax}</span>
             </div>
             <div className="tatics-status-bar-bg">
