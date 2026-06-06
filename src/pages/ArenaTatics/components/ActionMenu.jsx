@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, jaMoveu }) {
+export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, jaMoveu, jaAtacou }) {
   return (
     <motion.div
       initial={{ y: '100%' }}
@@ -56,15 +56,26 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
           </motion.button>
 
           <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={onAtacar}
+            whileTap={!jaAtacou ? { scale: 0.95 } : {}}
+            onClick={!jaAtacou ? onAtacar : undefined}
             style={{
-              flex: 1, padding: '0.8rem 0.5rem', borderRadius: 12, cursor: 'pointer',
-              background: 'linear-gradient(135deg, #FF444422, #0d0d0d)',
-              border: '1px solid #FF444455', textAlign: 'center',
+              flex: 1, padding: '0.8rem 0.5rem', borderRadius: 12,
+              cursor: jaAtacou ? 'default' : 'pointer',
+              background: jaAtacou ? '#0a0a0a' : 'linear-gradient(135deg, #FF444422, #0d0d0d)',
+              border: `1px solid ${jaAtacou ? '#333' : '#FF444455'}`,
+              textAlign: 'center', opacity: jaAtacou ? 0.35 : 1,
+              transition: 'all 0.2s',
             }}>
-            <div style={{ fontSize: '1.3rem', marginBottom: 4 }}>⚔️</div>
-            <div style={{ color: '#FF4444', fontFamily: 'Courier New', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em' }}>ATACAR</div>
+            <div style={{ fontSize: '1.3rem', marginBottom: 4 }}>
+              {jaAtacou ? '🔒' : '⚔️'}
+            </div>
+            <div style={{
+              color: jaAtacou ? '#555' : '#FF4444',
+              fontFamily: 'Courier New', fontSize: '0.7rem',
+              fontWeight: 700, letterSpacing: '0.1em',
+            }}>
+              {jaAtacou ? 'JÁ ATACOU' : 'ATACAR'}
+            </div>
           </motion.button>
 
           <motion.button

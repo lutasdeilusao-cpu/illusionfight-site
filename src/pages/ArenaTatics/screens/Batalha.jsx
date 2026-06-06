@@ -96,7 +96,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [alcance, setAlcance] = useState([])
   const [danos, setDanos] = useState([])
   const [eventoAtual, setEventoAtual] = useState(null)
-  const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu nesta ação
+  const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu
+  const [jaAtacou, setJaAtacou] = useState(false) // se o personagem já atacou/usou item
   const [showEndConfirm, setShowEndConfirm] = useState(false)
   const [animPos, setAnimPos] = useState(null) // { x, y } | null — posição animada do movimento
   const [enemyTarget, setEnemyTarget] = useState(null) // { x, y } | null — destaque do alvo do inimigo
@@ -141,13 +142,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
   }
 
   const limparSelecao = () => {
-    setSelectedAlly(null); setSelectedSkill(null); setAlcance([]); setJaMoveu(false)
+    setSelectedAlly(null); setSelectedSkill(null); setAlcance([]); setJaMoveu(false); setJaAtacou(false)
+  }
+  const limparAcao = () => {
+    setSelectedSkill(null); setAlcance([])
   }
 
   // ── 1. IDLE → clicou no personagem → ACTION MENU ──
   const handleAllyClick = (a) => {
     if (faseAcao !== 'idle') return
-    setSelectedAlly(a); setJaMoveu(false); setFaseAcao('actionMenu')
+    setSelectedAlly(a); setJaMoveu(false); setJaAtacou(false); setFaseAcao('actionMenu')
   }
 
   // ── 2. ACTION MENU → escolheu MOVER ──
@@ -224,7 +228,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
     alvo.hp = Math.max(0, alvo.hp - dano)
     showDano(dano, x * 48 + 24, y * 48 + 24, crit)
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
-    limparSelecao()
 
     if (alvo.hp <= 0) {
       const rest = inimigos.filter(i => i.hp > 0)
@@ -233,8 +236,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
         return setTimeout(() => onVitoria(g), 500)
       }
     }
-    // Atacou → turno acaba automaticamente
-    setTimeout(() => turnoInimigo(), 600)
+
+    // Marca que atacou e bloqueia ATACAR
+    setJaAtacou(true)
+    limparAcao()
+
+    // Se já moveu também → ambos usados → fim do turno
+    if (jaMoveu) {
+      setTimeout(() => turnoInimigo(), 600)
+    } else {
+      setFaseAcao('actionMenu')
+    }
   }
 
   const handleBackToSkills = () => {
@@ -452,6 +464,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
           <ActionMenu
             personagem={selectedAlly}
             jaMoveu={jaMoveu}
+            jaAtacou={jaAtacou}
             onMover={handleActionMover}
             onAtacar={handleActionAtacar}
             onItem={() => {}} // placeholder
