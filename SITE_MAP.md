@@ -136,7 +136,7 @@
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
 | `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v5.3.6 | LDI TATICS — sistema tático por turnos, grid 16×16 isométrico (TILE 80×40), 20 personagens, 3v3, equipamentos, desbloqueio, juice visual, 16 IAs, simulação automática |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v5.3.7 | LDI TATICS — sistema tático por turnos, grid 16×16 isométrico (TILE 80×40), câmera com margem 150px, 20 personagens, 3v3, equipamentos, desbloqueio, juice visual, 16 IAs, simulação automática |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
