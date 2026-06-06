@@ -38,10 +38,23 @@ export default function Passear({ onConcluir }) {
     for (let y = -(48+24) + (s.roadOff % (48+24)); y < H + (48+24); y += 48+24) {
       for (let lane = 1; lane < LANE_COUNT; lane++) { ctx.beginPath(); ctx.moveTo(lw * lane, y); ctx.lineTo(lw * lane, y + 48); ctx.stroke() }
     }
-    ctx.font = '32px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
+    ctx.font = '38px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-    for (const ob of s.obstacles) { ctx.fillText(ob.e, ob.x + 21, ob.y + 21) }
-    for (const c of s.coins) { ctx.fillText(c.e, c.x + 15, c.y + 15) }
+    for (const ob of s.obstacles) { ctx.fillText(ob.e, ob.x + 25, ob.y + 25) }
+    // Estrela com brilho pulsante
+    const glow = 0.4 + 0.6 * Math.abs(Math.sin(s.frame * 0.08))
+    for (const c of s.coins) {
+      ctx.save()
+      ctx.globalAlpha = glow
+      ctx.shadowColor = '#FFD700'
+      ctx.shadowBlur = 20
+      ctx.font = '30px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
+      ctx.fillText(c.e, c.x + 18, c.y + 18)
+      ctx.restore()
+      ctx.font = '30px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
+      ctx.globalAlpha = 1
+      ctx.fillText(c.e, c.x + 18, c.y + 18)
+    }
     const cx = lw * s.lane + (lw - 50) / 2 + 25
     const cy = H - 50 - 16 + 25
     ctx.save()
@@ -77,18 +90,18 @@ export default function Passear({ onConcluir }) {
       const lw = GAME_W / LANE_COUNT
       if (s.frame - (s.lastObs || 0) > Math.max(30, 70 - (s.stage - 1) * 5)) {
         s.lastObs = s.frame
-        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -42, e: ['🚗','🪨','🌳','🚙','🛻'][Math.floor(Math.random() * 5)] })
+        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['🪨','🌳','🧱','🗿','🪵'][Math.floor(Math.random() * 5)] })
       }
       if (s.frame - (s.lastCoin || 0) > 10) {
         s.lastCoin = s.frame
-        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -30, e: ['⭐','🍎','💎'][Math.floor(Math.random() * 3)] })
+        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -36, e: '⭐' })
       }
       const cx = lw * s.lane + lw / 2
       const cy = GAME_H - 50 - 16 + 25
       s.obstacles = s.obstacles.filter(o => {
         o.y += s.speed
         if (o.y > GAME_H) return false
-        if (o.x < cx + 25 - 8 && o.x + 42 > cx - 25 + 8 && o.y < cy + 25 - 8 && o.y + 42 > cy - 25 + 8) {
+        if (o.x < cx + 25 - 8 && o.x + 50 > cx - 25 + 8 && o.y < cy + 25 - 8 && o.y + 50 > cy - 25 + 8) {
           s.lives--
           if (s.lives <= 0) { endGame(); return false }
           return false
@@ -98,7 +111,7 @@ export default function Passear({ onConcluir }) {
       s.coins = s.coins.filter(c => {
         c.y += s.speed
         if (c.y > GAME_H) return false
-        if (c.x < cx + 25 - 4 && c.x + 30 > cx - 25 + 4 && c.y < cy + 25 - 4 && c.y + 30 > cy - 25 + 4) {
+        if (c.x < cx + 25 - 4 && c.x + 36 > cx - 25 + 4 && c.y < cy + 25 - 4 && c.y + 36 > cy - 25 + 4) {
           s.score += 50; s.coinsCollected++; return false
         }
         return true
