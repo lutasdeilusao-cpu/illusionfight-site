@@ -18,6 +18,11 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
   const sel = cards.filter(c => c.sel)
   const ok = sel.length >= 2
 
+  const CARD_W = 184 // 170px card + 14px gap
+  const TOTAL_W = cards.length * CARD_W
+  const MAX_SCROLL = 0
+  const MIN_SCROLL = -(TOTAL_W - 280) // wraps when last card passes center
+
   const onDown = (x) => { drag.current = { start: x, offset: 0, down: true, moved: false } }
   const onMove = (x) => {
     if (!drag.current.down) return
@@ -32,7 +37,14 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
     if (!ref.current) return
     ref.current.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)'
     const d = drag.current.offset
-    setScrollX(s => { const n = Math.abs(d) > 50 ? s - Math.sign(d) * 280 : s; ref.current.style.transform = `translateX(${n}px)`; return n })
+    setScrollX(s => {
+      let n = Math.abs(d) > 50 ? s + Math.sign(d) * CARD_W : s
+      // Infinite wrap
+      if (n < MIN_SCROLL) n = MAX_SCROLL
+      else if (n > MAX_SCROLL) n = MIN_SCROLL
+      ref.current.style.transform = `translateX(${n}px)`
+      return n
+    })
   }
 
   return (
