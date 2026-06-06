@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback } from 'react'
 
 // ── Isometric constants ──
-const TILE_W = 100, TILE_H = 50
+const TILE_W = 80, TILE_H = 40
 const HW = TILE_W / 2, HH = TILE_H / 2
 const GRID_W = 16, GRID_H = 16
 const LERP = 0.08
@@ -219,7 +219,7 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
           cam.y += (ps.sy - VH / 2 - cam.y) * LERP
         }
       }
-      const M = 20
+      const M = 150
       if (WORLD_W > VW) cam.x = Math.max(MIN_SX - M, Math.min(MAX_SX + M - VW, cam.x))
       else cam.x = (MIN_SX + MAX_SX) / 2 - VW / 2
       if (WORLD_H > VH) cam.y = Math.max(MIN_SY - M, Math.min(MAX_SY + M - VH, cam.y))

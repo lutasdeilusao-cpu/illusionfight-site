@@ -6,14 +6,12 @@ import TurnoIndicator from '../components/TurnoIndicator'
 import ActionMenu from '../components/ActionMenu'
 import ConfirmEndTurn from '../components/ConfirmEndTurn'
 import DanoPopup from '../components/DanoPopup'
-import EventoBanner from '../components/EventoBanner'
 import SkillPreviewModal from '../components/SkillPreviewModal'
 import CombatResultModal from '../components/CombatResultModal'
 import EnemyTurnBanner from '../components/EnemyTurnBanner'
 import { StatusBadges } from '../components/JuiceComponents'
 import { CLASSES } from '../data/classes'
 import { getMultiplicadorElemental } from '../data/elementais'
-import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
 import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
 import { screenShake, flashCelula } from '../data/juice'
@@ -152,7 +150,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [selectedSkill, setSelectedSkill] = useState(null)
   const [alcance, setAlcance] = useState([])
   const [danos, setDanos] = useState([])
-  const [eventoAtual, setEventoAtual] = useState(null)
   const [showEndConfirm, setShowEndConfirm] = useState(false)
   const [animPos, setAnimPos] = useState(null)
   const [enemyTarget, setEnemyTarget] = useState(null)
@@ -160,7 +157,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [enemyDisplay, setEnemyDisplay] = useState({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
   const [caminhoAtivo, setCaminhoAtivo] = useState(null)
   const [passoAtual, setPassoAtual] = useState(0)
-  const eventosUsados = useRef([])
   const danoId = useRef(0)
   const tickRef = useRef(0)
   const gridRef = useRef(null)
@@ -419,10 +415,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
     function processarInimigo() {
       if (currentIdx >= inimigosVivos.length) {
-        if ((turno + 1) % 3 === 0) {
-          const ev = getEventoAleatorio(eventosUsados.current)
-          eventosUsados.current.push(ev.id); setEventoAtual(ev)
-        }
         setEnemyLog(''); setEnemyTarget(null)
         setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
         // Processa status em todos os personagens ao fim do turno inimigo
@@ -741,9 +733,6 @@ export default function Batalha({ onVitoria, onDerrota }) {
       <div className="tatics-batalha-bg" />
       <div className="tatics-batalha-scanlines" />
       <div className="tatics-batalha-vignette" />
-
-      {/* Evento banner */}
-      <AnimatePresence>{eventoAtual && <EventoBanner evento={eventoAtual} onClose={() => setEventoAtual(null)} />}</AnimatePresence>
 
       {/* Phase indicator */}
       <TurnoIndicator turno={turno} fase={faseAcao === 'inimigo' ? 'inimigo' : 'player'} />
