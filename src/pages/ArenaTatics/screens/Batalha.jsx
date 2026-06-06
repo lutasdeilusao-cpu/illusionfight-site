@@ -72,6 +72,11 @@ function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [],
   return casas
 }
 
+// ── Helper: verifica se um ponto está em um array de alcance ──
+function estahEmAlcance(x, y, alcance) {
+  return alcance.some(cel => cel.x === x && cel.y === y)
+}
+
 // ── Path calculator — BFS para contornar obstáculos corretamente ──
 function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 8) {
   if (x1 === x2 && y1 === y2) return []
@@ -361,6 +366,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
           tickRef.current++
 
           setTimeout(() => {
+            // ── VALIDA: alvo está realmente no alcance (linha de visão)? ──
+            if (!estahEmAlcance(alvo.x, alvo.y, attackRange)) {
+              setEnemyLog(`😐 ${inimigo.nome} perdeu a mira!`)
+              setEnemyTarget(null)
+              setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
+              tickRef.current++
+              currentIdx++
+              setTimeout(processarInimigo, V * 0.5)
+              return
+            }
+
             const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
             const dano = Math.round(8 * mult)
             alvo.hp = Math.max(0, alvo.hp - dano)
@@ -425,6 +441,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
                 tickRef.current++
 
                 setTimeout(() => {
+                  // ── VALIDA: alvo ainda está no alcance (linha de visão)? ──
+                  if (!estahEmAlcance(alvo.x, alvo.y, attackRange)) {
+                    setEnemyLog(`😐 ${inimigo.nome} perdeu o alvo!`)
+                    currentIdx++
+                    setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
+                    tickRef.current++
+                    setTimeout(processarInimigo, V * 0.5)
+                    return
+                  }
+
                   const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
                   const dano = Math.round(8 * mult)
                   alvo.hp = Math.max(0, alvo.hp - dano)
