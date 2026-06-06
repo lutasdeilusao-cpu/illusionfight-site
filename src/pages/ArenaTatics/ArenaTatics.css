@@ -708,6 +708,8 @@
   left: 0;
   right: 0;
   z-index: 100;
+  display: flex;
+  justify-content: center;
 }
 
 .tatics-action-backdrop {
@@ -723,6 +725,8 @@
   border-radius: 20px 20px 0 0;
   padding: 0.5rem 1rem 1.5rem;
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 480px;
 }
 
 .tatics-action-handle {
@@ -833,31 +837,33 @@
 }
 
 .btn-mover {
-  border-color: rgba(244, 162, 39, 0.4);
-  background: linear-gradient(135deg, rgba(244, 162, 39, 0.1), transparent);
+  border-color: rgba(244, 162, 39, 0.6);
+  background: linear-gradient(135deg, rgba(244, 162, 39, 0.18), rgba(244, 162, 39, 0.04));
 }
 
 .btn-mover .tatics-action-btn-label {
-  color: #F4A227;
+  color: #FAC863;
+  text-shadow: 0 0 8px rgba(244, 162, 39, 0.3);
 }
 
 .btn-mover:hover {
-  border-color: rgba(244, 162, 39, 0.7);
-  background: linear-gradient(135deg, rgba(244, 162, 39, 0.15), transparent);
+  border-color: rgba(244, 162, 39, 0.85);
+  background: linear-gradient(135deg, rgba(244, 162, 39, 0.25), rgba(244, 162, 39, 0.06));
 }
 
 .btn-atacar {
-  border-color: rgba(226, 75, 74, 0.4);
-  background: linear-gradient(135deg, rgba(226, 75, 74, 0.1), transparent);
+  border-color: rgba(226, 75, 74, 0.6);
+  background: linear-gradient(135deg, rgba(226, 75, 74, 0.18), rgba(226, 75, 74, 0.04));
 }
 
 .btn-atacar .tatics-action-btn-label {
-  color: #E24B4A;
+  color: #FF6B6B;
+  text-shadow: 0 0 8px rgba(226, 75, 74, 0.3);
 }
 
 .btn-atacar:hover {
-  border-color: rgba(226, 75, 74, 0.7);
-  background: linear-gradient(135deg, rgba(226, 75, 74, 0.15), transparent);
+  border-color: rgba(226, 75, 74, 0.85);
+  background: linear-gradient(135deg, rgba(226, 75, 74, 0.25), rgba(226, 75, 74, 0.06));
 }
 
 .btn-item {
@@ -881,19 +887,23 @@
 .tatics-action-endturn {
   display: block;
   margin: 0.75rem auto 0;
-  background: none;
-  border: none;
-  color: #4F5359;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #6B6F76;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.15em;
-  padding: 4px 12px;
-  transition: color 0.2s;
+  letter-spacing: 0.12em;
+  padding: 6px 20px;
+  transition: all 0.2s;
 }
 
 .tatics-action-endturn:hover {
-  color: #8B8F96;
+  color: #B0B4BA;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* ══════════════════════════════════════════════════
@@ -906,6 +916,8 @@
   left: 0;
   right: 0;
   z-index: 100;
+  display: flex;
+  justify-content: center;
 }
 
 .tatics-skill-sheet {
@@ -916,6 +928,8 @@
   max-height: 45vh;
   overflow-y: auto;
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 480px;
 }
 
 .tatics-skill-handle {
