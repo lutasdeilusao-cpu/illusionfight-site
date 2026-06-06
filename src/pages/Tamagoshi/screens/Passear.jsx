@@ -92,7 +92,7 @@ export default function Passear({ onConcluir }) {
         s.lastObs = s.frame
         s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['🪨','🌳','🧱','🗿','🪵'][Math.floor(Math.random() * 5)] })
       }
-      if (s.frame - (s.lastCoin || 0) > 10) {
+      if (s.frame - (s.lastCoin || 0) > Math.max(60, 120 - (s.stage - 1) * 8)) {
         s.lastCoin = s.frame
         s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -36, e: '⭐' })
       }
