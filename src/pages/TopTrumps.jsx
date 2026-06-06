@@ -26,7 +26,7 @@ function keyPorUser(user, suffix) {
 }
 
 export default function TopTrumps() {
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
@@ -44,6 +44,7 @@ export default function TopTrumps() {
   const [deckUsuario, setDeckUsuario] = useState([])
   const [recompensaOpcoes, setRecompensaOpcoes] = useState([])
   const [jaGanhouHoje, setJaGanhouHoje] = useState(false)
+  const [tentativasMax, setTentativasMax] = useState(3)
   const [tentativasRestantes, setTentativasRestantes] = useState(3)
   const [cartaRecompensaSelecionada, setCartaRecompensaSelecionada] = useState(null)
   const [menuStep, setMenuStep] = useState(null)
@@ -55,7 +56,7 @@ export default function TopTrumps() {
 
   function getTierInicial() {
     if (!user) return 'free'
-    return 'free'
+    return perfil?.role || 'free'
   }
 
   function getCartasIniciais() {
@@ -145,7 +146,7 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
 
     if (venceu) {
-      const podeGanhar = tentativasRestantes > 0
+      const podeGanhar = tentativasRestantes > 0 && !jaGanhouHoje
       if (podeGanhar) {
         const teto = TRIAL_ACTIVE ? Infinity : 49
         const idsTem = new Set(JSON.parse(localStorage.getItem(getDeckKey()) || '[]'))
@@ -178,8 +179,9 @@ export default function TopTrumps() {
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id_num])
-    incrementarTentativa(user.id).then(usadas => {
-      setTentativasRestantes(Math.max(0, 3 - usadas))
+    setJaGanhouHoje(true)
+    incrementarTentativa(user.id, getTierInicial()).then(usadas => {
+      setTentativasRestantes(Math.max(0, tentativasMax - usadas))
     })
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
@@ -202,9 +204,11 @@ export default function TopTrumps() {
       console.log('[TT] cartas montadas:', cartas.length)
       setDeckUsuario(cartas)
     })
-    carregarTentativas(user.id).then(({ usadas }) => {
-      console.log('[TT] tentativas carregadas:', usadas)
-      setTentativasRestantes(Math.max(0, 3 - usadas))
+    carregarTentativas(user.id, getTierInicial()).then(({ usadas, jaGanhouHoje: jaGanhou, limite }) => {
+      console.log('[TT] tentativas carregadas:', usadas, '/', limite, 'jaGanhouHoje:', jaGanhou)
+      setTentativasMax(limite)
+      setTentativasRestantes(Math.max(0, limite - usadas))
+      setJaGanhouHoje(jaGanhou || false)
     })
   }, [user])
 
@@ -256,8 +260,8 @@ export default function TopTrumps() {
                   ))}
                 </div>
                 <div className="tt-config-tentativas">
-                  {[0, 1, 2].map(i => (<span key={i} className={`tt-tentativa-dot${i < (3 - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
-                  <span className="tt-tentativa-texto">{tentativasRestantes} chance(s) de ganhar carta hoje</span>
+                  {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
+                  <span className="tt-tentativa-texto">{tentativasRestantes}/{tentativasMax} tentativas para ganhar carta hoje</span>
                 </div>
                 {jaGanhouHoje && <p className="tt-ja-jogou">Você já ganhou sua carta hoje. Volte amanhã!</p>}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}

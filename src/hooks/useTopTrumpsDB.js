@@ -1,5 +1,7 @@
 import { supabase } from '../lib/supabase'
 
+const TENTATIVAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
+
 export async function carregarDeck(userId) {
   const { data, error } = await supabase
     .from('toptrumps_decks')
@@ -76,19 +78,19 @@ export async function carregarUltimasPartidas(userId, limite = 10) {
   return data || []
 }
 
-export async function carregarTentativas(userId) {
+export async function carregarTentativas(userId, tier = 'free') {
   const { data, error } = await supabase
     .from('toptrumps_stats')
-    .select('tentativas_data, tentativas_usadas')
+    .select('tentativas_data, tentativas_usadas, carta_ganha_hoje')
     .eq('user_id', userId)
     .single()
-  if (error || !data) return { usadas: 0, data: null }
+  if (error || !data) return { usadas: 0, data: null, jaGanhouHoje: false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
   const hoje = new Date().toISOString().split('T')[0]
-  if (data.tentativas_data !== hoje) return { usadas: 0, data: hoje }
-  return { usadas: data.tentativas_usadas, data: data.tentativas_data }
+  if (data.tentativas_data !== hoje) return { usadas: 0, data: hoje, jaGanhouHoje: false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
+  return { usadas: data.tentativas_usadas, data: data.tentativas_data, jaGanhouHoje: data.carta_ganha_hoje || false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
 }
 
-export async function incrementarTentativa(userId) {
+export async function incrementarTentativa(userId, tier = 'free') {
   const hoje = new Date().toISOString().split('T')[0]
   const { data } = await supabase
     .from('toptrumps_stats')
@@ -101,7 +103,8 @@ export async function incrementarTentativa(userId) {
     .upsert({
       user_id: userId,
       tentativas_data: hoje,
-      tentativas_usadas: usadas
+      tentativas_usadas: usadas,
+      carta_ganha_hoje: true
     }, { onConflict: 'user_id' })
   return usadas
 }

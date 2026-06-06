@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '1.88'
+export const SITE_VERSION = '1.89'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION     = '1.5.29'   // Pesadelo Particular
@@ -18,7 +18,7 @@ export const ARENA_VERSION  = '1.7.3'    // LDI Arena Mode
 export const TAMA_VERSION   = '1.9.0'    // Tamagoshi LDI
 export const DUELO_VERSION  = '1.2.8'    // Duelo LDI
 export const MINIGAMES_VERSION = '1.2.1' // MiniGames
-export const MP_VERSION     = '1.0.9'    // Top Trumps Multiplayer
+export const MP_VERSION     = '1.1.0'    // Top Trumps Multiplayer
 export const LDI_DIAG_VERSION = '1.0.4'  // LDI Diagnóstico
 export const TATICA_VERSION  = '2.0.0'   // Arena LDI Tático
 

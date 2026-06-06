@@ -96,9 +96,8 @@ export default function TopTrumpsLobby() {
     setTurnos(n)
     setEtapa('matchmaking')
     if (!user) return
-    const tier = perfil?.tier || 'free'
-    const info = await verificarLimiteDiario(user.id, tier)
-    setLimiteInfo(info)
+    // Multiplayer liberado para todos via ficha — sem limite diário
+    setLimiteInfo({ pode: true, usadas: 0, limite: 999 })
   }
 
   async function handleCriarSala() {
