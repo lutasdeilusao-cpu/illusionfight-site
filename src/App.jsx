@@ -98,7 +98,7 @@ export default function App() {
         <Route path="/games/jackcandy" element={<JackCandy />} />
         <Route path="/games/minigames" element={<MiniGames />} />
         <Route path="/games/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
-        <Route path="/games/ldi-tatics" element={<LoginGate feature="a Arena LDI Tatics"><ArenaTaticsRoute /></LoginGate>} />
+        <Route path="/games/ldi-tatics" element={<ArenaTaticsRoute />} />
         <Route path="/games/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
         <Route path="/games/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
         <Route path="/games/tamagoshi" element={<Tamagoshi />} />
