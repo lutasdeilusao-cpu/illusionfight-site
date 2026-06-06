@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-06*  
-*Versão: 2.27*  |  `[SITE] versão carregada: 2.27`
+*Versão: 2.28*  |  `[SITE] versão carregada: 2.28`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -44,7 +44,13 @@
     │   ├── SearchModal/                # Modal de busca global
     │   ├── LoginGate/                  # Gate de login reutilizável
     │   ├── AchievementToast/           # Toast de achievement com partículas
-    │   └── ...                         # 19 componentes + SearchModal
+    │   ├── ScrollToTopOnNav/           # Scroll to top on navigation change
+    │   ├── TypewriterPhrase/          # Typewriter animado
+    │   ├── ShopSection/               # Loja de produtos físicos
+    │   ├── PlatformIcons/             # Ícones de plataformas de música
+    │   ├── SocialBar/                 # Barra de redes sociais
+    │   ├── HeroEffect/                # Efeitos visuais do hero
+    │   └── ...                         # 25 componentes + SearchModal + Puzzles + ResultCard + LoginGate + ModalSemFichas + AchievementToast
     ├── config/
     │   ├── site.js                     # SITE_NAME, SITE_NAME_PT, DOMAIN
     │   └── trial.js                    # TRIAL_ACTIVE — true libera conteúdo premium
@@ -54,17 +60,35 @@
     │   ├── FichasContext.jsx           # Provider de fichas (saldo, coleta diária, gastar, role-based)
     │   ├── LanguageContext.jsx          # Provider de i18n: locale, t(), changeLocale()
     │   └── ReaderContext.jsx           # Estado global readerMode — esconde Navbar e TrialBanner nos leitores
-    ├── data/                           # 16 arquivos JSON + dados i18n
-    ├── hooks/                          # 12 hooks customizados
+    ├── data/                           # 18 arquivos JSON (incl. quiz-pt, supertrunfo-pt, search-index, notificacoes, nowlive, episodios, planos, produtos, + i18n livro/)
+    ├── hooks/                          # 12 hooks customizados (useFichaGate, useHeroEffect, usePersonagens, useScrollPosition, useScrollReveal, useSlideshow, useSwipe, useTopTrumpsDB, useTopTrumpsMP, useTypewriter, useViewportScroll, useZoom)
     ├── i18n/
     │   ├── pt.json                     # Traduções PT
     │   ├── en.json                     # Traduções EN
     │   ├── es.json                     # Traduções ES
     │   └── locales.js                  # Import aggregator + LOCALE_LABELS
     ├── pages/
+    │   ├── Admin.jsx                    # Painel admin (isaiasgamedev@gmail.com) — gerencia submissions
+    │   ├── Cadastro.jsx                 # Cadastro de conta (nome, email, telefone, senha)
+    │   ├── Leaderboard.jsx              # Ranking global com 20 posições mockadas
+    │   ├── Login.jsx                    # Login com email/senha via Supabase Auth
+    │   ├── Quiz.jsx                     # Quiz SDR — 3 modos (ranqueado/elite/primordial), banco de perguntas
     │   ├── Arena/                       # LDI Arena Mode — combate CPU standalone
     │   │   ├── store/                   # useArenaStore.js (sheet, match, XP, Supabase)
-    │   │   └── data/                    # arena-enemies.json (8 inimigos tier 1-4)
+    │   │   ├── data/                    # arena-enemies.json (8 inimigos tier 1-4)
+    │   │   ├── screens/                 # Telas de combate
+    │   │   └── components/             # Componentes auxiliares
+    │   ├── ArenaTatics/                 # LDI TATICS — sistema tático por turnos
+    │   │   ├── store/                   # useArenaTaticsStore.js
+    │   │   ├── data/                    # Personagens, IAs, habilidades
+    │   │   ├── screens/                 # Telas do jogo
+    │   │   └── components/             # Grid, UI, painéis
+    │   ├── Duelo/                       # DUELO LDI — card game 1v1 vs IA
+    │   │   ├── store/                   # useDueloStore.js
+    │   │   ├── data/                    # Cartas, habilidades
+    │   │   ├── engine/                  # ai.js (IA greedy)
+    │   │   ├── screens/                 # Menu, Vitória, Derrota
+    │   │   └── components/             # Board, Hand, StatusBar, BattleLog, TributeSelector, CardPreviewModal, TrapActivator
     │   ├── JackCandy/                   # Jack Dream Beer — idle noir investigativo
     │   │   ├── store/                   # useJackStore.js
     │   │   ├── data/                    # flags, cidades, npcs, itens, dungeons, monologues, casos, pistas
@@ -76,8 +100,9 @@
     │   │   ├── data/                    # scenes/*.json, enemies/*.json, characterData, manualData, powersData
     │   │   └── components/              # Typewriter, SceneView, ChoiceList, CombatView, DiceRoll, etc.
     │   ├── MiniGames/                   # Arcade puzzles standalone
-    │   ├── Perfil/                      # Hub com 5 abas (Conquistas, Arena, Coleção, Conta, Recompensas)
-    │   │   └── abas/                    # Componentes de cada aba
+    │   ├── Perfil/                      # Hub com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi)
+    │   │   └── abas/                    # PerfilConquistas, PerfilArena, PerfilColecao, PerfilConta, Recompensas, PerfilTamagoshi
+    │   ├── Tamagoshi/                   # TAMA LDI — tamagotchi com ciclo de vida completo
     │   └── ...
 ```
 
@@ -98,7 +123,6 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/games` | Games | `src/pages/Games/Games.jsx` | ✅ v1.0 | Hub arcade anos 90: 9 cards JOGOS (LDI LENDAS, Jack, PRESADELO, Arena, TAMA LDI, LDI TRUMPS, TATICO, MINI GAMES, DUELO) + 2 CONTEÚDO (Quiz, Leaderboard) |
 | `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign — **1ª temporada** |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
@@ -113,13 +137,19 @@
 | `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v5.3.3 | LDI TATICS — sistema tático por turnos, grid 8×16, 20 personagens, 3v3, equipamentos, sistema de desbloqueio, juice visual, 16 IAs, simulação automática |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.1 | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.0 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.1.0 | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.9.0 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.9.2 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
 
 **Versão atual:** `1.9.2` (console: `[TAMA] versão carregada: 1.9.2`)
+| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com 20 posições, vitórias/derrotas/pontos |
+| `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
+| `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase Auth, redireciona para /perfil |
+| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha — migra achievements locais |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier |
+| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard
 
 ### Estrutura de arquivos
 
