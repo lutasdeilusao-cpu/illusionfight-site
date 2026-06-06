@@ -8,7 +8,7 @@ const LINHAS = 16
  * Em desktop o jogo mantém formato vertical (max 480px)
  * Células se ajustam ao viewport width
  */
-export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alcance = [], onCasaClick, turnoFase }) {
+export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alcance = [], onCasaClick, turnoFase, alvoHighlight }) {
   // Responsivo: tamanho da célula baseado na largura disponível
   const TAM = 46 // fixed size works best with the 480px container
 
@@ -48,6 +48,7 @@ export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alc
         {grid.flat().map(cel => {
           const isMoveTarget = cel.emAlcance && turnoFase === 'mover'
           const isAttackTarget = cel.emAlcance && turnoFase === 'target' && cel.inimigo
+          const isEnemyAlvo = alvoHighlight && cel.x === alvoHighlight.x && cel.y === alvoHighlight.y
           return (
             <div
               key={`${cel.x}-${cel.y}`}
@@ -55,7 +56,9 @@ export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alc
               style={{
                 width: TAM,
                 height: TAM,
-                background: isMoveTarget
+                background: isEnemyAlvo
+                  ? 'rgba(255,0,0,0.35)'
+                  : isMoveTarget
                   ? 'rgba(255,215,0,0.3)'
                   : isAttackTarget
                   ? 'rgba(255,68,68,0.35)'
@@ -68,7 +71,9 @@ export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alc
                   : cel.obstrucao
                   ? '#333'
                   : '#1a1a1a',
-                border: isMoveTarget
+                border: isEnemyAlvo
+                  ? '2px solid #FF0000'
+                  : isMoveTarget
                   ? '2px solid #FFD700'
                   : isAttackTarget
                   ? '2px solid #FF4444'

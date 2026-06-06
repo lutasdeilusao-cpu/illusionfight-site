@@ -70,8 +70,11 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu nesta ação
   const [showEndConfirm, setShowEndConfirm] = useState(false)
   const [animPos, setAnimPos] = useState(null) // { x, y } | null — posição animada do movimento
+  const [enemyTarget, setEnemyTarget] = useState(null) // { x, y } | null — destaque do alvo do inimigo
+  const [enemyLog, setEnemyLog] = useState('') // texto da ação atual do inimigo
   const eventosUsados = useRef([])
   const danoId = useRef(0)
+  const tickRef = useRef(0) // força re-render após mutações no store
 
   if (!batalha) return null
   const { aliados, inimigos, turno } = batalha
@@ -188,27 +191,117 @@ export default function Batalha({ onVitoria, onDerrota }) {
     else if (faseAcao === 'idle' && cel.aliado) handleAllyClick(cel.aliado)
   }
 
-  // ── ENEMY TURN ──
+  // ── Helper: skills do inimigo por ID ──
+  function getInimigoSkills(inimigo) {
+    const cls = CLASSES[inimigo.classe]
+    if (!cls) return []
+    return (inimigo.skills || []).map(id => cls.skills_base.find(s => s.id === id)).filter(Boolean)
+  }
+
+  // ── ENEMY TURN (sequencial, um por vez) ──
   const turnoInimigo = useCallback(() => {
     setFaseAcao('inimigo')
-    const alvo = [...aliados].sort((a, b) => a.hp - b.hp)[0]
-    const inimigo = inimigos.find(i => i.hp > 0)
-    if (!alvo || !inimigo) return
-    setTimeout(() => {
-      const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
-      const dano = Math.round(8 * mult)
-      alvo.hp = Math.max(0, alvo.hp - dano)
-      showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
-      store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
-      if (alvo.hp <= 0 && aliados.filter(a => a.hp > 0).length === 0) {
-        setTimeout(() => onDerrota(), 800); return
+    const inimigosVivos = [...inimigos].filter(i => i.hp > 0)
+    const aliadosVivos = [...aliados].filter(a => a.hp > 0)
+    if (inimigosVivos.length === 0 || aliadosVivos.length === 0) {
+      store.avancarTurno(); setFaseAcao('idle'); return
+    }
+
+    let currentIdx = 0
+
+    function processarInimigo() {
+      if (currentIdx >= inimigosVivos.length) {
+        // Todos os inimigos processados
+        if ((turno + 1) % 3 === 0) {
+          const ev = getEventoAleatorio(eventosUsados.current)
+          eventosUsados.current.push(ev.id); setEventoAtual(ev)
+        }
+        setEnemyLog(''); setEnemyTarget(null)
+        store.avancarTurno(); setFaseAcao('idle')
+        return
       }
-      if ((turno + 1) % 3 === 0) {
-        const ev = getEventoAleatorio(eventosUsados.current)
-        eventosUsados.current.push(ev.id); setEventoAtual(ev)
+
+      const inimigo = inimigosVivos[currentIdx]
+      const alvo = [...aliados.filter(a => a.hp > 0)].sort((a, b) => a.hp - b.hp)[0]
+      if (!alvo) { currentIdx++; setTimeout(processarInimigo, 200); return }
+
+      const dist = Math.abs(inimigo.x - alvo.x) + Math.abs(inimigo.y - alvo.y)
+      const skills = getInimigoSkills(inimigo)
+      const skill = skills.find(s => s.alcance >= dist && (s.dano || 0) > 0 && (inimigo.energia || 99) >= s.custo)
+
+      // Mostra quem está agindo e quem é o alvo
+      setEnemyLog(`🎯 ${inimigo.nome} → ${alvo.nome}`)
+      setEnemyTarget({ x: alvo.x, y: alvo.y })
+      tickRef.current++
+
+      if (skill || dist <= 1) {
+        // ✅ Está em alcance — ataca direto
+        setTimeout(() => {
+          const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
+          const dano = Math.round(8 * mult)
+          alvo.hp = Math.max(0, alvo.hp - dano)
+          showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+          store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+
+          setEnemyLog(`💥 ${inimigo.nome} atacou ${alvo.nome} (-${dano} HP)`)
+          setEnemyTarget(null)
+          tickRef.current++
+
+          if (alvo.hp <= 0 && aliados.filter(a => a.hp > 0).length === 0) {
+            setTimeout(() => onDerrota(), 800); return
+          }
+
+          currentIdx++
+          setTimeout(processarInimigo, 700)
+        }, 600)
+      } else {
+        // ⛔ Fora de alcance — move uma célula em direção ao alvo
+        const dx = Math.sign(alvo.x - inimigo.x)
+        const dy = Math.sign(alvo.y - inimigo.y)
+        const newX = inimigo.x + (dx !== 0 ? dx : 0)
+        const newY = inimigo.y + (dx === 0 ? dy : 0)
+
+        setEnemyLog(`👣 ${inimigo.nome} se aproxima`)
+        setEnemyTarget(null)
+        tickRef.current++
+
+        setTimeout(() => {
+          inimigo.x = newX; inimigo.y = newY
+          tickRef.current++
+
+          // Agora tenta atacar de novo da nova posição
+          setTimeout(() => {
+            const dist2 = Math.abs(inimigo.x - alvo.x) + Math.abs(inimigo.y - alvo.y)
+            const skill2 = skills.find(s => s.alcance >= dist2 && (s.dano || 0) > 0 && (inimigo.energia || 99) >= s.custo)
+
+            setEnemyLog(`🎯 ${inimigo.nome} → ${alvo.nome}`)
+            setEnemyTarget({ x: alvo.x, y: alvo.y })
+            tickRef.current++
+
+            setTimeout(() => {
+              const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
+              const dano = Math.round(skill2 ? 8 * mult : 6 * mult)
+              alvo.hp = Math.max(0, alvo.hp - dano)
+              showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
+              store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano })
+
+              setEnemyLog(`💥 ${inimigo.nome} atacou ${alvo.nome} (-${dano} HP)`)
+              setEnemyTarget(null)
+              tickRef.current++
+
+              if (alvo.hp <= 0 && aliados.filter(a => a.hp > 0).length === 0) {
+                setTimeout(() => onDerrota(), 800); return
+              }
+
+              currentIdx++
+              setTimeout(processarInimigo, 700)
+            }, 500)
+          }, 300)
+        }, 400)
       }
-      store.avancarTurno(); setFaseAcao('idle')
-    }, 900)
+    }
+
+    setTimeout(processarInimigo, 500)
   }, [aliados, inimigos, turno, store])
 
   // ── END TURN ──
@@ -239,7 +332,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid */}
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2px 0' }}>
         <DanoPopup danos={danos} />
-        <Grid aliados={aliadosVisiveis} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} />
+        <Grid aliados={aliadosVisiveis} inimigos={inimigos} alcance={alcance} turnoFase={faseAcao} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} />
       </div>
 
       <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
@@ -334,8 +427,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       {/* ── Inimigo agindo ── */}
       {faseAcao === 'inimigo' && (
-        <div style={{ textAlign: 'center', padding: 6, color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.65rem' }}>
-          ⏳ INIMIGO AGINDO...
+        <div style={{
+          textAlign: 'center', padding: '6px 8px',
+          color: enemyLog ? '#ff4444' : '#888',
+          fontFamily: 'Courier New', fontSize: '0.65rem',
+          background: 'linear-gradient(0deg, #0a0a0a, transparent)',
+          borderTop: '1px solid #ff444422',
+        }}>
+          {enemyLog || '⏳ INIMIGO AGINDO...'}
         </div>
       )}
 
