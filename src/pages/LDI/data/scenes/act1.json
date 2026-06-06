@@ -50,7 +50,7 @@
       "NeoGuide acena, processando sua escolha.",
       "[NEOGULDE] \"Interessante. Sua assinatura digital está se formando...\"",
       "Ela ergue a mão e uma esfera de energia elementar aparece.",
-      "[NEOGULDE] \"Isto é seu elemento de origem. Não escolhi — o sistema leu seus resíduos digitais e extraiu isto.\"",
+      "[NEOGULDE] \"Isto é seu elemento de origem. Eu não escolhi ele — o sistema leu seus resíduos digitais e extraiu isto.\"",
       "A esfera pulsa com energia líquida."
     ],
     "choices": [
@@ -66,7 +66,7 @@
       },
       {
         "id": "B",
-        "label": "Recusar — \"Não é isso. Tem outra coisa em mim.\"",
+        "label": "Recusar — \"Não mano, eu não isso não valeus\"",
         "requires": null,
         "cost": null,
         "flags_required": [],
@@ -83,13 +83,13 @@
     "text": [
       "A esfera se dissipa e NeoGuide cruza os braços.",
       "[NEOGULDE] \"OK, agora a parte divertida. Que estilo de combate você quer carregar?\"",
-      "Três hologramas surgem ao lado dela: uma katana de dados, lâminas curtas gêmeas, e uma lâmina de corrente retrátil.",
-      "[NEOGULDE] \"Escolha sua arma. O LDI é hostil — você vai precisar.\""
+      "Três hologramas surgem ao lado dela: uma Machado de gelo, Um Florete de raios, e uma Corrente de fogo.",
+      "[NEOGULDE] \"Escolha sua arma. O LDI é para sobreviver e continuar você não tem opção.\""
     ],
     "choices": [
       {
         "id": "A",
-        "label": "Katana de Dados — alcance e precisão",
+        "label": "Machado de gelo — brutalidade e destruição",
         "requires": null,
         "cost": null,
         "flags_required": [],
@@ -99,7 +99,7 @@
       },
       {
         "id": "B",
-        "label": "Lâminas Gêmeas — velocidade e dupla investida",
+        "label": "Florete de raios — velocidade e precisão",
         "requires": null,
         "cost": null,
         "flags_required": [],
@@ -109,7 +109,7 @@
       },
       {
         "id": "C",
-        "label": "Lâmina de Corrente — versatilidade e defesa",
+        "label": "Corrente de fogo — versatilidade e defesa",
         "requires": null,
         "cost": null,
         "flags_required": [],
@@ -169,7 +169,7 @@
     "text": [
       "De repente, NeoGuide congela.",
       "Seus olhos holográficos se apagam e acendem em vermelho.",
-      "[NEOGULDE] \"A—Algo... errado...\"",
+      "[NEOGULDE] \"A—Algo... A—Algo... errado... errado...\"",
       "O chão abaixo de você se desfaz em pixels. O céu digital se rasga.",
       "Uma onda de choque invisível te joga para trás. NeoGuide desaparece.",
       "Você cai. E cai. E cai.",
