@@ -8,6 +8,7 @@ import { ROSTER } from './data/roster'
 import { TATICS_VERSION } from '../../config/version'
 
 import Intro from './screens/Intro'
+import TeamSelect from './screens/TeamSelect'
 import Batalha from './screens/Batalha'
 import Vitoria from './screens/Vitoria'
 import Derrota from './screens/Derrota'
@@ -22,12 +23,14 @@ function randomPick(arr, n) {
 }
 
 export default function ArenaTaticsRoute() {
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useArenaTaticsStore()
   const [fase, setFase] = useState('intro')
   const [loading, setLoading] = useState(false)
+
+  const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
 
   useEffect(() => {
     if (user) { store.setUserId(user.id); store.loadSave(user.id) }
@@ -42,6 +45,13 @@ export default function ArenaTaticsRoute() {
     let ids = store.personagensIds
 
     if (!ids || ids.length === 0) {
+      if (isAdmin) {
+        // Admin vai para tela de seleção
+        setLoading(false)
+        setFase('teamSelect')
+        return
+      }
+      // Usuário normal: randomiza 2
       ids = randomPick(ROSTER, 2)
       store.setPersonagensIds(ids)
       await supabase.from('arena_tatica_saves').upsert({
@@ -51,6 +61,20 @@ export default function ArenaTaticsRoute() {
       }, { onConflict: 'user_id' })
     }
 
+    store.iniciarBatalha(ids)
+    setFase('combate')
+    setLoading(false)
+  }
+
+  const handleTeamConfirm = async (selectedIds) => {
+    setLoading(true)
+    const ids = selectedIds.length > 0 ? selectedIds : randomPick(ROSTER, 2)
+    store.setPersonagensIds(ids)
+    await supabase.from('arena_tatica_saves').upsert({
+      user_id: user.id,
+      personagens_ids: ids,
+      sdr: 0, xp: 0, nivel: 1, vitorias: 0, derrotas: 0,
+    }, { onConflict: 'user_id' })
     store.iniciarBatalha(ids)
     setFase('combate')
     setLoading(false)
@@ -89,6 +113,7 @@ export default function ArenaTaticsRoute() {
   return (
     <div className="tatics-container">
       {fase === 'intro' && <Intro onEnter={handleIntroEnter} />}
+      {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
       {fase === 'vitoria' && <Vitoria sdrGanho={10} vitorias={store.vitorias} streak={store.streak} onContinuar={handleRevanche} />}
       {fase === 'derrota' && <Derrota onRevanche={handleRevanche} onSair={handleSair} />}

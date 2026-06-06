@@ -332,7 +332,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
   function getInimigoSkills(inimigo) {
     const cls = CLASSES[inimigo.classe]
     if (!cls) return []
-    return (inimigo.skills || []).map(id => cls.skills_base.find(s => s.id === id)).filter(Boolean)
+    // Se não tem skills específicas, usa todas as base
+    const skillIds = inimigo.skills || cls.skills_base.map(s => s.id)
+    return skillIds.map(id => cls.skills_base.find(s => s.id === id)).filter(Boolean)
   }
 
   // ── ENEMY TURN — visual completo como Player ──
