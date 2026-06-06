@@ -15,7 +15,7 @@ import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
 // ── Helpers ──
 function getSkills(p) { const c = CLASSES[p.classe]; return c?.skills_base || [] }
 
-function getAlcanceMovimento(p, l = 6, c = 10) {
+function getAlcanceMovimento(p, l = 16, c = 8) {
   const r = 3; const casas = []
   for (let dx = -r; dx <= r; dx++)
     for (let dy = -r; dy <= r; dy++)
@@ -23,7 +23,7 @@ function getAlcanceMovimento(p, l = 6, c = 10) {
   return casas
 }
 
-function getAlcanceSkill(p, skill, l = 6, c = 10) {
+function getAlcanceSkill(p, skill, l = 16, c = 8) {
   const casas = []
   for (let dx = -skill.alcance; dx <= skill.alcance; dx++)
     for (let dy = -skill.alcance; dy <= skill.alcance; dy++)
@@ -60,6 +60,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
     if (!cel.emAlcance || !selectedAlly) return
     selectedAlly.x = x; selectedAlly.y = y
     setAlcance([]); setFaseAcao('skill')
+  }
+
+  const handleCancelMove = () => {
+    setSelectedAlly(null); setAlcance([]); setFaseAcao('idle')
+  }
+
+  const handleBackToSkills = () => {
+    setSelectedSkill(null); setAlcance([]); setFaseAcao('skill')
   }
 
   const handleSkillSelect = (skill) => {
@@ -161,8 +169,24 @@ export default function Batalha({ onVitoria, onDerrota }) {
         </div>
       )}
 
-      {faseAcao === 'mover' && <div style={{ textAlign: 'center', padding: 6, color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem' }}>👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</div>}
-      {faseAcao === 'target' && <div style={{ textAlign: 'center', padding: 6, color: '#FF4444', fontFamily: 'Courier New', fontSize: '0.65rem' }}>⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</div>}
+      {faseAcao === 'mover' && (
+        <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
+          <span style={{ color: '#FFD700' }}>👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
+          <button onClick={handleCancelMove}
+            style={{ marginLeft: 8, background: 'none', border: '1px solid #555', color: '#888', borderRadius: 6, padding: '2px 10px', fontSize: '0.6rem', cursor: 'pointer', fontFamily: 'Courier New' }}>
+            CANCELAR ✕
+          </button>
+        </div>
+      )}
+      {faseAcao === 'target' && (
+        <div style={{ textAlign: 'center', padding: 6, fontFamily: 'Courier New', fontSize: '0.65rem' }}>
+          <span style={{ color: '#FF4444' }}>⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</span>
+          <button onClick={handleBackToSkills}
+            style={{ marginLeft: 8, background: 'none', border: '1px solid #FFD700', color: '#FFD700', borderRadius: 6, padding: '2px 10px', fontSize: '0.6rem', cursor: 'pointer', fontFamily: 'Courier New' }}>
+            VOLTAR ◀
+          </button>
+        </div>
+      )}
     </div>
   )
 }

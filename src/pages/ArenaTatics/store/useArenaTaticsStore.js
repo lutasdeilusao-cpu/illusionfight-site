@@ -48,23 +48,25 @@ export const useArenaTaticsStore = create((set, get) => ({
       atributos: s.atributos,
       hp: 30 + s.atributos.resistencia * 3, hpMax: 30 + s.atributos.resistencia * 3,
       energia: 10 + s.atributos.energia, energiaMax: 10 + s.atributos.energia,
-      x: 0, y: 5,
+      x: 0, y: 7,
     }
-    // Posicionar aliados do time em colunas 1-2
+    // Posicionar aliados do time no lado esquerdo (colunas 0-2)
     const aliadosTime = s.time.map((m, i) => ({
       ...m,
+      id: m.id || `ally_${i}`,
       x: 1 + (i % 2),
-      y: 3 + i * 2,
+      y: 5 + i * 4,
     }))
-    // Posicionar inimigos no lado direito (colunas 4-5)
+    // Posicionar inimigos no lado direito (colunas 5-7 do grid 8×16)
     const inimigosPos = inimigos.map((inimigo, i) => ({
       ...inimigo,
+      id: inimigo.id || `enemy_${i}`,
       hp: inimigo.hp || 40,
       hpMax: inimigo.hp || 40,
       energia: inimigo.energia || 10,
       energiaMax: inimigo.energia || 10,
-      x: 4 + (i % 2),
-      y: 2 + i * 3,
+      x: 5 + (i % 2),
+      y: 5 + i * 4,
     }))
     return {
       batalha: { turno: 1, fase: 'player', aliados: [p, ...aliadosTime], inimigos: inimigosPos, rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [] },
