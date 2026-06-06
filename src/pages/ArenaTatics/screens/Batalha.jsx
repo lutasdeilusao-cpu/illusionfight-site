@@ -5,6 +5,7 @@ import StatusBar from '../components/StatusBar'
 import TurnoIndicator from '../components/TurnoIndicator'
 import SkillModal from '../components/SkillModal'
 import ActionMenu from '../components/ActionMenu'
+import ConfirmEndTurn from '../components/ConfirmEndTurn'
 import DanoPopup from '../components/DanoPopup'
 import EventoBanner from '../components/EventoBanner'
 import { CLASSES } from '../data/classes'
@@ -55,6 +56,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [danos, setDanos] = useState([])
   const [eventoAtual, setEventoAtual] = useState(null)
   const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu nesta ação
+  const [showEndConfirm, setShowEndConfirm] = useState(false)
   const eventosUsados = useRef([])
   const danoId = useRef(0)
 
@@ -173,7 +175,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
   // ── END TURN ──
   const handleEndTurn = () => {
-    limparSelecao(); turnoInimigo()
+    setShowEndConfirm(false); limparSelecao(); turnoInimigo()
   }
 
   return (
@@ -251,20 +253,20 @@ export default function Batalha({ onVitoria, onDerrota }) {
               )
             })}
           </div>
-          {/* End Turn button */}
-          <div style={{ padding: '4px 8px 8px' }}>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={handleEndTurn}
+          {/* End Turn button — sutil, sem destaque */}
+          <div style={{ padding: '2px 8px 8px', textAlign: 'center' }}>
+            <button
+              onClick={() => setShowEndConfirm(true)}
               style={{
-                width: '100%', padding: '0.5rem', borderRadius: 8, cursor: 'pointer',
-                background: 'linear-gradient(135deg, #333, #111)',
-                border: '1px solid #555', color: '#888',
-                fontFamily: 'Courier New', fontSize: '0.65rem',
-                fontWeight: 700, letterSpacing: '0.15em',
-              }}>
-              ⏭ TERMINAR TURNO
-            </motion.button>
+                background: 'none', border: 'none',
+                color: '#555', fontFamily: 'Courier New', fontSize: '0.6rem',
+                cursor: 'pointer', letterSpacing: '0.1em', padding: '4px 12px',
+              }}
+              onMouseEnter={e => e.target.style.color = '#888'}
+              onMouseLeave={e => e.target.style.color = '#555'}
+            >
+              ⏭ FINALIZAR TURNO
+            </button>
           </div>
         </div>
       )}
@@ -297,6 +299,16 @@ export default function Batalha({ onVitoria, onDerrota }) {
           ⏳ INIMIGO AGINDO...
         </div>
       )}
+
+      {/* ── Confirm End Turn modal ── */}
+      <AnimatePresence>
+        {showEndConfirm && (
+          <ConfirmEndTurn
+            onConfirm={handleEndTurn}
+            onCancel={() => setShowEndConfirm(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
