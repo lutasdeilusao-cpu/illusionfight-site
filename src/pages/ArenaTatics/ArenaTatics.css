@@ -556,30 +556,6 @@
   opacity: 0.4;
 }
 
-.tatics-token {
-  border-radius: 50%;
-  border: 2px solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
-  line-height: 1.1;
-  padding: 2px;
-  font-family: 'Rajdhani', sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-.token-aliado {
-  cursor: pointer;
-}
-
-.token-inimigo {
-  cursor: default;
-}
-
 /* ══════════════════════════════════════════════════
    TURNO INDICATOR
    ══════════════════════════════════════════════════ */
@@ -1950,4 +1926,620 @@
   font-size: 0.4rem;
   color: #4F5359;
   letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════════════
+   JUICE SYSTEM — Camadas 1 a 10
+   ═══════════════════════════════════════════ */
+
+/* ── TOKEN VIVO (Camada 2) ── */
+.tatics-token {
+  border-radius: 50%;
+  border: 2px solid var(--elem-cor);
+  background: radial-gradient(
+    circle at 35% 30%,
+    color-mix(in srgb, var(--elem-cor) 25%, #111),
+    #0a0a0f 70%
+  );
+  box-shadow:
+    0 0 8px var(--elem-glow),
+    inset 0 0 10px rgba(0,0,0,0.6);
+  animation: token-breath var(--elem-speed) var(--elem-timing) infinite;
+  position: relative;
+  overflow: visible;
+  transition: filter 0.3s, border-color 0.3s;
+}
+
+@keyframes token-breath {
+  0%, 100% {
+    box-shadow:
+      0 0 8px var(--elem-glow),
+      inset 0 0 10px rgba(0,0,0,0.6);
+  }
+  50% {
+    box-shadow:
+      0 0 18px var(--elem-glow),
+      0 0 32px color-mix(in srgb, var(--elem-glow) 40%, transparent),
+      inset 0 0 10px rgba(0,0,0,0.6);
+  }
+}
+
+.tatics-token.selected {
+  border-width: 3px;
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--elem-cor) 30%, transparent),
+    0 0 20px var(--elem-glow),
+    0 0 40px color-mix(in srgb, var(--elem-glow) 50%, transparent);
+  animation: token-selected var(--elem-speed) var(--elem-timing) infinite;
+}
+
+@keyframes token-selected {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+.tatics-token.exausto {
+  filter: grayscale(0.7) brightness(0.6);
+  animation: none;
+}
+
+.tatics-token.critico {
+  animation: token-critico 0.8s ease-in-out infinite;
+}
+
+@keyframes token-critico {
+  0%, 100% { border-color: var(--elem-cor); }
+  50%       { border-color: #E24B4A; box-shadow: 0 0 16px rgba(226,75,74,0.7); }
+}
+
+/* ── PARTÍCULAS ORBITAIS (Camada 3) ── */
+.tatics-token-particulas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tatics-token-particula {
+  position: absolute;
+  font-size: 8px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  animation: particula-orbit 1.5s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes particula-orbit {
+  0%   { transform: rotate(var(--orbit-start)) translateX(var(--orbit-r)) scale(0.8); opacity: 0; }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.8; }
+  100% { transform: rotate(calc(var(--orbit-start) + 360deg)) translateX(var(--orbit-r)) scale(0.8); opacity: 0; }
+}
+
+/* ── STATUS BADGES NO TOKEN (Camada 9) ── */
+.tatics-status-badges {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  z-index: 10;
+}
+
+.tatics-status-badge {
+  font-size: 9px;
+  background: var(--status-cor-bg);
+  border: 1px solid var(--status-cor-border);
+  border-radius: 3px;
+  padding: 0 2px;
+  line-height: 14px;
+  color: var(--status-cor);
+}
+
+.tatics-status-badge.status-pisca {
+  animation: status-tick 1s ease-in-out infinite;
+}
+
+@keyframes status-tick {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.tatics-status-extra {
+  font-size: 8px;
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 14px;
+}
+
+/* ── SKILL MODAL COM PREVIEW (Camada 4) ── */
+.tatics-skill-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+
+.tatics-skill-sheet {
+  width: 100%;
+  max-width: 360px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #0E0E14;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+
+.skill-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.skill-modal-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+.skill-modal-sp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #4F5359;
+}
+
+.tatics-skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tatics-skill-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+}
+
+.tatics-skill-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.tatics-skill-card.skill-indisponivel {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tatics-skill-custo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.tatics-skill-custo-valor {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tatics-skill-custo-label {
+  font-size: 0.4rem;
+  letter-spacing: 0.1em;
+}
+
+.tatics-skill-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tatics-skill-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.tatics-skill-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.45rem;
+  color: #4F5359;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.tatics-skill-tags {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.tatics-skill-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.45rem;
+  color: #4F5359;
+  white-space: nowrap;
+}
+
+.skill-meta-dmg {
+  color: #E24B4A;
+  font-weight: 700;
+}
+
+.skill-meta-cd {
+  color: #F4A227;
+}
+
+/* ── EFEITO TAG ── */
+.tatics-efeito-tag {
+  font-size: 0.45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--tag-text);
+}
+
+/* ── MINI GRID PREVIEW (Camada 5) ── */
+.tatics-mini-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.tatics-mini-grid-label {
+  font-size: 0.45rem;
+  color: #4F5359;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.tatics-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 18px);
+  gap: 2px;
+}
+
+.tatics-mini-cell {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.15s;
+}
+
+/* ── COMBAT RESULT MODAL (Camada 6) ── */
+.combat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+}
+
+.combat-modal-overlay.fase-impacto,
+.combat-modal-overlay.fase-efeitos {
+  animation: modal-entrada 0.3s ease-out;
+}
+.combat-modal-overlay.fase-saida {
+  animation: modal-saida 0.4s ease-in forwards;
+}
+
+@keyframes modal-entrada {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modal-saida {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.combat-modal-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    color-mix(in srgb, var(--elem-glow) 15%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.combat-modal-matchup {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+.combat-modal-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.combat-modal-token-mini {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, currentColor 20%, #111), #0a0a0f);
+  transition: filter 0.3s;
+}
+
+.combat-modal-token-dimmed {
+  filter: grayscale(0.6) brightness(0.5);
+}
+
+.combat-modal-dano {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  font-family: 'Rajdhani', sans-serif;
+  z-index: 1;
+}
+
+.combat-modal-dano-numero {
+  font-size: 5rem;
+  font-weight: 900;
+  text-shadow:
+    0 0 20px var(--elem-glow),
+    0 0 40px var(--elem-glow),
+    0 0 60px color-mix(in srgb, var(--elem-glow) 50%, transparent);
+  animation: dano-pop 0.4s cubic-bezier(0.17, 0.67, 0.3, 1.3) 0.3s both;
+}
+
+.combat-modal-dano.critico .combat-modal-dano-numero {
+  animation: dano-critico-pop 0.5s cubic-bezier(0.17, 0.67, 0.3, 1.5) 0.3s both;
+}
+
+.combat-modal-dano-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: #4F5359;
+}
+
+.combat-modal-critico-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #FDE68A;
+  text-shadow: 0 0 12px rgba(253,230,138,0.8);
+  animation: critico-label 0.3s ease-out 0.2s both;
+}
+
+.combat-modal-miss {
+  font-size: 3rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 900;
+  color: #4F5359;
+  letter-spacing: 0.3em;
+  animation: dano-pop 0.4s cubic-bezier(0.17,0.67,0.3,1.3) 0.3s both;
+  z-index: 1;
+}
+
+@keyframes dano-pop {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes dano-critico-pop {
+  0%   { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg);    opacity: 1; }
+}
+
+@keyframes critico-label {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.combat-modal-efeitos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  z-index: 1;
+}
+
+.combat-modal-efeito-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--status-cor, #EAEAEA)15;
+  border: 1px solid var(--status-cor, #EAEAEA)50;
+  color: var(--status-cor, #EAEAEA);
+  animation: fadeSlideUp 0.3s ease-out 0.1s both;
+}
+
+@keyframes fadeSlideUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.combat-modal-elem-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 2rem;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* HP Bar Delta no Combat Modal */
+.combat-modal-hp-container {
+  width: 100%;
+  max-width: 260px;
+  padding: 0 1rem;
+  z-index: 1;
+}
+
+.combat-modal-hp-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.combat-modal-hp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #4F5359;
+}
+
+.combat-modal-hp-perda {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #E24B4A;
+  font-weight: 700;
+}
+
+.combat-modal-hp-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.combat-modal-hp-antes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.combat-modal-hp-depois {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease 0.3s;
+}
+
+.combat-modal-hp-valor {
+  text-align: right;
+  margin-top: 3px;
+}
+
+.combat-modal-hp-valor span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+/* ── ENEMY TURN BANNER (Camada 10) ── */
+.enemy-turn-banner {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.8),
+    transparent
+  );
+  border-bottom: 1px solid var(--elem-cor, rgba(226,75,74,0.4));
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--elem-glow) 30%, transparent);
+  padding: 1rem;
+  animation: banner-drop 0.3s ease-out;
+}
+
+@keyframes banner-drop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.enemy-turn-banner-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.enemy-turn-banner-skill {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 16px var(--elem-glow);
+  text-align: center;
+  animation: skill-nome-in 0.3s ease-out;
+}
+
+@keyframes skill-nome-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.enemy-turn-banner-names {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #4F5359;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.enemy-turn-banner-dano {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #E24B4A;
+  text-align: center;
+  animation: dano-pop 0.4s cubic-bezier(0.17,0.67,0.3,1.3) 0.2s both;
 }

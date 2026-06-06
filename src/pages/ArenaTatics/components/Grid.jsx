@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion'
+import { getElem } from '../data/elementals'
+import { StatusBadges, TokenParticulas } from './JuiceComponents'
 
 const COLUNAS = 8
 const LINHAS = 16
-
-const getCorElemento = (elem) => {
-  const map = { fogo: '#FF4500', agua: '#1E90FF', terra: '#8B4513', vento: '#87CEEB', eletrico: '#FFD700', trevas: '#9932CC' }
-  return map[elem] || '#00B4D8'
-}
 
 export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alcance = [], onCasaClick, turnoFase, alvoHighlight }) {
   const TAM = 46
@@ -59,23 +56,30 @@ export default function Grid({ aliados = [], inimigos = [], obstrucoes = [], alc
 }
 
 function Token({ token, tipo, tamanho, elemental }) {
-  const corElemento = elemental ? getCorElemento(elemental) : (tipo === 'aliado' ? '#00B4D8' : '#E24B4A')
+  const elem = getElem(elemental)
+  const hpPct = (token.hp || 0) / (token.hpMax || 1)
+  const exausto = token.jaMoveu && token.jaAtacou
+  const hpBaixo = hpPct < 0.25
+
   return (
     <motion.div
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-      className={`tatics-token ${tipo === 'aliado' ? 'token-aliado' : 'token-inimigo'}`}
+      className={`tatics-token ${tipo === 'aliado' ? 'token-aliado' : 'token-inimigo'} ${exausto ? 'exausto' : ''} ${hpBaixo ? 'critico' : ''}`}
       style={{
         width: tamanho,
         height: tamanho,
-        background: `radial-gradient(circle at 35% 35%, ${corElemento}88, ${tipo === 'aliado' ? '#003344' : '#331111'})`,
-        borderColor: corElemento,
-        boxShadow: `0 0 12px ${corElemento}44, inset 0 0 8px ${corElemento}22`,
+        '--elem-cor': elem.cor,
+        '--elem-glow': elem.glow,
+        '--elem-speed': elem.velocidadeBreath,
+        '--elem-timing': elem.timingBreath,
         fontSize: Math.round(tamanho * 0.22),
       }}
+      data-cell={`${token.x},${token.y}`}
     >
       {token.nome?.[0] || '?'}
+      <StatusBadges statuses={token.status || []} max={3} />
     </motion.div>
   )
 }

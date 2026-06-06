@@ -3,16 +3,22 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Grid from '../components/Grid'
 import StatusBar from '../components/StatusBar'
 import TurnoIndicator from '../components/TurnoIndicator'
-import SkillModal from '../components/SkillModal'
 import ActionMenu from '../components/ActionMenu'
 import ConfirmEndTurn from '../components/ConfirmEndTurn'
 import DanoPopup from '../components/DanoPopup'
 import EventoBanner from '../components/EventoBanner'
+import SkillPreviewModal from '../components/SkillPreviewModal'
+import CombatResultModal from '../components/CombatResultModal'
+import EnemyTurnBanner from '../components/EnemyTurnBanner'
+import { StatusBadges } from '../components/JuiceComponents'
 import { CLASSES } from '../data/classes'
 import { getMultiplicadorElemental } from '../data/elementais'
 import { getEventoAleatorio } from '../data/eventos'
 import { getCorPorElemental } from '../data/cosmeticos'
 import { useArenaTaticsStore } from '../store/useArenaTaticsStore'
+import { screenShake, flashCelula } from '../data/juice'
+import { getElem } from '../data/elementals'
+import { sortearIAs, resolverAcaoIA, getDescricaoIA } from '../data/aiPersonalities'
 import { resolverAtaque, processarStatus, temStatus, podeAgir, podeMover } from '../data/combat'
 
 // ── Helpers ──
@@ -157,6 +163,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const eventosUsados = useRef([])
   const danoId = useRef(0)
   const tickRef = useRef(0)
+  const gridRef = useRef(null)
+  const [combatResult, setCombatResult] = useState(null)
+  const [enemyBanner, setEnemyBanner] = useState(null)
+  const [iaInfo, setIaInfo] = useState(() => sortearIAs())
   const V = 600
 
   if (!batalha) return null
@@ -304,6 +314,13 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const dano = resultado.dano
     const crit = resultado.critico
 
+    // Juice: screen shake
+    const elemAtacante = getElem(selectedAlly.elemental)
+    screenShake(elemAtacante.shakePerfil, gridRef)
+
+    // Juice: flash na célula do alvo
+    flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, selectedAlly.elemental, 'recebe')
+
     if (resultado.acertou) {
       alvo.hp = Math.max(0, alvo.hp - dano)
       showDano(dano, x * 48 + 24, y * 48 + 24, crit)
@@ -311,6 +328,19 @@ export default function Batalha({ onVitoria, onDerrota }) {
       showDano(0, x * 48 + 24, y * 48 + 24, false)
       setEnemyLog(`😤 ${selectedAlly.nome} errou!`)
     }
+
+    // Juice: show combat result modal
+    setCombatResult({
+      atacante: { nome: selectedAlly.nome, elemental: selectedAlly.elemental },
+      alvo: { nome: alvo.nome, elemental: alvo.elemental, hp: alvo.hp, hpMax: alvo.hpMax },
+      skill: selectedSkill,
+      dano: resultado.acertou ? dano : 0,
+      critico: crit,
+      acertou: resultado.acertou,
+      missTipo: resultado.missTipo,
+      status: resultado.status,
+    })
+
     store.executarAcao({ tipo: 'ataque', de: selectedAlly.nome, alvo: alvo.nome, dano, critico: crit })
 
     if (alvo.hp <= 0) {
@@ -420,6 +450,15 @@ export default function Batalha({ onVitoria, onDerrota }) {
             const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
             const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
             const dano = r.dano
+
+            // Juice: screen shake + flash
+            const elemInimigo = getElem(inimigo.elemental)
+            screenShake(elemInimigo.shakePerfil, gridRef)
+            flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, inimigo.elemental, 'recebe')
+
+            // Juice: enemy turn banner
+            setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
+
             if (r.acertou) {
               alvo.hp = Math.max(0, alvo.hp - dano)
               showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
@@ -490,6 +529,12 @@ export default function Batalha({ onVitoria, onDerrota }) {
                 const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
                 const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
                 const dano = r.dano
+
+                const elemI = getElem(inimigo.elemental)
+                screenShake(elemI.shakePerfil, gridRef)
+                flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, inimigo.elemental, 'recebe')
+                setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
+
                 if (r.acertou) {
                   alvo.hp = Math.max(0, alvo.hp - dano)
                   showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
@@ -600,6 +645,12 @@ export default function Batalha({ onVitoria, onDerrota }) {
                   const mult = getMultiplicadorElemental(inimigo.elemental, alvo.elemental)
                   const r = resolverAtaque(inimigo, alvo, melhorSkill, mult)
                   const dano = r.dano
+
+                  const elemI2 = getElem(inimigo.elemental)
+                  screenShake(elemI2.shakePerfil, gridRef)
+                  flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, inimigo.elemental, 'recebe')
+                  setEnemyBanner({ atacante: inimigo, alvo, skill: melhorSkill, resultado: r })
+
                   if (r.acertou) {
                     alvo.hp = Math.max(0, alvo.hp - dano)
                     showDano(dano, alvo.x * 48 + 24, alvo.y * 48 + 24)
@@ -670,7 +721,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       )}
 
       {/* Grid */}
-      <div className="tatics-batalha-gridarea">
+      <div className="tatics-batalha-gridarea" ref={gridRef}>
         <DanoPopup danos={danos} />
         <Grid aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} />
       </div>
@@ -705,9 +756,19 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* ── SKILL MODAL ── */}
       <AnimatePresence>
         {faseAcao === 'skillSelect' && selectedAlly && (
-          <SkillModal personagem={selectedAlly} skills={getSkills(selectedAlly)}
-            onSelect={handleSkillSelect}
-            onClose={handleCloseSkill} />
+          <SkillPreviewModal personagem={selectedAlly} skills={getSkills(selectedAlly)}
+            onUsar={handleSkillSelect}
+            onFechar={handleCloseSkill} />
+        )}
+      </AnimatePresence>
+
+      {/* ── COMBAT RESULT MODAL ── */}
+      <CombatResultModal resultado={combatResult} onFechar={() => setCombatResult(null)} />
+
+      {/* ── ENEMY TURN BANNER ── */}
+      <AnimatePresence>
+        {enemyBanner && (
+          <EnemyTurnBanner acao={enemyBanner} onFechar={() => setEnemyBanner(null)} />
         )}
       </AnimatePresence>
 
