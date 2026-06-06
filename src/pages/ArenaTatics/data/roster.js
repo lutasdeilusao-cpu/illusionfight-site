@@ -111,12 +111,13 @@ export function construirPersonagem(rosterId, posX, posY, lado = 'aliado') {
 }
 
 /**
- * Cria time de inimigos pré-definidos (4)
+ * Cria time de inimigos (4) com posições próximas ao player
  */
 export function getInimigosPadrao() {
-  const ids = [2, 5, 8, 15] // Ligeiro, Ventania, Sombra, Esquivo
+  // Variedade de classes: moraki, karuak, tivara, moraki
+  const ids = [2, 4, 9, 15] // Ligeiro, Terraqueo, Flecha, Esquivo
   return ids.map((id, i) => {
-    const p = construirPersonagem(id, 5 + (i % 2), 3 + i * 4, 'inimigo')
+    const p = construirPersonagem(id, 4 + (i % 2) * 2, 2 + i * 2, 'inimigo')
     return { ...p, id: `enemy_${i}` }
   })
 }
