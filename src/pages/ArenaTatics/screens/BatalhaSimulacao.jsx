@@ -7,7 +7,7 @@ import CombatResultModal from '../components/CombatResultModal'
 import EnemyTurnBanner from '../components/EnemyTurnBanner'
 import { ROSTER, construirPersonagem } from '../data/roster'
 import { resolverAcaoIA, getDescricaoIA } from '../data/aiPersonalities'
-import { resolverAtaque } from '../data/combat'
+import { resolverAtaque, processarStatus, podeAgir, podeMover } from '../data/combat'
 import { getMultiplicadorElemental } from '../data/elementais'
 import { screenShake, flashCelula } from '../data/juice'
 import { getElem } from '../data/elementals'
@@ -60,6 +60,8 @@ export default function BatalhaSimulacao({ config, onFim }) {
   const danoId = useRef(0)
   const rodando = useRef(true)
   const iniciado = useRef(false)
+  // Contador de instância — único por mount, increments no effect
+  const instanceRef = useRef(0)
 
   const addLog = (msg) => { setLog(msg); console.log(`[SIM][1780723835838ms][${Date.now()}] ${msg}`) }
   const ts = () => `+${(Date.now() - (window._simStart || Date.now()))}ms`
@@ -68,12 +70,26 @@ export default function BatalhaSimulacao({ config, onFim }) {
     setDanos(d => [...d, { id, valor: v, x, y, critico: crit }])
     setTimeout(() => setDanos(d => d.filter(dd => dd.id !== id)), 900)
   }
-  const upd = (fn) => setState(prev => { const n = fn(prev); stateRef.current = n; return n })
+  // [FIX BUG 6] upd precisa atualizar stateRef.current SINCRONAMENTE,
+  // não via setState updater (React 18 atrasa a execução do updater p/ o render phase)
+  const upd = (fn) => {
+    const novo = fn(stateRef.current)
+    stateRef.current = novo
+    setState(novo)
+  }
+
+  // Helper: células ocupadas (sem incluir o próprio personagem)
+  const getOcupadasSim = (cur, key, ignoreId) => {
+    const set = new Set()
+    cur.aliados.forEach(a => { if (a.id !== ignoreId && a.hp > 0) set.add(`${a.x},${a.y}`) })
+    cur.inimigos.forEach(i => { if (i.id !== ignoreId && i.hp > 0) set.add(`${i.x},${i.y}`) })
+    cur.obstrucoes.forEach(o => set.add(`${o.x},${o.y}`))
+    return set
+  }
 
   // Ação de UM personagem
   const agir = async (p, iasDoTime, lado) => {
     if (!rodando.current || p.hp <= 0) {
-      console.log(`[SIM][1780723835838ms][1780723835838ms] ${p.nome} skipado (hp=${p.hp}, rodando=${rodando.current})`)
       return false
     }
 
@@ -82,29 +98,54 @@ export default function BatalhaSimulacao({ config, onFim }) {
     const timeInimigos = cur.inimigos
     const key = lado === 'aliado' ? 'aliados' : 'inimigos'
 
-    console.log(`[SIM][1780723835838ms][1780723835838ms] >>> AGIR: ${p.nome} (${lado}, hp=${p.hp}/${p.hpMax}, x=${p.x}, y=${p.y})`)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] aliados vivos: ${timeAliados.filter(a => a.hp > 0).map(a => a.nome).join(', ')}`)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] inimigos vivos: ${timeInimigos.filter(i => i.hp > 0).map(i => i.nome).join(', ')}`)
+    console.log(`[SIM] >>> AGIR: ${p.nome} (${lado}, hp=${p.hp}/${p.hpMax}, x=${p.x}, y=${p.y})`)
 
-    // Escolhe IA
+    // ── Fase: PROCESSAR STATUS (sangramento, veneno) ──
+    const statusResult = processarStatus(p)
+    if (statusResult.danoTotal > 0) {
+      addLog(`🩸 ${p.nome} sofre ${statusResult.danoTotal} de dano de status`)
+      showDano(statusResult.danoTotal, p.x * 48 + 24, p.y * 48 + 24)
+      console.log(`[SIM] ${p.nome} sofreu ${statusResult.danoTotal} de status (hp restante: ${p.hp})`)
+    }
+    if (statusResult.statusRemovidos.length > 0) {
+      addLog(`✨ ${p.nome} não está mais: ${statusResult.statusRemovidos.join(', ')}`)
+    }
+    // Se morreu pelo status, skip
+    if (p.hp <= 0) {
+      addLog(`💀 ${p.nome} morreu devido a status!`)
+      return true
+    }
+    await sleep(speed * 0.3)
+
+    // ── Verifica se pode agir (atordoado) ──
+    if (!podeAgir(p)) {
+      addLog(`😵 ${p.nome} está atordoado(a) — passou o turno`)
+      console.log(`[SIM] ${p.nome} está atordoado, pulando turno`)
+      upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, jaMoveu: true, jaAtacou: true } : a) }))
+      await sleep(speed * 0.5)
+      return false
+    }
+
+    // ── Escolhe IA [FIX BUG 1: passa as DUAS IAs do time, não a mesma IA duas vezes] ──
     const idx = cur[key].findIndex(x => x.id === p.id)
     const nvivos = cur[key].filter(x => x.hp > 0).length
     const iaIdx = Math.floor(idx / Math.ceil(nvivos / iasDoTime.length)) % iasDoTime.length
     const ia = iasDoTime[iaIdx]
-    console.log(`[SIM][1780723835838ms][1780723835838ms] IA escolhida: ${ia.nome} (idx=${idx}, nvivos=${nvivos}, iaIdx=${iaIdx})`)
+    console.log(`[SIM] IA escolhida: ${ia.nome} (idx=${idx}, nvivos=${nvivos}, iaIdx=${iaIdx})`)
 
     // Fase: PENSAMENTO
     addLog(`🤔 ${p.nome} pensando (${ia.nome})...`)
-    await sleep(speed * 0.4)
+    await sleep(speed * 0.3)
 
-    // Resolve ação da IA
+    // Resolve ação da IA — passa as DUAS IAs (ia1, ia2) para o resolver distribuir
     const oponentes = key === 'aliados' ? timeInimigos : timeAliados
-    console.log(`[SIM][1780723835838ms][1780723835838ms] Chamando resolverAcaoIA(p=${p.nome}, ia=${ia.nome}, meus=time${lado === 'aliado' ? 'Aliados' : 'Inimigos'})`)
-    const acao = resolverAcaoIA(p, ia, ia, key === 'aliados' ? timeAliados : timeInimigos, oponentes)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] Ação retornada:`, acao ? `skill=${acao.skill?.nome || 'null'}, alvo=${acao.alvo?.nome || 'null'}` : 'null')
+    const meusPersonagens = key === 'aliados' ? timeAliados : timeInimigos
+    console.log(`[SIM] Chamando resolverAcaoIA(p=${p.nome}, ia1=${iasDoTime[0]?.nome}, ia2=${(iasDoTime[1] || iasDoTime[0])?.nome})`)
+    const acao = resolverAcaoIA(p, iasDoTime[0], iasDoTime[1] || iasDoTime[0], meusPersonagens, oponentes)
+    console.log(`[SIM] Ação retornada:`, acao ? `skill=${acao.skill?.nome || 'null'}, alvo=${acao.alvo?.nome || 'null'}` : 'null')
 
     if (!acao?.skill || !acao?.alvo) {
-      console.log(`[SIM][1780723835838ms][1780723835838ms] ${p.nome} SEM AÇÃO — passando turno`)
+      console.log(`[SIM] ${p.nome} SEM AÇÃO — passando turno`)
       addLog(`😐 ${p.nome} não encontrou ação`)
       upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, jaMoveu: true, jaAtacou: true } : a) }))
       await sleep(speed * 0.5)
@@ -112,34 +153,56 @@ export default function BatalhaSimulacao({ config, onFim }) {
     }
 
     const { skill, alvo } = acao
-    console.log(`[SIM][1780723835838ms][1780723835838ms] DECISÃO: ${p.nome} usa ${skill.nome} (dano=${skill.dano}, custo=${skill.custo}, alcance=${skill.alcance}) em ${alvo.nome} (hp=${alvo.hp}, x=${alvo.x}, y=${alvo.y})`)
+    console.log(`[SIM] DECISÃO: ${p.nome} usa ${skill.nome} (dano=${skill.dano}, custo=${skill.custo}, alcance=${skill.alcance}) em ${alvo.nome} (hp=${alvo.hp}, x=${alvo.x}, y=${alvo.y})`)
 
-    // Fase: MOVIMENTO (se necessário)
+    // ── Fase: MOVIMENTO (Manhattan-style, 1 eixo por vez, evitando obstáculos) [FIX BUG 2+3] ──
     const distX = Math.abs(alvo.x - p.x)
     const distY = Math.abs(alvo.y - p.y)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] Distância até alvo: dx=${distX}, dy=${distY}, alcanceSkill=${skill.alcance}`)
+    const ocupadas = getOcupadasSim(cur, key, p.id)
+    console.log(`[SIM] Distância até alvo: dx=${distX}, dy=${distY}, alcanceSkill=${skill.alcance}`)
+
+    let moveu = false
     if (distX + distY > skill.alcance) {
-      // Move 1 passo p/ perto do alvo
-      const novaX = p.x + (alvo.x > p.x ? 1 : alvo.x < p.x ? -1 : 0)
-      const novaY = p.y + (alvo.y > p.y ? 1 : alvo.y < p.y ? -1 : 0)
-      addLog(`🚶 ${p.nome} → (${novaX},${novaY})`)
-      console.log(`[SIM][1780723835838ms][1780723835838ms] MOVENDO: ${p.nome} de (${p.x},${p.y}) para (${novaX},${novaY})`)
-      upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, x: novaX, y: novaY } : a) }))
-      await sleep(speed * 0.5)
+      // Tenta mover no eixo X primeiro (Manhattan)
+      let novaX = p.x, novaY = p.y
+      if (alvo.x !== p.x) {
+        const tentativaX = p.x + (alvo.x > p.x ? 1 : -1)
+        if (!ocupadas.has(`${tentativaX},${p.y}`) && tentativaX >= 0 && tentativaX < 8) {
+          novaX = tentativaX
+        }
+      }
+      // Se X travou, tenta Y
+      if (novaX === p.x && alvo.y !== p.y) {
+        const tentativaY = p.y + (alvo.y > p.y ? 1 : -1)
+        if (!ocupadas.has(`${p.x},${tentativaY}`) && tentativaY >= 0 && tentativaY < 16) {
+          novaY = tentativaY
+        }
+      }
+      // Se um dos eixos mudou, move
+      if (novaX !== p.x || novaY !== p.y) {
+        addLog(`🚶 ${p.nome} → (${novaX},${novaY})`)
+        console.log(`[SIM] MOVENDO: ${p.nome} de (${p.x},${p.y}) para (${novaX},${novaY})`)
+        upd(prev => ({ ...prev, [key]: prev[key].map(a => a.id === p.id ? { ...a, x: novaX, y: novaY } : a) }))
+        moveu = true
+        await sleep(speed * 0.5)
+      } else {
+        addLog(`🚫 ${p.nome} sem caminho livre para o alvo`)
+        console.log(`[SIM] ${p.nome} não conseguiu se mover — caminho bloqueado`)
+      }
     } else {
-      console.log(`[SIM][1780723835838ms][1780723835838ms] ${p.nome} já está no alcance, sem movimento`)
+      console.log(`[SIM] ${p.nome} já está no alcance, sem movimento`)
     }
 
-    // Fase: PREVIEW DO ATAQUE
+    // ── Fase: PREVIEW DO ATAQUE ──
     addLog(`🎯 ${p.nome} → ${skill.nome} → ${alvo.nome}`)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] PREVIEW ATAQUE: ${p.nome} mirando ${alvo.nome} com ${skill.nome}`)
-    await sleep(speed * 0.4)
+    console.log(`[SIM] PREVIEW ATAQUE: ${p.nome} mirando ${alvo.nome} com ${skill.nome}`)
+    await sleep(speed * 0.3)
 
-    // Fase: EXECUTAR ATAQUE
-    console.log(`[SIM][1780723835838ms][1780723835838ms] Calculando dano: resolverAtaque(${p.nome}, ${alvo.nome}, ${skill.nome})`)
+    // ── Fase: EXECUTAR ATAQUE ──
+    console.log(`[SIM] Calculando dano: resolverAtaque(${p.nome}, ${alvo.nome}, ${skill.nome})`)
     const resultado = resolverAtaque(p, alvo, skill, getMultiplicadorElemental(p.elemental, alvo.elemental))
-    console.log(`[SIM][1780723835838ms][1780723835838ms] RESULTADO: acertou=${resultado.acertou}, dano=${resultado.dano}, critico=${resultado.critico}, missTipo=${resultado.missTipo}`)
-    if (resultado.status) console.log(`[SIM][1780723835838ms][1780723835838ms] STATUS aplicado:`, resultado.status)
+    console.log(`[SIM] RESULTADO: acertou=${resultado.acertou}, dano=${resultado.dano}, critico=${resultado.critico}, missTipo=${resultado.missTipo}`)
+    if (resultado.status) console.log(`[SIM] STATUS aplicado:`, resultado.status)
 
     // Juice
     const elem = getElem(p.elemental)
@@ -155,7 +218,7 @@ export default function BatalhaSimulacao({ config, onFim }) {
 
     if (resultado.acertou) {
       const danoFinal = Math.max(0, resultado.dano)
-      console.log(`[SIM][1780723835838ms][1780723835838ms] APLICANDO DANO: ${danoFinal} em ${alvo.nome} (hp ${alvo.hp} → ${Math.max(0, alvo.hp - danoFinal)})`)
+      console.log(`[SIM] APLICANDO DANO: ${danoFinal} em ${alvo.nome} (hp ${alvo.hp} → ${Math.max(0, alvo.hp - danoFinal)})`)
       showDano(danoFinal, alvo.x * 48 + 24, alvo.y * 48 + 24, resultado.critico)
       const ladoAlvo = key === 'aliados' ? 'inimigos' : 'aliados'
       const ladoAtk = key
@@ -165,19 +228,32 @@ export default function BatalhaSimulacao({ config, onFim }) {
         [ladoAtk]: prev[ladoAtk].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x),
       }))
     } else {
-      console.log(`[SIM][1780723835838ms][1780723835838ms] ATAQUE ERROU! missTipo=${resultado.missTipo}`)
+      console.log(`[SIM] ATAQUE ERROU! missTipo=${resultado.missTipo}`)
       showDano(0, alvo.x * 48 + 24, alvo.y * 48 + 24, false)
       upd(prev => ({ ...prev, [key]: prev[key].map(x => x.id === p.id ? { ...x, jaMoveu: true, jaAtacou: true } : x) }))
+    }
+
+    // ── Fase: COOLDOWN — marca skill em recarga [FIX BUG 5] ──
+    if (skill.cd > 0) {
+      upd(prev => ({
+        ...prev,
+        [key]: prev[key].map(a => a.id === p.id ? {
+          ...a,
+          skills: a.skills.map(s => s.id === skill.id ? { ...s, emRecarga: true, turnosRecarga: s.cd } : s)
+        } : a)
+      }))
     }
 
     // Pós-ataque: verifica morte
     const dApos = stateRef.current
     const av = dApos.aliados.filter(a => a.hp > 0)
     const iv = dApos.inimigos.filter(i => i.hp > 0)
-    console.log(`[SIM][1780723835838ms][1780723835838ms] Pós-ataque: aliados vivos=${av.length} (${av.map(a => a.nome + '(' + a.hp + ')').join(', ')}), inimigos vivos=${iv.length} (${iv.map(i => i.nome + '(' + i.hp + ')').join(', ')})`)
+    console.log(`[SIM] Pós-ataque: aliados vivos=${av.length}, inimigos vivos=${iv.length}`)
+    if (av.length === 0 || iv.length === 0) {
+      console.log(`[SIM] TIME ${av.length > 0 ? 'AZUL' : 'VERMELHO'} VENCEU!`)
+    }
 
-    // Espera o modal e o delay
-    await sleep(speed)
+    await sleep(speed * 0.8)
     return false
   }
 
@@ -196,64 +272,82 @@ export default function BatalhaSimulacao({ config, onFim }) {
 
       // Check fim
       const d = stateRef.current
-      if (d.aliados.filter(a => a.hp > 0).length === 0 || d.inimigos.filter(i => i.hp > 0).length === 0) {
-        return true
-      }
+      const av = d.aliados.filter(a => a.hp > 0).length
+      const iv = d.inimigos.filter(i => i.hp > 0).length
+      if (av === 0 || iv === 0) return true
     }
     return false
   }
 
-  // Loop principal
+  // Loop principal — [FIX StrictMode] usa instanceId para evitar race conditions
+  // entre o mount/unmount/remount do StrictMode
   useEffect(() => {
-    if (iniciado.current) return
-    iniciado.current = true
-
+    const instanceId = ++instanceRef.current
+    let localRodando = true
     let cancelled = false
+
     const loop = async () => {
       try {
-        while (rodando.current && !cancelled) {
+        while (localRodando && !cancelled && instanceId === instanceRef.current) {
           const cur = stateRef.current
           addLog(`=== TURNO ${cur.turno} ===`)
 
           // Time Azul
           upd(p => ({ ...p, fase: 'player' }))
           await sleep(speed * 0.3)
-          if (await processarTime('aliado') || !rodando.current || cancelled) break
+
+          if (!localRodando || cancelled || instanceId !== instanceRef.current) break
+          if (await processarTime('aliado')) break
 
           // Time Vermelho
+          if (!localRodando || cancelled || instanceId !== instanceRef.current) break
           upd(p => ({ ...p, fase: 'enemy' }))
           await sleep(speed * 0.3)
-          if (await processarTime('inimigo') || !rodando.current || cancelled) break
 
-          // Fim do turno — reseta flags
+          if (!localRodando || cancelled || instanceId !== instanceRef.current) break
+          if (await processarTime('inimigo')) break
+
+          // Fim do turno — reseta flags + reduz cooldowns [FIX BUG 5]
+          if (!localRodando || cancelled || instanceId !== instanceRef.current) break
           upd(p => ({
             ...p, turno: p.turno + 1,
-            aliados: p.aliados.map(a => ({ ...a, jaMoveu: false, jaAtacou: false })),
-            inimigos: p.inimigos.map(i => ({ ...i, jaMoveu: false, jaAtacou: false })),
+            aliados: p.aliados.map(a => ({
+              ...a, jaMoveu: false, jaAtacou: false,
+              skills: a.skills.map(s => s.turnosRecarga > 0
+                ? { ...s, turnosRecarga: s.turnosRecarga - 1, emRecarga: s.turnosRecarga - 1 > 0 }
+                : s)
+            })),
+            inimigos: p.inimigos.map(i => ({
+              ...i, jaMoveu: false, jaAtacou: false,
+              skills: i.skills.map(s => s.turnosRecarga > 0
+                ? { ...s, turnosRecarga: s.turnosRecarga - 1, emRecarga: s.turnosRecarga - 1 > 0 }
+                : s)
+            })),
           }))
         }
       } catch (err) {
-        console.error('[SIM][1780723835838ms][1780723835838ms] Erro no loop:', err)
+        console.error('[SIM] Erro no loop:', err)
         addLog(`❌ ERRO: ${err.message}`)
       }
 
       // Fim da batalha
-      const d = stateRef.current
-      const av = d.aliados.filter(a => a.hp > 0)
-      const iv = d.inimigos.filter(i => i.hp > 0)
-      if (av.length === 0 || iv.length === 0) {
-        rodando.current = false
-        setTerminou(true)
-        const vencedor = av.length > 0 ? 'TIME AZUL' : 'TIME VERMELHO'
-        const iaV = av.length > 0
-          ? d.ias.timeAzul.map(ia => ia.nome).join(' + ')
-          : d.ias.timeVermelho.map(ia => ia.nome).join(' + ')
-        addLog(`🏆 ${vencedor} venceu! (${iaV})`)
+      if (instanceId === instanceRef.current) {
+        const d = stateRef.current
+        const av = d.aliados.filter(a => a.hp > 0)
+        const iv = d.inimigos.filter(i => i.hp > 0)
+        if (av.length === 0 || iv.length === 0) {
+          setTerminou(true)
+          const vencedor = av.length > 0 ? 'TIME AZUL' : 'TIME VERMELHO'
+          const iaV = av.length > 0
+            ? d.ias.timeAzul.map(ia => ia.nome).join(' + ')
+            : d.ias.timeVermelho.map(ia => ia.nome).join(' + ')
+          addLog(`🏆 ${vencedor} venceu! (${iaV})`)
+        }
       }
     }
 
     loop()
-    return () => { cancelled = true; rodando.current = false }
+    return () => { localRodando = false; cancelled = true }
   }, [])
 
   const { aliados, inimigos, obstrucoes, turno, fase, ias } = state
