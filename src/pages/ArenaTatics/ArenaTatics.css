@@ -1394,38 +1394,25 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
 }
 
-.tatics-select-title {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.3rem;
-}
-
-.tatics-select-title-ldi {
+.tatics-select-glitch {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #EAEAEA;
-  letter-spacing: 0.1em;
-}
-
-.tatics-select-title-tatics {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #00B4D8;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-shadow: 0 0 20px rgba(0,180,216,0.3);
+  text-transform: uppercase;
 }
 
-.tatics-select-subtitle {
+.tatics-select-sub {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   color: #4F5359;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   margin-top: 0.3rem;
 }
 
@@ -1440,44 +1427,49 @@
 .tatics-select-carrossel-area {
   position: relative;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 4px;
   width: 100%;
   max-width: 480px;
   flex: 1;
+  display: flex;
+  align-items: center;
   overflow: hidden;
+  cursor: grab;
 }
 
-.tatics-select-carrossel-wrapper {
-  flex: 1;
+.tatics-select-carrossel-area:active {
+  cursor: grabbing;
+}
+
+.tatics-select-cw {
+  width: 100%;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: none;
 }
 
 .tatics-select-carrossel {
   display: flex;
-  gap: 12px;
-  padding: 10px 4px;
+  gap: 14px;
+  padding: 10px 24px;
   will-change: transform;
 }
 
 .tatics-select-card {
-  min-width: 160px;
-  max-width: 160px;
+  min-width: 170px;
+  max-width: 170px;
   background: rgba(255,255,255,0.02);
   border: 1px solid;
-  border-radius: 16px;
-  padding: 1.2rem 0.8rem;
+  border-radius: 18px;
+  padding: 1.5rem 0.8rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
   flex-shrink: 0;
   position: relative;
   backdrop-filter: blur(4px);
+  user-select: none;
 }
 
 .tatics-select-card:hover {
@@ -1485,119 +1477,87 @@
   transform: translateY(-4px);
 }
 
-.card-selecionado {
+.cd-sel {
   background: rgba(0,180,216,0.06) !important;
   transform: translateY(-4px);
 }
 
-.tatics-select-card-emoji {
-  font-size: 2.2rem;
-  margin-bottom: 4px;
+.tatics-select-ce {
+  font-size: 2.5rem;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--cor-elem) 20%, transparent));
 }
 
-.tatics-select-card-nome {
+.tatics-select-cn {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #EAEAEA;
   letter-spacing: 0.05em;
 }
 
-.tatics-select-card-classe {
+.tatics-select-cc {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.5rem;
   color: #4F5359;
   letter-spacing: 0.15em;
 }
 
-.tatics-select-card-elem {
+.tatics-select-celem {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.5rem;
   letter-spacing: 0.15em;
   font-weight: 700;
 }
 
-.tatics-select-card-check {
+.tatics-select-ck {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  border: 1px solid;
+  border: 1px solid rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   color: #4F5359;
+  background: rgba(0,0,0,0.3);
 }
 
-.check-ativo {
+.ck-on {
   color: #fff;
   background: var(--cor-elem);
   border-color: var(--cor-elem) !important;
-}
-
-.tatics-select-seta {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  color: #4F5359;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  flex-shrink: 0;
-  z-index: 20;
-}
-
-.tatics-select-seta:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.12);
-  color: #8B8F96;
 }
 
 /* ── Selected chips ── */
 .tatics-select-selecionados {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 480px;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.tatics-select-selecionados-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: #4F5359;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
-}
-
-.tatics-select-selecionados-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 0.5rem;
   min-height: 32px;
+  padding: 0 1rem;
 }
 
 .tatics-select-sel-chip {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #EAEAEA;
   background: rgba(255,255,255,0.04);
@@ -1614,21 +1574,21 @@
 .tatics-select-confirm {
   position: relative;
   z-index: 10;
-  margin-top: 1.2rem;
-  padding: 0.8rem 2rem;
+  margin: 0.8rem auto 1.5rem;
+  padding: 0.7rem 2rem;
   background: transparent;
   border: 1px solid rgba(0,180,216,0.4);
   border-radius: 8px;
   color: #00B4D8;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  width: 100%;
-  max-width: 480px;
+  width: calc(100% - 2rem);
+  max-width: 440px;
 }
 
 .tatics-select-confirm:hover:not(:disabled) {
@@ -1642,86 +1602,103 @@
 }
 
 /* ══════════════════════════════════════════════════
-   DETAIL MODAL — Ficha do Personagem
+   FULL SCREEN DETAIL — Ficha + Equip + Itens
    ══════════════════════════════════════════════════ */
 
-.tatics-detail-overlay {
+.tatics-detail-overlay-full {
   position: fixed;
   inset: 0;
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(8px);
-  padding: 1rem;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  padding: 0;
 }
 
-.tatics-detail-modal {
-  background: #0D0D14;
-  border: 1px solid rgba(0,180,216,0.15);
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
-  max-width: 360px;
+.tatics-detail-full {
+  background: #0A0A0F;
   width: 100%;
-  text-align: center;
-  position: relative;
-  max-height: 90vh;
+  max-width: 480px;
+  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
+  padding: 2rem 1.2rem 3rem;
+  position: relative;
 }
 
 .tatics-detail-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  color: #4F5359;
-  font-size: 1.2rem;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #6B6F76;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
   cursor: pointer;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
 }
 
 .tatics-detail-close:hover {
-  color: #8B8F96;
+  color: #B0B4BA;
+  border-color: rgba(255,255,255,0.12);
 }
 
-.tatics-detail-token {
-  width: 72px;
-  height: 72px;
+/* Top section */
+.tatics-detail-top {
+  text-align: center;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tatics-detail-token-lg {
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   border: 2px solid;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0 auto 1rem;
 }
 
-.tatics-detail-nome {
+.tatics-detail-nome-lg {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #EAEAEA;
   letter-spacing: 0.05em;
 }
 
-.tatics-detail-classe {
+.tatics-detail-tipo {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
   font-weight: 600;
 }
 
-.tatics-detail-stats {
-  margin-top: 1.2rem;
+/* Stats grid */
+.tatics-detail-stats-grid {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 1.2rem;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  padding: 1rem;
 }
 
-.tatics-detail-stat {
+.tatics-detail-stat-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1731,20 +1708,22 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.55rem;
   color: #4F5359;
-  width: 28px;
+  width: 30px;
   text-align: right;
   flex-shrink: 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
-.tatics-detail-stat-bar {
+.tatics-detail-stat-bar-bg {
   flex: 1;
-  height: 6px;
+  height: 5px;
   background: rgba(255,255,255,0.04);
   border-radius: 3px;
   overflow: hidden;
 }
 
-.tatics-detail-stat-fill {
+.tatics-detail-stat-bar-fill {
   height: 100%;
   border-radius: 3px;
   transition: width 0.3s;
@@ -1754,37 +1733,120 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
   color: #8B8F96;
-  width: 20px;
+  width: 22px;
   text-align: left;
 }
 
-.tatics-detail-derived {
+/* Derived stats */
+.tatics-detail-derived-bar {
   display: flex;
+  gap: 10px;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: #6B6F76;
+  margin-bottom: 1.5rem;
 }
 
-.tatics-detail-select-btn {
-  margin-top: 1.2rem;
-  padding: 0.7rem 1.5rem;
+.tatics-detail-derived-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  min-width: 70px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.tatics-detail-derived-icon {
+  font-size: 1.1rem;
+}
+
+.tatics-detail-derived-num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.tatics-detail-derived-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.45rem;
+  color: #4F5359;
+  letter-spacing: 0.1em;
+}
+
+/* Sections (Equipment, Items) */
+.tatics-detail-section {
+  margin-bottom: 1.2rem;
+}
+
+.tatics-detail-section-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  color: #4F5359;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.tatics-detail-slots {
+  display: flex;
+  gap: 8px;
+}
+
+.tatics-detail-slot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0.8rem 0.4rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.06);
+  transition: all 0.2s;
+  min-height: 70px;
+  justify-content: center;
+}
+
+.tatics-detail-slot.vazio:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.tatics-detail-slot-icon {
+  font-size: 1.2rem;
+  color: #4F5359;
+}
+
+.tatics-detail-slot-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  color: #4F5359;
+  letter-spacing: 0.05em;
+}
+
+/* Action button */
+.tatics-detail-actions {
+  margin-top: 1rem;
+}
+
+.tatics-detail-action-btn {
+  width: 100%;
+  padding: 0.8rem;
   background: transparent;
-  border: 1px solid color-mix(in srgb, var(--cor-elem) 40%, transparent);
-  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--cor-elem) 35%, transparent);
+  border-radius: 10px;
   color: var(--cor-elem);
   font-family: 'Rajdhani', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.2s;
-  width: 100%;
 }
 
-.tatics-detail-select-btn:hover {
-  background: color-mix(in srgb, var(--cor-elem) 10%, transparent);
+.tatics-detail-action-btn:hover {
+  background: color-mix(in srgb, var(--cor-elem) 8%, transparent);
   border-color: var(--cor-elem);
 }

@@ -1,212 +1,132 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ROSTER, construirPersonagem } from '../data/roster'
+import { ROSTER } from '../data/roster'
 
-const EMOJI_CLASSE = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
-const ELEM_CORES = {
+const EMOJI = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
+const ELEM_COR = {
   fogo: '#FF4500', agua: '#1E90FF', terra: '#8B4513', vento: '#87CEEB',
   eletrico: '#FFD700', trevas: '#9932CC',
 }
 
 export default function TeamSelect({ isAdmin, onConfirm }) {
-  const [cards, setCards] = useState(() =>
-    ROSTER.map(r => ({ ...r, selecionado: false }))
-  )
+  const [cards, setCards] = useState(() => ROSTER.map(r => ({ ...r, sel: false })))
   const [scrollX, setScrollX] = useState(0)
-  const [detailChar, setDetailChar] = useState(null)
-  const dragStartX = useRef(0)
-  const dragOffset = useRef(0)
-  const isDragging = useRef(false)
+  const [detail, setDetail] = useState(null)
+  const drag = useRef({ start: 0, offset: 0, down: false, moved: false })
+  const ref = useRef(null)
 
-  const selecionados = cards.filter(c => c.selecionado)
-  const podeConfirmar = selecionados.length >= 2
+  const sel = cards.filter(c => c.sel)
+  const ok = sel.length >= 2
 
-  const toggleSelect = (id) => {
-    if (isAdmin) {
-      setCards(prev => prev.map(c =>
-        c.id === id ? { ...c, selecionado: !c.selecionado } : c
-      ))
-    }
+  const onDown = (x) => { drag.current = { start: x, offset: 0, down: true, moved: false } }
+  const onMove = (x) => {
+    if (!drag.current.down) return
+    const dx = x - drag.current.start
+    if (Math.abs(dx) > 4) drag.current.moved = true
+    drag.current.offset = dx
+    if (ref.current) { ref.current.style.transform = `translateX(${scrollX + dx}px)`; ref.current.style.transition = 'none' }
   }
-
-  const handleCardClick = (char) => {
-    setDetailChar(char)
+  const onUp = () => {
+    if (!drag.current.down) return
+    drag.current.down = false
+    if (!ref.current) return
+    ref.current.style.transition = 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)'
+    const d = drag.current.offset
+    setScrollX(s => { const n = Math.abs(d) > 50 ? s - Math.sign(d) * 280 : s; ref.current.style.transform = `translateX(${n}px)`; return n })
   }
-
-  // Touch handlers for carrossel
-  const handleTouchStart = (e) => {
-    dragStartX.current = e.touches[0].clientX
-    isDragging.current = false
-  }
-  const handleTouchMove = (e) => {
-    const dx = e.touches[0].clientX - dragStartX.current
-    if (Math.abs(dx) > 5) isDragging.current = true
-    dragOffset.current = dx
-  }
-  const handleTouchEnd = () => {
-    if (Math.abs(dragOffset.current) > 60) {
-      setScrollX(s => s - Math.sign(dragOffset.current) * 280)
-    }
-    dragOffset.current = 0
-  }
-
-  // Scroll via seta
-  const scroll = (dir) => setScrollX(s => s + dir * 280)
 
   return (
     <div className="tatics-select">
-      {/* Background */}
       <div className="tatics-intro-bg" />
       <div className="tatics-intro-scanlines" />
       <div className="tatics-intro-vignette" />
 
-      {/* Header */}
       <div className="tatics-select-header">
-        <div className="tatics-select-title">
-          <span className="tatics-select-title-ldi">LDI</span>
-          <span className="tatics-select-title-tatics">TATICS</span>
-        </div>
-        <div className="tatics-select-subtitle">
-          {isAdmin ? 'SELECIONE SEU TIME' : 'SEUS PERSONAGENS'}
-        </div>
-        {!isAdmin && (
-          <div className="tatics-select-info">
-            2 personagens foram atribuídos à sua conta
-          </div>
-        )}
+        <div className="tatics-select-glitch">SELECIONAR ESQUADRÃO</div>
+        <div className="tatics-select-sub">{isAdmin ? `Toque para ver · ${sel.length}/6` : 'SEUS PERSONAGENS'}</div>
       </div>
 
-      {/* Carrossel */}
-      <div className="tatics-select-carrossel-area">
-        {isAdmin && (
-          <button className="tatics-select-seta tatics-select-seta-esq" onClick={() => scroll(1)}>◀</button>
-        )}
-        <div className="tatics-select-carrossel-wrapper"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className="tatics-select-carrossel" style={{
-            transform: `translateX(${scrollX}px)`,
-            transition: isDragging.current ? 'none' : 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          }}>
-            {cards.map(char => {
-              const corElem = ELEM_CORES[char.elemental] || '#00B4D8'
-              const selected = char.selecionado
+      <div className="tatics-select-car"
+        onMouseDown={e => onDown(e.clientX)}
+        onMouseMove={e => onMove(e.clientX)}
+        onMouseUp={onUp}
+        onMouseLeave={onUp}
+        onTouchStart={e => onDown(e.touches[0].clientX)}
+        onTouchMove={e => onMove(e.touches[0].clientX)}
+        onTouchEnd={onUp}
+      >
+        <div className="tatics-select-cw">
+          <div className="tatics-select-c" ref={ref} style={{ transform: `translateX(${scrollX}px)` }}>
+            {cards.map(c => {
+              const co = ELEM_COR[c.elemental] || '#00B4D8'
               return (
-                <motion.div
-                  key={char.id}
-                  layout
-                  className={`tatics-select-card ${selected ? 'card-selecionado' : ''}`}
-                  style={{
-                    '--cor-elem': corElem,
-                    borderColor: selected ? corElem : 'rgba(255,255,255,0.06)',
-                    boxShadow: selected ? `0 0 20px ${corElem}33` : 'none',
-                  }}
-                  onClick={() => {
-                    if (!isDragging.current) handleCardClick(char)
-                  }}
+                <div key={c.id} className={`tatics-select-cd ${c.sel ? 'cd-sel' : ''}`}
+                  style={{ '--ce': co, borderColor: c.sel ? co : 'rgba(255,255,255,0.06)' }}
+                  onClick={() => { if (!drag.current.moved) setDetail(c) }}
                 >
-                  <div className="tatics-select-card-emoji">{EMOJI_CLASSE[char.classe] || '⚔️'}</div>
-                  <div className="tatics-select-card-nome">{char.nome}</div>
-                  <div className="tatics-select-card-classe">{char.classe.toUpperCase()}</div>
-                  <div className="tatics-select-card-elem" style={{ color: corElem }}>
-                    {char.elemental.toUpperCase()}
-                  </div>
+                  <div className="tatics-select-ce">{EMOJI[c.classe] || '⚔️'}</div>
+                  <div className="tatics-select-cn">{c.nome}</div>
+                  <div className="tatics-select-cc">{c.classe.toUpperCase()}</div>
+                  <div className="tatics-select-celem" style={{ color: co }}>{c.elemental.toUpperCase()}</div>
                   {isAdmin && (
-                    <div className={`tatics-select-card-check ${selected ? 'check-ativo' : ''}`}
-                      onClick={(e) => { e.stopPropagation(); toggleSelect(char.id) }}
-                      style={{ borderColor: selected ? corElem : '#333' }}
-                    >
-                      {selected ? '✓' : '+'}
-                    </div>
+                    <div className={`tatics-select-ck ${c.sel ? 'ck-on' : ''}`}
+                      onClick={e => { e.stopPropagation(); setCards(p => p.map(x => x.id === c.id ? { ...x, sel: !x.sel } : x)) }}
+                    >{c.sel ? '✓' : '+'}</div>
                   )}
-                </motion.div>
+                </div>
               )
             })}
           </div>
         </div>
-        {isAdmin && (
-          <button className="tatics-select-seta tatics-select-seta-dir" onClick={() => scroll(-1)}>▶</button>
-        )}
       </div>
 
-      {/* Selected bar */}
-      {isAdmin && (
-        <div className="tatics-select-selecionados">
-          <div className="tatics-select-selecionados-label">
-            SELECIONADOS ({selecionados.length}/6)
-          </div>
-          <div className="tatics-select-selecionados-list">
-            {selecionados.map(c => (
-              <div key={c.id} className="tatics-select-sel-chip" style={{ '--cor-elem': ELEM_CORES[c.elemental] || '#00B4D8' }}>
-                {EMOJI_CLASSE[c.classe] || '⚔️'} {c.nome}
-              </div>
-            ))}
-            {selecionados.length === 0 && (
-              <div className="tatics-select-sel-empty">Clique nos cards para selecionar</div>
-            )}
-          </div>
+      {isAdmin && sel.length > 0 && (
+        <div className="tatics-select-chips">
+          {sel.map(c => (
+            <div key={c.id} className="tatics-select-chip" style={{ '--ce': ELEM_COR[c.elemental] || '#00B4D8' }}>
+              {EMOJI[c.classe] || '⚔️'} {c.nome}
+            </div>
+          ))}
         </div>
       )}
 
-      {/* Confirm button */}
-      <motion.button
-        className="tatics-select-confirm"
-        whileTap={{ scale: 0.95 }}
-        onClick={() => {
-          const ids = isAdmin ? selecionados.map(c => c.id) : []
-          onConfirm(ids)
-        }}
-        disabled={!podeConfirmar && isAdmin}
-        style={{
-          opacity: podeConfirmar || !isAdmin ? 1 : 0.4,
-        }}
-      >
-        {isAdmin ? `BATALHAR COM ${selecionados.length} PERSONAGENS` : 'IR PARA BATALHA'}
-      </motion.button>
+      <motion.button className="tatics-select-go" whileTap={{ scale: 0.95 }}
+        onClick={() => onConfirm(isAdmin ? sel.map(c => c.id) : [])}
+        disabled={!ok && isAdmin}
+        style={{ opacity: ok || !isAdmin ? 1 : 0.35 }}
+      >{isAdmin ? `BATALHAR (${sel.length})` : 'IR PARA BATALHA'}</motion.button>
 
-      {/* Detail Modal */}
+      {/* FULL DETAIL */}
       <AnimatePresence>
-        {detailChar && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="tatics-detail-overlay"
-            onClick={() => setDetailChar(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              className="tatics-detail-modal"
-              onClick={e => e.stopPropagation()}
-            >
-              <button className="tatics-detail-close" onClick={() => setDetailChar(null)}>✕</button>
+        {detail && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="tatics-detail-overlay-full" onClick={() => setDetail(null)}>
+            <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 40, opacity: 0 }}
+              className="tatics-detail-full" onClick={e => e.stopPropagation()}>
+              <button className="tatics-detail-close" onClick={() => setDetail(null)}>✕</button>
 
-              <div className="tatics-detail-token" style={{
-                background: `radial-gradient(circle at 35% 35%, ${ELEM_CORES[detailChar.elemental]}55, #111)`,
-                borderColor: ELEM_CORES[detailChar.elemental] || '#00B4D8',
-                boxShadow: `0 0 30px ${ELEM_CORES[detailChar.elemental] || '#00B4D8'}33`,
-              }}>
-                {EMOJI_CLASSE[detailChar.classe] || '⚔️'}
+              <div className="tatics-detail-top">
+                <div className="tatics-detail-token-lg" style={{
+                  background: `radial-gradient(circle at 35% 35%, ${ELEM_COR[detail.elemental]}44, #0a0a0a)`,
+                  borderColor: ELEM_COR[detail.elemental] || '#00B4D8',
+                }}>{EMOJI[detail.classe] || '⚔️'}</div>
+                <div className="tatics-detail-nome-lg">{detail.nome}</div>
+                <div className="tatics-detail-tipo" style={{ color: ELEM_COR[detail.elemental] || '#00B4D8' }}>
+                  {detail.classe.toUpperCase()} · {detail.elemental.toUpperCase()}
+                </div>
               </div>
 
-              <div className="tatics-detail-nome">{detailChar.nome}</div>
-              <div className="tatics-detail-classe" style={{ color: ELEM_CORES[detailChar.elemental] || '#00B4D8' }}>
-                {detailChar.classe.toUpperCase()} · {detailChar.elemental.toUpperCase()}
-              </div>
-
-              {/* Stats */}
-              <div className="tatics-detail-stats">
-                {Object.entries(detailChar.atributos).map(([k, v]) => (
-                  <div key={k} className="tatics-detail-stat">
-                    <div className="tatics-detail-stat-label">{k.toUpperCase()}</div>
-                    <div className="tatics-detail-stat-bar">
-                      <div className="tatics-detail-stat-fill" style={{
+              <div className="tatics-detail-stats-grid">
+                {Object.entries(detail.atributos).map(([k, v]) => (
+                  <div key={k} className="tatics-detail-stat-item">
+                    <div className="tatics-detail-stat-label">{
+                      k === 'forca' ? 'FOR' : k === 'velocidade' ? 'VEL' : k === 'resistencia' ? 'RES' :
+                      k === 'energia' ? 'ENE' : k === 'precisao' ? 'PRE' : k === 'tenacidade' ? 'TEN' : k.toUpperCase()
+                    }</div>
+                    <div className="tatics-detail-stat-bar-bg">
+                      <div className="tatics-detail-stat-bar-fill" style={{
                         width: `${(v / 20) * 100}%`,
-                        background: `linear-gradient(90deg, ${ELEM_CORES[detailChar.elemental] || '#00B4D8'}, ${ELEM_CORES[detailChar.elemental] || '#00B4D8'}66)`,
+                        background: `linear-gradient(90deg, ${ELEM_COR[detail.elemental] || '#00B4D8'}, ${ELEM_COR[detail.elemental] || '#00B4D8'}55)`,
                       }} />
                     </div>
                     <div className="tatics-detail-stat-val">{v}</div>
@@ -214,21 +134,55 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
                 ))}
               </div>
 
-              {/* Derived stats */}
-              <div className="tatics-detail-derived">
-                <span>❤️ HP: {30 + detailChar.atributos.resistencia * 3}</span>
-                <span>⚡ MP: {10 + detailChar.atributos.energia}</span>
+              <div className="tatics-detail-derived-bar">
+                <div className="tatics-detail-derived-item">
+                  <span>❤️</span>
+                  <span className="tatics-detail-derived-num">{30 + detail.atributos.resistencia * 3}</span>
+                  <span className="tatics-detail-derived-label">HP</span>
+                </div>
+                <div className="tatics-detail-derived-item">
+                  <span>⚡</span>
+                  <span className="tatics-detail-derived-num">{10 + detail.atributos.energia}</span>
+                  <span className="tatics-detail-derived-label">MP</span>
+                </div>
+                <div className="tatics-detail-derived-item">
+                  <span>👣</span>
+                  <span className="tatics-detail-derived-num">3</span>
+                  <span className="tatics-detail-derived-label">ALC</span>
+                </div>
+              </div>
+
+              <div className="tatics-detail-section">
+                <div className="tatics-detail-section-title">EQUIPAMENTOS</div>
+                <div className="tatics-detail-slots">
+                  {['Arma', 'Armadura', 'Acessório'].map(s => (
+                    <div key={s} className="tatics-detail-slot vazio">
+                      <span className="tatics-detail-slot-icon">○</span>
+                      <span className="tatics-detail-slot-label">{s}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="tatics-detail-section">
+                <div className="tatics-detail-section-title">ITENS</div>
+                <div className="tatics-detail-slots">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <div key={i} className="tatics-detail-slot vazio">
+                      <span className="tatics-detail-slot-icon">◇</span>
+                      <span className="tatics-detail-slot-label">Vazio</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {isAdmin && (
-                <motion.button
-                  className="tatics-detail-select-btn"
-                  whileTap={{ scale: 0.95 }}
-                  style={{ '--cor-elem': ELEM_CORES[detailChar.elemental] || '#00B4D8' }}
-                  onClick={() => { toggleSelect(detailChar.id); setDetailChar(null) }}
-                >
-                  {cards.find(c => c.id === detailChar.id)?.selecionado ? 'REMOVER DO TIME' : 'ADICIONAR AO TIME'}
-                </motion.button>
+                <div className="tatics-detail-actions">
+                  <motion.button whileTap={{ scale: 0.95 }} className="tatics-detail-action-btn"
+                    style={{ '--ce': ELEM_COR[detail.elemental] || '#00B4D8' }}
+                    onClick={() => { setCards(p => p.map(x => x.id === detail.id ? { ...x, sel: !x.sel } : x)); setDetail(null) }}
+                  >{cards.find(c => c.id === detail.id)?.sel ? '− REMOVER' : '+ ADICIONAR'}</motion.button>
+                </div>
               )}
             </motion.div>
           </motion.div>
