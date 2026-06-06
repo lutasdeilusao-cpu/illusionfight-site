@@ -10,7 +10,7 @@ const LINES = [
   { text: 'INICIANDO PROTOCOLO DE SELEÇÃO', delay: 3600 },
 ]
 
-export default function Intro({ onEnter, onSimulacao }) {
+export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
   const [visibleLines, setVisibleLines] = useState([])
   const [showButton, setShowButton] = useState(false)
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
@@ -139,6 +139,22 @@ export default function Intro({ onEnter, onSimulacao }) {
                   className="tatics-intro-btn tatics-intro-btn-sim"
                 >
                   <span className="tatics-intro-btn-text">⚙ SIMULAÇÃO IA</span>
+                  <span className="tatics-intro-btn-glow" />
+                </motion.button>
+              )}
+              {onTesteSim && (
+                <motion.button
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={onTesteSim}
+                  className="tatics-intro-btn tatics-intro-btn-sim"
+                  style={{ borderColor: 'rgba(74,222,128,0.4)', color: '#4ADE80' }}
+                >
+                  <span className="tatics-intro-btn-text">🧪 TESTE RÁPIDO</span>
                   <span className="tatics-intro-btn-glow" />
                 </motion.button>
               )}

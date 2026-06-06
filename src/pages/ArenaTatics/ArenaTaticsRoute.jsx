@@ -5,6 +5,7 @@ import { useReader } from '../../context/ReaderContext'
 import { useArenaTaticsStore } from './store/useArenaTaticsStore'
 import { supabase } from '../../lib/supabase'
 import { ROSTER } from './data/roster'
+import { TODAS_IAS } from './data/aiPersonalities'
 import { TATICS_VERSION } from '../../config/version'
 
 import Intro from './screens/Intro'
@@ -118,20 +119,17 @@ export default function ArenaTaticsRoute() {
     setFase('intro')
   }
 
-  if (!user) {
-    return (
-      <div className="tatics-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#08080C', color: '#4F5359', fontFamily: 'Rajdhani', fontSize: '1rem', padding: '2rem', textAlign: 'center' }}>
-        <div>
-          <div style={{ color: '#00B4D8', fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>LDI TATICS</div>
-          <div>Faça login para jogar.</div>
-        </div>
-      </div>
-    )
+  // TESTE: simulação direta sem login
+  const handleTesteSim = () => {
+    console.log('[TATICS] INICIANDO TESTE SIMULAÇÃO DIRETA')
+    const shuffled = [...TODAS_IAS].sort(() => Math.random() - 0.5)
+    setSimConfig({ numChars: 3, numIAs: 2, ias: shuffled.slice(0, 2), speed: 800 })
+    setFase('batalhaSim')
   }
 
   return (
     <div className="tatics-container">
-      {fase === 'intro' && <Intro onEnter={handleIntroEnter} onSimulacao={isAdmin ? handleSimulacao : undefined} />}
+      {fase === 'intro' && <Intro onEnter={handleIntroEnter} onSimulacao={handleSimulacao} onTesteSim={handleTesteSim} />}
       {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} maxSlots={store.maxSlots} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
       {fase === 'simulacao' && <SimulacaoAuto onIniciar={handleIniciarSimulacao} />}
