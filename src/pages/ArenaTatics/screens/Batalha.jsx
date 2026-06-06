@@ -356,7 +356,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       setEnemyDisplay({ subFase: 'thinking', alcance: [], animPos: null, currentEnemyId: inimigo.id })
       tickRef.current++
 
-      const attackRange = podeAtacar ? getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes) : []
+      const attackRange = podeAtacar ? getAlcanceSkill(inimigo, melhorSkill, inimigos, aliados, obstrucoes) : []
       const temVisao = podeAtacar && estahEmAlcance(alvo.x, alvo.y, attackRange)
 
       if (podeAtacar && temVisao) {
@@ -398,7 +398,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
           // Simula o ataque dessa célula candidata
           const cellSkillRange = getAlcanceSkill(
             { ...inimigo, x: cell.x, y: cell.y },
-            melhorSkill, aliados, inimigos, obstrucoes
+            melhorSkill, inimigos, aliados, obstrucoes
           )
           if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange)) {
             // Se a célula já está no caminho sem bloquear
@@ -426,7 +426,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
               tickRef.current++
 
               // Ataca da nova posição
-              const cellSkillRange2 = getAlcanceSkill(inimigo, melhorSkill, aliados, inimigos, obstrucoes)
+              const cellSkillRange2 = getAlcanceSkill(inimigo, melhorSkill, inimigos, aliados, obstrucoes)
               setEnemyDisplay({ subFase: 'attackPreview', alcance: cellSkillRange2, animPos: null, currentEnemyId: inimigo.id })
               setEnemyLog(`⚡ ${inimigo.nome} usa ${melhorSkill.nome}`)
               setEnemyTarget({ x: alvo.x, y: alvo.y })
@@ -490,7 +490,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
             // Tenta simular ataque dessa célula
             const cellSkillRange = getAlcanceSkill(
               { ...inimigo, x: cell.x, y: cell.y },
-              melhorSkill, aliados, inimigos, obstrucoes
+              melhorSkill, inimigos, aliados, obstrucoes
             )
             if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange) && d < bestDist) {
               bestDist = d; bestCell = cell
@@ -521,7 +521,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
               const pode2 = skill2 && skill2.alcance >= dist2
 
               if (pode2) {
-                const attackRange = getAlcanceSkill(inimigo, skill2, aliados, inimigos, obstrucoes)
+                const attackRange = getAlcanceSkill(inimigo, skill2, inimigos, aliados, obstrucoes)
                 setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
                 setEnemyLog(`⚡ ${inimigo.nome} usa ${skill2.nome}`)
                 setEnemyTarget({ x: alvo.x, y: alvo.y })
