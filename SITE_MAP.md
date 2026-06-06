@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-05*  
-*Versão: 1.93*  |  `[SITE] versão carregada: 1.93`
+*Versão: 1.94*  |  `[SITE] versão carregada: 1.94`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -102,7 +102,7 @@
 | `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
-| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | LDI LENDAS — lobby do RPG narrativo |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | LDI LENDAS — lobby do RPG narrativo — **core gameplay perfeito (1ª temporada), textos pendentes de revisão** |
 | `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
 | `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
 | `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos + seleção de poderes |
