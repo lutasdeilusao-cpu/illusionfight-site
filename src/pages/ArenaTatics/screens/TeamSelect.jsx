@@ -61,7 +61,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
               const co = ELEM_COR[c.elemental] || '#00B4D8'
               return (
                 <div key={c.id} className={`tatics-select-cd ${c.sel ? 'cd-sel' : ''}`}
-                  style={{ '--ce': co, borderColor: c.sel ? co : 'rgba(255,255,255,0.06)' }}
+                  style={{ '--cor-elem': co, borderColor: c.sel ? co : 'rgba(255,255,255,0.06)' }}
                   onClick={() => { if (!drag.current.moved) setDetail(c) }}
                 >
                   <div className="tatics-select-ce">{EMOJI[c.classe] || '⚔️'}</div>
@@ -83,7 +83,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
       {isAdmin && sel.length > 0 && (
         <div className="tatics-select-chips">
           {sel.map(c => (
-            <div key={c.id} className="tatics-select-chip" style={{ '--ce': ELEM_COR[c.elemental] || '#00B4D8' }}>
+            <div key={c.id} className="tatics-select-chip" style={{ '--cor-elem': ELEM_COR[c.elemental] || '#00B4D8' }}>
               {EMOJI[c.classe] || '⚔️'} {c.nome}
             </div>
           ))}
@@ -179,7 +179,7 @@ export default function TeamSelect({ isAdmin, onConfirm }) {
               {isAdmin && (
                 <div className="tatics-detail-actions">
                   <motion.button whileTap={{ scale: 0.95 }} className="tatics-detail-action-btn"
-                    style={{ '--ce': ELEM_COR[detail.elemental] || '#00B4D8' }}
+                    style={{ '--cor-elem': ELEM_COR[detail.elemental] || '#00B4D8' }}
                     onClick={() => { setCards(p => p.map(x => x.id === detail.id ? { ...x, sel: !x.sel } : x)); setDetail(null) }}
                   >{cards.find(c => c.id === detail.id)?.sel ? '− REMOVER' : '+ ADICIONAR'}</motion.button>
                 </div>

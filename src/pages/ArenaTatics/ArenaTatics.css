@@ -1424,7 +1424,7 @@
 }
 
 /* ── Carrossel ── */
-.tatics-select-carrossel-area {
+.tatics-select-car {
   position: relative;
   z-index: 10;
   width: 100%;
@@ -1436,7 +1436,7 @@
   cursor: grab;
 }
 
-.tatics-select-carrossel-area:active {
+.tatics-select-car:active {
   cursor: grabbing;
 }
 
@@ -1446,14 +1446,14 @@
   touch-action: none;
 }
 
-.tatics-select-carrossel {
+.tatics-select-c {
   display: flex;
   gap: 14px;
   padding: 10px 24px;
   will-change: transform;
 }
 
-.tatics-select-card {
+.tatics-select-cd {
   min-width: 170px;
   max-width: 170px;
   background: rgba(255,255,255,0.02);
@@ -1472,7 +1472,7 @@
   user-select: none;
 }
 
-.tatics-select-card:hover {
+.tatics-select-cd:hover {
   background: rgba(255,255,255,0.04);
   transform: translateY(-4px);
 }
@@ -1536,7 +1536,7 @@
 }
 
 /* ── Selected chips ── */
-.tatics-select-selecionados {
+.tatics-select-chips {
   position: relative;
   z-index: 10;
   display: flex;
@@ -1550,7 +1550,7 @@
   padding: 0 1rem;
 }
 
-.tatics-select-sel-chip {
+.tatics-select-chip {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1571,7 +1571,7 @@
 }
 
 /* ── Confirm button ── */
-.tatics-select-confirm {
+.tatics-select-go {
   position: relative;
   z-index: 10;
   margin: 0.8rem auto 1.5rem;
@@ -1591,13 +1591,13 @@
   max-width: 440px;
 }
 
-.tatics-select-confirm:hover:not(:disabled) {
+.tatics-select-go:hover:not(:disabled) {
   border-color: #00B4D8;
   box-shadow: 0 0 20px rgba(0,180,216,0.15);
   color: #fff;
 }
 
-.tatics-select-confirm:disabled {
+.tatics-select-go:disabled {
   cursor: default;
 }
 
