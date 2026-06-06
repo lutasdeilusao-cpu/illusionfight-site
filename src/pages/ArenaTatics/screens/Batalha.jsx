@@ -142,23 +142,28 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const [alcance, setAlcance] = useState([])
   const [danos, setDanos] = useState([])
   const [eventoAtual, setEventoAtual] = useState(null)
-  const [jaMoveu, setJaMoveu] = useState(false) // se o personagem já moveu
-  const [jaAtacou, setJaAtacou] = useState(false) // se o personagem já atacou/usou item
   const [showEndConfirm, setShowEndConfirm] = useState(false)
-  const [animPos, setAnimPos] = useState(null) // { x, y } | null — posição animada do movimento
-  const [enemyTarget, setEnemyTarget] = useState(null) // { x, y } | null — destaque do alvo do inimigo
-  const [enemyLog, setEnemyLog] = useState('') // texto da ação atual do inimigo
+  const [animPos, setAnimPos] = useState(null)
+  const [enemyTarget, setEnemyTarget] = useState(null)
+  const [enemyLog, setEnemyLog] = useState('')
   const [enemyDisplay, setEnemyDisplay] = useState({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
-  const [caminhoAtivo, setCaminhoAtivo] = useState(null) // array de {x,y} — caminho sendo animado
-  const [passoAtual, setPassoAtual] = useState(0) // quantos passos do caminho já foram percorridos
+  const [caminhoAtivo, setCaminhoAtivo] = useState(null)
+  const [passoAtual, setPassoAtual] = useState(0)
   const eventosUsados = useRef([])
   const danoId = useRef(0)
-  const tickRef = useRef(0) // força re-render após mutações no store
-  const V = 600 // base speed ms (slower = more strategic)
+  const tickRef = useRef(0)
+  const V = 600
 
   if (!batalha) return null
   const { aliados, inimigos, turno, obstrucoes = [] } = batalha
   const faseLabel = getFaseLabel(faseAcao)
+
+  // Computa se personagem pode agir
+  const jaMoveu = selectedAlly?.jaMoveu ?? false
+  const jaAtacou = selectedAlly?.jaAtacou ?? false
+
+  // Verifica se todos os aliados estão exaustos
+  const todosExaustos = aliados.filter(a => a.hp > 0).every(a => a.jaMoveu && a.jaAtacou)
 
   // Se estiver animando movimento, mostra o ally na posição animada
   const aliadosVisiveis = animPos && selectedAlly
@@ -188,16 +193,27 @@ export default function Batalha({ onVitoria, onDerrota }) {
   }
 
   const limparSelecao = () => {
-    setSelectedAlly(null); setSelectedSkill(null); setAlcance([]); setJaMoveu(false); setJaAtacou(false)
+    setSelectedAlly(null); setSelectedSkill(null); setAlcance([])
   }
   const limparAcao = () => {
     setSelectedSkill(null); setAlcance([])
   }
 
+  // ── Verifica se todos exaustos e decide turno ──
+  const verificarFimTurno = () => {
+    if (todosExaustos) {
+      setTimeout(() => turnoInimigo(), 400)
+    } else {
+      limparSelecao()
+      setFaseAcao('idle')
+    }
+  }
+
   // ── 1. IDLE → clicou no personagem → ACTION MENU ──
   const handleAllyClick = (a) => {
     if (faseAcao !== 'idle') return
-    setSelectedAlly(a); setJaMoveu(false); setJaAtacou(false); setFaseAcao('actionMenu')
+    if (a.jaMoveu && a.jaAtacou) return // exausto
+    setSelectedAlly(a); setFaseAcao('actionMenu')
   }
 
   // ── 2. ACTION MENU → escolheu MOVER ──
@@ -229,7 +245,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setAlcance(path)
     setCaminhoAtivo(path)
     setPassoAtual(0)
-    setJaMoveu(true)
+    selectedAlly.jaMoveu = true
     setFaseAcao('animando')
 
     let step = 0
@@ -241,9 +257,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
         setAnimPos(null)
         setCaminhoAtivo(null)
         setAlcance([])
-        // Se já atacou também → ambos usados → fim do turno
-        if (jaAtacou) {
-          setTimeout(() => turnoInimigo(), 600)
+        // Se já atacou também → exausto, verifica todos
+        if (selectedAlly.jaAtacou) {
+          verificarFimTurno()
         } else {
           setFaseAcao('actionMenu')
         }
@@ -289,13 +305,13 @@ export default function Batalha({ onVitoria, onDerrota }) {
       }
     }
 
-    // Marca que atacou e bloqueia ATACAR
-    setJaAtacou(true)
+    // Marca que atacou neste personagem
+    selectedAlly.jaAtacou = true
     limparAcao()
 
-    // Se já moveu também → ambos usados → fim do turno
-    if (jaMoveu) {
-      setTimeout(() => turnoInimigo(), 600)
+    // Se já moveu → exausto, verifica se todos acabaram
+    if (selectedAlly.jaMoveu) {
+      verificarFimTurno()
     } else {
       setFaseAcao('actionMenu')
     }
@@ -657,16 +673,18 @@ export default function Batalha({ onVitoria, onDerrota }) {
         <div className="tatics-ally-section">
           <div className="tatics-ally-list">
             {aliados.filter(a => a.hp > 0).map(a => {
+              const exausto = a.jaMoveu && a.jaAtacou
               const cor = getCorPorElemental(a.elemental || 'fogo')
               return (
-                <motion.button key={a.id} whileTap={{ scale: 0.95 }} onClick={() => handleAllyClick(a)}
-                  className="tatics-ally-btn"
-                  style={{
+                <motion.button key={a.id} whileTap={!exausto ? { scale: 0.95 } : {}}
+                  onClick={() => !exausto && handleAllyClick(a)}
+                  className={`tatics-ally-btn ${exausto ? 'ally-exausto' : ''}`}
+                  style={exausto ? {} : {
                     background: `linear-gradient(135deg, ${cor}22, #0d0d0d)`,
                     border: `1px solid ${cor}44`,
                   }}>
                   <div className="tatics-ally-btn-icon">
-                    {a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
+                    {exausto ? '🔒' : a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
                   </div>
                   <div className="tatics-ally-btn-name">{a.nome}</div>
                   <div className="tatics-ally-btn-hp">{a.hp}/{a.hpMax}</div>
@@ -674,6 +692,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
               )
             })}
           </div>
+          {/* End Turn button */}
+          <button className="tatics-ally-endturn" onClick={() => setShowEndConfirm(true)}>
+            ⏭ FINALIZAR TURNO
+          </button>
         </div>
       )}
 

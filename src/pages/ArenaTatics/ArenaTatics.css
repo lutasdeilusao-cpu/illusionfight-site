@@ -1284,8 +1284,41 @@
 
 .tatics-ally-btn-hp {
   font-size: 0.5rem;
-  color: #4F5359;
+  color: #6B6F76;
   font-family: 'JetBrains Mono', monospace;
+}
+
+.ally-exausto {
+  opacity: 0.4;
+  border-color: #2A2D31 !important;
+  cursor: default !important;
+  background: transparent !important;
+}
+
+.ally-exausto .tatics-ally-btn-name {
+  color: #4F5359;
+}
+
+.tatics-ally-endturn {
+  display: block;
+  margin: 8px auto 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #6B6F76;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  padding: 6px 20px;
+  transition: all 0.2s;
+}
+
+.tatics-ally-endturn:hover {
+  color: #B0B4BA;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* ══════════════════════════════════════════════════

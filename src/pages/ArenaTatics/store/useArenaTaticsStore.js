@@ -5,6 +5,7 @@
 
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
+import { construirPersonagem, getInimigosPadrao } from '../data/roster'
 
 const XP_TABLE = [0, 100, 250, 500, 800, 1200, 1700, 2300, 3000, 3800, 4700, 5700, 6800, 8000, 9500]
 
@@ -14,65 +15,36 @@ function calcNivel(xp) {
 }
 
 const INIT = {
-  personagem: null, nome: '', classe: null, elemental: null,
-  pronome: 'ele', cor_secundaria: '#888', time: [],
-  atributos: { forca: 8, velocidade: 8, resistencia: 8, energia: 8, precisao: 8, tenacidade: 8 },
-  pontos_livres: 48, sdr: 0, xp: 0, nivel: 1,
+  sdr: 0, xp: 0, nivel: 1,
   vitorias: 0, derrotas: 0, streak: 0,
   batalha: null, fase: 'intro',
-  timesSalvos: [], slotsTime: 3, carregado: false, userId: null,
+  carregado: false, userId: null,
+  personagensIds: [], // [id1, id2] — IDs do roster salvos no Supabase
 }
 
 export const useArenaTaticsStore = create((set, get) => ({
   ...INIT,
   setUserId: (id) => set({ userId: id, carregado: true }),
   setFase: (f) => set({ fase: f }),
-  setPersonagem: (d) => set((s) => ({ ...s, ...d, personagem: d.nome || s.nome })),
-  setClasse: (c) => set({ classe: c }),
-  setElemental: (e) => set({ elemental: e }),
-  setNome: (n) => set({ nome: n }),
-  setPronome: (p) => set({ pronome: p }),
-  setCorSecundaria: (c) => set({ cor_secundaria: c }),
-  setAtributo: (a, v) => set((s) => {
-    const d = v - s.atributos[a]
-    if (s.pontos_livres - d < 0) return s
-    return { atributos: { ...s.atributos, [a]: Math.max(1, Math.min(20, v)) }, pontos_livres: s.pontos_livres - d }
-  }),
-  addToTeam: (m) => set((s) => ({ time: s.time.length < 3 ? [...s.time, m] : s.time })),
-  removeFromTeam: (id) => set((s) => ({ time: s.time.filter((m) => m.id !== id) })),
+  setPersonagensIds: (ids) => set({ personagensIds: ids }),
 
-  iniciarBatalha: (inimigos) => set((s) => {
-    const p = {
-      id: 'player', nome: s.nome || 'Briguento',
-      classe: s.classe, elemental: s.elemental, nivel: s.nivel,
-      atributos: s.atributos,
-      hp: 30 + s.atributos.resistencia * 3, hpMax: 30 + s.atributos.resistencia * 3,
-      energia: 10 + s.atributos.energia, energiaMax: 10 + s.atributos.energia,
-      x: 0, y: 7,
-    }
-    // Posicionar aliados do time no lado esquerdo (colunas 0-2)
-    const aliadosTime = s.time.map((m, i) => ({
-      ...m,
-      id: m.id || `ally_${i}`,
-      x: 1 + (i % 2),
-      y: 5 + i * 4,
-    }))
-    // Posicionar inimigos no lado direito (colunas 5-7 do grid 8×16)
-    const inimigosPos = inimigos.map((inimigo, i) => ({
-      ...inimigo,
-      id: inimigo.id || `enemy_${i}`,
-      hp: inimigo.hp || 40,
-      hpMax: inimigo.hp || 40,
-      energia: inimigo.energia || 10,
-      energiaMax: inimigo.energia || 10,
-      x: 5 + (i % 2),
-      y: 5 + i * 4,
-    }))
-    // Gerar obstáculos espalhados (distância mínima 3 entre si)
-    const todos = [p, ...aliadosTime, ...inimigosPos]
+  /**
+   * Inicia batalha com múltiplos aliados do roster + 4 inimigos padrão
+   */
+  iniciarBatalha: (aliadosRoster) => set((s) => {
+    // Posiciona aliados no lado esquerdo (colunas 0-2)
+    const aliados = aliadosRoster.map((rosterId, i) => {
+      return construirPersonagem(rosterId, 1 + (i % 2), 3 + i * 4, 'aliado')
+    }).filter(Boolean)
+
+    // 4 inimigos padrão
+    const inimigos = getInimigosPadrao()
+
+    // Gera obstáculos
+    const todos = [...aliados, ...inimigos]
     const ocupadas = new Set(todos.map(t => `${t.x},${t.y}`))
     const obstrucoes = []
-    const numObs = 4 + Math.floor(Math.random() * 3) // 4-6 obstáculos
+    const numObs = 4 + Math.floor(Math.random() * 3)
     let tentativas = 0
     while (obstrucoes.length < numObs && tentativas < 300) {
       tentativas++
@@ -80,7 +52,6 @@ export const useArenaTaticsStore = create((set, get) => ({
       const y = 1 + Math.floor(Math.random() * 14)
       const key = `${x},${y}`
       if (ocupadas.has(key)) continue
-      // Checa distância mínima 3 de outros obstáculos e spawns
       const perto = obstrucoes.some(o => Math.abs(o.x - x) + Math.abs(o.y - y) < 3)
       if (!perto) {
         ocupadas.add(key)
@@ -88,8 +59,12 @@ export const useArenaTaticsStore = create((set, get) => ({
       }
     }
     return {
-      batalha: { turno: 1, fase: 'player', aliados: [p, ...aliadosTime], inimigos: inimigosPos, obstrucoes, rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [] },
-      fase: 'pre',
+      batalha: {
+        turno: 1, fase: 'player',
+        aliados, inimigos, obstrucoes,
+        rodada_evento: 1, eventosAtivos: [], eventoAtual: null, log: [],
+      },
+      fase: 'combate',
     }
   }),
 
@@ -107,9 +82,8 @@ export const useArenaTaticsStore = create((set, get) => ({
   saveToCloud: async (userId) => {
     if (!userId) return; const s = get()
     await supabase.from('arena_tatica_saves').upsert({
-      user_id: userId, personagem: s.personagem, nome: s.nome, classe: s.classe,
-      elemental: s.elemental, atributos: s.atributos, pontos_livres: s.pontos_livres,
-      sdr: s.sdr, xp: s.xp, nivel: s.nivel, vitorias: s.vitorias, derrotas: s.derrotas, timesSalvos: s.timesSalvos,
+      user_id: userId, personagens_ids: s.personagensIds,
+      sdr: s.sdr, xp: s.xp, nivel: s.nivel, vitorias: s.vitorias, derrotas: s.derrotas,
     }, { onConflict: 'user_id' })
   },
 
@@ -117,10 +91,9 @@ export const useArenaTaticsStore = create((set, get) => ({
     if (!userId) { set({ carregado: true }); return }
     const { data } = await supabase.from('arena_tatica_saves').select('*').eq('user_id', userId).single()
     if (data) set({
-      personagem: data.personagem, nome: data.nome || '', classe: data.classe, elemental: data.elemental,
-      atributos: data.atributos || INIT.atributos, pontos_livres: data.pontos_livres ?? 48,
+      personagensIds: data.personagens_ids || [],
       sdr: data.sdr || 0, xp: data.xp || 0, nivel: data.nivel || 1,
-      vitorias: data.vitorias || 0, derrotas: data.derrotas || 0, timesSalvos: data.timesSalvos || [], carregado: true,
+      vitorias: data.vitorias || 0, derrotas: data.derrotas || 0, carregado: true,
     })
     else set({ carregado: true })
   },
