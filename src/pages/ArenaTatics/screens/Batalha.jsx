@@ -758,7 +758,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       {/* Grid */}
       <div className="tatics-batalha-gridarea" ref={gridRef}>
         <DanoPopup danos={danos} />
-        <GridCanvas aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} />
+        <GridCanvas aliados={aliadosVisiveis} inimigos={inimigosVisiveis} alcance={gridAlcance} turnoFase={gridTurnoFase} onCasaClick={handleGridClick} alvoHighlight={enemyTarget} obstrucoes={obstrucoes} freeLook={freeLook} />
       </div>
 
       {/* Free look toggle */}

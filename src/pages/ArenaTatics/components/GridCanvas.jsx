@@ -86,7 +86,7 @@ function drawChar(ctx, sx, sy, char, size, isAlly, frame) {
   }
 }
 
-export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], turnoFase = 'idle', onCasaClick = () => {}, alvoHighlight = null, obstrucoes = [] }) {
+export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], turnoFase = 'idle', onCasaClick = () => {}, alvoHighlight = null, obstrucoes = [], freeLook = false }) {
   const canvasRef = useRef(null)
   const camRef = useRef({ x: 0, y: 0 })
   const hoverRef = useRef(null)
@@ -94,7 +94,8 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
   const aRef = useRef(aliados); const iRef = useRef(inimigos)
   const alRef = useRef(alcance); const oRef = useRef(obstrucoes)
   const ahRef = useRef(alvoHighlight); const fRef = useRef(turnoFase)
-  const clRef = useRef(onCasaClick)
+  const clRef = useRef(onCasaClick); const flRef = useRef(freeLook)
+  const dragRef = useRef({ ativo: false, startX: 0, startY: 0, camStartX: 0, camStartY: 0 })
 
   useEffect(() => { aRef.current = aliados }, [aliados])
   useEffect(() => { iRef.current = inimigos }, [inimigos])
@@ -103,6 +104,7 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
   useEffect(() => { ahRef.current = alvoHighlight }, [alvoHighlight])
   useEffect(() => { fRef.current = turnoFase }, [turnoFase])
   useEffect(() => { clRef.current = onCasaClick }, [onCasaClick])
+  useEffect(() => { flRef.current = freeLook }, [freeLook])
 
   const handlePD = useCallback((cx, cy) => {
     const c = canvasRef.current; if (!c) return
@@ -123,12 +125,31 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
 
   useEffect(() => {
     const c = canvasRef.current; if (!c) return
-    const onClick = e => handlePD(e.clientX, e.clientY)
-    const onTouch = e => { e.preventDefault(); const t = e.changedTouches[0]; handlePD(t.clientX, t.clientY) }
+    const onClick = e => {
+      if (flRef.current) return // free look: ignora clique
+      handlePD(e.clientX, e.clientY)
+    }
+    const onTouch = e => {
+      e.preventDefault(); const t = e.changedTouches[0]
+      if (flRef.current) { /* touch drag handled by start/move */ return }
+      handlePD(t.clientX, t.clientY)
+    }
+    const onDown = e => {
+      if (!flRef.current) return
+      const r = c.getBoundingClientRect()
+      dragRef.current = { ativo: true, startX: e.clientX, startY: e.clientY, camStartX: camRef.current.x, camStartY: camRef.current.y }
+      c.style.cursor = 'grabbing'
+    }
     const onMove = e => {
       const r = c.getBoundingClientRect()
       const mx = e.clientX - r.left, my = e.clientY - r.top
       const cam = camRef.current
+      if (flRef.current && dragRef.current.ativo) {
+        const d = dragRef.current
+        cam.x = d.camStartX - (e.clientX - d.startX)
+        cam.y = d.camStartY - (e.clientY - d.startY)
+        return
+      }
       if (fRef.current === 'mover' || fRef.current === 'target') {
         const tile = encontrarTile(mx + cam.x, my + cam.y)
         const al = alRef.current
@@ -136,18 +157,45 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
         else { hoverRef.current = null; c.style.cursor = 'default' }
       } else { hoverRef.current = null; c.style.cursor = 'default' }
     }
-    const onLeave = () => { hoverRef.current = null }
+    const onUp = () => { if (dragRef.current.ativo) { dragRef.current.ativo = false; c.style.cursor = flRef.current ? 'grab' : 'default' } }
+    const onLeave = () => { hoverRef.current = null; onUp() }
+
+    // Touch drag
+    const onTouchStart = e => {
+      if (!flRef.current) return
+      const t = e.changedTouches[0]
+      dragRef.current = { ativo: true, startX: t.clientX, startY: t.clientY, camStartX: camRef.current.x, camStartY: camRef.current.y }
+    }
+    const onTouchMove = e => {
+      if (!flRef.current || !dragRef.current.ativo) return
+      e.preventDefault()
+      const t = e.changedTouches[0]
+      const d = dragRef.current
+      camRef.current.x = d.camStartX - (t.clientX - d.startX)
+      camRef.current.y = d.camStartY - (t.clientY - d.startY)
+    }
+    const onTouchEnd = () => { dragRef.current.ativo = false }
+
     c.addEventListener('click', onClick)
-    c.addEventListener('touchstart', onTouch, { passive: false })
+    c.addEventListener('touchstart', onTouchStart, { passive: true })
+    c.addEventListener('touchmove', onTouchMove, { passive: false })
+    c.addEventListener('touchend', onTouchEnd)
+    c.addEventListener('mousedown', onDown)
     c.addEventListener('mousemove', onMove)
+    c.addEventListener('mouseup', onUp)
     c.addEventListener('mouseleave', onLeave)
+    if (freeLook) c.style.cursor = 'grab'
     return () => {
       c.removeEventListener('click', onClick)
-      c.removeEventListener('touchstart', onTouch)
+      c.removeEventListener('touchstart', onTouchStart)
+      c.removeEventListener('touchmove', onTouchMove)
+      c.removeEventListener('touchend', onTouchEnd)
+      c.removeEventListener('mousedown', onDown)
       c.removeEventListener('mousemove', onMove)
+      c.removeEventListener('mouseup', onUp)
       c.removeEventListener('mouseleave', onLeave)
     }
-  }, [handlePD])
+  }, [handlePD, freeLook])
 
   useEffect(() => {
     const canvas = canvasRef.current; if (!canvas) return
@@ -161,12 +209,15 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
       const al = aRef.current, ini = iRef.current, alc = alRef.current
       const ob = oRef.current, alvoHL = ahRef.current, fase = fRef.current
 
-      // Camera → first alive ally
-      const target = al.find(p => p.hp > 0)
-      if (target) {
-        const ps = isoToScreen(target.x, target.y)
-        cam.x += (ps.sx - VW / 2 - cam.x) * LERP
-        cam.y += (ps.sy - VH / 2 - cam.y) * LERP
+      // Camera: se estiver arrastando no freeLook, não segue personagem
+      const dragging = dragRef.current.ativo
+      if (!dragging && !flRef.current) {
+        const target = al.find(p => p.hp > 0)
+        if (target) {
+          const ps = isoToScreen(target.x, target.y)
+          cam.x += (ps.sx - VW / 2 - cam.x) * LERP
+          cam.y += (ps.sy - VH / 2 - cam.y) * LERP
+        }
       }
       const M = 20
       if (WORLD_W > VW) cam.x = Math.max(MIN_SX - M, Math.min(MAX_SX + M - VW, cam.x))
@@ -204,15 +255,34 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
             ctx.stroke()
           }
 
+          // Range: move=laranja, target=vermelho, animando=path glow
           if (emAlcance) {
-            const isTarget = fase === 'target'
-            ctx.fillStyle = isTarget ? 'rgba(226,75,74,0.25)' : 'rgba(244,162,39,0.25)'
-            ctx.beginPath()
-            ctx.moveTo(sx, sy); ctx.lineTo(sx + HW, sy + HH)
-            ctx.lineTo(sx, sy + TILE_H); ctx.lineTo(sx - HW, sy + HH)
-            ctx.closePath(); ctx.fill()
-            ctx.strokeStyle = isTarget ? 'rgba(226,75,74,0.5)' : 'rgba(244,162,39,0.5)'
-            ctx.lineWidth = 2; ctx.stroke()
+            if (fase === 'animando') {
+              ctx.shadowColor = '#f4a227';
+              ctx.shadowBlur = 14;
+              ctx.fillStyle = '#f4a227';
+              ctx.globalAlpha = 0.85;
+              ctx.beginPath();
+              ctx.arc(sx, sy + HH, 9, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.shadowBlur = 0;
+              ctx.fillStyle = '#fff7e0';
+              ctx.globalAlpha = 0.95;
+              ctx.beginPath();
+              ctx.arc(sx, sy + HH, 5, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.globalAlpha = 1;
+              ctx.shadowColor = 'transparent';
+            } else {
+              const isTarget = fase === 'target';
+              ctx.fillStyle = isTarget ? 'rgba(226,75,74,0.25)' : 'rgba(244,162,39,0.25)';
+              ctx.beginPath();
+              ctx.moveTo(sx, sy); ctx.lineTo(sx + HW, sy + HH);
+              ctx.lineTo(sx, sy + TILE_H); ctx.lineTo(sx - HW, sy + HH);
+              ctx.closePath(); ctx.fill();
+              ctx.strokeStyle = isTarget ? 'rgba(226,75,74,0.5)' : 'rgba(244,162,39,0.5)';
+              ctx.lineWidth = 2; ctx.stroke();
+            }
           }
 
           if (isAlvoHL) {
