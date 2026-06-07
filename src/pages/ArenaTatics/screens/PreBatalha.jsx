@@ -10,7 +10,7 @@ export default function PreBatalha({ aliados, inimigos, onIniciar }) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
         {/* Aliados */}
         <div>
-          <div style={{ color: '#00ff88', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>SEU TIME</div>
+          <div style={{ color: '#00ff88', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>{t('games.tatics.seu_time')}</div>
           {aliados.map(a => {
             const cor = getCorPorElemental(a.elemental || 'fogo')
             return (
@@ -19,7 +19,7 @@ export default function PreBatalha({ aliados, inimigos, onIniciar }) {
                 padding: '0.5rem', marginBottom: 6,
               }}>
                 <div style={{ color: '#eee', fontSize: '0.75rem', fontWeight: 600 }}>{a.nome}</div>
-                <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[a.classe]?.nome} · Nv.{a.nivel}</div>
+                <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[a.classe]?.nome} · {t('games.tatics.nivel')}{a.nivel}</div>
               </div>
             )
           })}
@@ -27,19 +27,19 @@ export default function PreBatalha({ aliados, inimigos, onIniciar }) {
 
         {/* VS */}
         <div style={{ textAlign: 'center', padding: '0.25rem 0' }}>
-          <span style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '1.2rem', fontWeight: 900 }}>⚔️ VS ⚔️</span>
+          <span style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '1.2rem', fontWeight: 900 }}>{t('games.tatics.vs')}</span>
         </div>
 
         {/* Inimigos */}
         <div>
-          <div style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>INIMIGOS</div>
+          <div style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>{t('games.tatics.inimigos')}</div>
           {inimigos.map(i => (
             <div key={i.nome} style={{
               background: '#0d0d0d', border: '1px solid #ff444433', borderRadius: 10,
               padding: '0.5rem', marginBottom: 6,
             }}>
               <div style={{ color: '#eee', fontSize: '0.75rem', fontWeight: 600 }}>{i.nome}</div>
-              <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[i.classe]?.nome} · Nv.{i.nivel} · Tier {i.tier || '?'}</div>
+              <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[i.classe]?.nome} · {t('games.tatics.nivel')}{i.nivel} · {t('games.tatics.tier')} {i.tier || '?'}</div>
             </div>
           ))}
         </div>
