@@ -29,6 +29,19 @@ export default function Banhar({ onConcluir }) {
     }
   }
 
+  // Trava scroll do body enquanto estiver no banho
+  useEffect(() => {
+    const body = document.body
+    body.style.overflow = 'hidden'
+    body.style.touchAction = 'none'
+    body.style.overscrollBehavior = 'none'
+    return () => {
+      body.style.overflow = ''
+      body.style.touchAction = ''
+      body.style.overscrollBehavior = ''
+    }
+  }, [])
+
   useEffect(() => {
     if (progress >= 100 && itemUsar) {
       const concluir = async () => {
@@ -49,9 +62,10 @@ export default function Banhar({ onConcluir }) {
     <div className="tama-acao-screen"
       ref={containerRef}
       onMouseMove={e => e.buttons === 1 && handleMove(e.clientY)}
-      onTouchMove={e => handleMove(e.touches[0].clientY)}
+      onTouchMove={e => { e.preventDefault(); handleMove(e.touches[0].clientY) }}
       onMouseUp={resetTracking}
       onTouchEnd={resetTracking}
+      style={{ touchAction: 'none', overscrollBehavior: 'none' }}
     >
       <h2 className="tama-acao-title">🧼 banhar</h2>
 

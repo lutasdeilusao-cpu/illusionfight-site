@@ -59,18 +59,38 @@ export default function Passear({ onConcluir }) {
     const cx = lw * s.lane + (lw - 50) / 2 + 25
     const cy = H - 50 - 16 + 25
     ctx.save()
-    ctx.beginPath()
-    ctx.arc(cx, cy, 25, 0, Math.PI * 2)
-    ctx.clip()
-    if (imgRef.current && imgRef.current.complete) {
-      ctx.drawImage(imgRef.current, cx - 25, cy - 25, 50, 50)
-    } else {
-      ctx.fillStyle = '#FF3366'; ctx.fill()
-      ctx.fillStyle = '#fff'; ctx.font = 'bold 20px monospace'
+    // Animação de dano: girar 360° + emoji de raiva
+    if (s.dmgTimer > 0) {
+      const rot = (1 - s.dmgTimer / 15) * Math.PI * 2
+      ctx.translate(cx, cy)
+      ctx.rotate(rot)
+      ctx.beginPath()
+      ctx.arc(0, 0, 25, 0, Math.PI * 2)
+      ctx.clip()
+      if (imgRef.current && imgRef.current.complete) {
+        ctx.drawImage(imgRef.current, -25, -25, 50, 50)
+      }
+      ctx.restore()
+      // Emoji de raiva acima
+      ctx.save()
+      ctx.font = '28px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-      ctx.fillText('K', cx, cy + 1)
+      ctx.fillText('😠', cx, cy - 40)
+      ctx.restore()
+    } else {
+      ctx.beginPath()
+      ctx.arc(cx, cy, 25, 0, Math.PI * 2)
+      ctx.clip()
+      if (imgRef.current && imgRef.current.complete) {
+        ctx.drawImage(imgRef.current, cx - 25, cy - 25, 50, 50)
+      } else {
+        ctx.fillStyle = '#FF3366'; ctx.fill()
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 20px monospace'
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+        ctx.fillText('K', cx, cy + 1)
+      }
+      ctx.restore()
     }
-    ctx.restore()
     ctx.fillStyle = 'rgba(0,0,0,0.8)'; ctx.fillRect(0, 0, W, 40)
     ctx.fillStyle = '#fff'; ctx.font = 'bold 14px monospace'; ctx.textBaseline = 'middle'
     ctx.textAlign = 'left'; ctx.fillText('\uD83D\uDEE3\uFE0F ' + s.score, 12, 20)
@@ -86,7 +106,10 @@ export default function Passear({ onConcluir }) {
   function tick() {
     const s = g.current; if (!s.running) return
     try {
-      s.frame++; s.speed = BASE_SPEED + (s.stage - 1) * 0.6; s.roadOff += s.speed
+      s.frame++
+      // Pausa temporária após dano (efeito visual)
+      if (s.dmgTimer > 0) { s.dmgTimer--; draw(); return }
+      s.speed = BASE_SPEED + (s.stage - 1) * 0.6; s.roadOff += s.speed
       s.score = Math.floor(s.frame * s.speed / 6) + s.stage * 200
       const lw = GAME_W / LANE_COUNT
       if (s.frame - (s.lastObs || 0) > Math.max(30, 70 - (s.stage - 1) * 5)) {
@@ -104,6 +127,7 @@ export default function Passear({ onConcluir }) {
         if (o.y > GAME_H) return false
         if (o.x < cx + 25 - 8 && o.x + 50 > cx - 25 + 8 && o.y < cy + 25 - 8 && o.y + 50 > cy - 25 + 8) {
           s.lives--
+          s.dmgTimer = 15 // pause 15 frames = ~450ms
           if (s.lives <= 0) { endGame(); return false }
           return false
         }
@@ -143,7 +167,7 @@ export default function Passear({ onConcluir }) {
   }
 
   function startGame() {
-    g.current = { running: true, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 1, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] }
+    g.current = { running: true, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 1, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [], dmgTimer: 0 }
     setStage(1); setDisp(0); setPhase('playing')
     if (intervalRef.current) clearInterval(intervalRef.current)
     intervalRef.current = setInterval(tick, 30)
@@ -161,19 +185,24 @@ export default function Passear({ onConcluir }) {
 
   useEffect(() => {
     if (phase !== 'playing') return
-    function os(x) { g.current.dragStart = x }
-    function om(x) {
+    function os(x) { g.current.dragStart = x; g.current.dragLast = x }
+    function om(x, isTouch) {
       if (g.current.dragStart == null) return
       const dx = x - g.current.dragStart, th = GAME_W / LANE_COUNT
-      if (Math.abs(dx) > th * 0.5) { if (dx < 0 && g.current.lane > 0) g.current.lane--; else if (dx > 0 && g.current.lane < LANE_COUNT - 1) g.current.lane++; g.current.dragStart = x }
+      if (Math.abs(dx) > th * 0.3) {
+        if (dx < 0 && g.current.lane > 0) g.current.lane--
+        else if (dx > 0 && g.current.lane < LANE_COUNT - 1) g.current.lane++
+        g.current.dragStart = x
+      }
+      if (isTouch) g.current.dragLast = x
     }
     function oe() { g.current.dragStart = null }
     const ca = canvasRef.current; if (!ca) return
-    ca.addEventListener('touchstart', e => os(e.touches[0].clientX), { passive: true })
-    ca.addEventListener('touchmove', e => om(e.touches[0].clientX), { passive: true })
+    ca.addEventListener('touchstart', e => { e.preventDefault(); os(e.touches[0].clientX) }, { passive: false })
+    ca.addEventListener('touchmove', e => { e.preventDefault(); om(e.touches[0].clientX, true) }, { passive: false })
     ca.addEventListener('touchend', oe)
     ca.addEventListener('mousedown', e => os(e.clientX))
-    ca.addEventListener('mousemove', e => { if (e.buttons === 1) om(e.clientX) })
+    ca.addEventListener('mousemove', e => { if (e.buttons === 1) om(e.clientX, false) })
     ca.addEventListener('mouseup', oe); ca.addEventListener('mouseleave', oe)
   }, [phase])
 
@@ -201,9 +230,9 @@ export default function Passear({ onConcluir }) {
           </motion.div>
         )}
         {phase === 'playing' && (
-          <motion.div key="playing" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} style={{ position: 'relative' }}>
+          <motion.div key="playing" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} style={{ position: 'relative', touchAction: 'none', overscrollBehavior: 'none' }}>
             <canvas ref={canvasRef} width={GAME_W} height={GAME_H}
-              style={{ display: 'block', borderRadius: 12, touchAction: 'none', cursor: 'grab', maxWidth: '100%', boxShadow: '0 0 30px rgba(0,0,0,0.5)' }} />
+              style={{ display: 'block', borderRadius: 12, touchAction: 'none', cursor: 'grab', maxWidth: '100%', boxShadow: '0 0 30px rgba(0,0,0,0.5)', overscrollBehavior: 'none' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: '#888', fontFamily: 'monospace' }}>
               <span>moedas: {dispCoins}</span>
               <span>pista {stage}/{STAGE_COUNT}</span>
