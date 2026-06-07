@@ -18,7 +18,7 @@ export default function Admin() {
   if (!user || user.email !== ADMIN_EMAIL) {
     return (
       <section className="admin-page">
-        <div className="admin-bloqueado">{t('admin.titulo')} - Acesso negado.</div>
+        <div className="admin-bloqueado">{t('admin.titulo')} — {t('admin.acesso_negado')}</div>
       </section>
     )
   }
@@ -54,8 +54,8 @@ export default function Admin() {
 
   return (
     <section className="admin-page">
-      <h1 className="admin-titulo">AUDITORIA — COMPARTILHAMENTOS PENDENTES</h1>
-      <p className="admin-contador">{submissions.length} pendentes</p>
+      <h1 className="admin-titulo">{t('admin.auditoria_titulo')}</h1>
+      <p className="admin-contador">{t('admin.pendentes_count', { n: submissions.length })}</p>
       {submissions.map(s => (
         <div key={s.id} className="admin-card">
           <div className="admin-card-info">
@@ -65,12 +65,12 @@ export default function Admin() {
             <span className="admin-data">{new Date(s.criado_em).toLocaleDateString('pt-BR')}</span>
           </div>
           <div className="admin-acoes">
-            <button className="admin-btn-aprovar" onClick={() => aprovar(s.id, s.user_id)}>APROVAR</button>
-            <button className="admin-btn-rejeitar" onClick={() => rejeitar(s.id)}>REJEITAR</button>
+            <button className="admin-btn-aprovar" onClick={() => aprovar(s.id, s.user_id)}>{t('admin.aprovar')}</button>
+            <button className="admin-btn-rejeitar" onClick={() => rejeitar(s.id)}>{t('admin.rejeitar')}</button>
           </div>
         </div>
       ))}
-      {submissions.length === 0 && <p className="admin-vazio">Nenhuma submissão pendente.</p>}
+      {submissions.length === 0 && <p className="admin-vazio">{t('admin.sem_submissoes')}</p>}
     </section>
   )
 }

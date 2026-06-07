@@ -11,7 +11,8 @@
     ],
     "cta": "LOG IN",
     "aria": {
-      "menu": "Open menu"
+      "menu": "Open menu",
+      "search": "Search"
     }
   },
   "hero": {
@@ -435,7 +436,17 @@
       ],
       "sair": "LOGOUT",
       "admin_label": "ADMIN",
-      "meu_perfil": "My Profile"
+      "meu_perfil": "My Profile",
+      "abas_conquistas": "Achievements",
+      "abas_arena": "Arena",
+      "abas_colecao": "Collection",
+      "abas_conta": "Account",
+      "abas_recompensas": "Rewards",
+      "abas_tamagoshi": "Tamagoshi",
+      "coletar": "CLAIM",
+      "tier_ranqueado": "RANKED",
+      "tier_elite": "ELITE",
+      "tier_primordial": "PRIMORDIAL"
     }
   },
   "games": {
@@ -736,7 +747,10 @@
     "rejeitar": "REJECT",
     "sem_submissoes": "No pending submissions.",
     "carregando": "CARREGANDO...",
-    "btn_voltar": "BACK"
+    "btn_voltar": "BACK",
+    "auditoria_titulo": "AUDIT — PENDING SHARES",
+    "pendentes_count": "{n} pending",
+    "acesso_negado": "Access denied."
   },
   "pages": {
     "musicas": {

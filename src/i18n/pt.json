@@ -11,7 +11,8 @@
     ],
     "cta": "ENTRAR",
     "aria": {
-      "menu": "Abrir menu"
+      "menu": "Abrir menu",
+      "search": "Buscar"
     }
   },
   "hero": {
@@ -435,7 +436,17 @@
       ],
       "sair": "SAIR",
       "admin_label": "ADMIN",
-      "meu_perfil": "Meu Perfil"
+      "meu_perfil": "Meu Perfil",
+      "abas_conquistas": "Conquistas",
+      "abas_arena": "Arena",
+      "abas_colecao": "Coleção",
+      "abas_conta": "Conta",
+      "abas_recompensas": "Recompensas",
+      "abas_tamagoshi": "Tamagoshi",
+      "coletar": "COLETAR",
+      "tier_ranqueado": "RANQUEADO",
+      "tier_elite": "ELITE",
+      "tier_primordial": "PRIMORDIAL"
     }
   },
   "games": {
@@ -736,7 +747,10 @@
     "rejeitar": "REJEITAR",
     "sem_submissoes": "Nenhuma submissão pendente.",
     "carregando": "CARREGANDO...",
-    "btn_voltar": "VOLTAR"
+    "btn_voltar": "VOLTAR",
+    "auditoria_titulo": "AUDITORIA — COMPARTILHAMENTOS PENDENTES",
+    "pendentes_count": "{n} pendentes",
+    "acesso_negado": "Acesso negado."
   },
   "pages": {
     "musicas": {

@@ -13,9 +13,9 @@ import PerfilTamagoshi from './abas/PerfilTamagoshi'
 import '../Perfil.css'
 
 const TIER_CONFIG = {
-  free: { label: 'RANQUEADO', cor: '#555', bordaCor: '#333' },
-  elite: { label: 'ELITE', cor: '#00B4D8', bordaCor: '#00B4D8' },
-  primordial: { label: 'PRIMORDIAL', cor: '#F5A623', bordaCor: '#F5A623' },
+  free: { labelKey: 'site.perfil.tier_ranqueado', cor: '#555', bordaCor: '#333' },
+  elite: { labelKey: 'site.perfil.tier_elite', cor: '#00B4D8', bordaCor: '#00B4D8' },
+  primordial: { labelKey: 'site.perfil.tier_primordial', cor: '#F5A623', bordaCor: '#F5A623' },
 }
 
 export default function Perfil() {
@@ -41,12 +41,12 @@ export default function Perfil() {
   if (!user) return null
 
   const ABAS = [
-    { id: 'recompensas', label: t('site.perfil.abas.0'), icone: '🎰', pulse: podeColetarHoje },
-    { id: 'conquistas', label: t('site.perfil.abas.1'), icone: '🏆' },
-    { id: 'arena', label: t('site.perfil.abas.2'), icone: '⚔️' },
-    { id: 'colecao', label: t('site.perfil.abas.3'), icone: '🃏' },
-    { id: 'tamagoshi', label: t('site.perfil.abas.5'), icone: '🥚' },
-    { id: 'conta', label: t('site.perfil.abas.4'), icone: '⚙️' },
+    { id: 'recompensas', label: t('site.perfil.abas_recompensas'), icone: '🎰', pulse: podeColetarHoje },
+    { id: 'conquistas', label: t('site.perfil.abas_conquistas'), icone: '🏆' },
+    { id: 'arena', label: t('site.perfil.abas_arena'), icone: '⚔️' },
+    { id: 'colecao', label: t('site.perfil.abas_colecao'), icone: '🃏' },
+    { id: 'tamagoshi', label: t('site.perfil.abas_tamagoshi'), icone: '🥚' },
+    { id: 'conta', label: t('site.perfil.abas_conta'), icone: '⚙️' },
   ]
 
   return (
@@ -63,17 +63,17 @@ export default function Perfil() {
             <p className="perfil-email">{user.email}</p>
             <span className="perfil-tier-badge"
               style={{ color: tierCfg.cor, borderColor: tierCfg.bordaCor + '44', background: tierCfg.cor + '11' }}>
-              ★ {tierCfg.label}
+              ★ {t(tierCfg.labelKey)}
             </span>
           </div>
           <div className="perfil-header-fichas">
             <span className="perfil-fichas-saldo">
               {isAdmin ? '∞' : fichasLoading ? '—' : saldo} 🎰
             </span>
-            <span className="perfil-fichas-label">FICHAS</span>
+            <span className="perfil-fichas-label">{t('site.perfil.fichas')}</span>
             {podeColetarHoje && !isAdmin && (
               <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
-                COLETAR
+                {t('site.perfil.coletar')}
               </button>
             )}
           </div>
