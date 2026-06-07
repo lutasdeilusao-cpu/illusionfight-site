@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
@@ -14,6 +15,7 @@ const ENEMY_NAMES = {
 const DEFEAT_FALLBACKS = ['isso não pode ser...', 'subestimei você. que droga.', 'impossível.']
 
 export default function ArenaVictory({ onNavigate }) {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
   const store = useArenaStore()
@@ -197,9 +199,9 @@ export default function ArenaVictory({ onNavigate }) {
         )}
 
         <div className="arena-victory-btns">
-          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>
-          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>ESCOLHER OUTRA FICHA</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>← VOLTAR AO SITE</button>
+          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.escolher_outra')}</button>
+          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
+          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>{t('games.arena.voltar_site')}</button>
         </div>
       </motion.div>
     </div>

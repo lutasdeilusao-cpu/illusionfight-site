@@ -60,6 +60,82 @@
   margin: 4px 0;
 }
 
+/* ── MENU SCREEN ── */
+.duel-menu-wrap {
+  min-height: 100vh;
+  background: #0A0A0F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 32px;
+}
+.duel-menu-label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: #00B4D8;
+  opacity: 0.5;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+.duel-menu-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: #F5A623;
+  letter-spacing: 12px;
+  margin: 0;
+  line-height: 1;
+}
+.duel-menu-sub {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #444;
+  letter-spacing: 4px;
+  margin-top: 8px;
+}
+.duel-menu-card {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 20px;
+  text-align: center;
+}
+.duel-menu-desc {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+.duel-menu-btn {
+  padding: 14px 48px;
+  background: linear-gradient(135deg, #8B0000 0%, #a00000 100%);
+  border: 1px solid #cc0000;
+  color: #eee;
+  cursor: pointer;
+  font-family: 'Julius Sans One', 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 0 30px rgba(139,0,0,0.4);
+}
+.duel-menu-btn:hover {
+  box-shadow: 0 0 50px rgba(139,0,0,0.7);
+}
+.duel-menu-stats {
+  display: flex;
+  gap: 24px;
+  font-size: 10px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
 /* ── LP ── */
 .duelo-lp {
   display: flex;

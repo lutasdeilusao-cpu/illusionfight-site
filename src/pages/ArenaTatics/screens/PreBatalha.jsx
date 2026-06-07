@@ -1,65 +1,54 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { CLASSES } from '../data/classes'
 import { getCorPorElemental } from '../data/cosmeticos'
 
 export default function PreBatalha({ aliados, inimigos, onIniciar }) {
+  const { t } = useLanguage()
   return (
-    <div style={{ minHeight: '100vh', background: '#000', padding: '1rem', display: 'flex', flexDirection: 'column', maxWidth: 480, margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>PRÉ-BATALHA</div>
+    <div className="pb-wrap">
+      <div className="pb-header">{t('games.tatics.pre_batalha')}</div>
 
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div className="pb-body">
         {/* Aliados */}
         <div>
-          <div style={{ color: '#00ff88', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>{t('games.tatics.seu_time')}</div>
+          <div className="pb-section-title" style={{ color: '#00ff88' }}>{t('games.tatics.seu_time')}</div>
           {aliados.map(a => {
             const cor = getCorPorElemental(a.elemental || 'fogo')
             return (
-              <div key={a.id} style={{
-                background: '#0d0d0d', border: `1px solid ${cor}33`, borderRadius: 10,
-                padding: '0.5rem', marginBottom: 6,
-              }}>
-                <div style={{ color: '#eee', fontSize: '0.75rem', fontWeight: 600 }}>{a.nome}</div>
-                <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[a.classe]?.nome} · {t('games.tatics.nivel')}{a.nivel}</div>
+              <div key={a.id} className="pb-card" style={{ border: `1px solid ${cor}33` }}>
+                <div className="pb-card-name">{a.nome}</div>
+                <div className="pb-card-detail">{CLASSES[a.classe]?.nome} · {t('games.tatics.nivel')}{a.nivel}</div>
               </div>
             )
           })}
         </div>
 
         {/* VS */}
-        <div style={{ textAlign: 'center', padding: '0.25rem 0' }}>
-          <span style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '1.2rem', fontWeight: 900 }}>{t('games.tatics.vs')}</span>
+        <div className="pb-vs">
+          <span className="pb-vs-text">{t('games.tatics.vs')}</span>
         </div>
 
         {/* Inimigos */}
         <div>
-          <div style={{ color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.6rem', letterSpacing: '0.1em', marginBottom: 6 }}>{t('games.tatics.inimigos')}</div>
+          <div className="pb-section-title" style={{ color: '#ff4444' }}>{t('games.tatics.inimigos')}</div>
           {inimigos.map(i => (
-            <div key={i.nome} style={{
-              background: '#0d0d0d', border: '1px solid #ff444433', borderRadius: 10,
-              padding: '0.5rem', marginBottom: 6,
-            }}>
-              <div style={{ color: '#eee', fontSize: '0.75rem', fontWeight: 600 }}>{i.nome}</div>
-              <div style={{ color: '#888', fontSize: '0.55rem', fontFamily: 'Courier New' }}>{CLASSES[i.classe]?.nome} · {t('games.tatics.nivel')}{i.nivel} · {t('games.tatics.tier')} {i.tier || '?'}</div>
+            <div key={i.nome} className="pb-card" style={{ border: '1px solid #ff444433' }}>
+              <div className="pb-card-name">{i.nome}</div>
+              <div className="pb-card-detail">{CLASSES[i.classe]?.nome} · {t('games.tatics.nivel')}{i.nivel} · {t('games.tatics.tier')} {i.tier || '?'}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Batalha info */}
-      <div style={{ textAlign: 'center', color: '#666', fontFamily: 'Georgia', fontStyle: 'italic', fontSize: '0.7rem', margin: '0.5rem 0' }}>
+      <div className="pb-battle-info">
         A arena se materializa ao redor. O SBI sincroniza.
       </div>
 
       <motion.button whileTap={{ scale: 0.97 }} whileHover={{ scale: 1.02 }}
-        onClick={onIniciar}
-        style={{
-          width: '100%', padding: '0.85rem',
-          background: 'linear-gradient(135deg, #FFD70022, #FF450022)',
-          border: '2px solid #FFD700', borderRadius: 12,
-          color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.9rem',
-          fontWeight: 700, letterSpacing: '0.15em', cursor: 'pointer',
-        }}>
-        INICIAR LUTA
+        onClick={onIniciar} className="pb-start-btn">
+        {t('games.tatics.iniciar_batalha')}
       </motion.button>
     </div>
   )
