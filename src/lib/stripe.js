@@ -1,4 +1,4 @@
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
+import { supabase } from './supabase'
 
 // Um único Price ID por tier. O Stripe resolve a moeda automaticamente
 // com base no país do cartão do cliente (multi-currency Price).
@@ -18,38 +18,21 @@ export function getPriceDisplay(locale) {
   return PRICE_DISPLAY[locale] || PRICE_DISPLAY.pt
 }
 
-export async function iniciarCheckout(tier, accessToken) {
+export async function iniciarCheckout(tier) {
   const priceId = PRICES[tier]
   if (!priceId) throw new Error('Price ID não configurado para este tier')
 
-  const res = await fetch(
-    `${SUPABASE_URL}/functions/v1/create-checkout-session`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({ tier, priceId }),
-    }
-  )
-  const data = await res.json()
-  if (data.error) throw new Error(data.error)
+  const { data, error } = await supabase.functions.invoke('create-checkout-session', {
+    body: { tier, priceId },
+  })
+
+  if (error) throw new Error(error.message)
   window.location.href = data.url
 }
 
-export async function cancelarAssinatura(accessToken) {
-  const res = await fetch(
-    `${SUPABASE_URL}/functions/v1/cancel-subscription`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  )
-  const data = await res.json()
-  if (data.error) throw new Error(data.error)
+export async function cancelarAssinatura() {
+  const { data, error } = await supabase.functions.invoke('cancel-subscription')
+
+  if (error) throw new Error(error.message)
   return data
 }

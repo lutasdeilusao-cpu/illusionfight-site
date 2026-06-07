@@ -29,7 +29,7 @@ export default function Assinar() {
     if (perfil?.tier === tier) return
     setLoadingTier(tier)
     try {
-      await iniciarCheckout(tier, session.access_token)
+      await iniciarCheckout(tier)
     } catch (err) {
       console.error('[ASSINAR] erro checkout:', err)
       setFeedback({ tipo: 'erro', mensagem: err.message })

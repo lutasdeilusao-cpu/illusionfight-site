@@ -35,7 +35,7 @@ export default function PerfilConta() {
     if (!confirm('Confirmar cancelamento? O acesso continua até o fim do período pago.')) return
     setCancelando(true)
     try {
-      await cancelarAssinatura(session.access_token)
+      await cancelarAssinatura()
       setFeedbackCancela('Cancelamento agendado. Acesso mantido até o fim do período.')
     } catch (err) {
       console.error('[PERFIL] erro cancelar:', err)
