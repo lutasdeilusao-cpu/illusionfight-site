@@ -6,11 +6,11 @@ Foi como uma luz que apagou.\r
 \r
 Kim ficou sem referência de corpo, sem peso, sem chão. Os músculos não respondiam porque não havia músculos para responder. A escuridão não era vazia. Era densa, presente, como estar submerso em algo que não era água.\r
 \r
-*Tá bom. Então é assim.*\r
+*Tá bom. Então é isso?.*\r
 \r
 — Você está em estado de suspensão neural. — Voz feminina, sintética, absolutamente calma. — Este é um processo padrão de transição antes da imersão completa. Mantenha-se relaxado.\r
 \r
-*Relaxado. Claro. Estou boiando no nada sem corpo. Completamente relaxado.*\r
+*Relaxado. Claro. Estou boiando no nada,no eter, não vejo outra opção. modo relaxado ativar.*\r
 \r
 — Verificação concluída. Você é um novo usuário. Será necessário criar seu avatar. Por favor, informe seu nome.\r
 \r
