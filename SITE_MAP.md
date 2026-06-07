@@ -60,6 +60,9 @@
     │   ├── FichasContext.jsx           # Provider de fichas (saldo, coleta diária, gastar, role-based)
     │   ├── LanguageContext.jsx          # Provider de i18n: locale, t(), changeLocale()
     │   └── ReaderContext.jsx           # Estado global readerMode — esconde Navbar e TrialBanner nos leitores
+    ├── lib/
+    │   ├── supabase.js                 # Cliente Supabase (anon key + URL)
+    │   └── stripe.js                   # Stripe frontend: iniciarCheckout(), cancelarAssinatura(), getPriceDisplay()
     ├── data/                           # 18 arquivos JSON (incl. quiz-pt, supertrunfo-pt, search-index, notificacoes, nowlive, episodios, planos, produtos, + i18n livro/)
     ├── hooks/                          # 12 hooks customizados (useFichaGate, useHeroEffect, usePersonagens, useScrollPosition, useScrollReveal, useSlideshow, useSwipe, useTopTrumpsDB, useTopTrumpsMP, useTypewriter, useViewportScroll, useZoom)
     ├── i18n/
@@ -117,7 +120,7 @@
 | `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Detalhe do personagem (2 colunas, nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações) |
 | `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação, botão Continuar lendo |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor com react-markdown, lazy loading, modo imersivo |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v1.41 | ✅ PT ✅ EN ✅ ES | 3 tiers: RANQUEADO (free), ELITE (R$10/mês), PRIMORDIAL (R$30/mês). Newsletter + PIX + ficha anchor line |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers: RANQUEADO (free), ELITE (R$10/mês), PRIMORDIAL (R$30/mês). **Stripe Checkout** integrado via Edge Function `create-checkout-session`. Preços dinâmicos por locale. Feedback pós-checkout (sucesso/cancelado/erro). Newsletter + PIX + ficha anchor line |
 | `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | História de Isaias Leal em 4 blocos, CTA para assinar |
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Grid de episódios publicados com thumbnails e badges de idioma |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
@@ -147,7 +150,7 @@
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Login com email/senha via Supabase Auth, redireciona para /perfil |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Cadastro com nome, email, telefone, senha — migra achievements locais |
-| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier. Aba Conta: gerencia assinatura Stripe (status, renovação, cancelamento via Edge Function `cancel-subscription`) |
 | `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard |
 
 ### Estrutura de arquivos
@@ -252,6 +255,20 @@ src/pages/Tamagoshi/
 - **react-helmet-async** — Títulos dinâmicos por página.
 - **Zero CSS-in-JS** — Todo estilo em arquivos `.css` separados.
 - **Zero inline styles** — Nenhum `style={{}}` no JSX.
+
+### Stripe / Assinaturas
+- **Frontend:** `src/lib/stripe.js` — `iniciarCheckout(tier)`, `cancelarAssinatura()`, `getPriceDisplay(locale)`
+- **Preços multi-moeda:** Price ID único por tier no Stripe, Stripe resolve a moeda pelo cartão
+- **Edge Functions (Supabase):**
+  | Função | Arquivo | JWT | Descrição |
+  |--------|---------|-----|-----------|
+  | `create-checkout-session` | `supabase/functions/create-checkout-session/index.ts` | ✅ Obrigatório | Cria sessão Stripe Checkout, gerencia `stripe_customer_id` no perfil |
+  | `stripe-webhook` | `supabase/functions/stripe-webhook/index.ts` | ❌ Desabilitado | Processa eventos Stripe: checkout completo, subscription updated/deleted, invoice failed/success |
+  | `cancel-subscription` | `supabase/functions/cancel-subscription/index.ts` | ✅ Obrigatório | Marca `cancel_at_period_end` na assinatura Stripe |
+- **Webhook URL:** `https://dvxfrzixtetdzmdrzkpx.supabase.co/functions/v1/stripe-webhook`
+- **Tabela `profiles`:** colunas adicionadas via migration `010_stripe_billing.sql` — `tier`, `subscription_status`, `stripe_customer_id`, `stripe_subscription_id`, `stripe_price_id`, `current_period_end`
+- **Tiers:** ELITE (R$10/mês), PRIMORDIAL (R$30/mês)
+- **AuthContext:** `.select('*, tier, subscription_status, current_period_end, stripe_subscription_id')` + expõe `session` no provider
 
 ### i18n
 - `LanguageContext` com `locale` persistido em `localStorage('ldi-locale')`.
