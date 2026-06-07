@@ -301,7 +301,27 @@
     "bloqueio_voltar": "Volver",
     "modo_recruta_desc": "Básico — cualquier fan entra",
     "modo_ranqueado_desc": "Gratis — 5 fáciles + 5 medias",
-    "modo_elite_desc": "Completo — del prólogo a Kronos"
+    "modo_elite_desc": "Completo — del prólogo a Kronos",
+    "modo_free_badge": "GRATIS",
+    "modo_premium_badge": "PREMIUM",
+    "perguntas_count": "{n} preguntas",
+    "hud_questao": "PREGUNTA {n}/{total}",
+    "hud_acertos": "ACIERTOS: {n}",
+    "ajuda_gangue": "PANDILLA ({n})",
+    "modo_desc_ranqueado": "5 fáciles + 5 medias",
+    "modo_desc_elite": "7 fáciles + 7 medias + 6 difíciles",
+    "modo_desc_primordial": "10 de cada dificultad",
+    "rank_tier_elite": "ÉLITE",
+    "rank_tier_ranqueado": "RANQUEADO",
+    "rank_tier_aspirante": "ASPIRANTE",
+    "rank_tier_novato": "NOVATO",
+    "rank_tier_recruta": "RECLUTA",
+    "rank_tier_primordial": "PRIMORDIAL",
+    "rank_desc_elite": "Top mundial. Kronos te está observando.",
+    "rank_desc_ranqueado": "Competitivo. Pero aún hay camino al top 1000.",
+    "rank_desc_aspirante": "Sabes lo suficiente para sobrevivir. Por ahora.",
+    "rank_desc_novato": "Prometedor. Relee los capítulos y vuelve.",
+    "rank_desc_recruta": "Ni Thunderbolt habría perdido tanto."
   },
   "autor": {
     "blocks": [
@@ -446,7 +466,10 @@
       "deck": "MAZO",
       "btn_voltar": "VOLVER",
       "btn_jogar_novamente": "JUGAR DE NUEVO",
-      "btn_voltar_menu": "VOLVER AL MENÚ"
+      "btn_voltar_menu": "VOLVER AL MENÚ",
+      "lp_restante": "LP restante: {n}",
+      "ia_lp_restante": "IA LP restante: {n}",
+      "turnos": "Turnos: {n}"
     },
     "minigames": {
       "titulo": "MINI JUEGOS",
@@ -751,7 +774,8 @@
       "glossario": "GLOSARIO",
       "personagens_titulo": "CONOCE A LOS PERSONAJES",
       "ver_todos": "VER TODOS",
-      "premium": "PREMIUM"
+      "premium": "PREMIUM",
+      "premium_ritual": "Ritual del Sellamiento detallado, fichas de Yawanari, Powa y Tawira, y las Sagas Primordiales"
     },
     "personagens": {
       "voltar": "← PERSONAJES",

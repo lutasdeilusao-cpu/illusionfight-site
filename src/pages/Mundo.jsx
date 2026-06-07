@@ -140,7 +140,7 @@ export default function Mundo() {
           </div>
           {!TRIAL_ACTIVE && (
             <div className="mundo-premium-badge">
-              <p>Ritual do Selamento detalhado, fichas de Yawanari, Powa e Tawira, e as Sagas Primordiais</p>
+              <p>{t('pages.mundo.premium_ritual')}</p>
               <span className="mundo-premium-tag">{t('pages.mundo.premium')}</span>
             </div>
           )}

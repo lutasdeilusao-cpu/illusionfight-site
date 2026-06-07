@@ -71,6 +71,10 @@
   padding: 40px;
   gap: 32px;
 }
+.duel-menu-header {
+  text-align: center;
+}
+
 .duel-menu-label {
   font-family: 'Courier New', monospace;
   font-size: 10px;
@@ -317,6 +321,12 @@
   border-color: #F5A623;
   color: #F5A623;
   background: rgba(245,166,35,0.08);
+}
+
+.duelo-phase-over {
+  color: #F5A623;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .duelo-turn-indicator {

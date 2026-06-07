@@ -304,8 +304,8 @@ export default function DueloRoute() {
           </>
         )}
         {store.gamePhase === 'OVER' && (
-          <span style={{ color: '#F5A623', fontWeight: 700, letterSpacing: 2 }}>
-            {store.winner === 'PLAYER' ? '🏆 VITÓRIA!' : '💀 DERROTA'}
+          <span className="duelo-phase-over">
+            {store.winner === 'PLAYER' ? `🏆 ${t('games.duelo.vitoria')}!` : `💀 ${t('games.duelo.derrota')}`}
           </span>
         )}
       </div>

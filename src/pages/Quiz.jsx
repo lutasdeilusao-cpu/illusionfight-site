@@ -9,9 +9,9 @@ import bancoPT from '../data/quiz-pt.json'
 import './Quiz.css'
 
 const MODOS = {
-  ranqueado: { label: "RANQUEADO", total: 10, dificuldades: ["facil","medio"], premium: false, split: [5,5] },
-  elite:     { label: "ELITE",     total: 20, dificuldades: ["facil","medio","dificil"], premium: true, split: [7,7,6] },
-  primordial:{ label: "PRIMORDIAL",total: 30, dificuldades: ["facil","medio","dificil"], premium: true, split: [10,10,10] },
+  ranqueado: { labelKey: 'quiz.rank_tier_ranqueado', descKey: 'quiz.modo_desc_ranqueado', total: 10, premium: false },
+  elite:     { labelKey: 'quiz.rank_tier_elite',     descKey: 'quiz.modo_desc_elite',     total: 20, premium: true },
+  primordial:{ labelKey: 'quiz.rank_tier_primordial',descKey: 'quiz.modo_desc_primordial',total: 30, premium: true },
 }
 
 function embaralhar(arr) {
@@ -53,11 +53,11 @@ function calcularRank(acertos, total, tempoMedio) {
   const score = acertos / total
   const bonusVelocidade = Math.max(0, (30 - tempoMedio) / 30) * 0.15
   const pontuacao = score + bonusVelocidade
-  if (pontuacao >= 0.95) return { posicao: Math.floor(Math.random() * 200) + 800, tier: "ELITE", descricao: "Top mundial. Kronos está de olho em você." }
-  if (pontuacao >= 0.85) return { posicao: Math.floor(Math.random() * 2000) + 1001, tier: "RANQUEADO", descricao: "Competitivo. Mas ainda tem caminho pro top 1000." }
-  if (pontuacao >= 0.70) return { posicao: Math.floor(Math.random() * 20000) + 10000, tier: "ASPIRANTE", descricao: "Você sabe o suficiente pra sobreviver. Por enquanto." }
-  if (pontuacao >= 0.50) return { posicao: Math.floor(Math.random() * 200000) + 100000, tier: "NOVATO", descricao: "Promissor. Releia os capítulos e volta." }
-  return { posicao: Math.floor(Math.random() * 1000000000) + 500000000, tier: "RECRUTA", descricao: "Nem o Thunderbolt teria perdido tanto assim." }
+  if (pontuacao >= 0.95) return { posicao: Math.floor(Math.random() * 200) + 800, tierKey: 'quiz.rank_tier_elite', descKey: 'quiz.rank_desc_elite' }
+  if (pontuacao >= 0.85) return { posicao: Math.floor(Math.random() * 2000) + 1001, tierKey: 'quiz.rank_tier_ranqueado', descKey: 'quiz.rank_desc_ranqueado' }
+  if (pontuacao >= 0.70) return { posicao: Math.floor(Math.random() * 20000) + 10000, tierKey: 'quiz.rank_tier_aspirante', descKey: 'quiz.rank_desc_aspirante' }
+  if (pontuacao >= 0.50) return { posicao: Math.floor(Math.random() * 200000) + 100000, tierKey: 'quiz.rank_tier_novato', descKey: 'quiz.rank_desc_novato' }
+  return { posicao: Math.floor(Math.random() * 1000000000) + 500000000, tierKey: 'quiz.rank_tier_recruta', descKey: 'quiz.rank_desc_recruta' }
 }
 
 export default function Quiz() {
@@ -247,15 +247,11 @@ export default function Quiz() {
                 }
               >
                 <span className={`quiz-modo-badge ${config.premium ? 'premium' : 'free'}`}>
-                  {config.premium ? 'PREMIUM' : 'FREE'}
+                  {t(config.premium ? 'quiz.modo_premium_badge' : 'quiz.modo_free_badge')}
                 </span>
-                <span className="quiz-modo-label">{config.label}</span>
-                <p className="quiz-modo-total">{config.total} perguntas</p>
-                <p className="quiz-modo-desc">
-                  {key === 'ranqueado' && '5 fáceis + 5 médias'}
-                  {key === 'elite' && '7 fáceis + 7 médias + 6 difíceis'}
-                  {key === 'primordial' && '10 de cada dificuldade'}
-                </p>
+                <span className="quiz-modo-label">{t(config.labelKey)}</span>
+                <p className="quiz-modo-total">{t('quiz.perguntas_count', { n: config.total })}</p>
+                <p className="quiz-modo-desc">{t(config.descKey)}</p>
                 {config.premium && !TRIAL_ACTIVE && (
                   <span className="quiz-modo-lock">🔒</span>
                 )}
@@ -288,7 +284,7 @@ export default function Quiz() {
     return (
       <section className="quiz-page">
         <div className="quiz-hud">
-          <span className="quiz-hud-questao">QUESTÃO {indice + 1}/{total}</span>
+          <span className="quiz-hud-questao">{t('quiz.hud_questao', { n: indice + 1, total })}</span>
           <div className="quiz-timer">
             <div className="quiz-timer-bar">
               <div
@@ -300,7 +296,7 @@ export default function Quiz() {
               {timer}
             </span>
           </div>
-          <span className="quiz-hud-acertos">ACERTOS: {acertos}</span>
+          <span className="quiz-hud-acertos">{t('quiz.hud_acertos', { n: acertos })}</span>
         </div>
 
         <div className={`quiz-pergunta-container${transicao ? ` ${transicao}` : ''}`}>
@@ -339,14 +335,14 @@ export default function Quiz() {
               disabled={ajudasDisponiveis.pular <= 0 || confirmada}
               onClick={pularPergunta}
             >
-              PULAR ({ajudasDisponiveis.pular})
+              {t('quiz.ajuda_pular')} ({ajudasDisponiveis.pular})
             </button>
             <button
               className="quiz-ajuda-btn"
               disabled={ajudasDisponiveis.gangue <= 0 || confirmada}
               onClick={abrirGangue}
             >
-              GANGUE ({ajudasDisponiveis.gangue})
+              {t('quiz.ajuda_gangue', { n: ajudasDisponiveis.gangue })}
             </button>
           </div>
 
@@ -377,7 +373,7 @@ export default function Quiz() {
 
         {confirmada && (
           <button className="quiz-proxima-flutuante" onClick={proximaPergunta}>
-            {indice + 1 < total ? 'PRÓXIMA →' : 'VER RESULTADO →'}
+            {indice + 1 < total ? t('quiz.proxima') : t('quiz.ver_resultado')}
           </button>
         )}
       </section>
@@ -392,29 +388,29 @@ export default function Quiz() {
     return (
       <section className="quiz-page">
         <div className="quiz-resultado">
-          <span className="quiz-nexus-tag">NEXUS PHANTASM — RESULTADO OFICIAL</span>
-          <h1 className="quiz-resultado-tier">{resultadoCalculado.tier}</h1>
+          <span className="quiz-nexus-tag">{t('quiz.nexus_resultado')}</span>
+          <h1 className="quiz-resultado-tier">{t(resultadoCalculado.tierKey)}</h1>
           <h2 className="quiz-posicao">#{rankExibido.toLocaleString('pt-BR')}</h2>
-          <p className="quiz-posicao-label">posição estimada no SDR</p>
-          <p className="quiz-descricao"><em>{resultadoCalculado.descricao}</em></p>
+          <p className="quiz-posicao-label">{t('quiz.rank_label')}</p>
+          <p className="quiz-descricao"><em>{t(resultadoCalculado.descKey)}</em></p>
 
           <div className="quiz-stats">
             <div className="quiz-stat">
               <span className="quiz-stat-valor">{acertos}</span>
-              <span className="quiz-stat-label">ACERTOS</span>
+              <span className="quiz-stat-label">{t('quiz.stat_acertos').toUpperCase()}</span>
             </div>
             <div className="quiz-stat">
               <span className="quiz-stat-valor">{erros}</span>
-              <span className="quiz-stat-label">ERROS</span>
+              <span className="quiz-stat-label">{t('quiz.stat_erros').toUpperCase()}</span>
             </div>
             <div className="quiz-stat">
               <span className="quiz-stat-valor">{aproveitamento}%</span>
-              <span className="quiz-stat-label">APROVEITAMENTO</span>
+              <span className="quiz-stat-label">{t('quiz.stat_aproveitamento').toUpperCase()}</span>
             </div>
           </div>
 
           <div className="quiz-revisao">
-            <h3>REVISÃO</h3>
+            <h3>{t('quiz.revisao_titulo')}</h3>
             {historico.map((entry, i) => (
               <div
                 key={i}
@@ -423,15 +419,15 @@ export default function Quiz() {
                 <span className="quiz-revisao-icon">{entry.pulada ? '⏭' : entry.acertou ? '✓' : '✗'}</span>
                 <span className="quiz-revisao-pergunta">{entry.pergunta.pergunta}</span>
                 {!entry.pulada && !entry.acertou && (
-                  <span className="quiz-revisao-correta">Correta: {entry.pergunta.alternativas[entry.pergunta.correta]}</span>
+                  <span className="quiz-revisao-correta">{t('quiz.revisao_correta')} {entry.pergunta.alternativas[entry.pergunta.correta]}</span>
                 )}
               </div>
             ))}
           </div>
 
           <div className="quiz-resultado-actions">
-            <button className="quiz-reiniciar-btn" onClick={reiniciar}>JOGAR NOVAMENTE</button>
-            <Link to="/" className="quiz-voltar-link">VOLTAR À HOME</Link>
+            <button className="quiz-reiniciar-btn" onClick={reiniciar}>{t('quiz.btn_reiniciar')}</button>
+            <Link to="/" className="quiz-voltar-link">{t('quiz.btn_home')}</Link>
           </div>
         </div>
       </section>

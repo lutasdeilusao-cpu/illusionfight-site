@@ -12,9 +12,15 @@ export function LanguageProvider({ children }) {
     try { return localStorage.getItem('ldi-locale') || 'pt' } catch { return 'pt' }
   })
 
-  const t = useCallback((path) => {
-    const result = getNested(locales[locale], path)
-    return result ?? path
+  const t = useCallback((path, vars) => {
+    let result = getNested(locales[locale], path)
+    if (result == null) result = path
+    if (vars && typeof result === 'string') {
+      Object.entries(vars).forEach(([k, v]) => {
+        result = result.replace(new RegExp(`\\{${k}\\}`, 'g'), v)
+      })
+    }
+    return result
   }, [locale])
 
   const changeLocale = useCallback((next) => {

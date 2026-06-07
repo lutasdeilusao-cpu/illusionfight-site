@@ -301,7 +301,27 @@
     "bloqueio_voltar": "Go back",
     "modo_recruta_desc": "Basic — any fan can join",
     "modo_ranqueado_desc": "Free — 5 easy + 5 medium",
-    "modo_elite_desc": "Complete — from prologue to Kronos"
+    "modo_elite_desc": "Complete — from prologue to Kronos",
+    "modo_free_badge": "FREE",
+    "modo_premium_badge": "PREMIUM",
+    "perguntas_count": "{n} questions",
+    "hud_questao": "QUESTION {n}/{total}",
+    "hud_acertos": "CORRECT: {n}",
+    "ajuda_gangue": "CREW ({n})",
+    "modo_desc_ranqueado": "5 easy + 5 medium",
+    "modo_desc_elite": "7 easy + 7 medium + 6 hard",
+    "modo_desc_primordial": "10 of each difficulty",
+    "rank_tier_elite": "ELITE",
+    "rank_tier_ranqueado": "RANKED",
+    "rank_tier_aspirante": "ASPIRANT",
+    "rank_tier_novato": "ROOKIE",
+    "rank_tier_recruta": "RECRUIT",
+    "rank_tier_primordial": "PRIMORDIAL",
+    "rank_desc_elite": "World top. Kronos has his eyes on you.",
+    "rank_desc_ranqueado": "Competitive. But still a way to top 1000.",
+    "rank_desc_aspirante": "You know enough to survive. For now.",
+    "rank_desc_novato": "Promising. Re-read the chapters and come back.",
+    "rank_desc_recruta": "Not even Thunderbolt would have lost that badly."
   },
   "autor": {
     "blocks": [
@@ -446,7 +466,10 @@
       "deck": "DECK",
       "btn_voltar": "BACK",
       "btn_jogar_novamente": "PLAY AGAIN",
-      "btn_voltar_menu": "BACK TO MENU"
+      "btn_voltar_menu": "BACK TO MENU",
+      "lp_restante": "LP remaining: {n}",
+      "ia_lp_restante": "AI LP remaining: {n}",
+      "turnos": "Turns: {n}"
     },
     "minigames": {
       "titulo": "MINI GAMES",
@@ -751,7 +774,8 @@
       "glossario": "GLOSSARY",
       "personagens_titulo": "MEET THE CHARACTERS",
       "ver_todos": "VIEW ALL",
-      "premium": "PREMIUM"
+      "premium": "PREMIUM",
+      "premium_ritual": "Detailed Sealing Ritual, Yawanari, Powa and Tawira sheets, and the Primordial Sagas"
     },
     "personagens": {
       "voltar": "← CHARACTERS",

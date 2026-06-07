@@ -6,7 +6,7 @@ export default function DueloMenu({ onStart }) {
   return (
     <div className="duel-menu-wrap">
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
-        style={{ textAlign: 'center' }}>
+        className="duel-menu-header">
         <p className="duel-menu-label">{t('games.duelo.subtitulo')}</p>
         <h1 className="duel-menu-title">{t('games.duelo.titulo')}</h1>
         <p className="duel-menu-sub">{t('games.duelo.subtitulo')}</p>

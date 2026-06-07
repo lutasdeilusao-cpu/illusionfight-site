@@ -1,0 +1,55 @@
+.duelo-derrota {
+  min-height: 100vh;
+  background: #0A0A0F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 24px;
+}
+
+.duelo-derrota__emoji {
+  font-size: 72px;
+}
+
+.duelo-derrota__titulo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 42px;
+  color: #8B0000;
+  margin: 0;
+  letter-spacing: 8px;
+}
+
+.duelo-derrota__info {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+.duelo-derrota__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.duelo-derrota__btn {
+  padding: 10px 28px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.duelo-derrota__btn--revanche {
+  background: rgba(139, 0, 0, 0.15);
+  border: 1px solid #8B0000;
+  color: #cc4444;
+}
+
+.duelo-derrota__btn--menu {
+  background: none;
+  border: 1px solid #333;
+  color: #666;
+}
