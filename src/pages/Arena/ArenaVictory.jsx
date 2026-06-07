@@ -75,8 +75,8 @@ export default function ArenaVictory({ onNavigate }) {
     return (
       <div className="arena-victory arena-container">
         <div className="arena-victory-header">
-          <h1 className="arena-victory-title arena-victory-lose">💀 DERROTA</h1>
-          <p className="arena-victory-sub">A derrota só fortalece o guerreiro.</p>
+          <h1 className="arena-victory-title arena-victory-lose">{t('games.arena.derrota')}</h1>
+          <p className="arena-victory-sub">{t('games.arena.derrota_sub')}</p>
         </div>
         <div className="arena-victory-card">
           <div className="arena-victory-sheet-name">{sheet.sheet_name}</div>
@@ -89,9 +89,9 @@ export default function ArenaVictory({ onNavigate }) {
           </div>
         </div>
         <div className="arena-victory-btns">
-          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>LUTAR DE NOVO</button>
-          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>ESCOLHER OUTRA FICHA</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>← VOLTAR AO SITE</button>
+          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>
+          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
+          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>{t('games.arena.voltar_site')}</button>
         </div>
       </div>
     )
@@ -155,11 +155,11 @@ export default function ArenaVictory({ onNavigate }) {
             color:'#F5A623', textShadow:'3px 3px 0 #8B0000, 0 0 30px rgba(245,166,35,0.8)',
             marginBottom:'1rem', letterSpacing:'4px' }}
         >
-          K.O.!
+          {t('games.arena.ko')}
         </motion.div>
         <div className="arena-victory-header">
-          <h1 className="arena-victory-title arena-victory-win">⚔️ VITÓRIA!</h1>
-          <p className="arena-victory-sub">Você derrotou <strong>{enemy?.name}</strong> e provou seu valor na arena.</p>
+          <h1 className="arena-victory-title arena-victory-win">{t('games.arena.vitoria')}</h1>
+          <p className="arena-victory-sub">{t('games.arena.vitoria_sub', { name: enemy?.name })}</p>
         </div>
 
         <div className="arena-victory-card">
@@ -172,12 +172,12 @@ export default function ArenaVictory({ onNavigate }) {
             <div className="arena-victory-attr"><span>PdF</span>{sheet.attributes.PdF}</div>
           </div>
           <div className="arena-victory-stats">
-            <span>PV: {pv}</span>
-            <span>PM: {pm}</span>
-            <span>XP: {sheet.xp_total || 0}</span>
+            <span>{t('games.arena.pv', { n: pv })}</span>
+            <span>{t('games.arena.pm', { n: pm })}</span>
+            <span>{t('games.arena.xp', { n: sheet.xp_total || 0 })}</span>
           </div>
           <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>
-            +{xpGain} XP
+            {t('games.arena.xp_gain', { n: xpGain })}
           </motion.div>
         </div>
 
@@ -194,7 +194,7 @@ export default function ArenaVictory({ onNavigate }) {
               fontSize: '11px', letterSpacing: '2px', maxWidth: 360,
             }}
           >
-            🔓 NOVO OPONENTE DESBLOQUEADO: {nextUnlock}
+            {t('games.arena.novo_oponente', { name: nextUnlock })}
           </motion.div>
         )}
 
