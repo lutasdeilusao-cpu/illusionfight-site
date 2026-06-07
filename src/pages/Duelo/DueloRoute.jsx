@@ -293,16 +293,16 @@ export default function DueloRoute() {
 
       <div className="duelo-controls">
         <span className="duelo-turn-indicator">
-          Turno <span>{store.turnNumber}</span> · {store.currentTurn === 'PLAYER' ? 'VOCÊ' : iaPending ? 'IA pensando...' : 'IA'}
+          {t('games.duelo.turno_label')} <span>{store.turnNumber}</span> · {store.currentTurn === 'PLAYER' ? t('games.duelo.turno_voce') : iaPending ? t('games.duelo.turno_ia_pensando') : t('games.duelo.turno_ia')}
         </span>
         {store.currentTurn === 'PLAYER' && store.gamePhase !== 'OVER' && (
           <>
-            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] DRAW | gamePhase:', store.gamePhase, '| currentTurn:', store.currentTurn); store.drawPhase(); }} disabled={store.gamePhase !== 'DRAW'}>DRAW</button>
+            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] DRAW | gamePhase:', store.gamePhase, '| currentTurn:', store.currentTurn); store.drawPhase(); }} disabled={store.gamePhase !== 'DRAW'}>{t('games.duelo.btn_draw')}</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'MAIN' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => { console.log('[BTN] MAIN | gamePhase:', store.gamePhase); store.setState({ gamePhase: 'MAIN' }) }} disabled={store.gamePhase === 'DRAW'}>MAIN</button>
+              onClick={() => { console.log('[BTN] MAIN | gamePhase:', store.gamePhase); store.setState({ gamePhase: 'MAIN' }) }} disabled={store.gamePhase === 'DRAW'}>{t('games.duelo.btn_main')}</button>
             <button className={`duelo-phase-btn ${store.gamePhase === 'BATTLE' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => { console.log('[BTN] BATTLE | gamePhase:', store.gamePhase); store.endMainPhase() }} disabled={store.gamePhase !== 'MAIN'}>BATTLE</button>
-            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] END | gamePhase:', store.gamePhase); store.endPhase(); setTimeout(() => store.drawPhase(), 600) }} disabled={store.gamePhase !== 'BATTLE'}>END</button>
+              onClick={() => { console.log('[BTN] BATTLE | gamePhase:', store.gamePhase); store.endMainPhase() }} disabled={store.gamePhase !== 'MAIN'}>{t('games.duelo.btn_battle')}</button>
+            <button className="duelo-phase-btn" onClick={() => { console.log('[BTN] END | gamePhase:', store.gamePhase); store.endPhase(); setTimeout(() => store.drawPhase(), 600) }} disabled={store.gamePhase !== 'BATTLE'}>{t('games.duelo.btn_end')}</button>
           </>
         )}
         {store.gamePhase === 'OVER' && (

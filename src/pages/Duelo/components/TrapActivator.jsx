@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function TrapActivator({ trap, onActivate, onSkip }) {
+  const { t } = useLanguage()
   return (
     <AnimatePresence>
       <div style={{
@@ -12,7 +14,7 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
           style={{ textAlign: 'center', maxWidth: 400, width: '100%' }}>
           <div style={{ fontSize: 32, marginBottom: 8 }}>🕳️</div>
           <p style={{ fontFamily: "'Rajdhani',sans-serif", fontSize: 18, color: '#EF4444', marginBottom: 8 }}>
-            ATIVAR ARMADILHA?
+            {t('games.duelo.btn_ativar_armadilha')}
           </p>
           <p style={{ fontSize: 12, color: '#888', fontFamily: "'Courier New',monospace", marginBottom: 4 }}>
             {trap.name}
@@ -24,7 +26,7 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
             <button onClick={onSkip} style={{
               background: 'none', border: '1px solid #333', color: '#666',
               padding: '10px 24px', cursor: 'pointer', fontFamily: "'Courier New',monospace", fontSize: 12,
-            }}>não ativar</button>
+            }}>{t('games.duelo.btn_nao_ativar')}</button>
             <button onClick={onActivate} style={{
               background: 'linear-gradient(135deg, #8B0000, #a00000)',
               border: '1px solid #cc0000',
@@ -32,7 +34,7 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
               padding: '10px 24px', cursor: 'pointer',
               fontFamily: "'Courier New',monospace", fontSize: 12,
               letterSpacing: 2,
-            }}>ATIVAR</button>
+            }}>{t('games.duelo.btn_ativar')}</button>
           </div>
         </motion.div>
       </div>

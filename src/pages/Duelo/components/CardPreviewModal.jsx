@@ -1,6 +1,8 @@
 import Card from './Card'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function CardPreviewModal({ card, onClose }) {
+  const { t } = useLanguage()
   if (!card) return null
 
   return (
@@ -21,12 +23,12 @@ export default function CardPreviewModal({ card, onClose }) {
         </h2>
         {card.type === 'MONSTER' && (
           <p style={{ fontFamily: "'Courier New',monospace", fontSize: 11, color: '#666', letterSpacing: 2, margin: '4px 0' }}>
-            {'★'.repeat(card.level)} · ATK {card.atk} / DEF {card.def}
+            {'★'.repeat(card.level)} · {t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def}
           </p>
         )}
         {card.type !== 'MONSTER' && (
           <p style={{ fontFamily: "'Courier New',monospace", fontSize: 11, color: card.type === 'SPELL' ? '#22C55E' : '#EF4444', letterSpacing: 2, margin: '4px 0' }}>
-            {card.type === 'SPELL' ? 'MAGIA' : 'ARMADILHA'}
+            {card.type === 'SPELL' ? t('games.duelo.card_magia') : t('games.duelo.card_armadilha')}
           </p>
         )}
         <p style={{ fontFamily: "'Courier New',monospace", fontSize: 10, color: '#777', lineHeight: 1.6, margin: '8px 0', fontStyle: 'italic' }}>
@@ -35,7 +37,7 @@ export default function CardPreviewModal({ card, onClose }) {
         <button onClick={onClose} style={{
           marginTop: 12, background: 'none', border: '1px solid #333', color: '#666',
           padding: '8px 24px', cursor: 'pointer', fontFamily: "'Courier New',monospace", fontSize: 12,
-        }}>fechar</button>
+        }}>{t('games.duelo.btn_fechar')}</button>
       </div>
     </div>
   )

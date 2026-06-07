@@ -1,6 +1,8 @@
 import { useDueloStore } from '../store/useDueloStore'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Card({ card, faceDown = false, small = false, onClick, onMouseEnter, onMouseLeave, disabled }) {
+  const { t } = useLanguage()
   const store = useDueloStore()
   const buff = card ? store.tempBuffs.find(b => b.cardId === card.id_num) : null
   const effectiveAtk = card ? (card.atk || 0) + (buff?.atkBonus || 0) : 0
@@ -45,14 +47,14 @@ export default function Card({ card, faceDown = false, small = false, onClick, o
         {isMonster && (
           <div className="duelo-card-stats">
             <span className="duelo-card-stars">{stars}</span>
-            <span>ATK {effectiveAtk}/{card.def}</span>
+            <span>{t('games.duelo.card_atk')} {effectiveAtk} / {t('games.duelo.card_def')} {card.def}</span>
           </div>
         )}
         {!isMonster && card.type === 'SPELL' && (
-          <span className="duelo-card-type-badge" style={{ color: '#22C55E' }}>MAGIA</span>
+          <span className="duelo-card-type-badge" style={{ color: '#22C55E' }}>{t('games.duelo.card_magia')}</span>
         )}
         {!isMonster && card.type === 'TRAP' && (
-          <span className="duelo-card-type-badge" style={{ color: '#EF4444' }}>ARMADILHA</span>
+          <span className="duelo-card-type-badge" style={{ color: '#EF4444' }}>{t('games.duelo.card_armadilha')}</span>
         )}
       </div>
     </div>
