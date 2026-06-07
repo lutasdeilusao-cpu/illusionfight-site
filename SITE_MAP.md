@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-07*    
-*Versão: 2.89*  |  `[SITE] versão carregada: 2.89`  |  `[SITE] versão carregada: 2.89`
+*Última atualização: 2026-06-07*
+*Versão: 2.90*  |  `[SITE] versão carregada: 2.90`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -14,315 +14,595 @@
 ├── index.html                          # Entry point HTML + SEO/OG tags + GA + SPA redirect script
 ├── package.json                        # Dependências e scripts (inclui predeploy/deploy)
 ├── vite.config.js                      # Configuração Vite (base: /illusionfight-site/)
+├── AGENTS.md                           # Regras do agente + workflow obrigatório
 ├── SITE_MAP.md                         # Este arquivo
+├── ANALISE_COMPLETA.md                 # Análise técnica completa
 ├── PREMIUM_AUDIT.md                    # Auditoria de conteúdo premium
-├── AGENTS.md                           # Regras do agente opencode
+├── IasLDITatics.md                     # Documentação LDI Tatics
+├── LdiTatics-MAP.md                    # Mapa de navegação LDI Tatics
+├── ExpansãoJack.md                     # Proposta de expansão Jack
+├── Lutas de Ilusão - Retcon.md         # Documento de retcon
+├── Marketing-MAP.md                    # Mapa de marketing
+├── PROPOSTA_CIDADE_MARELIA_v2.md       # Proposta cidade Marélia
+├── RefactoryBattleLDITatics.md         # Refactory batalha LDI Tatics
+├── deploy.py                           # Automação deploy (bump → build → commit → push → deploy)
+├── _add_i18n.py                        # Script utilitário i18n
+├── _connect_i18n.py                    # Script utilitário i18n
+├── _scan_and_fix.py                    # Script utilitário lint
+├── _translate_games.py                 # Script tradução jogos
+├── _translate_games2.py                # Script tradução jogos
 ├── .gitignore                          # Node, dist, .env, Retcon.md
+├── .env                                # Variáveis dev (VITE_DEBUG=true)
+├── .env.production                     # Variáveis prod (VITE_DEBUG=false)
 ├── public/
 │   ├── favicon.svg                     # Favicon LDI
 │   ├── og-image.jpg                    # Open Graph preview (1200×630)
 │   ├── 404.html                        # Redirect SPA para GitHub Pages
-│   ├── sitemap.xml                     # Sitemap 8 URLs para crawlers
+│   ├── sitemap.xml                     # Sitemap para crawlers
+│   ├── sw.js                           # Service worker (placeholder)
+│   ├── assets/                         # Assets públicos (imagens de fallback)
+│   ├── fonts/
+│   │   └── BringRace.otf              # Fonte customizada
 │   └── webtoon/
 │       └── 00/pt/01~21.png             # 21 páginas do webtoon Ep. 00
+├── supabase/
+│   ├── migrations/
+│   │   ├── 004_jack_v3.sql            # Jack Candy v3
+│   │   ├── 005_pesadelo_particular.sql # Pesadelo Particular
+│   │   ├── 006_arena_enemies_unlocked.sql # Arena inimigos
+│   │   ├── 006_tamagoshi.sql           # Tamagoshi v1
+│   │   ├── 007_jack_v4_xp_nivel.sql    # Jack Candy v4 XP
+│   │   ├── 008_tamagoshi_trocas.sql    # Tamagoshi trocas
+│   │   ├── 009_tamagoshi_v2.sql        # Tamagoshi v2
+│   │   ├── 010_profiles_admin_role.sql # Profiles: is_admin, role, tier
+│   │   ├── 010_tamagoshi_fix_columns.sql # Tamagoshi fix colunas
+│   │   ├── 010_stripe_billing.sql      # Stripe: subscription columns
+│   │   └── 011_arena_tatics_roster.sql # Arena Tatics roster
+│   └── functions/
+│       ├── create-checkout-session/index.ts  # Stripe checkout (JWT obrigatório)
+│       ├── stripe-webhook/index.ts           # Stripe webhook (no-verify-jwt)
+│       └── cancel-subscription/index.ts      # Cancelar assinatura (JWT obrigatório)
 └── src/
-    ├── App.jsx                         # Layout global (TrialBanner, Navbar, Routes, Footer, ScrollToTop, NotificationBalloon, CookieBanner)
-    ├── main.jsx                        # Entry point React (ReaderProvider, HelmetProvider, BrowserRouter, LanguageProvider, AuthProvider, FichasProvider)
-    ├── index.css                       # CSS Global (reset, vars, .btn, .glitch, reveal animations, newsletter-cta, home-support)
+    ├── App.jsx                         # Layout global + Routes
+    ├── main.jsx                        # Entry point React (Providers: Helmet, BrowserRouter, Reader, Language, Auth, Fichas)
+    ├── index.css                       # CSS Global (reset, vars, .btn, .glitch, reveal, newsletter-cta, home-support)
     │
     ├── assets/images/
     │   ├── banners/                    # banner-01.png ~ banner-04.png (~2.3MB cada)
     │   ├── characters/                 # jack-balloon.png
     │   ├── episodes/                   # thumb-ep00.png
     │   ├── logos/                      # logo-pt.png, logo-en.png
-    │   └── music/                      # lutas-de-ilusao.png
+    │   ├── music/                      # lutas-de-ilusao.png
+    │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)
     │
     ├── components/
-    │   ├── Puzzles/                    # 6 puzzles reutilizáveis (Stealth, Decoder, SlidingTiles, Labirinto, Anagrama, Força)
-    │   ├── ResultCard/                 # Canvas share card com paletas por jogo
-    │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS" com overlay
-    │   ├── SearchModal/                # Modal de busca global
-    │   ├── LoginGate/                  # Gate de login reutilizável
     │   ├── AchievementToast/           # Toast de achievement com partículas
-    │   ├── ScrollToTopOnNav/           # Scroll to top on navigation change
-    │   ├── TypewriterPhrase/          # Typewriter animado
-    │   ├── ShopSection/               # Loja de produtos físicos
-    │   ├── PlatformIcons/             # Ícones de plataformas de música
-    │   ├── SocialBar/                 # Barra de redes sociais
-    │   ├── HeroEffect/                # Efeitos visuais do hero
-    │   └── ...                         # 25 componentes + SearchModal + Puzzles + ResultCard + LoginGate + ModalSemFichas + AchievementToast
+    │   ├── BookChaptersRow/            # Seção home: capítulos do livro
+    │   ├── CharacterCard/              # Card de personagem
+    │   ├── CharactersRow/              # Seção home: grid personagens
+    │   ├── CookieBanner/               # Banner LGPD/cookies
+    │   ├── Footer/                     # Footer global
+    │   ├── HeroEffect/                 # Efeitos visuais do hero
+    │   ├── HeroSlideshow/              # Slideshow do hero na home
+    │   ├── LatestEpisodes/             # Seção home: últimos episódios
+    │   ├── LoginGate/                  # Gate de login reutilizável
+    │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS"
+    │   ├── MusicSection/               # Seção home: música
+    │   ├── Navbar/                     # Navbar global com menu hamburger
+    │   ├── NotificationBalloon/        # Balão de notificação
+    │   ├── NowLive/                    # Seção home: agora ao vivo
+    │   ├── PlatformIcons.jsx           # Ícones de plataformas de música
+    │   ├── Puzzles/                    # 6 puzzles reutilizáveis
+    │   ├── ResultCard/                 # Canvas share card com paletas por jogo
+    │   ├── ScrollToTop/                # Botão voltar ao topo
+    │   ├── ScrollToTopOnNav.jsx        # Scroll to top on navigation change
+    │   ├── SearchModal/                # Modal de busca global
+    │   ├── ShopSection/                # Loja de produtos físicos
+    │   ├── SocialBar/                  # Barra de redes sociais
+    │   ├── StoryProgress/              # Seção home: progresso da história
+    │   ├── TrialBanner/                # Banner de teste gratuito
+    │   └── TypewriterPhrase/           # Typewriter animado
+    │
     ├── config/
     │   ├── site.js                     # SITE_NAME, SITE_NAME_PT, DOMAIN
-    │   └── trial.js                    # TRIAL_ACTIVE — true libera conteúdo premium
+    │   ├── trial.js                    # TRIAL_ACTIVE = false
+    │   └── version.js                  # Todas as versões centralizadas
+    │
     ├── context/
-    │   ├── AuthContext.jsx             # Provider de autenticação (user, perfil, login, logout)
-    │   ├── AchievementsContext.jsx     # Provider de achievements (desbloquear, toast, persistência)
-    │   ├── FichasContext.jsx           # Provider de fichas (saldo, coleta diária, gastar, role-based)
-    │   ├── LanguageContext.jsx          # Provider de i18n: locale, t(), changeLocale()
-    │   └── ReaderContext.jsx           # Estado global readerMode — esconde Navbar e TrialBanner nos leitores
+    │   ├── AuthContext.jsx             # Provider: user, perfil, session, login, logout
+    │   ├── AchievementsContext.jsx     # Provider: desbloquear, toast, persistência Supabase
+    │   ├── FichasContext.jsx           # Provider: saldo, coleta diária, gastar, role-based
+    │   ├── LanguageContext.jsx          # Provider i18n: locale, t(), changeLocale()
+    │   └── ReaderContext.jsx           # Estado readerMode — esconde Navbar/TrialBanner
+    │
     ├── lib/
     │   ├── supabase.js                 # Cliente Supabase (anon key + URL)
     │   └── stripe.js                   # Stripe frontend: iniciarCheckout(), cancelarAssinatura(), getPriceDisplay()
-    ├── data/                           # 18 arquivos JSON (incl. quiz-pt, supertrunfo-pt, search-index, notificacoes, nowlive, episodios, planos, produtos, + i18n livro/)
-    ├── hooks/                          # 12 hooks customizados (useFichaGate, useHeroEffect, usePersonagens, useScrollPosition, useScrollReveal, useSlideshow, useSwipe, useTopTrumpsDB, useTopTrumpsMP, useTypewriter, useViewportScroll, useZoom)
+    │
+    ├── data/
+    │   ├── achievements-pt.json        # Achievements do sistema
+    │   ├── episodios.json              # Episódios do webtoon
+    │   ├── livro-index.json            # Índice dos capítulos (publicado, título multi-lang)
+    │   ├── livro/                      # Capítulos em markdown (pt/, en/, es/)
+    │   ├── mundo-pt.json               # Lore do mundo (PT)
+    │   ├── mundo-en.json               # Lore do mundo (EN)
+    │   ├── mundo-es.json               # Lore do mundo (ES)
+    │   ├── musicas.json                # Dados das músicas
+    │   ├── notificacoes.json           # Notificações do sistema
+    │   ├── nowlive.json                # Status "ao vivo"
+    │   ├── personagens-pt.json         # Personagens (PT)
+    │   ├── personagens-en.json         # Personagens (EN)
+    │   ├── personagens-es.json         # Personagens (ES)
+    │   ├── planos.json                 # Planos de assinatura (tiers)
+    │   ├── produtos.json               # Produtos da loja
+    │   ├── quiz-pt.json                # Banco de perguntas do Quiz
+    │   ├── search-index.js             # Índice de busca global
+    │   └── supertrunfo-pt.json         # Cartas do Top Trumps
+    │
+    ├── hooks/
+    │   ├── useFichaGate.js             # Gate de fichas para jogos
+    │   ├── useHeroEffect.js            # Efeitos do hero
+    │   ├── usePersonagens.js           # Carrega personagens por locale
+    │   ├── useScrollPosition.js        # Posição do scroll
+    │   ├── useScrollReveal.js          # IntersectionObserver reveal
+    │   ├── useSlideshow.js             # Slideshow automático
+    │   ├── useSwipe.js                 # Detecção de swipe touch
+    │   ├── useTopTrumpsDB.js           # Supabase queries Top Trumps
+    │   ├── useTopTrumpsMP.js           # Multiplayer Top Trumps
+    │   ├── useTypewriter.js            # Efeito typewriter
+    │   ├── useViewportScroll.js        # Scroll do viewport
+    │   └── useZoom.js                  # Zoom em imagens
+    │
     ├── i18n/
-    │   ├── pt.json                     # Traduções PT
-    │   ├── en.json                     # Traduções EN
-    │   ├── es.json                     # Traduções ES
+    │   ├── pt.json                     # Traduções PT (site)
+    │   ├── en.json                     # Traduções EN (site)
+    │   ├── es.json                     # Traduções ES (site)
+    │   ├── pp_pt.json                  # Traduções PT (Pesadelo Particular)
+    │   ├── pp_en.json                  # Traduções EN (Pesadelo Particular)
+    │   ├── pp_es.json                  # Traduções ES (Pesadelo Particular)
     │   └── locales.js                  # Import aggregator + LOCALE_LABELS
+    │
     ├── pages/
-    │   ├── Admin.jsx                    # Painel admin (isaiasgamedev@gmail.com) — gerencia submissions
-    │   ├── Cadastro.jsx                 # Cadastro de conta (nome, email, telefone, senha)
-    │   ├── Leaderboard.jsx              # Ranking global com 20 posições mockadas
-    │   ├── Login.jsx                    # Login com email/senha via Supabase Auth
-    │   ├── Quiz.jsx                     # Quiz SDR — 3 modos (ranqueado/elite/primordial), banco de perguntas
-    │   ├── Arena/                       # LDI Arena Mode — combate CPU standalone
-    │   │   ├── store/                   # useArenaStore.js (sheet, match, XP, Supabase)
-    │   │   ├── data/                    # arena-enemies.json (8 inimigos tier 1-4)
-    │   │   ├── screens/                 # Telas de combate
-    │   │   └── components/             # Componentes auxiliares
-    │   ├── ArenaTatics/                 # LDI TATICS — sistema tático por turnos EM REFATORAÇÃO
-    │   │   ├── store/                   # useArenaTaticsStore.js (Zustand + Supabase save)
-    │   │   ├── data/                    # roster.js (20 personagens), aiPersonalities.js (16 IAs), classes.js, combat.js, elementais.js, eventos.js, juice.js
-    │   │   ├── screens/                 # Intro, TeamSelect, Batalha, PreBatalha, Vitoria, Derrota, SimulacaoAuto, ClasseSelect, Customizacao, TeamBuilder
-    │   │   └── components/             # GridCanvas (isométrico Canvas 2D), ActionMenu, SkillModal, StatusBar, DanoPopup, TurnoIndicator, TiledMap
-    │   ├── Duelo/                       # DUELO LDI — card game 1v1 vs IA
-    │   │   ├── store/                   # useDueloStore.js
-    │   │   ├── data/                    # Cartas, habilidades
-    │   │   ├── engine/                  # ai.js (IA greedy)
-    │   │   ├── screens/                 # Menu, Vitória, Derrota
-    │   │   └── components/             # Board, Hand, StatusBar, BattleLog, TributeSelector, CardPreviewModal, TrapActivator
-    │   ├── JackCandy/                   # Jack Dream Beer — idle noir investigativo
-    │   │   ├── store/                   # useJackStore.js
-    │   │   ├── data/                    # flags, cidades, npcs, itens, dungeons, monologues, casos, pistas
-    │   │   ├── screens/                 # 13 screens
-    │   │   └── components/             # 6 componentes
-    │   ├── LDI/                         # LDI LENDAS — RPG narrativo
-    │   │   ├── engine/                  # dice.js, combat.js, character.js, flags.js, scenes.js
-    │   │   ├── store/                   # useGameStore.js, useCombatStore.js
-    │   │   ├── data/                    # scenes/*.json, enemies/*.json, characterData, manualData, powersData
-    │   │   └── components/              # Typewriter, SceneView, ChoiceList, CombatView, DiceRoll, etc.
-    │   ├── MiniGames/                   # Arcade puzzles standalone
-    │   ├── Perfil/                      # Hub com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi)
-    │   │   └── abas/                    # PerfilConquistas, PerfilArena, PerfilColecao, PerfilConta, Recompensas, PerfilTamagoshi
-    │   ├── Tamagoshi/                   # TAMA LDI — tamagotchi com ciclo de vida completo
-    │   └── ...
+    │   ├── Admin.jsx                   # Painel admin
+    │   ├── Admin.css
+    │   ├── Assinar.jsx                 # Página de assinaturas + Stripe
+    │   ├── Assinar.css
+    │   ├── Autor.jsx                   # Sobre o autor
+    │   ├── Autor.css
+    │   ├── Cadastro.jsx                # Cadastro de conta
+    │   ├── Games/                      # Hub de games
+    │   │   ├── Games.jsx
+    │   │   └── Games.css
+    │   ├── Home.jsx                    # Landing page
+    │   ├── Leaderboard.jsx             # Ranking global
+    │   ├── Leaderboard.css
+    │   ├── Livro.jsx                   # Lista de capítulos
+    │   ├── Livro.css
+    │   ├── LivroCapitulo.jsx           # Leitor de capítulo
+    │   ├── LivroCapitulo.css
+    │   ├── Login.jsx                   # Login Supabase Auth
+    │   ├── Login.css
+    │   ├── Mundo.jsx                   # Lore do universo
+    │   ├── Mundo.css
+    │   ├── Musicas.jsx                 # Página de músicas
+    │   ├── Musicas.css
+    │   ├── Personagens.jsx             # Grid de personagens
+    │   ├── Personagens.css
+    │   ├── PersonagemDetalhe.jsx       # Detalhe do personagem
+    │   ├── PersonagemDetalhe.css
+    │   ├── Quiz.jsx                    # Quiz SDR
+    │   ├── Quiz.css
+    │   ├── TopTrumps.jsx               # Top Trumps card game
+    │   ├── TopTrumps.css
+    │   ├── TopTrumpsLobby.jsx          # Lobby multiplayer
+    │   ├── TopTrumpsLobby.css
+    │   ├── TopTrumpsMP.jsx             # Partida multiplayer
+    │   ├── TopTrumpsMP.css
+    │   ├── Webtoon.jsx                 # Grid episódios webtoon
+    │   ├── Webtoon.css
+    │   ├── WebtoonEpisodio.jsx         # Leitor webtoon
+    │   ├── WebtoonEpisodio.css
+    │   │
+    │   ├── Arena/                      # LDI Arena Mode
+    │   │   ├── ArenaRoute.jsx          # Container + roteamento
+    │   │   ├── Arena.css
+    │   │   ├── ArenaLobby.jsx          # Lobby (seleção de dificuldade)
+    │   │   ├── ArenaCreate.jsx         # Criação de ficha
+    │   │   ├── ArenaCombat.jsx         # Tela de combate
+    │   │   ├── ArenaVictory.jsx        # Tela de vitória
+    │   │   ├── store/
+    │   │   │   └── useArenaStore.js    # Zustand: sheet, match, XP, Supabase
+    │   │   └── data/
+    │   │       ├── arena-enemies.json  # 8 inimigos tier 1-4
+    │   │       └── trash_talk.json     # Falas dos inimigos
+    │   │
+    │   ├── ArenaTatics/                # LDI TATICS
+    │   │   ├── ArenaTaticsRoute.jsx    # Container principal
+    │   │   ├── ArenaTatics.css
+    │   │   ├── store/
+    │   │   │   ├── useArenaTaticsStore.js  # Zustand: save, batalha, progresso
+    │   │   │   └── useCityStore.js         # Zustand: cidade, clima, NPCs
+    │   │   ├── data/
+    │   │   │   ├── roster.js           # 20 personagens jogáveis
+    │   │   │   ├── aiPersonalities.js  # 16 personalidades de IA
+    │   │   │   ├── classes.js          # Classes dos personagens
+    │   │   │   ├── combat.js           # Sistema de combate
+    │   │   │   ├── cosmeticos.js       # Cosméticos/aparência
+    │   │   │   ├── districts.js        # Distritos de Marélia (8)
+    │   │   │   ├── elementais.js       # Elementais (sistema legado)
+    │   │   │   ├── elementals.js       # Elementais (sistema atual)
+    │   │   │   ├── enemies.js          # Inimigos do overworld
+    │   │   │   ├── equipment.js        # Equipamentos
+    │   │   │   ├── eventos.js          # Eventos aleatórios
+    │   │   │   ├── juice.js            # Efeitos visuais
+    │   │   │   ├── levelProgression.js # Progressão de nível
+    │   │   │   └── tilemaps/           # Mapas tile JSON
+    │   │   ├── screens/
+    │   │   │   ├── Batalha.jsx         # Tela de batalha principal
+    │   │   │   ├── BatalhaSimulacao.jsx # Simulação de batalha
+    │   │   │   ├── BuildingInterior.jsx # Interiores de prédios
+    │   │   │   ├── CityOverworld.jsx   # Mapa da cidade (isométrico)
+    │   │   │   ├── ClasseSelect.jsx    # Seleção de classe
+    │   │   │   ├── Customizacao.jsx    # Customização de personagem
+    │   │   │   ├── Derrota.jsx         # Tela de derrota
+    │   │   │   ├── Intro.jsx           # Tela de introdução
+    │   │   │   ├── PreBatalha.jsx      # Pré-batalha (preparação)
+    │   │   │   ├── SimulacaoAuto.jsx   # Simulação automática
+    │   │   │   ├── TeamBuilder.jsx     # Montagem de time
+    │   │   │   ├── TeamSelect.jsx      # Seleção de time
+    │   │   │   └── Vitoria.jsx         # Tela de vitória
+    │   │   └── components/
+    │   │       ├── ActionMenu.jsx      # Menu de ações em batalha
+    │   │       ├── CityHUD.jsx         # HUD da cidade
+    │   │       ├── CombatResultModal.jsx # Modal resultado combate
+    │   │       ├── ConfirmEndTurn.jsx  # Confirmação fim de turno
+    │   │       ├── DanoPopup.jsx       # Popup de dano
+    │   │       ├── EnemyTurnBanner.jsx # Banner turno inimigo
+    │   │       ├── EventoBanner.jsx    # Banner de evento
+    │   │       ├── GameControls.jsx    # Controles do jogo
+    │   │       ├── Grid.jsx            # Grid de batalha
+    │   │       ├── GridCanvas.jsx      # Canvas isométrico 2D
+    │   │       ├── JuiceComponents.jsx # Componentes de juice
+    │   │       ├── SkillModal.jsx      # Modal de habilidades
+    │   │       ├── SkillPreviewModal.jsx # Preview de habilidade
+    │   │       ├── StatusBar.jsx       # Barra de status
+    │   │       ├── TiledMap.jsx        # Mapa tile-based
+    │   │       └── TurnoIndicator.jsx  # Indicador de turno
+    │   │
+    │   ├── Duelo/                      # DUELO LDI
+    │   │   ├── DueloRoute.jsx          # Container
+    │   │   ├── Duelo.css
+    │   │   ├── version.js              # Console.log version
+    │   │   ├── store/
+    │   │   │   └── useDueloStore.js    # Zustand: game state
+    │   │   ├── data/
+    │   │   │   └── cards.js            # 60 cartas
+    │   │   ├── engine/
+    │   │   │   ├── ai.js               # IA greedy
+    │   │   │   ├── deck.js             # Lógica de deck
+    │   │   │   ├── effects.js          # Efeitos de cartas
+    │   │   │   ├── gameState.js        # Estado do jogo
+    │   │   │   └── phases.js           # Fases do turno
+    │   │   ├── screens/
+    │   │   │   ├── DueloMenu.jsx       # Menu principal
+    │   │   │   ├── DueloVitoria.jsx    # Tela de vitória
+    │   │   │   ├── DueloVitoria.css
+    │   │   │   └── DueloDerrota.jsx    # Tela de derrota
+    │   │   │   └── DueloDerrota.css
+    │   │   └── components/
+    │   │       ├── BattleLog.jsx       # Log de batalha
+    │   │       ├── Board.jsx           # Tabuleiro
+    │   │       ├── Card.jsx            # Card component
+    │   │       ├── CardPreviewModal.jsx # Preview de carta
+    │   │       ├── CardSlot.jsx        # Slot de carta
+    │   │       ├── Hand.jsx            # Mão do jogador
+    │   │       ├── LPDisplay.jsx       # Display de LP
+    │   │       ├── PlayerZone.jsx      # Zona do jogador
+    │   │       ├── StatusBar.jsx       # Barra de status
+    │   │       ├── TrapActivator.jsx   # Ativador de armadilha
+    │   │       └── TributeSelector.jsx # Seletor de tributo
+    │   │
+    │   ├── JackCandy/                  # Jack Dream Beer
+    │   │   ├── JackCandy.jsx           # Container principal
+    │   │   ├── JackCandy.css
+    │   │   ├── store/
+    │   │   │   └── useJackStore.js     # Zustand: flags, progresso
+    │   │   ├── data/
+    │   │   │   ├── casos.js            # Casos investigativos
+    │   │   │   ├── cidades.js          # Cidades visitáveis
+    │   │   │   ├── dungeons.js         # Dungeons
+    │   │   │   ├── flags.js            # Flags de progresso
+    │   │   │   ├── itens.js            # Itens do jogo
+    │   │   │   ├── monologues.js       # Monólogos do Jack
+    │   │   │   ├── npcs.js             # NPCs
+    │   │   │   └── pistas.js           # Pistas investigativas
+    │   │   ├── screens/
+    │   │   │   ├── CasoAbertura.jsx    # Abertura de caso
+    │   │   │   ├── CasoSelect.jsx      # Seleção de caso
+    │   │   │   ├── Descanso.jsx        # Tela de descanso
+    │   │   │   ├── Dossier.jsx         # Dossier do caso
+    │   │   │   ├── Dungeon.jsx         # Exploração de dungeon
+    │   │   │   ├── DungeonSelect.jsx   # Seleção de dungeon
+    │   │   │   ├── Interior.jsx        # Interiores
+    │   │   │   ├── Interrogatorio.jsx  # Interrogatório
+    │   │   │   ├── Intro.jsx           # Introdução
+    │   │   │   ├── Inventario.jsx      # Inventário
+    │   │   │   ├── Investigacao.jsx    # Investigação
+    │   │   │   ├── MainMenu.jsx        # Menu principal
+    │   │   │   └── Vila.jsx            # Tela de vila
+    │   │   └── components/
+    │   │       ├── CombatLog.jsx       # Log de combate
+    │   │       ├── DialogoCaso.jsx     # Diálogo de caso
+    │   │       ├── DicaToast.jsx       # Dica toast
+    │   │       ├── IntroNoir.jsx       # Intro noir
+    │   │       ├── Monologue.jsx       # Monólogo
+    │   │       ├── PistaCard.jsx       # Card de pista
+    │   │       └── StatusBar.jsx       # Barra de status
+    │   │
+    │   ├── LDI/                        # LDI LENDAS (RPG narrativo)
+    │   │   ├── Lobby.jsx               # Lobby do jogo
+    │   │   ├── Create.jsx              # Criação de personagem
+    │   │   ├── Game.jsx                # Tela principal de jogo
+    │   │   ├── Combat.jsx              # Tela de combate
+    │   │   ├── Sheet.jsx               # Ficha do personagem
+    │   │   ├── Clues.jsx               # Caderno de pistas
+    │   │   ├── End.jsx                 # Tela de fim
+    │   │   ├── PuzzlePage.jsx          # Roteador de puzzles
+    │   │   ├── LDI.css
+    │   │   ├── engine/
+    │   │   │   ├── dice.js             # Sistema de dados
+    │   │   │   ├── combat.js           # Sistema de combate 3D&T
+    │   │   │   ├── character.js        # Lógica de personagem
+    │   │   │   ├── flags.js            # Sistema de flags
+    │   │   │   └── scenes.js           # Gerenciamento de cenas
+    │   │   ├── store/
+    │   │   │   ├── useGameStore.js     # Zustand: jogo principal
+    │   │   │   └── useCombatStore.js   # Zustand: combate
+    │   │   ├── data/
+    │   │   │   ├── characterData.js    # Dados de personagem
+    │   │   │   ├── manualData.js       # Dados do manual
+    │   │   │   ├── powersData.js       # Dados de poderes
+    │   │   │   ├── scenes/             # Cenas em JSON
+    │   │   │   └── enemies/            # Inimigos em JSON
+    │   │   ├── components/
+    │   │   │   ├── CharacterSheetView.jsx # Visualização da ficha
+    │   │   │   ├── ChoiceList.jsx      # Lista de escolhas
+    │   │   │   ├── ClueBook.jsx        # Caderno de pistas
+    │   │   │   ├── CombatView.jsx      # Visão de combate
+    │   │   │   ├── DiceRoll.jsx        # Rolagem de dados
+    │   │   │   ├── ManualDrawer.jsx    # Gaveta do manual
+    │   │   │   ├── PuzzleDecoder.jsx   # Puzzle: decodificador
+    │   │   │   ├── PuzzleRouter.jsx    # Roteador de puzzles
+    │   │   │   ├── PuzzleSimonSays.jsx # Puzzle: Simon Says
+    │   │   │   ├── PuzzleSlidingTiles.jsx # Puzzle: tiles deslizantes
+    │   │   │   ├── PuzzleStealthGrid.jsx  # Puzzle: grid furtivo
+    │   │   │   ├── PuzzleWireCut.jsx   # Puzzle: corte de fios
+    │   │   │   ├── SceneView.jsx       # Visão de cena narrativa
+    │   │   │   └── Typewriter.jsx      # Efeito typewriter
+    │   │   └── hooks/
+    │   │       └── useLDIStorage.js    # Hook de storage local
+    │   │
+    │   ├── MiniGames/                  # Mini-games arcade
+    │   │   ├── MiniGames.jsx           # Container
+    │   │   ├── MiniGames.css
+    │   │   └── version.js              # Console.log version
+    │   │
+    │   ├── Perfil/                     # Hub do perfil do usuário
+    │   │   ├── Perfil.jsx              # Container com abas
+    │   │   ├── Perfil.css
+    │   │   └── abas/
+    │   │       ├── PerfilConquistas.jsx   # Aba: conquistas
+    │   │       ├── PerfilArena.jsx        # Aba: arena
+    │   │       ├── PerfilColecao.jsx      # Aba: coleção
+    │   │       ├── PerfilConta.jsx        # Aba: conta + assinatura Stripe
+    │   │       ├── PerfilTamagoshi.jsx    # Aba: tamagoshi
+    │   │       ├── PerfilTamagoshi.css
+    │   │       ├── Recompensas.jsx        # Aba: recompensas
+    │   │       └── Recompensas.css
+    │   │
+    │   ├── PesadeloParticular/         # Pesadelo Particular
+    │   │   ├── PP.jsx                  # Container principal
+    │   │   ├── PP.css
+    │   │   ├── store/
+    │   │   │   └── usePPStore.js       # Zustand: save, progresso
+    │   │   ├── data/
+    │   │   │   ├── casos.js            # 20 casos
+    │   │   │   ├── inimigos.js         # Inimigos
+    │   │   │   ├── pistas.js           # Pistas
+    │   │   │   ├── pp-i18n.js          # Traduções internas
+    │   │   │   ├── resolver.js         # Lógica de resolução
+    │   │   │   └── telefonema.js       # Roteiro de telefonemas
+    │   │   ├── screens/
+    │   │   │   ├── CadernoSuspeitas.jsx  # Caderno de suspeitas
+    │   │   │   ├── CasoAbertura.jsx      # Abertura de caso
+    │   │   │   ├── Confronto.jsx         # Confronto final
+    │   │   │   ├── Dormindo.jsx          # Tela dormindo
+    │   │   │   ├── Dossier.jsx           # Dossier do caso
+    │   │   │   ├── FinalScreen.jsx       # Tela final
+    │   │   │   ├── Investigacao.jsx      # Investigação
+    │   │   │   ├── MapaCidade.jsx        # Mapa da cidade
+    │   │   │   └── Resolucao.jsx         # Resolução do caso
+    │   │   └── components/
+    │   │       └── PuzzleWrapper.jsx     # Wrapper de puzzles
+    │   │
+    │   └── Tamagoshi/                  # TAMA LDI
+    │       ├── Tamagoshi.jsx           # Container
+    │       ├── Tamagoshi.css
+    │       ├── store/
+    │       │   └── useTamagoshiStore.js # Zustand: métricas, DIX, lifecycle
+    │       ├── data/
+    │       │   ├── criaturas.js        # 30 criaturas
+    │       │   ├── evolucoes.js        # 4 estágios
+    │       │   ├── falas-criatura.js   # Falas por criatura
+    │       │   ├── itens_loja.js       # Itens da loja
+    │       │   ├── moedas.js           # DIX constants
+    │       │   ├── passeios.js         # 6 locais
+    │       │   └── personalidades.js   # 6 personalidades
+    │       ├── screens/
+    │       │   ├── Alimentar.jsx       # Minigame alimentar
+    │       │   ├── Banhar.jsx          # Minigame banhar
+    │       │   ├── Brincadeira.jsx     # 4 mini-interações
+    │       │   ├── Criatura.jsx        # Tela principal
+    │       │   ├── Loja.jsx            # Loja de itens
+    │       │   ├── Luto.jsx            # Morte + cooldown
+    │       │   ├── Ovo.jsx             # Ovo pulsante
+    │       │   ├── Partida.jsx         # Despedida + fama
+    │       │   ├── Passear.jsx         # Minigame grid
+    │       │   ├── Passeio.jsx         # Seleção de local
+    │       │   └── Selecao.jsx         # Escolha da criatura
+    │       └── components/
+    │           ├── BalloonFala.jsx     # Balão de fala
+    │           ├── CooldownTimer.jsx   # Timer de cooldown
+    │           ├── CriaturaSprite.jsx  # Sprite da criatura
+    │           └── MetricBar.jsx       # Barra de métricas
+    │
+    └── store/                          # (vazio — stores estão por página)
 ```
 
 ---
 
 ## 2. PÁGINAS E ROTAS
 
-| Rota | Componente | Arquivo | Status | Tradução | Descrição |
+| Rota | Componente | Arquivo | Versão | Tradução | Descrição |
 |---|---|---|---|---|---|
-| `/` | Home | `src/pages/Home.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, home-support CTA, StoryProgress, newsletter-cta, ShopSection |
-| `/personagens` | Personagens | `src/pages/Personagens.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Grid com todos os 9 personagens agrupados por categoria |
-| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Detalhe do personagem (2 colunas, nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações) |
-| `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação, botão Continuar lendo |
-| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor com react-markdown, lazy loading, modo imersivo |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers: RANQUEADO (free), ELITE (R$10/mês), PRIMORDIAL (R$30/mês). **Stripe Checkout** integrado via Edge Function `create-checkout-session`. Preços dinâmicos por locale. Feedback pós-checkout (sucesso/cancelado/erro). Newsletter + PIX + ficha anchor line |
-| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | História de Isaias Leal em 4 blocos, CTA para assinar |
-| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Grid de episódios publicados com thumbnails e badges de idioma |
-| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
-| `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas + placeholder videoclipes |
-| `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v2.63 | ✅ PT ✅ EN ✅ ES | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign — **1ª temporada** |
-| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
-| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ PT ✅ EN ✅ ES | LDI LENDAS — lobby do RPG narrativo — **core gameplay perfeito (1ª temporada), textos pendentes de revisão** |
-| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ PT ✅ EN ✅ ES | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
-| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela principal de jogo (cena narrativa + typewriter) |
-| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de combate 3D&T com 3 modos + seleção de poderes |
-| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ficha do personagem (consulta) |
-| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
-| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim de jogo |
-| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles in-game |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | ✅ PT ✅ EN ✅ ES | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ PT ✅ EN ✅ ES | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ✅ PT ✅ EN ✅ ES | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | ✅ PT ✅ EN ✅ ES | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
-| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.7.0 | ✅ PT ✅ EN ✅ ES | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | ✅ PT ✅ EN ✅ ES | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.3 | ✅ PT ✅ EN ✅ ES | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
-
-**Versão atual:** `1.10.3` (console: `[TAMA] versão carregada: 1.10.3`)
-| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global com 20 posições, vitórias/derrotas/pontos |
-| `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
-| `/login` | Login | `src/pages/Login.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Login com email/senha via Supabase Auth, redireciona para /perfil |
-| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Cadastro com nome, email, telefone, senha — migra achievements locais |
-| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier. Aba Conta: gerencia assinatura Stripe (status, renovação, cancelamento via Edge Function `cancel-subscription`) |
-| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard |
-
-### Estrutura de arquivos
-
-```
-src/pages/Tamagoshi/
-├── Tamagoshi.jsx              # Container: fase routing, subFase (alimentar/banhar/passear/loja), lifecycle init
-├── Tamagoshi.css              # ~580 linhas estilo dark neon
-├── store/
-│   └── useTamagoshiStore.js   # Zustand: métricas, decaimento, DIX wallet, inventário, lifecycle, troca, Supabase
-├── data/
-│   ├── criaturas.js           # 30 criaturas, 6 personalidades, 5 raridades
-│   ├── personalidades.js      # 6 tipos com textos de notificação por urgência (fallback)
-│   │   └── falas-criatura.js  # 30 criaturas com 4+ falas únicas por ação
-│   ├── passeios.js            # 6 locais de Marelia com bônus por personalidade
-│   ├── evolucoes.js           # 4 estágios (ovo→filhote→adulto→ancião) + variantes
-│   ├── moedas.js              # DIX constants, fases lifecycle, badges map, textos partida
-│   └── itens_loja.js          # 7 itens (comida/sabonete/shampoo/guia/pente/guloseima/apito) + COMIDA_TEMATICA
-├── screens/
-│   ├── Ovo.jsx                # Ovo pulsante, clique para eclodir
-│   ├── Selecao.jsx            # Escolha da criatura (varia por tier)
-│   ├── Criatura.jsx           # Tela principal: métricas, sprite, balão, ações, DIX display, admin
-│   ├── Passeio.jsx            # Seleção de local com bônus de personalidade
-│   ├── Brincadeira.jsx        # 4 mini-interações com feedback
-│   ├── Alimentar.jsx          # Minigame: clicar item 4x para encher barra, consome inventário
-│   ├── Banhar.jsx             # Minigame: arrastar mouse/touch up-down, bolhas, consome sabonete
-│   ├── Passear.jsx            # Minigame: grid 8x4 com obstáculos, setas/swipe até bandeira
-│   ├── Loja.jsx               # Loja de itens com DIX, inventário por criatura
-│   ├── Partida.jsx            # Animação de despedida + salão da fama + nova adoção
-│   └── Luto.jsx               # Morte + cooldown de 24h + recomeço
-└── components/
-    ├── MetricBar.jsx          # Barra animada fome/higiene/energia/humor
-    ├── CriaturaSprite.jsx     # Emoji com animação por status/estágio
-    ├── BalloonFala.jsx        # Balão de fala com texto da personalidade
-    └── CooldownTimer.jsx      # Contador regressivo pós-morte
-```
-
-### Decaimento das métricas (tempo real + offline)
-
-| Métrica | Decaimento/h | Crítico em | Personalidade afeta |
-|---------|-------------|------------|-------------------|
-| Fome | -6 | ~16h | Independente: ×0.8 |
-| Higiene | -3 | ~33h | Independente: ×0.8 |
-| Energia | -4 | ~25h | Independente: ×0.8 |
-| Humor | -2 | ~50h | Carente: ×1.2 / Fofo: mínimo 20 (se login ≤12h) |
-
-- Status `critico` quando qualquer métrica ≤ 0
-- Morte após 24h contínuas em crítico
-- Cooldown de 24h pós-morte
-
-### Supabase
-
-**Tabelas:** (migrations `006_tamagoshi.sql` + `009_tamagoshi_v2.sql`)
-
-| Tabela | PK | Descrição |
-|--------|----|-----------|
-| `tamagoshi_saves` | `(user_id, slot)` | Save state: métricas, fase, inventario (JSONB), flags (JSONB), status, cooldown |
-| `tamagoshi_trocas` | `key` (UUID8) | Pedidos de troca entre jogadores, status pendente/confirmado/24h expira |
-| `dix_wallet` | `user_id` | Saldo de DIX por jogador |
-| `dix_historico` | auto-increment | Log de transações DIX (valor, motivo, timestamp) |
-| `tamagoshi_badges` | auto-increment | Badges conquistadas por fase (user_id, criatura_id, badge_id) |
-| `tamagoshi_fama` | auto-increment | Criaturas que completaram o ciclo (user_id, criatura_id, nome_custom, badges[]) |
-
-- RLS: `auth.uid() = user_id` em todas
-
-### Ciclo de Vida (v1.3.0)
-
-| Fase | Duração | Badge | Transição |
-|------|---------|-------|-----------|
-| Ovo | 0–3 dias | — | Eclode em filhote |
-| Filhote | 4–60 dias | 🐣 `filhote` | — |
-| Jovem | 61–120 dias | 🌱 `jovem` | — |
-| Adulto | 121–180 dias | 🌳 `adulto` | — |
-| Veterano | 181–270 dias | ⚔️ `veterano` | — |
-| Ancião | 271–365 dias | 👑 `anciao` | — |
-| Partida | >365 dias | ✨ `partida` | Escreve em `tamagoshi_fama`, zera save |
-
-### DIX Economy
-
-- **Ganhos:** +10 DIX por ação (alimentar/banhar/passear/brincar), +25 DIX login diário, +5 bônus se passear no local temático
-- **Gastos:** itens na loja (5–30 DIX)
-- **Saldo:** tabela `dix_wallet`, histórico em `dix_historico`
-- **Inventário:** coluna JSONB `inventario` em `tamagoshi_saves`, persistido por criatura
-
-### Seleção por tier
-
-| Tier | Opções |
-|------|--------|
-| Free | 1 criatura aleatória |
-| Elite | 3 criaturas (uma por tipo) |
-| Primordial | 10 criaturas |
+| `/` | Home | `src/pages/Home.jsx` | — | ✅ PT ✅ EN ✅ ES | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, StoryProgress, newsletter-cta, ShopSection, home-support CTA |
+| `/personagens` | Personagens | `src/pages/Personagens.jsx` | — | ✅ PT ✅ EN ✅ ES | Grid com todos os 9 personagens por categoria |
+| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | — | ✅ PT ✅ EN ✅ ES | Detalhe: nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações |
+| `/livro` | Livro | `src/pages/Livro.jsx` | — | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação |
+| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | — | ✅ PT ✅ EN ✅ ES | Leitor react-markdown, lazy loading, readerMode |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers via Stripe Checkout. Preços dinâmicos por locale. Feedback pós-checkout |
+| `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
+| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
+| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
+| `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
+| `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
+| `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v2.63 | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
+| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ PT ✅ EN ✅ ES | Lobby multiplayer 🔒 LoginGate |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ PT ✅ EN ✅ ES | Partida multiplayer 🔒 LoginGate |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
+| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
+| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | — | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
+| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | — | ✅ PT ✅ EN ✅ ES | Combate 3D&T |
+| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | — | ✅ PT ✅ EN ✅ ES | Ficha do personagem |
+| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | — | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
+| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ PT ✅ EN ✅ ES | Tela de fim |
+| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.3.0 | ✅ PT ✅ EN ✅ ES | 6 puzzles arcade + Enduro Kroniki |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.7.3 | ✅ PT ✅ EN ✅ ES | LDI ARENA 🔒 LoginGate — combate CPU |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.7.0 | ✅ PT ✅ EN ✅ ES | 20 casos 🔒 LoginGate |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.9 | ✅ PT ✅ EN ✅ ES | Card game 1v1 🔒 LoginGate |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.11.0 | ✅ PT ✅ EN ✅ ES | Tamagotchi: ciclo de vida completo |
+| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ PT ✅ EN ✅ ES | Ranking global |
+| `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
+| `/login` | Login | `src/pages/Login.jsx` | — | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
+| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | — | ✅ PT ✅ EN ✅ ES | Cadastro de conta |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
+| `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
 
 ---
 
-## 11. NOTAS TÉCNICAS
+## 3. VERSÕES
 
-### Stack
-- **Vite 8** — Build tool. Zero config para JSX, CSS, assets.
-- **React 19** — Última versão estável. JSX puro.
-- **React Router 7** — Rotas client-side.
-- **react-markdown** — Renderização do livro.
-- **react-helmet-async** — Títulos dinâmicos por página.
-- **Zero CSS-in-JS** — Todo estilo em arquivos `.css` separados.
-- **Zero inline styles** — Nenhum `style={{}}` no JSX.
+| Constante | Versão | Arquivo |
+|---|---|---|
+| `SITE_VERSION` | 2.90 | `src/config/version.js:5` |
+| `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
+| `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
+| `JACK_VERSION` | 5.1.2 | `src/config/version.js:12` |
+| `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
+| `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
+| `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
+| `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
+| `MP_VERSION` | 1.1.0 | `src/config/version.js:17` |
+| `TATICS_VERSION` | 6.4.0 | `src/config/version.js:19` |
 
-### Stripe / Assinaturas
-- **Frontend:** `src/lib/stripe.js` — `iniciarCheckout(tier)`, `cancelarAssinatura()`, `getPriceDisplay(locale)`
-- **Preços multi-moeda:** Price ID único por tier no Stripe, Stripe resolve a moeda pelo cartão
-- **Edge Functions (Supabase):**
-  | Função | Arquivo | JWT | Descrição |
-  |--------|---------|-----|-----------|
-  | `create-checkout-session` | `supabase/functions/create-checkout-session/index.ts` | ✅ Obrigatório | Cria sessão Stripe Checkout, gerencia `stripe_customer_id` no perfil |
-  | `stripe-webhook` | `supabase/functions/stripe-webhook/index.ts` | ❌ Desabilitado | Processa eventos Stripe: checkout completo, subscription updated/deleted, invoice failed/success |
-  | `cancel-subscription` | `supabase/functions/cancel-subscription/index.ts` | ✅ Obrigatório | Marca `cancel_at_period_end` na assinatura Stripe |
-- **Webhook URL:** `https://dvxfrzixtetdzmdrzkpx.supabase.co/functions/v1/stripe-webhook`
-- **Tabela `profiles`:** colunas adicionadas via migration `010_stripe_billing.sql` — `tier`, `subscription_status`, `stripe_customer_id`, `stripe_subscription_id`, `stripe_price_id`, `current_period_end`
-- **Tiers:** ELITE (R$10/mês), PRIMORDIAL (R$30/mês)
-- **AuthContext:** `.select('*, tier, subscription_status, current_period_end, stripe_subscription_id')` + expõe `session` no provider
+---
 
-### i18n
-- `LanguageContext` com `locale` persistido em `localStorage('ldi-locale')`.
-- Função `t("chave.rota")` busca no JSON do locale atual.
-- Personagens: hook `usePersonagens` carrega o JSON correto por `locale`.
-- Livro: `livro-index.json` tem `titulo`, `titulo_en`, `titulo_es`.
+## 4. COMPONENTES GLOBAIS (App.jsx)
 
-### Assets
-- **Regra:** todo asset em `src/assets/`. Nada na raiz ou `public/` além de favicon, og-image, 404.html e webtoon/.
-- **Imports:** usar `import img from './caminho.png'` (Vite processa e hasheia).
-- **Webtoon pages:** em `public/webtoon/` para URLs diretas no leitor.
-
-### Livro
-- Capítulos em markdown em `src/data/livro/{lang}/`.
-- `import.meta.glob('../data/livro/**/*.md')` para lazy loading multi-idioma.
-- Controle de acesso via `publicado: true/false` em `livro-index.json`.
-- **PT**: 16 capítulos (1-16) | **EN**: 3 capítulos (1-3) | **ES**: 3 capítulos (1-3)
-
-### Modo Imersivo (ReaderContext)
-- `ReaderContext` provider em `main.jsx` (engloba toda a app).
-- `readerMode` ativado em `WebtoonEpisodio` e `LivroCapitulo` via `useEffect` com cleanup.
-
-### Camadas de z-index
-```
-z-index 2000 — SearchModal overlay
-z-index 1000 — Navbar
-z-index 998  — TrialBanner
-z-index 200  — CookieBanner
-z-index 150  — NotificationBalloon
-z-index 100  — ScrollToTop
-z-index 50   — MusicSection dropdown
-z-index 10   — BookCard, CharacterCard hover (scale)
-```
-
-### Scroll Reveal
-- Hook `useScrollReveal` com IntersectionObserver (threshold 0.15).
-- Classes CSS: `.reveal` (fade + translateY), `.reveal-left` (translateX), `.reveal-delay-1/2/3`.
-
-### Deploy (GitHub Pages)
-
-| Comando | O que faz |
+| Componente | Função |
 |---|---|
-| `npm run dev` | Dev server local (Vite) |
-| `npm run build` | Build de produção para `dist/` |
-| `npm run preview` | Preview local do build |
-| `npm run deploy` | Build + push do `dist/` para branch `gh-pages` |
-| `git push` | Sincroniza código fonte na `main` |
+| `ScrollToTopOnNav` | Sobe scroll ao navegar |
+| `Navbar` | Navbar com menu hamburger, search |
+| `SearchModal` | Busca global |
+| `TrialBanner` | Banner trial (oculto readerMode) |
+| `Footer` | Footer global |
+| `ScrollToTop` | Botão voltar ao topo |
+| `NotificationBalloon` | Balão de notificação |
+| `CookieBanner` | Banner LGPD |
+| `AchievementToast` | Toast de achievement |
 
-- **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
-- **Site publicado:** https://lutasdeilusao-cpu.github.io/illusionfight-site/
-- **Branch de deploy:** `gh-pages` (automática via `gh-pages` package)
+---
 
-### SPA no GitHub Pages (404 redirect)
-1. **`public/404.html`** — Extrai o path original, remove o prefixo do repositório e redireciona para `/?/{path}`.
-2. **`index.html`** (script no `<head>`) — Detecta query string começando com `/` e restaura a URL limpa via `history.replaceState`.
+## 5. STRIPE / ASSINATURAS
 
-**Fluxo:** `/personagens` → 404 → `404.html` redireciona para `/?/personagens` → `index.html` restaura para `/personagens` → React Router renderiza.
+- **Frontend:** `src/lib/stripe.js` — `iniciarCheckout(tier)`, `cancelarAssinatura()`, `getPriceDisplay(locale)`
+- **Edge Functions:**
+  | Função | JWT | Descrição |
+  |--------|-----|-----------|
+  | `create-checkout-session` | ✅ | Cria sessão Stripe Checkout |
+  | `stripe-webhook` | ❌ | Eventos Stripe |
+  | `cancel-subscription` | ✅ | `cancel_at_period_end` |
+- **Webhook:** `https://dvxfrzixtetdzmdrzkpx.supabase.co/functions/v1/stripe-webhook`
+- **Tiers pagos:** ELITE (R$10/mês), PRIMORDIAL (R$30/mês)
+
+---
+
+## 6. SUPABASE
+
+**Projeto:** `dvxfrzixtetdzmdrzkpx`
+
+### Migrations
+
+| Migration | Descrição |
+|---|---|
+| `004_jack_v3.sql` | Jack Candy v3 |
+| `005_pesadelo_particular.sql` | Pesadelo Particular |
+| `006_arena_enemies_unlocked.sql` | Arena inimigos |
+| `006_tamagoshi.sql` | Tamagoshi v1 |
+| `007_jack_v4_xp_nivel.sql` | Jack v4 XP |
+| `008_tamagoshi_trocas.sql` | Trocas |
+| `009_tamagoshi_v2.sql` | Tamagoshi v2 |
+| `010_profiles_admin_role.sql` | is_admin, role, tier |
+| `010_tamagoshi_fix_columns.sql` | Fix colunas |
+| `010_stripe_billing.sql` | Stripe subscription |
+| `011_arena_tatics_roster.sql` | Roster Tatics |
+
+### Tabelas principais: `profiles`, `toptrumps_decks`, `share_submissions`, `tamagoshi_saves`, `tamagoshi_trocas`, `dix_wallet`, `dix_historico`, `tamagoshi_badges`, `tamagoshi_fama`
+
+---
+
+## 7. TAMAGOSHI — Detalhamento
+
+### Decaimento (tempo real + offline)
+
+| Métrica | Decaimento/h | Crítico em |
+|---|---|---|
+| Fome | -6 | ~16h |
+| Higiene | -3 | ~33h |
+| Energia | -4 | ~25h |
+| Humor | -2 | ~50h |
+
+### Ciclo de Vida: Ovo (0-3d) → Filhote (4-60d) → Jovem (61-120d) → Adulto (121-180d) → Veterano (181-270d) → Ancião (271-365d) → Partida (>365d)
+
+### DIX: +10/ação, +25/login diário. Gastos: 5-30 DIX.
+
+### Seleção por tier: Ranqueado=1 criatura, ELITE=3, PRIMORDIAL=10
+
+---
+
+## 8. NOTAS TÉCNICAS
+
+### Stack: Vite 8 + React 19 + React Router 7 + Zustand 5 + Framer Motion 12 + Supabase v2
+
+### i18n: PT/EN/ES via LanguageContext. PP tem i18n própria.
+
+### z-index: SearchModal(2000) > Navbar(1000) > TrialBanner(998) > CookieBanner(200) > NotificationBalloon(150) > ScrollToTop(100) > MusicSection(50)
+
+### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
+
+**Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
+**Site:** https://lutasdeilusao-cpu.github.io/illusionfight-site/
