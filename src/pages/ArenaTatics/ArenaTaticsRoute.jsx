@@ -15,6 +15,8 @@ import Vitoria from './screens/Vitoria'
 import Derrota from './screens/Derrota'
 import SimulacaoAuto from './screens/SimulacaoAuto'
 import BatalhaSimulacao from './screens/BatalhaSimulacao'
+import CityOverworld from './screens/CityOverworld'
+import BuildingInterior from './screens/BuildingInterior'
 
 import './ArenaTatics.css'
 
@@ -34,6 +36,7 @@ export default function ArenaTaticsRoute() {
   const [loading, setLoading] = useState(false)
   const [erro, setErro] = useState(null)
   const [simConfig, setSimConfig] = useState(null)
+  const [interiorInfo, setInteriorInfo] = useState({ mapId: null, name: '' })
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
 
@@ -98,9 +101,8 @@ export default function ArenaTaticsRoute() {
         }
       }
 
-      console.log('[TATICS] Iniciando batalha com', ids.length, 'personagens')
-      store.iniciarBatalha(ids)
-      setFase('combate')
+      console.log('[TATICS] Iniciando exploração da cidade de Marélia')
+      setFase('city')
       setLoading(false)
     } catch (err) {
       console.error('[TATICS] Erro em handleIntroEnter:', err)
@@ -158,6 +160,22 @@ export default function ArenaTaticsRoute() {
     setFase('intro')
   }
 
+  const handleEnterBuilding = (mapId, name) => {
+    console.log(`[TATICS] Entrando em: ${name} (${mapId})`)
+    setInteriorInfo({ mapId, name })
+    setFase('interior')
+  }
+
+  const handleExitBuilding = () => {
+    console.log('[TATICS] Saindo do interior, voltando à cidade')
+    setInteriorInfo({ mapId: null, name: '' })
+    setFase('city')
+  }
+
+  const handleBackToMenu = () => {
+    setFase('intro')
+  }
+
   // TESTE: simulação direta sem login
   const handleTesteSim = () => {
     console.log('[TATICS] INICIANDO TESTE SIMULAÇÃO DIRETA')
@@ -169,6 +187,8 @@ export default function ArenaTaticsRoute() {
   return (
     <div className="tatics-container">
       {fase === 'intro' && <Intro onEnter={handleIntroEnter} onSimulacao={handleSimulacao} onTesteSim={handleTesteSim} />}
+      {fase === 'city' && <CityOverworld onEnterBuilding={handleEnterBuilding} onBackToMenu={handleBackToMenu} />}
+      {fase === 'interior' && <BuildingInterior mapId={interiorInfo.mapId} buildingName={interiorInfo.name} onExit={handleExitBuilding} />}
       {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} maxSlots={store.maxSlots} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
       {fase === 'simulacao' && <SimulacaoAuto onIniciar={handleIniciarSimulacao} />}
