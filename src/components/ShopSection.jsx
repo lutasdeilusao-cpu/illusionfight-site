@@ -1,9 +1,11 @@
 import { useRef, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
 import produtos from '../data/produtos.json'
 import './ShopSection.css'
 
 export default function ShopSection() {
+  const { t } = useLanguage()
   const ref = useScrollReveal()
   const trackRef = useRef(null)
   const isDragging = useRef(false)
@@ -51,7 +53,7 @@ export default function ShopSection() {
   return (
     <section ref={ref} className="shop-section reveal">
       <div className="shop-section-header">
-        <h2 className="section-title">ITENS DO UNIVERSO</h2>
+        <h2 className="section-title">{t('shop.titulo')}</h2>
       </div>
       <div
         ref={trackRef}

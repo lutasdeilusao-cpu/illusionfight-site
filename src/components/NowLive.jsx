@@ -35,7 +35,7 @@ export default function NowLive() {
                 style={{ '--plat-r': r, '--plat-g': g, '--plat-b': b }}
               >
                 <div className="nowlive-card-thumb">
-                  <div className="nowlive-card-overlay">ABRIR →</div>
+                  <div className="nowlive-card-overlay">{t('nowlive.abrir')}</div>
                   {Icon && <span className="nowlive-card-icon"><Icon /></span>}
                 </div>
                 <div className="nowlive-card-footer">

@@ -60,7 +60,11 @@
   },
   "nowlive": {
     "title": "EN VIVO",
-    "subtitle": "Sigue el universo Lutas de Ilusão en las redes"
+    "subtitle": "Sigue el universo Lutas de Ilusão en las redes",
+    "abrir": "ABRIR →"
+  },
+  "shop": {
+    "titulo": "ARTÍCULOS DEL UNIVERSO"
   },
   "progress": {
     "title": "DÓNDE ESTAMOS",

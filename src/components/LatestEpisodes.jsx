@@ -28,7 +28,7 @@ export default function LatestEpisodes() {
                 <img src={thumbEp00} alt={ep.titulo_pt} className="episode-card-image" />
                 <div className="episode-card-overlay">
                   <p className="episode-card-quote">"{ep[fraseKey]}"</p>
-                  <span className="episode-card-badge episode-card-badge--FREE">FREE</span>
+                  <span className="episode-card-badge episode-card-badge--FREE">{t('episodes.badge.free')}</span>
                 </div>
               </div>
               <div className="episode-card-footer">

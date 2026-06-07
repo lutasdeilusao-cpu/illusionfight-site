@@ -60,7 +60,11 @@
   },
   "nowlive": {
     "title": "NO AR AGORA",
-    "subtitle": "Siga o universo Lutas de Ilusão nas redes"
+    "subtitle": "Siga o universo Lutas de Ilusão nas redes",
+    "abrir": "ABRIR →"
+  },
+  "shop": {
+    "titulo": "ITENS DO UNIVERSO"
   },
   "progress": {
     "title": "ONDE ESTAMOS",

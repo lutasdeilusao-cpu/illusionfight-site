@@ -74,7 +74,7 @@ export default function NotificationBalloon() {
       <button className="notif-close" onClick={handleClose}>×</button>
       <div className="notif-header">
         <img src={jackImg} alt="Jack" className="notif-avatar" />
-        <span className="notif-name">Jack</span>
+        <span className="notif-name">{notif.nome_personagem || 'Jack'}</span>
       </div>
       <p className="notif-message">{notif.mensagem}</p>
       {isExternal ? (

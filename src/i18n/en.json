@@ -60,7 +60,11 @@
   },
   "nowlive": {
     "title": "NOW LIVE",
-    "subtitle": "Follow the Illusion Fight universe on social media"
+    "subtitle": "Follow the Illusion Fight universe on social media",
+    "abrir": "OPEN →"
+  },
+  "shop": {
+    "titulo": "UNIVERSE ITEMS"
   },
   "progress": {
     "title": "WHERE WE ARE",
