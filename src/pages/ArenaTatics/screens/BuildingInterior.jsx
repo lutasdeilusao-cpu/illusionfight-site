@@ -537,12 +537,6 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         s.px = s.moveTo.x
         s.py = s.moveTo.y
         s.moving = false
-
-        // ═══ AUTO-EXIT: se pisou na SAÍDA, sai do interior ═══
-        if (s.px >= EXIT_ZONE.x && s.px < EXIT_ZONE.x + EXIT_ZONE.w &&
-            s.py >= EXIT_ZONE.y && s.py < EXIT_ZONE.y + EXIT_ZONE.h) {
-          onExitRef.current()
-        }
       }
     }
 
@@ -562,6 +556,13 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       const ny = Math.round(s.py / STEP) * STEP + dy * STEP
       if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
       if (playerCollidesInterior(nx, ny, mapId)) return
+
+      // ═══ AUTO-EXIT: se moveu em direção à SAÍDA, sai na hora ═══
+      if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
+          ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
+        onExitRef.current()
+        return
+      }
 
       if (dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
       if (dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
@@ -629,6 +630,13 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
         if (playerCollidesInterior(nx, ny, mapId)) return
         if (s.moving) return
+
+        // ═══ AUTO-EXIT: se moveu em direção à SAÍDA, sai na hora ═══
+        if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
+            ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
+          onExitRef.current()
+          return
+        }
 
         if (dir.dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
         if (dir.dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
