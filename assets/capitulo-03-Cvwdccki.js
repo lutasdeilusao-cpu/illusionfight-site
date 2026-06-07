@@ -156,17 +156,17 @@ Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack des
 \r
 Jack recuou. Primeira vez no capítulo.\r
 \r
-— Ah. — Kim soprou a fumaça. — Então é assim.\r
+— Ah. — Kim soprou a fumaça. — Essa foi boa, fiquei com inveja.\r
 \r
 Brock avançou sem pausa. Jab, jab, gancho, sempre o mesmo ritmo, forçando Jack para trás sem deixar espaço para respirar. Jack bloqueou o que conseguiu, levou o que não conseguiu. As costelas latejavam com cada respiração.\r
 \r
-— Tá doendo. — Jack entre os dentes.\r
+— Porra, que soco do caralho. — Jack entre os dentes para Kim.\r
 \r
-— Eu sei.\r
+— Eu sei - Kim olhando com satisfação de quem gosta de ver o amigo apanhar.\r
 \r
-— Vai ficar aí parado?\r
+— Vai ficar aí parado? - Pergunta Jack, indignado.\r
 \r
-— Você pediu pra lutar com esse. Aproveita.\r
+— Ué ele escolheu você, eu to só dando uma tragada. Aproveita.\r
 \r
 Jack deixou o próximo jab passar pelo lado, entrou no espaço vazio, e encaixou um headbutt direto no nariz de Brock. O impacto fez os dois recuarem um passo cada. Brock piscou, o nariz sangrando, e pela primeira vez sua expressão mudou. Não de dor. De reavaliação.\r
 \r
@@ -188,13 +188,13 @@ Jack ficou de pé com as costelas latejando, o headbutt havia deixado um corte n
 \r
 — Eu derrubei três.\r
 \r
-— Eu derrubei três também. — Jack respirou fundo. — O Brock conta dobrado, né.\r
+— Eu derrubei três também. — Jack respirou fundo. — O Grandão conta dobrado, né.\r
 \r
 — Não foi o que combinamos.\r
 \r
 — Ué, mas não é você que diz que não tem regras?\r
 \r
-Kim soltou a fumaça do cigarro na direção do amigo. Jack afastou com a mão. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.\r
+Kim ofereceu um cigarro pro amigo. Jack aceitou. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.\r
 \r
 — Pode sair daí.\r
 \r
@@ -218,15 +218,15 @@ Kim e Jack colocaram as mãos no peito ao mesmo tempo e soltaram um suspiro long
 \r
 Jack observava a situação com o brilho de quem estava vendo a abertura perfeita. Depois do fora épico de Nina, finalmente havia algo para devolver.\r
 \r
-— Eita Kim, vai deixar assim? Cara, se precisar eu te empresto o meu SBI. Eu não deixava essa passar não.\r
+— Eita Kim, vai deixar assim? Esse maninho ai, te desafiar na moral? Se precisar eu te empresto o meu SBI. Ou vai correr como um frango, pô, pô, pôoo.\r
 \r
 Kim revirou os olhos.\r
 \r
-— Eu trabalho, estudo, brigo, bebo e trabalho de novo. Não tenho tempo pra besteira.\r
+— Eu trabalho, estudo, brigo, bebo e trabalho de novo. Besteira de joguinho não cabe na minha agenda.\r
 \r
 Jack mergulhou a mão na bolsa e tirou o SBI, balançando o dispositivo como quem oferece algo inevitável.\r
 \r
-— Vai lá. Você ainda pode me ajudar em alguns desafios que tô enfrentando.\r
+— Tá com "meda" é? .\r
 \r
 Freddy saiu de trás da coluna com o sorriso irônico que havia ensaiado a noite inteira.\r
 \r
