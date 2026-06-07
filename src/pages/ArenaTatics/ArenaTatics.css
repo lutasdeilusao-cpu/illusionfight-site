@@ -3085,6 +3085,14 @@
   box-shadow: 0 0 20px rgba(232,201,106,0.15);
 }
 
+/* ── Touch area wrapper for GameControls ── */
+.city-controls-touch-area {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 290;
+  touch-action: none;
+}
+
 /* ── Game Boy Panel ── */
 .city-gb-panel {
   height: 140px;

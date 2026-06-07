@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
+import GameControls from '../components/GameControls'
 
 /* ═══════════════════════════════════════════════════
    CONSTANTS
@@ -92,8 +93,6 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
   const wrapRef = useRef(null)
   const mmCanvasRef = useRef(null)
   const mmPlayerRef = useRef(null)
-  const analogElRef = useRef(null)
-  const knobRef = useRef(null)
   const animRef = useRef(null)
 
   const [hudText, setHudText] = useState({ pos:'', cam:'', tile:'' })
@@ -219,7 +218,8 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
 
   /* ── Keyboard ── */
   useEffect(() => {
-    const km = { ArrowUp:{dx:0,dy:-1},w:{dx:0,dy:-1},W:{dx:0,dy:-1},ArrowDown:{dx:0,dy:1},s:{dx:0,dy:1},S:{dx:0,dy:1},ArrowLeft:{dx:-1,dy:0},a:{dx:-1,dy:0},A:{dx:-1,dy:0},ArrowRight:{dx:1,dy:0},d:{dx:1,dy:0},D:{dx:1,dy:0} }
+    // NOTA: 'a'/'A' NÃO estão no mapa de movimento — são usados exclusivamente para interagir (entrar em prédios, falar com detetive)
+    const km = { ArrowUp:{dx:0,dy:-1},w:{dx:0,dy:-1},W:{dx:0,dy:-1},ArrowDown:{dx:0,dy:1},s:{dx:0,dy:1},S:{dx:0,dy:1},ArrowLeft:{dx:-1,dy:0},ArrowRight:{dx:1,dy:0},d:{dx:1,dy:0},D:{dx:1,dy:0} }
     const h = (e) => {
       const d = km[e.key]
       if (d) { e.preventDefault()
@@ -238,116 +238,13 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
     return ()=>window.removeEventListener('keydown',h)
   },[onEnterBuilding])
 
-  /* ── Analog stick (touch + mouse) — igual ao game.html ── */
-  const aRef = useRef({ activeId:null, interval:null, dir:{dx:0,dy:0}, cx:0, cy:0 })
-
-  function doMoveAnalog(dx, dy) {
+  /* ── GameControls callbacks ── */
+  const handleAnalogMove = useCallback((dx, dy) => {
     const st = s.current
     if (st.moving) return
     const nx=Math.round(st.px/STEP)*STEP+dx*STEP, ny=Math.round(st.py/STEP)*STEP+dy*STEP
     if (nx<0||ny<0||nx+SPRITE_W>WORLD_W||ny+SPRITE_H>WORLD_H||playerCollides(nx,ny)) return
     st.moveFrom={x:st.px,y:st.py}; st.moveTo={x:nx,y:ny}; st.moving=true; st.moveProgress=0; st.moveStart=performance.now()
-  }
-
-  function analogRepeat() {
-    const a = aRef.current
-    if (a.dir.dx!==0||a.dir.dy!==0) doMoveAnalog(a.dir.dx, a.dir.dy)
-  }
-
-  function updateAnalog(clientX, clientY) {
-    const a = aRef.current, el = analogElRef.current, knob = knobRef.current
-    if (!el||!knob) return
-    if (el.style.display==='none') {
-      el.style.display='block'
-      const r = el.getBoundingClientRect()
-      a.cx = r.left+r.width/2
-      a.cy = r.top+r.height/2
-    }
-    let dx = clientX - a.cx, dy = clientY - a.cy
-    const dist = Math.sqrt(dx*dx+dy*dy)
-    if (dist>ANALOG_RADIUS) { dx=(dx/dist)*ANALOG_RADIUS; dy=(dy/dist)*ANALOG_RADIUS }
-    knob.style.transform = `translate(calc(-50%+${dx}px),calc(-50%+${dy}px))`
-    const threshold = 0.35
-    let nd = {dx:0, dy:0}
-    if (dist>5) {
-      const nx=dx/ANALOG_RADIUS, ny=dy/ANALOG_RADIUS
-      if (Math.abs(nx)>Math.abs(ny)) { if (Math.abs(nx)>threshold) nd={dx:nx>0?1:-1,dy:0} }
-      else { if (Math.abs(ny)>threshold) nd={dx:0,dy:ny>0?1:-1} }
-    }
-    if (nd.dx!==a.dir.dx||nd.dy!==a.dir.dy) {
-      a.dir=nd
-      if (a.interval) { clearInterval(a.interval); a.interval=null }
-      if (a.dir.dx!==0||a.dir.dy!==0) { doMoveAnalog(a.dir.dx,a.dir.dy); a.interval=setInterval(analogRepeat,180) }
-    }
-  }
-
-  function resetAnalog() {
-    const a=aRef.current, el=analogElRef.current, knob=knobRef.current
-    if (el) el.style.display='none'
-    if (knob) knob.style.transform='translate(-50%,-50%)'
-    if (a.interval) { clearInterval(a.interval); a.interval=null }
-    a.dir={dx:0,dy:0}; a.activeId=null
-  }
-
-  // Touch
-  const handleTouchStart = (e) => {
-    const a=aRef.current, el=analogElRef.current, wrap=wrapRef.current
-    if (!el||!wrap) return
-    if (a.activeId!==null) return
-    const touch = e.changedTouches[0]
-    a.activeId = touch.identifier
-    el.style.display='block'
-    const r = el.getBoundingClientRect()
-    a.cx = r.left+r.width/2; a.cy = r.top+r.height/2
-    const wrapRect = wrap.getBoundingClientRect()
-    const distToTouch = Math.sqrt((touch.clientX-a.cx)**2+(touch.clientY-a.cy)**2)
-    if (distToTouch>ANALOG_RADIUS+20) {
-      const newLeft = Math.max(0, Math.min(wrap.clientWidth-96, touch.clientX-48-wrapRect.left))
-      el.style.left = newLeft+'px'
-      el.style.transform = 'none'
-      const nr = el.getBoundingClientRect()
-      a.cx = nr.left+nr.width/2; a.cy = nr.top+nr.height/2
-    }
-    updateAnalog(touch.clientX, touch.clientY)
-  }
-
-  const handleTouchMove = (e) => {
-    e.preventDefault()
-    const a=aRef.current
-    for (const t of e.changedTouches) { if (t.identifier===a.activeId) { updateAnalog(t.clientX,t.clientY); break } }
-  }
-
-  const handleTouchEnd = (e) => {
-    const a=aRef.current
-    for (const t of e.changedTouches) { if (t.identifier===a.activeId) { resetAnalog(); break } }
-  }
-
-  // Mouse
-  const handleMouseDown = (e) => {
-    const a=aRef.current, el=analogElRef.current, wrap=wrapRef.current
-    if (!el||!wrap) return
-    if (a.activeId!==null) return
-    a.activeId='mouse'
-    el.style.display='block'
-    const r = el.getBoundingClientRect()
-    a.cx = r.left+r.width/2; a.cy = r.top+r.height/2
-    const wrapRect = wrap.getBoundingClientRect()
-    const distToTouch = Math.sqrt((e.clientX-a.cx)**2+(e.clientY-a.cy)**2)
-    if (distToTouch>ANALOG_RADIUS+20) {
-      const newLeft = Math.max(0, Math.min(wrap.clientWidth-96, e.clientX-48-wrapRect.left))
-      el.style.left = newLeft+'px'
-      el.style.transform = 'none'
-      const nr = el.getBoundingClientRect()
-      a.cx = nr.left+nr.width/2; a.cy = nr.top+nr.height/2
-    }
-    updateAnalog(e.clientX, e.clientY)
-  }
-
-  useEffect(() => {
-    const mm = e => { const a=aRef.current; if (a.activeId==='mouse') updateAnalog(e.clientX,e.clientY) }
-    const mu = () => { const a=aRef.current; if (a.activeId==='mouse') resetAnalog() }
-    window.addEventListener('mousemove',mm); window.addEventListener('mouseup',mu)
-    return ()=>{window.removeEventListener('mousemove',mm);window.removeEventListener('mouseup',mu)}
   },[])
 
   const hBA = useCallback(() => {
@@ -358,8 +255,7 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
 
   return (
-    <div className="city-container"
-      onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} onMouseDown={handleMouseDown}>
+    <div className="city-container">
       <div ref={wrapRef} className="city-canvas-wrap">
         <canvas ref={canvasRef} id="city-canvas" />
 
@@ -396,22 +292,7 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
         )}</AnimatePresence>
       </div>
 
-      <div className="city-gb-panel">
-        {/* Analog — inside GB panel, left side */}
-        <div ref={analogElRef} className="city-analog-container">
-          <div className="city-analog-outer">
-            <div className="city-analog-inner" />
-            <div ref={knobRef} className="city-analog-knob" />
-          </div>
-        </div>
-
-        <div className="city-controls-area">
-          <div className="city-ab-buttons">
-            <button className="city-btn-ab city-btn-a" onClick={hBA}>A</button>
-            <button className="city-btn-ab city-btn-b" onClick={hBB}>B</button>
-          </div>
-        </div>
-      </div>
+      <GameControls onMove={handleAnalogMove} onA={hBA} onB={hBB} />
     </div>
   )
 }

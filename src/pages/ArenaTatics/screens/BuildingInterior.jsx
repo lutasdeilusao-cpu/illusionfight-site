@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
+import GameControls from '../components/GameControls'
 
 const STEP = 32
 const STEP_MS = 80
@@ -489,6 +490,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
   const [interactLabel, setInteractLabel] = useState('')
   const onExitRef = useRef(onExit)
   onExitRef.current = onExit  // sempre atualizado
+  const startMoveRef = useRef(null)
 
   const stateRef = useRef({
     px: interiorSpawns[mapId]?.x || 200,
@@ -555,15 +557,9 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       const nx = Math.round(s.px / STEP) * STEP + dx * STEP
       const ny = Math.round(s.py / STEP) * STEP + dy * STEP
       if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
-
-      // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA ═══
-      if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
-          ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
-        onExitRef.current(mapId)
-        return
-      }
-
       if (playerCollidesInterior(nx, ny, mapId)) return
+
+      // NOTA: Não tem auto-exit aqui — só sai apertando A na zona de saída
 
       if (dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
       if (dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
@@ -577,6 +573,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       s.moveProgress = 0
       s.moveStart = performance.now()
     }
+    startMoveRef.current = startMove
 
     function gameLoop(now) {
       updateMovement()
@@ -614,10 +611,11 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
 
   /* ── Keyboard ── */
   useEffect(() => {
+    // NOTA: 'a'/'A' NÃO estão no mapa de movimento — são usados exclusivamente para interagir (sair)
     const keyMap = {
       ArrowUp: { dx: 0, dy: -1 }, w: { dx: 0, dy: -1 }, W: { dx: 0, dy: -1 },
       ArrowDown: { dx: 0, dy: 1 }, s: { dx: 0, dy: 1 }, S: { dx: 0, dy: 1 },
-      ArrowLeft: { dx: -1, dy: 0 }, a: { dx: -1, dy: 0 }, A: { dx: -1, dy: 0 },
+      ArrowLeft: { dx: -1, dy: 0 },
       ArrowRight: { dx: 1, dy: 0 }, d: { dx: 1, dy: 0 }, D: { dx: 1, dy: 0 },
     }
 
@@ -626,18 +624,10 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       const dir = keyMap[e.key]
       if (dir) {
         e.preventDefault()
+        if (s.moving) return
         const nx = Math.round(s.px / STEP) * STEP + dir.dx * STEP
         const ny = Math.round(s.py / STEP) * STEP + dir.dy * STEP
         if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
-        if (s.moving) return
-
-        // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA ═══
-        if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
-            ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
-          onExitRef.current(mapId)
-          return
-        }
-
         if (playerCollidesInterior(nx, ny, mapId)) return
 
         if (dir.dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
@@ -653,7 +643,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         s.moveStart = performance.now()
       }
 
-      // A / Enter — interact with exit
+      // A / Enter — só sai se estiver na zona de saída e apertar A (não automático)
       if ((e.key === 'a' || e.key === 'A' || e.key === 'Enter') && getInteriorZone(s.px, s.py) === 'SAIDA') {
         onExit()
       }
@@ -662,6 +652,11 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [mapId, onExit])
+
+  const handleAnalogMove = useCallback((dx, dy) => {
+    const s = stateRef.current
+    startMoveRef.current(dx, dy)
+  }, [])
 
   const handleButtonA = useCallback(() => {
     const s = stateRef.current
@@ -697,26 +692,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         </AnimatePresence>
       </div>
 
-      <div className="city-gb-panel">
-        <div className="city-controls-area">
-          <div className="city-dpad-hint">
-            <div className="city-dpad-arrows">
-              <span>▲</span>
-              <div style={{ display: 'flex', gap: 24 }}>
-                <span>◄</span>
-                <span>►</span>
-              </div>
-              <span>▼</span>
-            </div>
-            <div className="city-dpad-label">WASD / SETAS</div>
-          </div>
-
-          <div className="city-ab-buttons">
-            <button className="city-btn-ab city-btn-a" onClick={handleButtonA}>A</button>
-            <button className="city-btn-ab city-btn-b" onClick={handleButtonB}>B</button>
-          </div>
-        </div>
-      </div>
+      <GameControls onMove={handleAnalogMove} onA={handleButtonA} onB={handleButtonB} />
     </div>
   )
 }
