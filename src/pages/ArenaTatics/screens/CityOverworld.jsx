@@ -356,9 +356,9 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
 
   return (
-    <div className="city-container">
-      <div ref={wrapRef} className="city-canvas-wrap"
-        onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} onMouseDown={handleMouseDown}>
+    <div className="city-container"
+      onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} onMouseDown={handleMouseDown}>
+      <div ref={wrapRef} className="city-canvas-wrap">
         <canvas ref={canvasRef} id="city-canvas" />
 
         <div ref={playerRef} className="city-player" style={{position:'absolute',width:'28px',height:'28px',zIndex:100,pointerEvents:'none'}}>
@@ -383,13 +383,6 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}} className="city-interact-label">{interactLabel}</motion.div>
         )}</AnimatePresence>
 
-        <div ref={analogElRef} className="city-analog-container">
-          <div className="city-analog-outer">
-            <div className="city-analog-inner" />
-            <div ref={knobRef} className="city-analog-knob" />
-          </div>
-        </div>
-
         <AnimatePresence>{showMenu&&(
           <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="city-menu-overlay" onClick={()=>setShowMenu(false)}>
             <motion.div initial={{scale:0.9}} animate={{scale:1}} exit={{scale:0.9}} className="city-menu-panel" onClick={e=>e.stopPropagation()}>
@@ -402,6 +395,14 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
       </div>
 
       <div className="city-gb-panel">
+        {/* Analog — inside GB panel, left side */}
+        <div ref={analogElRef} className="city-analog-container">
+          <div className="city-analog-outer">
+            <div className="city-analog-inner" />
+            <div ref={knobRef} className="city-analog-knob" />
+          </div>
+        </div>
+
         <div className="city-controls-area">
           <div className="city-ab-buttons">
             <button className="city-btn-ab city-btn-a" onClick={hBA}>A</button>
