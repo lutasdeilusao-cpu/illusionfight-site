@@ -16,7 +16,7 @@
     "plataforma": "TikTok",
     "icone": "tiktok",
     "corPlataforma": "#010101",
-    "url": "https://www.tiktok.com/@sodaplayofc/video/7602676615604079890",
+    "url": "https://www.tiktok.com/@illusionfight",
     "thumbnail": null,
     "titulo": "@sodaplayofc",
     "descricao": "Ver no TikTok"
@@ -27,20 +27,20 @@
     "plataforma": "X",
     "icone": "twitter",
     "corPlataforma": "#000000",
-    "url": "https://x.com/IsaiasLealOfc/status/1964883002837832025",
+    "url": "https://x.com/IllusionFightIF",
     "thumbnail": null,
     "titulo": "Balada do Esquisitos",
     "descricao": "Ver no X"
   },
   {
     "id": "instagram",
-    "ativo": true,
+    "ativo": false,
     "plataforma": "Instagram",
     "icone": "instagram",
     "corPlataforma": "#E1306C",
-    "url": "https://www.instagram.com/illusionfight/",
+    "url": "",
     "thumbnail": null,
     "titulo": "@illusionfight",
-    "descricao": "Seguir no Instagram"
+    "descricao": "Instagram (em breve)"
   }
 ]

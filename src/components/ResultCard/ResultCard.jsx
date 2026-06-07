@@ -115,12 +115,12 @@ export default function ResultCard({ open, onClose, game, title, subtitle, stats
   const handleShare = useCallback((platform) => {
     if (!shareImg) return
     const text = `${title} — ${palette.logo}\n${palette.logoSub}`
-    const url = encodeURIComponent(window.location.origin + '/illusionfight-site')
+    const url = encodeURIComponent(window.location.origin + '/')
 
     if (platform === 'x') {
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank')
+      window.open(`https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${url}`, '_blank')
     } else if (platform === 'whatsapp') {
-      window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.origin + '/illusionfight-site')}`, '_blank')
+      window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.origin + '/')}`, '_blank')
     } else if (platform === 'copy') {
       navigator.clipboard.writeText(text).then(() => {
         setCopied(true)
