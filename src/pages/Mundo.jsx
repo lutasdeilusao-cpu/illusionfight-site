@@ -16,7 +16,7 @@ const dataMap = { pt: dataPt, en: dataEn, es: dataEs }
 const PROTAGONIST_IDS = ['kim', 'jack', 'nina']
 
 export default function Mundo() {
-  const { locale } = useLanguage()
+  const { locale, t } = useLanguage()
   const data = dataMap[locale] ?? dataPt
   const navigate = useNavigate()
   const all = usePersonagens()

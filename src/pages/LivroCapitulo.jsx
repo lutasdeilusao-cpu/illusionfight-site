@@ -15,7 +15,7 @@ export default function LivroCapitulo() {
   const { setReaderMode } = useReader()
   const { id } = useParams()
   const navigate = useNavigate()
-  const { locale } = useLanguage()
+  const { locale, t } = useLanguage()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])

@@ -11,7 +11,7 @@ export default function WebtoonEpisodio() {
   const { setReaderMode } = useReader()
   const { id } = useParams()
   const navigate = useNavigate()
-  const { locale } = useLanguage()
+  const { locale, t } = useLanguage()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])

@@ -9,7 +9,7 @@ import './Livro.css'
 export default function Livro() {
   const [ultimo, setUltimo] = useState(null)
   const navigate = useNavigate()
-  const { locale } = useLanguage()
+  const { locale, t } = useLanguage()
 
   useEffect(() => {
     setUltimo(localStorage.getItem('ldi-livro-ultimo'))

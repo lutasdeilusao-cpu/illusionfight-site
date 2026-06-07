@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useDueloStore } from './store/useDueloStore'
 import { useReader } from '../../context/ReaderContext'
+import { useLanguage } from '../../context/LanguageContext'
 import DueloMenu from './screens/DueloMenu'
 import DueloVitoria from './screens/DueloVitoria'
 import DueloDerrota from './screens/DueloDerrota'
@@ -19,6 +20,7 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 export default function DueloRoute() {
   const store = useDueloStore()
   window.__dueloStore = useDueloStore
+  const { t } = useLanguage()
   const { setReaderMode } = useReader()
   const [fase, setFase] = useState('menu')
 
