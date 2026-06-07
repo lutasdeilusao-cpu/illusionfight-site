@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '2.44'
+export const SITE_VERSION = '2.45'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION     = '1.5.29'   // Pesadelo Particular

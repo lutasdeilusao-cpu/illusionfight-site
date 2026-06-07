@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*  
-*Versão: 2.44*  |  `[SITE] versão carregada: 2.37`
+*Versão: 2.45*  |  `[SITE] versão carregada: 2.37`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -267,8 +267,9 @@ src/pages/Tamagoshi/
 
 ### Livro
 - Capítulos em markdown em `src/data/livro/{lang}/`.
-- `import.meta.glob` para lazy loading.
+- `import.meta.glob('../data/livro/**/*.md')` para lazy loading multi-idioma.
 - Controle de acesso via `publicado: true/false` em `livro-index.json`.
+- **PT**: 16 capítulos (1-16) | **EN**: 3 capítulos (1-3) | **ES**: 3 capítulos (1-3)
 
 ### Modo Imersivo (ReaderContext)
 - `ReaderContext` provider em `main.jsx` (engloba toda a app).

@@ -9,7 +9,7 @@ import { useAchievements } from '../context/AchievementsContext'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
-const chapterLoaders = import.meta.glob('../data/livro/pt/*.md', { query: '?raw', import: 'default' })
+const chapterLoaders = import.meta.glob('../data/livro/**/*.md', { query: '?raw', import: 'default' })
 
 export default function LivroCapitulo() {
   const { setReaderMode } = useReader()
@@ -51,8 +51,14 @@ export default function LivroCapitulo() {
     }
 
     const loadChapter = async () => {
-      const path = `../data/livro/pt/${id}.md`
-      const loader = chapterLoaders[path]
+      const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
+      const path = `../data/livro/${lang}/${id}.md`
+      let loader = chapterLoaders[path]
+      // fallback: se não achar no locale atual, tenta PT
+      if (!loader) {
+        const fallbackPath = `../data/livro/pt/${id}.md`
+        loader = chapterLoaders[fallbackPath]
+      }
       if (loader) {
         try {
           const content = await loader()
