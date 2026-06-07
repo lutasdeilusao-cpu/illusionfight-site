@@ -13,7 +13,7 @@ export const SITE_VERSION = '2.90'
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION     = '1.7.0'   // Pesadelo Particular
 export const LDI_VERSION    = '1.0.61'   // Lendas do LDI
-export const JACK_VERSION   = '5.1.2'    // Jack Dream Beer
+export const JACK_VERSION   = '5.1.3'    // Jack Dream Beer
 export const ARENA_VERSION  = '1.7.3'    // LDI Arena Mode
 export const TAMA_VERSION   = '1.11.0'   // Tamagoshi LDI
 export const DUELO_VERSION  = '1.2.9'    // Duelo LDI

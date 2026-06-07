@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useJackStore } from '../store/useJackStore'
+import { CASOS } from '../data/casos'
 
 export default function StatusBar() {
   const { user } = useAuth()
@@ -42,6 +43,12 @@ export default function StatusBar() {
 
   const temFragmentos = store.flags.JA_VIU_FRAGMENTOS || store.fragmentos > 0
   const mostraPrimordial = store.flags.KRONOS_VIU
+  const temCasoAtivo = !!store.casoAtivo
+  const temCasoDisponivel = !store.casoAtivo && Object.values(CASOS).some(c => {
+    if (store.casosResolvidos?.includes(c.id)) return false
+    if (c.flagRequisito && !store.flags[c.flagRequisito]) return false
+    return true
+  })
 
   return (
     <div className="jdc-statusbar">
@@ -59,13 +66,21 @@ export default function StatusBar() {
           <button className={`jdc-sb-btn ${store.fase === 'dungeon_select' || store.fase.startsWith('dungeon_') ? 'jdc-sb-btn--active' : ''}`}
             onClick={() => store.flags.TEM_BENGALA && store.setFase('dungeon_select')}
             disabled={!store.flags.TEM_BENGALA}>DUN</button>
-          <button className={`jdc-sb-btn ${store.fase === 'dossier' || store.fase?.startsWith('investigar_') || store.fase === 'caso_select' ? 'jdc-sb-btn--active' : ''} ${store.casoAtivo ? 'jdc-sb-btn--glow' : ''}`}
+          <button
+            className={`jdc-sb-btn ${
+              !temCasoAtivo && !temCasoDisponivel ? 'jdc-sb-btn--disabled' :
+              temCasoAtivo ? 'jdc-sb-btn--amber-pulse' : ''
+            } ${
+              store.fase === 'dossier' || store.fase?.startsWith('investigar_') || store.fase === 'caso_select' ? 'jdc-sb-btn--active' : ''
+            }`}
             onClick={() => {
-              if (!store.flags.TEM_BENGALA) return
-              store.setFase(store.casoAtivo ? 'dossier' : 'caso_select')
+              if (!temCasoAtivo && !temCasoDisponivel) return
+              store.setFase(temCasoAtivo ? 'dossier' : 'caso_select')
             }}
-            disabled={!store.flags.TEM_BENGALA}
-            style={store.casoAtivo ? { borderColor: '#EC4899', color: '#EC4899' } : {}}>CASOS</button>
+            disabled={!temCasoAtivo && !temCasoDisponivel}
+          >
+            {temCasoAtivo ? '🔍 CASO' : '📋 CASOS'}
+          </button>
           <button className="jdc-sb-btn"
             onClick={alternarPeriodo}
             disabled={periodoCd > 0}

@@ -76,8 +76,8 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (done) return
-    const t = setInterval(() => { setTimeLeft(prev => { if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 } return prev - 1 }) }, 1000)
-    return () => clearInterval(t)
+    const interval = setInterval(() => { setTimeLeft(prev => { if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 } return prev - 1 }) }, 1000)
+    return () => clearInterval(interval)
   }, [done])
 
   const handleClick = useCallback((idx) => { if (done) return; setSelected(prev => prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]) }, [done])

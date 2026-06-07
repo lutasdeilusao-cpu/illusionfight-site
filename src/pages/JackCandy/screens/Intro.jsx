@@ -14,22 +14,22 @@ export default function Intro() {
   useEffect(() => {
     const TITLE = t('games.jackcandy.intro_title')
     let i = 0
-    const t = setInterval(() => {
+    const timer = setInterval(() => {
       if (i <= TITLE.length) {
         setTitleText(TITLE.slice(0, i))
         i++
       } else {
-        clearInterval(t)
+        clearInterval(timer)
         store.setTitleDone()
       }
     }, 80)
-    return () => clearInterval(t)
+    return () => clearInterval(timer)
   }, [])
 
   useEffect(() => {
     if (store.cervejas >= 100 && !store.flags.TEM_BENGALA) {
-      const t = setTimeout(() => setShowPaje(true), 500)
-      return () => clearTimeout(t)
+      const pajeTimer = setTimeout(() => setShowPaje(true), 500)
+      return () => clearTimeout(pajeTimer)
     }
   }, [store.cervejas, store.flags.TEM_BENGALA])
 

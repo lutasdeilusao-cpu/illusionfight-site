@@ -177,6 +177,14 @@ export const useJackStore = create((set, get) => {
       get()._autoSave()
     },
 
+    abandonarCaso: () => set({
+      casoAtivo: null,
+      pistasColetadas: [],
+      suspeitos: [],
+      locaisVisitados: [],
+      acusacoesErradas: 0,
+    }),
+
     ganharCapangas: (qtd) => { get().ganharCervejas(qtd) },
     comprarBengala: () => { get().comprarItem('bengala_steampunk') },
 

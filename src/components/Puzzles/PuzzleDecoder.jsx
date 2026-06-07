@@ -56,19 +56,19 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (done) return
-    const t = setInterval(() => {
+    const timerInt = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 }
         return prev - 1
       })
     }, 1000)
-    return () => clearInterval(t)
+    return () => clearInterval(timerInt)
   }, [done])
 
   useEffect(() => {
     if (done) return
-    const t = setInterval(() => { setHeartbeat(true); setTimeout(() => setHeartbeat(false), 600) }, 10000)
-    return () => clearInterval(t)
+    const beatInt = setInterval(() => { setHeartbeat(true); setTimeout(() => setHeartbeat(false), 600) }, 10000)
+    return () => clearInterval(beatInt)
   }, [done])
 
   const allAligned = sliders.every((sl, i) => Math.abs(sl - targets[i]) <= cfg.tolerance)

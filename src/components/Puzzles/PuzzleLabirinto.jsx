@@ -83,13 +83,13 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (!cfg.timer || done) return
-    const t = setInterval(() => {
+    const interval = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 }
         return prev - 1
       })
     }, 1000)
-    return () => clearInterval(t)
+    return () => clearInterval(interval)
   }, [done, cfg.timer])
 
   useEffect(() => {
@@ -100,8 +100,8 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
       setDica(true)
       setTimeout(() => setDica(false), 3000)
     }
-    const t = setInterval(calcDica, 15000)
-    return () => clearInterval(t)
+    const dicaInt = setInterval(calcDica, 15000)
+    return () => clearInterval(dicaInt)
   }, [done, playerPos, difficulty])
 
   const handleMove = useCallback((dr, dc) => {
