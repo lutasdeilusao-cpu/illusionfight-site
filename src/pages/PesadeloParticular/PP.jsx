@@ -542,7 +542,7 @@ function StoryViewer({ pista, onClose }) {
       <div className="pp-story-viewer-content">
         <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
-        {pista.fio && <div className="pp-story-viewer-fio-label pp-fio-badge">{t('pt', 'story.fio_label')}</div>
+        {pista.fio && <div className="pp-story-viewer-fio-label pp-fio-badge">{t('pt', 'story.fio_label')}</div>}
         <div className="pp-story-viewer-title">{info.titulo}</div>
         <div className="pp-story-viewer-desc">{info.desc}</div>
       </div>
