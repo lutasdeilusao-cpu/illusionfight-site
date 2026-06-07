@@ -3,20 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
-import { MINIGAMES_VERSION } from '../../config/version'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
 
-function tNome(g, p) { return p.t(`games.minigames.puzzles.${g}.${p.locale === 'pt' ? 'nome' : 'nome'}`) }
-
 const GAMES = [
-  { id: 'stealth', nome: 'Infiltração', tagline: 'evite as câmeras. chegue ao objetivo.', emoji: '🥷', cor: '#00B4D8', desc: 'câmeras com cone de visão rotativo. uma rota existe. encontre.', dificuldade: '★★☆' },
-  { id: 'decoder', nome: 'Decoder', tagline: 'mensagem cifrada. descubra o código.', emoji: '📡', cor: '#F5A623', desc: 'cada símbolo representa uma letra. decodifique antes do tempo acabar.', dificuldade: '★☆☆' },
-  { id: 'sliding', nome: 'Sliding Tiles', tagline: 'documento rasgado. reconstitua as peças.', emoji: '🧩', cor: '#A855F4', desc: 'mova as peças até reconstituir a imagem. sem desfazer.', dificuldade: '★★☆' },
-  { id: 'labirinto', nome: 'Labirinto', tagline: 'sem mapa. sem saída óbvia.', emoji: '🌀', cor: '#8B0000', desc: 'navegue pelo labirinto. cada geração é única.', dificuldade: '★★★' },
-  { id: 'anagrama', nome: 'Anagrama', tagline: 'as letras estão certas. a ordem não.', emoji: '🔤', cor: '#22C55E', desc: 'reorganize as letras para formar a palavra correta.', dificuldade: '★☆☆' },
-  { id: 'forca', nome: 'Palavra Secreta', tagline: 'descubra a palavra. uma letra de cada vez.', emoji: '🎡', cor: '#EC4899', desc: 'adivinhe letras e acuse a palavra certa.', dificuldade: '★★☆' },
-  { id: 'enduro', nome: 'Enduro Kroniki', tagline: 'pista infinita. desvie dos obstáculos. colete moedas.', emoji: '🏎️', cor: '#FF3366', desc: 'corrida infinita com 10 pistas. obstáculos e moedas. sobreviva até o fim.', dificuldade: '★★☆', badge: 'LANÇADO', badgeCor: '#22C55E', semImagens: true },
+  { id: 'stealth', puzzleKey: 'infiltracao', emoji: '🥷', cor: '#00B4D8', semImagens: false },
+  { id: 'decoder', puzzleKey: 'decoder', emoji: '📡', cor: '#F5A623', semImagens: false },
+  { id: 'sliding', puzzleKey: 'sliding', emoji: '🧩', cor: '#A855F4', semImagens: false },
+  { id: 'labirinto', puzzleKey: 'labirinto', emoji: '🌀', cor: '#8B0000', semImagens: false },
+  { id: 'anagrama', puzzleKey: 'anagrama', emoji: '🔤', cor: '#22C55E', semImagens: false },
+  { id: 'forca', puzzleKey: 'forca', emoji: '🎡', cor: '#EC4899', semImagens: false },
+  { id: 'enduro', puzzleKey: 'enduro', emoji: '🏎️', cor: '#FF3366', badgeKey: 'games.minigames.badge_lancado', badgeCor: '#22C55E', semImagens: true },
 ]
 
 const STEALTH_CONFIG = {
@@ -33,6 +30,7 @@ function formatTempo(ms) {
 }
 
 export default function MiniGames() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { isAdmin } = useFichas()
   const tier = 'free'
@@ -86,6 +84,11 @@ export default function MiniGames() {
 
   const voltarHub = () => { setJogoAtivo(null); setFase('hub'); setTempoInicio(null); setTempoFinal(null); setDificuldadeSelecionada(null) }
 
+  const gameNomeKey = (g) => g.puzzleKey === 'enduro' ? 'games.minigames.puzzle_enduro_nome' : `games.minigames.puzzles.${g.puzzleKey}.nome`
+  const gameTagKey = (g) => g.puzzleKey === 'enduro' ? 'games.minigames.puzzle_enduro_tagline' : `games.minigames.puzzles.${g.puzzleKey}.desc`
+  const gameDescKey = (g) => g.puzzleKey === 'enduro' ? 'games.minigames.puzzle_enduro_desc' : `games.minigames.puzzles.${g.puzzleKey}.detalhe`
+  const gameDifKey = (g) => g.puzzleKey === 'enduro' ? 'games.minigames.puzzle_enduro_dificuldade' : `games.minigames.puzzles.${g.puzzleKey}.dificuldade`
+
   const renderPuzzle = () => {
     if (!jogoAtivo) return null
     const props = { onSolve: handleVitoria, onFail: handleDerrota }
@@ -111,50 +114,53 @@ export default function MiniGames() {
 
   if (fase === 'selecionar_dificuldade') {
     const isStealth = jogoAtivo.id === 'stealth'
+    const DIF_LABEL_KEYS = { easy: 'games.minigames.dif_facil', medium: 'games.minigames.dif_medio', hard: 'games.minigames.dif_dificil', extreme: 'games.minigames.dif_extreme', epic: 'games.minigames.dif_epico' }
+    const DIF_BADGE_KEYS = { FREE: 'quiz.modo_free_badge', ELITE: 'quiz.modo_premium_badge' }
     const DIF_CONFIGS = {
       stealth: [
-        { id: 'easy', label: 'FÁCIL', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, badge: 'FREE', free: true, cor: '#22C55E' },
-        { id: 'medium', label: 'MÉDIO', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, cor: '#22C55E', free: true },
+        { id: 'medium', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, cor: '#F5A623', free: false },
+        { id: 'hard', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, cor: '#8B0000', free: false },
       ],
       decoder: [
-        { id: 'easy', label: 'FÁCIL', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', badge: 'FREE', free: true, cor: '#22C55E' },
-        { id: 'medium', label: 'MÉDIO', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard', label: 'DIFÍCIL', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'extreme', label: 'EXTREME', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', cor: '#22C55E', free: true },
+        { id: 'medium', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', cor: '#F5A623', free: false },
+        { id: 'hard', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', cor: '#8B0000', free: false },
+        { id: 'extreme', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', cor: '#8B0000', free: false },
       ],
       forca: [
-        { id: 'easy',    label: 'FÁCIL',   specs: ['6 erros', 'sem timer', '6 opções'],  emoji: '🎡', badge: 'FREE',  free: true,  cor: '#22C55E' },
-        { id: 'medium',  label: 'MÉDIO',   specs: ['5 erros', '⏱ 60s',    '8 opções'],  emoji: '🎡', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard',    label: 'DIFÍCIL', specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'extreme', label: 'EXTREME', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy',    specs: ['6 erros', 'sem timer', '6 opções'],  emoji: '🎡', cor: '#22C55E', free: true },
+        { id: 'medium',  specs: ['5 erros', '⏱ 60s',    '8 opções'],  emoji: '🎡', cor: '#F5A623', free: false },
+        { id: 'hard',    specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', cor: '#8B0000', free: false },
+        { id: 'extreme', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', cor: '#8B0000', free: false },
       ],
       sliding: [
-        { id: 'easy', label: 'FÁCIL', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', badge: 'FREE', free: true, cor: '#22C55E' },
-        { id: 'medium', label: 'MÉDIO', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard', label: 'DIFÍCIL', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', cor: '#22C55E', free: true },
+        { id: 'medium', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', cor: '#F5A623', free: false },
+        { id: 'hard', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', cor: '#8B0000', free: false },
       ],
       labirinto: [
-        { id: 'easy',   label: 'FÁCIL',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', badge: 'FREE',  free: true, cor: '#22C55E'  },
-        { id: 'medium', label: 'MÉDIO',   specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard',   label: 'DIFÍCIL', specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', cor: '#22C55E', free: true },
+        { id: 'medium', specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', cor: '#F5A623', free: false },
+        { id: 'hard',   specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', cor: '#8B0000', free: false },
       ],
       anagrama: [
-        { id: 'easy',    label: 'FÁCIL',   specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', badge: 'FREE',  free: true,  cor: '#22C55E' },
-        { id: 'medium',  label: 'MÉDIO',   specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#F5A623' },
-        { id: 'hard',    label: 'DIFÍCIL', specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'extreme', label: 'EXTREME', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
-        { id: 'epic',    label: 'ÉPICO',   specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', badge: 'ELITE', free: false, cor: '#8B0000' },
+        { id: 'easy',    specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', cor: '#22C55E', free: true },
+        { id: 'medium',  specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', cor: '#F5A623', free: false },
+        { id: 'hard',    specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', cor: '#8B0000', free: false },
+        { id: 'extreme', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', cor: '#8B0000', free: false },
+        { id: 'epic',    specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', cor: '#8B0000', free: false },
       ],
     }
+    const badgeKey = (d) => d.free ? 'quiz.modo_free_badge' : 'quiz.modo_premium_badge'
     const difs = DIF_CONFIGS[jogoAtivo.id] || []
     return (
       <div className="mg-page"><div className="mg-scanlines" />
         <div className="mg-dif-select">
           <div className="mg-dif-header">
-            <button className="mg-btn-sair" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>← voltar</button>
-            <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text={jogoAtivo.nome.toUpperCase()}>{jogoAtivo.nome.toUpperCase()}</span></h2>
-            <p className="mg-dif-sub">escolha a dificuldade</p>
+            <button className="mg-btn-sair" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>{t('games.minigames.dif_voltar')}</button>
+            <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text={t(gameNomeKey(jogoAtivo)).toUpperCase()}>{t(gameNomeKey(jogoAtivo)).toUpperCase()}</span></h2>
+            <p className="mg-dif-sub">{t('games.minigames.dif_escolha')}</p>
           </div>
           <div className="mg-dif-grid">
             {difs.map(d => {
@@ -163,14 +169,14 @@ export default function MiniGames() {
                 <div key={d.id} className={`mg-dif-card ${locked ? 'mg-dif-card--locked' : ''}`}
                   onClick={() => !locked && iniciarJogo(jogoAtivo, d.id)}>
                   <div className="mg-dif-card-inner">
-                    <span className="mg-dif-nivel" style={{ color: d.cor }}>{d.label}</span>
+                    <span className="mg-dif-nivel" style={{ color: d.cor }}>{t(DIF_LABEL_KEYS[d.id])}</span>
                     <span className="mg-dif-emoji">{locked ? '🔒' : d.emoji || '🟢'}</span>
                     <div className="mg-dif-specs">{d.specs.map(s => <span key={s}>{s}</span>)}</div>
                     {isStealth && <div className="mg-dif-preview">{Array.from({length:d.preview}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>}
                     <span className={`mg-dif-badge ${d.free ? 'mg-dif-badge--free' : locked ? 'mg-dif-badge--locked' : 'mg-dif-badge--elite'}`}>
-                      {locked ? 'ELITE+' : d.badge}
+                      {locked ? 'ELITE+' : t(badgeKey(d))}
                     </span>
-                    {locked && <p className="mg-dif-locked-msg">assine Elite para desbloquear</p>}
+                    {locked && <p className="mg-dif-locked-msg">{t('games.minigames.dif_locked')}</p>}
                   </div>
                 </div>
               )
@@ -185,13 +191,13 @@ export default function MiniGames() {
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-resultado">
         <div className="mg-resultado-emoji">🏆</div>
-        <h2 className="mg-resultado-titulo" style={{ color: jogoAtivo.cor }}>MISSÃO COMPLETA</h2>
-        <p className="mg-resultado-jogo">{jogoAtivo.nome}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</p>
-        <div className="mg-resultado-tempo"><span className="mg-resultado-tempo-label">TEMPO</span><span className="mg-resultado-tempo-val" style={{ color: jogoAtivo.cor }}>{formatTempo(tempoFinal)}</span></div>
-        {recordes[jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id] === tempoFinal && <p className="mg-resultado-recorde">★ NOVO RECORDE ★</p>}
+        <h2 className="mg-resultado-titulo" style={{ color: jogoAtivo.cor }}>{t('games.minigames.resultado_vitoria')}</h2>
+        <p className="mg-resultado-jogo">{t(gameNomeKey(jogoAtivo))}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</p>
+        <div className="mg-resultado-tempo"><span className="mg-resultado-tempo-label">{t('games.minigames.resultado_tempo')}</span><span className="mg-resultado-tempo-val" style={{ color: jogoAtivo.cor }}>{formatTempo(tempoFinal)}</span></div>
+        {recordes[jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id] === tempoFinal && <p className="mg-resultado-recorde">{t('games.minigames.resultado_recorde')}</p>}
         <div className="mg-resultado-btns">
-          <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>[ jogar de novo ]</button>
-          <button className="mg-btn" onClick={voltarHub}>[ voltar ]</button>
+          <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_jogar_novamente')}</button>
+          <button className="mg-btn" onClick={voltarHub}>{t('games.minigames.resultado_voltar')}</button>
         </div>
       </div>
     </div>
@@ -201,11 +207,11 @@ export default function MiniGames() {
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-resultado">
         <div className="mg-resultado-emoji">💀</div>
-        <h2 className="mg-resultado-titulo" style={{ color: '#8B0000' }}>GAME OVER</h2>
-        <p className="mg-resultado-jogo">{jogoAtivo.nome}</p>
+        <h2 className="mg-resultado-titulo" style={{ color: '#8B0000' }}>{t('games.minigames.resultado_derrota')}</h2>
+        <p className="mg-resultado-jogo">{t(gameNomeKey(jogoAtivo))}</p>
         <div className="mg-resultado-btns">
-          <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>[ tentar de novo ]</button>
-          <button className="mg-btn" onClick={voltarHub}>[ voltar ]</button>
+          <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_tentar_novamente')}</button>
+          <button className="mg-btn" onClick={voltarHub}>{t('games.minigames.resultado_voltar')}</button>
         </div>
       </div>
     </div>
@@ -215,8 +221,8 @@ export default function MiniGames() {
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-jogando">
         <div className="mg-jogando-header">
-          <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {jogoAtivo.nome}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
-          <button className="mg-btn-sair" onClick={voltarHub}>[ ← sair ]</button>
+          <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {t(gameNomeKey(jogoAtivo))}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
+          <button className="mg-btn-sair" onClick={voltarHub}>{t('games.minigames.jogando_sair')}</button>
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
       </div>
@@ -226,24 +232,24 @@ export default function MiniGames() {
   return (
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-header">
-        <button className="mg-back" onClick={() => navigate('/games')}>← extras</button>
-        <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text="MINI GAMES">MINI GAMES</span></h1>
-        <p className="mg-subtitulo"><span className="mg-cursor">█</span> puzzles standalone. sem login. sem save. só habilidade.</p>
+        <button className="mg-back" onClick={() => navigate('/games')}>{t('games.minigames.hub_voltar')}</button>
+        <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text={t('games.minigames.titulo')}>{t('games.minigames.titulo')}</span></h1>
+        <p className="mg-subtitulo"><span className="mg-cursor">█</span> {t('games.minigames.hub_subtitulo')}</p>
       </div>
       <div className="mg-grid">
         {GAMES.map(game => (
           <div key={game.id} className="mg-card" style={{ '--cor': game.cor }} onClick={() => tentarIniciar(game)}>
             <div className="mg-card-inner">
-              <div className="mg-card-top"><span className="mg-card-dificuldade">{game.dificuldade}</span>{game.badge && <span className="mg-card-badge" style={{ background: game.badgeCor+'22', border: '1px solid '+game.badgeCor, color: game.badgeCor }}>{game.badge}</span>}{recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}</div>
+              <div className="mg-card-top"><span className="mg-card-dificuldade">{t(gameDifKey(game))}</span>{game.badgeKey && <span className="mg-card-badge" style={{ background: game.badgeCor+'22', border: '1px solid '+game.badgeCor, color: game.badgeCor }}>{t(game.badgeKey)}</span>}{recordes[game.id] && <span className="mg-card-recorde" style={{ color: game.cor }}>★ {formatTempo(recordes[game.id])}</span>}</div>
               <div className="mg-card-emoji">{game.emoji}{game.semImagens && <span className="mg-card-warn" title="imagens oficiais pendentes">⛔</span>}</div>
-              <h2 className="mg-card-nome">{game.nome}</h2><p className="mg-card-tagline">{game.tagline}</p><p className="mg-card-desc">{game.desc}</p>
-              <div className="mg-card-cta">JOGAR</div>
+              <h2 className="mg-card-nome">{t(gameNomeKey(game))}</h2><p className="mg-card-tagline">{t(gameTagKey(game))}</p><p className="mg-card-desc">{t(gameDescKey(game))}</p>
+              <div className="mg-card-cta">{t('games.minigames.jogar')}</div>
             </div>
             <div className="mg-card-borda" />
           </div>
         ))}
       </div>
-      <div className="mg-footer"><span>© LUTAS DE ILUSÃO — INSERT COIN</span></div>
+      <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>
     </div>
   )
 }
