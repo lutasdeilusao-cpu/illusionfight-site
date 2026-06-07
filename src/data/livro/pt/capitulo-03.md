@@ -86,9 +86,9 @@ Começaram a se alongar.
 
 O grupo observava cada movimento dos dois, tentando ler o que aquela calma estava dizendo. Os comentários começaram baixos e foram subindo.
 
-— Malucos esses caras, se acham mesmo né.
+— Se liga parça, esses caras, se acham né.
 
-— Tô vendo as perninhas deles tremer.
+— Logo eles vão descobrir que com cria não se brinca.
 
 — Agora eu vou deitar esses zés.
 
@@ -102,7 +102,7 @@ Os grupos se encontraram no centro do anexo separados por um metro de hostilidad
 
 — Sabe qual é a única regra numa briga de rua?
 
-Brock franziu o cenho. Kim deu de ombros.
+Brock franziu o cenho de novo. Kim deu de ombros.
 
 — Não há regras.
 
@@ -116,7 +116,7 @@ Do outro lado, Randy avançou em direção a Jack com um cano de aço. Jack mant
 
 — E aí, o que achou dela? — Jack perguntou para Kim, completamente relaxado.
 
-— Metida. — Kim desviou de um golpe direto da faca de Tony sem virar a cabeça. — Arrogante. Exala aquele perfume de quem se acha especial.
+— Quem??? Ah a garota nova. — Kim desviou de um golpe direto da faca de Tony sem virar a cabeça. — Mesmo conteúdo de todas aqui, parece ser uma patricinha, que se acha melhor que todos.
 
 A faca de Tony veio de novo. Kim deixou passar pelo lado, entrou, segurou o pulso e torceu para cima até a faca cair. O cotovelo encontrou o queixo. Estalo seco.
 

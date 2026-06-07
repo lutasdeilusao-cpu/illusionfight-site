@@ -208,7 +208,7 @@ export default function CityOverworld({
     animRef.current = requestAnimationFrame(loop)
     return ()=>{if(animRef.current)cancelAnimationFrame(animRef.current);if(zt)clearTimeout(zt)}
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[districtId, onDistrictTransition, buildingName, zoneName, t])
+  },[districtId, onDistrictTransition, buildingName, zoneNameFn, t])
 
   /* ── GameControls callbacks ── */
   const handleAnalogMove = useCallback((dx, dy) => {
