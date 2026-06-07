@@ -109,7 +109,7 @@ export default function Perfil() {
         {abaAtiva === 'conta' && <PerfilConta />}
       </div>
 
-      <button className="perfil-logout" onClick={logout}>[ SAIR ]</button>
+      <button className="perfil-logout" onClick={logout}>[ {t('site.perfil.sair')} ]</button>
     </section>
   )
 }

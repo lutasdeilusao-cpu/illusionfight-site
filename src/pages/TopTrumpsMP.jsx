@@ -36,6 +36,7 @@ import { MP_VERSION } from '../config/version'
 console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
+  const { t } = useLanguage()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
@@ -633,11 +634,11 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">VOCÊ</span>
+            <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
             <span className="ttmp-hud-placar-valor">{placar.eu}</span>
           </div>
           <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">RODADA {sala?.turno_atual}/{sala?.total_turnos}</span>
+            <span className="ttmp-hud-rodada">{t('games.toptrumps.mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
             <div className={`ttmp-timer${tempoRestante <= 5 ? ' ttmp-timer--warn' : ''}`}>
               <svg viewBox="0 0 60 60" className="ttmp-timer-svg">
                 <circle cx="30" cy="30" r="26" className="ttmp-timer-bg" />
@@ -674,7 +675,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-vs">
-            <span className="ttmp-vs-texto">VS</span>
+            <span className="ttmp-vs-texto">{t('games.toptrumps.mp.hud_vs')}</span>
             {!ehMinhaVez && !jaMovi && (
               <span className="ttmp-vez-message">{t('games.toptrumps.mp.hud_adversario_escolhendo')}</span>
             )}

@@ -137,7 +137,7 @@ export default function TopTrumps() {
       setResultado(res)
       if (res === 'ganhou') setPlacar(p => ({ ...p, jogador: p.jogador + 1 }))
       if (res === 'perdeu') setPlacar(p => ({ ...p, ia: p.ia + 1 }))
-      setHistoricoRodadas(h => [...h, { rodada, cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos }, cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos }, atributo: attr.nome, valorJogador: vJ, valorIA: vI, resultado: res }])
+      setHistoricoRodadas(h => [...h, { rodada, cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos }, cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos }, atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res }])
       setFase('resultado_rodada')
       gerarParticulas(res)
     }, 800)
@@ -328,18 +328,18 @@ export default function TopTrumps() {
           const style = { left: `${p.x}%`, top: `${p.y}%`, width: `${p.tam}px`, height: `${p.tam}px`, background: p.cor, animationDuration: `${p.duracao}s`, '--angle': `${p.angle}deg`, '--dist': `${p.dist}px` }
           return <div key={p.id} className="tt-particula" style={style} />
         })}
-        <div className="tt-hud"><span className="tt-hud-rodada">RODADA {rodada}/{totalTurnos}</span><div className="tt-hud-placar"><span className="tt-hud-placar-jogador">VOCÊ: {placar.jogador}</span><span className="tt-hud-placar-ia">IA: {placar.ia}</span></div></div>
+        <div className="tt-hud"><span className="tt-hud-rodada">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span><div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div></div>
         <div className="tt-cards">
           <div className="tt-card-jogador">
             <div className="tt-card-avatar" style={{ background: avatarCor(cartaJogador.id) }}><span className="tt-card-avatar-iniciais">{cartaJogador.nome.split('—')[0].trim().charAt(0)}</span></div>
             <h3 className="tt-card-nome">{cartaJogador.nome}</h3><p className="tt-card-elemental">{cartaJogador.elemental}</p>
-            <div className="tt-card-atributos">{atributos.map(a => (<div key={a.id} className={`tt-atributo-btn${a.id === atributoEscolhido ? ` tt-atributo--${resultado}` : ''}`}><span className="tt-atributo-nome">{a.nome}</span><span className="tt-atributo-valor">{cartaJogador.atributos[a.id]}</span></div>))}</div>
+            <div className="tt-card-atributos">{atributos.map(a => (<div key={a.id} className={`tt-atributo-btn${a.id === atributoEscolhido ? ` tt-atributo--${resultado}` : ''}`}><span className="tt-atributo-nome">{t(a.nomeKey)}</span><span className="tt-atributo-valor">{cartaJogador.atributos[a.id]}</span></div>))}</div>
           </div>
           <div className="tt-vs"><span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span><span className="tt-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span></div>
           <div className="tt-card-ia">
             <div className="tt-card-avatar" style={{ background: avatarCor(cartaIA.id) }}><span className="tt-card-avatar-iniciais">{cartaIA.nome.split('—')[0].trim().charAt(0)}</span></div>
             <h3 className="tt-card-nome">{cartaIA.nome}</h3><p className="tt-card-elemental">{cartaIA.elemental}</p>
-            <div className="tt-card-atributos">{atributos.map(a => { let c = 'tt-atributo-btn'; if (a.id === atributoEscolhido) c += resultado === 'ganhou' ? ' tt-atributo--perdeu' : resultado === 'perdeu' ? ' tt-atributo--ganhou' : ' tt-atributo--empate'; return <div key={a.id} className={c}><span className="tt-atributo-nome">{a.nome}</span><span className="tt-atributo-valor">{cartaIA.atributos[a.id]}</span></div> })}</div>
+            <div className="tt-card-atributos">{atributos.map(a => { let c = 'tt-atributo-btn'; if (a.id === atributoEscolhido) c += resultado === 'ganhou' ? ' tt-atributo--perdeu' : resultado === 'perdeu' ? ' tt-atributo--ganhou' : ' tt-atributo--empate'; return <div key={a.id} className={c}><span className="tt-atributo-nome">{t(a.nomeKey)}</span><span className="tt-atributo-valor">{cartaIA.atributos[a.id]}</span></div> })}</div>
           </div>
         </div>
         <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
@@ -390,7 +390,7 @@ export default function TopTrumps() {
       }
     })
     const icone = venceu ? '🏆' : empatou ? '🤝' : '💀'
-    const titulo = venceu ? 'VOCÊ VENCEU!' : empatou ? 'EMPATE!' : 'IA VENCEU!'
+    const titulo = venceu ? t('games.toptrumps.result_voce_venceu') : empatou ? t('games.toptrumps.result_empate') : t('games.toptrumps.result_ia_venceu')
     return (
       <section className="tt-page">
         <div className="tt-relatorio">
