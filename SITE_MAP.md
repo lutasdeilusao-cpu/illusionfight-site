@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*
-*Versão: 2.91*  |  `[SITE] versão carregada: 2.91`
+*Versão: 2.92*  |  `[SITE] versão carregada: 2.92`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -463,44 +463,44 @@
 
 ## 2. PÁGINAS E ROTAS
 
-| Rota | Componente | Arquivo | Versão | Tradução | Descrição |
-|---|---|---|---|---|---|
-| `/` | Home | `src/pages/Home.jsx` | — | ✅ PT ✅ EN ✅ ES | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, StoryProgress, newsletter-cta, ShopSection, home-support CTA |
-| `/personagens` | Personagens | `src/pages/Personagens.jsx` | — | ✅ PT ✅ EN ✅ ES | Grid com todos os 9 personagens por categoria |
-| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | — | ✅ PT ✅ EN ✅ ES | Detalhe: nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações |
-| `/livro` | Livro | `src/pages/Livro.jsx` | — | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação |
-| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | — | ✅ PT ✅ EN ✅ ES | Leitor react-markdown, lazy loading, readerMode |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers via Stripe Checkout. Preços dinâmicos por locale. Feedback pós-checkout |
-| `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
-| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
-| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
-| `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
-| `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
-| `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v2.63 | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
-| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ PT ✅ EN ✅ ES | Lobby multiplayer 🔒 LoginGate |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ PT ✅ EN ✅ ES | Partida multiplayer 🔒 LoginGate |
-| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
-| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
-| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | — | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
-| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | — | ✅ PT ✅ EN ✅ ES | Combate 3D&T |
-| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | — | ✅ PT ✅ EN ✅ ES | Ficha do personagem |
-| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | — | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
-| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ PT ✅ EN ✅ ES | Tela de fim |
-| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.3 | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.3.0 | ✅ PT ✅ EN ✅ ES | 6 puzzles arcade + Enduro Kroniki |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.7.3 | ✅ PT ✅ EN ✅ ES | LDI ARENA 🔒 LoginGate — combate CPU |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
-| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.7.0 | ✅ PT ✅ EN ✅ ES | 20 casos 🔒 LoginGate |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.9 | ✅ PT ✅ EN ✅ ES | Card game 1v1 🔒 LoginGate |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.11.0 | ✅ PT ✅ EN ✅ ES | Tamagotchi: ciclo de vida completo |
-| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ PT ✅ EN ✅ ES | Ranking global |
-| `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
-| `/login` | Login | `src/pages/Login.jsx` | — | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
-| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | — | ✅ PT ✅ EN ✅ ES | Cadastro de conta |
-| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
-| `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
+| Rota | Componente | Arquivo | Versão | Status | Tradução | Descrição |
+|---|---|---|---|---|---|---|---|
+| `/` | Home | `src/pages/Home.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, StoryProgress, newsletter-cta, ShopSection, home-support CTA |
+| `/personagens` | Personagens | `src/pages/Personagens.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Grid com todos os 9 personagens por categoria |
+| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Detalhe: nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações |
+| `/livro` | Livro | `src/pages/Livro.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação |
+| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor react-markdown, lazy loading, readerMode |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 | ✅ Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers via Stripe Checkout. Preços dinâmicos por locale |
+| `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
+| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
+| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
+| `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
+| `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
+| `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v2.63 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
+| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
+| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
+| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
+| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Combate 3D&T |
+| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ficha do personagem |
+| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
+| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim |
+| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.3 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.3.0 | ✅ | ✅ PT ✅ EN ✅ ES | 6 puzzles arcade + Enduro Kroniki |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.7.3 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ (refatoração) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.7.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos com Supabase save |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.9 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.11.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Tamagotchi: ciclo de vida completo |
+| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
+| `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
+| `/login` | Login | `src/pages/Login.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
+| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cadastro de conta |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
+| `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
 
 ---
 
@@ -508,7 +508,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 2.91 | `src/config/version.js:5` |
+| `SITE_VERSION` | 2.92 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.3 | `src/config/version.js:12` |

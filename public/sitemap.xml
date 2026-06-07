@@ -10,6 +10,7 @@
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/assinar</loc><priority>0.7</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games</loc><priority>0.7</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/toptrumps</loc><priority>0.6</priority></url>
+  <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/toptrumps/multiplayer</loc><priority>0.5</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/ldi</loc><priority>0.6</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/jackcandy</loc><priority>0.6</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/minigames</loc><priority>0.6</priority></url>
@@ -20,4 +21,6 @@
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/games/tamagoshi</loc><priority>0.6</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/leaderboard</loc><priority>0.5</priority></url>
   <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/quiz</loc><priority>0.5</priority></url>
+  <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/login</loc><priority>0.4</priority></url>
+  <url><loc>https://lutasdeilusao-cpu.github.io/illusionfight-site/cadastro</loc><priority>0.4</priority></url>
 </urlset>
