@@ -77,15 +77,9 @@ export default function ArenaTaticsRoute() {
       let ids = store.personagensIds
       console.log('[TATICS] personagensIds do save:', ids)
 
+      // Todos vão para a cidade — inclusive admins
       if (!ids || ids.length === 0) {
-        if (isAdmin) {
-          console.log('[TATICS] Admin detectado — enviando para TeamSelect')
-          setLoading(false)
-          setFase('teamSelect')
-          return
-        }
-        // Usuário normal: randomiza 2
-        console.log('[TATICS] Usuário normal — randomizando personagens')
+        console.log('[TATICS] Sem personagens salvos — randomizando 2')
         ids = randomPick(ROSTER, 2)
         store.setPersonagensIds(ids)
         const { error: upsertError } = await supabase.from('arena_tatica_saves').upsert({
@@ -175,6 +169,29 @@ export default function ArenaTaticsRoute() {
   const handleBackToMenu = () => {
     setFase('intro')
   }
+
+  // ── Shift+D hotkey: bypass city, go straight to battle (test/admin only) ──
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.shiftKey && (e.key === 'd' || e.key === 'D')) {
+        console.log('[TATICS] Shift+D detectado — bypassando cidade, indo direto para batalha')
+        e.preventDefault()
+
+        const st = useArenaTaticsStore.getState()
+        let ids = st.personagensIds
+        if (!ids || ids.length === 0) {
+          ids = randomPick(ROSTER, 2)
+          st.setPersonagensIds(ids)
+        }
+
+        st.iniciarBatalha(ids)
+        setFase('combate')
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   // TESTE: simulação direta sem login
   const handleTesteSim = () => {
