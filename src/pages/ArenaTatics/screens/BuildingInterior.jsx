@@ -38,8 +38,8 @@ const EXIT_ZONE = { x: 350, y: 750, w: 100, h: 50, name: 'SAIDA' }
 /* ── Coleta zonas de interiores para colisão ── */
 function getInteriorColliders(mapId) {
   const cols = []
-  // Exit zone marker
-  cols.push({ x: EXIT_ZONE.x, y: EXIT_ZONE.y, w: EXIT_ZONE.w, h: EXIT_ZONE.h })
+  // NOTA: EXIT_ZONE não entra aqui — a saída não tem colisão,
+  // o jogador sai automaticamente ao pisar nela.
   
   if (mapId === 'yohualticit') {
     // Walls around the hall
@@ -487,6 +487,8 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
 
   const [hudText, setHudText] = useState('')
   const [interactLabel, setInteractLabel] = useState('')
+  const onExitRef = useRef(onExit)
+  onExitRef.current = onExit  // sempre atualizado
 
   const stateRef = useRef({
     px: interiorSpawns[mapId]?.x || 200,
@@ -535,6 +537,12 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         s.px = s.moveTo.x
         s.py = s.moveTo.y
         s.moving = false
+
+        // ═══ AUTO-EXIT: se pisou na SAÍDA, sai do interior ═══
+        if (s.px >= EXIT_ZONE.x && s.px < EXIT_ZONE.x + EXIT_ZONE.w &&
+            s.py >= EXIT_ZONE.y && s.py < EXIT_ZONE.y + EXIT_ZONE.h) {
+          onExitRef.current()
+        }
       }
     }
 
