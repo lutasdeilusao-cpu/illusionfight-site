@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*  
-*Versão: 2.59*  |  `[SITE] versão carregada: 2.59`
+*Versão: 2.60*  |  `[SITE] versão carregada: 2.60`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -110,46 +110,46 @@
 
 ## 2. PÁGINAS E ROTAS
 
-| Rota | Componente | Arquivo | Status | Descrição |
-|---|---|---|---|---|
-| `/` | Home | `src/pages/Home.jsx` | ✅ | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, home-support CTA, StoryProgress, newsletter-cta, ShopSection |
-| `/personagens` | Personagens | `src/pages/Personagens.jsx` | ✅ | Grid com todos os 9 personagens agrupados por categoria |
-| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | Detalhe do personagem (2 colunas, nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações) |
-| `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | 16 capítulos com controle de publicação, botão Continuar lendo |
-| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | Leitor com react-markdown, lazy loading, modo imersivo |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v1.41 | 3 tiers: RANQUEADO (free), ELITE (R$10/mês), PRIMORDIAL (R$30/mês). Newsletter + PIX + ficha anchor line |
-| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | História de Isaias Leal em 4 blocos, CTA para assinar |
-| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | Grid de episódios publicados com thumbnails e badges de idioma |
-| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
-| `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | Faixas com capa + plataformas + placeholder videoclipes |
-| `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign — **1ª temporada** |
-| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
-| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | LDI LENDAS — lobby do RPG narrativo — **core gameplay perfeito (1ª temporada), textos pendentes de revisão** |
-| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
-| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | Tela principal de jogo (cena narrativa + typewriter) |
-| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | Tela de combate 3D&T com 3 modos + seleção de poderes |
-| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | Ficha do personagem (consulta) |
-| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | Caderno de pistas |
-| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | Tela de fim de jogo |
-| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | Roteador de puzzles in-game |
-| `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | Tela de diagnóstico admin (cenas, flags, save) |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.3.0 | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
-| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.3 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
+| Rota | Componente | Arquivo | Status | Tradução | Descrição |
+|---|---|---|---|---|---|
+| `/` | Home | `src/pages/Home.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Landing page: HeroSlideshow, LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, home-support CTA, StoryProgress, newsletter-cta, ShopSection |
+| `/personagens` | Personagens | `src/pages/Personagens.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Grid com todos os 9 personagens agrupados por categoria |
+| `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Detalhe do personagem (2 colunas, nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações) |
+| `/livro` | Livro | `src/pages/Livro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação, botão Continuar lendo |
+| `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor com react-markdown, lazy loading, modo imersivo |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v1.41 | ✅ PT ✅ EN ✅ ES | 3 tiers: RANQUEADO (free), ELITE (R$10/mês), PRIMORDIAL (R$30/mês). Newsletter + PIX + ficha anchor line |
+| `/autor` | Autor | `src/pages/Autor.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | História de Isaias Leal em 4 blocos, CTA para assinar |
+| `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Grid de episódios publicados com thumbnails e badges de idioma |
+| `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, fundo preto, max 800px, modo imersivo |
+| `/musicas` | Musicas | `src/pages/Musicas.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas + placeholder videoclipes |
+| `/mundo` | Mundo | `src/pages/Mundo.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Lore completo: Bravara, LDI, Xakaxi, Timeline, Glossário, Personagens |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | LDI TRUMPS — jogo de cartas colecionáveis com deck personalizado, recompensa diária e menu redesign — **1ª temporada** |
+| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com seleção de modo (free/apostado), matchmaking (sala privada/código/fila pública) |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
+| `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | LDI LENDAS — lobby do RPG narrativo — **core gameplay perfeito (1ª temporada), textos pendentes de revisão** |
+| `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
+| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela principal de jogo (cena narrativa + typewriter) |
+| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela de combate 3D&T com 3 modos + seleção de poderes |
+| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Ficha do personagem (consulta) |
+| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Caderno de pistas |
+| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela de fim de jogo |
+| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Roteador de puzzles in-game |
+| `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | ⏳ PT ⏳ EN ⏳ ES | Tela de diagnóstico admin (cenas, flags, save) |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | ⏳ PT ⏳ EN ⏳ ES | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.3.0 | ⏳ PT ⏳ EN ⏳ ES | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ⏳ PT ⏳ EN ⏳ ES | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | ⏳ PT ⏳ EN ⏳ ES | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | ⏳ PT ⏳ EN ⏳ ES | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | ✅ PT ✅ EN ✅ ES | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.3 | ⏳ PT ⏳ EN ⏳ ES | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
 
 **Versão atual:** `1.10.3` (console: `[TAMA] versão carregada: 1.10.3`)
-| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com 20 posições, vitórias/derrotas/pontos |
-| `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
-| `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase Auth, redireciona para /perfil |
-| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | Cadastro com nome, email, telefone, senha — migra achievements locais |
-| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier |
-| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard |
+| `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global com 20 posições, vitórias/derrotas/pontos |
+| `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
+| `/login` | Login | `src/pages/Login.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Login com email/senha via Supabase Auth, redireciona para /perfil |
+| `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Cadastro com nome, email, telefone, senha — migra achievements locais |
+| `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Hub do perfil com 6 abas (Conquistas, Arena, Coleção, Conta, Recompensas, Tamagoshi), exibe tier |
+| `/admin` | Admin | `src/pages/Admin.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo (isaiasgamedev@gmail.com) — gerencia submissions pendentes do ResultCard |
 
 ### Estrutura de arquivos
 
