@@ -222,7 +222,6 @@ export default function CityOverworld({
       setHudText({pos:`${Math.round(s.current.px)},${Math.round(s.current.py)}`, cam:`${Math.round(s.current.camX)},${Math.round(s.current.camY)}`, tile:`${tx},${ty}`})
       if (mmPlayer) { mmPlayer.style.left = (s.current.px/WORLD_W)*80+'px'; mmPlayer.style.top = (s.current.py/WORLD_H)*80+'px' }
       checkZones()
-      checkExit()
       animRef.current = requestAnimationFrame(loop)
     }
 
