@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { getCidade } from '../data/cidades'
 
 export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
+  const { t } = useLanguage()
   const [selectedSlot, setSelectedSlot] = useState(null)
   const [confirmNew, setConfirmNew] = useState(null)
 
@@ -23,33 +25,33 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
 
   const handleDelete = (slotNum, e) => {
     e.stopPropagation()
-    if (!window.confirm(`Apagar save do slot ${slotNum}?`)) return
+    if (!window.confirm(t('games.jackcandy.confirmar_apagar', { n: slotNum }))) return
     onDeleteSlot(slotNum)
   }
 
   return (
     <div className="jdc-intro" style={{ paddingTop: '2rem' }}>
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="jdc-main-title">JACK DREAM BEER</h1>
+        <h1 className="jdc-main-title">{t('games.jackcandy.titulo')}</h1>
         <p className="jack-text jack-text--dim" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          o sonho não tem regras. mas tem cerveja.
+          {t('games.jackcandy.subtitulo')}
         </p>
       </motion.div>
 
       {confirmNew !== null ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <p className="jack-text jack-text--amber" style={{ textAlign: 'center' }}>
-            iniciar novo jogo no slot {confirmNew}?
+            {t('games.jackcandy.confirmar_novo', { n: confirmNew })}
           </p>
           <p className="jack-text jack-text--dim" style={{ textAlign: 'center', fontSize: '0.75rem' }}>
-            todo progresso neste slot será perdido.
+            {t('games.jackcandy.perda_progresso')}
           </p>
           <div className="jack-buttons" style={{ margin: '1.5rem auto', maxWidth: '250px' }}>
             <button className="jack-btn jack-btn--amber" onClick={handleNewGame}>
-              [ sim, novo jogo ]
+              {t('games.jackcandy.sim_novo_jogo')}
             </button>
             <button className="jack-btn" onClick={() => setConfirmNew(null)}>
-              [ cancelar ]
+              {t('games.jackcandy.cancelar')}
             </button>
           </div>
         </motion.div>
@@ -67,7 +69,7 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
                 whileHover={{ scale: 1.02, borderColor: '#F5A623' }}
                 whileTap={{ scale: 0.98 }}
               >
-                <div className="jdc-slot-num">slot {num}</div>
+                <div className="jdc-slot-num">{t('games.jackcandy.slot', { n: num })}</div>
                 {save ? (
                   <div className="jdc-slot-info">
                     <div className="jdc-slot-stat">🍺 {save.cervejas || 0}</div>
@@ -82,12 +84,12 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
                   </div>
                 ) : (
                   <div className="jdc-slot-info">
-                    <div className="jdc-slot-stat jack-text--dim">vazio</div>
-                    <div className="jdc-slot-stat jack-text--dim">novo jogo</div>
+                    <div className="jdc-slot-stat jack-text--dim">{t('games.jackcandy.slot_vazio')}</div>
+                    <div className="jdc-slot-stat jack-text--dim">{t('games.jackcandy.novo_jogo')}</div>
                   </div>
                 )}
                 {save && (
-                  <span className="jdc-slot-delete" onClick={(e) => handleDelete(num, e)} title="apagar save">🗑️</span>
+                  <span className="jdc-slot-delete" onClick={(e) => handleDelete(num, e)} title={t('games.jackcandy.apagar')}>🗑️</span>
                 )}
               </motion.button>
             )
