@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Ovo({ onEclodir }) {
+  const { t } = useLanguage()
   return (
     <div className="tama-screen">
       <div className="tama-ovo-container">
@@ -11,14 +13,14 @@ export default function Ovo({ onEclodir }) {
         >
           🥚
         </motion.div>
-        <p className="tama-ovo-text">um ovo misterioso... algo se mexe lá dentro</p>
+        <p className="tama-ovo-text">{t('games.tamagoshi.ovo_texto')}</p>
         <motion.button
           className="tama-btn"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onEclodir}
         >
-          [ tocar no ovo ]
+          {t('games.tamagoshi.ovo_tocar')}
         </motion.button>
       </div>
     </div>

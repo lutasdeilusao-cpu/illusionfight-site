@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*    
-*Versão: 2.72*  |  `[SITE] versão carregada: 2.67`
+*Versão: 2.73*  |  `[SITE] versão carregada: 2.67`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -140,7 +140,7 @@
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | ✅ PT ✅ EN ✅ ES | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | ⏳ PT ⏳ EN ⏳ ES | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | ✅ PT ✅ EN ✅ ES | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.3 | ⏳ PT ⏳ EN ⏳ ES | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.3 | ✅ PT ✅ EN ✅ ES | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
 
 **Versão atual:** `1.10.3` (console: `[TAMA] versão carregada: 1.10.3`)
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global com 20 posições, vitórias/derrotas/pontos |

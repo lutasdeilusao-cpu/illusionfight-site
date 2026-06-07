@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, getFala } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
@@ -8,6 +9,7 @@ import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
 
 export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -64,11 +66,11 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
       <div className="tama-criatura">
         <div className="tama-criatura-header">
           <span className="tama-criatura-nome">{store.nomeCustom}</span>
-          {store.status === 'critico' && <span className="tama-critico-badge">CRÍTICO</span>}
+          {store.status === 'critico' && <span className="tama-critico-badge">{t('games.tamagoshi.critico')}</span>}
         </div>
 
         <div className="tama-dix-display" onClick={onLoja} style={{ cursor: 'pointer', fontSize: '0.75rem', color: '#F5A623', marginBottom: '0.3rem' }}>
-          🪙 {dixSaldo} DIX <span style={{ color: '#666', fontSize: '0.6rem' }}>[loja]</span>
+          {t('games.tamagoshi.dix_display', { saldo: dixSaldo })} <span style={{ color: '#666', fontSize: '0.6rem' }}>{t('games.tamagoshi.loja_link')}</span>
         </div>
 
         <BalloonFala texto={fala} cor={pers.cor} />
@@ -83,46 +85,46 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
         />
 
         <div className="tama-metricas">
-          <MetricBar label="Fome" valor={store.fome} cor="#F5A623" icone="🍖" />
-          <MetricBar label="Higiene" valor={store.higiene} cor="#00B4D8" icone="🧼" />
-          <MetricBar label="Energia" valor={store.energia} cor="#22C55E" icone="⚡" />
-          <MetricBar label="Humor" valor={store.humor} cor="#EC4899" icone="🎭" />
+          <MetricBar label={t('games.tamagoshi.fome')} valor={store.fome} cor="#F5A623" icone="🍖" />
+          <MetricBar label={t('games.tamagoshi.higiene')} valor={store.higiene} cor="#00B4D8" icone="🧼" />
+          <MetricBar label={t('games.tamagoshi.energia')} valor={store.energia} cor="#22C55E" icone="⚡" />
+          <MetricBar label={t('games.tamagoshi.humor')} valor={store.humor} cor="#EC4899" icone="🎭" />
         </div>
 
         <div className="tama-acoes">
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={() => onAction('alimentar')}>
-            [ alimentar ]
+            {t('games.tamagoshi.alimentar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={() => onAction('banhar')}>
-            [ banhar ]
+            {t('games.tamagoshi.banhar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={() => onAction('passear')}>
-            [ passear ]
+            {t('games.tamagoshi.passear')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={() => onAction('brincar')}>
-            [ brincar ]
+            {t('games.tamagoshi.brincar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={onLoja}>
-            [ loja ]
+            {t('games.tamagoshi.loja')}
           </motion.button>
         </div>
 
         {isAdmin && (
           <div className="tama-admin">
             <div className="tama-admin-header">
-              <span className="tama-admin-label">⚙ admin</span>
+              <span className="tama-admin-label">{t('games.tamagoshi.admin')}</span>
               <button className={`tama-btn tama-btn--sm ${store.adminFastMode ? 'tama-btn--active' : ''}`}
                 onClick={() => store.toggleAdminFastMode()}>
-                {store.adminFastMode ? '⏩ fast: on' : '▶ fast: off'}
+                {store.adminFastMode ? t('games.tamagoshi.fast_on') : t('games.tamagoshi.fast_off')}
               </button>
               <button className="tama-btn tama-btn--sm"
                 onClick={() => setAdminTrocaAberta(!adminTrocaAberta)}>
-                [ trocar ]
+                {t('games.tamagoshi.trocar')}
               </button>
             </div>
             <AnimatePresence>
@@ -150,7 +152,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           whileTap={{ scale: 0.95 }}
           onClick={onVoltar}
         >
-          [ voltar aos extras ]
+          {t('games.tamagoshi.voltar_extras')}
         </motion.button>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { ITENS_LOJA } from '../data/itens_loja'
 
 export default function Loja({ onVoltar }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [saldo, setSaldo] = useState(store._isAdmin ? '∞' : (store._dixSaldo || 0))
   const [msg, setMsg] = useState('')
@@ -28,10 +30,10 @@ export default function Loja({ onVoltar }) {
 
   return (
     <div className="tama-acao-screen">
-      <h2 className="tama-acao-title">🏪 loja DIX</h2>
+      <h2 className="tama-acao-title">{t('games.tamagoshi.loja_titulo')}</h2>
       <div className="tama-loja-saldo">
         <span className="tama-loja-saldo-valor">{saldo}</span>
-        <span className="tama-loja-saldo-label">DIX</span>
+        <span className="tama-loja-saldo-label">{t('games.tamagoshi.dix_label')}</span>
       </div>
 
       {msg && (
@@ -44,7 +46,7 @@ export default function Loja({ onVoltar }) {
 
       {itensComprados.length > 0 && (
         <div className="tama-loja-inventario">
-          <h3 className="tama-loja-inventario-title">🎒 seu inventário</h3>
+          <h3 className="tama-loja-inventario-title">{t('games.tamagoshi.inventario_titulo')}</h3>
           <div className="tama-loja-inventario-grid">
             {itensComprados.map(item => (
               <div key={item.id} className="tama-loja-inventario-item">
@@ -80,7 +82,7 @@ export default function Loja({ onVoltar }) {
                 disabled={!podeComprar}
                 onClick={() => handleComprar(item)}
               >
-                {store._isAdmin ? '🎁 pegar' : 'comprar'}
+                {store._isAdmin ? t('games.tamagoshi.pegar') : t('games.tamagoshi.comprar')}
               </button>
             </motion.div>
           )
