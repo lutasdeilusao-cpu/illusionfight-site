@@ -4,8 +4,8 @@ import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import kronikIdle from '../../../assets/images/tamagoshi/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
-const BASE_SPEED = 4, STAGE_COUNT = 10, LIVES = 3
-const SWIPE_THRESHOLD = GAME_W / LANE_COUNT * 0.25 // ~18px
+const BASE_SPEED = 2, STAGE_COUNT = 10, LIVES = 3
+const SWIPE_THRESHOLD = GAME_W / LANE_COUNT * 0.45 // ~32px (metade da pista)
 
 export default function Passear({ onConcluir }) {
   const store = useTamagoshiStore()
@@ -118,14 +118,14 @@ export default function Passear({ onConcluir }) {
     try {
       s.frame++
       if (s.dmgTimer > 0) { s.dmgTimer--; draw(); rafRef.current = requestAnimationFrame(loop); return }
-      s.speed = BASE_SPEED + (s.stage - 1) * 0.6; s.roadOff += s.speed
-      s.score = Math.floor(s.frame * s.speed / 6) + s.stage * 200
+      s.speed = BASE_SPEED + (s.stage - 1) * 0.3; s.roadOff += s.speed
+      s.score = Math.floor(s.frame * s.speed / 10) + s.stage * 200
       const lw = GAME_W / LANE_COUNT
-      if (s.frame - (s.lastObs || 0) > Math.max(30, 70 - (s.stage - 1) * 5)) {
+      if (s.frame - (s.lastObs || 0) > Math.max(50, 110 - (s.stage - 1) * 6)) {
         s.lastObs = s.frame
         s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['🪨','🌳','🧱','🗿','🪵'][Math.floor(Math.random() * 5)] })
       }
-      if (s.frame - (s.lastCoin || 0) > Math.max(60, 120 - (s.stage - 1) * 8)) {
+      if (s.frame - (s.lastCoin || 0) > Math.max(100, 200 - (s.stage - 1) * 11)) {
         s.lastCoin = s.frame
         s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -36, e: '⭐' })
       }
@@ -151,7 +151,7 @@ export default function Passear({ onConcluir }) {
         return true
       })
       if (s.score >= s.stage * 500 && s.stage < STAGE_COUNT) { s.stage++; setStage(s.stage) }
-      if (s.frame % 10 === 0) { setDisp(s.score); setDispCoins(s.coinsCollected) }
+      if (s.frame % 15 === 0) { setDisp(s.score); setDispCoins(s.coinsCollected) }
       draw()
     } catch (e) { console.error('[ENDURO]', e); s.running = false; return }
     rafRef.current = requestAnimationFrame(loop)
@@ -301,16 +301,16 @@ export default function Passear({ onConcluir }) {
             <div style={{ fontSize: 48, marginBottom: 8 }}>💥</div>
             <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>FIM DE PASSEIO</p>
             {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>Todas as pistas concluidas!</p>}
-            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 4, color: '#F5A623' }}>\uD83D\uDEE3\uFE0F {dispScore}</p>
-            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 16 }}>\u2B50 {dispCoins} coletadas</p>
-            <p style={{ fontSize: 13, color: '#888', marginBottom: 8 }}>pista {stage}/{STAGE_COUNT}</p>
+            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 4, color: '#F5A623' }}>{dispScore}</p>
+            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 8 }}>⭐ {dispCoins} coletadas</p>
+            <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>pista {stage}/{STAGE_COUNT}</p>
             {historico.length > 0 && (
               <div style={{ fontSize: 10, color: '#555', marginBottom: 12, width: '100%', textAlign: 'left' }}>
                 <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ultimos resultados:</p>
                 {historico.map((h, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '1px 0', fontFamily: 'monospace' }}>
-                    <span>\uD83D\uDEE3\uFE0F {h.score}</span>
-                    <span>\u2B50 {h.coins}</span>
+                    <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>
+                    <span>⭐ {h.coins}</span>
                     <span>p{h.stage}</span>
                     <span style={{ color: '#444' }}>{h.date}</span>
                   </div>
