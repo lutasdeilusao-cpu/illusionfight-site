@@ -103,7 +103,6 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
   }, [])
 
   const handleTouchMove = useCallback((e) => {
-    e.preventDefault()
     const a = aRef.current
     for (const t of e.changedTouches) {
       if (t.identifier === a.activeId) { updateAnalog(t.clientX, t.clientY); break }
