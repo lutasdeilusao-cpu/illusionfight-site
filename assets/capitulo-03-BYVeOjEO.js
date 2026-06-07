@@ -1,4 +1,4 @@
-var e=`﻿# CAPÍTULO 3 — A Primeira Regra\r
+var e=`﻿# CAPÍTULO 3 — A Única Regra \r
 \r
 Brock entrou pela porta da sala sem bater.\r
 \r
@@ -234,25 +234,27 @@ Freddy saiu de trás da coluna com o sorriso irônico que havia a oportunidade p
 \r
 Kim se virou para ele devagar.\r
 \r
-— Eu não tenho problema com quem tem dinheiro. Se não mexem comigo, eu não mexo com ninguém. Mas você tá abusando da minha paciência.\r
+— Olha eu realmente to tentando ser comprrensivel aqui, por que você já tá com a cara quebrada, mas não abuse da minha paciência, eu tenho muito pouca.\r
 \r
 Jack mal segurava a satisfação.\r
 \r
-— Vai lá Kim. Mostra do que você é capaz.\r
+— Vai lá Kim. Mostra pra ele que você não é nenhum MARICA - Jack não se aguentava mais e soltou a gargalhada - Acaba com ele no LDI.\r
 \r
 Freddy se aproximou com a confiança artificial de quem tem cinco capangas no chão mas ainda não processou isso completamente.\r
 \r
-— Então, se tiver coragem: se você vencer, te pago mil moedas. Se eu vencer, você e seu amigo não podem fazer nada contra mim, não importa o que eu faça. Isso vale, é claro, se a sua palavra tiver algum valor real.\r
+— Então, tem coragem? Se você vencer, te pago mil moedas. Se eu vencer, você e seu amigo não podem fazer nada comigo, não importa o que eu faça. Isso vale, é claro, se a sua palavra tiver algum valor real.\r
 \r
 Kim olhou para o SBI na mão de Jack.\r
 \r
-Pensou na conta de luz. Nos sessenta de DIX para Helena. No mercado.\r
+Pensou na conta de luz. Nos sessenta de DIX para Helena. No mercado, na folga que poderia tirar a semana inteira com aquela grana, era quase um mês de salário.\r
 \r
 Estendeu a mão.\r
 \r
-— Claro que minha palavra tem valor. Mas quero ver o dinheiro antes.\r
+— Mostra a grana, e vamo começar.\r
 \r
-— É claro que eu vou gravar isso. — Jack levantou o celular no ar. — Nada melhor do que ter provas sólidas na mão pra gastar essa grana sem peso na consciência.\r
+— É claro que eu vou gravar isso. — Jack levantou o celular no ar. — Nada melhor do que ter provas sólidas na mão pra gastar essa grana sem peso na consciência, Kim fico com 50%.\r
+\r
+Kim olhou para Jack, Jack sorriu, pois é, ele sabia o amigo que tinha.\r
 \r
 Freddy acessou o celular. A transferência programada para liquidar no momento da derrota dele.\r
 \r
@@ -262,7 +264,7 @@ Jack colocou o SBI nas mãos de Kim com a cerimônia de quem entrega algo que va
 \r
 Kim colocou a luva. Depois os óculos.\r
 \r
-A última coisa que viu antes da ativação foi Jack com o celular já apontado, o sorriso largo de quem estava prestes a gravar algo eterno.\r
+A última coisa que viu antes da ativação foi Jack com o celular já apontado, o sorriso largo tirando uma self.\r
 \r
 *Isso foi um erro.*\r
 \r
