@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useAchievements } from '../../context/AchievementsContext'
+import { useLanguage } from '../../context/LanguageContext'
 import { useFichas } from '../../context/FichasContext'
 import PerfilConquistas from './abas/PerfilConquistas'
 import PerfilArena from './abas/PerfilArena'
@@ -18,6 +19,7 @@ const TIER_CONFIG = {
 }
 
 export default function Perfil() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const { user, perfil, logout, carregando } = useAuth()
@@ -33,18 +35,18 @@ export default function Perfil() {
 
   if (carregando) return (
     <section className="perfil-page">
-      <p className="perfil-carregando">CARREGANDO...</p>
+      <p className="perfil-carregando">{t('site.leaderboard.carregando')}</p>
     </section>
   )
   if (!user) return null
 
   const ABAS = [
-    { id: 'recompensas', label: 'Fichas', icone: '🎰', pulse: podeColetarHoje },
-    { id: 'conquistas', label: 'Conquistas', icone: '🏆' },
-    { id: 'arena', label: 'Arena', icone: '⚔️' },
-    { id: 'colecao', label: 'Coleção', icone: '🃏' },
-    { id: 'tamagoshi', label: 'Tamagoshi', icone: '🥚' },
-    { id: 'conta', label: 'Conta', icone: '⚙️' },
+    { id: 'recompensas', label: t('site.perfil.abas.0'), icone: '🎰', pulse: podeColetarHoje },
+    { id: 'conquistas', label: t('site.perfil.abas.1'), icone: '🏆' },
+    { id: 'arena', label: t('site.perfil.abas.2'), icone: '⚔️' },
+    { id: 'colecao', label: t('site.perfil.abas.3'), icone: '🃏' },
+    { id: 'tamagoshi', label: t('site.perfil.abas.5'), icone: '🥚' },
+    { id: 'conta', label: t('site.perfil.abas.4'), icone: '⚙️' },
   ]
 
   return (
