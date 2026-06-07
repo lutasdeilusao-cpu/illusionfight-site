@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
+import { useLanguage } from '../../../context/LanguageContext'
 import { CASOS } from '../data/casos'
 import { PISTAS } from '../data/pistas'
 import PistaCard from '../components/PistaCard'
@@ -10,6 +11,7 @@ const CUSTO_ARROMBAR = { decoder: 1500, stealth: 2000, sliding: 1000, labirinto:
 const DANO_PUZZLE_FALHOU = 5
 
 export default function Investigacao({ localId }) {
+  const { t } = useLanguage()
   const store = useJackStore()
   const [pistaRevelada, setPistaRevelada] = useState(false)
   const [puzzleAtivo, setPuzzleAtivo] = useState(false)
@@ -103,7 +105,7 @@ export default function Investigacao({ localId }) {
       <div className="jdc-investigacao-header">
         <span className="jack-text--amber">{local.nome}</span>
         <button className="jack-btn" onClick={() => store.setFase('dossier')} style={{ fontSize: '0.7rem' }}>
-          [ voltar pro dossier ]
+          {t('games.jackcandy.investigacao_voltar_dossier')}
         </button>
       </div>
 
@@ -115,10 +117,10 @@ export default function Investigacao({ localId }) {
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem' }}>🧩 {local.puzzleLabel}</p>
           <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem' }}>
-            {local.puzzle === 'decoder' && 'o documento está cifrado. use o decoder para revelar a mensagem.'}
-            {local.puzzle === 'stealth' && 'o local está vigiado. passe sem ser visto. zonas vermelhas = câmera te vê.'}
-            {local.puzzle === 'sliding' && 'o documento foi rasgado. reconstitua os pedaços.'}
-            {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && 'resolva o puzzle para continuar.'}
+            {local.puzzle === 'decoder' && t('games.jackcandy.investigacao_puzzle_decoder')}
+            {local.puzzle === 'stealth' && t('games.jackcandy.investigacao_puzzle_stealth')}
+            {local.puzzle === 'sliding' && t('games.jackcandy.investigacao_puzzle_sliding')}
+            {!['decoder', 'stealth', 'sliding'].includes(local.puzzle) && t('games.jackcandy.investigacao_puzzle_default')}
           </p>
           <div className="jdc-investigacao-puzzle-area">
             {local.puzzle === 'decoder' && <PuzzleDecoder key={`decoder-${localId}`} onSolve={handleResolverPuzzle} onFail={handlePuzzleFail} />}
@@ -136,19 +138,19 @@ export default function Investigacao({ localId }) {
       {puzzleFalhou && (
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <p className="jack-text jack-text--crimson" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-            ❌ puzzle falhou — -{DANO_PUZZLE_FALHOU} moral
+            {t('games.jackcandy.investigacao_puzzle_falhou', { dano: DANO_PUZZLE_FALHOU })}
           </p>
           <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem', marginBottom: '1rem' }}>
-            você pode tentar de novo ou arrombar a porta. arrombar não é elegante. mas funciona.
+            {t('games.jackcandy.investigacao_puzzle_falhou_dica')}
           </p>
           <div className="jack-buttons" style={{ margin: '0 auto', maxWidth: '280px' }}>
             <button className="jack-btn jack-btn--amber" onClick={() => { setPuzzleFalhou(false); setPuzzleAtivo(true) }}>
-              [ tentar de novo ]
+              {t('games.jackcandy.investigacao_tentar_novo')}
             </button>
             <button className="jack-btn jack-btn--crimson" onClick={handleArrombar} disabled={store.cervejas < custoPuzzle}>
               {store.cervejas >= custoPuzzle
-                ? `[ arrombar — ${custoPuzzle}🍺 ]`
-                : `[ sem cervejas (${store.cervejas}/${custoPuzzle}🍺) ]`}
+                ? t('games.jackcandy.investigacao_arrombar', { custo: custoPuzzle })
+                : t('games.jackcandy.investigacao_sem_cervejas', { atual: store.cervejas, custo: custoPuzzle })}
             </button>
           </div>
         </motion.div>
@@ -158,22 +160,22 @@ export default function Investigacao({ localId }) {
         <div className="jdc-investigacao-dungeon-gate">
           <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>⚔️ {local.dungeonLabel}</p>
           <button className="jack-btn jack-btn--crimson" onClick={irParaDungeon} style={{ marginTop: '0.5rem' }}>
-            [ enfrentar ]
+            {t('games.jackcandy.investigacao_enfrentar')}
           </button>
         </div>
       )}
 
       {pistaRevelada && pista && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginTop: '1rem' }}>🔍 pista encontrada:</p>
+          <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginTop: '1rem' }}>🔍 {t('games.jackcandy.investigacao_pista_encontrada')}</p>
           <PistaCard pista={pista} />
           {jaVisitado ? (
             <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
-              este local já foi investigado.
+              {t('games.jackcandy.investigacao_ja_visitado')}
             </p>
           ) : (
             <button className="jack-btn jack-btn--amber" onClick={() => store.setFase('dossier')} style={{ marginTop: '0.5rem' }}>
-              [ voltar pro dossier ]
+              {t('games.jackcandy.investigacao_voltar_dossier')}
             </button>
           )}
         </motion.div>
@@ -181,7 +183,7 @@ export default function Investigacao({ localId }) {
 
       {!pistaRevelada && !temDungeon && !puzzleAtivo && !puzzleFalhou && (
         <button className="jack-btn jack-btn--amber" onClick={handleRevelar} style={{ marginTop: '1rem' }}>
-          [ investigar este local ]
+          {t('games.jackcandy.investigacao_investigar')}
         </button>
       )}
     </motion.div>

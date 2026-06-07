@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
+import { useLanguage } from '../../../context/LanguageContext'
 import { DUNGEONS } from '../data/dungeons'
 import { ITENS } from '../data/itens'
 import { MONOLOGUES } from '../data/monologues'
@@ -36,6 +37,7 @@ const HIT_WORDS = ['CRACK!', 'POW!', 'WHAM!', 'BAM!', 'KAPOW!']
 const DAMAGE_WORDS = ['OOF!', 'UGH!', 'ARGH!', 'NNGH!', 'ACK!']
 
 export default function Dungeon({ dungeonId }) {
+  const { t } = useLanguage()
   const store = useJackStore()
   const dungeon = DUNGEONS[dungeonId]
   const [log, setLog] = useState([])
@@ -108,8 +110,8 @@ export default function Dungeon({ dungeonId }) {
     console.error('[JACK] Dungeon não encontrada:', dungeonId, 'keys disponíveis:', Object.keys(DUNGEONS))
     return (
       <div className="jdc-dungeon">
-        <p className="jack-text jack-text--crimson">dungeon não encontrada: {dungeonId}</p>
-        <button className="jack-btn" onClick={() => store.setFase('dungeon_select')}>[ voltar ]</button>
+        <p className="jack-text jack-text--crimson">{t('games.jackcandy.dungeon_nao_encontrada', { id: dungeonId })}</p>
+        <button className="jack-btn" onClick={() => store.setFase('dungeon_select')}>{t('games.jackcandy.voltar')}</button>
       </div>
     )
   }
@@ -360,14 +362,14 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
           <div className="jdc-dungeon-end-icon" style={{ color: '#8B0000' }}>{store.autoMode.ativo ? '💀🤖' : '💀'}</div>
-          <p className="jack-text jack-text--crimson" style={{ fontSize: '1.2rem' }}>você morreu.</p>
+          <p className="jack-text jack-text--crimson" style={{ fontSize: '1.2rem' }}>{t('games.jackcandy.dungeon_morreu')}</p>
           {store.autoMode.ativo ? (
             <>
-              <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>🤖 AUTO — recuperando HP...</p>
+              <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>🤖 {t('games.jackcandy.dungeon_auto_recuperando')}</p>
               <p className="jack-text" style={{ fontSize: '1rem', marginTop: '0.3rem' }}>{store.hpAtual}/{store.hpMax}</p>
             </>
           ) : (
-            <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+            <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>{t('games.jackcandy.voltar')}</button>
           )}
         </motion.div>
       </div>
@@ -379,13 +381,13 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
           <div className="jdc-dungeon-end-icon" style={{ color: '#F5A623' }}>✅</div>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{dungeon?.nome || 'Dungeon'} completo!</p>
+          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{t('games.jackcandy.dungeon_completo', { nome: dungeon?.nome || 'Dungeon' })}</p>
           <p className="jack-text">
-            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas
-            {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} notas` : ''}
-            {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} fragmentos` : ''}
+            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} {t('games.jackcandy.dungeon_cervejas')}
+            {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} ${t('games.jackcandy.dungeon_notas')}` : ''}
+            {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} ${t('games.jackcandy.dungeon_fragmentos')}` : ''}
           </p>
-          {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ notas desbloqueadas!</p>}
+          {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ {t('games.jackcandy.dungeon_notas_desbloqueadas')}</p>}
           <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
             <button className="jack-btn" onClick={() => {
               if (store._retornoInvestigacao) {
@@ -395,7 +397,7 @@ export default function Dungeon({ dungeonId }) {
               } else {
                 store.setFase('dungeon_select')
               }
-            }}>{store._retornoInvestigacao ? '[ voltar pra investigação ]' : '[ voltar ]'}</button>
+            }}>{store._retornoInvestigacao ? t('games.jackcandy.dungeon_voltar_investigacao') : t('games.jackcandy.voltar')}</button>
             <button className="jack-btn jack-btn--amber" onClick={() => store.showResultCard({
               title: `${dungeon?.nome || 'Dungeon'} completo`,
               subtitle: `${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas`,
@@ -406,7 +408,8 @@ export default function Dungeon({ dungeonId }) {
                 { label: 'Fragmentos', value: `💎 ${dungeon?.dropFragmentos || 0}` },
                 { label: 'Dungeons', value: store.dungeonsCompletas?.length || 0 },
               ],
-            })}>[ compartilhar ]</button>
+            })}
+          >{t('games.jackcandy.dungeon_compartilhar')}</button>
           </div>
         </motion.div>
       </div>
@@ -419,13 +422,13 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon-status">
         <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
         {dungeon?.mecanica === 'fuga' && (
-          <span className="jack-text--amber" style={{ fontSize: '0.7rem' }}>round {fugaRound}/{dungeon.rounds || 15}</span>
+          <span className="jack-text--amber" style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.dungeon_round', { atual: fugaRound, total: dungeon.rounds || 15 })}</span>
         )}
         {stealthMode && !stealthDetectado && (
-          <span className="jack-text--crimson" style={{ fontSize: '0.7rem' }}>🥷 stealth</span>
+          <span className="jack-text--crimson" style={{ fontSize: '0.7rem' }}>🥷 {t('games.jackcandy.dungeon_stealth')}</span>
         )}
         <span className="jdc-dungeon-status-hp">
-          <span className="jdc-dungeon-status-hp-label">MORAL</span>
+          <span className="jdc-dungeon-status-hp-label">{t('games.jackcandy.dungeon_moral_label')}</span>
           <span className="jdc-dungeon-status-hp-val">{hp}/{hpMax}</span>
         </span>
       </div>
@@ -495,7 +498,7 @@ export default function Dungeon({ dungeonId }) {
               transition={{ duration: 0.3 }} />
           </div>
           <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem', textAlign: 'center', margin: '0.25rem 0' }}>
-            {restantes} inimigo{restantes !== 1 ? 's' : ''} restante{restantes !== 1 ? 's' : ''}
+            {t('games.jackcandy.dungeon_inimigos_restantes', { n: restantes })}
           </p>
         </>
       )}
@@ -545,7 +548,7 @@ export default function Dungeon({ dungeonId }) {
             hpRef.current = novaHp
             setLog(l => [...l, `🚬 último cigarro. Moral total.`])
           }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
-            [ 🚬 último cigarro ]
+            [ 🚬 {t('games.jackcandy.dungeon_ultimo_cigarro')} ]
           </button>
         ))}
       </div>

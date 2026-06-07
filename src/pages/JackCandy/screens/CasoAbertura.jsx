@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useJackStore } from '../store/useJackStore'
+import { useLanguage } from '../../../context/LanguageContext'
 import { CASOS } from '../data/casos'
 import DialogoCaso from '../components/DialogoCaso'
 import IntroNoir from '../components/IntroNoir'
 
 export default function CasoAbertura() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const casoId = useJackStore(s => s._casoPreview)
   const caso = CASOS[casoId]
@@ -33,7 +35,7 @@ export default function CasoAbertura() {
           <div className="jdc-investigacao-header">
             <span className="jack-text--amber">📋 {caso.nome}</span>
             <button className="jack-btn" onClick={() => store.setFase('caso_select')}
-              style={{ fontSize: '0.7rem' }}>[ voltar ]</button>
+              style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.voltar')}</button>
           </div>
           <div className="jdc-caso-dialogo" style={{ marginTop: '1rem' }}>
             <DialogoCaso

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useJackStore } from '../store/useJackStore'
+import { useLanguage } from '../../../context/LanguageContext'
 
 const DIALOGO_KIM = [
   { jack: 'era você.', kim: 'era eu.' },
@@ -22,6 +23,7 @@ const DIALOGO_KIM = [
 ]
 
 export default function Interrogatorio() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const [passo, setPasso] = useState(0)
   const [terminou, setTerminou] = useState(false)
@@ -60,11 +62,10 @@ export default function Interrogatorio() {
             {DIALOGO_KIM[passo]?.kim || DIALOGO_KIM[passo]?.jack || '"...pronto. satisfeito?"'}
           </p>
           <p className="jack-text jack-text--dim" style={{ marginTop: '1rem', fontStyle: 'italic' }}>
-            kim te olhou com aquela cara de sempre. a cara de quem sabe mais do que conta.
-            e sorriu. você odeia quando ele faz isso.
+            {t('games.jackcandy.interrogatorio_fim')}
           </p>
           <button className="jack-btn jack-btn--amber" onClick={finalizar} style={{ marginTop: '1.5rem' }}>
-            [ acordar ]
+            {t('games.jackcandy.interrogatorio_acordar')}
           </button>
         </div>
       </motion.div>
@@ -77,7 +78,7 @@ export default function Interrogatorio() {
     <motion.div className="jdc-interrogatorio" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       onClick={avancar} style={{ cursor: 'pointer' }}>
       <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>
-        clique para avançar
+        {t('games.jackcandy.interrogatorio_clique')}
       </p>
 
       <div className="jdc-interrogatorio-cena">
