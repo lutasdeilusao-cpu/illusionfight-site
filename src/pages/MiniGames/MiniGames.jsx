@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
 import { MINIGAMES_VERSION } from '../../config/version'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
+
+function tNome(g, p) { return p.t(`games.minigames.puzzles.${g}.${p.locale === 'pt' ? 'nome' : 'nome'}`) }
 
 const GAMES = [
   { id: 'stealth', nome: 'Infiltração', tagline: 'evite as câmeras. chegue ao objetivo.', emoji: '🥷', cor: '#00B4D8', desc: 'câmeras com cone de visão rotativo. uma rota existe. encontre.', dificuldade: '★★☆' },
