@@ -488,7 +488,7 @@
 | `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | — | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ PT ✅ EN ✅ ES | Tela de fim |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.3 | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.3.0 | ✅ PT ✅ EN ✅ ES | 6 puzzles arcade + Enduro Kroniki |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.7.3 | ✅ PT ✅ EN ✅ ES | LDI ARENA 🔒 LoginGate — combate CPU |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
@@ -508,10 +508,10 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 2.90 | `src/config/version.js:5` |
+| `SITE_VERSION` | 2.91 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
-| `JACK_VERSION` | 5.1.2 | `src/config/version.js:12` |
+| `JACK_VERSION` | 5.1.3 | `src/config/version.js:12` |
 | `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
 | `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
