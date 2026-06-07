@@ -1,7 +1,7 @@
 # ILLUSION FIGHT — RELATÓRIO DE PROGRESSO
 Versão: 1.0
 Data: 2026-06-07
-Site: v2.95
+Site: v3.0
 
 ## RESUMO EXECUTIVO
 Site ~92% completo. Core (rotas, jogos, auth, pagamentos) 100% funcional.
@@ -33,7 +33,7 @@ Stripe ativo. 10 jogos na 1ª temporada. Campanha Catarse em preparação.
 | Deploy GitHub Pages | ✅ |
 | Sitemap (23 URLs) | ✅ |
 | Service Worker | ⚠️ Placeholder |
-| Domínio illusionfight.com | ⏳ Pendente |
+| Domínio illusionfight.com | ✅ Adquirido e configurado 🌐 https://illusionfight.com/ |
 | Stripe verificação identidade | ⚠️ Pendente (não bloqueia dev) |
 
 ## MARKETING
@@ -61,7 +61,7 @@ Stripe ativo. 10 jogos na 1ª temporada. Campanha Catarse em preparação.
 
 | Prioridade | Item |
 |---|---|
-| 🔴 | Comprar domínio illusionfight.com |
+| ~~🔴 Comprar domínio illusionfight.com~~ | ✅ Adquirido e configurado |
 | 🔴 | Publicar VID-001 (disparo da campanha de marketing) |
 | 🟡 | LDI Tactics — evolução de classe |
 | ~~🟡 Jack Dream Beer — i18n faltando (4 screens + components)~~ | ✅ Completo |

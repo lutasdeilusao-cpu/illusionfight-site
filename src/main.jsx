@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ReaderProvider>
       <HelmetProvider>
-        <BrowserRouter basename="/illusionfight-site">
+        <BrowserRouter basename="/">
           <AuthProvider>
           <FichasProvider>
             <AchievementsProvider>
