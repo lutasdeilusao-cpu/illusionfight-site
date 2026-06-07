@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { usePPStore } from '../store/usePPStore'
 import { getCaso } from '../data/resolver'
-import { t } from '../data/pp-i18n'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function CasoAbertura() {
+  const { t } = useLanguage()
   const store = usePPStore()
   const caso = getCaso(store.casoAtivo)
   const [fim, setFim] = useState(false)
@@ -53,7 +54,7 @@ export default function CasoAbertura() {
           ))}
         </div>
         <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>
-          {t('pt', 'abertura.investigar')}
+          {t('pp.abertura.investigar')}
         </button>
       </div>
     )

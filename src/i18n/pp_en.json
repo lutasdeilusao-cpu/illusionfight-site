@@ -1,0 +1,162 @@
+{
+  "intro": {
+    "texto": "Marelia, 1954. It hasn't stopped raining for three days.\n\nYou're not a detective.\n\nBut the dream doesn't care.",
+    "titulo": "PRIVATE NIGHTMARE",
+    "pular": "tap to skip"
+  },
+  "menu": {
+    "marelia": "Marelia, 1954",
+    "titulo_linha1": "PRIVATE",
+    "titulo_linha2": "NIGHTMARE",
+    "continuar": "● CONTINUE",
+    "nivel_casos": "level {nivel}, {casos} cases solved",
+    "novo_jogo": "○ NEW GAME",
+    "voltar_site": "← back to site",
+    "confirmar": "are you sure?\nthis deletes everything.",
+    "nao": "NO",
+    "sim": "YES"
+  },
+  "final": {
+    "msg_jack": "it was a pleasure working with you.\nmarelia will keep needing someone like you.",
+    "jack_label": "Jack Cachorrão",
+    "creditos_titulo": "PRIVATE NIGHTMARE",
+    "creditos_temporada": "Season 1",
+    "creditos_historia": "a story by",
+    "creditos_marelia": "MARELIA, 1954",
+    "creditos_escrito": "written and directed by",
+    "creditos_autor": "ISAIAS LEAL",
+    "creditos_obrigado": "thank you for playing",
+    "creditos_prox_temp": "see you next season.",
+    "nivel_casos_label": "level {nivel} · {casos} cases solved",
+    "compartilhar": "share with friends",
+    "voltar_inicio": "back to start",
+    "link_copiado": "link copied!"
+  },
+  "convo": {
+    "caso_aberto": "Case opened.",
+    "caso_encerrado": "Case closed.",
+    "jack_nome": "Jack Cachorrão",
+    "online": "● online"
+  },
+  "batalha": {
+    "titulo": "CONFRONT · LEVEL {nivel}",
+    "comeca": "The confrontation begins.",
+    "atacar": "⚔️ ATTACK",
+    "inimigo_agindo": "⏳ Enemy acting...",
+    "vitoria": "✓ Victory!",
+    "derrota": "✗ Defeat",
+    "jack_ataca": "Jack attacks: {dano} damage",
+    "inimigo_ataca": "{nome} attacks: {dano} damage",
+    "inimigo_derrotado": "Enemy defeated!",
+    "jack_derrotado": "Jack was defeated...",
+    "critico": "⚡ CRITICAL!",
+    "resultado": "result: {valor}",
+    "vitoria_msg": "⚔️ VICTORY!",
+    "derrota_msg": "💀 You were defeated!",
+    "voce_ataca": "You attack and deal {dano} damage.",
+    "inimigo_ataca_log": "{nome} attacks and deals {dano} damage."
+  },
+  "local": {
+    "confronto": "Confrontation Required",
+    "puzzle": "Solve Puzzle to Investigate",
+    "investigar": "Investigate Location",
+    "voltar_dossier": "← Back to Dossier",
+    "evidencia_encontrada": "EVIDENCE FOUND",
+    "todos_investigados": "All locations investigated",
+    "voltar_dossier_btn": "BACK TO DOSSIER",
+    "restantes": "Location ({n} remaining)",
+    "investigar_btn": "INVESTIGATE",
+    "investigar_puzzle_btn": "INVESTIGATE (puzzle)",
+    "hp_label": "HP",
+    "dossier_voltar": "← dossier",
+    "mapa_voltar": "← map",
+    "puzzle_instrucao": "Solve the puzzle to investigate this location.",
+    "puzzle_nenhum": "No puzzle needed."
+  },
+  "dossier": {
+    "caso_encerrado": "CASE CLOSED",
+    "reputacao": "+{valor} reputation",
+    "voltar_mapa": "BACK TO MAP",
+    "inocente": "Innocent! Lost reputation.",
+    "suspeitos": "SUSPECTS",
+    "locais": "LOCATIONS",
+    "briefing": "Case Briefing",
+    "ver_abertura": "View opening conversation",
+    "pistas_label": "CLUES COLLECTED",
+    "evidencias": "EVIDENCE",
+    "resolvido_badge": "SOLVED ✓",
+    "sem_requisito": "no requirement",
+    "novo_fio": "NEW THREAD"
+  },
+  "acusar": {
+    "errada": "wrong lead. try again.",
+    "bloqueada": "case failed. restart to try again.",
+    "incompleta": "collect all clues before accusing.",
+    "colete_mais": "Collect {n} more clue{plural}",
+    "btn": "ACCUSE {nome}"
+  },
+  "phone": {
+    "chamada": "INCOMING CALL",
+    "atender": "📞 ANSWER",
+    "recusar": "✕ DECLINE",
+    "suspeito_label": "Suspect"
+  },
+  "story": {
+    "fio_label": "⚡ CONSPIRACY THREAD"
+  },
+  "caderno": {
+    "titulo": "Suspect Notebook",
+    "desc": "Thread clues collected form a pattern. Someone is connecting all the cases.",
+    "progresso": "Conspiracy progress: {pct}%",
+    "vazio": "No Thread clues collected yet. Solve cases to find connections.",
+    "conspiracao_5": "A name keeps coming up. Kim. The bar owner. Always present, never suspected.",
+    "conspiracao_10": "The pieces are falling into place. Someone is orchestrating crime in Marelia. Someone who knows everyone involved.",
+    "conspiracao_15": "The pattern is clear. Kim is at the center of everything. Every case, every death, every clue leads to the corner bar."
+  },
+  "dormindo": {
+    "titulo": "UNCONSCIOUS",
+    "texto": "You were defeated. The dream goes dark. Jack lies in the alley, rain washing blood off the asphalt.\n\nIn a few minutes, someone will find him. Or maybe no one will. This is Marelia.",
+    "acordar": "WAKE UP"
+  },
+  "fimscreen": {
+    "titulo": "END OF NIGHTMARE",
+    "completo": "You collected enough clues. Kim was confronted with all the evidence. The dream ends with clarity — but the memories remain.",
+    "fragmentado": "You didn't get all the clues. Kim admits to some crimes, but partially escapes. The dream ends with doubt — maybe there's more to uncover.",
+    "reputacao_label": "total reputation",
+    "casos_label": "cases solved",
+    "fios_label": "Thread clues collected",
+    "voltar_mapa": "BACK TO MAP"
+  },
+  "resolucao": {
+    "caso_encerrado": "CASE CLOSED",
+    "novo_fio": "NEW THREAD",
+    "voltar_mapa": "BACK TO MAP",
+    "ver_caderno": "VIEW NOTEBOOK"
+  },
+  "mapa": {
+    "subtitulo": "Marelia, 1954. The dream chose you.",
+    "sem_requisito": "no requirement"
+  },
+  "abertura": {
+    "investigar": "INVESTIGATE"
+  },
+  "geral": {
+    "reputacao": "★ {valor}",
+    "casos_resolvidos": "{n}/{total}",
+    "hp": "HP: {hp}/30"
+  },
+  "feed": {
+    "revisitar": "REVISIT",
+    "investigar": "INVESTIGATE",
+    "mensagens": "MESSAGES",
+    "stories_vazio": "No clues collected yet.\n\nInvestigate the case locations to reveal evidence.",
+    "status_reputacao": "REPUTATION",
+    "status_casos": "CASES SOLVED",
+    "status_nivel": "LEVEL",
+    "status_fios": "CONSPIRACY THREADS",
+    "topbar_nome": "Private Nightmare",
+    "topbar_sub": "Marelia, 1954 · Level {nivel}",
+    "loading": "LOADING...",
+    "caderno_vazio": "\"I still don't know who it is.\nbut every clue connects one point to another.\""
+  }
+}

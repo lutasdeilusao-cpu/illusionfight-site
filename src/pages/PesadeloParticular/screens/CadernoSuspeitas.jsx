@@ -1,9 +1,10 @@
 import { usePPStore } from '../store/usePPStore'
 import { PISTAS } from '../data/pistas'
 import { CASOS } from '../data/casos'
-import { t } from '../data/pp-i18n'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function CadernoSuspeitas() {
+  const { t } = useLanguage()
   const store = usePPStore()
   const { cadernoSuspeitas } = store
 
@@ -15,17 +16,17 @@ export default function CadernoSuspeitas() {
   return (
     <div className="pp-container">
       <div className="pp-dossier-header">
-        <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pt', 'local.mapa_voltar')}</button>
-        <h2 style={{ color: '#FFD700', margin: 0 }}>{t('pt', 'caderno.titulo')}</h2>
+        <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pp.local.mapa_voltar')}</button>
+        <h2 style={{ color: '#FFD700', margin: 0 }}>{t('pp.caderno.titulo')}</h2>
       </div>
 
       <p style={{ color: '#888', fontSize: 12, marginBottom: 20 }}>
-        {t('pt', 'caderno.desc')}
+        {t('pp.caderno.desc')}
       </p>
 
       <div style={{ marginBottom: 16 }}>
         <div style={{ color: '#555', fontSize: 10, marginBottom: 4 }}>
-          {t('pt', 'caderno.progresso', { pct: progresso })}
+          {t('pp.caderno.progresso', { pct: progresso })}
         </div>
         <div style={{ height: 4, background: '#1a1a1a' }}>
           <div style={{ height: '100%', background: '#FFD700', transition: 'width 0.5s', width: `${progresso}%` }} />
@@ -34,7 +35,7 @@ export default function CadernoSuspeitas() {
 
       {fios.length === 0 ? (
         <div className="pp-fio-card-vazia">
-          {t('pt', 'caderno.vazio')}
+          {t('pp.caderno.vazio')}
         </div>
       ) : (
         <div className="pp-caderno-grid">
@@ -58,10 +59,10 @@ export default function CadernoSuspeitas() {
         <div style={{ marginTop: 24, padding: 16, border: '1px solid #FFD70033', background: 'rgba(255,215,0,0.03)' }}>
           <p style={{ color: '#FFD700', fontSize: 13, fontStyle: 'italic' }}>
             {fios.length >= 15
-              ? t('pt', 'caderno.conspiracao_15')
+              ? t('pp.caderno.conspiracao_15')
               : fios.length >= 10
-              ? t('pt', 'caderno.conspiracao_10')
-              : t('pt', 'caderno.conspiracao_5')}
+              ? t('pp.caderno.conspiracao_10')
+              : t('pp.caderno.conspiracao_5')}
           </p>
         </div>
       )}

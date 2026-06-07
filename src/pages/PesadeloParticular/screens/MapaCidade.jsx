@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { usePPStore } from '../store/usePPStore'
 import { CASOS } from '../data/casos'
 import { casosDisponiveis } from '../data/resolver'
-import { t } from '../data/pp-i18n'
+import { useLanguage } from '../../../context/LanguageContext'
 
 const NODES = {
   caso_01: { x: 390, y: 30 },
@@ -35,6 +35,7 @@ const EDGES = [
 ]
 
 export default function MapaCidade() {
+  const { t } = useLanguage()
   const store = usePPStore()
   const { casosResolvidos, reputacao } = store
   const [tooltip, setTooltip] = useState(null)
@@ -64,12 +65,12 @@ export default function MapaCidade() {
     <div className="pp-container" style={{ paddingTop: 40 }}>
       <div style={{ textAlign: 'center', marginBottom: 8 }}>
         <h1 className="pp-title">
-          <span className="pp-title-glitch" data-text={t('pt', 'intro.titulo')}>{t('pt', 'intro.titulo')}</span>
+          <span className="pp-title-glitch" data-text={t('pp.intro.titulo')}>{t('pp.intro.titulo')}</span>
         </h1>
-        <p className="pp-subtitle"><span className="pp-cursor">█</span> {t('pt', 'mapa.subtitulo')}</p>
+        <p className="pp-subtitle"><span className="pp-cursor">█</span> {t('pp.mapa.subtitulo')}</p>
       </div>
 
-      <div className="pp-rep-display">{t('pt', 'geral.reputacao', { valor: reputacao })}</div>
+      <div className="pp-rep-display">{t('pp.geral.reputacao', { valor: reputacao })}</div>
 
       <div className="pp-mapa-wrap">
         <svg className="pp-mapa-svg" viewBox="0 0 780 860" preserveAspectRatio="xMidYMin meet">
@@ -102,7 +103,7 @@ export default function MapaCidade() {
           <div className="pp-mapa-tooltip" style={{ left: tooltip.x, top: tooltip.y }}>
             <div className="pp-mapa-tooltip-name">{tooltip.nome}</div>
             <div className="pp-mapa-tooltip-diff">
-              {'◆'.repeat(tooltip.dificuldade)} · {tooltip.reputacao_minima > 0 ? `${tooltip.reputacao_minima} rep` : t('pt', 'mapa.sem_requisito')}
+              {'◆'.repeat(tooltip.dificuldade)} · {tooltip.reputacao_minima > 0 ? `${tooltip.reputacao_minima} rep` : t('pp.mapa.sem_requisito')}
             </div>
           </div>
         )}

@@ -11,11 +11,9 @@ import PuzzleLabirinto from '../../components/Puzzles/PuzzleLabirinto'
 import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
-import { t } from './data/pp-i18n'
+import { useLanguage } from '../../context/LanguageContext'
 import { PP_VERSION } from '../../config/version'
 import './PP.css'
-
-const LOCALE = 'pt'
 
 const AVATARES = {
   jack:     { emoji: '🕵️', cor: '#1a3a2a', textCor: '#00ff88',  label: 'Jack' },
@@ -63,9 +61,10 @@ function rolar(min, max) {
 // INTRO NOIR
 // ══════════════════════════════════════════════════
 function IntroNoir({ onComplete }) {
+  const { t } = useLanguage()
   const [text, setText] = useState('')
   const [fase, setFase] = useState('typing')
-  const fullText = t('pt', 'intro.texto')
+  const fullText = t('pp.intro.texto')
   const idx = useRef(0)
   const timerRef = useRef(null)
 
@@ -96,7 +95,7 @@ function IntroNoir({ onComplete }) {
   return (
     <div className="pp-intro" onClick={() => { clearInterval(timerRef.current); onComplete() }}>
       <div className="pp-rain" />
-      <div className="pp-intro-label">{t('pt', 'intro.titulo')}</div>
+      <div className="pp-intro-label">{t('pp.intro.titulo')}</div>
       <div className="pp-intro-text">
         {text.split('\n').map((line, i, arr) => (
           <span key={i}>{line}{i < arr.length - 1 && <><br /><br /></>}</span>
@@ -105,7 +104,7 @@ function IntroNoir({ onComplete }) {
       </div>
       {fase === 'glitch' && <div className="pp-glitch-overlay" />}
       <div className="pp-intro-skip">
-        {t('pt', 'intro.pular')}
+        {t('pp.intro.pular')}
       </div>
     </div>
   )
@@ -115,11 +114,12 @@ function IntroNoir({ onComplete }) {
 // TELA FINAL — CRÉDITOS
 // ══════════════════════════════════════════════════
 function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
+  const { t } = useLanguage()
   const [fase, setFase] = useState('chat')
   const [texto, setTexto] = useState('')
   const idxRef = useRef(0)
 
-  const msgFinal = t('pt', 'final.msg_jack')
+  const msgFinal = t('pp.final.msg_jack')
 
   useEffect(() => {
     if (fase !== 'chat') return
@@ -141,7 +141,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
     return (
       <div className="pp-final-chat">
         <div className="pp-convo-header">
-          <span className="pp-amber-mono-sm">{t('pt', 'final.jack_label')}</span>
+          <span className="pp-amber-mono-sm">{t('pp.final.jack_label')}</span>
         </div>
         <div className="pp-final-chat-body">
           <div className="pp-final-chat-msg">
@@ -163,18 +163,18 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
       <div className="pp-final-credits">
         <div className="pp-rain" />
         <div className="pp-credits-roll">
-          <p className="pp-credits-title">{t('pt', 'final.creditos_titulo')}</p>
-          <p className="pp-credits-sub">{t('pt', 'final.creditos_temporada')}</p>
+          <p className="pp-credits-title">{t('pp.final.creditos_titulo')}</p>
+          <p className="pp-credits-sub">{t('pp.final.creditos_temporada')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line">{t('pt', 'final.creditos_historia')}</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>{t('pt', 'final.creditos_marelia')}</p>
+          <p className="pp-credits-line">{t('pp.final.creditos_historia')}</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>{t('pp.final.creditos_marelia')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line">{t('pt', 'final.creditos_escrito')}</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>{t('pt', 'final.creditos_autor')}</p>
+          <p className="pp-credits-line">{t('pp.final.creditos_escrito')}</p>
+          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>{t('pp.final.creditos_autor')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>{t('pt', 'final.creditos_obrigado')}</p>
+          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>{t('pp.final.creditos_obrigado')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>{t('pt', 'final.creditos_prox_temp')}</p>
+          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>{t('pp.final.creditos_prox_temp')}</p>
           <p style={{ height:200 }} />
         </div>
       </div>
@@ -185,19 +185,19 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
     <div className="pp-final-screen">
       <div className="pp-rain" />
       <div className="pp-page-content">
-        <h1 className="pp-credits-h1">{t('pt', 'final.creditos_titulo')}</h1>
-        <p className="pp-text-mono-muted" style={{marginBottom:'2rem'}}>{t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
+        <h1 className="pp-credits-h1">{t('pp.final.creditos_titulo')}</h1>
+        <p className="pp-text-mono-muted" style={{marginBottom:'2rem'}}>{t('pp.final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
         <button onClick={() => {
-          const txt = `${t('pt', 'final.compartilhar')} — ${t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}.\nlutasdeilusao-cpu.github.io/illusionfight-site`
-          if (navigator.share) navigator.share({ title:t('pt', 'final.creditos_titulo'), text:txt })
-          else navigator.clipboard?.writeText(txt).then(() => alert(t('pt', 'final.link_copiado')))
+          const txt = `${t('pp.final.compartilhar')} — ${t('pp.final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}.\nlutasdeilusao-cpu.github.io/illusionfight-site`
+          if (navigator.share) navigator.share({ title:t('pp.final.creditos_titulo'), text:txt })
+          else navigator.clipboard?.writeText(txt).then(() => alert(t('pp.final.link_copiado')))
         }}
           className="pp-btn-share">
-          {t('pt', 'final.compartilhar')}
+          {t('pp.final.compartilhar')}
         </button>
         <button onClick={onVoltarInicio}
           className="pp-btn-back-link">
-          {t('pt', 'final.voltar_inicio')}
+          {t('pp.final.voltar_inicio')}
         </button>
       </div>
     </div>
@@ -208,6 +208,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
 // ANIMAÇÃO INVESTIGAÇÃO SEM PUZZLE
 // ══════════════════════════════════════════════════
 function AnimacaoInvestigacao({ onComplete }) {
+  const { t } = useLanguage()
   const [fase, setFase] = useState('pegadas') // pegadas | lupa | revelando
 
   useEffect(() => {
@@ -242,7 +243,7 @@ function AnimacaoInvestigacao({ onComplete }) {
         {fase === 'revelando' && (
           <motion.div key="revelando" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}>
             <span className="pp-evidence-found">
-              {t('pt', 'local.evidencia_encontrada')}
+              {t('pp.local.evidencia_encontrada')}
             </span>
           </motion.div>
         )}
@@ -259,6 +260,7 @@ function AnimacaoInvestigacao({ onComplete }) {
 // SISTEMA DE BATALHA
 // ══════════════════════════════════════════════════
 function BatalhaView({ nivel, onVitoria, onDerrota }) {
+  const { t } = useLanguage()
   const inimigo = getInimigo(nivel)
   const jackBase = getJackStats(nivel)
 
@@ -282,10 +284,10 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
     setAnimAtaque('jack')
     setTimeout(() => setAnimAtaque(null), 400)
     setInimigoHp(novoHp)
-    addLog(t('pt', 'batalha.jack_ataca', { dano }), 'player')
+    addLog(t('pp.batalha.jack_ataca', { dano }), 'player')
 
     if (novoHp <= 0) {
-      addLog(t('pt', 'batalha.inimigo_derrotado'), 'vitoria')
+      addLog(t('pp.batalha.inimigo_derrotado'), 'vitoria')
       setResultado('vitoria')
       setTurno('fim')
       setTimeout(() => onVitoria(), 1500)
@@ -299,10 +301,10 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
       setAnimAtaque('inimigo')
       setTimeout(() => setAnimAtaque(null), 400)
       setJackHp(novoJackHp)
-      addLog(t('pt', 'batalha.inimigo_ataca', { nome: inimigo.nome, dano: danoInimigo }), 'inimigo')
+      addLog(t('pp.batalha.inimigo_ataca', { nome: inimigo.nome, dano: danoInimigo }), 'inimigo')
 
       if (novoJackHp <= 0) {
-        addLog(t('pt', 'batalha.jack_derrotado'), 'derrota')
+        addLog(t('pp.batalha.jack_derrotado'), 'derrota')
         setResultado('derrota')
         setTurno('fim')
         setTimeout(() => onDerrota(), 1500)
@@ -317,7 +319,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
   return (
     <div className="pp-battle-section">
       <div className="pp-battle-header">
-        {t('pt', 'batalha.titulo', { nivel })}
+        {t('pp.batalha.titulo', { nivel })}
       </div>
 
       {/* Inimigo */}
@@ -337,7 +339,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
 
       {/* Log */}
       <div ref={logRef} className="pp-battle-log">
-        {log.length === 0 && <div className="pp-battle-log-empty">{t('pt', 'batalha.comeca')}</div>}
+        {log.length === 0 && <div className="pp-battle-log-empty">{t('pp.batalha.comeca')}</div>}
         {log.map(l => (
           <div key={l.id} className="pp-battle-log-entry" style={{ color: l.tipo === 'player' ? 'var(--pp-jack)' : l.tipo === 'inimigo' ? 'var(--pp-nina)' : l.tipo === 'vitoria' ? 'var(--pp-success)' : l.tipo === 'derrota' ? 'var(--pp-danger)' : 'var(--pp-text-muted)' }}>
             {l.texto}
@@ -365,7 +367,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
         onClick={atacarInimigo}
         disabled={turno !== 'player' || !!resultado}
         className={`pp-battle-btn ${turno === 'player' && !resultado ? 'pp-battle-btn-ready' : 'pp-battle-btn-disabled'}`}>
-        {turno === 'player' ? t('pt', 'batalha.atacar') : turno === 'inimigo' ? t('pt', 'batalha.inimigo_agindo') : resultado === 'vitoria' ? t('pt', 'batalha.vitoria') : t('pt', 'batalha.derrota')}
+        {turno === 'player' ? t('pp.batalha.atacar') : turno === 'inimigo' ? t('pp.batalha.inimigo_agindo') : resultado === 'vitoria' ? t('pp.batalha.vitoria') : t('pp.batalha.derrota')}
       </button>
     </div>
   )
@@ -375,6 +377,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
 // CONVERSA (WHATSAPP STYLE)
 // ══════════════════════════════════════════════════
 function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
+  const { t, locale } = useLanguage()
   const [msgs, setMsgs] = useState([])
   const [digitandoDe, setDigitandoDe] = useState(null)
   const msgsContainerRef = useRef(null)
@@ -386,10 +389,10 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
     ? caso.dialogo?.abertura || []
     : caso.dialogo?.resolucao || []
   const narracaoRaw = tipo === 'abertura'
-    ? caso.dialogo?.narracao_abertura || [t('pt', 'convo.caso_aberto')]
-    : caso.dialogo?.narracao_final || [t('pt', 'convo.caso_encerrado')]
+    ? caso.dialogo?.narracao_abertura || [t('pp.convo.caso_aberto')]
+    : caso.dialogo?.narracao_final || [t('pp.convo.caso_encerrado')]
   const narracao = (typeof narracaoRaw === 'object' && !Array.isArray(narracaoRaw))
-    ? (narracaoRaw[LOCALE] || Object.values(narracaoRaw)[0] || '...')
+    ? (narracaoRaw[locale] || Object.values(narracaoRaw)[0] || '...')
     : Array.isArray(narracaoRaw) ? (narracaoRaw[0] || '...') : (narracaoRaw || '...')
 
   useEffect(() => {
@@ -420,7 +423,7 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
         setMsgs(prev => [...prev, {
           id: `msg-${runId}-${i}`,
           de: msg.de,
-          texto: msg.i18n[LOCALE],
+          texto: msg.i18n[locale],
           hora: new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' }),
         }])
         if (i === dialogo.length - 1) {
@@ -465,8 +468,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
           {AVATARES.jack.emoji}
         </div>
         <div>
-          <div className="pp-battle-card-name" style={{ color:'var(--pp-jack)' }}>{t('pt', 'convo.jack_nome')}</div>
-          <div className="pp-text-mono-xs" style={{ color:'var(--pp-success)' }}>{t('pt', 'convo.online')}</div>
+          <div className="pp-battle-card-name" style={{ color:'var(--pp-jack)' }}>{t('pp.convo.jack_nome')}</div>
+          <div className="pp-text-mono-xs" style={{ color:'var(--pp-success)' }}>{t('pp.convo.online')}</div>
         </div>
       </div>
 
@@ -530,7 +533,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
 // STORY VIEWER
 // ══════════════════════════════════════════════════
 function StoryViewer({ pista, onClose }) {
-  const info = pista.i18n[LOCALE]
+  const { t, locale } = useLanguage()
+  const info = pista.i18n[locale]
   const TIPO_EMOJI = { objeto:'🔍', testemunho:'💬', documento:'📄', rastro:'👣', fio:'🕸️' }
   return (
     <motion.div className="pp-story-viewer" onClick={onClose}
@@ -542,7 +546,7 @@ function StoryViewer({ pista, onClose }) {
       <div className="pp-story-viewer-content">
         <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
-        {pista.fio && <div className="pp-story-viewer-fio-label pp-fio-badge">{t('pt', 'story.fio_label')}</div>}
+        {pista.fio && <div className="pp-story-viewer-fio-label pp-fio-badge">{t('pp.story.fio_label')}</div>}
         <div className="pp-story-viewer-title">{info.titulo}</div>
         <div className="pp-story-viewer-desc">{info.desc}</div>
       </div>
@@ -554,8 +558,9 @@ function StoryViewer({ pista, onClose }) {
 // LOCAL VIEW
 // ══════════════════════════════════════════════════
 function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
+  const { t, locale } = useLanguage()
   const [etapa, setEtapa] = useState('inicio') // inicio | animacao | puzzle | batalha | revelado
-  const locInfo = local.i18n[LOCALE]
+  const locInfo = local.i18n[locale]
   const pista = caso.pistas.find(p => p.id === local.pista_id)
 
   const iniciarInvestigacao = () => {
@@ -611,7 +616,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
                 {local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}
               </div>
               <div className="pp-local-puzzle-label">
-                {local.batalha ? t('pt', 'local.confronto') : local.puzzle && local.puzzle !== 'nenhum' ? t('pt', 'local.puzzle') : t('pt', 'local.investigar')}
+                {local.batalha ? t('pp.local.confronto') : local.puzzle && local.puzzle !== 'nenhum' ? t('pp.local.puzzle') : t('pp.local.investigar')}
               </div>
               {local.puzzle && local.puzzle !== 'nenhum' && (
                 <div className="pp-local-puzzle-sub">{local.puzzle.toUpperCase()}</div>
@@ -643,13 +648,13 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
             style={{ margin:'1rem' }}>
             <span className={`pp-local-pista-tipo-badge ${pista.tipo}`}>{pista.tipo}</span>
             {pista.fio && <span className="pp-local-pista-tipo-badge fio" style={{ marginLeft:'0.4rem' }}>⚡ fio</span>}
-            <div className="pp-local-pista-title" style={{ marginTop:'0.5rem' }}>{pista.i18n[LOCALE].titulo}</div>
-            <div className="pp-local-pista-desc">{pista.i18n[LOCALE].desc}</div>
+            <div className="pp-local-pista-title" style={{ marginTop:'0.5rem' }}>{pista.i18n[locale].titulo}</div>
+            <div className="pp-local-pista-desc">{pista.i18n[locale].desc}</div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <button className="pp-local-voltar" onClick={onBack}>{t('pt', 'local.voltar_dossier')}</button>
+      <button className="pp-local-voltar" onClick={onBack}>{t('pp.local.voltar_dossier')}</button>
     </div>
   )
 }
@@ -658,6 +663,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
 // MENU INICIAL
 // ══════════════════════════════════════════════════
 function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
+  const { t } = useLanguage()
   const [confirmando, setConfirmando] = useState(false)
   const navigate = useNavigate()
   const rainRef = useRef(null)
@@ -680,16 +686,16 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
         <div ref={rainRef} className="pp-rain" />
         <div className="pp-page-content">
           <div className="pp-confirm-text">
-            {t('pt', 'menu.confirmar').split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
+            {t('pp.menu.confirmar').split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
           </div>
           <div className="pp-confirm-btns">
             <button onClick={() => setConfirmando(false)}
               className="pp-btn-nao">
-              {t('pt', 'menu.nao')}
+              {t('pp.menu.nao')}
             </button>
             <button onClick={onNovoJogo}
               className="pp-btn-sim">
-              {t('pt', 'menu.sim')}
+              {t('pp.menu.sim')}
             </button>
           </div>
         </div>
@@ -702,28 +708,28 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
       <div ref={rainRef} className="pp-rain" />
       <div className="pp-page-content">
         <div className="pp-menu-label">
-          {t('pt', 'menu.marelia')}
+          {t('pp.menu.marelia')}
         </div>
         <h1 className="pp-menu-title">
-          {t('pt', 'menu.titulo_linha1')}<br/>{t('pt', 'menu.titulo_linha2')}
+          {t('pp.menu.titulo_linha1')}<br/>{t('pp.menu.titulo_linha2')}
         </h1>
 
         <button onClick={onContinuar}
           className="pp-btn-continuar">
-          {t('pt', 'menu.continuar')}
+          {t('pp.menu.continuar')}
           <div className="pp-btn-continuar-sub">
-            {t('pt', 'menu.nivel_casos', { nivel, casos: casosResolvidos.length })}
+            {t('pp.menu.nivel_casos', { nivel, casos: casosResolvidos.length })}
           </div>
         </button>
 
         <button onClick={() => setConfirmando(true)}
           className="pp-btn-novo-jogo">
-          {t('pt', 'menu.novo_jogo')}
+          {t('pp.menu.novo_jogo')}
         </button>
 
         <button onClick={() => navigate('/games')}
           className="pp-btn-voltar-site">
-          {t('pt', 'menu.voltar_site')}
+          {t('pp.menu.voltar_site')}
         </button>
       </div>
     </div>
@@ -734,6 +740,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 // PHONE CALL — 50% pistas trigger
 // ══════════════════════════════════════════════════
 function PhoneCall({ caso, onAccept, onReject }) {
+  const { t, locale } = useLanguage()
   const [stage, setStage] = useState('ringing')
   const [msgAtual, setMsgAtual] = useState(0)
   const [textoExibido, setTextoExibido] = useState('')
@@ -743,10 +750,10 @@ function PhoneCall({ caso, onAccept, onReject }) {
 
   const suspeitoCulpado = caso.suspeitos.find(s => s.culpado)
   const linhas = [
-    { de: 'jack', texto: tf.jack_abertura[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
+    { de: 'jack', texto: tf.jack_abertura[locale], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
     // Mostrar apenas 'Suspeito' para preservar o mistério (não revelar o nome real do culpado)
-    { de: 'suspeito', texto: tf.suspeito[LOCALE], avatar: '👤', cor: '#ff4444', label: t('pt', 'phone.suspeito_label') },
-    { de: 'jack', texto: tf.jack_fechamento[LOCALE], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
+    { de: 'suspeito', texto: tf.suspeito[locale], avatar: '👤', cor: '#ff4444', label: t('pp.phone.suspeito_label') },
+    { de: 'jack', texto: tf.jack_fechamento[locale], avatar: '🕵️', cor: '#00ff88', label: 'Jack' },
   ]
 
   // Aceitar → mostrar diálogo linha a linha
@@ -783,14 +790,14 @@ function PhoneCall({ caso, onAccept, onReject }) {
           <div className="pp-phone-icon-wrap">
             <div className="pp-phone-vibrate">📞</div>
           </div>
-          <div className="pp-phone-label">{t('pt', 'phone.chamada')}</div>
-          <div className="pp-phone-conhecido">{caso.i18n[LOCALE]?.nome || caso.id}</div>
+          <div className="pp-phone-label">{t('pp.phone.chamada')}</div>
+          <div className="pp-phone-conhecido">{caso.i18n[locale]?.nome || caso.id}</div>
           <div className="pp-phone-buttons">
             <button className="pp-phone-btn pp-phone-btn--accept" onClick={() => { setStage('accepted'); setMsgAtual(0) }}>
-              <span>📞</span> {t('pt', 'phone.atender')}
+              <span>📞</span> {t('pp.phone.atender')}
             </button>
             <button className="pp-phone-btn pp-phone-btn--reject" onClick={onReject}>
-              <span>✕</span> {t('pt', 'phone.recusar')}
+              <span>✕</span> {t('pp.phone.recusar')}
             </button>
           </div>
         </div>
@@ -837,6 +844,7 @@ function PhoneCall({ caso, onAccept, onReject }) {
 // ══════════════════════════════════════════════════
 export default function PP() {
   const { user } = useAuth()
+  const { t, locale } = useLanguage()
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const store = usePPStore()
@@ -993,7 +1001,7 @@ export default function PP() {
           {/* Header */}
           <div className="pp-flex-between">
             <button className="pp-convo-back" onClick={() => { setFaseInterna(null); setCasoAtivo(null); setSuspeitoSelecionado(null) }}>←</button>
-            <span className="pp-amber-mono-sm">{casoAtivo.i18n[LOCALE].nome}</span>
+            <span className="pp-amber-mono-sm">{casoAtivo.i18n[locale].nome}</span>
           </div>
 
           {/* Briefing */}
@@ -1002,8 +1010,8 @@ export default function PP() {
               className="pp-briefing-card">
               <span className="pp-briefing-icon">💬</span>
               <div className="pp-briefing-info">
-                <div className="pp-briefing-title">{t('pt', 'dossier.briefing')}</div>
-                <div className="pp-briefing-sub">{t('pt', 'dossier.ver_abertura')}</div>
+                <div className="pp-briefing-title">{t('pp.dossier.briefing')}</div>
+                <div className="pp-briefing-sub">{t('pp.dossier.ver_abertura')}</div>
               </div>
               <span className="pp-briefing-arrow">→</span>
             </div>
@@ -1011,14 +1019,14 @@ export default function PP() {
 
           {/* Pistas counter */}
           <div className="pp-pistas-counter">
-            <span className="pp-pistas-counter-label">{t('pt', 'dossier.pistas_label')}</span>
+            <span className="pp-pistas-counter-label">{t('pp.dossier.pistas_label')}</span>
             <span className="pp-pistas-counter-value">{pistas.length} / {casoAtivo.pistas_necessarias}</span>
           </div>
 
           {/* Pistas coletadas — clicáveis */}
           {pistas.length > 0 && (
             <div style={{ marginBottom:'1rem' }}>
-              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>{t('pt', 'dossier.evidencias')}</div>
+              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>{t('pp.dossier.evidencias')}</div>
               {pistas.map(pid => {
                 const p = casoAtivo.pistas.find(pp => pp.id === pid)
                 if (!p) return null
@@ -1026,8 +1034,8 @@ export default function PP() {
                   <div key={pid} onClick={() => setStoryAtivo(p)}
                     className={`pp-pista-item ${p.fio ? 'pp-pista-item-fio' : ''}`}>
                     <span className="pp-pista-icon">{p.tipo === 'fio' ? '🕸️' : p.tipo === 'testemunho' ? '💬' : p.tipo === 'documento' ? '📄' : '🔍'}</span>
-                    <div className="pp-pista-title" style={{ color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[LOCALE].titulo}</div>
-                    {p.fio && <span className="pp-hashtag-fio">{t('pt', 'story.fio_label')}</span>}
+                    <div className="pp-pista-title" style={{ color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[locale].titulo}</div>
+                    {p.fio && <span className="pp-hashtag-fio">{t('pp.story.fio_label')}</span>}
                   </div>
                 )
               })}
@@ -1035,14 +1043,14 @@ export default function PP() {
           )}
 
           {/* Suspeitos */}
-          <div className="pp-dossier-section-title">{t('pt', 'dossier.suspeitos')}</div>
+          <div className="pp-dossier-section-title">{t('pp.dossier.suspeitos')}</div>
           {casoAtivo.suspeitos.map(s => (
             <div key={s.id} className={`pp-suspeito-card ${suspeitoSelecionado === s.id ? 'selected' : ''}`}
               onClick={() => !resolvido && setSuspeitoSelecionado(s.id)}>
               <div className="pp-suspeito-avatar">{s.avatar}</div>
               <div className="pp-suspeito-info">
-                <div className="pp-suspeito-nome">{s.i18n[LOCALE].nome}</div>
-                <div className="pp-suspeito-bio">{s.i18n[LOCALE].bio}</div>
+                <div className="pp-suspeito-nome">{s.i18n[locale].nome}</div>
+                <div className="pp-suspeito-bio">{s.i18n[locale].bio}</div>
               </div>
               {!resolvido && <div className="pp-suspeito-radio" />}
               {resolvido && s.culpado && <span className="pp-check-icon">✓</span>}
@@ -1050,10 +1058,10 @@ export default function PP() {
           ))}
 
           {/* Locais */}
-          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>{t('pt', 'dossier.locais')}</div>
+          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>{t('pp.dossier.locais')}</div>
           {casoAtivo.locais.map(local => {
             const pistaColetada = pistas.includes(local.pista_id)
-            const locInfo = local.i18n[LOCALE]
+            const locInfo = local.i18n[locale]
             return (
               <div key={local.id}
                 className={`pp-local-card ${pistaColetada ? 'pp-local-card-done' : ''}`}
@@ -1073,25 +1081,25 @@ export default function PP() {
             <>
               {feedbackAcusacao === 'errado' && (
                 <div className="pp-acusar-feedback">
-                  {t('pt', 'acusar.errada')}
+                  {t('pp.acusar.errada')}
                 </div>
               )}
               {feedbackAcusacao === 'bloqueado' && (
                 <div className="pp-acusar-feedback">
-                  {t('pt', 'acusar.bloqueada')}
+                  {t('pp.acusar.bloqueada')}
                 </div>
               )}
               {feedbackAcusacao === 'incompleto' && (
                 <div className="pp-acusar-feedback">
-                  {t('pt', 'acusar.incompleta')}
+                  {t('pp.acusar.incompleta')}
                 </div>
               )}
               <button className="pp-acusar-btn"
                 disabled={!suspeitoSelecionado || pistas.length < casoAtivo.pistas_necessarias || feedbackAcusacao === 'bloqueado'}
                 onClick={handleAcusar}>
               {pistas.length < casoAtivo.pistas_necessarias
-                ? t('pt', 'acusar.colete_mais', { n: pistasFaltam, plural: pistasFaltam > 1 ? 's' : '' })
-                : t('pt', 'acusar.btn', { nome: casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[LOCALE].nome || '...' })
+                ? t('pp.acusar.colete_mais', { n: pistasFaltam, plural: pistasFaltam > 1 ? 's' : '' })
+                : t('pp.acusar.btn', { nome: casoAtivo.suspeitos.find(s => s.id === suspeitoSelecionado)?.i18n[locale].nome || '...' })
               }
             </button>
             </>
@@ -1119,7 +1127,7 @@ export default function PP() {
                   <div className={`pp-story-ring ${pista.fio ? 'fio' : ''}`}>
                     <div className="pp-story-inner">{pista.tipo === 'fio' ? '🕸️' : '🔍'}</div>
                   </div>
-                  <div className="pp-story-label">{pista.i18n[LOCALE].titulo.split(' ')[0]}</div>
+                  <div className="pp-story-label">{pista.i18n[locale].titulo.split(' ')[0]}</div>
                 </div>
               ))}
             </div>
@@ -1128,7 +1136,7 @@ export default function PP() {
           {/* Casos como posts */}
           {casosDisponiveis.map(caso => {
             const resolvido = casosResolvidos.includes(caso.id)
-            const cInfo = caso.i18n[LOCALE]
+            const cInfo = caso.i18n[locale]
             return (
               <div key={caso.id} className={`pp-caso-card ${resolvido ? 'resolvido' : ''}`}>
                 <div className="pp-caso-header">
@@ -1143,7 +1151,7 @@ export default function PP() {
                 <div className="pp-caso-thumbnail">
                   <span className="pp-caso-thumb-emoji">{caso.thumbnail}</span>
                   <div className="pp-caso-thumbnail-text">{cInfo.subtitulo}</div>
-                  {resolvido && <div className="pp-caso-resolv-badge">{t('pt', 'dossier.resolvido_badge')}</div>}
+                  {resolvido && <div className="pp-caso-resolv-badge">{t('pp.dossier.resolvido_badge')}</div>}
                 </div>
 
                 <div className="pp-caso-actions">
@@ -1151,7 +1159,7 @@ export default function PP() {
                   <div className="pp-caso-action-btn"><span>🔍</span> {getPistasDoCase(caso.id).length}/{caso.pistas_necessarias}</div>
                   <span className="pp-caso-hashtag">#{cInfo.nome.replace(/\s/g,'')}</span>
                   <button className="pp-caso-open-btn" onClick={() => { setCasoAtivo(caso); setFaseInterna({ tipo:'dossier' }); setSuspeitoSelecionado(null) }}>
-                    {resolvido ? t('pt', 'feed.revisitar') : t('pt', 'feed.investigar')}
+                    {resolvido ? t('pp.feed.revisitar') : t('pp.feed.investigar')}
                   </button>
                 </div>
               </div>
@@ -1188,7 +1196,7 @@ export default function PP() {
             const primeiraMsg = caso?.dialogo?.abertura?.find(m => m.de === id)
             return {
               id,
-              ultima: primeiraMsg?.i18n?.[LOCALE] || '',
+              ultima: primeiraMsg?.i18n?.[locale] || '',
               hora: '--:--',
               unread: casosResolvidos.includes(caso?.id) ? 0 : 1,
             }
@@ -1196,7 +1204,7 @@ export default function PP() {
       ]
       return (
         <div className="pp-chat-list">
-          <div className="pp-section-header">{t('pt', 'feed.mensagens')}</div>
+          <div className="pp-section-header">{t('pp.feed.mensagens')}</div>
           {contatos.map(c => {
             const av = AVATARES[c.id] || AVATARES.anonimo
             const casoDoContato = CASOS.find(caso =>
@@ -1233,7 +1241,7 @@ export default function PP() {
           return p ? { pista:p, caso:c } : null
         }).filter(Boolean)
       )
-      if (todasPistas.length === 0) return <div className="pp-empty">{t('pt', 'feed.stories_vazio').split('\n').map((l,i) => <span key={i}>{i > 0 && <><br /><br /></>}{l}</span>)}</div>
+      if (todasPistas.length === 0) return <div className="pp-empty">{t('pp.feed.stories_vazio').split('\n').map((l,i) => <span key={i}>{i > 0 && <><br /><br /></>}{l}</span>)}</div>
       return (
         <div className="pp-stories-grid">
           {todasPistas.map(({ pista }) => (
@@ -1243,7 +1251,7 @@ export default function PP() {
               {pista.fio && <div className="pp-story-card-fio-border" />}
               <div className="pp-story-card-content">
                 <div className={`pp-story-card-tipo ${pista.tipo}`}>{pista.tipo}</div>
-                <div className="pp-story-card-title">{pista.i18n[LOCALE].titulo}</div>
+                <div className="pp-story-card-title">{pista.i18n[locale].titulo}</div>
               </div>
             </div>
           ))}
@@ -1255,34 +1263,34 @@ export default function PP() {
       const fios = getFiosPistas()
       return (
         <div className="pp-caderno">
-          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>{t('pt', 'caderno.titulo').toUpperCase()}</div>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>{t('pp.caderno.titulo').toUpperCase()}</div>
           <div className="pp-stats-grid">
             <div>
               <div className="pp-stats-cell-amber">{reputacao}</div>
-              <div className="pp-stat-label">{t('pt', 'feed.status_reputacao')}</div>
+              <div className="pp-stat-label">{t('pp.feed.status_reputacao')}</div>
             </div>
             <div>
               <div className="pp-stats-cell-jack">{casosResolvidos.length}</div>
-              <div className="pp-stat-label">{t('pt', 'feed.status_casos')}</div>
+              <div className="pp-stat-label">{t('pp.feed.status_casos')}</div>
             </div>
             <div>
               <div className="pp-stats-cell-kim">{nivel}</div>
-              <div className="pp-stat-label">{t('pt', 'feed.status_nivel')}</div>
+              <div className="pp-stat-label">{t('pp.feed.status_nivel')}</div>
             </div>
             <div>
               <div className="pp-stats-cell-fio">{fios.length}</div>
-              <div className="pp-stat-label">{t('pt', 'feed.status_fios')}</div>
+              <div className="pp-stat-label">{t('pp.feed.status_fios')}</div>
             </div>
           </div>
 
-          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>{t('pt', 'caderno.titulo').toUpperCase()}</div>
+          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>{t('pp.caderno.titulo').toUpperCase()}</div>
           {fios.length === 0
-            ? <div className="pp-caderno-empty">{t('pt', 'feed.caderno_vazio')}</div>
+            ? <div className="pp-caderno-empty">{t('pp.feed.caderno_vazio')}</div>
             : fios.map(({ pista, caso }) => (
               <div key={pista.id} className="pp-caderno-node pp-caderno-node-click" onClick={() => setStoryAtivo(pista)}>
-                <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
-                <div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div>
-                <div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div>
+                <div className="pp-caderno-node-caso">{caso.i18n[locale].nome}</div>
+                <div className="pp-caderno-node-title">⚡ {pista.i18n[locale].titulo}</div>
+                <div className="pp-caderno-node-desc">{pista.i18n[locale].desc}</div>
               </div>
             ))
           }
@@ -1295,7 +1303,7 @@ export default function PP() {
   if (!carregado) {
     return (
       <div className="pp-loading">
-        {t('pt', 'feed.loading')}
+        {t('pp.feed.loading')}
       </div>
     )
   }
@@ -1350,10 +1358,10 @@ export default function PP() {
             <button className="pp-exit-btn" onClick={() => navigate('/games')}>←</button>
             <div className="pp-top-bar-avatar">🌙</div>
             <div className="pp-top-bar-info">
-              <div className="pp-top-bar-name">{t('pt', 'feed.topbar_nome')}</div>
-              <div className="pp-top-bar-sub">{t('pt', 'feed.topbar_sub', { nivel })}</div>
+              <div className="pp-top-bar-name">{t('pp.feed.topbar_nome')}</div>
+              <div className="pp-top-bar-sub">{t('pp.feed.topbar_sub', { nivel })}</div>
             </div>
-            <div className="pp-top-bar-rep">{t('pt', 'geral.reputacao', { valor: reputacao })} REP</div>
+            <div className="pp-top-bar-rep">{t('pp.geral.reputacao', { valor: reputacao })} REP</div>
           </div>
         )}
 
@@ -1372,10 +1380,10 @@ export default function PP() {
         {!faseInterna && (
           <div className="pp-bottom-nav">
             {[
-              { id:'feed',      icon:'🏠', label:t('pt', 'feed.investigar') },
-              { id:'mensagens', icon:'💬', label:t('pt', 'feed.mensagens'),    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
+              { id:'feed',      icon:'🏠', label:t('pp.feed.investigar') },
+              { id:'mensagens', icon:'💬', label:t('pp.feed.mensagens'),    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
               { id:'stories',   icon:'📖', label:'Pistas',  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
-              { id:'arquivos',  icon:'🗂️', label:t('pt', 'caderno.titulo') },
+              { id:'arquivos',  icon:'🗂️', label:t('pp.caderno.titulo') },
             ].map(nav => (
               <button key={nav.id} className={`pp-nav-btn ${aba === nav.id ? 'active' : ''}`} onClick={() => setAba(nav.id)}>
                 {nav.badge > 0 && <span className="pp-nav-badge">{nav.badge}</span>}

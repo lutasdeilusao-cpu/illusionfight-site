@@ -570,9 +570,9 @@
       "inserir_ficha": "INSERTAR FICHA",
       "escolher_outra": "ELEGIR OTRA FICHA",
       "voltar_site": "← VOLVER AL SITIO",
-      "derrota": "💀 DERROTA",
+      "derrota": "DERROTA",
       "derrota_sub": "La derrota solo fortalece al guerrero.",
-      "vitoria": "⚔️ VICTORIA!",
+      "vitoria": "VICTORIA",
       "vitoria_sub": "Derrotaste a <strong>{name}</strong> y probaste tu valor en la arena.",
       "ko": "¡K.O.!",
       "lutar_novamente": "LUCHAR DE NUEVO",
@@ -585,8 +585,6 @@
       "criar_ficha": "CREAR FICHA",
       "lobby_titulo": "SELECCIONA TU FICHA",
       "combate_titulo": "COMBATE",
-      "vitoria": "VICTORIA",
-      "derrota": "DERROTA",
       "hp": "PV",
       "mp": "PM",
       "atacar": "ATACAR",
@@ -1204,6 +1202,168 @@
       "assinar": "Suscríbete — Lutas de Ilusión",
       "personagem_nao_encontrado": "Personaje no encontrado — Lutas de Ilusión",
       "capitulo_nao_encontrado": "Capítulo no encontrado — Lutas de Ilusión"
+    }
+  },
+  "pp": {
+    "intro": {
+      "texto": "Marelia, 1954. No para de llover hace tres días.\n\nNo eres detective.\n\nPero al sueño no le importa.",
+      "titulo": "PESADILLA PRIVADA",
+      "pular": "toca para saltar"
+    },
+    "menu": {
+      "marelia": "Marelia, 1954",
+      "titulo_linha1": "PESADILLA",
+      "titulo_linha2": "PRIVADA",
+      "continuar": "● CONTINUAR",
+      "nivel_casos": "nivel {nivel}, {casos} casos resueltos",
+      "novo_jogo": "○ NUEVO JUEGO",
+      "voltar_site": "← volver al sitio",
+      "confirmar": "¿estás seguro?\nesto borra todo.",
+      "nao": "NO",
+      "sim": "SÍ"
+    },
+    "final": {
+      "msg_jack": "fue un placer trabajar contigo.\nmarelia seguirá necesitando a alguien como tú.",
+      "jack_label": "Jack Cachorrão",
+      "creditos_titulo": "PESADILLA PRIVADA",
+      "creditos_temporada": "Temporada 1",
+      "creditos_historia": "una historia de",
+      "creditos_marelia": "MARELIA, 1954",
+      "creditos_escrito": "escrito y dirigido por",
+      "creditos_autor": "ISAIAS LEAL",
+      "creditos_obrigado": "gracias por jugar",
+      "creditos_prox_temp": "nos vemos la próxima temporada.",
+      "nivel_casos_label": "nivel {nivel} · {casos} casos resueltos",
+      "compartilhar": "compartir con amigos",
+      "voltar_inicio": "volver al inicio",
+      "link_copiado": "¡enlace copiado!"
+    },
+    "convo": {
+      "caso_aberto": "Caso abierto.",
+      "caso_encerrado": "Caso cerrado.",
+      "jack_nome": "Jack Cachorrão",
+      "online": "● en línea"
+    },
+    "batalha": {
+      "titulo": "CONFRONTACIÓN · NIVEL {nivel}",
+      "comeca": "Comienza la confrontación.",
+      "atacar": "⚔️ ATACAR",
+      "inimigo_agindo": "⏳ Enemigo actuando...",
+      "vitoria": "✓ ¡Victoria!",
+      "derrota": "✗ Derrota",
+      "jack_ataca": "Jack ataca: {dano} de daño",
+      "inimigo_ataca": "{nome} ataca: {dano} de daño",
+      "inimigo_derrotado": "¡Enemigo derrotado!",
+      "jack_derrotado": "Jack fue derrotado...",
+      "critico": "⚡ ¡CRÍTICO!",
+      "resultado": "resultado: {valor}",
+      "vitoria_msg": "⚔️ ¡VICTORIA!",
+      "derrota_msg": "💀 ¡Fuiste derrotado!",
+      "voce_ataca": "Atacas y causas {dano} de daño.",
+      "inimigo_ataca_log": "{nome} ataca y causa {dano} de daño."
+    },
+    "local": {
+      "confronto": "Confrontación Necesaria",
+      "puzzle": "Resolver Puzzle para Investigar",
+      "investigar": "Investigar Local",
+      "voltar_dossier": "← Volver al Dossier",
+      "evidencia_encontrada": "EVIDENCIA ENCONTRADA",
+      "todos_investigados": "Todos los locales investigados",
+      "voltar_dossier_btn": "VOLVER AL DOSSIER",
+      "restantes": "Local ({n} restantes)",
+      "investigar_btn": "INVESTIGAR",
+      "investigar_puzzle_btn": "INVESTIGAR (puzzle)",
+      "hp_label": "HP",
+      "dossier_voltar": "← dossier",
+      "mapa_voltar": "← mapa",
+      "puzzle_instrucao": "Resuelve el puzzle para investigar este local.",
+      "puzzle_nenhum": "No se necesita puzzle."
+    },
+    "dossier": {
+      "caso_encerrado": "CASO CERRADO",
+      "reputacao": "+{valor} reputación",
+      "voltar_mapa": "VOLVER AL MAPA",
+      "inocente": "¡Inocente! Perdiste reputación.",
+      "suspeitos": "SOSPECHOSOS",
+      "locais": "LUGARES",
+      "briefing": "Briefing del Caso",
+      "ver_abertura": "Ver conversación inicial",
+      "pistas_label": "PISTAS RECOLECTADAS",
+      "evidencias": "EVIDENCIAS",
+      "resolvido_badge": "RESUELTO ✓",
+      "sem_requisito": "sin requisito",
+      "novo_fio": "NUEVO HILO"
+    },
+    "acusar": {
+      "errada": "pista equivocada. inténtalo de nuevo.",
+      "bloqueada": "caso fallido. reinicia para intentar de nuevo.",
+      "incompleta": "completa todas las pistas antes de acusar.",
+      "colete_mais": "Recoge {n} pista{plural} más",
+      "btn": "ACUSAR A {nome}"
+    },
+    "phone": {
+      "chamada": "LLAMADA ENTRANTE",
+      "atender": "📞 RESPONDER",
+      "recusar": "✕ RECHAZAR",
+      "suspeito_label": "Sospechoso"
+    },
+    "story": {
+      "fio_label": "⚡ HILO DE CONSPIRACIÓN"
+    },
+    "caderno": {
+      "titulo": "Cuaderno de Sospechas",
+      "desc": "Las pistas de tipo Hilo recolectadas forman un patrón. Alguien está conectando todos los casos.",
+      "progresso": "Progreso de la conspiración: {pct}%",
+      "vazio": "Ninguna pista Hilo recolectada aún. Resuelve casos para encontrar conexiones.",
+      "conspiracao_5": "Un nombre sigue apareciendo. Kim. El dueño del bar. Siempre presente, nunca sospechoso.",
+      "conspiracao_10": "Las piezas empiezan a encajar. Alguien está orquestando el crimen en Marelia. Alguien que conoce a todos los involucrados.",
+      "conspiracao_15": "El patrón es claro. Kim está en el centro de todo. Cada caso, cada muerte, cada pista lleva al bar de la esquina."
+    },
+    "dormindo": {
+      "titulo": "INCONSCIENTE",
+      "texto": "Fuiste derrotado. El sueño se oscurece. Jack está tirado en el callejón, la lluvia lavando la sangre del asfalto.\n\nEn unos minutos, alguien lo encontrará. O tal vez nadie lo haga. Esto es Marelia.",
+      "acordar": "DESPERTAR"
+    },
+    "fimscreen": {
+      "titulo": "FIN DE LA PESADILLA",
+      "completo": "Recolectaste suficientes pistas. Kim fue confrontado con todas las evidencias. El sueño termina con claridad — pero los recuerdos permanecen.",
+      "fragmentado": "No conseguiste todas las pistas. Kim admite parte de los crímenes, pero escapa parcialmente. El sueño termina con dudas — tal vez haya más por descubrir.",
+      "reputacao_label": "reputación total",
+      "casos_label": "casos resueltos",
+      "fios_label": "Pistas Hilo recolectadas",
+      "voltar_mapa": "VOLVER AL MAPA"
+    },
+    "resolucao": {
+      "caso_encerrado": "CASO CERRADO",
+      "novo_fio": "NUEVO HILO",
+      "voltar_mapa": "VOLVER AL MAPA",
+      "ver_caderno": "VER CUADERNO"
+    },
+    "mapa": {
+      "subtitulo": "Marelia, 1954. El sueño te eligió.",
+      "sem_requisito": "sin requisito"
+    },
+    "abertura": {
+      "investigar": "INVESTIGAR"
+    },
+    "geral": {
+      "reputacao": "★ {valor}",
+      "casos_resolvidos": "{n}/{total}",
+      "hp": "HP: {hp}/30"
+    },
+    "feed": {
+      "revisitar": "REVISITAR",
+      "investigar": "INVESTIGAR",
+      "mensagens": "MENSAJES",
+      "stories_vazio": "Aún no se han recolectado pistas.\n\nInvestiga los lugares de los casos para revelar evidencias.",
+      "status_reputacao": "REPUTACIÓN",
+      "status_casos": "CASOS RESUELTOS",
+      "status_nivel": "NIVEL",
+      "status_fios": "HILOS DE CONSPIRACIÓN",
+      "topbar_nome": "Pesadilla Privada",
+      "topbar_sub": "Marelia, 1954 · Nivel {nivel}",
+      "loading": "CARGANDO...",
+      "caderno_vazio": "\"aún no sé quién es.\npero cada pista conecta un punto con otro.\""
     }
   }
 }

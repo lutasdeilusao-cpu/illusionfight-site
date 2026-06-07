@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { usePPStore } from '../store/usePPStore'
 import { useAuth } from '../../../context/AuthContext'
-import { t } from '../data/pp-i18n'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Dormindo() {
+  const { t } = useLanguage()
   const { user } = useAuth()
   const store = usePPStore()
   const [restante, setRestante] = useState(0)
@@ -30,9 +31,9 @@ export default function Dormindo() {
   return (
     <div className="pp-container">
       <div className="pp-dormindo">
-        <h1 className="pp-dormindo-title">{t('pt', 'dormindo.titulo')}</h1>
+        <h1 className="pp-dormindo-title">{t('pp.dormindo.titulo')}</h1>
         <p className="pp-dormindo-text">
-          {t('pt', 'dormindo.texto').split('\n').map((l, i, arr) => (
+          {t('pp.dormindo.texto').split('\n').map((l, i, arr) => (
             <span key={i}>{l}{i < arr.length - 1 && <><br /><br /></>}</span>
           ))}
         </p>
@@ -41,7 +42,7 @@ export default function Dormindo() {
         </div>
         {restante <= 0 && (
           <button className="pp-btn pp-btn--primary" onClick={() => { store.acordar(); if (user) store.saveToCloud(user.id) }}>
-            {t('pt', 'dormindo.acordar')}
+            {t('pp.dormindo.acordar')}
           </button>
         )}
       </div>

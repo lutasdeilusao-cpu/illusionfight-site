@@ -1,0 +1,162 @@
+{
+  "intro": {
+    "texto": "Marelia, 1954. A chuva não para há três dias.\n\nVocê não é detetive.\n\nMas o sonho não liga pra isso.",
+    "titulo": "PESADELO PARTICULAR",
+    "pular": "toque para pular"
+  },
+  "menu": {
+    "marelia": "Marelia, 1954",
+    "titulo_linha1": "PESADELO",
+    "titulo_linha2": "PARTICULAR",
+    "continuar": "● CONTINUAR",
+    "nivel_casos": "nível {nivel}, {casos} casos resolvidos",
+    "novo_jogo": "○ NOVO JOGO",
+    "voltar_site": "← voltar ao site",
+    "confirmar": "tem certeza?\nisso apaga tudo.",
+    "nao": "NÃO",
+    "sim": "SIM"
+  },
+  "final": {
+    "msg_jack": "foi um prazer trabalhar contigo.\nmarelia vai continuar precisando de alguém como você.",
+    "jack_label": "Jack Cachorrão",
+    "creditos_titulo": "PESADELO PARTICULAR",
+    "creditos_temporada": "Temporada 1",
+    "creditos_historia": "uma história de",
+    "creditos_marelia": "MARELIA, 1954",
+    "creditos_escrito": "escrito e dirigido por",
+    "creditos_autor": "ISAIAS LEAL",
+    "creditos_obrigado": "obrigado por jogar",
+    "creditos_prox_temp": "nos vemos na próxima temporada.",
+    "nivel_casos_label": "nível {nivel} · {casos} casos resolvidos",
+    "compartilhar": "compartilhar com amigos",
+    "voltar_inicio": "voltar ao início",
+    "link_copiado": "link copiado!"
+  },
+  "convo": {
+    "caso_aberto": "Caso aberto.",
+    "caso_encerrado": "Caso encerrado.",
+    "jack_nome": "Jack Cachorrão",
+    "online": "● online"
+  },
+  "batalha": {
+    "titulo": "CONFRONTO · NÍVEL {nivel}",
+    "comeca": "O confronto começa.",
+    "atacar": "⚔️ ATACAR",
+    "inimigo_agindo": "⏳ Inimigo agindo...",
+    "vitoria": "✓ Vitória!",
+    "derrota": "✗ Derrota",
+    "jack_ataca": "Jack ataca: {dano} de dano",
+    "inimigo_ataca": "{nome} ataca: {dano} de dano",
+    "inimigo_derrotado": "Inimigo derrotado!",
+    "jack_derrotado": "Jack foi derrotado...",
+    "critico": "⚡ CRÍTICO!",
+    "resultado": "resultado: {valor}",
+    "vitoria_msg": "⚔️ VITÓRIA!",
+    "derrota_msg": "💀 Você foi derrotado!",
+    "voce_ataca": "Você ataca e causa {dano} de dano.",
+    "inimigo_ataca_log": "{nome} ataca e causa {dano} de dano."
+  },
+  "local": {
+    "confronto": "Confronto Necessário",
+    "puzzle": "Resolver Puzzle para Investigar",
+    "investigar": "Investigar Local",
+    "voltar_dossier": "← Voltar ao Dossier",
+    "evidencia_encontrada": "EVIDÊNCIA ENCONTRADA",
+    "todos_investigados": "Todos os locais investigados",
+    "voltar_dossier_btn": "VOLTAR AO DOSSIER",
+    "restantes": "Local ({n} restantes)",
+    "investigar_btn": "INVESTIGAR",
+    "investigar_puzzle_btn": "INVESTIGAR (puzzle)",
+    "hp_label": "HP",
+    "dossier_voltar": "← dossier",
+    "mapa_voltar": "← mapa",
+    "puzzle_instrucao": "Resolva o puzzle para investigar este local.",
+    "puzzle_nenhum": "Nenhum puzzle necessário."
+  },
+  "dossier": {
+    "caso_encerrado": "CASO ENCERRADO",
+    "reputacao": "+{valor} reputação",
+    "voltar_mapa": "VOLTAR AO MAPA",
+    "inocente": "Inocente! Perdeu reputação.",
+    "suspeitos": "SUSPEITOS",
+    "locais": "LOCAIS",
+    "briefing": "Briefing do Caso",
+    "ver_abertura": "Ver conversa de abertura",
+    "pistas_label": "PISTAS COLETADAS",
+    "evidencias": "EVIDÊNCIAS",
+    "resolvido_badge": "RESOLVIDO ✓",
+    "sem_requisito": "sem requisito",
+    "novo_fio": "NOVO FIO"
+  },
+  "acusar": {
+    "errada": "pista errada. tente novamente.",
+    "bloqueada": "caso fracassado. reinicie para tentar novamente.",
+    "incompleta": "complete todas as pistas antes de acusar.",
+    "colete_mais": "Colete mais {n} pista{plural}",
+    "btn": "ACUSAR {nome}"
+  },
+  "phone": {
+    "chamada": "CHAMADA RECEBIDA",
+    "atender": "📞 ATENDER",
+    "recusar": "✕ RECUSAR",
+    "suspeito_label": "Suspeito"
+  },
+  "story": {
+    "fio_label": "⚡ FIO DA CONSPIRAÇÃO"
+  },
+  "caderno": {
+    "titulo": "Caderno de Suspeitas",
+    "desc": "Pistas do tipo Fio coletadas formam um padrão. Alguém está conectando todos os casos.",
+    "progresso": "Progresso da conspiração: {pct}%",
+    "vazio": "Nenhuma pista Fio coletada ainda. Resolva casos para encontrar conexões.",
+    "conspiracao_5": "Um nome começa a surgir repetidamente. Kim. O dono do bar. Sempre presente, nunca suspeito.",
+    "conspiracao_10": "As peças começam a se encaixar. Alguém está orquestrando o crime em Marelia. Alguém que conhece todos os envolvidos.",
+    "conspiracao_15": "O padrão é claro. Kim está no centro de tudo. Cada caso, cada morte, cada pista leva ao bar da esquina."
+  },
+  "dormindo": {
+    "titulo": "INCONSCIENTE",
+    "texto": "Você foi derrotado. O sonho escurece. Jack está caído no beco, a chuva lavando o sangue do asfalto.\n\nEm alguns minutos, alguém vai encontrá-lo. Ou talvez ninguém encontre. Isso é Marelia.",
+    "acordar": "ACORDAR"
+  },
+  "fimscreen": {
+    "titulo": "FIM DO PESADELO",
+    "completo": "Você coletou pistas suficientes. Kim foi confrontado com todas as evidências. O sonho termina com clareza — mas as memórias permanecem.",
+    "fragmentado": "Você não conseguiu todas as pistas. Kim admite parte dos crimes, mas escapa parcialmente. O sonho termina com dúvidas — talvez haja mais para descobrir.",
+    "reputacao_label": "reputação total",
+    "casos_label": "casos resolvidos",
+    "fios_label": "Pistas Fio coletadas",
+    "voltar_mapa": "VOLTAR AO MAPA"
+  },
+  "resolucao": {
+    "caso_encerrado": "CASO ENCERRADO",
+    "novo_fio": "NOVO FIO",
+    "voltar_mapa": "VOLTAR AO MAPA",
+    "ver_caderno": "VER CADERNO"
+  },
+  "mapa": {
+    "subtitulo": "Marelia, 1954. O sonho escolheu você.",
+    "sem_requisito": "sem requisito"
+  },
+  "abertura": {
+    "investigar": "INVESTIGAR"
+  },
+  "geral": {
+    "reputacao": "★ {valor}",
+    "casos_resolvidos": "{n}/{total}",
+    "hp": "HP: {hp}/30"
+  },
+  "feed": {
+    "revisitar": "REVISITAR",
+    "investigar": "INVESTIGAR",
+    "mensagens": "MENSAGENS",
+    "stories_vazio": "Nenhuma pista coletada ainda.\n\nInvestigue os locais dos casos para revelar evidências.",
+    "status_reputacao": "REPUTAÇÃO",
+    "status_casos": "CASOS RESOLVIDOS",
+    "status_nivel": "NÍVEL",
+    "status_fios": "FIOS DA CONSPIRAÇÃO",
+    "topbar_nome": "Pesadelo Particular",
+    "topbar_sub": "Marelia, 1954 · Nível {nivel}",
+    "loading": "CARREGANDO...",
+    "caderno_vazio": "\"ainda não sei quem é.\nmas cada pista liga um ponto a outro.\""
+  }
+}
