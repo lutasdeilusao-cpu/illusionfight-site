@@ -334,6 +334,7 @@
     "cta": "APOIAR O PROJETO"
   },
   "site": {
+    "nome_curto": "Lutas de Ilusão",
     "login": {
       "titulo": "ENTRAR",
       "subtitulo": "Acesse sua conta no SDR",
@@ -988,7 +989,8 @@
       "arma": "Arma",
       "estilo": "Estilo",
       "elemental": "Elemental",
-      "anos": "anos"
+      "anos": "anos",
+      "relacoes": "Relações"
     },
     "autor": {
       "by": "BY:",

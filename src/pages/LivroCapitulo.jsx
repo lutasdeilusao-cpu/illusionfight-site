@@ -99,7 +99,7 @@ export default function LivroCapitulo() {
   return (
     <section className="livro-capitulo">
       <Helmet>
-        <title>{chapter[tituloKey]} — Lutas de Ilusão</title>
+        <title>{`${chapter[tituloKey]} — ${t('site.nome_curto')}`}</title>
       </Helmet>
       <div className="container">
         <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>

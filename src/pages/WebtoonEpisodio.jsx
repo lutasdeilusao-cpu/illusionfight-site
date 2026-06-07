@@ -57,7 +57,7 @@ export default function WebtoonEpisodio() {
 
   return (
     <>
-      <Helmet><title>{ep[tituloKey]} — Lutas de Ilusão</title></Helmet>
+      <Helmet><title>{`${ep[tituloKey]} — ${t('site.nome_curto')}`}</title></Helmet>
 
       <header className="webtoon-ep-header">
         <div className="container">

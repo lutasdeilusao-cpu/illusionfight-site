@@ -13,7 +13,7 @@ export default function Personagens() {
   return (
     <section className="personagens-page">
       <Helmet>
-        <title>Personagens — Lutas de Ilusão</title>
+        <title>{t('pages.helmet.personagens')}</title>
       </Helmet>
       <div className="container">
         <button className="personagens-page__back" onClick={() => navigate('/')}>

@@ -164,7 +164,7 @@ export default function Leaderboard() {
                   <div className="lb-podium-pos">#{j.pos}</div>
                   <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
                   <div className="lb-podium-nome">{j.nome}</div>
-                  <div className="lb-podium-pontos">{j.pontos} pts</div>
+                  <div className="lb-podium-pontos">{j.pontos} {t('pages.leaderboard.pontos')}</div>
                 </div>
               ))}
             </div>
@@ -178,14 +178,16 @@ export default function Leaderboard() {
                 </div>
               ))}
             </div>
+            {user && (
             <div className="lb-user-card">
               <span className="lb-user-pos">{t('pages.leaderboard.sua_posicao')}</span>
               <div className="lb-user-row">
                 <span className="lb-linha-pos">#42</span>
-                <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>
-                <span className="lb-user-pontos">3.240 pts</span>
+                <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user?.email || '—'}</span>
+                <span className="lb-user-pontos">3.240 {t('pages.leaderboard.pontos')}</span>
               </div>
             </div>
+            )}
           </>
         )}
       </LoginGate>

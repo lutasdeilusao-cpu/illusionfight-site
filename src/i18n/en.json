@@ -334,6 +334,7 @@
     "cta": "SUPPORT THE PROJECT"
   },
   "site": {
+    "nome_curto": "Illusion Fight",
     "login": {
       "titulo": "LOG IN",
       "subtitulo": "Access your SDR account",
@@ -988,7 +989,8 @@
       "arma": "Weapon",
       "estilo": "Style",
       "elemental": "Elemental",
-      "anos": "years old"
+      "anos": "years old",
+      "relacoes": "Relationships"
     },
     "autor": {
       "by": "BY:",
