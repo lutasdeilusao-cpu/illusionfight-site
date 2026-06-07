@@ -39,12 +39,6 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
     const knob = knobRef.current
     if (!el || !knob) return
 
-    if (el.style.display === 'none') {
-      el.style.display = 'block'
-      const r = el.getBoundingClientRect()
-      a.cx = r.left + r.width / 2
-      a.cy = r.top + r.height / 2
-    }
 
     let dx = clientX - a.cx
     let dy = clientY - a.cy
@@ -84,9 +78,7 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
 
   function resetAnalog() {
     const a = aRef.current
-    const el = analogElRef.current
     const knob = knobRef.current
-    if (el) el.style.display = 'none'
     if (knob) knob.style.transform = 'translate(-50%,-50%)'
     if (a.interval) { clearInterval(a.interval); a.interval = null }
     a.dir = { dx: 0, dy: 0 }
@@ -103,7 +95,6 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
     const touch = e.changedTouches[0]
     a.activeId = touch.identifier
 
-    el.style.display = 'block'
     const r = el.getBoundingClientRect()
     a.cx = r.left + r.width / 2
     a.cy = r.top + r.height / 2
@@ -141,7 +132,6 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
     if (dist > analogRect.width / 2 + 20) return  // muito longe do analógico
 
     a.activeId = 'mouse'
-    el.style.display = 'block'
     a.cx = cx
     a.cy = cy
 

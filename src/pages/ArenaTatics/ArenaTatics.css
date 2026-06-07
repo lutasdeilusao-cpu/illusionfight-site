@@ -3046,8 +3046,6 @@
   bottom: 12px;
   left: 24px;
   z-index: 300;
-  display: none;
-  pointer-events: none;
 }
 .city-analog-outer {
   width: 96px;
