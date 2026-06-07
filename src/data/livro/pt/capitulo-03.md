@@ -156,17 +156,17 @@ Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack des
 
 Jack recuou. Primeira vez no capítulo.
 
-— Ah. — Kim soprou a fumaça. — Então é assim.
+— Ah. — Kim soprou a fumaça. — Essa foi boa, fiquei com inveja.
 
 Brock avançou sem pausa. Jab, jab, gancho, sempre o mesmo ritmo, forçando Jack para trás sem deixar espaço para respirar. Jack bloqueou o que conseguiu, levou o que não conseguiu. As costelas latejavam com cada respiração.
 
-— Tá doendo. — Jack entre os dentes.
+— Porra, que soco do caralho. — Jack entre os dentes para Kim.
 
-— Eu sei.
+— Eu sei - Kim olhando com satisfação de quem gosta de ver o amigo apanhar.
 
-— Vai ficar aí parado?
+— Vai ficar aí parado? - Pergunta Jack, indignado.
 
-— Você pediu pra lutar com esse. Aproveita.
+— Ué ele escolheu você, eu to só dando uma tragada. Aproveita.
 
 Jack deixou o próximo jab passar pelo lado, entrou no espaço vazio, e encaixou um headbutt direto no nariz de Brock. O impacto fez os dois recuarem um passo cada. Brock piscou, o nariz sangrando, e pela primeira vez sua expressão mudou. Não de dor. De reavaliação.
 
@@ -188,13 +188,13 @@ Jack ficou de pé com as costelas latejando, o headbutt havia deixado um corte n
 
 — Eu derrubei três.
 
-— Eu derrubei três também. — Jack respirou fundo. — O Brock conta dobrado, né.
+— Eu derrubei três também. — Jack respirou fundo. — O Grandão conta dobrado, né.
 
 — Não foi o que combinamos.
 
 — Ué, mas não é você que diz que não tem regras?
 
-Kim soltou a fumaça do cigarro na direção do amigo. Jack afastou com a mão. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.
+Kim ofereceu um cigarro pro amigo. Jack aceitou. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.
 
 — Pode sair daí.
 

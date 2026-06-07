@@ -96,7 +96,13 @@ export default function CityOverworld({
     // Mostra nome do distrito ao entrar
     const name = districtId === 'central' ? t('tatics.zones.central')
       : districtId === 'residencial' ? t('tatics.zones.residencial')
-      : t('tatics.zones.comercial')
+      : districtId === 'comercial' ? t('tatics.zones.comercial')
+      : districtId === 'industrial' ? t('tatics.zones.industrial')
+      : districtId === 'porto' ? t('tatics.zones.porto')
+      : districtId === 'mercado' ? t('tatics.zones.mercado')
+      : districtId === 'yohualticit' ? t('tatics.zones.yohualticit')
+      : districtId === 'suburbio' ? t('tatics.zones.suburbio')
+      : t('tatics.zones.central')
     setZoneText(name)
     setZoneVisible(true)
     const zt = setTimeout(() => setZoneVisible(false), 3000)
@@ -149,6 +155,80 @@ export default function CityOverworld({
     distrito.lamps.forEach(([lx,ly]) => {
       ctx.fillStyle='#666'; ctx.fillRect(lx,ly,2,10)
       ctx.fillStyle='#ffd700'; ctx.fillRect(lx-1,ly-2,4,3)
+    })
+
+    // ── Draw exit zones (4×2 = 8 red squares por saída) ──
+    Object.entries(distrito.exits).forEach(([dir, exitData]) => {
+      const toName = exitData.to === 'central' ? t('tatics.zones.central')
+        : exitData.to === 'residencial' ? t('tatics.zones.residencial')
+        : exitData.to === 'comercial' ? t('tatics.zones.comercial')
+        : exitData.to === 'industrial' ? t('tatics.zones.industrial')
+        : exitData.to === 'porto' ? t('tatics.zones.porto')
+        : exitData.to === 'mercado' ? t('tatics.zones.mercado')
+        : exitData.to === 'yohualticit' ? t('tatics.zones.yohualticit')
+        : exitData.to === 'suburbio' ? t('tatics.zones.suburbio')
+        : exitData.to
+
+      let startTx, startTy, endTx, endTy, labelX, labelY
+      const cols = 4
+      const midX = Math.floor(distrito.mapW / 2)
+      const midY = Math.floor(distrito.mapH / 2)
+
+      switch (dir) {
+        case 'norte':
+          startTx = midX - Math.floor(cols / 2)
+          startTy = 0
+          endTx = midX + Math.floor(cols / 2) - 1
+          endTy = 1
+          labelX = ((startTx + endTx) / 2) * STEP + STEP / 2
+          labelY = (endTy + 1) * STEP + 12
+          break
+        case 'sul':
+          startTx = midX - Math.floor(cols / 2)
+          startTy = distrito.mapH - 2
+          endTx = midX + Math.floor(cols / 2) - 1
+          endTy = distrito.mapH - 1
+          labelX = ((startTx + endTx) / 2) * STEP + STEP / 2
+          labelY = startTy * STEP - 6
+          break
+        case 'leste':
+          startTx = distrito.mapW - 2
+          startTy = midY - Math.floor(cols / 2)
+          endTx = distrito.mapW - 1
+          endTy = midY + Math.floor(cols / 2) - 1
+          labelX = startTx * STEP - 6
+          labelY = ((startTy + endTy) / 2) * STEP + STEP / 2
+          break
+        case 'oeste':
+          startTx = 0
+          startTy = midY - Math.floor(cols / 2)
+          endTx = 1
+          endTy = midY + Math.floor(cols / 2) - 1
+          labelX = (endTx + 1) * STEP + 12
+          labelY = ((startTy + endTy) / 2) * STEP + STEP / 2
+          break
+        default: return
+      }
+
+      // Draw 8 red squares (4 em cima, 4 em baixo)
+      for (let ty = startTy; ty <= endTy; ty++) {
+        for (let tx = startTx; tx <= endTx; tx++) {
+          const ex = tx * STEP, ey = ty * STEP
+          ctx.fillStyle = '#8a2a2a'
+          ctx.fillRect(ex, ey, STEP, STEP)
+          ctx.fillStyle = '#cc4444'
+          ctx.fillRect(ex + 2, ey + 2, STEP - 4, STEP - 4)
+          ctx.strokeStyle = 'rgba(255,80,80,0.3)'
+          ctx.lineWidth = 1
+          ctx.strokeRect(ex, ey, STEP, STEP)
+        }
+      }
+
+      // Draw district name label
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 7px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText(`→ ${toName}`, labelX, labelY)
     })
   },[districtId, buildingName, t, WORLD_W, WORLD_H, distrito])
 
@@ -203,9 +283,15 @@ export default function CityOverworld({
       // Interagir com saída de distrito
       const exit = getExitAt(s.current.px, s.current.py, currentDistrito)
       if (exit) {
-        const exitName = exit.to === 'residencial' ? t('tatics.zones.residencial')
-          : exit.to === 'central' ? t('tatics.zones.central')
-          : t('tatics.zones.comercial')
+        const exitName = exit.to === 'central' ? t('tatics.zones.central')
+          : exit.to === 'residencial' ? t('tatics.zones.residencial')
+          : exit.to === 'comercial' ? t('tatics.zones.comercial')
+          : exit.to === 'industrial' ? t('tatics.zones.industrial')
+          : exit.to === 'porto' ? t('tatics.zones.porto')
+          : exit.to === 'mercado' ? t('tatics.zones.mercado')
+          : exit.to === 'yohualticit' ? t('tatics.zones.yohualticit')
+          : exit.to === 'suburbio' ? t('tatics.zones.suburbio')
+          : exit.to
         setInteractLabel(`[A] IR PARA: ${exitName}`)
         s.current.pendingExit = exit
         return
