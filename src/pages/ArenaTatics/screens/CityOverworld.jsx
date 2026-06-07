@@ -2,12 +2,14 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 import GameControls from '../components/GameControls'
+import CityHUD from '../components/CityHUD'
 import { useLanguage } from '../../../context/LanguageContext'
 import {
   DISTRITOS,
   getTileColorName,
   isSolid,
   getBuildingAt,
+  getNpcAt,
   getExitAt,
   getZonaNome,
 } from '../data/districts'
@@ -54,6 +56,7 @@ export default function CityOverworld({
   const [interactLabel, setInteractLabel] = useState('')
   const [showMenu, setShowMenu] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
+  const [npcDialog, setNpcDialog] = useState(null)
 
   const distrito = DISTRITOS[districtId]
   const WORLD_W = distrito.mapW * STEP
@@ -62,7 +65,7 @@ export default function CityOverworld({
 
   // Resolve nome do prédio via i18n
   const buildingName = useCallback((b) => t(b.nameKey), [t])
-  const zoneName = useCallback((z) => t(z.nameKey), [t])
+  const zoneNameFn = useCallback((z) => t(z.nameKey), [t])
 
   const initialX = spawnPoint?.x ?? 20*STEP
   const initialY = spawnPoint?.y ?? 16*STEP
@@ -70,6 +73,7 @@ export default function CityOverworld({
     px:initialX, py:initialY, camX:0, camY:0,
     moving:false, moveFrom:{x:0,y:0}, moveTo:{x:0,y:0},
     moveProgress:1, moveStart:0, currentZone:null,
+    transitioning: false,
   })
 
   /* ── Draw map ── */
@@ -158,7 +162,7 @@ export default function CityOverworld({
     function checkZones() {
       const tx=Math.floor(s.current.px/STEP), ty=Math.floor(s.current.py/STEP)
       const z = getZonaNome(tx, ty, currentDistrito.zonas)
-      const zName = z ? zoneName(z) : ''
+      const zName = z ? zoneNameFn(z) : ''
       if (zName !== s.current.currentZone) {
         s.current.currentZone = zName
         if (zName) { setZoneText(zName); setZoneVisible(true); if (zt) clearTimeout(zt); zt=setTimeout(()=>setZoneVisible(false),3000) }
@@ -172,9 +176,11 @@ export default function CityOverworld({
 
     function checkExit() {
       const exit = getExitAt(s.current.px, s.current.py, currentDistrito)
-      if (exit) {
+      if (exit && !s.current.transitioning) {
+        s.current.transitioning = true
         setTransitioning(true)
         setTimeout(() => {
+          s.current.transitioning = false
           onDistrictTransition(exit.to, { x: exit.spawnTile.x * STEP, y: exit.spawnTile.y * STEP })
           setTransitioning(false)
         }, 350)
@@ -217,12 +223,24 @@ export default function CityOverworld({
 
   const hBA = useCallback(() => {
     const d = distritoRef.current || DISTRITOS[districtId]
-    const b=getBuildingAt(s.current.px, s.current.py, d)
+    const npc = getNpcAt(s.current.px, s.current.py, d)
+    if (npc) {
+      setNpcDialog(t(npc.dialogKey || 'tatics.city.detective_dialog'))
+      setTimeout(() => setNpcDialog(null), 3000)
+      return
+    }
+    const b = getBuildingAt(s.current.px, s.current.py, d)
     if (b) onEnterBuilding(b.interiorMapId, buildingName(b))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[onEnterBuilding, districtId, buildingName])
+  },[onEnterBuilding, districtId, buildingName, t])
 
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
+
+  const districtName = districtId === 'central'
+    ? t('tatics.zones.central')
+    : districtId === 'residencial'
+      ? t('tatics.zones.residencial')
+      : t('tatics.zones.comercial')
 
   return (
     <div className="city-container">
@@ -249,27 +267,23 @@ export default function CityOverworld({
               <div>{t('tatics.city.hud_tile')}: {hudText.tile}</div>
             </div>
 
-            <div className={`city-zone-hud ${zoneVisible?'visible':''}`}>{zoneText}</div>
+            <CityHUD
+              districtName={districtName}
+              zoneText={zoneText}
+              zoneVisible={zoneVisible}
+              interactLabel={interactLabel}
+              npcDialog={npcDialog}
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+              onBackToMenu={onBackToMenu}
+              t={t}
+            />
 
             <div className="city-minimap">
               <canvas ref={mmCanvasRef} className="city-minimap-canvas" />
               <div ref={mmPlayerRef} className="city-mm-player" />
               <div className="city-minimap-border" />
             </div>
-
-            <AnimatePresence>{interactLabel&&(
-              <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}} className="city-interact-label">{interactLabel}</motion.div>
-            )}</AnimatePresence>
-
-            <AnimatePresence>{showMenu&&(
-              <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="city-menu-overlay" onClick={()=>setShowMenu(false)}>
-                <motion.div initial={{scale:0.9}} animate={{scale:1}} exit={{scale:0.9}} className="city-menu-panel" onClick={e=>e.stopPropagation()}>
-                  <h3 className="city-menu-title">{t('tatics.menu.title')}</h3>
-                  <button className="city-menu-btn" onClick={onBackToMenu}>{t('tatics.menu.mainMenu')}</button>
-                  <button className="city-menu-btn city-menu-btn-close" onClick={()=>setShowMenu(false)}>{t('tatics.menu.continue')}</button>
-                </motion.div>
-              </motion.div>
-            )}</AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>

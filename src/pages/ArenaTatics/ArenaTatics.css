@@ -2977,6 +2977,62 @@
 }
 
 /* ── Interact label ── */
+/* ── City HUD extras ── */
+.city-clock {
+  position: absolute;
+  top: 8px;
+  right: 92px;
+  z-index: 250;
+  font-family: 'Rajdhani', monospace;
+  font-size: 10px;
+  color: #8a8a6a;
+  text-shadow: 0 0 4px #000;
+  pointer-events: none;
+}
+
+.city-district-label {
+  position: absolute;
+  top: 30px;
+  left: 8px;
+  z-index: 200;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #e8c96a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+  text-shadow: 0 0 8px rgba(0,0,0,0.9);
+}
+
+.city-npc-dialog-overlay {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 350;
+  width: 90%;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.city-npc-dialog-box {
+  background: rgba(0, 0, 0, 0.88);
+  border: 1px solid rgba(232, 201, 106, 0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  backdrop-filter: blur(4px);
+}
+
+.city-npc-dialog-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: #e8c96a;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 0 8px rgba(232, 201, 106, 0.15);
+}
+
 .city-interact-label {
   position: absolute;
   bottom: 20px;
