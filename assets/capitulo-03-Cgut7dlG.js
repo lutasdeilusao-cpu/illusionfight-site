@@ -152,7 +152,7 @@ Jack percebeu a escolha e algo no rosto dele mudou levemente. O humor saiu. O qu
 \r
 — Interessante. — Kim acendeu um cigarro, encostado na parede.\r
 \r
-Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack desviou por pouco. O segundo era o cruzado que Jack esperava, mas Brock não jogou o cruzado. Jogou um gancho baixo que pegou as costelas de Jack com força que dobrou o ar dos pulmões de uma vez.\r
+Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack desviou por pouco. O segundo parecia um cruzado que Jack esperava, mas Brock não jogou o cruzado só mexeu os ombros com uma finta. Jogou um gancho baixo que pegou as costelas de Jack com força que dobrou o ar dos pulmões de uma vez.\r
 \r
 Jack recuou. Primeira vez no capítulo.\r
 \r
