@@ -1,8 +1,10 @@
 # ANÁLISE COMPLETA — Illusion Fight Site
 
 > Gerado em: 2026-06-07  
-> Versão do Site: 2.48  
+> Versão do Site: 2.92  
 > Autor: GitHub Copilot (DeepSeek V4 Flash)
+
+> ⚠️ Este documento foi corrigido em 07/06/2026. Para o snapshot oficial do progresso, ver `RELATORIO_v1.md`.
 
 ---
 
@@ -293,7 +295,7 @@ Devido ao volume massivo de texto nos jogos, recomendo:
 | **Top Trumps** | 3 | 3 | ❌ | ⚠️ | 1.1.0 | Multiplayer realtime |
 | **Tamagoshi** | 1 | 11 | ❌ | ⚠️ | 1.10.3 | Ciclo de vida |
 | **Mini Games** | 1 | 1+6 | ❌ | ✅ | 1.2.1 | 6 puzzles |
-| **LDI Tatics** | 1 | 10+ | ✅ parcial | ⚠️ | 6.3.0 | Maior jogo, 20 personagens |
+| **LDI Tatics** | 1 | 10+ | ✅ parcial | ⚠️ | 6.4.0 | Pokémon + Ragnarok Online + tático isométrico. Overworld top-down navegável (Marelia), sistema de cards (começa com 2, conquista até 10, level 1→99), evolução de classe estilo Ragnarok (base → 2 opções → final), batalha isométrica Canvas 2D com deck de até 3 cards por partida. Cards exclusivos por tier: Free=6 eventos/ano, ELITE=+2=8, PRIMORDIAL=+4=10. Evolução de classe: falta implementar. |
 
 ### Estimativa de Texto Traduzível por Jogo
 
@@ -316,6 +318,21 @@ Devido ao volume massivo de texto nos jogos, recomendo:
 1. **i18n nos jogos** — Todos os 8 jogos com texto hardcoded em PT
 2. **38 chaves faltando** em EN/ES (sistema tatics) — ✅ Resolvido
 3. **Tradução do livro** — 13 capítulos restantes para EN/ES
+
+### Stripe
+⚠️ **Verificação de identidade pendente** — não bloqueia desenvolvimento, bloqueia saques.
+
+### Campanha Catarse
+Status: 🟡 Em preparação
+- **Plataforma:** Catarse
+- **Meta inicial:** R$1.800
+- **Tiers:** R$5 / R$30 / R$60 / R$90 / R$120 / R$180 / R$500
+- **Recompensas digitais exclusivas:** Tamagoshi Apoiador (categoria própria, ciclo 2 anos, introcável, inventário completo), deck 5 cartas Top Trumps exclusivas, 1 card LDI Tactics exclusivo
+- **Tasks de dev pendentes antes de publicar:**
+  - Criar Tamagoshi Apoiador (nome e visual a definir)
+  - Criar deck 5 cartas Top Trumps exclusivas
+  - Criar 1 card LDI Tactics exclusivo de apoiador
+  - Sistema QR code/link exclusivo para onboarding de apoiadores
 
 ### 🟡 Prioridade Média
 4. **Páginas do site sem i18n**: Login, Cadastro, Games, Leaderboard, Perfil, Admin
@@ -380,16 +397,17 @@ Devido ao volume massivo de texto nos jogos, recomendo:
 ### Estimativa de Progresso Geral
 
 ```
-▓▓▓▓▓▓▓▓░░░░░░░░░░░░  ~40% completo
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░  ~90% completo
 ```
 
 | Área | Progresso |
 |------|-----------|
-| Site (páginas principais) | 90% |
-| Tradução (i18n) | 50% |
-| Jogos (implementação) | 85% |
-| Jogos (i18n) | 5% |
-| Webtoon | 10% |
+| Site (páginas principais) | 100% (36/36 rotas) |
+| Tradução (i18n) | 70% (site completo, jogos pendentes) |
+| Jogos (implementação) | 95% (10/10 1ª temporada, LDI Tatics em refatoração) |
+| Jogos (i18n) | 15% (Arena Tatics parcial, demais hardcoded PT) |
+| Stripe/Pagamentos | 100% (checkout + webhook + cancelamento) |
+| Webtoon | 10% (1 ep. de 21 páginas) |
 | Livro (conteúdo) | 100% (PT) / 20% (EN/ES) |
 | Assets/Mídia | 40% |
 | Achievements | 60% |
