@@ -701,5 +701,18 @@
       "tier": "Tier",
       "confirmar": "CONFIRM"
     }
+  },
+  "admin": {
+    "titulo": "ADMIN",
+    "painel": "ADMIN PANEL",
+    "submissao_aprovada": "Approved",
+    "submissao_rejeitada": "Rejected",
+    "submissao_pendente": "Pending",
+    "acoes": "Actions",
+    "aprovar": "APPROVE",
+    "rejeitar": "REJECT",
+    "sem_submissoes": "No pending submissions.",
+    "carregando": "CARREGANDO...",
+    "btn_voltar": "BACK"
   }
 }

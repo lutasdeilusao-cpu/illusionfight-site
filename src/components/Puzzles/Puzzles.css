@@ -416,3 +416,36 @@
   border-radius: 2px;
   transition: all 0.2s;
 }
+
+
+/* Puzzle shared utilities */
+.pz-wrap { display: flex; flex-direction: column; align-items: center; padding: 0.5rem; }
+.pz-header { display: flex; justify-content: space-between; padding: 0 0.5rem; margin-bottom: 0.75rem; width: 100%; max-width: 400px; }
+.pz-timer { font-family: 'Share Tech Mono', monospace; transition: font-size 0.3s, color 0.3s; letter-spacing: 0.1em; }
+.pz-timer-warn { animation: timer-warn 1s infinite; }
+.pz-timer-urgent { animation: timer-urgent 0.5s infinite; }
+.pz-info { font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; color: #555; }
+.pz-msg { text-align: center; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; margin-top: 0.5rem; }
+.pz-msg-success { color: #22C55E; }
+.pz-msg-error { color: #8B0000; }
+.pz-msg-warn { color: #F5A623; }
+.pz-btns { margin-top: 0.6rem; display: flex; gap: 8px; justify-content: center; }
+@keyframes timer-warn { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes timer-urgent { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.95); } }
+
+/* Forca */
+.pz-forca-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin: 0.75rem auto; }
+.pz-forca-letter { width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-family: 'Share Tech Mono',monospace; cursor: pointer; transition: all 0.2s; border: 1px solid; }
+
+/* Anagrama */
+.pz-ana-letters { display: flex; gap: 0.3rem; justify-content: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.pz-ana-dots { display: flex; gap: 0.3rem; justify-content: center; margin-bottom: 0.5rem; }
+.pz-ana-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid #333; transition: background 0.3s; }
+.pz-ana-solved { font-family: 'Share Tech Mono',monospace; font-size: 0.6rem; color: #22C55E; margin-right: 0.5rem; opacity: 0.7; }
+
+/* Decoder */
+.pz-dec-wrap { margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.pz-dec-row { display: flex; align-items: center; gap: 0.5rem; }
+.pz-dec-slider { flex: 1; }
+.pz-dec-val { font-family: 'Share Tech Mono',monospace; font-size: 0.65rem; min-width: 36px; }
+.pz-dec-hint { font-family: 'Share Tech Mono',monospace; font-size: 0.6rem; min-width: 70px; }

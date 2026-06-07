@@ -345,3 +345,26 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+
+
+/* PP - Game Layout */
+.pp-page { min-height: 100vh; background: #000; color: #ccc; font-family: 'Courier New', monospace; }
+.pp-container { max-width: 600px; margin: 0 auto; padding: 1rem; }
+.pp-header { text-align: center; padding: 1rem; border-bottom: 1px solid #1a1a1a; margin-bottom: 1rem; }
+.pp-title { color: #EC4899; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.15em; }
+.pp-subtitle { color: #555; font-size: 0.65rem; margin-top: 4px; letter-spacing: 0.1em; }
+.pp-btn { padding: 0.6rem 1.5rem; border: 1px solid #333; background: #0a0a0a; color: #ccc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 0.75rem; letter-spacing: 0.1em; transition: all 0.2s; }
+.pp-btn:hover { border-color: #EC4899; color: #EC4899; }
+.pp-btn-primary { border-color: #EC4899; color: #EC4899; background: rgba(236,72,153,0.1); }
+.pp-card { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.5rem; }
+.pp-card-title { color: #eee; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
+.pp-card-desc { color: #666; font-size: 0.65rem; line-height: 1.5; }
+.pp-flex-row { display: flex; gap: 8px; align-items: center; }
+.pp-flex-col { display: flex; flex-direction: column; gap: 8px; }
+.pp-center { text-align: center; }
+.pp-mt-1 { margin-top: 0.5rem; }
+.pp-mb-1 { margin-bottom: 0.5rem; }
+.pp-text-small { font-size: 0.65rem; color: #555; }
+.pp-text-accent { color: #EC4899; }
+.pp-text-muted { color: #666; }
+.pp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
