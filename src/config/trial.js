@@ -1,1 +1,1 @@
-export const TRIAL_ACTIVE = true
+export const TRIAL_ACTIVE = false

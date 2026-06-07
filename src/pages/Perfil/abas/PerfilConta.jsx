@@ -2,11 +2,16 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../../../lib/supabase'
 import { useAuth } from '../../../context/AuthContext'
+import { useLanguage } from '../../../context/LanguageContext'
+import { cancelarAssinatura } from '../../../lib/stripe'
 
 export default function PerfilConta() {
-  const { user, perfil } = useAuth()
+  const { user, perfil, session } = useAuth()
+  const { locale } = useLanguage()
   const [shareLink, setShareLink] = useState('')
   const [shareStatus, setShareStatus] = useState(null)
+  const [cancelando, setCancelando] = useState(false)
+  const [feedbackCancela, setFeedbackCancela] = useState(null)
 
   useEffect(() => {
     if (!user) return
@@ -26,13 +31,46 @@ export default function PerfilConta() {
     else { setShareStatus('pendente'); setShareLink('') }
   }
 
+  async function handleCancelar() {
+    if (!confirm('Confirmar cancelamento? O acesso continua até o fim do período pago.')) return
+    setCancelando(true)
+    try {
+      await cancelarAssinatura(session.access_token)
+      setFeedbackCancela('Cancelamento agendado. Acesso mantido até o fim do período.')
+    } catch (err) {
+      console.error('[PERFIL] erro cancelar:', err)
+      setFeedbackCancela(`Erro: ${err.message}`)
+    } finally {
+      setCancelando(false)
+    }
+  }
+
   return (
     <div className="perfil-conta">
       <div className="perfil-conta-info">
         <h3 className="perfil-section-title">INFORMAÇÕES DA CONTA</h3>
         <div className="perfil-conta-campo"><span className="perfil-conta-label">Nome</span><span className="perfil-conta-valor">{perfil?.nome || '...'}</span></div>
         <div className="perfil-conta-campo"><span className="perfil-conta-label">Email</span><span className="perfil-conta-valor">{user?.email || '...'}</span></div>
-        <div className="perfil-conta-campo"><span className="perfil-conta-label">Tier</span><span className="perfil-conta-valor">RANQUEADO <Link to="/assinar" className="perfil-conta-upgrade">Fazer upgrade</Link></span></div>
+        <div className="perfil-conta-campo"><span className="perfil-conta-label">Tier</span><span className="perfil-conta-valor">{perfil?.tier || 'RANQUEADO'} <Link to="/assinar" className="perfil-conta-upgrade">Fazer upgrade</Link></span></div>
+      </div>
+
+      <div className="perfil-assinatura">
+        <h3 className="perfil-section-title">ASSINATURA</h3>
+        <p>Plano: <strong>{perfil?.tier || 'RANQUEADO'}</strong></p>
+        <p>Status: <strong>{perfil?.subscription_status || '—'}</strong></p>
+        {perfil?.current_period_end && (
+          <p>Renova em: {new Date(perfil.current_period_end).toLocaleDateString(locale)}</p>
+        )}
+        {perfil?.subscription_status === 'active' && (
+          <button
+            className="btn btn-outline"
+            onClick={handleCancelar}
+            disabled={cancelando}
+          >
+            {cancelando ? 'Cancelando...' : 'Cancelar assinatura'}
+          </button>
+        )}
+        {feedbackCancela && <p className="perfil-feedback">{feedbackCancela}</p>}
       </div>
 
       <div className="perfil-share-section">

@@ -1,10 +1,57 @@
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../context/LanguageContext'
+import { useAuth } from '../context/AuthContext'
+import { iniciarCheckout, getPriceDisplay } from '../lib/stripe'
 import planos from '../data/planos.json'
 import './Assinar.css'
 
 export default function Assinar() {
   const { locale, t } = useLanguage()
+  const { user, perfil, session } = useAuth()
+  const navigate = useNavigate()
+  const priceDisplay = getPriceDisplay(locale)
+  const [loadingTier, setLoadingTier] = useState(null)
+  const [feedback, setFeedback] = useState(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('sucesso')) setFeedback({ tipo: 'sucesso', tier: params.get('tier') })
+    if (params.get('cancelado')) setFeedback({ tipo: 'cancelado' })
+  }, [])
+
+  async function handleAssinar(tier) {
+    if (!user) {
+      navigate('/login?redirect=/assinar')
+      return
+    }
+    if (perfil?.tier === tier) return
+    setLoadingTier(tier)
+    try {
+      await iniciarCheckout(tier, session.access_token)
+    } catch (err) {
+      console.error('[ASSINAR] erro checkout:', err)
+      setFeedback({ tipo: 'erro', mensagem: err.message })
+    } finally {
+      setLoadingTier(null)
+    }
+  }
+
+  function getLabelBotao(tier) {
+    if (!user) return t('assinar.cta')
+    if (perfil?.tier === tier) return '✓ Plano atual'
+    if (perfil?.subscription_status === 'past_due') return '⚠️ Pagamento pendente'
+    if (perfil?.subscription_status === 'canceling' && perfil?.tier === tier) {
+      const data = perfil?.current_period_end
+        ? new Date(perfil.current_period_end).toLocaleDateString(locale)
+        : ''
+      return `Cancela em ${data}`
+    }
+    if (perfil?.tier === 'PRIMORDIAL' && tier === 'ELITE') return 'Fazer downgrade'
+    if (perfil?.tier === 'ELITE' && tier === 'PRIMORDIAL') return 'Fazer upgrade'
+    return t('assinar.cta')
+  }
 
   const nomeKey = locale === 'en' ? 'nome_en' : locale === 'es' ? 'nome_es' : 'nome'
   const precoKey = locale === 'en' ? 'preco_label_en' : locale === 'es' ? 'preco_label_es' : 'preco_label'
@@ -26,6 +73,28 @@ export default function Assinar() {
         </div>
       </section>
 
+      {feedback && (
+        <section className="assinar-feedback">
+          <div className="container">
+            {feedback.tipo === 'sucesso' && (
+              <div className="assinar-feedback__sucesso">
+                ✅ Assinatura {feedback.tier} ativada! Bem-vindo ao clube.
+              </div>
+            )}
+            {feedback.tipo === 'cancelado' && (
+              <div className="assinar-feedback__info">
+                Compra cancelada. Nenhum valor foi cobrado.
+              </div>
+            )}
+            {feedback.tipo === 'erro' && (
+              <div className="assinar-feedback__erro">
+                ❌ {feedback.mensagem}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       <section className="assinar-plans">
         <div className="container">
           <div className="assinar-plans__grid">
@@ -44,7 +113,10 @@ export default function Assinar() {
                   <h2 className="assinar-card__name" style={{ color: p.cor }}>{p[nomeKey]}</h2>
                   <div className="assinar-card__price">
                     <span className="assinar-card__price-value" style={{ color: p.id === 'ranqueado' ? 'var(--text-muted)' : p.cor }}>
-                      {p[precoKey]}
+                      {p.id === 'ranqueado'
+                        ? p[precoKey]
+                        : `${priceDisplay.symbol}${priceDisplay[p.id]}/${priceDisplay.per}`
+                      }
                     </span>
                   </div>
                   <ul className="assinar-card__benefits">
@@ -58,15 +130,14 @@ export default function Assinar() {
                   {p.cta_disabled ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled">{p[ctaTextKey]}</span>
                   ) : (
-                    <a
-                      href={p.cta_url || '#'}
+                    <button
+                      onClick={() => handleAssinar(p.id.toUpperCase())}
+                      disabled={loadingTier === p.id.toUpperCase() || perfil?.tier === p.id.toUpperCase()}
                       className={`assinar-card__cta${isDestaque ? ' assinar-card__cta--filled' : ' assinar-card__cta--outline'}`}
                       style={isDestaque ? { background: 'var(--accent-amber)', color: '#000', borderColor: 'var(--accent-amber)' } : { borderColor: p.cor, color: p.cor }}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
-                      {p[ctaTextKey]}
-                    </a>
+                      {loadingTier === p.id.toUpperCase() ? 'Aguarde...' : getLabelBotao(p.id.toUpperCase())}
+                    </button>
                   )}
                 </div>
               )

@@ -7,15 +7,18 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [perfil, setPerfil] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const [session, setSession] = useState(null)
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setUser(session?.user ?? null)
+      setSession(session)
       if (session?.user) await carregarPerfil(session.user.id)
       setCarregando(false)
     })
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       setUser(session?.user ?? null)
+      setSession(session)
       if (session?.user) {
         await carregarPerfil(session.user.id)
         if (event === 'SIGNED_IN') await garantirDeckInicial(session.user.id)
@@ -27,7 +30,11 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function carregarPerfil(userId) {
-    const { data } = await supabase.from('profiles').select('*').eq('id', userId).single()
+    const { data } = await supabase
+      .from('profiles')
+      .select('*, tier, subscription_status, current_period_end, stripe_subscription_id')
+      .eq('id', userId)
+      .single()
     setPerfil(data)
     return data
   }
@@ -52,7 +59,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, perfil, carregando, logout, carregarPerfil }}>
+    <AuthContext.Provider value={{ user, perfil, carregando, session, logout, carregarPerfil }}>
       {children}
     </AuthContext.Provider>
   )
