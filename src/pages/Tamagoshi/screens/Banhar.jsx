@@ -42,6 +42,34 @@ export default function Banhar({ onConcluir }) {
     }
   }, [])
 
+  // Event listeners manuais com passive: false para evitar warning do React 19
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const onTouch = (e) => {
+      e.preventDefault()
+      handleMove(e.touches[0].clientY)
+    }
+    const onEnd = () => resetTracking()
+    const onMouse = (e) => {
+      if (e.buttons === 1) handleMove(e.clientY)
+    }
+    el.addEventListener('touchmove', onTouch, { passive: false })
+    el.addEventListener('touchend', onEnd)
+    el.addEventListener('touchcancel', onEnd)
+    el.addEventListener('mousemove', onMouse)
+    el.addEventListener('mouseup', onEnd)
+    el.addEventListener('mouseleave', onEnd)
+    return () => {
+      el.removeEventListener('touchmove', onTouch)
+      el.removeEventListener('touchend', onEnd)
+      el.removeEventListener('touchcancel', onEnd)
+      el.removeEventListener('mousemove', onMouse)
+      el.removeEventListener('mouseup', onEnd)
+      el.removeEventListener('mouseleave', onEnd)
+    }
+  }, [])
+
   useEffect(() => {
     if (progress >= 100 && itemUsar) {
       const concluir = async () => {
@@ -61,10 +89,6 @@ export default function Banhar({ onConcluir }) {
   return (
     <div className="tama-acao-screen"
       ref={containerRef}
-      onMouseMove={e => e.buttons === 1 && handleMove(e.clientY)}
-      onTouchMove={e => { e.preventDefault(); handleMove(e.touches[0].clientY) }}
-      onMouseUp={resetTracking}
-      onTouchEnd={resetTracking}
       style={{ touchAction: 'none', overscrollBehavior: 'none' }}
     >
       <h2 className="tama-acao-title">🧼 banhar</h2>

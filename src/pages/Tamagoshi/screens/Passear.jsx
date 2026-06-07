@@ -189,7 +189,7 @@ export default function Passear({ onConcluir }) {
     function om(x, isTouch) {
       if (g.current.dragStart == null) return
       const dx = x - g.current.dragStart, th = GAME_W / LANE_COUNT
-      if (Math.abs(dx) > th * 0.3) {
+      if (Math.abs(dx) > th * 0.25) {
         if (dx < 0 && g.current.lane > 0) g.current.lane--
         else if (dx > 0 && g.current.lane < LANE_COUNT - 1) g.current.lane++
         g.current.dragStart = x
@@ -198,12 +198,22 @@ export default function Passear({ onConcluir }) {
     }
     function oe() { g.current.dragStart = null }
     const ca = canvasRef.current; if (!ca) return
-    ca.addEventListener('touchstart', e => { e.preventDefault(); os(e.touches[0].clientX) }, { passive: false })
-    ca.addEventListener('touchmove', e => { e.preventDefault(); om(e.touches[0].clientX, true) }, { passive: false })
-    ca.addEventListener('touchend', oe)
+    const tStart = (e) => { e.preventDefault(); os(e.touches[0].clientX) }
+    const tMove = (e) => { e.preventDefault(); om(e.touches[0].clientX, true) }
+    const tEnd = () => oe()
+    ca.addEventListener('touchstart', tStart, { passive: false })
+    ca.addEventListener('touchmove', tMove, { passive: false })
+    ca.addEventListener('touchend', tEnd)
+    ca.addEventListener('touchcancel', tEnd)
     ca.addEventListener('mousedown', e => os(e.clientX))
     ca.addEventListener('mousemove', e => { if (e.buttons === 1) om(e.clientX, false) })
     ca.addEventListener('mouseup', oe); ca.addEventListener('mouseleave', oe)
+    return () => {
+      ca.removeEventListener('touchstart', tStart)
+      ca.removeEventListener('touchmove', tMove)
+      ca.removeEventListener('touchend', tEnd)
+      ca.removeEventListener('touchcancel', tEnd)
+    }
   }, [phase])
 
   useEffect(() => {
