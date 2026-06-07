@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { DUNGEONS } from '../data/dungeons'
 
 export default function DungeonSelect() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const flags = store.flags || {}
   const dc = store.dungeonsCompletas || []
@@ -45,20 +47,20 @@ export default function DungeonSelect() {
   if (dungeons.length === 0) {
     return (
       <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <div className="jdc-vila-title">DUNGEONS</div>
+        <div className="jdc-vila-title">{t('games.jackcandy.dungeonselect_titulo')}</div>
         <p className="jack-text jack-text--dim" style={{ textAlign: 'center' }}>
-          nenhuma dungeon disponível. explore a vila primeiro.
+          {t('games.jackcandy.dungeonselect_vazio')}
         </p>
-        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>[ voltar ]</button>
+        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>{t('games.jackcandy.voltar')}</button>
       </motion.div>
     )
   }
 
   return (
     <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className="jdc-vila-title">DUNGEONS</div>
+      <div className="jdc-vila-title">{t('games.jackcandy.dungeonselect_titulo')}</div>
       <p className="jack-text jack-text--dim" style={{ marginBottom: '0.6rem', textAlign: 'center' }}>
-        entre onde a noite é mais escura
+        {t('games.jackcandy.dungeonselect_sub')}
       </p>
 
       <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
@@ -67,7 +69,7 @@ export default function DungeonSelect() {
           onClick={() => setShowAutoPicker(true)}
           style={{ fontSize: '0.7rem' }}
         >
-          {store.autoMode.ativo ? '[ 🤖 AUTO ]' : '[ 🤖 auto ]'}
+          {store.autoMode.ativo ? t('games.jackcandy.dungeonselect_auto_on') : t('games.jackcandy.dungeonselect_auto_off')}
         </button>
       </div>
 
@@ -109,9 +111,9 @@ export default function DungeonSelect() {
       </div>
 
       <div className="jdc-vila-legend">
-        <span>⚔️ Nova</span>
-        <span>🔄 Rejogar</span>
-        {store.periodo === 'NOITE' && <span>🌙 Noturna</span>}
+        <span>{t('games.jackcandy.dungeonselect_legenda_nova')}</span>
+        <span>{t('games.jackcandy.dungeonselect_legenda_rejogar')}</span>
+        {store.periodo === 'NOITE' && <span>{t('games.jackcandy.dungeonselect_legenda_noturna')}</span>}
       </div>
 
       {/* Auto-mode dungeon picker modal */}
@@ -119,9 +121,9 @@ export default function DungeonSelect() {
         <div className="jdc-auto-picker-overlay" onClick={() => setShowAutoPicker(false)}>
           <div className="jdc-auto-picker" onClick={e => e.stopPropagation()}>
             <div className="jdc-auto-picker-title">
-              {store.autoMode.ativo ? '🤖 AUTO ativo — trocar dungeon?' : 'Selecionar dungeon pra automático'}
+              {store.autoMode.ativo ? t('games.jackcandy.dungeonselect_auto_trocar') : t('games.jackcandy.dungeonselect_auto_selecionar')}
             </div>
-            {!store.autoMode.ativo && <div className="jdc-auto-picker-warn">⚠️ modo automático demora mais para passar de nível</div>}
+            {!store.autoMode.ativo && <div className="jdc-auto-picker-warn">{t('games.jackcandy.dungeonselect_auto_aviso')}</div>}
             <div className="jdc-auto-picker-list">
               {dungeons.map(d => {
                 const completa = dc.includes(d.id)
@@ -138,7 +140,7 @@ export default function DungeonSelect() {
                   >
                     <span className="jdc-auto-picker-item-emoji">{isAtiva ? '🤖' : (d.emoji || '⚔️')}</span>
                     <span className="jdc-auto-picker-item-info">
-                      <span className="jdc-auto-picker-item-nome">{d.nome}{isAtiva ? ' (auto)' : ''}</span>
+                      <span className="jdc-auto-picker-item-nome">{d.nome}{isAtiva ? t('games.jackcandy.dungeonselect_auto_sufixo') : ''}</span>
                       <span className="jdc-auto-picker-item-desc">
                         {completa ? `🔄 ${Math.floor((d.dropCap || 0) / 2)} 🍺` : `${d.inimigos || '?'} inim · ${d.dropCap || 0} 🍺`}
                         {d.infinito ? ' · ♾️' : ''}

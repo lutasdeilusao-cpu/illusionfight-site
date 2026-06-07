@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 
 export default function Descanso() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const [hp, setHp] = useState(store.hpAtual)
   const [acordou, setAcordou] = useState(false)
@@ -52,12 +54,12 @@ export default function Descanso() {
       <motion.div className="jdc-descanso" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div className="jdc-descanso-card">
           <div className="jdc-descanso-icon">🌅</div>
-          <p className="jack-text jack-text--amber">você acordou.</p>
+          <p className="jack-text jack-text--amber">{t('games.jackcandy.descanso_acordou')}</p>
           <p className="jack-text jack-text--dim">
-            Moral recuperado até {hp}/{hpMax} ({hpPct}%).
+            {t('games.jackcandy.descanso_recuperado', { hp, hpMax, pct: hpPct })}
           </p>
           <button className="jack-btn jack-btn--amber" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>
-            [ levantar ]
+            {t('games.jackcandy.descanso_levantar')}
           </button>
         </div>
       </motion.div>
@@ -73,7 +75,7 @@ export default function Descanso() {
           </motion.span>
         </div>
         <p className="jack-text jack-text--dim">
-          {eraZero ? 'você desmaiou. recomece com metade das forças.' : 'descansando...'}
+          {eraZero ? t('games.jackcandy.descanso_desmaiou') : t('games.jackcandy.descanso_descansando')}
         </p>
 
         <div className="jdc-descanso-hpbar">
@@ -83,13 +85,13 @@ export default function Descanso() {
             style={{ backgroundColor: hpColor }} />
         </div>
         <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>
-          Moral: {hp}/{hpMax}
+          {t('games.jackcandy.descanso_moral', { hp, hpMax })}
         </p>
 
         {!eraZero && (
           <button className="jack-btn" onClick={() => { stopRef.current = true; store.setFase('vila') }}
             style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
-            [ acordar agora ]
+            {t('games.jackcandy.descanso_acordar_agora')}
           </button>
         )}
       </div>

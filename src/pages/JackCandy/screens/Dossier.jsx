@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 import { PISTAS } from '../data/pistas'
@@ -7,6 +8,7 @@ import PistaCard from '../components/PistaCard'
 import DialogoCaso from '../components/DialogoCaso'
 
 export default function Dossier() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const casoRef = useRef(null)
   const caso = CASOS[store.casoAtivo]
@@ -91,7 +93,7 @@ export default function Dossier() {
           </div>
 
           <div className="jdc-dossier-suspeitos">
-            <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>SUSPEITOS</p>
+            <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>{t('games.jackcandy.dossier_suspeitos')}</p>
             {store.suspeitos.map(s => (
               <div key={s.id} className={`jdc-dossier-suspeito ${s.status === 'eliminado' ? 'jdc-dossier-suspeito--eliminado' : ''} ${s.status === 'acusado' ? 'jdc-dossier-suspeito--acusado' : ''}`}>
                 <span>{s.status === 'eliminado' ? '❌' : s.status === 'acusado' ? '🎯' : '👤'}</span>
@@ -105,17 +107,17 @@ export default function Dossier() {
 
           <div className="jdc-dossier-pistas">
             <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
-              PISTAS ({store.pistasColetadas.length}/{casoAtivo.pistasNecessarias} mínimo)
+              {t('games.jackcandy.dossier_pistas', { n: store.pistasColetadas.length, total: casoAtivo.pistasNecessarias })}
             </p>
             {store.pistasColetadas.length === 0 && (
-              <p className="jack-text jack-text--dim">nenhuma pista ainda. visite os locais do caso.</p>
+              <p className="jack-text jack-text--dim">{t('games.jackcandy.dossier_sem_pistas')}</p>
             )}
             {store.pistasColetadas.map(pid => (
               <PistaCard key={pid} pista={PISTAS[pid]} />
             ))}
             {store.pistasColetadas.length >= casoAtivo.pistasNecessarias && (
               <div className="jdc-dossier-dica">
-                👓 "você tem evidências suficientes para uma acusação. mas mais pistas aumentam suas chances." — Prof. Máquina
+                {t('games.jackcandy.dossier_dica')}
               </div>
             )}
           </div>
@@ -125,20 +127,20 @@ export default function Dossier() {
               <>
                 <button className="jack-btn jack-btn--crimson" onClick={() => setShowAcusar(true)} disabled={!pistasSuficientes}
                   style={{ marginBottom: '0.3rem' }}>
-                  {pistasSuficientes ? '[ acusar ]' : `[ acusar — ${store.pistasColetadas.length}/${casoAtivo.pistasNecessarias} pistas ]`}
+                  {pistasSuficientes ? t('games.jackcandy.dossier_acusar') : t('games.jackcandy.dossier_acusar_incompleto', { n: store.pistasColetadas.length, total: casoAtivo.pistasNecessarias })}
                 </button>
                 {suspeitosAtivos.length === 0 && (
                   <button className="jack-btn" onClick={() => {
                     useJackStore.setState({ suspeitos: casoAtivo.suspeitos.map(s => ({ ...s, status: 'ativo' })) })
                     setShowAcusar(false)
                   }} style={{ fontSize: '0.65rem', borderColor: '#444', color: '#666' }}>
-                    [ reiniciar suspeitos ]
+                    {t('games.jackcandy.dossier_reiniciar')}
                   </button>
                 )}
               </>
             ) : (
               <div>
-                <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>quem é o culpado?</p>
+                <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>{t('games.jackcandy.dossier_culpado')}</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginTop: '0.5rem' }}>
                   {suspeitosAtivos.map(s => (
                     <button key={s.id} className="jack-btn jack-btn--crimson" onClick={() => handleAcusar(s.id)} style={{ textAlign: 'left' }}>
@@ -146,12 +148,12 @@ export default function Dossier() {
                     </button>
                   ))}
                   <button className="jack-btn" onClick={() => setShowAcusar(false)} style={{ fontSize: '0.7rem' }}>
-                    [ cancelar ]
+                    {t('games.jackcandy.dossier_cancelar')}
                   </button>
                 </div>
                 {store.acusacoesErradas > 0 && (
                   <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
-                    acusações erradas: {store.acusacoesErradas}. penalidade: -50🍺 cada.
+                    {t('games.jackcandy.dossier_penalidade', { n: store.acusacoesErradas })}
                   </p>
                 )}
               </div>
@@ -160,7 +162,7 @@ export default function Dossier() {
 
           <div className="jdc-dossier-locais">
             <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
-              LOCAIS PARA INVESTIGAR
+              {t('games.jackcandy.dossier_locais')}
             </p>
             {casoAtivo.locais.map(loc => {
               const visitado = store.locaisVisitados.includes(loc.id)
@@ -187,7 +189,7 @@ export default function Dossier() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           style={{ marginTop: '1rem' }}>
           <p className="jack-text jack-text--amber" style={{ fontSize: '0.75rem', marginBottom: '0.5rem' }}>
-            ✅ caso resolvido.
+            {t('games.jackcandy.dossier_resolvido')}
           </p>
           <div className="jdc-caso-dialogo">
             <DialogoCaso

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 
 export default function CasoSelect() {
+  const { t } = useLanguage()
   const store = useJackStore()
 
   const casosDisponiveis = Object.values(CASOS).filter(c => {
@@ -24,14 +26,14 @@ export default function CasoSelect() {
 
   return (
     <motion.div className="jdc-dungeon-select" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <h2 className="jdc-dungeon-select-title">CASOS</h2>
+      <h2 className="jdc-dungeon-select-title">{t('games.jackcandy.casoselect_titulo')}</h2>
       <p className="jack-text jack-text--dim" style={{ textAlign: 'center', fontSize: '0.75rem', marginBottom: '1.5rem' }}>
-        investigue. acuse. resolva.
+        {t('games.jackcandy.casoselect_sub')}
       </p>
 
       {casosDisponiveis.length === 0 && casosResolvidos.length === 0 && (
         <p className="jack-text jack-text--dim" style={{ textAlign: 'center' }}>
-          nenhum caso disponível ainda.
+          {t('games.jackcandy.casoselect_vazio')}
         </p>
       )}
 
@@ -55,14 +57,14 @@ export default function CasoSelect() {
             <span className="jack-text" style={{ fontSize: '0.85rem' }}>
               {caso.nome}
               {store.casoAtivo === caso.id && (
-                <span className="jack-text--amber" style={{ fontSize: '0.65rem', marginLeft: '0.5rem' }}>● em andamento</span>
+                <span className="jack-text--amber" style={{ fontSize: '0.65rem', marginLeft: '0.5rem' }}>{t('games.jackcandy.casoselect_andamento')}</span>
               )}
             </span>
             <span className="jack-text--dim" style={{ fontSize: '0.65rem', display: 'block' }}>
               {caso.cidade} · {caso.suspeitos.length} suspeitos · {caso.pistasNecessarias} pistas mínimas
             </span>
             <span className="jack-text--dim" style={{ fontSize: '0.6rem', fontStyle: 'italic', display: 'block', marginTop: '0.2rem' }}>
-              cliente: {caso.cliente || 'anônimo'}
+              {t('games.jackcandy.casoselect_cliente', { nome: caso.cliente || t('games.jackcandy.casoselect_anonimo') })}
             </span>
           </div>
           <span style={{ color: '#F5A623' }}>→</span>
@@ -72,7 +74,7 @@ export default function CasoSelect() {
       {casosResolvidos.length > 0 && (
         <div style={{ marginTop: '1.5rem' }}>
           <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem', textAlign: 'center' }}>
-            RESOLVIDOS
+            {t('games.jackcandy.casoselect_resolvidos')}
           </p>
           {casosResolvidos.map(caso => (
             <div key={caso.id} className="jdc-dungeon-card"
@@ -91,7 +93,7 @@ export default function CasoSelect() {
 
       <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
         <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>
-          [ voltar ]
+          {t('games.jackcandy.voltar')}
         </button>
       </div>
     </motion.div>

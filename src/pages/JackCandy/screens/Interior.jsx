@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { NPCS } from '../data/npcs'
 import { ITENS } from '../data/itens'
 
 export default function Interior({ npcId }) {
+  const { t } = useLanguage()
   const store = useJackStore()
   const npc = NPCS[npcId]
   const [msg, setMsg] = useState('')
@@ -40,11 +42,11 @@ export default function Interior({ npcId }) {
     const item = ITENS[itemId]
     if (!item) return
     if (saldo(item.moeda) < item.preco) {
-      setMsg('recursos insuficientes.')
+      setMsg(t('games.jackcandy.interior_recursos_insuficientes'))
       return
     }
     store.comprarItem(itemId)
-    const msgCompra = `comprou ${item.nome}!`
+    const msgCompra = t('games.jackcandy.interior_comprou', { nome: item.nome })
     setMsg(msgCompra)
     addBalao(msgCompra)
   }
@@ -102,7 +104,7 @@ export default function Interior({ npcId }) {
           <span className="jdc-interior-dono"> — {npc.nome}</span>
         </div>
         <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>
-          [ sair ]
+          {t('games.jackcandy.interior_sair')}
         </button>
       </div>
 
@@ -114,7 +116,7 @@ export default function Interior({ npcId }) {
       {/* Missões */}
       {npc.missoes && npc.missoes.length > 0 && (
         <div className="jdc-interior-missoes">
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.3rem' }}>missões:</p>
+          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.3rem' }}>{t('games.jackcandy.interior_missoes')}</p>
           {npc.missoes.map((m, i) => (
             <div key={m.id} className="jdc-interior-missao">
               <span>{missaoStatus[i] === 'done' ? '✅' : missaoStatus[i] === 'open' ? '📋' : '🔒'}</span>
@@ -162,7 +164,7 @@ export default function Interior({ npcId }) {
                   onClick={() => handleComprar(itemId)}
                   disabled={!podeComprar}
                   style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>
-                  [ comprar ]
+                  {t('games.jackcandy.interior_comprar')}
                 </button>
               </div>
             </motion.div>
@@ -171,8 +173,8 @@ export default function Interior({ npcId }) {
         {itensFiltrados.length === 0 && (
           <p className="jack-text jack-text--dim" style={{ textAlign: 'center', padding: '1rem' }}>
             {npc.id === 'paje' && store.flags.TEM_BENGALA && !todosItens.length
-              ? 'você já comprou todos os itens disponíveis aqui.'
-              : 'nada disponível nesta categoria.'}
+              ? t('games.jackcandy.interior_todos_comprados')
+              : t('games.jackcandy.interior_nada_disponivel')}
           </p>
         )}
       </div>
