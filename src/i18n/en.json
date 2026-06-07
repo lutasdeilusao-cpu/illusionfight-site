@@ -903,6 +903,29 @@
         "btn_ultrapassou": "You've exceeded the point limit",
         "btn_entrar": "ENTER LDI",
         "pontos_restantes": "Remaining points: {points}"
+      },
+      "sheet": {
+        "titulo": "Character Sheet"
+      },
+      "cluebook": {
+        "titulo": "📓 Clue Book",
+        "vazio": "No clues collected yet.",
+        "todas": "All ({n})",
+        "dia": "Day {n}"
+      },
+      "end": {
+        "retrospecto": "📜 Retrospective",
+        "conquistas": "🏅 Achievements ({n}/{total})",
+        "decisoes": "🎯 Decisions That Most Impacted",
+        "estatisticas": "📊 Statistics",
+        "dia": "In-game day",
+        "pistas": "Clues",
+        "xp_total": "Total XP",
+        "xp": "XP",
+        "creditos": "Credits",
+        "conquistas_label": "Achievements",
+        "pistas_coletadas": "📋 Collected Clues",
+        "pistas_label": "Clues:"
       }
     },
     "tatics": {

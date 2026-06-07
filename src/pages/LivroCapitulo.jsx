@@ -99,7 +99,7 @@ export default function LivroCapitulo() {
   return (
     <section className="livro-capitulo">
       <Helmet>
-        <title>{`${chapter[tituloKey]} — ${t('site.nome_curto')}`}</title>
+        <title>{chapter ? `${chapter[tituloKey]} — ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
       </Helmet>
       <div className="container">
         <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>
@@ -108,9 +108,9 @@ export default function LivroCapitulo() {
 
         <div className="livro-capitulo__header">
           <div className="livro-capitulo__header-numero">
-            {t('pages.livro.capitulo')} {String(chapter.numero).padStart(2, '0')}
+            {chapter ? `${t('pages.livro.capitulo')} ${String(chapter.numero).padStart(2, '0')}` : ''}
           </div>
-          <h1 className="livro-capitulo__header-titulo">{chapter[tituloKey]}</h1>
+          {chapter && <h1 className="livro-capitulo__header-titulo">{chapter[tituloKey]}</h1>}
         </div>
 
         <div className="livro-capitulo__content">

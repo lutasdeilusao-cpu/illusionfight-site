@@ -903,6 +903,29 @@
         "btn_ultrapassou": "Has superado el límite de puntos",
         "btn_entrar": "ENTRAR AL LDI",
         "pontos_restantes": "Puntos restantes: {points}"
+      },
+      "sheet": {
+        "titulo": "Ficha del Personaje"
+      },
+      "cluebook": {
+        "titulo": "📓 Cuaderno de Pistas",
+        "vazio": "Ninguna pista recogida aún.",
+        "todas": "Todas ({n})",
+        "dia": "Día {n}"
+      },
+      "end": {
+        "retrospecto": "📜 Retrospectiva",
+        "conquistas": "🏅 Logros ({n}/{total})",
+        "decisoes": "🎯 Decisiones que Más Impactaron",
+        "estatisticas": "📊 Estadísticas",
+        "dia": "Día en el juego",
+        "pistas": "Pistas",
+        "xp_total": "XP total",
+        "xp": "XP",
+        "creditos": "Créditos",
+        "conquistas_label": "Logros",
+        "pistas_coletadas": "📋 Pistas Recogidas",
+        "pistas_label": "Pistas:"
       }
     },
     "tatics": {

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function ClueBook({ clues, onClose }) {
+  const { t } = useLanguage()
   const [filter, setFilter] = useState('all')
   const [newClueId, setNewClueId] = useState(null)
 
@@ -9,10 +11,10 @@ export default function ClueBook({ clues, onClose }) {
     return (
       <div className="ldi-cluebook">
         <div className="ldi-cluebook-header">
-          <h2>📓 Caderno de Pistas</h2>
+          <h2>{t('games.ldi.cluebook.titulo')}</h2>
           <button className="ldi-cluebook-close" onClick={onClose}>✕</button>
         </div>
-        <p className="ldi-cluebook-empty">Nenhuma pista coletada ainda.</p>
+        <p className="ldi-cluebook-empty">{t('games.ldi.cluebook.vazio')}</p>
       </div>
     )
   }
@@ -23,7 +25,7 @@ export default function ClueBook({ clues, onClose }) {
   return (
     <div className="ldi-cluebook">
       <div className="ldi-cluebook-header">
-        <h2>📓 Caderno de Pistas</h2>
+        <h2>{t('games.ldi.cluebook.titulo')}</h2>
         <button className="ldi-cluebook-close" onClick={onClose}>✕</button>
       </div>
 
@@ -31,7 +33,7 @@ export default function ClueBook({ clues, onClose }) {
         <button
           className={`ldi-cluebook-filter ${filter === 'all' ? 'active' : ''}`}
           onClick={() => setFilter('all')}
-        >Todas ({clues.length})</button>
+        >{t('games.ldi.cluebook.todas', { n: clues.length })}</button>
         {types.map(t => (
           <button
             key={t}
@@ -54,7 +56,7 @@ export default function ClueBook({ clues, onClose }) {
               transition={{ duration: 0.3 }}
             >
               <div className="ldi-clue-card-header">
-                <span className="ldi-clue-day">Dia {clue.day || '?'}</span>
+                <span className="ldi-clue-day">{t('games.ldi.cluebook.dia', { n: clue.day || '?' })}</span>
                 {clue.type && <span className="ldi-clue-type">{clue.type}</span>}
               </div>
               <p className="ldi-clue-text">{clue.text}</p>

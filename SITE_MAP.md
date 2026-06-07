@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*    
-*Versão: 2.68*  |  `[SITE] versão carregada: 2.67`
+*Versão: 2.69*  |  `[SITE] versão carregada: 2.67`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -130,9 +130,9 @@
 | `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ PT ✅ EN ✅ ES | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
 | `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela principal de jogo (cena narrativa + typewriter) |
 | `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela de combate 3D&T com 3 modos + seleção de poderes |
-| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Ficha do personagem (consulta) |
-| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Caderno de pistas |
-| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela de fim de jogo |
+| `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ficha do personagem (consulta) |
+| `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
+| `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim de jogo |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Roteador de puzzles in-game |
 | `/games/ldi/diagnostico` | Diagnostico | `src/pages/LDI/Diagnostico.jsx` | ✅ v1.0.4 | ⏳ PT ⏳ EN ⏳ ES | Tela de diagnóstico admin (cenas, flags, save) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | ⏳ PT ⏳ EN ⏳ ES | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |

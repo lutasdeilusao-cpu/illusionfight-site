@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { useReader } from '../../context/ReaderContext'
 import './LDI.css'
@@ -36,6 +37,7 @@ const ACHIEVEMENTS = [
 ]
 
 export default function End() {
+  const { t } = useLanguage()
   const { setReaderMode } = useReader()
   const { sheet, save, resetGame } = useGameStore()
   const [showRetro, setShowRetro] = useState(false)
@@ -51,10 +53,10 @@ export default function End() {
     return (
       <div className="ldi-end">
         <motion.div className="ldi-end-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="ldi-end-retro-title">📜 Retrospecto</div>
+          <div className="ldi-end-retro-title">{t('games.ldi.end.retrospecto')}</div>
           
           <div className="ldi-end-retro-section">
-            <h3>🏅 Conquistas ({unlocked.length}/{ACHIEVEMENTS.length})</h3>
+            <h3>{t('games.ldi.end.conquistas', { n: unlocked.length, total: ACHIEVEMENTS.length })}</h3>
             <div className="ldi-end-achievements">
               {ACHIEVEMENTS.map(a => {
                 const has = unlocked.find(u => u.id === a.id)
@@ -73,7 +75,7 @@ export default function End() {
 
           {lastChoices.length > 0 && (
             <div className="ldi-end-retro-section">
-              <h3>🎯 Decisões que Mais Impactaram</h3>
+              <h3>{t('games.ldi.end.decisoes')}</h3>
               <ul className="ldi-end-retro-list">
                 {lastChoices.map((c, i) => (
                   <li key={i} className="ldi-end-retro-item">{c}</li>
@@ -83,22 +85,22 @@ export default function End() {
           )}
 
           <div className="ldi-end-retro-section">
-            <h3>📊 Estatísticas</h3>
+            <h3>{t('games.ldi.end.estatisticas')}</h3>
             <div className="ldi-end-stats">
               <div className="ldi-end-stat">
-                <span className="ldi-end-stat-label">Dia in-game</span>
+                <span className="ldi-end-stat-label">{t('games.ldi.end.dia')}</span>
                 <span className="ldi-end-stat-value">{save?.day_in_game || 1}</span>
               </div>
               <div className="ldi-end-stat">
-                <span className="ldi-end-stat-label">Pistas</span>
+                <span className="ldi-end-stat-label">{t('games.ldi.end.pistas')}</span>
                 <span className="ldi-end-stat-value">{clues.length}</span>
               </div>
               <div className="ldi-end-stat">
-                <span className="ldi-end-stat-label">XP total</span>
+                <span className="ldi-end-stat-label">{t('games.ldi.end.xp_total')}</span>
                 <span className="ldi-end-stat-value">{xpGained}</span>
               </div>
               <div className="ldi-end-stat">
-                <span className="ldi-end-stat-label">Créditos</span>
+                <span className="ldi-end-stat-label">{t('games.ldi.end.creditos')}</span>
                 <span className="ldi-end-stat-value">{save?.credits || 0}</span>
               </div>
             </div>
@@ -106,7 +108,7 @@ export default function End() {
 
           {clues.length > 0 && (
             <div className="ldi-end-retro-section">
-              <h3>📋 Pistas Coletadas</h3>
+              <h3>{t('games.ldi.end.pistas_coletadas')}</h3>
               <ul className="ldi-end-retro-list">
                 {clues.map((c, i) => (
                   <li key={i} className="ldi-end-retro-item">{c.text || c}</li>
@@ -117,7 +119,7 @@ export default function End() {
 
           <div className="ldi-end-actions" style={{ marginTop: '1.5rem' }}>
             <button className="ldi-btn ldi-btn--ghost" onClick={() => setShowRetro(false)}>
-              VOLTAR
+              {t('games.ldi.voltar')}
             </button>
           </div>
         </motion.div>
@@ -158,19 +160,19 @@ export default function End() {
           transition={{ delay: 2, duration: 0.8 }}
         >
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">Dia in-game</span>
+            <span className="ldi-end-stat-label">{t('games.ldi.end.dia')}</span>
             <span className="ldi-end-stat-value">{save?.day_in_game || 1}</span>
           </div>
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">Pistas</span>
+            <span className="ldi-end-stat-label">{t('games.ldi.end.pistas')}</span>
             <span className="ldi-end-stat-value">{clues.length}</span>
           </div>
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">XP</span>
+            <span className="ldi-end-stat-label">{t('games.ldi.end.xp')}</span>
             <span className="ldi-end-stat-value">{xpGained}</span>
           </div>
           <div className="ldi-end-stat">
-            <span className="ldi-end-stat-label">Conquistas</span>
+            <span className="ldi-end-stat-label">{t('games.ldi.end.conquistas_label')}</span>
             <span className="ldi-end-stat-value">{unlocked.length}/{ACHIEVEMENTS.length}</span>
           </div>
         </motion.div>
@@ -182,7 +184,7 @@ export default function End() {
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 0.5 }}
           >
-            <h3>Pistas:</h3>
+            <h3>{t('games.ldi.end.pistas_label')}</h3>
             <ul>
               {clues.map((clue, i) => (
                 <li key={i}>{clue.text || clue}</li>
