@@ -140,11 +140,11 @@ Mike pegou um pedaço de madeira do chão e veio com ele em arco horizontal. Jac
 
 Mike escorregou pela parede e ficou.
 
-Rock tentou se levantar usando o ombro bom. Kim apareceu atrás dele antes que chegasse à metade. Segurou o crânio com as duas mãos e encaixou a joelhada. Rock voltou ao chão e ficou.
+Rock tentou se levantar usando o ombro bom. Kim apareceu atrás dele antes que chegasse à metade. Segurou o crânio com as duas mãos e encaixou a joelhada. Rock voltou estava definitivamente derrotado.
 
 Quatro no chão.
 
-Brock estava de pé no centro do anexo. Havia observado tudo em silêncio, os olhos se movendo, catalogando. Sem celular na mão agora. Sem pressa. Colocou dois socos ingleses, um em cada mão, e começou a se mover na direção de Jack.
+Brock estava de pé no centro do anexo. Havia observado tudo em silêncio, os olhos se movendo, catalogando. Sem celular na mão. Sem pressa. Colocou dois socos ingleses, um em cada mão, e começou a se mover na direção de Jack.
 
 Não de Kim. De Jack.
 

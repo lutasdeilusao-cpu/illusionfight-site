@@ -74,6 +74,7 @@ export default function CityOverworld({
     moving:false, moveFrom:{x:0,y:0}, moveTo:{x:0,y:0},
     moveProgress:1, moveStart:0, currentZone:null,
     transitioning: false,
+    pendingExit: null,
   })
 
   // Atualiza posição quando spawnPoint muda (transição entre distritos)
@@ -189,22 +190,23 @@ export default function CityOverworld({
         else setZoneVisible(false)
       }
 
+      // Interagir com prédios
       const b = getBuildingAt(s.current.px, s.current.py, currentDistrito)
-      if (b) setInteractLabel(t('tatics.city.interact_enter', { name: buildingName(b) }))
-      else setInteractLabel('')
-    }
+      if (b) { setInteractLabel(t('tatics.city.interact_enter', { name: buildingName(b) })); return }
 
-    function checkExit() {
+      // Interagir com saída de distrito
       const exit = getExitAt(s.current.px, s.current.py, currentDistrito)
-      if (exit && !s.current.transitioning) {
-        s.current.transitioning = true
-        setTransitioning(true)
-        setTimeout(() => {
-          s.current.transitioning = false
-          onDistrictTransition(exit.to, { x: exit.spawnTile.x * STEP, y: exit.spawnTile.y * STEP })
-          setTransitioning(false)
-        }, 350)
+      if (exit) {
+        const exitName = exit.to === 'residencial' ? t('tatics.zones.residencial')
+          : exit.to === 'central' ? t('tatics.zones.central')
+          : t('tatics.zones.comercial')
+        setInteractLabel(`[A] IR PARA: ${exitName}`)
+        s.current.pendingExit = exit
+        return
       }
+
+      setInteractLabel('')
+      s.current.pendingExit = null
     }
 
     function loop() {
@@ -243,16 +245,34 @@ export default function CityOverworld({
 
   const hBA = useCallback(() => {
     const d = distritoRef.current || DISTRITOS[districtId]
+
+    // NPC dialog
     const npc = getNpcAt(s.current.px, s.current.py, d)
     if (npc) {
       setNpcDialog(t(npc.dialogKey || 'tatics.city.detective_dialog'))
       setTimeout(() => setNpcDialog(null), 3000)
       return
     }
+
+    // Saída de distrito (manual — só quando aperta A)
+    if (s.current.pendingExit && !s.current.transitioning) {
+      const exit = s.current.pendingExit
+      s.current.transitioning = true
+      setTransitioning(true)
+      setTimeout(() => {
+        s.current.transitioning = false
+        s.current.pendingExit = null
+        onDistrictTransition(exit.to, { x: exit.spawnTile.x * STEP, y: exit.spawnTile.y * STEP })
+        setTransitioning(false)
+      }, 350)
+      return
+    }
+
+    // Entrar em prédio
     const b = getBuildingAt(s.current.px, s.current.py, d)
     if (b) onEnterBuilding(b.interiorMapId, buildingName(b))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[onEnterBuilding, districtId, buildingName, t])
+  },[onEnterBuilding, districtId, buildingName, t, onDistrictTransition])
 
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
 
