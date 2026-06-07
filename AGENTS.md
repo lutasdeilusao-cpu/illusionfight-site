@@ -20,6 +20,14 @@
 - Vite base: `/illusionfight-site/` (configured in `vite.config.js`)
 - Supabase project: `dvxfrzixtetdzmdrzkpx.supabase.co` — client initialized in `src/lib/supabase.js` with anon key
 
+## 🤖 Custom Agents
+
+O projeto possui agentes personalizados em `.github/agents/`:
+
+| Agente | Arquivo | Trigger | Descrição |
+|--------|---------|---------|-----------|
+| **LDI** | `.github/agents/ldi.agent.md` | `/ldi` | Workflow completo de versionamento + deploy. Sem micro-commits. Toda alteração → bump version → build → commit → push → deploy + relatório. |
+
 ## Deploy commands (must run in this order)
 
 ```
