@@ -64,6 +64,7 @@ git push             # push main branch source
 | MiniGames | `MINIGAMES_VERSION` | `src/pages/MiniGames/version.js:1` |
 | Arena Mode | `ARENA_VERSION` | `src/pages/Arena/ArenaRoute.jsx:10` (not in store) |
 | Pesadelo Particular | `PP_VERSION` | `src/pages/PesadeloParticular/PP.jsx:7` |
+| Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js:23` |
 | Site global | `SITE_VERSION` | `src/config/version.js:1` |
 
 Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
