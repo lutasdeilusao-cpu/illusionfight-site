@@ -4,6 +4,7 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import LoginGate from '../components/LoginGate/LoginGate'
+import { useLanguage } from '../context/LanguageContext'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumps.css'
@@ -26,6 +27,7 @@ function keyPorUser(user, suffix) {
 }
 
 export default function TopTrumps() {
+  const { t } = useLanguage()
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)

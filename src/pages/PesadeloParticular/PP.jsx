@@ -104,7 +104,7 @@ function IntroNoir({ onComplete }) {
         {fase === 'typing' && <span className="pp-intro-cursor" />}
       </div>
       {fase === 'glitch' && <div className="pp-glitch-overlay" />}
-      <div style={{ position:'absolute',bottom:'2rem',left:0,right:0,textAlign:'center',fontSize:'0.65rem',color:'rgba(255,255,255,0.2)',fontFamily:'Courier New',letterSpacing:'0.1em' }}>
+      <div className="pp-intro-skip">
         {t('pt', 'intro.pular')}
       </div>
     </div>
@@ -139,15 +139,15 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
 
   if (fase === 'chat') {
     return (
-      <div style={{ minHeight:'100vh', background:'#0a0a0a', display:'flex', flexDirection:'column', padding:'1rem' }}>
+      <div className="pp-final-chat">
         <div className="pp-convo-header">
-          <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{t('pt', 'final.jack_label')}</span>
+          <span className="pp-amber-mono-sm">{t('pt', 'final.jack_label')}</span>
         </div>
-        <div style={{ flex:1, display:'flex', alignItems:'center', padding:'2rem' }}>
-          <div style={{ display:'flex', gap:'0.75rem', alignItems:'flex-end', maxWidth:'78%' }}>
-            <div style={{ width:28, height:28, borderRadius:'50%', background:'#1a3a2a', border:'1.5px solid var(--pp-jack)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0 }}>🕵️</div>
-            <div style={{ background:'#1a3a2a', borderRadius:'16px 16px 4px 16px', padding:'0.75rem 1rem', border:'1px solid rgba(0,255,136,0.13)' }}>
-              <div style={{ fontSize:'0.95rem', color:'var(--pp-jack)', lineHeight:1.6, whiteSpace:'pre-line' }}>
+        <div className="pp-final-chat-body">
+          <div className="pp-final-chat-msg">
+            <div className="pp-final-chat-avatar">🕵️</div>
+            <div className="pp-final-chat-bubble">
+              <div className="pp-final-chat-bubble-text">
                 {texto}
                 <span style={{ display:'inline-block', width:2, height:'1.1em', background:'var(--pp-jack)', verticalAlign:'text-bottom', animation:'pp-blink 1s step-end infinite' }} />
               </div>
@@ -160,7 +160,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
 
   if (fase === 'creditos') {
     return (
-      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', position:'relative' }}>
+      <div className="pp-final-credits">
         <div className="pp-rain" />
         <div className="pp-credits-roll">
           <p className="pp-credits-title">{t('pt', 'final.creditos_titulo')}</p>
@@ -182,21 +182,21 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
   }
 
   return (
-    <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+    <div className="pp-final-screen">
       <div className="pp-rain" />
-      <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
-        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'1rem' }}>{t('pt', 'final.creditos_titulo')}</h1>
-        <p style={{ color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.75rem', marginBottom:'2rem' }}>{t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
+      <div className="pp-page-content">
+        <h1 className="pp-credits-h1">{t('pt', 'final.creditos_titulo')}</h1>
+        <p className="pp-text-mono-muted" style={{marginBottom:'2rem'}}>{t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
         <button onClick={() => {
           const txt = `${t('pt', 'final.compartilhar')} — ${t('pt', 'final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}.\nlutasdeilusao-cpu.github.io/illusionfight-site`
           if (navigator.share) navigator.share({ title:t('pt', 'final.creditos_titulo'), text:txt })
           else navigator.clipboard?.writeText(txt).then(() => alert(t('pt', 'final.link_copiado')))
         }}
-          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 0.75rem', padding:'0.75rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
+          className="pp-btn-share">
           {t('pt', 'final.compartilhar')}
         </button>
         <button onClick={onVoltarInicio}
-          style={{ background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', textDecoration:'underline' }}>
+          className="pp-btn-back-link">
           {t('pt', 'final.voltar_inicio')}
         </button>
       </div>
@@ -218,7 +218,7 @@ function AnimacaoInvestigacao({ onComplete }) {
   }, [])
 
   return (
-    <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'3rem 1rem', gap:'1.5rem' }}>
+    <div className="pp-anim-invest">
       <AnimatePresence mode="wait">
         {fase === 'pegadas' && (
           <motion.div key="pegadas" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
@@ -241,14 +241,14 @@ function AnimacaoInvestigacao({ onComplete }) {
         )}
         {fase === 'revelando' && (
           <motion.div key="revelando" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}>
-            <span style={{ fontSize:'0.8rem', color:'var(--pp-amber)', fontFamily:'Courier New', letterSpacing:'0.15em' }}>
+            <span className="pp-evidence-found">
               {t('pt', 'local.evidencia_encontrada')}
             </span>
           </motion.div>
         )}
       </AnimatePresence>
-      <div style={{ width:'80%', height:'2px', background:'var(--pp-border)', borderRadius:1, overflow:'hidden' }}>
-        <motion.div style={{ height:'100%', background:'var(--pp-amber)', borderRadius:1 }}
+      <div className="pp-progress-bar">
+        <motion.div className="pp-progress-fill"
           initial={{ width:'0%' }} animate={{ width:'100%' }} transition={{ duration:4.5, ease:'linear' }} />
       </div>
     </div>
@@ -315,48 +315,48 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
   const hpPct = (hp, max) => Math.max(0, (hp / max) * 100)
 
   return (
-    <div style={{ padding:'1rem', display:'flex', flexDirection:'column', gap:'1rem' }}>
-      <div style={{ textAlign:'center', fontFamily:'Courier New', fontSize:'0.65rem', letterSpacing:'0.2em', color:'var(--pp-text-muted)', marginBottom:'0.5rem' }}>
+    <div className="pp-battle-section">
+      <div className="pp-battle-header">
         {t('pt', 'batalha.titulo', { nivel })}
       </div>
 
       {/* Inimigo */}
-      <motion.div animate={animAtaque === 'inimigo' ? { x: [0, 8, -8, 0] } : {}} style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem' }}>
-        <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'0.5rem' }}>
-          <span style={{ fontSize:'2rem' }}>{inimigo.emoji}</span>
+      <motion.div animate={animAtaque === 'inimigo' ? { x: [0, 8, -8, 0] } : {}} className="pp-battle-card">
+        <div className="pp-battle-card-row">
+          <span className="pp-battle-card-icon">{inimigo.emoji}</span>
           <div style={{ flex:1 }}>
-            <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-nina)' }}>{inimigo.nome}</div>
-            <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>HP: {inimigoHp}/{inimigo.hp}</div>
+            <div className="pp-battle-card-name" style={{ color:'var(--pp-nina)' }}>{inimigo.nome}</div>
+            <div className="pp-battle-card-hp">HP: {inimigoHp}/{inimigo.hp}</div>
           </div>
         </div>
-        <div style={{ height:6, background:'var(--pp-border)', borderRadius:3, overflow:'hidden' }}>
+        <div className="pp-hp-bar">
           <motion.div animate={{ width: `${hpPct(inimigoHp, inimigo.hp)}%` }} transition={{ duration:0.3 }}
-            style={{ height:'100%', background:'var(--pp-nina)', borderRadius:3 }} />
+            className="pp-hp-bar-fill" style={{ background:'var(--pp-nina)' }} />
         </div>
       </motion.div>
 
       {/* Log */}
-      <div ref={logRef} style={{ background:'#050505', border:'1px solid var(--pp-border)', borderRadius:8, padding:'0.75rem', height:120, overflowY:'auto', display:'flex', flexDirection:'column', gap:'0.3rem' }}>
-        {log.length === 0 && <div style={{ color:'var(--pp-text-muted)', fontSize:'0.75rem', fontFamily:'Georgia', fontStyle:'italic' }}>{t('pt', 'batalha.comeca')}</div>}
+      <div ref={logRef} className="pp-battle-log">
+        {log.length === 0 && <div className="pp-battle-log-empty">{t('pt', 'batalha.comeca')}</div>}
         {log.map(l => (
-          <div key={l.id} style={{ fontSize:'0.75rem', fontFamily:'Courier New', color: l.tipo === 'player' ? 'var(--pp-jack)' : l.tipo === 'inimigo' ? 'var(--pp-nina)' : l.tipo === 'vitoria' ? 'var(--pp-success)' : l.tipo === 'derrota' ? 'var(--pp-danger)' : 'var(--pp-text-muted)' }}>
+          <div key={l.id} className="pp-battle-log-entry" style={{ color: l.tipo === 'player' ? 'var(--pp-jack)' : l.tipo === 'inimigo' ? 'var(--pp-nina)' : l.tipo === 'vitoria' ? 'var(--pp-success)' : l.tipo === 'derrota' ? 'var(--pp-danger)' : 'var(--pp-text-muted)' }}>
             {l.texto}
           </div>
         ))}
       </div>
 
       {/* Jack */}
-      <motion.div animate={animAtaque === 'jack' ? { x: [0, -8, 8, 0] } : {}} style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem' }}>
-        <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'0.5rem' }}>
-          <span style={{ fontSize:'2rem' }}>🕵️</span>
+      <motion.div animate={animAtaque === 'jack' ? { x: [0, -8, 8, 0] } : {}} className="pp-battle-card">
+        <div className="pp-battle-card-row">
+          <span className="pp-battle-card-icon">🕵️</span>
           <div style={{ flex:1 }}>
-            <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-jack)' }}>Jack</div>
-            <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>HP: {jackHp}/{jackBase.hp}</div>
+            <div className="pp-battle-card-name" style={{ color:'var(--pp-jack)' }}>Jack</div>
+            <div className="pp-battle-card-hp">HP: {jackHp}/{jackBase.hp}</div>
           </div>
         </div>
-        <div style={{ height:6, background:'var(--pp-border)', borderRadius:3, overflow:'hidden' }}>
+        <div className="pp-hp-bar">
           <motion.div animate={{ width: `${hpPct(jackHp, jackBase.hp)}%` }} transition={{ duration:0.3 }}
-            style={{ height:'100%', background:'var(--pp-jack)', borderRadius:3 }} />
+            className="pp-hp-bar-fill" style={{ background:'var(--pp-jack)' }} />
         </div>
       </motion.div>
 
@@ -364,7 +364,7 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
       <button
         onClick={atacarInimigo}
         disabled={turno !== 'player' || !!resultado}
-        style={{ padding:'0.85rem', background: turno === 'player' && !resultado ? 'var(--pp-amber)' : 'var(--pp-surface2)', color: turno === 'player' && !resultado ? '#000' : 'var(--pp-text-muted)', border:'none', borderRadius:12, fontSize:'0.9rem', fontWeight:700, cursor: turno === 'player' && !resultado ? 'pointer' : 'default', transition:'all 0.2s' }}>
+        className={`pp-battle-btn ${turno === 'player' && !resultado ? 'pp-battle-btn-ready' : 'pp-battle-btn-disabled'}`}>
         {turno === 'player' ? t('pt', 'batalha.atacar') : turno === 'inimigo' ? t('pt', 'batalha.inimigo_agindo') : resultado === 'vitoria' ? t('pt', 'batalha.vitoria') : t('pt', 'batalha.derrota')}
       </button>
     </div>
@@ -461,17 +461,17 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
       {/* Header */}
       <div className="pp-convo-header">
         <button className="pp-convo-back" onClick={onBack}>←</button>
-        <div className="pp-chat-avatar" style={{ background: AVATARES.jack.cor, border:`2px solid ${AVATARES.jack.textCor}`, width:32, height:32, borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1rem', flexShrink:0 }}>
+        <div className="pp-chat-avatar" style={{ background: AVATARES.jack.cor, border:`2px solid ${AVATARES.jack.textCor}` }}>
           {AVATARES.jack.emoji}
         </div>
         <div>
-          <div style={{ fontSize:'0.9rem', fontWeight:700, color:'var(--pp-jack)' }}>{t('pt', 'convo.jack_nome')}</div>
-          <div style={{ fontSize:'0.65rem', color:'var(--pp-success)' }}>{t('pt', 'convo.online')}</div>
+          <div className="pp-battle-card-name" style={{ color:'var(--pp-jack)' }}>{t('pt', 'convo.jack_nome')}</div>
+          <div className="pp-text-mono-xs" style={{ color:'var(--pp-success)' }}>{t('pt', 'convo.online')}</div>
         </div>
       </div>
 
       {/* Mensagens — scrollável independente */}
-      <div ref={msgsContainerRef} style={{ flex:1, overflowY:'auto', padding:'1rem', display:'flex', flexDirection:'column', gap:'0.5rem' }}>
+      <div ref={msgsContainerRef} className="pp-chat-container">
         {msgs.map(msg => {
           if (msg.tipo === 'narracao') {
             return (
@@ -488,17 +488,16 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
               initial={{ opacity:0, scale:0.85, y:8 }}
               animate={{ opacity:1, scale:1, y:0 }}
               transition={{ type:'spring', stiffness:300, damping:25 }}
-              style={{ display:'flex', flexDirection: isJack ? 'row-reverse' : 'row', alignItems:'flex-end', gap:'0.5rem', alignSelf: isJack ? 'flex-end' : 'flex-start', maxWidth:'78%' }}>
+              className={`pp-msg-row ${isJack ? 'pp-msg-row-jack' : 'pp-msg-row-other'}`}>
 
-              {/* Avatar fora da bolha */}
-              <div style={{ width:28, height:28, borderRadius:'50%', background:av.cor, border:`1.5px solid ${av.textCor}`, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0, marginBottom:2 }}>
+              <div className="pp-convo-avatar" style={{ background:av.cor, border:`1.5px solid ${av.textCor}` }}>
                 {av.emoji}
               </div>
 
-              <div style={{ background:av.cor, borderRadius: isJack ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding:'0.55rem 0.85rem', border:`1px solid ${av.textCor}22` }}>
-                {!isJack && <div style={{ fontSize:'0.62rem', fontWeight:700, color:av.textCor, marginBottom:3 }}>{av.label}</div>}
-                <div style={{ fontSize:'0.88rem', color:av.textCor, lineHeight:1.5 }}>{msg.texto}</div>
-                <div style={{ fontSize:'0.62rem', opacity:0.4, marginTop:3, textAlign:'right', color:av.textCor }}>{msg.hora}</div>
+              <div className="pp-convo-msg-bubble" style={{ background:av.cor, borderRadius: isJack ? '16px 16px 4px 16px' : '16px 16px 16px 4px', border:`1px solid ${av.textCor}22` }}>
+                {!isJack && <div className="pp-convo-msg-sender" style={{ color:av.textCor }}>{av.label}</div>}
+                <div className="pp-convo-msg-text" style={{ color:av.textCor }}>{msg.texto}</div>
+                <div className="pp-convo-msg-time" style={{ color:av.textCor }}>{msg.hora}</div>
               </div>
             </motion.div>
           )
@@ -508,8 +507,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
         {digitandoDe && (() => {
           const av = AVATARES[digitandoDe] || AVATARES.anonimo
           return (
-            <div style={{ display:'flex', alignItems:'flex-end', gap:'0.5rem' }}>
-              <div style={{ width:28, height:28, borderRadius:'50%', background:av.cor, border:`1.5px solid ${av.textCor}`, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.85rem', flexShrink:0 }}>
+            <div className="pp-flex-gap-sm" style={{alignItems:'flex-end'}}>
+              <div className="pp-convo-avatar" style={{ background:av.cor, border:`1.5px solid ${av.textCor}` }}>
                 {av.emoji}
               </div>
               <div style={{ background:av.cor, borderRadius:'16px 16px 16px 4px', padding:'0.5rem 0.85rem', border:`1px solid ${av.textCor}22` }}>
@@ -543,7 +542,7 @@ function StoryViewer({ pista, onClose }) {
       <div className="pp-story-viewer-content">
         <div className="pp-story-viewer-emoji">{TIPO_EMOJI[pista.tipo] || '🔍'}</div>
         <div className="pp-story-viewer-tipo">{pista.tipo}</div>
-        {pista.fio && <div className="pp-story-viewer-fio-label">{t('pt', 'story.fio_label')}</div>}
+        {pista.fio && <div className="pp-story-viewer-fio-label pp-fio-badge">{t('pt', 'story.fio_label')}</div>
         <div className="pp-story-viewer-title">{info.titulo}</div>
         <div className="pp-story-viewer-desc">{info.desc}</div>
       </div>
@@ -677,19 +676,19 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
 
   if (confirmando) {
     return (
-      <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+      <div className="pp-confirm-wrap">
         <div ref={rainRef} className="pp-rain" />
-        <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
-          <div style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem', marginBottom:'2rem', lineHeight:1.6 }}>
+        <div className="pp-page-content">
+          <div className="pp-confirm-text">
             {t('pt', 'menu.confirmar').split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
           </div>
-          <div style={{ display:'flex', gap:'1rem', justifyContent:'center' }}>
+          <div className="pp-confirm-btns">
             <button onClick={() => setConfirmando(false)}
-              style={{ padding:'0.6rem 1.5rem', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer' }}>
+              className="pp-btn-nao">
               {t('pt', 'menu.nao')}
             </button>
             <button onClick={onNovoJogo}
-              style={{ padding:'0.6rem 1.5rem', background:'#300', color:'var(--pp-nina)', border:'1px solid var(--pp-nina)', borderRadius:8, fontFamily:'Courier New', fontSize:'0.8rem', cursor:'pointer', fontWeight:700 }}>
+              className="pp-btn-sim">
               {t('pt', 'menu.sim')}
             </button>
           </div>
@@ -699,31 +698,31 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
   }
 
   return (
-    <div style={{ minHeight:'100vh', background:'#000', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'2rem', position:'relative', overflow:'hidden' }}>
+    <div className="pp-page-full">
       <div ref={rainRef} className="pp-rain" />
-      <div style={{ position:'relative', zIndex:2, textAlign:'center' }}>
-        <div style={{ fontFamily:'Courier New', fontSize:'0.6rem', letterSpacing:'0.4em', color:'var(--pp-amber)', marginBottom:'1rem', textTransform:'uppercase' }}>
+      <div className="pp-page-content">
+        <div className="pp-menu-label">
           {t('pt', 'menu.marelia')}
         </div>
-        <h1 style={{ fontFamily:'Courier New', fontSize:'1.6rem', fontWeight:900, color:'var(--pp-amber)', letterSpacing:'0.15em', marginBottom:'2.5rem', lineHeight:1.3 }}>
+        <h1 className="pp-menu-title">
           {t('pt', 'menu.titulo_linha1')}<br/>{t('pt', 'menu.titulo_linha2')}
         </h1>
 
         <button onClick={onContinuar}
-          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto 1rem', padding:'0.85rem 0', background:'var(--pp-surface2)', color:'var(--pp-amber)', border:'1px solid var(--pp-amber)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', fontWeight:700, letterSpacing:'0.1em', cursor:'pointer' }}>
+          className="pp-btn-continuar">
           {t('pt', 'menu.continuar')}
-          <div style={{ fontSize:'0.6rem', fontWeight:400, color:'var(--pp-text-muted)', marginTop:4, letterSpacing:0 }}>
+          <div className="pp-btn-continuar-sub">
             {t('pt', 'menu.nivel_casos', { nivel, casos: casosResolvidos.length })}
           </div>
         </button>
 
         <button onClick={() => setConfirmando(true)}
-          style={{ display:'block', width:'100%', maxWidth:280, margin:'0 auto', padding:'0.85rem 0', background:'transparent', color:'var(--pp-text-muted)', border:'1px solid var(--pp-border)', borderRadius:10, fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.1em', cursor:'pointer' }}>
+          className="pp-btn-novo-jogo">
           {t('pt', 'menu.novo_jogo')}
         </button>
 
         <button onClick={() => navigate('/games')}
-          style={{ marginTop:'1.5rem', background:'none', border:'none', color:'var(--pp-text-muted)', fontFamily:'Courier New', fontSize:'0.7rem', cursor:'pointer', letterSpacing:'0.1em' }}>
+          className="pp-btn-voltar-site">
           {t('pt', 'menu.voltar_site')}
         </button>
       </div>
@@ -992,21 +991,21 @@ export default function PP() {
       return (
         <div className="pp-dossier">
           {/* Header */}
-          <div style={{ display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'1rem', padding:'0.75rem 0', borderBottom:'1px solid var(--pp-border)' }}>
+          <div className="pp-flex-between">
             <button className="pp-convo-back" onClick={() => { setFaseInterna(null); setCasoAtivo(null); setSuspeitoSelecionado(null) }}>←</button>
-            <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{casoAtivo.i18n[LOCALE].nome}</span>
+            <span className="pp-amber-mono-sm">{casoAtivo.i18n[LOCALE].nome}</span>
           </div>
 
           {/* Briefing */}
           {!resolvido && (
             <div onClick={() => setFaseInterna({ tipo:'convo', convoTipo:'abertura' })}
-              style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'0.75rem 1rem', marginBottom:'1rem', cursor:'pointer', display:'flex', alignItems:'center', gap:'0.75rem' }}>
-              <span style={{ fontSize:'1.5rem' }}>💬</span>
-              <div style={{ flex:1 }}>
-                <div style={{ fontSize:'0.85rem', fontWeight:700, color:'var(--pp-text)' }}>{t('pt', 'dossier.briefing')}</div>
-                <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)' }}>{t('pt', 'dossier.ver_abertura')}</div>
+              className="pp-briefing-card">
+              <span className="pp-briefing-icon">💬</span>
+              <div className="pp-briefing-info">
+                <div className="pp-briefing-title">{t('pt', 'dossier.briefing')}</div>
+                <div className="pp-briefing-sub">{t('pt', 'dossier.ver_abertura')}</div>
               </div>
-              <span style={{ color:'var(--pp-amber)' }}>→</span>
+              <span className="pp-briefing-arrow">→</span>
             </div>
           )}
 
@@ -1025,12 +1024,10 @@ export default function PP() {
                 if (!p) return null
                 return (
                   <div key={pid} onClick={() => setStoryAtivo(p)}
-                    style={{ background:'var(--pp-surface2)', border:`1px solid ${p.fio ? 'var(--pp-fio)' : 'var(--pp-border)'}`, borderRadius:8, padding:'0.6rem 0.85rem', marginBottom:'0.4rem', cursor:'pointer', display:'flex', alignItems:'center', gap:'0.5rem' }}>
-                    <span style={{ fontSize:'1rem' }}>{p.tipo === 'fio' ? '🕸️' : p.tipo === 'testemunho' ? '💬' : p.tipo === 'documento' ? '📄' : '🔍'}</span>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontSize:'0.78rem', fontWeight:700, color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[LOCALE].titulo}</div>
-                    </div>
-                    {p.fio && <span style={{ fontSize:'0.6rem', color:'var(--pp-fio)' }}>{t('pt', 'story.fio_label')}</span>}
+                    className={`pp-pista-item ${p.fio ? 'pp-pista-item-fio' : ''}`}>
+                    <span className="pp-pista-icon">{p.tipo === 'fio' ? '🕸️' : p.tipo === 'testemunho' ? '💬' : p.tipo === 'documento' ? '📄' : '🔍'}</span>
+                    <div className="pp-pista-title" style={{ color: p.fio ? 'var(--pp-fio)' : 'var(--pp-text)' }}>{p.i18n[LOCALE].titulo}</div>
+                    {p.fio && <span className="pp-hashtag-fio">{t('pt', 'story.fio_label')}</span>}
                   </div>
                 )
               })}
@@ -1048,7 +1045,7 @@ export default function PP() {
                 <div className="pp-suspeito-bio">{s.i18n[LOCALE].bio}</div>
               </div>
               {!resolvido && <div className="pp-suspeito-radio" />}
-              {resolvido && s.culpado && <span style={{ fontSize:'1.2rem' }}>✓</span>}
+              {resolvido && s.culpado && <span className="pp-check-icon">✓</span>}
             </div>
           ))}
 
@@ -1059,12 +1056,12 @@ export default function PP() {
             const locInfo = local.i18n[LOCALE]
             return (
               <div key={local.id}
-                style={{ background:'var(--pp-surface)', border:`1px solid ${pistaColetada ? 'var(--pp-success)' : 'var(--pp-border)'}`, borderRadius:12, padding:'0.85rem 1rem', marginBottom:'0.5rem', cursor: pistaColetada ? 'default' : 'pointer', display:'flex', alignItems:'center', gap:'0.75rem' }}
+                className={`pp-local-card ${pistaColetada ? 'pp-local-card-done' : ''}`}
                 onClick={() => !pistaColetada && setFaseInterna({ tipo:'local', local })}>
-                <span style={{ fontSize:'1.3rem' }}>{local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}</span>
-                <div style={{ flex:1 }}>
-                  <div style={{ fontSize:'0.85rem', fontWeight:700, color: pistaColetada ? 'var(--pp-success)' : 'var(--pp-text)' }}>{locInfo.nome}</div>
-                  <div style={{ fontSize:'0.7rem', color:'var(--pp-text-muted)', marginTop:2 }}>{locInfo.desc}</div>
+                <span className="pp-local-icon">{local.batalha ? '⚔️' : PUZZLE_EMOJI[local.puzzle || 'nenhum']}</span>
+                <div className="pp-local-info">
+                  <div className="pp-local-name" style={{ color: pistaColetada ? 'var(--pp-success)' : 'var(--pp-text)' }}>{locInfo.nome}</div>
+                  <div className="pp-local-desc-sm">{locInfo.desc}</div>
                 </div>
                 {pistaColetada ? <span style={{ color:'var(--pp-success)' }}>✓</span> : <span style={{ color:'var(--pp-text-muted)' }}>→</span>}
               </div>
@@ -1075,17 +1072,17 @@ export default function PP() {
           {!resolvido && (
             <>
               {feedbackAcusacao === 'errado' && (
-                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                <div className="pp-acusar-feedback">
                   {t('pt', 'acusar.errada')}
                 </div>
               )}
               {feedbackAcusacao === 'bloqueado' && (
-                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                <div className="pp-acusar-feedback">
                   {t('pt', 'acusar.bloqueada')}
                 </div>
               )}
               {feedbackAcusacao === 'incompleto' && (
-                <div style={{ color:'var(--pp-nina)', fontFamily:'Courier New', fontSize:'0.75rem', textAlign:'center', padding:'0.5rem', marginTop:'0.5rem' }}>
+                <div className="pp-acusar-feedback">
                   {t('pt', 'acusar.incompleta')}
                 </div>
               )}
@@ -1144,7 +1141,7 @@ export default function PP() {
                 </div>
 
                 <div className="pp-caso-thumbnail">
-                  <span style={{ fontSize:'4rem' }}>{caso.thumbnail}</span>
+                  <span className="pp-caso-thumb-emoji">{caso.thumbnail}</span>
                   <div className="pp-caso-thumbnail-text">{cInfo.subtitulo}</div>
                   {resolvido && <div className="pp-caso-resolv-badge">{t('pt', 'dossier.resolvido_badge')}</div>}
                 </div>
@@ -1259,22 +1256,22 @@ export default function PP() {
       return (
         <div className="pp-caderno">
           <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>{t('pt', 'caderno.titulo').toUpperCase()}</div>
-          <div style={{ background:'var(--pp-surface)', border:'1px solid var(--pp-border)', borderRadius:12, padding:'1rem', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem', marginBottom:'1.5rem' }}>
+          <div className="pp-stats-grid">
             <div>
-              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-amber)', fontFamily:'Courier New' }}>{reputacao}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_reputacao')}</div>
+              <div className="pp-stats-cell-amber">{reputacao}</div>
+              <div className="pp-stat-label">{t('pt', 'feed.status_reputacao')}</div>
             </div>
             <div>
-              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-jack)', fontFamily:'Courier New' }}>{casosResolvidos.length}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_casos')}</div>
+              <div className="pp-stats-cell-jack">{casosResolvidos.length}</div>
+              <div className="pp-stat-label">{t('pt', 'feed.status_casos')}</div>
             </div>
             <div>
-              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-kim)', fontFamily:'Courier New' }}>{nivel}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_nivel')}</div>
+              <div className="pp-stats-cell-kim">{nivel}</div>
+              <div className="pp-stat-label">{t('pt', 'feed.status_nivel')}</div>
             </div>
             <div>
-              <div style={{ fontSize:'1.8rem', fontWeight:900, color:'var(--pp-fio)', fontFamily:'Courier New' }}>{fios.length}</div>
-              <div style={{ fontSize:'0.65rem', color:'var(--pp-text-muted)' }}>{t('pt', 'feed.status_fios')}</div>
+              <div className="pp-stats-cell-fio">{fios.length}</div>
+              <div className="pp-stat-label">{t('pt', 'feed.status_fios')}</div>
             </div>
           </div>
 
@@ -1282,7 +1279,7 @@ export default function PP() {
           {fios.length === 0
             ? <div className="pp-caderno-empty">{t('pt', 'feed.caderno_vazio')}</div>
             : fios.map(({ pista, caso }) => (
-              <div key={pista.id} className="pp-caderno-node" onClick={() => setStoryAtivo(pista)} style={{ cursor:'pointer' }}>
+              <div key={pista.id} className="pp-caderno-node pp-caderno-node-click" onClick={() => setStoryAtivo(pista)}>
                 <div className="pp-caderno-node-caso">{caso.i18n[LOCALE].nome}</div>
                 <div className="pp-caderno-node-title">⚡ {pista.i18n[LOCALE].titulo}</div>
                 <div className="pp-caderno-node-desc">{pista.i18n[LOCALE].desc}</div>
@@ -1297,7 +1294,7 @@ export default function PP() {
   // Loading
   if (!carregado) {
     return (
-      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.8rem', letterSpacing:'0.2em' }}>
+      <div className="pp-loading">
         {t('pt', 'feed.loading')}
       </div>
     )
@@ -1318,8 +1315,8 @@ export default function PP() {
   // Intro
   if (appFase === 'intro') {
     return (
-      <div style={{ minHeight:'100vh', background:'#000', display:'flex', alignItems:'center', justifyContent:'center' }}>
-        <div style={{ width:'100%', maxWidth:480 }}>
+      <div className="pp-intro-wrapper">
+        <div className="pp-intro-inner">
           <IntroNoir onComplete={() => setAppFase('app')} />
         </div>
       </div>
@@ -1343,9 +1340,9 @@ export default function PP() {
 
         {/* Fake status bar */}
         <div className="pp-status-bar">
-          <span className="pp-status-time">{new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' })}</span>
-          <div className="pp-status-icons"><span>📶</span><span>🔋</span></div>
-        </div>
+        <span className="pp-status-time">{new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' })}</span>
+        <div className="pp-status-icons"><span>📶</span><span>🔋</span></div>
+      </div>
 
         {/* Top bar — só quando não tem fase interna */}
         {!faseInterna && (

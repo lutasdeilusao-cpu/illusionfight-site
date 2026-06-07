@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { useLanguage } from '../context/LanguageContext'
 import { supabase } from '../lib/supabase'
 import './Admin.css'
 
 const ADMIN_EMAIL = 'isaiasgamedev@gmail.com'
 
 export default function Admin() {
+  const { t } = useLanguage()
   const { user } = useAuth()
   const [submissions, setSubmissions] = useState([])
 
@@ -16,7 +18,7 @@ export default function Admin() {
   if (!user || user.email !== ADMIN_EMAIL) {
     return (
       <section className="admin-page">
-        <div className="admin-bloqueado">Acesso negado.</div>
+        <div className="admin-bloqueado">{t('admin.titulo')} - Acesso negado.</div>
       </section>
     )
   }

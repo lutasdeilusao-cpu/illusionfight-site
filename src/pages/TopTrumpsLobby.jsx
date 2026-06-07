@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useLanguage } from '../context/LanguageContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
 import { carregarDeck as carregarDeckDB } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
@@ -9,6 +10,7 @@ import './TopTrumpsLobby.css'
 const todasCartas = deck.cartas
 
 export default function TopTrumpsLobby() {
+  const { t } = useLanguage()
   const { user, perfil } = useAuth()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
