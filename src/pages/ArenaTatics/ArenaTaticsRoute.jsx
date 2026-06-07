@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
+import { useLanguage } from '../../context/LanguageContext'
 import { useArenaTaticsStore } from './store/useArenaTaticsStore'
 import { supabase } from '../../lib/supabase'
 import { ROSTER } from './data/roster'
@@ -29,6 +30,7 @@ function randomPick(arr, n) {
 
 export default function ArenaTaticsRoute() {
   const { user, perfil, carregando: authCarregando } = useAuth()
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useArenaTaticsStore()
@@ -103,7 +105,7 @@ export default function ArenaTaticsRoute() {
         if (upsertError) {
           console.error('[TATICS] Erro ao upsert save:', upsertError)
           setLoading(false)
-          setErro('Erro ao salvar progresso: ' + upsertError.message)
+          setErro(t('tatics.erro_save') + ' ' + upsertError.message)
           return
         }
       }
@@ -229,17 +231,17 @@ export default function ArenaTaticsRoute() {
       {fase === 'vitoria' && <Vitoria sdrGanho={10} vitorias={store.vitorias} streak={store.streak} onContinuar={handleRevanche} />}
       {fase === 'derrota' && <Derrota onRevanche={handleRevanche} onSair={handleSair} />}
       {loading && (
-        <div className="tatics-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#08080C', color: '#00B4D8', fontFamily: 'Rajdhani', fontSize: '0.8rem', letterSpacing: '0.15em' }}>
-          CARREGANDO SISTEMA...
+        <div className="tatics-loading-overlay">
+          {t('tatics.loading')}
         </div>
       )}
       {erro && fase === 'intro' && (
-        <div className="tatics-container" style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(8,8,12,0.92)', zIndex: 9999, flexDirection: 'column', gap: 16 }}>
-          <div style={{ color: '#E24B4A', fontFamily: 'Rajdhani', fontSize: '0.7rem', letterSpacing: '0.15em', textAlign: 'center', padding: 24, border: '1px solid #E24B4A', background: 'rgba(226,75,74,0.08)', borderRadius: 8, maxWidth: 400 }}>
+        <div className="tatics-error-overlay">
+          <div className="tatics-error-box">
             ⚠️ {erro}
           </div>
-          <button onClick={() => setErro(null)} className="tatics-intro-btn" style={{ fontSize: '0.5rem', padding: '8px 24px' }}>
-            VOLTAR
+          <button onClick={() => setErro(null)} className="tatics-intro-btn tatics-error-btn">
+            {t('tatics.voltar')}
           </button>
         </div>
       )}

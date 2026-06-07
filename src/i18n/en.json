@@ -118,6 +118,57 @@
     "ctaDescricao": "Monthly newsletter — behind the scenes, releases and expanded universe.",
     "ctaBotao": "Subscribe free"
   },
+  "tatics": {
+    "loading": "LOADING SYSTEM...",
+    "erro_login": "Please log in to access the system",
+    "erro_save": "Error saving progress:",
+    "voltar": "BACK",
+    "menu": {
+      "title": "MENU",
+      "mainMenu": "BACK TO MAIN MENU",
+      "continue": "CONTINUE"
+    },
+    "city": {
+      "interact_enter": "[A] ENTER: {{name}}",
+      "interact_talk": "[A] TALK TO DETECTIVE",
+      "detective_dialog": "DETECTIVE: \"You think this is just a game?\"",
+      "hud_pos": "POS",
+      "hud_cam": "CAM",
+      "hud_tile": "TILE",
+      "sub_only": "SUBSCRIBERS ONLY",
+      "detective_label": "DETECTIVE"
+    },
+    "interior": {
+      "interact_exit": "[A] EXIT"
+    },
+    "buildings": {
+      "yohualticit": "YOHUALTICIT BUILDING",
+      "jao": "SEU JÃO'S MARKET",
+      "recovery": "RECOVERY CENTER",
+      "bar": "ZÉ'S BAR",
+      "training": "TRAINING CENTER",
+      "fashion": "FASHION CENTER",
+      "save": "SAVE CENTER",
+      "casa": "CHARACTER'S HOUSE"
+    },
+    "zones": {
+      "central": "CENTRAL SQUARE",
+      "comercial": "COMMERCIAL DISTRICT",
+      "residencial": "RESIDENTIAL DISTRICT",
+      "sul": "SOUTH DISTRICT",
+      "yohualticit": "YOHUALTICIT AREA"
+    },
+    "interior_names": {
+      "yohualticit": "YOHUALTICIT BUILDING",
+      "jao": "SEU JÃO'S MARKET",
+      "recovery": "RECOVERY CENTER",
+      "bar": "ZÉ'S BAR",
+      "training": "TRAINING CENTER",
+      "fashion": "FASHION CENTER",
+      "save": "SAVE CENTER",
+      "casa": "HOME"
+    }
+  },
   "quiz": {
     "titulo": "TEST YOUR RANKING",
     "subtitulo": "Three billion fighters. One ranking. How much do you really know about LDI?",

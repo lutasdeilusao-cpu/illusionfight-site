@@ -118,6 +118,57 @@
     "ctaDescricao": "Newsletter mensual — bastidores, lanzamientos y universo expandido.",
     "ctaBotao": "Suscribirse gratis"
   },
+  "tatics": {
+    "loading": "CARGANDO SISTEMA...",
+    "erro_login": "Inicia sesión para acceder al sistema",
+    "erro_save": "Error al guardar el progreso:",
+    "voltar": "VOLVER",
+    "menu": {
+      "title": "MENÚ",
+      "mainMenu": "VOLVER AL MENÚ PRINCIPAL",
+      "continue": "CONTINUAR"
+    },
+    "city": {
+      "interact_enter": "[A] ENTRAR: {{name}}",
+      "interact_talk": "[A] HABLAR CON DETECTIVE",
+      "detective_dialog": "DETECTIVE: \"¿Crees que esto es solo un jueguito?\"",
+      "hud_pos": "POS",
+      "hud_cam": "CAM",
+      "hud_tile": "TILE",
+      "sub_only": "SOLO SUSCRIPTORES",
+      "detective_label": "DETECTIVE"
+    },
+    "interior": {
+      "interact_exit": "[A] SALIR"
+    },
+    "buildings": {
+      "yohualticit": "EDIFICIO YOHUALTICIT",
+      "jao": "MERCADITO DEL SEU JÃO",
+      "recovery": "CENTRO DE RECUPERACIÓN",
+      "bar": "BAR DEL ZÉ",
+      "training": "CENTRO DE ENTRENAMIENTO",
+      "fashion": "CENTRO DE MODA",
+      "save": "CENTRO DE GUARDADO",
+      "casa": "CASA DEL PERSONAJE"
+    },
+    "zones": {
+      "central": "PLAZA CENTRAL",
+      "comercial": "BARRIO COMERCIAL",
+      "residencial": "BARRIO RESIDENCIAL",
+      "sul": "DISTRITO SUR",
+      "yohualticit": "ÁREA DE YOHUALTICIT"
+    },
+    "interior_names": {
+      "yohualticit": "EDIFICIO YOHUALTICIT",
+      "jao": "MERCADITO DEL SEU JÃO",
+      "recovery": "CENTRO DE RECUPERACIÓN",
+      "bar": "BAR DEL ZÉ",
+      "training": "CENTRO DE ENTRENAMIENTO",
+      "fashion": "CENTRO DE MODA",
+      "save": "CENTRO DE GUARDADO",
+      "casa": "CASA"
+    }
+  },
   "quiz": {
     "titulo": "PON A PRUEBA TU RANKING",
     "subtitulo": "Tres mil millones de luchadores. Un ranking. ¿Cuánto sabes realmente sobre el LDI?",

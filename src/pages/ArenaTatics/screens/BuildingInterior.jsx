@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 import GameControls from '../components/GameControls'
+import { useLanguage } from '../../../context/LanguageContext'
 
 const STEP = 32
 const STEP_MS = 80
@@ -10,16 +11,7 @@ const SPRITE_H = 32
 const INTERIOR_SIZE = 800
 
 /* ── INTERIOR LAYOUTS ── */
-const INTERIOR_NAMES = {
-  yohualticit: 'PRÉDIO YOHUALTICIT',
-  jao: 'MERCADINHO DO SEU JÃO',
-  recovery: 'RECOVERY CENTER',
-  bar: 'BAR DO ZÉ',
-  training: 'TRAINING CENTER',
-  fashion: 'FASHION CENTER',
-  save: 'SAVE CENTER',
-  casa: 'CASA',
-}
+const INTERIOR_NAMES = {} // populated at runtime via i18n
 
 /* ── INTERIOR SPAWNS ── */
 const interiorSpawns = {
@@ -483,6 +475,7 @@ function buildInterior(ctx, mapId) {
    COMPONENT
    ═══════════════════════════════════════════════════ */
 export default function BuildingInterior({ mapId, buildingName, onExit }) {
+  const { t } = useLanguage()
   const canvasRef = useRef(null)
   const playerRef = useRef(null)
   const wrapRef = useRef(null)
@@ -592,12 +585,12 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       player.style.left = (s.px - s.camX) + 'px'
       player.style.top = (s.py - s.camY) + 'px'
 
-      setHudText(`${INTERIOR_NAMES[mapId] || buildingName}`)
+      setHudText(t(`tatics.interior_names.${mapId}`) || buildingName)
 
       // Check exit zone
       const zone = getInteriorZone(s.px, s.py)
       if (zone === 'SAIDA') {
-        setInteractLabel('[A] SAIR')
+        setInteractLabel(t('tatics.interior.interact_exit'))
       } else {
         setInteractLabel('')
       }
@@ -633,7 +626,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     <div className="city-container">
       <div ref={wrapRef} className="city-canvas-wrap">
         <canvas ref={canvasRef} id="interior-canvas" />
-        <div ref={playerRef} className="city-player" style={{position:'absolute',width:'28px',height:'28px',zIndex:100,pointerEvents:'none'}}>
+        <div ref={playerRef} className="city-player">
           <div className="city-player-inner"><img src={kronikiHappy} alt="" className="city-player-img" /></div>
         </div>
         <div className="city-hud">{hudText}</div>

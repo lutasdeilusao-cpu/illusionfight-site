@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 import GameControls from '../components/GameControls'
+import { useLanguage } from '../../../context/LanguageContext'
 
 /* ═══════════════════════════════════════════════════
    CONSTANTS
@@ -22,21 +23,10 @@ const TILE_COLORS = {
   path: '#8a9a6a', dark_path: '#6a7a4e', water: '#1a3a5a',
 }
 
-const BUILDINGS = [
-  { id: 'yohualticit', name: 'PRÉDIO DA YOHUALTICIT', x:18, y:4, w:8, h:7, color:'#8b1a1a', labelColor:'#cc4444', interiorMapId:'yohualticit' },
-  { id: 'jao', name: 'MERCADINHO DO SEU JÃO', x:8, y:14, w:6, h:4, color:'#c47820', labelColor:'#e8a040', interiorMapId:'jao' },
-  { id: 'recovery', name: 'RECOVERY CENTER', x:38, y:14, w:5, h:4, color:'#2a6040', labelColor:'#40a060', interiorMapId:'recovery' },
-  { id: 'bar', name: 'BAR DO ZÉ', x:30, y:20, w:5, h:4, color:'#6b3a50', labelColor:'#a05070', interiorMapId:'bar' },
-  { id: 'training', name: 'TRAINING CENTER', x:40, y:22, w:5, h:4, color:'#2a4060', labelColor:'#4060a0', interiorMapId:'training' },
-  { id: 'fashion', name: 'FASHION CENTER', x:10, y:22, w:5, h:4, color:'#804060', labelColor:'#b06090', interiorMapId:'fashion' },
-  { id: 'save', name: 'SAVE CENTER', x:26, y:12, w:4, h:3, color:'#505a50', labelColor:'#707a70', interiorMapId:'save' },
-  { id: 'casa', name: 'CASA DO PERSONAGEM', x:4, y:24, w:4, h:3, color:'#6b4a20', labelColor:'#a07030', interiorMapId:'casa' },
-]
-
 const DETECTIVE = { x: 780, y: 600 }
 const ZONE_DOOR_W = 3, ZONE_DOOR_H = 3
 
-function getBuildingAt(px, py) {
+function getBuildingAt(px, py, BUILDINGS) {
   const tx = Math.floor(px / STEP), ty = Math.floor(py / STEP)
   for (const b of BUILDINGS) {
     const doorX = b.x + Math.floor(b.w / 2) - 1, doorY = b.y + b.h
@@ -51,7 +41,7 @@ function getDetectiveZone(px, py) {
   return tx >= detTx - 1 && tx <= detTx + 1 && ty >= detTy - 1 && ty <= detTy + 1
 }
 
-function isSolid(tx, ty) {
+function isSolid(tx, ty, BUILDINGS) {
   if (tx < 0 || ty < 0 || tx >= MAP_W || ty >= MAP_H) return true
   for (const b of BUILDINGS) { if (tx >= b.x && tx < b.x + b.w && ty >= b.y && ty < b.y + b.h) return true }
   if (tx === 0 || ty === 0 || tx === MAP_W - 1 || ty === MAP_H - 1) return true
@@ -62,24 +52,16 @@ function isSolid(tx, ty) {
   return false
 }
 
-function playerCollides(px, py) {
+function playerCollides(px, py, BUILDINGS) {
   const hit = { ox: 8, oy: 22, w: 16, h: 8 }
   const pts = [
     [px+hit.ox, py+hit.oy], [px+hit.ox+hit.w-1, py+hit.oy],
     [px+hit.ox, py+hit.oy+hit.h-1], [px+hit.ox+hit.w-1, py+hit.oy+hit.h-1],
   ]
-  return pts.some(([x,y]) => isSolid(Math.floor(x/STEP), Math.floor(y/STEP)))
+  return pts.some(([x,y]) => isSolid(Math.floor(x/STEP), Math.floor(y/STEP), BUILDINGS))
 }
 
-const ZONES = [
-  { name:'PRAÇA CENTRAL', tx:14, ty:8, tw:10, th:6, color:'#e8c96a' },
-  { name:'BAIRRO COMERCIAL', tx:4, ty:14, tw:14, th:10, color:'#6ab4e8' },
-  { name:'BAIRRO RESIDENCIAL', tx:28, ty:14, tw:14, th:10, color:'#6ae8a0' },
-  { name:'DISTRITO SUL', tx:4, ty:24, tw:14, th:6, color:'#c96ae8' },
-  { name:'ÁREA DA YOHUALTICIT', tx:18, ty:0, tw:14, th:6, color:'#e86a6a' },
-]
-
-function getZoneName(tileX, tileY) {
+function getZoneName(tileX, tileY, ZONES) {
   for (const z of ZONES) { if (tileX >= z.tx && tileX < z.tx+z.tw && tileY >= z.ty && tileY < z.ty+z.th) return z.name }
   return null
 }
@@ -88,12 +70,32 @@ function getZoneName(tileX, tileY) {
    COMPONENT
    ═══════════════════════════════════════════════════ */
 export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoint }) {
+  const { t } = useLanguage()
   const canvasRef = useRef(null)
   const playerRef = useRef(null)
   const wrapRef = useRef(null)
   const mmCanvasRef = useRef(null)
   const mmPlayerRef = useRef(null)
   const animRef = useRef(null)
+
+  const BUILDINGS = [
+    { id: 'yohualticit', name: () => t('tatics.buildings.yohualticit'), x:18, y:4, w:8, h:7, color:'#8b1a1a', labelColor:'#cc4444', interiorMapId:'yohualticit' },
+    { id: 'jao', name: () => t('tatics.buildings.jao'), x:8, y:14, w:6, h:4, color:'#c47820', labelColor:'#e8a040', interiorMapId:'jao' },
+    { id: 'recovery', name: () => t('tatics.buildings.recovery'), x:38, y:14, w:5, h:4, color:'#2a6040', labelColor:'#40a060', interiorMapId:'recovery' },
+    { id: 'bar', name: () => t('tatics.buildings.bar'), x:30, y:20, w:5, h:4, color:'#6b3a50', labelColor:'#a05070', interiorMapId:'bar' },
+    { id: 'training', name: () => t('tatics.buildings.training'), x:40, y:22, w:5, h:4, color:'#2a4060', labelColor:'#4060a0', interiorMapId:'training' },
+    { id: 'fashion', name: () => t('tatics.buildings.fashion'), x:10, y:22, w:5, h:4, color:'#804060', labelColor:'#b06090', interiorMapId:'fashion' },
+    { id: 'save', name: () => t('tatics.buildings.save'), x:26, y:12, w:4, h:3, color:'#505a50', labelColor:'#707a70', interiorMapId:'save' },
+    { id: 'casa', name: () => t('tatics.buildings.casa'), x:4, y:24, w:4, h:3, color:'#6b4a20', labelColor:'#a07030', interiorMapId:'casa' },
+  ]
+
+  const ZONES = [
+    { name:t('tatics.zones.central'), tx:14, ty:8, tw:10, th:6, color:'#e8c96a' },
+    { name:t('tatics.zones.comercial'), tx:4, ty:14, tw:14, th:10, color:'#6ab4e8' },
+    { name:t('tatics.zones.residencial'), tx:28, ty:14, tw:14, th:10, color:'#6ae8a0' },
+    { name:t('tatics.zones.sul'), tx:4, ty:24, tw:14, th:6, color:'#c96ae8' },
+    { name:t('tatics.zones.yohualticit'), tx:18, ty:0, tw:14, th:6, color:'#e86a6a' },
+  ]
 
   const [hudText, setHudText] = useState({ pos:'', cam:'', tile:'' })
   const [zoneText, setZoneText] = useState('')
@@ -137,13 +139,13 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
       const dx=bx+(b.w*STEP)/2-6, dy=by+bh-4
       ctx.fillStyle='rgba(0,0,0,0.3)'; ctx.fillRect(dx,dy,12,4)
       ctx.fillStyle=b.labelColor; ctx.font='bold 7px monospace'; ctx.textAlign='center'
-      ctx.fillText(b.name, bx+bw/2, by+bh+14)
-      if (b.id==='training') { ctx.fillStyle='#ff4444'; ctx.font='bold 5px monospace'; ctx.fillText('SÓ ASSINANTES', bx+bw/2, by+bh+24) }
+      ctx.fillText(b.name(), bx+bw/2, by+bh+14)
+      if (b.id==='training') { ctx.fillStyle='#ff4444'; ctx.font='bold 5px monospace'; ctx.fillText(t('tatics.city.sub_only'), bx+bw/2, by+bh+24) }
     })
     ctx.fillStyle='#cc3333'; ctx.fillRect(DETECTIVE.x,DETECTIVE.y,10,14)
     ctx.fillStyle='#222'; ctx.fillRect(DETECTIVE.x-2,DETECTIVE.y-2,14,4)
     ctx.fillStyle='#cc3333'; ctx.font='bold 6px monospace'; ctx.textAlign='center'
-    ctx.fillText('DETETIVE', DETECTIVE.x+5, DETECTIVE.y-6)
+    ctx.fillText(t('tatics.city.detective_label'), DETECTIVE.x+5, DETECTIVE.y-6)
     const trees = [[200,300],[250,400],[350,250],[500,350],[600,280],[700,500],[300,550],[450,650],[550,450],[150,500],[850,300],[900,600],[100,700],[650,700],[350,750]]
     trees.forEach(([tx,ty]) => {
       ctx.fillStyle='#1a4a10'; ctx.beginPath(); ctx.arc(tx,ty,8,0,Math.PI*2); ctx.fill()
@@ -187,15 +189,15 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
     }
     function zone() {
       const tx=Math.floor(s.current.px/STEP), ty=Math.floor(s.current.py/STEP)
-      const z = getZoneName(tx,ty)
+      const z = getZoneName(tx,ty, ZONES)
       if (z!==s.current.currentZone) {
         s.current.currentZone=z
         if (z) { setZoneText(z); setZoneVisible(true); if (zt) clearTimeout(zt); zt=setTimeout(()=>setZoneVisible(false),3000) }
         else setZoneVisible(false)
       }
-      const b = getBuildingAt(s.current.px,s.current.py)
-      if (b) setInteractLabel(`[A] ENTRAR: ${b.name}`)
-      else if (getDetectiveZone(s.current.px,s.current.py)) setInteractLabel('[A] FALAR COM DETETIVE')
+      const b = getBuildingAt(s.current.px,s.current.py, BUILDINGS)
+      if (b) setInteractLabel(t('tatics.city.interact_enter', { name: b.name() }))
+      else if (getDetectiveZone(s.current.px,s.current.py)) setInteractLabel(t('tatics.city.interact_talk'))
       else setInteractLabel('')
     }
     function loop() {
@@ -223,14 +225,14 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
     const st = s.current
     if (st.moving) return
     const nx=Math.round(st.px/STEP)*STEP+dx*STEP, ny=Math.round(st.py/STEP)*STEP+dy*STEP
-    if (nx<0||ny<0||nx+SPRITE_W>WORLD_W||ny+SPRITE_H>WORLD_H||playerCollides(nx,ny)) return
+    if (nx<0||ny<0||nx+SPRITE_W>WORLD_W||ny+SPRITE_H>WORLD_H||playerCollides(nx,ny,BUILDINGS)) return
     st.moveFrom={x:st.px,y:st.py}; st.moveTo={x:nx,y:ny}; st.moving=true; st.moveProgress=0; st.moveStart=performance.now()
   },[])
 
   const hBA = useCallback(() => {
-    const b=getBuildingAt(s.current.px,s.current.py)
-    if (b) onEnterBuilding(b.interiorMapId,b.name)
-    else if (getDetectiveZone(s.current.px,s.current.py)) { setInteractLabel('DETETIVE: "Você acha que isso aqui é só um joguinho?"'); setTimeout(()=>setInteractLabel(''),3000) }
+    const b=getBuildingAt(s.current.px,s.current.py,BUILDINGS)
+    if (b) onEnterBuilding(b.interiorMapId,b.name())
+    else if (getDetectiveZone(s.current.px,s.current.py)) { setInteractLabel(t('tatics.city.detective_dialog')); setTimeout(()=>setInteractLabel(''),3000) }
   },[onEnterBuilding])
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
 
@@ -239,14 +241,14 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
       <div ref={wrapRef} className="city-canvas-wrap">
         <canvas ref={canvasRef} id="city-canvas" />
 
-        <div ref={playerRef} className="city-player" style={{position:'absolute',width:'28px',height:'28px',zIndex:100,pointerEvents:'none'}}>
+        <div ref={playerRef} className="city-player">
           <div className="city-player-inner"><img src={kronikiHappy} alt="" className="city-player-img" /></div>
         </div>
 
         <div className="city-hud">
-          <div>POS: {hudText.pos}</div>
-          <div>CAM: {hudText.cam}</div>
-          <div>TILE: {hudText.tile}</div>
+          <div>{t('tatics.city.hud_pos')}: {hudText.pos}</div>
+          <div>{t('tatics.city.hud_cam')}: {hudText.cam}</div>
+          <div>{t('tatics.city.hud_tile')}: {hudText.tile}</div>
         </div>
 
         <div className={`city-zone-hud ${zoneVisible?'visible':''}`}>{zoneText}</div>
@@ -264,9 +266,9 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
         <AnimatePresence>{showMenu&&(
           <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="city-menu-overlay" onClick={()=>setShowMenu(false)}>
             <motion.div initial={{scale:0.9}} animate={{scale:1}} exit={{scale:0.9}} className="city-menu-panel" onClick={e=>e.stopPropagation()}>
-              <h3 className="city-menu-title">MENU</h3>
-              <button className="city-menu-btn" onClick={onBackToMenu}>VOLTAR AO MENU PRINCIPAL</button>
-              <button className="city-menu-btn city-menu-btn-close" onClick={()=>setShowMenu(false)}>CONTINUAR</button>
+              <h3 className="city-menu-title">{t('tatics.menu.title')}</h3>
+              <button className="city-menu-btn" onClick={onBackToMenu}>{t('tatics.menu.mainMenu')}</button>
+              <button className="city-menu-btn city-menu-btn-close" onClick={()=>setShowMenu(false)}>{t('tatics.menu.continue')}</button>
             </motion.div>
           </motion.div>
         )}</AnimatePresence>

@@ -18,7 +18,7 @@ Kim virou a tela do tablet para o próximo exercício.
 
 Kim ergueu os olhos, avaliou Brock por um segundo, e voltou para o tablet.
 
-— Aqui não é lugar pra isso.
+— Aceito, mas ja aviso nosso tempo é caro, e você tem que valer o esforço.
 
 Não era pergunta. Não era recusa. Era redirecionamento, dito com a calma de quem já decidiu como a cena vai terminar.
 
