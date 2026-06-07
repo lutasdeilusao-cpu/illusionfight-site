@@ -104,6 +104,7 @@ export default function CityOverworld({
       : districtId === 'mercado' ? t('tatics.zones.mercado')
       : districtId === 'yohualticit' ? t('tatics.zones.yohualticit')
       : districtId === 'suburbio' ? t('tatics.zones.suburbio')
+      : districtId === 'residencial_oeste' ? t('tatics.zones.residencial_oeste')
       : t('tatics.zones.central')
     setZoneText(name)
     setZoneVisible(true)
@@ -201,6 +202,7 @@ export default function CityOverworld({
         : exitData.to === 'mercado' ? t('tatics.zones.mercado')
         : exitData.to === 'yohualticit' ? t('tatics.zones.yohualticit')
         : exitData.to === 'suburbio' ? t('tatics.zones.suburbio')
+        : exitData.to === 'residencial_oeste' ? t('tatics.zones.residencial_oeste')
         : exitData.to
       let labelX, labelY
       if (dir === 'norte') { labelX = ((r.startTx + r.endTx) / 2) * STEP + STEP / 2; labelY = (r.endTy + 1) * STEP + 12 }
@@ -273,6 +275,7 @@ export default function CityOverworld({
           : exit.to === 'mercado' ? t('tatics.zones.mercado')
           : exit.to === 'yohualticit' ? t('tatics.zones.yohualticit')
           : exit.to === 'suburbio' ? t('tatics.zones.suburbio')
+          : exit.to === 'residencial_oeste' ? t('tatics.zones.residencial_oeste')
           : exit.to
         setInteractLabel(`[A] IR PARA: ${exitName}`)
         s.current.pendingExit = exit
@@ -357,6 +360,7 @@ export default function CityOverworld({
     : districtId === 'mercado' ? t('tatics.zones.mercado')
     : districtId === 'yohualticit' ? t('tatics.zones.yohualticit')
     : districtId === 'suburbio' ? t('tatics.zones.suburbio')
+    : districtId === 'residencial_oeste' ? t('tatics.zones.residencial_oeste')
     : t('tatics.zones.central')
 
   return (

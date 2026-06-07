@@ -24,7 +24,7 @@ Kim ficou sem referência de corpo, sem peso, sem chão. Os músculos não respo
 
 — Bravara. Marelia. Se precisar do CEP eu não sei de cabeça.
 
-Uma pausa de meio segundo.
+Uma pausa de meio segundo - Kim sentiu que ela não gostou da ironia.
 
 — Bem-vindo ao mundo das Lutas de Ilusão, Kim.
 
@@ -33,8 +33,6 @@ O avatar materializou na frente dele como um reflexo que ganhou volume. Era ele,
 *Briguento 142536*
 
 Kim ficou olhando para aquilo por um segundo longo.
-
-*Ah Jack. Jack, Jack, Jack.*
 
 ---
 

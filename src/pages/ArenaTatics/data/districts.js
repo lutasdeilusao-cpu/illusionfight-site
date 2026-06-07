@@ -217,6 +217,7 @@ export const DISTRITOS = {
       norte: { to: 'central', spawnTile: { x: 25, y: 28 } },
       leste: { to: 'industrial', spawnTile: { x: 1, y: 15 } },
       sul:   { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+      oeste: { to: 'residencial_oeste', spawnTile: { x: 38, y: 15 } },
     },
     zonas: [
       { nameKey: 'tatics.zones.residencial', tx: 0, ty: 0, tw: 55, th: 30, color: '#6ae8a0' },
@@ -303,9 +304,7 @@ export const DISTRITOS = {
     ],
 
     exits: {
-      sul:   { to: 'central', spawnTile: { x: 25, y: 1 } },
-      leste: { to: 'industrial', spawnTile: { x: 1, y: 15 } },
-      norte: { to: 'mercado', spawnTile: { x: 20, y: 23 } },
+      sul: { to: 'central', spawnTile: { x: 25, y: 1 } },
     },
 
     zonas: [
@@ -384,8 +383,7 @@ export const DISTRITOS = {
     ],
 
     exits: {
-      norte: { to: 'comercial', spawnTile: { x: 25, y: 33 } },
-      sul:   { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+      sul:   { to: 'porto', spawnTile: { x: 20, y: 1 } },
       oeste: { to: 'residencial', spawnTile: { x: 52, y: 15 } },
     },
 
@@ -610,7 +608,7 @@ export const DISTRITOS = {
 
     exits: {
       leste: { to: 'central', spawnTile: { x: 1, y: 15 } },
-      sul:   { to: 'residencial', spawnTile: { x: 25, y: 1 } },
+      sul:   { to: 'residencial_oeste', spawnTile: { x: 22, y: 1 } },
     },
 
     zonas: [
@@ -677,12 +675,95 @@ export const DISTRITOS = {
     npcs: [],
 
     exits: {
-      norte: { to: 'industrial', spawnTile: { x: 25, y: 28 } },
+      norte: { to: 'residencial', spawnTile: { x: 25, y: 28 } },
       leste: { to: 'porto', spawnTile: { x: 20, y: 3 } },
     },
 
     zonas: [
       { nameKey: 'tatics.zones.suburbio', tx: 0, ty: 0, tw: 45, th: 25, color: '#8a7a5a' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     RESIDENCIAL OESTE — Bairro arborizado a oeste
+     ═══════════════════════════════════════════════ */
+  residencial_oeste: {
+    id: 'residencial_oeste',
+    nameKey: 'tatics.zones.residencial_oeste',
+    mapW: 40,
+    mapH: 25,
+
+    tileColors: {
+      grass:       '#4a8a3a',
+      dark_grass:  '#2a6a20',
+      path:        '#9a8a7a',
+      dark_path:   '#7a6a5a',
+      garden:      '#6aaa50',
+      flower:      '#d08060',
+      stone:       '#8a8a90',
+    },
+
+    getTileColor(tx, ty) {
+      const avH = ty === 4 || ty === 10 || ty === 16 || ty === 22
+      const avV = tx === 4 || tx === 10 || tx === 18 || tx === 26 || tx === 34
+      const mainH = ty >= 12 && ty <= 13
+      const mainV = tx >= 11 && tx <= 12
+      const plaza = tx >= 18 && tx <= 22 && ty >= 10 && ty <= 13
+
+      if (plaza) {
+        if ((tx === 19 || tx === 21) && (ty === 11 || ty === 12)) return 'flower'
+        return 'garden'
+      }
+      if ((mainH && tx >= 2 && tx <= 38) || (mainV && ty >= 2 && ty <= 23)) return 'path'
+      if (avH || avV) return 'dark_path'
+      if ((tx + ty) % 7 === 0) return 'dark_grass'
+      if (tx % 2 === 0 && ty % 2 === 0 && tx >= 4 && tx <= 36 && ty >= 4 && ty <= 22) return 'garden'
+      return 'grass'
+    },
+
+    buildings: [
+      { id: 'casa_wo1', nameKey: 'tatics.buildings.casa', x: 4,  y: 2, w: 3, h: 2, color: '#7a5a3a', labelColor: '#a08050', interiorMapId: 'casa' },
+      { id: 'casa_wo2', nameKey: 'tatics.buildings.casa', x: 14, y: 2, w: 3, h: 2, color: '#6a4a2a', labelColor: '#906040', interiorMapId: 'casa' },
+      { id: 'casa_wo3', nameKey: 'tatics.buildings.casa', x: 28, y: 2, w: 3, h: 2, color: '#5a5a3a', labelColor: '#808050', interiorMapId: 'casa' },
+      { id: 'casa_ws1', nameKey: 'tatics.buildings.casa', x: 4,  y: 16, w: 3, h: 2, color: '#6a3a2a', labelColor: '#906040', interiorMapId: 'casa' },
+      { id: 'casa_ws2', nameKey: 'tatics.buildings.casa', x: 14, y: 18, w: 3, h: 2, color: '#8a5a3a', labelColor: '#b08050', interiorMapId: 'casa' },
+      { id: 'casa_ws3', nameKey: 'tatics.buildings.casa', x: 28, y: 16, w: 3, h: 2, color: '#5a4a3a', labelColor: '#807050', interiorMapId: 'casa' },
+      { id: 'casa_we1', nameKey: 'tatics.buildings.casa', x: 30, y: 8, w: 3, h: 2, color: '#7a6a3a', labelColor: '#a09050', interiorMapId: 'casa' },
+      { id: 'casa_we2', nameKey: 'tatics.buildings.casa', x: 30, y: 20, w: 3, h: 2, color: '#6a5a2a', labelColor: '#908040', interiorMapId: 'casa' },
+    ],
+
+    solidTiles: [
+      { x: 20, y: 14, w: 1, h: 1 }, { x: 12, y: 6, w: 1, h: 1 },
+      { x: 36, y: 12, w: 1, h: 1 },
+    ],
+
+    waterTiles: [],
+
+    trees: [
+      [120, 120], [280, 120], [480, 120], [640, 120],
+      [120, 320], [320, 240], [520, 240], [680, 200],
+      [200, 480], [400, 480], [600, 480],
+    ],
+    lamps: [
+      [200, 200], [400, 200], [600, 200],
+      [200, 400], [400, 400], [600, 400],
+    ],
+
+    npcs: [
+      {
+        id: 'morador', nameKey: 'tatics.city.morador_label',
+        x: 350, y: 400, w: 10, h: 14, color: '#66aa88',
+        dialogKey: 'tatics.city.morador_dialog',
+      },
+    ],
+
+    exits: {
+      norte: { to: 'yohualticit', spawnTile: { x: 21, y: 28 } },
+      leste: { to: 'residencial', spawnTile: { x: 1, y: 15 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.residencial_oeste', tx: 0, ty: 0, tw: 40, th: 25, color: '#5ae8a0' },
     ],
   },
 }

@@ -155,6 +155,8 @@
       "cozinheira_dialog": "COZINHEIRA: \"Experimenta meu pastel! Segredo de família!\"",
       "seguranca_label": "SEGURANÇA",
       "seguranca_dialog": "SEGURANÇA: \"Sem identificação, sem entrada. São ordens.\"",
+      "morador_label": "MORADOR",
+      "morador_dialog": "MORADOR: \"Aqui é tranquilo, mas de noite... melhor não andar sozinho.\"",
       "weather_clear": "Claro",
       "weather_rain": "Chuva",
       "weather_night": "Noite"
@@ -186,6 +188,7 @@
       "mercado": "MERCADO POPULAR",
       "yohualticit": "YOHUALTICIT",
       "suburbio": "SUBÚRBIO",
+      "residencial_oeste": "RESIDENCIAL OESTE",
       "sul": "DISTRITO SUL"
     },
     "interior_names": {
