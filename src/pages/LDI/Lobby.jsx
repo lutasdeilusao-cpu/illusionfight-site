@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
+import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { loadSheets, deleteSheet } from './hooks/useLDIStorage'
 import ManualDrawer from './components/ManualDrawer'
@@ -23,11 +24,8 @@ const WEAPON_ICONS = {
   corrente: '🔗',
 }
 
-const ARCO_LABELS = {
-  1: 'Arco 1: Descobrimento',
-}
-
 export default function Lobby() {
+  const { t } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
   const loadFromCloud = useGameStore(s => s.loadFromCloud)
@@ -39,7 +37,7 @@ export default function Lobby() {
   const [showManual, setShowManual] = useState(false)
   const [showNewModal, setShowNewModal] = useState(false)
 
-  const FULL_TITLE = 'LENDAS DO LDI'
+  const FULL_TITLE = t('games.ldi.lobby.titulo')
 
   useEffect(() => {
     if (!user) return
@@ -150,32 +148,29 @@ export default function Lobby() {
             {titleText}
             {titlePhase === 'typing' && <span className="ldi-typewriter-cursor" />}
           </h1>
-          <p className="ldi-lobby-sub">Arco 1: Descobrimento</p>
-          <p className="ldi-lobby-desc">
-            Um RPG narrativo de livro-jogo digital no universo Lutas de Ilusão.
-            Suas escolhas definem seu destino na arena.
-          </p>
+          <p className="ldi-lobby-sub">{t('games.ldi.lobby.sub')}</p>
+          <p className="ldi-lobby-desc">{t('games.ldi.lobby.desc')}</p>
         </div>
 
         <div className="ldi-lobby-actions">
           <button onClick={() => setShowNewModal(true)} className="ldi-btn ldi-btn--primary">
-            NOVA FICHA
+            {t('games.ldi.lobby.nova_ficha')}
           </button>
           <button onClick={() => setShowManual(true)} className="ldi-btn ldi-btn--ghost">
-            📖 Manual do Jogo
+            {t('games.ldi.lobby.manual')}
           </button>
         </div>
 
         {user && (
           <div className="ldi-lobby-saves">
-            <h3>Suas Fichas</h3>
-            {loading && <p>Carregando...</p>}
-            {!loading && saves.length === 0 && <p>Nenhuma ficha salva ainda.</p>}
+            <h3>{t('games.ldi.lobby.suas_fichas')}</h3>
+            {loading && <p>{t('games.ldi.lobby.carregando')}</p>}
+            {!loading && saves.length === 0 && <p>{t('games.ldi.lobby.sem_fichas')}</p>}
             {saves.map(s => {
               const attrs = s.attributes || {}
               const elColor = ELEMENTAL_COLORS[s.elemental] || ELEMENTAL_COLORS.neutro
               const weaponIcon = WEAPON_ICONS[s.weapon] || WEAPON_ICONS.katana
-              const arcoLabel = ARCO_LABELS[s.arc] || `Arco ${s.arc || 1}`
+              const arcoLabel = t('games.ldi.lobby.arco_label', { n: s.arc || 1 })
               return (
                 <motion.div
                   key={s.id}
@@ -186,7 +181,7 @@ export default function Lobby() {
                 >
                   <div className="ldi-save-card-header">
                     <span className="ldi-save-card-name">{s.sheet_name}</span>
-                    <button className="ldi-save-delete" onClick={() => handleDelete(s.id)} title="Deletar">🗑</button>
+                    <button className="ldi-save-delete" onClick={() => handleDelete(s.id)} title={t('games.ldi.lobby.deletar')}>🗑</button>
                   </div>
                   <div className="ldi-save-card-badges">
                     {Object.entries({ F: attrs.F, H: attrs.H, R: attrs.R, A: attrs.A, PdF: attrs.PdF }).map(([k, v]) => (
@@ -195,10 +190,10 @@ export default function Lobby() {
                   </div>
                   <div className="ldi-save-card-footer">
                     <span className="ldi-save-card-weapon">{weaponIcon} {s.weapon}</span>
-                    <span className="ldi-save-card-elemental" style={{ color: elColor }}>● {s.elemental || 'neutro'}</span>
+                    <span className="ldi-save-card-elemental" style={{ color: elColor }}>● {s.elemental || t('games.ldi.lobby.neutro')}</span>
                     <span className="ldi-save-card-arc">{arcoLabel}</span>
                     <button className="ldi-btn ldi-btn--continue" onClick={() => handleContinue(s.id)}>
-                      CONTINUAR
+                      {t('games.ldi.lobby.continuar')}
                     </button>
                   </div>
                 </motion.div>
@@ -209,8 +204,8 @@ export default function Lobby() {
 
         {!user && (
           <div className="ldi-lobby-guest">
-            <p>Modo visitante — sem salvamento na nuvem.</p>
-            <p><Link to="/login">Faça login</Link> para salvar seu progresso.</p>
+            <p>{t('games.ldi.lobby.visitante')}</p>
+            <p><Link to="/login">{t('games.ldi.lobby.faca_login')}</Link> {t('games.ldi.lobby.faca_login_desc')}</p>
           </div>
         )}
       </motion.div>
@@ -234,21 +229,21 @@ export default function Lobby() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2 }}
             >
-              <h2 className="ldi-modal-title">Nova Ficha</h2>
-              <p className="ldi-modal-sub">Escolha como criar seu personagem no LDI:</p>
+              <h2 className="ldi-modal-title">{t('games.ldi.lobby.modal_titulo')}</h2>
+              <p className="ldi-modal-sub">{t('games.ldi.lobby.modal_sub')}</p>
               <div className="ldi-modal-options">
                 <button className="ldi-modal-option" onClick={handleNewGuided}>
                   <span className="ldi-modal-option-icon">🤖</span>
-                  <span className="ldi-modal-option-title">Entrar com ajuda da NeoGuide</span>
-                  <span className="ldi-modal-option-desc">Fluxo guiado: responda perguntas e o sistema monta sua ficha passo a passo. Ideal para iniciantes.</span>
+                  <span className="ldi-modal-option-title">{t('games.ldi.lobby.modal_neoguide')}</span>
+                  <span className="ldi-modal-option-desc">{t('games.ldi.lobby.modal_neoguide_desc')}</span>
                 </button>
                 <button className="ldi-modal-option" onClick={handleNewFull}>
                   <span className="ldi-modal-option-icon">⚙️</span>
-                  <span className="ldi-modal-option-title">Construir do zero</span>
-                  <span className="ldi-modal-option-desc">Formulário completo: escolha vantagens, desvantagens, perícias e especializações. Para veteranos.</span>
+                  <span className="ldi-modal-option-title">{t('games.ldi.lobby.modal_zero')}</span>
+                  <span className="ldi-modal-option-desc">{t('games.ldi.lobby.modal_zero_desc')}</span>
                 </button>
               </div>
-              <button className="ldi-modal-cancel" onClick={() => setShowNewModal(false)}>Cancelar</button>
+              <button className="ldi-modal-cancel" onClick={() => setShowNewModal(false)}>{t('games.ldi.lobby.modal_cancelar')}</button>
             </motion.div>
           </>
         )}

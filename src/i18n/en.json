@@ -855,7 +855,31 @@
       "atributos": "ATTRIBUTES",
       "pericias": "SKILLS",
       "vantagens": "ADVANTAGES",
-      "desvantagens": "DISADVANTAGES"
+      "desvantagens": "DISADVANTAGES",
+      "lobby": {
+        "titulo": "LDI LEGENDS",
+        "sub": "Arc 1: Discovery",
+        "desc": "A digital gamebook narrative RPG set in the Illusion Fight universe. Your choices define your destiny in the arena.",
+        "nova_ficha": "NEW SHEET",
+        "manual": "📖 Game Manual",
+        "suas_fichas": "Your Sheets",
+        "carregando": "Loading...",
+        "sem_fichas": "No saved sheets yet.",
+        "continuar": "CONTINUE",
+        "visitante": "Guest mode — no cloud saving.",
+        "faca_login": "Log in",
+        "faca_login_desc": "to save your progress.",
+        "modal_titulo": "New Sheet",
+        "modal_sub": "Choose how to create your character in LDI:",
+        "modal_neoguide": "Get help from NeoGuide",
+        "modal_neoguide_desc": "Guided flow: answer questions and the system builds your sheet step by step. Ideal for beginners.",
+        "modal_zero": "Build from scratch",
+        "modal_zero_desc": "Full form: choose advantages, disadvantages, skills and specializations. For veterans.",
+        "modal_cancelar": "Cancel",
+        "deletar": "Delete",
+        "neutro": "neutral",
+        "arco_label": "Arc {n}"
+      }
     },
     "tatics": {
       "loading": "LOADING SYSTEM...",

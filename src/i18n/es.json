@@ -855,7 +855,31 @@
       "atributos": "ATRIBUTOS",
       "pericias": "PERICIAS",
       "vantagens": "VENTAJAS",
-      "desvantagens": "DESVENTAJAS"
+      "desvantagens": "DESVENTAJAS",
+      "lobby": {
+        "titulo": "LEYENDAS DEL LDI",
+        "sub": "Arco 1: Descubrimiento",
+        "desc": "Un RPG narrativo de librojuego digital en el universo Lutas de Ilusão. Tus elecciones definen tu destino en la arena.",
+        "nova_ficha": "NUEVA FICHA",
+        "manual": "📖 Manual del Juego",
+        "suas_fichas": "Tus Fichas",
+        "carregando": "Cargando...",
+        "sem_fichas": "Aún no hay fichas guardadas.",
+        "continuar": "CONTINUAR",
+        "visitante": "Modo visitante — sin guardado en la nube.",
+        "faca_login": "Inicia sesión",
+        "faca_login_desc": "para guardar tu progreso.",
+        "modal_titulo": "Nueva Ficha",
+        "modal_sub": "Elige cómo crear tu personaje en LDI:",
+        "modal_neoguide": "Entrar con ayuda de NeoGuide",
+        "modal_neoguide_desc": "Flujo guiado: responde preguntas y el sistema arma tu ficha paso a paso. Ideal para principiantes.",
+        "modal_zero": "Construir desde cero",
+        "modal_zero_desc": "Formulario completo: elige ventajas, desventajas, pericias y especializaciones. Para veteranos.",
+        "modal_cancelar": "Cancelar",
+        "deletar": "Eliminar",
+        "neutro": "neutro",
+        "arco_label": "Arco {n}"
+      }
     },
     "tatics": {
       "loading": "CARGANDO SISTEMA...",
