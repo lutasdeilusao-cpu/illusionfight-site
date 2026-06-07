@@ -76,6 +76,26 @@ export default function CityOverworld({
     transitioning: false,
   })
 
+  // Atualiza posição quando spawnPoint muda (transição entre distritos)
+  useEffect(() => {
+    if (spawnPoint?.x != null && spawnPoint?.y != null) {
+      s.current.px = spawnPoint.x
+      s.current.py = spawnPoint.y
+      s.current.moveProgress = 1
+      s.current.moving = false
+      s.current.camX = 0
+      s.current.camY = 0
+    }
+    // Mostra nome do distrito ao entrar
+    const name = districtId === 'central' ? t('tatics.zones.central')
+      : districtId === 'residencial' ? t('tatics.zones.residencial')
+      : t('tatics.zones.comercial')
+    setZoneText(name)
+    setZoneVisible(true)
+    const zt = setTimeout(() => setZoneVisible(false), 3000)
+    return () => clearTimeout(zt)
+  }, [spawnPoint, districtId, t])
+
   /* ── Draw map ── */
   const drawMap = useCallback(() => {
     distritoRef.current = distrito
