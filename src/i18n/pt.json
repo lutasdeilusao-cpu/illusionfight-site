@@ -1535,5 +1535,9 @@
       "loading": "CARREGANDO...",
       "caderno_vazio": "\"ainda não sei quem é.\nmas cada pista liga um ponto a outro.\""
     }
+  },
+  "cookie": {
+    "text": "Este site usa cookies técnicos e de terceiros (YouTube, TikTok, X) para funcionar corretamente. Ao continuar navegando, você concorda com isso.",
+    "accept": "ENTENDIDO"
   }
 }

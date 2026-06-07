@@ -1535,5 +1535,9 @@
       "loading": "LOADING...",
       "caderno_vazio": "\"I still don't know who it is.\nbut every clue connects one point to another.\""
     }
+  },
+  "cookie": {
+    "text": "This site uses technical and third-party cookies (YouTube, TikTok, X) to function properly. By continuing to browse, you agree to this.",
+    "accept": "GOT IT"
   }
 }

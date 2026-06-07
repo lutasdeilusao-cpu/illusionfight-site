@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import './CookieBanner.css'
 
 export default function CookieBanner() {
+  const { t } = useLanguage()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -19,10 +21,10 @@ export default function CookieBanner() {
   return (
     <div className="cookie-banner">
       <p className="cookie-banner-text">
-        Este site usa cookies técnicos e de terceiros (YouTube, TikTok, X) para funcionar corretamente. Ao continuar navegando, você concorda com isso.
+        {t('cookie.text')}
       </p>
       <button className="cookie-banner-btn" onClick={handleAccept}>
-        ENTENDIDO
+        {t('cookie.accept')}
       </button>
     </div>
   )
