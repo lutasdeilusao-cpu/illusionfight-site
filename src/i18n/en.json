@@ -136,7 +136,30 @@
       "hud_cam": "CAM",
       "hud_tile": "TILE",
       "sub_only": "SUBSCRIBERS ONLY",
-      "detective_label": "DETECTIVE"
+      "detective_label": "DETECTIVE",
+      "idoso_label": "ELDER",
+      "idoso_dialog": "ELDER: \"I've lived here since Marélia was just a village. A lot has changed...\"",
+      "crianca_label": "CHILD",
+      "crianca_dialog": "CHILD: \"They say Yohualticit messes with strange things!\"",
+      "vendedor_label": "VENDOR",
+      "vendedor_dialog": "VENDOR: \"Unbeatable deals! Only today! Buy 2, get 1 free!\"",
+      "mendigo_label": "BEGGAR",
+      "mendigo_dialog": "BEGGAR: \"Spare a coin? Anything helps...\"",
+      "operario_label": "WORKER",
+      "operario_dialog": "WORKER: \"The factory never stops. Three shifts a day.\"",
+      "marinheiro_label": "SAILOR",
+      "marinheiro_dialog": "SAILOR: \"I've sailed the seven seas. Marélia is the safest port.\"",
+      "feirante_label": "MARKETEER",
+      "feirante_dialog": "MARKETEER: \"Straight from the farm! Fresh fruit every day!\"",
+      "cozinheira_label": "COOK",
+      "cozinheira_dialog": "COOK: \"Try my pastel! Family secret recipe!\"",
+      "seguranca_label": "SECURITY",
+      "seguranca_dialog": "SECURITY: \"No ID, no entry. Those are the orders.\"",
+      "morador_label": "RESIDENT",
+      "morador_dialog": "RESIDENT: \"It's quiet around here, but at night... better not walk alone.\"",
+      "weather_clear": "Clear",
+      "weather_rain": "Rain",
+      "weather_night": "Night"
     },
     "interior": {
       "interact_exit": "[A] EXIT"
@@ -149,14 +172,24 @@
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
-      "casa": "CHARACTER'S HOUSE"
+      "casa": "CHARACTER'S HOUSE",
+      "info": "INFORMATION POST",
+      "equipment_shop": "EQUIPMENT SHOP",
+      "biblioteca": "LIBRARY",
+      "arena_sub": "UNDERGROUND ARENA",
+      "concessionaria": "DEALERSHIP"
     },
     "zones": {
       "central": "CENTRAL SQUARE",
       "comercial": "COMMERCIAL DISTRICT",
       "residencial": "RESIDENTIAL DISTRICT",
       "sul": "SOUTH DISTRICT",
-      "yohualticit": "YOHUALTICIT AREA"
+      "yohualticit": "YOHUALTICIT AREA",
+      "industrial": "INDUSTRIAL DISTRICT",
+      "porto": "MARÉLIA PORT",
+      "mercado": "POPULAR MARKET",
+      "suburbio": "SUBURBS",
+      "residencial_oeste": "WEST RESIDENTIAL"
     },
     "interior_names": {
       "yohualticit": "YOHUALTICIT BUILDING",
@@ -166,7 +199,12 @@
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
-      "casa": "HOME"
+      "casa": "HOME",
+      "info": "INFORMATION POST",
+      "equipment_shop": "EQUIPMENT SHOP",
+      "biblioteca": "LIBRARY",
+      "arena_sub": "UNDERGROUND ARENA",
+      "concessionaria": "DEALERSHIP"
     }
   },
   "quiz": {

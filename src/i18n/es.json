@@ -136,7 +136,30 @@
       "hud_cam": "CAM",
       "hud_tile": "TILE",
       "sub_only": "SOLO SUSCRIPTORES",
-      "detective_label": "DETECTIVE"
+      "detective_label": "DETECTIVE",
+      "idoso_label": "ANCIANO",
+      "idoso_dialog": "ANCIANO: \"Vivo aquí desde que Marélia era solo una aldea. Mucho ha cambiado...\"",
+      "crianca_label": "NIÑO",
+      "crianca_dialog": "NIÑO: \"¡Dicen que Yohualticit hace cosas raras!\"",
+      "vendedor_label": "VENDEDOR",
+      "vendedor_dialog": "VENDEDOR: \"¡Ofertas imperdibles! ¡Solo hoy! ¡Lleve 2, pague 1!\"",
+      "mendigo_label": "MENDIGO",
+      "mendigo_dialog": "MENDIGO: \"¿Una monedita? Cualquier cosa ayuda...\"",
+      "operario_label": "OBRERO",
+      "operario_dialog": "OBRERO: \"La fábrica nunca para. Tres turnos al día.\"",
+      "marinheiro_label": "MARINERO",
+      "marinheiro_dialog": "MARINERO: \"He navegado los siete mares. Marélia es el puerto más seguro.\"",
+      "feirante_label": "FERIANTE",
+      "feirante_dialog": "FERIANTE: \"¡Directo del campo! ¡Fruta fresca todos los días!\"",
+      "cozinheira_label": "COCINERA",
+      "cozinheira_dialog": "COCINERA: \"¡Prueba mi pastel! ¡Receta secreta familiar!\"",
+      "seguranca_label": "SEGURIDAD",
+      "seguranca_dialog": "SEGURIDAD: \"Sin identificación, no hay entrada. Son órdenes.\"",
+      "morador_label": "VECINO",
+      "morador_dialog": "VECINO: \"Aquí es tranquilo, pero de noche... mejor no andar solo.\"",
+      "weather_clear": "Despejado",
+      "weather_rain": "Lluvia",
+      "weather_night": "Noche"
     },
     "interior": {
       "interact_exit": "[A] SALIR"
@@ -149,14 +172,24 @@
       "training": "CENTRO DE ENTRENAMIENTO",
       "fashion": "CENTRO DE MODA",
       "save": "CENTRO DE GUARDADO",
-      "casa": "CASA DEL PERSONAJE"
+      "casa": "CASA DEL PERSONAJE",
+      "info": "PUESTO DE INFORMACIÓN",
+      "equipment_shop": "TIENDA DE EQUIPAMIENTO",
+      "biblioteca": "BIBLIOTECA",
+      "arena_sub": "ARENA SUBTERRÁNEA",
+      "concessionaria": "CONCESIONARIA"
     },
     "zones": {
       "central": "PLAZA CENTRAL",
       "comercial": "BARRIO COMERCIAL",
       "residencial": "BARRIO RESIDENCIAL",
       "sul": "DISTRITO SUR",
-      "yohualticit": "ÁREA DE YOHUALTICIT"
+      "yohualticit": "ÁREA DE YOHUALTICIT",
+      "industrial": "DISTRITO INDUSTRIAL",
+      "porto": "PUERTO DE MARÉLIA",
+      "mercado": "MERCADO POPULAR",
+      "suburbio": "SUBURBIO",
+      "residencial_oeste": "RESIDENCIAL OESTE"
     },
     "interior_names": {
       "yohualticit": "EDIFICIO YOHUALTICIT",
@@ -166,7 +199,12 @@
       "training": "CENTRO DE ENTRENAMIENTO",
       "fashion": "CENTRO DE MODA",
       "save": "CENTRO DE GUARDADO",
-      "casa": "CASA"
+      "casa": "CASA",
+      "info": "PUESTO DE INFORMACIÓN",
+      "equipment_shop": "TIENDA DE EQUIPAMIENTO",
+      "biblioteca": "BIBLIOTECA",
+      "arena_sub": "ARENA SUBTERRÁNEA",
+      "concessionaria": "CONCESIONARIA"
     }
   },
   "quiz": {
