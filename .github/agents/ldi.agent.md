@@ -31,7 +31,6 @@ Se mudou **1 caractere**, o fluxo inteiro roda. **SEM EXCEÇÕES.**
   - `DUELO_VERSION` — Duelo LDI
   - `MINIGAMES_VERSION` — MiniGames
   - `MP_VERSION` — Top Trumps Multiplayer
-  - `LDI_DIAG_VERSION` — LDI Diagnóstico
 - **Se a versão não existir**, crie a constante e adicione o `console.log` correspondente.
 - Incremente a versão (patch, minor ou major conforme o impacto).
 - **Atualize** `SITE_MAP.md`:

@@ -43,7 +43,6 @@ import LDISheet from './pages/LDI/Sheet'
 import LDIClues from './pages/LDI/Clues'
 import LDIEnd from './pages/LDI/End'
 import LDIPuzzle from './pages/LDI/PuzzlePage'
-import Diagnostico from './pages/LDI/Diagnostico'
 import JackCandy from './pages/JackCandy/JackCandy'
 import ArenaRoute from './pages/Arena/ArenaRoute'
 import ArenaTaticsRoute from './pages/ArenaTatics/ArenaTaticsRoute'
@@ -93,7 +92,6 @@ export default function App() {
         <Route path="/games/ldi/sheet" element={<LDISheet />} />
         <Route path="/games/ldi/clues" element={<LDIClues />} />
         <Route path="/games/ldi/end" element={<LDIEnd />} />
-        <Route path="/games/ldi/diagnostico" element={<Diagnostico />} />
         <Route path="/games/ldi/puzzle" element={<LDIPuzzle />} />
         <Route path="/games/jackcandy" element={<JackCandy />} />
         <Route path="/games/minigames" element={<MiniGames />} />
