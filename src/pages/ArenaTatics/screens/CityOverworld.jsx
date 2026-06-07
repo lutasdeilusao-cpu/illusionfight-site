@@ -236,62 +236,117 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
     return ()=>window.removeEventListener('keydown',h)
   },[onEnterBuilding])
 
-  /* ── Analog stick (touch + mouse) ── */
+  /* ── Analog stick (touch + mouse) — igual ao game.html ── */
   const aRef = useRef({ activeId:null, interval:null, dir:{dx:0,dy:0}, cx:0, cy:0 })
 
-  const doMove = useCallback((dx,dy) => {
-    if (s.current.moving) return
-    const nx=Math.round(s.current.px/STEP)*STEP+dx*STEP, ny=Math.round(s.current.py/STEP)*STEP+dy*STEP
+  function doMoveAnalog(dx, dy) {
+    const st = s.current
+    if (st.moving) return
+    const nx=Math.round(st.px/STEP)*STEP+dx*STEP, ny=Math.round(st.py/STEP)*STEP+dy*STEP
     if (nx<0||ny<0||nx+SPRITE_W>WORLD_W||ny+SPRITE_H>WORLD_H||playerCollides(nx,ny)) return
-    s.current.moveFrom={x:s.current.px,y:s.current.py}; s.current.moveTo={x:nx,y:ny}; s.current.moving=true; s.current.moveProgress=0; s.current.moveStart=performance.now()
-  },[])
+    st.moveFrom={x:st.px,y:st.py}; st.moveTo={x:nx,y:ny}; st.moving=true; st.moveProgress=0; st.moveStart=performance.now()
+  }
 
-  const upAnalog = useCallback((cx,cy) => {
-    const a = aRef.current, knob = knobRef.current
-    if (!knob) return
-    let dx=cx-a.cx, dy=cy-a.cy
+  function analogRepeat() {
+    const a = aRef.current
+    if (a.dir.dx!==0||a.dir.dy!==0) doMoveAnalog(a.dir.dx, a.dir.dy)
+  }
+
+  function updateAnalog(clientX, clientY) {
+    const a = aRef.current, el = analogElRef.current, knob = knobRef.current
+    if (!el||!knob) return
+    if (el.style.display==='none') {
+      el.style.display='block'
+      const r = el.getBoundingClientRect()
+      a.cx = r.left+r.width/2
+      a.cy = r.top+r.height/2
+    }
+    let dx = clientX - a.cx, dy = clientY - a.cy
     const dist = Math.sqrt(dx*dx+dy*dy)
     if (dist>ANALOG_RADIUS) { dx=(dx/dist)*ANALOG_RADIUS; dy=(dy/dist)*ANALOG_RADIUS }
     knob.style.transform = `translate(calc(-50%+${dx}px),calc(-50%+${dy}px))`
-    const thr = 0.35; let nd = {dx:0,dy:0}
+    const threshold = 0.35
+    let nd = {dx:0, dy:0}
     if (dist>5) {
       const nx=dx/ANALOG_RADIUS, ny=dy/ANALOG_RADIUS
-      if (Math.abs(nx)>Math.abs(ny)) { if (Math.abs(nx)>thr) nd={dx:nx>0?1:-1,dy:0} }
-      else { if (Math.abs(ny)>thr) nd={dx:0,dy:ny>0?1:-1} }
+      if (Math.abs(nx)>Math.abs(ny)) { if (Math.abs(nx)>threshold) nd={dx:nx>0?1:-1,dy:0} }
+      else { if (Math.abs(ny)>threshold) nd={dx:0,dy:ny>0?1:-1} }
     }
     if (nd.dx!==a.dir.dx||nd.dy!==a.dir.dy) {
       a.dir=nd
       if (a.interval) { clearInterval(a.interval); a.interval=null }
-      if (a.dir.dx!==0||a.dir.dy!==0) { doMove(a.dir.dx,a.dir.dy); a.interval=setInterval(()=>doMove(a.dir.dx,a.dir.dy),180) }
+      if (a.dir.dx!==0||a.dir.dy!==0) { doMoveAnalog(a.dir.dx,a.dir.dy); a.interval=setInterval(analogRepeat,180) }
     }
-  },[doMove])
+  }
 
-  const startAnalog = useCallback((cx,cy) => {
-    const el=analogElRef.current; if (!el) return
-    el.style.display='block'
-    const r = el.getBoundingClientRect(); aRef.current.cx=r.left+r.width/2; aRef.current.cy=r.top+r.height/2
-    upAnalog(cx,cy)
-  },[upAnalog])
-
-  const resetAnalog = useCallback(() => {
+  function resetAnalog() {
     const a=aRef.current, el=analogElRef.current, knob=knobRef.current
     if (el) el.style.display='none'
     if (knob) knob.style.transform='translate(-50%,-50%)'
     if (a.interval) { clearInterval(a.interval); a.interval=null }
     a.dir={dx:0,dy:0}; a.activeId=null
-  },[])
+  }
 
-  const onTS = useCallback(e => { const a=aRef.current; if (a.activeId!==null) return; const t=e.changedTouches[0]; a.activeId=t.identifier; startAnalog(t.clientX,t.clientY) },[startAnalog])
-  const onTM = useCallback(e => { e.preventDefault(); const a=aRef.current; for (const t of e.changedTouches) { if (t.identifier===a.activeId) { upAnalog(t.clientX,t.clientY); break } } },[upAnalog])
-  const onTE = useCallback(e => { const a=aRef.current; for (const t of e.changedTouches) { if (t.identifier===a.activeId) { resetAnalog(); break } } },[resetAnalog])
-  const onMD = useCallback(e => { const a=aRef.current; if (a.activeId!==null) return; a.activeId='mouse'; startAnalog(e.clientX,e.clientY) },[startAnalog])
+  // Touch
+  const handleTouchStart = (e) => {
+    const a=aRef.current, el=analogElRef.current, wrap=wrapRef.current
+    if (!el||!wrap) return
+    if (a.activeId!==null) return
+    const touch = e.changedTouches[0]
+    a.activeId = touch.identifier
+    el.style.display='block'
+    const r = el.getBoundingClientRect()
+    a.cx = r.left+r.width/2; a.cy = r.top+r.height/2
+    const wrapRect = wrap.getBoundingClientRect()
+    const distToTouch = Math.sqrt((touch.clientX-a.cx)**2+(touch.clientY-a.cy)**2)
+    if (distToTouch>ANALOG_RADIUS+20) {
+      const newLeft = Math.max(0, Math.min(wrap.clientWidth-96, touch.clientX-48-wrapRect.left))
+      el.style.left = newLeft+'px'
+      el.style.transform = 'none'
+      const nr = el.getBoundingClientRect()
+      a.cx = nr.left+nr.width/2; a.cy = nr.top+nr.height/2
+    }
+    updateAnalog(touch.clientX, touch.clientY)
+  }
+
+  const handleTouchMove = (e) => {
+    e.preventDefault()
+    const a=aRef.current
+    for (const t of e.changedTouches) { if (t.identifier===a.activeId) { updateAnalog(t.clientX,t.clientY); break } }
+  }
+
+  const handleTouchEnd = (e) => {
+    const a=aRef.current
+    for (const t of e.changedTouches) { if (t.identifier===a.activeId) { resetAnalog(); break } }
+  }
+
+  // Mouse
+  const handleMouseDown = (e) => {
+    const a=aRef.current, el=analogElRef.current, wrap=wrapRef.current
+    if (!el||!wrap) return
+    if (a.activeId!==null) return
+    a.activeId='mouse'
+    el.style.display='block'
+    const r = el.getBoundingClientRect()
+    a.cx = r.left+r.width/2; a.cy = r.top+r.height/2
+    const wrapRect = wrap.getBoundingClientRect()
+    const distToTouch = Math.sqrt((e.clientX-a.cx)**2+(e.clientY-a.cy)**2)
+    if (distToTouch>ANALOG_RADIUS+20) {
+      const newLeft = Math.max(0, Math.min(wrap.clientWidth-96, e.clientX-48-wrapRect.left))
+      el.style.left = newLeft+'px'
+      el.style.transform = 'none'
+      const nr = el.getBoundingClientRect()
+      a.cx = nr.left+nr.width/2; a.cy = nr.top+nr.height/2
+    }
+    updateAnalog(e.clientX, e.clientY)
+  }
 
   useEffect(() => {
-    const mm = e => { const a=aRef.current; if (a.activeId==='mouse') upAnalog(e.clientX,e.clientY) }
+    const mm = e => { const a=aRef.current; if (a.activeId==='mouse') updateAnalog(e.clientX,e.clientY) }
     const mu = () => { const a=aRef.current; if (a.activeId==='mouse') resetAnalog() }
     window.addEventListener('mousemove',mm); window.addEventListener('mouseup',mu)
     return ()=>{window.removeEventListener('mousemove',mm);window.removeEventListener('mouseup',mu)}
-  },[upAnalog,resetAnalog])
+  },[])
 
   const hBA = useCallback(() => {
     const b=getBuildingAt(s.current.px,s.current.py)
@@ -303,7 +358,7 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
   return (
     <div className="city-container">
       <div ref={wrapRef} className="city-canvas-wrap"
-        onTouchStart={onTS} onTouchMove={onTM} onTouchEnd={onTE} onTouchCancel={onTE} onMouseDown={onMD}>
+        onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onTouchCancel={handleTouchEnd} onMouseDown={handleMouseDown}>
         <canvas ref={canvasRef} id="city-canvas" />
 
         <div ref={playerRef} className="city-player" style={{position:'absolute',width:'28px',height:'28px',zIndex:100,pointerEvents:'none'}}>
