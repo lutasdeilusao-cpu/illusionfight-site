@@ -40,6 +40,8 @@ export default function ArenaTaticsRoute() {
   const [simConfig, setSimConfig] = useState(null)
   const [interiorInfo, setInteriorInfo] = useState({ mapId: null, name: '', spawnX: null, spawnY: null })
   const [citySpawn, setCitySpawn] = useState(null)
+  const [currentDistrict, setCurrentDistrict] = useState('central')
+  const [visitedDistricts, setVisitedDistricts] = useState(['central'])
 
   // Door positions for each building (used for spawn on exit)
   const BUILDING_DOORS = {
@@ -111,6 +113,8 @@ export default function ArenaTaticsRoute() {
       }
 
       console.log('[TATICS] Iniciando exploração da cidade de Marélia')
+      setCurrentDistrict('central')
+      setCitySpawn(null)
       setFase('city')
       setLoading(false)
     } catch (err) {
@@ -184,6 +188,13 @@ export default function ArenaTaticsRoute() {
     setFase('city')
   }
 
+  const handleDistrictTransition = (toDistrict, spawn) => {
+    console.log(`[TATICS] Transição de distrito: ${currentDistrict} → ${toDistrict}`)
+    setCurrentDistrict(toDistrict)
+    setCitySpawn(spawn)
+    setVisitedDistricts(prev => prev.includes(toDistrict) ? prev : [...prev, toDistrict])
+  }
+
   const handleBackToMenu = () => {
     setFase('intro')
   }
@@ -222,7 +233,7 @@ export default function ArenaTaticsRoute() {
   return (
     <div className="tatics-container">
       {fase === 'intro' && <Intro onEnter={handleIntroEnter} onSimulacao={handleSimulacao} onTesteSim={handleTesteSim} />}
-      {fase === 'city' && <CityOverworld onEnterBuilding={handleEnterBuilding} onBackToMenu={handleBackToMenu} spawnPoint={citySpawn} />}
+      {fase === 'city' && <CityOverworld districtId={currentDistrict} onEnterBuilding={handleEnterBuilding} onDistrictTransition={handleDistrictTransition} onBackToMenu={handleBackToMenu} spawnPoint={citySpawn} />}
       {fase === 'interior' && <BuildingInterior mapId={interiorInfo.mapId} buildingName={interiorInfo.name} onExit={handleExitBuilding} />}
       {fase === 'teamSelect' && <TeamSelect isAdmin={isAdmin} onConfirm={handleTeamConfirm} maxSlots={store.maxSlots} />}
       {fase === 'combate' && <Batalha onVitoria={handleVitoria} onDerrota={handleDerrota} />}
