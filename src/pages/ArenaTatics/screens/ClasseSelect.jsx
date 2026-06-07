@@ -13,8 +13,8 @@ export default function ClasseSelect({ tier, rotacao, onSelect }) {
   return (
     <div style={{ minHeight: '100vh', background: '#000', padding: '1rem', display: 'flex', flexDirection: 'column' }}>
       <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-        <div style={{ color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem', letterSpacing: '0.2em', marginBottom: 4 }}>SELECIONE SUA CLASSE</div>
-        <div style={{ color: '#666', fontSize: '0.7rem', fontFamily: 'Courier New' }}>Toque em uma classe para ver detalhes</div>
+        <div style={{ color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem', letterSpacing: '0.2em', marginBottom: 4 }}>{t('games.tatics.classe_titulo')}</div>
+        <div style={{ color: '#666', fontSize: '0.7rem', fontFamily: 'Courier New' }}>{t('games.tatics.classe_toque')}</div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, flex: 1 }}>
@@ -34,7 +34,7 @@ export default function ClasseSelect({ tier, rotacao, onSelect }) {
               }}>
               {cls.locked && (
                 <div style={{ position: 'absolute', top: 6, right: 6, background: '#333', borderRadius: 4, padding: '1px 6px', fontSize: '0.5rem', color: '#888', fontFamily: 'Courier New' }}>
-                  🔒 FREE
+                  {t('games.tatics.classe_free')}
                 </div>
               )}
               <div style={{
@@ -66,7 +66,7 @@ export default function ClasseSelect({ tier, rotacao, onSelect }) {
               )}
               {cls.locked && (
                 <div style={{ color: '#555', fontSize: '0.55rem', fontFamily: 'Courier New', marginTop: 4, textAlign: 'center' }}>
-                  Disponível no plano Elite
+                  {t('games.tatics.classe_elite')}
                 </div>
               )}
             </motion.div>

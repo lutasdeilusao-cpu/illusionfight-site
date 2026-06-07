@@ -1,13 +1,28 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TATICS_VERSION } from '../../../config/version'
+import { useLanguage } from '../../../context/LanguageContext'
 
-const LINES = [
-  { text: 'SISTEMA DE COMBATE TÁTICO', delay: 400 },
-  { text: 'CARREGANDO PROTOCOLO NEXUS...', delay: 1200 },
-  { text: 'ENERGIA MENTAL DETECTADA', delay: 2000 },
-  { text: 'SINCRONIZAÇÃO DE UNIDADES OK', delay: 2800 },
-  { text: 'INICIANDO PROTOCOLO DE SELEÇÃO', delay: 3600 },
+const LINES_PT = [
+  'SISTEMA DE COMBATE TÁTICO',
+  'CARREGANDO PROTOCOLO NEXUS...',
+  'ENERGIA MENTAL DETECTADA',
+  'SINCRONIZAÇÃO DE UNIDADES OK',
+  'INICIANDO PROTOCOLO DE SELEÇÃO',
+]
+const LINES_EN = [
+  'TACTICAL COMBAT SYSTEM',
+  'LOADING NEXUS PROTOCOL...',
+  'MENTAL ENERGY DETECTED',
+  'UNIT SYNCHRONIZATION OK',
+  'INITIATING SELECTION PROTOCOL',
+]
+const LINES_ES = [
+  'SISTEMA DE COMBATE TÁCTICO',
+  'CARGANDO PROTOCOLO NEXUS...',
+  'ENERGÍA MENTAL DETECTADA',
+  'SINCRONIZACIÓN DE UNIDADES OK',
+  'INICIANDO PROTOCOLO DE SELECCIÓN',
 ]
 
 export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
@@ -17,19 +32,23 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
   const containerRef = useRef(null)
 
   // Typewriter effect for lines
+  const { t, locale } = useLanguage()
+  const lines = locale === 'en' ? LINES_EN : locale === 'es' ? LINES_ES : LINES_PT
+  const delays = [400, 1200, 2000, 2800, 3600]
+
   useEffect(() => {
     let timeouts = []
-    LINES.forEach((line, i) => {
-      const t = setTimeout(() => {
+    lines.forEach((_, i) => {
+      const to = setTimeout(() => {
         setVisibleLines(prev => [...prev, i])
-        if (i === LINES.length - 1) {
+        if (i === lines.length - 1) {
           setTimeout(() => setShowButton(true), 1400)
         }
-      }, line.delay)
-      timeouts.push(t)
+      }, delays[i])
+      timeouts.push(to)
     })
     return () => timeouts.forEach(clearTimeout)
-  }, [])
+  }, [locale])
 
   // Mouse parallax for grid
   useEffect(() => {
@@ -85,13 +104,13 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
             <span className="tatics-intro-logo-ldi">LDI</span>
             <span className="tatics-intro-logo-tatics">TATICS</span>
           </div>
-          <div className="tatics-intro-logo-sub">SISTEMA DE COMBATE TÁTICO</div>
+          <div className="tatics-intro-logo-sub">{t('games.tatics.intro_sub')}</div>
           <div className="tatics-intro-logo-line" />
         </motion.div>
 
         {/* Terminal lines */}
         <div className="tatics-intro-terminal">
-          {LINES.map((line, i) => (
+          {lines.map((text, i) => (
             <AnimatePresence key={i}>
               {visibleLines.includes(i) && (
                 <motion.div
@@ -101,7 +120,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                   className="tatics-intro-terminal-line"
                 >
                   <span className="tatics-intro-terminal-prompt">&gt;</span>
-                  <span className="tatics-intro-terminal-text">{line.text}</span>
+                  <span className="tatics-intro-terminal-text">{lines[i]}</span>
                   <span className="tatics-intro-terminal-status">OK</span>
                 </motion.div>
               )}
@@ -123,7 +142,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                 onClick={onEnter}
                 className="tatics-intro-btn"
               >
-                <span className="tatics-intro-btn-text">ACESSAR SISTEMA</span>
+                <span className="tatics-intro-btn-text">{t('games.tatics.intro_acessar')}</span>
                 <span className="tatics-intro-btn-glow" />
               </motion.button>
 
@@ -138,7 +157,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                   onClick={onSimulacao}
                   className="tatics-intro-btn tatics-intro-btn-sim"
                 >
-                  <span className="tatics-intro-btn-text">⚙ SIMULAÇÃO IA</span>
+                  <span className="tatics-intro-btn-text">{t('games.tatics.intro_simulacao')}</span>
                   <span className="tatics-intro-btn-glow" />
                 </motion.button>
               )}
@@ -154,7 +173,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                   className="tatics-intro-btn tatics-intro-btn-sim"
                   style={{ borderColor: 'rgba(74,222,128,0.4)', color: '#4ADE80' }}
                 >
-                  <span className="tatics-intro-btn-text">🧪 TESTE RÁPIDO</span>
+                  <span className="tatics-intro-btn-text">{t('games.tatics.intro_teste')}</span>
                   <span className="tatics-intro-btn-glow" />
                 </motion.button>
               )}
@@ -163,7 +182,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
         </AnimatePresence>
 
         {/* Version */}
-        <div className="tatics-intro-version">v{TATICS_VERSION} // NEXUS PROTOCOL</div>
+        <div className="tatics-intro-version">v{TATICS_VERSION} // {t('games.tatics.intro_nexus')}</div>
       </div>
     </div>
   )

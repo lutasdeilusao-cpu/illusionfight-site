@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function ConfirmEndTurn({ onConfirm, onCancel }) {
+  const { t } = useLanguage()
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,10 +20,10 @@ export default function ConfirmEndTurn({ onConfirm, onCancel }) {
         className="tatics-confirm-modal"
       >
         <div className="tatics-confirm-icone">⏭</div>
-        <div className="tatics-confirm-titulo">FINALIZAR TURNO?</div>
+        <div className="tatics-confirm-titulo">{t('games.tatics.confirm_titulo')}</div>
         <div className="tatics-confirm-desc">
-          Tem certeza que quer encerrar sua vez?<br />
-          Os aliados que não agiram perderão a vez.
+          {t('games.tatics.confirm_desc')}<br />
+          {t('games.tatics.confirm_desc2')}
         </div>
 
         <div className="tatics-confirm-botoes">
@@ -30,14 +32,14 @@ export default function ConfirmEndTurn({ onConfirm, onCancel }) {
             onClick={onCancel}
             className="tatics-confirm-btn tatics-confirm-btn-nao"
           >
-            NÃO, AINDA NÃO
+            {t('games.tatics.confirm_nao')}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={onConfirm}
             className="tatics-confirm-btn tatics-confirm-btn-sim"
           >
-            SIM, ENCERRAR
+            {t('games.tatics.confirm_sim')}
           </motion.button>
         </div>
       </motion.div>

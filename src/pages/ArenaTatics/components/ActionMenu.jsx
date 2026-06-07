@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { getCorPorElemental } from '../data/cosmeticos'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onClose, onEndTurn, jaMoveu, jaAtacou }) {
+  const { t } = useLanguage()
   const corElem = personagem.elemental ? getCorPorElemental(personagem.elemental) : '#00B4D8'
   return (
     <motion.div
@@ -24,9 +26,9 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
           <div className="tatics-action-char-info">
             <div className="tatics-action-char-nome">{personagem.nome}</div>
             <div className="tatics-action-char-stats">
-              HP <span style={{ color: corElem }}>{personagem.hp}/{personagem.hpMax}</span>
+              {t('games.tatics.hp')} <span style={{ color: corElem }}>{personagem.hp}/{personagem.hpMax}</span>
               {' · '}
-              MP <span className="tatics-action-mp">{personagem.energia}/{personagem.energiaMax}</span>
+              {t('games.tatics.mp')} <span className="tatics-action-mp">{personagem.energia}/{personagem.energiaMax}</span>
             </div>
           </div>
           <button className="tatics-action-close" onClick={onClose}>✕</button>
@@ -40,7 +42,7 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className={`tatics-action-btn ${jaMoveu ? 'btn-usado' : 'btn-mover'}`}
           >
             <span className="tatics-action-btn-icone">{jaMoveu ? '🔒' : '👣'}</span>
-            <span className="tatics-action-btn-label">{jaMoveu ? 'JÁ MOVIDO' : 'MOVER'}</span>
+            <span className="tatics-action-btn-label">{jaMoveu ? t('games.tatics.ja_movido') : t('games.tatics.mover')}</span>
           </motion.button>
 
           <motion.button
@@ -49,7 +51,7 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className={`tatics-action-btn ${jaAtacou ? 'btn-usado' : 'btn-atacar'}`}
           >
             <span className="tatics-action-btn-icone">{jaAtacou ? '🔒' : '⚔️'}</span>
-            <span className="tatics-action-btn-label">{jaAtacou ? 'JÁ ATACOU' : 'ATACAR'}</span>
+            <span className="tatics-action-btn-label">{jaAtacou ? t('games.tatics.ja_atacou') : t('games.tatics.atacar')}</span>
           </motion.button>
 
           <motion.button
@@ -58,13 +60,13 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className="tatics-action-btn btn-item"
           >
             <span className="tatics-action-btn-icone">🎒</span>
-            <span className="tatics-action-btn-label">ITEM</span>
+            <span className="tatics-action-btn-label">{t('games.tatics.item')}</span>
           </motion.button>
         </div>
 
         {/* End Turn */}
         <button className="tatics-action-endturn" onClick={onEndTurn}>
-          ⏭ FINALIZAR TURNO
+          ⏭ {t('games.tatics.finalizar_turno')}
         </button>
       </div>
     </motion.div>

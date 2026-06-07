@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ROSTER } from '../data/roster'
 import { TODAS_IAS, getDescricaoIA } from '../data/aiPersonalities'
+import { useLanguage } from '../../../context/LanguageContext'
 
 const EMOJI = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
 
 export default function SimulacaoAuto({ onIniciar }) {
+  const { t } = useLanguage()
   const [numChars, setNumChars] = useState(3)
   const [numIAs, setNumIAs] = useState(2)
   const [speed, setSpeed] = useState(1500) // ms entre ações (mais lento p/ visualizar)
@@ -37,13 +39,13 @@ export default function SimulacaoAuto({ onIniciar }) {
       <div className="tatics-intro-vignette" />
 
       <div className="tatics-sim-panel">
-        <div className="tatics-select-glitch">SIMULAÇÃO AUTOMÁTICA</div>
-        <div className="tatics-select-sub">IA vs IA — assista batalhas autônomas</div>
+        <div className="tatics-select-glitch">{t('games.tatics.sim_titulo')}</div>
+        <div className="tatics-select-sub">{t('games.tatics.sim_sub')}</div>
 
         {/* Config */}
         <div className="tatics-sim-config">
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">Personagens por time</span>
+            <span className="tatics-sim-label">{t('games.tatics.sim_personagens')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => setNumChars(Math.max(1, numChars - 1))}>−</button>
               <span className="tatics-sim-value">{numChars}</span>
@@ -52,7 +54,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           </div>
 
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">Quantidade de IAs</span>
+            <span className="tatics-sim-label">{t('games.tatics.sim_quantidade_ias')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => handleNumIAs(numIAs - 1)}>−</button>
               <span className="tatics-sim-value">{numIAs}</span>
@@ -61,7 +63,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           </div>
 
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">Velocidade</span>
+            <span className="tatics-sim-label">{t('games.tatics.sim_velocidade')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => setSpeed(Math.min(1500, speed + 200))}>⎯</button>
               <span className="tatics-sim-value">{speed}ms</span>
@@ -73,10 +75,10 @@ export default function SimulacaoAuto({ onIniciar }) {
           <div className="tatics-sim-ias">
             <div className="tatics-sim-ias-header">
               <span style={{ color: '#4F5359', fontSize: '0.55rem', fontFamily: 'JetBrains Mono', letterSpacing: '0.15em' }}>
-                IAs NA BATALHA
+                {t('games.tatics.sim_ias_batalha')}
               </span>
               <button className="tatics-sim-reshuffle" onClick={reshuffle}>
-                🔄 SORTEAR
+                🔄 {t('games.tatics.sim_sortear')}
               </button>
             </div>
             <div className="tatics-sim-ias-list">
@@ -84,7 +86,7 @@ export default function SimulacaoAuto({ onIniciar }) {
                 <div key={ia.id} className="tatics-sim-ia-card" style={{
                   '--ia-cor': i % 2 === 0 ? '#00B4D8' : '#E24B4A',
                 }}>
-                  <div className="tatics-sim-ia-time">{i % 2 === 0 ? 'TIME AZUL' : 'TIME VERMELHO'}</div>
+                  <div className="tatics-sim-ia-time">{i % 2 === 0 ? t('games.tatics.sim_time_azul') : t('games.tatics.sim_time_vermelho')}</div>
                   <div className="tatics-sim-ia-nome">{ia.nome}</div>
                   <div className="tatics-sim-ia-desc">{ia.descricao}</div>
                 </div>
@@ -100,7 +102,7 @@ export default function SimulacaoAuto({ onIniciar }) {
 
         {/* Roster preview */}
         <div className="tatics-sim-roster-preview">
-          <span className="tatics-sim-roster-title">PERSONAGENS DISPONÍVEIS ({ROSTER.length})</span>
+          <span className="tatics-sim-roster-title">{t('games.tatics.sim_personagens_disponiveis', { n: ROSTER.length })}</span>
           <div className="tatics-sim-roster-list">
             {ROSTER.slice(0, 12).map(r => (
               <div key={r.id} className="tatics-sim-roster-chip">
@@ -120,7 +122,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           whileTap={{ scale: 0.95 }}
           onClick={() => onIniciar({ numChars, numIAs, ias: iasSorteadas, speed })}
         >
-          INICIAR SIMULAÇÃO
+          {t('games.tatics.sim_iniciar')}
         </motion.button>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import GridCanvas from '../components/GridCanvas'
 import StatusBar from '../components/StatusBar'
 import TurnoIndicator from '../components/TurnoIndicator'
@@ -129,17 +130,27 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16)
 }
 
 // ── Fase label helper ──
-function getFaseLabel(fase) {
-  switch (fase) {
-    case 'idle': return { texto: 'SEU TURNO', icone: '⚔️', cor: '#00B4D8' }
-    case 'actionMenu': return { texto: 'ESCOLHA UMA AÇÃO', icone: '🎯', cor: '#F4A227' }
-    case 'mover': return { texto: 'SELECIONE DESTINO', icone: '👣', cor: '#F4A227' }
-    case 'skillSelect': return { texto: 'SELECIONE UM ATAQUE', icone: '⚡', cor: '#E24B4A' }
-    case 'target': return { texto: 'MIRANDO', icone: '🎯', cor: '#E24B4A' }
-    case 'animando': return { texto: 'ANIMANDO...', icone: '👣', cor: '#F4A227' }
-    case 'inimigo': return { texto: 'INIMIGO AGINDO...', icone: '⏳', cor: '#E24B4A' }
-    default: return { texto: '', icone: '', cor: '#4F5359' }
+function getFaseLabel(fase, t) {
+  const map = {
+    idle:        'games.tatics.fase_idle',
+    actionMenu:  'games.tatics.fase_acao',
+    mover:       'games.tatics.fase_mover',
+    skillSelect: 'games.tatics.fase_skill',
+    target:      'games.tatics.fase_target',
+    animando:    'games.tatics.fase_animando',
+    inimigo:     'games.tatics.fase_inimigo',
   }
+  const corMap = {
+    idle: '#00B4D8', actionMenu: '#F4A227', mover: '#F4A227',
+    skillSelect: '#E24B4A', target: '#E24B4A', animando: '#F4A227', inimigo: '#E24B4A',
+  }
+  const iconeMap = {
+    idle: '⚔️', actionMenu: '🎯', mover: '👣',
+    skillSelect: '⚡', target: '🎯', animando: '👣', inimigo: '⏳',
+  }
+  const key = map[fase]
+  if (key && t) return { texto: t(key), icone: iconeMap[fase] || '', cor: corMap[fase] || '#4F5359' }
+  return { texto: '', icone: '', cor: '#4F5359' }
 }
 
 export default function Batalha({ onVitoria, onDerrota }) {
@@ -168,7 +179,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
   if (!batalha) return null
   const { aliados, inimigos, turno, obstrucoes = [] } = batalha
-  const faseLabel = getFaseLabel(faseAcao)
+  const { t } = useLanguage()
+  const faseLabel = getFaseLabel(faseAcao, t)
 
   // Computa se personagem pode agir
   const jaMoveu = selectedAlly?.jaMoveu ?? false

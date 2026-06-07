@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
+  const { t } = useLanguage()
   const [contador, setContador] = useState(0)
   const target = sdrGanho
 
@@ -33,7 +35,7 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
       </motion.div>
 
       <h1 style={{ fontFamily: 'Courier New', fontSize: '1.5rem', fontWeight: 900, color: '#FFD700', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-        VITÓRIA!
+        {t('games.tatics.vitoria')}!
       </h1>
 
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
@@ -42,13 +44,13 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
       </motion.div>
 
       <div style={{ color: '#888', fontFamily: 'Courier New', fontSize: '0.7rem', marginBottom: '0.5rem' }}>
-        {vitorias} vitórias · Streak: {streak}
+        {t('games.tatics.vitorias_streak', { n: vitorias, streak: streak })}
       </div>
 
       {streak >= 3 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
           style={{ color: '#FFD700', fontFamily: 'Courier New', fontSize: '0.65rem', marginBottom: '1.5rem' }}>
-          🔥 STREAK {streak} — Bônus de SDR ativo!
+          {t('games.tatics.streak_bonus', { n: streak })}
         </motion.div>
       )}
 
@@ -59,7 +61,7 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
           color: '#00ff88', fontFamily: 'Courier New', fontSize: '0.85rem',
           fontWeight: 700, letterSpacing: '0.1em', cursor: 'pointer',
         }}>
-        PRÓXIMA BATALHA
+        {t('games.tatics.proxima_batalha')}
       </motion.button>
     </div>
   )

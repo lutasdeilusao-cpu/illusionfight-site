@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Derrota({ onRevanche, onSair }) {
+  const { t } = useLanguage()
   return (
     <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
       <motion.div
@@ -9,13 +11,13 @@ export default function Derrota({ onRevanche, onSair }) {
         style={{ textAlign: 'center' }}>
         <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>💀</div>
         <h1 style={{ fontFamily: 'Courier New', fontSize: '1.3rem', fontWeight: 900, color: '#ff4444', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-          DERROTA
+          {t('games.tatics.derrota')}
         </h1>
         <p style={{ color: '#888', fontFamily: 'Georgia', fontStyle: 'italic', fontSize: '0.8rem', marginBottom: '1.5rem' }}>
-          "Sessão encerrada. Retornando ao modo observador."
+          "{t('games.tatics.derrota_msg')}"
         </p>
         <p style={{ color: '#555', fontFamily: 'Courier New', fontSize: '0.65rem', marginBottom: '2rem' }}>
-          Nenhum SDR perdido. Tente novamente.
+          {t('games.tatics.derrota_sdr')}
         </p>
 
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
@@ -26,7 +28,7 @@ export default function Derrota({ onRevanche, onSair }) {
               color: '#ff4444', fontFamily: 'Courier New', fontSize: '0.75rem',
               fontWeight: 700, cursor: 'pointer',
             }}>
-            REVANCHE
+            {t('games.tatics.revanche')}
           </motion.button>
           <motion.button whileTap={{ scale: 0.97 }} onClick={onSair}
             style={{
@@ -34,7 +36,7 @@ export default function Derrota({ onRevanche, onSair }) {
               border: '1px solid #333', borderRadius: 10,
               color: '#888', fontFamily: 'Courier New', fontSize: '0.75rem', cursor: 'pointer',
             }}>
-            SAIR
+            {t('games.tatics.sair')}
           </motion.button>
         </div>
       </motion.div>

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*    
-*Versão: 2.82*  |  `[SITE] versão carregada: 2.82`
+*Versão: 2.83*  |  `[SITE] versão carregada: 2.83`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -135,7 +135,7 @@
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim de jogo |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles in-game |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | ✅ PT ✅ EN ✅ ES | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
-| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.3.0 | ⏳ PT ⏳ EN ⏳ ES | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
+| `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ PT ✅ EN ✅ ES | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ✅ PT ✅ EN ✅ ES | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | ✅ PT ✅ EN ✅ ES | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.7.0 | ✅ PT ✅ EN ✅ ES | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
