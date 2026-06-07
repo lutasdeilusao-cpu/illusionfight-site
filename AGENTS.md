@@ -4,13 +4,23 @@
 
 No exceptions. Every modification to any game file:
 
-1. **Bump the version** in the corresponding file above
-2. **Update `SITE_MAP.md`** with the new version number
+> **⚠️ O VERSION NUMBER VEM PRIMEIRO — NÃO PULE ESTA ETAPA**
+
+1. **🔴 BUMP THE VERSION** — Abra `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão\SiteLDI\src\config\version.js` e **INCREMENTE** a versão do jogo/site modificado. Ex: `TATICS_VERSION = '6.0.2'` → `'6.1.0'`
+2. **🔴 Update `SITE_MAP.md`** — Atualize o número da versão na tabela de rotas
 3. **`npm run build`** — if it fails, fix before proceeding
 4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
 5. **`git push`**
 6. **`npm run deploy`**
 7. **Verify** the deploy published without errors
+
+> **📋 AO FINAL, O RELATÓRIO DEVE INCLUIR:**
+> ```
+> | Versão | Antes | Depois |
+> |--------|-------|--------|
+> | TATICS_VERSION | X.X.X | → **Y.Y.Y** |
+> | SITE_VERSION | X.X | → **Y.Y** |
+> ```
 
 ## Stack
 
@@ -73,7 +83,17 @@ Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
 
 **Automation:** `python deploy.py -g <game> -m "description"` does steps 1-6 in one command. Use `--minor` or `--major` for non-patch bumps. Accepts multiple `-g` values.
 
-At the end of every task, deliver a report table: file modified | what changed | old version → new version | commit hash | deploy status.
+At the end of every task, deliver a **report table** with the version changes **highlighted**:
+
+```
+| Arquivo | O que mudou | Versão |
+|---|---|---|
+| `src/config/version.js` | TATICS_VERSION bump | X.X.X → **Y.Y.Y** |
+| `src/config/version.js` | SITE_VERSION bump | X.X → **Y.Y** |
+| `SITE_MAP.md` | Versão atualizada | ✅ |
+| **Commit** | `abc1234` — `desc + vY.Y.Y` | ✅ |
+| **Deploy** | Status | ✅/❌ |
+```
 
 ## Conduct rules
 

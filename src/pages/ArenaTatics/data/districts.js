@@ -94,7 +94,11 @@ export const DISTRITOS = {
       dialogKey: 'tatics.city.detective_dialog',
     }],
 
-    exits: { norte: { to: 'residencial', spawnTile: { x: 25, y: 28 } } },
+    exits: {
+      norte: { to: 'comercial', spawnTile: { x: 25, y: 33 } },
+      sul:   { to: 'residencial', spawnTile: { x: 25, y: 1 } },
+      oeste: { to: 'yohualticit', spawnTile: { x: 43, y: 15 } },
+    },
 
     zonas: [
       { nameKey: 'tatics.zones.central', tx: 14, ty: 8, tw: 10, th: 6, color: '#e8c96a' },
@@ -209,7 +213,11 @@ export const DISTRITOS = {
         dialogKey: 'tatics.city.crianca_dialog',
       },
     ],
-    exits: { sul: { to: 'central', spawnTile: { x: 25, y: 1 } } },
+    exits: {
+      norte: { to: 'central', spawnTile: { x: 25, y: 28 } },
+      leste: { to: 'industrial', spawnTile: { x: 1, y: 15 } },
+      sul:   { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+    },
     zonas: [
       { nameKey: 'tatics.zones.residencial', tx: 0, ty: 0, tw: 55, th: 30, color: '#6ae8a0' },
     ],
@@ -295,8 +303,9 @@ export const DISTRITOS = {
     ],
 
     exits: {
-      norte: { to: 'central', spawnTile: { x: 25, y: 28 } },
+      sul:   { to: 'central', spawnTile: { x: 25, y: 1 } },
       leste: { to: 'industrial', spawnTile: { x: 1, y: 15 } },
+      norte: { to: 'mercado', spawnTile: { x: 20, y: 23 } },
     },
 
     zonas: [
@@ -376,7 +385,8 @@ export const DISTRITOS = {
 
     exits: {
       norte: { to: 'comercial', spawnTile: { x: 25, y: 33 } },
-      sul: { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+      sul:   { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+      oeste: { to: 'residencial', spawnTile: { x: 52, y: 15 } },
     },
 
     zonas: [
@@ -451,7 +461,8 @@ export const DISTRITOS = {
     ],
 
     exits: {
-      norte: { to: 'central', spawnTile: { x: 3, y: 28 } },
+      norte: { to: 'industrial', spawnTile: { x: 25, y: 28 } },
+      oeste: { to: 'suburbio', spawnTile: { x: 43, y: 15 } },
     },
 
     zonas: [
@@ -599,7 +610,8 @@ export const DISTRITOS = {
     ],
 
     exits: {
-      sul: { to: 'central', spawnTile: { x: 21, y: 1 } },
+      leste: { to: 'central', spawnTile: { x: 1, y: 15 } },
+      sul:   { to: 'residencial', spawnTile: { x: 25, y: 1 } },
     },
 
     zonas: [
@@ -667,6 +679,7 @@ export const DISTRITOS = {
 
     exits: {
       norte: { to: 'industrial', spawnTile: { x: 25, y: 28 } },
+      leste: { to: 'porto', spawnTile: { x: 1, y: 15 } },
     },
 
     zonas: [
