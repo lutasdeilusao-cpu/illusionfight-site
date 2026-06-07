@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 
 const STEP = 32
 const STEP_MS = 160
@@ -659,21 +660,9 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     <div className="city-container">
       <div ref={wrapRef} className="city-canvas-wrap">
         <canvas ref={canvasRef} id="interior-canvas" />
-        <div
-          ref={playerRef}
-          id="interior-player"
-          style={{
-            position: 'absolute',
-            width: '32px', height: '32px',
-            zIndex: 100,
-            pointerEvents: 'none',
-            imageRendering: 'pixelated',
-            backgroundImage: 'url(/illusionfight-site/assets/playerSheet.png)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '128px 96px',
-            backgroundPosition: '0px 0px',
-          }}
-        />
+        <div ref={playerRef} className="city-player" style={{position:'absolute',width:'28px',height:'28px',zIndex:100,pointerEvents:'none'}}>
+          <div className="city-player-inner"><img src={kronikiHappy} alt="" className="city-player-img" /></div>
+        </div>
         <div className="city-hud">{hudText}</div>
 
         <AnimatePresence>

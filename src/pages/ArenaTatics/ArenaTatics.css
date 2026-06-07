@@ -2908,15 +2908,29 @@
   will-change: transform;
 }
 
-/* ── Player sprite ── */
-#city-player,
-#interior-player {
+/* ── Player sprite (kroniki) ── */
+.city-player {
   position: absolute;
-  width: 32px;
-  height: 32px;
   z-index: 100;
   pointer-events: none;
-  image-rendering: pixelated;
+}
+.city-player-inner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 0 12px 4px rgba(232, 201, 106, 0.6),
+    0 0 24px 8px rgba(232, 201, 106, 0.3),
+    inset 0 0 8px rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(232, 201, 106, 0.5);
+  background: #000;
+}
+.city-player-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ── HUD ── */
@@ -2983,6 +2997,92 @@
 @keyframes city-interact-pulse {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
+}
+
+/* ── MINIMAP ── */
+.city-minimap {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 80px;
+  height: 80px;
+  z-index: 250;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid #444;
+  border-radius: 4px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.city-minimap-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.city-mm-player {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #e8c96a;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  box-shadow: 0 0 4px rgba(232,201,106,0.8);
+}
+.city-minimap-border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(232,201,106,0.2);
+  border-radius: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── ANALOG STICK ── */
+.city-analog-container {
+  position: absolute;
+  bottom: 16px;
+  left: 36px;
+  z-index: 300;
+  display: none;
+  pointer-events: none;
+}
+.city-analog-outer {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);
+  border: 2px solid rgba(255,255,255,0.15);
+  position: relative;
+  pointer-events: none;
+}
+.city-analog-inner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(232,201,106,0.35) 0%,rgba(232,201,106,0.15) 100%);
+  border: 2px solid rgba(232,201,106,0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+.city-analog-knob {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(232,201,106,0.5) 0%,rgba(232,201,106,0.2) 100%);
+  border: 2px solid rgba(232,201,106,0.4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  transition: none;
+  box-shadow: 0 0 20px rgba(232,201,106,0.15);
 }
 
 /* ── Game Boy Panel ── */
