@@ -558,7 +558,7 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-loading">
           <div className="ttmp-loading-spinner" />
-          <p>Carregando partida...</p>
+          <p>{t('games.toptrumps.mp.carregando')}</p>
         </div>
       </section>
     )
@@ -574,8 +574,8 @@ export default function TopTrumpsMP() {
     return (
       <section className="ttmp-page">
         <div className="ttmp-ppt-container">
-          <h2 className="ttmp-ppt-titulo">Pedra, Papel, Tesoura</h2>
-          <p className="ttmp-ppt-subtitulo">O vencedor come&ccedil;a!</p>
+          <h2 className="ttmp-ppt-titulo">{t('games.toptrumps.mp.ppt_titulo')}</h2>
+          <p className="ttmp-ppt-subtitulo">{t('games.toptrumps.mp.ppt_subtitulo')}</p>
           {!pptAmbosEscolheram ? (
             <>
               <div className="ttmp-ppt-opcoes">
@@ -592,13 +592,13 @@ export default function TopTrumpsMP() {
                   </button>
                 ))}
               </div>
-              {pptEscolhi && <p className="ttmp-ppt-aguardando">Aguardando oponente...</p>}
+              {pptEscolhi && <p className="ttmp-ppt-aguardando">{t('games.toptrumps.mp.ppt_aguardando')}</p>}
             </>
           ) : (
             <div className="ttmp-ppt-resultado">
               <div className="ttmp-ppt-jogadores">
                 <div className="ttmp-ppt-jogada">
-                  <span className="ttmp-ppt-jogada-label">Voc&ecirc;</span>
+                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.mp.ppt_voce')}</span>
                   <span className="ttmp-ppt-jogada-icone">
                     {opcoes.find(o => o.valor === minhaEscolha)?.icone}
                   </span>
@@ -611,7 +611,7 @@ export default function TopTrumpsMP() {
                 </div>
               </div>
               <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${pptResultado}`}>
-                {pptResultado === 'ganhou' ? 'Voc&ecirc; venceu!' : pptResultado === 'perdeu' ? 'Voc&ecirc; perdeu!' : 'Empate!'}
+                {pptResultado === 'ganhou' ? t('games.toptrumps.mp.ppt_venceu') : pptResultado === 'perdeu' ? t('games.toptrumps.mp.ppt_perdeu') : t('games.toptrumps.mp.ppt_empate')}
               </div>
             </div>
           )}
@@ -625,7 +625,7 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-loading">
           <div className="ttmp-loading-spinner" />
-          <p>Preparando cartas...</p>
+          <p>{t('games.toptrumps.mp.preparando_cartas')}</p>
         </div>
       </section>
     )
@@ -676,7 +676,7 @@ export default function TopTrumpsMP() {
           <div className="ttmp-vs">
             <span className="ttmp-vs-texto">VS</span>
             {!ehMinhaVez && !jaMovi && (
-              <span className="ttmp-vez-message">Advers&aacute;rio escolhendo...</span>
+              <span className="ttmp-vez-message">{t('games.toptrumps.mp.hud_adversario_escolhendo')}</span>
             )}
           </div>
           <div className={`ttmp-card${girando ? ' ttmp-spinning-reveal' : ''}`}>
@@ -697,7 +697,7 @@ export default function TopTrumpsMP() {
                     }
                     return (
                       <div key={a.id} className={c}>
-                        <span className="ttmp-atributo-nome">{a.nome}</span>
+                        <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
                         <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
                       </div>
                     )
@@ -730,7 +730,7 @@ export default function TopTrumpsMP() {
   if (fase === 'revelacao') {
     if (!cartaLocal || !cartaOponente) return null
     const attr = atributos.find(a => a.id === atributoEscolhido)
-    const vezTexto = sala?.jogador_da_vez === user.id ? 'Sua vez no próximo turno' : `${oponenteNome} começa o próximo turno`
+    const vezTexto = sala?.jogador_da_vez === user.id ? t('games.toptrumps.mp.revelacao_sua_vez') : t('games.toptrumps.mp.revelacao_vez_oponente', { nome: oponenteNome })
 
     return (
       <section className="ttmp-page">
@@ -750,22 +750,22 @@ export default function TopTrumpsMP() {
         ))}
         <div className="ttmp-revelacao-banner">
           <div>
-            <span className="ttmp-revelacao-title">Revelação da rodada</span>
+            <span className="ttmp-revelacao-title">{t('games.toptrumps.mp.revelacao_titulo')}</span>
             <span className="ttmp-revelacao-subtitle">{vezTexto}</span>
           </div>
           <span className={`ttmp-resultado-badge ttmp-resultado--${resultadoRodada}`}>
-            {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU' : 'EMPATE'}
+            {resultadoRodada === 'ganhou' ? t('games.toptrumps.mp.revelacao_voce_venceu') : resultadoRodada === 'perdeu' ? t('games.toptrumps.mp.revelacao_oponente_venceu') : t('games.toptrumps.mp.revelacao_empate')}
           </span>
         </div>
 
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">VOCÊ</span>
+            <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
             <span className="ttmp-hud-placar-valor">{placar.eu}</span>
           </div>
           <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">RODADA {sala?.turno_atual}/{sala?.total_turnos}</span>
-            <span className="ttmp-revelacao-note">Atributo escolhido: {attr ? t(attr.nomeKey) : ''}</span>
+            <span className="ttmp-hud-rodada">{t('games.toptrumps.mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
+            <span className="ttmp-revelacao-note">{t('games.toptrumps.mp.atributo_escolhido', { nome: attr ? t(attr.nomeKey) : '' })}</span>
           </div>
           <div className="ttmp-hud-oponente">
             <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
@@ -792,7 +792,7 @@ export default function TopTrumpsMP() {
 
           <div className="ttmp-vs">
             <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
-              {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU!' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU!' : 'EMPATE!'}
+              {resultadoRodada === 'ganhou' ? t('games.toptrumps.mp.revelacao_voce_venceu_exclamacao') : resultadoRodada === 'perdeu' ? t('games.toptrumps.mp.revelacao_oponente_venceu_exclamacao') : t('games.toptrumps.mp.revelacao_empate_exclamacao')}
             </span>
             <span className="ttmp-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span>
           </div>
@@ -815,7 +815,7 @@ export default function TopTrumpsMP() {
         </div>
 
         <button className="ttmp-proxima-btn" onClick={seguirParaProximaRodada}>
-          PRÓXIMA RODADA
+          {t('games.toptrumps.mp.revelacao_proxima')}
         </button>
       </section>
     )
@@ -828,17 +828,17 @@ export default function TopTrumpsMP() {
     return (
       <section className="ttmp-page">
         <div className="ttmp-fim">
-          <h2 className="ttmp-fim-titulo">FIM DE JOGO</h2>
+          <h2 className="ttmp-fim-titulo">{t('games.toptrumps.mp.fim_titulo')}</h2>
           <div className={`ttmp-fim-icone${venceu ? ' ttmp-fim-icone--vitoria' : empatou ? ' ttmp-fim-icone--empate' : ' ttmp-fim-icone--derrota'}`}>
             {venceu ? '🏆' : empatou ? '🤝' : '💀'}
           </div>
           <h3 className={`ttmp-fim-resultado${venceu ? ' ttmp-fim-titulo--vitoria' : empatou ? ' ttmp-fim-titulo--empate' : ' ttmp-fim-titulo--derrota'}`}>
-            {venceu ? 'VOCÊ VENCEU!' : empatou ? 'EMPATE!' : 'VOCÊ PERDEU!'}
+            {venceu ? t('games.toptrumps.mp.fim_voce_venceu') : empatou ? t('games.toptrumps.mp.fim_empate') : t('games.toptrumps.mp.fim_voce_perdeu')}
           </h3>
           <div className="ttmp-fim-placar">
             <div className="ttmp-fim-placar-item">
               <span className="ttmp-fim-placar-valor">{placar.eu}</span>
-              <span className="ttmp-fim-placar-label">VOCÊ</span>
+              <span className="ttmp-fim-placar-label">{t('games.toptrumps.mp.fim_voce')}</span>
             </div>
             <span className="ttmp-fim-placar-divisor">×</span>
             <div className="ttmp-fim-placar-item">
@@ -847,7 +847,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <Link to="/games" className="ttmp-btn-voltar">VOLTAR AOS GAMES</Link>
+            <Link to="/games" className="ttmp-btn-voltar">{t('games.toptrumps.mp.fim_voltar_games')}</Link>
           </div>
         </div>
       </section>
