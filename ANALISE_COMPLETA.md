@@ -30,14 +30,14 @@ Portal multimídia do universo **Lutas de Ilusão (Illusion Fight)**, uma obra t
 - **Webtoon** (episódios ilustrados)
 - **Livro** (16 capítulos em PT, 3 em EN/ES)
 - **Música** (trilha sonora original)
-- **8 Jogos** (RPG, card game, tamagotchi, puzzles, tática, detetive, arena)
+- **10 Jogos** (RPG, card game, tamagotchi, puzzles, tática, detetive, arena)
 - **Sistema de assinatura** (Free/Elite/Primordial) com moeda virtual (Fichas, DIX)
 - **Rankings, Achievements, Perfil de usuário**
 
 ### Diferenciais
 - Narrativa transmídia rica (personagens, lore, universo expandido)
 - Economia própria (Fichas para jogos arcade, DIX para tamagotchi)
-- 8 jogos originais com mecânicas variadas
+- 10 jogos originais com mecânicas variadas
 - Suporte a 3 idiomas (PT, EN, ES)
 - Sistema de achievements com badges
 - Integração Supabase (auth, save, realtime multiplayer)
@@ -49,6 +49,8 @@ Portal multimídia do universo **Lutas de Ilusão (Illusion Fight)**, uma obra t
 - Webtoon apenas 1 episódio (21 páginas)
 - Assets de banner muito pesados (~2.3MB cada)
 - Alguns placeholders (PIX key, newsletter, redes sociais)
+
+> 📌 **Nota:** A maior parte dos jogos já possui i18n implementada (PT/EN/ES). A exceção é JackCandy (4 screens sem i18n) e dados internos dos jogos (diálogos, descrições de itens) que estão em JS data files em PT.
 
 ---
 
@@ -166,22 +168,28 @@ Todas são do sistema **Arena Tatics (CityOverworld)**:
 **Novos Interior Names (5 chaves)**
 - `tatics.interior_names.info`, `tatics.interior_names.equipment_shop`, `tatics.interior_names.biblioteca`, `tatics.interior_names.arena_sub`, `tatics.interior_names.concessionaria`
 
-### Páginas SEM i18n (hardcoded em PT)
+### Páginas SEM i18n (hardcoded em PT) — ATUALIZADO
 
-**Site pages (7):**
-- `Login.jsx`, `Cadastro.jsx`, `Admin.jsx`, `Leaderboard.jsx`
-- `Games.jsx`, `Perfil.jsx` + todas as 6 abas
-- `ArenaTatics/screens/*` (exceto CityOverworld e BuildingInterior)
+**Site pages (7) — todas já usam `t()`:**
+- ✅ `Login.jsx` — ✅ i18n implementada
+- ✅ `Cadastro.jsx` — ✅ i18n implementada
+- ✅ `Admin.jsx` — ✅ i18n implementada
+- ✅ `Leaderboard.jsx` — ✅ i18n implementada
+- ✅ `Games.jsx` — ✅ i18n implementada
+- ✅ `Perfil.jsx` + abas — ✅ i18n implementada
+- 🟡 `ArenaTatics/screens/*` — Apenas CityOverworld e BuildingInterior
 
-**Jogos (8 jogos, dezenas de screens):**
-- `Arena/` — ArenaRoute, ArenaCreate, ArenaLobby, ArenaVictory, etc.
-- `Duelo/` — Menu, Board, Hand, BattleLog, Vitória, Derrota
-- `JackCandy/` — 13 screens (jogo enorme)
-- `LDI/` — Lobby, Create, Game, Combat, Sheet, Clues, End, Puzzle
-- `MiniGames/` — MiniGames.jsx + 6 puzzles
-- `PesadeloParticular/PP.jsx` — 20 casos
-- `Tamagoshi/` — 11 screens + store + data
-- `TopTrumps.jsx`, `TopTrumpsLobby.jsx`, `TopTrumpsMP.jsx`
+**Jogos — ATUALIZADO:**
+- ✅ `Duelo/` — Todos screens + components usam `t()`
+- ✅ `MiniGames/` — Todos os puzzles + UI usam `t()`
+- ✅ `Arena/` — Todas as telas usam `t()`
+- ✅ `TopTrumps.jsx`, `TopTrumpsLobby.jsx`, `TopTrumpsMP.jsx` — Todas usam `t()`
+- ✅ `LDI/` — Lobby, Create, Game, Combat, Sheet, Clues, End usam `t()`
+- ✅ `Tamagoshi/` — Todas as 11 screens usam `t()`
+- ✅ `PesadeloParticular/` — PP.jsx + todas as 8 screens usam `t()` + pp_*.json
+- ✅ `Games.jsx` — Usa `t()` para nomes e descrições
+- 🟡 `JackCandy/` — **9/13 screens** usam `t()`. Faltam: Dungeon, Investigacao, Interrogatorio, CasoAbertura
+- 🟡 `ArenaTatics/screens/` — CityOverworld + BuildingInterior i18n. Demais pendentes
 
 ### Estratégia Recomendada para Tradução dos Jogos
 
@@ -287,36 +295,36 @@ Devido ao volume massivo de texto nos jogos, recomendo:
 
 | Jogo | Rotas | Screens | i18n | Mobile | Versão | Observações |
 |------|-------|---------|------|--------|--------|-------------|
-| **LDI Lendas** | 7 | 6+ | ❌ | ⚠️ | 1.0.61 | RPG narrativo, muito texto |
-| **Jack Dream Beer** | 1 | 13 | ❌ | ⚠️ | 5.1.2 | Idle noir, MUITO texto |
-| **Pesadelo Particular** | 1 | ~10 | ❌ | ⚠️ | 1.5.29 | 20 casos, muito texto |
-| **LDI Arena** | 3 | 4+ | ❌ | ⚠️ | 1.7.3 | Combate CPU |
-| **Duelo LDI** | 1 | 5+ | ❌ | ✅ | 1.2.8 | Card game |
-| **Top Trumps** | 3 | 3 | ❌ | ⚠️ | 1.1.0 | Multiplayer realtime |
-| **Tamagoshi** | 1 | 11 | ❌ | ⚠️ | 1.10.3 | Ciclo de vida |
-| **Mini Games** | 1 | 1+6 | ❌ | ✅ | 1.2.1 | 6 puzzles |
-| **LDI Tatics** | 1 | 10+ | ✅ parcial | ⚠️ | 6.4.0 | Pokémon + Ragnarok Online + tático isométrico. Overworld top-down navegável (Marelia), sistema de cards (começa com 2, conquista até 10, level 1→99), evolução de classe estilo Ragnarok (base → 2 opções → final), batalha isométrica Canvas 2D com deck de até 3 cards por partida. Cards exclusivos por tier: Free=6 eventos/ano, ELITE=+2=8, PRIMORDIAL=+4=10. Evolução de classe: falta implementar. |
+| **LDI Lendas** | 7 | 6+ | ✅ screens | ⚠️ | 1.0.61 | RPG narrativo, muito texto. Engine/data em PT |
+| **Jack Dream Beer** | 1 | 13 | ✅ parcial (9/13 screens) | ⚠️ | 5.1.2 | Idle noir. Dungeon, Investigacao, Interrogatorio, CasoAbertura sem `t()` |
+| **Pesadelo Particular** | 1 | ~10 | ✅ completo (+ pp_*.json) | ⚠️ | 1.7.0 | 20 casos. i18n própria nos 3 idiomas |
+| **LDI Arena** | 3 | 4+ | ✅ screens | ⚠️ | 1.7.3 | Combate CPU. Todas as telas usam `t()` |
+| **Duelo LDI** | 1 | 5+ | ✅ completo | ✅ | 1.2.9 | Card game. Todos screens + components usam `t()` |
+| **Top Trumps** | 3 | 3 | ✅ completo | ⚠️ | 2.63 | Multiplayer. Todas as 3 telas usam `t()` |
+| **Tamagoshi** | 1 | 11 | ✅ completo | ⚠️ | 1.11.0 | Todas as 11 screens usam `t()` |
+| **Mini Games** | 1 | 1+6 | ✅ completo | ✅ | 1.3.0 | 7 puzzles com chaves EN/ES completas |
+| **LDI Tatics** | 1 | 10+ | ✅ parcial | ⚠️ | 6.4.0 | CityOverworld + BuildingInterior i18n. Demais telas pendentes |
+| **Games Hub** | 1 | 1 | ✅ | ✅ | — | Usa `t()` para nomes e taglines |
+| **Leaderboard** | 1 | 1 | ✅ | ✅ | — | Usa `t()` para títulos e labels |
+| **Quiz** | 1 | 1 | ✅ | ✅ | — | Usa `t()` para perguntas |
 
-### Estimativa de Texto Traduzível por Jogo
+### Estimativa de Texto Traduzível por Jogo (dados internos, não UI)
 
-| Jogo | Estimativa de Strings | Esforço |
-|------|----------------------|---------|
-| Jack Dream Beer | ~300+ strings | 🔴 Altíssimo |
-| LDI Lendas | ~200+ strings | 🔴 Altíssimo |
-| Pesadelo Particular | ~200+ strings | 🔴 Altíssimo |
-| Tamagoshi | ~150+ strings | 🟡 Alto |
-| LDI Arena | ~80 strings | 🟡 Médio |
-| Duelo LDI | ~60 strings | 🟢 Médio |
-| Top Trumps | ~50 strings | 🟢 Baixo |
-| Mini Games | ~30 strings | 🟢 Baixo |
+| Jogo | UI com `t()` | Dados internos (PT) |
+|------|-------------|-------------------|
+| Jack Dream Beer | 🟡 9/13 screens + 0/7 components | 🔴 Casos, NPCs, itens, dungeons em JS |
+| LDI Lendas | ✅ Screens | 🟡 Cenas, enemies em JSON |
+| Pesadelo Particular | ✅ Screens + pp_*.json | ✅ pp-i18n.js cobre dados |
+| Tamagoshi | ✅ Screens | 🟡 Criaturas, itens em JS |
+| Demais jogos | ✅ Completo | 🟢 Pouco texto interno |
 
 ---
 
 ## 8. O que Falta Conectar
 
 ### 🔴 Prioridade Alta
-1. **i18n nos jogos** — Todos os 8 jogos com texto hardcoded em PT
-2. **38 chaves faltando** em EN/ES (sistema tatics) — ✅ Resolvido
+1. **JackCandy — completar i18n** nas 4 screens faltantes (Dungeon, Investigacao, Interrogatorio, CasoAbertura + components)
+2. **Arena Tatics — i18n nas demais telas** (Batalha, TeamSelect, etc.)
 3. **Tradução do livro** — 13 capítulos restantes para EN/ES
 
 ### Stripe
@@ -379,7 +387,7 @@ Status: 🟡 Em preparação
 | Categoria | Ativos | Valor |
 |-----------|--------|-------|
 | **Narrativa** | 16 capítulos de livro, 1 webtoon, lore completo | ⭐⭐⭐⭐⭐ |
-| **Jogos** | 8 jogos originais jogáveis | ⭐⭐⭐⭐⭐ |
+| **Jogos** | 10 jogos originais jogáveis | ⭐⭐⭐⭐⭐ |
 | **Tecnologia** | React 19, Vite 8, Supabase, 3 idiomas | ⭐⭐⭐⭐ |
 | **Sistema** | Auth, achievements, perfil, assinatura, economia | ⭐⭐⭐⭐ |
 | **Arte** | Banners, logos, sprites, webtoon pages | ⭐⭐⭐ |
@@ -403,9 +411,10 @@ Status: 🟡 Em preparação
 | Área | Progresso |
 |------|-----------|
 | Site (páginas principais) | 100% (36/36 rotas) |
-| Tradução (i18n) | 70% (site completo, jogos pendentes) |
+| Tradução (i18n) | 85% (UI dos jogos quase completa) |
 | Jogos (implementação) | 95% (10/10 1ª temporada, LDI Tatics em refatoração) |
-| Jogos (i18n) | 15% (Arena Tatics parcial, demais hardcoded PT) |
+| Jogos (i18n da UI) | 85% (JackCandy 9/13 screens, Tatics parcial) |
+| Jogos (dados internos) | 20% (diálogos, descrições em JS/JSON em PT) |
 | Stripe/Pagamentos | 100% (checkout + webhook + cancelamento) |
 | Webtoon | 10% (1 ep. de 21 páginas) |
 | Livro (conteúdo) | 100% (PT) / 20% (EN/ES) |

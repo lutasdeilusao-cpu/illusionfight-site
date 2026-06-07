@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*
-*Versão: 2.93*  |  `[SITE] versão carregada: 2.93`
+*Versão: 2.94*  |  `[SITE] versão carregada: 2.94`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -508,7 +508,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 2.93 | `src/config/version.js:5` |
+| `SITE_VERSION` | 2.94 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.3 | `src/config/version.js:12` |
