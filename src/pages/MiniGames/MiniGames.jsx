@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça } from '../../components/Puzzles'
+import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
@@ -14,6 +14,7 @@ const GAMES = [
   { id: 'anagrama', puzzleKey: 'anagrama', emoji: '🔤', cor: '#22C55E', semImagens: false },
   { id: 'forca', puzzleKey: 'forca', emoji: '🎡', cor: '#EC4899', semImagens: false },
   { id: 'enduro', puzzleKey: 'enduro', emoji: '🏎️', cor: '#FF3366', badgeKey: 'games.minigames.badge_lancado', badgeCor: '#22C55E', semImagens: true },
+  { id: 'simon', puzzleKey: 'simon', emoji: '🔵', cor: '#A855F4', semImagens: false },
 ]
 
 const STEALTH_CONFIG = {
@@ -53,7 +54,7 @@ export default function MiniGames() {
 
   const tentarIniciar = (game) => {
     if (game.id === 'enduro') { setJogoAtivo(game); setFase('jogando'); return }
-    if (['stealth','decoder','sliding','labirinto','anagrama','forca'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (['stealth','decoder','sliding','labirinto','anagrama','forca','simon'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -106,6 +107,7 @@ export default function MiniGames() {
         return <PuzzleSlidingTiles {...props} config={{ size: slidingSize }} />
       case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
+      case 'simon': return <PuzzleSimonSays {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'enduro':
         return <PassearEnduro onConcluir={voltarHub} />
       default: return null
@@ -143,6 +145,11 @@ export default function MiniGames() {
         { id: 'easy',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', cor: '#22C55E', free: true },
         { id: 'medium', specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', cor: '#F5A623', free: false },
         { id: 'hard',   specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', cor: '#8B0000', free: false },
+      ],
+      simon: [
+        { id: 'easy',   specs: ['5 rounds', '3 passos', '4 cores'], emoji: '🔵', cor: '#22C55E', free: true },
+        { id: 'medium', specs: ['6 rounds', '4 passos', '4 cores'], emoji: '🔵', cor: '#F5A623', free: false },
+        { id: 'hard',   specs: ['8 rounds', '5 passos', '4 cores'], emoji: '🔵', cor: '#8B0000', free: false },
       ],
       anagrama: [
         { id: 'easy',    specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', cor: '#22C55E', free: true },

@@ -524,6 +524,12 @@
           "desc": "revuelto. reorganiza. descubre.",
           "detalhe": "letras fuera de orden. tu cerebro es el decoder.",
           "dificuldade": "★★☆"
+        },
+        "simon": {
+          "nome": "Simon Dice",
+          "desc": "memoriza la secuencia. repite sin fallar.",
+          "detalhe": "secuencia creciente de colores. un error y reinicia. ¿hasta dónde llegarás?",
+          "dificuldade": "★★☆"
         }
       },
       "timer": "⏱ {s}s",

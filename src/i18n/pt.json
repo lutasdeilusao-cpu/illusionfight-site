@@ -524,6 +524,12 @@
           "desc": "embaralhamento. reorganize. descubra.",
           "detalhe": "letras fora de ordem. seu cérebro é o decoder.",
           "dificuldade": "★★☆"
+        },
+        "simon": {
+          "nome": "Simon Says",
+          "desc": "memorize a sequência. repita sem errar.",
+          "detalhe": "sequência crescente de cores. um erro e recomeça. até onde você vai?",
+          "dificuldade": "★★☆"
         }
       },
       "timer": "⏱ {s}s",

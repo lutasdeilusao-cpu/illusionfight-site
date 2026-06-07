@@ -524,6 +524,12 @@
           "desc": "scrambled. rearrange. discover.",
           "detalhe": "letters out of order. your brain is the decoder.",
           "dificuldade": "★★☆"
+        },
+        "simon": {
+          "nome": "Simon Says",
+          "desc": "memorize the sequence. repeat without error.",
+          "detalhe": "growing color sequence. one mistake and restart. how far can you go?",
+          "dificuldade": "★★☆"
         }
       },
       "timer": "⏱ {s}s",
