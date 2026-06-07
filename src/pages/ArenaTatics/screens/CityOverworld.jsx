@@ -6,7 +6,7 @@ import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
    CONSTANTS
    ═══════════════════════════════════════════════════ */
 const STEP        = 32
-const STEP_MS     = 160
+const STEP_MS     = 80
 const SPRITE_W    = 32
 const SPRITE_H    = 32
 const ANALOG_RADIUS = 40
@@ -86,7 +86,7 @@ function getZoneName(tileX, tileY) {
 /* ═══════════════════════════════════════════════════
    COMPONENT
    ═══════════════════════════════════════════════════ */
-export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
+export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoint }) {
   const canvasRef = useRef(null)
   const playerRef = useRef(null)
   const wrapRef = useRef(null)
@@ -102,8 +102,10 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
   const [interactLabel, setInteractLabel] = useState('')
   const [showMenu, setShowMenu] = useState(false)
 
+  const initialX = spawnPoint?.x ?? 20*STEP
+  const initialY = spawnPoint?.y ?? 16*STEP
   const s = useRef({
-    px:20*STEP, py:16*STEP, camX:0, camY:0,
+    px:initialX, py:initialY, camX:0, camY:0,
     moving:false, moveFrom:{x:0,y:0}, moveTo:{x:0,y:0},
     moveProgress:1, moveStart:0, currentZone:null,
   })
@@ -117,8 +119,8 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu }) {
       const x=tx*STEP, y=ty*STEP
       let color = TILE_COLORS.grass
       const mH = ty>=13&&ty<=15, mV = tx>=12&&tx<=14
-      const pH = ty===8||ty===14||ty===20||ty===24
-      const pV = tx===6||tx===14||tx===22||tx===32||tx===40
+      const pH = (ty>=7&&ty<=9)||(ty>=13&&ty<=15)||(ty>=19&&ty<=21)||(ty>=23&&ty<=25)
+      const pV = (tx>=5&&tx<=7)||(tx>=13&&tx<=15)||(tx>=21&&tx<=23)||(tx>=31&&tx<=33)||(tx>=39&&tx<=41)
       if ((mH&&tx>=2&&tx<=24)||(mV&&ty>=2&&ty<=24)) color = TILE_COLORS.path
       else if (pH||pV) color = TILE_COLORS.path
       else if ((tx+ty)%11===0) color = TILE_COLORS.dark_grass

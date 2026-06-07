@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 
 const STEP = 32
-const STEP_MS = 160
+const STEP_MS = 80
 const SPRITE_W = 32
 const SPRITE_H = 32
 const INTERIOR_SIZE = 800
@@ -556,10 +556,10 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       const ny = Math.round(s.py / STEP) * STEP + dy * STEP
       if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
 
-      // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA — sai ANTES de checar colisão ═══
+      // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA ═══
       if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
           ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
-        onExitRef.current()
+        onExitRef.current(mapId)
         return
       }
 
@@ -631,10 +631,10 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
         if (s.moving) return
 
-        // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA — sai ANTES de checar colisão ═══
+        // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA ═══
         if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
             ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
-          onExitRef.current()
+          onExitRef.current(mapId)
           return
         }
 
