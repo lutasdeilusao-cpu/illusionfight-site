@@ -243,7 +243,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
         <div className="arena-lobby" style={{ paddingTop: 60 }}>
           <div className="arena-lobby-hero">
             <p className="arena-lobby-titulo">modo standalone</p>
-            <h1 className="arena-lobby-nome" style={{ fontSize: 36 }}>NOVA FICHA</h1>
+            <h1 className="arena-lobby-nome" style={{ fontSize: 36 }}>{t('games.arena.nova_ficha')}</h1>
             <p className="arena-lobby-sub">você já conhece o sistema de batalha?</p>
           </div>
           <div className="arena-lobby-divider" />
@@ -268,7 +268,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
         <div className="arc-header">
           <button className="arena-back" onClick={() => navigate('/games')}>← extras</button>
           <div className="arc-header-center">
-            <p className="arena-lobby-titulo" style={{ margin: 0, fontSize: 10 }}>nova ficha</p>
+            <p className="arena-lobby-titulo" style={{ margin: 0, fontSize: 10 }}>{t('games.arena.nova_ficha')}</p>
             {s.sheet_name && <p className="arc-header-name">{s.sheet_name}</p>}
           </div>
           <div className="arena-create-steps">
@@ -326,7 +326,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {errors.name && <p className="arena-err">{errors.name}</p>}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>ELEMENTAL</div>
+          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.elemental')}</div>
           <div className="arc-elem-list">
             {elements.map(el => {
               const ecc = ELEM_CORES[el.id] || ELEM_CORES.neutro
@@ -349,7 +349,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>ARMA</div>
+          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.arma')}</div>
           <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder="ex: katana, punhos, bastão..." />
 
           <div className="arc-nav">
@@ -378,7 +378,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>VANTAGENS <span className="arc-pontos">{advantageCost} pts</span></div>
+          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.vantagens')} <span className="arc-pontos">{advantageCost} pts</span></div>
           <div className="arc-chip-grid">
             {advantages.map(adv => {
               const has = (s.advantages || []).find(x => x.label === adv.label)
@@ -396,7 +396,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>DESVANTAGENS <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
+          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.desvantagens')} <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
           <div className="arc-chip-grid">
             {disadvantages.map(dis => {
               const has = (s.disadvantages || []).find(x => x.label === dis.label)
@@ -414,7 +414,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>ÚNICAS <span className="arc-pontos">{perkCost} pts</span></div>
+          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.unicas')} <span className="arc-pontos">{perkCost} pts</span></div>
           <div className="arc-chip-grid">
             {perks.map(p => {
               const has = (s.perks || []).find(x => x.label === p.label)

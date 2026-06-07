@@ -150,7 +150,7 @@ export default function ArenaLobby({ onNavigate }) {
       <div className="arena-lobby">
 
         <div className="arena-lobby-hero" style={{ paddingTop: 48, marginBottom: 24 }}>
-          <p className="arena-lobby-titulo">selecione o oponente</p>
+          <p className="arena-lobby-titulo">{t('games.arena.lobby_titulo')}</p>
           <h1 className="arena-lobby-nome" style={{ fontSize: 32 }}>{selectedSheet.sheet_name}</h1>
           <p className="arena-lobby-sub">
             {selectedSheet.elemental || 'neutro'} · {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
@@ -201,7 +201,7 @@ export default function ArenaLobby({ onNavigate }) {
 
         <button className="arena-new-sheet" style={{ borderColor: 'rgba(255,255,255,0.1)', color: '#666' }}
           onClick={() => setShowEnemies(null)}>
-          ← voltar às fichas
+          {t('games.arena.voltar')}
         </button>
 
       </div>
@@ -270,7 +270,7 @@ export default function ArenaLobby({ onNavigate }) {
       {/* Nova ficha */}
       <button className="arena-new-sheet" onClick={() => { store.newSheet(); onNavigate('create') }}>
         <span className="arena-new-sheet-icon">+</span>
-        nova ficha
+        {t('games.arena.nova_ficha')}
       </button>
 
     </div>
