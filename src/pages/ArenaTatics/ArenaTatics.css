@@ -2976,6 +2976,89 @@
   opacity: 1;
 }
 
+/* ── Weather Overlays ── */
+.city-overlay-night {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(0, 0, 20, 0.45);
+  mix-blend-mode: multiply;
+}
+
+.city-overlay-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(180, 200, 255, 0.04) 2px,
+      rgba(180, 200, 255, 0.04) 4px
+    );
+  animation: city-rain-drop 0.4s linear infinite;
+}
+
+@keyframes city-rain-drop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* ── Falling Leaves Particles ── */
+.city-particles-leaves {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.city-particles-leaves::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #4a8a3a;
+  border-radius: 50% 0 50% 0;
+  top: -10px;
+  left: 10%;
+  opacity: 0.5;
+  animation: city-leaf-fall 6s ease-in infinite;
+}
+
+.city-particles-leaves::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #5a9a4a;
+  border-radius: 50% 0 50% 0;
+  top: -10px;
+  left: 45%;
+  opacity: 0.4;
+  animation: city-leaf-fall 8s ease-in infinite 2s;
+}
+
+@keyframes city-leaf-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { opacity: 0.3; }
+  100% { transform: translateY(750px) rotate(360deg); opacity: 0; }
+}
+
+/* ── Weather indicator ── */
+.city-weather-indicator {
+  position: absolute;
+  top: 8px;
+  right: 94px;
+  z-index: 250;
+  font-size: 12px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.8));
+}
+
 /* ── Interact label ── */
 /* ── City HUD extras ── */
 .city-clock {

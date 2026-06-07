@@ -16,11 +16,18 @@ export default function CityHUD({
   setShowMenu,
   onBackToMenu,
   t,
+  weather = 'clear',
+  time = 480,
 }) {
-  // Relógio simulado (ciclo de 24h)
-  const now = new Date()
-  const hours = String(now.getHours()).padStart(2, '0')
-  const mins = String(now.getMinutes()).padStart(2, '0')
+  // Relógio baseado no tempo da cidade (0–1440 min)
+  const totalMin = Math.floor(time)
+  const hours = String(Math.floor(totalMin / 60)).padStart(2, '0')
+  const mins = String(totalMin % 60).padStart(2, '0')
+
+  const weatherIcon = weather === 'rain' ? '🌧' : weather === 'night' ? '🌙' : '☀️'
+  const weatherLabel = weather === 'rain' ? t('tatics.city.weather_rain')
+    : weather === 'night' ? t('tatics.city.weather_night')
+    : t('tatics.city.weather_clear')
 
   return (
     <>
@@ -29,8 +36,9 @@ export default function CityHUD({
         {zoneText}
       </div>
 
-      {/* ── Clock (top right, abaixo do minimapa) ── */}
+      {/* ── Clock + Weather (top right) ── */}
       <div className="city-clock">{hours}:{mins}</div>
+      <div className="city-weather-indicator" title={weatherLabel}>{weatherIcon}</div>
 
       {/* ── District label (top left) ── */}
       <div className="city-district-label">{districtName}</div>

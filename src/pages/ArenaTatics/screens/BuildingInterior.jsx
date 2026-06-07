@@ -23,6 +23,11 @@ const interiorSpawns = {
   fashion: { x: 150, y: 200 },
   save: { x: 150, y: 200 },
   casa: { x: 150, y: 200 },
+  info: { x: 200, y: 300 },
+  equipment_shop: { x: 200, y: 300 },
+  biblioteca: { x: 200, y: 300 },
+  arena_sub: { x: 200, y: 300 },
+  concessionaria: { x: 200, y: 300 },
 }
 
 /* ── EXIT ZONE ── */
@@ -443,6 +448,232 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#e8c96a'
       ctx.font = 'bold 10px monospace'
       ctx.fillText('🛏 QUARTO', 150, 480)
+      // Exit
+      ctx.fillStyle = '#6a2a2a'
+      ctx.fillRect(350, 750, 100, 40)
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 10px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('SAÍDA', 400, 775)
+      break
+    }
+
+    case 'info': {
+      // Posto de Informações — guia turístico, mapas, dicas
+      ctx.fillStyle = '#3a4a5a'
+      ctx.fillRect(16, 16, 768, 768)
+      // Info counter
+      ctx.fillStyle = '#4a5a6a'
+      ctx.fillRect(300, 200, 200, 80)
+      ctx.fillStyle = '#5a6a8a'
+      ctx.fillRect(304, 204, 192, 72)
+      ctx.fillStyle = '#88ccff'
+      ctx.font = 'bold 12px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('📋 POSTO DE INFORMAÇÕES', 400, 235)
+      // Map on wall
+      ctx.fillStyle = '#2a3a4a'
+      ctx.fillRect(100, 60, 200, 160)
+      ctx.fillStyle = '#3a5a7a'
+      ctx.fillRect(104, 64, 192, 152)
+      ctx.fillStyle = '#88aacc'
+      ctx.font = 'bold 10px monospace'
+      ctx.fillText('🗺 MAPA DE MARÉLIA', 200, 100)
+      // Decorative lines (roads on map)
+      ctx.strokeStyle = 'rgba(136,204,255,0.2)'
+      ctx.lineWidth = 1
+      for (let i = 0; i < 5; i++) {
+        ctx.beginPath(); ctx.moveTo(110, 120 + i * 25); ctx.lineTo(290, 120 + i * 25); ctx.stroke()
+      }
+      // Brochure racks
+      for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = '#4a5a4a'
+        ctx.fillRect(60 + i * 120, 500, 100, 130)
+        ctx.fillStyle = '#5a6a5a'
+        ctx.fillRect(64 + i * 120, 504, 92, 122)
+        ctx.fillStyle = '#aaeeaa'
+        ctx.font = 'bold 6px monospace'
+        ctx.fillText('FOLHETO', 110 + i * 120, 550)
+      }
+      // Exit
+      ctx.fillStyle = '#6a2a2a'
+      ctx.fillRect(350, 750, 100, 40)
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 10px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('SAÍDA', 400, 775)
+      break
+    }
+
+    case 'equipment_shop': {
+      // Loja de Equipamentos — armas, armaduras, acessórios
+      ctx.fillStyle = '#2a2a3a'
+      ctx.fillRect(16, 16, 768, 768)
+      // Weapon racks (left wall)
+      for (let i = 0; i < 4; i++) {
+        ctx.fillStyle = '#3a2a2a'
+        ctx.fillRect(40, 60 + i * 120, 100, 100)
+        ctx.fillStyle = '#5a3a3a'
+        ctx.fillRect(44, 64 + i * 120, 92, 92)
+        ctx.fillStyle = '#ff8888'
+        ctx.font = 'bold 7px monospace'
+        ctx.textAlign = 'center'
+        const armas = ['ESPADA', 'MACHADO', 'ADAGA', 'CAJADO']
+        ctx.fillText(`⚔ ${armas[i]}`, 90, 110 + i * 120)
+      }
+      // Armor stands (right wall)
+      for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = '#2a3a3a'
+        ctx.fillRect(620, 100 + i * 140, 120, 120)
+        ctx.fillStyle = '#3a5a5a'
+        ctx.fillRect(624, 104 + i * 140, 112, 112)
+        ctx.fillStyle = '#88ffcc'
+        ctx.font = 'bold 7px monospace'
+        ctx.fillText(`🛡 ARMADURA`, 680, 160 + i * 140)
+      }
+      // Counter
+      ctx.fillStyle = '#3a3a4a'
+      ctx.fillRect(320, 500, 160, 60)
+      ctx.fillStyle = '#4a4a6a'
+      ctx.fillRect(324, 504, 152, 52)
+      ctx.fillStyle = '#ffd700'
+      ctx.font = 'bold 12px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('💰 BALCÃO', 400, 535)
+      // Exit
+      ctx.fillStyle = '#6a2a2a'
+      ctx.fillRect(350, 750, 100, 40)
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 10px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('SAÍDA', 400, 775)
+      break
+    }
+
+    case 'biblioteca': {
+      // Biblioteca — conhecimento, lore, arquivos
+      ctx.fillStyle = '#2a2a30'
+      ctx.fillRect(16, 16, 768, 768)
+      // Bookshelves
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+          const bx = 60 + col * 140, by = 60 + row * 130
+          ctx.fillStyle = '#3a2a20'
+          ctx.fillRect(bx, by, 100, 100)
+          ctx.fillStyle = '#5a3a2a'
+          ctx.fillRect(bx + 4, by + 4, 92, 92)
+          // Book spines (colorful)
+          for (let b = 0; b < 8; b++) {
+            const colors = ['#8a4a3a', '#4a6a3a', '#3a4a6a', '#6a3a4a', '#4a3a6a', '#6a6a3a']
+            ctx.fillStyle = colors[b % colors.length]
+            ctx.fillRect(bx + 8 + b * 10, by + 10, 8, 80)
+          }
+        }
+      }
+      // Reading table
+      ctx.fillStyle = '#3a3030'
+      ctx.fillRect(280, 450, 240, 100)
+      ctx.fillStyle = '#4a4040'
+      ctx.fillRect(284, 454, 232, 92)
+      ctx.fillStyle = '#e8c96a'
+      ctx.font = 'bold 9px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('📖 MESA DE LEITURA — LORE DE MARÉLIA', 400, 500)
+      // Exit
+      ctx.fillStyle = '#6a2a2a'
+      ctx.fillRect(350, 750, 100, 40)
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 10px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('SAÍDA', 400, 775)
+      break
+    }
+
+    case 'arena_sub': {
+      // Arena Subterrânea — batalhas opcionais clandestinas
+      ctx.fillStyle = '#1a1a1a'
+      ctx.fillRect(16, 16, 768, 768)
+      // Fighting pit (center)
+      ctx.fillStyle = '#2a2a2a'
+      ctx.beginPath()
+      ctx.ellipse(400, 350, 250, 150, 0, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.strokeStyle = '#8a4a4a'
+      ctx.lineWidth = 3
+      ctx.beginPath()
+      ctx.ellipse(400, 350, 250, 150, 0, 0, Math.PI * 2)
+      ctx.stroke()
+      // Cage bars
+      ctx.strokeStyle = 'rgba(138,74,74,0.3)'
+      ctx.lineWidth = 2
+      for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2
+        const x1 = 400 + Math.cos(angle) * 245
+        const y1 = 350 + Math.sin(angle) * 145
+        const x2 = 400 + Math.cos(angle) * 260
+        const y2 = 350 + Math.sin(angle) * 160
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke()
+      }
+      // Bleachers
+      for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = '#3a3030'
+        ctx.fillRect(40, 580 + i * 40, 720, 35)
+        ctx.fillStyle = '#4a3a3a'
+        ctx.fillRect(44, 584 + i * 40, 712, 27)
+      }
+      // Spectators (dots)
+      for (let i = 0; i < 20; i++) {
+        ctx.fillStyle = ['#444', '#555', '#666'][i % 3]
+        ctx.beginPath()
+        ctx.arc(80 + i * 35, 595 + (i % 3) * 40, 6, 0, Math.PI * 2)
+        ctx.fill()
+      }
+      // Exit
+      ctx.fillStyle = '#6a2a2a'
+      ctx.fillRect(350, 750, 100, 40)
+      ctx.fillStyle = '#ff6666'
+      ctx.font = 'bold 10px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('SAÍDA', 400, 775)
+      break
+    }
+
+    case 'concessionaria': {
+      // Concessionária — veículos e montarias
+      ctx.fillStyle = '#3a3a3a'
+      ctx.fillRect(16, 16, 768, 768)
+      // Showroom floor (shiny)
+      ctx.fillStyle = '#4a4a4a'
+      ctx.fillRect(50, 100, 700, 300)
+      ctx.fillStyle = 'rgba(255,255,255,0.03)'
+      for (let x = 50; x < 750; x += 40) {
+        ctx.fillRect(x, 100, 20, 300)
+      }
+      // Vehicles (display cars)
+      const vehicles = [
+        { x: 100, y: 150, color: '#cc4444', label: '🚗 SEDAN' },
+        { x: 300, y: 150, color: '#44aacc', label: '🚙 OFF-ROAD' },
+        { x: 500, y: 150, color: '#88cc44', label: '🏍 MOTO' },
+      ]
+      vehicles.forEach(v => {
+        ctx.fillStyle = v.color
+        ctx.fillRect(v.x, v.y, 120, 60)
+        ctx.fillStyle = 'rgba(255,255,255,0.15)'
+        ctx.fillRect(v.x + 10, v.y + 10, 100, 40)
+        ctx.fillStyle = '#fff'
+        ctx.font = 'bold 8px monospace'
+        ctx.textAlign = 'center'
+        ctx.fillText(v.label, v.x + 60, v.y + 35)
+      })
+      // Sales counter
+      ctx.fillStyle = '#2a3a3a'
+      ctx.fillRect(300, 550, 200, 60)
+      ctx.fillStyle = '#3a5a5a'
+      ctx.fillRect(304, 554, 192, 52)
+      ctx.fillStyle = '#88ffff'
+      ctx.font = 'bold 11px monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('💰 VENDAS', 400, 585)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)

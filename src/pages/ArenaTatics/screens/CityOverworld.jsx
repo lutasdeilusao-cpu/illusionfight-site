@@ -4,6 +4,7 @@ import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
 import GameControls from '../components/GameControls'
 import CityHUD from '../components/CityHUD'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useCityStore } from '../store/useCityStore'
 import {
   DISTRITOS,
   getTileColorName,
@@ -49,6 +50,7 @@ export default function CityOverworld({
   const mmPlayerRef = useRef(null)
   const animRef = useRef(null)
   const distritoRef = useRef(null)
+  const particlesRef = useRef([])
 
   const [hudText, setHudText] = useState({ pos:'', cam:'', tile:'' })
   const [zoneText, setZoneText] = useState('')
@@ -57,6 +59,10 @@ export default function CityOverworld({
   const [showMenu, setShowMenu] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
   const [npcDialog, setNpcDialog] = useState(null)
+  const cityStore = useCityStore()
+  const { cityWeather, cityTime } = cityStore
+  const isNight = cityTime < 360 || cityTime > 1260
+  const isRaining = cityWeather === 'rain'
 
   const distrito = DISTRITOS[districtId]
   const WORLD_W = distrito.mapW * STEP
@@ -275,11 +281,15 @@ export default function CityOverworld({
 
   const hBB = useCallback(()=>setShowMenu(p=>!p),[])
 
-  const districtName = districtId === 'central'
-    ? t('tatics.zones.central')
-    : districtId === 'residencial'
-      ? t('tatics.zones.residencial')
-      : t('tatics.zones.comercial')
+  const districtName = districtId === 'central' ? t('tatics.zones.central')
+    : districtId === 'residencial' ? t('tatics.zones.residencial')
+    : districtId === 'comercial' ? t('tatics.zones.comercial')
+    : districtId === 'industrial' ? t('tatics.zones.industrial')
+    : districtId === 'porto' ? t('tatics.zones.porto')
+    : districtId === 'mercado' ? t('tatics.zones.mercado')
+    : districtId === 'yohualticit' ? t('tatics.zones.yohualticit')
+    : districtId === 'suburbio' ? t('tatics.zones.suburbio')
+    : t('tatics.zones.central')
 
   return (
     <div className="city-container">
@@ -306,6 +316,15 @@ export default function CityOverworld({
               <div>{t('tatics.city.hud_tile')}: {hudText.tile}</div>
             </div>
 
+            {/* ── Weather overlays ── */}
+            {isNight && <div className="city-overlay-night" />}
+            {isRaining && <div className="city-overlay-rain" />}
+
+            {/* ── Particles (folhas caindo) ── */}
+            {cityWeather === 'clear' && !isNight && (
+              <div className="city-particles-leaves" />
+            )}
+
             <CityHUD
               districtName={districtName}
               zoneText={zoneText}
@@ -316,6 +335,8 @@ export default function CityOverworld({
               setShowMenu={setShowMenu}
               onBackToMenu={onBackToMenu}
               t={t}
+              weather={cityWeather}
+              time={cityTime}
             />
 
             <div className="city-minimap">

@@ -197,10 +197,480 @@ export const DISTRITOS = {
       [300, 650], [600, 650],
     ],
 
-    npcs: [],
+    npcs: [
+      {
+        id: 'idoso', nameKey: 'tatics.city.idoso_label',
+        x: 400, y: 600, w: 10, h: 14, color: '#88aa66',
+        dialogKey: 'tatics.city.idoso_dialog',
+      },
+      {
+        id: 'crianca', nameKey: 'tatics.city.crianca_label',
+        x: 700, y: 300, w: 10, h: 14, color: '#66aacc',
+        dialogKey: 'tatics.city.crianca_dialog',
+      },
+    ],
     exits: { sul: { to: 'central', spawnTile: { x: 25, y: 1 } } },
     zonas: [
       { nameKey: 'tatics.zones.residencial', tx: 0, ty: 0, tw: 55, th: 30, color: '#6ae8a0' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     BAIRRO COMERCIAL — Lojas, vitrines, movimento
+     ═══════════════════════════════════════════════ */
+  comercial: {
+    id: 'comercial',
+    nameKey: 'tatics.zones.comercial',
+    mapW: 60,
+    mapH: 35,
+
+    tileColors: {
+      grass:       '#5a7a3a',
+      dark_grass:  '#3a5a20',
+      path:        '#b0a090',
+      dark_path:   '#908070',
+      water:       '#3a7a9a',
+      stone:       '#9a9aa0',
+      sidewalk:    '#c8b8a8',
+      marble:      '#d0c8b8',
+    },
+
+    getTileColor(tx, ty) {
+      const avH = ty === 6 || ty === 12 || ty === 18 || ty === 24 || ty === 30
+      const avV = tx === 6 || tx === 14 || tx === 22 || tx === 30 || tx === 38 || tx === 46 || tx === 54
+      const mainH = ty >= 14 && ty <= 15
+      const mainV = tx >= 13 && tx <= 14
+      const centerPlaza = tx >= 26 && tx <= 32 && ty >= 14 && ty <= 18
+
+      // Water fountain in plaza
+      if (tx >= 28 && tx <= 30 && ty >= 15 && ty <= 17) return 'water'
+      if (centerPlaza) return 'marble'
+      if (ty >= 16 && ty <= 18 && tx >= 22 && tx <= 36) return 'sidewalk'
+
+      if ((mainH && tx >= 2 && tx <= 58) || (mainV && ty >= 2 && ty <= 33)) return 'path'
+      if (avH || avV) return 'dark_path'
+      if ((tx + ty) % 9 === 0) return 'stone'
+
+      return 'grass'
+    },
+
+    buildings: [
+      { id: 'info', nameKey: 'tatics.buildings.info', x: 14, y: 4, w: 4, h: 3, color: '#4a6a8a', labelColor: '#6a9aba', interiorMapId: 'info' },
+      { id: 'equipment_shop', nameKey: 'tatics.buildings.equipment_shop', x: 42, y: 4, w: 5, h: 4, color: '#6a4a6a', labelColor: '#9a6a9a', interiorMapId: 'equipment_shop' },
+      { id: 'concessionaria', nameKey: 'tatics.buildings.concessionaria', x: 2, y: 10, w: 6, h: 4, color: '#4a6a6a', labelColor: '#6a9a9a', interiorMapId: 'concessionaria' },
+      { id: 'jao', nameKey: 'tatics.buildings.jao', x: 20, y: 22, w: 6, h: 4, color: '#c47820', labelColor: '#e8a040', interiorMapId: 'jao' },
+      { id: 'fashion', nameKey: 'tatics.buildings.fashion', x: 40, y: 22, w: 5, h: 4, color: '#804060', labelColor: '#b06090', interiorMapId: 'fashion' },
+      { id: 'bar', nameKey: 'tatics.buildings.bar', x: 10, y: 28, w: 5, h: 4, color: '#6b3a50', labelColor: '#a05070', interiorMapId: 'bar' },
+    ],
+
+    solidTiles: [
+      { x: 28, y: 16, w: 1, h: 1 }, { x: 14, y: 10, w: 1, h: 1 },
+      { x: 46, y: 10, w: 1, h: 2 },
+    ],
+
+    waterTiles: [{ x: 28, y: 15, w: 3, h: 3 }],
+
+    trees: [
+      [320, 160], [420, 200], [180, 400], [520, 350], [650, 300],
+      [780, 450], [850, 250], [150, 600], [450, 650], [700, 600],
+      [950, 300], [1000, 550], [250, 800], [600, 850], [900, 700],
+    ],
+    lamps: [
+      [300, 200], [500, 200], [700, 200], [200, 400],
+      [500, 400], [800, 400], [300, 600], [700, 600],
+      [200, 700], [600, 700],
+    ],
+
+    npcs: [
+      {
+        id: 'vendedor', nameKey: 'tatics.city.vendedor_label',
+        x: 500, y: 550, w: 10, h: 14, color: '#cc8844',
+        dialogKey: 'tatics.city.vendedor_dialog',
+      },
+      {
+        id: 'mendigo', nameKey: 'tatics.city.mendigo_label',
+        x: 150, y: 700, w: 10, h: 14, color: '#886666',
+        dialogKey: 'tatics.city.mendigo_dialog',
+      },
+    ],
+
+    exits: {
+      norte: { to: 'central', spawnTile: { x: 25, y: 28 } },
+      leste: { to: 'industrial', spawnTile: { x: 1, y: 15 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.comercial', tx: 0, ty: 0, tw: 60, th: 35, color: '#6ab4e8' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     DISTRITO INDUSTRIAL — Fábricas, galpões, training
+     ═══════════════════════════════════════════════ */
+  industrial: {
+    id: 'industrial',
+    nameKey: 'tatics.zones.industrial',
+    mapW: 50,
+    mapH: 30,
+
+    tileColors: {
+      concrete:    '#5a5a60',
+      dark_concrete: '#4a4a50',
+      path:        '#6a6a70',
+      dark_path:   '#5a5a60',
+      grass:       '#3a5a2a',
+      dark_grass:  '#2a4a1e',
+      water:       '#3a5a7a',
+      oil:         '#2a2a3a',
+      metal:       '#7a7a8a',
+    },
+
+    getTileColor(tx, ty) {
+      const avH = ty === 5 || ty === 11 || ty === 17 || ty === 23
+      const avV = tx === 5 || tx === 13 || tx === 21 || tx === 29 || tx === 37 || tx === 45
+      const mainH = ty >= 14 && ty <= 15
+      const mainV = tx >= 12 && tx <= 13
+      const factoryZone = (tx >= 30 && tx <= 44 && ty >= 18 && ty <= 26) || (tx >= 4 && tx <= 18 && ty >= 2 && ty <= 10)
+
+      // Oil puddles
+      if ((tx === 35 || tx === 36) && (ty === 20 || ty === 21)) return 'oil'
+      if ((tx === 8 || tx === 9) && (ty === 5 || ty === 6)) return 'oil'
+
+      if (factoryZone) return 'concrete'
+      if ((mainH && tx >= 2 && tx <= 48) || (mainV && ty >= 2 && ty <= 28)) return 'path'
+      if (avH || avV) return 'dark_path'
+      if (tx % 5 === 0 && ty % 5 === 0) return 'metal'
+      if ((tx + ty) % 8 === 0) return 'dark_grass'
+      return 'grass'
+    },
+
+    buildings: [
+      { id: 'training', nameKey: 'tatics.buildings.training', x: 4, y: 4, w: 8, h: 6, color: '#2a4060', labelColor: '#4060a0', interiorMapId: 'training', subOnly: true },
+      { id: 'arena_sub', nameKey: 'tatics.buildings.arena_sub', x: 34, y: 20, w: 7, h: 5, color: '#6a2a2a', labelColor: '#aa4444', interiorMapId: 'arena_sub' },
+      { id: 'recovery', nameKey: 'tatics.buildings.recovery', x: 36, y: 4, w: 5, h: 4, color: '#2a6040', labelColor: '#40a060', interiorMapId: 'recovery' },
+    ],
+
+    solidTiles: [
+      { x: 25, y: 14, w: 2, h: 1 }, { x: 40, y: 10, w: 1, h: 2 },
+      { x: 12, y: 20, w: 1, h: 1 }, { x: 30, y: 25, w: 2, h: 1 },
+      { x: 45, y: 5, w: 1, h: 1 },
+    ],
+
+    waterTiles: [{ x: 46, y: 26, w: 4, h: 4 }],
+
+    trees: [
+      [200, 400], [350, 300], [500, 450], [100, 600], [700, 350],
+    ],
+    lamps: [
+      [160, 160], [400, 160], [640, 160], [160, 400],
+      [640, 400], [400, 600], [640, 600],
+    ],
+
+    npcs: [
+      {
+        id: 'operario', nameKey: 'tatics.city.operario_label',
+        x: 350, y: 550, w: 10, h: 14, color: '#888888',
+        dialogKey: 'tatics.city.operario_dialog',
+      },
+    ],
+
+    exits: {
+      norte: { to: 'comercial', spawnTile: { x: 25, y: 33 } },
+      sul: { to: 'suburbio', spawnTile: { x: 25, y: 1 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.industrial', tx: 0, ty: 0, tw: 50, th: 30, color: '#8a8a90' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     PORTO — Docas, água, navios
+     ═══════════════════════════════════════════════ */
+  porto: {
+    id: 'porto',
+    nameKey: 'tatics.zones.porto',
+    mapW: 40,
+    mapH: 25,
+
+    tileColors: {
+      water:       '#2a5a8a',
+      deep_water:  '#1a3a6a',
+      dock:        '#7a6a5a',
+      dark_dock:   '#6a5a4a',
+      path:        '#8a7a6a',
+      concrete:    '#6a6a70',
+      sand:        '#b8a878',
+      grass:       '#4a6a3a',
+    },
+
+    getTileColor(tx, ty) {
+      // Water covers bottom half
+      if (ty >= 15) return 'deep_water'
+      if (ty >= 12) return 'water'
+      // Docks
+      if ((ty === 11 || ty === 12) && tx >= 2 && tx <= 38) return 'dock'
+      if (ty === 10 && (tx >= 2 && tx <= 18)) return 'dark_dock'
+      if (ty === 10 && (tx >= 22 && tx <= 38)) return 'dark_dock'
+      // Pier
+      if (tx >= 18 && tx <= 22 && ty >= 8 && ty <= 14) return 'concrete'
+      // Path
+      if (ty === 3 || ty === 7 || tx === 3 || tx === 20 || tx === 36) return 'path'
+      if ((tx + ty) % 6 === 0) return 'sand'
+      return 'grass'
+    },
+
+    buildings: [
+      { id: 'save', nameKey: 'tatics.buildings.save', x: 2, y: 2, w: 4, h: 3, color: '#505a50', labelColor: '#707a70', interiorMapId: 'save' },
+      { id: 'bar', nameKey: 'tatics.buildings.bar', x: 30, y: 2, w: 5, h: 4, color: '#6b3a50', labelColor: '#a05070', interiorMapId: 'bar' },
+    ],
+
+    solidTiles: [
+      { x: 10, y: 8, w: 1, h: 1 }, { x: 28, y: 6, w: 1, h: 1 },
+    ],
+
+    waterTiles: [
+      { x: 0, y: 12, w: 40, h: 13 },
+      { x: 0, y: 0, w: 40, h: 25 }, // reference for water behavior
+    ],
+
+    trees: [
+      [120, 80], [280, 80], [640, 120], [800, 160],
+      [200, 250], [600, 280],
+    ],
+    lamps: [
+      [100, 300], [300, 300], [600, 350], [800, 300],
+    ],
+
+    npcs: [
+      {
+        id: 'marinheiro', nameKey: 'tatics.city.marinheiro_label',
+        x: 400, y: 350, w: 10, h: 14, color: '#2a6a8a',
+        dialogKey: 'tatics.city.marinheiro_dialog',
+      },
+    ],
+
+    exits: {
+      norte: { to: 'central', spawnTile: { x: 3, y: 28 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.porto', tx: 0, ty: 0, tw: 40, th: 25, color: '#4a8aba' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     MERCADO — Feira livre, barracas, movimento popular
+     ═══════════════════════════════════════════════ */
+  mercado: {
+    id: 'mercado',
+    nameKey: 'tatics.zones.mercado',
+    mapW: 40,
+    mapH: 25,
+
+    tileColors: {
+      ground:      '#8a7a5a',
+      dark_ground: '#6a5a4a',
+      path:        '#a09070',
+      grass:       '#5a7a3a',
+      stall:       '#c47830',
+      dark_stall:  '#a06020',
+      water:       '#3a6a7a',
+      sand:        '#c8b878',
+    },
+
+    getTileColor(tx, ty) {
+      const marketRow = ty >= 8 && ty <= 16
+      const marketCol = tx >= 4 && tx <= 36
+
+      // Stalls grid
+      if (marketRow && marketCol) {
+        if (tx % 8 === 0 || tx % 8 === 1) return 'stall'
+        if (ty % 3 === 0) return 'dark_stall'
+        return 'ground'
+      }
+      if (ty === 4 || ty === 20 || tx === 2 || tx === 38) return 'path'
+      if ((tx + ty) % 7 === 0) return 'sand'
+      return 'grass'
+    },
+
+    buildings: [
+      { id: 'jao', nameKey: 'tatics.buildings.jao', x: 14, y: 2, w: 8, h: 4, color: '#c47820', labelColor: '#e8a040', interiorMapId: 'jao' },
+      { id: 'save', nameKey: 'tatics.buildings.save', x: 32, y: 20, w: 4, h: 3, color: '#505a50', labelColor: '#707a70', interiorMapId: 'save' },
+    ],
+
+    solidTiles: [
+      { x: 20, y: 12, w: 2, h: 1 }, { x: 12, y: 15, w: 1, h: 1 },
+    ],
+
+    waterTiles: [{ x: 2, y: 22, w: 3, h: 3 }],
+
+    trees: [
+      [100, 80], [700, 100], [300, 600], [600, 650],
+    ],
+    lamps: [
+      [200, 200], [500, 200], [300, 400], [600, 400],
+    ],
+
+    npcs: [
+      {
+        id: 'feirante', nameKey: 'tatics.city.feirante_label',
+        x: 350, y: 300, w: 10, h: 14, color: '#cc8833',
+        dialogKey: 'tatics.city.feirante_dialog',
+      },
+      {
+        id: 'cozinheira', nameKey: 'tatics.city.cozinheira_label',
+        x: 550, y: 500, w: 10, h: 14, color: '#aa6644',
+        dialogKey: 'tatics.city.cozinheira_dialog',
+      },
+    ],
+
+    exits: {
+      norte: { to: 'comercial', spawnTile: { x: 20, y: 33 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.mercado', tx: 0, ty: 0, tw: 40, th: 25, color: '#d4a040' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     YOHUALTICIT — Distrito corporativo místico
+     ═══════════════════════════════════════════════ */
+  yohualticit: {
+    id: 'yohualticit',
+    nameKey: 'tatics.zones.yohualticit',
+    mapW: 45,
+    mapH: 30,
+
+    tileColors: {
+      floor:       '#3a2a3a',
+      dark_floor:  '#2a1a2a',
+      path:        '#5a4a5a',
+      dark_path:   '#4a3a4a',
+      glow:        '#6a3a8a',
+      neon:        '#8a4aba',
+      water:       '#4a2a6a',
+      grass:       '#2a3a2a',
+    },
+
+    getTileColor(tx, ty) {
+      const avH = ty === 5 || ty === 11 || ty === 17 || ty === 23
+      const avV = tx === 5 || tx === 13 || tx === 21 || tx === 29 || tx === 37
+      const mainH = ty >= 14 && ty <= 15
+      const mainV = tx >= 12 && tx <= 13
+      const neonZone = (tx >= 34 && tx <= 42 && ty >= 20 && ty <= 26)
+      const glowPools = (tx === 21 && ty === 14) || (tx === 29 && ty === 14)
+
+      if (neonZone) return 'neon'
+      if (glowPools) return 'glow'
+      if ((mainH && tx >= 2 && tx <= 43) || (mainV && ty >= 2 && ty <= 28)) return 'path'
+      if (avH || avV) return 'dark_path'
+      if (tx % 4 === 0 && ty % 4 === 0) return 'glow'
+      return 'floor'
+    },
+
+    buildings: [
+      { id: 'yohualticit', nameKey: 'tatics.buildings.yohualticit', x: 18, y: 4, w: 10, h: 8, color: '#6a1a3a', labelColor: '#aa4477', interiorMapId: 'yohualticit' },
+      { id: 'biblioteca', nameKey: 'tatics.buildings.biblioteca', x: 4, y: 16, w: 5, h: 4, color: '#3a2a5a', labelColor: '#6a4a9a', interiorMapId: 'biblioteca' },
+    ],
+
+    solidTiles: [
+      { x: 22, y: 14, w: 1, h: 1 }, { x: 30, y: 6, w: 1, h: 2 },
+      { x: 10, y: 24, w: 1, h: 1 }, { x: 36, y: 16, w: 1, h: 1 },
+    ],
+
+    waterTiles: [{ x: 38, y: 2, w: 4, h: 4 }],
+
+    trees: [
+      [300, 500], [600, 400], [800, 600], [200, 700],
+    ],
+    lamps: [
+      [200, 200], [500, 200], [800, 200], [300, 500],
+      [600, 500], [200, 700], [600, 700],
+    ],
+
+    npcs: [
+      {
+        id: 'seguranca', nameKey: 'tatics.city.seguranca_label',
+        x: 600, y: 500, w: 10, h: 14, color: '#444488',
+        dialogKey: 'tatics.city.seguranca_dialog',
+      },
+    ],
+
+    exits: {
+      sul: { to: 'central', spawnTile: { x: 21, y: 1 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.yohualticit', tx: 0, ty: 0, tw: 45, th: 30, color: '#8a4aba' },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════
+     SUBÚRBIO — Periferia industrial, abandonado
+     ═══════════════════════════════════════════════ */
+  suburbio: {
+    id: 'suburbio',
+    nameKey: 'tatics.zones.suburbio',
+    mapW: 45,
+    mapH: 25,
+
+    tileColors: {
+      dirt:        '#5a4a3a',
+      dark_dirt:   '#4a3a2a',
+      path:        '#6a5a4a',
+      dark_path:   '#5a4a3a',
+      grass:       '#3a4a2a',
+      dry_grass:   '#4a5a2a',
+      water:       '#3a5a5a',
+      rubble:      '#5a5a50',
+      metal:       '#6a6a5a',
+    },
+
+    getTileColor(tx, ty) {
+      const avH = ty === 4 || ty === 10 || ty === 16 || ty === 22
+      const avV = tx === 4 || tx === 12 || tx === 20 || tx === 28 || tx === 36
+
+      // Rubble patches
+      if ((tx >= 2 && tx <= 5 && ty >= 18 && ty <= 22) ||
+          (tx >= 32 && tx <= 36 && ty >= 14 && ty <= 18)) return 'rubble'
+      if ((tx >= 38 && tx <= 42 && ty >= 6 && ty <= 10)) return 'metal'
+
+      if (ty === 14 || ty === 15 || tx === 22 || tx === 23) return 'path'
+      if (avH || avV) return 'dark_path'
+      if ((tx + ty) % 5 === 0) return 'dry_grass'
+      return 'dirt'
+    },
+
+    buildings: [
+      { id: 'casa_sub1', nameKey: 'tatics.buildings.casa', x: 6, y: 2, w: 4, h: 3, color: '#5a3a2a', labelColor: '#805040', interiorMapId: 'casa' },
+      { id: 'casa_sub2', nameKey: 'tatics.buildings.casa', x: 32, y: 2, w: 4, h: 3, color: '#4a3a2a', labelColor: '#705040', interiorMapId: 'casa' },
+      { id: 'save', nameKey: 'tatics.buildings.save', x: 20, y: 18, w: 4, h: 3, color: '#505a50', labelColor: '#707a70', interiorMapId: 'save' },
+    ],
+
+    solidTiles: [
+      { x: 14, y: 8, w: 1, h: 1 }, { x: 36, y: 12, w: 1, h: 2 },
+      { x: 8, y: 16, w: 1, h: 1 }, { x: 28, y: 20, w: 1, h: 1 },
+    ],
+
+    waterTiles: [{ x: 40, y: 20, w: 5, h: 5 }],
+
+    trees: [
+      [200, 300], [600, 200], [800, 400], [400, 600],
+    ],
+    lamps: [
+      [200, 150], [600, 150], [400, 400], [800, 350],
+    ],
+
+    npcs: [],
+
+    exits: {
+      norte: { to: 'industrial', spawnTile: { x: 25, y: 28 } },
+    },
+
+    zonas: [
+      { nameKey: 'tatics.zones.suburbio', tx: 0, ty: 0, tw: 45, th: 25, color: '#8a7a5a' },
     ],
   },
 }

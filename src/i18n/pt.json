@@ -136,7 +136,28 @@
       "hud_cam": "CAM",
       "hud_tile": "TILE",
       "sub_only": "SÓ ASSINANTES",
-      "detective_label": "DETETIVE"
+      "detective_label": "DETETIVE",
+      "idoso_label": "IDOSO",
+      "idoso_dialog": "IDOSO: \"Moro aqui desde que Marélia era só um vilarejo. Muita coisa mudou...\"",
+      "crianca_label": "CRIANÇA",
+      "crianca_dialog": "CRIANÇA: \"Dizem que a Yohualticit mexe com coisas estranhas!\"",
+      "vendedor_label": "VENDEDOR",
+      "vendedor_dialog": "VENDEDOR: \"Ofertas imperdíveis! Só hoje! Leve 2, pague 1!\"",
+      "mendigo_label": "MENDIGO",
+      "mendigo_dialog": "MENDIGO: \"Uma moedinha? Qualquer coisa ajuda...\"",
+      "operario_label": "OPERÁRIO",
+      "operario_dialog": "OPERÁRIO: \"A fábrica não para nunca. Três turnos por dia.\"",
+      "marinheiro_label": "MARINHEIRO",
+      "marinheiro_dialog": "MARINHEIRO: \"Já naveguei os sete mares. Marélia é o porto mais seguro.\"",
+      "feirante_label": "FEIRANTE",
+      "feirante_dialog": "FEIRANTE: \"Direto do campo! Fruta fresca todo dia!\"",
+      "cozinheira_label": "COZINHEIRA",
+      "cozinheira_dialog": "COZINHEIRA: \"Experimenta meu pastel! Segredo de família!\"",
+      "seguranca_label": "SEGURANÇA",
+      "seguranca_dialog": "SEGURANÇA: \"Sem identificação, sem entrada. São ordens.\"",
+      "weather_clear": "Claro",
+      "weather_rain": "Chuva",
+      "weather_night": "Noite"
     },
     "interior": {
       "interact_exit": "[A] SAIR"
@@ -149,14 +170,23 @@
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
-      "casa": "CASA DO PERSONAGEM"
+      "casa": "CASA DO PERSONAGEM",
+      "info": "POSTO DE INFORMAÇÕES",
+      "equipment_shop": "LOJA DE EQUIPAMENTOS",
+      "biblioteca": "BIBLIOTECA",
+      "arena_sub": "ARENA SUBTERRÂNEA",
+      "concessionaria": "CONCESSIONÁRIA"
     },
     "zones": {
       "central": "PRAÇA CENTRAL",
       "comercial": "BAIRRO COMERCIAL",
       "residencial": "BAIRRO RESIDENCIAL",
-      "sul": "DISTRITO SUL",
-      "yohualticit": "ÁREA DA YOHUALTICIT"
+      "industrial": "DISTRITO INDUSTRIAL",
+      "porto": "PORTO DE MARÉLIA",
+      "mercado": "MERCADO POPULAR",
+      "yohualticit": "YOHUALTICIT",
+      "suburbio": "SUBÚRBIO",
+      "sul": "DISTRITO SUL"
     },
     "interior_names": {
       "yohualticit": "PRÉDIO YOHUALTICIT",
@@ -166,7 +196,12 @@
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
-      "casa": "CASA"
+      "casa": "CASA",
+      "info": "POSTO DE INFORMAÇÕES",
+      "equipment_shop": "LOJA DE EQUIPAMENTOS",
+      "biblioteca": "BIBLIOTECA",
+      "arena_sub": "ARENA SUBTERRÂNEA",
+      "concessionaria": "CONCESSIONÁRIA"
     }
   },
   "quiz": {

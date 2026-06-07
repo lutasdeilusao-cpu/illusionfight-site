@@ -18,6 +18,7 @@ import SimulacaoAuto from './screens/SimulacaoAuto'
 import BatalhaSimulacao from './screens/BatalhaSimulacao'
 import CityOverworld from './screens/CityOverworld'
 import BuildingInterior from './screens/BuildingInterior'
+import { useCityStore } from './store/useCityStore'
 
 import './ArenaTatics.css'
 
@@ -42,6 +43,7 @@ export default function ArenaTaticsRoute() {
   const [citySpawn, setCitySpawn] = useState(null)
   const [currentDistrict, setCurrentDistrict] = useState('central')
   const [visitedDistricts, setVisitedDistricts] = useState(['central'])
+  const cityStore = useCityStore()
 
   // Door positions for each building (used for spawn on exit)
   const BUILDING_DOORS = {
@@ -53,6 +55,11 @@ export default function ArenaTaticsRoute() {
     fashion:     { x: (10 + Math.floor(5/2) - 1 + 1) * 32, y: (22 + 4) * 32 },
     save:        { x: (26 + Math.floor(4/2) - 1 + 1) * 32, y: (12 + 3) * 32 },
     casa:        { x: (4  + Math.floor(4/2) - 1 + 1) * 32, y: (24 + 3) * 32 },
+    info:        { x: (14 + Math.floor(4/2) - 1 + 1) * 32, y: (4 + 3) * 32 },
+    equipment_shop: { x: (42 + Math.floor(5/2) - 1 + 1) * 32, y: (4 + 4) * 32 },
+    biblioteca:  { x: (4 + Math.floor(5/2) - 1 + 1) * 32, y: (16 + 4) * 32 },
+    arena_sub:   { x: (34 + Math.floor(7/2) - 1 + 1) * 32, y: (20 + 5) * 32 },
+    concessionaria: { x: (2 + Math.floor(6/2) - 1 + 1) * 32, y: (10 + 4) * 32 },
   }
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
@@ -193,6 +200,8 @@ export default function ArenaTaticsRoute() {
     setCurrentDistrict(toDistrict)
     setCitySpawn(spawn)
     setVisitedDistricts(prev => prev.includes(toDistrict) ? prev : [...prev, toDistrict])
+    cityStore.enterDistrict(toDistrict)
+    cityStore.advanceTime(30) // avançar 30 min ao trocar de distrito
   }
 
   const handleBackToMenu = () => {
