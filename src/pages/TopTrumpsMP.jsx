@@ -9,8 +9,21 @@ import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsMP.css'
 
 const todasCartas = deck.cartas
+function attrNomeKey(id) {
+  const map = {
+    rank_sdr: 'games.toptrumps.atributo_rank_sdr',
+    poder_mental: 'games.toptrumps.atributo_poder_mental',
+    velocidade: 'games.toptrumps.atributo_velocidade',
+    resistencia: 'games.toptrumps.atributo_resistencia',
+    nivel_xama: 'games.toptrumps.atributo_nivel_xama',
+    fator_caos: 'games.toptrumps.atributo_fator_caos',
+    energia_base: 'games.toptrumps.atributo_energia_base',
+  }
+  return map[id] || 'games.toptrumps.atributo_poder_explosivo'
+}
+
 const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
-  id, nome: id === 'rank_sdr' ? 'Rank SDR' : id === 'poder_mental' ? 'Poder Mental' : id === 'velocidade' ? 'Velocidade' : id === 'resistencia' ? 'Resistência' : id === 'nivel_xama' ? 'Nível Xamã' : id === 'fator_caos' ? 'Fator Caos' : id === 'energia_base' ? 'Energia Base' : 'Poder Explosivo',
+  id, nomeKey: attrNomeKey(id),
   descricao, inverso: id === 'rank_sdr'
 }))
 
@@ -654,7 +667,7 @@ export default function TopTrumpsMP() {
                   disabled={!ehMinhaVez || jaMovi}
                   onClick={() => jogarAtributo(attr.id)}
                   title={attr.descricao}>
-                  <span className="ttmp-atributo-nome">{attr.nome}</span>
+                  <span className="ttmp-atributo-nome">{t(attr.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaLocal.atributos[attr.id]}</span>
                 </button>
               ))}
@@ -693,7 +706,7 @@ export default function TopTrumpsMP() {
               </>
             ) : (
               <div className="ttmp-card--face-down">
-                <div className="ttmp-card-avatar ttmp-card-avatar--oponente" style={{ background: '#1a1a2e' }}>
+                <div className="ttmp-card-avatar ttmp-card-avatar--oponente">
                   <span className="ttmp-card-avatar-iniciais">?</span>
                 </div>
                 <h3 className="ttmp-card-nome">???</h3>
@@ -701,7 +714,7 @@ export default function TopTrumpsMP() {
                 <div className="ttmp-card-atributos">
                   {atributos.map(attr => (
                     <div key={attr.id} className="ttmp-atributo-btn ttmp-atributo-btn--disabled">
-                      <span className="ttmp-atributo-nome">{attr.nome}</span>
+                      <span className="ttmp-atributo-nome">{t(attr.nomeKey)}</span>
                       <span className="ttmp-atributo-valor">??</span>
                     </div>
                   ))}
@@ -752,7 +765,7 @@ export default function TopTrumpsMP() {
           </div>
           <div className="ttmp-hud-centro">
             <span className="ttmp-hud-rodada">RODADA {sala?.turno_atual}/{sala?.total_turnos}</span>
-            <span className="ttmp-revelacao-note">Atributo escolhido: {attr?.nome}</span>
+            <span className="ttmp-revelacao-note">Atributo escolhido: {attr ? t(attr.nomeKey) : ''}</span>
           </div>
           <div className="ttmp-hud-oponente">
             <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
@@ -770,7 +783,7 @@ export default function TopTrumpsMP() {
             <div className="ttmp-card-atributos">
               {atributos.map(a => (
                 <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{a.nome}</span>
+                  <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaLocal.atributos[a.id]}</span>
                 </div>
               ))}
@@ -781,7 +794,7 @@ export default function TopTrumpsMP() {
             <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
               {resultadoRodada === 'ganhou' ? 'VOCÊ VENCEU!' : resultadoRodada === 'perdeu' ? 'OPONENTE VENCEU!' : 'EMPATE!'}
             </span>
-            <span className="ttmp-resultado-atributo">{attr?.nome}</span>
+            <span className="ttmp-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span>
           </div>
 
           <div className="ttmp-card ttmp-card--revelado">
@@ -793,7 +806,7 @@ export default function TopTrumpsMP() {
             <div className="ttmp-card-atributos">
               {atributos.map(a => (
                 <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{a.nome}</span>
+                  <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
                 </div>
               ))}
