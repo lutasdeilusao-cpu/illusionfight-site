@@ -209,10 +209,17 @@ export default function GridCanvas({ aliados = [], inimigos = [], alcance = [], 
       const al = aRef.current, ini = iRef.current, alc = alRef.current
       const ob = oRef.current, alvoHL = ahRef.current, fase = fRef.current
 
-      // Camera: se estiver arrastando no freeLook, não segue personagem
+      // Camera: segue a ação
       const dragging = dragRef.current.ativo
       if (!dragging && !flRef.current) {
-        const target = al.find(p => p.hp > 0)
+        let target = null
+        // Durante turno inimigo, foca no alvo do ataque
+        if (fase === 'inimigo' && alvoHL) {
+          target = alvoHL
+        } else {
+          const ally = al.find(p => p.hp > 0)
+          if (ally) target = ally
+        }
         if (target) {
           const ps = isoToScreen(target.x, target.y)
           cam.x += (ps.sx - VW / 2 - cam.x) * LERP
