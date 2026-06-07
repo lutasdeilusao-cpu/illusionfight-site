@@ -714,5 +714,83 @@
     "sem_submissoes": "Sin envios pendientes.",
     "carregando": "CARREGANDO...",
     "btn_voltar": "VOLVER"
+  },
+  "pages": {
+    "musicas": {
+      "titulo": "MÚSICAS",
+      "videoclipes": "Videoclips",
+      "em_breve": "PRÓXIMAMENTE"
+    },
+    "livro": {
+      "titulo": "CAPÍTULOS",
+      "continuar_lendo": "→ Seguir leyendo",
+      "cap": "CAP.",
+      "em_breve": "PRÓXIMAMENTE",
+      "premium": "PREMIUM",
+      "nao_encontrado": "Este capítulo aún no ha sido publicado.",
+      "voltar_indice": "← VOLVER AL ÍNDICE",
+      "capitulo": "CAPÍTULO"
+    },
+    "webtoon": {
+      "titulo": "WEBTOON",
+      "continuar": "→ Continuar",
+      "voltar": "← VOLVER",
+      "nao_encontrado": "Episodio no encontrado.",
+      "anterior": "← Episodio Anterior",
+      "proximo": "Próximo Episodio →",
+      "pagina": "Página"
+    },
+    "mundo": {
+      "titulo": "EL UNIVERSO",
+      "subtitulo": "Bravara. 20XX. Un arena donde el dolor es 100% real.",
+      "bravara": "BRAVARA",
+      "timeline": "LÍNEA DE TIEMPO",
+      "ldi": "LUTAS DE ILUSIÓN",
+      "ranking_sdr": "Ranking SDR",
+      "xakaxi": "LOS XAKAXI",
+      "glossario": "GLOSARIO",
+      "personagens_titulo": "CONOCE A LOS PERSONAJES",
+      "ver_todos": "VER TODOS",
+      "premium": "PREMIUM"
+    },
+    "personagens": {
+      "voltar": "← PERSONAJES",
+      "nao_encontrado": "Personaje no encontrado.",
+      "idade": "Edad",
+      "status": "Estado",
+      "grupo": "Grupo",
+      "arma": "Arma",
+      "estilo": "Estilo",
+      "elemental": "Elemental",
+      "anos": "años"
+    },
+    "autor": {
+      "by": "BY:",
+      "name": "ISAIAS LEAL"
+    },
+    "leaderboard": {
+      "quiz_sdr": "QUIZ SDR",
+      "sua_posicao": "TU POSICIÓN",
+      "jogador": "Jugador",
+      "vitorias": "V",
+      "derrotas": "D",
+      "cartas": "Cartas",
+      "pontos": "Pts",
+      "cuidador": "Cuidador",
+      "partidas": "Partidas",
+      "badges": "Insignias"
+    },
+    "helmet": {
+      "home": "Lutas de Ilusión — El dolor es 100% real",
+      "musicas": "Música — Lutas de Ilusión",
+      "livro": "Libro — Lutas de Ilusión",
+      "webtoon": "Webtoon — Lutas de Ilusión",
+      "mundo": "Mundo — Lutas de Ilusión",
+      "autor": "Autor — Lutas de Ilusión",
+      "personagens": "Personajes — Lutas de Ilusión",
+      "assinar": "Suscríbete — Lutas de Ilusión",
+      "personagem_nao_encontrado": "Personaje no encontrado — Lutas de Ilusión",
+      "capitulo_nao_encontrado": "Capítulo no encontrado — Lutas de Ilusión"
+    }
   }
 }

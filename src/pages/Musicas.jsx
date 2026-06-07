@@ -12,10 +12,10 @@ export default function Musicas() {
 
   return (
     <>
-      <Helmet><title>Músicas — Lutas de Ilusão</title></Helmet>
+      <Helmet><title>{t('pages.helmet.musicas')}</title></Helmet>
       <section className="musicas-hero">
         <div className="container">
-          <h1 className="musicas-hero__title">MÚSICAS</h1>
+          <h1 className="musicas-hero__title">{t('pages.musicas.titulo')}</h1>
           <p className="musicas-hero__subtitle">{t('musicas.subtitle')}</p>
         </div>
       </section>
@@ -30,13 +30,13 @@ export default function Musicas() {
               <div key={m.id} className={`musica-card${isPlaceholder ? ' musica-card--placeholder' : ''}`}>
                 <div className="musica-card__capa" style={capa ? {} : { background: m.cor }}>
                   {capa && <img src={capa} alt={m.titulo} />}
-                  {isPlaceholder && <span className="musica-card__coming-soon">EM BREVE</span>}
+                  {isPlaceholder && <span className="musica-card__coming-soon">{t('pages.musicas.em_breve')}</span>}
                 </div>
                 <div className="musica-card__info">
                   <h2 className="musica-card__titulo">{m.titulo}</h2>
                   <p className="musica-card__artista">{m.artista} {m.ano ? `· ${m.ano}` : ''}</p>
                   {isPlaceholder ? (
-                    <span className="musica-card__badge-placeholder">EM BREVE</span>
+                    <span className="musica-card__badge-placeholder">{t('pages.musicas.em_breve')}</span>
                   ) : (
                     <div className="musica-card__plataformas">
                       {m.plataformas.map(p => {
@@ -67,7 +67,7 @@ export default function Musicas() {
 
       <section className="musicas-clipes">
         <div className="container">
-          <h2 className="section-title">Videoclipes</h2>
+          <h2 className="section-title">{t('pages.musicas.videoclipes')}</h2>
           <p className="musicas-clipes__placeholder">{t('musicas.clipesPlaceholder')}</p>
         </div>
       </section>

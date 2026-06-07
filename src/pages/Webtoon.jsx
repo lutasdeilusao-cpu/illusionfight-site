@@ -22,15 +22,15 @@ export default function Webtoon() {
 
   return (
     <>
-      <Helmet><title>Webtoon — Lutas de Ilusão</title></Helmet>
+      <Helmet><title>{t('pages.helmet.webtoon')}</title></Helmet>
       <section className="webtoon-page">
         <div className="container">
           {ultimo && (
             <Link to={`/webtoon/${ultimo}`} className="livro-continuar">
-              → Continuar
+              {t('pages.webtoon.continuar')}
             </Link>
           )}
-          <h1 className="section-title">WEBTOON</h1>
+          <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
           <div className="webtoon-grid">
             {published.map(ep => {
               const thumb = thumbMap[ep.thumbnail]

@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Lutas de Ilusão — A dor é 100% real</title>
+        <title>{t('pages.helmet.home')}</title>
       </Helmet>
       <HeroSlideshow />
       <LatestEpisodes />

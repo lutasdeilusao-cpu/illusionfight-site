@@ -48,7 +48,7 @@ export default function WebtoonEpisodio() {
   if (!ep || !ep.publicado) {
     return (
       <section className="webtoon-ep-page">
-        <div className="container"><p>Episódio não encontrado.</p></div>
+        <div className="container"><p>{t('pages.webtoon.nao_encontrado')}</p></div>
       </section>
     )
   }
@@ -62,7 +62,7 @@ export default function WebtoonEpisodio() {
       <header className="webtoon-ep-header">
         <div className="container">
           <button className="webtoon-ep-header__back" onClick={() => navigate('/webtoon')}>
-            ← VOLTAR
+            {t('pages.webtoon.voltar')}
           </button>
           <h1 className="webtoon-ep-header__title">
             EP. {String(ep.numero).padStart(2, '0')} — {ep[tituloKey]}
@@ -77,9 +77,9 @@ export default function WebtoonEpisodio() {
             ref={num === ep.paginas ? ultimaPaginaRef : null}
             src={`/illusionfight-site/webtoon/${ep.id}/pt/${String(num).padStart(2, '0')}.png`}
             width="100%"
-            style={{ display: 'block' }}
+            className="webtoon-ep-reader__img"
             loading="lazy"
-            alt={`Página ${num}`}
+            alt={`${t('pages.webtoon.pagina')} ${num}`}
           />
         ))}
       </section>
@@ -88,14 +88,14 @@ export default function WebtoonEpisodio() {
         <div className="container">
           {prev && prev.publicado ? (
             <button className="webtoon-ep-nav__btn" onClick={() => navigate(`/webtoon/${prev.id}`)}>
-              ← Episódio Anterior
+              {t('pages.webtoon.anterior')}
             </button>
           ) : (
             <span />
           )}
           {next && next.publicado ? (
             <button className="webtoon-ep-nav__btn" onClick={() => navigate(`/webtoon/${next.id}`)}>
-              Próximo Episódio →
+              {t('pages.webtoon.proximo')}
             </button>
           ) : (
             <span />

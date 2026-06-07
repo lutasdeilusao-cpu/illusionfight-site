@@ -102,7 +102,7 @@ export default function Leaderboard() {
             className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`}
             onClick={() => setAba(a)}
           >
-            {a === 'toptrumps' ? t('site.leaderboard.abas.toptrumps').toUpperCase() : a === 'quiz' ? 'QUIZ SDR' : a === 'geral' ? t('site.leaderboard.abas.geral').toUpperCase() : t('site.leaderboard.abas.cuidadores').toUpperCase()}
+            {a === 'toptrumps' ? t('site.leaderboard.abas.toptrumps').toUpperCase() : a === 'quiz' ? t('pages.leaderboard.quiz_sdr') : a === 'geral' ? t('site.leaderboard.abas.geral').toUpperCase() : t('site.leaderboard.abas.cuidadores').toUpperCase()}
             {(a === 'quiz' || a === 'geral') && <span className="lb-breve">{t('site.games.em_breve')}</span>}
           </button>
         ))}
@@ -122,13 +122,13 @@ export default function Leaderboard() {
                     <div className="lb-podium-pos">#{j.pos}</div>
                     <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
                     <div className="lb-podium-nome">{j.nome}</div>
-                    <div className="lb-podium-pontos">{j.partidas} partidas</div>
-                    <div className="lb-podium-pontos" style={{ fontSize: '0.6rem', color: '#888' }}>{j.badges} badges</div>
+                    <div className="lb-podium-pontos">{j.partidas} {t('pages.leaderboard.partidas')}</div>
+                    <div className="lb-podium-pontos lb-podium-pontos--badges">{j.badges} {t('pages.leaderboard.badges')}</div>
                   </div>
                 ))}
               </div>
               <div className="lb-tabela">
-                <div className="lb-tabela-header"><span>#</span><span>Cuidador</span><span>Partidas</span><span>Badges</span></div>
+                <div className="lb-tabela-header"><span>#</span><span>{t('pages.leaderboard.cuidador')}</span><span>{t('pages.leaderboard.partidas')}</span><span>{t('pages.leaderboard.badges')}</span></div>
                 {cuidadoresRest.map(j => (
                   <div key={j.userId} className="lb-linha" style={{ gridTemplateColumns: '40px 1fr 70px 70px' }}>
                     <span className="lb-linha-pos">{j.pos}</span>
@@ -139,7 +139,7 @@ export default function Leaderboard() {
               </div>
               {user && (
                 <div className="lb-user-card">
-                  <span className="lb-user-pos">SUA POSIÇÃO</span>
+                  <span className="lb-user-pos">{t('pages.leaderboard.sua_posicao')}</span>
                   {(() => {
                     const meu = cuidadores.find(j => j.userId === user.id)
                     return meu ? (
@@ -149,7 +149,7 @@ export default function Leaderboard() {
                         <span>{meu.partidas}</span><span>{meu.badges}</span>
                       </div>
                     ) : (
-                      <p className="lb-sub" style={{ textAlign: 'left', margin: 0 }}>{t('site.leaderboard.sem_cuidador_voce')}</p>
+                      <p className="lb-sub lb-sub--left">{t('site.leaderboard.sem_cuidador_voce')}</p>
                     )
                   })()}
                 </div>
@@ -169,7 +169,7 @@ export default function Leaderboard() {
               ))}
             </div>
             <div className="lb-tabela">
-              <div className="lb-tabela-header"><span>#</span><span>Jogador</span><span>V</span><span>D</span><span>Cartas</span><span>Pts</span></div>
+              <div className="lb-tabela-header"><span>#</span><span>{t('pages.leaderboard.jogador')}</span><span>{t('pages.leaderboard.vitorias')}</span><span>{t('pages.leaderboard.derrotas')}</span><span>{t('pages.leaderboard.cartas')}</span><span>{t('pages.leaderboard.pontos')}</span></div>
               {restante.map(j => (
                 <div key={j.pos} className="lb-linha">
                   <span className="lb-linha-pos">{j.pos}</span>
@@ -179,7 +179,7 @@ export default function Leaderboard() {
               ))}
             </div>
             <div className="lb-user-card">
-              <span className="lb-user-pos">SUA POSIÇÃO</span>
+              <span className="lb-user-pos">{t('pages.leaderboard.sua_posicao')}</span>
               <div className="lb-user-row">
                 <span className="lb-linha-pos">#42</span>
                 <span className="lb-linha-jogador"><span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>{perfil?.nome || user.email}</span>

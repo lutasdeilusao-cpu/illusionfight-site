@@ -59,6 +59,10 @@
   flex-direction: column;
 }
 
+.webtoon-ep-reader__img {
+  display: block;
+}
+
 .webtoon-ep-nav {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);

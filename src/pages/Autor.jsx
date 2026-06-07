@@ -10,13 +10,13 @@ export default function Autor() {
   return (
     <>
       <Helmet>
-        <title>Autor — Lutas de Ilusão</title>
+        <title>{t('pages.helmet.autor')}</title>
       </Helmet>
       <section className="autor">
         <div className="container">
           <h1 className="autor__byline">
-            <span className="autor__byline-prefix">BY:</span>
-            <span className="autor__byline-name">ISAIAS LEAL</span>
+            <span className="autor__byline-prefix">{t('pages.autor.by')}</span>
+            <span className="autor__byline-name">{t('pages.autor.name')}</span>
           </h1>
 
           <div className="autor__blocks">

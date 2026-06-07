@@ -15,7 +15,7 @@ export default function Assinar() {
   return (
     <>
       <Helmet>
-        <title>Assinar — Lutas de Ilusão</title>
+        <title>{t('pages.helmet.assinar')}</title>
       </Helmet>
 
       <section className="assinar-hero">

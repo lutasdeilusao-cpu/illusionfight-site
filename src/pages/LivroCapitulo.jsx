@@ -77,10 +77,10 @@ export default function LivroCapitulo() {
     return (
       <section className="livro-capitulo">
         <Helmet>
-          <title>Capítulo não encontrado — Lutas de Ilusão</title>
+          <title>{t('pages.helmet.capitulo_nao_encontrado')}</title>
         </Helmet>
         <div className="container">
-          <p className="livro-capitulo__erro">Este capítulo ainda não foi publicado.</p>
+          <p className="livro-capitulo__erro">{t('pages.livro.nao_encontrado')}</p>
         </div>
       </section>
     )
@@ -103,12 +103,12 @@ export default function LivroCapitulo() {
       </Helmet>
       <div className="container">
         <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>
-          ← VOLTAR AO ÍNDICE
+          {t('pages.livro.voltar_indice')}
         </button>
 
         <div className="livro-capitulo__header">
           <div className="livro-capitulo__header-numero">
-            CAPÍTULO {String(chapter.numero).padStart(2, '0')}
+            {t('pages.livro.capitulo')} {String(chapter.numero).padStart(2, '0')}
           </div>
           <h1 className="livro-capitulo__header-titulo">{chapter[tituloKey]}</h1>
         </div>

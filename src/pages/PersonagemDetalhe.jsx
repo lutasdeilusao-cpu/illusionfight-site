@@ -16,28 +16,28 @@ export default function PersonagemDetalhe() {
     return (
       <section className="personagem-detail">
         <Helmet>
-          <title>Personagem não encontrado — Lutas de Ilusão</title>
+          <title>{t('pages.helmet.personagem_nao_encontrado')}</title>
         </Helmet>
         <div className="container">
           <button className="personagem-detail__back" onClick={() => navigate('/personagens')}>
-            ← PERSONAGENS
+            {t('pages.personagens.voltar')}
           </button>
-          <p>Personagem não encontrado.</p>
+          <p>{t('pages.personagens.nao_encontrado')}</p>
         </div>
       </section>
     )
   }
 
   const meta = [
-    personagem.idade && { label: 'Idade', value: `${personagem.idade} anos` },
-    personagem.status && { label: 'Status', value: personagem.status },
-    personagem.grupo && { label: 'Grupo', value: personagem.grupo },
+    personagem.idade && { label: t('pages.personagens.idade'), value: `${personagem.idade} ${t('pages.personagens.anos')}` },
+    personagem.status && { label: t('pages.personagens.status'), value: personagem.status },
+    personagem.grupo && { label: t('pages.personagens.grupo'), value: personagem.grupo },
   ].filter(Boolean)
 
   const combat = [
-    personagem.arma && { label: 'Arma', value: personagem.arma },
-    personagem.estilo && { label: 'Estilo', value: personagem.estilo },
-    personagem.elemental && { label: 'Elemental', value: personagem.elemental },
+    personagem.arma && { label: t('pages.personagens.arma'), value: personagem.arma },
+    personagem.estilo && { label: t('pages.personagens.estilo'), value: personagem.estilo },
+    personagem.elemental && { label: t('pages.personagens.elemental'), value: personagem.elemental },
   ].filter(Boolean)
 
   return (
@@ -47,7 +47,7 @@ export default function PersonagemDetalhe() {
       </Helmet>
       <div className="container">
         <button className="personagem-detail__back" onClick={() => navigate('/personagens')}>
-          ← PERSONAGENS
+          {t('pages.personagens.voltar')}
         </button>
 
         <div className="personagem-detail__grid">

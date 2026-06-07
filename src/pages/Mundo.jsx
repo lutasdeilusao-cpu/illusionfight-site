@@ -32,18 +32,18 @@ export default function Mundo() {
 
   return (
     <>
-      <Helmet><title>Mundo — Lutas de Ilusão</title></Helmet>
+      <Helmet><title>{t('pages.helmet.mundo')}</title></Helmet>
 
       <section className="mundo-hero">
         <div className="container">
-          <h1 className="mundo-hero__title">O UNIVERSO</h1>
-          <p className="mundo-hero__subtitle">Bravara. 20XX. Uma arena onde a dor é 100% real.</p>
+          <h1 className="mundo-hero__title">{t('pages.mundo.titulo')}</h1>
+          <p className="mundo-hero__subtitle">{t('pages.mundo.subtitulo')}</p>
         </div>
       </section>
 
       <section className="mundo-section" id="bravara">
         <div className="container">
-          <h2 className="section-title">BRAVARA</h2>
+          <h2 className="section-title">{t('pages.mundo.bravara')}</h2>
           <div className="mundo-locais-grid">
             {data.localizacoes.map(l => (
               <div key={l.nome} className="mundo-local-card">
@@ -58,7 +58,7 @@ export default function Mundo() {
 
       <section className="mundo-section mundo-section--alt" id="timeline">
         <div className="container">
-          <h2 className="section-title">LINHA DO TEMPO</h2>
+          <h2 className="section-title">{t('pages.mundo.timeline')}</h2>
           <div className="timeline-wrapper">
             <button className="timeline-arrow timeline-arrow--left" onClick={() => scroll(-1)}>←</button>
             <div className="timeline-track" ref={trackRef}>
@@ -77,7 +77,7 @@ export default function Mundo() {
 
       <section className="mundo-section" id="ldi">
         <div className="container">
-          <h2 className="section-title">LUTAS DE ILUSÃO</h2>
+          <h2 className="section-title">{t('pages.mundo.ldi')}</h2>
 
           <div className="mundo-combat-grid">
             {data.modos_combate.map(m => (
@@ -90,7 +90,7 @@ export default function Mundo() {
           </div>
 
           <div className="mundo-elementais">
-            <p className="mundo-text mundo-text--max" style={{ textAlign: 'center', margin: '0 auto 2rem' }}>
+            <p className="mundo-text mundo-text--max mundo-text--center">
               {data.elementais.intro}
             </p>
             <div className="mundo-elementais-grid">
@@ -109,7 +109,7 @@ export default function Mundo() {
             </div>
           </div>
 
-          <h3 className="mundo-section-subtitle">Ranking SDR</h3>
+          <h3 className="mundo-section-subtitle">{t('pages.mundo.ranking_sdr')}</h3>
           <div className="mundo-ranking">
             {data.ranking_sdr.map(r => (
               <div key={r.faixa} className="mundo-ranking-item" style={{ '--rank-color': r.cor }}>
@@ -126,8 +126,8 @@ export default function Mundo() {
 
       <section className="mundo-section mundo-section--alt" id="xakaxi">
         <div className="container">
-          <h2 className="section-title">OS XAKAXI</h2>
-          <p className="mundo-text mundo-text--max" style={{ textAlign: 'center', margin: '0 auto 2rem' }}>
+          <h2 className="section-title">{t('pages.mundo.xakaxi')}</h2>
+          <p className="mundo-text mundo-text--max mundo-text--center">
             {data.xakaxi.intro}
           </p>
           <div className="mundo-tech-grid">
@@ -141,7 +141,7 @@ export default function Mundo() {
           {!TRIAL_ACTIVE && (
             <div className="mundo-premium-badge">
               <p>Ritual do Selamento detalhado, fichas de Yawanari, Powa e Tawira, e as Sagas Primordiais</p>
-              <span className="mundo-premium-tag">PREMIUM</span>
+              <span className="mundo-premium-tag">{t('pages.mundo.premium')}</span>
             </div>
           )}
         </div>
@@ -149,14 +149,14 @@ export default function Mundo() {
 
       <section className="mundo-section" id="glossario">
         <div className="container">
-          <h2 className="section-title">GLOSSÁRIO</h2>
+          <h2 className="section-title">{t('pages.mundo.glossario')}</h2>
           <div className="mundo-glossario-grid">
             {data.glossario.map(g => (
               <div key={g.sigla} className={`mundo-glossario-card${g.premium && !TRIAL_ACTIVE ? ' mundo-glossario-card--premium' : ''}`}>
                 <span className="mundo-glossario-sigla">{g.sigla}</span>
                 <span className="mundo-glossario-nome">{g.nome}</span>
                 <p className="mundo-glossario-desc">{g.descricao}</p>
-                {g.premium && <span className="mundo-premium-tag mundo-premium-tag--sm">PREMIUM</span>}
+                {g.premium && <span className="mundo-premium-tag mundo-premium-tag--sm">{t('pages.mundo.premium')}</span>}
               </div>
             ))}
           </div>
@@ -165,14 +165,14 @@ export default function Mundo() {
 
       <section ref={ref} className="mundo-section mundo-section--alt reveal" id="personagens">
         <div className="container">
-          <h2 className="section-title">CONHEÇA OS PERSONAGENS</h2>
+          <h2 className="section-title">{t('pages.mundo.personagens_titulo')}</h2>
           <div className="mundo-personagens-row">
             {protagonists.map(p => (
               <CharacterCard key={p.id} character={p} />
             ))}
           </div>
           <button className="mundo-ver-todos" onClick={() => navigate('/personagens')}>
-            VER TODOS
+            {t('pages.mundo.ver_todos')}
           </button>
         </div>
       </section>

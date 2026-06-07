@@ -714,5 +714,83 @@
     "sem_submissoes": "No pending submissions.",
     "carregando": "CARREGANDO...",
     "btn_voltar": "BACK"
+  },
+  "pages": {
+    "musicas": {
+      "titulo": "MUSIC",
+      "videoclipes": "Music Videos",
+      "em_breve": "COMING SOON"
+    },
+    "livro": {
+      "titulo": "CHAPTERS",
+      "continuar_lendo": "→ Continue reading",
+      "cap": "CH.",
+      "em_breve": "COMING SOON",
+      "premium": "PREMIUM",
+      "nao_encontrado": "This chapter has not been published yet.",
+      "voltar_indice": "← BACK TO INDEX",
+      "capitulo": "CHAPTER"
+    },
+    "webtoon": {
+      "titulo": "WEBTOON",
+      "continuar": "→ Continue",
+      "voltar": "← BACK",
+      "nao_encontrado": "Episode not found.",
+      "anterior": "← Previous Episode",
+      "proximo": "Next Episode →",
+      "pagina": "Page"
+    },
+    "mundo": {
+      "titulo": "THE UNIVERSE",
+      "subtitulo": "Bravara. 20XX. An arena where the pain is 100% real.",
+      "bravara": "BRAVARA",
+      "timeline": "TIMELINE",
+      "ldi": "ILLUSION FIGHT",
+      "ranking_sdr": "SDR Ranking",
+      "xakaxi": "THE XAKAXI",
+      "glossario": "GLOSSARY",
+      "personagens_titulo": "MEET THE CHARACTERS",
+      "ver_todos": "VIEW ALL",
+      "premium": "PREMIUM"
+    },
+    "personagens": {
+      "voltar": "← CHARACTERS",
+      "nao_encontrado": "Character not found.",
+      "idade": "Age",
+      "status": "Status",
+      "grupo": "Group",
+      "arma": "Weapon",
+      "estilo": "Style",
+      "elemental": "Elemental",
+      "anos": "years old"
+    },
+    "autor": {
+      "by": "BY:",
+      "name": "ISAIAS LEAL"
+    },
+    "leaderboard": {
+      "quiz_sdr": "QUIZ SDR",
+      "sua_posicao": "YOUR POSITION",
+      "jogador": "Player",
+      "vitorias": "W",
+      "derrotas": "L",
+      "cartas": "Cards",
+      "pontos": "Pts",
+      "cuidador": "Caretaker",
+      "partidas": "Matches",
+      "badges": "Badges"
+    },
+    "helmet": {
+      "home": "Illusion Fight — The pain is 100% real",
+      "musicas": "Music — Illusion Fight",
+      "livro": "Book — Illusion Fight",
+      "webtoon": "Webtoon — Illusion Fight",
+      "mundo": "World — Illusion Fight",
+      "autor": "Author — Illusion Fight",
+      "personagens": "Characters — Illusion Fight",
+      "assinar": "Subscribe — Illusion Fight",
+      "personagem_nao_encontrado": "Character not found — Illusion Fight",
+      "capitulo_nao_encontrado": "Chapter not found — Illusion Fight"
+    }
   }
 }

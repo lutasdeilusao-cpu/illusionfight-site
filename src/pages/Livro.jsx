@@ -20,21 +20,21 @@ export default function Livro() {
   return (
     <section className="livro-page">
       <Helmet>
-        <title>Livro — Lutas de Ilusão</title>
+        <title>{t('pages.helmet.livro')}</title>
       </Helmet>
       <div className="container">
         {ultimo && (
           <Link to={`/livro/${ultimo}`} className="livro-continuar">
-            → Continuar lendo
+            {t('pages.livro.continuar_lendo')}
           </Link>
         )}
-        <h2 className="section-title">CAPÍTULOS</h2>
+        <h2 className="section-title">{t('pages.livro.titulo')}</h2>
         <div className="livro-page__list">
           {index.map(ch => {
             const liberado = ch.publicado || TRIAL_ACTIVE
             return (
               <div key={ch.id} className="livro-page__item">
-                <span className="livro-page__numero">CAP. {String(ch.numero).padStart(2, '0')}</span>
+                <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>
                 <div className="livro-page__info">
                   <span
                     className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
@@ -46,8 +46,8 @@ export default function Livro() {
                     {liberado && ch.data_publicacao && (
                       <span className="livro-page__data">{ch.data_publicacao}</span>
                     )}
-                    {!ch.publicado && TRIAL_ACTIVE && <span className="livro-page__badge livro-page__badge--premium">PREMIUM</span>}
-                    {!liberado && <span className="livro-page__badge">EM BREVE</span>}
+                    {!ch.publicado && TRIAL_ACTIVE && <span className="livro-page__badge livro-page__badge--premium">{t('pages.livro.premium')}</span>}
+                    {!liberado && <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>}
                   </div>
                 </div>
               </div>

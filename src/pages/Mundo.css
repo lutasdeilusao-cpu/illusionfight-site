@@ -56,6 +56,10 @@
   margin: 0;
 }
 
+.mundo-text--center {
+  text-align: center;
+}
+
 .mundo-text--max {
   max-width: 720px;
   margin-left: auto;
