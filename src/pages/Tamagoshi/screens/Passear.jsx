@@ -5,13 +5,14 @@ import kronikIdle from '../../../assets/images/tamagoshi/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
 const BASE_SPEED = 4, STAGE_COUNT = 10, LIVES = 3
+const SWIPE_THRESHOLD = GAME_W / LANE_COUNT * 0.25 // ~18px
 
 export default function Passear({ onConcluir }) {
   const store = useTamagoshiStore()
   const canvasRef = useRef(null)
-  const intervalRef = useRef(null)
+  const rafRef = useRef(null)
   const imgRef = useRef(null)
-  const g = useRef({ running: false, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 0, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [] })
+  const g = useRef(null)
   const [phase, setPhase] = useState('ready')
   const [stage, setStage] = useState(1)
   const [dispScore, setDisp] = useState(0)
@@ -24,10 +25,21 @@ export default function Passear({ onConcluir }) {
     img.onload = () => { imgRef.current = img }
   }, [])
 
+  function createState() {
+    return {
+      running: false, lane: 2, score: 0, coinsCollected: 0,
+      lives: LIVES, stage: 1, frame: 0, roadOff: 0,
+      speed: BASE_SPEED, lastObs: 0, lastCoin: 0,
+      obstacles: [], coins: [], dmgTimer: 0,
+      dragStart: null,
+    }
+  }
+
   function draw() {
     const ca = canvasRef.current; if (!ca) return
     const ctx = ca.getContext('2d'); if (!ctx) return
     const s = g.current
+    if (!s) return
     const W = GAME_W, H = GAME_H, lw = W / LANE_COUNT
     ctx.clearRect(0, 0, W, H)
     ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H)
@@ -42,7 +54,6 @@ export default function Passear({ onConcluir }) {
     ctx.font = '38px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
     for (const ob of s.obstacles) { ctx.fillText(ob.e, ob.x + 25, ob.y + 25) }
-    // Estrela com brilho pulsante
     const glow = 0.4 + 0.6 * Math.abs(Math.sin(s.frame * 0.08))
     for (const c of s.coins) {
       ctx.save()
@@ -71,7 +82,6 @@ export default function Passear({ onConcluir }) {
         ctx.drawImage(imgRef.current, -25, -25, 50, 50)
       }
       ctx.restore()
-      // Emoji de raiva acima
       ctx.save()
       ctx.font = '28px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
@@ -103,12 +113,11 @@ export default function Passear({ onConcluir }) {
     ctx.fillText('pista ' + s.stage + '/' + STAGE_COUNT, W / 2, 20)
   }
 
-  function tick() {
-    const s = g.current; if (!s.running) return
+  function loop() {
+    const s = g.current; if (!s || !s.running) return
     try {
       s.frame++
-      // Pausa temporária após dano (efeito visual)
-      if (s.dmgTimer > 0) { s.dmgTimer--; draw(); return }
+      if (s.dmgTimer > 0) { s.dmgTimer--; draw(); rafRef.current = requestAnimationFrame(loop); return }
       s.speed = BASE_SPEED + (s.stage - 1) * 0.6; s.roadOff += s.speed
       s.score = Math.floor(s.frame * s.speed / 6) + s.stage * 200
       const lw = GAME_W / LANE_COUNT
@@ -127,7 +136,7 @@ export default function Passear({ onConcluir }) {
         if (o.y > GAME_H) return false
         if (o.x < cx + 25 - 8 && o.x + 50 > cx - 25 + 8 && o.y < cy + 25 - 8 && o.y + 50 > cy - 25 + 8) {
           s.lives--
-          s.dmgTimer = 15 // pause 15 frames = ~450ms
+          s.dmgTimer = 15
           if (s.lives <= 0) { endGame(); return false }
           return false
         }
@@ -144,16 +153,17 @@ export default function Passear({ onConcluir }) {
       if (s.score >= s.stage * 500 && s.stage < STAGE_COUNT) { s.stage++; setStage(s.stage) }
       if (s.frame % 10 === 0) { setDisp(s.score); setDispCoins(s.coinsCollected) }
       draw()
-    } catch (e) { console.error('[ENDURO]', e); s.running = false }
+    } catch (e) { console.error('[ENDURO]', e); s.running = false; return }
+    rafRef.current = requestAnimationFrame(loop)
   }
 
   function endGame() {
     const s = g.current
+    if (!s) return
     s.running = false
-    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
     setDisp(s.score)
     setDispCoins(s.coinsCollected)
-    // Salva no historico local
     const entry = { score: s.score, coins: s.coinsCollected, stage: s.stage, date: new Date().toLocaleString() }
     try {
       const saved = JSON.parse(localStorage.getItem('enduro-historico') || '[]')
@@ -167,64 +177,95 @@ export default function Passear({ onConcluir }) {
   }
 
   function startGame() {
-    g.current = { running: true, lane: 2, score: 0, coinsCollected: 0, lives: LIVES, stage: 1, frame: 1, roadOff: 0, speed: BASE_SPEED, lastObs: 0, lastCoin: 0, obstacles: [], coins: [], dmgTimer: 0 }
-    setStage(1); setDisp(0); setPhase('playing')
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    intervalRef.current = setInterval(tick, 30)
+    const state = createState()
+    state.running = true
+    g.current = state
+    setStage(1); setDisp(0); setDispCoins(0); setPhase('playing')
+    rafRef.current = requestAnimationFrame(loop)
   }
 
+  // Keyboard handler — window level (always works)
   useEffect(() => {
     if (phase !== 'playing') return
     function h(e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); if (g.current.lane > 0) g.current.lane-- }
-      if (e.key === 'ArrowRight') { e.preventDefault(); if (g.current.lane < LANE_COUNT - 1) g.current.lane++ }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); if (g.current?.lane > 0) g.current.lane-- }
+      if (e.key === 'ArrowRight') { e.preventDefault(); if (g.current?.lane < LANE_COUNT - 1) g.current.lane++ }
     }
     window.addEventListener('keydown', h)
     return () => window.removeEventListener('keydown', h)
   }, [phase])
 
+  // Touch/Mouse handler — window level (canvas may not be mounted yet when effect runs)
   useEffect(() => {
     if (phase !== 'playing') return
-    function os(x) { g.current.dragStart = x; g.current.dragLast = x }
-    function om(x, isTouch) {
-      if (g.current.dragStart == null) return
-      const dx = x - g.current.dragStart, th = GAME_W / LANE_COUNT
-      if (Math.abs(dx) > th * 0.25) {
-        if (dx < 0 && g.current.lane > 0) g.current.lane--
-        else if (dx > 0 && g.current.lane < LANE_COUNT - 1) g.current.lane++
-        g.current.dragStart = x
-      }
-      if (isTouch) g.current.dragLast = x
+    function getCanvasRect() {
+      const ca = canvasRef.current
+      if (!ca) return null
+      return ca.getBoundingClientRect()
     }
-    function oe() { g.current.dragStart = null }
-    const ca = canvasRef.current; if (!ca) return
-    const tStart = (e) => { e.preventDefault(); os(e.touches[0].clientX) }
-    const tMove = (e) => { e.preventDefault(); om(e.touches[0].clientX, true) }
-    const tEnd = () => oe()
-    ca.addEventListener('touchstart', tStart, { passive: false })
-    ca.addEventListener('touchmove', tMove, { passive: false })
-    ca.addEventListener('touchend', tEnd)
-    ca.addEventListener('touchcancel', tEnd)
-    ca.addEventListener('mousedown', e => os(e.clientX))
-    ca.addEventListener('mousemove', e => { if (e.buttons === 1) om(e.clientX, false) })
-    ca.addEventListener('mouseup', oe); ca.addEventListener('mouseleave', oe)
+    function isOverCanvas(clientX, clientY) {
+      const r = getCanvasRect()
+      if (!r) return false
+      return clientX >= r.left && clientX <= r.right && clientY >= r.top && clientY <= r.bottom
+    }
+    function os(x) { if (g.current) g.current.dragStart = x }
+    function om(x) {
+      const s = g.current
+      if (!s || s.dragStart == null) return
+      const dx = x - s.dragStart
+      if (Math.abs(dx) > SWIPE_THRESHOLD) {
+        if (dx < 0 && s.lane > 0) s.lane--
+        else if (dx > 0 && s.lane < LANE_COUNT - 1) s.lane++
+        s.dragStart = x
+      }
+    }
+    function oe() { if (g.current) g.current.dragStart = null }
+
+    function onTouchStart(e) {
+      const t = e.touches[0]
+      if (isOverCanvas(t.clientX, t.clientY)) os(t.clientX)
+    }
+    function onTouchMove(e) {
+      const t = e.touches[0]
+      if (isOverCanvas(t.clientX, t.clientY)) { e.preventDefault(); om(t.clientX) }
+    }
+    function onTouchEnd() { oe() }
+
+    function onMouseDown(e) { os(e.clientX) }
+    function onMouseMove(e) {
+      if (e.buttons === 1 && isOverCanvas(e.clientX, e.clientY)) om(e.clientX)
+    }
+    function onMouseUp() { oe() }
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchmove', onTouchMove, { passive: false })
+    window.addEventListener('touchend', onTouchEnd)
+    window.addEventListener('mousedown', onMouseDown)
+    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mouseup', onMouseUp)
+    window.addEventListener('mouseleave', onMouseUp)
+
     return () => {
-      ca.removeEventListener('touchstart', tStart)
-      ca.removeEventListener('touchmove', tMove)
-      ca.removeEventListener('touchend', tEnd)
-      ca.removeEventListener('touchcancel', tEnd)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchmove', onTouchMove)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('mousedown', onMouseDown)
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mouseup', onMouseUp)
+      window.removeEventListener('mouseleave', onMouseUp)
     }
   }, [phase])
 
   useEffect(() => {
-    // Carrega historico ao montar
     try {
       const saved = JSON.parse(localStorage.getItem('enduro-historico') || '[]')
       setHistorico(saved)
     } catch (e) {}
   }, [])
 
-  useEffect(() => { return () => { if (intervalRef.current) clearInterval(intervalRef.current); g.current.running = false } }, [])
+  useEffect(() => {
+    return () => { cancelAnimationFrame(rafRef.current); if (g.current) g.current.running = false }
+  }, [])
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1.5rem 0', userSelect: 'none' }}>
@@ -248,7 +289,7 @@ export default function Passear({ onConcluir }) {
               <span>pista {stage}/{STAGE_COUNT}</span>
             </div>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              onClick={() => { g.current.running = false; if (intervalRef.current) clearInterval(intervalRef.current); onConcluir?.() }}
+              onClick={() => { if (g.current) g.current.running = false; cancelAnimationFrame(rafRef.current); onConcluir?.() }}
               className="tama-btn" style={{ marginTop: 8, opacity: 0.5, fontSize: '0.7rem' }}>
               desistir
             </motion.button>

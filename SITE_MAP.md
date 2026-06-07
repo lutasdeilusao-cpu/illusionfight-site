@@ -141,9 +141,9 @@
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ v1.2.1 | MINI GAMES — 6 puzzles standalone arcade + Enduro Kroniki (LANÇADO ⛔) |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ i18n v1.5.29 | PRESADELO PARTICULAR — 20 casos, Supabase save, puzzles reais, combate — **1ª temporada** |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.8 | DUELO LDI — card game 1v1 vs IA. 60 cartas, IA greedy, menu, vitória/derrota — **1ª temporada** |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.1 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.10.2 | TAMA LDI — ciclo de vida completo, DIX economy, loja, 3 minigames, Hall da Fama — **1ª temporada** |
 
-**Versão atual:** `1.9.2` (console: `[TAMA] versão carregada: 1.9.2`)
+**Versão atual:** `1.10.2` (console: `[TAMA] versão carregada: 1.10.2`)
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | ✅ | Ranking global com 20 posições, vitórias/derrotas/pontos |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | ✅ | Quiz SDR — 3 modos (ranqueado 10q/elite 20q/primordial 30q), banco de perguntas, dicas de personagem |
 | `/login` | Login | `src/pages/Login.jsx` | ✅ | Login com email/senha via Supabase Auth, redireciona para /perfil |
