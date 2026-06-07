@@ -441,7 +441,6 @@ export const DISTRITOS = {
 
     waterTiles: [
       { x: 0, y: 12, w: 40, h: 13 },
-      { x: 0, y: 0, w: 40, h: 25 }, // reference for water behavior
     ],
 
     trees: [
@@ -679,7 +678,7 @@ export const DISTRITOS = {
 
     exits: {
       norte: { to: 'industrial', spawnTile: { x: 25, y: 28 } },
-      leste: { to: 'porto', spawnTile: { x: 1, y: 15 } },
+      leste: { to: 'porto', spawnTile: { x: 20, y: 3 } },
     },
 
     zonas: [
