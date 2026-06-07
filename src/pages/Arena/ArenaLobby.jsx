@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 import enemiesData from './data/arena-enemies.json'
@@ -14,14 +15,15 @@ const DIFF_LABELS = { easy: 'EASY', medium: 'MEDIUM', hard: 'HARD', very_hard: '
 const delay = ms => new Promise(res => setTimeout(res, ms))
 
 function NeoGuideIntro({ onShow }) {
+  const { t } = useLanguage()
   const [passo, setPasso] = useState(0)
   const [texto, setTexto] = useState('')
   const [digitando, setDigitando] = useState(true)
   const mountedRef = useRef(true)
 
   const linhas = [
-    'Bem-vindo ao LDI Arena, lutador.',
-    'Aqui, cada batalha é real. Escolha sua ficha ou monte um novo guerreiro.',
+    t('games.arena.intro_linha1'),
+    t('games.arena.intro_linha2'),
   ]
   const velocidade = 30
 
@@ -60,7 +62,7 @@ function NeoGuideIntro({ onShow }) {
       {!digitando && (
         <motion.button className="arena-ng-btn" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }} onClick={onShow}>
-          MOSTRAR FICHAS
+          {t('games.arena.mostrar_fichas')}
         </motion.button>
       )}
     </div>
@@ -68,6 +70,7 @@ function NeoGuideIntro({ onShow }) {
 }
 
 export default function ArenaLobby({ onNavigate }) {
+  const { t } = useLanguage()
   const { user } = useAuth()
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
@@ -101,7 +104,7 @@ export default function ArenaLobby({ onNavigate }) {
 
   const handleDelete = async (e, sheetId) => {
     e.stopPropagation()
-    if (!window.confirm('Excluir esta ficha permanentemente?')) return
+    if (!window.confirm(t('games.arena.confirmar_excluir'))) return
     await store.deleteSheet(sheetId)
     setSheets(prev => prev.filter(s => s.id !== sheetId))
   }
@@ -122,8 +125,8 @@ export default function ArenaLobby({ onNavigate }) {
     return (
       <div className="arena-lobby">
         <div className="arena-lobby-hero" style={{ paddingTop: 48 }}>
-          <p className="arena-lobby-titulo">modo standalone</p>
-          <h1 className="arena-lobby-nome">LDI ARENA</h1>
+          <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
+          <h1 className="arena-lobby-nome">{t('games.arena.titulo')}</h1>
         </div>
         <NeoGuideIntro onShow={handleIntroDone} />
       </div>
@@ -159,7 +162,7 @@ export default function ArenaLobby({ onNavigate }) {
 
         <div className="arena-lobby-divider" />
 
-        <p className="arena-lobby-section-label">inimigos desbloqueados</p>
+        <p className="arena-lobby-section-label">{t('games.arena.inimigos_desbloqueados')}</p>
 
         <div className="arena-sheet-list">
           {visibleEnemies.map(enemy => {
@@ -180,7 +183,7 @@ export default function ArenaLobby({ onNavigate }) {
                 <div className="arena-sheet-info">
                   <div className="arena-sheet-name-v">{enemy.name}</div>
                   <div className="arena-sheet-meta">
-                    rank #{enemy.rank} · tier {enemy.tier} · {DIFF_LABELS[enemy.difficulty] || enemy.difficulty}
+                    rank #{enemy.rank} · tier {enemy.tier} · {t('games.arena.diff_' + (enemy.difficulty || 'easy'))}
                   </div>
                   <div className="arena-sheet-stats">
                     {['F','H','R','A','PdF'].map(attr => (
@@ -213,21 +216,21 @@ export default function ArenaLobby({ onNavigate }) {
 
       {/* Hero */}
       <div className="arena-lobby-hero">
-        <p className="arena-lobby-titulo">modo standalone</p>
-        <h1 className="arena-lobby-nome">LDI ARENA</h1>
-        <p className="arena-lobby-sub">crie sua ficha · lute contra a CPU · suba no ranking</p>
+        <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
+        <h1 className="arena-lobby-nome">{t('games.arena.titulo')}</h1>
+        <p className="arena-lobby-sub">{t('games.arena.lobby_sub')}</p>
       </div>
 
       <div className="arena-lobby-divider" />
 
       {/* Lista de fichas */}
-      <p className="arena-lobby-section-label">suas fichas</p>
+      <p className="arena-lobby-section-label">{t('games.arena.suas_fichas')}</p>
 
       {loading ? (
-        <div className="arena-lobby-empty">carregando...</div>
+        <div className="arena-lobby-empty">{t('games.arena.carregando')}</div>
       ) : sheets.length === 0 ? (
         <div className="arena-sheet-list">
-          <div className="arena-lobby-empty">nenhuma ficha encontrada</div>
+          <div className="arena-lobby-empty">{t('games.arena.sem_fichas')}</div>
         </div>
       ) : (
         <div className="arena-sheet-list">
@@ -246,7 +249,7 @@ export default function ArenaLobby({ onNavigate }) {
                 <div className="arena-sheet-info">
                   <div className="arena-sheet-name-v">{s.sheet_name}</div>
                   <div className="arena-sheet-meta">
-                    {s.elemental || 'neutro'} · LV {s.level || 1} · {s.xp_total || 0} XP
+                    {s.elemental || 'neutro'} · {t('games.arena.lv', { n: s.level || 1 })} · {s.xp_total || 0} XP
                   </div>
                   <div className="arena-sheet-stats">
                     {['F','H','R','A','PdF'].map(attr => (
@@ -258,7 +261,7 @@ export default function ArenaLobby({ onNavigate }) {
                   </div>
                 </div>
                 <div className="arena-sheet-card-actions">
-                  <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title="Excluir ficha">✕</button>
+                  <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title={t('games.arena.excluir_ficha')}>✕</button>
                   <span className="arena-sheet-arrow">→</span>
                 </div>
               </div>

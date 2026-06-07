@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
 import { calcFA, calcFD, calcDamage, calcInitiative } from '../LDI/engine/combat'
 import { POWERS_BY_ELEMENTAL } from '../LDI/data/powersData'
@@ -10,7 +11,7 @@ const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
 const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
-const MODE_LABELS = { fists: 'Mãos Livres', armed: 'Armado', power: 'Poder' }
+const MODE_LABELS = {}
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
 
@@ -64,7 +65,7 @@ function DiceSlot({ finalValue }) {
       <motion.div className={numberClass} animate={anim} transition={trans}>🎲 {display}</motion.div>
       {phase === 'showing' && (
         <motion.div className={labelClass} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          {isCritical ? '⚡ CRÍTICO!' : `resultado: ${finalValue}`}
+          {isCritical ? t('games.arena.dice_critico') : t('games.arena.dice_resultado', { n: finalValue })}
         </motion.div>
       )}
     </motion.div>
@@ -90,6 +91,10 @@ function OnomaPopup({ word, onDone }) {
 }
 
 export default function ArenaCombat({ onNavigate }) {
+  const { t } = useLanguage()
+  MODE_LABELS.fists = t('games.arena.modo_fists')
+  MODE_LABELS.armed = t('games.arena.modo_armed')
+  MODE_LABELS.power = t('games.arena.modo_power')
   const store = useArenaStore()
   const { sheet, match } = store
   const enemy = match.enemy
@@ -135,7 +140,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
-    setLog([{ type: 'system', text: `🎲 Iniciativa: Você ${pInit} vs ${enemy.name} ${eInit}`, id: Date.now() }])
+    setLog([{ type: 'system', text: t('games.arena.log_iniciativa', { pInit, enemyName: enemy.name, eInit }), id: Date.now() }])
     saidNearDeath.current = false
     saidEnemyLow.current = false
     npcPersonality.current = trashTalkNPCs[Math.floor(Math.random() * trashTalkNPCs.length)]
@@ -239,7 +244,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
 
-        if (nEPv <= 0) { addSystemLog('⚔️ VITÓRIA!'); setTimeout(() => endMatch('victory'), 600); return }
+        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => endMatch('victory'), 600); return }
 
         if (nEPv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')
@@ -284,7 +289,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
 
-        if (nPPv <= 0) { addSystemLog('💀 Você foi derrotado!'); setTimeout(() => endMatch('defeat'), 600); return }
+        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setTimeout(() => endMatch('defeat'), 600); return }
 
         if (nPPv <= isR && !saidNearDeath.current) {
           saidNearDeath.current = true; addTrashWithDelay('player_near_death')
@@ -350,8 +355,8 @@ export default function ArenaCombat({ onNavigate }) {
     return (
       <div className="arena-combat arena-container">
         <div className="arena-power-select">
-          <h2 className="arena-power-title">Preparar Poderes</h2>
-          <p className="arena-power-sub">Selecione até 4 poderes elementais ({elemental})</p>
+          <h2 className="arena-power-title">{t('games.arena.combat_power_titulo')}</h2>
+          <p className="arena-power-sub">{t('games.arena.combat_power_sub', { elemental })}</p>
           <div className="arena-power-grid">
             {availablePowers.map(p => (
               <motion.button key={p.id}
@@ -376,7 +381,7 @@ export default function ArenaCombat({ onNavigate }) {
               <strong>{selectedPowers.length}</strong>/4 selecionados
             </span>
             <button className="arena-btn-primary" onClick={() => setShowPowerSelect(false)}>
-              {selectedPowers.length === 0 ? 'ENTRAR (sem poderes)' : `ENTRAR (${selectedPowers.length} poderes)`}
+              {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
             </button>
           </div>
         </div>
@@ -410,7 +415,7 @@ export default function ArenaCombat({ onNavigate }) {
         {turnOverlay && (
           <motion.div className="arena-enemy-turn-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <motion.span className="arena-enemy-turn-text" animate={{ opacity: [1, 0.2, 1, 0.2, 1] }} transition={{ duration: 1.5 }}>
-              === VEZ DO INIMIGO ===
+              {t('games.arena.combat_vez_inimigo')}
             </motion.span>
           </motion.div>
         )}
@@ -450,7 +455,7 @@ export default function ArenaCombat({ onNavigate }) {
               <span className="arena-fighter-bar-val">{playerPm}/{pmMax}</span>
             </div>
           </div>
-          {nearDeath && <div className="arena-near-death-strip">⚠ PERTO DA MORTE</div>}
+          {nearDeath && <div className="arena-near-death-strip">{t('games.arena.perto_morte')}</div>}
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 
@@ -163,6 +164,7 @@ function AdvTooltip({ label, desc, x, y }) {
 }
 
 export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit }) {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
   const store = useArenaStore()
@@ -184,8 +186,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
   const validateStep = () => {
     const e = {}
-    if (step === 'attrs' && points > 0) e.points = 'Você ainda tem pontos para distribuir.'
-    if (step === 'sheet_name' && !s.sheet_name?.trim()) e.name = 'Dê um nome para sua ficha.'
+    if (step === 'attrs' && points > 0) e.points = t('games.arena.erro_pontos')
+    if (step === 'sheet_name' && !s.sheet_name?.trim()) e.name = t('games.arena.erro_nome')
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -227,8 +229,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
   const handleSalvar = async () => {
     if (!s.sheet_name?.trim()) { setErrors({ name: 'Dê um nome para sua ficha.' }); setStep('sheet_name'); return }
-    if (totalPoints > 0) { setErrors({ cost: 'Vantagens superam desvantagens. Equilibre o saldo.' }); return }
-    if (totalPoints < 0) { setErrors({ cost: 'Desvantagens superam vantagens. Equilibre o saldo.' }); return }
+    if (totalPoints > 0) { setErrors({ cost: t('games.arena.erro_custo_pos') }); return }
+    if (totalPoints < 0) { setErrors({ cost: t('games.arena.erro_custo_neg') }); return }
     await store.saveToCloud(user?.id)
     onNavigate('lobby')
   }
@@ -320,7 +322,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
               className="arc-name-input"
               value={s.sheet_name || ''}
               onChange={e => { store.updateSheet({ sheet_name: e.target.value }); setErrors({}) }}
-              placeholder="nome do lutador..."
+              placeholder={t('games.arena.placeholder_nome')}
               autoFocus
             />
             {errors.name && <p className="arena-err">{errors.name}</p>}
@@ -350,7 +352,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.arma')}</div>
-          <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder="ex: katana, punhos, bastão..." />
+          <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder={t('games.arena.ex_arma')} />
 
           <div className="arc-nav">
             <button className="arc-btn-ghost" onClick={() => setStep('attrs')}>← voltar</button>
@@ -434,7 +436,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
           {errors.cost && <p className="arena-err">{errors.cost}</p>}
           <div className="arc-balance">
-            vantagens {advantageCost} + únicas {perkCost} − desvantagens {disadvantageGain} = <strong style={{ color: totalPoints === 0 ? '#22C55E' : '#8B0000' }}>{totalPoints}</strong> (precisa ser 0)
+            {t('games.arena.balanco', { v: advantageCost, p: perkCost, d: disadvantageGain, total: totalPoints })}
           </div>
 
           <div className="arc-nav">
