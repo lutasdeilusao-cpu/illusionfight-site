@@ -698,26 +698,45 @@ export function isSolid(distrito, tx, ty) {
   return false
 }
 
+/* ── Exit red square range (matches exactly where 4×2 tiles are drawn) ── */
+const EXIT_COLS = 4
+export function getExitRedSquareRange(dir, distrito) {
+  const midX = Math.floor(distrito.mapW / 2)
+  const midY = Math.floor(distrito.mapH / 2)
+  const half = Math.floor(EXIT_COLS / 2)
+  switch (dir) {
+    case 'norte': return { startTx: midX - half, endTx: midX + half - 1, startTy: 0, endTy: 1 }
+    case 'sul': return { startTx: midX - half, endTx: midX + half - 1, startTy: distrito.mapH - 2, endTy: distrito.mapH - 1 }
+    case 'leste': return { startTx: distrito.mapW - 2, endTx: distrito.mapW - 1, startTy: midY - half, endTy: midY + half - 1 }
+    case 'oeste': return { startTx: 0, endTx: 1, startTy: midY - half, endTy: midY + half - 1 }
+    default: return null
+  }
+}
+
+/* ── Building door red square range (4×2 tiles in front of door) ── */
+export function getBuildingRedSquareRange(b) {
+  const midX = b.x + Math.floor(b.w / 2)
+  const doorY = b.y + b.h
+  return { startTx: midX - 2, endTx: midX + 1, startTy: doorY, endTy: doorY + 1 }
+}
+
+/* ── Only detects if player is ON the building red squares ── */
 export function getBuildingAt(px, py, distrito) {
-  const ZONE_DOOR_W = 3, ZONE_DOOR_H = 3
   const tx = Math.floor(px / STEP), ty = Math.floor(py / STEP)
   for (const b of distrito.buildings) {
-    const doorX = b.x + Math.floor(b.w / 2) - 1, doorY = b.y + b.h
-    if (tx >= doorX && tx < doorX + ZONE_DOOR_W && ty >= doorY && ty < doorY + ZONE_DOOR_H) return b
+    const r = getBuildingRedSquareRange(b)
+    if (tx >= r.startTx && tx <= r.endTx && ty >= r.startTy && ty <= r.endTy) return b
   }
   return null
 }
 
+/* ── Only detects if player is ON the exit red squares ── */
 export function getExitAt(px, py, distrito) {
   const tx = Math.floor(px / STEP), ty = Math.floor(py / STEP)
-  const EXIT_ZONE = 1
   for (const [dir, exitData] of Object.entries(distrito.exits)) {
-    switch (dir) {
-      case 'norte': if (ty <= EXIT_ZONE) return exitData; break
-      case 'sul':   if (ty >= distrito.mapH - 1 - EXIT_ZONE) return exitData; break
-      case 'leste': if (tx >= distrito.mapW - 1 - EXIT_ZONE) return exitData; break
-      case 'oeste': if (tx <= EXIT_ZONE) return exitData; break
-    }
+    const r = getExitRedSquareRange(dir, distrito)
+    if (!r) continue
+    if (tx >= r.startTx && tx <= r.endTx && ty >= r.startTy && ty <= r.endTy) return exitData
   }
   return null
 }
