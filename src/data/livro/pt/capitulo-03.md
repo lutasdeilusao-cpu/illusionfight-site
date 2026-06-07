@@ -218,15 +218,15 @@ Kim e Jack colocaram as mãos no peito ao mesmo tempo e soltaram um suspiro long
 
 Jack observava a situação com o brilho de quem estava vendo a abertura perfeita. Depois do fora épico de Nina, finalmente havia algo para devolver.
 
-— Eita Kim, vai deixar assim? Cara, se precisar eu te empresto o meu SBI. Eu não deixava essa passar não.
+— Eita Kim, vai deixar assim? Esse maninho ai, te desafiar na moral? Se precisar eu te empresto o meu SBI. Ou vai correr como um frango, pô, pô, pôoo.
 
 Kim revirou os olhos.
 
-— Eu trabalho, estudo, brigo, bebo e trabalho de novo. Não tenho tempo pra besteira.
+— Eu trabalho, estudo, brigo, bebo e trabalho de novo. Besteira de joguinho não cabe na minha agenda.
 
 Jack mergulhou a mão na bolsa e tirou o SBI, balançando o dispositivo como quem oferece algo inevitável.
 
-— Vai lá. Você ainda pode me ajudar em alguns desafios que tô enfrentando.
+— Tá com "meda" é? .
 
 Freddy saiu de trás da coluna com o sorriso irônico que havia ensaiado a noite inteira.
 
