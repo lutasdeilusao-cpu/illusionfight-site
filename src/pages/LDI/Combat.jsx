@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
@@ -11,6 +12,7 @@ import { POWERS_BY_ELEMENTAL } from './data/powersData'
 import './LDI.css'
 
 export default function Combat() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
   const { setReaderMode } = useReader()
@@ -55,7 +57,7 @@ export default function Combat() {
     })
     combat.addLog({
       type: 'initiative',
-      text: `🔮 Poderes preparados: ${powerNames.join(', ') || 'nenhum'}`,
+      text: t('games.ldi.combat.poderes_preparados', { poderes: powerNames.join(', ') || t('games.ldi.combat.nenhum') }),
     })
   }
 
@@ -136,9 +138,9 @@ export default function Combat() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <h2 className="ldi-power-select-title">Preparar Poderes</h2>
+            <h2 className="ldi-power-select-title">{t('games.ldi.combat.power_titulo')}</h2>
             <p className="ldi-power-select-sub">
-              Selecione até 4 poderes elementais ({elemental}) para usar neste combate.
+              {t('games.ldi.combat.power_sub', { elemental })}
               <button className="ldi-power-select-manual" onClick={() => setShowManual(true)}>📖</button>
             </p>
             <div className="ldi-power-select-grid">
@@ -162,12 +164,12 @@ export default function Combat() {
               })}
             </div>
             <div className="ldi-power-select-footer">
-              <span className="ldi-power-select-count">{selectedPowers.length}/4 selecionados</span>
+              <span className="ldi-power-select-count">{t('games.ldi.combat.power_count', { n: selectedPowers.length })}</span>
               <button
                 className="ldi-btn ldi-btn--primary"
                 onClick={handleStartCombat}
               >
-                {selectedPowers.length === 0 ? 'ENTRAR EM COMBATE (SEM PODERES)' : `ENTRAR EM COMBATE (${selectedPowers.length} PODERES)`}
+                {selectedPowers.length === 0 ? t('games.ldi.combat.entrar_sem') : t('games.ldi.combat.entrar_com', { n: selectedPowers.length })}
               </button>
             </div>
           </motion.div>
@@ -189,7 +191,7 @@ export default function Combat() {
             exit={{ opacity: 0, scale: 1.5 }}
             transition={{ duration: 0.3 }}
           >
-            +10 XP
+            {t('games.ldi.combat.xp_toast', { n: 10 })}
           </motion.div>
         )}
       </AnimatePresence>

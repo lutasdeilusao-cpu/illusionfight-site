@@ -926,6 +926,34 @@
         "conquistas_label": "Achievements",
         "pistas_coletadas": "📋 Collected Clues",
         "pistas_label": "Clues:"
+      },
+      "attr_forca": "Power",
+      "attr_agilidade": "Agility",
+      "attr_resistencia": "Resistance",
+      "attr_protecao": "Protection",
+      "attr_poder_elemental": "Elemental Power",
+      "game": {
+        "levelup_titulo": "ACTION POINTS",
+        "levelup_sub": "Distribute your attribute point:",
+        "levelup_pontos": "Available points: {n}",
+        "levelup_restam": "Distribute {n} remaining point(s)",
+        "levelup_confirmar": "CONFIRM",
+        "carregando": "Loading...",
+        "hud_ficha": "📋 Sheet",
+        "hud_dia": "Day {n}",
+        "hud_creditos": "💰 {n}",
+        "hud_pistas": "📓 Clues ({n})",
+        "hud_manual": "📖 Manual"
+      },
+      "combat": {
+        "power_titulo": "Prepare Powers",
+        "power_sub": "Select up to 4 elemental powers ({elemental}) to use in this combat.",
+        "power_count": "{n}/4 selected",
+        "entrar_sem": "ENTER COMBAT (NO POWERS)",
+        "entrar_com": "ENTER COMBAT ({n} POWERS)",
+        "poderes_preparados": "🔮 Powers prepared: {poderes}",
+        "nenhum": "none",
+        "xp_toast": "+{n} XP"
       }
     },
     "tatics": {

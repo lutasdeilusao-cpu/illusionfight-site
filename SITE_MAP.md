@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-07*    
-*Versão: 2.70*  |  `[SITE] versão carregada: 2.67`
+*Versão: 2.71*  |  `[SITE] versão carregada: 2.67`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -128,12 +128,12 @@
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real via Supabase Realtime — timer 30s, PPT, transferência de cartas |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ PT ✅ EN ✅ ES | LDI LENDAS — lobby do RPG narrativo — **core gameplay perfeito (1ª temporada), textos pendentes de revisão** |
 | `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ PT ✅ EN ✅ ES | NeoGuide guiado + Ficha Completa (vantagens, desvantagens, perícias) |
-| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela principal de jogo (cena narrativa + typewriter) |
-| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Tela de combate 3D&T com 3 modos + seleção de poderes |
+| `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela principal de jogo (cena narrativa + typewriter) |
+| `/games/ldi/combat` | LDICombat | `src/pages/LDI/Combat.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de combate 3D&T com 3 modos + seleção de poderes |
 | `/games/ldi/sheet` | LDISheet | `src/pages/LDI/Sheet.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Ficha do personagem (consulta) |
 | `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim de jogo |
-| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ⏳ PT ⏳ EN ⏳ ES | Roteador de puzzles in-game |
+| `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles in-game |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ FINALIZADO v1.7.3 | ⏳ PT ⏳ EN ⏳ ES | LDI ARENA — criação de ficha + combate CPU standalone com progressão de inimigos — **1ª temporada** |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.3.0 | ⏳ PT ⏳ EN ⏳ ES | LDI TATICS — sistema tático por turnos com visão **isométrica (Canvas 2D)**: grid 16×16 (TILE 80×40), câmera suave com lerp + drag-to-pan, minimapa top-down (120px), hover glow em tiles de alcance, path glow na animação de movimento (aliados e inimigos), diamond hit test nos cliques, free look mode (🔍) para navegar o mapa. 20 personagens jogáveis, 3v3, sistema de equipamentos, desbloqueio de slots, 16 personalidades de IA, simulação automática, juice visual (screen shake, flash, dano popup). **Cidade de Marélia expandida — 8 distritos (Central, Residencial, Comercial, Industrial, Porto, Mercado, Yohualticit, Subúrbio), 13 interiores únicos, 10 NPCs com diálogo, sistema de clima (dia/noite/chuva), partículas (folhas/chuva), useCityStore (Zustand), relógio dinâmico.** |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.1.2 | ⏳ PT ⏳ EN ⏳ ES | Jack Dream Beer — idle noir investigativo — **1ª temporada** (testado até Aruane, core loop ok) |

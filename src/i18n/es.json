@@ -926,6 +926,34 @@
         "conquistas_label": "Logros",
         "pistas_coletadas": "📋 Pistas Recogidas",
         "pistas_label": "Pistas:"
+      },
+      "attr_forca": "Potencia",
+      "attr_agilidade": "Agilidad",
+      "attr_resistencia": "Resistencia",
+      "attr_protecao": "Protección",
+      "attr_poder_elemental": "Poder Elemental",
+      "game": {
+        "levelup_titulo": "PUNTOS DE ACCIÓN",
+        "levelup_sub": "Distribuye tu punto de atributo:",
+        "levelup_pontos": "Puntos disponibles: {n}",
+        "levelup_restam": "Distribuye {n} punto(s) restante(s)",
+        "levelup_confirmar": "CONFIRMAR",
+        "carregando": "Cargando...",
+        "hud_ficha": "📋 Ficha",
+        "hud_dia": "Día {n}",
+        "hud_creditos": "💰 {n}",
+        "hud_pistas": "📓 Pistas ({n})",
+        "hud_manual": "📖 Manual"
+      },
+      "combat": {
+        "power_titulo": "Preparar Poderes",
+        "power_sub": "Selecciona hasta 4 poderes elementales ({elemental}) para usar en este combate.",
+        "power_count": "{n}/4 seleccionados",
+        "entrar_sem": "ENTRAR EN COMBATE (SIN PODERES)",
+        "entrar_com": "ENTRAR EN COMBATE ({n} PODERES)",
+        "poderes_preparados": "🔮 Poderes preparados: {poderes}",
+        "nenhum": "ninguno",
+        "xp_toast": "+{n} XP"
       }
     },
     "tatics": {

@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
@@ -9,15 +10,16 @@ import SceneView from './components/SceneView'
 import ManualDrawer from './components/ManualDrawer'
 import './LDI.css'
 
-const ATTR_NAMES = {
-  F: 'Potência',
-  H: 'Agilidade',
-  R: 'Resistência',
-  A: 'Proteção',
-  PdF: 'Poder Elemental',
+const ATTR_KEYS = {
+  F: 'games.ldi.attr_forca',
+  H: 'games.ldi.attr_agilidade',
+  R: 'games.ldi.attr_resistencia',
+  A: 'games.ldi.attr_protecao',
+  PdF: 'games.ldi.attr_poder_elemental',
 }
 
 export default function Game() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
   const { setReaderMode } = useReader()
@@ -136,10 +138,11 @@ export default function Game() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="ldi-levelup-title">PONTOS DE AÇÃO</div>
-            <div className="ldi-levelup-sub">Distribua seu ponto de atributo:</div>
-            <div className="ldi-levelup-points">Pontos disponíveis: {levelUpPoints}</div>
-            {Object.entries(ATTR_NAMES).map(([key, label]) => {
+            <div className="ldi-levelup-title">{t('games.ldi.game.levelup_titulo')}</div>
+            <div className="ldi-levelup-sub">{t('games.ldi.game.levelup_sub')}</div>
+            <div className="ldi-levelup-points">{t('games.ldi.game.levelup_pontos', { n: levelUpPoints })}</div>
+            {Object.entries(ATTR_KEYS).map(([key, labelKey]) => {
+              const label = t(labelKey)
               const baseVal = baseAttrs[key] || 0
               const currentVal = displayAttrs[key] || 0
               const atMax = currentVal >= 4
@@ -171,7 +174,7 @@ export default function Game() {
               disabled={levelUpPoints > 0}
               style={levelUpPoints > 0 ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
             >
-              {levelUpPoints > 0 ? `Distribua ${levelUpPoints} ponto(s) restante(s)` : 'CONFIRMAR'}
+              {levelUpPoints > 0 ? t('games.ldi.game.levelup_restam', { n: levelUpPoints }) : t('games.ldi.game.levelup_confirmar')}
             </button>
           </motion.div>
         </div>
@@ -182,7 +185,7 @@ export default function Game() {
   if (!currentScene) {
     return (
       <div className="ldi-game">
-        <div className="ldi-game-loading">Carregando...</div>
+        <div className="ldi-game-loading">{t('games.ldi.game.carregando')}</div>
       </div>
     )
   }
@@ -191,19 +194,19 @@ export default function Game() {
     <div className="ldi-game">
       <div className="ldi-game-hud">
         <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/sheet')}>
-          📋 Ficha
+          {t('games.ldi.game.hud_ficha')}
         </span>
         <span className="ldi-game-hud-item">
-          Dia {save.day_in_game}
+          {t('games.ldi.game.hud_dia', { n: save.day_in_game })}
         </span>
         <span className="ldi-game-hud-item">
-          💰 {save.credits}
+          {t('games.ldi.game.hud_creditos', { n: save.credits })}
         </span>
         <span className="ldi-game-hud-item" onClick={() => navigate('/games/ldi/clues')}>
-          📓 Pistas ({save.clues_collected?.length || 0})
+          {t('games.ldi.game.hud_pistas', { n: save.clues_collected?.length || 0 })}
         </span>
         <span className="ldi-game-hud-item" onClick={() => setShowManual(true)} style={{ cursor: 'pointer' }}>
-          📖 Manual
+          {t('games.ldi.game.hud_manual')}
         </span>
         <span className="ldi-game-hud-item ldi-game-hud-pv">
           ❤️ {save.pv_current}/{Math.max(1, (sheet?.attributes?.R || 0) * 5)}
