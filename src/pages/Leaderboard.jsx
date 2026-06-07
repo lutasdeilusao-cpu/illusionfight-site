@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useLanguage } from '../context/LanguageContext'
 import { supabase } from '../lib/supabase'
 import LoginGate from '../components/LoginGate/LoginGate'
 import './Leaderboard.css'
@@ -29,6 +30,7 @@ for (let i = 11; i <= 20; i++) {
 }
 
 export default function Leaderboard() {
+  const { t } = useLanguage()
   const { user, perfil } = useAuth()
   const [aba, setAba] = useState('toptrumps')
 
@@ -90,8 +92,8 @@ export default function Leaderboard() {
 
   return (
     <section className="lb-page">
-      <h1 className="lb-titulo">ARENA — RANKING GLOBAL</h1>
-      <p className="lb-sub">Os melhores jogadores de Top Trumps do universo LDI</p>
+      <h1 className="lb-titulo">{t('site.leaderboard.titulo')}</h1>
+      <p className="lb-sub">{t('site.leaderboard.subtitulo')}</p>
 
       <div className="lb-abas">
         {['toptrumps', 'quiz', 'geral', 'cuidadores'].map(a => (
@@ -100,8 +102,8 @@ export default function Leaderboard() {
             className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`}
             onClick={() => setAba(a)}
           >
-            {a === 'toptrumps' ? 'TOP TRUMPS' : a === 'quiz' ? 'QUIZ SDR' : a === 'geral' ? 'GERAL' : 'CUIDADORES'}
-            {(a === 'quiz' || a === 'geral') && <span className="lb-breve">EM BREVE</span>}
+            {a === 'toptrumps' ? t('site.leaderboard.abas.toptrumps').toUpperCase() : a === 'quiz' ? 'QUIZ SDR' : a === 'geral' ? t('site.leaderboard.abas.geral').toUpperCase() : t('site.leaderboard.abas.cuidadores').toUpperCase()}
+            {(a === 'quiz' || a === 'geral') && <span className="lb-breve">{t('site.games.em_breve')}</span>}
           </button>
         ))}
       </div>
@@ -109,9 +111,9 @@ export default function Leaderboard() {
       <LoginGate feature="o ranking da arena">
         {aba === 'cuidadores' ? (
           carregandoFama ? (
-            <p className="lb-sub">CARREGANDO...</p>
+            <p className="lb-sub">{t('site.leaderboard.carregando')}</p>
           ) : cuidadores.length === 0 ? (
-            <p className="lb-sub">Nenhum cuidador registrado ainda. Adote um Tamagoshi!</p>
+            <p className="lb-sub">{t('site.leaderboard.sem_cuidadores')}</p>
           ) : (
             <>
               <div className="lb-podium">
@@ -147,7 +149,7 @@ export default function Leaderboard() {
                         <span>{meu.partidas}</span><span>{meu.badges}</span>
                       </div>
                     ) : (
-                      <p className="lb-sub" style={{ textAlign: 'left', margin: 0 }}>Você ainda não aparece no ranking. Adote e cuide de um Tamagoshi!</p>
+                      <p className="lb-sub" style={{ textAlign: 'left', margin: 0 }}>{t('site.leaderboard.sem_cuidador_voce')}</p>
                     )
                   })()}
                 </div>

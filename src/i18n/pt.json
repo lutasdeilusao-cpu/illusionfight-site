@@ -1,22 +1,46 @@
 {
   "nav": {
-    "links": ["Webtoon", "Livro", "Músicas", "Games", "Mundo", "AUTOR", "APOIAR"],
+    "links": [
+      "Webtoon",
+      "Livro",
+      "Músicas",
+      "Games",
+      "Mundo",
+      "AUTOR",
+      "APOIAR"
+    ],
     "cta": "ENTRAR",
-    "aria": { "menu": "Abrir menu" }
+    "aria": {
+      "menu": "Abrir menu"
+    }
   },
   "hero": {
     "title": "LUTAS DE ILUSÃO",
     "subtitle": "Num mundo onde a arena é virtual, as cicatrizes são de verdade. Sempre foram.",
-    "cta": { "primary": "LER AGORA", "secondary": "SAIBA MAIS" }
+    "cta": {
+      "primary": "LER AGORA",
+      "secondary": "SAIBA MAIS"
+    }
   },
   "stats": {
     "title": "UNIVERSO EM NÚMEROS",
-    "labels": ["Jogadores no SDR", "Ano", "Dor real"]
+    "labels": [
+      "Jogadores no SDR",
+      "Ano",
+      "Dor real"
+    ]
   },
   "episodes": {
     "title": "EPISÓDIOS",
-    "titles": ["Apresentação", "O Convite", "Primeiro Round"],
-    "badge": { "free": "FREE", "premium": "PREMIUM" },
+    "titles": [
+      "Apresentação",
+      "O Convite",
+      "Primeiro Round"
+    ],
+    "badge": {
+      "free": "FREE",
+      "premium": "PREMIUM"
+    },
     "thumbnail": "Thumbnail",
     "cta": "VER TODOS",
     "webtoon": {
@@ -43,25 +67,52 @@
       {
         "format": "WEBTOON",
         "items": [
-          { "label": "Episódio 0", "status": "Publicado" },
-          { "label": "Capítulo 1", "status": "Em breve" }
+          {
+            "label": "Episódio 0",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 1",
+            "status": "Em breve"
+          }
         ]
       },
       {
         "format": "LIVRO",
         "items": [
-          { "label": "Capítulo 1", "status": "Publicado" },
-          { "label": "Capítulo 2", "status": "Publicado" },
-          { "label": "Capítulo 3", "status": "Publicado" },
-          { "label": "Capítulo 4", "status": "Em breve" }
+          {
+            "label": "Capítulo 1",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 2",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 3",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 4",
+            "status": "Em breve"
+          }
         ]
       },
       {
         "format": "MÚSICAS",
         "items": [
-          { "label": "Faixa 1", "status": "Publicada" },
-          { "label": "Faixa 2", "status": "Publicada" },
-          { "label": "Faixa 3", "status": "Em breve" }
+          {
+            "label": "Faixa 1",
+            "status": "Publicada"
+          },
+          {
+            "label": "Faixa 2",
+            "status": "Publicada"
+          },
+          {
+            "label": "Faixa 3",
+            "status": "Em breve"
+          }
         ]
       }
     ]
@@ -78,15 +129,33 @@
     "columns": [
       {
         "title": "Navegação",
-        "links": ["Webtoon", "Livro", "Músicas", "Mundo"]
+        "links": [
+          "Webtoon",
+          "Livro",
+          "Músicas",
+          "Mundo"
+        ]
       },
       {
         "title": "Universo",
-        "links": ["Personagens", "Games", "Episódios", "Rankings"]
+        "links": [
+          "Personagens",
+          "Games",
+          "Episódios",
+          "Rankings"
+        ]
       },
       {
         "title": "Sobre",
-        "links": ["Apoiar o Projeto", "Sobre o Autor", "Newsletter", "Contato", "FAQ", "Termos", "Privacidade"]
+        "links": [
+          "Apoiar o Projeto",
+          "Sobre o Autor",
+          "Newsletter",
+          "Contato",
+          "FAQ",
+          "Termos",
+          "Privacidade"
+        ]
       }
     ],
     "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte gerada com auxílio de IA"
@@ -242,5 +311,111 @@
       "Lutas de Ilusão é um projeto independente. Cada capítulo, cada página do webtoon, cada música tem custo e trabalho real por trás. Apoiar a obra é a única forma de manter ela viva e crescendo."
     ],
     "cta": "APOIAR O PROJETO"
+  },
+  "site": {
+    "login": {
+      "titulo": "ENTRAR",
+      "subtitulo": "Acesse sua conta no SDR",
+      "email": "Email",
+      "senha": "Senha",
+      "entrar": "ENTRAR",
+      "entrando": "ENTRANDO...",
+      "sem_conta": "Não tem conta?",
+      "cadastrar_link": "Cadastre-se",
+      "erro": "Erro ao fazer login"
+    },
+    "cadastro": {
+      "titulo": "CADASTRO",
+      "subtitulo": "Crie sua conta no SDR",
+      "nome": "Nome",
+      "email": "Email",
+      "telefone": "Telefone",
+      "senha": "Senha",
+      "confirmar_senha": "Confirmar Senha",
+      "cadastrar": "CADASTRAR",
+      "cadastrando": "CADASTRANDO...",
+      "ja_tem_conta": "Já tem conta?",
+      "entrar_link": "Entrar",
+      "email_invalido": "Email inválido",
+      "telefone_invalido": "Telefone deve ter no mínimo 10 dígitos",
+      "senha_curta": "Senha deve ter no mínimo 6 caracteres",
+      "senhas_diferem": "Senhas não conferem",
+      "sucesso": "Verifique seu email para confirmar o cadastro.",
+      "erro_perfil": "Conta criada mas erro ao salvar perfil. Tente novamente."
+    },
+    "games": {
+      "titulo": "GAMES",
+      "subtitulo": "explore além da história principal",
+      "secao_jogos": "JOGOS",
+      "secao_conteudo": "CONTEÚDO",
+      "inserir_ficha": "INSERIR FICHA",
+      "em_breve": "EM BREVE",
+      "credits": "LUTAS DE ILUSÃO — 1 PLAYER",
+      "badges": {
+        "free": "FREE",
+        "lancado": "LANÇADO",
+        "novo": "NOVO",
+        "beta": "BETA"
+      },
+      "nomes": {
+        "ldi": "LDI LENDAS",
+        "jack": "Jack Dream Beer",
+        "pesadelo": "PRESADELO PARTICULAR",
+        "arena": "LDI ARENA",
+        "tama": "TAMA LDI",
+        "trumps": "LDI TRUMPS",
+        "tatics": "LDI TATICS",
+        "minigames": "MINI GAMES",
+        "duelo": "DUELO LDI",
+        "quiz": "Quiz SDR",
+        "leaderboard": "Leaderboard"
+      },
+      "taglines": {
+        "ldi": "RPG narrativo. crie seu avatar. enfrente a arena.",
+        "jack": "idle noir. sonhos não têm lógica. esse tem cervejas.",
+        "pesadelo": "20 casos. uma conspiração. um amigo em perigo.",
+        "arena": "combate em tempo real contra a CPU.",
+        "tama": "seu bicho te espera. alimente, cuide, não deixe morrer.",
+        "trumps": "cartas colecionáveis. monte seu deck. vença a IA.",
+        "tatics": "6 classes. grid tático. 3v3. batalha por turnos.",
+        "minigames": "puzzles standalone. sem login. só habilidade.",
+        "duelo": "card game 1v1. invocar, atacar, vencer.",
+        "quiz": "teste seu conhecimento do universo LDI.",
+        "leaderboard": "ranking global de jogadores."
+      }
+    },
+    "leaderboard": {
+      "titulo": "ARENA — RANKING GLOBAL",
+      "subtitulo": "Os melhores jogadores de Top Trumps do universo LDI",
+      "abas": {
+        "toptrumps": "Top Trumps",
+        "quiz": "Quiz",
+        "geral": "Geral",
+        "cuidadores": "Cuidadores"
+      },
+      "badges_label": "badges",
+      "vitorias": "vitórias",
+      "derrotas": "derrotas",
+      "cartas": "cartas",
+      "pontos": "pts",
+      "sem_rank": "Você ainda não aparece no ranking.",
+      "sem_cuidadores": "Nenhum cuidador registrado ainda. Adote um Tamagoshi!",
+      "sem_cuidador_voce": "Você ainda não aparece no ranking. Adote e cuide de um Tamagoshi!",
+      "carregando": "CARREGANDO..."
+    },
+    "perfil": {
+      "fichas": "FICHAS",
+      "abas": [
+        "Conquistas",
+        "Arena",
+        "Coleção",
+        "Conta",
+        "Recompensas",
+        "Tamagoshi"
+      ],
+      "sair": "SAIR",
+      "admin_label": "ADMIN",
+      "meu_perfil": "Meu Perfil"
+    }
   }
 }

@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
+import { useLanguage } from '../context/LanguageContext'
 import './Login.css'
 
 export default function Cadastro() {
+  const { t } = useLanguage()
   const { carregarPerfil } = useAuth()
   const { migrarLocalParaSupabase, desbloquear } = useAchievements()
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', senha: '', confirmarSenha: '' })
@@ -16,10 +18,10 @@ export default function Cadastro() {
   const set = (campo) => (e) => setForm(s => ({ ...s, [campo]: e.target.value }))
 
   const validar = () => {
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return 'Email inválido'
-    if (form.telefone.replace(/\D/g, '').length < 10) return 'Telefone deve ter no mínimo 10 dígitos'
-    if (form.senha.length < 6) return 'Senha deve ter no mínimo 6 caracteres'
-    if (form.senha !== form.confirmarSenha) return 'Senhas não conferem'
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return t('site.cadastro.email_invalido')
+    if (form.telefone.replace(/\D/g, '').length < 10) return t('site.cadastro.telefone_invalido')
+    if (form.senha.length < 6) return t('site.cadastro.senha_curta')
+    if (form.senha !== form.confirmarSenha) return t('site.cadastro.senhas_diferem')
     return null
   }
 
@@ -42,7 +44,7 @@ export default function Cadastro() {
         .insert({ id: data.user.id, nome: form.nome, telefone: form.telefone })
       if (perfilError) {
         console.error('Erro perfil:', perfilError)
-        setErro('Conta criada mas erro ao salvar perfil. Tente novamente.')
+        setErro(t('site.cadastro.erro_perfil'))
         setCarregando(false)
         return
       }
@@ -55,27 +57,27 @@ export default function Cadastro() {
       await carregarPerfil(data.user.id)
     }
     setCarregando(false)
-    setSucesso('Verifique seu email para confirmar o cadastro.')
+    setSucesso(t('site.cadastro.sucesso'))
   }
 
   return (
     <section className="auth-page">
       <div className="auth-card">
-        <h1 className="auth-titulo">CADASTRO</h1>
-        <p className="auth-sub">Crie sua conta no SDR</p>
+        <h1 className="auth-titulo">{t('site.cadastro.titulo')}</h1>
+        <p className="auth-sub">{t('site.cadastro.subtitulo')}</p>
         {erro && <p className="auth-erro">{erro}</p>}
         {sucesso && <p className="auth-sucesso">{sucesso}</p>}
         {!sucesso && (
           <form onSubmit={handleSubmit}>
-            <label className="auth-label">Nome<input type="text" className="auth-input" value={form.nome} onChange={set('nome')} required /></label>
-            <label className="auth-label">Email<input type="email" className="auth-input" value={form.email} onChange={set('email')} required /></label>
-            <label className="auth-label">Telefone<input type="tel" className="auth-input" value={form.telefone} onChange={set('telefone')} required /></label>
-            <label className="auth-label">Senha<input type="password" className="auth-input" value={form.senha} onChange={set('senha')} required /></label>
-            <label className="auth-label">Confirmar Senha<input type="password" className="auth-input" value={form.confirmarSenha} onChange={set('confirmarSenha')} required /></label>
-            <button className="auth-btn" type="submit" disabled={carregando}>{carregando ? 'CADASTRANDO...' : 'CADASTRAR'}</button>
+            <label className="auth-label">{t('site.cadastro.nome')}<input type="text" className="auth-input" value={form.nome} onChange={set('nome')} required /></label>
+            <label className="auth-label">{t('site.cadastro.email')}<input type="email" className="auth-input" value={form.email} onChange={set('email')} required /></label>
+            <label className="auth-label">{t('site.cadastro.telefone')}<input type="tel" className="auth-input" value={form.telefone} onChange={set('telefone')} required /></label>
+            <label className="auth-label">{t('site.cadastro.senha')}<input type="password" className="auth-input" value={form.senha} onChange={set('senha')} required /></label>
+            <label className="auth-label">{t('site.cadastro.confirmar_senha')}<input type="password" className="auth-input" value={form.confirmarSenha} onChange={set('confirmarSenha')} required /></label>
+            <button className="auth-btn" type="submit" disabled={carregando}>{carregando ? t('site.cadastro.cadastrando') : t('site.cadastro.cadastrar')}</button>
           </form>
         )}
-        <p className="auth-link-text">Já tem conta? <Link to="/login" className="auth-link">Entrar</Link></p>
+        <p className="auth-link-text">{t('site.cadastro.ja_tem_conta')} <Link to="/login" className="auth-link">{t('site.cadastro.entrar_link')}</Link></p>
       </div>
     </section>
   )

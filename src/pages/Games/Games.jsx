@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import './Games.css'
@@ -21,6 +22,7 @@ const CONTEUDO = [
 ]
 
 export default function Games() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { tentarEntrar: entrarLdi, modalVisivel: modalLdi, fecharModal: fecharLdi } = useFichaGate('lendas_ldi')
   const { tentarEntrar: entrarJack, modalVisivel: modalJack, fecharModal: fecharJack } = useFichaGate('jack_dream_beer')
@@ -40,16 +42,16 @@ export default function Games() {
 
       <div className="extras-header">
         <h1 className="extras-titulo">
-          <span className="extras-titulo-glitch" data-text="GAMES">GAMES</span>
+          <span className="extras-titulo-glitch" data-text={t('site.games.titulo')}>{t('site.games.titulo')}</span>
         </h1>
         <p className="extras-subtitulo">
-          <span className="extras-cursor">█</span> explore além da história principal
+          <span className="extras-cursor">█</span> {t('site.games.subtitulo')}
         </p>
       </div>
 
       <section className="extras-secao">
         <div className="extras-secao-label">
-          <span>▶ JOGOS</span>
+          <span>▶ {t('site.games.secao_jogos')}</span>
           <div className="extras-secao-linha" />
         </div>
         <div className="extras-jogos-grid">
@@ -62,8 +64,8 @@ export default function Games() {
                 <div className="extras-jogo-emoji">{jogo.emoji}</div>
                 <h2 className="extras-jogo-nome">{jogo.nome}</h2>
                 <p className="extras-jogo-tagline">{jogo.tagline}</p>
-                {!jogo.bloqueado && <div className="extras-jogo-cta">INSERIR FICHA</div>}
-                {jogo.bloqueado && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">EM BREVE</div>}
+                {!jogo.bloqueado && <div className="extras-jogo-cta">{t('site.games.inserir_ficha')}</div>}
+                {jogo.bloqueado && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
               </div>
               <div className="extras-jogo-card-borda" />
             </div>
@@ -73,7 +75,7 @@ export default function Games() {
 
       <section className="extras-secao">
         <div className="extras-secao-label">
-          <span>▶ CONTEÚDO</span>
+          <span>▶ {t('site.games.secao_conteudo')}</span>
           <div className="extras-secao-linha" />
         </div>
         <div className="extras-conteudo-grid">
@@ -89,7 +91,7 @@ export default function Games() {
       </section>
 
       <div className="extras-footer-arcade">
-        <span className="extras-footer-credits">© {new Date().getFullYear()} LUTAS DE ILUSÃO — 1 PLAYER</span>
+        <span className="extras-footer-credits">© {new Date().getFullYear()} {t('site.games.credits')}</span>
       </div>
 
       <ModalSemFichas visivel={modalJack} onFechar={fecharJack} jogo="Jack Dream Beer" />
