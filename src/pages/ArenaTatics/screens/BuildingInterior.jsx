@@ -555,14 +555,15 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       const nx = Math.round(s.px / STEP) * STEP + dx * STEP
       const ny = Math.round(s.py / STEP) * STEP + dy * STEP
       if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
-      if (playerCollidesInterior(nx, ny, mapId)) return
 
-      // ═══ AUTO-EXIT: se moveu em direção à SAÍDA, sai na hora ═══
+      // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA — sai ANTES de checar colisão ═══
       if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
           ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
         onExitRef.current()
         return
       }
+
+      if (playerCollidesInterior(nx, ny, mapId)) return
 
       if (dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
       if (dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
@@ -628,15 +629,16 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
         const nx = Math.round(s.px / STEP) * STEP + dir.dx * STEP
         const ny = Math.round(s.py / STEP) * STEP + dir.dy * STEP
         if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
-        if (playerCollidesInterior(nx, ny, mapId)) return
         if (s.moving) return
 
-        // ═══ AUTO-EXIT: se moveu em direção à SAÍDA, sai na hora ═══
+        // ═══ AUTO-EXIT: PRIORIDADE MÁXIMA — sai ANTES de checar colisão ═══
         if (nx >= EXIT_ZONE.x && nx < EXIT_ZONE.x + EXIT_ZONE.w &&
             ny >= EXIT_ZONE.y && ny < EXIT_ZONE.y + EXIT_ZONE.h) {
           onExitRef.current()
           return
         }
+
+        if (playerCollidesInterior(nx, ny, mapId)) return
 
         if (dir.dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
         if (dir.dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
