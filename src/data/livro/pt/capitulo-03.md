@@ -226,11 +226,11 @@ Kim revirou os olhos.
 
 Jack mergulhou a mão na bolsa e tirou o SBI, balançando o dispositivo como quem oferece algo inevitável.
 
-— Tá com "meda" é? .
+— Tá com "meda" é? Não conhecia essa versão gatinho assutado do JOAQUIM.
 
-Freddy saiu de trás da coluna com o sorriso irônico que havia ensaiado a noite inteira.
+Freddy saiu de trás da coluna com o sorriso irônico que havia a oportunidade perfeita.
 
-— Ah, não tem tempo pra besteira né? Ou tá com medo? Não tenho culpa se você tem que trabalhar tanto. Mas pra alguém conhecido como briguento, tá parecendo franguinho.
+— Ah, não tem tempo pra besteira né? Se tá é com medo! Não tenho culpa dos seus problemas. Mas pra alguém conhecido como O REI DA BRIGA, ta parecendo o REI MARICA.
 
 Kim se virou para ele devagar.
 

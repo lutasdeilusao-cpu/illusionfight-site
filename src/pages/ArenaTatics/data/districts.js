@@ -710,7 +710,7 @@ export function getBuildingAt(px, py, distrito) {
 
 export function getExitAt(px, py, distrito) {
   const tx = Math.floor(px / STEP), ty = Math.floor(py / STEP)
-  const EXIT_ZONE = 2
+  const EXIT_ZONE = 1
   for (const [dir, exitData] of Object.entries(distrito.exits)) {
     switch (dir) {
       case 'norte': if (ty <= EXIT_ZONE) return exitData; break
