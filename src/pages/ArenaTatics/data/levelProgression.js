@@ -85,9 +85,24 @@ export function calcAtributosNoNivel(rosterEntry, nivel) {
 
 /**
  * Retorna as skills disponíveis em um dado nível
+ * Todo personagem tem um ataque básico (custo 0) desde o nível 1
  */
 export function getSkillsNoNivel(rosterEntry, nivel) {
   const skills = []
+  // Ataque básico — nível 1, custo 0, sempre disponível
+  if (nivel >= 1) {
+    skills.push({
+      id: `basico_${rosterEntry.id}`,
+      nome: 'Ataque Básico',
+      custo: 0,
+      alcance: 1,
+      dano: 1,
+      cd: 0,
+      tipo: 'fisico',
+      fx: 'nenhum',
+      desc: 'Um golpe simples que não gasta energia',
+    })
+  }
   // skill 1 (index 0) — nível 5
   if (nivel >= 5 && rosterEntry.skills[0]) skills.push({ ...rosterEntry.skills[0] })
   // skill 2 (index 1) — nível 25
