@@ -40,9 +40,9 @@ Kim e Jack na frente, passo tranquilo, a discussão da banda continuando em volu
 \r
 — Infelizmente acho que não. — Kim não virou. — Vai ser rápido. Talvez o Grandão de algum trabalho.\r
 \r
-Jack esticou o pescoço para o lado com um estalo e estendeu a mão aberta. Kim apertou. Aperto curto, firme, o tipo que sela coisa séria.\r
+Jack esticou o pescoço para o lado com um estalo e se esticou num gesto preguiçoso. Kim bocejou entediado.\r
 \r
-Brock, alguns metros atrás, percebeu o gesto. Franziu levemente o cenho. Voltou para o celular.\r
+Brock, alguns metros atrás, percebeu os gestos. Franziu levemente o cenho. Voltou para o celular.\r
 \r
 ---\r
 \r
@@ -50,7 +50,7 @@ O banheiro do corredor B.\r
 \r
 Kim entrou, Jack entrou, o grupo tentou entrar junto. Kim segurou a porta com o braço estendido, bloqueando sem fazer força.\r
 \r
-— Precisamos trocar de roupa. Esperem aqui.\r
+— Precisamos trocar de roupa, esse uniforme é caro e um saco de levar. Esperem aqui.\r
 \r
 Brock parou o grupo com um gesto. A porta fechou.\r
 \r
@@ -68,15 +68,15 @@ Pausa. Jack abriu a torneira, molhou o rosto, fechou.\r
 \r
 Kim pausou com a camiseta ainda na mão. Ficou alguns segundos vasculhando a memória de verdade.\r
 \r
-— A gente nunca perdeu. Desde que começamos a lutar junto. O único que acabou com a gente mais de uma vez foi o Campeão.\r
+— A gente nunca perdeu. O único que acabou com a gente mais de uma vez foi o Campeão.\r
 \r
 Jack fez uma careta. Não de raiva. De algo entre desgosto e respeito involuntário que ele claramente não queria sentir.\r
 \r
-— Verdade. O Campeão. Nunca conseguimos dobrar aquele cara.\r
+— Verdade. O Campeão. Nunca conseguimos dobrar aquele cara, onde será que ele anda?\r
 \r
-— Sumiu faz tempo. — Kim checou o espelho. — Mas cinco capangas clássicos e um playba de olho roxo? Só me preocupa atrasar pra próxima aula.\r
+— Sumiu ja faz tempo, boatos dizem que ta morto, forte na porrada, mas não mais forte que uma bala. — Kim checou o espelho. — Vamos ser rapidos.To preocupado em nos atrasarmos pra próxima aula.\r
 \r
-Jack estendeu a mão. Kim apertou.\r
+Sairam do banheiro dando risada e voltaram a discussão.\r
 \r
 ---\r
 \r
