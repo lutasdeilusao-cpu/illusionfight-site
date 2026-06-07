@@ -1,5 +1,17 @@
 # AGENTS.md — Illusion Fight Site
 
+## Mandatory workflow for every code change
+
+No exceptions. Every modification to any game file:
+
+1. **Bump the version** in the corresponding file above
+2. **Update `SITE_MAP.md`** with the new version number
+3. **`npm run build`** — if it fails, fix before proceeding
+4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
+5. **`git push`**
+6. **`npm run deploy`**
+7. **Verify** the deploy published without errors
+
 ## Stack
 
 - **Vite 8** + **React 19** (JSX only, no TypeScript)
@@ -56,17 +68,7 @@ git push             # push main branch source
 
 Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
 
-## Mandatory workflow for every code change
 
-No exceptions. Every modification to any game file:
-
-1. **Bump the version** in the corresponding file above
-2. **Update `SITE_MAP.md`** with the new version number
-3. **`npm run build`** — if it fails, fix before proceeding
-4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
-5. **`git push`**
-6. **`npm run deploy`**
-7. **Verify** the deploy published without errors
 
 **Automation:** `python deploy.py -g <game> -m "description"` does steps 1-6 in one command. Use `--minor` or `--major` for non-patch bumps. Accepts multiple `-g` values.
 

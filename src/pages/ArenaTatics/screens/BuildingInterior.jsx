@@ -609,49 +609,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     }
   }, [mapId, buildingName])
 
-  /* ── Keyboard ── */
-  useEffect(() => {
-    // NOTA: 'a'/'A' NÃO estão no mapa de movimento — são usados exclusivamente para interagir (sair)
-    const keyMap = {
-      ArrowUp: { dx: 0, dy: -1 }, w: { dx: 0, dy: -1 }, W: { dx: 0, dy: -1 },
-      ArrowDown: { dx: 0, dy: 1 }, s: { dx: 0, dy: 1 }, S: { dx: 0, dy: 1 },
-      ArrowLeft: { dx: -1, dy: 0 },
-      ArrowRight: { dx: 1, dy: 0 }, d: { dx: 1, dy: 0 }, D: { dx: 1, dy: 0 },
-    }
-
-    const handleKeyDown = (e) => {
-      const s = stateRef.current
-      const dir = keyMap[e.key]
-      if (dir) {
-        e.preventDefault()
-        if (s.moving) return
-        const nx = Math.round(s.px / STEP) * STEP + dir.dx * STEP
-        const ny = Math.round(s.py / STEP) * STEP + dir.dy * STEP
-        if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
-        if (playerCollidesInterior(nx, ny, mapId)) return
-
-        if (dir.dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
-        if (dir.dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
-        if (dir.dx === 1)  { s.spriteDir = 'side';  s.spriteFlip = false }
-        if (dir.dx === -1) { s.spriteDir = 'side';  s.spriteFlip = true  }
-
-        s.spriteIdle = false
-        s.moveFrom = { x: s.px, y: s.py }
-        s.moveTo = { x: nx, y: ny }
-        s.moving = true
-        s.moveProgress = 0
-        s.moveStart = performance.now()
-      }
-
-      // A / Enter — só sai se estiver na zona de saída e apertar A (não automático)
-      if ((e.key === 'a' || e.key === 'A' || e.key === 'Enter') && getInteriorZone(s.px, s.py) === 'SAIDA') {
-        onExitRef.current(mapId)
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [mapId])
+  /* ── Teclado removido — jogo 100% touch/mobile ── */
 
   const handleAnalogMove = useCallback((dx, dy) => {
     const s = stateRef.current

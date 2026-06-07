@@ -216,27 +216,7 @@ export default function CityOverworld({ onEnterBuilding, onBackToMenu, spawnPoin
     return ()=>{if(animRef.current)cancelAnimationFrame(animRef.current);if(zt)clearTimeout(zt)}
   },[])
 
-  /* ── Keyboard ── */
-  useEffect(() => {
-    // NOTA: 'a'/'A' NÃO estão no mapa de movimento — são usados exclusivamente para interagir (entrar em prédios, falar com detetive)
-    const km = { ArrowUp:{dx:0,dy:-1},w:{dx:0,dy:-1},W:{dx:0,dy:-1},ArrowDown:{dx:0,dy:1},s:{dx:0,dy:1},S:{dx:0,dy:1},ArrowLeft:{dx:-1,dy:0},ArrowRight:{dx:1,dy:0},d:{dx:1,dy:0},D:{dx:1,dy:0} }
-    const h = (e) => {
-      const d = km[e.key]
-      if (d) { e.preventDefault()
-        const nx=Math.round(s.current.px/STEP)*STEP+d.dx*STEP, ny=Math.round(s.current.py/STEP)*STEP+d.dy*STEP
-        if (nx<0||ny<0||nx+SPRITE_W>WORLD_W||ny+SPRITE_H>WORLD_H||s.current.moving||playerCollides(nx,ny)) return
-        s.current.moveFrom={x:s.current.px,y:s.current.py}; s.current.moveTo={x:nx,y:ny}; s.current.moving=true; s.current.moveProgress=0; s.current.moveStart=performance.now()
-      }
-      if (e.key==='a'||e.key==='A'||e.key==='Enter') {
-        const b = getBuildingAt(s.current.px,s.current.py)
-        if (b) onEnterBuilding(b.interiorMapId,b.name)
-        else if (getDetectiveZone(s.current.px,s.current.py)) { setInteractLabel('DETETIVE: "Você acha que isso aqui é só um joguinho?"'); setTimeout(()=>setInteractLabel(''),3000) }
-      }
-      if (e.key==='Escape') setShowMenu(p=>!p)
-    }
-    window.addEventListener('keydown',h)
-    return ()=>window.removeEventListener('keydown',h)
-  },[onEnterBuilding])
+  /* ── Teclado removido — jogo 100% touch/mobile ── */
 
   /* ── GameControls callbacks ── */
   const handleAnalogMove = useCallback((dx, dy) => {
