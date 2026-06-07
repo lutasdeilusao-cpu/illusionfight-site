@@ -128,16 +128,22 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
 
   // Mouse handlers
   const handleMouseDown = useCallback((e) => {
+    // Só ativa o analógico se o clique foi DENTRO do círculo do analógico, não nos botões
     const a = aRef.current
     const el = analogElRef.current
     if (!el) return
     if (a.activeId !== null) return
+    // Verifica se o clique foi no próprio analógico ou dentro dele
+    const analogRect = el.getBoundingClientRect()
+    const cx = analogRect.left + analogRect.width / 2
+    const cy = analogRect.top + analogRect.height / 2
+    const dist = Math.sqrt((e.clientX - cx) ** 2 + (e.clientY - cy) ** 2)
+    if (dist > analogRect.width / 2 + 20) return  // muito longe do analógico
 
     a.activeId = 'mouse'
     el.style.display = 'block'
-    const r = el.getBoundingClientRect()
-    a.cx = r.left + r.width / 2
-    a.cy = r.top + r.height / 2
+    a.cx = cx
+    a.cy = cy
 
     updateAnalog(e.clientX, e.clientY)
   }, [])
@@ -160,17 +166,18 @@ export default function GameControls({ onMove, onA, onB, moveIntervalMs = 180 })
   }, [])
 
   return (
-    <div
-      className="city-controls-touch-area"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      onTouchCancel={handleTouchEnd}
-      onMouseDown={handleMouseDown}
-    >
+    <div className="city-controls-touch-area">
       <div className="city-gb-panel">
         {/* Analog stick — left side */}
-        <div ref={analogElRef} className="city-analog-container">
+        <div
+          ref={analogElRef}
+          className="city-analog-container"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+        >
           <div className="city-analog-outer">
             <div className="city-analog-inner" />
             <div ref={knobRef} className="city-analog-knob" />

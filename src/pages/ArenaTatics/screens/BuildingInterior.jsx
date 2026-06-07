@@ -645,13 +645,13 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
 
       // A / Enter — só sai se estiver na zona de saída e apertar A (não automático)
       if ((e.key === 'a' || e.key === 'A' || e.key === 'Enter') && getInteriorZone(s.px, s.py) === 'SAIDA') {
-        onExit()
+        onExitRef.current(mapId)
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [mapId, onExit])
+  }, [mapId])
 
   const handleAnalogMove = useCallback((dx, dy) => {
     const s = stateRef.current
@@ -661,9 +661,9 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
   const handleButtonA = useCallback(() => {
     const s = stateRef.current
     if (getInteriorZone(s.px, s.py) === 'SAIDA') {
-      onExit()
+      onExitRef.current(mapId)
     }
-  }, [onExit])
+  }, [mapId])
 
   const handleButtonB = useCallback(() => {
     // B button in interior does nothing special
