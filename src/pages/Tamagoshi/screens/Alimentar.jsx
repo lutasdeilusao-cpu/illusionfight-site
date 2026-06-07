@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
@@ -7,6 +8,7 @@ import { ITENS_LOJA, COMIDA_TEMATICA } from '../data/itens_loja'
 import { DIX_POR_ACAO } from '../data/moedas'
 
 export default function Alimentar({ onConcluir }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [progress, setProgress] = useState(0)
   const [animando, setAnimando] = useState(false)
@@ -36,7 +38,7 @@ export default function Alimentar({ onConcluir }) {
 
   return (
     <div className="tama-acao-screen">
-      <h2 className="tama-acao-title">🍖 alimentar</h2>
+      <h2 className="tama-acao-title">{t('games.tamagoshi.alimentar_title')}</h2>
 
       <div className="tama-acao-progress-container">
         <div className="tama-acao-progress-track">
@@ -78,7 +80,7 @@ export default function Alimentar({ onConcluir }) {
           {itemUsar?.emoji || '🍖'} {itemUsar?.nome || 'alimentar'} ({inv[itemUsar?.id] || 0}x)
         </motion.button>
       ) : (
-        <p className="tama-aviso">você não tem comida — visite a loja</p>
+        <p className="tama-aviso">{t('games.tamagoshi.alimentar_sem_comida')}</p>
       )}
 
       <motion.button
@@ -88,7 +90,7 @@ export default function Alimentar({ onConcluir }) {
         whileTap={{ scale: 0.95 }}
         onClick={onConcluir}
       >
-        [ voltar ]
+        [ {t('games.tamagoshi.voltar')} ]
       </motion.button>
     </div>
   )

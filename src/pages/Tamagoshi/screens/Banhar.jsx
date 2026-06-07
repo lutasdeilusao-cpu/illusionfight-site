@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { DIX_POR_ACAO } from '../data/moedas'
 
 export default function Banhar({ onConcluir }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [progress, setProgress] = useState(0)
   const [bolhas, setBolhas] = useState([])
@@ -91,7 +93,7 @@ export default function Banhar({ onConcluir }) {
       ref={containerRef}
       style={{ touchAction: 'none', overscrollBehavior: 'none' }}
     >
-      <h2 className="tama-acao-title">🧼 banhar</h2>
+      <h2 className="tama-acao-title">{t('games.tamagoshi.banhar_title')}</h2>
 
       <div className="tama-acao-progress-container">
         <div className="tama-acao-progress-track">
@@ -124,9 +126,9 @@ export default function Banhar({ onConcluir }) {
       </div>
 
       {temSabonete ? (
-        <p className="tama-acao-hint">arraste para cima e para baixo para esfregar</p>
+        <p className="tama-acao-hint">{t('games.tamagoshi.banhar_hint')}</p>
       ) : (
-        <p className="tama-aviso">você não tem sabonete — visite a loja</p>
+        <p className="tama-aviso">{t('games.tamagoshi.banhar_sem_sabonete')}</p>
       )}
 
       <motion.button
@@ -136,7 +138,7 @@ export default function Banhar({ onConcluir }) {
         whileTap={{ scale: 0.95 }}
         onClick={onConcluir}
       >
-        [ voltar ]
+        [ {t('games.tamagoshi.voltar')} ]
       </motion.button>
     </div>
   )

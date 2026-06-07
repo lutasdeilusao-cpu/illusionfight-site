@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES } from '../data/personalidades'
 
@@ -12,6 +13,7 @@ function shuffle(arr) {
 }
 
 export default function Selecao({ onEscolher, userTier }) {
+  const { t } = useLanguage()
   const opcoes = useMemo(() => {
     const qtd = userTier === 'primordial' ? 10 : userTier === 'elite' ? 3 : 1
     const umaPorTipo = []
@@ -26,8 +28,8 @@ export default function Selecao({ onEscolher, userTier }) {
   return (
     <div className="tama-screen">
       <div className="tama-selecao">
-        <h2 className="tama-selecao-title">um ser emerge do ovo</h2>
-        <p className="tama-selecao-sub">quem você quer que seja?</p>
+        <h2 className="tama-selecao-title">{t('games.tamagoshi.selecao_titulo')}</h2>
+        <p className="tama-selecao-sub">{t('games.tamagoshi.selecao_sub')}</p>
         <div className="tama-selecao-grid">
           {opcoes.map((c, i) => {
             const pers = PERSONALIDADES[c.tipo]

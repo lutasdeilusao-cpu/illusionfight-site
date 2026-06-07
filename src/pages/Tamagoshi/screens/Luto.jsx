@@ -1,9 +1,11 @@
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { getFala } from '../data/personalidades'
 import CooldownTimer from '../components/CooldownTimer'
 import { motion } from 'framer-motion'
 
 export default function Luto() {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const epitafio = getFala(store.personalidade, 'morte', store.criaturaId)
 
@@ -20,14 +22,14 @@ export default function Luto() {
         >
           💔
         </motion.div>
-        <h2 className="tama-luto-title">{store.nomeCustom} se foi</h2>
+        <h2 className="tama-luto-title">{t('games.tamagoshi.luto_se_foi', { nome: store.nomeCustom })}</h2>
         <p className="tama-luto-epitafio">{epitafio}</p>
         <div className="tama-luto-cooldown">
           {cooldownAcabou ? (
-            <p className="tama-luto-pronto">o ciclo recomeça — um novo ovo te espera</p>
+            <p className="tama-luto-pronto">{t('games.tamagoshi.luto_ciclo_recomeca')}</p>
           ) : (
             <>
-              <p>novo ovo disponível em</p>
+              <p>{t('games.tamagoshi.luto_novo_ovo_em')}</p>
               <CooldownTimer ate={store.cooldownAte} />
             </>
           )}
@@ -39,7 +41,7 @@ export default function Luto() {
             whileTap={{ scale: 0.95 }}
             onClick={() => store.reset()}
           >
-            [ recomeçar ]
+            [ {t('games.tamagoshi.luto_recomecar')} ]
           </motion.button>
         )}
       </div>

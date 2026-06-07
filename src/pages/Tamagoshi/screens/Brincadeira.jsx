@@ -39,6 +39,7 @@ function getConfig(puzzleId) {
 }
 
 export default function Brincadeira({ onConcluir }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -64,13 +65,13 @@ export default function Brincadeira({ onConcluir }) {
     store.brincar()
     store.ganharDix(store._userId, DIX_POR_ACAO, 'brincou com criatura')
     const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId)
-    setFala(texto || 'foi divertido! 🎉')
+    setFala(texto || t('games.tamagoshi.brincadeira_divertido'))
   }
 
   const handleFail = () => {
     setResultado('derrota')
     setFaseJogo('resultado')
-    setFala('você pode treinar mais nos Minigames! 💪')
+    setFala(t('games.tamagoshi.brincadeira_treinar'))
   }
 
   const handleSair = () => { onConcluir() }
@@ -118,7 +119,7 @@ export default function Brincadeira({ onConcluir }) {
           <h2 style={{ color: '#F5A623', fontSize: '1.2rem', letterSpacing: '0.15em', textAlign: 'center' }}>
             {puzzle.nome}
           </h2>
-          <p style={{ color: '#666', fontSize: '0.8rem' }}>preparando desafio...</p>
+          <p style={{ color: '#666', fontSize: '0.8rem' }}>{t('games.tamagoshi.brincadeira_preparando')}</p>
         </div>
       )}
 

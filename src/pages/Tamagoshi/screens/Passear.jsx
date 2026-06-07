@@ -8,6 +8,7 @@ const BASE_SPEED = 2, STAGE_COUNT = 10, LIVES = 3
 const SWIPE_THRESHOLD = GAME_W / LANE_COUNT * 0.45 // ~32px (metade da pista)
 
 export default function Passear({ onConcluir }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const canvasRef = useRef(null)
   const rafRef = useRef(null)
@@ -274,10 +275,10 @@ export default function Passear({ onConcluir }) {
           <motion.div key="ready" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
             <div style={{ fontSize: 48, marginBottom: 8 }}>🏎</div>
-            <p style={{ fontSize: 16, marginBottom: 4, fontWeight: 700, letterSpacing: '0.05em', color: '#F5A623' }}>ENDURO KRONIKI</p>
-            <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{STAGE_COUNT} pistas desvie colete ⭐</p>
-            <p style={{ fontSize: 12, color: '#666', marginBottom: 20 }}>setas ou arraste</p>
-            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">INICIAR</motion.button>
+            <p style={{ fontSize: 16, marginBottom: 4, fontWeight: 700, letterSpacing: '0.05em', color: '#F5A623' }}>{t('games.tamagoshi.passear_enduro_kroniki')}</p>
+            <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{t('games.tamagoshi.passear_desc', { n: STAGE_COUNT })}</p>
+            <p style={{ fontSize: 12, color: '#666', marginBottom: 20 }}>{t('games.tamagoshi.passear_setas')}</p>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">{t('games.tamagoshi.iniciar_passeio')}</motion.button>
           </motion.div>
         )}
         {phase === 'playing' && (
@@ -285,13 +286,13 @@ export default function Passear({ onConcluir }) {
             <canvas ref={canvasRef} width={GAME_W} height={GAME_H}
               style={{ display: 'block', borderRadius: 12, touchAction: 'none', cursor: 'grab', maxWidth: '100%', boxShadow: '0 0 30px rgba(0,0,0,0.5)', overscrollBehavior: 'none' }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: '#888', fontFamily: 'monospace' }}>
-              <span>moedas: {dispCoins}</span>
-              <span>pista {stage}/{STAGE_COUNT}</span>
+              <span>{t('games.tamagoshi.moedas', { n: dispCoins })}</span>
+              <span>{t('games.tamagoshi.pista', { a: stage, b: STAGE_COUNT })}</span>
             </div>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
               onClick={() => { if (g.current) g.current.running = false; cancelAnimationFrame(rafRef.current); onConcluir?.() }}
               className="tama-btn" style={{ marginTop: 8, opacity: 0.5, fontSize: '0.7rem' }}>
-              desistir
+              {t('games.tamagoshi.desistir')}
             </motion.button>
           </motion.div>
         )}
@@ -299,14 +300,14 @@ export default function Passear({ onConcluir }) {
           <motion.div key="gameover" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
             <div style={{ fontSize: 48, marginBottom: 8 }}>💥</div>
-            <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>FIM DE PASSEIO</p>
-            {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>Todas as pistas concluidas!</p>}
+            <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>{t('games.tamagoshi.fim_passeio')}</p>
+            {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>{t('games.tamagoshi.passear_todas_pistas')}</p>}
             <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 4, color: '#F5A623' }}>{dispScore}</p>
-            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 8 }}>⭐ {dispCoins} coletadas</p>
-            <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>pista {stage}/{STAGE_COUNT}</p>
+            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 8 }}>{t('games.tamagoshi.coletadas', { n: dispCoins })}</p>
+            <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>{t('games.tamagoshi.pista', { a: stage, b: STAGE_COUNT })}</p>
             {historico.length > 0 && (
               <div style={{ fontSize: 10, color: '#555', marginBottom: 12, width: '100%', textAlign: 'left' }}>
-                <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>ultimos resultados:</p>
+                <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('games.tamagoshi.ultimos_resultados')}</p>
                 {historico.map((h, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '1px 0', fontFamily: 'monospace' }}>
                     <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>
@@ -318,8 +319,8 @@ export default function Passear({ onConcluir }) {
               </div>
             )}
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">JOGAR DE NOVO</motion.button>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>VOLTAR</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">{t('games.tamagoshi.jogar_novamente')}</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>{t('games.tamagoshi.voltar')}</motion.button>
             </div>
           </motion.div>
         )}

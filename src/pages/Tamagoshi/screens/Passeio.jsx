@@ -1,17 +1,19 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { PASSEIOS } from '../data/passeios'
 import { PERSONALIDADES } from '../data/personalidades'
 
 export default function Passeio() {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
   return (
     <div className="tama-screen">
       <div className="tama-passeio">
-        <h2 className="tama-passeio-title">🌙 passeio por Marelia</h2>
-        <p className="tama-passeio-sub">pra onde vamos?</p>
+        <h2 className="tama-passeio-title">{t('games.tamagoshi.passeio_title')}</h2>
+        <p className="tama-passeio-sub">{t('games.tamagoshi.passeio_sub')}</p>
         <div className="tama-passeio-grid">
           {PASSEIOS.map((p, i) => {
             const bonus = p.bonus[store.personalidade] || 2
@@ -47,7 +49,7 @@ export default function Passeio() {
           onClick={() => store.setFase('criatura')}
           style={{ marginTop: '1rem' }}
         >
-          [ voltar ]
+          [ {t('games.tamagoshi.voltar')} ]
         </motion.button>
       </div>
     </div>
