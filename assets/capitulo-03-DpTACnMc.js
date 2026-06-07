@@ -34,11 +34,11 @@ Nina não havia se mexido. Olhou para os outros estudantes, para a ausência de 
 \r
 A procissão pelo corredor tinha uma geometria clara.\r
 \r
-Kim e Jack na frente, passo tranquilo, a discussão da banda continuando em volume normal sem nenhuma concessão ao grupo atrás. Os quatro capangas com o peso dos passos diferente, o silêncio carregado de quem está se preparando para trabalhar. Brock entre os dois grupos, o celular de volta na mão. Freddy tentando parecer ameaça central quando estava claramente no meio.\r
+Kim e Jack na frente, passo tranquilo, a discussão da banda continuando em volume normal sem nenhuma concessão ao grupo atrás. Os quatro capangas com o peso dos passos diferente, o silêncio carregado de quem está se preparando para trabalhar. Brock entre os dois grupos, o celular de volta na mão. Freddy tentando parecer ameaça central quando era claramente a piada do grupo.\r
 \r
-— Acha que tem mais escondido por aí ou é só isso? — Jack falou baixo, só para Kim.\r
+— Acha que tem mais que isso ai? — Jack falou baixo, só para Kim.\r
 \r
-— Infelizmente parece só isso mesmo. — Kim não virou. — Vai ser rápido. Talvez o Brock leve um pouco mais de tempo.\r
+— Infelizmente acho que não. — Kim não virou. — Vai ser rápido. Talvez o Grandão de algum trabalho.\r
 \r
 Jack esticou o pescoço para o lado com um estalo e estendeu a mão aberta. Kim apertou. Aperto curto, firme, o tipo que sela coisa séria.\r
 \r
