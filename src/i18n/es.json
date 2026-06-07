@@ -893,7 +893,18 @@
       "defender": "DEFENDER",
       "fugir": "HUIR",
       "proximo": "SIGUIENTE",
-      "pular": "SALTAR"
+      "pular": "SALTAR",
+      "intro_title": "jack dream beer.",
+      "intro_dormindo": "estás durmiendo.",
+      "intro_sonhos": "los sueños no tienen lógica. este tiene cerveza.",
+      "intro_acumulando": "sigue acumulando cervezas...",
+      "equipamento": "equipamiento",
+      "vazio": "vacío",
+      "vazia": "vacía.",
+      "sem_itens_slot": "sin artículos para este espacio en la mochila.",
+      "aba_mochila": "mochila ({n})",
+      "aba_consumiveis": "consumibles ({n})",
+      "aba_upgrades": "mejoras ({n})"
     },
     "ldi": {
       "titulo": "LDI LEYENDAS",

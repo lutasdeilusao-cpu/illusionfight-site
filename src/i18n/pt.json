@@ -893,7 +893,18 @@
       "defender": "DEFENDER",
       "fugir": "FUGIR",
       "proximo": "PRÓXIMO",
-      "pular": "PULAR"
+      "pular": "PULAR",
+      "intro_title": "jack dream beer.",
+      "intro_dormindo": "você está dormindo.",
+      "intro_sonhos": "sonhos não têm lógica. esse tem cervejas.",
+      "intro_acumulando": "continue acumulando cervejas...",
+      "equipamento": "equipamento",
+      "vazio": "vazio",
+      "vazia": "vazia.",
+      "sem_itens_slot": "sem itens para este slot na mochila.",
+      "aba_mochila": "mochila ({n})",
+      "aba_consumiveis": "consumíveis ({n})",
+      "aba_upgrades": "upgrades ({n})"
     },
     "ldi": {
       "titulo": "LDI LENDAS",

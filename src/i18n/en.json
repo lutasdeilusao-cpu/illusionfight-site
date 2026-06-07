@@ -893,7 +893,18 @@
       "defender": "DEFEND",
       "fugir": "FLEE",
       "proximo": "NEXT",
-      "pular": "SKIP"
+      "pular": "SKIP",
+      "intro_title": "jack dream beer.",
+      "intro_dormindo": "you are sleeping.",
+      "intro_sonhos": "dreams have no logic. this one has beer.",
+      "intro_acumulando": "keep accumulating beers...",
+      "equipamento": "equipment",
+      "vazio": "empty",
+      "vazia": "empty.",
+      "sem_itens_slot": "no items for this slot in your bag.",
+      "aba_mochila": "bag ({n})",
+      "aba_consumiveis": "consumables ({n})",
+      "aba_upgrades": "upgrades ({n})"
     },
     "ldi": {
       "titulo": "LDI LEGENDS",

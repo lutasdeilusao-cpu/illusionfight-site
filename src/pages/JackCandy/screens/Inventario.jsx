@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { ITENS } from '../data/itens'
 
@@ -8,6 +9,7 @@ const SLOT_ICONS = { arma: '⚔️', armadura: '🛡️', acessorio: '💍' }
 const SLOT_LABELS = { arma: 'Arma', armadura: 'Armadura', acessorio: 'Acessório' }
 
 export default function Inventario() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const [selectedSlot, setSelectedSlot] = useState(null)
   const [aba, setAba] = useState('mochila')
@@ -65,13 +67,13 @@ export default function Inventario() {
   return (
     <motion.div className="jdc-inventario-screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-inventario-header">
-        <span className="jack-text--amber" style={{ fontSize: '1rem', letterSpacing: '0.1em' }}>INVENTÁRIO</span>
-        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>[ voltar ]</button>
+        <span className="jack-text--amber" style={{ fontSize: '1rem', letterSpacing: '0.1em' }}>{t('games.jackcandy.inventario')}</span>
+        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.voltar')}</button>
       </div>
 
       {/* Equipment Slots */}
       <div className="jdc-inv-equipment">
-        <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>equipamento</p>
+        <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>{t('games.jackcandy.equipamento')}</p>
         <div className="jdc-inv-slots">
           {SLOTS.map(slot => {
             const item = store.equipado[slot]
@@ -89,7 +91,7 @@ export default function Inventario() {
                 <div className="jdc-inv-slot-info">
                   <span className="jdc-inv-slot-label">{SLOT_LABELS[slot]}</span>
                   <span className={`jdc-inv-slot-item ${item ? 'jack-text--amber' : 'jack-text--dim'}`}>
-                    {item ? item.nome : 'vazio'}
+                    {item ? item.nome : t('games.jackcandy.vazio')}
                   </span>
                 </div>
                 {item && (
@@ -120,7 +122,7 @@ export default function Inventario() {
               </button>
             ))}
             {itensEquipaveis.filter(i => ITENS[i.id]?.slot === selectedSlot).length === 0 && (
-              <p className="jack-text jack-text--dim">sem itens para este slot na mochila.</p>
+              <p className="jack-text jack-text--dim">{t('games.jackcandy.sem_itens_slot')}</p>
             )}
           </motion.div>
         )}
@@ -136,20 +138,20 @@ export default function Inventario() {
       {/* Abas */}
       <div className="jack-tabs" style={{ marginTop: '0.75rem' }}>
         <button className={`jack-tab ${aba === 'mochila' ? 'jack-tab--active' : ''}`} onClick={() => setAba('mochila')}>
-          mochila ({store.inventario.length})
+          {t('games.jackcandy.aba_mochila', { n: store.inventario.length })}
         </button>
         <button className={`jack-tab ${aba === 'consumiveis' ? 'jack-tab--active' : ''}`} onClick={() => setAba('consumiveis')}>
-          consumíveis ({itensConsumiveis.length})
+          {t('games.jackcandy.aba_consumiveis', { n: itensConsumiveis.length })}
         </button>
         <button className={`jack-tab ${aba === 'upgrades' ? 'jack-tab--active' : ''}`} onClick={() => setAba('upgrades')}>
-          upgrades ({itensUpgrades.length})
+          {t('games.jackcandy.aba_upgrades', { n: itensUpgrades.length })}
         </button>
       </div>
 
       {/* Item list */}
       <div className="jdc-inv-list">
         {(aba === 'mochila' ? store.inventario : aba === 'consumiveis' ? itensConsumiveis : itensUpgrades).length === 0 && (
-          <p className="jack-text jack-text--dim">vazia.</p>
+          <p className="jack-text jack-text--dim">{t('games.jackcandy.vazia')}</p>
         )}
         {(aba === 'mochila' ? store.inventario : aba === 'consumiveis' ? itensConsumiveis : itensUpgrades).map((item, i) => {
           const full = ITENS[item.id]

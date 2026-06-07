@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
 import { CASOS } from '../data/casos'
 import jackImg from '../../../assets/images/characters/jack-balloon.png'
 
 export default function Intro() {
+  const { t } = useLanguage()
   const store = useJackStore()
   const [titleText, setTitleText] = useState('')
   const [showPaje, setShowPaje] = useState(false)
 
   useEffect(() => {
-    const TITLE = 'jack dream beer.'
+    const TITLE = t('games.jackcandy.intro_title')
     let i = 0
     const t = setInterval(() => {
       if (i <= TITLE.length) {
@@ -79,8 +81,8 @@ export default function Intro() {
 
       {titleDone && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          <p className="jack-text jack-text--dim">você está dormindo.</p>
-          <p className="jack-text jack-text--dim jack-text--amber">sonhos não têm lógica. esse tem cervejas.</p>
+          <p className="jack-text jack-text--dim">{t('games.jackcandy.intro_dormindo')}</p>
+          <p className="jack-text jack-text--dim jack-text--amber">{t('games.jackcandy.intro_sonhos')}</p>
         </motion.div>
       )}
 
@@ -92,7 +94,7 @@ export default function Intro() {
 
       {titleDone && store.cervejas < 100 && (
         <div className="jack-buttons">
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>continue acumulando cervejas...</p>
+          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.intro_acumulando')}</p>
         </div>
       )}
 
