@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useAuth } from '../../context/AuthContext'
+import { useLanguage } from '../../context/LanguageContext'
 import { ATTR_TOOLTIPS, ADVANTAGES, DISADVANTAGES, PERKS, SPECIALIZATIONS } from './data/characterData'
 import './LDI.css'
 
@@ -69,6 +70,7 @@ const WEAPON_OPTIONS = [
 ]
 
 export default function Create() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user } = useAuth()
@@ -260,7 +262,7 @@ export default function Create() {
             <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} placeholder="Digite seu nome..." className="ldi-input" />
           </div>
 
-          <div className="ldi-full-section-title">Atributos</div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_atributos')}</div>
           <div className="ldi-full-budget">Pontos disponíveis: {availablePoints}</div>
           <div className="ldi-full-attrs">
             {Object.entries(ATTR_NAMES).map(([key, label]) => (
@@ -296,7 +298,7 @@ export default function Create() {
             ))}
           </div>
 
-          <div className="ldi-full-section-title">Elemento</div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_elemento')}</div>
           <div className="ldi-full-elemental-grid">
             {ELEMENTAL_OPTIONS.map(el => (
               <button
@@ -310,7 +312,7 @@ export default function Create() {
             ))}
           </div>
 
-          <div className="ldi-full-section-title">Arma</div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_arma')}</div>
           <div className="ldi-full-weapon-grid">
             {WEAPON_OPTIONS.map(w => (
               <button
@@ -323,7 +325,7 @@ export default function Create() {
             ))}
           </div>
 
-          <div className="ldi-full-section-title">Vantagens <span className="ldi-full-points-label">(custam pontos)</span></div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_vantagens')}</div>
           <div className="ldi-full-list">
             {ADVANTAGES.map(a => {
               const selected = selectedAdvantages.includes(a.id)
@@ -331,7 +333,7 @@ export default function Create() {
                 <div key={a.id} className={`ldi-full-item ${selected ? 'ldi-full-item--selected' : ''}`} onClick={() => toggleAdvantage(a.id)}>
                   <div className="ldi-full-item-header">
                     <span className="ldi-full-item-name">{a.name}</span>
-                    <span className="ldi-full-item-cost">Custo: {a.cost}</span>
+                    <span className="ldi-full-item-cost">{t('games.ldi.create.item_custo', { cost: a.cost })}</span>
                   </div>
                   <p className="ldi-full-item-desc">{a.desc}</p>
                 </div>
@@ -339,7 +341,7 @@ export default function Create() {
             })}
           </div>
 
-          <div className="ldi-full-section-title">Desvantagens <span className="ldi-full-points-label">(concedem pontos)</span></div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_desvantagens')}</div>
           <div className="ldi-full-list">
             {DISADVANTAGES.map(d => {
               const selected = selectedDisadvantages.includes(d.id)
@@ -347,7 +349,7 @@ export default function Create() {
                 <div key={d.id} className={`ldi-full-item ${selected ? 'ldi-full-item--selected' : ''}`} onClick={() => toggleDisadvantage(d.id)}>
                   <div className="ldi-full-item-header">
                     <span className="ldi-full-item-name">{d.name}</span>
-                    <span className="ldi-full-item-gain">Ganho: +{d.gain}</span>
+                    <span className="ldi-full-item-gain">{t('games.ldi.create.item_ganho', { gain: d.gain })}</span>
                   </div>
                   <p className="ldi-full-item-desc">{d.desc}</p>
                 </div>
@@ -355,7 +357,7 @@ export default function Create() {
             })}
           </div>
 
-          <div className="ldi-full-section-title">Perícias <span className="ldi-full-points-label">(custam pontos)</span></div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_pericias')}</div>
           <div className="ldi-full-list">
             {PERKS.map(p => {
               const selected = selectedPerks.includes(p.id)
@@ -363,7 +365,7 @@ export default function Create() {
                 <div key={p.id} className={`ldi-full-item ${selected ? 'ldi-full-item--selected' : ''}`} onClick={() => togglePerk(p.id)}>
                   <div className="ldi-full-item-header">
                     <span className="ldi-full-item-name">{p.name}</span>
-                    <span className="ldi-full-item-cost">Custo: {p.cost}</span>
+                    <span className="ldi-full-item-cost">{t('games.ldi.create.item_custo', { cost: p.cost })}</span>
                   </div>
                   <p className="ldi-full-item-desc">{p.desc}</p>
                 </div>
@@ -371,7 +373,7 @@ export default function Create() {
             })}
           </div>
 
-          <div className="ldi-full-section-title">Especialização</div>
+          <div className="ldi-full-section-title">{t('games.ldi.create.section_especializacao')}</div>
           <div className="ldi-full-list">
             {SPECIALIZATIONS.map(sp => (
               <div
@@ -399,13 +401,9 @@ export default function Create() {
             className="ldi-btn ldi-btn--primary"
             onClick={handleFinishFull}
             disabled={availablePoints !== 0}
-            style={{
-              marginTop: '1rem',
-              opacity: availablePoints !== 0 ? 0.5 : 1,
-              cursor: availablePoints !== 0 ? 'not-allowed' : 'pointer',
-            }}
+            className="ldi-btn ldi-btn--primary ldi-create-submit"
           >
-            {availablePoints > 0 ? 'Distribua todos os pontos antes de continuar' : availablePoints < 0 ? 'Você ultrapassou o limite de pontos' : 'ENTRAR NO LDI'}
+            {availablePoints > 0 ? t('games.ldi.create.btn_distribua') : availablePoints < 0 ? t('games.ldi.create.btn_ultrapassou') : t('games.ldi.create.btn_entrar')}
           </button>
         </motion.div>
       </div>
@@ -462,7 +460,7 @@ export default function Create() {
             ))}
           </div>
 
-          <p className="ldi-create-points">Pontos restantes: {freePoints}</p>
+          <p className="ldi-create-points">{t('games.ldi.create.pontos_restantes', { points: freePoints })}</p>
 
           <button
             className="ldi-btn ldi-btn--primary"
@@ -482,8 +480,8 @@ export default function Create() {
   return (
     <div className="ldi-create">
       <div className="ldi-create-tabs">
-        <button className="ldi-create-tab ldi-create-tab--active" onClick={() => setTab('guided')}>Guiado</button>
-        <button className="ldi-create-tab" onClick={() => setTab('full')}>Ficha Completa</button>
+        <button className="ldi-create-tab ldi-create-tab--active" onClick={() => setTab('guided')}>{t('games.ldi.create.tab_guided')}</button>
+        <button className="ldi-create-tab" onClick={() => setTab('full')}>{t('games.ldi.create.tab_full')}</button>
       </div>
       <AnimatePresence mode="wait">
         <motion.div

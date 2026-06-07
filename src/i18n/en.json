@@ -879,6 +879,29 @@
         "deletar": "Delete",
         "neutro": "neutral",
         "arco_label": "Arc {n}"
+      },
+      "create": {
+        "tab_guided": "Guided",
+        "tab_full": "Full Sheet",
+        "title_zero": "Build from Scratch",
+        "title_guided": "Final Avatar Adjustments",
+        "label_nome": "Avatar Name:",
+        "label_nome_guided": "Your avatar's name:",
+        "section_atributos": "Attributes",
+        "section_elemento": "Element",
+        "section_arma": "Weapon",
+        "section_vantagens": "Advantages (cost points)",
+        "section_desvantagens": "Disadvantages (grant points)",
+        "section_pericias": "Skills (cost points)",
+        "section_especializacao": "Specialization",
+        "item_custo": "Cost: {cost}",
+        "item_ganho": "Gain: +{gain}",
+        "total_pericias": "Skills: -{total}",
+        "total_disponivel": "Available: {points}",
+        "btn_distribua": "Distribute all points before continuing",
+        "btn_ultrapassou": "You've exceeded the point limit",
+        "btn_entrar": "ENTER LDI",
+        "pontos_restantes": "Remaining points: {points}"
       }
     },
     "tatics": {

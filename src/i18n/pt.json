@@ -879,6 +879,29 @@
         "deletar": "Deletar",
         "neutro": "neutro",
         "arco_label": "Arco {n}"
+      },
+      "create": {
+        "tab_guided": "Guiado",
+        "tab_full": "Ficha Completa",
+        "title_zero": "Construir do Zero",
+        "title_guided": "Ajuste Final do Avatar",
+        "label_nome": "Nome do Avatar:",
+        "label_nome_guided": "Nome do seu avatar:",
+        "section_atributos": "Atributos",
+        "section_elemento": "Elemento",
+        "section_arma": "Arma",
+        "section_vantagens": "Vantagens (custam pontos)",
+        "section_desvantagens": "Desvantagens (concedem pontos)",
+        "section_pericias": "Perícias (custam pontos)",
+        "section_especializacao": "Especialização",
+        "item_custo": "Custo: {cost}",
+        "item_ganho": "Ganho: +{gain}",
+        "total_pericias": "Perícias: -{total}",
+        "total_disponivel": "Disponível: {points}",
+        "btn_distribua": "Distribua todos os pontos antes de continuar",
+        "btn_ultrapassou": "Você ultrapassou o limite de pontos",
+        "btn_entrar": "ENTRAR NO LDI",
+        "pontos_restantes": "Pontos restantes: {points}"
       }
     },
     "tatics": {

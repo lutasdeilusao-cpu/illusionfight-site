@@ -788,6 +788,10 @@
   box-shadow: 0 0 20px rgba(30, 111, 191, 0.4);
 }
 
+.ldi-create-submit {
+  margin-top: 1rem;
+}
+
 .ldi-btn--outline {
   background: transparent;
   color: var(--ldi-accent-blue);
