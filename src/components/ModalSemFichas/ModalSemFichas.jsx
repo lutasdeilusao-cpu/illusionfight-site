@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
 import './ModalSemFichas.css'
 
 export default function ModalSemFichas({ visivel, onFechar, jogo = 'este jogo' }) {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   return (
     <AnimatePresence>
@@ -12,13 +14,13 @@ export default function ModalSemFichas({ visivel, onFechar, jogo = 'este jogo' }
             <div className="msf-scanlines" />
             <div className="msf-inner">
               <div className="msf-emoji">🎰</div>
-              <h2 className="msf-titulo">SEM FICHAS</h2>
-              <p className="msf-desc">você precisa de <span className="msf-destaque">1 ficha</span> para jogar {jogo}.</p>
-              <p className="msf-desc msf-desc--dim">fichas diárias resetam à meia-noite.<br />colete as suas no seu perfil.</p>
+              <h2 className="msf-titulo">{t('modal_sem_fichas.titulo')}</h2>
+              <p className="msf-desc">{t('modal_sem_fichas.desc', { jogo })}</p>
+              <p className="msf-desc msf-desc--dim">{t('modal_sem_fichas.desc2')}<br />{t('modal_sem_fichas.desc3')}</p>
               <div className="msf-btns">
-                <button className="msf-btn msf-btn--primary" onClick={() => { navigate('/perfil?aba=recompensas'); onFechar() }}>[ coletar fichas ]</button>
-                <button className="msf-btn msf-btn--elite" onClick={() => { navigate('/assinar'); onFechar() }}>[ assinar elite — 10 fichas/dia ]</button>
-                <button className="msf-btn" onClick={onFechar}>[ voltar ]</button>
+                <button className="msf-btn msf-btn--primary" onClick={() => { navigate('/perfil?aba=recompensas'); onFechar() }}>[ {t('modal_sem_fichas.coletar')} ]</button>
+                <button className="msf-btn msf-btn--elite" onClick={() => { navigate('/assinar'); onFechar() }}>[ {t('modal_sem_fichas.assinar')} ]</button>
+                <button className="msf-btn" onClick={onFechar}>[ {t('modal_sem_fichas.voltar')} ]</button>
               </div>
             </div>
           </motion.div>

@@ -58,6 +58,30 @@
     "title": "MÚSICAS",
     "comingSoon": "EM BREVE"
   },
+  "achievement": {
+    "titulo": "ACHIEVEMENT DESBLOQUEADO",
+    "continuar": "CONTINUAR"
+  },
+  "login_gate": {
+    "texto": "Para acessar {feature} você precisa ter uma conta.",
+    "criar": "CRIAR CONTA GRÁTIS",
+    "entrar": "Já tenho conta — entrar"
+  },
+  "modal_sem_fichas": {
+    "titulo": "SEM FICHAS",
+    "desc": "você precisa de 1 ficha para jogar {jogo}.",
+    "desc2": "fichas diárias resetam à meia-noite.",
+    "desc3": "colete as suas no seu perfil.",
+    "coletar": "coletar fichas",
+    "assinar": "assinar elite — 10 fichas/dia",
+    "voltar": "voltar"
+  },
+  "search": {
+    "placeholder": "Buscar personagens, capítulos, lore...",
+    "fechar": "ESC",
+    "vazio": "Nenhum resultado para \"{q}\"",
+    "premium": "PREMIUM"
+  },
   "nowlive": {
     "title": "NO AR AGORA",
     "subtitle": "Siga o universo Lutas de Ilusão nas redes",

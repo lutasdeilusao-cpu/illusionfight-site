@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../../config/trial'
+import { useLanguage } from '../../context/LanguageContext'
 import searchIndex from '../../data/search-index'
 import './SearchModal.css'
 
 export default function SearchModal({ open, onClose }) {
+  const { t } = useLanguage()
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const inputRef = useRef(null)
@@ -67,15 +69,15 @@ export default function SearchModal({ open, onClose }) {
             ref={inputRef}
             type="text"
             className="search-input"
-            placeholder="Buscar personagens, capítulos, lore..."
+            placeholder={t('search.placeholder')}
             value={query}
             onChange={e => handleSearch(e.target.value)}
           />
-          <button className="search-close" onClick={onClose}>ESC</button>
+          <button className="search-close" onClick={onClose}>{t('search.fechar')}</button>
         </div>
 
         {query.length >= 2 && results.length === 0 && (
-          <p className="search-empty">Nenhum resultado para "{query}"</p>
+          <p className="search-empty">{t('search.vazio', { q: query })}</p>
         )}
 
         {results.length > 0 && (
@@ -91,7 +93,7 @@ export default function SearchModal({ open, onClose }) {
                   >
                     <div className="search-item-header">
                       <span className="search-item-tipo">{item.tipo}</span>
-                      {item.premium && <span className="search-item-premium">PREMIUM</span>}
+                      {item.premium && <span className="search-item-premium">{t('search.premium')}</span>}
                     </div>
                     <span className="search-item-titulo">{item.titulo}</span>
                     <p className="search-item-desc">{item.descricao.slice(0, 80)}</p>

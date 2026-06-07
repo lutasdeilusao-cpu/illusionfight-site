@@ -58,6 +58,30 @@
     "title": "MUSIC",
     "comingSoon": "COMING SOON"
   },
+  "achievement": {
+    "titulo": "ACHIEVEMENT UNLOCKED",
+    "continuar": "CONTINUE"
+  },
+  "login_gate": {
+    "texto": "To access {feature} you need an account.",
+    "criar": "CREATE FREE ACCOUNT",
+    "entrar": "I already have an account — log in"
+  },
+  "modal_sem_fichas": {
+    "titulo": "NO TOKENS",
+    "desc": "you need 1 token to play {jogo}.",
+    "desc2": "daily tokens reset at midnight.",
+    "desc3": "collect yours in your profile.",
+    "coletar": "collect tokens",
+    "assinar": "subscribe elite — 10 tokens/day",
+    "voltar": "back"
+  },
+  "search": {
+    "placeholder": "Search characters, chapters, lore...",
+    "fechar": "ESC",
+    "vazio": "No results for \"{q}\"",
+    "premium": "PREMIUM"
+  },
   "nowlive": {
     "title": "NOW LIVE",
     "subtitle": "Follow the Illusion Fight universe on social media",

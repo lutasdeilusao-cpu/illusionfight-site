@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import thumbEp00 from '../../assets/images/episodes/thumb-ep00.png'
+import { useLanguage } from '../../context/LanguageContext'
 import './AchievementToast.css'
 
 export default function AchievementToast({ achievement, fecharToast }) {
+  const { t } = useLanguage()
   useEffect(() => {
     const timer = setTimeout(fecharToast, 5000)
     return () => clearTimeout(timer)
@@ -17,11 +19,11 @@ export default function AchievementToast({ achievement, fecharToast }) {
           ))}
         </div>
         <img src={thumbEp00} className="achievement-jack" alt="Jack" />
-        <div className="achievement-label">ACHIEVEMENT DESBLOQUEADO</div>
+        <div className="achievement-label">{t('achievement.titulo')}</div>
         <div className="achievement-icone">{achievement.icone}</div>
         <div className="achievement-nome">{achievement.nome}</div>
         <div className="achievement-descricao">{achievement.descricao}</div>
-        <button className="achievement-btn" onClick={fecharToast}>CONTINUAR</button>
+        <button className="achievement-btn" onClick={fecharToast}>{t('achievement.continuar')}</button>
       </div>
     </div>
   )
