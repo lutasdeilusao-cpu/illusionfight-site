@@ -19,9 +19,11 @@ Lançamento | 2026 — sem mês fixo
 
 2. VOZES OFICIAIS (ElevenLabs)
 Personagem | Voz | Modelo | Usado em
-Jack | Elio – Youthful & Warm International | — | VID-001
+Jack | Elio – Youthful & Warm International | Eleven v3 | VID-001
 Kim | Maverick – Sanguine Narrator | Eleven v3 | VID-003
 Nexus Phantasm | Aaditya – Dramatic TV Narrator | Eleven v3 | VID-004, VID-005, trailers
+Nina | Iris – Enticing, Mysterious, and Warm | Eleven v3 | VID-009
+Helena | A definir — voz grave, peso materno | — | —
 Regra: uma vez aprovada, a voz não muda. Nunca.
 
 3. SISTEMA DE PERSONAGENS NAS REDES

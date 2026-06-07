@@ -5,9 +5,10 @@
 
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
-import { construirPersonagem, getInimigosPadrao } from '../data/roster'
+import { construirPersonagem, getInimigosPadrao, ROSTER } from '../data/roster'
 import { construirPersonagemNivelado } from '../data/levelProgression'
-import { ROSTER } from '../data/roster'
+import { sortearCartaInicial1, sortearCartaInicial2, sortearProximaCarta, poolCompleto } from '../data/cardPool'
+import { getNomeClasse } from '../data/classTree'
 
 const XP_TABLE = [0, 100, 250, 500, 800, 1200, 1700, 2300, 3000, 3800, 4700, 5700, 6800, 8000, 9500]
 
@@ -23,8 +24,11 @@ const INIT = {
   carregado: false, userId: null,
   personagensIds: [], // IDs salvos no Supabase
   maxSlots: 2, // Slots iniciais, desbloqueia até 8
-  personagensDesbloqueados: [], // IDs disponíveis para o jogador (inclui eventuais)
+  personagensDesbloqueados: [], // IDs disponíveis para o jogador
   equipamentoMap: {}, // { [rosterId]: { arma: {...}, armadura: {...}, acessorio: {...} } }
+  cartasObtidas: [], // array de ids das cartas que o jogador tem
+  cartasOrdem: [], // array com ordem de recebimento
+  evolucoesMap: {}, // { rosterId: { nivel40: 'muralha', nivel70: 'bastiao' } }
 }
 
 export const useArenaTaticsStore = create((set, get) => ({
@@ -117,6 +121,79 @@ export const useArenaTaticsStore = create((set, get) => ({
   }),
   registrarDerrota: () => set((s) => ({ derrotas: s.derrotas + 1, streak: 0, fase: 'derrota', batalha: null })),
 
+  // ── Sistema de Cartas ──
+
+  /**
+   * Inicializa o pool: sorteia as 2 cartas iniciais e salva no Supabase
+   */
+  inicializarPool: async () => {
+    const s = get()
+    if (s.cartasObtidas.length > 0) return // já inicializado
+
+    const carta1 = sortearCartaInicial1([])
+    const cartasApos1 = carta1 ? [carta1.id] : []
+    const carta2 = sortearCartaInicial2(cartasApos1)
+
+    const cartas = []
+    const ordem = []
+    if (carta1) { cartas.push(carta1.id); ordem.push(carta1.id) }
+    if (carta2) { cartas.push(carta2.id); ordem.push(carta2.id) }
+
+    // Preenche evolucoesMap automaticamente
+    const evoMap = {}
+    cartas.forEach(id => {
+      const p = ROSTER.find(r => r.id === id)
+      if (p?.caminhoEvolutivo) evoMap[id] = { ...p.caminhoEvolutivo }
+    })
+
+    set({ cartasObtidas: cartas, cartasOrdem: ordem, evolucoesMap: evoMap })
+    await get().saveToCloud(s.userId)
+  },
+
+  /**
+   * Ganha uma carta ao vencer um andar — sorteia do pool restante
+   */
+  ganharCarta: async (andar) => {
+    const s = get()
+    if (poolCompleto(s.cartasObtidas)) return null
+
+    const carta = sortearProximaCarta(s.cartasObtidas)
+    if (!carta) return null
+
+    const novasCartas = [...s.cartasObtidas, carta.id]
+    const novaOrdem = [...s.cartasOrdem, carta.id]
+    const novoEvoMap = { ...s.evolucoesMap }
+    if (carta.caminhoEvolutivo) {
+      novoEvoMap[carta.id] = { ...carta.caminhoEvolutivo }
+    }
+
+    set({
+      cartasObtidas: novasCartas,
+      cartasOrdem: novaOrdem,
+      evolucoesMap: novoEvoMap,
+    })
+    await get().saveToCloud(s.userId)
+    return carta
+  },
+
+  /**
+   * Aplica evolução pré-definida ao atingir nível 40 ou 70
+   * @param {number} rosterId
+   * @param {number} nivel
+   */
+  evoluirPersonagem: (rosterId, nivel) => {
+    const s = get()
+    const entry = ROSTER.find(r => r.id === rosterId)
+    if (!entry?.caminhoEvolutivo) return null
+
+    const evoMap = { ...s.evolucoesMap }
+    if (!evoMap[rosterId]) evoMap[rosterId] = { ...entry.caminhoEvolutivo }
+
+    const nomeClasse = getNomeClasse(entry.classe, nivel, evoMap[rosterId])
+    set({ evolucoesMap: evoMap })
+    return nomeClasse
+  },
+
   saveToCloud: async (userId) => {
     if (!userId) return; const s = get()
     await supabase.from('arena_tatica_saves').upsert({
@@ -124,6 +201,9 @@ export const useArenaTaticsStore = create((set, get) => ({
       sdr: s.sdr, xp: s.xp, nivel: s.nivel, vitorias: s.vitorias, derrotas: s.derrotas,
       max_slots: s.maxSlots, personagens_desbloqueados: s.personagensDesbloqueados,
       equipamento_map: s.equipamentoMap,
+      cartas_obtidas: s.cartasObtidas,
+      cartas_ordem: s.cartasOrdem,
+      evolucoes_map: s.evolucoesMap,
     }, { onConflict: 'user_id' })
   },
 
@@ -137,6 +217,9 @@ export const useArenaTaticsStore = create((set, get) => ({
       maxSlots: data.max_slots || 2,
       personagensDesbloqueados: data.personagens_desbloqueados || [],
       equipamentoMap: data.equipamento_map || {},
+      cartasObtidas: data.cartas_obtidas || [],
+      cartasOrdem: data.cartas_ordem || [],
+      evolucoesMap: data.evolucoes_map || {},
     })
     else set({ carregado: true })
   },

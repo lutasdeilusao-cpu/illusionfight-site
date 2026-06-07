@@ -2,6 +2,7 @@
 
 *Última atualização: 2026-06-07*
 *Versão: 3.2*  |  `[SITE] versão carregada: 3.2`  |  🌐 `https://illusionfight.com/`
+*TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 

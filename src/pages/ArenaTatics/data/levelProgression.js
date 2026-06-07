@@ -1,5 +1,5 @@
 /**
- * LEVEL PROGRESSION — LDI Tatics v5.4
+ * LEVEL PROGRESSION — LDI Tatics v7.0
  *
  * Cada personagem vai do nível 1 ao 99 com atributos fixos (player não escolhe).
  * Stats evoluem linearmente do nivel 1 (tudo 1) ao nivel 99 (distribuição única).
@@ -7,8 +7,14 @@
  * Skill unlock:
  *   Nv 5  → skill #1 (ataque básico)
  *   Nv 25 → skill #2 (especial)
+ *   Nv 40 → +2 skills do ramo de evolução (se tiver caminhoEvolutivo)
  *   Nv 50 → skill #3 (poder superior)
+ *   Nv 70 → +2 skills do sub-ramo de evolução (se tiver caminhoEvolutivo)
  *   Nv 75 → skill #4 (ultimate)
+ *
+ * Evolução:
+ *   Nv 40 → 1ª evolução (ramo): bônus de atributos + HP/SP + passiva nova + skills
+ *   Nv 70 → 2ª evolução (sub-ramo): bônus adicionais + passiva nova + skills
  */
 
 // ── Stats base (nível 1) ──
@@ -115,23 +121,133 @@ export function getSkillsNoNivel(rosterEntry, nivel) {
 }
 
 /**
- * Constrói personagem em qualquer nível com stats e skills corretos
+ * Retorna as skills extras do ramo de evolução (classTree.js)
+ * @param {object} rosterEntry
+ * @param {number} nivel
+ * @param {object|null} caminhoEvolutivo - { nivel40, nivel70 }
+ * @returns {array} skills extras do ramo/sub-ramo
  */
-export function construirPersonagemNivelado(rosterEntry, nivel, posX, posY, lado = 'aliado') {
-  const attrs = calcAtributosNoNivel(rosterEntry, nivel)
-  const skills = getSkillsNoNivel(rosterEntry, nivel)
-  const hp = 40 + attrs.resistencia * 10
-  const energia = 20 + attrs.energia * 5
+function getSkillsEvolutivas(rosterEntry, nivel, caminhoEvolutivo) {
+  if (!caminhoEvolutivo) return []
+
+  // Dynamic import style: try to get from classTree, silently skip if not available
+  try {
+    // eslint-disable-next-line
+    const { getEvolucaoAtiva } = require('./classTree')
+    const evol = getEvolucaoAtiva(rosterEntry.classe, nivel, caminhoEvolutivo)
+    if (!evol) return []
+    return (evol.skills_novas || []).map(s => ({ ...s }))
+  } catch (e) {
+    return []
+  }
+}
+
+/**
+ * Aplica bônus de evolução nos atributos
+ */
+function aplicarBonusEvolucao(attrs, rosterEntry, nivel, caminhoEvolutivo) {
+  if (!caminhoEvolutivo) return { ...attrs }
+
+  let resultado = { ...attrs }
+
+  try {
+    const { getEvolucaoAtiva } = require('./classTree')
+    const evol = getEvolucaoAtiva(rosterEntry.classe, nivel, caminhoEvolutivo)
+    if (evol?.bonusAtributos) {
+      for (const [key, val] of Object.entries(evol.bonusAtributos)) {
+        resultado[key] = (resultado[key] || 0) + val
+      }
+    }
+  } catch (e) {
+    // classTree not available, skip
+  }
+
+  return resultado
+}
+
+/**
+ * Aplica bônus percentual de HP/SP
+ */
+function aplicarBonusHpSp(hpBase, spBase, rosterEntry, nivel, caminhoEvolutivo) {
+  if (!caminhoEvolutivo) return { hp: hpBase, sp: spBase }
+
+  let bonusHp = 0
+  let bonusSp = 0
+
+  try {
+    const { getEvolucaoAtiva } = require('./classTree')
+
+    // Bônus do ramo (nível 40)
+    if (nivel >= 40 && caminhoEvolutivo.nivel40) {
+      const ramo = getEvolucaoAtiva(rosterEntry.classe, 40, caminhoEvolutivo)
+      if (ramo) {
+        bonusHp += ramo.bonusHp || 0
+        bonusSp += ramo.bonusSp || 0
+      }
+    }
+
+    // Bônus do sub-ramo (nível 70)
+    if (nivel >= 70 && caminhoEvolutivo.nivel70) {
+      const sub = getEvolucaoAtiva(rosterEntry.classe, 70, caminhoEvolutivo)
+      if (sub) {
+        bonusHp += sub.bonusHp || 0
+        bonusSp += sub.bonusSp || 0
+      }
+    }
+  } catch (e) {
+    // classTree not available, skip
+  }
+
+  return {
+    hp: Math.round(hpBase * (1 + bonusHp)),
+    sp: Math.round(spBase * (1 + bonusSp)),
+  }
+}
+
+/**
+ * Constrói personagem em qualquer nível com stats e skills corretos
+ * @param {object} rosterEntry - entrada do roster
+ * @param {number} nivel - nível (1-99)
+ * @param {number} posX - posição X no grid
+ * @param {number} posY - posição Y no grid
+ * @param {string} lado - 'aliado' | 'inimigo'
+ * @param {object|null} [caminhoEvolutivo] - caminho evolutivo do personagem
+ */
+export function construirPersonagemNivelado(rosterEntry, nivel, posX, posY, lado = 'aliado', caminhoEvolutivo = null) {
+  // Usa caminhoEvolutivo do próprio roster se não foi passado
+  const evoPath = caminhoEvolutivo || rosterEntry.caminhoEvolutivo || null
+
+  const attrsBase = calcAtributosNoNivel(rosterEntry, nivel)
+  const attrs = aplicarBonusEvolucao(attrsBase, rosterEntry, nivel, evoPath)
+
+  const skills = [
+    ...getSkillsNoNivel(rosterEntry, nivel),
+    ...getSkillsEvolutivas(rosterEntry, nivel, evoPath),
+  ]
+
+  const hpBase = 40 + attrsBase.resistencia * 10
+  const spBase = 20 + attrsBase.energia * 5
+  const { hp, sp } = aplicarBonusHpSp(hpBase, spBase, rosterEntry, nivel, evoPath)
+
+  // Nome da classe evoluída
+  let nomeClasse = rosterEntry.nome
+  try {
+    const { getNomeClasse } = require('./classTree')
+    nomeClasse = getNomeClasse(rosterEntry.classe, nivel, evoPath)
+  } catch (e) {}
+
   return {
     id: `${lado}_${rosterEntry.id}`,
     nome: rosterEntry.nome,
     classe: rosterEntry.classe,
+    nomeClasse, // Nome da classe/evolução para exibição
     elemental: rosterEntry.elemental,
     nivel,
+    caminhoEvolutivo: evoPath,
     atributos: attrs,
     skills,
     hp, hpMax: hp,
-    energia, energiaMax: energia,
+    energia: sp, energiaMax: sp,
     x: posX, y: posY,
     prec: 24 + attrs.precisao + Math.floor(attrs.tenacidade / 3),
     esquiva: attrs.velocidade + Math.floor(attrs.tenacidade / 5),
