@@ -63,7 +63,9 @@ function getInteriorColliders(mapId) {
     cols.push({ x: 0, y: 0, w: 800, h: 16 })
     cols.push({ x: 0, y: 0, w: 16, h: 800 })
     cols.push({ x: 784, y: 0, w: 16, h: 800 })
-    cols.push({ x: 0, y: 784, w: 800, h: 16 })
+    // NOTA: Sem parede inferior — a zona de saída (EXIT_ZONE: y=750~800)
+    // precisa estar acessível. O limite ny+SPRITE_H>INTERIOR_SIZE já
+    // impede o jogador de sair do mapa.
   }
   return cols
 }
