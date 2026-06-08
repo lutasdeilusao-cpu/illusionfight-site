@@ -28,7 +28,7 @@ function avatarCor(id) {
   return `hsl(${hash % 360}, 65%, 45%)`
 }
 
-import { MP_VERSION } from '../config/version'
+import { TM_VERSION } from '../config/version'
 export default function TopTrumpsMP() {
   const { t, locale } = useLanguage()
   const deck = getDeck(locale)
