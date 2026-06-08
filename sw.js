@@ -2,8 +2,8 @@ self.addEventListener('push', (event) => {
   const data = event.data.json()
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '/illusionfight-site/favicon.svg',
-    badge: '/illusionfight-site/favicon.svg',
+    icon: '/favicon.svg',
+    badge: '/favicon.svg',
     tag: 'tamagoshi',
     renotify: true,
     data: { url: data.url },
