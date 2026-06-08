@@ -12,7 +12,27 @@ import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import defaultBg from '../assets/images/cards/bg01.png'
 import './TopTrumps.css'
 
-const todasCartas = deck.cartas
+// ── Season 1 — apenas 20 cartas liberadas ──
+const SEASON_1_IDS = [
+  'kim_briguento',       'jack_vitoria',        'nina_angel',
+  'shuntaro_rei_xama',   'thunderbolt_trovao',
+  'lisa_top500',         'yawanari_imortal',    'voidhunter_void',
+  'kei_sombra_dupla',    'ryu_relampago_oriental',
+  'xakaxi_cacique',      'nara_guerreira',      'kawa_traidor',
+  'tawira_herdeiro',     'iara_curandeira',
+  'david_kronos_primordial', 'vale_das_cinzas', 'kim_primordial_forma',
+  'alan_o_campiao',      'nexus_phantasm'
+]
+
+// Nexus Phantasm sobe de Elite → Primordial na Season 1
+const TIER_OVERRIDE = { nexus_phantasm: 'primordial' }
+
+const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
+
+function tierReal(carta) {
+  return TIER_OVERRIDE[carta.id] || carta.tier
+}
+
 function attrNomeKey(id) {
   const map = {
     rank_sdr: 'games.toptrumps.atributo_rank_sdr',
@@ -99,9 +119,35 @@ export default function TopTrumps() {
   }
 
   function getCartasIniciais() {
-    const tier = getTierInicial()
-    const qtd = tier === 'primordial' ? 30 : tier === 'elite' ? 20 : 10
-    return embaralhar(todasCartas).slice(0, qtd)
+    const userTier = getTierInicial()
+    const qtd = userTier === 'primordial' ? 20 : userTier === 'elite' ? 15 : 10
+    const porTier = Math.max(1, Math.floor(qtd / 4))
+
+    // Agrupa cartas por tier real (considerando override)
+    const grupos = { free: [], elite: [], lendario: [], primordial: [] }
+    todasCartas.forEach(c => {
+      const t = tierReal(c)
+      if (grupos[t]) grupos[t].push(c)
+    })
+
+    const selecionadas = []
+    const tiers = ['free', 'elite', 'lendario', 'primordial']
+
+    // Garante pelo menos `porTier` cartas de cada tier
+    tiers.forEach(t => {
+      const pool = embaralhar(grupos[t])
+      selecionadas.push(...pool.slice(0, porTier))
+    })
+
+    // Preenche resto aleatoriamente entre todas as cartas
+    const restante = qtd - selecionadas.length
+    if (restante > 0) {
+      const jaTem = new Set(selecionadas.map(c => c.id))
+      const pool = embaralhar(todasCartas.filter(c => !jaTem.has(c.id)))
+      selecionadas.push(...pool.slice(0, restante))
+    }
+
+    return embaralhar(selecionadas)
   }
 
   async function carregarDeckLocal() {
@@ -217,9 +263,8 @@ export default function TopTrumps() {
     if (venceu) {
       const podeGanhar = tentativasRestantes > 0 && !jaGanhouHoje
       if (podeGanhar) {
-        const teto = TRIAL_ACTIVE ? Infinity : 49
         const idsTem = new Set(JSON.parse(localStorage.getItem(getDeckKey()) || '[]'))
-        const pool = todasCartas.filter((c, i) => i <= teto && !idsTem.has(c.id))
+        const pool = todasCartas.filter(c => !idsTem.has(c.id))
         if (pool.length > 0) {
           setRecompensaOpcoes(embaralhar(pool).slice(0, 3))
           setFase('recompensa')
