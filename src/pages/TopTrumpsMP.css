@@ -860,3 +860,30 @@
   80% { transform: scale(1.05) rotate(1deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
+
+/* ── Sound toggle (igual ao SP) ── */
+.ttmp-sound-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+.ttmp-sound-toggle:hover {
+  background: rgba(255,255,255,0.12);
+  transform: scale(1.1);
+}
+.ttmp-sound-toggle:active {
+  transform: scale(0.95);
+}

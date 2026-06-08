@@ -10,6 +10,8 @@ import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSa
 import { sfx } from '../lib/sfx'
 import './TopTrumpsMP.css'
 
+let __heartbeatRodando = false
+
 function attrNomeKey(id) {
   const map = {
     rank_sdr: 'games.toptrumps.atributo_rank_sdr',
@@ -50,6 +52,27 @@ export default function TopTrumpsMP() {
     setReaderMode(true)
     return () => setReaderMode(false)
   }, [setReaderMode])
+
+  // ── Sound toggle ──
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  function toggleSom() {
+    const novo = sfx.toggle()
+    setSomAtivo(novo)
+  }
+
+  // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
+  useEffect(() => {
+    if (fase === 'jogando' && !jaMovi) {
+      if (!__heartbeatRodando) {
+        sfx.startHeartbeatLoop()
+        __heartbeatRodando = true
+      }
+    } else {
+      sfx.stopHeartbeatLoop()
+      __heartbeatRodando = false
+    }
+    return () => { sfx.stopHeartbeatLoop(); __heartbeatRodando = false }
+  }, [fase, jaMovi])
 
   const salaId = searchParams.get('sala')
 
@@ -197,6 +220,7 @@ export default function TopTrumpsMP() {
   function seguirParaProximaRodada() {
     const s = salaRef.current
     if (!s) return
+    sfx.click()
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
       sfx.nextRound()
       setFase('fim')
@@ -216,6 +240,7 @@ export default function TopTrumpsMP() {
 
   function jogarAtributo(atributoId) {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
+    sfx.click()
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
@@ -240,8 +265,10 @@ export default function TopTrumpsMP() {
   }
 
   function iniciarRevelacao(resultadoFinal) {
+    sfx.cardFlip()
     sfx.vs()
     sfx.startHeartbeatLoop()
+    __heartbeatRodando = true
     setGirando(true)
     setTimeout(() => {
       sortearOnomatopeia()
@@ -249,6 +276,7 @@ export default function TopTrumpsMP() {
     }, 600)
     setTimeout(() => {
       sfx.stopHeartbeatLoop()
+      __heartbeatRodando = false
       setGirando(false)
       setCortinaAtiva(false)
       if (resultadoFinal === 'ganhou') sfx.win()
@@ -663,6 +691,9 @@ export default function TopTrumpsMP() {
           ))}
         </div>
         <section className="ttmp-page">
+        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
             <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
