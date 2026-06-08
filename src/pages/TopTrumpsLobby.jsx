@@ -11,7 +11,8 @@ import './TopTrumpsLobby.css'
 const todasCartas = deck.cartas
 
 export default function TopTrumpsLobby() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const deck = getDeck(locale)
   const { user, perfil } = useAuth()
   const { setReaderMode } = useReader()
   const navigate = useNavigate()

@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../../../context/LanguageContext'
+import { getDeck } from '../../../lib/getDeck'
 import { carregarDeck } from '../../../hooks/useTopTrumpsDB'
-import deck from '../../../data/supertrunfo-pt.json'
 
 export default function PerfilColecao({ userId }) {
+  const { locale } = useLanguage()
+  const deck = getDeck(locale)
   const [deckIds, setDeckIds] = useState([])
   const [filtro, setFiltro] = useState('todas')
 

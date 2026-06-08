@@ -6,8 +6,8 @@ import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
 import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
+import { getDeck } from '../lib/getDeck'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
-import deck from '../data/supertrunfo-pt.json'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import defaultBg from '../assets/images/cards/bg01.png'
 import img01 from '../assets/images/cards/characters/card-01.png'
@@ -82,7 +82,8 @@ function keyPorUser(user, suffix) {
 }
 
 export default function TopTrumps() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const deck = getDeck(locale)
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const { setReaderMode } = useReader()

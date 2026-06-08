@@ -42,7 +42,12 @@ export function AuthProvider({ children }) {
   async function garantirDeckInicial(userId) {
     const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', userId).limit(1)
     if (data && data.length > 0) { console.log('[Auth] deck já existe, pulando criação'); return }
-    const todasCartas = (await import('../data/supertrunfo-pt.json')).default
+    const locale = localStorage.getItem('ldi-locale') || 'pt'
+    const mod = await import(/* @vite-ignore */ 
+      locale === 'en' ? '../data/supertrunfo-en.json' :
+      locale === 'es' ? '../data/supertrunfo-es.json' :
+      '../data/supertrunfo-pt.json')
+    const todasCartas = mod.default
     const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
     const qtdInicial = 5
     const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, qtdInicial)

@@ -1,7 +1,7 @@
 {
   "meta": {
     "versao": "1.0",
-    "universo": "Lutas de Ilusão — Mundo de Bravara",
+    "universo": "Lutas de Ilusão — World of Bravara",
     "total_cartas": 105,
     "atributos_explicacao": {
       "rank_sdr": "Posição no ranking mundial SDR. Menor = melhor.",
@@ -29,7 +29,7 @@
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "arma": "Xakixi (machado de duas lâminas — cabo de alta tecnologia com fio de aço retrátil)",
       "modo_xama": "Kim Primordial — Chamas negras, marcações tribais Xakaxi ativas, cabelos prateados",
-      "descricao": "Descendente Xakaxi portador do Sangue Primordial. Chegou ao rank 1201 na primeira batalha. Mora em casa invadida, vende balas no busão, cuida da mãe. Tem mais poder do que entende. Quando perde o controle, algo muito mais antigo que ele assume o comando.",
+      "descricao": "Xakaxi descendant bearer of the Primordial Blood. Reached rank 1201 in his first battle. Lives in a squatted house, sells candy on the bus, takes care of his mom. Has more power than he understands. When he loses control, something much older takes over.",
       "frase_iconica": "A única regra da briga de rua? Não há regras.",
       "atributos": {
         "rank_sdr": 1201,
@@ -58,7 +58,7 @@
       "elemental": "Terra / Pedra",
       "arma": "Vitória (bengala que se transforma em San Tien Kwan — nunchaku de três partes com ponta de lança)",
       "modo_xama": "Vitória Finals — Conjura fragmentos de pedra que se tornam projéteis perfurantes sônicos",
-      "descricao": "Melhor amigo de Kim desde sempre. Extrovertido, teatral, nunca genuinamente assustado. Combina charme e violência com eficiência desconcertante. Usa qualquer ambiente a seu favor. Treino em 3 etapas — letal quando completo, vulnerável durante o carregamento.",
+      "descricao": "Kim's best friend since forever. Outgoing, theatrical, never genuinely scared. Combines charm and violence with unsettling efficiency. Uses any environment to his advantage. 3-stage training — lethal when complete, vulnerable during charging.",
       "frase_iconica": "Se não me conheces ainda… hoje é briga fácil!",
       "atributos": {
         "rank_sdr": 10776,
@@ -87,7 +87,7 @@
       "elemental": "Luz",
       "arma": "Angel (katana que se fragmenta em chicote de lâminas segmentadas)",
       "modo_xama": "Angel Luminus Blade — Lâmina carregada com luz capaz de cortar energia e matéria",
-      "descricao": "Muay Thai e katana desde os 12 anos no circuito profissional. Passou anos fora de Bravara. Quando fala, muda a cena. Competitiva ao extremo — prefere morrer a pedir ajuda numa briga.",
+      "descricao": "Muay Thai and katana since age 12 in the pro circuit. Spent years outside Bravara. When she speaks, the scene changes. Extremely competitive — would rather die than ask for help in a fight.",
       "frase_iconica": "Para me deixar satisfeita, vocês precisam fazer muito mais.",
       "atributos": {
         "rank_sdr": 8724,
@@ -116,7 +116,7 @@
       "elemental": "Eletricidade (secundário da Luz)",
       "arma": "Bastão elétrico (crepita com descargas de alta voltagem)",
       "modo_xama": "Raio Celeste — Corpo envolto em aura elétrica azul, velocidade aumentada",
-      "descricao": "Bruno Ribeiro. 1.201 vitórias antes de encontrar Kim. Arrogante, metódico, cruel nos combates. Usa humilhação como estratégia psicológica. Pagou capangas para perseguir Kim no colégio — não deu certo.",
+      "descricao": "Bruno Ribeiro. 1,201 wins before meeting Kim. Arrogant, methodical, cruel in combat. Uses humiliation as psychological strategy. Hired thugs to go after Kim at school — didn't work out.",
       "frase_iconica": "Ajoelhado, chorando e implorando. Só então eu termino.",
       "atributos": {
         "rank_sdr": 30156,
@@ -145,7 +145,7 @@
       "elemental": "Água",
       "arma": "Rei (ioiôs múltiplos de água — até 10 simultâneos com fios de corte)",
       "modo_xama": "Rei Xamã — Serra gigante no braço direito usada como escudo e lança",
-      "descricao": "Rank 998. De Azuma. Viajou 9 horas para desafiar Kim pessoalmente. Estratégico, elegante, respeita oponentes fortes. 6 meses no jogo e já está entre os mil melhores do mundo.",
+      "descricao": "Rank 998. From Azuma. Traveled 9 hours to challenge Kim personally. Strategic, elegant, respects strong opponents. 6 months in the game and already among the top thousand in the world.",
       "frase_iconica": "Prepare-se. Não vim de tão longe para perder.",
       "atributos": {
         "rank_sdr": 998,
@@ -174,7 +174,7 @@
       "elemental": "Vento",
       "arma": "Lâminas de vento (chakrams invisíveis moldados por correntes de ar)",
       "modo_xama": "Tempestade de Corte — Redemoinho de lâminas de ar que cercam o oponente",
-      "descricao": "Rank top 500. Ficou interessada em Kim após o vídeo viral. Confiante, enigmática, competitiva mas justa. Avalia oponentes friamente antes de agir.",
+      "descricao": "Top 500 rank. Got interested in Kim after the viral video. Confident, enigmatic, competitive but fair. Assesses opponents coldly before acting.",
       "frase_iconica": "Eu não luto para provar algo. Eu luto para saber.",
       "atributos": {
         "rank_sdr": 500,
@@ -203,7 +203,7 @@
       "elemental": "Dados / Caos Digital",
       "arma": "Microfone-osso (objeto híbrido que emite ondas de caos informacional)",
       "modo_xama": "Colapso de Realidade — Reescreve regras locais do ambiente de batalha",
-      "descricao": "Arauto das Arenas. Não é humano, não é IA convencional. Criado por hackers, oficializado pela Yohu. Sarcástico por natureza. Sua presença distorce o campo de batalha.",
+      "descricao": "Herald of the Arenas. Not human, not conventional AI. Created by hackers, made official by Yohu. Sarcastic by nature. Its presence distorts the battlefield.",
       "frase_iconica": "Senhoras e senhores, o impossível é apenas uma questão de perspectiva!",
       "atributos": {
         "rank_sdr": 1,
@@ -232,7 +232,7 @@
       "elemental": "Todos os elementais primários",
       "arma": "Berimbau Ancestral (instrumento que canaliza poder espiritual puro)",
       "modo_xama": "Espírito Livre — Forma etérea que não pode ser atingida por ataques físicos",
-      "descricao": "Xamã imortal da tribo Xakaxi. Quinhentos anos observando a humanidade. Viu guerras mundiais, pandemias, colonização e redes sociais. Completamente louco. Fala em gírias modernas misturadas com sabedoria ancestral. Tem amigos imaginários.",
+      "descricao": "Immortal shaman of the Xakaxi tribe. Five hundred years watching humanity. Saw world wars, pandemics, colonization and social media. Completely crazy. Speaks in modern slang mixed with ancestral wisdom. Has imaginary friends.",
       "frase_iconica": "Cheguei pra divar! Sou o 10/10 que ficou na responsa de proteger os poderes sagrados deste mundão.",
       "atributos": {
         "rank_sdr": 1,
@@ -261,7 +261,7 @@
       "elemental": "Vazio",
       "arma": "Garras de Vazio (extensões dos próprios dedos que dobram ao contrário)",
       "modo_xama": "Consumo Total — Absorve toda energia ao redor criando zona de nulidade",
-      "descricao": "Entidade do LDI. Não é jogador. O visor não reflete. Os dedos dobram ao contrário. Gosma preta nas fissuras do peitoral. Ninguém sabe de onde veio nem quem o criou.",
+      "descricao": "LDI Entity. Not a player. The display doesn't reflect. The fingers bend backwards. Black slime in the chest cracks. No one knows where it came from or who created it.",
       "frase_iconica": "...",
       "atributos": {
         "rank_sdr": 1,
@@ -290,7 +290,7 @@
       "elemental": "Escuridão Corrompida",
       "arma": "Corpo hospedeiro (usa o físico de outros como arma e escudo)",
       "modo_xama": "Possessão Total — Assume controle completo do hospedeiro multiplicando todos os atributos",
-      "descricao": "Espírito ancestral corrompido de Powa, filho do Pajé Yawanari. Cinco séculos esperando pelo Corpo Primordial — o descendente que carregue o Sangue Primordial para usar como hospedeiro permanente. Cada possessão deteriora o hospedeiro. Criou o LDI como isca.",
+      "descricao": "Corrupted ancestral spirit of Powa, son of Pajé Yawanari. Five centuries waiting for the Primordial Body — the descendant carrying the Primordial Blood to use as a permanent host. Each possession deteriorates the host. Created the LDI as bait.",
       "frase_iconica": "Finalmente… Como tenho esperado por esse momento.",
       "atributos": {
         "rank_sdr": 1,
@@ -319,7 +319,7 @@
       "elemental": "Terra Sagrada",
       "arma": "Lança Xakaxium (metal exclusivo da tribo, mais resistente que qualquer liga conhecida)",
       "modo_xama": "Guardião da Tribo — Invoca o espírito coletivo dos Xakaxi para amplificar todos os aliados",
-      "descricao": "Líder supremo da Grande Tribo Xakaxi em 1450. Decidiu esconder o poder sagrado em vez de usá-lo como arma. Escolheu a sabedoria sobre a vitória fácil. Seu espírito ainda protege os descendentes da linhagem.",
+      "descricao": "Supreme leader of the Great Xakaxi Tribe in 1450. Decided to hide the sacred power instead of using it as a weapon. Chose wisdom over easy victory. His spirit still protects the lineage's descendants.",
       "frase_iconica": "Lutaremos com tudo o que temos. Pelo nosso povo, pela nossa história.",
       "atributos": {
         "rank_sdr": 1,
@@ -348,7 +348,7 @@
       "elemental": "Luz da Batalha",
       "arma": "Espada de Nexium (metal raro extraído apenas pelos Xakaxi)",
       "modo_xama": "Fúria Xamã — Corpo envolto em luz dourada, força e velocidade triplicadas",
-      "descricao": "Esposa de Xakaxi e a mais feroz guerreira da tribo. Nunca aceitou passivamente o destino. Mesmo diante da profecia, insistia em lutar. Montava em Nhan, seu cavalo, e comandava batalhas pessoalmente.",
+      "descricao": "Xakaxi's wife and the fiercest warrior of the tribe. Never passively accepted fate. Even facing prophecy, insisted on fighting. Rode Nhan, her horse, and commanded battles personally.",
       "frase_iconica": "Não sou o tipo de pessoa que aceita o que nos foi imposto.",
       "atributos": {
         "rank_sdr": 1,
@@ -377,7 +377,7 @@
       "elemental": "Vida Drenada",
       "arma": "Mãos Vazias (o próprio corpo como conduit de drenagem vital)",
       "modo_xama": "Ritual Proibido — Drena toda vida num raio de 50 metros, incluindo aliados",
-      "descricao": "Filho do Pajé Yawanari. Queria usar o poder sagrado para dominar. Realizou o rito proibido em 1450, matando todos os seus seguidores incluindo Kawa. Tornou-se o espírito que depois seria David Kronos.",
+      "descricao": "Son of Pajé Yawanari. Wanted to use sacred power to dominate. Performed the forbidden rite in 1450, killing all his followers including Kawa. Became the spirit that would later be David Kronos.",
       "frase_iconica": "Eu deveria ter sido o líder da tribo. O poder era meu.",
       "atributos": {
         "rank_sdr": 1,
@@ -406,7 +406,7 @@
       "elemental": "Nenhum",
       "arma": "Garrafa (improviso urbano)",
       "modo_xama": "Nenhum",
-      "descricao": "Mãe de Kim — ou melhor, a mulher que o salvou quando tinha 12 anos e ele era um bebê. Sobreviveu ao que não devia e criou Kim sozinha a partir do nada. Troubled, complexa, alcoólatra. Mas na hora que importou, não abandonou.",
+      "descricao": "Kim's mother — or rather, the woman who saved him when she was 12 and he was a baby. Survived what she shouldn't have and raised Kim alone from nothing. Troubled, complex, alcoholic. But when it mattered, she didn't abandon him.",
       "frase_iconica": "Aos 18 você não vai precisar mais de mim. E eu finalmente posso me livrar de você.",
       "atributos": {
         "rank_sdr": 999999,
@@ -435,7 +435,7 @@
       "elemental": "Terra",
       "arma": "Violão (a música como arma espiritual)",
       "modo_xama": "Melodia Ancestral — Som que acalma qualquer estado de fúria ou medo",
-      "descricao": "Porteiro da academia de elite. Ensinou Kim a tocar violão por três anos. Usou sua influência para garantir bolsa de 50% para Kim e Jack. Viu potencial onde todos viam problema.",
+      "descricao": "Doorman at the elite academy. Taught Kim to play guitar for three years. Used his influence to secure a 50% scholarship for Kim and Jack. Saw potential where everyone saw a problem.",
       "frase_iconica": "Entrem logo, antes que o diretor me pegue.",
       "atributos": {
         "rank_sdr": 750000,
@@ -464,7 +464,7 @@
       "elemental": "Água",
       "arma": "SBI Edição Limitada (presenteou Kim com um aparelho de 60-70 mil)",
       "modo_xama": "Investidor Tático — Aposta nos azarões e recebe retorno multiplicado",
-      "descricao": "Aluno da academia elite. Era espancado todo dia por valentões até Kim intervir. Assistiu ao vídeo de Kim no LDI, reconheceu o rosto e presenteou com um SBI de edição limitada como investimento e agradecimento.",
+      "descricao": "Student at the elite academy. Was beaten daily by bullies until Kim intervened. Watched Kim's LDI video, recognized his face, and gifted him a limited edition SBI as investment and thanks.",
       "frase_iconica": "Suas lutas são realmente muito boas. Seria um desperdício não vermos mais.",
       "atributos": {
         "rank_sdr": 500000,
@@ -493,7 +493,7 @@
       "elemental": "Nenhum",
       "arma": "Força bruta e número de capangas",
       "modo_xama": "Nenhum",
-      "descricao": "Aluno da academia elite. Usava o status da família para intimidar os mais fracos. Exigiu que Ryan comprasse coisas pra ele. Foi processado por Kim e Jack após trazer capangas externos à escola.",
+      "descricao": "Student at the elite academy. Used his family's status to intimidate the weak. Demanded Ryan buy things for him. Was sued by Kim and Jack after bringing outside thugs to school.",
       "frase_iconica": "Você e seu amiguinho se acham muito espertos na escola.",
       "atributos": {
         "rank_sdr": 900000,
@@ -522,7 +522,7 @@
       "elemental": "Fogo",
       "arma": "Socos ingleses com pontas afiadas",
       "modo_xama": "Contrato de Sangue — Ficou mais forte quanto maior for a recompensa prometida",
-      "descricao": "Líder de um grupo de mercenários urbanos. Foi contratada para fotografar a surra que dariam em Kim e Jack no parque. Pequena, tatuada, olhar ameaçador. Reconheceu que Kim era uma força da natureza e parou de tentar.",
+      "descricao": "Leader of a group of urban mercenaries. Hired to photograph the beating they'd give Kim and Jack at the park. Small, tattooed, threatening look. Recognized Kim was a force of nature and stopped trying.",
       "frase_iconica": "Eu adoro dar surras. Mas adoro ainda mais quando sou paga pra isso.",
       "atributos": {
         "rank_sdr": 200000,
@@ -551,7 +551,7 @@
       "elemental": "Nenhum",
       "arma": "Jaqueta de couro com mãos calejadas",
       "modo_xama": "Nenhum",
-      "descricao": "Líder do grupo de capangas contratados por Thunderbolt. Alto, musculoso, tatuagens que contam histórias de violência. Tratou o trabalho com profissionalismo até ser dobrado numa mesa em 3 segundos.",
+      "descricao": "Leader of the thugs hired by Thunderbolt. Tall, muscular, tattoos telling stories of violence. Treated the job professionally until folded over a table in 3 seconds.",
       "frase_iconica": "Vocês tiveram sorte. Nossos movimentos pegaram a gente de surpresa.",
       "atributos": {
         "rank_sdr": 400000,
@@ -580,7 +580,7 @@
       "elemental": "Nenhum",
       "arma": "Autoridade institucional",
       "modo_xama": "Nenhum",
-      "descricao": "Diretor da academia elite. Tenta manter a ordem numa escola cheia de conflitos. Ameaça Kim e Jack com a bolsa periodicamente. Nunca consegue provas suficientes para agir.",
+      "descricao": "Principal of the elite academy. Tries to keep order in a school full of conflicts. Threatens Kim and Jack's scholarship periodically. Never gets enough proof to act.",
       "frase_iconica": "Tomem cuidado. Muito cuidado para não perder suas bolsas.",
       "atributos": {
         "rank_sdr": 999999,
@@ -609,7 +609,7 @@
       "elemental": "Nenhum",
       "arma": "Conhecimento puro",
       "modo_xama": "Nenhum",
-      "descricao": "Professor de matemática da academia elite. Escreve equações no ar com a caneta. Nunca sorri — exceto uma vez, imperceptível, quando Nina detonou Jack. Considerado um dos únicos escolhidos para lecionar na instituição.",
+      "descricao": "Math teacher at the elite academy. Writes equations in the air with a pen. Never smiles — except once, imperceptibly, when Nina destroyed Jack. Considered one of the few chosen to teach at the institution.",
       "frase_iconica": "Bom dia.",
       "atributos": {
         "rank_sdr": 999999,
@@ -638,7 +638,7 @@
       "elemental": "Digital",
       "arma": "Informação (controle total das variáveis do ambiente LDI)",
       "modo_xama": "Protocolo de Emergência — Acessa funções restritas do sistema",
-      "descricao": "A inteligência artificial do LDI que gerencia batalhas, comunica status e cria avatares. Fala diretamente na mente dos jogadores. Pode esconder informações do oponente. Sua lealdade é ao sistema — ou a algo mais?",
+      "descricao": "The LDI artificial intelligence that manages battles, communicates status and creates avatars. Speaks directly into players' minds. Can hide information from the opponent. Its loyalty is to the system — or to something else?",
       "frase_iconica": "Bem-vindo ao Sistema de Lutas de Ilusão. Iniciando protocolo de integração neural.",
       "atributos": {
         "rank_sdr": 0,
@@ -667,7 +667,7 @@
       "elemental": "Caos / Performance",
       "arma": "Microfone-osso (objeto híbrido de osso polido e metal negro)",
       "modo_xama": "Grande Espetáculo — A batalha vira entretenimento, aumentando dano de todos",
-      "descricao": "Figura grotesca com membros desproporcionais e articulações antinatural. Olhos abismos negros. Dentes afiados propositalmente. Cria narrativas que transformam batalhas em espetáculos para a PowWow.",
+      "descricao": "Grotesque figure with disproportionate limbs and unnatural joints. Eyes like black abysses. Teeth intentionally sharpened. Creates narratives that turn battles into spectacles for the PowWow.",
       "frase_iconica": "O impossível é apenas uma questão de perspectiva!",
       "atributos": {
         "rank_sdr": 1,
@@ -696,7 +696,7 @@
       "elemental": "Fogo",
       "arma": "Adaga curva (estilo ancestral de sua região)",
       "modo_xama": "Fogo de Arenia — Chamas que se propagam por qualquer superfície",
-      "descricao": "Assistiu ao vídeo de Kim enquanto tomava chá de maçã em Arenia. Reconheceu imediatamente que ele não era invencível. Especialista em estratégia. Planeja cada batalha com precisão cirúrgica.",
+      "descricao": "Watched Kim's video while having apple tea in Arenia. Immediately recognized he wasn't invincible. Strategy specialist. Plans each battle with surgical precision.",
       "frase_iconica": "Ele não é invencível.",
       "atributos": {
         "rank_sdr": 3200,
@@ -725,7 +725,7 @@
       "elemental": "Ar",
       "arma": "Chicote de névoa industrial",
       "modo_xama": "Névoa de Draymoor — Campo visual bloqueado, ataca de dentro da névoa",
-      "descricao": "Assistiu ao vídeo de Kim num flat vitoriano em Draymoor com chuva perpétua ao fundo. Treinou pelo método das fábricas têxteis — disciplina e precisão acima de tudo. Raramente erra.",
+      "descricao": "Watched Kim's video in a Victorian flat in Draymoor with perpetual rain outside. Trained using the textile factory method — discipline and precision above all. Rarely makes mistakes.",
       "frase_iconica": "Kim luta com a precisão de um artista pintando com violência controlada.",
       "atributos": {
         "rank_sdr": 15000,
@@ -754,7 +754,7 @@
       "elemental": "Terra",
       "arma": "Escudo e lança (inspirados na tradição de Thessor)",
       "modo_xama": "Olímpia — Invoca poder dos deuses ancestrais de sua terra",
-      "descricao": "Tinha 9 anos quando assistiu ao vídeo de Kim. Não pode jogar LDI ainda. Desenhou Kim em papiro especial. Quando crescer, virá para o jogo como uma tempestade.",
+      "descricao": "Was 9 years old when she watched Kim's video. Can't play LDI yet. Drew Kim on special papyrus. When she grows up, she'll come into the game like a storm.",
       "frase_iconica": "Vou chegar ao Olimpo digital.",
       "atributos": {
         "rank_sdr": 999999,
@@ -783,7 +783,7 @@
       "elemental": "Gelo",
       "arma": "Machado de guerra (veterano aposentado)",
       "modo_xama": "Urso do Norte — Forma aumentada, força e resistência triplicadas",
-      "descricao": "Veterano aposentado de Wendor. Menos 15 graus lá fora, caneca de café, camisa flanelada vermelha. Achava que seus dias de glória tinham passado. Kim reacendeu a chama.",
+      "descricao": "Retired veteran from Wendor. Minus 15 degrees outside, coffee mug, red flannel shirt. Thought his glory days were over. Kim reignited the flame.",
       "frase_iconica": "Talvez ainda haja luta neste velho urso.",
       "atributos": {
         "rank_sdr": 45000,
@@ -812,7 +812,7 @@
       "elemental": "Raio",
       "arma": "Terminal holográfico (arma de dados e ataques de precisão calculada)",
       "modo_xama": "Análise Total — Prevê e neutraliza qualquer ataque por 30 segundos",
-      "descricao": "Executivo do 47º andar em Zylvaron. Parou uma apresentação de blockchain para assistir Kim. Vê o LDI como investimento de alto retorno. Cada golpe calculado como uma equação financeira.",
+      "descricao": "Executive on the 47th floor in Zylvaron. Stopped a blockchain presentation to watch Kim. Sees LDI as a high-return investment. Every blow calculated like a financial equation.",
       "frase_iconica": "Os números não mentem. E Kim é uma oportunidade.",
       "atributos": {
         "rank_sdr": 8000,
@@ -841,7 +841,7 @@
       "elemental": "Raio",
       "arma": "Teclado mecânico custom (traduzido como arma de precisão no LDI)",
       "modo_xama": "Fúria K-Pop — Velocidade de ataque que cria ilusão de múltiplas cópias",
-      "descricao": "Tres anos de hagwon especializado em gaming. Centenas de vitórias. Viu Kim e sentiu inveja pura. Quer destruí-lo em batalha mais do que qualquer coisa. Redes sociais com nail art e skincare de 10 passos.",
+      "descricao": "Three years at gaming-focused hagwon. Hundreds of wins. Saw Kim and felt pure envy. Wants to destroy him in battle more than anything. Social media with nail art and 10-step skincare.",
       "frase_iconica": "Oppa, vou destruí-lo.",
       "atributos": {
         "rank_sdr": 12000,
@@ -870,7 +870,7 @@
       "elemental": "Gelo",
       "arma": "Fios de gelo (extende e controla cristais de gelo como chicotes e barreiras)",
       "modo_xama": "Lagom — Estado de equilíbrio perfeito entre ataque e defesa",
-      "descricao": "Dona de casa de Valetis. Faz almôndegas suecas. Planeja batalhas com a mesma precisão que organiza móveis modulares. Estrategista nata que os oponentes jamais levam a sério — até ser tarde.",
+      "descricao": "Housewife from Valetis. Makes Swedish meatballs. Plans battles with the same precision she organizes modular furniture. A natural strategist that opponents never take seriously — until it's too late.",
       "frase_iconica": "Nem muito, nem pouco. Exatamente o necessário para a vitória.",
       "atributos": {
         "rank_sdr": 28000,

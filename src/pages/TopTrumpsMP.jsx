@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useLanguage } from '../context/LanguageContext'
+import { getDeck } from '../lib/getDeck'
 import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
 import { supabase } from '../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
-import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsMP.css'
 
 const todasCartas = deck.cartas
@@ -35,7 +35,8 @@ function avatarCor(id) {
 
 import { MP_VERSION } from '../config/version'
 export default function TopTrumpsMP() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const deck = getDeck(locale)
   const { setReaderMode } = useReader()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
