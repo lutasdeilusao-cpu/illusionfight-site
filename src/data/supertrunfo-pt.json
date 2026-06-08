@@ -24,7 +24,7 @@
     "cartas":  [
                    {
                        "id":  "kim_briguento",
-                       "nome":  "Kim — Briguento",
+                       "nome":  "Kim",
                        "tier":  "free",
                        "elemental":  "Trevas (manifestado) / Fogo (nativo)",
                        "arma":  "Xakixi (machado de duas lâminas — cabo de alta tecnologia com fio de aço retrátil)",
@@ -53,7 +53,7 @@
                    },
                    {
                        "id":  "jack_vitoria",
-                       "nome":  "Jack — Vitória",
+                       "nome":  "Jack",
                        "tier":  "free",
                        "elemental":  "Terra / Pedra",
                        "arma":  "Vitória (bengala que se transforma em San Tien Kwan — nunchaku de três partes com ponta de lança)",
@@ -82,7 +82,7 @@
                    },
                    {
                        "id":  "nina_angel",
-                       "nome":  "Nina — Angel",
+                       "nome":  "Nina",
                        "tier":  "free",
                        "elemental":  "Luz",
                        "arma":  "Angel (katana que se fragmenta em chicote de lâminas segmentadas)",
@@ -111,7 +111,7 @@
                    },
                    {
                        "id":  "thunderbolt_trovao",
-                       "nome":  "Thunderbolt — Trovão",
+                       "nome":  "Thunderbolt",
                        "tier":  "free",
                        "elemental":  "Eletricidade (secundário da Luz)",
                        "arma":  "Bastão elétrico (crepita com descargas de alta voltagem)",
@@ -140,7 +140,7 @@
                    },
                    {
                        "id":  "shuntaro_rei_xama",
-                       "nome":  "Shuntaro — Rei Xamã",
+                       "nome":  "Shuntaro",
                        "tier":  "free",
                        "elemental":  "Água",
                        "arma":  "Rei (ioiôs múltiplos de água — até 10 simultâneos com fios de corte)",
@@ -169,7 +169,7 @@
                    },
                    {
                        "id":  "lisa_top500",
-                       "nome":  "Lisa — Top 500",
+                       "nome":  "Lisa",
                        "tier":  "elite",
                        "elemental":  "Vento",
                        "arma":  "Lâminas de vento (chakrams invisíveis moldados por correntes de ar)",
@@ -198,7 +198,7 @@
                    },
                    {
                        "id":  "nexus_phantasm",
-                       "nome":  "Nexus Phantasm — Arauto",
+                       "nome":  "Nexus Phantasm",
                        "tier":  "elite",
                        "elemental":  "Dados / Caos Digital",
                        "arma":  "Microfone-osso (objeto híbrido que emite ondas de caos informacional)",
@@ -227,7 +227,7 @@
                    },
                    {
                        "id":  "yawanari_imortal",
-                       "nome":  "Pajé Yawanari — Imortal",
+                       "nome":  "Pajé Yawanari",
                        "tier":  "elite",
                        "elemental":  "Todos os elementais primários",
                        "arma":  "Berimbau Ancestral (instrumento que canaliza poder espiritual puro)",
@@ -256,7 +256,7 @@
                    },
                    {
                        "id":  "voidhunter_void",
-                       "nome":  "VoidHunter_X — Void",
+                       "nome":  "VoidHunter_X",
                        "tier":  "elite",
                        "elemental":  "Vazio",
                        "arma":  "Garras de Vazio (extensões dos próprios dedos que dobram ao contrário)",
@@ -285,7 +285,7 @@
                    },
                    {
                        "id":  "david_kronos_primordial",
-                       "nome":  "David Kronos — Primordial",
+                       "nome":  "David Kronos",
                        "tier":  "primordial",
                        "elemental":  "Escuridão Corrompida",
                        "arma":  "Corpo hospedeiro (usa o físico de outros como arma e escudo)",
@@ -314,7 +314,7 @@
                    },
                    {
                        "id":  "xakaxi_cacique",
-                       "nome":  "Xakaxi — O Grande Cacique",
+                       "nome":  "Xakaxi",
                        "tier":  "lendario",
                        "elemental":  "Terra Sagrada",
                        "arma":  "Lança Xakaxium (metal exclusivo da tribo, mais resistente que qualquer liga conhecida)",
@@ -343,7 +343,7 @@
                    },
                    {
                        "id":  "nara_guerreira",
-                       "nome":  "Nara — A Guerreira",
+                       "nome":  "Nara",
                        "tier":  "lendario",
                        "elemental":  "Luz da Batalha",
                        "arma":  "Espada de Nexium (metal raro extraído apenas pelos Xakaxi)",
@@ -372,7 +372,7 @@
                    },
                    {
                        "id":  "powa_corrompido",
-                       "nome":  "Powa — O Corrompido",
+                       "nome":  "Powa",
                        "tier":  "lendario",
                        "elemental":  "Vida Drenada",
                        "arma":  "Mãos Vazias (o próprio corpo como conduit de drenagem vital)",
@@ -401,7 +401,7 @@
                    },
                    {
                        "id":  "helena_sobrevivente",
-                       "nome":  "Helena — A Sobrevivente",
+                       "nome":  "Helena",
                        "tier":  "free",
                        "elemental":  "Nenhum",
                        "arma":  "Garrafa (improviso urbano)",
@@ -430,7 +430,7 @@
                    },
                    {
                        "id":  "osvaldo_porteiro",
-                       "nome":  "Osvaldo — O Porteiro",
+                       "nome":  "Osvaldo",
                        "tier":  "free",
                        "elemental":  "Terra",
                        "arma":  "Violão (a música como arma espiritual)",
@@ -459,7 +459,7 @@
                    },
                    {
                        "id":  "ryan_grato",
-                       "nome":  "Ryan — O Grato",
+                       "nome":  "Ryan",
                        "tier":  "free",
                        "elemental":  "Água",
                        "arma":  "SBI Edição Limitada (presenteou Kim com um aparelho de 60-70 mil)",
@@ -488,7 +488,7 @@
                    },
                    {
                        "id":  "samuel_valentao",
-                       "nome":  "Samuel — O Valentão",
+                       "nome":  "Samuel",
                        "tier":  "free",
                        "elemental":  "Nenhum",
                        "arma":  "Força bruta e número de capangas",
@@ -517,7 +517,7 @@
                    },
                    {
                        "id":  "roxy_mercenaria",
-                       "nome":  "Roxy — A Mercenária",
+                       "nome":  "Roxy",
                        "tier":  "free",
                        "elemental":  "Fogo",
                        "arma":  "Socos ingleses com pontas afiadas",
@@ -546,7 +546,7 @@
                    },
                    {
                        "id":  "brock_lider_capanga",
-                       "nome":  "Brock — Capanga Líder",
+                       "nome":  "Brock",
                        "tier":  "free",
                        "elemental":  "Nenhum",
                        "arma":  "Jaqueta de couro com mãos calejadas",
@@ -575,7 +575,7 @@
                    },
                    {
                        "id":  "walter_diretor",
-                       "nome":  "Walter — O Diretor",
+                       "nome":  "Walter",
                        "tier":  "free",
                        "elemental":  "Nenhum",
                        "arma":  "Autoridade institucional",
@@ -604,7 +604,7 @@
                    },
                    {
                        "id":  "a_maquina_professor",
-                       "nome":  "A Máquina — Professor",
+                       "nome":  "A Máquina",
                        "tier":  "free",
                        "elemental":  "Nenhum",
                        "arma":  "Conhecimento puro",
@@ -633,7 +633,7 @@
                    },
                    {
                        "id":  "neo_guide_ia",
-                       "nome":  "IA NeoGuide — Sistema",
+                       "nome":  "IA NeoGuide",
                        "tier":  "sombra",
                        "elemental":  "Digital",
                        "arma":  "Informação (controle total das variáveis do ambiente LDI)",
@@ -662,7 +662,7 @@
                    },
                    {
                        "id":  "narrador_arena",
-                       "nome":  "O Narrador — Arauto da Arena",
+                       "nome":  "O Narrador",
                        "tier":  "sombra",
                        "elemental":  "Caos / Performance",
                        "arma":  "Microfone-osso (objeto híbrido de osso polido e metal negro)",
@@ -691,7 +691,7 @@
                    },
                    {
                        "id":  "sarah_arenia",
-                       "nome":  "Sarah — Estrategista de Arenia",
+                       "nome":  "Sarah",
                        "tier":  "elite",
                        "elemental":  "Fogo",
                        "arma":  "Adaga curva (estilo ancestral de sua região)",
@@ -720,7 +720,7 @@
                    },
                    {
                        "id":  "alex_draymoor",
-                       "nome":  "Alex — Precisão de Draymoor",
+                       "nome":  "Alex",
                        "tier":  "free",
                        "elemental":  "Ar",
                        "arma":  "Chicote de névoa industrial",
@@ -749,7 +749,7 @@
                    },
                    {
                        "id":  "mia_thessor",
-                       "nome":  "Mia — Amazona de Thessor",
+                       "nome":  "Mia",
                        "tier":  "free",
                        "elemental":  "Terra",
                        "arma":  "Escudo e lança (inspirados na tradição de Thessor)",
@@ -778,7 +778,7 @@
                    },
                    {
                        "id":  "jaret_wendor",
-                       "nome":  "Jaret — Veterano de Wendor",
+                       "nome":  "Jaret",
                        "tier":  "free",
                        "elemental":  "Gelo",
                        "arma":  "Machado de guerra (veterano aposentado)",
@@ -807,7 +807,7 @@
                    },
                    {
                        "id":  "mikael_zylvaron",
-                       "nome":  "Mikael — Calculista de Zylvaron",
+                       "nome":  "Mikael",
                        "tier":  "elite",
                        "elemental":  "Raio",
                        "arma":  "Terminal holográfico (arma de dados e ataques de precisão calculada)",
@@ -836,7 +836,7 @@
                    },
                    {
                        "id":  "isabella_erendale",
-                       "nome":  "Isabella — Furor de Erendale",
+                       "nome":  "Isabella",
                        "tier":  "free",
                        "elemental":  "Raio",
                        "arma":  "Teclado mecânico custom (traduzido como arma de precisão no LDI)",
@@ -865,7 +865,7 @@
                    },
                    {
                        "id":  "tira_valetis",
-                       "nome":  "Tira — Estrategista de Valetis",
+                       "nome":  "Tira",
                        "tier":  "free",
                        "elemental":  "Gelo",
                        "arma":  "Fios de gelo (extende e controla cristais de gelo como chicotes e barreiras)",
