@@ -256,10 +256,7 @@
   cursor: pointer;
   transition: transform 0.15s, filter 0.15s;
 }
-.tt-card-attr-clickable:hover {
-  transform: scale(1.06);
-  filter: brightness(1.15);
-}
+
 .tt-card-attr-clickable:active {
   transform: scale(0.95);
 }
