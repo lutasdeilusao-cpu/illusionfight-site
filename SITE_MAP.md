@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-07*
-*Versão: 3.3*  |  `[SITE] versão carregada: 3.3`  |  🌐 `https://illusionfight.com/`
+*Última atualização: 2026-06-08*
+*Versão: 3.4*  |  `[SITE] versão carregada: 3.4`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
@@ -26,6 +26,8 @@
 ├── Marketing-MAP.md                    # Mapa de marketing
 ├── PROPOSTA_CIDADE_MARELIA_v2.md       # Proposta cidade Marélia
 ├── RefactoryBattleLDITatics.md         # Refactory batalha LDI Tatics
+├── PLANO_CLASSES_LDI_TATICS.md          # Planejamento árvore de classes
+├── RELATORIO_CLASSES_COMPLETO.md        # Relatório das 42 variações de classe
 ├── deploy.py                           # Automação deploy (bump → build → commit → push → deploy)
 ├── _add_i18n.py                        # Script utilitário i18n
 ├── _connect_i18n.py                    # Script utilitário i18n
@@ -59,6 +61,7 @@
 │   │   ├── 010_tamagoshi_fix_columns.sql # Tamagoshi fix colunas
 │   │   ├── 010_stripe_billing.sql      # Stripe: subscription columns
 │   │   └── 011_arena_tatics_roster.sql # Arena Tatics roster
+│   │   └── 012_tatics_card_pool.sql    # Cartas + evolução (v7.0)
 │   └── functions/
 │       ├── create-checkout-session/index.ts  # Stripe checkout (JWT obrigatório)
 │       ├── stripe-webhook/index.ts           # Stripe webhook (no-verify-jwt)
@@ -225,6 +228,8 @@
     │   │   │   └── useCityStore.js         # Zustand: cidade, clima, NPCs
     │   │   ├── data/
     │   │   │   ├── roster.js           # 20 personagens jogáveis
+    │   │   │   ├── classTree.js        # Árvore de evolução das 6 classes (v7.0)
+    │   │   │   ├── cardPool.js         # Sistema de sorteio de cartas (pool de 10)
     │   │   │   ├── aiPersonalities.js  # 16 personalidades de IA
     │   │   │   ├── classes.js          # Classes dos personagens
     │   │   │   ├── combat.js           # Sistema de combate
@@ -236,7 +241,7 @@
     │   │   │   ├── equipment.js        # Equipamentos
     │   │   │   ├── eventos.js          # Eventos aleatórios
     │   │   │   ├── juice.js            # Efeitos visuais
-    │   │   │   ├── levelProgression.js # Progressão de nível
+    │   │   │   ├── levelProgression.js # Progressão de nível (v7.0: suporta evolução)
     │   │   │   └── tilemaps/           # Mapas tile JSON
     │   │   ├── screens/
     │   │   │   ├── Batalha.jsx         # Tela de batalha principal
@@ -246,6 +251,7 @@
     │   │   │   ├── ClasseSelect.jsx    # Seleção de classe
     │   │   │   ├── Customizacao.jsx    # Customização de personagem
     │   │   │   ├── Derrota.jsx         # Tela de derrota
+    │   │   │   ├── EvolutionScreen.jsx # Tela de evolução de classe (Nv40/Nv70)
     │   │   │   ├── Intro.jsx           # Tela de introdução
     │   │   │   ├── PreBatalha.jsx      # Pré-batalha (preparação)
     │   │   │   ├── SimulacaoAuto.jsx   # Simulação automática
@@ -571,6 +577,7 @@
 | `010_tamagoshi_fix_columns.sql` | Fix colunas |
 | `010_stripe_billing.sql` | Stripe subscription |
 | `011_arena_tatics_roster.sql` | Roster Tatics |
+| `012_tatics_card_pool.sql` | Cartas + evolução (v7.0) |
 
 ### Tabelas principais: `profiles`, `toptrumps_decks`, `share_submissions`, `tamagoshi_saves`, `tamagoshi_trocas`, `dix_wallet`, `dix_historico`, `tamagoshi_badges`, `tamagoshi_fama`
 

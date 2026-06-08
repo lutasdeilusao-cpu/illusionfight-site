@@ -39,7 +39,8 @@ No exceptions. Every modification to any game file:
 
 - `.env` sets `VITE_DEBUG=true` (dev)
 - `.env.production` sets `VITE_DEBUG=false`
-- Vite base: `/illusionfight-site/` (configured in `vite.config.js`)
+- **Domínio oficial:** `https://illusionfight.com/` (GitHub Pages + CNAME)
+- Vite base: `/` (custom domain) | `/illusionfight-site/` (GitHub Pages subpath)
 - Supabase project: `dvxfrzixtetdzmdrzkpx.supabase.co` — client initialized in `src/lib/supabase.js` with anon key
 
 ## 🤖 Custom Agents
@@ -74,8 +75,8 @@ git push             # push main branch source
 | MiniGames | `MINIGAMES_VERSION` | `src/pages/MiniGames/version.js:1` |
 | Arena Mode | `ARENA_VERSION` | `src/pages/Arena/ArenaRoute.jsx:10` (not in store) |
 | Pesadelo Particular | `PP_VERSION` | `src/pages/PesadeloParticular/PP.jsx:7` |
-| Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js:23` |
-| Site global | `SITE_VERSION` | `src/config/version.js:1` |
+| Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js` |
+| Site global | `SITE_VERSION` | `src/config/version.js` |
 
 Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
 
