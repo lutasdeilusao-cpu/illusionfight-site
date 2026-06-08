@@ -104,21 +104,6 @@ export default function TopTrumps() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // ── Heartbeat loop durante a escolha de atributo ──
-  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
-  function toggleSom() {
-    const novo = sfx.toggle()
-    setSomAtivo(novo)
-  }
-  useEffect(() => {
-    if (fase === 'jogando' && !confirmandoAtributo) {
-      sfx.startHeartbeatLoop()
-    } else {
-      sfx.stopHeartbeatLoop()
-    }
-    return () => sfx.stopHeartbeatLoop()
-  }, [fase, confirmandoAtributo])
-
   const [fase, setFase] = useState('menu')
   const [deckJogador, setDeckJogador] = useState([])
   const [deckIA, setDeckIA] = useState([])
@@ -171,6 +156,21 @@ export default function TopTrumps() {
   const [cartaSumindo, setCartaSumindo] = useState(false)
   const [cortinaAtiva, setCortinaAtiva] = useState(false)
   const [revelandoResultado, setRevelandoResultado] = useState(false)
+
+  // ── Heartbeat loop durante a escolha de atributo ──
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  function toggleSom() {
+    const novo = sfx.toggle()
+    setSomAtivo(novo)
+  }
+  useEffect(() => {
+    if (fase === 'jogando' && !confirmandoAtributo) {
+      sfx.startHeartbeatLoop()
+    } else {
+      sfx.stopHeartbeatLoop()
+    }
+    return () => sfx.stopHeartbeatLoop()
+  }, [fase, confirmandoAtributo])
 
   // Max attribute values across ALL cards
   const maxAtrib = todasCartas.reduce((acc, c) => {

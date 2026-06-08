@@ -529,7 +529,7 @@
 | `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
-| `MP_VERSION` | 1.1.0 | `src/config/version.js:17` |
+| `MP_VERSION` | 5.3.0 | `src/config/version.js:17` |
 | `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
 
 ---
