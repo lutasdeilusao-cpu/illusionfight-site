@@ -10,7 +10,7 @@ export default function TurnoIndicator({ turno, fase }) {
           {fase === 'player' ? '⚔️' : fase === 'inimigo' ? '⏳' : '⚡'}
         </span>
         <span className="tatics-turno-texto">
-          {fase === 'player' ? t('games.tatics.seu_turno') : fase === 'inimigo' ? t('games.tatics.inimigo_agindo') : t('games.tatics.turno_n', { n: turno })}
+          {fase === 'player' ? t('tatics.seu_turno') : fase === 'inimigo' ? t('tatics.inimigo_agindo') : t('tatics.turno_n', { n: turno })}
         </span>
         <span className="tatics-turno-rodada">R{fase === 'player' ? turno : Math.max(1, turno - 1)}</span>
       </div>

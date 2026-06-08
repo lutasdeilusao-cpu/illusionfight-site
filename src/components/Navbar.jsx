@@ -59,7 +59,6 @@ export default function Navbar({ hidden, onSearchOpen }) {
                   className={`navbar__link${key === 'assinar' ? ' navbar__link--highlight' : ''}`}
                 >
                   {t(`nav.links.${i}`)}
-                  {key === 'games' && !TRIAL_ACTIVE && <span className="navbar__badge">{t('pages.mundo.premium')}</span>}
                 </Link>
               </li>
             ))}
@@ -117,7 +116,6 @@ export default function Navbar({ hidden, onSearchOpen }) {
                 onClick={() => setMenuOpen(false)}
               >
                 {t(`nav.links.${i}`)}
-                {key === 'games' && !TRIAL_ACTIVE && <span className="navbar__badge">{t('pages.mundo.premium')}</span>}
               </Link>
             </li>
           ))}

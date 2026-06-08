@@ -26,9 +26,9 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
           <div className="tatics-action-char-info">
             <div className="tatics-action-char-nome">{personagem.nome}</div>
             <div className="tatics-action-char-stats">
-              {t('games.tatics.hp')} <span style={{ color: corElem }}>{personagem.hp}/{personagem.hpMax}</span>
+              {t('tatics.hp')} <span style={{ color: corElem }}>{personagem.hp}/{personagem.hpMax}</span>
               {' · '}
-              {t('games.tatics.mp')} <span className="tatics-action-mp">{personagem.energia}/{personagem.energiaMax}</span>
+              {t('tatics.mp')} <span className="tatics-action-mp">{personagem.energia}/{personagem.energiaMax}</span>
             </div>
           </div>
           <button className="tatics-action-close" onClick={onClose}>✕</button>
@@ -42,7 +42,7 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className={`tatics-action-btn ${jaMoveu ? 'btn-usado' : 'btn-mover'}`}
           >
             <span className="tatics-action-btn-icone">{jaMoveu ? '🔒' : '👣'}</span>
-            <span className="tatics-action-btn-label">{jaMoveu ? t('games.tatics.ja_movido') : t('games.tatics.mover')}</span>
+            <span className="tatics-action-btn-label">{jaMoveu ? t('tatics.ja_movido') : t('tatics.mover')}</span>
           </motion.button>
 
           <motion.button
@@ -51,7 +51,7 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className={`tatics-action-btn ${jaAtacou ? 'btn-usado' : 'btn-atacar'}`}
           >
             <span className="tatics-action-btn-icone">{jaAtacou ? '🔒' : '⚔️'}</span>
-            <span className="tatics-action-btn-label">{jaAtacou ? t('games.tatics.ja_atacou') : t('games.tatics.atacar')}</span>
+            <span className="tatics-action-btn-label">{jaAtacou ? t('tatics.ja_atacou') : t('tatics.atacar')}</span>
           </motion.button>
 
           <motion.button
@@ -60,13 +60,13 @@ export default function ActionMenu({ personagem, onMover, onAtacar, onItem, onCl
             className="tatics-action-btn btn-item"
           >
             <span className="tatics-action-btn-icone">🎒</span>
-            <span className="tatics-action-btn-label">{t('games.tatics.item')}</span>
+            <span className="tatics-action-btn-label">{t('tatics.item')}</span>
           </motion.button>
         </div>
 
         {/* End Turn */}
         <button className="tatics-action-endturn" onClick={onEndTurn}>
-          ⏭ {t('games.tatics.finalizar_turno')}
+          ⏭ {t('tatics.finalizar_turno')}
         </button>
       </div>
     </motion.div>

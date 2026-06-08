@@ -39,13 +39,13 @@ export default function SimulacaoAuto({ onIniciar }) {
       <div className="tatics-intro-vignette" />
 
       <div className="tatics-sim-panel">
-        <div className="tatics-select-glitch">{t('games.tatics.sim_titulo')}</div>
-        <div className="tatics-select-sub">{t('games.tatics.sim_sub')}</div>
+        <div className="tatics-select-glitch">{t('tatics.sim_titulo')}</div>
+        <div className="tatics-select-sub">{t('tatics.sim_sub')}</div>
 
         {/* Config */}
         <div className="tatics-sim-config">
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">{t('games.tatics.sim_personagens')}</span>
+            <span className="tatics-sim-label">{t('tatics.sim_personagens')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => setNumChars(Math.max(1, numChars - 1))}>−</button>
               <span className="tatics-sim-value">{numChars}</span>
@@ -54,7 +54,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           </div>
 
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">{t('games.tatics.sim_quantidade_ias')}</span>
+            <span className="tatics-sim-label">{t('tatics.sim_quantidade_ias')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => handleNumIAs(numIAs - 1)}>−</button>
               <span className="tatics-sim-value">{numIAs}</span>
@@ -63,7 +63,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           </div>
 
           <div className="tatics-sim-row">
-            <span className="tatics-sim-label">{t('games.tatics.sim_velocidade')}</span>
+            <span className="tatics-sim-label">{t('tatics.sim_velocidade')}</span>
             <div className="tatics-sim-controls">
               <button className="tatics-sim-btn" onClick={() => setSpeed(Math.min(1500, speed + 200))}>⎯</button>
               <span className="tatics-sim-value">{speed}ms</span>
@@ -75,10 +75,10 @@ export default function SimulacaoAuto({ onIniciar }) {
           <div className="tatics-sim-ias">
             <div className="tatics-sim-ias-header">
               <span style={{ color: '#4F5359', fontSize: '0.55rem', fontFamily: 'JetBrains Mono', letterSpacing: '0.15em' }}>
-                {t('games.tatics.sim_ias_batalha')}
+                {t('tatics.sim_ias_batalha')}
               </span>
               <button className="tatics-sim-reshuffle" onClick={reshuffle}>
-                🔄 {t('games.tatics.sim_sortear')}
+                🔄 {t('tatics.sim_sortear')}
               </button>
             </div>
             <div className="tatics-sim-ias-list">
@@ -86,7 +86,7 @@ export default function SimulacaoAuto({ onIniciar }) {
                 <div key={ia.id} className="tatics-sim-ia-card" style={{
                   '--ia-cor': i % 2 === 0 ? '#00B4D8' : '#E24B4A',
                 }}>
-                  <div className="tatics-sim-ia-time">{i % 2 === 0 ? t('games.tatics.sim_time_azul') : t('games.tatics.sim_time_vermelho')}</div>
+                  <div className="tatics-sim-ia-time">{i % 2 === 0 ? t('tatics.sim_time_azul') : t('tatics.sim_time_vermelho')}</div>
                   <div className="tatics-sim-ia-nome">{ia.nome}</div>
                   <div className="tatics-sim-ia-desc">{ia.descricao}</div>
                 </div>
@@ -102,7 +102,7 @@ export default function SimulacaoAuto({ onIniciar }) {
 
         {/* Roster preview */}
         <div className="tatics-sim-roster-preview">
-          <span className="tatics-sim-roster-title">{t('games.tatics.sim_personagens_disponiveis', { n: ROSTER.length })}</span>
+          <span className="tatics-sim-roster-title">{t('tatics.sim_personagens_disponiveis', { n: ROSTER.length })}</span>
           <div className="tatics-sim-roster-list">
             {ROSTER.slice(0, 12).map(r => (
               <div key={r.id} className="tatics-sim-roster-chip">
@@ -122,7 +122,7 @@ export default function SimulacaoAuto({ onIniciar }) {
           whileTap={{ scale: 0.95 }}
           onClick={() => onIniciar({ numChars, numIAs, ias: iasSorteadas, speed })}
         >
-          {t('games.tatics.sim_iniciar')}
+          {t('tatics.sim_iniciar')}
         </motion.button>
       </div>
     </div>

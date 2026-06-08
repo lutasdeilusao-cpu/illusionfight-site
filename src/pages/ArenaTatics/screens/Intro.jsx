@@ -104,7 +104,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
             <span className="tatics-intro-logo-ldi">LDI</span>
             <span className="tatics-intro-logo-tatics">TATICS</span>
           </div>
-          <div className="tatics-intro-logo-sub">{t('games.tatics.intro_sub')}</div>
+          <div className="tatics-intro-logo-sub">{t('tatics.intro_sub')}</div>
           <div className="tatics-intro-logo-line" />
         </motion.div>
 
@@ -142,7 +142,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                 onClick={onEnter}
                 className="tatics-intro-btn"
               >
-                <span className="tatics-intro-btn-text">{t('games.tatics.intro_acessar')}</span>
+                <span className="tatics-intro-btn-text">{t('tatics.intro_acessar')}</span>
                 <span className="tatics-intro-btn-glow" />
               </motion.button>
 
@@ -157,7 +157,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                   onClick={onSimulacao}
                   className="tatics-intro-btn tatics-intro-btn-sim"
                 >
-                  <span className="tatics-intro-btn-text">{t('games.tatics.intro_simulacao')}</span>
+                  <span className="tatics-intro-btn-text">{t('tatics.intro_simulacao')}</span>
                   <span className="tatics-intro-btn-glow" />
                 </motion.button>
               )}
@@ -173,7 +173,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
                   className="tatics-intro-btn tatics-intro-btn-sim"
                   style={{ borderColor: 'rgba(74,222,128,0.4)', color: '#4ADE80' }}
                 >
-                  <span className="tatics-intro-btn-text">{t('games.tatics.intro_teste')}</span>
+                  <span className="tatics-intro-btn-text">{t('tatics.intro_teste')}</span>
                   <span className="tatics-intro-btn-glow" />
                 </motion.button>
               )}
@@ -182,7 +182,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
         </AnimatePresence>
 
         {/* Version */}
-        <div className="tatics-intro-version">v{TATICS_VERSION} // {t('games.tatics.intro_nexus')}</div>
+        <div className="tatics-intro-version">v{TATICS_VERSION} // {t('tatics.intro_nexus')}</div>
       </div>
     </div>
   )

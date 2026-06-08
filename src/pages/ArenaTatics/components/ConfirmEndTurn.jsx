@@ -20,10 +20,10 @@ export default function ConfirmEndTurn({ onConfirm, onCancel }) {
         className="tatics-confirm-modal"
       >
         <div className="tatics-confirm-icone">⏭</div>
-        <div className="tatics-confirm-titulo">{t('games.tatics.confirm_titulo')}</div>
+        <div className="tatics-confirm-titulo">{t('tatics.confirm_titulo')}</div>
         <div className="tatics-confirm-desc">
-          {t('games.tatics.confirm_desc')}<br />
-          {t('games.tatics.confirm_desc2')}
+          {t('tatics.confirm_desc')}<br />
+          {t('tatics.confirm_desc2')}
         </div>
 
         <div className="tatics-confirm-botoes">
@@ -32,14 +32,14 @@ export default function ConfirmEndTurn({ onConfirm, onCancel }) {
             onClick={onCancel}
             className="tatics-confirm-btn tatics-confirm-btn-nao"
           >
-            {t('games.tatics.confirm_nao')}
+            {t('tatics.confirm_nao')}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={onConfirm}
             className="tatics-confirm-btn tatics-confirm-btn-sim"
           >
-            {t('games.tatics.confirm_sim')}
+            {t('tatics.confirm_sim')}
           </motion.button>
         </div>
       </motion.div>

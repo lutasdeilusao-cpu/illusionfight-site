@@ -132,13 +132,13 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16)
 // ── Fase label helper ──
 function getFaseLabel(fase, t) {
   const map = {
-    idle:        'games.tatics.fase_idle',
-    actionMenu:  'games.tatics.fase_acao',
-    mover:       'games.tatics.fase_mover',
-    skillSelect: 'games.tatics.fase_skill',
-    target:      'games.tatics.fase_target',
-    animando:    'games.tatics.fase_animando',
-    inimigo:     'games.tatics.fase_inimigo',
+    idle:        'tatics.fase_idle',
+    actionMenu:  'tatics.fase_acao',
+    mover:       'tatics.fase_mover',
+    skillSelect: 'tatics.fase_skill',
+    target:      'tatics.fase_target',
+    animando:    'tatics.fase_animando',
+    inimigo:     'tatics.fase_inimigo',
   }
   const corMap = {
     idle: '#00B4D8', actionMenu: '#F4A227', mover: '#F4A227',
