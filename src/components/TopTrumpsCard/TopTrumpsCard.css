@@ -78,9 +78,9 @@
 .tt-card-description {
   position: absolute;
   left: 99px;
-  top: 532px;
-  width: 148px;
-  height: 148px;
+  top: 548px;
+  width: 128px;
+  height: 112px;
   font-size: 11px;
   line-height: 1.35;
   color: #ddd;
@@ -88,7 +88,7 @@
   overflow: hidden;
   word-break: break-word;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
 
