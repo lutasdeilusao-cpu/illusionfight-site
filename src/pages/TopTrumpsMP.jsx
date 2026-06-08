@@ -640,6 +640,19 @@ export default function TopTrumpsMP() {
     )
     return (
       <section className="ttmp-page">
+        <div className="ttmp-fire-particles">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div key={i} className="ttmp-fire-particle" style={{
+              left: `${5 + Math.random() * 90}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 5}s`,
+              width: `${3 + Math.random() * 10}px`,
+              height: `${3 + Math.random() * 10}px`,
+              '--drift': `${-20 + Math.random() * 40}px`,
+              '--drift2': `${-30 + Math.random() * 60}px`,
+            }} />
+          ))}
+        </div>
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
             <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
@@ -743,6 +756,19 @@ export default function TopTrumpsMP() {
 
     return (
       <section className="ttmp-page">
+        <div className="ttmp-fire-particles">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div key={i} className="ttmp-fire-particle" style={{
+              left: `${5 + Math.random() * 90}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 5}s`,
+              width: `${3 + Math.random() * 10}px`,
+              height: `${3 + Math.random() * 10}px`,
+              '--drift': `${-20 + Math.random() * 40}px`,
+              '--drift2': `${-30 + Math.random() * 60}px`,
+            }} />
+          ))}
+        </div>
         {particulas.map(p => (
           <div key={p.id}
             className="ttmp-particula"

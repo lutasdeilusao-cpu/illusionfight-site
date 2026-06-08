@@ -405,16 +405,25 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  animation: tt-bg-cycle 12s ease-in-out infinite alternate;
+  background-color: #0B0D0F;
 }
 
-/* Animated background: subtle slow color cycling */
+/* Animated background — pseudo-element fixo atrás de TUDO */
+.tt-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: tt-bg-cycle 14s ease-in-out infinite alternate;
+}
+
 @keyframes tt-bg-cycle {
   0%   { background-color: #0B0D0F; }
-  20%  { background-color: #140A0B; }
-  40%  { background-color: #0A0B16; }
-  60%  { background-color: #181008; }
-  80%  { background-color: #0A0F14; }
+  20%  { background-color: #1A0808; }
+  40%  { background-color: #080A1A; }
+  60%  { background-color: #1A1208; }
+  80%  { background-color: #0A0F1A; }
   100% { background-color: #0B0D0F; }
 }
 
@@ -432,8 +441,7 @@
   bottom: -20px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(255, 160, 60, 0.9), rgba(232, 133, 58, 0.4), transparent);
-  animation: tt-fire-rise linear infinite;
-  filter: blur(1.5px);
+  animation: tt-fire-rise linear infinite, tt-particle-hue 8s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
@@ -456,6 +464,15 @@
     transform: translateY(-105vh) translateX(var(--drift2, -15px)) scale(0.2);
     opacity: 0;
   }
+}
+
+/* Faz as partículas de fogo mudarem de cor (laranja → azul → vermelho → etc) */
+@keyframes tt-particle-hue {
+  0%   { filter: hue-rotate(0deg) blur(1.5px); }
+  25%  { filter: hue-rotate(90deg) blur(1.5px); }
+  50%  { filter: hue-rotate(180deg) blur(1.5px); }
+  75%  { filter: hue-rotate(270deg) blur(1.5px); }
+  100% { filter: hue-rotate(360deg) blur(1.5px); }
 }
 
 .tt-hud {

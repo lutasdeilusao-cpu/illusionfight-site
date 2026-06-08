@@ -3,7 +3,36 @@
   padding: 6rem 1.5rem 3rem;
   max-width: 960px;
   margin: 0 auto;
-  background: #0B0D0F;
+  position: relative;
+  overflow: hidden;
+  background-color: #0B0D0F;
+}
+
+/* Animated background — same as single-player */
+.ttmp-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: tt-bg-cycle 14s ease-in-out infinite alternate;
+}
+
+.ttmp-fire-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ttmp-fire-particle {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 160, 60, 0.9), rgba(232, 133, 58, 0.4), transparent);
+  animation: tt-fire-rise linear infinite, tt-particle-hue 8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 /* ---- LOADING ---- */
@@ -535,6 +564,15 @@
 @keyframes ttmp-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
+}
+
+/* Reuse hue animation from single-player */
+@keyframes tt-particle-hue {
+  0%   { filter: hue-rotate(0deg) blur(1.5px); }
+  25%  { filter: hue-rotate(90deg) blur(1.5px); }
+  50%  { filter: hue-rotate(180deg) blur(1.5px); }
+  75%  { filter: hue-rotate(270deg) blur(1.5px); }
+  100% { filter: hue-rotate(360deg) blur(1.5px); }
 }
 
 /* ---- RESULTADO ---- */
