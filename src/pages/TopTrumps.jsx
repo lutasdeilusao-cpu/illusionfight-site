@@ -309,6 +309,19 @@ export default function TopTrumps() {
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
+        <div className="tt-fire-particles">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div key={i} className="tt-fire-particle" style={{
+              left: `${5 + Math.random() * 90}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 5}s`,
+              width: `${3 + Math.random() * 10}px`,
+              height: `${3 + Math.random() * 10}px`,
+              '--drift': `${-20 + Math.random() * 40}px`,
+              '--drift2': `${-30 + Math.random() * 60}px`,
+            }} />
+          ))}
+        </div>
         <div className="tt-hud-new">
           <div className="tt-round-badge">
             <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
@@ -336,21 +349,6 @@ export default function TopTrumps() {
             disabled={girando}
           />
           <div className="tt-vs-epico">
-            {Array.from({ length: 20 }).map((_, i) => {
-              const style = {
-                left: `${20 + Math.random() * 60}%`,
-                width: `${4 + Math.random() * 8}px`,
-                height: `${4 + Math.random() * 8}px`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${1.5 + Math.random() * 2}s`,
-                background: ['#e8853a', '#f4a227', '#ff6b35', '#e74c3c', '#ffaa33'][i % 5],
-                '--dx': `${-15 + Math.random() * 30}px`,
-                '--dx2': `${-10 + Math.random() * 20}px`,
-                '--dx3': `${-20 + Math.random() * 40}px`,
-                '--dx4': `${-5 + Math.random() * 10}px`,
-              }
-              return <div key={i} className="tt-vs-particle" style={style} />
-            })}
             <div className="tt-vs-glow" />
             <span className="tt-vs-texto-grande">VS</span>
           </div>
@@ -372,6 +370,19 @@ export default function TopTrumps() {
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
+        <div className="tt-fire-particles">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div key={i} className="tt-fire-particle" style={{
+              left: `${5 + Math.random() * 90}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${4 + Math.random() * 5}s`,
+              width: `${3 + Math.random() * 10}px`,
+              height: `${3 + Math.random() * 10}px`,
+              '--drift': `${-20 + Math.random() * 40}px`,
+              '--drift2': `${-30 + Math.random() * 60}px`,
+            }} />
+          ))}
+        </div>
         {particulas.map(p => {
           const style = { left: `${p.x}%`, top: `${p.y}%`, width: `${p.tam}px`, height: `${p.tam}px`, background: p.cor, animationDuration: `${p.duracao}s`, '--angle': `${p.angle}deg`, '--dist': `${p.dist}px` }
           return <div key={p.id} className="tt-particula" style={style} />

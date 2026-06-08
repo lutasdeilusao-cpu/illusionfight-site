@@ -400,10 +400,62 @@
   min-height: 100vh;
   padding: 6rem 1.5rem 3rem;
   margin: 0 auto;
-  background: #0B0D0F;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  animation: tt-bg-cycle 12s ease-in-out infinite alternate;
+}
+
+/* Animated background: subtle slow color cycling */
+@keyframes tt-bg-cycle {
+  0%   { background-color: #0B0D0F; }
+  20%  { background-color: #140A0B; }
+  40%  { background-color: #0A0B16; }
+  60%  { background-color: #181008; }
+  80%  { background-color: #0A0F14; }
+  100% { background-color: #0B0D0F; }
+}
+
+/* Fire particles rising from bottom */
+.tt-fire-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.tt-fire-particle {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 160, 60, 0.9), rgba(232, 133, 58, 0.4), transparent);
+  animation: tt-fire-rise linear infinite;
+  filter: blur(1.5px);
+  will-change: transform, opacity;
+}
+
+@keyframes tt-fire-rise {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(var(--drift, 20px)) scale(1);
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift2, -15px)) scale(0.2);
+    opacity: 0;
+  }
 }
 
 .tt-hud {
@@ -667,8 +719,8 @@
 .tt-vs-texto-grande {
   position: relative;
   z-index: 5;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 8rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 5rem;
   font-weight: 900;
   line-height: 0.85;
   background: linear-gradient(135deg, #e8853a, #f4a227, #e8853a, #ff6b35);
@@ -677,19 +729,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: tt-vs-glow-color 4s ease-in-out infinite, tt-vs-pulse-texto 1.8s ease-in-out infinite;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   filter: drop-shadow(0 0 30px rgba(232,133,58,0.6)) drop-shadow(0 0 60px rgba(232,133,58,0.3));
-}
-
-/* Partículas de fogo */
-.tt-vs-particle {
-  position: absolute;
-  bottom: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  z-index: 3;
-  pointer-events: none;
+  text-shadow: none;
 }
 
 /* ---- Animações ---- */
@@ -711,29 +753,6 @@
   50% { background-color: rgba(255,107,53,0.4); }
   75% { background-color: rgba(200,80,50,0.4); }
   100% { background-color: rgba(232,133,58,0.4); }
-}
-
-@keyframes tt-vs-particle-rise {
-  0% {
-    transform: translateY(0) translateX(0) scale(1);
-    opacity: 1;
-  }
-  25% {
-    transform: translateY(-60px) translateX(var(--dx, 10px)) scale(0.9);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-120px) translateX(var(--dx2, -5px)) scale(0.6);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translateY(-180px) translateX(var(--dx3, 8px)) scale(0.3);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translateY(-240px) translateX(var(--dx4, 0px)) scale(0);
-    opacity: 0;
-  }
 }
 
 @keyframes tt-vs-pulse-texto {
