@@ -104,6 +104,21 @@ export default function TopTrumps() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
+  // ── Heartbeat loop durante a escolha de atributo ──
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  function toggleSom() {
+    const novo = sfx.toggle()
+    setSomAtivo(novo)
+  }
+  useEffect(() => {
+    if (fase === 'jogando' && !confirmandoAtributo) {
+      sfx.startHeartbeatLoop()
+    } else {
+      sfx.stopHeartbeatLoop()
+    }
+    return () => sfx.stopHeartbeatLoop()
+  }, [fase, confirmandoAtributo])
+
   const [fase, setFase] = useState('menu')
   const [deckJogador, setDeckJogador] = useState([])
   const [deckIA, setDeckIA] = useState([])
@@ -433,6 +448,10 @@ export default function TopTrumps() {
     const maxTurnos = deckUsuario.length
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
+        {/* Sound toggle */}
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         <div className="tt-menu-cards"><div className="tt-card-stack">
           <div className="tt-card-sample tt-card-sample--1" /><div className="tt-card-sample tt-card-sample--2" />
           <div className="tt-card-sample tt-card-sample--3"><div className="tt-card-sample-pattern" /><div className="tt-card-sample-logo">LDI</div></div>
@@ -600,6 +619,10 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
+        {/* Sound toggle */}
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         {particulas.map(p => (
           <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
         ))}
@@ -666,6 +689,10 @@ export default function TopTrumps() {
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
+        {/* Sound toggle */}
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         <div className="tt-recompensa">
           <h2 className="tt-recompensa-titulo">{t('games.toptrumps.recompensa_titulo')}</h2>
           <p className="tt-recompensa-sub">{t('games.toptrumps.recompensa_sub')}</p>
@@ -712,6 +739,10 @@ export default function TopTrumps() {
     const titulo = venceu ? t('games.toptrumps.result_voce_venceu') : empatou ? t('games.toptrumps.result_empate') : t('games.toptrumps.result_ia_venceu')
     return (
       <section className="tt-page">
+        {/* Sound toggle */}
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         <div className="tt-relatorio">
           <h2 className="tt-relatorio-titulo">{t('games.toptrumps.relatorio_titulo')}</h2>
           <p className="tt-relatorio-sub">{t('games.toptrumps.relatorio_sub')}</p>

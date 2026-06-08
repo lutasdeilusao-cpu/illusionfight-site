@@ -12,11 +12,34 @@
  *   sfx.vs()          // dramatic VS hit
  */
 
+const SFX_STORAGE_KEY = 'ldi-sfx-enabled'
+
 class SFX {
   constructor() {
     this.ctx = null
-    this.enabled = true
+    this.enabled = localStorage.getItem(SFX_STORAGE_KEY) !== 'false'
     this._heartbeatInterval = null
+  }
+
+  /** Liga ou desliga todos os sons, persiste no localStorage */
+  toggle() {
+    this.enabled = !this.enabled
+    localStorage.setItem(SFX_STORAGE_KEY, this.enabled ? 'true' : 'false')
+    if (!this.enabled) this.stopHeartbeatLoop()
+    return this.enabled
+  }
+
+  /** Ativa o som (se estiver desligado) */
+  on() {
+    this.enabled = true
+    localStorage.setItem(SFX_STORAGE_KEY, 'true')
+  }
+
+  /** Desativa o som */
+  off() {
+    this.enabled = false
+    localStorage.setItem(SFX_STORAGE_KEY, 'false')
+    this.stopHeartbeatLoop()
   }
 
   _getCtx() {
