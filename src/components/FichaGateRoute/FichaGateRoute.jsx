@@ -40,7 +40,8 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
   useEffect(() => {
     if (!user) { setEtapa('login'); return }
     if (loading) { setEtapa('carregando'); return }
-    if (free || isAdmin || isDesbloqueadoHoje(gameId)) { setEtapa('liberado'); return }
+    if (free) { setEtapa('gamefree'); return } // Mostra info de jogo FREE
+    if (isAdmin || isDesbloqueadoHoje(gameId)) { setEtapa('liberado'); return }
     if (saldo <= 0) { setEtapa('semfichas'); return }
     setEtapa('confirmacao')
   }, [user, loading, free, isAdmin, gameId, saldo])
@@ -75,7 +76,22 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
     return <div className="fgr-gate"><div className="fgr-icon">⏳</div><p className="fgr-text">carregando...</p></div>
   }
 
-  // ── Já liberou (admin, já pagou, free, etc.) ──
+  // ── Game FREE — avisa que não gasta ficha ──
+  if (etapa === 'gamefree') {
+    return (
+      <div className="fgr-gate">
+        <div className="fgr-icon">🎁</div>
+        <p className="fgr-titulo" style={{ color: '#22C55E' }}>GRATUITO</p>
+        <p className="fgr-desc">{nomeExibicao || feature} é um jogo <strong style={{ color: '#22C55E' }}>FREE</strong> — não gasta ficha!</p>
+        <p className="fgr-sub">jogue à vontade, quantas vezes quiser.</p>
+        <button className="fgr-btn fgr-btn--primary" onClick={() => setEtapa('liberado')}>
+          [ JOGAR ]
+        </button>
+      </div>
+    )
+  }
+
+  // ── Já liberou (admin, já pagou, free confirmado, etc.) ──
   if (etapa === 'liberado') {
     return children
   }
