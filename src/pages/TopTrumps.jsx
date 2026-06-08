@@ -77,6 +77,20 @@ export default function TopTrumps() {
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
 
+  // Confirmation + animation states
+  const [confirmandoAtributo, setConfirmandoAtributo] = useState(null)
+  const [cartaSumindo, setCartaSumindo] = useState(false)
+  const [cortinaAtiva, setCortinaAtiva] = useState(false)
+  const [revelandoResultado, setRevelandoResultado] = useState(false)
+
+  // Max attribute values across ALL cards
+  const maxAtrib = todasCartas.reduce((acc, c) => {
+    Object.entries(c.atributos).forEach(([k, v]) => {
+      if (!acc[k] || v > acc[k]) acc[k] = v
+    })
+    return acc
+  }, {})
+
   function getDeckKey() { return keyPorUser(user, 'deck') }
 
   function getTierInicial() {
@@ -129,25 +143,58 @@ export default function TopTrumps() {
     setTimeout(() => setParticulas([]), 1800)
   }
 
-  function jogarAtributo(atributoId) {
-    if (girando) return
-    const attr = atributos.find(a => a.id === atributoId)
-    const vJ = cartaJogador.atributos[atributoId]
-    const vI = cartaIA.atributos[atributoId]
+  function onClickAtributo(atributoId) {
+    if (girando || confirmandoAtributo) return
+    setConfirmandoAtributo(atributoId)
+  }
+
+  function cancelarJogada() {
+    setConfirmandoAtributo(null)
+  }
+
+  function confirmarJogada() {
+    const attrKey = confirmandoAtributo
+    if (!attrKey || !cartaJogador || !cartaIA) return
+    setConfirmandoAtributo(null)
+
+    const attr = atributos.find(a => a.id === attrKey)
+    const vJ = cartaJogador.atributos[attrKey]
+    const vI = cartaIA.atributos[attrKey]
     let res
     if (attr.inverso) res = vJ < vI ? 'ganhou' : vJ > vI ? 'perdeu' : 'empate'
     else res = vJ > vI ? 'ganhou' : vJ < vI ? 'perdeu' : 'empate'
+
+    setAtributoEscolhido(attrKey)
+    setResultado(res)
+
+    // Step 1: Card starts fading
+    setCartaSumindo(true)
     setGirando(true)
+
+    // Step 2: Curtain sweeps in
     setTimeout(() => {
+      setCortinaAtiva(true)
+    }, 600)
+
+    // Step 3: Reveal opponent card + show result
+    setTimeout(() => {
+      setCartaSumindo(false)
+      setCortinaAtiva(false)
       setGirando(false)
-      setAtributoEscolhido(atributoId)
-      setResultado(res)
+
       if (res === 'ganhou') setPlacar(p => ({ ...p, jogador: p.jogador + 1 }))
       if (res === 'perdeu') setPlacar(p => ({ ...p, ia: p.ia + 1 }))
-      setHistoricoRodadas(h => [...h, { rodada, cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos }, cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos }, atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res }])
+
+      setHistoricoRodadas(h => [...h, {
+        rodada,
+        cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos },
+        cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos },
+        atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res
+      }])
+
       setFase('resultado_rodada')
       gerarParticulas(res)
-    }, 800)
+    }, 1800)
   }
 
   function proximaRodada() {
@@ -325,21 +372,60 @@ export default function TopTrumps() {
             description={cartaJogador.descricao}
             locale={locale}
             attributes={cartaJogador.atributos}
-            onAttributeClick={(attrKey) => jogarAtributo(attrKey)}
-            disabled={girando}
+            onAttributeClick={(attrKey) => onClickAtributo(attrKey)}
+            disabled={girando || !!confirmandoAtributo}
           />
-          <div className="tt-vs-epico">
+          <div className={`tt-vs-epico${cortinaAtiva ? ' tt-cortina-ativa' : ''}`}>
             <div className="tt-vs-glow" />
             <span className="tt-vs-texto-grande">VS</span>
           </div>
-          <TopTrumpsCard
-            mystery
-            name=""
-            description=""
-            locale={locale}
-            attributes={{}}
-          />
+          <div className={`tt-card-oponente-wrapper${cartaSumindo ? ' tt-carta-sumindo' : ''}`}>
+            <TopTrumpsCard
+              mystery
+              name=""
+              description=""
+              locale={locale}
+              attributes={{}}
+            />
+          </div>
         </div>
+
+        {/* Confirmation overlay */}
+        {confirmandoAtributo && (() => {
+          const attr = atributos.find(a => a.id === confirmandoAtributo)
+          const vJ = cartaJogador.atributos[confirmandoAtributo]
+          const maxV = maxAtrib[confirmandoAtributo]
+          const pctMax = Math.round((vJ / maxV) * 100)
+          return (
+            <div className="tt-confirm-overlay">
+              <div className="tt-confirm-modal">
+                <span className="tt-confirm-label">{t('games.toptrumps.confirmar_atributo')}</span>
+                <span className="tt-confirm-attr-nome">{attr ? t(attr.nomeKey) : ''}</span>
+                <div className="tt-confirm-values">
+                  <div className="tt-confirm-value-box">
+                    <span className="tt-confirm-value-label">{t('games.toptrumps.seu_valor')}</span>
+                    <span className="tt-confirm-value-num">{vJ}</span>
+                  </div>
+                  <div className="tt-confirm-value-box">
+                    <span className="tt-confirm-value-label">{t('games.toptrumps.valor_maximo')}</span>
+                    <span className="tt-confirm-value-num tt-confirm-value-max">{maxV}</span>
+                  </div>
+                </div>
+                <div className="tt-confirm-bar">
+                  <div className="tt-confirm-bar-fill" style={{ width: `${pctMax}%` }} />
+                </div>
+                <span className="tt-confirm-pct">{pctMax}% do máximo</span>
+                <div className="tt-confirm-buttons">
+                  <button className="tt-confirm-btn tt-confirm-btn--cancel" onClick={cancelarJogada}>{t('games.toptrumps.cancelar')}</button>
+                  <button className="tt-confirm-btn tt-confirm-btn--ok" onClick={confirmarJogada}>{t('games.toptrumps.confirmar')}</button>
+                </div>
+              </div>
+            </div>
+          )
+        })()}
+
+        {/* Curtain overlay for animation */}
+        {cortinaAtiva && <div className="tt-curtain-overlay"><div className="tt-curtain-inner" /></div>}
       </section>
       </>
     )
@@ -369,7 +455,25 @@ export default function TopTrumps() {
             locale={locale}
             attributes={cartaJogador.atributos}
           />
-          <div className="tt-vs"><span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span><span className="tt-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span></div>
+          <div className={`tt-vs tt-vs--result ${resultado === 'ganhou' ? 'tt-vs--vitoria' : resultado === 'perdeu' ? 'tt-vs--derrota' : 'tt-vs--empate'}`}>
+            <span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span>
+            {attr && (
+              <div className="tt-resultado-attr-box">
+                <span className="tt-resultado-attr-nome">{t(attr.nomeKey)}</span>
+                <div className="tt-resultado-attr-duelo">
+                  <div className="tt-resultado-attr-lado tt-resultado-attr-lado--jogador">
+                    <span className="tt-resultado-attr-label">{t('games.toptrumps.voce')}</span>
+                    <span className={`tt-resultado-attr-valor ${resultado === 'ganhou' ? 'tt-resultado-attr--ganhou' : resultado === 'perdeu' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaJogador.atributos[atributoEscolhido]}</span>
+                  </div>
+                  <span className="tt-resultado-attr-x">×</span>
+                  <div className="tt-resultado-attr-lado tt-resultado-attr-lado--ia">
+                    <span className="tt-resultado-attr-label">{t('games.toptrumps.ia')}</span>
+                    <span className={`tt-resultado-attr-valor ${resultado === 'perdeu' ? 'tt-resultado-attr--ganhou' : resultado === 'ganhou' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaIA.atributos[atributoEscolhido]}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <TopTrumpsCard
             characterImage={defaultBg}
             name={cartaIA.nome}

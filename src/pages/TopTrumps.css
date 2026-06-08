@@ -1317,4 +1317,342 @@
     padding: 5rem 0.5rem 2rem;
     align-items: center;
   }
+
+  .tt-confirm-modal {
+    width: 90%;
+    max-width: 340px;
+    padding: 1.25rem;
+  }
+
+  .tt-confirm-value-num {
+    font-size: 1.8rem;
+  }
+
+  .tt-resultado-attr-duelo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ══════════════════════════════════════════
+   CONFIRMATION MODAL
+   ══════════════════════════════════════════ */
+
+.tt-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ttFadeIn 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.tt-confirm-modal {
+  background: linear-gradient(135deg, #1A1D21 0%, #111416 100%);
+  border: 1px solid rgba(232, 133, 58, 0.3);
+  border-radius: 16px;
+  padding: 1.75rem;
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(232, 133, 58, 0.1);
+  animation: tt-confirm-enter 0.3s ease;
+}
+
+@keyframes tt-confirm-enter {
+  from { transform: scale(0.85) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.tt-confirm-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8B8F96;
+  text-transform: uppercase;
+}
+
+.tt-confirm-attr-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e8853a;
+  text-shadow: 0 0 20px rgba(232, 133, 58, 0.3);
+}
+
+.tt-confirm-values {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.tt-confirm-value-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tt-confirm-value-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #4F5359;
+  text-transform: uppercase;
+}
+
+.tt-confirm-value-num {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  line-height: 1;
+}
+
+.tt-confirm-value-max {
+  color: #f4a227;
+}
+
+.tt-confirm-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tt-confirm-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e8853a, #f4a227);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.tt-confirm-pct {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #8B8F96;
+}
+
+.tt-confirm-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.tt-confirm-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+}
+
+.tt-confirm-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.tt-confirm-btn--cancel {
+  background: #2A2D31;
+  color: #8B8F96;
+}
+
+.tt-confirm-btn--ok {
+  background: #e8853a;
+  color: #000;
+}
+
+/* ══════════════════════════════════════════
+   CURTAIN EFFECT
+   ══════════════════════════════════════════ */
+
+.tt-curtain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  pointer-events: none;
+  animation: tt-curtain-open 1.2s ease-in-out forwards;
+}
+
+.tt-curtain-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #e8853a 0%, #f4a227 20%,
+    #e74c3c 40%, #9b59b6 60%,
+    #3498db 80%, #e8853a 100%
+  );
+  background-size: 200% 200%;
+  animation: tt-curtain-gradient 2s ease-in-out infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation: tt-curtain-sweep 0.8s ease-in-out forwards;
+}
+
+@keyframes tt-curtain-sweep {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes tt-curtain-open {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tt-curtain-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ══════════════════════════════════════════
+   CARD FADE OUT
+   ══════════════════════════════════════════ */
+
+.tt-carta-sumindo {
+  animation: tt-card-fade-out 0.6s ease-out forwards;
+}
+
+@keyframes tt-card-fade-out {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+/* ══════════════════════════════════════════
+   OPPONENT CARD WRAPPER (for fade animation)
+   ══════════════════════════════════════════ */
+
+.tt-card-oponente-wrapper {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.tt-carta-sumindo {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* ══════════════════════════════════════════
+   RESULT VS — ATRIBUTO DUELO
+   ══════════════════════════════════════════ */
+
+.tt-vs--result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+}
+
+.tt-resultado-attr-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2A2D31;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  animation: ttFadeIn 0.3s ease;
+}
+
+.tt-resultado-attr-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e8853a;
+  letter-spacing: 0.06em;
+}
+
+.tt-resultado-attr-duelo {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tt-resultado-attr-lado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.tt-resultado-attr-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #4F5359;
+  text-transform: uppercase;
+}
+
+.tt-resultado-attr-valor {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #EAEAEA;
+  transition: color 0.3s;
+}
+
+.tt-resultado-attr--ganhou {
+  color: #1ea064;
+  text-shadow: 0 0 15px rgba(30, 160, 100, 0.4);
+}
+
+.tt-resultado-attr--perdeu {
+  color: #e74c3c;
+  text-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+}
+
+.tt-resultado-attr-x {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4F5359;
+}
+
+.tt-vs--vitoria .tt-resultado-texto {
+  color: #1ea064;
+  text-shadow: 0 0 20px rgba(30, 160, 100, 0.3);
+}
+
+.tt-vs--derrota .tt-resultado-texto {
+  color: #e74c3c;
+  text-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+}
+
+.tt-vs--empate .tt-resultado-texto {
+  color: #e8853a;
+  text-shadow: 0 0 20px rgba(232, 133, 58, 0.3);
 }
