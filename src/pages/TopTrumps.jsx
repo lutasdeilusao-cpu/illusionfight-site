@@ -312,6 +312,8 @@ export default function TopTrumps() {
             description={cartaJogador.descricao}
             locale={locale}
             attributes={cartaJogador.atributos}
+            onAttributeClick={(attrKey) => jogarAtributo(attrKey)}
+            disabled={girando}
           />
           <div className="tt-vs"><span className="tt-vs-texto">{t('games.toptrumps.hud_vs')}</span></div>
           <TopTrumpsCard

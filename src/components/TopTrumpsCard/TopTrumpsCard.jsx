@@ -6,12 +6,14 @@ import './TopTrumpsCard.css'
  * TopTrumpsCard — Template reutilizável de carta do Super Trunfo LDI.
  *
  * Props:
- *   characterImage  — URL da imagem de fundo do personagem (bg)
- *   name            — Nome do personagem
- *   description     — Descrição curta (vai na área inferior esquerda)
- *   locale          — 'pt' | 'en' | 'es'
- *   attributes      — { rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo }
- *   faceDown        — Se true, mostra o verso da carta
+ *   characterImage    — URL da imagem de fundo do personagem (bg)
+ *   name              — Nome do personagem
+ *   description       — Descrição curta (vai na área inferior esquerda)
+ *   locale            — 'pt' | 'en' | 'es'
+ *   attributes        — { rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo }
+ *   faceDown          — Se true, mostra o verso da carta
+ *   onAttributeClick  — (attrKey) => void — chamado ao clicar num atributo (ex: 'poder_mental')
+ *   disabled          — Desabilita clique nos atributos
  */
 export default function TopTrumpsCard({
   characterImage,
@@ -20,6 +22,8 @@ export default function TopTrumpsCard({
   locale = 'pt',
   attributes = {},
   faceDown = false,
+  onAttributeClick,
+  disabled = false,
 }) {
   const labels = CARD_LABELS[locale] || CARD_LABELS.pt
 
@@ -63,10 +67,21 @@ export default function TopTrumpsCard({
         {ATTR_META.map((attr) => {
           const valor = attributes[attr.key]
           if (valor === undefined || valor === null) return null
+          const clicavel = !!onAttributeClick
+          const classes = [
+            'tt-card-attr',
+            `tt-card-attr--${attr.cssKey}`,
+            clicavel && 'tt-card-attr-clickable',
+            disabled && 'tt-card-attr--disabled',
+          ].filter(Boolean).join(' ')
           return (
             <div
               key={attr.key}
-              className={`tt-card-attr tt-card-attr--${attr.cssKey}`}
+              className={classes}
+              onClick={clicavel && !disabled ? () => onAttributeClick(attr.key) : undefined}
+              role={clicavel ? 'button' : undefined}
+              tabIndex={clicavel && !disabled ? 0 : undefined}
+              onKeyDown={clicavel && !disabled ? (e) => { if (e.key === 'Enter' || e.key === ' ') onAttributeClick(attr.key) } : undefined}
             >
               <span className="tt-card-attr-label">{labels[attr.labelId]}</span>
               <span className="tt-card-attr-value">{valor}</span>

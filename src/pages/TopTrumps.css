@@ -1003,6 +1003,8 @@
 
   .tt-cards {
     grid-template-columns: 1fr;
+    justify-items: center;
+    overflow: hidden;
   }
 
   .tt-vs {
@@ -1011,5 +1013,10 @@
 
   .tt-recompensa-cards {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .tt-page {
+    overflow-x: hidden;
   }
 }
