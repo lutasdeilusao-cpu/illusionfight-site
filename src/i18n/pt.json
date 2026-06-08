@@ -76,6 +76,15 @@
     "assinar": "assinar elite — 10 fichas/dia",
     "voltar": "voltar"
   },
+  "modal_confirmacao_ficha": {
+    "titulo": "GASTAR 1 FICHA?",
+    "desc": "você vai gastar 1 ficha para desbloquear {jogo}.",
+    "duracao": "⏳ válido por 24 horas — jogue à vontade!",
+    "saldo_atual": "saldo atual",
+    "saldo_restante": "saldo após gastar",
+    "confirmar": "gastar 1 ficha",
+    "cancelar": "cancelar"
+  },
   "search": {
     "placeholder": "Buscar personagens, capítulos, lore...",
     "fechar": "ESC",

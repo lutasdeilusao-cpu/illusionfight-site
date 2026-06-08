@@ -1,8 +1,10 @@
+import { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
+import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import './Games.css'
 
 const JOGOS = [
@@ -22,19 +24,28 @@ const CONTEUDO = [
   { id: 'leaderboard', nomeKey: 'site.games.nomes.leaderboard', tagKey: 'site.games.taglines.leaderboard', emoji: '🏆', cor: '#F5A623', rota: '/leaderboard', badgeKey: 'site.games.badges.free' },
 ]
 
+// Games that require ficha (not FREE badge)
+const FICHA_GAMES = ['jackcandy', 'pesadelo', 'arena', 'tamagoshi', 'toptrumps', 'tatics', 'duelo']
+
 export default function Games() {
   const { t } = useLanguage()
   const navigate = useNavigate()
-  const { tentarEntrar: entrarLdi, modalVisivel: modalLdi, fecharModal: fecharLdi } = useFichaGate('lendas_ldi')
-  const { tentarEntrar: entrarJack, modalVisivel: modalJack, fecharModal: fecharJack } = useFichaGate('jack_dream_beer')
-  const { tentarEntrar: entrarTrumps, modalVisivel: modalTrumps, fecharModal: fecharTrumps } = useFichaGate('top_trumps')
+
+  // Create ficha gate for every gated game
+  const gates = {}
+  for (const id of FICHA_GAMES) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    gates[id] = useFichaGate(id)
+  }
 
   const handleJogoClick = (jogo) => {
     if (jogo.bloqueado || !jogo.rota) return
-    if (jogo.id === 'jackcandy') entrarJack(() => navigate(jogo.rota))
-    else if (jogo.id === 'ldi') entrarLdi(() => navigate(jogo.rota))
-    else if (jogo.id === 'toptrumps') entrarTrumps(() => navigate(jogo.rota))
-    else navigate(jogo.rota)
+    const gate = gates[jogo.id]
+    if (gate) {
+      gate.tentarEntrar(() => navigate(jogo.rota))
+    } else {
+      navigate(jogo.rota)
+    }
   }
 
   return (
@@ -108,9 +119,28 @@ export default function Games() {
         <span className="extras-footer-credits">© {new Date().getFullYear()} {t('site.games.credits')}</span>
       </div>
 
-      <ModalSemFichas visivel={modalJack} onFechar={fecharJack} jogo="Jack Dream Beer" />
-      <ModalSemFichas visivel={modalLdi} onFechar={fecharLdi} jogo="Lendas do LDI" />
-      <ModalSemFichas visivel={modalTrumps} onFechar={fecharTrumps} jogo="Top Trumps LDI" />
+      {/* Modals for each gated game */}
+      {FICHA_GAMES.map(id => {
+        const gate = gates[id]
+        if (!gate) return null
+        const nomes = { jackcandy: 'Jack Dream Beer', pesadelo: 'Pesadelo Particular', arena: 'Arena LDI', tamagoshi: 'Tamagoshi LDI', toptrumps: 'Top Trumps LDI', tatics: 'LDI Tactics', duelo: 'Duelo LDI' }
+        return (
+          <Fragment key={id}>
+            <ModalConfirmacaoFicha
+              visivel={gate.confirmacaoVisivel}
+              onConfirmar={gate.confirmarGasto}
+              onCancelar={gate.cancelarGasto}
+              jogo={nomes[id]}
+              saldo={gate.saldo}
+            />
+            <ModalSemFichas
+              visivel={gate.modalVisivel}
+              onFechar={gate.fecharModal}
+              jogo={nomes[id]}
+            />
+          </Fragment>
+        )
+      })}
     </div>
     </>
   )

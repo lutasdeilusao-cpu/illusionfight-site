@@ -76,6 +76,15 @@
     "assinar": "subscribe elite — 10 tokens/day",
     "voltar": "back"
   },
+  "modal_confirmacao_ficha": {
+    "titulo": "SPEND 1 TOKEN?",
+    "desc": "you'll spend 1 token to unlock {jogo}.",
+    "duracao": "⏳ valid for 24 hours — play as much as you want!",
+    "saldo_atual": "current balance",
+    "saldo_restante": "balance after",
+    "confirmar": "spend 1 token",
+    "cancelar": "cancel"
+  },
   "search": {
     "placeholder": "Search characters, chapters, lore...",
     "fechar": "ESC",
