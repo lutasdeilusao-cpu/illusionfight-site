@@ -74,6 +74,21 @@ export default function TopTrumpsMP() {
   const [pptResultado, setPptResultado] = useState(null)
   const [pptAmbosEscolheram, setPptAmbosEscolheram] = useState(false)
 
+  // Onomatopoeias da cortina
+  const ONOMATOPEIAS = [
+    'KABOOM!', 'POW!', 'CRASH!', 'BOOM!', 'WHAM!',
+    'BLAM!', 'KRAK!', 'SMASH!', 'BANG!', 'ZAP!',
+    'KABLAM!', 'THWACK!', 'CRUNCH!', 'SLAM!', 'KAPOW!',
+    'WHACK!', 'BAM!', 'CLANG!', 'KRAKOOM!', 'SWISH!'
+  ]
+  const [onomaTexto, setOnomaTexto] = useState('KABOOM!')
+  const [cortinaAtiva, setCortinaAtiva] = useState(false)
+
+  function sortearOnomatopeia() {
+    const idx = Math.floor(Math.random() * ONOMATOPEIAS.length)
+    setOnomaTexto(ONOMATOPEIAS[idx])
+  }
+
   const salaRef = useRef(sala)
   const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
@@ -222,10 +237,15 @@ export default function TopTrumpsMP() {
   function iniciarRevelacao(resultadoFinal) {
     setGirando(true)
     setTimeout(() => {
+      sortearOnomatopeia()
+      setCortinaAtiva(true)
+    }, 600)
+    setTimeout(() => {
       setGirando(false)
+      setCortinaAtiva(false)
       gerarParticulasMP(resultadoFinal)
       setFase('revelacao')
-    }, 800)
+    }, 1800)
   }
 
   async function resolverRodada() {
@@ -722,6 +742,15 @@ export default function TopTrumpsMP() {
             )}
           </div>
         </div>
+        {/* Curtain overlay for animation */}
+        {cortinaAtiva && (
+          <div className="ttmp-curtain-overlay">
+            <div className="ttmp-curtain-inner" />
+            <div className="ttmp-curtain-onomatopeia">
+              <span className="ttmp-onoma-texto">{onomaTexto}</span>
+            </div>
+          </div>
+        )}
       </section>
       </>
     )
