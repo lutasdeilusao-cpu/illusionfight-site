@@ -118,6 +118,34 @@ export async function incrementarTentativa(userId, tier = 'free') {
   return usadas
 }
 
+/**
+ * Remove TODAS as cartas do deck de um usuário no banco.
+ */
+export async function limparDeck(userId) {
+  const { error } = await supabase
+    .from('toptrumps_decks')
+    .delete()
+    .eq('user_id', userId)
+  if (error) console.error('[TT] Erro ao limpar deck:', error)
+  else console.log('[TT] Deck limpo para userId:', userId)
+}
+
+/**
+ * Substitui o deck inteiro por um novo conjunto de cartas.
+ * Remove as antigas e insere as novas.
+ */
+export async function substituirDeck(userId, cartaIds) {
+  await limparDeck(userId)
+  if (cartaIds.length > 0) {
+    const inserts = cartaIds.map(id => ({ user_id: userId, carta_id: id }))
+    const { error } = await supabase
+      .from('toptrumps_decks')
+      .insert(inserts)
+    if (error) console.error('[TT] Erro ao substituir deck:', error)
+    else console.log('[TT] Deck substituído —', cartaIds.length, 'cartas')
+  }
+}
+
 export async function migrarLocalStorageParaSupabase(userId) {
   const chave = `ldi-toptrumps-deck-${userId}`
   const salvo = localStorage.getItem(chave)

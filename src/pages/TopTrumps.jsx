@@ -6,7 +6,7 @@ import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
 import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import defaultBg from '../assets/images/cards/bg01.png'
@@ -325,11 +325,22 @@ export default function TopTrumps() {
     if (!user) return
     carregarDeckDB(user.id).then(ids => {
       // Aceita tanto id_num (número) quanto id (slug string) — compatibilidade migração
-      const cartas = (ids || []).map(id => {
+      let cartas = (ids || []).map(id => {
         let c = todasCartas.find(c => c.id_num === id)
         if (!c) c = todasCartas.find(c => c.id === id)
         return c
       }).filter(Boolean)
+
+      // Se o banco tem dados mas menos de 5 cartas válidas, gera deck novo
+      if (ids && ids.length > 0 && cartas.length < 5) {
+        console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', ids.length, '. Gerando novo deck...')
+        const novas = getCartasIniciais()
+        substituirDeck(user.id, novas.map(c => c.id_num)).then(() => {
+          setDeckUsuario(novas)
+        })
+        return
+      }
+
       setDeckUsuario(cartas)
     })
     carregarTentativas(user.id, getTierInicial()).then(({ usadas, jaGanhouHoje: jaGanhou, limite }) => {
