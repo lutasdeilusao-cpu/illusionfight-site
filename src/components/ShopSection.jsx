@@ -105,7 +105,10 @@ export default function ShopSection() {
           onPointerUp={onPointerUp}
           onPointerLeave={onPointerUp}
         >
-          {items.map((produto, i) => (
+          {items.map((produto, i) => {
+            const nome = locale === 'pt' ? produto.nome_pt : locale === 'es' ? produto.nome_es : produto.nome_en
+            const badge = locale === 'pt' ? produto.badge_pt : locale === 'es' ? produto.badge_es : produto.badge_en
+            return (
             <a
               key={`${produto.id}-${i}`}
               href={produto.url}
@@ -115,19 +118,20 @@ export default function ShopSection() {
             >
               <div className="shop-card-image">
                 {produto.imagem
-                  ? <img src={produto.imagem} alt={produto.nome_pt} draggable="false" />
+                  ? <img src={produto.imagem} alt={nome} draggable="false" />
                   : <div className="shop-card-placeholder">
                       <span className="shop-card-tipo">{produto.tipo.toUpperCase()}</span>
                     </div>
                 }
-              <span className="shop-card-badge">{produto.badge_pt}</span>
+              <span className="shop-card-badge">{badge}</span>
             </div>
             <div className="shop-card-footer">
-              <p className="shop-card-nome">{produto.nome_pt}</p>
+              <p className="shop-card-nome">{nome}</p>
               <p className="shop-card-preco">{produto.preco}</p>
             </div>
           </a>
-        ))}
+            )
+          })}
       </div>
       )}
 

@@ -28,6 +28,9 @@
   font-weight: bold;
   letter-spacing: 0.1em;
   border-radius: 0 4px 0 4px;
+  background: color-mix(in srgb, var(--badge-cor, #F5A623) 15%, transparent);
+  border: 1px solid var(--badge-cor, #F5A623);
+  color: var(--badge-cor, #F5A623);
 }
 .pdc-icone { font-size: 2rem; }
 .pdc-nome { font-size: 1rem; font-weight: 700; color: #e8e8e8; margin: 0; letter-spacing: 0.05em; }

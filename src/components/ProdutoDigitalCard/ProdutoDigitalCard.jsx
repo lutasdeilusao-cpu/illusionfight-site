@@ -6,13 +6,13 @@ export default function ProdutoDigitalCard({ produto, locale, onComprar, adquiri
   const { t } = useLanguage()
   const preco = locale === 'pt' ? produto.preco_brl : produto.preco_usd
   const moeda = locale === 'pt' ? 'R$' : '$'
-  const nome = locale === 'pt' ? produto.nome_pt : produto.nome_en
-  const desc = locale === 'pt' ? produto.desc_pt : produto.desc_en
+  const nome = locale === 'pt' ? produto.nome_pt : locale === 'es' ? produto.nome_es : produto.nome_en
+  const desc = locale === 'pt' ? produto.desc_pt : locale === 'es' ? produto.desc_es : produto.desc_en
 
   return (
     <div className={`pdc-card ${adquirido ? 'pdc-card--adquirido' : ''}`}>
       {produto.badge && (
-        <div className="pdc-badge" style={{ background: produto.badge_cor + '22', border: `1px solid ${produto.badge_cor}`, color: produto.badge_cor }}>
+        <div className="pdc-badge" style={{ '--badge-cor': produto.badge_cor }}>
           {produto.badge}
         </div>
       )}
@@ -24,7 +24,7 @@ export default function ProdutoDigitalCard({ produto, locale, onComprar, adquiri
         {produto.fichas > 0 && (
           <div className="pdc-item">
             <span className="pdc-item-icon">🎰</span>
-            <span className="pdc-item-label">{produto.fichas} fichas</span>
+            <span className="pdc-item-label">{produto.fichas} {t('shop.fichas') || 'fichas'}</span>
           </div>
         )}
         {produto.dix_bonus > 0 && (
@@ -36,7 +36,7 @@ export default function ProdutoDigitalCard({ produto, locale, onComprar, adquiri
         {produto.item_exclusivo && (
           <div className="pdc-item pdc-item--cosmetico">
             <span className="pdc-item-icon">✨</span>
-            <span className="pdc-item-label">Item exclusivo</span>
+            <span className="pdc-item-label">{t('shop.item_exclusivo') || 'Item exclusivo'}</span>
           </div>
         )}
         {produto.jogo && (

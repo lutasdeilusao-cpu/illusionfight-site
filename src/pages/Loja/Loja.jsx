@@ -42,10 +42,10 @@ export default function Loja() {
   return (
     <>
       <Helmet>
-        <title>Loja — Illusion Fight</title>
-        <meta name="description" content="Compre fichas, DIX e itens exclusivos do universo Illusion Fight." />
-        <meta property="og:title" content="Loja — Illusion Fight" />
-        <meta property="og:description" content="Compre fichas, DIX e itens exclusivos." />
+        <title>{t('shop.page_title') || 'Loja — Illusion Fight'}</title>
+        <meta name="description" content={t('shop.page_desc') || 'Compre fichas, DIX e itens exclusivos do universo Illusion Fight.'} />
+        <meta property="og:title" content={t('shop.page_title') || 'Loja — Illusion Fight'} />
+        <meta property="og:description" content={t('shop.page_og_desc') || 'Compre fichas, DIX e itens exclusivos.'} />
         <meta property="og:url" content="https://illusionfight.com/loja" />
       </Helmet>
 
@@ -61,10 +61,10 @@ export default function Loja() {
 
         <div className="loja-tabs">
           <button className={`loja-tab ${aba === 'digital' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('digital')}>
-            🎰 DIGITAL
+            🎰 {t('shop.digital') || 'DIGITAL'}
           </button>
           <button className={`loja-tab ${aba === 'fisico' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('fisico')}>
-            📦 FÍSICO
+            📦 {t('shop.fisico') || 'FÍSICO'}
           </button>
         </div>
 
@@ -84,21 +84,25 @@ export default function Loja() {
 
         {aba === 'fisico' && (
           <div className="loja-fisico-grid">
-            {produtos.map(produto => (
-              <a key={produto.id} href={produto.url} className="loja-card" target="_blank" rel="noopener noreferrer">
-                <div className="loja-card-img">
-                  {produto.imagem
-                    ? <img src={produto.imagem} alt={produto.nome_pt} />
-                    : <div className="loja-card-placeholder">{produto.tipo.toUpperCase()}</div>
-                  }
-                </div>
-                <div className="loja-card-body">
-                  <span className="loja-card-badge">{produto.badge_pt}</span>
-                  <p className="loja-card-nome">{produto.nome_pt}</p>
-                  <p className="loja-card-preco">{produto.preco}</p>
-                </div>
-              </a>
-            ))}
+            {produtos.map(produto => {
+              const nome = locale === 'pt' ? produto.nome_pt : locale === 'es' ? produto.nome_es : produto.nome_en
+              const badge = locale === 'pt' ? produto.badge_pt : locale === 'es' ? produto.badge_es : produto.badge_en
+              return (
+                <a key={produto.id} href={produto.url} className="loja-card" target="_blank" rel="noopener noreferrer">
+                  <div className="loja-card-img">
+                    {produto.imagem
+                      ? <img src={produto.imagem} alt={nome} />
+                      : <div className="loja-card-placeholder">{produto.tipo.toUpperCase()}</div>
+                    }
+                  </div>
+                  <div className="loja-card-body">
+                    <span className="loja-card-badge">{badge}</span>
+                    <p className="loja-card-nome">{nome}</p>
+                    <p className="loja-card-preco">{produto.preco}</p>
+                  </div>
+                </a>
+              )
+            })}
           </div>
         )}
 

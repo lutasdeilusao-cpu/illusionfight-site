@@ -5,6 +5,7 @@
       "Libro",
       "Músicas",
       "Games",
+      "TIENDA",
       "Mundo",
       "AUTOR",
       "APOYAR"
@@ -104,7 +105,12 @@
     "ver_tudo": "VER TODO →",
     "comprar": "COMPRAR",
     "adquirido": "✓ ADQUIRIDO",
-    "footer": "© 2026 Illusion Fight — Pague de forma segura vía Stripe"
+    "footer": "© 2026 Illusion Fight — Pague de forma segura vía Stripe",
+    "page_title": "Tienda — Illusion Fight",
+    "page_desc": "Compra fichas, DIX y artículos exclusivos del universo Illusion Fight.",
+    "page_og_desc": "Compra fichas, DIX y artículos exclusivos.",
+    "fichas": "fichas",
+    "item_exclusivo": "Artículo exclusivo"
   },
   "progress": {
     "title": "DÓNDE ESTAMOS",

@@ -12,8 +12,10 @@
     "preco_usd": 0.99,
     "nome_pt": "Starter Pack",
     "nome_en": "Starter Pack",
+    "nome_es": "Starter Pack",
     "desc_pt": "50 fichas + 100 DIX de bônus. Comece sua jornada com tudo!",
     "desc_en": "50 tokens + 100 DIX bonus. Start your journey fully loaded!",
+    "desc_es": "50 fichas + 100 DIX de bonificación. ¡Comienza tu viaje con todo!",
     "jogo": null
   },
   {
@@ -29,8 +31,10 @@
     "preco_usd": 1.99,
     "nome_pt": "100 Fichas",
     "nome_en": "100 Tokens",
+    "nome_es": "100 Fichas",
     "desc_pt": "Pacote com 100 fichas para usar nos jogos.",
     "desc_en": "100 tokens to use in games.",
+    "desc_es": "Paquete de 100 fichas para usar en los juegos.",
     "jogo": null
   },
   {
@@ -46,8 +50,10 @@
     "preco_usd": 4.99,
     "nome_pt": "300 Fichas + Bônus",
     "nome_en": "300 Tokens + Bonus",
+    "nome_es": "300 Fichas + Bonificación",
     "desc_pt": "300 fichas + 50 DIX extras. O pacote mais escolhido.",
     "desc_en": "300 tokens + 50 bonus DIX. The most popular pack.",
+    "desc_es": "300 fichas + 50 DIX extra. El paquete más elegido.",
     "jogo": null
   },
   {
@@ -63,8 +69,10 @@
     "preco_usd": 14.99,
     "nome_pt": "1000 Fichas + Bônus",
     "nome_en": "1000 Tokens + Bonus",
+    "nome_es": "1000 Fichas + Bonificación",
     "desc_pt": "1000 fichas + 200 DIX de bônus. Para quem vive na arena.",
     "desc_en": "1000 tokens + 200 bonus DIX. For those who live in the arena.",
+    "desc_es": "1000 fichas + 200 DIX de bonificación. Para quienes viven en la arena.",
     "jogo": null
   },
   {
@@ -80,8 +88,10 @@
     "preco_usd": 2.99,
     "nome_pt": "Skin Karuak Dourado",
     "nome_en": "Golden Karuak Skin",
+    "nome_es": "Piel Karuak Dorado",
     "desc_pt": "Skin exclusiva para o Karuak no LDI Tactics. Estilo dourado imperial.",
     "desc_en": "Exclusive Golden Karuak skin for LDI Tactics. Imperial gold style.",
+    "desc_es": "Piel exclusiva para Karuak en LDI Tactics. Estilo dorado imperial.",
     "jogo": "LDI Tactics"
   }
 ]

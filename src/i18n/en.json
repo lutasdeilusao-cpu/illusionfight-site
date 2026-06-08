@@ -5,6 +5,7 @@
       "Book",
       "Music",
       "Games",
+      "SHOP",
       "World",
       "AUTHOR",
       "SUPPORT"
@@ -104,7 +105,12 @@
     "ver_tudo": "VIEW ALL →",
     "comprar": "BUY",
     "adquirido": "✓ OWNED",
-    "footer": "© 2026 Illusion Fight — Pay securely via Stripe"
+    "footer": "© 2026 Illusion Fight — Pay securely via Stripe",
+    "page_title": "Shop — Illusion Fight",
+    "page_desc": "Buy tokens, DIX and exclusive items from the Illusion Fight universe.",
+    "page_og_desc": "Buy tokens, DIX and exclusive items.",
+    "fichas": "tokens",
+    "item_exclusivo": "Exclusive item"
   },
   "progress": {
     "title": "WHERE WE ARE",
