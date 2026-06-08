@@ -82,24 +82,24 @@ export default function App() {
         <Route path="/mundo" element={<Mundo />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
-        <Route path="/games/toptrumps" element={<TopTrumps />} />
+        <Route path="/games/toptrumps" element={<LoginGate feature="o Top Trumps LDI"><TopTrumps /></LoginGate>} />
         <Route path="/games/toptrumps/lobby" element={<LoginGate feature="o Top Trumps Multiplayer"><TopTrumpsLobby /></LoginGate>} />
         <Route path="/games/toptrumps/multiplayer" element={<LoginGate feature="a partida multiplayer"><TopTrumpsMP /></LoginGate>} />
-        <Route path="/games/ldi" element={<LDILobby />} />
-        <Route path="/games/ldi/create" element={<LDICreate />} />
-        <Route path="/games/ldi/game" element={<LDIGame />} />
-        <Route path="/games/ldi/combat" element={<LDICombat />} />
-        <Route path="/games/ldi/sheet" element={<LDISheet />} />
-        <Route path="/games/ldi/clues" element={<LDIClues />} />
-        <Route path="/games/ldi/end" element={<LDIEnd />} />
-        <Route path="/games/ldi/puzzle" element={<LDIPuzzle />} />
-        <Route path="/games/jackcandy" element={<JackCandy />} />
-        <Route path="/games/minigames" element={<MiniGames />} />
+        <Route path="/games/ldi" element={<LoginGate feature="o Lendas do LDI"><LDILobby /></LoginGate>} />
+        <Route path="/games/ldi/create" element={<LoginGate feature="a criação de personagem LDI"><LDICreate /></LoginGate>} />
+        <Route path="/games/ldi/game" element={<LoginGate feature="o Lendas do LDI"><LDIGame /></LoginGate>} />
+        <Route path="/games/ldi/combat" element={<LoginGate feature="o combate LDI"><LDICombat /></LoginGate>} />
+        <Route path="/games/ldi/sheet" element={<LoginGate feature="a ficha de personagem LDI"><LDISheet /></LoginGate>} />
+        <Route path="/games/ldi/clues" element={<LoginGate feature="as pistas LDI"><LDIClues /></LoginGate>} />
+        <Route path="/games/ldi/end" element={<LoginGate feature="o resultado LDI"><LDIEnd /></LoginGate>} />
+        <Route path="/games/ldi/puzzle" element={<LoginGate feature="o puzzle LDI"><LDIPuzzle /></LoginGate>} />
+        <Route path="/games/jackcandy" element={<LoginGate feature="o Jack Dream Beer"><JackCandy /></LoginGate>} />
+        <Route path="/games/minigames" element={<LoginGate feature="os MiniGames"><MiniGames /></LoginGate>} />
         <Route path="/games/ldi-arena" element={<LoginGate feature="a Arena LDI"><ArenaRoute /></LoginGate>} />
-        <Route path="/games/ldi-tatics" element={<ArenaTaticsRoute />} />
+        <Route path="/games/ldi-tatics" element={<LoginGate feature="o LDI Tactics"><ArenaTaticsRoute /></LoginGate>} />
         <Route path="/games/pesadelo" element={<LoginGate feature="o Pesadelo Particular"><PP /></LoginGate>} />
         <Route path="/games/duelo" element={<LoginGate feature="o Duelo LDI"><DueloRoute /></LoginGate>} />
-        <Route path="/games/tamagoshi" element={<Tamagoshi />} />
+        <Route path="/games/tamagoshi" element={<LoginGate feature="o Tamagoshi LDI"><Tamagoshi /></LoginGate>} />
         <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />
