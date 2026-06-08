@@ -7,6 +7,7 @@ import { LanguageProvider } from './context/LanguageContext'
 import { ReaderProvider } from './context/ReaderContext'
 import { AuthProvider } from './context/AuthContext'
 import { FichasProvider } from './context/FichasContext'
+import { DixProvider } from './context/DixContext'
 import { AchievementsProvider } from './context/AchievementsContext'
 import App from './App'
 import './index.css'
@@ -18,11 +19,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter basename="/">
           <AuthProvider>
           <FichasProvider>
+            <DixProvider>
             <AchievementsProvider>
               <LanguageProvider>
                 <App />
               </LanguageProvider>
             </AchievementsProvider>
+            </DixProvider>
           </FichasProvider>
           </AuthProvider>
         </BrowserRouter>

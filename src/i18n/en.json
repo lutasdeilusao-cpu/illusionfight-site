@@ -97,7 +97,14 @@
     "abrir": "OPEN →"
   },
   "shop": {
-    "titulo": "UNIVERSE ITEMS"
+    "titulo": "UNIVERSE ITEMS",
+    "fisico": "PHYSICAL",
+    "digital": "DIGITAL",
+    "subtitulo": "tokens, DIX and exclusive items",
+    "ver_tudo": "VIEW ALL →",
+    "comprar": "BUY",
+    "adquirido": "✓ OWNED",
+    "footer": "© 2026 Illusion Fight — Pay securely via Stripe"
   },
   "progress": {
     "title": "WHERE WE ARE",

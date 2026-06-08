@@ -18,6 +18,29 @@ export function getPriceDisplay(locale) {
   return PRICE_DISPLAY[locale] || PRICE_DISPLAY.pt
 }
 
+export async function iniciarCheckoutLoja(produto_id) {
+  const { data: { session } } = await supabase.auth.getSession()
+  if (!session) {
+    window.location.href = '/login?redirect=/loja'
+    return
+  }
+
+  const locale = localStorage.getItem('ldi_locale') || 'pt'
+
+  const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL || 'https://dvxfrzixtetdzmdrzkpx.supabase.co'}/functions/v1/create-checkout-session`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${session.access_token}`,
+    },
+    body: JSON.stringify({ produto_id, locale }),
+  })
+
+  const { url, error } = await res.json()
+  if (error) throw new Error(error)
+  window.location.href = url
+}
+
 export async function iniciarCheckout(tier) {
   const priceId = PRICES[tier]
   if (!priceId) throw new Error('Price ID não configurado para este tier')

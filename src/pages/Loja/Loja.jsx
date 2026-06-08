@@ -1,0 +1,111 @@
+import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
+import { useAuth } from '../../context/AuthContext'
+import { supabase } from '../../lib/supabase'
+import { iniciarCheckoutLoja } from '../../lib/stripe'
+import ProdutoDigitalCard from '../../components/ProdutoDigitalCard/ProdutoDigitalCard'
+import produtos from '../../data/produtos.json'
+import produtosDigitais from '../../data/loja-digital.json'
+import './Loja.css'
+
+export default function Loja() {
+  const { t } = useLanguage()
+  const { user } = useAuth()
+  const navigate = useNavigate()
+  const locale = localStorage.getItem('ldi_locale') || 'pt'
+  const [aba, setAba] = useState('digital')
+  const [adquiridos, setAdquiridos] = useState({})
+
+  useEffect(() => {
+    if (user) {
+      supabase.from('loja_compras').select('produto_id').eq('user_id', user.id).eq('status', 'confirmado').then(({ data }) => {
+        if (data) {
+          const map = {}
+          data.forEach(c => { map[c.produto_id] = true })
+          setAdquiridos(map)
+        }
+      })
+    }
+  }, [user])
+
+  const handleComprarDigital = async (produto) => {
+    if (!user) { navigate('/login?redirect=/loja'); return }
+    try {
+      await iniciarCheckoutLoja(produto.id)
+    } catch (err) {
+      console.error('[LOJA] erro ao comprar:', err)
+    }
+  }
+
+  return (
+    <>
+      <Helmet>
+        <title>Loja — Illusion Fight</title>
+        <meta name="description" content="Compre fichas, DIX e itens exclusivos do universo Illusion Fight." />
+        <meta property="og:title" content="Loja — Illusion Fight" />
+        <meta property="og:description" content="Compre fichas, DIX e itens exclusivos." />
+        <meta property="og:url" content="https://illusionfight.com/loja" />
+      </Helmet>
+
+      <div className="loja-page">
+        <div className="loja-header">
+          <h1 className="loja-titulo">
+            <span className="loja-titulo-glitch" data-text="LOJA">LOJA</span>
+          </h1>
+          <p className="loja-subtitulo">
+            <span className="loja-cursor">█</span> {t('shop.subtitulo') || 'fichas, DIX e itens exclusivos'}
+          </p>
+        </div>
+
+        <div className="loja-tabs">
+          <button className={`loja-tab ${aba === 'digital' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('digital')}>
+            🎰 DIGITAL
+          </button>
+          <button className={`loja-tab ${aba === 'fisico' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('fisico')}>
+            📦 FÍSICO
+          </button>
+        </div>
+
+        {aba === 'digital' && (
+          <div className="loja-digital-grid">
+            {produtosDigitais.map(produto => (
+              <ProdutoDigitalCard
+                key={produto.id}
+                produto={produto}
+                locale={locale}
+                onComprar={handleComprarDigital}
+                adquirido={adquiridos[produto.id]}
+              />
+            ))}
+          </div>
+        )}
+
+        {aba === 'fisico' && (
+          <div className="loja-fisico-grid">
+            {produtos.map(produto => (
+              <a key={produto.id} href={produto.url} className="loja-card" target="_blank" rel="noopener noreferrer">
+                <div className="loja-card-img">
+                  {produto.imagem
+                    ? <img src={produto.imagem} alt={produto.nome_pt} />
+                    : <div className="loja-card-placeholder">{produto.tipo.toUpperCase()}</div>
+                  }
+                </div>
+                <div className="loja-card-body">
+                  <span className="loja-card-badge">{produto.badge_pt}</span>
+                  <p className="loja-card-nome">{produto.nome_pt}</p>
+                  <p className="loja-card-preco">{produto.preco}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+
+        <div className="loja-footer">
+          <p className="loja-footer-text">{t('shop.footer') || '© 2026 Illusion Fight — Compre com segurança via Stripe'}</p>
+        </div>
+      </div>
+    </>
+  )
+}

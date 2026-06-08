@@ -1,0 +1,73 @@
+.pdc-card {
+  position: relative;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  transition: border-color 0.2s, transform 0.2s;
+  min-width: 200px;
+  flex: 1;
+}
+.pdc-card:hover {
+  border-color: #444;
+  transform: translateY(-2px);
+}
+.pdc-card--adquirido { opacity: 0.6; border-color: #22C55E44; }
+.pdc-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border-radius: 0 4px 0 4px;
+}
+.pdc-icone { font-size: 2rem; }
+.pdc-nome { font-size: 1rem; font-weight: 700; color: #e8e8e8; margin: 0; letter-spacing: 0.05em; }
+.pdc-desc { font-size: 0.72rem; color: #888; margin: 0; line-height: 1.4; }
+.pdc-itens { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; margin: 0.3rem 0; }
+.pdc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  color: #aaa;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+.pdc-item--dix { border-color: #F5A62344; color: #F5A623; }
+.pdc-item--cosmetico { border-color: #A855F444; color: #A855F4; }
+.pdc-item--jogo { border-color: #00B4D844; color: #00B4D8; }
+.pdc-item-icon { font-size: 0.8rem; }
+.pdc-item-label { font-size: 0.65rem; }
+.pdc-preco { font-size: 1.5rem; font-weight: 900; color: #F5A623; margin: 0.3rem 0; }
+.pdc-comprar {
+  width: 100%;
+  background: none;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  transition: background 0.15s;
+}
+.pdc-comprar:hover { background: rgba(245,166,35,0.1); }
+.pdc-adquirido {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #22C55E44;
+  color: #22C55E;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}

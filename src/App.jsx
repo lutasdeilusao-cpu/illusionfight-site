@@ -50,6 +50,7 @@ import ArenaTaticsRoute from './pages/ArenaTatics/ArenaTaticsRoute'
 import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
 import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
+import Loja from './pages/Loja/Loja'
 import './pages/Duelo/version' // side-effect: console.log version
 
 export default function App() {
@@ -101,6 +102,7 @@ export default function App() {
         <Route path="/games/pesadelo" element={<FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute>} />
         <Route path="/games/duelo" element={<FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute>} />
         <Route path="/games/tamagoshi" element={<FichaGateRoute gameId="tamagoshi" feature="o Tamagoshi LDI" nomeExibicao="Tamagoshi LDI"><Tamagoshi /></FichaGateRoute>} />
+        <Route path="/loja" element={<Loja />} />
         <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/quiz" element={<Quiz />} />

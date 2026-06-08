@@ -97,7 +97,14 @@
     "abrir": "ABRIR →"
   },
   "shop": {
-    "titulo": "ARTÍCULOS DEL UNIVERSO"
+    "titulo": "ARTÍCULOS DEL UNIVERSO",
+    "fisico": "FÍSICO",
+    "digital": "DIGITAL",
+    "subtitulo": "fichas, DIX y artículos exclusivos",
+    "ver_tudo": "VER TODO →",
+    "comprar": "COMPRAR",
+    "adquirido": "✓ ADQUIRIDO",
+    "footer": "© 2026 Illusion Fight — Pague de forma segura vía Stripe"
   },
   "progress": {
     "title": "DÓNDE ESTAMOS",

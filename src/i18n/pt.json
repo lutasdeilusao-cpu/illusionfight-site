@@ -97,7 +97,14 @@
     "abrir": "ABRIR →"
   },
   "shop": {
-    "titulo": "ITENS DO UNIVERSO"
+    "titulo": "ITENS DO UNIVERSO",
+    "fisico": "FÍSICO",
+    "digital": "DIGITAL",
+    "subtitulo": "fichas, DIX e itens exclusivos",
+    "ver_tudo": "VER TUDO →",
+    "comprar": "COMPRAR",
+    "adquirido": "✓ ADQUIRIDO",
+    "footer": "© 2026 Illusion Fight — Compre com segurança via Stripe"
   },
   "progress": {
     "title": "ONDE ESTAMOS",
