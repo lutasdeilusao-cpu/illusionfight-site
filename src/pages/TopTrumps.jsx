@@ -20,12 +20,21 @@ import img07 from '../assets/images/cards/characters/card-07.png'
 import img08 from '../assets/images/cards/characters/card-08.png'
 import img09 from '../assets/images/cards/characters/card-09.png'
 import img10 from '../assets/images/cards/characters/card-10.png'
+import img11 from '../assets/images/cards/characters/card-11.png'
+import img12 from '../assets/images/cards/characters/card-12.png'
+import img13 from '../assets/images/cards/characters/card-13.png'
+import img14 from '../assets/images/cards/characters/card-14.png'
+import img15 from '../assets/images/cards/characters/card-15.png'
+import img21 from '../assets/images/cards/characters/card-21.png'
+import img23 from '../assets/images/cards/characters/card-23.png'
 import './TopTrumps.css'
 
 // ── Imagens oficiais por id_num (season 1) ──
 const CARD_IMAGES = {
   1: img01, 2: img02, 3: img03, 4: img04, 5: img05,
   6: img06, 7: img07, 8: img08, 9: img09, 10: img10,
+  11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
+  21: img21, 23: img23,
 }
 function bgCarta(carta) {
   return CARD_IMAGES[carta?.id_num] || defaultBg
@@ -46,8 +55,6 @@ const SEASON_1_IDS = [
 // Nexus Phantasm sobe de Elite → Primordial na Season 1
 const TIER_OVERRIDE = { nexus_phantasm: 'primordial' }
 
-const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
-
 function tierReal(carta) {
   return TIER_OVERRIDE[carta.id] || carta.tier
 }
@@ -65,11 +72,6 @@ function attrNomeKey(id) {
   return map[id] || 'games.toptrumps.atributo_poder_explosivo'
 }
 
-const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
-  id, nomeKey: attrNomeKey(id),
-  descricao, inverso: id === 'rank_sdr'
-}))
-
 function embaralhar(arr) { return [...arr].sort(() => Math.random() - 0.5) }
 function avatarCor(id) {
   let hash = 0; for (let i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash)
@@ -84,6 +86,11 @@ function keyPorUser(user, suffix) {
 export default function TopTrumps() {
   const { t, locale } = useLanguage()
   const deck = getDeck(locale)
+  const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
+  const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
+    id, nomeKey: attrNomeKey(id),
+    descricao, inverso: id === 'rank_sdr'
+  }))
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const { setReaderMode } = useReader()
@@ -378,12 +385,13 @@ export default function TopTrumps() {
 
       setDeckUsuario(cartas)
 
-      // ── Admin auto-fill: garante as 10 primeiras cartas ──
+      // ── Admin auto-fill: garante TODAS as cartas da temporada ──
       if (perfil?.role === 'admin' || perfil?.is_admin) {
         const idsTem = new Set((ids || []).map(id => Number(id)))
-        const faltando = [1,2,3,4,5,6,7,8,9,10].filter(n => !idsTem.has(n))
+        const todosIds = todasCartas.map(c => c.id_num)
+        const faltando = todosIds.filter(n => !idsTem.has(n))
         if (faltando.length > 0) {
-          console.log('[TT] Admin auto-fill — adicionando cartas:', faltando)
+          console.log('[TT] Admin auto-fill — adicionando cartas faltantes:', faltando)
           salvarCartasDeck(user.id, faltando)
         }
       }

@@ -9,7 +9,6 @@ import { supabase } from '../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
 import './TopTrumpsMP.css'
 
-const todasCartas = deck.cartas
 function attrNomeKey(id) {
   const map = {
     rank_sdr: 'games.toptrumps.atributo_rank_sdr',
@@ -23,11 +22,6 @@ function attrNomeKey(id) {
   return map[id] || 'games.toptrumps.atributo_poder_explosivo'
 }
 
-const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
-  id, nomeKey: attrNomeKey(id),
-  descricao, inverso: id === 'rank_sdr'
-}))
-
 function avatarCor(id) {
   let hash = 0; for (let i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash)
   return `hsl(${hash % 360}, 65%, 45%)`
@@ -37,6 +31,11 @@ import { MP_VERSION } from '../config/version'
 export default function TopTrumpsMP() {
   const { t, locale } = useLanguage()
   const deck = getDeck(locale)
+  const todasCartas = deck.cartas
+  const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
+    id, nomeKey: attrNomeKey(id),
+    descricao, inverso: id === 'rank_sdr'
+  }))
   const { setReaderMode } = useReader()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
