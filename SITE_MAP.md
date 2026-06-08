@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
-*Versão: 4.0*  |  `[SITE] versão carregada: 4.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 4.1*  |  `[SITE] versão carregada: 4.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
@@ -92,7 +92,7 @@
     │   ├── LoginGate/                  # Gate de login reutilizável
     │   ├── ModalConfirmacaoFicha/      # Modal confirmação antes de gastar ficha
     │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS"
-    │   ├── FichaGateRoute/            # Gate rota: login + ficha em todas as rotas de game
+    │   ├── FichaGateRoute/            # Gate rota: login + ficha + FREE info em todas as rotas de game
     │   ├── MusicSection/               # Seção home: música
     │   ├── Navbar/                     # Navbar global com menu hamburger
     │   ├── NotificationBalloon/        # Balão de notificação
@@ -517,7 +517,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 4.0 | `src/config/version.js:5` |
+| `SITE_VERSION` | 4.1 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
