@@ -120,7 +120,7 @@ export default function TopTrumps() {
 
   function getCartasIniciais() {
     const userTier = getTierInicial()
-    const qtd = userTier === 'primordial' ? 20 : userTier === 'elite' ? 15 : 10
+    const qtd = userTier === 'primordial' ? 15 : userTier === 'elite' ? 10 : 5
     const porTier = Math.max(1, Math.floor(qtd / 4))
 
     // Agrupa cartas por tier real (considerando override)

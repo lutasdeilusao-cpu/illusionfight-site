@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
-*Versão: 8.0*  |  `[SITE] versão carregada: 8.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*Versão: 8.0*  |  `[SITE] versão carregada: 8.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 8.1*  |  `[SITE] versão carregada: 8.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 8.1*  |  `[SITE] versão carregada: 8.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
