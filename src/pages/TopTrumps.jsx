@@ -309,9 +309,21 @@ export default function TopTrumps() {
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
-        <div className="tt-hud">
-          <span className="tt-hud-rodada">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
-          <div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div>
+        <div className="tt-hud-new">
+          <div className="tt-round-badge">
+            <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
+          </div>
+          <div className="tt-score-row">
+            <div className="tt-score-item tt-score--player">
+              <span className="tt-score-label">VOCÊ</span>
+              <span className="tt-score-value">{placar.jogador}</span>
+            </div>
+            <div className="tt-score-divider">:</div>
+            <div className="tt-score-item tt-score--ia">
+              <span className="tt-score-label">IA</span>
+              <span className="tt-score-value">{placar.ia}</span>
+            </div>
+          </div>
         </div>
         <div className="tt-cards">
           <TopTrumpsCard
@@ -323,7 +335,10 @@ export default function TopTrumps() {
             onAttributeClick={(attrKey) => jogarAtributo(attrKey)}
             disabled={girando}
           />
-          <div className="tt-vs"><span className="tt-vs-texto">{t('games.toptrumps.hud_vs')}</span></div>
+          <div className="tt-vs-epico">
+            <div className="tt-vs-glow" />
+            <span className="tt-vs-texto-grande">VS</span>
+          </div>
           <TopTrumpsCard
             mystery
             name=""

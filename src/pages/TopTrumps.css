@@ -544,6 +544,168 @@
   font-weight: 600;
 }
 
+/* ---- NOVO HUD ÉPICO ---- */
+
+.tt-hud-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.tt-round-badge {
+  position: relative;
+  padding: 0.4rem 2rem;
+  background: linear-gradient(135deg, rgba(232,133,58,0.15) 0%, rgba(232,133,58,0.05) 100%);
+  border: 1px solid rgba(232,133,58,0.25);
+  border-radius: 50px;
+  overflow: hidden;
+  animation: tt-pulse-border 2s ease-in-out infinite;
+}
+
+.tt-round-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(232,133,58,0.1), transparent);
+  animation: tt-shimmer 3s ease-in-out infinite;
+}
+
+.tt-round-label {
+  position: relative;
+  z-index: 1;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f4a227;
+  letter-spacing: 0.15em;
+}
+
+.tt-score-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tt-score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.tt-score-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #8B8F96;
+  letter-spacing: 0.1em;
+}
+
+.tt-score-value {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tt-score--player .tt-score-value {
+  color: #e8853a;
+  text-shadow: 0 0 12px rgba(232,133,58,0.4);
+}
+
+.tt-score--ia .tt-score-value {
+  color: #e74c3c;
+  text-shadow: 0 0 12px rgba(231,76,60,0.4);
+}
+
+.tt-score-divider {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4F5359;
+}
+
+/* ---- VS ÉPICO ---- */
+
+.tt-vs-epico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  min-height: 200px;
+  align-self: center;
+}
+
+.tt-vs-glow {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,133,58,0.3) 0%, rgba(232,133,58,0.08) 40%, transparent 70%);
+  animation: tt-vs-pulse 1.8s ease-in-out infinite;
+}
+
+.tt-vs-texto-grande {
+  position: relative;
+  z-index: 2;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #e8853a;
+  text-shadow:
+    0 0 20px rgba(232,133,58,0.6),
+    0 0 40px rgba(232,133,58,0.3),
+    0 0 80px rgba(232,133,58,0.15);
+  animation: tt-vs-pulse-texto 1.8s ease-in-out infinite;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+/* ---- Animações ---- */
+
+@keyframes tt-pulse-border {
+  0%, 100% { border-color: rgba(232,133,58,0.25); }
+  50% { border-color: rgba(232,133,58,0.5); }
+}
+
+@keyframes tt-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes tt-vs-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes tt-vs-pulse-texto {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow:
+      0 0 20px rgba(232,133,58,0.6),
+      0 0 40px rgba(232,133,58,0.3),
+      0 0 80px rgba(232,133,58,0.15);
+  }
+  50% {
+    transform: scale(1.08);
+    text-shadow:
+      0 0 30px rgba(232,133,58,0.8),
+      0 0 60px rgba(232,133,58,0.4),
+      0 0 100px rgba(232,133,58,0.2);
+  }
+}
+
 .tt-vs {
   display: flex;
   flex-direction: column;
