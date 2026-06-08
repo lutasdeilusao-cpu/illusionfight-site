@@ -5,9 +5,7 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  /* TESTE: branco para confirmar que é o elemento certo */
-  background: #ffffff !important;
-  animation: none;
+  animation: tt-bg-cycle 14s ease-in-out infinite alternate;
 }
 
 .ttmp-fire-particles {
