@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
-*Versão: 3.6*  |  `[SITE] versão carregada: 3.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 4.0*  |  `[SITE] versão carregada: 4.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
@@ -90,7 +90,9 @@
     │   ├── HeroSlideshow/              # Slideshow do hero na home
     │   ├── LatestEpisodes/             # Seção home: últimos episódios
     │   ├── LoginGate/                  # Gate de login reutilizável
+    │   ├── ModalConfirmacaoFicha/      # Modal confirmação antes de gastar ficha
     │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS"
+    │   ├── FichaGateRoute/            # Gate rota: login + ficha em todas as rotas de game
     │   ├── MusicSection/               # Seção home: música
     │   ├── Navbar/                     # Navbar global com menu hamburger
     │   ├── NotificationBalloon/        # Balão de notificação
@@ -515,7 +517,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 3.2 | `src/config/version.js:5` |
+| `SITE_VERSION` | 4.0 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
@@ -524,7 +526,7 @@
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
 | `MP_VERSION` | 1.1.0 | `src/config/version.js:17` |
-| `TATICS_VERSION` | 6.4.0 | `src/config/version.js:19` |
+| `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
 
 ---
 
@@ -573,6 +575,11 @@
 | `007_jack_v4_xp_nivel.sql` | Jack v4 XP |
 | `008_tamagoshi_trocas.sql` | Trocas |
 | `009_tamagoshi_v2.sql` | Tamagoshi v2 |
+| `010_profiles_admin_role.sql` | Admin role em profiles |
+| `010_tamagoshi_fix_columns.sql` | Fix colunas tamagoshi |
+| `011_arena_tatics_roster.sql` | Arena Tatics roster |
+| `012_tatics_card_pool.sql` | Card pool + evolução |
+| `013_fichas_tables.sql` | Tabelas fichas + fichas_historico |
 | `010_profiles_admin_role.sql` | is_admin, role, tier |
 | `010_tamagoshi_fix_columns.sql` | Fix colunas |
 | `010_stripe_billing.sql` | Stripe subscription |
