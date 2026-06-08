@@ -1,26 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://illusionfight.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://illusionfight.com/personagens</loc><priority>0.9</priority></url>
-  <url><loc>https://illusionfight.com/livro</loc><priority>0.9</priority></url>
-  <url><loc>https://illusionfight.com/webtoon</loc><priority>0.8</priority></url>
-  <url><loc>https://illusionfight.com/musicas</loc><priority>0.8</priority></url>
-  <url><loc>https://illusionfight.com/mundo</loc><priority>0.8</priority></url>
-  <url><loc>https://illusionfight.com/autor</loc><priority>0.7</priority></url>
-  <url><loc>https://illusionfight.com/assinar</loc><priority>0.7</priority></url>
-  <url><loc>https://illusionfight.com/games</loc><priority>0.7</priority></url>
-  <url><loc>https://illusionfight.com/games/toptrumps</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/toptrumps/multiplayer</loc><priority>0.5</priority></url>
-  <url><loc>https://illusionfight.com/games/ldi</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/jackcandy</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/minigames</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/ldi-arena</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/ldi-tatics</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/pesadelo</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/duelo</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/games/tamagoshi</loc><priority>0.6</priority></url>
-  <url><loc>https://illusionfight.com/leaderboard</loc><priority>0.5</priority></url>
-  <url><loc>https://illusionfight.com/quiz</loc><priority>0.5</priority></url>
-  <url><loc>https://illusionfight.com/login</loc><priority>0.4</priority></url>
-  <url><loc>https://illusionfight.com/cadastro</loc><priority>0.4</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ═══ HOME ═══ -->
+  <url>
+    <loc>https://illusionfight.com/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://illusionfight.com/"/>
+  </url>
+
+  <!-- ═══ PÁGINAS PRINCIPAIS ═══ -->
+  <url>
+    <loc>https://illusionfight.com/personagens</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/personagens"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/personagens"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/personagens"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/livro</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/livro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/livro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/livro"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/webtoon</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/webtoon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/webtoon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/webtoon"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/musicas</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/musicas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/musicas"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/musicas"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/mundo</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/mundo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/mundo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/mundo"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/autor</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/autor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/autor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/autor"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/assinar</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/assinar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/assinar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/assinar"/>
+  </url>
+
+  <url>
+    <loc>https://illusionfight.com/games</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://illusionfight.com/games"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://illusionfight.com/games"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://illusionfight.com/games"/>
+  </url>
+
+  <!-- ═══ GAMES ═══ -->
+  <url>
+    <loc>https://illusionfight.com/games/ldi</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/ldi-tatics</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/ldi-arena</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/jackcandy</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/pesadelo</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/tamagoshi</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/toptrumps</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/toptrumps/multiplayer</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/minigames</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/games/duelo</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ═══ RECURSOS ═══ -->
+  <url>
+    <loc>https://illusionfight.com/leaderboard</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/quiz</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/login</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/cadastro</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/perfil</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
