@@ -244,28 +244,30 @@
   }
 }
 
-/* Mobile: wrapper assume o tamanho VISUAL da carta escalada */
-@media (max-width: 768px) {
+/* Mobile grande / tablet */
+@media (min-width: 461px) and (max-width: 768px) {
   .tt-card-wrapper {
-    width: calc(550px * 0.72);
-    height: calc(720px * 0.72);
+    width: calc(550px * 0.62);
+    height: calc(720px * 0.62);
     overflow: hidden;
   }
 
   .tt-card-template {
-    transform: scale(0.72);
+    transform: scale(0.62);
     transform-origin: top left;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile pequeno */
+@media (max-width: 460px) {
   .tt-card-wrapper {
-    width: calc(550px * 0.65);
-    height: calc(720px * 0.65);
+    width: calc(550px * 0.54);
+    height: calc(720px * 0.54);
+    overflow: hidden;
   }
 
   .tt-card-template {
-    transform: scale(0.65);
+    transform: scale(0.54);
     transform-origin: top left;
   }
 }
