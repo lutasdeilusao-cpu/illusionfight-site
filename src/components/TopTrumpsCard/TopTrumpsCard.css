@@ -6,19 +6,17 @@
 .tt-card-wrapper {
   width: 550px;
   height: 720px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   overflow: visible;
   flex-shrink: 0;
   position: relative;
 }
 
 .tt-card-template {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 550px;
   height: 720px;
-  flex-shrink: 0;
 }
 
 /* ── Camada 1 — Background do personagem ── */
