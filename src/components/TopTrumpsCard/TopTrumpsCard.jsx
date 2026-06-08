@@ -29,25 +29,28 @@ export default function TopTrumpsCard({
 
   if (faceDown) {
     return (
-      <div className="tt-card-template">
-        <div className="tt-card-verso">
-          <span className="tt-card-verso-icon">?</span>
+      <div className="tt-card-wrapper">
+        <div className="tt-card-template">
+          <div className="tt-card-verso">
+            <span className="tt-card-verso-icon">?</span>
+          </div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="tt-card-template">
-      {/* Camada 1 — Background do personagem (visível dentro do hexágono) */}
-      {characterImage && (
-        <div
-          className="tt-card-character-bg"
-          style={{ backgroundImage: `url(${characterImage})` }}
-        />
-      )}
+    <div className="tt-card-wrapper">
+      <div className="tt-card-template">
+        {/* Camada 1 — Background do personagem (visível dentro do hexágono) */}
+        {characterImage && (
+          <div
+            className="tt-card-character-bg"
+            style={{ backgroundImage: `url(${characterImage})` }}
+          />
+        )}
 
-      {/* Camada 2 — Template PNG (moldura fixa) */}
+        {/* Camada 2 — Template PNG (moldura fixa) */}
       <img
         className="tt-card-template-img"
         src={templateImg}
@@ -97,6 +100,7 @@ export default function TopTrumpsCard({
           </div>
         )}
       </div>
+    </div>
     </div>
   )
 }

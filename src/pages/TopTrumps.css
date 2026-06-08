@@ -1010,19 +1010,21 @@
   .tt-cards {
     grid-template-columns: 1fr;
     justify-items: center;
-    overflow: hidden;
+    gap: 0.75rem;
   }
 
   .tt-vs {
-    padding-top: 0.5rem;
+    padding: 0.25rem 0;
   }
 
   .tt-recompensa-cards {
     grid-template-columns: 1fr;
     justify-items: center;
+    gap: 0.75rem;
   }
 
   .tt-page {
     overflow-x: hidden;
+    padding: 5rem 0.5rem 2rem;
   }
 }

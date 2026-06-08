@@ -2,6 +2,18 @@
    TopTrumpsCard — Template de carta (550×720)
    ══════════════════════════════════════════ */
 
+/* ── Wrapper: controla o espaço de layout real ── */
+.tt-card-wrapper {
+  width: 550px;
+  height: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+  flex-shrink: 0;
+  position: relative;
+}
+
 .tt-card-template {
   position: relative;
   width: 550px;
@@ -218,26 +230,42 @@
 
 /* ── Responsivo ── */
 
-/* Desktop: escala para caber duas cartas lado a lado */
+/* Desktop médio: escala para caber duas cartas lado a lado */
 @media (min-width: 769px) and (max-width: 1200px) {
+  .tt-card-wrapper {
+    width: calc(550px * 0.75);
+    height: calc(720px * 0.75);
+    overflow: hidden;
+  }
+
   .tt-card-template {
     transform: scale(0.75);
-    transform-origin: top center;
+    transform-origin: top left;
   }
 }
 
+/* Mobile: wrapper assume o tamanho VISUAL da carta escalada */
 @media (max-width: 768px) {
+  .tt-card-wrapper {
+    width: calc(550px * 0.72);
+    height: calc(720px * 0.72);
+    overflow: hidden;
+  }
+
   .tt-card-template {
-    width: 550px;
-    height: 720px;
-    transform: scale(0.55);
-    transform-origin: top center;
+    transform: scale(0.72);
+    transform-origin: top left;
   }
 }
 
 @media (max-width: 480px) {
+  .tt-card-wrapper {
+    width: calc(550px * 0.65);
+    height: calc(720px * 0.65);
+  }
+
   .tt-card-template {
-    transform: scale(0.42);
-    transform-origin: top center;
+    transform: scale(0.65);
+    transform-origin: top left;
   }
 }
