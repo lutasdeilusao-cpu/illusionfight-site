@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
-*Versão: 9.4*  |  `[SITE] versão carregada: 9.4`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*Versão: 9.4*  |  `[SITE] versão carregada: 9.4`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 *MP versão: 5.1.0* | `[MP] versão carregada: 5.1.0`
 
@@ -18,7 +18,7 @@
 /
 ├── index.html                          # Entry point HTML + SEO/OG tags + GA + SPA redirect script
 ├── package.json                        # Dependências e scripts (inclui predeploy/deploy)
-├── vite.config.js                      # Configuração Vite (base: /illusionfight-site/)
+├── vite.config.js                      # Configuração Vite (base: /)
 ├── AGENTS.md                           # Regras do agente + workflow obrigatório
 ├── SITE_MAP.md                         # Este arquivo
 ├── ANALISE_COMPLETA.md                 # Análise técnica completa
@@ -521,7 +521,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 4.1 | `src/config/version.js:5` |
+| `SITE_VERSION` | 9.5 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
@@ -624,4 +624,4 @@
 ### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
 
 **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
-**Site:** https://lutasdeilusao-cpu.github.io/illusionfight-site/
+**Site:** https://illusionfight.com/

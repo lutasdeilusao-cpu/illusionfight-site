@@ -77,7 +77,7 @@ export default function Brincadeira({ onConcluir }) {
   const handleSair = () => { onConcluir() }
 
   const irParaMiniGames = () => {
-    window.location.href = '/illusionfight-site/games/minigames'
+    window.location.href = '/games/minigames'
   }
 
   const config = getConfig(puzzle.id)

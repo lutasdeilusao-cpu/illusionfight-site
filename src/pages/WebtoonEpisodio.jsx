@@ -75,7 +75,7 @@ export default function WebtoonEpisodio() {
           <img
             key={num}
             ref={num === ep.paginas ? ultimaPaginaRef : null}
-            src={`/illusionfight-site/webtoon/${ep.id}/pt/${String(num).padStart(2, '0')}.png`}
+            src={`/webtoon/${ep.id}/pt/${String(num).padStart(2, '0')}.png`}
             width="100%"
             className="webtoon-ep-reader__img"
             loading="lazy"

@@ -100,7 +100,7 @@ export default function Tamagoshi() {
   }
 
   const handleVoltarExtras = () => {
-    window.location.href = '/illusionfight-site/games'
+    window.location.href = '/games'
   }
 
   const handleNovaAdocao = async () => {

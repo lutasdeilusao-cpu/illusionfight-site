@@ -63,7 +63,7 @@ No exceptions. Every modification to any game file:
 - `.env` sets `VITE_DEBUG=true` (dev)
 - `.env.production` sets `VITE_DEBUG=false`
 - **Domínio oficial:** `https://illusionfight.com/` (GitHub Pages + CNAME)
-- Vite base: `/` (custom domain) | `/illusionfight-site/` (GitHub Pages subpath)
+- Vite base: `/` (custom domain)
 - Supabase project: `dvxfrzixtetdzmdrzkpx.supabase.co` — client initialized in `src/lib/supabase.js` with anon key
 
 ## 🤖 Custom Agents
