@@ -62,7 +62,13 @@ export default function Assinar() {
   return (
     <>
       <Helmet>
-        <title>{t('pages.helmet.assinar')}</title>
+        <title>Subscribe — Illusion Fight</title>
+        <meta name="description" content="Support Illusion Fight and unlock premium content. Subscribe to access exclusive chapters, games, and behind-the-scenes content." />
+        <meta property="og:title" content="Subscribe — Illusion Fight" />
+        <meta property="og:description" content="Support Illusion Fight and unlock premium content." />
+        <meta property="og:url" content="https://illusionfight.com/assinar" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <section className="assinar-hero">

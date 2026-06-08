@@ -20,7 +20,16 @@ export default function Livro() {
   return (
     <section className="livro-page">
       <Helmet>
-        <title>{t('pages.helmet.livro')}</title>
+        <title>Book — Illusion Fight</title>
+        <meta name="description" content="Read the Illusion Fight book chapters online. The complete novel of the LDI universe — follow Kim, Jack, and the fighters of Bravara." />
+        <meta property="og:title" content="Book — Illusion Fight" />
+        <meta property="og:description" content="Read the Illusion Fight book online. The complete novel of the LDI universe." />
+        <meta property="og:url" content="https://illusionfight.com/livro" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/livro" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/livro" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/livro" />
       </Helmet>
       <div className="container">
         {ultimo && (

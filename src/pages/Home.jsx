@@ -18,7 +18,18 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>{t('pages.helmet.home')}</title>
+        <title>Illusion Fight — Webtoon, Games &amp; Music</title>
+        <meta name="description" content="Illusion Fight (Lutas de Ilusão) — a Brazilian webtoon universe with tactical RPG games, original music, and an immersive lore. Read, play, and explore the arena." />
+        <meta property="og:title" content="Illusion Fight — Webtoon, Games &amp; Music" />
+        <meta property="og:description" content="A Brazilian webtoon universe where pain is 100% real. Read the comic, play tactical games, and explore the lore of Bravara." />
+        <meta property="og:url" content="https://illusionfight.com/" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/" />
+        <link rel="alternate" hreflang="x-default" href="https://illusionfight.com/" />
       </Helmet>
       <HeroSlideshow />
       <LatestEpisodes />

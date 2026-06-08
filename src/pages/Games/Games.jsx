@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
@@ -37,6 +38,19 @@ export default function Games() {
   }
 
   return (
+    <>
+      <Helmet>
+        <title>Games — Illusion Fight</title>
+        <meta name="description" content="Play Illusion Fight games online — LDI Tactics, Jack Dream Beer, Pesadelo Particular, Tamagoshi, Top Trumps, Arena Mode, Duelo, and MiniGames. Free and premium games." />
+        <meta property="og:title" content="Games — Illusion Fight" />
+        <meta property="og:description" content="Play Illusion Fight games online — tactical RPG, detective, card games and more." />
+        <meta property="og:url" content="https://illusionfight.com/games" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/games" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/games" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/games" />
+      </Helmet>
     <div className="extras-page">
       <div className="extras-scanlines" />
 
@@ -98,5 +112,6 @@ export default function Games() {
       <ModalSemFichas visivel={modalLdi} onFechar={fecharLdi} jogo="Lendas do LDI" />
       <ModalSemFichas visivel={modalTrumps} onFechar={fecharTrumps} jogo="Top Trumps LDI" />
     </div>
+    </>
   )
 }

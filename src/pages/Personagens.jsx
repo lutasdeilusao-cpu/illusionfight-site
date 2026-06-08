@@ -13,7 +13,16 @@ export default function Personagens() {
   return (
     <section className="personagens-page">
       <Helmet>
-        <title>{t('pages.helmet.personagens')}</title>
+        <title>Characters — Illusion Fight</title>
+        <meta name="description" content="Meet the fighters of Illusion Fight: Kim, Jack, Nina, Helena, Shuntaro, and more. Every character has a story, a fighting style, and a place in the LDI arena." />
+        <meta property="og:title" content="Characters — Illusion Fight" />
+        <meta property="og:description" content="Meet the fighters of Illusion Fight. Every character has a story, a fighting style, and a place in the LDI arena." />
+        <meta property="og:url" content="https://illusionfight.com/personagens" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/personagens" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/personagens" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/personagens" />
       </Helmet>
       <div className="container">
         <button className="personagens-page__back" onClick={() => navigate('/')}>

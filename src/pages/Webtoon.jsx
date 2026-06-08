@@ -22,7 +22,18 @@ export default function Webtoon() {
 
   return (
     <>
-      <Helmet><title>{t('pages.helmet.webtoon')}</title></Helmet>
+      <Helmet>
+        <title>Webtoon — Illusion Fight</title>
+        <meta name="description" content="Watch the Illusion Fight webtoon — a Brazilian action webcomic set in the LDI arena. Episodes, art, and the story of Kim and the fighters of Bravara." />
+        <meta property="og:title" content="Webtoon — Illusion Fight" />
+        <meta property="og:description" content="Watch the Illusion Fight webtoon — a Brazilian action webcomic set in the LDI arena." />
+        <meta property="og:url" content="https://illusionfight.com/webtoon" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/webtoon" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/webtoon" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/webtoon" />
+      </Helmet>
       <section className="webtoon-page">
         <div className="container">
           {ultimo && (

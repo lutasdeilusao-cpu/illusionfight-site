@@ -32,7 +32,18 @@ export default function Mundo() {
 
   return (
     <>
-      <Helmet><title>{t('pages.helmet.mundo')}</title></Helmet>
+      <Helmet>
+        <title>World — Illusion Fight Universe</title>
+        <meta name="description" content="Explore the Illusion Fight universe — Bravara, the LDI arena, the Xakaxi tribe, primordial powers, timeline, glossary, and the complete lore." />
+        <meta property="og:title" content="World — Illusion Fight Universe" />
+        <meta property="og:description" content="Explore the Illusion Fight universe — Bravara, LDI arena, timeline, glossary, and complete lore." />
+        <meta property="og:url" content="https://illusionfight.com/mundo" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/mundo" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/mundo" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/mundo" />
+      </Helmet>
 
       <section className="mundo-hero">
         <div className="container">

@@ -12,7 +12,18 @@ export default function Musicas() {
 
   return (
     <>
-      <Helmet><title>{t('pages.helmet.musicas')}</title></Helmet>
+      <Helmet>
+        <title>Music — Illusion Fight</title>
+        <meta name="description" content="Listen to the Illusion Fight original soundtrack — epic instrumental tracks from the LDI universe. Featuring Sinfonia Imperfeita and more." />
+        <meta property="og:title" content="Music — Illusion Fight" />
+        <meta property="og:description" content="Listen to the Illusion Fight original soundtrack from the LDI universe." />
+        <meta property="og:url" content="https://illusionfight.com/musicas" />
+        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/musicas" />
+        <link rel="alternate" hreflang="en" href="https://illusionfight.com/musicas" />
+        <link rel="alternate" hreflang="es" href="https://illusionfight.com/musicas" />
+      </Helmet>
       <section className="musicas-hero">
         <div className="container">
           <h1 className="musicas-hero__title">{t('pages.musicas.titulo')}</h1>
