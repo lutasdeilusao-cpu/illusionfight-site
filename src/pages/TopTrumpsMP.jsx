@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useLanguage } from '../context/LanguageContext'
 import { useAchievements } from '../context/AchievementsContext'
+import { useReader } from '../context/ReaderContext'
 import { supabase } from '../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
 import deck from '../data/supertrunfo-pt.json'
@@ -37,12 +38,19 @@ console.log('[MP] versão carregada:', MP_VERSION)
 
 export default function TopTrumpsMP() {
   const { t } = useLanguage()
+  const { setReaderMode } = useReader()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
+
+  // Reader mode
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   const salaId = searchParams.get('sala')
 

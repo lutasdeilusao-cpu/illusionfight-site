@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useReader } from '../context/ReaderContext'
 import { useLanguage } from '../context/LanguageContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
 import { carregarDeck as carregarDeckDB } from '../hooks/useTopTrumpsDB'
@@ -12,8 +13,14 @@ const todasCartas = deck.cartas
 export default function TopTrumpsLobby() {
   const { t } = useLanguage()
   const { user, perfil } = useAuth()
+  const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   const [modo, setModo] = useState(null)
   const [turnos, setTurnos] = useState(null)

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
+import { useReader } from '../context/ReaderContext'
 import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
@@ -45,8 +46,15 @@ export default function TopTrumps() {
   const { t } = useLanguage()
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
+  const { setReaderMode } = useReader()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
+
+  // Reader mode: esconde Navbar e Footer durante o jogo
+  useEffect(() => {
+    setReaderMode(true)
+    return () => setReaderMode(false)
+  }, [setReaderMode])
 
   const [fase, setFase] = useState('menu')
   const [deckJogador, setDeckJogador] = useState([])
