@@ -324,7 +324,12 @@ export default function TopTrumps() {
   useEffect(() => {
     if (!user) return
     carregarDeckDB(user.id).then(ids => {
-      const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
+      // Aceita tanto id_num (número) quanto id (slug string) — compatibilidade migração
+      const cartas = (ids || []).map(id => {
+        let c = todasCartas.find(c => c.id_num === id)
+        if (!c) c = todasCartas.find(c => c.id === id)
+        return c
+      }).filter(Boolean)
       setDeckUsuario(cartas)
     })
     carregarTentativas(user.id, getTierInicial()).then(({ usadas, jaGanhouHoje: jaGanhou, limite }) => {

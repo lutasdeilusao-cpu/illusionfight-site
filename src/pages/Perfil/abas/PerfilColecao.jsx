@@ -6,17 +6,21 @@ export default function PerfilColecao({ userId }) {
   const [deckIds, setDeckIds] = useState([])
   const [filtro, setFiltro] = useState('todas')
 
+  /** Verifica se um id do banco bate com a carta (por id_num ou id slug) */
+  function temCarta(deckId, carta) {
+    if (typeof deckId === 'number') return carta.id_num === deckId
+    return carta.id === deckId
+  }
+
   useEffect(() => {
     if (!userId) return
     carregarDeck(userId).then(ids => {
       if (ids && ids.length > 0) {
-        // Garante que sejam números para comparar com id_num
-        setDeckIds(ids.map(Number))
+        setDeckIds(ids)
       } else {
         const chave = `ldi-toptrumps-deck-${userId}`
         const salvos = JSON.parse(localStorage.getItem(chave) || '[]')
         setDeckIds(salvos.map(id => {
-          // Aceita tanto string (antigo) quanto número (novo)
           const n = Number(id)
           return isNaN(n) ? id : n
         }))
@@ -28,8 +32,9 @@ export default function PerfilColecao({ userId }) {
   const tierCor = { free: '#00c8a8', elite: '#e8853a', primordial: '#6B0F1A', lendario: '#9b59b6', sombra: '#2c3e50' }
 
   const cartasFiltradas = deck.cartas.filter((_, i) => {
-    if (filtro === 'obtidas') return deckIds.includes(deck.cartas[i].id_num)
-    if (filtro === 'faltando') return !deckIds.includes(deck.cartas[i].id_num)
+    const carta = deck.cartas[i]
+    if (filtro === 'obtidas') return deckIds.some(id => temCarta(id, carta))
+    if (filtro === 'faltando') return !deckIds.some(id => temCarta(id, carta))
     return true
   })
 
@@ -44,7 +49,7 @@ export default function PerfilColecao({ userId }) {
       </div>
       <div className="perfil-deck-grid">
         {cartasFiltradas.map((carta, i) => {
-          const tem = deckIds.includes(carta.id_num)
+          const tem = deckIds.some(id => temCarta(id, carta))
           return (
             <div key={carta.id} className={`perfil-deck-card ${tem ? 'perfil-deck-card--tem' : 'perfil-deck-card--falta'}`}>
               {tem ? (

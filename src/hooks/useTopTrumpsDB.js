@@ -2,14 +2,22 @@ import { supabase } from '../lib/supabase'
 
 const TENTATIVAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
 
+/**
+ * Busca cartas no banco.
+ * Retorna array misto: número (id_num) se for numeral, string (id slug) se for o formato antigo.
+ */
 export async function carregarDeck(userId) {
   const { data, error } = await supabase
     .from('toptrumps_decks')
     .select('carta_id')
     .eq('user_id', userId)
   console.log('[TT] carregarDeck resultado — data:', data?.length || 0, 'itens, error:', error)
-  // Garante que carta_id seja número — o banco pode retornar string
-  if (data && data.length > 0) return data.map(d => Number(d.carta_id))
+  if (data && data.length > 0) {
+    return data.map(d => {
+      const n = Number(d.carta_id)
+      return isNaN(n) ? d.carta_id : n
+    })
+  }
   return null
 }
 

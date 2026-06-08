@@ -1,10 +1,10 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
-*Versão: 8.1*  |  `[SITE] versão carregada: 8.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*Versão: 8.1*  |  `[SITE] versão carregada: 8.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 8.2*  |  `[SITE] versão carregada: 8.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 8.2*  |  `[SITE] versão carregada: 8.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
-*MP versão: 4.0.1* | `[MP] versão carregada: 4.0.1`
+*MP versão: 4.0.2* | `[MP] versão carregada: 4.0.2`
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
 
@@ -488,7 +488,7 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v4.0.1 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v4.0.2 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
