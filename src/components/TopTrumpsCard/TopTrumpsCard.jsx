@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react'
 import { CARD_LABELS, ATTR_META } from '../../i18n/cardLabels'
 import tmpl0 from '../../assets/images/cards/TemplateBaseReutilizavel.png'
 import tmpl1 from '../../assets/images/cards/TemplateBaseReutilizavel-01.png'
@@ -78,29 +79,44 @@ export default function TopTrumpsCard({
             : description}
         </div>
 
-        {/* Atributos — valores ??? no modo mistério */}
+        {/* Atributos — label (title) e valor (atr) separados para posicionamento independente */}
         {ATTR_META.map((attr) => {
           const valor = mystery ? '???' : attributes[attr.key]
           if (!mystery && (valor === undefined || valor === null)) return null
           const clicavel = !!onAttributeClick && !mystery
-          const classes = [
-            'tt-card-attr',
-            `tt-card-attr--${attr.cssKey}`,
+          const titleClasses = [
+            'tt-card-attr-label',
+            `tt-card-attr--${attr.cssKey}-title`,
+            clicavel && 'tt-card-attr-clickable',
+            (disabled || mystery) && 'tt-card-attr--disabled',
+          ].filter(Boolean).join(' ')
+          const atrClasses = [
+            'tt-card-attr-value',
+            `tt-card-attr--${attr.cssKey}-atr`,
             clicavel && 'tt-card-attr-clickable',
             (disabled || mystery) && 'tt-card-attr--disabled',
           ].filter(Boolean).join(' ')
           return (
-            <div
-              key={attr.key}
-              className={classes}
-              onClick={clicavel && !disabled ? () => onAttributeClick(attr.key) : undefined}
-              role={clicavel ? 'button' : undefined}
-              tabIndex={clicavel && !disabled ? 0 : undefined}
-              onKeyDown={clicavel && !disabled ? (e) => { if (e.key === 'Enter' || e.key === ' ') onAttributeClick(attr.key) } : undefined}
-            >
-              <span className="tt-card-attr-label">{labels[attr.labelId]}</span>
-              <span className="tt-card-attr-value">{valor}</span>
-            </div>
+            <React.Fragment key={attr.key}>
+              <div
+                className={titleClasses}
+                onClick={clicavel && !disabled ? () => onAttributeClick(attr.key) : undefined}
+                role={clicavel ? 'button' : undefined}
+                tabIndex={clicavel && !disabled ? 0 : undefined}
+                onKeyDown={clicavel && !disabled ? (e) => { if (e.key === 'Enter' || e.key === ' ') onAttributeClick(attr.key) } : undefined}
+              >
+                {labels[attr.labelId]}
+              </div>
+              <div
+                className={atrClasses}
+                onClick={clicavel && !disabled ? () => onAttributeClick(attr.key) : undefined}
+                role={clicavel ? 'button' : undefined}
+                tabIndex={clicavel && !disabled ? 0 : undefined}
+                onKeyDown={clicavel && !disabled ? (e) => { if (e.key === 'Enter' || e.key === ' ') onAttributeClick(attr.key) } : undefined}
+              >
+                {valor}
+              </div>
+            </React.Fragment>
           )
         })}
 

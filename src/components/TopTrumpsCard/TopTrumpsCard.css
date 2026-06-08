@@ -64,7 +64,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
@@ -77,10 +77,10 @@
 /* ── Descrição ── */
 .tt-card-description {
   position: absolute;
-  left: 104px;
-  top: 548px;
+  left: 108px;
+  top: 530px;
   width: 128px;
-  height: 112px;
+  height: 132px;
   font-size: 11px;
   line-height: 1.35;
   color: #ddd;
@@ -89,18 +89,20 @@
   word-break: break-word;
   text-align: center;
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
 }
 
 /* ── Rank SDR ── */
 .tt-card-rank {
   position: absolute;
-  left: 99px;
-  top: 500px;
+  left: 105px;
+  top: 490px;
+  width: 128px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 .tt-card-rank-label {
@@ -117,74 +119,116 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.9);
 }
 
-/* ── Atributos — cada um posicionado individualmente ── */
-.tt-card-attr {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
+/* ── Atributos — label e valor posicionados individualmente ── */
 .tt-card-attr-label {
+  position: absolute;
   font-size: 10px;
   font-weight: 700;
   color: #e8853a;
   text-shadow: 0 1px 2px rgba(0,0,0,0.85);
   letter-spacing: 1px;
   line-height: 1;
+  text-align: center;
+  width: 60px;
+  transform: translateX(-50%);
 }
 
 .tt-card-attr-value {
+  position: absolute;
   font-size: 22px;
   font-weight: 900;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 0 8px rgba(232,133,58,0.3);
-  line-height: 1;
+  line-height: 0.5;
+  text-align: center;
+  width: 60px;
+  transform: translateX(-50%);
 }
 
-/* ── Posições individuais dos atributos ── */
+/* ── Posições individuais: LABEL (title) ── */
 
-/* PM — Poder Mental (coluna direita, topo) */
-.tt-card-attr--pm {
-  left: 342px;
-  top: 506px;
+/* PM — Poder Mental */
+.tt-card-attr--pm-title {
+  left: 364px;
+  top: 500px;
+  font-size: 22px;
+}
+.tt-card-attr--pm-atr {
+  left: 363px;
+  top: 530px;
+  font-size: 30px;
 }
 
-/* RE — Resistência (coluna esquerda) */
-.tt-card-attr--re {
-  left: 280px;
-  top: 533px;
+/* RE — Resistência */
+.tt-card-attr--re-title {
+  left: 294px;
+  top: 528px;
+  font-size: 22px;
+}
+.tt-card-attr--re-atr {
+  left: 294px;
+  top: 557px;
+  font-size: 30px;
 }
 
-/* VL — Velocidade (coluna direita) */
-.tt-card-attr--vl {
-  left: 418px;
-  top: 533px;
+/* VL — Velocidade */
+.tt-card-attr--vl-title {
+  left: 432px;
+  top: 528px;
+  font-size: 22px;
+}
+.tt-card-attr--vl-atr {
+  left: 432px;
+  top: 557px;
+  font-size: 30px;
 }
 
-/* NX — Nível Xamânico (centro) */
-.tt-card-attr--nx {
-  left: 345px;
-  top: 567px;
+/* NX — Nível Xamânico */
+.tt-card-attr--nx-title {
+  left: 364px;
+  top: 562px;
+  font-size: 22px;
+}
+.tt-card-attr--nx-atr {
+  left: 363px;
+  top: 591px;
+  font-size: 30px;
 }
 
-/* FC — Fator Caos (coluna esquerda) */
-.tt-card-attr--fc {
-  left: 281px;
-  top: 596px;
+/* FC — Fator Caos */
+.tt-card-attr--fc-title {
+  left: 294px;
+  top: 592px;
+  font-size: 22px;
+}
+.tt-card-attr--fc-atr {
+  left: 294px;
+  top: 620px;
+  font-size: 30px;
 }
 
-/* EB — Energia Base (coluna direita) */
-.tt-card-attr--eb {
-  left: 418px;
-  top: 593px;
+/* EB — Energia Base */
+.tt-card-attr--eb-title {
+  left: 432px;
+  top: 592px;
+  font-size: 22px;
+}
+.tt-card-attr--eb-atr {
+  left: 432px;
+  top: 620px;
+  font-size: 30px;
 }
 
-/* PE — Poder Explosivo (centro, abaixo) */
-.tt-card-attr--pe {
-  left: 349px;
-  top: 626px;
+/* PE — Poder Explosivo */
+.tt-card-attr--pe-title {
+  left: 364px;
+  top: 621px;
+  font-size: 22px;
+}
+.tt-card-attr--pe-atr {
+  left: 363px;
+  top: 651px;
+  font-size: 30px;
 }
 
 /* ── Verso da carta (faceDown) ── */
