@@ -425,7 +425,14 @@ export default function TopTrumps() {
         })()}
 
         {/* Curtain overlay for animation */}
-        {cortinaAtiva && <div className="tt-curtain-overlay"><div className="tt-curtain-inner" /></div>}
+        {cortinaAtiva && (
+          <div className="tt-curtain-overlay">
+            <div className="tt-curtain-inner" />
+            <div className="tt-curtain-onomatopeia">
+              <span className="tt-onoma-texto">KABOOM!</span>
+            </div>
+          </div>
+        )}
       </section>
       </>
     )
@@ -446,7 +453,22 @@ export default function TopTrumps() {
         {particulas.map(p => (
           <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
         ))}
-        <div className="tt-hud"><span className="tt-hud-rodada">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span><div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div></div>
+        <div className="tt-hud-new">
+          <div className="tt-round-badge">
+            <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
+          </div>
+          <div className="tt-score-row">
+            <div className="tt-score-item tt-score--player">
+              <span className="tt-score-label">VOCÊ</span>
+              <span className="tt-score-value">{placar.jogador}</span>
+            </div>
+            <div className="tt-score-divider">:</div>
+            <div className="tt-score-item tt-score--ia">
+              <span className="tt-score-label">IA</span>
+              <span className="tt-score-value">{placar.ia}</span>
+            </div>
+          </div>
+        </div>
         <div className="tt-cards">
           <TopTrumpsCard
             characterImage={defaultBg}
