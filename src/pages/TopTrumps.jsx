@@ -336,6 +336,21 @@ export default function TopTrumps() {
             disabled={girando}
           />
           <div className="tt-vs-epico">
+            {Array.from({ length: 20 }).map((_, i) => {
+              const style = {
+                left: `${20 + Math.random() * 60}%`,
+                width: `${4 + Math.random() * 8}px`,
+                height: `${4 + Math.random() * 8}px`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${1.5 + Math.random() * 2}s`,
+                background: ['#e8853a', '#f4a227', '#ff6b35', '#e74c3c', '#ffaa33'][i % 5],
+                '--dx': `${-15 + Math.random() * 30}px`,
+                '--dx2': `${-10 + Math.random() * 20}px`,
+                '--dx3': `${-20 + Math.random() * 40}px`,
+                '--dx4': `${-5 + Math.random() * 10}px`,
+              }
+              return <div key={i} className="tt-vs-particle" style={style} />
+            })}
             <div className="tt-vs-glow" />
             <span className="tt-vs-texto-grande">VS</span>
           </div>
