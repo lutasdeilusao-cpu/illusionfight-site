@@ -97,6 +97,18 @@ export default function TopTrumps() {
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
 
+  // Template randomization (6 templates, 0-5)
+  const [templateIdxJogador, setTemplateIdxJogador] = useState(0)
+  const [templateIdxIA, setTemplateIdxIA] = useState(0)
+
+  function sortearTemplates() {
+    const p = Math.floor(Math.random() * 6)
+    let ia = Math.floor(Math.random() * 6)
+    while (ia === p) ia = Math.floor(Math.random() * 6)
+    setTemplateIdxJogador(p)
+    setTemplateIdxIA(ia)
+  }
+
   // Confirmation + animation states
   const [confirmandoAtributo, setConfirmandoAtributo] = useState(null)
   const [cartaSumindo, setCartaSumindo] = useState(false)
@@ -172,6 +184,7 @@ export default function TopTrumps() {
     setCartaJogador(d[0]); setCartaIA(d[metade])
     setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
     setHistoricoRodadas([])
+    sortearTemplates()
   }
 
   function gerarParticulas(tipo) {
@@ -250,6 +263,7 @@ export default function TopTrumps() {
     setCartaJogador(pJ); setCartaIA(pI)
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
+    sortearTemplates()
   }
 
   function finalizarPartida() {
@@ -419,6 +433,7 @@ export default function TopTrumps() {
             attributes={cartaJogador.atributos}
             onAttributeClick={(attrKey) => onClickAtributo(attrKey)}
             disabled={girando || !!confirmandoAtributo}
+            templateIndex={templateIdxJogador}
           />
           <div className={`tt-vs-epico${cortinaAtiva ? ' tt-cortina-ativa' : ''}`}>
             <div className="tt-vs-glow" />
@@ -431,6 +446,7 @@ export default function TopTrumps() {
               description=""
               locale={locale}
               attributes={{}}
+              templateIndex={templateIdxIA}
             />
           </div>
         </div>
@@ -521,6 +537,7 @@ export default function TopTrumps() {
             description={cartaJogador.descricao}
             locale={locale}
             attributes={cartaJogador.atributos}
+            templateIndex={templateIdxJogador}
           />
           <div className={`tt-vs tt-vs--result ${resultado === 'ganhou' ? 'tt-vs--vitoria' : resultado === 'perdeu' ? 'tt-vs--derrota' : 'tt-vs--empate'}`}>
             <span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span>
@@ -547,6 +564,7 @@ export default function TopTrumps() {
             description={cartaIA.descricao}
             locale={locale}
             attributes={cartaIA.atributos}
+            templateIndex={templateIdxIA}
           />
         </div>
         <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
@@ -572,6 +590,7 @@ export default function TopTrumps() {
                     description={carta.descricao}
                     locale={locale}
                     attributes={carta.atributos}
+                    templateIndex={0}
                   />
                 ) : (<div className="tt-recompensa-card-verso"><span className="tt-recompensa-card-verso-texto">?</span><p className="tt-recompensa-card-verso-label">{t('games.toptrumps.recompensa_carta_misteriosa')}</p></div>)}
               </div>

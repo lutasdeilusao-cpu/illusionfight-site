@@ -1,7 +1,14 @@
 import { CARD_LABELS, ATTR_META } from '../../i18n/cardLabels'
-import templateImg from '../../assets/images/cards/TemplateBaseReutilizavel.png'
+import tmpl0 from '../../assets/images/cards/TemplateBaseReutilizavel.png'
+import tmpl1 from '../../assets/images/cards/TemplateBaseReutilizavel-01.png'
+import tmpl2 from '../../assets/images/cards/TemplateBaseReutilizavel-02.png'
+import tmpl3 from '../../assets/images/cards/TemplateBaseReutilizavel-03.png'
+import tmpl4 from '../../assets/images/cards/TemplateBaseReutilizavel-04.png'
+import tmpl5 from '../../assets/images/cards/TemplateBaseReutilizavel-05.png'
 import mysteryBg from '../../assets/images/cards/CardInterrogation.png'
 import './TopTrumpsCard.css'
+
+const TEMPLATES = [tmpl0, tmpl1, tmpl2, tmpl3, tmpl4, tmpl5]
 
 /**
  * TopTrumpsCard — Template reutilizável de carta do Super Trunfo LDI.
@@ -27,6 +34,7 @@ export default function TopTrumpsCard({
   mystery = false,
   onAttributeClick,
   disabled = false,
+  templateIndex = 0,
 }) {
   const labels = CARD_LABELS[locale] || CARD_LABELS.pt
 
@@ -50,10 +58,10 @@ export default function TopTrumpsCard({
           src={mystery ? mysteryBg : characterImage}
           alt="" draggable={false} />
 
-        {/* Camada 2 — Template PNG (moldura fixa) */}
+        {/* Camada 2 — Template PNG (moldura com cor variável) */}
       <img
         className="tt-card-template-img"
-        src={templateImg}
+        src={TEMPLATES[templateIndex % TEMPLATES.length]}
         alt=""
         draggable={false}
       />
