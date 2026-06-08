@@ -22,6 +22,29 @@ No exceptions. Every modification to any game file:
 > | SITE_VERSION | X.X | → **Y.Y** |
 > ```
 
+
+## Mandatory workflow for every code change
+
+No exceptions. Every modification to any game file:
+
+> **⚠️ O VERSION NUMBER VEM PRIMEIRO — NÃO PULE ESTA ETAPA**
+
+1. **🔴 BUMP THE VERSION** — Abra `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão\SiteLDI\src\config\version.js` e **INCREMENTE** a versão do jogo/site modificado. Ex: `LDITOPTRUMPS = '6.0.2'` → `'6.1.0'`
+2. **🔴 Update `SITE_MAP.md`** — Atualize o número da versão na tabela de rotas
+3. **`npm run build`** — if it fails, fix before proceeding
+4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
+5. **`git push`**
+6. **`npm run deploy`**
+7. **Verify** the deploy published without errors
+
+> **📋 AO FINAL, O RELATÓRIO DEVE INCLUIR:**
+> ```
+> | Versão | Antes | Depois |
+> |--------|-------|--------|
+> | LDITOPTRUMPS | X.X.X | → **Y.Y.Y** |
+> | SITE_VERSION | X.X | → **Y.Y** |
+> ```
+
 ## Stack
 
 - **Vite 8** + **React 19** (JSX only, no TypeScript)

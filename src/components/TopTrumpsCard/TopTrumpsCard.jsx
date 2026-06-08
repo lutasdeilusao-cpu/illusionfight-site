@@ -1,5 +1,6 @@
 import { CARD_LABELS, ATTR_META } from '../../i18n/cardLabels'
 import templateImg from '../../assets/images/cards/TemplateBaseReutilizavel.png'
+import mysteryBg from '../../assets/images/cards/CardInterrogation.png'
 import './TopTrumpsCard.css'
 
 /**
@@ -11,8 +12,9 @@ import './TopTrumpsCard.css'
  *   description       — Descrição curta (vai na área inferior esquerda)
  *   locale            — 'pt' | 'en' | 'es'
  *   attributes        — { rank_sdr, poder_mental, velocidade, resistencia, nivel_xama, fator_caos, energia_base, poder_explosivo }
- *   faceDown          — Se true, mostra o verso da carta
- *   onAttributeClick  — (attrKey) => void — chamado ao clicar num atributo (ex: 'poder_mental')
+ *   faceDown          — Se true, mostra o verso escuro da carta
+ *   mystery           — Se true, mostra o template com CardInterrogation bg e ??? nos dados
+ *   onAttributeClick  — (attrKey) => void — chamado ao clicar num atributo
  *   disabled          — Desabilita clique nos atributos
  */
 export default function TopTrumpsCard({
@@ -22,6 +24,7 @@ export default function TopTrumpsCard({
   locale = 'pt',
   attributes = {},
   faceDown = false,
+  mystery = false,
   onAttributeClick,
   disabled = false,
 }) {
@@ -42,13 +45,11 @@ export default function TopTrumpsCard({
   return (
     <div className="tt-card-wrapper">
       <div className="tt-card-template">
-        {/* Camada 1 — Background do personagem (visível dentro do hexágono) */}
-        {characterImage && (
-          <div
-            className="tt-card-character-bg"
-            style={{ backgroundImage: `url(${characterImage})` }}
-          />
-        )}
+        {/* Camada 1 — Background do personagem */}
+        <div
+          className="tt-card-character-bg"
+          style={{ backgroundImage: `url(${mystery ? mysteryBg : characterImage})` }}
+        />
 
         {/* Camada 2 — Template PNG (moldura fixa) */}
       <img
@@ -60,22 +61,26 @@ export default function TopTrumpsCard({
 
       {/* Camada 3 — Dados dinâmicos */}
       <div className="tt-card-data">
-        {/* Nome */}
-        <div className="tt-card-name">{name}</div>
+        {/* Nome — ??? no modo mistério */}
+        <div className="tt-card-name">{mystery ? '???' : name}</div>
 
-        {/* Descrição */}
-        <div className="tt-card-description">{description}</div>
+        {/* Descrição — ??? no modo mistério */}
+        <div className="tt-card-description">
+          {mystery
+            ? Array.from({ length: 4 }, () => '???').join(' ')
+            : description}
+        </div>
 
-        {/* Atributos — label + valor empilhados */}
+        {/* Atributos — valores ??? no modo mistério */}
         {ATTR_META.map((attr) => {
-          const valor = attributes[attr.key]
-          if (valor === undefined || valor === null) return null
-          const clicavel = !!onAttributeClick
+          const valor = mystery ? '???' : attributes[attr.key]
+          if (!mystery && (valor === undefined || valor === null)) return null
+          const clicavel = !!onAttributeClick && !mystery
           const classes = [
             'tt-card-attr',
             `tt-card-attr--${attr.cssKey}`,
             clicavel && 'tt-card-attr-clickable',
-            disabled && 'tt-card-attr--disabled',
+            (disabled || mystery) && 'tt-card-attr--disabled',
           ].filter(Boolean).join(' ')
           return (
             <div
@@ -92,8 +97,8 @@ export default function TopTrumpsCard({
           )
         })}
 
-        {/* Rank SDR — slot próprio (posicionado junto à descrição) */}
-        {attributes.rank_sdr !== undefined && (
+        {/* Rank SDR */}
+        {!mystery && attributes.rank_sdr !== undefined && (
           <div className="tt-card-rank">
             <span className="tt-card-rank-label">{labels.rank}</span>
             <span className="tt-card-rank-value">#{attributes.rank_sdr}</span>

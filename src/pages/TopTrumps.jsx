@@ -325,7 +325,7 @@ export default function TopTrumps() {
           />
           <div className="tt-vs"><span className="tt-vs-texto">{t('games.toptrumps.hud_vs')}</span></div>
           <TopTrumpsCard
-            faceDown={!girando}
+            mystery
             name=""
             description=""
             locale={locale}
