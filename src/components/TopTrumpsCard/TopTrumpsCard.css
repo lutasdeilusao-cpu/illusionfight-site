@@ -1,0 +1,199 @@
+/* ══════════════════════════════════════════
+   TopTrumpsCard — Template de carta (550×720)
+   ══════════════════════════════════════════ */
+
+.tt-card-template {
+  position: relative;
+  width: 550px;
+  height: 720px;
+  flex-shrink: 0;
+}
+
+/* ── Camada 1 — Background do personagem ── */
+.tt-card-character-bg {
+  position: absolute;
+  left: 70px;
+  top: 29px;
+  width: 408px;
+  height: 369px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 1;
+}
+
+/* ── Camada 2 — Template PNG ── */
+.tt-card-template-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  height: 720px;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Camada 3 — Dados dinâmicos ── */
+.tt-card-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  height: 720px;
+  z-index: 3;
+}
+
+/* ── Nome ── */
+.tt-card-name {
+  position: absolute;
+  left: 136px;
+  top: 421px;
+  width: 281px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── Descrição ── */
+.tt-card-description {
+  position: absolute;
+  left: 99px;
+  top: 524px;
+  width: 148px;
+  height: 148px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #ddd;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+/* ── Rank SDR ── */
+.tt-card-rank {
+  position: absolute;
+  left: 99px;
+  top: 492px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.tt-card-rank-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f4a227;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+  letter-spacing: 1px;
+}
+.tt-card-rank-value {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+/* ── Atributos — cada um posicionado individualmente ── */
+.tt-card-attr {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.tt-card-attr-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #e8853a;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.85);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.tt-card-attr-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 0 8px rgba(232,133,58,0.3);
+  line-height: 1;
+}
+
+/* ── Posições individuais dos atributos ── */
+
+/* PM — Poder Mental (coluna direita, topo) */
+.tt-card-attr--pm {
+  left: 340px;
+  top: 502px;
+}
+
+/* RE — Resistência (coluna esquerda) */
+.tt-card-attr--re {
+  left: 278px;
+  top: 529px;
+}
+
+/* VL — Velocidade (coluna direita) */
+.tt-card-attr--vl {
+  left: 416px;
+  top: 529px;
+}
+
+/* NX — Nível Xamânico (centro) */
+.tt-card-attr--nx {
+  left: 343px;
+  top: 563px;
+}
+
+/* FC — Fator Caos (coluna esquerda) */
+.tt-card-attr--fc {
+  left: 279px;
+  top: 592px;
+}
+
+/* EB — Energia Base (coluna direita) */
+.tt-card-attr--eb {
+  left: 416px;
+  top: 589px;
+}
+
+/* PE — Poder Explosivo (centro, abaixo) */
+.tt-card-attr--pe {
+  left: 347px;
+  top: 622px;
+}
+
+/* ── Verso da carta (faceDown) ── */
+.tt-card-verso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 30%, #1a0a0a 70%, #2d1515 100%);
+  border: 2px solid rgba(232,133,58,0.3);
+  border-radius: 12px;
+  z-index: 4;
+}
+
+.tt-card-verso-icon {
+  font-size: 80px;
+  font-weight: 900;
+  color: rgba(232,133,58,0.15);
+  text-shadow: 0 0 30px rgba(232,133,58,0.1);
+}

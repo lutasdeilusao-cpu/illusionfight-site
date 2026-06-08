@@ -7,6 +7,8 @@ import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import deck from '../data/supertrunfo-pt.json'
+import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
+import defaultBg from '../assets/images/cards/bg01.png'
 import './TopTrumps.css'
 
 const todasCartas = deck.cartas
@@ -296,6 +298,7 @@ export default function TopTrumps() {
 
   if (fase === 'jogando') {
     if (!cartaJogador || !cartaIA) return null
+    const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
         <div className="tt-hud">
@@ -303,17 +306,21 @@ export default function TopTrumps() {
           <div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div>
         </div>
         <div className="tt-cards">
-          <div className="tt-card-jogador">
-            <div className="tt-card-avatar" style={{ background: avatarCor(cartaJogador.id) }}><span className="tt-card-avatar-iniciais">{cartaJogador.nome.split('—')[0].trim().charAt(0)}</span></div>
-            <h3 className="tt-card-nome">{cartaJogador.nome}</h3><p className="tt-card-elemental">{cartaJogador.elemental}</p>
-            <div className="tt-card-atributos">{atributos.map(attr => (<button key={attr.id} className="tt-atributo-btn" disabled={girando} onClick={() => jogarAtributo(attr.id)} title={attr.descricao}><span className="tt-atributo-nome">{t(attr.nomeKey)}</span><span className="tt-atributo-valor">{cartaJogador.atributos[attr.id]}</span></button>))}</div>
-          </div>
+          <TopTrumpsCard
+            characterImage={defaultBg}
+            name={cartaJogador.nome}
+            description={cartaJogador.descricao}
+            locale={locale}
+            attributes={cartaJogador.atributos}
+          />
           <div className="tt-vs"><span className="tt-vs-texto">{t('games.toptrumps.hud_vs')}</span></div>
-          <div className={`tt-card-ia tt-card-face-down${girando ? ' spinning-reveal' : ''}`}>
-            <div className="tt-card-avatar tt-card-avatar--ia"><span className="tt-card-avatar-iniciais">?</span></div>
-            <h3 className="tt-card-nome">???</h3><p className="tt-card-elemental">???</p>
-            <div className="tt-card-atributos">{atributos.map(attr => (<div key={attr.id} className="tt-atributo-btn tt-atributo-btn--disabled"><span className="tt-atributo-nome">{t(attr.nomeKey)}</span><span className="tt-atributo-valor">??</span></div>))}</div>
-          </div>
+          <TopTrumpsCard
+            faceDown={!girando}
+            name=""
+            description=""
+            locale={locale}
+            attributes={{}}
+          />
         </div>
       </section>
     )
@@ -322,6 +329,7 @@ export default function TopTrumps() {
   if (fase === 'resultado_rodada') {
     if (!cartaJogador || !cartaIA) return null
     const attr = atributos.find(a => a.id === atributoEscolhido)
+    const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
         {particulas.map(p => {
@@ -330,17 +338,21 @@ export default function TopTrumps() {
         })}
         <div className="tt-hud"><span className="tt-hud-rodada">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span><div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div></div>
         <div className="tt-cards">
-          <div className="tt-card-jogador">
-            <div className="tt-card-avatar" style={{ background: avatarCor(cartaJogador.id) }}><span className="tt-card-avatar-iniciais">{cartaJogador.nome.split('—')[0].trim().charAt(0)}</span></div>
-            <h3 className="tt-card-nome">{cartaJogador.nome}</h3><p className="tt-card-elemental">{cartaJogador.elemental}</p>
-            <div className="tt-card-atributos">{atributos.map(a => (<div key={a.id} className={`tt-atributo-btn${a.id === atributoEscolhido ? ` tt-atributo--${resultado}` : ''}`}><span className="tt-atributo-nome">{t(a.nomeKey)}</span><span className="tt-atributo-valor">{cartaJogador.atributos[a.id]}</span></div>))}</div>
-          </div>
+          <TopTrumpsCard
+            characterImage={defaultBg}
+            name={cartaJogador.nome}
+            description={cartaJogador.descricao}
+            locale={locale}
+            attributes={cartaJogador.atributos}
+          />
           <div className="tt-vs"><span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span><span className="tt-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span></div>
-          <div className="tt-card-ia">
-            <div className="tt-card-avatar" style={{ background: avatarCor(cartaIA.id) }}><span className="tt-card-avatar-iniciais">{cartaIA.nome.split('—')[0].trim().charAt(0)}</span></div>
-            <h3 className="tt-card-nome">{cartaIA.nome}</h3><p className="tt-card-elemental">{cartaIA.elemental}</p>
-            <div className="tt-card-atributos">{atributos.map(a => { let c = 'tt-atributo-btn'; if (a.id === atributoEscolhido) c += resultado === 'ganhou' ? ' tt-atributo--perdeu' : resultado === 'perdeu' ? ' tt-atributo--ganhou' : ' tt-atributo--empate'; return <div key={a.id} className={c}><span className="tt-atributo-nome">{t(a.nomeKey)}</span><span className="tt-atributo-valor">{cartaIA.atributos[a.id]}</span></div> })}</div>
-          </div>
+          <TopTrumpsCard
+            characterImage={defaultBg}
+            name={cartaIA.nome}
+            description={cartaIA.descricao}
+            locale={locale}
+            attributes={cartaIA.atributos}
+          />
         </div>
         <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
       </section>
@@ -348,6 +360,7 @@ export default function TopTrumps() {
   }
 
   if (fase === 'recompensa') {
+    const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
       <section className="tt-page">
         <div className="tt-recompensa">
@@ -357,11 +370,13 @@ export default function TopTrumps() {
             {recompensaOpcoes.map((carta) => (
               <div key={carta.id} className={`tt-recompensa-card${cartaRecompensaSelecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`} onClick={() => setCartaRecompensaSelecionada(carta)}>
                 {cartaRecompensaSelecionada?.id === carta.id ? (
-                  <div className="tt-recompensa-card-frente">
-                    <div className="tt-card-avatar" style={{ background: avatarCor(carta.id) }}><span className="tt-card-avatar-iniciais">{carta.nome.split('—')[0].trim().charAt(0)}</span></div>
-                    <h3 className="tt-card-nome">{carta.nome}</h3><p className="tt-card-elemental">{carta.elemental}</p><p className="tt-card-descricao">{carta.descricao.slice(0, 80)}...</p>
-                    <div className="tt-card-atributos">{atributos.map(a => (<div key={a.id} className="tt-atributo-btn"><span className="tt-atributo-nome">{t(a.nomeKey)}</span><span className="tt-atributo-valor">{carta.atributos[a.id]}</span></div>))}</div>
-                  </div>
+                  <TopTrumpsCard
+                    characterImage={defaultBg}
+                    name={carta.nome}
+                    description={carta.descricao}
+                    locale={locale}
+                    attributes={carta.atributos}
+                  />
                 ) : (<div className="tt-recompensa-card-verso"><span className="tt-recompensa-card-verso-texto">?</span><p className="tt-recompensa-card-verso-label">{t('games.toptrumps.recompensa_carta_misteriosa')}</p></div>)}
               </div>
             ))}
