@@ -7,6 +7,7 @@ import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
 import { supabase } from '../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
+import { sfx } from '../lib/sfx'
 import './TopTrumpsMP.css'
 
 function attrNomeKey(id) {
@@ -176,6 +177,7 @@ export default function TopTrumpsMP() {
       setTempoRestante(t => {
         if (t <= 1) {
           clearInterval(iv)
+          sfx.timerUrgent()
           const attrs = atributos.map(a => a.id)
           const rand = attrs[Math.floor(Math.random() * attrs.length)]
           const s = salaRef.current
@@ -196,9 +198,11 @@ export default function TopTrumpsMP() {
     const s = salaRef.current
     if (!s) return
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
+      sfx.nextRound()
       setFase('fim')
       return
     }
+    sfx.nextRound()
     setAtributoEscolhido(null)
     setResultadoRodada(null)
     setMovimentoRecebido(false)
@@ -212,6 +216,7 @@ export default function TopTrumpsMP() {
 
   function jogarAtributo(atributoId) {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
+    sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
@@ -235,14 +240,20 @@ export default function TopTrumpsMP() {
   }
 
   function iniciarRevelacao(resultadoFinal) {
+    sfx.vs()
+    sfx.startHeartbeatLoop()
     setGirando(true)
     setTimeout(() => {
       sortearOnomatopeia()
       setCortinaAtiva(true)
     }, 600)
     setTimeout(() => {
+      sfx.stopHeartbeatLoop()
       setGirando(false)
       setCortinaAtiva(false)
+      if (resultadoFinal === 'ganhou') sfx.win()
+      else if (resultadoFinal === 'empate') sfx.draw()
+      else sfx.lose()
       gerarParticulasMP(resultadoFinal)
       setFase('revelacao')
     }, 1800)
@@ -598,6 +609,7 @@ export default function TopTrumpsMP() {
                     className="ttmp-ppt-btn"
                     disabled={pptEscolhi}
                     onClick={() => {
+                      sfx.pptChoice()
                       setPptEscolhi(true)
                       escolherPPT(salaId, user.id, op.valor, meuPapel === 'j1')
                     }}>
@@ -851,6 +863,13 @@ export default function TopTrumpsMP() {
     if (!sala) return null
     const venceu = placar.eu > placar.oponente
     const empatou = placar.eu === placar.oponente
+    // Play end sound once on mount
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      if (venceu) sfx.win()
+      else if (empatou) sfx.draw()
+      else sfx.lose()
+    }, [])
     return (
       <section className="ttmp-page">
         <div className="ttmp-fim">
@@ -873,7 +892,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <Link to="/games" className="ttmp-btn-voltar">{t('games.toptrumps.mp.fim_voltar_games')}</Link>
+            <Link to="/games" className="ttmp-btn-voltar" onClick={() => sfx.click()}>{t('games.toptrumps.mp.fim_voltar_games')}</Link>
           </div>
         </div>
       </section>

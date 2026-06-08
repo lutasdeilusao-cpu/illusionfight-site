@@ -9,6 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
+import { sfx } from '../lib/sfx'
 import defaultBg from '../assets/images/cards/bg01.png'
 import img01 from '../assets/images/cards/characters/card-01.png'
 import img02 from '../assets/images/cards/characters/card-02.png'
@@ -218,6 +219,7 @@ export default function TopTrumps() {
 
   function iniciarJogo() {
     if (!user || totalTurnos > deckUsuario.length) return
+    sfx.nextRound()
     const d = embaralhar([...deckUsuario])
     const metade = Math.ceil(d.length / 2)
     setDeckJogador(d.slice(0, metade))
@@ -245,10 +247,12 @@ export default function TopTrumps() {
 
   function onClickAtributo(atributoId) {
     if (girando || confirmandoAtributo) return
+    sfx.select()
     setConfirmandoAtributo(atributoId)
   }
 
   function cancelarJogada() {
+    sfx.cancel()
     setConfirmandoAtributo(null)
   }
 
@@ -267,24 +271,35 @@ export default function TopTrumps() {
     setAtributoEscolhido(attrKey)
     setResultado(res)
 
-    // Step 1: Card starts fading
+    // Step 1: Card starts fading + card flip SFX
+    sfx.cardFlip()
     setCartaSumindo(true)
     setGirando(true)
 
-    // Step 2: Curtain sweeps in
+    // Step 2: Curtain sweeps in + VS drum + heartbeat
     setTimeout(() => {
       sortearOnomatopeia()
+      sfx.vs()
+      sfx.startHeartbeatLoop()
       setCortinaAtiva(true)
     }, 600)
 
     // Step 3: Reveal opponent card + show result
     setTimeout(() => {
+      sfx.stopHeartbeatLoop()
       setCartaSumindo(false)
       setCortinaAtiva(false)
       setGirando(false)
 
-      if (res === 'ganhou') setPlacar(p => ({ ...p, jogador: p.jogador + 1 }))
-      if (res === 'perdeu') setPlacar(p => ({ ...p, ia: p.ia + 1 }))
+      if (res === 'ganhou') {
+        sfx.win()
+        setPlacar(p => ({ ...p, jogador: p.jogador + 1 }))
+      }
+      if (res === 'perdeu') {
+        sfx.lose()
+        setPlacar(p => ({ ...p, ia: p.ia + 1 }))
+      }
+      if (res === 'empate') sfx.draw()
 
       setHistoricoRodadas(h => [...h, {
         rodada,
@@ -299,6 +314,7 @@ export default function TopTrumps() {
   }
 
   function proximaRodada() {
+    sfx.nextRound()
     if (rodada >= totalTurnos) { finalizarPartida(); return }
     const pJ = deckJogador[rodada % deckJogador.length]
     const pI = deckIA[rodada % deckIA.length]
@@ -310,6 +326,9 @@ export default function TopTrumps() {
 
   function finalizarPartida() {
     const venceu = placar.jogador > placar.ia
+    if (venceu) sfx.win()
+    else if (placar.jogador === placar.ia) sfx.draw()
+    else sfx.lose()
     const resultado = venceu ? 'vitoria' : placar.jogador === placar.ia ? 'empate' : 'derrota'
     const jogadas = historicoRodadas.length
     const vitorias = historicoRodadas.filter(h => h.resultado === 'ganhou').length
@@ -428,10 +447,10 @@ export default function TopTrumps() {
           <LoginGate feature="o Top Trumps">
             {(menuStep === null || menuStep === 'modo') && (
               <div className="tt-modos">
-                <div className="tt-modo-card" onClick={() => { setMenuStep('config'); }}>
+                <div className="tt-modo-card" onClick={() => { sfx.click(); setMenuStep('config'); }}>
                   <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_single_player')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_single_desc')}</p>
                 </div>
-                <Link to="/games/toptrumps/lobby" className="tt-modo-card">
+                <Link to="/games/toptrumps/lobby" className="tt-modo-card" onClick={() => sfx.click()}>
                   <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
                 </Link>
               </div>
@@ -444,7 +463,7 @@ export default function TopTrumps() {
                     <button key={n}
                       className={`tt-config-turno-btn${totalTurnos === n ? ' tt-config-turno-btn--ativo' : ''}`}
                       disabled={n > maxTurnos}
-                      onClick={() => setTotalTurnos(n)}>{n}</button>
+                      onClick={() => { sfx.click(); setTotalTurnos(n); }}>{n}</button>
                   ))}
                 </div>
                 <div className="tt-config-tentativas">
@@ -454,6 +473,7 @@ export default function TopTrumps() {
                 {jaGanhouHoje && <p className="tt-ja-jogou">{t('games.toptrumps.menu_ja_ganhou')}</p>}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={() => {
+                    sfx.click()
                     iniciarJogo()
                   }}>{t('games.toptrumps.jogar')}</button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
@@ -651,7 +671,7 @@ export default function TopTrumps() {
           <p className="tt-recompensa-sub">{t('games.toptrumps.recompensa_sub')}</p>
           <div className="tt-recompensa-cards">
             {recompensaOpcoes.map((carta) => (
-              <div key={carta.id} className={`tt-recompensa-card${cartaRecompensaSelecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`} onClick={() => setCartaRecompensaSelecionada(carta)}>
+              <div key={carta.id} className={`tt-recompensa-card${cartaRecompensaSelecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`} onClick={() => { sfx.select(); setCartaRecompensaSelecionada(carta); }}>
                 {cartaRecompensaSelecionada?.id === carta.id ? (
                   <TopTrumpsCard
                     characterImage={bgCarta(carta)}
@@ -665,7 +685,7 @@ export default function TopTrumps() {
               </div>
             ))}
           </div>
-          <button className="tt-btn-confirmar" disabled={!cartaRecompensaSelecionada} onClick={() => escolherRecompensa(cartaRecompensaSelecionada)}>{t('games.toptrumps.recompensa_confirmar')}</button>
+                <button className="tt-btn-confirmar" disabled={!cartaRecompensaSelecionada} onClick={() => { sfx.reward(); escolherRecompensa(cartaRecompensaSelecionada); }}>{t('games.toptrumps.recompensa_confirmar')}</button>
         </div>
       </section>
     )
@@ -716,8 +736,8 @@ export default function TopTrumps() {
           </div>
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">
-            <button className="tt-btn-jogar" onClick={() => setFase('menu')}>{t('games.toptrumps.btn_jogar_novamente')}</button>
-            <Link to="/games" className="tt-btn-jogar tt-btn-jogar--secondary">{t('games.toptrumps.menu_voltar_games')}</Link>
+            <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{t('games.toptrumps.btn_jogar_novamente')}</button>
+            <Link to="/games" className="tt-btn-jogar tt-btn-jogar--secondary" onClick={() => sfx.click()}>{t('games.toptrumps.menu_voltar_games')}</Link>
           </div>
         </div>
       </section>
