@@ -48,10 +48,10 @@ export function FichasProvider({ children }) {
   const coletarDiarias = async () => {
     if (!user || isAdmin || !podeColetarHoje) return false
     const novoSaldo = saldo + fichasDiarias
-    const { error } = await supabase.from('fichas').upsert({
-      user_id: user.id, saldo: novoSaldo, fichas_diarias_coletadas: fichasDiarias,
+    const { error } = await supabase.from('fichas').update({
+      saldo: novoSaldo, fichas_diarias_coletadas: fichasDiarias,
       ultima_coleta: hoje(), updated_at: new Date().toISOString(),
-    }, { onConflict: 'user_id' })
+    }).eq('user_id', user.id)
     if (!error) {
       setSaldo(novoSaldo); setFichasHoje(fichasDiarias); setUltimaColeta(hoje()); setPodeColetarHoje(false)
       await supabase.from('fichas_historico').insert({ user_id: user.id, tipo: 'ganho', motivo: 'diaria', quantidade: fichasDiarias })
@@ -64,7 +64,7 @@ export function FichasProvider({ children }) {
   const ganharFichas = async (quantidade, motivo) => {
     if (!user || isAdmin) return
     const novoSaldo = saldo + quantidade
-    await supabase.from('fichas').upsert({ user_id: user.id, saldo: novoSaldo, updated_at: new Date().toISOString() }, { onConflict: 'user_id' })
+    await supabase.from('fichas').update({ saldo: novoSaldo, updated_at: new Date().toISOString() }).eq('user_id', user.id)
     await supabase.from('fichas_historico').insert({ user_id: user.id, tipo: 'ganho', motivo, quantidade })
     setSaldo(novoSaldo)
     console.log('[FICHAS] ganhou:', quantidade, 'motivo:', motivo, '| novo saldo:', novoSaldo)
@@ -74,7 +74,7 @@ export function FichasProvider({ children }) {
     if (isAdmin) return true
     if (saldo <= 0) return false
     const novoSaldo = saldo - 1
-    const { error } = await supabase.from('fichas').upsert({ user_id: user.id, saldo: novoSaldo, updated_at: new Date().toISOString() }, { onConflict: 'user_id' })
+    const { error } = await supabase.from('fichas').update({ saldo: novoSaldo, updated_at: new Date().toISOString() }).eq('user_id', user.id)
     if (!error) {
       await supabase.from('fichas_historico').insert({ user_id: user.id, tipo: 'gasto', motivo, quantidade: 1 })
       setSaldo(novoSaldo)
