@@ -10,7 +10,26 @@ import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, regis
 import deck from '../data/supertrunfo-pt.json'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import defaultBg from '../assets/images/cards/bg01.png'
+import img01 from '../assets/images/cards/characters/card-01.png'
+import img02 from '../assets/images/cards/characters/card-02.png'
+import img03 from '../assets/images/cards/characters/card-03.png'
+import img04 from '../assets/images/cards/characters/card-04.png'
+import img05 from '../assets/images/cards/characters/card-05.png'
+import img06 from '../assets/images/cards/characters/card-06.png'
+import img07 from '../assets/images/cards/characters/card-07.png'
+import img08 from '../assets/images/cards/characters/card-08.png'
+import img09 from '../assets/images/cards/characters/card-09.png'
+import img10 from '../assets/images/cards/characters/card-10.png'
 import './TopTrumps.css'
+
+// ── Imagens oficiais por id_num (season 1) ──
+const CARD_IMAGES = {
+  1: img01, 2: img02, 3: img03, 4: img04, 5: img05,
+  6: img06, 7: img07, 8: img08, 9: img09, 10: img10,
+}
+function bgCarta(carta) {
+  return CARD_IMAGES[carta?.id_num] || defaultBg
+}
 
 // ── Season 1 — apenas 20 cartas liberadas ──
 const SEASON_1_IDS = [
@@ -357,6 +376,16 @@ export default function TopTrumps() {
       }
 
       setDeckUsuario(cartas)
+
+      // ── Admin auto-fill: garante as 10 primeiras cartas ──
+      if (perfil?.role === 'admin' || perfil?.is_admin) {
+        const idsTem = new Set((ids || []).map(id => Number(id)))
+        const faltando = [1,2,3,4,5,6,7,8,9,10].filter(n => !idsTem.has(n))
+        if (faltando.length > 0) {
+          console.log('[TT] Admin auto-fill — adicionando cartas:', faltando)
+          salvarCartasDeck(user.id, faltando)
+        }
+      }
     })
     carregarTentativas(user.id, getTierInicial()).then(({ usadas, jaGanhouHoje: jaGanhou, limite }) => {
       setTentativasMax(limite)
@@ -457,7 +486,7 @@ export default function TopTrumps() {
         </div>
         <div className="tt-cards">
           <TopTrumpsCard
-            characterImage={defaultBg}
+            characterImage={bgCarta(cartaJogador)}
             name={cartaJogador.nome}
             description={cartaJogador.descricao}
             locale={locale}
@@ -563,7 +592,7 @@ export default function TopTrumps() {
         </div>
         <div className="tt-cards">
           <TopTrumpsCard
-            characterImage={defaultBg}
+            characterImage={bgCarta(cartaJogador)}
             name={cartaJogador.nome}
             description={cartaJogador.descricao}
             locale={locale}
@@ -590,7 +619,7 @@ export default function TopTrumps() {
             )}
           </div>
           <TopTrumpsCard
-            characterImage={defaultBg}
+            characterImage={bgCarta(cartaIA)}
             name={cartaIA.nome}
             description={cartaIA.descricao}
             locale={locale}
@@ -616,7 +645,7 @@ export default function TopTrumps() {
               <div key={carta.id} className={`tt-recompensa-card${cartaRecompensaSelecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`} onClick={() => setCartaRecompensaSelecionada(carta)}>
                 {cartaRecompensaSelecionada?.id === carta.id ? (
                   <TopTrumpsCard
-                    characterImage={defaultBg}
+                    characterImage={bgCarta(carta)}
                     name={carta.nome}
                     description={carta.descricao}
                     locale={locale}
