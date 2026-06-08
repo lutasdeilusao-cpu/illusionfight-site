@@ -109,6 +109,20 @@ export default function TopTrumps() {
     setTemplateIdxIA(ia)
   }
 
+  // Onomatopoeias da cortina
+  const ONOMATOPEIAS = [
+    'KABOOM!', 'POW!', 'CRASH!', 'BOOM!', 'WHAM!',
+    'BLAM!', 'KRAK!', 'SMASH!', 'BANG!', 'ZAP!',
+    'KABLAM!', 'THWACK!', 'CRUNCH!', 'SLAM!', 'KAPOW!',
+    'WHACK!', 'BAM!', 'CLANG!', 'KRAKOOM!', 'SWISH!'
+  ]
+  const [onomaTexto, setOnomaTexto] = useState('KABOOM!')
+
+  function sortearOnomatopeia() {
+    const idx = Math.floor(Math.random() * ONOMATOPEIAS.length)
+    setOnomaTexto(ONOMATOPEIAS[idx])
+  }
+
   // Confirmation + animation states
   const [confirmandoAtributo, setConfirmandoAtributo] = useState(null)
   const [cartaSumindo, setCartaSumindo] = useState(false)
@@ -232,6 +246,7 @@ export default function TopTrumps() {
 
     // Step 2: Curtain sweeps in
     setTimeout(() => {
+      sortearOnomatopeia()
       setCortinaAtiva(true)
     }, 600)
 
@@ -506,7 +521,7 @@ export default function TopTrumps() {
           <div className="tt-curtain-overlay">
             <div className="tt-curtain-inner" />
             <div className="tt-curtain-onomatopeia">
-              <span className="tt-onoma-texto">KABOOM!</span>
+              <span className="tt-onoma-texto">{onomaTexto}</span>
             </div>
           </div>
         )}
