@@ -5,15 +5,21 @@ import deck from '../../../data/supertrunfo-pt.json'
 export default function PerfilColecao({ userId }) {
   const [deckIds, setDeckIds] = useState([])
   const [filtro, setFiltro] = useState('todas')
-  const DECK_KEY = 'ldi-toptrumps-deck'
 
   useEffect(() => {
     if (!userId) return
     carregarDeck(userId).then(ids => {
-      if (ids && ids.length > 0) setDeckIds(ids)
-      else {
-        const salvos = JSON.parse(localStorage.getItem(DECK_KEY) || '[]')
-        setDeckIds(salvos)
+      if (ids && ids.length > 0) {
+        // Garante que sejam números para comparar com id_num
+        setDeckIds(ids.map(Number))
+      } else {
+        const chave = `ldi-toptrumps-deck-${userId}`
+        const salvos = JSON.parse(localStorage.getItem(chave) || '[]')
+        setDeckIds(salvos.map(id => {
+          // Aceita tanto string (antigo) quanto número (novo)
+          const n = Number(id)
+          return isNaN(n) ? id : n
+        }))
       }
     })
   }, [userId])

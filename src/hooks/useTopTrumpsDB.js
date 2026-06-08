@@ -8,7 +8,8 @@ export async function carregarDeck(userId) {
     .select('carta_id')
     .eq('user_id', userId)
   console.log('[TT] carregarDeck resultado — data:', data?.length || 0, 'itens, error:', error)
-  if (data && data.length > 0) return data.map(d => d.carta_id)
+  // Garante que carta_id seja número — o banco pode retornar string
+  if (data && data.length > 0) return data.map(d => Number(d.carta_id))
   return null
 }
 
