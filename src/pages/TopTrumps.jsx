@@ -10,7 +10,7 @@ import { getDeck } from '../lib/getDeck'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import { sfx } from '../lib/sfx'
-import defaultBg from '../assets/images/cards/bg01.png'
+import cardFallback from '../assets/images/cards/characters/card-fallback.png'
 import img01 from '../assets/images/cards/characters/card-01.png'
 import img02 from '../assets/images/cards/characters/card-02.png'
 import img03 from '../assets/images/cards/characters/card-03.png'
@@ -38,7 +38,7 @@ const CARD_IMAGES = {
   21: img21, 23: img23,
 }
 function bgCarta(carta) {
-  return CARD_IMAGES[carta?.id_num] || defaultBg
+  return CARD_IMAGES[carta?.id_num] || cardFallback
 }
 
 // ── Season 1 — apenas 20 cartas liberadas ──
