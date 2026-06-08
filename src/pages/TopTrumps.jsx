@@ -117,15 +117,13 @@ export default function TopTrumps() {
 
   function gerarParticulas(tipo) {
     const qtd = tipo === 'empate' ? 20 : 35
-    const cores = tipo === 'ganhou' ? ['#e8853a','#F4A227','#fff'] : tipo === 'perdeu' ? ['#e74c3c','#c0392b','#6B0F1A'] : ['#fff','#8B8F96','#4F5359']
+    const variantes = ['a','b','c','d','e','f']
     const nova = []
     for (let i = 0; i < qtd; i++) {
       nova.push({
-        id: Date.now() + i, x: Math.random() * 100, y: Math.random() * 100,
-        cor: cores[Math.floor(Math.random() * cores.length)],
-        tam: Math.floor(Math.random() * 8) + 6,
-        duracao: (Math.random() * 0.6 + 0.8).toFixed(2),
-        angle: Math.random() * 360, dist: Math.floor(Math.random() * 120) + 80
+        id: Date.now() + i,
+        variante: variantes[i % variantes.length],
+        tipo
       })
     }
     setParticulas(nova)
@@ -260,7 +258,7 @@ export default function TopTrumps() {
           <p className="tt-title-desc">{t('games.toptrumps.menu_desc')}</p>
           <div className="tt-colecao">
             <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
-            <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" style={{ width: `${pct}%` }} /></div>
+            <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" style={{ '--fill': `${pct}%` }} /></div>
           </div>
           <LoginGate feature="o Top Trumps">
             {(menuStep === null || menuStep === 'modo') && (
@@ -311,15 +309,7 @@ export default function TopTrumps() {
       <section className="tt-page">
         <div className="tt-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="tt-fire-particle" style={{
-              left: `${5 + Math.random() * 90}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 5}s`,
-              width: `${3 + Math.random() * 10}px`,
-              height: `${3 + Math.random() * 10}px`,
-              '--drift': `${-20 + Math.random() * 40}px`,
-              '--drift2': `${-30 + Math.random() * 60}px`,
-            }} />
+            <div key={i} className="tt-fire-particle" />
           ))}
         </div>
         <div className="tt-hud-new">
@@ -372,21 +362,12 @@ export default function TopTrumps() {
       <section className="tt-page">
         <div className="tt-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="tt-fire-particle" style={{
-              left: `${5 + Math.random() * 90}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 5}s`,
-              width: `${3 + Math.random() * 10}px`,
-              height: `${3 + Math.random() * 10}px`,
-              '--drift': `${-20 + Math.random() * 40}px`,
-              '--drift2': `${-30 + Math.random() * 60}px`,
-            }} />
+            <div key={i} className="tt-fire-particle" />
           ))}
         </div>
-        {particulas.map(p => {
-          const style = { left: `${p.x}%`, top: `${p.y}%`, width: `${p.tam}px`, height: `${p.tam}px`, background: p.cor, animationDuration: `${p.duracao}s`, '--angle': `${p.angle}deg`, '--dist': `${p.dist}px` }
-          return <div key={p.id} className="tt-particula" style={style} />
-        })}
+        {particulas.map(p => (
+          <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
+        ))}
         <div className="tt-hud"><span className="tt-hud-rodada">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span><div className="tt-hud-placar"><span className="tt-hud-placar-jogador">{t('games.toptrumps.hud_voce', { n: placar.jogador })}</span><span className="tt-hud-placar-ia">{t('games.toptrumps.hud_ia', { n: placar.ia })}</span></div></div>
         <div className="tt-cards">
           <TopTrumpsCard

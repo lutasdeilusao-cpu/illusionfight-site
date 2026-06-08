@@ -160,6 +160,7 @@
 
 .tt-colecao-bar-fill {
   height: 100%;
+  width: var(--fill, 0%);
   background: #e8853a;
   border-radius: 4px;
   transition: width 0.4s ease;
@@ -405,29 +406,12 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background-color: #0B0D0F;
+  /* TESTE: branco para confirmar que é o elemento certo */
+  background: #ffffff !important;
+  animation: none;
 }
 
-/* Animated background — pseudo-element fixo atrás de TUDO */
-.tt-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  animation: tt-bg-cycle 14s ease-in-out infinite alternate;
-}
-
-@keyframes tt-bg-cycle {
-  0%   { background-color: #0B0D0F; }
-  20%  { background-color: #1A0808; }
-  40%  { background-color: #080A1A; }
-  60%  { background-color: #1A1208; }
-  80%  { background-color: #0A0F1A; }
-  100% { background-color: #0B0D0F; }
-}
-
-/* Fire particles rising from bottom */
+/* Fire particles rising from bottom — SEM inline styles */
 .tt-fire-particles {
   position: fixed;
   inset: 0;
@@ -444,6 +428,32 @@
   animation: tt-fire-rise linear infinite, tt-particle-hue 8s ease-in-out infinite;
   will-change: transform, opacity;
 }
+
+.tt-fire-particle:nth-child(1)  { left: 5%;  animation-delay: 0s;    width: 6px;  height: 9px;  --drift: 10px;  --drift2: -15px; }
+.tt-fire-particle:nth-child(2)  { left: 15%; animation-delay: -1.3s; width: 4px;  height: 6px;  --drift: -8px;  --drift2: 20px;  }
+.tt-fire-particle:nth-child(3)  { left: 25%; animation-delay: -0.7s; width: 8px;  height: 5px;  --drift: 15px;  --drift2: -10px; }
+.tt-fire-particle:nth-child(4)  { left: 35%; animation-delay: -2.1s; width: 5px;  height: 10px; --drift: -12px; --drift2: 8px;   }
+.tt-fire-particle:nth-child(5)  { left: 45%; animation-delay: -0.4s; width: 7px;  height: 7px;  --drift: 5px;   --drift2: -25px; }
+.tt-fire-particle:nth-child(6)  { left: 55%; animation-delay: -1.8s; width: 3px;  height: 8px;  --drift: -18px; --drift2: 15px;  }
+.tt-fire-particle:nth-child(7)  { left: 65%; animation-delay: -0.9s; width: 9px;  height: 4px;  --drift: 20px;  --drift2: -5px;  }
+.tt-fire-particle:nth-child(8)  { left: 75%; animation-delay: -2.5s; width: 5px;  height: 11px; --drift: -5px;  --drift2: 18px;  }
+.tt-fire-particle:nth-child(9)  { left: 85%; animation-delay: -0.2s; width: 6px;  height: 6px;  --drift: 12px;  --drift2: -12px; }
+.tt-fire-particle:nth-child(10) { left: 92%; animation-delay: -1.5s; width: 4px;  height: 9px;  --drift: -10px; --drift2: 22px;  }
+.tt-fire-particle:nth-child(11) { left: 10%; animation-delay: -3.2s; width: 7px;  height: 5px;  --drift: 18px;  --drift2: -8px;  }
+.tt-fire-particle:nth-child(12) { left: 20%; animation-delay: -0.8s; width: 5px;  height: 8px;  --drift: -15px; --drift2: 12px;  }
+.tt-fire-particle:nth-child(13) { left: 30%; animation-delay: -2.7s; width: 8px;  height: 6px;  --drift: 8px;   --drift2: -18px; }
+.tt-fire-particle:nth-child(14) { left: 40%; animation-delay: -1.1s; width: 4px;  height: 10px; --drift: -20px; --drift2: 5px;   }
+.tt-fire-particle:nth-child(15) { left: 50%; animation-delay: -3.5s; width: 6px;  height: 7px;  --drift: 14px;  --drift2: -20px; }
+.tt-fire-particle:nth-child(16) { left: 60%; animation-delay: -0.5s; width: 9px;  height: 4px;  --drift: -7px;  --drift2: 16px;  }
+.tt-fire-particle:nth-child(17) { left: 70%; animation-delay: -2.3s; width: 3px;  height: 9px;  --drift: 22px;  --drift2: -7px;  }
+.tt-fire-particle:nth-child(18) { left: 80%; animation-delay: -1.6s; width: 7px;  height: 5px;  --drift: -14px; --drift2: 10px;  }
+.tt-fire-particle:nth-child(19) { left: 88%; animation-delay: -0.1s; width: 5px;  height: 8px;  --drift: 6px;   --drift2: -22px; }
+.tt-fire-particle:nth-child(20) { left: 95%; animation-delay: -2.9s; width: 8px;  height: 6px;  --drift: -3px;  --drift2: 14px;  }
+.tt-fire-particle:nth-child(21) { left: 3%;  animation-delay: -4.1s; width: 4px;  height: 7px;  --drift: 16px;  --drift2: -10px; }
+.tt-fire-particle:nth-child(22) { left: 18%; animation-delay: -1.9s; width: 6px;  height: 10px; --drift: -11px; --drift2: 24px;  }
+.tt-fire-particle:nth-child(23) { left: 38%; animation-delay: -3.8s; width: 5px;  height: 6px;  --drift: 9px;   --drift2: -16px; }
+.tt-fire-particle:nth-child(24) { left: 58%; animation-delay: -0.3s; width: 7px;  height: 8px;  --drift: -17px; --drift2: 6px;   }
+.tt-fire-particle:nth-child(25) { left: 78%; animation-delay: -2.6s; width: 4px;  height: 5px;  --drift: 13px;  --drift2: -19px; }
 
 @keyframes tt-fire-rise {
   0% {
@@ -1037,20 +1047,34 @@
   animation: card-spin-reveal 0.8s cubic-bezier(0.2, 0, 0.3, 1) forwards;
 }
 
-/* ---- PARTICLES ---- */
+/* ---- PARTICLES (CSS-only, no inline styles) ---- */
 
 .tt-particula {
   position: fixed;
   z-index: 500;
   border-radius: 50%;
   pointer-events: none;
-  animation: tt-particle-burst 1s ease-out forwards;
+  animation-fill-mode: forwards;
 }
 
-@keyframes tt-particle-burst {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(calc(cos(var(--angle)) * var(--dist, 100px)), calc(sin(var(--angle)) * var(--dist, 100px))) scale(0.2); opacity: 0; }
-}
+.tt-particula--ganhou { background: #e8853a; }
+.tt-particula--perdeu { background: #e74c3c; }
+.tt-particula--empate { background: #fff; }
+
+/* 6 variations of position, size, duration */
+.tt-particula--va { top: 10%; left: 20%; width: 8px; height: 8px; animation: tt-burst-a 1s ease-out forwards; }
+.tt-particula--vb { top: 30%; left: 50%; width: 6px; height: 6px; animation: tt-burst-b 1.2s ease-out forwards; }
+.tt-particula--vc { top: 60%; left: 80%; width: 10px; height: 10px; animation: tt-burst-c 0.9s ease-out forwards; }
+.tt-particula--vd { top: 80%; left: 15%; width: 7px; height: 7px; animation: tt-burst-d 1.1s ease-out forwards; }
+.tt-particula--ve { top: 50%; left: 35%; width: 14px; height: 14px; animation: tt-burst-e 1.3s ease-out forwards; }
+.tt-particula--vf { top: 20%; left: 70%; width: 5px; height: 5px; animation: tt-burst-f 0.8s ease-out forwards; }
+
+@keyframes tt-burst-a { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(80px, -60px) scale(0.2); opacity: 0; } }
+@keyframes tt-burst-b { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-50px, 40px) scale(0.2); opacity: 0; } }
+@keyframes tt-burst-c { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(60px, 80px) scale(0.2); opacity: 0; } }
+@keyframes tt-burst-d { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-70px, -50px) scale(0.2); opacity: 0; } }
+@keyframes tt-burst-e { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(100px, 30px) scale(0.2); opacity: 0; } }
+@keyframes tt-burst-f { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-30px, -80px) scale(0.2); opacity: 0; } }
 
 /* ---- RELATÓRIO ---- */
 

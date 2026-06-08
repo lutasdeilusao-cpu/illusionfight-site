@@ -211,18 +211,13 @@ export default function TopTrumpsMP() {
 
   function gerarParticulasMP(tipo) {
     const qtd = tipo === 'empate' ? 20 : 35
-    const cores = tipo === 'ganhou' ? ['#e8853a', '#F4A227', '#fff'] : tipo === 'perdeu' ? ['#e74c3c', '#c0392b', '#6B0F1A'] : ['#fff', '#8B8F96', '#4F5359']
+    const variantes = ['a','b','c','d','e','f']
     const nova = []
     for (let i = 0; i < qtd; i++) {
       nova.push({
         id: Date.now() + i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        cor: cores[Math.floor(Math.random() * cores.length)],
-        tam: Math.floor(Math.random() * 8) + 6,
-        duracao: (Math.random() * 0.6 + 0.8).toFixed(2),
-        angle: Math.random() * 360,
-        dist: Math.floor(Math.random() * 120) + 80
+        variante: variantes[i % variantes.length],
+        tipo
       })
     }
     setParticulas(nova)
@@ -642,15 +637,7 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="ttmp-fire-particle" style={{
-              left: `${5 + Math.random() * 90}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 5}s`,
-              width: `${3 + Math.random() * 10}px`,
-              height: `${3 + Math.random() * 10}px`,
-              '--drift': `${-20 + Math.random() * 40}px`,
-              '--drift2': `${-30 + Math.random() * 60}px`,
-            }} />
+            <div key={i} className="ttmp-fire-particle" />
           ))}
         </div>
         <div className="ttmp-hud">
@@ -664,7 +651,6 @@ export default function TopTrumpsMP() {
               <svg viewBox="0 0 60 60" className="ttmp-timer-svg">
                 <circle cx="30" cy="30" r="26" className="ttmp-timer-bg" />
                 <circle cx="30" cy="30" r="26" className="ttmp-timer-fill"
-                  style={{ strokeDashoffset: 163.36 * (1 - tempoRestante / 30) }}
                   transform="rotate(-90 30 30)" />
               </svg>
               <span className="ttmp-timer-texto">{tempoRestante}</span>
@@ -677,7 +663,7 @@ export default function TopTrumpsMP() {
         </div>
         <div className="ttmp-mesa">
           <div className="ttmp-card">
-            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaLocal.id) }}>
+            <div className="ttmp-card-avatar">
               <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
@@ -704,7 +690,7 @@ export default function TopTrumpsMP() {
           <div className={`ttmp-card${girando ? ' ttmp-spinning-reveal' : ''}`}>
             {cartaOponente ? (
               <>
-                <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaOponente.id) }}>
+                <div className="ttmp-card-avatar">
                   <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
                 </div>
                 <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
@@ -758,30 +744,12 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="ttmp-fire-particle" style={{
-              left: `${5 + Math.random() * 90}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 5}s`,
-              width: `${3 + Math.random() * 10}px`,
-              height: `${3 + Math.random() * 10}px`,
-              '--drift': `${-20 + Math.random() * 40}px`,
-              '--drift2': `${-30 + Math.random() * 60}px`,
-            }} />
+            <div key={i} className="ttmp-fire-particle" />
           ))}
         </div>
         {particulas.map(p => (
           <div key={p.id}
-            className="ttmp-particula"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: `${p.tam}px`,
-              height: `${p.tam}px`,
-              background: p.cor,
-              animationDuration: `${p.duracao}s`,
-              '--angle': `${p.angle}deg`,
-              '--dist': `${p.dist}px`
-            }} />
+            className={`ttmp-particula ttmp-particula--${p.tipo} ttmp-particula--v${p.variante}`} />
         ))}
         <div className="ttmp-revelacao-banner">
           <div>
@@ -810,7 +778,7 @@ export default function TopTrumpsMP() {
 
         <div className="ttmp-mesa ttmp-mesa--revelacao">
           <div className="ttmp-card ttmp-card--revelado">
-            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaLocal.id) }}>
+            <div className="ttmp-card-avatar">
               <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
@@ -833,7 +801,7 @@ export default function TopTrumpsMP() {
           </div>
 
           <div className="ttmp-card ttmp-card--revelado">
-            <div className="ttmp-card-avatar" style={{ background: avatarCor(cartaOponente.id) }}>
+            <div className="ttmp-card-avatar">
               <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>

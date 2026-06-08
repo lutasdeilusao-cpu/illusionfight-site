@@ -45,11 +45,10 @@ export default function TopTrumpsCard({
   return (
     <div className="tt-card-wrapper">
       <div className="tt-card-template">
-        {/* Camada 1 — Background do personagem */}
-        <div
-          className="tt-card-character-bg"
-          style={{ backgroundImage: `url(${mystery ? mysteryBg : characterImage})` }}
-        />
+        {/* Camada 1 — Background do personagem (img tag, no inline style) */}
+        <img className="tt-card-character-bg-img"
+          src={mystery ? mysteryBg : characterImage}
+          alt="" draggable={false} />
 
         {/* Camada 2 — Template PNG (moldura fixa) */}
       <img
