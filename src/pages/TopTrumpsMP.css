@@ -4,8 +4,17 @@
   max-width: 960px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
+  background: transparent;
+}
+
+.ttmp-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   animation: tt-bg-cycle 14s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .ttmp-fire-particles {

@@ -104,7 +104,6 @@ export default function TopTrumps() {
   }
 
   function iniciarJogo() {
-    console.log('[TT] iniciarJogo executou — deck:', deckUsuario.length, 'turnos:', totalTurnos)
     if (!user || totalTurnos > deckUsuario.length) return
     const d = embaralhar([...deckUsuario])
     const metade = Math.ceil(d.length / 2)
@@ -186,7 +185,6 @@ export default function TopTrumps() {
     }
     setFase('fim_jogo')
     registrarPartida(user.id, { jogadas, vitorias, derrotas, empates, resultado }).then(stats => {
-      console.log('[TT] registrarPartida resolveu (finalizarPartida) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
       if (stats.total_derrotas === 1) desbloquearRef.current('primeira_derrota_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
@@ -208,7 +206,6 @@ export default function TopTrumps() {
     })
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
-      console.log('[TT] registrarPartida resolveu (escolherRecompensa) — stats:', stats, 'user no .then:', user?.id ?? 'NULO')
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
       if (stats.total_partidas === 100) desbloquearRef.current('centuriao_trumps')
@@ -220,15 +217,11 @@ export default function TopTrumps() {
 
   useEffect(() => {
     if (!user) return
-    console.log('[TT] init — carregando deck do banco para user:', user.id)
     carregarDeckDB(user.id).then(ids => {
-      console.log('[TT] deck carregado:', ids?.length || 0, 'cartas')
       const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
-      console.log('[TT] cartas montadas:', cartas.length)
       setDeckUsuario(cartas)
     })
     carregarTentativas(user.id, getTierInicial()).then(({ usadas, jaGanhouHoje: jaGanhou, limite }) => {
-      console.log('[TT] tentativas carregadas:', usadas, '/', limite, 'jaGanhouHoje:', jaGanhou)
       setTentativasMax(limite)
       setTentativasRestantes(Math.max(0, limite - usadas))
       setJaGanhouHoje(jaGanhou || false)
@@ -236,16 +229,13 @@ export default function TopTrumps() {
   }, [user])
 
   useEffect(() => {
-    console.log('[TT] auto-select disparou — deck:', deckUsuario.length, 'totalTurnos atual:', totalTurnos)
-    if (totalTurnos !== null || deckUsuario.length === 0) { console.log('[TT] auto-select ignorado — condicao nao satisfeita'); return }
+    if (totalTurnos !== null || deckUsuario.length === 0) { return }
     const opcoes = [5, 10, 15, 20].filter(n => n <= deckUsuario.length)
-    console.log('[TT] opcoes válidas:', opcoes)
-    if (opcoes.length === 1) { console.log('[TT] setTotalTurnos chamado com:', opcoes[0]); setTotalTurnos(opcoes[0]) }
+    if (opcoes.length === 1) { setTotalTurnos(opcoes[0]) }
   }, [deckUsuario, totalTurnos])
 
   if (fase === 'menu') {
     const pct = deckUsuario.length / todasCartas.length * 100
-    console.log('[TT] render botao — totalTurnos:', totalTurnos, 'disabled:', totalTurnos === null)
     const maxTurnos = deckUsuario.length
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
@@ -289,7 +279,6 @@ export default function TopTrumps() {
                 {jaGanhouHoje && <p className="tt-ja-jogou">{t('games.toptrumps.menu_ja_ganhou')}</p>}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={() => {
-                    console.log('[TT] JOGAR clicado — totalTurnos:', totalTurnos, 'disabled:', totalTurnos === null)
                     iniciarJogo()
                   }}>{t('games.toptrumps.jogar')}</button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
@@ -306,12 +295,13 @@ export default function TopTrumps() {
     if (!cartaJogador || !cartaIA) return null
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
-      <section className="tt-page">
+      <>
         <div className="tt-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
             <div key={i} className="tt-fire-particle" />
           ))}
         </div>
+        <section className="tt-page">
         <div className="tt-hud-new">
           <div className="tt-round-badge">
             <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
@@ -351,6 +341,7 @@ export default function TopTrumps() {
           />
         </div>
       </section>
+      </>
     )
   }
 
@@ -359,12 +350,13 @@ export default function TopTrumps() {
     const attr = atributos.find(a => a.id === atributoEscolhido)
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
     return (
-      <section className="tt-page">
+      <>
         <div className="tt-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
             <div key={i} className="tt-fire-particle" />
           ))}
         </div>
+        <section className="tt-page">
         {particulas.map(p => (
           <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
         ))}
@@ -388,6 +380,7 @@ export default function TopTrumps() {
         </div>
         <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
       </section>
+      </>
     )
   }
 

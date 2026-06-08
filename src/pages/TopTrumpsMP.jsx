@@ -34,8 +34,6 @@ function avatarCor(id) {
 }
 
 import { MP_VERSION } from '../config/version'
-console.log('[MP] versão carregada:', MP_VERSION)
-
 export default function TopTrumpsMP() {
   const { t } = useLanguage()
   const { setReaderMode } = useReader()
@@ -147,7 +145,6 @@ export default function TopTrumpsMP() {
       if (!deckOpp?.length) return
       const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
       setDeckOponente(cartasOpp.slice(0, qtd))
-      console.log('[MP] deckOponente carregado:', cartasOpp.slice(0, qtd).length, 'cartas')
     })()
   }, [salaId, user, sala?.jogador2_id])
 
@@ -181,7 +178,6 @@ export default function TopTrumpsMP() {
   }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
   function seguirParaProximaRodada() {
-    console.log('[MP] seguirParaProximaRodada chamada, salaRef turno:', salaRef.current?.turno_atual, 'status:', salaRef.current?.status)
     const s = salaRef.current
     if (!s) return
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
@@ -203,7 +199,6 @@ export default function TopTrumpsMP() {
     if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
-    console.log('[MP] jogarAtributo — deckOponente:', deckOponente.length, 'cartaOp:', cartaOp?.id_num)
     registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
       setJaMovi(true)
     })
@@ -225,7 +220,6 @@ export default function TopTrumpsMP() {
   }
 
   function iniciarRevelacao(resultadoFinal) {
-    console.log('[MP] iniciando revelação, resultado:', resultadoFinal)
     setGirando(true)
     setTimeout(() => {
       setGirando(false)
@@ -238,14 +232,12 @@ export default function TopTrumpsMP() {
     try {
       const s = salaRef.current
       if (!s) { return }
-      console.log('[MP] resolverRodada chamada, turno:', s.turno_atual)
       const { data: movs, error: errMovs } = await supabase
         .from('toptrumps_movimentos')
         .select('*')
         .eq('sala_id', s.id)
         .eq('turno', s.turno_atual)
         .order('criado_em', { ascending: true })
-      console.log('[MP] resolverRodada movimentos:', movs?.length, 'carta_id_oponente:', movs?.[0]?.carta_id_oponente)
       if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
       // Caso padrão: dois movimentos (ambos jogadores jogaram)
@@ -493,7 +485,6 @@ export default function TopTrumpsMP() {
         return
       }
 
-      console.log('[MP] subscribeToSala turno mudou, faseRef:', faseRef.current)
       if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'revelacao' && faseRef.current !== 'fim') {
         setFase('jogando')
         setAtributoEscolhido(null)
@@ -516,7 +507,6 @@ export default function TopTrumpsMP() {
         setMovimentoRecebido(true)
       }
 
-      console.log('[MP] movimento recebido, turno:', mov.turno, 'carta_id_oponente:', mov.carta_id_oponente)
       resolverRodada()
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
@@ -634,12 +624,13 @@ export default function TopTrumpsMP() {
       </section>
     )
     return (
-      <section className="ttmp-page">
+      <>
         <div className="ttmp-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
             <div key={i} className="ttmp-fire-particle" />
           ))}
         </div>
+        <section className="ttmp-page">
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
             <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
@@ -732,6 +723,7 @@ export default function TopTrumpsMP() {
           </div>
         </div>
       </section>
+      </>
     )
   }
 
@@ -741,12 +733,13 @@ export default function TopTrumpsMP() {
     const vezTexto = sala?.jogador_da_vez === user.id ? t('games.toptrumps.mp.revelacao_sua_vez') : t('games.toptrumps.mp.revelacao_vez_oponente', { nome: oponenteNome })
 
     return (
-      <section className="ttmp-page">
+      <>
         <div className="ttmp-fire-particles">
           {Array.from({ length: 25 }).map((_, i) => (
             <div key={i} className="ttmp-fire-particle" />
           ))}
         </div>
+        <section className="ttmp-page">
         {particulas.map(p => (
           <div key={p.id}
             className={`ttmp-particula ttmp-particula--${p.tipo} ttmp-particula--v${p.variante}`} />
@@ -821,6 +814,7 @@ export default function TopTrumpsMP() {
           {t('games.toptrumps.mp.revelacao_proxima')}
         </button>
       </section>
+      </>
     )
   }
 

@@ -405,8 +405,18 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
+  background: transparent;
+}
+
+/* Background animation via ::before (não afeta position:fixed dos filhos) */
+.tt-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   animation: tt-bg-cycle 14s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 @keyframes tt-bg-cycle {
@@ -418,7 +428,7 @@
   100% { background-color: #0B0D0F; }
 }
 
-/* Fire particles rising from bottom — SEM inline styles */
+/* Fire particles — FORA do tt-page no DOM, position:fixed no viewport */
 .tt-fire-particles {
   position: fixed;
   inset: 0;
