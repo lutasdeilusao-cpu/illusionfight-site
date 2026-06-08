@@ -216,7 +216,16 @@
   pointer-events: none;
 }
 
-/* ── Responsivo Mobile ── */
+/* ── Responsivo ── */
+
+/* Desktop: escala para caber duas cartas lado a lado */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .tt-card-template {
+    transform: scale(0.75);
+    transform-origin: top center;
+  }
+}
+
 @media (max-width: 768px) {
   .tt-card-template {
     width: 550px;
