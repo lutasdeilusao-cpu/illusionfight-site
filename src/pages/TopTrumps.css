@@ -1671,6 +1671,11 @@
   letter-spacing: 0.06em;
 }
 
+.tt-resultado-attr-nome--escolhido {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
 .tt-resultado-attr-duelo {
   display: flex;
   align-items: center;

@@ -516,6 +516,10 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
+        {/* Sound toggle */}
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          {somAtivo ? '🔊' : '🔇'}
+        </button>
         <div className="tt-hud-new">
           <div className="tt-round-badge">
             <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
@@ -655,7 +659,7 @@ export default function TopTrumps() {
             <span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span>
             {attr && (
               <div className="tt-resultado-attr-box">
-                <span className="tt-resultado-attr-nome">{t(attr.nomeKey)}</span>
+                <span className="tt-resultado-attr-nome tt-resultado-attr-nome--escolhido">{t(attr.nomeKey)}</span>
                 <div className="tt-resultado-attr-duelo">
                   <div className="tt-resultado-attr-lado tt-resultado-attr-lado--jogador">
                     <span className="tt-resultado-attr-label">{t('games.toptrumps.voce')}</span>
@@ -669,6 +673,7 @@ export default function TopTrumps() {
                 </div>
               </div>
             )}
+            <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
           </div>
           <TopTrumpsCard
             characterImage={bgCarta(cartaIA)}
@@ -679,7 +684,6 @@ export default function TopTrumps() {
             templateIndex={templateIdxIA}
           />
         </div>
-        <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
       </section>
       </>
     )
