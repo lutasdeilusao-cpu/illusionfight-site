@@ -954,7 +954,7 @@ capitulo-04 ao 16: publicado: false ❌
 |---|---|---|
 | **Engenharia/Código** (telas, lógica, stores, API) | **92%** | Quase todo o código está escrito |
 | **Conteúdo Textual** (diálogos, lore, livro PT) | **85%** | Muito conteúdo já produzido |
-| **Conteúdo Traduzido** (EN/ES) | **55%** | Site 100% traduzido (1318 chaves), livro ainda não |
+| **Conteúdo Traduzido** (EN/ES) | **55%** | **Site+Jogos 100%** (1318 chaves confirmadas) | Livro caps 4-16 sem tradução |
 | **Arte/Assets** (sprites, imagens, cartas) | **50%** | Top Trumps com artes oficiais (105/105), demais WIP |
 | **Publicação** (capítulos do livro) | **19%** | Conteúdo existe, não publicado |
 | **Balanceamento/Testes** (jogos) | **68%** | Top Trumps finalizado+balanceado, demais WIP |
@@ -1097,7 +1097,7 @@ capitulo-04 ao 16: publicado: false ❌
 ```
 🏗️ ENGENHARIA/CÓDIGO:    92% ████████████████████████████████████████░░░░
 📝 CONTEÚDO TEXTUAL PT:  85% ███████████████████████████████████████░░░░░
-🌐 TRADUÇÕES EN/ES:      55% ██████████████████████████░░░░░░░░░░░░░░░░░
+🌐 TRADUÇÕES EN/ES:      55% ██████████████████████████░░░░░░░░░░░░░░░░░  — Site+Jogos 100% ✅ | Livro caps 4-16: 0% 🔴
 🎨 ARTES/SPRITES:        50% ██████████████████████████░░░░░░░░░░░░░░░░░
 📖 PUBLICAÇÃO LIVRO:     19% ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
