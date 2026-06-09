@@ -1,98 +1,127 @@
-import { useState, useEffect } from 'react'
-import { useSlideshow } from '../hooks/useSlideshow'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import TypewriterPhrase from './TypewriterPhrase'
-import HeroEffect from './HeroEffect'
+import { useSwipe } from '../hooks/useSwipe'
 import banner01 from '../assets/images/banners/banner-01.png'
 import banner02 from '../assets/images/banners/banner-02.png'
 import banner03 from '../assets/images/banners/banner-03.png'
 import banner04 from '../assets/images/banners/banner-04.png'
-import logopt from '../assets/images/logos/logo-pt.png'
-import logoen from '../assets/images/logos/logo-en.png'
+import banner05 from '../assets/images/banners/banner-05.png'
 import './HeroSlideshow.css'
 
-const BANNERS = [banner01, banner02, banner03, banner04]
+const AUTOPLAY_MS = 6000
+const SLIDE_COUNT = 5
 
-const LOGO_MAP = {
-  pt: logopt,
-  en: logoen,
-}
+const BANNERS = [banner01, banner02, banner03, banner04, banner05]
+
+const SLIDE_KEYS = [
+  { key: 'slide1', link1: '/livro', link2: '/mundo' },
+  { key: 'slide2', link1: '/webtoon', link2: null },
+  { key: 'slide3', link1: '/games', link2: null },
+  { key: 'slide4', link1: '/musicas', link2: null },
+  { key: 'slide5', link1: '/loja', link2: '/assinar' },
+]
 
 export default function HeroSlideshow() {
-  const { t, locale } = useLanguage()
-  const { currentImage, nextImage, activeIndex, enteringIndex, isTransitioning } = useSlideshow(BANNERS)
-  const [showEntering, setShowEntering] = useState(false)
-  const logoPath = LOGO_MAP[locale]
+  const { t } = useLanguage()
+  const navigate = useNavigate()
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const timerRef = useRef(null)
+  const containerRef = useRef(null)
 
+  const goTo = useCallback((index) => {
+    setActiveIndex((index + SLIDE_COUNT) % SLIDE_COUNT)
+  }, [])
+
+  const goNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT)
+  }, [])
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + SLIDE_COUNT) % SLIDE_COUNT)
+  }, [])
+
+  // Auto-play
   useEffect(() => {
-    if (isTransitioning) {
-      requestAnimationFrame(() => setShowEntering(true))
-    } else {
-      setShowEntering(false)
+    if (paused) {
+      if (timerRef.current) clearInterval(timerRef.current)
+      return
     }
-  }, [isTransitioning])
+    timerRef.current = setInterval(goNext, AUTOPLAY_MS)
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [paused, goNext])
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const title = t('hero.title')
-
-  const slideClass = (index, type) => {
-    if (type === 'active' && index === activeIndex && !isTransitioning) return 'hero-slideshow__slide--active'
-    if (type === 'exiting' && index === activeIndex && isTransitioning) return 'hero-slideshow__slide--exiting'
-    return ''
-  }
+  // Swipe
+  useSwipe(containerRef, (_, dx) => {
+    if (dx > 0) goPrev()
+    else if (dx < 0) goNext()
+  })
 
   return (
-    <section className="hero-slideshow" id="hero">
-      <div className="hero-slideshow__layers">
-        <div className={`hero-slideshow__slide ${slideClass(activeIndex, isTransitioning ? 'exiting' : 'active')}${isTransitioning ? '' : ''}`}>
-          <img
-            src={currentImage}
-            alt=""
-            className={`ken-burns-${activeIndex}`}
-          />
-        </div>
-
-        {isTransitioning && enteringIndex !== null && (
-          <div className={`hero-slideshow__slide hero-slideshow__slide--entering${showEntering ? ' is-visible' : ''}`}>
-            <img
-              src={nextImage}
-              alt=""
-              className={`ken-burns-${enteringIndex}`}
-            />
+    <section
+      className="hero-slideshow"
+      id="hero"
+      ref={containerRef}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="hero-slideshow__track">
+        {BANNERS.map((src, i) => (
+          <div
+            key={i}
+            className={`hero-slideshow__slide${i === activeIndex ? ' hero-slideshow__slide--active' : ''}`}
+          >
+            <img src={src} alt="" />
           </div>
-        )}
+        ))}
       </div>
 
-      <div className="hero-slideshow__overlay-bottom" />
-      <div className="hero-slideshow__overlay-left" />
-      <HeroEffect />
-      <div className="hero-slideshow__scanlines" />
+      <div className="hero-slideshow__overlay" />
 
       <div className="hero-slideshow__content">
-        {logoPath ? (
-          <div className="hero-slideshow__logo-wrapper glitch-image">
-            <img src={logoPath} alt={title} className="hero-slideshow__logo" />
-          </div>
-        ) : (
-          <h1 className="hero-slideshow__title glitch" data-text={title}>
-            <span aria-hidden="true">{title}</span>
-            {title}
-            <span aria-hidden="true">{title}</span>
-          </h1>
-        )}
-        <TypewriterPhrase />
+        <span className="hero-slideshow__tag">{t(`hero.${SLIDE_KEYS[activeIndex].key}.tag`)}</span>
+        <h1 className="hero-slideshow__title">{t(`hero.${SLIDE_KEYS[activeIndex].key}.titulo`)}</h1>
+        <p className="hero-slideshow__subtitle">{t(`hero.${SLIDE_KEYS[activeIndex].key}.subtitulo`)}</p>
         <div className="hero-slideshow__actions">
-          <button className="btn btn--primary" onClick={() => scrollTo('episodios')}>{t('hero.cta.primary')}</button>
-          <button className="btn btn--outline" onClick={() => scrollTo('sobre')}>{t('hero.cta.secondary')}</button>
+          <button
+            className="hero-slideshow__cta--primary"
+            onClick={() => navigate(SLIDE_KEYS[activeIndex].link1)}
+          >
+            {t(`hero.${SLIDE_KEYS[activeIndex].key}.cta1`)}
+          </button>
+          {SLIDE_KEYS[activeIndex].link2 && (
+            <button
+              className="hero-slideshow__cta--secondary"
+              onClick={() => navigate(SLIDE_KEYS[activeIndex].link2)}
+            >
+              {t(`hero.${SLIDE_KEYS[activeIndex].key}.cta2`)}
+            </button>
+          )}
         </div>
       </div>
 
-      <div className="hero-slideshow__scroll">
-        <span className="hero-slideshow__scroll-line" />
+      {/* Navigation dots */}
+      <div className="hero-slideshow__dots">
+        {BANNERS.map((_, i) => (
+          <button
+            key={i}
+            className={`hero-slideshow__dot${i === activeIndex ? ' hero-slideshow__dot--active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
       </div>
+
+      {/* Arrows */}
+      <button className="hero-slideshow__arrow hero-slideshow__arrow--prev" onClick={goPrev} aria-label="Anterior">
+        ‹
+      </button>
+      <button className="hero-slideshow__arrow hero-slideshow__arrow--next" onClick={goNext} aria-label="Próximo">
+        ›
+      </button>
     </section>
   )
 }

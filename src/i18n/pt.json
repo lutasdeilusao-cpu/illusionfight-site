@@ -22,6 +22,38 @@
     "cta": {
       "primary": "LER AGORA",
       "secondary": "SAIBA MAIS"
+    },
+    "slide1": {
+      "tag": "UNIVERSO LDI",
+      "titulo": "Num mundo onde a arena é virtual, a dor é 100% real.",
+      "subtitulo": "3 bilhões de jogadores. Um garoto que não pediu pra entrar.",
+      "cta1": "Ler agora",
+      "cta2": "Saiba mais"
+    },
+    "slide2": {
+      "tag": "WEBTOON",
+      "titulo": "Illusion Fight",
+      "subtitulo": "Episódio 01 disponível — O Sonho",
+      "cta1": "Ler episódio"
+    },
+    "slide3": {
+      "tag": "9 JOGOS",
+      "titulo": "Entre na arena.",
+      "subtitulo": "Top Trumps, LDI Tatics, Tamagoshi e muito mais.",
+      "cta1": "Ver jogos"
+    },
+    "slide4": {
+      "tag": "THE PROBLEM",
+      "titulo": "A banda do universo LDI.",
+      "subtitulo": "36 músicas nas plataformas.",
+      "cta1": "Ouvir agora"
+    },
+    "slide5": {
+      "tag": "LOJA",
+      "titulo": "Apoie o projeto.",
+      "subtitulo": "Camisetas, livro físico e muito mais em breve.",
+      "cta1": "Ver loja",
+      "cta2": "Apoiar"
     }
   },
   "stats": {
