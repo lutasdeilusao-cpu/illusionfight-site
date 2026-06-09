@@ -46,16 +46,20 @@ function bgCarta(carta) {
   return CARD_IMAGES[carta?.id_num] || cardFallback
 }
 
-// ── Season 1 — apenas 20 cartas liberadas ──
+// ── Season 1 — 30 cartas da temporada ──
+// 20 cartas são distribuídas para novos jogadores, 10 são para eventos do admin
 const SEASON_1_IDS = [
   'kim_briguento',       'jack_vitoria',        'nina_angel',
-  'shuntaro_rei_xama',   'thunderbolt_trovao',
-  'lisa_top500',         'yawanari_imortal',    'voidhunter_void',
-  'kei_sombra_dupla',    'ryu_relampago_oriental',
-  'xakaxi_cacique',      'nara_guerreira',      'kawa_traidor',
-  'tawira_herdeiro',     'iara_curandeira',
-  'david_kronos_primordial', 'vale_das_cinzas', 'kim_primordial_forma',
-  'alan_o_campiao',      'nexus_phantasm'
+  'thunderbolt_trovao',  'shuntaro_rei_xama',
+  'lisa_top500',         'nexus_phantasm',      'yawanari_imortal',
+  'voidhunter_void',     'david_kronos_primordial',
+  'xakaxi_cacique',      'nara_guerreira',      'powa_corrompido',
+  'helena_sobrevivente', 'osvaldo_porteiro',    'ryan_grato',
+  'samuel_valentao',     'roxy_mercenaria',     'brock_lider_capanga',
+  'walter_diretor',      'a_maquina_professor', 'neo_guide_ia',
+  'narrador_arena',      'sarah_arenia',        'alex_draymoor',
+  'mia_thessor',         'jaret_wendor',        'mikael_zylvaron',
+  'isabella_erendale',   'tira_valetis',
 ]
 
 // Nexus Phantasm sobe de Elite → Primordial na Season 1
