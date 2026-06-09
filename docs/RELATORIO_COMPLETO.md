@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.26  
-> **Versão do Site:** 9.74  
+> **Versão do Relatório:** 2.27  
+> **Versão do Site:** 9.75  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -546,12 +546,14 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ---
 
-### 5.7 Duelo LDI
+### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 1.5.0  
+**Versão:** 2.0.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
+
+> 🔄 **Refatoração completa para Campo de Batalha v2.0** — Grid 5×5, MOV/RNG, armadilhas ocultas, LP 1000
 
 #### Screens
 
@@ -561,52 +563,55 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `DueloVitoria` | ✅ Completo |
 | `DueloDerrota` | ✅ Completo |
 
-#### Components (11 arquivos)
+#### Components (10 arquivos — TributeSelector removido)
 
 | Componente | Status |
 |---|---|
-| `Board` | ✅ Completo |
+| `Board` (Grid 5×5) | ✅ Completo |
 | `Hand` | ✅ Completo |
-| `Card` | ✅ Completo |
+| `Card` (MOV/RNG) | ✅ Completo |
 | `CardSlot` | ✅ Completo |
-| `CardPreviewModal` | ✅ Completo |
-| `StatusBar` | ✅ Completo |
+| `CardPreviewModal` (MOV/RNG) | ✅ Completo |
+| `StatusBar` (MOV/RNG) | ✅ Completo |
 | `BattleLog` | ✅ Completo |
-| `TributeSelector` | ✅ Completo |
-| `TrapActivator` | ✅ Completo |
-| `LPDisplay` | ✅ Completo |
-| `PlayerZone` | ✅ Completo |
+| `TrapActivator` (grid) | ✅ Completo |
+| `LPDisplay` (max 1000) | ✅ Completo |
+| `PlayerZone` | ❌ Substituído pelo grid |
+| ~~`TributeSelector`~~ | 🗑️ Removido (sem tributo) |
 
 #### Engine
 
 | Módulo | Status |
 |---|---|
-| `ai.js` (IA Greedy) | ✅ Completo |
+| `ai.js` (IA posicionamento grid) | ✅ Completo |
 | `deck.js` | ✅ Completo |
-| `effects.js` | ✅ Completo |
-| `gameState.js` | ✅ Completo |
-| `phases.js` | ✅ Completo |
+| `effects.js` (grid buffs) | ✅ Completo |
+| `gameState.js` (grid 5×5, MOV, RNG) | ✅ Completo |
+| `phases.js` (COMPRA→INVOCAR→AÇÃO→MAGIA→FIM) | ✅ Completo |
 
-#### Cartas
+#### Cartas (conforme GDD v1.0)
 
-| Tipo | Quantidade |
-|---|---|
-| Monstros | 30 cartas (Nv1-8) |
-| Magias | 15 cartas |
-| Armadilhas | 15 cartas |
-| **Total** | **60 cartas** |
+| Tipo | Quantidade | Atributos |
+|---|---|---|
+| Monstros | 30 cartas | ATK, DEF, **MOV**, **RNG** |
+| Magias | 15 cartas | Efeito, duração |
+| Armadilhas | 15 cartas | Área, gatilho, efeito |
+| **Total** | **60 cartas** | Nível/tributo removidos |
 
 #### Store
 
 | Store | Status |
 |---|---|
-| `useDueloStore` | ✅ Completo |
+| `useDueloStore` (grid actions) | ✅ Completo |
 
 **STATUS:** 🟠 **Pós-lançamento**  
 **MULTIPLAYER:** 🗓️ planejado — requisito antes da abertura ao público  
 **PREVISÃO:** Q4 2026 ou posterior  
-**MOTIVO:** o jogo merece experiência completa no primeiro contato do usuário  
-**O que falta:** Expandir baralho para coleção mais rica, UI mais polida, animações de efeitos, multiplayer online.
+**O que falta:** Animações de efeitos, UI mais polida, multiplayer online, expandir baralho.
+
+---
+
+### 5.8 Tamagoshi LDI
 
 ---
 
@@ -986,7 +991,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI** (card game) | 80% | 🟡 | 60 cartas, precisa expandir |
+| **Duelo LDI — Campo de Batalha** (grid 5×5) | 90% | 🟢 | Refatorado p/ grid 5×5 + MOV/RNG + armadilhas |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |

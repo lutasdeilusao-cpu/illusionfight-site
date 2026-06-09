@@ -127,11 +127,12 @@ export const useDueloStore = create((set, get) => ({
     // Verifica se está nas casas de MOV
     const canMove = state.moveCells.some(c => c.row === toRow && c.col === toCol)
     if (!canMove) return
-    // Verifica se já moveu
-    const alreadyMoved = state.monstersThatMoved.some(m => m.row === fromRow && m.col === fromCol)
+    // Verifica se já moveu (por id_num)
+    const monsterId = cell.monster.id_num
+    const alreadyMoved = state.monstersThatMoved.some(m => m.id === monsterId)
     if (alreadyMoved) return
-    // Verifica se já atacou
-    const alreadyAttacked = state.monstersThatAttacked.some(m => m.row === fromRow && m.col === fromCol)
+    // Verifica se já atacou (por id_num)
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === monsterId)
     if (alreadyAttacked) return
 
     const grid = state.grid.map(r => r.map(c => ({ ...c })))
@@ -141,7 +142,7 @@ export const useDueloStore = create((set, get) => ({
 
     set({
       grid,
-      monstersThatMoved: [...state.monstersThatMoved, { row: fromRow, col: fromCol }],
+      monstersThatMoved: [...state.monstersThatMoved, { id: monsterId, row: toRow, col: toCol }],
       selectedMonster: { row: toRow, col: toCol },
       moveCells: [],
       attackCells: [],
@@ -165,8 +166,9 @@ export const useDueloStore = create((set, get) => ({
     const canAttack = state.attackCells.some(c => c.row === targetRow && c.col === targetCol)
     if (!canAttack) return
 
-    // Verifica se já atacou
-    const alreadyAttacked = state.monstersThatAttacked.some(m => m.row === fromRow && m.col === fromCol)
+    // Verifica se já atacou (por id_num)
+    const monsterId = attacker.id_num
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === monsterId)
     if (alreadyAttacked) return
 
     const targetCell = state.grid[targetRow]?.[targetCol]
@@ -211,7 +213,7 @@ export const useDueloStore = create((set, get) => ({
     set({
       grid,
       playerLP, aiLP,
-      monstersThatAttacked: [...state.monstersThatAttacked, { row: fromRow, col: fromCol }],
+      monstersThatAttacked: [...state.monstersThatAttacked, { id: monsterId, row: targetRow, col: targetCol }],
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
