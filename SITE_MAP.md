@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.38*  |  `[SITE] versão carregada: 9.38`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.37*  |  `[SITE] versão carregada: 9.37`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.36*  |  `[SITE] versão carregada: 9.36`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.35*  |  `[SITE] versão carregada: 9.35`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -108,8 +109,7 @@
     ├── assets/images/
     │   ├── banners/                    # banner-01.png ~ banner-04.png (~2.3MB cada)
 │   │   ├── characters/                 # jack-balloon.png, CS.png
-│   │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png
-│   │   ├── logos/                      # logo-pt.png, logo-en.png
+│   │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png│   │   ├── livro/                      # capitulo-01.png ~ capitulo-03.png (capas oficiais dos 3 caps publicados)│   │   ├── logos/                      # logo-pt.png, logo-en.png
 │   │   ├── music/                      # 01.png ~ 16.png (capas randomizadas por visita)
 │   │   ├── ComingSoon.png              # Placeholder para conteúdo não lançado (~2.3MB)
     │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)

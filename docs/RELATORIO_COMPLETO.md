@@ -2,7 +2,7 @@
 
 > **Data:** 2026-06-09  
 > **Versão do Relatório:** 2.0  
-> **Versão do Site:** 9.37  
+> **Versão do Site:** 9.38  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -872,6 +872,7 @@ capitulo-04 ao 16: publicado: false ❌
 | **Banners** (Home) | 4 PNGs | ~2.3MB cada | ✅ Completo |
 | **Personagens** | 1 PNG (`jack-balloon.png`) | 115KB | 🔴 **1 de 9** |
 | **Episódios Webtoon** | 2 thumbnails (`thumb-ep00.png`, `thumb-ep01.png`) | ~270KB cada | ✅ Completo (Ep.00 e Ep.01) |
+| **Livro** | 3 capas oficiais (`capitulo-01.png`~`capitulo-03.png`) | ~115KB cada | ✅ Capas dos 3 capítulos publicados |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
 | **Música** | 16 capas randomizadas (`01.png`~`16.png`) | ~150-240KB cada | ✅ Randomizado por visita |
 | **Tamagoshi** | **7 sprites** (Kroniki) | ~137KB cada | 🔴 **1 de 30 criaturas** |
