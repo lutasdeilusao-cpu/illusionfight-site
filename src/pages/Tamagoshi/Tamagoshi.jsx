@@ -21,7 +21,7 @@ import Partida from './screens/Partida'
 import './Tamagoshi.css'
 
 export default function Tamagoshi() {
-  const { user, perfil } = useAuth()
+  const { user, perfil, horasDesdeUltimaSessao } = useAuth()
   const { setReaderMode } = useReader()
   const store = useTamagoshiStore()
   const lastUserId = useRef(undefined)
@@ -35,7 +35,12 @@ export default function Tamagoshi() {
     if (lastUserId.current === uid) return
     lastUserId.current = uid
     store.setAdmin(isAdmin)
-    store.loadFromCloud(uid, 1)
+    store.loadFromCloud(uid, 1).then(() => {
+      // Lazy evaluation: aplica decaimento baseado em horas desde última sessão
+      if (horasDesdeUltimaSessao > 0) {
+        store.aplicarDecaimento(horasDesdeUltimaSessao)
+      }
+    })
   }, [user])
 
   useEffect(() => {
@@ -43,19 +48,22 @@ export default function Tamagoshi() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  useEffect(() => {
-    if (store._userId && store.criaturaId && (store.status === 'vivo' || store.status === 'critico')) {
-      store.calcularDecaimento()
-      store.getSaldoDix(store._userId)
-    }
-  }, [store.criaturaId])
+  // Lazy evaluation via last_seen_at — calcularDecaimento imediato removido
+  // useEffect(() => {
+  //   if (store._userId && store.criaturaId && (store.status === 'vivo' || store.status === 'critico')) {
+  //     store.calcularDecaimento()
+  //     store.getSaldoDix(store._userId)
+  //   }
+  // }, [store.criaturaId])
 
-  useEffect(() => {
-    if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
-    const id = setInterval(() => store.tick(), 10000)
-    return () => clearInterval(id)
-  }, [store.criaturaId, store.status])
+  // Polling de métricas removido — sistema lazy evaluation via last_seen_at
+  // useEffect(() => {
+  //   if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
+  //   const id = setInterval(() => store.tick(), 10000)
+  //   return () => clearInterval(id)
+  // }, [store.criaturaId, store.status])
 
+  // Log DIX periódico (mantido — não afeta métricas)
   useEffect(() => {
     if (!store._userId) return
     const logDix = () => {

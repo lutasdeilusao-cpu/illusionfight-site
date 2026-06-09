@@ -381,6 +381,18 @@ export const useTamagoshiStore = create((set, get) => ({
     get().saveToCloud(get()._userId)
   },
 
+  // ── Lazy evaluation: aplica decaimento baseado em horas desde última sessão ──
+  aplicarDecaimento: (horasPassadas) => {
+    const state = get()
+    if (!state.criaturaId || (state.status !== 'vivo' && state.status !== 'critico')) return
+    if (horasPassadas <= 0) return
+    console.log(`[TAMA] aplicando decaimento de ${horasPassadas.toFixed(1)}h`)
+    const novo = calcDecaimento(state, horasPassadas)
+    set({ ...novo, _ultimoUpdate: Date.now() })
+    get().saveToCloud(get()._userId)
+    cacheLocal(get())
+  },
+
   toggleAdminFastMode: () => set(state => ({ adminFastMode: !state.adminFastMode })),
 
   // === DIX SYSTEM ===
