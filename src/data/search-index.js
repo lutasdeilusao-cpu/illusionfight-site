@@ -90,4 +90,12 @@ index.push({
   premium: false,
 })
 
+index.push({
+  tipo: 'Página',
+  titulo: 'Como esse projeto existe',
+  descricao: 'Transparência financeira: infraestrutura, custos e como o projeto se mantém.',
+  url: '/custos',
+  premium: false,
+})
+
 export default index

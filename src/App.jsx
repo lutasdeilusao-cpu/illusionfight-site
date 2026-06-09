@@ -52,6 +52,7 @@ import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
 import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
 import Loja from './pages/Loja/Loja'
+import Custos from './pages/Custos'
 import './pages/Duelo/version' // side-effect: console.log version
 
 export default function App() {
@@ -111,6 +112,7 @@ export default function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/custos" element={<Custos />} />
       </Routes>
       <Footer hidden={readerMode} />
       <ScrollToTop />

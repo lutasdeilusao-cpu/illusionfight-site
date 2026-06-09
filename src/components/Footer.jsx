@@ -10,6 +10,9 @@ const routeMap = {
   'About the Author': '/autor',
   'Apoyar el Proyecto': '/assinar',
   'Sobre el Autor': '/autor',
+  'Como funcionamos': '/custos',
+  'How it works': '/custos',
+  'Cómo funciona': '/custos',
 }
 
 const externalMap = {

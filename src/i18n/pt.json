@@ -205,7 +205,8 @@
           "Contato",
           "FAQ",
           "Termos",
-          "Privacidade"
+          "Privacidade",
+          "Como funcionamos"
         ]
       }
     ],
@@ -1666,5 +1667,37 @@
     "yes": "Sim",
     "no": "Não",
     "playerHint": "Um pequeno player vai estar lá no canto da tela. Qualquer hora você para. 🎵"
+  },
+  "custos": {
+    "title": "Como esse projeto existe",
+    "intro": "Illusion Fight é um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lançando em 2026. Não tem investidor. Não tem equipe. Tem um desenvolvedor que trabalha das 9h às 18h numa empresa, e depois disso vira noites e fins de semana inteiros construindo isso aqui. Feriado, madrugada, final de semana — mano, é o que é.",
+    "s1": {
+      "title": "O que custa manter isso funcionando",
+      "sub": "Infraestrutura atual",
+      "item1": "Domínio illusionfight.com",
+      "item2": "Supabase — banco de dados, autenticação, funções de servidor",
+      "item3": "Stripe — processamento de pagamentos",
+      "sub2": "O que vai custar conforme cresce",
+      "body": "Hoje os custos são baixos porque a base de usuários ainda é pequena. Quando escalar — e vai escalar — vai precisar de servidor dedicado, mais capacidade de banco de dados, mais processamento. Cada funcionalidade online tem custo real. Multiplayer em tempo real, salvamento de progresso, ranking global — tudo isso usa infraestrutura que cobra por uso."
+    },
+    "s2": {
+      "title": "Por que contas gratuitas têm limites",
+      "body": "Não é punição. É math. Se mil pessoas jogam de graça e ninguém contribui, o projeto fecha ou os jogos ficam offline. Os limites existem para que o projeto consiga existir ao mesmo tempo que oferece acesso real a quem não pode pagar. Conforme a base cresce, se o número de apoiadores não acompanhar, os limites das contas gratuitas vão precisar ser ajustados. Isso vai ser comunicado aqui com antecedência, sem surpresa."
+    },
+    "s3": {
+      "title": "O que sua assinatura financia",
+      "item1": "Infraestrutura para todo mundo — incluindo quem não paga",
+      "item2": "Produção de novos episódios do webtoon",
+      "item3": "Novos jogos e atualizações",
+      "item4": "Tempo — que é o recurso mais escasso aqui"
+    },
+    "s4": {
+      "title": "Uma coisa que vale dizer",
+      "body": "Nenhum centavo vai para propaganda. Nenhum dado é vendido. Não tem anúncio. O produto é o produto.",
+      "thanks": "Se você usa, gosta, e pode contribuir — valeu demais. Isso mantém as luzes acesas.",
+      "free": "Se não pode contribuir agora — tudo bem. Aproveita o que está disponível."
+    },
+    "footer": "Esta página é atualizada quando os custos mudam.",
+    "cta": "Ver planos"
   }
 }

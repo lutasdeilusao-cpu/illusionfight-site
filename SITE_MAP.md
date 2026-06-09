@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.24*  |  `[SITE] versão carregada: 9.24`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.23*  |  `[SITE] versão carregada: 9.23`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.22*  |  `[SITE] versão carregada: 9.22`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.21*  |  `[SITE] versão carregada: 9.21`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -531,6 +532,7 @@
 | `/login` | Login | `src/pages/Login.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
 | `/cadastro` | Cadastro | `src/pages/Cadastro.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cadastro de conta |
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
+| `/custos` | Custos | `src/pages/Custos.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Transparência financeira do projeto |
 | `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
 
 ---
@@ -539,7 +541,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.19** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.24** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |

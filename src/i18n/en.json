@@ -205,7 +205,8 @@
           "Contact",
           "FAQ",
           "Terms",
-          "Privacy"
+          "Privacy",
+          "How it works"
         ]
       }
     ],
@@ -1666,5 +1667,37 @@
     "yes": "Yes",
     "no": "No",
     "playerHint": "A small player will be in the corner of the screen. Stop anytime. 🎵"
+  },
+  "custos": {
+    "title": "How this project exists",
+    "intro": "Illusion Fight is an independent project. One person, 23 years of development, launching in 2026. No investor. No team. Just a developer who works a full-time job from 9 to 6, then spends nights and weekends building this. Holidays, late nights, every free hour — man, that's just how it goes.",
+    "s1": {
+      "title": "What it costs to keep this running",
+      "sub": "Current infrastructure",
+      "item1": "illusionfight.com domain",
+      "item2": "Supabase — database, authentication, server functions",
+      "item3": "Stripe — payment processing",
+      "sub2": "What it'll cost as it grows",
+      "body": "Right now costs are low because the user base is still small. When it scales — and it will — it'll need dedicated servers, more database capacity, more processing power. Every online feature has a real cost. Real-time multiplayer, progress saving, global ranking — all of it runs on infrastructure that charges per use."
+    },
+    "s2": {
+      "title": "Why free accounts have limits",
+      "body": "It's not punishment. It's math. If a thousand people play for free and nobody contributes, the project shuts down or the games go offline. The limits exist so the project can survive while still giving real access to people who can't pay. As the user base grows, if the number of supporters doesn't keep up, free account limits will need to be adjusted. That'll be communicated here in advance, no surprises."
+    },
+    "s3": {
+      "title": "What your subscription funds",
+      "item1": "Infrastructure for everyone — including people who don't pay",
+      "item2": "Production of new webtoon episodes",
+      "item3": "New games and updates",
+      "item4": "Time — the scarcest resource here"
+    },
+    "s4": {
+      "title": "One thing worth saying",
+      "body": "No money goes to ads. No data is sold. No banners. The product is the product.",
+      "thanks": "If you use it, enjoy it, and can contribute — thank you. That keeps the lights on.",
+      "free": "If you can't contribute right now — that's fine. Enjoy what's available."
+    },
+    "footer": "This page is updated when costs change.",
+    "cta": "See plans"
   }
 }

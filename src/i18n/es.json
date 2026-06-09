@@ -205,7 +205,8 @@
           "Contacto",
           "FAQ",
           "Términos",
-          "Privacidad"
+          "Privacidad",
+          "Cómo funciona"
         ]
       }
     ],
@@ -1666,5 +1667,37 @@
     "yes": "Sí",
     "no": "No",
     "playerHint": "Un pequeño reproductor estará en la esquina de la pantalla. Puedes parar en cualquier momento. 🎵"
+  },
+  "custos": {
+    "title": "Cómo existe este proyecto",
+    "intro": "Illusion Fight es un proyecto independiente. Una persona, 23 años de desarrollo, lanzando en 2026. Sin inversor. Sin equipo. Solo un desarrollador que trabaja de 9 a 18 en una empresa, y después de eso pasa noches y fines de semana enteros construyendo esto. Feriados, madrugadas, cada hora libre — mano, así es como funciona.",
+    "s1": {
+      "title": "Qué cuesta mantener esto funcionando",
+      "sub": "Infraestructura actual",
+      "item1": "Dominio illusionfight.com",
+      "item2": "Supabase — base de datos, autenticación, funciones de servidor",
+      "item3": "Stripe — procesamiento de pagos",
+      "sub2": "Qué costará cuando crezca",
+      "body": "Hoy los costos son bajos porque la base de usuarios todavía es pequeña. Cuando escale — y va a escalar — va a necesitar servidor dedicado, más capacidad de base de datos, más procesamiento. Cada funcionalidad online tiene un costo real. Multijugador en tiempo real, guardado de progreso, ranking global — todo eso usa infraestructura que cobra por uso."
+    },
+    "s2": {
+      "title": "Por qué las cuentas gratuitas tienen límites",
+      "body": "No es un castigo. Es matemática. Si mil personas juegan gratis y nadie contribuye, el proyecto cierra o los juegos se desconectan. Los límites existen para que el proyecto pueda existir mientras ofrece acceso real a quienes no pueden pagar. A medida que la base crece, si el número de colaboradores no acompaña, los límites de las cuentas gratuitas van a necesitar ajustarse. Eso se comunicará aquí con anticipación, sin sorpresas."
+    },
+    "s3": {
+      "title": "En qué se usa tu suscripción",
+      "item1": "Infraestructura para todos — incluyendo quienes no pagan",
+      "item2": "Producción de nuevos episodios del webtoon",
+      "item3": "Nuevos juegos y actualizaciones",
+      "item4": "Tiempo — el recurso más escaso aquí"
+    },
+    "s4": {
+      "title": "Algo que vale la pena decir",
+      "body": "Ningún centavo va a publicidad. No se venden datos. Sin anuncios. El producto es el producto.",
+      "thanks": "Si lo usas, lo disfrutas y puedes contribuir — gracias. Eso mantiene las luces encendidas.",
+      "free": "Si no puedes contribuir ahora — está bien. Disfruta lo que está disponible."
+    },
+    "footer": "Esta página se actualiza cuando los costos cambian.",
+    "cta": "Ver planes"
   }
 }
