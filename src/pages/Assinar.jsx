@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../context/LanguageContext'
 import { useAuth } from '../context/AuthContext'
@@ -76,6 +76,9 @@ export default function Assinar() {
         <div className="container">
           <h1 className="assinar-hero__title">{t('assinar.titulo')}</h1>
           <p className="assinar-hero__subtitle">{t('assinar.subtitulo')}</p>
+          <Link to="/custos" className="assinar-hero__custos-btn">
+            {t('assinar.custosBtn')}
+          </Link>
         </div>
       </section>
 
