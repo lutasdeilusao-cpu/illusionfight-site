@@ -14,7 +14,10 @@
     "voltar_site": "← voltar ao site",
     "confirmar": "tem certeza?\nisso apaga tudo.",
     "nao": "NÃO",
-    "sim": "SIM"
+    "sim": "SIM",
+    "selecione_slot": "Selecione um slot para jogar",
+    "slot_label": "SAVE",
+    "slot_vazio": "vazio"
   },
   "final": {
     "msg_jack": "foi um prazer trabalhar contigo.\nmarelia vai continuar precisando de alguém como você.",

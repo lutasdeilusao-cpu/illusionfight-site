@@ -14,7 +14,10 @@
     "voltar_site": "← back to site",
     "confirmar": "are you sure?\nthis deletes everything.",
     "nao": "NO",
-    "sim": "YES"
+    "sim": "YES",
+    "selecione_slot": "Select a slot to play",
+    "slot_label": "SAVE",
+    "slot_vazio": "empty"
   },
   "final": {
     "msg_jack": "it was a pleasure working with you.\nmarelia will keep needing someone like you.",

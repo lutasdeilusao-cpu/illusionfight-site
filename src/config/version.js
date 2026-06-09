@@ -8,10 +8,10 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.63'
+export const SITE_VERSION = '9.64'
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION        = '2.0.0'  // Pesadelo Particular (sistema 3 slots + BackToGamesBtn unificado)
+export const PP_VERSION        = '2.0.1'  // Pesadelo Particular (fix i18n: merge PP keys + add missing menu keys)
 export const LDI_VERSION       = '1.1.0'  // Lendas do LDI (BackToGamesBtn unificado)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.8.0'  // LDI Arena Mode (BackToGamesBtn unificado)

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.16  
-> **Versão do Site:** 9.63  
+> **Versão do Relatório:** 2.17  
+> **Versão do Site:** 9.64  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -924,6 +924,39 @@ capitulo-04 ao 16: publicado: false ❌
 | Mundo/Lore | ✅ Completo | ✅ Completo | ✅ Completo |
 | Supertrunfo (105 cartas) | ✅ Completo | ✅ Completo | ✅ Completo |
 | Quiz | ✅ Completo | ✅ Parcial | ✅ Parcial |
+
+### 10.3 Auditoria de Chaves i18n (2026-06-09)
+
+```
+═══════════════════════════════════
+AUDITORIA I18N — RELATÓRIO
+═══════════════════════════════════
+
+CHAVES SOLTAS ENCONTRADAS:
+- /games/pesadelo: pp.menu.selecione_slot — corrigida ✅
+- /games/pesadelo: pp.menu.slot_label — corrigida ✅
+- /games/pesadelo: pp.menu.slot_vazio — corrigida ✅
+
+CHAVES FALTANDO EM ALGUM IDIOMA:
+- pp.menu.selecione_slot: faltava em PT/EN/ES — adicionada ✅
+- pp.menu.slot_label: faltava em PT/EN/ES — adicionada ✅
+- pp.menu.slot_vazio: faltava em PT/EN/ES — adicionada ✅
+
+CORREÇÃO ADICIONAL:
+- locales.js não importava pp_*.json — merge implementado ✅
+- Todas as chaves pp.* agora são resolvidas via LanguageContext ✅
+
+ROTAS VERIFICADAS (sem problemas):
+- /, /games, /personagens, /livro, /webtoon, /musicas
+- /mundo, /assinar, /loja, /perfil, /leaderboard, /autor
+- /games/pesadelo, /games/ldi, /games/jackcandy
+- /games/ldi-arena, /games/ldi-tatics, /games/duelo
+- /games/tamagoshi, /games/minigames, /games/toptrumps
+
+TOTAL DE CORREÇÕES: 6 (3 keys novas × 3 idiomas + 1 merge em locales.js)
+STATUS: ✅ limpo
+═══════════════════════════════════
+```
 
 ---
 
