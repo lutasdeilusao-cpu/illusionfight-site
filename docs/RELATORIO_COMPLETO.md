@@ -1,7 +1,7 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.1  
+> **Versão do Relatório:** 2.2  
 > **Versão do Site:** 9.48  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.47 |
+| **Versão Atual** | 9.48 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -99,7 +99,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Rota | Página | Status | Tradução | Observações |
 |---|---|---|---|---|
 | `/` | Home (Landing Page) | ✅ **Completo** | ✅ PT/EN/ES | HeroSlideshow (4 banners), LatestEpisodes, CharactersRow, BookChaptersRow, MusicSection, NowLive, StoryProgress, newsletter-cta, ShopSection, home-support CTA |
-| `/personagens` | Grid de Personagens | ✅ **Completo** | ✅ PT/EN/ES | 9 personagens categorizados |
+| `/personagens` | Grid de Personagens | ✅ **Completo** | ✅ PT/EN/ES | 10 personagens categorizados |
 | `/personagens/:id` | Detalhe do Personagem | ✅ **Completo** | ✅ PT/EN/ES | Nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações |
 | `/livro` | Lista de Capítulos | ✅ **Completo** | ✅ PT/EN/ES | 16 capítulos indexados com controle de publicação |
 | `/livro/:id` | Leitor de Capítulo | ✅ **Completo** | ✅ PT/EN/ES | react-markdown, lazy loading, readerMode |
@@ -870,7 +870,7 @@ capitulo-04 ao 16: publicado: false ❌
 | Categoria | Quantidade | Tamanhos | Status |
 |---|---|---|---|
 | **Banners** (Home) | 4 PNGs | ~2.3MB cada | ✅ Completo |
-| **Personagens** | 1 PNG (`jack-balloon.png`) | 115KB | 🔴 **1 de 9** |
+| **Personagens** | **10 PNGs oficiais** (Kim, Jack, Nina, Helena, Yawanari, Kronos, Shuntaro, Lisa, VoidHunter, Alan) | ~115KB-2.3MB cada | ✅ **Completo** — artes oficiais de todos os 10 personagens |
 | **Episódios Webtoon** | 2 thumbnails (`thumb-ep00.png`, `thumb-ep01.png`) | ~270KB cada | ✅ Completo (Ep.00 e Ep.01) |
 | **Livro** | 3 capas oficiais (`capitulo-01.png`~`capitulo-03.png`) | ~115KB cada | ✅ Capas dos 3 capítulos publicados |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
@@ -948,7 +948,7 @@ capitulo-04 ao 16: publicado: false ❌
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
-| **Arte Personagens** | 15% | 🔴 | 1/9 com arte |
+| **Arte Personagens** | 100% | 🟢 | 10/10 com artes oficiais |
 | **Sprites Tamagoshi** | 3% | 🔴 | 1/30 criaturas com sprite |
 | **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
 | **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte (WIP) |
@@ -976,12 +976,12 @@ capitulo-04 ao 16: publicado: false ❌
 ## 12. ANÁLISE DE GARGALOS
 
 ### 🔴 Gargalo #1: ARTES E SPRITES (0-50%)
-**Impacto:** Crítico — afeta Tamagoshi, Personagens, Cartas
+**Impacto:** Crítico — afeta Tamagoshi e Cartas Duelo
 
 | Item | Status | Impacto |
 |---|---|---|
 | Sprites Tamagoshi (29/30 faltando) | 🔴 3% | Jogo funcional sem arte visual |
-| Artes de personagens (8/9 faltando) | 🔴 15% | Página de personagens sem imagens |
+| Artes de personagens | 🟢 100% | 10/10 personagens com artes oficiais |
 | Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
 | Capas de música | ✅ 16 capas | Randomizadas por visita, todas as faixas têm capa |
@@ -1049,7 +1049,7 @@ capitulo-04 ao 16: publicado: false ❌
 | Tarefa | Esforço | Impacto |
 |---|---|---|
 | **Criar sprites para as 30 criaturas Tamagoshi** | 20-40h | 🔴 Crítico — desbloqueia jogo |
-| **Criar artes dos 9 personagens principais** | 15-25h | 🔴 Crítico — identidade visual |
+| **Criar artes dos 9 personagens principais** | ✅ **CONCLUÍDO** — 10 personagens com artes oficiais |
 | **Criar template visual para cartas** | 5-10h | 🟡 Alto — reutilizável |
 
 ### Fase 3 — 🌐 Traduções (2-4 semanas)
