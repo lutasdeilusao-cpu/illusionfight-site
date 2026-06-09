@@ -1,7 +1,7 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
-> **Data:** 2026-06-08  
-> **Versão do Site:** 9.4  
+> **Data:** 2026-06-09  
+> **Versão do Site:** 9.34  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -50,7 +50,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.4 |
+| **Versão Atual** | 9.34 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -75,7 +75,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Camada | Tecnologia | Versão |
 |---|---|---|
 | **Framework Frontend** | React | 19.1.0 |
-| **Bundler** | Vite | 8.0.12 |
+| **Bundler** | Vite | 8.0.16 |
 | **Roteamento** | React Router | 7.6.1 |
 | **Estado Global** | Zustand | 5.0.14 |
 | **Animações** | Framer Motion | 12.40.0 |
@@ -224,7 +224,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.1 Lendas do LDI (RPG Narrativo)
 
-**Versão:** 1.0.61  
+**Versão:** 1.0.62  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/ldi/*`
 
@@ -292,7 +292,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.2 Jack Dream Beer
 
-**Versão:** 5.1.4  
+**Versão:** 5.1.5  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/jackcandy`
 
@@ -346,7 +346,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.3 Pesadelo Particular
 
-**Versão:** 1.7.0  
+**Versão:** 1.7.1  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/pesadelo`
 
@@ -426,7 +426,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.7.3  
+**Versão:** 1.7.4  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -540,7 +540,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI
 
-**Versão:** 1.2.9  
+**Versão:** 1.3.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`
 
@@ -600,7 +600,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.11.0  
+**Versão:** 1.11.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -675,7 +675,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.9 MiniGames
 
-**Versão:** 1.3.0  
+**Versão:** 1.3.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/minigames`
 
