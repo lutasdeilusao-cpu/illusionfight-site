@@ -954,22 +954,22 @@ capitulo-04 ao 16: publicado: false ❌
 |---|---|---|
 | **Engenharia/Código** (telas, lógica, stores, API) | **92%** | Quase todo o código está escrito |
 | **Conteúdo Textual** (diálogos, lore, livro PT) | **85%** | Muito conteúdo já produzido |
-| **Conteúdo Traduzido** (EN/ES) | **45%** | Site traduzido, livro não |
-| **Arte/Assets** (sprites, imagens, cartas) | **12%** | **Maior gargalo** |
+| **Conteúdo Traduzido** (EN/ES) | **55%** | Site 100% traduzido (1318 chaves), livro ainda não |
+| **Arte/Assets** (sprites, imagens, cartas) | **50%** | Top Trumps com artes oficiais (105/105), demais WIP |
 | **Publicação** (capítulos do livro) | **19%** | Conteúdo existe, não publicado |
-| **Balanceamento/Testes** (jogos) | **60%** | Jogos funcionam, precisam de ajustes |
+| **Balanceamento/Testes** (jogos) | **68%** | Top Trumps finalizado+balanceado, demais WIP |
 
 ### 11.3 Estimativa Geral
 
 ```
-████████████████████████████████████████████░░░░  ~76% COMPLETO
+████████████████████████████████████████████████░░  ~82% COMPLETO
 ```
 
 ---
 
 ## 12. ANÁLISE DE GARGALOS
 
-### 🔴 Gargalo #1: ARTES E SPRITES (0-15%)
+### 🔴 Gargalo #1: ARTES E SPRITES (0-50%)
 **Impacto:** Crítico — afeta Tamagoshi, Personagens, Cartas
 
 | Item | Status | Impacto |
@@ -1097,16 +1097,17 @@ capitulo-04 ao 16: publicado: false ❌
 ```
 🏗️ ENGENHARIA/CÓDIGO:    92% ████████████████████████████████████████░░░░
 📝 CONTEÚDO TEXTUAL PT:  85% ███████████████████████████████████████░░░░░
-🌐 TRADUÇÕES EN/ES:      45% ████████████████████░░░░░░░░░░░░░░░░░░░░░░░
-🎨 ARTES/SPRITES:        12% █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+🌐 TRADUÇÕES EN/ES:      55% ██████████████████████████░░░░░░░░░░░░░░░░░
+🎨 ARTES/SPRITES:        50% ██████████████████████████░░░░░░░░░░░░░░░░░
 📖 PUBLICAÇÃO LIVRO:     19% ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-🎮 BALANCEAMENTO JOGOS:  60% ██████████████████████████░░░░░░░░░░░░░░░░░
+🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 GERAL:                ~76% ████████████████████████████████████░░░░░░
+📊 GERAL:                ~82% ████████████████████████████████████████░░░░
 ```
 
 **A engenharia e o esqueleto do site estão 92% prontos.**  
-**O que falta é majoritariamente CONTEÚDO VISUAL (artes, sprites, cartas) e PUBLICAÇÃO (livro, traduções, webtoon).**
+**Top Trumps está 100% completo — Single finalizado, balanceado, com artes oficiais da 1ª temporada.**  
+**O que falta agora é majoritariamente CONTEÚDO VISUAL (personagens, sprites Tamagoshi, cartas Duelo) e PUBLICAÇÃO (livro, traduções, webtoon).**
 
 O código fonte está sólido. Faltam assets e decisões de cronograma de lançamento.
 
