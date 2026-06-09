@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from './AuthContext'
+import { notificationManager } from '../lib/notificationManager'
 import todosAchievements from '../data/achievements-pt.json'
 
 const STORAGE_KEY = 'ldi-achievements'
@@ -55,7 +56,11 @@ export function AchievementsProvider({ children }) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...salvos, achievementId]))
     }
     setDesbloqueados(prev => [...prev, achievementId])
-    setToastPendente(achievement)
+    notificationManager.push('achievement', {
+      nome: achievement.nome,
+      descricao: achievement.descricao,
+      icone: achievement.icone,
+    })
   }, [desbloqueados, user])
 
   function registrarGangue() {

@@ -1,11 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import jackImg from '../../assets/images/characters/jack-balloon.png'
-import ninaImg from '../../assets/images/characters/nina-balloon.png'
-import tamaImg from '../../assets/images/tamagoshi/01/kroniki-presentation.png'
+import { useEffect, useRef } from 'react'
+import { notificationManager } from '../../lib/notificationManager'
 import notificacoes from '../../data/notificacoes.json'
-import { useNotificationStore } from '../../store/notificationStore'
-import './LDINotification.css'
 
 function shuffle(arr) {
   const a = [...arr]
@@ -16,87 +11,50 @@ function shuffle(arr) {
   return a
 }
 
-export default function LDINotification({ personagem = 'jack' }) {
-  const [visible, setVisible] = useState(false)
-  const [notif, setNotif] = useState(null)
-  const [queue, setQueue] = useState([])
-  const [queueIndex, setQueueIndex] = useState(0)
-  const autoCloseRef = useRef(null)
-  const nextRef = useRef(null)
-  const notifStore = useNotificationStore()
+const PERSONAGENS = ['jack', 'nina', 'tama']
 
-  const isNina = personagem === 'nina'
-  const isTama = personagem === 'tama'
-  const avatar = isTama ? tamaImg : isNina ? ninaImg : jackImg
-  const accentColor = isTama ? 'var(--accent-green)' : isNina ? 'var(--accent-pink)' : 'var(--accent-teal)'
-  const personagemNome = isTama ? 'Kroniki' : isNina ? 'Nina' : 'Jack'
+function pickPersonagem() {
+  return PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)]
+}
 
-  // Tama notification polling (mais frequente)
-  const pollInterval = isTama ? 2000 : 3000
+export default function LDINotification() {
+  const indexRef = useRef(0)
+  const shuffledRef = useRef(null)
 
   useEffect(() => {
-    const shuffled = shuffle(notificacoes)
-    setQueue(shuffled)
+    shuffledRef.current = shuffle(notificacoes)
+    indexRef.current = 0
 
-    const first = setTimeout(() => {
-      setNotif(shuffled[0])
-      setVisible(true)
-      setQueueIndex(1)
-    }, 3 * 60 * 1000)
+    // Primeira notificação após 3 min
+    const firstTimer = setTimeout(() => pushNext(), 3 * 60 * 1000)
 
-    const polling = setInterval(() => {
-      const item = notifStore.pop()
-      if (item) {
-        clearTimeout(autoCloseRef.current)
-        clearTimeout(nextRef.current)
-        setNotif(item)
-        setVisible(true)
-      }
-    }, pollInterval)
+    // A cada 5 minutos, tenta empurrar a próxima dica
+    const interval = setInterval(() => pushNext(), 5 * 60 * 1000)
 
-    return () => { clearTimeout(first); clearInterval(polling) }
+    return () => {
+      clearTimeout(firstTimer)
+      clearInterval(interval)
+    }
   }, [])
 
-  useEffect(() => {
-    if (visible) {
-      autoCloseRef.current = setTimeout(() => handleClose(), 8000)
-    }
-    return () => clearTimeout(autoCloseRef.current)
-  }, [visible])
+  function pushNext() {
+    const shuffled = shuffledRef.current
+    if (!shuffled || shuffled.length === 0) return
 
-  const handleClose = () => {
-    setVisible(false)
-    clearTimeout(autoCloseRef.current)
+    const idx = indexRef.current % shuffled.length
+    const notif = shuffled[idx]
+    indexRef.current = idx + 1
 
-    nextRef.current = setTimeout(() => {
-      const nextIndex = queueIndex % queue.length
-      setNotif(queue[nextIndex])
-      setQueueIndex(nextIndex + 1)
-      setVisible(true)
-    }, 10 * 60 * 1000)
+    const personagem = notif.personagem || pickPersonagem()
+
+    notificationManager.push('ldi_tip', {
+      mensagem: notif.mensagem,
+      cta: notif.cta,
+      url: notif.url,
+      personagem,
+      nome_personagem: notif.nome_personagem || undefined,
+    })
   }
 
-  if (!visible || !notif) return null
-
-  const isExternal = notif.url.startsWith('http')
-
-  return (
-    <div className={`notif-balloon ${isNina ? 'notif-nina' : ''} ${isTama ? 'notif-tama' : ''}`}>
-      <button className="notif-close" onClick={handleClose}>×</button>
-      <div className="notif-header">
-        <img src={avatar} alt={personagemNome} className="notif-avatar" />
-        <span className="notif-name">{notif.nome_personagem || personagemNome}</span>
-      </div>
-      <p className="notif-message">{notif.mensagem}</p>
-      {isExternal ? (
-        <a href={notif.url} className="notif-cta" target="_blank" rel="noreferrer" onClick={handleClose}>
-          {notif.cta} →
-        </a>
-      ) : (
-        <Link to={notif.url} className="notif-cta" onClick={handleClose}>
-          {notif.cta} →
-        </Link>
-      )}
-    </div>
-  )
+  return null
 }

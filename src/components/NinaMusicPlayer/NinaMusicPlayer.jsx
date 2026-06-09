@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { notificationManager } from '../../lib/notificationManager'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './NinaMusicPlayer.css'
 
@@ -39,8 +40,6 @@ export default function NinaMusicPlayer() {
   const [playing, setPlaying] = useState(false)
   const [attention, setAttention] = useState(true)
   const [showHint, setShowHint] = useState(false)
-  const [typedText, setTypedText] = useState('')
-  const [typingDone, setTypingDone] = useState(false)
   const [typedHint, setTypedHint] = useState('')
   const [hintTypingDone, setHintTypingDone] = useState(false)
   const playerRef = useRef(null)
@@ -51,44 +50,31 @@ export default function NinaMusicPlayer() {
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
-  const fullMsgRef = useRef('')
   const fullHintRef = useRef('')
 
   // Load YouTube API on mount
   useEffect(() => { loadYoutubeApi() }, [])
 
-  // Show balloon after 30s
+  // Push nina balloon to notification queue after 30s (instead of self-showing)
   useEffect(() => {
     if (sessionRef.current) return
     const timer = setTimeout(() => {
-      if (!sessionRef.current) setStep('balloon')
+      if (sessionRef.current) return
+      const mensagem = t(greetingKey)
+      notificationManager.push('nina_music', { mensagem, greetingKey })
+      // Registra callback para quando o usuário responder na UnifiedNotification
+      window.__ninaNotificationCb = (resposta) => {
+        if (resposta) {
+          // Sim
+          handleSim()
+        } else {
+          // Não
+          handleNao()
+        }
+      }
     }, 30000)
     return () => clearTimeout(timer)
-  }, [])
-
-  // Typewriter effect for balloon
-  useEffect(() => {
-    if (step !== 'balloon') {
-      setTypedText('')
-      setTypingDone(false)
-      return
-    }
-    const fullText = t(greetingKey)
-    fullMsgRef.current = fullText
-    let i = 0
-    setTypedText('')
-
-    const interval = setInterval(() => {
-      i++
-      setTypedText(fullText.slice(0, i))
-      if (i >= fullText.length) {
-        clearInterval(interval)
-        setTypingDone(true)
-      }
-    }, 25)
-
-    return () => clearInterval(interval)
-  }, [step, greetingKey, t])
+  }, [greetingKey, t])
 
   // Typewriter effect for hint
   useEffect(() => {
@@ -113,13 +99,6 @@ export default function NinaMusicPlayer() {
 
     return () => clearInterval(interval)
   }, [step, showHint, t])
-
-  // Auto-close balloon after 10s total
-  useEffect(() => {
-    if (step !== 'balloon') return
-    const timer = setTimeout(() => { setStep('idle') }, 10000)
-    return () => clearTimeout(timer)
-  }, [step])
 
   // Attention pulse
   useEffect(() => {
@@ -258,26 +237,7 @@ export default function NinaMusicPlayer() {
 
   return (
     <>
-      {/* WhatsApp-style balloon */}
-      {step === 'balloon' && (
-        <div className="nina-balloon">
-          <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
-          <div className="nina-balloon-content">
-            <p className="nina-balloon-msg">{typedText}<span className="nina-cursor">|</span></p>
-            {typingDone && (
-              <>
-                <span className="nina-tail" />
-                <div className="nina-balloon-actions">
-                  <button className="nina-btn nina-btn-yes" onClick={handleSim}>{t('nina.yes')}</button>
-                  <button className="nina-btn nina-btn-no" onClick={handleNao}>{t('nina.no')}</button>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Hint after "sim" */}
+      {/* Hint after "sim" — renderizado pelo UnifiedNotification */}
       {showHint && step === 'hint' && (
         <div className="nina-balloon nina-hint">
           <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />

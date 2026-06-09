@@ -11,7 +11,7 @@ import LDINotification from './components/LDINotification/LDINotification'
 import NinaMusicPlayer from './components/NinaMusicPlayer/NinaMusicPlayer'
 import CookieBanner from './components/CookieBanner'
 import SearchModal from './components/SearchModal/SearchModal'
-import AchievementToast from './components/AchievementToast/AchievementToast'
+import UnifiedNotification from './components/UnifiedNotification/UnifiedNotification'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
 import Home from './pages/Home'
@@ -58,7 +58,7 @@ import './pages/Duelo/version' // side-effect: console.log version
 export default function App() {
   const { readerMode } = useReader()
   const [searchOpen, setSearchOpen] = useState(false)
-  const { desbloquear, toastPendente, fecharToast } = useAchievements()
+  const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
@@ -116,11 +116,10 @@ export default function App() {
       </Routes>
       <Footer hidden={readerMode} />
       <ScrollToTop />
-      <LDINotification personagem="jack" />
-      <LDINotification personagem="tama" />
+      <LDINotification />
       <NinaMusicPlayer />
+      <UnifiedNotification />
       <CookieBanner />
-      {toastPendente && <AchievementToast achievement={toastPendente} fecharToast={fecharToast} />}
     </>
   )
 }
