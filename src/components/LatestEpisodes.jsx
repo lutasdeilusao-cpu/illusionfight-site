@@ -2,7 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
+import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
 import episodios from '../data/episodios.json'
+
+const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
 import './LatestEpisodes.css'
 
 export default function LatestEpisodes() {
@@ -25,7 +28,7 @@ export default function LatestEpisodes() {
           {episodios.filter(ep => ep.publicado).map(ep => (
             <div key={ep.id} className="episode-card" onClick={() => navigate(`/webtoon/${ep.id}`)}>
               <div className="episode-card-image-wrapper">
-                <img src={thumbEp00} alt={ep.titulo_pt} className="episode-card-image" />
+                <img src={thumbMap[ep.thumbnail] || thumbEp00} alt={ep.titulo_pt} className="episode-card-image" />
                 <div className="episode-card-overlay">
                   <p className="episode-card-quote">"{ep[fraseKey]}"</p>
                   <span className="episode-card-badge episode-card-badge--FREE">{t('episodes.badge.free')}</span>

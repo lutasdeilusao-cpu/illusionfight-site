@@ -4,9 +4,10 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import episodios from '../data/episodios.json'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
+import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
 import './Webtoon.css'
 
-const thumbMap = { 'thumb-ep00.png': thumbEp00 }
+const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
 
 export default function Webtoon() {
   const [ultimo, setUltimo] = useState(null)
