@@ -96,7 +96,6 @@ export default function Brincadeira({ onConcluir }) {
           status={store.status}
           estagio={store.estagio}
           criaturas={CRIATURAS}
-          estado="feliz"
         />
         {fala && (
           <div style={{

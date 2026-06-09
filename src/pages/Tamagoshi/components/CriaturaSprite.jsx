@@ -7,7 +7,7 @@ const ESTADO_ANIM = {
   morto: { scale: 0, y: 20 },
 }
 
-export default function CriaturaSprite({ criaturaId, status, estagio, criaturas, acao, estado }) {
+export default function CriaturaSprite({ criaturaId, status, estagio, criaturas }) {
   const c = criaturas.find(x => x.id === criaturaId)
   const [pulando, setPulando] = useState(false)
   const [erroImg, setErroImg] = useState(false)
@@ -30,13 +30,8 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   if (!c) return <div className="tama-sprite-placeholder">?</div>
 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
-  const tam = estagio >= 2 ? 280 : estagio === 1 ? 220 : 160
+  const tam = (estagio >= 2 ? 280 : estagio === 1 ? 220 : 160)
   const temImagem = !!c.imagem && !erroImg
-
-  // Resolve imagem: estado → ação → base (todas as criaturas usam sprite do Kroniki)
-  const imgEstado = estado && c.gifs?.[estado]
-  const imgAcao = !imgEstado && acao && c.gifs?.[acao]
-  const url = imgEstado || imgAcao || c.imagem
 
   const bounceVariants = {
     idle: { y: 0, scale: 1, opacity: 1 },
@@ -46,8 +41,8 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={`${criaturaId}-${estado || status}-${acao}`}
-        className={`tama-sprite${estado && estado !== 'idle' ? ` tama-sprite--${estado}` : ''}`}
+        key={criaturaId}
+        className="tama-sprite"
         initial={{ scale: 0, opacity: 0 }}
         animate={temImagem ? (pulando ? 'pulando' : 'idle') : { scale: anim.scale, opacity: 1, y: anim.y }}
         exit={{ scale: 0, opacity: 0 }}
@@ -61,7 +56,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
       >
         {temImagem ? (
           <img
-            src={url}
+            src={c.imagem}
             alt={c.nome}
             draggable={false}
             onError={() => setErroImg(true)}

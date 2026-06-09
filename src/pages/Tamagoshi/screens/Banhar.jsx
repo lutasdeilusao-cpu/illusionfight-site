@@ -109,7 +109,6 @@ export default function Banhar({ onConcluir }) {
             status={store.status}
             estagio={store.estagio}
             criaturas={CRIATURAS}
-            estado="satisfeito"
           />
         </div>
         {bolhas.map(b => (
