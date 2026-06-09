@@ -135,6 +135,23 @@ export default function NinaMusicPlayer() {
     return () => clearTimeout(timer)
   }, [step])
 
+  // Create YouTube container outside React's tree so React never reconciles it
+  useEffect(() => {
+    const div = document.createElement('div')
+    div.id = 'nina-youtube-player'
+    div.className = 'nina-youtube-iframe'
+    document.body.appendChild(div)
+    iframeRef.current = div
+    return () => {
+      // Destroy YouTube player on unmount
+      const player = playerRef.current
+      if (player && player.destroy) {
+        try { player.destroy() } catch (_) { /* ignore */ }
+      }
+      if (document.body.contains(div)) document.body.removeChild(div)
+    }
+  }, [])
+
   const initPlayer = useCallback(() => {
     if (playerReadyRef.current) return
     onYoutubeApi(() => {
@@ -201,24 +218,25 @@ export default function NinaMusicPlayer() {
   // Click outside balloon to close (after 2.5s)
   useEffect(() => {
     if (step !== 'balloon') return
-    const timer = setTimeout(() => {
-      const handler = (e) => {
+    let timer, handler
+    timer = setTimeout(() => {
+      handler = (e) => {
         if (!e.target.closest('.nina-balloon') && !e.target.closest('.nina-player')) {
           setStep('idle')
         }
       }
       document.addEventListener('click', handler)
-      return () => document.removeEventListener('click', handler)
     }, 2500)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      if (handler) document.removeEventListener('click', handler)
+    }
   }, [step])
 
   console.log('[NINA] music player carregado')
 
   return (
     <>
-      <div id="nina-youtube-player" ref={iframeRef} className="nina-youtube-iframe" />
-
       {/* WhatsApp-style balloon */}
       {step === 'balloon' && (
         <div className="nina-balloon">
