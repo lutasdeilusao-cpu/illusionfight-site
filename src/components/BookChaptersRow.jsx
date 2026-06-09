@@ -61,9 +61,6 @@ export default function BookChaptersRow() {
                     backgroundPosition: 'center'
                   }}
                 >
-                  {cap.publicado && (
-                    <span className="book-chapter-card__num">{t('pages.livro.cap')} {String(cap.numero).padStart(2, '0')}</span>
-                  )}
                   <div className="book-chapter-card__overlay">
                     <p className="book-chapter-card__tagline">{cap.tagline_pt}</p>
                   </div>
