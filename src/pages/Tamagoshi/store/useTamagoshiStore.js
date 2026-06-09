@@ -210,7 +210,7 @@ export const useTamagoshiStore = create((set, get) => ({
   restaurarSaude: () => {
     set(state => {
       if (state.status !== 'vivo' && state.status !== 'critico') return state
-      const novaSaude = Math.min(100, (state.saude || 0) + 50)
+      const novaSaude = Math.min(100, (state.saude || 0) + 25)
       const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0 && novaSaude > 0) ? 'vivo' : state.status
       return {
         saude: novaSaude,

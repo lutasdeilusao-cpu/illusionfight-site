@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.12  
-> **Versão do Site:** 9.59  
+> **Versão do Relatório:** 2.13  
+> **Versão do Site:** 9.60  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,22 +603,23 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.15.1  
+**Versão:** 1.20.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
-#### Screens (11 telas)
+#### Screens (12 telas)
 
 | Tela | Status | Descrição |
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
 | `Selecao.jsx` | ✅ Completo | Escolha da criatura |
-| `Criatura.jsx` | ✅ Completo | Tela principal da criatura + barra de saúde + botão restaurar |
+| `Criatura.jsx` | ✅ Completo | Tela principal da criatura + barra de saúde + botão saúde |
 | `Alimentar.jsx` | ✅ Completo | Minigame alimentar |
 | `Banhar.jsx` | ✅ Completo | Minigame banhar |
 | `Brincadeira.jsx` | ✅ Completo | 4 mini-interações |
 | `Passeio.jsx` | ✅ Completo | Seleção de local |
 | `Passear.jsx` | ✅ Completo | Minigame grid (Enduro) |
+| `RestaurarSaude.jsx` | ✅ Completo | Minigame drag-and-drop (termômetro, curativo, xarope) |
 | `Loja.jsx` | ✅ Completo | Loja de itens |
 | `Luto.jsx` | ✅ Completo | Morte + cooldown |
 | `Partida.jsx` | ✅ Completo | Despedida + fama |
@@ -672,7 +673,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** 🟡 **87%**  
+**Status Geral:** 🟡 **90%**  
 **O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
 
 ---

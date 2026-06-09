@@ -98,12 +98,12 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
             {t('games.tamagoshi.brincar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={onLoja}>
-            {t('games.tamagoshi.loja')}
+            onClick={() => onAction('saude')}>
+            {t('games.tamagoshi.saude_btn')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => store.restaurarSaude()}>
-            {t('games.tamagoshi.restaurar_saude')}
+            onClick={onLoja}>
+            {t('games.tamagoshi.loja')}
           </motion.button>
         </div>
 

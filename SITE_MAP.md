@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.60*  |  `[SITE] versão carregada: 9.60`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.59*  |  `[SITE] versão carregada: 9.59`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*Versão: 9.58*  |  `[SITE] versão carregada: 9.58`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.56*  |  `[SITE] versão carregada: 9.52`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.51*  |  `[SITE] versão carregada: 9.51`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.50*  |  `[SITE] versão carregada: 9.50`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -570,11 +570,11 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.53** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.60** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
-| `TAMA_VERSION` | **1.15.1** | `src/config/version.js:14` |
+| `TAMA_VERSION` | **1.20.0** | `src/config/version.js:14` |
 | `DUELO_VERSION` | **1.3.0** | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | **1.3.1** | `src/config/version.js:16` |
 | `TS_VERSION` | **5.7.0** | `src/config/version.js:21` |

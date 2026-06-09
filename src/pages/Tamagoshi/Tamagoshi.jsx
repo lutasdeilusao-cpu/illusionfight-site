@@ -16,6 +16,7 @@ import Luto from './screens/Luto'
 import Alimentar from './screens/Alimentar'
 import Banhar from './screens/Banhar'
 import Passear from './screens/Passear'
+import RestaurarSaude from './screens/RestaurarSaude'
 import Loja from './screens/Loja'
 import Partida from './screens/Partida'
 import './Tamagoshi.css'
@@ -93,6 +94,7 @@ export default function Tamagoshi() {
     else if (action === 'banhar') setSubFase('banhar')
     else if (action === 'passear') setSubFase('passear')
     else if (action === 'brincar') setSubFase('brincar')
+    else if (action === 'saude') setSubFase('saude')
   }
 
   const handleVoltar = () => {
@@ -120,6 +122,7 @@ export default function Tamagoshi() {
   if (subFase === 'banhar') return <div className="tama-body"><div className="tama-content"><Banhar onConcluir={handleVoltar} /></div></div>
   if (subFase === 'passear') return <div className="tama-body"><div className="tama-content"><Passear onConcluir={handleVoltar} /></div></div>
   if (subFase === 'brincar') return <div className="tama-body"><div className="tama-content"><Brincadeira onConcluir={handleVoltar} /></div></div>
+  if (subFase === 'saude') return <div className="tama-body"><div className="tama-content"><RestaurarSaude onConcluir={handleVoltar} /></div></div>
   if (subFase === 'loja') return <div className="tama-body"><div className="tama-content"><Loja onVoltar={handleVoltar} /></div></div>
 
   return (
