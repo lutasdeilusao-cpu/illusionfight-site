@@ -233,8 +233,6 @@ export default function NinaMusicPlayer() {
     return () => window.removeEventListener('beforeunload', handler)
   }, [playing])
 
-  console.log('[NINA] music player carregado')
-
   return (
     <>
       {/* Hint after "sim" — renderizado pelo UnifiedNotification */}

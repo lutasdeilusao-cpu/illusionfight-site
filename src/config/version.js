@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.67'
+export const SITE_VERSION = '9.68'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.0.1'  // Pesadelo Particular (fix i18n: merge PP keys + add missing menu keys)
@@ -28,7 +28,6 @@ console.log(`[PP] versão carregada: ${PP_VERSION}`)
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
-console.log(`[NINA] music player carregado`)
 console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
