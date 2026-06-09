@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { DIX_POR_ACAO } from '../data/moedas'
@@ -116,11 +117,13 @@ export default function RestaurarSaude({ onConcluir }) {
     const acaoEsperada = ordem[acaoAtual]
 
     if (itemArrastado === acaoEsperada) {
+      sfx.drop()
       dispararEfeito(acaoEsperada)
 
       if (acaoAtual === 2) {
         // Última ação — conclui após delay do efeito
         setTimeout(() => {
+          sfx.conclusao()
           setMostrandoConclusao(true)
           setConcluido(true)
           // Estrelinhas
@@ -141,6 +144,8 @@ export default function RestaurarSaude({ onConcluir }) {
           setAcaoAtual(prev => prev + 1)
         }, 600)
       }
+    } else {
+      sfx.erro()
     }
     // Se soltou item errado, não avança
   }, [ordem, acaoAtual, dispararEfeito, store])
@@ -151,6 +156,7 @@ export default function RestaurarSaude({ onConcluir }) {
   }, [])
 
   const handleDragStart = useCallback((e, acao) => {
+    sfx.drag()
     e.dataTransfer.setData('acao', acao)
     e.dataTransfer.effectAllowed = 'move'
     setArrastando(true)
@@ -158,6 +164,7 @@ export default function RestaurarSaude({ onConcluir }) {
 
   // ── Touch handlers (mobile) ──
   const handleTouchStart = useCallback((e, acao) => {
+    sfx.drag()
     const touch = e.touches[0]
     setArrastando(true)
     setTouchPos({ x: touch.clientX, y: touch.clientY, acao, element: e.currentTarget })
@@ -190,10 +197,12 @@ export default function RestaurarSaude({ onConcluir }) {
     ) {
       const acaoEsperada = ordem[acaoAtual]
       if (touchPos.acao === acaoEsperada) {
+        sfx.drop()
         dispararEfeito(acaoEsperada)
 
         if (acaoAtual === 2) {
           setTimeout(() => {
+            sfx.conclusao()
             setMostrandoConclusao(true)
             setConcluido(true)
             const stars = Array.from({ length: 8 }, (_, i) => ({
@@ -211,6 +220,8 @@ export default function RestaurarSaude({ onConcluir }) {
             setAcaoAtual(prev => prev + 1)
           }, 600)
         }
+      } else {
+        sfx.erro()
       }
     }
 

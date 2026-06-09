@@ -4,6 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, getFala } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
@@ -30,6 +31,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   }, [store.fome, store.higiene, store.energia, store.humor, store.saude])
 
   useEffect(() => {
+    sfx.notificacao()
     if (store.status === 'critico') {
       setFala(getFala(store.personalidade, 'critico', store.criaturaId))
       setMostrando('critico')
@@ -85,27 +87,27 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
 
         <div className="tama-acoes">
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => onAction('alimentar')}>
+            onClick={() => { sfx.clique(); onAction('alimentar') }}>
             {t('games.tamagoshi.alimentar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => onAction('banhar')}>
+            onClick={() => { sfx.clique(); onAction('banhar') }}>
             {t('games.tamagoshi.banhar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => onAction('passear')}>
+            onClick={() => { sfx.clique(); onAction('passear') }}>
             {t('games.tamagoshi.passear')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => onAction('brincar')}>
+            onClick={() => { sfx.clique(); onAction('brincar') }}>
             {t('games.tamagoshi.brincar')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => onAction('saude')}>
+            onClick={() => { sfx.clique(); onAction('saude') }}>
             {t('games.tamagoshi.saude_btn')}
           </motion.button>
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={onLoja}>
+            onClick={() => { sfx.clique(); onLoja() }}>
             {t('games.tamagoshi.loja')}
           </motion.button>
         </div>

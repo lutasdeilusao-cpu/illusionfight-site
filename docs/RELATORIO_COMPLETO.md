@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.15  
-> **Versão do Site:** 9.62  
+> **Versão do Relatório:** 2.16  
+> **Versão do Site:** 9.63  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.21.0  
+**Versão:** 1.23.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -613,14 +613,14 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
 | `Selecao.jsx` | ✅ Completo | Escolha da criatura |
-| `Criatura.jsx` | ✅ Completo | Tela principal da criatura + barra de saúde + botão saúde |
-| `Alimentar.jsx` | ✅ **v1.21.0** | Agora mostra TODOS os itens de comida do inventário (antes só mostrava 1) |
-| `Banhar.jsx` | ✅ **v1.21.0** | Mostra qual item (Shampoo/Sabonete) está sendo usado |
-| `Brincadeira.jsx` | ✅ **v1.21.0** | Consome Brinquedo Yohu do inventário ao vencer |
+| `Criatura.jsx` | ✅ **v1.23.0** | SFX nos botões + notificação ao montar |
+| `Alimentar.jsx` | ✅ **v1.23.0** | SFX: clique nos botões + sucesso ao completar. Mostra TODOS os itens de comida |
+| `Banhar.jsx` | ✅ **v1.23.0** | SFX: swipe throttled (200ms) + conclusão. Mostra qual item está sendo usado |
+| `Brincadeira.jsx` | ✅ **v1.23.0** | SFX: conclusão ao vencer + erro ao falhar. Brinquedo Yohu removido da loja |
 | `Passeio.jsx` | ✅ Completo | Seleção de local |
-| `Passear.jsx` | ✅ **v1.21.0** | Consome Guia de Marelia do inventário ao completar |
-| `RestaurarSaude.jsx` | ✅ Completo | Minigame drag-and-drop (termômetro, curativo, xarope) |
-| `Loja.jsx` | ✅ Completo | Loja de itens |
+| `Passear.jsx` | ✅ **v1.23.0** | SFX: passos nos movimentos + conclusão. Guia de Marelia passivo (+1 coração) |
+| `RestaurarSaude.jsx` | ✅ **v1.23.0** | SFX: drag, drop correto, drop errado, conclusão |
+| `Loja.jsx` | ✅ **v1.23.0** | SFX: compra. Brinquedo Yohu removido da loja |
 | `Luto.jsx` | ✅ Completo | Morte + cooldown |
 | `Partida.jsx` | ✅ Completo | Despedida + fama |
 
@@ -631,10 +631,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `criaturas.js` | ✅ Completo | **30 criaturas** |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
-| `itens_loja.js` | ✅ Completo | Itens da loja |
+| `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
 | `moedas.js` | ✅ Completo | DIX constants |
 | `passeios.js` | ✅ Completo | **6 locais** |
 | `personalidades.js` | ✅ Completo | **6 personalidades** |
+| `sfx.js` | ✅ **v1.23.0** | Sons sintéticos via Web Audio API (novo) |
 
 #### Sistema de Decaimento (Tempo Real)
 
@@ -673,7 +674,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** 🟡 **90%**  
+**Status Geral:** 🟡 **92%**  
 **O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
 
 ---

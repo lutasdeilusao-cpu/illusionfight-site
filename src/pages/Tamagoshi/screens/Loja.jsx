@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import { ITENS_LOJA } from '../data/itens_loja'
 
 export default function Loja({ onVoltar }) {
@@ -16,6 +17,7 @@ export default function Loja({ onVoltar }) {
   }, [])
 
   const handleComprar = async (item) => {
+    sfx.compra()
     try {
       await store.comprarItem(store._userId, item.id, item.preco)
       setMsg(`${item.emoji} ${item.nome} comprado!`)

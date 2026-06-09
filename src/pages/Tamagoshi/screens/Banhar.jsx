@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { DIX_POR_ACAO } from '../data/moedas'
@@ -19,6 +20,7 @@ export default function Banhar({ onConcluir }) {
   const temSabonete = (inv['sabonete'] || 0) > 0 || (inv['shampoo'] || 0) > 0
   const itemUsar = inv['shampoo'] > 0 ? 'shampoo' : inv['sabonete'] > 0 ? 'sabonete' : null
   const itemLabel = itemUsar === 'shampoo' ? 'Shampoo Especial ✨' : itemUsar === 'sabonete' ? 'Sabonete Teal 🧼' : ''
+  const lastSfx = useRef(0)
 
   const handleMove = (y) => {
     if (lastY.current === null) { lastY.current = y; return }
@@ -27,6 +29,12 @@ export default function Banhar({ onConcluir }) {
     acumulado.current += delta
     const novoProgress = Math.min(Math.floor(acumulado.current / 8), 100)
     setProgress(novoProgress)
+    // Swipe SFX com throttle de 200ms
+    const agora = Date.now()
+    if (agora - lastSfx.current > 200 && delta > 5) {
+      sfx.swipe()
+      lastSfx.current = agora
+    }
     if (novoProgress % 20 === 0 && delta > 5) {
       setBolhas(b => [...b.slice(-15), { id: Date.now(), x: Math.random() * 80 + 10, size: Math.random() * 12 + 6 }])
     }
@@ -75,6 +83,7 @@ export default function Banhar({ onConcluir }) {
 
   useEffect(() => {
     if (progress >= 100) {
+      sfx.conclusao()
       const concluir = async () => {
         try {
           if (itemUsar) await store.consumirItem(itemUsar)

@@ -5,7 +5,6 @@ export const ITENS_LOJA = [
   { id: 'sabonete', nome: 'Sabonete Teal', preco: 10, categoria: 'higiene', emoji: '🧼' },
   { id: 'shampoo', nome: 'Shampoo Especial', preco: 20, categoria: 'higiene', emoji: '✨' },
   { id: 'guia', nome: 'Guia de Marelia', preco: 15, categoria: 'passeio', emoji: '🗺️' },
-  { id: 'brinquedo', nome: 'Brinquedo Yohu', preco: 20, categoria: 'brinquedo', emoji: '🎮' },
 ]
 
 export const COMIDA_TEMATICA = {

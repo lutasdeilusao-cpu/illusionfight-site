@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { PERSONALIDADES, getFala } from '../data/personalidades'
@@ -61,20 +62,17 @@ export default function Brincadeira({ onConcluir }) {
   }, [])
 
   const handleSolve = () => {
+    sfx.conclusao()
     setResultado('vitoria')
     setFaseJogo('resultado')
     store.brincar()
     store.ganharDix(store._userId, DIX_POR_ACAO, 'brincou com criatura')
-    // Consumir Brinquedo Yohu se disponível
-    const inv = store.inventario || {}
-    if ((inv['brinquedo'] || 0) > 0) {
-      store.consumirItem('brinquedo').catch(() => {})
-    }
     const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId)
     setFala(texto || t('games.tamagoshi.brincadeira_divertido'))
   }
 
   const handleFail = () => {
+    sfx.erro()
     setResultado('derrota')
     setFaseJogo('resultado')
     setFala(t('games.tamagoshi.brincadeira_treinar'))
@@ -140,7 +138,7 @@ export default function Brincadeira({ onConcluir }) {
             <button
               className="tama-btn"
               style={{ fontSize: '0.7rem', padding: '0.3rem 0.8rem', opacity: 0.6 }}
-              onClick={handleSair}
+              onClick={() => { sfx.clique(); handleSair() }}
             >
               [ sair ]
             </button>
@@ -177,7 +175,7 @@ export default function Brincadeira({ onConcluir }) {
               className="tama-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={onConcluir}
+              onClick={() => { sfx.clique(); onConcluir() }}
             >
               [ voltar ]
             </motion.button>
@@ -186,7 +184,7 @@ export default function Brincadeira({ onConcluir }) {
               style={{ borderColor: '#22C55E', color: '#22C55E' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={irParaMiniGames}
+              onClick={() => { sfx.clique(); irParaMiniGames() }}
             >
               [ + puzzles ]
             </motion.button>

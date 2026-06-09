@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { ITENS_LOJA, COMIDA_TEMATICA } from '../data/itens_loja'
@@ -24,12 +25,14 @@ export default function Alimentar({ onConcluir }) {
 
   const handleAlimentar = async (itemId) => {
     if (animando) return
+    sfx.clique()
     const item = todasComidas.find(c => c.id === itemId)
     setUltimoItem(item)
     setAnimando(true)
     const novo = Math.min(progress + 25, 100)
     setProgress(novo)
     if (novo >= 100) {
+      sfx.sucesso()
       try {
         if (itemId) await store.consumirItem(itemId)
         store.alimentar()

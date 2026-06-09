@@ -2,11 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import { sfx } from '../sfx'
 import kronikIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
-const BASE_SPEED = 2, STAGE_COUNT = 10, LIVES = 3
+const BASE_SPEED = 2, STAGE_COUNT = 10
 const SWIPE_THRESHOLD = GAME_W / LANE_COUNT * 0.45 // ~32px (metade da pista)
+
+function getVidas(inventario) {
+  const temGuia = inventario && (inventario['guia'] || 0) > 0
+  return temGuia ? 4 : 3
+}
 
 export default function Passear({ onConcluir }) {
   const { t } = useLanguage()
@@ -28,9 +34,10 @@ export default function Passear({ onConcluir }) {
   }, [])
 
   function createState() {
+    const vidas = getVidas(store.inventario)
     return {
       running: false, lane: 2, score: 0, coinsCollected: 0,
-      lives: LIVES, stage: 1, frame: 0, roadOff: 0,
+      lives: vidas, stage: 1, frame: 0, roadOff: 0,
       speed: BASE_SPEED, lastObs: 0, lastCoin: 0,
       obstacles: [], coins: [], dmgTimer: 0,
       dragStart: null,
@@ -107,7 +114,8 @@ export default function Passear({ onConcluir }) {
     ctx.fillStyle = '#fff'; ctx.font = 'bold 14px monospace'; ctx.textBaseline = 'middle'
     ctx.textAlign = 'left'; ctx.fillText('\uD83D\uDEE3\uFE0F ' + s.score, 12, 20)
     ctx.textAlign = 'right'
-    let h = ''; for (let i = 0; i < LIVES; i++) h += i < s.lives ? '❤️' : '🖤'
+    const maxVidas = getVidas(store.inventario)
+    let h = ''; for (let i = 0; i < maxVidas; i++) h += i < s.lives ? '❤️' : '🖤'
     ctx.fillText(h, W - 12, 20)
     ctx.fillStyle = '#FFD700'; ctx.textAlign = 'left'; ctx.font = '11px monospace'; ctx.textBaseline = 'bottom'
     ctx.fillText('\u25C6 ' + s.coinsCollected, 12, H - 8)
@@ -174,15 +182,11 @@ export default function Passear({ onConcluir }) {
       localStorage.setItem('enduro-historico', JSON.stringify(saved))
       setHistorico(saved)
     } catch (e) {}
+    sfx.conclusao()
     setPhase('gameover')
     try {
       store.passear()
       store.verificarBadge?.(store._userId, 'passeio')
-      // Consumir Guia de Marelia se disponível
-      const inv = store.inventario || {}
-      if ((inv['guia'] || 0) > 0) {
-        store.consumirItem('guia').catch(() => {})
-      }
     } catch (e) {}
   }
 
@@ -198,8 +202,8 @@ export default function Passear({ onConcluir }) {
   useEffect(() => {
     if (phase !== 'playing') return
     function h(e) {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); if (g.current?.lane > 0) g.current.lane-- }
-      if (e.key === 'ArrowRight') { e.preventDefault(); if (g.current?.lane < LANE_COUNT - 1) g.current.lane++ }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); if (g.current?.lane > 0) { g.current.lane--; sfx.passos() } }
+      if (e.key === 'ArrowRight') { e.preventDefault(); if (g.current?.lane < LANE_COUNT - 1) { g.current.lane++; sfx.passos() } }
     }
     window.addEventListener('keydown', h)
     return () => window.removeEventListener('keydown', h)
@@ -224,8 +228,8 @@ export default function Passear({ onConcluir }) {
       if (!s || s.dragStart == null) return
       const dx = x - s.dragStart
       if (Math.abs(dx) > SWIPE_THRESHOLD) {
-        if (dx < 0 && s.lane > 0) s.lane--
-        else if (dx > 0 && s.lane < LANE_COUNT - 1) s.lane++
+        if (dx < 0 && s.lane > 0) { s.lane--; sfx.passos() }
+        else if (dx > 0 && s.lane < LANE_COUNT - 1) { s.lane++; sfx.passos() }
         s.dragStart = x
       }
     }
