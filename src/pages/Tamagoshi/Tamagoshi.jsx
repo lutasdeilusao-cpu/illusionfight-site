@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
 import { useTamagoshiStore } from './store/useTamagoshiStore'
+import { supabase } from '../../lib/supabase'
 import { calcularFase } from './data/moedas'
 import Ovo from './screens/Ovo'
 import Selecao from './screens/Selecao'
@@ -103,8 +104,14 @@ export default function Tamagoshi() {
     window.location.href = '/games'
   }
 
-  const handleNovaAdocao = () => {
+  const handleNovaAdocao = async () => {
     store.reset()
+    if (store._userId) {
+      await supabase.from('tamagoshi_saves').update({
+        status: 'morto', fase: 'luto',
+        cooldown_ate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+      }).eq('user_id', store._userId).eq('slot', store._slot || 1)
+    }
   }
 
   const fase = store.fase
