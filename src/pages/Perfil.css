@@ -501,6 +501,7 @@
   border-radius: 6px;
   overflow: hidden;
   transition: border-color 0.2s;
+  cursor: pointer;
 }
 .perfil-colecao-card:hover {
   border-color: rgba(245,166,35,0.3);
@@ -509,6 +510,7 @@
 .perfil-colecao-card--falta {
   opacity: 0.45;
   filter: grayscale(1);
+  cursor: default;
 }
 
 .perfil-colecao-card-img {
@@ -563,6 +565,11 @@
   text-align: center;
   letter-spacing: 0.04em;
   line-height: 1.4;
+}
+
+.perfil-colecao-deckbuilder-top {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .perfil-colecao-deckbuilder {

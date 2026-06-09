@@ -3,6 +3,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { getDeck } from '../../../lib/getDeck'
 import { carregarDeck } from '../../../hooks/useTopTrumpsDB'
 import DeckBuilder from '../../TopTrumps/components/DeckBuilder'
+import CardViewerModal from '../../TopTrumps/components/CardViewerModal'
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
 import img01 from '../../../assets/images/cards/characters/card-01.png'
 import img02 from '../../../assets/images/cards/characters/card-02.png'
@@ -46,6 +47,7 @@ export default function PerfilColecao({ userId }) {
   const [deckIds, setDeckIds] = useState([])
   const [temporada, setTemporada] = useState(1)
   const [showDeckBuilder, setShowDeckBuilder] = useState(false)
+  const [viewerIdx, setViewerIdx] = useState(null)
 
   const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
 
@@ -86,6 +88,16 @@ export default function PerfilColecao({ userId }) {
 
   return (
     <div className="perfil-colecao">
+      {/* Deck Builder Button — topo */}
+      <div className="perfil-colecao-deckbuilder-top">
+        <button
+          className="perfil-colecao-deckbuilder-btn"
+          onClick={() => setShowDeckBuilder(true)}
+        >
+          🃏 {t('games.toptrumps.deckBuilderBtn')}
+        </button>
+      </div>
+
       {/* Seletor de temporadas */}
       <div className="perfil-colecao-temporadas">
         <button
@@ -117,6 +129,12 @@ export default function PerfilColecao({ userId }) {
             <div
               key={carta.id}
               className={`perfil-colecao-card${tem ? '' : ' perfil-colecao-card--falta'}`}
+              onClick={() => {
+                if (tem) {
+                  const idx = todasCartas.findIndex(c => c.id === carta.id)
+                  setViewerIdx(idx)
+                }
+              }}
             >
               <div
                 className="perfil-colecao-card-img"
@@ -135,16 +153,6 @@ export default function PerfilColecao({ userId }) {
         })}
       </div>
 
-      {/* Deck Builder Button */}
-      <div className="perfil-colecao-deckbuilder">
-        <button
-          className="perfil-colecao-deckbuilder-btn"
-          onClick={() => setShowDeckBuilder(true)}
-        >
-          🃏 {t('games.toptrumps.deckBuilderBtn')}
-        </button>
-      </div>
-
       {/* Legenda */}
       <p className="perfil-colecao-obs">
         {locale === 'en'
@@ -155,6 +163,19 @@ export default function PerfilColecao({ userId }) {
       </p>
 
       {/* Deck Builder Modal */}
+      {/* Card Viewer Modal */}
+      {viewerIdx !== null && (
+        <CardViewerModal
+          carta={todasCartas[viewerIdx]}
+          cartas={todasCartas}
+          deckIds={deckIds}
+          idx={viewerIdx}
+          onClose={() => setViewerIdx(null)}
+          onPrev={viewerIdx > 0 ? () => setViewerIdx(viewerIdx - 1) : null}
+          onNext={viewerIdx < todasCartas.length - 1 ? () => setViewerIdx(viewerIdx + 1) : null}
+        />
+      )}
+
       {showDeckBuilder && (
         <DeckBuilder
           userId={userId}
