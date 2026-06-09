@@ -16,5 +16,23 @@
     "idiomas": ["pt"],
     "thumbnail": "thumb-ep00.png",
     "data": "2026-06-01"
+  },
+  {
+    "id": "01",
+    "numero": 1,
+    "titulo_pt": "O Sonho",
+    "titulo_en": "The Dream",
+    "titulo_es": "El Sueño",
+    "descricao_pt": "O Capítulo 1 da história principal de Lutas de Ilusão.",
+    "descricao_en": "Chapter 1 of the main Illusion Fight story.",
+    "descricao_es": "El Capítulo 1 de la historia principal de Lutas de Ilusão.",
+    "frase_pt": "O convite para o sonho.",
+    "frase_en": "The invitation to the dream.",
+    "frase_es": "La invitación al sueño.",
+    "publicado": true,
+    "paginas": 37,
+    "idiomas": ["pt"],
+    "thumbnail": "thumb-ep00.png",
+    "data": "2026-06-09"
   }
 ]
