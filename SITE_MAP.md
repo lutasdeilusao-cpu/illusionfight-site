@@ -1,13 +1,14 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.13*  |  `[SITE] versão carregada: 9.13`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.12*  |  `[SITE] versão carregada: 9.12`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.11*  |  `[SITE] versão carregada: 9.11`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.10*  |  `[SITE] versão carregada: 9.10`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.6*  |  `[SITE] versão carregada: 9.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.1* | `[TATICS] versão carregada: 7.0.1`
-*TS versão: 5.6.0* | `[TS] versão carregada: 5.6.0`
+*TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
@@ -56,6 +57,7 @@
 │   │   └── BringRace.otf              # Fonte customizada
 │   └── webtoon/
 │       └── 00/pt/01~21.png             # 21 páginas do webtoon Ep. 00
+│       └── 01/pt/01~37.png             # 37 páginas do webtoon Ep. 01 (O Sonho)
 ├── supabase/
 │   ├── migrations/
 │   │   ├── 004_jack_v3.sql            # Jack Candy v3
@@ -494,7 +496,7 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.5.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck builder com visualização de carta, recompensa diária |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.7.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -525,14 +527,14 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.12** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.13** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
 | `TAMA_VERSION` | **1.11.1** | `src/config/version.js:14` |
 | `DUELO_VERSION` | **1.3.0** | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | **1.3.1** | `src/config/version.js:16` |
-| `TS_VERSION` | **5.6.0** | `src/config/version.js:21` |
+| `TS_VERSION` | **5.7.0** | `src/config/version.js:21` |
 | `TM_VERSION` | **5.6.0** | `src/config/version.js:22` |
 | `TATICS_VERSION` | **7.0.1** | `src/config/version.js:25` || `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
