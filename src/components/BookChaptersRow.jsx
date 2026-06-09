@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial.js'
 import livroIndex from '../data/livro-index.json'
 import { useLanguage } from '../context/LanguageContext'
+import comingSoonImg from '../assets/images/ComingSoon.png'
 import './BookChaptersRow.css'
 
 export default function BookChaptersRow() {
   const { t } = useLanguage()
   const scrollRef = useRef(null)
-  const capitulos = [...livroIndex].reverse()
+  const capitulos = [...livroIndex].slice(0, 6)
 
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -640, behavior: 'smooth' })
@@ -43,8 +44,13 @@ export default function BookChaptersRow() {
                 className="book-chapter-card"
                 {...wrapperProps}
               >
-                <div className="book-chapter-card__inner">
-                  <span className="book-chapter-card__num">{t('pages.livro.cap')} {String(cap.numero).padStart(2, '0')}</span>
+                <div
+                  className="book-chapter-card__inner"
+                  style={!cap.publicado ? { backgroundImage: `url(${comingSoonImg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+                >
+                  {cap.publicado && (
+                    <span className="book-chapter-card__num">{t('pages.livro.cap')} {String(cap.numero).padStart(2, '0')}</span>
+                  )}
                   <div className="book-chapter-card__overlay">
                     <p className="book-chapter-card__tagline">{cap.tagline_pt}</p>
                   </div>

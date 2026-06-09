@@ -13,11 +13,6 @@ export default function LatestEpisodes() {
   const navigate = useNavigate()
   const ref = useScrollReveal()
 
-  const placeholderEpisodes = [
-    { id: 'placeholder-1', numero: '01', titulo: t('episodes.titles.1'), tier: 'PREMIUM' },
-    { id: 'placeholder-2', numero: '02', titulo: t('episodes.titles.2'), tier: 'PREMIUM' },
-  ]
-
   const fraseKey = locale === 'en' ? 'frase_en' : locale === 'es' ? 'frase_es' : 'frase_pt'
 
   return (
@@ -37,20 +32,6 @@ export default function LatestEpisodes() {
               <div className="episode-card-footer">
                 <span className="episode-card-number">EP. {String(ep.numero).padStart(2, '0')}</span>
                 <h3 className="episode-card-title">{ep.titulo_pt}</h3>
-              </div>
-            </div>
-          ))}
-          {placeholderEpisodes.map(ep => (
-            <div key={ep.id} className="episode-card">
-              <div className="episode-card-image-wrapper">
-                <div className="episode-card-thumb-placeholder">
-                  <span>{t('episodes.thumbnail')}</span>
-                </div>
-              </div>
-              <div className="episode-card-footer">
-                <span className="episode-card-number">EP. {ep.numero}</span>
-                <h3 className="episode-card-title">{ep.titulo}</h3>
-                <span className="episode-card-badge episode-card-badge--PREMIUM">{ep.tier}</span>
               </div>
             </div>
           ))}
