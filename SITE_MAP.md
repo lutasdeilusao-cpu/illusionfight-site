@@ -107,10 +107,11 @@
     │
     ├── assets/images/
     │   ├── banners/                    # banner-01.png ~ banner-04.png (~2.3MB cada)
-    │   ├── characters/                 # jack-balloon.png
-    │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png
-    │   ├── logos/                      # logo-pt.png, logo-en.png
-    │   ├── music/                      # lutas-de-ilusao.png (capa temporária para todas as 36 faixas)
+│   │   ├── characters/                 # jack-balloon.png, CS.png
+│   │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png
+│   │   ├── logos/                      # logo-pt.png, logo-en.png
+│   │   ├── music/                      # 01.png ~ 16.png (capas randomizadas por visita)
+│   │   ├── ComingSoon.png              # Placeholder para conteúdo não lançado (~2.3MB)
     │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)
     │
     ├── components/

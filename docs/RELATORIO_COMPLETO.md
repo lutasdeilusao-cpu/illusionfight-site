@@ -1,6 +1,7 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
+> **Versão do Relatório:** 2.0  
 > **Versão do Site:** 9.37  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
@@ -50,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.34 |
+| **Versão Atual** | 9.37 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -58,7 +59,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | **Supabase Migrations** | 12 arquivos |
 | **Stripe Edge Functions** | 3 funções |
 | **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
-| **Total de Palavras no Livro** | ~26.000 palavras |
+| **Total de Palavras no Livro** | ~27.500 palavras |
 | **Total de Cartas Duelo** | 60 cartas |
 | **Total de Cartas Top Trumps** | 105 cartas |
 | **Total de Casos (Pesadelo Particular)** | 20 casos |
@@ -66,7 +67,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | **Total de Personagens (Tatics Roster)** | 20 personagens |
 | **Total de Minigames** | 8 jogos |
 | **Total de Puzzles** | 6 tipos |
-| **Total de Episódios Webtoon** | 1 episódio (21 páginas) |
+| **Total de Episódios Webtoon** | 2 episódios (58 páginas) |
 
 ---
 
@@ -104,7 +105,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/livro/:id` | Leitor de Capítulo | ✅ **Completo** | ✅ PT/EN/ES | react-markdown, lazy loading, readerMode |
 | `/webtoon` | Grid de Episódios | ✅ **Completo** | ✅ PT/EN/ES | Grid com thumbnails |
 | `/webtoon/:id` | Leitor Webtoon | ✅ **Completo** | ✅ PT/EN/ES | Leitor vertical lazy load, readerMode |
-| `/musicas` | Página de Músicas | ✅ **Completo** | ✅ PT/EN/ES | 2 faixas com capa + plataformas |
+| `/musicas` | Página de Músicas | ✅ **Completo** | ✅ PT/EN/ES | 36 faixas com capas randomizadas + plataformas |
 | `/mundo` | Lore do Universo | ✅ **Completo** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
@@ -740,11 +741,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 6.2 Capítulos Traduzidos (EN/ES)
 
-| Idioma | Capítulos | Status |
+| Idioma | Capítulos .md | Status |
 |---|---|---|
-| **Inglês (EN)** | Cap. 1-3 (8.4KB, 5.2KB, 14.3KB) | ⚠️ **19%** |
-| **Espanhol (ES)** | Cap. 1-3 (9.5KB, 5.2KB, 14.8KB) | ⚠️ **19%** |
-| **Demais capítulos** | 4-16 | 🔴 **Não traduzidos** |
+| **Inglês (EN)** | Cap. 1-3 (8.4KB, 5.2KB, 14.3KB) | ⚠️ **19%** — conteúdo completo traduzido |
+| **Espanhol (ES)** | Cap. 1-3 (9.5KB, 5.2KB, 14.8KB) | ⚠️ **19%** — conteúdo completo traduzido |
+| **Demais capítulos** | 4-16 | 🔴 **Conteúdo .md não traduzido** |
+| **Índice (títulos/taglines)** | 1-16 | ✅ **100%** — Todos os 16 capítulos têm título e tagline traduzidos no `livro-index.json` |
 
 ### 6.3 Livro-Index (Controle de Publicação)
 
@@ -764,13 +766,14 @@ capitulo-04 ao 16: publicado: false ❌
 | Episódio | Título | Páginas | Publicado | Idioma |
 |---|---|---|---|---|
 | 00 | Apresentação | **21 páginas** | ✅ Sim | Apenas PT |
+| 01 | O Sonho | **37 páginas** | ✅ Sim | Apenas PT |
 
 ### 7.2 Status
 
 | Métrica | Valor |
 |---|---|
-| Episódios publicados | **1** (Ep. 00) |
-| Total de páginas | **21 PNGs** em `public/webtoon/00/pt/` |
+| Episódios publicados | **2** (Ep. 00, Ep. 01) |
+| Total de páginas | **58 PNGs** (`public/webtoon/00/pt/` + `public/webtoon/01/pt/`) |
 | Próximos episódios | 🔴 **Nenhum** |
 | Traduções (EN/ES) | 🔴 **Nenhuma** |
 
@@ -868,9 +871,9 @@ capitulo-04 ao 16: publicado: false ❌
 |---|---|---|---|
 | **Banners** (Home) | 4 PNGs | ~2.3MB cada | ✅ Completo |
 | **Personagens** | 1 PNG (`jack-balloon.png`) | 115KB | 🔴 **1 de 9** |
-| **Episódios Webtoon** | 1 thumbnail (`thumb-ep00.png`) | 271KB | ✅ Completo (só Ep.00) |
+| **Episódios Webtoon** | 2 thumbnails (`thumb-ep00.png`, `thumb-ep01.png`) | ~270KB cada | ✅ Completo (Ep.00 e Ep.01) |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
-| **Música** | 1 capa (`lutas-de-ilusao.png`) | 188KB | ✅ Completo |
+| **Música** | 16 capas randomizadas (`01.png`~`16.png`) | ~150-240KB cada | ✅ Randomizado por visita |
 | **Tamagoshi** | **7 sprites** (Kroniki) | ~137KB cada | 🔴 **1 de 30 criaturas** |
 | **Cards** (Top Trumps) | Artes oficiais 1ª temporada (no jogo) | ✅ Completo |
 | **Cards** (Duelo) | Nenhum | — | 🔴 **0** |
@@ -883,10 +886,12 @@ capitulo-04 ao 16: publicado: false ❌
 
 ### 9.3 Músicas
 
-| Faixa | Links Reais | Status |
-|---|---|---|
-| Lutas de Ilusão (Single) | ✅ Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal | ✅ Completo |
-| Sinfonia Imperfeita | ❌ URLs vazias | ⚠️ **Parcial** |
+| Info | Valor |
+|---|---|
+| Total de faixas | **36 faixas** (32 únicas) no catálogo |
+| Faixas publicadas | **36/36** — todas com links reais para plataformas |
+| Capas | **16 imagens** randomizadas a cada visita (`01.png`~`16.png`) |
+| Plataformas | Spotify, YouTube, Apple Music, Amazon, Deezer, Tidal, TikTok, iTunes |
 
 ---
 
@@ -946,7 +951,7 @@ capitulo-04 ao 16: publicado: false ❌
 | **Sprites Tamagoshi** | 3% | 🔴 | 1/30 criaturas com sprite |
 | **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
 | **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte (WIP) |
-| **Músicas** (links completos) | 50% | 🟡 | 1/2 faixas com links |
+| **Músicas** (catálogo) | 100% | 🟢 | 36 faixas, todas publicadas com links + 16 capas randomizadas |
 
 ### 11.2 Por Tipo de Trabalho
 
@@ -978,7 +983,7 @@ capitulo-04 ao 16: publicado: false ❌
 | Artes de personagens (8/9 faltando) | 🔴 15% | Página de personagens sem imagens |
 | Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
-| Capa Sinfonia Imperfeita | ⚠️ Pendente | Música sem capa |
+| Capas de música | ✅ 16 capas | Randomizadas por visita, todas as faixas têm capa |
 
 ### 🔴 Gargalo #2: CONTEÚDO DO LIVRO NÃO PUBLICADO
 **Impacto:** Médio — conteúdo já existe, só não está visível
@@ -1034,7 +1039,7 @@ capitulo-04 ao 16: publicado: false ❌
 | Tarefa | Esforço | Impacto |
 |---|---|---|
 | **Publicar capítulos 4-16 do livro** (PT) | 5 min | 🟢 Alto — libera 81% do livro |
-| **Adicionar links da Sinfonia Imperfeita** | 10 min | 🟢 Médio |
+| **Adicionar mais faixas ao catálogo** | 10 min | 🟢 Médio |
 | **Revisar e corrigir bugs menores** | 2-4h | 🟢 Médio |
 | **Atualizar SITE_MAP.md com versões corretas** | 15 min | 🟢 Médio |
 
@@ -1113,4 +1118,4 @@ O código fonte está sólido. Faltam assets e decisões de cronograma de lança
 
 ---
 
-*Relatório gerado em 2026-06-08 — por GitHub Copilot (DeepSeek V4 Flash)*
+*Relatório gerado em 2026-06-09 — v2.0 — por GitHub Copilot (DeepSeek V4 Flash)*
