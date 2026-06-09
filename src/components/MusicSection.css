@@ -26,6 +26,7 @@
   display: flex;
   gap: 32px;
   width: max-content;
+  padding: 12px 0;
   animation: musicScroll 80s linear infinite;
 }
 
