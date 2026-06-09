@@ -522,7 +522,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 9.5 | `src/config/version.js:5` |
+| `SITE_VERSION` | 9.10 | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
@@ -530,8 +530,8 @@
 | `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
-| `TS_VERSION` | 5.3.0 | `src/config/version.js:21` |
-| `TM_VERSION` | 5.3.0 | `src/config/version.js:22` |
+| `TS_VERSION` | 5.4.0 | `src/config/version.js:21` |
+| `TM_VERSION` | 5.4.0 | `src/config/version.js:22` |
 | `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
 
 ---

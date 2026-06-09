@@ -361,6 +361,27 @@
   filter: none;
 }
 
+.tt-btn-deck-builder {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: #1e2024;
+  color: #e8853a;
+  border: 1px solid #e8853a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.tt-btn-deck-builder:hover {
+  background: #2a2d31;
+  transform: scale(1.02);
+}
+
 .tt-link-album {
   display: inline-block;
   font-family: "IBM Plex Sans", sans-serif;

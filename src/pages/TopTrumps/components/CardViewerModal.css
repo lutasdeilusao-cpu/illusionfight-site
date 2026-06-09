@@ -1,0 +1,219 @@
+/* ── CardViewerModal ── */
+.tt-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tt-viewer-modal {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #2A2D31;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.tt-viewer-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.15s;
+}
+.tt-viewer-close:hover { color: #fff; }
+
+.tt-viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #ccc;
+  font-size: 1.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.tt-viewer-nav:hover { background: rgba(255,255,255,0.12); }
+.tt-viewer-nav--prev { left: 0.6rem; }
+.tt-viewer-nav--next { right: 0.6rem; }
+
+.tt-viewer-layout {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.tt-viewer-image-wrap {
+  flex-shrink: 0;
+  width: 200px;
+  position: relative;
+}
+
+.tt-viewer-image {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+.tt-viewer-image--locked {
+  filter: grayscale(1) brightness(0.4);
+}
+
+.tt-viewer-locked-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.tt-viewer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tt-viewer-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  margin: 0 0 0.3rem;
+}
+
+.tt-viewer-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tt-viewer-tier {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1px solid currentColor;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #888;
+}
+
+.tt-viewer-tier--free { color: #00c8a8; }
+.tt-viewer-tier--elite { color: #e8853a; }
+.tt-viewer-tier--primordial { color: #6B0F1A; }
+.tt-viewer-tier--lendario { color: #9b59b6; }
+.tt-viewer-tier--sombra { color: #2c3e50; }
+
+.tt-viewer-copias {
+  font-size: 0.65rem;
+  color: #666;
+  letter-spacing: 0.05em;
+}
+
+.tt-viewer-elemental {
+  font-size: 0.75rem;
+  color: #e8853a;
+  margin: 0.3rem 0;
+  letter-spacing: 0.04em;
+}
+
+.tt-viewer-desc {
+  font-size: 0.7rem;
+  color: #999;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.tt-viewer-frase {
+  font-size: 0.7rem;
+  color: #F5A623;
+  font-style: italic;
+  margin: 0.4rem 0 0.6rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid #F5A62344;
+}
+
+.tt-viewer-stats-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888;
+  margin: 0.6rem 0 0.4rem;
+  letter-spacing: 0.06em;
+}
+
+.tt-viewer-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.tt-viewer-stat-label {
+  font-size: 0.6rem;
+  color: #888;
+  width: 80px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.tt-viewer-stat-val {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tt-viewer-stat-bar {
+  flex: 1;
+  height: 5px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tt-viewer-stat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e8853a, #F5A623);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.tt-viewer-locked-msg {
+  text-align: center;
+  color: #555;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 600px) {
+  .tt-viewer-layout { flex-direction: column; align-items: center; }
+  .tt-viewer-image-wrap { width: 160px; }
+  .tt-viewer-nav { display: none; }
+}

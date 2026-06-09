@@ -899,6 +899,24 @@
       "menu_ja_ganhou": "Você já ganhou sua carta hoje. Volte amanhã!",
       "menu_album": "Ver meu álbum de cartas →",
       "menu_voltar_games": "VOLTAR AOS GAMES",
+      "deckBuilderBtn": "MONTAR DECK",
+      "cardViewer": {
+        "copies": "x cópias",
+        "stats": "Estatísticas",
+        "locked": "Carta bloqueada"
+      },
+      "deckBuilder": {
+        "title": "Montar Deck",
+        "minCards": "Você precisa de pelo menos 6 cartas diferentes",
+        "save": "Salvar Deck",
+        "clear": "Limpar"
+      },
+      "deckStart": {
+        "title": "Como quer jogar?",
+        "useDeck": "Usar meu deck",
+        "random": "Cartas aleatórias",
+        "cancel": "Cancelar"
+      },
       "hud_rodada": "RODADA {n}/{total}",
       "hud_voce": "VOCÊ: {n}",
       "hud_ia": "IA: {n}",

@@ -9,6 +9,9 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
+import CardViewerModal from './TopTrumps/components/CardViewerModal'
+import DeckBuilder from './TopTrumps/components/DeckBuilder'
+import DeckStartModal from './TopTrumps/components/DeckStartModal'
 import BackToGamesBtn from '../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../lib/sfx'
 import cardFallback from '../assets/images/cards/characters/card-fallback.png'
@@ -126,6 +129,11 @@ export default function TopTrumps() {
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
 
+  // Card viewer + deck builder
+  const [viewerIdx, setViewerIdx] = useState(null)
+  const [showDeckBuilder, setShowDeckBuilder] = useState(false)
+  const [showDeckStart, setShowDeckStart] = useState(false)
+
   // Template randomization (6 templates, 0-5)
   const [templateIdxJogador, setTemplateIdxJogador] = useState(0)
   const [templateIdxIA, setTemplateIdxIA] = useState(0)
@@ -235,12 +243,29 @@ export default function TopTrumps() {
 
   function iniciarJogo() {
     if (!user || totalTurnos > deckUsuario.length) return
-    sfx.nextRound()
     const d = embaralhar([...deckUsuario])
     const metade = Math.ceil(d.length / 2)
     setDeckJogador(d.slice(0, metade))
     setDeckIA(d.slice(metade))
     setCartaJogador(d[0]); setCartaIA(d[metade])
+    setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
+    setHistoricoRodadas([])
+    sortearTemplates()
+  }
+
+  function iniciarJogoComCartas(cartaIds) {
+    // cartaIds = array de IDs (id_num) vindos do deck ou aleatório
+    sfx.nextRound()
+    const d = embaralhar([...cartaIds])
+    const metade = Math.ceil(d.length / 2)
+    // Mapeia IDs para objetos carta completos
+    const resolver = (id) => todasCartas.find(c => c.id_num === id) || todasCartas.find(c => c.id === id)
+    const cartasJogador = d.slice(0, metade).map(resolver).filter(Boolean)
+    const cartasIA = d.slice(metade).map(resolver).filter(Boolean)
+    setDeckJogador(cartasJogador)
+    setDeckIA(cartasIA)
+    setCartaJogador(cartasJogador[0] || null)
+    setCartaIA(cartasIA[0] || null)
     setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
     setHistoricoRodadas([])
     sortearTemplates()
@@ -494,15 +519,52 @@ export default function TopTrumps() {
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={() => {
                     sfx.click()
-                    iniciarJogo()
+                    setShowDeckStart(true)
                   }}>{t('games.toptrumps.jogar')}</button>
+                <button className="tt-btn-deck-builder" onClick={() => { sfx.click(); setShowDeckBuilder(true) }}>
+                  🃏 {t('games.toptrumps.deckBuilderBtn')}
+                </button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
               </div>
             )}
           </LoginGate>
           <BackToGamesBtn label={t('games.toptrumps.menu_voltar_games')} />
         </div>
-      </div></section>
+      </div>
+      {/* Card Viewer */}
+      {viewerIdx !== null && deckUsuario[viewerIdx] && (
+        <CardViewerModal
+          carta={deckUsuario[viewerIdx]}
+          onClose={() => setViewerIdx(null)}
+          onPrev={viewerIdx > 0 ? () => setViewerIdx(viewerIdx - 1) : null}
+          onNext={viewerIdx < deckUsuario.length - 1 ? () => setViewerIdx(viewerIdx + 1) : null}
+        />
+      )}
+      {/* Deck Builder */}
+      {showDeckBuilder && (
+        <DeckBuilder
+          userId={user?.id}
+          deck={{ cartas: todasCartas }}
+          deckIds={deckUsuario.map(c => c.id_num ?? c.id)}
+          onSaved={() => {
+            setShowDeckBuilder(false);
+            if (user) carregarDeckDB(user.id).then(() => window.location.reload());
+          }}
+          onClose={() => setShowDeckBuilder(false)}
+        />
+      )}
+      {/* Deck Start Modal */}
+      {showDeckStart && (
+        <DeckStartModal
+          userId={user?.id}
+          deck={{ cartas: todasCartas }}
+          totalTurnos={totalTurnos}
+          deckIds={deckUsuario.map(c => c.id_num ?? c.id)}
+          onConfirm={(ids) => { setShowDeckStart(false); iniciarJogoComCartas(ids); }}
+          onCancel={() => setShowDeckStart(false)}
+        />
+      )}
+    </section>
     )
   }
 

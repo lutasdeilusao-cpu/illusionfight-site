@@ -899,6 +899,24 @@
       "menu_ja_ganhou": "You already won your card today. Come back tomorrow!",
       "menu_album": "View my card album →",
       "menu_voltar_games": "BACK TO GAMES",
+      "deckBuilderBtn": "BUILD DECK",
+      "cardViewer": {
+        "copies": "copies",
+        "stats": "Stats",
+        "locked": "Card locked"
+      },
+      "deckBuilder": {
+        "title": "Build Deck",
+        "minCards": "You need at least 6 different cards",
+        "save": "Save Deck",
+        "clear": "Clear"
+      },
+      "deckStart": {
+        "title": "How to play?",
+        "useDeck": "Use my deck",
+        "random": "Random cards",
+        "cancel": "Cancel"
+      },
       "hud_rodada": "ROUND {n}/{total}",
       "hud_voce": "YOU: {n}",
       "hud_ia": "AI: {n}",
