@@ -256,7 +256,9 @@ export default function MiniGames() {
           </div>
         ))}
       </div>
-      <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
+      <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+        <BackToGamesBtn onClick={() => navigate('/games')} />
+      </div>
       <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>
     </div>
   )
