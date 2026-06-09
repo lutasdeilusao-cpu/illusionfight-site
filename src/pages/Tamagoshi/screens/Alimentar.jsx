@@ -12,22 +12,26 @@ export default function Alimentar({ onConcluir }) {
   const store = useTamagoshiStore()
   const [progress, setProgress] = useState(0)
   const [animando, setAnimando] = useState(false)
+  const [ultimoItem, setUltimoItem] = useState(null)
 
   const inv = store.inventario || {}
   const comidasDisponiveis = ITENS_LOJA.filter(i => i.categoria === 'comida')
   const tematica = COMIDA_TEMATICA[store.criaturaId]
   const todasComidas = tematica ? [tematica, ...comidasDisponiveis] : comidasDisponiveis
-  const temAlguma = todasComidas.some(c => inv[c.id] > 0)
-  const itemUsar = todasComidas.find(c => inv[c.id] > 0)
+  const comidasNoInv = todasComidas.filter(c => (inv[c.id] || 0) > 0)
+  const temAlguma = comidasNoInv.length > 0
+  const emojiExibicao = ultimoItem?.emoji || comidasNoInv[0]?.emoji || '🍖'
 
-  const handleAlimentar = async () => {
+  const handleAlimentar = async (itemId) => {
     if (animando) return
+    const item = todasComidas.find(c => c.id === itemId)
+    setUltimoItem(item)
     setAnimando(true)
     const novo = Math.min(progress + 25, 100)
     setProgress(novo)
     if (novo >= 100) {
       try {
-        if (itemUsar) await store.consumirItem(itemUsar.id)
+        if (itemId) await store.consumirItem(itemId)
         store.alimentar()
         store.ganharDix(store._userId, DIX_POR_ACAO, 'alimentou criatura')
         onConcluir()
@@ -54,7 +58,7 @@ export default function Alimentar({ onConcluir }) {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ opacity: 0 }}>
-              {itemUsar?.emoji || '🍖'}
+              {emojiExibicao}
             </motion.div>
           )}
         </AnimatePresence>
@@ -69,15 +73,21 @@ export default function Alimentar({ onConcluir }) {
       </div>
 
       {temAlguma ? (
-        <motion.button
-          className="tama-btn"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleAlimentar}
-          disabled={animando}
-        >
-          {itemUsar?.emoji || '🍖'} {itemUsar?.nome || 'alimentar'} ({inv[itemUsar?.id] || 0}x)
-        </motion.button>
+        <div className="tama-alimentar-itens">
+          {comidasNoInv.map(comida => (
+            <motion.button
+              key={comida.id}
+              className="tama-btn"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleAlimentar(comida.id)}
+              disabled={animando}
+              style={{ margin: '0.25rem' }}
+            >
+              {comida.emoji} {comida.nome} ({inv[comida.id]}x)
+            </motion.button>
+          ))}
+        </div>
       ) : (
         <p className="tama-aviso">{t('games.tamagoshi.alimentar_sem_comida')}</p>
       )}

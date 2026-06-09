@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.61*  |  `[SITE] versão carregada: 9.61`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.60*  |  `[SITE] versão carregada: 9.60`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.59*  |  `[SITE] versão carregada: 9.59`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.56*  |  `[SITE] versão carregada: 9.52`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -50,6 +51,7 @@
 *TATICS versão: 7.0.1* | `[TATICS] versão carregada: 7.0.1`
 *TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
+*TAMA versão: 1.21.0* | `[TAMA] versão carregada: 1.21.0`
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 
@@ -77,6 +79,7 @@
 ├── RefactoryBattleLDITatics.md         # Refactory batalha LDI Tatics
 ├── PLANO_CLASSES_LDI_TATICS.md          # Planejamento árvore de classes
 ├── RELATORIO_CLASSES_COMPLETO.md        # Relatório das 42 variações de classe
+├── TUTORIAL_TAMAGOSHI.md               # Tutorial completo do Tamagoshi LDI
 ├── deploy.py                           # Automação deploy (bump → build → commit → push → deploy)
 ├── _add_i18n.py                        # Script utilitário i18n
 ├── _connect_i18n.py                    # Script utilitário i18n

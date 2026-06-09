@@ -18,6 +18,7 @@ export default function Banhar({ onConcluir }) {
   const inv = store.inventario || {}
   const temSabonete = (inv['sabonete'] || 0) > 0 || (inv['shampoo'] || 0) > 0
   const itemUsar = inv['shampoo'] > 0 ? 'shampoo' : inv['sabonete'] > 0 ? 'sabonete' : null
+  const itemLabel = itemUsar === 'shampoo' ? 'Shampoo Especial ✨' : itemUsar === 'sabonete' ? 'Sabonete Teal 🧼' : ''
 
   const handleMove = (y) => {
     if (lastY.current === null) { lastY.current = y; return }
@@ -125,7 +126,10 @@ export default function Banhar({ onConcluir }) {
       </div>
 
       {temSabonete ? (
-        <p className="tama-acao-hint">{t('games.tamagoshi.banhar_hint')}</p>
+        <div>
+          <p className="tama-acao-hint">{t('games.tamagoshi.banhar_hint')}</p>
+          <p style={{ color: '#888', fontSize: '0.7rem', marginTop: 4 }}>usando: {itemLabel}</p>
+        </div>
       ) : (
         <p className="tama-aviso">{t('games.tamagoshi.banhar_sem_sabonete')}</p>
       )}

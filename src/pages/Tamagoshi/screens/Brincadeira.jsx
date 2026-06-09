@@ -65,6 +65,11 @@ export default function Brincadeira({ onConcluir }) {
     setFaseJogo('resultado')
     store.brincar()
     store.ganharDix(store._userId, DIX_POR_ACAO, 'brincou com criatura')
+    // Consumir Brinquedo Yohu se disponível
+    const inv = store.inventario || {}
+    if ((inv['brinquedo'] || 0) > 0) {
+      store.consumirItem('brinquedo').catch(() => {})
+    }
     const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId)
     setFala(texto || t('games.tamagoshi.brincadeira_divertido'))
   }

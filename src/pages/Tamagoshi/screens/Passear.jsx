@@ -175,7 +175,15 @@ export default function Passear({ onConcluir }) {
       setHistorico(saved)
     } catch (e) {}
     setPhase('gameover')
-    try { store.passear(); store.verificarBadge?.(store._userId, 'passeio') } catch (e) {}
+    try {
+      store.passear()
+      store.verificarBadge?.(store._userId, 'passeio')
+      // Consumir Guia de Marelia se disponível
+      const inv = store.inventario || {}
+      if ((inv['guia'] || 0) > 0) {
+        store.consumirItem('guia').catch(() => {})
+      }
+    } catch (e) {}
   }
 
   function startGame() {

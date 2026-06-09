@@ -285,6 +285,19 @@
   padding: 0.4rem 0.8rem;
 }
 
+/* ===== ALIMENTAR MULTI-ITENS ===== */
+.tama-alimentar-itens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.tama-alimentar-itens .tama-btn {
+  font-size: 0.7rem;
+  padding: 0.4rem 0.8rem;
+}
+
 /* ===== PASSEIO ===== */
 .tama-passeio {
   width: 100%;

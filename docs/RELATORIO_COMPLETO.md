@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.13  
-> **Versão do Site:** 9.60  
+> **Versão do Relatório:** 2.14  
+> **Versão do Site:** 9.61  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.20.0  
+**Versão:** 1.21.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -614,11 +614,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
 | `Selecao.jsx` | ✅ Completo | Escolha da criatura |
 | `Criatura.jsx` | ✅ Completo | Tela principal da criatura + barra de saúde + botão saúde |
-| `Alimentar.jsx` | ✅ Completo | Minigame alimentar |
-| `Banhar.jsx` | ✅ Completo | Minigame banhar |
-| `Brincadeira.jsx` | ✅ Completo | 4 mini-interações |
+| `Alimentar.jsx` | ✅ **v1.21.0** | Agora mostra TODOS os itens de comida do inventário (antes só mostrava 1) |
+| `Banhar.jsx` | ✅ **v1.21.0** | Mostra qual item (Shampoo/Sabonete) está sendo usado |
+| `Brincadeira.jsx` | ✅ **v1.21.0** | Consome Brinquedo Yohu do inventário ao vencer |
 | `Passeio.jsx` | ✅ Completo | Seleção de local |
-| `Passear.jsx` | ✅ Completo | Minigame grid (Enduro) |
+| `Passear.jsx` | ✅ **v1.21.0** | Consome Guia de Marelia do inventário ao completar |
 | `RestaurarSaude.jsx` | ✅ Completo | Minigame drag-and-drop (termômetro, curativo, xarope) |
 | `Loja.jsx` | ✅ Completo | Loja de itens |
 | `Luto.jsx` | ✅ Completo | Morte + cooldown |
