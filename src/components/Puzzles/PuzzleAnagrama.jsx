@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { sfxMinigames } from './sfx-minigames'
 
 const BANCO = {
   easy: [
@@ -80,7 +81,11 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
     return () => clearInterval(interval)
   }, [done])
 
-  const handleClick = useCallback((idx) => { if (done) return; setSelected(prev => prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]) }, [done])
+  const handleClick = useCallback((idx) => {
+    if (done) return
+    setSelected(prev => prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx])
+    if (!selected.includes(idx)) sfxMinigames.movimento()
+  }, [done, selected])
   const handleSubmit = useCallback(() => {
     if (done || selected.length === 0) return
     const formado = selected.map(i => unidades[i]).join(cfg.tipo === 'palavra' ? ' ' : '').trim()
@@ -89,11 +94,13 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
     if (formado === correto) {
       const novasResolvidas = [...palavrasResolvidas, palavraAtual]
       setPalavrasResolvidas(novasResolvidas); setSelected([]); setMsg(`✓ "${palavraAtual}"`)
-      if (novasResolvidas.length >= numPalavras) { setDone(true); setTimeout(() => onSolve?.(), 600); return }
+      sfxMinigames.revelar()
+      if (novasResolvidas.length >= numPalavras) { setDone(true); sfxMinigames.vitoria(); setTimeout(() => onSolve?.(), 600); return }
       const prox = indicePalavraAtual + 1; setIndicePalavraAtual(prox); setUnidades(prepararUnidades(palavras[prox], cfg.tipo))
       setTimeout(() => setMsg(''), 1000)
     } else {
       const nova = tentativas + 1; setTentativas(nova); setSelected([])
+      sfxMinigames.erro()
       if (nova >= cfg.tentativas) { setDone(true); setMsg(`✗ era "${palavraAtual}"`); setTimeout(() => onFail?.(), 800) }
       else setMsg(`"${formado}" — errado. ${cfg.tentativas - nova} tentativas restantes.`)
     }

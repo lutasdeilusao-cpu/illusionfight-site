@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { sfxMinigames } from './sfx-minigames'
 
 const COLORS = ['#00B4D8', '#FF6B6B', '#22C55E', '#A855F4']
+const COR_NOME = ['azul', 'vermelho', 'verde', 'amarelo']
 
 export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   const difficulty = config?.difficulty || 'easy'
@@ -11,6 +13,14 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   const [phase, setPhase] = useState('showing')
   const [activeIndex, setActiveIndex] = useState(-1)
   const [round, setRound] = useState(0)
+
+  // Tocar som quando uma cor acende na sequência
+  useEffect(() => {
+    if (activeIndex >= 0 && phase === 'showing') {
+      const nome = COR_NOME[activeIndex]
+      sfxMinigames.simon[nome]?.()
+    }
+  }, [activeIndex, phase])
 
   useEffect(() => {
     if (phase !== 'showing') return
@@ -40,13 +50,18 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   const handleColorClick = (colorIndex) => {
     if (phase !== 'input') return
     const next = playerSeq.length
+    // Tocar som da cor clicada — reforço positivo imediato
+    const nome = COR_NOME[colorIndex]
+    sfxMinigames.simon[nome]?.()
     if (colorIndex !== sequence[next]) {
+      sfxMinigames.simon.erroSimon()
       onFail()
       return
     }
     const newPlayer = [...playerSeq, colorIndex]
     setPlayerSeq(newPlayer)
     if (newPlayer.length >= sequence.length) {
+      sfxMinigames.simon.sequenciaCompleta()
       setPhase('showing')
       setRound(r => r + 1)
     }

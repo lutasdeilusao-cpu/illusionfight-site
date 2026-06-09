@@ -48,6 +48,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useZoom } from '../../hooks/useZoom'
 import { useViewportScroll } from '../../hooks/useViewportScroll'
+import { sfxMinigames } from './sfx-minigames'
 
 const MAZE_CONFIGS = {
   easy:   { rows: 8,  cols: 8,  cellPx: 36, timer: null  },
@@ -71,6 +72,7 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
   const [timeLeft, setTimeLeft] = useState(cfg.timer)
   const [dica, setDica] = useState(false)
   const [dicaPath, setDicaPath] = useState([])
+  const lastMovimentoSfx = useRef(0)
 
   const goalPos = { r: rows - 1, c: cols - 1 }
   const viewportCells = isMobile ? (difficulty === 'hard' ? 8 : 7) : Math.max(rows, cols)
@@ -113,12 +115,28 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
       { dr: 0, dc: 1, wall: 'e' }, { dr: 0, dc: -1, wall: 'w' },
     ]
     const move = dirMap.find(d => d.dr === dr && d.dc === dc)
-    if (!move || cell[move.wall]) return
+    if (!move || cell[move.wall]) {
+      // SFX: bater na parede — erro com volume baixo
+      sfxMinigames.erro()
+      return
+    }
     const nr = r + dr, nc = c + dc
     if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) return
+
+    // SFX: passo com throttle 200ms
+    const agora = Date.now()
+    if (agora - lastMovimentoSfx.current > 200) {
+      lastMovimentoSfx.current = agora
+      sfxMinigames.movimento()
+    }
+
     setPlayerPos({ r: nr, c: nc })
     setMoves(m => m + 1)
-    if (nr === goalPos.r && nc === goalPos.c) { setDone(true); setTimeout(() => onSolve?.(), 400) }
+    if (nr === goalPos.r && nc === goalPos.c) {
+      setDone(true)
+      sfxMinigames.vitoria()
+      setTimeout(() => onSolve?.(), 400)
+    }
   }, [playerPos, maze, done, rows, cols])
 
   useEffect(() => {

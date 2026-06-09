@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { sfxMinigames } from './sfx-minigames'
 
 // Puzzle Sliding Tiles — Reconstituir imagem/documento
 // Props: onSolve(), onFail(), config = { size: 3 }
@@ -34,6 +35,7 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
   const [board, setBoard] = useState(() => shuffleSolvable(size))
   const [moves, setMoves] = useState(0)
   const [done, setDone] = useState(false)
+  const lastSlideSfx = useRef(0)
 
   const blankIdx = board.indexOf(null)
 
@@ -46,15 +48,25 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
     const dist = Math.abs(br - tr) + Math.abs(bc - tc)
     if (dist !== 1) return
 
+    // SFX: slide
+    sfxMinigames.slide()
+
     const newBoard = [...board]
     newBoard[blankIdx] = newBoard[idx]
     newBoard[idx] = null
     setBoard(newBoard)
     setMoves(m => m + 1)
 
+    // SFX: revelar se peça foi pro lugar certo
+    const valor = newBoard[blankIdx]
+    if (valor !== null && valor === goal[blankIdx]) {
+      sfxMinigames.revelar()
+    }
+
     // Check win
     if (newBoard.every((t, i) => t === goal[i])) {
       setDone(true)
+      sfxMinigames.vitoria()
       setTimeout(() => onSolve?.(), 500)
     }
   }, [board, blankIdx, done])

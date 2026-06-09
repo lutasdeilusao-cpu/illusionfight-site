@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useZoom } from '../../hooks/useZoom'
 import { useViewportScroll } from '../../hooks/useViewportScroll'
+import { sfxMinigames } from './sfx-minigames'
 
 function getVisionCone(r, c, dir, size, range = 2) {
   const cells = new Set()
@@ -93,6 +94,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   const [pegadasVisiveis, setPegadasVisiveis] = useState(false)
   const [pegadasPos, setPegadasPos] = useState([])
+  const lastMovimentoSfx = useRef(0)
 
   const goalPos = { r: size-1, c: size-1 }
 
@@ -156,6 +158,14 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     const nr = playerPos.r + dr
     const nc = playerPos.c + dc
     if (nr < 0 || nr >= size || nc < 0 || nc >= size) return
+
+    // SFX: passo com throttle 300ms
+    const agora = Date.now()
+    if (agora - lastMovimentoSfx.current > 300) {
+      lastMovimentoSfx.current = agora
+      sfxMinigames.movimento()
+    }
+
     const currentVision = calculateAllVision(cameras, size, visionRange)
     currentVision.delete('0,0')
     currentVision.delete(`${size-1},${size-1}`)
@@ -165,6 +175,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       setPlayerPos({ r: nr, c: nc })
       setCaughtCell({ r: nr, c: nc })
       setAlarm(true); setDone(true); setToast(true)
+      sfxMinigames.erro()
       setTimeout(() => setToast(false), 1500)
       setTimeout(() => onFail?.(), 1800)
       return
@@ -172,6 +183,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     setPlayerPos({ r: nr, c: nc })
     if (nr === goalPos.r && nc === goalPos.c) {
       setDone(true)
+      sfxMinigames.vitoria()
       setTimeout(() => onSolve?.(), 300)
     }
   }, [playerPos, cameras, done, alarm, visionCells, visionRange])

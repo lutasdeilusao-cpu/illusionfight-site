@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { sfxMinigames } from './sfx-minigames'
 
 const CONFIGS = {
   easy:    { bars: 1, timer: 45,  attempts: 5, tolerance: 8  },
@@ -51,6 +52,8 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
   const [solved, setSolved] = useState(false)
   const [timeLeft, setTimeLeft] = useState(cfg.timer)
   const [heartbeat, setHeartbeat] = useState(false)
+  const lastSlideSfx = useRef(0)
+  const alignedPlayed = useRef(false)
 
   console.log('[DECODER] difficulty:', difficulty, '| bars:', cfg.bars, '| targets:', targets)
 
@@ -71,12 +74,21 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
     return () => clearInterval(beatInt)
   }, [done])
 
+  // SFX: tocar revelar quando todos os canais alinharem
   const allAligned = sliders.every((sl, i) => Math.abs(sl - targets[i]) <= cfg.tolerance)
+  useEffect(() => {
+    if (allAligned && !done && !alignedPlayed.current) {
+      alignedPlayed.current = true
+      sfxMinigames.revelar()
+    }
+    if (!allAligned) alignedPlayed.current = false
+  }, [allAligned, done])
 
   const handleDecode = useCallback(() => {
     if (done) return
     if (allAligned) {
       setSolved(true); setDone(true)
+      sfxMinigames.vitoria()
       setTimeout(() => onSolve?.(), 800)
       return
     }
@@ -91,7 +103,15 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
     if (next >= cfg.attempts) { setDone(true); setTimeout(() => onFail?.(), 800) }
   }, [sliders, targets, done, attempts, allAligned, cfg])
 
-  const updateSlider = (idx, val) => { setSliders(prev => prev.map((s, i) => i === idx ? val : s)) }
+  const updateSlider = (idx, val) => {
+    setSliders(prev => prev.map((s, i) => i === idx ? val : s))
+    // SFX: slide com throttle 100ms
+    const agora = Date.now()
+    if (agora - lastSlideSfx.current > 100) {
+      lastSlideSfx.current = agora
+      sfxMinigames.slide()
+    }
+  }
 
   return (
     <div className="puzzle-container">

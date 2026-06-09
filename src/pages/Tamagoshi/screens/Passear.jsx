@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { sfx } from '../sfx'
+import { sfxMinigames, tom } from '../../../components/Puzzles/sfx-minigames'
 import kronikIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
@@ -131,6 +132,11 @@ export default function Passear({ onConcluir }) {
       s.speed = BASE_SPEED + (s.stage - 1) * 0.3; s.roadOff += s.speed
       s.score = Math.floor(s.frame * s.speed / 10) + s.stage * 200
       const lw = GAME_W / LANE_COUNT
+      // SFX: motor pulsante — throttle 100ms
+      if (!s.lastMotorSfx || s.frame - s.lastMotorSfx > 6) {
+        s.lastMotorSfx = s.frame
+        tom(80, 0.1, 'square', 0.1)
+      }
       if (s.frame - (s.lastObs || 0) > Math.max(50, 110 - (s.stage - 1) * 6)) {
         s.lastObs = s.frame
         s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['🪨','🌳','🧱','🗿','🪵'][Math.floor(Math.random() * 5)] })
@@ -147,6 +153,7 @@ export default function Passear({ onConcluir }) {
         if (o.x < cx + 25 - 8 && o.x + 50 > cx - 25 + 8 && o.y < cy + 25 - 8 && o.y + 50 > cy - 25 + 8) {
           s.lives--
           s.dmgTimer = 15
+          sfxMinigames.erro()
           if (s.lives <= 0) { endGame(); return false }
           return false
         }
@@ -156,7 +163,9 @@ export default function Passear({ onConcluir }) {
         c.y += s.speed
         if (c.y > GAME_H) return false
         if (c.x < cx + 25 - 4 && c.x + 36 > cx - 25 + 4 && c.y < cy + 25 - 4 && c.y + 36 > cy - 25 + 4) {
-          s.score += 50; s.coinsCollected++; return false
+          s.score += 50; s.coinsCollected++
+          sfxMinigames.revelar()
+          return false
         }
         return true
       })
@@ -175,14 +184,20 @@ export default function Passear({ onConcluir }) {
     setDisp(s.score)
     setDispCoins(s.coinsCollected)
     const entry = { score: s.score, coins: s.coinsCollected, stage: s.stage, date: new Date().toLocaleString() }
+    let isRecord = false
     try {
       const saved = JSON.parse(localStorage.getItem('enduro-historico') || '[]')
+      isRecord = saved.length === 0 || s.score > Math.max(...saved.map(h => h.score))
       saved.unshift(entry)
       if (saved.length > 5) saved.length = 5
       localStorage.setItem('enduro-historico', JSON.stringify(saved))
       setHistorico(saved)
     } catch (e) {}
-    sfx.conclusao()
+    // SFX: game over descendente
+    ;[330,220,110].forEach((f,i) => tom(f, 0.2, 'sawtooth', 0.4, i*0.15))
+    if (isRecord) {
+      setTimeout(() => sfxMinigames.vitoria(), 500)
+    }
     setPhase('gameover')
     try {
       store.passear()

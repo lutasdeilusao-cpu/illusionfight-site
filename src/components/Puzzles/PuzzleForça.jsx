@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { sfxMinigames, tom } from './sfx-minigames'
 
 const BANCO = {
   easy: [
@@ -89,22 +90,36 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (done) return
-    if ([...letrasResposta].every(l => letrasCorretas.has(l))) { setDone(true); setTimeout(() => onSolve?.(), 600) }
+    if ([...letrasResposta].every(l => letrasCorretas.has(l))) {
+      setDone(true)
+      sfxMinigames.vitoria()
+      setTimeout(() => onSolve?.(), 600)
+    }
   }, [letrasCorretas])
 
   const clicarLetra = useCallback((letra) => {
     if (done || letrasCorretas.has(letra) || letrasErradas.has(letra)) return
-    if (letrasResposta.has(letra)) { setLetrasCorretas(prev => new Set([...prev, letra])) }
-    else {
+    if (letrasResposta.has(letra)) {
+      setLetrasCorretas(prev => new Set([...prev, letra]))
+      sfxMinigames.sucesso()
+    } else {
       const novosErros = erros + 1; setLetrasErradas(prev => new Set([...prev, letra])); setErros(novosErros)
-      if (novosErros >= cfg.erros) { setDone(true); setTimeout(() => onFail?.(), 800) }
+      sfxMinigames.erro()
+      if (novosErros >= cfg.erros) { setDone(true); tom(110, 1.0, 'sawtooth', 0.4); setTimeout(() => onFail?.(), 800) }
     }
   }, [done, letrasCorretas, letrasErradas, letrasResposta, erros, cfg.erros])
 
   const acusarPalavra = useCallback((palavra) => {
     if (done) return; setAcusou(palavra)
-    if (palavra === resposta) { setDone(true); setLetrasCorretas(new Set(letrasResposta)); setTimeout(() => onSolve?.(), 800) }
-    else { const novosErros = Math.min(erros + 2, cfg.erros); setErros(novosErros); setAcusou(null); if (novosErros >= cfg.erros) { setDone(true); setTimeout(() => onFail?.(), 800) } }
+    if (palavra === resposta) {
+      setDone(true); setLetrasCorretas(new Set(letrasResposta))
+      sfxMinigames.vitoria()
+      setTimeout(() => onSolve?.(), 800)
+    } else {
+      const novosErros = Math.min(erros + 2, cfg.erros); setErros(novosErros); setAcusou(null)
+      sfxMinigames.erro()
+      if (novosErros >= cfg.erros) { setDone(true); tom(110, 1.0, 'sawtooth', 0.4); setTimeout(() => onFail?.(), 800) }
+    }
   }, [done, resposta, letrasResposta, erros, cfg.erros])
 
   const timerColor = timeLeft <= 10 ? '#DC143C' : timeLeft <= 20 ? '#F5A623' : '#555'
