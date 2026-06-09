@@ -152,40 +152,50 @@ export default function NinaMusicPlayer() {
     }
   }, [])
 
+  const handlePlayerError = useCallback((e) => {
+    console.warn('[NINA] YouTube player error:', e)
+  }, [])
+
   const initPlayer = useCallback(() => {
     if (playerReadyRef.current) return
     onYoutubeApi(() => {
       if (playerReadyRef.current) return
-      const player = new window.YT.Player('nina-youtube-player', {
-        height: '0', width: '0',
-        playerVars: {
-          listType: 'playlist', list: PLAYLIST_ID,
-          autoplay: 0, controls: 0, disablekb: 1,
-          fs: 0, modestbranding: 1, rel: 0, loop: 1,
-        },
-        events: {
-          onReady: () => {
-            playerReadyRef.current = true
-            player.setShuffle(true)
-            playerRef.current = player
-            // Auto-play when user clicked "Sim"
-            player.playVideo()
-            setPlaying(true)
+      try {
+        const player = new window.YT.Player('nina-youtube-player', {
+          height: '1', width: '1',
+          playerVars: {
+            listType: 'playlist', list: PLAYLIST_ID,
+            autoplay: 0, controls: 0, disablekb: 1,
+            fs: 0, modestbranding: 1, rel: 0, loop: 1,
+            origin: window.location.origin,
           },
-          onStateChange: (e) => {
-            // Skip the first (unshuffled) video once, then never again
-            if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
-              initialShuffleRef.current = true
-              const p = playerRef.current
-              setTimeout(() => {
-                try { p.nextVideo() } catch (_) { /* ignore */ }
-              }, 500)
-            }
+          events: {
+            onReady: () => {
+              playerReadyRef.current = true
+              player.setShuffle(true)
+              playerRef.current = player
+              // Auto-play when user clicked "Sim"
+              player.playVideo()
+              setPlaying(true)
+            },
+            onStateChange: (e) => {
+              // Skip the first (unshuffled) video once, then never again
+              if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
+                initialShuffleRef.current = true
+                const p = playerRef.current
+                setTimeout(() => {
+                  try { p.nextVideo() } catch (_) { /* ignore */ }
+                }, 500)
+              }
+            },
+            onError: handlePlayerError,
           },
-        },
-      })
+        })
+      } catch (err) {
+        console.warn('[NINA] erro ao criar player:', err)
+      }
     })
-  }, [])
+  }, [handlePlayerError])
 
   const handleSim = () => {
     setStep('hint')
@@ -232,6 +242,17 @@ export default function NinaMusicPlayer() {
       if (handler) document.removeEventListener('click', handler)
     }
   }, [step])
+
+  // Proteção: avisar se algo tentar recarregar/navegar enquanto música toca
+  useEffect(() => {
+    if (!playing) return
+    const handler = (e) => {
+      e.preventDefault()
+      e.returnValue = ''
+    }
+    window.addEventListener('beforeunload', handler)
+    return () => window.removeEventListener('beforeunload', handler)
+  }, [playing])
 
   console.log('[NINA] music player carregado')
 

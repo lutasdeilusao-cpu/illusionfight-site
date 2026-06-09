@@ -4,11 +4,11 @@
  * Todas as versões do site centralizadas aqui.
  * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
  *
- * Última atualização: 2026-06-08
+ * Última atualização: 2026-06-09
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.57'
+export const SITE_VERSION = '9.58'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '1.7.1'  // Pesadelo Particular
