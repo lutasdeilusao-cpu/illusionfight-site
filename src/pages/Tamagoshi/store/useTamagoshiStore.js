@@ -5,33 +5,66 @@ import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA, DIX_BOAS_VINDAS } from '../data/moedas'
 import { CRIATURAS } from '../data/criaturas'
+import { useNotificationStore } from '../../../store/notificationStore'
 
-const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2, saude: 2 }
-const CRITICO_EM_HORAS = 24
-const DIAS_PARA_PERFEITO = 7
+// ── Novo sistema de decaimento por dia da semana ──
+// Cada dia da semana, uma barra específica cai mais rápido
+// Fim de semana: duas barras aleatórias
+const BASE_DECAY = { fome: 0.6, higiene: 0.5, energia: 0.6, humor: 0.4, saude: 0.4 }
+const FOCUSED_EXTRA = 2.0 // extra/h para a(s) barra(s) do dia → total ~2.5/h → ~60 em 24h → cai de 100 para 40 (<50 ✓)
+
+function getFocusedBars() {
+  const day = new Date().getDay() // 0=Dom, 1=Seg... 6=Sáb
+  const schedule = {
+    0: null, // Domingo: aleatório
+    1: ['fome'],     // Segunda: dia de alimentar
+    2: ['higiene'],  // Terça: dia de banho
+    3: ['energia'],  // Quarta: dia de passear
+    4: ['humor'],    // Quinta: dia de brincar
+    5: ['saude'],    // Sexta: dia de saúde
+    6: null,         // Sábado: aleatório
+  }
+  const bars = schedule[day]
+  if (bars === null) {
+    // Fim de semana: 2 barras aleatórias diferentes
+    const all = ['fome', 'higiene', 'energia', 'humor', 'saude']
+    const shuffled = [...all].sort(() => Math.random() - 0.5)
+    return shuffled.slice(0, 2)
+  }
+  return bars
+}
 
 function calcDecaimento(state, horas) {
   if (state.status !== 'vivo' && state.status !== 'critico') return state
   if (horas <= 0) return state
 
+  const focusedBars = getFocusedBars()
   const indepMult = state.personalidade === 'INDEPENDENTE' ? 0.8 : 1
   const carenteHumor = state.personalidade === 'CARENTE' ? 1.2 : 1
 
-  const novaFome = Math.max(0, state.fome - Math.floor(DECAY.fome * horas * indepMult))
-  const novaHigiene = Math.max(0, state.higiene - Math.floor(DECAY.higiene * horas * indepMult))
-  const novaEnergia = Math.max(0, state.energia - Math.floor(DECAY.energia * horas * indepMult))
-  const novaSaude = Math.max(0, state.saude - Math.floor(DECAY.saude * horas * indepMult))
+  function decayBar(nome, base, extraMult = 1) {
+    const isFocused = focusedBars.includes(nome)
+    const totalRate = (isFocused ? BASE_DECAY[nome] + FOCUSED_EXTRA : BASE_DECAY[nome]) * indepMult * extraMult
+    return Math.max(0, base - Math.floor(totalRate * horas))
+  }
 
-  let novoHumor = Math.max(0, state.humor - Math.floor(DECAY.humor * horas * indepMult * carenteHumor))
+  const novaFome = decayBar('fome', state.fome)
+  const novaHigiene = decayBar('higiene', state.higiene)
+  const novaEnergia = decayBar('energia', state.energia)
+
+  let novoHumor = decayBar('humor', state.humor, carenteHumor)
   if (state.personalidade === 'FOFO' && state._ultimoLogin) {
     const horasSemDono = (Date.now() - state._ultimoLogin) / (1000 * 60 * 60)
     if (horasSemDono < 12) novoHumor = Math.max(20, novoHumor)
   }
 
+  const novaSaude = decayBar('saude', state.saude)
+
   const emCritico = novaFome <= 0 || novaHigiene <= 0 || novaEnergia <= 0 || novoHumor <= 0 || novaSaude <= 0
   const jaEraCritico = state.status === 'critico'
   const criticoDesde = jaEraCritico ? state._criticoDesde : emCritico ? Date.now() : null
   const horasCritico = criticoDesde ? (Date.now() - criticoDesde) / (1000 * 60 * 60) : 0
+  const CRITICO_EM_HORAS = 24
 
   if (emCritico && horasCritico >= CRITICO_EM_HORAS) {
     return {
@@ -199,11 +232,53 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   tick: () => {
+    const stateAtual = get()
+    if (!stateAtual.criaturaId || (stateAtual.status !== 'vivo' && stateAtual.status !== 'critico')) return
+    const horas = (Date.now() - stateAtual._ultimoUpdate) / (1000 * 60 * 60)
+    const mult = stateAtual.adminFastMode ? 100 : 1
+
     set(state => {
-      if (!state.criaturaId || (state.status !== 'vivo' && state.status !== 'critico')) return state
-      const horas = (Date.now() - state._ultimoUpdate) / (1000 * 60 * 60)
-      const mult = state.adminFastMode ? 100 : 1
-      return calcDecaimento(state, horas * mult)
+      const novo = calcDecaimento(state, horas * mult)
+
+      // Notificar quando barras ficam baixas
+      const nome = state.nomeCustom || 'Kroniki'
+      const limiar = 50
+      const notifs = []
+      if (state.fome >= limiar && novo.fome < limiar) notifs.push({ bar: 'fome', msg: `${nome} está com fome! 🍖` })
+      if (state.higiene >= limiar && novo.higiene < limiar) notifs.push({ bar: 'higiene', msg: `${nome} precisa de um banho! 🧼` })
+      if (state.energia >= limiar && novo.energia < limiar) notifs.push({ bar: 'energia', msg: `${nome} quer passear! ⚡` })
+      if (state.humor >= limiar && novo.humor < limiar) notifs.push({ bar: 'humor', msg: `${nome} está entediado! 🎭` })
+      if (state.saude >= limiar && novo.saude < limiar) notifs.push({ bar: 'saude', msg: `${nome} não está se sentindo bem! ❤️` })
+      if (novo.status === 'critico' && state.status !== 'critico') notifs.push({ bar: 'critico', msg: `${nome} está em estado CRÍTICO! ⚠️` })
+
+      if (notifs.length > 0) {
+        // Notificação no site (LDINotification)
+        try {
+          const notifStore = useNotificationStore.getState()
+          notifs.forEach(n => {
+            notifStore.push(n.msg, 'ver tamagoshi', '/games/tamagoshi')
+          })
+        } catch (e) { /* notif store not available */ }
+
+        // Notificação browser (Push API)
+        try {
+          if ('Notification' in window && Notification.permission === 'granted' && 'serviceWorker' in navigator) {
+            const n = notifs[0]
+            navigator.serviceWorker.ready.then(sw => {
+              sw.showNotification('🐉 Tamagoshi LDI', {
+                body: n.msg,
+                icon: '/favicon.svg',
+                badge: '/favicon.svg',
+                tag: 'tamagoshi',
+                renotify: true,
+                data: { url: '/games/tamagoshi' },
+              })
+            }).catch(() => {})
+          }
+        } catch (e) { /* sw notif failed */ }
+      }
+
+      return novo
     })
     cacheLocal(get())
   },

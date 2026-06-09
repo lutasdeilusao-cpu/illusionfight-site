@@ -8,14 +8,14 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.50'
+export const SITE_VERSION = '9.51'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '1.7.1'  // Pesadelo Particular
 export const LDI_VERSION       = '1.0.62' // Lendas do LDI
 export const JACK_VERSION      = '5.1.5'  // Jack Dream Beer
 export const ARENA_VERSION     = '1.7.4'  // LDI Arena Mode
-export const TAMA_VERSION      = '1.13.0' // Tamagoshi LDI
+export const TAMA_VERSION      = '1.14.0' // Tamagoshi LDI
 export const DUELO_VERSION     = '1.3.0'  // Duelo LDI
 export const MINIGAMES_VERSION = '1.3.1'  // MiniGames
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player

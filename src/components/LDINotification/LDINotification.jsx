@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import jackImg from '../../assets/images/characters/jack-balloon.png'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
+import tamaImg from '../../assets/images/tamagoshi/01/kroniki-presentation.png'
 import notificacoes from '../../data/notificacoes.json'
 import { useNotificationStore } from '../../store/notificationStore'
 import './LDINotification.css'
@@ -25,8 +26,13 @@ export default function LDINotification({ personagem = 'jack' }) {
   const notifStore = useNotificationStore()
 
   const isNina = personagem === 'nina'
-  const avatar = isNina ? ninaImg : jackImg
-  const accentColor = isNina ? 'var(--accent-pink)' : 'var(--accent-teal)'
+  const isTama = personagem === 'tama'
+  const avatar = isTama ? tamaImg : isNina ? ninaImg : jackImg
+  const accentColor = isTama ? 'var(--accent-green)' : isNina ? 'var(--accent-pink)' : 'var(--accent-teal)'
+  const personagemNome = isTama ? 'Kroniki' : isNina ? 'Nina' : 'Jack'
+
+  // Tama notification polling (mais frequente)
+  const pollInterval = isTama ? 2000 : 3000
 
   useEffect(() => {
     const shuffled = shuffle(notificacoes)
@@ -46,7 +52,7 @@ export default function LDINotification({ personagem = 'jack' }) {
         setNotif(item)
         setVisible(true)
       }
-    }, 3000)
+    }, pollInterval)
 
     return () => { clearTimeout(first); clearInterval(polling) }
   }, [])
@@ -75,11 +81,11 @@ export default function LDINotification({ personagem = 'jack' }) {
   const isExternal = notif.url.startsWith('http')
 
   return (
-    <div className={`notif-balloon ${isNina ? 'notif-nina' : ''}`}>
+    <div className={`notif-balloon ${isNina ? 'notif-nina' : ''} ${isTama ? 'notif-tama' : ''}`}>
       <button className="notif-close" onClick={handleClose}>×</button>
       <div className="notif-header">
-        <img src={avatar} alt={isNina ? 'Nina' : 'Jack'} className="notif-avatar" />
-        <span className="notif-name">{notif.nome_personagem || (isNina ? 'Nina' : 'Jack')}</span>
+        <img src={avatar} alt={personagemNome} className="notif-avatar" />
+        <span className="notif-name">{notif.nome_personagem || personagemNome}</span>
       </div>
       <p className="notif-message">{notif.mensagem}</p>
       {isExternal ? (

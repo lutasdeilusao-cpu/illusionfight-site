@@ -117,6 +117,7 @@ export default function App() {
       <Footer hidden={readerMode} />
       <ScrollToTop />
       <LDINotification personagem="jack" />
+      <LDINotification personagem="tama" />
       <NinaMusicPlayer />
       <CookieBanner />
       {toastPendente && <AchievementToast achievement={toastPendente} fecharToast={fecharToast} />}
