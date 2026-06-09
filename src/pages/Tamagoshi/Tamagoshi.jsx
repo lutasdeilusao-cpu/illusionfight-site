@@ -4,6 +4,8 @@ console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 import { useEffect, useState, useRef } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
+import { useNavigate } from 'react-router-dom'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import { useTamagoshiStore } from './store/useTamagoshiStore'
 import { supabase } from '../../lib/supabase'
 import { calcularFase } from './data/moedas'
@@ -24,6 +26,7 @@ import './Tamagoshi.css'
 export default function Tamagoshi() {
   const { user, perfil, horasDesdeUltimaSessao } = useAuth()
   const { setReaderMode } = useReader()
+  const navigate = useNavigate()
   const store = useTamagoshiStore()
   const lastUserId = useRef(undefined)
   const [subFase, setSubFase] = useState(null)
@@ -103,7 +106,7 @@ export default function Tamagoshi() {
   }
 
   const handleVoltarExtras = () => {
-    window.location.href = '/games'
+    navigate('/games')
   }
 
   const handleNovaAdocao = async () => {
@@ -136,6 +139,9 @@ export default function Tamagoshi() {
         {fase === 'brincadeira' && <Brincadeira />}
         {fase === 'luto' && <Luto />}
       </div>
+      {fase !== 'partida' && fase !== 'luto' && (
+        <BackToGamesBtn onClick={() => navigate('/games')} />
+      )}
     </div>
   )
 }

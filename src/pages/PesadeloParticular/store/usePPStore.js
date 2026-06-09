@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 
-const PP_STORE_VERSION = '1.2.0'
+const PP_STORE_VERSION = '1.3.0'
 
 const DEFAULT_STATE = {
   reputacao: 0,
@@ -11,19 +11,51 @@ const DEFAULT_STATE = {
   nivel: 1,              // sobe a cada caso resolvido, afeta batalhas
   carregado: false,
   saveExists: false,
+  _slot: null,           // slot atual (1, 2, 3)
+  _userId: null,
 }
 
 export const usePPStore = create((set, get) => ({
   ...DEFAULT_STATE,
 
-  // ── LOAD ──
-  async loadSave(userId) {
+  // ── CARREGAR TODOS OS SLOTS ──
+  async loadAllSlots(userId) {
+    if (!userId) return [null, null, null]
+    try {
+      const { data } = await supabase
+        .from('pesadelo_saves')
+        .select('*')
+        .eq('user_id', userId)
+        .order('slot')
+      const slots = [null, null, null]
+      if (data) {
+        data.forEach(s => {
+          slots[s.slot - 1] = {
+            reputacao: s.reputacao || 0,
+            casosResolvidos: s.casos_resolvidos || [],
+            pistasColetadas: s.pistas_coletadas || {},
+            acusacoesErradas: s.acusacoes_erradas || {},
+            nivel: Math.max(1, (s.casos_resolvidos?.length || 0)),
+            casoAtual: s.caso_atual || null,
+          }
+        })
+      }
+      return slots
+    } catch (e) {
+      console.error('[PP] erro ao carregar slots:', e)
+      return [null, null, null]
+    }
+  },
+
+  // ── CARREGAR SLOT ESPECÍFICO ──
+  async loadSlot(userId, slot) {
     if (!userId) { set({ carregado: true, saveExists: false }); return }
     try {
       const { data } = await supabase
-        .from('pp_saves')
+        .from('pesadelo_saves')
         .select('*')
         .eq('user_id', userId)
+        .eq('slot', slot)
         .single()
       if (data) {
         set({
@@ -34,33 +66,51 @@ export const usePPStore = create((set, get) => ({
           nivel: Math.max(1, (data.casos_resolvidos?.length || 0)),
           carregado: true,
           saveExists: true,
+          _slot: slot,
+          _userId: userId,
         })
-        console.log('[PP] save carregado | nivel:', Math.max(1, (data.casos_resolvidos?.length || 0)))
+        console.log('[PP] slot', slot, 'carregado | nivel:', Math.max(1, (data.casos_resolvidos?.length || 0)))
       } else {
-        set({ carregado: true, saveExists: false })
+        set({ ...DEFAULT_STATE, carregado: true, saveExists: false, _slot: slot, _userId: userId })
       }
     } catch (e) {
-      console.error('[PP] erro ao carregar save:', e)
-      set({ carregado: true, saveExists: false })
+      console.error('[PP] erro ao carregar slot:', e)
+      set({ ...DEFAULT_STATE, carregado: true, saveExists: false, _slot: slot, _userId: userId })
     }
   },
 
-  // ── SAVE ──
-  async persistSave(userId) {
-    if (!userId) return
-    const { reputacao, casosResolvidos, pistasColetadas, acusacoesErradas } = get()
+  // ── SALVAR SLOT ──
+  async saveSlot(userId, slot) {
+    if (!userId || !slot) return
+    const { reputacao, casosResolvidos, pistasColetadas, acusacoesErradas, nivel } = get()
     try {
-      await supabase.from('pp_saves').upsert({
+      await supabase.from('pesadelo_saves').upsert({
         user_id: userId,
+        slot,
         reputacao,
         casos_resolvidos: casosResolvidos,
         pistas_coletadas: pistasColetadas,
         acusacoes_erradas: acusacoesErradas,
-      }, { onConflict: 'user_id' })
-      set({ saveExists: true })
-      console.log('[PP] save persistido')
+        caso_atual: null,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: 'user_id,slot' })
+      set({ saveExists: true, _slot: slot, _userId: userId })
+      console.log('[PP] slot', slot, 'persistido')
     } catch (e) {
-      console.error('[PP] erro ao salvar:', e)
+      console.error('[PP] erro ao salvar slot:', e)
+    }
+  },
+
+  // ── DELETAR SLOT ──
+  async deleteSlot(userId, slot) {
+    if (!userId || !slot) return
+    try {
+      await supabase.from('pesadelo_saves').delete()
+        .eq('user_id', userId)
+        .eq('slot', slot)
+      console.log('[PP] slot', slot, 'deletado')
+    } catch (e) {
+      console.error('[PP] erro ao deletar slot:', e)
     }
   },
 
@@ -72,7 +122,10 @@ export const usePPStore = create((set, get) => ({
       const novo = { ...state.pistasColetadas, [casoId]: [...existentes, pistaId] }
       return { pistasColetadas: novo }
     })
-    setTimeout(() => get().persistSave(userId), 300)
+    setTimeout(() => {
+      const s = get()
+      if (s._userId && s._slot) s.saveSlot(s._userId, s._slot)
+    }, 300)
   },
 
   // ── RESOLVER CASO ──
@@ -86,7 +139,10 @@ export const usePPStore = create((set, get) => ({
         nivel: novosCasos.length,
       }
     })
-    setTimeout(() => get().persistSave(userId), 300)
+    setTimeout(() => {
+      const s = get()
+      if (s._userId && s._slot) s.saveSlot(s._userId, s._slot)
+    }, 300)
   },
 
   // ── ACUSAÇÃO ERRADA ──
@@ -97,20 +153,24 @@ export const usePPStore = create((set, get) => ({
         [casoId]: (state.acusacoesErradas[casoId] || 0) + 1,
       }
     }))
-    setTimeout(() => get().persistSave(userId), 300)
+    setTimeout(() => {
+      const s = get()
+      if (s._userId && s._slot) s.saveSlot(s._userId, s._slot)
+    }, 300)
   },
 
   resetStore() { set({ ...DEFAULT_STATE, carregado: true, saveExists: false }) },
 
-  // ── RESET SAVE ──
+  // ── RESET SAVE (DELETAR SLOT ATUAL) ──
   async resetSave(userId) {
-    set({ ...DEFAULT_STATE, carregado: true, saveExists: false })
-    if (userId) {
+    const slot = get()._slot
+    set({ ...DEFAULT_STATE, carregado: true, saveExists: false, _slot: slot, _userId: userId })
+    if (userId && slot) {
       try {
-        await supabase.from('pp_saves').delete().eq('user_id', userId)
-        console.log('[PP] save deletado do Supabase')
+        await supabase.from('pesadelo_saves').delete().eq('user_id', userId).eq('slot', slot)
+        console.log('[PP] slot', slot, 'deletado do Supabase')
       } catch (e) {
-        console.error('[PP] erro ao deletar save:', e)
+        console.error('[PP] erro ao deletar slot:', e)
       }
     }
   },

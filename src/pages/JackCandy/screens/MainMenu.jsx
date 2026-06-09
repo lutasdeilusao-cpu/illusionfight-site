@@ -2,9 +2,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { getCidade } from '../data/cidades'
+import { useNavigate } from 'react-router-dom'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [selectedSlot, setSelectedSlot] = useState(null)
   const [confirmNew, setConfirmNew] = useState(null)
 
@@ -96,6 +99,8 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
           })}
         </div>
       )}
+
+      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '2rem' }} />
     </div>
   )
 }

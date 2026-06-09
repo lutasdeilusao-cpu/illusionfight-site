@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.14  
-> **Versão do Site:** 9.61  
+> **Versão do Relatório:** 2.15  
+> **Versão do Site:** 9.62  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 

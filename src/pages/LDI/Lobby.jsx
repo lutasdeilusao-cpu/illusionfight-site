@@ -6,6 +6,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { loadSheets, deleteSheet } from './hooks/useLDIStorage'
 import ManualDrawer from './components/ManualDrawer'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import './LDI.css'
 
 const ELEMENTAL_COLORS = {
@@ -248,6 +249,8 @@ export default function Lobby() {
           </>
         )}
       </AnimatePresence>
+
+      <BackToGamesBtn style={{ marginTop: '2rem' }} />
     </div>
   )
 }

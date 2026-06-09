@@ -7,9 +7,12 @@ import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import MetricBar from '../components/MetricBar'
 import CriaturaSprite from '../components/CriaturaSprite'
 import BalloonFala from '../components/BalloonFala'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
+import { useNavigate } from 'react-router-dom'
 
 export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -138,15 +141,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           </div>
         )}
 
-        <motion.button
-          className="tama-btn"
-          style={{ marginTop: '0.8rem', opacity: 0.5 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onVoltar}
-        >
-          {t('games.tamagoshi.voltar_extras')}
-        </motion.button>
+        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.tamagoshi.voltar_extras')} />
       </div>
     </div>
   )

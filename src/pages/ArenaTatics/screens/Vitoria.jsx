@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useNavigate } from 'react-router-dom'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [contador, setContador] = useState(0)
   const target = sdrGanho
 
@@ -63,6 +66,8 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
         }}>
         {t('tatics.proxima_batalha')}
       </motion.button>
+
+      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1.5rem' }} />
     </div>
   )
 }

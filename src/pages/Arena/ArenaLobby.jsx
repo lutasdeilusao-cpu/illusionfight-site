@@ -4,6 +4,8 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 import enemiesData from './data/arena-enemies.json'
+import { useNavigate } from 'react-router-dom'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 
 const ELEM_COLORS = {
   fogo: '#F5A623', agua: '#00B4D8', terra: '#22C55E', ar: '#A855F4',
@@ -72,6 +74,7 @@ function NeoGuideIntro({ onShow }) {
 export default function ArenaLobby({ onNavigate }) {
   const { t } = useLanguage()
   const { user } = useAuth()
+  const navigate = useNavigate()
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
   const [loading, setLoading] = useState(true)
@@ -276,6 +279,7 @@ export default function ArenaLobby({ onNavigate }) {
         {t('games.arena.nova_ficha')}
       </button>
 
+      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} />
     </div>
   )
 }

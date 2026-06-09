@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useNavigate } from 'react-router-dom'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 export default function DueloMenu({ onStart }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   return (
     <div className="duel-menu-wrap">
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
@@ -31,6 +34,8 @@ export default function DueloMenu({ onStart }) {
         <span>·</span>
         <span>{t('games.duelo.vs_ia')}</span>
       </div>
+
+      <BackToGamesBtn onClick={() => navigate('/games')} />
     </div>
   )
 }

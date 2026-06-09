@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 export default function Derrota({ onRevanche, onSair }) {
   const { t } = useLanguage()
@@ -39,6 +40,7 @@ export default function Derrota({ onRevanche, onSair }) {
             {t('tatics.sair')}
           </motion.button>
         </div>
+        <BackToGamesBtn onClick={onSair} style={{ marginTop: '1.5rem' }} />
       </motion.div>
     </div>
   )

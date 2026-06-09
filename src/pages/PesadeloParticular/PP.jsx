@@ -846,7 +846,7 @@ export default function PP() {
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const store = usePPStore()
-  const [appFase, setAppFase] = useState(null) // null=loading | menu | intro | app
+  const [appFase, setAppFase] = useState(null) // null=loading | slots | menu | intro | app
   const [aba, setAba] = useState('feed')
   const [casoAtivo, setCasoAtivo] = useState(null)
   const [faseInterna, setFaseInterna] = useState(null)
@@ -855,14 +855,23 @@ export default function PP() {
   const phoneCallTriggered = useRef(new Set())
   const [suspeitoSelecionado, setSuspeitoSelecionado] = useState(null)
   const [feedbackAcusacao, setFeedbackAcusacao] = useState(null) // null | 'errado' | 'bloqueado'
+  const [slotsData, setSlotsData] = useState([null, null, null])
+  const [slotsLoaded, setSlotsLoaded] = useState(false)
 
   const { reputacao, casosResolvidos, pistasColetadas, acusacoesErradas, nivel, carregado, saveExists } = store
 
-  // Load save
+  // Load all slots first
   useEffect(() => {
     console.log(`[PP] versão carregada: ${PP_VERSION}`)
-    if (user) store.loadSave(user.id)
-    else store.loadSave(null)
+    if (user) {
+      store.loadAllSlots(user.id).then(data => {
+        setSlotsData(data)
+        setSlotsLoaded(true)
+      })
+    } else {
+      setSlotsData([null, null, null])
+      setSlotsLoaded(true)
+    }
   }, [user])
 
   // Reader mode (hide navbar/footer/trial banner)
@@ -871,19 +880,42 @@ export default function PP() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Decide menu vs intro after load
+  // Quando slots carregados, mostra seleção de slots
   useEffect(() => {
-    if (!carregado || appFase !== null) return
-    const hasSave = saveExists || casosResolvidos.length > 0 || reputacao > 0 || Object.keys(pistasColetadas).length > 0 || Object.keys(acusacoesErradas).length > 0
-    if (hasSave) {
+    if (slotsLoaded && appFase === null) {
+      setAppFase('slots')
+    }
+  }, [slotsLoaded, appFase])
+
+  const handleSlotSelect = async (slotNum) => {
+    if (!user) return
+    const slotSave = slotsData[slotNum - 1]
+    if (slotSave) {
+      // Carregar save existente
+      await store.loadSlot(user.id, slotNum)
       setAppFase('menu')
     } else {
+      // Novo jogo neste slot
+      await store.loadSlot(user.id, slotNum)
       setAppFase('intro')
     }
-  }, [carregado, appFase, casosResolvidos, reputacao, pistasColetadas, acusacoesErradas, saveExists])
+  }
+
+  const handleDeleteSlot = async (slotNum) => {
+    if (!user) return
+    await store.deleteSlot(user.id, slotNum)
+    const newSlots = [...slotsData]
+    newSlots[slotNum - 1] = null
+    setSlotsData(newSlots)
+  }
 
   const handleNovoJogo = async () => {
+    const slotNum = store._slot
     await store.resetSave(user?.id)
+    // Atualiza slotsData local
+    const newSlots = [...slotsData]
+    if (slotNum) newSlots[slotNum - 1] = null
+    setSlotsData(newSlots)
     setAppFase('intro')
   }
 
@@ -1298,10 +1330,87 @@ export default function PP() {
   }
 
   // Loading
-  if (!carregado) {
+  if (!carregado && appFase !== 'slots') {
     return (
       <div className="pp-loading">
         {t('pp.feed.loading')}
+      </div>
+    )
+  }
+
+  // Slot selection screen
+  if (appFase === 'slots') {
+    return (
+      <div className="pp-page-full">
+        <div className="pp-rain" />
+        <div className="pp-page-content" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="pp-menu-label">{t('pp.menu.marelia')}</div>
+          <h1 className="pp-menu-title">
+            {t('pp.menu.titulo_linha1')}<br/>{t('pp.menu.titulo_linha2')}
+          </h1>
+          <p className="pp-text-mono-muted" style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '0.75rem' }}>
+            {t('pp.menu.selecione_slot') || 'Selecione um slot para jogar'}
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: 360, margin: '0 auto 2rem' }}>
+            {[1, 2, 3].map(num => {
+              const save = slotsData[num - 1]
+              return (
+                <div
+                  key={num}
+                  className="pp-slot-card"
+                  style={{
+                    background: save ? 'rgba(0,255,136,0.05)' : 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${save ? 'rgba(0,255,136,0.3)' : 'rgba(255,255,255,0.1)'}`,
+                    borderRadius: 12, padding: '1rem',
+                    cursor: 'pointer', transition: 'all 0.2s',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  }}
+                  onClick={() => handleSlotSelect(num)}
+                >
+                  <div>
+                    <div style={{ color: save ? 'var(--pp-jack)' : '#666', fontFamily: 'Courier New', fontWeight: 700, fontSize: '0.85rem' }}>
+                      {t('pp.menu.slot_label') || 'SAVE'} {num}
+                    </div>
+                    {save ? (
+                      <div style={{ color: '#888', fontFamily: 'Courier New', fontSize: '0.7rem', marginTop: '0.3rem' }}>
+                        {t('pp.menu.nivel_casos', { nivel: save.nivel || 1, casos: (save.casosResolvidos || []).length })}
+                      </div>
+                    ) : (
+                      <div style={{ color: '#555', fontFamily: 'Courier New', fontSize: '0.7rem', marginTop: '0.3rem' }}>
+                        {t('pp.menu.slot_vazio') || 'vazio'}
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <button
+                      style={{
+                        padding: '0.4rem 1rem',
+                        background: save ? 'rgba(232,133,58,0.15)' : 'rgba(0,255,136,0.1)',
+                        border: `1px solid ${save ? 'rgba(232,133,58,0.4)' : 'rgba(0,255,136,0.3)'}`,
+                        borderRadius: 8,
+                        color: save ? '#E8853A' : '#00ff88',
+                        fontFamily: 'Courier New', fontSize: '0.7rem', fontWeight: 700,
+                        cursor: 'pointer',
+                      }}
+                      onClick={(e) => { e.stopPropagation(); handleSlotSelect(num) }}
+                    >
+                      {save ? (t('pp.menu.continuar') || 'CONTINUAR') : (t('pp.menu.novo_jogo') || 'NOVO JOGO')}
+                    </button>
+                    {save && (
+                      <span
+                        style={{ color: '#ff4444', cursor: 'pointer', fontSize: '0.8rem', opacity: 0.6 }}
+                        onClick={(e) => { e.stopPropagation(); if (window.confirm(`Deletar slot ${num}?`)) handleDeleteSlot(num) }}
+                      >🗑️</span>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <BackToGamesBtn onClick={() => navigate('/games')} />
+        </div>
       </div>
     )
   }
