@@ -1,7 +1,54 @@
 [
   {
-    "id": "a-garota-de-fora",
-    "titulo": "A Garota de Fora",
+    "id": "lutas-de-ilusao",
+    "titulo": "Lutas de Ilusão",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#6B0F1A",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/6tZYw93qw5T0uKSb1ELROe"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/watch?v=uMb1L33u_Hw"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://music.apple.com/br/album/lutas-de-ilusão-single/1838575478"
+      },
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0FQ4HM8PQ"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/us/album/817626301"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "https://tidal.com/album/459125153"
+      }
+    ]
+  },
+  {
+    "id": "unico-role",
+    "titulo": "Unico Rol??",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -12,71 +59,49 @@
         "nome": "TikTok",
         "cor": "#000000",
         "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7615443613213394961"
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7545574374936086544"
       },
       {
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/1Jbpae5YzOOsCqjOlmnP5r"
+        "url": "https://open.spotify.com/album/13z4Qy5qPmQhuwxkYAfnvK"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/unico-rol%C3%AA-single/1837513207?app=music&ls=1&ct=FFM_db67c92f17272689e8556c95e73cbe63&at=1001lwQy"
       },
       {
         "nome": "YouTube",
         "cor": "#FF0000",
         "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_mEpisOmLf5GxcShqp6SkePBLb1oLGO7IQ&src=FFM&lid=00000000-69b0-635e-3a00-008400b97c26&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_mNU4JwVmw8cTBAF3S-EaDT66IxFSpOibA&src=FFM&lid=00000000-68b7-433e-2d00-0099001c2b06&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/814961181"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/505846475"
-      }
-    ]
-  },
-  {
-    "id": "a-pilula-vermelha",
-    "titulo": "A pílula vermelha",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/2VtlnMTe5P66xtK6tFUJB8"
+        "url": "http://www.tidal.com/album/458010832"
       },
       {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/463498226"
-      }
-    ]
-  },
-  {
-    "id": "all-i-see-is-freeze",
-    "titulo": "All I see is freeze",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462986370"
+        "nome": "iTunes",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.itunes.apple.com/au/album/unico-rol%C3%AA-single/1837513207?app=itunes&ls=1&ct=FFM_16d1021634d383353582561441fea129&at=1001lwQy"
       }
     ]
   },
   {
     "id": "andando-por-voce",
-    "titulo": "Andando por Você",
+    "titulo": "Andando por Voc??",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -111,7 +136,7 @@
   },
   {
     "id": "andando-por-voce",
-    "titulo": "Andando por Você",
+    "titulo": "Andando por Voc??",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -139,8 +164,8 @@
     ]
   },
   {
-    "id": "balada-dos-esquizitos",
-    "titulo": "Balada dos Esquizitos",
+    "id": "a-garota-de-fora",
+    "titulo": "A Garota de Fora",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -151,43 +176,25 @@
         "nome": "TikTok",
         "cor": "#000000",
         "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7548102448511174672"
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7615443613213394961"
       },
       {
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/4mvkyuH7MAQQqpxjMD9cKZ"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/balada-dos-esquizitos-single/1839014168?app=music&ls=1&ct=FFM_05f6e8faff74c9dca00cf783a2e0b084&at=1001lwQy"
+        "url": "https://open.spotify.com/album/1Jbpae5YzOOsCqjOlmnP5r"
       },
       {
         "nome": "YouTube",
         "cor": "#FF0000",
         "icone": "youtube",
-        "url": "https://www.youtube.com/watch?v=l4aPzyuKN9A&src=FFM&lid=00000000-68c0-475a-4000-0010009430c9&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/818640541"
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_mEpisOmLf5GxcShqp6SkePBLb1oLGO7IQ&src=FFM&lid=00000000-69b0-635e-3a00-008400b97c26&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/459504443"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/balada-dos-esquizitos-single/1839014168?app=itunes&ls=1&ct=FFM_2118748f2a90708b68fc254cfa1574cb&at=1001lwQy"
+        "url": "http://www.tidal.com/album/505846475"
       }
     ]
   },
@@ -227,8 +234,8 @@
     ]
   },
   {
-    "id": "chega-de-la-la-la",
-    "titulo": "CHEGA DE LÁ, LÁ, LÁ",
+    "id": "so-mais-um-round",
+    "titulo": "S?? mais um Round",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -239,590 +246,19 @@
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/6L2jn62CXvbu17NEHM1weo"
+        "url": "https://open.spotify.com/album/4nub4UWiDYDKugZifYY0zf"
       },
       {
         "nome": "Amazon Music",
         "cor": "#00A8E1",
         "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0FRHFQW4F?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/823113691"
+        "url": "https://music.amazon.com/albums/B0GRWSH8TM?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/461290527"
-      }
-    ]
-  },
-  {
-    "id": "come-para-neverland",
-    "titulo": "Come para Neverland",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/0WY5ufr4oi6yLWtuCTHnE7"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462448549"
-      }
-    ]
-  },
-  {
-    "id": "escola-pra-q",
-    "titulo": "Escola pra q?",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/460938523"
-      }
-    ]
-  },
-  {
-    "id": "felicidade-que-eu-nao-procurava",
-    "titulo": "Felicidade que eu não procurava",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593788493383256081"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/3T4kqW9yMztPIRLuX44Dch"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/felicidade-que-eu-n%C3%A3o-procurava-single/1871208574?app=music&ls=1&ct=FFM_9e2325568beece83451a6fa8b0c24b00&at=1001lwQy"
-      },
-      {
-        "nome": "YouTube",
-        "cor": "#FF0000",
-        "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lzYOYxrqIxCT_cy07Xx57vzvFv_76u0Nk&src=FFM&lid=00000000-6965-8638-2900-00160035d7dc&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/488751808"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/felicidade-que-eu-n%C3%A3o-procurava-single/1871208574?app=itunes&ls=1&ct=FFM_bc8844be930e659887920eb7e3384616&at=1001lwQy"
-      }
-    ]
-  },
-  {
-    "id": "garota-de-chanel",
-    "titulo": "Garota de chanel",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/1CUBrBsxKjVQZnRDW66bFX"
-      },
-      {
-        "nome": "Amazon Music",
-        "cor": "#00A8E1",
-        "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0GFT2RVWT?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/896051752"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/488331155"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/garota-de-chanel-single/1869064308?app=itunes&ls=1&ct=FFM_a9f1c6b77eed87a0010b2dcec7f85315&at=1001lwQy"
-      }
-    ]
-  },
-  {
-    "id": "go-easy",
-    "titulo": "Go Easy",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/4KrQd4QbA4aZGg0ZMCalAb"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462681311"
-      }
-    ]
-  },
-  {
-    "id": "gonna-be-stars",
-    "titulo": "Gonna be Stars",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/6PRpMhG1zcTel1Ta8u7O1A"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/gonna-be-stars-single/1856234243?app=music&ls=1&ct=FFM_2cc28474ae615d7da861b48d9c24fb73&at=1001lwQy"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/474603284"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/gonna-be-stars-single/1856234243?app=itunes&ls=1&ct=FFM_40220cef4b561043e00a8ed691c548d0&at=1001lwQy"
-      }
-    ]
-  },
-  {
-    "id": "inevitavel",
-    "titulo": "Inevitável",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Amazon Music",
-        "cor": "#00A8E1",
-        "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0FSYJWP9N?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/463388549"
-      }
-    ]
-  },
-  {
-    "id": "inevitavel",
-    "titulo": "Inevitável",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/inevit%C3%A1vel-single/1842918503?app=music&ls=1&ct=FFM_f7f19f6d71faaa49e06d2db539037b07&at=1001lwQy"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/463388545"
-      }
-    ]
-  },
-  {
-    "id": "inevitavel",
-    "titulo": "Inevitável",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462975478"
-      }
-    ]
-  },
-  {
-    "id": "infelizes",
-    "titulo": "Infelizes",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593780688948807681"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/2DCqjZdkjEM47U04WdBb76"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/infelizes-single/1871201831?app=music&ls=1&ct=FFM_97d003af8c8dbba4374599041d15ab94&at=1001lwQy"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/488747617"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/infelizes-single/1871201831?app=itunes&ls=1&ct=FFM_04416890cdd81852c65ad1e79aeaca7b&at=1001lwQy"
-      }
-    ]
-  },
-  {
-    "id": "lutas-de-ilusao",
-    "titulo": "Lutas de Ilusão",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#6B0F1A",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "url": "https://open.spotify.com/album/6tZYw93qw5T0uKSb1ELROe",
-        "cor": "#1DB954",
-        "icone": "spotify"
-      },
-      {
-        "nome": "YouTube",
-        "url": "https://www.youtube.com/watch?v=uMb1L33u_Hw",
-        "cor": "#FF0000",
-        "icone": "youtube"
-      },
-      {
-        "nome": "Apple Music",
-        "url": "https://music.apple.com/br/album/lutas-de-ilusão-single/1838575478",
-        "cor": "#FC3C44",
-        "icone": "apple"
-      },
-      {
-        "nome": "Amazon Music",
-        "url": "https://music.amazon.com/albums/B0FQ4HM8PQ",
-        "cor": "#00A8E1",
-        "icone": "amazon"
-      },
-      {
-        "nome": "Deezer",
-        "url": "https://www.deezer.com/us/album/817626301",
-        "cor": "#A238FF",
-        "icone": "deezer"
-      },
-      {
-        "nome": "Tidal",
-        "url": "https://tidal.com/album/459125153",
-        "cor": "#000000",
-        "icone": "tidal"
-      }
-    ]
-  },
-  {
-    "id": "meu-lugar",
-    "titulo": "Meu Lugar",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593796033982990352"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/028qlhiEKpaEsGSaJrhDL0"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/meu-lugar-single/1871246544?app=music&ls=1&ct=FFM_1ec962ae0c1e51f01ba0d35f83b5115c&at=1001lwQy"
-      },
-      {
-        "nome": "YouTube",
-        "cor": "#FF0000",
-        "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_k_jl7khaQlB1r-vHJ2V8T_6zqPjzERCKw&src=FFM&lid=00000000-6963-384b-3200-003700c2a0d8&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/488755050"
-      },
-      {
-        "nome": "iTunes",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/meu-lugar-single/1871246544?app=itunes&ls=1&ct=FFM_05ebf62207fd0a02282e4c3fab3549de&at=1001lwQy"
-      }
-    ]
-  },
-  {
-    "id": "offline",
-    "titulo": "OFFLINE",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7566334055018285072"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/1ohRzt4R9yjw1GkhbXYSWK"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/offline-single/1849447622?app=music&ls=1&ct=FFM_e8447429bfce526071eead5ab8dd58b5&at=1001lwQy"
-      },
-      {
-        "nome": "YouTube",
-        "cor": "#FF0000",
-        "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lQjFSgJ_fU5FZOmTYjYl9Ym2uAgePcqzA&src=FFM&lid=00000000-6900-ff38-3800-00e8005a4ddd&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/846037952"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/469897710"
-      }
-    ]
-  },
-  {
-    "id": "one-night-out",
-    "titulo": "One Night Out",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462447876"
-      }
-    ]
-  },
-  {
-    "id": "pelo-espaco-sideral",
-    "titulo": "Pelo espaço sideral",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/7GivoS0KSNOQehPsat18SD"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/463497779"
-      }
-    ]
-  },
-  {
-    "id": "pior-de-mim",
-    "titulo": "Pior de mim",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7579631154967037969"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/5URhshmYoebeF7we6kUoGN"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/pior-de-mim-single/1858637048?app=music&ls=1&ct=FFM_7028d50a75cb7a70d0e34b87f962b6a4&at=1001lwQy"
-      },
-      {
-        "nome": "Amazon Music",
-        "cor": "#00A8E1",
-        "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0G4WVGMB8?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/869442442"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/478620145"
-      }
-    ]
-  },
-  {
-    "id": "sinfonia-imperfeita",
-    "titulo": "Sinfonia Imperfeita",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "TikTok",
-        "cor": "#000000",
-        "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7548179690499786769"
-      },
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/2aTajutsxmYdEbIwpFebyD"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/sinfonia-imperfeita-single/1839032339?app=music&ls=1&ct=FFM_59acf743fbe3960abef6f83ea4d5db4a&at=1001lwQy"
-      },
-      {
-        "nome": "YouTube",
-        "cor": "#FF0000",
-        "icone": "youtube",
-        "url": "https://www.youtube.com/watch?v=TEWCQBlR4Dk&src=FFM&lid=00000000-68c0-81dd-4000-001000943325&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/818795011"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/459563482"
+        "url": "http://www.tidal.com/album/505765297"
       }
     ]
   },
@@ -863,59 +299,13 @@
         "nome": "iTunes",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/sorte-minha-single/1871255124?app=itunes&ls=1&ct=FFM_41ea699a3451103d8915561cf424c95c&at=1001lwQy"
+        "url": "https://geo.itunes.apple.com/au/album/sorte-minha-single/1871255124?app=itunes&ls=1&ct=FFM_7a7ff7764f1d3939b9f95826594b1f53&at=1001lwQy"
       }
     ]
   },
   {
-    "id": "sou-sua-vitima",
-    "titulo": "Sou sua Vítima",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/461198007"
-      }
-    ]
-  },
-  {
-    "id": "so-mais-um-round",
-    "titulo": "Só mais um Round",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/4nub4UWiDYDKugZifYY0zf"
-      },
-      {
-        "nome": "Amazon Music",
-        "cor": "#00A8E1",
-        "icone": "amazon",
-        "url": "https://music.amazon.com/albums/B0GRWSH8TM?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/505765297"
-      }
-    ]
-  },
-  {
-    "id": "todo-dia-cedo",
-    "titulo": "Todo dia cedo",
+    "id": "meu-lugar",
+    "titulo": "Meu Lugar",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -926,43 +316,90 @@
         "nome": "TikTok",
         "cor": "#000000",
         "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593066977221707792"
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593796033982990352"
       },
       {
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/4j1VIyXdAANXyA4Whn1VOf"
+        "url": "https://open.spotify.com/album/028qlhiEKpaEsGSaJrhDL0"
       },
       {
         "nome": "Apple Music",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/todo-dia-cedo-single/1869061659?app=music&ls=1&ct=FFM_d47f99d89f0fcc7aae4e502a99d94099&at=1001lwQy"
+        "url": "https://geo.music.apple.com/au/album/meu-lugar-single/1871246544?app=music&ls=1&ct=FFM_8c586da3290856ccdb85dfb7ba63f7f9&at=1001lwQy"
       },
       {
         "nome": "YouTube",
         "cor": "#FF0000",
         "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lQroKXddnDAiNndgB3yu9MYS8ldXGdljg&src=FFM&lid=00000000-6966-790a-3700-002f0088360a&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
-      },
-      {
-        "nome": "Deezer",
-        "cor": "#A238FF",
-        "icone": "deezer",
-        "url": "https://www.deezer.com/album/896135102"
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_k_jl7khaQlB1r-vHJ2V8T_6zqPjzERCKw&src=FFM&lid=00000000-6963-384b-3200-003700c2a0d8&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/488338740"
+        "url": "http://www.tidal.com/album/488755050"
+      },
+      {
+        "nome": "iTunes",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.itunes.apple.com/au/album/meu-lugar-single/1871246544?app=itunes&ls=1&ct=FFM_e672e7eb4a6eaceed722c12745a39aab&at=1001lwQy"
       }
     ]
   },
   {
-    "id": "todo-lo-que-veo-es-freeze",
-    "titulo": "Todo lo que veo es freeze",
+    "id": "felicidade-que-eu-nao-procurava",
+    "titulo": "Felicidade que eu n??o procurava",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593788493383256081"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/3T4kqW9yMztPIRLuX44Dch"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/felicidade-que-eu-n%C3%A3o-procurava-single/1871208574?app=music&ls=1&ct=FFM_ae827d7151ab9ce95754bb3f1fd365a2&at=1001lwQy"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lzYOYxrqIxCT_cy07Xx57vzvFv_76u0Nk&src=FFM&lid=00000000-6965-8638-2900-00160035d7dc&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/488751808"
+      },
+      {
+        "nome": "iTunes",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.itunes.apple.com/au/album/felicidade-que-eu-n%C3%A3o-procurava-single/1871208574?app=itunes&ls=1&ct=FFM_0a6d16b0ead126b642f121ebc29e92ee&at=1001lwQy"
+      }
+    ]
+  },
+  {
+    "id": "infelizes",
+    "titulo": "Infelizes",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -973,13 +410,25 @@
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/2QtBm677g0j5uxmHaEDkES"
+        "url": "https://open.spotify.com/album/2DCqjZdkjEM47U04WdBb76"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/infelizes-single/1871201831?app=music&ls=1&ct=FFM_c7451db863384dc85eb386071d10ece2&at=1001lwQy"
+      },
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0GG51V4M1?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/462986384"
+        "url": "http://www.tidal.com/album/488747617"
       }
     ]
   },
@@ -1008,7 +457,7 @@
         "nome": "Apple Music",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/traidores-single/1871201570?app=music&ls=1&ct=FFM_d93d9e67a8a8b521c9b47fb432df3587&at=1001lwQy"
+        "url": "https://geo.music.apple.com/au/album/traidores-single/1871201570?app=music&ls=1&ct=FFM_c1ab3daa849b5889d68339fd15fed79e&at=1001lwQy"
       },
       {
         "nome": "YouTube",
@@ -1026,65 +475,13 @@
         "nome": "iTunes",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/traidores-single/1871201570?app=itunes&ls=1&ct=FFM_32fec6e568ae2a98979b8cf8a727cbc0&at=1001lwQy"
+        "url": "https://geo.itunes.apple.com/au/album/traidores-single/1871201570?app=itunes&ls=1&ct=FFM_04cef8b29a0d69a9fb149d654c719288&at=1001lwQy"
       }
     ]
   },
   {
-    "id": "tudo-que-sinto-e-love",
-    "titulo": "Tudo que sinto é Love",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/4PLGxu1eIWYJaAEVxYTvUV"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/462972967"
-      }
-    ]
-  },
-  {
-    "id": "tudo-que-vejo-e-freeze",
-    "titulo": "Tudo que vejo é freeze",
-    "artista": "Isaias Leal",
-    "ano": "2025",
-    "publicado": true,
-    "capa": "lutas-de-ilusao.png",
-    "cor": "#1A1D21",
-    "plataformas": [
-      {
-        "nome": "Spotify",
-        "cor": "#1DB954",
-        "icone": "spotify",
-        "url": "https://open.spotify.com/album/27hDkbU2t3EQZjeF7ajMLO"
-      },
-      {
-        "nome": "Apple Music",
-        "cor": "#FC3C44",
-        "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/tudo-que-vejo-%C3%A9-freeze-single/1840951123?app=music&ls=1&ct=FFM_2ad4534eee0346c9f782e6c14a4c0595&at=1001lwQy"
-      },
-      {
-        "nome": "Tidal",
-        "cor": "#000000",
-        "icone": "tidal",
-        "url": "http://www.tidal.com/album/461447626"
-      }
-    ]
-  },
-  {
-    "id": "unico-role",
-    "titulo": "Unico Rolê",
+    "id": "garota-de-chanel",
+    "titulo": "Garota de chanel",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1095,49 +492,225 @@
         "nome": "TikTok",
         "cor": "#000000",
         "icone": "tiktok",
-        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7545574374936086544"
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593067809362937857"
       },
       {
         "nome": "Spotify",
         "cor": "#1DB954",
         "icone": "spotify",
-        "url": "https://open.spotify.com/album/13z4Qy5qPmQhuwxkYAfnvK"
+        "url": "https://open.spotify.com/album/1CUBrBsxKjVQZnRDW66bFX"
       },
       {
         "nome": "Apple Music",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.music.apple.com/au/album/unico-rol%C3%AA-single/1837513207?app=music&ls=1&ct=FFM_9509dc3531722bf54409ebd9eecb7417&at=1001lwQy"
+        "url": "https://geo.music.apple.com/au/album/garota-de-chanel-single/1869064308?app=music&ls=1&ct=FFM_3f0e556c73f8e217461741d994e5dc6a&at=1001lwQy"
       },
       {
         "nome": "YouTube",
         "cor": "#FF0000",
         "icone": "youtube",
-        "url": "https://www.youtube.com/playlist?list=OLAK5uy_mNU4JwVmw8cTBAF3S-EaDT66IxFSpOibA&src=FFM&lid=00000000-68b7-433e-2d00-0099001c2b06&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lOediZ4hTIof2sJ4GSzYkLvoBr-SpauNo&src=FFM&lid=00000000-6966-1b4a-2900-00130035f58e&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
       },
       {
         "nome": "Deezer",
         "cor": "#A238FF",
         "icone": "deezer",
-        "url": "https://www.deezer.com/album/814961181"
+        "url": "https://www.deezer.com/album/896051752"
       },
       {
         "nome": "Tidal",
         "cor": "#000000",
         "icone": "tidal",
-        "url": "http://www.tidal.com/album/458010832"
+        "url": "http://www.tidal.com/album/488331155"
+      }
+    ]
+  },
+  {
+    "id": "todo-dia-cedo",
+    "titulo": "Todo dia cedo",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7593066977221707792"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/4j1VIyXdAANXyA4Whn1VOf"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/todo-dia-cedo-single/1869061659?app=music&ls=1&ct=FFM_d294834c65333613d70380f9922b4f5a&at=1001lwQy"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lQroKXddnDAiNndgB3yu9MYS8ldXGdljg&src=FFM&lid=00000000-6966-790a-3700-002f0088360a&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/896135102"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/488338740"
+      }
+    ]
+  },
+  {
+    "id": "pior-de-mim",
+    "titulo": "Pior de mim",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/5URhshmYoebeF7we6kUoGN"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/pior-de-mim-single/1858637048?app=music&ls=1&ct=FFM_16bf3697f57131c461675e8f46e19d5a&at=1001lwQy"
+      },
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0G4WVGMB8?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/869442442"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/478620145"
       },
       {
         "nome": "iTunes",
         "cor": "#FC3C44",
         "icone": "apple",
-        "url": "https://geo.itunes.apple.com/au/album/unico-rol%C3%AA-single/1837513207?app=itunes&ls=1&ct=FFM_929903a7ef29013d12183457893fbffd&at=1001lwQy"
+        "url": "https://geo.itunes.apple.com/au/album/pior-de-mim-single/1858637048?app=itunes&ls=1&ct=FFM_f4b83ad898db8a94ebdfc09aecb42918&at=1001lwQy"
+      }
+    ]
+  },
+  {
+    "id": "gonna-be-stars",
+    "titulo": "Gonna be Stars",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7573670019101902864"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/6PRpMhG1zcTel1Ta8u7O1A"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_l_HzM0LnKTVKQTyuz4Qj3CB9GkEwDnJvE&src=FFM&lid=00000000-691b-13aa-3800-00c100412de2&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/474603284"
+      },
+      {
+        "nome": "iTunes",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.itunes.apple.com/au/album/gonna-be-stars-single/1856234243?app=itunes&ls=1&ct=FFM_ae4460e0b41c3f57ecde15d0a84fcebe&at=1001lwQy"
+      }
+    ]
+  },
+  {
+    "id": "offline",
+    "titulo": "OFFLINE",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7566334055018285072"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/1ohRzt4R9yjw1GkhbXYSWK"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/offline-single/1849447622?app=music&ls=1&ct=FFM_bf489379dac2426afabaeb20a38e7b87&at=1001lwQy"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/playlist?list=OLAK5uy_lQjFSgJ_fU5FZOmTYjYl9Ym2uAgePcqzA&src=FFM&lid=00000000-6900-ff38-3800-00e8005a4ddd&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/846037952"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/469897710"
       }
     ]
   },
   {
     "id": "v-de-vinganca",
-    "titulo": "V de Vingança",
+    "titulo": "V de Vingan??a",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1159,8 +732,94 @@
     ]
   },
   {
+    "id": "a-pilula-vermelha",
+    "titulo": "A p??lula vermelha",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/2VtlnMTe5P66xtK6tFUJB8"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/463498226"
+      }
+    ]
+  },
+  {
+    "id": "pelo-espaco-sideral",
+    "titulo": "Pelo espa??o sideral",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/7GivoS0KSNOQehPsat18SD"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/463497779"
+      }
+    ]
+  },
+  {
+    "id": "todo-lo-que-veo-es-freeze",
+    "titulo": "Todo lo que veo es freeze",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/2QtBm677g0j5uxmHaEDkES"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462986384"
+      }
+    ]
+  },
+  {
+    "id": "all-i-see-is-freeze",
+    "titulo": "All I see is freeze",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462986370"
+      }
+    ]
+  },
+  {
     "id": "unico-role",
-    "titulo": "Único rolê",
+    "titulo": "??nico rol??",
     "artista": "Isaias Leal",
     "ano": "2025",
     "publicado": true,
@@ -1178,6 +837,353 @@
         "cor": "#000000",
         "icone": "tidal",
         "url": "http://www.tidal.com/album/462985681"
+      }
+    ]
+  },
+  {
+    "id": "inevitavel",
+    "titulo": "Inevit??vel",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0FSYJWP9N?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/463388549"
+      }
+    ]
+  },
+  {
+    "id": "inevitavel",
+    "titulo": "Inevit??vel",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/inevit%C3%A1vel-single/1842918503?app=music&ls=1&ct=FFM_97c2d867e5ff61f166d8e9dae0f27aaa&at=1001lwQy"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/463388545"
+      }
+    ]
+  },
+  {
+    "id": "inevitavel",
+    "titulo": "Inevit??vel",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462975478"
+      }
+    ]
+  },
+  {
+    "id": "tudo-que-sinto-e-love",
+    "titulo": "Tudo que sinto ?? Love",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/4PLGxu1eIWYJaAEVxYTvUV"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462972967"
+      }
+    ]
+  },
+  {
+    "id": "go-easy",
+    "titulo": "Go Easy",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/4KrQd4QbA4aZGg0ZMCalAb"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462681311"
+      }
+    ]
+  },
+  {
+    "id": "one-night-out",
+    "titulo": "One Night Out",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462447876"
+      }
+    ]
+  },
+  {
+    "id": "come-para-neverland",
+    "titulo": "Come para Neverland",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/0WY5ufr4oi6yLWtuCTHnE7"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/462448549"
+      }
+    ]
+  },
+  {
+    "id": "tudo-que-vejo-e-freeze",
+    "titulo": "Tudo que vejo ?? freeze",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/27hDkbU2t3EQZjeF7ajMLO"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/tudo-que-vejo-%C3%A9-freeze-single/1840951123?app=music&ls=1&ct=FFM_46cf16e56b33260cdc8278db5c2f82e0&at=1001lwQy"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/461447626"
+      }
+    ]
+  },
+  {
+    "id": "sou-sua-vitima",
+    "titulo": "Sou sua V??tima",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/461198007"
+      }
+    ]
+  },
+  {
+    "id": "escola-pra-q",
+    "titulo": "Escola pra q?",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/460938523"
+      }
+    ]
+  },
+  {
+    "id": "chega-de-la-la-la",
+    "titulo": "CHEGA DE L??, L??, L??",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/6L2jn62CXvbu17NEHM1weo"
+      },
+      {
+        "nome": "Amazon Music",
+        "cor": "#00A8E1",
+        "icone": "amazon",
+        "url": "https://music.amazon.com/albums/B0FRHFQW4F?ref=dm_ff_amazonmusic_3p&tag=featurefmbr-20"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/823113691"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/461290527"
+      }
+    ]
+  },
+  {
+    "id": "sinfonia-imperfeita",
+    "titulo": "Sinfonia Imperfeita",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7548179690499786769"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/2aTajutsxmYdEbIwpFebyD"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/sinfonia-imperfeita-single/1839032339?app=music&ls=1&ct=FFM_fdcf1abf08a1c35f62d949348df20d7c&at=1001lwQy"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/watch?v=TEWCQBlR4Dk&src=FFM&lid=00000000-68c0-81dd-4000-001000943325&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/818795011"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/459563482"
+      }
+    ]
+  },
+  {
+    "id": "balada-dos-esquizitos",
+    "titulo": "Balada dos Esquizitos",
+    "artista": "Isaias Leal",
+    "ano": "2025",
+    "publicado": true,
+    "capa": "lutas-de-ilusao.png",
+    "cor": "#1A1D21",
+    "plataformas": [
+      {
+        "nome": "TikTok",
+        "cor": "#000000",
+        "icone": "tiktok",
+        "url": "https://go.onelink.me/bIdt?pid=tiktokweb&c=&af_adset_id=0_unknown&click=0&af_force_deeplink=true&_d=0&lvid=&af_dp=snssdk1180%3A%2F%2Fmusic%2Fdetail%2F7548102448511174672"
+      },
+      {
+        "nome": "Spotify",
+        "cor": "#1DB954",
+        "icone": "spotify",
+        "url": "https://open.spotify.com/album/4mvkyuH7MAQQqpxjMD9cKZ"
+      },
+      {
+        "nome": "Apple Music",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.music.apple.com/au/album/balada-dos-esquizitos-single/1839014168?app=music&ls=1&ct=FFM_b311c4d2005c22df93d29b8e28d9b81b&at=1001lwQy"
+      },
+      {
+        "nome": "YouTube",
+        "cor": "#FF0000",
+        "icone": "youtube",
+        "url": "https://www.youtube.com/watch?v=l4aPzyuKN9A&src=FFM&lid=00000000-68c0-475a-4000-0010009430c9&cid=eef267f6-3f51-5d46-a717-711ac12bcf76"
+      },
+      {
+        "nome": "Deezer",
+        "cor": "#A238FF",
+        "icone": "deezer",
+        "url": "https://www.deezer.com/album/818640541"
+      },
+      {
+        "nome": "Tidal",
+        "cor": "#000000",
+        "icone": "tidal",
+        "url": "http://www.tidal.com/album/459504443"
+      },
+      {
+        "nome": "iTunes",
+        "cor": "#FC3C44",
+        "icone": "apple",
+        "url": "https://geo.itunes.apple.com/au/album/balada-dos-esquizitos-single/1839014168?app=itunes&ls=1&ct=FFM_a332189c43d53628e8926488ec931a82&at=1001lwQy"
       }
     ]
   }
