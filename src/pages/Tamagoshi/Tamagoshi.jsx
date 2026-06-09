@@ -138,10 +138,10 @@ export default function Tamagoshi() {
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}
         {fase === 'luto' && <Luto />}
+        {fase !== 'partida' && fase !== 'luto' && (
+          <BackToGamesBtn onClick={() => navigate('/games')} />
+        )}
       </div>
-      {fase !== 'partida' && fase !== 'luto' && (
-        <BackToGamesBtn onClick={() => navigate('/games')} />
-      )}
     </div>
   )
 }
