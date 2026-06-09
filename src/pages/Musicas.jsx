@@ -2,11 +2,26 @@ import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../context/LanguageContext'
 import musicas from '../data/musicas.json'
-import lutasDeIlusaoImg from '../assets/images/music/lutas-de-ilusao.png'
 import { platformIconMap } from '../components/PlatformIcons'
+import img01 from '../assets/images/music/01.png'
+import img02 from '../assets/images/music/02.png'
+import img03 from '../assets/images/music/03.png'
+import img04 from '../assets/images/music/04.png'
+import img05 from '../assets/images/music/05.png'
+import img06 from '../assets/images/music/06.png'
+import img07 from '../assets/images/music/07.png'
+import img08 from '../assets/images/music/08.png'
+import img09 from '../assets/images/music/09.png'
+import img10 from '../assets/images/music/10.png'
+import img11 from '../assets/images/music/11.png'
+import img12 from '../assets/images/music/12.png'
+import img13 from '../assets/images/music/13.png'
+import img14 from '../assets/images/music/14.png'
+import img15 from '../assets/images/music/15.png'
+import img16 from '../assets/images/music/16.png'
 import './Musicas.css'
 
-const capaMap = { 'lutas-de-ilusao.png': lutasDeIlusaoImg }
+const allImages = [img01, img02, img03, img04, img05, img06, img07, img08, img09, img10, img11, img12, img13, img14, img15, img16]
 
 function shuffleArray(arr) {
   const a = [...arr]
@@ -20,6 +35,7 @@ function shuffleArray(arr) {
 export default function Musicas() {
   const { t } = useLanguage()
   const shuffled = useMemo(() => shuffleArray(musicas), [])
+  const randomImages = useMemo(() => shuffleArray(allImages), [])
 
   return (
     <>
@@ -44,8 +60,8 @@ export default function Musicas() {
 
       <section className="musicas-faixas">
         <div className="container">
-          {shuffled.map(m => {
-            const capa = capaMap[m.capa]
+          {shuffled.map((m, i) => {
+            const capa = randomImages[i % randomImages.length]
             const isPlaceholder = !m.publicado
             const hasRealLinks = m.publicado && m.plataformas.some(p => p.url)
             return (
