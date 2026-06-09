@@ -1,10 +1,19 @@
+/* ═══════════════════════════════════════════
+   HeroSlideshow — Visual Redesign v2.0
+   ═══════════════════════════════════════════ */
+
+/* ── Container ── */
 .hero-slideshow {
   position: relative;
+  width: 100%;
   min-height: 100vh;
   overflow: hidden;
   background: var(--bg-primary);
 }
 
+/* ═══════════════════════════════════════════
+   TRACK — Slides
+   ═══════════════════════════════════════════ */
 .hero-slideshow__track {
   position: absolute;
   inset: 0;
@@ -15,77 +24,158 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+  z-index: 1;
 }
 
+/* Active slide sits on top */
 .hero-slideshow__slide--active {
-  opacity: 1;
-  transform: translateX(0);
   z-index: 2;
   pointer-events: auto;
 }
 
-.hero-slideshow__slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
+/* Image background — separate layer for parallax */
+.hero-slideshow__bg {
+  position: absolute;
+  inset: -5%; /* overscroll to avoid edge gaps during parallax */
+  background-size: cover;
+  background-position: center;
+  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
-/* Dark gradient overlay */
+/* Default inactive state */
+.hero-slideshow__slide .hero-slideshow__bg {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+/* Active slide bg: image estática no centro */
+.hero-slideshow__slide--active .hero-slideshow__bg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide saindo: imagem escorrega pra direita (ou esquerda) e fade out */
+.hero-slideshow__slide--exit .hero-slideshow__bg {
+  opacity: 0;
+  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-slideshow__slide--exit-left .hero-slideshow__bg {
+  transform: translateX(-8%);
+}
+
+.hero-slideshow__slide--exit-right .hero-slideshow__bg {
+  transform: translateX(8%);
+}
+
+/* Slide entrando (active): imagem vem de 8% oposto */
+.hero-slideshow__slide--active .hero-slideshow__bg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════════
+   OVERLAY — Vinheta Direcional
+   ═══════════════════════════════════════════ */
 .hero-slideshow__overlay {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85) 0%,
-    rgba(0,0,0,0.3) 60%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%),
+    linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* ── Content ── */
+/* ═══════════════════════════════════════════
+   CONTENT — Texto + CTAs
+   ═══════════════════════════════════════════ */
 .hero-slideshow__content {
   position: relative;
   z-index: 5;
-  height: 100%;
-  min-height: 100vh;
+  padding: clamp(2rem, 8vh, 6rem) clamp(1.5rem, 6vw, 6rem);
+  max-width: 700px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0 4rem 4rem;
-  max-width: 720px;
+  justify-content: flex-end;
+  min-height: 100vh;
 }
 
+/* ── Tag Pill com Glow Pulsante ── */
 .hero-slideshow__tag {
   display: inline-block;
   background: #00e5cc;
   color: #000;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
+  padding: 4px 12px;
+  border-radius: 100px;
   margin-bottom: 1.25rem;
+  animation: tag-pulse 3s ease-in-out infinite;
 }
 
+@keyframes tag-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 229, 204, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(0, 229, 204, 0.8), 0 0 40px rgba(0, 229, 204, 0.3); }
+}
+
+/* ── Título com Glitch ── */
 .hero-slideshow__title {
-  font-family: 'BringRace', var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.1;
-  color: var(--text-primary);
+  font-family: 'BringRace', sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  line-height: 1.05;
+  color: #fff;
+  margin: 0.5rem 0 1rem;
+  max-width: 600px;
   text-shadow: 0 2px 16px rgba(0,0,0,0.5);
-  margin: 0 0 0.75rem;
+  position: relative;
 }
 
+.hero-slideshow__title::before,
+.hero-slideshow__title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  pointer-events: none;
+}
+
+.hero-slideshow__title::before {
+  color: #00e5cc;
+  animation: glitch-1 4s infinite;
+  animation-delay: 2s;
+}
+
+.hero-slideshow__title::after {
+  color: #ff6b35;
+  animation: glitch-2 4s infinite;
+  animation-delay: 2.15s;
+}
+
+@keyframes glitch-1 {
+  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
+  96% { transform: translateX(-3px); opacity: 0.8; }
+  97% { transform: translateX(3px); opacity: 0.8; }
+  98% { transform: translateX(-2px); opacity: 0.8; }
+  99% { transform: translateX(0); opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
+  96% { transform: translateX(3px); opacity: 0.6; }
+  97% { transform: translateX(-3px); opacity: 0.6; }
+  98% { transform: translateX(2px); opacity: 0.6; }
+  99% { transform: translateX(0); opacity: 0; }
+}
+
+/* ── Subtítulo ── */
 .hero-slideshow__subtitle {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.2rem);
@@ -95,6 +185,7 @@
   text-shadow: 0 1px 8px rgba(0,0,0,0.4);
   margin: 0 0 2rem;
   max-width: 540px;
+  line-height: 1.5;
 }
 
 /* ── CTA Buttons ── */
@@ -107,121 +198,197 @@
 .hero-slideshow__cta--primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.8rem;
-  background: #ff6f00;
+  padding: 12px 28px;
+  background: #ff6b35;
   color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-decoration: none;
   border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 200ms, box-shadow 200ms, transform 150ms;
 }
 
 .hero-slideshow__cta--primary:hover {
-  background: #e65100;
+  background: #ff8555;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
   transform: translateY(-1px);
 }
 
 .hero-slideshow__cta--secondary {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.8rem;
+  padding: 12px 28px;
   background: transparent;
   color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.5);
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  transition: border-color 200ms, color 200ms, background 200ms, transform 150ms;
 }
 
 .hero-slideshow__cta--secondary:hover {
-  border-color: #fff;
-  background: rgba(255,255,255,0.08);
+  border-color: #00e5cc;
+  color: #00e5cc;
+  background: rgba(0, 229, 204, 0.05);
   transform: translateY(-1px);
 }
 
-/* ── Navigation Dots ── */
-.hero-slideshow__dots {
+/* ═══════════════════════════════════════════
+   STAGGER — Entrada com delay progressivo
+   ═══════════════════════════════════════════ */
+.hero-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stagger-in 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-slideshow__tag.hero-stagger {
+  animation-delay: 0ms;
+  animation-duration: 400ms;
+  transform: translateY(20px);
+}
+
+.hero-slideshow__title.hero-stagger {
+  animation-delay: 100ms;
+  animation-duration: 500ms;
+  transform: translateY(30px);
+}
+
+.hero-slideshow__subtitle.hero-stagger {
+  animation-delay: 250ms;
+  animation-duration: 400ms;
+  transform: translateY(20px);
+}
+
+.hero-slideshow__actions.hero-stagger {
+  animation-delay: 400ms;
+  animation-duration: 350ms;
+  transform: translateY(15px);
+}
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS BARS — Substitui dots
+   ═══════════════════════════════════════════ */
+.hero-slideshow__nav {
   position: absolute;
   bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 6;
+  left: clamp(1.5rem, 6vw, 6rem);
+  right: clamp(1.5rem, 6vw, 6rem);
   display: flex;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 8px;
+  z-index: 6;
 }
 
-.hero-slideshow__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
+.hero-slideshow__progress {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.25);
   border: none;
+  border-radius: 2px;
+  overflow: hidden;
   cursor: pointer;
   padding: 0;
-  transition: background 0.3s;
 }
 
-.hero-slideshow__dot--active {
+.hero-slideshow__progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
   background: #fff;
+  border-radius: 2px;
 }
 
-/* ── Arrows ── */
-.hero-slideshow__arrow {
+.hero-slideshow__progress--active .hero-slideshow__progress-fill {
+  animation: progress-fill var(--slide-duration, 6000ms) linear forwards;
+}
+
+.hero-slideshow__progress--paused .hero-slideshow__progress-fill {
+  animation-play-state: paused;
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* ═══════════════════════════════════════════
+   SETAS — Navegação
+   ═══════════════════════════════════════════ */
+.hero-slideshow__setas {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
   z-index: 6;
+  pointer-events: none;
+}
+
+.hero-slideshow__seta {
   width: 44px;
   height: 44px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 50%;
   cursor: pointer;
+  transition: border-color 200ms, background 200ms;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: #fff;
-  font-size: 1.2rem;
-  transition: background 0.2s, border-color 0.2s;
+  pointer-events: all;
   padding: 0;
   line-height: 1;
-  user-select: none;
 }
 
-.hero-slideshow__arrow:hover {
-  background: rgba(0,0,0,0.6);
-  border-color: rgba(255,255,255,0.3);
+.hero-slideshow__seta:hover {
+  border-color: #00e5cc;
+  background: rgba(0, 229, 204, 0.1);
 }
 
-.hero-slideshow__arrow--prev {
-  left: 1.5rem;
-}
-
-.hero-slideshow__arrow--next {
-  right: 1.5rem;
-}
-
-/* ── Responsive ── */
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Mobile
+   ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
   .hero-slideshow {
-    min-height: 60vh;
+    min-height: 70vh;
   }
 
   .hero-slideshow__content {
-    min-height: 60vh;
-    padding: 0 1.5rem 3rem;
+    min-height: 70vh;
+    padding: 1.5rem;
     align-items: center;
     text-align: center;
+  }
+
+  .hero-slideshow__overlay {
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
+  }
+
+  .hero-slideshow__setas {
+    display: none;
   }
 
   .hero-slideshow__subtitle {
@@ -230,9 +397,5 @@
 
   .hero-slideshow__actions {
     justify-content: center;
-  }
-
-  .hero-slideshow__arrow {
-    display: none;
   }
 }
