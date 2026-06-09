@@ -11,7 +11,6 @@ export default function StatusBar({ card }) {
   }
 
   const isMonster = card.type === 'MONSTER'
-  const stars = isMonster ? '★'.repeat(card.level || 0) : ''
 
   return (
     <div className="duelo-statusbar">
@@ -19,14 +18,17 @@ export default function StatusBar({ card }) {
         <span className="duelo-statusbar-name">{card.name}</span>
         {isMonster && (
           <>
-            <span className="duelo-statusbar-stars">{stars}</span>
             <span className="duelo-statusbar-atk">{t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def}</span>
+            <span className="duelo-statusbar-movrng">👟{card.mov} 🎯{card.rng}</span>
           </>
         )}
-        {!isMonster && (
-          <span className="duelo-statusbar-type">{card.type === 'SPELL' ? t('games.duelo.card_magia') : t('games.duelo.card_armadilha')}</span>
+        {!isMonster && card.type === 'SPELL' && (
+          <span className="duelo-statusbar-type">{t('games.duelo.card_magia')} {card.duracao > 0 ? `(${card.duracao} turnos)` : ''}</span>
         )}
-        <span className="duelo-statusbar-desc">{card.description}</span>
+        {!isMonster && card.type === 'TRAP' && (
+          <span className="duelo-statusbar-type">{t('games.duelo.card_armadilha')} (área: {card.area})</span>
+        )}
+        <span className="duelo-statusbar-desc">{card.desc}</span>
       </div>
     </div>
   )

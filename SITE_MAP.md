@@ -1,6 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.75*  |  `[SITE] versão carregada: 9.75`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 9.74*  |  `[SITE] versão carregada: 9.74`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.73*  |  `[SITE] versão carregada: 9.73`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.72*  |  `[SITE] versão carregada: 9.72`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.71*  |  `[SITE] versão carregada: 9.71`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -566,7 +568,7 @@
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
-| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v1.8.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + Enduro Kroniki + SFX completo + Simon Says fix |
+| `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v1.9.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + BackToGamesBtn unificado em todas as telas |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.8.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.3.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.0.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
@@ -586,13 +588,13 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.71** | `src/config/version.js:5` || `PP_VERSION` | **2.1.0** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.75** | `src/config/version.js:5` || `PP_VERSION` | **2.1.0** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.2.0** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.2.0** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.8.0** | `src/config/version.js:13` |
 | `TAMA_VERSION` | **1.25.0** | `src/config/version.js:14` |
-| `DUELO_VERSION` | **1.5.0** | `src/config/version.js:15` |
-| `MINIGAMES_VERSION` | **1.8.0** | `src/config/version.js:16` |
+| `DUELO_VERSION` | **2.0.0** | `src/config/version.js:15` |
+| `MINIGAMES_VERSION` | **1.9.0** | `src/config/version.js:16` |
 | `TS_VERSION` | **5.8.0** | `src/config/version.js:21` |
 | `TM_VERSION` | **5.6.0** | `src/config/version.js:22` |
 | `TATICS_VERSION` | **7.3.0** | `src/config/version.js:25` || `PP_VERSION` | 2.0.1 | `src/config/version.js:10` |
@@ -600,7 +602,7 @@
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
 | `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
 | `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
-| `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
+| `DUELO_VERSION` | 2.0.0 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
 | `TS_VERSION` | **5.5.0** | `src/config/version.js:21` |
 | `TM_VERSION` | **5.5.0** | `src/config/version.js:22` |

@@ -1,7 +1,9 @@
-// Efeitos de magias e armadilhas — funções puras que retornam alterações de estado
-export function applySpellEffect(state, card, caster = 'PLAYER') {
-  const playerLP = caster === 'PLAYER' ? state.playerLP : state.aiLP
-  const aiLP = caster === 'PLAYER' ? state.aiLP : state.playerLP
+// Efeitos de magias e armadilhas — CAMPO DE BATALHA
+// Funções puras que retornam alterações de estado + log
+
+export function applySpellEffect(state, card, caster = 'PLAYER', target = null) {
+  const playerLP = state.playerLP
+  const aiLP = state.aiLP
   const updates = {}
   let log = ''
 
@@ -18,78 +20,125 @@ export function applySpellEffect(state, card, caster = 'PLAYER') {
       const newTargetLP = Math.max(0, targetLP - card.effectValue)
       if (caster === 'PLAYER') updates.aiLP = newTargetLP
       else updates.playerLP = newTargetLP
-      log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. ${card.effectValue} de dano!`
+      const winner = updates.playerLP <= 0 ? 'AI' : updates.aiLP <= 0 ? 'PLAYER' : null
+      if (winner) { updates.winner = winner; updates.gamePhase = 'OVER' }
+      log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. ${card.effectValue} de dano direto!`
+      break
+    }
+    case 'SWAP_ATK_DEF': {
+      // Aplicado via tempBuffs com flag swap
+      log = `${card.name} ativado.`
+      break
+    }
+    case 'PUSH': {
+      // Empurra monstro inimigo N casas para trás
+      // target = { row, col, owner } — resolvido no store
+      log = `${card.name} ativado.`
+      break
+    }
+    case 'TELEPORT': {
+      // Move aliado para qualquer casa vazia
+      log = `${card.name} ativado.`
       break
     }
     case 'ATK_BOOST': {
-      const monsterZones = caster === 'PLAYER' ? state.playerMonsterZones : state.aiMonsterZones
-      const monster = monsterZones.find(m => m)
-      if (monster) {
-        updates.tempBuffs = [...state.tempBuffs, { cardId: monster.id_num, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
-        log = `${card.name}: ${monster.name} ganha +${card.effectValue} ATK.`
+      // target = { id_num } do monstro no grid
+      const id = target?.id_num
+      if (id) {
+        updates.tempBuffs = [...(state.tempBuffs || []), { cardId: id, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + card.duracao }]
+        log = `${card.name}: +${card.effectValue} ATK.`
       } else {
-        log = `${card.name} ativado, mas não há monstro para buffar.`
+        log = `${card.name} ativado, mas não há alvo.`
       }
       break
     }
-    case 'DRAW': {
-      const deckKey = caster === 'PLAYER' ? 'playerDeck' : 'aiDeck'
-      const handKey = caster === 'PLAYER' ? 'playerHand' : 'aiHand'
-      const deck = [...state[deckKey]]
-      const hand = [...state[handKey]]
-      for (let i = 0; i < card.effectValue && deck.length > 0; i++) {
-        hand.push(deck.pop())
-      }
-      updates[deckKey] = deck
-      updates[handKey] = hand
-      log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. +${card.effectValue} cartas.`
-      break
-    }
-    case 'DESTROY_MONSTER': {
-      const enemyZonesKey = caster === 'PLAYER' ? 'aiMonsterZones' : 'playerMonsterZones'
-      const enemyGraveKey = caster === 'PLAYER' ? 'aiGraveyard' : 'playerGraveyard'
-      const zones = [...state[enemyZonesKey]]
-      const idx = zones.findIndex(m => m)
-      if (idx >= 0) {
-        const destroyed = zones[idx]
-        zones[idx] = null
-        updates[enemyZonesKey] = zones
-        updates[enemyGraveKey] = [...state[enemyGraveKey], destroyed]
-        log = `${card.name}: ${destroyed.name} foi destruído!`
+    case 'DEF_BOOST': {
+      const id = target?.id_num
+      if (id) {
+        updates.tempBuffs = [...(state.tempBuffs || []), { cardId: id, defBonus: card.effectValue, expiresOnTurn: state.turnNumber + card.duracao }]
+        log = `${card.name}: +${card.effectValue} DEF.`
       } else {
-        log = `${card.name} ativado, mas não há monstros inimigos.`
+        log = `${card.name} ativado, mas não há alvo.`
       }
       break
     }
-    case 'NEGATE_ATTACK':
-      log = `${card.name}: ataque negado!`
-      break
-    case 'DESTROY_ATTACKER': {
-      const attZonesKey = caster === 'PLAYER' ? 'aiMonsterZones' : 'playerMonsterZones'
-      const attGraveKey = caster === 'PLAYER' ? 'aiGraveyard' : 'playerGraveyard'
-      const zones = [...state[attZonesKey]]
-      const idx = zones.findIndex(m => m && m.position === 'ATK')
-      if (idx >= 0) {
-        const destroyed = zones[idx]
-        zones[idx] = null
-        updates[attZonesKey] = zones
-        updates[attGraveKey] = [...state[attGraveKey], destroyed]
-        log = `${card.name}: ${destroyed.name} foi destruído ao atacar!`
+    case 'MOV_BOOST': {
+      const id = target?.id_num
+      if (id) {
+        updates.tempBuffs = [...(state.tempBuffs || []), { cardId: id, movBonus: card.effectValue, expiresOnTurn: state.turnNumber + card.duracao }]
+        log = `${card.name}: +${card.effectValue} MOV.`
+      } else {
+        log = `${card.name} ativado, mas não há alvo.`
       }
       break
     }
-    case 'REDUCE_ATK': {
-      const enemyZonesKey = caster === 'PLAYER' ? 'aiMonsterZones' : 'playerMonsterZones'
-      const zones = state[enemyZonesKey]
-      const target = zones.find(m => m)
-      if (target) {
-        updates.tempBuffs = [...state.tempBuffs, { cardId: target.id_num, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 }]
-        log = `${card.name}: ${target.name} perde ${card.effectValue} ATK.`
+    case 'RNG_BOOST': {
+      const id = target?.id_num
+      if (id) {
+        updates.tempBuffs = [...(state.tempBuffs || []), { cardId: id, rngBonus: card.effectValue, expiresOnTurn: state.turnNumber + card.duracao }]
+        log = `${card.name}: +${card.effectValue} RNG.`
+      } else {
+        log = `${card.name} ativado, mas não há alvo.`
       }
+      break
+    }
+    case 'ATK_REDUCE': {
+      const id = target?.id_num
+      if (id) {
+        updates.tempBuffs = [...(state.tempBuffs || []), { cardId: id, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + card.duracao }]
+        log = `${card.name}: -${card.effectValue} ATK.`
+      } else {
+        log = `${card.name} ativado, mas não há alvo.`
+      }
+      break
+    }
+    case 'DESTROY': {
+      // Destruição Total — resolve no store com target
+      log = `${card.name}: destruição total ativada!`
       break
     }
     default:
       log = `${card.name} foi ativado.`
+  }
+
+  return { updates, log }
+}
+
+// Aplica efeito de armadilha quando monstro pisa na casa
+export function applyTrapEffect(state, trap, monsterOwner) {
+  const updates = {}
+  let log = ''
+
+  const targetIsPlayer = monsterOwner === 'PLAYER'
+  const dmgTo = targetIsPlayer ? 'playerLP' : 'aiLP'
+
+  switch (trap.effect) {
+    case 'SKIP_TURN':
+      log = `${trap.name}! Monstro perderá o próximo turno.`
+      break
+    case 'DAMAGE': {
+      const cur = state[dmgTo]
+      updates[dmgTo] = Math.max(0, cur - trap.effectValue)
+      log = `${trap.name}! ${trap.effectValue} de dano ao dono!`
+      break
+    }
+    case 'MOV_ZERO':
+      log = `${trap.name}! MOV reduzido a 0 por ${trap.duracao} turnos.`
+      break
+    case 'THORNS': {
+      const cur = state[dmgTo]
+      updates[dmgTo] = Math.max(0, cur - trap.effectValue)
+      log = `${trap.name}! ${trap.effectValue} de dano ao dono!`
+      break
+    }
+    case 'ATK_DRAIN':
+      log = `${trap.name}! -${trap.effectValue} ATK permanente.`
+      break
+    case 'POISON':
+      log = `${trap.name}! ${trap.effectValue} de dano por turno por ${trap.duracao} turnos.`
+      break
+    default:
+      log = `${trap.name} foi ativada!`
   }
 
   return { updates, log }

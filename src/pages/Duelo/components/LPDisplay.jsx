@@ -1,8 +1,8 @@
 export default function LPDisplay({ lp, isPlayer }) {
-  const maxLp = 8000
+  const maxLp = 1000
   const pct = Math.max(0, Math.min(100, (lp / maxLp) * 100))
-  const isLow = lp < 2000
-  const isCrit = lp < 800
+  const isLow = lp < 300
+  const isCrit = lp < 150
 
   let color = '#F5A623'
   if (isLow) color = '#EF4444'

@@ -1,278 +1,336 @@
 import { create } from 'zustand'
-import { createInitialState } from '../engine/gameState'
+import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS } from '../engine/gameState'
+import { applySpellEffect, applyTrapEffect } from '../engine/effects'
 
 export const useDueloStore = create((set, get) => ({
   ...createInitialState(),
 
   // ── Ações utilitárias ──
   setState: (partial) => set(typeof partial === 'function' ? partial : partial),
-
   resetGame: () => set(createInitialState()),
 
-  // ── Draw Phase ──
-  drawPhase: () => {
+  // ── Compra ──
+  drawCard: () => {
     const state = get()
-    const player = state.currentTurn === 'PLAYER'
-    const deck = player ? state.playerDeck : state.aiDeck
-    const hand = player ? state.playerHand : state.aiHand
+    const isPlayer = state.currentTurn === 'PLAYER'
+    const deckKey = isPlayer ? 'playerDeck' : 'aiDeck'
+    const handKey = isPlayer ? 'playerHand' : 'aiHand'
+    const deck = state[deckKey]
     if (deck.length === 0) {
-      set({ winner: player ? 'AI' : 'PLAYER', gamePhase: 'OVER', battleLog: [...state.battleLog, player ? 'Você ficou sem cartas! Derrota.' : 'IA ficou sem cartas! Vitória!'] })
+      set({ winner: isPlayer ? 'AI' : 'PLAYER', gamePhase: 'OVER',
+        battleLog: [...state.battleLog, isPlayer ? 'Você ficou sem cartas!' : 'IA ficou sem cartas!'] })
       return
     }
-    const [card, ...rest] = [deck[deck.length - 1], ...deck.slice(0, -1)]
-    // Na verdade, draw já é pop. Vamos refazer:
-    const cardDrawn = deck[deck.length - 1]
-    if (!cardDrawn) return
-    const newDeck = deck.slice(0, -1)
-    const newHand = [...hand, cardDrawn]
-    const logMsg = player ? `Você comprou: ${cardDrawn.name}` : 'IA comprou 1 carta'
+    const newDeck = [...deck]
+    const card = newDeck.pop()
+    const newHand = [...state[handKey], card]
     set({
-      [player ? 'playerDeck' : 'aiDeck']: newDeck,
-      [player ? 'playerHand' : 'aiHand']: newHand,
-      gamePhase: 'MAIN',
-      hasNormalSummonedThisTurn: false,
-      attackedThisTurn: [],
-      battleLog: [...state.battleLog, logMsg],
+      [deckKey]: newDeck,
+      [handKey]: newHand,
+      gamePhase: 'INVOCAR',
+      hasSummonedThisTurn: false,
+      hasPlayedMagicThisTurn: false,
+      monstersThatMoved: [],
+      monstersThatAttacked: [],
+      selectedMonster: null,
+      moveCells: [],
+      attackCells: [],
+      battleLog: [...state.battleLog, isPlayer ? `Você comprou: ${card.name}` : 'IA comprou 1 carta'],
     })
   },
 
-  // ── Main Phase Actions ──
-  endMainPhase: () => set({ gamePhase: 'BATTLE' }),
-  endBattlePhase: () => set({ gamePhase: 'END' }),
+  // ── Fase de Preparação ──
+  startPreparation: () => {
+    const state = get()
+    // Posiciona monstros iniciais automaticamente para o jogador (3 primeiros da mão)
+    const grid = state.grid.map(row => row.map(cell => ({ ...cell })))
+    let hand = [...state.playerHand]
+    const monsters = hand.filter(c => c.type === 'MONSTER').slice(0, 3)
+    const logs = []
+    let placed = 0
+    for (const card of monsters) {
+      const row = 4 - placed // row 4, 3, 2...
+      if (row < 2) break
+      const col = 2 // centro
+      if (!grid[row][col].monster) {
+        grid[row][col] = { monster: { ...card, owner: 'PLAYER' }, trap: grid[row][col].trap }
+        hand = hand.filter(c => c.id_num !== card.id_num)
+        placed++
+        logs.push(`Você posicionou ${card.name} (${card.atk}/${card.def}) na fileira ${row}.`)
+      }
+    }
+    set({
+      grid, playerHand: hand,
+      preparationPhase: true,
+      battleLog: [...state.battleLog, ...logs, 'Agora coloque suas armadilhas nas fileiras 3-4.'],
+    })
+  },
+
+  // Posiciona armadilha na preparação
+  placeTrapPrep: (row, col) => {
+    const state = get()
+    if (!state.preparationPhase) return
+    const traps = state.playerHand.filter(c => c.type === 'TRAP')
+    if (traps.length === 0) return
+    if (row < 3 || row > 4) return // só nas próprias fileiras
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    if (grid[row][col].trap || grid[row][col].monster) return
+    const trap = traps[0]
+    grid[row][col] = { ...grid[row][col], trap: { ...trap, revealed: false } }
+    const newHand = state.playerHand.filter(c => c.id_num !== trap.id_num)
+    set({
+      grid,
+      playerHand: newHand,
+      battleLog: [...state.battleLog, `Armadilha ${trap.name} colocada em [${row},${col}].`],
+    })
+  },
+
+  // Finaliza preparação
+  finishPreparation: () => {
+    const state = get()
+    set({
+      preparationPhase: false,
+      gamePhase: 'COMPRA',
+      battleLog: [...state.battleLog, '⚔ Preparação concluída! Batalha iniciada!'],
+    })
+  },
+
+  // ── Selecionar monstro no grid ──
+  selectMonster: (row, col) => {
+    const state = get()
+    const cell = state.grid[row]?.[col]
+    if (!cell?.monster) {
+      set({ selectedMonster: null, moveCells: [], attackCells: [] })
+      return
+    }
+    const card = cell.monster
+    const buff = state.tempBuffs.find(b => b.cardId === card.id_num)
+    const effMov = Math.max(0, (card.mov || 0) + (buff?.movBonus || 0))
+    const effRng = Math.max(1, (card.rng || 0) + (buff?.rngBonus || 0))
+
+    const moveCells = getMoveRange(state.grid, row, col, effMov, card.owner)
+    const attackCells = getAttackRange(state.grid, row, col, effRng, card.owner)
+
+    set({ selectedMonster: { row, col }, moveCells, attackCells })
+  },
+
+  clearSelection: () => set({ selectedMonster: null, moveCells: [], attackCells: [] }),
+
+  // ── Mover monstro ──
+  moveMonster: (toRow, toCol) => {
+    const state = get()
+    const sel = state.selectedMonster
+    if (!sel) return
+    const fromRow = sel.row, fromCol = sel.col
+    const cell = state.grid[fromRow][fromCol]
+    if (!cell.monster) return
+    // Verifica se está nas casas de MOV
+    const canMove = state.moveCells.some(c => c.row === toRow && c.col === toCol)
+    if (!canMove) return
+    // Verifica se já moveu
+    const alreadyMoved = state.monstersThatMoved.some(m => m.row === fromRow && m.col === fromCol)
+    if (alreadyMoved) return
+    // Verifica se já atacou
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.row === fromRow && m.col === fromCol)
+    if (alreadyAttacked) return
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    const monster = grid[fromRow][fromCol].monster
+    grid[toRow][toCol] = { ...grid[toRow][toCol], monster }
+    grid[fromRow][fromCol] = { ...grid[fromRow][fromCol], monster: null }
+
+    set({
+      grid,
+      monstersThatMoved: [...state.monstersThatMoved, { row: fromRow, col: fromCol }],
+      selectedMonster: { row: toRow, col: toCol },
+      moveCells: [],
+      attackCells: [],
+      battleLog: [...state.battleLog, `Você moveu ${monster.name} de [${fromRow},${fromCol}] para [${toRow},${toCol}].`],
+    })
+  },
+
+  // ── Atacar ──
+  attackMonster: (targetRow, targetCol) => {
+    const state = get()
+    const sel = state.selectedMonster
+    if (!sel) return
+    const fromRow = sel.row, fromCol = sel.col
+    const cell = state.grid[fromRow][fromCol]
+    if (!cell?.monster) return
+
+    const attacker = cell.monster
+    const owner = attacker.owner
+
+    // Verifica se pode atacar (no RNG)
+    const canAttack = state.attackCells.some(c => c.row === targetRow && c.col === targetCol)
+    if (!canAttack) return
+
+    // Verifica se já atacou
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.row === fromRow && m.col === fromCol)
+    if (alreadyAttacked) return
+
+    const targetCell = state.grid[targetRow]?.[targetCol]
+    if (!targetCell?.monster) return
+    if (targetCell.monster.owner === owner) return // não ataca próprio aliado
+
+    const defender = targetCell.monster
+
+    // Buffs
+    const aBuff = state.tempBuffs.find(b => b.cardId === attacker.id_num)
+    const dBuff = state.tempBuffs.find(b => b.cardId === defender.id_num)
+    const effAtk = (attacker.atk || 0) + (aBuff?.atkBonus || 0)
+    const effDef = (defender.def || 0) + (dBuff?.defBonus || 0)
+
+    const isPlayerAtk = owner === 'PLAYER'
+    let playerLP = state.playerLP
+    let aiLP = state.aiLP
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    let log = ''
+    let newGraveyard = [...state.playerGraveyard]
+
+    if (effAtk > effDef) {
+      const diff = effAtk - effDef
+      if (isPlayerAtk) aiLP = Math.max(0, aiLP - diff)
+      else playerLP = Math.max(0, playerLP - diff)
+      newGraveyard.push(defender)
+      grid[targetRow][targetCol] = { monster: null, trap: grid[targetRow][targetCol]?.trap || null }
+      log = `💥 ${attacker.name} (${effAtk}) destruiu ${defender.name} (${effDef})! ${diff} de dano.`
+    } else if (effAtk < effDef) {
+      const diff = effDef - effAtk
+      if (isPlayerAtk) playerLP = Math.max(0, playerLP - diff)
+      else aiLP = Math.max(0, aiLP - diff)
+      newGraveyard.push(attacker)
+      grid[fromRow][fromCol] = { monster: null, trap: grid[fromRow][fromCol]?.trap || null }
+      log = `💥 ${attacker.name} (${effAtk}) foi destruído por ${defender.name} (${effDef})! ${diff} de dano.`
+    } else {
+      log = `⚔️ ${attacker.name} (${effAtk}) vs ${defender.name} (${effDef}): empate!`
+    }
+
+    const winner = playerLP <= 0 ? 'AI' : aiLP <= 0 ? 'PLAYER' : null
+
+    set({
+      grid,
+      playerLP, aiLP,
+      monstersThatAttacked: [...state.monstersThatAttacked, { row: fromRow, col: fromCol }],
+      selectedMonster: null,
+      moveCells: [],
+      attackCells: [],
+      battleLog: [...state.battleLog, log],
+      ...(winner ? { winner, gamePhase: 'OVER' } : {}),
+    })
+  },
+
+  // ── Invocar monstro da mão para o grid ──
+  summonMonster: (cardId, row, col) => {
+    const state = get()
+    const isPlayer = state.currentTurn === 'PLAYER'
+    if (isPlayer && state.gamePhase !== 'INVOCAR') return
+    if (state.hasSummonedThisTurn) return
+
+    const handKey = isPlayer ? 'playerHand' : 'aiHand'
+    const hand = state[handKey]
+    const card = hand.find(c => c.id_num === cardId)
+    if (!card || card.type !== 'MONSTER') return
+
+    // Verifica se a casa está no próprio território (rows 3-4 player, 0-1 AI)
+    if (isPlayer && (row < 3 || row > 4)) return
+    if (!isPlayer && (row > 1)) return
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    if (grid[row][col].monster) return
+
+    grid[row][col] = { ...grid[row][col], monster: { ...card, owner: isPlayer ? 'PLAYER' : 'AI' } }
+    const newHand = hand.filter(c => c.id_num !== cardId)
+
+    set({
+      grid,
+      [handKey]: newHand,
+      hasSummonedThisTurn: true,
+      battleLog: [...state.battleLog, `${isPlayer ? 'Você' : 'IA'} invocou ${card.name} em [${row},${col}].`],
+    })
+  },
+
+  // ── Usar magia ──
+  useSpell: (cardId, targetRow, targetCol) => {
+    const state = get()
+    const isPlayer = state.currentTurn === 'PLAYER'
+    if (isPlayer && state.gamePhase !== 'MAGIA') return
+    if (state.hasPlayedMagicThisTurn) return
+
+    const handKey = isPlayer ? 'playerHand' : 'aiHand'
+    const hand = state[handKey]
+    const card = hand.find(c => c.id_num === cardId)
+    if (!card || card.type !== 'SPELL') return
+
+    // Aplica efeito
+    const targetCard = state.grid[targetRow]?.[targetCol]?.monster || null
+    const result = applySpellEffect(state, card, isPlayer ? 'PLAYER' : 'AI', targetCard)
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    const newHand = hand.filter(c => c.id_num !== cardId)
+    const newGraveyard = [...(isPlayer ? state.playerGraveyard : state.aiGraveyard), card]
+    const playerLP = result.updates.playerLP ?? state.playerLP
+    const aiLP = result.updates.aiLP ?? state.aiLP
+
+    set({
+      [handKey]: newHand,
+      [isPlayer ? 'playerGraveyard' : 'aiGraveyard']: newGraveyard,
+      tempBuffs: result.updates.tempBuffs || state.tempBuffs,
+      playerLP,
+      aiLP,
+      hasPlayedMagicThisTurn: true,
+      gamePhase: result.updates.gamePhase || 'ACAO',
+      winner: result.updates.winner || state.winner,
+      battleLog: [...state.battleLog, result.log],
+    })
+  },
+
+  // ── Avançar fase ──
+  nextPhase: () => {
+    const state = get()
+    const isPlayer = state.currentTurn === 'PLAYER'
+    const phases = ['COMPRA', 'INVOCAR', 'ACAO', 'MAGIA', 'FIM']
+    const currentIdx = phases.indexOf(state.gamePhase)
+    if (currentIdx < 0 || currentIdx >= phases.length - 1) return
+    set({
+      gamePhase: phases[currentIdx + 1],
+      battleLog: [...state.battleLog, `${isPlayer ? 'Você' : 'IA'} avançou para fase ${phases[currentIdx + 1]}.`],
+    })
+  },
+
+  // ── Pular para fase específica ──
+  setGamePhase: (phase) => set({ gamePhase: phase }),
 
   // ── End Phase ──
-  endPhase: () => {
+  endTurn: () => {
     const state = get()
     const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
     const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
-    // Limpar buffs expirados
-    const newBuffs = state.tempBuffs.filter(b => b.expiresOnTurn > state.turnNumber)
+    const newBuffs = (state.tempBuffs || []).filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
+    const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
+
+    // Aplica dano de veneno (effeito POISON)
+    let playerLP = state.playerLP
+    let aiLP = state.aiLP
+    // (simplificado — veneno seria aplicado via effects)
+
     set({
-      gamePhase: 'DRAW',
+      gamePhase: 'COMPRA',
       currentTurn: nextTurn,
       turnNumber: nextTurnNum,
       tempBuffs: newBuffs,
-      hasNormalSummonedThisTurn: false,
-      attackedThisTurn: [],
+      effects: newEffects,
+      hasSummonedThisTurn: false,
+      hasPlayedMagicThisTurn: false,
+      monstersThatMoved: [],
+      monstersThatAttacked: [],
+      selectedMonster: null,
+      moveCells: [],
+      attackCells: [],
+      battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? 'Fim do seu turno.' : 'IA encerrou o turno.'}`],
     })
   },
 
-  // ── Campo ──
-  placeCardInZone: (cardId, zoneType, zoneIndex, position = 'ATK', owner = 'PLAYER') => {
-    const state = get()
-    const handKey = owner === 'PLAYER' ? 'playerHand' : 'aiHand'
-    const zoneKey = owner === 'PLAYER'
-      ? (zoneType === 'MONSTER' ? 'playerMonsterZones' : 'playerSpellZones')
-      : (zoneType === 'MONSTER' ? 'aiMonsterZones' : 'aiSpellZones')
-    const hand = state[handKey]
-    const card = hand.find(c => c.id_num === cardId)
-    if (!card) return
-    const newHand = hand.filter(c => c.id_num !== cardId)
-    const zones = [...state[zoneKey]]
-    const placedCard = { ...card, position, placedOnTurn: state.turnNumber }
-    zones[zoneIndex] = placedCard
-    const logMsg = owner === 'PLAYER'
-      ? `Você invocou ${card.name}${card.type === 'MONSTER' ? ` (${card.atk}/${card.def})` : ''}`
-      : `IA invocou ${card.name}`
-    const summonTurn = { ...state.summonTurn, [card.id_num]: state.turnNumber }
-    set({
-      [handKey]: newHand,
-      [zoneKey]: zones,
-      hasNormalSummonedThisTurn: card.type === 'MONSTER' ? true : state.hasNormalSummonedThisTurn,
-      battleLog: [...state.battleLog, logMsg],
-      selectedCard: null,
-      awaitingTribute: false,
-      tributeFor: null,
-      summonTurn,
-    })
-  },
-
-  // ── Ataque ──
-  declareAttack: (attackerZoneIndex, targetZoneIndex) => {
-    const state = get()
-    const isPlayerTurn = state.currentTurn === 'PLAYER'
-    const attZones = isPlayerTurn ? state.playerMonsterZones : state.aiMonsterZones
-    const defZones = isPlayerTurn ? state.aiMonsterZones : state.playerMonsterZones
-    const attacker = attZones[attackerZoneIndex]
-    const target = defZones[targetZoneIndex]
-
-    if (!attacker || attacker.type !== 'MONSTER' || attacker.position !== 'ATK') return
-    if (state.attackedThisTurn.includes(attacker.id_num)) return
-    // Summoning sickness
-    if ((state.summonTurn[attacker.id_num] || 0) >= state.turnNumber) return
-
-    const getAtk = (card) => {
-      const buff = state.tempBuffs.find(b => b.cardId === card.id_num)
-      return (card.atk || 0) + (buff?.atkBonus || 0)
-    }
-
-    const attAtk = getAtk(attacker)
-    const defVal = target ? (target.position === 'ATK' ? target.atk : target.def) : null
-    const isDirect = !target
-
-    let log = ''
-    let newAttZones = [...attZones]
-    let newDefZones = [...defZones]
-    let playerLP = state.playerLP
-    let aiLP = state.aiLP
-    let newGraveyard = [...(isPlayerTurn ? state.aiGraveyard : state.playerGraveyard)]
-    let newAttGraveyard = [...(isPlayerTurn ? state.playerGraveyard : state.aiGraveyard)]
-
-    if (isDirect) {
-      const dmg = attAtk
-      if (isPlayerTurn) aiLP = Math.max(0, aiLP - dmg)
-      else playerLP = Math.max(0, playerLP - dmg)
-      log = `${attacker.name} atacou diretamente! ${dmg} de dano.`
-    } else if (target.position === 'ATK') {
-      if (attAtk > target.atk) {
-        newDefZones[targetZoneIndex] = null
-        newGraveyard.push(target)
-        const diff = attAtk - target.atk
-        if (isPlayerTurn) aiLP = Math.max(0, aiLP - diff)
-        else playerLP = Math.max(0, playerLP - diff)
-        log = `${attacker.name} (${attAtk}) destruiu ${target.name} (${target.atk})! ${diff} de dano.`
-      } else if (attAtk < target.atk) {
-        newAttZones[attackerZoneIndex] = null
-        newAttGraveyard.push(attacker)
-        const diff = target.atk - attAtk
-        if (isPlayerTurn) playerLP = Math.max(0, playerLP - diff)
-        else aiLP = Math.max(0, aiLP - diff)
-        log = `${attacker.name} (${attAtk}) foi destruído por ${target.name} (${target.atk})! ${diff} de dano.`
-      } else {
-        newAttZones[attackerZoneIndex] = null
-        newDefZones[targetZoneIndex] = null
-        newAttGraveyard.push(attacker)
-        newGraveyard.push(target)
-        log = `${attacker.name} e ${target.name} se destruíram!`
-      }
-    } else {
-      // target in DEF position
-      if (attAtk > target.def) {
-        newDefZones[targetZoneIndex] = null
-        newGraveyard.push(target)
-        log = `${attacker.name} (${attAtk}) destruiu ${target.name} (DEF ${target.def}).`
-      } else if (attAtk < target.def) {
-        const diff = target.def - attAtk
-        if (isPlayerTurn) playerLP = Math.max(0, playerLP - diff)
-        else aiLP = Math.max(0, aiLP - diff)
-        log = `${attacker.name} não superou a defesa de ${target.name}. ${diff} de dano ao dono.`
-      } else {
-        log = `${attacker.name} e ${target.name} empataram em ATK/DEF. Nada acontece.`
-      }
-    }
-
-    const winner = aiLP <= 0 ? 'PLAYER' : playerLP <= 0 ? 'AI' : null
-
-    set({
-      [isPlayerTurn ? 'playerMonsterZones' : 'aiMonsterZones']: newAttZones,
-      [isPlayerTurn ? 'aiMonsterZones' : 'playerMonsterZones']: newDefZones,
-      [isPlayerTurn ? 'aiGraveyard' : 'playerGraveyard']: newGraveyard,
-      [isPlayerTurn ? 'playerGraveyard' : 'aiGraveyard']: newAttGraveyard,
-      playerLP,
-      aiLP,
-      attackedThisTurn: [...state.attackedThisTurn, attacker.id_num],
-      battleLog: [...state.battleLog, log],
-      gamePhase: winner ? 'OVER' : state.gamePhase,
-      winner,
-    })
-  },
-
-  // ── Ativar Magia/Ar madi lha ──
-  activateEffect: (card, caster = 'PLAYER') => {
-    const state = get()
-    // Remove da mão ou zona
-    let newHand = caster === 'PLAYER' ? [...state.playerHand] : [...state.aiHand]
-    newHand = newHand.filter(c => c.id_num !== card.id_num)
-    const graveKey = caster === 'PLAYER' ? 'playerGraveyard' : 'aiGraveyard'
-
-    let playerLP = state.playerLP, aiLP = state.aiLP
-    let log = ''
-    let newBuffs = [...state.tempBuffs]
-
-    switch (card.effect) {
-      case 'HEAL':
-        if (caster === 'PLAYER') playerLP += card.effectValue
-        else aiLP += card.effectValue
-        log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. +${card.effectValue} LP.`
-        break
-      case 'BURN':
-        if (caster === 'PLAYER') aiLP = Math.max(0, aiLP - card.effectValue)
-        else playerLP = Math.max(0, playerLP - card.effectValue)
-        log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. ${card.effectValue} de dano!`
-        break
-      case 'ATK_BOOST': {
-        const target = caster === 'PLAYER' ? state.playerMonsterZones : state.aiMonsterZones
-        const monster = target.find(m => m)
-        if (monster) {
-          newBuffs.push({ cardId: monster.id_num, atkBonus: card.effectValue, expiresOnTurn: state.turnNumber + 1 })
-          log = `${card.name}: ${monster.name} ganha +${card.effectValue} ATK até o fim do turno.`
-        }
-        break
-      }
-      case 'DRAW': {
-        const deckKey = caster === 'PLAYER' ? 'playerDeck' : 'aiDeck'
-        const deck = [...state[deckKey]]
-        const drawn = []
-        for (let i = 0; i < card.effectValue && deck.length > 0; i++) {
-          drawn.push(deck.pop())
-        }
-        const hand = caster === 'PLAYER' ? [...state.playerHand, ...drawn] : [...state.aiHand, ...drawn]
-        set({ [deckKey]: deck, [caster === 'PLAYER' ? 'playerHand' : 'aiHand']: hand })
-        log = `${caster === 'PLAYER' ? 'Você' : 'IA'} usou ${card.name}. +${drawn.length} cartas.`
-        break
-      }
-      case 'DESTROY_MONSTER': {
-        const enemyZones = caster === 'PLAYER' ? [...state.aiMonsterZones] : [...state.playerMonsterZones]
-        const targetIdx = enemyZones.findIndex(m => m)
-        if (targetIdx >= 0) {
-          const destroyed = enemyZones[targetIdx]
-          enemyZones[targetIdx] = null
-          const enemyGrave = caster === 'PLAYER' ? [...state.aiGraveyard, destroyed] : [...state.playerGraveyard, destroyed]
-          const zoneKey = caster === 'PLAYER' ? 'aiMonsterZones' : 'playerMonsterZones'
-          const graveKey2 = caster === 'PLAYER' ? 'aiGraveyard' : 'playerGraveyard'
-          set({ [zoneKey]: enemyZones, [graveKey2]: enemyGrave })
-          log = `${card.name}: ${destroyed.name} foi destruído!`
-        }
-        break
-      }
-      case 'NEGATE_ATTACK':
-        log = `${card.name}: ataque negado!`
-        break
-      case 'DESTROY_ATTACKER': {
-        const attackerZones = caster === 'PLAYER' ? [...state.aiMonsterZones] : [...state.playerMonsterZones]
-        // Encontrar o atacante (último monstro que atacou)
-        const attIdx = attackerZones.findIndex(m => m && m.position === 'ATK')
-        if (attIdx >= 0) {
-          const destroyed = attackerZones[attIdx]
-          attackerZones[attIdx] = null
-          const graveKey3 = caster === 'PLAYER' ? 'aiGraveyard' : 'playerGraveyard'
-          set({ [caster === 'PLAYER' ? 'aiMonsterZones' : 'playerMonsterZones']: attackerZones, [graveKey3]: [...state[graveKey3], destroyed] })
-          log = `${card.name}: ${destroyed.name} foi destruído ao atacar!`
-        }
-        break
-      }
-      case 'REDUCE_ATK': {
-        const enemyZones = caster === 'PLAYER' ? state.aiMonsterZones : state.playerMonsterZones
-        const target = enemyZones.find(m => m)
-        if (target) {
-          newBuffs.push({ cardId: target.id_num, atkBonus: -card.effectValue, expiresOnTurn: state.turnNumber + 1 })
-          log = `${card.name}: ${target.name} perde ${card.effectValue} ATK por 1 turno.`
-        }
-        break
-      }
-      default:
-        log = `${card.name} foi ativado.`
-    }
-
-    const winner = aiLP <= 0 ? 'PLAYER' : playerLP <= 0 ? 'AI' : null
-    set({
-      [caster === 'PLAYER' ? 'playerHand' : 'aiHand']: newHand,
-      [graveKey]: [...state[graveKey], card],
-      playerLP, aiLP,
-      tempBuffs: newBuffs,
-      battleLog: [...state.battleLog, log],
-      gamePhase: winner ? 'OVER' : state.gamePhase,
-      winner,
-    })
-  },
+  // ── Ações da IA ──
+  setAiState: (updates) => set(updates),
 }))

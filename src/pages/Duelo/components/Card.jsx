@@ -4,7 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 export default function Card({ card, faceDown = false, small = false, onClick, onMouseEnter, onMouseLeave, disabled }) {
   const { t } = useLanguage()
   const store = useDueloStore()
-  const buff = card ? store.tempBuffs.find(b => b.cardId === card.id_num) : null
+  const buff = card ? store.tempBuffs?.find(b => b.cardId === card.id_num) : null
   const effectiveAtk = card ? (card.atk || 0) + (buff?.atkBonus || 0) : 0
 
   if (!card && !faceDown) return null
@@ -33,8 +33,6 @@ export default function Card({ card, faceDown = false, small = false, onClick, o
     )
   }
 
-  const stars = '★'.repeat(card.level || 0)
-
   return (
     <div className={`duelo-card ${typeClass} ${sizeClass} ${cursorClass}`}
       style={borderStyle}
@@ -46,8 +44,10 @@ export default function Card({ card, faceDown = false, small = false, onClick, o
         <span className="duelo-card-name" style={{ color }}>{card.name}</span>
         {isMonster && (
           <div className="duelo-card-stats">
-            <span className="duelo-card-stars">{stars}</span>
             <span>{t('games.duelo.card_atk')} {effectiveAtk} / {t('games.duelo.card_def')} {card.def}</span>
+            <span className="duelo-card-movrng">
+              👟{card.mov} 🎯{card.rng}
+            </span>
           </div>
         )}
         {!isMonster && card.type === 'SPELL' && (

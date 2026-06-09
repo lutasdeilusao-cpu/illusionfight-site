@@ -3,6 +3,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 
 export default function TrapActivator({ trap, onActivate, onSkip }) {
   const { t } = useLanguage()
+  if (!trap) return null
   return (
     <AnimatePresence>
       <div style={{
@@ -19,8 +20,11 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
           <p style={{ fontSize: 12, color: '#888', fontFamily: "'Courier New',monospace", marginBottom: 4 }}>
             {trap.name}
           </p>
-          <p style={{ fontSize: 10, color: '#555', fontFamily: "'Courier New',monospace", marginBottom: 20, fontStyle: 'italic' }}>
-            {trap.description}
+          <p style={{ fontSize: 10, color: '#555', fontFamily: "'Courier New',monospace", marginBottom: 4, fontStyle: 'italic' }}>
+            {trap.desc || trap.description}
+          </p>
+          <p style={{ fontSize: 10, color: '#777', fontFamily: "'Courier New',monospace", marginBottom: 20 }}>
+            Área: {trap.area} · Gatilho: {trap.gatilho}
           </p>
           <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
             <button onClick={onSkip} style={{

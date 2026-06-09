@@ -8,13 +8,12 @@ export function executeDrawPhase(state, isPlayer) {
   const handKey = isPlayer ? 'playerHand' : 'aiHand'
 
   if (deck.length === 0) {
-    const loser = isPlayer ? 'PLAYER' : 'AI'
     const msg = isPlayer ? 'Você ficou sem cartas! Derrota por deck out.' : 'IA ficou sem cartas! Vitória!'
     return {
       [deckKey]: deck,
       [handKey]: hand,
       gamePhase: 'OVER',
-      winner: loser === 'PLAYER' ? 'AI' : 'PLAYER',
+      winner: isPlayer ? 'AI' : 'PLAYER',
       battleLog: [...state.battleLog, msg],
     }
   }
@@ -27,28 +26,36 @@ export function executeDrawPhase(state, isPlayer) {
   return {
     [deckKey]: newDeck,
     [handKey]: newHand,
-    gamePhase: 'MAIN',
-    hasNormalSummonedThisTurn: false,
-    attackedThisTurn: [],
+    gamePhase: 'INVOCAR',
+    hasSummonedThisTurn: false,
+    hasPlayedMagicThisTurn: false,
+    monstersThatMoved: [],
+    monstersThatAttacked: [],
     battleLog: [...state.battleLog, msg],
-    currentTurn: isPlayer ? state.currentTurn : state.currentTurn,
   }
 }
 
-// End Phase: limpa buffs, troca turno
+// End Phase: limpa buffs/efeitos, troca turno
 export function executeEndPhase(state) {
   const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
   const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
-  const newBuffs = state.tempBuffs.filter(b => b.expiresOnTurn > state.turnNumber)
+  const newBuffs = state.tempBuffs.filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
+  const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
   const msg = state.currentTurn === 'PLAYER' ? 'Fim do seu turno.' : 'IA encerrou o turno.'
 
   return {
-    gamePhase: 'DRAW',
+    gamePhase: 'COMPRA',
     currentTurn: nextTurn,
     turnNumber: nextTurnNum,
     tempBuffs: newBuffs,
-    hasNormalSummonedThisTurn: false,
-    attackedThisTurn: [],
+    effects: newEffects,
+    hasSummonedThisTurn: false,
+    hasPlayedMagicThisTurn: false,
+    monstersThatMoved: [],
+    monstersThatAttacked: [],
+    selectedMonster: null,
+    moveCells: [],
+    attackCells: [],
     battleLog: [...state.battleLog, msg],
   }
 }

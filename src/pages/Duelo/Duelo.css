@@ -465,11 +465,276 @@
   padding-left: 6px;
 }
 
+/* ── CARD MOV/RNG ── */
+.duelo-card-movrng {
+  font-size: 6px;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+/* ── STATUS BAR MOV/RNG ── */
+.duelo-statusbar-movrng {
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* ── PHASE INDICATOR ── */
+.duelo-phase-indicator {
+  font-size: 9px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  padding: 0 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2px 10px;
+}
+
+/* ── PREPARATION BANNER ── */
+.duelo-preparation-banner {
+  background: linear-gradient(135deg, rgba(139,0,0,0.15), rgba(0,0,0,0.4));
+  border: 1px solid rgba(139,0,0,0.3);
+  padding: 12px 16px;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+}
+.duelo-preparation-banner h3 {
+  color: #F5A623;
+  font-size: 20px;
+  letter-spacing: 6px;
+  margin: 0 0 4px;
+}
+.duelo-preparation-banner p {
+  color: #888;
+  font-size: 11px;
+  margin: 2px 0;
+  font-family: 'Courier New', monospace;
+}
+.duelo-prep-hint {
+  color: #555 !important;
+  font-size: 9px !important;
+  font-style: italic;
+}
+.duelo-prep-btn {
+  margin-top: 8px;
+  padding: 10px 32px !important;
+  font-size: 14px !important;
+  letter-spacing: 4px !important;
+  background: linear-gradient(135deg, #8B0000, #a00000) !important;
+  border-color: #cc0000 !important;
+  color: #eee !important;
+}
+
+/* ── TARGETING HINT ── */
+.duelo-targeting-hint {
+  background: rgba(245,166,35,0.08);
+  border: 1px solid rgba(245,166,35,0.2);
+  color: #F5A623;
+  text-align: center;
+  padding: 6px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════════
+   GRID 5×5
+   ══════════════════════════════════════════════ */
+.duelo-lp-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 6px 16px;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.duelo-deck-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+}
+
+.duelo-deck-label {
+  font-size: 9px;
+  color: #444;
+  letter-spacing: 2px;
+}
+
+.duelo-versus {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 4px;
+  font-weight: 900;
+}
+
+.duelo-grid-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px 8px;
+  flex: 1;
+  align-items: center;
+}
+
+.duelo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(0,0,0,0.2);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.duelo-grid-row {
+  display: flex;
+  gap: 3px;
+}
+
+.duelo-grid-cell {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  font-size: 8px;
+}
+
+.duelo-grid-cell--ai-territory {
+  background: rgba(139,0,0,0.03);
+  border-color: rgba(139,0,0,0.1);
+}
+
+.duelo-grid-cell--player-territory {
+  background: rgba(0,100,180,0.03);
+  border-color: rgba(0,100,180,0.1);
+}
+
+.duelo-grid-cell--neutral {
+  background: rgba(255,255,255,0.01);
+}
+
+.duelo-grid-cell:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+}
+
+.duelo-grid-cell--selected {
+  border-color: #F5A623 !important;
+  box-shadow: 0 0 8px rgba(245,166,35,0.3);
+  background: rgba(245,166,35,0.06) !important;
+}
+
+.duelo-grid-cell--move {
+  border-color: #00B4D8 !important;
+  background: rgba(0,180,216,0.08) !important;
+  cursor: pointer;
+}
+
+.duelo-grid-cell--move:hover {
+  background: rgba(0,180,216,0.15) !important;
+  box-shadow: 0 0 6px rgba(0,180,216,0.3);
+}
+
+.duelo-grid-cell--attack {
+  border-color: #EF4444 !important;
+  background: rgba(239,68,68,0.08) !important;
+  cursor: pointer;
+}
+
+.duelo-grid-cell--attack:hover {
+  background: rgba(239,68,68,0.15) !important;
+  box-shadow: 0 0 6px rgba(239,68,68,0.3);
+}
+
+.duelo-grid-cell--ally {
+  border-color: rgba(0,180,216,0.4);
+}
+
+.duelo-grid-cell--enemy {
+  border-color: rgba(239,68,68,0.4);
+}
+
+/* ── Grid Monster ── */
+.duelo-grid-monster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+  padding: 2px;
+  text-align: center;
+}
+
+.duelo-grid-monster--player {
+  border-left: 2px solid #00B4D8;
+}
+
+.duelo-grid-monster--ai {
+  border-left: 2px solid #EF4444;
+}
+
+.duelo-grid-monster-name {
+  font-size: 7px;
+  color: #aaa;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 72px;
+  line-height: 1.2;
+}
+
+.duelo-grid-monster-stats {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.duelo-stat-atk { color: #EF4444; font-size: 8px; font-family: 'Courier New', monospace; }
+.duelo-stat-def { color: #22C55E; font-size: 8px; font-family: 'Courier New', monospace; }
+.duelo-stat-mov { color: #00B4D8; font-size: 7px; font-family: 'Courier New', monospace; }
+.duelo-stat-rng { color: #F5A623; font-size: 7px; font-family: 'Courier New', monospace; }
+
+/* ── Grid Trap ── */
+.duelo-grid-trap {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+/* ── Grid Hint ── */
+.duelo-grid-hint {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 8px;
+  color: #555;
+  padding: 2px 16px 6px;
+  letter-spacing: 1px;
+}
+
 /* ── MOBILE ── */
 @media (max-width: 600px) {
   .duelo-page { max-width: 100%; }
   .duelo-board { padding: 4px; }
-  .duelo-field-meta { min-width: 50px; }
   .duelo-lp-val { font-size: 18px; }
   .duelo-hand { padding: 6px 2px 10px; gap: 0; }
+  .duelo-grid-cell { width: 60px; height: 60px; }
+  .duelo-grid-monster-name { font-size: 6px; max-width: 52px; }
+  .duelo-stat-atk,
+  .duelo-stat-def,
+  .duelo-stat-mov,
+  .duelo-stat-rng { font-size: 7px; }
 }

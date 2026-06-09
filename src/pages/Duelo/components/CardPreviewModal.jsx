@@ -23,7 +23,7 @@ export default function CardPreviewModal({ card, onClose }) {
         </h2>
         {card.type === 'MONSTER' && (
           <p style={{ fontFamily: "'Courier New',monospace", fontSize: 11, color: '#666', letterSpacing: 2, margin: '4px 0' }}>
-            {'★'.repeat(card.level)} · {t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def}
+            {t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def} · 👟{card.mov} 🎯{card.rng}
           </p>
         )}
         {card.type !== 'MONSTER' && (
@@ -32,7 +32,7 @@ export default function CardPreviewModal({ card, onClose }) {
           </p>
         )}
         <p style={{ fontFamily: "'Courier New',monospace", fontSize: 10, color: '#777', lineHeight: 1.6, margin: '8px 0', fontStyle: 'italic' }}>
-          {card.description}
+          {card.desc}
         </p>
         <button onClick={onClose} style={{
           marginTop: 12, background: 'none', border: '1px solid #333', color: '#666',
