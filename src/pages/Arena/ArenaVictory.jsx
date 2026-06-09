@@ -91,7 +91,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>{t('games.arena.voltar_site')}</button>
+          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />
         </div>
       </div>
     )
@@ -201,7 +201,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.escolher_outra')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <button className="arena-btn-sair" style={{ marginTop: '0.6rem' }} onClick={() => navigate('/games/ldi-arena')}>{t('games.arena.voltar_site')}</button>
+          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />
         </div>
       </motion.div>
     </div>

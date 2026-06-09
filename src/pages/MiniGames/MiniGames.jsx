@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
 
@@ -239,7 +240,7 @@ export default function MiniGames() {
   return (
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-header">
-        <button className="mg-back" onClick={() => navigate('/games')}>{t('games.minigames.hub_voltar')}</button>
+        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
         <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text={t('games.minigames.titulo')}>{t('games.minigames.titulo')}</span></h1>
         <p className="mg-subtitulo"><span className="mg-cursor">█</span> {t('games.minigames.hub_subtitulo')}</p>
       </div>

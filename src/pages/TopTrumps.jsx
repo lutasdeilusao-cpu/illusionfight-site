@@ -9,6 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
+import BackToGamesBtn from '../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../lib/sfx'
 import cardFallback from '../assets/images/cards/characters/card-fallback.png'
 import img01 from '../assets/images/cards/characters/card-01.png'
@@ -499,7 +500,7 @@ export default function TopTrumps() {
               </div>
             )}
           </LoginGate>
-          <Link to="/games" className="tt-voltar">{t('games.toptrumps.menu_voltar_games')}</Link>
+          <BackToGamesBtn label={t('games.toptrumps.menu_voltar_games')} />
         </div>
       </div></section>
     )
@@ -772,7 +773,7 @@ export default function TopTrumps() {
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">
             <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{t('games.toptrumps.btn_jogar_novamente')}</button>
-            <Link to="/games" className="tt-btn-jogar tt-btn-jogar--secondary" onClick={() => sfx.click()}>{t('games.toptrumps.menu_voltar_games')}</Link>
+            <BackToGamesBtn to="/games" onClick={() => sfx.click()} label={t('games.toptrumps.menu_voltar_games')} />
           </div>
         </div>
       </section>

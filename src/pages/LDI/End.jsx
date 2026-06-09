@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useGameStore } from './store/useGameStore'
 import { useReader } from '../../context/ReaderContext'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import './LDI.css'
 
 const END_MESSAGES = {
@@ -230,12 +231,7 @@ export default function End() {
           >
             CRIAR NOVA FICHA
           </Link>
-          <Link
-            to="/games"
-            className="ldi-btn ldi-btn--ghost"
-          >
-            VOLTAR AOS EXTRAS
-          </Link>
+          <BackToGamesBtn to="/games" label="VOLTAR AOS EXTRAS" />
         </motion.div>
       </motion.div>
     </div>

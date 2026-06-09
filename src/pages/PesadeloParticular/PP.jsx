@@ -12,6 +12,7 @@ import PuzzleAnagrama from '../../components/Puzzles/PuzzleAnagrama'
 import PuzzleSlidingTiles from '../../components/Puzzles/PuzzleSlidingTiles'
 import { getTelefonema } from './data/telefonema'
 import { useLanguage } from '../../context/LanguageContext'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import { PP_VERSION } from '../../config/version'
 import './PP.css'
 
@@ -727,10 +728,7 @@ function MenuInicial({ nivel, casosResolvidos, onContinuar, onNovoJogo }) {
           {t('pp.menu.novo_jogo')}
         </button>
 
-        <button onClick={() => navigate('/games')}
-          className="pp-btn-voltar-site">
-          {t('pp.menu.voltar_site')}
-        </button>
+        <BackToGamesBtn onClick={() => navigate('/games')} label={t('pp.menu.voltar_site')} />
       </div>
     </div>
   )

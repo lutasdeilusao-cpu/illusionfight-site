@@ -7,6 +7,7 @@ import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
 import { supabase } from '../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../hooks/useTopTrumpsMP'
+import BackToGamesBtn from '../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../lib/sfx'
 import './TopTrumpsMP.css'
 
@@ -923,7 +924,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <Link to="/games" className="ttmp-btn-voltar" onClick={() => sfx.click()}>{t('games.toptrumps.mp.fim_voltar_games')}</Link>
+            <BackToGamesBtn to="/games" onClick={() => sfx.click()} label={t('games.toptrumps.mp.fim_voltar_games')} />
           </div>
         </div>
       </section>
