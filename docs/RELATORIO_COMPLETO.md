@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.0  
-> **Versão do Site:** 9.44  
+> **Versão do Relatório:** 2.1  
+> **Versão do Site:** 9.45  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.37 |
+| **Versão Atual** | 9.45 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -1119,4 +1119,4 @@ O código fonte está sólido. Faltam assets e decisões de cronograma de lança
 
 ---
 
-*Relatório gerado em 2026-06-09 — v2.0 — por GitHub Copilot (DeepSeek V4 Flash)*
+*Relatório gerado em 2026-06-09 — v2.1 — por GitHub Copilot (DeepSeek V4 Flash)*

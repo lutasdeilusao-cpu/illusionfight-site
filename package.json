@@ -12,9 +12,11 @@
     "migration": "node scripts/run-migration.js"
   },
   "dependencies": {
+    "@playwright/test": "^1.60.0",
     "@supabase/supabase-js": "^2.107.0",
     "@vitejs/plugin-react-oxc": "^0.4.3",
     "framer-motion": "^12.40.0",
+    "playwright": "^1.60.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-helmet-async": "^3.0.0",
