@@ -21,13 +21,13 @@ export default function Alimentar({ onConcluir }) {
   const itemUsar = todasComidas.find(c => inv[c.id] > 0)
 
   const handleAlimentar = async () => {
-    if (!itemUsar || animando) return
+    if (animando) return
     setAnimando(true)
     const novo = Math.min(progress + 25, 100)
     setProgress(novo)
     if (novo >= 100) {
       try {
-        await store.consumirItem(itemUsar.id)
+        if (itemUsar) await store.consumirItem(itemUsar.id)
         store.alimentar()
         store.ganharDix(store._userId, DIX_POR_ACAO, 'alimentou criatura')
         onConcluir()

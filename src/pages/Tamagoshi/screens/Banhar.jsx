@@ -73,10 +73,10 @@ export default function Banhar({ onConcluir }) {
   }, [])
 
   useEffect(() => {
-    if (progress >= 100 && itemUsar) {
+    if (progress >= 100) {
       const concluir = async () => {
         try {
-          await store.consumirItem(itemUsar)
+          if (itemUsar) await store.consumirItem(itemUsar)
           store.banhar()
           store.ganharDix(store._userId, DIX_POR_ACAO, 'banhou criatura')
           onConcluir()

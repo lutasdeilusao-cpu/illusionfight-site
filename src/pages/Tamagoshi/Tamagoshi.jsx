@@ -48,20 +48,13 @@ export default function Tamagoshi() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Lazy evaluation via last_seen_at — calcularDecaimento imediato removido
-  // useEffect(() => {
-  //   if (store._userId && store.criaturaId && (store.status === 'vivo' || store.status === 'critico')) {
-  //     store.calcularDecaimento()
-  //     store.getSaldoDix(store._userId)
-  //   }
-  // }, [store.criaturaId])
-
-  // Polling de métricas removido — sistema lazy evaluation via last_seen_at
-  // useEffect(() => {
-  //   if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
-  //   const id = setInterval(() => store.tick(), 10000)
-  //   return () => clearInterval(id)
-  // }, [store.criaturaId, store.status])
+  // Decaimento durante sessão ativa: a cada 30s recalcula baseado no tempo real
+  // (lazy evaluation na entrada + decay contínuo enquanto estiver no site)
+  useEffect(() => {
+    if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
+    const id = setInterval(() => store.tick(), 30000)
+    return () => clearInterval(id)
+  }, [store.criaturaId, store.status])
 
   // Log DIX periódico (mantido — não afeta métricas)
   useEffect(() => {

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.6  
-> **Versão do Site:** 9.52  
+> **Versão do Relatório:** 2.7  
+> **Versão do Site:** 9.53  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.15.0  
+**Versão:** 1.15.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 

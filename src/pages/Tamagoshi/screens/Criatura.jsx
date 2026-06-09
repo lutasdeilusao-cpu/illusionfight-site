@@ -119,9 +119,8 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
             onClick={onLoja}>
             {t('games.tamagoshi.loja')}
           </motion.button>
-          <motion.button className="tama-btn tama-btn--saude" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-            onClick={() => store.restaurarSaude()}
-            style={{ background: 'linear-gradient(135deg, #FF4444, #CC0000)', color: '#fff' }}>
+          <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+            onClick={() => store.restaurarSaude()}>
             {t('games.tamagoshi.restaurar_saude')}
           </motion.button>
         </div>

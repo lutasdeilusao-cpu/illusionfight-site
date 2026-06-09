@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import kronikIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
 

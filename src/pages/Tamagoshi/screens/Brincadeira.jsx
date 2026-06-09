@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
