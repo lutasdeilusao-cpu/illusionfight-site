@@ -8,14 +8,14 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.64'
+export const SITE_VERSION = '9.65'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.0.1'  // Pesadelo Particular (fix i18n: merge PP keys + add missing menu keys)
 export const LDI_VERSION       = '1.1.0'  // Lendas do LDI (BackToGamesBtn unificado)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.8.0'  // LDI Arena Mode (BackToGamesBtn unificado)
-export const TAMA_VERSION      = '1.23.0' // Tamagoshi LDI (Loja + SFX + Guia de Marelia passivo)
+export const TAMA_VERSION      = '1.23.1' // Tamagoshi LDI (reposicionar BackToGamesBtn)
 export const DUELO_VERSION     = '1.4.0'  // Duelo LDI (BackToGamesBtn unificado)
 export const MINIGAMES_VERSION = '1.4.0'  // MiniGames (BackToGamesBtn unificado)
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player

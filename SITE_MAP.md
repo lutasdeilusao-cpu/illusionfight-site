@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.65*  |  `[SITE] versão carregada: 9.65`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.64*  |  `[SITE] versão carregada: 9.64`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.63*  |  `[SITE] versão carregada: 9.63`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.62*  |  `[SITE] versão carregada: 9.62`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -54,7 +55,7 @@
 *TATICS versão: 7.1.0* | `[TATICS] versão carregada: 7.1.0`
 *TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
-*TAMA versão: 1.23.0* | `[TAMA] versão carregada: 1.23.0`
+*TAMA versão: 1.23.1* | `[TAMA] versão carregada: 1.23.1`
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 

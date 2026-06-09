@@ -112,6 +112,8 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           </motion.button>
         </div>
 
+        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.tamagoshi.voltar_extras')} />
+
         {isAdmin && (
           <div className="tama-admin">
             <div className="tama-admin-header">
@@ -142,8 +144,6 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
             </AnimatePresence>
           </div>
         )}
-
-        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.tamagoshi.voltar_extras')} />
       </div>
     </div>
   )
