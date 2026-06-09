@@ -21,9 +21,10 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
     if (store.fome < 60) baixas.push({ key: 'fome', valor: store.fome })
     if (store.higiene < 60) baixas.push({ key: 'sede', valor: store.higiene })
     if (store.energia < 60) baixas.push({ key: 'passeio', valor: store.energia })
+    if (store.saude < 60) baixas.push({ key: 'saude', valor: store.saude })
     if (store.humor < 60) baixas.push({ key: 'critico', valor: store.humor })
     return baixas.sort((a, b) => a.valor - b.valor)
-  }, [store.fome, store.higiene, store.energia, store.humor])
+  }, [store.fome, store.higiene, store.energia, store.humor, store.saude])
 
   useEffect(() => {
     if (store.status === 'critico') {
@@ -51,19 +52,20 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   const dixSaldo = store._isAdmin ? '∞' : store._dixSaldo
 
   // Mapeamento de estado da criatura para os sprites do Kroniki
-  const MAP_ACAO_ESTADO = { alimentar: 'comendo', banhar: 'satisfeito', passear: 'satisfeito', brincar: 'feliz' }
+  const MAP_ACAO_ESTADO = { alimentar: 'comendo', banhar: 'satisfeito', passear: 'satisfeito', brincar: 'feliz', restaurar: 'feliz' }
   const estado = useMemo(() => {
     if (subFase) return MAP_ACAO_ESTADO[subFase] || subFase
     if (store.status === 'critico') return 'abandonado'
     // Estados baseados em métricas baixas
+    if (store.saude < 30) return 'doente'
     if (store.fome < 30) return 'comendo'
     if (store.higiene < 30) return 'sujo'
     if (store.energia < 30) return 'sonolento'
     if (store.humor < 30) return 'doente'
     // Estado feliz quando tudo ótimo
-    if (store.humor > 70 && store.energia > 70 && store.fome > 70 && store.higiene > 70) return 'feliz'
+    if (store.humor > 70 && store.energia > 70 && store.fome > 70 && store.higiene > 70 && store.saude > 70) return 'feliz'
     return 'idle'
-  }, [subFase, store.status, store.humor, store.energia, store.fome, store.higiene])
+  }, [subFase, store.status, store.humor, store.energia, store.fome, store.higiene, store.saude])
 
   return (
     <div className="tama-screen">
@@ -93,6 +95,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           <MetricBar label={t('games.tamagoshi.higiene')} valor={store.higiene} cor="#00B4D8" icone="🧼" />
           <MetricBar label={t('games.tamagoshi.energia')} valor={store.energia} cor="#22C55E" icone="⚡" />
           <MetricBar label={t('games.tamagoshi.humor')} valor={store.humor} cor="#EC4899" icone="🎭" />
+          <MetricBar label={t('games.tamagoshi.saude')} valor={store.saude} cor="#FF4444" icone="❤️" />
         </div>
 
         <div className="tama-acoes">
@@ -115,6 +118,11 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             onClick={onLoja}>
             {t('games.tamagoshi.loja')}
+          </motion.button>
+          <motion.button className="tama-btn tama-btn--saude" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+            onClick={() => store.restaurarSaude()}
+            style={{ background: 'linear-gradient(135deg, #FF4444, #CC0000)', color: '#fff' }}>
+            {t('games.tamagoshi.restaurar_saude')}
           </motion.button>
         </div>
 

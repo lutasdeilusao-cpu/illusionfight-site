@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.3  
-> **Versão do Site:** 9.49  
+> **Versão do Relatório:** 2.4  
+> **Versão do Site:** 9.50  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.12.0  
+**Versão:** 1.13.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -613,7 +613,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
 | `Selecao.jsx` | ✅ Completo | Escolha da criatura |
-| `Criatura.jsx` | ✅ Completo | Tela principal da criatura |
+| `Criatura.jsx` | ✅ Completo | Tela principal da criatura + barra de saúde + botão restaurar |
 | `Alimentar.jsx` | ✅ Completo | Minigame alimentar |
 | `Banhar.jsx` | ✅ Completo | Minigame banhar |
 | `Brincadeira.jsx` | ✅ Completo | 4 mini-interações |
@@ -643,6 +643,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Higiene | -3 | ~33h |
 | Energia | -4 | ~25h |
 | Humor | -2 | ~50h |
+| Saúde | -2 | ~50h |
 
 #### Ciclo de Vida
 
@@ -671,8 +672,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase) |
 
-**Status Geral:** 🟡 **80%**  
-**O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados: idle, hungry, happy, enjoy, abandoned, anger, dirty, sick, sleepy, presentation). Faltam artes personalizadas para as 29 criaturas restantes.
+**Status Geral:** 🟡 **82%**  
+**O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
 
 ---
 

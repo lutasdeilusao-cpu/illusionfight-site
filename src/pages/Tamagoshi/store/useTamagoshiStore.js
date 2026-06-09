@@ -6,7 +6,7 @@ import { supabase } from '../../../lib/supabase'
 import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA, DIX_BOAS_VINDAS } from '../data/moedas'
 import { CRIATURAS } from '../data/criaturas'
 
-const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2 }
+const DECAY = { fome: 6, higiene: 3, energia: 4, humor: 2, saude: 2 }
 const CRITICO_EM_HORAS = 24
 const DIAS_PARA_PERFEITO = 7
 
@@ -20,6 +20,7 @@ function calcDecaimento(state, horas) {
   const novaFome = Math.max(0, state.fome - Math.floor(DECAY.fome * horas * indepMult))
   const novaHigiene = Math.max(0, state.higiene - Math.floor(DECAY.higiene * horas * indepMult))
   const novaEnergia = Math.max(0, state.energia - Math.floor(DECAY.energia * horas * indepMult))
+  const novaSaude = Math.max(0, state.saude - Math.floor(DECAY.saude * horas * indepMult))
 
   let novoHumor = Math.max(0, state.humor - Math.floor(DECAY.humor * horas * indepMult * carenteHumor))
   if (state.personalidade === 'FOFO' && state._ultimoLogin) {
@@ -27,21 +28,21 @@ function calcDecaimento(state, horas) {
     if (horasSemDono < 12) novoHumor = Math.max(20, novoHumor)
   }
 
-  const emCritico = novaFome <= 0 || novaHigiene <= 0 || novaEnergia <= 0 || novoHumor <= 0
+  const emCritico = novaFome <= 0 || novaHigiene <= 0 || novaEnergia <= 0 || novoHumor <= 0 || novaSaude <= 0
   const jaEraCritico = state.status === 'critico'
   const criticoDesde = jaEraCritico ? state._criticoDesde : emCritico ? Date.now() : null
   const horasCritico = criticoDesde ? (Date.now() - criticoDesde) / (1000 * 60 * 60) : 0
 
   if (emCritico && horasCritico >= CRITICO_EM_HORAS) {
     return {
-      fome: novaFome, higiene: novaHigiene, energia: novaEnergia, humor: novoHumor,
+      fome: novaFome, higiene: novaHigiene, energia: novaEnergia, humor: novoHumor, saude: novaSaude,
       status: 'morto', _criticoDesde: criticoDesde, _ultimoUpdate: Date.now(),
       fase: 'luto', cooldownAte: Date.now() + 24 * 60 * 60 * 1000,
     }
   }
 
   return {
-    fome: novaFome, higiene: novaHigiene, energia: novaEnergia, humor: novoHumor,
+    fome: novaFome, higiene: novaHigiene, energia: novaEnergia, humor: novoHumor, saude: novaSaude,
     status: emCritico ? 'critico' : 'vivo',
     _criticoDesde: criticoDesde,
     _ultimoUpdate: Date.now(),
@@ -51,7 +52,7 @@ function calcDecaimento(state, horas) {
 const defaultState = {
   criaturaId: null, nomeCustom: '', personalidade: null,
   fase: 'ovo', estagio: 0,
-  fome: 100, higiene: 100, energia: 100, humor: 100,
+  fome: 100, higiene: 100, energia: 100, humor: 100, saude: 100,
   ultimaAlimentacao: null, ultimaHigiene: null, ultimoPasseio: null, ultimaBrincadeira: null,
   diasCuidadoStreak: 0, diasPerfeitoStreak: 0,
   nascidoEm: null, status: null,
@@ -106,7 +107,7 @@ export const useTamagoshiStore = create((set, get) => ({
     set({
       criaturaId, personalidade: c.tipo, nomeCustom: c.nome,
       fase: 'criatura', estagio: 1,
-      fome: 100, higiene: 100, energia: 100, humor: 100,
+      fome: 100, higiene: 100, energia: 100, humor: 100, saude: 100,
       nascidoEm: Date.now(),
       status: 'vivo',
       _ultimoUpdate: Date.now(), _ultimoLogin: Date.now(),
@@ -120,7 +121,7 @@ export const useTamagoshiStore = create((set, get) => ({
     set(state => {
       if (state.status !== 'vivo' && state.status !== 'critico') return state
       const novaFome = Math.min(100, (state.fome || 0) + 30)
-      const status = (novaFome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
+      const status = (novaFome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0 && state.saude > 0) ? 'vivo' : state.status
       return {
         fome: novaFome, ultimaAlimentacao: Date.now(),
         _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
@@ -134,7 +135,7 @@ export const useTamagoshiStore = create((set, get) => ({
     set(state => {
       if (state.status !== 'vivo' && state.status !== 'critico') return state
       const novaHigiene = Math.min(100, (state.higiene || 0) + 40)
-      const status = (state.fome > 0 && novaHigiene > 0 && state.energia > 0 && state.humor > 0) ? 'vivo' : state.status
+      const status = (state.fome > 0 && novaHigiene > 0 && state.energia > 0 && state.humor > 0 && state.saude > 0) ? 'vivo' : state.status
       return {
         higiene: novaHigiene, ultimaHigiene: Date.now(),
         _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
@@ -149,7 +150,7 @@ export const useTamagoshiStore = create((set, get) => ({
       if (state.status !== 'vivo' && state.status !== 'critico') return state
       const bonus = 25
       let novaEnergia = Math.min(100, (state.energia || 0) + bonus)
-      const status = (state.fome > 0 && state.higiene > 0 && novaEnergia > 0 && state.humor > 0) ? 'vivo' : state.status
+      const status = (state.fome > 0 && state.higiene > 0 && novaEnergia > 0 && state.humor > 0 && state.saude > 0) ? 'vivo' : state.status
       return {
         energia: novaEnergia, ultimoPasseio: Date.now(),
         _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
@@ -163,11 +164,25 @@ export const useTamagoshiStore = create((set, get) => ({
     set(state => {
       if (state.status !== 'vivo' && state.status !== 'critico') return state
       const novoHumor = Math.min(100, (state.humor || 0) + 35)
-      const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && novoHumor > 0) ? 'vivo' : state.status
+      const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && novoHumor > 0 && state.saude > 0) ? 'vivo' : state.status
       return {
         humor: novoHumor, ultimaBrincadeira: Date.now(),
         _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
         status, fase: 'criatura',
+      }
+    })
+    get().saveToCloud(get()._userId)
+  },
+
+  restaurarSaude: () => {
+    set(state => {
+      if (state.status !== 'vivo' && state.status !== 'critico') return state
+      const novaSaude = Math.min(100, (state.saude || 0) + 50)
+      const status = (state.fome > 0 && state.higiene > 0 && state.energia > 0 && state.humor > 0 && novaSaude > 0) ? 'vivo' : state.status
+      return {
+        saude: novaSaude,
+        _criticoDesde: status === 'vivo' ? null : state._criticoDesde,
+        status,
       }
     })
     get().saveToCloud(get()._userId)
@@ -202,7 +217,7 @@ export const useTamagoshiStore = create((set, get) => ({
       user_id: uid, slot: state._slot || 1,
       criatura_id: state.criaturaId, nome_custom: state.nomeCustom,
       personalidade: state.personalidade, fase: state.fase,
-      fome: state.fome, higiene: state.higiene, energia: state.energia, humor: state.humor,
+      fome: state.fome, higiene: state.higiene, energia: state.energia, humor: state.humor, saude: state.saude,
       ultima_alimentacao: state.ultimaAlimentacao ? new Date(state.ultimaAlimentacao).toISOString() : null,
       ultima_higiene: state.ultimaHigiene ? new Date(state.ultimaHigiene).toISOString() : null,
       ultimo_passeio: state.ultimoPasseio ? new Date(state.ultimoPasseio).toISOString() : null,
@@ -236,7 +251,7 @@ export const useTamagoshiStore = create((set, get) => ({
       const mapped = {
         criaturaId: data.criatura_id, nomeCustom: data.nome_custom,
         personalidade: data.personalidade, fase: data.fase, estagio: data.estagio || 0,
-        fome: data.fome ?? 100, higiene: data.higiene ?? 100, energia: data.energia ?? 100, humor: data.humor ?? 100,
+        fome: data.fome ?? 100, higiene: data.higiene ?? 100, energia: data.energia ?? 100, humor: data.humor ?? 100, saude: data.saude ?? 100,
         ultimaAlimentacao: data.ultima_alimentacao ? new Date(data.ultima_alimentacao).getTime() : null,
         ultimaHigiene: data.ultima_higiene ? new Date(data.ultima_higiene).getTime() : null,
         ultimoPasseio: data.ultimo_passeio ? new Date(data.ultimo_passeio).getTime() : null,
@@ -283,7 +298,7 @@ export const useTamagoshiStore = create((set, get) => ({
     set({
       criaturaId, personalidade: c.tipo, nomeCustom: c.nome,
       fase: 'criatura', estagio: 1,
-      fome: 100, higiene: 100, energia: 100, humor: 100,
+      fome: 100, higiene: 100, energia: 100, humor: 100, saude: 100,
       nascidoEm: Date.now(),
       status: 'vivo',
       _ultimoUpdate: Date.now(), _ultimoLogin: Date.now(),

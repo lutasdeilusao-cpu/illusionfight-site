@@ -1161,6 +1161,8 @@
       "higiene": "🧼 Hygiene",
       "energia": "⚡ Energy",
       "humor": "🎭 Mood",
+      "saude": "❤️ Health",
+      "restaurar_saude": "[ restore health ]",
       "dix_infinito": "🪙 ∞ DIX",
       "dix_display": "🪙 {saldo} DIX",
       "dix_label": "DIX",
