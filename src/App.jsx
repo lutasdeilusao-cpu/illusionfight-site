@@ -7,7 +7,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopOnNav from './components/ScrollToTopOnNav'
-import NotificationBalloon from './components/NotificationBalloon'
+import LDINotification from './components/LDINotification/LDINotification'
+import NinaMusicPlayer from './components/NinaMusicPlayer/NinaMusicPlayer'
 import CookieBanner from './components/CookieBanner'
 import SearchModal from './components/SearchModal/SearchModal'
 import AchievementToast from './components/AchievementToast/AchievementToast'
@@ -113,7 +114,8 @@ export default function App() {
       </Routes>
       <Footer hidden={readerMode} />
       <ScrollToTop />
-      <NotificationBalloon />
+      <LDINotification personagem="jack" />
+      <NinaMusicPlayer />
       <CookieBanner />
       {toastPendente && <AchievementToast achievement={toastPendente} fecharToast={fecharToast} />}
     </>

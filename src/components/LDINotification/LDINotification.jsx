@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import jackImg from '../assets/images/characters/jack-balloon.png'
-import notificacoes from '../data/notificacoes.json'
-import { useNotificationStore } from '../store/notificationStore'
-import './NotificationBalloon.css'
+import jackImg from '../../assets/images/characters/jack-balloon.png'
+import ninaImg from '../../assets/images/characters/nina-balloon.png'
+import notificacoes from '../../data/notificacoes.json'
+import { useNotificationStore } from '../../store/notificationStore'
+import './LDINotification.css'
 
 function shuffle(arr) {
   const a = [...arr]
@@ -14,7 +15,7 @@ function shuffle(arr) {
   return a
 }
 
-export default function NotificationBalloon() {
+export default function LDINotification({ personagem = 'jack' }) {
   const [visible, setVisible] = useState(false)
   const [notif, setNotif] = useState(null)
   const [queue, setQueue] = useState([])
@@ -22,6 +23,10 @@ export default function NotificationBalloon() {
   const autoCloseRef = useRef(null)
   const nextRef = useRef(null)
   const notifStore = useNotificationStore()
+
+  const isNina = personagem === 'nina'
+  const avatar = isNina ? ninaImg : jackImg
+  const accentColor = isNina ? 'var(--accent-pink)' : 'var(--accent-teal)'
 
   useEffect(() => {
     const shuffled = shuffle(notificacoes)
@@ -70,11 +75,11 @@ export default function NotificationBalloon() {
   const isExternal = notif.url.startsWith('http')
 
   return (
-    <div className="notif-balloon">
+    <div className={`notif-balloon ${isNina ? 'notif-nina' : ''}`}>
       <button className="notif-close" onClick={handleClose}>×</button>
       <div className="notif-header">
-        <img src={jackImg} alt="Jack" className="notif-avatar" />
-        <span className="notif-name">{notif.nome_personagem || 'Jack'}</span>
+        <img src={avatar} alt={isNina ? 'Nina' : 'Jack'} className="notif-avatar" />
+        <span className="notif-name">{notif.nome_personagem || (isNina ? 'Nina' : 'Jack')}</span>
       </div>
       <p className="notif-message">{notif.mensagem}</p>
       {isExternal ? (

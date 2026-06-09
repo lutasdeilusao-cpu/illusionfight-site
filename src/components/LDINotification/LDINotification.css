@@ -13,6 +13,12 @@
   animation: balloonIn 0.3s ease;
 }
 
+.notif-balloon.notif-nina {
+  border-color: var(--accent-pink, #ff6b9d);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 107, 157, 0.2);
+}
+
 @keyframes balloonIn {
   from {
     opacity: 0;
@@ -35,6 +41,11 @@
   border-right: 1px solid var(--accent-teal);
   border-bottom: 1px solid var(--accent-teal);
   transform: rotate(45deg);
+}
+
+.notif-balloon.notif-nina::after {
+  border-right-color: var(--accent-pink, #ff6b9d);
+  border-bottom-color: var(--accent-pink, #ff6b9d);
 }
 
 .notif-close {
@@ -69,12 +80,20 @@
   border: 2px solid var(--accent-teal);
 }
 
+.notif-nina .notif-avatar {
+  border-color: var(--accent-pink, #ff6b9d);
+}
+
 .notif-name {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--accent-teal);
   letter-spacing: 0.05em;
+}
+
+.notif-nina .notif-name {
+  color: var(--accent-pink, #ff6b9d);
 }
 
 .notif-message {
@@ -99,7 +118,17 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
+.notif-nina .notif-cta {
+  color: var(--accent-pink, #ff6b9d);
+  border-color: var(--accent-pink, #ff6b9d);
+}
+
 .notif-cta:hover {
   background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+.notif-nina .notif-cta:hover {
+  background: var(--accent-pink, #ff6b9d);
   color: var(--bg-primary);
 }

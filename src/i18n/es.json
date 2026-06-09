@@ -1656,5 +1656,15 @@
   "cookie": {
     "text": "Este sitio utiliza cookies técnicas y de terceros (YouTube, TikTok, X) para funcionar correctamente. Al continuar navegando, aceptas esto.",
     "accept": "ENTENDIDO"
+  },
+  "nina": {
+    "greeting": {
+      "game": "¡Hola! ¿Quieres escuchar música mientras juegas?",
+      "reading": "¡Hola! ¿Quieres escuchar música mientras lees?",
+      "default": "¡Hola! ¿Quieres escuchar música mientras navegas?"
+    },
+    "yes": "Sí",
+    "no": "No",
+    "playerHint": "Un pequeño reproductor estará en la esquina de la pantalla. Puedes parar en cualquier momento. 🎵"
   }
 }
