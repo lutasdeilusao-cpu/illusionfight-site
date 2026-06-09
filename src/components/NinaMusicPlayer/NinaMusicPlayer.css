@@ -10,26 +10,27 @@
   pointer-events: none;
 }
 
-/* ── Nina Balloon Notification ── */
+/* ═══════════════════════════════════════════
+   Nina WhatsApp-style Balloon
+   Starts as just the avatar circle, grows
+   right-to-left as text types in
+   ═══════════════════════════════════════════ */
 .nina-balloon {
   position: fixed;
   bottom: 90px;
   right: 24px;
-  width: 280px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--accent-pink, #ff6b9d);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
-              0 0 0 1px rgba(255, 107, 157, 0.2);
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 320px;
   z-index: 150;
-  animation: ninaBalloonIn 0.3s ease;
+  animation: ninaBalloonIn 0.25s ease;
 }
 
 @keyframes ninaBalloonIn {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(0.95);
+    transform: translateY(12px) scale(0.9);
   }
   to {
     opacity: 1;
@@ -37,111 +38,128 @@
   }
 }
 
-.nina-balloon::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  right: 28px;
-  width: 14px;
-  height: 14px;
-  background: var(--bg-elevated);
-  border-right: 1px solid var(--accent-pink, #ff6b9d);
-  border-bottom: 1px solid var(--accent-pink, #ff6b9d);
-  transform: rotate(45deg);
-}
-
-.nina-balloon-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
+/* ── Avatar ── */
 .nina-balloon-avatar {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--accent-pink, #ff6b9d);
+  flex-shrink: 0;
 }
 
-.nina-balloon-message {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0 0 14px;
-  white-space: pre-wrap;
+/* ── Chat bubble (grows right→left) ── */
+.nina-balloon-content {
+  background: var(--accent-pink, #ff6b9d);
+  border-radius: 16px 16px 16px 4px;
+  padding: 8px 12px;
+  min-width: 0;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.25);
+  position: relative;
+  animation: bubbleGrow 0.15s ease forwards;
+  transform-origin: right center;
 }
 
-.nina-balloon-message.typewriter {
-  overflow: hidden;
-  animation: typewriter 2s steps(50) 1s forwards;
-  opacity: 0;
-}
-
-@keyframes typewriter {
+@keyframes bubbleGrow {
   from {
+    transform: scaleX(0);
     opacity: 0;
-    max-height: 0;
   }
   to {
+    transform: scaleX(1);
     opacity: 1;
-    max-height: 200px;
   }
 }
 
+/* ── Tail (little triangle pointing to avatar) ── */
+.nina-tail {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right-color: var(--accent-pink, #ff6b9d);
+  border-left: 0;
+  position: absolute;
+  bottom: 10px;
+  left: -6px;
+}
+
+/* ── Message text ── */
+.nina-balloon-msg {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ── Typing cursor ── */
+.nina-cursor {
+  display: inline-block;
+  animation: blink 0.6s step-end infinite;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Buttons (appear after typing) ── */
 .nina-balloon-actions {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  margin-top: 8px;
+  animation: fadeUp 0.25s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .nina-btn {
   flex: 1;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.05em;
-  padding: 6px 0;
-  border-radius: 4px;
-  border: 1px solid;
+  padding: 5px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.5);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
   text-transform: uppercase;
-}
-
-.nina-btn-yes {
   background: transparent;
-  color: var(--accent-pink, #ff6b9d);
-  border-color: var(--accent-pink, #ff6b9d);
+  color: #fff;
 }
 
 .nina-btn-yes:hover {
-  background: var(--accent-pink, #ff6b9d);
-  color: var(--bg-primary);
-}
-
-.nina-btn-no {
-  background: transparent;
-  color: var(--text-muted);
-  border-color: var(--text-muted);
+  background: rgba(255,255,255,0.25);
+  border-color: #fff;
 }
 
 .nina-btn-no:hover {
-  background: var(--text-muted);
-  color: var(--bg-primary);
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.7);
 }
 
-/* ── Hint message ── */
+/* ── Hint (second message) ── */
 .nina-hint {
   z-index: 151;
 }
 
-.nina-hint .nina-balloon-message {
-  margin-bottom: 0;
+.nina-hint .nina-balloon-content {
+  background: var(--accent-pink, #ff6b9d);
 }
 
-/* ── Music Player Widget ── */
+/* ═══════════════════════════════════════════
+   Music Player Widget
+   ═══════════════════════════════════════════ */
 .nina-player {
   position: fixed;
   top: 80px;
@@ -159,14 +177,8 @@
 }
 
 @keyframes ninaPlayerIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(-10px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .nina-player-attention {
@@ -174,13 +186,8 @@
 }
 
 @keyframes ninaPulse {
-  0%, 100% {
-    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
-  }
-  50% {
-    box-shadow: 0 4px 30px rgba(255, 107, 157, 0.7),
-                0 0 40px rgba(255, 107, 157, 0.3);
-  }
+  0%, 100% { box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3); }
+  50% { box-shadow: 0 4px 30px rgba(255, 107, 157, 0.7), 0 0 40px rgba(255, 107, 157, 0.3); }
 }
 
 .nina-player-icon {
@@ -195,19 +202,13 @@
   line-height: 1;
 }
 
-.nina-player-note.playing {
+.nina-pulse {
   animation: notePulse 1.5s ease-in-out infinite;
 }
 
 @keyframes notePulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .nina-player-play {

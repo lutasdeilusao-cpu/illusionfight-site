@@ -5,7 +5,6 @@ import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './NinaMusicPlayer.css'
 
 const PLAYLIST_ID = 'PLVAkPvJrHsPZHSvAvGxpiT-yWgyx_qRfK'
-const YT_ORIGIN = 'https://www.youtube.com'
 
 let youtubeApiReady = false
 const readyListeners = []
@@ -16,11 +15,8 @@ window.onYouTubeIframeAPIReady = () => {
 }
 
 function onYoutubeApi(cb) {
-  if (youtubeApiReady) {
-    cb()
-  } else {
-    readyListeners.push(cb)
-  }
+  if (youtubeApiReady) { cb() }
+  else { readyListeners.push(cb) }
 }
 
 function loadYoutubeApi() {
@@ -43,74 +39,111 @@ export default function NinaMusicPlayer() {
   const [playing, setPlaying] = useState(false)
   const [attention, setAttention] = useState(true)
   const [showHint, setShowHint] = useState(false)
+  const [typedText, setTypedText] = useState('')
+  const [typingDone, setTypingDone] = useState(false)
+  const [typedHint, setTypedHint] = useState('')
+  const [hintTypingDone, setHintTypingDone] = useState(false)
   const playerRef = useRef(null)
   const iframeRef = useRef(null)
   const playerReadyRef = useRef(false)
   const sessionRef = useRef(false)
   const location = useLocation()
   const { t } = useLanguage()
+  const greetingKey = getGreetingKey(location.pathname)
+  const fullMsgRef = useRef('')
+  const fullHintRef = useRef('')
 
   // Load YouTube API on mount
-  useEffect(() => {
-    loadYoutubeApi()
-  }, [])
+  useEffect(() => { loadYoutubeApi() }, [])
 
-  // Show balloon after 30 seconds if player hasn't been opened
+  // Show balloon after 30s
   useEffect(() => {
     if (sessionRef.current) return
     const timer = setTimeout(() => {
-      if (!sessionRef.current) {
-        setStep('balloon')
-      }
+      if (!sessionRef.current) setStep('balloon')
     }, 30000)
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-close balloon after 10s
+  // Typewriter effect for balloon
+  useEffect(() => {
+    if (step !== 'balloon') {
+      setTypedText('')
+      setTypingDone(false)
+      return
+    }
+    const fullText = t(greetingKey)
+    fullMsgRef.current = fullText
+    let i = 0
+    setTypedText('')
+
+    const interval = setInterval(() => {
+      i++
+      setTypedText(fullText.slice(0, i))
+      if (i >= fullText.length) {
+        clearInterval(interval)
+        setTypingDone(true)
+      }
+    }, 25)
+
+    return () => clearInterval(interval)
+  }, [step, greetingKey, t])
+
+  // Typewriter effect for hint
+  useEffect(() => {
+    if (step !== 'hint' || !showHint) {
+      setTypedHint('')
+      setHintTypingDone(false)
+      return
+    }
+    const fullText = t('nina.playerHint')
+    fullHintRef.current = fullText
+    let i = 0
+    setTypedHint('')
+
+    const interval = setInterval(() => {
+      i++
+      setTypedHint(fullText.slice(0, i))
+      if (i >= fullText.length) {
+        clearInterval(interval)
+        setHintTypingDone(true)
+      }
+    }, 20)
+
+    return () => clearInterval(interval)
+  }, [step, showHint, t])
+
+  // Auto-close balloon after 10s total
   useEffect(() => {
     if (step !== 'balloon') return
-    const timer = setTimeout(() => {
-      setStep('idle')
-    }, 10000)
+    const timer = setTimeout(() => { setStep('idle') }, 10000)
     return () => clearTimeout(timer)
   }, [step])
 
-  // Attention pulse: 3 pulses then stop
+  // Attention pulse
   useEffect(() => {
     if (step !== 'player') return
-    const timer = setTimeout(() => {
-      setAttention(false)
-    }, 3000)
+    const timer = setTimeout(() => setAttention(false), 3000)
     return () => clearTimeout(timer)
   }, [step])
 
-  // Show hint for 5s after "sim"
+  // Show hint for 6s
   useEffect(() => {
     if (step !== 'hint') return
-    const timer = setTimeout(() => {
-      setShowHint(false)
-    }, 5000)
+    const timer = setTimeout(() => setShowHint(false), 6000)
     return () => clearTimeout(timer)
   }, [step])
 
-  // Initialize YouTube player
   const initPlayer = useCallback(() => {
     if (playerReadyRef.current) return
     onYoutubeApi(() => {
       if (playerReadyRef.current) return
       const player = new window.YT.Player('nina-youtube-player', {
-        height: '0',
-        width: '0',
+        height: '0', width: '0',
         playerVars: {
-          listType: 'playlist',
-          list: PLAYLIST_ID,
-          autoplay: 0,
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          modestbranding: 1,
-          rel: 0,
-          loop: 1,
+          listType: 'playlist', list: PLAYLIST_ID,
+          autoplay: 0, controls: 0, disablekb: 1,
+          fs: 0, modestbranding: 1, rel: 0, loop: 1,
         },
         events: {
           onReady: () => {
@@ -127,14 +160,8 @@ export default function NinaMusicPlayer() {
     setStep('hint')
     setShowHint(true)
     sessionRef.current = true
-
-    // Initialize player after user interaction
     initPlayer()
-
-    // Show player after hint
-    setTimeout(() => {
-      setStep('player')
-    }, 100)
+    setTimeout(() => setStep('player'), 100)
   }
 
   const handleNao = () => {
@@ -145,26 +172,19 @@ export default function NinaMusicPlayer() {
   const togglePlay = () => {
     const player = playerRef.current
     if (!player || !playerReadyRef.current) return
-
-    if (playing) {
-      player.pauseVideo()
-    } else {
-      player.playVideo()
-    }
+    if (playing) { player.pauseVideo() } else { player.playVideo() }
     setPlaying(!playing)
   }
 
   const handleClose = () => {
     const player = playerRef.current
-    if (player && playerReadyRef.current) {
-      player.pauseVideo()
-    }
+    if (player && playerReadyRef.current) player.pauseVideo()
     setPlaying(false)
     setStep('idle')
     sessionRef.current = true
   }
 
-  // Click outside balloon to close
+  // Click outside balloon to close (after 2.5s)
   useEffect(() => {
     if (step !== 'balloon') return
     const timer = setTimeout(() => {
@@ -179,49 +199,48 @@ export default function NinaMusicPlayer() {
     return () => clearTimeout(timer)
   }, [step])
 
-  const greetingKey = getGreetingKey(location.pathname)
-
   console.log('[NINA] music player carregado')
 
   return (
     <>
-      {/* Invisible YouTube iframe */}
       <div id="nina-youtube-player" ref={iframeRef} className="nina-youtube-iframe" />
 
-      {/* Balloon notification */}
+      {/* WhatsApp-style balloon */}
       {step === 'balloon' && (
         <div className="nina-balloon">
-          <div className="nina-balloon-header">
-            <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
-          </div>
-          <p className="nina-balloon-message typewriter">{t(greetingKey)}</p>
-          <div className="nina-balloon-actions">
-            <button className="nina-btn nina-btn-yes" onClick={handleSim}>
-              {t('nina.yes')}
-            </button>
-            <button className="nina-btn nina-btn-no" onClick={handleNao}>
-              {t('nina.no')}
-            </button>
+          <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
+          <div className="nina-balloon-content">
+            <p className="nina-balloon-msg">{typedText}<span className="nina-cursor">|</span></p>
+            {typingDone && (
+              <>
+                <span className="nina-tail" />
+                <div className="nina-balloon-actions">
+                  <button className="nina-btn nina-btn-yes" onClick={handleSim}>{t('nina.yes')}</button>
+                  <button className="nina-btn nina-btn-no" onClick={handleNao}>{t('nina.no')}</button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
 
-      {/* Hint message after "sim" */}
+      {/* Hint after "sim" */}
       {showHint && step === 'hint' && (
         <div className="nina-balloon nina-hint">
-          <div className="nina-balloon-header">
-            <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
+          <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
+          <div className="nina-balloon-content">
+            <p className="nina-balloon-msg">{typedHint}</p>
+            {hintTypingDone && <span className="nina-tail" />}
           </div>
-          <p className="nina-balloon-message typewriter">{t('nina.playerHint')}</p>
         </div>
       )}
 
-      {/* Music player widget */}
+      {/* Music player */}
       {step === 'player' && (
         <div className={`nina-player ${attention ? 'nina-player-attention' : ''}`}>
           <button className="nina-player-close" onClick={handleClose}>×</button>
           <div className="nina-player-icon">
-            <span className="nina-player-note {playing ? 'nina-pulse' : ''}">
+            <span className={`nina-player-note ${playing ? 'nina-pulse' : ''}`}>
               {playing ? '♫' : '♪'}
             </span>
           </div>
