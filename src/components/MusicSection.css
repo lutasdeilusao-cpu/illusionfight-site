@@ -3,12 +3,43 @@
   background: var(--bg-primary);
 }
 
-.music-grid {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
+.music-carousel {
+  overflow: hidden;
   margin-top: 2rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 4%,
+    #000 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 4%,
+    #000 96%,
+    transparent 100%
+  );
+}
+
+.music-carousel__track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: musicScroll 80s linear infinite;
+}
+
+.music-carousel__track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes musicScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .music-item {
@@ -167,9 +198,10 @@
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  .music-grid {
+@media (max-width: 768px) {
+  .music-carousel__track {
     gap: 20px;
+    animation: musicScroll 120s linear infinite;
   }
 
   .music-circle {
@@ -179,5 +211,6 @@
 
   .music-title {
     max-width: 90px;
+    font-size: 0.75rem;
   }
 }

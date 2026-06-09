@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.26*  |  `[SITE] versão carregada: 9.26`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.25*  |  `[SITE] versão carregada: 9.25`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.24*  |  `[SITE] versão carregada: 9.24`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.23*  |  `[SITE] versão carregada: 9.23`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -542,7 +543,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.25** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.26** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
