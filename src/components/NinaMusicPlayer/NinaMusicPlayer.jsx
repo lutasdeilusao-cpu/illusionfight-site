@@ -150,6 +150,9 @@ export default function NinaMusicPlayer() {
             playerReadyRef.current = true
             player.setShuffle(true)
             playerRef.current = player
+            // Auto-play when user clicked "Sim"
+            player.playVideo()
+            setPlaying(true)
           },
         },
       })
