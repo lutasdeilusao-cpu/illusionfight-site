@@ -1,6 +1,5 @@
--- Migration 017: Adicionar coluna 'saude' na tamagoshi_saves (timestamp-only)
--- O sistema agora é timestamp-only: status bars calculados localmente via localStorage + decaimento
--- Mas as tabelas são MANTIDAS para metadados, badges, trocas e fama
-
-ALTER TABLE public.tamagoshi_saves
-  ADD COLUMN IF NOT EXISTS saude INT DEFAULT 100;
+-- Migration 017: (vazia) — não é mais necessário adicionar coluna 'saude'
+-- O sistema timestamp-only calcula as barras localmente via localStorage + decaimento.
+-- saveToCloud não envia mais valores de barra (fome, higiene, energia, humor, saude).
+-- loadFromCloud usa data.saude ?? 100 (default se coluna não existir).
+-- A coluna saude não precisa existir no Supabase.
