@@ -1,15 +1,14 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-08*
+*Última atualização: 2026-06-09*
+*Versão: 9.12*  |  `[SITE] versão carregada: 9.12`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.11*  |  `[SITE] versão carregada: 9.11`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.10*  |  `[SITE] versão carregada: 9.10`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.6*  |  `[SITE] versão carregada: 9.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
-*TS versão: 5.5.0* | `[TS] versão carregada: 5.5.0`
-*TM versão: 5.5.0* | `[TM] versão carregada: 5.5.0`
-
-> ✅ **LDI Top Trumps v5.5.0 — Deck Builder com visualização de cartas + Deck Builder na Conta (SP + MP)!**
+*TATICS versão: 7.0.1* | `[TATICS] versão carregada: 7.0.1`
+*TS versão: 5.6.0* | `[TS] versão carregada: 5.6.0`
+*TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 
@@ -526,8 +525,16 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.11** | `src/config/version.js:5` |
-| `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.12** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
+| `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
+| `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
+| `TAMA_VERSION` | **1.11.1** | `src/config/version.js:14` |
+| `DUELO_VERSION` | **1.3.0** | `src/config/version.js:15` |
+| `MINIGAMES_VERSION` | **1.3.1** | `src/config/version.js:16` |
+| `TS_VERSION` | **5.6.0** | `src/config/version.js:21` |
+| `TM_VERSION` | **5.6.0** | `src/config/version.js:22` |
+| `TATICS_VERSION` | **7.0.1** | `src/config/version.js:25` || `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
 | `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
