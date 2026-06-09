@@ -3,75 +3,65 @@ import { useLanguage } from '../context/LanguageContext'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import './StoryProgress.css'
 
-const DONE_MAP = [
-  [true, false],
-  [true, true, true, false],
-  [true, true, false],
-  [true, true, true, true, true, true, true, true, true],
-  [true, true, true, true, true, false, false, false, false],
+/**
+ * 5 últimas atualizações do site (itens já lançados/disponíveis).
+ * Ordem: do mais recente para o mais antigo.
+ * { track, item } → aponta para progress.tracks[track].items[item]
+ */
+const RECENT_UPDATES = [
+  { track: 3, item: 6 },  // GAMES → LDI Tatics — Novo
+  { track: 3, item: 8 },  // GAMES → Duelo LDI — Beta
+  { track: 3, item: 7 },  // GAMES → MiniGames — Free
+  { track: 4, item: 4 },  // LOJA → Skin Karuak — Disponível
+  { track: 4, item: 3 },  // LOJA → 1000 Fichas + Bônus — Disponível
 ]
+
+const AREA_COLORS = ['#00B4D8', '#A855F4', '#F5A623', '#22C55E', '#FF4500']
 
 export default function StoryProgress() {
   const ref = useScrollReveal()
   const { t } = useLanguage()
-  const containerRef = useRef(null)
+  const listRef = useRef(null)
   const hasAnimated = useRef(false)
 
   useEffect(() => {
-    const el = containerRef.current
+    const el = listRef.current
     if (!el) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true
-          const allItems = el.querySelectorAll('.progress-track__item')
-          allItems.forEach((item, i) => {
-            setTimeout(() => item.classList.add('is-visible'), i * 120)
+          const items = el.querySelectorAll('.update-item')
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add('is-visible'), i * 150)
           })
         }
       },
       { threshold: 0.2 }
     )
-
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
-
-  const tracks = ['progress.tracks.0', 'progress.tracks.1', 'progress.tracks.2', 'progress.tracks.3', 'progress.tracks.4']
 
   return (
     <section ref={ref} className="progress reveal">
       <div className="container">
         <h2 className="section-title">{t('progress.title')}</h2>
-        <div className="progress__tracks" ref={containerRef}>
-          {tracks.map((trackKey, ti) => {
-            const doneRow = DONE_MAP[ti]
-            const itemsKey = `${trackKey}.items`
-            const count = doneRow.length
+        <div className="updates-list" ref={listRef}>
+          {RECENT_UPDATES.map((u, i) => {
+            const formatKey = `progress.tracks.${u.track}.format`
+            const labelKey = `progress.tracks.${u.track}.items.${u.item}.label`
+            const statusKey = `progress.tracks.${u.track}.items.${u.item}.status`
+            const areaColor = AREA_COLORS[u.track] || '#888'
+
             return (
-              <div key={ti} className="progress-track">
-                <span className="progress-track__format">{t(`${trackKey}.format`)}</span>
-                <div className="progress-track__line">
-                  {Array.from({ length: count }, (_, i) => {
-                    const done = doneRow[i]
-                    return (
-                      <div key={i} className="progress-track__item">
-                        <div className="progress-track__bullet-row">
-                          <span className={`progress-track__bullet ${done ? 'progress-track__bullet--done' : 'progress-track__bullet--pending'}`} />
-                          {i < count - 1 && (
-                            <span className={`progress-track__connector ${done ? 'progress-track__connector--active' : ''}`} />
-                          )}
-                        </div>
-                        <span className={`progress-track__label ${done ? 'progress-track__label--done' : 'progress-track__label--pending'}`}>
-                          {t(`${itemsKey}.${i}.label`)}
-                        </span>
-                        <span className={`progress-track__status ${done ? 'progress-track__status--done' : 'progress-track__status--pending'}`}>
-                          {t(`${itemsKey}.${i}.status`)}
-                        </span>
-                      </div>
-                    )
-                  })}
+              <div key={i} className="update-item">
+                <div className="update-item__badge" style={{ '--area-color': areaColor }}>
+                  {t(formatKey)}
+                </div>
+                <div className="update-item__content">
+                  <span className="update-item__label">{t(labelKey)}</span>
+                  <span className="update-item__status">{t(statusKey)}</span>
                 </div>
               </div>
             )
