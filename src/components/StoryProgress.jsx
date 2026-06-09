@@ -7,6 +7,8 @@ const DONE_MAP = [
   [true, false],
   [true, true, true, false],
   [true, true, false],
+  [true, true, true, true, true, true, true, true, true],
+  [true, true, true, true, true, false, false, false, false],
 ]
 
 export default function StoryProgress() {
@@ -36,7 +38,7 @@ export default function StoryProgress() {
     return () => observer.disconnect()
   }, [])
 
-  const tracks = ['progress.tracks.0', 'progress.tracks.1', 'progress.tracks.2']
+  const tracks = ['progress.tracks.0', 'progress.tracks.1', 'progress.tracks.2', 'progress.tracks.3', 'progress.tracks.4']
 
   return (
     <section ref={ref} className="progress reveal">

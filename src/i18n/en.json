@@ -197,6 +197,88 @@
             "status": "Coming soon"
           }
         ]
+      },
+      {
+        "format": "GAMES",
+        "items": [
+          {
+            "label": "Top Trumps",
+            "status": "Released"
+          },
+          {
+            "label": "Lendas do LDI",
+            "status": "Free"
+          },
+          {
+            "label": "Jack Dream Beer",
+            "status": "Released"
+          },
+          {
+            "label": "Pesadelo Particular",
+            "status": "Released"
+          },
+          {
+            "label": "Arena Mode",
+            "status": "Released"
+          },
+          {
+            "label": "Tamagoshi LDI",
+            "status": "Released"
+          },
+          {
+            "label": "LDI Tatics",
+            "status": "New"
+          },
+          {
+            "label": "MiniGames",
+            "status": "Free"
+          },
+          {
+            "label": "Duelo LDI",
+            "status": "Beta"
+          }
+        ]
+      },
+      {
+        "format": "STORE",
+        "items": [
+          {
+            "label": "Starter Pack",
+            "status": "Available"
+          },
+          {
+            "label": "100 Tokens",
+            "status": "Available"
+          },
+          {
+            "label": "300 Tokens + Bonus",
+            "status": "Available"
+          },
+          {
+            "label": "1000 Tokens + Bonus",
+            "status": "Available"
+          },
+          {
+            "label": "Karuak Skin",
+            "status": "Available"
+          },
+          {
+            "label": "Physical Book",
+            "status": "Coming soon"
+          },
+          {
+            "label": "Kindle eBook",
+            "status": "Coming soon"
+          },
+          {
+            "label": "T-Shirts",
+            "status": "Coming soon"
+          },
+          {
+            "label": "Cap & Accessories",
+            "status": "Coming soon"
+          }
+        ]
       }
     ]
   },

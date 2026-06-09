@@ -197,6 +197,88 @@
             "status": "Em breve"
           }
         ]
+      },
+      {
+        "format": "GAMES",
+        "items": [
+          {
+            "label": "Top Trumps",
+            "status": "Lançado"
+          },
+          {
+            "label": "Lendas do LDI",
+            "status": "Free"
+          },
+          {
+            "label": "Jack Dream Beer",
+            "status": "Lançado"
+          },
+          {
+            "label": "Pesadelo Particular",
+            "status": "Lançado"
+          },
+          {
+            "label": "Arena Mode",
+            "status": "Lançado"
+          },
+          {
+            "label": "Tamagoshi LDI",
+            "status": "Lançado"
+          },
+          {
+            "label": "LDI Tatics",
+            "status": "Novo"
+          },
+          {
+            "label": "MiniGames",
+            "status": "Free"
+          },
+          {
+            "label": "Duelo LDI",
+            "status": "Beta"
+          }
+        ]
+      },
+      {
+        "format": "LOJA",
+        "items": [
+          {
+            "label": "Starter Pack",
+            "status": "Disponível"
+          },
+          {
+            "label": "100 Fichas",
+            "status": "Disponível"
+          },
+          {
+            "label": "300 Fichas + Bônus",
+            "status": "Disponível"
+          },
+          {
+            "label": "1000 Fichas + Bônus",
+            "status": "Disponível"
+          },
+          {
+            "label": "Skin Karuak",
+            "status": "Disponível"
+          },
+          {
+            "label": "Livro Físico",
+            "status": "Em breve"
+          },
+          {
+            "label": "eBook Kindle",
+            "status": "Em breve"
+          },
+          {
+            "label": "Camisetas",
+            "status": "Em breve"
+          },
+          {
+            "label": "Boné & Acessórios",
+            "status": "Em breve"
+          }
+        ]
       }
     ]
   },
