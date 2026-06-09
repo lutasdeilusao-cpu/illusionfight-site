@@ -1,11 +1,15 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-08*
+*Versão: 9.11*  |  `[SITE] versão carregada: 9.11`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*Versão: 9.10*  |  `[SITE] versão carregada: 9.10`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.6*  |  `[SITE] versão carregada: 9.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
-*TS versão: 5.3.0* | `[TS] versão carregada: 5.3.0`
-*TM versão: 5.3.0* | `[TM] versão carregada: 5.3.0`
+*TS versão: 5.5.0* | `[TS] versão carregada: 5.5.0`
+*TM versão: 5.4.0* | `[TM] versão carregada: 5.4.0`
+
+> ✅ **LDI Top Trumps v5.5.0 — Deck Builder com visualização de cartas + Deck Builder na Conta!**
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 
@@ -407,7 +411,7 @@
     │   │   └── abas/
     │   │       ├── PerfilConquistas.jsx   # Aba: conquistas
     │   │       ├── PerfilArena.jsx        # Aba: arena
-    │   │       ├── PerfilColecao.jsx      # Aba: coleção
+    │   │       ├── PerfilColecao.jsx      # Aba: coleção + botão Deck Builder
     │   │       ├── PerfilConta.jsx        # Aba: conta + assinatura Stripe
     │   │       ├── PerfilTamagoshi.jsx    # Aba: tamagoshi
     │   │       ├── PerfilTamagoshi.css
@@ -491,7 +495,7 @@
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v4.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck, recompensa diária |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.5.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Cartas colecionáveis, deck builder com visualização de carta, recompensa diária |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.66 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -522,7 +526,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | 9.10 | `src/config/version.js:5` |
+| `SITE_VERSION` | **9.11** | `src/config/version.js:5` |
 | `PP_VERSION` | 1.7.0 | `src/config/version.js:10` |
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
@@ -530,7 +534,7 @@
 | `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
-| `TS_VERSION` | 5.4.0 | `src/config/version.js:21` |
+| `TS_VERSION` | **5.5.0** | `src/config/version.js:21` |
 | `TM_VERSION` | 5.4.0 | `src/config/version.js:22` |
 | `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
 

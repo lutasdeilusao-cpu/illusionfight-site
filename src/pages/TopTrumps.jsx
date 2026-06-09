@@ -548,7 +548,16 @@ export default function TopTrumps() {
           deckIds={deckUsuario.map(c => c.id_num ?? c.id)}
           onSaved={() => {
             setShowDeckBuilder(false);
-            if (user) carregarDeckDB(user.id).then(() => window.location.reload());
+            if (user) {
+              carregarDeckDB(user.id).then(ids => {
+                const cartas = (ids || []).map(id => {
+                  let c = todasCartas.find(c => c.id_num === id)
+                  if (!c) c = todasCartas.find(c => c.id === id)
+                  return c
+                }).filter(Boolean)
+                setDeckUsuario(cartas)
+              })
+            }
           }}
           onClose={() => setShowDeckBuilder(false)}
         />

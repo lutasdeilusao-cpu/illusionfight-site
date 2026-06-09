@@ -254,9 +254,156 @@
   pointer-events: none;
 }
 
+/* ── Card Viewer inside DeckBuilder ── */
+.tt-deckbuilder-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tt-deckbuilder-viewer-modal {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #2A2D31;
+  border-radius: 12px;
+  max-width: 750px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.tt-deckbuilder-viewer-layout {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.tt-deckbuilder-viewer-card {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.tt-deckbuilder-viewer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tt-deckbuilder-viewer-nome {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  margin: 0 0 0.3rem;
+}
+
+.tt-deckbuilder-viewer-tier {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+}
+
+.tt-deckbuilder-viewer-elemental {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin: 0 0 0.3rem;
+}
+
+.tt-deckbuilder-viewer-desc {
+  font-size: 0.7rem;
+  color: #888;
+  margin: 0 0 0.3rem;
+  line-height: 1.4;
+}
+
+.tt-deckbuilder-viewer-frase {
+  font-size: 0.65rem;
+  color: #F5A623;
+  font-style: italic;
+  margin: 0 0 0.6rem;
+}
+
+.tt-deckbuilder-viewer-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.tt-deckbuilder-viewer-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0.4rem;
+  background: #0a0a0a;
+  border-radius: 3px;
+}
+
+.tt-deckbuilder-viewer-stat-label {
+  font-size: 0.55rem;
+  color: #888;
+}
+
+.tt-deckbuilder-viewer-stat-val {
+  font-size: 0.6rem;
+  color: #e8e8e8;
+  font-weight: 700;
+}
+
+.tt-deckbuilder-viewer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tt-deckbuilder-viewer-btn {
+  padding: 0.4rem 0.8rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: #0a0a0a;
+  color: #ccc;
+}
+
+.tt-deckbuilder-viewer-btn:hover { filter: brightness(1.2); }
+
+.tt-deckbuilder-viewer-btn--add {
+  background: #2a7a3a;
+  color: #fff;
+  border-color: #3a9a4a;
+}
+
+.tt-deckbuilder-viewer-btn--remove {
+  background: #7a2a2a;
+  color: #fff;
+  border-color: #9a3a3a;
+}
+
+.tt-deckbuilder-viewer-btn--back {
+  background: #1a1a1a;
+  color: #888;
+}
+
 @media (max-width: 700px) {
   .tt-deckbuilder-split { flex-direction: column; }
   .tt-deckbuilder-slots { width: 100%; }
   .tt-deckbuilder-slots-grid { max-height: none; }
+  .tt-deckbuilder-viewer-layout { flex-direction: column; align-items: center; }
+  .tt-deckbuilder-viewer-card { width: 180px; }
   .tt-deckbuilder-grid { max-height: 200px; }
 }

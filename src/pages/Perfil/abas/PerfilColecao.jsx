@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { getDeck } from '../../../lib/getDeck'
 import { carregarDeck } from '../../../hooks/useTopTrumpsDB'
+import DeckBuilder from '../../TopTrumps/components/DeckBuilder'
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
 import img01 from '../../../assets/images/cards/characters/card-01.png'
 import img02 from '../../../assets/images/cards/characters/card-02.png'
@@ -44,6 +45,7 @@ export default function PerfilColecao({ userId }) {
   const deck = getDeck(locale)
   const [deckIds, setDeckIds] = useState([])
   const [temporada, setTemporada] = useState(1)
+  const [showDeckBuilder, setShowDeckBuilder] = useState(false)
 
   const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
 
@@ -133,6 +135,16 @@ export default function PerfilColecao({ userId }) {
         })}
       </div>
 
+      {/* Deck Builder Button */}
+      <div className="perfil-colecao-deckbuilder">
+        <button
+          className="perfil-colecao-deckbuilder-btn"
+          onClick={() => setShowDeckBuilder(true)}
+        >
+          🃏 {locale === 'en' ? 'Deck Builder' : locale === 'es' ? 'Creador de Decks' : 'Montar Deck'}
+        </button>
+      </div>
+
       {/* Legenda */}
       <p className="perfil-colecao-obs">
         {locale === 'en'
@@ -141,6 +153,20 @@ export default function PerfilColecao({ userId }) {
           ? 'Las cartas atenuadas aún no han sido descubiertas. ¡Juega Top Trumps Single Player para desbloquearlas!'
           : 'Cartas apagadas ainda não foram descobertas. Jogue Top Trumps Single Player para desbloqueá-las!'}
       </p>
+
+      {/* Deck Builder Modal */}
+      {showDeckBuilder && (
+        <DeckBuilder
+          userId={userId}
+          deck={deck}
+          deckIds={deckIds}
+          onSaved={() => {
+            setShowDeckBuilder(false)
+            carregarDeck(userId).then(setDeckIds)
+          }}
+          onClose={() => setShowDeckBuilder(false)}
+        />
+      )}
     </div>
   )
 }

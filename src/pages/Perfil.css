@@ -565,6 +565,31 @@
   line-height: 1.4;
 }
 
+.perfil-colecao-deckbuilder {
+  text-align: center;
+  margin-top: 0.8rem;
+}
+
+.perfil-colecao-deckbuilder-btn {
+  padding: 0.5rem 1.4rem;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 1px solid #F5A623;
+  border-radius: 6px;
+  color: #F5A623;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.perfil-colecao-deckbuilder-btn:hover {
+  background: linear-gradient(135deg, #2a2a3e, #26314e);
+  box-shadow: 0 0 15px rgba(245,166,35,0.3);
+  transform: scale(1.03);
+}
+
 /* ===== CONTA ===== */
 .perfil-conta-info { margin-bottom: 1.5rem; }
 

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { sfx } from '../../../lib/sfx'
 import { salvarDeckTipo, salvarNomeDeck, carregarDeckTipo, carregarNomeDeck } from '../hooks/useTopTrumpsDeck'
+import TopTrumpsCard from '../../../components/TopTrumpsCard/TopTrumpsCard'
 // Reuse card images
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
 import img01 from '../../../assets/images/cards/characters/card-01.png'
@@ -46,6 +47,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
   const [deckNome, setDeckNome] = useState('')
   const [salvando, setSalvando] = useState(false)
   const [salvo, setSalvo] = useState(false)
+  const [viewingCard, setViewingCard] = useState(null)
 
   const config = DECK_CONFIG.find(c => c.key === deckType)
   const cartasDisponiveis = deck.cartas.filter(c =>
@@ -166,7 +168,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                         <div
                           key={carta.id}
                           className={`tt-deckbuilder-card${maxAtingido && !jaTem ? ' tt-deckbuilder-card--disabled' : ''}`}
-                          onClick={() => adicionar(carta)}
+                          onClick={() => { sfx.click(); setViewingCard(carta) }}
                         >
                           <img src={bgCarta(carta)} alt={carta.nome} className="tt-deckbuilder-card-img" />
                           <span className="tt-deckbuilder-card-nome">{carta.nome}</span>
@@ -224,6 +226,125 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
           )}
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+      {/* Card Viewer Modal */}
+      {viewingCard && (
+        <AnimatePresence>
+          <motion.div
+            className="tt-deckbuilder-viewer-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setViewingCard(null)}
+          >
+            <motion.div
+              className="tt-deckbuilder-viewer-modal"
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="tt-deckbuilder-close" onClick={() => setViewingCard(null)}>✕</button>
+
+              <div className="tt-deckbuilder-viewer-layout">
+                {/* Card render (exactly like in-game but not clickable) */}
+                <div className="tt-deckbuilder-viewer-card">
+                  <TopTrumpsCard
+                    characterImage={bgCarta(viewingCard)}
+                    name={viewingCard.nome}
+                    description={viewingCard.descricao}
+                    locale={locale}
+                    attributes={viewingCard.atributos}
+                    templateIndex={0}
+                  />
+                </div>
+
+                {/* Info + actions */}
+                <div className="tt-deckbuilder-viewer-info">
+                  <h3 className="tt-deckbuilder-viewer-nome">{viewingCard.nome}</h3>
+                  {viewingCard.tier && (
+                    <span className={`tt-deckbuilder-viewer-tier tt-viewer-tier--${viewingCard.tier}`}>
+                      {(viewingCard.tier || 'free').toUpperCase()}
+                    </span>
+                  )}
+                  {viewingCard.elemental && (
+                    <p className="tt-deckbuilder-viewer-elemental">{viewingCard.elemental}</p>
+                  )}
+                  {viewingCard.descricao && (
+                    <p className="tt-deckbuilder-viewer-desc">{viewingCard.descricao}</p>
+                  )}
+                  {viewingCard.frase_iconica && (
+                    <p className="tt-deckbuilder-viewer-frase">"{viewingCard.frase_iconica}"</p>
+                  )}
+
+                  {/* Atributos em lista compacta */}
+                  <div className="tt-deckbuilder-viewer-stats">
+                    {Object.entries(viewingCard.atributos || {}).map(([k, v]) => {
+                      const inverso = k === 'rank_sdr'
+                      return (
+                        <div key={k} className="tt-deckbuilder-viewer-stat">
+                          <span className="tt-deckbuilder-viewer-stat-label">
+                            {{
+                              rank_sdr: t('games.toptrumps.atributo_rank_sdr'),
+                              poder_mental: t('games.toptrumps.atributo_poder_mental'),
+                              velocidade: t('games.toptrumps.atributo_velocidade'),
+                              resistencia: t('games.toptrumps.atributo_resistencia'),
+                              nivel_xama: t('games.toptrumps.atributo_nivel_xama'),
+                              fator_caos: t('games.toptrumps.atributo_fator_caos'),
+                              energia_base: t('games.toptrumps.atributo_energia_base'),
+                              poder_explosivo: t('games.toptrumps.atributo_poder_explosivo'),
+                            }[k] || k}
+                          </span>
+                          <span className="tt-deckbuilder-viewer-stat-val">{inverso ? `#${v}` : v}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Actions */}
+                  <div className="tt-deckbuilder-viewer-actions">
+                    {(() => {
+                      const cardId = viewingCard.id_num || viewingCard.id
+                      const jaEsta = selecionadas.filter(s => s === cardId).length
+                      const podeAdd = selecionadas.length < (config?.size || 5)
+                      return (
+                        <>
+                          {podeAdd && (
+                            <button
+                              className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--add"
+                              onClick={() => { adicionar(viewingCard); setViewingCard(null) }}
+                            >
+                              + {locale === 'en' ? 'Add to Deck' : locale === 'es' ? 'Añadir al Deck' : 'Adicionar ao Deck'}
+                            </button>
+                          )}
+                          {jaEsta > 0 && (
+                            <button
+                              className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--remove"
+                              onClick={() => {
+                                const cardId2 = viewingCard.id_num || viewingCard.id
+                                const idx = selecionadas.findLastIndex(s => s === cardId2)
+                                if (idx >= 0) remover(idx)
+                                setViewingCard(null)
+                              }}
+                            >
+                              - {locale === 'en' ? 'Remove from Deck' : locale === 'es' ? 'Quitar del Deck' : 'Remover do Deck'}
+                            </button>
+                          )}
+                        </>
+                      )
+                    })()}
+                    <button
+                      className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--back"
+                      onClick={() => setViewingCard(null)}
+                    >
+                      {locale === 'en' ? 'Back' : locale === 'es' ? 'Volver' : 'Voltar'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+      )}    </AnimatePresence>
   )
 }
