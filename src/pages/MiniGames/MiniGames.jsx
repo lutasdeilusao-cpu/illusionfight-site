@@ -166,7 +166,6 @@ export default function MiniGames() {
       <div className="mg-page"><div className="mg-scanlines" />
         <div className="mg-dif-select">
           <div className="mg-dif-header">
-            <button className="mg-btn-sair" onClick={() => { setFase('hub'); setJogoAtivo(null) }}>{t('games.minigames.dif_voltar')}</button>
             <h2 className="mg-dif-titulo"><span className="mg-titulo-glitch" data-text={t(gameNomeKey(jogoAtivo)).toUpperCase()}>{t(gameNomeKey(jogoAtivo)).toUpperCase()}</span></h2>
             <p className="mg-dif-sub">{t('games.minigames.dif_escolha')}</p>
           </div>
@@ -190,6 +189,9 @@ export default function MiniGames() {
               )
             })}
           </div>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
+          </div>
         </div>
       </div>
     )
@@ -205,7 +207,9 @@ export default function MiniGames() {
         {recordes[jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id] === tempoFinal && <p className="mg-resultado-recorde">{t('games.minigames.resultado_recorde')}</p>}
         <div className="mg-resultado-btns">
           <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_jogar_novamente')}</button>
-          <button className="mg-btn" onClick={voltarHub}>{t('games.minigames.resultado_voltar')}</button>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
         </div>
       </div>
     </div>
@@ -219,7 +223,9 @@ export default function MiniGames() {
         <p className="mg-resultado-jogo">{t(gameNomeKey(jogoAtivo))}</p>
         <div className="mg-resultado-btns">
           <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_tentar_novamente')}</button>
-          <button className="mg-btn" onClick={voltarHub}>{t('games.minigames.resultado_voltar')}</button>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
         </div>
       </div>
     </div>
@@ -230,9 +236,11 @@ export default function MiniGames() {
       <div className="mg-jogando">
         <div className="mg-jogando-header">
           <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {t(gameNomeKey(jogoAtivo))}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
-          <button className="mg-btn-sair" onClick={voltarHub}>{t('games.minigames.jogando_sair')}</button>
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
+        </div>
       </div>
     </div>
   )
@@ -257,7 +265,7 @@ export default function MiniGames() {
         ))}
       </div>
       <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-        <BackToGamesBtn onClick={() => navigate('/games')} />
+        <BackToGamesBtn onClick={() => navigate('/games')} label="← VOLTAR AOS GAMES" />
       </div>
       <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>
     </div>
