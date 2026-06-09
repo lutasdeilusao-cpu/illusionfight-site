@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useTamagoshiStore } from '../../Tamagoshi/store/useTamagoshiStore'
 import { useNotificationStore } from '../../../store/notificationStore'
@@ -9,6 +10,7 @@ import { BADGES } from '../../Tamagoshi/data/moedas'
 import './PerfilTamagoshi.css'
 
 export default function PerfilTamagoshi() {
+  const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useTamagoshiStore()
   const notifStore = useNotificationStore()
@@ -124,12 +126,14 @@ export default function PerfilTamagoshi() {
         <p className="perfil-tama-vazio">você ainda não tem um tamagoshi. vá em /games/tamagoshi para começar.</p>
       ) : (
         <>
-          <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade) }}>
+          <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade), cursor: 'pointer' }}
+            onClick={() => navigate('/games/tamagoshi')}>
             <div className="perfil-tama-card-avatar">
               {(() => {
                 const c = CRIATURAS.find(cr => cr.id === tama.criatura_id)
-                if (c?.imagem) {
-                  return <img src={c.imagem} alt={c.nome} className="perfil-tama-card-img" draggable={false} />
+                const src = c?.gifs?.apresentacao || c?.imagem
+                if (src) {
+                  return <img src={src} alt={c.nome} className="perfil-tama-card-img" draggable={false} />
                 }
                 return <span className="perfil-tama-card-emoji">{c?.emoji || '🥚'}</span>
               })()}

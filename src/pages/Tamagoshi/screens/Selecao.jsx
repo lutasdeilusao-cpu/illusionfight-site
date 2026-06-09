@@ -45,7 +45,14 @@ export default function Selecao({ onEscolher, userTier }) {
                 onClick={() => onEscolher(c.id)}
                 style={{ borderColor: pers.cor }}
               >
-                <div className="tama-selecao-emoji">{c.emoji}</div>
+                <div className="tama-selecao-emoji">
+                  {c.imagem ? (
+                    <img src={c.imagem} alt={c.nome} className="tama-selecao-img" draggable={false}
+                      style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover' }} />
+                  ) : (
+                    c.emoji
+                  )}
+                </div>
                 <div className="tama-selecao-nome">{c.nome}</div>
                 <div className="tama-selecao-tipo" style={{ color: pers.cor }}>{pers.nome}</div>
                 <div className="tama-selecao-raridade">{c.raridade}</div>

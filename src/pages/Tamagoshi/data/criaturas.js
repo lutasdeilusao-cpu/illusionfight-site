@@ -1,12 +1,33 @@
-import kronikIdle from '../../../../src/assets/images/tamagoshi/kroniki-idle.png'
-import kronikHunger from '../../../../src/assets/images/tamagoshi/kroniki-hunger.png'
-import kronikEnjoy from '../../../../src/assets/images/tamagoshi/kroniki-enjoy.png'
-import kronikHappy from '../../../../src/assets/images/tamagoshi/kroniki-happy.png'
-import kronikAbandoned from '../../../../src/assets/images/tamagoshi/kroniki-abandoned.png'
-import kronikSad from '../../../../src/assets/images/tamagoshi/kroniki-sad.png'
-import kronikAnger from '../../../../src/assets/images/tamagoshi/kroniki-anger.png'
+import kronikiIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
+import kronikiHungry from '../../../assets/images/tamagoshi/01/kroniki-hungry.png'
+import kronikiEnjoy from '../../../assets/images/tamagoshi/01/kroniki-enjoy.png'
+import kronikiHappy from '../../../assets/images/tamagoshi/01/kroniki-happy.png'
+import kronikiAbandoned from '../../../assets/images/tamagoshi/01/kroniki-abandoned.png'
+import kronikiAnger from '../../../assets/images/tamagoshi/01/kroniki-anger.png'
+import kronikiDirty from '../../../assets/images/tamagoshi/01/kroniki-dirty.png'
+import kronikiSick from '../../../assets/images/tamagoshi/01/kroniki-sick.png'
+import kronikiSleepy from '../../../assets/images/tamagoshi/01/kroniki-sleepy.png'
+import kronikiPresentation from '../../../assets/images/tamagoshi/01/kroniki-presentation.png'
 
-export const CRIATURAS = [
+const KRONIKI_SPRITE = {
+  imagem: kronikiIdle,
+  gifs: {
+    idle: kronikiIdle,
+    comendo: kronikiHungry,
+    satisfeito: kronikiEnjoy,
+    feliz: kronikiHappy,
+    abandonado: kronikiAbandoned,
+    raiva: kronikiAnger,
+    sujo: kronikiDirty,
+    doente: kronikiSick,
+    sonolento: kronikiSleepy,
+    apresentacao: kronikiPresentation,
+  },
+}
+
+// Todas as criaturas usam o sprite do Kroniki temporariamente
+// até cada uma receber sua arte individual
+const CRIATURAS_BASE = [
   { id: 'voidling',    nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    emoji: '👻' },
   { id: 'aquori',      nome: 'Aquori',      tipo: 'CARENTE',      raridade: 'incomum',  emoji: '💧' },
   { id: 'sinalo',      nome: 'Sinalo',      tipo: 'CARENTE',      raridade: 'raro',     emoji: '📡' },
@@ -15,7 +36,7 @@ export const CRIATURAS = [
 
   { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    emoji: '🔥' },
   { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  emoji: '👾' },
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰', imagem: kronikIdle, gifs: { comendo: kronikHunger, satisfeito: kronikEnjoy, feliz: kronikHappy, abandonado: kronikAbandoned, triste: kronikSad, raiva: kronikAnger } },
+  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     emoji: '⏰' },
   { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    emoji: '🐆' },
   { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', emoji: '💥' },
 
@@ -43,3 +64,9 @@ export const CRIATURAS = [
   { id: 'conkrito',    nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    emoji: '🐰' },
   { id: 'tatuki',      nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', emoji: '🦔' },
 ]
+
+// Anexa o sprite do Kroniki a todas as criaturas
+export const CRIATURAS = CRIATURAS_BASE.map(c => ({
+  ...c,
+  ...KRONIKI_SPRITE,
+}))

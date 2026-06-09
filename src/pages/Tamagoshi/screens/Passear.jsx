@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
-import kronikIdle from '../../../assets/images/tamagoshi/kroniki-idle.png'
+import kronikIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
 const BASE_SPEED = 2, STAGE_COUNT = 10, LIVES = 3

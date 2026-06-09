@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.49*  |  `[SITE] versão carregada: 9.49`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.48*  |  `[SITE] versão carregada: 9.48`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.47*  |  `[SITE] versão carregada: 9.47`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.46*  |  `[SITE] versão carregada: 9.46`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -550,7 +551,7 @@
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v6.4.0 | ✅ (refatoração) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v1.7.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos com Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.2.9 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.11.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Tamagotchi: ciclo de vida completo |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.12.0 | ✅ 1ª temp. ✅ Novos sprites | ✅ PT ✅ EN ✅ ES | Tamagotchi: ciclo de vida completo + sprites Kroniki para todas as criaturas |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
 | `/login` | Login | `src/pages/Login.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
@@ -565,11 +566,11 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.28** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.49** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
-| `TAMA_VERSION` | **1.11.1** | `src/config/version.js:14` |
+| `TAMA_VERSION` | **1.12.0** | `src/config/version.js:14` |
 | `DUELO_VERSION` | **1.3.0** | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | **1.3.1** | `src/config/version.js:16` |
 | `TS_VERSION` | **5.7.0** | `src/config/version.js:21` |

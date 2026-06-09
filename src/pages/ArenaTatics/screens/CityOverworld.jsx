@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import kronikiHappy from '../../../assets/images/tamagoshi/kroniki-happy.png'
+import kronikiHappy from "../../../assets/images/tamagoshi/01/kroniki-happy.png";
 import GameControls from '../components/GameControls'
 import CityHUD from '../components/CityHUD'
 import { useLanguage } from '../../../context/LanguageContext'

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.2  
-> **Versão do Site:** 9.48  
+> **Versão do Relatório:** 2.3  
+> **Versão do Site:** 9.49  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.11.1  
+**Versão:** 1.12.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -671,8 +671,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase) |
 
-**Status Geral:** 🟡 **75%**  
-**O que falta (GARGALO CRÍTICO):** Sprites das criaturas — apenas **Kroniki** tem arte (7 sprites PNG). Faltam **29 criaturas** sem nenhuma imagem.
+**Status Geral:** 🟡 **80%**  
+**O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados: idle, hungry, happy, enjoy, abandoned, anger, dirty, sick, sleepy, presentation). Faltam artes personalizadas para as 29 criaturas restantes.
 
 ---
 

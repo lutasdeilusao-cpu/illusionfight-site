@@ -33,11 +33,10 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas,
   const tam = estagio >= 2 ? 280 : estagio === 1 ? 220 : 160
   const temImagem = !!c.imagem && !erroImg
 
-  // Resolve imagem: estado → ação → status → base
+  // Resolve imagem: estado → ação → base (todas as criaturas usam sprite do Kroniki)
   const imgEstado = estado && c.gifs?.[estado]
   const imgAcao = !imgEstado && acao && c.gifs?.[acao]
-  const imgStatus = !imgEstado && !imgAcao && status && c.gifs?.[status]
-  const url = imgEstado || imgAcao || imgStatus || c.imagem
+  const url = imgEstado || imgAcao || c.imagem
 
   const bounceVariants = {
     idle: { y: 0, scale: 1, opacity: 1 },
