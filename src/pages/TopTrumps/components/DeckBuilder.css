@@ -287,7 +287,20 @@
 
 .tt-deckbuilder-viewer-card {
   flex-shrink: 0;
-  width: 220px;
+  width: 200px;
+  pointer-events: none;
+}
+
+.tt-deckbuilder-viewer-card .tt-card-wrapper {
+  width: 200px;
+  height: 260px;
+}
+
+.tt-deckbuilder-viewer-card .tt-card-template {
+  width: 200px;
+  height: 260px;
+  transform: scale(0.36);
+  transform-origin: top left;
 }
 
 .tt-deckbuilder-viewer-info {
