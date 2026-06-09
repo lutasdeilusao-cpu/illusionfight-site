@@ -4,7 +4,16 @@ import { TRIAL_ACTIVE } from '../config/trial.js'
 import livroIndex from '../data/livro-index.json'
 import { useLanguage } from '../context/LanguageContext'
 import comingSoonImg from '../assets/images/ComingSoon.png'
+import capa01 from '../assets/images/livro/capitulo-01.png'
+import capa02 from '../assets/images/livro/capitulo-02.png'
+import capa03 from '../assets/images/livro/capitulo-03.png'
 import './BookChaptersRow.css'
+
+const capaMap = {
+  'capitulo-01': capa01,
+  'capitulo-02': capa02,
+  'capitulo-03': capa03,
+}
 
 export default function BookChaptersRow() {
   const { t } = useLanguage()
@@ -46,7 +55,11 @@ export default function BookChaptersRow() {
               >
                 <div
                   className="book-chapter-card__inner"
-                  style={!cap.publicado ? { backgroundImage: `url(${comingSoonImg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+                  style={{
+                    backgroundImage: `url(${cap.publicado && capaMap[cap.id] ? capaMap[cap.id] : comingSoonImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
                 >
                   {cap.publicado && (
                     <span className="book-chapter-card__num">{t('pages.livro.cap')} {String(cap.numero).padStart(2, '0')}</span>
