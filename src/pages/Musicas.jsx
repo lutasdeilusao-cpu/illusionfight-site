@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../context/LanguageContext'
 import musicas from '../data/musicas.json'
@@ -7,8 +8,18 @@ import './Musicas.css'
 
 const capaMap = { 'lutas-de-ilusao.png': lutasDeIlusaoImg }
 
+function shuffleArray(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 export default function Musicas() {
   const { t } = useLanguage()
+  const shuffled = useMemo(() => shuffleArray(musicas), [])
 
   return (
     <>
@@ -33,7 +44,7 @@ export default function Musicas() {
 
       <section className="musicas-faixas">
         <div className="container">
-          {musicas.map(m => {
+          {shuffled.map(m => {
             const capa = capaMap[m.capa]
             const isPlaceholder = !m.publicado
             const hasRealLinks = m.publicado && m.plataformas.some(p => p.url)

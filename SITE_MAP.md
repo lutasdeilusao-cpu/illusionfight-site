@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-09*
+*Versão: 9.18*  |  `[SITE] versão carregada: 9.18`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.17*  |  `[SITE] versão carregada: 9.17`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.16*  |  `[SITE] versão carregada: 9.16`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.15*  |  `[SITE] versão carregada: 9.15`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -88,9 +89,9 @@
     ├── assets/images/
     │   ├── banners/                    # banner-01.png ~ banner-04.png (~2.3MB cada)
     │   ├── characters/                 # jack-balloon.png
-    │   ├── episodes/                   # thumb-ep00.png
+    │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png
     │   ├── logos/                      # logo-pt.png, logo-en.png
-    │   ├── music/                      # lutas-de-ilusao.png
+    │   ├── music/                      # lutas-de-ilusao.png (capa temporária para todas as 36 faixas)
     │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)
     │
     ├── components/
@@ -497,7 +498,9 @@
 | `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
-| `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Faixas com capa + plataformas |
+| `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ FINALIZADO | ✅ PT ✅ EN ✅ ES | 36 faixas oficiais, shuffle ao carregar, links para todas as plataformas |
+
+> **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Faltam as thumbs oficiais** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
 | `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.7.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
@@ -531,7 +534,7 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.17** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.18** | `src/config/version.js:5` || `PP_VERSION` | **1.7.1** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.0.62** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.1.5** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.7.4** | `src/config/version.js:13` |
