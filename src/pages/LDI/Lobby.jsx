@@ -209,6 +209,8 @@ export default function Lobby() {
             <p><Link to="/login">{t('games.ldi.lobby.faca_login')}</Link> {t('games.ldi.lobby.faca_login_desc')}</p>
           </div>
         )}
+
+        <BackToGamesBtn style={{ marginTop: '2rem' }} />
       </motion.div>
 
       <ManualDrawer open={showManual} onClose={() => setShowManual(false)} />
@@ -249,8 +251,6 @@ export default function Lobby() {
           </>
         )}
       </AnimatePresence>
-
-      <BackToGamesBtn style={{ marginTop: '2rem' }} />
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { ROSTER } from '../data/roster'
 import { getAllEquipamentos, ARMES, ARMADURAS, ACESSORIOS, calcularBonus } from '../data/equipment'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 const EMOJI = { karuak: '🛡️', moraki: '🌪️', tivara: '🏹' }
 const ELEM_COR = {
@@ -10,6 +12,7 @@ const ELEM_COR = {
 }
 
 export default function TeamSelect({ isAdmin, onConfirm, maxSlots = 3 }) {
+  const navigate = useNavigate()
   const [cards, setCards] = useState(() => ROSTER.map(r => ({ ...r, sel: false })))
   const [scrollX, setScrollX] = useState(0)
   const [detail, setDetail] = useState(null)
@@ -252,6 +255,8 @@ export default function TeamSelect({ isAdmin, onConfirm, maxSlots = 3 }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1.5rem' }} />
     </div>
   )
 }

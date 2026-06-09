@@ -240,7 +240,6 @@ export default function MiniGames() {
   return (
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-header">
-        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
         <h1 className="mg-titulo"><span className="mg-titulo-glitch" data-text={t('games.minigames.titulo')}>{t('games.minigames.titulo')}</span></h1>
         <p className="mg-subtitulo"><span className="mg-cursor">█</span> {t('games.minigames.hub_subtitulo')}</p>
       </div>
@@ -257,6 +256,7 @@ export default function MiniGames() {
           </div>
         ))}
       </div>
+      <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
       <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>
     </div>
   )

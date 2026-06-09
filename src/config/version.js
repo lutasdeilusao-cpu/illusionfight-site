@@ -8,19 +8,19 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.65'
+export const SITE_VERSION = '9.66'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.0.1'  // Pesadelo Particular (fix i18n: merge PP keys + add missing menu keys)
-export const LDI_VERSION       = '1.1.0'  // Lendas do LDI (BackToGamesBtn unificado)
+export const LDI_VERSION       = '1.2.0'  // Lendas do LDI (BackToGamesBtn reposicionado no lobby)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.8.0'  // LDI Arena Mode (BackToGamesBtn unificado)
 export const TAMA_VERSION      = '1.23.1' // Tamagoshi LDI (reposicionar BackToGamesBtn)
 export const DUELO_VERSION     = '1.4.0'  // Duelo LDI (BackToGamesBtn unificado)
-export const MINIGAMES_VERSION = '1.4.0'  // MiniGames (BackToGamesBtn unificado)
+export const MINIGAMES_VERSION = '1.5.0'  // MiniGames (BackToGamesBtn reposicionado abaixo do grid)
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player
 export const TM_VERSION        = '5.6.0'  // Top Trumps Multiplayer
-export const TATICS_VERSION    = '7.1.0'  // Arena LDI Tatics (BackToGamesBtn unificado)
+export const TATICS_VERSION    = '7.2.0'  // Arena LDI Tatics (+BackToGamesBtn Intro/TeamSelect + i18n combat keys)
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.17  
-> **Versão do Site:** 9.64  
+> **Versão do Relatório:** 2.18  
+> **Versão do Site:** 9.65  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.48 |
+| **Versão Atual** | 9.65 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -603,7 +603,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.23.0  
+**Versão:** 1.23.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -613,7 +613,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
 | `Selecao.jsx` | ✅ Completo | Escolha da criatura |
-| `Criatura.jsx` | ✅ **v1.23.0** | SFX nos botões + notificação ao montar |
+| `Criatura.jsx` | ✅ **v1.23.1** | BackToGamesBtn reposicionado abaixo dos botões de ação |
 | `Alimentar.jsx` | ✅ **v1.23.0** | SFX: clique nos botões + sucesso ao completar. Mostra TODOS os itens de comida |
 | `Banhar.jsx` | ✅ **v1.23.0** | SFX: swipe throttled (200ms) + conclusão. Mostra qual item está sendo usado |
 | `Brincadeira.jsx` | ✅ **v1.23.0** | SFX: conclusão ao vencer + erro ao falhar. Brinquedo Yohu removido da loja |
@@ -674,8 +674,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** 🟡 **92%**  
-**O que falta:** Sprites individuais para cada criatura — atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
+**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
 
 ---
 
@@ -979,7 +978,7 @@ STATUS: ✅ limpo
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI** (card game) | 80% | 🟡 | 60 cartas, precisa expandir |
-| **Tamagoshi LDI** | 75% | 🟡 | Código completo, **faltam sprites** |
+| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |

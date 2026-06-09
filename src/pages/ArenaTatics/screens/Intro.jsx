@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { TATICS_VERSION } from '../../../config/version'
 import { useLanguage } from '../../../context/LanguageContext'
+import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 
 const LINES_PT = [
   'SISTEMA DE COMBATE TÁTICO',
@@ -49,6 +51,8 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
     })
     return () => timeouts.forEach(clearTimeout)
   }, [locale])
+
+  const navigate = useNavigate()
 
   // Mouse parallax for grid
   useEffect(() => {
@@ -183,6 +187,8 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
 
         {/* Version */}
         <div className="tatics-intro-version">v{TATICS_VERSION} // {t('tatics.intro_nexus')}</div>
+
+        <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} />
       </div>
     </div>
   )
