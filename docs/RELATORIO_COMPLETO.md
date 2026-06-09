@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.23  
-> **Versão do Site:** 9.70  
+> **Versão do Relatório:** 2.24  
+> **Versão do Site:** 9.72  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -464,7 +464,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 **Versão:** 7.0.0  
 **Fichas:** Sim  
-**Rota base:** `/games/ldi-tatics`
+**Rota base:** `/games/ldi-tatics`  
+**Versão:** 7.3.0  
+**Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
 > 🎯 **O jogo mais complexo e ambicioso do portal**
 
@@ -536,16 +538,20 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaTaticsStore` | ✅ Completo (v2.1.0) |
 | `useCityStore` | ✅ Completo |
 
-**Status Geral:** 🟡 **80%**  
-**O que falta:** Balanceamento de classes e combate, testes de jogo completos, polimento visual.
+**STATUS:** 🟠 **Pós-lançamento**  
+**MULTIPLAYER:** 🗓️ planejado — requisito antes da abertura ao público  
+**PREVISÃO:** Q4 2026 ou posterior  
+**MOTIVO:** o jogo merece experiência completa no primeiro contato do usuário  
+**O que falta:** Balanceamento de classes e combate, testes de jogo completos, polimento visual, multiplayer online.
 
 ---
 
 ### 5.7 Duelo LDI
 
-**Versão:** 1.3.0  
+**Versão:** 1.5.0  
 **Fichas:** Sim (🔒)  
-**Rota base:** `/games/duelo`
+**Rota base:** `/games/duelo`  
+**Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
 #### Screens
 
@@ -596,8 +602,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useDueloStore` | ✅ Completo |
 
-**Status Geral:** 🟡 **80%**  
-**O que falta:** Expandir baralho para coleção mais rica, UI mais polida, animações de efeitos.
+**STATUS:** 🟠 **Pós-lançamento**  
+**MULTIPLAYER:** 🗓️ planejado — requisito antes da abertura ao público  
+**PREVISÃO:** Q4 2026 ou posterior  
+**MOTIVO:** o jogo merece experiência completa no primeiro contato do usuário  
+**O que falta:** Expandir baralho para coleção mais rica, UI mais polida, animações de efeitos, multiplayer online.
 
 ---
 
