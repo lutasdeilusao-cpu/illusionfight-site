@@ -57,7 +57,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | **Idiomas** | 3 (PT, EN, ES) |
 | **Supabase Migrations** | 12 arquivos |
 | **Stripe Edge Functions** | 3 funções |
-| **Total de Capítulos do Livro** | 16 capítulos (em PT) |
+| **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
 | **Total de Palavras no Livro** | ~26.000 palavras |
 | **Total de Cartas Duelo** | 60 cartas |
 | **Total de Cartas Top Trumps** | 105 cartas |
@@ -394,8 +394,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI
 
-**Versão Single:** 4.2.0  
-**Versão MP:** 5.2.0  
+**Versão Single:** 5.7.0  
+**Versão MP:** 5.6.0  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 
@@ -407,6 +407,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Lobby multiplayer | ✅ Funcional (🔒) |
 | Partida multiplayer real-time | ✅ v2.65 (🔒) |
 | **105 cartas** | ✅ Completo (PT/EN/ES) |
+| Artes oficiais 1ª temporada | ✅ **Completo** — todas as cartas com arte no jogo |
+| Balanceamento | ✅ **Finalizado** |
 | Sistema de deck | ✅ Completo |
 | Recompensa diária | ✅ Completo |
 | Matchmaking | ✅ Implementado |
@@ -419,8 +421,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `supertrunfo-en.json` | 108KB | ✅ Completo |
 | `supertrunfo-es.json` | 108KB | ✅ Completo |
 
-**Status Geral:** ✅ **85%**  
-**O que falta:** Finalizar testes do multiplayer, balanceamento de cartas, artes das cartas.
+**Status Geral:** ✅ **100% (Single)** / 🟡 **75% (MP)**  
+**O que falta:** Testes finais de matchmaking multiplayer.
 
 ---
 
@@ -870,7 +872,7 @@ capitulo-04 ao 16: publicado: false ❌
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
 | **Música** | 1 capa (`lutas-de-ilusao.png`) | 188KB | ✅ Completo |
 | **Tamagoshi** | **7 sprites** (Kroniki) | ~137KB cada | 🔴 **1 de 30 criaturas** |
-| **Cards** (Top Trumps) | Nenhum | — | 🔴 **0** |
+| **Cards** (Top Trumps) | Artes oficiais 1ª temporada (no jogo) | ✅ Completo |
 | **Cards** (Duelo) | Nenhum | — | 🔴 **0** |
 
 ### 9.2 Fontes
@@ -930,8 +932,8 @@ capitulo-04 ao 16: publicado: false ❌
 | **Lendas do LDI** (RPG narrativo) | 90% | 🟢 | 4 acts de cenas |
 | **Jack Dream Beer** (idle noir) | 90% | 🟢 | Jogo completo |
 | **MiniGames** (8 jogos) | 90% | 🟢 | Todos funcionais |
-| **Top Trumps** (Single) | 95% | 🟢 | 1ª temporada finalizada |
-| **Top Trumps** (Multiplayer) | 70% | 🟡 | Em testes |
+| **Top Trumps** (Single) | 100% | 🟢 | Finalizado, balanceado, artes oficiais |
+| **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI** (card game) | 80% | 🟡 | 60 cartas, precisa expandir |
@@ -942,7 +944,8 @@ capitulo-04 ao 16: publicado: false ❌
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
 | **Arte Personagens** | 15% | 🔴 | 1/9 com arte |
 | **Sprites Tamagoshi** | 3% | 🔴 | 1/30 criaturas com sprite |
-| **Arte Cartas** (Top Trumps + Duelo) | 0% | 🔴 | Nenhuma carta tem arte |
+| **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
+| **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte (WIP) |
 | **Músicas** (links completos) | 50% | 🟡 | 1/2 faixas com links |
 
 ### 11.2 Por Tipo de Trabalho
@@ -973,7 +976,7 @@ capitulo-04 ao 16: publicado: false ❌
 |---|---|---|
 | Sprites Tamagoshi (29/30 faltando) | 🔴 3% | Jogo funcional sem arte visual |
 | Artes de personagens (8/9 faltando) | 🔴 15% | Página de personagens sem imagens |
-| Artes de cartas Top Trumps (105 sem arte) | 🔴 0% | Cartas sem identidade visual |
+| Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
 | Capa Sinfonia Imperfeita | ⚠️ Pendente | Música sem capa |
 
