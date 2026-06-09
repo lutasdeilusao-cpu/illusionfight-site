@@ -97,12 +97,13 @@
     "arma": "Berimbau",
     "estilo": "Xamanismo ancestral",
     "elemental": null,
-    "descricaoBreve": "Xamã imortal da tribo Xakaxi. Guardião dos poderes sagrados. Enlouqueceu um pouco depois de séculos observando a humanidade.",
-    "descricaoCompleta": "Yawanari existe há mais tempo do que qualquer instituição viva consegue registrar. É o guardião dos poderes sagrados da tribo Xakaxi e o único ser que conhece a extensão do que Kim carrega. Cabelos e barba longos brancos, vestes cerimoniais com símbolos dourados, bombeta preta levemente inclinada, óculos juliet espelhados, berimbau na mão. Fala em sabedoria ancestral misturada com gírias modernas — o resultado de séculos observando a humanidade de perto demais.",
+    "descricaoBreve": "Xamã imortal da tribo Xakaxi. Guardião do selamento há 500 anos. A sabedoria ancestral divide espaço com cultura pop.",
+    "descricaoCompleta": "Xamã imortal da tribo Xakaxi. Escolheu ficar preso no selamento como guardião voluntário há 500 anos, enquanto o mundo do lado de fora mudava de forma que ele não estava preparado para processar. Cinco séculos observando a humanidade sem poder intervir fizeram coisas com a cabeça dele. A sabedoria ancestral ainda está lá, intacta, mais profunda do que qualquer coisa viva hoje consegue alcançar. O problema é que ela agora divide espaço com quinhentos anos de cultura pop absorvida através de uma fenda espiritual, e as duas coisas saem pela mesma boca sem aviso. Aparece quando quer, some quando termina, fala com parceiros que só ele vê, e considera o berimbau um acessório de moda. A bombeta é dele há duzentos anos. O cordão com DIX é recente. Quando para de fazer piada e fala sério, a sala inteira muda de temperatura. É o único ser vivo que sabe exatamente o que Kim carrega, o que Voa planeja, e o que o selamento custou. Conta na hora que achar certa, não antes.",
     "frase": "Cheguei pra divar! Eita porra, se tá zuado pra caramba, véi.",
     "imagem": "/assets/images/characters/yawanari.png",
     "relacoes": [
-      { "personagem": "Kim", "tipo": "Guia espiritual, protetor" }
+      { "personagem": "Kim", "tipo": "Protegido / herdeiro do legado Xakaxi" },
+      { "personagem": "David Kronos (Voa)", "tipo": "Inimigo de cinco séculos" }
     ]
   },
   {
@@ -115,14 +116,15 @@
     "grupo": "antagonista",
     "ranking": null,
     "arma": null,
-    "estilo": "Espírito ancestral corrompido",
+    "estilo": "Espírito ancestral corrompido — Voa",
     "elemental": null,
-    "descricaoBreve": "Construiu um império sobre a paciência. Esperou séculos pelo momento certo. Kim é o momento certo.",
-    "descricaoCompleta": "Kronos opera de uma ilha privada no Pacífico Sul com a calma de quem tem tempo que humanos normais não têm. Espírito ancestral corrompido habitando corpo humano, construiu riqueza e influência ao longo de séculos como meio para um único fim: encontrar o portador do Corpo Primordial. Kim é a primeira pessoa em toda essa história cujo endereço o sistema demorou dezoito segundos para localizar. Isso foi suficiente para Kronos sorrir.",
+    "descricaoBreve": "Espírito ancestral corrompido que esperou séculos. Kim é o portador do Sangue Primordial.",
+    "descricaoCompleta": "David Kronos é o nome atual de Voa, um espírito ancestral corrompido que se recusou ao selamento feito pelo Pajé Yawanari e os povos Xakaxi há 500 anos. Enquanto Yawanari ficou preso como guardião voluntário do selamento, Voa ficou preso como consequência da própria recusa. Aprendeu ao longo de séculos a encarnar em corpos humanos, sempre de descendência indígena porque são os únicos que suportam a força da sua alma sem colapsar imediatamente. Chama os corpos sem Sangue Primordial de impuros: funcionam por tempo limitado antes de secar. Descobriu que a tecnologia moderna podia ser usada para acessar os poderes da era antiga. O LDI não é um jogo: é um intermédio entre o mundo real selado e o plano onde a magia original ainda existe. Foi Voa que encontrou esse intermédio e construiu a Yohualticit em torno dele. Objetivo: usar um corpo com Sangue Primordial como portal. Através desse portal, todos os poderes que a tribo Xakaxi já deteve passariam pelo corpo e seriam liberados no mundo, quebrando o selamento, dando a Voa domínio absoluto e vingança sobre tudo que o aprisionou. Kim é o único portador de Sangue Primordial puro identificado. O background de Helena, sem pai conhecido, é a camada que esconde a linhagem. Corpo atual: David Kronos, aparência de homem de meia-idade, traços indígenas marcados, cabelo preto preso com os lados raspados, físico denso que sugere que o corpo foi escolhido e não apenas encontrado. Terno branco, presença de quem construiu um império sobre paciência de séculos.",
     "frase": "Ele será meu. Independentemente do preço.",
     "imagem": "/assets/images/characters/kronos.png",
     "relacoes": [
-      { "personagem": "Kim", "tipo": "Antagonista principal — busca o Corpo Primordial" }
+      { "personagem": "Kim", "tipo": "Antagonista principal — busca o Sangue Primordial" },
+      { "personagem": "Pajé Yawanari", "tipo": "Inimigo de cinco séculos" }
     ]
   },
   {
@@ -151,19 +153,21 @@
     "nome": "Lisa",
     "nomeCompleto": "Lisa",
     "apelido": "",
-    "idade": null,
+    "idade": "17-19",
     "status": "viva",
     "grupo": "rival",
     "ranking": "top 500",
-    "arma": null,
-    "estilo": null,
-    "elemental": null,
-    "descricaoBreve": "Top 500 mundial. Interesse romântico de Kim. Adversária no LDI.",
-    "descricaoCompleta": "Lisa está no top 500 do ranking mundial do LDI — território onde os adversários deixam de ser competidores casuais e passam a ser problemas reais. A relação com Kim ainda está se formando, mas há atração e há tensão, e no universo do LDI as duas coisas tendem a resolver na arena.",
+    "arma": "Microfone",
+    "estilo": "Cantora / Xamã (em desenvolvimento)",
+    "elemental": "Gelo",
+    "descricaoBreve": "Top 500 mundial. Artista global. Canta, dança, luta. Interesse romântico de Kim.",
+    "descricaoCompleta": "Nasceu em Marelia, Bravara. Saiu ainda criança. Cresceu em trânsito entre mercados musicais, estabeleceu carreira em Nortalis, Valdera — o epicentro da indústria pop mundial no universo LDI. Artista global, baseada entre Nortalis e onde a agenda mandar. Cabelos longos cacheados castanho-escuros, pele morena, argolas nas orelhas, postura de quem foi treinada para ocupar palco. Fora do palco, confortável, nada performática. Top 500 mundial — lutadora de nível real, não figurante. Elemental: Gelo. Arma fase 1: microfone (modo normal e xamã a desenvolver). Arma fase 2: em aberto. Colaboração futura com o trio: ela canta, Jack rapa, Nina em dueto. Aparece no livro 2, fora de Bravara, durante o exílio do trio. Entra desafiando Kim porque não acredita que ele mereça o hype. Ancora o quarteto romântico com toda a bagunça cômica que antecede qualquer resolução.",
     "frase": "",
     "imagem": "/assets/images/characters/lisa.png",
     "relacoes": [
-      { "personagem": "Kim", "tipo": "Interesse romântico / rival no LDI" }
+      { "personagem": "Kim", "tipo": "Interesse romântico / rival no LDI" },
+      { "personagem": "Jack", "tipo": "Parceiro musical (rap)" },
+      { "personagem": "Nina", "tipo": "Dueto musical" }
     ]
   },
   {
@@ -185,6 +189,27 @@
     "relacoes": [
       { "personagem": "Kim", "tipo": "Primeiro oponente — prólogo" },
       { "personagem": "David Kronos", "tipo": "Possível conexão" }
+    ]
+  },
+  {
+    "id": "alan",
+    "nome": "Alan",
+    "nomeCompleto": "Alan",
+    "apelido": "O Campeão",
+    "idade": 18,
+    "status": "vivo",
+    "grupo": "rival",
+    "ranking": null,
+    "arma": null,
+    "estilo": "Crime organizado",
+    "elemental": null,
+    "descricaoBreve": "Dezoito anos. Líder do crime organizado de Marelia. O rival que ensinou que existem lutas que não se vencem, só se sobrevive.",
+    "descricaoCompleta": "Dezoito anos. Líder do crime organizado de uma região inteira de Marelia. Alan não chegou onde está por herança ou conexão. Chegou porque era o garoto de rua que ninguém conseguia dobrar, e quando o mundo do crime percebeu isso, foi só questão de tempo. Segurança, cobrador, chefe, chefe do chefe. Um degrau de cada vez, cada um conquistado da única forma que aquele mundo reconhece. Kim e Jack brigaram com ele por anos. Apanharam. Voltaram. Apanharam de novo. Nunca venceram, mas também nunca pararam, e Alan guardou isso. Quando a fama dos dois no LDI começa a respingar nos negócios dele, Alan não age por raiva. Age porque fraqueza visível num mundo como o dele tem preço. O encontro final não termina em derrota nem em vitória. Termina num empate que os dois sabem que significa respeito, e num trato: sumam de Marelia, de preferência do país, e ele garante a proteção de quem ficou para trás. Não é antagonista. É o rival que ensinou que existem lutas que não se vencem, só se sobrevive.",
+    "frase": "",
+    "imagem": "/assets/images/characters/alan.png",
+    "relacoes": [
+      { "personagem": "Kim", "tipo": "Rival histórico / respeito mútuo" },
+      { "personagem": "Jack", "tipo": "Rival histórico / respeito mútuo" }
     ]
   }
 ]

@@ -2,7 +2,7 @@
 
 > **Data:** 2026-06-09  
 > **Versão do Relatório:** 2.1  
-> **Versão do Site:** 9.47  
+> **Versão do Site:** 9.48  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
