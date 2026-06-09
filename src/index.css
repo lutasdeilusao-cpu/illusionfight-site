@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Ethnocentric';
+  src: url('/fonts/Ethnocentric-Regular.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anime Ace';
+  src: url('/fonts/animeace2_bld.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   --bg-primary:     #0B0D0F;
   --bg-secondary:   #111416;
@@ -14,6 +26,8 @@
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-title: 'Ethnocentric', sans-serif;
+  --font-desc: 'Anime Ace', sans-serif;
 
   /* LDI Game vars */
   --ldi-bg: #0A0A0F;

@@ -110,6 +110,7 @@
   display: inline-block;
   background: #00e5cc;
   color: #000;
+  font-family: var(--font-desc);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -127,7 +128,7 @@
 
 /* ── Título com Glitch ── */
 .hero-slideshow__title {
-  font-family: 'BringRace', sans-serif;
+  font-family: var(--font-title);
   font-size: clamp(2.5rem, 5.5vw, 5rem);
   line-height: 1.05;
   color: #fff;
@@ -177,7 +178,7 @@
 
 /* ── Subtítulo ── */
 .hero-slideshow__subtitle {
-  font-family: var(--font-body);
+  font-family: var(--font-desc);
   font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-secondary);
   font-weight: 300;
@@ -202,7 +203,7 @@
   background: #ff6b35;
   color: #fff;
   border: none;
-  font-family: var(--font-body);
+  font-family: var(--font-desc);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -225,7 +226,7 @@
   background: transparent;
   color: #fff;
   border: 1.5px solid rgba(255,255,255,0.5);
-  font-family: var(--font-body);
+  font-family: var(--font-desc);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.05em;
