@@ -47,6 +47,7 @@ export default function NinaMusicPlayer() {
   const iframeRef = useRef(null)
   const playerReadyRef = useRef(false)
   const sessionRef = useRef(false)
+  const initialShuffleRef = useRef(false)
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
@@ -153,6 +154,16 @@ export default function NinaMusicPlayer() {
             // Auto-play when user clicked "Sim"
             player.playVideo()
             setPlaying(true)
+          },
+          onStateChange: (e) => {
+            // Skip the first (unshuffled) video once, then never again
+            if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
+              initialShuffleRef.current = true
+              const p = playerRef.current
+              setTimeout(() => {
+                try { p.nextVideo() } catch (_) { /* ignore */ }
+              }, 500)
+            }
           },
         },
       })
