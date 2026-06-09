@@ -2,14 +2,55 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { getDeck } from '../../../lib/getDeck'
 import { carregarDeck } from '../../../hooks/useTopTrumpsDB'
+import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
+import img01 from '../../../assets/images/cards/characters/card-01.png'
+import img02 from '../../../assets/images/cards/characters/card-02.png'
+import img03 from '../../../assets/images/cards/characters/card-03.png'
+import img04 from '../../../assets/images/cards/characters/card-04.png'
+import img05 from '../../../assets/images/cards/characters/card-05.png'
+import img06 from '../../../assets/images/cards/characters/card-06.png'
+import img07 from '../../../assets/images/cards/characters/card-07.png'
+import img08 from '../../../assets/images/cards/characters/card-08.png'
+import img09 from '../../../assets/images/cards/characters/card-09.png'
+import img10 from '../../../assets/images/cards/characters/card-10.png'
+import img11 from '../../../assets/images/cards/characters/card-11.png'
+import img12 from '../../../assets/images/cards/characters/card-12.png'
+import img13 from '../../../assets/images/cards/characters/card-13.png'
+import img14 from '../../../assets/images/cards/characters/card-14.png'
+import img15 from '../../../assets/images/cards/characters/card-15.png'
+import img21 from '../../../assets/images/cards/characters/card-21.png'
+import img23 from '../../../assets/images/cards/characters/card-23.png'
+
+const CARD_IMAGES = {
+  1: img01, 2: img02, 3: img03, 4: img04, 5: img05,
+  6: img06, 7: img07, 8: img08, 9: img09, 10: img10,
+  11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
+  21: img21, 23: img23,
+}
+
+const SEASON_1_IDS = [
+  'kim_briguento',       'jack_vitoria',        'nina_angel',
+  'shuntaro_rei_xama',   'thunderbolt_trovao',
+  'lisa_top500',         'yawanari_imortal',    'voidhunter_void',
+  'kei_sombra_dupla',    'ryu_relampago_oriental',
+  'xakaxi_cacique',      'nara_guerreira',      'kawa_traidor',
+  'tawira_herdeiro',     'iara_curandeira',
+  'david_kronos_primordial', 'vale_das_cinzas', 'kim_primordial_forma',
+  'alan_o_campiao',      'nexus_phantasm'
+]
 
 export default function PerfilColecao({ userId }) {
-  const { locale } = useLanguage()
+  const { t, locale } = useLanguage()
   const deck = getDeck(locale)
   const [deckIds, setDeckIds] = useState([])
-  const [filtro, setFiltro] = useState('todas')
+  const [temporada, setTemporada] = useState(1)
 
-  /** Verifica se um id do banco bate com a carta (por id_num ou id slug) */
+  const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
+
+  function bgCarta(carta) {
+    return CARD_IMAGES[carta?.id_num] || cardFallback
+  }
+
   function temCarta(deckId, carta) {
     if (typeof deckId === 'number') return carta.id_num === deckId
     return carta.id === deckId
@@ -31,52 +72,75 @@ export default function PerfilColecao({ userId }) {
     })
   }, [userId])
 
-  const tierNomes = { free: 'FREE', elite: 'ELITE', primordial: 'PRIMORDIAL', lendario: 'LENDÁRIO', sombra: 'SOMBRA' }
-  const tierCor = { free: '#00c8a8', elite: '#e8853a', primordial: '#6B0F1A', lendario: '#9b59b6', sombra: '#2c3e50' }
+  const obtidas = todasCartas.filter(c => deckIds.some(id => temCarta(id, c)))
+  const progresso = todasCartas.length > 0 ? Math.round((obtidas.length / todasCartas.length) * 100) : 0
 
-  const cartasFiltradas = deck.cartas.filter((_, i) => {
-    const carta = deck.cartas[i]
-    if (filtro === 'obtidas') return deckIds.some(id => temCarta(id, carta))
-    if (filtro === 'faltando') return !deckIds.some(id => temCarta(id, carta))
-    return true
-  })
+  // Textos multi-idioma
+  const seasonLabel = locale === 'en' ? 'SEASON 1' : locale === 'es' ? 'TEMPORADA 1' : '1ª TEMPORADA'
+  const season2Label = locale === 'en' ? 'SEASON 2' : locale === 'es' ? 'TEMPORADA 2' : '2ª TEMPORADA'
+  const comingSoon = locale === 'en' ? 'COMING SOON' : locale === 'es' ? 'PRÓXIMAMENTE' : 'EM BREVE'
+  const obtained = locale === 'en' ? 'obtained' : locale === 'es' ? 'obtenidas' : 'obtidas'
+  const missing = locale === 'en' ? 'missing' : locale === 'es' ? 'faltantes' : 'faltando'
 
   return (
     <div className="perfil-colecao">
-      <div className="perfil-colecao-filtros">
-        {['todas', 'obtidas', 'faltando'].map(f => (
-          <button key={f} className={`perfil-colecao-filtro-btn${filtro === f ? ' perfil-colecao-filtro-btn--ativo' : ''}`} onClick={() => setFiltro(f)}>
-            {f === 'todas' ? 'Todas' : f === 'obtidas' ? 'Obtidas' : 'Faltando'}
-          </button>
-        ))}
+      {/* Seletor de temporadas */}
+      <div className="perfil-colecao-temporadas">
+        <button
+          className={`perfil-colecao-temp-btn${temporada === 1 ? ' perfil-colecao-temp-btn--ativa' : ''}`}
+          onClick={() => setTemporada(1)}
+        >
+          <span className="perfil-colecao-temp-num">{seasonLabel}</span>
+          <span className="perfil-colecao-temp-progresso">{obtidas.length}/{todasCartas.length} ({progresso}%)</span>
+        </button>
+        <button className="perfil-colecao-temp-btn perfil-colecao-temp-btn--breve">
+          <span className="perfil-colecao-temp-num">{season2Label}</span>
+          <span className="perfil-colecao-temp-breve-label">{comingSoon}</span>
+        </button>
       </div>
-      <div className="perfil-deck-grid">
-        {cartasFiltradas.map((carta, i) => {
+
+      {/* Barra de progresso */}
+      <div className="perfil-colecao-bar-wrapper">
+        <div className="perfil-colecao-bar">
+          <div className="perfil-colecao-bar-fill" style={{ width: `${progresso}%` }} />
+        </div>
+        <span className="perfil-colecao-bar-texto">{obtidas.length} {obtained} · {todasCartas.length - obtidas.length} {missing}</span>
+      </div>
+
+      {/* Grid de cartas */}
+      <div className="perfil-colecao-grid">
+        {todasCartas.map((carta) => {
           const tem = deckIds.some(id => temCarta(id, carta))
           return (
-            <div key={carta.id} className={`perfil-deck-card ${tem ? 'perfil-deck-card--tem' : 'perfil-deck-card--falta'}`}>
-              {tem ? (
-                <>
-                  <div className="perfil-deck-avatar" style={{ background: `hsl(${i * 47}, 65%, 45%)` }}>{carta.nome[0]}</div>
-                  <div className="perfil-deck-nome">{carta.nome}</div>
-                  <div className="perfil-deck-atributos">
-                    {['rank_sdr','poder_mental','velocidade','resistencia','nivel_xama','fator_caos'].map(a => (
-                      <div key={a} className="perfil-deck-attr"><span className="perfil-deck-attr-nome">{a === 'rank_sdr' ? 'SDR' : a === 'poder_mental' ? 'MEN' : a === 'velocidade' ? 'VEL' : a === 'resistencia' ? 'RES' : a === 'nivel_xama' ? 'XAM' : 'CAOS'}</span><span className="perfil-deck-attr-val">{carta.atributos[a]}</span></div>
-                    ))}
-                  </div>
-                </>
-              ) : (
-                <div className="perfil-deck-silhueta">
-                  <div className="perfil-deck-avatar perfil-deck-avatar--ghost">?</div>
-                  <div className="perfil-deck-nome perfil-deck-nome--ghost">???</div>
-                  <div className="perfil-deck-atributos">{[1,2,3,4,5,6].map(j => <div key={j} className="perfil-deck-attr"><span>—</span><span>—</span></div>)}</div>
-                  {carta.tier !== 'free' && <div className="perfil-deck-tier-tag" style={{ background: tierCor[carta.tier] }}>{tierNomes[carta.tier]}</div>}
-                </div>
-              )}
+            <div
+              key={carta.id}
+              className={`perfil-colecao-card${tem ? '' : ' perfil-colecao-card--falta'}`}
+            >
+              <div
+                className="perfil-colecao-card-img"
+                style={{ backgroundImage: `url(${bgCarta(carta)})` }}
+              >
+                {!tem && <div className="perfil-colecao-card-bloqueio">?</div>}
+              </div>
+              <div className="perfil-colecao-card-info">
+                <span className="perfil-colecao-card-nome">{tem ? carta.nome : '???'}</span>
+                <span className="perfil-colecao-card-elemental">
+                  {tem ? (carta.elemental || '—') : '—'}
+                </span>
+              </div>
             </div>
           )
         })}
       </div>
+
+      {/* Legenda */}
+      <p className="perfil-colecao-obs">
+        {locale === 'en'
+          ? 'Greyed-out cards are waiting to be discovered. Play Top Trumps Single Player to unlock them!'
+          : locale === 'es'
+          ? 'Las cartas atenuadas aún no han sido descubiertas. ¡Juega Top Trumps Single Player para desbloquearlas!'
+          : 'Cartas apagadas ainda não foram descobertas. Jogue Top Trumps Single Player para desbloqueá-las!'}
+      </p>
     </div>
   )
 }

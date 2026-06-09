@@ -397,111 +397,173 @@
 
 .perfil-trump-cta:hover { background: rgba(245,166,35,0.1); }
 
-/* ===== COLEÇÃO ===== */
-.perfil-colecao-filtros {
+/* ===== COLEÇÃO — redesigned v2 ===== */
+
+/* Temporadas */
+.perfil-colecao-temporadas {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.5rem;
   margin-bottom: 1rem;
-  flex-wrap: wrap;
 }
 
-.perfil-colecao-filtro-btn {
-  padding: 0.3rem 0.7rem;
+.perfil-colecao-temp-btn {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
   background: #0a0a0a;
   border: 1px solid #1a1a1a;
-  border-radius: 2px;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.6rem;
-  color: #555;
+  border-radius: 6px;
   cursor: pointer;
-  letter-spacing: 0.1em;
-  transition: all 0.15s;
-}
-
-.perfil-colecao-filtro-btn:hover { border-color: #444; color: #888; }
-
-.perfil-colecao-filtro-btn--ativo {
-  border-color: #F5A623;
-  color: #F5A623;
-  background: rgba(245,166,35,0.06);
-}
-
-.perfil-deck-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.6rem;
-}
-
-.perfil-deck-card {
-  background: #0a0a0a;
-  border: 1px solid #1a1a1a;
-  border-radius: 4px;
-  padding: 0.7rem;
   text-align: center;
-  transition: border-color 0.15s;
-}
-
-.perfil-deck-card--tem {
-  border-color: rgba(245,166,35,0.3);
-}
-
-.perfil-deck-card--falta { opacity: 0.4; }
-
-.perfil-deck-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  margin: 0 auto 0.4rem;
+  transition: all 0.2s;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.perfil-colecao-temp-btn:hover {
+  border-color: #333;
 }
 
-.perfil-deck-avatar--ghost { background: #1a1a1a !important; color: #333; }
+.perfil-colecao-temp-btn--ativa {
+  border-color: #F5A623;
+  background: rgba(245,166,35,0.08);
+}
 
-.perfil-deck-nome {
-  font-size: 0.65rem;
-  font-weight: bold;
+.perfil-colecao-temp-num {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: #e8e8e8;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  letter-spacing: 0.08em;
+}
+
+.perfil-colecao-temp-btn--ativa .perfil-colecao-temp-num {
+  color: #F5A623;
+}
+
+.perfil-colecao-temp-progresso {
+  font-size: 0.7rem;
+  color: #888;
   letter-spacing: 0.05em;
 }
 
-.perfil-deck-nome--ghost { color: #333; }
-
-.perfil-deck-tier-tag {
-  display: inline-block;
-  font-size: 0.48rem;
-  letter-spacing: 0.08em;
-  padding: 1px 4px;
-  color: #fff;
-  border-radius: 2px;
-  margin-top: 0.2rem;
+.perfil-colecao-temp-btn--breve {
+  opacity: 0.5;
+  cursor: default;
+}
+.perfil-colecao-temp-btn--breve:hover {
+  border-color: #1a1a1a;
 }
 
-.perfil-deck-atributos {
+.perfil-colecao-temp-breve-label {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #F5A623;
+  letter-spacing: 0.12em;
+}
+
+/* Barra de progresso */
+.perfil-colecao-bar-wrapper {
+  margin-bottom: 1.2rem;
+}
+
+.perfil-colecao-bar {
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.3rem;
+}
+
+.perfil-colecao-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623, #e8853a);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.perfil-colecao-bar-texto {
+  font-size: 0.6rem;
+  color: #555;
+  letter-spacing: 0.05em;
+}
+
+/* Grid de cartas */
+.perfil-colecao-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.6rem;
+}
+
+.perfil-colecao-card {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.perfil-colecao-card:hover {
+  border-color: rgba(245,166,35,0.3);
+}
+
+.perfil-colecao-card--falta {
+  opacity: 0.45;
+  filter: grayscale(1);
+}
+
+.perfil-colecao-card-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.perfil-colecao-card-bloqueio {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
+  align-items: center;
   justify-content: center;
-  margin-top: 0.3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.5);
 }
 
-.perfil-deck-attr {
-  font-size: 0.48rem;
+.perfil-colecao-card-info {
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.perfil-colecao-card-nome {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #d0d0d0;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.perfil-colecao-card-elemental {
+  display: block;
+  font-size: 0.5rem;
+  color: #555;
+  margin-top: 0.1rem;
+  letter-spacing: 0.06em;
+}
+
+.perfil-colecao-obs {
+  margin-top: 1rem;
+  font-size: 0.6rem;
   color: #444;
-  display: flex;
-  gap: 2px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
 }
-
-.perfil-deck-attr-nome { color: #333; }
-.perfil-deck-silhueta { opacity: 0.5; }
-.perfil-deck-count { font-size: 0.65rem; color: #555; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
 
 /* ===== CONTA ===== */
 .perfil-conta-info { margin-bottom: 1.5rem; }
@@ -617,7 +679,10 @@
   animation: skel-pulse 1.5s ease infinite;
 }
 
-@keyframes skel-pulse { 0%,100%{opacity:0.3} 50%{opacity:0.6} }
+@keyframes skel-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
 
 /* ===== JOGO HEADER ===== */
 .perfil-jogo-header {

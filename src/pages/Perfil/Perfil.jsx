@@ -24,7 +24,7 @@ export default function Perfil() {
   const [searchParams, setSearchParams] = useSearchParams()
   const { user, perfil, logout, carregando } = useAuth()
   const { saldo, podeColetarHoje, coletarDiarias, isAdmin, loading: fichasLoading } = useFichas()
-  const abaAtiva = searchParams.get('aba') || 'conquistas'
+  const abaAtiva = searchParams.get('aba') || 'colecao'
 
   const tier = 'free' // integrar com profiles depois
   const tierCfg = TIER_CONFIG[tier]
@@ -41,10 +41,10 @@ export default function Perfil() {
   if (!user) return null
 
   const ABAS = [
+    { id: 'colecao', label: t('site.perfil.abas_colecao'), icone: '🃏' },
     { id: 'recompensas', label: t('site.perfil.abas_recompensas'), icone: '🎰', pulse: podeColetarHoje },
     { id: 'conquistas', label: t('site.perfil.abas_conquistas'), icone: '🏆' },
     { id: 'arena', label: t('site.perfil.abas_arena'), icone: '⚔️' },
-    { id: 'colecao', label: t('site.perfil.abas_colecao'), icone: '🃏' },
     { id: 'tamagoshi', label: t('site.perfil.abas_tamagoshi'), icone: '🥚' },
     { id: 'conta', label: t('site.perfil.abas_conta'), icone: '⚙️' },
   ]
