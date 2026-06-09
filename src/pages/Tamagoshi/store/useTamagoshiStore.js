@@ -308,27 +308,32 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   loadFromCloud: async (userId, slot = 1) => {
+    // 1. SEMPRE carrega do localStorage primeiro — tem as barras mais recentes + _ultimoUpdate real
+    let localState = cacheLoad(slot)
+
     if (!userId) {
-      const local = cacheLoad(slot)
-      if (local) {
-        set({ ...local, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: null, _slot: slot })
+      if (localState) {
+        set({ ...localState, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: null, _slot: slot })
         get().calcularDecaimento()
-        return local
+        return localState
       }
       return null
     }
+
+    // 2. Carrega metadados do Supabase (criatura_id, nome, timestamps, etc.)
     const { data, error } = await supabase
       .from('tamagoshi_saves')
       .select('*')
       .eq('user_id', userId)
       .eq('slot', slot)
       .maybeSingle()
+
     if (!error && data) {
+      // 3. MERGE: localStorage tem as barras reais, Supabase tem os metadados
       const mapped = {
+        // Metadados do Supabase (sempre atualizados)
         criaturaId: data.criatura_id, nomeCustom: data.nome_custom,
         personalidade: data.personalidade, fase: data.fase, estagio: data.estagio || 0,
-        fome: data.fome ?? 100, higiene: data.higiene ?? 100, energia: data.energia ?? 100,
-        humor: data.humor ?? 100, saude: data.saude ?? 100,
         ultimaAlimentacao: data.ultima_alimentacao ? new Date(data.ultima_alimentacao).getTime() : null,
         ultimaHigiene: data.ultima_higiene ? new Date(data.ultima_higiene).getTime() : null,
         ultimoPasseio: data.ultimo_passeio ? new Date(data.ultimo_passeio).getTime() : null,
@@ -337,10 +342,19 @@ export const useTamagoshiStore = create((set, get) => ({
         status: data.status, cooldownAte: data.cooldown_ate ? new Date(data.cooldown_ate).getTime() : null,
         inventario: data.inventario || {},
         flags: data.flags || {},
-        _ultimoUpdate: Date.now(), _userId: userId, _slot: slot,
+        _userId: userId, _slot: slot,
+        // Barras do localStorage (mais recentes) ou 100 se não existir
+        fome: localState?.fome ?? 100,
+        higiene: localState?.higiene ?? 100,
+        energia: localState?.energia ?? 100,
+        humor: localState?.humor ?? 100,
+        saude: localState?.saude ?? 100,
+        // _ultimoUpdate real do localStorage, ou agora se não existir
+        _ultimoUpdate: localState?._ultimoUpdate ?? Date.now(),
       }
       set(mapped)
-      get().calcularDecaimento() // Ajusta barras pelo tempo passado
+      // 4. Aplica decaimento baseado no tempo desde _ultimoUpdate real
+      get().calcularDecaimento()
       get().getSaldoDix(userId)
       const faseAtual = calcularFase(mapped.nascidoEm)
       if (faseAtual === 'partida' && mapped.status !== 'partida') {
@@ -350,15 +364,14 @@ export const useTamagoshiStore = create((set, get) => ({
       return mapped
     }
     if (error) console.error('[TAMA] Supabase error:', error.message)
-    // Fallback: localStorage
-    const local = cacheLoad(slot)
-    if (local) {
-      set({ ...local, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: userId, _slot: slot })
-      if (userId) {
-        get().getSaldoDix(userId)
-        get().saveToCloud(userId)
-      }
-      return local
+
+    // 5. Fallback: se não tem Supabase nem localStorage, retorna null
+    if (localState) {
+      set({ ...localState, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: userId, _slot: slot })
+      get().calcularDecaimento()
+      get().getSaldoDix(userId)
+      get().saveToCloud(userId)
+      return localState
     }
     return null
   },
