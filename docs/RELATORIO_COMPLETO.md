@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.24  
-> **Versão do Site:** 9.72  
+> **Versão do Relatório:** 2.25  
+> **Versão do Site:** 9.73  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -687,9 +687,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ---
 
-### 5.9 MiniGames
+### 5.9 MiniGames ✅ **FINALIZADO — 100%**
 
-**Versão:** 1.3.1  
+**Versão:** 1.8.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/minigames`
 
@@ -703,7 +703,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Labirinto | `labirinto` | ✅ Completo | Navegação em labirinto |
 | Anagrama | `anagrama` | ✅ Completo | Formação de palavras |
 | Forca | `forca` | ✅ Completo | Jogo da forca |
-| Simon Says | `simon` | ✅ Completo | Simon Says clássico |
+| Simon Says | `simon` | ✅ **v1.8.0** | Simon Says clássico + fix stale closure nos cliques |
 | Enduro Kroniki | `enduro` | ✅ Completo | Corrida estilo endless runner |
 
 #### Puzzles (Componente Reutilizável)
@@ -718,8 +718,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `PuzzleForça` | ✅ Completo |
 | `PuzzleSimonSays` | ✅ Completo |
 
-**Status Geral:** ✅ **90%**  
-**O que falta:** Mais variações de conteúdo nos puzzles.
+**Status Geral:** ✅ **100% — FINALIZADO**  
+**O que falta:** Nada — todos os 8 puzzles completos e funcionais.
 
 ---
 

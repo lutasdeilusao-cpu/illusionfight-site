@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { sfxMinigames } from './sfx-minigames'
 
 const COLORS = ['#00B4D8', '#FF6B6B', '#22C55E', '#A855F4']
@@ -14,6 +14,29 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   const [activeIndex, setActiveIndex] = useState(-1)
   const [round, setRound] = useState(0)
 
+  // Refs para evitar stale closures nos callbacks
+  const phaseRef = useRef(phase)
+  const seqRef = useRef(sequence)
+  const playerRef = useRef(playerSeq)
+  const onSolveRef = useRef(onSolve)
+  const onFailRef = useRef(onFail)
+  const timeoutsRef = useRef([])
+
+  // Manter refs sincronizados
+  useEffect(() => { phaseRef.current = phase }, [phase])
+  useEffect(() => { seqRef.current = sequence }, [sequence])
+  useEffect(() => { playerRef.current = playerSeq }, [playerSeq])
+  useEffect(() => { onSolveRef.current = onSolve }, [onSolve])
+  useEffect(() => { onFailRef.current = onFail }, [onFail])
+
+  // Limpar timeouts pendentes ao desmontar
+  useEffect(() => {
+    return () => {
+      timeoutsRef.current.forEach(clearTimeout)
+      timeoutsRef.current = []
+    }
+  }, [])
+
   // Tocar som quando uma cor acende na sequência
   useEffect(() => {
     if (activeIndex >= 0 && phase === 'showing') {
@@ -24,8 +47,8 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (phase !== 'showing') return
-    if (round >= maxRounds) { onSolve(); return }
-    const newSeq = [...sequence]
+    if (round >= maxRounds) { onSolveRef.current(); return }
+    const newSeq = [...seqRef.current]
     if (newSeq.length === 0) {
       for (let i = 0; i < 3; i++) newSeq.push(Math.floor(Math.random() * 4))
     } else {
@@ -41,31 +64,37 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
         return
       }
       setActiveIndex(newSeq[i])
-      setTimeout(() => setActiveIndex(-1), 300)
+      const t = setTimeout(() => setActiveIndex(-1), 300)
+      timeoutsRef.current.push(t)
       i++
     }, 600)
     return () => clearInterval(interval)
   }, [round, phase, maxRounds])
 
-  const handleColorClick = (colorIndex) => {
-    if (phase !== 'input') return
-    const next = playerSeq.length
-    // Tocar som da cor clicada — reforço positivo imediato
+  const handleColorClick = useCallback((colorIndex) => {
+    const p = phaseRef.current
+    if (p !== 'input') return
+    const seq = seqRef.current
+    const player = playerRef.current
+    const next = player.length
+    console.log('[SIMON] click cor:', colorIndex, '| next index:', next, '| seq len:', seq.length, '| phase:', p)
     const nome = COR_NOME[colorIndex]
     sfxMinigames.simon[nome]?.()
-    if (colorIndex !== sequence[next]) {
+    if (colorIndex !== seq[next]) {
+      console.log('[SIMON] erro! esperado:', seq[next], 'recebido:', colorIndex)
       sfxMinigames.simon.erroSimon()
-      onFail()
+      onFailRef.current()
       return
     }
-    const newPlayer = [...playerSeq, colorIndex]
+    const newPlayer = [...player, colorIndex]
     setPlayerSeq(newPlayer)
-    if (newPlayer.length >= sequence.length) {
+    if (newPlayer.length >= seq.length) {
+      console.log('[SIMON] sequencia completa! round completo')
       sfxMinigames.simon.sequenciaCompleta()
       setPhase('showing')
       setRound(r => r + 1)
     }
-  }
+  }, [])
 
   return (
     <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
