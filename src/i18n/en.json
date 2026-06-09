@@ -581,7 +581,8 @@
         "free": "FREE",
         "lancado": "RELEASED",
         "novo": "NEW",
-        "beta": "BETA"
+        "beta": "BETA",
+        "em_breve": "COMING SOON"
       },
       "nomes": {
         "ldi": "LDI LEGENDS",

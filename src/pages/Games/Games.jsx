@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { useAuth } from '../../context/AuthContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
@@ -14,9 +15,9 @@ const JOGOS = [
   { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.lancado', badgeCor: '#22C55E' },
   { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.lancado', badgeCor: '#22C55E' },
   { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.lancado', badgeCor: '#22C55E' },
-  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#FF4500', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.novo', badgeCor: '#FF4500' },
+  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', badgeCor: '#666', emBreve: true },
   { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.free', badgeCor: '#22C55E' },
-  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#F5A623', rota: '/games/duelo', badgeKey: 'site.games.badges.beta', badgeCor: '#00B4D8' },
+  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', badgeCor: '#666', emBreve: true },
 ]
 
 const CONTEUDO = [
@@ -30,6 +31,8 @@ const FICHA_GAMES = ['jackcandy', 'pesadelo', 'arena', 'tamagoshi', 'toptrumps',
 export default function Games() {
   const { t } = useLanguage()
   const navigate = useNavigate()
+  const { perfil } = useAuth()
+  const isAdmin = perfil?.is_admin === true
 
   // Create ficha gate for every gated game
   const gates = {}
@@ -39,7 +42,8 @@ export default function Games() {
   }
 
   const handleJogoClick = (jogo) => {
-    if (jogo.bloqueado || !jogo.rota) return
+    const bloqueado = jogo.emBreve && !isAdmin
+    if (bloqueado || !jogo.rota) return
     const gate = gates[jogo.id]
     if (gate) {
       gate.tentarEntrar(() => navigate(jogo.rota))
@@ -80,21 +84,24 @@ export default function Games() {
           <div className="extras-secao-linha" />
         </div>
         <div className="extras-jogos-grid">
-          {JOGOS.map(jogo => (
-            <div key={jogo.id} className={`extras-jogo-card ${jogo.bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
+          {JOGOS.map(jogo => {
+            const bloqueado = jogo.emBreve && !isAdmin
+            return (
+            <div key={jogo.id} className={`extras-jogo-card ${bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
               style={{ '--cor-neon': jogo.cor }}
               onClick={() => handleJogoClick(jogo)}>
               <div className="extras-jogo-card-inner">
-                <div className="extras-jogo-badge" style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>{t(jogo.badgeKey)}</div>
+                <div className={`extras-jogo-badge ${jogo.emBreve ? 'extras-jogo-badge--embreve' : ''}`} style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>{t(jogo.badgeKey)}</div>
                 <div className="extras-jogo-emoji">{jogo.emoji}</div>
                 <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
                 <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
-                {!jogo.bloqueado && <div className="extras-jogo-cta">{t('site.games.inserir_ficha')}</div>}
-                {jogo.bloqueado && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
+                {!bloqueado && <div className="extras-jogo-cta">{t('site.games.inserir_ficha')}</div>}
+                {bloqueado && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
               </div>
               <div className="extras-jogo-card-borda" />
             </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 

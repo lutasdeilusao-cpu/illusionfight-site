@@ -170,6 +170,12 @@
   align-self: flex-end;
 }
 
+.extras-jogo-badge--embreve {
+  background-color: #444 !important;
+  color: #aaa !important;
+  border: 1px solid #666 !important;
+}
+
 .extras-jogo-emoji {
   font-size: 2.8rem;
   animation: emoji-idle 3s ease-in-out infinite;

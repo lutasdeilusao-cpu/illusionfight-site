@@ -1,4 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 import { useDueloStore } from './store/useDueloStore'
 import { useReader } from '../../context/ReaderContext'
 import { useLanguage } from '../../context/LanguageContext'
@@ -20,9 +22,18 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 export default function DueloRoute() {
   const store = useDueloStore()
   window.__dueloStore = useDueloStore
+  const { user, perfil, carregando } = useAuth()
+  const navigate = useNavigate()
   const { t } = useLanguage()
   const { setReaderMode } = useReader()
   const [fase, setFase] = useState('menu')
+
+  // ── Route protection: only admins can access ──
+  useEffect(() => {
+    if (!carregando && (!user || perfil?.is_admin !== true)) {
+      navigate('/games')
+    }
+  }, [user, perfil, carregando, navigate])
 
   useEffect(() => {
     setReaderMode(true)

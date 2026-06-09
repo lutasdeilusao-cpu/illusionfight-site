@@ -64,6 +64,13 @@ export default function ArenaTaticsRoute() {
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
 
+  // ── Route protection: only admins can access ──
+  useEffect(() => {
+    if (!authCarregando && (!user || perfil?.is_admin !== true)) {
+      navigate('/games')
+    }
+  }, [user, perfil, authCarregando, navigate])
+
   useEffect(() => {
     if (user) { store.setUserId(user.id); store.loadSave(user.id) }
   }, [user])
