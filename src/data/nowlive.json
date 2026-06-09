@@ -5,9 +5,9 @@
     "plataforma": "YouTube",
     "icone": "youtube",
     "corPlataforma": "#FF0000",
-    "url": "https://www.youtube.com/watch?v=uMb1L33u_Hw",
+    "url": "https://www.youtube.com/@illusionfightIF",
     "thumbnail": null,
-    "titulo": "Lutas de Ilusão — Música Oficial",
+    "titulo": "Illusion Fight",
     "descricao": "Assista no YouTube"
   },
   {
@@ -18,7 +18,7 @@
     "corPlataforma": "#010101",
     "url": "https://www.tiktok.com/@illusionfight",
     "thumbnail": null,
-    "titulo": "@sodaplayofc",
+    "titulo": "@illusionfight",
     "descricao": "Ver no TikTok"
   },
   {
@@ -29,18 +29,18 @@
     "corPlataforma": "#000000",
     "url": "https://x.com/IllusionFightIF",
     "thumbnail": null,
-    "titulo": "Balada do Esquisitos",
+    "titulo": "@IllusionFightIF",
     "descricao": "Ver no X"
   },
   {
     "id": "instagram",
-    "ativo": false,
+    "ativo": true,
     "plataforma": "Instagram",
     "icone": "instagram",
     "corPlataforma": "#E1306C",
-    "url": "",
+    "url": "https://www.instagram.com/illusionfight/",
     "thumbnail": null,
     "titulo": "@illusionfight",
-    "descricao": "Instagram (em breve)"
+    "descricao": "Ver no Instagram"
   }
 ]
