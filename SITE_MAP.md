@@ -7,9 +7,9 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.0.0* | `[TATICS] versão carregada: 7.0.0`
 *TS versão: 5.5.0* | `[TS] versão carregada: 5.5.0`
-*TM versão: 5.4.0* | `[TM] versão carregada: 5.4.0`
+*TM versão: 5.5.0* | `[TM] versão carregada: 5.5.0`
 
-> ✅ **LDI Top Trumps v5.5.0 — Deck Builder com visualização de cartas + Deck Builder na Conta!**
+> ✅ **LDI Top Trumps v5.5.0 — Deck Builder com visualização de cartas + Deck Builder na Conta (SP + MP)!**
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 
@@ -535,7 +535,7 @@
 | `DUELO_VERSION` | 1.2.9 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
 | `TS_VERSION` | **5.5.0** | `src/config/version.js:21` |
-| `TM_VERSION` | 5.4.0 | `src/config/version.js:22` |
+| `TM_VERSION` | **5.5.0** | `src/config/version.js:22` |
 | `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
 
 ---

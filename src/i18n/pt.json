@@ -909,7 +909,12 @@
         "title": "Montar Deck",
         "minCards": "Você precisa de pelo menos 6 cartas diferentes",
         "save": "Salvar Deck",
-        "clear": "Limpar"
+        "clear": "Limpar",
+        "add": "Adicionar ao Deck",
+        "remove": "Remover do Deck",
+        "back": "Voltar",
+        "yourCards": "Suas Cartas",
+        "deckNamePlaceholder": "Nome do deck..."
       },
       "deckStart": {
         "title": "Como quer jogar?",

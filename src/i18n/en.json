@@ -909,7 +909,12 @@
         "title": "Build Deck",
         "minCards": "You need at least 6 different cards",
         "save": "Save Deck",
-        "clear": "Clear"
+        "clear": "Clear",
+        "add": "Add to Deck",
+        "remove": "Remove from Deck",
+        "back": "Back",
+        "yourCards": "Your Cards",
+        "deckNamePlaceholder": "Deck name..."
       },
       "deckStart": {
         "title": "How to play?",

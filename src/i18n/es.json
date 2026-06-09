@@ -909,7 +909,12 @@
         "title": "Armar Deck",
         "minCards": "Necesitas al menos 6 cartas diferentes",
         "save": "Guardar Deck",
-        "clear": "Limpiar"
+        "clear": "Limpiar",
+        "add": "Añadir al Deck",
+        "remove": "Quitar del Deck",
+        "back": "Volver",
+        "yourCards": "Tus Cartas",
+        "deckNamePlaceholder": "Nombre del deck..."
       },
       "deckStart": {
         "title": "¿Cómo jugar?",

@@ -146,7 +146,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
               {/* Deck name */}
               <input
                 className="tt-deckbuilder-name-input"
-                placeholder={locale === 'en' ? 'Deck name...' : locale === 'es' ? 'Nombre del deck...' : 'Nome do deck...'}
+                placeholder={t('games.toptrumps.deckBuilder.deckNamePlaceholder')}
                 value={deckNome}
                 onChange={e => setDeckNome(e.target.value)}
                 maxLength={30}
@@ -157,7 +157,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                 {/* Collection side */}
                 <div className="tt-deckbuilder-collection">
                   <h4 className="tt-deckbuilder-side-title">
-                    {locale === 'en' ? 'Your Cards' : locale === 'es' ? 'Tus Cartas' : 'Suas Cartas'}
+                    {t('games.toptrumps.deckBuilder.yourCards')}
                   </h4>
                   <div className="tt-deckbuilder-grid">
                     {cartasDisponiveis.map(carta => {
@@ -314,7 +314,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                               className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--add"
                               onClick={() => { adicionar(viewingCard); setViewingCard(null) }}
                             >
-                              + {locale === 'en' ? 'Add to Deck' : locale === 'es' ? 'Añadir al Deck' : 'Adicionar ao Deck'}
+                              + {t('games.toptrumps.deckBuilder.add')}
                             </button>
                           )}
                           {jaEsta > 0 && (
@@ -327,7 +327,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                                 setViewingCard(null)
                               }}
                             >
-                              - {locale === 'en' ? 'Remove from Deck' : locale === 'es' ? 'Quitar del Deck' : 'Remover do Deck'}
+                              - {t('games.toptrumps.deckBuilder.remove')}
                             </button>
                           )}
                         </>
@@ -337,7 +337,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                       className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--back"
                       onClick={() => setViewingCard(null)}
                     >
-                      {locale === 'en' ? 'Back' : locale === 'es' ? 'Volver' : 'Voltar'}
+                      {t('games.toptrumps.deckBuilder.back')}
                     </button>
                   </div>
                 </div>

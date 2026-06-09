@@ -141,7 +141,7 @@ export default function PerfilColecao({ userId }) {
           className="perfil-colecao-deckbuilder-btn"
           onClick={() => setShowDeckBuilder(true)}
         >
-          🃏 {locale === 'en' ? 'Deck Builder' : locale === 'es' ? 'Creador de Decks' : 'Montar Deck'}
+          🃏 {t('games.toptrumps.deckBuilderBtn')}
         </button>
       </div>
 
