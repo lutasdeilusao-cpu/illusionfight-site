@@ -208,6 +208,7 @@ function SacrificeWarningModal({ card, onSelect, onCancel }) {
     return count
   })()
   const sac = card.estrelas >= 6 ? 3 : card.estrelas === 5 ? 2 : card.estrelas === 4 ? 1 : 0
+  const insuficiente = meusMonstros < sac
   return (
     <motion.div className="duelo-confirm-modal-overlay"
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -223,16 +224,26 @@ function SacrificeWarningModal({ card, onSelect, onCancel }) {
         <p className="duelo-confirm-question">
           Esta carta precisa de <strong>{sac} sacrifício(s)</strong> para ser invocada!
         </p>
-        <p className="duelo-confirm-area-hint">
-          Você tem <strong>{meusMonstros} monstro(s)</strong> no campo.
-          Clique em "SELECIONAR" e depois escolha {sac} monstro(s) aliado(s) para sacrificar.
-        </p>
+        {insuficiente ? (
+          <p className="duelo-confirm-area-hint" style={{ color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }}>
+            ❌ Você tem apenas <strong>{meusMonstros} monstro(s)</strong> no campo,
+            mas precisa de <strong>{sac} sacrifício(s)</strong>.
+            Coloque mais monstros no campo primeiro!
+          </p>
+        ) : (
+          <p className="duelo-confirm-area-hint">
+            Você tem <strong>{meusMonstros} monstro(s)</strong> no campo.
+            Clique em "SELECIONAR" e depois escolha {sac} monstro(s) aliado(s) para sacrificar.
+          </p>
+        )}
         <div className="duelo-confirm-btns">
-          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onSelect}>
-            ✅ SELECIONAR SACRIFÍCIO(S)
-          </button>
+          {!insuficiente && (
+            <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onSelect}>
+              ✅ SELECIONAR SACRIFÍCIO(S)
+            </button>
+          )}
           <button className="duelo-phase-btn" onClick={onCancel}>
-            ❌ CANCELAR
+            {insuficiente ? '❌ VOLTAR' : '❌ CANCELAR'}
           </button>
         </div>
       </motion.div>
@@ -576,7 +587,7 @@ export default function DueloRoute() {
   if (s.gamePhase === 'OVER') {
     hintText = ''
   } else if (s.waitingForGridTarget === 'monster') {
-    hintText = `👆 Clique em uma casa vazia no seu território para posicionar ${s.selectedHandCard?.name}`
+    hintText = `👆 Clique em uma casa vazia no tabuleiro para posicionar ${s.selectedHandCard?.name}`
   } else if (s.waitingForGridTarget === 'trap') {
     hintText = `👆 Clique em uma casa vazia em QUALQUER lugar do tabuleiro para armar ${s.selectedHandCard?.name} (oculta)`
   } else if (s.waitingForGridTarget === 'sacrifice') {

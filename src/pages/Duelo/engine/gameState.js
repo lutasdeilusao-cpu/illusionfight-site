@@ -1,9 +1,9 @@
 import CARDS from '../data/cards'
 import { createShuffledDeck, drawMultiple } from './deck'
 
-// Grid 5×5 — 25 casas — todas uniformes (sem distinção visual de território)
-export const GRID_ROWS = 8
-export const GRID_COLS = 8
+// Grid 10×10 — 100 casas — todas uniformes (sem distinção visual de território)
+export const GRID_ROWS = 10
+export const GRID_COLS = 10
 
 export function createEmptyGrid() {
   return Array.from({ length: GRID_ROWS }, () =>
@@ -77,11 +77,11 @@ export function getAttackRange(grid, row, col, rng, owner) {
 
 // Verifica se uma célula está em território do jogador ou da IA
 // Linhas 0-2: território AI, Linha 3-4: neutro, Linhas 5-7: território Player
-// Grid 8×8 — cada jogador ocupa 3 fileiras
-// (usado apenas na lógica, não no visual)
-export function isPlayerTerritory(row) { return row >= 5 }
+// Grid 10×10 — cada jogador ocupa 3 fileiras
+// (usado apenas na lógica, não no visual — monstros podem descer em QUALQUER célula)
+export function isPlayerTerritory(row) { return row >= 7 }
 export function isAiTerritory(row) { return row <= 2 }
-export function getPlayerRows() { return [5, 6, 7] }
+export function getPlayerRows() { return [7, 8, 9] }
 export function getAiRows() { return [0, 1, 2] }
 
 // Cria estado inicial completo para nova partida
@@ -93,8 +93,8 @@ export function createInitialState() {
   const aiHand = drawMultiple(aiDeck, 5)
 
   return {
-    playerLP: 1000,
-    aiLP: 1000,
+    playerLP: 3000,
+    aiLP: 3000,
     playerDeck,
     aiDeck,
     playerHand,

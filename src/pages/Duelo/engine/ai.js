@@ -51,8 +51,8 @@ function getEffectiveRng(card, buffs) {
 
 // Encontra posição para invocar — prioriza fileira da frente (row 2 para AI no 8x8)
 function findSummonPosition(grid, isAi) {
-  const rows = isAi ? [2, 1, 0] : [5, 6, 7]
-  for (const r of rows) {
+  // Pode invocar em QUALQUER célula vazia do tabuleiro
+  for (let r = 0; r < GRID_ROWS; r++) {
     for (let c = 0; c < GRID_COLS; c++) {
       if (!grid[r][c].monster) return { row: r, col: c }
     }

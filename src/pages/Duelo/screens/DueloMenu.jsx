@@ -28,13 +28,13 @@ export default function DueloMenu({ onStart }) {
       </motion.div>
 
       <div className="duel-menu-stats">
-        <span>{t('games.duelo.lp')} 1000</span>
+        <span>{t('games.duelo.lp')} 3000</span>
         <span>·</span>
         <span>5 {t('games.duelo.cartas')}</span>
         <span>·</span>
         <span>{t('games.duelo.vs_ia')}</span>
         <span>·</span>
-        <span>Grid 5×5</span>
+        <span>Grid 10×10</span>
       </div>
 
       <BackToGamesBtn onClick={() => navigate('/games')} />

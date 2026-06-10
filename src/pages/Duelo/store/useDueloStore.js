@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS, isPlayerTerritory, isAiTerritory } from '../engine/gameState'
+import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS } from '../engine/gameState'
 import { applySpellEffect, applyTrapEffect } from '../engine/effects'
 
 // Quantos sacrifícios necessários por estrelas
@@ -117,11 +117,12 @@ export const useDueloStore = create((set, get) => ({
       }
 
       if (sac > 0 && meusMonstros < sac) {
+        // Mostra AVISO — não tem monstros suficientes
         set({
-          battleLog: [...state.battleLog, `❌ ${card.name} (${card.estrelas}★) precisa de ${sac} sacrifício(s), mas você só tem ${meusMonstros} monstro(s).`],
-          selectedHandCard: null,
-          waitingForGridTarget: null,
+          selectedHandCard: card,
+          showSacrificeWarning: true,
           confirmPlace: false,
+          waitingForGridTarget: null,
         })
         return
       }
@@ -300,10 +301,10 @@ export const useDueloStore = create((set, get) => ({
       grid[t.row][t.col] = { ...grid[t.row][t.col], monster: null }
     }
 
-    // Encontra célula vazia no território do player para colocar o novo monstro
+    // Encontra célula vazia em QUALQUER lugar do tabuleiro para colocar o novo monstro
     let placed = false
     let placedRow = -1, placedCol = -1
-    for (let r = 5; r <= 7 && !placed; r++) {
+    for (let r = 0; r < GRID_ROWS && !placed; r++) {
       for (let c = 0; c < GRID_COLS && !placed; c++) {
         if (!grid[r][c].monster) {
           grid[r][c] = { ...grid[r][c], monster: { ...card, owner: 'PLAYER' } }
@@ -358,9 +359,8 @@ export const useDueloStore = create((set, get) => ({
     const hand = state[handKey]
 
     if (state.waitingForGridTarget === 'monster') {
-      // Colocar monstro no território do jogador
+      // Colocar monstro em QUALQUER célula vazia do tabuleiro
       if (grid[row][col].monster) return
-      if (!isPlayerTerritory(row)) return
       grid[row][col] = { ...grid[row][col], monster: { ...card, owner: 'PLAYER' } }
       const newHand = hand.filter(c => c.id_num !== card.id_num)
       set({

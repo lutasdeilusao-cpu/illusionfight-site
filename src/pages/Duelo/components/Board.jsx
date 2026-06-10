@@ -50,6 +50,14 @@ export default function Board() {
     return dist > 0 && dist <= trapCard.area
   }
 
+  // Highlight para célula alvo de magia no hover (mesmo estilo da armadilha)
+  const isSpellHoverCell = (r, c) => {
+    if (store.waitingForGridTarget !== 'spell') return false
+    const target = pending ? { row: pending.row, col: pending.col } : hoverCell
+    if (!target) return false
+    return target.row === r && target.col === c
+  }
+
   const isHoveredCell = (r, c) => {
     // Se tem pendingPlacement, destaca a célula pendente
     if (pending) return pending.row === r && pending.col === c
@@ -120,6 +128,7 @@ export default function Board() {
     if (isPersistentTrapArea(r, c)) classes += ' duelo-grid-cell--trap-area'
     if (isTrapAreaCell(r, c)) classes += ' duelo-grid-cell--trap-area'
     if (isHoveredCell(r, c) && store.waitingForGridTarget === 'trap') classes += ' duelo-grid-cell--trap-hover'
+    if (isSpellHoverCell(r, c)) classes += ' duelo-grid-cell--trap-hover'
     if (isFieldEffectCell(r, c)) classes += ' duelo-grid-cell--field-effect'
     if (cell?.monster) {
       classes += cell.monster.owner === 'PLAYER' ? ' duelo-grid-cell--ally' : ' duelo-grid-cell--enemy'
