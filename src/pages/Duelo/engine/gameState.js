@@ -126,6 +126,9 @@ export function createInitialState() {
     effects: [],   // efeitos temporários no grid { row, col, effect, duration, owner }
     fieldEffects: [], // magias persistentes no campo { row, col, cardName, effect, remainingTurns, owner, targetId }
     sacrificePending: 0, // quantos sacrifícios ainda faltam
+    sacrificeTargets: [], // [{ row, col, card }] — monstros selecionados p/ sacrifício
+    confirmSacrifice: false, // true quando precisa confirmar o sacrifício
+    showSacrificeWarning: false, // true quando precisa mostrar aviso inicial de sacrifício
     pendingPlacement: null, // { row, col, type: 'trap' | 'spell', card } — aguardando confirmação
     // Flag para primeira rodada do primeiro jogador (sem movimento)
     isFirstPlayer: true,

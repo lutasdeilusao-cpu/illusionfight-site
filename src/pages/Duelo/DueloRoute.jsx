@@ -196,6 +196,87 @@ function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
   )
 }
 
+// Modal 1: Aviso de que a carta precisa de sacrifícios
+function SacrificeWarningModal({ card, onSelect, onCancel }) {
+  if (!card) return null
+  const grid = useDueloStore.getState().grid
+  const meusMonstros = (() => {
+    let count = 0
+    for (let r = 0; r < GRID_ROWS; r++)
+      for (let c = 0; c < GRID_COLS; c++)
+        if (grid[r]?.[c]?.monster?.owner === 'PLAYER') count++
+    return count
+  })()
+  const sac = card.estrelas >= 6 ? 3 : card.estrelas === 5 ? 2 : card.estrelas === 4 ? 1 : 0
+  return (
+    <motion.div className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+    >
+      <motion.div className="duelo-confirm-modal duelo-confirm-modal--sacrifice"
+        initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
+      >
+        <p className="duelo-confirm-title">🔥 {card.name}</p>
+        <p className="duelo-confirm-desc">
+          ⚔ {card.atk}/{card.def} · 👟{card.mov} 🎯{card.rng} · {'★'.repeat(card.estrelas || 1)}
+        </p>
+        {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
+        <p className="duelo-confirm-question">
+          Esta carta precisa de <strong>{sac} sacrifício(s)</strong> para ser invocada!
+        </p>
+        <p className="duelo-confirm-area-hint">
+          Você tem <strong>{meusMonstros} monstro(s)</strong> no campo.
+          Clique em "SELECIONAR" e depois escolha {sac} monstro(s) aliado(s) para sacrificar.
+        </p>
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onSelect}>
+            ✅ SELECIONAR SACRIFÍCIO(S)
+          </button>
+          <button className="duelo-phase-btn" onClick={onCancel}>
+            ❌ CANCELAR
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+// Modal 2: Confirmação final do sacrifício
+function ConfirmSacrificeModal({ targets, card, onConfirm, onCancel }) {
+  if (!card || !targets?.length) return null
+  return (
+    <motion.div className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+    >
+      <motion.div className="duelo-confirm-modal duelo-confirm-modal--sacrifice"
+        initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
+      >
+        <p className="duelo-confirm-title">⚠️ CONFIRMAR SACRIFÍCIO</p>
+        <p className="duelo-confirm-desc">
+          Invocar <strong>{card.name}</strong> ({card.estrelas}★)
+        </p>
+        <div className="duelo-sacrifice-list">
+          <p className="duelo-sacrifice-list-title">Monstros a serem sacrificados:</p>
+          {targets.map((t, i) => (
+            <p key={i} className="duelo-sacrifice-item">
+              🔥 {t.card.name} — [ATK {t.card.atk}/{t.card.def}] em [{t.row},{t.col}]
+            </p>
+          ))}
+        </div>
+        <p className="duelo-confirm-question">Tem certeza que deseja sacrificar esses monstros?</p>
+        <p className="duelo-confirm-area-hint">Após confirmado, os monstros serão enviados ao cemitério e {card.name} será invocado no campo.</p>
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
+            ✅ SIM, SACRIFICAR
+          </button>
+          <button className="duelo-phase-btn" onClick={onCancel}>
+            🔄 NÃO, VOLTAR
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 // Modal VER CARTAS
 function VerCartasModal({ onClose }) {
   const hand = useDueloStore(s => s.playerHand)
@@ -499,7 +580,10 @@ export default function DueloRoute() {
   } else if (s.waitingForGridTarget === 'trap') {
     hintText = `👆 Clique em uma casa vazia em QUALQUER lugar do tabuleiro para armar ${s.selectedHandCard?.name} (oculta)`
   } else if (s.waitingForGridTarget === 'sacrifice') {
-    hintText = `⚠️ Clique em um MONSTRO ALIADO no campo para sacrificar e invocar ${s.selectedHandCard?.name} (${s.selectedHandCard?.estrelas || 1}★, precisa de ${s.selectedHandCard?.estrelas >= 5 ? 2 : s.selectedHandCard?.estrelas === 4 ? 1 : 0} sacrifício(s))`
+    const sac = s.selectedHandCard?.estrelas >= 6 ? 3 : s.selectedHandCard?.estrelas === 5 ? 2 : s.selectedHandCard?.estrelas === 4 ? 1 : 0
+    const selecionados = s.sacrificeTargets?.length || 0
+    const restantes = Math.max(0, sac - selecionados)
+    hintText = `⚠️ Clique em ${restantes > 0 ? `MAIS ${restantes} MONSTRO(S) ALIADO(S)` : 'MONSTRO(S) ALIADO(S)'} para sacrificar e invocar ${s.selectedHandCard?.name} (${s.selectedHandCard?.estrelas || 1}★, precisa de ${sac} sacrifício(s))`
   } else if (s.waitingForGridTarget === 'spell') {
     hintText = `👆 Clique em um alvo para usar ${s.selectedHandCard?.name}`
   } else if (turnPhase === 'DESCER' && isPlayerTurn) {
@@ -539,6 +623,29 @@ export default function DueloRoute() {
             pending={s.pendingPlacement}
             onConfirm={() => store.confirmPendingPlacement()}
             onCancel={() => store.cancelPendingPlacement()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Sacrifice Warning Modal (Modal 1) */}
+      <AnimatePresence>
+        {s.showSacrificeWarning && s.selectedHandCard && (
+          <SacrificeWarningModal
+            card={s.selectedHandCard}
+            onSelect={() => store.confirmSacrificeWarning()}
+            onCancel={() => store.cancelSacrificeWarning()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Confirm Sacrifice Modal (Modal 2) */}
+      <AnimatePresence>
+        {s.confirmSacrifice && s.selectedHandCard && s.sacrificeTargets?.length > 0 && (
+          <ConfirmSacrificeModal
+            card={s.selectedHandCard}
+            targets={s.sacrificeTargets}
+            onConfirm={() => store.confirmSacrificeExecution()}
+            onCancel={() => store.cancelSacrificeExecution()}
           />
         )}
       </AnimatePresence>

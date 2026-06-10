@@ -1,10 +1,11 @@
-// LDI DUELO — CAMPO DE BATALHA v2.0
-// 60 cartas: 30 monstros | 15 magias | 15 armadilhas
+// LDI DUELO — CAMPO DE BATALHA v2.2
+// 68 cartas: 36 monstros | 15 magias | 15 armadilhas | 2 extra
+// Sacrifício: 1-3★ = 0 | 4★ = 1 | 5★ = 2 | 6★ = 3
 // Atributos conforme GDD v1.0 — Campo de Batalha
 
 const CARDS = [
-  // ═══ MONSTROS (30) ═══
-  // 1–3★: ATK < 2000 (0 sacrifício) | 4★: ATK 2000–2599 (1 sacrifício) | 5★: ATK >= 2600 (2 sacrifícios)
+  // ═══ MONSTROS (36) ═══
+  // 1–3★: ATK < 2000 (0 sacrifício) | 4★: ATK 2000–2599 (1 sacrifício) | 5★: ATK >= 2600 (2 sacrifícios) | 6★: ATK 4000-5000 (3 sacrifícios)
   { id_num: 1,  name: 'Candidato SDR',             type: 'MONSTER', atk: 500,  def: 400,  mov: 3, rng: 1, estrelas: 1, desc: 'Aspirante ao ranking. Estreante.' },
   { id_num: 2,  name: 'Candidato SDR',             type: 'MONSTER', atk: 500,  def: 400,  mov: 3, rng: 1, estrelas: 1, desc: 'Aspirante ao ranking. Estreante.' },
   { id_num: 3,  name: 'Duelista de Bairro',        type: 'MONSTER', atk: 700,  def: 200,  mov: 4, rng: 1, estrelas: 1, desc: 'Campeão do beco. Rua, não arena.' },
@@ -35,6 +36,12 @@ const CARDS = [
   { id_num: 28, name: 'StormByte_91',              type: 'MONSTER', atk: 2600, def: 1800, mov: 3, rng: 2, estrelas: 5, desc: 'Hacker de elite. Sombra no sistema.' },
   { id_num: 29, name: 'IronVeil',                  type: 'MONSTER', atk: 2300, def: 2400, mov: 1, rng: 2, estrelas: 5, desc: 'O tanque do SDR. Derrubá-lo custa caro.' },
   { id_num: 30, name: 'Mestre Viran',              type: 'MONSTER', atk: 3200, def: 2800, mov: 2, rng: 1, estrelas: 5, desc: 'O Dojô não cai. O mestre não perde.' },
+  // ═══ 6★ (5 cartas — 3 sacrifícios cada) ═══
+  { id_num: 61, name: 'Crono — Forma Final',       type: 'MONSTER', atk: 4500, def: 3500, mov: 2, rng: 2, estrelas: 6, desc: 'O tempo se curva diante de Kronos.' },
+  { id_num: 62, name: 'Viran — Ascensão Divina',   type: 'MONSTER', atk: 4800, def: 4200, mov: 2, rng: 1, estrelas: 6, desc: 'Até os deuses temem o Dojô.' },
+  { id_num: 63, name: 'Nina — Lâmina do Juízo',    type: 'MONSTER', atk: 4200, def: 3000, mov: 4, rng: 3, estrelas: 6, desc: 'A katana que separa alma e corpo.' },
+  { id_num: 64, name: 'Jack — Rei da Arena',       type: 'MONSTER', atk: 5000, def: 2000, mov: 3, rng: 2, estrelas: 6, desc: 'O bastão ecoa. A multidão silencia.' },
+  { id_num: 65, name: 'Espectro SDR — Lenda Viva', type: 'MONSTER', atk: 4000, def: 4000, mov: 1, rng: 2, estrelas: 6, desc: 'Top 1 do ranking. Inalcançável.' },
 
   // ═══ MAGIAS (15) ═══
   { id_num: 31, name: 'Inversão Total',        type: 'SPELL', effect: 'SWAP_ATK_DEF', effectValue: 0,   duracao: 2,   desc: 'Troca ATK e DEF de monstro alvo por 2 turnos.' },

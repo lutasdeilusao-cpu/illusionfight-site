@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.78'
+export const SITE_VERSION = '9.79'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.1.0'  // Pesadelo Particular (+ i18n keys: selecione_slot, slot_label, slot_vazio)
@@ -16,7 +16,7 @@ export const LDI_VERSION       = '1.2.0'  // Lendas do LDI (BackToGamesBtn repos
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.8.0'  // LDI Arena Mode (BackToGamesBtn unificado)
 export const TAMA_VERSION      = '1.25.0' // Tamagoshi LDI (BackToGamesBtn dentro do fluxo tama-content)
-export const DUELO_VERSION     = '2.1.0'  // Duelo LDI Campo de Batalha (grid 8×8 + saque turno + sacrifício + armadilha tabuleiro + magia range + confirm modal)
+export const DUELO_VERSION     = '2.2.0'  // Duelo LDI Campo de Batalha (grid 8×8 + two-step sacrifice modal + 6★ cards)
 export const MINIGAMES_VERSION = '1.9.0'  // MiniGames (BackToGamesBtn unificado em todas as telas)
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player
 export const TM_VERSION        = '5.6.0'  // Top Trumps Multiplayer

@@ -915,6 +915,11 @@
   box-shadow: 0 0 30px rgba(139,92,246,0.3) !important;
 }
 
+.duelo-confirm-modal--sacrifice {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 30px rgba(239,68,68,0.3) !important;
+}
+
 .duelo-confirm-area-hint {
   font-family: 'Courier New', monospace;
   font-size: 9px;
@@ -925,6 +930,55 @@
   background: rgba(139,92,246,0.06);
   border: 1px solid rgba(139,92,246,0.15);
   border-radius: 4px;
+}
+
+.duelo-sacrifice-list {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.15);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.duelo-sacrifice-list-title {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: #EF4444;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
+}
+
+.duelo-sacrifice-item {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: #aaa;
+  margin: 2px 0;
+  padding: 2px 4px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 2px;
+}
+
+/* ── SACRIFICE HIGHLIGHT ── */
+.duelo-grid-cell--sacrifice-target {
+  border-color: #EF4444 !important;
+  background: rgba(239,68,68,0.08) !important;
+  cursor: pointer;
+}
+
+.duelo-grid-cell--sacrifice-target:hover {
+  background: rgba(239,68,68,0.18) !important;
+  box-shadow: 0 0 8px rgba(239,68,68,0.3);
+}
+
+.duelo-grid-cell--sacrifice-selected {
+  border-color: #FF6B35 !important;
+  background: rgba(255,107,53,0.15) !important;
+  box-shadow: 0 0 10px rgba(255,107,53,0.4) !important;
+  cursor: pointer;
+}
+
+.duelo-grid-cell--sacrifice-selected:hover {
+  background: rgba(255,107,53,0.25) !important;
 }
 
 /* ── PHASE HINT ── */

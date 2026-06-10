@@ -124,6 +124,11 @@ export default function Board() {
     if (cell?.monster) {
       classes += cell.monster.owner === 'PLAYER' ? ' duelo-grid-cell--ally' : ' duelo-grid-cell--enemy'
     }
+    // Sacrifice target highlight
+    if (store.waitingForGridTarget === 'sacrifice' && cell?.monster?.owner === 'PLAYER') {
+      const isTarget = store.sacrificeTargets?.some(t => t.row === r && t.col === c)
+      classes += isTarget ? ' duelo-grid-cell--sacrifice-selected' : ' duelo-grid-cell--sacrifice-target'
+    }
     return classes
   }
 

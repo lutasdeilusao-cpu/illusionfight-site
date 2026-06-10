@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
-> **Data:** 2026-06-09  
-> **Versão do Relatório:** 2.27  
-> **Versão do Site:** 9.75  
+> **Data:** 2026-06-10  
+> **Versão do Relatório:** 2.28  
+> **Versão do Site:** 9.78  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.70 |
+| **Versão Atual** | 9.78 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -548,12 +548,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.0.0  
+**Versão:** 2.1.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
-> 🔄 **Refatoração completa para Campo de Batalha v2.0** — Grid 5×5, MOV/RNG, armadilhas ocultas, LP 1000
+> 🔄 **Duelo v2.1 — Modal de confirmação p/ armadilhas e magias**  
+> Grid 8×8, saque por turno, sistema de sacrifício, armadilha em qualquer célula do tabuleiro com area highlight, magia com range visível, modal de confirmação com highlight persistente, botão VER CARTAS, grid 8×8
 
 #### Screens
 
@@ -567,7 +568,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Componente | Status |
 |---|---|
-| `Board` (Grid 5×5) | ✅ Completo |
+| `Board` (Grid 8×8) | ✅ Completo |
 | `Hand` | ✅ Completo |
 | `Card` (MOV/RNG) | ✅ Completo |
 | `CardSlot` | ✅ Completo |
@@ -577,7 +578,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `TrapActivator` (grid) | ✅ Completo |
 | `LPDisplay` (max 1000) | ✅ Completo |
 | `PlayerZone` | ❌ Substituído pelo grid |
-| ~~`TributeSelector`~~ | 🗑️ Removido (sem tributo) |
+| ~~`TributeSelector`~~ | 🗑️ Removido |
 
 #### Engine
 
@@ -991,7 +992,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 5×5) | 90% | 🟢 | Refatorado p/ grid 5×5 + MOV/RNG + armadilhas |
+| **Duelo LDI — Campo de Batalha** (grid 8×8) | 93% | 🟢 | v2.1 — modal confirmação armadilha/magia + highlight de área + grid 8×8 |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |

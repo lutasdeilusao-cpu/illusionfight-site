@@ -6,7 +6,8 @@ import { applySpellEffect, applyTrapEffect } from '../engine/effects'
 function sacrificiosNecessarios(estrelas) {
   if (estrelas <= 3) return 0
   if (estrelas === 4) return 1
-  return 2 // 5★
+  if (estrelas === 5) return 2
+  return 3 // 6★
 }
 
 // Conta quantos monstros um jogador tem no grid
@@ -127,18 +128,20 @@ export const useDueloStore = create((set, get) => ({
 
       // Se tem monstros demais (>=3) ou precisa sacrificar
       if (sac > 0) {
-        // Precisa sacrificar → abre modal de seleção de sacrifício
+        // Precisa sacrificar → mostra AVISO primeiro (modal 1)
         set({
           selectedHandCard: card,
-          waitingForGridTarget: 'sacrifice',
+          showSacrificeWarning: true,
           confirmPlace: false,
+          waitingForGridTarget: null,
         })
       } else if (meusMonstros >= 3) {
-        // Limite de 3 atingido → perguntar qual sacrificar
+        // Limite de 3 atingido → também mostra aviso de sacrifício
         set({
           selectedHandCard: card,
-          waitingForGridTarget: 'sacrifice',
+          showSacrificeWarning: true,
           confirmPlace: false,
+          waitingForGridTarget: null,
         })
       } else {
         // Mostra confirmação "Descer no tabuleiro?"
@@ -165,6 +168,28 @@ export const useDueloStore = create((set, get) => ({
     }
   },
 
+  // ── Confirmar aviso de sacrifício (entra em modo seleção) ──
+  confirmSacrificeWarning: () => {
+    const state = get()
+    if (!state.showSacrificeWarning || !state.selectedHandCard) return
+    set({
+      showSacrificeWarning: false,
+      waitingForGridTarget: 'sacrifice',
+      sacrificeTargets: [],
+      battleLog: [...state.battleLog, `⚠️ Clique em monstros aliados para sacrificar (${sacrificiosNecessarios(state.selectedHandCard.estrelas || 1)} necessário(s))`],
+    })
+  },
+
+  // ── Cancelar aviso de sacrifício ──
+  cancelSacrificeWarning: () => {
+    set({
+      selectedHandCard: null,
+      showSacrificeWarning: false,
+      waitingForGridTarget: null,
+      confirmPlace: false,
+    })
+  },
+
   // ── Confirmar "Descer no tabuleiro?" ──
   confirmDescer: () => {
     const state = get()
@@ -182,6 +207,10 @@ export const useDueloStore = create((set, get) => ({
       waitingForGridTarget: null,
       confirmPlace: false,
       pendingPlacement: null,
+      showSacrificeWarning: false,
+      sacrificeTargets: [],
+      confirmSacrifice: false,
+      sacrificePending: 0,
     })
   },
 
@@ -254,6 +283,68 @@ export const useDueloStore = create((set, get) => ({
     })
   },
 
+  // ── Confirmar execução do sacrifício (remove monstros e invoca o novo) ──
+  confirmSacrificeExecution: () => {
+    const state = get()
+    const card = state.selectedHandCard
+    const targets = state.sacrificeTargets
+    if (!card || targets.length === 0) return
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    const hand = state.playerHand
+
+    // Remove os monstros sacrificados do grid
+    let nomesSacrificados = []
+    for (const t of targets) {
+      nomesSacrificados.push(grid[t.row][t.col]?.monster?.name || 'desconhecido')
+      grid[t.row][t.col] = { ...grid[t.row][t.col], monster: null }
+    }
+
+    // Encontra célula vazia no território do player para colocar o novo monstro
+    let placed = false
+    let placedRow = -1, placedCol = -1
+    for (let r = 5; r <= 7 && !placed; r++) {
+      for (let c = 0; c < GRID_COLS && !placed; c++) {
+        if (!grid[r][c].monster) {
+          grid[r][c] = { ...grid[r][c], monster: { ...card, owner: 'PLAYER' } }
+          placed = true
+          placedRow = r
+          placedCol = c
+        }
+      }
+    }
+
+    if (!placed) {
+      // Não achou espaço — algo errado, mas não bloqueia
+      set({
+        battleLog: [...state.battleLog, `❌ Não há espaço no campo para invocar ${card.name}.`],
+        confirmSacrifice: false,
+      })
+      return
+    }
+
+    const newHand = hand.filter(c => c.id_num !== card.id_num)
+    set({
+      grid,
+      playerHand: newHand,
+      selectedHandCard: null,
+      waitingForGridTarget: null,
+      sacrificeTargets: [],
+      confirmSacrifice: false,
+      sacrificePending: 0,
+      battleLog: [...state.battleLog, `🔥 Sacrificou ${nomesSacrificados.join(', ')}. Invocou ${card.name} (${card.estrelas}★) em [${placedRow},${placedCol}]!`],
+    })
+  },
+
+  // ── Cancelar execução do sacrifício (volta ao modo seleção) ──
+  cancelSacrificeExecution: () => {
+    set({
+      confirmSacrifice: false,
+      sacrificeTargets: [],
+      battleLog: [...get().battleLog, `↩️ Sacrifício cancelado. Selecione novos monstros.`],
+    })
+  },
+
   // ── Colocar/confirmar carta no grid (Fase DESCER) ──
   placeCardOnGrid: (row, col) => {
     const state = get()
@@ -283,44 +374,35 @@ export const useDueloStore = create((set, get) => ({
       // Clicou em um monstro para sacrificar
       const targetMonster = grid[row][col]?.monster
       if (!targetMonster || targetMonster.owner !== 'PLAYER') return
-      const sac = sacrificiosNecessarios(card.estrelas || 1)
-      const meusMonstros = countMonsters(grid, 'PLAYER')
-      const precisoSacrificar = Math.max(sac, (meusMonstros >= 3 ? 1 : 0))
-      
-      // Remove o monstro clicado do grid
-      grid[row][col] = { ...grid[row][col], monster: null }
-      
-      // Se ainda precisa de mais sacrifícios, continua no modo sacrifice
-      const monstersLeft = countMonsters(grid, 'PLAYER')
-      const sacrificados = 1
-      const restantes = precisoSacrificar - sacrificados
-      
-      if (restantes > 0) {
+
+      // Verifica se já foi selecionado para sacrifício
+      const alreadySelected = state.sacrificeTargets.some(t => t.row === row && t.col === col)
+      if (alreadySelected) {
+        // Remove da seleção (desselecionar)
+        const newTargets = state.sacrificeTargets.filter(t => !(t.row === row && t.col === col))
         set({
-          grid,
-          sacrificePending: restantes,
-          battleLog: [...state.battleLog, `Sacrificou ${targetMonster.name}. Mais ${restantes} sacrifício(s) necessário(s).`],
+          sacrificeTargets: newTargets,
+          battleLog: [...state.battleLog, `↩️ ${targetMonster.name} removido dos sacrifícios.`],
+        })
+        return
+      }
+
+      const sac = sacrificiosNecessarios(card.estrelas || 1)
+      const currentTargets = [...state.sacrificeTargets, { row, col, card: targetMonster }]
+
+      if (currentTargets.length >= sac) {
+        // Sacrifícios suficientes selecionados → modal de confirmação final
+        set({
+          sacrificeTargets: currentTargets,
+          confirmSacrifice: true,
+          battleLog: [...state.battleLog, `✅ ${targetMonster.name} selecionado. Confirme o sacrifício.`],
         })
       } else {
-        // Sacrifícios concluídos — coloca o monstro
-        // Encontra célula vazia no território do player para colocar
-        let placed = false
-        for (let r = 5; r <= 7 && !placed; r++) {
-          for (let c = 0; c < GRID_COLS && !placed; c++) {
-            if (!grid[r][c].monster) {
-              grid[r][c] = { ...grid[r][c], monster: { ...card, owner: 'PLAYER' } }
-              placed = true
-            }
-          }
-        }
-        const newHand = hand.filter(c => c.id_num !== card.id_num)
+        // Ainda precisa de mais
+        const restantes = sac - currentTargets.length
         set({
-          grid,
-          playerHand: newHand,
-          selectedHandCard: null,
-          waitingForGridTarget: null,
-          sacrificePending: 0,
-          battleLog: [...state.battleLog, `Sacrificou ${targetMonster.name}. Inovou ${card.name} (${card.estrelas}★) no campo.`],
+          sacrificeTargets: currentTargets,
+          battleLog: [...state.battleLog, `✅ ${targetMonster.name} selecionado. Mais ${restantes} sacrifício(s) necessário(s).`],
         })
       }
     } else if (state.waitingForGridTarget === 'trap') {
@@ -413,6 +495,10 @@ export const useDueloStore = create((set, get) => ({
       waitingForGridTarget: null,
       confirmPlace: false,
       pendingPlacement: null,
+      sacrificeTargets: [],
+      confirmSacrifice: false,
+      showSacrificeWarning: false,
+      sacrificePending: 0,
       battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? '🤖 Turno da IA...' : '🎯 Sua vez!'}`],
       // Primeira rodada terminou — libera MOVIMENTO para as próximas
       ...(state.isFirstTurn ? { isFirstTurn: false } : {}),
@@ -604,6 +690,10 @@ export const useDueloStore = create((set, get) => ({
       waitingForGridTarget: null,
       confirmPlace: false,
       pendingPlacement: null,
+      sacrificeTargets: [],
+      confirmSacrifice: false,
+      showSacrificeWarning: false,
+      sacrificePending: 0,
       battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },
