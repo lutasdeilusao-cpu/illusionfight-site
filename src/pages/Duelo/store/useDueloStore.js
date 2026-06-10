@@ -301,39 +301,19 @@ export const useDueloStore = create((set, get) => ({
       grid[t.row][t.col] = { ...grid[t.row][t.col], monster: null }
     }
 
-    // Encontra célula vazia em QUALQUER lugar do tabuleiro para colocar o novo monstro
-    let placed = false
-    let placedRow = -1, placedCol = -1
-    for (let r = 0; r < GRID_ROWS && !placed; r++) {
-      for (let c = 0; c < GRID_COLS && !placed; c++) {
-        if (!grid[r][c].monster) {
-          grid[r][c] = { ...grid[r][c], monster: { ...card, owner: 'PLAYER' } }
-          placed = true
-          placedRow = r
-          placedCol = c
-        }
-      }
-    }
-
-    if (!placed) {
-      // Não achou espaço — algo errado, mas não bloqueia
-      set({
-        battleLog: [...state.battleLog, `❌ Não há espaço no campo para invocar ${card.name}.`],
-        confirmSacrifice: false,
-      })
-      return
-    }
-
+    // Remove a carta da mão
     const newHand = hand.filter(c => c.id_num !== card.id_num)
+
+    // Agora deixa o player ESCOLHER onde colocar o monstro
     set({
       grid,
       playerHand: newHand,
-      selectedHandCard: null,
-      waitingForGridTarget: null,
+      // selectedHandCard continua sendo o card (para placeCardOnGrid usar)
+      waitingForGridTarget: 'monster',
       sacrificeTargets: [],
       confirmSacrifice: false,
       sacrificePending: 0,
-      battleLog: [...state.battleLog, `🔥 Sacrificou ${nomesSacrificados.join(', ')}. Invocou ${card.name} (${card.estrelas}★) em [${placedRow},${placedCol}]!`],
+      battleLog: [...state.battleLog, `🔥 Sacrificou ${nomesSacrificados.join(', ')}. Agora escolha onde invocar ${card.name}!`],
     })
   },
 
