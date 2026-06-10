@@ -160,16 +160,55 @@ export const useDueloStore = create((set, get) => ({
         confirmPlace: false,
       })
     } else if (card.type === 'SPELL') {
-      // Mostra range de células afetadas pela magia
-      set({
-        selectedHandCard: card,
-        waitingForGridTarget: 'spell',
-        confirmPlace: false,
-      })
+      // Magia que precisa de alvo monstro (buff/debuff) → mostra confirmação primeiro
+      const precisaAlvo = ['ATK_BOOST', 'DEF_BOOST', 'MOV_BOOST', 'RNG_BOOST', 'ATK_REDUCE', 'SWAP_ATK_DEF', 'PARALYZE', 'DESTROY', 'DUPLICATE', 'TELEPORT', 'PUSH']
+      if (precisaAlvo.includes(card.effect)) {
+        // Buff → aliado, Debuff → inimigo
+        const isBuff = ['ATK_BOOST', 'DEF_BOOST', 'MOV_BOOST', 'RNG_BOOST', 'DUPLICATE', 'TELEPORT'].includes(card.effect)
+        set({
+          selectedHandCard: card,
+          showSpellConfirm: true,
+          spellBuffTarget: isBuff ? 'PLAYER' : 'AI',
+          confirmPlace: false,
+          waitingForGridTarget: null,
+        })
+      } else {
+        // Magia sem alvo (BURN, HEAL) → modo seleção normal
+        set({
+          selectedHandCard: card,
+          waitingForGridTarget: 'spell',
+          confirmPlace: false,
+        })
+      }
     }
   },
 
   // ── Confirmar aviso de sacrifício (entra em modo seleção) ──
+  // ── Confirmar uso de magia com alvo (entra em modo seleção) ──
+  confirmSpellUse: () => {
+    const state = get()
+    if (!state.showSpellConfirm || !state.selectedHandCard) return
+    const isBuff = ['ATK_BOOST', 'DEF_BOOST', 'MOV_BOOST', 'RNG_BOOST', 'DUPLICATE', 'TELEPORT'].includes(state.selectedHandCard.effect)
+    const targetOwner = isBuff ? 'PLAYER' : 'AI'
+    const targetLabel = isBuff ? 'aliado' : 'inimigo'
+    set({
+      showSpellConfirm: false,
+      waitingForGridTarget: 'spell',
+      spellTargetOwner: targetOwner,
+      battleLog: [...state.battleLog, `✨ Clique em um monstro ${targetLabel} para aplicar ${state.selectedHandCard.name}.`],
+    })
+  },
+
+  // ── Cancelar uso de magia ──
+  cancelSpellUse: () => {
+    set({
+      showSpellConfirm: false,
+      selectedHandCard: null,
+      waitingForGridTarget: null,
+      spellTargetOwner: null,
+    })
+  },
+
   confirmSacrificeWarning: () => {
     const state = get()
     if (!state.showSacrificeWarning || !state.selectedHandCard) return
@@ -215,6 +254,9 @@ export const useDueloStore = create((set, get) => ({
       fieldCardInfo: null,
       showTrapActivation: false,
       trapActivationTarget: null,
+      showSpellConfirm: false,
+      spellBuffTarget: null,
+      spellTargetOwner: null,
     })
   },
 
@@ -230,9 +272,15 @@ export const useDueloStore = create((set, get) => ({
     const handKey = 'playerHand'
 
     if (type === 'trap') {
-      // Coloca armadilha
+      // Coloca armadilha com duração em turnos
       if (grid[row][col].trap || grid[row][col].monster) return
-      grid[row][col] = { ...grid[row][col], trap: { ...card, revealed: false, owner: 'PLAYER' } }
+      const duracaoPadrao = 3 // turnos padrão para armadilhas no campo
+      grid[row][col] = { ...grid[row][col], trap: {
+        ...card, revealed: false, owner: 'PLAYER',
+        turnoAtivacao: state.turnNumber,
+        duracaoTurnos: duracaoPadrao,
+        turnosRestantes: duracaoPadrao,
+      } }
       const newHand = hand.filter(c => c.id_num !== card.id_num)
       set({
         grid,
@@ -240,6 +288,7 @@ export const useDueloStore = create((set, get) => ({
         selectedHandCard: null,
         waitingForGridTarget: null,
         pendingPlacement: null,
+        spellTargetOwner: null,
         battleLog: [...state.battleLog, `🕳️ Armadilha ${card.name} armada em [${row},${col}].`],
       })
     } else if (type === 'spell') {
@@ -256,6 +305,7 @@ export const useDueloStore = create((set, get) => ({
         selectedHandCard: null,
         waitingForGridTarget: null,
         pendingPlacement: null,
+        spellTargetOwner: null,
         winner: result.updates.winner || state.winner,
         ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
         battleLog: [...state.battleLog, result.log],
@@ -395,8 +445,27 @@ export const useDueloStore = create((set, get) => ({
         pendingPlacement: { row, col, type: 'trap', card },
       })
     } else if (state.waitingForGridTarget === 'spell') {
-      // Magia — mostra modal de confirmação
+      // Magia — valida alvo baseado no tipo (buff/debuff)
       const targetCard = grid[row]?.[col]?.monster || null
+
+      // Se tem spellTargetOwner definido, valida dono do alvo
+      if (state.spellTargetOwner && targetCard) {
+        if (targetCard.owner !== state.spellTargetOwner) {
+          set({
+            battleLog: [...state.battleLog, `❌ Alvo inválido! Esta magia só afeta monstros ${state.spellTargetOwner === 'PLAYER' ? 'aliados' : 'inimigos'}.`],
+          })
+          return
+        }
+      }
+
+      // Se não tem target e a magia precisa de alvo, avisa
+      if (!targetCard && state.spellTargetOwner) {
+        set({
+          battleLog: [...state.battleLog, `❌ Selecione um monstro ${state.spellTargetOwner === 'PLAYER' ? 'aliado' : 'inimigo'} no campo!`],
+        })
+        return
+      }
+
       set({
         pendingPlacement: { row, col, type: 'spell', card, targetCard },
       })
@@ -461,6 +530,21 @@ export const useDueloStore = create((set, get) => ({
       remainingTurns: fe.remainingTurns - 1,
     })).filter(fe => fe.remainingTurns > 0)
 
+    // ── Decrementa duração das armadilhas e remove as expiradas ──
+    const newGrid = state.grid.map(r => r.map(c => {
+      if (c.trap && c.trap.turnosRestantes !== undefined) {
+        const novosTurnos = c.trap.turnosRestantes - 1
+        if (novosTurnos <= 0) {
+          return { ...c, trap: null } // remove armadilha expirada
+        }
+        return { ...c, trap: { ...c.trap, turnosRestantes: novosTurnos } }
+      }
+      return c
+    }))
+    const trapsRemoved = newGrid.some((r, ri) =>
+      r.some((c, ci) => state.grid[ri][ci].trap && !c.trap)
+    )
+
     // Prepara saque para o próximo turno
     set({
       turnPhase: 'DESCER',
@@ -469,6 +553,7 @@ export const useDueloStore = create((set, get) => ({
       tempBuffs: newBuffs,
       effects: newEffects,
       fieldEffects: newFieldEffects,
+      grid: newGrid,
       monstersThatMoved: [],
       monstersThatAttacked: [],
       selectedMonster: null,
@@ -482,7 +567,11 @@ export const useDueloStore = create((set, get) => ({
       confirmSacrifice: false,
       showSacrificeWarning: false,
       sacrificePending: 0,
-      battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? '🤖 Turno da IA...' : '🎯 Sua vez!'}`],
+      battleLog: [
+        ...state.battleLog,
+        ...(trapsRemoved ? ['⏳ Armadilha(s) expiraram e foram removidas do campo.'] : []),
+        `${state.currentTurn === 'PLAYER' ? '🤖 Turno da IA...' : '🎯 Sua vez!'}`,
+      ],
       // Primeira rodada terminou — libera MOVIMENTO para as próximas
       ...(state.isFirstTurn ? { isFirstTurn: false } : {}),
     })
@@ -677,6 +766,9 @@ export const useDueloStore = create((set, get) => ({
       confirmSacrifice: false,
       showSacrificeWarning: false,
       sacrificePending: 0,
+      showSpellConfirm: false,
+      spellBuffTarget: null,
+      spellTargetOwner: null,
       battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },

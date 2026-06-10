@@ -147,5 +147,9 @@ export function createInitialState() {
     showTrapActivation: false, // true quando modal de ativação está aberto
     // Anúncio de fase
     phaseAnnouncement: null, // { text, icon, duration } — texto mostrado no centro da tela
+    // Controle de magia com alvo
+    showSpellConfirm: false, // true quando modal "Deseja usar magia?" está aberto
+    spellBuffTarget: null,   // 'PLAYER' = buff (aliado), 'AI' = debuff (inimigo)
+    spellTargetOwner: null,  // 'PLAYER' | 'AI' — dono do alvo válido para a magia atual
   }
 }

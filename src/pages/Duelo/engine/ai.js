@@ -49,6 +49,38 @@ function getEffectiveRng(card, buffs) {
   return Math.max(1, (card.rng || 0) + (buff?.rngBonus || 0))
 }
 
+// Sacrifício: quantos monstros sacrificar por estrelas
+function aiSacrificiosNecessarios(estrelas) {
+  if (estrelas <= 3) return 0
+  if (estrelas === 4) return 1
+  if (estrelas === 5) return 2
+  return 3 // 6★
+}
+
+// Conta monstros da IA no grid
+function countAiMonsters(grid) {
+  let count = 0
+  for (let r = 0; r < GRID_ROWS; r++)
+    for (let c = 0; c < GRID_COLS; c++)
+      if (grid[r][c]?.monster?.owner === 'AI') count++
+  return count
+}
+
+// Sacrifica N monstros da IA no grid (remove os primeiros encontrados)
+function sacrificeAiMonsters(grid, qtd) {
+  const newGrid = grid.map(r => r.map(c => ({ ...c })))
+  let removed = 0
+  for (let r = 0; r < GRID_ROWS && removed < qtd; r++) {
+    for (let c = 0; c < GRID_COLS && removed < qtd; c++) {
+      if (newGrid[r][c]?.monster?.owner === 'AI') {
+        newGrid[r][c] = { ...newGrid[r][c], monster: null }
+        removed++
+      }
+    }
+  }
+  return newGrid
+}
+
 // Encontra posição para invocar — prioriza fileira da frente (row 2 para AI no 8x8)
 function findSummonPosition(grid, isAi) {
   // Pode invocar em QUALQUER célula vazia do tabuleiro
@@ -74,7 +106,7 @@ function findTrapPosition(grid) {
 
 // ── FASE 1: DESCER (IA coloca cartas no tabuleiro) ──
 export function aiDescerFase(state) {
-  const grid = state.grid.map(row => row.map(cell => ({ ...cell })))
+  let grid = state.grid.map(row => row.map(cell => ({ ...cell })))
   let newHand = [...state.aiHand]
   let newGraveyard = [...state.aiGraveyard]
   let newBuffs = [...(state.tempBuffs || [])]
@@ -82,31 +114,58 @@ export function aiDescerFase(state) {
   let aiLP = state.aiLP
   let battleLog = [...state.battleLog]
 
-  // 1a. Coloca monstros (prioridade alta)
+  // 1a. Coloca monstros (prioridade alta) — RESPEITANDO REGRAS DE SACRIFÍCIO
   const monsters = newHand.filter(c => c.type === 'MONSTER').sort((a, b) => b.atk - a.atk)
   const existingMonsters = getAiMonsters(grid).length
   const maxOnField = 3
   const slotsLeft = maxOnField - existingMonsters
+  let currentGrid = grid
 
   if (slotsLeft > 0) {
     // Primeiro turno: IA só desce 1 monstro
     const maxSlots = state.isFirstTurn ? Math.min(1, slotsLeft) : slotsLeft
-    const toPlace = monsters.slice(0, maxSlots)
-    for (const card of toPlace) {
-      const pos = findSummonPosition(grid, true)
+    let placed = 0
+    for (const card of monsters) {
+      if (placed >= maxSlots) break
+
+      const sacrificios = aiSacrificiosNecessarios(card.estrelas || 1)
+      const aiMonstrosNoCampo = countAiMonsters(currentGrid)
+
+      if (sacrificios > 0 && aiMonstrosNoCampo < sacrificios) {
+        // Não pode invocar — pula essa carta e tenta próxima de menor custo
+        battleLog.push(`⏭️ IA não pode invocar ${card.name} (${card.estrelas}★ — precisa de ${sacrificios} sacrifício(s), tem ${aiMonstrosNoCampo} monstro(s)).`)
+        continue
+      }
+
+      // Se precisa sacrificar, remove monstros do campo primeiro
+      if (sacrificios > 0) {
+        currentGrid = sacrificeAiMonsters(currentGrid, sacrificios)
+        battleLog.push(`🔥 IA sacrificou ${sacrificios} monstro(s) para invocar ${card.name}.`)
+      }
+
+      const pos = findSummonPosition(currentGrid, true)
       if (!pos) break
-      grid[pos.row][pos.col] = { monster: { ...card, owner: 'AI' }, trap: grid[pos.row][pos.col]?.trap || null }
+      currentGrid[pos.row][pos.col] = { monster: { ...card, owner: 'AI' }, trap: currentGrid[pos.row][pos.col]?.trap || null }
       newHand = newHand.filter(c => c.id_num !== card.id_num)
       battleLog.push(`🃏 IA desceu ${card.name} (${card.atk}/${card.def}) em [${pos.row},${pos.col}].`)
+      placed++
     }
+    // Atualiza grid com as modificações
+    grid = currentGrid
   }
 
-  // 1b. Coloca armadilhas (se houver espaços)
+  // 1b. Coloca armadilhas (se houver espaços) — com duração em turnos
   const traps = newHand.filter(c => c.type === 'TRAP')
   for (const trap of traps) {
     const pos = findTrapPosition(grid)
     if (!pos) break
-    grid[pos.row][pos.col] = { ...grid[pos.row][pos.col], trap: { ...trap, revealed: false, owner: 'AI' } }
+    const duracaoPadrao = 3
+    grid[pos.row][pos.col] = { ...grid[pos.row][pos.col], trap: {
+      ...trap, revealed: false, owner: 'AI',
+      turnoAtivacao: state.turnNumber,
+      duracaoTurnos: duracaoPadrao,
+      turnosRestantes: duracaoPadrao,
+    } }
     newHand = newHand.filter(c => c.id_num !== trap.id_num)
     battleLog.push(`🕳️ IA armou ${trap.name} em [${pos.row},${pos.col}].`)
   }

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.32  
-> **Versão do Site:** 9.82  
+> **Versão do Relatório:** 2.33  
+> **Versão do Site:** 9.83  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -548,17 +548,19 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.5.0  
+**Versão:** 2.6.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
-> 🔄 **Duelo v2.5 — Magic area highlight, trap activation, phase announcements, field card info**  
-> - Magias agora mostram área de efeito ao posicionar (como armadilhas)
-> - Armadilhas notificam quando inimigo está na área e oferecem ativação
-> - Highlight de movimento aparece SOBRE área de armadilha (não bloqueia visão)
-> - Clicar em carta ativa no campo abre modal de informação
-> - Anúncios de fase no centro da tela (DESCER → MOVIMENTO → ATAQUE) para player e IA
+> 🔄 **Duelo v2.6 — Fix movimento, IA delays, sacrifício IA, magias com alvo, tags buff/debuff, ver campo completo, duração armadilhas**  
+> - **Fix:** Clique em monstro durante fase MOVIMENTO/ATAQUE seleciona para ação (não abre modal info)
+> - **IA:** Delays visíveis entre cada fase (entre_fases: 800ms, antes_mover: 600ms, antes_atacar: 700ms)
+> - **IA:** Agora respeita regras de sacrifício por estrelas (não invoca 6★ sem tributo)
+> - **Magias buff/debuff:** Modal "Deseja usar [nome]?" → modo seleção de alvo → destaca alvos válidos
+> - **Tags visuais:** Monstros exibem ⬆ (buff verde) ou ⬇ (debuff vermelho) com turnos restantes
+> - **VER CAMPO:** Agora mostra armadilhas ativas (com turnos restantes), magias persistentes e tags buff/debuff
+> - **Armadilhas:** Duração em turnos (3t padrão) — expiram e são removidas automaticamente
 
 #### Screens
 
@@ -996,7 +998,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.5 — magic area, trap activation, phase ann, field info |
+| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.6 — fix click, IA delays+sacrifice, spell target, buff/debuff tags, trap duration |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |

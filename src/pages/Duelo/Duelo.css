@@ -1209,3 +1209,90 @@
   .duelo-phase-announcement-icon { font-size: 40px; }
   .duelo-phase-announcement-text { font-size: 20px; letter-spacing: 3px; white-space: normal; }
 }
+
+/* ── BUFF/DEBUFF TAGS ── */
+.duelo-buff-tag {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 7px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  line-height: 1.2;
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
+
+.duelo-buff-tag--buff {
+  background: rgba(34,197,94,0.25);
+  color: #22C55E;
+  border: 1px solid rgba(34,197,94,0.4);
+}
+
+.duelo-buff-tag--debuff {
+  background: rgba(239,68,68,0.25);
+  color: #EF4444;
+  border: 1px solid rgba(239,68,68,0.4);
+}
+
+/* ── TRAP DURATION TAG ── */
+.duelo-trap-duration {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  font-size: 7px;
+  font-family: 'Courier New', monospace;
+  color: #8B5CF6;
+  background: rgba(139,92,246,0.2);
+  border: 1px solid rgba(139,92,246,0.3);
+  padding: 0 3px;
+  border-radius: 2px;
+  line-height: 1.2;
+}
+
+/* ── VALID SPELL TARGET HIGHLIGHT ── */
+.duelo-grid-cell--valid-spell-target {
+  border-color: #22C55E !important;
+  background: rgba(34,197,94,0.12) !important;
+  box-shadow: 0 0 10px rgba(34,197,94,0.3) !important;
+  cursor: pointer;
+  animation: duelo-spell-target-pulse 1s infinite alternate;
+}
+
+.duelo-grid-cell--valid-spell-target:hover {
+  background: rgba(34,197,94,0.25) !important;
+  box-shadow: 0 0 14px rgba(34,197,94,0.5) !important;
+}
+
+@keyframes duelo-spell-target-pulse {
+  from { box-shadow: 0 0 6px rgba(34,197,94,0.2); }
+  to { box-shadow: 0 0 14px rgba(34,197,94,0.5); }
+}
+
+/* ── VER CARTAS SECTION TITLE ── */
+.duelo-vercartas-section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 2px;
+  margin: 8px 0 4px;
+  padding: 4px 6px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.duelo-vercartas-effect--debuff {
+  color: #EF4444 !important;
+}
+
+.duelo-vercartas-empty {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #444;
+  text-align: center;
+  padding: 24px;
+  font-style: italic;
+}

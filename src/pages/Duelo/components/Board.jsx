@@ -125,22 +125,23 @@ export default function Board() {
         s.moveMonster(r, c)
         return
       }
+      // Se clicou em monstro aliado — seleciona para mover (NÃO abre modal info)
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        s.selectMonster(r, c)
+        return
+      }
       // Se clicou em monstro inimigo que está em área de armadilha — oferece ativação
       if (cell?.monster && cell.monster.owner === 'AI' && isPersistentTrapArea(r, c) && !s.selectedMonster) {
         s.setTrapActivationTarget({ row: r, col: c })
         return
       }
-      // Se clicou em carta no campo sem seleção ativa — mostra info
+      // Se clicou em carta no campo sem seleção ativa — mostra info (só para AI/traps)
       if (!s.selectedMonster && cell?.monster) {
         s.showFieldCardInfo({ row: r, col: c, card: cell.monster, type: 'monster' })
         return
       }
       if (!s.selectedMonster && cell?.trap && cell.trap.owner === 'PLAYER') {
         s.showFieldCardInfo({ row: r, col: c, card: cell.trap, type: 'trap' })
-        return
-      }
-      if (cell?.monster && cell.monster.owner === 'PLAYER') {
-        s.selectMonster(r, c)
         return
       }
       if (!s.selectedMonster) s.clearSelection()
@@ -154,22 +155,23 @@ export default function Board() {
         s.attackMonster(r, c)
         return
       }
+      // Se clicou em monstro aliado — seleciona para ataque (NÃO abre modal info)
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        s.selectMonster(r, c)
+        return
+      }
       // Se clicou em monstro inimigo que está em área de armadilha — oferece ativação
       if (cell?.monster && cell.monster.owner === 'AI' && isPersistentTrapArea(r, c) && !s.selectedMonster) {
         s.setTrapActivationTarget({ row: r, col: c })
         return
       }
-      // Se clicou em carta no campo sem seleção ativa — mostra info
+      // Se clicou em carta no campo sem seleção ativa — mostra info (só para AI/traps)
       if (!s.selectedMonster && cell?.monster) {
         s.showFieldCardInfo({ row: r, col: c, card: cell.monster, type: 'monster' })
         return
       }
       if (!s.selectedMonster && cell?.trap && cell.trap.owner === 'PLAYER') {
         s.showFieldCardInfo({ row: r, col: c, card: cell.trap, type: 'trap' })
-        return
-      }
-      if (cell?.monster && cell.monster.owner === 'PLAYER') {
-        s.selectMonster(r, c)
         return
       }
       if (!s.selectedMonster) s.clearSelection()
@@ -197,6 +199,12 @@ export default function Board() {
     if (store.waitingForGridTarget === 'sacrifice' && cell?.monster?.owner === 'PLAYER') {
       const isTarget = store.sacrificeTargets?.some(t => t.row === r && t.col === c)
       classes += isTarget ? ' duelo-grid-cell--sacrifice-selected' : ' duelo-grid-cell--sacrifice-target'
+    }
+    // Spell target highlight (buff/debuff)
+    if (store.waitingForGridTarget === 'spell' && store.spellTargetOwner && cell?.monster) {
+      if (cell.monster.owner === store.spellTargetOwner) {
+        classes += ' duelo-grid-cell--valid-spell-target'
+      }
     }
     return classes
   }
@@ -253,11 +261,24 @@ export default function Board() {
                             <span className="duelo-stat-rng">🎯{monster.rng}</span>
                           )}
                         </div>
+                        {/* Buff/Debuff tags */}
+                        {store.tempBuffs?.filter(b => b.cardId === monster.id_num).map((buff, bi) => {
+                          const isBuff = (buff.atkBonus || 0) >= 0 && (buff.defBonus || 0) >= 0
+                          const remaining = Math.max(0, (buff.expiresOnTurn || 0) - store.turnNumber)
+                          return (
+                            <div key={bi} className={`duelo-buff-tag ${isBuff ? 'duelo-buff-tag--buff' : 'duelo-buff-tag--debuff'}`}>
+                              {isBuff ? '⬆' : '⬇'} {remaining}t
+                            </div>
+                          )
+                        })}
                       </div>
                     )}
                     {showTrap && (
                       <div className="duelo-grid-trap">
                         ⚡
+                        {trap.turnosRestantes !== undefined && (
+                          <span className="duelo-trap-duration">{trap.turnosRestantes}t</span>
+                        )}
                       </div>
                     )}
                   </div>
