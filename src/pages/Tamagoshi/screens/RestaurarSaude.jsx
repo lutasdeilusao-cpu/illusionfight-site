@@ -9,34 +9,10 @@ import { DIX_POR_ACAO } from '../data/moedas'
 
 const ACOES = ['termometro', 'curativo', 'xarope']
 
-const INSTRUCOES = {
-  termometro: 'Meça a temperatura do Kroniki',
-  curativo:   'Coloque um curativo no Kroniki',
-  xarope:     'Dê o xarope pro Kroniki',
-}
-
-const INSTRUCOES_EN = {
-  termometro: 'Take Kroniki\'s temperature',
-  curativo:   'Put a bandage on Kroniki',
-  xarope:     'Give the syrup to Kroniki',
-}
-
-const INSTRUCOES_ES = {
-  termometro: 'Toma la temperatura de Kroniki',
-  curativo:   'Ponle una curita a Kroniki',
-  xarope:     'Dale el jarabe a Kroniki',
-}
-
 const ITEM_EMOJI = {
   termometro: '🌡️',
   curativo:   '🩹',
   xarope:     '🍶',
-}
-
-const ITEM_LABEL = {
-  termometro: 'Termômetro',
-  curativo:   'Curativo',
-  xarope:     'Xarope',
 }
 
 function gerarParticulas() {
@@ -75,8 +51,6 @@ export default function RestaurarSaude({ onConcluir }) {
   const [estrelas, setEstrelas] = useState([])
   const [touchPos, setTouchPos] = useState(null)
   const dropZoneRef = useRef(null)
-
-  const instrucoesMap = locale === 'en' ? INSTRUCOES_EN : locale === 'es' ? INSTRUCOES_ES : INSTRUCOES
 
   useEffect(() => {
     const shuffled = [...ACOES].sort(() => Math.random() - 0.5)
@@ -229,7 +203,7 @@ export default function RestaurarSaude({ onConcluir }) {
   }, [touchPos, ordem, acaoAtual, dispararEfeito, store])
 
   const acaoCorrente = ordem[acaoAtual]
-  const instrucaoAtual = acaoCorrente ? instrucoesMap[acaoCorrente] : ''
+  const instrucaoAtual = acaoCorrente ? t('games.tamagoshi.saude_instrucao_' + acaoCorrente) : ''
 
   // Posicionamento visual do item sendo arrastado no touch
   const touchStyle = touchPos ? {
@@ -416,7 +390,7 @@ export default function RestaurarSaude({ onConcluir }) {
           whileTap={{ scale: 1.3 }}
         >
           <span className="tama-saude-item-emoji">{ITEM_EMOJI[acaoCorrente]}</span>
-          <span className="tama-saude-item-label">{ITEM_LABEL[acaoCorrente]}</span>
+          <span className="tama-saude-item-label">{t('games.tamagoshi.saude_item_' + acaoCorrente)}</span>
         </motion.div>
       )}
 

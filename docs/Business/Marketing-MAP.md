@@ -1,218 +1,168 @@
-ILLUSION FIGHT — MARKETING MAP
-Última atualização: 07/06/2026 | Versão: 1.8
+# ILLUSION FIGHT — MARKETING MAP v2.0
+*Atualizado: 10/06/2026*
 
-1. IDENTIDADE DE MARCA
-Elemento | Valor
-Handle TikTok | @illusionfight
-Handle YouTube | @illusionfight
-Handle X | @IllusionFightIF
-Domínio | illusionfight.com ✅ ADQUIRIDO + DNS configurado
-E-mail oficial | lutasdeilusao@gmail.com
-Idioma principal | Inglês
-Público-alvo | Mercado americano + global
-Posicionamento | Action universe. Webtoon + games + book.
-Bio TikTok | "Action universe. Webtoon + games + book. Coming 2026. 🔥"
-Bio YouTube | "Action universe. Webtoon + games + book. Coming 2026. illusionfight.com"
-Bio X | "Action universe. Webtoon + games + book. Three billion players. One kid who had no idea what he was walking into. 🔥 illusionfight.com"
-Localização X | Marelia, USA
-Lançamento | 2026 — sem mês fixo
+---
 
-2. VOZES OFICIAIS (ElevenLabs)
-Personagem | Voz | Modelo | Usado em
-Jack | Elio – Youthful & Warm International | Eleven v3 | VID-001
-Kim | Maverick – Sanguine Narrator | Eleven v3 | VID-003
-Nexus Phantasm | Aaditya – Dramatic TV Narrator | Eleven v3 | VID-004, VID-005, trailers
-Nina | Iris – Enticing, Mysterious, and Warm | Eleven v3 | VID-009
-Helena | A definir — voz grave, peso materno | — | —
-Regra: uma vez aprovada, a voz não muda. Nunca.
+## 1. IDENTIDADE DE MARCA
 
-3. SISTEMA DE PERSONAGENS NAS REDES
-Personagem | Emoji | Papel
-Jack | 🥁 | Gerente das redes. Teatral, humor, sempre on.
-Kim | 🔥 | Posta raramente. Quando posta, muda a cena.
-Nina | ⚔️ | Direta e cortante. Zero paciência pra bobagem.
+Handle TikTok: @illusionfight
+Handle YouTube: @illusionfight
+Handle X: @IllusionFightIF
+Domínio: illusionfight.com ✅
+E-mail oficial: lutasdeilusao@gmail.com
+Idioma principal: Inglês
+Público-alvo: Mercado americano + global
+Posicionamento: Action universe. Webtoon + games + book.
+
+---
+
+## 2. VOZES OFICIAIS (ElevenLabs — imutáveis)
+
+Jack — Elio – Youthful & Warm International — Eleven v3
+Kim — Maverick – Sanguine Narrator — Eleven v3
+Nexus Phantasm — Aaditya – Dramatic TV Narrator — Eleven v3
+Nina — Iris – Enticing, Mysterious, and Warm — Eleven v3
+Helena — A definir — grave, peso materno
+
+---
+
+## 3. SISTEMA DE PERSONAGENS NAS REDES
+
+Jack 🥁 — Gerente das redes. Teatral, humor, sempre on.
+Kim 🔥 — Posta raramente. Quando posta, muda a cena.
+Nina ⚔️ — Direta e cortante. Zero paciência.
+Nexus Phantasm 🎤 — Narrador. Épico, dramático, provocador.
+
 Regra: todo post termina com — [Nome] [emoji]
-Regra: sem hashtag em posts de personagem. Hashtags só em conteúdo (arte, episódio, trailer).
+Regra: sem hashtag em posts de personagem
+Regra: hashtags só em conteúdo (arte, episódio, trailer)
 
-4. VÍDEOS PRODUZIDOS
+---
 
-VID-001 — Jack Introduction
-Status: ✅ PRIVADO TikTok · 📋 DRAFT YouTube
-Duração: 5s | Personagem: Jack
-Roteiro: "Hey. Name's Jack. And trust me — you're gonna want to see what my boy just did."
-Voz: Elio – Youthful & Warm International
-Visual: Jack segurando celular — anime 2D
-Título YouTube/TikTok: Jack has something to say. 👀
-Descrição YouTube: He showed up. Said his piece. Left. That's Jack. | Action webtoon coming 2026. illusionfight.com | #illusionfight #webtoon #anime #shorts
-Descrição TikTok: Hey. Name's Jack. And trust me — you're gonna want to see what my boy just did. 👀 #webtoon #animes #illusionfight
+## 4. BANCO DE VÍDEOS — 11/12 PRONTOS ✅
 
-VID-002 — Kim Social Media Reaction
-Status: ✅ PRIVADO TikTok · 📋 DRAFT YouTube
-Duração: 5s | Personagem: Kim (narrado pelo Jack)
-Texto no vídeo: "KIM WHEN I TOLD HIM / WE WERE GETTING / SOCIAL MEDIA ACCOUNTS" + illusionfight.com
-Visual: Kim caindo em fundo carmesim
-Título: Kim did NOT take the news well 😭
-Descrição YouTube: To be fair, nobody asked him. | Action webtoon coming 2026. illusionfight.com | #illusionfight #webtoon #anime #shorts
-Descrição TikTok: kim when i told him we were getting social media accounts 😭 #webtoon #anime #illusionfight
+VID-001 — Jack Introduction — Jack — ✅ Privado todas as redes
+VID-002 — Kim Reaction — Kim — ✅ Privado todas as redes
+VID-003 — Kim Introduction — Kim — ✅ Privado todas as redes
+VID-004 — Nexus / The Problem — Nexus — ✅ Privado todas as redes
+VID-005 — Illusion Fight: O Universo — Nexus — ✅ Privado todas as redes
+VID-006 — Isaias / 23 anos — Isaias — ✅ Privado todas as redes
+VID-009 — Nina Introduction — Nina — ✅ Privado todas as redes
+VID-016 — Kim correndo em Marelia — Kim — ✅ Privado todas as redes
+VID-017 — Nina entrando na sala — Nina — ✅ Privado todas as redes
+VID-018 — Kim vs VoidHunter — Kim — ✅ Privado todas as redes
+VID-019 — Todos os jogos — Nexus — ✅ Privado todas as redes
+VID-020 — Jack Dream Beer Noir — Jack — 🔲 Imagens pendentes
 
-VID-003 — Kim Introduction
-Status: ✅ PRIVADO TikTok · 📋 DRAFT YouTube
-Duração: 6s | Personagem: Kim
-Roteiro: "My name is Kim. And no, I did not agree to any of this. Jack made this account while I was asleep. Don't follow him."
-Voz: Maverick – Sanguine Narrator (Eleven v3)
-Título: My name is Kim. I did not agree to any of this.
-Descrição YouTube: Jack made this account while I was asleep. Don't follow him. | Action webtoon coming 2026. illusionfight.com | #illusionfight #webtoon #anime #shorts
-Descrição TikTok: my name is Kim. i did not agree to any of this. #webtoon #anime #illusionfight
+Regra: publicação começa quando VID-020 estiver pronto. 12/12.
 
-VID-004 — Nexus / O Problema
-Status: ✅ PRIVADO TikTok · 📋 DRAFT YouTube
-Duração: ~12s | Personagem: Nexus Phantasm (narrador)
-Voz: Aaditya – Dramatic TV Narrator (Eleven v3)
-Roteiro: [SERIOUS TONE] You know their names. [PAUSE] [calm] Kim. Jack. Nina. [PAUSE] [dramatic tone] Three billion players in the LDI. And these three... chose a band. [PAUSE] [awe] They called it O Problema. [PAUSE] [whispers] Honestly? [PAUSE] [REFLECTIVE] That tracks. [PAUSE] [serious tone] Find the music. Before it finds you.
-Visual: Abbey Road (os três) → ensaio garagem → show palco multidão → Nina microfone → show estádio
-Trilha: All I see is freeze
-Texto na tela: "O PROBLEMA" (00:04–00:06) + "illusionfight.com" (00:09–00:11)
-Título YouTube: The narrator knows about the band.
-Descrição YouTube: Nexus Phantasm has something to say about O Problema — the band of Kim, Jack and Nina. | Find the music at illusionfight.com | Action webtoon coming 2026. | #illusionfight #webtoon #anime #shorts
-Título TikTok: the narrator knows about the band. 👁️
-Descrição TikTok: three billion players. one band. O Problema. find the music at illusionfight.com #webtoon #anime #illusionfight
+---
 
-VID-005 — Illusion Fight: O Universo
-Status: ✅ EDITADO · 📋 AGUARDANDO EXPORTAR
-Duração: ~50-60s | Narrador: Nexus Phantasm (Aaditya – Eleven v3)
-Visual: Arena LDI → Kim na rua → combate → Logo IF → webtoon/games/livro/música → illusionfight.com → Nina microfone (clímax — entra voz feminina na música)
-Roteiro:
-[serious tone] There is a place called the LDI.
-[pause]
-[calm] Three billion players. Real pain. No way out until someone wins.
-[pause]
-[dramatic tone] And somewhere in Marelia — a seventeen-year-old kid who sells candy on buses... just walked in.
-[pause]
-[awe] He had no plan. No training. No idea what lives inside him.
-[pause]
-[serious tone] Illusion Fight is a Brazilian action universe. Twenty-three years in the making.
-[pause]
-[calm] A webtoon. A book. Games you can play right now. Music already on Spotify.
-[pause]
-[reflective] All of it in one place.
-[pause]
-[dramatic tone] illusionfight.com
-[pause]
-[whispers] The LDI is already running.
-[pause]
-[serious tone] Find out if you can survive it.
-Título YouTube: ⚔️ This is Illusion Fight.
-Descrição YouTube: ⚔️ There is a place called the LDI. Three billion players. Real pain. No way out until someone wins. 📖 Illusion Fight is a Brazilian action universe. Twenty-three years in the making. Webtoon, book, games and music — all in one place. 🔴 The LDI is already running. Find out if you can survive it. #illusionfight #webtoon #anime #shorts
-Título TikTok: ⚔️ This is Illusion Fight.
-Descrição TikTok: ⚔️ there is a place called the LDI. three billion players. real pain. no way out until someone wins. find out if you can survive it. #webtoon #anime #illusionfight
-Post X:
-There is a place called the LDI.
-⚔️ Three billion players. Real pain. No way out until someone wins.
-📖 A webtoon. A book. Games you can play right now. Music already on Spotify.
-All of it in one place.
-🌐 illusionfight.com
-🔴 The LDI is already running.
-— Nexus Phantasm
+## 5. METODOLOGIA DE PRODUÇÃO DE VÍDEO (aprovada 10/06/2026)
 
-5. POSTS PUBLICADOS
-ID | Data | Personagem | Conteúdo | Status
-X-001 | 06/06/2026 | Jack | "just made this account without telling Kim or Nina..." + Jack selfie arena | ✅ Publicado
+1. Construir storyboard frame por frame no Nano Banana
+2. Aprovar cada frame antes de avançar
+3. Só quando todos os frames aprovados, entregar ao Seedance/Kling
+4. Instrução: "só anima, exatamente nessa ordem"
+5. Áudio: gravar no ElevenLabs Eleven v3 com Audio Tags
+6. Editar com áudio + imagens no editor de vídeo
 
-6. DRAFTS SALVOS
-ID | Personagem | Conteúdo | Mídia | Quando postar
-X-DRAFT-001 | Kim | "my name is Kim. i did not agree to any of this. Jack made this account while I was asleep. don't follow him. — Kim 🔥" | VID-003 | Semana 1 após domínio
-X-DRAFT-002 | Jack | "this is Kim. first time entering the LDI. 3 billion players. no training. no experience. just vibes. — Jack 🥁" | VID-002 | Semana 1 após domínio
-X-DRAFT-003 | Jack | "hey @Netflix / weekend recommendation: there's this guy named Kim..." + "DUDE IS FINE FINE." | Kim close | Após 500 seguidores
-X-DRAFT-004 | Nexus | "somewhere out there, a band called O Problema is playing. you haven't heard them yet. that's about to change. — Nexus Phantasm / illusionfight.com" | VID-004 | Semana 1 após domínio
-X-DRAFT-005 | Nexus | Post X do VID-005 (ver seção 4) | VID-005 | Semana 5
+Regras Kling/Seedance aprendidas:
+- Definir UM ângulo, UMA ação contínua — sem pedir cortes
+- Tom de pele escuro do Kim como CRITICAL em todo prompt
+- Arte 2D anime CRÍTICO — reforçar no início E no fim do prompt
+- Referências de personagem SEMPRE como primeira coisa do prompt
+- Caro por segundo — frame aprovado antes de gerar
 
-7. BANCO DE VÍDEOS
-ID | Personagem | Conceito | Status
-VID-001 | Jack | Jack Introduction | ✅ Pronto
-VID-002 | Kim | Kim Reaction | ✅ Pronto
-VID-003 | Kim | Kim Introduction | ✅ Pronto
-VID-004 | Nexus | O Problema / banda | ✅ Pronto
-VID-005 | Nexus | Illusion Fight: O Universo | ✅ Editado — exportar
-VID-006 | Isaias | 23 anos de processo | 🔲 A produzir
-VID-007 | Teaser | Contagem regressiva | 🔲 Guardar pro lançamento
-VID-008 | Jack | Personagem reage ao universo | 🔲 A produzir
-VID-009 | Nina | Introdução Nina | 🔲 A produzir
-VID-010 | Mundo | Lore LDI | 🔲 A produzir
-VID-011 | A definir | Baseado em dados semanas 1–4 | 🔲 Aguarda dados
-VID-012 | A definir | Baseado em dados semanas 1–4 | 🔲 Aguarda dados
-Regra: publicação só começa com 12 vídeos prontos (3 meses de estoque).
-Regra VID-011 e VID-012: só definir conceito após 4 semanas publicadas.
+---
 
-8. CALENDÁRIO
-Semana | Vídeo | Plataforma | Status
-AGORA | Produzir VID-006 a VID-012 | — | 🔲 Fechar estoque de 12
-Semana 1 | VID-001 Jack Introduction | TikTok + YouTube Shorts | ⏳ Aguardando 12 vídeos prontos
-Semana 2 | VID-002 Kim Reaction | TikTok + YouTube Shorts | ⏳
-Semana 3 | VID-003 Kim Introduction | TikTok + YouTube Shorts | ⏳
-Semana 4 | VID-004 Nexus / O Problema | TikTok + YouTube Shorts | 🔲
-Semana 5 | VID-005 Illusion Fight: O Universo | TikTok + YouTube Shorts | 🔲
-Semana 6 | VID-006 Isaias / Processo | TikTok + YouTube Shorts | 🔲
-Semana 7 | VID-008 Jack Universo | TikTok + YouTube Shorts | 🔲
-Semana 8 | VID-009 Nina Introdução | TikTok + YouTube Shorts | 🔲
-Semana 9 | VID-010 Lore LDI | TikTok + YouTube Shorts | 🔲
-Semana 10 | VID-011 (definir com dados) | TikTok + YouTube Shorts | 🔲
-Semana 11 | VID-012 (definir com dados) | TikTok + YouTube Shorts | 🔲
-Semana 12 | VID-007 Teaser Final | TikTok + YouTube Shorts | 🔲 gatilho Ep. 0
-Semana 1 após domínio | X-DRAFT-001 + X-DRAFT-002 + X-DRAFT-004 | X | ⏳
-Após 500 seguidores | X-DRAFT-003 Netflix | X | 🔲
+## 6. CALENDÁRIO DE PUBLICAÇÃO
 
-9. ESTRATÉGIA DE LANÇAMENTO
-Fase 1 — Construção de presença ← ESTAMOS AQUI
+Semana 1 — VID-001 Jack Introduction — TikTok + YouTube + X
+Semana 2 — VID-002 Kim Reaction — TikTok + YouTube + X
+Semana 3 — VID-003 Kim Introduction — TikTok + YouTube + X
+Semana 4 — VID-004 Nexus / O Problema — TikTok + YouTube + X
+Semana 5 — VID-005 Illusion Fight: O Universo — TikTok + YouTube + X
+Semana 6 — VID-006 Isaias / 23 anos — TikTok + YouTube + X
+Semana 7 — VID-009 Nina Introduction — TikTok + YouTube + X
+Semana 8 — VID-016 Kim correndo em Marelia — TikTok + YouTube + X
+Semana 9 — VID-017 Nina entrando na sala — TikTok + YouTube + X
+Semana 10 — VID-018 Kim vs VoidHunter — TikTok + YouTube + X
+Semana 11 — VID-019 Todos os jogos — TikTok + YouTube + X
+Semana 12 — VID-020 Jack Dream Beer Noir — TikTok + YouTube + X
+Semana 13 — VID-007 Teaser Final — TikTok + YouTube + X — 🔲 Gatilho lançamento
+
+Ritmo: 1 vídeo/semana + 2 posts X/semana + responder comentários 30min após publicação
+
+---
+
+## 7. DRAFTS SALVOS NO X
+
+X-DRAFT-001 — Kim — Semana 1
+X-DRAFT-002 — Jack — Semana 1
+X-DRAFT-003 — Jack → @Netflix — Após 500 seguidores
+X-DRAFT-004 — Nexus — Semana 1
+X-DRAFT-005 — Nexus — Semana 5
+
+---
+
+## 8. ESTRATÉGIA DE LANÇAMENTO
+
+### Fase 1 — Construção de presença ← CONCLUÍDA
+
 ✅ TikTok, X, YouTube criados
-✅ VID-001 a VID-005 produzidos
-✅ X-001 publicado
-✅ 4 drafts salvos no X
-✅ Vozes definidas (Jack, Kim, Nexus)
-✅ Domínio illusionfight.com adquirido + DNS configurado + GitHub Pages ativo
-🔲 Trocar marca d'água YouTube para illusionfight.com
-🔲 Produzir VID-006 a VID-012 — fechar estoque de 12
-🔲 Publicar VID-001 (disparo: quando 12 vídeos prontos)
+✅ 11 vídeos produzidos e em privado
+✅ Domínio illusionfight.com ativo
+✅ Search Console configurado, sitemap processado
+✅ Analytics ativo — EUA ultrapassando Brasil em usuários diários
+✅ Following estratégico no X
+🔲 VID-020 — fechar os 12
+🔲 Publicar VID-001 (disparo: 12/12 prontos)
 
-Fase 2 — Aquecimento (semanas 1–12): 1 vídeo/semana + 2 posts X/semana + responder comentários 30min após publicação
-Fase 3 — Lançamento Ep. 0 (gatilho: VID-007): Ep. 0 site cadastrados D-7 → aberto D-3 → Webtoon Canvas D-day → Reddit + ProductHunt
-Fase 4 — Pós-lançamento: Stripe ativo ✅ | Campanha livro Amazon | Referral 3 indicações = 1 mês Elite | LF-001 YouTube
+### Fase 2 — Aquecimento (semanas 1–12)
 
-10. PLATAFORMAS
-Plataforma | Handle | Status | Prioridade
-TikTok | @illusionfight | ✅ 5 vídeos privados | Principal
-YouTube | @illusionfight | ✅ 5 drafts | Secundário
-X | @IllusionFightIF | ✅ 1 post + 5 drafts | Secundário
-Webtoon Canvas | Illusion Fight (EN) | ✅ Criado | Aquisição
-Instagram | — | 🔲 Futuro | —
-Reddit | — | 🔲 Lançamento | —
-ProductHunt | — | 🔲 Lançamento | —
+1 vídeo/semana + 2 posts X/semana + responder comentários 30min após publicação
 
-11. ASSETS DISPONÍVEIS
-Asset | Status
-Jack anime 2D vídeo 5s | ✅
-Jack selfie arena | ✅
-Kim caindo sonho — carmesim | ✅
-Kim close rosto sério | ✅
-Os três — Abbey Road / Marelia | ✅
-Os três — ensaio garagem | ✅
-Os três — show palco multidão | ✅
-Os três — show estádio | ✅
-Nina — microfone fundo escuro | ✅
-Logo IF | ✅
-Sumário oficial EN | ✅
-Ep. 0 webtoon 33+ páginas | ✅
-Arte Kim completa | ✅
-Arte Jack completa | ✅
-Arte arena LDI | ✅
+### Fase 3 — Lançamento (gatilho: VID-007)
 
-12. BANDA — O PROBLEMA
-Integrante | Instrumento
-Kim | Guitarra / vocal
-Jack | Bateria
-Nina | Baixo
-Plataforma de distribuição: SoundOn — https://www.soundon.global/bio/isaiaslealmusic
-38 lançamentos ativos. Presença: Spotify, YouTube, TikTok e demais plataformas.
-Músicas relevantes: Lutas de Ilusão | All I see is freeze | Gonna be Stars | V de Vingança | Bizarre Run | Só mais um Round | Sinfonia Imperfeita | Balada dos Esquizitos.
-No site: página /musicas com links para todas as plataformas.
+D-7: Ep. 0 liberado para cadastrados no site
+D-3: Ep. 0 aberto para todos
+D-day: Webtoon Canvas + Reddit + ProductHunt
 
-MARKETING_MAP.md v1.8 — atualizado em 07/06/2026
+### Fase 4 — Pós-lançamento
+
+Stripe ativo
+Campanha livro Amazon
+Referral: 3 indicações = 1 mês Elite
+Multiplayer Duelo + LDI Tatics
+
+---
+
+## 9. ASSETS PRODUZIDOS
+
+Artes oficiais 10 personagens — ✅
+Sheets Kim (casual, luta, expressões) — ✅
+Sheets Jack (casual, street, noir detetive) — ✅
+Sheets Nina (escola, casual, noir policial) — ✅
+Sheet VoidHunter_X — ✅
+Sheet Kroniki (10 sprites) — ✅
+Storyboard Kim vs VoidHunter (5 frames) — ✅
+Storyboard Nina entrando na sala — ✅
+Logo IF — ✅
+Thumbs 36 músicas — ✅
+
+---
+
+## 10. ANALYTICS — TENDÊNCIA (10/06/2026)
+
+EUA ultrapassou Brasil em usuários diários — tendência confirmada 2 dias seguidos
+Tempo médio de engajamento: 4 min 29 seg
+10.943 eventos totais
+Tráfego 100% orgânico — zero marketing ativo ainda
+Países ativos: Brasil, EUA, UK, Índia, Canadá, Irlanda, Coreia do Sul
+
+---
+
+*MARKETING MAP v2.0 — 10/06/2026*
+*11 vídeos prontos. 1 pendente. Máquina quase ligada.*
+*Construído em um dia. 🔥*

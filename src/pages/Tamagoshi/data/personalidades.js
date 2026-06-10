@@ -79,9 +79,26 @@ export const PERSONALIDADES = {
   },
 }
 
+export const PERS_NOME_KEY = {
+  CARENTE: 'carente',
+  AGRESSIVO: 'agressivo',
+  FOFO: 'fofo',
+  INDEPENDENTE: 'independente',
+  FILOSOFO: 'filosofo',
+  COMICO: 'comico',
+}
+
 import { FALAS_CRIATURA } from './falas-criatura'
 
-export function getFala(tipo, chave, criaturaId) {
+export function getFala(tipo, chave, criaturaId, tFn) {
+  // Se tem t() E é uma notificação de personalidade (não criatura-específica), usa i18n
+  if (tFn && !criaturaId) {
+    const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
+    const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chave
+    const translated = tFn(i18nKey)
+    if (translated !== i18nKey) return translated
+  }
+  // Fallback: fala específica de criatura (português)
   if (criaturaId && FALAS_CRIATURA[criaturaId]?.[chave]) {
     const arr = FALAS_CRIATURA[criaturaId][chave]
     return arr[Math.floor(Math.random() * arr.length)]

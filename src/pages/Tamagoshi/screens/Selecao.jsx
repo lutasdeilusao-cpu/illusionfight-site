@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
-import { PERSONALIDADES } from '../data/personalidades'
+import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 
 function shuffle(arr) {
   const a = [...arr]
@@ -24,6 +24,8 @@ export default function Selecao({ onEscolher, userTier }) {
     }
     return shuffle(umaPorTipo).slice(0, qtd)
   }, [userTier])
+
+  const tRaridade = (r) => t('games.tamagoshi.raridade_' + r)
 
   return (
     <div className="tama-screen">
@@ -54,8 +56,8 @@ export default function Selecao({ onEscolher, userTier }) {
                   )}
                 </div>
                 <div className="tama-selecao-nome">{c.nome}</div>
-                <div className="tama-selecao-tipo" style={{ color: pers.cor }}>{pers.nome}</div>
-                <div className="tama-selecao-raridade">{c.raridade}</div>
+                <div className="tama-selecao-tipo" style={{ color: pers.cor }}>{t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[c.tipo])}</div>
+                <div className="tama-selecao-raridade">{tRaridade(c.raridade)}</div>
               </motion.button>
             )
           })}

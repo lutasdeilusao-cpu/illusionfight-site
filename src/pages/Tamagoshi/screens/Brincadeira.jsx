@@ -67,7 +67,7 @@ export default function Brincadeira({ onConcluir }) {
     setFaseJogo('resultado')
     store.brincar()
     store.ganharDix(store._userId, DIX_POR_ACAO, 'brincou com criatura')
-    const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId)
+    const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId, t)
     setFala(texto || t('games.tamagoshi.brincadeira_divertido'))
   }
 

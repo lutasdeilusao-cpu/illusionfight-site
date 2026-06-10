@@ -7,6 +7,21 @@ export const ITENS_LOJA = [
   { id: 'guia', nome: 'Guia de Marelia', preco: 15, categoria: 'passeio', emoji: '🗺️' },
 ]
 
+export const ITEM_KEY_MAP = {
+  comida_basica: 'item_comida_basica',
+  comida_especial: 'item_comida_especial',
+  comida_primordial: 'item_comida_primordial',
+  sabonete: 'item_sabonete',
+  shampoo: 'item_shampoo',
+  guia: 'item_guia',
+  capivaroki: 'item_comida_capivaroki',
+  kroniki: 'item_comida_kroniki',
+  gamako: 'item_comida_gamako',
+  igniko: 'item_comida_igniko',
+  buziko: 'item_comida_buziko',
+  grafiko: 'item_comida_grafiko',
+}
+
 export const COMIDA_TEMATICA = {
   capivaroki: { id: 'capim', nome: 'Capim Fresco', preco: 5, emoji: '🌿' },
   kroniki: { id: 'energia_escura', nome: 'Energia das Trevas', preco: 60, emoji: '🌑' },

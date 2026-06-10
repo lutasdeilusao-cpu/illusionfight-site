@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { sfx } from '../sfx'
-import { ITENS_LOJA } from '../data/itens_loja'
+import { ITENS_LOJA, ITEM_KEY_MAP } from '../data/itens_loja'
 
 export default function Loja({ onVoltar }) {
   const { t } = useLanguage()
@@ -20,12 +20,16 @@ export default function Loja({ onVoltar }) {
     sfx.compra()
     try {
       await store.comprarItem(store._userId, item.id, item.preco)
-      setMsg(`${item.emoji} ${item.nome} comprado!`)
+      setMsg(`${item.emoji} ${tItem(item.id)} comprado!`)
       setTimeout(() => setMsg(''), 2000)
     } catch (e) {
       setMsg(e.message)
       setTimeout(() => setMsg(''), 3000)
     }
+  }
+
+  function tItem(id) {
+    return t('games.tamagoshi.' + ITEM_KEY_MAP[id])
   }
 
   const itensComprados = ITENS_LOJA.filter(item => (inv[item.id] || 0) > 0)
@@ -53,7 +57,7 @@ export default function Loja({ onVoltar }) {
             {itensComprados.map(item => (
               <div key={item.id} className="tama-loja-inventario-item">
                 <span className="tama-loja-inventario-emoji">{item.emoji}</span>
-                <span className="tama-loja-inventario-nome">{item.nome}</span>
+                <span className="tama-loja-inventario-nome">{tItem(item.id)}</span>
                 <span className="tama-loja-inventario-qtd">{inv[item.id]}x</span>
               </div>
             ))}
@@ -75,7 +79,7 @@ export default function Loja({ onVoltar }) {
             >
               <div className="tama-loja-card-emoji">{item.emoji}</div>
               <div className="tama-loja-card-info">
-                <span className="tama-loja-card-nome">{item.nome}</span>
+                <span className="tama-loja-card-nome">{tItem(item.id)}</span>
                 <span className="tama-loja-card-preco">{item.preco} DIX</span>
                 {qtd > 0 && <span className="tama-loja-card-qtd">inv: {qtd}x</span>}
               </div>

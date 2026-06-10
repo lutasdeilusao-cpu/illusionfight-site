@@ -603,11 +603,11 @@
 
 | Constante | Versão | Arquivo |
 |---|---|---|
-| `SITE_VERSION` | **9.75** | `src/config/version.js:5` || `PP_VERSION` | **2.1.0** | `src/config/version.js:10` |
+| `SITE_VERSION` | **9.90** | `src/config/version.js:5` || `PP_VERSION` | **2.2.0** | `src/config/version.js:10` |
 | `LDI_VERSION` | **1.2.0** | `src/config/version.js:11` |
 | `JACK_VERSION` | **5.2.0** | `src/config/version.js:12` |
 | `ARENA_VERSION` | **1.8.0** | `src/config/version.js:13` |
-| `TAMA_VERSION` | **1.25.0** | `src/config/version.js:14` |
+| `TAMA_VERSION` | **1.26.0** | `src/config/version.js:14` |
 | `DUELO_VERSION` | **2.0.0** | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | **1.9.0** | `src/config/version.js:16` |
 | `TS_VERSION` | **5.8.0** | `src/config/version.js:21` |
@@ -616,7 +616,7 @@
 | `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
 | `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
 | `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
-| `TAMA_VERSION` | 1.11.0 | `src/config/version.js:14` |
+| `TAMA_VERSION` | 1.26.0 | `src/config/version.js:14` |
 | `DUELO_VERSION` | 2.0.0 | `src/config/version.js:15` |
 | `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
 | `TS_VERSION` | **5.5.0** | `src/config/version.js:21` |

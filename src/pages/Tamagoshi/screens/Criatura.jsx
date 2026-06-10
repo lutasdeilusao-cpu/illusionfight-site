@@ -33,14 +33,14 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   useEffect(() => {
     sfx.notificacao()
     if (store.status === 'critico') {
-      setFala(getFala(store.personalidade, 'critico', store.criaturaId))
+      setFala(getFala(store.personalidade, 'critico', store.criaturaId, t))
       setMostrando('critico')
     } else if (metricasBaixas.length) {
       const { key } = metricasBaixas[0]
-      setFala(getFala(store.personalidade, key, store.criaturaId))
+      setFala(getFala(store.personalidade, key, store.criaturaId, t))
       setMostrando(key)
     } else {
-      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId))
+      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId, t))
       setMostrando('boasVindas')
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])

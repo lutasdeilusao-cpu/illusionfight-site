@@ -43,6 +43,15 @@ export const PASSEIOS = [
   },
 ]
 
+export const PASSEIO_KEY_MAP = {
+  marelia_centro: 'marelia_centro',
+  terminal_rodoviario: 'terminal_rodoviario',
+  beco_risca_faca: 'beco_risca_faca',
+  orla_noturna: 'orla_noturna',
+  feira_livre: 'feira_livre',
+  rua_branca: 'rua_branca',
+}
+
 export function getPasseio(id) {
   return PASSEIOS.find(p => p.id === id) || PASSEIOS[0]
 }

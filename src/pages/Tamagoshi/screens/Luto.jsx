@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 export default function Luto() {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
-  const epitafio = getFala(store.personalidade, 'morte', store.criaturaId)
+  const epitafio = getFala(store.personalidade, 'morte', store.criaturaId, t)
 
   const cooldownAcabou = store.cooldownAte && Date.now() >= store.cooldownAte
 

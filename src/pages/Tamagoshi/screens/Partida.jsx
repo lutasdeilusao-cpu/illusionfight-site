@@ -1,15 +1,26 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { CRIATURAS } from '../data/criaturas'
-import { TEXTOS_PARTIDA } from '../data/moedas'
+
+const TIPO_PARA_KEY = {
+  FOFO: 'fofo',
+  AGRESSIVO: 'agressivo',
+  INDEPENDENTE: 'independente',
+  CARENTE: 'carente',
+  FILOSOFO: 'filosofo',
+  COMICO: 'comico',
+}
 
 export default function Partida({ onSalaoFama, onNovaAdocao }) {
+  const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [animando, setAnimando] = useState(true)
   const [concluiu, setConcluiu] = useState(false)
 
-  const texto = TEXTOS_PARTIDA[store.personalidade] || TEXTOS_PARTIDA.CARENTE
+  const tipoKey = TIPO_PARA_KEY[store.personalidade] || 'carente'
+  const texto = t('games.tamagoshi.partida_texto_' + tipoKey)
   const criatura = CRIATURAS.find(c => c.id === store.criaturaId)
   const passouDos365 = store.nascidoEm && (Date.now() - store.nascidoEm) > 365 * 86400000
 
@@ -54,8 +65,8 @@ export default function Partida({ onSalaoFama, onNovaAdocao }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h2 className="tama-acao-title">✨ partida concluída</h2>
-            <p className="tama-partida-texto">{criatura?.nome || 'Sua criatura'} entrou para o salão da fama de Marelia.</p>
+            <h2 className="tama-acao-title">{t('games.tamagoshi.partida_concluida')}</h2>
+            <p className="tama-partida-texto">{t('games.tamagoshi.partida_salao_fama', { nome: criatura?.nome || 'Sua criatura' })}</p>
             <div className="tama-partida-acoes">
               <motion.button
                 className="tama-btn"
@@ -63,7 +74,7 @@ export default function Partida({ onSalaoFama, onNovaAdocao }) {
                 whileTap={{ scale: 0.95 }}
                 onClick={onSalaoFama}
               >
-                [ ver no salão da fama ]
+                {t('games.tamagoshi.partida_ver_salao')}
               </motion.button>
               <motion.button
                 className="tama-btn"
@@ -72,7 +83,7 @@ export default function Partida({ onSalaoFama, onNovaAdocao }) {
                 onClick={onNovaAdocao}
                 style={{ marginTop: '0.5rem' }}
               >
-                [ adotar nova criatura ]
+                {t('games.tamagoshi.partida_adotar_nova')}
               </motion.button>
             </div>
           </motion.div>
