@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.94*  |  `[SITE] versão carregada: 9.94`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ fix: SEO IIFE missing semicolon causing `(intermediate value)(...) is not a function` no load
 *Versão: 9.93*  |  `[SITE] versão carregada: 9.93`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar
 *Versão: 9.92*  |  `[SITE] versão carregada: 9.92`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — ataque direto Yu-Gi-Oh style (sem monstros inimigos = ataque direto aos LP)
 *Versão: 9.91*  |  `[SITE] versão carregada: 9.91`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n MiniGames completo (todos os puzzles: Decoder, Sliding, Labirinto, Anagrama, Forca, Simon, Stealth pt/en/es)
