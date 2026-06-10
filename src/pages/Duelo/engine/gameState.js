@@ -140,5 +140,12 @@ export function createInitialState() {
     drawAnimIndex: 0,
     // Controle de IA
     aiTurnPhase: 'DESCER',
+    // Info de carta no campo (para modal)
+    fieldCardInfo: null, // { row, col, card, type: 'monster'|'trap'|'spell' }
+    // Ativação de armadilha
+    trapActivationTarget: null, // { row, col } — célula onde o inimigo está
+    showTrapActivation: false, // true quando modal de ativação está aberto
+    // Anúncio de fase
+    phaseAnnouncement: null, // { text, icon, duration } — texto mostrado no centro da tela
   }
 }

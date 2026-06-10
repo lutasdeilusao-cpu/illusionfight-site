@@ -20,13 +20,30 @@ export default function Board() {
   const isSelected = (r, c) => sel?.row === r && sel?.col === c
 
   // Calcula células das áreas de TODAS as armadilhas do player no grid (persistente)
+  // Se é célula de movimento ou ataque, NÃO mostra área de armadilha (fase vem primeiro)
   const isPersistentTrapArea = (r, c) => {
+    if (isMoveCell(r, c) || isAttackCell(r, c)) return false
     for (let rr = 0; rr < GRID_ROWS; rr++) {
       for (let cc = 0; cc < GRID_COLS; cc++) {
         const t = grid[rr][cc]?.trap
         if (t && t.owner === 'PLAYER' && !t.revealed && t.area) {
           const dist = manhattan(rr, cc, r, c)
           if (dist > 0 && dist <= t.area) return true
+        }
+      }
+    }
+    return false
+  }
+
+  // Células da área de TODAS as armadilhas/persistent spells no grid que têm inimigos dentro
+  const isTrapWithEnemyInside = (r, c) => {
+    if (!isPlayerTurn) return false
+    for (let rr = 0; rr < GRID_ROWS; rr++) {
+      for (let cc = 0; cc < GRID_COLS; cc++) {
+        const t = grid[rr][cc]?.trap
+        if (t && t.owner === 'PLAYER' && !t.revealed && t.area) {
+          const dist = manhattan(rr, cc, r, c)
+          if (dist > 0 && dist <= t.area && grid[r]?.[c]?.monster?.owner === 'AI') return true
         }
       }
     }
@@ -50,12 +67,22 @@ export default function Board() {
     return dist > 0 && dist <= trapCard.area
   }
 
-  // Highlight para célula alvo de magia no hover (mesmo estilo da armadilha)
+  // Highlight para célula alvo de magia no hover — mostra ÁREA igual armadilha
   const isSpellHoverCell = (r, c) => {
     if (store.waitingForGridTarget !== 'spell') return false
     const target = pending ? { row: pending.row, col: pending.col } : hoverCell
     if (!target) return false
     return target.row === r && target.col === c
+  }
+
+  // Área de efeito da magia ao redor do hover (como trap area)
+  const isSpellAreaCell = (r, c) => {
+    const target = pending ? { row: pending.row, col: pending.col } : hoverCell
+    if (!target || store.waitingForGridTarget !== 'spell') return false
+    const spellCard = store.selectedHandCard
+    if (!spellCard || !spellCard.area || spellCard.area <= 0) return false
+    const dist = manhattan(target.row, target.col, r, c)
+    return dist > 0 && dist <= spellCard.area
   }
 
   const isHoveredCell = (r, c) => {
@@ -82,6 +109,9 @@ export default function Board() {
     // Se não é turno do player, não faz nada
     if (s.currentTurn !== 'PLAYER') return
 
+    // Se tem um modal de ativação de armadilha aberto, não faz nada
+    if (s.showTrapActivation) return
+
     // Fase DESCER — colocar carta
     if (s.turnPhase === 'DESCER' && s.waitingForGridTarget) {
       s.placeCardOnGrid(r, c)
@@ -95,11 +125,25 @@ export default function Board() {
         s.moveMonster(r, c)
         return
       }
+      // Se clicou em monstro inimigo que está em área de armadilha — oferece ativação
+      if (cell?.monster && cell.monster.owner === 'AI' && isPersistentTrapArea(r, c) && !s.selectedMonster) {
+        s.setTrapActivationTarget({ row: r, col: c })
+        return
+      }
+      // Se clicou em carta no campo sem seleção ativa — mostra info
+      if (!s.selectedMonster && cell?.monster) {
+        s.showFieldCardInfo({ row: r, col: c, card: cell.monster, type: 'monster' })
+        return
+      }
+      if (!s.selectedMonster && cell?.trap && cell.trap.owner === 'PLAYER') {
+        s.showFieldCardInfo({ row: r, col: c, card: cell.trap, type: 'trap' })
+        return
+      }
       if (cell?.monster && cell.monster.owner === 'PLAYER') {
         s.selectMonster(r, c)
         return
       }
-      s.clearSelection()
+      if (!s.selectedMonster) s.clearSelection()
       return
     }
 
@@ -110,11 +154,25 @@ export default function Board() {
         s.attackMonster(r, c)
         return
       }
+      // Se clicou em monstro inimigo que está em área de armadilha — oferece ativação
+      if (cell?.monster && cell.monster.owner === 'AI' && isPersistentTrapArea(r, c) && !s.selectedMonster) {
+        s.setTrapActivationTarget({ row: r, col: c })
+        return
+      }
+      // Se clicou em carta no campo sem seleção ativa — mostra info
+      if (!s.selectedMonster && cell?.monster) {
+        s.showFieldCardInfo({ row: r, col: c, card: cell.monster, type: 'monster' })
+        return
+      }
+      if (!s.selectedMonster && cell?.trap && cell.trap.owner === 'PLAYER') {
+        s.showFieldCardInfo({ row: r, col: c, card: cell.trap, type: 'trap' })
+        return
+      }
       if (cell?.monster && cell.monster.owner === 'PLAYER') {
         s.selectMonster(r, c)
         return
       }
-      s.clearSelection()
+      if (!s.selectedMonster) s.clearSelection()
       return
     }
   }
@@ -129,7 +187,9 @@ export default function Board() {
     if (isTrapAreaCell(r, c)) classes += ' duelo-grid-cell--trap-area'
     if (isHoveredCell(r, c) && store.waitingForGridTarget === 'trap') classes += ' duelo-grid-cell--trap-hover'
     if (isSpellHoverCell(r, c)) classes += ' duelo-grid-cell--trap-hover'
+    if (isSpellAreaCell(r, c)) classes += ' duelo-grid-cell--spell-area'
     if (isFieldEffectCell(r, c)) classes += ' duelo-grid-cell--field-effect'
+    if (isTrapWithEnemyInside(r, c)) classes += ' duelo-grid-cell--trap-ready'
     if (cell?.monster) {
       classes += cell.monster.owner === 'PLAYER' ? ' duelo-grid-cell--ally' : ' duelo-grid-cell--enemy'
     }

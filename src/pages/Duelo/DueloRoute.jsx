@@ -361,6 +361,75 @@ function VerCartasModal({ onClose }) {
   )
 }
 
+// Modal de ativação de armadilha (quando inimigo está na área)
+function TrapActivationModal({ target, onConfirm, onCancel }) {
+  if (!target) return null
+  return (
+    <motion.div className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+    >
+      <motion.div className="duelo-confirm-modal duelo-confirm-modal--trap"
+        initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
+      >
+        <p className="duelo-confirm-title">⚡ ARMADILHA DETECTADA!</p>
+        <p className="duelo-confirm-desc">
+          Monstro inimigo em [{target.row},{target.col}] está na área de <strong>{target.trapCard?.name}</strong>!
+        </p>
+        <p className="duelo-confirm-flavor">"{target.trapCard?.desc}"</p>
+        {target.trapCard?.effectValue > 0 && (
+          <p className="duelo-confirm-area-hint">
+            ⚠️ Efeito: {target.trapCard.effectValue} de dano ao dono do monstro
+          </p>
+        )}
+        <p className="duelo-confirm-question">Ativar armadilha agora?</p>
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
+            ⚡ ATIVAR
+          </button>
+          <button className="duelo-phase-btn" onClick={onCancel}>
+            ⏭️ IGNORAR
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+// Modal de informação de carta no campo
+function FieldCardInfoModal({ info, onClose }) {
+  if (!info) return null
+  const { row, col, card, type } = info
+  const isMonster = type === 'monster'
+  const isTrap = type === 'trap'
+  return (
+    <motion.div className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div className="duelo-confirm-modal"
+        initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }}
+        onClick={e => e.stopPropagation()}
+        style={{ borderColor: isMonster ? '#F5A623' : isTrap ? '#8B5CF6' : '#22C55E' }}
+      >
+        <p className="duelo-confirm-title">
+          {isMonster ? '🃏' : isTrap ? '🕳️' : '✨'} {card.name}
+        </p>
+        <p className="duelo-confirm-desc">
+          {isMonster && `⚔ ${card.atk}/${card.def} · 👟${card.mov} 🎯${card.rng} · ${'★'.repeat(card.estrelas || 1)}`}
+          {isTrap && `📍 [${row},${col}] · Área: ${card.area} · Gatilho: ${card.gatilho || 'STEP'}`}
+          {!isMonster && !isTrap && `📍 [${row},${col}]`}
+        </p>
+        {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn" onClick={onClose}>
+            ✕ FECHAR
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function DueloRoute() {
   const store = useDueloStore()
   window.__dueloStore = useDueloStore
@@ -607,8 +676,51 @@ export default function DueloRoute() {
     hintText = `${t('games.duelo.turno_ia_pensando')} (${iaPhase || '...'})`
   }
 
+  // ── Anúncio de fase ──
+  const [localAnnouncement, setLocalAnnouncement] = useState(null)
+
+  // Escuta anúncios do store e também os gera localmente para transições de fase
+  useEffect(() => {
+    if (s.gamePhase !== 'PLAYING') return
+
+    let ann = null
+    if (isPlayerTurn) {
+      if (turnPhase === 'DESCER') ann = { text: 'FASE 1 — ESCOLHA SUAS CARTAS', icon: '🃏' }
+      else if (turnPhase === 'MOVIMENTO') ann = { text: 'FASE 2 — MOVIMENTO', icon: '👟' }
+      else if (turnPhase === 'ATAQUE') ann = { text: 'FASE 3 — ATAQUE', icon: '⚔️' }
+    } else if (iaPending) {
+      if (iaPhase === 'DESCER') ann = { text: '🤖 IA — COLOCANDO CARTAS...', icon: '🃏' }
+      else if (iaPhase === 'MOVIMENTO') ann = { text: '🤖 IA — MOVENDO MONSTROS...', icon: '👟' }
+      else if (iaPhase === 'ATAQUE') ann = { text: '🤖 IA — ATACANDO...', icon: '⚔️' }
+    }
+
+    if (ann) {
+      setLocalAnnouncement(ann)
+      const timer = setTimeout(() => setLocalAnnouncement(null), 2500)
+      return () => clearTimeout(timer)
+    } else {
+      setLocalAnnouncement(null)
+    }
+  }, [turnPhase, iaPhase, isPlayerTurn, iaPending, s.gamePhase])
+
   return (
     <div className="duelo-page">
+      {/* Phase Announcement Overlay */}
+      <AnimatePresence>
+        {localAnnouncement && (
+          <motion.div
+            className="duelo-phase-announcement"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="duelo-phase-announcement-icon">{localAnnouncement.icon}</span>
+            <span className="duelo-phase-announcement-text">{localAnnouncement.text}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Hint de targeting */}
       {hintText && (
         <div className="duelo-targeting-hint">
@@ -657,6 +769,27 @@ export default function DueloRoute() {
             targets={s.sacrificeTargets}
             onConfirm={() => store.confirmSacrificeExecution()}
             onCancel={() => store.cancelSacrificeExecution()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Trap Activation Modal */}
+      <AnimatePresence>
+        {s.showTrapActivation && s.trapActivationTarget && (
+          <TrapActivationModal
+            target={s.trapActivationTarget}
+            onConfirm={() => store.confirmTrapActivation()}
+            onCancel={() => store.cancelTrapActivation()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Field Card Info Modal */}
+      <AnimatePresence>
+        {s.fieldCardInfo && (
+          <FieldCardInfoModal
+            info={s.fieldCardInfo}
+            onClose={() => store.closeFieldCardInfo()}
           />
         )}
       </AnimatePresence>

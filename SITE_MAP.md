@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.82*  |  `[SITE] versão carregada: 9.82`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.81*  |  `[SITE] versão carregada: 9.81`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.80*  |  `[SITE] versão carregada: 9.80`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.79*  |  `[SITE] versão carregada: 9.79`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -67,7 +68,7 @@
 *Versão: 9.6*  |  `[SITE] versão carregada: 9.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*DUELO versão: 2.4.0* | `[DUELO] versão carregada: 2.4.0`
+*DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
 *TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
 *TAMA versão: 1.24.0* | `[TAMA] versão carregada: 1.24.0`

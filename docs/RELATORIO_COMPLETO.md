@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.30  
-> **Versão do Site:** 9.80  
+> **Versão do Relatório:** 2.31  
+> **Versão do Site:** 9.81  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.80 |
+| **Versão Atual** | 9.81 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -548,13 +548,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.3.0  
+**Versão:** 2.4.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
-> 🔄 **Duelo v2.3 — Grid 10×10 + LP 3000 + melhorias**  
-> Grid 10×10 (100 células), LP aumentado para 3000, monstros podem ser colocados em qualquer célula vazia, highlight de magia no hover, modal aviso para sacrifício insuficiente
+> 🔄 **Duelo v2.4 — Sacrifice: player escolhe onde colocar**  
+> Após confirmar o sacrifício, o player agora clica em uma célula vazia para posicionar o monstro invocado, em vez de ser colocado automaticamente
 
 #### Screens
 
@@ -992,7 +992,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 10×10) | 96% | 🟢 | v2.3 — grid 10×10 + LP 3000 + monster any cell + magic highlight |
+| **Duelo LDI — Campo de Batalha** (grid 10×10) | 97% | 🟢 | v2.4 — sacrifice player escolhe onde colocar |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |

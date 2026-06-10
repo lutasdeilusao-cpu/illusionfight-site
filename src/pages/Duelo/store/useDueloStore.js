@@ -212,6 +212,9 @@ export const useDueloStore = create((set, get) => ({
       sacrificeTargets: [],
       confirmSacrifice: false,
       sacrificePending: 0,
+      fieldCardInfo: null,
+      showTrapActivation: false,
+      trapActivationTarget: null,
     })
   },
 
@@ -677,6 +680,83 @@ export const useDueloStore = create((set, get) => ({
       battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },
+
+  // ── Informação de carta no campo ──
+  showFieldCardInfo: (data) => set({ fieldCardInfo: data }),
+
+  closeFieldCardInfo: () => set({ fieldCardInfo: null }),
+
+  // ── Ativação de armadilha (quando inimigo está na área) ──
+  setTrapActivationTarget: (data) => {
+    // Encontra qual armadilha cobre essa célula
+    const state = get()
+    let trapData = null
+    for (let rr = 0; rr < GRID_ROWS; rr++) {
+      for (let cc = 0; cc < GRID_COLS; cc++) {
+        const t = state.grid[rr][cc]?.trap
+        if (t && t.owner === 'PLAYER' && !t.revealed && t.area) {
+          const dist = manhattan(rr, cc, data.row, data.col)
+          if (dist > 0 && dist <= t.area) {
+            trapData = { trapRow: rr, trapCol: cc, trapCard: t }
+            break
+          }
+        }
+      }
+      if (trapData) break
+    }
+    if (!trapData) return
+    set({
+      trapActivationTarget: { ...data, ...trapData },
+      showTrapActivation: true,
+    })
+  },
+
+  confirmTrapActivation: () => {
+    const state = get()
+    const tat = state.trapActivationTarget
+    if (!tat) return
+
+    // Ativa a armadilha no inimigo
+    const targetCell = state.grid[tat.row]?.[tat.col]
+    if (!targetCell?.monster) {
+      set({ showTrapActivation: false, trapActivationTarget: null })
+      return
+    }
+
+    // Aplica efeito da armadilha
+    const result = applyTrapEffect(state, tat.trapCard, 'AI')
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    let playerLP = state.playerLP
+    let aiLP = state.aiLP
+    if (result.updates.playerLP !== undefined) playerLP = result.updates.playerLP
+    if (result.updates.aiLP !== undefined) aiLP = result.updates.aiLP
+
+    // Remove a armadilha (usou)
+    grid[tat.trapRow][tat.trapCol] = { ...grid[tat.trapRow][tat.trapCol], trap: null }
+
+    set({
+      grid,
+      playerLP,
+      aiLP,
+      showTrapActivation: false,
+      trapActivationTarget: null,
+      battleLog: [...state.battleLog, `⚡ Armadilha ${tat.trapCard.name} ativada em [${tat.row},${tat.col}]! ${result.log}`],
+    })
+  },
+
+  cancelTrapActivation: () => {
+    set({
+      showTrapActivation: false,
+      trapActivationTarget: null,
+      battleLog: [...get().battleLog, `⏭️ Armadilha não ativada.`],
+    })
+  },
+
+  // ── Anúncio de fase ──
+  setPhaseAnnouncement: (data) => set({ phaseAnnouncement: data }),
+
+  clearPhaseAnnouncement: () => set({ phaseAnnouncement: null }),
 
   // ── Ações da IA ──
   setAiState: (updates) => set(updates),
