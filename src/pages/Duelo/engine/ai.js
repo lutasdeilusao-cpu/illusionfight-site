@@ -49,9 +49,9 @@ function getEffectiveRng(card, buffs) {
   return Math.max(1, (card.rng || 0) + (buff?.rngBonus || 0))
 }
 
-// Encontra posição para invocar — prioriza fileira da frente (row 1 para AI)
+// Encontra posição para invocar — prioriza fileira da frente (row 2 para AI no 8x8)
 function findSummonPosition(grid, isAi) {
-  const rows = isAi ? [1, 0] : [3, 4]
+  const rows = isAi ? [2, 1, 0] : [5, 6, 7]
   for (const r of rows) {
     for (let c = 0; c < GRID_COLS; c++) {
       if (!grid[r][c].monster) return { row: r, col: c }
@@ -60,10 +60,10 @@ function findSummonPosition(grid, isAi) {
   return null
 }
 
-// Encontra posição para armadilha no território da IA (rows 0-1)
+// Encontra posição para armadilha em QUALQUER célula do tabuleiro
 function findTrapPosition(grid) {
   const candidates = []
-  for (let r = 0; r <= 1; r++) {
+  for (let r = 0; r < GRID_ROWS; r++) {
     for (let c = 0; c < GRID_COLS; c++) {
       if (!grid[r][c].monster && !grid[r][c].trap) candidates.push({ row: r, col: c })
     }

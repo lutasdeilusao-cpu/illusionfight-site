@@ -2,6 +2,37 @@ import { create } from 'zustand'
 import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS, isPlayerTerritory, isAiTerritory } from '../engine/gameState'
 import { applySpellEffect, applyTrapEffect } from '../engine/effects'
 
+// Quantos sacrifícios necessários por estrelas
+function sacrificiosNecessarios(estrelas) {
+  if (estrelas <= 3) return 0
+  if (estrelas === 4) return 1
+  return 2 // 5★
+}
+
+// Conta quantos monstros um jogador tem no grid
+function countMonsters(grid, owner) {
+  let count = 0
+  for (let r = 0; r < GRID_ROWS; r++)
+    for (let c = 0; c < GRID_COLS; c++)
+      if (grid[r][c]?.monster?.owner === owner) count++
+  return count
+}
+
+// Sacrifica N monstros do jogador no grid (remove os primeiros encontrados)
+function sacrificeMonsters(grid, owner, qtd) {
+  const newGrid = grid.map(r => r.map(c => ({ ...c })))
+  let removed = 0
+  for (let r = 0; r < GRID_ROWS && removed < qtd; r++) {
+    for (let c = 0; c < GRID_COLS && removed < qtd; c++) {
+      if (newGrid[r][c]?.monster?.owner === owner) {
+        newGrid[r][c] = { ...newGrid[r][c], monster: null }
+        removed++
+      }
+    }
+  }
+  return newGrid
+}
+
 export const useDueloStore = create((set, get) => ({
   ...createInitialState(),
 
@@ -36,24 +67,30 @@ export const useDueloStore = create((set, get) => ({
     })
   },
 
-  // ── Avançar animação de saque ──
-  advanceDrawAnim: () => {
+  // ── Sacar 1 carta do deck (início de turno) ──
+  drawCard: () => {
     const state = get()
-    const idx = state.drawAnimIndex + 1
-    if (idx >= 5) {
-      // Animação completa — começa o jogo
+    const isPlayer = state.currentTurn === 'PLAYER'
+    const deckKey = isPlayer ? 'playerDeck' : 'aiDeck'
+    const handKey = isPlayer ? 'playerHand' : 'aiHand'
+    const deck = state[deckKey]
+    if (deck.length === 0) {
       set({
-        drawAnimIndex: idx,
-        gamePhase: 'PLAYING',
-        turnPhase: 'DESCER',
-        selectedHandCard: null,
-        waitingForGridTarget: null,
-        confirmPlace: false,
-        battleLog: [...state.battleLog, '🃏 Mão completa! Escolha uma carta para descer.'],
+        winner: isPlayer ? 'AI' : 'PLAYER',
+        gamePhase: 'OVER',
+        battleLog: [...state.battleLog, isPlayer ? '❌ Você ficou sem cartas!' : '❌ IA ficou sem cartas!'],
       })
-    } else {
-      set({ drawAnimIndex: idx })
+      return null
     }
+    const newDeck = [...deck]
+    const card = newDeck.pop()
+    const newHand = [...state[handKey], card]
+    set({
+      [deckKey]: newDeck,
+      [handKey]: newHand,
+      battleLog: [...state.battleLog, isPlayer ? `🃏 Você comprou ${card.name}` : '🃏 IA comprou 1 carta'],
+    })
+    return card
   },
 
   // ── Selecionar carta da mão na fase DESCER ──
@@ -63,21 +100,52 @@ export const useDueloStore = create((set, get) => ({
     if (state.currentTurn !== 'PLAYER') return
 
     if (card.type === 'MONSTER') {
-      // Mostra confirmação "Descer no tabuleiro?"
-      set({
-        selectedHandCard: card,
-        confirmPlace: true,
-        waitingForGridTarget: null,
-      })
+      // Calcula se precisa de sacrifício
+      const meusMonstros = countMonsters(state.grid, 'PLAYER')
+      const sac = sacrificiosNecessarios(card.estrelas || 1)
+
+      if (sac > 0 && meusMonstros < sac) {
+        set({
+          battleLog: [...state.battleLog, `❌ ${card.name} (${card.estrelas}★) precisa de ${sac} sacrifício(s), mas você só tem ${meusMonstros} monstro(s).`],
+          selectedHandCard: null,
+          waitingForGridTarget: null,
+          confirmPlace: false,
+        })
+        return
+      }
+
+      // Se tem monstros demais (>=2) ou precisa sacrificar
+      if (sac > 0) {
+        // Precisa sacrificar → abre modal de seleção de sacrifício
+        set({
+          selectedHandCard: card,
+          waitingForGridTarget: 'sacrifice',
+          confirmPlace: false,
+        })
+      } else if (meusMonstros >= 2) {
+        // Limite de 2 atingido → perguntar qual sacrificar
+        set({
+          selectedHandCard: card,
+          waitingForGridTarget: 'sacrifice',
+          confirmPlace: false,
+        })
+      } else {
+        // Mostra confirmação "Descer no tabuleiro?"
+        set({
+          selectedHandCard: card,
+          confirmPlace: true,
+          waitingForGridTarget: null,
+        })
+      }
     } else if (card.type === 'TRAP') {
-      // Vai direto para posicionamento (oculta)
+      // Armadilha pode ser colocada em QUALQUER célula do tabuleiro
       set({
         selectedHandCard: card,
         waitingForGridTarget: 'trap',
         confirmPlace: false,
       })
     } else if (card.type === 'SPELL') {
-      // Precisa de alvo no grid
+      // Mostra range de células afetadas pela magia
       set({
         selectedHandCard: card,
         waitingForGridTarget: 'spell',
@@ -105,7 +173,7 @@ export const useDueloStore = create((set, get) => ({
     })
   },
 
-  // ── Colocar carta no grid (Fase DESCER) ──
+  // ── Colocar/confirmar carta no grid (Fase DESCER) ──
   placeCardOnGrid: (row, col) => {
     const state = get()
     const isPlayer = state.currentTurn === 'PLAYER'
@@ -118,9 +186,9 @@ export const useDueloStore = create((set, get) => ({
     const hand = state[handKey]
 
     if (state.waitingForGridTarget === 'monster') {
-      // Colocar monstro
+      // Colocar monstro no território do jogador
       if (grid[row][col].monster) return
-      if (!isPlayerTerritory(row)) return // só no próprio território
+      if (!isPlayerTerritory(row)) return
       grid[row][col] = { ...grid[row][col], monster: { ...card, owner: 'PLAYER' } }
       const newHand = hand.filter(c => c.id_num !== card.id_num)
       set({
@@ -130,10 +198,53 @@ export const useDueloStore = create((set, get) => ({
         waitingForGridTarget: null,
         battleLog: [...state.battleLog, `🃏 Você desceu ${card.name} em [${row},${col}].`],
       })
+    } else if (state.waitingForGridTarget === 'sacrifice') {
+      // Clicou em um monstro para sacrificar
+      const targetMonster = grid[row][col]?.monster
+      if (!targetMonster || targetMonster.owner !== 'PLAYER') return
+      const sac = sacrificiosNecessarios(card.estrelas || 1)
+      const meusMonstros = countMonsters(grid, 'PLAYER')
+      const precisoSacrificar = Math.max(sac, (meusMonstros >= 2 ? 1 : 0))
+      
+      // Remove o monstro clicado do grid
+      grid[row][col] = { ...grid[row][col], monster: null }
+      
+      // Se ainda precisa de mais sacrifícios, continua no modo sacrifice
+      const monstersLeft = countMonsters(grid, 'PLAYER')
+      const sacrificados = 1
+      const restantes = precisoSacrificar - sacrificados
+      
+      if (restantes > 0) {
+        set({
+          grid,
+          sacrificePending: restantes,
+          battleLog: [...state.battleLog, `Sacrificou ${targetMonster.name}. Mais ${restantes} sacrifício(s) necessário(s).`],
+        })
+      } else {
+        // Sacrifícios concluídos — coloca o monstro
+        // Encontra célula vazia no território do player para colocar
+        let placed = false
+        for (let r = 5; r <= 7 && !placed; r++) {
+          for (let c = 0; c < GRID_COLS && !placed; c++) {
+            if (!grid[r][c].monster) {
+              grid[r][c] = { ...grid[r][c], monster: { ...card, owner: 'PLAYER' } }
+              placed = true
+            }
+          }
+        }
+        const newHand = hand.filter(c => c.id_num !== card.id_num)
+        set({
+          grid,
+          playerHand: newHand,
+          selectedHandCard: null,
+          waitingForGridTarget: null,
+          sacrificePending: 0,
+          battleLog: [...state.battleLog, `Sacrificou ${targetMonster.name}. Inovou ${card.name} (${card.estrelas}★) no campo.`],
+        })
+      }
     } else if (state.waitingForGridTarget === 'trap') {
-      // Colocar armadilha (oculta ao inimigo)
+      // Armadilha em QUALQUER célula do tabuleiro
       if (grid[row][col].trap || grid[row][col].monster) return
-      if (!isPlayerTerritory(row)) return
       grid[row][col] = { ...grid[row][col], trap: { ...card, revealed: false } }
       const newHand = hand.filter(c => c.id_num !== card.id_num)
       set({
@@ -146,26 +257,7 @@ export const useDueloStore = create((set, get) => ({
     } else if (state.waitingForGridTarget === 'spell') {
       // Usar magia — verifica alvo válido
       const targetCard = grid[row]?.[col]?.monster || null
-      if (!targetCard) {
-        // Magias sem alvo (HEAL, BURN) — pode usar sem monstro alvo
-        const result = applySpellEffect(state, card, 'PLAYER', null)
-        const newHand = hand.filter(c => c.id_num !== card.id_num)
-        const newGraveyard = [...state.playerGraveyard, card]
-        set({
-          playerHand: newHand,
-          playerGraveyard: newGraveyard,
-          tempBuffs: result.updates.tempBuffs || state.tempBuffs,
-          playerLP: result.updates.playerLP ?? state.playerLP,
-          aiLP: result.updates.aiLP ?? state.aiLP,
-          selectedHandCard: null,
-          waitingForGridTarget: null,
-          winner: result.updates.winner || state.winner,
-          ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
-          battleLog: [...state.battleLog, result.log],
-        })
-        return
-      }
-      // Tem alvo — aplica nele
+      // Magias sem alvo (HEAL, BURN) podem ser usadas sem monstro
       const result = applySpellEffect(state, card, 'PLAYER', targetCard)
       const newHand = hand.filter(c => c.id_num !== card.id_num)
       const newGraveyard = [...state.playerGraveyard, card]
@@ -180,6 +272,17 @@ export const useDueloStore = create((set, get) => ({
         winner: result.updates.winner || state.winner,
         ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
         battleLog: [...state.battleLog, result.log],
+      }
+      // Se tem duração >0 e alvo, adiciona como efeito persistente no grid
+      if (card.duracao > 0 && targetCard) {
+        updates.fieldEffects = [...(state.fieldEffects || []), {
+          row, col,
+          cardName: card.name,
+          effect: card.effect,
+          remainingTurns: card.duracao,
+          owner: 'PLAYER',
+          targetId: targetCard.id_num,
+        }]
       }
       set(updates)
     }
@@ -230,20 +333,27 @@ export const useDueloStore = create((set, get) => ({
     }
   },
 
-  // ── Fim do turno (limpeza) ──
+  // ── Fim do turno (limpeza + saque) ──
   endTurn: () => {
     const state = get()
     const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
     const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
     const newBuffs = (state.tempBuffs || []).filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
     const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
+    // Decrementa fieldEffects
+    const newFieldEffects = (state.fieldEffects || []).map(fe => ({
+      ...fe,
+      remainingTurns: fe.remainingTurns - 1,
+    })).filter(fe => fe.remainingTurns > 0)
 
+    // Prepara saque para o próximo turno
     set({
       turnPhase: 'DESCER',
       currentTurn: nextTurn,
       turnNumber: nextTurnNum,
       tempBuffs: newBuffs,
       effects: newEffects,
+      fieldEffects: newFieldEffects,
       monstersThatMoved: [],
       monstersThatAttacked: [],
       selectedMonster: null,
@@ -256,6 +366,14 @@ export const useDueloStore = create((set, get) => ({
       // Primeira rodada terminou — libera MOVIMENTO para as próximas
       ...(state.isFirstTurn ? { isFirstTurn: false } : {}),
     })
+
+    // Saca carta para o jogador do próximo turno
+    setTimeout(() => {
+      const s = get()
+      if (s.currentTurn === nextTurn && s.gamePhase === 'PLAYING') {
+        get().drawCard()
+      }
+    }, 300)
   },
 
   // ── Selecionar monstro no grid (para MOVIMENTO ou ATAQUE) ──

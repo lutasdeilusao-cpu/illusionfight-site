@@ -141,6 +141,79 @@ function ConfirmPlaceModal({ card, onConfirm, onCancel }) {
   )
 }
 
+// Modal VER CARTAS
+function VerCartasModal({ onClose }) {
+  const hand = useDueloStore(s => s.playerHand)
+  const grid = useDueloStore(s => s.grid)
+  const fieldEffects = useDueloStore(s => s.fieldEffects) || []
+  const [aba, setAba] = useState('mao')
+  const [selCard, setSelCard] = useState(null)
+  const { t } = useLanguage()
+
+  const allFieldMonsters = []
+  for (let r = 0; r < GRID_ROWS; r++)
+    for (let c = 0; c < GRID_COLS; c++)
+      if (grid[r]?.[c]?.monster) allFieldMonsters.push({ ...grid[r][c].monster, row: r, col: c })
+
+  return (
+    <motion.div className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div className="duelo-vercartas-modal"
+        initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="duelo-vercartas-tabs">
+          <button className={`duelo-vercartas-tab ${aba === 'mao' ? 'active' : ''}`}
+            onClick={() => setAba('mao')}>🃏 MINHA MÃO ({hand.length})</button>
+          <button className={`duelo-vercartas-tab ${aba === 'campo' ? 'active' : ''}`}
+            onClick={() => setAba('campo')}>🎯 CAMPO ({allFieldMonsters.length})</button>
+          <button className="duelo-vercartas-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="duelo-vercartas-content">
+          {aba === 'mao' && hand.map(card => (
+            <div key={card.id_num} className="duelo-vercartas-card"
+              onClick={() => setSelCard(card === selCard ? null : card)}
+              style={{ borderColor: card.type === 'MONSTER' ? '#F5A623' : card.type === 'SPELL' ? '#22C55E' : '#EF4444' }}
+            >
+              <span className="duelo-vercartas-card-name">{card.name}</span>
+              {card.type === 'MONSTER' && (
+                <span className="duelo-vercartas-card-stats">
+                  ⚔{card.atk} 🛡{card.def} 👟{card.mov} 🎯{card.rng}
+                  {'★'.repeat(card.estrelas || 1)}
+                </span>
+              )}
+              {card.type === 'SPELL' && <span className="duelo-vercartas-card-effect">{card.desc}</span>}
+              {card.type === 'TRAP' && <span className="duelo-vercartas-card-effect">Área {card.area} — {card.desc}</span>}
+            </div>
+          ))}
+          {aba === 'campo' && allFieldMonsters.map((m, i) => (
+            <div key={i} className="duelo-vercartas-card duelo-vercartas-card--field"
+              onClick={() => setSelCard(m === selCard ? null : m)}
+              style={{ borderColor: m.owner === 'PLAYER' ? '#00B4D8' : '#EF4444' }}
+            >
+              <span className="duelo-vercartas-card-name">{m.owner === 'PLAYER' ? '👤' : '🤖'} {m.name}</span>
+              <span className="duelo-vercartas-card-stats">
+                ⚔{m.atk} 🛡{m.def} 👟{m.mov} 🎯{m.rng} [{m.row},{m.col}]
+              </span>
+              {fieldEffects.filter(fe => fe.targetId === m.id_num).map((fe, fi) => (
+                <span key={fi} className="duelo-vercartas-effect">✨ {fe.cardName} ({fe.remainingTurns}t)</span>
+              ))}
+            </div>
+          ))}
+        </div>
+        {selCard && (
+          <div className="duelo-vercartas-preview">
+            <p className="duelo-vercartas-preview-name">{selCard.name}</p>
+            <p className="duelo-vercartas-preview-desc">{selCard.desc}</p>
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function DueloRoute() {
   const store = useDueloStore()
   window.__dueloStore = useDueloStore
@@ -153,6 +226,7 @@ export default function DueloRoute() {
   const [hoveredCard, setHoveredCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
   const [iaPhase, setIaPhase] = useState(null) // 'DESCER' | 'MOVIMENTO' | 'ATAQUE' | null
+  const [verCartas, setVerCartas] = useState(false)
   const aiRunning = useRef(false)
 
   // ── Route protection: only admins ──
@@ -368,7 +442,9 @@ export default function DueloRoute() {
   } else if (s.waitingForGridTarget === 'monster') {
     hintText = `👆 Clique em uma casa vazia no seu território para posicionar ${s.selectedHandCard?.name}`
   } else if (s.waitingForGridTarget === 'trap') {
-    hintText = `👆 Clique em uma casa vazia no seu território para armar ${s.selectedHandCard?.name} (oculta)`
+    hintText = `👆 Clique em uma casa vazia em QUALQUER lugar do tabuleiro para armar ${s.selectedHandCard?.name} (oculta)`
+  } else if (s.waitingForGridTarget === 'sacrifice') {
+    hintText = `⚠️ Clique em um MONSTRO ALIADO no campo para sacrificar e invocar ${s.selectedHandCard?.name} (${s.selectedHandCard?.estrelas || 1}★, precisa de ${s.selectedHandCard?.estrelas >= 5 ? 2 : s.selectedHandCard?.estrelas === 4 ? 1 : 0} sacrifício(s))`
   } else if (s.waitingForGridTarget === 'spell') {
     hintText = `👆 Clique em um alvo para usar ${s.selectedHandCard?.name}`
   } else if (turnPhase === 'DESCER' && isPlayerTurn) {
@@ -429,6 +505,11 @@ export default function DueloRoute() {
           {turnPhase === 'DESCER' ? 'FASE 1 — DESCER' : turnPhase === 'MOVIMENTO' ? 'FASE 2 — MOVIMENTO' : 'FASE 3 — ATAQUE'}
         </span>
 
+        {s.gamePhase !== 'OVER' && (
+          <button className="duelo-phase-btn" onClick={() => setVerCartas(true)} style={{ fontSize: '9px' }}>
+            📖 VER CARTAS
+          </button>
+        )}
         {isPlayerTurn && s.gamePhase !== 'OVER' && (
           <>
             {/* Cancelar seleção de carta na mão */}
@@ -476,6 +557,10 @@ export default function DueloRoute() {
       {previewCard && (
         <CardPreviewModal card={previewCard} onClose={() => setPreviewCard(null)} />
       )}
+
+      <AnimatePresence>
+        {verCartas && <VerCartasModal onClose={() => setVerCartas(false)} />}
+      </AnimatePresence>
     </div>
   )
 }

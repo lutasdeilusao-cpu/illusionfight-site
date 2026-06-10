@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.77*  |  `[SITE] versão carregada: 9.77`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.76*  |  `[SITE] versão carregada: 9.76`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
-*Versão: 9.75*  |  `[SITE] versão carregada: 9.75`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.73*  |  `[SITE] versão carregada: 9.73`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.72*  |  `[SITE] versão carregada: 9.72`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.71*  |  `[SITE] versão carregada: 9.71`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)

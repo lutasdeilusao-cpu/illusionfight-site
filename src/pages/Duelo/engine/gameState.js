@@ -2,8 +2,8 @@ import CARDS from '../data/cards'
 import { createShuffledDeck, drawMultiple } from './deck'
 
 // Grid 5×5 — 25 casas — todas uniformes (sem distinção visual de território)
-export const GRID_ROWS = 5
-export const GRID_COLS = 5
+export const GRID_ROWS = 8
+export const GRID_COLS = 8
 
 export function createEmptyGrid() {
   return Array.from({ length: GRID_ROWS }, () =>
@@ -76,10 +76,13 @@ export function getAttackRange(grid, row, col, rng, owner) {
 }
 
 // Verifica se uma célula está em território do jogador ou da IA
-// Linhas 0-1: território AI, Linha 2: neutro, Linhas 3-4: território Player
+// Linhas 0-2: território AI, Linha 3-4: neutro, Linhas 5-7: território Player
+// Grid 8×8 — cada jogador ocupa 3 fileiras
 // (usado apenas na lógica, não no visual)
-export function isPlayerTerritory(row) { return row >= 3 }
-export function isAiTerritory(row) { return row <= 1 }
+export function isPlayerTerritory(row) { return row >= 5 }
+export function isAiTerritory(row) { return row <= 2 }
+export function getPlayerRows() { return [5, 6, 7] }
+export function getAiRows() { return [0, 1, 2] }
 
 // Cria estado inicial completo para nova partida
 export function createInitialState() {
@@ -121,6 +124,8 @@ export function createInitialState() {
     winner: null,
     tempBuffs: [], // { cardId, atkBonus, defBonus, movBonus, rngBonus, expiresOnTurn, type }
     effects: [],   // efeitos temporários no grid { row, col, effect, duration, owner }
+    fieldEffects: [], // magias persistentes no campo { row, col, cardName, effect, remainingTurns, owner, targetId }
+    sacrificePending: 0, // quantos sacrifícios ainda faltam
     // Flag para primeira rodada do primeiro jogador (sem movimento)
     isFirstPlayer: true,
     isFirstTurn: true,
