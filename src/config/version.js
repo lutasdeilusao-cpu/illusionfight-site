@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.85'
+export const SITE_VERSION = '9.86'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.1.0'  // Pesadelo Particular (+ i18n keys: selecione_slot, slot_label, slot_vazio)

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.35  
-> **Versão do Site:** 9.85  
+> **Versão do Relatório:** 2.36  
+> **Versão do Site:** 9.86  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.84 |
+| **Versão Atual** | 9.86 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -395,7 +395,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI
 
-**Versão Single:** 5.7.0  
+**Versão Single:** 5.8.0  
 **Versão MP:** 5.6.0  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
