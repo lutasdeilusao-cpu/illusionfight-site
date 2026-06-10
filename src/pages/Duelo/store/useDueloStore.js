@@ -559,6 +559,7 @@ export const useDueloStore = create((set, get) => ({
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
+      canDirectAttack: false,
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,
@@ -620,10 +621,24 @@ export const useDueloStore = create((set, get) => ({
       attackCells = getAttackRange(state.grid, row, col, effRng, card.owner)
     }
 
-    set({ selectedMonster: { row, col }, moveCells, attackCells })
+    // Verifica se existem monstros inimigos no campo (para ataque direto)
+    const enemyOwner = card.owner === 'PLAYER' ? 'AI' : 'PLAYER'
+    let hasEnemies = false
+    for (let r = 0; r < GRID_ROWS; r++) {
+      for (let c = 0; c < GRID_COLS; c++) {
+        if (state.grid[r][c]?.monster?.owner === enemyOwner) {
+          hasEnemies = true
+          break
+        }
+      }
+      if (hasEnemies) break
+    }
+    const canDirect = turnPhase === 'ATAQUE' && !hasEnemies
+
+    set({ selectedMonster: { row, col }, moveCells, attackCells, canDirectAttack: canDirect })
   },
 
-  clearSelection: () => set({ selectedMonster: null, moveCells: [], attackCells: [] }),
+  clearSelection: () => set({ selectedMonster: null, moveCells: [], attackCells: [], canDirectAttack: false }),
 
   // ── Mover monstro (Fase MOVIMENTO) ──
   moveMonster: (toRow, toCol) => {
@@ -742,7 +757,50 @@ export const useDueloStore = create((set, get) => ({
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
+      canDirectAttack: false,
       battleLog: [...state.battleLog, log],
+      ...(winner ? { winner, gamePhase: 'OVER' } : {}),
+    })
+  },
+
+  // ── Ataque direto (Yu-Gi-Oh style — sem monstros inimigos) ──
+  directAttack: () => {
+    const state = get()
+    const sel = state.selectedMonster
+    if (!sel) return
+    const cell = state.grid[sel.row][sel.col]
+    if (!cell?.monster) return
+    if (state.currentTurn !== cell.monster.owner) return
+
+    const attacker = cell.monster
+    const monsterId = attacker.id_num
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === monsterId)
+    if (alreadyAttacked) return
+
+    const aBuff = state.tempBuffs.find(b => b.cardId === attacker.id_num)
+    const effAtk = (attacker.atk || 0) + (aBuff?.atkBonus || 0)
+
+    const isPlayerAtk = attacker.owner === 'PLAYER'
+    let playerLP = state.playerLP
+    let aiLP = state.aiLP
+
+    if (isPlayerAtk) {
+      aiLP = Math.max(0, aiLP - effAtk)
+    } else {
+      playerLP = Math.max(0, playerLP - effAtk)
+    }
+
+    const winner = playerLP <= 0 ? 'AI' : aiLP <= 0 ? 'PLAYER' : null
+
+    set({
+      playerLP,
+      aiLP,
+      monstersThatAttacked: [...state.monstersThatAttacked, { id: monsterId }],
+      selectedMonster: null,
+      moveCells: [],
+      attackCells: [],
+      canDirectAttack: false,
+      battleLog: [...state.battleLog, `⚡ ATAQUE DIRETO! ${attacker.name} causou ${effAtk} de dano diretamente!`],
       ...(winner ? { winner, gamePhase: 'OVER' } : {}),
     })
   },
@@ -758,6 +816,7 @@ export const useDueloStore = create((set, get) => ({
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
+      canDirectAttack: false,
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,

@@ -294,6 +294,7 @@ export default function Board() {
         <div className="duelo-grid-hint">
           {store.moveCells.length > 0 && '👟 Clique em casa destacada para mover | '}
           {store.attackCells.length > 0 && '⚔ Clique em inimigo destacado para atacar | '}
+          {store.canDirectAttack && '⚡ ATAQUE DIRETO — clique em "⚡ ATACAR DIRETO" abaixo | '}
           Clique em outro monstro aliado para selecionar
         </div>
       )}

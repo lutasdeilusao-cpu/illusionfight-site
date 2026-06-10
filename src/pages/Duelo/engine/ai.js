@@ -303,6 +303,21 @@ export function aiAtaqueFase(state) {
       }
     }
 
+    // Se não há monstros inimigos no campo, ataque direto!
+    if (!bestTarget && playerMonsters.length === 0) {
+      playerLP = Math.max(0, playerLP - effAtk)
+      monstersThatAttacked.push({ id: m.card.id_num })
+      battleLog.push(`⚡ ATAQUE DIRETO! ${m.card.name} causou ${effAtk} de dano diretamente!`)
+      if (playerLP <= 0) {
+        return {
+          grid, playerLP, aiLP, aiGraveyard: newGraveyard,
+          tempBuffs: newBuffs, battleLog, monstersThatAttacked,
+          gamePhase: 'OVER', winner: 'AI',
+        }
+      }
+      continue
+    }
+
     if (!bestTarget) continue // sem alvo no RNG
 
     const tDef = getEffectiveDef(bestTarget.card, newBuffs)

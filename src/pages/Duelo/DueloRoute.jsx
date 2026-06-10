@@ -996,6 +996,11 @@ export default function DueloRoute() {
 
             {s.turnPhase === 'ATAQUE' && (
               <>
+                {s.canDirectAttack && (
+                  <button className="duelo-phase-btn duelo-phase-btn--direct" onClick={() => store.directAttack()} style={{ background: '#EF4444', borderColor: '#EF4444', animation: 'pulse 1s infinite' }}>
+                    ⚡ ATACAR DIRETO
+                  </button>
+                )}
                 <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handlePlayerEndTurn}>
                   ⏹️ ENCERRAR TURNO
                 </button>

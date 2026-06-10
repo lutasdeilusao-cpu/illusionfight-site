@@ -151,5 +151,7 @@ export function createInitialState() {
     showSpellConfirm: false, // true quando modal "Deseja usar magia?" está aberto
     spellBuffTarget: null,   // 'PLAYER' = buff (aliado), 'AI' = debuff (inimigo)
     spellTargetOwner: null,  // 'PLAYER' | 'AI' — dono do alvo válido para a magia atual
+    // Ataque direto (Yu-Gi-Oh style)
+    canDirectAttack: false,  // true quando monstro selecionado e não há inimigos no campo
   }
 }

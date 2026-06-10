@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.37  
-> **Versão do Site:** 9.87  
+> **Versão do Relatório:** 2.38  
+> **Versão do Site:** 9.92  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -548,19 +548,18 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.6.0  
+**Versão:** 2.7.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
-> 🔄 **Duelo v2.6 — Fix movimento, IA delays, sacrifício IA, magias com alvo, tags buff/debuff, ver campo completo, duração armadilhas**  
-> - **Fix:** Clique em monstro durante fase MOVIMENTO/ATAQUE seleciona para ação (não abre modal info)
-> - **IA:** Delays visíveis entre cada fase (entre_fases: 800ms, antes_mover: 600ms, antes_atacar: 700ms)
-> - **IA:** Agora respeita regras de sacrifício por estrelas (não invoca 6★ sem tributo)
-> - **Magias buff/debuff:** Modal "Deseja usar [nome]?" → modo seleção de alvo → destaca alvos válidos
-> - **Tags visuais:** Monstros exibem ⬆ (buff verde) ou ⬇ (debuff vermelho) com turnos restantes
-> - **VER CAMPO:** Agora mostra armadilhas ativas (com turnos restantes), magias persistentes e tags buff/debuff
-> - **Armadilhas:** Duração em turnos (3t padrão) — expiram e são removidas automaticamente
+> 🔄 **Duelo v2.7 — Ataque direto Yu-Gi-Oh style!**  
+> - **Ataque Direto:** Quando o jogador seleciona um monstro na fase ATAQUE e não há monstros inimigos no campo, aparece o botão pulsante ⚡ ATACAR DIRETO
+> - **Dano direto ao LP:** O ataque direto causa dano igual ao ATK do monstro diretamente aos Life Points do oponente
+> - **Vitória por LP:** Se os LP do oponente chegarem a 0 após ataque direto, o jogador vence
+> - **IA também ataca direto:** IA também realiza ataques diretos quando não há monstros do jogador no campo
+> - **Animação:** Botão de ataque direto com pulsação vermelha para chamar atenção
+> - **Log:** "⚡ ATAQUE DIRETO! [monstro] causou [X] de dano diretamente!"
 
 #### Screens
 
@@ -998,7 +997,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.6 — fix click, IA delays+sacrifice, spell target, buff/debuff tags, trap duration |
+| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7 — ataque direto Yu-Gi-Oh style (sem monstros inimigos = dano direto aos LP) |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
