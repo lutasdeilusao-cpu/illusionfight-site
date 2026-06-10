@@ -3,7 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Illusion Fight</title>
+  <!-- Meta refresh fallback para crawlers (Googlebot) que não executam JS -->
+  <meta http-equiv="refresh" content="0;url=https://illusionfight.com/">
   <script>
+    // Salva a URL original para o index.html restaurar
+    sessionStorage.redirect = location.href;
+
     // SPA redirect — domínio customizado (root), pathSegmentsToKeep = 0
     var l = window.location;
     var path = l.pathname.slice(1);
