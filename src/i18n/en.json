@@ -1140,6 +1140,7 @@
         "xp": { "titulo": "XP and Evolution", "conteudo": "Victory in fair battle: +10 XP\nDefeat in fair battle: +1 XP\n\nEvery 100 XP: 1 character point to spend on attribute or advantage." }
       },
       "enemy_names": {
+        "treinamento": "Training Bot",
         "kaeda": "Kaeda",
         "thunderbolt": "Thunderbolt",
         "stormbyte": "StormByte_91",
@@ -1152,7 +1153,17 @@
         "this cannot be...",
         "I underestimated you. damn.",
         "impossible."
-      ]
+      ],
+      "npc_names": {
+        "npc_arrogante_marelia": "Marelia Boy",
+        "npc_frio_azuma": "Azuma Visitor",
+        "npc_caotico_sdr": "Chaotic SDR Player",
+        "npc_veterano_ranqueado": "Ranked Veteran",
+        "npc_provocador_bravara": "Bravara Provoker",
+        "npc_mistico_xakaxi": "Xakaxi Descendant",
+        "npc_hacker_sdr": "SDR Hacker",
+        "npc_nordico_karnazar": "Karnazar Fighter"
+      }
     },
     "toptrumps": {
       "titulo": "LDI TRUMPS",

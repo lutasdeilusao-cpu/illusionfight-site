@@ -115,6 +115,8 @@ export default function ArenaLobby({ onNavigate }) {
     sfx.cancel()
     if (!window.confirm(t('games.arena.confirmar_excluir'))) return
     try {
+      // Primeiro deleta game_saves (FK constraint), depois a ficha
+      await supabase.from('game_saves').delete().eq('sheet_id', sheetId)
       const { error } = await supabase.from('character_sheets').delete().eq('id', sheetId)
       if (error) {
         console.error('[ARENA] Erro ao excluir ficha:', error)
@@ -197,10 +199,10 @@ export default function ArenaLobby({ onNavigate }) {
                   background: `radial-gradient(circle at 35% 35%, ${dc.cor}, #0a0a0a)`,
                   boxShadow: `0 0 20px ${dc.glow}`
                 }}>
-                  {enemy.name[0]}
+                  {(t('games.arena.enemy_names.' + enemy.id) || enemy.name)[0]}
                 </div>
                 <div className="arena-sheet-info">
-                  <div className="arena-sheet-name-v">{enemy.name}</div>
+                  <div className="arena-sheet-name-v">{t('games.arena.enemy_names.' + enemy.id) || enemy.name}</div>
                   <div className="arena-sheet-meta">
                     rank #{enemy.rank} · tier {enemy.tier} · {t('games.arena.diff_' + (enemy.difficulty || 'easy'))}
                   </div>

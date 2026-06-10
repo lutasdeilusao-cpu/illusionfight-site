@@ -1140,6 +1140,7 @@
         "xp": { "titulo": "XP e Evolução", "conteudo": "Vitória em batalha justa: +10 XP\nDerrota em batalha justa: +1 XP\n\nA cada 100 XP: 1 ponto de personagem para gastar em atributo ou vantagem." }
       },
       "enemy_names": {
+        "treinamento": "Bot de Treinamento",
         "kaeda": "Kaeda",
         "thunderbolt": "Thunderbolt",
         "stormbyte": "StormByte_91",
@@ -1152,7 +1153,17 @@
         "isso não pode ser...",
         "subestimei você. que droga.",
         "impossível."
-      ]
+      ],
+      "npc_names": {
+        "npc_arrogante_marelia": "Garoto de Marelia",
+        "npc_frio_azuma": "Visitante de Azuma",
+        "npc_caotico_sdr": "Jogador Caótico do SDR",
+        "npc_veterano_ranqueado": "Veterano do Ranking",
+        "npc_provocador_bravara": "Provocador de Bravara",
+        "npc_mistico_xakaxi": "Descendente Xakaxi",
+        "npc_hacker_sdr": "Hacker do SDR",
+        "npc_nordico_karnazar": "Lutador de Karnazar"
+      }
     },
     "toptrumps": {
       "titulo": "LDI TRUMPS",

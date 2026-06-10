@@ -109,7 +109,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', padding:'2rem' }}>
           <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
             <div className="arena-chat-msg">
-              <div className="arena-chat-avatar arena-chat-avatar--trash">{enemy?.name?.[0] || 'I'}</div>
+              <div className="arena-chat-avatar arena-chat-avatar--trash">{(t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name || 'I')[0]}</div>
               <div className="arena-chat-bubble arena-chat-bubble--trash" style={{ fontSize:'0.95rem', lineHeight:1.6 }}>
                 {line}
               </div>
@@ -126,7 +126,7 @@ export default function ArenaVictory({ onNavigate }) {
     return (
       <div className="arena-victory arena-container" style={{ background: '#0a0a0a' }}>
         <div style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', padding:'2rem' }}>
-          <h3 style={{ fontFamily:"'Share Tech Mono',monospace", color:'#888', marginBottom:'1rem', fontSize:'0.85rem' }}>{enemy?.name}</h3>
+          <h3 style={{ fontFamily:"'Share Tech Mono',monospace", color:'#888', marginBottom:'1rem', fontSize:'0.85rem' }}>{t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
           <div className="arena-bar-wrap" style={{ width:'100%', maxWidth:300 }}>
             <div className="arena-bar" style={{ height:12 }}>
               <motion.div className="arena-bar-fill arena-bar-red"
@@ -159,7 +159,7 @@ export default function ArenaVictory({ onNavigate }) {
         </motion.div>
         <div className="arena-victory-header">
           <h1 className="arena-victory-title arena-victory-win">{t('games.arena.vitoria')}</h1>
-          <p className="arena-victory-sub">{t('games.arena.vitoria_sub', { name: enemy?.name })}</p>
+          <p className="arena-victory-sub">{t('games.arena.vitoria_sub', { name: t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name })}</p>
         </div>
 
         <div className="arena-victory-card">

@@ -143,7 +143,8 @@ export default function ArenaCombat({ onNavigate }) {
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
-    setLog([{ type: 'system', text: t('games.arena.log_iniciativa', { pInit, enemyName: enemy.name, eInit }), id: Date.now() }])
+    const eName = t('games.arena.enemy_names.' + enemy.id) || enemy.name
+    setLog([{ type: 'system', text: t('games.arena.log_iniciativa', { pInit, enemyName: eName, eInit }), id: Date.now() }])
     saidNearDeath.current = false
     saidEnemyLow.current = false
     npcPersonality.current = trashTalkNPCs[Math.floor(Math.random() * trashTalkNPCs.length)]
@@ -181,7 +182,7 @@ export default function ArenaCombat({ onNavigate }) {
     const talk = npc?.trash_talk?.[category] || enemy?.trash_talk?.[category]
     const line = pickTrash(talk)
     if (!line) return
-    const senderName = npc?.nome || enemy?.name || '???'
+    const senderName = (npc && t('games.arena.npc_names.' + npc.id)) || (enemy && t('games.arena.enemy_names.' + enemy.id)) || enemy?.name || '???'
     chatQueue.current = chatQueue.current.then(async () => {
       await delay(600)
       const text = `${senderName}: ${line}`
@@ -294,7 +295,8 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.eDmg > 0) setDamageFloat({ value: d.eDmg, target: 'player' })
 
         const onoma = getOnomatopeia(d.eMode)
-        addLogWithDelay('attack_card', '', { name: enemy.name, initial: enemyInitial, side: 'enemy' }, {
+        const eName = t('games.arena.enemy_names.' + enemy.id) || enemy.name
+        addLogWithDelay('attack_card', '', { name: eName, initial: enemyInitial, side: 'enemy' }, {
           side: 'enemy', breakdown: d.eBreak, fd: d.eFD, dmg: d.eDmg,
           diceRoll: d.eRoll, onoma
         })
@@ -597,7 +599,7 @@ export default function ArenaCombat({ onNavigate }) {
           <span className="arena-fighter-avatar-elem" style={{ background: enemyElemCor }} />
         </div>
         <div className="arena-fighter-info">
-          <div className="arena-fighter-name">{enemy.name}</div>
+          <div className="arena-fighter-name">{t('games.arena.enemy_names.' + enemy.id) || enemy.name}</div>
           <div className="arena-fighter-bars">
             <div className="arena-fighter-bar-row">
               <span className="arena-fighter-bar-label">{t('games.arena.hp')}</span>
