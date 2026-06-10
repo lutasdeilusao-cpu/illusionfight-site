@@ -1163,6 +1163,64 @@
         "npc_mistico_xakaxi": "Xakaxi Descendant",
         "npc_hacker_sdr": "SDR Hacker",
         "npc_nordico_karnazar": "Karnazar Fighter"
+      },
+      "powers": {
+        "fogo": {
+          "chama_rapida": { "name": "Quick Flame", "desc": "Fires a fast flame dealing +2 elemental damage." },
+          "explosao": { "name": "Explosion", "desc": "A fire explosion around you. Area damage (doubles FD but hits multiple targets)." },
+          "labareda": { "name": "Blaze", "desc": "An intense blaze. On hit, causes burn (-1 FD on enemy's next turn)." },
+          "inferno": { "name": "Inferno", "desc": "Pure flames consume the enemy. Deals double elemental damage." },
+          "escudo_fogo": { "name": "Fire Shield", "desc": "Flames protect you. +2 FD this turn, deals 1 damage if the enemy hits you." },
+          "pilar_fogo": { "name": "Pillar of Fire", "desc": "A pillar of fire erupts from the ground. Medium damage but ignores 3 FD." }
+        },
+        "agua": {
+          "projetil_agua": { "name": "Water Projectile", "desc": "Fires pressurized water. Deals +2 elemental damage." },
+          "onda": { "name": "Wave", "desc": "A wave pushes the enemy. Damage + reduces enemy FA by 1 next turn." },
+          "nevoeiro": { "name": "Fog", "desc": "Creates dense fog. Enemy has -2 FA on next attack." },
+          "cura": { "name": "Light Heal", "desc": "Revitalizing water. Recovers 2 HP (cannot exceed max)." },
+          "torrente": { "name": "Torrent", "desc": "A massive water jet. Deals double elemental damage." },
+          "gelo": { "name": "Ice", "desc": "Frozen water. Damage + enemy loses 1 Skill next turn." }
+        },
+        "terra": {
+          "projetil_pedra": { "name": "Stone Projectile", "desc": "Throws a stone. Deals +2 elemental damage." },
+          "muralha": { "name": "Wall", "desc": "Raises a stone wall. +3 FD this turn." },
+          "terremoto": { "name": "Earthquake", "desc": "The ground shakes. Deals double elemental damage and stuns enemy (-1 FA and FD next turn)." },
+          "armadura": { "name": "Earth Armor", "desc": "Coats your body in stone. +2 FD for 2 turns." },
+          "areia_movel": { "name": "Quicksand", "desc": "The ground becomes unstable. Enemy loses next turn (cannot attack)." },
+          "lanca_pedra": { "name": "Stone Lance", "desc": "A stone lance pierces the enemy. Ignores 4 FD." }
+        },
+        "ar": {
+          "rajada": { "name": "Gust", "desc": "A gust of wind. Deals +2 elemental damage." },
+          "ciclone": { "name": "Cyclone", "desc": "A cyclone surrounds the enemy. Deals double elemental damage." },
+          "escudo_vento": { "name": "Wind Shield", "desc": "Wind deflects attacks. +2 FD this turn." },
+          "passos_leves": { "name": "Light Steps", "desc": "Wind carries you. +2 Skill for one turn (more initiative)." },
+          "sopro": { "name": "Big Blow", "desc": "A strong gust pushes the enemy away. Enemy loses 1 Skill next turn." },
+          "tempestade": { "name": "Storm", "desc": "Small air explosions. Deals damage + -1 FD on enemy for 2 turns." }
+        },
+        "trevas": {
+          "sombra_atacante": { "name": "Shadow Strike", "desc": "Shadows attack the enemy. Deals +2 elemental damage." },
+          "dreno": { "name": "Drain", "desc": "Drains enemy energy. Deals damage and recovers 1 HP." },
+          "nevoa_escura": { "name": "Dark Fog", "desc": "Darkness envelops the arena. Enemy has -2 FA on next attack." },
+          "toque_sombrio": { "name": "Shadow Touch", "desc": "A consuming touch. Deals double elemental damage." },
+          "medo": { "name": "Fear", "desc": "Projects fear into the enemy's mind. Enemy skips next attack (but still defends)." },
+          "absorcao": { "name": "Absorption", "desc": "Absorbs elemental energy. Recovers 1 MP." }
+        },
+        "luz": {
+          "raio_luz": { "name": "Light Ray", "desc": "A blinding light ray. Deals +2 elemental damage." },
+          "cura_luz": { "name": "Radiant Heal", "desc": "Revitalizing light. Recovers 3 HP." },
+          "escudo_luz": { "name": "Light Shield", "desc": "Luminous barrier. +2 FD this turn." },
+          "explosao_luz": { "name": "Light Explosion", "desc": "Blinding explosion. Deals double elemental damage and enemy has -1 FA next turn." },
+          "purificacao": { "name": "Purification", "desc": "Removes a negative status or heals 1 additional HP." },
+          "fulgor": { "name": "Radiance", "desc": "Intense light. Deals damage + enemy has -1 FD next turn." }
+        },
+        "neutro": {
+          "impacto": { "name": "Impact", "desc": "A neutral energy strike. Deals +2 damage." },
+          "barreira": { "name": "Barrier", "desc": "Energy barrier. +2 FD this turn." },
+          "pulso": { "name": "Pulse", "desc": "Energy pulse. Deals damage and pushes enemy back (-1 FA next turn)." },
+          "carga_total": { "name": "Full Charge", "desc": "All your energy in one blow. Deals double damage." },
+          "recuperacao": { "name": "Recovery", "desc": "Recovers 1 MP." },
+          "sobrecarga": { "name": "Overload", "desc": "Overloads your circuits. Next attack deals +3 damage." }
+        }
       }
     },
     "toptrumps": {

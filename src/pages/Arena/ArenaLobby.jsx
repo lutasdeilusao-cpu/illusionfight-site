@@ -177,7 +177,7 @@ export default function ArenaLobby({ onNavigate }) {
           <p className="arena-lobby-titulo">{t('games.arena.lobby_titulo')}</p>
           <h1 className="arena-lobby-nome" style={{ fontSize: 32 }}>{selectedSheet.sheet_name}</h1>
           <p className="arena-lobby-sub">
-            {selectedSheet.elemental || 'neutro'} · {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
+            {t('games.arena.elements.' + (selectedSheet.elemental || 'neutro') + '.label') || selectedSheet.elemental || 'neutro'} · {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
           </p>
         </div>
 

@@ -1163,6 +1163,64 @@
         "npc_mistico_xakaxi": "Descendiente Xakaxi",
         "npc_hacker_sdr": "Hacker del SDR",
         "npc_nordico_karnazar": "Luchador de Karnazar"
+      },
+      "powers": {
+        "fogo": {
+          "chama_rapida": { "name": "Llama Rápida", "desc": "Dispara una llama veloz que causa +2 de daño elemental." },
+          "explosao": { "name": "Explosión", "desc": "Una explosión de fuego alrededor. Causa daño en área (duplica FD pero acierta múltiples objetivos)." },
+          "labareda": { "name": "Llamarada", "desc": "Una llamarada intensa. Si acierta, causa quemadura (-1 FD en el próximo turno del enemigo)." },
+          "inferno": { "name": "Infierno", "desc": "Llamas puras consumen al enemigo. Causa el doble de daño elemental." },
+          "escudo_fogo": { "name": "Escudo de Fuego", "desc": "Llamas te protegen. +2 FD este turno, causa 1 de daño si el enemigo acierta." },
+          "pilar_fogo": { "name": "Pilar de Fuego", "desc": "Un pilar de fuego surge del suelo. Daño medio pero ignora 3 de FD." }
+        },
+        "agua": {
+          "projetil_agua": { "name": "Proyectil de Agua", "desc": "Dispara agua presurizada. Causa +2 de daño elemental." },
+          "onda": { "name": "Ola", "desc": "Una ola empuja al enemigo. Daño + reduce FA del enemigo en 1 el próximo turno." },
+          "nevoeiro": { "name": "Niebla", "desc": "Crea una niebla densa. Enemigo tiene -2 FA en el próximo ataque." },
+          "cura": { "name": "Curación Ligera", "desc": "Agua revitalizante. Recupera 2 PV (no puede superar el máximo)." },
+          "torrente": { "name": "Torrente", "desc": "Un chorro masivo de agua. Causa el doble de daño elemental." },
+          "gelo": { "name": "Hielo", "desc": "Agua congelada. Daño + enemigo pierde 1 de H el próximo turno." }
+        },
+        "terra": {
+          "projetil_pedra": { "name": "Proyectil de Piedra", "desc": "Lanza una piedra. Causa +2 de daño elemental." },
+          "muralha": { "name": "Muralla", "desc": "Levanta una pared de piedra. +3 FD este turno." },
+          "terremoto": { "name": "Terremoto", "desc": "El suelo tiembla. Causa el doble de daño elemental y aturde al enemigo (-1 FA y FD el próximo turno)." },
+          "armadura": { "name": "Armadura de Tierra", "desc": "Reviste tu cuerpo de piedra. +2 FD por 2 turnos." },
+          "areia_movel": { "name": "Arena Movediza", "desc": "El suelo se vuelve inestable. Enemigo pierde el próximo turno (no ataca)." },
+          "lanca_pedra": { "name": "Lanza de Piedra", "desc": "Una lanza de piedra perfora al enemigo. Ignora 4 de FD." }
+        },
+        "ar": {
+          "rajada": { "name": "Ráfaga", "desc": "Una ráfaga de viento. Causa +2 de daño elemental." },
+          "ciclone": { "name": "Ciclón", "desc": "Un ciclón envuelve al enemigo. Causa el doble de daño elemental." },
+          "escudo_vento": { "name": "Escudo de Viento", "desc": "El viento desvía ataques. +2 FD este turno." },
+          "passos_leves": { "name": "Pasos Ligeros", "desc": "El viento te lleva. +2 H por un turno (más iniciativa)." },
+          "sopro": { "name": "Soplido", "desc": "Un soplido fuerte empuja al enemigo. Enemigo pierde 1 de H el próximo turno." },
+          "tempestade": { "name": "Tormenta", "desc": "Pequeñas explosiones de aire. Causa daño + -1 FD al enemigo por 2 turnos." }
+        },
+        "trevas": {
+          "sombra_atacante": { "name": "Sombra Atacante", "desc": "Sombras atacan al enemigo. Causa +2 de daño elemental." },
+          "dreno": { "name": "Drenaje", "desc": "Drena energía del enemigo. Causa daño y recupera 1 PV." },
+          "nevoa_escura": { "name": "Niebla Oscura", "desc": "Oscuridad envuelve la arena. Enemigo tiene -2 FA en el próximo ataque." },
+          "toque_sombrio": { "name": "Toque Sombrío", "desc": "Un toque que consume. Causa el doble de daño elemental." },
+          "medo": { "name": "Miedo", "desc": "Proyecta miedo en la mente del enemigo. Enemigo pierde el próximo ataque (pero aún defiende)." },
+          "absorcao": { "name": "Absorción", "desc": "Absorbe energía elemental. Recupera 1 PM." }
+        },
+        "luz": {
+          "raio_luz": { "name": "Rayo de Luz", "desc": "Un rayo de luz cegador. Causa +2 de daño elemental." },
+          "cura_luz": { "name": "Cura Radiante", "desc": "Luz revitalizante. Recupera 3 PV." },
+          "escudo_luz": { "name": "Escudo de Luz", "desc": "Barrera luminosa. +2 FD este turno." },
+          "explosao_luz": { "name": "Explosión de Luz", "desc": "Explosión ciega al enemigo. Causa el doble de daño elemental y enemigo tiene -1 FA el próximo turno." },
+          "purificacao": { "name": "Purificación", "desc": "Elimina un estado negativo tuyo o cura 1 PV adicional." },
+          "fulgor": { "name": "Resplandor", "desc": "Luz intensa. Causa daño + enemigo tiene -1 FD el próximo turno." }
+        },
+        "neutro": {
+          "impacto": { "name": "Impacto", "desc": "Un golpe de energía neutra. Causa +2 de daño." },
+          "barreira": { "name": "Barrera", "desc": "Barrera de energía. +2 FD este turno." },
+          "pulso": { "name": "Pulso", "desc": "Pulso de energía. Causa daño y empuja al enemigo (-1 FA el próximo turno)." },
+          "carga_total": { "name": "Carga Total", "desc": "Toda tu energía en un golpe. Causa el doble de daño." },
+          "recuperacao": { "name": "Recuperación", "desc": "Recupera 1 PM." },
+          "sobrecarga": { "name": "Sobrecarga", "desc": "Sobrecarga tus circuitos. Próximo ataque causa +3 de daño." }
+        }
       }
     },
     "toptrumps": {

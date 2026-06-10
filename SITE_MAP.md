@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.99*  |  `[SITE] versão carregada: 9.99`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.4 — powers i18n pt/en/es + elemental label fix
 *Versão: 9.98*  |  `[SITE] versão carregada: 9.98`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.3 — enemy_names i18n pt/en/es, NPC names i18n, delete FK fix
 *Versão: 9.97*  |  `[SITE] versão carregada: 9.97`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.2 — BackToGamesBtn label i18n fix pt/en/es + Playwright i18n validation
 *Versão: 9.96*  |  `[SITE] versão carregada: 9.96`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.1 — i18n fix: hardcoded strings traduzidas pt/en/es + teste Playwright
@@ -84,7 +85,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*ARENA versão: 1.10.3* | `[ARENA] versão carregada: 1.10.3` (enemy_names i18n pt/en/es, NPC names i18n, delete FK fix)
+*ARENA versão: 1.10.4* | `[ARENA] versão carregada: 1.10.4` (powers i18n pt/en/es + elemental label fix)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`

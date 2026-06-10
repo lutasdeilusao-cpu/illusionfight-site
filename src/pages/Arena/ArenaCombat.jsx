@@ -247,7 +247,7 @@ export default function ArenaCombat({ onNavigate }) {
         setEnemyPv(nEPv)
         if (d.pDmg > 0) setDamageFloat({ value: d.pDmg, target: 'enemy' })
 
-        const powerName = d.pCost > 0 ? (selectedPowers.map(id => availablePowers.find(x => x.id === id)?.name || id)[0]) : null
+        const powerName = d.pCost > 0 ? (selectedPowers.map(id => (t('games.arena.powers.' + elemental + '.' + id + '.name') || availablePowers.find(x => x.id === id)?.name || id))[0]) : null
         const onoma = getOnomatopeia(mode)
         addLogWithDelay('attack_card', '', { name: sheet?.sheet_name, initial: playerInitial, side: 'player' }, {
           side: 'player', breakdown: d.pBreak, fd: d.pFD, dmg: d.pDmg,
@@ -382,10 +382,10 @@ export default function ArenaCombat({ onNavigate }) {
                 <div className="arena-power-card-icon">⚡</div>
                 <div className="arena-power-card-body">
                   <div className="arena-power-header">
-                    <span className="arena-power-header-name">{p.name}</span>
+                    <span className="arena-power-header-name">{t('games.arena.powers.' + elemental + '.' + p.id + '.name') || p.name}</span>
                     <span className="arena-power-header-cost">⚡ {p.cost} PM</span>
                   </div>
-                  <p>{p.desc}</p>
+                  <p>{t('games.arena.powers.' + elemental + '.' + p.id + '.desc') || p.desc}</p>
                 </div>
                 <span className="arena-power-card-check">✓</span>
               </motion.button>
@@ -629,7 +629,7 @@ export default function ArenaCombat({ onNavigate }) {
               if (!fp) return null
               const can = playerPm >= (fp.cost || 1) && !atkDisabled
               return <button key={id} className="arena-power-btn" disabled={!can}
-                onClick={() => { sfx.click(); handleAttack(fp.cost || 1) }}>{fp.name} ⚡{fp.cost} PM</button>
+                onClick={() => { sfx.click(); handleAttack(fp.cost || 1) }}>{t('games.arena.powers.' + elemental + '.' + id + '.name') || fp.name} ⚡{fp.cost} PM</button>
             })}
           </div>
         )}
