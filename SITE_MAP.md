@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.97*  |  `[SITE] versão carregada: 9.97`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.2 — BackToGamesBtn label i18n fix pt/en/es + Playwright i18n validation
 *Versão: 9.96*  |  `[SITE] versão carregada: 9.96`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.1 — i18n fix: hardcoded strings traduzidas pt/en/es + teste Playwright
 *Versão: 9.95*  |  `[SITE] versão carregada: 9.95`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.0 — SFX, auto-scroll, BackToGamesBtn fix, exit btn, delete fix, +i18n
 *Versão: 9.94*  |  `[SITE] versão carregada: 9.94`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ fix: SEO IIFE missing semicolon causing `(intermediate value)(...) is not a function` no load
@@ -82,7 +83,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*ARENA versão: 1.10.1* | `[ARENA] versão carregada: 1.10.1` (i18n fix: hardcoded strings traduzidas pt/en/es)
+*ARENA versão: 1.10.2* | `[ARENA] versão carregada: 1.10.2` (i18n completo + BackToGamesBtn label fix pt/en/es)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
