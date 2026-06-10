@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.89*  |  `[SITE] versão carregada: 9.89`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n LDI Arena completo (atributos, elementais, vantagens, desvantagens, perks, especializações, manual pt/en/es)
 *Versão: 9.88*  |  `[SITE] versão carregada: 9.88`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Pesadelo Particular completo (casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 *Versão: 9.87*  |  `[SITE] versão carregada: 9.87`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Jack Dream Beer verificado (pt/en/es)
 *Versão: 9.86*  |  `[SITE] versão carregada: 9.86`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Top Trumps verificado (pt/en/es)
@@ -75,6 +76,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.9.0* | `[ARENA] versão carregada: 1.9.0` (i18n completo: atributos, elementais, vantagens, desvantagens, perks, especializações, manual batalha pt/en/es)
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
 *TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
@@ -582,7 +584,7 @@
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v1.9.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + BackToGamesBtn unificado em todas as telas |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.8.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.9.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone (i18n completo) |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.3.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.0.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.5.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |

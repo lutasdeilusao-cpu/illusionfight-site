@@ -5,9 +5,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
-const ATTR_LABELS = { F: 'Força', H: 'Habilidade', R: 'Resistência', A: 'Armadura', PdF: 'Poder Elemental' }
 const ATTR_EMOJI = { F: '💪', H: '🎯', R: '🛡️', A: '🦾', PdF: '✨' }
-const ATTR_DESC = { F: 'dano corpo a corpo', H: 'iniciativa e esquiva', R: 'PV e PM base', A: 'absorção de dano', PdF: 'ataques elementais' }
 
 const ELEM_CORES = {
   fogo:   { cor: '#FF4500', glow: 'rgba(255,69,0,0.2)' },
@@ -19,125 +17,46 @@ const ELEM_CORES = {
   neutro: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
 }
 
-const elements = [
-  { id: 'fogo', emoji: '🔥', label: 'Fogo', desc: 'explosivo, agressivo' },
-  { id: 'agua', emoji: '💧', label: 'Água', desc: 'fluido, adaptável' },
-  { id: 'terra', emoji: '🪨', label: 'Terra', desc: 'sólido, resistente' },
-  { id: 'ar', emoji: '💨', label: 'Ar', desc: 'veloz, esquivo' },
-  { id: 'trevas', emoji: '🌑', label: 'Trevas', desc: 'corrosivo, drenante' },
-  { id: 'luz', emoji: '✨', label: 'Luz', desc: 'purificador, protetor' },
-  { id: 'neutro', emoji: '⚪', label: 'Neutro', desc: 'equilibrado, versátil' },
-]
+const ADV_COSTS = [1,1,2,1,2,2,1,1,1,1,1,2,1,2,1,2,2,4,1,2,1,2,1,1,3,1,1,2,1,2,1]
+const DIS_GAINS = [1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1]
+const PERK_COSTS = [1,1,1,1,1,1]
 
-const advantages = [
-  { label: 'Acrobata', cost: 1, desc: '+1 em testes de esquiva e movimentação. Custa 1 PM por uso.' },
-  { label: 'Adaptador', cost: 1, desc: 'Ignora 1 de penalidade por ambiente desfavorável.' },
-  { label: 'Afortunado', cost: 2, desc: 'Ganha +1 em rolagens de iniciativa.' },
-  { label: 'Aliado', cost: 1, desc: 'Invoca aliado com Força 1 para auxiliar no combate.' },
-  { label: 'Arcano', cost: 2, desc: '+1d no dano de poderes elementais. Custa 2 PM extra.' },
-  { label: 'Arqueiro', cost: 2, desc: 'Pode realizar ataque à distância com 1d de dano.' },
-  { label: 'Bloqueio', cost: 1, desc: 'Declara bloqueio contra ataque físico; reduz dano em 1d.' },
-  { label: 'Bombardeiro', cost: 1, desc: '+1d em ataques com armas de pólvora.' },
-  { label: 'Boxe', cost: 1, desc: '+1d nos ataques desarmados quando em guarda.' },
-  { label: 'Camuflagem', cost: 1, desc: '+1 em furtividade quando em terreno favorável.' },
-  { label: 'Carismático', cost: 1, desc: '+1 em interações sociais no pré-combate.' },
-  { label: 'Contra-ataque', cost: 2, desc: 'Após ser atingido, pode contra-atacar com 1d.' },
-  { label: 'Determinado', cost: 1, desc: 'Quando abaixo de metade do PV, +1 em ataque e defesa.' },
-  { label: 'Duas Armas', cost: 2, desc: '+1 ataque extra com mão secundária, com -1 na rolagem.' },
-  { label: 'Esquiva', cost: 1, desc: '+1 na FD contra ataques diretos.' },
-  { label: 'Evocação', cost: 2, desc: 'Permite invocar criatura elemental de PdF 1.' },
-  { label: 'Fúria', cost: 2, desc: 'Gasta 3 PM para +2 de Força por 3 rodadas.' },
-  { label: 'Imunidade', cost: 4, desc: 'Imune a venenos e doenças inferiores ao seu R.' },
-  { label: 'Intuição', cost: 1, desc: '+1 em testes de percepção de armadilhas e emboscadas.' },
-  { label: 'Liderança', cost: 2, desc: '+1 para aliados em até 3m enquanto estiver visível.' },
-  { label: 'Medicina', cost: 1, desc: 'Cura 1 PV por rodada em aliado adjacente.' },
-  { label: 'Mira Letal', cost: 2, desc: 'Gasta 1 rodada mirando para +1d no ataque seguinte.' },
-  { label: 'Parkour', cost: 1, desc: 'Ignora penalidade de terreno por 3 rodadas.' },
-  { label: 'Reflexos', cost: 1, desc: '+1 na iniciativa e em testes de reação.' },
-  { label: 'Regeneração', cost: 3, desc: 'Cura 1 PV por rodada enquanto estiver em combate.' },
-  { label: 'Sentidos', cost: 1, desc: '+1 em testes de percepção sensorial.' },
-  { label: 'Sorte', cost: 1, desc: 'Ganha 3 PM extras no início do combate.' },
-  { label: 'Técnica', cost: 2, desc: 'Saca, guarda e ataca no mesmo turno sem penalidade.' },
-  { label: 'Velocista', cost: 1, desc: '+2 em testes de corrida e deslocamento.' },
-  { label: 'Veterano', cost: 2, desc: '+1 em rolagens críticas (15+).' },
-  { label: 'Vigor', cost: 1, desc: 'Não sofre penalidade por ferimentos leves.' },
-]
-
-const disadvantages = [
-  { label: 'Azarado', gain: 1, desc: 'Rola 1 dado a menos em testes de sorte.' },
-  { label: 'Código', gain: 1, desc: 'Não pode atacar inimigos desarmados ou de costas.' },
-  { label: 'Dependência', gain: 1, desc: 'Perde 1 PV por rodada se não consumir item.' },
-  { label: 'Doença', gain: 2, desc: 'PV máximo reduzido em 2 permanentemente.' },
-  { label: 'Fobia', gain: 1, desc: 'Se falhar teste de Habilidade, perde a ação.' },
-  { label: 'Franzino', gain: 1, desc: 'Força reduzida em 1 para dano físico.' },
-  { label: 'Honra', gain: 1, desc: 'Não ataca primeiro; sempre deixa o oponente agir.' },
-  { label: 'Idade', gain: 2, desc: 'Habilidade reduzida em 1; experiência dá +1 XP por vitória.' },
-  { label: 'Insone', gain: 1, desc: 'Recupera metade do PM entre combates.' },
-  { label: 'Lento', gain: 1, desc: 'Age por último em empates de iniciativa.' },
-  { label: 'Manco', gain: 1, desc: 'Movimento reduzido pela metade.' },
-  { label: 'Medroso', gain: 1, desc: 'Se falhar teste de Fuga, perde a ação.' },
-  { label: 'Orgulhoso', gain: 1, desc: 'Nunca recusa um duelo ou provocação.' },
-  { label: 'Pobre', gain: 1, desc: 'Não pode comprar itens entre combates.' },
-  { label: 'Sedento', gain: 1, desc: 'Gasta 1 PM extra por poder usado.' },
-  { label: 'Sensível', gain: 1, desc: '+1d de dano recebido do elemento oposto.' },
-  { label: 'Surdez', gain: 1, desc: '-1 em testes de percepção auditiva.' },
-  { label: 'Teimoso', gain: 1, desc: 'Não pode mudar de tática uma vez declarada.' },
-  { label: 'Vício', gain: 1, desc: 'Perde 1 PV após cada vitória.' },
-  { label: 'Xingado', gain: 1, desc: '+1d de dano recebido se o inimigo gritar seu nome.' },
-]
-
-const perks = [
-  { label: 'Chama Interior', cost: 1, desc: 'PdF +1 por 2 rodadas, custa 3 PM.' },
-  { label: 'Presença Imponente', cost: 1, desc: 'Inimigo perde 1 em ataque por 1 rodada. Custa 2 PM.' },
-  { label: 'Marca do Destino', cost: 1, desc: 'Se derrotado, o inimigo perde 3 PV extras.' },
-  { label: 'Sopro Vital', cost: 1, desc: 'Ganha 2 PV extras por rodada por 3 rodadas.' },
-  { label: 'Olhar Silencioso', cost: 1, desc: 'Ignora 1 ataque surpresa do inimigo.' },
-  { label: 'Passo Sombrio', cost: 1, desc: 'Revela-se após 1 rodada de invisibilidade parcial de trevas.' },
-]
-
-const specializations = [
-  'Combate corpo a corpo', 'Combate à distância', 'Armas de fogo', 'Armas brancas',
-  'Manipulação elemental', 'Furtividade', 'Persuasão', 'Investigação', 'Sobrevivência', 'Primeiros socorros',
-]
-
-const MANUAL_SECTIONS = [
-  { id: 'fundamentos', titulo: 'Fundamentos', conteudo: 'O LDI é um sistema de combate virtual onde a dor é real.\nTrês bilhões de jogadores disputam posição no ranking SDR.\nCada lutador escolhe um elemental primário que define seus poderes.' },
-  { id: 'atributos', titulo: 'Atributos', tabela: [['F — Potência','Dano corpo a corpo'],['H — Agilidade','Iniciativa, esquiva, velocidade'],['R — Resistência','PV e PM base'],['A — Proteção','Absorção de dano, defesa passiva'],['PdF — Poder Elemental','Dano e força dos ataques elementais']], extra: 'Escala: 0 = comum | 1 = praticante | 2 = experiente | 3 = veterano | 4 = elite | 5 = topo absoluto\nPV = R × 5 | PM = PdF × 5' },
-  { id: 'combate', titulo: 'Sistema de Batalha', conteudo: 'INICIATIVA: H + 1d6 — maior age primeiro\n\nFA (Corpo a Corpo): F + H + 1d6\nFA (Elemental): PdF + H + 1d6\n\nFD (Normal): A + H + 1d6\nFD (Indefeso): A + 1d6\n\nDANO: FA − FD (mínimo 0)\nCRÍTICO: dado = 6 → dobra F, PdF ou A' },
-  { id: 'elementais', titulo: 'Os 7 Elementais', tabela: [['🔥 Fogo','Explosivo, agressivo. Alto dano, pressão constante'],['💧 Água','Fluido, adaptável. Controle, cura, versatilidade'],['🪨 Terra','Sólido, resistente. Defesa, atordoamento, sustentação'],['💨 Ar','Veloz, esquivo. Iniciativa, evasão, mobilidade'],['🌑 Trevas','Corrosivo, drenante. Absorção, debuff, enfraquecimento'],['✨ Luz','Purificador, protetor. Cura, proteção, cegueira'],['⚪ Neutro','Equilibrado. Versátil, sem fraquezas, sem picos']] },
-  { id: 'vantagens', titulo: 'Vantagens e Desvantagens', conteudo: 'Vantagens custam pontos de personagem e representam técnicas e poderes especiais.\nDesvantagens concedem pontos extras mas impõem restrições reais.\n\nO saldo final deve ser zero: custo das vantagens = ganho das desvantagens.' },
-  { id: 'xp', titulo: 'XP e Evolução', conteudo: 'Vitória em batalha justa: +10 XP\nDerrota em batalha justa: +1 XP\n\nA cada 100 XP: 1 ponto de personagem para gastar em atributo ou vantagem.' },
-]
+const MANUAL_KEYS = ['fundamentos', 'atributos', 'combate', 'elementais', 'vantagens', 'xp']
 
 function ManualBatalha() {
+  const { t } = useLanguage()
   const [aberta, setAberta] = useState(null)
   return (
     <div className="arena-manual-sections">
-      {MANUAL_SECTIONS.map(sec => (
-        <div key={sec.id} className="arena-manual-section">
-          <button className={`arena-manual-section-btn ${aberta === sec.id ? 'arena-manual-section-btn--open' : ''}`}
-            onClick={() => setAberta(aberta === sec.id ? null : sec.id)}>
-            {sec.titulo}
-            <span className="arena-manual-section-arrow">{aberta === sec.id ? '▲' : '▼'}</span>
-          </button>
-          {aberta === sec.id && (
-            <div className="arena-manual-section-body">
-              {sec.conteudo && <pre className="arena-manual-pre">{sec.conteudo}</pre>}
-              {sec.tabela && (
-                <table className="arena-manual-table"><tbody>
-                  {sec.tabela.map((row, i) => (
-                    <tr key={i}>
-                      <td className="arena-manual-td-key">{row[0]}</td>
-                      <td className="arena-manual-td-val">{row[1]}</td>
-                    </tr>
-                  ))}
-                </tbody></table>
-              )}
-              {sec.extra && <pre className="arena-manual-pre arena-manual-pre--extra">{sec.extra}</pre>}
-            </div>
-          )}
-        </div>
-      ))}
+      {MANUAL_KEYS.map(id => {
+        const sec = t(`games.arena.manual.${id}`, { returnObjects: true })
+        if (!sec) return null
+        return (
+          <div key={id} className="arena-manual-section">
+            <button className={`arena-manual-section-btn ${aberta === id ? 'arena-manual-section-btn--open' : ''}`}
+              onClick={() => setAberta(aberta === id ? null : id)}>
+              {sec.titulo}
+              <span className="arena-manual-section-arrow">{aberta === id ? '▲' : '▼'}</span>
+            </button>
+            {aberta === id && (
+              <div className="arena-manual-section-body">
+                {sec.conteudo && <pre className="arena-manual-pre">{sec.conteudo}</pre>}
+                {sec.tabela && (
+                  <table className="arena-manual-table"><tbody>
+                    {sec.tabela.map((row, i) => (
+                      <tr key={i}>
+                        <td className="arena-manual-td-key">{row[0]}</td>
+                        <td className="arena-manual-td-val">{row[1]}</td>
+                      </tr>
+                    ))}
+                  </tbody></table>
+                )}
+                {sec.extra && <pre className="arena-manual-pre arena-manual-pre--extra">{sec.extra}</pre>}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -244,24 +163,24 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {step === 'intro' && (
         <div className="arena-lobby" style={{ paddingTop: 60 }}>
           <div className="arena-lobby-hero">
-            <p className="arena-lobby-titulo">modo standalone</p>
+            <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
             <h1 className="arena-lobby-nome" style={{ fontSize: 36 }}>{t('games.arena.nova_ficha')}</h1>
-            <p className="arena-lobby-sub">você já conhece o sistema de batalha?</p>
+            <p className="arena-lobby-sub">{t('games.arena.intro_sabe_sistema')}</p>
           </div>
           <div className="arena-lobby-divider" />
           <div className="arc-intro-grid">
             <div className="arc-intro-card" onClick={() => setManualOpen(true)}>
               <div className="arc-intro-card-icon">📖</div>
-              <div className="arc-intro-card-titulo">LER O MANUAL</div>
-              <div className="arc-intro-card-sub">aprenda o sistema antes de criar sua ficha</div>
+              <div className="arc-intro-card-titulo">{t('games.arena.intro_ler_manual')}</div>
+              <div className="arc-intro-card-sub">{t('games.arena.intro_ler_manual_sub')}</div>
             </div>
             <div className="arc-intro-card arc-intro-card--primary" onClick={() => setStep('attrs')}>
               <div className="arc-intro-card-icon">⚔️</div>
-              <div className="arc-intro-card-titulo">CRIAR DIRETO</div>
-              <div className="arc-intro-card-sub">já sei o que estou fazendo</div>
+              <div className="arc-intro-card-titulo">{t('games.arena.intro_criar_direto')}</div>
+              <div className="arc-intro-card-sub">{t('games.arena.intro_criar_direto_sub')}</div>
             </div>
           </div>
-          <p className="arc-intro-hint">💡 o manual fica acessível pelo botão <strong>?</strong> durante a criação</p>
+          <p className="arc-intro-hint" dangerouslySetInnerHTML={{ __html: t('games.arena.intro_dica_manual') }} />
         </div>
       )}
 
@@ -284,14 +203,14 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* STEP ATTRS */}
       {step === 'attrs' && (
         <div className="arc-step">
-          <div className="arc-section-label">ATRIBUTOS <span className="arc-pontos">{points} pts restantes</span></div>
+          <div className="arc-section-label">{t('games.arena.pag_atributos')} <span className="arc-pontos">{t('games.arena.attrs_pontos_restantes', { n: points })}</span></div>
           <div className="arc-attr-list">
             {ATTRS.map(attr => (
               <div key={attr} className="arc-attr-card">
                 <div className="arc-attr-avatar">{ATTR_EMOJI[attr]}</div>
                 <div className="arc-attr-info">
-                  <div className="arc-attr-name">{ATTR_LABELS[attr]}</div>
-                  <div className="arc-attr-desc">{ATTR_DESC[attr]}</div>
+                  <div className="arc-attr-name">{t(`games.arena.attr_labels.${attr}`)}</div>
+                  <div className="arc-attr-desc">{t(`games.arena.attr_desc.${attr}`)}</div>
                 </div>
                 <div className="arc-attr-controls">
                   <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, -1)} disabled={attrs[attr] <= 0}>−</button>
@@ -303,8 +222,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
           {errors.points && <p className="arena-err">{errors.points}</p>}
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => onNavigate('lobby')}>← lobby</button>
-            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('sheet_name') }}>próximo →</button>
+            <button className="arc-btn-ghost" onClick={() => onNavigate('lobby')}>{t('games.arena.btn_lobby')}</button>
+            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('sheet_name') }}>{t('games.arena.btn_proximo')}</button>
           </div>
         </div>
       )}
@@ -312,7 +231,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* STEP SHEET NAME */}
       {step === 'sheet_name' && (
         <div className="arc-step">
-          <div className="arc-section-label">IDENTIDADE</div>
+          <div className="arc-section-label">{t('games.arena.pag_identidade')}</div>
 
           <div className="arc-name-hero">
             <div className="arc-name-avatar" style={{ '--elem-cor': ec.cor, '--elem-glow': ec.glow, background: `radial-gradient(circle at 35% 35%, ${ec.cor}, #0a0a0a)`, boxShadow: `0 0 32px ${ec.glow}` }}>
@@ -330,7 +249,13 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.elemental')}</div>
           <div className="arc-elem-list">
-            {elements.map(el => {
+            {(['fogo','agua','terra','ar','trevas','luz','neutro']).map(elemId => {
+              const el = {
+                id: elemId,
+                emoji: { fogo:'🔥', agua:'💧', terra:'🪨', ar:'💨', trevas:'🌑', luz:'✨', neutro:'⚪' }[elemId],
+                label: t(`games.arena.elements.${elemId}.label`),
+                desc: t(`games.arena.elements.${elemId}.desc`),
+              }
               const ecc = ELEM_CORES[el.id] || ELEM_CORES.neutro
               const active = s.elemental === el.id
               return (
@@ -355,8 +280,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder={t('games.arena.ex_arma')} />
 
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => setStep('attrs')}>← voltar</button>
-            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('specs') }}>próximo →</button>
+            <button className="arc-btn-ghost" onClick={() => setStep('attrs')}>{t('games.arena.btn_voltar')}</button>
+            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('specs') }}>{t('games.arena.btn_proximo')}</button>
           </div>
         </div>
       )}
@@ -364,9 +289,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* STEP SPECS */}
       {step === 'specs' && (
         <div className="arc-step">
-          <div className="arc-section-label">PERÍCIAS</div>
+          <div className="arc-section-label">{t('games.arena.pag_pericias')}</div>
           <div className="arc-chip-grid">
-            {specializations.map(spec => {
+            {[0,1,2,3,4,5,6,7,8,9].map(i => {
+              const spec = t(`games.arena.specializations[${i}]`)
               const active = (s.specializations || []).includes(spec)
               return (
                 <div key={spec} className={`arc-chip ${active ? 'arc-chip--active' : ''}`}
@@ -382,7 +308,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.vantagens')} <span className="arc-pontos">{advantageCost} pts</span></div>
           <div className="arc-chip-grid">
-            {advantages.map(adv => {
+            {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30].map(i => {
+              const advData = t(`games.arena.advantages[${i}]`, { returnObjects: true })
+              if (!advData) return null
+              const adv = { label: advData.label, desc: advData.desc, cost: ADV_COSTS[i] || 1 }
               const has = (s.advantages || []).find(x => x.label === adv.label)
               return (
                 <div key={adv.label}
@@ -400,7 +329,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.desvantagens')} <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
           <div className="arc-chip-grid">
-            {disadvantages.map(dis => {
+            {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map(i => {
+              const disData = t(`games.arena.disadvantages[${i}]`, { returnObjects: true })
+              if (!disData) return null
+              const dis = { label: disData.label, desc: disData.desc, gain: DIS_GAINS[i] || 1 }
               const has = (s.disadvantages || []).find(x => x.label === dis.label)
               return (
                 <div key={dis.label}
@@ -418,7 +350,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.unicas')} <span className="arc-pontos">{perkCost} pts</span></div>
           <div className="arc-chip-grid">
-            {perks.map(p => {
+            {[0,1,2,3,4,5].map(i => {
+              const pData = t(`games.arena.perks[${i}]`, { returnObjects: true })
+              if (!pData) return null
+              const p = { label: pData.label, desc: pData.desc, cost: PERK_COSTS[i] || 1 }
               const has = (s.perks || []).find(x => x.label === p.label)
               return (
                 <div key={p.label}
@@ -440,21 +375,21 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
 
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => setStep('sheet_name')}>← voltar</button>
-            <button className="arc-btn-salvar" onClick={handleSalvar}>SALVAR E LUTAR</button>
+            <button className="arc-btn-ghost" onClick={() => setStep('sheet_name')}>{t('games.arena.btn_voltar')}</button>
+            <button className="arc-btn-salvar" onClick={handleSalvar}>{t('games.arena.btn_salvar_lutar')}</button>
           </div>
         </div>
       )}
 
       {/* botão ? */}
       {step !== 'intro' && (
-        <button className="arena-manual-btn" onClick={() => setManualOpen(true)} title="Manual de Batalha">?</button>
+        <button className="arena-manual-btn" onClick={() => setManualOpen(true)} title={t('games.arena.manual_titulo')}>?</button>
       )}
 
       {/* drawer */}
       <div className={`arena-manual-drawer ${manualOpen ? 'arena-manual-drawer--open' : ''}`}>
         <div className="arena-manual-drawer-header">
-          <span className="arena-manual-drawer-titulo">MANUAL DE BATALHA</span>
+          <span className="arena-manual-drawer-titulo">{t('games.arena.manual_titulo')}</span>
           <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>✕</button>
         </div>
         <div className="arena-manual-drawer-body"><ManualBatalha /></div>

@@ -6,13 +6,6 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
-const ENEMY_NAMES = {
-  kaeda: 'Kaeda', thunderbolt: 'Thunderbolt', stormbyte: 'StormByte_91',
-  viran: 'Mestre Viran', campeao: 'O Campeao', kronos: 'Kronos',
-  primordial_jack: 'Jack Primordial',
-}
-
-const DEFEAT_FALLBACKS = ['isso não pode ser...', 'subestimei você. que droga.', 'impossível.']
 
 export default function ArenaVictory({ onNavigate }) {
   const { t } = useLanguage()
@@ -66,7 +59,7 @@ export default function ArenaVictory({ onNavigate }) {
     const before = sheet.enemies_unlocked || ['treinamento']
     store.unlockNextEnemy(match.enemy_id)
     if (nextId && !before.includes(nextId)) {
-      setNextUnlock(ENEMY_NAMES[nextId] || nextId)
+      setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
     }
     setTimeout(() => store.saveToCloud(user?.id), 400)
   }, [fase, isVitoria])
@@ -100,9 +93,10 @@ export default function ArenaVictory({ onNavigate }) {
   // Fase 1 — mensagem do inimigo derrotado
   if (fase === 'mensagem') {
     const defeatPhrases = enemy?.trash_talk?.defeat || enemy?.trash_talk?.enemy_near_death
+    const fallbacks = [0,1,2].map(i => t(`games.arena.defeat_fallbacks[${i}]`))
     const line = defeatPhrases?.length
       ? defeatPhrases[Math.floor(Math.random() * defeatPhrases.length)]
-      : DEFEAT_FALLBACKS[Math.floor(Math.random() * DEFEAT_FALLBACKS.length)]
+      : fallbacks[Math.floor(Math.random() * fallbacks.length)]
 
     return (
       <div className="arena-victory arena-container" style={{ background: '#0a0a0a' }}>

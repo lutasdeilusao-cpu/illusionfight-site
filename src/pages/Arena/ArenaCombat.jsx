@@ -378,7 +378,7 @@ export default function ArenaCombat({ onNavigate }) {
           </div>
           <div className="arena-power-footer">
             <span className="arena-power-counter">
-              <strong>{selectedPowers.length}</strong>/4 selecionados
+              {t('games.arena.selecionados', { n: selectedPowers.length })}
             </span>
             <button className="arena-btn-primary" onClick={() => setShowPowerSelect(false)}>
               {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
@@ -461,7 +461,7 @@ export default function ArenaCombat({ onNavigate }) {
 
       {/* vs bar */}
       <div className="arena-vs-bar">
-        <button className="arena-vs-bar-back" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }}>← lobby</button>
+        <button className="arena-vs-bar-back" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }}>{t('games.arena.btn_lobby')}</button>
         <div className="arena-vs-bar-line" />
         <span className="arena-vs-bar-label">VS</span>
         <div className="arena-vs-bar-line" />
@@ -488,7 +488,7 @@ export default function ArenaCombat({ onNavigate }) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                   <div className={`arena-attack-card arena-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
                     <div className="arena-attack-card-header">
-                      {isPlayer ? '⚔ ataque' : '⚔ ataque inimigo'}
+                      {isPlayer ? t('games.arena.card_ataque') : t('games.arena.card_ataque_inimigo')}
                     </div>
                     <div className="arena-attack-card-body">
                       <div className="arena-attack-card-row">
@@ -509,15 +509,15 @@ export default function ArenaCombat({ onNavigate }) {
                       )}
                       {l.powerName && (
                         <div className="arena-attack-card-row">
-                          <span className="arena-attack-card-key">poder</span>
+                          <span className="arena-attack-card-key">{t('games.arena.card_poder')}</span>
                           <span className="arena-attack-card-val">⚡ {l.powerName} +{l.powerBonus}</span>
                         </div>
                       )}
                       <div className="arena-attack-card-divider" />
                       <div className="arena-attack-card-damage">
-                        <span className="arena-attack-card-damage-label">dano</span>
+                        <span className="arena-attack-card-damage-label">{t('games.arena.card_dano')}</span>
                         <span className={`arena-attack-card-damage-val ${l.dmg === 0 ? 'arena-attack-card-damage-val--zero' : ''}`}>
-                          {l.dmg === 0 ? 'bloqueado' : l.dmg}
+                          {l.dmg === 0 ? t('games.arena.card_bloqueado') : l.dmg}
                         </span>
                       </div>
                     </div>
@@ -616,9 +616,9 @@ export default function ArenaCombat({ onNavigate }) {
           </div>
         )}
         <div className="arena-actions-row">
-          <button className="arena-btn-flee" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>FUGIR</button>
+          <button className="arena-btn-flee" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>{t('games.arena.btn_fugir')}</button>
           <button className="arena-attack-btn" onClick={() => handleAttack()} disabled={atkDisabled}>
-            {atkDisabled ? '...' : 'ATACAR'}
+            {atkDisabled ? '...' : t('games.arena.btn_atacar')}
           </button>
         </div>
       </div>
