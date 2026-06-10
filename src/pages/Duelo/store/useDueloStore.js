@@ -104,6 +104,17 @@ export const useDueloStore = create((set, get) => ({
       const meusMonstros = countMonsters(state.grid, 'PLAYER')
       const sac = sacrificiosNecessarios(card.estrelas || 1)
 
+      // No primeiro turno, só pode descer 1 monstro
+      if (state.isFirstTurn && meusMonstros >= 1) {
+        set({
+          battleLog: [...state.battleLog, `❌ Primeiro turno: só pode descer 1 monstro.`],
+          selectedHandCard: null,
+          waitingForGridTarget: null,
+          confirmPlace: false,
+        })
+        return
+      }
+
       if (sac > 0 && meusMonstros < sac) {
         set({
           battleLog: [...state.battleLog, `❌ ${card.name} (${card.estrelas}★) precisa de ${sac} sacrifício(s), mas você só tem ${meusMonstros} monstro(s).`],
@@ -114,7 +125,7 @@ export const useDueloStore = create((set, get) => ({
         return
       }
 
-      // Se tem monstros demais (>=2) ou precisa sacrificar
+      // Se tem monstros demais (>=3) ou precisa sacrificar
       if (sac > 0) {
         // Precisa sacrificar → abre modal de seleção de sacrifício
         set({
@@ -122,8 +133,8 @@ export const useDueloStore = create((set, get) => ({
           waitingForGridTarget: 'sacrifice',
           confirmPlace: false,
         })
-      } else if (meusMonstros >= 2) {
-        // Limite de 2 atingido → perguntar qual sacrificar
+      } else if (meusMonstros >= 3) {
+        // Limite de 3 atingido → perguntar qual sacrificar
         set({
           selectedHandCard: card,
           waitingForGridTarget: 'sacrifice',
@@ -170,6 +181,76 @@ export const useDueloStore = create((set, get) => ({
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,
+      pendingPlacement: null,
+    })
+  },
+
+  // ── Confirmar colocação de armadilha/magia (modal de confirmação) ──
+  confirmPendingPlacement: () => {
+    const state = get()
+    const pp = state.pendingPlacement
+    if (!pp) return
+    const { row, col, type, card, targetCard } = pp
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    const hand = state.playerHand
+    const handKey = 'playerHand'
+
+    if (type === 'trap') {
+      // Coloca armadilha
+      if (grid[row][col].trap || grid[row][col].monster) return
+      grid[row][col] = { ...grid[row][col], trap: { ...card, revealed: false, owner: 'PLAYER' } }
+      const newHand = hand.filter(c => c.id_num !== card.id_num)
+      set({
+        grid,
+        playerHand: newHand,
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        pendingPlacement: null,
+        battleLog: [...state.battleLog, `🕳️ Armadilha ${card.name} armada em [${row},${col}].`],
+      })
+    } else if (type === 'spell') {
+      // Usa magia
+      const result = applySpellEffect(state, card, 'PLAYER', targetCard)
+      const newHand = hand.filter(c => c.id_num !== card.id_num)
+      const newGraveyard = [...state.playerGraveyard, card]
+      const updates = {
+        playerHand: newHand,
+        playerGraveyard: newGraveyard,
+        tempBuffs: result.updates.tempBuffs || state.tempBuffs,
+        playerLP: result.updates.playerLP ?? state.playerLP,
+        aiLP: result.updates.aiLP ?? state.aiLP,
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        pendingPlacement: null,
+        winner: result.updates.winner || state.winner,
+        ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
+        battleLog: [...state.battleLog, result.log],
+      }
+      // Se tem duração >0 e alvo, adiciona como efeito persistente no grid
+      if (card.duracao > 0 && targetCard) {
+        updates.fieldEffects = [...(state.fieldEffects || []), {
+          row, col,
+          cardName: card.name,
+          effect: card.effect,
+          remainingTurns: card.duracao,
+          owner: 'PLAYER',
+          targetId: targetCard.id_num,
+        }]
+      }
+      set(updates)
+    }
+  },
+
+  // ── Cancelar colocação de armadilha/magia (volta ao estado de seleção) ──
+  cancelPendingPlacement: () => {
+    const state = get()
+    const pp = state.pendingPlacement
+    if (!pp) return
+    // Volta ao estado anterior: mantém selectedHandCard e waitingForGridTarget
+    set({
+      pendingPlacement: null,
+      // selectedHandCard e waitingForGridTarget permanecem — usuário pode clicar em outra célula
     })
   },
 
@@ -204,7 +285,7 @@ export const useDueloStore = create((set, get) => ({
       if (!targetMonster || targetMonster.owner !== 'PLAYER') return
       const sac = sacrificiosNecessarios(card.estrelas || 1)
       const meusMonstros = countMonsters(grid, 'PLAYER')
-      const precisoSacrificar = Math.max(sac, (meusMonstros >= 2 ? 1 : 0))
+      const precisoSacrificar = Math.max(sac, (meusMonstros >= 3 ? 1 : 0))
       
       // Remove o monstro clicado do grid
       grid[row][col] = { ...grid[row][col], monster: null }
@@ -243,48 +324,17 @@ export const useDueloStore = create((set, get) => ({
         })
       }
     } else if (state.waitingForGridTarget === 'trap') {
-      // Armadilha em QUALQUER célula do tabuleiro
+      // Armadilha em QUALQUER célula do tabuleiro — mostra modal de confirmação
       if (grid[row][col].trap || grid[row][col].monster) return
-      grid[row][col] = { ...grid[row][col], trap: { ...card, revealed: false } }
-      const newHand = hand.filter(c => c.id_num !== card.id_num)
       set({
-        grid,
-        playerHand: newHand,
-        selectedHandCard: null,
-        waitingForGridTarget: null,
-        battleLog: [...state.battleLog, `🕳️ Armadilha ${card.name} armada em [${row},${col}].`],
+        pendingPlacement: { row, col, type: 'trap', card },
       })
     } else if (state.waitingForGridTarget === 'spell') {
-      // Usar magia — verifica alvo válido
+      // Magia — mostra modal de confirmação
       const targetCard = grid[row]?.[col]?.monster || null
-      // Magias sem alvo (HEAL, BURN) podem ser usadas sem monstro
-      const result = applySpellEffect(state, card, 'PLAYER', targetCard)
-      const newHand = hand.filter(c => c.id_num !== card.id_num)
-      const newGraveyard = [...state.playerGraveyard, card]
-      const updates = {
-        playerHand: newHand,
-        playerGraveyard: newGraveyard,
-        tempBuffs: result.updates.tempBuffs || state.tempBuffs,
-        playerLP: result.updates.playerLP ?? state.playerLP,
-        aiLP: result.updates.aiLP ?? state.aiLP,
-        selectedHandCard: null,
-        waitingForGridTarget: null,
-        winner: result.updates.winner || state.winner,
-        ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
-        battleLog: [...state.battleLog, result.log],
-      }
-      // Se tem duração >0 e alvo, adiciona como efeito persistente no grid
-      if (card.duracao > 0 && targetCard) {
-        updates.fieldEffects = [...(state.fieldEffects || []), {
-          row, col,
-          cardName: card.name,
-          effect: card.effect,
-          remainingTurns: card.duracao,
-          owner: 'PLAYER',
-          targetId: targetCard.id_num,
-        }]
-      }
-      set(updates)
+      set({
+        pendingPlacement: { row, col, type: 'spell', card, targetCard },
+      })
     }
   },
 
@@ -362,6 +412,7 @@ export const useDueloStore = create((set, get) => ({
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,
+      pendingPlacement: null,
       battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? '🤖 Turno da IA...' : '🎯 Sua vez!'}`],
       // Primeira rodada terminou — libera MOVIMENTO para as próximas
       ...(state.isFirstTurn ? { isFirstTurn: false } : {}),
@@ -552,6 +603,7 @@ export const useDueloStore = create((set, get) => ({
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,
+      pendingPlacement: null,
       battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },

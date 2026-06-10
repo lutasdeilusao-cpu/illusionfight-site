@@ -141,6 +141,61 @@ function ConfirmPlaceModal({ card, onConfirm, onCancel }) {
   )
 }
 
+// Modal de confirmação para Armadilha/Magia
+function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
+  if (!pending) return null
+  const { row, col, type, card } = pending
+  const isTrap = type === 'trap'
+  return (
+    <motion.div
+      className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="duelo-confirm-modal duelo-confirm-modal--trap"
+        initial={{ scale: 0.8, y: 50 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.8, y: 50 }}
+      >
+        <p className="duelo-confirm-title">
+          {isTrap ? '🕳️' : '✨'} {card.name}
+        </p>
+        <p className="duelo-confirm-desc">
+          {isTrap
+            ? `📍 Célula [${row},${col}] · Área: ${card.area} · Gatilho: ${card.gatilho}`
+            : `📍 Alvo: [${row},${col}] · Efeito: ${card.effect}${card.duracao > 0 ? ` (${card.duracao}t)` : ''}`
+          }
+        </p>
+        {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
+        <p className="duelo-confirm-question">
+          {isTrap
+            ? `Armar ${card.name} em [${row},${col}]?`
+            : `Usar ${card.name} em [${row},${col}]?`
+          }
+        </p>
+        <p className="duelo-confirm-area-hint">
+          {isTrap
+            ? `⚠️ A área de ${card.area} casa(s) ao redor será afetada (destaque roxo)`
+            : card.duracao > 0
+              ? `⏳ Efeito persistente por ${card.duracao} turno(s) no campo`
+              : '⚡ Efeito instantâneo — use com sabedoria'
+          }
+        </p>
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
+            ✅ {isTrap ? 'ARMAR' : 'USAR'}
+          </button>
+          <button className="duelo-phase-btn" onClick={onCancel}>
+            🔄 ESCOLHER OUTRA CÉLULA
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 // Modal VER CARTAS
 function VerCartasModal({ onClose }) {
   const hand = useDueloStore(s => s.playerHand)
@@ -473,6 +528,17 @@ export default function DueloRoute() {
             card={s.selectedHandCard}
             onConfirm={() => store.confirmDescer()}
             onCancel={() => store.cancelSelection()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Confirm Trap/Spell Placement Modal */}
+      <AnimatePresence>
+        {s.pendingPlacement && (
+          <ConfirmTrapSpellModal
+            pending={s.pendingPlacement}
+            onConfirm={() => store.confirmPendingPlacement()}
+            onCancel={() => store.cancelPendingPlacement()}
           />
         )}
       </AnimatePresence>

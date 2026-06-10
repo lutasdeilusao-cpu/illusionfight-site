@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { useDueloStore } from '../store/useDueloStore'
 import LPDisplay from './LPDisplay'
-import { GRID_ROWS, GRID_COLS, isPlayerTerritory } from '../engine/gameState'
+import { GRID_ROWS, GRID_COLS, manhattan } from '../engine/gameState'
 
 export default function Board() {
   const store = useDueloStore()
@@ -9,10 +10,51 @@ export default function Board() {
   const moveCells = store.moveCells || []
   const attackCells = store.attackCells || []
   const isPlayerTurn = store.currentTurn === 'PLAYER'
+  const [hoverCell, setHoverCell] = useState(null)
+
+  // pendingPlacement — célula clicada aguardando confirmação
+  const pending = store.pendingPlacement
 
   const isMoveCell = (r, c) => moveCells.some(m => m.row === r && m.col === c)
   const isAttackCell = (r, c) => attackCells.some(a => a.row === r && a.col === c)
   const isSelected = (r, c) => sel?.row === r && sel?.col === c
+
+  // Calcula células das áreas de TODAS as armadilhas do player no grid (persistente)
+  const isPersistentTrapArea = (r, c) => {
+    for (let rr = 0; rr < GRID_ROWS; rr++) {
+      for (let cc = 0; cc < GRID_COLS; cc++) {
+        const t = grid[rr][cc]?.trap
+        if (t && t.owner === 'PLAYER' && !t.revealed && t.area) {
+          const dist = manhattan(rr, cc, r, c)
+          if (dist > 0 && dist <= t.area) return true
+        }
+      }
+    }
+    return false
+  }
+
+  // Calcula células de efeitos de campo ativos (magias persistentes)
+  const isFieldEffectCell = (r, c) => {
+    const fe = store.fieldEffects || []
+    return fe.some(f => f.row === r && f.col === c)
+  }
+
+  // Calcula células da área de armadilha com base no hover (placement)
+  const isTrapAreaCell = (r, c) => {
+    // Usa pendingPlacement como fallback quando modal está aberto
+    const target = pending ? { row: pending.row, col: pending.col } : hoverCell
+    if (!target || store.waitingForGridTarget !== 'trap') return false
+    const trapCard = store.selectedHandCard
+    if (!trapCard || !trapCard.area) return false
+    const dist = manhattan(target.row, target.col, r, c)
+    return dist > 0 && dist <= trapCard.area
+  }
+
+  const isHoveredCell = (r, c) => {
+    // Se tem pendingPlacement, destaca a célula pendente
+    if (pending) return pending.row === r && pending.col === c
+    return hoverCell && hoverCell.row === r && hoverCell.col === c
+  }
 
   const getEffectiveAtk = (card) => {
     const buff = store.tempBuffs?.find(b => b.cardId === card.id_num)
@@ -75,10 +117,13 @@ export default function Board() {
     if (isSelected(r, c)) classes += ' duelo-grid-cell--selected'
     if (isMoveCell(r, c)) classes += ' duelo-grid-cell--move'
     if (isAttackCell(r, c)) classes += ' duelo-grid-cell--attack'
+    if (isPersistentTrapArea(r, c)) classes += ' duelo-grid-cell--trap-area'
+    if (isTrapAreaCell(r, c)) classes += ' duelo-grid-cell--trap-area'
+    if (isHoveredCell(r, c) && store.waitingForGridTarget === 'trap') classes += ' duelo-grid-cell--trap-hover'
+    if (isFieldEffectCell(r, c)) classes += ' duelo-grid-cell--field-effect'
     if (cell?.monster) {
       classes += cell.monster.owner === 'PLAYER' ? ' duelo-grid-cell--ally' : ' duelo-grid-cell--enemy'
     }
-    // Células uniformes — sem distinção visual de território
     return classes
   }
 
@@ -99,7 +144,7 @@ export default function Board() {
         <LPDisplay lp={store.playerLP} isPlayer={true} />
       </div>
 
-      {/* Grid 5×5 — uniforme */}
+      {/* Grid */}
       <div className="duelo-grid-container">
         <div className="duelo-grid">
           {Array.from({ length: GRID_ROWS }, (_, r) => (
@@ -109,21 +154,17 @@ export default function Board() {
                 const monster = cell?.monster
                 const trap = cell?.trap
 
-                // Armadilha visível ao dono, oculta ao inimigo
-                const showTrap = trap && (
-                  trap.revealed ||
-                  (monster?.owner === 'PLAYER') ||
-                  (isPlayerTerritory(r) && trap && !monster)
-                )
-
-                // Armadilha oculta pro player se for da IA no território dela
-                const showHiddenTrap = !showTrap && trap && !monster && !isPlayerTerritory(r)
+                // Armadilha visível SOMENTE ao dono
+                const isMyTrap = trap && trap.owner === 'PLAYER'
+                const showTrap = isMyTrap && !monster
 
                 return (
                   <div
                     key={c}
                     className={getCellClass(r, c)}
                     onClick={() => handleCellClick(r, c)}
+                    onMouseEnter={() => setHoverCell({ row: r, col: c })}
+                    onMouseLeave={() => setHoverCell(null)}
                   >
                     {monster && (
                       <div className={`duelo-grid-monster duelo-grid-monster--${monster.owner?.toLowerCase()}`}>
@@ -140,14 +181,9 @@ export default function Board() {
                         </div>
                       </div>
                     )}
-                    {showTrap && !monster && (
+                    {showTrap && (
                       <div className="duelo-grid-trap">
-                        {trap.revealed ? '🕳️' : '⚡'}
-                      </div>
-                    )}
-                    {showHiddenTrap && !monster && (
-                      <div className="duelo-grid-trap duelo-grid-trap--hidden">
-                        ❓
+                        ⚡
                       </div>
                     )}
                   </div>

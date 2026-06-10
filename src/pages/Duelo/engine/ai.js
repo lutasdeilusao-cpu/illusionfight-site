@@ -85,11 +85,13 @@ export function aiDescerFase(state) {
   // 1a. Coloca monstros (prioridade alta)
   const monsters = newHand.filter(c => c.type === 'MONSTER').sort((a, b) => b.atk - a.atk)
   const existingMonsters = getAiMonsters(grid).length
-  const maxOnField = 5
+  const maxOnField = 3
   const slotsLeft = maxOnField - existingMonsters
 
   if (slotsLeft > 0) {
-    const toPlace = monsters.slice(0, slotsLeft)
+    // Primeiro turno: IA só desce 1 monstro
+    const maxSlots = state.isFirstTurn ? Math.min(1, slotsLeft) : slotsLeft
+    const toPlace = monsters.slice(0, maxSlots)
     for (const card of toPlace) {
       const pos = findSummonPosition(grid, true)
       if (!pos) break
@@ -104,7 +106,7 @@ export function aiDescerFase(state) {
   for (const trap of traps) {
     const pos = findTrapPosition(grid)
     if (!pos) break
-    grid[pos.row][pos.col] = { ...grid[pos.row][pos.col], trap: { ...trap, revealed: false } }
+    grid[pos.row][pos.col] = { ...grid[pos.row][pos.col], trap: { ...trap, revealed: false, owner: 'AI' } }
     newHand = newHand.filter(c => c.id_num !== trap.id_num)
     battleLog.push(`🕳️ IA armou ${trap.name} em [${pos.row},${pos.col}].`)
   }
