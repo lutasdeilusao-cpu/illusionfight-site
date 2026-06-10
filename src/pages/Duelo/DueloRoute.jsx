@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { useDueloStore } from './store/useDueloStore'
 import { useReader } from '../../context/ReaderContext'
@@ -12,11 +13,133 @@ import Hand from './components/Hand'
 import StatusBar from './components/StatusBar'
 import BattleLog from './components/BattleLog'
 import CardPreviewModal from './components/CardPreviewModal'
-import { aiTurn, aiPreparationPhase } from './engine/ai'
+import { aiDescerFase, aiMovimentoFase, aiAtaqueFase } from './engine/ai'
 import { GRID_ROWS, GRID_COLS } from './engine/gameState'
+import { checkVictoryCondition } from './engine/phases'
 import './Duelo.css'
 
 const delay = ms => new Promise(r => setTimeout(r, ms))
+
+// Animação de moeda girando — puramente visual, timeline gerenciada pelo store
+function CoinTossAnimation() {
+  const { t } = useLanguage()
+  const coinResult = useDueloStore(s => s.coinResult)
+  const gamePhase = useDueloStore(s => s.gamePhase)
+  const isDone = gamePhase !== 'COIN_TOSS'
+
+  return (
+    <div className="duelo-coin-toss">
+      <motion.div
+        className="duelo-coin"
+        animate={!isDone ? {
+          rotateY: [0, 360, 720, 1080, 1440],
+          scale: [1, 1.2, 1, 1.2, 1],
+        } : { rotateY: 0 }}
+        transition={!isDone ? { duration: 2, ease: 'easeInOut' } : { duration: 0.3 }}
+      >
+        <span className="duelo-coin-face">
+          {isDone ? (coinResult === 'PLAYER' ? '👤' : '🤖') : '🪙'}
+        </span>
+      </motion.div>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="duelo-coin-text"
+      >
+        {isDone
+          ? (coinResult === 'PLAYER' ? t('games.duelo.voce_comeca') : t('games.duelo.ia_comeca'))
+          : t('games.duelo.sorteando_moeda')}
+      </motion.p>
+    </div>
+  )
+}
+
+// Animação de saque de 5 cartas — puramente visual
+function DrawAnimation() {
+  const [revealed, setRevealed] = useState(0)
+  const { t } = useLanguage()
+  const handCards = useDueloStore(s => s.playerHand)
+  const gamePhase = useDueloStore(s => s.gamePhase)
+  const isDone = gamePhase !== 'DRAW_ANIMATION'
+
+  useEffect(() => {
+    if (!isDone && revealed < 5) {
+      const timer = setTimeout(() => setRevealed(r => r + 1), 400)
+      return () => clearTimeout(timer)
+    }
+  }, [revealed, isDone])
+
+  return (
+    <div className="duelo-draw-animation">
+      <p className="duelo-draw-title">{t('games.duelo.compra_cartas')}</p>
+      <div className="duelo-draw-cards">
+        {[0, 1, 2, 3, 4].map(i => (
+          <motion.div
+            key={i}
+            className="duelo-draw-card"
+            initial={{ x: -200, y: -100, rotate: -20, opacity: 0 }}
+            animate={revealed > i ? {
+              x: (i - 2) * 70,
+              y: 0,
+              rotate: 0,
+              opacity: 1,
+            } : {}}
+            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+          >
+            <div className={`duelo-draw-card-inner ${revealed > i ? 'duelo-draw-card--revealed' : ''}`}>
+              {revealed > i && handCards?.[i] ? (
+                <span className="duelo-draw-card-name">{handCards[i].name}</span>
+              ) : (
+                <span className="duelo-draw-card-back">LDI</span>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: revealed >= 5 ? 1 : 0 }}
+        className="duelo-draw-ready"
+      >
+        {t('games.duelo.mao_pronta')}
+      </motion.p>
+    </div>
+  )
+}
+
+// Modal "Descer no tabuleiro?"
+function ConfirmPlaceModal({ card, onConfirm, onCancel }) {
+  return (
+    <motion.div
+      className="duelo-confirm-modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="duelo-confirm-modal"
+        initial={{ scale: 0.8, y: 50 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.8, y: 50 }}
+      >
+        <p className="duelo-confirm-title">🃏 {card.name}</p>
+        <p className="duelo-confirm-desc">
+          ⚔ {card.atk}/{card.def} · 👟{card.mov} 🎯{card.rng}
+        </p>
+        {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
+        <p className="duelo-confirm-question">Descer no tabuleiro?</p>
+        <div className="duelo-confirm-btns">
+          <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
+            ✅ DESCER
+          </button>
+          <button className="duelo-phase-btn" onClick={onCancel}>
+            ❌ CANCELAR
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
 
 export default function DueloRoute() {
   const store = useDueloStore()
@@ -29,8 +152,7 @@ export default function DueloRoute() {
   const [previewCard, setPreviewCard] = useState(null)
   const [hoveredCard, setHoveredCard] = useState(null)
   const [iaPending, setIaPending] = useState(false)
-  const [selectedHandCard, setSelectedHandCard] = useState(null)
-  const [summonTarget, setSummonTarget] = useState(null)
+  const [iaPhase, setIaPhase] = useState(null) // 'DESCER' | 'MOVIMENTO' | 'ATAQUE' | null
   const aiRunning = useRef(false)
 
   // ── Route protection: only admins ──
@@ -45,13 +167,22 @@ export default function DueloRoute() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
+  const startTimers = useRef(null)
+
   const startGame = () => {
     store.resetGame()
     setFase('game')
-    // Inicia preparação automaticamente
-    setTimeout(() => {
-      store.startPreparation()
+    // Gerencia a timeline de animações diretamente no escopo do clique
+    const t1 = setTimeout(() => {
+      store.doCoinToss()
     }, 100)
+    const t2 = setTimeout(() => {
+      store.coinTossComplete()
+    }, 2600)
+    const t3 = setTimeout(() => {
+      store.drawAnimationComplete()
+    }, 5600)
+    startTimers.current = [t1, t2, t3]
   }
 
   const handleCardHover = useCallback((card) => setHoveredCard(card), [])
@@ -59,224 +190,285 @@ export default function DueloRoute() {
   // ── Clique em carta da mão ──
   const handleCardClick = useCallback((card) => {
     const s = useDueloStore.getState()
-    if (!card || s.currentTurn !== 'PLAYER' || s.gamePhase === 'OVER') return
+    if (!card || s.currentTurn !== 'PLAYER' || s.gamePhase !== 'PLAYING' || s.turnPhase !== 'DESCER') return
+    store.selectHandCard(card)
+  }, [store])
 
-    if (s.preparationPhase) {
-      // Na preparação, monstros já foram posicionados automaticamente
-      // Clicar em armadilha na mão → modo de posicionamento
-      if (card.type === 'TRAP') {
-        setSelectedHandCard(card)
-        setSummonTarget('prep-trap')
-      }
-      return
-    }
-
-    // Fora da preparação
-    if (card.type === 'MONSTER' && s.gamePhase === 'INVOCAR' && !s.hasSummonedThisTurn) {
-      // Seleciona monstro para invocar — precisa de target no grid
-      setSelectedHandCard(card)
-      setSummonTarget('grid')
-    } else if (card.type === 'SPELL' && s.gamePhase === 'MAGIA' && !s.hasPlayedMagicThisTurn) {
-      // Seleciona magia
-      setSelectedHandCard(card)
-      setSummonTarget('spell')
-    } else if (card.type === 'TRAP' && s.gamePhase === 'INVOCAR') {
-      // Coloca armadilha no grid
-      setSelectedHandCard(card)
-      setSummonTarget('grid-trap')
-    } else {
-      setSelectedHandCard(card)
-    }
-  }, [])
-
-  // ── Clique no grid (vem do Board) ──
+  // ── Clique no grid ──
   const handleGridClick = useCallback((row, col) => {
     const s = useDueloStore.getState()
+    if (s.gamePhase !== 'PLAYING' || s.currentTurn !== 'PLAYER') return
 
-    // Preparação — colocar armadilha
-    if (s.preparationPhase && selectedHandCard?.type === 'TRAP') {
-      if (row < 3 || row > 4) return // só nas próprias fileiras
-      store.placeTrapPrep(row, col)
-      setSelectedHandCard(null)
+    // Fase DESCER — colocando carta no grid
+    if (s.turnPhase === 'DESCER' && s.waitingForGridTarget) {
+      store.placeCardOnGrid(row, col)
       return
     }
 
-    // Invocar monstro no grid
-    if (summonTarget === 'grid' && selectedHandCard?.type === 'MONSTER') {
-      if (row < 3 || row > 4) return // só nas próprias fileiras
-      store.summonMonster(selectedHandCard.id_num, row, col)
-      setSelectedHandCard(null)
-      setSummonTarget(null)
+    // Fase MOVIMENTO — mover monstro
+    if (s.turnPhase === 'MOVIMENTO') {
+      const cell = s.grid[row][col]
+      // Se clicou em casa de MOV
+      if (s.selectedMonster && s.moveCells.some(c => c.row === row && c.col === col)) {
+        store.moveMonster(row, col)
+        return
+      }
+      // Se clicou em monstro aliado — seleciona
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        store.selectMonster(row, col)
+        return
+      }
+      store.clearSelection()
       return
     }
 
-    // Colocar armadilha (fora da preparação)
-    if (summonTarget === 'grid-trap' && selectedHandCard?.type === 'TRAP') {
-      if (row < 3 || row > 4) return
-      const grid = s.grid.map(r => r.map(c => ({ ...c })))
-      if (grid[row][col].trap || grid[row][col].monster) return
-      grid[row][col] = { ...grid[row][col], trap: { ...selectedHandCard, revealed: false } }
-      const newHand = s.playerHand.filter(c => c.id_num !== selectedHandCard.id_num)
-      store.setState({
-        grid,
-        playerHand: newHand,
-        battleLog: [...s.battleLog, `Armadilha ${selectedHandCard.name} colocada em [${row},${col}].`],
-      })
-      setSelectedHandCard(null)
-      setSummonTarget(null)
+    // Fase ATAQUE — atacar
+    if (s.turnPhase === 'ATAQUE') {
+      const cell = s.grid[row][col]
+      // Se clicou em casa de ataque
+      if (s.selectedMonster && s.attackCells.some(c => c.row === row && c.col === col) && cell?.monster?.owner !== 'PLAYER') {
+        store.attackMonster(row, col)
+        return
+      }
+      // Se clicou em monstro aliado — seleciona
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        store.selectMonster(row, col)
+        return
+      }
+      store.clearSelection()
       return
     }
+  }, [store])
 
-    // Usar magia
-    if (summonTarget === 'spell' && selectedHandCard?.type === 'SPELL') {
-      const target = s.grid[row]?.[col]?.monster || null
-      store.useSpell(selectedHandCard.id_num, row, col)
-      setSelectedHandCard(null)
-      setSummonTarget(null)
-      return
-    }
-  }, [selectedHandCard, summonTarget, store])
-
-  // ── Finalizar preparação ──
-  const handleFinishPrep = () => {
-    store.finishPreparation()
-    setSelectedHandCard(null)
-    setSummonTarget(null)
+  // ── PRÓXIMA FASE ──
+  const handleProximaFase = () => {
+    store.nextTurnPhase()
   }
 
-  // ── Ações de fase ──
-  const handleDraw = () => { store.drawCard() }
-  const handleNextPhase = () => { store.nextPhase() }
-  const handleEndTurn = () => { store.endTurn() }
+  // ── Finalizar turno do player ──
+  const handlePlayerEndTurn = () => {
+    store.playerEndTurn()
+  }
 
-  // ── IA Turn ──
+  // ── IA Turn (executa as 3 fases em sequência) ──
   useEffect(() => {
-    if (store.currentTurn !== 'AI' || store.gamePhase === 'OVER' || fase !== 'game' || iaPending) return
-    if (store.preparationPhase) return
+    if (store.currentTurn !== 'AI' || store.gamePhase !== 'PLAYING' || fase !== 'game' || iaPending) return
 
     const runAI = async () => {
       if (aiRunning.current) return
       aiRunning.current = true
       setIaPending(true)
-      await delay(600)
 
-      // IA compra
-      store.drawCard()
-      await delay(500)
-
-      // IA executa turno completo
-      const currentState = useDueloStore.getState()
-      const aiResult = aiTurn(currentState)
-      store.setAiState(aiResult)
+      // Fase DESCER da IA
+      setIaPhase('DESCER')
       await delay(800)
+      const state1 = useDueloStore.getState()
+      const r1 = aiDescerFase(state1)
+      useDueloStore.getState().setAiState(r1)
+
+      // Verifica se IA venceu
+      if (r1.gamePhase === 'OVER') {
+        aiRunning.current = false
+        setIaPending(false)
+        setIaPhase(null)
+        return
+      }
+
+      // Fase MOVIMENTO da IA (sem movimento na primeira rodada se IA começar)
+      if (!(state1.isFirstTurn && state1.coinResult === 'AI')) {
+        setIaPhase('MOVIMENTO')
+        await delay(600)
+        const state2 = useDueloStore.getState()
+        const r2 = aiMovimentoFase(state2)
+        useDueloStore.getState().setAiState(r2)
+      }
+
+      // Fase ATAQUE da IA
+      setIaPhase('ATAQUE')
+      await delay(800)
+      const state3 = useDueloStore.getState()
+      const r3 = aiAtaqueFase(state3)
+      useDueloStore.getState().setAiState(r3)
+
+      // Verifica se IA venceu no ataque
+      if (r3.gamePhase === 'OVER') {
+        aiRunning.current = false
+        setIaPending(false)
+        setIaPhase(null)
+        return
+      }
 
       // IA encerra turno
+      await delay(500)
       store.endTurn()
-      await delay(400)
 
+      await delay(300)
       aiRunning.current = false
       setIaPending(false)
+      setIaPhase(null)
     }
 
     runAI()
-  }, [store.currentTurn, store.gamePhase, fase, store.preparationPhase])
+  }, [store.currentTurn, store.gamePhase, fase, iaPending, store])
+
+  // ── Verifica condição de vitória após cada ação ──
+  useEffect(() => {
+    const s = useDueloStore.getState()
+    if (s.gamePhase === 'PLAYING') {
+      const vc = checkVictoryCondition(s)
+      if (vc) {
+        store.setState({
+          winner: vc.winner,
+          gamePhase: 'OVER',
+          battleLog: [...s.battleLog, vc.reason],
+        })
+      }
+    }
+  }, [store.grid, store.playerHand, store.aiHand, store.playerDeck, store.aiDeck])
 
   // ── Game Over ──
   useEffect(() => {
     if (store.gamePhase === 'OVER' && fase === 'game') {
-      setTimeout(() => setFase(store.winner === 'PLAYER' ? 'victory' : 'defeat'), 1200)
+      setTimeout(() => setFase(store.winner === 'PLAYER' ? 'victory' : 'defeat'), 1500)
     }
   }, [store.gamePhase, fase, store.winner])
 
   // ── Render ──
-  if (fase === 'menu') return <><DueloMenu onStart={startGame} /></>
+  if (fase === 'menu') return <DueloMenu onStart={startGame} />
+
+  // Coin Toss
+  if (fase === 'coinToss' || store.gamePhase === 'COIN_TOSS') {
+    return (
+      <div className="duelo-page">
+        <CoinTossAnimation />
+      </div>
+    )
+  }
+
+  // Draw Animation
+  if (fase === 'drawAnim' || store.gamePhase === 'DRAW_ANIMATION') {
+    return (
+      <div className="duelo-page">
+        <DrawAnimation />
+      </div>
+    )
+  }
+
   if (fase === 'victory') return <DueloVitoria onRevanche={() => startGame()} onMenu={() => setFase('menu')} />
   if (fase === 'defeat') return <DueloDerrota onRevanche={() => startGame()} onMenu={() => setFase('menu')} />
 
-  const showMonsterTargeting = summonTarget === 'grid' && selectedHandCard
-  const showSpellTargeting = summonTarget === 'spell' && selectedHandCard
-  const showTrapTargeting = summonTarget === 'grid-trap' && selectedHandCard
-  const showPrepTargeting = summonTarget === 'prep-trap' && selectedHandCard
+  const s = store
+  const isPlayerTurn = s.currentTurn === 'PLAYER'
+  const turnPhase = s.turnPhase
+
+  // Hint text baseado no estado atual
+  let hintText = ''
+  if (s.gamePhase === 'OVER') {
+    hintText = ''
+  } else if (s.waitingForGridTarget === 'monster') {
+    hintText = `👆 Clique em uma casa vazia no seu território para posicionar ${s.selectedHandCard?.name}`
+  } else if (s.waitingForGridTarget === 'trap') {
+    hintText = `👆 Clique em uma casa vazia no seu território para armar ${s.selectedHandCard?.name} (oculta)`
+  } else if (s.waitingForGridTarget === 'spell') {
+    hintText = `👆 Clique em um alvo para usar ${s.selectedHandCard?.name}`
+  } else if (turnPhase === 'DESCER' && isPlayerTurn) {
+    hintText = t('games.duelo.hint_descer')
+  } else if (turnPhase === 'MOVIMENTO' && isPlayerTurn) {
+    hintText = t('games.duelo.hint_movimento')
+  } else if (turnPhase === 'ATAQUE' && isPlayerTurn) {
+    hintText = t('games.duelo.hint_ataque')
+  } else if (iaPending) {
+    hintText = `${t('games.duelo.turno_ia_pensando')} (${iaPhase || '...'})`
+  }
 
   return (
     <div className="duelo-page">
-      {/* Fase de Preparação */}
-      {store.preparationPhase && (
-        <div className="duelo-preparation-banner">
-          <h3>⚔ PREPARE SEU CAMPO</h3>
-          <p>Posicione suas armadilhas nas fileiras 3-4.</p>
-          <p>Clique nas armadilhas da mão e depois no grid para posicionar.</p>
-          <p className="duelo-prep-hint">Monstros iniciais já foram posicionados automaticamente.</p>
-          <button className="duelo-phase-btn duelo-prep-btn" onClick={handleFinishPrep}>
-            ✅ PRONTO — COMEÇAR BATALHA
-          </button>
-        </div>
-      )}
-
-      {/* Targeting hint */}
-      {(showMonsterTargeting || showSpellTargeting || showTrapTargeting || showPrepTargeting) && (
+      {/* Hint de targeting */}
+      {hintText && (
         <div className="duelo-targeting-hint">
-          {showMonsterTargeting && `👆 Clique em uma casa vazia nas fileiras 3-4 para invocar ${selectedHandCard.name}`}
-          {showSpellTargeting && `👆 Clique em um monstro alvo para usar ${selectedHandCard.name}`}
-          {(showTrapTargeting || showPrepTargeting) && `👆 Clique em uma casa vazia nas fileiras 3-4 para colocar ${selectedHandCard.name}`}
+          {hintText}
         </div>
       )}
 
-      {/* Grid wrapper - passa clique para o handler */}
-      <div onClick={(e) => {
-        // O Board tem seu próprio onClick nas células, mas precisamos do handler global
-      }}>
-        <Board onGridClick={handleGridClick} selectedHandCard={selectedHandCard} />
+      {/* Confirm Place Modal */}
+      <AnimatePresence>
+        {s.confirmPlace && s.selectedHandCard && (
+          <ConfirmPlaceModal
+            card={s.selectedHandCard}
+            onConfirm={() => store.confirmDescer()}
+            onCancel={() => store.cancelSelection()}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Board */}
+      <div className="duelo-board-wrapper">
+        <Board />
       </div>
 
-      {store.playerHand.length > 0 && (
-        <Hand cards={store.playerHand} onCardClick={handleCardClick} onCardHover={handleCardHover}
-          selectedCardId={selectedHandCard?.id_num} disabled={store.currentTurn !== 'PLAYER' || store.preparationPhase} />
+      {/* Mão do jogador */}
+      {s.playerHand.length > 0 && (
+        <Hand
+          cards={s.playerHand}
+          onCardClick={handleCardClick}
+          onCardHover={handleCardHover}
+          selectedCardId={s.selectedHandCard?.id_num}
+          disabled={!isPlayerTurn || s.gamePhase !== 'PLAYING' || turnPhase !== 'DESCER' || s.waitingForGridTarget !== null || s.confirmPlace}
+        />
       )}
 
-      <StatusBar card={hoveredCard || selectedHandCard} />
-      <BattleLog log={store.battleLog} />
+      <StatusBar card={hoveredCard || s.selectedHandCard} />
+      <BattleLog log={s.battleLog} />
 
       {/* Controles de fase */}
       <div className="duelo-controls">
         <span className="duelo-turn-indicator">
-          {t('games.duelo.turno_label')} <span>{store.turnNumber}</span> · {store.currentTurn === 'PLAYER' ? t('games.duelo.turno_voce') : iaPending ? t('games.duelo.turno_ia_pensando') : t('games.duelo.turno_ia')}
+          {t('games.duelo.turno_label')} <span>{s.turnNumber}</span> · {isPlayerTurn ? t('games.duelo.turno_voce') : iaPending ? `${t('games.duelo.turno_ia_pensando')} (${iaPhase})` : t('games.duelo.turno_ia')}
         </span>
-        <span className="duelo-phase-indicator">Fase: {store.gamePhase}</span>
+        <span className="duelo-phase-indicator">
+          {turnPhase === 'DESCER' ? 'FASE 1 — DESCER' : turnPhase === 'MOVIMENTO' ? 'FASE 2 — MOVIMENTO' : 'FASE 3 — ATAQUE'}
+        </span>
 
-        {store.currentTurn === 'PLAYER' && store.gamePhase !== 'OVER' && !store.preparationPhase && (
+        {isPlayerTurn && s.gamePhase !== 'OVER' && (
           <>
-            <button className="duelo-phase-btn"
-              onClick={handleDraw}
-              disabled={store.gamePhase !== 'COMPRA'}>
-              {t('games.duelo.btn_draw')}
-            </button>
-            <button className={`duelo-phase-btn ${store.gamePhase === 'INVOCAR' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => store.setGamePhase('INVOCAR')}
-              disabled={store.gamePhase === 'COMPRA' || store.gamePhase === 'FIM'}>
-              INVOCAR
-            </button>
-            <button className={`duelo-phase-btn ${store.gamePhase === 'ACAO' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => store.setGamePhase('ACAO')}
-              disabled={store.gamePhase === 'COMPRA' || store.gamePhase === 'FIM'}>
-              AÇÃO
-            </button>
-            <button className={`duelo-phase-btn ${store.gamePhase === 'MAGIA' ? 'duelo-phase-btn--active' : ''}`}
-              onClick={() => store.setGamePhase('MAGIA')}
-              disabled={store.gamePhase === 'COMPRA' || store.gamePhase === 'FIM'}>
-              MAGIA
-            </button>
-            <button className="duelo-phase-btn"
-              onClick={handleEndTurn}
-              disabled={store.gamePhase === 'COMPRA'}>
-              {t('games.duelo.btn_end')}
-            </button>
+            {/* Cancelar seleção de carta na mão */}
+            {s.selectedHandCard && (
+              <button className="duelo-phase-btn" onClick={() => store.cancelSelection()}>
+                ❌ CANCELAR CARTA
+              </button>
+            )}
+
+            {/* PRÓXIMA FASE */}
+            {s.turnPhase === 'DESCER' && !s.waitingForGridTarget && !s.confirmPlace && (
+              <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handleProximaFase}>
+                📋 PRÓXIMA FASE
+              </button>
+            )}
+
+            {s.turnPhase === 'MOVIMENTO' && (
+              <>
+                {s.selectedMonster && s.moveCells.length > 0 && (
+                  <span className="duelo-phase-hint">Clique em uma casa azul para mover</span>
+                )}
+                <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handleProximaFase}>
+                  📋 PRÓXIMA FASE
+                </button>
+              </>
+            )}
+
+            {s.turnPhase === 'ATAQUE' && (
+              <>
+                <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handlePlayerEndTurn}>
+                  ⏹️ ENCERRAR TURNO
+                </button>
+              </>
+            )}
           </>
         )}
 
-        {store.gamePhase === 'OVER' && (
+        {s.gamePhase === 'OVER' && (
           <span className="duelo-phase-over">
-            {store.winner === 'PLAYER' ? `🏆 ${t('games.duelo.vitoria')}!` : `💀 ${t('games.duelo.derrota')}`}
+            {s.winner === 'PLAYER' ? `🏆 ${t('games.duelo.vitoria')}!` : `💀 ${t('games.duelo.derrota')}`}
           </span>
         )}
       </div>

@@ -728,7 +728,7 @@
       "btn_draw": "ROBAR",
       "btn_main": "PRINCIPAL",
       "btn_battle": "BATALLA",
-      "btn_end": "FINAL",
+      "btn_end": "FIN",
       "btn_fechar": "cerrar",
       "btn_cancelar": "cancelar",
       "btn_sacrificar": "SACRIFICAR",
@@ -740,7 +740,15 @@
       "turno_ia": "IA",
       "turno_ia_pensando": "IA pensando...",
       "tribute_titulo": "SELECCIONA {n} TRIBUTO",
-      "tribute_hint": "Sacrifica monstruos del campo para invocar"
+      "tribute_hint": "Sacrifica monstruos del campo para invocar",
+      "sorteando_moeda": "LANZANDO MONEDA...",
+      "voce_comeca": "¡TÚ EMPIEZAS!",
+      "ia_comeca": "¡IA EMPIEZA!",
+      "compra_cartas": "ROBANDO CARTAS...",
+      "mao_pronta": "¡MANO LISTA!",
+      "hint_descer": "Haz clic en una carta de la mano para colocarla",
+      "hint_movimento": "Haz clic en un monstruo aliado para mover",
+      "hint_ataque": "Haz clic en un monstruo aliado para atacar"
     },
     "minigames": {
       "titulo": "MINI JUEGOS",

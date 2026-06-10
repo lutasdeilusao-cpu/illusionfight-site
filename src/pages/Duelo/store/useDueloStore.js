@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS } from '../engine/gameState'
+import { createInitialState, createEmptyGrid, getMoveRange, getAttackRange, GRID_ROWS, GRID_COLS, isPlayerTerritory, isAiTerritory } from '../engine/gameState'
 import { applySpellEffect, applyTrapEffect } from '../engine/effects'
 
 export const useDueloStore = create((set, get) => ({
@@ -9,93 +9,256 @@ export const useDueloStore = create((set, get) => ({
   setState: (partial) => set(typeof partial === 'function' ? partial : partial),
   resetGame: () => set(createInitialState()),
 
-  // ── Compra ──
-  drawCard: () => {
+  // ── Coin Toss ──
+  doCoinToss: () => {
+    const result = Math.random() < 0.5 ? 'PLAYER' : 'AI'
+    set({
+      coinResult: result,
+      currentTurn: result,
+      isFirstPlayer: result === 'PLAYER',
+      isFirstTurn: true,
+      gamePhase: 'COIN_TOSS',
+      battleLog: [...get().battleLog, `🪙 Sorteio da moeda: ${result === 'PLAYER' ? 'Você' : 'IA'} começa!`],
+    })
+  },
+
+  // ── Transição para animação de saque (após 2.5s) ──
+  coinTossComplete: () => {
+    set({ gamePhase: 'DRAW_ANIMATION' })
+  },
+
+  // ── Animação de saque concluída → começa o jogo ──
+  drawAnimationComplete: () => {
+    set({
+      gamePhase: 'PLAYING',
+      turnPhase: 'DESCER',
+      battleLog: [...get().battleLog, '🃏 Mão completa! Escolha uma carta para descer.'],
+    })
+  },
+
+  // ── Avançar animação de saque ──
+  advanceDrawAnim: () => {
+    const state = get()
+    const idx = state.drawAnimIndex + 1
+    if (idx >= 5) {
+      // Animação completa — começa o jogo
+      set({
+        drawAnimIndex: idx,
+        gamePhase: 'PLAYING',
+        turnPhase: 'DESCER',
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        confirmPlace: false,
+        battleLog: [...state.battleLog, '🃏 Mão completa! Escolha uma carta para descer.'],
+      })
+    } else {
+      set({ drawAnimIndex: idx })
+    }
+  },
+
+  // ── Selecionar carta da mão na fase DESCER ──
+  selectHandCard: (card) => {
+    const state = get()
+    if (!card || state.gamePhase !== 'PLAYING' || state.turnPhase !== 'DESCER') return
+    if (state.currentTurn !== 'PLAYER') return
+
+    if (card.type === 'MONSTER') {
+      // Mostra confirmação "Descer no tabuleiro?"
+      set({
+        selectedHandCard: card,
+        confirmPlace: true,
+        waitingForGridTarget: null,
+      })
+    } else if (card.type === 'TRAP') {
+      // Vai direto para posicionamento (oculta)
+      set({
+        selectedHandCard: card,
+        waitingForGridTarget: 'trap',
+        confirmPlace: false,
+      })
+    } else if (card.type === 'SPELL') {
+      // Precisa de alvo no grid
+      set({
+        selectedHandCard: card,
+        waitingForGridTarget: 'spell',
+        confirmPlace: false,
+      })
+    }
+  },
+
+  // ── Confirmar "Descer no tabuleiro?" ──
+  confirmDescer: () => {
+    const state = get()
+    if (!state.confirmPlace || !state.selectedHandCard) return
+    set({
+      confirmPlace: false,
+      waitingForGridTarget: 'monster',
+    })
+  },
+
+  // ── Cancelar seleção de carta ──
+  cancelSelection: () => {
+    set({
+      selectedHandCard: null,
+      waitingForGridTarget: null,
+      confirmPlace: false,
+    })
+  },
+
+  // ── Colocar carta no grid (Fase DESCER) ──
+  placeCardOnGrid: (row, col) => {
     const state = get()
     const isPlayer = state.currentTurn === 'PLAYER'
-    const deckKey = isPlayer ? 'playerDeck' : 'aiDeck'
-    const handKey = isPlayer ? 'playerHand' : 'aiHand'
-    const deck = state[deckKey]
-    if (deck.length === 0) {
-      set({ winner: isPlayer ? 'AI' : 'PLAYER', gamePhase: 'OVER',
-        battleLog: [...state.battleLog, isPlayer ? 'Você ficou sem cartas!' : 'IA ficou sem cartas!'] })
-      return
+    if (!isPlayer || state.turnPhase !== 'DESCER') return
+    const card = state.selectedHandCard
+    if (!card || !state.waitingForGridTarget) return
+
+    const grid = state.grid.map(r => r.map(c => ({ ...c })))
+    const handKey = 'playerHand'
+    const hand = state[handKey]
+
+    if (state.waitingForGridTarget === 'monster') {
+      // Colocar monstro
+      if (grid[row][col].monster) return
+      if (!isPlayerTerritory(row)) return // só no próprio território
+      grid[row][col] = { ...grid[row][col], monster: { ...card, owner: 'PLAYER' } }
+      const newHand = hand.filter(c => c.id_num !== card.id_num)
+      set({
+        grid,
+        playerHand: newHand,
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        battleLog: [...state.battleLog, `🃏 Você desceu ${card.name} em [${row},${col}].`],
+      })
+    } else if (state.waitingForGridTarget === 'trap') {
+      // Colocar armadilha (oculta ao inimigo)
+      if (grid[row][col].trap || grid[row][col].monster) return
+      if (!isPlayerTerritory(row)) return
+      grid[row][col] = { ...grid[row][col], trap: { ...card, revealed: false } }
+      const newHand = hand.filter(c => c.id_num !== card.id_num)
+      set({
+        grid,
+        playerHand: newHand,
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        battleLog: [...state.battleLog, `🕳️ Armadilha ${card.name} armada em [${row},${col}].`],
+      })
+    } else if (state.waitingForGridTarget === 'spell') {
+      // Usar magia — verifica alvo válido
+      const targetCard = grid[row]?.[col]?.monster || null
+      if (!targetCard) {
+        // Magias sem alvo (HEAL, BURN) — pode usar sem monstro alvo
+        const result = applySpellEffect(state, card, 'PLAYER', null)
+        const newHand = hand.filter(c => c.id_num !== card.id_num)
+        const newGraveyard = [...state.playerGraveyard, card]
+        set({
+          playerHand: newHand,
+          playerGraveyard: newGraveyard,
+          tempBuffs: result.updates.tempBuffs || state.tempBuffs,
+          playerLP: result.updates.playerLP ?? state.playerLP,
+          aiLP: result.updates.aiLP ?? state.aiLP,
+          selectedHandCard: null,
+          waitingForGridTarget: null,
+          winner: result.updates.winner || state.winner,
+          ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
+          battleLog: [...state.battleLog, result.log],
+        })
+        return
+      }
+      // Tem alvo — aplica nele
+      const result = applySpellEffect(state, card, 'PLAYER', targetCard)
+      const newHand = hand.filter(c => c.id_num !== card.id_num)
+      const newGraveyard = [...state.playerGraveyard, card]
+      const updates = {
+        playerHand: newHand,
+        playerGraveyard: newGraveyard,
+        tempBuffs: result.updates.tempBuffs || state.tempBuffs,
+        playerLP: result.updates.playerLP ?? state.playerLP,
+        aiLP: result.updates.aiLP ?? state.aiLP,
+        selectedHandCard: null,
+        waitingForGridTarget: null,
+        winner: result.updates.winner || state.winner,
+        ...(result.updates.gamePhase === 'OVER' ? { gamePhase: 'OVER' } : {}),
+        battleLog: [...state.battleLog, result.log],
+      }
+      set(updates)
     }
-    const newDeck = [...deck]
-    const card = newDeck.pop()
-    const newHand = [...state[handKey], card]
+  },
+
+  // ── Avançar para PRÓXIMA FASE (DESCER → MOVIMENTO → ATAQUE → DESCER) ──
+  nextTurnPhase: () => {
+    const state = get()
+    if (state.gamePhase !== 'PLAYING' || state.currentTurn !== 'PLAYER') return
+
+    if (state.turnPhase === 'DESCER') {
+      // NÃO existe MOVIMENTO na primeira rodada para quem começa
+      if (state.isFirstTurn && state.coinResult === 'PLAYER') {
+        set({
+          turnPhase: 'ATAQUE',
+          selectedMonster: null,
+          moveCells: [],
+          attackCells: [],
+          battleLog: [...state.battleLog, '▶ FASE 3 — ATAQUE (sem movimento na primeira rodada)'],
+        })
+      } else {
+        set({
+          turnPhase: 'MOVIMENTO',
+          selectedMonster: null,
+          moveCells: [],
+          attackCells: [],
+          battleLog: [...state.battleLog, '▶ FASE 2 — MOVIMENTO'],
+        })
+      }
+    } else if (state.turnPhase === 'MOVIMENTO') {
+      set({
+        turnPhase: 'ATAQUE',
+        selectedMonster: null,
+        moveCells: [],
+        attackCells: [],
+        battleLog: [...state.battleLog, '▶ FASE 3 — ATAQUE'],
+      })
+    } else if (state.turnPhase === 'ATAQUE') {
+      // Fim do turno do player — passar para IA
+      set({
+        selectedMonster: null,
+        moveCells: [],
+        attackCells: [],
+        battleLog: [...state.battleLog, '⏹️ Fim do seu turno.'],
+      })
+      // endTurn do player será chamado externamente
+      // A IA tomará controle
+    }
+  },
+
+  // ── Fim do turno (limpeza) ──
+  endTurn: () => {
+    const state = get()
+    const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
+    const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
+    const newBuffs = (state.tempBuffs || []).filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
+    const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
+
     set({
-      [deckKey]: newDeck,
-      [handKey]: newHand,
-      gamePhase: 'INVOCAR',
-      hasSummonedThisTurn: false,
-      hasPlayedMagicThisTurn: false,
+      turnPhase: 'DESCER',
+      currentTurn: nextTurn,
+      turnNumber: nextTurnNum,
+      tempBuffs: newBuffs,
+      effects: newEffects,
       monstersThatMoved: [],
       monstersThatAttacked: [],
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
-      battleLog: [...state.battleLog, isPlayer ? `Você comprou: ${card.name}` : 'IA comprou 1 carta'],
+      selectedHandCard: null,
+      waitingForGridTarget: null,
+      confirmPlace: false,
+      battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? '🤖 Turno da IA...' : '🎯 Sua vez!'}`],
+      // Primeira rodada terminou — libera MOVIMENTO para as próximas
+      ...(state.isFirstTurn ? { isFirstTurn: false } : {}),
     })
   },
 
-  // ── Fase de Preparação ──
-  startPreparation: () => {
-    const state = get()
-    // Posiciona monstros iniciais automaticamente para o jogador (3 primeiros da mão)
-    const grid = state.grid.map(row => row.map(cell => ({ ...cell })))
-    let hand = [...state.playerHand]
-    const monsters = hand.filter(c => c.type === 'MONSTER').slice(0, 3)
-    const logs = []
-    let placed = 0
-    for (const card of monsters) {
-      const row = 4 - placed // row 4, 3, 2...
-      if (row < 2) break
-      const col = 2 // centro
-      if (!grid[row][col].monster) {
-        grid[row][col] = { monster: { ...card, owner: 'PLAYER' }, trap: grid[row][col].trap }
-        hand = hand.filter(c => c.id_num !== card.id_num)
-        placed++
-        logs.push(`Você posicionou ${card.name} (${card.atk}/${card.def}) na fileira ${row}.`)
-      }
-    }
-    set({
-      grid, playerHand: hand,
-      preparationPhase: true,
-      battleLog: [...state.battleLog, ...logs, 'Agora coloque suas armadilhas nas fileiras 3-4.'],
-    })
-  },
-
-  // Posiciona armadilha na preparação
-  placeTrapPrep: (row, col) => {
-    const state = get()
-    if (!state.preparationPhase) return
-    const traps = state.playerHand.filter(c => c.type === 'TRAP')
-    if (traps.length === 0) return
-    if (row < 3 || row > 4) return // só nas próprias fileiras
-    const grid = state.grid.map(r => r.map(c => ({ ...c })))
-    if (grid[row][col].trap || grid[row][col].monster) return
-    const trap = traps[0]
-    grid[row][col] = { ...grid[row][col], trap: { ...trap, revealed: false } }
-    const newHand = state.playerHand.filter(c => c.id_num !== trap.id_num)
-    set({
-      grid,
-      playerHand: newHand,
-      battleLog: [...state.battleLog, `Armadilha ${trap.name} colocada em [${row},${col}].`],
-    })
-  },
-
-  // Finaliza preparação
-  finishPreparation: () => {
-    const state = get()
-    set({
-      preparationPhase: false,
-      gamePhase: 'COMPRA',
-      battleLog: [...state.battleLog, '⚔ Preparação concluída! Batalha iniciada!'],
-    })
-  },
-
-  // ── Selecionar monstro no grid ──
+  // ── Selecionar monstro no grid (para MOVIMENTO ou ATAQUE) ──
   selectMonster: (row, col) => {
     const state = get()
     const cell = state.grid[row]?.[col]
@@ -103,20 +266,39 @@ export const useDueloStore = create((set, get) => ({
       set({ selectedMonster: null, moveCells: [], attackCells: [] })
       return
     }
+    const isPlayer = state.currentTurn === 'PLAYER'
+    if (cell.monster.owner !== (isPlayer ? 'PLAYER' : 'AI')) return
+
     const card = cell.monster
     const buff = state.tempBuffs.find(b => b.cardId === card.id_num)
     const effMov = Math.max(0, (card.mov || 0) + (buff?.movBonus || 0))
     const effRng = Math.max(1, (card.rng || 0) + (buff?.rngBonus || 0))
 
-    const moveCells = getMoveRange(state.grid, row, col, effMov, card.owner)
-    const attackCells = getAttackRange(state.grid, row, col, effRng, card.owner)
+    // Na fase MOVIMENTO: monstro que já atacou não pode mover
+    const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === card.id_num)
+    // Na fase ATAQUE: monstro que já atacou não pode atacar de novo
+    const turnPhase = state.turnPhase
+
+    let moveCells = []
+    let attackCells = []
+
+    if (turnPhase === 'MOVIMENTO' && !alreadyAttacked) {
+      const alreadyMoved = state.monstersThatMoved.some(m => m.id === card.id_num)
+      if (!alreadyMoved) {
+        moveCells = getMoveRange(state.grid, row, col, effMov, card.owner)
+      }
+    }
+
+    if (turnPhase === 'ATAQUE') {
+      attackCells = getAttackRange(state.grid, row, col, effRng, card.owner)
+    }
 
     set({ selectedMonster: { row, col }, moveCells, attackCells })
   },
 
   clearSelection: () => set({ selectedMonster: null, moveCells: [], attackCells: [] }),
 
-  // ── Mover monstro ──
+  // ── Mover monstro (Fase MOVIMENTO) ──
   moveMonster: (toRow, toCol) => {
     const state = get()
     const sel = state.selectedMonster
@@ -124,14 +306,13 @@ export const useDueloStore = create((set, get) => ({
     const fromRow = sel.row, fromCol = sel.col
     const cell = state.grid[fromRow][fromCol]
     if (!cell.monster) return
-    // Verifica se está nas casas de MOV
+
     const canMove = state.moveCells.some(c => c.row === toRow && c.col === toCol)
     if (!canMove) return
-    // Verifica se já moveu (por id_num)
+
     const monsterId = cell.monster.id_num
     const alreadyMoved = state.monstersThatMoved.some(m => m.id === monsterId)
     if (alreadyMoved) return
-    // Verifica se já atacou (por id_num)
     const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === monsterId)
     if (alreadyAttacked) return
 
@@ -140,17 +321,35 @@ export const useDueloStore = create((set, get) => ({
     grid[toRow][toCol] = { ...grid[toRow][toCol], monster }
     grid[fromRow][fromCol] = { ...grid[fromRow][fromCol], monster: null }
 
+    // Verifica armadilha no destino
+    const trapAtDest = grid[toRow][toCol].trap
+    let logMsg = `Você moveu ${monster.name} de [${fromRow},${fromCol}] para [${toRow},${toCol}].`
+    let battleLog = [...state.battleLog, logMsg]
+
+    if (trapAtDest) {
+      const result = applyTrapEffect(state, trapAtDest, 'PLAYER')
+      if (result.updates.playerLP !== undefined || result.updates.aiLP !== undefined) {
+        set({
+          playerLP: result.updates.playerLP ?? state.playerLP,
+          aiLP: result.updates.aiLP ?? state.aiLP,
+        })
+      }
+      battleLog = [...battleLog, result.log]
+      // Remove armadilha após ativação
+      grid[toRow][toCol] = { ...grid[toRow][toCol], trap: null }
+    }
+
     set({
       grid,
-      monstersThatMoved: [...state.monstersThatMoved, { id: monsterId, row: toRow, col: toCol }],
+      monstersThatMoved: [...state.monstersThatMoved, { id: monsterId }],
       selectedMonster: { row: toRow, col: toCol },
       moveCells: [],
       attackCells: [],
-      battleLog: [...state.battleLog, `Você moveu ${monster.name} de [${fromRow},${fromCol}] para [${toRow},${toCol}].`],
+      battleLog,
     })
   },
 
-  // ── Atacar ──
+  // ── Atacar (Fase ATAQUE) ──
   attackMonster: (targetRow, targetCol) => {
     const state = get()
     const sel = state.selectedMonster
@@ -162,22 +361,19 @@ export const useDueloStore = create((set, get) => ({
     const attacker = cell.monster
     const owner = attacker.owner
 
-    // Verifica se pode atacar (no RNG)
     const canAttack = state.attackCells.some(c => c.row === targetRow && c.col === targetCol)
     if (!canAttack) return
 
-    // Verifica se já atacou (por id_num)
     const monsterId = attacker.id_num
     const alreadyAttacked = state.monstersThatAttacked.some(m => m.id === monsterId)
     if (alreadyAttacked) return
 
     const targetCell = state.grid[targetRow]?.[targetCol]
     if (!targetCell?.monster) return
-    if (targetCell.monster.owner === owner) return // não ataca próprio aliado
+    if (targetCell.monster.owner === owner) return
 
     const defender = targetCell.monster
 
-    // Buffs
     const aBuff = state.tempBuffs.find(b => b.cardId === attacker.id_num)
     const dBuff = state.tempBuffs.find(b => b.cardId === defender.id_num)
     const effAtk = (attacker.atk || 0) + (aBuff?.atkBonus || 0)
@@ -188,7 +384,8 @@ export const useDueloStore = create((set, get) => ({
     let aiLP = state.aiLP
     const grid = state.grid.map(r => r.map(c => ({ ...c })))
     let log = ''
-    let newGraveyard = [...state.playerGraveyard]
+    let graveyardKey = isPlayerAtk ? 'playerGraveyard' : 'aiGraveyard'
+    let newGraveyard = [...state[graveyardKey]]
 
     if (effAtk > effDef) {
       const diff = effAtk - effDef
@@ -196,14 +393,14 @@ export const useDueloStore = create((set, get) => ({
       else playerLP = Math.max(0, playerLP - diff)
       newGraveyard.push(defender)
       grid[targetRow][targetCol] = { monster: null, trap: grid[targetRow][targetCol]?.trap || null }
-      log = `💥 ${attacker.name} (${effAtk}) destruiu ${defender.name} (${effDef})! ${diff} de dano.`
+      log = `💥 ${attacker.name} (${effAtk}) destruiu ${defender.name} (${effDef})! ${diff} de dano!`
     } else if (effAtk < effDef) {
       const diff = effDef - effAtk
       if (isPlayerAtk) playerLP = Math.max(0, playerLP - diff)
       else aiLP = Math.max(0, aiLP - diff)
       newGraveyard.push(attacker)
       grid[fromRow][fromCol] = { monster: null, trap: grid[fromRow][fromCol]?.trap || null }
-      log = `💥 ${attacker.name} (${effAtk}) foi destruído por ${defender.name} (${effDef})! ${diff} de dano.`
+      log = `💥 ${attacker.name} (${effAtk}) foi destruído por ${defender.name} (${effDef})! ${diff} de dano!`
     } else {
       log = `⚔️ ${attacker.name} (${effAtk}) vs ${defender.name} (${effDef}): empate!`
     }
@@ -213,7 +410,8 @@ export const useDueloStore = create((set, get) => ({
     set({
       grid,
       playerLP, aiLP,
-      monstersThatAttacked: [...state.monstersThatAttacked, { id: monsterId, row: targetRow, col: targetCol }],
+      [graveyardKey]: newGraveyard,
+      monstersThatAttacked: [...state.monstersThatAttacked, { id: monsterId }],
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
@@ -222,114 +420,21 @@ export const useDueloStore = create((set, get) => ({
     })
   },
 
-  // ── Invocar monstro da mão para o grid ──
-  summonMonster: (cardId, row, col) => {
+  // ── Avançar para fim de turno após ATAQUE do player ──
+  playerEndTurn: () => {
     const state = get()
-    const isPlayer = state.currentTurn === 'PLAYER'
-    if (isPlayer && state.gamePhase !== 'INVOCAR') return
-    if (state.hasSummonedThisTurn) return
-
-    const handKey = isPlayer ? 'playerHand' : 'aiHand'
-    const hand = state[handKey]
-    const card = hand.find(c => c.id_num === cardId)
-    if (!card || card.type !== 'MONSTER') return
-
-    // Verifica se a casa está no próprio território (rows 3-4 player, 0-1 AI)
-    if (isPlayer && (row < 3 || row > 4)) return
-    if (!isPlayer && (row > 1)) return
-
-    const grid = state.grid.map(r => r.map(c => ({ ...c })))
-    if (grid[row][col].monster) return
-
-    grid[row][col] = { ...grid[row][col], monster: { ...card, owner: isPlayer ? 'PLAYER' : 'AI' } }
-    const newHand = hand.filter(c => c.id_num !== cardId)
-
     set({
-      grid,
-      [handKey]: newHand,
-      hasSummonedThisTurn: true,
-      battleLog: [...state.battleLog, `${isPlayer ? 'Você' : 'IA'} invocou ${card.name} em [${row},${col}].`],
-    })
-  },
-
-  // ── Usar magia ──
-  useSpell: (cardId, targetRow, targetCol) => {
-    const state = get()
-    const isPlayer = state.currentTurn === 'PLAYER'
-    if (isPlayer && state.gamePhase !== 'MAGIA') return
-    if (state.hasPlayedMagicThisTurn) return
-
-    const handKey = isPlayer ? 'playerHand' : 'aiHand'
-    const hand = state[handKey]
-    const card = hand.find(c => c.id_num === cardId)
-    if (!card || card.type !== 'SPELL') return
-
-    // Aplica efeito
-    const targetCard = state.grid[targetRow]?.[targetCol]?.monster || null
-    const result = applySpellEffect(state, card, isPlayer ? 'PLAYER' : 'AI', targetCard)
-
-    const grid = state.grid.map(r => r.map(c => ({ ...c })))
-    const newHand = hand.filter(c => c.id_num !== cardId)
-    const newGraveyard = [...(isPlayer ? state.playerGraveyard : state.aiGraveyard), card]
-    const playerLP = result.updates.playerLP ?? state.playerLP
-    const aiLP = result.updates.aiLP ?? state.aiLP
-
-    set({
-      [handKey]: newHand,
-      [isPlayer ? 'playerGraveyard' : 'aiGraveyard']: newGraveyard,
-      tempBuffs: result.updates.tempBuffs || state.tempBuffs,
-      playerLP,
-      aiLP,
-      hasPlayedMagicThisTurn: true,
-      gamePhase: result.updates.gamePhase || 'ACAO',
-      winner: result.updates.winner || state.winner,
-      battleLog: [...state.battleLog, result.log],
-    })
-  },
-
-  // ── Avançar fase ──
-  nextPhase: () => {
-    const state = get()
-    const isPlayer = state.currentTurn === 'PLAYER'
-    const phases = ['COMPRA', 'INVOCAR', 'ACAO', 'MAGIA', 'FIM']
-    const currentIdx = phases.indexOf(state.gamePhase)
-    if (currentIdx < 0 || currentIdx >= phases.length - 1) return
-    set({
-      gamePhase: phases[currentIdx + 1],
-      battleLog: [...state.battleLog, `${isPlayer ? 'Você' : 'IA'} avançou para fase ${phases[currentIdx + 1]}.`],
-    })
-  },
-
-  // ── Pular para fase específica ──
-  setGamePhase: (phase) => set({ gamePhase: phase }),
-
-  // ── End Phase ──
-  endTurn: () => {
-    const state = get()
-    const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
-    const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
-    const newBuffs = (state.tempBuffs || []).filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
-    const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
-
-    // Aplica dano de veneno (effeito POISON)
-    let playerLP = state.playerLP
-    let aiLP = state.aiLP
-    // (simplificado — veneno seria aplicado via effects)
-
-    set({
-      gamePhase: 'COMPRA',
-      currentTurn: nextTurn,
-      turnNumber: nextTurnNum,
-      tempBuffs: newBuffs,
-      effects: newEffects,
-      hasSummonedThisTurn: false,
-      hasPlayedMagicThisTurn: false,
+      turnPhase: 'DESCER',
+      currentTurn: 'AI',
       monstersThatMoved: [],
       monstersThatAttacked: [],
       selectedMonster: null,
       moveCells: [],
       attackCells: [],
-      battleLog: [...state.battleLog, `${state.currentTurn === 'PLAYER' ? 'Fim do seu turno.' : 'IA encerrou o turno.'}`],
+      selectedHandCard: null,
+      waitingForGridTarget: null,
+      confirmPlace: false,
+      battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },
 

@@ -1,61 +1,34 @@
-import { draw } from './deck'
+// phases.js — fases do Duelo Campo de Batalha v2.0
+// As fases agora são gerenciadas pelo store principal (DESCER → MOVIMENTO → ATAQUE)
+// Este arquivo mantém funções auxiliares de limpeza de estado entre turnos
 
-// Draw Phase: compra 1 carta
-export function executeDrawPhase(state, isPlayer) {
-  const deck = isPlayer ? state.playerDeck : state.aiDeck
-  const hand = isPlayer ? state.playerHand : state.aiHand
-  const deckKey = isPlayer ? 'playerDeck' : 'aiDeck'
-  const handKey = isPlayer ? 'playerHand' : 'aiHand'
+import { GRID_ROWS, GRID_COLS } from './gameState'
 
-  if (deck.length === 0) {
-    const msg = isPlayer ? 'Você ficou sem cartas! Derrota por deck out.' : 'IA ficou sem cartas! Vitória!'
-    return {
-      [deckKey]: deck,
-      [handKey]: hand,
-      gamePhase: 'OVER',
-      winner: isPlayer ? 'AI' : 'PLAYER',
-      battleLog: [...state.battleLog, msg],
+// Conta monstros de um dono no grid
+export function countMonstersOnField(grid, owner) {
+  let count = 0
+  for (let r = 0; r < GRID_ROWS; r++) {
+    for (let c = 0; c < GRID_COLS; c++) {
+      if (grid[r][c]?.monster?.owner === owner) count++
     }
   }
-
-  const newDeck = [...deck]
-  const card = newDeck.pop()
-  const newHand = [...hand, card]
-  const msg = isPlayer ? `Você comprou: ${card.name}` : 'IA comprou 1 carta'
-
-  return {
-    [deckKey]: newDeck,
-    [handKey]: newHand,
-    gamePhase: 'INVOCAR',
-    hasSummonedThisTurn: false,
-    hasPlayedMagicThisTurn: false,
-    monstersThatMoved: [],
-    monstersThatAttacked: [],
-    battleLog: [...state.battleLog, msg],
-  }
+  return count
 }
 
-// End Phase: limpa buffs/efeitos, troca turno
-export function executeEndPhase(state) {
-  const nextTurn = state.currentTurn === 'PLAYER' ? 'AI' : 'PLAYER'
-  const nextTurnNum = nextTurn === 'PLAYER' ? state.turnNumber + 1 : state.turnNumber
-  const newBuffs = state.tempBuffs.filter(b => (b.expiresOnTurn || 99) > state.turnNumber)
-  const newEffects = (state.effects || []).filter(e => (e.expiresOnTurn || 99) > state.turnNumber)
-  const msg = state.currentTurn === 'PLAYER' ? 'Fim do seu turno.' : 'IA encerrou o turno.'
+// Verifica condição de vitória: jogador sem monstros e sem cartas na mão para invocar
+export function checkVictoryCondition(state) {
+  const playerMonsters = countMonstersOnField(state.grid, 'PLAYER')
+  const aiMonsters = countMonstersOnField(state.grid, 'AI')
 
-  return {
-    gamePhase: 'COMPRA',
-    currentTurn: nextTurn,
-    turnNumber: nextTurnNum,
-    tempBuffs: newBuffs,
-    effects: newEffects,
-    hasSummonedThisTurn: false,
-    hasPlayedMagicThisTurn: false,
-    monstersThatMoved: [],
-    monstersThatAttacked: [],
-    selectedMonster: null,
-    moveCells: [],
-    attackCells: [],
-    battleLog: [...state.battleLog, msg],
+  // Player sem monstros e sem cartas monstro na mão
+  if (playerMonsters === 0 && !state.playerHand.some(c => c.type === 'MONSTER') && state.playerDeck.length === 0) {
+    return { winner: 'AI', reason: 'Você não tem mais monstros para invocar!' }
   }
+
+  // IA sem monstros e sem cartas monstro na mão
+  if (aiMonsters === 0 && !state.aiHand.some(c => c.type === 'MONSTER') && state.aiDeck.length === 0) {
+    return { winner: 'PLAYER', reason: 'IA não tem mais monstros para invocar!' }
+  }
+
+  return null
 }

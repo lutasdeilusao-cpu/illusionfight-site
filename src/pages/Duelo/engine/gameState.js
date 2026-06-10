@@ -1,10 +1,7 @@
 import CARDS from '../data/cards'
 import { createShuffledDeck, drawMultiple } from './deck'
 
-// Grid 5×5 — 25 casas
-// Linhas 0-1: território AI
-// Linha 2: neutro
-// Linhas 3-4: território Player
+// Grid 5×5 — 25 casas — todas uniformes (sem distinção visual de território)
 export const GRID_ROWS = 5
 export const GRID_COLS = 5
 
@@ -78,6 +75,12 @@ export function getAttackRange(grid, row, col, rng, owner) {
   return cells
 }
 
+// Verifica se uma célula está em território do jogador ou da IA
+// Linhas 0-1: território AI, Linha 2: neutro, Linhas 3-4: território Player
+// (usado apenas na lógica, não no visual)
+export function isPlayerTerritory(row) { return row >= 3 }
+export function isAiTerritory(row) { return row <= 1 }
+
 // Cria estado inicial completo para nova partida
 export function createInitialState() {
   const playerDeck = createShuffledDeck(CARDS)
@@ -95,30 +98,38 @@ export function createInitialState() {
     aiHand,
     playerGraveyard: [],
     aiGraveyard: [],
-    // Grid 5×5
+    // Grid 5×5 — uniforme (sem cor de território)
     grid: createEmptyGrid(),
     // Controle de seleção
     selectedMonster: null,   // { row, col }
     moveCells: [],           // casas destacadas para MOV
     attackCells: [],         // casas destacadas para RNG
-    // Fases: PREPARATION | COMPRA | INVOCAR | ACAO | MAGIA | FIM | OVER
-    gamePhase: 'PREPARATION',
+    // Fases globais: COIN_TOSS | DRAW_ANIMATION | PLAYING | OVER
+    gamePhase: 'COIN_TOSS',
+    // Fases do turno (turnPhase): DESCER | MOVIMENTO | ATAQUE
+    turnPhase: 'DESCER',
     currentTurn: 'PLAYER',
     turnNumber: 1,
     // Controle de ações por turno
-    monstersThatMoved: [],   // [{ row, col }] — monstros que já se moveram neste turno
-    monstersThatAttacked: [], // [{ row, col }] — monstros que já atacaram neste turno
-    hasSummonedThisTurn: false,
-    hasPlayedMagicThisTurn: false,
+    monstersThatMoved: [],    // [{ id: id_num }] — monstros que já se moveram neste turno
+    monstersThatAttacked: [], // [{ id: id_num }] — monstros que já atacaram neste turno
     // Estado de interação
-    selectedHandCard: null,  // carta da mão selecionada para invocar
-    battleLog: ['⚔ DUELO — CAMPO DE BATALHA INICIADO', 'Prepare seu campo!'],
+    selectedHandCard: null,  // carta da mão selecionada para descer
+    waitingForGridTarget: null, // 'monster' | 'spell' | 'trap' | null
+    confirmPlace: false,     // true quando precisa confirmar "Descer no tabuleiro?"
+    battleLog: ['⚔ DUELO — CAMPO DE BATALHA INICIADO'],
     winner: null,
     tempBuffs: [], // { cardId, atkBonus, defBonus, movBonus, rngBonus, expiresOnTurn, type }
     effects: [],   // efeitos temporários no grid { row, col, effect, duration, owner }
-    // Fase de preparação
-    preparationPhase: true,
-    placedMonsters: 0,
-    maxStartMonsters: 3,
+    // Flag para primeira rodada do primeiro jogador (sem movimento)
+    isFirstPlayer: true,
+    isFirstTurn: true,
+    // Coin toss
+    coinResult: null, // 'PLAYER' | 'AI'
+    // Animação de saque
+    drawAnimCards: [],  // cartas sendo animadas
+    drawAnimIndex: 0,
+    // Controle de IA
+    aiTurnPhase: 'DESCER',
   }
 }

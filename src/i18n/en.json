@@ -740,7 +740,15 @@
       "turno_ia": "AI",
       "turno_ia_pensando": "AI thinking...",
       "tribute_titulo": "SELECT {n} TRIBUTE",
-      "tribute_hint": "Sacrifice monsters on the field to summon"
+      "tribute_hint": "Sacrifice monsters from the field to summon",
+      "sorteando_moeda": "FLIPPING COIN...",
+      "voce_comeca": "YOU START!",
+      "ia_comeca": "AI STARTS!",
+      "compra_cartas": "DRAWING CARDS...",
+      "mao_pronta": "HAND READY!",
+      "hint_descer": "Click a card from your hand to place on the board",
+      "hint_movimento": "Click an ally monster to move",
+      "hint_ataque": "Click an ally monster to attack"
     },
     "minigames": {
       "titulo": "MINI GAMES",

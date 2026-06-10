@@ -1,6 +1,6 @@
 import { useDueloStore } from '../store/useDueloStore'
 import LPDisplay from './LPDisplay'
-import { GRID_ROWS, GRID_COLS } from '../engine/gameState'
+import { GRID_ROWS, GRID_COLS, isPlayerTerritory } from '../engine/gameState'
 
 export default function Board() {
   const store = useDueloStore()
@@ -14,32 +14,59 @@ export default function Board() {
   const isAttackCell = (r, c) => attackCells.some(a => a.row === r && a.col === c)
   const isSelected = (r, c) => sel?.row === r && sel?.col === c
 
+  const getEffectiveAtk = (card) => {
+    const buff = store.tempBuffs?.find(b => b.cardId === card.id_num)
+    return (card.atk || 0) + (buff?.atkBonus || 0)
+  }
+
+  const getEffectiveDef = (card) => {
+    const buff = store.tempBuffs?.find(b => b.cardId === card.id_num)
+    return (card.def || 0) + (buff?.defBonus || 0)
+  }
+
+  // O clique é tratado pelo DueloRoute via função global
   const handleCellClick = (r, c) => {
-    const cell = grid[r][c]
     const s = useDueloStore.getState()
+    if (s.gamePhase !== 'PLAYING' && s.gamePhase !== 'OVER') return
 
-    if (s.gamePhase === 'OVER' || s.gamePhase === 'PREPARATION') return
+    // Se não é turno do player, não faz nada
+    if (s.currentTurn !== 'PLAYER') return
 
-    // Se tem monstro selecionado e clicou em casa de MOV
-    if (s.selectedMonster && isMoveCell(r, c)) {
-      s.moveMonster(r, c)
+    // Fase DESCER — colocar carta
+    if (s.turnPhase === 'DESCER' && s.waitingForGridTarget) {
+      s.placeCardOnGrid(r, c)
       return
     }
 
-    // Se tem monstro selecionado e clicou em inimigo no RNG
-    if (s.selectedMonster && isAttackCell(r, c) && cell?.monster && cell.monster.owner !== s.grid[s.selectedMonster.row][s.selectedMonster.col]?.monster?.owner) {
-      s.attackMonster(r, c)
+    // Fase MOVIMENTO
+    if (s.turnPhase === 'MOVIMENTO') {
+      const cell = grid[r][c]
+      if (s.selectedMonster && isMoveCell(r, c)) {
+        s.moveMonster(r, c)
+        return
+      }
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        s.selectMonster(r, c)
+        return
+      }
+      s.clearSelection()
       return
     }
 
-    // Clicou no próprio monstro — seleciona
-    if (cell?.monster && cell.monster.owner === 'PLAYER') {
-      s.selectMonster(r, c)
+    // Fase ATAQUE
+    if (s.turnPhase === 'ATAQUE') {
+      const cell = grid[r][c]
+      if (s.selectedMonster && isAttackCell(r, c) && cell?.monster && cell.monster.owner !== 'PLAYER') {
+        s.attackMonster(r, c)
+        return
+      }
+      if (cell?.monster && cell.monster.owner === 'PLAYER') {
+        s.selectMonster(r, c)
+        return
+      }
+      s.clearSelection()
       return
     }
-
-    // Clicou em casa vazia — limpa seleção
-    s.clearSelection()
   }
 
   const getCellClass = (r, c) => {
@@ -51,32 +78,20 @@ export default function Board() {
     if (cell?.monster) {
       classes += cell.monster.owner === 'PLAYER' ? ' duelo-grid-cell--ally' : ' duelo-grid-cell--enemy'
     }
-    if (r <= 1) classes += ' duelo-grid-cell--ai-territory'
-    else if (r >= 3) classes += ' duelo-grid-cell--player-territory'
-    else classes += ' duelo-grid-cell--neutral'
+    // Células uniformes — sem distinção visual de território
     return classes
-  }
-
-  const getEffectiveAtk = (card) => {
-    const buff = store.tempBuffs?.find(b => b.cardId === card.id_num)
-    return (card.atk || 0) + (buff?.atkBonus || 0)
-  }
-
-  const getEffectiveDef = (card) => {
-    const buff = store.tempBuffs?.find(b => b.cardId === card.id_num)
-    return (card.def || 0) + (buff?.defBonus || 0)
   }
 
   return (
     <div className="duelo-board">
-      {/* LP bar */}
+      {/* LP bars */}
       <div className="duelo-lp-row">
         <LPDisplay lp={store.aiLP} isPlayer={false} />
         <div className="duelo-deck-info">
           <span>🂠 {store.aiDeck.length}</span>
           <span className="duelo-deck-label">IA</span>
         </div>
-        <div className="duelo-versus">VS</div>
+        <div className="duelo-versus">⚔</div>
         <div className="duelo-deck-info">
           <span className="duelo-deck-label">VOCÊ</span>
           <span>🂠 {store.playerDeck.length}</span>
@@ -84,7 +99,7 @@ export default function Board() {
         <LPDisplay lp={store.playerLP} isPlayer={true} />
       </div>
 
-      {/* Grid 5×5 */}
+      {/* Grid 5×5 — uniforme */}
       <div className="duelo-grid-container">
         <div className="duelo-grid">
           {Array.from({ length: GRID_ROWS }, (_, r) => (
@@ -93,11 +108,16 @@ export default function Board() {
                 const cell = grid[r][c]
                 const monster = cell?.monster
                 const trap = cell?.trap
+
+                // Armadilha visível ao dono, oculta ao inimigo
                 const showTrap = trap && (
-                  (trap.revealed) ||
-                  (monster?.owner === 'PLAYER' && r >= 3) ||
-                  (!monster && r >= 3 && trap)
+                  trap.revealed ||
+                  (monster?.owner === 'PLAYER') ||
+                  (isPlayerTerritory(r) && trap && !monster)
                 )
+
+                // Armadilha oculta pro player se for da IA no território dela
+                const showHiddenTrap = !showTrap && trap && !monster && !isPlayerTerritory(r)
 
                 return (
                   <div
@@ -109,8 +129,8 @@ export default function Board() {
                       <div className={`duelo-grid-monster duelo-grid-monster--${monster.owner?.toLowerCase()}`}>
                         <span className="duelo-grid-monster-name">{monster.name}</span>
                         <div className="duelo-grid-monster-stats">
-                          <span className="duelo-stat-atk">⚔ {getEffectiveAtk(monster)}</span>
-                          <span className="duelo-stat-def">🛡 {getEffectiveDef(monster)}</span>
+                          <span className="duelo-stat-atk">⚔{getEffectiveAtk(monster)}</span>
+                          <span className="duelo-stat-def">🛡{getEffectiveDef(monster)}</span>
                           {monster.mov !== undefined && (
                             <span className="duelo-stat-mov">👟{monster.mov}</span>
                           )}
@@ -125,6 +145,11 @@ export default function Board() {
                         {trap.revealed ? '🕳️' : '⚡'}
                       </div>
                     )}
+                    {showHiddenTrap && !monster && (
+                      <div className="duelo-grid-trap duelo-grid-trap--hidden">
+                        ❓
+                      </div>
+                    )}
                   </div>
                 )
               })}
@@ -136,9 +161,9 @@ export default function Board() {
       {/* Dica de interação */}
       {isPlayerTurn && store.selectedMonster && (
         <div className="duelo-grid-hint">
-          {store.moveCells.length > 0 && 'Clique em casa azul para mover | '}
-          {store.attackCells.some(c => grid[c.row][c.col]?.monster?.owner === 'AI') && 'Clique em casa vermelha para atacar | '}
-          Clique em outra casa ou no mesmo monstro para deselecionar
+          {store.moveCells.length > 0 && '👟 Clique em casa destacada para mover | '}
+          {store.attackCells.length > 0 && '⚔ Clique em inimigo destacado para atacar | '}
+          Clique em outro monstro aliado para selecionar
         </div>
       )}
     </div>

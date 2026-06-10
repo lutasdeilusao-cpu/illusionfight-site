@@ -740,7 +740,15 @@
       "turno_ia": "IA",
       "turno_ia_pensando": "IA pensando...",
       "tribute_titulo": "SELECIONE {n} TRIBUTO",
-      "tribute_hint": "Sacrifique monstros do campo para invocar"
+      "tribute_hint": "Sacrifique monstros do campo para invocar",
+      "sorteando_moeda": "SORTEANDO MOEDA...",
+      "voce_comeca": "VOCÊ COMEÇA!",
+      "ia_comeca": "IA COMEÇA!",
+      "compra_cartas": "COMPRANDO CARTAS...",
+      "mao_pronta": "MÃO PRONTA!",
+      "hint_descer": "Clique numa carta da mão para descer no tabuleiro",
+      "hint_movimento": "Clique num monstro aliado para mover",
+      "hint_ataque": "Clique num monstro aliado para atacar"
     },
     "minigames": {
       "titulo": "MINI GAMES",

@@ -611,17 +611,8 @@
   font-size: 8px;
 }
 
-.duelo-grid-cell--ai-territory {
-  background: rgba(139,0,0,0.03);
-  border-color: rgba(139,0,0,0.1);
-}
-
-.duelo-grid-cell--player-territory {
-  background: rgba(0,100,180,0.03);
-  border-color: rgba(0,100,180,0.1);
-}
-
-.duelo-grid-cell--neutral {
+/* Grid uniforme — sem distinção visual de território */
+.duelo-grid-cell--default {
   background: rgba(255,255,255,0.01);
 }
 
@@ -713,6 +704,202 @@
 .duelo-grid-trap {
   font-size: 16px;
   opacity: 0.6;
+}
+
+.duelo-grid-trap--hidden {
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+/* ── COIN TOSS ── */
+.duelo-coin-toss {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 60vh;
+}
+
+.duelo-coin {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F5A623, #8B6914);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #F5A623;
+  box-shadow: 0 0 40px rgba(245,166,35,0.3);
+}
+
+.duelo-coin-face {
+  font-size: 48px;
+}
+
+.duelo-coin-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  color: #F5A623;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+/* ── DRAW ANIMATION ── */
+.duelo-draw-animation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-height: 60vh;
+}
+
+.duelo-draw-title {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 4px;
+}
+
+.duelo-draw-cards {
+  display: flex;
+  gap: 0;
+  position: relative;
+  height: 120px;
+  width: 100%;
+  justify-content: center;
+}
+
+.duelo-draw-card {
+  position: absolute;
+  width: 60px;
+  height: 90px;
+}
+
+.duelo-draw-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: 8px;
+  text-align: center;
+  padding: 4px;
+  border: 2px solid #3A3A5A;
+  background: #0D0D1A;
+  color: #F5A623;
+}
+
+.duelo-draw-card--revealed {
+  border-color: #F5A623;
+  background: linear-gradient(135deg, rgba(245,166,35,0.1), #0D0D1A);
+}
+
+.duelo-draw-card-back {
+  font-size: 16px;
+  color: #3A3A5A;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.duelo-draw-card-name {
+  font-size: 7px;
+  color: #F5A623;
+  font-weight: 700;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.duelo-draw-ready {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  color: #F5A623;
+  letter-spacing: 4px;
+}
+
+/* ── CONFIRM PLACE MODAL ── */
+.duelo-confirm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.duelo-confirm-modal {
+  background: #0D0D1A;
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: 8px;
+  padding: 24px 32px;
+  text-align: center;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 40px rgba(245,166,35,0.15);
+}
+
+.duelo-confirm-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  color: #F5A623;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.duelo-confirm-desc {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.duelo-confirm-flavor {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #555;
+  font-style: italic;
+  margin: 0;
+}
+
+.duelo-confirm-question {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  color: #aaa;
+  margin: 4px 0;
+  letter-spacing: 2px;
+}
+
+.duelo-confirm-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ── PHASE HINT ── */
+.duelo-phase-hint {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: #00B4D8;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+}
+
+/* ── BOARD WRAPPER ── */
+.duelo-board-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
 }
 
 /* ── Grid Hint ── */
