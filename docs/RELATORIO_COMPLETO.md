@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.39  
-> **Versão do Site:** 9.93  
+> **Versão do Relatório:** 2.41  
+> **Versão do Site:** 9.95  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.7.4  
+**Versão:** 1.10.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -455,8 +455,15 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **85%**  
-**O que falta:** Mais inimigos, balanceamento, polimento de UI.
+**Status Geral:** ✅ **87%**  
+**Melhorias v1.10.0:**
+- 🎵 **SFX System** — sons sintetizados em batalha (ataque, hit, vitória, derrota, clicks) com toggle 🔇
+- 📜 **Auto-scroll** — chat da batalha sempre rola automaticamente para a mensagem mais recente
+- 🐛 **BackToGamesBtn fix** — import ausente causava `ReferenceError` na criação de ficha e tela de vitória
+- 🚪 **Exit button** — botão SAIR na batalha para voltar aos oponentes
+- 🗑️ **Delete button** — mais visível (destaque vermelho, escala hover)
+- 🗄️ **Delete fix** — Supabase delete com tratamento de erro
+- 🌐 **i18n** — novas chaves `btn_sair` e `erro_excluir` pt/en/es
 
 ---
 
@@ -1001,7 +1008,7 @@ STATUS: ✅ limpo
 | **MiniGames** (8 jogos) | 90% | 🟢 | Todos funcionais |
 | **Top Trumps** (Single) | 100% | 🟢 | Finalizado, balanceado, artes oficiais |
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
-| **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
+| **Arena LDI** (combate CPU) | 87% | 🟡 | 8 inimigos, SFX, auto-scroll, exit btn |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |

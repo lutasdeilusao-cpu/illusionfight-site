@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.95*  |  `[SITE] versão carregada: 9.95`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.0 — SFX, auto-scroll, BackToGamesBtn fix, exit btn, delete fix, +i18n
 *Versão: 9.94*  |  `[SITE] versão carregada: 9.94`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ fix: SEO IIFE missing semicolon causing `(intermediate value)(...) is not a function` no load
 *Versão: 9.93*  |  `[SITE] versão carregada: 9.93`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar
 *Versão: 9.92*  |  `[SITE] versão carregada: 9.92`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — ataque direto Yu-Gi-Oh style (sem monstros inimigos = ataque direto aos LP)
@@ -80,7 +81,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*ARENA versão: 1.9.0* | `[ARENA] versão carregada: 1.9.0` (i18n completo: atributos, elementais, vantagens, desvantagens, perks, especializações, manual batalha pt/en/es)
+*ARENA versão: 1.10.0* | `[ARENA] versão carregada: 1.10.0` (SFX, auto-scroll, BackToGamesBtn fix, exit btn, delete fix)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`

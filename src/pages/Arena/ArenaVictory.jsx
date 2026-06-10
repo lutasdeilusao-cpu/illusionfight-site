@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
+import { sfx } from '../../lib/sfx'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
 
@@ -13,6 +15,7 @@ export default function ArenaVictory({ onNavigate }) {
   const { user } = useAuth()
   const store = useArenaStore()
   const { sheet, match } = store
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   const enemy = match.enemy
 
   const isVitoria = match.status === 'victory'
@@ -85,6 +88,9 @@ export default function ArenaVictory({ onNavigate }) {
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
           <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />
+          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+            {sfx.enabled ? '🔊' : '🔇'}
+          </button>
         </div>
       </div>
     )
@@ -195,8 +201,9 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.escolher_outra')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />
-        </div>
+          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+            {sfx.enabled ? '🔊' : '🔇'}
+          </button>        </div>
       </motion.div>
     </div>
   )

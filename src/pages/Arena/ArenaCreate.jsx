@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
+import { sfx } from '../../lib/sfx'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
 const ATTR_EMOJI = { F: '💪', H: '🎯', R: '🛡️', A: '🦾', PdF: '✨' }
@@ -91,6 +93,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const [errors, setErrors] = useState({})
   const [manualOpen, setManualOpen] = useState(false)
   const [tooltip, setTooltip] = useState(null)
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   const longPressRef = useRef(null)
 
   useEffect(() => {
@@ -169,12 +172,12 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
           <div className="arena-lobby-divider" />
           <div className="arc-intro-grid">
-            <div className="arc-intro-card" onClick={() => setManualOpen(true)}>
+            <div className="arc-intro-card" onClick={() => { sfx.click(); setManualOpen(true) }}>
               <div className="arc-intro-card-icon">📖</div>
               <div className="arc-intro-card-titulo">{t('games.arena.intro_ler_manual')}</div>
               <div className="arc-intro-card-sub">{t('games.arena.intro_ler_manual_sub')}</div>
             </div>
-            <div className="arc-intro-card arc-intro-card--primary" onClick={() => setStep('attrs')}>
+            <div className="arc-intro-card arc-intro-card--primary" onClick={() => { sfx.click(); setStep('attrs') }}>
               <div className="arc-intro-card-icon">⚔️</div>
               <div className="arc-intro-card-titulo">{t('games.arena.intro_criar_direto')}</div>
               <div className="arc-intro-card-sub">{t('games.arena.intro_criar_direto_sub')}</div>
@@ -188,6 +191,9 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {step !== 'intro' && (
         <div className="arc-header">
           <BackToGamesBtn onClick={() => navigate('/games')} label="← EXTRAS" />
+          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+            {sfx.enabled ? '🔊' : '🔇'}
+          </button>
           <div className="arc-header-center">
             <p className="arena-lobby-titulo" style={{ margin: 0, fontSize: 10 }}>{t('games.arena.nova_ficha')}</p>
             {s.sheet_name && <p className="arc-header-name">{s.sheet_name}</p>}

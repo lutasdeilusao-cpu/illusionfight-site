@@ -1017,6 +1017,8 @@
       "btn_voltar": "← voltar",
       "btn_salvar_lutar": "SALVAR E LUTAR",
       "btn_fugir": "FUGIR",
+      "btn_sair": "SAIR",
+      "erro_excluir": "Erro ao excluir ficha. Tente novamente.",
       "btn_atacar": "ATACAR",
       "selecionados": "{n}/4 selecionados",
       "card_ataque": "⚔ ataque",

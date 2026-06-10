@@ -5,6 +5,7 @@ import { useArenaStore } from './store/useArenaStore'
 import { calcFA, calcFD, calcDamage, calcInitiative } from '../LDI/engine/combat'
 import { POWERS_BY_ELEMENTAL } from '../LDI/data/powersData'
 import trashTalkNPCs from './data/trash_talk.json'
+import { sfx } from '../../lib/sfx'
 import './Arena.css'
 
 const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
@@ -118,6 +119,7 @@ export default function ArenaCombat({ onNavigate }) {
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
   const [atkDisabled, setAtkDisabled] = useState(false)
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
 
   const dadosRef = useRef({})
   const timerRef = useRef(null)
@@ -129,6 +131,7 @@ export default function ArenaCombat({ onNavigate }) {
   const npcPersonality = useRef(null)
 
   const logRef = useRef(null)
+  const logAreaRef = useRef(null)
   const elemental = sheet?.elemental || 'neutro'
   const availablePowers = POWERS_BY_ELEMENTAL[elemental] || POWERS_BY_ELEMENTAL.neutro
   const playerInitial = (sheet?.sheet_name || 'V')[0].toUpperCase()
@@ -147,7 +150,14 @@ export default function ArenaCombat({ onNavigate }) {
     setTimeout(() => addTrashWithDelay('battle_start'), 800)
   }, [])
 
-  useEffect(() => { logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }) }, [log.length])
+  // Auto-scroll — sempre acompanha a conversa
+  const scrollLogToBottom = useCallback(() => {
+    if (logAreaRef.current) {
+      logAreaRef.current.scrollTop = logAreaRef.current.scrollHeight
+    }
+    logRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  }, [])
+  useEffect(() => { scrollLogToBottom() }, [log, scrollLogToBottom])
   useEffect(() => { return () => { if (timerRef.current) clearTimeout(timerRef.current) } }, [])
 
   const addLogWithDelay = (type, text, sender, extra = {}) => {
@@ -203,6 +213,8 @@ export default function ArenaCombat({ onNavigate }) {
 
   const endMatch = (result) => {
     cleanup()
+    if (result === 'victory') sfx.win()
+    else sfx.lose()
     store.endMatch(result)
     onNavigate('victory')
   }
@@ -322,6 +334,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const handleAttack = (powerCost = 0) => {
     if (stepRef.current >= 0) return
+    sfx.click()
 
     const wBonus = Number(enemy?.weapon_damage) || 0
     const pBonus = Number(powerCost) * 2
@@ -361,7 +374,7 @@ export default function ArenaCombat({ onNavigate }) {
             {availablePowers.map(p => (
               <motion.button key={p.id}
                 className={`arena-power-card ${selectedPowers.includes(p.id) ? 'arena-power-card--selected' : ''}`}
-                onClick={() => togglePower(p.id)}
+                onClick={() => { sfx.click(); togglePower(p.id) }}
                 whileHover={{ x: 0 }}
               >
                 <div className="arena-power-card-icon">⚡</div>
@@ -380,7 +393,7 @@ export default function ArenaCombat({ onNavigate }) {
             <span className="arena-power-counter">
               {t('games.arena.selecionados', { n: selectedPowers.length })}
             </span>
-            <button className="arena-btn-primary" onClick={() => setShowPowerSelect(false)}>
+            <button className="arena-btn-primary" onClick={() => { sfx.click(); setShowPowerSelect(false) }}>
               {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
             </button>
           </div>
@@ -465,10 +478,13 @@ export default function ArenaCombat({ onNavigate }) {
         <div className="arena-vs-bar-line" />
         <span className="arena-vs-bar-label">VS</span>
         <div className="arena-vs-bar-line" />
+        <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+          {sfx.enabled ? '🔊' : '🔇'}
+        </button>
       </div>
 
       {/* chat log */}
-      <div className="arena-log-area">
+      <div className="arena-log-area" ref={logAreaRef}>
         {(Array.isArray(log) ? log : []).map(l => {
           if (l.type === 'system') return (
             <motion.div key={l.id} className="arena-msg-wrap arena-msg-wrap--system"
@@ -601,7 +617,7 @@ export default function ArenaCombat({ onNavigate }) {
         <div className="arena-mode-btns">
           {Object.entries(MODE_ICONS).map(([m, icon]) => (
             <button key={m} className={`arena-mode-btn ${mode === m ? 'arena-mode-btn--active' : ''}`}
-              onClick={() => setMode(m)} disabled={atkDisabled}>{icon} {MODE_LABELS[m]}</button>
+              onClick={() => { sfx.click(); setMode(m) }} disabled={atkDisabled}>{icon} {MODE_LABELS[m]}</button>
           ))}
         </div>
         {mode === 'power' && selectedPowers.length > 0 && (
@@ -611,12 +627,15 @@ export default function ArenaCombat({ onNavigate }) {
               if (!fp) return null
               const can = playerPm >= (fp.cost || 1) && !atkDisabled
               return <button key={id} className="arena-power-btn" disabled={!can}
-                onClick={() => handleAttack(fp.cost || 1)}>{fp.name} ⚡{fp.cost} PM</button>
+                onClick={() => { sfx.click(); handleAttack(fp.cost || 1) }}>{fp.name} ⚡{fp.cost} PM</button>
             })}
           </div>
         )}
         <div className="arena-actions-row">
-          <button className="arena-btn-flee" onClick={() => { cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>{t('games.arena.btn_fugir')}</button>
+          <button className="arena-exit-btn" onClick={() => { sfx.click(); cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>
+            ✕ {t('games.arena.btn_sair')}
+          </button>
+          <button className="arena-btn-flee" onClick={() => { sfx.click(); cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>{t('games.arena.btn_fugir')}</button>
           <button className="arena-attack-btn" onClick={() => handleAttack()} disabled={atkDisabled}>
             {atkDisabled ? '...' : t('games.arena.btn_atacar')}
           </button>

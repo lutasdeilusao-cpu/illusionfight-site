@@ -6,6 +6,8 @@ import { useArenaStore } from './store/useArenaStore'
 import enemiesData from './data/arena-enemies.json'
 import { useNavigate } from 'react-router-dom'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
+import { sfx } from '../../lib/sfx'
+import { supabase } from '../../lib/supabase'
 
 const ELEM_COLORS = {
   fogo: '#F5A623', agua: '#00B4D8', terra: '#22C55E', ar: '#A855F4',
@@ -63,7 +65,7 @@ function NeoGuideIntro({ onShow }) {
       )}
       {!digitando && (
         <motion.button className="arena-ng-btn" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }} onClick={onShow}>
+          transition={{ delay: 0.3 }} onClick={() => { sfx.click(); onShow() }}>
           {t('games.arena.mostrar_fichas')}
         </motion.button>
       )}
@@ -81,6 +83,7 @@ export default function ArenaLobby({ onNavigate }) {
   const introKey = user ? `arena-intro-seen-${user.id}` : 'arena-intro-seen'
   const [showIntro, setShowIntro] = useState(() => !localStorage.getItem(introKey))
   const [showEnemies, setShowEnemies] = useState(null)
+  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
 
   useEffect(() => {
     if (!user) return
@@ -91,11 +94,13 @@ export default function ArenaLobby({ onNavigate }) {
   }, [user])
 
   const handleLutar = (sheet) => {
+    sfx.select()
     store.loadSheet(sheet)
     setShowEnemies(sheet)
   }
 
   const handleSelectEnemy = (enemy) => {
+    sfx.vs()
     store.startMatch(enemy)
     onNavigate('combat')
   }
@@ -107,9 +112,20 @@ export default function ArenaLobby({ onNavigate }) {
 
   const handleDelete = async (e, sheetId) => {
     e.stopPropagation()
+    sfx.cancel()
     if (!window.confirm(t('games.arena.confirmar_excluir'))) return
-    await store.deleteSheet(sheetId)
-    setSheets(prev => prev.filter(s => s.id !== sheetId))
+    try {
+      const { error } = await supabase.from('character_sheets').delete().eq('id', sheetId)
+      if (error) {
+        console.error('[ARENA] Erro ao excluir ficha:', error)
+        alert(t('games.arena.erro_excluir'))
+        return
+      }
+      setSheets(prev => prev.filter(s => s.id !== sheetId))
+      console.log('[ARENA] Ficha excluída:', sheetId)
+    } catch (err) {
+      console.error('[ARENA] Erro ao excluir ficha:', err)
+    }
   }
 
   const elemColor = (el) => ELEM_COLORS[el] || '#666'
@@ -206,7 +222,7 @@ export default function ArenaLobby({ onNavigate }) {
         </div>
 
         <button className="arena-new-sheet" style={{ borderColor: 'rgba(255,255,255,0.1)', color: '#666' }}
-          onClick={() => setShowEnemies(null)}>
+          onClick={() => { sfx.click(); setShowEnemies(null) }}>
           {t('games.arena.voltar')}
         </button>
 
@@ -280,6 +296,9 @@ export default function ArenaLobby({ onNavigate }) {
       </button>
 
       <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} />
+      <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX" style={{ marginTop: '0.5rem', fontSize: 18 }}>
+        {sfx.enabled ? '🔊' : '🔇'}
+      </button>
     </div>
   )
 }

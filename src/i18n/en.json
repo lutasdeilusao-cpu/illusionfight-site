@@ -1017,6 +1017,8 @@
       "btn_voltar": "← back",
       "btn_salvar_lutar": "SAVE & FIGHT",
       "btn_fugir": "FLEE",
+      "btn_sair": "EXIT",
+      "erro_excluir": "Error deleting sheet. Try again.",
       "btn_atacar": "ATTACK",
       "selecionados": "{n}/4 selected",
       "card_ataque": "⚔ attack",

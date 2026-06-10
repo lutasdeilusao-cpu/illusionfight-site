@@ -143,12 +143,14 @@
 
 .arena-sheet-card-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .arena-sheet-delete-btn {
-  background: none; border: 1px solid rgba(139, 0, 0, 0.3); color: #444;
-  width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 10px; font-family: 'Courier New', monospace;
-  transition: all 0.2s ease; flex-shrink: 0; border-radius: 2px;
+  background: none; border: 1px solid rgba(139, 0, 0, 0.4); color: #8B0000;
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 13px; font-family: 'Courier New', monospace;
+  transition: all 0.2s ease; flex-shrink: 0; border-radius: 4px;
+  font-weight: 700; opacity: 0.7;
 }
-.arena-sheet-delete-btn:hover { border-color: #8B0000; color: #cc4444; background: rgba(139, 0, 0, 0.1); }
+.arena-sheet-delete-btn:hover { border-color: #cc2222; color: #ff4444; background: rgba(200, 0, 0, 0.15); opacity: 1; transform: scale(1.15); }
+.arena-sheet-delete-btn:active { transform: scale(0.95); }
 
 .arena-lobby-empty { text-align: center; color: #333; font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
 
@@ -189,6 +191,23 @@
 .arena-enemy-attrs-v { font-size: 9px; color: #555; letter-spacing: 1px; }
 .arena-btn-sair { display: block; margin: 0 20px 20px; background: none; border: 1px solid #333; color: #666; padding: 8px 16px; cursor: pointer; font-family: inherit; }
 .arena-btn-sair:hover { border-color: #00B4D8; color: #00B4D8; }
+
+/* ── SFX Toggle ── */
+.arena-sfx-toggle {
+  background: none; border: none; cursor: pointer; font-size: 16px;
+  padding: 0 8px; opacity: 0.5; transition: opacity 0.2s; line-height: 1;
+}
+.arena-sfx-toggle:hover { opacity: 1; }
+
+/* ── Exit Button (combat) ── */
+.arena-exit-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(139,0,0,0.1); border: 1px solid rgba(139,0,0,0.3); color: #cc4444;
+  padding: 6px 14px; cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 2px; transition: all 0.2s; border-radius: 2px;
+  text-transform: uppercase;
+}
+.arena-exit-btn:hover { background: rgba(139,0,0,0.2); border-color: #cc2222; color: #ff4444; }
 
 /* ===== CREATE ===== */
 .arena-create { padding-bottom: 20px; }
