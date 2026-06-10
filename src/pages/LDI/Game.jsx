@@ -23,13 +23,18 @@ export default function Game() {
   const navigate = useNavigate()
   const { user } = useAuth()
   const { setReaderMode } = useReader()
-  const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp } = useGameStore()
+  const locale = useLanguage().locale
+  const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp, setLocale } = useGameStore()
   const combat = useCombatStore()
   const [levelUpAttr, setLevelUpAttr] = useState(null)
   const [levelUpPoints, setLevelUpPoints] = useState(1)
   const [tempAttrs, setTempAttrs] = useState(null)
   const [showManual, setShowManual] = useState(false)
   const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    if (locale) setLocale(locale)
+  }, [locale, setLocale])
 
   useEffect(() => {
     const sceneParam = searchParams.get('scene')

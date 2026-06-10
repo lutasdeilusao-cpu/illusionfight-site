@@ -26,11 +26,12 @@ const WEAPON_ICONS = {
 }
 
 export default function Lobby() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
   const loadFromCloud = useGameStore(s => s.loadFromCloud)
   const resetGame = useGameStore(s => s.resetGame)
+  const setLocale = useGameStore(s => s.setLocale)
   const [saves, setSaves] = useState([])
   const [loading, setLoading] = useState(false)
   const [titlePhase, setTitlePhase] = useState('typing')
@@ -39,6 +40,10 @@ export default function Lobby() {
   const [showNewModal, setShowNewModal] = useState(false)
 
   const FULL_TITLE = t('games.ldi.lobby.titulo')
+
+  useEffect(() => {
+    if (locale) setLocale(locale)
+  }, [locale, setLocale])
 
   useEffect(() => {
     if (!user) return

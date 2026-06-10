@@ -1519,6 +1519,209 @@
       "attr_resistencia": "Resistência",
       "attr_protecao": "Proteção",
       "attr_poder_elemental": "Poder Elemental",
+      "create_steps": {
+        "step1_question": "Como você prefere se mover no LDI?",
+        "step1_a": "Explosão e velocidade — entrar quebrando tudo",
+        "step1_b": "Silêncio e precisão — passar despercebido",
+        "step1_c": "Resistência e presença — ninguém te tira do lugar",
+        "step2_question": "Seu elemento foi detectado...",
+        "step2_a": "Aceitar o elemento que o sistema escolheu (Fogo)",
+        "step2_b": "Recusar — o sistema errou (Água)",
+        "step3_question": "Qual kit de combate você quer começar?",
+        "step3_a": "Katana de Dados — alcance e precisão",
+        "step3_b": "Lâminas Gêmeas — velocidade e dupla investida",
+        "step3_c": "Lâmina de Corrente — versatilidade e defesa",
+        "step4_question": "O que você quer alcançar no LDI?",
+        "step4_a": "Poder — chegar ao topo do ranking",
+        "step4_b": "Conhecimento — desvendar os segredos do sistema",
+        "step4_c": "Conexão — construir alianças e história"
+      },
+      "attr_names": {
+        "F": "Potência",
+        "H": "Agilidade",
+        "R": "Resistência",
+        "A": "Proteção",
+        "PdF": "Poder Elemental"
+      },
+      "elemental_options": {
+        "fogo": "Fogo",
+        "agua": "Água",
+        "terra": "Terra",
+        "ar": "Ar",
+        "trevas": "Trevas",
+        "luz": "Luz",
+        "neutro": "Neutro"
+      },
+      "weapon_options": {
+        "katana": "Katana de Dados",
+        "laminas": "Lâminas Gêmeas",
+        "corrente": "Lâmina de Corrente"
+      },
+      "create_default_name": "Aventureiro",
+      "char_data": {
+        "attr_F": "Potência (F): Dano em combate corpo a corpo. Essencial no modo Mãos Livres e Armado. Quanto maior, mais PV você tira por ataque.",
+        "attr_H": "Agilidade (H): Velocidade e iniciativa. Essencial para agir primeiro e esquivar. Favorece o modo Armado e aumenta sua FD.",
+        "attr_R": "Resistência (R): Seu HP máximo (PV = R × 5). Vital em qualquer modo. Sem resistência, você não dura até o final.",
+        "attr_A": "Proteção (A): Redução de dano e defesa. Favorece o modo Mãos Livres. Aumenta sua FD e resistência a dano.",
+        "attr_PdF": "Poder Elemental (PdF): Dano elemental e PM máximo (PM = PdF × 4). Essencial no modo Poder. Libera ataques elementais.",
+        "adv_reflexos_rapidos": "Reflexos Rápidos",
+        "adv_reflexos_rapidos_desc": "Sua reação é mais rápida que a média do LDI. Você ganha +1 em rolagens de iniciativa e pode agir primeiro mesmo contra oponentes mais velozes.",
+        "adv_corpo_adaptado": "Corpo Adaptado",
+        "adv_corpo_adaptado_desc": "Seu corpo já se acostumou com os rigores do LDI. Reduza todo dano físico recebido em 1 ponto.",
+        "adv_sangue_frio": "Sangue Frio",
+        "adv_sangue_frio_desc": "Situações extremas não te abalam. Você ignora penalidades por estado crítico de PV e não sofre medo em combate.",
+        "adv_sintonia_elemental": "Sintonia Elemental",
+        "adv_sintonia_elemental_desc": "Sua conexão com o elemento é natural. Seus ataques de Poder custam 1 PM a menos.",
+        "adv_mestre_arma": "Mestre de Arma",
+        "adv_mestre_arma_desc": "Com sua arma preferida, você é letal. +1 de dano com sua arma atual.",
+        "adv_leitura_combate": "Leitura de Combate",
+        "adv_leitura_combate_desc": "Você antecipa os movimentos do inimigo. +1 em FD contra o primeiro ataque de cada turno.",
+        "adv_regeneracao_rapida": "Regeneração Rápida",
+        "adv_regeneracao_rapida_desc": "Seu corpo se recupera mais rápido dentro do LDI. Recupere 1 PV por turno de combate.",
+        "adv_foco_mental": "Foco Mental",
+        "adv_foco_mental_desc": "Sua concentração é uma arma. +1 em FA no modo Poder.",
+        "dis_corpo_fragil": "Corpo Frágil",
+        "dis_corpo_fragil_desc": "Seu corpo não se adapta bem ao LDI. Seu PV máximo é reduzido em 2.",
+        "dis_medo_arena": "Medo da Arena",
+        "dis_medo_arena_desc": "A arena te intimida. Você sofre -1 em FA no primeiro turno de cada combate.",
+        "dis_impulsivo": "Impulsivo",
+        "dis_impulsivo_desc": "Você age antes de pensar. Toda fuga em combate tem chance de falhar (rolagem 1-3 em d6 falha).",
+        "dis_sobrecarga_sensorial": "Sobrecarga Sensorial",
+        "dis_sobrecarga_sensorial_desc": "O LDI sobrecarrega seus sentidos. Você perde 1 PM no início de cada combate.",
+        "dis_desconfiado": "Desconfiado",
+        "dis_desconfiado_desc": "Você confia em poucos. Algumas escolhas de diálogo podem não estar disponíveis.",
+        "dis_dreno_energetico": "Dreno Energético",
+        "dis_dreno_energetico_desc": "O sistema drena sua energia. Você recupera 1 PM a menos por dia.",
+        "dis_ataduras_frageis": "Ataduras Frágeis",
+        "dis_ataduras_frageis_desc": "Seus equipamentos de cura são ineficientes. Cura recebida é reduzida em 1.",
+        "dis_marca_visivel": "Marca Visível",
+        "dis_marca_visivel_desc": "Você tem uma marca digital única que inimigos reconhecem. Alguns inimigos serão mais agressivos.",
+        "perk_pericia_katana": "Perícia: Katana",
+        "perk_pericia_katana_desc": "Você sabe usar katanas com maestria. Requer Katana equipada. +1 FA no modo Armado com katana.",
+        "perk_pericia_laminas": "Perícia: Lâminas Gêmeas",
+        "perk_pericia_laminas_desc": "Você domina o uso de duas lâminas. Requer Lâminas Gêmeas. +1 no dano total.",
+        "perk_pericia_corrente": "Perícia: Lâmina de Corrente",
+        "perk_pericia_corrente_desc": "Você manuseia a corrente com habilidade. Requer Lâmina de Corrente. +1 FD quando usando corrente.",
+        "perk_esquiva_agil": "Esquiva Ágil",
+        "perk_esquiva_agil_desc": "Você possui reflexos treinados. +1 FD se sua H for maior que a do inimigo.",
+        "perk_golpe_pesado": "Golpe Pesado",
+        "perk_golpe_pesado_desc": "Seus golpes carregam força bruta. +2 de dano em crítico (FA - FD ≥ 5).",
+        "perk_postura_defensiva": "Postura Defensiva",
+        "perk_postura_defensiva_desc": "Você sabe se proteger. +2 FD, mas -1 FA neste turno.",
+        "perk_ataque_preciso": "Ataque Preciso",
+        "perk_ataque_preciso_desc": "Você mira com calma. Se escolher não atacar em um turno, +2 FA no próximo.",
+        "perk_canalizacao": "Canalização",
+        "perk_canalizacao_desc": "Você canaliza poder elemental com eficiência. Seus ataques no modo Poder ignoram 2 pontos de FD.",
+        "spec_combate": "Combate Total",
+        "spec_combate_desc": "Especializado em combate direto. Ganhe +1 FA e +1 FD em combate, mas -1 em testes furtivos.",
+        "spec_tecnico": "Técnico de Arena",
+        "spec_tecnico_desc": "Você entende os sistemas do LDI. Reduza o custo de ações especiais em 1 PM.",
+        "spec_furtivo": "Sombra Digital",
+        "spec_furtivo_desc": "Você se move nas bordas do sistema. Ações furtivas têm vantagem e você pode fugir de combates sem penalidade.",
+        "spec_suporte": "Suporte Tático",
+        "spec_suporte_desc": "Você apoia aliados (se houver). +1 PV de cura em descansos e pode compartilhar PM com aliados.",
+        "spec_elemental": "Elemental Puro",
+        "spec_elemental_desc": "Sua conexão elemental é máxima. No modo Poder, você pode gastar 2 PM extras para dobrar o dano elemental."
+      },
+      "manual": {
+        "title": "📖 Manual do Jogo",
+        "sections": [
+          {
+            "title": "O que é o LDI?",
+            "content": "LDI é a sigla para \"Lutas de Ilusão\", um sistema de combate digital onde lutadores conectam suas mentes para batalhar em arenas virtuais. Você é um novo competidor no Arco 1: Descobrimento."
+          },
+          {
+            "title": "Atributos",
+            "content": "F (Potência): Dano corpo a corpo. Favorece Mãos Livres e Armado.\nH (Agilidade): Iniciativa e esquiva. Favorece Armado.\nR (Resistência): PV máximo (R × 5). Vital para qualquer estilo.\nA (Proteção): Defesa e redução de dano. Favorece Mãos Livres.\nPdF (Poder Elemental): Dano elemental e PM (PdF × 4). Essencial para o modo Poder."
+          },
+          {
+            "title": "Combate — Modos",
+            "content": "✊ Mãos Livres: Usa F e A. Dano moderado, defesa alta.\n⚔️ Armado: Usa F e H. Dano alto, iniciativa alta.\n⚡ Poder: Usa PdF e PM. Dano elemental, consome PM."
+          },
+          {
+            "title": "Combate — Sistema",
+            "content": "Cada turno: você ataca (FA) e o inimigo defende (FD). Se FA > FD, você causa dano igual à diferença. Depois o inimigo ataca. Vence quem reduzir o PV do oponente a zero primeiro."
+          },
+          {
+            "title": "PV e PM",
+            "content": "PV (Pontos de Vida): R × 5. Se chegar a zero, você perde o combate.\nPM (Pontos de Magia): PdF × 4. Usado para ataques no modo Poder e ações especiais. Recupera ao descansar ou com itens."
+          },
+          {
+            "title": "Poderes",
+            "content": "Você pode usar até 4 poderes por combate. Cada poder é um ataque especial que gasta 1 PM. O tipo de poder depende do seu elemental (Fogo, Água, etc.). Poderes causam dano adicional ou efeitos especiais."
+          },
+          {
+            "title": "Arcos e Progressão",
+            "content": "A história é dividida em Arcos. Cada arco tem dias. Cada dia você explora, faz escolhas, e enfrenta combates. Suas decisões afetam a trama, sua ficha e os finais disponíveis."
+          },
+          {
+            "title": "Vantagens e Desvantagens",
+            "content": "Vantagens custam pontos na criação. Desvantagens concedem pontos extras para gastar em atributos e perícias. O total de pontos na criação é limitado."
+          },
+          {
+            "title": "Dicas de Sobrevivência",
+            "content": "1. Não negligencie R — PV baixo = morte rápida.\n2. Escolha um modo de combate principal e foque nos atributos certos.\n3. Guarde créditos para itens de cura.\n4. Explore tudo — pistas revelam segredos e finais alternativos.\n5. Se estiver perdendo, a opção de fugir existe por um motivo."
+          }
+        ]
+      },
+      "powers": {
+        "fogo": [
+          { "id": "chama_rapida", "name": "Chama Rápida", "desc": "Dispara uma chama veloz que causa +2 de dano elemental." },
+          { "id": "explosao", "name": "Explosão", "desc": "Uma explosão de fogo ao redor. Causa dano em área (dobra FD mas acerta múltiplos alvos)." },
+          { "id": "labareda", "name": "Labareda", "desc": "Uma labareda intensa. Se acertar, causa queimadura (-1 FD no próximo turno do inimigo)." },
+          { "id": "inferno", "name": "Inferno", "desc": "Chamas puras consomem o inimigo. Causa o dobro de dano elemental." },
+          { "id": "escudo_fogo", "name": "Escudo de Fogo", "desc": "Chamas te protegem. +2 FD neste turno, causa 1 de dano se o inimigo acertar." },
+          { "id": "pilar_fogo", "name": "Pilar de Fogo", "desc": "Um pilar de fogo irrompe do chão. Dano médio mas ignora 3 de FD." }
+        ],
+        "agua": [
+          { "id": "projetil_agua", "name": "Projétil de Água", "desc": "Dispara água pressurizada. Causa +2 de dano elemental." },
+          { "id": "onda", "name": "Onda", "desc": "Uma onda empurra o inimigo. Dano + reduz FA do inimigo em 1 no próximo turno." },
+          { "id": "nevoeiro", "name": "Nevoeiro", "desc": "Cria uma névoa densa. Inimigo tem -2 FA no próximo ataque." },
+          { "id": "cura", "name": "Cura Leve", "desc": "Água revitalizante. Recupera 2 PV (não pode ultrapassar o máximo)." },
+          { "id": "torrente", "name": "Torrente", "desc": "Um jato massivo de água. Causa o dobro de dano elemental." },
+          { "id": "gelo", "name": "Gelo", "desc": "Água congelada. Dano + inimigo perde 1 de H no próximo turno." }
+        ],
+        "terra": [
+          { "id": "projetil_pedra", "name": "Projétil de Pedra", "desc": "Lança uma pedra. Causa +2 de dano elemental." },
+          { "id": "muralha", "name": "Muralha", "desc": "Levanta uma parede de pedra. +3 FD neste turno." },
+          { "id": "terremoto", "name": "Terremoto", "desc": "O chão treme. Causa o dobro de dano elemental e atordoa o inimigo (-1 FA e FD no próximo turno)." },
+          { "id": "armadura", "name": "Armadura de Terra", "desc": "Reveste seu corpo de pedra. +2 FD por 2 turnos." },
+          { "id": "areia_movel", "name": "Areia Movediça", "desc": "O chão se torna instável. Inimigo perde o próximo turno (não ataca)." },
+          { "id": "lanca_pedra", "name": "Lança de Pedra", "desc": "Uma lança de pedra perfura o inimigo. Ignora 4 de FD." }
+        ],
+        "ar": [
+          { "id": "rajada", "name": "Rajada", "desc": "Uma rajada de vento. Causa +2 de dano elemental." },
+          { "id": "ciclone", "name": "Ciclone", "desc": "Um ciclone envolve o inimigo. Causa o dobro de dano elemental." },
+          { "id": "escudo_vento", "name": "Escudo de Vento", "desc": "O vento desvia ataques. +2 FD neste turno." },
+          { "id": "passos_leves", "name": "Passos Leves", "desc": "O vento te carrega. +2 H por um turno (mais iniciativa)." },
+          { "id": "sopro", "name": "Sopão", "desc": "Um sopo forte empurra o inimigo para longe. Inimigo perde 1 de H no próximo turno." },
+          { "id": "tempestade", "name": "Tempestade", "desc": "Pequenas explosões de ar. Causa dano + -1 FD no inimigo por 2 turnos." }
+        ],
+        "trevas": [
+          { "id": "sombra_atacante", "name": "Sombra Atacante", "desc": "Sombras atacam o inimigo. Causa +2 de dano elemental." },
+          { "id": "dreno", "name": "Dreno", "desc": "Drena energia do inimigo. Causa dano e recupera 1 PV." },
+          { "id": "nevoa_escura", "name": "Névoa Escura", "desc": "Escuridão envolve a arena. Inimigo tem -2 FA no próximo ataque." },
+          { "id": "toque_sombrio", "name": "Toque Sombrio", "desc": "Um toque que consome. Causa o dobro de dano elemental." },
+          { "id": "medo", "name": "Medo", "desc": "Projeta medo na mente do inimigo. Inimigo perde o próximo ataque (mas ainda defende)." },
+          { "id": "absorcao", "name": "Absorção", "desc": "Absorve energia elemental. Recupera 1 PM." }
+        ],
+        "luz": [
+          { "id": "raio_luz", "name": "Raio de Luz", "desc": "Um raio de luz ofuscante. Causa +2 de dano elemental." },
+          { "id": "cura_luz", "name": "Cura Radiante", "desc": "Luz revitalizante. Recupera 3 PV." },
+          { "id": "escudo_luz", "name": "Escudo de Luz", "desc": "Barreira luminosa. +2 FD neste turno." },
+          { "id": "explosao_luz", "name": "Explosão de Luz", "desc": "Explosão cega o inimigo. Causa o dobro de dano elemental e inimigo tem -1 FA no próximo turno." },
+          { "id": "purificacao", "name": "Purificação", "desc": "Remove um estado negativo seu ou cura 1 PV adicional." },
+          { "id": "fulgor", "name": "Fulgor", "desc": "Luz intensa. Causa dano + inimigo tem -1 FD no próximo turno." }
+        ],
+        "neutro": [
+          { "id": "impacto", "name": "Impacto", "desc": "Um golpe de energia neutra. Causa +2 de dano." },
+          { "id": "barreira", "name": "Barreira", "desc": "Barreira de energia. +2 FD neste turno." },
+          { "id": "pulso", "name": "Pulso", "desc": "Pulso de energia. Causa dano e empurra o inimigo (-1 FA no próximo turno)." },
+          { "id": "carga_total", "name": "Carga Total", "desc": "Toda sua energia em um golpe. Causa o dobro de dano." },
+          { "id": "recuperacao", "name": "Recuperação", "desc": "Recupera 1 PM." },
+          { "id": "sobrecarga", "name": "Sobrecarga", "desc": "Sobrecarrega seus circuitos. Próximo ataque causa +3 de dano." }
+        ]
+      },
       "game": {
         "levelup_titulo": "PONTOS DE AÇÃO",
         "levelup_sub": "Distribua seu ponto de atributo:",

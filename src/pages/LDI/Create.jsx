@@ -4,77 +4,126 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
-import { ATTR_TOOLTIPS, ADVANTAGES, DISADVANTAGES, PERKS, SPECIALIZATIONS } from './data/characterData'
 import './LDI.css'
 
-const STEPS = [
-  {
-    id: 'movimento',
-    question: 'Como você prefere se mover no LDI?',
-    options: [
-      { label: 'Explosão e velocidade — entrar quebrando tudo', effect: { F: 2, H: 1 }, flag: 'ESTILO_VELOZ' },
-      { label: 'Silêncio e precisão — passar despercebido', effect: { H: 2, A: 1 }, flag: 'ESTILO_SIGILO' },
-      { label: 'Resistência e presença — ninguém te tira do lugar', effect: { R: 2, F: 1 }, flag: 'ESTILO_TANQUE' },
-    ],
-  },
-  {
-    id: 'elemento',
-    question: 'Seu elemento foi detectado...',
-    options: [
-      { label: 'Aceitar o elemento que o sistema escolheu (Fogo)', effect: {}, flag: 'ELEMENTO_ACEITO', elemental: 'fogo' },
-      { label: 'Recusar — o sistema errou (Água)', effect: {}, flag: 'ELEMENTO_RECUSADO', elemental: 'agua' },
-    ],
-  },
-  {
-    id: 'arma',
-    question: 'Qual kit de combate você quer começar?',
-    options: [
-      { label: 'Katana de Dados — alcance e precisão', effect: { F: 1 }, flag: 'ARMA_KATANA', weapon: 'katana' },
-      { label: 'Lâminas Gêmeas — velocidade e dupla investida', effect: { H: 1 }, flag: 'ARMA_LAMINAS', weapon: 'laminas' },
-      { label: 'Lâmina de Corrente — versatilidade e defesa', effect: { A: 1 }, flag: 'ARMA_CORRENTE', weapon: 'corrente' },
-    ],
-  },
-  {
-    id: 'proposito',
-    question: 'O que você quer alcançar no LDI?',
-    options: [
-      { label: 'Poder — chegar ao topo do ranking', effect: { F: 1, H: 1 }, flag: 'PROPOSITO_PODER' },
-      { label: 'Conhecimento — desvendar os segredos do sistema', effect: { R: 1, PdF: 1 }, flag: 'PROPOSITO_CONHECIMENTO' },
-      { label: 'Conexão — construir alianças e história', effect: { A: 1, H: 1 }, flag: 'PROPOSITO_CONEXAO' },
-    ],
-  },
-]
-
-const ATTR_NAMES = {
-  F: 'Potência',
-  H: 'Agilidade',
-  R: 'Resistência',
-  A: 'Proteção',
-  PdF: 'Poder Elemental',
-}
-
-const ELEMENTAL_OPTIONS = [
-  { value: 'fogo', label: 'Fogo', color: '#E02020' },
-  { value: 'agua', label: 'Água', color: '#1E6FBF' },
-  { value: 'terra', label: 'Terra', color: '#8B5E3C' },
-  { value: 'ar', label: 'Ar', color: '#A0D2DB' },
-  { value: 'trevas', label: 'Trevas', color: '#6B2FA0' },
-  { value: 'luz', label: 'Luz', color: '#FFD700' },
-  { value: 'neutro', label: 'Neutro', color: '#8B8F96' },
-]
-
-const WEAPON_OPTIONS = [
-  { value: 'katana', label: 'Katana de Dados' },
-  { value: 'laminas', label: 'Lâminas Gêmeas' },
-  { value: 'corrente', label: 'Lâmina de Corrente' },
-]
-
 export default function Create() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user } = useAuth()
-  const { sheet, updateSheet, applySceneEffect, setFlag, saveToCloud } = useGameStore()
+  const { sheet, updateSheet, applySceneEffect, setFlag, saveToCloud, setLocale } = useGameStore()
+
+  const ATTR_NAMES = {
+    F: t('games.ldi.attr_names.F'),
+    H: t('games.ldi.attr_names.H'),
+    R: t('games.ldi.attr_names.R'),
+    A: t('games.ldi.attr_names.A'),
+    PdF: t('games.ldi.attr_names.PdF'),
+  }
+
+  const ELEMENTAL_OPTIONS = [
+    { value: 'fogo', label: t('games.ldi.elemental_options.fogo'), color: '#E02020' },
+    { value: 'agua', label: t('games.ldi.elemental_options.agua'), color: '#1E6FBF' },
+    { value: 'terra', label: t('games.ldi.elemental_options.terra'), color: '#8B5E3C' },
+    { value: 'ar', label: t('games.ldi.elemental_options.ar'), color: '#A0D2DB' },
+    { value: 'trevas', label: t('games.ldi.elemental_options.trevas'), color: '#6B2FA0' },
+    { value: 'luz', label: t('games.ldi.elemental_options.luz'), color: '#FFD700' },
+    { value: 'neutro', label: t('games.ldi.elemental_options.neutro'), color: '#8B8F96' },
+  ]
+
+  const WEAPON_OPTIONS = [
+    { value: 'katana', label: t('games.ldi.weapon_options.katana') },
+    { value: 'laminas', label: t('games.ldi.weapon_options.laminas') },
+    { value: 'corrente', label: t('games.ldi.weapon_options.corrente') },
+  ]
+
+  const STEPS = [
+    {
+      id: 'movimento',
+      question: t('games.ldi.create_steps.step1_question'),
+      options: [
+        { label: t('games.ldi.create_steps.step1_a'), effect: { F: 2, H: 1 }, flag: 'ESTILO_VELOZ' },
+        { label: t('games.ldi.create_steps.step1_b'), effect: { H: 2, A: 1 }, flag: 'ESTILO_SIGILO' },
+        { label: t('games.ldi.create_steps.step1_c'), effect: { R: 2, F: 1 }, flag: 'ESTILO_TANQUE' },
+      ],
+    },
+    {
+      id: 'elemento',
+      question: t('games.ldi.create_steps.step2_question'),
+      options: [
+        { label: t('games.ldi.create_steps.step2_a'), effect: {}, flag: 'ELEMENTO_ACEITO', elemental: 'fogo' },
+        { label: t('games.ldi.create_steps.step2_b'), effect: {}, flag: 'ELEMENTO_RECUSADO', elemental: 'agua' },
+      ],
+    },
+    {
+      id: 'arma',
+      question: t('games.ldi.create_steps.step3_question'),
+      options: [
+        { label: t('games.ldi.create_steps.step3_a'), effect: { F: 1 }, flag: 'ARMA_KATANA', weapon: 'katana' },
+        { label: t('games.ldi.create_steps.step3_b'), effect: { H: 1 }, flag: 'ARMA_LAMINAS', weapon: 'laminas' },
+        { label: t('games.ldi.create_steps.step3_c'), effect: { A: 1 }, flag: 'ARMA_CORRENTE', weapon: 'corrente' },
+      ],
+    },
+    {
+      id: 'proposito',
+      question: t('games.ldi.create_steps.step4_question'),
+      options: [
+        { label: t('games.ldi.create_steps.step4_a'), effect: { F: 1, H: 1 }, flag: 'PROPOSITO_PODER' },
+        { label: t('games.ldi.create_steps.step4_b'), effect: { R: 1, PdF: 1 }, flag: 'PROPOSITO_CONHECIMENTO' },
+        { label: t('games.ldi.create_steps.step4_c'), effect: { A: 1, H: 1 }, flag: 'PROPOSITO_CONEXAO' },
+      ],
+    },
+  ]
+
+  const L_ATTR_TOOLTIPS = {
+    F: t('games.ldi.char_data.attr_F'),
+    H: t('games.ldi.char_data.attr_H'),
+    R: t('games.ldi.char_data.attr_R'),
+    A: t('games.ldi.char_data.attr_A'),
+    PdF: t('games.ldi.char_data.attr_PdF'),
+  }
+
+  const ADVANTAGES = [
+    { id: 'reflexos_rapidos', name: t('games.ldi.char_data.adv_reflexos_rapidos'), cost: 2, desc: t('games.ldi.char_data.adv_reflexos_rapidos_desc') },
+    { id: 'corpo_adaptado', name: t('games.ldi.char_data.adv_corpo_adaptado'), cost: 2, desc: t('games.ldi.char_data.adv_corpo_adaptado_desc') },
+    { id: 'sangue_frio', name: t('games.ldi.char_data.adv_sangue_frio'), cost: 3, desc: t('games.ldi.char_data.adv_sangue_frio_desc') },
+    { id: 'sintonia_elemental', name: t('games.ldi.char_data.adv_sintonia_elemental'), cost: 3, desc: t('games.ldi.char_data.adv_sintonia_elemental_desc') },
+    { id: 'mestre_arma', name: t('games.ldi.char_data.adv_mestre_arma'), cost: 2, desc: t('games.ldi.char_data.adv_mestre_arma_desc') },
+    { id: 'leitura_combate', name: t('games.ldi.char_data.adv_leitura_combate'), cost: 2, desc: t('games.ldi.char_data.adv_leitura_combate_desc') },
+    { id: 'regeneracao_rapida', name: t('games.ldi.char_data.adv_regeneracao_rapida'), cost: 3, desc: t('games.ldi.char_data.adv_regeneracao_rapida_desc') },
+    { id: 'foco_mental', name: t('games.ldi.char_data.adv_foco_mental'), cost: 2, desc: t('games.ldi.char_data.adv_foco_mental_desc') },
+  ]
+
+  const DISADVANTAGES = [
+    { id: 'corpo_fragil', name: t('games.ldi.char_data.dis_corpo_fragil'), gain: 2, desc: t('games.ldi.char_data.dis_corpo_fragil_desc') },
+    { id: 'medo_arena', name: t('games.ldi.char_data.dis_medo_arena'), gain: 2, desc: t('games.ldi.char_data.dis_medo_arena_desc') },
+    { id: 'impulsivo', name: t('games.ldi.char_data.dis_impulsivo'), gain: 2, desc: t('games.ldi.char_data.dis_impulsivo_desc') },
+    { id: 'sobrecarga_sensorial', name: t('games.ldi.char_data.dis_sobrecarga_sensorial'), gain: 3, desc: t('games.ldi.char_data.dis_sobrecarga_sensorial_desc') },
+    { id: 'desconfiado', name: t('games.ldi.char_data.dis_desconfiado'), gain: 1, desc: t('games.ldi.char_data.dis_desconfiado_desc') },
+    { id: 'dreno_energetico', name: t('games.ldi.char_data.dis_dreno_energetico'), gain: 2, desc: t('games.ldi.char_data.dis_dreno_energetico_desc') },
+    { id: 'ataduras_frageis', name: t('games.ldi.char_data.dis_ataduras_frageis'), gain: 2, desc: t('games.ldi.char_data.dis_ataduras_frageis_desc') },
+    { id: 'marca_visivel', name: t('games.ldi.char_data.dis_marca_visivel'), gain: 1, desc: t('games.ldi.char_data.dis_marca_visivel_desc') },
+  ]
+
+  const PERKS = [
+    { id: 'pericia_katana', name: t('games.ldi.char_data.perk_pericia_katana'), cost: 1, desc: t('games.ldi.char_data.perk_pericia_katana_desc') },
+    { id: 'pericia_laminas', name: t('games.ldi.char_data.perk_pericia_laminas'), cost: 1, desc: t('games.ldi.char_data.perk_pericia_laminas_desc') },
+    { id: 'pericia_corrente', name: t('games.ldi.char_data.perk_pericia_corrente'), cost: 1, desc: t('games.ldi.char_data.perk_pericia_corrente_desc') },
+    { id: 'esquiva_agil', name: t('games.ldi.char_data.perk_esquiva_agil'), cost: 1, desc: t('games.ldi.char_data.perk_esquiva_agil_desc') },
+    { id: 'golpe_pesado', name: t('games.ldi.char_data.perk_golpe_pesado'), cost: 2, desc: t('games.ldi.char_data.perk_golpe_pesado_desc') },
+    { id: 'postura_defensiva', name: t('games.ldi.char_data.perk_postura_defensiva'), cost: 1, desc: t('games.ldi.char_data.perk_postura_defensiva_desc') },
+    { id: 'ataque_preciso', name: t('games.ldi.char_data.perk_ataque_preciso'), cost: 1, desc: t('games.ldi.char_data.perk_ataque_preciso_desc') },
+    { id: 'canalizacao', name: t('games.ldi.char_data.perk_canalizacao'), cost: 2, desc: t('games.ldi.char_data.perk_canalizacao_desc') },
+  ]
+
+  const SPECIALIZATIONS = [
+    { id: 'espec_combate', name: t('games.ldi.char_data.spec_combate'), desc: t('games.ldi.char_data.spec_combate_desc') },
+    { id: 'espec_tecnico', name: t('games.ldi.char_data.spec_tecnico'), desc: t('games.ldi.char_data.spec_tecnico_desc') },
+    { id: 'espec_furtivo', name: t('games.ldi.char_data.spec_furtivo'), desc: t('games.ldi.char_data.spec_furtivo_desc') },
+    { id: 'espec_suporte', name: t('games.ldi.char_data.spec_suporte'), desc: t('games.ldi.char_data.spec_suporte_desc') },
+    { id: 'espec_elemental', name: t('games.ldi.char_data.spec_elemental'), desc: t('games.ldi.char_data.spec_elemental_desc') },
+  ]
+
   const [tab, setTab] = useState(searchParams.get('mode') === 'full' ? 'full' : 'guided')
   const [step, setStep] = useState(0)
   const [name, setName] = useState('')
@@ -93,6 +142,10 @@ export default function Create() {
   const [fullFreePoints, setFullFreePoints] = useState(10)
   const [fullAttr, setFullAttr] = useState({ F: 0, H: 0, R: 0, A: 0, PdF: 0 })
   const [fullName, setFullName] = useState('')
+
+  useEffect(() => {
+    if (locale) setLocale(locale)
+  }, [locale, setLocale])
 
   useEffect(() => {
     const state = useGameStore.getState()
@@ -148,7 +201,7 @@ export default function Create() {
       if (finalAttr[k] > 4) finalAttr[k] = 4
     }
     updateSheet({
-      sheet_name: name || 'Aventureiro',
+      sheet_name: name || t('games.ldi.create_default_name'),
       attributes: finalAttr,
       weapon: chosenWeapon,
       elemental: chosenElemental,
@@ -223,7 +276,7 @@ export default function Create() {
       if (finalAttr[k] > 4) finalAttr[k] = 4
     }
     updateSheet({
-      sheet_name: fullName || 'Aventureiro',
+      sheet_name: fullName || t('games.ldi.create_default_name'),
       attributes: finalAttr,
       weapon: chosenWeapon || 'katana',
       elemental: chosenElemental || 'neutro',
@@ -284,7 +337,7 @@ export default function Create() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
                       >
-                        {ATTR_TOOLTIPS[key]}
+                        {L_ATTR_TOOLTIPS[key]}
                       </motion.div>
                     )}
                   </AnimatePresence>

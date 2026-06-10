@@ -8,7 +8,6 @@ import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
 import CombatView from './components/CombatView'
 import ManualDrawer from './components/ManualDrawer'
-import { POWERS_BY_ELEMENTAL } from './data/powersData'
 import './LDI.css'
 
 export default function Combat() {
@@ -41,7 +40,8 @@ export default function Combat() {
   }, [combat.active, navigate])
 
   const elemental = sheet?.elemental || 'neutro'
-  const availablePowers = POWERS_BY_ELEMENTAL[elemental] || POWERS_BY_ELEMENTAL.neutro
+  const powersData = t('games.ldi.powers', { returnObjects: true }) || {}
+  const availablePowers = powersData[elemental] || powersData.neutro || []
 
   const togglePower = (powerId) => {
     setSelectedPowers(prev =>

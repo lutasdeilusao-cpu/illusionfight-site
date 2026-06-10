@@ -1519,6 +1519,209 @@
       "attr_resistencia": "Resistance",
       "attr_protecao": "Protection",
       "attr_poder_elemental": "Elemental Power",
+      "create_steps": {
+        "step1_question": "How do you prefer to move in the LDI?",
+        "step1_a": "Explosion and speed — break in, break everything",
+        "step1_b": "Silence and precision — go unnoticed",
+        "step1_c": "Resistance and presence — nobody moves you",
+        "step2_question": "Your element has been detected...",
+        "step2_a": "Accept the element the system chose (Fire)",
+        "step2_b": "Refuse — the system got it wrong (Water)",
+        "step3_question": "Which combat kit do you want to start with?",
+        "step3_a": "Data Katana — reach and precision",
+        "step3_b": "Twin Blades — speed and double strike",
+        "step3_c": "Chain Blade — versatility and defense",
+        "step4_question": "What do you want to achieve in the LDI?",
+        "step4_a": "Power — reach the top of the ranking",
+        "step4_b": "Knowledge — unravel the system's secrets",
+        "step4_c": "Connection — build alliances and history"
+      },
+      "attr_names": {
+        "F": "Power",
+        "H": "Agility",
+        "R": "Resistance",
+        "A": "Protection",
+        "PdF": "Elemental Power"
+      },
+      "elemental_options": {
+        "fogo": "Fire",
+        "agua": "Water",
+        "terra": "Earth",
+        "ar": "Air",
+        "trevas": "Darkness",
+        "luz": "Light",
+        "neutro": "Neutral"
+      },
+      "weapon_options": {
+        "katana": "Data Katana",
+        "laminas": "Twin Blades",
+        "corrente": "Chain Blade"
+      },
+      "create_default_name": "Adventurer",
+      "char_data": {
+        "attr_F": "Power (F): Melee combat damage. Essential in Unarmed and Armed modes. The higher, the more HP you take per attack.",
+        "attr_H": "Agility (H): Speed and initiative. Essential for acting first and dodging. Favors Armed mode and increases your FD.",
+        "attr_R": "Resistance (R): Your max HP (HP = R × 5). Vital in any mode. Without resistance, you won't last till the end.",
+        "attr_A": "Protection (A): Damage reduction and defense. Favors Unarmed mode. Increases your FD and damage resistance.",
+        "attr_PdF": "Elemental Power (PdF): Elemental damage and max MP (MP = PdF × 4). Essential in Power mode. Unlocks elemental attacks.",
+        "adv_reflexos_rapidos": "Quick Reflexes",
+        "adv_reflexos_rapidos_desc": "Your reaction is faster than the LDI average. You gain +1 on initiative rolls and can act first even against faster opponents.",
+        "adv_corpo_adaptado": "Adapted Body",
+        "adv_corpo_adaptado_desc": "Your body has already adapted to the LDI's rigors. Reduce all physical damage received by 1 point.",
+        "adv_sangue_frio": "Cold Blood",
+        "adv_sangue_frio_desc": "Extreme situations don't shake you. You ignore penalties from critical HP state and don't suffer fear in combat.",
+        "adv_sintonia_elemental": "Elemental Attunement",
+        "adv_sintonia_elemental_desc": "Your connection to the element is natural. Your Power attacks cost 1 less MP.",
+        "adv_mestre_arma": "Weapon Master",
+        "adv_mestre_arma_desc": "With your preferred weapon, you're lethal. +1 damage with your current weapon.",
+        "adv_leitura_combate": "Combat Reading",
+        "adv_leitura_combate_desc": "You anticipate the enemy's movements. +1 FD against the first attack of each turn.",
+        "adv_regeneracao_rapida": "Fast Regeneration",
+        "adv_regeneracao_rapida_desc": "Your body recovers faster inside the LDI. Recover 1 HP per combat turn.",
+        "adv_foco_mental": "Mental Focus",
+        "adv_foco_mental_desc": "Your concentration is a weapon. +1 FA in Power mode.",
+        "dis_corpo_fragil": "Fragile Body",
+        "dis_corpo_fragil_desc": "Your body doesn't adapt well to the LDI. Your max HP is reduced by 2.",
+        "dis_medo_arena": "Arena Fear",
+        "dis_medo_arena_desc": "The arena intimidates you. You suffer -1 FA on the first turn of each combat.",
+        "dis_impulsivo": "Impulsive",
+        "dis_impulsivo_desc": "You act before thinking. Any flee in combat has a chance to fail (roll 1-3 on d6 fails).",
+        "dis_sobrecarga_sensorial": "Sensory Overload",
+        "dis_sobrecarga_sensorial_desc": "The LDI overwhelms your senses. You lose 1 MP at the start of each combat.",
+        "dis_desconfiado": "Suspicious",
+        "dis_desconfiado_desc": "You trust few. Some dialogue choices may not be available.",
+        "dis_dreno_energetico": "Energy Drain",
+        "dis_dreno_energetico_desc": "The system drains your energy. You recover 1 less MP per day.",
+        "dis_ataduras_frageis": "Frail Bandages",
+        "dis_ataduras_frageis_desc": "Your healing equipment is inefficient. Healing received is reduced by 1.",
+        "dis_marca_visivel": "Visible Mark",
+        "dis_marca_visivel_desc": "You have a unique digital mark that enemies recognize. Some enemies will be more aggressive.",
+        "perk_pericia_katana": "Skill: Katana",
+        "perk_pericia_katana_desc": "You know how to use katanas with mastery. Requires Katana equipped. +1 FA in Armed mode with katana.",
+        "perk_pericia_laminas": "Skill: Twin Blades",
+        "perk_pericia_laminas_desc": "You master the use of twin blades. Requires Twin Blades. +1 on total damage.",
+        "perk_pericia_corrente": "Skill: Chain Blade",
+        "perk_pericia_corrente_desc": "You handle the chain with skill. Requires Chain Blade. +1 FD when using chain.",
+        "perk_esquiva_agil": "Agile Dodge",
+        "perk_esquiva_agil_desc": "You have trained reflexes. +1 FD if your H is higher than the enemy's.",
+        "perk_golpe_pesado": "Heavy Strike",
+        "perk_golpe_pesado_desc": "Your blows carry brute force. +2 damage on critical (FA - FD ≥ 5).",
+        "perk_postura_defensiva": "Defensive Stance",
+        "perk_postura_defensiva_desc": "You know how to protect yourself. +2 FD, but -1 FA this turn.",
+        "perk_ataque_preciso": "Precise Attack",
+        "perk_ataque_preciso_desc": "You aim calmly. If you choose not to attack on a turn, +2 FA next turn.",
+        "perk_canalizacao": "Channeling",
+        "perk_canalizacao_desc": "You channel elemental power efficiently. Your Power mode attacks ignore 2 points of FD.",
+        "spec_combate": "Total Combat",
+        "spec_combate_desc": "Specialized in direct combat. Gain +1 FA and +1 FD in combat, but -1 on stealth tests.",
+        "spec_tecnico": "Arena Technician",
+        "spec_tecnico_desc": "You understand the LDI systems. Reduce special action costs by 1 MP.",
+        "spec_furtivo": "Digital Shadow",
+        "spec_furtivo_desc": "You move on the edges of the system. Stealth actions have advantage and you can flee combat without penalty.",
+        "spec_suporte": "Tactical Support",
+        "spec_suporte_desc": "You support allies (if any). +1 HP healing on rests and can share MP with allies.",
+        "spec_elemental": "Pure Elemental",
+        "spec_elemental_desc": "Your elemental connection is maximum. In Power mode, you can spend 2 extra MP to double elemental damage."
+      },
+      "manual": {
+        "title": "📖 Game Manual",
+        "sections": [
+          {
+            "title": "What is the LDI?",
+            "content": "LDI stands for \"Lutas de Ilusão\" (Illusion Fight), a digital combat system where fighters connect their minds to battle in virtual arenas. You are a new competitor in Arc 1: Discovery."
+          },
+          {
+            "title": "Attributes",
+            "content": "F (Power): Melee damage. Favors Unarmed and Armed.\nH (Agility): Initiative and dodge. Favors Armed.\nR (Resistance): Max HP (R × 5). Vital for any style.\nA (Protection): Defense and damage reduction. Favors Unarmed.\nPdF (Elemental Power): Elemental damage and MP (PdF × 4). Essential for Power mode."
+          },
+          {
+            "title": "Combat — Modes",
+            "content": "✊ Unarmed: Uses F and A. Moderate damage, high defense.\n⚔️ Armed: Uses F and H. High damage, high initiative.\n⚡ Power: Uses PdF and MP. Elemental damage, consumes MP."
+          },
+          {
+            "title": "Combat — System",
+            "content": "Each turn: you attack (FA) and the enemy defends (FD). If FA > FD, you deal damage equal to the difference. Then the enemy attacks. Whoever reduces the opponent's HP to zero first wins."
+          },
+          {
+            "title": "HP and MP",
+            "content": "HP (Hit Points): R × 5. If it reaches zero, you lose the combat.\nMP (Magic Points): PdF × 4. Used for Power mode attacks and special actions. Recovers when resting or with items."
+          },
+          {
+            "title": "Powers",
+            "content": "You can use up to 4 powers per combat. Each power is a special attack that costs 1 MP. The power type depends on your elemental (Fire, Water, etc.). Powers deal additional damage or special effects."
+          },
+          {
+            "title": "Arcs and Progression",
+            "content": "The story is divided into Arcs. Each arc has days. Each day you explore, make choices, and face combat. Your decisions affect the plot, your sheet, and the available endings."
+          },
+          {
+            "title": "Advantages and Disadvantages",
+            "content": "Advantages cost creation points. Disadvantages grant extra points to spend on attributes and skills. The total creation points are limited."
+          },
+          {
+            "title": "Survival Tips",
+            "content": "1. Don't neglect R — low HP = quick death.\n2. Choose a main combat mode and focus on the right attributes.\n3. Save credits for healing items.\n4. Explore everything — clues reveal secrets and alternate endings.\n5. If you're losing, the option to flee exists for a reason."
+          }
+        ]
+      },
+      "powers": {
+        "fogo": [
+          { "id": "chama_rapida", "name": "Quick Flame", "desc": "Fires a swift flame dealing +2 elemental damage." },
+          { "id": "explosao", "name": "Explosion", "desc": "A fire explosion around you. Deals area damage (doubles FD but hits multiple targets)." },
+          { "id": "labareda", "name": "Blaze", "desc": "An intense blaze. If it hits, causes burn (-1 FD on enemy's next turn)." },
+          { "id": "inferno", "name": "Inferno", "desc": "Pure flames consume the enemy. Deals double elemental damage." },
+          { "id": "escudo_fogo", "name": "Fire Shield", "desc": "Flames protect you. +2 FD this turn, deals 1 damage if the enemy hits." },
+          { "id": "pilar_fogo", "name": "Fire Pillar", "desc": "A pillar of fire erupts from the ground. Medium damage but ignores 3 FD." }
+        ],
+        "agua": [
+          { "id": "projetil_agua", "name": "Water Projectile", "desc": "Fires pressurized water. Deals +2 elemental damage." },
+          { "id": "onda", "name": "Wave", "desc": "A wave pushes the enemy. Damage + reduces enemy FA by 1 on next turn." },
+          { "id": "nevoeiro", "name": "Fog", "desc": "Creates a dense fog. Enemy has -2 FA on next attack." },
+          { "id": "cura", "name": "Light Heal", "desc": "Revitalizing water. Recovers 2 HP (cannot exceed max)." },
+          { "id": "torrente", "name": "Torrent", "desc": "A massive water jet. Deals double elemental damage." },
+          { "id": "gelo", "name": "Ice", "desc": "Frozen water. Damage + enemy loses 1 H on next turn." }
+        ],
+        "terra": [
+          { "id": "projetil_pedra", "name": "Stone Projectile", "desc": "Throws a stone. Deals +2 elemental damage." },
+          { "id": "muralha", "name": "Wall", "desc": "Raises a stone wall. +3 FD this turn." },
+          { "id": "terremoto", "name": "Earthquake", "desc": "The ground trembles. Deals double elemental damage and stuns the enemy (-1 FA and FD next turn)." },
+          { "id": "armadura", "name": "Earth Armor", "desc": "Coats your body in stone. +2 FD for 2 turns." },
+          { "id": "areia_movel", "name": "Quicksand", "desc": "The ground becomes unstable. Enemy loses next turn (doesn't attack)." },
+          { "id": "lanca_pedra", "name": "Stone Lance", "desc": "A stone lance pierces the enemy. Ignores 4 FD." }
+        ],
+        "ar": [
+          { "id": "rajada", "name": "Gust", "desc": "A gust of wind. Deals +2 elemental damage." },
+          { "id": "ciclone", "name": "Cyclone", "desc": "A cyclone envelops the enemy. Deals double elemental damage." },
+          { "id": "escudo_vento", "name": "Wind Shield", "desc": "Wind deflects attacks. +2 FD this turn." },
+          { "id": "passos_leves", "name": "Light Steps", "desc": "Wind carries you. +2 H for one turn (more initiative)." },
+          { "id": "sopro", "name": "Big Blow", "desc": "A strong gust pushes the enemy away. Enemy loses 1 H on next turn." },
+          { "id": "tempestade", "name": "Storm", "desc": "Small air explosions. Deals damage + -1 FD on enemy for 2 turns." }
+        ],
+        "trevas": [
+          { "id": "sombra_atacante", "name": "Attacking Shadow", "desc": "Shadows attack the enemy. Deals +2 elemental damage." },
+          { "id": "dreno", "name": "Drain", "desc": "Drains energy from the enemy. Deals damage and recovers 1 HP." },
+          { "id": "nevoa_escura", "name": "Dark Fog", "desc": "Darkness envelops the arena. Enemy has -2 FA on next attack." },
+          { "id": "toque_sombrio", "name": "Dark Touch", "desc": "A consuming touch. Deals double elemental damage." },
+          { "id": "medo", "name": "Fear", "desc": "Projects fear into the enemy's mind. Enemy loses next attack (but still defends)." },
+          { "id": "absorcao", "name": "Absorption", "desc": "Absorbs elemental energy. Recovers 1 MP." }
+        ],
+        "luz": [
+          { "id": "raio_luz", "name": "Light Ray", "desc": "A blinding light ray. Deals +2 elemental damage." },
+          { "id": "cura_luz", "name": "Radiant Heal", "desc": "Revitalizing light. Recovers 3 HP." },
+          { "id": "escudo_luz", "name": "Light Shield", "desc": "Luminous barrier. +2 FD this turn." },
+          { "id": "explosao_luz", "name": "Light Explosion", "desc": "Explosion blinds the enemy. Deals double elemental damage and enemy has -1 FA next turn." },
+          { "id": "purificacao", "name": "Purification", "desc": "Removes a negative status or heals 1 additional HP." },
+          { "id": "fulgor", "name": "Blaze", "desc": "Intense light. Deals damage + enemy has -1 FD next turn." }
+        ],
+        "neutro": [
+          { "id": "impacto", "name": "Impact", "desc": "A neutral energy strike. Deals +2 damage." },
+          { "id": "barreira", "name": "Barrier", "desc": "Energy barrier. +2 FD this turn." },
+          { "id": "pulso", "name": "Pulse", "desc": "Energy pulse. Deals damage and pushes the enemy (-1 FA next turn)." },
+          { "id": "carga_total", "name": "Total Charge", "desc": "All your energy in one blow. Deals double damage." },
+          { "id": "recuperacao", "name": "Recovery", "desc": "Recovers 1 MP." },
+          { "id": "sobrecarga", "name": "Overload", "desc": "Overloads your circuits. Next attack deals +3 damage." }
+        ]
+      },
       "game": {
         "levelup_titulo": "ACTION POINTS",
         "levelup_sub": "Distribute your attribute point:",

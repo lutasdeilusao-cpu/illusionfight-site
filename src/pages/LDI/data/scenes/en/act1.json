@@ -1,0 +1,772 @@
+[
+  {
+    "id": "1.1",
+    "title": "NeoGuide: Welcome to LDI",
+    "image": "",
+    "text": [
+      "The screen lights up in front of you with a cold blue glow.",
+      "A female silhouette materializes in the center. She wears a holographic trench coat — the Virtual Assistant NeoGuide.",
+      "[NEOGUIDE] \"Welcome to the LDI. Your identity here doesn't exist yet. Let's build one.\"",
+      "[NEOGUIDE] \"First of all... how do you prefer to move within the network?\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Explosion and speed — break in, break everything",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ESTILO_VELOZ"],
+        "next_scene": "1.1b",
+        "sheet_effect": { "F": 2, "H": 1 }
+      },
+      {
+        "id": "B",
+        "label": "Silence and precision — go unnoticed",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ESTILO_SIGILO"],
+        "next_scene": "1.1b",
+        "sheet_effect": { "H": 2, "A": 1 }
+      },
+      {
+        "id": "C",
+        "label": "Resistance and presence — nobody moves you",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ESTILO_TANQUE"],
+        "next_scene": "1.1b",
+        "sheet_effect": { "R": 2, "F": 1 }
+      }
+    ]
+  },
+  {
+    "id": "1.1b",
+    "title": "NeoGuide: Digital Essence",
+    "image": "",
+    "text": [
+      "NeoGuide nods, processing your choice.",
+      "[NEOGUIDE] \"Interesting. Your digital signature is forming...\"",
+      "She raises her hand and a sphere of elemental energy appears.",
+      "[NEOGUIDE] \"This is your origin element. I didn't choose it — the system read your digital residue and extracted this.\"",
+      "The sphere pulses with liquid energy."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Accept the element the system chose",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ELEMENTO_ACEITO"],
+        "next_scene": "1.1c",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Refuse — \"Nah man, I'm not about that, no thanks\"",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ELEMENTO_RECUSADO"],
+        "next_scene": "1.1c",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.1c",
+    "title": "NeoGuide: Combat Kit",
+    "image": "",
+    "text": [
+      "The sphere dissipates and NeoGuide crosses her arms.",
+      "[NEOGUIDE] \"OK, now the fun part. What combat style do you want to carry?\"",
+      "Three holograms appear beside her: an Ice Axe, a Lightning Rapier, and a Fire Chain.",
+      "[NEOGUIDE] \"Choose your weapon. The LDI is about surviving and moving forward — you don't have a choice.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ice Axe — brutality and destruction",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ARMA_KATANA"],
+        "next_scene": "1.1d",
+        "sheet_effect": { "F": 1 }
+      },
+      {
+        "id": "B",
+        "label": "Lightning Rapier — speed and precision",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ARMA_LAMINAS"],
+        "next_scene": "1.1d",
+        "sheet_effect": { "H": 1 }
+      },
+      {
+        "id": "C",
+        "label": "Fire Chain — versatility and defense",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ARMA_CORRENTE"],
+        "next_scene": "1.1d",
+        "sheet_effect": { "A": 1 }
+      }
+    ]
+  },
+  {
+    "id": "1.1d",
+    "title": "NeoGuide: Purpose",
+    "image": "",
+    "text": [
+      "NeoGuide leans forward, her holographic gaze fixed on you.",
+      "[NEOGUIDE] \"Last question. And the most important one.\"",
+      "[NEOGUIDE] \"What do you want to achieve inside the LDI?\"",
+      "The surroundings darken, and three paths light up before you."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Power — reach the top of the ranking",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PROPOSITO_PODER"],
+        "next_scene": "1.2",
+        "sheet_effect": { "F": 1, "H": 1 }
+      },
+      {
+        "id": "B",
+        "label": "Knowledge — unravel the system's secrets",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PROPOSITO_CONHECIMENTO"],
+        "next_scene": "1.2",
+        "sheet_effect": { "R": 1, "PdF": 1 }
+      },
+      {
+        "id": "C",
+        "label": "Connection — build alliances and history",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PROPOSITO_CONEXAO"],
+        "next_scene": "1.2",
+        "sheet_effect": { "A": 1, "H": 1 }
+      }
+    ]
+  },
+  {
+    "id": "1.2",
+    "title": "DISCONNECTION",
+    "image": "",
+    "text": [
+      "Suddenly, NeoGuide freezes.",
+      "Her holographic eyes go dark and light up red.",
+      "[NEOGUIDE] \"S—Something... S—Something... wrong... wrong...\"",
+      "The ground beneath you dissolves into pixels. The digital sky tears apart.",
+      "An invisible shockwave throws you back. NeoGuide disappears.",
+      "You fall. And fall. And fall.",
+      "Until the impact never comes.",
+      "You open your eyes.",
+      "You're in a deserted digital square. The sky has a sickly violet hue. Signs flicker with corrupted messages.",
+      "Welcome to the LDI. Day 1."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Explore the square",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["EXPLOROU_PRACA"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3",
+    "title": "First Day — Central Square",
+    "image": "",
+    "text": [
+      "The LDI Central Square looks like an abandoned cyberpunk shopping mall.",
+      "Neon signs flicker in empty shops. A few avatars pass by quickly, avoiding eye contact.",
+      "In the center of the square, a public terminal still works.",
+      "What do you do?"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Examine the public terminal",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["TERMINAL_USADO"],
+        "next_scene": "1.3a",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Follow one of the avatars that passed quickly",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["SEGUIU_AVATAR"],
+        "next_scene": "1.3b",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "Look for an exit from the square",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PROCUROU_SAIDA"],
+        "next_scene": "1.3c",
+        "sheet_effect": {}
+      },
+      {
+        "id": "D",
+        "label": "Test your gear in an alley",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["TESTE_EQUIPAMENTO"],
+        "next_scene": "1.3d",
+        "sheet_effect": {}
+      },
+      {
+        "id": "E",
+        "label": "Shout for help",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PEDIU_AJUDA"],
+        "next_scene": "1.3e",
+        "sheet_effect": {}
+      },
+      {
+        "id": "F",
+        "label": "Sit and observe — learn before acting",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["OBSERVAR"],
+        "next_scene": "1.3f",
+        "sheet_effect": {}
+      },
+      {
+        "id": "G",
+        "label": "I've explored enough — rest and wait for Day 2",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["EXPLOROU_PRACA"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3a",
+    "title": "Public Terminal",
+    "image": "",
+    "text": [
+      "The terminal flickers with a message:",
+      "[SYSTEM] \"WELCOME, UNREGISTERED PLAYER.\"",
+      "[SYSTEM] \"YOU HAVE 0 CREDITS.\"",
+      "[SYSTEM] \"MISSION AVAILABLE: [Initial Contact] — Accept?\"",
+      "The screen trembles. For a moment, a second message overlaps:",
+      "[SYSTEM] \"DON'T TRUST THE SYSTEM.\"",
+      "And it vanishes."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Accept the mission [Initial Contact]",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["MISSAO_CONTATO_ACEITA"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Ignore and keep exploring",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["IGNOROU_MISSAO"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3b",
+    "title": "Following the Avatar",
+    "image": "",
+    "text": [
+      "You follow the avatar through narrow corridors. He enters a dead-end alley.",
+      "When he turns, you see his face: it's a low-ranked robot, red eyes glowing.",
+      "\"You're the rookie?\" — the voice is metallic, distorted.",
+      "\"Get out of here. Today is collection day. The StormBytes are coming.\"",
+      "He vanishes in a cloud of data."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go back to the square and process the information",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["AVISO_STORMBYTE"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3c",
+    "title": "Looking for an Exit",
+    "image": "",
+    "text": [
+      "You find a locked gate with an access panel beside it.",
+      "The panel requires a 4-digit code.",
+      "A sign next to it says: \"COMMERCIAL ZONE → EAST\"",
+      "You can try to hack it or give up."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Try to hack the panel (H test)",
+        "requires": { "H": 3 },
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["HACKEOU_PAINEL"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Go back — don't risk it now",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3d",
+    "title": "Gear Test",
+    "image": "",
+    "text": [
+      "In the alley, you draw your weapon and test a few swings.",
+      "The system displays your status in real-time: damage, range, speed.",
+      "You feel the digital weight of the weapon in your hand. It's real in here.",
+      "Suddenly, an alert: a ranked fighter (rank 850,000) is approaching.",
+      "[STORMBYTE] \"Hey, rookie! Restricted zone for unregistered!\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Fight — first battle",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["COMBATE_STORMBYTE"],
+        "next_scene": "1.3d-luta",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Flee — run back to the square",
+        "requires": { "H": 2 },
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FUGIU_STORMBYTE"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3d-luta",
+    "title": "Gear Test",
+    "image": "",
+    "text": [
+      "You brandish your weapon and assume a combat stance.",
+      "The ranked fighter grins. \"This is gonna hurt you, not me.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Fight!",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "combat_stormbyte_91",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3d-pos",
+    "title": "First Victory",
+    "image": "",
+    "destaque": true,
+    "text": [
+      "StormByte falls. The system registers the victory with a dry beep.",
+      "You stand still, looking at where he was. The pain that remains is real. So is the satisfaction.",
+      "On the floating display in front of you: +80 credits. Rank updated.",
+      "You returned to the square with something new in your posture."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Keep exploring the square",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["VENCEU_STORMBYTE"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3e",
+    "title": "Asking for Help",
+    "image": "",
+    "text": [
+      "You shout. A few avatars stop and look.",
+      "A tall figure, hooded with digital sunglasses, approaches.",
+      "[KAEDA] \"Rookie?\" — the voice is feminine, dry.",
+      "[KAEDA] \"First rule: don't call attention. Second: follow me.\"",
+      "She turns without waiting for an answer."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Follow the hooded figure",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["SEGUIU_CAPUZ"],
+        "next_scene": "2.1",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Be suspicious and stay in the square",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3f",
+    "title": "Observing",
+    "image": "",
+    "text": [
+      "You sit on a digital bench and observe.",
+      "Twenty minutes pass. You notice patterns:",
+      "- The avatars follow specific routes, like NPCs.",
+      "- One of them — a robot with a gold insignia — seems different. He looks directly at you.",
+      "- A private message arrives on your display:",
+      "\"I need you. Square → Terminal → Mission [Initial Contact].\"",
+      "The message has no sender."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go to the terminal and accept the mission",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["MISSAO_CONTATO_ACEITA", "OBSERVADOR"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Ignore the message and explore on your own",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["IGNOROU_MENSAGEM"],
+        "next_scene": "1.3",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.3-mafama",
+    "title": "Data Haunting",
+    "image": "",
+    "text": [
+      "A strange feeling has been following you since you arrived.",
+      "Something about the LDI seems... familiar. Wrong. Like you've been here before.",
+      "The signs flicker in patterns your brain tries to decode.",
+      "You squint and see numbers for a moment. Pure code. The skeleton of the world.",
+      "And then it passes."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Ignore the feeling — focus on the present",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["IGNOU_MAFAMA"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Make a mental note — this could be important",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ANOTOU_MAFAMA"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.4",
+    "title": "Day 2 — Routine",
+    "image": "",
+    "text": [
+      "The second day in the LDI dawns without sun — the violet sky simply lightens a shade.",
+      "You woke up in a safety cube you rented with 0 credits. The system gave you a deadline.",
+      "Notifications: - [SYSTEM] Welcome to Day 2. You have 3 days to perform your first ranked kill. - [SYSTEM] Available credits: 0. - [PRIVATE MESSAGE] — Not deleted since yesterday.",
+      "What do you do today?"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go hunting — you need credits",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["CACA_DIA2"],
+        "next_scene": "1.4a",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Investigate the private message",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["INVESTIGA_MENSAGEM"],
+        "next_scene": "1.4b",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "Explore the cube's surroundings",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["EXPLORA_CUBO"],
+        "next_scene": "1.4c",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.4a",
+    "title": "Hunting for Credits",
+    "image": "",
+    "text": [
+      "You walk through the LDI corridors until you find the Training Arena.",
+      "Inside, some avatars train on simulators.",
+      "One of them stares at you — it's the low-ranked robot from yesterday.",
+      "[STORMBYTE] \"Want easy credits? Fight me.\""
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Accept the duel",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["DUELO_ACEITO"],
+        "next_scene": "combat_stormbyte_91",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Refuse — not the right time",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["DUELO_RECUSADO"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.4b",
+    "title": "Investigating the Message",
+    "image": "",
+    "text": [
+      "You open the private message. The text is simple:",
+      "\"You didn't fall here by accident. I know what you are. Central Square, terminal. Noon.\"",
+      "There's no identification. The sender is listed as: [CORRUPTED DATA]."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go to the terminal at noon",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FOI_AO_TERMINAL"],
+        "next_scene": "2.1",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Ignore — official missions first",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": [],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.4c",
+    "title": "Cube Surroundings",
+    "image": "",
+    "text": [
+      "Outside the cube, you find a digital black market.",
+      "Vendors sell everything from modified weapons to information.",
+      "A vendor calls you: \"Psst. Rookie. Want a free tip?\"",
+      "\"Stay away from the East Zone today. The StormBytes are sweeping.\"",
+      "He vanishes before you can ask more."
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go to the East Zone anyway",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FOI_ZONA_LESTE"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Go back — useful info, but better not risk it",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["EVITOU_ZONA_LESTE"],
+        "next_scene": "1.4",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.5",
+    "title": "Day 3 — The Deadline Approaches",
+    "image": "",
+    "text": [
+      "Third day. The system displays a red warning in the corner of your vision:",
+      "[SYSTEM] \"1 DAY LEFT FOR RANKED KILL. PENALTY: ACCESS SUSPENSION.\"",
+      "You need to act. What do you do?"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go to the Arena — face whoever shows up",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["ARENA_DIA3"],
+        "next_scene": "combat_kaeda",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Look for a contact — someone who can help",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["PROCURA_CONTATO"],
+        "next_scene": "2.1",
+        "sheet_effect": {}
+      },
+      {
+        "id": "C",
+        "label": "Accept the official terminal mission",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["MISSAO_OFICIAL"],
+        "next_scene": "1.5a",
+        "sheet_effect": {}
+      }
+    ]
+  },
+  {
+    "id": "1.5a",
+    "title": "Official Mission",
+    "image": "",
+    "text": [
+      "The terminal displays the mission:",
+      "\"[OFFICIAL MISSION] — Ranked Kill: Eliminate a ranked opponent at the East Arena.",
+      "Reward: 500 credits + Access to the Central Market.",
+      "Failure penalty: 7-day suspension.\"",
+      "You confirm. The mission is active.",
+      "The East Arena is 15 minutes away. Do you go?"
+    ],
+    "choices": [
+      {
+        "id": "A",
+        "label": "Go to the East Arena",
+        "requires": null,
+        "cost": null,
+        "flags_required": [],
+        "flags_set": ["FOI_ARENA_LESTE"],
+        "next_scene": "combat_ghostpulse",
+        "sheet_effect": {}
+      },
+      {
+        "id": "B",
+        "label": "Prepare first — buy equipment",
+        "requires": { "R": 2 },
+        "cost": 100,
+        "flags_required": [],
+        "flags_set": ["SE_PREPAROU"],
+        "next_scene": "1.5a",
+        "sheet_effect": {}
+      }
+    ]
+  }
+]

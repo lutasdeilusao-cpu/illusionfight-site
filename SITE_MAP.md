@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.85*  |  `[SITE] versão carregada: 9.85`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.84*  |  `[SITE] versão carregada: 9.84`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.83*  |  `[SITE] versão carregada: 9.83`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.82*  |  `[SITE] versão carregada: 9.82`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
@@ -69,6 +70,7 @@
 *Versão: 9.10*  |  `[SITE] versão carregada: 9.10`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.6*  |  `[SITE] versão carregada: 9.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
+*LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`

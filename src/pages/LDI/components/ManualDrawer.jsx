@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { MANUAL_SECTIONS } from '../data/manualData'
+import { useLanguage } from '../../../context/LanguageContext'
 
 const drawer = {
   hidden: { x: '100%' },
@@ -8,6 +8,10 @@ const drawer = {
 }
 
 export default function ManualDrawer({ open, onClose }) {
+  const { t } = useLanguage()
+  const manual = t('games.ldi.manual', { returnObjects: true })
+  const sections = manual?.sections || []
+
   return (
     <AnimatePresence>
       {open && (
@@ -27,11 +31,11 @@ export default function ManualDrawer({ open, onClose }) {
             exit="exit"
           >
             <div className="ldi-drawer-header">
-              <h2>📖 Manual do Jogo</h2>
+              <h2>{manual?.title || '📖 Manual'}</h2>
               <button className="ldi-drawer-close" onClick={onClose}>✕</button>
             </div>
             <div className="ldi-drawer-body">
-              {MANUAL_SECTIONS.map((section, i) => (
+              {sections.map((section, i) => (
                 <div key={i} className="ldi-drawer-section">
                   <h3 className="ldi-drawer-section-title">{section.title}</h3>
                   <p className="ldi-drawer-section-text">{section.content}</p>

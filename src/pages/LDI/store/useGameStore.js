@@ -2,7 +2,7 @@ import { LDI_VERSION } from '../../../config/version'
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
-import { loadScene, filterChoices, getSceneFromCache } from '../engine/scenes'
+import { loadScene, filterChoices, getSceneFromCache, setScenesLocale } from '../engine/scenes'
 import { setFlag, hasFlag } from '../engine/flags'
 import { useCombatStore } from './useCombatStore'
 import { saveSheet, saveGameSave, loadFullSheet, loadActiveSave } from '../hooks/useLDIStorage'
@@ -56,6 +56,12 @@ export const useGameStore = create((set, get) => ({
   currentScene: null,
   choices: [],
   sceneNav: 0,
+  locale: 'pt',
+
+  setLocale: (locale) => {
+    setScenesLocale(locale)
+    set({ locale })
+  },
 
   newSheet: () => {
     set({ sheet: defaultSheet(), save: { ...defaultSave(), pv_current: 1, pm_current: 1 } })
@@ -150,7 +156,7 @@ export const useGameStore = create((set, get) => ({
       return
     }
 
-    const scene = await loadScene(sceneId)
+    const scene = await loadScene(sceneId, get().locale)
     if (!scene) {
       console.error('[LDI] Falha ao carregar cena, mantendo cena atual')
       return
