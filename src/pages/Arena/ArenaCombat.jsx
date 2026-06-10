@@ -452,7 +452,7 @@ export default function ArenaCombat({ onNavigate }) {
           <div className="arena-fighter-name">{sheet?.sheet_name}</div>
           <div className="arena-fighter-bars">
             <div className="arena-fighter-bar-row">
-              <span className="arena-fighter-bar-label">PV</span>
+              <span className="arena-fighter-bar-label">{t('games.arena.hp')}</span>
               <div className="arena-fighter-bar-track">
                 <div className={`arena-fighter-bar-fill ${nearDeath ? 'arena-fighter-bar-fill--danger' : 'arena-fighter-bar-fill--hp-player'}`}
                   style={{ '--bar-pct': `${pvPct}%` }} />
@@ -460,7 +460,7 @@ export default function ArenaCombat({ onNavigate }) {
               <span className="arena-fighter-bar-val">{playerPv}/{pvMax}</span>
             </div>
             <div className="arena-fighter-bar-row">
-              <span className="arena-fighter-bar-label">PM</span>
+              <span className="arena-fighter-bar-label">{t('games.arena.mp')}</span>
               <div className="arena-fighter-bar-track">
                 <div className="arena-fighter-bar-fill arena-fighter-bar-fill--pm"
                   style={{ '--bar-pct': `${pmPct}%` }} />
@@ -478,7 +478,7 @@ export default function ArenaCombat({ onNavigate }) {
         <div className="arena-vs-bar-line" />
         <span className="arena-vs-bar-label">VS</span>
         <div className="arena-vs-bar-line" />
-        <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+        <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
           {sfx.enabled ? '🔊' : '🔇'}
         </button>
       </div>
@@ -508,11 +508,11 @@ export default function ArenaCombat({ onNavigate }) {
                     </div>
                     <div className="arena-attack-card-body">
                       <div className="arena-attack-card-row">
-                        <span className="arena-attack-card-key">FA</span>
+                        <span className="arena-attack-card-key">{t('games.arena.fa_label')}</span>
                         <span className="arena-attack-card-val">{l.breakdown}</span>
                       </div>
                       <div className="arena-attack-card-row">
-                        <span className="arena-attack-card-key">FD</span>
+                        <span className="arena-attack-card-key">{t('games.arena.fd_label')}</span>
                         <span className="arena-attack-card-val">{l.fd}</span>
                       </div>
                       {l.diceRoll != null && (
@@ -600,7 +600,7 @@ export default function ArenaCombat({ onNavigate }) {
           <div className="arena-fighter-name">{enemy.name}</div>
           <div className="arena-fighter-bars">
             <div className="arena-fighter-bar-row">
-              <span className="arena-fighter-bar-label">PV</span>
+              <span className="arena-fighter-bar-label">{t('games.arena.hp')}</span>
               <div className="arena-fighter-bar-track">
                 <div className="arena-fighter-bar-fill arena-fighter-bar-fill--hp-enemy"
                   style={{ '--bar-pct': `${epvPct}%` }} />

@@ -150,7 +150,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const handleAdvPointerUp = () => clearTimeout(longPressRef.current)
 
   const handleSalvar = async () => {
-    if (!s.sheet_name?.trim()) { setErrors({ name: 'Dê um nome para sua ficha.' }); setStep('sheet_name'); return }
+    if (!s.sheet_name?.trim()) { setErrors({ name: t('games.arena.erro_nome') }); setStep('sheet_name'); return }
     if (totalPoints > 0) { setErrors({ cost: t('games.arena.erro_custo_pos') }); return }
     if (totalPoints < 0) { setErrors({ cost: t('games.arena.erro_custo_neg') }); return }
     await store.saveToCloud(user?.id)
@@ -190,8 +190,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* HEADER steps */}
       {step !== 'intro' && (
         <div className="arc-header">
-          <BackToGamesBtn onClick={() => navigate('/games')} label="← EXTRAS" />
-          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX">
+          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_site')} />
+          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
           <div className="arc-header-center">

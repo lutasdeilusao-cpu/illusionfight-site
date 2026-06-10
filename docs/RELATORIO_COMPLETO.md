@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.41  
-> **Versão do Site:** 9.95  
+> **Versão do Relatório:** 2.42  
+> **Versão do Site:** 9.96  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.10.0  
+**Versão:** 1.10.1  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -464,6 +464,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🗑️ **Delete button** — mais visível (destaque vermelho, escala hover)
 - 🗄️ **Delete fix** — Supabase delete com tratamento de erro
 - 🌐 **i18n** — novas chaves `btn_sair` e `erro_excluir` pt/en/es
+- **v1.10.1** — hardcoded strings `'Dê um nome...'`, `PV`/`PM`, `FA`/`FD`, `SFX` title traduzidos pt/en/es
 
 ---
 

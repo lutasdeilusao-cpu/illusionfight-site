@@ -296,7 +296,7 @@ export default function ArenaLobby({ onNavigate }) {
       </button>
 
       <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} />
-      <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title="SFX" style={{ marginTop: '0.5rem', fontSize: 18 }}>
+      <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')} style={{ marginTop: '0.5rem', fontSize: 18 }}>
         {sfx.enabled ? '🔊' : '🔇'}
       </button>
     </div>
