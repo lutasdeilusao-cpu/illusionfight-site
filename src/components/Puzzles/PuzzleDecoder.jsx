@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 const CONFIGS = {
@@ -42,6 +43,7 @@ function Waveform({ sliders, targets, tolerance, solved, heartbeat }) {
 }
 
 export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const difficulty = config.difficulty || 'easy'
   const cfg = CONFIGS[difficulty]
   const [targets] = useState(() => Array.from({ length: cfg.bars }, gerarAlvo))
@@ -115,8 +117,8 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
 
   return (
     <div className="puzzle-container">
-      <div className="puzzle-title">📡 Decodificador de Frequência</div>
-      <p className="puzzle-desc">sintonize {cfg.bars > 1 ? 'todas as frequências' : 'na frequência correta'} para decifrar a mensagem.</p>
+      <div className="puzzle-title">{t('games.minigames.decoder.titulo_jogo')}</div>
+      <p className="puzzle-desc">{cfg.bars > 1 ? t('games.minigames.decoder.instrucao_n') : t('games.minigames.decoder.instrucao_1')}</p>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.3rem' }}>
         <span style={{
           fontFamily: "'Share Tech Mono',monospace",
@@ -127,7 +129,7 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
           transition: 'font-size 0.3s, color 0.3s',
           letterSpacing: '0.1em',
         }}>⏱ {timeLeft}s</span>
-        <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: '#555' }}>tentativas: {attempts}/{cfg.attempts}</span>
+        <span style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.65rem', color: '#555' }}>{t('games.minigames.tentativas', { a: attempts, b: cfg.attempts })}</span>
       </div>
       <Waveform sliders={sliders} targets={targets} tolerance={cfg.tolerance} solved={solved} heartbeat={heartbeat} />
       <div style={{ marginTop: '0.8rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
@@ -144,10 +146,10 @@ export default function PuzzleDecoder({ onSolve, onFail, config = {} }) {
           )
         })}
       </div>
-      {allAligned && !done && <p style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.75rem', color: '#22C55E', textAlign: 'center', marginTop: '0.5rem', animation: 'vision-pulse 0.5s infinite' }}>✓ frequências alinhadas — confirme</p>}
-      {solved && <p style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.85rem', color: '#22C55E', textAlign: 'center', marginTop: '0.5rem' }}>✓ sinal decifrado.</p>}
+      {allAligned && !done && <p style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.75rem', color: '#22C55E', textAlign: 'center', marginTop: '0.5rem', animation: 'vision-pulse 0.5s infinite' }}>{t('games.minigames.decoder.alinhado')}</p>}
+      {solved && <p style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.85rem', color: '#22C55E', textAlign: 'center', marginTop: '0.5rem' }}>{t('games.minigames.decoder.decifrado')}</p>}
       <div className="puzzle-buttons" style={{ marginTop: '0.6rem' }}>
-        <button className="jack-btn jack-btn--amber" onClick={handleDecode} disabled={done}>[ decodificar ({attempts}/{cfg.attempts}) ]</button>
+        <button className="jack-btn jack-btn--amber" onClick={handleDecode} disabled={done}>{t('games.minigames.decoder.decodificar', { n: attempts, total: cfg.attempts })}</button>
       </div>
     </div>
   )

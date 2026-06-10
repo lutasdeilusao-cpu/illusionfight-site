@@ -209,7 +209,7 @@ export default function MiniGames() {
           <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_jogar_novamente')}</button>
         </div>
         <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
+          <BackToGamesBtn onClick={voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
     </div>
@@ -225,7 +225,7 @@ export default function MiniGames() {
           <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_tentar_novamente')}</button>
         </div>
         <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
+          <BackToGamesBtn onClick={voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
     </div>
@@ -239,7 +239,7 @@ export default function MiniGames() {
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
         <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
+          <BackToGamesBtn onClick={voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
     </div>
@@ -265,7 +265,7 @@ export default function MiniGames() {
         ))}
       </div>
       <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-        <BackToGamesBtn onClick={() => navigate('/games')} label="← VOLTAR AOS GAMES" />
+        <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
       </div>
       <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>
     </div>

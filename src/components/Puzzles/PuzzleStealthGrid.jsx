@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useZoom } from '../../hooks/useZoom'
 import { useViewportScroll } from '../../hooks/useViewportScroll'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 function getVisionCone(r, c, dir, size, range = 2) {
@@ -65,6 +66,7 @@ function gerarCameras(size, count) {
 }
 
 export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const size = config.size || 4
   const hasTimer = config.hasTimer || false
   const timerInicial = config.timerSegundos || 30
@@ -253,15 +255,15 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   return (
     <div ref={containerRef} className="puzzle-container" style={{ userSelect: 'none' }}>
-      <div className="puzzle-title">🥷 Grade de Infiltração</div>
-      <p className="puzzle-desc">evite as câmeras e seus cones de visão. use WASD, setas ou swipe.</p>
+      <div className="puzzle-title">{t('games.minigames.stealth.titulo_jogo')}</div>
+      <p className="puzzle-desc">{t('games.minigames.stealth.instrucao')}</p>
       {hasTimer && <p className="puzzle-timer">⏱️ {timeLeft}s</p>}
-      {done && !alarm && <p style={{ color: '#22C55E', textAlign: 'center', fontFamily: "'Share Tech Mono',monospace" }}>✓ passou.</p>}
+      {done && !alarm && <p style={{ color: '#22C55E', textAlign: 'center', fontFamily: "'Share Tech Mono',monospace" }}>{t('games.minigames.passou')}</p>}
 
       <div ref={viewportRef} className="puzzle-stealth-viewport"
         style={{ width: viewportPx, height: viewportPx, overflow: isMobile && zoom < 3 ? 'hidden' : 'visible', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}
         onTouchStart={showControls} onClick={showControls}>
-        {toast && <div className="puzzle-stealth-toast">você foi capturado</div>}
+        {toast && <div className="puzzle-stealth-toast">{t('games.minigames.stealth.capturado')}</div>}
 
         <div ref={gridRef} className="puzzle-stealth-grid" style={{ gridTemplateColumns: `repeat(${size}, ${cellSize}px)`, transform: `scale(${zoomScale}) translate(${gridOffset.x}px, ${gridOffset.y}px)`, transformOrigin: 'top left', width: size * cellSize, position: 'relative' }}>
           {Array.from({ length: size * size }, (_, i) => {

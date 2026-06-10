@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 const COLORS = ['#00B4D8', '#FF6B6B', '#22C55E', '#A855F4']
 const COR_NOME = ['azul', 'vermelho', 'verde', 'amarelo']
 
 export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const difficulty = config?.difficulty || 'easy'
   const maxRounds = difficulty === 'hard' ? 8 : difficulty === 'medium' ? 6 : 5
 
@@ -99,7 +101,7 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   return (
     <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
       <div style={{ fontFamily: "'Share Tech Mono',monospace", fontSize: '0.8rem', color: '#888', marginBottom: '1rem' }}>
-        Round {round + 1}/{maxRounds}
+        {t('games.minigames.simon.round_label', { n: round + 1, max: maxRounds })}
       </div>
       <div style={{
         display: 'grid',
@@ -133,7 +135,7 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
         color: '#F5A623',
         marginTop: '1rem',
       }}>
-        {phase === 'showing' ? '👁️ Observando...' : '👆 Repita!'}
+        {phase === 'showing' ? t('games.minigames.simon.observando') : t('games.minigames.simon.repita')}
       </div>
     </div>
   )

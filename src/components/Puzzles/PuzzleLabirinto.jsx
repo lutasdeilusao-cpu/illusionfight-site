@@ -48,6 +48,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
 import { useZoom } from '../../hooks/useZoom'
 import { useViewportScroll } from '../../hooks/useViewportScroll'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 const MAZE_CONFIGS = {
@@ -57,6 +58,7 @@ const MAZE_CONFIGS = {
 }
 
 export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const difficulty = config.difficulty || 'easy'
   const cfg = MAZE_CONFIGS[difficulty]
   const { rows, cols, cellPx } = cfg
@@ -157,11 +159,11 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
 
   return (
     <div ref={containerRef} className="puzzle-container" style={{ userSelect: 'none' }}>
-      <div className="puzzle-title">🌀 Labirinto</div>
-      <p className="puzzle-desc">encontre a saída. use WASD, setas ou swipe.</p>
+      <div className="puzzle-title">{t('games.minigames.labirinto.titulo_jogo')}</div>
+      <p className="puzzle-desc">{t('games.minigames.labirinto.instrucao')}</p>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.3rem' }}>
         <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color: cfg.timer ? timerColor : '#555', animation: cfg.timer && timeLeft <= 10 ? 'timer-urgent 0.5s infinite' : 'none' }}>
-          {cfg.timer ? `⏱ ${timeLeft}s` : `movimentos: ${moves}`}
+          {cfg.timer ? t('games.minigames.timer', { s: timeLeft }) : t('games.minigames.sliding.movimentos', { n: moves })}
         </span>
         <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:'#555' }}>{difficulty.toUpperCase()} · {rows}×{cols}</span>
       </div>

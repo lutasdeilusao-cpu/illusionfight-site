@@ -799,6 +799,11 @@
           "dificuldade": "★★☆"
         }
       },
+      "stealth": {
+        "titulo_jogo": "🥷 Cuadrícula de Infiltración",
+        "instrucao": "evita las cámaras y sus conos de visión. usa WASD, flechas o swipe.",
+        "capturado": "has sido capturado"
+      },
       "timer": "⏱ {s}s",
       "tentativas": "intentos: {a}/{b}",
       "erros": "errores: {a}/{b}",
@@ -829,7 +834,44 @@
       "puzzle_enduro_tagline": "pista infinita. esquiva obstáculos. colecciona monedas.",
       "puzzle_enduro_desc": "carrera infinita con 10 pistas. obstáculos y monedas. sobrevive hasta el final.",
       "puzzle_enduro_dificuldade": "★★☆",
-      "badge_lancado": "LANZADO"
+      "badge_lancado": "LANZADO",
+      "decoder": {
+        "titulo_jogo": "📡 Decodificador de Frecuencia",
+        "instrucao_1": "sintoniza la frecuencia correcta para descifrar el mensaje.",
+        "instrucao_n": "sintoniza todas las frecuencias para descifrar el mensaje.",
+        "alinhado": "✓ frecuencias alineadas — confirma",
+        "decifrado": "✓ señal descifrada.",
+        "decodificar": "[ decodificar ({n}/{total}) ]"
+      },
+      "sliding": {
+        "titulo_jogo": "🧩 Documento Rasgado",
+        "instrucao": "reconstituye el documento. ordena las piezas. usa flechas o clic.",
+        "movimentos": "movimientos: {n}",
+        "objetivo": "objetivo: ordenar 1-{n} de izquierda a derecha, espacio vacío en la esquina inferior derecha",
+        "desistir": "[ rendirse ]"
+      },
+      "labirinto": {
+        "titulo_jogo": "🌀 Laberinto",
+        "instrucao": "encuentra la salida. usa WASD, flechas o swipe."
+      },
+      "anagrama": {
+        "titulo_jogo": "🔤 Anagrama",
+        "instrucao_letra": "reordena las letras para formar la palabra correcta.",
+        "instrucao_palavra": "reordena las palabras para formar la frase correcta.",
+        "limpar": "[ limpiar ]",
+        "formado": "formado: "
+      },
+      "forca": {
+        "titulo_jogo": "🎡 Palabra Secreta",
+        "instrucao": "descubre la palabra haciendo clic en las letras. acusa la palabra cuando la sepas.",
+        "possiveis": "POSIBLES ({n}/{total})",
+        "acusar_instrucao": "clic en una palabra para acusar · acusación errónea = -2 intentos"
+      },
+      "simon": {
+        "round_label": "Ronda {n}/{max}",
+        "observando": "👁️ Observando...",
+        "repita": "👆 ¡Repite!"
+      }
     },
     "tatics": {
       "seu_turno": "TU TURNO",

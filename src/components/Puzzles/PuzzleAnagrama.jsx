@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 const BANCO = {
@@ -58,6 +59,7 @@ function prepararUnidades(palavra, tipo) {
 }
 
 export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const difficulty = config.difficulty || 'easy'
   const cfg = CONFIGS[difficulty]
   const banco = BANCO[difficulty]
@@ -111,11 +113,11 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
 
   return (
     <div className="puzzle-container">
-      <div className="puzzle-title">🔤 Anagrama</div>
-      <p className="puzzle-desc">{cfg.tipo === 'palavra' ? 'reordene as palavras para formar a frase correta.' : 'reordene as letras para formar a palavra correta.'}</p>
+      <div className="puzzle-title">{t('games.minigames.anagrama.titulo_jogo')}</div>
+      <p className="puzzle-desc">{cfg.tipo === 'palavra' ? t('games.minigames.anagrama.instrucao_palavra') : t('games.minigames.anagrama.instrucao_letra')}</p>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.5rem' }}>
         <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize: timerFontSize, color: timerColor, fontWeight: timeLeft <= 20 ? 'bold' : 'normal', animation: timeLeft <= 10 ? 'timer-urgent 0.5s infinite' : timeLeft <= 20 ? 'timer-warn 1s infinite' : 'none', transition: 'font-size 0.3s, color 0.3s', letterSpacing: '0.1em' }}>⏱ {timeLeft}s</span>
-        <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:'#555' }}>{palavrasResolvidas.length+1}/{numPalavras} · tentativas: {tentativas}/{cfg.tentativas}</span>
+        <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:'#555' }}>{palavrasResolvidas.length+1}/{numPalavras} · {t('games.minigames.tentativas', { a: tentativas, b: cfg.tentativas })}</span>
       </div>
       {numPalavras > 1 && (
         <div style={{ display:'flex', gap:'0.3rem', justifyContent:'center', marginBottom:'0.5rem' }}>
@@ -130,11 +132,11 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
             style={{ padding: cfg.tipo === 'palavra' ? '0.4rem 0.7rem' : undefined, width: cfg.tipo === 'palavra' ? 'auto' : undefined, fontSize: cfg.tipo === 'palavra' ? '0.75rem' : undefined }}>{u}</motion.button>
         ))}
       </div>
-      <div className="puzzle-anagrama-preview"><span className="puzzle-anagrama-preview-label">formado: </span><span className="puzzle-anagrama-preview-text">{selected.length > 0 ? selected.map(i => unidades[i]).join('') : '...'}</span></div>
+      <div className="puzzle-anagrama-preview"><span className="puzzle-anagrama-preview-label">{t('games.minigames.anagrama.formado')}</span><span className="puzzle-anagrama-preview-text">{selected.length > 0 ? selected.map(i => unidades[i]).join('') : '...'}</span></div>
       {msg && <p className="puzzle-hint" style={{ color: msg.startsWith('✓') ? '#22C55E' : msg.startsWith('✗') ? '#8B0000' : '#F5A623' }}>{msg}</p>}
       <div className="puzzle-buttons">
-        <button className="jack-btn" onClick={() => setSelected([])} disabled={done}>[ limpar ]</button>
-        <button className="jack-btn jack-btn--amber" onClick={handleSubmit} disabled={done || selected.length === 0}>[ confirmar ]</button>
+        <button className="jack-btn" onClick={() => setSelected([])} disabled={done}>{t('games.minigames.anagrama.limpar')}</button>
+        <button className="jack-btn jack-btn--amber" onClick={handleSubmit} disabled={done || selected.length === 0}>{t('games.minigames.confirmar')}</button>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames, tom } from './sfx-minigames'
 
 const BANCO = {
@@ -60,6 +61,7 @@ function filtrarPossíveis(opcoes, resposta, letrasCorretas, letrasErradas) {
 }
 
 export default function PuzzleForça({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const difficulty = config.difficulty || 'easy'
   const cfg = CONFIGS[difficulty]
   const banco = BANCO[difficulty]
@@ -127,11 +129,11 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
 
   return (
     <div className="puzzle-container">
-      <div className="puzzle-title">🎡 Palavra Secreta</div>
-      <p className="puzzle-desc">descubra a palavra clicando nas letras. acuse a palavra quando souber.</p>
+      <div className="puzzle-title">{t('games.minigames.forca.titulo_jogo')}</div>
+      <p className="puzzle-desc">{t('games.minigames.forca.instrucao')}</p>
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 0.5rem', marginBottom: '0.75rem' }}>
         {cfg.timer ? <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize: timeLeft <= 10 ? '1.1rem' : timeLeft <= 20 ? '0.9rem' : '0.65rem', color: timerColor, fontWeight: timeLeft <= 20 ? 'bold' : 'normal', animation: timeLeft <= 10 ? 'timer-urgent 0.5s infinite' : timeLeft <= 20 ? 'timer-warn 1s infinite' : 'none', transition: 'font-size 0.3s, color 0.3s', letterSpacing:'0.1em' }}>⏱ {timeLeft}s</span> : <span />}
-        <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:errosColor }}>erros: {erros}/{cfg.erros}</span>
+        <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:errosColor }}>{t('games.minigames.erros', { a: erros, b: cfg.erros })}</span>
       </div>
 
       <div style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.55rem', color:'#333', textAlign:'center', lineHeight:1.4, marginBottom:'0.5rem', userSelect:'none' }}>
@@ -160,7 +162,7 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
 
       <div style={{ marginTop:'0.75rem' }}>
         <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.6rem', color:'#444', letterSpacing:'0.15em', marginBottom:'0.4rem', textAlign:'center' }}>
-          POSSÍVEIS ({possíveis.length}/{opcoes.length})
+          {t('games.minigames.forca.possiveis', { n: possíveis.length, total: opcoes.length })}
         </p>
         {(difficulty === 'easy' || (difficulty === 'medium' && possíveis.length <= 4) || (difficulty === 'hard' && possíveis.length <= 2)) && (
           <div style={{ display:'flex', flexDirection:'column', gap:'0.3rem' }}>
@@ -179,7 +181,7 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
           </div>
         )}
         <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.58rem', color:'#333', textAlign:'center', marginTop:'0.4rem' }}>
-          clique numa palavra para acusar · acusação errada = -2 tentativas
+          {t('games.minigames.forca.acusar_instrucao')}
         </p>
       </div>
     </div>

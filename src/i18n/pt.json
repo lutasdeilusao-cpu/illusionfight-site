@@ -799,6 +799,11 @@
           "dificuldade": "★★☆"
         }
       },
+      "stealth": {
+        "titulo_jogo": "🥷 Grade de Infiltração",
+        "instrucao": "evite as câmeras e seus cones de visão. use WASD, setas ou swipe.",
+        "capturado": "você foi capturado"
+      },
       "timer": "⏱ {s}s",
       "tentativas": "tentativas: {a}/{b}",
       "erros": "erros: {a}/{b}",
@@ -829,7 +834,44 @@
       "puzzle_enduro_tagline": "pista infinita. desvie dos obstáculos. colete moedas.",
       "puzzle_enduro_desc": "corrida infinita com 10 pistas. obstáculos e moedas. sobreviva até o fim.",
       "puzzle_enduro_dificuldade": "★★☆",
-      "badge_lancado": "LANÇADO"
+      "badge_lancado": "LANÇADO",
+      "decoder": {
+        "titulo_jogo": "📡 Decodificador de Frequência",
+        "instrucao_1": "sintonize na frequência correta para decifrar a mensagem.",
+        "instrucao_n": "sintonize todas as frequências para decifrar a mensagem.",
+        "alinhado": "✓ frequências alinhadas — confirme",
+        "decifrado": "✓ sinal decifrado.",
+        "decodificar": "[ decodificar ({n}/{total}) ]"
+      },
+      "sliding": {
+        "titulo_jogo": "🧩 Documento Rasgado",
+        "instrucao": "reconstitua o documento. ordene os pedaços. use setas ou clique.",
+        "movimentos": "movimentos: {n}",
+        "objetivo": "objetivo: ordenar 1-{n} da esquerda pra direita, espaço vazio no canto inferior direito",
+        "desistir": "[ desistir ]"
+      },
+      "labirinto": {
+        "titulo_jogo": "🌀 Labirinto",
+        "instrucao": "encontre a saída. use WASD, setas ou swipe."
+      },
+      "anagrama": {
+        "titulo_jogo": "🔤 Anagrama",
+        "instrucao_letra": "reordene as letras para formar a palavra correta.",
+        "instrucao_palavra": "reordene as palavras para formar a frase correta.",
+        "limpar": "[ limpar ]",
+        "formado": "formado: "
+      },
+      "forca": {
+        "titulo_jogo": "🎡 Palavra Secreta",
+        "instrucao": "descubra a palavra clicando nas letras. acuse a palavra quando souber.",
+        "possiveis": "POSSÍVEIS ({n}/{total})",
+        "acusar_instrucao": "clique numa palavra para acusar · acusação errada = -2 tentativas"
+      },
+      "simon": {
+        "round_label": "Round {n}/{max}",
+        "observando": "👁️ Observando...",
+        "repita": "👆 Repita!"
+      }
     },
     "tatics": {
       "seu_turno": "SEU TURNO",

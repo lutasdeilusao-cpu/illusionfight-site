@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 // Puzzle Sliding Tiles — Reconstituir imagem/documento
@@ -28,6 +29,7 @@ function shuffleSolvable(size) {
 }
 
 export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
+  const { t } = useLanguage()
   const size = config.size || 3
   const total = size * size
   const goal = Array.from({ length: total - 1 }, (_, i) => i + 1).concat(null)
@@ -92,9 +94,9 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
 
   return (
     <div className="puzzle-container">
-      <div className="puzzle-title">🧩 Documento Rasgado</div>
-      <p className="puzzle-desc">reconstitua o documento. ordene os pedaços. use setas ou clique.</p>
-      <p className="puzzle-moves">movimentos: {moves}</p>
+      <div className="puzzle-title">{t('games.minigames.sliding.titulo_jogo')}</div>
+      <p className="puzzle-desc">{t('games.minigames.sliding.instrucao')}</p>
+      <p className="puzzle-moves">{t('games.minigames.sliding.movimentos', { n: moves })}</p>
 
       <div className="puzzle-sliding-grid" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
         {board.map((tile, idx) => (
@@ -112,9 +114,9 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
         ))}
       </div>
 
-      <p className="puzzle-hint">objetivo: ordenar 1-{total - 1} da esquerda pra direita, espaço vazio no canto inferior direito</p>
+      <p className="puzzle-hint">{t('games.minigames.sliding.objetivo', { n: total - 1 })}</p>
       <button className="jack-btn" onClick={() => onFail?.()} style={{ fontSize: '0.7rem', borderColor: '#8B000033', color: '#666' }}>
-        [ desistir ]
+        {t('games.minigames.sliding.desistir')}
       </button>
     </div>
   )

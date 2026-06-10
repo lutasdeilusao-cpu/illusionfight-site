@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.90'
+export const SITE_VERSION = '9.91'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -17,7 +17,7 @@ export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn uni
 export const ARENA_VERSION     = '1.9.0'  // LDI Arena Mode (i18n completo: atributos, elementais, vantagens, desvantagens, perks, especializações, manual pt/en/es)
 export const TAMA_VERSION      = '1.26.0' // Tamagoshi LDI (i18n completo: badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es)
 export const DUELO_VERSION     = '2.6.0'  // Duelo LDI (fix: click phase = select, AI delays, AI sacrifice, spell target + tags, ver campo traps, trap duration)
-export const MINIGAMES_VERSION = '1.9.0'  // MiniGames (BackToGamesBtn unificado em todas as telas)
+export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player
 export const TM_VERSION        = '5.6.0'  // Top Trumps Multiplayer
 export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)

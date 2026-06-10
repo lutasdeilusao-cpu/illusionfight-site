@@ -799,6 +799,11 @@
           "dificuldade": "★★☆"
         }
       },
+      "stealth": {
+        "titulo_jogo": "🥷 Infiltration Grid",
+        "instrucao": "avoid the cameras and their vision cones. use WASD, arrows or swipe.",
+        "capturado": "you've been caught"
+      },
       "timer": "⏱ {s}s",
       "tentativas": "attempts: {a}/{b}",
       "erros": "mistakes: {a}/{b}",
@@ -829,7 +834,44 @@
       "puzzle_enduro_tagline": "endless track. dodge obstacles. collect coins.",
       "puzzle_enduro_desc": "endless runner with 10 tracks. obstacles and coins. survive to the end.",
       "puzzle_enduro_dificuldade": "★★☆",
-      "badge_lancado": "RELEASED"
+      "badge_lancado": "RELEASED",
+      "decoder": {
+        "titulo_jogo": "📡 Frequency Decoder",
+        "instrucao_1": "tune the correct frequency to decipher the message.",
+        "instrucao_n": "tune all frequencies to decipher the message.",
+        "alinhado": "✓ frequencies aligned — confirm",
+        "decifrado": "✓ signal deciphered.",
+        "decodificar": "[ decode ({n}/{total}) ]"
+      },
+      "sliding": {
+        "titulo_jogo": "🧩 Torn Document",
+        "instrucao": "reassemble the document. order the pieces. use arrows or click.",
+        "movimentos": "moves: {n}",
+        "objetivo": "goal: order 1-{n} left to right, empty slot in bottom right corner",
+        "desistir": "[ give up ]"
+      },
+      "labirinto": {
+        "titulo_jogo": "🌀 Maze",
+        "instrucao": "find the exit. use WASD, arrows or swipe."
+      },
+      "anagrama": {
+        "titulo_jogo": "🔤 Anagram",
+        "instrucao_letra": "rearrange the letters to form the correct word.",
+        "instrucao_palavra": "rearrange the words to form the correct phrase.",
+        "limpar": "[ clear ]",
+        "formado": "formed: "
+      },
+      "forca": {
+        "titulo_jogo": "🎡 Secret Word",
+        "instrucao": "discover the word by clicking letters. accuse the word when you know it.",
+        "possiveis": "POSSIBLE ({n}/{total})",
+        "acusar_instrucao": "click a word to accuse · wrong accusation = -2 attempts"
+      },
+      "simon": {
+        "round_label": "Round {n}/{max}",
+        "observando": "👁️ Watching...",
+        "repita": "👆 Repeat!"
+      }
     },
     "tatics": {
       "seu_turno": "YOUR TURN",
