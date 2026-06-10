@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.93*  |  `[SITE] versão carregada: 9.93`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar
 *Versão: 9.92*  |  `[SITE] versão carregada: 9.92`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Duelo LDI — ataque direto Yu-Gi-Oh style (sem monstros inimigos = ataque direto aos LP)
 *Versão: 9.91*  |  `[SITE] versão carregada: 9.91`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n MiniGames completo (todos os puzzles: Decoder, Sliding, Labirinto, Anagrama, Forca, Simon, Stealth pt/en/es)
 *Versão: 9.89*  |  `[SITE] versão carregada: 9.89`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n LDI Arena completo (atributos, elementais, vantagens, desvantagens, perks, especializações, manual pt/en/es)
@@ -79,7 +80,8 @@
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
 *ARENA versão: 1.9.0* | `[ARENA] versão carregada: 1.9.0` (i18n completo: atributos, elementais, vantagens, desvantagens, perks, especializações, manual batalha pt/en/es)
-*DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style (sem monstros inimigos = ataque direto aos LP)
+*DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
+*DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
 *TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`

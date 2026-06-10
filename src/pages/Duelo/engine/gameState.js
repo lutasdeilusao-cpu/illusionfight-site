@@ -153,5 +153,7 @@ export function createInitialState() {
     spellTargetOwner: null,  // 'PLAYER' | 'AI' — dono do alvo válido para a magia atual
     // Ataque direto (Yu-Gi-Oh style)
     canDirectAttack: false,  // true quando monstro selecionado e não há inimigos no campo
+    // TELEPORT — estado de escolha de destino
+    teleportSource: null,    // { row, col, card } — monstro a ser teleportado, aguardando destino
   }
 }

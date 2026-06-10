@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.38  
-> **Versão do Site:** 9.92  
+> **Versão do Relatório:** 2.39  
+> **Versão do Site:** 9.93  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -548,7 +548,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.7.0  
+**Versão:** 2.7.1  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
@@ -560,6 +560,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 > - **IA também ataca direto:** IA também realiza ataques diretos quando não há monstros do jogador no campo
 > - **Animação:** Botão de ataque direto com pulsação vermelha para chamar atenção
 > - **Log:** "⚡ ATAQUE DIRETO! [monstro] causou [X] de dano diretamente!"
+>
+> 🔧 **Duelo v2.7.1 — Fix TELEPORT!**  
+> - **Bug:** Carta TELEPORT pedia para selecionar um monstro aliado, mas após a seleção nunca pedia para escolher o destino — a magia não fazia nada
+> - **Fix:** Novo fluxo completo: confirmar magia → clicar no monstro aliado → carta vai para o cemitério → modo "escolher destino" ativado → todas as casas vazias brilham roxo → clicar na casa vazia teleporta o monstro
+> - **Visual:** Casas de destino válido destacadas em roxo pulsante + hint "Clique em uma casa VAZIA..."
+> - **Log:** "🌀 [monstro] teleportado de [X,Y] para [X,Y]!"
 
 #### Screens
 
@@ -997,7 +1003,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7 — ataque direto Yu-Gi-Oh style (sem monstros inimigos = dano direto aos LP) |
+| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |

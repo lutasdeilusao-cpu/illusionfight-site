@@ -805,6 +805,8 @@ export default function DueloRoute() {
   let hintText = ''
   if (s.gamePhase === 'OVER') {
     hintText = ''
+  } else if (s.waitingForGridTarget === 'teleport_dest') {
+    hintText = `🌀 Clique em uma casa VAZIA para teleportar ${s.teleportSource?.card?.name || 'o monstro'}`
   } else if (s.waitingForGridTarget === 'monster') {
     hintText = `👆 Clique em uma casa vazia no tabuleiro para posicionar ${s.selectedHandCard?.name}`
   } else if (s.waitingForGridTarget === 'trap') {

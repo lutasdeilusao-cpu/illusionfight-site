@@ -68,6 +68,16 @@ export default function Board() {
   }
 
   // Highlight para célula alvo de magia no hover — mostra ÁREA igual armadilha
+  // Destinos válidos para TELEPORT (casas vazias)
+  const isTeleportDestCell = (r, c) => {
+    if (store.waitingForGridTarget !== 'teleport_dest') return false
+    return !grid[r][c]?.monster
+  }
+
+  const isTeleportSourceCell = (r, c) => {
+    return store.teleportSource?.row === r && store.teleportSource?.col === c
+  }
+
   const isSpellHoverCell = (r, c) => {
     if (store.waitingForGridTarget !== 'spell') return false
     const target = pending ? { row: pending.row, col: pending.col } : hoverCell
@@ -206,6 +216,14 @@ export default function Board() {
         classes += ' duelo-grid-cell--valid-spell-target'
       }
     }
+    // Teleport source highlight
+    if (isTeleportSourceCell(r, c)) {
+      classes += ' duelo-grid-cell--selected'
+    }
+    // Teleport destination highlight (casas vazias)
+    if (isTeleportDestCell(r, c)) {
+      classes += ' duelo-grid-cell--teleport-dest'
+    }
     return classes
   }
 
@@ -296,6 +314,12 @@ export default function Board() {
           {store.attackCells.length > 0 && '⚔ Clique em inimigo destacado para atacar | '}
           {store.canDirectAttack && '⚡ ATAQUE DIRETO — clique em "⚡ ATACAR DIRETO" abaixo | '}
           Clique em outro monstro aliado para selecionar
+        </div>
+      )}
+      {/* Dica de teleporte */}
+      {store.waitingForGridTarget === 'teleport_dest' && store.teleportSource && (
+        <div className="duelo-grid-hint duelo-grid-hint--teleport">
+          🌀 Clique em uma casa VAZIA no tabuleiro para onde {store.teleportSource.card?.name} será teleportado
         </div>
       )}
     </div>

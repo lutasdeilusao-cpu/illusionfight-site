@@ -257,6 +257,7 @@ export const useDueloStore = create((set, get) => ({
       showSpellConfirm: false,
       spellBuffTarget: null,
       spellTargetOwner: null,
+      teleportSource: null,
     })
   },
 
@@ -292,6 +293,22 @@ export const useDueloStore = create((set, get) => ({
         battleLog: [...state.battleLog, `🕳️ Armadilha ${card.name} armada em [${row},${col}].`],
       })
     } else if (type === 'spell') {
+      // TELEPORT — fluxo especial: escolher destino após selecionar alvo
+      if (card.effect === 'TELEPORT' && targetCard) {
+        const newHand = hand.filter(c => c.id_num !== card.id_num)
+        const newGraveyard = [...state.playerGraveyard, card]
+        set({
+          playerHand: newHand,
+          playerGraveyard: newGraveyard,
+          pendingPlacement: null,
+          spellTargetOwner: null,
+          waitingForGridTarget: 'teleport_dest',
+          teleportSource: { row: row, col: col, card: targetCard },
+          battleLog: [...state.battleLog, `🌀 ${card.name} em ${targetCard.name}! Agora clique em uma casa vazia para onde teleportá-lo.`],
+        })
+        return
+      }
+
       // Usa magia
       const result = applySpellEffect(state, card, 'PLAYER', targetCard)
       const newHand = hand.filter(c => c.id_num !== card.id_num)
@@ -469,6 +486,26 @@ export const useDueloStore = create((set, get) => ({
       set({
         pendingPlacement: { row, col, type: 'spell', card, targetCard },
       })
+    } else if (state.waitingForGridTarget === 'teleport_dest') {
+      // TELEPORT — escolher destino (casa vazia)
+      if (!state.teleportSource) return
+      if (grid[row][col].monster) return // destino não pode ter monstro
+
+      const source = state.teleportSource
+      const monster = grid[source.row][source.col]?.monster
+      if (!monster) return
+
+      // Move o monstro da origem para o destino
+      grid[row][col] = { ...grid[row][col], monster }
+      grid[source.row][source.col] = { ...grid[source.row][source.col], monster: null }
+
+      set({
+        grid,
+        waitingForGridTarget: null,
+        teleportSource: null,
+        selectedHandCard: null,
+        battleLog: [...state.battleLog, `🌀 ${monster.name} teleportado de [${source.row},${source.col}] para [${row},${col}]!`],
+      })
     }
   },
 
@@ -493,6 +530,8 @@ export const useDueloStore = create((set, get) => ({
           selectedMonster: null,
           moveCells: [],
           attackCells: [],
+          teleportSource: null,
+          waitingForGridTarget: state.waitingForGridTarget === 'teleport_dest' ? null : state.waitingForGridTarget,
           battleLog: [...state.battleLog, '▶ FASE 2 — MOVIMENTO'],
         })
       }
@@ -502,6 +541,8 @@ export const useDueloStore = create((set, get) => ({
         selectedMonster: null,
         moveCells: [],
         attackCells: [],
+        teleportSource: null,
+        waitingForGridTarget: state.waitingForGridTarget === 'teleport_dest' ? null : state.waitingForGridTarget,
         battleLog: [...state.battleLog, '▶ FASE 3 — ATAQUE'],
       })
     } else if (state.turnPhase === 'ATAQUE') {
@@ -560,6 +601,7 @@ export const useDueloStore = create((set, get) => ({
       moveCells: [],
       attackCells: [],
       canDirectAttack: false,
+      teleportSource: null,
       selectedHandCard: null,
       waitingForGridTarget: null,
       confirmPlace: false,
@@ -828,6 +870,7 @@ export const useDueloStore = create((set, get) => ({
       showSpellConfirm: false,
       spellBuffTarget: null,
       spellTargetOwner: null,
+      teleportSource: null,
       battleLog: [...state.battleLog, '🤖 Turno da IA...'],
     })
   },
