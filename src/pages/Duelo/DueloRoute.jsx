@@ -616,6 +616,37 @@ export default function DueloRoute() {
     }
   }, [store.grid, store.playerHand, store.aiHand, store.playerDeck, store.aiDeck])
 
+  // ── Anúncio de fase ──
+  const [localAnnouncement, setLocalAnnouncement] = useState(null)
+
+  // Escuta anúncios do store e também os gera localmente para transições de fase
+  useEffect(() => {
+    const s = useDueloStore.getState()
+    if (s.gamePhase !== 'PLAYING') return
+
+    const isPlayerTurn = s.currentTurn === 'PLAYER'
+    const turnPhase = s.turnPhase
+
+    let ann = null
+    if (isPlayerTurn) {
+      if (turnPhase === 'DESCER') ann = { text: 'FASE 1 — ESCOLHA SUAS CARTAS', icon: '🃏' }
+      else if (turnPhase === 'MOVIMENTO') ann = { text: 'FASE 2 — MOVIMENTO', icon: '👟' }
+      else if (turnPhase === 'ATAQUE') ann = { text: 'FASE 3 — ATAQUE', icon: '⚔️' }
+    } else if (iaPending) {
+      if (iaPhase === 'DESCER') ann = { text: '🤖 IA — COLOCANDO CARTAS...', icon: '🃏' }
+      else if (iaPhase === 'MOVIMENTO') ann = { text: '🤖 IA — MOVENDO MONSTROS...', icon: '👟' }
+      else if (iaPhase === 'ATAQUE') ann = { text: '🤖 IA — ATACANDO...', icon: '⚔️' }
+    }
+
+    if (ann) {
+      setLocalAnnouncement(ann)
+      const timer = setTimeout(() => setLocalAnnouncement(null), 2500)
+      return () => clearTimeout(timer)
+    } else {
+      setLocalAnnouncement(null)
+    }
+  }, [iaPhase, iaPending, store.gamePhase])
+
   // ── Game Over ──
   useEffect(() => {
     if (store.gamePhase === 'OVER' && fase === 'game') {
@@ -675,33 +706,6 @@ export default function DueloRoute() {
   } else if (iaPending) {
     hintText = `${t('games.duelo.turno_ia_pensando')} (${iaPhase || '...'})`
   }
-
-  // ── Anúncio de fase ──
-  const [localAnnouncement, setLocalAnnouncement] = useState(null)
-
-  // Escuta anúncios do store e também os gera localmente para transições de fase
-  useEffect(() => {
-    if (s.gamePhase !== 'PLAYING') return
-
-    let ann = null
-    if (isPlayerTurn) {
-      if (turnPhase === 'DESCER') ann = { text: 'FASE 1 — ESCOLHA SUAS CARTAS', icon: '🃏' }
-      else if (turnPhase === 'MOVIMENTO') ann = { text: 'FASE 2 — MOVIMENTO', icon: '👟' }
-      else if (turnPhase === 'ATAQUE') ann = { text: 'FASE 3 — ATAQUE', icon: '⚔️' }
-    } else if (iaPending) {
-      if (iaPhase === 'DESCER') ann = { text: '🤖 IA — COLOCANDO CARTAS...', icon: '🃏' }
-      else if (iaPhase === 'MOVIMENTO') ann = { text: '🤖 IA — MOVENDO MONSTROS...', icon: '👟' }
-      else if (iaPhase === 'ATAQUE') ann = { text: '🤖 IA — ATACANDO...', icon: '⚔️' }
-    }
-
-    if (ann) {
-      setLocalAnnouncement(ann)
-      const timer = setTimeout(() => setLocalAnnouncement(null), 2500)
-      return () => clearTimeout(timer)
-    } else {
-      setLocalAnnouncement(null)
-    }
-  }, [turnPhase, iaPhase, isPlayerTurn, iaPending, s.gamePhase])
 
   return (
     <div className="duelo-page">

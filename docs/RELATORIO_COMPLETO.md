@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.31  
-> **Versão do Site:** 9.81  
+> **Versão do Relatório:** 2.32  
+> **Versão do Site:** 9.82  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -548,13 +548,17 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.7 Duelo LDI — Campo de Batalha
 
-**Versão:** 2.4.0  
+**Versão:** 2.5.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/duelo`  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
-> 🔄 **Duelo v2.4 — Sacrifice: player escolhe onde colocar**  
-> Após confirmar o sacrifício, o player agora clica em uma célula vazia para posicionar o monstro invocado, em vez de ser colocado automaticamente
+> 🔄 **Duelo v2.5 — Magic area highlight, trap activation, phase announcements, field card info**  
+> - Magias agora mostram área de efeito ao posicionar (como armadilhas)
+> - Armadilhas notificam quando inimigo está na área e oferecem ativação
+> - Highlight de movimento aparece SOBRE área de armadilha (não bloqueia visão)
+> - Clicar em carta ativa no campo abre modal de informação
+> - Anúncios de fase no centro da tela (DESCER → MOVIMENTO → ATAQUE) para player e IA
 
 #### Screens
 
@@ -992,7 +996,7 @@ STATUS: ✅ limpo
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
 | **Arena LDI** (combate CPU) | 85% | 🟡 | 8 inimigos, funcional |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
-| **Duelo LDI — Campo de Batalha** (grid 10×10) | 97% | 🟢 | v2.4 — sacrifice player escolhe onde colocar |
+| **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.5 — magic area, trap activation, phase ann, field info |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
