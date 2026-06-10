@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.88*  |  `[SITE] versão carregada: 9.88`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Pesadelo Particular completo (casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 *Versão: 9.87*  |  `[SITE] versão carregada: 9.87`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Jack Dream Beer verificado (pt/en/es)
 *Versão: 9.86*  |  `[SITE] versão carregada: 9.86`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ i18n Top Trumps verificado (pt/en/es)
 *Versão: 9.85*  |  `[SITE] versão carregada: 9.85`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)

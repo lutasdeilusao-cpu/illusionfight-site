@@ -8,10 +8,10 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.87'
+export const SITE_VERSION = '9.88'
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION        = '2.1.0'  // Pesadelo Particular (+ i18n keys: selecione_slot, slot_label, slot_vazio)
+export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.8.0'  // LDI Arena Mode (BackToGamesBtn unificado)

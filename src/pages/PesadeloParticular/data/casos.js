@@ -16,12 +16,12 @@ export const CASOS = [
         "subtitulo": "Osvaldo sumiu."
       },
       "en": {
-        "nome": "A Primeira Noite",
-        "subtitulo": "Osvaldo sumiu."
+        "nome": "The First Night",
+        "subtitulo": "Osvaldo vanished."
       },
       "es": {
-        "nome": "A Primeira Noite",
-        "subtitulo": "Osvaldo sumiu."
+        "nome": "La Primera Noche",
+        "subtitulo": "Osvaldo desapareció."
       }
     },
     "suspeitos": [
@@ -34,11 +34,11 @@ export const CASOS = [
           },
           "en": {
             "nome": "Osvaldo",
-            "bio": "Dono do bar. Sabe de tudo."
+            "bio": "Bar owner. Knows everything."
           },
           "es": {
             "nome": "Osvaldo",
-            "bio": "Dono do bar. Sabe de tudo."
+            "bio": "Dueño del bar. Lo sabe todo."
           }
         },
         "culpado": false,
@@ -52,12 +52,12 @@ export const CASOS = [
             "bio": "Sempre de terno."
           },
           "en": {
-            "nome": "O Homem do Terno",
-            "bio": "Sempre de terno."
+            "nome": "The Man in the Suit",
+            "bio": "Always in a suit."
           },
           "es": {
-            "nome": "O Homem do Terno",
-            "bio": "Sempre de terno."
+            "nome": "El Hombre del Traje",
+            "bio": "Siempre de traje."
           }
         },
         "culpado": true,
@@ -75,12 +75,12 @@ export const CASOS = [
             "desc": "Úmido. Escuro."
           },
           "en": {
-            "nome": "Beco da Estação",
-            "desc": "Úmido. Escuro."
+            "nome": "Station Alley",
+            "desc": "Damp. Dark."
           },
           "es": {
-            "nome": "Beco da Estação",
-            "desc": "Úmido. Escuro."
+            "nome": "Callejón de la Estación",
+            "desc": "Húmedo. Oscuro."
           }
         },
         "pista_id": "p01a"
@@ -94,8 +94,8 @@ export const CASOS = [
             "desc": "Todo mundo passa."
           },
           "en": {
-            "nome": "Bar da Esquina",
-            "desc": "Todo mundo passa."
+            "nome": "Corner Bar",
+            "desc": "Everyone passes by."
           },
           "es": {
             "nome": "Bar da Esquina",
@@ -113,12 +113,12 @@ export const CASOS = [
             "desc": "Arquivos empoeirados."
           },
           "en": {
-            "nome": "Delegacia Central",
-            "desc": "Arquivos empoeirados."
+            "nome": "Central Police Station",
+            "desc": "Dusty files."
           },
           "es": {
-            "nome": "Delegacia Central",
-            "desc": "Arquivos empoeirados."
+            "nome": "Comisaría Central",
+            "desc": "Archivos polvorientos."
           }
         },
         "pista_id": "p01c"
@@ -135,12 +135,12 @@ export const CASOS = [
             "desc": "Mais do que o calor justificava."
           },
           "en": {
-            "titulo": "O substituto suava",
-            "desc": "Mais do que o calor justificava."
+            "titulo": "The substitute was sweating",
+            "desc": "More than the heat justified."
           },
           "es": {
-            "titulo": "O substituto suava",
-            "desc": "Mais do que o calor justificava."
+            "titulo": "El sustituto sudaba",
+            "desc": "Más de lo que el calor justificaba."
           }
         }
       },
@@ -154,12 +154,12 @@ export const CASOS = [
             "desc": "Viu tudo e não queria ter visto."
           },
           "en": {
-            "titulo": "Relato do Zé do Bar",
-            "desc": "Viu tudo e não queria ter visto."
+            "titulo": "Zé from the Bar's account",
+            "desc": "Saw everything and wished he hadn't."
           },
           "es": {
-            "titulo": "Relato do Zé do Bar",
-            "desc": "Viu tudo e não queria ter visto."
+            "titulo": "Relato del Zé del Bar",
+            "desc": "Vio todo y no quería haberlo visto."
           }
         }
       },
@@ -173,12 +173,12 @@ export const CASOS = [
             "desc": "Uma inicial: K. Guardei no bolso."
           },
           "en": {
-            "titulo": "Envelope sem Remetente",
-            "desc": "Uma inicial: K. Guardei no bolso."
+            "titulo": "Envelope with no Sender",
+            "desc": "One initial: K. I kept it in my pocket."
           },
           "es": {
-            "titulo": "Envelope sem Remetente",
-            "desc": "Uma inicial: K. Guardei no bolso."
+            "titulo": "Sobre sin Remitente",
+            "desc": "Una inicial: K. Lo guardé en el bolsillo."
           }
         }
       }
@@ -370,13 +370,13 @@ export const CASOS = [
       ],
       "narracao_abertura": {
         "pt": "Osvaldo era o tipo de homem que a cidade esquece que precisa até o dia que ele não está mais lá.",
-        "en": "Osvaldo era o tipo de homem que a cidade esquece que precisa até o dia que ele não está mais lá.",
-        "es": "Osvaldo era o tipo de homem que a cidade esquece que precisa até o dia que ele não está mais lá."
+        "en": "Osvaldo was the kind of man the city forgets it needs until the day he's no longer there.",
+        "es": "Osvaldo era el tipo de hombre que la ciudad olvida que necesita hasta el día que ya no está."
       },
       "narracao_final": {
         "pt": "Osvaldo sempre abriu portas pra gente. Agora alguém tinha aberto uma porta pra ele.",
-        "en": "Osvaldo sempre abriu portas pra gente. Agora alguém tinha aberto uma porta pra ele.",
-        "es": "Osvaldo sempre abriu portas pra gente. Agora alguém tinha aberto uma porta pra ele."
+        "en": "Osvaldo always opened doors for people. Now someone had opened a door for him.",
+        "es": "Osvaldo siempre abrió puertas para la gente. Ahora alguien le había abierto una puerta a él."
       }
     },
     "pista_kronos": {
@@ -401,12 +401,12 @@ export const CASOS = [
       "subtitulo": "Alguém trancava o portão toda noite. Por quê?"
     },
     "en": {
-      "nome": "O Portão Fechado",
-      "subtitulo": "Alguém trancava o portão toda noite. Por quê?"
+      "nome": "The Locked Gate",
+      "subtitulo": "Someone locked the gate every night. Why?"
     },
     "es": {
-      "nome": "O Portão Fechado",
-      "subtitulo": "Alguém trancava o portão toda noite. Por quê?"
+      "nome": "La Reja Cerrada",
+      "subtitulo": "Alguien cerraba la reja cada noche. ¿Por qué?"
     }
   },
   "suspeitos": [
@@ -418,12 +418,12 @@ export const CASOS = [
           "bio": "Varre o mesmo trecho três vezes. Homem nervoso."
         },
         "en": {
-          "nome": "Zelador",
-          "bio": "Varre o mesmo trecho três vezes. Homem nervoso."
+          "nome": "Janitor",
+          "bio": "Sweeps the same stretch three times. Nervous man."
         },
         "es": {
-          "nome": "Zelador",
-          "bio": "Varre o mesmo trecho três vezes. Homem nervoso."
+          "nome": "Conserje",
+          "bio": "Barre el mismo tramo tres veces. Hombre nervioso."
         }
       },
       "culpado": true,
@@ -437,12 +437,12 @@ export const CASOS = [
           "bio": "Histórico de vandalismo. Sempre tem álibi."
         },
         "en": {
-          "nome": "Aluno Rico",
-          "bio": "Histórico de vandalismo. Sempre tem álibi."
+          "nome": "Rich Student",
+          "bio": "History of vandalism. Always has an alibi."
         },
         "es": {
-          "nome": "Aluno Rico",
-          "bio": "Histórico de vandalismo. Sempre tem álibi."
+          "nome": "Estudiante Rico",
+          "bio": "Historial de vandalismo. Siempre tiene coartada."
         }
       },
       "culpado": false,
@@ -460,12 +460,12 @@ export const CASOS = [
           "desc": "Trancado toda noite. Sem explicação oficial."
         },
         "en": {
-          "nome": "Portão de Serviço",
-          "desc": "Trancado toda noite. Sem explicação oficial."
+          "nome": "Service Gate",
+          "desc": "Locked every night. No official explanation."
         },
         "es": {
-          "nome": "Portão de Serviço",
-          "desc": "Trancado toda noite. Sem explicação oficial."
+          "nome": "Puerta de Servicio",
+          "desc": "Cerrada cada noche. Sin explicación oficial."
         }
       },
       "pista_id": "p02a"
@@ -479,12 +479,12 @@ export const CASOS = [
           "desc": "Fundos da escola. Onde ninguém olha."
         },
         "en": {
-          "nome": "Depósito",
-          "desc": "Fundos da escola. Onde ninguém olha."
+          "nome": "Storage Room",
+          "desc": "Back of the school. Where nobody looks."
         },
         "es": {
           "nome": "Depósito",
-          "desc": "Fundos da escola. Onde ninguém olha."
+          "desc": "Fondo de la escuela. Donde nadie mira."
         }
       },
       "pista_id": "p02b"
@@ -501,12 +501,12 @@ export const CASOS = [
           "desc": "Comprado essa semana. Zelador pagou com dinheiro vivo."
         },
         "en": {
-          "titulo": "Cadeado Novo",
-          "desc": "Comprado essa semana. Zelador pagou com dinheiro vivo."
+          "titulo": "New Padlock",
+          "desc": "Bought this week. Janitor paid in cash."
         },
         "es": {
-          "titulo": "Cadeado Novo",
-          "desc": "Comprado essa semana. Zelador pagou com dinheiro vivo."
+          "titulo": "Candado Nuevo",
+          "desc": "Comprado esta semana. Conserje pagó en efectivo."
         }
       }
     },
@@ -520,12 +520,12 @@ export const CASOS = [
           "desc": "Espécie. Sem nome. Quem paga em espécie não quer ser encontrado."
         },
         "en": {
-          "titulo": "Envelope de Dinheiro",
-          "desc": "Espécie. Sem nome. Quem paga em espécie não quer ser encontrado."
+          "titulo": "Money Envelope",
+          "desc": "Cash. No name. Whoever pays in cash doesn't want to be found."
         },
         "es": {
-          "titulo": "Envelope de Dinheiro",
-          "desc": "Espécie. Sem nome. Quem paga em espécie não quer ser encontrado."
+          "titulo": "Sobre de Dinero",
+          "desc": "Efectivo. Sin nombre. Quien paga en efectivo no quiere ser encontrado."
         }
       }
     }
@@ -681,13 +681,13 @@ export const CASOS = [
     ],
     "narracao_abertura": {
       "pt": "Portões trancados em Marelia não eram novidade. O que era novidade era alguém se importar o suficiente pra contratar um detetive de sonho pra descobrir quem trancava.",
-      "en": "Portões trancados em Marelia não eram novidade. O que era novidade era alguém se importar o suficiente pra contratar um detetive de sonho pra descobrir quem trancava.",
-      "es": "Portões trancados em Marelia não eram novidade. O que era novidade era alguém se importar o suficiente pra contratar um detetive de sonho pra descobrir quem trancava."
+      "en": "Locked gates in Marelia were nothing new. What was new was someone caring enough to hire a dream detective to find out who was locking them.",
+      "es": "Portones cerrados en Marelia no eran novedad. Lo nuevo era que alguien se preocupara lo suficiente como para contratar a un detective de sueños para descubrir quién los cerraba."
     },
     "narracao_final": {
       "pt": "O zelador ia ficar com o dinheiro e com a consciência. Era mais do que a maioria das pessoas de Marelia carregava.",
-      "en": "O zelador ia ficar com o dinheiro e com a consciência. Era mais do que a maioria das pessoas de Marelia carregava.",
-      "es": "O zelador ia ficar com o dinheiro e com a consciência. Era mais do que a maioria das pessoas de Marelia carregava."
+      "en": "The janitor would keep the money and his conscience. That was more than most people in Marelia carried.",
+      "es": "El conserje se quedaría con el dinero y la conciencia. Era más de lo que la mayoría de la gente en Marelia cargaba."
     }
   },
   "pista_kronos": null
@@ -708,12 +708,12 @@ export const CASOS = [
       "subtitulo": "Ela aparece toda quinta no beco. Ninguém sabe o nome."
     },
     "en": {
-      "nome": "A Mulher do Chapéu",
-      "subtitulo": "Ela aparece toda quinta no beco. Ninguém sabe o nome."
+      "nome": "The Woman in the Hat",
+      "subtitulo": "She appears every Thursday in the alley. Nobody knows her name."
     },
     "es": {
-      "nome": "A Mulher do Chapéu",
-      "subtitulo": "Ela aparece toda quinta no beco. Ninguém sabe o nome."
+      "nome": "La Mujer del Sombrero",
+      "subtitulo": "Aparece cada jueves en el callejón. Nadie sabe su nombre."
     }
   },
   "suspeitos": [
@@ -725,12 +725,12 @@ export const CASOS = [
           "bio": "Espera 10 minutos no beco toda quinta."
         },
         "en": {
-          "nome": "A Mulher do Chapéu",
-          "bio": "Espera 10 minutos no beco toda quinta."
+          "nome": "The Woman in the Hat",
+          "bio": "Waits 10 minutes in the alley every Thursday."
         },
         "es": {
-          "nome": "A Mulher do Chapéu",
-          "bio": "Espera 10 minutos no beco toda quinta."
+          "nome": "La Mujer del Sombrero",
+          "bio": "Espera 10 minutos en el callejón cada jueves."
         }
       },
       "culpado": false,
@@ -744,12 +744,12 @@ export const CASOS = [
           "bio": "Passa no mesmo horário toda semana."
         },
         "en": {
-          "nome": "Entregador",
-          "bio": "Passa no mesmo horário toda semana."
+          "nome": "Delivery Guy",
+          "bio": "Passes by at the same time every week."
         },
         "es": {
-          "nome": "Entregador",
-          "bio": "Passa no mesmo horário toda semana."
+          "nome": "Repartidor",
+          "bio": "Pasa a la misma hora cada semana."
         }
       },
       "culpado": true,
@@ -767,12 +767,12 @@ export const CASOS = [
           "desc": "Onde ela espera. Toda quinta."
         },
         "en": {
-          "nome": "Beco Norte",
-          "desc": "Onde ela espera. Toda quinta."
+          "nome": "North Alley",
+          "desc": "Where she waits. Every Thursday."
         },
         "es": {
-          "nome": "Beco Norte",
-          "desc": "Onde ela espera. Toda quinta."
+          "nome": "Callejón Norte",
+          "desc": "Donde ella espera. Cada jueves."
         }
       },
       "pista_id": "p03a"
@@ -786,12 +786,12 @@ export const CASOS = [
           "desc": "Rota do entregador."
         },
         "en": {
-          "nome": "Correio",
-          "desc": "Rota do entregador."
+          "nome": "Post Office",
+          "desc": "Delivery guy's route."
         },
         "es": {
-          "nome": "Correio",
-          "desc": "Rota do entregador."
+          "nome": "Correos",
+          "desc": "Ruta del repartidor."
         }
       },
       "pista_id": "p03b"
@@ -805,12 +805,12 @@ export const CASOS = [
           "desc": "As duas vítimas."
         },
         "en": {
-          "nome": "Lojas do Beco",
-          "desc": "As duas vítimas."
+          "nome": "Alley Shops",
+          "desc": "The two victims."
         },
         "es": {
-          "nome": "Lojas do Beco",
-          "desc": "As duas vítimas."
+          "nome": "Tiendas del Callejón",
+          "desc": "Las dos víctimas."
         }
       },
       "pista_id": "p03c"
@@ -827,12 +827,12 @@ export const CASOS = [
           "desc": "Era só isso. Marelia inteira era culpada pelo horário."
         },
         "en": {
-          "titulo": "Ela esperava o ônibus",
-          "desc": "Era só isso. Marelia inteira era culpada pelo horário."
+          "titulo": "She was waiting for the bus",
+          "desc": "That was it. All of Marelia was guilty of bad timing."
         },
         "es": {
-          "titulo": "Ela esperava o ônibus",
-          "desc": "Era só isso. Marelia inteira era culpada pelo horário."
+          "titulo": "Esperaba el autobús",
+          "desc": "Eso era todo. Marelia entera era culpable por el horario."
         }
       }
     },
@@ -846,12 +846,12 @@ export const CASOS = [
           "desc": "Não entregava nada no beco. Só olhava. Só calculava."
         },
         "en": {
-          "titulo": "O entregador",
-          "desc": "Não entregava nada no beco. Só olhava. Só calculava."
+          "titulo": "The delivery guy",
+          "desc": "He didn't deliver anything in the alley. Just watched. Just calculated."
         },
         "es": {
-          "titulo": "O entregador",
-          "desc": "Não entregava nada no beco. Só olhava. Só calculava."
+          "titulo": "El repartidor",
+          "desc": "No entregaba nada en el callejón. Solo miraba. Solo calculaba."
         }
       }
     },
@@ -865,12 +865,12 @@ export const CASOS = [
           "desc": "Os dois roubados viravam as costas quando o entregador passava."
         },
         "en": {
-          "titulo": "Padrão dos roubos",
-          "desc": "Os dois roubados viravam as costas quando o entregador passava."
+          "titulo": "Robbery pattern",
+          "desc": "Both victims turned their backs when the delivery guy passed by."
         },
         "es": {
-          "titulo": "Padrão dos roubos",
-          "desc": "Os dois roubados viravam as costas quando o entregador passava."
+          "titulo": "Patrón de robos",
+          "desc": "Ambos robados daban la espalda cuando el repartidor pasaba."
         }
       }
     }
@@ -990,13 +990,13 @@ export const CASOS = [
     ],
     "narracao_abertura": {
       "pt": "A mulher do chapéu não sabia que era isca. Às vezes as pessoas mais inocentes são as que mais trabalho dão, porque você precisa provar que são inocentes antes de chegar em quem não é.",
-      "en": "A mulher do chapéu não sabia que era isca. Às vezes as pessoas mais inocentes são as que mais trabalho dão, porque você precisa provar que são inocentes antes de chegar em quem não é.",
-      "es": "A mulher do chapéu não sabia que era isca. Às vezes as pessoas mais inocentes são as que mais trabalho dão, porque você precisa provar que são inocentes antes de chegar em quem não é."
+      "en": "The woman in the hat didn't know she was bait. Sometimes the most innocent people are the ones that give you the most work, because you have to prove they're innocent before you can get to whoever isn't.",
+      "es": "La mujer del sombrero no sabía que era carnada. A veces las personas más inocentes son las que más trabajo dan, porque tienes que probar que son inocentes antes de llegar a quien no lo es."
     },
     "narracao_final": {
       "pt": "O entregador ia perder o emprego. A mulher do chapéu ia continuar sem saber que existiu por um momento no centro de tudo. Marelia era cheia de pessoas importantes que nunca iam descobrir que foram importantes.",
-      "en": "O entregador ia perder o emprego. A mulher do chapéu ia continuar sem saber que existiu por um momento no centro de tudo. Marelia era cheia de pessoas importantes que nunca iam descobrir que foram importantes.",
-      "es": "O entregador ia perder o emprego. A mulher do chapéu ia continuar sem saber que existiu por um momento no centro de tudo. Marelia era cheia de pessoas importantes que nunca iam descobrir que foram importantes."
+      "en": "The delivery guy would lose his job. The woman in the hat would go on never knowing she existed for a moment at the center of everything. Marelia was full of important people who would never find out they were important.",
+      "es": "El repartidor perdería su trabajo. La mujer del sombrero seguiría sin saber que existió por un momento en el centro de todo. Marelia estaba llena de personas importantes que nunca descubrirían que fueron importantes."
     }
   },
   "pista_kronos": null
@@ -1017,12 +1017,12 @@ export const CASOS = [
       "subtitulo": "Uma mancha de sangue na frente do prédio. Jack não consegue parar de pensar."
     },
     "en": {
-      "nome": "Sangue no Asfalto",
-      "subtitulo": "Uma mancha de sangue na frente do prédio. Jack não consegue parar de pensar."
+      "nome": "Blood on the Asphalt",
+      "subtitulo": "A blood stain in front of the building. Jack can't stop thinking about it."
     },
     "es": {
-      "nome": "Sangue no Asfalto",
-      "subtitulo": "Uma mancha de sangue na frente do prédio. Jack não consegue parar de pensar."
+      "nome": "Sangre en el Asfalto",
+      "subtitulo": "Una mancha de sangre frente al edificio. Jack no puede dejar de pensar."
     }
   },
   "suspeitos": [
@@ -1034,12 +1034,12 @@ export const CASOS = [
           "bio": "Briga doméstica frequente."
         },
         "en": {
-          "nome": "Morador do 3º Andar",
-          "bio": "Briga doméstica frequente."
+          "nome": "3rd Floor Resident",
+          "bio": "Frequent domestic disputes."
         },
         "es": {
-          "nome": "Morador do 3º Andar",
-          "bio": "Briga doméstica frequente."
+          "nome": "Residente del 3er Piso",
+          "bio": "Pelea doméstica frecuente."
         }
       },
       "culpado": true,
@@ -1053,12 +1053,12 @@ export const CASOS = [
           "bio": "Mora no carro estacionado na rua."
         },
         "en": {
-          "nome": "Homem do Carro",
-          "bio": "Mora no carro estacionado na rua."
+          "nome": "Car Man",
+          "bio": "Lives in the car parked on the street."
         },
         "es": {
-          "nome": "Homem do Carro",
-          "bio": "Mora no carro estacionado na rua."
+          "nome": "Hombre del Carro",
+          "bio": "Vive en el carro estacionado en la calle."
         }
       },
       "culpado": false,
@@ -1076,12 +1076,12 @@ export const CASOS = [
           "desc": "A mancha no asfalto. Já lavada."
         },
         "en": {
-          "nome": "Frente do Prédio",
-          "desc": "A mancha no asfalto. Já lavada."
+          "nome": "Building Front",
+          "desc": "The stain on the asphalt. Already washed."
         },
         "es": {
-          "nome": "Frente do Prédio",
-          "desc": "A mancha no asfalto. Já lavada."
+          "nome": "Frente del Edificio",
+          "desc": "La mancha en el asfalto. Ya lavada."
         }
       },
       "pista_id": "p04a"
@@ -1095,12 +1095,12 @@ export const CASOS = [
           "desc": "O rastro vai até aqui e para."
         },
         "en": {
-          "nome": "Beco Lateral",
-          "desc": "O rastro vai até aqui e para."
+          "nome": "Side Alley",
+          "desc": "The trail comes here and stops."
         },
         "es": {
-          "nome": "Beco Lateral",
-          "desc": "O rastro vai até aqui e para."
+          "nome": "Callejón Lateral",
+          "desc": "El rastro llega hasta aquí y se detiene."
         }
       },
       "pista_id": "p04b"
@@ -1114,12 +1114,12 @@ export const CASOS = [
           "desc": "3º andar. Ela atendeu."
         },
         "en": {
-          "nome": "Porta da Vítima",
-          "desc": "3º andar. Ela atendeu."
+          "nome": "Victim's Door",
+          "desc": "3rd floor. She answered."
         },
         "es": {
-          "nome": "Porta da Vítima",
-          "desc": "3º andar. Ela atendeu."
+          "nome": "Puerta de la Víctima",
+          "desc": "3er piso. Ella abrió."
         }
       },
       "pista_id": "p04c"
@@ -1136,12 +1136,12 @@ export const CASOS = [
           "desc": "Não porque parava de verdade: alguém tinha lavado o resto. Quem lava rastro de sangue às três da manhã não está protegendo a vítima."
         },
         "en": {
-          "titulo": "O rastro ia até o beco e parava",
-          "desc": "Não porque parava de verdade: alguém tinha lavado o resto. Quem lava rastro de sangue às três da manhã não está protegendo a vítima."
+          "titulo": "The trail went to the alley and stopped",
+          "desc": "Not because it really stopped: someone had washed the rest away. Whoever washes a blood trail at three in the morning isn't protecting the victim."
         },
         "es": {
-          "titulo": "O rastro ia até o beco e parava",
-          "desc": "Não porque parava de verdade: alguém tinha lavado o resto. Quem lava rastro de sangue às três da manhã não está protegendo a vítima."
+          "titulo": "El rastro iba al callejón y se detenía",
+          "desc": "No porque realmente se detuviera: alguien había lavado el resto. Quien lava un rastro de sangre a las tres de la mañana no está protegiendo a la víctima."
         }
       }
     },
@@ -1155,12 +1155,12 @@ export const CASOS = [
           "desc": "Ninguém foi ver. Marelia ensinava as pessoas a ficarem com a cabeça baixa e eu não podia culpá-las."
         },
         "en": {
-          "titulo": "Ela ouviu. Todo mundo ouviu",
-          "desc": "Ninguém foi ver. Marelia ensinava as pessoas a ficarem com a cabeça baixa e eu não podia culpá-las."
+          "titulo": "She heard. Everyone heard",
+          "desc": "Nobody went to check. Marelia taught people to keep their heads down and I couldn't blame them."
         },
         "es": {
-          "titulo": "Ela ouviu. Todo mundo ouviu",
-          "desc": "Ninguém foi ver. Marelia ensinava as pessoas a ficarem com a cabeça baixa e eu não podia culpá-las."
+          "titulo": "Ella oyó. Todos oyeron",
+          "desc": "Nadie fue a mirar. Marelia enseñaba a la gente a mantener la cabeza baja y no podía culparlos."
         }
       }
     },
@@ -1174,12 +1174,12 @@ export const CASOS = [
           "desc": "Ela abriu a porta com olho roxo novo em cima de olho roxo antigo e disse que estava tudo bem. Eu disse que sabia que não estava."
         },
         "en": {
-          "titulo": "A vítima",
-          "desc": "Ela abriu a porta com olho roxo novo em cima de olho roxo antigo e disse que estava tudo bem. Eu disse que sabia que não estava."
+          "titulo": "The victim",
+          "desc": "She opened the door with a fresh black eye on top of an old one and said everything was fine. I said I knew it wasn't."
         },
         "es": {
-          "titulo": "A vítima",
-          "desc": "Ela abriu a porta com olho roxo novo em cima de olho roxo antigo e disse que estava tudo bem. Eu disse que sabia que não estava."
+          "titulo": "La víctima",
+          "desc": "Abrió la puerta con un ojo morado nuevo sobre uno viejo y dijo que todo estaba bien. Le dije que sabía que no lo estaba."
         }
       }
     }
@@ -1281,13 +1281,13 @@ export const CASOS = [
     ],
     "narracao_abertura": {
       "pt": "Às vezes o caso chega antes do cliente. Às vezes você desce pro corredor de manhã e o caso já está lá, vermelho escuro no asfalto, esperando.",
-      "en": "Às vezes o caso chega antes do cliente. Às vezes você desce pro corredor de manhã e o caso já está lá, vermelho escuro no asfalto, esperando.",
-      "es": "Às vezes o caso chega antes do cliente. Às vezes você desce pro corredor de manhã e o caso já está lá, vermelho escuro no asfalto, esperando."
+      "en": "Sometimes the case arrives before the client. Sometimes you go down the hallway in the morning and the case is already there, dark red on the asphalt, waiting.",
+      "es": "A veces el caso llega antes que el cliente. A veces bajas al pasillo por la mañana y el caso ya está ahí, rojo oscuro en el asfalto, esperando."
     },
     "narracao_final": {
       "pt": "Não cobrei nada. Não tinha o que cobrar.",
-      "en": "Não cobrei nada. Não tinha o que cobrar.",
-      "es": "Não cobrei nada. Não tinha o que cobrar."
+      "en": "I charged nothing. There was nothing to charge.",
+      "es": "No cobré nada. No había nada que cobrar."
     }
   },
   "pista_kronos": null
@@ -1308,12 +1308,12 @@ export const CASOS = [
       "subtitulo": "Kim recebeu uma foto. Alguém o seguiu. Alguém o fotografou de costas."
     },
     "en": {
-      "nome": "O Mensageiro Mudo",
-      "subtitulo": "Kim recebeu uma foto. Alguém o seguiu. Alguém o fotografou de costas."
+      "nome": "The Silent Messenger",
+      "subtitulo": "Kim received a photo. Someone followed him. Someone photographed him from behind."
     },
     "es": {
-      "nome": "O Mensageiro Mudo",
-      "subtitulo": "Kim recebeu uma foto. Alguém o seguiu. Alguém o fotografou de costas."
+      "nome": "El Mensajero Mudo",
+      "subtitulo": "Kim recibió una foto. Alguien lo siguió. Alguien lo fotografió por detrás."
     }
   },
   "suspeitos": [
@@ -1325,12 +1325,12 @@ export const CASOS = [
           "bio": "Câmera nova demais pro aluguel que pagava."
         },
         "en": {
-          "nome": "Fotógrafo do Prédio",
-          "bio": "Câmera nova demais pro aluguel que pagava."
+          "nome": "Building Photographer",
+          "bio": "Camera too new for the rent he paid."
         },
         "es": {
-          "nome": "Fotógrafo do Prédio",
-          "bio": "Câmera nova demais pro aluguel que pagava."
+          "nome": "Fotógrafo del Edificio",
+          "bio": "Cámara demasiado nueva para el alquiler que pagaba."
         }
       },
       "culpado": true,
@@ -1344,12 +1344,12 @@ export const CASOS = [
           "bio": "Rancor antigo. Motivo possível."
         },
         "en": {
-          "nome": "Ex-colega de Escola",
-          "bio": "Rancor antigo. Motivo possível."
+          "nome": "Former Schoolmate",
+          "bio": "Old grudge. Possible motive."
         },
         "es": {
-          "nome": "Ex-colega de Escola",
-          "bio": "Rancor antigo. Motivo possível."
+          "nome": "Excompañero de Escuela",
+          "bio": "Rencores antiguos. Motivo posible."
         }
       },
       "culpado": false,
@@ -1367,12 +1367,12 @@ export const CASOS = [
           "desc": "A foto foi tirada daqui."
         },
         "en": {
-          "nome": "Prédio do Kim",
-          "desc": "A foto foi tirada daqui."
+          "nome": "Kim's Building",
+          "desc": "The photo was taken from here."
         },
         "es": {
-          "nome": "Prédio do Kim",
-          "desc": "A foto foi tirada daqui."
+          "nome": "Edificio de Kim",
+          "desc": "La foto fue tomada desde aquí."
         }
       },
       "pista_id": "p05a"
@@ -1386,12 +1386,12 @@ export const CASOS = [
           "desc": "Equipamento caro demais."
         },
         "en": {
-          "nome": "Estúdio do Fotógrafo",
-          "desc": "Equipamento caro demais."
+          "nome": "Photographer's Studio",
+          "desc": "Way too expensive equipment."
         },
         "es": {
-          "nome": "Estúdio do Fotógrafo",
-          "desc": "Equipamento caro demais."
+          "nome": "Estudio del Fotógrafo",
+          "desc": "Equipo demasiado caro."
         }
       },
       "pista_id": "p05b"
@@ -1405,12 +1405,12 @@ export const CASOS = [
           "desc": "De onde veio a encomenda do número."
         },
         "en": {
-          "nome": "Correio Central",
-          "desc": "De onde veio a encomenda do número."
+          "nome": "Central Post Office",
+          "desc": "Where the number's package came from."
         },
         "es": {
-          "nome": "Correio Central",
-          "desc": "De onde veio a encomenda do número."
+          "nome": "Correo Central",
+          "desc": "De donde vino el encargo del número."
         }
       },
       "pista_id": "p05c"
@@ -1427,12 +1427,12 @@ export const CASOS = [
           "desc": "Pro aluguel que ele pagava. Às vezes a inconsistência mais importante não é o que as pessoas dizem: é o que as pessoas têm."
         },
         "en": {
-          "titulo": "Câmera nova demais",
-          "desc": "Pro aluguel que ele pagava. Às vezes a inconsistência mais importante não é o que as pessoas dizem: é o que as pessoas têm."
+          "titulo": "Camera too new",
+          "desc": "For the rent he paid. Sometimes the most important inconsistency isn't what people say — it's what people have."
         },
         "es": {
-          "titulo": "Câmera nova demais",
-          "desc": "Pro aluguel que ele pagava. Às vezes a inconsistência mais importante não é o que as pessoas dizem: é o que as pessoas têm."
+          "titulo": "Cámara demasiado nueva",
+          "desc": "Para el alquiler que pagaba. A veces la inconsistencia más importante no es lo que la gente dice — es lo que la gente tiene."
         }
       }
     },
@@ -1446,12 +1446,12 @@ export const CASOS = [
           "desc": "Usado uma vez. Uma transferência, uma instrução, uma foto. Quem usa número assim não planeja ser encontrado."
         },
         "en": {
-          "titulo": "Número desconhecido",
-          "desc": "Usado uma vez. Uma transferência, uma instrução, uma foto. Quem usa número assim não planeja ser encontrado."
+          "titulo": "Unknown number",
+          "desc": "Used once. One transfer, one instruction, one photo. Whoever uses a number like that doesn't plan to be found."
         },
         "es": {
-          "titulo": "Número desconhecido",
-          "desc": "Usado uma vez. Uma transferência, uma instrução, uma foto. Quem usa número assim não planeja ser encontrado."
+          "titulo": "Número desconocido",
+          "desc": "Usado una vez. Una transferencia, una instrucción, una foto. Quien usa un número así no planea ser encontrado."
         }
       }
     },
@@ -1465,12 +1465,12 @@ export const CASOS = [
           "desc": "DDD de ilha privada no Pacífico Sul. Ilhas privadas no Pacífico Sul não contratam fotógrafos de Marelia por acidente."
         },
         "en": {
-          "titulo": "DDD da ilha",
-          "desc": "DDD de ilha privada no Pacífico Sul. Ilhas privadas no Pacífico Sul não contratam fotógrafos de Marelia por acidente."
+          "titulo": "Island area code",
+          "desc": "Private island area code in the South Pacific. Private islands in the South Pacific don't hire photographers from Marelia by accident."
         },
         "es": {
-          "titulo": "DDD da ilha",
-          "desc": "DDD de ilha privada no Pacífico Sul. Ilhas privadas no Pacífico Sul não contratam fotógrafos de Marelia por acidente."
+          "titulo": "Código de la isla",
+          "desc": "Código de isla privada en el Pacífico Sur. Islas privadas en el Pacífico Sur no contratan fotógrafos de Marelia por accidente."
         }
       }
     }
@@ -1698,13 +1698,13 @@ export const CASOS = [
     ],
     "narracao_abertura": {
       "pt": "Kim não pedia ajuda. Era constitucional nele, era estrutural, era parte do código. Quando ele mandou aquela mensagem eu entendi que era sério antes de entender o que era.",
-      "en": "Kim não pedia ajuda. Era constitucional nele, era estrutural, era parte do código. Quando ele mandou aquela mensagem eu entendi que era sério antes de entender o que era.",
-      "es": "Kim não pedia ajuda. Era constitucional nele, era estrutural, era parte do código. Quando ele mandou aquela mensagem eu entendi que era sério antes de entender o que era."
+      "en": "Kim didn't ask for help. It was constitutional in him, structural, part of the code. When he sent that message I knew it was serious before I understood what it was.",
+      "es": "Kim no pedía ayuda. Era constitucional en él, estructural, parte del código. Cuando envió ese mensaje supe que era serio antes de entender qué era."
     },
     "narracao_final": {
       "pt": "Ele agradeceu. Kim não agradecia. Eu fui pra cama e não consegui dormir e não sei se foi por causa do caso ou por causa do jeito que ele disse obrigado, como se já soubesse que era só o começo.",
-      "en": "Ele agradeceu. Kim não agradecia. Eu fui pra cama e não consegui dormir e não sei se foi por causa do caso ou por causa do jeito que ele disse obrigado, como se já soubesse que era só o começo.",
-      "es": "Ele agradeceu. Kim não agradecia. Eu fui pra cama e não consegui dormir e não sei se foi por causa do caso ou por causa do jeito que ele disse obrigado, como se já soubesse que era só o começo."
+      "en": "He thanked me. Kim didn't thank people. I went to bed and couldn't sleep and I don't know if it was because of the case or because of the way he said thank you, like he already knew it was just the beginning.",
+      "es": "Me agradeció. Kim no agradecía. Me fui a la cama y no pude dormir y no sé si fue por el caso o por la forma en que dijo gracias, como si ya supiera que era solo el comienzo."
     }
   },
   "pista_kronos": {
@@ -1729,12 +1729,12 @@ export const CASOS = [
         "subtitulo": "Ferreiro inconsciente na forja."
       },
       "en": {
-        "nome": "O Ferreiro",
-        "subtitulo": "Ferreiro inconsciente na forja."
+        "nome": "The Blacksmith",
+        "subtitulo": "Blacksmith unconscious at the forge."
       },
       "es": {
-        "nome": "O Ferreiro",
-        "subtitulo": "Ferreiro inconsciente na forja."
+        "nome": "El Herrero",
+        "subtitulo": "Herrero inconsciente en la forja."
       }
     },
     "suspeitos": [
@@ -1914,12 +1914,12 @@ export const CASOS = [
         "subtitulo": "Enfermeira some toda semana."
       },
       "en": {
-        "nome": "A Enfermeira",
-        "subtitulo": "Enfermeira some toda semana."
+        "nome": "The Nurse",
+        "subtitulo": "Nurse disappears every week."
       },
       "es": {
-        "nome": "A Enfermeira",
-        "subtitulo": "Enfermeira some toda semana."
+        "nome": "La Enfermera",
+        "subtitulo": "Enfermera desaparece cada semana."
       }
     },
     "suspeitos": [
@@ -2095,12 +2095,12 @@ export const CASOS = [
         "subtitulo": "Contador sumiu com os livros."
       },
       "en": {
-        "nome": "O Contador",
-        "subtitulo": "Contador sumiu com os livros."
+        "nome": "The Accountant",
+        "subtitulo": "Accountant disappeared with the books."
       },
       "es": {
-        "nome": "O Contador",
-        "subtitulo": "Contador sumiu com os livros."
+        "nome": "El Contador",
+        "subtitulo": "Contador desapareció con los libros."
       }
     },
     "suspeitos": [
@@ -2276,12 +2276,12 @@ export const CASOS = [
         "subtitulo": "Uma lista com seu nome."
       },
       "en": {
-        "nome": "A Lista Incompleta",
-        "subtitulo": "Uma lista com seu nome."
+        "nome": "The Incomplete List",
+        "subtitulo": "A list with your name on it."
       },
       "es": {
-        "nome": "A Lista Incompleta",
-        "subtitulo": "Uma lista com seu nome."
+        "nome": "La Lista Incompleta",
+        "subtitulo": "Una lista con tu nombre."
       }
     },
     "suspeitos": [
@@ -2461,12 +2461,12 @@ export const CASOS = [
         "subtitulo": "Carga some do porto."
       },
       "en": {
-        "nome": "Dentro do Porto",
-        "subtitulo": "Carga some do porto."
+        "nome": "Inside the Harbor",
+        "subtitulo": "Cargo disappears from the port."
       },
       "es": {
-        "nome": "Dentro do Porto",
-        "subtitulo": "Carga some do porto."
+        "nome": "Dentro del Puerto",
+        "subtitulo": "Carga desaparece del puerto."
       }
     },
     "suspeitos": [
@@ -2642,12 +2642,12 @@ export const CASOS = [
         "subtitulo": "Identidade clonada."
       },
       "en": {
-        "nome": "Fora da Lei",
-        "subtitulo": "Identidade clonada."
+        "nome": "Outside the Law",
+        "subtitulo": "Cloned identity."
       },
       "es": {
-        "nome": "Fora da Lei",
-        "subtitulo": "Identidade clonada."
+        "nome": "Fuera de la Ley",
+        "subtitulo": "Identidad clonada."
       }
     },
     "suspeitos": [
@@ -2823,12 +2823,12 @@ export const CASOS = [
         "subtitulo": "Nome pichado nos muros."
       },
       "en": {
-        "nome": "O Nome no Muro",
-        "subtitulo": "Nome pichado nos muros."
+        "nome": "The Name on the Wall",
+        "subtitulo": "Name spray-painted on walls."
       },
       "es": {
-        "nome": "O Nome no Muro",
-        "subtitulo": "Nome pichado nos muros."
+        "nome": "El Nombre en el Muro",
+        "subtitulo": "Nombre pintado en los muros."
       }
     },
     "suspeitos": [
@@ -3008,12 +3008,12 @@ export const CASOS = [
         "subtitulo": "Demo vazada antes do lançamento."
       },
       "en": {
-        "nome": "A Gravação",
-        "subtitulo": "Demo vazada antes do lançamento."
+        "nome": "The Recording",
+        "subtitulo": "Demo leaked before release."
       },
       "es": {
-        "nome": "A Gravação",
-        "subtitulo": "Demo vazada antes do lançamento."
+        "nome": "La Grabación",
+        "subtitulo": "Demo filtrada antes del lanzamiento."
       }
     },
     "suspeitos": [
@@ -3189,12 +3189,12 @@ export const CASOS = [
         "subtitulo": "Arquivo histórico queimado."
       },
       "en": {
-        "nome": "O Arquivo",
-        "subtitulo": "Arquivo histórico queimado."
+        "nome": "The Archive",
+        "subtitulo": "Historical archive burned."
       },
       "es": {
-        "nome": "O Arquivo",
-        "subtitulo": "Arquivo histórico queimado."
+        "nome": "El Archivo",
+        "subtitulo": "Archivo histórico quemado."
       }
     },
     "suspeitos": [

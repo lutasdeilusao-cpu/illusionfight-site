@@ -54,7 +54,7 @@ export default function Confronto() {
 
   if (!caso) { store.setFase('mapa'); return null }
 
-  const inimigo = caso.confronto?.inimigo_id ? getInimigo(caso.confronto.inimigo_id) : { nome: 'Desconhecido', hp: 20, atk: 3, def: 1 }
+  const inimigo = caso.confronto?.inimigo_id ? getInimigo(caso.confronto.inimigo_id, locale) : { nome: locale === 'en' ? 'Unknown' : locale === 'es' ? 'Desconocido' : 'Desconhecido', hp: 20, atk: 3, def: 1 }
   const ehInterrogatorio = caso.confronto?.tipo === 'interrogatorio'
   const pHpMax = 30
   const eHpMax = inimigo.hp

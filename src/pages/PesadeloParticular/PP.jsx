@@ -33,16 +33,17 @@ const PUZZLE_EMOJI = {
 
 // ── INIMIGOS POR NÍVEL ──────────────────────────────
 const INIMIGOS_NIVEL = {
-  1:  { nome: 'Capanga de Terno',     hp: 30, dano: [2,5],  xp: 20,  emoji: '🕴️' },
-  2:  { nome: 'Segurança Corrupto',   hp: 45, dano: [3,7],  xp: 30,  emoji: '👮' },
-  3:  { nome: 'Detetive Infiltrado',  hp: 60, dano: [4,8],  xp: 40,  emoji: '🔎' },
-  4:  { nome: 'Assassino de Aluguel', hp: 80, dano: [5,10], xp: 55,  emoji: '🗡️' },
-  5:  { nome: 'Agente de Kronos',     hp: 100,dano: [6,12], xp: 70,  emoji: '⚓' },
+  1:  { nome: { pt:'Capanga de Terno', en:'Suit Thug', es:'Matón de Traje' },     hp: 30, dano: [2,5],  xp: 20,  emoji: '🕴️' },
+  2:  { nome: { pt:'Segurança Corrupto', en:'Corrupt Guard', es:'Guardia Corrupto' },   hp: 45, dano: [3,7],  xp: 30,  emoji: '👮' },
+  3:  { nome: { pt:'Detetive Infiltrado', en:'Undercover Detective', es:'Detective Infiltrado' },  hp: 60, dano: [4,8],  xp: 40,  emoji: '🔎' },
+  4:  { nome: { pt:'Assassino de Aluguel', en:'Hitman', es:'Sicario' }, hp: 80, dano: [5,10], xp: 55,  emoji: '🗡️' },
+  5:  { nome: { pt:'Agente de Kronos', en:'Kronos Agent', es:'Agente de Kronos' },     hp: 100,dano: [6,12], xp: 70,  emoji: '⚓' },
 }
 
-function getInimigo(nivel) {
+function getInimigo(nivel, locale = 'pt') {
   const tier = Math.min(5, Math.ceil(nivel / 4))
-  return INIMIGOS_NIVEL[tier]
+  const base = INIMIGOS_NIVEL[tier]
+  return { ...base, nome: base.nome[locale] || base.nome.pt }
 }
 
 function getJackStats(nivel) {
@@ -261,8 +262,8 @@ function AnimacaoInvestigacao({ onComplete }) {
 // SISTEMA DE BATALHA
 // ══════════════════════════════════════════════════
 function BatalhaView({ nivel, onVitoria, onDerrota }) {
-  const { t } = useLanguage()
-  const inimigo = getInimigo(nivel)
+  const { t, locale } = useLanguage()
+  const inimigo = getInimigo(nivel, locale)
   const jackBase = getJackStats(nivel)
 
   const [jackHp, setJackHp] = useState(jackBase.hp)
