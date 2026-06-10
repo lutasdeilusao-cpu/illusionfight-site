@@ -38,6 +38,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <script>
+      // Restaura URL limpa a partir do padrão /?/path (404.html redirect)
       (function(l) {
         if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) {
@@ -48,6 +49,18 @@
           );
         }
       }(window.location))
+
+      // Fallback: se veio via sessionStorage.redirect (meta refresh do 404.html)
+      (function() {
+        var redirect = sessionStorage.redirect;
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          var path = redirect.replace(/^https?:\/\/[^\/]+/, '');
+          if (path && path !== '/') {
+            window.history.replaceState(null, null, path);
+          }
+        }
+      }());
     </script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVDGMZ1F58"></script>
@@ -57,7 +70,7 @@
       gtag('js', new Date());
       gtag('config', 'G-QVDGMZ1F58');
     </script>
-    <script type="module" crossorigin src="/assets/index-DmI8nTaJ.js"></script>
+    <script type="module" crossorigin src="/assets/index-C1HowIJr.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DrTpzl5M.css">
   </head>
   <body>
