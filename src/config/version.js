@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.23.2'
+export const SITE_VERSION = '10.24.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)

@@ -5,6 +5,7 @@ import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './NinaMusicPlayer.css'
 
 const PLAYLIST_ID = 'PLVAkPvJrHsPZHSvAvGxpiT-yWgyx_qRfK'
+const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 let youtubeApiReady = false
 const readyListeners = []
@@ -34,6 +35,15 @@ function getGreetingKey(pathname) {
   return 'nina.greeting.default'
 }
 
+/** Retorna o estado salvo: null (nunca perguntou), 'aceitou' ou 'recusou' */
+function getNinaSessionState() {
+  return sessionStorage.getItem('nina_state') // 'aceitou' | 'recusou' | null
+}
+function setNinaSessionState(val) {
+  if (val) sessionStorage.setItem('nina_state', val)
+  else sessionStorage.removeItem('nina_state')
+}
+
 export default function NinaMusicPlayer() {
   const [step, setStep] = useState('idle') // idle | balloon | player | hint
   const [playing, setPlaying] = useState(false)
@@ -44,27 +54,43 @@ export default function NinaMusicPlayer() {
   const playerRef = useRef(null)
   const iframeRef = useRef(null)
   const playerReadyRef = useRef(false)
-  const sessionRef = useRef(sessionStorage.getItem('nina_prompt_shown') === 'true')
+  const sessionState = getNinaSessionState()
+  const sessionRef = useRef(sessionState !== null)
+  const aceitouRef = useRef(sessionState === 'aceitou')
   const initialShuffleRef = useRef(false)
+  const visibilityBoundRef = useRef(false)
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
   const fullHintRef = useRef('')
   const timerRef = useRef(null)
+  const playingRef = useRef(false)
+
+  // Mantém playingRef sincronizado
+  useEffect(() => { playingRef.current = playing }, [playing])
 
   // Load YouTube API on mount
   useEffect(() => { loadYoutubeApi() }, [])
 
+  // Auto-restart se o usuário já aceitou na sessão anterior
+  useEffect(() => {
+    if (aceitouRef.current && !playerReadyRef.current) {
+      // Já aceitou antes nesta sessão — inicia o player silenciosamente
+      initPlayer()
+      setTimeout(() => setStep('player'), 200)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   // Mostrar balão da Nina após 30s (apenas UMA vez por sessão)
   useEffect(() => {
-    // Se já foi respondido nesta sessão, não faz nada
-    if (sessionRef.current) return
+    // Se já foi respondido nesta sessão ou já aceitou antes, não faz nada
+    if (sessionRef.current || aceitouRef.current) return
 
     // Se o player já está visível ou música tocando, não mostra prompt
     if (step === 'player') return
 
     const timer = setTimeout(() => {
-      if (sessionRef.current) return
+      if (sessionRef.current || aceitouRef.current) return
       if (step === 'player') return
 
       const mensagem = t(greetingKey)
@@ -85,6 +111,27 @@ export default function NinaMusicPlayer() {
     timerRef.current = timer
     return () => clearTimeout(timer)
   }, [greetingKey, t, step])
+
+  // Page Visibility API — resume playback when tab becomes visible
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible' && playerReadyRef.current && playingRef.current) {
+        const p = playerRef.current
+        if (p && typeof p.getPlayerState === 'function') {
+          try {
+            const state = p.getPlayerState()
+            // Se o player está pausado (2) ou não iniciou (-1 / 5), retoma
+            if (state === window.YT.PlayerState.PAUSED || state === -1 || state === 5) {
+              p.playVideo()
+              console.log('[NINA] visibilidade retomada — player resumido')
+            }
+          } catch (_) { /* ignore */ }
+        }
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility)
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [])
 
   // Typewriter effect for hint
   useEffect(() => {
@@ -183,22 +230,23 @@ export default function NinaMusicPlayer() {
     })
   }, [handlePlayerError])
 
-  const markSessionDone = useCallback(() => {
+  const markSessionDone = useCallback((aceitou) => {
     sessionRef.current = true
-    sessionStorage.setItem('nina_prompt_shown', 'true')
+    aceitouRef.current = aceitou
+    setNinaSessionState(aceitou ? 'aceitou' : 'recusou')
   }, [])
 
   const handleSim = () => {
     setStep('hint')
     setShowHint(true)
-    markSessionDone()
+    markSessionDone(true)
     initPlayer()
     setTimeout(() => setStep('player'), 100)
   }
 
   const handleNao = () => {
     setStep('idle')
-    markSessionDone()
+    markSessionDone(false)
   }
 
   const togglePlay = () => {
@@ -225,7 +273,7 @@ export default function NinaMusicPlayer() {
     if (player && playerReadyRef.current) player.pauseVideo()
     setPlaying(false)
     setStep('idle')
-    markSessionDone()
+    // Não marca session done — o player ainda existe, pode reabrir depois
   }
 
   // Click outside balloon to close (after 2.5s)

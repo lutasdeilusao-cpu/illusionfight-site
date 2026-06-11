@@ -90,7 +90,7 @@ export function AuthProvider({ children }) {
       .from('profiles')
       .select('*, tier, subscription_status, current_period_end, stripe_subscription_id')
       .eq('id', userId)
-      .single()
+      .maybeSingle()
     setPerfil(data)
     return data
   }

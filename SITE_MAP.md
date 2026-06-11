@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.24.0*  |  `[SITE] versão carregada: 10.24.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ NinaPlayer + Admin fix — Page Visibility resume + auto-restart após reload + email-based admin fallback (gramikgames)
 *Versão: 10.23.2*  |  `[SITE] versão carregada: 10.23.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon Ep.01 — fix: imagens quebradas (arquivos renomeados de XX-PT.png para pt/XX.png)
 *Versão: 10.23.1*  |  `[SITE] versão carregada: 10.23.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sanitização — removidos 17 arquivos de teste + 2 pastas (audit-screenshots, test-results) da raiz
 *Versão: 10.23.0*  |  `[SITE] versão carregada: 10.23.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.35.0 — ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha

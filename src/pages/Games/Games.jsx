@@ -28,11 +28,13 @@ const CONTEUDO = [
 // Games that require ficha (not FREE badge)
 const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo']
 
+const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+
 export default function Games() {
   const { t } = useLanguage()
   const navigate = useNavigate()
-  const { perfil } = useAuth()
-  const isAdmin = perfil?.is_admin === true
+  const { user, perfil } = useAuth()
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
   // Create ficha gate for every gated game
   const gates = {}

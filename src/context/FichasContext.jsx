@@ -3,6 +3,7 @@ import { useAuth } from './AuthContext'
 import { supabase } from '../lib/supabase'
 
 const FICHAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
+const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 const FichasContext = createContext({})
 
@@ -21,9 +22,9 @@ export function FichasProvider({ children }) {
 
   const carregar = useCallback(async () => {
     if (!user) { setLoading(false); return }
-    // Check admin + role via profiles
+    // Check admin + role via profiles (fallback por email)
     const { data: profileData } = await supabase.from('profiles').select('is_admin, role').eq('id', user.id).maybeSingle()
-    const adminFlag = profileData?.is_admin || false
+    const adminFlag = profileData?.is_admin || ADMIN_EMAILS.includes(user?.email || '')
     setIsAdmin(adminFlag)
     const fichasPorRole = { free: 100, elite: 10, primordial: 30, moderator: 10, admin: 999 }
     const rolePerfil = profileData?.role || 'free'
