@@ -10,6 +10,7 @@ import PerfilColecao from './abas/PerfilColecao'
 import PerfilConta from './abas/PerfilConta'
 import Recompensas from './abas/Recompensas'
 import PerfilTamagoshi from './abas/PerfilTamagoshi'
+import PerfilProgresso from './PerfilProgresso'
 import '../Perfil.css'
 
 const TIER_CONFIG = {
@@ -95,6 +96,9 @@ export default function Perfil() {
           </button>
         )}
       </div>
+
+      {/* Barra de Progresso */}
+      <PerfilProgresso />
 
       {/* Seções colapsáveis */}
       <div className="perfil-secoes">

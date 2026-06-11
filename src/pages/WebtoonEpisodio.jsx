@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
 import { useAchievements } from '../context/AchievementsContext'
+import { useEventos } from '../context/EventosContext'
 import episodios from '../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -13,6 +14,7 @@ export default function WebtoonEpisodio() {
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { desbloquear } = useAchievements()
+  const { registrarEvento } = useEventos()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
   const ultimaPaginaRef = useRef(null)
@@ -23,6 +25,10 @@ export default function WebtoonEpisodio() {
   }, [])
 
   useEffect(() => { localStorage.setItem('ldi-webtoon-ultimo', id) }, [id])
+
+  useEffect(() => {
+    if (id) registrarEvento('webtoon_lido', `Leu o episódio ${id}`, Number(id))
+  }, [id])
 
   useEffect(() => {
     const saved = localStorage.getItem(`ldi-webtoon-scroll-${id}`)

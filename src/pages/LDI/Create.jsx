@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useGameStore } from './store/useGameStore'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
+import { useEventos } from '../../context/EventosContext'
 import './LDI.css'
 
 export default function Create() {
@@ -11,6 +12,7 @@ export default function Create() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { user } = useAuth()
+  const { registrarEvento } = useEventos()
   const { sheet, updateSheet, applySceneEffect, setFlag, saveToCloud, setLocale } = useGameStore()
 
   const ATTR_NAMES = {
@@ -220,6 +222,7 @@ export default function Create() {
       current_scene_id: '1.2',
     })
     if (user) saveToCloud(user.id)
+    registrarEvento('lendas_personagem', 'Criou personagem em Lendas do LDI', 1)
     navigate('/games/ldi/game', { replace: true })
   }
 

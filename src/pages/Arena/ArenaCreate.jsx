@@ -4,6 +4,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
+import { useEventos } from '../../context/EventosContext'
 import { sfx } from '../../lib/sfx'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
@@ -78,6 +79,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { registrarEvento } = useEventos()
   const store = useArenaStore()
   const [step, setStep] = useState(skipIntro ? 'attrs' : 'intro')
   const [errors, setErrors] = useState({})

@@ -531,10 +531,25 @@ export const useTamagoshiStore = create((set, get) => ({
 
   // === LIFECYCLE ===
 
-  verificarFase: () => {
+  verificarFase: async () => {
     const state = get()
     if (!state.nascidoEm) return 'ovo'
     const fase = calcularFase(state.nascidoEm)
+    if (fase !== state._faseAtual && state._userId) {
+      // Registrar evento de evolução de fase (exceto 'ovo' inicial)
+      const faseLabel = { filhote: 'Filhote', jovem: 'Jovem', adulto: 'Adulto', veterano: 'Veterano', anciao: 'Ancião', partida: 'Partida' }
+      if (faseLabel[fase]) {
+        const { data: existente } = await supabase.from('perfil_eventos')
+          .select('id').eq('user_id', state._userId).eq('tipo', 'tama_fase').eq('descricao', `Tamagoshi evoluiu para ${faseLabel[fase]}`).limit(1)
+        if (!existente || existente.length === 0) {
+          await supabase.from('perfil_eventos').insert({
+            user_id: state._userId, tipo: 'tama_fase', descricao: `Tamagoshi evoluiu para ${faseLabel[fase]}`, valor: 1,
+          })
+          console.log(`[Eventos] registrado: tama_fase — Tamagoshi evoluiu para ${faseLabel[fase]}`)
+        }
+      }
+      set({ _faseAtual: fase })
+    }
     if (fase === 'partida') {
       set({ fase: 'partida' })
     }

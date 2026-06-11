@@ -8,6 +8,7 @@ import trashTalkNPCs from './data/trash_talk.json'
 import { sfx } from '../../lib/sfx'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import DramaticDice from './components/DramaticDice'
+import { useEventos } from '../../context/EventosContext'
 import './Arena.css'
 
 const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
@@ -237,6 +238,7 @@ function PowerReveal({ powerName, onDone }) {
 }
 
 export default function ArenaCombat({ onNavigate }) {
+  const { registrarEvento } = useEventos()
   const { t } = useLanguage()
   MODE_LABELS.fists = t('games.arena.modo_fists')
   MODE_LABELS.armed = t('games.arena.modo_armed')
@@ -461,7 +463,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
 
-        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => setMatchResult('victory'), 1200); return }
+        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); registrarEvento('arena_vitoria', 'Venceu uma batalha na Arena', 1); setTimeout(() => setMatchResult('victory'), 1200); return }
 
         if (nEPv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')

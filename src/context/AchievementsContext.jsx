@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from './AuthContext'
+import { useEventos } from './EventosContext'
 import { notificationManager } from '../lib/notificationManager'
 import todosAchievements from '../data/achievements-pt.json'
 
@@ -61,6 +62,16 @@ export function AchievementsProvider({ children }) {
       descricao: achievement.descricao,
       icone: achievement.icone,
     })
+    // Registrar evento de conquista (usa supabase diretamente p/ evitar dependência cíclica)
+    try {
+      const { data: existente } = await supabase.from('perfil_eventos')
+        .select('id').eq('user_id', user.id).eq('tipo', 'conquista').eq('descricao', `Desbloqueou: ${achievement.nome}`).limit(1)
+      if (!existente || existente.length === 0) {
+        await supabase.from('perfil_eventos').insert({
+          user_id: user.id, tipo: 'conquista', descricao: `Desbloqueou: ${achievement.nome}`, valor: achievement.tier || 1,
+        })
+      }
+    } catch (e) { console.error('[Eventos] erro ao registrar conquista:', e) }
   }, [desbloqueados, user])
 
   function registrarGangue() {

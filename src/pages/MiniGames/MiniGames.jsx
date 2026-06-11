@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../components/Puzzles'
 import { useFichas } from '../../context/FichasContext'
+import { useEventos } from '../../context/EventosContext'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
 import './MiniGames.css'
@@ -35,6 +36,7 @@ export default function MiniGames() {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { isAdmin } = useFichas()
+  const { registrarEvento } = useEventos()
   const tier = 'free'
   const podeElite = isAdmin || tier !== 'free'
 
@@ -72,6 +74,8 @@ export default function MiniGames() {
     const tempo = Date.now() - tempoInicio
     setTempoFinal(tempo)
     setFase('vitoria')
+    const nomeJogo = jogoAtivo?.puzzleKey || jogoAtivo?.id || 'desconhecido'
+    registrarEvento('minigame_completo', `Completou ${nomeJogo}`, 1)
     const key = jogoAtivo.id === 'stealth' ? `${jogoAtivo.id}_${dificuldadeSelecionada}` : jogoAtivo.id
     const novosRecordes = { ...recordes }
     if (!novosRecordes[key] || tempo < novosRecordes[key]) {

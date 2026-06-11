@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react'
+import { useEffect, useCallback, useState, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
@@ -6,6 +6,7 @@ import { useGameStore } from './store/useGameStore'
 import { useCombatStore } from './store/useCombatStore'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
+import { useEventos } from '../../context/EventosContext'
 import SceneView from './components/SceneView'
 import ManualDrawer from './components/ManualDrawer'
 import './LDI.css'
@@ -22,6 +23,7 @@ export default function Game() {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { registrarEvento } = useEventos()
   const { setReaderMode } = useReader()
   const locale = useLanguage().locale
   const { sheet, save, currentScene, choices, sceneNav, setScene, makeChoice, updateSave, saveToCloud, updateSheet, clearLevelUp, setLocale } = useGameStore()
@@ -75,6 +77,19 @@ export default function Game() {
       navigate('/games/ldi/combat')
     }
   }, [combat.active, navigate])
+
+  // Detectar completação de act
+  const prevSceneRef = useRef(null)
+  useEffect(() => {
+    if (currentScene?.id && currentScene.id !== prevSceneRef.current) {
+      const match = currentScene.id.match(/^end_act(\d+)/)
+      if (match) {
+        const numAct = Number(match[1])
+        registrarEvento('lendas_act', `Completou o Act ${numAct} em Lendas do LDI`, numAct)
+      }
+      prevSceneRef.current = currentScene.id
+    }
+  }, [currentScene?.id])
 
   useEffect(() => {
     console.log('[GAME] useEffect save.status:', save?.status)

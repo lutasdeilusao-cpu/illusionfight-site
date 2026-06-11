@@ -2,16 +2,20 @@ import { usePPStore } from '../store/usePPStore'
 import { getCaso } from '../data/resolver'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useEventos } from '../../../context/EventosContext'
 
 export default function Resolucao() {
   const { t } = useLanguage()
   const { user } = useAuth()
+  const { registrarEvento } = useEventos()
   const store = usePPStore()
   const caso = getCaso(store.casoAtivo)
 
   if (!caso) { store.setFase('mapa'); return null }
 
   const handleVoltar = () => {
+    registrarEvento('caso_resolvido', 'Resolveu um caso no Pesadelo Particular', 1)
+    registrarEvento('jogo_jogado', 'Jogou Pesadelo Particular', 1)
     store.setFase('mapa')
     store.saveToCloud(user?.id)
   }

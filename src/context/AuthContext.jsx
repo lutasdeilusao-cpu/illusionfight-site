@@ -113,6 +113,24 @@ export function AuthProvider({ children }) {
     else console.log('[Auth] deck inicial criado com', rows.length, 'cartas')
   }
 
+  // ── Sessão longa: timer de 10 minutos ──
+  useEffect(() => {
+    if (!user) return
+    const timer = setTimeout(async () => {
+      try {
+        const { data: existente } = await supabase.from('perfil_eventos')
+          .select('id').eq('user_id', user.id).eq('tipo', 'sessao_longa').limit(1)
+        if (!existente || existente.length === 0) {
+          await supabase.from('perfil_eventos').insert({
+            user_id: user.id, tipo: 'sessao_longa', descricao: 'Ficou 10+ minutos no site', valor: 10,
+          })
+          console.log('[Eventos] registrado: sessao_longa — 10+ minutos no site')
+        }
+      } catch (e) { console.error('[Eventos] erro sessao_longa:', e) }
+    }, 600000) // 10 minutos
+    return () => clearTimeout(timer)
+  }, [user])
+
   async function logout() {
     await supabase.auth.signOut()
     setUser(null)

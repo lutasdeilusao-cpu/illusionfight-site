@@ -1,0 +1,178 @@
+/* ===== PERFIL PROGRESSO ===== */
+.perfil-progresso {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.perfil-progresso-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  user-select: none;
+}
+
+.perfil-progresso-titulo {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #666;
+}
+
+.perfil-progresso-pct {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #F5A623;
+  text-shadow: 0 0 16px rgba(245,166,35,0.3);
+}
+
+.perfil-progresso-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.perfil-progresso-bar {
+  flex: 1;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.perfil-progresso-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623, #e8853a);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.perfil-progresso-contagem {
+  font-size: 0.6rem;
+  color: #555;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* Eventos */
+.perfil-progresso-eventos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.perfil-progresso-evento {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 3px;
+  font-size: 0.65rem;
+}
+
+.perfil-progresso-evento-icone {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.perfil-progresso-evento-desc {
+  flex: 1;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+.perfil-progresso-evento-tempo {
+  color: #444;
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* Prêmio 100% */
+.perfil-progresso-premio {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.8rem;
+  background: rgba(245,166,35,0.08);
+  border: 1px solid rgba(245,166,35,0.4);
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.perfil-progresso-premio--resgatado {
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.3);
+}
+
+.perfil-progresso-premio-icone {
+  font-size: 1.2rem;
+}
+
+.perfil-progresso-premio-texto {
+  flex: 1;
+  font-size: 0.7rem;
+  color: #e8e8e8;
+  letter-spacing: 0.06em;
+}
+
+.perfil-progresso-premio-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.8rem;
+  background: #F5A623;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.perfil-progresso-premio-btn:hover { opacity: 0.85; }
+.perfil-progresso-premio-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Metas expandidas */
+.perfil-progresso-metas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0;
+}
+
+.perfil-progresso-meta--ok,
+.perfil-progresso-meta--pendente {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.62rem;
+  border-radius: 2px;
+}
+
+.perfil-progresso-meta--ok {
+  color: #22C55E;
+}
+
+.perfil-progresso-meta--pendente {
+  color: #444;
+}
+
+.perfil-progresso-meta-status {
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  width: 1em;
+  text-align: center;
+}
+
+.perfil-progresso-meta-label {
+  letter-spacing: 0.05em;
+}

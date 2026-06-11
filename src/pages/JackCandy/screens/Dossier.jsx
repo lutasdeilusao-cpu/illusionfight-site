@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useJackStore } from '../store/useJackStore'
+import { useEventos } from '../../../context/EventosContext'
 import { CASOS } from '../data/casos'
 import { PISTAS } from '../data/pistas'
 import PistaCard from '../components/PistaCard'
@@ -9,6 +10,7 @@ import DialogoCaso from '../components/DialogoCaso'
 
 export default function Dossier() {
   const { t } = useLanguage()
+  const { registrarEvento } = useEventos()
   const store = useJackStore()
   const casoRef = useRef(null)
   const caso = CASOS[store.casoAtivo]
@@ -40,6 +42,8 @@ export default function Dossier() {
       setShowAcusar(false)
       setCasoResolvidoId(casoAtivo.id)
       store.setMonologo('é ele. sempre foi ele.')
+      registrarEvento('jack_caso', 'Resolveu um caso no Jack Dream Beer', 1)
+      registrarEvento('jogo_jogado', 'Jogou Jack Dream Beer', 1)
       store.resolverCaso(casoAtivo.flagResolucao)
       console.log('[DOSSIER] caso resolvido:', casoAtivo.id, '| flag:', casoAtivo.flagResolucao)
     } else {

@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useEventos } from '../../../context/EventosContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
@@ -21,6 +22,7 @@ function shuffle(arr) {
 
 export default function Selecao({ onEscolher, userTier, onGacha }) {
   const { t } = useLanguage()
+  const { registrarEvento } = useEventos()
   const slots = useTamagoshiStore(s => s.slots)
   const limite = SLOT_LIMITS[userTier] || 1
   const atingiuLimite = slots.length >= limite
@@ -61,7 +63,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
                 transition={{ delay: i * 0.15 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => onEscolher(c.id)}
+                onClick={() => { registrarEvento('tama_criado', 'Criou um Tamagoshi', 1); onEscolher(c.id) }}
                 style={{ borderColor: pers.cor }}
               >
                 <div className="tama-selecao-emoji">

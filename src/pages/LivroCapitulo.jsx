@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAchievements } from '../context/AchievementsContext'
+import { useEventos } from '../context/EventosContext'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -17,6 +18,7 @@ export default function LivroCapitulo() {
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { desbloquear } = useAchievements()
+  const { registrarEvento } = useEventos()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
@@ -26,6 +28,10 @@ export default function LivroCapitulo() {
   }, [])
 
   useEffect(() => { localStorage.setItem('ldi-livro-ultimo', id) }, [id])
+
+  useEffect(() => {
+    if (id) registrarEvento('capitulo_lido', `Leu o capítulo ${id}`, Number(id))
+  }, [id])
 
   useEffect(() => {
     const saveScroll = () => localStorage.setItem(`ldi-livro-scroll-${id}`, window.scrollY)

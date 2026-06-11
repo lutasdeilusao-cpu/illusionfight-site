@@ -9,6 +9,7 @@ import { AuthProvider } from './context/AuthContext'
 import { FichasProvider } from './context/FichasContext'
 import { DixProvider } from './context/DixContext'
 import { AchievementsProvider } from './context/AchievementsContext'
+import { EventosProvider } from './context/EventosContext'
 import App from './App'
 import './index.css'
 
@@ -28,9 +29,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <FichasProvider>
             <DixProvider>
             <AchievementsProvider>
+              <EventosProvider>
               <LanguageProvider>
                 <App />
               </LanguageProvider>
+              </EventosProvider>
             </AchievementsProvider>
             </DixProvider>
           </FichasProvider>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
+import { useEventos } from '../../context/EventosContext'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import ArenaXpBar from './components/ArenaXpBar'
 import { sfx } from '../../lib/sfx'
@@ -14,6 +15,7 @@ export default function ArenaVictory({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { registrarEvento } = useEventos()
   const store = useArenaStore()
   const { sheet, match } = store
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
@@ -74,7 +76,13 @@ export default function ArenaVictory({ onNavigate }) {
   useEffect(() => {
     if (!isVitoria || fase !== 'resultado') return
     // 1. Ganhar XP (síncrono — Zustand set é sync)
+    const pointsAntes = sheet.attribute_points_gained || 0
     store.gainXp(xpGain)
+    const pointsDepois = (store.getState().sheet?.attribute_points_gained) || 0
+    if (pointsDepois > pointsAntes) {
+      const novoNivel = pointsDepois + 1
+      registrarEvento('arena_levelup', `Subiu para nível ${novoNivel} na Arena`, novoNivel)
+    }
     // 2. Desbloquear próximo inimigo
     const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
     const nextId = ENEMY_ORDER[defeatedIdx + 1]

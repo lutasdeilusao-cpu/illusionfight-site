@@ -8,6 +8,7 @@ import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
+import { useEventos } from '../context/EventosContext'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
@@ -103,6 +104,7 @@ export default function TopTrumps() {
   }))
   const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
+  const { registrarEvento } = useEventos()
   const { setReaderMode } = useReader()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
@@ -372,7 +374,11 @@ export default function TopTrumps() {
 
   function finalizarPartida() {
     const venceu = placar.jogador > placar.ia
-    if (venceu) sfx.win()
+    if (venceu) {
+      sfx.win()
+      registrarEvento('trumps_vitoria', 'Venceu uma partida no Top Trumps', 1)
+      registrarEvento('jogo_jogado', 'Jogou Top Trumps', 1)
+    }
     else if (placar.jogador === placar.ia) sfx.draw()
     else sfx.lose()
     const resultado = venceu ? 'vitoria' : placar.jogador === placar.ia ? 'empate' : 'derrota'
