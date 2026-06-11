@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPG System Morto — Protótipo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  :root {
+    --bg:        #0d0d0f;
+    --surface:   #141418;
+    --card:      #1a1a20;
+    --border:    #2e2e3a;
+    --accent:    #8b1a1a;
+    --accent2:   #c0392b;
+    --gold:      #c9a84c;
+    --gold-dim:  #7a6530;
+    --text:      #d4cfc8;
+    --muted:     #7a7570;
+    --hp:        #2e7d32;
+    --mp:        #1565c0;
+    --hp-light:  #4caf50;
+    --mp-light:  #42a5f5;
+    --dmg:       #c0392b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    min-height: 100vh;
+  }
+  .screen { display: none; min-height: 100vh; padding: 24px 16px; }
+  .screen.active { display: block; }
+  h1 { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); letter-spacing: 0.08em; text-align: center; }
+  h2 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em; }
+  h3 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--text); letter-spacing: 0.04em; }
+  .subtitle { text-align: center; color: var(--muted); font-style: italic; font-size: 1rem; margin-top: 6px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+  .card-title { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+  .container { max-width: 680px; margin: 0 auto; }
+  .btn { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.06em; padding: 10px 22px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.15s; }
+  .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent2); }
+  .btn-primary:hover { background: var(--accent2); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .btn-gold { background: var(--gold-dim); color: #fff; border: 1px solid var(--gold); }
+  .btn-gold:hover { background: var(--gold); color: var(--bg); }
+  .attr-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .attr-row:last-child { border-bottom: none; }
+  .attr-name { flex: 1; font-size: 1rem; }
+  .attr-type { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+  .attr-controls { display: flex; align-items: center; gap: 8px; }
+  .attr-val { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); min-width: 28px; text-align: center; }
+  .btn-small { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.1s; }
+  .btn-small:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .btn-small:disabled { opacity: 0.3; cursor: not-allowed; }
+  .points-display { text-align: center; padding: 12px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border); margin-bottom: 16px; }
+  .points-num { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); }
+  .points-label { font-size: 0.85rem; color: var(--muted); }
+  .stat-bars { display: flex; flex-direction: column; gap: 10px; }
+  .stat-bar-row { display: flex; align-items: center; gap: 10px; }
+  .stat-bar-label { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.08em; min-width: 30px; }
+  .bar-track { flex: 1; height: 14px; background: var(--surface); border-radius: 7px; border: 1px solid var(--border); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 7px; transition: width 0.4s ease; }
+  .bar-hp { background: var(--hp); }
+  .bar-mp { background: var(--mp); }
+  .bar-hp.low { background: var(--dmg); }
+  .stat-val { font-size: 0.9rem; min-width: 60px; text-align: right; color: var(--muted); }
+  .combatants { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .combatant-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+  .combatant-card.player-card { border-color: var(--gold-dim); }
+  .combatant-card.enemy-card { border-color: var(--accent); }
+  .combatant-name { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 10px; text-align: center; }
+  .player-card .combatant-name { color: var(--gold); }
+  .enemy-card .combatant-name { color: var(--accent2); }
+  .log-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px; height: 200px; overflow-y: auto; margin-bottom: 16px; font-size: 0.95rem; line-height: 1.6; }
+  .log-entry { margin-bottom: 4px; }
+  .log-hit { color: var(--gold); }
+  .log-dmg { color: var(--dmg); }
+  .log-miss { color: var(--muted); font-style: italic; }
+  .log-info { color: #6da8c0; }
+  .log-sys { color: var(--muted); font-size: 0.85rem; }
+  .log-victory { color: var(--hp-light); font-weight: 600; }
+  .log-defeat { color: var(--dmg); font-weight: 600; }
+  .log-divider { border-top: 1px solid var(--border); margin: 6px 0; }
+  .attack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .btn-attack { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.04em; padding: 10px 8px; border-radius: 4px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: all 0.15s; text-align: center; }
+  .btn-attack:hover:not(:disabled) { border-color: var(--gold-dim); color: var(--gold); background: var(--card); }
+  .btn-attack:disabled { opacity: 0.3; cursor: not-allowed; }
+  .btn-attack .attr-hint { display: block; font-size: 0.7rem; color: var(--muted); font-style: italic; margin-top: 2px; font-family: 'Crimson Text', serif; }
+  .test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .test-attr-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px; cursor: pointer; text-align: center; transition: all 0.15s; font-family: 'Crimson Text', serif; }
+  .test-attr-btn:hover { border-color: var(--gold-dim); background: var(--card); }
+  .test-attr-btn .t-name { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold); }
+  .test-attr-btn .t-val { font-size: 1.4rem; color: var(--text); }
+  .test-attr-btn .t-hint { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+  .roll-result { text-align: center; padding: 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); margin-top: 12px; }
+  .roll-dice { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); }
+  .roll-verdict { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 6px; }
+  .roll-success { color: var(--hp-light); }
+  .roll-fail { color: var(--dmg); }
+  .roll-crit-fail { color: var(--accent2); }
+  .roll-detail { font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
+  .nav-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .nav-tab { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.06em; padding: 8px 14px; border-radius: 4px; cursor: pointer; background: transparent; border: 1px solid transparent; color: var(--muted); transition: all 0.15s; }
+  .nav-tab.active { color: var(--gold); border-color: var(--gold-dim); background: var(--card); }
+  .nav-tab:hover:not(.active) { color: var(--text); }
+  .sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .xp-row { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .xp-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .xp-fill { height: 100%; background: var(--gold-dim); border-radius: 2px; transition: width 0.3s; }
+  .xp-label { font-size: 0.75rem; color: var(--muted); min-width: 40px; text-align: right; }
+  .row { display: flex; gap: 10px; align-items: center; }
+  .flex-end { justify-content: flex-end; }
+  .flex-center { justify-content: center; }
+  .mt-8 { margin-top: 8px; }
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .text-center { text-align: center; }
+  .text-muted { color: var(--muted); font-size: 0.9rem; }
+  .text-gold { color: var(--gold); }
+  .bold { font-weight: 600; }
+  .header-bar { text-align: center; padding: 28px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .ornament { color: var(--gold-dim); font-size: 1.1rem; letter-spacing: 0.3em; }
+  @media (max-width: 480px) {
+    .combatants { grid-template-columns: 1fr; }
+    .attack-grid { grid-template-columns: 1fr 1fr; }
+    .test-grid { grid-template-columns: 1fr; }
+    .sheet-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="screen-creation" class="screen active">
+  <div class="container">
+    <div class="header-bar">
+      <div class="ornament">✦ ✦ ✦</div>
+      <h1>Criação de Personagem</h1>
+      <p class="subtitle">Distribua seus pontos e defina quem você é</p>
+    </div>
+    <div class="points-display">
+      <div class="points-num" id="pts-left">5</div>
+      <div class="points-label">pontos restantes — máximo 3 por atributo</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Atributos Básicos</div>
+      <div id="attr-builder"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Arma</div>
+      <div id="weapon-selector" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Armadura</div>
+      <div id="armor-selector" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Resumo</div>
+      <div class="row" style="justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <span>HP: <span class="text-gold bold" id="preview-hp">—</span></span>
+        <span>MP: <span class="text-gold bold" id="preview-mp">—</span></span>
+        <span>Classe sugerida: <span class="text-gold bold" id="preview-class">—</span></span>
+      </div>
+    </div>
+    <div class="row flex-end mt-8">
+      <button class="btn btn-primary" id="btn-confirm">Confirmar Personagem</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-main" class="screen">
+  <div class="container">
+    <div class="header-bar">
+      <div class="ornament">✦ ✦ ✦</div>
+      <h1 id="main-char-name">Aventureiro</h1>
+      <p class="subtitle">Escolha sua próxima ação</p>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="tab-sheet">Ficha</button>
+      <button class="nav-tab" data-tab="tab-tests">Testes</button>
+      <button class="nav-tab" data-tab="tab-battle">Batalha</button>
+    </div>
+    <div id="tab-sheet">
+      <div class="card"><div class="card-title">Atributos</div><div class="sheet-grid" id="sheet-attrs"></div></div>
+      <div class="card"><div class="card-title">HP / MP</div><div class="stat-bars" id="sheet-bars"></div></div>
+    </div>
+    <div id="tab-tests" style="display:none">
+      <div class="card">
+        <div class="card-title">Teste de Atributo</div>
+        <p class="text-muted" style="margin-bottom:14px;">Role 1d20 contra o atributo escolhido. Menor ou igual = sucesso. 20 = falha automática.</p>
+        <div class="test-grid" id="test-buttons"></div>
+        <div id="test-result" style="display:none" class="roll-result mt-12"></div>
+      </div>
+    </div>
+    <div id="tab-battle" style="display:none">
+      <div class="combatants" id="combatants-display"></div>
+      <div class="card" style="padding:12px 14px;">
+        <div class="card-title" style="margin-bottom:10px;">Atacar com</div>
+        <div class="attack-grid" id="attack-buttons"></div>
+        <div class="row flex-end mt-8" style="gap:8px;">
+          <button class="btn btn-secondary" id="btn-defend" style="font-size:0.85rem; padding:8px 16px;">Defender</button>
+        </div>
+      </div>
+      <div class="log-box" id="battle-log"></div>
+      <div id="battle-end" style="display:none" class="card text-center">
+        <div id="battle-end-msg" style="font-family:'Cinzel',serif; font-size:1.2rem; margin-bottom:12px;"></div>
+        <button class="btn btn-gold" id="btn-restart">Nova Batalha</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ATTRS = [
+  { id: 'for', name: 'Fortitude',    type: 'Ativo',   hint: 'Ataques pesados' },
+  { id: 'dex', name: 'Destreza',     type: 'Ativo',   hint: 'Ataques precisos' },
+  { id: 'int', name: 'Inteligência', type: 'Ativo',   hint: 'Magias e tática' },
+  { id: 'agi', name: 'Agilidade',    type: 'Passivo', hint: 'Defende vs Destreza' },
+  { id: 'res', name: 'Resistência',  type: 'Passivo', hint: 'Defende vs Fortitude' },
+  { id: 'det', name: 'Determinação', type: 'Passivo', hint: 'Defende vs Inteligência' },
+];
+const WEAPONS = [
+  { id: 'espada', name: 'Espada',  level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia', potencia: 5, letalidade: 0, malicia: 0 },
+  { id: 'adaga',  name: 'Adaga',   level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 0, letalidade: 5, malicia: 0 },
+  { id: 'cajado', name: 'Cajado',  level: 1, dice: 6, atkAttr: 'int', dmgStat: 'malicia', potencia: 0, letalidade: 0, malicia: 5 },
+];
+const ARMORS = [
+  { id: 'armadura',  name: 'Armadura',       level: 1, dice: 6, protecao: 3, evasiva: 2, barreira: 0 },
+  { id: 'couto',     name: 'Roupa de Couto', level: 1, dice: 6, protecao: 1, evasiva: 3, barreira: 1 },
+  { id: 'tunica',    name: 'Túnica',         level: 1, dice: 6, protecao: 0, evasiva: 1, barreira: 3 },
+];
+const DMG_VS_DEF = { potencia: 'protecao', letalidade: 'evasiva', malicia: 'barreira' };
+const ATK_VS_DEF_ATTR = { for: 'res', dex: 'agi', int: 'det' };
+let player = {}; let enemy = {}; let battleActive = false; let playerTurn = true;
+let creation = { for:0, dex:0, int:0, agi:0, res:0, det:0 };
+let selectedWeapon = WEAPONS[0]; let selectedArmor = ARMORS[0];
+const MAX_PTS = 5; const MAX_PER = 3;
+
+function getPointsLeft() { return MAX_PTS - Object.values(creation).reduce((a,b) => a+b, 0); }
+function renderCreation() {
+  const builder = document.getElementById('attr-builder'); builder.innerHTML = '';
+  ATTRS.forEach(a => {
+    const row = document.createElement('div'); row.className = 'attr-row';
+    const left = getPointsLeft();
+    row.innerHTML =
+      '<div class="attr-name">'+a.name+'<div class="attr-type">'+a.type+' \u2014 '+a.hint+'</div></div>' +
+      '<div class="attr-controls">' +
+      '<button class="btn-small" data-attr="'+a.id+'" data-dir="-1"'+(creation[a.id]<=0?' disabled':'')+'>\u2212</button>' +
+      '<div class="attr-val">'+creation[a.id]+'</div>' +
+      '<button class="btn-small" data-attr="'+a.id+'" data-dir="1"'+(left<=0||creation[a.id]>=MAX_PER?' disabled':'')+'>+</button>' +
+      '</div>';
+    builder.appendChild(row);
+  });
+  // weapon
+  const ws = document.getElementById('weapon-selector'); ws.innerHTML = '';
+  WEAPONS.forEach(w => {
+    const b = document.createElement('button');
+    b.className = 'btn '+(selectedWeapon.id===w.id?'btn-gold':'btn-secondary');
+    b.style.fontSize = '0.85rem';
+    b.innerHTML = w.name+'<br><small style="font-style:italic;color:var(--muted);">d'+w.dice+' | +'+w[w.dmgStat]+' '+w.dmgStat+'</small>';
+    b.onclick = () => { selectedWeapon = w; renderCreation(); };
+    ws.appendChild(b);
+  });
+  // armor
+  const as = document.getElementById('armor-selector'); as.innerHTML = '';
+  ARMORS.forEach(ar => {
+    const b = document.createElement('button');
+    b.className = 'btn '+(selectedArmor.id===ar.id?'btn-gold':'btn-secondary');
+    b.style.fontSize = '0.85rem';
+    b.innerHTML = ar.name+'<br><small style="font-style:italic;color:var(--muted);">Prot '+ar.protecao+' | Eva '+ar.evasiva+' | Bar '+ar.barreira+'</small>';
+    b.onclick = () => { selectedArmor = ar; renderCreation(); };
+    as.appendChild(b);
+  });
+  document.getElementById('pts-left').textContent = getPointsLeft();
+  const hp = calcHP(creation.res, creation.for); const mp = calcMP(creation.det, creation.int);
+  document.getElementById('preview-hp').textContent = hp; document.getElementById('preview-mp').textContent = mp;
+  document.getElementById('preview-class').textContent = suggestClass();
+  document.getElementById('btn-confirm').disabled = getPointsLeft() > 0;
+}
+function changeAttr(id, delta) { const next = creation[id] + delta; if (next < 0 || next > MAX_PER) return; if (delta > 0 && getPointsLeft() <= 0) return; creation[id] = next; renderCreation(); }
+function calcHP(res, fort) { const b = res === 0 ? 5 : 10; const s = res === 0 ? 5 : 10; return b + Math.floor(res/2)*s + fort; }
+function calcMP(det, intel) { const b = det === 0 ? 5 : 10; const s = det === 0 ? 5 : 10; return b + Math.floor(det/2)*s + intel; }
+function suggestClass() { const f=creation.for,d=creation.dex,i=creation.int,r=creation.res,a=creation.agi,e=creation.det; if(i>=2&&e>=2)return'Mago';if(d>=2&&a>=2)return'Ladino';if(f>=2&&r>=2)return'Guerreiro';if(f>=2||r>=2)return'Guerreiro';if(d>=2||a>=2)return'Ladino';if(i>=2||e>=2)return'Mago';return'H\u00edbrido'; }
+function confirmCreation() {
+  const mHP=calcHP(creation.res,creation.for),mMP=calcMP(creation.det,creation.int);
+  player={name:'Aventureiro',attrs:{...creation},xp:{for:0,dex:0,int:0,agi:0,res:0,det:0},maxHP:mHP,hp:mHP,maxMP:mMP,mp:mMP,weapon:selectedWeapon,armor:selectedArmor};
+  buildMainScreen(); showScreen('screen-main');
+}
+function buildMainScreen() { renderSheet(); renderTestButtons(); initBattle(); }
+function showTab(id) { ['tab-sheet','tab-tests','tab-battle'].forEach(t=>{document.getElementById(t).style.display=t===id?'':'none';}); document.querySelectorAll('.nav-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id)); }
+function renderSheet() {
+  const g=document.getElementById('sheet-attrs');g.innerHTML='';ATTRS.forEach(a=>{const v=player.attrs[a.id],xp=player.xp[a.id],p=Math.min(xp/xpNeeded(v)*100,100);g.innerHTML+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 12px;"><div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:.95rem;">'+a.name+'</span><span style="font-family:Cinzel,serif;font-size:1.3rem;color:var(--gold);">'+v+'</span></div><div class="xp-row"><div class="xp-bar"><div class="xp-fill" style="width:'+p+'%"></div></div><div class="xp-label">'+xp+'/'+xpNeeded(v)+' xp</div></div></div>';});
+  const b=document.getElementById('sheet-bars');b.innerHTML='<div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--hp-light)">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(player.hp/player.maxHP<0.3?' low':'')+'" style="width:'+(player.hp/player.maxHP*100)+'%"></div></div><div class="stat-val">'+player.hp+'/'+player.maxHP+'</div></div><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--mp-light)">MP</div><div class="bar-track"><div class="bar-fill bar-mp" style="width:'+(player.mp/player.maxMP*100)+'%"></div></div><div class="stat-val">'+player.mp+'/'+player.maxMP+'</div></div>';
+}
+function xpNeeded(v){if(v<=3)return 10;if(v<=7)return 20;if(v<=11)return 30;if(v<=17)return 40;return 50;}
+function renderTestButtons(){const g=document.getElementById('test-buttons');g.innerHTML='';ATTRS.forEach(a=>{const b=document.createElement('div');b.className='test-attr-btn';b.innerHTML='<div class="t-name">'+a.name+'</div><div class="t-val">'+player.attrs[a.id]+'</div><div class="t-hint">'+a.hint+'</div>';b.onclick=()=>runTest(a);g.appendChild(b);});}
+function runTest(attr){const roll=rollD20(),val=player.attrs[attr.id],crit=roll===20,succ=!crit&&roll<=val;let cls,vrd,d;if(crit){cls='roll-crit-fail';vrd='\u2726 Falha Autom\u00e1tica \u2726';d='Tirou 20 \u2014 falha independente do atributo.';giveXP(attr.id,2);}else if(succ){cls='roll-success';vrd='\u2726 Sucesso \u2726';d=roll+'\u2009\u2264\u2009'+val+' ('+attr.name+') \u2014 +1 XP';giveXP(attr.id,1);}else{cls='roll-fail';vrd='\u2726 Falha \u2726';d=roll+'\u2009>\u2009'+val+' ('+attr.name+') \u2014 +2 XP';giveXP(attr.id,2);}
+  const r=document.getElementById('test-result');r.style.display='';r.innerHTML='<div class="roll-dice">'+roll+'</div><div class="roll-verdict '+cls+'">'+vrd+'</div><div class="roll-detail">'+d+'</div>';renderSheet();renderTestButtons();}
+function initBattle(){enemy=buildEnemy();battleActive=true;playerTurn=true;renderBattle();clearLog();logEntry('\u2694 Uma nova batalha come\u00e7a!','log-info');logEntry(enemy.name+' avança em sua direção.','log-sys');setBattleButtons(true);document.getElementById('battle-end').style.display='none';}
+function buildEnemy(){const t=[{name:'Soldado Renegado',attrs:{for:2,dex:1,int:0,agi:1,res:2,det:0},weapon:WEAPONS[0],armor:ARMORS[0]},{name:'Mercen\u00e1rio Errante',attrs:{for:1,dex:2,int:0,agi:2,res:1,det:0},weapon:WEAPONS[1],armor:ARMORS[1]},{name:'Cultista Sombrio',attrs:{for:0,dex:1,int:2,agi:1,res:0,det:2},weapon:WEAPONS[2],armor:ARMORS[2]}];const te=t[Math.floor(Math.random()*t.length)];return{...te,hp:calcHP(te.attrs.res,te.attrs.for),maxHP:calcHP(te.attrs.res,te.attrs.for)};}
+function renderBattle(){const pp=Math.max(0,player.hp/player.maxHP*100),ep=Math.max(0,enemy.hp/enemy.maxHP*100);const pw=player.weapon,pa=player.armor,ew=enemy.weapon,ea=enemy.armor;
+  document.getElementById('combatants-display').innerHTML='<div class="combatant-card player-card"><div class="combatant-name">'+player.name+'</div><div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">'+pw.name+' \u00b7 '+pa.name+'</div><div class="stat-bars"><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--hp-light);font-size:.75rem;">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(pp<30?' low':'')+'" style="width:'+pp+'%"></div></div><div class="stat-val" style="font-size:.8rem;">'+player.hp+'/'+player.maxHP+'</div></div></div></div><div class="combatant-card enemy-card"><div class="combatant-name">'+enemy.name+'</div><div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">'+ew.name+' \u00b7 '+ea.name+'</div><div class="stat-bars"><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--dmg);font-size:.75rem;">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(ep<30?' low':'')+'" style="width:'+ep+'%"></div></div><div class="stat-val" style="font-size:.8rem;">'+enemy.hp+'/'+enemy.maxHP+'</div></div></div></div>';
+  const grid=document.getElementById('attack-buttons');grid.innerHTML='';const w=player.weapon,ds=w.dmgStat,dfs=DMG_VS_DEF[ds],net=w[ds]-enemy.armor[dfs];const btn=document.createElement('button');btn.className='btn-attack';btn.style.gridColumn='span 3';btn.disabled=!battleActive||!playerTurn;btn.innerHTML='Atacar com '+w.name+' <span class="attr-hint">d'+w.dice+' | Teste: '+ATTRS.find(a=>a.id===w.atkAttr).name+' ('+player.attrs[w.atkAttr]+') | Dano potencial: '+net+'</span>';btn.onclick=()=>playerAttack();grid.appendChild(btn);
+  document.getElementById('btn-defend').disabled=!battleActive||!playerTurn;}
+function rollDice(s){return Math.floor(Math.random()*s)+1;}
+function counterAtk(aw,aa,dn,isP){const cw=aw,dmgStat=cw.dmgStat,defStat=DMG_VS_DEF[dmgStat],dmg=cw[dmgStat]-aa[defStat];if(dmg<=0){logEntry('\u2726 Contra-ataque de '+dn+' \u2014 absorvido! Dano: 0.','log-miss');}else{logEntry('\u2726 Contra-ataque de '+dn+'! Dano: '+dmg+'.','log-dmg');if(isP)player.hp=Math.max(0,player.hp-dmg);else enemy.hp=Math.max(0,enemy.hp-dmg);}}
+function playerAttack(){if(!battleActive||!playerTurn)return;setBattleButtons(false);const w=player.weapon,aId=w.atkAttr,dId=ATK_VS_DEF_ATTR[aId],pR=rollDice(w.dice),eR=rollDice(enemy.weapon.dice),pA=player.attrs[aId],eA=enemy.attrs[dId],ds=w.dmgStat,dfs=DMG_VS_DEF[ds],rd=w[ds]-enemy.armor[dfs];logDivider();logEntry('Voc\u00ea ataca com '+w.name+' (d'+w.dice+') \u2014 rola '+pR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+pA,'log-sys');logEntry(enemy.name+' defende \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===dId).name+' '+eA,'log-sys');
+  if(pR===w.dice){logEntry('\u2726 Falha autom\u00e1tica! Voc\u00ea se exp\u00f5e.','log-miss');const eP=eR<=eA&&eR!==enemy.weapon.dice;if(eP){counterAtk(enemy.weapon,player.armor,enemy.name,true);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}}setTimeout(()=>enemyTurn(false),800);return;}
+  const pH=pR<=pA,eP=eR<=eA&&eR!==enemy.weapon.dice;
+  if(!pH&&eP){logEntry('Ataque falhou \u2014 '+pR+' > '+pA+'.','log-miss');logEntry(enemy.name+' aproveita a abertura!','log-info');counterAtk(enemy.weapon,player.armor,enemy.name,true);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}setTimeout(()=>enemyTurn(false),800);return;}
+  if(!pH&&!eP){logEntry('Ataque falhou \u2014 '+pR+' > '+pA+'. '+enemy.name+' tamb\u00e9m errou.','log-miss');setTimeout(()=>enemyTurn(false),600);return;}
+  if(pH&&eP){logEntry(enemy.name+' defendeu perfeitamente \u2014 dano evitado!','log-miss');renderBattle();renderSheet();setTimeout(()=>enemyTurn(false),600);return;}
+  if(rd<=0){logEntry('Golpe conectou mas armadura absorveu tudo!','log-miss');}else{logEntry('Golpe direto! Dano: '+rd+'.','log-dmg');enemy.hp=Math.max(0,enemy.hp-rd);}
+  renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}setTimeout(()=>enemyTurn(false),800);}
+function defendAction(){if(!battleActive||!playerTurn)return;setBattleButtons(false);logDivider();logEntry('Voc\u00ea adota postura defensiva.','log-info');setTimeout(()=>enemyTurnDefended(),600);}
+function enemyTurn(free){if(!battleActive)return;playerTurn=false;const ew=enemy.weapon,aId=ew.atkAttr,dId=ATK_VS_DEF_ATTR[aId],eR=rollDice(ew.dice),pR=free?ew.dice+1:rollDice(player.weapon.dice),eA=enemy.attrs[aId],pA=player.attrs[dId],ds=ew.dmgStat,dfs=DMG_VS_DEF[ds],rd=ew[ds]-player.armor[dfs];logEntry(enemy.name+' ataca com '+ew.name+' (d'+ew.dice+') \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+eA,'log-sys');if(!free)logEntry('Voc\u00ea defende \u2014 rola '+pR+' vs '+ATTRS.find(a=>a.id===dId).name+' '+pA,'log-sys');
+  if(eR===ew.dice){logEntry(enemy.name+' erra \u2014 falha autom\u00e1tica!','log-miss');const pP=!free&&pR<=pA&&pR!==player.weapon.dice;if(pP){logEntry('Voc\u00ea aproveita a abertura!','log-info');counterAtk(player.weapon,enemy.armor,'Voc\u00ea',false);renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}}endPlayerTurn();return;}
+  const eH=eR<=eA,pP=!free&&pR<=pA&&pR!==player.weapon.dice;
+  if(!eH&&pP){logEntry(enemy.name+' falhou \u2014 voc\u00ea contra-ataca!','log-info');counterAtk(player.weapon,enemy.armor,'Voc\u00ea',false);renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}endPlayerTurn();return;}
+  if(!eH&&!pP){logEntry(enemy.name+' falhou. Voc\u00ea tamb\u00e9m n\u00e3o aproveitou.','log-miss');endPlayerTurn();return;}
+  if(eH&&pP){logEntry('Voc\u00ea defendeu perfeitamente \u2014 dano evitado!','log-miss');renderBattle();renderSheet();endPlayerTurn();return;}
+  if(rd<=0){logEntry('Golpe conectou mas sua armadura absorveu tudo!','log-miss');}else{logEntry('Voc\u00ea sofre '+rd+' de dano!','log-dmg');player.hp=Math.max(0,player.hp-rd);}
+  renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}endPlayerTurn();}
+function enemyTurnDefended(){if(!battleActive)return;const ew=enemy.weapon,aId=ew.atkAttr,eA=enemy.attrs[aId],ds=ew.dmgStat,dfs=DMG_VS_DEF[ds],rd=ew[ds]-player.armor[dfs],eR=rollDice(ew.dice);logEntry(enemy.name+' ataca (def.) \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+eA,'log-sys');if(eR===ew.dice||eR>eA){logEntry('Postura defensiva funcionou \u2014 ataque desviado!','log-victory');}else{const d=Math.max(0,Math.floor(rd*0.5));if(d<=0){logEntry('Armadura absorveu \u2014 dano: 0.','log-miss');}else{logEntry('Mesmo defendendo, sofreu '+d+' de dano.','log-dmg');player.hp=Math.max(0,player.hp-d);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}}}endPlayerTurn();}
+function endPlayerTurn(){playerTurn=true;setBattleButtons(true);renderBattle();}
+function endBattle(won){battleActive=false;setBattleButtons(false);const end=document.getElementById('battle-end'),msg=document.getElementById('battle-end-msg');end.style.display='';const bs=Object.values(enemy.attrs).reduce((a,b)=>a+b,0)>Object.values(player.attrs).reduce((a,b)=>a+b,0)?5:2;if(won){logEntry('\u2726 Vit\u00f3ria! '+enemy.name+' foi derrotado. \u2726','log-victory');msg.className='log-victory';msg.textContent='Vit\u00f3ria \u2014 '+enemy.name+' caiu.';ATTRS.forEach(a=>giveXP(a.id,bs));logEntry('+'+bs+' XP em todos'+(bs>2?' (inimigo mais forte!)':'')+'.','log-info');}else{logEntry('\u2726 Derrota. Voc\u00ea foi abatido. \u2726','log-defeat');msg.className='log-defeat';msg.textContent='Derrota \u2014 voc\u00ea foi abatido.';player.hp=Math.floor(player.maxHP*0.3);ATTRS.forEach(a=>giveXP(a.id,bs));logEntry('+'+bs+' XP em todos'+(bs>2?' (inimigo mais forte!)':'')+'.','log-info');}renderSheet();renderTestButtons();}
+function restartBattle(){player.hp=player.maxHP;player.mp=player.maxMP;renderSheet();initBattle();}
+function rollD20(){return Math.floor(Math.random()*20)+1;}
+function giveXP(id,amt){player.xp[id]+=amt;const n=xpNeeded(player.attrs[id]);if(player.xp[id]>=n){player.xp[id]-=n;if(player.attrs[id]<20){player.attrs[id]++;player.maxHP=calcHP(player.attrs.res,player.attrs.for);player.maxMP=calcMP(player.attrs.det,player.attrs.int);if(player.hp>player.maxHP)player.hp=player.maxHP;if(player.mp>player.maxMP)player.mp=player.maxMP;logEntry('\u2726 '+ATTRS.find(a=>a.id===id).name+' aumentou para '+player.attrs[id]+'!','log-victory');}}}
+function logEntry(t,c){const b=document.getElementById('battle-log'),p=document.createElement('div');p.className='log-entry '+c;p.textContent=t;b.appendChild(p);b.scrollTop=b.scrollHeight;}
+function logDivider(){const b=document.getElementById('battle-log'),d=document.createElement('div');d.className='log-divider';b.appendChild(d);}
+function clearLog(){document.getElementById('battle-log').innerHTML='';}
+function setBattleButtons(e){document.querySelectorAll('.btn-attack').forEach(b=>b.disabled=!e);document.getElementById('btn-defend').disabled=!e;}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  renderCreation();
+
+  // Attribute buttons (delegated)
+  document.getElementById('attr-builder').addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-small');
+    if (!btn) return;
+    changeAttr(btn.dataset.attr, parseInt(btn.dataset.dir));
+  });
+
+  // Confirm
+  document.getElementById('btn-confirm').addEventListener('click', confirmCreation);
+
+  // Tab navigation
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', function() { showTab(this.dataset.tab); });
+  });
+
+  // Defend
+  document.getElementById('btn-defend').addEventListener('click', defendAction);
+
+  // Restart
+  document.getElementById('btn-restart').addEventListener('click', restartBattle);
+});
+</script>
+</body>
+</html>
