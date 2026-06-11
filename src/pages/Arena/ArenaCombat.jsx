@@ -215,6 +215,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const [diceOn, setDiceOn] = useState(null)
   const [dramaticDice, setDramaticDice] = useState(null)
+  const [diceKey, setDiceKey] = useState(0)
   const [matchResult, setMatchResult] = useState(null)
   const [onomaCurrent, setOnomaCurrentState] = useState(null)
   const [turnOverlay, setTurnOverlay] = useState(false)
@@ -236,7 +237,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const logRef = useRef(null)
   const logAreaRef = useRef(null)
-  const elemental = sheet?.elemental || 'neutro'
+  const elemental = 'neutro'
   const availablePowers = POWERS_BY_ELEMENTAL[elemental] || POWERS_BY_ELEMENTAL.neutro
   const playerInitial = (sheet?.sheet_name || 'V')[0].toUpperCase()
   const enemyInitial = (enemy?.name || 'I')[0].toUpperCase()
@@ -437,6 +438,7 @@ export default function ArenaCombat({ onNavigate }) {
         setTurnOverlay(false)
         sfx.select()
         stepRef.current = 3
+        setDiceKey(k => k + 1)
         setDramaticDice({
           finalValue: d.eDado,
           side: 'enemy',
@@ -521,6 +523,7 @@ export default function ArenaCombat({ onNavigate }) {
     setAtkDisabled(true)
     sfx.select()
     stepRef.current = 0
+    setDiceKey(k => k + 1)
     setDramaticDice({
       finalValue: fa.roll,
       side: 'player',
@@ -593,6 +596,7 @@ export default function ArenaCombat({ onNavigate }) {
       {/* DramaticDice — sobrepõe tudo durante a rolagem de dado */}
       {dramaticDice && (
         <DramaticDice
+          key={diceKey}
           finalValue={dramaticDice.finalValue}
           side={dramaticDice.side}
           onComplete={dramaticDice.onComplete}

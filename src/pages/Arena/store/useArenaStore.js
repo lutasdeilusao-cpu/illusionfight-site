@@ -10,7 +10,7 @@ const defaultSheet = () => ({
   perks: [],
   specializations: [],
   weapon: '',
-  elemental: '',
+  elemental: 'neutro',
   xp_total: 0,
   attribute_points_gained: 0,
   enemies_unlocked: ['treinamento'],

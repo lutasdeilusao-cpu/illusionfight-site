@@ -9,16 +9,6 @@ import { sfx } from '../../lib/sfx'
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
 const ATTR_EMOJI = { F: '💪', H: '🎯', R: '🛡️', A: '🦾', PdF: '✨' }
 
-const ELEM_CORES = {
-  fogo:   { cor: '#FF4500', glow: 'rgba(255,69,0,0.2)' },
-  agua:   { cor: '#00B4D8', glow: 'rgba(0,180,216,0.2)' },
-  terra:  { cor: '#8B6914', glow: 'rgba(139,105,20,0.2)' },
-  ar:     { cor: '#A8DADC', glow: 'rgba(168,218,220,0.2)' },
-  trevas: { cor: '#9B59B6', glow: 'rgba(155,89,182,0.2)' },
-  luz:    { cor: '#F5A623', glow: 'rgba(245,166,35,0.2)' },
-  neutro: { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
-}
-
 const ADV_COSTS = [1,1,2,1,2,2,1,1,1,1,1,2,1,2,1,2,2,4,1,2,1,2,1,1,3,1,1,2,1,2,1]
 const DIS_GAINS = [1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1]
 const PERK_COSTS = [1,1,1,1,1,1]
@@ -104,7 +94,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const attrs = s.attributes
   const points = store.points_available
 
-  const ec = ELEM_CORES[s.elemental] || ELEM_CORES.neutro
+  const NEUTRO_COR = '#00B4D8'
+  const NEUTRO_GLOW = 'rgba(0,180,216,0.15)'
 
   const validateStep = () => {
     const e = {}
@@ -252,7 +243,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <div className="arc-section-label">{t('games.arena.pag_identidade')}</div>
 
           <div className="arc-name-hero">
-            <div className="arc-name-avatar" style={{ '--elem-cor': ec.cor, '--elem-glow': ec.glow, background: `radial-gradient(circle at 35% 35%, ${ec.cor}, #0a0a0a)`, boxShadow: `0 0 32px ${ec.glow}` }}>
+            <div className="arc-name-avatar" style={{ '--elem-cor': NEUTRO_COR, '--elem-glow': NEUTRO_GLOW, background: `radial-gradient(circle at 35% 35%, ${NEUTRO_COR}, #0a0a0a)`, boxShadow: `0 0 32px ${NEUTRO_GLOW}` }}>
               {s.sheet_name ? s.sheet_name[0].toUpperCase() : '?'}
             </div>
             <input
@@ -263,35 +254,6 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
               autoFocus
             />
             {errors.name && <p className="arena-err">{errors.name}</p>}
-          </div>
-
-          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.elemental')}</div>
-          <div className="arc-elem-list">
-            {(['fogo','agua','terra','ar','trevas','luz','neutro']).map(elemId => {
-              const el = {
-                id: elemId,
-                emoji: { fogo:'🔥', agua:'💧', terra:'🪨', ar:'💨', trevas:'🌑', luz:'✨', neutro:'⚪' }[elemId],
-                label: t(`games.arena.elements.${elemId}.label`),
-                desc: t(`games.arena.elements.${elemId}.desc`),
-              }
-              const ecc = ELEM_CORES[el.id] || ELEM_CORES.neutro
-              const active = s.elemental === el.id
-              return (
-                <div key={el.id}
-                  className={`arc-elem-card ${active ? 'arc-elem-card--active' : ''}`}
-                  style={{ '--elem-cor': ecc.cor, '--elem-glow': ecc.glow }}
-                  onClick={() => { sfx.select(); store.updateSheet({ elemental: el.id }) }}>
-                  <div className="arc-elem-avatar" style={{ background: active ? `radial-gradient(circle at 35% 35%, ${ecc.cor}, #0a0a0a)` : undefined, boxShadow: active ? `0 0 20px ${ecc.glow}` : undefined }}>
-                    {el.emoji}
-                  </div>
-                  <div className="arc-elem-info">
-                    <div className="arc-elem-name">{el.label}</div>
-                    <div className="arc-elem-desc">{el.desc}</div>
-                  </div>
-                  {active && <span className="arc-elem-check">✓</span>}
-                </div>
-              )
-            })}
           </div>
 
           <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.arma')}</div>

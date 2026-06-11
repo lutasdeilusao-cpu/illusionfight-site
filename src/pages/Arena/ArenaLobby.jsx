@@ -9,10 +9,6 @@ import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../lib/sfx'
 import { supabase } from '../../lib/supabase'
 
-const ELEM_COLORS = {
-  fogo: '#F5A623', agua: '#00B4D8', terra: '#22C55E', ar: '#A855F4',
-  trevas: '#8B0000', luz: '#F5A623', neutro: '#666'
-}
 const DIFF_COLORS = { easy: '#22C55E', medium: '#F5A623', hard: '#8B0000', very_hard: '#A855F4' }
 const DIFF_LABELS = { easy: 'EASY', medium: 'MEDIUM', hard: 'HARD', very_hard: 'VERY HARD' }
 
@@ -137,18 +133,6 @@ export default function ArenaLobby({ onNavigate }) {
     }
   }
 
-  const elemColor = (el) => ELEM_COLORS[el] || '#666'
-
-  const elemCores = {
-    fogo:     { cor: '#FF4500', glow: 'rgba(255,69,0,0.15)' },
-    agua:     { cor: '#00B4D8', glow: 'rgba(0,180,216,0.15)' },
-    terra:    { cor: '#8B6914', glow: 'rgba(139,105,20,0.15)' },
-    ar:       { cor: '#A8DADC', glow: 'rgba(168,218,220,0.15)' },
-    eletrico: { cor: '#F5A623', glow: 'rgba(245,166,35,0.15)' },
-    trevas:   { cor: '#9B59B6', glow: 'rgba(155,89,182,0.15)' },
-    neutro:   { cor: '#00B4D8', glow: 'rgba(0,180,216,0.1)' },
-  }
-
   if (showIntro) {
     return (
       <div className="arena-lobby">
@@ -165,8 +149,6 @@ export default function ArenaLobby({ onNavigate }) {
 
   if (showEnemies) {
     const selectedSheet = showEnemies
-    const sElem = selectedSheet.elemental || 'neutro'
-    const ec = elemCores[sElem] || elemCores.neutro
     const unlockedIds = store.sheet.enemies_unlocked || ['treinamento']
     const visibleEnemies = enemiesData.filter(e => unlockedIds.includes(e.id))
 
@@ -184,7 +166,7 @@ export default function ArenaLobby({ onNavigate }) {
           <p className="arena-lobby-titulo">{t('games.arena.lobby_titulo')}</p>
           <h1 className="arena-lobby-nome" style={{ fontSize: 32 }}>{selectedSheet.sheet_name}</h1>
           <p className="arena-lobby-sub">
-            {t('games.arena.elements.' + (selectedSheet.elemental || 'neutro') + '.label') || selectedSheet.elemental || 'neutro'} · {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
+            {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
           </p>
         </div>
 
@@ -263,12 +245,11 @@ export default function ArenaLobby({ onNavigate }) {
       ) : (
         <div className="arena-sheet-list">
           {sheets.map(s => {
-            const ec = elemCores[s.elemental] || elemCores.neutro
             return (
               <div
                 key={s.id}
                 className="arena-sheet-card-v"
-                style={{ '--elem-cor': ec.cor, '--elem-glow': ec.glow }}
+                style={{ '--elem-cor': '#00B4D8', '--elem-glow': 'rgba(0,180,216,0.1)' }}
                 onClick={() => handleLutar(s)}
               >
                 <div className="arena-sheet-avatar">
@@ -277,7 +258,7 @@ export default function ArenaLobby({ onNavigate }) {
                 <div className="arena-sheet-info">
                   <div className="arena-sheet-name-v">{s.sheet_name}</div>
                   <div className="arena-sheet-meta">
-                    {s.elemental || 'neutro'} · {t('games.arena.lv', { n: s.level || 1 })} · {s.xp_total || 0} XP
+                    {t('games.arena.lv', { n: s.level || 1 })} · {s.xp_total || 0} XP
                   </div>
                   <div className="arena-sheet-stats">
                     {['F','H','R','A','PdF'].map(attr => (
