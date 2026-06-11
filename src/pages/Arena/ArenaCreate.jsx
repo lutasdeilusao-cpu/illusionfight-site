@@ -187,7 +187,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
           <p className="arc-intro-hint" dangerouslySetInnerHTML={{ __html: t('games.arena.intro_dica_manual') }} />
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => { sfx.click(); onNavigate('lobby') }}>{t('games.arena.btn_voltar')}</button>
+            <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
           </div>
         </div>
       )}
@@ -195,7 +195,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* HEADER steps */}
       {step !== 'intro' && (
         <div className="arc-header">
-          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />
+          <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
@@ -234,7 +234,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           {errors.points && <p className="arena-err">{errors.points}</p>}
           {errors.r_min && <p className="arena-err">{errors.r_min}</p>}
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => onNavigate('lobby')}>{t('games.arena.btn_lobby')}</button>
+            <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
             <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('sheet_name') }}>{t('games.arena.btn_proximo')}</button>
           </div>
         </div>
@@ -292,7 +292,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder={t('games.arena.ex_arma')} />
 
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => setStep('attrs')}>{t('games.arena.btn_voltar')}</button>
+            <BackToGamesBtn onClick={() => { sfx.click(); setStep('attrs') }} label={t('games.arena.btn_voltar')} />
             <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('specs') }}>{t('games.arena.btn_proximo')}</button>
           </div>
         </div>
@@ -387,7 +387,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           </div>
 
           <div className="arc-nav">
-            <button className="arc-btn-ghost" onClick={() => setStep('sheet_name')}>{t('games.arena.btn_voltar')}</button>
+            <BackToGamesBtn onClick={() => { sfx.click(); setStep('sheet_name') }} label={t('games.arena.btn_voltar')} />
             <button className="arc-btn-salvar" onClick={handleSalvar}>{t('games.arena.btn_salvar_lutar')}</button>
           </div>
         </div>
