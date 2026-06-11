@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.103*  |  `[SITE] versão carregada: 9.103`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.11.0 — player trash talk: 3 opções em balões pt/en/es
 *Versão: 9.102*  |  `[SITE] versão carregada: 9.102`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ fix: split LanguageContext/Provider para Fast Refresh, AuthContext @vite-ignore
 *Versão: 9.101*  |  `[SITE] versão carregada: 9.101`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ (não documentado)
 *Versão: 9.100*  |  `[SITE] versão carregada: 9.100`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.5 — fix: deep merge locales.js p/ trash talk i18n en/es
@@ -88,7 +89,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*ARENA versão: 1.10.5* | `[ARENA] versão carregada: 1.10.5` (fix: deep merge locales.js p/ trash talk i18n en/es)
+*ARENA versão: 1.11.0* | `[ARENA] versão carregada: 1.11.0` (player trash talk: 3 options bubbles pt/en/es)
 *ARENA versão: 1.10.4* | `[ARENA] versão carregada: 1.10.4` (powers i18n pt/en/es + elemental label fix)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style

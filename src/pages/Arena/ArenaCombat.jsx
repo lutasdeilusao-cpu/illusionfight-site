@@ -120,6 +120,9 @@ export default function ArenaCombat({ onNavigate }) {
   const [flashOn, setFlashOn] = useState(false)
   const [atkDisabled, setAtkDisabled] = useState(false)
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  const [playerTrashOptions, setPlayerTrashOptions] = useState([])
+  const playerTrashPoolRef = useRef([])
+  const playerTrashUsedRef = useRef(new Set())
 
   const dadosRef = useRef({})
   const timerRef = useRef(null)
@@ -148,6 +151,7 @@ export default function ArenaCombat({ onNavigate }) {
     saidNearDeath.current = false
     saidEnemyLow.current = false
     npcPersonality.current = trashTalkNPCs[Math.floor(Math.random() * trashTalkNPCs.length)]
+    initPlayerTrashPool()
     setTimeout(() => addTrashWithDelay('battle_start'), 800)
   }, [])
 
@@ -197,6 +201,42 @@ export default function ArenaCombat({ onNavigate }) {
       await delay(typingTime)
       setLog(l => l.map(m => m.text === '__typing__' && m.type === 'trash' ? { ...m, text, id: Date.now() } : m))
     })
+  }
+
+  const initPlayerTrashPool = () => {
+    const pool = t('games.arena.trash_talk_player', { returnObjects: true })
+    if (!Array.isArray(pool) || pool.length < 3) return
+    const shuffled = [...pool].sort(() => Math.random() - 0.5)
+    playerTrashPoolRef.current = shuffled
+    playerTrashUsedRef.current = new Set()
+    pickThreePlayerTrash()
+  }
+
+  const pickThreePlayerTrash = () => {
+    const pool = playerTrashPoolRef.current
+    if (!pool || pool.length < 3) return
+    let available = pool.filter(p => !playerTrashUsedRef.current.has(p))
+    if (available.length < 3) {
+      playerTrashUsedRef.current = new Set()
+      available = [...pool].sort(() => Math.random() - 0.5)
+    }
+    const shuffled = [...available].sort(() => Math.random() - 0.5)
+    setPlayerTrashOptions(shuffled.slice(0, 3))
+  }
+
+  const sendPlayerTrash = (phrase) => {
+    if (stepRef.current >= 0) return
+    sfx.click()
+    playerTrashUsedRef.current.add(phrase)
+    const senderName = sheet?.sheet_name || '???'
+    const text = `${senderName}: ${phrase}`
+    const typingTime = Math.min(300 + text.length * 18, 1800)
+    const typingId = Date.now() + '-pty'
+    setLog(l => [...l, { type: 'player', text: '__typing__', id: typingId, sender: { name: senderName, initial: playerInitial, side: 'player' } }])
+    setTimeout(() => {
+      setLog(l => l.map(m => m.id === typingId ? { ...m, text, id: Date.now() } : m))
+    }, typingTime)
+    pickThreePlayerTrash()
   }
 
   const addSystemLog = (text) => {
@@ -619,6 +659,26 @@ export default function ArenaCombat({ onNavigate }) {
           <div className="arena-fighter-mode">{MODE_EMOJI[enemy.preferred_mode||'fists']} {MODE_LABELS[enemy.preferred_mode||'fists']}</div>
         </div>
       </div>
+
+      {/* player trash talk options */}
+      {!showPowerSelect && stepRef.current === -1 && !atkDisabled && playerTrashOptions.length >= 3 && (
+        <div className="arena-trash-player-row">
+          {playerTrashOptions.map((phrase, i) => (
+            <motion.button
+              key={phrase + i}
+              className="arena-trash-player-btn"
+              onClick={() => sendPlayerTrash(phrase)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+            >
+              💬 {phrase}
+            </motion.button>
+          ))}
+        </div>
+      )}
 
       {/* actions */}
       <div className="arena-actions-bar">

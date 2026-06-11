@@ -1221,7 +1221,33 @@
           "recuperacao": { "name": "Recuperação", "desc": "Recupera 1 PM." },
           "sobrecarga": { "name": "Sobrecarga", "desc": "Sobrecarrega seus circuitos. Próximo ataque causa +3 de dano." }
         }
-      }
+      },
+      "trash_talk_player": [
+        "acha que isso é luta? meu avô bate mais forte dormindo 😴",
+        "o SDR devia te banir por vergonha alheia 😂",
+        "já foi tarde 😏",
+        "volta quando tiver mais nível, iniciante 😤",
+        "até meu Tamagoshi luta melhor que você 🐣",
+        "minha ficha tem mais H que você de QI 🤡",
+        "se você fosse um elemental, era Água de tão molenga 🌊",
+        "tô lutando no modo fácil ou você é assim mesmo? 🤔",
+        "o NeoGuide podia te dar um tutorial de como levar dano 📖",
+        "esse golpe veio de graça, o próximo é cobrado 💸",
+        "você treina com bots ou é talento natural pra perder? 😂",
+        "seus dados tão viciados em errar 🎲😭",
+        "vou te mandar pro reset com esse próximo golpe 🔄",
+        "seu personagem é forte, o piloto que é fraco 🎮",
+        "para de tremer e luta de verdade 🔥",
+        "já acabou? achei que teria graça 😒",
+        "o servidor lagou ou foi seu reflexo mesmo? 🖥️😂",
+        "teu HP cai mais rápido que meu ranking sobe 📈",
+        "até o bot de treinamento te daria mais trabalho 🤖",
+        "rende que é menos humilhante 🏳️",
+        "vou contar essa vitória pros meus amigos... mentira, não tenho amigos 😭",
+        "cê sabe que isso é um jogo né? parece que tá lutando de verdade 😂",
+        "olha o dano! olha! isso que é FA de verdade 👊💥",
+        "você devia pedir reembolso dessa ficha 💀"
+      ]
     },
     "toptrumps": {
       "titulo": "LDI TRUMPS",
