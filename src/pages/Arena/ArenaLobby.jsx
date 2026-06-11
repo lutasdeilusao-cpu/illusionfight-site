@@ -346,7 +346,7 @@ export default function ArenaLobby({ onNavigate }) {
                     <span className="arena-upgrade-tier-valor">5 fichas</span>
                   </div>
                 </div>
-                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/planos') }}>
+                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/assinar') }}>
                   {t('games.arena.limite.modal_btn')}
                 </button>
               </>
@@ -355,7 +355,7 @@ export default function ArenaLobby({ onNavigate }) {
                 <div className="arena-upgrade-modal-icon">🌐</div>
                 <h2 className="arena-upgrade-modal-titulo">{t('games.arena.multiplayer.modal_titulo')}</h2>
                 <p className="arena-upgrade-modal-body">{t('games.arena.multiplayer.modal_body')}</p>
-                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/planos') }}>
+                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/assinar') }}>
                   {t('games.arena.multiplayer.modal_btn')}
                 </button>
               </>
