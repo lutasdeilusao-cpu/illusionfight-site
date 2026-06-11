@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.74  
-> **Versão do Site:** 10.11.0  
+> **Versão do Relatório:** 2.75  
+> **Versão do Site:** 10.12.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -714,10 +714,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
-> 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es  
+> 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
 > 🎮 **T1 — Temporadas:** 10 criaturas da temporada 1 ativas na seleção  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
-> 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX
+> 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
+> 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
 
 #### Screens (12 telas)
 
@@ -733,8 +734,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `Passear.jsx` | ✅ **v1.23.0** | SFX: passos nos movimentos + conclusão. Guia de Marelia passivo (+1 coração) |
 | `RestaurarSaude.jsx` | ✅ **v1.23.0** | SFX: drag, drop correto, drop errado, conclusão |
 | `Loja.jsx` | ✅ **v1.23.0** | SFX: compra. Brinquedo Yohu removido da loja |
-| `Luto.jsx` | ✅ Completo | Morte + cooldown |
-| `Partida.jsx` | ✅ Completo | Despedida + fama |
+| `Termo.jsx` | ✅ **v1.29.0** | Termo de Responsabilidade (2 etapas) + persistência via flags no Supabase |
+| `Luto.jsx` | ✅ Completo | Morte + cooldown (corrigido para 180 dias) |
+| `Partida.jsx` | ✅ Completo | Despedida + fama (agora com dias_vividos + motivo) |
 
 #### Data
 
