@@ -82,15 +82,19 @@ const KROUM_SPRITE = {
 // Todas as criaturas usam o sprite do Kroniki temporariamente
 // até cada uma receber sua arte individual
 const CRIATURAS_BASE = [
+  // ── Top 3: criaturas com sprite próprio ──
+  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
+  { id: 'ninka',       nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
+  { id: 'kroum',       nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
+
+  // ── Demais criaturas ──
   { id: 'voidling',    nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    temporada: 1, emoji: '👻' },
   { id: 'aquori',      nome: 'Aquori',      tipo: 'CARENTE',      raridade: 'incomum',  temporada: 1, emoji: '💧' },
   { id: 'sinalo',      nome: 'Sinalo',      tipo: 'CARENTE',      raridade: 'raro',     temporada: 1, emoji: '📡' },
   { id: 'grafiko',     nome: 'Grafiko',     tipo: 'CARENTE',      raridade: 'epico',    temporada: 1, emoji: '🎨' },
   { id: 'sangueko',    nome: 'Sangueko',    tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
-
   { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
   { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
   { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 1, emoji: '🐆' },
   { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 1, emoji: '💥' },
 
@@ -117,8 +121,6 @@ const CRIATURAS_BASE = [
   { id: 'buziko',      nome: 'Buziko',      tipo: 'COMICO',       raridade: 'raro',     temporada: 2, emoji: '🐝' },
   { id: 'conkrito',    nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    temporada: 2, emoji: '🐰' },
   { id: 'tatuki',      nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
-  { id: 'ninka',       nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
-  { id: 'kroum',       nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
 ]
 
 // Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback

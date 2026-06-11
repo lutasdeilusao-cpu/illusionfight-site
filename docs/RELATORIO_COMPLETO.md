@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.92  
-> **Versão do Site:** 10.25.1  
+> **Versão do Relatório:** 2.93  
+> **Versão do Site:** 10.25.2  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -726,12 +726,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.36.1  
+**Versão:** 1.37.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis) — T2 bloqueado (EM BREVE)  
+> 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis) — kroniki (#1), ninka (#2), kroum (#3) no topo  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
 > 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
@@ -758,7 +758,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Arquivo | Status | Conteúdo |
 |---|---|---|
-| `criaturas.js` | ✅ **v1.36.0** | **32 criaturas** (kroum adicionado com sprite próprio) |
+| `criaturas.js` | ✅ **v1.37.0** | **32 criaturas** — kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
 | `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
@@ -810,7 +810,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **v1.34.0** — Fix: texto vazio no Perfil (`"você ainda não tem um tamagoshi."`) trocado por botão "🥚 Ir pegar seu Tamagoshi" (3 línguas) para contas novas.  
 **v1.35.0** — Ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha.  
 **v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.  
-**v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.
+**v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.  
+**v1.37.0** — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs (participam do Gacha).
 
 ---
 

@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
-*Versão: 10.25.1*  |  `[SITE] versão carregada: 10.25.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.1 — fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio
-*Versão: 10.25.0*  |  `[SITE] versão carregada: 10.25.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.0 — kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha  |  `[SITE] versão carregada: 10.24.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ NinaPlayer + Admin fix — Page Visibility resume + auto-restart após reload + email-based admin fallback (gramikgames)
+*Versão: 10.25.2*  |  `[SITE] versão carregada: 10.25.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.0 — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros dos 10 IDs do Gacha
+*Versão: 10.25.1*  |  `[SITE] versão carregada: 10.25.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.1 — fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio  |  `[SITE] versão carregada: 10.25.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.0 — kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha  |  `[SITE] versão carregada: 10.24.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ NinaPlayer + Admin fix — Page Visibility resume + auto-restart após reload + email-based admin fallback (gramikgames)
 *Versão: 10.23.2*  |  `[SITE] versão carregada: 10.23.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon Ep.01 — fix: imagens quebradas (arquivos renomeados de XX-PT.png para pt/XX.png)
 *Versão: 10.23.1*  |  `[SITE] versão carregada: 10.23.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sanitização — removidos 17 arquivos de teste + 2 pastas (audit-screenshots, test-results) da raiz
 *Versão: 10.23.0*  |  `[SITE] versão carregada: 10.23.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.35.0 — ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha
@@ -669,12 +669,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.25.1** 🚀 | Site — Tamagoshi v1.36.1: fix Gacha T2 bloqueado |
+| `SITE_VERSION` | **10.25.2** 🚀 | Site — Tamagoshi v1.37.0: CRIATURAS_BASE reordenado |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
 | `ARENA_VERSION` | **1.17.1** | Arena LDI (scroll power select + barra invisível) |
-| `TAMA_VERSION` | **1.36.1** | Tamagoshi LDI — fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis |
+| `TAMA_VERSION` | **1.37.0** | Tamagoshi LDI — kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs |
 | `DUELO_VERSION` | **2.7.1** | Duelo LDI (fix TELEPORT: fluxo completo) |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.8.0** | Top Trumps Single Player |
