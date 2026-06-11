@@ -125,7 +125,13 @@ export default function PerfilTamagoshi() {
       </div>
 
       {!tama ? (
-        <p className="perfil-tama-vazio">{t('site.perfil.tama_sem_tamagoshi')}</p>
+        <div className="perfil-tama-vazio">
+          <p>{t('site.perfil.tama_sem_tamagoshi')}</p>
+          <button className="perfil-tama-vazio-btn"
+            onClick={() => navigate('/games/tamagoshi')}>
+            {t('site.perfil.tama_ir_pegar')}
+          </button>
+        </div>
       ) : (
         <>
           <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade), cursor: 'pointer' }}

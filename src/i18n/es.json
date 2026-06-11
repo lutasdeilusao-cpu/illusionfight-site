@@ -695,7 +695,8 @@
 
       "tama_carregando": "CARGANDO...",
       "tama_meu_tamagoshi": "🥚 Mi Tamagoshi",
-      "tama_sem_tamagoshi": "aún no tienes un tamagoshi. ve a /games/tamagoshi para empezar.",
+      "tama_sem_tamagoshi": "aún no tienes un tamagoshi.",
+      "tama_ir_pegar": "🥚 Ve a buscar tu Tamagoshi",
       "tama_limite_trocas": "límite de intercambios:",
       "tama_free_troca": "1 cada 3 meses",
       "tama_elite_troca": "1 por mes",

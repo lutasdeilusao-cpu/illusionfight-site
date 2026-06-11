@@ -31,7 +31,32 @@
   color: #666;
   font-style: italic;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+.perfil-tama-vazio p {
+  margin: 0;
+}
+.perfil-tama-vazio-btn {
+  background: transparent;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  border-radius: 6px;
+}
+.perfil-tama-vazio-btn:hover {
+  background: #F5A62322;
+  color: #FFD54F;
+  border-color: #FFD54F;
 }
 
 /* Card */

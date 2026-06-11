@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.18.0*  |  `[SITE] versão carregada: 10.18.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.34.0 — fix: texto vazio no Perfil trocado por botão "Ir pegar seu Tamagoshi" (3 línguas)
 *Versão: 10.17.0*  |  `[SITE] versão carregada: 10.17.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.33.0 — fix: Gacha shadow bug (t colide com t()) + renomeado p/ Sorteio + botão Jogar no Perfil
 *Versão: 10.16.0*  |  `[SITE] versão carregada: 10.16.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.32.0 — fix: selecao aleatória entre 10 criaturas T1 (não sempre Kroniki)
 *Versão: 10.15.0*  |  `[SITE] versão carregada: 10.15.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.31.0 — fix: termo aceitar fecha modal + localStorage isolado por user + proteção dados corrompidos + setFlags seguro

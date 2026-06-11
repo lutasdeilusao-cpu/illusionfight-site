@@ -695,7 +695,8 @@
 
       "tama_carregando": "LOADING...",
       "tama_meu_tamagoshi": "🥚 My Tamagoshi",
-      "tama_sem_tamagoshi": "you don't have a tamagoshi yet. go to /games/tamagoshi to start.",
+      "tama_sem_tamagoshi": "you don't have a tamagoshi yet.",
+      "tama_ir_pegar": "🥚 Go get your Tamagoshi",
       "tama_limite_trocas": "trade limit:",
       "tama_free_troca": "1 every 3 months",
       "tama_elite_troca": "1 per month",
