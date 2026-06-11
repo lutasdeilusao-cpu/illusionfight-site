@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useLanguage } from '../context/LanguageContext'
 import { supabase } from '../lib/supabase'
-import { carregarRanking, carregarPosicaoUsuario } from '../hooks/useLeaderboardDB'
+import {
+  carregarRanking, carregarPosicaoUsuario,
+  carregarRankingArena, carregarPosicaoUsuarioArena
+} from '../hooks/useLeaderboardDB'
 import LoginGate from '../components/LoginGate/LoginGate'
 import './Leaderboard.css'
 
@@ -11,15 +14,91 @@ function getPeriodLabel() {
   return d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
 }
 
+function RankingSection({ rank, carregando, posicao, scope, setScope, user, perfil, t, msgVazio, msgSemPosicao }) {
+  return (
+    <>
+      <div className="lb-ranking-meta">
+        <span className="lb-periodo">{getPeriodLabel()}</span>
+        <div className="lb-scope-toggle">
+          <button className={`lb-scope-btn${scope === 'global' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('global')}>🌎 Global</button>
+          <button className={`lb-scope-btn${scope === 'BR' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('BR')}>🇧🇷 Brasil</button>
+        </div>
+      </div>
+
+      {carregando ? (
+        <p className="lb-sub">{t('site.leaderboard.carregando')}</p>
+      ) : rank.length === 0 ? (
+        <p className="lb-sub">{msgVazio}</p>
+      ) : (
+        <>
+          <div className="lb-podium">
+            {[rank[1], rank[0], rank[2]].filter(Boolean).map((j, i) => (
+              <div key={j.userId} className={`lb-podium-item ${i === 0 ? 'segundo' : i === 1 ? 'primeiro' : 'terceiro'}`}>
+                <div className="lb-podium-pos">#{j.pos}</div>
+                <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
+                <div className="lb-podium-nome">{j.nome}</div>
+                <div className="lb-podium-pontos">{j.pontos} {t('pages.leaderboard.pontos')}</div>
+              </div>
+            ))}
+          </div>
+          <div className="lb-tabela">
+            <div className="lb-tabela-header">
+              <span>#</span>
+              <span>{t('pages.leaderboard.jogador')}</span>
+              <span>{t('pages.leaderboard.vitorias')}</span>
+              <span>{t('pages.leaderboard.pontos')}</span>
+            </div>
+            {rank.slice(3).map(j => (
+              <div key={j.userId} className="lb-linha">
+                <span className="lb-linha-pos">{j.pos}</span>
+                <span className="lb-linha-jogador">
+                  <span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>
+                  {j.nome}
+                </span>
+                <span>{j.vitorias}</span>
+                <span>{j.pontos}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {user && (
+        <div className="lb-user-card">
+          <span className="lb-user-pos">{t('pages.leaderboard.sua_posicao')}</span>
+          {posicao ? (
+            <div className="lb-user-row">
+              <span className="lb-linha-pos">#{posicao.pos}</span>
+              <span className="lb-linha-jogador">
+                <span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>
+                {perfil?.nome || user.email}
+              </span>
+              <span>{posicao.vitorias}</span>
+              <span className="lb-user-pontos">{posicao.pontos} {t('pages.leaderboard.pontos')}</span>
+            </div>
+          ) : (
+            <p className="lb-sub lb-sub--left">{msgSemPosicao}</p>
+          )}
+        </div>
+      )}
+    </>
+  )
+}
+
 export default function Leaderboard() {
   const { t } = useLanguage()
   const { user, perfil } = useAuth()
   const [aba, setAba] = useState('toptrumps')
-  const [scope, setScope] = useState('global')
 
   const [rankTT, setRankTT] = useState([])
   const [carregandoTT, setCarregandoTT] = useState(false)
-  const [posicaoUsuario, setPosicaoUsuario] = useState(null)
+  const [posicaoTT, setPosicaoTT] = useState(null)
+  const [scopeTT, setScopeTT] = useState('global')
+
+  const [rankArena, setRankArena] = useState([])
+  const [carregandoArena, setCarregandoArena] = useState(false)
+  const [posicaoArena, setPosicaoArena] = useState(null)
+  const [scopeArena, setScopeArena] = useState('global')
 
   const [cuidadores, setCuidadores] = useState([])
   const [carregandoFama, setCarregandoFama] = useState(false)
@@ -27,14 +106,16 @@ export default function Leaderboard() {
   useEffect(() => {
     if (aba !== 'toptrumps') return
     setCarregandoTT(true)
-    carregarRanking(scope).then(data => {
-      setRankTT(data)
-      setCarregandoTT(false)
-    })
-    if (user?.id) {
-      carregarPosicaoUsuario(user.id, scope).then(setPosicaoUsuario)
-    }
-  }, [aba, scope, user])
+    carregarRanking(scopeTT).then(data => { setRankTT(data); setCarregandoTT(false) })
+    if (user?.id) carregarPosicaoUsuario(user.id, scopeTT).then(setPosicaoTT)
+  }, [aba, scopeTT, user])
+
+  useEffect(() => {
+    if (aba !== 'arena') return
+    setCarregandoArena(true)
+    carregarRankingArena(scopeArena).then(data => { setRankArena(data); setCarregandoArena(false) })
+    if (user?.id) carregarPosicaoUsuarioArena(user.id, scopeArena).then(setPosicaoArena)
+  }, [aba, scopeArena, user])
 
   useEffect(() => {
     if (aba !== 'cuidadores' || cuidadores.length > 0) return
@@ -71,33 +152,16 @@ export default function Leaderboard() {
     carregar()
   }, [aba])
 
-  function renderPodium(lista) {
-    const top3 = lista.slice(0, 3)
-    const ordem = [top3[1], top3[0], top3[2]].filter(Boolean)
-    const classes = ['segundo', 'primeiro', 'terceiro']
-    return (
-      <div className="lb-podium">
-        {ordem.map((j, i) => (
-          <div key={j.userId || j.pos} className={`lb-podium-item ${classes[i]}`}>
-            <div className="lb-podium-pos">#{j.pos}</div>
-            <div className="lb-podium-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</div>
-            <div className="lb-podium-nome">{j.nome}</div>
-            <div className="lb-podium-pontos">{j.pontos} {t('pages.leaderboard.pontos')}</div>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
   return (
     <section className="lb-page">
       <h1 className="lb-titulo">{t('site.leaderboard.titulo')}</h1>
       <p className="lb-sub">{t('site.leaderboard.subtitulo')}</p>
 
       <div className="lb-abas">
-        {['toptrumps', 'quiz', 'geral', 'cuidadores'].map(a => (
+        {['toptrumps', 'arena', 'quiz', 'geral', 'cuidadores'].map(a => (
           <button key={a} className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`} onClick={() => setAba(a)}>
-            {a === 'toptrumps' ? t('site.leaderboard.abas.toptrumps').toUpperCase()
+            {a === 'toptrumps' ? 'TOP TRUMPS'
+              : a === 'arena' ? 'LDI ARENA'
               : a === 'quiz' ? t('pages.leaderboard.quiz_sdr')
               : a === 'geral' ? t('site.leaderboard.abas.geral').toUpperCase()
               : t('site.leaderboard.abas.cuidadores').toUpperCase()}
@@ -109,63 +173,23 @@ export default function Leaderboard() {
       <LoginGate feature="o ranking da arena">
 
         {aba === 'toptrumps' && (
-          <>
-            <div className="lb-ranking-meta">
-              <span className="lb-periodo">{getPeriodLabel()}</span>
-              <div className="lb-scope-toggle">
-                <button className={`lb-scope-btn${scope === 'global' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('global')}>🌎 Global</button>
-                <button className={`lb-scope-btn${scope === 'BR' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('BR')}>🇧🇷 Brasil</button>
-              </div>
-            </div>
+          <RankingSection
+            rank={rankTT} carregando={carregandoTT} posicao={posicaoTT}
+            scope={scopeTT} setScope={setScopeTT}
+            user={user} perfil={perfil} t={t}
+            msgVazio="Nenhuma partida ranqueada este mês ainda. Seja o primeiro!"
+            msgSemPosicao="Você ainda não pontuou este mês. Vença uma partida para entrar!"
+          />
+        )}
 
-            {carregandoTT ? (
-              <p className="lb-sub">{t('site.leaderboard.carregando')}</p>
-            ) : rankTT.length === 0 ? (
-              <p className="lb-sub">Nenhuma partida ranqueada este mês ainda. Seja o primeiro!</p>
-            ) : (
-              <>
-                {renderPodium(rankTT)}
-                <div className="lb-tabela">
-                  <div className="lb-tabela-header">
-                    <span>#</span>
-                    <span>{t('pages.leaderboard.jogador')}</span>
-                    <span>{t('pages.leaderboard.vitorias')}</span>
-                    <span>{t('pages.leaderboard.pontos')}</span>
-                  </div>
-                  {rankTT.slice(3).map(j => (
-                    <div key={j.userId} className="lb-linha">
-                      <span className="lb-linha-pos">{j.pos}</span>
-                      <span className="lb-linha-jogador">
-                        <span className="lb-linha-avatar" style={{ background: `hsl(${j.pos * 47}, 65%, 45%)` }}>{j.iniciais}</span>
-                        {j.nome}
-                      </span>
-                      <span>{j.vitorias}</span>
-                      <span>{j.pontos}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {user && (
-              <div className="lb-user-card">
-                <span className="lb-user-pos">{t('pages.leaderboard.sua_posicao')}</span>
-                {posicaoUsuario ? (
-                  <div className="lb-user-row">
-                    <span className="lb-linha-pos">#{posicaoUsuario.pos}</span>
-                    <span className="lb-linha-jogador">
-                      <span className="lb-linha-avatar" style={{ background: '#e8853a' }}>{perfil?.nome?.[0]?.toUpperCase() || '?'}</span>
-                      {perfil?.nome || user.email}
-                    </span>
-                    <span>{posicaoUsuario.vitorias}</span>
-                    <span className="lb-user-pontos">{posicaoUsuario.pontos} {t('pages.leaderboard.pontos')}</span>
-                  </div>
-                ) : (
-                  <p className="lb-sub lb-sub--left">Você ainda não pontuou este mês. Vença uma partida para entrar!</p>
-                )}
-              </div>
-            )}
-          </>
+        {aba === 'arena' && (
+          <RankingSection
+            rank={rankArena} carregando={carregandoArena} posicao={posicaoArena}
+            scope={scopeArena} setScope={setScopeArena}
+            user={user} perfil={perfil} t={t}
+            msgVazio="Nenhuma vitória ranqueada este mês ainda. Seja o primeiro!"
+            msgSemPosicao="Você ainda não pontuou este mês. Vença uma batalha na Arena!"
+          />
         )}
 
         {aba === 'cuidadores' && (

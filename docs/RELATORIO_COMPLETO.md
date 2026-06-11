@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 3.1  
-> **Versão do Site:** 10.30.0  
+> **Versão do Relatório:** 3.2  
+> **Versão do Site:** 10.31.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.30.0 ✅ |
+| **Versão Atual** | 10.31.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -439,7 +439,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.24.1  
+**Versão:** 1.25.0  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒) — **limitado por tier**  
 **Rota base:** `/games/ldi-arena`
@@ -467,6 +467,10 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.25.0:**
+- 🏆 **Leaderboard da Arena** — nova aba "LDI ARENA" no Leaderboard com ranking real do Supabase (tabela `arena_ranking`)
+- ♻️ **RankingSection componentizado** — componente `RankingSection` reutilizável para Top Trumps e Arena
+- 🔗 **Pontuação automática** — `ArenaVictory.jsx` chama `registrarPontuacaoArenaRanking(user.id)` ao vencer, registrando 15pts por vitória
 **Melhorias v1.24.1:**
 - 🐛 **Fix rota upgrade** — botão "Fazer Upgrade" navega para `/assinar` (página real de assinaturas) em vez de `/planos` (inexistente)
 **Melhorias v1.24.0:**

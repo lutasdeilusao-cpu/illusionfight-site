@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
+import { registrarPontuacaoArenaRanking } from '../../hooks/useLeaderboardDB'
 import { useEventos } from '../../context/EventosContext'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import ArenaXpBar from './components/ArenaXpBar'
@@ -93,6 +94,7 @@ export default function ArenaVictory({ onNavigate }) {
     }
     // 3. Persistir no Supabase (pega o state já atualizado)
     setTimeout(() => store.saveToCloud(user?.id), 400)
+    if (user?.id) registrarPontuacaoArenaRanking(user.id)
   }, [fase, isVitoria])
 
   if (!isVitoria) {

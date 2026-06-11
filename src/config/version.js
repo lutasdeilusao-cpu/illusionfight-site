@@ -8,13 +8,13 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.30.0'
+export const SITE_VERSION = '10.31.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
-export const ARENA_VERSION     = '1.24.1'  // LDI Arena: fix rota upgrade /assinar (não /planos)
+export const ARENA_VERSION     = '1.25.0'  // LDI Arena: leaderboard com ranking real do Supabase + aba LDI Arena no Leaderboard
 export const TAMA_VERSION      = '1.37.1' // Tamagoshi LDI — fix: 1º giro grátis não verificava DIX (barrava mesmo sendo grátis)
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
