@@ -132,14 +132,11 @@ export default function Leaderboard() {
       <p className="lb-sub">{t('site.leaderboard.subtitulo')}</p>
 
       <div className="lb-abas">
-        {['toptrumps', 'arena', 'cuidadores', 'quiz', 'geral'].map(a => (
+        {['toptrumps', 'arena', 'cuidadores'].map(a => (
           <button key={a} className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`} onClick={() => setAba(a)}>
             {a === 'toptrumps' ? 'TOP TRUMPS'
               : a === 'arena' ? 'LDI ARENA'
-              : a === 'cuidadores' ? 'CUIDADORES'
-              : a === 'quiz' ? t('pages.leaderboard.quiz_sdr')
-              : t('site.leaderboard.abas.geral').toUpperCase()}
-            {(a === 'quiz' || a === 'geral') && <span className="lb-breve">{t('site.games.em_breve')}</span>}
+              : 'CUIDADORES'}
           </button>
         ))}
       </div>

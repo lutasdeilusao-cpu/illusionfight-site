@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 3.2  
-> **Versão do Site:** 10.31.0  
+> **Versão do Relatório:** 3.3  
+> **Versão do Site:** 10.32.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,13 +52,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.31.0 ✅ |
+| **Versão Atual** | 10.32.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
 | **Idiomas** | 3 (PT, EN, ES) |
-| **Supabase Migrations** | 13 arquivos |
+| **Supabase Migrations** | 14 arquivos |
 | **Stripe Edge Functions** | 3 funções |
 | **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
 | **Total de Palavras no Livro** | ~27.500 palavras |
@@ -731,7 +731,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.37.1  
+**Versão:** 1.38.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -817,7 +817,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.  
 **v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.  
 **v1.37.0** — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs (participam do Gacha).  
-**v1.37.1** — Fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis).
+**v1.37.1** — Fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis).  
+**v1.38.0** — Ranking de Cuidadores mensal real no Leaderboard (tabela `tamagoshi_ranking`, cap 20pts/dia em ações, login sem cap).
 
 ---
 
