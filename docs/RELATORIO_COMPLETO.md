@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.91  
-> **Versão do Site:** 10.25.0  
+> **Versão do Relatório:** 2.92  
+> **Versão do Site:** 10.25.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -726,12 +726,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.36.0  
+**Versão:** 1.36.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **T1 — Temporadas:** 12 criaturas da temporada 1 ativas na seleção (kroum adicionado)  
+> 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis) — T2 bloqueado (EM BREVE)  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
 > 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
@@ -809,7 +809,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **v1.33.0** — Fix: Gacha shadow bug (variável `t` do `.map()` colidia com função `t()` de tradução). Renomeado "Gacha" → "Sorteio" (pt) / "Raffle" (en) / "Sorteo" (es). Botão "🎮 Jogar Tamagoshi" adicionado no Perfil.  
 **v1.34.0** — Fix: texto vazio no Perfil (`"você ainda não tem um tamagoshi."`) trocado por botão "🥚 Ir pegar seu Tamagoshi" (3 línguas) para contas novas.  
 **v1.35.0** — Ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha.  
-**v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.
+**v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.  
+**v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.
 
 ---
 

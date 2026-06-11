@@ -79,7 +79,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
         </div>
         )} {/* fim do ternary atingiuLimite */}
 
-        {/* Gacha — acesso à T2 */}
+        {/* Gacha — acesso ao sorteio T1 */}
         <div className="tama-selecao-gacha">
           <motion.button
             className="tama-btn gacha-btn-entry"

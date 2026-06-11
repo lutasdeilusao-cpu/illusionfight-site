@@ -1158,6 +1158,16 @@
   border-color: #F5A623;
   background: #1a1a10;
 }
+.tama-gacha-temp-btn--breve {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #555;
+  filter: grayscale(0.8);
+}
+.tama-gacha-temp-btn--breve .tama-gacha-temp-qtd {
+  color: #E02020;
+  font-weight: bold;
+}
 .tama-gacha-temp-qtd {
   font-size: 0.6rem;
   color: #666;
@@ -1165,6 +1175,18 @@
 .tama-gacha-saldo {
   font-size: 0.75rem;
   color: #F5A623;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tama-gacha-gratis-badge {
+  background: #22C55E;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 .tama-gacha-erro {
   font-size: 0.75rem;

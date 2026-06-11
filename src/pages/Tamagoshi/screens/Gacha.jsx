@@ -6,24 +6,38 @@ import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { DIX_GACHA } from '../data/moedas'
 
-function sortearDaTemporada(temporada) {
-  const disponiveis = CRIATURAS.filter(c => c.temporada === temporada)
+// Apenas as 10 primeiras criaturas da CRIATURAS_BASE participam do sorteio T1
+const CRIATURAS_T1_GACHA = CRIATURAS.slice(0, 10)
+
+function sortearT1() {
+  const disponiveis = CRIATURAS_T1_GACHA
   return disponiveis[Math.floor(Math.random() * disponiveis.length)]
+}
+
+const STORAGE_KEY = 'ldi_tama_gacha_free_used'
+
+function isFreeSpinUsed() {
+  try { return localStorage.getItem(STORAGE_KEY) === 'true' } catch { return false }
+}
+
+function marcarFreeSpinUsado() {
+  try { localStorage.setItem(STORAGE_KEY, 'true') } catch {}
 }
 
 export default function Gacha({ onConcluir, onVoltar }) {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
 
-  const [temporada, setTemporada] = useState(2)
+  const [temporada, setTemporada] = useState(1)
   const [sorteada, setSorteada] = useState(null)
   const [girando, setGirando] = useState(false)
   const [erro, setErro] = useState('')
   const [aceita, setAceita] = useState(false)
 
   const saldo = store._isAdmin ? Infinity : (store._dixSaldo || 0)
-  const podePagar = store._isAdmin || saldo >= DIX_GACHA
-  const disponiveis = CRIATURAS.filter(c => c.temporada === temporada)
+  const primeiroGiroGratis = !isFreeSpinUsed()
+  const podePagar = store._isAdmin || primeiroGiroGratis || saldo >= DIX_GACHA
+  const disponiveis = CRIATURAS_T1_GACHA
 
   const handleGirar = async () => {
     if (girando) return
@@ -41,15 +55,15 @@ export default function Gacha({ onConcluir, onVoltar }) {
     // Animação de rolagem (simula 1.5s de "girando")
     await new Promise(r => setTimeout(r, 1500))
 
-    const criatura = sortearDaTemporada(temporada)
+    const criatura = sortearT1()
     if (!criatura) {
       setErro(t('games.tamagoshi.gacha_sem_criaturas'))
       setGirando(false)
       return
     }
 
-    // Debita DIX
-    if (!store._isAdmin) {
+    // Primeiro giro é grátis; demais debitam DIX
+    if (!store._isAdmin && !primeiroGiroGratis) {
       try {
         await store.gastarDix(store._userId, DIX_GACHA, `gacha temporada ${temporada}`)
       } catch (e) {
@@ -57,6 +71,8 @@ export default function Gacha({ onConcluir, onVoltar }) {
         setGirando(false)
         return
       }
+    } else if (!store._isAdmin && primeiroGiroGratis) {
+      marcarFreeSpinUsado()
     }
 
     setSorteada(criatura)
@@ -76,29 +92,31 @@ export default function Gacha({ onConcluir, onVoltar }) {
     <div className="tama-screen">
       <div className="tama-gacha">
         <h2 className="tama-gacha-title">{t('games.tamagoshi.gacha_titulo')}</h2>
-        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: DIX_GACHA })}</p>
+        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: primeiroGiroGratis ? 'GRÁTIS' : DIX_GACHA })}</p>
 
-        {/* Seletor de temporada */}
+        {/* Seletor de temporada — T1 disponível, T2 EM BREVE */}
         <div className="tama-gacha-temporadas">
-          {[1, 2].map(season => {
-            const qtd = CRIATURAS.filter(c => c.temporada === season).length
-            return (
-              <button
-                key={season}
-                className={`tama-gacha-temp-btn ${temporada === season ? 'tama-gacha-temp-btn--ativo' : ''}`}
-                onClick={() => { setTemporada(season); setSorteada(null) }}
-                disabled={girando}
-              >
-                {season === 1 ? t('games.tamagoshi.gacha_temporada_1') : t('games.tamagoshi.gacha_temporada_2')}
-                <span className="tama-gacha-temp-qtd">{qtd} {t('games.tamagoshi.gacha_criaturas')}</span>
-              </button>
-            )
-          })}
+          <button
+            className={`tama-gacha-temp-btn ${temporada === 1 ? 'tama-gacha-temp-btn--ativo' : ''}`}
+            onClick={() => { setTemporada(1); setSorteada(null) }}
+            disabled={girando}
+          >
+            {t('games.tamagoshi.gacha_temporada_1')}
+            <span className="tama-gacha-temp-qtd">{CRIATURAS_T1_GACHA.length} {t('games.tamagoshi.gacha_criaturas')}</span>
+          </button>
+          <button
+            className="tama-gacha-temp-btn tama-gacha-temp-btn--breve"
+            disabled
+          >
+            {t('games.tamagoshi.gacha_temporada_2')}
+            <span className="tama-gacha-temp-qtd">EM BREVE</span>
+          </button>
         </div>
 
-        {/* Saldo */}
+        {/* Saldo + badge de giro grátis */}
         <div className="tama-gacha-saldo">
           <span>{t('games.tamagoshi.dix_display', { saldo: store._isAdmin ? '∞' : saldo })}</span>
+          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">🎁 1º GIRO GRÁTIS</span>}
         </div>
 
         {/* Erro */}
@@ -116,7 +134,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
             {girando ? (
               <span className="tama-gacha-girando">{t('games.tamagoshi.gacha_girando')} 🎰</span>
             ) : (
-              <span>{t('games.tamagoshi.gacha_girar', { custo: DIX_GACHA })}</span>
+              <span>{t('games.tamagoshi.gacha_girar', { custo: primeiroGiroGratis ? 'GRÁTIS' : DIX_GACHA })}</span>
             )}
           </motion.button>
         )}
