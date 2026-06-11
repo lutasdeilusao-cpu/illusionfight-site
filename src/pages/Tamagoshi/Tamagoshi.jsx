@@ -44,11 +44,10 @@ export default function Tamagoshi() {
     store.setAdmin(isAdmin)
     store.loadFromCloud(uid, 1).then(() => {
       store.carregarSlots(uid)
-      // Verificar se termo de responsabilidade já foi aceito
-      const flags = store.flags || {}
-      if (!flags.termo_aceito) {
-        setMostrarTermo(true)
-      }
+      // Usar getState() em vez de store (closure captura estado inicial)
+      const latest = useTamagoshiStore.getState()
+      const flags = latest.flags || {}
+      setMostrarTermo(!flags.termo_aceito)
       // Lazy evaluation: aplica decaimento baseado em horas desde última sessão
       if (horasDesdeUltimaSessao > 0) {
         store.aplicarDecaimento(horasDesdeUltimaSessao)

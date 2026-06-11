@@ -148,16 +148,8 @@ export const useTamagoshiStore = create((set, get) => ({
   setFlags: (flags) => {
     const state = get()
     set({ flags })
-    // Salvar APENAS os flags no Supabase — UPDATE para não exigir criatura_id
-    const uid = state._userId
-    if (uid) {
-      supabase.from('tamagoshi_saves').update({
-        flags: flags,
-        updated_at: new Date().toISOString(),
-      }).eq('user_id', uid).eq('slot', state._slot || 1).then(({ error }) => {
-        if (error) console.error('[TAMA] setFlags error:', error)
-      })
-    }
+    // Flags salvos apenas em localStorage — saveToCloud persiste no Supabase
+    // junto com os dados da criatura (criatura_id é NOT NULL).
     cacheLocal(get())
   },
 
@@ -325,12 +317,13 @@ export const useTamagoshiStore = create((set, get) => ({
     const uid = userId || state._userId
     cacheLocal(state)
     if (!uid) return
+    // Só persiste no Supabase se tiver criatura_id (coluna NOT NULL)
+    if (!state.criaturaId) return
     // Salva apenas METADADOS no Supabase — status bars são calculados via timestamp
     const payload = {
       user_id: uid, slot: state._slot || 1,
       hibernando: false,
-      criatura_id: state.criaturaId, nome_custom: state.nomeCustom,
-      personalidade: state.personalidade, fase: state.fase, estagio: state.estagio || 0,
+      criatura_id: state.criaturaId, fase: state.fase, estagio: state.estagio || 0,
       ultima_alimentacao: state.ultimaAlimentacao ? new Date(state.ultimaAlimentacao).toISOString() : null,
       ultima_higiene: state.ultimaHigiene ? new Date(state.ultimaHigiene).toISOString() : null,
       ultimo_passeio: state.ultimoPasseio ? new Date(state.ultimoPasseio).toISOString() : null,
@@ -377,8 +370,11 @@ export const useTamagoshiStore = create((set, get) => ({
       // 3. MERGE: localStorage tem as barras reais, Supabase tem os metadados
       const mapped = {
         // Metadados do Supabase (sempre atualizados)
-        criaturaId: data.criatura_id, nomeCustom: data.nome_custom,
-        personalidade: data.personalidade, fase: data.fase, estagio: data.estagio || 0,
+        criaturaId: data.criatura_id,
+        // Nome e personalidade reconstruídos do array CRIATURAS (não salvos no Supabase)
+        nomeCustom: CRIATURAS.find(x => x.id === data.criatura_id)?.nome || data.criatura_id,
+        personalidade: CRIATURAS.find(x => x.id === data.criatura_id)?.tipo || null,
+        fase: data.fase, estagio: data.estagio || 0,
         ultimaAlimentacao: data.ultima_alimentacao ? new Date(data.ultima_alimentacao).getTime() : null,
         ultimaHigiene: data.ultima_higiene ? new Date(data.ultima_higiene).getTime() : null,
         ultimoPasseio: data.ultimo_passeio ? new Date(data.ultimo_passeio).getTime() : null,
@@ -410,10 +406,18 @@ export const useTamagoshiStore = create((set, get) => ({
     }
     if (error) console.error('[TAMA] Supabase error:', error.message)
 
-    // 5. Sem dados no Supabase para este usuário → reset para estado padrão
+    // 5. Sem dados no Supabase para este usuário
+    //    Se tiver dados no localStorage com criatura, usar como fallback
+    //    (auth pode não ter restaurado a sessão a tempo)
+    if (localState && localState.criaturaId) {
+      set({ ...localState, _userId: userId, _slot: slot })
+      cacheLocal(get())
+      return localState
+    }
+    //    Senão, reset para estado padrão
     //    NUNCA carregar localStorage de outro usuário!
     get().reset()
-    set({ _userId: userId, _slot: slot, flags: {} })
+    set({ _userId: userId, _slot: slot, flags: localState?.flags ?? {} })
     return null
   },
 
