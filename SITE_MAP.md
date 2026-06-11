@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.14.0*  |  `[SITE] versão carregada: 10.14.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.30.0 — fix i18n: key path termo (tama.termo → games.tamagoshi.termo)
 *Versão: 10.13.0*  |  `[SITE] versão carregada: 10.13.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — fix ReferenceError: t is not defined em PerfilTamagoshi (missing useLanguage import)
 *Versão: 10.12.0*  |  `[SITE] versão carregada: 10.12.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.29.0 — Termo de Responsabilidade + revisão de regras (cooldown 180d, Hall of Fame com dias_vividos)
 *Versão: 10.11.0*  |  `[SITE] versão carregada: 10.11.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Revisão i18n + CSS inline — Tamagoshi + Perfil (strings hardcoded → t(), CSS inline → classes)

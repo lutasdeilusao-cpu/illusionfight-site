@@ -26,23 +26,23 @@ export default function Termo({ onVoltar }) {
     return (
       <div className="tama-screen">
         <div className="tama-termo">
-          <h2 className="tama-termo-titulo">{t('tama.termo.titulo')}</h2>
-          <p className="tama-termo-intro">{t('tama.termo.intro')}</p>
+          <h2 className="tama-termo-titulo">{t('games.tamagoshi.termo.titulo')}</h2>
+          <p className="tama-termo-intro">{t('games.tamagoshi.termo.intro')}</p>
           <ul className="tama-termo-regras">
-            <li>{t('tama.termo.regra_alimentar')}</li>
-            <li>{t('tama.termo.regra_higiene')}</li>
-            <li>{t('tama.termo.regra_passear')}</li>
-            <li>{t('tama.termo.regra_brincar')}</li>
-            <li>{t('tama.termo.regra_saude')}</li>
+            <li>{t('games.tamagoshi.termo.regra_alimentar')}</li>
+            <li>{t('games.tamagoshi.termo.regra_higiene')}</li>
+            <li>{t('games.tamagoshi.termo.regra_passear')}</li>
+            <li>{t('games.tamagoshi.termo.regra_brincar')}</li>
+            <li>{t('games.tamagoshi.termo.regra_saude')}</li>
           </ul>
           <div className="tama-termo-avisos">
-            <p>{t('tama.termo.aviso_morte')}</p>
-            <p>{t('tama.termo.aviso_cooldown')}</p>
-            <p>{t('tama.termo.aviso_vida')}</p>
-            <p>{t('tama.termo.aviso_fama')}</p>
+            <p>{t('games.tamagoshi.termo.aviso_morte')}</p>
+            <p>{t('games.tamagoshi.termo.aviso_cooldown')}</p>
+            <p>{t('games.tamagoshi.termo.aviso_vida')}</p>
+            <p>{t('games.tamagoshi.termo.aviso_fama')}</p>
           </div>
           <button className="tama-termo-btn" onClick={handleLi}>
-            [ {t('tama.termo.btn_li')} ]
+            [ {t('games.tamagoshi.termo.btn_li')} ]
           </button>
         </div>
       </div>
@@ -52,14 +52,14 @@ export default function Termo({ onVoltar }) {
   return (
     <div className="tama-screen">
       <div className="tama-termo">
-        <h2 className="tama-termo-titulo">{t('tama.termo.confirmacao_titulo')}</h2>
-        <p className="tama-termo-intro">{t('tama.termo.confirmacao_texto')}</p>
+        <h2 className="tama-termo-titulo">{t('games.tamagoshi.termo.confirmacao_titulo')}</h2>
+        <p className="tama-termo-intro">{t('games.tamagoshi.termo.confirmacao_texto')}</p>
         <div className="tama-termo-acoes">
           <button className="tama-termo-btn" onClick={handleAceitar}>
-            [ {t('tama.termo.btn_aceitar')} ]
+            [ {t('games.tamagoshi.termo.btn_aceitar')} ]
           </button>
           <button className="tama-termo-btn-recusar" onClick={handleRecusar}>
-            [ {t('tama.termo.btn_recusar')} ]
+            [ {t('games.tamagoshi.termo.btn_recusar')} ]
           </button>
         </div>
       </div>
