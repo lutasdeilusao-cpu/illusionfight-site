@@ -21,9 +21,37 @@ export default function UnifiedNotification() {
   const checkIntervalRef = useRef(null)
   const ninaCbRef = useRef(null)
 
-  // Tenta puxar da fila
+  // Tenta puxar da fila — mas primeiro verifica notificação pendente da Nina
   const tryPull = useCallback(() => {
     if (current) return
+
+    // ═══════════════════════════════════════════════════
+    // PRIORIDADE MÁXIMA: Nina notification (não passa pelo notificationManager)
+    // ═══════════════════════════════════════════════════
+    const ninaPending = window.__ninaPendingNotification
+    if (ninaPending && ninaPending.mensagem) {
+      // Verifica se já foi mostrada nesta sessão
+      if (sessionStorage.getItem('ldi-notif-nina-shown')) {
+        console.log('[UNIFIED] ninaPending já mostrada nesta sessão, limpando')
+        window.__ninaPendingNotification = null
+      } else {
+        console.log('[UNIFIED] ninaPending encontrada! Exibindo balão da Nina.')
+        sessionStorage.setItem('ldi-notif-nina-shown', '1')
+        setCurrent({
+          type: 'nina_music',
+          data: { mensagem: ninaPending.mensagem, greetingKey: ninaPending.greetingKey },
+          id: Date.now(),
+        })
+        setIsClosing(false)
+        setTypedText('')
+        setTypingDone(false)
+        // Limpa o pendente (só exibe uma vez)
+        window.__ninaPendingNotification = null
+        return
+      }
+    }
+
+    // Fallback: fila normal do notificationManager
     const item = notificationManager.pull()
     if (item) {
       setCurrent(item)

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { notificationManager } from '../../lib/notificationManager'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import './NinaMusicPlayer.css'
 
@@ -70,7 +69,7 @@ export default function NinaMusicPlayer() {
     loadYoutubeApi()
   }, [])
 
-  // Push nina balloon to notification queue after 3s (debug) — antes era 30s
+  // Mostrar balão da Nina após 3s (diretamente, sem usar o notificationManager queue)
   useEffect(() => {
     if (sessionRef.current) {
       console.log('[NINA] useEffect timer: sessionRef já true, pulando')
@@ -83,16 +82,21 @@ export default function NinaMusicPlayer() {
         return
       }
       const mensagem = t(greetingKey)
-      console.log('[NINA] setTimeout: push notificação nina_music | greetingKey:', greetingKey, '| mensagem:', mensagem)
-      console.log('[NINA] setTimeout: window.__ninaNotificationCb type:', typeof window.__ninaNotificationCb)
-      notificationManager.push('nina_music', { mensagem, greetingKey })
-      // Registra callback para quando o usuário responder na UnifiedNotification.
-      // Chama a função de registro exposta pelo UnifiedNotification (se existir)
-      // em vez de sobrescrevê-la, garantindo que ninaCbRef.current seja definido.
+      console.log('[NINA] setTimeout: definindo window.__ninaPendingNotification | msg:', mensagem)
+
+      // Define a notificação pendente diretamente (sem passar pelo notificationManager)
+      window.__ninaPendingNotification = {
+        mensagem,
+        greetingKey,
+      }
+
+      // Registra callback para quando o usuário responder na UnifiedNotification
       if (typeof window.__ninaNotificationCb === 'function') {
         console.log('[NINA] setTimeout: Registrando callback via window.__ninaNotificationCb')
         window.__ninaNotificationCb((resposta) => {
           console.log('[NINA] ✅ Callback disparado! resposta:', resposta)
+          // Limpa a notificação pendente
+          window.__ninaPendingNotification = null
           if (resposta) {
             console.log('[NINA] Usuário respondeu SIM → chamando handleSim()')
             handleSim()

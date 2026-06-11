@@ -28,13 +28,9 @@ export const notificationManager = {
    * @param {object} data - dados específicos do tipo
    */
   push(type, data) {
-    if (type === 'nina_music') {
-      console.log('[NOTIF-MGR] push nina_music | data:', JSON.stringify(data))
-    }
     const queue = this._getQueue()
     // Evita duplicatas do mesmo tipo consecutivas
     if (queue.length > 0 && queue[queue.length - 1].type === type) {
-      if (type === 'nina_music') console.log('[NOTIF-MGR] ⚠️ Duplicata nina_music consecutiva, ignorando')
       return
     }
     queue.push({
@@ -44,7 +40,6 @@ export const notificationManager = {
       createdAt: Date.now(),
     })
     this._saveQueue(queue)
-    if (type === 'nina_music') console.log('[NOTIF-MGR] Queue length após push:', this.queueLength())
     this._notifyListeners()
   },
 
@@ -59,28 +54,6 @@ export const notificationManager = {
     if (queue.length === 0) return null
 
     const item = queue[0]
-
-    // Nina Music é exceção — sempre mostra (só aparece 1x/sessão via sessionStorage)
-    if (item.type === NotificationType.NINA_MUSIC) {
-      console.log('[NOTIF-MGR] pull: item nina_music encontrado')
-      // Verifica se já foi mostrada nesta sessão
-      const shown = sessionStorage.getItem('ldi-notif-nina-shown')
-      console.log('[NOTIF-MGR] sessionStorage ldi-notif-nina-shown:', shown)
-      if (shown) {
-        console.log('[NOTIF-MGR] ⚠️ nina_music já foi mostrada nesta sessão, descartando')
-        queue.shift()
-        this._saveQueue(queue)
-        return null // já foi, descarta
-      }
-      queue.shift()
-      this._saveQueue(queue)
-      sessionStorage.setItem('ldi-notif-nina-shown', '1')
-      this._setLastTime(Date.now())
-      console.log('[NOTIF-MGR] ✅ nina_music liberada para exibição!')
-      return item
-    }
-
-    // Verifica cooldown de 15 min
     const lastTime = this._getLastTime()
     const now = Date.now()
     if (now - lastTime >= COOLDOWN_MS) {
