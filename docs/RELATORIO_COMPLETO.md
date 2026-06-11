@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.47  
-> **Versão do Site:** 9.108  
+> **Versão do Relatório:** 2.48  
+> **Versão do Site:** 9.112  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.108 |
+| **Versão Atual** | 9.112 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.14.0  
+**Versão:** 1.15.2  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -455,7 +455,16 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **92%**  
+**Status Geral:** ✅ **94%**  
+**Melhorias v1.15.2:**
+- 🎵 **SFX notificação na IA** — mensagens de trash talk e sistema agora tocam `sfx.notification()`
+- 🔒 **Limite desvantagens** — máximo de 3 pontos acumulados em desvantagens
+
+**Melhorias v1.15.0:**
+- 🎵 **SFX criação de ficha** — sons em atributos (+/-), elemental, especializações, vantagens, desvantagens, perks, botão Nova Ficha
+- 🔘 **Botão voltar duplicado removido** — header sem BackToGamesBtn, navegação apenas no `arc-nav` inferior
+- 📱 **Scroll mobile** — página de criação agora rola corretamente em mobile com scrollbar invisível
+
 **Melhorias v1.10.0:**
 - 🎵 **SFX System** — sons sintetizados em batalha (ataque, hit, vitória, derrota, clicks) com toggle 🔇
 - 📜 **Auto-scroll** — chat da batalha sempre rola automaticamente para a mensagem mais recente

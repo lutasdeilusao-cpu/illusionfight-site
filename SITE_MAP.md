@@ -96,6 +96,8 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.15.2* | `[ARENA] versão carregada: 1.15.2` (Limite 3pts desvantagens + SFX notificação nas mensagens da IA)
+*ARENA versão: 1.15.1* | `[ARENA] versão carregada: 1.15.1` (Scrollbar invisível)
 *ARENA versão: 1.15.0* | `[ARENA] versão carregada: 1.15.0` (SFX completo criação de ficha + scroll mobile + botão voltar duplicado removido)
 *ARENA versão: 1.14.2* | `[ARENA] versão carregada: 1.14.2` (Botões Voltar padronizados com BackToGamesBtn)
 *ARENA versão: 1.10.4* | `[ARENA] versão carregada: 1.10.4` (powers i18n pt/en/es + elemental label fix)
