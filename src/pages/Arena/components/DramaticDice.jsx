@@ -12,6 +12,7 @@ import './DramaticDice.css'
 export default function DramaticDice({ finalValue, side, onComplete }) {
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
+  const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
   const lastSoundRef = useRef(0)
   const isCritical = finalValue === 6
 
@@ -60,11 +61,12 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
       const step = steps[stepIdx]
 
       if (step && elapsed >= step.at) {
-        // Sorteia um número diferente do atual
+        // Sorteia um número diferente do atual (usa ref p/ não causar loop)
         let next
         do {
           next = Math.floor(Math.random() * 6) + 1
-        } while (next === display && steps.length > 3)
+        } while (next === displayRef.current && steps.length > 3)
+        displayRef.current = next
         setDisplay(next)
 
         // Som de tick a cada troca de número (com debounce)
@@ -89,7 +91,7 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
 
     frameId = requestAnimationFrame(tick)
     return () => { stopped = true; cancelAnimationFrame(frameId) }
-  }, [phase, finalValue, display])
+  }, [phase, finalValue]) // ← sem display! ref evita o loop infinito
 
   // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete
   useEffect(() => {

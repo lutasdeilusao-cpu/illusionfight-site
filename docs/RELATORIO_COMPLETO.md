@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.45  
-> **Versão do Site:** 9.106  
+> **Versão do Relatório:** 2.46  
+> **Versão do Site:** 9.107  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.106 |
+| **Versão Atual** | 9.107 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.13.1  
+**Versão:** 1.13.2  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -465,6 +465,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🗄️ **Delete fix** — Supabase delete com tratamento de erro
 - 🌐 **i18n** — novas chaves `btn_sair` e `erro_excluir` pt/en/es
 - **v1.10.1** — hardcoded strings `'Dê um nome...'`, `PV`/`PM`, `FA`/`FD`, `SFX` title traduzidos pt/en/es
+
+**Melhorias v1.13.2:**
+- 🐛 **Hotfix** — loop infinito corrigido: `display` estava no array de dependências do `useEffect`, causando reinício infinito da rolagem. Substituído por `useRef`.
 
 **Melhorias v1.13.1:**
 - ⏱️ **Duração ajustada** — 1.5s~2s (normal) / 2s fixo (crítico)

@@ -8,13 +8,13 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.106'
+export const SITE_VERSION = '9.107'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
-export const ARENA_VERSION     = '1.13.1'  // LDI Arena: DramaticDice — duração 1.5-2s, som de tick a cada batida, desaceleração cúbica
+export const ARENA_VERSION     = '1.13.2'  // LDI Arena: hotfix DramaticDice — loop infinito (display no deps do useEffect)
 export const TAMA_VERSION      = '1.26.0' // Tamagoshi LDI (i18n completo: badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es)
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
