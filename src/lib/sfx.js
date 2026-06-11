@@ -313,6 +313,27 @@ class SFX {
   typing() {
     this._tone(600, 0.02, 'triangle', 0.02)
   }
+
+  /** Tick de dado rolando — som percussivo seco como um dado batendo */
+  diceTick() {
+    const ctx = this._getCtx()
+    if (!ctx || !this.enabled) return
+    const now = ctx.currentTime
+    // Pequeno ruido de impacto + tom seco
+    this._noise(0.03, 0.04)
+    this._tone(1800 + Math.random() * 600, 0.03, 'square', 0.03)
+    // Batida secundária leve simulando o dado quicando
+    if (Math.random() > 0.5) {
+      this._tone(1200, 0.02, 'triangle', 0.02, 0.01)
+    }
+  }
+
+  /** Som de dado parando — thud mais grave e encorpado */
+  diceLand() {
+    this._tone(200, 0.08, 'square', 0.1)
+    this._tone(150, 0.12, 'sine', 0.08, 0.02)
+    this._noise(0.06, 0.06)
+  }
 }
 
 export const sfx = new SFX()

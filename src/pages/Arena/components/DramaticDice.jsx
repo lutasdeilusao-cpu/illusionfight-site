@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { sfx } from '../../../lib/sfx'
 import './DramaticDice.css'
 
 /**
@@ -11,8 +12,13 @@ import './DramaticDice.css'
 export default function DramaticDice({ finalValue, side, onComplete }) {
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
-  const rollCountRef = useRef(0)
-  const totalDuration = useRef(2500 + Math.random() * 1000) // 2.5s ~ 3.5s
+  const lastSoundRef = useRef(0)
+  const isCritical = finalValue === 6
+
+  // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama
+  const totalDuration = useRef(
+    isCritical ? 2000 : (1500 + Math.random() * 500)
+  )
 
   useEffect(() => {
     // Fase 1: intro — show the "?" for a moment
@@ -30,13 +36,15 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
     const start = performance.now()
     const rollDuration = totalDuration.current
 
-    // Gera delays com easing quadrático (começa rápido, termina devagar)
+    // Gera delays com easing CÚBICO (começa rápido, desacelera MUITO no final)
     const steps = []
     let accum = 0
     while (accum < rollDuration) {
-      // progress 0→1; delay desacelera conforme o progresso
-      const rawDelay = 40 + (accum / rollDuration) * 280  // 40ms → ~320ms
-      const jitter = (Math.random() - 0.5) * 30
+      const progress = accum / rollDuration // 0 → 1
+      // delay cúbico: começa em ~30ms, termina em ~350ms
+      // curva cúbica: fica mais lento exponencialmente perto do fim
+      const rawDelay = 30 + Math.pow(progress, 1.8) * 320
+      const jitter = (Math.random() - 0.5) * 20
       const delay = Math.max(20, Math.min(400, rawDelay + jitter))
       steps.push({ delay, at: accum })
       accum += delay
@@ -58,7 +66,14 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
           next = Math.floor(Math.random() * 6) + 1
         } while (next === display && steps.length > 3)
         setDisplay(next)
-        rollCountRef.current++
+
+        // Som de tick a cada troca de número (com debounce)
+        const now = Date.now()
+        if (now - lastSoundRef.current > 30) {
+          lastSoundRef.current = now
+          sfx.diceTick()
+        }
+
         stepIdx++
       }
 
@@ -66,6 +81,7 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
         frameId = requestAnimationFrame(tick)
       } else {
         // Roll acabou → fase de REVELAÇÃO
+        sfx.diceLand()
         setPhase('reveal')
         setDisplay(finalValue)
       }
@@ -73,19 +89,19 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
 
     frameId = requestAnimationFrame(tick)
     return () => { stopped = true; cancelAnimationFrame(frameId) }
-  }, [phase, finalValue])
+  }, [phase, finalValue, display])
 
-  // Na fase reveal, espera 1.2s e chama onComplete
+  // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete
   useEffect(() => {
     if (phase !== 'reveal') return
+    const delay = isCritical ? 1200 : 1000
     const t = setTimeout(() => {
       setPhase('done')
       onComplete?.()
-    }, 1200)
+    }, delay)
     return () => clearTimeout(t)
-  }, [phase, onComplete])
+  }, [phase, onComplete, isCritical])
 
-  const isCritical = finalValue === 6
   const isPlayer = side === 'player'
 
   // Variações das frases dramáticas
