@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.81  
-> **Versão do Site:** 10.18.0  
+> **Versão do Relatório:** 2.83  
+> **Versão do Site:** 10.20.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.11.0 ✅ |
+| **Versão Atual** | 10.20.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -219,6 +219,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Persistência Supabase | ✅ Completo |
 | Toast notifications | ✅ Completo |
 | Catálogo de achievements | ✅ Completo |
+| **Bloqueado para visitantes sem conta** | ✅ **v10.20.0** — PerfilArena corrigido: mostra fichas LDI Arena (não mais Top Trumps) |
+| **Perfil — Aba Arena** | ✅ **v10.20.0** — Agora exibe fichas LDI Arena (character_sheets) com atributos, XP e inimigos desbloqueados. Link corrigido para /games/ldi-arena. i18n pt/en/es |
 
 ---
 

@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.20.0*  |  `[SITE] versão carregada: 10.20.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ PerfilArena corrigido — mostra fichas LDI Arena (não mais Top Trumps)
 *Versão: 10.19.0*  |  `[SITE] versão carregada: 10.19.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Achievements bloqueados para visitantes sem conta — só desbloqueia com login
 *Versão: 10.18.0*  |  `[SITE] versão carregada: 10.18.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.34.0 — fix: texto vazio no Perfil trocado por botão "Ir pegar seu Tamagoshi" (3 línguas)
 *Versão: 10.17.0*  |  `[SITE] versão carregada: 10.17.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.33.0 — fix: Gacha shadow bug (t colide com t()) + renomeado p/ Sorteio + botão Jogar no Perfil
@@ -116,6 +117,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.22.0* | `[ARENA] versão carregada: 1.22.0` (PerfilArena corrigido — mostra fichas LDI Arena, não mais Top Trumps)
 *ARENA versão: 1.21.0* | `[ARENA] versão carregada: 1.21.0` (SFX + partículas explosão vitória/derrota)
 *ARENA versão: 1.20.1* | `[ARENA] versão carregada: 1.20.1` (Fix: power name reflete poder clicado + TTS voice persiste na batalha)
 *ARENA versão: 1.20.0* | `[ARENA] versão carregada: 1.20.0` (Power name reveal + power SFX + TTS voice)

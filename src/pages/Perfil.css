@@ -368,7 +368,7 @@
 
 .perfil-trump-linha {
   display: grid;
-  grid-template-columns: 60px 30px 1fr 70px;
+  grid-template-columns: 1fr 1fr 70px;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
@@ -382,6 +382,9 @@
 .perfil-trump-linha-data { font-size: 0.55rem; color: #333; }
 .perfil-trump-linha-icone { text-align: center; }
 .perfil-trump-linha-placar { font-size: 0.6rem; text-align: right; }
+
+/* Arena sheet name in perfil list */
+.perfil-trump-linha-info { font-weight: 600; }
 
 .perfil-trump-empty {
   text-align: center;
