@@ -292,7 +292,7 @@ export default function ArenaLobby({ onNavigate }) {
       )}
 
       {/* Nova ficha */}
-      <button className="arena-new-sheet" onClick={() => { store.newSheet(); onNavigate('create') }}>
+      <button className="arena-new-sheet" onClick={() => { sfx.click(); store.newSheet(); onNavigate('create') }}>
         <span className="arena-new-sheet-icon">+</span>
         {t('games.arena.nova_ficha')}
       </button>

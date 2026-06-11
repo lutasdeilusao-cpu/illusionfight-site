@@ -213,7 +213,15 @@
 .arena-exit-btn:hover { background: rgba(139,0,0,0.2); border-color: #cc2222; color: #ff4444; }
 
 /* ===== CREATE ===== */
-.arena-create { padding-bottom: 20px; }
+.arena-create {
+  padding-bottom: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100dvh;
+}
+.arena-create::-webkit-scrollbar { width: 4px; }
+.arena-create::-webkit-scrollbar-track { background: transparent; }
+.arena-create::-webkit-scrollbar-thumb { background: rgba(0,180,216,0.15); border-radius: 2px; }
 .arena-create-steps { display: flex; gap: 6px; align-items: center; }
 .arena-create-step-dot { width: 8px; height: 8px; border-radius: 50%; background: #222; border: 1px solid #333; transition: all 0.2s; }
 .arena-create-step-dot--active { background: #F5A623; border-color: #F5A623; box-shadow: 0 0 8px rgba(245,166,35,0.6); }
@@ -271,7 +279,7 @@
 .arc-header-center { flex: 1; text-align: center; }
 .arc-header-name { font-size: 15px; font-weight: 700; color: #eee; font-family: 'Rajdhani', sans-serif; letter-spacing: 2px; margin: 2px 0 0; }
 
-.arc-step { padding: 0 20px 40px; max-width: 600px; margin: 0 auto; }
+.arc-step { padding: 0 20px 40px; max-width: 600px; margin: 0 auto; min-height: 0; }
 
 .arc-section-label { font-size: 10px; letter-spacing: 4px; color: #333; text-transform: uppercase; font-family: 'Courier New', monospace; margin: 24px 0 12px; display: flex; align-items: center; gap: 12px; }
 .arc-section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
@@ -297,7 +305,9 @@
 .arc-name-input:focus { outline: none; border-bottom-color: var(--elem-cor, #00B4D8); }
 .arc-name-input::placeholder { color: #333; }
 
-.arc-elem-list { display: flex; flex-direction: column; gap: 6px; }
+.arc-elem-list { display: flex; flex-direction: column; gap: 6px; overflow-y: auto; max-height: 45vh; }
+.arc-elem-list::-webkit-scrollbar { width: 3px; }
+.arc-elem-list::-webkit-scrollbar-thumb { background: rgba(0,180,216,0.15); border-radius: 2px; }
 .arc-elem-card { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid transparent; padding: 12px 16px; cursor: pointer; transition: all 0.2s; backdrop-filter: blur(10px); position: relative; }
 .arc-elem-card:hover { background: rgba(255,255,255,0.04); border-left-color: var(--elem-cor, #00B4D8); }
 .arc-elem-card--active { border-left-color: var(--elem-cor, #00B4D8); background: rgba(255,255,255,0.04); box-shadow: -4px 0 20px var(--elem-glow, rgba(0,180,216,0.1)); }

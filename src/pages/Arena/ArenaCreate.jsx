@@ -121,13 +121,15 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
     const newVal = attrs[attr] + delta
     if (newVal > 5) return
     store.updateSheet({ attributes: { ...attrs, [attr]: newVal } })
-    if (delta > 0) store.spendPoints(1)
-    else store.gainPoints(1)
+    if (delta > 0) { store.spendPoints(1); sfx.select() }
+    else { store.gainPoints(1); sfx.cancel() }
   }
 
   const toggleFromList = (key, item) => {
     const list = s[key] || []
     const exists = list.find(x => x.label === item.label)
+    if (exists) sfx.cancel()
+    else sfx.select()
     store.updateSheet({ [key]: exists ? list.filter(x => x.label !== item.label) : [...list, item] })
   }
 
@@ -195,7 +197,6 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* HEADER steps */}
       {step !== 'intro' && (
         <div className="arc-header">
-          <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
@@ -274,7 +275,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
                 <div key={el.id}
                   className={`arc-elem-card ${active ? 'arc-elem-card--active' : ''}`}
                   style={{ '--elem-cor': ecc.cor, '--elem-glow': ecc.glow }}
-                  onClick={() => store.updateSheet({ elemental: el.id })}>
+                  onClick={() => { sfx.select(); store.updateSheet({ elemental: el.id }) }}>
                   <div className="arc-elem-avatar" style={{ background: active ? `radial-gradient(circle at 35% 35%, ${ecc.cor}, #0a0a0a)` : undefined, boxShadow: active ? `0 0 20px ${ecc.glow}` : undefined }}>
                     {el.emoji}
                   </div>
@@ -310,6 +311,8 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
                 <div key={spec} className={`arc-chip ${active ? 'arc-chip--active' : ''}`}
                   onClick={() => {
                     const list = s.specializations || []
+                    if (active) sfx.cancel()
+                    else sfx.select()
                     store.updateSheet({ specializations: active ? list.filter(x => x !== spec) : [...list, spec] })
                   }}>
                   {spec}
