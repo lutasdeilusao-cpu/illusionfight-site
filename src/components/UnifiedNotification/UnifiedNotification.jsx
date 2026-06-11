@@ -27,28 +27,23 @@ export default function UnifiedNotification() {
 
     // ═══════════════════════════════════════════════════
     // PRIORIDADE MÁXIMA: Nina notification (não passa pelo notificationManager)
+    // Não usa sessionStorage — o controle "1x por sessão" é feito pelo sessionRef
+    // no próprio NinaMusicPlayer (que persiste enquanto o componente estiver montado)
     // ═══════════════════════════════════════════════════
     const ninaPending = window.__ninaPendingNotification
     if (ninaPending && ninaPending.mensagem) {
-      // Verifica se já foi mostrada nesta sessão
-      if (sessionStorage.getItem('ldi-notif-nina-shown')) {
-        console.log('[UNIFIED] ninaPending já mostrada nesta sessão, limpando')
-        window.__ninaPendingNotification = null
-      } else {
-        console.log('[UNIFIED] ninaPending encontrada! Exibindo balão da Nina.')
-        sessionStorage.setItem('ldi-notif-nina-shown', '1')
-        setCurrent({
-          type: 'nina_music',
-          data: { mensagem: ninaPending.mensagem, greetingKey: ninaPending.greetingKey },
-          id: Date.now(),
-        })
-        setIsClosing(false)
-        setTypedText('')
-        setTypingDone(false)
-        // Limpa o pendente (só exibe uma vez)
-        window.__ninaPendingNotification = null
-        return
-      }
+      console.log('[UNIFIED] ninaPending encontrada! Exibindo balão da Nina.')
+      setCurrent({
+        type: 'nina_music',
+        data: { mensagem: ninaPending.mensagem, greetingKey: ninaPending.greetingKey },
+        id: Date.now(),
+      })
+      setIsClosing(false)
+      setTypedText('')
+      setTypingDone(false)
+      // Limpa o pendente — só será setada de novo se o componente desmontar e montar
+      window.__ninaPendingNotification = null
+      return
     }
 
     // Fallback: fila normal do notificationManager
