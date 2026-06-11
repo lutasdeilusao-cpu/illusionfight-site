@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.94  
-> **Versão do Site:** 10.25.3  
+> **Versão do Relatório:** 2.95  
+> **Versão do Site:** 10.26.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -120,6 +120,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/perfil` | Perfil do Usuário | ✅ **Completo** | ✅ PT/EN/ES | Dashboard vertical colapsável (Conquistas, Arena, Coleção, Conta, Tamagoshi, Recompensas) + Fichas + DIX no header + barra de progresso 20 metas + assinatura Stripe |
 | `/custos` | Custos | ✅ **Completo** | ✅ PT/EN/ES | Transparência financeira do projeto |
 | `/admin` | Painel Admin | ✅ **Completo** | ✅ PT/EN/ES | Restrito a isaiasgamedev@gmail.com |
+| `/prototype` | Protótipos (RPG System Morto) | ✅ **Ativo** | — | Admin-only (isaiasgamedev + gramikgames) |
 
 ### 3.2 Componentes Globais
 

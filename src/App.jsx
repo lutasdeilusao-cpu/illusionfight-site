@@ -37,6 +37,7 @@ import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil/Perfil'
 import Admin from './pages/Admin'
+import Prototype from './pages/Prototype/Prototype'
 import LDILobby from './pages/LDI/Lobby'
 import LDICreate from './pages/LDI/Create'
 import LDIGame from './pages/LDI/Game'
@@ -112,6 +113,7 @@ export default function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/prototype" element={<Prototype />} />
         <Route path="/custos" element={<Custos />} />
       </Routes>
       <Footer hidden={readerMode} />
