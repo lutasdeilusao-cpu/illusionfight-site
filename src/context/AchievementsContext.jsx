@@ -17,7 +17,8 @@ export function AchievementsProvider({ children }) {
     if (user) {
       migrarLocalParaSupabase(user.id).then(() => carregarDoSupabase())
     } else {
-      carregarDoLocal()
+      // Sem conta = sem achievements. Não carrega do localStorage.
+      setDesbloqueados([])
     }
   }, [user])
 
@@ -42,19 +43,15 @@ export function AchievementsProvider({ children }) {
 
   const desbloquear = useCallback(async (achievementId) => {
     console.log('desbloquear:', achievementId, 'user:', user?.id ?? 'NULO')
+    // Sem conta logada = não desbloqueia achievement
+    if (!user) return
     if (desbloqueados.includes(achievementId)) return
     const achievement = todosAchievements.find(a => a.id === achievementId)
     if (!achievement) return
-    if (user) {
-      const { error } = await supabase.from('user_achievements').insert({ user_id: user.id, achievement_id: achievementId })
-      if (error) {
-        console.error('ERRO AO SALVAR ACHIEVEMENT:', error)
-        const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-        localStorage.setItem(STORAGE_KEY, JSON.stringify([...salvos, achievementId]))
-      }
-    } else {
-      const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...salvos, achievementId]))
+    const { error } = await supabase.from('user_achievements').insert({ user_id: user.id, achievement_id: achievementId })
+    if (error) {
+      console.error('ERRO AO SALVAR ACHIEVEMENT:', error)
+      return
     }
     setDesbloqueados(prev => [...prev, achievementId])
     notificationManager.push('achievement', {
