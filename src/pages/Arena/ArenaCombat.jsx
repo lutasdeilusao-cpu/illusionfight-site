@@ -292,6 +292,7 @@ export default function ArenaCombat({ onNavigate }) {
   useEffect(() => { pvRef.current = { player: playerPv, enemy: enemyPv } }, [playerPv, enemyPv])
 
   useEffect(() => {
+    sfx.resetTtsVoice()
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
@@ -547,7 +548,7 @@ export default function ArenaCombat({ onNavigate }) {
     return t('games.arena.powers.' + elemental + '.' + id + '.name') || availablePowers.find(x => x.id === id)?.name || id
   }, [t, elemental, availablePowers])
 
-  const handleAttack = (powerCost = 0) => {
+  const handleAttack = (powerCost = 0, powerId = null) => {
     if (stepRef.current >= 0) return
     sfx.click()
 
@@ -576,7 +577,8 @@ export default function ArenaCombat({ onNavigate }) {
 
     // Se tem poder, mostra o nome do golpe ANTES do dado (fase de revelação)
     if (powerCost > 0) {
-      const pName = getPowerName(selectedPowers[0])
+      // Usa o powerId passado pelo botão clicado, NÃO selectedPowers[0]
+      const pName = getPowerName(powerId)
       // Toca som especial de poder + voz
       sfx.powerUsage()
       sfx.speakPowerName(pName)
@@ -929,7 +931,7 @@ export default function ArenaCombat({ onNavigate }) {
               if (!fp) return null
               const can = playerPm >= (fp.cost || 1) && !atkDisabled
               return <button key={id} className="arena-power-btn" disabled={!can}
-                onClick={() => { sfx.click(); handleAttack(fp.cost || 1) }}>{t('games.arena.powers.' + elemental + '.' + id + '.name') || fp.name} ⚡{fp.cost} PM</button>
+                onClick={() => { sfx.click(); handleAttack(fp.cost || 1, id) }}>{t('games.arena.powers.' + elemental + '.' + id + '.name') || fp.name} ⚡{fp.cost} PM</button>
             })}
           </div>
         )}

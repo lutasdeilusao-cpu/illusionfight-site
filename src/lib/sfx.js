@@ -19,6 +19,12 @@ class SFX {
     this.ctx = null
     this.enabled = localStorage.getItem(SFX_STORAGE_KEY) !== 'false'
     this._heartbeatInterval = null
+    this._ttsVoice = null // voz fixa para a batalha atual
+  }
+
+  /** Reinicia a voz TTS para uma nova batalha */
+  resetTtsVoice() {
+    this._ttsVoice = null
   }
 
   /** Liga ou desliga todos os sons, persiste no localStorage */
@@ -339,7 +345,7 @@ class SFX {
     this._tone(60, 0.3, 'sine', 0.18, 0.3)
   }
 
-  /** Voz sintetizada — fala o nome do poder (apenas inglês) */
+  /** Voz sintetizada — fala o nome do poder (apenas inglês, mesma voz durante a batalha) */
   speakPowerName(powerName) {
     if (!this.enabled) return
     try {
@@ -353,13 +359,15 @@ class SFX {
       utterance.pitch = 0.9    // um pouco grave
       utterance.volume = 0.7
 
-      // Tenta pegar uma voz inglesa aleatória entre as disponíveis
-      const voices = window.speechSynthesis.getVoices()
-      const enVoices = voices.filter(v => v.lang.startsWith('en'))
-      if (enVoices.length > 0) {
-        const pick = enVoices[Math.floor(Math.random() * enVoices.length)]
-        utterance.voice = pick
+      // Escolhe uma voz inglesa na PRIMEIRA chamada e REUSA na mesma batalha
+      if (!this._ttsVoice) {
+        const voices = window.speechSynthesis.getVoices()
+        const enVoices = voices.filter(v => v.lang.startsWith('en'))
+        if (enVoices.length > 0) {
+          this._ttsVoice = enVoices[Math.floor(Math.random() * enVoices.length)]
+        }
       }
+      if (this._ttsVoice) utterance.voice = this._ttsVoice
 
       window.speechSynthesis.speak(utterance)
     } catch (_) { /* fallback silencioso se TTS não suportado */ }

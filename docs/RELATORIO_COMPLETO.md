@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.66  
-> **Versão do Site:** 10.4.0  
+> **Versão do Relatório:** 2.67  
+> **Versão do Site:** 10.4.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.4.0 ✅ |
+| **Versão Atual** | 10.4.1 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -436,7 +436,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.20.0  
+**Versão:** 1.20.1  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
@@ -464,6 +464,10 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.20.1:**
+- 🐛 **Fix: power name agora reflete o poder clicado** — antes usava `selectedPowers[0]`, então se o usuário selecionava Impacto + Barreira e clicava em Barreira, mostrava Impacto. Agora passa o `powerId` do botão clicado
+- 🐛 **Fix: TTS voice persiste na batalha** — antes escolhia uma voz aleatória a cada `speakPowerName()`. Agora `sfx.resetTtsVoice()` é chamado ao montar o componente, e a mesma voz é reutilizada em todos os poderes da batalha
+
 **Melhorias v1.20.0:**
 - ✨ **Power name reveal** — ao usar um poder, o nome do golpe aparece em tela cheia com fonte Impact antes do DramaticDice rolar
 - 🔊 **Power SFX** — novo som dramático de "hadouken" (ascendente + explosão) ao ativar poder
