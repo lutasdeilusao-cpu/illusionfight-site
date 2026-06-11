@@ -30,13 +30,10 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
   const opcoes = useMemo(() => {
     if (atingiuLimite) return []
     const qtd = userTier === 'primordial' ? 10 : userTier === 'elite' ? 3 : 1
-    const umaPorTipo = []
-    const tipos = Object.keys(PERSONALIDADES)
-    for (const tipo of tipos) {
-      const disponiveis = CRIATURAS_T1.filter(c => c.tipo === tipo)
-      umaPorTipo.push(shuffle(disponiveis)[0])
-    }
-    return shuffle(umaPorTipo).slice(0, qtd)
+    // Embaralha todas as 10 criaturas T1 e pega qtd aleatórias
+    // Isso garante que free users recebam 1 das 10 (não sempre Kroniki)
+    const todasEmbaralhadas = shuffle(CRIATURAS_T1)
+    return todasEmbaralhadas.slice(0, qtd)
   }, [userTier])
 
   const tRaridade = (r) => t('games.tamagoshi.raridade_' + r)

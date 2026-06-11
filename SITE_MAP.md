@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.16.0*  |  `[SITE] versão carregada: 10.16.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.32.0 — fix: selecao aleatória entre 10 criaturas T1 (não sempre Kroniki)
 *Versão: 10.15.0*  |  `[SITE] versão carregada: 10.15.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.31.0 — fix: termo aceitar fecha modal + localStorage isolado por user + proteção dados corrompidos + setFlags seguro
 *Versão: 10.14.0*  |  `[SITE] versão carregada: 10.14.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.30.0 — fix i18n: key path termo (tama.termo → games.tamagoshi.termo)
 *Versão: 10.13.0*  |  `[SITE] versão carregada: 10.13.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — fix ReferenceError: t is not defined em PerfilTamagoshi (missing useLanguage import)
