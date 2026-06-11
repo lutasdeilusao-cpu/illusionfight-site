@@ -3,9 +3,21 @@ console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
+import { registrarPontuacaoTamaRanking } from '../../../hooks/useLeaderboardDB'
 import { calcularFase, BADGES, DIX_POR_ACAO, DIX_LOGIN_DIARIO, TEXTOS_PARTIDA, DIX_BOAS_VINDAS } from '../data/moedas'
 import { CRIATURAS } from '../data/criaturas'
 import { useNotificationStore } from '../../../store/notificationStore'
+
+const PONTOS_TAMA = {
+  login: 5,
+  alimentar: 2,
+  banhar: 2,
+  passear: 2,
+  brincar: 2,
+  saude: 2,
+  fase: 20,
+  partida: 100,
+}
 
 // ── Novo sistema de decaimento por dia da semana ──
 // Cada dia da semana, uma barra específica cai mais rápido
@@ -182,6 +194,7 @@ export const useTamagoshiStore = create((set, get) => ({
       }
     })
     get().saveToCloud(get()._userId)
+    if (get()._userId && !get()._isAdmin) registrarPontuacaoTamaRanking(get()._userId, PONTOS_TAMA.alimentar)
   },
 
   banhar: () => {
@@ -196,6 +209,7 @@ export const useTamagoshiStore = create((set, get) => ({
       }
     })
     get().saveToCloud(get()._userId)
+    if (get()._userId && !get()._isAdmin) registrarPontuacaoTamaRanking(get()._userId, PONTOS_TAMA.banhar)
   },
 
   passear: (localId) => {
@@ -211,6 +225,7 @@ export const useTamagoshiStore = create((set, get) => ({
       }
     })
     get().saveToCloud(get()._userId)
+    if (get()._userId && !get()._isAdmin) registrarPontuacaoTamaRanking(get()._userId, PONTOS_TAMA.passear)
   },
 
   brincar: () => {
@@ -225,6 +240,7 @@ export const useTamagoshiStore = create((set, get) => ({
       }
     })
     get().saveToCloud(get()._userId)
+    if (get()._userId && !get()._isAdmin) registrarPontuacaoTamaRanking(get()._userId, PONTOS_TAMA.brincar)
   },
 
   restaurarSaude: () => {
@@ -239,6 +255,7 @@ export const useTamagoshiStore = create((set, get) => ({
       }
     })
     get().saveToCloud(get()._userId)
+    if (get()._userId && !get()._isAdmin) registrarPontuacaoTamaRanking(get()._userId, PONTOS_TAMA.saude)
   },
 
   calcularDecaimento: () => {
@@ -529,6 +546,7 @@ export const useTamagoshiStore = create((set, get) => ({
     const novasFlags = { ...get().flags, _dixHoje: hoje }
     set({ _ultimoLoginDix: Date.now(), flags: novasFlags })
     get().saveToCloud(uid) // flags salvas no Supabase via saveToCloud
+    if (!get()._isAdmin) registrarPontuacaoTamaRanking(uid, PONTOS_TAMA.login, true)
     return true
   },
 
@@ -591,6 +609,7 @@ export const useTamagoshiStore = create((set, get) => ({
     await supabase.from('tamagoshi_badges').insert({
       user_id: uid, criatura_id: get().criaturaId, badge_id: badge.id,
     })
+    if (!get()._isAdmin) registrarPontuacaoTamaRanking(uid, PONTOS_TAMA.fase, true)
     return badge
   },
 
@@ -620,6 +639,7 @@ export const useTamagoshiStore = create((set, get) => ({
     })
     get().saveToCloud(uid)
     cacheLocal(get())
+    if (!get()._isAdmin) registrarPontuacaoTamaRanking(uid, PONTOS_TAMA.partida, true)
   },
 
   // === TRADE SYSTEM ===

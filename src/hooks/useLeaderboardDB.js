@@ -209,9 +209,13 @@ async function _registrarPontuacao(tabela, userId, pontosPorVitoria) {
 
 async function _carregarRanking(tabela, scope = 'global', limit = 50) {
   const period = getPeriod()
+  const colunas = tabela === 'tamagoshi_ranking'
+    ? 'user_id, score, country_code'
+    : 'user_id, score, ranked_wins, country_code'
+
   let query = supabase
     .from(tabela)
-    .select('user_id, score, ranked_wins, country_code')
+    .select(colunas)
     .eq('period', period)
     .order('score', { ascending: false })
     .limit(limit)
@@ -238,7 +242,7 @@ async function _carregarRanking(tabela, scope = 'global', limit = 50) {
     nome: profileMap[r.user_id] || r.user_id.slice(0, 8),
     iniciais: (profileMap[r.user_id] || '?')[0].toUpperCase(),
     pontos: r.score,
-    vitorias: r.ranked_wins,
+    vitorias: r.ranked_wins ?? 0,
     country_code: r.country_code
   }))
 }
@@ -246,9 +250,13 @@ async function _carregarRanking(tabela, scope = 'global', limit = 50) {
 async function _carregarPosicao(tabela, userId, scope = 'global') {
   const period = getPeriod()
 
+  const colunas = tabela === 'tamagoshi_ranking'
+    ? 'score, country_code'
+    : 'score, ranked_wins, country_code'
+
   const { data: meu } = await supabase
     .from(tabela)
-    .select('score, ranked_wins, country_code')
+    .select(colunas)
     .eq('user_id', userId)
     .eq('period', period)
     .single()
@@ -266,7 +274,7 @@ async function _carregarPosicao(tabela, userId, scope = 'global') {
   }
 
   const { count } = await query
-  return { pos: (count || 0) + 1, pontos: meu.score, vitorias: meu.ranked_wins }
+  return { pos: (count || 0) + 1, pontos: meu.score, vitorias: meu.ranked_wins ?? 0 }
 }
 
 // ── RANKING TOP TRUMPS ────────────────────────────────────────────
@@ -295,4 +303,57 @@ export async function carregarRankingArena(scope = 'global', limit = 50) {
 
 export async function carregarPosicaoUsuarioArena(userId, scope = 'global') {
   return _carregarPosicao('arena_ranking', userId, scope)
+}
+
+// ── RANKING TAMAGOSHI ─────────────────────────────────────────────
+
+const MAX_PONTOS_ACOES_DIA = 20 // login não entra nesse cap
+
+export async function registrarPontuacaoTamaRanking(userId, pontos, ehLogin = false) {
+  const period = getPeriod()
+  const hoje = new Date().toISOString().split('T')[0]
+
+  const { data } = await supabase
+    .from('tamagoshi_ranking')
+    .select('score, acoes_hoje, acoes_date, country_code')
+    .eq('user_id', userId)
+    .eq('period', period)
+    .single()
+
+  const acoesHoje = data?.acoes_date === hoje ? (data.acoes_hoje || 0) : 0
+
+  // Login não tem cap — ações têm cap de 20pts/dia
+  if (!ehLogin && acoesHoje >= MAX_PONTOS_ACOES_DIA) {
+    return { pontuou: false, acoesHoje, cap: MAX_PONTOS_ACOES_DIA }
+  }
+
+  // Se ação ultrapassaria o cap, pontua só o que falta
+  const pontosReais = ehLogin ? pontos : Math.min(pontos, MAX_PONTOS_ACOES_DIA - acoesHoje)
+  if (pontosReais <= 0) return { pontuou: false, acoesHoje, cap: MAX_PONTOS_ACOES_DIA }
+
+  const novoScore = (data?.score || 0) + pontosReais
+  const novasAcoes = ehLogin ? acoesHoje : acoesHoje + pontosReais
+
+  const { error } = await supabase
+    .from('tamagoshi_ranking')
+    .upsert({
+      user_id: userId,
+      period,
+      score: novoScore,
+      acoes_hoje: novasAcoes,
+      acoes_date: hoje,
+      country_code: data?.country_code || getCountryCode(),
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'user_id,period' })
+
+  if (error) console.error('[TAMA] Erro ao registrar pontuação ranking:', error)
+  return { pontuou: true, acoesHoje: novasAcoes, cap: MAX_PONTOS_ACOES_DIA, score: novoScore }
+}
+
+export async function carregarRankingTama(scope = 'global', limit = 50) {
+  return _carregarRanking('tamagoshi_ranking', scope, limit)
+}
+
+export async function carregarPosicaoUsuarioTama(userId, scope = 'global') {
+  return _carregarPosicao('tamagoshi_ranking', userId, scope)
 }
