@@ -535,7 +535,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   if (showPowerSelect) {
     return (
-      <div className="arena-combat arena-container">
+      <div className="arena-combat arena-container arena-combat--power-select">
         <div className="arena-power-select">
           <h2 className="arena-power-title">{t('games.arena.combat_power_titulo')}</h2>
           <p className="arena-power-sub">{t('games.arena.combat_power_sub', { elemental })}</p>

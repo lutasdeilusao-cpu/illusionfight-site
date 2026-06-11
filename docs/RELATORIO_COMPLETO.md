@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.50  
-> **Versão do Site:** 9.114  
+> **Versão do Relatório:** 2.51  
+> **Versão do Site:** 9.115  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.114 |
+| **Versão Atual** | 9.115 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.17.0  
+**Versão:** 1.17.1  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -456,6 +456,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **96%**  
+**Melhorias v1.17.1:**
+- 📱 **Scroll power select** — tela de Preparar Poderes agora rola em telas pequenas com scrollbar invisível
+
 **Melhorias v1.17.0:**
 - 🔘 **Botão voltar corrigido** — tela de vitória/derrota agora usa `escolher_oponente` e navega para o lobby (seleção de oponente) em vez de `/games`
 - 🏠 **BackToGamesBtn no power select** — tela de preparar poderes agora tem botão voltar
