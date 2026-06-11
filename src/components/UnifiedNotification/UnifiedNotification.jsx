@@ -84,19 +84,38 @@ export default function UnifiedNotification() {
 
   // Callback do Sim/Não da Nina
   const handleNinaSim = useCallback(() => {
-    if (ninaCbRef.current) ninaCbRef.current(true)
+    console.log('[UNIFIED] handleNinaSim chamado! ninaCbRef.current existe:', !!ninaCbRef.current)
+    if (ninaCbRef.current) {
+      console.log('[UNIFIED] Chamando ninaCbRef.current(true)')
+      ninaCbRef.current(true)
+    } else {
+      console.warn('[UNIFIED] ⚠️ ninaCbRef.current é NULL! Callback não registrado pelo NinaMusicPlayer!')
+    }
     handleClose()
   }, [handleClose])
 
   const handleNinaNao = useCallback(() => {
-    if (ninaCbRef.current) ninaCbRef.current(false)
+    console.log('[UNIFIED] handleNinaNao chamado! ninaCbRef.current existe:', !!ninaCbRef.current)
+    if (ninaCbRef.current) {
+      console.log('[UNIFIED] Chamando ninaCbRef.current(false)')
+      ninaCbRef.current(false)
+    } else {
+      console.warn('[UNIFIED] ⚠️ ninaCbRef.current é NULL! Callback não registrado pelo NinaMusicPlayer!')
+    }
     handleClose()
   }, [handleClose])
 
   // Expõe callback para NinaMusicPlayer se registrar
   useEffect(() => {
-    window.__ninaNotificationCb = (fn) => { ninaCbRef.current = fn }
-    return () => { window.__ninaNotificationCb = undefined }
+    console.log('[UNIFIED] Registrando window.__ninaNotificationCb como função de registro')
+    window.__ninaNotificationCb = (fn) => {
+      console.log('[UNIFIED] window.__ninaNotificationCb recebeu callback! Registrando em ninaCbRef.current')
+      ninaCbRef.current = fn
+    }
+    return () => {
+      console.log('[UNIFIED] Cleanup: removendo window.__ninaNotificationCb')
+      window.__ninaNotificationCb = undefined
+    }
   }, [])
 
   if (!current) return null
