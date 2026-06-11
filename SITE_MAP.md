@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.27.0*  |  `[SITE] versão carregada: 10.27.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.9.0 — Ranking mensal ranqueado (global/BR, limite 5 partidas/dia) + Leaderboard reformulado com dados reais do Supabase
 *Versão: 10.26.2*  |  `[SITE] versão carregada: 10.26.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Prototype v1.0.1 — botão Exportar dentro do HTML (sem wrapper/header), ao lado de Confirmar
 *Versão: 10.26.1*  |  `[SITE] versão carregada: 10.26.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Prototype v1.0.0 — botão Exportar HTML + version log no console  |  `[SITE] versão carregada: 10.26.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Nova rota /prototype — espaço admin-only para protótipos (RPG System Morto)  |  `[SITE] versão carregada: 10.25.3`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.1 — fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis)  |  `[SITE] versão carregada: 10.25.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.0 — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros dos 10 IDs do Gacha
 *Versão: 10.25.1*  |  `[SITE] versão carregada: 10.25.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.1 — fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio  |  `[SITE] versão carregada: 10.25.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.0 — kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha  |  `[SITE] versão carregada: 10.24.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ NinaPlayer + Admin fix — Page Visibility resume + auto-restart após reload + email-based admin fallback (gramikgames)
@@ -143,7 +144,7 @@
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
-*TS versão: 5.7.0* | `[TS] versão carregada: 5.7.0`
+*TS versão: 5.9.0* | `[TS] versão carregada: 5.9.0` | ✅ Ranking mensal ranqueado (global/BR)
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
 *TAMA versão: 1.24.0* | `[TAMA] versão carregada: 1.24.0`
 

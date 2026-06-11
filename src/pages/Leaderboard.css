@@ -219,6 +219,49 @@
   color: #e8853a;
 }
 
+.lb-ranking-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.lb-periodo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #EAEAEA;
+  text-transform: capitalize;
+}
+
+.lb-scope-toggle {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.lb-scope-btn {
+  padding: 0.35rem 0.75rem;
+  background: #1A1D21;
+  border: 1px solid #2A2D31;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lb-scope-btn:hover {
+  border-color: #e8853a;
+  color: #EAEAEA;
+}
+
+.lb-scope-btn--ativo {
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.12);
+  color: #e8853a;
+}
+
 @media (max-width: 640px) {
   .lb-podium {
     flex-direction: column;
@@ -231,5 +274,10 @@
 
   .lb-linha {
     grid-template-columns: 30px 1fr 40px 40px 40px 50px;
+  }
+
+  .lb-ranking-meta {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

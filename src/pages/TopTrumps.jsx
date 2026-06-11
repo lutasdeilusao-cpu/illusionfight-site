@@ -9,7 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
 import { useEventos } from '../context/EventosContext'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase } from '../hooks/useTopTrumpsDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useTopTrumpsDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
 import DeckBuilder from './TopTrumps/components/DeckBuilder'
@@ -378,6 +378,7 @@ export default function TopTrumps() {
       sfx.win()
       registrarEvento('trumps_vitoria', 'Venceu uma partida no Top Trumps', 1)
       registrarEvento('jogo_jogado', 'Jogou Top Trumps', 1)
+      if (user?.id) registrarPontuacaoRanking(user.id)
     }
     else if (placar.jogador === placar.ia) sfx.draw()
     else sfx.lose()

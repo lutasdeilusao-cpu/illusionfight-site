@@ -1,11 +1,9 @@
 import { supabase } from '../lib/supabase'
 
-const TENTATIVAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
+const TENTATIVAS_POR_TIER = { free: 3, elite: 5, primordial: 7 }
+const PONTOS_POR_VITORIA = 20
+const MAX_RANKED_PLAYS_DIA = 5
 
-/**
- * Busca cartas no banco.
- * Retorna array misto: número (id_num) se for numeral, string (id slug) se for o formato antigo.
- */
 export async function carregarDeck(userId) {
   const { data, error } = await supabase
     .from('toptrumps_decks')
@@ -23,12 +21,10 @@ export async function carregarDeck(userId) {
 
 export async function salvarCartasDeck(userId, cartaIds) {
   if (!cartaIds || cartaIds.length === 0) return
-  console.log('[TT] salvarCartasDeck chamado — userId:', userId, 'cartas:', cartaIds.length)
   const inserts = cartaIds.map(id => ({ user_id: userId, carta_id: id }))
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('toptrumps_decks')
     .upsert(inserts, { onConflict: 'user_id,carta_id', ignoreDuplicates: true })
-  console.log('[TT] salvarCartasDeck resultado — data:', data, 'error:', error)
   if (error) console.error('Erro ao salvar cartas no deck:', error)
 }
 
@@ -118,22 +114,14 @@ export async function incrementarTentativa(userId, tier = 'free') {
   return usadas
 }
 
-/**
- * Remove TODAS as cartas do deck de um usuário no banco.
- */
 export async function limparDeck(userId) {
   const { error } = await supabase
     .from('toptrumps_decks')
     .delete()
     .eq('user_id', userId)
   if (error) console.error('[TT] Erro ao limpar deck:', error)
-  else console.log('[TT] Deck limpo para userId:', userId)
 }
 
-/**
- * Substitui o deck inteiro por um novo conjunto de cartas.
- * Remove as antigas e insere as novas.
- */
 export async function substituirDeck(userId, cartaIds) {
   await limparDeck(userId)
   if (cartaIds.length > 0) {
@@ -142,7 +130,6 @@ export async function substituirDeck(userId, cartaIds) {
       .from('toptrumps_decks')
       .insert(inserts)
     if (error) console.error('[TT] Erro ao substituir deck:', error)
-    else console.log('[TT] Deck substituído —', cartaIds.length, 'cartas')
   }
 }
 
@@ -159,4 +146,123 @@ export async function migrarLocalStorageParaSupabase(userId) {
   } else {
     localStorage.removeItem(chave)
   }
+}
+
+// ── RANKING ──────────────────────────────────────────────
+
+function getPeriod() {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+}
+
+function getCountryCode() {
+  try {
+    const lang = navigator.language || 'pt-BR'
+    const parts = lang.split('-')
+    return parts.length > 1 ? parts[1].toUpperCase() : parts[0].toUpperCase()
+  } catch {
+    return 'BR'
+  }
+}
+
+export async function registrarPontuacaoRanking(userId) {
+  const period = getPeriod()
+  const hoje = new Date().toISOString().split('T')[0]
+
+  // Busca estado atual
+  const { data } = await supabase
+    .from('toptrumps_ranking')
+    .select('score, ranked_wins, ranked_plays_today, ranked_plays_date')
+    .eq('user_id', userId)
+    .eq('period', period)
+    .single()
+
+  const playsHoje = data?.ranked_plays_date === hoje ? (data.ranked_plays_today || 0) : 0
+
+  // Bloqueia se já atingiu o limite diário
+  if (playsHoje >= MAX_RANKED_PLAYS_DIA) {
+    return { pontuou: false, playsHoje, limiteDiario: MAX_RANKED_PLAYS_DIA }
+  }
+
+  const novoScore = (data?.score || 0) + PONTOS_POR_VITORIA
+  const novoWins = (data?.ranked_wins || 0) + 1
+
+  const { error } = await supabase
+    .from('toptrumps_ranking')
+    .upsert({
+      user_id: userId,
+      period,
+      score: novoScore,
+      ranked_wins: novoWins,
+      ranked_plays_today: playsHoje + 1,
+      ranked_plays_date: hoje,
+      country_code: data?.country_code || getCountryCode(),
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'user_id,period' })
+
+  if (error) console.error('[TT] Erro ao registrar pontuação ranking:', error)
+  return { pontuou: true, playsHoje: playsHoje + 1, limiteDiario: MAX_RANKED_PLAYS_DIA, score: novoScore }
+}
+
+export async function carregarRanking(scope = 'global', limit = 50) {
+  const period = getPeriod()
+  let query = supabase
+    .from('toptrumps_ranking')
+    .select('user_id, score, ranked_wins, country_code')
+    .eq('period', period)
+    .order('score', { ascending: false })
+    .limit(limit)
+
+  if (scope !== 'global') {
+    query = query.eq('country_code', scope.toUpperCase())
+  }
+
+  const { data: ranking } = await query
+  if (!ranking || ranking.length === 0) return []
+
+  const userIds = ranking.map(r => r.user_id)
+  const { data: profiles } = await supabase
+    .from('profiles')
+    .select('id, nome')
+    .in('id', userIds)
+
+  const profileMap = {}
+  ;(profiles || []).forEach(p => { profileMap[p.id] = p.nome })
+
+  return ranking.map((r, i) => ({
+    pos: i + 1,
+    userId: r.user_id,
+    nome: profileMap[r.user_id] || r.user_id.slice(0, 8),
+    iniciais: (profileMap[r.user_id] || '?')[0].toUpperCase(),
+    pontos: r.score,
+    vitorias: r.ranked_wins,
+    country_code: r.country_code
+  }))
+}
+
+export async function carregarPosicaoUsuario(userId, scope = 'global') {
+  const period = getPeriod()
+  // Busca o score do usuário
+  const { data: meu } = await supabase
+    .from('toptrumps_ranking')
+    .select('score, ranked_wins, country_code')
+    .eq('user_id', userId)
+    .eq('period', period)
+    .single()
+
+  if (!meu) return null
+
+  // Conta quantos têm score maior
+  let query = supabase
+    .from('toptrumps_ranking')
+    .select('user_id', { count: 'exact', head: true })
+    .eq('period', period)
+    .gt('score', meu.score)
+
+  if (scope !== 'global') {
+    query = query.eq('country_code', scope.toUpperCase())
+  }
+
+  const { count } = await query
+  return { pos: (count || 0) + 1, pontos: meu.score, vitorias: meu.ranked_wins }
 }

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.97  
-> **Versão do Site:** 10.26.2  
+> **Versão do Relatório:** 2.98  
+> **Versão do Site:** 10.27.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,13 +52,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.20.0 ✅ |
+| **Versão Atual** | 10.27.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
 | **Idiomas** | 3 (PT, EN, ES) |
-| **Supabase Migrations** | 12 arquivos |
+| **Supabase Migrations** | 13 arquivos |
 | **Stripe Edge Functions** | 3 funções |
 | **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
 | **Total de Palavras no Livro** | ~27.500 palavras |
@@ -168,7 +168,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useScrollReveal` | ✅ Completo | IntersectionObserver reveal |
 | `useSlideshow` | ✅ Completo | Slideshow automático |
 | `useSwipe` | ✅ Completo | Detecção de swipe touch |
-| `useTopTrumpsDB` | ✅ Completo | Supabase queries Top Trumps |
+| `useTopTrumpsDB` | ✅ Completo | Supabase queries Top Trumps + Ranking mensal (registrarPontuacaoRanking, carregarRanking, carregarPosicaoUsuario) |
 | `useTopTrumpsMP` | ✅ Completo | Multiplayer Top Trumps |
 | `useTypewriter` | ✅ Completo | Efeito typewriter |
 | `useViewportScroll` | ✅ Completo | Scroll do viewport |
