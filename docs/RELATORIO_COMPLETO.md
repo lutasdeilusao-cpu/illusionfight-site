@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.43  
-> **Versão do Site:** 9.102  
+> **Versão do Relatório:** 2.44  
+> **Versão do Site:** 9.105  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.102 |
+| **Versão Atual** | 9.105 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.10.1  
+**Versão:** 1.13.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -455,7 +455,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **87%**  
+**Status Geral:** ✅ **92%**  
 **Melhorias v1.10.0:**
 - 🎵 **SFX System** — sons sintetizados em batalha (ataque, hit, vitória, derrota, clicks) com toggle 🔇
 - 📜 **Auto-scroll** — chat da batalha sempre rola automaticamente para a mensagem mais recente
@@ -465,6 +465,16 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🗄️ **Delete fix** — Supabase delete com tratamento de erro
 - 🌐 **i18n** — novas chaves `btn_sair` e `erro_excluir` pt/en/es
 - **v1.10.1** — hardcoded strings `'Dê um nome...'`, `PV`/`PM`, `FA`/`FD`, `SFX` title traduzidos pt/en/es
+
+**Melhorias v1.13.0:**
+- 🎲 **DramaticDice** — novo componente cinematográfico de rolagem de dado
+- 🎬 **Fullscreen modal** — tela cheia que sobrepõe todo o jogo durante a rolagem, pausando a ação completamente
+- ⏱️ **Duração variável** — 2.5s~3.5s com desaceleração gradual (começa rápido, termina devagar)
+- 💥 **Revelação dramática** — o número final é revelado com animação de escala, partículas e glow
+- 🔥 **Crítico (6)** — efeito visual especial: borda dourada, shake, partículas douradas, pulsação
+- 🎯 **Usado na FA e FD** — tanto o ataque do player quanto o ataque do inimigo passam pelo DramaticDice
+- 🎨 **CSS cinematográfico** — radial gradient bg, blur backdrop, glow pulsante, partículas expansivas, barra de progresso
+- 📱 **Responsivo** — adaptado para mobile
 
 ---
 
