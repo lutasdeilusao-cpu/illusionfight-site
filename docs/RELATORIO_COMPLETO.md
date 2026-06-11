@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.86  
-> **Versão do Site:** 10.22.1  
+> **Versão do Relatório:** 2.87  
+> **Versão do Site:** 10.23.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -726,12 +726,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.34.0  
+**Versão:** 1.35.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **T1 — Temporadas:** 10 criaturas da temporada 1 ativas na seleção  
+> 🎮 **T1 — Temporadas:** 11 criaturas da temporada 1 ativas na seleção (ninka adicionada)  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
 > 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
@@ -758,7 +758,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Arquivo | Status | Conteúdo |
 |---|---|---|
-| `criaturas.js` | ✅ Completo | **30 criaturas** |
+| `criaturas.js` | ✅ **v1.35.0** | **31 criaturas** (ninka adicionada com sprite próprio) |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
 | `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
@@ -1120,7 +1120,7 @@ STATUS: ✅ limpo
 | **Arena LDI** (combate CPU) | 87% | 🟡 | 8 inimigos, SFX, auto-scroll, exit btn |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
-| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas |
+| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 28 criaturas (Kroniki + Ninka prontos) |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |

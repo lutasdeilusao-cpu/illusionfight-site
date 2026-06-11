@@ -9,6 +9,17 @@ import kronikiSick from '../../../assets/images/tamagoshi/01/kroniki-sick.png'
 import kronikiSleepy from '../../../assets/images/tamagoshi/01/kroniki-sleepy.png'
 import kronikiPresentation from '../../../assets/images/tamagoshi/01/kroniki-presentation.png'
 
+import ninkaIdle from '../../../assets/images/tamagoshi/02/ninka-idle.png'
+import ninkaHungry from '../../../assets/images/tamagoshi/02/ninka-hungry.png'
+import ninkaEnjoy from '../../../assets/images/tamagoshi/02/ninka-enjoy.png'
+import ninkaHappy from '../../../assets/images/tamagoshi/02/ninka-happy.png'
+import ninkaAbandoned from '../../../assets/images/tamagoshi/02/ninka-abandoned.png'
+import ninkaAnger from '../../../assets/images/tamagoshi/02/ninka-angry.png'
+import ninkaDirty from '../../../assets/images/tamagoshi/02/ninka-dirty.png'
+import ninkaSick from '../../../assets/images/tamagoshi/02/ninka-sick.png'
+import ninkaSleepy from '../../../assets/images/tamagoshi/02/ninka-sleepy.png'
+import ninkaPresentation from '../../../assets/images/tamagoshi/02/ninka-presentation.png'
+
 const KRONIKI_SPRITE = {
   imagem: kronikiIdle,
   gifs: {
@@ -22,6 +33,22 @@ const KRONIKI_SPRITE = {
     doente: kronikiSick,
     sonolento: kronikiSleepy,
     apresentacao: kronikiPresentation,
+  },
+}
+
+const NINKA_SPRITE = {
+  imagem: ninkaIdle,
+  gifs: {
+    idle: ninkaIdle,
+    comendo: ninkaHungry,
+    satisfeito: ninkaEnjoy,
+    feliz: ninkaHappy,
+    abandonado: ninkaAbandoned,
+    raiva: ninkaAnger,
+    sujo: ninkaDirty,
+    doente: ninkaSick,
+    sonolento: ninkaSleepy,
+    apresentacao: ninkaPresentation,
   },
 }
 
@@ -63,10 +90,15 @@ const CRIATURAS_BASE = [
   { id: 'buziko',      nome: 'Buziko',      tipo: 'COMICO',       raridade: 'raro',     temporada: 2, emoji: '🐝' },
   { id: 'conkrito',    nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    temporada: 2, emoji: '🐰' },
   { id: 'tatuki',      nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
+  { id: 'ninka',       nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
 ]
 
-// Anexa o sprite do Kroniki a todas as criaturas
+// Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback
+const SPRITE_MAP = {
+  ninka: NINKA_SPRITE,
+}
+
 export const CRIATURAS = CRIATURAS_BASE.map(c => ({
   ...c,
-  ...KRONIKI_SPRITE,
+  ...(SPRITE_MAP[c.id] || KRONIKI_SPRITE),
 }))
