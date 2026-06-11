@@ -3,7 +3,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import './Termo.css'
 
-export default function Termo({ onVoltar }) {
+export default function Termo({ onAceitar, onVoltar }) {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [etapa, setEtapa] = useState(1)
@@ -19,7 +19,7 @@ export default function Termo({ onVoltar }) {
   const handleAceitar = async () => {
     const flags = { ...(store.flags || {}), termo_aceito: true }
     store.setFlags(flags)
-    await store.saveToCloud(store._userId)
+    if (onAceitar) onAceitar()
   }
 
   if (etapa === 1) {

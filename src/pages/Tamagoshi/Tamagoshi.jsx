@@ -154,7 +154,7 @@ export default function Tamagoshi() {
     return (
       <div className="tama-body">
         <div className="tama-content">
-          <Termo onVoltar={handleTermoRecusar} />
+          <Termo onAceitar={handleTermoAceitar} onVoltar={handleTermoRecusar} />
         </div>
       </div>
     )

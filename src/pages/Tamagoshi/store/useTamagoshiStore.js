@@ -104,14 +104,17 @@ const defaultState = {
 
 function cacheLocal(state) {
   try {
-    const key = `tama_save_${state._slot || 1}`
+    const uid = state._userId || 'anon'
+    const key = `tama_save_${uid}_${state._slot || 1}`
     localStorage.setItem(key, JSON.stringify(state))
   } catch { /* quota */ }
 }
 
-function cacheLoad(slot = 1) {
+function cacheLoad(userId, slot = 1) {
   try {
-    const raw = localStorage.getItem(`tama_save_${slot}`)
+    if (!userId) return null
+    const key = `tama_save_${userId}_${slot}`
+    const raw = localStorage.getItem(key)
     if (raw) {
       const parsed = JSON.parse(raw)
       return parsed
@@ -131,8 +134,19 @@ export const useTamagoshiStore = create((set, get) => ({
   setAdmin: (val) => set({ _isAdmin: val }),
 
   setFlags: (flags) => {
+    const state = get()
     set({ flags })
-    get().saveToCloud(get()._userId)
+    // Salvar APENAS os flags no Supabase — UPDATE para não exigir criatura_id
+    const uid = state._userId
+    if (uid) {
+      supabase.from('tamagoshi_saves').update({
+        flags: flags,
+        updated_at: new Date().toISOString(),
+      }).eq('user_id', uid).eq('slot', state._slot || 1).then(({ error }) => {
+        if (error) console.error('[TAMA] setFlags error:', error)
+      })
+    }
+    cacheLocal(get())
   },
 
   eclodir: () => {
@@ -315,15 +329,11 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   loadFromCloud: async (userId, slot = 1) => {
-    // 1. SEMPRE carrega do localStorage primeiro — tem as barras mais recentes + _ultimoUpdate real
-    let localState = cacheLoad(slot)
+    // 1. Carrega do localStorage ESPECÍFICO deste usuário
+    let localState = cacheLoad(userId, slot)
 
     if (!userId) {
-      if (localState) {
-        set({ ...localState, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: null, _slot: slot })
-        get().calcularDecaimento()
-        return localState
-      }
+      get().reset()
       return null
     }
 
@@ -337,6 +347,19 @@ export const useTamagoshiStore = create((set, get) => ({
       .maybeSingle()
 
     if (!error && data) {
+      // 🛡️ SEGURANÇA: Se tem criatura_id mas NÃO aceitou o termo, 
+      //      são dados corrompidos pelo bug anterior (saveToCloud salvou
+      //      estado de outro usuário). Resetar para estado padrão.
+      const temCriatura = !!data.criatura_id
+      const termoAceito = data.flags?.termo_aceito === true
+      if (temCriatura && !termoAceito) {
+        console.warn('[TAMA] dados corrompidos detectados (criatura sem termo aceito) — deletando e resetando')
+        await supabase.from('tamagoshi_saves').delete().eq('user_id', userId).eq('slot', slot)
+        get().reset()
+        set({ _userId: userId, _slot: slot, flags: {} })
+        return null
+      }
+
       // 3. MERGE: localStorage tem as barras reais, Supabase tem os metadados
       const mapped = {
         // Metadados do Supabase (sempre atualizados)
@@ -373,14 +396,10 @@ export const useTamagoshiStore = create((set, get) => ({
     }
     if (error) console.error('[TAMA] Supabase error:', error.message)
 
-    // 5. Fallback: se não tem Supabase nem localStorage, retorna null
-    if (localState) {
-      set({ ...localState, _isAdmin: get()._isAdmin, adminFastMode: get().adminFastMode, _userId: userId, _slot: slot })
-      get().calcularDecaimento()
-      get().getSaldoDix(userId)
-      get().saveToCloud(userId)
-      return localState
-    }
+    // 5. Sem dados no Supabase para este usuário → reset para estado padrão
+    //    NUNCA carregar localStorage de outro usuário!
+    get().reset()
+    set({ _userId: userId, _slot: slot, flags: {} })
     return null
   },
 
