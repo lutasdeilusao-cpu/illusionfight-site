@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.78  
-> **Versão do Site:** 10.15.0  
+> **Versão do Relatório:** 2.79  
+> **Versão do Site:** 10.16.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -710,7 +710,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.29.0  
+**Versão:** 1.32.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -725,7 +725,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Tela | Status | Descrição |
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
-| `Selecao.jsx` | ✅ Completo | Escolha da criatura |
+| `Selecao.jsx` | ✅ **v1.32.0** | Seleção aleatória entre as 10 criaturas T1 (não sempre Kroniki) |
 | `Criatura.jsx` | ✅ **v1.23.1** | BackToGamesBtn reposicionado abaixo dos botões de ação |
 | `Alimentar.jsx` | ✅ **v1.23.0** | SFX: clique nos botões + sucesso ao completar. Mostra TODOS os itens de comida |
 | `Banhar.jsx` | ✅ **v1.23.0** | SFX: swipe throttled (200ms) + conclusão. Mostra qual item está sendo usado |
@@ -788,7 +788,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.
+**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.  
+**v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.
 
 ---
 

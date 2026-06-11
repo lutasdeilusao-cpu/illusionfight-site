@@ -153,6 +153,11 @@ export default function PerfilTamagoshi() {
             </div>
           </div>
 
+          <button className="perfil-tama-jogar-btn"
+            onClick={() => navigate('/games/tamagoshi')}>
+            {t('site.perfil.tama_jogar')}
+          </button>
+
           <div className="perfil-tama-limites">
             <span className="perfil-tama-limites-label">{t('site.perfil.tama_limite_trocas')}</span>
             <span className="perfil-tama-limites-valor">

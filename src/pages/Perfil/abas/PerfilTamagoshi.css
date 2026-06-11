@@ -85,6 +85,27 @@
   letter-spacing: 0.1em;
 }
 
+/* Botao Jogar */
+.perfil-tama-jogar-btn {
+  background: transparent;
+  border: 1px solid #00B4D8;
+  color: #00B4D8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  text-align: center;
+  border-radius: 6px;
+}
+.perfil-tama-jogar-btn:hover {
+  background: #00B4D822;
+  color: #4DD0E1;
+  border-color: #4DD0E1;
+}
+
 /* Limites */
 .perfil-tama-limites {
   display: flex;

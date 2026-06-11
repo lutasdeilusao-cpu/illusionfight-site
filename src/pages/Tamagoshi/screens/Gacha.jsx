@@ -80,16 +80,16 @@ export default function Gacha({ onConcluir, onVoltar }) {
 
         {/* Seletor de temporada */}
         <div className="tama-gacha-temporadas">
-          {[1, 2].map(t => {
-            const qtd = CRIATURAS.filter(c => c.temporada === t).length
+          {[1, 2].map(season => {
+            const qtd = CRIATURAS.filter(c => c.temporada === season).length
             return (
               <button
-                key={t}
-                className={`tama-gacha-temp-btn ${temporada === t ? 'tama-gacha-temp-btn--ativo' : ''}`}
-                onClick={() => { setTemporada(t); setSorteada(null) }}
+                key={season}
+                className={`tama-gacha-temp-btn ${temporada === season ? 'tama-gacha-temp-btn--ativo' : ''}`}
+                onClick={() => { setTemporada(season); setSorteada(null) }}
                 disabled={girando}
               >
-                {t === 1 ? t('games.tamagoshi.gacha_temporada_1') : t('games.tamagoshi.gacha_temporada_2')}
+                {season === 1 ? t('games.tamagoshi.gacha_temporada_1') : t('games.tamagoshi.gacha_temporada_2')}
                 <span className="tama-gacha-temp-qtd">{qtd} {t('games.tamagoshi.gacha_criaturas')}</span>
               </button>
             )
