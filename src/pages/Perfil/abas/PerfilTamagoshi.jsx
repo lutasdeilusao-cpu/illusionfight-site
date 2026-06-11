@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../../Tamagoshi/store/useTamagoshiStore'
 import { useNotificationStore } from '../../../store/notificationStore'
 import { supabase } from '../../../lib/supabase'
@@ -10,6 +11,7 @@ import { BADGES } from '../../Tamagoshi/data/moedas'
 import './PerfilTamagoshi.css'
 
 export default function PerfilTamagoshi() {
+  const { t } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useTamagoshiStore()
