@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.51  
-> **Versão do Site:** 9.115  
+> **Versão do Relatório:** 2.52  
+> **Versão do Site:** 9.116  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -18,7 +18,7 @@
    - 5.1 [Lendas do LDI (RPG Narrativo)](#51-lendas-do-ldi-rpg-narrativo)
    - 5.2 [Jack Dream Beer](#52-jack-dream-beer)
    - 5.3 [Pesadelo Particular](#53-pesadelo-particular)
-   - 5.4 [Top Trumps LDI](#54-top-trumps-ldi)
+   - 5.4 [Top Trumps LDI (Super Trunfo PT)](#54-top-trumps-ldi-ldi-super-trunfo-em-pt)
    - 5.5 [Arena LDI](#55-arena-ldi)
    - 5.6 [Arena LDI Tatics](#56-arena-ldi-tatics)
    - 5.7 [Duelo LDI](#57-duelo-ldi)
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.115 |
+| **Versão Atual** | 9.116 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -109,7 +109,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/mundo` | Lore do Universo | ✅ **Completo** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
-| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Central com cards para todos os jogos |
+| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Jogos reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo |
 | `/leaderboard` | Ranking Global | ✅ **Completo** | ✅ PT/EN/ES | Ranking do sistema |
 | `/quiz` | Quiz SDR | ✅ **Completo** | ✅ PT/EN/ES | 3 modos de jogo, banco de perguntas |
 | `/loja` | Loja Virtual | ✅ **Completo** | ✅ PT/EN/ES | Produtos físicos + digitais + Stripe |
@@ -393,7 +393,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ---
 
-### 5.4 Top Trumps LDI
+### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
 **Versão Single:** 5.8.0  
 **Versão MP:** 5.6.0  
@@ -430,7 +430,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 ### 5.5 Arena LDI
 
 **Versão:** 1.17.1  
-**Fichas:** Sim (🔒)  
+**Status:** 🔴 **ARQUIVADO** — Jogo fechado. Card movido para segunda posição no hub de games com badge ARQUIVADO.  
+**Fichas:** N/A  
 **Rota base:** `/games/ldi-arena`
 
 #### Screens
@@ -455,7 +456,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **96%**  
+**Status Geral:** 🔴 **ARQUIVADO**  
 **Melhorias v1.17.1:**
 - 📱 **Scroll power select** — tela de Preparar Poderes agora rola em telas pequenas com scrollbar invisível
 

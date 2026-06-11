@@ -26,10 +26,10 @@ export default function Home() {
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/" />
-        <link rel="alternate" hreflang="en" href="https://illusionfight.com/" />
-        <link rel="alternate" hreflang="es" href="https://illusionfight.com/" />
-        <link rel="alternate" hreflang="x-default" href="https://illusionfight.com/" />
+        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/" />
+        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/" />
+        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/" />
+        <link rel="alternate" hrefLang="x-default" href="https://illusionfight.com/" />
       </Helmet>
       <HeroSlideshow />
       <LatestEpisodes />

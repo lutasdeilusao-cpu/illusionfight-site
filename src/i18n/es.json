@@ -582,7 +582,8 @@
         "lancado": "LANZADO",
         "novo": "NUEVO",
         "beta": "BETA",
-        "em_breve": "PRÓXIMAMENTE"
+        "em_breve": "PRÓXIMAMENTE",
+        "fechado": "ARCHIVADO"
       },
       "nomes": {
         "ldi": "LDI LEYENDAS",

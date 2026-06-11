@@ -17,9 +17,9 @@ export default function Autor() {
         <meta property="og:url" content="https://illusionfight.com/autor" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="alternate" hreflang="pt" href="https://illusionfight.com/autor" />
-        <link rel="alternate" hreflang="en" href="https://illusionfight.com/autor" />
-        <link rel="alternate" hreflang="es" href="https://illusionfight.com/autor" />
+        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/autor" />
+        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/autor" />
+        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/autor" />
       </Helmet>
       <section className="autor">
         <div className="container">

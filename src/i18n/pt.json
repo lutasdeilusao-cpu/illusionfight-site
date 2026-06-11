@@ -582,7 +582,8 @@
         "lancado": "LANÇADO",
         "novo": "NOVO",
         "beta": "BETA",
-        "em_breve": "EM BREVE"
+        "em_breve": "EM BREVE",
+        "fechado": "ARQUIVADO"
       },
       "nomes": {
         "ldi": "LDI LENDAS",
@@ -590,7 +591,7 @@
         "pesadelo": "PRESADELO PARTICULAR",
         "arena": "LDI ARENA",
         "tama": "TAMA LDI",
-        "trumps": "LDI TRUMPS",
+        "trumps": "LDI SUPER TRUNFO",
         "tatics": "LDI TATICS",
         "minigames": "MINI GAMES",
         "duelo": "DUELO LDI",
