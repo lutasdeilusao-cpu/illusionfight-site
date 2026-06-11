@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
-*Versão: 9.113*  |  `[SITE] versão carregada: 9.113`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.16.0 — Fix HTML tags vitoria_sub + delay 800ms matchResult p/ animação HP bar
-*Versão: 9.112*  |  `[SITE] versão carregada: 9.112`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.15.0 — SFX completo na criação de ficha (atributos, elemental, vant/desv/perícias) + scroll mobile + botão voltar duplicado removido
+*Versão: 9.114*  |  `[SITE] versão carregada: 9.114`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.17.0 — Botão voltar → escolher oponente + BackToGamesBtn power select + delay 1200ms + i18n escolher_oponente
+*Versão: 9.113*  |  `[SITE] versão carregada: 9.113`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.15.0 — SFX completo na criação de ficha (atributos, elemental, vant/desv/perícias) + scroll mobile + botão voltar duplicado removido
 *Versão: 9.110*  |  `[SITE] versão carregada: 9.110`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.14.2 — Botões Voltar padronizados com BackToGamesBtn + navegação corrigida para o lobby
 *Versão: 9.107*  |  `[SITE] versão carregada: 9.107`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.2 — hotfix: DramaticDice loop infinito (display no array de dependências)
 *Versão: 9.106*  |  `[SITE] versão carregada: 9.106`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.1 — DramaticDice: duração 1.5-2s, som de tick a cada batida, desaceleração cúbica suave
@@ -96,6 +96,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.17.0* | `[ARENA] versão carregada: 1.17.0` (Botão voltar → escolher oponente + BackToGamesBtn power select + delay 1200ms)
 *ARENA versão: 1.16.0* | `[ARENA] versão carregada: 1.16.0` (Fix HTML tags vitoria_sub + delay 800ms matchResult p/ HP bar)
 *ARENA versão: 1.15.2* | `[ARENA] versão carregada: 1.15.2` (Limite 3pts desvantagens + SFX notificação nas mensagens da IA)
 *ARENA versão: 1.15.1* | `[ARENA] versão carregada: 1.15.1` (Scrollbar invisível)

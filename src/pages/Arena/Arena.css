@@ -846,6 +846,13 @@
   box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
+.arena-power-footer-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
 /* ===== VICTORY ===== */
 .arena-victory { padding: 40px 20px; text-align: center; }
 .arena-victory-header { margin-bottom: 20px; }

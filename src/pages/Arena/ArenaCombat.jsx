@@ -6,6 +6,7 @@ import { calcFA, calcFD, calcDamage, calcInitiative } from '../LDI/engine/combat
 import { POWERS_BY_ELEMENTAL } from '../LDI/data/powersData'
 import trashTalkNPCs from './data/trash_talk.json'
 import { sfx } from '../../lib/sfx'
+import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import DramaticDice from './components/DramaticDice'
 import './Arena.css'
 
@@ -410,7 +411,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
 
-        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => setMatchResult('victory'), 800); return }
+        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => setMatchResult('victory'), 1200); return }
 
         if (nEPv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')
@@ -462,7 +463,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
 
-        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setTimeout(() => setMatchResult('defeat'), 800); return }
+        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setTimeout(() => setMatchResult('defeat'), 1200); return }
 
         if (nPPv <= isR && !saidNearDeath.current) {
           saidNearDeath.current = true; addTrashWithDelay('player_near_death')
@@ -561,9 +562,12 @@ export default function ArenaCombat({ onNavigate }) {
             <span className="arena-power-counter">
               {t('games.arena.selecionados', { n: selectedPowers.length })}
             </span>
-            <button className="arena-btn-primary" onClick={() => { sfx.click(); setShowPowerSelect(false) }}>
-              {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
+            <div className="arena-power-footer-btns">
+              <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} />
+              <button className="arena-btn-primary" onClick={() => { sfx.click(); setShowPowerSelect(false) }}>
+                {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
             </button>
+            </div>
           </div>
         </div>
       </div>

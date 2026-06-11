@@ -88,8 +88,15 @@ export default function ArenaLobby({ onNavigate }) {
   useEffect(() => {
     if (!user) return
     store.loadSheets(user.id).then(data => {
-      setSheets(Array.isArray(data) ? data : [])
+      const list = Array.isArray(data) ? data : []
+      setSheets(list)
       setLoading(false)
+      // Se voltou de uma partida com ficha carregada, auto-mostra seleção de oponente
+      const currentSheet = store.sheet
+      if (currentSheet?.id) {
+        const match = list.find(s => s.id === currentSheet.id)
+        if (match) setShowEnemies(match)
+      }
     })
   }, [user])
 

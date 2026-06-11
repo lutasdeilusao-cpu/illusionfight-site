@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
-> **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.49  
-> **Versão do Site:** 9.113  
+> **Data:** 2026-06-11  
+> **Versão do Relatório:** 2.50  
+> **Versão do Site:** 9.114  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.113 |
+| **Versão Atual** | 9.114 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.16.0  
+**Versão:** 1.17.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -455,7 +455,14 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **95%**  
+**Status Geral:** ✅ **96%**  
+**Melhorias v1.17.0:**
+- 🔘 **Botão voltar corrigido** — tela de vitória/derrota agora usa `escolher_oponente` e navega para o lobby (seleção de oponente) em vez de `/games`
+- 🏠 **BackToGamesBtn no power select** — tela de preparar poderes agora tem botão voltar
+- ⏱️ **Delay aumentado para 1200ms** — matchResult espera a animação da HP bar completar
+- 🌐 **i18n** — nova chave `escolher_oponente` adicionada em pt/en/es
+- 🤖 **Auto enemy select** — lobby detecta ficha carregada pós-partida e vai direto pra seleção de oponente
+
 **Melhorias v1.16.0:**
 - 🐛 **Fix HTML tags** — `vitoria_sub` agora usa `dangerouslySetInnerHTML` para renderizar o `<strong>` corretamente
 - ⏱️ **Delay matchResult** — vitória/derrota só aparece 800ms depois, tempo para a animação da HP bar terminar
