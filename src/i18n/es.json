@@ -1746,7 +1746,26 @@
       "brincadeira_perdeu": "¡casi!",
       "brincadeira_ganhou_desc": "¡a la criatura le encantó jugar contigo!",
       "brincadeira_perdeu_desc": "intenta de nuevo o practica en Minijuegos!",
-      "brincadeira_mais_puzzles": "+ puzzles"
+      "brincadeira_mais_puzzles": "+ puzzles",
+
+      "termo": {
+        "titulo": "TÉRMINO DE RESPONSABILIDAD",
+        "intro": "Antes de continuar, lea con atención. Un Tamagoshi es un ser vivo digital. Depende de ti para sobrevivir.",
+        "regra_alimentar": "Debes alimentarlo regularmente",
+        "regra_higiene": "Debes mantenerlo limpio",
+        "regra_passear": "Debes sacarlo a pasear",
+        "regra_brincar": "Debes jugar con él",
+        "regra_saude": "Debes cuidar su salud",
+        "aviso_morte": "Si descuidas a tu Tamagoshi y muere, no podrás crear otro durante 6 meses.",
+        "aviso_cooldown": "Tendrás que esperar 6 meses antes de adoptar uno nuevo.",
+        "aviso_vida": "Tu Tamagoshi vivirá hasta 1 año. Después de ese período, seguirá adelante.",
+        "aviso_fama": "Cuando tu Tamagoshi parta, entrará al Salón de la Fama y será recordado para siempre.",
+        "btn_li": "LEÍ Y ENTIENDO LOS TÉRMINOS",
+        "confirmacao_titulo": "¿ESTÁS SEGURO?",
+        "confirmacao_texto": "Un Tamagoshi necesita atención diaria. ¿Estás listo para esta responsabilidad?",
+        "btn_aceitar": "SÍ, ACEPTO LA RESPONSABILIDAD",
+        "btn_recusar": "Aún no estoy listo"
+      }
     },
     "pesadelo": {
       "titulo": "PESADILLA PARTICULAR",

@@ -70,7 +70,7 @@ function calcDecaimento(state, horas) {
     return {
       fome: novaFome, higiene: novaHigiene, energia: novaEnergia, humor: novoHumor, saude: novaSaude,
       status: 'morto', _criticoDesde: criticoDesde, _ultimoUpdate: Date.now(),
-      fase: 'luto', cooldownAte: Date.now() + 24 * 60 * 60 * 1000,
+      fase: 'luto', cooldownAte: Date.now() + 180 * 24 * 60 * 60 * 1000,
     }
   }
 
@@ -129,6 +129,11 @@ export const useTamagoshiStore = create((set, get) => ({
   },
 
   setAdmin: (val) => set({ _isAdmin: val }),
+
+  setFlags: (flags) => {
+    set({ flags })
+    get().saveToCloud(get()._userId)
+  },
 
   eclodir: () => {
     set({ fase: 'selecao' })
@@ -577,10 +582,11 @@ export const useTamagoshiStore = create((set, get) => ({
     const { data: badges } = await supabase.from('tamagoshi_badges')
       .select('badge_id').eq('user_id', uid).eq('criatura_id', state.criaturaId)
     const badgeIds = (badges || []).map(b => b.badge_id)
+    const diasVividos = state.nascidoEm ? Math.floor((Date.now() - state.nascidoEm) / 86400000) : 0
     await supabase.from('tamagoshi_fama').insert({
       user_id: uid, criatura_id: state.criaturaId,
       nome_custom: state.nomeCustom, fase_final: 'anciao',
-      badges: badgeIds,
+      badges: badgeIds, dias_vividos: diasVividos, motivo: 'partida',
     })
     const badge = BADGES.partida
     const { data: existente } = await supabase.from('tamagoshi_badges')

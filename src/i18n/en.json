@@ -1746,7 +1746,26 @@
       "brincadeira_perdeu": "so close!",
       "brincadeira_ganhou_desc": "the creature loved playing with you!",
       "brincadeira_perdeu_desc": "try again or practice in Minigames!",
-      "brincadeira_mais_puzzles": "+ puzzles"
+      "brincadeira_mais_puzzles": "+ puzzles",
+
+      "termo": {
+        "titulo": "TERM OF RESPONSIBILITY",
+        "intro": "Before continuing, please read carefully. A Tamagoshi is a digital living being. It depends on you to survive.",
+        "regra_alimentar": "You must feed it regularly",
+        "regra_higiene": "You must keep it clean",
+        "regra_passear": "You must take it for walks",
+        "regra_brincar": "You must play with it",
+        "regra_saude": "You must take care of its health",
+        "aviso_morte": "If you neglect your Tamagoshi and it dies, you will not be able to create another for 6 months.",
+        "aviso_cooldown": "You will need to wait 6 months before adopting a new one.",
+        "aviso_vida": "Your Tamagoshi will live up to 1 year. After that, it will move on.",
+        "aviso_fama": "When your Tamagoshi departs, it will enter the Hall of Fame and be remembered forever.",
+        "btn_li": "I HAVE READ AND UNDERSTAND THE TERMS",
+        "confirmacao_titulo": "ARE YOU SURE?",
+        "confirmacao_texto": "A Tamagoshi needs daily attention. Are you ready for this responsibility?",
+        "btn_aceitar": "YES, I ACCEPT THE RESPONSIBILITY",
+        "btn_recusar": "I'm not ready yet"
+      }
     },
     "pesadelo": {
       "titulo": "PARTICULAR NIGHTMARE",

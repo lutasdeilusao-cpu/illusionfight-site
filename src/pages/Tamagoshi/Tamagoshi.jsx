@@ -9,6 +9,7 @@ import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import { useTamagoshiStore } from './store/useTamagoshiStore'
 import { supabase } from '../../lib/supabase'
 import { calcularFase } from './data/moedas'
+import Termo from './screens/Termo'
 import Ovo from './screens/Ovo'
 import Selecao from './screens/Selecao'
 import Criatura from './screens/Criatura'
@@ -31,6 +32,7 @@ export default function Tamagoshi() {
   const store = useTamagoshiStore()
   const lastUserId = useRef(undefined)
   const [subFase, setSubFase] = useState(null)
+  const [mostrarTermo, setMostrarTermo] = useState(false)
 
   const userTier = perfil?.role || 'free'
   const isAdmin = perfil?.is_admin === true || user?.email === 'isaiasgamedev@gmail.com' || user?.email === 'gramikgames@gmail.com'
@@ -42,6 +44,11 @@ export default function Tamagoshi() {
     store.setAdmin(isAdmin)
     store.loadFromCloud(uid, 1).then(() => {
       store.carregarSlots(uid)
+      // Verificar se termo de responsabilidade já foi aceito
+      const flags = store.flags || {}
+      if (!flags.termo_aceito) {
+        setMostrarTermo(true)
+      }
       // Lazy evaluation: aplica decaimento baseado em horas desde última sessão
       if (horasDesdeUltimaSessao > 0) {
         store.aplicarDecaimento(horasDesdeUltimaSessao)
@@ -114,12 +121,21 @@ export default function Tamagoshi() {
     navigate('/games')
   }
 
+  const handleTermoAceitar = () => {
+    setMostrarTermo(false)
+  }
+
+  const handleTermoRecusar = () => {
+    setMostrarTermo(false)
+    navigate('/games')
+  }
+
   const handleNovaAdocao = async () => {
     store.reset()
     if (store._userId) {
       await supabase.from('tamagoshi_saves').update({
         status: 'morto', fase: 'luto',
-        cooldown_ate: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+        cooldown_ate: new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toISOString(),
       }).eq('user_id', store._userId).eq('slot', store._slot || 1)
     }
   }
@@ -133,6 +149,16 @@ export default function Tamagoshi() {
   if (subFase === 'saude') return <div className="tama-body"><div className="tama-content"><RestaurarSaude onConcluir={handleVoltar} /></div></div>
   if (subFase === 'loja') return <div className="tama-body"><div className="tama-content"><Loja onVoltar={handleVoltar} /></div></div>
   if (subFase === 'gacha') return <div className="tama-body"><div className="tama-content"><Gacha onConcluir={handleGachaConcluir} onVoltar={handleVoltar} /></div></div>
+
+  if (mostrarTermo) {
+    return (
+      <div className="tama-body">
+        <div className="tama-content">
+          <Termo onVoltar={handleTermoRecusar} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="tama-body">

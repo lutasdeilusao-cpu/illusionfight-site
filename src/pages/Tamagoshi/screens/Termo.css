@@ -1,0 +1,107 @@
+/* ── Termo de Responsabilidade ── */
+/* Dark, sério, sem elementos lúdicos. Fonte menor. Peso visual intencional. */
+
+.tama-termo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  color: #ccc;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.tama-termo-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e0d5c1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tama-termo-intro {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+}
+
+.tama-termo-regras {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+  max-width: 420px;
+  width: 100%;
+}
+
+.tama-termo-regras li {
+  padding: 0.35rem 0;
+  color: #bbb;
+  font-size: 0.82rem;
+}
+
+.tama-termo-regras li::before {
+  content: '• ';
+  color: #777;
+}
+
+.tama-termo-avisos {
+  margin-bottom: 2rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.tama-termo-avisos p {
+  padding: 0.3rem 0;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.tama-termo-btn {
+  background: transparent;
+  border: 1px solid #666;
+  color: #ddd;
+  padding: 0.7rem 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tama-termo-btn:hover {
+  border-color: #999;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tama-termo-btn-recusar {
+  background: transparent;
+  border: 1px solid #553333;
+  color: #aa7777;
+  padding: 0.7rem 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tama-termo-btn-recusar:hover {
+  border-color: #884444;
+  color: #cc8888;
+  background: rgba(255, 0, 0, 0.04);
+}
+
+.tama-termo-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
