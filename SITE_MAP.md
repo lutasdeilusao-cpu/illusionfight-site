@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.0.0*  |  `[SITE] versão carregada: 10.0.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  🚀 **Lançamento oficial da plataforma!** v10.0.0 — Novo ciclo de versionamento
 *Versão: 9.117*  |  `[SITE] versão carregada: 9.117`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → Mini → Tactics/Duelo; novas taglines pt/en/es
 *Versão: 9.116*  |  `[SITE] versão carregada: 9.116`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo; fix hreflang → hrefLang
 *Versão: 9.115*  |  `[SITE] versão carregada: 9.115`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.17.1 — Scroll power select com barra invisível
@@ -599,7 +600,7 @@
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ FINALIZADO | ✅ PT ✅ EN ✅ ES | 36 faixas oficiais, shuffle ao carregar, links para todas as plataformas |
 
-> **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Faltam as thumbs oficiais** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
+> **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
 | `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.7.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |

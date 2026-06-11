@@ -1,10 +1,11 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.53  
-> **Versão do Site:** 9.117  
+> **Versão do Relatório:** 2.55  
+> **Versão do Site:** 10.0.0  
 > **Domínio:** https://illusionfight.com/  
-> **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
+> **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
+> **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
 
 ---
 
@@ -51,7 +52,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.117 |
+| **Versão Atual** | 10.0.0 🚀 |
+| **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -225,9 +227,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.1 Lendas do LDI (RPG Narrativo)
 
-**Versão:** 1.0.62  
+**Versão:** 2.0.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/ldi/*`
+
+> 🌐 **i18n completo:** scenes, manual, powers, char data, creation flow pt/en/es
 
 #### Screens
 
@@ -347,9 +351,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.3 Pesadelo Particular
 
-**Versão:** 1.7.1  
+**Versão:** 2.2.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/pesadelo`
+
+> 🌐 **i18n completo:** casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es
 
 #### Screens
 
@@ -518,10 +524,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.6 Arena LDI Tatics
 
-**Versão:** 7.0.0  
+**Versão:** 7.3.0  
 **Fichas:** Sim  
 **Rota base:** `/games/ldi-tatics`  
-**Versão:** 7.3.0  
 **Acesso:** 🔒 **Pós-lançamento** — apenas admins (multiplayer pendente)
 
 > 🎯 **O jogo mais complexo e ambicioso do portal**
@@ -635,7 +640,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Componente | Status |
 |---|---|
-| `Board` (Grid 8×8) | ✅ Completo |
+| `Board` (Grid 10×10) | ✅ Completo |
 | `Hand` | ✅ Completo |
 | `Card` (MOV/RNG) | ✅ Completo |
 | `CardSlot` | ✅ Completo |
@@ -654,7 +659,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `ai.js` (IA posicionamento grid) | ✅ Completo |
 | `deck.js` | ✅ Completo |
 | `effects.js` (grid buffs) | ✅ Completo |
-| `gameState.js` (grid 5×5, MOV, RNG) | ✅ Completo |
+| `gameState.js` (grid 10×10, MOV, RNG) | ✅ Completo |
 | `phases.js` (COMPRA→INVOCAR→AÇÃO→MAGIA→FIM) | ✅ Completo |
 
 #### Cartas (conforme GDD v1.0)
@@ -681,13 +686,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
----
-
-### 5.8 Tamagoshi LDI
-
-**Versão:** 1.23.1  
+**Versão:** 1.26.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
+
+> 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es
 
 #### Screens (12 telas)
 
@@ -762,9 +765,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.9 MiniGames ✅ **FINALIZADO — 100%**
 
-**Versão:** 1.8.0  
+**Versão:** 2.0.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/minigames`
+
+> 🌐 **i18n completo:** todos os puzzles traduzidos pt/en/es
 
 #### Jogos Incluídos
 
@@ -871,7 +876,7 @@ capitulo-04 ao 16: publicado: false ❌
 
 **Projeto:** `dvxfrzixtetdzmdrzkpx.supabase.co`
 
-#### Migrations (12 arquivos)
+#### Migrations (16 arquivos)
 
 | Migration | Descrição | Status |
 |---|---|---|
@@ -888,6 +893,10 @@ capitulo-04 ao 16: publicado: false ❌
 | `011_arena_tatics_roster.sql` | Roster Tatics | ✅ Aplicada |
 | `012_tatics_card_pool.sql` | Cartas + evolução (v7.0) | ✅ Aplicada |
 | `013_fichas_tables.sql` | Tabelas fichas | ✅ Aplicada |
+| `013_pesadelo_saves.sql` | Pesadelo saves | ✅ Aplicada |
+| `014_toptrumps_decks_builder.sql` | Top Trumps deck builder | ✅ Aplicada |
+| `015_profiles_last_seen_at.sql` | Profiles last_seen_at | ✅ Aplicada |
+| `017_drop_tamagoshi_tables.sql` | Drop Tamagoshi tables obsoletas | ✅ Aplicada |
 
 > ⚠️ **Observação:** Migrations 001-003 não estão no repositório (existem apenas no banco remoto)
 
@@ -986,12 +995,15 @@ capitulo-04 ao 16: publicado: false ❌
 
 | Arquivo | Tamanho | Status |
 |---|---|---|
-| `pt.json` (Site PT) | 66.6KB | ✅ Completo |
-| `en.json` (Site EN) | 64.4KB | ✅ Completo |
-| `es.json` (Site ES) | 67.4KB | ✅ Completo |
-| `pp_pt.json` (PP PT) | 6.6KB | ✅ Completo |
-| `pp_en.json` (PP EN) | 6.4KB | ✅ Completo |
-| `pp_es.json` (PP ES) | 6.7KB | ✅ Completo |
+| `pt.json` (Site PT) | ~117KB | ✅ Completo |
+| `en.json` (Site EN) | ~111KB | ✅ Completo |
+| `es.json` (Site ES) | ~117KB | ✅ Completo |
+| `pp_pt.json` (PP PT) | ~6.6KB | ✅ Completo |
+| `pp_en.json` (PP EN) | ~6.3KB | ✅ Completo |
+| `pp_es.json` (PP ES) | ~6.6KB | ✅ Completo |
+| `arena-trash-en.json` | ~20.5KB | ✅ Falas trash talk EN |
+| `arena-trash-es.json` | ~20.7KB | ✅ Falas trash talk ES |
+| `cardLabels.js` | ~1.3KB | ✅ Rótulos de cartas i18n |
 
 ### 10.2 Status de Tradução por Área
 
@@ -1234,6 +1246,8 @@ STATUS: ✅ limpo
 
 O código fonte está sólido. Faltam assets e decisões de cronograma de lançamento.
 
+> 🗓️ **Lançamento oficial da plataforma marcado para 14 de Setembro de 2026**
+
 ---
 
-*Relatório gerado em 2026-06-09 — v2.1 — por GitHub Copilot (DeepSeek V4 Flash)*
+*Relatório gerado em 2026-06-11 — v2.55 — por GitHub Copilot (DeepSeek V4 Flash)*
