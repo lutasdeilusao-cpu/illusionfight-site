@@ -20,6 +20,17 @@ import ninkaSick from '../../../assets/images/tamagoshi/02/ninka-sick.png'
 import ninkaSleepy from '../../../assets/images/tamagoshi/02/ninka-sleepy.png'
 import ninkaPresentation from '../../../assets/images/tamagoshi/02/ninka-presentation.png'
 
+import kroumIdle from '../../../assets/images/tamagoshi/03/kroum-idle.png'
+import kroumHungry from '../../../assets/images/tamagoshi/03/kroum-hungry.png'
+import kroumEnjoy from '../../../assets/images/tamagoshi/03/kroum-enjoy.png'
+import kroumHappy from '../../../assets/images/tamagoshi/03/kroum-happy.png'
+import kroumAbandoned from '../../../assets/images/tamagoshi/03/kroum-abandoned.png'
+import kroumAnger from '../../../assets/images/tamagoshi/03/kroum-anger.png'
+import kroumDirty from '../../../assets/images/tamagoshi/03/kroum-dirty.png'
+import kroumSick from '../../../assets/images/tamagoshi/03/kroum-sick.png'
+import kroumSleepy from '../../../assets/images/tamagoshi/03/kroum-sleepy.png'
+import kroumPresentation from '../../../assets/images/tamagoshi/03/kroum-presentation.png'
+
 const KRONIKI_SPRITE = {
   imagem: kronikiIdle,
   gifs: {
@@ -49,6 +60,22 @@ const NINKA_SPRITE = {
     doente: ninkaSick,
     sonolento: ninkaSleepy,
     apresentacao: ninkaPresentation,
+  },
+}
+
+const KROUM_SPRITE = {
+  imagem: kroumIdle,
+  gifs: {
+    idle: kroumIdle,
+    comendo: kroumHungry,
+    satisfeito: kroumEnjoy,
+    feliz: kroumHappy,
+    abandonado: kroumAbandoned,
+    raiva: kroumAnger,
+    sujo: kroumDirty,
+    doente: kroumSick,
+    sonolento: kroumSleepy,
+    apresentacao: kroumPresentation,
   },
 }
 
@@ -91,11 +118,13 @@ const CRIATURAS_BASE = [
   { id: 'conkrito',    nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    temporada: 2, emoji: '🐰' },
   { id: 'tatuki',      nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
   { id: 'ninka',       nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
+  { id: 'kroum',       nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
 ]
 
 // Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback
 const SPRITE_MAP = {
   ninka: NINKA_SPRITE,
+  kroum: KROUM_SPRITE,
 }
 
 export const CRIATURAS = CRIATURAS_BASE.map(c => ({

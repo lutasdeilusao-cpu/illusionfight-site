@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.90  
-> **Versão do Site:** 10.24.0  
+> **Versão do Relatório:** 2.91  
+> **Versão do Site:** 10.25.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -65,7 +65,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | **Total de Cartas Duelo** | 68 cartas (5 novas 6★) |
 | **Total de Cartas Top Trumps** | 105 cartas |
 | **Total de Casos (Pesadelo Particular)** | 20 casos |
-| **Total de Criaturas Tamagoshi** | 30 criaturas |
+| **Total de Criaturas Tamagoshi** | 32 criaturas |
 | **Total de Personagens (Tatics Roster)** | 20 personagens |
 | **Total de Minigames** | 8 jogos |
 | **Total de Puzzles** | 6 tipos |
@@ -726,12 +726,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.35.0  
+**Versão:** 1.36.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **T1 — Temporadas:** 11 criaturas da temporada 1 ativas na seleção (ninka adicionada)  
+> 🎮 **T1 — Temporadas:** 12 criaturas da temporada 1 ativas na seleção (kroum adicionado)  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
 > 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
@@ -758,7 +758,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Arquivo | Status | Conteúdo |
 |---|---|---|
-| `criaturas.js` | ✅ **v1.35.0** | **31 criaturas** (ninka adicionada com sprite próprio) |
+| `criaturas.js` | ✅ **v1.36.0** | **32 criaturas** (kroum adicionado com sprite próprio) |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
 | `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
@@ -804,10 +804,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente todas usam o sprite do **Kroniki** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.  
+**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente 3 criaturas possuem sprite próprio: **Kroniki** (10 estados), **Ninka** (10 estados), **Kroum** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.  
 **v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.  
 **v1.33.0** — Fix: Gacha shadow bug (variável `t` do `.map()` colidia com função `t()` de tradução). Renomeado "Gacha" → "Sorteio" (pt) / "Raffle" (en) / "Sorteo" (es). Botão "🎮 Jogar Tamagoshi" adicionado no Perfil.  
-**v1.34.0** — Fix: texto vazio no Perfil (`"você ainda não tem um tamagoshi."`) trocado por botão "🥚 Ir pegar seu Tamagoshi" (3 línguas) para contas novas.
+**v1.34.0** — Fix: texto vazio no Perfil (`"você ainda não tem um tamagoshi."`) trocado por botão "🥚 Ir pegar seu Tamagoshi" (3 línguas) para contas novas.  
+**v1.35.0** — Ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha.  
+**v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.
 
 ---
 
