@@ -1,0 +1,260 @@
+/* ============================================================
+   DramaticDice.css — Tela de dado dramática para LDI Arena
+   ============================================================ */
+
+.dramatic-dice-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.dramatic-dice-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(10, 5, 20, 0.92) 0%, rgba(0, 0, 0, 0.97) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dramatic-dice-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 1;
+  user-select: none;
+}
+
+/* Rótulo superior */
+.dramatic-dice-label {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 22px;
+  letter-spacing: 6px;
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(0, 180, 216, 0.6),
+    0 0 40px rgba(0, 180, 216, 0.3),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Palco do dado */
+.dramatic-dice-stage {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glow atrás do dado */
+.dramatic-dice-glow {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 180, 216, 0.25) 0%, transparent 70%);
+  animation: dramatic-glow-pulse 2s ease-in-out infinite;
+  transition: background 0.5s ease;
+}
+
+.dramatic-dice-glow--critico {
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.45) 0%, rgba(245, 166, 35, 0.1) 50%, transparent 70%);
+  animation: dramatic-glow-pulse-critico 0.8s ease-in-out infinite;
+}
+
+@keyframes dramatic-glow-pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes dramatic-glow-pulse-critico {
+  0%, 100% { transform: scale(0.85); opacity: 0.8; filter: brightness(1); }
+  50% { transform: scale(1.2); opacity: 1; filter: brightness(1.5); }
+}
+
+/* O dado em si */
+.dramatic-dice-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border: 2px solid rgba(0, 180, 216, 0.4);
+  box-shadow:
+    0 0 30px rgba(0, 180, 216, 0.2),
+    inset 0 0 30px rgba(0, 180, 216, 0.05);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dramatic-dice-box--rolling {
+  border-color: rgba(0, 180, 216, 0.6);
+  box-shadow:
+    0 0 40px rgba(0, 180, 216, 0.3),
+    inset 0 0 30px rgba(0, 180, 216, 0.08);
+}
+
+.dramatic-dice-box--reveal {
+  border-color: rgba(0, 180, 216, 0.8);
+  box-shadow:
+    0 0 50px rgba(0, 180, 216, 0.4),
+    inset 0 0 30px rgba(0, 180, 216, 0.1);
+}
+
+.dramatic-dice-box--critico {
+  border-color: rgba(245, 166, 35, 0.8);
+  box-shadow:
+    0 0 60px rgba(245, 166, 35, 0.5),
+    0 0 100px rgba(245, 166, 35, 0.2),
+    inset 0 0 30px rgba(245, 166, 35, 0.15);
+  animation: dramatic-critico-shake 0.4s ease-in-out 2;
+}
+
+@keyframes dramatic-critico-shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  25% { transform: translateX(-6px) rotate(-3deg); }
+  50% { transform: translateX(4px) rotate(2deg); }
+  75% { transform: translateX(-2px) rotate(-1deg); }
+}
+
+/* Número dentro do dado */
+.dramatic-dice-emoji {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.dramatic-dice-number {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: #e0e0e0;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  min-width: 50px;
+  text-align: center;
+}
+
+.dramatic-dice-number--final {
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(0, 180, 216, 0.3);
+}
+
+.dramatic-dice-number--critico {
+  color: #F5A623;
+  text-shadow:
+    0 0 20px rgba(245, 166, 35, 0.8),
+    0 0 40px rgba(245, 166, 35, 0.4),
+    0 0 80px rgba(245, 166, 35, 0.2);
+  animation: dramatic-number-pulse 0.6s ease-in-out infinite;
+}
+
+@keyframes dramatic-number-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Partículas */
+.dramatic-dice-particles {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dramatic-dice-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Subtexto dramático */
+.dramatic-dice-subtext {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dramatic-dice-subtext--critico {
+  color: #F5A623;
+  font-weight: 700;
+  text-shadow:
+    0 0 20px rgba(245, 166, 35, 0.6),
+    0 0 40px rgba(245, 166, 35, 0.3);
+  letter-spacing: 3px;
+}
+
+/* Barra de progresso sutil no rodapé */
+.dramatic-dice-progress {
+  width: 200px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00B4D8, #F5A623);
+  transform-origin: left center;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   Responsivo
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .dramatic-dice-label {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+
+  .dramatic-dice-stage {
+    width: 160px;
+    height: 160px;
+  }
+
+  .dramatic-dice-box {
+    width: 110px;
+    height: 110px;
+  }
+
+  .dramatic-dice-emoji {
+    font-size: 32px;
+  }
+
+  .dramatic-dice-number {
+    font-size: 40px;
+    min-width: 40px;
+  }
+
+  .dramatic-dice-subtext {
+    font-size: 15px;
+  }
+
+  .dramatic-dice-progress {
+    width: 160px;
+  }
+}

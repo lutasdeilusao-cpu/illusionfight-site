@@ -6,6 +6,7 @@ import { calcFA, calcFD, calcDamage, calcInitiative } from '../LDI/engine/combat
 import { POWERS_BY_ELEMENTAL } from '../LDI/data/powersData'
 import trashTalkNPCs from './data/trash_talk.json'
 import { sfx } from '../../lib/sfx'
+import DramaticDice from './components/DramaticDice'
 import './Arena.css'
 
 const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
@@ -129,6 +130,7 @@ export default function ArenaCombat({ onNavigate }) {
   const [damageFloat, setDamageFloat] = useState(null)
 
   const [diceOn, setDiceOn] = useState(null)
+  const [dramaticDice, setDramaticDice] = useState(null)
   const [onomaCurrent, setOnomaCurrentState] = useState(null)
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
@@ -269,6 +271,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = null
     setDiceOn(null)
+    setDramaticDice(null)
     setOnomaCurrentState(null)
     setTurnOverlay(false)
     setFlashOn(false)
@@ -327,7 +330,6 @@ export default function ArenaCombat({ onNavigate }) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')
         }
 
-        setDiceOn(null)
         fireOnoma(mode)
         stepRef.current = 1
         chatQueue.current.then(() => { timerRef.current = setTimeout(nextStep, 1800) })
@@ -343,13 +345,19 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 2 → overlay terminou, mostra dado do inimigo
+      // 2 → overlay terminou, mostra dado do inimigo com DramaticDice
       case 2: {
         setTurnOverlay(false)
         sfx.select()
-        setDiceOn(d.eDado)
         stepRef.current = 3
-        timerRef.current = setTimeout(nextStep, 2200)
+        setDramaticDice({
+          finalValue: d.eDado,
+          side: 'enemy',
+          onComplete: () => {
+            setDramaticDice(null)
+            nextStep()
+          }
+        })
         break
       }
 
@@ -374,7 +382,6 @@ export default function ArenaCombat({ onNavigate }) {
           saidNearDeath.current = true; addTrashWithDelay('player_near_death')
         }
 
-        setDiceOn(null)
         setFlashOn(false)
         fireOnoma(d.eMode)
         stepRef.current = 4
@@ -426,9 +433,15 @@ export default function ArenaCombat({ onNavigate }) {
 
     setAtkDisabled(true)
     sfx.select()
-    setDiceOn(fa.roll)
     stepRef.current = 0
-    timerRef.current = setTimeout(nextStep, 2200)
+    setDramaticDice({
+      finalValue: fa.roll,
+      side: 'player',
+      onComplete: () => {
+        setDramaticDice(null)
+        nextStep()
+      }
+    })
   }
 
   if (!enemy) return null
@@ -486,6 +499,15 @@ export default function ArenaCombat({ onNavigate }) {
 
   return (
     <div className="arena-combat arena-container">
+
+      {/* DramaticDice — sobrepõe tudo durante a rolagem de dado */}
+      {dramaticDice && (
+        <DramaticDice
+          finalValue={dramaticDice.finalValue}
+          side={dramaticDice.side}
+          onComplete={dramaticDice.onComplete}
+        />
+      )}
 
       <AnimatePresence>
         {flashOn && (
