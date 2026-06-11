@@ -1,6 +1,23 @@
 import { create } from 'zustand'
 import { supabase } from '../../../lib/supabase'
 
+/**
+ * Retorna o limite máximo de fichas de personagem por tier.
+ */
+export function limiteFichasPorTier(tier) {
+  if (tier === 'primordial') return 5
+  if (tier === 'elite') return 3
+  return 1 // ranqueado / free / null
+}
+
+/**
+ * Verifica se o usuário pode criar uma nova ficha dado o total atual.
+ */
+export function podeCriarFicha(perfil, totalFichas) {
+  const limite = limiteFichasPorTier(perfil?.tier)
+  return totalFichas < limite
+}
+
 const defaultSheet = () => ({
   id: null,
   sheet_name: '',

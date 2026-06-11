@@ -1107,3 +1107,66 @@
   .arena-match-result-sub { font-size: 15px; }
   .arena-match-result-btn { padding: 12px 36px; font-size: 16px; }
 }
+
+/* ===== LIMITE DE FICHAS ===== */
+.arena-limit-counter {
+  font-size: 10px;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.arena-new-sheet--blocked {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 8px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.01);
+  color: #444;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  position: relative;
+}
+
+.arena-em-breve-tag {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #666;
+  border: 1px solid #444;
+  padding: 2px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== MULTIPLAYER GATE ===== */
+.arena-mp-blocked {
+  width: 100%;
+  max-width: 560px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.01);
+  color: #444;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  position: relative;
+}

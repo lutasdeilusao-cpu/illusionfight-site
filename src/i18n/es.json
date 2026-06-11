@@ -1301,6 +1301,18 @@
           "recuperacao": { "name": "Recuperación", "desc": "Recupera 1 PM." },
           "sobrecarga": { "name": "Sobrecarga", "desc": "Sobrecarga tus circuitos. Próximo ataque causa +3 de daño." }
         }
+      },
+      "limite": {
+        "titulo": "LÍMITE DE FICHAS",
+        "fichas_usadas": "{n}/{limite} fichas",
+        "bloqueado_free": "Usuarios Ranqueado/FREE solo pueden crear 1 ficha.",
+        "bloqueado_elite": "Has alcanzado el límite de fichas para tu plan. Haz upgrade para crear más.",
+        "upgrade": "MEJORAR PLAN",
+        "erro_criar": "Límite de fichas alcanzado."
+      },
+      "multiplayer_titulo": "MULTIJUGADOR",
+      "multiplayer": {
+        "apenas_elite": "Disponible para suscriptores Élite y Primordial"
       }
     },
     "toptrumps": {

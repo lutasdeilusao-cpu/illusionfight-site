@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
-import { useArenaStore } from './store/useArenaStore'
+import { useArenaStore, limiteFichasPorTier, podeCriarFicha } from './store/useArenaStore'
 import ArenaXpBar from './components/ArenaXpBar'
 import enemiesData from './data/arena-enemies.json'
 import { useNavigate } from 'react-router-dom'
@@ -72,7 +72,7 @@ function NeoGuideIntro({ onShow }) {
 
 export default function ArenaLobby({ onNavigate }) {
   const { t } = useLanguage()
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
   const navigate = useNavigate()
   const store = useArenaStore()
   const [sheets, setSheets] = useState([])
@@ -235,7 +235,14 @@ export default function ArenaLobby({ onNavigate }) {
       <div className="arena-lobby-divider" />
 
       {/* Lista de fichas */}
-      <p className="arena-lobby-section-label">{t('games.arena.suas_fichas')}</p>
+      <div className="arena-lobby-section-label" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span>{t('games.arena.suas_fichas')}</span>
+        {user && (
+          <span className="arena-limit-counter">
+            {t('games.arena.limite.fichas_usadas', { n: sheets.length, limite: limiteFichasPorTier(perfil?.tier) })}
+          </span>
+        )}
+      </div>
 
       {loading ? (
         <div className="arena-lobby-empty">{t('games.arena.carregando')}</div>
@@ -282,11 +289,34 @@ export default function ArenaLobby({ onNavigate }) {
         </div>
       )}
 
-      {/* Nova ficha */}
-      <button className="arena-new-sheet" onClick={() => { sfx.click(); store.newSheet(); onNavigate('create') }}>
-        <span className="arena-new-sheet-icon">+</span>
-        {t('games.arena.nova_ficha')}
-      </button>
+      {/* Nova ficha — bloqueada se atingiu limite */}
+      {user && !podeCriarFicha(perfil, sheets.length) ? (
+        <div className="arena-new-sheet arena-new-sheet--blocked" title={t('games.arena.limite.erro_criar')}>
+          <span className="arena-new-sheet-icon">+</span>
+          {t('games.arena.nova_ficha')}
+          <span className="arena-em-breve-tag">{t('site.games.em_breve')}</span>
+        </div>
+      ) : (
+        <button className="arena-new-sheet" onClick={() => { sfx.click(); store.newSheet(); onNavigate('create') }}>
+          <span className="arena-new-sheet-icon">+</span>
+          {t('games.arena.nova_ficha')}
+        </button>
+      )}
+
+      {/* Multiplayer — gate Elite+ */}
+      <div className="arena-lobby-divider" style={{ margin: '24px auto' }} />
+      <p className="arena-lobby-section-label">{t('games.arena.multiplayer_titulo')}</p>
+      {user && perfil?.tier !== 'elite' && perfil?.tier !== 'primordial' ? (
+        <div className="arena-mp-blocked" title={t('games.arena.multiplayer.apenas_elite')}>
+          <span>{t('games.arena.multiplayer_titulo')}</span>
+          <span className="arena-em-breve-tag">{t('site.games.em_breve')}</span>
+        </div>
+      ) : (
+        <button className="arena-new-sheet" onClick={() => { sfx.click(); /* TODO: navegar para multiplayer */ }}>
+          <span className="arena-new-sheet-icon">🌐</span>
+          {t('games.arena.multiplayer_titulo')}
+        </button>
+      )}
 
       <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} label={t('games.arena.voltar_games')} />
       <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')} style={{ marginTop: '0.5rem', fontSize: 18 }}>

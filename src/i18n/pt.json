@@ -1327,7 +1327,20 @@
         "cê sabe que isso é um jogo né? parece que tá lutando de verdade 😂",
         "olha o dano! olha! isso que é FA de verdade 👊💥",
         "você devia pedir reembolso dessa ficha 💀"
-      ]
+      ],
+
+      "limite": {
+        "titulo": "LIMITE DE FICHAS",
+        "fichas_usadas": "{n}/{limite} fichas",
+        "bloqueado_free": "Usuários Ranqueado/FREE podem criar apenas 1 ficha.",
+        "bloqueado_elite": "Você atingiu o limite de fichas para seu plano. Faça upgrade para criar mais.",
+        "upgrade": "FAZER UPGRADE",
+        "erro_criar": "Limite de fichas atingido."
+      },
+      "multiplayer_titulo": "MULTIPLAYER",
+      "multiplayer": {
+        "apenas_elite": "Disponível para assinantes Elite e Primordial"
+      }
     },
     "toptrumps": {
       "titulo": "LDI TRUMPS",

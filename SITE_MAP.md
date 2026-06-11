@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.21.0*  |  `[SITE] versão carregada: 10.21.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.23.0 — limite de fichas por tier (Ranqueado:1, Elite:3, Primordial:5) + multiplayer restrito a Elite+
 *Versão: 10.20.0*  |  `[SITE] versão carregada: 10.20.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ PerfilArena corrigido — mostra fichas LDI Arena (não mais Top Trumps)
 *Versão: 10.19.0*  |  `[SITE] versão carregada: 10.19.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Achievements bloqueados para visitantes sem conta — só desbloqueia com login
 *Versão: 10.18.0*  |  `[SITE] versão carregada: 10.18.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.34.0 — fix: texto vazio no Perfil trocado por botão "Ir pegar seu Tamagoshi" (3 línguas)
