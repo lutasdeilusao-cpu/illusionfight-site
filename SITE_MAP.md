@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.2.0*  |  `[SITE] versão carregada: 10.2.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.19.0 — fix XP não acumulando + barra de progresso XP
 *Versão: 10.1.0*  |  `[SITE] versão carregada: 10.1.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.18.0 — elemental removido da criação de ficha + fix dice restart
 *Versão: 10.0.6*  |  `[SITE] versão carregada: 10.0.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ cleanup: remove logs de debug [NINA]/[UNIFIED]; restaura timer para 30s
 *Versão: 9.117*  |  `[SITE] versão carregada: 9.117`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → Mini → Tactics/Duelo; novas taglines pt/en/es

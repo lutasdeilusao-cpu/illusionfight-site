@@ -952,6 +952,8 @@
       "pm": "MP: {n}",
       "xp": "XP: {n}",
       "xp_gain": "+{n} XP",
+      "xp_faltam": "{n} XP until next level",
+      "xp_level_up_ready": "⚡ READY TO LEVEL UP!",
       "novo_oponente": "🔓 NEW OPPONENT UNLOCKED: {name}",
       "sem_fichas": "NO TOKENS",
       "criar_ficha": "CREATE SHEET",

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.62  
-> **Versão do Site:** 10.1.0  
+> **Versão do Relatório:** 2.63  
+> **Versão do Site:** 10.2.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -436,7 +436,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.18.0  
+**Versão:** 1.19.0  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
@@ -463,10 +463,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **96%**  
-**Melhorias v1.18.0:**
-- 🎲 **Fix dice restart** — DramaticDice agora com `key` única para garantir remontagem correta entre turnos, evitando que o dado reinicie a animação após revelar o resultado
-- ❌ **Elemental removido** — escolha de elemental foi removida da criação de ficha; personagem sempre usa `neutro` como padrão
+**Status Geral:** ✅ **97%**  
+**Melhorias v1.19.0:**
+- 🐛 **Fix XP não acumulando** — `gainXp()` nunca era chamado após vitória; agora o XP é concedido corretamente e persiste no Supabase
+- 🐛 **Fix `attribute_points_gained` não persistido** — campo faltava no `saveToCloud()` e no `loadSheets()`, agora level-up persiste entre sessões
+- ✨ **Barra de progresso XP** — novo componente visual na lobby e na tela de vitória com level destacado, barra gradiente animada, contagem XP atual/necessário e quanto falta para o próximo nível
+- 🌐 **i18n** — novas chaves `xp_faltam` e `xp_level_up_ready` adicionadas em pt/en/es
 
 **Melhorias v1.17.1:**
 - 📱 **Scroll power select** — tela de Preparar Poderes agora rola em telas pequenas com scrollbar invisível

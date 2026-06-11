@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
+import ArenaXpBar from './components/ArenaXpBar'
 import { sfx } from '../../lib/sfx'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
@@ -54,9 +55,12 @@ export default function ArenaVictory({ onNavigate }) {
     return () => cancelAnimationFrame(frame)
   }, [fase, pvMax])
 
-  // Desbloquear próximo inimigo na vitória
+  // Ganhar XP + desbloquear próximo inimigo na vitória
   useEffect(() => {
     if (!isVitoria || fase !== 'resultado') return
+    // 1. Ganhar XP (síncrono — Zustand set é sync)
+    store.gainXp(xpGain)
+    // 2. Desbloquear próximo inimigo
     const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
     const nextId = ENEMY_ORDER[defeatedIdx + 1]
     const before = sheet.enemies_unlocked || ['treinamento']
@@ -64,6 +68,7 @@ export default function ArenaVictory({ onNavigate }) {
     if (nextId && !before.includes(nextId)) {
       setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
     }
+    // 3. Persistir no Supabase (pega o state já atualizado)
     setTimeout(() => store.saveToCloud(user?.id), 400)
   }, [fase, isVitoria])
 
@@ -179,6 +184,13 @@ export default function ArenaVictory({ onNavigate }) {
           <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>
             {t('games.arena.xp_gain', { n: xpGain })}
           </motion.div>
+          {/* XP Progress Bar */}
+          <XpProgressBar
+            xpTotal={sheet.xp_total || 0}
+            pointsGained={sheet.attribute_points_gained || 0}
+            t={t}
+            animated
+          />
         </div>
 
         {nextUnlock && (

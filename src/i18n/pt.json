@@ -952,6 +952,8 @@
       "pm": "PM: {n}",
       "xp": "XP: {n}",
       "xp_gain": "+{n} XP",
+      "xp_faltam": "faltam {n} XP para o próximo nível",
+      "xp_level_up_ready": "⚡ PRONTO PARA EVOLUIR!",
       "novo_oponente": "🔓 NOVO OPONENTE DESBLOQUEADO: {name}",
       "sem_fichas": "SEM FICHAS",
       "criar_ficha": "CRIAR FICHA",

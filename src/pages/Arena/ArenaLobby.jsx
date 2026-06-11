@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
+import ArenaXpBar from './components/ArenaXpBar'
 import enemiesData from './data/arena-enemies.json'
 import { useNavigate } from 'react-router-dom'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
@@ -257,9 +258,12 @@ export default function ArenaLobby({ onNavigate }) {
                 </div>
                 <div className="arena-sheet-info">
                   <div className="arena-sheet-name-v">{s.sheet_name}</div>
-                  <div className="arena-sheet-meta">
-                    {t('games.arena.lv', { n: s.level || 1 })} · {s.xp_total || 0} XP
-                  </div>
+                  <ArenaXpBar
+                    xpTotal={s.xp_total || 0}
+                    pointsGained={s.attribute_points_gained || 0}
+                    t={t}
+                    compact
+                  />
                   <div className="arena-sheet-stats">
                     {['F','H','R','A','PdF'].map(attr => (
                       <div key={attr} className="arena-sheet-stat">
