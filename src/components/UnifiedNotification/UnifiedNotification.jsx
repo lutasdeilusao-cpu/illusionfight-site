@@ -25,14 +25,9 @@ export default function UnifiedNotification() {
   const tryPull = useCallback(() => {
     if (current) return
 
-    // ═══════════════════════════════════════════════════
     // PRIORIDADE MÁXIMA: Nina notification (não passa pelo notificationManager)
-    // Não usa sessionStorage — o controle "1x por sessão" é feito pelo sessionRef
-    // no próprio NinaMusicPlayer (que persiste enquanto o componente estiver montado)
-    // ═══════════════════════════════════════════════════
     const ninaPending = window.__ninaPendingNotification
     if (ninaPending && ninaPending.mensagem) {
-      console.log('[UNIFIED] ninaPending encontrada! Exibindo balão da Nina.')
       setCurrent({
         type: 'nina_music',
         data: { mensagem: ninaPending.mensagem, greetingKey: ninaPending.greetingKey },
@@ -41,7 +36,6 @@ export default function UnifiedNotification() {
       setIsClosing(false)
       setTypedText('')
       setTypingDone(false)
-      // Limpa o pendente — só será setada de novo se o componente desmontar e montar
       window.__ninaPendingNotification = null
       return
     }
@@ -107,38 +101,19 @@ export default function UnifiedNotification() {
 
   // Callback do Sim/Não da Nina
   const handleNinaSim = useCallback(() => {
-    console.log('[UNIFIED] handleNinaSim chamado! ninaCbRef.current existe:', !!ninaCbRef.current)
-    if (ninaCbRef.current) {
-      console.log('[UNIFIED] Chamando ninaCbRef.current(true)')
-      ninaCbRef.current(true)
-    } else {
-      console.warn('[UNIFIED] ⚠️ ninaCbRef.current é NULL! Callback não registrado pelo NinaMusicPlayer!')
-    }
+    if (ninaCbRef.current) ninaCbRef.current(true)
     handleClose()
   }, [handleClose])
 
   const handleNinaNao = useCallback(() => {
-    console.log('[UNIFIED] handleNinaNao chamado! ninaCbRef.current existe:', !!ninaCbRef.current)
-    if (ninaCbRef.current) {
-      console.log('[UNIFIED] Chamando ninaCbRef.current(false)')
-      ninaCbRef.current(false)
-    } else {
-      console.warn('[UNIFIED] ⚠️ ninaCbRef.current é NULL! Callback não registrado pelo NinaMusicPlayer!')
-    }
+    if (ninaCbRef.current) ninaCbRef.current(false)
     handleClose()
   }, [handleClose])
 
   // Expõe callback para NinaMusicPlayer se registrar
   useEffect(() => {
-    console.log('[UNIFIED] Registrando window.__ninaNotificationCb como função de registro')
-    window.__ninaNotificationCb = (fn) => {
-      console.log('[UNIFIED] window.__ninaNotificationCb recebeu callback! Registrando em ninaCbRef.current')
-      ninaCbRef.current = fn
-    }
-    return () => {
-      console.log('[UNIFIED] Cleanup: removendo window.__ninaNotificationCb')
-      window.__ninaNotificationCb = undefined
-    }
+    window.__ninaNotificationCb = (fn) => { ninaCbRef.current = fn }
+    return () => { window.__ninaNotificationCb = undefined }
   }, [])
 
   if (!current) return null

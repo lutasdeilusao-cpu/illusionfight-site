@@ -9,28 +9,18 @@ const PLAYLIST_ID = 'PLVAkPvJrHsPZHSvAvGxpiT-yWgyx_qRfK'
 let youtubeApiReady = false
 const readyListeners = []
 window.onYouTubeIframeAPIReady = () => {
-  console.log('[NINA] YouTube IFrame API ready!')
   youtubeApiReady = true
   readyListeners.forEach(fn => fn())
   readyListeners.length = 0
 }
 
 function onYoutubeApi(cb) {
-  if (youtubeApiReady) {
-    console.log('[NINA] YouTube API already ready, executing callback immediately')
-    cb()
-  } else {
-    console.log('[NINA] YouTube API not ready yet, queueing callback. readyListeners.length=', readyListeners.length)
-    readyListeners.push(cb)
-  }
+  if (youtubeApiReady) { cb() }
+  else { readyListeners.push(cb) }
 }
 
 function loadYoutubeApi() {
-  if (document.querySelector('#youtube-api-script')) {
-    console.log('[NINA] YouTube API script already loaded, skipping')
-    return
-  }
-  console.log('[NINA] Loading YouTube IFrame API script...')
+  if (document.querySelector('#youtube-api-script')) return
   const tag = document.createElement('script')
   tag.id = 'youtube-api-script'
   tag.src = 'https://www.youtube.com/iframe_api'
@@ -61,58 +51,30 @@ export default function NinaMusicPlayer() {
   const greetingKey = getGreetingKey(location.pathname)
   const fullHintRef = useRef('')
 
-  console.log('[NINA] Componente montado. greetingKey:', greetingKey, '| step:', step, '| sessionRef:', sessionRef.current)
-
   // Load YouTube API on mount
-  useEffect(() => {
-    console.log('[NINA] useEffect: loadYoutubeApi()')
-    loadYoutubeApi()
-  }, [])
+  useEffect(() => { loadYoutubeApi() }, [])
 
-  // Mostrar balão da Nina após 3s (diretamente, sem usar o notificationManager queue)
+  // Mostrar balão da Nina após 30s (diretamente, sem usar o notificationManager queue)
   useEffect(() => {
-    if (sessionRef.current) {
-      console.log('[NINA] useEffect timer: sessionRef já true, pulando')
-      return
-    }
-    console.log('[NINA] useEffect timer: iniciando timer de 3s...')
+    if (sessionRef.current) return
     const timer = setTimeout(() => {
-      if (sessionRef.current) {
-        console.log('[NINA] setTimeout: sessionRef já true, abortando')
-        return
-      }
+      if (sessionRef.current) return
       const mensagem = t(greetingKey)
-      console.log('[NINA] setTimeout: definindo window.__ninaPendingNotification | msg:', mensagem)
 
-      // Define a notificação pendente diretamente (sem passar pelo notificationManager)
-      window.__ninaPendingNotification = {
-        mensagem,
-        greetingKey,
-      }
+      window.__ninaPendingNotification = { mensagem, greetingKey }
 
-      // Registra callback para quando o usuário responder na UnifiedNotification
       if (typeof window.__ninaNotificationCb === 'function') {
-        console.log('[NINA] setTimeout: Registrando callback via window.__ninaNotificationCb')
         window.__ninaNotificationCb((resposta) => {
-          console.log('[NINA] ✅ Callback disparado! resposta:', resposta)
-          // Limpa a notificação pendente
           window.__ninaPendingNotification = null
           if (resposta) {
-            console.log('[NINA] Usuário respondeu SIM → chamando handleSim()')
             handleSim()
           } else {
-            console.log('[NINA] Usuário respondeu NÃO → chamando handleNao()')
             handleNao()
           }
         })
-      } else {
-        console.warn('[NINA] ⚠️ window.__ninaNotificationCb NÃO é função! type:', typeof window.__ninaNotificationCb)
       }
-    }, 3000) // 3s para debug (antes era 30000)
-    return () => {
-      console.log('[NINA] cleanup do timer')
-      clearTimeout(timer)
-    }
+    }, 30000)
+    return () => clearTimeout(timer)
   }, [greetingKey, t])
 
   // Typewriter effect for hint
@@ -155,46 +117,28 @@ export default function NinaMusicPlayer() {
 
   // Create YouTube container outside React's tree so React never reconciles it
   useEffect(() => {
-    console.log('[NINA] useEffect: criando container YouTube #nina-youtube-player')
     const div = document.createElement('div')
     div.id = 'nina-youtube-player'
     div.className = 'nina-youtube-iframe'
     document.body.appendChild(div)
     iframeRef.current = div
-    console.log('[NINA] Container criado:', div.outerHTML)
     return () => {
-      console.log('[NINA] cleanup: destruindo container YouTube')
       const player = playerRef.current
       if (player && player.destroy) {
-        try {
-          console.log('[NINA] destruindo player YouTube...')
-          player.destroy()
-        } catch (_) { /* ignore */ }
+        try { player.destroy() } catch (_) { /* ignore */ }
       }
       if (document.body.contains(div)) document.body.removeChild(div)
     }
   }, [])
 
   const handlePlayerError = useCallback((e) => {
-    console.warn('[NINA] ⚠️ YouTube player error:', e)
+    console.warn('[NINA] YouTube player error:', e)
   }, [])
 
   const initPlayer = useCallback(() => {
-    console.log('[NINA] initPlayer() chamado | playerReadyRef:', playerReadyRef.current)
-    if (playerReadyRef.current) {
-      console.log('[NINA] initPlayer: player já está pronto, ignorando')
-      return
-    }
+    if (playerReadyRef.current) return
     onYoutubeApi(() => {
-      console.log('[NINA] onYoutubeApi callback executado | playerReadyRef:', playerReadyRef.current)
-      if (playerReadyRef.current) {
-        console.log('[NINA] onYoutubeApi: player já pronto (double check), ignorando')
-        return
-      }
-      console.log('[NINA] Criando new YT.Player...')
-      console.log('[NINA] window.YT disponível:', typeof window.YT !== 'undefined')
-      console.log('[NINA] window.YT.Player disponível:', typeof window.YT?.Player !== 'undefined')
-      console.log('[NINA] Container #nina-youtube-player existe:', !!document.getElementById('nina-youtube-player'))
+      if (playerReadyRef.current) return
       try {
         const player = new window.YT.Player('nina-youtube-player', {
           height: '1', width: '1',
@@ -206,88 +150,53 @@ export default function NinaMusicPlayer() {
           },
           events: {
             onReady: () => {
-              console.log('[NINA] 🎯 YT.Player onReady!')
               playerReadyRef.current = true
-              console.log('[NINA] Chamando setShuffle(true)...')
               player.setShuffle(true)
               playerRef.current = player
-              console.log('[NINA] Chamando playVideo()...')
               player.playVideo()
-              console.log('[NINA] setPlaying(true)')
               setPlaying(true)
             },
             onStateChange: (e) => {
-              const stateNames = {
-                [-1]: 'UNSTARTED', 0: 'ENDED', 1: 'PLAYING',
-                2: 'PAUSED', 3: 'BUFFERING', 5: 'CUED'
-              }
-              console.log('[NINA] YT.Player onStateChange:', stateNames[e.data] || e.data, '| initialShuffleRef:', initialShuffleRef.current)
-              // Skip the first (unshuffled) video once, then never again
               if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
-                console.log('[NINA] Primeiro PLAYING detectado → pulando para próximo vídeo (shuffle)')
                 initialShuffleRef.current = true
                 const p = playerRef.current
                 setTimeout(() => {
-                  try {
-                    console.log('[NINA] nextVideo()...')
-                    p.nextVideo()
-                  } catch (_) { /* ignore */ }
+                  try { p.nextVideo() } catch (_) { /* ignore */ }
                 }, 500)
               }
             },
-            onError: (e) => {
-              console.warn('[NINA] ⚠️ YT.Player onError:', e)
-              handlePlayerError(e)
-            },
+            onError: handlePlayerError,
           },
         })
-        console.log('[NINA] YT.Player criado com sucesso!')
-        playerRef.current = player
       } catch (err) {
-        console.warn('[NINA] ❌ erro ao criar YT.Player:', err)
-        console.warn('[NINA] Detalhes do erro:', err.message, err.stack)
+        console.warn('[NINA] erro ao criar player:', err)
       }
     })
   }, [handlePlayerError])
 
   const handleSim = () => {
-    console.log('[NINA] handleSim() chamado!')
     setStep('hint')
     setShowHint(true)
     sessionRef.current = true
-    console.log('[NINA] handleSim: chamando initPlayer()...')
     initPlayer()
-    console.log('[NINA] handleSim: setTimeout para setStep player em 100ms')
-    setTimeout(() => {
-      console.log('[NINA] setTimeout: setStep("player")')
-      setStep('player')
-    }, 100)
+    setTimeout(() => setStep('player'), 100)
   }
 
   const handleNao = () => {
-    console.log('[NINA] handleNao() chamado')
     setStep('idle')
     sessionRef.current = true
   }
 
   const togglePlay = () => {
     const player = playerRef.current
-    if (!player || !playerReadyRef.current) {
-      console.log('[NINA] togglePlay: player não pronto', { player: !!player, ready: playerReadyRef.current })
-      return
-    }
-    console.log('[NINA] togglePlay:', playing ? 'pauseVideo' : 'playVideo')
+    if (!player || !playerReadyRef.current) return
     if (playing) { player.pauseVideo() } else { player.playVideo() }
     setPlaying(!playing)
   }
 
   const handleClose = () => {
-    console.log('[NINA] handleClose() chamado')
     const player = playerRef.current
-    if (player && playerReadyRef.current) {
-      console.log('[NINA] handleClose: pausando vídeo')
-      player.pauseVideo()
-    }
+    if (player && playerReadyRef.current) player.pauseVideo()
     setPlaying(false)
     setStep('idle')
     sessionRef.current = true

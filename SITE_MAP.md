@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
-*Versão: 10.0.5*  |  `[SITE] versão carregada: 10.0.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  🐛 fix: remove sessionStorage do UnifiedNotification — bloqueava Nina quando usuário navegava na mesma aba
+*Versão: 10.0.6*  |  `[SITE] versão carregada: 10.0.6`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ cleanup: remove logs de debug [NINA]/[UNIFIED]; restaura timer para 30s
 *Versão: 9.117*  |  `[SITE] versão carregada: 9.117`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → Mini → Tactics/Duelo; novas taglines pt/en/es
 *Versão: 9.116*  |  `[SITE] versão carregada: 9.116`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo; fix hreflang → hrefLang
 *Versão: 9.115*  |  `[SITE] versão carregada: 9.115`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.17.1 — Scroll power select com barra invisível
