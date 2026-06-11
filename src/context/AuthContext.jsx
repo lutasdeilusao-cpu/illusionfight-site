@@ -33,7 +33,6 @@ export function AuthProvider({ children }) {
         .update({ last_seen_at: agora.toISOString() })
         .eq('id', userId)
 
-      console.log(`[Sessão] ${horasPassadas.toFixed(1)}h desde última sessão`)
       return horasPassadas
     } catch (e) {
       console.error('[Sessão] erro ao registrar:', e)
@@ -97,7 +96,7 @@ export function AuthProvider({ children }) {
 
   async function garantirDeckInicial(userId) {
     const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', userId).limit(1)
-    if (data && data.length > 0) { console.log('[Auth] deck já existe, pulando criação'); return }
+    if (data && data.length > 0) { return }
     const locale = localStorage.getItem('ldi-locale') || 'pt'
     const mod = await import(/* @vite-ignore */ 
       locale === 'en' ? '../data/supertrunfo-en.json' :

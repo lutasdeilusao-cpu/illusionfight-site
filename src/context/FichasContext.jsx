@@ -29,7 +29,6 @@ export function FichasProvider({ children }) {
     const fichasPorRole = { free: 100, elite: 10, primordial: 30, moderator: 10, admin: 999 }
     const rolePerfil = profileData?.role || 'free'
     setFichasDiariasState(fichasPorRole[rolePerfil] || 3)
-    console.log('[FICHAS] role:', rolePerfil, '| is_admin:', profileData?.is_admin, '| fichas/dia:', fichasPorRole[rolePerfil] || 3)
     if (adminFlag) { setLoading(false); return }
     const { data } = await supabase.from('fichas').select('*').eq('user_id', user.id).maybeSingle()
     if (data) {

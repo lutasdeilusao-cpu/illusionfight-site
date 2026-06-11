@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.30.0*  |  `[SITE] versão carregada: 10.30.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Cleanup: removidos spam logs [FICHAS], [Sessão], [Auth] do console (AuthContext, FichasContext)
 *Versão: 10.29.0*  |  `[SITE] versão carregada: 10.29.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.11.0 — Refactor: ranking/leaderboard extraído para useLeaderboardDB (compartilhado com Arena)
 *Versão: 10.28.0*  |  `[SITE] versão carregada: 10.28.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.10.0 — Fix: botoes VOLTAR (menu/report) vao ao menu correto, botao DESISTIR na batalha com modal de confirmacao, sem cartas repetidas nos decks
 *Versão: 10.27.0*  |  `[SITE] versão carregada: 10.27.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.9.0 — Ranking mensal ranqueado (global/BR, limite 5 partidas/dia) + Leaderboard reformulado com dados reais do Supabase
