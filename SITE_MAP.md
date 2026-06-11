@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.34.0*  |  `[SITE] versão carregada: 10.34.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.25.1 — fix: TypeError getState na tela de vitória + Tama v1.38.1 — fix: pet persistence (termo não reaparece, dados não são deletados)
 *Versão: 10.33.0*  |  `[SITE] versão carregada: 10.33.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Leaderboard — abas Quiz e Geral removidas (eram placeholders "EM BREVE" sem lógica)
 *Versão: 10.32.0*  |  `[SITE] versão carregada: 10.32.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.38.0 — Ranking de Cuidadores mensal real no Leaderboard (tabela tamagoshi_ranking, cap 20pts/dia, login ilimitado)
 *Versão: 10.31.0*  |  `[SITE] versão carregada: 10.31.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.25.0 — Leaderboard: aba LDI Arena com ranking real do Supabase + RankingSection componentizado + pontuação conectada ao ArenaVictory

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 3.3  
-> **Versão do Site:** 10.32.0  
+> **Versão do Relatório:** 3.4  
+> **Versão do Site:** 10.34.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.32.0 ✅ |
+| **Versão Atual** | 10.34.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -439,7 +439,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.25.0  
+**Versão:** 1.25.1  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒) — **limitado por tier**  
 **Rota base:** `/games/ldi-arena`
@@ -467,6 +467,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.25.1:**
+- 🐛 **Fix crash pós-vitória** — `TypeError: i.getState is not a function` corrigido: `store.getState()` → `useArenaStore.getState()`
 **Melhorias v1.25.0:**
 - 🏆 **Leaderboard da Arena** — nova aba "LDI ARENA" no Leaderboard com ranking real do Supabase (tabela `arena_ranking`)
 - ♻️ **RankingSection componentizado** — componente `RankingSection` reutilizável para Top Trumps e Arena
@@ -731,7 +733,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.38.0  
+**Versão:** 1.38.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
@@ -818,6 +820,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.  
 **v1.37.0** — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs (participam do Gacha).  
 **v1.37.1** — Fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis).  
+**v1.38.1** — Fix: pet persistence — termo não reaparece após reload + dados não são deletados pela segurança corrompida (auto-corrige flags em vez de resetar).
 **v1.38.0** — Ranking de Cuidadores mensal real no Leaderboard (tabela `tamagoshi_ranking`, cap 20pts/dia em ações, login sem cap).
 
 ---

@@ -364,17 +364,14 @@ export const useTamagoshiStore = create((set, get) => ({
       .maybeSingle()
 
     if (!error && data) {
-      // 🛡️ SEGURANÇA: Se tem criatura_id mas NÃO aceitou o termo, 
-      //      são dados corrompidos pelo bug anterior (saveToCloud salvou
-      //      estado de outro usuário). Resetar para estado padrão.
+      // 🛡️ SEGURANÇA: Se tem criatura_id mas NÃO aceitou o termo,
+      //      auto-corrige os flags em vez de deletar (o termo foi aceito antes).
       const temCriatura = !!data.criatura_id
       const termoAceito = data.flags?.termo_aceito === true
       if (temCriatura && !termoAceito) {
-        console.warn('[TAMA] dados corrompidos detectados (criatura sem termo aceito) — deletando e resetando')
-        await supabase.from('tamagoshi_saves').delete().eq('user_id', userId).eq('slot', slot)
-        get().reset()
-        set({ _userId: userId, _slot: slot, flags: {} })
-        return null
+        console.warn('[TAMA] dados corrompidos detectados (criatura sem termo aceito) — auto-corrigindo flags')
+        data.flags = { ...(data.flags || {}), termo_aceito: true }
+        await supabase.from('tamagoshi_saves').update({ flags: data.flags }).eq('user_id', userId).eq('slot', slot)
       }
 
       // 3. MERGE: localStorage tem as barras reais, Supabase tem os metadados

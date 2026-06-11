@@ -79,7 +79,7 @@ export default function ArenaVictory({ onNavigate }) {
     // 1. Ganhar XP (síncrono — Zustand set é sync)
     const pointsAntes = sheet.attribute_points_gained || 0
     store.gainXp(xpGain)
-    const pointsDepois = (store.getState().sheet?.attribute_points_gained) || 0
+    const pointsDepois = (useArenaStore.getState().sheet?.attribute_points_gained) || 0
     if (pointsDepois > pointsAntes) {
       const novoNivel = pointsDepois + 1
       registrarEvento('arena_levelup', `Subiu para nível ${novoNivel} na Arena`, novoNivel)
