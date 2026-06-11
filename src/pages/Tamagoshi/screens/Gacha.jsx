@@ -45,7 +45,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
     setSorteada(null)
     setAceita(false)
 
-    if (!store._isAdmin && saldo < DIX_GACHA) {
+    if (!store._isAdmin && !primeiroGiroGratis && saldo < DIX_GACHA) {
       setErro(t('games.tamagoshi.gacha_saldo_insuficiente'))
       return
     }

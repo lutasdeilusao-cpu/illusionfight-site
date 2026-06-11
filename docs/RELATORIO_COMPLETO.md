@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.93  
-> **Versão do Site:** 10.25.2  
+> **Versão do Relatório:** 2.94  
+> **Versão do Site:** 10.25.3  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -726,12 +726,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.37.0  
+**Versão:** 1.37.1  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis) — kroniki (#1), ninka (#2), kroum (#3) no topo  
+> 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis ✅ fix: não barrava por falta de DIX)  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  
 > 📜 **Termo de Responsabilidade:** tela de aceitação obrigatória antes do primeiro acesso, com flag persistida no Supabase
@@ -811,7 +811,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **v1.35.0** — Ninka: sprite próprio (10 estados) + criatura adicionada ao Gacha.  
 **v1.36.0** — Kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha.  
 **v1.36.1** — Fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio.  
-**v1.37.0** — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs (participam do Gacha).
+**v1.37.0** — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs (participam do Gacha).  
+**v1.37.1** — Fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis).
 
 ---
 
