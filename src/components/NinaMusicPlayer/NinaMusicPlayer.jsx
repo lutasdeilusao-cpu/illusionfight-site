@@ -44,25 +44,33 @@ export default function NinaMusicPlayer() {
   const playerRef = useRef(null)
   const iframeRef = useRef(null)
   const playerReadyRef = useRef(false)
-  const sessionRef = useRef(false)
+  const sessionRef = useRef(sessionStorage.getItem('nina_prompt_shown') === 'true')
   const initialShuffleRef = useRef(false)
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
   const fullHintRef = useRef('')
+  const timerRef = useRef(null)
 
   // Load YouTube API on mount
   useEffect(() => { loadYoutubeApi() }, [])
 
-  // Mostrar balão da Nina após 30s (diretamente, sem usar o notificationManager queue)
+  // Mostrar balão da Nina após 30s (apenas UMA vez por sessão)
   useEffect(() => {
+    // Se já foi respondido nesta sessão, não faz nada
     if (sessionRef.current) return
+
+    // Se o player já está visível ou música tocando, não mostra prompt
+    if (step === 'player') return
+
     const timer = setTimeout(() => {
       if (sessionRef.current) return
-      const mensagem = t(greetingKey)
+      if (step === 'player') return
 
+      const mensagem = t(greetingKey)
       window.__ninaPendingNotification = { mensagem, greetingKey }
 
+      // O callback será chamado pelo UnifiedNotification quando usuário responder
       if (typeof window.__ninaNotificationCb === 'function') {
         window.__ninaNotificationCb((resposta) => {
           window.__ninaPendingNotification = null
@@ -74,8 +82,9 @@ export default function NinaMusicPlayer() {
         })
       }
     }, 30000)
+    timerRef.current = timer
     return () => clearTimeout(timer)
-  }, [greetingKey, t])
+  }, [greetingKey, t, step])
 
   // Typewriter effect for hint
   useEffect(() => {
@@ -174,17 +183,22 @@ export default function NinaMusicPlayer() {
     })
   }, [handlePlayerError])
 
+  const markSessionDone = useCallback(() => {
+    sessionRef.current = true
+    sessionStorage.setItem('nina_prompt_shown', 'true')
+  }, [])
+
   const handleSim = () => {
     setStep('hint')
     setShowHint(true)
-    sessionRef.current = true
+    markSessionDone()
     initPlayer()
     setTimeout(() => setStep('player'), 100)
   }
 
   const handleNao = () => {
     setStep('idle')
-    sessionRef.current = true
+    markSessionDone()
   }
 
   const togglePlay = () => {
@@ -194,12 +208,24 @@ export default function NinaMusicPlayer() {
     setPlaying(!playing)
   }
 
+  const nextTrack = () => {
+    const player = playerRef.current
+    if (!player || !playerReadyRef.current) return
+    try { player.nextVideo() } catch (_) { /* ignore */ }
+  }
+
+  const prevTrack = () => {
+    const player = playerRef.current
+    if (!player || !playerReadyRef.current) return
+    try { player.previousVideo() } catch (_) { /* ignore */ }
+  }
+
   const handleClose = () => {
     const player = playerRef.current
     if (player && playerReadyRef.current) player.pauseVideo()
     setPlaying(false)
     setStep('idle')
-    sessionRef.current = true
+    markSessionDone()
   }
 
   // Click outside balloon to close (after 2.5s)
@@ -253,9 +279,11 @@ export default function NinaMusicPlayer() {
               {playing ? '♫' : '♪'}
             </span>
           </div>
+          <button className="nina-player-prev" onClick={prevTrack} title="Música anterior">⏮</button>
           <button className="nina-player-play" onClick={togglePlay}>
             {playing ? '⏸' : '▶'}
           </button>
+          <button className="nina-player-next" onClick={nextTrack} title="Próxima música">⏭</button>
         </div>
       )}
     </>

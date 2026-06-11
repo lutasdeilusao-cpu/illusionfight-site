@@ -255,3 +255,26 @@
   background: var(--accent-pink, #ff6b9d);
   color: var(--bg-primary);
 }
+
+.nina-player-prev,
+.nina-player-next {
+  background: transparent;
+  border: 1px solid var(--accent-pink, #ff6b9d);
+  color: var(--accent-pink, #ff6b9d);
+  font-size: 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.nina-player-prev:hover,
+.nina-player-next:hover {
+  background: var(--accent-pink, #ff6b9d);
+  color: var(--bg-primary);
+}
