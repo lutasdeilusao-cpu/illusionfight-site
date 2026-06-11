@@ -128,9 +128,14 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const toggleFromList = (key, item) => {
     const list = s[key] || []
     const exists = list.find(x => x.label === item.label)
-    if (exists) sfx.cancel()
-    else sfx.select()
-    store.updateSheet({ [key]: exists ? list.filter(x => x.label !== item.label) : [...list, item] })
+    if (exists) { sfx.cancel(); store.updateSheet({ [key]: list.filter(x => x.label !== item.label) }); return }
+    // Desvantagens: máximo 3 pontos acumulados
+    if (key === 'disadvantages') {
+      const currentGain = (s.disadvantages || []).reduce((sum, x) => sum + (x.gain || 0), 0)
+      if (currentGain + (item.gain || 0) > 3) return
+    }
+    sfx.select()
+    store.updateSheet({ [key]: [...list, item] })
   }
 
   const costMap = (list) => list.reduce((sum, x) => sum + (x.cost || x.gain || 0), 0)

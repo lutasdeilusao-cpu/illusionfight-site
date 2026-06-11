@@ -249,6 +249,7 @@ export default function ArenaCombat({ onNavigate }) {
     const eInit = calcInitiative({ attributes: enemy.stats })
     const eName = t('games.arena.enemy_names.' + enemy.id) || enemy.name
     setLog([{ type: 'system', text: t('games.arena.log_iniciativa', { pInit, enemyName: eName, eInit }), id: Date.now() }])
+    sfx.notification()
     saidNearDeath.current = false
     saidEnemyLow.current = false
     npcPersonality.current = trashTalkNPCs[Math.floor(Math.random() * trashTalkNPCs.length)]
@@ -298,7 +299,7 @@ export default function ArenaCombat({ onNavigate }) {
     const senderName = (npc && t('games.arena.npc_names.' + npc.id)) || (enemy && t('games.arena.enemy_names.' + enemy.id)) || enemy?.name || '???'
     chatQueue.current = chatQueue.current.then(async () => {
       await delay(600)
-      sfx.message()
+      sfx.notification()
       const text = `${senderName}: ${line}`
       const typingTime = Math.min(300 + text.length * 18, 1800)
       setLog(l => [...l, { type: 'trash', text: '__typing__', id: Date.now() + '-typing', sender: { name: senderName, initial: (senderName[0] || '?').toUpperCase(), side: 'enemy' } }])

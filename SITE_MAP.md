@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.112*  |  `[SITE] versão carregada: 9.112`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.15.2 — Limite 3pts desvantagens + SFX notificação nas mensagens da IA (trash talk e sistema)
 *Versão: 9.111*  |  `[SITE] versão carregada: 9.111`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.15.0 — SFX completo na criação de ficha (atributos, elemental, vant/desv/perícias) + scroll mobile + botão voltar duplicado removido
 *Versão: 9.110*  |  `[SITE] versão carregada: 9.110`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.14.2 — Botões Voltar padronizados com BackToGamesBtn + navegação corrigida para o lobby
 *Versão: 9.107*  |  `[SITE] versão carregada: 9.107`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.2 — hotfix: DramaticDice loop infinito (display no array de dependências)
