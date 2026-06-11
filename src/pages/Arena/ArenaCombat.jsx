@@ -31,12 +31,12 @@ function pickTrash(arr) {
 /** Toca um som de ataque aleatório entre 6 variantes */
 function playAttackSfx() {
   const attacks = [
-    sfx.attackSlash,
-    sfx.attackHeavy,
-    sfx.attackQuick,
-    sfx.attackEnergy,
-    sfx.attackCritical,
-    sfx.attackPunch,
+    () => sfx.attackSlash(),
+    () => sfx.attackHeavy(),
+    () => sfx.attackQuick(),
+    () => sfx.attackEnergy(),
+    () => sfx.attackCritical(),
+    () => sfx.attackPunch(),
   ]
   const pick = attacks[Math.floor(Math.random() * attacks.length)]
   pick()
