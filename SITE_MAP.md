@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.4.0*  |  `[SITE] versão carregada: 10.4.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.20.0 — power name reveal + power SFX + TTS voice antes do DramaticDice
 *Versão: 10.3.0*  |  `[SITE] versão carregada: 10.3.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Nina Player: botões ⏮/⏭ (próxima/anterior) + fix prompt aparecendo repetidamente (sessionStorage + guard step)
 *Versão: 10.2.0*  |  `[SITE] versão carregada: 10.2.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.19.0 — fix XP não acumulando + barra de progresso XP
 *Versão: 10.1.0*  |  `[SITE] versão carregada: 10.1.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.18.0 — elemental removido da criação de ficha + fix dice restart
@@ -102,6 +103,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.20.0* | `[ARENA] versão carregada: 1.20.0` (Power name reveal + power SFX + TTS voice)
 *ARENA versão: 1.18.0* | `[ARENA] versão carregada: 1.18.0` (Elemental removido + dice restart fix)
 *ARENA versão: 1.17.1* | `[ARENA] versão carregada: 1.17.1` (Scroll power select com barra invisível)
 *ARENA versão: 1.17.0* | `[ARENA] versão carregada: 1.17.0` (Botão voltar → escolher oponente + BackToGamesBtn power select + delay 1200ms)

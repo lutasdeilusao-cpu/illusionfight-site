@@ -7,9 +7,9 @@ import './DramaticDice.css'
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
  * com efeito cinematográfico (começa rápido, desacelera, revela o número).
  *
- * @param {{ finalValue: number, side: 'player'|'enemy', onComplete: () => void }} props
+ * @param {{ finalValue: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string }} props
  */
-export default function DramaticDice({ finalValue, side, onComplete }) {
+export default function DramaticDice({ finalValue, side, onComplete, powerName }) {
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
@@ -131,6 +131,18 @@ export default function DramaticDice({ finalValue, side, onComplete }) {
         <div className="dramatic-dice-bg" />
 
         <div className="dramatic-dice-container">
+          {/* Nome do poder (se houver) — aparece antes da label */}
+          {powerName && (
+            <motion.div
+              className="dramatic-dice-powername"
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.05, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
+            >
+              ⚡ {powerName} ⚡
+            </motion.div>
+          )}
+
           {/* Rótulo: ROLL DO JOGADOR / ROLL DO INIMIGO */}
           <motion.div
             className="dramatic-dice-label"

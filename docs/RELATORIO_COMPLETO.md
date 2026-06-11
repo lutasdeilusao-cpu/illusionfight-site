@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.65  
-> **Versão do Site:** 10.3.0  
+> **Versão do Relatório:** 2.66  
+> **Versão do Site:** 10.4.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.3.0 ✅ |
+| **Versão Atual** | 10.4.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -436,7 +436,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.19.1  
+**Versão:** 1.20.0  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
@@ -464,6 +464,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.20.0:**
+- ✨ **Power name reveal** — ao usar um poder, o nome do golpe aparece em tela cheia com fonte Impact antes do DramaticDice rolar
+- 🔊 **Power SFX** — novo som dramático de "hadouken" (ascendente + explosão) ao ativar poder
+- 🗣️ **TTS Voice** — voz sintetizada fala o nome do poder em inglês (aleatório entre vozes EN disponíveis)
+- ✨ **DramaticDice** — exibe o nome do poder durante a rolagem do dado dramático
+
 **Melhorias v1.19.1:**
 - 🐛 **Hotfix: criação de fichas quebrada** — `attribute_points_gained` não existia como coluna no Supabase; `saveToCloud()` e `loadSheets()` falhavam silenciosamente. Agora o valor é **derivado do `xp_total`** via `derivePointsFromXp()` ao carregar do banco
 **Melhorias v1.19.0:**

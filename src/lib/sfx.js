@@ -309,6 +309,62 @@ class SFX {
     this._tone(1200, 0.04, 'sine', 0.03, 0.03)
   }
 
+  /** Power / Habilidade — som dramático de "hadouken" carregando */
+  powerUsage() {
+    const ctx = this._getCtx()
+    if (!ctx || !this.enabled) return
+    const now = ctx.currentTime
+
+    // Rumble ascendente grave
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+    osc.type = 'sawtooth'
+    osc.frequency.setValueAtTime(80, now)
+    osc.frequency.exponentialRampToValueAtTime(400, now + 0.35)
+    gain.gain.setValueAtTime(0.12, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4)
+    osc.connect(gain).connect(ctx.destination)
+    osc.start(now)
+    osc.stop(now + 0.4)
+
+    // Harmônicos brilhantes no meio
+    this._tone(600, 0.15, 'triangle', 0.08, 0.08)
+    this._tone(900, 0.1, 'sine', 0.06, 0.12)
+    this._tone(1200, 0.08, 'sine', 0.04, 0.18)
+
+    // Ruído de explosão no final
+    this._noise(0.15, 0.1, 0.25)
+
+    // Sub grave no final — o "golpe"
+    this._tone(60, 0.3, 'sine', 0.18, 0.3)
+  }
+
+  /** Voz sintetizada — fala o nome do poder (apenas inglês) */
+  speakPowerName(powerName) {
+    if (!this.enabled) return
+    try {
+      if (!window.speechSynthesis) return
+      // Cancela qualquer fala anterior
+      window.speechSynthesis.cancel()
+
+      const utterance = new SpeechSynthesisUtterance(powerName)
+      utterance.lang = 'en-US'
+      utterance.rate = 0.85    // mais lento pra soar épico
+      utterance.pitch = 0.9    // um pouco grave
+      utterance.volume = 0.7
+
+      // Tenta pegar uma voz inglesa aleatória entre as disponíveis
+      const voices = window.speechSynthesis.getVoices()
+      const enVoices = voices.filter(v => v.lang.startsWith('en'))
+      if (enVoices.length > 0) {
+        const pick = enVoices[Math.floor(Math.random() * enVoices.length)]
+        utterance.voice = pick
+      }
+
+      window.speechSynthesis.speak(utterance)
+    } catch (_) { /* fallback silencioso se TTS não suportado */ }
+  }
+
   /** Som de digitação (texto aparecendo) */
   typing() {
     this._tone(600, 0.02, 'triangle', 0.02)

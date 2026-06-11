@@ -190,6 +190,52 @@ function MatchResult({ result, t, enemyName, onNext }) {
   )
 }
 
+/**
+ * PowerReveal — Tela cheia que mostra o nome do poder antes do dado rolar.
+ * Aparece por ~1.2s com o nome do golpe em estilo Impact, depois chama onDone.
+ */
+function PowerReveal({ powerName, onDone }) {
+  useEffect(() => {
+    const t = setTimeout(onDone, 1200)
+    return () => clearTimeout(t)
+  }, [onDone])
+  return (
+    <motion.div
+      className="dramatic-dice-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="dramatic-dice-bg" />
+      <div className="dramatic-dice-container">
+        <motion.div
+          className="dramatic-dice-powername"
+          initial={{ opacity: 0, scale: 0.3, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
+        >
+          ⚡ {powerName} ⚡
+        </motion.div>
+        <motion.div
+          style={{
+            fontFamily: "'IBM Plex Sans', sans-serif",
+            fontSize: 14,
+            letterSpacing: 4,
+            color: 'rgba(255,255,255,0.5)',
+            textTransform: 'uppercase',
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
+        >
+          POWER MOVE
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function ArenaCombat({ onNavigate }) {
   const { t } = useLanguage()
   MODE_LABELS.fists = t('games.arena.modo_fists')
@@ -218,6 +264,7 @@ export default function ArenaCombat({ onNavigate }) {
   const [diceKey, setDiceKey] = useState(0)
   const [matchResult, setMatchResult] = useState(null)
   const [onomaCurrent, setOnomaCurrentState] = useState(null)
+  const [powerReveal, setPowerReveal] = useState(null) // { powerName, powerCost }
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
   const [atkDisabled, setAtkDisabled] = useState(false)
@@ -365,6 +412,7 @@ export default function ArenaCombat({ onNavigate }) {
     setFlashOn(false)
     setAtkDisabled(false)
     setDamageFloat(null)
+    setPowerReveal(null)
   }
 
   const endMatch = (result) => {
@@ -495,10 +543,13 @@ export default function ArenaCombat({ onNavigate }) {
     }
   }, [mode, selectedPowers, availablePowers, sheet, enemy, playerInitial, enemyInitial, isR])
 
+  const getPowerName = useCallback((id) => {
+    return t('games.arena.powers.' + elemental + '.' + id + '.name') || availablePowers.find(x => x.id === id)?.name || id
+  }, [t, elemental, availablePowers])
+
   const handleAttack = (powerCost = 0) => {
     if (stepRef.current >= 0) return
     sfx.click()
-    playAttackSfx()
 
     const wBonus = Number(enemy?.weapon_damage) || 0
     const pBonus = Number(powerCost) * 2
@@ -521,17 +572,44 @@ export default function ArenaCombat({ onNavigate }) {
     if (powerCost > 0) setPlayerPm(p => Math.max(0, p - powerCost))
 
     setAtkDisabled(true)
-    sfx.select()
     stepRef.current = 0
-    setDiceKey(k => k + 1)
-    setDramaticDice({
-      finalValue: fa.roll,
-      side: 'player',
-      onComplete: () => {
-        setDramaticDice(null)
-        nextStep()
-      }
-    })
+
+    // Se tem poder, mostra o nome do golpe ANTES do dado (fase de revelação)
+    if (powerCost > 0) {
+      const pName = getPowerName(selectedPowers[0])
+      // Toca som especial de poder + voz
+      sfx.powerUsage()
+      sfx.speakPowerName(pName)
+      // Mostra o nome do poder por 1.2s, depois parte pro DramaticDice
+      setPowerReveal({ powerName: pName, powerCost })
+      setTimeout(() => {
+        setPowerReveal(null)
+        sfx.select()
+        setDiceKey(k => k + 1)
+        setDramaticDice({
+          finalValue: fa.roll,
+          side: 'player',
+          powerName: pName,
+          onComplete: () => {
+            setDramaticDice(null)
+            nextStep()
+          }
+        })
+      }, 1200)
+    } else {
+      // Ataque normal — vai direto pro DramaticDice
+      playAttackSfx()
+      sfx.select()
+      setDiceKey(k => k + 1)
+      setDramaticDice({
+        finalValue: fa.roll,
+        side: 'player',
+        onComplete: () => {
+          setDramaticDice(null)
+          nextStep()
+        }
+      })
+    }
   }
 
   if (!enemy) return null
@@ -593,12 +671,21 @@ export default function ArenaCombat({ onNavigate }) {
   return (
     <div className="arena-combat arena-container">
 
+      {/* PowerReveal — mostra o nome do poder antes do dado (apenas player) */}
+      {powerReveal && (
+        <PowerReveal
+          powerName={powerReveal.powerName}
+          onDone={() => {}}
+        />
+      )}
+
       {/* DramaticDice — sobrepõe tudo durante a rolagem de dado */}
       {dramaticDice && (
         <DramaticDice
           key={diceKey}
           finalValue={dramaticDice.finalValue}
           side={dramaticDice.side}
+          powerName={dramaticDice.powerName}
           onComplete={dramaticDice.onComplete}
         />
       )}

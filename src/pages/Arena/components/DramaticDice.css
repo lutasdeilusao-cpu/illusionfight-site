@@ -30,6 +30,20 @@
   user-select: none;
 }
 
+/* Nome do poder */
+.dramatic-dice-powername {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: #F5A623;
+  text-shadow:
+    0 0 30px rgba(245, 166, 35, 0.8),
+    0 0 60px rgba(245, 166, 35, 0.4),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  text-align: center;
+}
+
 /* Rótulo superior */
 .dramatic-dice-label {
   font-family: 'Impact', 'Arial Black', sans-serif;
