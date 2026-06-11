@@ -166,9 +166,8 @@ function MatchResult({ result, t, enemyName, onNext }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.4 }}
-          >
-            {t('games.arena.vitoria_sub', { name: enemyName })}
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: t('games.arena.vitoria_sub', { name: enemyName }) }}
+          />
         )}
 
         {/* Botão aparece após 2s */}
@@ -411,7 +410,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
 
-        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setMatchResult('victory'); return }
+        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => setMatchResult('victory'), 800); return }
 
         if (nEPv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')
@@ -463,7 +462,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
 
-        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setMatchResult('defeat'); return }
+        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setTimeout(() => setMatchResult('defeat'), 800); return }
 
         if (nPPv <= isR && !saidNearDeath.current) {
           saidNearDeath.current = true; addTrashWithDelay('player_near_death')

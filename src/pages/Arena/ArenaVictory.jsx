@@ -159,7 +159,7 @@ export default function ArenaVictory({ onNavigate }) {
         </motion.div>
         <div className="arena-victory-header">
           <h1 className="arena-victory-title arena-victory-win">{t('games.arena.vitoria')}</h1>
-          <p className="arena-victory-sub">{t('games.arena.vitoria_sub', { name: t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name })}</p>
+          <p className="arena-victory-sub" dangerouslySetInnerHTML={{ __html: t('games.arena.vitoria_sub', { name: t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name }) }} />
         </div>
 
         <div className="arena-victory-card">

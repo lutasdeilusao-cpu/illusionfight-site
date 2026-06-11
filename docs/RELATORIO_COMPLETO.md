@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.48  
-> **Versão do Site:** 9.112  
+> **Versão do Relatório:** 2.49  
+> **Versão do Site:** 9.113  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.112 |
+| **Versão Atual** | 9.113 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.15.2  
+**Versão:** 1.16.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -455,7 +455,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** ✅ **94%**  
+**Status Geral:** ✅ **95%**  
+**Melhorias v1.16.0:**
+- 🐛 **Fix HTML tags** — `vitoria_sub` agora usa `dangerouslySetInnerHTML` para renderizar o `<strong>` corretamente
+- ⏱️ **Delay matchResult** — vitória/derrota só aparece 800ms depois, tempo para a animação da HP bar terminar
+
 **Melhorias v1.15.2:**
 - 🎵 **SFX notificação na IA** — mensagens de trash talk e sistema agora tocam `sfx.notification()`
 - 🔒 **Limite desvantagens** — máximo de 3 pontos acumulados em desvantagens
