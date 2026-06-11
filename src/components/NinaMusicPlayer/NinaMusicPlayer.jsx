@@ -62,15 +62,19 @@ export default function NinaMusicPlayer() {
       if (sessionRef.current) return
       const mensagem = t(greetingKey)
       notificationManager.push('nina_music', { mensagem, greetingKey })
-      // Registra callback para quando o usuário responder na UnifiedNotification
-      window.__ninaNotificationCb = (resposta) => {
-        if (resposta) {
-          // Sim
-          handleSim()
-        } else {
-          // Não
-          handleNao()
-        }
+      // Registra callback para quando o usuário responder na UnifiedNotification.
+      // Chama a função de registro exposta pelo UnifiedNotification (se existir)
+      // em vez de sobrescrevê-la, garantindo que ninaCbRef.current seja definido.
+      if (typeof window.__ninaNotificationCb === 'function') {
+        window.__ninaNotificationCb((resposta) => {
+          if (resposta) {
+            // Sim
+            handleSim()
+          } else {
+            // Não
+            handleNao()
+          }
+        })
       }
     }, 30000)
     return () => clearTimeout(timer)
