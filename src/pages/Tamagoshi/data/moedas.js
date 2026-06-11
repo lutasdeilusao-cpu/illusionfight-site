@@ -1,6 +1,7 @@
 export const DIX_POR_ACAO = 10
 export const DIX_LOGIN_DIARIO = 25
 export const DIX_BONUS_LOCAL = 5
+export const DIX_GACHA = 50
 
 export const DIX_BOAS_VINDAS = {
   free: 100,

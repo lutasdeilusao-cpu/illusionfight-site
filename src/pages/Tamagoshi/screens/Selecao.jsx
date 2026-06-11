@@ -5,7 +5,8 @@ import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 
-const criaturasDaTemporada = CRIATURAS.filter(c => c.temporada === 1)
+// Temporada ativa para seleção gratuita (T1 sempre disponível)
+const CRIATURAS_T1 = CRIATURAS.filter(c => c.temporada === 1)
 
 // Limite de slots por tier (T1: todos max 1; desbloqueado na T2)
 const SLOT_LIMITS = { free: 1, elite: 1, primordial: 1 }
@@ -18,7 +19,7 @@ function shuffle(arr) {
   return a
 }
 
-export default function Selecao({ onEscolher, userTier }) {
+export default function Selecao({ onEscolher, userTier, onGacha }) {
   const { t } = useLanguage()
   const slots = useTamagoshiStore(s => s.slots)
   const limite = SLOT_LIMITS[userTier] || 1
@@ -30,7 +31,7 @@ export default function Selecao({ onEscolher, userTier }) {
     const umaPorTipo = []
     const tipos = Object.keys(PERSONALIDADES)
     for (const tipo of tipos) {
-      const disponiveis = criaturasDaTemporada.filter(c => c.tipo === tipo)
+      const disponiveis = CRIATURAS_T1.filter(c => c.tipo === tipo)
       umaPorTipo.push(shuffle(disponiveis)[0])
     }
     return shuffle(umaPorTipo).slice(0, qtd)
@@ -79,6 +80,18 @@ export default function Selecao({ onEscolher, userTier }) {
           })}
         </div>
         )} {/* fim do ternary atingiuLimite */}
+
+        {/* Gacha — acesso à T2 */}
+        <div className="tama-selecao-gacha">
+          <motion.button
+            className="tama-btn gacha-btn-entry"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onGacha}
+          >
+            🎰 {t('games.tamagoshi.gacha_entrar')}
+          </motion.button>
+        </div>
       </div>
     </div>
   )

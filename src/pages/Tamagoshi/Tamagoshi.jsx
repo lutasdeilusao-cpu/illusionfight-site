@@ -21,6 +21,7 @@ import Passear from './screens/Passear'
 import RestaurarSaude from './screens/RestaurarSaude'
 import Loja from './screens/Loja'
 import Partida from './screens/Partida'
+import Gacha from './screens/Gacha'
 import './Tamagoshi.css'
 
 export default function Tamagoshi() {
@@ -106,6 +107,9 @@ export default function Tamagoshi() {
     store.getSaldoDix(store._userId)
   }
 
+  const handleGachaAbrir = () => setSubFase('gacha')
+  const handleGachaConcluir = () => setSubFase(null)
+
   const handleVoltarExtras = () => {
     navigate('/games')
   }
@@ -128,13 +132,14 @@ export default function Tamagoshi() {
   if (subFase === 'brincar') return <div className="tama-body"><div className="tama-content"><Brincadeira onConcluir={handleVoltar} /></div></div>
   if (subFase === 'saude') return <div className="tama-body"><div className="tama-content"><RestaurarSaude onConcluir={handleVoltar} /></div></div>
   if (subFase === 'loja') return <div className="tama-body"><div className="tama-content"><Loja onVoltar={handleVoltar} /></div></div>
+  if (subFase === 'gacha') return <div className="tama-body"><div className="tama-content"><Gacha onConcluir={handleGachaConcluir} onVoltar={handleVoltar} /></div></div>
 
   return (
     <div className="tama-body">
       <div className="tama-content">
         {fase === 'partida' && <Partida onSalaoFama={() => window.location.href = '/perfil?aba=tamagoshi'} onNovaAdocao={handleNovaAdocao} />}
         {(!fase || fase === 'ovo') && <Ovo onEclodir={handleOvoEclodir} />}
-        {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} />}
+        {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} onGacha={handleGachaAbrir} />}
         {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} onVoltar={handleVoltarExtras} subFase={subFase} />}
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}

@@ -1671,7 +1671,26 @@
       "notif_comico_sede": "\"água. suco. qualquer coisa. até aquela água sem gás sem graça tá bom\"",
       "notif_comico_passeio": "\"precisamos sair. eu vi uma pomba aqui que tô querendo conhecer melhor\"",
       "notif_comico_critico": "\"cara. isso tá ficando sério. eu acho. não sei. tô zonzo\"",
-      "notif_comico_morte": "\"não acredito que vou morrer por causa de biscoito. que história pra contar lá do outro lado\""
+      "notif_comico_morte": "\"não acredito que vou morrer por causa de biscoito. que história pra contar lá do outro lado\"",
+
+      "slots_limite_atingido": "Você já atingiu o limite de {limite} slot(ns) para seu tier.",
+      "trocar_tama": "Trocar Tama",
+      "selecionar_slot": "Selecionar Slot",
+      "fechar": "Fechar",
+
+      "gacha_titulo": "🎰 Gacha de Temporada",
+      "gacha_sub": "Gire por {custo} DIX e ganhe uma criatura aleatória da temporada!",
+      "gacha_entrar": "Gacha T2 🎰",
+      "gacha_girar": "🎲 Girar ({custo} DIX)",
+      "gacha_girando": "GIRANDO",
+      "gacha_embaralhando": "embaralhando as criaturas...",
+      "gacha_saldo_insuficiente": "DIX insuficiente para girar o gacha!",
+      "gacha_sem_criaturas": "Nenhuma criatura disponível nesta temporada.",
+      "gacha_temporada_1": "Temporada 1",
+      "gacha_temporada_2": "Temporada 2",
+      "gacha_criaturas": "criaturas",
+      "gacha_aceitar": "ACEITAR",
+      "gacha_recusar": "RECUSAR"
     },
     "pesadelo": {
       "titulo": "PRESADELO PARTICULAR",

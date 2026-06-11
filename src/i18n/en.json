@@ -1645,7 +1645,26 @@
       "notif_comico_sede": "\"water. juice. anything. even that boring flat water is fine\"",
       "notif_comico_passeio": "\"we need to go out. i saw a pigeon here that i want to get to know better\"",
       "notif_comico_critico": "\"man. this is getting serious. i think. i don't know. i'm dizzy\"",
-      "notif_comico_morte": "\"can't believe i'm gonna die over a cookie. what a story to tell on the other side\""
+      "notif_comico_morte": "\"can't believe i'm gonna die over a cookie. what a story to tell on the other side\"",
+
+      "slots_limite_atingido": "You've reached the limit of {limite} slot(s) for your tier.",
+      "trocar_tama": "Swap Tama",
+      "selecionar_slot": "Select Slot",
+      "fechar": "Close",
+
+      "gacha_titulo": "🎰 Season Gacha",
+      "gacha_sub": "Spin for {custo} DIX and win a random creature from the season!",
+      "gacha_entrar": "Gacha T2 🎰",
+      "gacha_girar": "🎲 Spin ({custo} DIX)",
+      "gacha_girando": "SPINNING",
+      "gacha_embaralhando": "shuffling creatures...",
+      "gacha_saldo_insuficiente": "Not enough DIX to spin the gacha!",
+      "gacha_sem_criaturas": "No creatures available in this season.",
+      "gacha_temporada_1": "Season 1",
+      "gacha_temporada_2": "Season 2",
+      "gacha_criaturas": "creatures",
+      "gacha_aceitar": "ACCEPT",
+      "gacha_recusar": "REFUSE"
     },
     "pesadelo": {
       "titulo": "PARTICULAR NIGHTMARE",

@@ -1645,7 +1645,26 @@
       "notif_comico_sede": "\"agua. jugo. lo que sea. hasta esa agua sin gas aburrida está bien\"",
       "notif_comico_passeio": "\"necesitamos salir. vi una paloma aquí que quiero conocer mejor\"",
       "notif_comico_critico": "\"wey. esto se está poniendo serio. creo. no sé. estoy mareado\"",
-      "notif_comico_morte": "\"no puedo creer que voy a morir por una galleta. qué historia contar del otro lado\""
+      "notif_comico_morte": "\"no puedo creer que voy a morir por una galleta. qué historia contar del otro lado\"",
+
+      "slots_limite_atingido": "Has alcanzado el límite de {limite} slot(s) para tu nivel.",
+      "trocar_tama": "Cambiar Tama",
+      "selecionar_slot": "Seleccionar Slot",
+      "fechar": "Cerrar",
+
+      "gacha_titulo": "🎰 Gacha de Temporada",
+      "gacha_sub": "¡Gira por {custo} DIX y gana una criatura aleatoria de la temporada!",
+      "gacha_entrar": "Gacha T2 🎰",
+      "gacha_girar": "🎲 Girar ({custo} DIX)",
+      "gacha_girando": "GIRANDO",
+      "gacha_embaralhando": "barajando criaturas...",
+      "gacha_saldo_insuficiente": "¡DIX insuficiente para girar el gacha!",
+      "gacha_sem_criaturas": "No hay criaturas disponibles en esta temporada.",
+      "gacha_temporada_1": "Temporada 1",
+      "gacha_temporada_2": "Temporada 2",
+      "gacha_criaturas": "criaturas",
+      "gacha_aceitar": "ACEPTAR",
+      "gacha_recusar": "RECHAZAR"
     },
     "pesadelo": {
       "titulo": "PESADILLA PARTICULAR",
