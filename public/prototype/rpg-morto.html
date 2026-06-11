@@ -167,7 +167,8 @@
         <span>Classe sugerida: <span class="text-gold bold" id="preview-class">—</span></span>
       </div>
     </div>
-    <div class="row flex-end mt-8">
+    <div class="row flex-end mt-8" style="gap:8px; flex-wrap:wrap;">
+      <button class="btn btn-primary" id="btn-export" onclick="exportHTML()">⬇ Exportar HTML</button>
       <button class="btn btn-primary" id="btn-confirm">Confirmar Personagem</button>
     </div>
   </div>
@@ -338,6 +339,15 @@ function clearLog(){document.getElementById('battle-log').innerHTML='';}
 function setBattleButtons(e){document.querySelectorAll('.btn-attack').forEach(b=>b.disabled=!e);document.getElementById('btn-defend').disabled=!e;}
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
+function exportHTML(){
+  const html='<!DOCTYPE html>\\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='rpg-system-morto.html';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
   renderCreation();
@@ -351,6 +361,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Confirm
   document.getElementById('btn-confirm').addEventListener('click', confirmCreation);
+
+  // Export
+  document.getElementById('btn-export').addEventListener('click', exportHTML);
 
   // Tab navigation
   document.querySelectorAll('.nav-tab').forEach(tab => {
