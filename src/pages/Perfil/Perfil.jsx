@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
-import { useSearchParams, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
-import { useAchievements } from '../../context/AchievementsContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useFichas } from '../../context/FichasContext'
+import { useDix } from '../../context/DixContext'
 import PerfilConquistas from './abas/PerfilConquistas'
 import PerfilArena from './abas/PerfilArena'
 import PerfilColecao from './abas/PerfilColecao'
@@ -18,15 +18,34 @@ const TIER_CONFIG = {
   primordial: { labelKey: 'site.perfil.tier_primordial', cor: '#F5A623', bordaCor: '#F5A623' },
 }
 
+const SECOES = [
+  { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi' },
+  { id: 'arena',      icone: '⚔️', labelKey: 'site.perfil.abas_arena' },
+  { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
+  { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
+  { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
+  { id: 'conta',      icone: '⚙️', labelKey: 'site.perfil.abas_conta' },
+]
+
 export default function Perfil() {
   const { t } = useLanguage()
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
   const { user, perfil, logout, carregando } = useAuth()
   const { saldo, podeColetarHoje, coletarDiarias, isAdmin, loading: fichasLoading } = useFichas()
-  const abaAtiva = searchParams.get('aba') || 'colecao'
+  const { saldo: dix } = useDix()
 
-  const tier = 'free' // integrar com profiles depois
+  const [abertos, setAbertos] = useState({
+    tamagoshi: true,
+    arena: true,
+    conquistas: true,
+    recompensas: !!perfil?.notificacao_pendente,
+    colecao: false,
+    conta: false,
+  })
+
+  const toggle = (secao) => setAbertos(prev => ({ ...prev, [secao]: !prev[secao] }))
+
+  const tier = 'free'
   const tierCfg = TIER_CONFIG[tier]
 
   useEffect(() => {
@@ -40,18 +59,9 @@ export default function Perfil() {
   )
   if (!user) return null
 
-  const ABAS = [
-    { id: 'colecao', label: t('site.perfil.abas_colecao'), icone: '🃏' },
-    { id: 'recompensas', label: t('site.perfil.abas_recompensas'), icone: '🎰', pulse: podeColetarHoje },
-    { id: 'conquistas', label: t('site.perfil.abas_conquistas'), icone: '🏆' },
-    { id: 'arena', label: t('site.perfil.abas_arena'), icone: '⚔️' },
-    { id: 'tamagoshi', label: t('site.perfil.abas_tamagoshi'), icone: '🥚' },
-    { id: 'conta', label: t('site.perfil.abas_conta'), icone: '⚙️' },
-  ]
-
   return (
     <section className="perfil-page">
-      {/* Header */}
+      {/* Header fixo */}
       <div className="perfil-header">
         <div className="perfil-header-inner">
           <div className="perfil-avatar"
@@ -66,47 +76,57 @@ export default function Perfil() {
               ★ {t(tierCfg.labelKey)}
             </span>
           </div>
-          <div className="perfil-header-fichas">
-            <span className="perfil-fichas-saldo">
-              {isAdmin ? '∞' : fichasLoading ? '—' : saldo} 🎰
-            </span>
-            <span className="perfil-fichas-label">{t('site.perfil.fichas')}</span>
-            {podeColetarHoje && !isAdmin && (
-              <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
-                {t('site.perfil.coletar')}
-              </button>
-            )}
+          <div className="perfil-contadores">
+            <div className="perfil-contador">
+              <span className="perfil-contador-valor">
+                {isAdmin ? '∞' : fichasLoading ? '—' : saldo}
+              </span>
+              <span className="perfil-contador-label">🎰 {t('site.perfil.fichas')}</span>
+            </div>
+            <div className="perfil-contador">
+              <span className="perfil-contador-valor">{dix}</span>
+              <span className="perfil-contador-label">💰 DIX</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Tabs */}
-      <div className="perfil-tabs">
-        {ABAS.map(aba => (
-          <button
-            key={aba.id}
-            className={`perfil-tab${abaAtiva === aba.id
-              ? aba.id === 'recompensas' ? ' perfil-tab--ativa-fichas' : ' perfil-tab--ativa'
-              : ''}`}
-            onClick={() => setSearchParams({ aba: aba.id })}
-          >
-            <span className="perfil-tab-icone">{aba.icone}</span>
-            <span className="perfil-tab-label">{aba.label}</span>
-            {aba.pulse && abaAtiva !== aba.id && (
-              <span className="perfil-tab-pulse" />
-            )}
+        {podeColetarHoje && !isAdmin && (
+          <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
+            {t('site.perfil.coletar')}
           </button>
-        ))}
+        )}
       </div>
 
-      {/* Conteúdo */}
-      <div className="perfil-conteudo">
-        {abaAtiva === 'recompensas' && <Recompensas />}
-        {abaAtiva === 'conquistas' && <PerfilConquistas />}
-        {abaAtiva === 'arena' && <PerfilArena userId={user.id} />}
-        {abaAtiva === 'colecao' && <PerfilColecao userId={user.id} />}
-        {abaAtiva === 'tamagoshi' && <PerfilTamagoshi />}
-        {abaAtiva === 'conta' && <PerfilConta />}
+      {/* Seções colapsáveis */}
+      <div className="perfil-secoes">
+        {SECOES.map((secao) => {
+          const aberta = abertos[secao.id]
+          const isRecompensas = secao.id === 'recompensas'
+          return (
+            <div key={secao.id} className="perfil-secao">
+              <button
+                className="perfil-secao-header"
+                onClick={() => toggle(secao.id)}
+              >
+                <span className="perfil-secao-titulo">
+                  {secao.icone} {t(secao.labelKey)}
+                </span>
+                <span className={`perfil-secao-seta${aberta ? '' : ' fechado'}`}>
+                  {aberta ? '▼' : '►'}
+                </span>
+              </button>
+              <div className={`perfil-secao-corpo${aberta ? '' : ' fechado'}`}>
+                <div className="perfil-secao-conteudo">
+                  {secao.id === 'recompensas' && <Recompensas />}
+                  {secao.id === 'conquistas' && <PerfilConquistas />}
+                  {secao.id === 'arena' && <PerfilArena userId={user.id} />}
+                  {secao.id === 'colecao' && <PerfilColecao userId={user.id} />}
+                  {secao.id === 'tamagoshi' && <PerfilTamagoshi />}
+                  {secao.id === 'conta' && <PerfilConta />}
+                </div>
+              </div>
+            </div>
+          )
+        })}
       </div>
 
       <button className="perfil-logout" onClick={logout}>[ {t('site.perfil.sair')} ]</button>

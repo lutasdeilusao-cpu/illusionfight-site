@@ -112,47 +112,57 @@
   letter-spacing: 0.15em;
 }
 
-.perfil-header-fichas {
+.perfil-contadores {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.3rem;
+  gap: 0.5rem;
+  align-items: center;
   position: relative;
   z-index: 1;
   flex-shrink: 0;
+}
+
+.perfil-contador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
   background: rgba(245,166,35,0.06);
   border: 1px solid rgba(245,166,35,0.2);
   border-radius: 4px;
-  padding: 0.6rem 0.8rem;
+  padding: 0.5rem 0.7rem;
+  min-width: 80px;
 }
 
-.perfil-fichas-saldo {
-  font-size: 2rem;
+.perfil-contador-valor {
+  font-size: 1.4rem;
   font-weight: bold;
   color: #F5A623;
   line-height: 1;
-  text-shadow: 0 0 20px rgba(245,166,35,0.5);
+  text-shadow: 0 0 16px rgba(245,166,35,0.4);
 }
 
-.perfil-fichas-label {
-  font-size: 0.6rem;
+.perfil-contador-label {
+  font-size: 0.55rem;
   color: #F5A623;
-  letter-spacing: 0.2em;
-  opacity: 0.6;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  white-space: nowrap;
 }
 
 .perfil-fichas-coletar {
+  display: block;
+  max-width: 720px;
+  margin: 0.75rem auto 0;
   font-size: 0.65rem;
   color: #000;
   background: #F5A623;
   border: none;
   font-family: 'Share Tech Mono', monospace;
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.8rem;
   cursor: pointer;
   letter-spacing: 0.1em;
   animation: ficha-pulse 1.5s ease-in-out infinite;
   transition: opacity 0.15s;
-  width: 100%;
   text-align: center;
 }
 
@@ -160,70 +170,74 @@
 
 @keyframes ficha-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-/* ===== TABS ===== */
-.perfil-tabs {
-  display: flex;
-  gap: 0;
-  margin: 1.5rem auto 0;
+/* ===== SEÇÕES COLAPSÁVEIS ===== */
+.perfil-secoes {
   max-width: 720px;
+  margin: 1.5rem auto 0;
   padding: 0 1.5rem;
-  border-bottom: 1px solid #1a1a1a;
   position: relative;
   z-index: 1;
-  overflow-x: auto;
-  scrollbar-width: none;
 }
-.perfil-tabs::-webkit-scrollbar { display: none; }
 
-.perfil-tab {
-  flex-shrink: 0;
+.perfil-secao {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.perfil-secao-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.75rem 1rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
   background: none;
   border: none;
-  border-bottom: 2px solid transparent;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.72rem;
-  color: #444;
+  font-size: 0.78rem;
+  color: #e8e8e8;
   cursor: pointer;
   letter-spacing: 0.1em;
-  transition: color 0.15s, border-color 0.15s;
-  white-space: nowrap;
+  transition: background 0.15s;
+  text-align: left;
 }
 
-.perfil-tab:hover { color: #888; }
-
-.perfil-tab--ativa {
-  color: #e8e8e8;
-  border-bottom-color: #F5A623;
+.perfil-secao-header:hover {
+  background: rgba(255,255,255,0.02);
 }
 
-.perfil-tab--ativa-fichas {
-  color: #F5A623;
-  border-bottom-color: #F5A623;
+.perfil-secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
 }
 
-.perfil-tab-icone { font-size: 0.9rem; }
-
-.perfil-tab-pulse {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #F5A623;
-  animation: ficha-pulse 1s ease-in-out infinite;
-  margin-left: 0.2rem;
+.perfil-secao-seta {
+  font-size: 0.65rem;
+  color: #555;
+  transition: transform 0.2s ease;
 }
 
-/* ===== CONTEÚDO ===== */
-.perfil-conteudo {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  position: relative;
-  z-index: 1;
+.perfil-secao-seta.fechado {
+  color: #333;
+}
+
+.perfil-secao-corpo {
+  overflow: hidden;
+  max-height: 2000px;
+  transition: max-height 300ms ease;
+}
+
+.perfil-secao-corpo.fechado {
+  max-height: 0;
+}
+
+.perfil-secao-conteudo {
+  padding: 0 1rem 1rem;
+  border-top: 1px solid #1a1a1a;
 }
 
 /* ===== SECTION TITLE ===== */

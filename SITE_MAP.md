@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.9.0*  |  `[SITE] versão carregada: 10.9.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — dashboard vertical colapsável + DIX + Fichas no header
 *Versão: 10.5.0*  |  `[SITE] versão carregada: 10.5.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.21.0 — SFX + partículas de explosão na tela de vitória/derrota
 *Versão: 10.4.1*  |  `[SITE] versão carregada: 10.4.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.20.1 — fix: power name agora reflete o poder clicado (não selectedPowers[0]) + TTS voice persiste na batalha
 *Versão: 10.4.0*  |  `[SITE] versão carregada: 10.4.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.20.0 — power name reveal + power SFX + TTS voice antes do DramaticDice
