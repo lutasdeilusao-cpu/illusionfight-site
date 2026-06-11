@@ -48,6 +48,10 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   const icones = { fome: '🍖', higiene: '🧼', energia: '⚡', humor: '🎭' }
 
   const [adminTrocaAberta, setAdminTrocaAberta] = useState(false)
+  const [trocaAberta, setTrocaAberta] = useState(false)
+
+  const slots = useTamagoshiStore(s => s.slots)
+  const slotAtivo = useTamagoshiStore(s => s.slotAtivo)
 
   const handleAdminTrocar = (id) => {
     store.trocarCriatura(id)
@@ -84,6 +88,67 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           <MetricBar label={t('games.tamagoshi.humor')} valor={store.humor} cor="#EC4899" icone="🎭" />
           <MetricBar label={t('games.tamagoshi.saude')} valor={store.saude} cor="#FF4444" icone="❤️" />
         </div>
+
+        {slots.length > 1 && (
+          <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+            <motion.button
+              className="tama-btn tama-btn--sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setTrocaAberta(true)}
+            >
+              🔄 {t('games.tamagoshi.trocar_tama')}
+            </motion.button>
+          </div>
+        )}
+
+        <AnimatePresence>
+          {trocaAberta && (
+            <motion.div
+              className="tama-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setTrocaAberta(false)}
+            >
+              <motion.div
+                className="tama-modal"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                onClick={e => e.stopPropagation()}
+              >
+                <h3>{t('games.tamagoshi.selecionar_slot')}</h3>
+                <div className="tama-slots-list">
+                  {slots.map(s => {
+                    const isAtivo = s.slot === slotAtivo
+                    const criatura = CRIATURAS.find(c => c.id === s.criatura_id)
+                    return (
+                      <button
+                        key={s.slot}
+                        className={`tama-slot-card ${isAtivo ? 'tama-slot-card--ativo' : ''}`}
+                        disabled={isAtivo}
+                        onClick={() => {
+                          store.alternarSlot(s.slot)
+                          setTrocaAberta(false)
+                        }}
+                      >
+                        <span className="tama-slot-emoji">{criatura?.emoji || '🐉'}</span>
+                        <span className="tama-slot-nome">{s.nome_custom || criatura?.nome || '???'}</span>
+                        <span className="tama-slot-status">
+                          {isAtivo ? '✅' : s.hibernando ? '💤' : '✅'}
+                        </span>
+                      </button>
+                    )
+                  })}
+                </div>
+                <button className="tama-btn" onClick={() => setTrocaAberta(false)}>
+                  {t('games.tamagoshi.fechar')}
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="tama-acoes">
           <motion.button className="tama-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}

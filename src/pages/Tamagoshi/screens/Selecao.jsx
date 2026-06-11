@@ -3,8 +3,12 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
+import { useTamagoshiStore } from '../store/useTamagoshiStore'
 
 const criaturasDaTemporada = CRIATURAS.filter(c => c.temporada === 1)
+
+// Limite de slots por tier (T1: todos max 1; desbloqueado na T2)
+const SLOT_LIMITS = { free: 1, elite: 1, primordial: 1 }
 
 function shuffle(arr) {
   const a = [...arr]
@@ -16,7 +20,12 @@ function shuffle(arr) {
 
 export default function Selecao({ onEscolher, userTier }) {
   const { t } = useLanguage()
+  const slots = useTamagoshiStore(s => s.slots)
+  const limite = SLOT_LIMITS[userTier] || 1
+  const atingiuLimite = slots.length >= limite
+
   const opcoes = useMemo(() => {
+    if (atingiuLimite) return []
     const qtd = userTier === 'primordial' ? 10 : userTier === 'elite' ? 3 : 1
     const umaPorTipo = []
     const tipos = Object.keys(PERSONALIDADES)
@@ -34,6 +43,11 @@ export default function Selecao({ onEscolher, userTier }) {
       <div className="tama-selecao">
         <h2 className="tama-selecao-title">{t('games.tamagoshi.selecao_titulo')}</h2>
         <p className="tama-selecao-sub">{t('games.tamagoshi.selecao_sub')}</p>
+        {atingiuLimite ? (
+          <div className="tama-selecao-limite">
+            <p>{t('games.tamagoshi.slots_limite_atingido', { limite })}</p>
+          </div>
+        ) : (
         <div className="tama-selecao-grid">
           {opcoes.map((c, i) => {
             const pers = PERSONALIDADES[c.tipo]
@@ -64,6 +78,7 @@ export default function Selecao({ onEscolher, userTier }) {
             )
           })}
         </div>
+        )} {/* fim do ternary atingiuLimite */}
       </div>
     </div>
   )

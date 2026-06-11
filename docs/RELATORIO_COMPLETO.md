@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.69  
-> **Versão do Site:** 10.6.0  
+> **Versão do Relatório:** 2.70  
+> **Versão do Site:** 10.7.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.6.0 ✅ |
+| **Versão Atual** | 10.7.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -710,12 +710,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 1.27.0  
+**Versão:** 1.28.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es  
-> 🎮 **T1 — Temporadas:** 10 criaturas da temporada 1 ativas na seleção
+> 🎮 **T1 — Temporadas:** 10 criaturas da temporada 1 ativas na seleção  
+> 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)
 
 #### Screens (12 telas)
 

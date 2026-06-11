@@ -1024,3 +1024,87 @@
   left: 50%;
   font-size: 1rem;
 }
+
+/* ===== SLOT SELECTOR MODAL ===== */
+.tama-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.tama-modal {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 340px;
+  width: 90%;
+}
+.tama-modal h3 {
+  font-size: 0.9rem;
+  color: #F5A623;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.tama-slots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.tama-slot-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ccc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+.tama-slot-card:hover:not(:disabled) {
+  border-color: #F5A623;
+  background: #222;
+}
+.tama-slot-card:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.tama-slot-card--ativo {
+  border-color: #22C55E;
+}
+.tama-slot-emoji {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.tama-slot-nome {
+  flex: 1;
+  font-weight: bold;
+}
+.tama-slot-status {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ===== SELEÇÃO LIMITE ===== */
+.tama-selecao-limite {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #888;
+  font-size: 0.85rem;
+}

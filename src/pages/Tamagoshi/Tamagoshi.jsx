@@ -40,6 +40,7 @@ export default function Tamagoshi() {
     lastUserId.current = uid
     store.setAdmin(isAdmin)
     store.loadFromCloud(uid, 1).then(() => {
+      store.carregarSlots(uid)
       // Lazy evaluation: aplica decaimento baseado em horas desde última sessão
       if (horasDesdeUltimaSessao > 0) {
         store.aplicarDecaimento(horasDesdeUltimaSessao)

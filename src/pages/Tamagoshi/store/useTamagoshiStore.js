@@ -83,6 +83,7 @@ function calcDecaimento(state, horas) {
 }
 
 const defaultState = {
+  slotAtivo: 1, slots: [],
   criaturaId: null, nomeCustom: '', personalidade: null,
   fase: 'ovo', estagio: 0,
   fome: 100, higiene: 100, energia: 100, humor: 100, saude: 100,
@@ -291,6 +292,7 @@ export const useTamagoshiStore = create((set, get) => ({
     // Salva apenas METADADOS no Supabase — status bars são calculados via timestamp
     const payload = {
       user_id: uid, slot: state._slot || 1,
+      hibernando: false,
       criatura_id: state.criaturaId, nome_custom: state.nomeCustom,
       personalidade: state.personalidade, fase: state.fase, estagio: state.estagio || 0,
       ultima_alimentacao: state.ultimaAlimentacao ? new Date(state.ultimaAlimentacao).toISOString() : null,
@@ -325,6 +327,7 @@ export const useTamagoshiStore = create((set, get) => ({
       .from('tamagoshi_saves')
       .select('*')
       .eq('user_id', userId)
+      .eq('hibernando', false)
       .eq('slot', slot)
       .maybeSingle()
 
@@ -374,6 +377,40 @@ export const useTamagoshiStore = create((set, get) => ({
       return localState
     }
     return null
+  },
+
+  carregarSlots: async (userId) => {
+    if (!userId) return
+    const { data, error } = await supabase
+      .from('tamagoshi_saves')
+      .select('*')
+      .eq('user_id', userId)
+      .order('slot', { ascending: true })
+    if (error) { console.error('[TAMA] carregarSlots error:', error); return }
+    const slots = data || []
+    set({ slots })
+    // Slot ativo = não hibernando; se todos hibernando, mantém o de menor número
+    const ativo = slots.find(s => s.hibernando === false)
+    if (ativo) {
+      set({ slotAtivo: ativo.slot })
+    } else if (slots.length > 0) {
+      set({ slotAtivo: slots[0].slot })
+    }
+  },
+
+  alternarSlot: async (slotIndex) => {
+    const state = get()
+    const slotAtual = state.slotAtivo
+    if (slotAtual === slotIndex) return
+    // Hibernar slot atual
+    await supabase.from('tamagoshi_saves').update({ hibernando: true }).eq('user_id', state._userId).eq('slot', slotAtual)
+    // Ativar slot destino
+    await supabase.from('tamagoshi_saves').update({ hibernando: false }).eq('user_id', state._userId).eq('slot', slotIndex)
+    set({ slotAtivo: slotIndex })
+    // Recarregar save do slot destino
+    await get().loadFromCloud(state._userId, slotIndex)
+    // Recarregar lista de slots
+    await get().carregarSlots(state._userId)
   },
 
   reset: () => set({ ...defaultState, _ultimoUpdate: Date.now(), _ultimoLogin: Date.now() }),
