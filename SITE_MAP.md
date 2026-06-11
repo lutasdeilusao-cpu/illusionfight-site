@@ -1,8 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
-*Versão: 10.26.0*  |  `[SITE] versão carregada: 10.26.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Nova rota /prototype — espaço admin-only para protótipos (RPG System Morto)
-*Versão: 10.25.3*  |  `[SITE] versão carregada: 10.25.3`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.1 — fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis)  |  `[SITE] versão carregada: 10.25.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.0 — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros dos 10 IDs do Gacha
+*Versão: 10.26.1*  |  `[SITE] versão carregada: 10.26.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Prototype v1.0.0 — botão Exportar HTML + version log no console
+*Versão: 10.26.0*  |  `[SITE] versão carregada: 10.26.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Nova rota /prototype — espaço admin-only para protótipos (RPG System Morto)  |  `[SITE] versão carregada: 10.25.3`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.1 — fix: 1º giro grátis não verificava saldo DIX (barrava mesmo sendo grátis)  |  `[SITE] versão carregada: 10.25.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.37.0 — CRIATURAS_BASE reordenado: kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros dos 10 IDs do Gacha
 *Versão: 10.25.1*  |  `[SITE] versão carregada: 10.25.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.1 — fix Gacha: T2 bloqueado (EM BREVE), 1º giro grátis, apenas 10 criaturas T1 no sorteio  |  `[SITE] versão carregada: 10.25.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.36.0 — kroum: sprite próprio (10 estados, 3ª criatura com arte individual) + criatura adicionada ao Gacha  |  `[SITE] versão carregada: 10.24.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ NinaPlayer + Admin fix — Page Visibility resume + auto-restart após reload + email-based admin fallback (gramikgames)
 *Versão: 10.23.2*  |  `[SITE] versão carregada: 10.23.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon Ep.01 — fix: imagens quebradas (arquivos renomeados de XX-PT.png para pt/XX.png)
 *Versão: 10.23.1*  |  `[SITE] versão carregada: 10.23.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sanitização — removidos 17 arquivos de teste + 2 pastas (audit-screenshots, test-results) da raiz
@@ -671,7 +671,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.26.0** 🚀 | Site — nova rota /prototype (admin-only) |
+| `SITE_VERSION` | **10.26.1** 🚀 | Site — Prototype v1.0.0: export HTML + version log |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
@@ -682,6 +682,7 @@
 | `TS_VERSION` | **5.8.0** | Top Trumps Single Player |
 | `TM_VERSION` | **5.6.0** | Top Trumps Multiplayer |
 | `TATICS_VERSION` | **7.3.0** | Arena LDI Tatics (tag EM BREVE + admin lock) |
+| `PROTOTYPE_VERSION` | **1.0.0** | Protótipo RPG System Morto (admin-only) |
 
 ---
 

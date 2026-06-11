@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.26.0'
+export const SITE_VERSION = '10.26.1'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -21,6 +21,7 @@ export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os 
 export const TS_VERSION        = '5.8.0'  // Top Trumps Single Player
 export const TM_VERSION        = '5.6.0'  // Top Trumps Multiplayer
 export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)
+export const PROTOTYPE_VERSION = '1.0.0' // Protótipo — espaço admin-only
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
@@ -28,6 +29,7 @@ console.log(`[PP] versão carregada: ${PP_VERSION}`)
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
+console.log(`[PROTOTYPE] versão carregada: ${PROTOTYPE_VERSION}`)
 console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
