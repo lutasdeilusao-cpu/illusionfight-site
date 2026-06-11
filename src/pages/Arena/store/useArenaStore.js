@@ -85,7 +85,7 @@ export const useArenaStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total, attribute_points_gained: s.attribute_points_gained || 0, enemies_unlocked: s.enemies_unlocked }
+    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
     if (s.id) await supabase.from('character_sheets').update(payload).eq('id', s.id)
     else {
       const { data } = await supabase.from('character_sheets').insert(payload).select('id').single()
@@ -95,7 +95,7 @@ export const useArenaStore = create((set, get) => ({
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, attribute_points_gained, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
+    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
     return Array.isArray(data) ? data : []
   },
 

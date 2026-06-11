@@ -185,9 +185,8 @@ export default function ArenaVictory({ onNavigate }) {
             {t('games.arena.xp_gain', { n: xpGain })}
           </motion.div>
           {/* XP Progress Bar */}
-          <XpProgressBar
+          <ArenaXpBar
             xpTotal={sheet.xp_total || 0}
-            pointsGained={sheet.attribute_points_gained || 0}
             t={t}
             animated
           />

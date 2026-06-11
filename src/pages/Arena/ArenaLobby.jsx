@@ -260,7 +260,6 @@ export default function ArenaLobby({ onNavigate }) {
                   <div className="arena-sheet-name-v">{s.sheet_name}</div>
                   <ArenaXpBar
                     xpTotal={s.xp_total || 0}
-                    pointsGained={s.attribute_points_gained || 0}
                     t={t}
                     compact
                   />

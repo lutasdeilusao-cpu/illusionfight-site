@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 
 /**
- * Calcula o progresso de XP para o level atual.
+ * Deriva attribute_points_gained a partir do xp_total acumulado.
+ * Útil quando os dados vêm do Supabase (que não tem coluna attribute_points_gained).
  *
  * Sistema de leveling:
  * - Level = attribute_points_gained + 1
@@ -10,9 +11,25 @@ import { motion } from 'framer-motion'
  *   = sum(10 + 2*i) para i = 0 até pointsGained-1
  *   = pointsGained * (9 + pointsGained)
  */
+function derivePointsFromXp(xpTotal) {
+  let pts = 0
+  let cumXp = 0
+  while (true) {
+    const cost = 10 + pts * 2
+    if (cumXp + cost > xpTotal) break
+    cumXp += cost
+    pts++
+  }
+  return pts
+}
+
 function calcXpProgress(xpTotal, pointsGained) {
-  const pts = pointsGained || 0
   const xp = xpTotal || 0
+  // Se pointsGained não foi informado (ex: veio do Supabase sem a coluna),
+  // deriva a partir do xp_total
+  const pts = (pointsGained ?? undefined) !== undefined
+    ? (pointsGained || 0)
+    : derivePointsFromXp(xp)
 
   // XP total gasto para chegar neste level
   const startOfLevelXp = pts > 0 ? pts * (9 + pts) : 0
