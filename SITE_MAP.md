@@ -1,6 +1,8 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.102*  |  `[SITE] versão carregada: 9.102`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ fix: split LanguageContext/Provider para Fast Refresh, AuthContext @vite-ignore
+*Versão: 9.101*  |  `[SITE] versão carregada: 9.101`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ (não documentado)
 *Versão: 9.100*  |  `[SITE] versão carregada: 9.100`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.5 — fix: deep merge locales.js p/ trash talk i18n en/es
 *Versão: 9.99*  |  `[SITE] versão carregada: 9.99`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.4 — powers i18n pt/en/es + elemental label fix
 *Versão: 9.98*  |  `[SITE] versão carregada: 9.98`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.10.3 — enemy_names i18n pt/en/es, NPC names i18n, delete FK fix
