@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
-*Versão: 10.0.0*  |  `[SITE] versão carregada: 10.0.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  🚀 **Lançamento oficial da plataforma!** v10.0.0 — Novo ciclo de versionamento
+*Versão: 10.0.1*  |  `[SITE] versão carregada: 10.0.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  🚀 **Lançamento oficial da plataforma!** v10.0.1 — Versões SITE_MAP × Relatório sincronizadas
 *Versão: 9.117*  |  `[SITE] versão carregada: 9.117`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → Mini → Tactics/Duelo; novas taglines pt/en/es
 *Versão: 9.116*  |  `[SITE] versão carregada: 9.116`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo; fix hreflang → hrefLang
 *Versão: 9.115*  |  `[SITE] versão carregada: 9.115`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.17.1 — Scroll power select com barra invisível
@@ -561,7 +561,8 @@
     │       │   ├── itens_loja.js       # Itens da loja
     │       │   ├── moedas.js           # DIX constants
     │       │   ├── passeios.js         # 6 locais
-    │       │   └── personalidades.js   # 6 personalidades
+    │       │   ├── personalidades.js   # 6 personalidades
+    │       │   └── sfx.js              # Sons sintéticos via Web Audio API
     │       ├── screens/
     │       │   ├── Alimentar.jsx       # Minigame alimentar
     │       │   ├── Banhar.jsx          # Minigame banhar
@@ -603,9 +604,9 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.7.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.8.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v2.65 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v5.6.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
 | `/games/ldi/create` | LDICreate | `src/pages/LDI/Create.jsx` | ✅ v2.67 | ✅ | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
 | `/games/ldi/game` | LDIGame | `src/pages/LDI/Game.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
@@ -616,11 +617,11 @@
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v2.0.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + i18n completo nos puzzles (todos os componentes traduzidos pt/en/es) |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.9.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone (i18n completo) |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.17.1 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone (i18n completo) |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.3.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
-| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.0.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
-| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v1.5.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.22.0 | ✅ Fix: decay ativo + ações | ✅ PT ✅ EN ✅ ES | Tamagotchi: lazy eval + decay em sessão + fix alimentar/banhar/passear/brincar |
+| `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.2.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
+| `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v2.7.1 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.26.0 | ✅ Fix: decay ativo + ações | ✅ PT ✅ EN ✅ ES | Tamagotchi: lazy eval + decay em sessão + SFX + i18n completo pt/en/es |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
 | `/login` | Login | `src/pages/Login.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
@@ -633,27 +634,21 @@
 
 ## 3. VERSÕES
 
-| Constante | Versão | Arquivo |
+> ✅ **Fonte:** `src/config/version.js` (arquivo único de versionamento)
+
+| Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **9.91** | `src/config/version.js:5` || `PP_VERSION` | **2.2.0** | `src/config/version.js:10` |
-| `LDI_VERSION` | **1.2.0** | `src/config/version.js:11` |
-| `JACK_VERSION` | **5.2.0** | `src/config/version.js:12` |
-| `ARENA_VERSION` | **1.8.0** | `src/config/version.js:13` |
-| `TAMA_VERSION` | **1.26.0** | `src/config/version.js:14` |
-| `DUELO_VERSION` | **2.0.0** | `src/config/version.js:15` |
-| `MINIGAMES_VERSION` | **2.0.0** | `src/config/version.js:16` |
-| `TS_VERSION` | **5.8.0** | `src/config/version.js:21` |
-| `TM_VERSION` | **5.6.0** | `src/config/version.js:22` |
-| `TATICS_VERSION` | **7.3.0** | `src/config/version.js:25` || `PP_VERSION` | 2.0.1 | `src/config/version.js:10` |
-| `LDI_VERSION` | 1.0.61 | `src/config/version.js:11` |
-| `JACK_VERSION` | 5.1.4 | `src/config/version.js:12` |
-| `ARENA_VERSION` | 1.7.3 | `src/config/version.js:13` |
-| `TAMA_VERSION` | 1.26.0 | `src/config/version.js:14` |
-| `DUELO_VERSION` | 2.0.0 | `src/config/version.js:15` |
-| `MINIGAMES_VERSION` | 1.3.0 | `src/config/version.js:16` |
-| `TS_VERSION` | **5.5.0** | `src/config/version.js:21` |
-| `TM_VERSION` | **5.5.0** | `src/config/version.js:22` |
-| `TATICS_VERSION` | 7.0.0 | `src/config/version.js:19` |
+| `SITE_VERSION` | **10.0.1** 🚀 | Site — lançamento oficial 14/Set/2026 |
+| `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
+| `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
+| `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
+| `ARENA_VERSION` | **1.17.1** | Arena LDI (scroll power select + barra invisível) |
+| `TAMA_VERSION` | **1.26.0** | Tamagoshi LDI (i18n completo pt/en/es) |
+| `DUELO_VERSION` | **2.7.1** | Duelo LDI (fix TELEPORT: fluxo completo) |
+| `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
+| `TS_VERSION` | **5.8.0** | Top Trumps Single Player |
+| `TM_VERSION` | **5.6.0** | Top Trumps Multiplayer |
+| `TATICS_VERSION` | **7.3.0** | Arena LDI Tatics (tag EM BREVE + admin lock) |
 
 ---
 

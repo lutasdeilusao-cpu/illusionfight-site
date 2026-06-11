@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.55  
-> **Versão do Site:** 10.0.0  
+> **Versão do Relatório:** 2.56  
+> **Versão do Site:** 10.0.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.0.0 🚀 |
+| **Versão Atual** | 10.0.1 🚀 |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -118,6 +118,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/login` | Login | ✅ **Completo** | ✅ PT/EN/ES | Supabase Auth |
 | `/cadastro` | Cadastro | ✅ **Completo** | ✅ PT/EN/ES | Criação de conta |
 | `/perfil` | Perfil do Usuário | ✅ **Completo** | ✅ PT/EN/ES | 6 abas (Conquistas, Arena, Coleção, Conta, Tamagoshi, Recompensas) + assinatura Stripe |
+| `/custos` | Custos | ✅ **Completo** | ✅ PT/EN/ES | Transparência financeira do projeto |
 | `/admin` | Painel Admin | ✅ **Completo** | ✅ PT/EN/ES | Restrito a isaiasgamedev@gmail.com |
 
 ### 3.2 Componentes Globais
@@ -650,7 +651,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `TrapActivator` (grid) | ✅ Completo |
 | `LPDisplay` (max 1000) | ✅ Completo |
 | `PlayerZone` | ❌ Substituído pelo grid |
-| ~~`TributeSelector`~~ | 🗑️ Removido |
+| `TributeSelector` | ✅ Exists (não usado ativamente — mantido para referência futura) |
 
 #### Engine
 
@@ -1250,4 +1251,4 @@ O código fonte está sólido. Faltam assets e decisões de cronograma de lança
 
 ---
 
-*Relatório gerado em 2026-06-11 — v2.55 — por GitHub Copilot (DeepSeek V4 Flash)*
+*Relatório gerado em 2026-06-11 — v2.56 — por GitHub Copilot (DeepSeek V4 Flash)*
