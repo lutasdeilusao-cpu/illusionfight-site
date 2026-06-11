@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 9.117*  |  `[SITE] versão carregada: 9.117`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → Mini → Tactics/Duelo; novas taglines pt/en/es
 *Versão: 9.116*  |  `[SITE] versão carregada: 9.116`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo; fix hreflang → hrefLang
 *Versão: 9.115*  |  `[SITE] versão carregada: 9.115`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.17.1 — Scroll power select com barra invisível
 *Versão: 9.114*  |  `[SITE] versão carregada: 9.114`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.15.0 — SFX completo na criação de ficha (atributos, elemental, vant/desv/perícias) + scroll mobile + botão voltar duplicado removido

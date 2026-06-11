@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.52  
-> **Versão do Site:** 9.116  
+> **Versão do Relatório:** 2.53  
+> **Versão do Site:** 9.117  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.116 |
+| **Versão Atual** | 9.117 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -109,7 +109,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/mundo` | Lore do Universo | ✅ **Completo** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
-| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Jogos reordenados: LDI → Arena (ARQUIVADO) → LDI Super Trunfo (PT) → ... → Tactics/Duelo |
+| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Jogos reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → MiniGames → Tactics/Duelo; novas taglines pt/en/es |
 | `/leaderboard` | Ranking Global | ✅ **Completo** | ✅ PT/EN/ES | Ranking do sistema |
 | `/quiz` | Quiz SDR | ✅ **Completo** | ✅ PT/EN/ES | 3 modos de jogo, banco de perguntas |
 | `/loja` | Loja Virtual | ✅ **Completo** | ✅ PT/EN/ES | Produtos físicos + digitais + Stripe |
@@ -430,8 +430,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 ### 5.5 Arena LDI
 
 **Versão:** 1.17.1  
-**Status:** 🔴 **ARQUIVADO** — Jogo fechado. Card movido para segunda posição no hub de games com badge ARQUIVADO.  
-**Fichas:** N/A  
+**Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
+**Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
 #### Screens
@@ -456,7 +456,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useArenaStore` | ✅ Completo |
 
-**Status Geral:** 🔴 **ARQUIVADO**  
+**Status Geral:** ✅ **96%**  
 **Melhorias v1.17.1:**
 - 📱 **Scroll power select** — tela de Preparar Poderes agora rola em telas pequenas com scrollbar invisível
 
