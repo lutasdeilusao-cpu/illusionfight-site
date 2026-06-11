@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.85  
-> **Versão do Site:** 10.22.0  
+> **Versão do Relatório:** 2.86  
+> **Versão do Site:** 10.22.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -438,7 +438,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.24.0  
+**Versão:** 1.24.1  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
 **Fichas:** Sim (🔒) — **limitado por tier**  
 **Rota base:** `/games/ldi-arena`
@@ -466,8 +466,10 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.24.1:**
+- 🐛 **Fix rota upgrade** — botão "Fazer Upgrade" navega para `/assinar` (página real de assinaturas) em vez de `/planos` (inexistente)
 **Melhorias v1.24.0:**
-- 🔓 **Modal de upgrade** — ao clicar em "Nova Ficha" bloqueado, abre modal explicativo com opções Elite/Primordial + botão "Fazer Upgrade" que navega para /planos
+- 🔓 **Modal de upgrade** — ao clicar em "Nova Ficha" bloqueado, abre modal explicativo com opções Elite/Primordial + botão "Fazer Upgrade"
 - 🔓 **Modal multiplayer** — ao clicar em "Multiplayer" bloqueado, abre modal explicativo + botão "Fazer Upgrade"
 - 🏷️ **Tag de destaque** — badge "FAZER UPGRADE" (dourado) no lugar de "EM BREVE" nos botões bloqueados
 - 🌍 **i18n** — novas chaves: `limite.modal_*`, `multiplayer.modal_*` em pt/en/es
