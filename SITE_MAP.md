@@ -631,7 +631,7 @@
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.3.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.2.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v2.7.1 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.26.0 | ✅ Fix: decay ativo + ações | ✅ PT ✅ EN ✅ ES | Tamagotchi: lazy eval + decay em sessão + SFX + i18n completo pt/en/es |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v1.27.0 | ✅ T1 — temporadas, 10 criaturas ativas | ✅ PT ✅ EN ✅ ES | Tamagotchi: lazy eval + decay em sessão + SFX + i18n completo pt/en/es |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
 | `/login` | Login | `src/pages/Login.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Login Supabase Auth |
@@ -648,12 +648,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.0.1** 🚀 | Site — lançamento oficial 14/Set/2026 |
+| `SITE_VERSION` | **10.6.0** 🚀 | Site — Tamagoshi T1: temporadas |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
 | `ARENA_VERSION` | **1.17.1** | Arena LDI (scroll power select + barra invisível) |
-| `TAMA_VERSION` | **1.26.0** | Tamagoshi LDI (i18n completo pt/en/es) |
+| `TAMA_VERSION` | **1.27.0** | Tamagoshi LDI — T1: temporadas, 10 criaturas ativas |
 | `DUELO_VERSION` | **2.7.1** | Duelo LDI (fix TELEPORT: fluxo completo) |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.8.0** | Top Trumps Single Player |

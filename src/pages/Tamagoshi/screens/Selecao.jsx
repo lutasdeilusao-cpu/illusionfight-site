@@ -4,6 +4,8 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 
+const criaturasDaTemporada = CRIATURAS.filter(c => c.temporada === 1)
+
 function shuffle(arr) {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -19,7 +21,7 @@ export default function Selecao({ onEscolher, userTier }) {
     const umaPorTipo = []
     const tipos = Object.keys(PERSONALIDADES)
     for (const tipo of tipos) {
-      const disponiveis = CRIATURAS.filter(c => c.tipo === tipo)
+      const disponiveis = criaturasDaTemporada.filter(c => c.tipo === tipo)
       umaPorTipo.push(shuffle(disponiveis)[0])
     }
     return shuffle(umaPorTipo).slice(0, qtd)
