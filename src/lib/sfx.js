@@ -254,6 +254,65 @@ class SFX {
     this._tone(600, 0.06, 'triangle', 0.06)
     this._tone(800, 0.08, 'sine', 0.05, 0.04)
   }
+
+  // ──────────────────────────────────────────────
+  //  BATTLE SOUND EFFECTS (5+ variantes para ataques)
+  // ──────────────────────────────────────────────
+
+  /** Ataque 1 — slash agudo */
+  attackSlash() {
+    this._tone(1200, 0.08, 'sawtooth', 0.08)
+    this._tone(800, 0.06, 'square', 0.05, 0.03)
+    this._noise(0.06, 0.04)
+  }
+
+  /** Ataque 2 — impacto pesado */
+  attackHeavy() {
+    this._tone(150, 0.25, 'sawtooth', 0.18)
+    this._tone(100, 0.3, 'sine', 0.15, 0.05)
+    this._noise(0.12, 0.12)
+  }
+
+  /** Ataque 3 — golpe rápido */
+  attackQuick() {
+    this._tone(600, 0.04, 'square', 0.1)
+    this._tone(900, 0.05, 'triangle', 0.08, 0.02)
+    this._noise(0.04, 0.06)
+  }
+
+  /** Ataque 4 — energia / poder mágico */
+  attackEnergy() {
+    this._tone(400, 0.15, 'sawtooth', 0.1)
+    this._tone(800, 0.12, 'sine', 0.08, 0.04)
+    this._tone(1200, 0.08, 'sine', 0.06, 0.08)
+    this._noise(0.08, 0.06)
+  }
+
+  /** Ataque 5 — crítico / especial */
+  attackCritical() {
+    this._tone(200, 0.2, 'square', 0.15)
+    this._tone(300, 0.15, 'sawtooth', 0.12, 0.05)
+    this._tone(600, 0.1, 'triangle', 0.1, 0.1)
+    this._noise(0.15, 0.15)
+  }
+
+  /** Ataque 6 — soco seco */
+  attackPunch() {
+    this._tone(250, 0.06, 'square', 0.12)
+    this._tone(180, 0.08, 'sine', 0.1, 0.02)
+    this._noise(0.04, 0.08)
+  }
+
+  /** Mensagem / notificação de chat */
+  message() {
+    this._tone(1000, 0.05, 'sine', 0.04)
+    this._tone(1200, 0.04, 'sine', 0.03, 0.03)
+  }
+
+  /** Som de digitação (texto aparecendo) */
+  typing() {
+    this._tone(600, 0.02, 'triangle', 0.02)
+  }
 }
 
 export const sfx = new SFX()

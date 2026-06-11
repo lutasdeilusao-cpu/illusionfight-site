@@ -8,13 +8,13 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '9.103'
+export const SITE_VERSION = '9.104'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
-export const ARENA_VERSION     = '1.11.0'  // LDI Arena Mode (player trash talk: 3 options bubbles pt/en/es)
+export const ARENA_VERSION     = '1.12.0'  // LDI Arena Mode: SFX batalha, 2 poderes, R obrigatório, botão voltar aos games
 export const TAMA_VERSION      = '1.26.0' // Tamagoshi LDI (i18n completo: badges, passeios, loja, personalidades, saude, partida, notificacoes pt/en/es)
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)

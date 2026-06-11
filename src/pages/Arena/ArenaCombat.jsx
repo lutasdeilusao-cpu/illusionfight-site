@@ -28,6 +28,20 @@ function pickTrash(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
+/** Toca um som de ataque aleatório entre 6 variantes */
+function playAttackSfx() {
+  const attacks = [
+    sfx.attackSlash,
+    sfx.attackHeavy,
+    sfx.attackQuick,
+    sfx.attackEnergy,
+    sfx.attackCritical,
+    sfx.attackPunch,
+  ]
+  const pick = attacks[Math.floor(Math.random() * attacks.length)]
+  pick()
+}
+
 function DiceSlot({ finalValue }) {
   const [display, setDisplay] = useState('?')
   const [phase, setPhase] = useState('rolling')
@@ -171,11 +185,13 @@ export default function ArenaCombat({ onNavigate }) {
     const typingTime = isCard ? 400 : Math.min(300 + text.length * 18, 1800)
     chatQueue.current = chatQueue.current.then(async () => {
       if (!isCard) {
+        sfx.message()
         setLog(l => [...l, { type, text: '__typing__', id: msgId + '-typing', sender }])
         await delay(typingTime)
         setLog(l => l.map(m => m.id === msgId + '-typing' ? { ...m, text, id: msgId } : m))
       } else {
         await delay(typingTime)
+        playAttackSfx()
         setLog(l => [...l, { type: 'attack_card', id: msgId, sender, ...extra }])
       }
     })
@@ -195,6 +211,7 @@ export default function ArenaCombat({ onNavigate }) {
     const senderName = (npc && t('games.arena.npc_names.' + npc.id)) || (enemy && t('games.arena.enemy_names.' + enemy.id)) || enemy?.name || '???'
     chatQueue.current = chatQueue.current.then(async () => {
       await delay(600)
+      sfx.message()
       const text = `${senderName}: ${line}`
       const typingTime = Math.min(300 + text.length * 18, 1800)
       setLog(l => [...l, { type: 'trash', text: '__typing__', id: Date.now() + '-typing', sender: { name: senderName, initial: (senderName[0] || '?').toUpperCase(), side: 'enemy' } }])
@@ -227,6 +244,7 @@ export default function ArenaCombat({ onNavigate }) {
   const sendPlayerTrash = (phrase) => {
     if (stepRef.current >= 0) return
     sfx.click()
+    sfx.message()
     playerTrashUsedRef.current.add(phrase)
     const senderName = sheet?.sheet_name || '???'
     const text = `${senderName}: ${phrase}`
@@ -244,7 +262,7 @@ export default function ArenaCombat({ onNavigate }) {
   }
 
   const togglePower = (id) => {
-    setSelectedPowers(prev => prev.includes(id) ? prev.filter(x => x !== id) : prev.length < 4 ? [...prev, id] : prev)
+    setSelectedPowers(prev => prev.includes(id) ? prev.filter(x => x !== id) : prev.length < 2 ? [...prev, id] : prev)
   }
 
   const cleanup = () => {
@@ -328,6 +346,7 @@ export default function ArenaCombat({ onNavigate }) {
       // 2 → overlay terminou, mostra dado do inimigo
       case 2: {
         setTurnOverlay(false)
+        sfx.select()
         setDiceOn(d.eDado)
         stepRef.current = 3
         timerRef.current = setTimeout(nextStep, 2200)
@@ -383,6 +402,7 @@ export default function ArenaCombat({ onNavigate }) {
   const handleAttack = (powerCost = 0) => {
     if (stepRef.current >= 0) return
     sfx.click()
+    playAttackSfx()
 
     const wBonus = Number(enemy?.weapon_damage) || 0
     const pBonus = Number(powerCost) * 2
@@ -405,6 +425,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (powerCost > 0) setPlayerPm(p => Math.max(0, p - powerCost))
 
     setAtkDisabled(true)
+    sfx.select()
     setDiceOn(fa.roll)
     stepRef.current = 0
     timerRef.current = setTimeout(nextStep, 2200)

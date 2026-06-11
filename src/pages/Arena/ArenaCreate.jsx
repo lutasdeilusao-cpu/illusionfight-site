@@ -109,6 +109,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const validateStep = () => {
     const e = {}
     if (step === 'attrs' && points > 0) e.points = t('games.arena.erro_pontos')
+    if (step === 'attrs' && attrs.R < 1) e.r_min = t('games.arena.erro_r_min')
     if (step === 'sheet_name' && !s.sheet_name?.trim()) e.name = t('games.arena.erro_nome')
     setErrors(e)
     return Object.keys(e).length === 0
@@ -151,6 +152,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
   const handleSalvar = async () => {
     if (!s.sheet_name?.trim()) { setErrors({ name: t('games.arena.erro_nome') }); setStep('sheet_name'); return }
+    if (s.attributes?.R < 1) { setErrors({ r_min: t('games.arena.erro_r_min') }); setStep('attrs'); return }
     if (totalPoints > 0) { setErrors({ cost: t('games.arena.erro_custo_pos') }); return }
     if (totalPoints < 0) { setErrors({ cost: t('games.arena.erro_custo_neg') }); return }
     await store.saveToCloud(user?.id)
@@ -190,7 +192,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {/* HEADER steps */}
       {step !== 'intro' && (
         <div className="arc-header">
-          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_site')} />
+          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
@@ -227,6 +229,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             ))}
           </div>
           {errors.points && <p className="arena-err">{errors.points}</p>}
+          {errors.r_min && <p className="arena-err">{errors.r_min}</p>}
           <div className="arc-nav">
             <button className="arc-btn-ghost" onClick={() => onNavigate('lobby')}>{t('games.arena.btn_lobby')}</button>
             <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('sheet_name') }}>{t('games.arena.btn_proximo')}</button>

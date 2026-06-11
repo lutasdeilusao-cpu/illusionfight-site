@@ -87,7 +87,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />
+          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
@@ -201,7 +201,7 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.escolher_outra')}</button>
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => navigate('/games/ldi-arena')} label={t('games.arena.voltar_site')} />          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
+          <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>        </div>
       </motion.div>

@@ -297,7 +297,7 @@ export default function ArenaLobby({ onNavigate }) {
         {t('games.arena.nova_ficha')}
       </button>
 
-      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} label={t('games.arena.voltar_site')} />
+      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} label={t('games.arena.voltar_games')} />
       <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')} style={{ marginTop: '0.5rem', fontSize: 18 }}>
         {sfx.enabled ? '🔊' : '🔇'}
       </button>
