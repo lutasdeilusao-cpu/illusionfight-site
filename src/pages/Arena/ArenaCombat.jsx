@@ -179,7 +179,13 @@ export default function ArenaCombat({ onNavigate }) {
 
   const addTrashWithDelay = (category) => {
     const npc = npcPersonality.current
-    const talk = npc?.trash_talk?.[category] || enemy?.trash_talk?.[category]
+    // Try i18n first, fallback to JSON
+    let talk
+    if (npc) {
+      const i18nTalk = t('games.arena.trash_talk_npc.' + npc.id + '.' + category, { returnObjects: true })
+      talk = Array.isArray(i18nTalk) && i18nTalk.length ? i18nTalk : npc?.trash_talk?.[category]
+    }
+    if (!talk) talk = enemy?.trash_talk?.[category]
     const line = pickTrash(talk)
     if (!line) return
     const senderName = (npc && t('games.arena.npc_names.' + npc.id)) || (enemy && t('games.arena.enemy_names.' + enemy.id)) || enemy?.name || '???'
