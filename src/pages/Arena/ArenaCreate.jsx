@@ -186,6 +186,9 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             </div>
           </div>
           <p className="arc-intro-hint" dangerouslySetInnerHTML={{ __html: t('games.arena.intro_dica_manual') }} />
+          <div className="arc-nav">
+            <button className="arc-btn-ghost" onClick={() => { sfx.click(); onNavigate('lobby') }}>{t('games.arena.btn_voltar')}</button>
+          </div>
         </div>
       )}
 
