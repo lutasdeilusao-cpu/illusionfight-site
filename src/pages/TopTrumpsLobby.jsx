@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { useReader } from '../context/ReaderContext'
 import { useLanguage } from '../context/LanguageContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
-import { carregarDeck as carregarDeckDB } from '../hooks/useTopTrumpsDB'
+import { carregarDeck as carregarDeckDB } from '../hooks/useLeaderboardDB'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsLobby.css'
 

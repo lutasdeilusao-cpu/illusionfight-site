@@ -1759,3 +1759,124 @@
   color: #e8853a;
   text-shadow: 0 0 20px rgba(232, 133, 58, 0.3);
 }
+
+/* ---- DESISTIR BUTTON (battle) ---- */
+.tt-desistir-wrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.tt-desistir-btn {
+  padding: 0.6rem 2rem;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  border-radius: 8px;
+  background: rgba(231, 76, 60, 0.15);
+  backdrop-filter: blur(6px);
+  color: #e74c3c;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tt-desistir-btn:hover {
+  background: rgba(231, 76, 60, 0.3);
+  border-color: #e74c3c;
+  transform: scale(1.05);
+}
+.tt-desistir-btn:active {
+  transform: scale(0.95);
+}
+
+/* ---- DESISTIR MODAL ---- */
+.tt-desistir-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: tt-fade-in 0.2s ease;
+}
+
+.tt-desistir-modal {
+  background: #1A1D21;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(231, 76, 60, 0.1);
+  animation: tt-confirm-enter 0.3s ease;
+}
+
+.tt-desistir-modal-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e74c3c;
+  text-align: center;
+  margin: 0;
+}
+
+.tt-desistir-modal-desc {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: #8B8F96;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tt-desistir-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.tt-desistir-modal-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.tt-desistir-modal-btn--cancel {
+  border: 1px solid #4F5359;
+  background: transparent;
+  color: #8B8F96;
+}
+.tt-desistir-modal-btn--cancel:hover {
+  border-color: #8B8F96;
+  color: #EAEAEA;
+}
+
+.tt-desistir-modal-btn--confirm {
+  border: 1px solid #e74c3c;
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+.tt-desistir-modal-btn--confirm:hover {
+  background: rgba(231, 76, 60, 0.4);
+}
+
+@keyframes tt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

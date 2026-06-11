@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
@@ -9,7 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
 import { useEventos } from '../context/EventosContext'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useTopTrumpsDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
 import DeckBuilder from './TopTrumps/components/DeckBuilder'
@@ -96,6 +96,7 @@ function keyPorUser(user, suffix) {
 
 export default function TopTrumps() {
   const { t, locale } = useLanguage()
+  const navigate = useNavigate()
   const deck = getDeck(locale)
   const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
   const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
@@ -135,6 +136,7 @@ export default function TopTrumps() {
   const [girando, setGirando] = useState(false)
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
+  const [showDesistirModal, setShowDesistirModal] = useState(false)
 
   // Card viewer + deck builder
   const [viewerIdx, setViewerIdx] = useState(null)
@@ -262,8 +264,10 @@ export default function TopTrumps() {
 
   function iniciarJogoComCartas(cartaIds) {
     // cartaIds = array de IDs (id_num) vindos do deck ou aleatório
+    // Garante que não haja cartas repetidas (Issue #3)
+    const uniqueIds = [...new Set(cartaIds)]
     sfx.nextRound()
-    const d = embaralhar([...cartaIds])
+    const d = embaralhar([...uniqueIds])
     const metade = Math.ceil(d.length / 2)
     // Mapeia IDs para objetos carta completos
     const resolver = (id) => todasCartas.find(c => c.id_num === id) || todasCartas.find(c => c.id === id)
@@ -370,6 +374,24 @@ export default function TopTrumps() {
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
     sortearTemplates()
+  }
+
+  function handleDesistir() {
+    sfx.lose()
+    setShowDesistirModal(false)
+    // Conta como derrota
+    const rodadasJogadas = historicoRodadas.length
+    const vitorias = historicoRodadas.filter(h => h.resultado === 'ganhou').length
+    const derrotas = historicoRodadas.filter(h => h.resultado === 'perdeu').length + 1
+    const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
+    setPlacar(p => ({ ...p, ia: p.ia + 1 }))
+    setFase('fim_jogo')
+    registrarPartida(user.id, { jogadas: rodadasJogadas, vitorias, derrotas, empates, resultado: 'derrota' }).then(stats => {
+      if (stats.total_derrotas === 1) desbloquearRef.current('primeira_derrota_trumps')
+      if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
+      if (stats.total_partidas === 100) desbloquearRef.current('centuriao_trumps')
+      if (stats.total_partidas === 1000) desbloquearRef.current('lenda_trumps')
+    })
   }
 
   function finalizarPartida() {
@@ -540,7 +562,7 @@ export default function TopTrumps() {
               </div>
             )}
           </LoginGate>
-          <BackToGamesBtn label={t('games.toptrumps.menu_voltar_games')} />
+          <BackToGamesBtn onClick={() => { sfx.click(); if (menuStep === 'config') { setMenuStep(null) } else { navigate(-1) } }} label={t('games.toptrumps.menu_voltar_games')} />
         </div>
       </div>
       {/* Card Viewer */}
@@ -687,6 +709,42 @@ export default function TopTrumps() {
             <div className="tt-curtain-inner" />
             <div className="tt-curtain-onomatopeia">
               <span className="tt-onoma-texto">{onomaTexto}</span>
+            </div>
+          </div>
+        )}
+
+        {/* DESISTIR button at bottom center */}
+        {!confirmandoAtributo && !cortinaAtiva && (
+          <div className="tt-desistir-wrapper">
+            <button
+              className="tt-desistir-btn"
+              onClick={() => { sfx.click(); setShowDesistirModal(true); }}
+            >
+              {t('games.toptrumps.desistir')}
+            </button>
+          </div>
+        )}
+
+        {/* DESISTIR confirmation modal */}
+        {showDesistirModal && (
+          <div className="tt-desistir-overlay" onClick={() => setShowDesistirModal(false)}>
+            <div className="tt-desistir-modal" onClick={e => e.stopPropagation()}>
+              <h3 className="tt-desistir-modal-titulo">{t('games.toptrumps.desistir_modal_titulo')}</h3>
+              <p className="tt-desistir-modal-desc">{t('games.toptrumps.desistir_modal_desc')}</p>
+              <div className="tt-desistir-modal-actions">
+                <button
+                  className="tt-desistir-modal-btn tt-desistir-modal-btn--cancel"
+                  onClick={() => { sfx.click(); setShowDesistirModal(false); }}
+                >
+                  {t('games.toptrumps.cancelar')}
+                </button>
+                <button
+                  className="tt-desistir-modal-btn tt-desistir-modal-btn--confirm"
+                  onClick={handleDesistir}
+                >
+                  {t('games.toptrumps.desistir_modal_confirmar')}
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -856,7 +914,7 @@ export default function TopTrumps() {
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">
             <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{t('games.toptrumps.btn_jogar_novamente')}</button>
-            <BackToGamesBtn to="/games" onClick={() => sfx.click()} label={t('games.toptrumps.menu_voltar_games')} />
+            <BackToGamesBtn onClick={() => { sfx.click(); setFase('menu'); }} label={t('games.toptrumps.menu_voltar_games')} />
           </div>
         </div>
       </section>

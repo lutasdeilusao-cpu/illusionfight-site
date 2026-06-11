@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { getDeck } from '../../../lib/getDeck'
-import { carregarDeck } from '../../../hooks/useTopTrumpsDB'
+import { carregarDeck } from '../../../hooks/useLeaderboardDB'
 import DeckBuilder from '../../TopTrumps/components/DeckBuilder'
 import CardViewerModal from '../../TopTrumps/components/CardViewerModal'
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'

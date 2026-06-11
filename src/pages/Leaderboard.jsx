@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useLanguage } from '../context/LanguageContext'
 import { supabase } from '../lib/supabase'
-import { carregarRanking, carregarPosicaoUsuario } from '../hooks/useTopTrumpsDB'
+import { carregarRanking, carregarPosicaoUsuario } from '../hooks/useLeaderboardDB'
 import LoginGate from '../components/LoginGate/LoginGate'
 import './Leaderboard.css'
 
