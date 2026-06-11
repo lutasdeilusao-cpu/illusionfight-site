@@ -297,29 +297,29 @@ export default function Passear({ onConcluir }) {
   }, [])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1.5rem 0', userSelect: 'none' }}>
+    <div className="tama-passear-wrapper">
       <AnimatePresence mode="wait">
         {phase === 'ready' && (
           <motion.div key="ready" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-            style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
-            <div style={{ fontSize: 48, marginBottom: 8 }}>🏎</div>
-            <p style={{ fontSize: 16, marginBottom: 4, fontWeight: 700, letterSpacing: '0.05em', color: '#F5A623' }}>{t('games.tamagoshi.passear_enduro_kroniki')}</p>
-            <p style={{ fontSize: 13, color: '#999', marginBottom: 6, lineHeight: 1.5 }}>{t('games.tamagoshi.passear_desc', { n: STAGE_COUNT })}</p>
-            <p style={{ fontSize: 12, color: '#666', marginBottom: 20 }}>{t('games.tamagoshi.passear_setas')}</p>
+            className="tama-passear-card">
+            <div className="tama-passear-card-icone">🏎</div>
+            <p className="tama-passear-card-titulo">{t('games.tamagoshi.passear_enduro_kroniki')}</p>
+            <p className="tama-passear-card-desc">{t('games.tamagoshi.passear_desc', { n: STAGE_COUNT })}</p>
+            <p className="tama-passear-card-setas">{t('games.tamagoshi.passear_setas')}</p>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">{t('games.tamagoshi.iniciar_passeio')}</motion.button>
           </motion.div>
         )}
         {phase === 'playing' && (
-          <motion.div key="playing" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} style={{ position: 'relative', touchAction: 'none', overscrollBehavior: 'none' }}>
+          <motion.div key="playing" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="tama-passear-playing-wrapper">
             <canvas ref={canvasRef} width={GAME_W} height={GAME_H}
-              style={{ display: 'block', borderRadius: 12, touchAction: 'none', cursor: 'grab', maxWidth: '100%', boxShadow: '0 0 30px rgba(0,0,0,0.5)', overscrollBehavior: 'none' }} />
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: '#888', fontFamily: 'monospace' }}>
+              className="tama-passear-canvas" />
+            <div className="tama-passear-info">
               <span>{t('games.tamagoshi.moedas', { n: dispCoins })}</span>
               <span>{t('games.tamagoshi.pista', { a: stage, b: STAGE_COUNT })}</span>
             </div>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
               onClick={() => { if (g.current) g.current.running = false; cancelAnimationFrame(rafRef.current); onConcluir?.() }}
-              className="tama-btn" style={{ marginTop: 8, opacity: 0.5, fontSize: '0.7rem' }}>
+              className="tama-btn tama-btn--desistir">
               {t('games.tamagoshi.desistir')}
             </motion.button>
           </motion.div>
@@ -337,18 +337,18 @@ export default function Passear({ onConcluir }) {
               <div style={{ fontSize: 10, color: '#555', marginBottom: 12, width: '100%', textAlign: 'left' }}>
                 <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('games.tamagoshi.ultimos_resultados')}</p>
                 {historico.map((h, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '1px 0', fontFamily: 'monospace' }}>
+                  <div key={i} className="tama-passear-historico-linha">
                     <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>
                     <span>⭐ {h.coins}</span>
                     <span>p{h.stage}</span>
-                    <span style={{ color: '#444' }}>{h.date}</span>
+                    <span className="tama-passear-historico-data">{h.date}</span>
                   </div>
                 ))}
               </div>
             )}
-            <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+            <div className="tama-passear-gameover-botoes">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">{t('games.tamagoshi.jogar_novamente')}</motion.button>
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn" style={{ opacity: 0.6 }}>{t('games.tamagoshi.voltar')}</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => onConcluir?.()} className="tama-btn tama-btn--voltar-opaco">{t('games.tamagoshi.voltar')}</motion.button>
             </div>
           </motion.div>
         )}

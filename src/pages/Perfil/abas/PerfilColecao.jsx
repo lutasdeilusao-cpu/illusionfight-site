@@ -80,11 +80,11 @@ export default function PerfilColecao({ userId }) {
   const progresso = todasCartas.length > 0 ? Math.round((obtidas.length / todasCartas.length) * 100) : 0
 
   // Textos multi-idioma
-  const seasonLabel = locale === 'en' ? 'SEASON 1' : locale === 'es' ? 'TEMPORADA 1' : '1ª TEMPORADA'
-  const season2Label = locale === 'en' ? 'SEASON 2' : locale === 'es' ? 'TEMPORADA 2' : '2ª TEMPORADA'
-  const comingSoon = locale === 'en' ? 'COMING SOON' : locale === 'es' ? 'PRÓXIMAMENTE' : 'EM BREVE'
-  const obtained = locale === 'en' ? 'obtained' : locale === 'es' ? 'obtenidas' : 'obtidas'
-  const missing = locale === 'en' ? 'missing' : locale === 'es' ? 'faltantes' : 'faltando'
+  const seasonLabel = t('site.perfil.colecao_season_1')
+  const season2Label = t('site.perfil.colecao_season_2')
+  const comingSoon = t('site.perfil.colecao_coming_soon')
+  const obtained = t('site.perfil.colecao_obtidas')
+  const missing = t('site.perfil.colecao_faltando')
 
   return (
     <div className="perfil-colecao">
@@ -155,11 +155,7 @@ export default function PerfilColecao({ userId }) {
 
       {/* Legenda */}
       <p className="perfil-colecao-obs">
-        {locale === 'en'
-          ? 'Greyed-out cards are waiting to be discovered. Play Top Trumps Single Player to unlock them!'
-          : locale === 'es'
-          ? 'Las cartas atenuadas aún no han sido descubiertas. ¡Juega Top Trumps Single Player para desbloquearlas!'
-          : 'Cartas apagadas ainda não foram descobertas. Jogue Top Trumps Single Player para desbloqueá-las!'}
+        {t('site.perfil.colecao_obs')}
       </p>
 
       {/* Deck Builder Modal */}

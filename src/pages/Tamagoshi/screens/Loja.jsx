@@ -97,12 +97,11 @@ export default function Loja({ onVoltar }) {
 
       <motion.button
         className="tama-btn"
-        style={{ marginTop: '1rem' }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
         onClick={onVoltar}
       >
-        [ voltar ]
+        {t('games.tamagoshi.voltar')}
       </motion.button>
     </div>
   )

@@ -111,19 +111,19 @@ export default function PerfilTamagoshi() {
 
   const persCor = (t) => PERSONALIDADES[t]?.cor || '#555'
 
-  if (carregando) return <div className="perfil-tama-loading">CARREGANDO...</div>
+  if (carregando) return <div className="perfil-tama-loading">{t('site.perfil.tama_carregando')}</div>
 
   return (
     <div className="perfil-tama">
       <div className="perfil-tama-header">
-        <span className="perfil-tama-title">🥚 Meu Tamagoshi</span>
+        <span className="perfil-tama-title">{t('site.perfil.tama_meu_tamagoshi')}</span>
         <span className={`perfil-tama-tier`} style={{ color: userTier === 'primordial' ? '#F5A623' : userTier === 'elite' ? '#00B4D8' : '#555' }}>
           {userTier.toUpperCase()}
         </span>
       </div>
 
       {!tama ? (
-        <p className="perfil-tama-vazio">você ainda não tem um tamagoshi. vá em /games/tamagoshi para começar.</p>
+        <p className="perfil-tama-vazio">{t('site.perfil.tama_sem_tamagoshi')}</p>
       ) : (
         <>
           <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade), cursor: 'pointer' }}
@@ -152,11 +152,11 @@ export default function PerfilTamagoshi() {
           </div>
 
           <div className="perfil-tama-limites">
-            <span className="perfil-tama-limites-label">limite de trocas:</span>
+            <span className="perfil-tama-limites-label">{t('site.perfil.tama_limite_trocas')}</span>
             <span className="perfil-tama-limites-valor">
-              {userTier === 'free' ? '1 a cada 3 meses' :
-               userTier === 'elite' ? '1 por mês' :
-               '2 por mês (15 dias entre cada)'}
+              {userTier === 'free' ? t('site.perfil.tama_free_troca') :
+               userTier === 'elite' ? t('site.perfil.tama_elite_troca') :
+               t('site.perfil.tama_primordial_troca')}
             </span>
           </div>
 
@@ -164,12 +164,12 @@ export default function PerfilTamagoshi() {
             <button className="perfil-tama-btn perfil-tama-btn--propor"
               onClick={handlePropor}
               disabled={propondo || !tama || tama.status !== 'vivo'}>
-              {propondo ? 'GERANDO...' : '[ PROPOR TROCA ]'}
+              {propondo ? t('site.perfil.tama_gerando') : t('site.perfil.tama_propor_troca')}
             </button>
 
             <div className="perfil-tama-confirmar">
               <input className="perfil-tama-input"
-                placeholder="cole a key de 8 chars..."
+                placeholder={t('site.perfil.tama_input_key')}
                 value={keyInput}
                 onChange={e => setKeyInput(e.target.value)}
                 maxLength={8}
@@ -184,18 +184,18 @@ export default function PerfilTamagoshi() {
               <button className="perfil-tama-btn perfil-tama-btn--confirmar"
                 onClick={handleConfirmar}
                 disabled={confirmando || !keyInput.trim()}>
-                {confirmando ? 'CONFIRMANDO...' : '[ CONFIRMAR TROCA ]'}
+                {confirmando ? t('site.perfil.tama_confirmando') : t('site.perfil.tama_confirmar_troca')}
               </button>
             </div>
           </div>
 
           {keyGerada && (
             <div className="perfil-tama-key-box">
-              <span className="perfil-tama-key-label">sua key (válida por 24h):</span>
+              <span className="perfil-tama-key-label">{t('site.perfil.tama_sua_key')}</span>
               <div className="perfil-tama-key" onClick={() => { navigator.clipboard.writeText(keyGerada); setMsg({ texto: 'key copiada!', tipo: 'ok' }) }}>
                 {keyGerada}
               </div>
-              <span className="perfil-tama-key-hint">clique para copiar</span>
+              <span className="perfil-tama-key-hint">{t('site.perfil.tama_clique_copiar')}</span>
             </div>
           )}
 
@@ -209,7 +209,7 @@ export default function PerfilTamagoshi() {
 
       {badges.length > 0 && (
         <div className="perfil-tama-secao">
-          <span className="perfil-tama-secao-title">🏅 badges conquistadas</span>
+          <span className="perfil-tama-secao-title">{t('site.perfil.tama_badges_titulo')}</span>
           <div className="perfil-tama-badges-grid">
             {badges.map(b => {
               const badgeEntry = Object.values(BADGES).find(bv => bv.id === b.badge_id)
@@ -228,14 +228,14 @@ export default function PerfilTamagoshi() {
 
       {fama.length > 0 && (
         <div className="perfil-tama-secao">
-          <span className="perfil-tama-secao-title">🏛️ salão da fama</span>
+          <span className="perfil-tama-secao-title">{t('site.perfil.tama_fama_titulo')}</span>
           <div className="perfil-tama-fama-grid">
             {fama.map(f => {
               const c = CRIATURAS.find(cr => cr.id === f.criatura_id)
               return (
                 <div key={f.id} className="perfil-tama-fama-card">
                   <span className="perfil-tama-fama-emoji">{c?.emoji || '✨'}</span>
-                  <span className="perfil-tama-fama-nome">{f.nome_custom || 'sem nome'}</span>
+                  <span className="perfil-tama-fama-nome">{f.nome_custom || t('site.perfil.tama_sem_nome')}</span>
                   <span className="perfil-tama-fama-badges">{f.badges?.length || 0} badges</span>
                 </div>
               )

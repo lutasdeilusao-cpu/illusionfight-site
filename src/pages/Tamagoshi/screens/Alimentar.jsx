@@ -85,7 +85,7 @@ export default function Alimentar({ onConcluir }) {
               whileTap={{ scale: 0.95 }}
               onClick={() => handleAlimentar(comida.id)}
               disabled={animando}
-              style={{ margin: '0.25rem' }}
+              className="tama-alimentar-item-btn"
             >
               {comida.emoji} {comida.nome} ({inv[comida.id]}x)
             </motion.button>
@@ -97,7 +97,6 @@ export default function Alimentar({ onConcluir }) {
 
       <motion.button
         className="tama-btn"
-        style={{ marginTop: '0.5rem', opacity: 0.6 }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
         onClick={onConcluir}

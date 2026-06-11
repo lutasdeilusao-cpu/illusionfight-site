@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.11.0*  |  `[SITE] versão carregada: 10.11.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Revisão i18n + CSS inline — Tamagoshi + Perfil (strings hardcoded → t(), CSS inline → classes)
 *Versão: 10.10.0*  |  `[SITE] versão carregada: 10.10.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ EventosContext + barra de progresso de perfil + integração em todos os jogos
 *Versão: 10.9.0*  |  `[SITE] versão carregada: 10.9.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — dashboard vertical colapsável + DIX + Fichas no header
 *Versão: 10.5.0*  |  `[SITE] versão carregada: 10.5.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.21.0 — SFX + partículas de explosão na tela de vitória/derrota

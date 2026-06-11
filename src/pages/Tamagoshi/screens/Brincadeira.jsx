@@ -90,10 +90,7 @@ export default function Brincadeira({ onConcluir }) {
   return (
     <div className="tama-screen">
       {/* Mini sprite no canto inferior direito */}
-      <div style={{
-        position: 'fixed', bottom: 20, right: 20, zIndex: 9999,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
-      }}>
+      <div className="tama-brincadeira-sprite-corner">
         <CriaturaSprite
           criaturaId={store.criaturaId}
           status={store.status}
@@ -101,92 +98,80 @@ export default function Brincadeira({ onConcluir }) {
           criaturas={CRIATURAS}
         />
         {fala && (
-          <div style={{
-            background: '#111', border: '1px solid #555', borderRadius: 8,
-            padding: '4px 8px', fontSize: '0.65rem', color: '#ccc',
-            maxWidth: 160, textAlign: 'center',
-          }}>
+          <div className="tama-brincadeira-fala">
             {fala}
           </div>
         )}
       </div>
 
       {faseJogo === 'apresentando' && (
-        <div className="tama-brincadeira" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', gap: '1rem' }}>
+        <div className="tama-brincadeira-apresentando">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 200, damping: 12 }}
-            style={{ fontSize: '4rem' }}
+            className="tama-brincadeira-apresentando-icone"
           >🎲</motion.div>
-          <h2 style={{ color: '#F5A623', fontSize: '1.2rem', letterSpacing: '0.15em', textAlign: 'center' }}>
+          <h2 className="tama-brincadeira-apresentando-nome">
             {puzzle.nome}
           </h2>
-          <p style={{ color: '#666', fontSize: '0.8rem' }}>{t('games.tamagoshi.brincadeira_preparando')}</p>
+          <p className="tama-brincadeira-apresentando-sub">{t('games.tamagoshi.brincadeira_preparando')}</p>
         </div>
       )}
 
       {faseJogo === 'jogando' && (
         <div className="tama-brincadeira" style={{ padding: '4rem 1rem' }}>
-          <div style={{
-            maxWidth: 600, margin: '0 auto 1rem',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          }}>
-            <span style={{ color: '#F5A623', fontSize: '0.85rem', fontWeight: 'bold', letterSpacing: '0.1em' }}>
+          <div className="tama-brincadeira-header">
+            <span className="tama-brincadeira-header-nome">
               {puzzle.nome}
             </span>
             <button
-              className="tama-btn"
-              style={{ fontSize: '0.7rem', padding: '0.3rem 0.8rem', opacity: 0.6 }}
+              className="tama-btn tama-btn--sair"
               onClick={() => { sfx.clique(); handleSair() }}
             >
-              [ sair ]
+              {t('games.tamagoshi.brincadeira_sair')}
             </button>
           </div>
-          <div style={{ maxWidth: 600, margin: '0 auto', background: '#0a0a0a', border: '1px solid #222', borderRadius: 4, padding: '1.5rem' }}>
+          <div className="tama-brincadeira-puzzle-container">
             <Component onSolve={handleSolve} onFail={handleFail} config={config} />
           </div>
         </div>
       )}
 
       {faseJogo === 'resultado' && (
-        <div className="tama-brincadeira" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', gap: '1rem' }}>
+        <div className="tama-brincadeira-resultado-container">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 200, damping: 12 }}
-            style={{ fontSize: '4rem' }}
+            className="tama-brincadeira-resultado-icone"
           >
             {resultado === 'vitoria' ? '🎉' : '💪'}
           </motion.div>
-          <h2 style={{
-            color: resultado === 'vitoria' ? '#22C55E' : '#F5A623',
-            fontSize: '1.1rem', letterSpacing: '0.15em',
-          }}>
-            {resultado === 'vitoria' ? 'boa! você brincou!' : 'foi por pouco!'}
+          <h2 className={`tama-brincadeira-resultado ${resultado === 'vitoria' ? 'tama-brincadeira-resultado--vitoria' : 'tama-brincadeira-resultado--derrota'}`}>
+            {resultado === 'vitoria' ? t('games.tamagoshi.brincadeira_ganhou') : t('games.tamagoshi.brincadeira_perdeu')}
           </h2>
-          <p style={{ color: '#888', fontSize: '0.8rem', textAlign: 'center', maxWidth: 300 }}>
+          <p className="tama-brincadeira-resultado-desc">
             {resultado === 'vitoria'
-              ? 'a criatura adorou brincar com você!'
-              : 'tente de novo ou pratique nos Minigames!'}
+              ? t('games.tamagoshi.brincadeira_ganhou_desc')
+              : t('games.tamagoshi.brincadeira_perdeu_desc')}
           </p>
-          <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
+          <div className="tama-brincadeira-resultado-botoes">
             <motion.button
               className="tama-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => { sfx.clique(); onConcluir() }}
             >
-              [ voltar ]
+              {t('games.tamagoshi.voltar')}
             </motion.button>
             <motion.button
-              className="tama-btn"
-              style={{ borderColor: '#22C55E', color: '#22C55E' }}
+              className="tama-btn tama-btn--puzzles"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => { sfx.clique(); irParaMiniGames() }}
             >
-              [ + puzzles ]
+              {t('games.tamagoshi.brincadeira_mais_puzzles')}
             </motion.button>
           </div>
         </div>

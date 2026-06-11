@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../../../context/LanguageContext'
 import { supabase } from '../../../lib/supabase'
 import { carregarStats, carregarUltimasPartidas } from '../../../hooks/useTopTrumpsDB'
 
 export default function PerfilArena({ userId }) {
+  const { t } = useLanguage()
   const [stats, setStats] = useState({ total_partidas: 0, total_vitorias: 0, total_derrotas: 0, melhor_streak: 0 })
   const [partidas, setPartidas] = useState([])
   const [posicao, setPosicao] = useState(null)
@@ -31,17 +33,17 @@ export default function PerfilArena({ userId }) {
   return (
     <div className="perfil-arena">
       <div className="perfil-jogo-header">
-        <h3 className="perfil-jogo-titulo">🃏 TOP TRUMPS</h3>
-        {posicao && <Link to="/leaderboard" className="perfil-jogo-rank">Posição #{posicao} no ranking global →</Link>}
+        <h3 className="perfil-jogo-titulo">{t('site.perfil.arena_titulo')}</h3>
+        {posicao && <Link to="/leaderboard" className="perfil-jogo-rank">{t('site.perfil.arena_posicao', { posicao })}</Link>}
       </div>
 
       {stats.total_partidas > 0 ? (
         <>
           <div className="perfil-trump-stats">
-            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_partidas}</span><span className="perfil-trump-stat-label">Partidas</span></div>
-            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_vitorias}</span><span className="perfil-trump-stat-label">Vitórias</span></div>
-            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_derrotas}</span><span className="perfil-trump-stat-label">Derrotas</span></div>
-            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.melhor_streak}</span><span className="perfil-trump-stat-label">Melhor Streak</span></div>
+            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_partidas}</span><span className="perfil-trump-stat-label">{t('site.perfil.arena_partidas')}</span></div>
+            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_vitorias}</span><span className="perfil-trump-stat-label">{t('site.perfil.arena_vitorias')}</span></div>
+            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.total_derrotas}</span><span className="perfil-trump-stat-label">{t('site.perfil.arena_derrotas')}</span></div>
+            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{stats.melhor_streak}</span><span className="perfil-trump-stat-label">{t('site.perfil.arena_melhor_streak')}</span></div>
           </div>
           <div className="perfil-trump-lista">
             {partidas.map((p, i) => (
@@ -56,8 +58,8 @@ export default function PerfilArena({ userId }) {
         </>
       ) : (
         <div className="perfil-trump-empty">
-          <p>Sem ranking ainda — jogue sua primeira partida!</p>
-          <Link to="/games/toptrumps" className="perfil-trump-cta">IR PARA ARENA →</Link>
+          <p>{t('site.perfil.arena_sem_ranking')}</p>
+          <Link to="/games/toptrumps" className="perfil-trump-cta">{t('site.perfil.arena_ir_para')}</Link>
         </div>
       )}
     </div>

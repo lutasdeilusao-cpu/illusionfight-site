@@ -1280,3 +1280,276 @@
   color: #F5A623 !important;
   font-size: 0.85rem !important;
 }
+
+/* ===== BRINCADEIRA — NOVAS CLASSES i18n/CSS ===== */
+.tama-brincadeira-sprite-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.tama-brincadeira-fala {
+  background: #111;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.65rem;
+  color: #ccc;
+  max-width: 160px;
+  text-align: center;
+}
+.tama-brincadeira-apresentando {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+.tama-brincadeira-apresentando-icone {
+  font-size: 4rem;
+}
+.tama-brincadeira-apresentando-nome {
+  color: #F5A623;
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+.tama-brincadeira-apresentando-sub {
+  color: #666;
+  font-size: 0.8rem;
+}
+.tama-brincadeira-header {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tama-brincadeira-header-nome {
+  color: #F5A623;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+.tama-btn--sair {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.8rem;
+  opacity: 0.6;
+}
+.tama-brincadeira-puzzle-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.tama-brincadeira-resultado-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+.tama-brincadeira-resultado-icone {
+  font-size: 4rem;
+}
+.tama-brincadeira-resultado {
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+}
+.tama-brincadeira-resultado--vitoria {
+  color: #22C55E;
+}
+.tama-brincadeira-resultado--derrota {
+  color: #F5A623;
+}
+.tama-brincadeira-resultado-desc {
+  color: #888;
+  font-size: 0.8rem;
+  text-align: center;
+  max-width: 300px;
+}
+.tama-brincadeira-resultado-botoes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.tama-btn--puzzles {
+  border-color: #22C55E;
+  color: #22C55E;
+}
+
+/* ===== CRIATURA — NOVAS CLASSES i18n/CSS ===== */
+.tama-criatura-dix-display {
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #F5A623;
+  margin-bottom: 0.3rem;
+}
+.tama-criatura-loja-link {
+  color: #666;
+  font-size: 0.6rem;
+}
+.tama-criatura-trocar-container {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== ALIMENTAR — NOVAS CLASSES i18n/CSS ===== */
+.tama-alimentar-item-btn {
+  margin: 0.25rem;
+}
+
+/* ===== BANHO — NOVAS CLASSES i18n/CSS ===== */
+.tama-banho-item-label {
+  color: #888;
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+/* ===== PASSEIO — NOVAS CLASSES i18n/CSS ===== */
+.tama-passeio-voltar {
+  margin-top: 1rem;
+}
+
+/* ===== LOJA — NOVAS CLASSES i18n/CSS ===== */
+.tama-loja-voltar {
+  margin-top: 1rem;
+}
+
+/* ===== PASSEAR ENDURO ===== */
+.tama-passear-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  user-select: none;
+}
+.tama-passear-card {
+  text-align: center;
+  max-width: 320px;
+  padding: 0 1rem;
+}
+.tama-passear-card-icone {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+.tama-passear-card-titulo {
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #F5A623;
+}
+.tama-passear-card-desc {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.tama-passear-card-setas {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+}
+.tama-passear-playing-wrapper {
+  position: relative;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+.tama-passear-canvas {
+  display: block;
+  border-radius: 12px;
+  touch-action: none;
+  cursor: grab;
+  max-width: 100%;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  overscroll-behavior: none;
+}
+.tama-passear-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #888;
+  font-family: monospace;
+}
+.tama-btn--desistir {
+  margin-top: 8px;
+  opacity: 0.5;
+  font-size: 0.7rem;
+}
+.tama-passear-gameover {
+  text-align: center;
+  max-width: 320px;
+  padding: 0 1rem;
+}
+.tama-passear-gameover-icone {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+.tama-passear-gameover-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #E02020;
+}
+.tama-passear-gameover-todas {
+  font-size: 13px;
+  color: #22C55E;
+  margin-bottom: 4px;
+}
+.tama-passear-gameover-score {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #F5A623;
+}
+.tama-passear-gameover-coins {
+  font-size: 14px;
+  color: #FFD700;
+  margin-bottom: 8px;
+}
+.tama-passear-gameover-pista {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+}
+.tama-passear-historico {
+  font-size: 10px;
+  color: #555;
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: left;
+}
+.tama-passear-historico-titulo {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.tama-passear-historico-linha {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 0;
+  font-family: monospace;
+}
+.tama-passear-historico-data {
+  color: #444;
+}
+.tama-passear-gameover-botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.tama-btn--voltar-opaco {
+  opacity: 0.6;
+}

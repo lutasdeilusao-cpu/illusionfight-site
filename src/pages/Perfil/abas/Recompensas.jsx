@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 import { useFichas } from '../../../context/FichasContext'
 import './Recompensas.css'
 
-const MOTIVO_LABEL = {
-  diaria: 'fichas diárias', achievement: 'achievement desbloqueado',
-  webtoon: 'episódio lido', livro: 'capítulo lido',
-  indicacao: 'indicação qualificada', compartilhamento: 'compartilhamento aprovado',
-  jack_dream_beer: 'jack dream beer', lendas_ldi: 'lendas do ldi', top_trumps: 'top trumps',
+const MOTIVO_KEY_MAP = {
+  diaria: 'site.perfil.recomp_motivo_diaria', achievement: 'site.perfil.recomp_motivo_achievement',
+  webtoon: 'site.perfil.recomp_motivo_webtoon', livro: 'site.perfil.recomp_motivo_livro',
+  indicacao: 'site.perfil.recomp_motivo_indicacao', compartilhamento: 'site.perfil.recomp_motivo_compartilhamento',
+  jack_dream_beer: 'site.perfil.recomp_motivo_jack', lendas_ldi: 'site.perfil.recomp_motivo_lendas', top_trumps: 'site.perfil.recomp_motivo_trumps',
 }
 
 export default function Recompensas() {
+  const { t } = useLanguage()
   const { saldo, fichasDiarias, podeColetarHoje, coletarDiarias, historico, carregarHistorico, isAdmin } = useFichas()
   const [coletando, setColetando] = useState(false)
   const [coletado, setColetado] = useState(false)
@@ -23,41 +25,49 @@ export default function Recompensas() {
     <div className="recomp-page">
       <div className="recomp-saldo">
         <span className="recomp-saldo-emoji">🎰</span>
-        <div><p className="recomp-saldo-val">{isAdmin ? '∞' : saldo}</p><p className="recomp-saldo-label">fichas disponíveis</p></div>
+        <div><p className="recomp-saldo-val">{isAdmin ? '∞' : saldo}</p><p className="recomp-saldo-label">{t('site.perfil.recomp_fichas_disponiveis')}</p></div>
       </div>
-      {isAdmin && <p className="recomp-admin">★ conta admin — bypass de fichas ativo</p>}
+      {isAdmin && <p className="recomp-admin">{t('site.perfil.recomp_admin_bypass')}</p>}
       {!isAdmin && (
         <div className="recomp-ticket-wrap">
-          <p className="recomp-secao-label">FICHA DIÁRIA</p>
+          <p className="recomp-secao-label">{t('site.perfil.recomp_ficha_diaria')}</p>
           <motion.div className={`recomp-ticket ${podeColetarHoje ? 'recomp-ticket--disponivel' : 'recomp-ticket--coletado'}`}
             whileHover={podeColetarHoje ? { scale: 1.02 } : {}} onClick={podeColetarHoje ? handleColetar : undefined}>
             <div className="recomp-ticket-inner">
               <span className="recomp-ticket-emoji">{podeColetarHoje ? '🎟️' : '✅'}</span>
               <div>
-                <p className="recomp-ticket-titulo">{podeColetarHoje ? `+ ${fichasDiarias} fichas disponíveis` : 'fichas coletadas hoje'}</p>
-                <p className="recomp-ticket-sub">{podeColetarHoje ? 'clique para coletar' : `resetam à meia-noite · ${fichasDiarias} fichas/dia`}</p>
+                <p className="recomp-ticket-titulo">{podeColetarHoje ? t('site.perfil.recomp_fichas_disponiveis_valor', { n: fichasDiarias }) : t('site.perfil.recomp_fichas_coletadas_hoje')}</p>
+                <p className="recomp-ticket-sub">{podeColetarHoje ? t('site.perfil.recomp_clique_coletar') : t('site.perfil.recomp_reset_meia_noite', { n: fichasDiarias })}</p>
               </div>
-              {podeColetarHoje && <span className="recomp-ticket-cta">{coletando ? '...' : 'COLETAR'}</span>}
+              {podeColetarHoje && <span className="recomp-ticket-cta">{coletando ? '...' : t('site.perfil.recomp_coletar_btn')}</span>}
             </div>
             <div className="recomp-ticket-perfurado" />
           </motion.div>
-          <AnimatePresence>{coletado && <motion.p className="recomp-coletado-msg" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>+{fichasDiarias} fichas coletadas!</motion.p>}</AnimatePresence>
+          <AnimatePresence>{coletado && <motion.p className="recomp-coletado-msg" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{t('site.perfil.recomp_coletadas_msg', { n: fichasDiarias })}</motion.p>}</AnimatePresence>
         </div>
       )}
       <div className="recomp-como">
-        <p className="recomp-secao-label">COMO GANHAR FICHAS</p>
+        <p className="recomp-secao-label">{t('site.perfil.recomp_como_ganhar')}</p>
         <div className="recomp-como-grid">
-          {[{ emoji: '📖', acao: 'Ler capítulo do livro', fichas: '+1' },{ emoji: '📺', acao: 'Ler episódio do webtoon', fichas: '+1' },{ emoji: '🏆', acao: 'Desbloquear achievement', fichas: '+1' },{ emoji: '👥', acao: 'Indicar um amigo', fichas: '+3' },{ emoji: '📤', acao: 'Compartilhar resultado', fichas: '+2' },{ emoji: '⭐', acao: 'Assinar Elite', fichas: '10/dia' },{ emoji: '💎', acao: 'Assinar Primordial', fichas: '30/dia' }].map((item, i) => (
-            <div key={i} className="recomp-como-item"><span>{item.emoji}</span><span className="recomp-como-acao">{item.acao}</span><span className="recomp-como-fichas">{item.fichas} 🎰</span></div>
+          {[
+            { emoji: '📖', acaoKey: 'site.perfil.recomp_acao_livro', fichas: '+1' },
+            { emoji: '📺', acaoKey: 'site.perfil.recomp_acao_webtoon', fichas: '+1' },
+            { emoji: '🏆', acaoKey: 'site.perfil.recomp_acao_achievement', fichas: '+1' },
+            { emoji: '👥', acaoKey: 'site.perfil.recomp_acao_indicar', fichas: '+3' },
+            { emoji: '📤', acaoKey: 'site.perfil.recomp_acao_compartilhar', fichas: '+2' },
+            { emoji: '⭐', acaoKey: 'site.perfil.recomp_acao_elite', fichas: '10/dia' },
+            { emoji: '💎', acaoKey: 'site.perfil.recomp_acao_primordial', fichas: '30/dia' }
+          ].map((item, i) => (
+            <div key={i} className="recomp-como-item"><span>{item.emoji}</span><span className="recomp-como-acao">{t(item.acaoKey)}</span><span className="recomp-como-fichas">{t('site.perfil.recomp_acoes_fichas', { n: item.fichas })}</span></div>
           ))}
         </div>
       </div>
       {historico.length > 0 && (
         <div className="recomp-historico">
-          <p className="recomp-secao-label">HISTÓRICO</p>
+          <p className="recomp-secao-label">{t('site.perfil.recomp_historico')}</p>
           {historico.map(h => (
             <div key={h.id} className={`recomp-hist-item ${h.tipo === 'ganho' ? 'recomp-hist-item--ganho' : 'recomp-hist-item--gasto'}`}>
-              <span className="recomp-hist-motivo">{MOTIVO_LABEL[h.motivo] || h.motivo}</span>
+              <span className="recomp-hist-motivo">{MOTIVO_KEY_MAP[h.motivo] ? t(MOTIVO_KEY_MAP[h.motivo]) : h.motivo}</span>
               <span className="recomp-hist-qtd">{h.tipo === 'ganho' ? '+' : '-'}{h.quantidade} 🎰</span>
             </div>
           ))}

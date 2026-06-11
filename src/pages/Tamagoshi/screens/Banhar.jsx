@@ -137,7 +137,7 @@ export default function Banhar({ onConcluir }) {
       {temSabonete ? (
         <div>
           <p className="tama-acao-hint">{t('games.tamagoshi.banhar_hint')}</p>
-          <p style={{ color: '#888', fontSize: '0.7rem', marginTop: 4 }}>usando: {itemLabel}</p>
+          <p className="tama-banho-item-label">{t('games.tamagoshi.banhar_usando', { item: itemLabel })}</p>
         </div>
       ) : (
         <p className="tama-aviso">{t('games.tamagoshi.banhar_sem_sabonete')}</p>
@@ -145,7 +145,6 @@ export default function Banhar({ onConcluir }) {
 
       <motion.button
         className="tama-btn"
-        style={{ marginTop: '0.5rem', opacity: 0.6 }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
         onClick={onConcluir}

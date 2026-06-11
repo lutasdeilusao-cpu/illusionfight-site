@@ -61,7 +61,7 @@ export default function PerfilProgresso() {
   return (
     <div className="perfil-progresso">
       <div className="perfil-progresso-header" onClick={() => setExpandido(!expandido)}>
-        <span className="perfil-progresso-titulo">SEU PROGRESSO</span>
+        <span className="perfil-progresso-titulo">{t('site.perfil.progresso_titulo')}</span>
         <span className="perfil-progresso-pct">{progresso}%</span>
       </div>
 
@@ -92,13 +92,13 @@ export default function PerfilProgresso() {
       {progresso === 100 && !jaResgatou && (
         <div className="perfil-progresso-premio">
           <span className="perfil-progresso-premio-icone">🌟</span>
-          <span className="perfil-progresso-premio-texto">Parabéns! Você completou todo o progresso!</span>
+          <span className="perfil-progresso-premio-texto">{t('site.perfil.progresso_100_parabens')}</span>
           <button
             className="perfil-progresso-premio-btn"
             onClick={handleResgatar}
             disabled={resgatando}
           >
-            {resgatando ? 'RESGATANDO...' : 'RESGATAR RECOMPENSA (500 DIX)'}
+            {resgatando ? t('site.perfil.progresso_resgatando') : t('site.perfil.progresso_resgatar')}
           </button>
         </div>
       )}
@@ -106,7 +106,7 @@ export default function PerfilProgresso() {
       {jaResgatou && progresso === 100 && (
         <div className="perfil-progresso-premio perfil-progresso-premio--resgatado">
           <span className="perfil-progresso-premio-icone">✅</span>
-          <span className="perfil-progresso-premio-texto">Recompensa já resgatada! +500 DIX</span>
+          <span className="perfil-progresso-premio-texto">{t('site.perfil.progresso_ja_resgatou')}</span>
         </div>
       )}
 

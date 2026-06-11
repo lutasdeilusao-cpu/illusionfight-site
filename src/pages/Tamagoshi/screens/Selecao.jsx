@@ -68,8 +68,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
               >
                 <div className="tama-selecao-emoji">
                   {c.imagem ? (
-                    <img src={c.imagem} alt={c.nome} className="tama-selecao-img" draggable={false}
-                      style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover' }} />
+                    <img src={c.imagem} alt={c.nome} className="tama-selecao-img" draggable={false} />
                   ) : (
                     c.emoji
                   )}

@@ -68,8 +68,8 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           {store.status === 'critico' && <span className="tama-critico-badge">{t('games.tamagoshi.critico')}</span>}
         </div>
 
-        <div className="tama-dix-display" onClick={onLoja} style={{ cursor: 'pointer', fontSize: '0.75rem', color: '#F5A623', marginBottom: '0.3rem' }}>
-          {t('games.tamagoshi.dix_display', { saldo: dixSaldo })} <span style={{ color: '#666', fontSize: '0.6rem' }}>{t('games.tamagoshi.loja_link')}</span>
+        <div className="tama-criatura-dix-display" onClick={onLoja}>
+          {t('games.tamagoshi.dix_display', { saldo: dixSaldo })} <span className="tama-criatura-loja-link">{t('games.tamagoshi.loja_link')}</span>
         </div>
 
         <BalloonFala texto={fala} cor={pers.cor} />
@@ -90,7 +90,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
         </div>
 
         {slots.length > 1 && (
-          <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+          <div className="tama-criatura-trocar-container">
             <motion.button
               className="tama-btn tama-btn--sm"
               whileHover={{ scale: 1.05 }}
