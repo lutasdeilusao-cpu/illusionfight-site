@@ -106,6 +106,90 @@ function OnomaPopup({ word, onDone }) {
   )
 }
 
+/**
+ * MatchResult — Overlay que aparece quando a partida termina (vitória ou derrota).
+ * Mostra o resultado por 2s, depois exibe um botão "Próximo" para navegar.
+ */
+function MatchResult({ result, t, enemyName, onNext }) {
+  const [showBtn, setShowBtn] = useState(false)
+  const isVitoria = result === 'victory'
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowBtn(true), 2000)
+    return () => clearTimeout(t)
+  }, [])
+
+  return (
+    <motion.div
+      className="arena-match-result"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div className="arena-match-result-bg" />
+
+      <div className="arena-match-result-content">
+        <motion.div
+          className={`arena-match-result-icon ${isVitoria ? 'arena-match-result-icon--win' : 'arena-match-result-icon--lose'}`}
+          initial={{ scale: 0, rotate: -30 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 12 }}
+        >
+          {isVitoria ? '🏆' : '💀'}
+        </motion.div>
+
+        <motion.h1
+          className={`arena-match-result-title ${isVitoria ? 'arena-match-result-title--win' : 'arena-match-result-title--lose'}`}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
+          {isVitoria
+            ? t('games.arena.vitoria')
+            : t('games.arena.derrota')}
+        </motion.h1>
+
+        <motion.p
+          className="arena-match-result-sub"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
+        >
+          {isVitoria
+            ? t('games.arena.log_vitoria')
+            : t('games.arena.log_derrota')}
+        </motion.p>
+
+        {enemyName && isVitoria && (
+          <motion.p
+            className="arena-match-result-enemy"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.4 }}
+          >
+            {t('games.arena.vitoria_sub', { name: enemyName })}
+          </motion.p>
+        )}
+
+        {/* Botão aparece após 2s */}
+        {showBtn && (
+          <motion.button
+            className="arena-match-result-btn"
+            initial={{ scale: 0, y: 30 }}
+            animate={{ scale: 1, y: 0 }}
+            transition={{ type: 'spring', stiffness: 250, damping: 15 }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.92 }}
+            onClick={onNext}
+          >
+            {t('games.arena.btn_proximo')}
+          </motion.button>
+        )}
+      </div>
+    </motion.div>
+  )
+}
+
 export default function ArenaCombat({ onNavigate }) {
   const { t } = useLanguage()
   MODE_LABELS.fists = t('games.arena.modo_fists')
@@ -131,6 +215,7 @@ export default function ArenaCombat({ onNavigate }) {
 
   const [diceOn, setDiceOn] = useState(null)
   const [dramaticDice, setDramaticDice] = useState(null)
+  const [matchResult, setMatchResult] = useState(null)
   const [onomaCurrent, setOnomaCurrentState] = useState(null)
   const [turnOverlay, setTurnOverlay] = useState(false)
   const [flashOn, setFlashOn] = useState(false)
@@ -272,6 +357,7 @@ export default function ArenaCombat({ onNavigate }) {
     timerRef.current = null
     setDiceOn(null)
     setDramaticDice(null)
+    setMatchResult(null)
     setOnomaCurrentState(null)
     setTurnOverlay(false)
     setFlashOn(false)
@@ -324,7 +410,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.pRoll === 6) addTrashWithDelay('take_critical')
         else if (d.pDmg > 0) addTrashWithDelay('take_damage')
 
-        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setTimeout(() => endMatch('victory'), 600); return }
+        if (nEPv <= 0) { addSystemLog(t('games.arena.log_vitoria')); setMatchResult('victory'); return }
 
         if (nEPv <= (Number(enemy.pv_max) || 10) * 0.3 && !saidEnemyLow.current) {
           saidEnemyLow.current = true; addTrashWithDelay('enemy_near_death')
@@ -376,7 +462,7 @@ export default function ArenaCombat({ onNavigate }) {
         if (d.eDmg > 0) addTrashWithDelay('attack_hit')
         else addTrashWithDelay('attack_miss')
 
-        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setTimeout(() => endMatch('defeat'), 600); return }
+        if (nPPv <= 0) { addSystemLog(t('games.arena.log_derrota')); setMatchResult('defeat'); return }
 
         if (nPPv <= isR && !saidNearDeath.current) {
           saidNearDeath.current = true; addTrashWithDelay('player_near_death')
@@ -506,6 +592,16 @@ export default function ArenaCombat({ onNavigate }) {
           finalValue={dramaticDice.finalValue}
           side={dramaticDice.side}
           onComplete={dramaticDice.onComplete}
+        />
+      )}
+
+      {/* MatchResult — sobrepõe tudo quando a partida termina */}
+      {matchResult && (
+        <MatchResult
+          result={matchResult}
+          t={t}
+          enemyName={t('games.arena.enemy_names.' + enemy.id) || enemy?.name}
+          onNext={() => endMatch(matchResult)}
         />
       )}
 

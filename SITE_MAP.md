@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-10*
+*Versão: 9.108*  |  `[SITE] versão carregada: 9.108`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.14.0 — MatchResult: fim de partida na tela de batalha, 2s de delay + botão Próximo
 *Versão: 9.107*  |  `[SITE] versão carregada: 9.107`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.2 — hotfix: DramaticDice loop infinito (display no array de dependências)
 *Versão: 9.106*  |  `[SITE] versão carregada: 9.106`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.1 — DramaticDice: duração 1.5-2s, som de tick a cada batida, desaceleração cúbica suave
 *Versão: 9.105*  |  `[SITE] versão carregada: 9.105`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.13.0 — DramaticDice: dado cinematográfico que sobrepõe o jogo, desacelera e revela o resultado com drama
@@ -93,7 +94,7 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
-*ARENA versão: 1.13.2* | `[ARENA] versão carregada: 1.13.2` (hotfix: DramaticDice — loop infinito corrigido)
+*ARENA versão: 1.14.0* | `[ARENA] versão carregada: 1.14.0` (MatchResult — fim de partida na tela de batalha + botão Próximo)
 *ARENA versão: 1.10.4* | `[ARENA] versão carregada: 1.10.4` (powers i18n pt/en/es + elemental label fix)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style

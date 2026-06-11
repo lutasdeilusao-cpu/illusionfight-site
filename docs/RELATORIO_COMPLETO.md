@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-10  
-> **Versão do Relatório:** 2.46  
-> **Versão do Site:** 9.107  
+> **Versão do Relatório:** 2.47  
+> **Versão do Site:** 9.108  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 
@@ -51,7 +51,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 9.107 |
+| **Versão Atual** | 9.108 |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
@@ -429,7 +429,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.13.2  
+**Versão:** 1.14.0  
 **Fichas:** Sim (🔒)  
 **Rota base:** `/games/ldi-arena`
 
@@ -465,6 +465,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🗄️ **Delete fix** — Supabase delete com tratamento de erro
 - 🌐 **i18n** — novas chaves `btn_sair` e `erro_excluir` pt/en/es
 - **v1.10.1** — hardcoded strings `'Dê um nome...'`, `PV`/`PM`, `FA`/`FD`, `SFX` title traduzidos pt/en/es
+
+**Melhorias v1.14.0:**
+- 🏆 **MatchResult overlay** — fim de partida agora acontece na própria tela de batalha, sem navegação abrupta
+- ⏱️ **Delay de 2s** — o jogador vê o resultado (vitória/derrota) por 2 segundos antes do botão aparecer
+- 🔘 **Botão "Próximo"** — traduzido em PT/EN/ES, leva para a tela de vitória (com XP/recompensas) ou derrota
+- 🎨 **Overlay cinematográfico** — fundo escuro com blur, troféu ou caveira animados, título em destaque
 
 **Melhorias v1.13.2:**
 - 🐛 **Hotfix** — loop infinito corrigido: `display` estava no array de dependências do `useEffect`, causando reinício infinito da rolagem. Substituído por `useRef`.
