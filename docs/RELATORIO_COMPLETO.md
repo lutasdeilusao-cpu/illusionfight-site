@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 2.83  
-> **Versão do Site:** 10.20.0  
+> **Versão do Relatório:** 2.85  
+> **Versão do Site:** 10.22.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -438,9 +438,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.5 Arena LDI
 
-**Versão:** 1.21.0  
+**Versão:** 1.24.0  
 **Status:** ✅ **LANÇADO** — Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.  
-**Fichas:** Sim (🔒)  
+**Fichas:** Sim (🔒) — **limitado por tier**  
 **Rota base:** `/games/ldi-arena`
 
 #### Screens
@@ -466,6 +466,18 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useArenaStore` | ✅ Completo |
 
 **Status Geral:** ✅ **97%**  
+**Melhorias v1.24.0:**
+- 🔓 **Modal de upgrade** — ao clicar em "Nova Ficha" bloqueado, abre modal explicativo com opções Elite/Primordial + botão "Fazer Upgrade" que navega para /planos
+- 🔓 **Modal multiplayer** — ao clicar em "Multiplayer" bloqueado, abre modal explicativo + botão "Fazer Upgrade"
+- 🏷️ **Tag de destaque** — badge "FAZER UPGRADE" (dourado) no lugar de "EM BREVE" nos botões bloqueados
+- 🌍 **i18n** — novas chaves: `limite.modal_*`, `multiplayer.modal_*` em pt/en/es
+**Melhorias v1.23.0:**
+- 🔒 **Limite de fichas por tier** — Ranqueado/FREE: 1 ficha, Elite: 3 fichas, Primordial: 5 fichas
+- 📊 **Contador visível** — lobby mostra "X/Y fichas" ao lado do label "suas fichas"
+- 🌐 **Multiplayer gate** — botão de multiplayer bloqueado para não assinantes com tooltip
+- 🌍 **i18n** — novas chaves: `limite.*` e `multiplayer.*` em pt/en/es
+**Melhorias v1.22.0:**
+- 🐛 **Fix PerfilArena** — mostra fichas LDI Arena (não mais Top Trumps)
 **Melhorias v1.21.0:**
 - 🔊 **SFX na vitória/derrota** — `sfx.win()` + `sfx.explosion()` ao entrar na tela de vitória; `sfx.lose()` + `sfx.explosion()` na derrota
 - 💥 **Partículas de comemoração** — 30 partículas coloridas explodindo (dourado, laranja, rosa, azul, verde) na vitória

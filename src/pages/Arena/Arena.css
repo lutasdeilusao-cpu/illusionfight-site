@@ -1116,57 +1116,157 @@
   letter-spacing: 1px;
 }
 
-.arena-new-sheet--blocked {
-  width: 100%;
-  max-width: 560px;
-  margin-top: 8px;
-  padding: 16px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.01);
-  color: #444;
-  font-size: 12px;
-  letter-spacing: 4px;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: not-allowed;
-  opacity: 0.5;
+.arena-new-sheet--blocked,
+.arena-mp-blocked {
+  opacity: 0.6;
+  cursor: pointer;
   position: relative;
 }
+.arena-new-sheet--blocked:hover,
+.arena-mp-blocked:hover {
+  opacity: 0.85;
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(245,166,35,0.3);
+}
 
-.arena-em-breve-tag {
-  font-size: 8px;
+.arena-limite-upgrade-tag {
+  font-size: 7px;
   letter-spacing: 2px;
-  color: #666;
-  border: 1px solid #444;
+  color: #F5A623;
+  border: 1px solid rgba(245,166,35,0.3);
   padding: 2px 6px;
   border-radius: 2px;
   text-transform: uppercase;
   font-family: 'Courier New', monospace;
+  background: rgba(245,166,35,0.08);
 }
 
-/* ===== MULTIPLAYER GATE ===== */
-.arena-mp-blocked {
-  width: 100%;
-  max-width: 560px;
-  padding: 16px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.01);
-  color: #444;
-  font-size: 12px;
-  letter-spacing: 4px;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
+/* ===== UPGRADE MODAL ===== */
+.arena-upgrade-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  cursor: not-allowed;
-  opacity: 0.5;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.arena-upgrade-modal {
   position: relative;
+  background: #0d0d0d;
+  border: 1px solid rgba(245,166,35,0.25);
+  max-width: 420px;
+  width: 100%;
+  padding: 40px 32px 32px;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 60px rgba(245,166,35,0.08);
+}
+
+.arena-upgrade-modal-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.arena-upgrade-modal-titulo {
+  font-size: 18px;
+  color: #F5A623;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.arena-upgrade-modal-body {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  margin: 0 0 12px;
+}
+
+.arena-upgrade-modal-info {
+  font-size: 10px;
+  color: #555;
+  letter-spacing: 2px;
+  margin: 0 0 20px;
+}
+
+.arena-upgrade-modal-tiers {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.arena-upgrade-tier-card {
+  flex: 1;
+  padding: 16px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.arena-upgrade-tier-card--elite {
+  border-color: rgba(0,180,216,0.3);
+}
+.arena-upgrade-tier-card--primordial {
+  border-color: rgba(168,85,244,0.3);
+}
+
+.arena-upgrade-tier-nome {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 3px;
+  color: #eee;
+}
+
+.arena-upgrade-tier-valor {
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.arena-upgrade-modal-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #F5A623, #e09400);
+  border: none;
+  color: #0a0a0a;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.arena-upgrade-modal-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 24px rgba(245,166,35,0.3);
+}
+
+.arena-upgrade-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: color 0.2s;
+}
+.arena-upgrade-modal-close:hover {
+  color: #F5A623;
 }

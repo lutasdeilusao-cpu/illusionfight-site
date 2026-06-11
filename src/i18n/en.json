@@ -1305,14 +1305,18 @@
       "limite": {
         "titulo": "SHEET LIMIT",
         "fichas_usadas": "{n}/{limite} sheets",
-        "bloqueado_free": "Ranked/FREE users can only create 1 sheet.",
-        "bloqueado_elite": "You've reached the sheet limit for your plan. Upgrade to create more.",
         "upgrade": "UPGRADE",
-        "erro_criar": "Sheet limit reached."
+        "modal_titulo": "Sheet limit reached",
+        "modal_body": "Your {tier} account allows up to {limite} sheet(s). Upgrade to Elite or Primordial to create more.",
+        "modal_body_sem_tier": "Free accounts allow up to {limite} sheet(s). Upgrade to create more.",
+        "modal_btn": "UPGRADE NOW"
       },
       "multiplayer_titulo": "MULTIPLAYER",
       "multiplayer": {
-        "apenas_elite": "Available for Elite and Primordial subscribers"
+        "apenas_elite": "Available for Elite and Primordial subscribers",
+        "modal_titulo": "Multiplayer restricted",
+        "modal_body": "Arena Multiplayer mode is only available for Elite and Primordial subscribers.",
+        "modal_btn": "UPGRADE NOW"
       }
     },
     "toptrumps": {

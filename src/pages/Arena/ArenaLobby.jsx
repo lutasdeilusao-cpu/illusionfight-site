@@ -81,6 +81,7 @@ export default function ArenaLobby({ onNavigate }) {
   const [showIntro, setShowIntro] = useState(() => !localStorage.getItem(introKey))
   const [showEnemies, setShowEnemies] = useState(null)
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  const [modalUpgrade, setModalUpgrade] = useState(null) // 'fichas' | 'multiplayer' | null
 
   useEffect(() => {
     if (!user) return
@@ -291,11 +292,11 @@ export default function ArenaLobby({ onNavigate }) {
 
       {/* Nova ficha — bloqueada se atingiu limite */}
       {user && !podeCriarFicha(perfil, sheets.length) ? (
-        <div className="arena-new-sheet arena-new-sheet--blocked" title={t('games.arena.limite.erro_criar')}>
+        <button className="arena-new-sheet arena-new-sheet--blocked" onClick={() => { sfx.click(); setModalUpgrade('fichas') }}>
           <span className="arena-new-sheet-icon">+</span>
           {t('games.arena.nova_ficha')}
-          <span className="arena-em-breve-tag">{t('site.games.em_breve')}</span>
-        </div>
+          <span className="arena-limite-upgrade-tag">{t('games.arena.limite.upgrade')}</span>
+        </button>
       ) : (
         <button className="arena-new-sheet" onClick={() => { sfx.click(); store.newSheet(); onNavigate('create') }}>
           <span className="arena-new-sheet-icon">+</span>
@@ -307,15 +308,61 @@ export default function ArenaLobby({ onNavigate }) {
       <div className="arena-lobby-divider" style={{ margin: '24px auto' }} />
       <p className="arena-lobby-section-label">{t('games.arena.multiplayer_titulo')}</p>
       {user && perfil?.tier !== 'elite' && perfil?.tier !== 'primordial' ? (
-        <div className="arena-mp-blocked" title={t('games.arena.multiplayer.apenas_elite')}>
-          <span>{t('games.arena.multiplayer_titulo')}</span>
-          <span className="arena-em-breve-tag">{t('site.games.em_breve')}</span>
-        </div>
+        <button className="arena-new-sheet arena-mp-blocked" onClick={() => { sfx.click(); setModalUpgrade('multiplayer') }}>
+          <span className="arena-new-sheet-icon">🌐</span>
+          {t('games.arena.multiplayer_titulo')}
+          <span className="arena-limite-upgrade-tag">{t('games.arena.multiplayer.apenas_elite')}</span>
+        </button>
       ) : (
         <button className="arena-new-sheet" onClick={() => { sfx.click(); /* TODO: navegar para multiplayer */ }}>
           <span className="arena-new-sheet-icon">🌐</span>
           {t('games.arena.multiplayer_titulo')}
         </button>
+      )}
+
+      {/* Modal de upgrade */}
+      {modalUpgrade && (
+        <div className="arena-upgrade-overlay" onClick={() => setModalUpgrade(null)}>
+          <div className="arena-upgrade-modal" onClick={e => e.stopPropagation()}>
+            {modalUpgrade === 'fichas' ? (
+              <>
+                <div className="arena-upgrade-modal-icon">🔒</div>
+                <h2 className="arena-upgrade-modal-titulo">{t('games.arena.limite.modal_titulo')}</h2>
+                <p className="arena-upgrade-modal-body">
+                  {perfil?.tier
+                    ? t('games.arena.limite.modal_body', { tier: perfil.tier, limite: limiteFichasPorTier(perfil.tier) })
+                    : t('games.arena.limite.modal_body_sem_tier', { limite: limiteFichasPorTier(perfil?.tier) })}
+                </p>
+                <p className="arena-upgrade-modal-info">
+                  {t('games.arena.limite.fichas_usadas', { n: sheets.length, limite: limiteFichasPorTier(perfil?.tier) })}
+                </p>
+                <div className="arena-upgrade-modal-tiers">
+                  <div className="arena-upgrade-tier-card arena-upgrade-tier-card--elite">
+                    <span className="arena-upgrade-tier-nome">ELITE</span>
+                    <span className="arena-upgrade-tier-valor">3 fichas</span>
+                  </div>
+                  <div className="arena-upgrade-tier-card arena-upgrade-tier-card--primordial">
+                    <span className="arena-upgrade-tier-nome">PRIMORDIAL</span>
+                    <span className="arena-upgrade-tier-valor">5 fichas</span>
+                  </div>
+                </div>
+                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/planos') }}>
+                  {t('games.arena.limite.modal_btn')}
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="arena-upgrade-modal-icon">🌐</div>
+                <h2 className="arena-upgrade-modal-titulo">{t('games.arena.multiplayer.modal_titulo')}</h2>
+                <p className="arena-upgrade-modal-body">{t('games.arena.multiplayer.modal_body')}</p>
+                <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/planos') }}>
+                  {t('games.arena.multiplayer.modal_btn')}
+                </button>
+              </>
+            )}
+            <button className="arena-upgrade-modal-close" onClick={() => setModalUpgrade(null)}>✕</button>
+          </div>
+        </div>
       )}
 
       <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} label={t('games.arena.voltar_games')} />
