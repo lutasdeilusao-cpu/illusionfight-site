@@ -936,6 +936,20 @@
 .arena-xp-gain { font-size: 28px; color: #F5A623; font-weight: bold; margin-bottom: 8px; }
 .arena-victory-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 
+/* ── Partículas de vitória/derrota ── */
+.arena-victory-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.arena-particle {
+  position: fixed;
+  will-change: transform, opacity;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
   .arena-combat-grid { grid-template-columns: 1fr; }

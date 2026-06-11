@@ -30,6 +30,17 @@ export default function ArenaVictory({ onNavigate }) {
   const [hpAtual, setHpAtual] = useState(pvMax)
   const [nextUnlock, setNextUnlock] = useState(null)
 
+  // Tocar som de vitória ou derrota na montagem
+  useEffect(() => {
+    if (isVitoria) {
+      sfx.win()
+      sfx.explosion()
+    } else {
+      sfx.lose()
+      sfx.explosion()
+    }
+  }, [isVitoria])
+
   // Fase 1 — mensagem final do inimigo
   useEffect(() => {
     if (fase !== 'mensagem') return
@@ -49,7 +60,11 @@ export default function ArenaVictory({ onNavigate }) {
       const pct = Math.min(1, elapsed / duracao)
       setHpAtual(Math.round(startHp * (1 - pct)))
       if (pct < 1) frame = requestAnimationFrame(step)
-      else setTimeout(() => setFase('resultado'), 400)
+      else {
+        // Ao chegar em 0 HP, toca explosão final
+        sfx.explosion()
+        setTimeout(() => setFase('resultado'), 400)
+      }
     }
     frame = requestAnimationFrame(step)
     return () => cancelAnimationFrame(frame)
@@ -75,6 +90,34 @@ export default function ArenaVictory({ onNavigate }) {
   if (!isVitoria) {
     return (
       <div className="arena-victory arena-container">
+        {/* Partículas de explosão — derrota */}
+        <div className="arena-victory-particles arena-victory-particles--defeat">
+          {[...Array(20)].map((_, i) => (
+            <motion.span
+              key={i}
+              className="arena-particle"
+              initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+              animate={{
+                x: (Math.random() - 0.5) * 400,
+                y: (Math.random() - 0.5) * 400,
+                opacity: 0,
+                scale: 0,
+              }}
+              transition={{ duration: 1.2 + Math.random() * 0.8, ease: 'easeOut' }}
+              style={{
+                background: ['#DC143C', '#8B0000', '#FF4500', '#FF6347'][i % 4],
+                width: 6 + Math.random() * 8,
+                height: 6 + Math.random() * 8,
+                borderRadius: Math.random() > 0.5 ? '50%' : '2px',
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                pointerEvents: 'none',
+                zIndex: 10,
+              }}
+            />
+          ))}
+        </div>
         <div className="arena-victory-header">
           <h1 className="arena-victory-title arena-victory-lose">{t('games.arena.derrota')}</h1>
           <p className="arena-victory-sub">{t('games.arena.derrota_sub')}</p>
@@ -151,6 +194,36 @@ export default function ArenaVictory({ onNavigate }) {
   // Fase 3 — vitória
   return (
     <div className="arena-victory arena-container">
+      {/* Partículas de comemoração — vitória */}
+      <div className="arena-victory-particles arena-victory-particles--victory">
+        {[...Array(30)].map((_, i) => (
+          <motion.span
+            key={i}
+            className="arena-particle"
+            initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+            animate={{
+              x: (Math.random() - 0.5) * 500,
+              y: (Math.random() - 0.5) * 500,
+              opacity: 0,
+              scale: 0,
+            }}
+            transition={{ duration: 1.5 + Math.random() * 1, ease: 'easeOut', delay: Math.random() * 0.3 }}
+            style={{
+              background: ['#F5A623', '#FFD700', '#FF6B9D', '#00B4D8', '#FF4500', '#ADFF2F'][i % 6],
+              width: 5 + Math.random() * 10,
+              height: 5 + Math.random() * 10,
+              borderRadius: ['50%', '2px', '50%', '1px'][i % 4],
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              pointerEvents: 'none',
+              zIndex: 10,
+              boxShadow: '0 0 6px currentColor',
+              color: ['#F5A623', '#FFD700', '#FF6B9D', '#00B4D8'][i % 4],
+            }}
+          />
+        ))}
+      </div>
       <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
         <motion.div
           initial={{ scale: 0.1, opacity: 0 }}
