@@ -46,8 +46,6 @@ export default function PerfilTamagoshi() {
       if (local) {
         setTama({
           criatura_id: local.criaturaId,
-          nome_custom: local.nomeCustom,
-          personalidade: local.personalidade,
           fase: local.fase,
           status: local.status,
         })
@@ -99,7 +97,7 @@ export default function PerfilTamagoshi() {
     try {
       const result = await store.confirmarTroca(keyInput.trim().toUpperCase(), user.id, slotB, userTier)
       const c = CRIATURAS.find(x => x.id === result.criaturaId)
-      const boasVindas = getFala(result.personalidade, 'fome', result.criaturaId)
+      const boasVindas = getFala(c?.tipo, 'fome', result.criaturaId)
       setMsg({ texto: `troca confirmada! ${c?.emoji || ''} ${c?.nome || 'nova criatura'} chegou: ${boasVindas}`, tipo: 'ok' })
       notifStore.push(`${c?.emoji || ''} ${c?.nome || 'Nova criatura'}: ${boasVindas}`, 'ver tamagoshi', '/games/tamagoshi')
       setKeyGerada(null)
@@ -134,23 +132,26 @@ export default function PerfilTamagoshi() {
         </div>
       ) : (
         <>
-          <div className="perfil-tama-card" style={{ borderColor: persCor(tama.personalidade), cursor: 'pointer' }}
-            onClick={() => navigate('/games/tamagoshi')}>
-            <div className="perfil-tama-card-avatar">
-              {(() => {
-                const c = CRIATURAS.find(cr => cr.id === tama.criatura_id)
-                const src = c?.gifs?.apresentacao || c?.imagem
-                if (src) {
-                  return <img src={src} alt={c.nome} className="perfil-tama-card-img" draggable={false} />
-                }
-                return <span className="perfil-tama-card-emoji">{c?.emoji || '🥚'}</span>
-              })()}
-            </div>
-            <div className="perfil-tama-card-info">
-              <span className="perfil-tama-card-nome">{tama.nome_custom || 'sem nome'}</span>
-              <span className="perfil-tama-card-pers" style={{ color: persCor(tama.personalidade) }}>
-                {PERSONALIDADES[tama.personalidade]?.nome || tama.personalidade}
-              </span>
+          {(() => {
+            const c = CRIATURAS.find(cr => cr.id === tama.criatura_id)
+            const tipo = c?.tipo
+            return (
+              <div className="perfil-tama-card" style={{ borderColor: persCor(tipo), cursor: 'pointer' }}
+                onClick={() => navigate('/games/tamagoshi')}>
+                <div className="perfil-tama-card-avatar">
+                  {(() => {
+                    const src = c?.gifs?.apresentacao || c?.imagem
+                    if (src) {
+                      return <img src={src} alt={c?.nome || ''} className="perfil-tama-card-img" draggable={false} />
+                    }
+                    return <span className="perfil-tama-card-emoji">{c?.emoji || '🥚'}</span>
+                  })()}
+                </div>
+                <div className="perfil-tama-card-info">
+                  <span className="perfil-tama-card-nome">{c?.nome || 'sem nome'}</span>
+                  <span className="perfil-tama-card-pers" style={{ color: persCor(tipo) }}>
+                    {PERSONALIDADES[tipo]?.nome || tipo || '—'}
+                  </span>
               <span className="perfil-tama-card-status" style={{
                 color: tama.status === 'vivo' ? '#22C55E' : tama.status === 'critico' ? '#E02020' : '#666'
               }}>
@@ -158,6 +159,8 @@ export default function PerfilTamagoshi() {
               </span>
             </div>
           </div>
+            )
+          })()}
 
           <button className="perfil-tama-jogar-btn"
             onClick={() => navigate('/games/tamagoshi')}>
@@ -248,7 +251,7 @@ export default function PerfilTamagoshi() {
               return (
                 <div key={f.id} className="perfil-tama-fama-card">
                   <span className="perfil-tama-fama-emoji">{c?.emoji || '✨'}</span>
-                  <span className="perfil-tama-fama-nome">{f.nome_custom || t('site.perfil.tama_sem_nome')}</span>
+                  <span className="perfil-tama-fama-nome">{c?.nome || t('site.perfil.tama_sem_nome')}</span>
                   <span className="perfil-tama-fama-badges">{f.badges?.length || 0} badges</span>
                 </div>
               )

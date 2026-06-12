@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 3.6  
-> **Versão do Site:** 10.36.1  
+> **Versão do Relatório:** 3.7  
+> **Versão do Site:** 10.36.2  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.36.1 ✅ |
+| **Versão Atual** | 10.36.2 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -733,13 +733,14 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.0.1  
+**Versão:** 2.0.2  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
-> 🎮 **v2.0.0 — Store stateless** — recalcular() baseado em timestamp, decaimento por dia da semana, cálculo retroativo de crítico  
+> 🎮 **v2.0.2 — Fix nome + fichas:** FichasContext upsert p/ persistir saldo; saveToCloud salva nome_custom; Perfil mostra nome da criatura  
 > 🎮 **v2.0.1 — Fix lookups:** CRIATURA_ID_TO_SLUG para FALAS_CRIATURA/COMIDA_TEMATICA; tick/aplicarDecaimento → recalcular()  
+> 🎮 **v2.0.0 — Store stateless** — recalcular() baseado em timestamp, decaimento por dia da semana, cálculo retroativo de crítico  
 > 🎮 **T1 — Gacha:** 10 criaturas sorteadas (1º giro grátis ✅ fix: não barrava por falta de DIX)  
 > 🗂️ **Múltiplos slots + hibernação:** sistema de slots preparado para T2 (max 1 slot por ora)  
 > 🎰 **T2 — Gacha de Temporada:** sistema de gacha para obter criaturas da T2 pagando DIX  

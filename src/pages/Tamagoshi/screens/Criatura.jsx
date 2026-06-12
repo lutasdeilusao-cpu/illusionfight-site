@@ -134,7 +134,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
                         }}
                       >
                         <span className="tama-slot-emoji">{criatura?.emoji || '🐉'}</span>
-                        <span className="tama-slot-nome">{s.nome_custom || criatura?.nome || '???'}</span>
+                        <span className="tama-slot-nome">{criatura?.nome || '???'}</span>
                         <span className="tama-slot-status">
                           {isAtivo ? '✅' : s.hibernando ? '💤' : '✅'}
                         </span>

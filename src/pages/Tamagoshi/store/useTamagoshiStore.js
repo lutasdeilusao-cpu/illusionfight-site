@@ -338,7 +338,6 @@ export const useTamagoshiStore = create((set, get) => ({
       ultima_brincadeira: state.ultimaBrincadeira ? new Date(state.ultimaBrincadeira).toISOString() : null,
       ultima_saude: state.ultimaSaude ? new Date(state.ultimaSaude).toISOString() : null,
       nascido_em: state.nascidoEm ? new Date(state.nascidoEm).toISOString() : null,
-      nome_custom: state.nomeCustom || null,
       cooldown_ate: state.cooldownAte ? new Date(state.cooldownAte).toISOString() : null,
       updated_at: new Date().toISOString(),
       inventario: state.inventario || {},
