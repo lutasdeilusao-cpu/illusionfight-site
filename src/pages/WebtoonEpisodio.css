@@ -93,3 +93,11 @@
   background: var(--accent-teal);
   color: var(--bg-primary);
 }
+
+.webtoon-ep-blocked {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}

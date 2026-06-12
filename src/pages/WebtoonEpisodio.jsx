@@ -66,7 +66,7 @@ export default function WebtoonEpisodio() {
           <button className="webtoon-ep-header__back" onClick={() => navigate('/webtoon')}>
             {t('pages.webtoon.voltar')}
           </button>
-          <p style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <p className="webtoon-ep-blocked">
             {ep?.data_publicacao
               ? `${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}`
               : t('pages.webtoon.nao_encontrado')}
