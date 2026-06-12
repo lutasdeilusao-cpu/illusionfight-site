@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.67.0*  |  `[SITE] versão carregada: 10.67.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.4.0 — refactor completo: inline CSS removido (style={{}} → data attrs + CSS), hardcoded strings removidas (CooldownTimer 'disponível' → t(), canvas 'pista' → t()), i18n pt/en/es adicionado cooldown_disponivel
 *Versão: 10.66.0*  |  `[SITE] versão carregada: 10.66.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.3.0 — Sorteio T1 usa JSON dedicado (tamagoshi-season1.json) com IDs 1-10; IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2. i18n pt/en/es para gacha_giro_gratis e em_breve.
 *Versão: 10.65.0*  |  `[SITE] versão carregada: 10.65.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sistema "Em Breve" para Webtoon + Livro na Home: LatestEpisodes mostra ComingSoon.png para episódios bloqueados (igual BookChaptersRow). Admin bypass: contas admin (isaiasgamedev, gramikgames) veem todo conteúdo liberado antes do lançamento. `estaDisponivel()` agora aceita `isAdmin`. i18n pt/en/es via `pages.webtoon.em_breve`/`pages.livro.em_breve`.
 *Versão: 10.64.0*  |  `[SITE] versão carregada: 10.64.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.2.0 — novas criaturas oficiais: Draken (ID 04), Kaiser (05), Lenna (06), Yawaru (07) com sprites próprios (10 estados cada). Nomes atualizados, falas e itens temáticos renomeados.

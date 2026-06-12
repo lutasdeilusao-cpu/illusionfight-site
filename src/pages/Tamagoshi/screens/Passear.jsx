@@ -121,7 +121,7 @@ export default function Passear({ onConcluir }) {
     ctx.fillStyle = '#FFD700'; ctx.textAlign = 'left'; ctx.font = '11px monospace'; ctx.textBaseline = 'bottom'
     ctx.fillText('\u25C6 ' + s.coinsCollected, 12, H - 8)
     ctx.fillStyle = '#aaa'; ctx.textAlign = 'center'; ctx.font = '12px monospace'; ctx.textBaseline = 'middle'
-    ctx.fillText('pista ' + s.stage + '/' + STAGE_COUNT, W / 2, 20)
+    ctx.fillText(t('games.tamagoshi.pista', { a: s.stage, b: STAGE_COUNT }), W / 2, 20)
   }
 
   function loop() {

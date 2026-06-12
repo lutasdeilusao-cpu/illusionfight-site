@@ -1847,7 +1847,8 @@
         "confirmacao_texto": "A Tamagoshi needs daily attention. Are you ready for this responsibility?",
         "btn_aceitar": "YES, I ACCEPT THE RESPONSIBILITY",
         "btn_recusar": "I'm not ready yet"
-      }
+      },
+      "cooldown_disponivel": "available"
     },
     "pesadelo": {
       "titulo": "PARTICULAR NIGHTMARE",

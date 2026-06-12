@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function MetricBar({ label, valor, cor, icone }) {
   const pct = Math.max(0, Math.min(100, valor || 0))
-  const barraCor = pct > 60 ? cor : pct > 30 ? '#F5A623' : '#E02020'
+  const nivelClasse = pct > 60 ? 'tama-mb-fill--alta' : pct > 30 ? 'tama-mb-fill--media' : 'tama-mb-fill--baixa'
 
   return (
     <div className="tama-mb">
@@ -13,8 +13,8 @@ export default function MetricBar({ label, valor, cor, icone }) {
       </div>
       <div className="tama-mb-track">
         <motion.div
-          className="tama-mb-fill"
-          style={{ background: barraCor }}
+          className={`tama-mb-fill ${nivelClasse}`}
+          data-pct={pct}
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
           transition={{ duration: 0.4 }}

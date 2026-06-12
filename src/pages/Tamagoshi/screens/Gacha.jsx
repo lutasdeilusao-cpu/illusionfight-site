@@ -177,7 +177,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
-              <div className="tama-gacha-resultado-emoji" style={{ '--tama-cor': persSorteada?.cor || '#555' }}>
+              <div className="tama-gacha-resultado-emoji" data-tipo={sorteada.tipo}>
                 {sorteada.imagem ? (
                   <img src={sorteada.imagem} alt={sorteada.nome} className="tama-gacha-resultado-img" draggable={false} />
                 ) : (
@@ -185,7 +185,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
                 )}
               </div>
               <h3 className="tama-gacha-resultado-nome">{sorteada.nome}</h3>
-              <p className="tama-gacha-resultado-tipo" style={{ '--tama-cor': persSorteada?.cor || '#555' }}>
+              <p className="tama-gacha-resultado-tipo" data-tipo={sorteada.tipo}>
                 {t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[sorteada.tipo])}
               </p>
               <p className="tama-gacha-resultado-raridade">

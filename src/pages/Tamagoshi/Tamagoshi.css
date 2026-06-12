@@ -1678,3 +1678,130 @@
 .tama-btn--voltar-opaco {
   opacity: 0.6;
 }
+
+/* ===== DATA-ATTR → CSS CUSTOM PROPERTIES ===== */
+
+/* BalloonFala — cor da personalidade */
+.tama-balloon[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-balloon[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-balloon[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-balloon[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-balloon[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-balloon[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-balloon:not([data-tipo])       { --tama-cor: #555; }
+
+/* Selecao card — cor da personalidade */
+.tama-selecao-card[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-selecao-card[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-selecao-card[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-selecao-card[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-selecao-card[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-selecao-card[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+
+.tama-selecao-tipo[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-selecao-tipo[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-selecao-tipo[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-selecao-tipo[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-selecao-tipo[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-selecao-tipo[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+
+/* Gacha resultado — cor da personalidade */
+.tama-gacha-resultado-emoji[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-gacha-resultado-emoji[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-gacha-resultado-emoji[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-gacha-resultado-emoji[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-gacha-resultado-emoji[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-gacha-resultado-emoji[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+
+.tama-gacha-resultado-tipo[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-gacha-resultado-tipo[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-gacha-resultado-tipo[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-gacha-resultado-tipo[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-gacha-resultado-tipo[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-gacha-resultado-tipo[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+
+/* Passeio bonus — cor da personalidade */
+.tama-passeio-card-bonus[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
+.tama-passeio-card-bonus[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
+.tama-passeio-card-bonus[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-passeio-card-bonus[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
+.tama-passeio-card-bonus[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
+.tama-passeio-card-bonus[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+
+/* ===== CRIATURA SPRITE — tamanho por estágio ===== */
+.tama-sprite[data-estagio="0"] { --tam-tamanho: 160px; }
+.tama-sprite[data-estagio="1"] { --tam-tamanho: 220px; }
+.tama-sprite[data-estagio="2"] { --tam-tamanho: 280px; }
+.tama-sprite[data-estagio="3"] { --tam-tamanho: 280px; }
+.tama-sprite:not([data-estagio]) { --tam-tamanho: 160px; }
+
+/* Filtro por status */
+.tama-sprite[data-status="morto"]  { --tam-filtro: grayscale(1) brightness(0.3); }
+.tama-sprite[data-status="critico"] { --tam-filtro: brightness(0.7); }
+.tama-sprite[data-status="vivo"]   { --tam-filtro: none; }
+.tama-sprite:not([data-status])    { --tam-filtro: none; }
+
+.tama-sprite-img[data-status="morto"]   { --tam-filtro: grayscale(1) brightness(0.3); }
+.tama-sprite-img[data-status="critico"] { --tam-filtro: brightness(0.7); }
+.tama-sprite-img[data-status="vivo"]    { --tam-filtro: none; }
+
+/* Emoji font size por estágio */
+.tama-sprite-emoji[data-estagio="0"] { --tam-fonte: 80px; }
+.tama-sprite-emoji[data-estagio="1"] { --tam-fonte: 110px; }
+.tama-sprite-emoji[data-estagio="2"] { --tam-fonte: 140px; }
+.tama-sprite-emoji[data-estagio="3"] { --tam-fonte: 140px; }
+
+/* ===== PROGRESS BAR — CSS custom property ===== */
+.tama-acao-progress-fill {
+  width: calc(var(--pct, 0) * 1%);
+}
+
+/* ===== METRIC BAR — fill colors by level ===== */
+.tama-mb-fill--alta  { background: var(--cor-barra, #22C55E); }
+.tama-mb-fill--media { background: #F5A623; }
+.tama-mb-fill--baixa { background: #E02020; }
+
+/* ===== BANHO BUBBLES ===== */
+.tama-acao-banho-bolha {
+  width: var(--tam-bolha);
+  height: var(--tam-bolha);
+  left: var(--pos-x, 50%);
+}
+
+/* ===== RESTAURAR SAÚDE — partículas ===== */
+.tama-saude-particula {
+  background: var(--cor, #00B4D8);
+  animation-delay: var(--delay, 0s);
+}
+@keyframes particula-temp {
+  0%   { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-40px) translateX(var(--dx)) scale(0.5); }
+}
+
+/* ===== RESTAURAR SAÚDE — bolhas xarope ===== */
+.tama-saude-bolha {
+  background: radial-gradient(circle, var(--cor, #FF6B9D)44, transparent);
+  animation-delay: var(--delay, 0s);
+}
+@keyframes bolha {
+  0%   { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-30px) translateX(var(--dx)) scale(0.5); }
+}
+
+/* ===== RESTAURAR SAÚDE — touch drag ghost ===== */
+.tama-saude-touch-ghost {
+  position: fixed;
+  left: var(--ghost-x, 0);
+  top: var(--ghost-y, 0);
+  z-index: 9999;
+  pointer-events: none;
+  font-size: 3rem;
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+/* ===== RESTAURAR SAÚDE — voltar button ===== */
+.tama-saude-voltar {
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}

@@ -100,7 +100,7 @@ export default function Banhar({ onConcluir }) {
 
       <div className="tama-acao-progress-container">
         <div className="tama-acao-progress-track">
-          <div className="tama-acao-progress-fill" style={{ width: `${progress}%` }} />
+          <div className="tama-acao-progress-fill" style={{ '--pct': progress }} />
         </div>
         <span className="tama-acao-progress-label">{Math.round(progress)}%</span>
       </div>
@@ -118,11 +118,11 @@ export default function Banhar({ onConcluir }) {
           <motion.div
             key={b.id}
             className="tama-acao-banho-bolha"
+            style={{ '--tam-bolha': b.size + 'px', '--pos-x': b.x + '%' }}
             initial={{ y: 0, opacity: 0.8, x: `${b.x}%` }}
             animate={{ y: -80, opacity: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5 }}
-            style={{ width: b.size, height: b.size, left: `${b.x}%` }}
           />
         ))}
       </div>

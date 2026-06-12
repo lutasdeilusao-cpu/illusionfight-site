@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.46  
-> **Versão do Site:** 10.65.0  
+> **Versão do Relatório:** 3.47  
+> **Versão do Site:** 10.67.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.66.0 ✅ |
+| **Versão Atual** | 10.67.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -786,11 +786,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.3.0  
+**Versão:** 2.4.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes, gacha pt/en/es  
+> 🎮 **v2.4.0 — Refactor final: zero inline CSS, zero hardcoded strings:** Todos os `style={{}}` inline substituídos por data attributes + CSS classes (BalloonFala, CriaturaSprite, Selecao, Gacha, Passeio, MetricBar, Alimentar, Banhar, RestaurarSaude, Passear). Hardcoded "disponível" no CooldownTimer → i18n `cooldown_disponivel` pt/en/es. Canvas hardcoded "pista" → `t('games.tamagoshi.pista')`. CSS variables (--tama-cor, --tam-tamanho, --tam-filtro) movidas para data-attribute selectors. 
 > 🎮 **v2.3.0 — Sorteio T1 com JSON dedicado:** Sorteio da Temporada 1 agora lê de `tamagoshi-season1.json` (IDs 1-10). IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2 — prontos para futuras seasons via JSON independentes. Hardcoded strings "1º GIRO GRÁTIS" e "EM BREVE" substituídas por i18n pt/en/es.  
 > 🎮 **v2.2.0 — Novas criaturas oficiais:** Draken, Kaiser, Lenna e Yawaru (IDs 04-07) com sprites próprios (10 estados cada). Nomes atualizados (era Voidling, Aquori, Sinalo, Grafiko). Falas e itens temáticos renomeados.  
 > 🎮 **v2.1.0 — Refactor:** hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Refatoração geral de texto para i18n e estilo para CSS puro.  
@@ -1112,7 +1113,7 @@ capitulo-05: data_publicacao: "2026-10-19" ⏳
 | **Livro** | 3 capas oficiais (`capitulo-01.png`~`capitulo-03.png`) | ~115KB cada | ✅ Capas dos 3 capítulos publicados |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
 | **Música** | 16 capas randomizadas (`01.png`~`16.png`) | ~150-240KB cada | ✅ Randomizado por visita |
-| **Tamagoshi** | **30 sprites** (Kroniki, Ninka, Kroum — 10 estados cada) | ~137KB cada | 🟡 **3 de 32 criaturas** |
+| **Tamagoshi** | **70 sprites** (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru — 10 estados cada) | ~137KB cada | 🟡 **7 de 32 criaturas** |
 | **Cards** (Top Trumps) | Artes oficiais 1ª temporada (no jogo) | ✅ Completo |
 | **Cards** (Duelo) | Nenhum | — | 🔴 **0** |
 
@@ -1216,13 +1217,13 @@ STATUS: ✅ limpo
 | **Arena LDI** (combate CPU) | 97% | 🟢 | 8 inimigos, SFX, leaderboard, XP bar, DramaticDice, MatchResult overlay |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
-| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas (Kroniki, Ninka, Kroum prontos) |
+| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 25 criaturas (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru — 7/32 prontos) |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | ✅ | 🟢 | Cronograma definido (quinzenal a partir de 05/10/2026, automatizado via `data_publicacao`) |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
 | **Arte Personagens** | 100% | 🟢 | 10/10 com artes oficiais |
-| **Sprites Tamagoshi** | 9% | 🟡 | 3/32 criaturas com sprite (Kroniki, Ninka, Kroum) |
+| **Sprites Tamagoshi** | 22% | 🟡 | 7/32 criaturas com sprite (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru) |
 | **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
 | **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte (WIP) |
 | **Músicas** (catálogo) | 100% | 🟢 | 36 faixas, todas publicadas com links + 16 capas randomizadas |
@@ -1233,8 +1234,8 @@ STATUS: ✅ limpo
 |---|---|---|
 | **Engenharia/Código** (telas, lógica, stores, API) | **92%** | Quase todo o código está escrito |
 | **Conteúdo Textual** (diálogos, lore, livro PT) | **85%** | Muito conteúdo já produzido |
-| **Conteúdo Traduzido** (EN/ES) | **55%** | **Site+Jogos 100%** (1318 chaves confirmadas) | Livro caps 4-16 sem tradução |
-| **Arte/Assets** (sprites, imagens, cartas) | **52%** | Top Trumps com artes oficiais (105/105), Tamagoshi 3/32 sprites, demais WIP |
+| **Conteúdo Traduzido** (EN/ES) | **55%** | **Site+Jogos 100%** (1321 chaves confirmadas) | Livro caps 4-16 sem tradução |
+| **Arte/Assets** (sprites, imagens, cartas) | **53%** | Top Trumps com artes oficiais (105/105), Tamagoshi 7/32 sprites (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru), demais WIP |
 | **Publicação** (capítulos do livro) | **19%** | Conteúdo existe, não publicado |
 | **Balanceamento/Testes** (jogos) | **72%** | Top Trumps finalizado+balanceado, Arena testada/revisada, demais WIP |
 
@@ -1253,7 +1254,7 @@ STATUS: ✅ limpo
 
 | Item | Status | Impacto |
 |---|---|---|
-| Sprites Tamagoshi (29/32 faltando) | 🟡 9% | Jogo funcional sem arte visual |
+| Sprites Tamagoshi (25/32 faltando) | 🟡 22% | 7 prontos: Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru |
 | Artes de personagens | 🟢 100% | 10/10 personagens com artes oficiais |
 | Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
@@ -1375,7 +1376,7 @@ STATUS: ✅ limpo
 📖 CRONOGRAMA LIVRO:     ✅ Definido e automatizado (3/16 no lançamento, +1 a cada 14 dias a partir de 05/10/2026)
 🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 GERAL:                ~82% ████████████████████████████████████████░░░░
+📊 GERAL:                ~83% ████████████████████████████████████████░░░░
 ```
 
 **A engenharia e o esqueleto do site estão 92% prontos.**  
@@ -1388,4 +1389,4 @@ O código fonte está sólido. Faltam assets e decisões de cronograma de lança
 
 ---
 
-*Relatório gerado em 2026-06-11 — v2.56 — por GitHub Copilot (DeepSeek V4 Flash)*
+*Relatório gerado em 2026-06-12 — v3.47 — por GitHub Copilot (DeepSeek V4 Flash)*

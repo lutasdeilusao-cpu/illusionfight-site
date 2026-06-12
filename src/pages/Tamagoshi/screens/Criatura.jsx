@@ -72,7 +72,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
           {t('games.tamagoshi.dix_display', { saldo: dixSaldo })} <span className="tama-criatura-loja-link">{t('games.tamagoshi.loja_link')}</span>
         </div>
 
-        <BalloonFala texto={fala} cor={pers.cor} />
+        <BalloonFala texto={fala} tipo={store.personalidade} />
 
         <CriaturaSprite
           criaturaId={store.criaturaId}

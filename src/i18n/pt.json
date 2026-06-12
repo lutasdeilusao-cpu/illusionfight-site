@@ -1874,7 +1874,8 @@
         "confirmacao_texto": "Um Tamagoshi precisa de atenção diária. Você está pronto para essa responsabilidade?",
         "btn_aceitar": "SIM, ACEITO A RESPONSABILIDADE",
         "btn_recusar": "Ainda não estou pronto"
-      }
+      },
+      "cooldown_disponivel": "disponível"
     },
     "pesadelo": {
       "titulo": "PRESADELO PARTICULAR",

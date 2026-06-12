@@ -205,17 +205,8 @@ export default function RestaurarSaude({ onConcluir }) {
   const acaoCorrente = ordem[acaoAtual]
   const instrucaoAtual = acaoCorrente ? t('games.tamagoshi.saude_instrucao_' + acaoCorrente) : ''
 
-  // Posicionamento visual do item sendo arrastado no touch
-  const touchStyle = touchPos ? {
-    position: 'fixed',
-    left: touchPos.x - 25,
-    top: touchPos.y - 25,
-    zIndex: 9999,
-    pointerEvents: 'none',
-    fontSize: '3rem',
-    opacity: 0.8,
-    transform: 'scale(1.2)',
-  } : {}
+  const touchX = touchPos ? touchPos.x - 25 : 0
+  const touchY = touchPos ? touchPos.y - 25 : 0
 
   return (
     <div className="tama-acao-screen">
@@ -308,11 +299,7 @@ export default function RestaurarSaude({ onConcluir }) {
           <div
             key={p.id}
             className="tama-saude-particula"
-            style={{
-              '--dx': `${p.dx}px`,
-              animationDelay: `${p.delay}s`,
-              background: p.cor,
-            }}
+            style={{ '--dx': p.dx + 'px', '--delay': p.delay + 's', '--cor': p.cor }}
           />
         ))}
 
@@ -345,11 +332,7 @@ export default function RestaurarSaude({ onConcluir }) {
           <div
             key={b.id}
             className="tama-saude-bolha"
-            style={{
-              '--dx': `${b.dx}px`,
-              animationDelay: `${b.delay}s`,
-              background: `radial-gradient(circle, ${b.cor}44, transparent)`,
-            }}
+            style={{ '--dx': b.dx + 'px', '--delay': b.delay + 's', '--cor': b.cor }}
           />
         ))}
 
@@ -395,7 +378,7 @@ export default function RestaurarSaude({ onConcluir }) {
 
       {/* Touch drag ghost */}
       {touchPos && (
-        <div style={touchStyle}>
+        <div className="tama-saude-touch-ghost" style={{ '--ghost-x': touchX + 'px', '--ghost-y': touchY + 'px' }}>
           {ITEM_EMOJI[touchPos.acao]}
         </div>
       )}
@@ -403,8 +386,7 @@ export default function RestaurarSaude({ onConcluir }) {
       {/* Botão voltar (só quando não estiver concluindo) */}
       {!mostrandoConclusao && (
         <motion.button
-          className="tama-btn"
-          style={{ marginTop: '0.5rem', opacity: 0.6 }}
+          className="tama-btn tama-saude-voltar"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
           onClick={onConcluir}

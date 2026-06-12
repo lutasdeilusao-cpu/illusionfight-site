@@ -1847,7 +1847,8 @@
         "confirmacao_texto": "Un Tamagoshi necesita atención diaria. ¿Estás listo para esta responsabilidad?",
         "btn_aceitar": "SÍ, ACEPTO LA RESPONSABILIDAD",
         "btn_recusar": "Aún no estoy listo"
-      }
+      },
+      "cooldown_disponivel": "disponible"
     },
     "pesadelo": {
       "titulo": "PESADILLA PARTICULAR",

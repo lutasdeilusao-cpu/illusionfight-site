@@ -52,7 +52,7 @@ export default function Alimentar({ onConcluir }) {
 
       <div className="tama-acao-progress-container">
         <div className="tama-acao-progress-track">
-          <div className="tama-acao-progress-fill" style={{ width: `${progress}%` }} />
+          <div className="tama-acao-progress-fill" style={{ '--pct': progress }} />
         </div>
         <span className="tama-acao-progress-label">{Math.round(progress)}%</span>
       </div>

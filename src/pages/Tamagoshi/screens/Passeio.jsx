@@ -35,7 +35,7 @@ export default function Passeio() {
                 <div className="tama-passeio-card-info">
                   <span className="tama-passeio-card-nome">{t('games.tamagoshi.passeio_' + pKey)}</span>
                   <span className="tama-passeio-card-desc">{t('games.tamagoshi.passeio_' + pKey + '_desc')}</span>
-                  <span className="tama-passeio-card-bonus" style={{ '--tama-cor': pers.cor }}>
+                  <span className="tama-passeio-card-bonus" data-tipo={store.personalidade}>
                     +{bonus} energia extra ({t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[store.personalidade])})
                   </span>
                 </div>

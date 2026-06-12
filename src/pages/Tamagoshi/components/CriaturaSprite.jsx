@@ -44,12 +44,14 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
       <motion.div
         key={criaturaId}
         className="tama-sprite"
+        data-estagio={estagio}
+        data-status={status}
+        data-tem-imagem={temImagem ? 'true' : 'false'}
         initial={{ scale: 0, opacity: 0 }}
         animate={temImagem ? (pulando ? 'pulando' : 'idle') : { scale: anim.scale, opacity: 1, y: anim.y }}
         exit={{ scale: 0, opacity: 0 }}
         variants={temImagem ? bounceVariants : undefined}
         transition={temImagem ? { type: 'spring', stiffness: 300, damping: 10 } : { type: 'spring', stiffness: 200, damping: 15 }}
-        style={{ '--tam-tamanho': tam + 'px', '--tam-filtro': filterVal }}
       >
         {temImagem ? (
           <img
@@ -58,10 +60,10 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
             draggable={false}
             onError={() => setErroImg(true)}
             className="tama-sprite-img"
-            style={{ '--tam-filtro': filterVal }}
+            data-status={status}
           />
         ) : (
-          <div className="tama-sprite-emoji" style={{ '--tam-fonte': tam * 0.5 + 'px' }}>
+          <div className="tama-sprite-emoji" data-estagio={estagio}>
             {c.emoji}
           </div>
         )}
