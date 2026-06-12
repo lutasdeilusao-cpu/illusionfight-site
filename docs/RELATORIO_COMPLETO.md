@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-11  
-> **Versão do Relatório:** 3.10  
-> **Versão do Site:** 10.38.0  
+> **Versão do Relatório:** 3.11  
+> **Versão do Site:** 10.38.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -733,11 +733,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.0.2  
+**Versão:** 2.0.4  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
+> 🎮 **v2.0.4 — CSS fix:** botões Alimentar com className duplicado (tama-btn sobrescrito por tama-alimentar-item-btn), text visibility restaurada  
+> 🎮 **v2.0.3 — Fichas fix:** erro 42P10 (upsert sem unique constraint) trocado para insert  
 > 🎮 **v2.0.2 — Arquitetura front-end:** nome/personalidade resolvidos via CRIATURAS[criatura_id], não do Supabase; FichasContext upsert p/ persistir saldo; Criatura.jsx/PerfilTamagoshi limpos  
 > 🎮 **v2.0.1 — Fix lookups:** CRIATURA_ID_TO_SLUG para FALAS_CRIATURA/COMIDA_TEMATICA; tick/aplicarDecaimento → recalcular()  
 > 🎮 **v2.0.0 — Store stateless** — recalcular() baseado em timestamp, decaimento por dia da semana, cálculo retroativo de crítico  

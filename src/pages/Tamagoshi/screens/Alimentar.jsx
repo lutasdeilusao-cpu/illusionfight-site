@@ -81,12 +81,11 @@ export default function Alimentar({ onConcluir }) {
           {comidasNoInv.map(comida => (
             <motion.button
               key={comida.id}
-              className="tama-btn"
+              className="tama-btn tama-alimentar-item-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleAlimentar(comida.id)}
               disabled={animando}
-              className="tama-alimentar-item-btn"
             >
               {comida.emoji} {comida.nome} ({inv[comida.id]}x)
             </motion.button>
