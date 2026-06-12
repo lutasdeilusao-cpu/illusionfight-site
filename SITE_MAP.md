@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
-*Versão: 10.58.0*  |  `[SITE] versão carregada: 10.58.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Músicas — inline styles removidos (Musicas.jsx + MusicSection.jsx → CSS classes), i18n verificado pt/en/es, sem hardcoded
+*Versão: 10.59.0*  |  `[SITE] versão carregada: 10.59.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games — inline styles removidos (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), i18n verificado pt/en/es
 *Versão: 10.57.0*  |  `[SITE] versão carregada: 10.57.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon — inline style removido de WebtoonEpisodio.jsx (style={{}} → classe .webtoon-ep-blocked), página revisada sem hardcoded
 *Versão: 10.56.0*  |  `[SITE] versão carregada: 10.56.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Página do Autor — biografia completa reescrita com 8 parágrafos em PT/EN/ES (história pessoal, carreira em games, porting Nintendo/Xbox/PlayStation, Five Nights at Freddy's, God of War)
 *Versão: 10.55.0*  |  `[SITE] versão carregada: 10.55.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon travado por data: `data_publicacao` adicionado em `episodios.json` (Ep.00: 14/09/2026, Ep.01: 14/10/2026), `estaDisponivel()` aplicado no Webtoon/WebtoonEpisodio, overlay EM BREVE com data, i18n pt/en/es

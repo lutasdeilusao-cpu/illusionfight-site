@@ -168,6 +168,9 @@
   letter-spacing: 0.15em;
   font-weight: bold;
   align-self: flex-end;
+  background: color-mix(in srgb, var(--cor-badge) 13%, transparent);
+  border: 1px solid var(--cor-badge);
+  color: var(--cor-badge);
 }
 
 .extras-jogo-badge--embreve {
@@ -287,11 +290,12 @@
 .extras-conteudo-badge {
   margin-left: auto;
   font-size: 0.6rem;
-  border: 1px solid;
+  border: 1px solid color-mix(in srgb, var(--cor-neon) 27%, transparent);
   padding: 0.1rem 0.4rem;
   border-radius: 2px;
   flex-shrink: 0;
   letter-spacing: 0.1em;
+  color: var(--cor-neon);
 }
 
 .extras-footer-arcade {

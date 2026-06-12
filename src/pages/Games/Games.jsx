@@ -9,16 +9,23 @@ import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalC
 import './Games.css'
 
 const JOGOS = [
-  { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado', badgeCor: '#22C55E' },
-  { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.lancado', badgeCor: '#22C55E' },
-  { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta', badgeCor: '#F5A623' },
-  { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.beta', badgeCor: '#F5A623' },
-  { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta', badgeCor: '#F5A623' },
-  { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta', badgeCor: '#F5A623' },
-  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.beta', badgeCor: '#F5A623' },
-  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', badgeCor: '#666', emBreve: true },
-  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', badgeCor: '#666', emBreve: true },
+  { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
+  { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.lancado' },
+  { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta' },
+  { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.beta' },
+  { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta' },
+  { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta' },
+  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.beta' },
+  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', emBreve: true },
+  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', emBreve: true },
 ]
+
+const BADGE_CORES = {
+  lancado: '#22C55E',
+  beta: '#F5A623',
+  em_breve: '#666',
+  free: '#22C55E',
+}
 
 const CONTEUDO = [
   { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: '🎯', cor: '#22C55E', rota: '/quiz', badgeKey: 'site.games.badges.free' },
@@ -57,10 +64,10 @@ export default function Games() {
   return (
     <>
       <Helmet>
-        <title>Games — Illusion Fight</title>
-        <meta name="description" content="Play Illusion Fight games online — LDI Tactics, Jack Dream Beer, Pesadelo Particular, Tamagoshi, Top Trumps, Arena Mode, Duelo, and MiniGames. Free and premium games." />
-        <meta property="og:title" content="Games — Illusion Fight" />
-        <meta property="og:description" content="Play Illusion Fight games online — tactical RPG, detective, card games and more." />
+        <title>{t('site.games.meta_title')}</title>
+        <meta name="description" content={t('site.games.meta_desc')} />
+        <meta property="og:title" content={t('site.games.meta_title')} />
+        <meta property="og:description" content={t('site.games.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/games" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
@@ -90,10 +97,10 @@ export default function Games() {
             const bloqueado = jogo.emBreve && !isAdmin
             return (
             <div key={jogo.id} className={`extras-jogo-card ${bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
-              style={{ '--cor-neon': jogo.cor }}
+              style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || '#666' }}
               onClick={() => handleJogoClick(jogo)}>
               <div className="extras-jogo-card-inner">
-                <div className={`extras-jogo-badge ${jogo.emBreve ? 'extras-jogo-badge--embreve' : ''}`} style={{ background: jogo.badgeCor + '22', border: `1px solid ${jogo.badgeCor}`, color: jogo.badgeCor }}>{t(jogo.badgeKey)}</div>
+                <div className={`extras-jogo-badge ${jogo.emBreve ? 'extras-jogo-badge--embreve' : ''}`}>{t(jogo.badgeKey)}</div>
                 <div className="extras-jogo-emoji">{jogo.emoji}</div>
                 <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
                 <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
@@ -118,7 +125,7 @@ export default function Games() {
               onClick={() => item.rota && navigate(item.rota)}>
               <span className="extras-conteudo-emoji">{item.emoji}</span>
               <div><p className="extras-conteudo-nome">{t(item.nomeKey)}</p><p className="extras-conteudo-tagline">{t(item.tagKey)}</p></div>
-              <span className="extras-conteudo-badge" style={{ color: item.cor, borderColor: item.cor + '44' }}>{t(item.badgeKey)}</span>
+              <span className="extras-conteudo-badge">{t(item.badgeKey)}</span>
             </div>
           ))}
         </div>
@@ -132,20 +139,21 @@ export default function Games() {
       {FICHA_GAMES.map(id => {
         const gate = gates[id]
         if (!gate) return null
-        const nomes = { toptrumps: 'Top Trumps LDI', arena: 'Arena LDI', ldi: 'LDI Lendas', tamagoshi: 'Tamagoshi LDI', jackcandy: 'Jack Dream Beer', pesadelo: 'Pesadelo Particular', minigames: 'Mini Games', tatics: 'LDI Tactics', duelo: 'Duelo LDI' }
+        const jogo = JOGOS.find(j => j.id === id)
+        const nomeTraduzido = jogo ? t(jogo.nomeKey) : id
         return (
           <Fragment key={id}>
             <ModalConfirmacaoFicha
               visivel={gate.confirmacaoVisivel}
               onConfirmar={gate.confirmarGasto}
               onCancelar={gate.cancelarGasto}
-              jogo={nomes[id]}
+              jogo={nomeTraduzido}
               saldo={gate.saldo}
             />
             <ModalSemFichas
               visivel={gate.modalVisivel}
               onFechar={gate.fecharModal}
-              jogo={nomes[id]}
+              jogo={nomeTraduzido}
             />
           </Fragment>
         )
