@@ -10,11 +10,46 @@ export function DixProvider({ children }) {
   const [loading, setLoading] = useState(true)
   const [historico, setHistorico] = useState([])
 
+  const DIX_INICIAL = 1000
+
   const carregar = useCallback(async () => {
     if (!user) { setSaldo(0); setLoading(false); return }
     setLoading(true)
     const { data } = await supabase.from('dix_wallet').select('saldo').eq('user_id', user.id).maybeSingle()
-    setSaldo(data?.saldo ?? 0)
+
+    if (!data) {
+      // ── Primeiro acesso: cria carteira com saldo inicial de 1000 DIX ──
+      const { error: insertError } = await supabase.from('dix_wallet').insert({
+        user_id: user.id, saldo: DIX_INICIAL, updated_at: new Date().toISOString(),
+      })
+      if (insertError) {
+        console.error('[DIX] erro ao criar carteira inicial:', insertError)
+        setSaldo(0)
+      } else {
+        setSaldo(DIX_INICIAL)
+        await supabase.from('dix_historico').insert({
+          user_id: user.id, valor: DIX_INICIAL, motivo: 'boas-vindas',
+        })
+        console.log('[DIX] carteira criada com saldo inicial de', DIX_INICIAL)
+      }
+    } else if (data.saldo === 0) {
+      // ── Conta existente com saldo zerado: recebe 1000 DIX ──
+      const { error: updateError } = await supabase.from('dix_wallet').update({
+        saldo: DIX_INICIAL, updated_at: new Date().toISOString(),
+      }).eq('user_id', user.id)
+      if (updateError) {
+        console.error('[DIX] erro ao creditar saldo inicial para conta zerada:', updateError)
+        setSaldo(0)
+      } else {
+        setSaldo(DIX_INICIAL)
+        await supabase.from('dix_historico').insert({
+          user_id: user.id, valor: DIX_INICIAL, motivo: 'boas-vindas',
+        })
+        console.log('[DIX] conta zerada atualizada para', DIX_INICIAL)
+      }
+    } else {
+      setSaldo(data.saldo)
+    }
     setLoading(false)
   }, [user])
 
