@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
+import { useAuth } from '../context/AuthContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
@@ -21,8 +22,11 @@ export default function WebtoonEpisodio() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
+  const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const { registrarEvento } = useEventos()
+  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
   const ultimaPaginaRef = useRef(null)
@@ -59,7 +63,7 @@ export default function WebtoonEpisodio() {
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
-  if (!ep || (!estaDisponivel(ep) && !TRIAL_ACTIVE)) {
+  if (!ep || (!estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
     return (
       <section className="webtoon-ep-page">
         <div className="container">

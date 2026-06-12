@@ -105,6 +105,42 @@
   color: var(--bg-primary);
 }
 
+.episode-card-badge--coming {
+  background: var(--accent-amber);
+  color: #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  align-self: center;
+}
+
+.episode-card--locked {
+  cursor: default;
+}
+
+.episode-card--locked:hover {
+  box-shadow: none;
+}
+
+.episode-card--locked:hover .episode-card-image {
+  transform: none;
+}
+
+.episode-card-overlay--locked {
+  justify-content: center;
+  align-items: center;
+}
+
+.episode-card-overlay--locked .episode-card-quote {
+  display: none;
+}
+
+.episode-card-title--locked {
+  color: var(--text-muted);
+}
+
 .episode-card-badge--PREMIUM {
   background: var(--accent-amber);
   color: var(--bg-primary);

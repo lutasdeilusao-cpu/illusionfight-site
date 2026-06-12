@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
+import { useAuth } from '../context/AuthContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
@@ -18,8 +19,11 @@ export default function LivroCapitulo() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
+  const { user, perfil } = useAuth()
   const { desbloquear } = useAchievements()
   const { registrarEvento } = useEventos()
+  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
@@ -52,7 +56,7 @@ export default function LivroCapitulo() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   useEffect(() => {
-    if (!chapter || (!estaDisponivel(chapter) && !TRIAL_ACTIVE)) {
+    if (!chapter || (!estaDisponivel(chapter, isAdmin) && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
     }
@@ -96,9 +100,9 @@ export default function LivroCapitulo() {
   const idx = index.findIndex(ch => ch.id === id)
   const prev = idx > 0 ? index[idx - 1] : null
   const next = idx < index.length - 1 ? index[idx + 1] : null
-  const prevPublished = prev && estaDisponivel(prev) ? prev : null
-  const nextPublished = next && estaDisponivel(next) ? next : null
-  const capitulos = index.filter(c => estaDisponivel(c) || TRIAL_ACTIVE)
+  const prevPublished = prev && estaDisponivel(prev, isAdmin) ? prev : null
+  const nextPublished = next && estaDisponivel(next, isAdmin) ? next : null
+  const capitulos = index.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
   const currentIndex = capitulos.findIndex(c => c.id === id)
   const anterior = capitulos[currentIndex - 1]
   const proximo = capitulos[currentIndex + 1]

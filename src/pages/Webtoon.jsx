@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { useAuth } from '../context/AuthContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import episodios from '../data/episodios.json'
@@ -20,7 +21,10 @@ function formatarData(dataStr) {
 export default function Webtoon() {
   const [ultimo, setUltimo] = useState(null)
   const { t, locale } = useLanguage()
+  const { user, perfil } = useAuth()
   const navigate = useNavigate()
+  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
   useEffect(() => {
     setUltimo(localStorage.getItem('ldi-webtoon-ultimo'))
@@ -52,7 +56,7 @@ export default function Webtoon() {
           <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
           <div className="webtoon-grid">
             {episodios.map(ep => {
-              const liberado = estaDisponivel(ep) || TRIAL_ACTIVE
+              const liberado = estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
               const thumb = thumbMap[ep.thumbnail]
               return (
                 <div

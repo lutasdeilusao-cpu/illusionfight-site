@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial.js'
 import { estaDisponivel } from '../config/site.js'
+import { useAuth } from '../context/AuthContext'
 import livroIndex from '../data/livro-index.json'
 import { useLanguage } from '../context/LanguageContext'
 import comingSoonImg from '../assets/images/ComingSoon.png'
@@ -24,6 +25,9 @@ function formatarData(dataStr) {
 
 export default function BookChaptersRow() {
   const { t } = useLanguage()
+  const { user, perfil } = useAuth()
+  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
   const scrollRef = useRef(null)
   const capitulos = [...livroIndex].slice(0, 6)
 
@@ -51,7 +55,7 @@ export default function BookChaptersRow() {
         <button className="book-chapters-arrow book-chapters-arrow--left" onClick={scrollLeft}>‹</button>
         <div className="book-chapters-scroll" ref={scrollRef}>
           {capitulos.map(cap => {
-            const liberado = estaDisponivel(cap) || TRIAL_ACTIVE
+            const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
             const Wrapper = liberado ? Link : 'div'
             const wrapperProps = liberado ? { to: `/livro/${cap.id}` } : {}
             return (

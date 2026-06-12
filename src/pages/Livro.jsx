@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { useAuth } from '../context/AuthContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import index from '../data/livro-index.json'
@@ -17,6 +18,9 @@ export default function Livro() {
   const [ultimo, setUltimo] = useState(null)
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
+  const { user, perfil } = useAuth()
+  const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
   useEffect(() => {
     setUltimo(localStorage.getItem('ldi-livro-ultimo'))
@@ -47,7 +51,7 @@ export default function Livro() {
         <h2 className="section-title">{t('pages.livro.titulo')}</h2>
         <div className="livro-page__list">
           {index.map(ch => {
-            const liberado = estaDisponivel(ch) || TRIAL_ACTIVE
+            const liberado = estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
             return (
               <div key={ch.id} className="livro-page__item">
                 <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>
