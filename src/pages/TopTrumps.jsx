@@ -203,6 +203,13 @@ export default function TopTrumps() {
     return () => sfx.stopHeartbeatLoop()
   }, [fase, confirmandoAtributo])
 
+  // ── IA turn trigger: quando vezAtual === 'ia' e fase === 'jogando', dispara com delay ──
+  useEffect(() => {
+    if (vezAtual !== 'ia' || fase !== 'jogando') return
+    const timer = setTimeout(() => iaEscolherAtributo(), 500)
+    return () => clearTimeout(timer)
+  }, [vezAtual, fase])
+
   // Max attribute values across ALL cards
   const maxAtrib = todasCartas.reduce((acc, c) => {
     Object.entries(c.atributos).forEach(([k, v]) => {
@@ -323,10 +330,7 @@ export default function TopTrumps() {
       setTimeout(() => {
         setRodada(1)
         setFase('jogando')
-        // Se IA começa, dispara escolha automática
-        if (primeiro === 'ia') {
-          setTimeout(() => iaEscolherAtributo(), 300)
-        }
+        // IA será disparada pelo useEffect abaixo
       }, 2000)
     }, 1200)
   }
@@ -363,22 +367,12 @@ export default function TopTrumps() {
     // Aguarda delay dramático antes de escolher
     setTimeout(() => {
       if (!cartaJogador || !cartaIA) { setIaEscolhendo(false); return }
-      // IA escolhe o atributo com maior vantagem relativa
-      let melhorAttr = null
-      let melhorVantagem = -Infinity
-      atributos.forEach(attr => {
-        const vIA = cartaIA.atributos[attr.id]
-        const vJ = cartaJogador.atributos[attr.id]
-        if (vIA === undefined || vJ === undefined) return
-        const vantagem = attr.inverso ? vJ - vIA : vIA - vJ
-        if (vantagem > melhorVantagem) {
-          melhorVantagem = vantagem
-          melhorAttr = attr.id
-        }
-      })
-      if (!melhorAttr) { setIaEscolhendo(false); return }
+      // IA escolhe um atributo aleatório (não vê os valores do jogador — é justo)
+      const attrsDisponiveis = atributos.filter(attr => cartaIA.atributos[attr.id] !== undefined)
+      if (!attrsDisponiveis.length) { setIaEscolhendo(false); return }
+      const escolhido = attrsDisponiveis[Math.floor(Math.random() * attrsDisponiveis.length)]
       setIaEscolhendo(false)
-      resolverRodada(melhorAttr, 'ia')
+      resolverRodada(escolhido.id, 'ia')
     }, 1500)
   }
 
@@ -456,15 +450,8 @@ export default function TopTrumps() {
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
     sortearTemplates()
-    // Alterna vezAtual
-    setVezAtual(v => {
-      const novaVez = v === 'jogador' ? 'ia' : 'jogador'
-      // Se for vez da IA, dispara escolha automática na próxima tick
-      if (novaVez === 'ia') {
-        setTimeout(() => iaEscolherAtributo(), 500)
-      }
-      return novaVez
-    })
+    // Alterna vezAtual (IA será disparada pelo useEffect abaixo)
+    setVezAtual(v => v === 'jogador' ? 'ia' : 'jogador')
   }
 
   async function handleDesistir() {
