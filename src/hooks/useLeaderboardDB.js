@@ -146,21 +146,24 @@ export async function carregarTentativas(userId, tier = 'free') {
 /**
  * Consome 1 tentativa do limite diário (chamado após cada partida, vitória ou derrota).
  * Apenas incrementa o contador — NÃO marca carta_ganha_hoje.
+ * PRESERVA carta_ganha_hoje existente para evitar race conditions.
  */
 export async function consumirTentativa(userId) {
   const hoje = new Date().toISOString().split('T')[0]
   const { data } = await supabase
     .from('toptrumps_stats')
-    .select('tentativas_data, tentativas_usadas')
+    .select('tentativas_data, tentativas_usadas, carta_ganha_hoje')
     .eq('user_id', userId)
     .single()
   const usadas = (data?.tentativas_data === hoje) ? (data.tentativas_usadas + 1) : 1
+  const jaGanhouHoje = data?.carta_ganha_hoje || false
   await supabase
     .from('toptrumps_stats')
     .upsert({
       user_id: userId,
       tentativas_data: hoje,
-      tentativas_usadas: usadas
+      tentativas_usadas: usadas,
+      carta_ganha_hoje: jaGanhouHoje
     }, { onConflict: 'user_id' })
   return usadas
 }

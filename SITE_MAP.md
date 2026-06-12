@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.46.3*  |  `[SITE] versão carregada: 10.46.3`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.14.1 — Fix: tentativas diárias (await consumirTentativa, deckUsuario do Supabase, server-side check em escolherRecompensa, carta_ganha_hoje preservado)
 *Versão: 10.46.2*  |  `[SITE] versão carregada: 10.46.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps MP v5.8.2 — botão fim de jogo: 'VOLTAR AO MENU' em vez de 'VOLTAR AOS GAMES'
 *Versão: 10.46.1*  |  `[SITE] versão carregada: 10.46.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Fix: `salvarCartasDeck` — upsert com ON CONFLICT substituído por check manual + insert (remove erro 42P10); migration 020 adiciona UNIQUE constraint
 *Versão: 10.46.0*  |  `[SITE] versão carregada: 10.46.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.14.0 — Fix: 5 cartas únicas por jogador na partida (sem repetição); tentativas consomem 1 por partida (vitória/derrota); carta_ganha_hoje separado do consumo

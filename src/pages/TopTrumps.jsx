@@ -9,6 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
 import { useEventos } from '../context/EventosContext'
+import { supabase } from '../lib/supabase'
 import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, consumirTentativa, marcarCartaGanha, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
@@ -377,7 +378,7 @@ export default function TopTrumps() {
     sortearTemplates()
   }
 
-  function handleDesistir() {
+  async function handleDesistir() {
     sfx.lose()
     setShowDesistirModal(false)
     // Conta como derrota
@@ -387,10 +388,11 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
     setPlacar(p => ({ ...p, ia: p.ia + 1 }))
     setFase('fim_jogo')
-    // Cada partida consuma 1 tentativa
-    if (user) consumirTentativa(user.id).then(usadas => {
+    // Cada partida consuma 1 tentativa (await p/ evitar race condition)
+    if (user) {
+      const usadas = await consumirTentativa(user.id)
       setTentativasRestantes(Math.max(0, tentativasMax - usadas))
-    })
+    }
     registrarPartida(user.id, { jogadas: rodadasJogadas, vitorias, derrotas, empates, resultado: 'derrota' }).then(stats => {
       if (stats.total_derrotas === 1) desbloquearRef.current('primeira_derrota_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
@@ -399,7 +401,7 @@ export default function TopTrumps() {
     })
   }
 
-  function finalizarPartida() {
+  async function finalizarPartida() {
     const venceu = placar.jogador > placar.ia
     if (venceu) {
       sfx.win()
@@ -415,15 +417,20 @@ export default function TopTrumps() {
     const derrotas = historicoRodadas.filter(h => h.resultado === 'perdeu').length
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
 
-    // Cada partida consuma 1 tentativa (antes do early return da recompensa)
-    if (user) consumirTentativa(user.id).then(usadas => {
-      setTentativasRestantes(Math.max(0, tentativasMax - usadas))
-    })
+    // Cada partida consuma 1 tentativa — AWAIT para evitar race condition
+    let usadasHoje = 0
+    if (user) {
+      usadasHoje = await consumirTentativa(user.id)
+      setTentativasRestantes(Math.max(0, tentativasMax - usadasHoje))
+    }
     if (venceu) {
-      const podeGanhar = tentativasRestantes > 0 && !jaGanhouHoje
+      const jaGanhou = jaGanhouHoje
+      const tentativasSobrando = tentativasMax - usadasHoje
+      const podeGanhar = tentativasSobrando > 0 && !jaGanhou
       if (podeGanhar) {
-        const idsTem = new Set(JSON.parse(localStorage.getItem(getDeckKey()) || '[]'))
-        const pool = todasCartas.filter(c => !idsTem.has(c.id))
+        // Usa deckUsuario (carregado do Supabase) em vez de localStorage
+        const idsTem = new Set(deckUsuario.map(c => String(c.id_num ?? c.id)))
+        const pool = todasCartas.filter(c => !idsTem.has(String(c.id_num)))
         if (pool.length > 0) {
           setRecompensaOpcoes(embaralhar(pool).slice(0, 3))
           setFase('recompensa')
@@ -444,7 +451,21 @@ export default function TopTrumps() {
     })
   }
 
-  function escolherRecompensa(carta) {
+  async function escolherRecompensa(carta) {
+    // Verificação extra no banco ANTES de dar a carta (anti-reload)
+    if (user) {
+      const { data: check } = await supabase
+        .from('toptrumps_stats')
+        .select('carta_ganha_hoje, tentativas_data')
+        .eq('user_id', user.id)
+        .single()
+      const hoje = new Date().toISOString().split('T')[0]
+      if (check?.tentativas_data === hoje && check?.carta_ganha_hoje) {
+        console.warn('[TT] Tentativa de ganhar carta novamente no mesmo dia — bloqueado pelo servidor')
+        setFase('fim_jogo')
+        return
+      }
+    }
     const chave = getDeckKey()
     const ids = JSON.parse(localStorage.getItem(chave) || '[]')
     ids.push(carta.id_num)
@@ -452,7 +473,7 @@ export default function TopTrumps() {
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id_num])
     setJaGanhouHoje(true)
-    marcarCartaGanha(user.id)
+    await marcarCartaGanha(user.id)
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
