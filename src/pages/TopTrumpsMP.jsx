@@ -226,7 +226,8 @@ export default function TopTrumpsMP() {
         if (t <= 1) {
           clearInterval(iv)
           sfx.timerUrgent()
-          const attrs = atributos.map(a => a.id)
+          // rank_sdr não é atributo jogável (apenas informativo na carta)
+          const attrs = atributos.filter(a => a.id !== 'rank_sdr').map(a => a.id)
           const rand = attrs[Math.floor(Math.random() * attrs.length)]
           const s = salaRef.current
           const idxOp = ((s.turno_atual || 1) - 1) % Math.max(deckOponenteRef.current.length, 1)

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.32  
-> **Versão do Site:** 10.51.0  
+> **Versão do Relatório:** 3.33  
+> **Versão do Site:** 10.52.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -405,8 +405,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
-**Versão Single:** 5.16.0  
-**Versão MP:** 5.9.0  
+**Versão Single:** 5.21.0  
+**Versão MP:** 5.10.0  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 
@@ -434,6 +434,10 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 **Status Geral:** ✅ **100% (Single)** / 🟡 **75% (MP)**  
 **O que falta:** Testes finais de matchmaking multiplayer.
+
+#### Changelog v5.21.0 / v5.10.0
+- 🐛 **Fix: IA não escolhe mais rank_sdr** — Rank SDR não é um atributo jogável (é apenas informativo/visual na carta). A IA do SP (TopTrumps.jsx) e o timeout auto-pick do MP (TopTrumpsMP.jsx) agora filtram `rank_sdr` das opções disponíveis
+- ✅ **Confirmado: PPT (jokenpô) é 100% aleatório** — A escolha da IA no PPT usa `Math.floor(Math.random() * 3)`, probabilidade pura sem viés
 
 #### Changelog v5.16.0 / v5.9.0
 - ♻️ **Refactor SP + MP: remove hardcoded strings** — Sound toggle titles, score labels "VOCÊ"/"IA", PPT nomes (Pedra/Papel/Tesoura), "do máximo", tier names (FREE/ELITE/PRIMORDIAL/LENDÁRIO/SOMBRA), mensagem de timeout, DeckStart modal locale bypass agora usam `t()` i18n pt/en/es

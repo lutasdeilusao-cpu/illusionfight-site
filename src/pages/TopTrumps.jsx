@@ -368,7 +368,8 @@ export default function TopTrumps() {
     setTimeout(() => {
       if (!cartaJogador || !cartaIA) { setIaEscolhendo(false); return }
       // IA escolhe um atributo aleatório (não vê os valores do jogador — é justo)
-      const attrsDisponiveis = atributos.filter(attr => cartaIA.atributos[attr.id] !== undefined)
+      // rank_sdr não é um atributo jogável (é apenas informativo na carta)
+      const attrsDisponiveis = atributos.filter(attr => cartaIA.atributos[attr.id] !== undefined && attr.id !== 'rank_sdr')
       if (!attrsDisponiveis.length) { setIaEscolhendo(false); return }
       const escolhido = attrsDisponiveis[Math.floor(Math.random() * attrsDisponiveis.length)]
       setIaEscolhendo(false)

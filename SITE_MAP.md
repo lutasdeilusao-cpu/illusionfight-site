@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.52.0*  |  `[SITE] versão carregada: 10.52.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.21.0/v5.10.0 — fix: IA não escolhe mais rank_sdr (não é atributo jogável, era apenas informativo na carta) + PPT confirmado aleatório por probabilidade pura
 *Versão: 10.51.0*  |  `[SITE] versão carregada: 10.51.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.20.0 — fix: salvarDeckTipo violava UNIQUE(user_id,carta_id) ao tentar salvar deck com cartas já existentes na coleção geral (agora deleta entries antigas antes de reinserir)
 *Versão: 10.50.0*  |  `[SITE] versão carregada: 10.50.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.19.0 — fix: tentativas diárias não persistiam (coluna carta_ganha_hoje inexistente causava falha silenciosa em upserts; agora usa toptrumps_partidas para verificar carta ganha)
 *Versão: 10.49.0*  |  `[SITE] versão carregada: 10.49.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.18.0 — IA escolhe atributo aleatório (não vê valores do jogador, gameplay justo e divertido)
