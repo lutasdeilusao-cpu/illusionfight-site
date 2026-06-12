@@ -1372,7 +1372,8 @@ STATUS: ✅ limpo
 🏗️ ENGENHARIA/CÓDIGO:    92% ████████████████████████████████████████░░░░
 📝 CONTEÚDO TEXTUAL PT:  85% ███████████████████████████████████████░░░░░
 🌐 TRADUÇÕES EN/ES:      55% ██████████████████████████░░░░░░░░░░░░░░░░░  — Site+Jogos 100% ✅ | Livro caps 4-16: 0% 🔴
-🎨 ARTES/SPRITES:        60% ██████████████████████████████████░░░░░░░░░░░
+🎨 ARTES (proj. completo): 60% ██████████████████████████████████░░░░░░░░░░░  ← inclui Duelo + Tama S2+ futuro
+🎨 ARTES (S1 lançamento):  97% ████████████████████████████████████████████░  ← só faltam 3 sprites Tamagoshi
 📖 CRONOGRAMA LIVRO:     ✅ Definido e automatizado (3/16 no lançamento, +1 a cada 14 dias a partir de 05/10/2026)
 🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1381,7 +1382,8 @@ STATUS: ✅ limpo
 
 **A engenharia e o esqueleto do site estão 92% prontos.**  
 **Top Trumps está 100% completo — Single finalizado, balanceado, com artes oficiais da 1ª temporada.**  
-**O que falta agora é majoritariamente CONTEÚDO VISUAL (personagens, sprites Tamagoshi, cartas Duelo) e TRADUÇÕES (livro caps 4-16 EN/ES).**
+**Para o lançamento S1 (14/Set), arte está 97% — só faltam 3 sprites Tamagoshi.**  
+**O que falta para o PROJETO COMPLETO:** sprites Tamagoshi S2+, cartas Duelo, mais Webtoon, traduções do livro caps 4-16 EN/ES, e balanceamento de Tatics/Duelo.
 
 O código fonte está sólido. Faltam assets e decisões de cronograma de lançamento.
 
