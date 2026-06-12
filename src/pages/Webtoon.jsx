@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { TRIAL_ACTIVE } from '../config/trial'
+import { estaDisponivel } from '../config/site'
 import episodios from '../data/episodios.json'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
 import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
@@ -9,11 +11,16 @@ import './Webtoon.css'
 
 const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
 
+function formatarData(dataStr) {
+  if (!dataStr) return ''
+  const [a, m, d] = dataStr.split('-')
+  return `${d}/${m}/${a}`
+}
+
 export default function Webtoon() {
   const [ultimo, setUltimo] = useState(null)
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
-  const published = episodios.filter(ep => ep.publicado)
 
   useEffect(() => {
     setUltimo(localStorage.getItem('ldi-webtoon-ultimo'))
@@ -44,13 +51,14 @@ export default function Webtoon() {
           )}
           <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
           <div className="webtoon-grid">
-            {published.map(ep => {
+            {episodios.map(ep => {
+              const liberado = estaDisponivel(ep) || TRIAL_ACTIVE
               const thumb = thumbMap[ep.thumbnail]
               return (
                 <div
                   key={ep.id}
-                  className="webtoon-card"
-                  onClick={() => navigate(`/webtoon/${ep.id}`)}
+                  className={`webtoon-card${liberado ? '' : ' webtoon-card--locked'}`}
+                  onClick={() => liberado && navigate(`/webtoon/${ep.id}`)}
                 >
                   <div className="webtoon-card__thumb">
                     {thumb ? (
@@ -58,10 +66,17 @@ export default function Webtoon() {
                     ) : (
                       <span className="webtoon-card__num">EP. {String(ep.numero).padStart(2, '0')}</span>
                     )}
+                    {!liberado && (
+                      <div className="webtoon-card__overlay">
+                        <span className="webtoon-card__badge">
+                          {ep.data_publicacao ? `${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}` : t('pages.webtoon.em_breve')}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="webtoon-card__info">
                     <span className="webtoon-card__numero">EP. {String(ep.numero).padStart(2, '0')}</span>
-                    <h3 className="webtoon-card__titulo">{ep[tituloKey]}</h3>
+                    <h3 className={`webtoon-card__titulo${liberado ? '' : ' webtoon-card__titulo--locked'}`}>{ep[tituloKey]}</h3>
                     <div className="webtoon-card__langs">
                       {ep.idiomas.map(lang => (
                         <span key={lang} className="webtoon-card__lang">{lang.toUpperCase()}</span>

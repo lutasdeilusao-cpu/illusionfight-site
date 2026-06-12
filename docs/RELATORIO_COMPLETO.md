@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.35  
-> **Versão do Site:** 10.53.1  
+> **Versão do Relatório:** 3.36  
+> **Versão do Site:** 10.55.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.53.0 ✅ |
+| **Versão Atual** | 10.55.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -978,16 +978,23 @@ capitulo-05: data_publicacao: "2026-10-19" ⏳
 
 ### 7.1 Episódios Existentes
 
-| Episódio | Título | Páginas | Publicado | Idioma |
+| Episódio | Título | Páginas | Data de Publicação | Idioma |
 |---|---|---|---|---|
-| 00 | Apresentação | **21 páginas** | ✅ Sim | Apenas PT |
-| 01 | O Sonho | **37 páginas** | ✅ Sim | Apenas PT |
+| 00 | Apresentação | **21 páginas** | 14/09/2026 ⏳ | Apenas PT |
+| 01 | O Sonho | **37 páginas** | 14/10/2026 ⏳ | Apenas PT |
 
-### 7.2 Status
+### 7.2 Controle de Publicação
+
+> **Publicação automática por data** — mesmo sistema do livro. Quando `data_publicacao <= hoje`, o episódio fica acessível. Episódios bloqueados mostram overlay "EM BREVE" com a data. Não requer ação manual.
+
+- Ep. 00: `data_publicacao: "2026-09-14"` ✅ — disponível no lançamento (14/09/2026)
+- Ep. 01: `data_publicacao: "2026-10-14"` ⏳ — 30 dias após o lançamento
+
+### 7.3 Status
 
 | Métrica | Valor |
 |---|---|
-| Episódios publicados | **2** (Ep. 00, Ep. 01) |
+| Episódios | **2** (Ep. 00, Ep. 01) |
 | Total de páginas | **58 PNGs** (`public/webtoon/00/pt/` + `public/webtoon/01/pt/`) |
 | Próximos episódios | 🔴 **Nenhum** |
 | Traduções (EN/ES) | 🔴 **Nenhuma** |

@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.55.0*  |  `[SITE] versão carregada: 10.55.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon travado por data: `data_publicacao` adicionado em `episodios.json` (Ep.00: 14/09/2026, Ep.01: 14/10/2026), `estaDisponivel()` aplicado no Webtoon/WebtoonEpisodio, overlay EM BREVE com data, i18n pt/en/es
 *Versão: 10.54.0*  |  `[SITE] versão carregada: 10.54.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Publicação automática de capítulos por data: `publicado` → `data_publicacao` em `livro-index.json`, nova função `estaDisponivel()`, UI mostra EM BREVE com data, RELATORIO_COMPLETO.md corrigido (6 seções)
 *Versão: 10.53.1*  |  `[SITE] versão carregada: 10.53.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Relatório atualizado: versões corrigidas (10.49.0→10.53.0), Top Trumps changelogs v5.18→v5.21 adicionados, Tama sprites 3/32 (9%), Arena 97%, migrations 22, SITE_MAP.md sincronizado
 *Versão: 10.53.0*  |  `[SITE] versão carregada: 10.53.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — blocos começam fechados (collapsed); Coleção movida para primeiro; renomeado p/ "CARTAS SUPER TRUNFO/TOP TRUMPS CARDS/CARTAS TOP TRUMPS" (pt/en/es)

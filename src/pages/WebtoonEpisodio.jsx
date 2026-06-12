@@ -3,10 +3,18 @@ import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
+import { TRIAL_ACTIVE } from '../config/trial'
+import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
 import { useEventos } from '../context/EventosContext'
 import episodios from '../data/episodios.json'
 import './WebtoonEpisodio.css'
+
+function formatarData(dataStr) {
+  if (!dataStr) return ''
+  const [a, m, d] = dataStr.split('-')
+  return `${d}/${m}/${a}`
+}
 
 export default function WebtoonEpisodio() {
   const { setReaderMode } = useReader()
@@ -51,10 +59,19 @@ export default function WebtoonEpisodio() {
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
-  if (!ep || !ep.publicado) {
+  if (!ep || (!estaDisponivel(ep) && !TRIAL_ACTIVE)) {
     return (
       <section className="webtoon-ep-page">
-        <div className="container"><p>{t('pages.webtoon.nao_encontrado')}</p></div>
+        <div className="container">
+          <button className="webtoon-ep-header__back" onClick={() => navigate('/webtoon')}>
+            {t('pages.webtoon.voltar')}
+          </button>
+          <p style={{ marginTop: '2rem', textAlign: 'center' }}>
+            {ep?.data_publicacao
+              ? `${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}`
+              : t('pages.webtoon.nao_encontrado')}
+          </p>
+        </div>
       </section>
     )
   }
