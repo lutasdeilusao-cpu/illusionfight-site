@@ -178,6 +178,16 @@ export default function TopTrumps() {
   const [cortinaAtiva, setCortinaAtiva] = useState(false)
   const [revelandoResultado, setRevelandoResultado] = useState(false)
 
+  // ── PPT inicial (jokenpô decorativo) ──
+  const [pptEscolha, setPptEscolha] = useState(null)
+  const [pptEscolhaIA, setPptEscolhaIA] = useState(null)
+  const [pptResultado, setPptResultado] = useState(null)
+  const [pptRevelado, setPptRevelado] = useState(false)
+
+  // ── Alternância de turnos ──
+  const [vezAtual, setVezAtual] = useState('jogador')
+  const [iaEscolhendo, setIaEscolhendo] = useState(false)
+
   // ── Heartbeat loop durante a escolha de atributo ──
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   function toggleSom() {
@@ -278,9 +288,47 @@ export default function TopTrumps() {
     setDeckIA(cartasIA)
     setCartaJogador(cartasJogador[0] || null)
     setCartaIA(cartasIA[0] || null)
-    setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
+    setPlacar({ jogador: 0, ia: 0 })
     setHistoricoRodadas([])
     sortearTemplates()
+    // PPT decorativo antes da primeira rodada
+    setPptEscolha(null)
+    setPptEscolhaIA(null)
+    setPptResultado(null)
+    setPptRevelado(false)
+    setVezAtual('jogador')
+    setIaEscolhendo(false)
+    setFase('ppt')
+  }
+
+  function escolherPPT(valor) {
+    if (pptEscolha !== null) return
+    sfx.pptChoice?.() || sfx.select()
+    setPptEscolha(valor)
+    // IA "pensa" e escolhe após delay
+    setTimeout(() => {
+      const escolhaIA = Math.floor(Math.random() * 3)
+      setPptEscolhaIA(escolhaIA)
+      const diff = (3 + valor - escolhaIA) % 3
+      const res = diff === 0 ? 'empate' : diff === 1 ? 'ganhou' : 'perdeu'
+      setPptResultado(res)
+      setPptRevelado(true)
+      if (res === 'ganhou') sfx.win()
+      else if (res === 'perdeu') sfx.lose()
+      else sfx.draw()
+      // Define quem começa: jogador venceu ou empatou → jogador; IA venceu → IA
+      const primeiro = (res === 'ganhou' || res === 'empate') ? 'jogador' : 'ia'
+      setVezAtual(primeiro)
+      // Transição automática para a primeira rodada
+      setTimeout(() => {
+        setRodada(1)
+        setFase('jogando')
+        // Se IA começa, dispara escolha automática
+        if (primeiro === 'ia') {
+          setTimeout(() => iaEscolherAtributo(), 300)
+        }
+      }, 2000)
+    }, 1200)
   }
 
   function gerarParticulas(tipo) {
@@ -309,12 +357,35 @@ export default function TopTrumps() {
     setConfirmandoAtributo(null)
   }
 
-  function confirmarJogada() {
-    const attrKey = confirmandoAtributo
-    if (!attrKey || !cartaJogador || !cartaIA) return
-    setConfirmandoAtributo(null)
+  function iaEscolherAtributo() {
+    if (!cartaJogador || !cartaIA || fase !== 'jogando') return
+    setIaEscolhendo(true)
+    // Aguarda delay dramático antes de escolher
+    setTimeout(() => {
+      if (!cartaJogador || !cartaIA) { setIaEscolhendo(false); return }
+      // IA escolhe o atributo com maior vantagem relativa
+      let melhorAttr = null
+      let melhorVantagem = -Infinity
+      atributos.forEach(attr => {
+        const vIA = cartaIA.atributos[attr.id]
+        const vJ = cartaJogador.atributos[attr.id]
+        if (vIA === undefined || vJ === undefined) return
+        const vantagem = attr.inverso ? vJ - vIA : vIA - vJ
+        if (vantagem > melhorVantagem) {
+          melhorVantagem = vantagem
+          melhorAttr = attr.id
+        }
+      })
+      if (!melhorAttr) { setIaEscolhendo(false); return }
+      setIaEscolhendo(false)
+      resolverRodada(melhorAttr, 'ia')
+    }, 1500)
+  }
 
+  function resolverRodada(attrKey, escolhidoPor) {
+    if (!cartaJogador || !cartaIA) return
     const attr = atributos.find(a => a.id === attrKey)
+    if (!attr) return
     const vJ = cartaJogador.atributos[attrKey]
     const vI = cartaIA.atributos[attrKey]
     let res
@@ -323,6 +394,7 @@ export default function TopTrumps() {
 
     setAtributoEscolhido(attrKey)
     setResultado(res)
+    setConfirmandoAtributo(null)
 
     // Step 1: Card starts fading + card flip SFX
     sfx.cardFlip()
@@ -358,12 +430,20 @@ export default function TopTrumps() {
         rodada,
         cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos },
         cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos },
-        atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res
+        atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res,
+        escolhidoPor
       }])
 
       setFase('resultado_rodada')
       gerarParticulas(res)
     }, 1800)
+  }
+
+  function confirmarJogada() {
+    const attrKey = confirmandoAtributo
+    if (!attrKey || !cartaJogador || !cartaIA) return
+    setConfirmandoAtributo(null)
+    resolverRodada(attrKey, 'jogador')
   }
 
   function proximaRodada() {
@@ -376,6 +456,15 @@ export default function TopTrumps() {
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
     sortearTemplates()
+    // Alterna vezAtual
+    setVezAtual(v => {
+      const novaVez = v === 'jogador' ? 'ia' : 'jogador'
+      // Se for vez da IA, dispara escolha automática na próxima tick
+      if (novaVez === 'ia') {
+        setTimeout(() => iaEscolherAtributo(), 500)
+      }
+      return novaVez
+    })
   }
 
   async function handleDesistir() {
@@ -652,9 +741,61 @@ export default function TopTrumps() {
     )
   }
 
+  if (fase === 'ppt') {
+    const opcoes = [
+      { valor: 0, nome: t('games.toptrumps.ppt_pedra'), icone: '\u270A' },
+      { valor: 1, nome: t('games.toptrumps.ppt_papel'), icone: '\u270B' },
+      { valor: 2, nome: t('games.toptrumps.ppt_tesoura'), icone: '\u270C\uFE0F' }
+    ]
+    return (
+      <section className="tt-page">
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+          {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
+        </button>
+        <div className="ttmp-ppt-container">
+          <h2 className="ttmp-ppt-titulo">{t('games.toptrumps.mp.ppt_titulo')}</h2>
+          <p className="ttmp-ppt-subtitulo">{t('games.toptrumps.mp.ppt_subtitulo')}</p>
+          {!pptRevelado ? (
+            <>
+              <div className="ttmp-ppt-opcoes">
+                {opcoes.map(op => (
+                  <button key={op.valor}
+                    className="ttmp-ppt-btn"
+                    disabled={pptEscolha !== null}
+                    onClick={() => escolherPPT(op.valor)}>
+                    <span className="ttmp-ppt-icone">{op.icone}</span>
+                    <span className="ttmp-ppt-nome">{op.nome}</span>
+                  </button>
+                ))}
+              </div>
+              {pptEscolha !== null && <p className="ttmp-ppt-aguardando">{t('games.toptrumps.mp.ppt_aguardando')}</p>}
+            </>
+          ) : (
+            <div className="ttmp-ppt-resultado">
+              <div className="ttmp-ppt-jogadores">
+                <div className="ttmp-ppt-jogada">
+                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.mp.ppt_voce')}</span>
+                  <span className="ttmp-ppt-jogada-icone">{opcoes.find(o => o.valor === pptEscolha)?.icone}</span>
+                </div>
+                <div className="ttmp-ppt-jogada">
+                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.ia')}</span>
+                  <span className="ttmp-ppt-jogada-icone">{opcoes.find(o => o.valor === pptEscolhaIA)?.icone}</span>
+                </div>
+              </div>
+              <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${pptResultado}`}>
+                {pptResultado === 'ganhou' ? t('games.toptrumps.mp.ppt_venceu') : pptResultado === 'perdeu' ? t('games.toptrumps.mp.ppt_perdeu') : t('games.toptrumps.mp.ppt_empate')}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    )
+  }
+
   if (fase === 'jogando') {
     if (!cartaJogador || !cartaIA) return null
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
+    const isVezIA = vezAtual === 'ia'
     return (
       <>
         <div className="tt-fire-particles">
@@ -665,8 +806,13 @@ export default function TopTrumps() {
         <section className="tt-page">
         {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? '🔊' : '🔇'}
+          {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
         </button>
+        {isVezIA && (
+          <div className="tt-vez-ia-overlay">
+            <p className="tt-vez-ia-mensagem">{t('games.toptrumps.mp.hud_adversario_escolhendo')}</p>
+          </div>
+        )}
         <div className="tt-hud-new">
           <div className="tt-round-badge">
             <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
@@ -691,7 +837,7 @@ export default function TopTrumps() {
             locale={locale}
             attributes={cartaJogador.atributos}
             onAttributeClick={(attrKey) => onClickAtributo(attrKey)}
-            disabled={girando || !!confirmandoAtributo}
+            disabled={girando || !!confirmandoAtributo || isVezIA || iaEscolhendo}
             templateIndex={templateIdxJogador}
           />
           <div className={`tt-vs-epico${cortinaAtiva ? ' tt-cortina-ativa' : ''}`}>
@@ -755,7 +901,7 @@ export default function TopTrumps() {
         )}
 
         {/* DESISTIR button at bottom center */}
-        {!confirmandoAtributo && !cortinaAtiva && (
+        {!confirmandoAtributo && !cortinaAtiva && !isVezIA && !iaEscolhendo && (
           <div className="tt-desistir-wrapper">
             <button
               className="tt-desistir-btn"

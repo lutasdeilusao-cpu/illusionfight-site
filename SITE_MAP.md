@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.48.0*  |  `[SITE] versão carregada: 10.48.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.17.0 — PPT inicial (jokenpô decorativo) + alternância real de turnos (vezAtual decide quem escolhe atributo, IA escolhe automaticamente com maior vantagem relativa)
 *Versão: 10.47.0*  |  `[SITE] versão carregada: 10.47.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.16.0/v5.9.0 — refactor: remove hardcoded strings (use t()), remove inline CSS (use refs), tier/i18n/pt-BR consistency (SP + MP + Lobby + sub-components)
 *Versão: 10.46.5*  |  `[SITE] versão carregada: 10.46.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.15.0 — UI: quando jaGanhouHoje/todas cartas, esconde tentativas e mostra banner claro "JÁ GANHOU HOJE" i18n pt/en/es
 *Versão: 10.46.4*  |  `[SITE] versão carregada: 10.46.4`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.14.2 — Fix: botão fim de jogo 'VOLTAR AO MENU' i18n pt/en/es
