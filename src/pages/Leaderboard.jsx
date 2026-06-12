@@ -7,6 +7,7 @@ import {
   carregarRankingTama, carregarPosicaoUsuarioTama
 } from '../hooks/useLeaderboardDB'
 import LoginGate from '../components/LoginGate/LoginGate'
+import { getNomePais } from '../data/paises'
 import './Leaderboard.css'
 
 function getPeriodLabel() {
@@ -14,14 +15,20 @@ function getPeriodLabel() {
   return d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
 }
 
-function RankingSection({ rank, carregando, posicao, scope, setScope, user, perfil, t, msgVazio, msgSemPosicao, colVitorias = true }) {
+function RankingSection({ rank, carregando, posicao, scope, setScope, user, perfil, t, locale, msgVazio, msgSemPosicao, colVitorias = true }) {
+  const meuPais = perfil?.country_code || null
+
   return (
     <>
       <div className="lb-ranking-meta">
         <span className="lb-periodo">{getPeriodLabel()}</span>
         <div className="lb-scope-toggle">
           <button className={`lb-scope-btn${scope === 'global' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('global')}>🌎 Global</button>
-          <button className={`lb-scope-btn${scope === 'BR' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('BR')}>🇧🇷 Brasil</button>
+          {meuPais && (
+            <button className={`lb-scope-btn${scope === meuPais ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope(meuPais)}>
+              {getNomePais(meuPais, locale)}
+            </button>
+          )}
         </div>
       </div>
 
@@ -86,7 +93,7 @@ function RankingSection({ rank, carregando, posicao, scope, setScope, user, perf
 }
 
 export default function Leaderboard() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { user, perfil } = useAuth()
   const [aba, setAba] = useState('toptrumps')
 
@@ -147,7 +154,7 @@ export default function Leaderboard() {
           <RankingSection
             rank={rankTT} carregando={carregandoTT} posicao={posicaoTT}
             scope={scopeTT} setScope={setScopeTT}
-            user={user} perfil={perfil} t={t}
+            user={user} perfil={perfil} t={t} locale={locale}
             msgVazio="Nenhuma partida ranqueada este mês ainda. Seja o primeiro!"
             msgSemPosicao="Você ainda não pontuou este mês. Vença uma partida para entrar!"
           />
@@ -157,7 +164,7 @@ export default function Leaderboard() {
           <RankingSection
             rank={rankArena} carregando={carregandoArena} posicao={posicaoArena}
             scope={scopeArena} setScope={setScopeArena}
-            user={user} perfil={perfil} t={t}
+            user={user} perfil={perfil} t={t} locale={locale}
             msgVazio="Nenhuma vitória ranqueada este mês ainda. Seja o primeiro!"
             msgSemPosicao="Você ainda não pontuou este mês. Vença uma batalha na Arena!"
           />
@@ -167,7 +174,7 @@ export default function Leaderboard() {
           <RankingSection
             rank={rankTama} carregando={carregandoTama} posicao={posicaoTama}
             scope={scopeTama} setScope={setScopeTama}
-            user={user} perfil={perfil} t={t}
+            user={user} perfil={perfil} t={t} locale={locale}
             colVitorias={false}
             msgVazio="Nenhum cuidador pontuou este mês ainda. Cuide da sua criatura para entrar!"
             msgSemPosicao="Você ainda não pontuou este mês. Alimente, banhe ou passeie com sua criatura!"
