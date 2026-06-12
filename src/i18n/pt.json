@@ -2480,6 +2480,12 @@
       "assinar": "Assinar — Lutas de Ilusão",
       "personagem_nao_encontrado": "Personagem não encontrado — Lutas de Ilusão",
       "capitulo_nao_encontrado": "Capítulo não encontrado — Lutas de Ilusão"
+    },
+    "notFound": {
+      "titulo": "Página não encontrada — Lutas de Ilusão",
+      "mensagem": "Esta página não existe.",
+      "redirect": "Você será redirecionado para a página principal em",
+      "cta": "Ir agora"
     }
   },
   "pp": {

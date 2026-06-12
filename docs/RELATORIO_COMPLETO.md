@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.51  
-> **Versão do Site:** 10.71.0  
+> **Versão do Relatório:** 3.52  
+> **Versão do Site:** 10.72.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -54,7 +54,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | **Versão Atual** | 10.71.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
-| **Total de Rotas** | 35 rotas ativas |
+| **Total de Rotas** | 36 rotas ativas (35 nomeadas + 1 catch-all 404) |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
 | **Idiomas** | 3 (PT, EN, ES) |
@@ -1084,6 +1084,7 @@ capitulo-05: data_publicacao: "2026-10-19" ⏳
 | `python deploy.py` (automação) | ✅ Funcional |
 | GitHub Pages + CNAME | ✅ Configurado |
 | SPA 404 redirect | ✅ Funcional (fallback) |
+| **Rota catch-all (React Router)** | ✅ **v10.72.0** — NotFound component exibido por 5s com contador regressivo, depois redirect automático para `/` + botão "Ir agora" + i18n pt/en/es + noindex Helmet |
 | **Pré-renderização estática (SEO 200)** | ✅ **NOVO v10.41.0** — `dist/<rota>/index.html` gerado p/ 23 rotas públicas |
 | Service Worker (placeholder) | ⚠️ Placeholder `sw.js` |
 | Sitemap XML | ✅ Configurado |

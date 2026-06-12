@@ -150,5 +150,57 @@ Próxima checagem: revisitar métricas dos dois posts (curtidas, comentários, c
 
 ---
 
+12. LOG DE AÇÕES EXPERIMENTAIS (X / outros)
+
+Formato: data — canal — ação — resultado (preencher depois)
+
+- 12/06/2026 — X (@IllusionFightIF, persona Jack 🥁) — Reply/quote em post viral da BLACK TORCH (VIZ Media) com brincadeira envolvendo a Nina — resultado: _a checar_
+- 12/06/2026 — X (@IllusionFightIF, persona Jack 🥁) — Reply/quote em post da VIZ Media sobre Slam Dunk Deluxe, CTA para o perfil — resultado: _a checar_
+
+Nota: essas são ações de teste (engajamento via reply em posts grandes de contas do nicho). Se gerarem impacto relevante (alcance, novos seguidores, cliques), repetir o formato com outros posts virais do nicho.
+
+---
+
+13. BASELINE PRÉ-DIVULGAÇÃO — GOOGLE ANALYTICS (15/05 a 11/06/2026)
+
+Período: 15/05/2026 a 11/06/2026 (antes do início da divulgação ativa)
+
+Visão geral
+- Usuários ativos: 267
+- Novos usuários: 270
+- Tempo médio de engajamento por usuário: ~4min47s (286,77s)
+- Eventos totais: 13.351
+
+Páginas mais visitadas
+- Home (Lutas de Ilusão — A dor é 100% real): 6.118 views, 254 usuários, taxa de rejeição 28%
+- Games — Illusion Fight: 303 views, 20 usuários, taxa de rejeição 2% (mais baixa do site)
+- Hub PT/EN (Webtoon, Games & Music): 162 views, 41 usuários, rejeição 26%
+- Demais páginas (Webtoon, Book, Assinar, Mundo, Music etc.): tráfego baixo, na faixa de 5-50 views cada
+
+Origem de tráfego
+- 259/267 usuários via (direct)/(none) — ainda sem canal de aquisição ativo
+- LinkedIn: 2 usuários / 4 sessões (primeiros sinais, pré-posts oficiais de 12/06)
+- GitHub: 1 usuário / 35 sessões (provável tráfego próprio/dev)
+- Outros referrals (qwant, roozzy, infospace, wbsrch): residuais
+
+Geografia
+- São Paulo: 188 usuários (dominante — esperado, base local/dev)
+- Council Bluffs, Ashburn, Boardman, San Jose (EUA): ~34 usuários combinados — datacenters/cloud, possível tráfego de bots ou serviços, não necessariamente usuários reais
+- Demais cidades: 1-2 usuários cada, espalhados (Canadá, Coreia do Sul, Polônia, Irlanda, Índia, Espanha etc.)
+
+Novos vs. recorrentes (por dia, dias 17-27 do período)
+- Pico no dia 19: 73 novos / 4 recorrentes
+- Demais dias na faixa de 5-36 novos, poucos recorrentes (1-4)
+- Sinal: usuários chegam, mas a recorrência é baixa — alinhado com a hipótese do modal "SEM FICHAS" afastando quem chegava em /games
+
+PONTO CRÍTICO IDENTIFICADO NESTE PERÍODO:
+A página "Games — Illusion Fight" tem a menor taxa de rejeição do site (2%) mas volume de usuários baixo (20) frente às visualizações (303) — ou seja, as pessoas entram e ficam navegando ali, mas o funil trava antes de gerar conta/engajamento real com os jogos. Hipótese: modal "SEM FICHAS" ambíguo (corrigido em 12/06 — ver texto revisado "CRIE SUA CONTA").
+
+Este baseline serve de referência para medir o impacto da correção do modal + início da divulgação (LinkedIn x2 + ações no X, seções 11 e 12).
+
+---
+
 MARKETING MAP v2.2 — 12/06/2026
-12 vídeos prontos. Fase 1 completa. Primeiro movimento de marketing pessoal registrado (LinkedIn x2). Publicar VID-001 para começar o esquenta.
+12 vídeos prontos. Fase 1 completa. Primeiro movimento de marketing pessoal registrado (LinkedIn x2). 2 ações experimentais no X registradas (seção 12). Baseline pré-divulgação registrado (seção 13). Publicar VID-001 para começar o esquenta.
+
+Marco: 12/06/2026 19:37 GMT-03, conta romullo.sas@outlook.com criada via Email, sign-in imediato (mesmo minuto do cadastro) — primeira conta externa registrada após a correção do modal "SEM FICHAS" → "CRIE SUA CONTA". Próximo ponto a observar: se essa conta retorna e interage com algum jogo (sinal de funil completo, não só cadastro).

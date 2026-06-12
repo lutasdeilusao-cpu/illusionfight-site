@@ -54,6 +54,7 @@ import DueloRoute from './pages/Duelo/DueloRoute'
 import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
 import Loja from './pages/Loja/Loja'
 import Custos from './pages/Custos'
+import NotFound from './pages/NotFound/NotFound'
 import './pages/Duelo/version' // side-effect: console.log version
 
 export default function App() {
@@ -115,6 +116,7 @@ export default function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/prototype" element={<Prototype />} />
         <Route path="/custos" element={<Custos />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer hidden={readerMode} />
       <ScrollToTop />

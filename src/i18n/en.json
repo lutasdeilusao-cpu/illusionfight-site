@@ -2453,6 +2453,12 @@
       "assinar": "Subscribe — Illusion Fight",
       "personagem_nao_encontrado": "Character not found — Illusion Fight",
       "capitulo_nao_encontrado": "Chapter not found — Illusion Fight"
+    },
+    "notFound": {
+      "titulo": "Page not found — Illusion Fight",
+      "mensagem": "This page does not exist.",
+      "redirect": "You will be redirected to the home page in",
+      "cta": "Go now"
     }
   },
   "pp": {

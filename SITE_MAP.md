@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.72.0*  |  `[SITE] versão carregada: 10.72.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Rota catch-all (404) — NotFound component com contador regressivo 5s, redirecionamento automático para home + botão "Ir agora" + i18n pt/en/es + noindex Helmet.
 *Versão: 10.71.0*  |  `[SITE] versão carregada: 10.71.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ ModalSemFichas — refatorado para "CRIE SUA CONTA GRÁTIS — GANHE 100 FICHAS" em pt/en/es. Foco em criar conta grátis + bônus de fichas, sem assinatura/pagamento.
 *Versão: 10.70.0*  |  `[SITE] versão carregada: 10.70.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ ModalSemFichas — refactor: removido "SEM FICHAS" e botões de assinatura, agora exibe "CRIE SUA CONTA" com foco em criação de conta grátis (pt/en/es). Sem inline CSS, sem strings hardcoded.
 *Versão: 10.69.0*  |  `[SITE] versão carregada: 10.69.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tatics v7.4.0 + Duelo v2.8.0 — taglines dos cards EM BREVE atualizadas pt/en/es: "Já pensou em jogar Pokémon/Yu-Gi-Oh...?"
