@@ -948,7 +948,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <BackToGamesBtn to="/games" onClick={() => sfx.click()} label={t('games.toptrumps.mp.fim_voltar_games')} />
+            <BackToGamesBtn to="/" onClick={() => sfx.click()} label={t('games.toptrumps.mp.fim_voltar_games')} />
           </div>
         </div>
       </section>

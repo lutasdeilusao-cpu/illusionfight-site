@@ -1561,7 +1561,7 @@
       "fim_voce_venceu": "YOU WIN!",
       "fim_empate": "DRAW!",
       "fim_voce_perdeu": "YOU LOSE!",
-      "fim_voltar_games": "BACK TO GAMES",
+      "fim_voltar_games": "BACK TO MENU",
       "atributo_escolhido": "Chosen attribute: {nome}"
     },
     "tamagoshi": {
