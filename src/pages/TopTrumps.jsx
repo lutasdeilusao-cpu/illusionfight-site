@@ -9,7 +9,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
 import { useEventos } from '../context/EventosContext'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, incrementarTentativa, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, consumirTentativa, marcarCartaGanha, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
 import DeckBuilder from './TopTrumps/components/DeckBuilder'
@@ -266,15 +266,13 @@ export default function TopTrumps() {
 
   function iniciarJogoComCartas(cartaIds) {
     // cartaIds = array de IDs (id_num) vindos do deck ou aleatório
-    // Garante que não haja cartas repetidas (Issue #3)
-    const uniqueIds = [...new Set(cartaIds)]
+    // Garante que não haja cartas repetidas dentro do deck de cada jogador
     sfx.nextRound()
-    const d = embaralhar([...uniqueIds])
-    const metade = Math.ceil(d.length / 2)
-    // Mapeia IDs para objetos carta completos
-    const resolver = (id) => todasCartas.find(c => c.id_num === id) || todasCartas.find(c => c.id === id)
-    const cartasJogador = d.slice(0, metade).map(resolver).filter(Boolean)
-    const cartasIA = d.slice(metade).map(resolver).filter(Boolean)
+    // Player: 5 cartas únicas da coleção (embaralhadas)
+    const pool = embaralhar([...deckUsuario])
+    const cartasJogador = pool.slice(0, 5)
+    // IA: 5 cartas únicas da coleção (pode coincidir com as do player)
+    const cartasIA = embaralhar([...deckUsuario]).slice(0, 5)
     setDeckJogador(cartasJogador)
     setDeckIA(cartasIA)
     setCartaJogador(cartasJogador[0] || null)
@@ -389,6 +387,10 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
     setPlacar(p => ({ ...p, ia: p.ia + 1 }))
     setFase('fim_jogo')
+    // Cada partida consuma 1 tentativa
+    if (user) consumirTentativa(user.id).then(usadas => {
+      setTentativasRestantes(Math.max(0, tentativasMax - usadas))
+    })
     registrarPartida(user.id, { jogadas: rodadasJogadas, vitorias, derrotas, empates, resultado: 'derrota' }).then(stats => {
       if (stats.total_derrotas === 1) desbloquearRef.current('primeira_derrota_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
@@ -413,6 +415,10 @@ export default function TopTrumps() {
     const derrotas = historicoRodadas.filter(h => h.resultado === 'perdeu').length
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
 
+    // Cada partida consuma 1 tentativa (antes do early return da recompensa)
+    if (user) consumirTentativa(user.id).then(usadas => {
+      setTentativasRestantes(Math.max(0, tentativasMax - usadas))
+    })
     if (venceu) {
       const podeGanhar = tentativasRestantes > 0 && !jaGanhouHoje
       if (podeGanhar) {
@@ -446,9 +452,7 @@ export default function TopTrumps() {
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id_num])
     setJaGanhouHoje(true)
-    incrementarTentativa(user.id, getTierInicial()).then(usadas => {
-      setTentativasRestantes(Math.max(0, tentativasMax - usadas))
-    })
+    marcarCartaGanha(user.id)
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
     registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')

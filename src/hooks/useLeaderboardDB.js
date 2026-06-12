@@ -135,7 +135,11 @@ export async function carregarTentativas(userId, tier = 'free') {
   return { usadas: data.tentativas_usadas, data: data.tentativas_data, jaGanhouHoje: data.carta_ganha_hoje || false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
 }
 
-export async function incrementarTentativa(userId, tier = 'free') {
+/**
+ * Consome 1 tentativa do limite diário (chamado após cada partida, vitória ou derrota).
+ * Apenas incrementa o contador — NÃO marca carta_ganha_hoje.
+ */
+export async function consumirTentativa(userId) {
   const hoje = new Date().toISOString().split('T')[0]
   const { data } = await supabase
     .from('toptrumps_stats')
@@ -148,10 +152,24 @@ export async function incrementarTentativa(userId, tier = 'free') {
     .upsert({
       user_id: userId,
       tentativas_data: hoje,
-      tentativas_usadas: usadas,
-      carta_ganha_hoje: true
+      tentativas_usadas: usadas
     }, { onConflict: 'user_id' })
   return usadas
+}
+
+/**
+ * Marca que o jogador ganhou uma carta hoje (carta_ganha_hoje = true).
+ * Chamado apenas quando o jogador escolhe uma carta de recompensa.
+ */
+export async function marcarCartaGanha(userId) {
+  const hoje = new Date().toISOString().split('T')[0]
+  await supabase
+    .from('toptrumps_stats')
+    .upsert({
+      user_id: userId,
+      tentativas_data: hoje,
+      carta_ganha_hoje: true
+    }, { onConflict: 'user_id' })
 }
 
 // ── HELPERS COMPARTILHADOS ────────────────────────────────────────

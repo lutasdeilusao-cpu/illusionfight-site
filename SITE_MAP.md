@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.46.0*  |  `[SITE] versão carregada: 10.46.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.14.0 — Fix: 5 cartas únicas por jogador na partida (sem repetição); tentativas consomem 1 por partida (vitória/derrota); carta_ganha_hoje separado do consumo
 *Versão: 10.45.1*  |  `[SITE] versão carregada: 10.45.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.13.1 — Fix: restaura sistema de turnos (modulo cycling) + sem cartas repetidas no deck da partida (SP/MP)
 *Versão: 10.45.0*  |  `[SITE] versão carregada: 10.45.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.13.0/v5.8.0 — Fix: nenhuma carta se repete na partida (SP e MP); DeckBuilder bloqueia cartas duplicadas; dedup em todos os carregamentos de deck
 *Versão: 10.44.1*  |  `[SITE] versão carregada: 10.44.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Presence system — fix filtro de tier: só elite/primordial contam na contagem de jogadores online

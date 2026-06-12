@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.21  
-> **Versão do Site:** 10.45.1  
+> **Versão do Relatório:** 3.22  
+> **Versão do Site:** 10.46.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -405,8 +405,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
-**Versão Single:** 5.13.1  
-**Versão MP:** 5.8.0  
+**Versão Single:** 5.14.0  
+**Versão MP:** 5.8.1  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 
@@ -434,6 +434,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 **Status Geral:** ✅ **100% (Single)** / 🟡 **75% (MP)**  
 **O que falta:** Testes finais de matchmaking multiplayer.
+
+#### Changelog v5.14.0 / v5.8.1
+- 🐛 **Fix deck c/ 5 cartas únicas** — Cada jogador recebe 5 cartas únicas da coleção (sem repetição dentro do próprio deck); Player e IA podem ter cartas em comum
+- 🐛 **Fix tentativas por partida** — `consumirTentativa` chamado após CADA partida (vitória ou derrota); `marcarCartaGanha` separado (só quando ganha carta)
+- 🐛 **Fix `tentativasRestantes` check** — Restaurado `> 0` (com 1 tentativa o jogador pode tentar ganhar carta)
 
 #### Changelog v5.13.1 / v5.8.0
 - 🐛 **Fix turnos SP** — Restaurado sistema de turnos com modulo cycling (deck de cartas únicas cicla corretamente)
