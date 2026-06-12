@@ -101,12 +101,9 @@
     "entrar": "I already have an account — log in"
   },
   "modal_sem_fichas": {
-    "titulo": "NO TOKENS",
-    "desc": "you need 1 token to play {jogo}.",
-    "desc2": "daily tokens reset at midnight.",
-    "desc3": "collect yours in your profile.",
-    "coletar": "collect tokens",
-    "assinar": "subscribe elite — 10 tokens/day",
+    "titulo": "CREATE YOUR ACCOUNT",
+    "desc": "Create your free account now and start playing {jogo} right away.",
+    "criar_conta": "CREATE FREE ACCOUNT",
     "voltar": "back"
   },
   "modal_confirmacao_ficha": {

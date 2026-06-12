@@ -101,12 +101,9 @@
     "entrar": "Ya tengo cuenta — entrar"
   },
   "modal_sem_fichas": {
-    "titulo": "SIN FICHAS",
-    "desc": "necesitas 1 ficha para jugar {jogo}.",
-    "desc2": "las fichas diarias se reinician a medianoche.",
-    "desc3": "recógelas en tu perfil.",
-    "coletar": "recoger fichas",
-    "assinar": "suscríbete elite — 10 fichas/día",
+    "titulo": "CREA TU CUENTA",
+    "desc": "Crea tu cuenta gratis ahora y empieza a jugar {jogo} de inmediato.",
+    "criar_conta": "CREAR CUENTA GRATIS",
     "voltar": "volver"
   },
   "modal_confirmacao_ficha": {

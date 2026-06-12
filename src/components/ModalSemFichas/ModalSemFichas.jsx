@@ -13,13 +13,11 @@ export default function ModalSemFichas({ visivel, onFechar, jogo = 'este jogo' }
           <motion.div className="msf-modal" initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.85, opacity: 0 }} onClick={e => e.stopPropagation()}>
             <div className="msf-scanlines" />
             <div className="msf-inner">
-              <div className="msf-emoji">🎰</div>
+              <div className="msf-emoji">🚀</div>
               <h2 className="msf-titulo">{t('modal_sem_fichas.titulo')}</h2>
               <p className="msf-desc">{t('modal_sem_fichas.desc', { jogo })}</p>
-              <p className="msf-desc msf-desc--dim">{t('modal_sem_fichas.desc2')}<br />{t('modal_sem_fichas.desc3')}</p>
               <div className="msf-btns">
-                <button className="msf-btn msf-btn--primary" onClick={() => { navigate('/perfil?aba=recompensas'); onFechar() }}>[ {t('modal_sem_fichas.coletar')} ]</button>
-                <button className="msf-btn msf-btn--elite" onClick={() => { navigate('/assinar'); onFechar() }}>[ {t('modal_sem_fichas.assinar')} ]</button>
+                <button className="msf-btn msf-btn--primary" onClick={() => { navigate('/cadastro'); onFechar() }}>[ {t('modal_sem_fichas.criar_conta')} ]</button>
                 <button className="msf-btn" onClick={onFechar}>[ {t('modal_sem_fichas.voltar')} ]</button>
               </div>
             </div>

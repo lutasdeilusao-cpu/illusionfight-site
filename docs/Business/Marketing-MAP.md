@@ -1,5 +1,5 @@
-ILLUSION FIGHT — MARKETING MAP v2.1
-Atualizado: 11/06/2026
+ILLUSION FIGHT — MARKETING MAP v2.2
+Atualizado: 12/06/2026
 
 1. IDENTIDADE DE MARCA
 Handle TikTok: @illusionfight
@@ -123,5 +123,32 @@ Tempo médio de engajamento: 4 min 29 seg
 Tráfego 100% orgânico — zero marketing ativo ainda
 Países ativos: Brasil, EUA, UK, Índia, Canadá, Irlanda, Coreia do Sul
 
-MARKETING MAP v2.1 — 11/06/2026
-12 vídeos prontos. Fase 1 completa. Publicar VID-001 para começar o esquenta.
+11. MARKETING CROSS-CHANNEL — LINKEDIN (NOVO ✅)
+
+Data: 12/06/2026
+Marco: primeiro movimento de marketing do projeto fora dos canais oficiais (TikTok/X/YouTube) — divulgação via perfis pessoais do Isaias no LinkedIn.
+
+Post 1 — LinkedIn Games (@isaiaslealdev)
+- Ângulo: pessoal/narrativo — "primeiro projeto solo depois de 8 anos em games, universo de 23 anos"
+- Baseline no momento do post:
+  - Perfil: Mega Cat Studios / Isaias Leal
+  - Seguidores: 1.550
+  - Conexões: +500
+- Idiomas: EN + PT (EN primeiro, "PT below")
+
+Post 2 — LinkedIn Novo (@isaiaslealdeveloper)
+- Ângulo: técnico — stack/arquitetura (React 19, Vite, Zustand, Supabase, Stripe, i18n, deploy automatizado)
+- Baseline no momento do post:
+  - Perfil: Isaias Leal — Software Engineer | Full Stack | React, JS, Python, Django
+  - Conexões: 57
+  - Status: "Open to work" ativo, já recebendo contatos de recrutadores (ex: oportunidade Python Sênior via Jamyla Prestes, 02/06)
+- Idiomas: EN + PT (EN primeiro, "PT below")
+
+Objetivo da medição: comparar alcance/engajamento entre audiência consolidada de games (1.550 seguidores, público de nicho) vs. audiência nova/profissional (57 conexões, mas com tráfego de recrutadores ativo). Servirá de baseline para decidir onde concentrar esforço de marketing pessoal nas próximas fases.
+
+Próxima checagem: revisitar métricas dos dois posts (curtidas, comentários, cliques no link illusionfight.com) em ~1 semana e registrar aqui.
+
+---
+
+MARKETING MAP v2.2 — 12/06/2026
+12 vídeos prontos. Fase 1 completa. Primeiro movimento de marketing pessoal registrado (LinkedIn x2). Publicar VID-001 para começar o esquenta.
