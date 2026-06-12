@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.42.0*  |  `[SITE] versão carregada: 10.42.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ País obrigatório no cadastro + editável no perfil + leaderboards lêem country_code de profiles
 *Versão: 10.41.1*  |  `[SITE] versão carregada: 10.41.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sitemap + prerender: adicionadas rotas /loja, /custos, /games/toptrumps/lobby (26 rotas no total)
 *Versão: 10.41.0*  |  `[SITE] versão carregada: 10.41.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Pré-renderização estática — script pós-build copia index.html para cada rota pública (SEO 200 nativo no GitHub Pages)
 *Versão: 10.40.0*  |  `[SITE] versão carregada: 10.40.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ sitemap.xml — trailing slash em todas as URLs para evitar 404 no GitHub Pages

@@ -566,6 +566,9 @@
       "telefone_invalido": "El teléfono debe tener al menos 10 dígitos",
       "senha_curta": "La contraseña debe tener al menos 6 caracteres",
       "senhas_diferem": "Las contraseñas no coinciden",
+      "pais": "País",
+      "pais_selecione": "Selecciona tu país",
+      "pais_obrigatorio": "Selecciona tu país",
       "sucesso": "Revisa tu correo para confirmar el registro.",
       "erro_perfil": "Cuenta creada pero error al guardar perfil. Intenta de nuevo."
     },
@@ -658,6 +661,7 @@
       "conta_nome": "Nombre",
       "conta_email": "Email",
       "conta_tier": "Tier",
+      "conta_pais": "País",
       "billing_titulo": "SUSCRIPCIÓN",
       "billing_no_subscription": "Aún no tienes una suscripción activa.",
       "billing_expired": "Tu suscripción ha expirado.",

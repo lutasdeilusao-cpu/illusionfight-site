@@ -641,6 +641,15 @@
 
 .perfil-conta-upgrade:hover { background: rgba(245,166,35,0.1); }
 
+.perfil-conta-select {
+  background: var(--bg-dark, #1a1a1a);
+  color: var(--text-light, #fff);
+  border: 1px solid var(--border, #333);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
 /* ===== SHARE ===== */
 .perfil-share-section {
   background: #0a0a0a;

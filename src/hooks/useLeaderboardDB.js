@@ -160,16 +160,6 @@ function getPeriod() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
 }
 
-function getCountryCode() {
-  try {
-    const lang = navigator.language || 'pt-BR'
-    const parts = lang.split('-')
-    return parts.length > 1 ? parts[1].toUpperCase() : parts[0].toUpperCase()
-  } catch {
-    return 'BR'
-  }
-}
-
 async function _registrarPontuacao(tabela, userId, pontosPorVitoria) {
   const period = getPeriod()
   const hoje = new Date().toISOString().split('T')[0]
@@ -180,6 +170,13 @@ async function _registrarPontuacao(tabela, userId, pontosPorVitoria) {
     .eq('user_id', userId)
     .eq('period', period)
     .single()
+
+  // country_code vem do perfil do usuário, não mais do navegador
+  let countryCode = data?.country_code
+  if (!countryCode) {
+    const { data: perfil } = await supabase.from('profiles').select('country_code').eq('id', userId).single()
+    countryCode = perfil?.country_code || null
+  }
 
   const playsHoje = data?.ranked_plays_date === hoje ? (data.ranked_plays_today || 0) : 0
 
@@ -199,7 +196,7 @@ async function _registrarPontuacao(tabela, userId, pontosPorVitoria) {
       ranked_wins: novoWins,
       ranked_plays_today: playsHoje + 1,
       ranked_plays_date: hoje,
-      country_code: data?.country_code || getCountryCode(),
+      country_code: countryCode,
       updated_at: new Date().toISOString()
     }, { onConflict: 'user_id,period' })
 
@@ -334,6 +331,13 @@ export async function registrarPontuacaoTamaRanking(userId, pontos, ehLogin = fa
   const novoScore = (data?.score || 0) + pontosReais
   const novasAcoes = ehLogin ? acoesHoje : acoesHoje + pontosReais
 
+  // country_code vem do perfil do usuário, não mais do navegador
+  let countryCode = data?.country_code
+  if (!countryCode) {
+    const { data: perfil } = await supabase.from('profiles').select('country_code').eq('id', userId).single()
+    countryCode = perfil?.country_code || null
+  }
+
   const { error } = await supabase
     .from('tamagoshi_ranking')
     .upsert({
@@ -342,7 +346,7 @@ export async function registrarPontuacaoTamaRanking(userId, pontos, ehLogin = fa
       score: novoScore,
       acoes_hoje: novasAcoes,
       acoes_date: hoje,
-      country_code: data?.country_code || getCountryCode(),
+      country_code: countryCode,
       updated_at: new Date().toISOString()
     }, { onConflict: 'user_id,period' })
 

@@ -4,13 +4,14 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import { useLanguage } from '../context/LanguageContext'
+import { PAISES } from '../data/paises'
 import './Login.css'
 
 export default function Cadastro() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { carregarPerfil } = useAuth()
   const { migrarLocalParaSupabase, desbloquear } = useAchievements()
-  const [form, setForm] = useState({ nome: '', email: '', telefone: '', senha: '', confirmarSenha: '' })
+  const [form, setForm] = useState({ nome: '', email: '', telefone: '', pais: '', senha: '', confirmarSenha: '' })
   const [erro, setErro] = useState('')
   const [sucesso, setSucesso] = useState('')
   const [carregando, setCarregando] = useState(false)
@@ -18,6 +19,7 @@ export default function Cadastro() {
   const set = (campo) => (e) => setForm(s => ({ ...s, [campo]: e.target.value }))
 
   const validar = () => {
+    if (!form.pais) return t('site.cadastro.pais_obrigatorio')
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return t('site.cadastro.email_invalido')
     if (form.telefone.replace(/\D/g, '').length < 10) return t('site.cadastro.telefone_invalido')
     if (form.senha.length < 6) return t('site.cadastro.senha_curta')
@@ -41,7 +43,7 @@ export default function Cadastro() {
     if (data.user) {
       const { error: perfilError } = await supabase
         .from('profiles')
-        .insert({ id: data.user.id, nome: form.nome, telefone: form.telefone })
+        .insert({ id: data.user.id, nome: form.nome, telefone: form.telefone, country_code: form.pais })
       if (perfilError) {
         console.error('Erro perfil:', perfilError)
         setErro(t('site.cadastro.erro_perfil'))
@@ -72,6 +74,14 @@ export default function Cadastro() {
             <label className="auth-label">{t('site.cadastro.nome')}<input type="text" className="auth-input" value={form.nome} onChange={set('nome')} required /></label>
             <label className="auth-label">{t('site.cadastro.email')}<input type="email" className="auth-input" value={form.email} onChange={set('email')} required /></label>
             <label className="auth-label">{t('site.cadastro.telefone')}<input type="tel" className="auth-input" value={form.telefone} onChange={set('telefone')} required /></label>
+            <label className="auth-label">{t('site.cadastro.pais')}
+              <select className="auth-input" value={form.pais} onChange={set('pais')} required>
+                <option value="">{t('site.cadastro.pais_selecione')}</option>
+                {PAISES.map(p => (
+                  <option key={p.code} value={p.code}>{p[locale] || p.pt}</option>
+                ))}
+              </select>
+            </label>
             <label className="auth-label">{t('site.cadastro.senha')}<input type="password" className="auth-input" value={form.senha} onChange={set('senha')} required /></label>
             <label className="auth-label">{t('site.cadastro.confirmar_senha')}<input type="password" className="auth-input" value={form.confirmarSenha} onChange={set('confirmarSenha')} required /></label>
             <button className="auth-btn" type="submit" disabled={carregando}>{carregando ? t('site.cadastro.cadastrando') : t('site.cadastro.cadastrar')}</button>

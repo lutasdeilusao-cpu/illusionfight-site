@@ -566,6 +566,9 @@
       "telefone_invalido": "Phone must have at least 10 digits",
       "senha_curta": "Password must have at least 6 characters",
       "senhas_diferem": "Passwords do not match",
+      "pais": "Country",
+      "pais_selecione": "Select your country",
+      "pais_obrigatorio": "Please select your country",
       "sucesso": "Check your email to confirm your registration.",
       "erro_perfil": "Account created but error saving profile. Please try again."
     },
@@ -658,6 +661,7 @@
       "conta_nome": "Name",
       "conta_email": "Email",
       "conta_tier": "Tier",
+      "conta_pais": "Country",
       "billing_titulo": "SUBSCRIPTION",
       "billing_no_subscription": "You don't have an active subscription yet.",
       "billing_expired": "Your subscription has expired.",

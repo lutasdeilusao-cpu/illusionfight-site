@@ -4,6 +4,7 @@ import { supabase } from '../../../lib/supabase'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { cancelarAssinatura, iniciarCheckout } from '../../../lib/stripe'
+import { PAISES } from '../../../data/paises'
 
 function calcDiasRestantes(dataFim) {
   if (!dataFim) return null
@@ -32,6 +33,19 @@ export default function PerfilConta() {
   const [cancelando, setCancelando] = useState(false)
   const [renovando, setRenovando] = useState(false)
   const [feedback, setFeedback] = useState(null)
+  const [pais, setPais] = useState(perfil?.country_code || '')
+  const [salvandoPais, setSalvandoPais] = useState(false)
+
+  useEffect(() => {
+    if (perfil?.country_code) setPais(perfil.country_code)
+  }, [perfil?.country_code])
+
+  async function handleSalvarPais(novoPais) {
+    setPais(novoPais)
+    setSalvandoPais(true)
+    await supabase.from('profiles').update({ country_code: novoPais }).eq('id', user.id)
+    setSalvandoPais(false)
+  }
 
   // ── Dados da assinatura ──
   const subscriptionStatus = perfil?.subscription_status
@@ -111,6 +125,20 @@ export default function PerfilConta() {
         <div className="perfil-conta-campo">
           <span className="perfil-conta-label">{t('site.perfil.conta_tier')}</span>
           <span className="perfil-conta-valor">{tier}</span>
+        </div>
+        <div className="perfil-conta-campo">
+          <span className="perfil-conta-label">{t('site.perfil.conta_pais')}</span>
+          <select
+            className="perfil-conta-select"
+            value={pais}
+            onChange={e => handleSalvarPais(e.target.value)}
+            disabled={salvandoPais}
+          >
+            <option value="">{t('site.cadastro.pais_selecione')}</option>
+            {PAISES.map(p => (
+              <option key={p.code} value={p.code}>{p[locale] || p.pt}</option>
+            ))}
+          </select>
         </div>
       </div>
 
