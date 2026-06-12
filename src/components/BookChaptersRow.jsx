@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { TRIAL_ACTIVE } from '../config/trial.js'
+import { estaDisponivel } from '../config/site.js'
 import livroIndex from '../data/livro-index.json'
 import { useLanguage } from '../context/LanguageContext'
 import comingSoonImg from '../assets/images/ComingSoon.png'
@@ -13,6 +14,12 @@ const capaMap = {
   'capitulo-01': capa01,
   'capitulo-02': capa02,
   'capitulo-03': capa03,
+}
+
+function formatarData(dataStr) {
+  if (!dataStr) return ''
+  const [a, m, d] = dataStr.split('-')
+  return `${d}/${m}/${a}`
 }
 
 export default function BookChaptersRow() {
@@ -44,7 +51,7 @@ export default function BookChaptersRow() {
         <button className="book-chapters-arrow book-chapters-arrow--left" onClick={scrollLeft}>‹</button>
         <div className="book-chapters-scroll" ref={scrollRef}>
           {capitulos.map(cap => {
-            const liberado = cap.publicado || TRIAL_ACTIVE
+            const liberado = estaDisponivel(cap) || TRIAL_ACTIVE
             const Wrapper = liberado ? Link : 'div'
             const wrapperProps = liberado ? { to: `/livro/${cap.id}` } : {}
             return (
@@ -56,7 +63,7 @@ export default function BookChaptersRow() {
                 <div
                   className="book-chapter-card__inner"
                   style={{
-                    backgroundImage: `url(${cap.publicado && capaMap[cap.id] ? capaMap[cap.id] : comingSoonImg})`,
+                    backgroundImage: `url(${liberado && capaMap[cap.id] ? capaMap[cap.id] : comingSoonImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                   }}
@@ -67,8 +74,10 @@ export default function BookChaptersRow() {
                 </div>
                 <div className="book-chapter-card__footer">
                   <span className="book-chapter-card__titulo">{cap.titulo}</span>
-                  {!cap.publicado && (
-                    <span className="book-chapter-card__badge">{t('pages.livro.premium')}</span>
+                  {!liberado && (
+                    <span className="book-chapter-card__badge">
+                      {cap.data_publicacao ? `${t('pages.livro.em_breve')} ${formatarData(cap.data_publicacao)}` : t('pages.livro.em_breve')}
+                    </span>
                   )}
                 </div>
               </Wrapper>

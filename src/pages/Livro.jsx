@@ -3,8 +3,15 @@ import { Helmet } from 'react-helmet-async'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { estaDisponivel } from '../config/site'
 import index from '../data/livro-index.json'
 import './Livro.css'
+
+function formatarData(dataStr) {
+  if (!dataStr) return ''
+  const [a, m, d] = dataStr.split('-')
+  return `${d}/${m}/${a}`
+}
 
 export default function Livro() {
   const [ultimo, setUltimo] = useState(null)
@@ -40,7 +47,7 @@ export default function Livro() {
         <h2 className="section-title">{t('pages.livro.titulo')}</h2>
         <div className="livro-page__list">
           {index.map(ch => {
-            const liberado = ch.publicado || TRIAL_ACTIVE
+            const liberado = estaDisponivel(ch) || TRIAL_ACTIVE
             return (
               <div key={ch.id} className="livro-page__item">
                 <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>
@@ -55,8 +62,11 @@ export default function Livro() {
                     {liberado && ch.data_publicacao && (
                       <span className="livro-page__data">{ch.data_publicacao}</span>
                     )}
-                    {!ch.publicado && TRIAL_ACTIVE && <span className="livro-page__badge livro-page__badge--premium">{t('pages.livro.premium')}</span>}
-                    {!liberado && <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>}
+                    {!liberado && (
+                      <span className="livro-page__badge">
+                        {ch.data_publicacao ? `${t('pages.livro.em_breve')} — ${formatarData(ch.data_publicacao)}` : t('pages.livro.em_breve')}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

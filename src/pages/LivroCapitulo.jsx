@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../context/LanguageContext'
 import { useReader } from '../context/ReaderContext'
 import { TRIAL_ACTIVE } from '../config/trial'
+import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
 import { useEventos } from '../context/EventosContext'
 import index from '../data/livro-index.json'
@@ -51,7 +52,7 @@ export default function LivroCapitulo() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   useEffect(() => {
-    if (!chapter || (!chapter.publicado && !TRIAL_ACTIVE)) {
+    if (!chapter || (!estaDisponivel(chapter) && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
     }
@@ -95,9 +96,9 @@ export default function LivroCapitulo() {
   const idx = index.findIndex(ch => ch.id === id)
   const prev = idx > 0 ? index[idx - 1] : null
   const next = idx < index.length - 1 ? index[idx + 1] : null
-  const prevPublished = prev?.publicado ? prev : null
-  const nextPublished = next?.publicado ? next : null
-  const capitulos = index.filter(c => c.publicado)
+  const prevPublished = prev && estaDisponivel(prev) ? prev : null
+  const nextPublished = next && estaDisponivel(next) ? next : null
+  const capitulos = index.filter(c => estaDisponivel(c) || TRIAL_ACTIVE)
   const currentIndex = capitulos.findIndex(c => c.id === id)
   const anterior = capitulos[currentIndex - 1]
   const proximo = capitulos[currentIndex + 1]

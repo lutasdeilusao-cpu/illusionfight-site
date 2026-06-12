@@ -60,7 +60,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | **Idiomas** | 3 (PT, EN, ES) |
 | **Supabase Migrations** | 22 arquivos |
 | **Stripe Edge Functions** | 3 funções |
-| **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
+| **Total de Capítulos do Livro** | 16 escritos (3 no lançamento 14/09/2026 + 1 a cada 14 dias a partir de 05/10/2026 — automatizado via `data_publicacao`) |
 | **Total de Palavras no Livro** | ~27.500 palavras |
 | **Total de Cartas Duelo** | 68 cartas (5 novas 6★) |
 | **Total de Cartas Top Trumps** | 105 cartas |
@@ -928,28 +928,27 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 6.1 Capítulos em Português
 
-| # | Capítulo | Tamanho | Publicado | Status |
+| # | Capítulo | Tamanho | Publicação | Status |
 |---|---|---|---|---|
-| 1 | O Roteiro | 8.5KB | ✅ Sim | ✅ Completo |
-| 2 | A Máquina e a Rosa | 5.1KB | ✅ Sim | ✅ Completo |
-| 3 | A Primeira Regra | 14.5KB | ✅ Sim | ✅ Completo |
-| 4 | Briguento 142536 | 9.2KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 5 | A Lista | 11.7KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 6 | O Primordial | 11.0KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 7 | O Mundo Viu | 6.9KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 8 | O Mundo Viu, Parte II | 5.0KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 9 | Três Litros e Uma Tarde | 11.9KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 10 | O Que Uma Garota de Doze Anos Faz | 12.7KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 11 | A Manhã Errada | 6.8KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 12 | No Ônibus | 6.5KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 13 | Walter | 13.5KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 14 | Sala Privada | 12.7KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 15 | Ryan e a Caixa | 6.6KB | ❌ Não | ✅ Escrito, aguardando publicação |
-| 16 | Verificação de Nível | 12.1KB | ❌ Não | ✅ Escrito, aguardando publicação |
+| 1 | O Roteiro | 8.5KB | 2026-09-14 | ✅ Completo — publicado no lançamento |
+| 2 | A Máquina e a Rosa | 5.1KB | 2026-09-14 | ✅ Completo — publicado no lançamento |
+| 3 | A Primeira Regra | 14.5KB | 2026-09-14 | ✅ Completo — publicado no lançamento |
+| 4 | Briguento 142536 | 9.2KB | 2026-10-05 | ✅ Escrito, publicação agendada para 05/10/2026 |
+| 5 | A Lista | 11.7KB | 2026-10-19 | ✅ Escrito, publicação agendada para 19/10/2026 |
+| 6 | O Primordial | 11.0KB | 2026-11-02 | ✅ Escrito, publicação agendada para 02/11/2026 |
+| 7 | O Mundo Viu | 6.9KB | 2026-11-16 | ✅ Escrito, publicação agendada para 16/11/2026 |
+| 8 | O Mundo Viu, Parte II | 5.0KB | 2026-11-30 | ✅ Escrito, publicação agendada para 30/11/2026 |
+| 9 | Três Litros e Uma Tarde | 11.9KB | 2026-12-14 | ✅ Escrito, publicação agendada para 14/12/2026 |
+| 10 | O Que Uma Garota de Doze Anos Faz | 12.7KB | 2026-12-28 | ✅ Escrito, publicação agendada para 28/12/2026 |
+| 11 | A Manhã Errada | 6.8KB | 2027-01-11 | ✅ Escrito, publicação agendada para 11/01/2027 |
+| 12 | No Ônibus | 6.5KB | 2027-01-25 | ✅ Escrito, publicação agendada para 25/01/2027 |
+| 13 | Walter | 13.5KB | 2027-02-08 | ✅ Escrito, publicação agendada para 08/02/2027 |
+| 14 | Sala Privada | 12.7KB | 2027-02-22 | ✅ Escrito, publicação agendada para 22/02/2027 |
+| 15 | Ryan e a Caixa | 6.6KB | 2027-03-08 | ✅ Escrito, publicação agendada para 08/03/2027 |
+| 16 | Verificação de Nível | 12.1KB | 2027-03-22 | ✅ Escrito, publicação agendada para 22/03/2027 |
 
 > **Total:** 16 capítulos, ~26.000 palavras  
-> **Publicados:** 3 capítulos (19%)  
-> **Não publicados:** 13 capítulos (81%) — todo o conteúdo já está escrito!
+> **Publicação:** Lançamento quinzenal automatizado via `data_publicacao` (3 no lançamento em 14/09/2026, +1 a cada 14 dias a partir de 05/10/2026)
 
 ### 6.2 Capítulos Traduzidos (EN/ES)
 
@@ -963,11 +962,15 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 ### 6.3 Livro-Index (Controle de Publicação)
 
 ```json
-capitulo-01: publicado ✅
-capitulo-02: publicado ✅
-capitulo-03: publicado ✅
-capitulo-04 ao 16: publicado: false ❌
+capitulo-01: data_publicacao: "2026-09-14" ✅
+capitulo-02: data_publicacao: "2026-09-14" ✅
+capitulo-03: data_publicacao: "2026-09-14" ✅
+capitulo-04: data_publicacao: "2026-10-05" ⏳
+capitulo-05: data_publicacao: "2026-10-19" ⏳
+... (quinzenal até 22/03/2027)
 ```
+
+> **Nota:** A disponibilidade é automática — quando `data_publicacao <= hoje`, o capítulo fica acessível. Não requer ação manual.
 
 ---
 
@@ -1204,7 +1207,7 @@ STATUS: ✅ limpo
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
 | **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas (Kroniki, Ninka, Kroum prontos) |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
-| **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
+| **Livro** (publicação) | ✅ | 🟢 | Cronograma definido (quinzenal a partir de 05/10/2026, automatizado via `data_publicacao`) |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
 | **Arte Personagens** | 100% | 🟢 | 10/10 com artes oficiais |
@@ -1245,16 +1248,11 @@ STATUS: ✅ limpo
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
 | Capas de música | ✅ 16 capas | Randomizadas por visita, todas as faixas têm capa |
 
-### 🔴 Gargalo #2: CONTEÚDO DO LIVRO NÃO PUBLICADO
-**Impacto:** Médio — conteúdo já existe, só não está visível
+### ℹ️ Nota: Publicação do Livro
 
-| Item | Status |
-|---|---|
-| 13 capítulos PT escritos mas não publicados | ✅ Conteúdo pronto |
-| Basta mudar `publicado: false` → `true` | ⏱️ 5 minutos de trabalho |
-| Mas precisa ter sentido de cronograma de lançamento | 📋 Decisão editorial |
+> **Publicação serializada quinzenal a partir de 05/10/2026** — automatizada via `data_publicacao` em `livro-index.json`. Não requer ação manual. Capítulos 1-3 disponíveis no lançamento (14/09/2026), +1 a cada 14 dias até 22/03/2027.
 
-### 🔴 Gargalo #3: TRADUÇÕES DO LIVRO (EN/ES)
+### 🔴 Gargalo #2: TRADUÇÕES DO LIVRO (EN/ES)
 **Impacto:** Médio — necessário para audiência internacional
 
 | Item | Esforço Estimado |
@@ -1298,7 +1296,6 @@ STATUS: ✅ limpo
 
 | Tarefa | Esforço | Impacto |
 |---|---|---|
-| **Publicar capítulos 4-16 do livro** (PT) | 5 min | 🟢 Alto — libera 81% do livro |
 | **Adicionar mais faixas ao catálogo** | 10 min | 🟢 Médio |
 | **Revisar e corrigir bugs menores** | 2-4h | 🟢 Médio |
 | **Atualizar SITE_MAP.md com versões corretas** | 15 min | 🟢 Médio |
@@ -1364,7 +1361,7 @@ STATUS: ✅ limpo
 📝 CONTEÚDO TEXTUAL PT:  85% ███████████████████████████████████████░░░░░
 🌐 TRADUÇÕES EN/ES:      55% ██████████████████████████░░░░░░░░░░░░░░░░░  — Site+Jogos 100% ✅ | Livro caps 4-16: 0% 🔴
 🎨 ARTES/SPRITES:        50% ██████████████████████████░░░░░░░░░░░░░░░░░
-📖 PUBLICAÇÃO LIVRO:     19% ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+📖 CRONOGRAMA LIVRO:     ✅ Definido e automatizado (3/16 no lançamento, +1 a cada 14 dias a partir de 05/10/2026)
 🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📊 GERAL:                ~82% ████████████████████████████████████████░░░░
@@ -1372,7 +1369,7 @@ STATUS: ✅ limpo
 
 **A engenharia e o esqueleto do site estão 92% prontos.**  
 **Top Trumps está 100% completo — Single finalizado, balanceado, com artes oficiais da 1ª temporada.**  
-**O que falta agora é majoritariamente CONTEÚDO VISUAL (personagens, sprites Tamagoshi, cartas Duelo) e PUBLICAÇÃO (livro, traduções, webtoon).**
+**O que falta agora é majoritariamente CONTEÚDO VISUAL (personagens, sprites Tamagoshi, cartas Duelo) e TRADUÇÕES (livro caps 4-16 EN/ES).**
 
 O código fonte está sólido. Faltam assets e decisões de cronograma de lançamento.
 
