@@ -37,7 +37,11 @@ export function FichasProvider({ children }) {
       setUltimaColeta(data.ultima_coleta)
       setPodeColetarHoje(data.ultima_coleta !== hoje())
     } else {
-      await supabase.from('fichas').insert({ user_id: user.id, saldo: 0, fichas_diarias_coletadas: 0, ultima_coleta: null })
+      const { error: insertError } = await supabase.from('fichas').upsert(
+        { user_id: user.id, saldo: 0, fichas_diarias_coletadas: 0, ultima_coleta: null },
+        { onConflict: 'user_id' }
+      )
+      if (insertError) console.error('[FICHAS] erro ao criar registro:', insertError)
       setPodeColetarHoje(true)
     }
     setLoading(false)
@@ -48,10 +52,11 @@ export function FichasProvider({ children }) {
   const coletarDiarias = async () => {
     if (!user || isAdmin || !podeColetarHoje) return false
     const novoSaldo = saldo + fichasDiarias
-    const { error } = await supabase.from('fichas').update({
+    const { error } = await supabase.from('fichas').upsert({
+      user_id: user.id,
       saldo: novoSaldo, fichas_diarias_coletadas: fichasDiarias,
       ultima_coleta: hoje(), updated_at: new Date().toISOString(),
-    }).eq('user_id', user.id)
+    }, { onConflict: 'user_id' })
     if (!error) {
       setSaldo(novoSaldo); setFichasHoje(fichasDiarias); setUltimaColeta(hoje()); setPodeColetarHoje(false)
       await supabase.from('fichas_historico').insert({ user_id: user.id, tipo: 'ganho', motivo: 'diaria', quantidade: fichasDiarias })
