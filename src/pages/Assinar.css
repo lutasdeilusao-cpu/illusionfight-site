@@ -119,6 +119,7 @@
 
 .assinar-card--destaque {
   border-color: var(--accent-amber);
+  box-shadow: 0 0 24px rgba(244, 162, 39, 0.2);
 }
 
 .assinar-card--destaque:hover {
@@ -403,4 +404,37 @@
     grid-template-columns: 1fr;
     max-width: 400px;
   }
+}
+
+/* ── Plan color variants via data-plan ──────────── */
+[data-plan="ranqueado"] .assinar-card__name,
+[data-plan="ranqueado"] .assinar-card__check {
+  color: #4F5359;
+}
+[data-plan="ranqueado"] .assinar-card__price-value {
+  color: var(--text-muted);
+}
+[data-plan="ranqueado"] .assinar-card__cta--outline {
+  border-color: #4F5359;
+  color: #4F5359;
+}
+
+[data-plan="elite"] .assinar-card__name,
+[data-plan="elite"] .assinar-card__check,
+[data-plan="elite"] .assinar-card__price-value {
+  color: #00B4D8;
+}
+[data-plan="elite"] .assinar-card__cta--outline {
+  border-color: #00B4D8;
+  color: #00B4D8;
+}
+
+[data-plan="primordial"] .assinar-card__name,
+[data-plan="primordial"] .assinar-card__check,
+[data-plan="primordial"] .assinar-card__price-value {
+  color: #F4A227;
+}
+[data-plan="primordial"] .assinar-card__cta--outline {
+  border-color: #F4A227;
+  color: #F4A227;
 }

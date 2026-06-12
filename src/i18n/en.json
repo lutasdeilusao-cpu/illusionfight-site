@@ -333,6 +333,17 @@
     "cta": "Subscribe",
     "custosBtn": "Our Costs",
     "nota": "* USD and EUR prices are approximate. Payment via Stripe or PIX.",
+    "plano_atual": "✓ Current plan",
+    "pagamento_pendente": "⚠️ Payment pending",
+    "cancela_em": "Cancels on {{data}}",
+    "fazer_downgrade": "Make downgrade",
+    "fazer_upgrade": "Make upgrade",
+    "aguarde": "Please wait...",
+    "feedback": {
+      "sucesso": "✅ {{tier}} subscription activated! Welcome to the club.",
+      "cancelado": "Purchase cancelled. No charges were made.",
+      "erro": "❌ {{mensagem}}"
+    },
     "doacao": {
       "title": "Prefer to support without subscribing?",
       "text": "Every donation helps the project continue.",
@@ -2414,6 +2425,10 @@
     "autor": {
       "by": "BY:",
       "name": "ISAIAS LEAL"
+    },
+    "assinar": {
+      "og_title": "Subscribe — Illusion Fight",
+      "og_desc": "Choose your tier: Ranked, Elite or Primordial. Each level unlocks new access to the Illusion Fight universe."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

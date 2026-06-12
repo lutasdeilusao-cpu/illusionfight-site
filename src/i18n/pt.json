@@ -333,6 +333,17 @@
     "cta": "Assinar",
     "custosBtn": "Nossos Custos",
     "nota": "* Preços em USD e EUR são aproximações. Pagamentos via Stripe ou PIX.",
+    "plano_atual": "✓ Plano atual",
+    "pagamento_pendente": "⚠️ Pagamento pendente",
+    "cancela_em": "Cancela em {{data}}",
+    "fazer_downgrade": "Fazer downgrade",
+    "fazer_upgrade": "Fazer upgrade",
+    "aguarde": "Aguarde...",
+    "feedback": {
+      "sucesso": "✅ Assinatura {{tier}} ativada! Bem-vindo ao clube.",
+      "cancelado": "Compra cancelada. Nenhum valor foi cobrado.",
+      "erro": "❌ {{mensagem}}"
+    },
     "doacao": {
       "title": "Prefere apoiar sem assinar?",
       "text": "Toda doação ajuda o projeto a continuar.",
@@ -2441,6 +2452,10 @@
     "autor": {
       "by": "BY:",
       "name": "ISAIAS LEAL"
+    },
+    "assinar": {
+      "og_title": "Assinar — Lutas de Ilusão",
+      "og_desc": "Escolha seu tier: Ranqueado, Elite ou Primordial. Cada nível desbloqueia novos acessos ao universo Lutas de Ilusão."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",

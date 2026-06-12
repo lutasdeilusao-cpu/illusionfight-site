@@ -9,7 +9,7 @@ import './Assinar.css'
 
 export default function Assinar() {
   const { locale, t } = useLanguage()
-  const { user, perfil, session } = useAuth()
+  const { user, perfil } = useAuth()
   const navigate = useNavigate()
   const priceDisplay = getPriceDisplay(locale)
   const [loadingTier, setLoadingTier] = useState(null)
@@ -40,16 +40,16 @@ export default function Assinar() {
 
   function getLabelBotao(tier) {
     if (!user) return t('assinar.cta')
-    if (perfil?.tier === tier) return '✓ Plano atual'
-    if (perfil?.subscription_status === 'past_due') return '⚠️ Pagamento pendente'
+    if (perfil?.tier === tier) return t('assinar.plano_atual')
+    if (perfil?.subscription_status === 'past_due') return t('assinar.pagamento_pendente')
     if (perfil?.subscription_status === 'canceling' && perfil?.tier === tier) {
       const data = perfil?.current_period_end
         ? new Date(perfil.current_period_end).toLocaleDateString(locale)
         : ''
-      return `Cancela em ${data}`
+      return t('assinar.cancela_em', { data })
     }
-    if (perfil?.tier === 'PRIMORDIAL' && tier === 'ELITE') return 'Fazer downgrade'
-    if (perfil?.tier === 'ELITE' && tier === 'PRIMORDIAL') return 'Fazer upgrade'
+    if (perfil?.tier === 'PRIMORDIAL' && tier === 'ELITE') return t('assinar.fazer_downgrade')
+    if (perfil?.tier === 'ELITE' && tier === 'PRIMORDIAL') return t('assinar.fazer_upgrade')
     return t('assinar.cta')
   }
 
@@ -62,10 +62,10 @@ export default function Assinar() {
   return (
     <>
       <Helmet>
-        <title>Subscribe — Illusion Fight</title>
-        <meta name="description" content="Support Illusion Fight and unlock premium content. Subscribe to access exclusive chapters, games, and behind-the-scenes content." />
-        <meta property="og:title" content="Subscribe — Illusion Fight" />
-        <meta property="og:description" content="Support Illusion Fight and unlock premium content." />
+        <title>{t('pages.helmet.assinar')}</title>
+        <meta name="description" content={t('pages.assinar.og_desc')} />
+        <meta property="og:title" content={t('pages.assinar.og_title')} />
+        <meta property="og:description" content={t('pages.assinar.og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/assinar" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
@@ -87,17 +87,17 @@ export default function Assinar() {
           <div className="container">
             {feedback.tipo === 'sucesso' && (
               <div className="assinar-feedback__sucesso">
-                ✅ Assinatura {feedback.tier} ativada! Bem-vindo ao clube.
+                {t('assinar.feedback.sucesso', { tier: feedback.tier })}
               </div>
             )}
             {feedback.tipo === 'cancelado' && (
               <div className="assinar-feedback__info">
-                Compra cancelada. Nenhum valor foi cobrado.
+                {t('assinar.feedback.cancelado')}
               </div>
             )}
             {feedback.tipo === 'erro' && (
               <div className="assinar-feedback__erro">
-                ❌ {feedback.mensagem}
+                {t('assinar.feedback.erro', { mensagem: feedback.mensagem })}
               </div>
             )}
           </div>
@@ -113,15 +113,15 @@ export default function Assinar() {
               return (
                 <div
                   key={p.id}
+                  data-plan={p.id}
                   className={`assinar-card${isDestaque ? ' assinar-card--destaque' : ''}${isBase ? ' assinar-card--base' : ''}`}
-                  style={isDestaque ? { boxShadow: '0 0 24px rgba(244, 162, 39, 0.2)' } : {}}
                 >
                   {isDestaque && (
                     <span className="assinar-card__badge">{p[badgeKey]}</span>
                   )}
-                  <h2 className="assinar-card__name" style={{ color: p.cor }}>{p[nomeKey]}</h2>
+                  <h2 className="assinar-card__name">{p[nomeKey]}</h2>
                   <div className="assinar-card__price">
-                    <span className="assinar-card__price-value" style={{ color: p.id === 'ranqueado' ? 'var(--text-muted)' : p.cor }}>
+                    <span className="assinar-card__price-value">
                       {p.id === 'ranqueado'
                         ? p[precoKey]
                         : `${priceDisplay.symbol}${priceDisplay[p.id]}/${priceDisplay.per}`
@@ -131,7 +131,7 @@ export default function Assinar() {
                   <ul className="assinar-card__benefits">
                     {p[benefKey].map((b, i) => (
                       <li key={i} className={`assinar-card__benefit${isBase ? ' assinar-card__benefit--muted' : ''}`}>
-                        <span className="assinar-card__check" style={{ color: p.cor }}>✓</span>
+                        <span className="assinar-card__check">✓</span>
                         {b}
                       </li>
                     ))}
@@ -143,9 +143,8 @@ export default function Assinar() {
                       onClick={() => handleAssinar(p.id.toUpperCase())}
                       disabled={loadingTier === p.id.toUpperCase() || perfil?.tier === p.id.toUpperCase()}
                       className={`assinar-card__cta${isDestaque ? ' assinar-card__cta--filled' : ' assinar-card__cta--outline'}`}
-                      style={isDestaque ? { background: 'var(--accent-amber)', color: '#000', borderColor: 'var(--accent-amber)' } : { borderColor: p.cor, color: p.cor }}
                     >
-                      {loadingTier === p.id.toUpperCase() ? 'Aguarde...' : getLabelBotao(p.id.toUpperCase())}
+                      {loadingTier === p.id.toUpperCase() ? t('assinar.aguarde') : getLabelBotao(p.id.toUpperCase())}
                     </button>
                   )}
                 </div>

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.43  
-> **Versão do Site:** 10.62.0  
+> **Versão do Relatório:** 3.44  
+> **Versão do Site:** 10.63.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -110,7 +110,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/musicas` | Página de Músicas | ✅ **Completo** | ✅ PT/EN/ES | 36 faixas com capas randomizadas + plataformas |
 | `/mundo` | Lore do Universo | ✅ **Completo (rev. v10.62.0)** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário — inline CSS removido, hardcoded strings → t(), Helmet i18n, timeline arrows CSS, Personagens movido para o topo |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
-| `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
+| `/assinar` | Planos de Assinatura | ✅ **Completo (rev. v10.63.0)** | ✅ PT/EN/ES | Inline CSS removido, hardcoded strings → t(), Helmet i18n, i18n pt/en/es completo |
 | `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Games refatorado: inline CSS removido (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), meta i18n pt/en/es |
 | `/leaderboard` | Ranking Global | ✅ **Completo** | ✅ PT/EN/ES | Ranking do sistema |
 | `/quiz` | Quiz SDR | ✅ **Completo** | ✅ PT/EN/ES | 3 modos de jogo, banco de perguntas |

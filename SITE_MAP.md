@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.63.0*  |  `[SITE] versão carregada: 10.63.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Assinar — inline CSS removido (style={{}} → data-plan + CSS), hardcoded strings removidas (botões, feedback, Helmet → t()), i18n pt/en/es completo
 *Versão: 10.62.0*  |  `[SITE] versão carregada: 10.62.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Mundo — seção Personagens movida para o topo (logo após o hero), antes de Bravara
 *Versão: 10.61.0*  |  `[SITE] versão carregada: 10.61.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Mundo — inline CSS removido (--rank-color style → CSS classes .mundo-ranking-item--N), hardcoded Helmet strings → t('helmet.mundo')/t('pages.mundo.og_*'), timeline arrows hardcoded ←/→ → CSS pseudo-elements + aria-label i18n, i18n pt/en/es completo
 *Versão: 10.60.0*  |  `[SITE] versão carregada: 10.60.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Loja — inline styles removidos (badge_cor → CSS classes), hardcoded strings removidas (data-text="LOJA" → t('shop.titulo')), locale via LanguageContext (não localStorage), i18n pt/en/es completo
@@ -705,7 +706,7 @@
 | `/personagens/:id` | PersonagemDetalhe | `src/pages/PersonagemDetalhe.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Detalhe: nome, idade, status, ranking, arma, estilo, elemental, descrição, frase, relações |
 | `/livro` | Livro | `src/pages/Livro.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor react-markdown, lazy loading, readerMode |
-| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.89 | ✅ Stripe | ✅ PT ✅ EN ✅ ES | 3 tiers via Stripe Checkout. Preços dinâmicos por locale |
+| `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.90 | ✅ Stripe | ✅ PT ✅ EN ✅ ES | Inline CSS removido, hardcoded strings → t(), Helmet i18n, i18n pt/en/es completo |
 | `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |

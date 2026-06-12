@@ -333,6 +333,17 @@
     "cta": "Suscribirse",
     "custosBtn": "Nuestros Costos",
     "nota": "* Los precios en USD y EUR son aproximados. Pago via Stripe o PIX.",
+    "plano_atual": "✓ Plan actual",
+    "pagamento_pendente": "⚠️ Pago pendiente",
+    "cancela_em": "Cancela el {{data}}",
+    "fazer_downgrade": "Hacer downgrade",
+    "fazer_upgrade": "Hacer upgrade",
+    "aguarde": "Aguarde...",
+    "feedback": {
+      "sucesso": "✅ ¡Suscripción {{tier}} activada! Bienvenido al club.",
+      "cancelado": "Compra cancelada. No se realizaron cargos.",
+      "erro": "❌ {{mensagem}}"
+    },
     "doacao": {
       "title": "¿Prefieres apoyar sin suscribirte?",
       "text": "Toda donación ayuda al proyecto a continuar.",
@@ -2414,6 +2425,10 @@
     "autor": {
       "by": "BY:",
       "name": "ISAIAS LEAL"
+    },
+    "assinar": {
+      "og_title": "Suscríbete — Lutas de Ilusión",
+      "og_desc": "Elige tu tier: Ranqueado, Elite o Primordial. Cada nivel desbloquea nuevos accesos al universo Lutas de Ilusión."
     },
     "leaderboard": {
       "quiz_sdr": "QUIZ SDR",
