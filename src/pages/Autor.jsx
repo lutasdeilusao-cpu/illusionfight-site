@@ -7,6 +7,8 @@ export default function Autor() {
   const { t } = useLanguage()
   const navigate = useNavigate()
 
+  const blocks = t('autor.blocks')
+
   return (
     <>
       <Helmet>
@@ -29,8 +31,8 @@ export default function Autor() {
           </h1>
 
           <div className="autor__blocks">
-            {[0, 1, 2, 3].map(i => (
-              <p key={i} className="autor__block">{t(`autor.blocks.${i}`)}</p>
+            {Array.isArray(blocks) && blocks.map((text, i) => (
+              <p key={i} className="autor__block">{text}</p>
             ))}
           </div>
 

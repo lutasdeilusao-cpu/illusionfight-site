@@ -35,13 +35,15 @@ function getGreetingKey(pathname) {
   return 'nina.greeting.default'
 }
 
-/** Retorna o estado salvo: null (nunca perguntou), 'aceitou' ou 'recusou' */
+/** Estado em memória: null (nunca perguntou), 'aceitou' ou 'recusou'.
+ *  Reseta em qualquer F5/reload, persiste durante navegação SPA. */
+let ninaMemoryState = null
+
 function getNinaSessionState() {
-  return sessionStorage.getItem('nina_state') // 'aceitou' | 'recusou' | null
+  return ninaMemoryState
 }
 function setNinaSessionState(val) {
-  if (val) sessionStorage.setItem('nina_state', val)
-  else sessionStorage.removeItem('nina_state')
+  ninaMemoryState = val
 }
 
 export default function NinaMusicPlayer() {
