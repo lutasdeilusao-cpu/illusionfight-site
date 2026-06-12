@@ -484,7 +484,7 @@ export default function TopTrumpsMP() {
     const timer = setTimeout(async () => {
       await supabase.from('toptrumps_salas').delete().eq('id', salaId)
       navigate('/games/toptrumps/lobby', {
-        state: { mensagem: 'Nenhum adversário encontrado. Tente novamente.' }
+        state: { mensagem: t('games.toptrumps.sem_oponente') }
       })
     }, 120000)
     return () => clearTimeout(timer)
@@ -644,9 +644,9 @@ export default function TopTrumpsMP() {
 
   if (fase === 'ppt') {
     const opcoes = [
-      { valor: 0, nome: 'Pedra', icone: '\u270A' },
-      { valor: 1, nome: 'Papel', icone: '\u270B' },
-      { valor: 2, nome: 'Tesoura', icone: '\u270C\uFE0F' }
+      { valor: 0, nome: t('games.toptrumps.ppt_pedra'), icone: '\u270A' },
+      { valor: 1, nome: t('games.toptrumps.ppt_papel'), icone: '\u270B' },
+      { valor: 2, nome: t('games.toptrumps.ppt_tesoura'), icone: '\u270C\uFE0F' }
     ]
     const minhaEscolha = meuPapel === 'j1' ? sala?.carta_aposta_j1 : sala?.carta_aposta_j2
     return (
@@ -716,7 +716,7 @@ export default function TopTrumpsMP() {
           ))}
         </div>
         <section className="ttmp-page">
-        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="ttmp-hud">

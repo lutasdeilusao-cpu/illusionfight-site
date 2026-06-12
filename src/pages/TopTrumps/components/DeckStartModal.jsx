@@ -32,7 +32,7 @@ const CARD_IMAGES = {
 function bgCarta(carta) { return CARD_IMAGES[carta?.id_num] || cardFallback }
 
 export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onConfirm, onCancel }) {
-  const { t, locale } = useLanguage()
+  const { t } = useLanguage()
   const [decksCompletos, setDecksCompletos] = useState({})
   const [escolha, setEscolha] = useState(null)
 
@@ -113,7 +113,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
                 </>
               ) : (
                 <p className="tt-startdeck-opcao-sem-deck">
-                  {locale === 'en' ? 'No deck saved for this size' : locale === 'es' ? 'Sin deck guardado para este tamaño' : 'Nenhum deck salvo para este tamanho'}
+                  {t('games.toptrumps.deckStart.semDeck')}
                 </p>
               )}
             </div>
@@ -125,11 +125,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
             >
               <h3 className="tt-startdeck-opcao-titulo">{t('games.toptrumps.deckStart.random')}</h3>
               <p className="tt-startdeck-opcao-desc">
-                {locale === 'en'
-                  ? `${totalTurnos} random cards from your collection`
-                  : locale === 'es'
-                  ? `${totalTurnos} cartas aleatorias de tu colección`
-                  : `${totalTurnos} cartas aleatórias da sua coleção`}
+                {t('games.toptrumps.deckStart.cartasAleatorias', { n: totalTurnos })}
               </p>
             </div>
           </div>

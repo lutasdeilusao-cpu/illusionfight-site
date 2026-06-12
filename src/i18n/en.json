@@ -1449,7 +1449,9 @@
         "title": "How to play?",
         "useDeck": "Use my deck",
         "random": "Random cards",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "semDeck": "No deck saved for this size",
+        "cartasAleatorias": "{n} random cards from your collection"
       },
       "hud_rodada": "ROUND {n}/{total}",
       "hud_voce": "YOU: {n}",
@@ -1493,7 +1495,19 @@
       "atributo_nivel_xama": "Shaman Level",
       "atributo_fator_caos": "Chaos Factor",
       "atributo_energia_base": "Base Energy",
-      "atributo_poder_explosivo": "Explosive Power"
+      "atributo_poder_explosivo": "Explosive Power",
+      "som_ativar": "Enable sound",
+      "som_desativar": "Disable sound",
+      "do_maximo": "{pct}% of max",
+      "ppt_pedra": "Rock",
+      "ppt_papel": "Paper",
+      "ppt_tesoura": "Scissors",
+      "tier_free": "FREE",
+      "tier_elite": "ELITE",
+      "tier_primordial": "PRIMORDIAL",
+      "tier_lendario": "LEGENDARY",
+      "tier_sombra": "SHADOW",
+      "sem_oponente": "No opponent found. Please try again."
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

@@ -33,11 +33,12 @@ const CARD_IMAGES = {
 }
 function bgCarta(carta) { return CARD_IMAGES[carta?.id_num] || cardFallback }
 
+const DECK_LABELS = { deck_5: '5', deck_10: '10', deck_15: '15', deck_20: '20' }
 const DECK_CONFIG = [
-  { key: 'deck_5',  label: 'Deck 5',  size: 5 },
-  { key: 'deck_10', label: 'Deck 10', size: 10 },
-  { key: 'deck_15', label: 'Deck 15', size: 15 },
-  { key: 'deck_20', label: 'Deck 20', size: 20 },
+  { key: 'deck_5',  labelKey: '5',  size: 5 },
+  { key: 'deck_10', labelKey: '10', size: 10 },
+  { key: 'deck_15', labelKey: '15', size: 15 },
+  { key: 'deck_20', labelKey: '20', size: 20 },
 ]
 
 export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved }) {
@@ -140,7 +141,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                     className={`tt-deckbuilder-tab${deckType === c.key ? ' tt-deckbuilder-tab--ativa' : ''}`}
                     onClick={() => { sfx.click(); setDeckType(c.key) }}
                   >
-                    {c.label}
+                    {c.labelKey}
                   </button>
                 ))}
               </div>
@@ -184,7 +185,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                 {/* Deck slots side */}
                 <div className="tt-deckbuilder-slots">
                   <h4 className="tt-deckbuilder-side-title">
-                    {config?.label || 'Deck'} — {selecionadas.length}/{config?.size || 5}
+                    {config?.labelKey || '—'} — {selecionadas.length}/{config?.size || 5}
                   </h4>
                   <div className="tt-deckbuilder-slots-grid">
                     {Array.from({ length: config?.size || 5 }).map((_, i) => {

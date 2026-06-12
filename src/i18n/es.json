@@ -1449,7 +1449,9 @@
         "title": "¿Cómo jugar?",
         "useDeck": "Usar mi deck",
         "random": "Cartas aleatorias",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "semDeck": "Sin deck guardado para este tamaño",
+        "cartasAleatorias": "{n} cartas aleatorias de tu colección"
       },
       "hud_rodada": "RONDA {n}/{total}",
       "hud_voce": "TÚ: {n}",
@@ -1493,7 +1495,19 @@
       "atributo_nivel_xama": "Nivel Chamán",
       "atributo_fator_caos": "Factor Caos",
       "atributo_energia_base": "Energía Base",
-      "atributo_poder_explosivo": "Poder Explosivo"
+      "atributo_poder_explosivo": "Poder Explosivo",
+      "som_ativar": "Activar sonido",
+      "som_desativar": "Desactivar sonido",
+      "do_maximo": "{pct}% del máximo",
+      "ppt_pedra": "Piedra",
+      "ppt_papel": "Papel",
+      "ppt_tesoura": "Tijera",
+      "tier_free": "FREE",
+      "tier_elite": "ÉLITE",
+      "tier_primordial": "PRIMORDIAL",
+      "tier_lendario": "LEGENDARIO",
+      "tier_sombra": "SOMBRA",
+      "sem_oponente": "No se encontró oponente. Inténtalo de nuevo."
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

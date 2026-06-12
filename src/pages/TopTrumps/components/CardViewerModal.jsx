@@ -88,7 +88,13 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
     return carta.id === id
   }).length || 0
 
-  const tierNomes = { free: 'FREE', elite: 'ELITE', primordial: 'PRIMORDIAL', lendario: 'LENDÁRIO', sombra: 'SOMBRA' }
+  const tierNomes = {
+    free: t('games.toptrumps.tier_free'),
+    elite: t('games.toptrumps.tier_elite'),
+    primordial: t('games.toptrumps.tier_primordial'),
+    lendario: t('games.toptrumps.tier_lendario'),
+    sombra: t('games.toptrumps.tier_sombra')
+  }
 
   return (
     <AnimatePresence>
@@ -173,7 +179,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
                         <div className="tt-viewer-stat-bar">
                           <div
                             className="tt-viewer-stat-bar-fill"
-                            style={{ width: `${inverso ? Math.max(5, 100 - pct) : pct}%` }}
+                            ref={el => { if (el) el.style.width = `${inverso ? Math.max(5, 100 - pct) : pct}%` }}
                           />
                         </div>
                       </div>

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.26  
-> **Versão do Site:** 10.46.5  
+> **Versão do Relatório:** 3.27  
+> **Versão do Site:** 10.47.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.46.5 ✅ |
+| **Versão Atual** | 10.47.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -405,8 +405,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
-**Versão Single:** 5.15.0  
-**Versão MP:** 5.8.1  
+**Versão Single:** 5.16.0  
+**Versão MP:** 5.9.0  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 
@@ -434,6 +434,11 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 **Status Geral:** ✅ **100% (Single)** / 🟡 **75% (MP)**  
 **O que falta:** Testes finais de matchmaking multiplayer.
+
+#### Changelog v5.16.0 / v5.9.0
+- ♻️ **Refactor SP + MP: remove hardcoded strings** — Sound toggle titles, score labels "VOCÊ"/"IA", PPT nomes (Pedra/Papel/Tesoura), "do máximo", tier names (FREE/ELITE/PRIMORDIAL/LENDÁRIO/SOMBRA), mensagem de timeout, DeckStart modal locale bypass agora usam `t()` i18n pt/en/es
+- ♻️ **Refactor: remove inline CSS** — Collection bar `--fill` e confirm bar width agora usam ref callback em vez de `style={{}}`; CardViewerModal stat bar width também refatorado
+- 🌐 **Novas chaves i18n** — `som_ativar`, `som_desativar`, `do_maximo`, `ppt_pedra`, `ppt_papel`, `ppt_tesoura`, `tier_free`, `tier_elite`, `tier_primordial`, `tier_lendario`, `tier_sombra`, `sem_oponente`, `deckStart.semDeck`, `deckStart.cartasAleatorias` (3 idiomas)
 
 #### Changelog v5.15.0
 - ✨ **UI: feedback claro quando já ganhou ou tem todas as cartas** — Quando `jaGanhouHoje` ou todas as 30 cartas coletadas, o bloco de tentativas (bolinhas + "X/X tentativas") é substituído por um banner destacado 🏆 "JÁ GANHOU SUA CARTA HOJE" / "COLETOU TODAS AS CARTAS" (i18n pt/en/es)

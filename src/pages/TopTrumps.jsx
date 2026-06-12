@@ -539,7 +539,7 @@ export default function TopTrumps() {
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+          <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-menu-cards"><div className="tt-card-stack">
@@ -551,7 +551,7 @@ export default function TopTrumps() {
           <p className="tt-title-desc">{t('games.toptrumps.menu_desc')}</p>
           <div className="tt-colecao">
             <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
-            <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" style={{ '--fill': `${pct}%` }} /></div>
+            <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
           </div>
           <LoginGate feature="o Top Trumps">
             {(menuStep === null || menuStep === 'modo') && (
@@ -664,7 +664,7 @@ export default function TopTrumps() {
         </div>
         <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-hud-new">
@@ -673,12 +673,12 @@ export default function TopTrumps() {
           </div>
           <div className="tt-score-row">
             <div className="tt-score-item tt-score--player">
-              <span className="tt-score-label">VOCÊ</span>
+              <span className="tt-score-label">{t('games.toptrumps.voce')}</span>
               <span className="tt-score-value">{placar.jogador}</span>
             </div>
             <div className="tt-score-divider">:</div>
             <div className="tt-score-item tt-score--ia">
-              <span className="tt-score-label">IA</span>
+              <span className="tt-score-label">{t('games.toptrumps.ia')}</span>
               <span className="tt-score-value">{placar.ia}</span>
             </div>
           </div>
@@ -732,9 +732,9 @@ export default function TopTrumps() {
                   </div>
                 </div>
                 <div className="tt-confirm-bar">
-                  <div className="tt-confirm-bar-fill" style={{ width: `${pctMax}%` }} />
+                  <div className="tt-confirm-bar-fill" ref={el => { if (el) el.style.width = `${pctMax}%` }} />
                 </div>
-                <span className="tt-confirm-pct">{pctMax}% do máximo</span>
+                <span className="tt-confirm-pct">{t('games.toptrumps.do_maximo', { pct: pctMax })}</span>
                 <div className="tt-confirm-buttons">
                   <button className="tt-confirm-btn tt-confirm-btn--cancel" onClick={cancelarJogada}>{t('games.toptrumps.cancelar')}</button>
                   <button className="tt-confirm-btn tt-confirm-btn--ok" onClick={confirmarJogada}>{t('games.toptrumps.confirmar')}</button>
@@ -807,7 +807,7 @@ export default function TopTrumps() {
         </div>
         <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         {particulas.map(p => (
@@ -819,12 +819,12 @@ export default function TopTrumps() {
           </div>
           <div className="tt-score-row">
             <div className="tt-score-item tt-score--player">
-              <span className="tt-score-label">VOCÊ</span>
+              <span className="tt-score-label">{t('games.toptrumps.voce')}</span>
               <span className="tt-score-value">{placar.jogador}</span>
             </div>
             <div className="tt-score-divider">:</div>
             <div className="tt-score-item tt-score--ia">
-              <span className="tt-score-label">IA</span>
+              <span className="tt-score-label">{t('games.toptrumps.ia')}</span>
               <span className="tt-score-value">{placar.ia}</span>
             </div>
           </div>
@@ -877,7 +877,7 @@ export default function TopTrumps() {
     return (
       <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-recompensa">
@@ -927,7 +927,7 @@ export default function TopTrumps() {
     return (
       <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? 'Desativar som' : 'Ativar som'}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-relatorio">
