@@ -24,18 +24,20 @@ export async function carregarDeckTipo(userId, deckType) {
  * Remove duplicatas antes de salvar — cada carta só pode aparecer uma vez.
  */
 export async function salvarDeckTipo(userId, deckType, cartaIds) {
-  // Remove cartas antigas deste deck_type
-  const { error: delErr } = await supabase
-    .from('toptrumps_decks')
-    .delete()
-    .eq('user_id', userId)
-    .eq('deck_type', deckType)
-  if (delErr) { console.error('[DECK] Erro ao limpar deck:', delErr); return false }
-
   if (cartaIds.length === 0) return true
 
   // Garante IDs únicos antes de salvar
   const unicos = [...new Set(cartaIds)]
+
+  // Remove entradas existentes dessas cartas (qualquer deck_type)
+  // para evitar violação da UNIQUE(user_id, carta_id)
+  for (const id of unicos) {
+    await supabase
+      .from('toptrumps_decks')
+      .delete()
+      .eq('user_id', userId)
+      .eq('carta_id', String(id))
+  }
 
   const inserts = unicos.map(id => ({
     user_id: userId,
