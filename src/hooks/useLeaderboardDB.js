@@ -41,8 +41,9 @@ export async function limparDeck(userId) {
 
 export async function substituirDeck(userId, cartaIds) {
   await limparDeck(userId)
-  if (cartaIds.length > 0) {
-    const inserts = cartaIds.map(id => ({ user_id: userId, carta_id: id }))
+  const unicos = [...new Set(cartaIds)]
+  if (unicos.length > 0) {
+    const inserts = unicos.map(id => ({ user_id: userId, carta_id: id }))
     const { error } = await supabase
       .from('toptrumps_decks')
       .insert(inserts)

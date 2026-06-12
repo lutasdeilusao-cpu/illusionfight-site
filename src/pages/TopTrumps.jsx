@@ -275,8 +275,12 @@ export default function TopTrumps() {
     const resolver = (id) => todasCartas.find(c => c.id_num === id) || todasCartas.find(c => c.id === id)
     const cartasJogador = d.slice(0, metade).map(resolver).filter(Boolean)
     const cartasIA = d.slice(metade).map(resolver).filter(Boolean)
+    // Cada rodada consome 1 carta de cada lado, então o máximo de rodadas
+    // é limitado pelo menor dos dois arrays — sem repetir cartas
+    const roundsEfetivos = Math.min(cartasJogador.length, cartasIA.length)
     setDeckJogador(cartasJogador)
     setDeckIA(cartasIA)
+    setTotalTurnos(roundsEfetivos)
     setCartaJogador(cartasJogador[0] || null)
     setCartaIA(cartasIA[0] || null)
     setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
@@ -370,8 +374,9 @@ export default function TopTrumps() {
   function proximaRodada() {
     sfx.nextRound()
     if (rodada >= totalTurnos) { finalizarPartida(); return }
-    const pJ = deckJogador[rodada % deckJogador.length]
-    const pI = deckIA[rodada % deckIA.length]
+    // Índice direto (sem modulo) — cada carta usada exatamente uma vez
+    const pJ = deckJogador[rodada]
+    const pI = deckIA[rodada]
     setCartaJogador(pJ); setCartaIA(pI)
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
@@ -463,15 +468,17 @@ export default function TopTrumps() {
     if (!user) return
     carregarDeckDB(user.id).then(ids => {
       // Aceita tanto id_num (número) quanto id (slug string) — compatibilidade migração
-      let cartas = (ids || []).map(id => {
+      // Dedup para remover cartas repetidas que possam existir de versões antigas
+      const idsUnicos = [...new Set(ids || [])]
+      let cartas = idsUnicos.map(id => {
         let c = todasCartas.find(c => c.id_num === id)
         if (!c) c = todasCartas.find(c => c.id === id)
         return c
       }).filter(Boolean)
 
       // Se o banco tem dados mas menos de 5 cartas válidas, gera deck novo
-      if (ids && ids.length > 0 && cartas.length < 5) {
-        console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', ids.length, '. Gerando novo deck...')
+      if (idsUnicos.length > 0 && cartas.length < 5) {
+        console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', idsUnicos.length, '. Gerando novo deck...')
         const novas = getCartasIniciais()
         substituirDeck(user.id, novas.map(c => c.id_num)).then(() => {
           setDeckUsuario(novas)
@@ -483,7 +490,7 @@ export default function TopTrumps() {
 
       // ── Admin auto-fill: garante TODAS as cartas da temporada ──
       if (perfil?.role === 'admin' || perfil?.is_admin) {
-        const idsTem = new Set((ids || []).map(id => Number(id)))
+        const idsTem = new Set(idsUnicos.map(id => Number(id)))
         const todosIds = todasCartas.map(c => c.id_num)
         const faltando = todosIds.filter(n => !idsTem.has(n))
         if (faltando.length > 0) {

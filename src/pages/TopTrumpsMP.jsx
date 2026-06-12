@@ -162,10 +162,22 @@ export default function TopTrumpsMP() {
     (async () => {
       const { data: meuDeck } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', user.id).order('carta_id', { ascending: true })
       if (!meuDeck?.length) return
-      const cartas = meuDeck.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
+      // Dedup por carta_id (deck antigo pode ter duplicatas)
+      const vistos = new Set()
+      const cartas = meuDeck
+        .map(d => d.carta_id)
+        .filter(id => {
+          if (vistos.has(id)) return false
+          vistos.add(id)
+          return true
+        })
+        .map(id => todasCartas.find(c => c.id_num === id))
+        .filter(Boolean)
       if (!cartas.length) return
-      const qtd = Math.min(sala.total_turnos, cartas.length)
-      setDeckLocal(cartas.slice(0, qtd))
+      // Embaralha para não usar sempre as mesmas cartas na ordem do banco
+      const embaralhadas = [...cartas].sort(() => Math.random() - 0.5)
+      const qtd = Math.min(sala.total_turnos, embaralhadas.length)
+      setDeckLocal(embaralhadas.slice(0, qtd))
     })()
   }, [user, sala?.total_turnos])
 
@@ -183,8 +195,20 @@ export default function TopTrumpsMP() {
         .eq('user_id', opId)
         .order('carta_id', { ascending: true })
       if (!deckOpp?.length) return
-      const cartasOpp = deckOpp.map(d => todasCartas.find(c => c.id_num === d.carta_id)).filter(Boolean)
-      setDeckOponente(cartasOpp.slice(0, qtd))
+      // Dedup por carta_id
+      const vistos = new Set()
+      const cartasOpp = deckOpp
+        .map(d => d.carta_id)
+        .filter(id => {
+          if (vistos.has(id)) return false
+          vistos.add(id)
+          return true
+        })
+        .map(id => todasCartas.find(c => c.id_num === id))
+        .filter(Boolean)
+      // Embaralha para variedade
+      const embaralhadas = [...cartasOpp].sort(() => Math.random() - 0.5)
+      setDeckOponente(embaralhadas.slice(0, qtd))
     })()
   }, [salaId, user, sala?.jogador2_id])
 

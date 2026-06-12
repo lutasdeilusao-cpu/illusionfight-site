@@ -53,14 +53,17 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
     if (!escolha) return
     sfx.click()
     if (escolha === 'deck' && deckDisponivel) {
-      onConfirm(deckDisponivel.cartas)
+      // Dedup no deck salvo (deck antigo pode ter duplicatas)
+      const unicas = [...new Set(deckDisponivel.cartas)]
+      onConfirm(unicas)
     } else {
-      // Random cards from collection
+      // Random cards from collection — sem repetir
       const disponiveis = deckIds.filter(id => {
         const n = Number(id)
         return deck.cartas.some(c => c.id_num === n || c.id === id)
       })
-      const embaralhadas = [...disponiveis].sort(() => Math.random() - 0.5)
+      const unicas = [...new Set(disponiveis)]
+      const embaralhadas = [...unicas].sort(() => Math.random() - 0.5)
       onConfirm(embaralhadas.slice(0, totalTurnos))
     }
   }

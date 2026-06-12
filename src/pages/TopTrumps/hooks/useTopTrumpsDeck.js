@@ -21,6 +21,7 @@ export async function carregarDeckTipo(userId, deckType) {
 
 /**
  * Salva um deck completo (substitui cartas existentes).
+ * Remove duplicatas antes de salvar — cada carta só pode aparecer uma vez.
  */
 export async function salvarDeckTipo(userId, deckType, cartaIds) {
   // Remove cartas antigas deste deck_type
@@ -33,7 +34,10 @@ export async function salvarDeckTipo(userId, deckType, cartaIds) {
 
   if (cartaIds.length === 0) return true
 
-  const inserts = cartaIds.map(id => ({
+  // Garante IDs únicos antes de salvar
+  const unicos = [...new Set(cartaIds)]
+
+  const inserts = unicos.map(id => ({
     user_id: userId,
     carta_id: String(id),
     deck_type: deckType,

@@ -70,8 +70,10 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
 
   const adicionar = (carta) => {
     if (selecionadas.length >= (config?.size || 5)) return
-    sfx.select()
     const id = carta.id_num || carta.id
+    // Não permite adicionar a mesma carta duas vezes no mesmo deck
+    if (selecionadas.includes(id)) return
+    sfx.select()
     setSelecionadas(p => [...p, id])
     setSalvo(false)
   }
@@ -306,7 +308,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                     {(() => {
                       const cardId = viewingCard.id_num || viewingCard.id
                       const jaEsta = selecionadas.filter(s => s === cardId).length
-                      const podeAdd = selecionadas.length < (config?.size || 5)
+                      const podeAdd = selecionadas.length < (config?.size || 5) && jaEsta === 0
                       return (
                         <>
                           {podeAdd && (
