@@ -254,11 +254,10 @@ export default function RestaurarSaude({ onConcluir }) {
               </div>
 
               <motion.button
-                className="tama-btn"
+                className="tama-btn tama-saude-conclusao-btn"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onConcluir}
-                style={{ marginTop: '1rem' }}
               >
                 {t('games.tamagoshi.saude_feito')}
               </motion.button>

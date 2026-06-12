@@ -81,7 +81,6 @@ export default function Partida({ onSalaoFama, onNovaAdocao }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onNovaAdocao}
-                style={{ marginTop: '0.5rem' }}
               >
                 {t('games.tamagoshi.partida_adotar_nova')}
               </motion.button>

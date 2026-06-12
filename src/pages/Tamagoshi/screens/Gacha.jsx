@@ -176,15 +176,15 @@ export default function Gacha({ onConcluir, onVoltar }) {
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
-              <div className="tama-gacha-resultado-emoji" style={{ borderColor: persSorteada?.cor || '#555' }}>
+              <div className="tama-gacha-resultado-emoji" style={{ '--tama-cor': persSorteada?.cor || '#555' }}>
                 {sorteada.imagem ? (
                   <img src={sorteada.imagem} alt={sorteada.nome} className="tama-gacha-resultado-img" draggable={false} />
                 ) : (
-                  <span style={{ fontSize: '3rem' }}>{sorteada.emoji}</span>
+                  <span className="tama-gacha-emoji-grande">{sorteada.emoji}</span>
                 )}
               </div>
               <h3 className="tama-gacha-resultado-nome">{sorteada.nome}</h3>
-              <p className="tama-gacha-resultado-tipo" style={{ color: persSorteada?.cor || '#555' }}>
+              <p className="tama-gacha-resultado-tipo" style={{ '--tama-cor': persSorteada?.cor || '#555' }}>
                 {t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[sorteada.tipo])}
               </p>
               <p className="tama-gacha-resultado-raridade">
@@ -215,11 +215,10 @@ export default function Gacha({ onConcluir, onVoltar }) {
         {/* Botão voltar */}
         {!sorteada && !girando && (
           <motion.button
-            className="tama-btn"
+            className="tama-btn tama-gacha-voltar"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onVoltar}
-            style={{ marginTop: '1rem' }}
           >
             {t('games.tamagoshi.voltar')}
           </motion.button>

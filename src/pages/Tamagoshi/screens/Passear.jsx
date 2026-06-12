@@ -326,16 +326,16 @@ export default function Passear({ onConcluir }) {
         )}
         {phase === 'gameover' && (
           <motion.div key="gameover" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-            style={{ textAlign: 'center', maxWidth: 320, padding: '0 1rem' }}>
-            <div style={{ fontSize: 48, marginBottom: 8 }}>💥</div>
-            <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: '#E02020' }}>{t('games.tamagoshi.fim_passeio')}</p>
-            {stage >= STAGE_COUNT && <p style={{ fontSize: 13, color: '#22C55E', marginBottom: 4 }}>{t('games.tamagoshi.passear_todas_pistas')}</p>}
-            <p style={{ fontSize: 32, fontWeight: 700, marginBottom: 4, color: '#F5A623' }}>{dispScore}</p>
-            <p style={{ fontSize: 14, color: '#FFD700', marginBottom: 8 }}>{t('games.tamagoshi.coletadas', { n: dispCoins })}</p>
-            <p style={{ fontSize: 13, color: '#888', marginBottom: 16 }}>{t('games.tamagoshi.pista', { a: stage, b: STAGE_COUNT })}</p>
+            className="tama-passear-gameover">
+            <div className="tama-passear-gameover-icone">💥</div>
+            <p className="tama-passear-gameover-titulo">{t('games.tamagoshi.fim_passeio')}</p>
+            {stage >= STAGE_COUNT && <p className="tama-passear-gameover-todas">{t('games.tamagoshi.passear_todas_pistas')}</p>}
+            <p className="tama-passear-gameover-pontos">{dispScore}</p>
+            <p className="tama-passear-gameover-moedas">{t('games.tamagoshi.coletadas', { n: dispCoins })}</p>
+            <p className="tama-passear-gameover-pista">{t('games.tamagoshi.pista', { a: stage, b: STAGE_COUNT })}</p>
             {historico.length > 0 && (
-              <div style={{ fontSize: 10, color: '#555', marginBottom: 12, width: '100%', textAlign: 'left' }}>
-                <p style={{ fontSize: 10, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t('games.tamagoshi.ultimos_resultados')}</p>
+              <div className="tama-passear-gameover-historico">
+                <p className="tama-passear-historico-titulo">{t('games.tamagoshi.ultimos_resultados')}</p>
                 {historico.map((h, i) => (
                   <div key={i} className="tama-passear-historico-linha">
                     <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>

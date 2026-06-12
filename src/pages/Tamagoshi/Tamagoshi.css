@@ -87,7 +87,7 @@
 }
 .tama-selecao-card {
   background: #111;
-  border: 1px solid #333;
+  border: 1px solid var(--tama-cor, #333);
   border-radius: 8px;
   padding: 1rem 0.5rem;
   cursor: pointer;
@@ -113,6 +113,7 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: var(--tama-cor, #666);
 }
 .tama-selecao-raridade {
   font-size: 0.6rem;
@@ -161,6 +162,32 @@
   border-radius: 50%;
   border: 1px solid #222;
   transition: box-shadow 0.4s ease;
+  width: var(--tam-tamanho, 160px);
+  height: var(--tam-tamanho, 160px);
+  cursor: pointer;
+  position: relative;
+}
+.tama-sprite-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: var(--tam-filtro, none);
+  image-rendering: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.tama-sprite-emoji {
+  font-size: var(--tam-fonte, 80px);
+  line-height: 1;
+}
+.tama-sprite-brilho {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,136,0.2), transparent);
+  pointer-events: none;
 }
 
 /* ── Efeitos por estado ── */
@@ -207,7 +234,7 @@
 /* ===== BALLOON ===== */
 .tama-balloon {
   background: #111;
-  border: 1px solid #555;
+  border: 1px solid var(--tama-cor, #555);
   border-radius: 12px;
   padding: 0.8rem 1rem;
   max-width: 320px;
@@ -225,7 +252,7 @@
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #555;
+  border-top: 8px solid var(--tama-cor, #555);
   position: absolute;
   bottom: -8px;
   left: 50%;
@@ -359,12 +386,16 @@
 .tama-passeio-card-bonus {
   font-size: 0.6rem;
   font-style: italic;
+  color: var(--tama-cor, #666);
 }
 
 /* ===== BRINCADEIRA ===== */
 .tama-brincadeira {
   width: 100%;
   text-align: center;
+}
+.tama-brincadeira--jogando {
+  padding: 4rem 1rem;
 }
 .tama-brincadeira-title {
   font-size: 1rem;
@@ -1251,12 +1282,21 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #555;
+  border: 3px solid var(--tama-cor, #555);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   background: #0a0a0a;
+}
+.tama-gacha-emoji-grande {
+  font-size: 3rem;
+}
+.tama-gacha-resultado-tipo {
+  color: var(--tama-cor, #555);
+}
+.tama-gacha-voltar {
+  margin-top: 1rem;
 }
 .tama-gacha-resultado-img {
   width: 72px;
@@ -1444,6 +1484,69 @@
 /* ===== LOJA — NOVAS CLASSES i18n/CSS ===== */
 .tama-loja-voltar {
   margin-top: 1rem;
+}
+
+/* ===== PASSEAR GAMEOVER ===== */
+.tama-passear-gameover {
+  text-align: center;
+  max-width: 320px;
+  padding: 0 1rem;
+}
+.tama-passear-gameover-icone {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+.tama-passear-gameover-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #E02020;
+}
+.tama-passear-gameover-todas {
+  font-size: 13px;
+  color: #22C55E;
+  margin-bottom: 4px;
+}
+.tama-passear-gameover-pontos {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #F5A623;
+}
+.tama-passear-gameover-moedas {
+  font-size: 14px;
+  color: #FFD700;
+  margin-bottom: 8px;
+}
+.tama-passear-gameover-pista {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+}
+.tama-passear-gameover-historico {
+  font-size: 10px;
+  color: #555;
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: left;
+}
+.tama-passear-historico-titulo {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ===== BANHO ===== */
+.tama-banho-container {
+  touch-action: none;
+  overscroll-behavior: none;
+}
+.tama-banho-body-locked {
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 /* ===== PASSEAR ENDURO ===== */

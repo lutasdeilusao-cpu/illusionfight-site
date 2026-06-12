@@ -19,7 +19,7 @@ export default function Banhar({ onConcluir }) {
   const inv = store.inventario || {}
   const temSabonete = (inv['sabonete'] || 0) > 0 || (inv['shampoo'] || 0) > 0
   const itemUsar = inv['shampoo'] > 0 ? 'shampoo' : inv['sabonete'] > 0 ? 'sabonete' : null
-  const itemLabel = itemUsar === 'shampoo' ? 'Shampoo Especial ✨' : itemUsar === 'sabonete' ? 'Sabonete Teal 🧼' : ''
+  const itemKey = itemUsar === 'shampoo' ? 'banhar_item_shampoo' : itemUsar === 'sabonete' ? 'banhar_item_sabonete' : ''
   const lastSfx = useRef(0)
 
   const handleMove = (y) => {
@@ -43,14 +43,8 @@ export default function Banhar({ onConcluir }) {
   // Trava scroll do body enquanto estiver no banho
   useEffect(() => {
     const body = document.body
-    body.style.overflow = 'hidden'
-    body.style.touchAction = 'none'
-    body.style.overscrollBehavior = 'none'
-    return () => {
-      body.style.overflow = ''
-      body.style.touchAction = ''
-      body.style.overscrollBehavior = ''
-    }
+    body.classList.add('tama-banho-body-locked')
+    return () => body.classList.remove('tama-banho-body-locked')
   }, [])
 
   // Event listeners manuais com passive: false para evitar warning do React 19
@@ -99,9 +93,8 @@ export default function Banhar({ onConcluir }) {
   const resetTracking = () => { lastY.current = null; acumulado.current = 0 }
 
   return (
-    <div className="tama-acao-screen"
+    <div className="tama-acao-screen tama-banho-container"
       ref={containerRef}
-      style={{ touchAction: 'none', overscrollBehavior: 'none' }}
     >
       <h2 className="tama-acao-title">{t('games.tamagoshi.banhar_title')}</h2>
 
@@ -137,7 +130,7 @@ export default function Banhar({ onConcluir }) {
       {temSabonete ? (
         <div>
           <p className="tama-acao-hint">{t('games.tamagoshi.banhar_hint')}</p>
-          <p className="tama-banho-item-label">{t('games.tamagoshi.banhar_usando', { item: itemLabel })}</p>
+          <p className="tama-banho-item-label">{t('games.tamagoshi.banhar_usando', { item: t('games.tamagoshi.' + itemKey) })}</p>
         </div>
       ) : (
         <p className="tama-aviso">{t('games.tamagoshi.banhar_sem_sabonete')}</p>

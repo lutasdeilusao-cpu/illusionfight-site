@@ -5,7 +5,7 @@ import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
-import { ITENS_LOJA, COMIDA_TEMATICA } from '../data/itens_loja'
+import { ITENS_LOJA, COMIDA_TEMATICA, ITEM_KEY_MAP } from '../data/itens_loja'
 import { CRIATURA_ID_TO_SLUG } from '../data/criaturas'
 import { DIX_POR_ACAO } from '../data/moedas'
 
@@ -15,6 +15,8 @@ export default function Alimentar({ onConcluir }) {
   const [progress, setProgress] = useState(0)
   const [animando, setAnimando] = useState(false)
   const [ultimoItem, setUltimoItem] = useState(null)
+
+  const tItem = (id) => t('games.tamagoshi.' + (ITEM_KEY_MAP[id] || id))
 
   const inv = store.inventario || {}
   const comidasDisponiveis = ITENS_LOJA.filter(i => i.categoria === 'comida')
@@ -87,7 +89,7 @@ export default function Alimentar({ onConcluir }) {
               onClick={() => handleAlimentar(comida.id)}
               disabled={animando}
             >
-              {comida.emoji} {comida.nome} ({inv[comida.id]}x)
+              {comida.emoji} {tItem(comida.id)} ({inv[comida.id]}x)
             </motion.button>
           ))}
         </div>

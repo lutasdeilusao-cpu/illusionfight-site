@@ -20,7 +20,7 @@ export default function Loja({ onVoltar }) {
     sfx.compra()
     try {
       await store.comprarItem(store._userId, item.id, item.preco)
-      setMsg(`${item.emoji} ${tItem(item.id)} comprado!`)
+      setMsg(t('games.tamagoshi.comprado', { emoji: item.emoji, nome: tItem(item.id) }))
       setTimeout(() => setMsg(''), 2000)
     } catch (e) {
       setMsg(e.message)

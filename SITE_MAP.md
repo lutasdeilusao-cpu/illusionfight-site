@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.39.0*  |  `[SITE] versão carregada: 10.39.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.1.0 — refactor: hardcoded strings removidas (t()), inline styles movidos para CSS (CSS variables)
 *Versão: 10.38.1*  |  `[SITE] versão carregada: 10.38.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.4 — fix: CSS botões Alimentar (className duplicado removido, text visibility restaurada)
 *Versão: 10.38.0*  |  `[SITE] versão carregada: 10.38.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ DIX — todo novo usuário recebe 1000 DIX iniciais ao criar conta; contas existentes com saldo zerado também recebem 1000 DIX; migration 019_dix_initial_1000.sql
 *Versão: 10.37.0*  |  `[SITE] versão carregada: 10.37.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Fichas — fix: erro 42P10 (upsert sem unique constraint) trocado para insert; migration 018 adiciona PK user_id + remove duplicatas + recria policies
@@ -160,7 +161,7 @@
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
 *TS versão: 5.9.0* | `[TS] versão carregada: 5.9.0` | ✅ Ranking mensal ranqueado (global/BR)
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
-*TAMA versão: 2.0.4* | `[TAMA] versão carregada: 2.0.4`
+*TAMA versão: 2.1.0* | `[TAMA] versão carregada: 2.1.0`
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 

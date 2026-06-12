@@ -61,7 +61,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => { registrarEvento('tama_criado', 'Criou um Tamagoshi', 1); onEscolher(c.id) }}
-                style={{ borderColor: pers.cor }}
+                style={{ '--tama-cor': pers.cor }}
               >
                 <div className="tama-selecao-emoji">
                   {c.imagem ? (
@@ -71,7 +71,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
                   )}
                 </div>
                 <div className="tama-selecao-nome">{c.nome}</div>
-                <div className="tama-selecao-tipo" style={{ color: pers.cor }}>{t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[c.tipo])}</div>
+                <div className="tama-selecao-tipo" style={{ '--tama-cor': pers.cor }}>{t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[c.tipo])}</div>
                 <div className="tama-selecao-raridade">{tRaridade(c.raridade)}</div>
               </motion.button>
             )

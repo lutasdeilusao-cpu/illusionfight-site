@@ -32,6 +32,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
   const tam = (estagio >= 2 ? 280 : estagio === 1 ? 220 : 160)
   const temImagem = !!c.imagem && !erroImg
+  const filterVal = status === 'morto' ? 'grayscale(1) brightness(0.3)' : status === 'critico' ? 'brightness(0.7)' : 'none'
 
   const bounceVariants = {
     idle: { y: 0, scale: 1, opacity: 1 },
@@ -48,11 +49,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
         exit={{ scale: 0, opacity: 0 }}
         variants={temImagem ? bounceVariants : undefined}
         transition={temImagem ? { type: 'spring', stiffness: 300, damping: 10 } : { type: 'spring', stiffness: 200, damping: 15 }}
-        style={{
-          width: tam, height: tam, display: 'flex',
-          alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', position: 'relative',
-        }}
+        style={{ '--tam-tamanho': tam + 'px', '--tam-filtro': filterVal }}
       >
         {temImagem ? (
           <img
@@ -60,14 +57,11 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
             alt={c.nome}
             draggable={false}
             onError={() => setErroImg(true)}
-            style={{
-              width: '100%', height: '100%', objectFit: 'cover',
-              borderRadius: '50%', filter: status === 'morto' ? 'grayscale(1) brightness(0.3)' : status === 'critico' ? 'brightness(0.7)' : 'none',
-              imageRendering: 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none',
-            }}
+            className="tama-sprite-img"
+            style={{ '--tam-filtro': filterVal }}
           />
         ) : (
-          <div style={{ fontSize: `${tam * 0.5}px`, lineHeight: 1 }}>
+          <div className="tama-sprite-emoji" style={{ '--tam-fonte': tam * 0.5 + 'px' }}>
             {c.emoji}
           </div>
         )}
@@ -77,11 +71,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
           <motion.div
             animate={{ opacity: [0, 0.3, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            style={{
-              position: 'absolute', inset: -4, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(0,255,136,0.2), transparent)',
-              pointerEvents: 'none',
-            }}
+            className="tama-sprite-brilho"
           />
         )}
       </motion.div>

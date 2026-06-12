@@ -76,14 +76,14 @@ export default function PerfilTamagoshi() {
   useEffect(() => { carregarTama() }, [carregarTama])
 
   const handlePropor = async () => {
-    if (!tama || tama.status !== 'vivo') { setMsg({ texto: 'só pode trocar tamagoshi vivo', tipo: 'erro' }); return }
+    if (!tama || tama.status !== 'vivo') { setMsg({ texto: t('site.perfil.troca_erro_vivo'), tipo: 'erro' }); return }
     setPropondo(true)
     setMsg({ texto: '', tipo: '' })
     try {
       store.verificarPermissaoTroca(tama, userTier)
       const key = await store.proporTroca(user.id, 1)
       setKeyGerada(key)
-      setMsg({ texto: `key gerada! compartilhe com outro jogador`, tipo: 'ok' })
+      setMsg({ texto: t('site.perfil.troca_key_gerada'), tipo: 'ok' })
     } catch (e) {
       setMsg({ texto: e.message, tipo: 'erro' })
     }
@@ -91,15 +91,16 @@ export default function PerfilTamagoshi() {
   }
 
   const handleConfirmar = async () => {
-    if (!keyInput.trim()) { setMsg({ texto: 'cole a key primeiro', tipo: 'erro' }); return }
+    if (!keyInput.trim()) { setMsg({ texto: t('site.perfil.troca_cole_key'), tipo: 'erro' }); return }
     setConfirmando(true)
     setMsg({ texto: '', tipo: '' })
     try {
       const result = await store.confirmarTroca(keyInput.trim().toUpperCase(), user.id, slotB, userTier)
       const c = CRIATURAS.find(x => x.id === result.criaturaId)
       const boasVindas = getFala(c?.tipo, 'fome', result.criaturaId)
-      setMsg({ texto: `troca confirmada! ${c?.emoji || ''} ${c?.nome || 'nova criatura'} chegou: ${boasVindas}`, tipo: 'ok' })
-      notifStore.push(`${c?.emoji || ''} ${c?.nome || 'Nova criatura'}: ${boasVindas}`, 'ver tamagoshi', '/games/tamagoshi')
+      setMsg({ texto: t('site.perfil.troca_confirmada', { emoji: c?.emoji || '', nome: c?.nome || t('site.perfil.troca_nova_criatura'), fala: boasVindas }), tipo: 'ok' })
+      const notifTitulo = c?.emoji ? `${c.emoji} ${c?.nome || t('site.perfil.troca_nova_criatura')}: ${boasVindas}` : `${t('site.perfil.troca_nova_criatura')}: ${boasVindas}`
+      notifStore.push(notifTitulo, t('site.perfil.troca_notif_ver'), '/games/tamagoshi')
       setKeyGerada(null)
       setKeyInput('')
       carregarTama()
@@ -117,7 +118,7 @@ export default function PerfilTamagoshi() {
     <div className="perfil-tama">
       <div className="perfil-tama-header">
         <span className="perfil-tama-title">{t('site.perfil.tama_meu_tamagoshi')}</span>
-        <span className={`perfil-tama-tier`} style={{ color: userTier === 'primordial' ? '#F5A623' : userTier === 'elite' ? '#00B4D8' : '#555' }}>
+        <span className="perfil-tama-tier" style={{ '--tier-cor': userTier === 'primordial' ? '#F5A623' : userTier === 'elite' ? '#00B4D8' : '#555' }}>
           {userTier.toUpperCase()}
         </span>
       </div>
@@ -136,7 +137,7 @@ export default function PerfilTamagoshi() {
             const c = CRIATURAS.find(cr => cr.id === tama.criatura_id)
             const tipo = c?.tipo
             return (
-              <div className="perfil-tama-card" style={{ borderColor: persCor(tipo), cursor: 'pointer' }}
+              <div className="perfil-tama-card" style={{ '--tama-cor': persCor(tipo) }}
                 onClick={() => navigate('/games/tamagoshi')}>
                 <div className="perfil-tama-card-avatar">
                   {(() => {
@@ -149,11 +150,11 @@ export default function PerfilTamagoshi() {
                 </div>
                 <div className="perfil-tama-card-info">
                   <span className="perfil-tama-card-nome">{c?.nome || 'sem nome'}</span>
-                  <span className="perfil-tama-card-pers" style={{ color: persCor(tipo) }}>
+                  <span className="perfil-tama-card-pers" style={{ '--tama-cor': persCor(tipo) }}>
                     {PERSONALIDADES[tipo]?.nome || tipo || '—'}
                   </span>
               <span className="perfil-tama-card-status" style={{
-                color: tama.status === 'vivo' ? '#22C55E' : tama.status === 'critico' ? '#E02020' : '#666'
+                '--status-cor': tama.status === 'vivo' ? '#22C55E' : tama.status === 'critico' ? '#E02020' : '#666'
               }}>
                 {tama.status?.toUpperCase() || '—'}
               </span>
@@ -193,8 +194,8 @@ export default function PerfilTamagoshi() {
               />
               {userTier === 'primordial' && (
                 <select className="perfil-tama-select" value={slotB} onChange={e => setSlotB(Number(e.target.value))}>
-                  <option value={1}>Slot 1</option>
-                  <option value={2}>Slot 2</option>
+                  <option value={1}>{t('site.perfil.slot_1')}</option>
+                  <option value={2}>{t('site.perfil.slot_2')}</option>
                 </select>
               )}
               <button className="perfil-tama-btn perfil-tama-btn--confirmar"
@@ -208,9 +209,9 @@ export default function PerfilTamagoshi() {
           {keyGerada && (
             <div className="perfil-tama-key-box">
               <span className="perfil-tama-key-label">{t('site.perfil.tama_sua_key')}</span>
-              <div className="perfil-tama-key" onClick={() => { navigator.clipboard.writeText(keyGerada); setMsg({ texto: 'key copiada!', tipo: 'ok' }) }}>
+              <span className="perfil-tama-key" onClick={() => { navigator.clipboard.writeText(keyGerada); setMsg({ texto: t('site.perfil.troca_key_copiada'), tipo: 'ok' }) }}>
                 {keyGerada}
-              </div>
+              </span>
               <span className="perfil-tama-key-hint">{t('site.perfil.tama_clique_copiar')}</span>
             </div>
           )}
@@ -252,7 +253,7 @@ export default function PerfilTamagoshi() {
                 <div key={f.id} className="perfil-tama-fama-card">
                   <span className="perfil-tama-fama-emoji">{c?.emoji || '✨'}</span>
                   <span className="perfil-tama-fama-nome">{c?.nome || t('site.perfil.tama_sem_nome')}</span>
-                  <span className="perfil-tama-fama-badges">{f.badges?.length || 0} badges</span>
+                  <span className="perfil-tama-fama-badges">{t('site.perfil.fama_badges', { n: f.badges?.length || 0 })}</span>
                 </div>
               )
             })}

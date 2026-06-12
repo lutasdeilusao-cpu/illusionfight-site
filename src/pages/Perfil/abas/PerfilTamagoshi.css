@@ -23,7 +23,8 @@
 .perfil-tama-tier {
   font-size: 0.6rem;
   letter-spacing: 0.1em;
-  border: 1px solid currentColor;
+  border: 1px solid var(--tier-cor, #555);
+  color: var(--tier-cor, #555);
   padding: 0.1rem 0.4rem;
 }
 .perfil-tama-vazio {
@@ -65,9 +66,10 @@
   align-items: center;
   gap: 0.8rem;
   background: #111;
-  border: 1px solid #333;
+  border: 1px solid var(--tama-cor, #333);
   border-radius: 8px;
   padding: 0.8rem 1rem;
+  cursor: pointer;
 }
 .perfil-tama-card-avatar {
   width: 48px;
@@ -104,10 +106,12 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: var(--tama-cor, #888);
 }
 .perfil-tama-card-status {
   font-size: 0.6rem;
   letter-spacing: 0.1em;
+  color: var(--status-cor, #666);
 }
 
 /* Botao Jogar */

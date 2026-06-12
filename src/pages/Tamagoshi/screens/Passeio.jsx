@@ -35,7 +35,7 @@ export default function Passeio() {
                 <div className="tama-passeio-card-info">
                   <span className="tama-passeio-card-nome">{t('games.tamagoshi.passeio_' + pKey)}</span>
                   <span className="tama-passeio-card-desc">{t('games.tamagoshi.passeio_' + pKey + '_desc')}</span>
-                  <span className="tama-passeio-card-bonus" style={{ color: pers.cor }}>
+                  <span className="tama-passeio-card-bonus" style={{ '--tama-cor': pers.cor }}>
                     +{bonus} energia extra ({t('games.tamagoshi.personalidade_' + PERS_NOME_KEY[store.personalidade])})
                   </span>
                 </div>
@@ -44,11 +44,10 @@ export default function Passeio() {
           })}
         </div>
         <motion.button
-          className="tama-btn"
+          className="tama-btn tama-passeio-voltar"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => store.setFase('criatura')}
-          style={{ marginTop: '1rem' }}
         >
           [ {t('games.tamagoshi.voltar')} ]
         </motion.button>

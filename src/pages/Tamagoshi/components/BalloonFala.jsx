@@ -10,10 +10,10 @@ export default function BalloonFala({ texto, cor }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.8, y: -10 }}
         transition={{ duration: 0.3 }}
-        style={{ borderColor: cor || '#555' }}
+        style={{ '--tama-cor': cor || '#555' }}
       >
         <span className="tama-balloon-text">{texto}</span>
-        <div className="tama-balloon-arrow" style={{ borderTopColor: cor || '#555' }} />
+        <div className="tama-balloon-arrow" />
       </motion.div>
     </AnimatePresence>
   )

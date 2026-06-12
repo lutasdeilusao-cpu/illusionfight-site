@@ -120,7 +120,7 @@ export default function Brincadeira({ onConcluir }) {
       )}
 
       {faseJogo === 'jogando' && (
-        <div className="tama-brincadeira" style={{ padding: '4rem 1rem' }}>
+        <div className="tama-brincadeira tama-brincadeira--jogando">
           <div className="tama-brincadeira-header">
             <span className="tama-brincadeira-header-nome">
               {puzzle.nome}
