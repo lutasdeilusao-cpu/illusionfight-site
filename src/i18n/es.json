@@ -101,9 +101,9 @@
     "entrar": "Ya tengo cuenta — entrar"
   },
   "modal_sem_fichas": {
-    "titulo": "CREA TU CUENTA",
-    "desc": "Crea tu cuenta gratis ahora y empieza a jugar {jogo} de inmediato.",
-    "criar_conta": "CREAR CUENTA GRATIS",
+    "titulo": "CREA TU CUENTA GRATIS",
+    "desc": "Crea tu cuenta gratis ahora y gana 100 fichas para jugar {jogo} gratis.",
+    "criar_conta": "CREAR CUENTA GRATIS — GANA 100 FICHAS",
     "voltar": "volver"
   },
   "modal_confirmacao_ficha": {

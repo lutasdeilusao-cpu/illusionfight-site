@@ -101,9 +101,9 @@
     "entrar": "I already have an account — log in"
   },
   "modal_sem_fichas": {
-    "titulo": "CREATE YOUR ACCOUNT",
-    "desc": "Create your free account now and start playing {jogo} right away.",
-    "criar_conta": "CREATE FREE ACCOUNT",
+    "titulo": "CREATE YOUR FREE ACCOUNT",
+    "desc": "Create your free account now and get 100 tokens to play {jogo} for free!",
+    "criar_conta": "CREATE FREE ACCOUNT — GET 100 TOKENS",
     "voltar": "back"
   },
   "modal_confirmacao_ficha": {

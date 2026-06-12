@@ -6,7 +6,7 @@
 .msf-titulo { font-size: 1.5rem; font-weight: 900; letter-spacing: 0.2em; color: #F5A623; margin: 0; }
 .msf-desc { font-size: 0.85rem; color: #ccc; line-height: 1.6; margin: 0; max-width: 28ch; }
 .msf-btns { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; margin-top: 0.75rem; }
-.msf-btn { background: none; border: 1px solid #333; color: #888; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; padding: 0.5rem; cursor: pointer; letter-spacing: 0.1em; transition: all 0.15s; width: 100%; }
+.msf-btn { background: none; border: 1px solid #333; color: #888; font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; padding: 0.55rem 0.4rem; cursor: pointer; letter-spacing: 0.1em; transition: all 0.15s; width: 100%; white-space: nowrap; }
 .msf-btn:hover { border-color: #888; color: #e8e8e8; }
 .msf-btn--primary { border-color: #F5A623; color: #F5A623; }
 .msf-btn--primary:hover { background: rgba(245,166,35,0.1); }
