@@ -20,9 +20,9 @@ const TIER_CONFIG = {
 }
 
 const SECOES = [
+  { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
   { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi' },
   { id: 'arena',      icone: '⚔️', labelKey: 'site.perfil.abas_arena' },
-  { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
   { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
   { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
   { id: 'conta',      icone: '⚙️', labelKey: 'site.perfil.abas_conta' },
@@ -36,11 +36,11 @@ export default function Perfil() {
   const { saldo: dix } = useDix()
 
   const [abertos, setAbertos] = useState({
-    tamagoshi: true,
-    arena: true,
-    conquistas: true,
-    recompensas: !!perfil?.notificacao_pendente,
     colecao: false,
+    tamagoshi: false,
+    arena: false,
+    conquistas: false,
+    recompensas: false,
     conta: false,
   })
 
