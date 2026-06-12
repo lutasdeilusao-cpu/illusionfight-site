@@ -275,12 +275,8 @@ export default function TopTrumps() {
     const resolver = (id) => todasCartas.find(c => c.id_num === id) || todasCartas.find(c => c.id === id)
     const cartasJogador = d.slice(0, metade).map(resolver).filter(Boolean)
     const cartasIA = d.slice(metade).map(resolver).filter(Boolean)
-    // Cada rodada consome 1 carta de cada lado, então o máximo de rodadas
-    // é limitado pelo menor dos dois arrays — sem repetir cartas
-    const roundsEfetivos = Math.min(cartasJogador.length, cartasIA.length)
     setDeckJogador(cartasJogador)
     setDeckIA(cartasIA)
-    setTotalTurnos(roundsEfetivos)
     setCartaJogador(cartasJogador[0] || null)
     setCartaIA(cartasIA[0] || null)
     setFase('jogando'); setRodada(1); setPlacar({ jogador: 0, ia: 0 })
@@ -374,9 +370,9 @@ export default function TopTrumps() {
   function proximaRodada() {
     sfx.nextRound()
     if (rodada >= totalTurnos) { finalizarPartida(); return }
-    // Índice direto (sem modulo) — cada carta usada exatamente uma vez
-    const pJ = deckJogador[rodada]
-    const pI = deckIA[rodada]
+    // Usa módulo para ciclar pelas cartas do deck — cada deck contém cartas únicas
+    const pJ = deckJogador[rodada % deckJogador.length]
+    const pI = deckIA[rodada % deckIA.length]
     setCartaJogador(pJ); setCartaIA(pI)
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
