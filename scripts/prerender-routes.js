@@ -22,6 +22,7 @@ const ROUTES = [
   '/games/pesadelo',
   '/games/tamagoshi',
   '/games/toptrumps',
+  '/games/toptrumps/lobby',
   '/games/toptrumps/multiplayer',
   '/games/minigames',
   '/games/duelo',
@@ -30,6 +31,8 @@ const ROUTES = [
   '/login',
   '/cadastro',
   '/perfil',
+  '/loja',
+  '/custos',
 ]
 
 function main() {

@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.14  
-> **Versão do Site:** 10.41.0  
+> **Versão do Relatório:** 3.15  
+> **Versão do Site:** 10.41.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.41.0 ✅ |
+| **Versão Atual** | 10.41.1 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -1129,7 +1129,7 @@ STATUS: ✅ limpo
 
 | Área | % | Status | Observação |
 |---|---|---|---|
-| **Infraestrutura** (build, deploy, domínio, SEO) | 98% | 🟢 | sw.js é placeholder; pré-renderização estática cobre 23 rotas (v10.41.0) |
+| **Infraestrutura** (build, deploy, domínio, SEO) | 98% | 🟢 | sw.js é placeholder; pré-renderização estática cobre 26 rotas (v10.41.1) |
 | **Site Institucional** (Home, páginas, componentes) | 95% | 🟢 | Quase finalizado |
 | **Sistema de Contas** (Login, Cadastro, Perfil, Admin) | 95% | 🟢 | Completo |
 | **Pagamentos** (Stripe, Assinaturas, Loja Digital) | 90% | 🟢 | Stripe funcional |
