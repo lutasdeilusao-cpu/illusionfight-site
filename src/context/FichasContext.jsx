@@ -37,11 +37,10 @@ export function FichasProvider({ children }) {
       setUltimaColeta(data.ultima_coleta)
       setPodeColetarHoje(data.ultima_coleta !== hoje())
     } else {
-      const { error: insertError } = await supabase.from('fichas').upsert(
-        { user_id: user.id, saldo: 0, fichas_diarias_coletadas: 0, ultima_coleta: null },
-        { onConflict: 'user_id' }
+      const { error: insertError } = await supabase.from('fichas').insert(
+        { user_id: user.id, saldo: 0, fichas_diarias_coletadas: 0, ultima_coleta: null }
       )
-      if (insertError) console.error('[FICHAS] erro ao criar registro:', insertError)
+      if (insertError && insertError.code !== '23505') console.error('[FICHAS] erro ao criar registro:', insertError)
       setPodeColetarHoje(true)
     }
     setLoading(false)

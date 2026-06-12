@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.37.0*  |  `[SITE] versão carregada: 10.37.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Fichas — fix: erro 42P10 (upsert sem unique constraint) trocado para insert; migration 018 adiciona PK user_id + remove duplicatas + recria policies
 *Versão: 10.36.2*  |  `[SITE] versão carregada: 10.36.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.2 — fix: nome/personalidade resolvidos do front-end (CRIATURAS[criatura_id]), não do Supabase; FichasContext upsert p/ persistir saldo; Criatura.jsx/PerfilTamagoshi limpos
 *Versão: 10.36.1*  |  `[SITE] versão carregada: 10.36.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.1 — fix: aplicarDecaimento/tick substituídos por recalcular() em Tamagoshi.jsx; CRIATURA_ID_TO_SLUG para lookups numéricas em FALAS_CRIATURA e COMIDA_TEMATICA
 *Versão: 10.36.0*  |  `[SITE] versão carregada: 10.36.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.0 — rewrite completo do store: sistema stateless com recalcular() baseado em timestamp, remove tick/calcularDecaimento, decaimento por dia da semana, cálculo retroativo de crítico
