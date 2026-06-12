@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-11*
+*Última atualização: 2026-06-12*
+*Versão: 10.40.0*  |  `[SITE] versão carregada: 10.40.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ sitemap.xml — trailing slash em todas as URLs para evitar 404 no GitHub Pages
 *Versão: 10.39.0*  |  `[SITE] versão carregada: 10.39.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.1.0 — refactor: hardcoded strings removidas (t()), inline styles movidos para CSS (CSS variables)
 *Versão: 10.38.1*  |  `[SITE] versão carregada: 10.38.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.4 — fix: CSS botões Alimentar (className duplicado removido, text visibility restaurada)
 *Versão: 10.38.0*  |  `[SITE] versão carregada: 10.38.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ DIX — todo novo usuário recebe 1000 DIX iniciais ao criar conta; contas existentes com saldo zerado também recebem 1000 DIX; migration 019_dix_initial_1000.sql
@@ -687,7 +688,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.26.2** 🚀 | Site — Prototype v1.0.1: export dentro do HTML |
+| `SITE_VERSION` | **10.40.0** 🚀 | Site — sitemap.xml: trailing slash em todas as URLs |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
