@@ -52,6 +52,20 @@ export default function Mundo() {
         </div>
       </section>
 
+      <section ref={ref} className="mundo-section mundo-section--alt reveal" id="personagens">
+        <div className="container">
+          <h2 className="section-title">{t('pages.mundo.personagens_titulo')}</h2>
+          <div className="mundo-personagens-row">
+            {protagonists.map(p => (
+              <CharacterCard key={p.id} character={p} />
+            ))}
+          </div>
+          <button className="mundo-ver-todos" onClick={() => navigate('/personagens')}>
+            {t('pages.mundo.ver_todos')}
+          </button>
+        </div>
+      </section>
+
       <section className="mundo-section" id="bravara">
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.bravara')}</h2>
@@ -171,20 +185,6 @@ export default function Mundo() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section ref={ref} className="mundo-section mundo-section--alt reveal" id="personagens">
-        <div className="container">
-          <h2 className="section-title">{t('pages.mundo.personagens_titulo')}</h2>
-          <div className="mundo-personagens-row">
-            {protagonists.map(p => (
-              <CharacterCard key={p.id} character={p} />
-            ))}
-          </div>
-          <button className="mundo-ver-todos" onClick={() => navigate('/personagens')}>
-            {t('pages.mundo.ver_todos')}
-          </button>
         </div>
       </section>
     </>

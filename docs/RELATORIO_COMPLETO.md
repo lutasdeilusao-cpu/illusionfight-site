@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.42  
-> **Versão do Site:** 10.61.0  
+> **Versão do Relatório:** 3.43  
+> **Versão do Site:** 10.62.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.61.0 ✅ |
+| **Versão Atual** | 10.62.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -108,7 +108,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/webtoon` | Grid de Episódios | ✅ **Completo** | ✅ PT/EN/ES | Grid com thumbnails |
 | `/webtoon/:id` | Leitor Webtoon | ✅ **Completo** | ✅ PT/EN/ES | Leitor vertical lazy load, readerMode |
 | `/musicas` | Página de Músicas | ✅ **Completo** | ✅ PT/EN/ES | 36 faixas com capas randomizadas + plataformas |
-| `/mundo` | Lore do Universo | ✅ **Completo (rev. v10.61.0)** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário — inline CSS removido, hardcoded strings → t(), Helmet i18n, timeline arrows CSS |
+| `/mundo` | Lore do Universo | ✅ **Completo (rev. v10.62.0)** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário — inline CSS removido, hardcoded strings → t(), Helmet i18n, timeline arrows CSS, Personagens movido para o topo |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
 | `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Games refatorado: inline CSS removido (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), meta i18n pt/en/es |
