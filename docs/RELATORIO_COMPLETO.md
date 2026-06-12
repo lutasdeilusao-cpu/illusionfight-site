@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.18  
-> **Versão do Site:** 10.44.0  
+> **Versão do Relatório:** 3.19  
+> **Versão do Site:** 10.44.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -405,8 +405,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
-**Versão Single:** 5.12.0  
-**Versão MP:** 5.7.0  
+**Versão Single:** 5.12.1  
+**Versão MP:** 5.7.1  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 

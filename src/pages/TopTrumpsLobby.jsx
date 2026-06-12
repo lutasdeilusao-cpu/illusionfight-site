@@ -23,9 +23,12 @@ export default function TopTrumpsLobby() {
   const presencas = usePresence({ userId: user?.id, modo: 'lobby', tier: meuTier })
 
   // Jogadores elegíveis = outros usuários no canal (exclui o próprio)
-  // que estão em 'single' ou 'lobby' — ou seja, disponíveis para multiplayer
-  const jogadoresDisponiveis = presencas.filter(p => p.modo === 'single' || p.modo === 'lobby').length
-  const outrosDisponiveis = Math.max(0, jogadoresDisponiveis - (user ? 1 : 0))
+  // que estão em 'single' ou 'lobby' E são elite/primordial (só eles podem jogar modo apostado)
+  const jogadoresDisponiveis = presencas.filter(p =>
+    (p.modo === 'single' || p.modo === 'lobby') &&
+    (p.tier === 'elite' || p.tier === 'primordial')
+  ).length
+  const outrosDisponiveis = Math.max(0, jogadoresDisponiveis - ((meuTier === 'elite' || meuTier === 'primordial') ? 1 : 0))
 
   useEffect(() => {
     setReaderMode(true)
