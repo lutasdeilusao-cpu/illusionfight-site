@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.69.0*  |  `[SITE] versão carregada: 10.69.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tatics v7.4.0 + Duelo v2.8.0 — taglines dos cards EM BREVE atualizadas pt/en/es: "Já pensou em jogar Pokémon/Yu-Gi-Oh...?"
 *Versão: 10.68.0*  |  `[SITE] versão carregada: 10.68.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ docs/RELEASE_S1.md — documento de foco S1 com checklist de bloqueio (3 sprites 🔴, revisão 🟡, 3 config 🟢). Versionado como recurso oficial do projeto.
 *Versão: 10.67.0*  |  `[SITE] versão carregada: 10.67.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.4.0 — refactor completo: inline CSS removido (style={{}} → data attrs + CSS), hardcoded strings removidas (CooldownTimer 'disponível' → t(), canvas 'pista' → t()), i18n pt/en/es adicionado cooldown_disponivel
 *Versão: 10.66.0*  |  `[SITE] versão carregada: 10.66.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.3.0 — Sorteio T1 usa JSON dedicado (tamagoshi-season1.json) com IDs 1-10; IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2. i18n pt/en/es para gacha_giro_gratis e em_breve.

@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.68.0'
+export const SITE_VERSION = '10.69.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -16,11 +16,11 @@ export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scene
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error após tela de vitória
 export const TAMA_VERSION      = '2.4.0' // Tamagoshi LDI — refactor: inline CSS → data attrs, hardcoded strings → t(), i18n cooldown_disponivel
-export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
+export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
 export const TS_VERSION        = '5.21.0'  // Top Trumps SP: IA não escolhe mais rank_sdr (não é atributo jogável) + PPT já era aleatório (confirmado)
 export const TM_VERSION        = '5.10.0'  // Top Trumps Multiplayer: rank_sdr removido das escolhas automáticas (timeout)
-export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)
+export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
 export const PROTOTYPE_VERSION = '1.0.1' // Protótipo — botão Exportar dentro do HTML, sem wrapper
 
 // ── Logs (executam na inicialização do site) ──────
