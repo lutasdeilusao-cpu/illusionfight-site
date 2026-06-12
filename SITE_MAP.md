@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.50.0*  |  `[SITE] versão carregada: 10.50.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.19.0 — fix: tentativas diárias não persistiam (coluna carta_ganha_hoje inexistente causava falha silenciosa em upserts; agora usa toptrumps_partidas para verificar carta ganha)
 *Versão: 10.49.0*  |  `[SITE] versão carregada: 10.49.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.18.0 — IA escolhe atributo aleatório (não vê valores do jogador, gameplay justo e divertido)
 *Versão: 10.48.2*  |  `[SITE] versão carregada: 10.48.2`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.17.2 — fix: stale closure na alternância de turnos (IA não escolhia atributo na rodada seguinte, game ficava preso em "adversário escolhendo")
 *Versão: 10.48.1*  |  `[SITE] versão carregada: 10.48.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.17.1/v5.9.1 — fix: add missing getDeck import in Lobby (runtime error prevention)

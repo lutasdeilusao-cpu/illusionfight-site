@@ -10,7 +10,7 @@ import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
 import { useEventos } from '../context/EventosContext'
 import { supabase } from '../lib/supabase'
-import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, consumirTentativa, marcarCartaGanha, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
+import { carregarDeck as carregarDeckDB, salvarCartasDeck, substituirDeck, registrarPartida, carregarTentativas, consumirTentativa, marcarCartaGanha, verificarCartaGanhaHoje, migrarLocalStorageParaSupabase, registrarPontuacaoRanking } from '../hooks/useLeaderboardDB'
 import TopTrumpsCard from '../components/TopTrumpsCard/TopTrumpsCard'
 import CardViewerModal from './TopTrumps/components/CardViewerModal'
 import DeckBuilder from './TopTrumps/components/DeckBuilder'
@@ -530,13 +530,8 @@ export default function TopTrumps() {
   async function escolherRecompensa(carta) {
     // Verificação extra no banco ANTES de dar a carta (anti-reload)
     if (user) {
-      const { data: check } = await supabase
-        .from('toptrumps_stats')
-        .select('carta_ganha_hoje, tentativas_data')
-        .eq('user_id', user.id)
-        .single()
-      const hoje = new Date().toISOString().split('T')[0]
-      if (check?.tentativas_data === hoje && check?.carta_ganha_hoje) {
+      const jaGanhou = await verificarCartaGanhaHoje(user.id)
+      if (jaGanhou) {
         console.warn('[TT] Tentativa de ganhar carta novamente no mesmo dia — bloqueado pelo servidor')
         setFase('fim_jogo')
         return

@@ -131,16 +131,37 @@ export async function carregarUltimasPartidas(userId, limite = 10) {
   return data || []
 }
 
+export async function verificarCartaGanhaHoje(userId) {
+  const hoje = new Date().toISOString().split('T')[0]
+  const { data, error } = await supabase
+    .from('toptrumps_partidas')
+    .select('id')
+    .eq('user_id', userId)
+    .eq('resultado', 'vitoria')
+    .not('carta_recompensa', 'is', null)
+    .gte('criada_em', hoje)
+    .limit(1)
+  if (error) {
+    console.error('[TT] erro verificarCartaGanhaHoje:', error)
+    return false
+  }
+  return (data && data.length > 0)
+}
+
 export async function carregarTentativas(userId, tier = 'free') {
   const { data, error } = await supabase
     .from('toptrumps_stats')
-    .select('tentativas_data, tentativas_usadas, carta_ganha_hoje')
+    .select('tentativas_data, tentativas_usadas')
     .eq('user_id', userId)
-    .single()
-  if (error || !data) return { usadas: 0, data: null, jaGanhouHoje: false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
+    .maybeSingle()
+  if (error) console.error('[TT] erro carregarTentativas:', error)
+  if (!data) return { usadas: 0, data: null, jaGanhouHoje: false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
   const hoje = new Date().toISOString().split('T')[0]
   if (data.tentativas_data !== hoje) return { usadas: 0, data: hoje, jaGanhouHoje: false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
-  return { usadas: data.tentativas_usadas, data: data.tentativas_data, jaGanhouHoje: data.carta_ganha_hoje || false, limite: TENTATIVAS_POR_TIER[tier] || 3 }
+  // Verifica se já ganhou carta hoje consultando toptrumps_partidas
+  const jaGanhou = await verificarCartaGanhaHoje(userId)
+  console.log(`[TT] carregarTentativas: userId=${userId?.slice(0,8)}... usadas=${data.tentativas_usadas} jaGanhou=${jaGanhou}`)
+  return { usadas: data.tentativas_usadas, data: data.tentativas_data, jaGanhouHoje: jaGanhou, limite: TENTATIVAS_POR_TIER[tier] || 3 }
 }
 
 /**
@@ -150,21 +171,23 @@ export async function carregarTentativas(userId, tier = 'free') {
  */
 export async function consumirTentativa(userId) {
   const hoje = new Date().toISOString().split('T')[0]
-  const { data } = await supabase
+  // Usa maybeSingle() em vez de single() para não lançar erro se não houver row
+  const { data, error: selError } = await supabase
     .from('toptrumps_stats')
-    .select('tentativas_data, tentativas_usadas, carta_ganha_hoje')
+    .select('tentativas_data, tentativas_usadas')
     .eq('user_id', userId)
-    .single()
+    .maybeSingle()
+  if (selError) console.error('[TT] erro select consumirTentativa:', selError)
   const usadas = (data?.tentativas_data === hoje) ? (data.tentativas_usadas + 1) : 1
-  const jaGanhouHoje = data?.carta_ganha_hoje || false
-  await supabase
+  const { error } = await supabase
     .from('toptrumps_stats')
     .upsert({
       user_id: userId,
       tentativas_data: hoje,
-      tentativas_usadas: usadas,
-      carta_ganha_hoje: jaGanhouHoje
+      tentativas_usadas: usadas
     }, { onConflict: 'user_id' })
+  if (error) console.error('[TT] erro upsert consumirTentativa:', error)
+  console.log(`[TT] consumirTentativa: userId=${userId?.slice(0,8)}... usadas=${usadas}`)
   return usadas
 }
 
@@ -173,14 +196,10 @@ export async function consumirTentativa(userId) {
  * Chamado apenas quando o jogador escolhe uma carta de recompensa.
  */
 export async function marcarCartaGanha(userId) {
-  const hoje = new Date().toISOString().split('T')[0]
-  await supabase
-    .from('toptrumps_stats')
-    .upsert({
-      user_id: userId,
-      tentativas_data: hoje,
-      carta_ganha_hoje: true
-    }, { onConflict: 'user_id' })
+  // carta_ganha_hoje já foi registrado via registrarPartida com carta_recompensa
+  // Esta função existe para compatibilidade mas não precisa mais fazer upsert
+  // A verificação de carta ganha hoje é feita via toptrumps_partidas
+  console.log('[TT] marcarCartaGanha chamado para userId:', userId)
 }
 
 // ── HELPERS COMPARTILHADOS ────────────────────────────────────────

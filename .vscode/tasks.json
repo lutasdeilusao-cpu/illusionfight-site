@@ -43,6 +43,19 @@
 				"build"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Build project",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"problemMatcher": [
+				"$eslint-compact"
+			],
+			"group": "build"
 		}
 	]
 }
