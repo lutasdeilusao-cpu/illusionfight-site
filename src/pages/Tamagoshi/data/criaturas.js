@@ -79,54 +79,53 @@ const KROUM_SPRITE = {
   },
 }
 
-// Todas as criaturas usam o sprite do Kroniki temporariamente
-// até cada uma receber sua arte individual
+// IDs numéricos — 1=Kroniki, 2=Ninka, 3=Kroum, ...
 const CRIATURAS_BASE = [
   // ── Top 3: criaturas com sprite próprio ──
-  { id: 'kroniki',     nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
-  { id: 'ninka',       nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
-  { id: 'kroum',       nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
+  { id: 1,  nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
+  { id: 2,  nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
+  { id: 3,  nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
 
   // ── Demais criaturas ──
-  { id: 'voidling',    nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    temporada: 1, emoji: '👻' },
-  { id: 'aquori',      nome: 'Aquori',      tipo: 'CARENTE',      raridade: 'incomum',  temporada: 1, emoji: '💧' },
-  { id: 'sinalo',      nome: 'Sinalo',      tipo: 'CARENTE',      raridade: 'raro',     temporada: 1, emoji: '📡' },
-  { id: 'grafiko',     nome: 'Grafiko',     tipo: 'CARENTE',      raridade: 'epico',    temporada: 1, emoji: '🎨' },
-  { id: 'sangueko',    nome: 'Sangueko',    tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
-  { id: 'igniko',      nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
-  { id: 'voidspawn',   nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
-  { id: 'jaguaroki',   nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 1, emoji: '🐆' },
-  { id: 'fissuraki',   nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 1, emoji: '💥' },
+  { id: 4,  nome: 'Voidling',    tipo: 'CARENTE',      raridade: 'comum',    temporada: 1, emoji: '👻' },
+  { id: 5,  nome: 'Aquori',      tipo: 'CARENTE',      raridade: 'incomum',  temporada: 1, emoji: '💧' },
+  { id: 6,  nome: 'Sinalo',      tipo: 'CARENTE',      raridade: 'raro',     temporada: 1, emoji: '📡' },
+  { id: 7,  nome: 'Grafiko',     tipo: 'CARENTE',      raridade: 'epico',    temporada: 1, emoji: '🎨' },
+  { id: 8,  nome: 'Sangueko',    tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
+  { id: 9,  nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
+  { id: 10, nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
+  { id: 11, nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 1, emoji: '🐆' },
+  { id: 12, nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 1, emoji: '💥' },
 
-  { id: 'lumiki',      nome: 'Lumiki',      tipo: 'FOFO',         raridade: 'comum',    temporada: 2, emoji: '✨' },
-  { id: 'ventro',      nome: 'Ventro',      tipo: 'FOFO',         raridade: 'incomum',  temporada: 2, emoji: '🌬️' },
-  { id: 'tucari',      nome: 'Tucari',      tipo: 'FOFO',         raridade: 'raro',     temporada: 2, emoji: '🐦' },
-  { id: 'pixeiro',     nome: 'Pixeiro',     tipo: 'FOFO',         raridade: 'epico',    temporada: 2, emoji: '🐟' },
-  { id: 'gamako',      nome: 'Gamako',      tipo: 'FOFO',         raridade: 'lendario', temporada: 2, emoji: '🐸' },
+  { id: 13, nome: 'Lumiki',      tipo: 'FOFO',         raridade: 'comum',    temporada: 2, emoji: '✨' },
+  { id: 14, nome: 'Ventro',      tipo: 'FOFO',         raridade: 'incomum',  temporada: 2, emoji: '🌬️' },
+  { id: 15, nome: 'Tucari',      tipo: 'FOFO',         raridade: 'raro',     temporada: 2, emoji: '🐦' },
+  { id: 16, nome: 'Pixeiro',     tipo: 'FOFO',         raridade: 'epico',    temporada: 2, emoji: '🐟' },
+  { id: 17, nome: 'Gamako',      tipo: 'FOFO',         raridade: 'lendario', temporada: 2, emoji: '🐸' },
 
-  { id: 'terrako',     nome: 'Terrako',     tipo: 'INDEPENDENTE', raridade: 'comum',    temporada: 2, emoji: '🌍' },
-  { id: 'umbrio',      nome: 'Umbrio',      tipo: 'INDEPENDENTE', raridade: 'incomum',  temporada: 2, emoji: '🌑' },
-  { id: 'serpentara',  nome: 'Serpentara',  tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 2, emoji: '🐍' },
-  { id: 'oncara',      nome: 'Onçara',      tipo: 'INDEPENDENTE', raridade: 'epico',    temporada: 2, emoji: '🐆' },
-  { id: 'nulliki',     nome: 'Nulliki',     tipo: 'INDEPENDENTE', raridade: 'lendario', temporada: 2, emoji: '⬛' },
+  { id: 18, nome: 'Terrako',     tipo: 'INDEPENDENTE', raridade: 'comum',    temporada: 2, emoji: '🌍' },
+  { id: 19, nome: 'Umbrio',      tipo: 'INDEPENDENTE', raridade: 'incomum',  temporada: 2, emoji: '🌑' },
+  { id: 20, nome: 'Serpentara',  tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 2, emoji: '🐍' },
+  { id: 21, nome: 'Onçara',      tipo: 'INDEPENDENTE', raridade: 'epico',    temporada: 2, emoji: '🐆' },
+  { id: 22, nome: 'Nulliki',     tipo: 'INDEPENDENTE', raridade: 'lendario', temporada: 2, emoji: '⬛' },
 
-  { id: 'harpiako',    nome: 'Harpiako',    tipo: 'FILOSOFO',     raridade: 'comum',    temporada: 2, emoji: '🦅' },
-  { id: 'anacori',     nome: 'Anacori',     tipo: 'FILOSOFO',     raridade: 'incomum',  temporada: 2, emoji: '🌿' },
-  { id: 'gosmacho',    nome: 'Gosmacho',    tipo: 'FILOSOFO',     raridade: 'raro',     temporada: 2, emoji: '🐌' },
-  { id: 'tempestari',  nome: 'Tempestari',  tipo: 'FILOSOFO',     raridade: 'epico',    temporada: 2, emoji: '⛈️' },
-  { id: 'totekko',     nome: 'Totekko',     tipo: 'FILOSOFO',     raridade: 'lendario', temporada: 2, emoji: '🐢' },
+  { id: 23, nome: 'Harpiako',    tipo: 'FILOSOFO',     raridade: 'comum',    temporada: 2, emoji: '🦅' },
+  { id: 24, nome: 'Anacori',     tipo: 'FILOSOFO',     raridade: 'incomum',  temporada: 2, emoji: '🌿' },
+  { id: 25, nome: 'Gosmacho',    tipo: 'FILOSOFO',     raridade: 'raro',     temporada: 2, emoji: '🐌' },
+  { id: 26, nome: 'Tempestari',  tipo: 'FILOSOFO',     raridade: 'epico',    temporada: 2, emoji: '⛈️' },
+  { id: 27, nome: 'Totekko',     tipo: 'FILOSOFO',     raridade: 'lendario', temporada: 2, emoji: '🐢' },
 
-  { id: 'capivaroki',  nome: 'Capivaroki',  tipo: 'COMICO',       raridade: 'comum',    temporada: 2, emoji: '🦫' },
-  { id: 'cameloko',    nome: 'Cameloko',    tipo: 'COMICO',       raridade: 'incomum',  temporada: 2, emoji: '🐪' },
-  { id: 'buziko',      nome: 'Buziko',      tipo: 'COMICO',       raridade: 'raro',     temporada: 2, emoji: '🐝' },
-  { id: 'conkrito',    nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    temporada: 2, emoji: '🐰' },
-  { id: 'tatuki',      nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
+  { id: 28, nome: 'Capivaroki',  tipo: 'COMICO',       raridade: 'comum',    temporada: 2, emoji: '🦫' },
+  { id: 29, nome: 'Cameloko',    tipo: 'COMICO',       raridade: 'incomum',  temporada: 2, emoji: '🐪' },
+  { id: 30, nome: 'Buziko',      tipo: 'COMICO',       raridade: 'raro',     temporada: 2, emoji: '🐝' },
+  { id: 31, nome: 'Conkrito',    tipo: 'COMICO',       raridade: 'epico',    temporada: 2, emoji: '🐰' },
+  { id: 32, nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
 ]
 
 // Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback
 const SPRITE_MAP = {
-  ninka: NINKA_SPRITE,
-  kroum: KROUM_SPRITE,
+  2: NINKA_SPRITE,
+  3: KROUM_SPRITE,
 }
 
 export const CRIATURAS = CRIATURAS_BASE.map(c => ({

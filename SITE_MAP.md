@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-11*
+*Versão: 10.36.0*  |  `[SITE] versão carregada: 10.36.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.0 — rewrite completo do store: sistema stateless com recalcular() baseado em timestamp, remove tick/calcularDecaimento, decaimento por dia da semana, cálculo retroativo de crítico
 *Versão: 10.35.0*  |  `[SITE] versão carregada: 10.35.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v1.39.0 — fix completo persistência pet: termo não reaparece no reload, save só criatura_id (sem nome/personalidade), isFree na rota, localStorage fallback
 *Versão: 10.34.0*  |  `[SITE] versão carregada: 10.34.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Arena v1.25.1 — fix: TypeError getState na tela de vitória + Tama v1.38.1 — fix: pet persistence (termo não reaparece, dados não são deletados)
 *Versão: 10.33.0*  |  `[SITE] versão carregada: 10.33.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Leaderboard — abas Quiz e Geral removidas (eram placeholders "EM BREVE" sem lógica)
