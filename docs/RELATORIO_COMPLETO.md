@@ -1242,8 +1242,9 @@ STATUS: ✅ limpo
 ### 11.3 Estimativa Geral
 
 ```
-████████████████████████████████████████████████░░  ~83% COMPLETO
+████████████████████████████████████████████████░░  ~83% COMPLETO (projeto completo — inclui pós-lançamento)
 ```
+> 🚀 **Para o lançamento S1 (14/Set): ~91%** — 7 jogos + site + i18n prontos. Só faltam 3 sprites Tamagoshi.
 
 ---
 
@@ -1377,7 +1378,8 @@ STATUS: ✅ limpo
 📖 CRONOGRAMA LIVRO:     ✅ Definido e automatizado (3/16 no lançamento, +1 a cada 14 dias a partir de 05/10/2026)
 🎮 BALANCEAMENTO JOGOS:  68% ██████████████████████████████████░░░░░░░░░
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 GERAL:                ~83% ████████████████████████████████████████░░░░
+📊 GERAL (proj. completo): ~83% ████████████████████████████████████████░░  ← inclui Duelo + Tatics (pós-lançamento)
+📊 GERAL (S1 lançamento):   ~91% ██████████████████████████████████████████░░  ← 7 jogos S1 + site 98% + i18n 100%░░
 ```
 
 **A engenharia e o esqueleto do site estão 92% prontos.**  
