@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.41.0*  |  `[SITE] versão carregada: 10.41.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Pré-renderização estática — script pós-build copia index.html para cada rota pública (SEO 200 nativo no GitHub Pages)
 *Versão: 10.40.0*  |  `[SITE] versão carregada: 10.40.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ sitemap.xml — trailing slash em todas as URLs para evitar 404 no GitHub Pages
 *Versão: 10.39.0*  |  `[SITE] versão carregada: 10.39.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.1.0 — refactor: hardcoded strings removidas (t()), inline styles movidos para CSS (CSS variables)
 *Versão: 10.38.1*  |  `[SITE] versão carregada: 10.38.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.0.4 — fix: CSS botões Alimentar (className duplicado removido, text visibility restaurada)

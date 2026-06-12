@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.13  
-> **Versão do Site:** 10.40.0  
+> **Versão do Relatório:** 3.14  
+> **Versão do Site:** 10.41.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.40.0 ✅ |
+| **Versão Atual** | 10.41.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -1004,11 +1004,12 @@ capitulo-04 ao 16: publicado: false ❌
 
 | Pipeline | Status |
 |---|---|
-| `npm run build` (Vite) | ✅ Funcional |
+| `npm run build` (Vite + prerender) | ✅ Funcional — `vite build` + `node scripts/prerender-routes.js` |
 | `npm run deploy` (gh-pages) | ✅ Funcional |
 | `python deploy.py` (automação) | ✅ Funcional |
 | GitHub Pages + CNAME | ✅ Configurado |
-| SPA 404 redirect | ✅ Funcional |
+| SPA 404 redirect | ✅ Funcional (fallback) |
+| **Pré-renderização estática (SEO 200)** | ✅ **NOVO v10.41.0** — `dist/<rota>/index.html` gerado p/ 23 rotas públicas |
 | Service Worker (placeholder) | ⚠️ Placeholder `sw.js` |
 | Sitemap XML | ✅ Configurado |
 
@@ -1021,6 +1022,7 @@ capitulo-04 ao 16: publicado: false ❌
 | Favicon | ✅ `favicon.svg` |
 | CNAME | ✅ `illusionfight.com` |
 | Meta tags por página (react-helmet-async) | ✅ Configurado |
+| **Status HTTP 200 nativo (GitHub Pages)** | ✅ **v10.41.0** — todas as 23 rotas do sitemap agora servem `index.html` físico, retornando 200 em vez de 404 |
 
 ---
 
@@ -1127,7 +1129,7 @@ STATUS: ✅ limpo
 
 | Área | % | Status | Observação |
 |---|---|---|---|
-| **Infraestrutura** (build, deploy, domínio, SEO) | 95% | 🟢 | sw.js é placeholder |
+| **Infraestrutura** (build, deploy, domínio, SEO) | 98% | 🟢 | sw.js é placeholder; pré-renderização estática cobre 23 rotas (v10.41.0) |
 | **Site Institucional** (Home, páginas, componentes) | 95% | 🟢 | Quase finalizado |
 | **Sistema de Contas** (Login, Cadastro, Perfil, Admin) | 95% | 🟢 | Completo |
 | **Pagamentos** (Stripe, Assinaturas, Loja Digital) | 90% | 🟢 | Stripe funcional |
