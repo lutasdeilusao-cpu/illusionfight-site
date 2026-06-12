@@ -48,10 +48,8 @@ export default function Tamagoshi() {
       const latest = useTamagoshiStore.getState()
       const flags = latest.flags || {}
       setMostrarTermo(!flags.termo_aceito)
-      // Lazy evaluation: aplica decaimento baseado em horas desde última sessão
-      if (horasDesdeUltimaSessao > 0) {
-        store.aplicarDecaimento(horasDesdeUltimaSessao)
-      }
+      // Recalcular já é stateless — barras calculadas dos timestamps
+      store.recalcular()
     })
   }, [user])
 
@@ -64,7 +62,7 @@ export default function Tamagoshi() {
   // (lazy evaluation na entrada + decay contínuo enquanto estiver no site)
   useEffect(() => {
     if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
-    const id = setInterval(() => store.tick(), 30000)
+    const id = setInterval(() => store.recalcular(), 30000)
     return () => clearInterval(id)
   }, [store.criaturaId, store.status])
 
