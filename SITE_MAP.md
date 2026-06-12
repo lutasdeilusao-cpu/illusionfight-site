@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.61.0*  |  `[SITE] versão carregada: 10.61.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Mundo — inline CSS removido (--rank-color style → CSS classes .mundo-ranking-item--N), hardcoded Helmet strings → t('helmet.mundo')/t('pages.mundo.og_*'), timeline arrows hardcoded ←/→ → CSS pseudo-elements + aria-label i18n, i18n pt/en/es completo
 *Versão: 10.60.0*  |  `[SITE] versão carregada: 10.60.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Loja — inline styles removidos (badge_cor → CSS classes), hardcoded strings removidas (data-text="LOJA" → t('shop.titulo')), locale via LanguageContext (não localStorage), i18n pt/en/es completo
 *Versão: 10.59.1*  |  `[SITE] versão carregada: 10.59.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games — inline styles removidos (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), i18n pt/en/es meta_title localizado
 *Versão: 10.57.0*  |  `[SITE] versão carregada: 10.57.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon — inline style removido de WebtoonEpisodio.jsx (style={{}} → classe .webtoon-ep-blocked), página revisada sem hardcoded

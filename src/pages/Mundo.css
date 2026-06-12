@@ -425,11 +425,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0;
 }
 
 .timeline-arrow:hover {
   opacity: 1;
 }
+
+.timeline-arrow--left::before { content: '←'; font-size: 1rem; }
+.timeline-arrow--right::before { content: '→'; font-size: 1rem; }
 
 .timeline-titulo {
   display: block;
@@ -502,8 +506,15 @@
   padding: 0.75rem 1rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
-  border-left: 3px solid var(--rank-color);
+  border-left: 3px solid transparent;
 }
+
+.mundo-ranking-item--1,
+.mundo-ranking-item--2 { border-left-color: #4F5359; }
+.mundo-ranking-item--3 { border-left-color: #6B7280; }
+.mundo-ranking-item--4,
+.mundo-ranking-item--5 { border-left-color: #00B4D8; }
+.mundo-ranking-item--6 { border-left-color: #F4A227; }
 
 .mundo-ranking-item > div {
   width: 100%;

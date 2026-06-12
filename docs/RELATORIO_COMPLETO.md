@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.40  
-> **Versão do Site:** 10.59.1  
+> **Versão do Relatório:** 3.42  
+> **Versão do Site:** 10.61.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.59.1 ✅ |
+| **Versão Atual** | 10.61.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -108,13 +108,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/webtoon` | Grid de Episódios | ✅ **Completo** | ✅ PT/EN/ES | Grid com thumbnails |
 | `/webtoon/:id` | Leitor Webtoon | ✅ **Completo** | ✅ PT/EN/ES | Leitor vertical lazy load, readerMode |
 | `/musicas` | Página de Músicas | ✅ **Completo** | ✅ PT/EN/ES | 36 faixas com capas randomizadas + plataformas |
-| `/mundo` | Lore do Universo | ✅ **Completo** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário |
+| `/mundo` | Lore do Universo | ✅ **Completo (rev. v10.61.0)** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário — inline CSS removido, hardcoded strings → t(), Helmet i18n, timeline arrows CSS |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
 | `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Games refatorado: inline CSS removido (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), meta i18n pt/en/es |
 | `/leaderboard` | Ranking Global | ✅ **Completo** | ✅ PT/EN/ES | Ranking do sistema |
 | `/quiz` | Quiz SDR | ✅ **Completo** | ✅ PT/EN/ES | 3 modos de jogo, banco de perguntas |
-| `/loja` | Loja Virtual | ✅ **Completo** | ✅ PT/EN/ES | Produtos físicos + digitais + Stripe |
+| `/loja` | Loja Virtual | ✅ **Completo** | ✅ PT/EN/ES | Revisto v10.60.0: inline CSS removido (badge_cor → CSS classes), hardcoded strings removidas (data-text → t()), locale via LanguageContext, i18n pt/en/es completo |
 | `/login` | Login | ✅ **Completo** | ✅ PT/EN/ES | Supabase Auth |
 | `/cadastro` | Cadastro | ✅ **Completo** | ✅ PT/EN/ES | Criação de conta |
 | `/perfil` | Perfil do Usuário | ✅ **Completo** | ✅ PT/EN/ES | Dashboard vertical colapsável (Conquistas, Arena, Coleção, Conta, Tamagoshi, Recompensas) + Fichas + DIX no header + barra de progresso 20 metas + assinatura Stripe |

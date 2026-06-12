@@ -33,10 +33,10 @@ export default function Mundo() {
   return (
     <>
       <Helmet>
-        <title>World — Illusion Fight Universe</title>
-        <meta name="description" content="Explore the Illusion Fight universe — Bravara, the LDI arena, the Xakaxi tribe, primordial powers, timeline, glossary, and the complete lore." />
-        <meta property="og:title" content="World — Illusion Fight Universe" />
-        <meta property="og:description" content="Explore the Illusion Fight universe — Bravara, LDI arena, timeline, glossary, and complete lore." />
+        <title>{t('helmet.mundo')}</title>
+        <meta name="description" content={t('pages.mundo.og_desc')} />
+        <meta property="og:title" content={t('pages.mundo.og_title')} />
+        <meta property="og:description" content={t('pages.mundo.og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/mundo" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
@@ -71,7 +71,7 @@ export default function Mundo() {
         <div className="container">
           <h2 className="section-title">{t('pages.mundo.timeline')}</h2>
           <div className="timeline-wrapper">
-            <button className="timeline-arrow timeline-arrow--left" onClick={() => scroll(-1)}>←</button>
+            <button className="timeline-arrow timeline-arrow--left" onClick={() => scroll(-1)} aria-label={t('pages.mundo.timeline_prev')}></button>
             <div className="timeline-track" ref={trackRef}>
               {data.timeline.map(p => (
                 <div key={p.ano} className={`timeline-point${p.ano === '20XX' ? ' timeline-point--now' : ''}`}>
@@ -81,7 +81,7 @@ export default function Mundo() {
                 </div>
               ))}
             </div>
-            <button className="timeline-arrow timeline-arrow--right" onClick={() => scroll(1)}>→</button>
+            <button className="timeline-arrow timeline-arrow--right" onClick={() => scroll(1)} aria-label={t('pages.mundo.timeline_next')}></button>
           </div>
         </div>
       </section>
@@ -122,8 +122,8 @@ export default function Mundo() {
 
           <h3 className="mundo-section-subtitle">{t('pages.mundo.ranking_sdr')}</h3>
           <div className="mundo-ranking">
-            {data.ranking_sdr.map(r => (
-              <div key={r.faixa} className="mundo-ranking-item" style={{ '--rank-color': r.cor }}>
+            {data.ranking_sdr.map((r, i) => (
+              <div key={r.faixa} className={`mundo-ranking-item mundo-ranking-item--${i + 1}`}>
                 <div>
                   <span className="mundo-ranking-faixa">{r.faixa}</span>
                   <span className="mundo-ranking-label">{r.label}</span>
