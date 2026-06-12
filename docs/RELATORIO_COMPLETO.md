@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.44  
-> **Versão do Site:** 10.63.0  
+> **Versão do Relatório:** 3.45  
+> **Versão do Site:** 10.64.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -786,11 +786,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.1.0  
+**Versão:** 2.2.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
+> 🎮 **v2.2.0 — Novas criaturas oficiais:** Draken, Kaiser, Lenna e Yawaru (IDs 04-07) com sprites próprios (10 estados cada). Nomes atualizados (era Voidling, Aquori, Sinalo, Grafiko). Falas e itens temáticos renomeados.  
 > 🎮 **v2.1.0 — Refactor:** hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Refatoração geral de texto para i18n e estilo para CSS puro.  
 > 🎮 **v2.0.4 — CSS fix:** botões Alimentar com className duplicado (tama-btn sobrescrito por tama-alimentar-item-btn), text visibility restaurada  
 > 🎮 **v2.0.3 — Fichas fix:** erro 42P10 (upsert sem unique constraint) trocado para insert  
@@ -870,7 +871,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente 3 criaturas possuem sprite próprio: **Kroniki** (10 estados), **Ninka** (10 estados), **Kroum** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.  
+**Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente 7 criaturas possuem sprite próprio: **Kroniki** (10 estados), **Ninka** (10 estados), **Kroum** (10 estados), **Draken** (10 estados), **Kaiser** (10 estados), **Lenna** (10 estados), **Yawaru** (10 estados). Faltam artes personalizadas para as 25 criaturas restantes.  
 **v2.1.0** — Refactor: hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Limpeza geral de i18n e estilo.  
 **v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.  
 **v1.33.0** — Fix: Gacha shadow bug (variável `t` do `.map()` colidia com função `t()` de tradução). Renomeado "Gacha" → "Sorteio" (pt) / "Raffle" (en) / "Sorteo" (es). Botão "🎮 Jogar Tamagoshi" adicionado no Perfil.  

@@ -8,14 +8,14 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.63.0'
+export const SITE_VERSION = '10.64.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error após tela de vitória
-export const TAMA_VERSION      = '2.1.0' // Tamagoshi LDI — refactor: remove hardcoded strings (use t()), move inline styles to CSS
+export const TAMA_VERSION      = '2.2.0' // Tamagoshi LDI — novas criaturas: Draken, Kaiser, Lenna, Yawaru (IDs 04-07) com sprites oficiais
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
 export const TS_VERSION        = '5.21.0'  // Top Trumps SP: IA não escolhe mais rank_sdr (não é atributo jogável) + PPT já era aleatório (confirmado)

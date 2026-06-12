@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.64.0*  |  `[SITE] versão carregada: 10.64.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.2.0 — novas criaturas oficiais: Draken (ID 04), Kaiser (05), Lenna (06), Yawaru (07) com sprites próprios (10 estados cada). Nomes atualizados, falas e itens temáticos renomeados.
 *Versão: 10.63.0*  |  `[SITE] versão carregada: 10.63.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Assinar — inline CSS removido (style={{}} → data-plan + CSS), hardcoded strings removidas (botões, feedback, Helmet → t()), i18n pt/en/es completo
 *Versão: 10.62.0*  |  `[SITE] versão carregada: 10.62.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Mundo — seção Personagens movida para o topo (logo após o hero), antes de Bravara
 *Versão: 10.61.0*  |  `[SITE] versão carregada: 10.61.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Mundo — inline CSS removido (--rank-color style → CSS classes .mundo-ranking-item--N), hardcoded Helmet strings → t('helmet.mundo')/t('pages.mundo.og_*'), timeline arrows hardcoded ←/→ → CSS pseudo-elements + aria-label i18n, i18n pt/en/es completo

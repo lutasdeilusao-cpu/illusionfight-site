@@ -1,5 +1,5 @@
 export const FALAS_CRIATURA = {
-  voidling: {
+  draken: {
     boasVindas: [
       "...você veio me ver no vazio... obrigado",
       "assombrar é solitário, mas você aparece",
@@ -49,7 +49,7 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  aquori: {
+  kaiser: {
     boasVindas: [
       "ai que bom você veio me ver!",
       "tava quase transbordando de saudade",
@@ -99,7 +99,7 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  sinalo: {
+  lenna: {
     boasVindas: [
       "sinal estabilizado! você chegou!",
       "conexão estabelecida com sucesso",
@@ -149,7 +149,7 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  grafiko: {
+  yawaru: {
     boasVindas: [
       "a paleta ficou mais colorida com você",
       "que bom te ver! nova inspiração!",

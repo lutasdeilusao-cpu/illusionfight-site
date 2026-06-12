@@ -19,7 +19,7 @@ export const ITEM_KEY_MAP = {
   gamako: 'item_comida_gamako',
   igniko: 'item_comida_igniko',
   buziko: 'item_comida_buziko',
-  grafiko: 'item_comida_grafiko',
+  yawaru: 'item_comida_yawaru',
 }
 
 export const COMIDA_TEMATICA = {
@@ -28,5 +28,5 @@ export const COMIDA_TEMATICA = {
   gamako: { id: 'racao_rua', nome: 'Ração de Rua', preco: 8, emoji: '🥫' },
   igniko: { id: 'brasa', nome: 'Brasas de Energia', preco: 15, emoji: '🔥' },
   buziko: { id: 'passagem', nome: 'Passagem de Ônibus', preco: 5, emoji: '🎫' },
-  grafiko: { id: 'tinta', nome: 'Tinta Spray', preco: 12, emoji: '🎨' },
+  yawaru: { id: 'tinta', nome: 'Tinta Spray', preco: 12, emoji: '🎨' },
 }
