@@ -367,6 +367,23 @@
   margin: 0.75rem 0;
 }
 
+.ttmp-presenca-aviso {
+  text-align: center;
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: rgba(220, 60, 60, 0.1);
+  border: 1px solid rgba(220, 60, 60, 0.3);
+  color: #e88;
+}
+
+.ttmp-presenca-aviso--ativo {
+  background: rgba(60, 200, 100, 0.1);
+  border: 1px solid rgba(60, 200, 100, 0.3);
+  color: #8e8;
+}
+
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 480px) {

@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.43.0'
+export const SITE_VERSION = '10.44.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -18,8 +18,8 @@ export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error apó
 export const TAMA_VERSION      = '2.1.0' // Tamagoshi LDI — refactor: remove hardcoded strings (use t()), move inline styles to CSS
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
-export const TS_VERSION        = '5.11.0'  // Top Trumps Single Player: refactor: ranking/leaderboard extraído para useLeaderboardDB
-export const TM_VERSION        = '5.6.0'  // Top Trumps Multiplayer
+export const TS_VERSION        = '5.12.0'  // Top Trumps Single Player: presence system (usePresence) — contagem de jogadores online no Lobby
+export const TM_VERSION        = '5.7.0'  // Top Trumps Multiplayer: presence system — contagem de jogadores online no Lobby via Supabase Realtime Presence
 export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)
 export const PROTOTYPE_VERSION = '1.0.1' // Protótipo — botão Exportar dentro do HTML, sem wrapper
 

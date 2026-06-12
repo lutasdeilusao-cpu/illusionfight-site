@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.44.0*  |  `[SITE] versão carregada: 10.44.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Presence system — contagem de jogadores online no Lobby via Supabase Realtime Presence (usePresence hook + i18n pt/en/es)
 *Versão: 10.43.0*  |  `[SITE] versão carregada: 10.43.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Leaderboard — toggle de país dinâmico (usa country_code do perfil em vez de botão fixo "🇧🇷 Brasil")
 *Versão: 10.42.0*  |  `[SITE] versão carregada: 10.42.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ País obrigatório no cadastro + editável no perfil + leaderboards lêem country_code de profiles
 *Versão: 10.41.1*  |  `[SITE] versão carregada: 10.41.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sitemap + prerender: adicionadas rotas /loja, /custos, /games/toptrumps/lobby (26 rotas no total)

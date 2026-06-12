@@ -16,6 +16,7 @@ import DeckBuilder from './TopTrumps/components/DeckBuilder'
 import DeckStartModal from './TopTrumps/components/DeckStartModal'
 import BackToGamesBtn from '../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../lib/sfx'
+import { usePresence } from '../hooks/usePresence'
 import cardFallback from '../assets/images/cards/characters/card-fallback.png'
 import img01 from '../assets/images/cards/characters/card-01.png'
 import img02 from '../assets/images/cards/characters/card-02.png'
@@ -104,6 +105,7 @@ export default function TopTrumps() {
     descricao, inverso: id === 'rank_sdr'
   }))
   const { user, perfil } = useAuth()
+  usePresence({ userId: user?.id, modo: 'single', tier: perfil?.tier || 'free' })
   const { desbloquear } = useAchievements()
   const { registrarEvento } = useEventos()
   const { setReaderMode } = useReader()

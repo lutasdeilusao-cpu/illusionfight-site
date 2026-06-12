@@ -1377,7 +1377,9 @@
         "btn_entrar": "ENTRAR",
         "procurando": "BUSCANDO...",
         "btn_fila_publica": "FILA PÚBLICA",
-        "erro_criar": "Error al crear sala"
+        "erro_criar": "Error al crear sala",
+        "presenca_disponivel": "🟢 {{n}} jugador(es) disponible(s) ahora para multijugador",
+        "presenca_vazio": "🔴 No hay jugadores disponibles en este momento. Inténtalo de nuevo más tarde."
       },
       "mp": {
         "conectando": "CONECTANDO...",

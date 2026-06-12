@@ -1377,7 +1377,9 @@
         "btn_entrar": "JOIN",
         "procurando": "SEARCHING...",
         "btn_fila_publica": "PUBLIC QUEUE",
-        "erro_criar": "Error creating room"
+        "erro_criar": "Error creating room",
+        "presenca_disponivel": "🟢 {{n}} player(s) available now for multiplayer",
+        "presenca_vazio": "🔴 No players available right now. Try again soon."
       },
       "mp": {
         "conectando": "CONNECTING...",

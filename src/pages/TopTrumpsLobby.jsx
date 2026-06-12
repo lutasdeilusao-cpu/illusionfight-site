@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { useReader } from '../context/ReaderContext'
 import { useLanguage } from '../context/LanguageContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
+import { usePresence } from '../hooks/usePresence'
 import { carregarDeck as carregarDeckDB } from '../hooks/useLeaderboardDB'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsLobby.css'
@@ -17,6 +18,14 @@ export default function TopTrumpsLobby() {
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+
+  const meuTier = perfil?.tier || 'free'
+  const presencas = usePresence({ userId: user?.id, modo: 'lobby', tier: meuTier })
+
+  // Jogadores elegíveis = outros usuários no canal (exclui o próprio)
+  // que estão em 'single' ou 'lobby' — ou seja, disponíveis para multiplayer
+  const jogadoresDisponiveis = presencas.filter(p => p.modo === 'single' || p.modo === 'lobby').length
+  const outrosDisponiveis = Math.max(0, jogadoresDisponiveis - (user ? 1 : 0))
 
   useEffect(() => {
     setReaderMode(true)
@@ -261,6 +270,13 @@ export default function TopTrumpsLobby() {
           ) : (
             <>
               <p className="ttmp-info">{t('games.toptrumps.lobby.matchmaking_info')}</p>
+
+              <p className={`ttmp-presenca-aviso${outrosDisponiveis > 0 ? ' ttmp-presenca-aviso--ativo' : ''}`}>
+                {outrosDisponiveis > 0
+                  ? t('games.toptrumps.lobby.presenca_disponivel', { n: outrosDisponiveis })
+                  : t('games.toptrumps.lobby.presenca_vazio')}
+              </p>
+
               <div className="ttmp-matchmaking-botoes">
                 <button className="ttmp-btn" onClick={handleCriarSala} disabled={aguardando}>
                   {aguardando ? t('games.toptrumps.lobby.criando') : t('games.toptrumps.lobby.btn_criar_sala')}
