@@ -11,10 +11,9 @@ import produtosDigitais from '../../data/loja-digital.json'
 import './Loja.css'
 
 export default function Loja() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
-  const locale = localStorage.getItem('ldi_locale') || 'pt'
   const [aba, setAba] = useState('digital')
   const [adquiridos, setAdquiridos] = useState({})
 
@@ -52,7 +51,7 @@ export default function Loja() {
       <div className="loja-page">
         <div className="loja-header">
           <h1 className="loja-titulo">
-            <span className="loja-titulo-glitch" data-text="LOJA">LOJA</span>
+            <span className="loja-titulo-glitch" data-text={t('shop.titulo')}>{t('shop.titulo')}</span>
           </h1>
           <p className="loja-subtitulo">
             <span className="loja-cursor">█</span> {t('shop.subtitulo') || 'fichas, DIX e itens exclusivos'}

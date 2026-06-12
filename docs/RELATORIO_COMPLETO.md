@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.39  
-> **Versão do Site:** 10.58.0  
+> **Versão do Relatório:** 3.40  
+> **Versão do Site:** 10.59.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.58.0 ✅ |
+| **Versão Atual** | 10.59.1 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -111,7 +111,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `/mundo` | Lore do Universo | ✅ **Completo** | ✅ PT/EN/ES | Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/autor` | Sobre o Autor | ✅ **Completo** | ✅ PT/EN/ES | História do autor Isaias Leal |
 | `/assinar` | Planos de Assinatura | ✅ **Completo** | ✅ PT/EN/ES | 3 tiers, Stripe Checkout integrado, preços dinâmicos por locale |
-| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Jogos reordenados: Trumps → Arena → Lendas → Tama → Jack → Pesadelo → MiniGames → Tactics/Duelo; novas taglines pt/en/es |
+| `/games` | Hub de Jogos | ✅ **Completo** | ✅ PT/EN/ES | Games refatorado: inline CSS removido (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), meta i18n pt/en/es |
 | `/leaderboard` | Ranking Global | ✅ **Completo** | ✅ PT/EN/ES | Ranking do sistema |
 | `/quiz` | Quiz SDR | ✅ **Completo** | ✅ PT/EN/ES | 3 modos de jogo, banco de perguntas |
 | `/loja` | Loja Virtual | ✅ **Completo** | ✅ PT/EN/ES | Produtos físicos + digitais + Stripe |

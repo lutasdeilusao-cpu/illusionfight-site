@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.60.0*  |  `[SITE] versão carregada: 10.60.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Loja — inline styles removidos (badge_cor → CSS classes), hardcoded strings removidas (data-text="LOJA" → t('shop.titulo')), locale via LanguageContext (não localStorage), i18n pt/en/es completo
 *Versão: 10.59.1*  |  `[SITE] versão carregada: 10.59.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Games — inline styles removidos (badges → CSS variables `--cor-badge`), hardcoded strings removidas (Helmet + modals → `t()`), i18n pt/en/es meta_title localizado
 *Versão: 10.57.0*  |  `[SITE] versão carregada: 10.57.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Webtoon — inline style removido de WebtoonEpisodio.jsx (style={{}} → classe .webtoon-ep-blocked), página revisada sem hardcoded
 *Versão: 10.56.0*  |  `[SITE] versão carregada: 10.56.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Página do Autor — biografia completa reescrita com 8 parágrafos em PT/EN/ES (história pessoal, carreira em games, porting Nintendo/Xbox/PlayStation, Five Nights at Freddy's, God of War)

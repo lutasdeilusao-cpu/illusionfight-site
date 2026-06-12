@@ -2,6 +2,16 @@ import { useLanguage } from '../../context/LanguageContext'
 import '../../lib/stripe' // side-effect check
 import './ProdutoDigitalCard.css'
 
+function badgeCorClass(cor) {
+  const map = {
+    '#F5A623': 'pdc-badge--gold',
+    '#22C55E': 'pdc-badge--green',
+    '#A855F4': 'pdc-badge--purple',
+    '#FF4500': 'pdc-badge--red',
+  }
+  return map[cor] || 'pdc-badge--gold'
+}
+
 export default function ProdutoDigitalCard({ produto, locale, onComprar, adquirido }) {
   const { t } = useLanguage()
   const preco = locale === 'pt' ? produto.preco_brl : produto.preco_usd
@@ -12,7 +22,7 @@ export default function ProdutoDigitalCard({ produto, locale, onComprar, adquiri
   return (
     <div className={`pdc-card ${adquirido ? 'pdc-card--adquirido' : ''}`}>
       {produto.badge && (
-        <div className="pdc-badge" style={{ '--badge-cor': produto.badge_cor }}>
+        <div className={`pdc-badge ${badgeCorClass(produto.badge_cor)}`}>
           {produto.badge}
         </div>
       )}

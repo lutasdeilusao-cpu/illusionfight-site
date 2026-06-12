@@ -11,12 +11,11 @@ import ProdutoDigitalCard from './ProdutoDigitalCard/ProdutoDigitalCard'
 import './ShopSection.css'
 
 export default function ShopSection() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
   const ref = useScrollReveal()
   const [aba, setAba] = useState('digital')
-  const locale = localStorage.getItem('ldi_locale') || 'pt'
   const [adquiridos, setAdquiridos] = useState({})
 
   useEffect(() => {

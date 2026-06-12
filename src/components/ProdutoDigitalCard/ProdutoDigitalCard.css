@@ -28,9 +28,34 @@
   font-weight: bold;
   letter-spacing: 0.1em;
   border-radius: 0 4px 0 4px;
-  background: color-mix(in srgb, var(--badge-cor, #F5A623) 15%, transparent);
-  border: 1px solid var(--badge-cor, #F5A623);
-  color: var(--badge-cor, #F5A623);
+}
+
+.pdc-badge--gold {
+  --badge-cor: #F5A623;
+  background: color-mix(in srgb, #F5A623 15%, transparent);
+  border: 1px solid #F5A623;
+  color: #F5A623;
+}
+
+.pdc-badge--green {
+  --badge-cor: #22C55E;
+  background: color-mix(in srgb, #22C55E 15%, transparent);
+  border: 1px solid #22C55E;
+  color: #22C55E;
+}
+
+.pdc-badge--purple {
+  --badge-cor: #A855F4;
+  background: color-mix(in srgb, #A855F4 15%, transparent);
+  border: 1px solid #A855F4;
+  color: #A855F4;
+}
+
+.pdc-badge--red {
+  --badge-cor: #FF4500;
+  background: color-mix(in srgb, #FF4500 15%, transparent);
+  border: 1px solid #FF4500;
+  color: #FF4500;
 }
 .pdc-icone { font-size: 2rem; }
 .pdc-nome { font-size: 1rem; font-weight: 700; color: #e8e8e8; margin: 0; letter-spacing: 0.05em; }
