@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.22  
-> **Versão do Site:** 10.46.0  
+> **Versão do Relatório:** 3.23  
+> **Versão do Site:** 10.46.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -439,6 +439,10 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🐛 **Fix deck c/ 5 cartas únicas** — Cada jogador recebe 5 cartas únicas da coleção (sem repetição dentro do próprio deck); Player e IA podem ter cartas em comum
 - 🐛 **Fix tentativas por partida** — `consumirTentativa` chamado após CADA partida (vitória ou derrota); `marcarCartaGanha` separado (só quando ganha carta)
 - 🐛 **Fix `tentativasRestantes` check** — Restaurado `> 0` (com 1 tentativa o jogador pode tentar ganhar carta)
+
+#### Fix v10.46.1 — salvarCartasDeck (erro 42P10)
+- 🐛 **Fix upsert sem constraint** — `salvarCartasDeck` substituído por check manual (SELECT existentes → filter → INSERT), eliminando erro `42P10`
+- 📦 **Migration 020** — `supabase/migrations/020_toptrumps_decks_unique_constraint.sql` adiciona UNIQUE constraint `(user_id, carta_id)` para suporte futuro a ON CONFLICT
 
 #### Changelog v5.13.1 / v5.8.0
 - 🐛 **Fix turnos SP** — Restaurado sistema de turnos com modulo cycling (deck de cartas únicas cicla corretamente)

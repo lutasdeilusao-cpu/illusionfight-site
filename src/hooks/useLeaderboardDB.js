@@ -24,10 +24,18 @@ export async function carregarDeck(userId) {
 
 export async function salvarCartasDeck(userId, cartaIds) {
   if (!cartaIds || cartaIds.length === 0) return
-  const inserts = cartaIds.map(id => ({ user_id: userId, carta_id: id }))
+  // Busca cartas existentes para evitar duplicatas (sem depender de ON CONFLICT)
+  const { data: existentes } = await supabase
+    .from('toptrumps_decks')
+    .select('carta_id')
+    .eq('user_id', userId)
+  const idsExistentes = new Set((existentes || []).map(d => String(d.carta_id)))
+  const novos = cartaIds.filter(id => !idsExistentes.has(String(id)))
+  if (novos.length === 0) return
+  const inserts = novos.map(id => ({ user_id: userId, carta_id: id }))
   const { error } = await supabase
     .from('toptrumps_decks')
-    .upsert(inserts, { onConflict: 'user_id,carta_id', ignoreDuplicates: true })
+    .insert(inserts)
   if (error) console.error('Erro ao salvar cartas no deck:', error)
 }
 
