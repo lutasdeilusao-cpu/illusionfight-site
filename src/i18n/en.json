@@ -1426,6 +1426,7 @@
       "menu_ja_ganhou": "You already won your card today. Come back tomorrow!",
       "menu_album": "View my card album →",
       "menu_voltar_games": "BACK TO GAMES",
+      "menu_voltar_menu": "BACK TO MENU",
       "deckBuilderBtn": "BUILD DECK",
       "cardViewer": {
         "copies": "copies",

@@ -944,7 +944,7 @@ export default function TopTrumps() {
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">
             <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{t('games.toptrumps.btn_jogar_novamente')}</button>
-            <BackToGamesBtn onClick={() => { sfx.click(); setFase('menu'); }} label={t('games.toptrumps.menu_voltar_games')} />
+            <BackToGamesBtn onClick={() => { sfx.click(); setFase('menu'); }} label={t('games.toptrumps.menu_voltar_menu')} />
           </div>
         </div>
       </section>

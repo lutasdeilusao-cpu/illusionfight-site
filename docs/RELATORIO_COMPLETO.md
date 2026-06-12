@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.24  
-> **Versão do Site:** 10.46.3  
+> **Versão do Relatório:** 3.25  
+> **Versão do Site:** 10.46.4  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.46.3 ✅ |
+| **Versão Atual** | 10.46.4 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -405,7 +405,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
-**Versão Single:** 5.14.1  
+**Versão Single:** 5.14.2  
 **Versão MP:** 5.8.1  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
@@ -434,6 +434,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 **Status Geral:** ✅ **100% (Single)** / 🟡 **75% (MP)**  
 **O que falta:** Testes finais de matchmaking multiplayer.
+
+#### Changelog v5.14.2
+- 🐛 **Fix botão fim de jogo** — Tela de vitória/derrota agora mostra 'VOLTAR AO MENU' (i18n pt/en/es) em vez de 'VOLTAR AOS GAMES'
 
 #### Changelog v5.14.1
 - 🐛 **🔥 Fix RELOAD EXPLOIT** — Sistema de tentativas diárias agora à prova de reload:
