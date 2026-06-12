@@ -575,11 +575,22 @@ export default function TopTrumps() {
                       onClick={() => { sfx.click(); setTotalTurnos(n); }}>{n}</button>
                   ))}
                 </div>
-                <div className="tt-config-tentativas">
-                  {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
-                  <span className="tt-tentativa-texto">{t('games.toptrumps.menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
-                </div>
-                {jaGanhouHoje && <p className="tt-ja-jogou">{t('games.toptrumps.menu_ja_ganhou')}</p>}
+                {jaGanhouHoje ? (
+                  <div className="tt-ja-ganhou-hoje">
+                    <span className="tt-ja-ganhou-icone">🏆</span>
+                    <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou')}</p>
+                  </div>
+                ) : deckUsuario.length >= todasCartas.length ? (
+                  <div className="tt-ja-ganhou-hoje">
+                    <span className="tt-ja-ganhou-icone">🏆</span>
+                    <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou_todas')}</p>
+                  </div>
+                ) : (
+                  <div className="tt-config-tentativas">
+                    {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
+                    <span className="tt-tentativa-texto">{t('games.toptrumps.menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
+                  </div>
+                )}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={() => {
                     sfx.click()

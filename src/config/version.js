@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.46.4'
+export const SITE_VERSION = '10.46.5'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -18,7 +18,7 @@ export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error apó
 export const TAMA_VERSION      = '2.1.0' // Tamagoshi LDI — refactor: remove hardcoded strings (use t()), move inline styles to CSS
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
-export const TS_VERSION        = '5.14.2'  // Top Trumps Single Player: fix — botão fim de jogo: 'VOLTAR AO MENU' i18n pt/en/es (em vez de 'VOLTAR AOS GAMES')
+export const TS_VERSION        = '5.15.0'  // Top Trumps Single Player: UI — quando jaGanhouHoje ou todas cartas coletadas, esconde tentativas e mostra banner claro "JÁ GANHOU HOJE" i18n pt/en/es
 export const TM_VERSION        = '5.8.2'  // Top Trumps Multiplayer: fim de jogo → botão 'VOLTAR AO MENU' em vez de 'VOLTAR AOS GAMES'
 export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)
 export const PROTOTYPE_VERSION = '1.0.1' // Protótipo — botão Exportar dentro do HTML, sem wrapper
