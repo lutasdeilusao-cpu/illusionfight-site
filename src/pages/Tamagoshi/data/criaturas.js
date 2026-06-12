@@ -128,6 +128,16 @@ const SPRITE_MAP = {
   3: KROUM_SPRITE,
 }
 
+// Slug (lowercase sem acentos) usado por FALAS_CRIATURA, COMIDA_TEMATICA, etc.
+// Ex: Onçara → 'oncara'
+function nomeToSlug(nome) {
+  return nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+export const CRIATURA_ID_TO_SLUG = Object.fromEntries(
+  CRIATURAS_BASE.map(c => [c.id, nomeToSlug(c.nome)])
+)
+
 export const CRIATURAS = CRIATURAS_BASE.map(c => ({
   ...c,
   ...(SPRITE_MAP[c.id] || KRONIKI_SPRITE),

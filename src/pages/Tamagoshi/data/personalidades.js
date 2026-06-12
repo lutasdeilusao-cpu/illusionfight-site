@@ -89,6 +89,7 @@ export const PERS_NOME_KEY = {
 }
 
 import { FALAS_CRIATURA } from './falas-criatura'
+import { CRIATURA_ID_TO_SLUG } from './criaturas'
 
 export function getFala(tipo, chave, criaturaId, tFn) {
   // Se tem t() E é uma notificação de personalidade (não criatura-específica), usa i18n
@@ -99,8 +100,9 @@ export function getFala(tipo, chave, criaturaId, tFn) {
     if (translated !== i18nKey) return translated
   }
   // Fallback: fala específica de criatura (português)
-  if (criaturaId && FALAS_CRIATURA[criaturaId]?.[chave]) {
-    const arr = FALAS_CRIATURA[criaturaId][chave]
+  const slug = criaturaId ? CRIATURA_ID_TO_SLUG[criaturaId] : null
+  if (slug && FALAS_CRIATURA[slug]?.[chave]) {
+    const arr = FALAS_CRIATURA[slug][chave]
     return arr[Math.floor(Math.random() * arr.length)]
   }
   return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
