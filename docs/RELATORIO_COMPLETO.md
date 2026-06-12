@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.34  
-> **Versão do Site:** 10.53.0  
+> **Versão do Relatório:** 3.35  
+> **Versão do Site:** 10.53.1  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,13 +52,13 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.49.0 ✅ |
+| **Versão Atual** | 10.53.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
 | **Total de Arquivos de Código** | ~250+ arquivos |
 | **Idiomas** | 3 (PT, EN, ES) |
-| **Supabase Migrations** | 14 arquivos |
+| **Supabase Migrations** | 22 arquivos |
 | **Stripe Edge Functions** | 3 funções |
 | **Total de Capítulos do Livro** | 16 escritos (3 publicados — lançamento quinzenal Set/2026) |
 | **Total de Palavras no Livro** | ~27.500 palavras |
@@ -439,6 +439,20 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 - 🐛 **Fix: IA não escolhe mais rank_sdr** — Rank SDR não é um atributo jogável (é apenas informativo/visual na carta). A IA do SP (TopTrumps.jsx) e o timeout auto-pick do MP (TopTrumpsMP.jsx) agora filtram `rank_sdr` das opções disponíveis
 - ✅ **Confirmado: PPT (jokenpô) é 100% aleatório** — A escolha da IA no PPT usa `Math.floor(Math.random() * 3)`, probabilidade pura sem viés
 
+#### Changelog v5.20.0
+- 🐛 **Fix: salvarDeckTipo violava UNIQUE(user_id,carta_id)** — Ao salvar deck com cartas já existentes na coleção geral, ocorria erro de UNIQUE violation. Agora deleta entries antigas antes de reinserir.
+
+#### Changelog v5.19.0
+- 🐛 **Fix: tentativas diárias não persistiam** — Coluna `carta_ganha_hoje` inexistente causava falha silenciosa em upserts. Agora usa `toptrumps_partidas` para verificar se o jogador já ganhou carta hoje.
+- ♻️ **Sincroniza SEASON_1_IDS** — PerfilColeção agora reflete corretamente 6/30 cartas (em vez de 3/20) consistentes com TopTrumps.jsx.
+
+#### Changelog v5.18.0
+- 🤖 **IA escolhe atributo aleatório** — IA não vê mais os valores do jogador (gameplay justo e divertido). Escolhe um atributo aleatório entre os disponíveis.
+
+#### Changelog v5.17.0
+- ✨ **PPT inicial (jokenpô decorativo)** — Quem vence o PPT começa escolhendo o atributo.
+- 🔄 **Alternância real de turnos** — `vezAtual` decide quem escolhe atributo. IA escolhe automaticamente com maior vantagem relativa.
+
 #### Changelog v5.16.0 / v5.9.0
 - ♻️ **Refactor SP + MP: remove hardcoded strings** — Sound toggle titles, score labels "VOCÊ"/"IA", PPT nomes (Pedra/Papel/Tesoura), "do máximo", tier names (FREE/ELITE/PRIMORDIAL/LENDÁRIO/SOMBRA), mensagem de timeout, DeckStart modal locale bypass agora usam `t()` i18n pt/en/es
 - ♻️ **Refactor: remove inline CSS** — Collection bar `--fill` e confirm bar width agora usam ref callback em vez de `style={{}}`; CardViewerModal stat bar width também refatorado
@@ -772,11 +786,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.0.4  
+**Versão:** 2.1.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
+> 🎮 **v2.1.0 — Refactor:** hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Refatoração geral de texto para i18n e estilo para CSS puro.  
 > 🎮 **v2.0.4 — CSS fix:** botões Alimentar com className duplicado (tama-btn sobrescrito por tama-alimentar-item-btn), text visibility restaurada  
 > 🎮 **v2.0.3 — Fichas fix:** erro 42P10 (upsert sem unique constraint) trocado para insert  
 > 🎮 **v2.0.2 — Arquitetura front-end:** nome/personalidade resolvidos via CRIATURAS[criatura_id], não do Supabase; FichasContext upsert p/ persistir saldo; Criatura.jsx/PerfilTamagoshi limpos  
@@ -856,6 +871,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
 **Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente 3 criaturas possuem sprite próprio: **Kroniki** (10 estados), **Ninka** (10 estados), **Kroum** (10 estados). Faltam artes personalizadas para as 29 criaturas restantes.  
+**v2.1.0** — Refactor: hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Limpeza geral de i18n e estilo.  
 **v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.  
 **v1.33.0** — Fix: Gacha shadow bug (variável `t` do `.map()` colidia com função `t()` de tradução). Renomeado "Gacha" → "Sorteio" (pt) / "Raffle" (en) / "Sorteo" (es). Botão "🎮 Jogar Tamagoshi" adicionado no Perfil.  
 **v1.34.0** — Fix: texto vazio no Perfil (`"você ainda não tem um tamagoshi."`) trocado por botão "🥚 Ir pegar seu Tamagoshi" (3 línguas) para contas novas.  
@@ -983,7 +999,7 @@ capitulo-04 ao 16: publicado: false ❌
 
 **Projeto:** `dvxfrzixtetdzmdrzkpx.supabase.co`
 
-#### Migrations (16 arquivos)
+#### Migrations (22 arquivos)
 
 | Migration | Descrição | Status |
 |---|---|---|
@@ -996,14 +1012,19 @@ capitulo-04 ao 16: publicado: false ❌
 | `009_tamagoshi_v2.sql` | Tamagoshi v2 | ✅ Aplicada |
 | `010_profiles_admin_role.sql` | Admin role | ✅ Aplicada |
 | `010_tamagoshi_fix_columns.sql` | Fix colunas | ✅ Aplicada |
-| `010_stripe_billing.sql` | Stripe subscription | ✅ Aplicada |
 | `011_arena_tatics_roster.sql` | Roster Tatics | ✅ Aplicada |
 | `012_tatics_card_pool.sql` | Cartas + evolução (v7.0) | ✅ Aplicada |
 | `013_fichas_tables.sql` | Tabelas fichas | ✅ Aplicada |
 | `013_pesadelo_saves.sql` | Pesadelo saves | ✅ Aplicada |
 | `014_toptrumps_decks_builder.sql` | Top Trumps deck builder | ✅ Aplicada |
 | `015_profiles_last_seen_at.sql` | Profiles last_seen_at | ✅ Aplicada |
+| `016_toptrumps_ranking.sql` | Top Trumps ranking mensal | ✅ Aplicada |
 | `017_drop_tamagoshi_tables.sql` | Drop Tamagoshi tables obsoletas | ✅ Aplicada |
+| `018_ensure_fichas_constraints.sql` | PK user_id fichas | ✅ Aplicada |
+| `018_profiles_country.sql` | País nos perfis | ✅ Aplicada |
+| `019_dix_initial_1000.sql` | 1000 DIX iniciais | ✅ Aplicada |
+| `020_toptrumps_decks_unique_constraint.sql` | UNIQUE (user_id, carta_id) | ✅ Aplicada |
+| `021_toptrumps_stats_carta_ganha.sql` | Coluna carta_ganha_hoje | ✅ Aplicada |
 
 > ⚠️ **Observação:** Migrations 001-003 não estão no repositório (existem apenas no banco remoto)
 
@@ -1077,7 +1098,7 @@ capitulo-04 ao 16: publicado: false ❌
 | **Livro** | 3 capas oficiais (`capitulo-01.png`~`capitulo-03.png`) | ~115KB cada | ✅ Capas dos 3 capítulos publicados |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
 | **Música** | 16 capas randomizadas (`01.png`~`16.png`) | ~150-240KB cada | ✅ Randomizado por visita |
-| **Tamagoshi** | **7 sprites** (Kroniki) | ~137KB cada | 🔴 **1 de 30 criaturas** |
+| **Tamagoshi** | **30 sprites** (Kroniki, Ninka, Kroum — 10 estados cada) | ~137KB cada | 🟡 **3 de 32 criaturas** |
 | **Cards** (Top Trumps) | Artes oficiais 1ª temporada (no jogo) | ✅ Completo |
 | **Cards** (Duelo) | Nenhum | — | 🔴 **0** |
 
@@ -1178,16 +1199,16 @@ STATUS: ✅ limpo
 | **MiniGames** (8 jogos) | 90% | 🟢 | Todos funcionais |
 | **Top Trumps** (Single) | 100% | 🟢 | Finalizado, balanceado, artes oficiais |
 | **Top Trumps** (Multiplayer) | 75% | 🟡 | Finalizado, testes de matchmaking |
-| **Arena LDI** (combate CPU) | 87% | 🟡 | 8 inimigos, SFX, auto-scroll, exit btn |
+| **Arena LDI** (combate CPU) | 97% | 🟢 | 8 inimigos, SFX, leaderboard, XP bar, DramaticDice, MatchResult overlay |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 | Motor completo, balanceamento WIP |
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar) |
-| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 28 criaturas (Kroniki + Ninka prontos) |
+| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. Pendente: sprites para 29 criaturas (Kroniki, Ninka, Kroum prontos) |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | 19% | 🔴 | Só 3/16 publicados |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
 | **Arte Personagens** | 100% | 🟢 | 10/10 com artes oficiais |
-| **Sprites Tamagoshi** | 3% | 🔴 | 1/30 criaturas com sprite |
+| **Sprites Tamagoshi** | 9% | 🟡 | 3/32 criaturas com sprite (Kroniki, Ninka, Kroum) |
 | **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
 | **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte (WIP) |
 | **Músicas** (catálogo) | 100% | 🟢 | 36 faixas, todas publicadas com links + 16 capas randomizadas |
@@ -1199,14 +1220,14 @@ STATUS: ✅ limpo
 | **Engenharia/Código** (telas, lógica, stores, API) | **92%** | Quase todo o código está escrito |
 | **Conteúdo Textual** (diálogos, lore, livro PT) | **85%** | Muito conteúdo já produzido |
 | **Conteúdo Traduzido** (EN/ES) | **55%** | **Site+Jogos 100%** (1318 chaves confirmadas) | Livro caps 4-16 sem tradução |
-| **Arte/Assets** (sprites, imagens, cartas) | **50%** | Top Trumps com artes oficiais (105/105), demais WIP |
+| **Arte/Assets** (sprites, imagens, cartas) | **52%** | Top Trumps com artes oficiais (105/105), Tamagoshi 3/32 sprites, demais WIP |
 | **Publicação** (capítulos do livro) | **19%** | Conteúdo existe, não publicado |
-| **Balanceamento/Testes** (jogos) | **68%** | Top Trumps finalizado+balanceado, demais WIP |
+| **Balanceamento/Testes** (jogos) | **72%** | Top Trumps finalizado+balanceado, Arena testada/revisada, demais WIP |
 
 ### 11.3 Estimativa Geral
 
 ```
-████████████████████████████████████████████████░░  ~82% COMPLETO
+████████████████████████████████████████████████░░  ~83% COMPLETO
 ```
 
 ---
@@ -1218,7 +1239,7 @@ STATUS: ✅ limpo
 
 | Item | Status | Impacto |
 |---|---|---|
-| Sprites Tamagoshi (29/30 faltando) | 🔴 3% | Jogo funcional sem arte visual |
+| Sprites Tamagoshi (29/32 faltando) | 🟡 9% | Jogo funcional sem arte visual |
 | Artes de personagens | 🟢 100% | 10/10 personagens com artes oficiais |
 | Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |

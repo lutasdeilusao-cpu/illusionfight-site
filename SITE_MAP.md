@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.53.1*  |  `[SITE] versão carregada: 10.53.1`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Relatório atualizado: versões corrigidas (10.49.0→10.53.0), Top Trumps changelogs v5.18→v5.21 adicionados, Tama sprites 3/32 (9%), Arena 97%, migrations 22, SITE_MAP.md sincronizado
 *Versão: 10.53.0*  |  `[SITE] versão carregada: 10.53.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Perfil — blocos começam fechados (collapsed); Coleção movida para primeiro; renomeado p/ "CARTAS SUPER TRUNFO/TOP TRUMPS CARDS/CARTAS TOP TRUMPS" (pt/en/es)
 *Versão: 10.52.0*  |  `[SITE] versão carregada: 10.52.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.21.0/v5.10.0 — fix: IA não escolhe mais rank_sdr (não é atributo jogável, era apenas informativo na carta) + PPT confirmado aleatório por probabilidade pura
 *Versão: 10.51.0*  |  `[SITE] versão carregada: 10.51.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Top Trumps v5.20.0 — fix: salvarDeckTipo violava UNIQUE(user_id,carta_id) ao tentar salvar deck com cartas já existentes na coleção geral (agora deleta entries antigas antes de reinserir)
@@ -166,10 +167,17 @@
 *Versão: 9.5*  |  `[SITE] versão carregada: 9.5`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)
 *LDI versão: 2.0.0* | `[LDI] versão carregada: 2.0.0` (i18n completo: scenes, manual, powers, char data, creation flow)
 *TATICS versão: 7.3.0* | `[TATICS] versão carregada: 7.3.0`
+*ARENA versão: 1.25.1* | `[ARENA] versão carregada: 1.25.1` (Fix crash pós-vitória — TypeError getState + Leaderboard Arena conectado + RankingSection componentizado)
+*ARENA versão: 1.25.0* | `[ARENA] versão carregada: 1.25.0` (Leaderboard LDI Arena com ranking real do Supabase + RankingSection componentizado + 15pts por vitória)
+*ARENA versão: 1.24.1* | `[ARENA] versão carregada: 1.24.1` (Fix rota upgrade: /planos → /assinar)
+*ARENA versão: 1.24.0* | `[ARENA] versão carregada: 1.24.0` (Modal upgrade ao limite de fichas + multiplayer gate + badge FAZER UPGRADE)
+*ARENA versão: 1.23.0* | `[ARENA] versão carregada: 1.23.0` (Limite fichas por tier — FREE:1, Elite:3, Primordial:5 + multiplayer Elite+)
 *ARENA versão: 1.22.0* | `[ARENA] versão carregada: 1.22.0` (PerfilArena corrigido — mostra fichas LDI Arena, não mais Top Trumps)
 *ARENA versão: 1.21.0* | `[ARENA] versão carregada: 1.21.0` (SFX + partículas explosão vitória/derrota)
 *ARENA versão: 1.20.1* | `[ARENA] versão carregada: 1.20.1` (Fix: power name reflete poder clicado + TTS voice persiste na batalha)
 *ARENA versão: 1.20.0* | `[ARENA] versão carregada: 1.20.0` (Power name reveal + power SFX + TTS voice)
+*ARENA versão: 1.19.1* | `[ARENA] versão carregada: 1.19.1` (Hotfix criação fichas: attribute_points_gained derivado do xp_total)
+*ARENA versão: 1.19.0* | `[ARENA] versão carregada: 1.19.0` (Fix XP acumulando + barra de progresso XP visual)
 *ARENA versão: 1.18.0* | `[ARENA] versão carregada: 1.18.0` (Elemental removido + dice restart fix)
 *ARENA versão: 1.17.1* | `[ARENA] versão carregada: 1.17.1` (Scroll power select com barra invisível)
 *ARENA versão: 1.17.0* | `[ARENA] versão carregada: 1.17.0` (Botão voltar → escolher oponente + BackToGamesBtn power select + delay 1200ms)
@@ -178,14 +186,36 @@
 *ARENA versão: 1.15.1* | `[ARENA] versão carregada: 1.15.1` (Scrollbar invisível)
 *ARENA versão: 1.15.0* | `[ARENA] versão carregada: 1.15.0` (SFX completo criação de ficha + scroll mobile + botão voltar duplicado removido)
 *ARENA versão: 1.14.2* | `[ARENA] versão carregada: 1.14.2` (Botões Voltar padronizados com BackToGamesBtn)
+*ARENA versão: 1.14.0* | `[ARENA] versão carregada: 1.14.0` (MatchResult overlay + delay 2s + overlay cinematográfico)
+*ARENA versão: 1.13.0* | `[ARENA] versão carregada: 1.13.0` (DramaticDice: dado cinematográfico fullscreen)
 *ARENA versão: 1.10.4* | `[ARENA] versão carregada: 1.10.4` (powers i18n pt/en/es + elemental label fix)
 *DUELO versão: 2.7.1* | `[DUELO] versão carregada: 2.7.1` | ✅ Fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar)
 *DUELO versão: 2.7.0* | `[DUELO] versão carregada: 2.7.0` | ✅ Ataque direto Yu-Gi-Oh style
 *DUELO versão: 2.6.0* | `[DUELO] versão carregada: 2.6.0`
 *DUELO versão: 2.5.0* | `[DUELO] versão carregada: 2.5.0`
+*TS versão: 5.21.0* | `[TS] versão carregada: 5.21.0` | ✅ IA não escolhe mais rank_sdr + PPT 100% aleatório confirmado
+*TS versão: 5.20.0* | `[TS] versão carregada: 5.20.0` | ✅ Fix salvarDeckTipo — deleta antigas antes de reinserir (evita UNIQUE violation)
+*TS versão: 5.19.0* | `[TS] versão carregada: 5.19.0` | ✅ Fix tentativas diárias — carta_ganha_hoje agora persiste via toptrumps_partidas
+*TS versão: 5.18.0* | `[TS] versão carregada: 5.18.0` | ✅ IA escolhe atributo aleatório (não vê valores do jogador)
+*TS versão: 5.17.0* | `[TS] versão carregada: 5.17.0` | ✅ PPT inicial + alternância real de turnos (vezAtual)
+*TS versão: 5.16.0* | `[TS] versão carregada: 5.16.0` | ✅ Refactor: remove hardcoded strings (t()) + remove inline CSS (refs)
+*TS versão: 5.15.0* | `[TS] versão carregada: 5.15.0` | ✅ UI: banner quando jaGanhouHoje/todas cartas coletadas
+*TS versão: 5.14.2* | `[TS] versão carregada: 5.14.2` | ✅ Fix botão fim de jogo 'VOLTAR AO MENU'
+*TS versão: 5.14.1* | `[TS] versão carregada: 5.14.1` | ✅ Fix reload exploit nas tentativas diárias
+*TS versão: 5.14.0* | `[TS] versão carregada: 5.14.0` | ✅ Fix 5 cartas únicas por jogador + tentativa por partida
+*TS versão: 5.13.1* | `[TS] versão carregada: 5.13.1` | ✅ Fix turnos (modulo cycling) + sem cartas repetidas
+*TS versão: 5.13.0* | `[TS] versão carregada: 5.13.0` | ✅ Nenhuma carta se repete na partida (SP e MP)
+*TS versão: 5.11.0* | `[TS] versão carregada: 5.11.0` | ✅ Refactor: ranking extraído para useLeaderboardDB
+*TS versão: 5.10.0* | `[TS] versão carregada: 5.10.0` | ✅ Fix botoes VOLTAR + botao DESISTIR com confirmacao
 *TS versão: 5.9.0* | `[TS] versão carregada: 5.9.0` | ✅ Ranking mensal ranqueado (global/BR)
+*TM versão: 5.10.0* | `[TM] versão carregada: 5.10.0` | ✅ rank_sdr removido das escolhas automáticas (timeout)
+*TM versão: 5.9.1* | `[TM] versão carregada: 5.9.1` | ✅ Fix runtime error: add missing getDeck import in Lobby
+*TM versão: 5.9.0* | `[TM] versão carregada: 5.9.0` | ✅ Refactor: remove hardcoded strings + inline CSS
+*TM versão: 5.8.2* | `[TM] versão carregada: 5.8.2` | ✅ Fix botao fim de jogo 'VOLTAR AO MENU'
+*TM versão: 5.8.1* | `[TM] versão carregada: 5.8.1` | ✅ Fix 5 cartas únicas + tentativa por partida
+*TM versão: 5.8.0* | `[TM] versão carregada: 5.8.0` | ✅ Nenhuma carta se repete no deck
 *TM versão: 5.6.0* | `[TM] versão carregada: 5.6.0`
-*TAMA versão: 2.1.0* | `[TAMA] versão carregada: 2.1.0`
+*TAMA versão: 2.1.0* | `[TAMA] versão carregada: 2.1.0` | ✅ Refactor: hardcoded strings → t(), inline styles → CSS
 
 > ✅ **LDI Top Trumps — Single Player FINALIZADO!** Artes oficiais, SFX, jogabilidade completa. Multiplayer ainda em testes.
 
