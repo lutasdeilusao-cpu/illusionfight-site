@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.48.0'
+export const SITE_VERSION = '10.48.1'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -18,8 +18,8 @@ export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error apó
 export const TAMA_VERSION      = '2.1.0' // Tamagoshi LDI — refactor: remove hardcoded strings (use t()), move inline styles to CSS
 export const DUELO_VERSION     = '2.7.1'  // Duelo LDI (fix TELEPORT: fluxo completo de selecionar monstro → escolher destino → teleportar)
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
-export const TS_VERSION        = '5.17.0'  // Top Trumps Single Player: PPT inicial + alternância real de turnos (vezAtual, IA escolhe atributo automaticamente)
-export const TM_VERSION        = '5.9.0'  // Top Trumps Multiplayer: refactor — remove hardcoded strings (use t()) + PPT nomes i18n + sound toggle i18n
+export const TS_VERSION        = '5.17.1'  // Top Trumps Single Player: fix — add missing getDeck import in Lobby
+export const TM_VERSION        = '5.9.1'  // Top Trumps Multiplayer: fix — add missing getDeck import in Lobby
 export const TATICS_VERSION    = '7.3.0'  // Arena LDI Tatics (tag EM BREVE + bloqueio admin)
 export const PROTOTYPE_VERSION = '1.0.1' // Protótipo — botão Exportar dentro do HTML, sem wrapper
 

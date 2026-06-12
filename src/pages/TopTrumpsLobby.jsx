@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../hooks/useTopTrumpsMP'
 import { usePresence } from '../hooks/usePresence'
 import { carregarDeck as carregarDeckDB } from '../hooks/useLeaderboardDB'
+import { getDeck } from '../lib/getDeck'
 import deck from '../data/supertrunfo-pt.json'
 import './TopTrumpsLobby.css'
 
