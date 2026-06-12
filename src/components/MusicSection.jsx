@@ -40,8 +40,7 @@ function MusicCircle({ m }) {
   return (
     <div className="music-item">
       <button
-        className={`music-circle${!hasPlatforms ? ' music-circle--placeholder' : ''}`}
-        style={!m._img && !hasPlatforms ? { background: 'linear-gradient(135deg, var(--bg-elevated), var(--bg-secondary))' } : {}}
+        className={`music-circle${!hasPlatforms ? ' music-circle--placeholder' : ''}${!m._img && !hasPlatforms ? ' music-circle--placeholder-bg' : ''}`}
         onClick={() => navigate('/musicas')}
       >
         {m._img ? (

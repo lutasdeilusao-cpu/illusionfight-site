@@ -98,6 +98,10 @@
   box-shadow: 0 0 24px rgba(0, 180, 216, 0.15);
 }
 
+.music-circle--placeholder-bg {
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-secondary));
+}
+
 .music-circle img {
   width: 100%;
   height: 100%;
