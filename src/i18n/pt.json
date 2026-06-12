@@ -1846,6 +1846,8 @@
       "gacha_criaturas": "criaturas",
       "gacha_aceitar": "ACEITAR",
       "gacha_recusar": "RECUSAR",
+      "gacha_giro_gratis": "1º GIRO GRÁTIS",
+      "em_breve": "EM BREVE",
 
       "banhar_usando": "usando: {item}",
       "brincadeira_sair": "sair",

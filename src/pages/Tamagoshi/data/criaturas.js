@@ -202,8 +202,8 @@ const CRIATURAS_BASE = [
   { id: 8,  nome: 'Sangueko',    tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
   { id: 9,  nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
   { id: 10, nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
-  { id: 11, nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 1, emoji: '🐆' },
-  { id: 12, nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 1, emoji: '💥' },
+  { id: 11, nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 2, emoji: '🐆' },
+  { id: 12, nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 2, emoji: '💥' },
 
   { id: 13, nome: 'Lumiki',      tipo: 'FOFO',         raridade: 'comum',    temporada: 2, emoji: '✨' },
   { id: 14, nome: 'Ventro',      tipo: 'FOFO',         raridade: 'incomum',  temporada: 2, emoji: '🌬️' },

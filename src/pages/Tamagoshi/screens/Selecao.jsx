@@ -5,9 +5,10 @@ import { useEventos } from '../../../context/EventosContext'
 import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
+import SEASON_1 from '../data/tamagoshi-season1.json'
 
-// Temporada ativa para seleção gratuita (T1 sempre disponível)
-const CRIATURAS_T1 = CRIATURAS.filter(c => c.temporada === 1)
+// Temporada ativa para seleção gratuita (usa JSON dedicado da Temporada 1)
+const CRIATURAS_T1 = CRIATURAS.filter(c => SEASON_1.criaturas.includes(c.id))
 
 // Limite de slots por tier (T1: todos max 1; desbloqueado na T2)
 const SLOT_LIMITS = { free: 1, elite: 1, primordial: 1 }

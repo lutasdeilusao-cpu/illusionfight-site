@@ -1819,6 +1819,8 @@
       "gacha_criaturas": "creatures",
       "gacha_aceitar": "ACCEPT",
       "gacha_recusar": "REFUSE",
+      "gacha_giro_gratis": "1ST FREE SPIN",
+      "em_breve": "COMING SOON",
 
       "banhar_usando": "using: {item}",
       "brincadeira_sair": "leave",

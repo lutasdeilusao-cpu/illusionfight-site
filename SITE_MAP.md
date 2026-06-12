@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 *Última atualização: 2026-06-12*
+*Versão: 10.66.0*  |  `[SITE] versão carregada: 10.66.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.3.0 — Sorteio T1 usa JSON dedicado (tamagoshi-season1.json) com IDs 1-10; IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2. i18n pt/en/es para gacha_giro_gratis e em_breve.
 *Versão: 10.65.0*  |  `[SITE] versão carregada: 10.65.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Sistema "Em Breve" para Webtoon + Livro na Home: LatestEpisodes mostra ComingSoon.png para episódios bloqueados (igual BookChaptersRow). Admin bypass: contas admin (isaiasgamedev, gramikgames) veem todo conteúdo liberado antes do lançamento. `estaDisponivel()` agora aceita `isAdmin`. i18n pt/en/es via `pages.webtoon.em_breve`/`pages.livro.em_breve`.
 *Versão: 10.64.0*  |  `[SITE] versão carregada: 10.64.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.2.0 — novas criaturas oficiais: Draken (ID 04), Kaiser (05), Lenna (06), Yawaru (07) com sprites próprios (10 estados cada). Nomes atualizados, falas e itens temáticos renomeados.
 *Versão: 10.63.0*  |  `[SITE] versão carregada: 10.63.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Assinar — inline CSS removido (style={{}} → data-plan + CSS), hardcoded strings removidas (botões, feedback, Helmet → t()), i18n pt/en/es completo
@@ -668,11 +669,12 @@
     │       ├── store/
     │       │   └── useTamagoshiStore.js # Zustand: métricas, DIX, lifecycle
     │       ├── data/
-    │       │   ├── criaturas.js        # 30 criaturas
+    │       │   ├── criaturas.js        # 32 criaturas
     │       │   ├── evolucoes.js        # 4 estágios
     │       │   ├── falas-criatura.js   # Falas por criatura
     │       │   ├── itens_loja.js       # Itens da loja
     │       │   ├── moedas.js           # DIX constants
+    │       │   ├── tamagoshi-season1.json # JSON T1: IDs 1-10
     │       │   ├── passeios.js         # 6 locais
     │       │   ├── personalidades.js   # 6 personalidades
     │       │   └── sfx.js              # Sons sintéticos via Web Audio API

@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.65.0 ✅ |
+| **Versão Atual** | 10.66.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 35 rotas ativas |
 | **Total de Jogos** | 9 jogos |
@@ -786,11 +786,12 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 ### 5.8 Tamagoshi LDI
 
-**Versão:** 2.2.0  
+**Versão:** 2.3.0  
 **Fichas:** Gratuito (FREE)  
 **Rota base:** `/games/tamagoshi`
 
-> 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes pt/en/es  
+> 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes, gacha pt/en/es  
+> 🎮 **v2.3.0 — Sorteio T1 com JSON dedicado:** Sorteio da Temporada 1 agora lê de `tamagoshi-season1.json` (IDs 1-10). IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2 — prontos para futuras seasons via JSON independentes. Hardcoded strings "1º GIRO GRÁTIS" e "EM BREVE" substituídas por i18n pt/en/es.  
 > 🎮 **v2.2.0 — Novas criaturas oficiais:** Draken, Kaiser, Lenna e Yawaru (IDs 04-07) com sprites próprios (10 estados cada). Nomes atualizados (era Voidling, Aquori, Sinalo, Grafiko). Falas e itens temáticos renomeados.  
 > 🎮 **v2.1.0 — Refactor:** hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Refatoração geral de texto para i18n e estilo para CSS puro.  
 > 🎮 **v2.0.4 — CSS fix:** botões Alimentar com className duplicado (tama-btn sobrescrito por tama-alimentar-item-btn), text visibility restaurada  
@@ -808,7 +809,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Tela | Status | Descrição |
 |---|---|---|
 | `Ovo.jsx` | ✅ Completo | Ovo pulsante |
-| `Selecao.jsx` | ✅ **v1.32.0** | Seleção aleatória entre as 10 criaturas T1 (não sempre Kroniki) |
+| `Selecao.jsx` | ✅ **v2.3.0** | Seleção via JSON dedicado T1 (tamagoshi-season1.json) — IDs 1-10 |
 | `Criatura.jsx` | ✅ **v1.23.1** | BackToGamesBtn reposicionado abaixo dos botões de ação |
 | `Alimentar.jsx` | ✅ **v1.23.0** | SFX: clique nos botões + sucesso ao completar. Mostra TODOS os itens de comida |
 | `Banhar.jsx` | ✅ **v1.23.0** | SFX: swipe throttled (200ms) + conclusão. Mostra qual item está sendo usado |
@@ -825,7 +826,8 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Arquivo | Status | Conteúdo |
 |---|---|---|
-| `criaturas.js` | ✅ **v1.37.0** | **32 criaturas** — kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs |
+| `criaturas.js` | ✅ **v2.3.0** | **32 criaturas** — kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs. IDs 11-12 movidos para T2 |
+| `tamagoshi-season1.json` | ✅ **v2.3.0** | **JSON dedicado T1** — IDs 1-10 (Kroniki a Voidspawn). Pronto para alimentar S2/S3 com novos JSONs |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
 | `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
@@ -872,6 +874,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
 **Status Geral:** ✅ **Finalizado** — Pendente: sprites individuais para cada criatura. Atualmente 7 criaturas possuem sprite próprio: **Kroniki** (10 estados), **Ninka** (10 estados), **Kroum** (10 estados), **Draken** (10 estados), **Kaiser** (10 estados), **Lenna** (10 estados), **Yawaru** (10 estados). Faltam artes personalizadas para as 25 criaturas restantes.  
+**v2.3.0** — Sorteio T1 com JSON dedicado (`tamagoshi-season1.json`). IDs 1-10 exclusivos para Season 1. IDs 11-12 movidos para T2. Sistema preparado para múltiplas seasons via JSONs independentes.  
 **v2.1.0** — Refactor: hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Limpeza geral de i18n e estilo.  
 **v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.  
 **v1.33.0** — Fix: Gacha shadow bug (variável `t` do `.map()` colidia com função `t()` de tradução). Renomeado "Gacha" → "Sorteio" (pt) / "Raffle" (en) / "Sorteo" (es). Botão "🎮 Jogar Tamagoshi" adicionado no Perfil.  

@@ -5,9 +5,10 @@ import { CRIATURAS } from '../data/criaturas'
 import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { DIX_GACHA } from '../data/moedas'
+import SEASON_1 from '../data/tamagoshi-season1.json'
 
-// Apenas as 10 primeiras criaturas da CRIATURAS_BASE participam do sorteio T1
-const CRIATURAS_T1_GACHA = CRIATURAS.slice(0, 10)
+// Apenas as criaturas listadas no JSON da Temporada 1 participam do sorteio T1
+const CRIATURAS_T1_GACHA = CRIATURAS.filter(c => SEASON_1.criaturas.includes(c.id))
 
 function sortearT1() {
   const disponiveis = CRIATURAS_T1_GACHA
@@ -109,14 +110,14 @@ export default function Gacha({ onConcluir, onVoltar }) {
             disabled
           >
             {t('games.tamagoshi.gacha_temporada_2')}
-            <span className="tama-gacha-temp-qtd">EM BREVE</span>
+            <span className="tama-gacha-temp-qtd">{t('games.tamagoshi.em_breve')}</span>
           </button>
         </div>
 
         {/* Saldo + badge de giro grátis */}
         <div className="tama-gacha-saldo">
           <span>{t('games.tamagoshi.dix_display', { saldo: store._isAdmin ? '∞' : saldo })}</span>
-          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">🎁 1º GIRO GRÁTIS</span>}
+          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">🎁 {t('games.tamagoshi.gacha_giro_gratis')}</span>}
         </div>
 
         {/* Erro */}
