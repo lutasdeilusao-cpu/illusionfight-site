@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.80.1'
+export const SITE_VERSION = '10.80.2'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -18,7 +18,7 @@ export const ARENA_VERSION     = '1.27.2'  // LDI Arena: CSS inline audit — st
 export const TAMA_VERSION      = '2.5.0' // Tamagoshi LDI — S1 completo: 10/10 sprites próprios (Alion, Indye, Popystar) — último gargalo de assets eliminado!
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
-export const TS_VERSION        = '5.22.2'  // Top Trumps SP: barra de coleção oculta para guest no menu
+export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
 export const PROTOTYPE_VERSION = '2.0.0' // Protótipo — menu de seleção + HexBoard + Morto Engine

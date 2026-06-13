@@ -1949,6 +1949,117 @@
   to { opacity: 1; }
 }
 
+/* ---- MULTIPLAYER LOCKED (GUEST) ---- */
+
+.tt-modo-card--locked {
+  cursor: pointer;
+  opacity: 0.7;
+  border-color: rgba(255,255,255,0.08);
+}
+.tt-modo-card--locked:hover {
+  opacity: 0.9;
+  border-color: rgba(232,133,58,0.4);
+  background: rgba(232,133,58,0.06);
+  transform: translateY(-2px);
+}
+
+.tt-modo-card-lock-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.tt-locked-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: tt-fade-in 0.2s ease;
+}
+
+.tt-locked-modal {
+  background: #1A1D21;
+  border: 1px solid rgba(232,133,58,0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(232,133,58,0.1);
+  animation: tt-confirm-enter 0.3s ease;
+}
+
+.tt-locked-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f4a227;
+  text-align: center;
+  margin: 0;
+}
+
+.tt-locked-desc {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.85rem;
+  color: #8B8F96;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tt-locked-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.tt-locked-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+  border: 1px solid #4F5359;
+  background: transparent;
+  color: #8B8F96;
+  text-align: center;
+  text-decoration: none;
+}
+.tt-locked-btn:hover {
+  border-color: #8B8F96;
+  color: #EAEAEA;
+}
+
+.tt-locked-btn--primary {
+  border: 1px solid #e8853a;
+  background: rgba(232,133,58,0.15);
+  color: #e8853a;
+}
+.tt-locked-btn--primary:hover {
+  background: rgba(232,133,58,0.3);
+  border-color: #f4a227;
+  color: #f4a227;
+}
+
+@keyframes tt-confirm-enter {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 /* ══════════════════════════════════════════
    PPT (JOKENPÔ) — copiado de TopTrumpsMP.css
    ══════════════════════════════════════════ */

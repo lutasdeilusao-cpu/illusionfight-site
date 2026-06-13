@@ -140,6 +140,7 @@ export default function TopTrumps() {
   const [particulas, setParticulas] = useState([])
   const [historicoRodadas, setHistoricoRodadas] = useState([])
   const [showDesistirModal, setShowDesistirModal] = useState(false)
+  const [modalMultiplayerLocked, setModalMultiplayerLocked] = useState(false)
 
   // Card viewer + deck builder
   const [viewerIdx, setViewerIdx] = useState(null)
@@ -656,9 +657,17 @@ export default function TopTrumps() {
                 <div className="tt-modo-card" onClick={() => { sfx.click(); setMenuStep('config'); }}>
                   <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_single_player')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_single_desc')}</p>
                 </div>
-                <Link to="/games/toptrumps/lobby" className="tt-modo-card" onClick={() => sfx.click()}>
-                  <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
-                </Link>
+                {user ? (
+                  <Link to="/games/toptrumps/lobby" className="tt-modo-card" onClick={() => sfx.click()}>
+                    <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
+                  </Link>
+                ) : (
+                  <div className="tt-modo-card tt-modo-card--locked" onClick={() => { sfx.click(); setModalMultiplayerLocked(true) }}>
+                    <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3>
+                    <p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
+                    <span className="tt-modo-card-lock-icon">🔒</span>
+                  </div>
+                )}
               </div>
             )}
             {menuStep === 'config' && (
@@ -750,6 +759,23 @@ export default function TopTrumps() {
           onConfirm={(ids) => { setShowDeckStart(false); iniciarJogoComCartas(ids); }}
           onCancel={() => setShowDeckStart(false)}
         />
+      )}
+      {/* Multiplayer Locked Modal (guest) */}
+      {modalMultiplayerLocked && (
+        <div className="tt-locked-overlay" onClick={() => setModalMultiplayerLocked(false)}>
+          <div className="tt-locked-modal" onClick={e => e.stopPropagation()}>
+            <h3 className="tt-locked-titulo">{t('games.toptrumps.multiplayer_locked_titulo')}</h3>
+            <p className="tt-locked-desc">{t('games.toptrumps.multiplayer_locked_desc')}</p>
+            <div className="tt-locked-actions">
+              <Link to="/cadastro" className="tt-locked-btn tt-locked-btn--primary" onClick={() => sfx.click()}>
+                {t('games.toptrumps.multiplayer_locked_criar_conta')}
+              </Link>
+              <button className="tt-locked-btn" onClick={() => { sfx.click(); setModalMultiplayerLocked(false) }}>
+                {t('games.toptrumps.cancelar')}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </section>
     )
