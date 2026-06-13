@@ -15,9 +15,9 @@ Tudo que não está aqui é pós-lançamento (Duelo, Tatics, traduções de livr
 
 | # | Tarefa | Status | Esforço | Bloqueia? |
 |---|---|---|---|---|
-| 1 | Sprites Tamagoshi — Sangueko | 🔴 Falta | ~7-13h | Sim (usa fallback Kroniki) |
-| 2 | Sprites Tamagoshi — Igniko | 🔴 Falta | ~7-13h | Sim (usa fallback Kroniki) |
-| 3 | Sprites Tamagoshi — Voidspawn | 🔴 Falta | ~7-13h | Sim (usa fallback Kroniki) |
+| 1 | Sprites Tamagoshi — Alion (ex-Sangueko) | ✅ **CONCLUÍDO** | 🎉 Feito! | ❌ Não bloqueia mais |
+| 2 | Sprites Tamagoshi — Indye (ex-Igniko) | ✅ **CONCLUÍDO** | 🎉 Feito! | ❌ Não bloqueia mais |
+| 3 | Sprites Tamagoshi — Popystar (ex-Voidspawn) | ✅ **CONCLUÍDO** | 🎉 Feito! | ❌ Não bloqueia mais |
 | 4 | Revisão geral de bugs menores | 🟡 Em andamento | ~2-4h | Recomendado |
 | 5 | Confirmar 23 rotas pré-renderizadas servindo 200 | 🟢 Já configurado (v10.41.0) | — | Não, só validar |
 | 6 | Cronograma automático do livro (`data_publicacao`) | 🟢 Já configurado | — | Não, só não tocar |
@@ -27,7 +27,7 @@ Tudo que não está aqui é pós-lançamento (Duelo, Tatics, traduções de livr
 
 ## 🎯 O que falta de fato (resumo de uma frase)
 
-**Só os 3 sprites do Tamagoshi (Sangueko, Igniko, Voidspawn) e uma revisão geral de bugs.** O resto do que está pronto para S1 (7 jogos, site, i18n PT/EN/ES, infra, deploy, livro caps. 1-3, webtoon Ep.00) já está fechado e não precisa de atenção até o lançamento.
+**✅ TODOS OS SPRITES DO TAMAGOSHI FORAM CONCLUÍDOS! (Alion, Indye, Popystar — os 3 últimos).** Agora S1 está 100% pronto em termos de assets. Resta apenas revisão geral de bugs antes do lançamento em 14/09/2026.
 
 ---
 

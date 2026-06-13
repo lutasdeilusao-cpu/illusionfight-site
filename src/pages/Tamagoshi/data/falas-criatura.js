@@ -199,7 +199,7 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  sangueko: {
+  alion: {
     boasVindas: [
       "...você voltou. o sangue reage.",
       "sua presença aquece o carmesim",
@@ -209,7 +209,7 @@ export const FALAS_CRIATURA = {
     fome: [
       '"preciso de… nutrientes. urgentemente."',
       '"o vermelho tá desbotando de fome"',
-      '"sangueko sem comida é só sombra"',
+      '"alion sem comida é só sombra"',
       '"tô fraco… fraco demais até pra reclamar"',
     ],
     sede: [
@@ -238,7 +238,7 @@ export const FALAS_CRIATURA = {
     alimentar: [
       '"nutrição… sim… isso fortalece"',
       '"o vermelho voltou a brilhar"',
-      '"sangueko alimentado é perigoso… mas grato"',
+      '"alion alimentado é perigoso… mas grato"',
       '"sabor de vida… obrigado"',
     ],
     banhar: [
@@ -249,7 +249,7 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  igniko: {
+  indye: {
     boasVindas: [
       "finalmente apareceu. não que eu tava esperando.",
       "ah, é você. tava quase botando fogo aqui.",
@@ -299,17 +299,17 @@ export const FALAS_CRIATURA = {
     ],
   },
 
-  voidspawn: {
+  popystar: {
     boasVindas: [
       "> USUÁRIO IDENTIFICADO. BEM-VINDO. <",
       "conexão reconhecida. saudação.",
-      "voidspawn aguardava. você chegou.",
+      "popystar aguardava. você chegou.",
       "sistema em modo de boas-vindas",
     ],
     fome: [
       '"> INGESTÃO NECESSÁRIA <"',
       '"CONSUMO. AGORA."',
-      '"voidspawn precisa de MATÉRIA ORGÂNICA"',
+      '"popystar precisa de MATÉRIA ORGÂNICA"',
       '"ERROR: HUNGER_LEVEL_CRITICAL"',
     ],
     sede: [
@@ -327,13 +327,13 @@ export const FALAS_CRIATURA = {
     critico: [
       '"> SISTEMA EM COLAPSO <"',
       '"CORRUPÇÃO TOTAL IMINENTE"',
-      '"VOIDSPAWN DESLIGANDO…"',
+      '"POPYSTAR DESLIGANDO…"',
       '"> FALHA CRÍTICA. ABORTAR. <"',
     ],
     morte: [
-      '"> DESCONECTADO DO VOID <"',
+      '"> DESCONECTADO DO SISTEMA <"',
       '"…volto pro vazio… de onde vim…"',
-      '"VOIDSPAWN: DESTRUIDO"',
+      '"POPYSTAR: DESTRUIDO"',
     ],
     alimentar: [
       '"> INGESTÃO BEM-SUCEDIDA <"',

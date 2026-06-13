@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.52  
-> **Versão do Site:** 10.72.0  
+> **Versão do Relatório:** 3.53  
+> **Versão do Site:** 10.73.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -791,6 +791,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 **Rota base:** `/games/tamagoshi`
 
 > 🌐 **i18n completo:** badges, passeios, loja, personalidades, saude, partida, termo, notificacoes, gacha pt/en/es  
+> 🎮 **v2.5.0 — S1 sprite completo! 3 últimos sprites próprios adicionados:** **Alion** (ID 08, ex-Sangueko), **Indye** (ID 09, ex-Igniko), **Popystar** (ID 10, ex-Voidspawn). Agora **10/10 S1** com arte individual (100 sprites no total — 10 estados cada). Nomes oficializados conforme artwork. Falas e itens temáticos renomeados. Último gargalo de assets eliminado! 🎉🔥  
 > 🎮 **v2.4.0 — Refactor final: zero inline CSS, zero hardcoded strings:** Todos os `style={{}}` inline substituídos por data attributes + CSS classes (BalloonFala, CriaturaSprite, Selecao, Gacha, Passeio, MetricBar, Alimentar, Banhar, RestaurarSaude, Passear). Hardcoded "disponível" no CooldownTimer → i18n `cooldown_disponivel` pt/en/es. Canvas hardcoded "pista" → `t('games.tamagoshi.pista')`. CSS variables (--tama-cor, --tam-tamanho, --tam-filtro) movidas para data-attribute selectors. 
 > 🎮 **v2.3.0 — Sorteio T1 com JSON dedicado:** Sorteio da Temporada 1 agora lê de `tamagoshi-season1.json` (IDs 1-10). IDs 11-12 (Jaguaroki, Fissuraki) movidos para T2 — prontos para futuras seasons via JSON independentes. Hardcoded strings "1º GIRO GRÁTIS" e "EM BREVE" substituídas por i18n pt/en/es.  
 > 🎮 **v2.2.0 — Novas criaturas oficiais:** Draken, Kaiser, Lenna e Yawaru (IDs 04-07) com sprites próprios (10 estados cada). Nomes atualizados (era Voidling, Aquori, Sinalo, Grafiko). Falas e itens temáticos renomeados.  
@@ -828,7 +829,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Arquivo | Status | Conteúdo |
 |---|---|---|
 | `criaturas.js` | ✅ **v2.3.0** | **32 criaturas** — kroniki (#1), ninka (#2), kroum (#3) são os 3 primeiros IDs. IDs 11-12 movidos para T2 |
-| `tamagoshi-season1.json` | ✅ **v2.3.0** | **JSON dedicado T1** — IDs 1-10 (Kroniki a Voidspawn). Pronto para alimentar S2/S3 com novos JSONs |
+| `tamagoshi-season1.json` | ✅ **v2.3.0** | **JSON dedicado T1** — IDs 1-10 (Kroniki a Popystar). Pronto para alimentar S2/S3 com novos JSONs |
 | `evolucoes.js` | ✅ Completo | **4 estágios** (Ovo→Filhote→Jovem→Adulto→Veterano→Ancião→Partida) |
 | `falas-criatura.js` | ✅ Completo | Falas por criatura |
 | `itens_loja.js` | ✅ **v1.23.0** | Brinquedo Yohu removido |
@@ -874,7 +875,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 |---|---|
 | `useTamagoshiStore` | ✅ Completo (métricas, DIX, lifecycle, Supabase, lazy evaluation) |
 
-**Status Geral:** ✅ **Finalizado** — S1 (10 criaturas, IDs 1-10). Sprites próprios: 7/10 S1 (**Kroniki**, **Ninka**, **Kroum**, **Draken**, **Kaiser**, **Lenna**, **Yawaru** — 10 estados cada). Faltam sprites dedicados para Sangueko, Igniko, Voidspawn (usam fallback Kroniki). Demais 22 criaturas (S2+) bloqueadas até próxima temporada.  
+**Status Geral:** ✅ **FINALIZADO — 100% S1** — 10/10 criaturas S1 com sprite próprio (**Kroniki**, **Ninka**, **Kroum**, **Draken**, **Kaiser**, **Lenna**, **Yawaru**, **Alion**, **Indye**, **Popystar** — 10 estados cada). Todos os sprites S1 concluídos. Demais 22 criaturas (S2+) bloqueadas até próxima temporada.  
 **v2.3.0** — Sorteio T1 com JSON dedicado (`tamagoshi-season1.json`). IDs 1-10 exclusivos para Season 1. IDs 11-12 movidos para T2. Sistema preparado para múltiplas seasons via JSONs independentes.  
 **v2.1.0** — Refactor: hardcoded strings removidas (use t()), inline styles movidos para CSS (CSS variables). Limpeza geral de i18n e estilo.  
 **v1.32.0** — Fix: seleção aleatória entre as 10 criaturas T1 (não mais sempre Kroniki). Free users recebem 1 criatura aleatória das 10 disponíveis.  
@@ -1114,7 +1115,7 @@ capitulo-05: data_publicacao: "2026-10-19" ⏳
 | **Livro** | 3 capas oficiais (`capitulo-01.png`~`capitulo-03.png`) | ~115KB cada | ✅ Capas dos 3 capítulos publicados |
 | **Logos** | 2 PNGs (PT/EN) | ~159KB cada | ✅ Completo |
 | **Música** | 16 capas randomizadas (`01.png`~`16.png`) | ~150-240KB cada | ✅ Randomizado por visita |
-| **Tamagoshi (S1)** | **70 sprites** (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru — 10 estados cada) | ~137KB cada | 🟡 **7/10 S1** — 3 restantes usam fallback Kroniki |
+| **Tamagoshi (S1)** | **100 sprites** (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru, Alion, Indye, Popystar — 10 estados cada) | ~137KB cada | 🟢 **10/10 S1** — Completo! |
 | **Cards** (Top Trumps) | Artes oficiais 1ª temporada (no jogo) | ✅ Completo |
 | **Cards** (Duelo) | Nenhum | — | 🔴 **0** |
 
@@ -1218,13 +1219,13 @@ STATUS: ✅ limpo
 | **Arena LDI** (combate CPU) | 97% | 🟢 | 8 inimigos, SFX, leaderboard, XP bar, DramaticDice, MatchResult overlay |
 | **Arena LDI Tatics** (tático) | 80% | 🟡 (🔒 pós-lançamento) | Motor completo, balanceamento WIP. EM BREVE na page Games |
 | **Duelo LDI — Campo de Batalha** (grid 10×10) | 99% | 🟢 (🔒 pós-lançamento) | v2.7.1 — fix TELEPORT: fluxo completo (selecionar monstro → escolher destino → teleportar). EM BREVE na page Games |
-| **Tamagoshi LDI** | 95% | 🟢 | Código finalizado ✅. S1: 10 criaturas (IDs 1-10). Sprites próprios: 7/10 S1 (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru). Faltam sprites dedicados para Sangueko, Igniko, Voidspawn (usam fallback Kroniki) |
+| **Tamagoshi LDI** | 100% | 🟢 | Código finalizado ✅. S1: 10 criaturas (IDs 1-10). Sprites próprios: **10/10 S1** (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru, Alion, Indye, Popystar). Todos os sprites concluídos! |
 | **Livro** (conteúdo PT) | 100% | 🟢 | 16/16 capítulos escritos |
 | **Livro** (publicação) | ✅ | 🟢 | Cronograma definido (quinzenal a partir de 05/10/2026, automatizado via `data_publicacao`) |
 | **Livro** (traduções EN/ES) | 19% | 🔴 | Só cap.1-3 traduzidos |
 | **Webtoon** (conteúdo) | 10% | 🔴 | Só Ep.00 existe |
 | **Arte Personagens** | 100% | 🟢 | 10/10 com artes oficiais |
-| **Sprites Tamagoshi (S1)** | 70% | 🟡 | 7/10 S1 com sprite próprio (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru). 3 restantes (Sangueko, Igniko, Voidspawn) usam fallback Kroniki |
+| **Sprites Tamagoshi (S1)** | 100% | 🟢 | **10/10 S1** com sprite próprio (Kroniki, Ninka, Kroum, Draken, Kaiser, Lenna, Yawaru, Alion, Indye, Popystar). Todos os sprites concluídos! 🔥 |
 | **Arte Cartas** (Top Trumps) | 100% | 🟢 | 105 cartas da 1ª temporada com artes oficiais |
 | **Arte Cartas** (Duelo) | 0% | 🔴 | 60 cartas sem arte — 🔒 **pós-lançamento** (EM BREVE) |
 | **Músicas** (catálogo) | 100% | 🟢 | 36 faixas, todas publicadas com links + 16 capas randomizadas |
@@ -1236,7 +1237,7 @@ STATUS: ✅ limpo
 | **Engenharia/Código** (telas, lógica, stores, API) | **92%** | Quase todo o código está escrito |
 | **Conteúdo Textual** (diálogos, lore, livro PT) | **85%** | Muito conteúdo já produzido |
 | **Conteúdo Traduzido** (EN/ES) | **55%** | **Site+Jogos 100%** (1321 chaves confirmadas) | Livro caps 4-16 sem tradução |
-| **Arte/Assets** (sprites, imagens, cartas) | **60%** | **S1 (lançamento):** ~97% (só faltam 3 sprites Tamagoshi). **Projeto completo:** inclui Duelo 0/68 + Tatics (🔒 pós-lançamento). Top Trumps 105/105 ✅, Tamagoshi S1 7/10 (70%) |
+| **Arte/Assets** (sprites, imagens, cartas) | **62%** | **S1 (lançamento):** ✅ **100% completo** — todos os sprites Tamagoshi S1 finalizados! **Projeto completo:** inclui Duelo 0/68 + Tatics (🔒 pós-lançamento). Top Trumps 105/105 ✅, Tamagoshi S1 **10/10 (100%)** 🔥 |
 | **Publicação** (capítulos do livro) | **19%** | Conteúdo existe, não publicado |
 | **Balanceamento/Testes** (jogos) | **72%** | Top Trumps finalizado+balanceado, Arena testada/revisada, demais WIP |
 
@@ -1251,12 +1252,12 @@ STATUS: ✅ limpo
 
 ## 12. ANÁLISE DE GARGALOS
 
-### 🔴 Gargalo #1: ARTES E SPRITES (0-60%)
+### ✅ Gargalo #1: ARTES E SPRITES — RESOLVIDO!
 **Impacto:** Crítico — afeta Tamagoshi e Cartas Duelo
 
 | Item | Status | Impacto |
 |---|---|---|
-| Sprites Tamagoshi S1 (3/10 sem sprite próprio) | 🟡 70% | 7/10 S1 com sprite próprio. 3 restantes (Sangueko, Igniko, Voidspawn) usam fallback Kroniki |
+| Sprites Tamagoshi S1 (todos completos!) | 🟢 **100%** | **10/10 S1** com sprite próprio. Todos os 100 sprites S1 concluídos! 🔥 |
 | Artes de personagens | 🟢 100% | 10/10 personagens com artes oficiais |
 | Artes de cartas Top Trumps (105) | 🟢 100% | Artes oficiais da 1ª temporada |
 | Artes de cartas Duelo (60 sem arte) | 🔴 0% | Cartas sem identidade visual |
@@ -1318,7 +1319,7 @@ STATUS: ✅ limpo
 
 | Tarefa | Esforço | Impacto |
 |---|---|---|
-| **Criar sprites para as 30 criaturas Tamagoshi** | 20-40h | 🔴 Crítico — desbloqueia jogo |
+| **Criar sprites para as 30 criaturas Tamagoshi** | ✅ **CONCLUÍDO** — S1 10/10 feitos | 🟢 **100% — Último gargalo eliminado!** |
 | **Criar artes dos 9 personagens principais** | ✅ **CONCLUÍDO** — 10 personagens com artes oficiais |
 | **Criar template visual para cartas** | 5-10h | 🟡 Alto — reutilizável |
 

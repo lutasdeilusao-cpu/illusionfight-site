@@ -75,6 +75,39 @@ import yawaruSick from '../../../assets/images/tamagoshi/07/yawaru-sick.png'
 import yawaruSleepy from '../../../assets/images/tamagoshi/07/yawaru-sleepy.png'
 import yawaruPresentation from '../../../assets/images/tamagoshi/07/yawaru-presentation.png'
 
+import alionIdle from '../../../assets/images/tamagoshi/08/alion-idle.png'
+import alionHungry from '../../../assets/images/tamagoshi/08/alion-hungry.png'
+import alionEnjoy from '../../../assets/images/tamagoshi/08/alion-enjoy.png'
+import alionHappy from '../../../assets/images/tamagoshi/08/alion-happy.png'
+import alionAbandoned from '../../../assets/images/tamagoshi/08/alion-abandoned.png'
+import alionAnger from '../../../assets/images/tamagoshi/08/alion-anger.png'
+import alionDirty from '../../../assets/images/tamagoshi/08/alion-dirty.png'
+import alionSick from '../../../assets/images/tamagoshi/08/alion-sick.png'
+import alionSleepy from '../../../assets/images/tamagoshi/08/alion-sleepy.png'
+import alionPresentation from '../../../assets/images/tamagoshi/08/alion-presentation.png'
+
+import indyeIdle from '../../../assets/images/tamagoshi/09/indye-idle.png'
+import indyeHungry from '../../../assets/images/tamagoshi/09/indye-hungry.png'
+import indyeEnjoy from '../../../assets/images/tamagoshi/09/indye-enjoy.png'
+import indyeHappy from '../../../assets/images/tamagoshi/09/indye-happy.png'
+import indyeAbandoned from '../../../assets/images/tamagoshi/09/indye-abandoned.png'
+import indyeAnger from '../../../assets/images/tamagoshi/09/indye-anger.png'
+import indyeDirty from '../../../assets/images/tamagoshi/09/indye-dirty.png'
+import indyeSick from '../../../assets/images/tamagoshi/09/indye-sick.png'
+import indyeSleepy from '../../../assets/images/tamagoshi/09/indye-sleepy.png'
+import indyePresentation from '../../../assets/images/tamagoshi/09/indye-presentation.png'
+
+import popystarIdle from '../../../assets/images/tamagoshi/10/popystar-idle.png'
+import popystarHungry from '../../../assets/images/tamagoshi/10/popystar-hungry.png'
+import popystarEnjoy from '../../../assets/images/tamagoshi/10/popystar-enjoy.png'
+import popystarHappy from '../../../assets/images/tamagoshi/10/popystar-happy.png'
+import popystarAbandoned from '../../../assets/images/tamagoshi/10/popystar-abandoned.png'
+import popystarAnger from '../../../assets/images/tamagoshi/10/popystar-anger.png'
+import popystarDirty from '../../../assets/images/tamagoshi/10/popystar-dirty.png'
+import popystarSick from '../../../assets/images/tamagoshi/10/popystar-sick.png'
+import popystarSleepy from '../../../assets/images/tamagoshi/10/popystar-sleepy.png'
+import popystarPresentation from '../../../assets/images/tamagoshi/10/popystar-presentation.png'
+
 const KRONIKI_SPRITE = {
   imagem: kronikiIdle,
   gifs: {
@@ -187,7 +220,55 @@ const YAWARU_SPRITE = {
   },
 }
 
-// IDs numéricos — 1=Kroniki, 2=Ninka, 3=Kroum, 4=Draken, 5=Kaiser, 6=Lenna, 7=Yawaru, ...
+const ALION_SPRITE = {
+  imagem: alionIdle,
+  gifs: {
+    idle: alionIdle,
+    comendo: alionHungry,
+    satisfeito: alionEnjoy,
+    feliz: alionHappy,
+    abandonado: alionAbandoned,
+    raiva: alionAnger,
+    sujo: alionDirty,
+    doente: alionSick,
+    sonolento: alionSleepy,
+    apresentacao: alionPresentation,
+  },
+}
+
+const INDYE_SPRITE = {
+  imagem: indyeIdle,
+  gifs: {
+    idle: indyeIdle,
+    comendo: indyeHungry,
+    satisfeito: indyeEnjoy,
+    feliz: indyeHappy,
+    abandonado: indyeAbandoned,
+    raiva: indyeAnger,
+    sujo: indyeDirty,
+    doente: indyeSick,
+    sonolento: indyeSleepy,
+    apresentacao: indyePresentation,
+  },
+}
+
+const POPYSTAR_SPRITE = {
+  imagem: popystarIdle,
+  gifs: {
+    idle: popystarIdle,
+    comendo: popystarHungry,
+    satisfeito: popystarEnjoy,
+    feliz: popystarHappy,
+    abandonado: popystarAbandoned,
+    raiva: popystarAnger,
+    sujo: popystarDirty,
+    doente: popystarSick,
+    sonolento: popystarSleepy,
+    apresentacao: popystarPresentation,
+  },
+}
+
+// IDs numéricos — 1=Kroniki, 2=Ninka, 3=Kroum, 4=Draken, 5=Kaiser, 6=Lenna, 7=Yawaru, 8=Alion, 9=Indye, 10=Popystar, ...
 const CRIATURAS_BASE = [
   // ── Top 3: criaturas com sprite próprio ──
   { id: 1,  nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
@@ -199,9 +280,9 @@ const CRIATURAS_BASE = [
   { id: 5,  nome: 'Kaiser',      tipo: 'CARENTE',      raridade: 'incomum',  temporada: 1, emoji: '💧' },
   { id: 6,  nome: 'Lenna',       tipo: 'CARENTE',      raridade: 'raro',     temporada: 1, emoji: '📡' },
   { id: 7,  nome: 'Yawaru',      tipo: 'CARENTE',      raridade: 'epico',    temporada: 1, emoji: '🎨' },
-  { id: 8,  nome: 'Sangueko',    tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
-  { id: 9,  nome: 'Igniko',      tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
-  { id: 10, nome: 'Voidspawn',   tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
+  { id: 8,  nome: 'Alion',       tipo: 'CARENTE',      raridade: 'lendario', temporada: 1, emoji: '🩸' },
+  { id: 9,  nome: 'Indye',       tipo: 'AGRESSIVO',    raridade: 'comum',    temporada: 1, emoji: '🔥' },
+  { id: 10, nome: 'Popystar',    tipo: 'AGRESSIVO',    raridade: 'incomum',  temporada: 1, emoji: '👾' },
   { id: 11, nome: 'Jaguaroki',   tipo: 'AGRESSIVO',    raridade: 'epico',    temporada: 2, emoji: '🐆' },
   { id: 12, nome: 'Fissuraki',   tipo: 'AGRESSIVO',    raridade: 'lendario', temporada: 2, emoji: '💥' },
 
@@ -238,6 +319,9 @@ const SPRITE_MAP = {
   5: KAISER_SPRITE,
   6: LENNA_SPRITE,
   7: YAWARU_SPRITE,
+  8: ALION_SPRITE,
+  9: INDYE_SPRITE,
+  10: POPYSTAR_SPRITE,
 }
 
 // Slug (lowercase sem acentos) usado por FALAS_CRIATURA, COMIDA_TEMATICA, etc.

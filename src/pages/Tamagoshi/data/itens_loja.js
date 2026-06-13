@@ -17,7 +17,7 @@ export const ITEM_KEY_MAP = {
   capivaroki: 'item_comida_capivaroki',
   kroniki: 'item_comida_kroniki',
   gamako: 'item_comida_gamako',
-  igniko: 'item_comida_igniko',
+  indye: 'item_comida_indye',
   buziko: 'item_comida_buziko',
   yawaru: 'item_comida_yawaru',
 }
@@ -26,7 +26,7 @@ export const COMIDA_TEMATICA = {
   capivaroki: { id: 'capim', nome: 'Capim Fresco', preco: 5, emoji: '🌿' },
   kroniki: { id: 'energia_escura', nome: 'Energia das Trevas', preco: 60, emoji: '🌑' },
   gamako: { id: 'racao_rua', nome: 'Ração de Rua', preco: 8, emoji: '🥫' },
-  igniko: { id: 'brasa', nome: 'Brasas de Energia', preco: 15, emoji: '🔥' },
+  indye: { id: 'brasa', nome: 'Brasas de Energia', preco: 15, emoji: '🔥' },
   buziko: { id: 'passagem', nome: 'Passagem de Ônibus', preco: 5, emoji: '🎫' },
   yawaru: { id: 'tinta', nome: 'Tinta Spray', preco: 12, emoji: '🎨' },
 }
