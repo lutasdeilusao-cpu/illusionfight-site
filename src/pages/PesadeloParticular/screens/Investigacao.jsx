@@ -69,7 +69,7 @@ export default function Investigacao() {
           <div className={`pp-bar-fill ${hpPct < 30 ? 'pp-bar-danger' : 'pp-bar-green'}`}
             style={{ '--hp-pct': `${hpPct}%` }} />
         </div>
-        <span style={{ fontSize: 10, color: '#555', display: 'block', textAlign: 'right', marginTop: -12, marginBottom: 12 }}>
+        <span className="pp-invest-hp-label">
           {t('pp.geral.hp', { hp: store.hp })}
         </span>
       </div>
@@ -81,14 +81,8 @@ export default function Investigacao() {
         <div className="pp-invest-desc">{local.desc}</div>
 
         {puzzleAtivo && (
-          <div style={{
-            background: 'linear-gradient(135deg, #0a1f00 0%, #0a0a0a 100%)',
-            border: '1px solid #1a3a1a', borderTop: '2px solid #F5A623',
-            clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)',
-            padding: 24, margin: '16px 0',
-            position: 'relative'
-          }}>
-            <div style={{ position: 'absolute', top: 0, right: 0, width: 14, height: 14, background: '#F5A623', clipPath: 'polygon(0 0, 100% 100%, 100% 0)', opacity: 0.4 }} />
+          <div className="pp-puzzle-container-styled">
+            <div className="pp-puzzle-corner" />
             <PuzzleWrapper tipo={local.puzzle} onSolve={handlePuzzleSolve} />
           </div>
         )}

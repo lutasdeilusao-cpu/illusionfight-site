@@ -17,7 +17,9 @@
     "sim": "SÍ",
     "selecione_slot": "Selecciona un slot para jugar",
     "slot_label": "SAVE",
-    "slot_vazio": "vacío"
+    "slot_vazio": "vacío",
+    "deletar_slot": "¿Borrar slot {num}?",
+    "pistas_label": "Pistas"
   },
   "final": {
     "msg_jack": "fue un placer trabajar contigo.\nmarelia seguirá necesitando a alguien como tú.",
@@ -34,6 +36,10 @@
     "compartilhar": "compartir con amigos",
     "voltar_inicio": "volver al inicio",
     "link_copiado": "¡enlace copiado!"
+  },
+  "puzzle": {
+    "instrucao": "Resuelve el puzzle para investigar este local.",
+    "nenhum": "No se necesita puzzle."
   },
   "convo": {
     "caso_aberto": "Caso abierto.",

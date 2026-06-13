@@ -19,35 +19,34 @@ export default function FinalScreen() {
 
   return (
     <div className="pp-container">
-      <div style={{ textAlign: 'center', padding: '40px 0' }}>
-        <h1 className={`pp-title ${completo ? 'pp-final-completo' : 'pp-final-fragmentado'}`}
-          style={{ fontSize: 32, letterSpacing: 6 }}>
+      <div className="pp-final-center">
+        <h1 className={`pp-title ${completo ? 'pp-final-completo' : 'pp-final-fragmentado'} pp-final-title`}>
           {t('pp.fimscreen.titulo')}
         </h1>
 
-        <p style={{ color: '#888', fontSize: 14, marginTop: 16, lineHeight: 1.8, maxWidth: 500, margin: '16px auto' }}>
+        <p className="pp-final-text">
           {completo
             ? t('pp.fimscreen.completo')
             : t('pp.fimscreen.fragmentado')}
         </p>
 
-        <div style={{ marginTop: 24 }}>
-          <div style={{ color: '#FFD700', fontSize: 28, fontWeight: 'bold' }}>★ {store.reputacao}</div>
-          <div style={{ color: '#666', fontSize: 12 }}>{t('pp.fimscreen.reputacao_label')}</div>
+        <div className="pp-final-stat-box">
+          <div className="pp-final-stat-value" style={{ color: '#FFD700' }}>★ {store.reputacao}</div>
+          <div className="pp-final-stat-label">{t('pp.fimscreen.reputacao_label')}</div>
         </div>
 
-        <div style={{ marginTop: 16 }}>
-          <div style={{ color: '#22C55E', fontSize: 18 }}>{store.casosResolvidos.length}/20</div>
-          <div style={{ color: '#666', fontSize: 12 }}>{t('pp.fimscreen.casos_label')}</div>
+        <div className="pp-final-stat-box">
+          <div className="pp-final-stat-green">{store.casosResolvidos.length}/20</div>
+          <div className="pp-final-stat-label">{t('pp.fimscreen.casos_label')}</div>
         </div>
 
-        <div className="pp-section-label" style={{ marginTop: 32 }}>{t('pp.fimscreen.fios_label')}</div>
-        <div style={{ height: 6, background: '#1a1a1a', maxWidth: 400, margin: '8px auto' }}>
-          <div style={{ height: '100%', background: '#FFD700', width: `${(coletados / totalFios) * 100}%` }} />
+        <div className="pp-dossier-section-title pp-dossier-section-title--mt">{t('pp.fimscreen.fios_label')}</div>
+        <div className="pp-final-fio-bar">
+          <div className="pp-final-fio-bar-fill" style={{ width: `${(coletados / totalFios) * 100}%` }} />
         </div>
-        <div style={{ color: '#FFD700', fontSize: 12 }}>{coletados}/{totalFios}</div>
+        <div className="pp-final-fio-count">{coletados}/{totalFios}</div>
 
-        <button className="pp-btn pp-btn--primary" onClick={handleFim} style={{ marginTop: 32 }}>
+        <button className="pp-btn pp-btn--primary" onClick={handleFim} style={{ marginTop: '2rem' }}>
           {t('pp.fimscreen.voltar_mapa')}
         </button>
       </div>

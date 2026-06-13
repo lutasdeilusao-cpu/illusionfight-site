@@ -120,9 +120,9 @@ export default function Confronto() {
       <div className="pp-container">
         <div className="pp-dossier-header">
           <button className="pp-back" onClick={() => store.setFase('dossier')}>{t('pp.local.dossier_voltar')}</button>
-          <h2 style={{ color: '#F5A623', margin: 0 }}>Interrogatório: {caso.confronto?.alvo}</h2>
+          <h2 className="pp-dossier-caso-nome">Interrogatório: {caso.confronto?.alvo}</h2>
         </div>
-        <p style={{ color: '#888', fontStyle: 'italic', lineHeight: 1.7, marginBottom: 20 }}>
+        <p className="pp-resolucao-dialogo">
           Você confronta {caso.confronto?.alvo} com todas as evidências coletadas. Cada acusação precisa de uma pista do tipo Fio no Caderno de Suspeitas para ser feita.
         </p>
         <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>CONTINUAR</button>
@@ -141,7 +141,7 @@ export default function Confronto() {
 
       <div className="pp-dossier-header">
         <button className="pp-back" onClick={() => { cleanup(); store.setFase('dossier') }}>{t('pp.local.dossier_voltar')}</button>
-        <h2 style={{ color: '#F5A623', margin: 0 }}>VS {inimigo.nome}</h2>
+        <h2 className="pp-dossier-caso-nome">VS {inimigo.nome}</h2>
       </div>
 
       <div className="pp-combat-grid">

@@ -151,7 +151,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
             <div className="pp-final-chat-bubble">
               <div className="pp-final-chat-bubble-text">
                 {texto}
-                <span style={{ display:'inline-block', width:2, height:'1.1em', background:'var(--pp-jack)', verticalAlign:'text-bottom', animation:'pp-blink 1s step-end infinite' }} />
+                <span className="pp-cursor-blink" />
               </div>
             </div>
           </div>
@@ -169,15 +169,15 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
           <p className="pp-credits-sub">{t('pp.final.creditos_temporada')}</p>
           <p className="pp-credits-space" />
           <p className="pp-credits-line">{t('pp.final.creditos_historia')}</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.2rem', marginTop:'0.5rem' }}>{t('pp.final.creditos_marelia')}</p>
+          <p className="pp-credits-line pp-credits-line--md">{t('pp.final.creditos_marelia')}</p>
           <p className="pp-credits-space" />
           <p className="pp-credits-line">{t('pp.final.creditos_escrito')}</p>
-          <p className="pp-credits-line" style={{ fontSize:'1.3rem', color:'var(--pp-amber)', marginTop:'0.5rem' }}>{t('pp.final.creditos_autor')}</p>
+          <p className="pp-credits-line pp-credits-line--lg">{t('pp.final.creditos_autor')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ marginTop:'2rem' }}>{t('pp.final.creditos_obrigado')}</p>
+          <p className="pp-credits-line pp-credits-line--mt2">{t('pp.final.creditos_obrigado')}</p>
           <p className="pp-credits-space" />
-          <p className="pp-credits-line" style={{ fontSize:'0.9rem', marginTop:'3rem' }}>{t('pp.final.creditos_prox_temp')}</p>
-          <p style={{ height:200 }} />
+          <p className="pp-credits-line pp-credits-line--sm">{t('pp.final.creditos_prox_temp')}</p>
+          <p className="pp-credits-spacer" />
         </div>
       </div>
     )
@@ -188,7 +188,7 @@ function TelaFinal({ nivel, casosResolvidos, onVoltarInicio }) {
       <div className="pp-rain" />
       <div className="pp-page-content">
         <h1 className="pp-credits-h1">{t('pp.final.creditos_titulo')}</h1>
-        <p className="pp-text-mono-muted" style={{marginBottom:'2rem'}}>{t('pp.final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
+        <p className="pp-text-mono-muted pp-text-mb2">{t('pp.final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}</p>
         <button onClick={() => {
           const txt = `${t('pp.final.compartilhar')} — ${t('pp.final.nivel_casos_label', { nivel, casos: casosResolvidos.length })}.\nlutasdeilusao-cpu.github.io/illusionfight-site`
           if (navigator.share) navigator.share({ title:t('pp.final.creditos_titulo'), text:txt })
@@ -225,9 +225,9 @@ function AnimacaoInvestigacao({ onComplete }) {
       <AnimatePresence mode="wait">
         {fase === 'pegadas' && (
           <motion.div key="pegadas" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
-            style={{ display:'flex', gap:'0.5rem', alignItems:'center' }}>
+            className="pp-flex-center-gap-sm">
             {['👣','👣','👣'].map((p,i) => (
-              <motion.span key={i} style={{ fontSize:'1.5rem' }}
+              <motion.span key={i} className="pp-footprint-icon"
                 initial={{ opacity:0, x:-10 }}
                 animate={{ opacity:1, x:0 }}
                 transition={{ delay: i * 0.4 }}>
@@ -239,7 +239,7 @@ function AnimacaoInvestigacao({ onComplete }) {
         {fase === 'lupa' && (
           <motion.div key="lupa" initial={{ opacity:0, scale:0.5 }} animate={{ opacity:1, scale:1 }}
             transition={{ type:'spring', stiffness:200 }}>
-            <span style={{ fontSize:'3rem' }}>🔍</span>
+            <span className="pp-magnifier-icon">🔍</span>
           </motion.div>
         )}
         {fase === 'revelando' && (
@@ -328,8 +328,8 @@ function BatalhaView({ nivel, onVitoria, onDerrota }) {
       <motion.div animate={animAtaque === 'inimigo' ? { x: [0, 8, -8, 0] } : {}} className="pp-battle-card">
         <div className="pp-battle-card-row">
           <span className="pp-battle-card-icon">{inimigo.emoji}</span>
-          <div style={{ flex:1 }}>
-            <div className="pp-battle-card-name" style={{ color:'var(--pp-nina)' }}>{inimigo.nome}</div>
+          <div className="pp-battle-card-info">
+            <div className="pp-battle-card-name pp-battle-text-nina">{inimigo.nome}</div>
             <div className="pp-battle-card-hp">HP: {inimigoHp}/{inimigo.hp}</div>
           </div>
         </div>
@@ -470,8 +470,8 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
           {AVATARES.jack.emoji}
         </div>
         <div>
-          <div className="pp-battle-card-name" style={{ color:'var(--pp-jack)' }}>{t('pp.convo.jack_nome')}</div>
-          <div className="pp-text-mono-xs" style={{ color:'var(--pp-success)' }}>{t('pp.convo.online')}</div>
+          <div className="pp-battle-card-name pp-battle-text-jack">{t('pp.convo.jack_nome')}</div>
+          <div className="pp-text-mono-xs pp-convo-online">{t('pp.convo.online')}</div>
         </div>
       </div>
 
@@ -480,7 +480,7 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
         {msgs.map(msg => {
           if (msg.tipo === 'narracao') {
             return (
-              <div key={msg.id} style={{ textAlign:'center', padding:'0.5rem 1rem', color:'var(--pp-text-muted)', fontFamily:'Georgia', fontStyle:'italic', fontSize:'0.78rem', maxWidth:'90%', alignSelf:'center' }}>
+              <div key={msg.id} className="pp-msg-narracao">
                 {msg.texto}
               </div>
             )
@@ -512,7 +512,7 @@ function ConvoView({ caso, tipo, onBack, onConvoEnd }) {
         {digitandoDe && (() => {
           const av = AVATARES[digitandoDe] || AVATARES.anonimo
           return (
-            <div className="pp-flex-gap-sm" style={{alignItems:'flex-end'}}>
+            <div className="pp-flex-gap-sm pp-typing-row">
               <div className="pp-convo-avatar" style={{ background:av.cor, border:`1.5px solid ${av.textCor}` }}>
                 {av.emoji}
               </div>
@@ -600,13 +600,13 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
     <div className="pp-local">
       <div className="pp-convo-header">
         <button className="pp-convo-back" onClick={onBack}>←</button>
-        <span style={{ color:'var(--pp-amber)', fontFamily:'Courier New', fontSize:'0.85rem' }}>{locInfo.nome}</span>
+        <span className="pp-local-header-name">{locInfo.nome}</span>
       </div>
 
       {/* Hero do local */}
       <div className="pp-local-hero">
         <div className="pp-local-emoji">🏚️</div>
-        <div className="pp-local-nome">{locInfo.nome}</div>
+        <div className="pp-local-header-name">{locInfo.nome}</div>
         <div className="pp-local-desc">{locInfo.desc}</div>
       </div>
 
@@ -634,7 +634,7 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
         )}
 
         {etapa === 'puzzle' && (
-          <motion.div key="puzzle-container" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} style={{ padding:'0 0.5rem' }}>
+          <motion.div key="puzzle-container" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} className="pp-puzzle-container">
             {renderPuzzle()}
           </motion.div>
         )}
@@ -647,10 +647,10 @@ function LocalView({ local, caso, nivel, onPistaColetada, onBack }) {
 
         {etapa === 'revelado' && (
           <motion.div key="revelado" initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
-            style={{ margin:'1rem' }}>
+            className="pp-evidence-card">
             <span className={`pp-local-pista-tipo-badge ${pista.tipo}`}>{pista.tipo}</span>
-            {pista.fio && <span className="pp-local-pista-tipo-badge fio" style={{ marginLeft:'0.4rem' }}>⚡ fio</span>}
-            <div className="pp-local-pista-title" style={{ marginTop:'0.5rem' }}>{pista.i18n[locale].titulo}</div>
+            {pista.fio && <span className="pp-local-pista-tipo-badge fio pp-local-pista-fio-badge">⚡ fio</span>}
+            <div className="pp-local-pista-title pp-evidence-card-inner">{pista.i18n[locale].titulo}</div>
             <div className="pp-local-pista-desc">{pista.i18n[locale].desc}</div>
           </motion.div>
         )}
@@ -1056,8 +1056,8 @@ export default function PP() {
 
           {/* Pistas coletadas — clicáveis */}
           {pistas.length > 0 && (
-            <div style={{ marginBottom:'1rem' }}>
-              <div className="pp-dossier-section-title" style={{ marginBottom:'0.5rem' }}>{t('pp.dossier.evidencias')}</div>
+            <div className="pp-dossier-pistas-mb">
+              <div className="pp-dossier-section-title pp-dossier-section-title--mb">{t('pp.dossier.evidencias')}</div>
               {pistas.map(pid => {
                 const p = casoAtivo.pistas.find(pp => pp.id === pid)
                 if (!p) return null
@@ -1089,7 +1089,7 @@ export default function PP() {
           ))}
 
           {/* Locais */}
-          <div className="pp-dossier-section-title" style={{ marginTop:'1rem' }}>{t('pp.dossier.locais')}</div>
+          <div className="pp-dossier-section-title pp-dossier-section-title--mt">{t('pp.dossier.locais')}</div>
           {casoAtivo.locais.map(local => {
             const pistaColetada = pistas.includes(local.pista_id)
             const locInfo = local.i18n[locale]
@@ -1102,7 +1102,7 @@ export default function PP() {
                   <div className="pp-local-name" style={{ color: pistaColetada ? 'var(--pp-success)' : 'var(--pp-text)' }}>{locInfo.nome}</div>
                   <div className="pp-local-desc-sm">{locInfo.desc}</div>
                 </div>
-                {pistaColetada ? <span style={{ color:'var(--pp-success)' }}>✓</span> : <span style={{ color:'var(--pp-text-muted)' }}>→</span>}
+                {pistaColetada ? <span className="pp-dossier-check-icon">✓</span> : <span className="pp-dossier-arrow-icon">→</span>}
               </div>
             )
           })}
@@ -1294,7 +1294,7 @@ export default function PP() {
       const fios = getFiosPistas()
       return (
         <div className="pp-caderno">
-          <div className="pp-dossier-section-title" style={{ marginBottom:'0.75rem' }}>{t('pp.caderno.titulo').toUpperCase()}</div>
+          <div className="pp-dossier-section-title pp-caderno-title-mb">{t('pp.caderno.titulo').toUpperCase()}</div>
           <div className="pp-stats-grid">
             <div>
               <div className="pp-stats-cell-amber">{reputacao}</div>
@@ -1314,7 +1314,7 @@ export default function PP() {
             </div>
           </div>
 
-          <div className="pp-dossier-section-title" style={{ marginBottom:'1rem' }}>{t('pp.caderno.titulo').toUpperCase()}</div>
+          <div className="pp-dossier-section-title pp-dossier-pistas-mb">{t('pp.caderno.titulo').toUpperCase()}</div>
           {fios.length === 0
             ? <div className="pp-caderno-empty">{t('pp.feed.caderno_vazio')}</div>
             : fios.map(({ pista, caso }) => (
@@ -1344,16 +1344,16 @@ export default function PP() {
     return (
       <div className="pp-page-full">
         <div className="pp-rain" />
-        <div className="pp-page-content" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="pp-page-content">
           <div className="pp-menu-label">{t('pp.menu.marelia')}</div>
           <h1 className="pp-menu-title">
             {t('pp.menu.titulo_linha1')}<br/>{t('pp.menu.titulo_linha2')}
           </h1>
-          <p className="pp-text-mono-muted" style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '0.75rem' }}>
-            {t('pp.menu.selecione_slot') || 'Selecione um slot para jogar'}
+          <p className="pp-text-mono-muted pp-slots-select-text">
+            {t('pp.menu.selecione_slot')}
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: 360, margin: '0 auto 2rem' }}>
+          <div className="pp-slots-container">
             {[1, 2, 3].map(num => {
               const save = slotsData[num - 1]
               return (
@@ -1363,46 +1363,35 @@ export default function PP() {
                   style={{
                     background: save ? 'rgba(0,255,136,0.05)' : 'rgba(255,255,255,0.03)',
                     border: `1px solid ${save ? 'rgba(0,255,136,0.3)' : 'rgba(255,255,255,0.1)'}`,
-                    borderRadius: 12, padding: '1rem',
-                    cursor: 'pointer', transition: 'all 0.2s',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   }}
                   onClick={() => handleSlotSelect(num)}
                 >
                   <div>
-                    <div style={{ color: save ? 'var(--pp-jack)' : '#666', fontFamily: 'Courier New', fontWeight: 700, fontSize: '0.85rem' }}>
-                      {t('pp.menu.slot_label') || 'SAVE'} {num}
+                    <div className="pp-slot-card-label" style={{ color: save ? 'var(--pp-jack)' : '#666' }}>
+                      {t('pp.menu.slot_label')} {num}
                     </div>
                     {save ? (
-                      <div style={{ color: '#888', fontFamily: 'Courier New', fontSize: '0.7rem', marginTop: '0.3rem' }}>
+                      <div className="pp-slot-card-info">
                         {t('pp.menu.nivel_casos', { nivel: save.nivel || 1, casos: (save.casosResolvidos || []).length })}
                       </div>
                     ) : (
-                      <div style={{ color: '#555', fontFamily: 'Courier New', fontSize: '0.7rem', marginTop: '0.3rem' }}>
-                        {t('pp.menu.slot_vazio') || 'vazio'}
+                      <div className="pp-slot-card-empty">
+                        {t('pp.menu.slot_vazio')}
                       </div>
                     )}
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div className="pp-slot-btn-group">
                     <button
-                      style={{
-                        padding: '0.4rem 1rem',
-                        background: save ? 'rgba(232,133,58,0.15)' : 'rgba(0,255,136,0.1)',
-                        border: `1px solid ${save ? 'rgba(232,133,58,0.4)' : 'rgba(0,255,136,0.3)'}`,
-                        borderRadius: 8,
-                        color: save ? '#E8853A' : '#00ff88',
-                        fontFamily: 'Courier New', fontSize: '0.7rem', fontWeight: 700,
-                        cursor: 'pointer',
-                      }}
+                      className={`pp-slot-btn ${save ? 'pp-slot-btn--continue' : 'pp-slot-btn--new'}`}
                       onClick={(e) => { e.stopPropagation(); handleSlotSelect(num) }}
                     >
-                      {save ? (t('pp.menu.continuar') || 'CONTINUAR') : (t('pp.menu.novo_jogo') || 'NOVO JOGO')}
+                      {save ? t('pp.menu.continuar') : t('pp.menu.novo_jogo')}
                     </button>
                     {save && (
-                      <span
-                        style={{ color: '#ff4444', cursor: 'pointer', fontSize: '0.8rem', opacity: 0.6 }}
-                        onClick={(e) => { e.stopPropagation(); if (window.confirm(`Deletar slot ${num}?`)) handleDeleteSlot(num) }}
-                      >🗑️</span>
+                      <button
+                        className="pp-slot-delete-btn"
+                        onClick={(e) => { e.stopPropagation(); if (window.confirm(t('pp.menu.deletar_slot', { num }))) handleDeleteSlot(num) }}
+                      >🗑️</button>
                     )}
                   </div>
                 </div>
@@ -1490,7 +1479,7 @@ export default function PP() {
             {[
               { id:'feed',      icon:'🏠', label:t('pp.feed.investigar') },
               { id:'mensagens', icon:'💬', label:t('pp.feed.mensagens'),    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
-              { id:'stories',   icon:'📖', label:'Pistas',  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
+              { id:'stories',   icon:'📖', label:t('pp.menu.pistas_label'),  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
               { id:'arquivos',  icon:'🗂️', label:t('pp.caderno.titulo') },
             ].map(nav => (
               <button key={nav.id} className={`pp-nav-btn ${aba === nav.id ? 'active' : ''}`} onClick={() => setAba(nav.id)}>

@@ -369,6 +369,408 @@
 .pp-text-muted { color: #666; }
 .pp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
+/* ── TELA FINAL UTILITIES ── */
+.pp-cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--pp-jack);
+  vertical-align: text-bottom;
+  animation: pp-blink 1s step-end infinite;
+}
+.pp-credits-line--md {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+.pp-credits-line--lg {
+  font-size: 1.3rem;
+  color: var(--pp-amber);
+  margin-top: 0.5rem;
+}
+.pp-credits-line--mt2 {
+  margin-top: 2rem;
+}
+.pp-credits-line--sm {
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+.pp-credits-spacer {
+  height: 200px;
+}
+
+/* ── ANIMAÇÃO INVESTIGAÇÃO ── */
+.pp-flex-center-gap-sm {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.pp-footprint-icon {
+  font-size: 1.5rem;
+}
+.pp-magnifier-icon {
+  font-size: 3rem;
+}
+
+/* ── CONVO VIEW ── */
+.pp-convo-online {
+  color: var(--pp-success);
+}
+.pp-msg-narracao {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  color: var(--pp-text-muted);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  max-width: 90%;
+  align-self: center;
+}
+.pp-typing-row {
+  align-items: flex-end;
+}
+
+/* ── LOCAL VIEW ── */
+.pp-local-header-name {
+  color: var(--pp-amber);
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+/* ── BATALHA VIEW ── */
+.pp-battle-card-info {
+  flex: 1;
+}
+.pp-battle-text-nina {
+  color: var(--pp-nina);
+}
+.pp-battle-text-jack {
+  color: var(--pp-jack);
+}
+
+/* ── EXTRA ── */
+.pp-text-mb2 {
+  margin-bottom: 2rem;
+}
+
+/* ── DOSSIER ── */
+.pp-dossier-section-title--mb {
+  margin-bottom: 0.5rem;
+}
+.pp-dossier-section-title--mt {
+  margin-top: 1rem;
+}
+.pp-dossier-check-icon {
+  color: var(--pp-success);
+}
+.pp-dossier-arrow-icon {
+  color: var(--pp-text-muted);
+}
+.pp-dossier-pistas-mb {
+  margin-bottom: 1rem;
+}
+
+/* ── CADERNO ── */
+.pp-caderno-title-mb {
+  margin-bottom: 0.75rem;
+}
+
+/* ── SLOTS SCREEN ── */
+.pp-slots-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 360px;
+  margin: 0 auto 2rem;
+}
+.pp-slot-card {
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pp-slot-card-label {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.pp-slot-card-info {
+  color: #888;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+}
+.pp-slot-card-empty {
+  color: #555;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+}
+.pp-slot-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pp-slot-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+.pp-slot-btn--continue {
+  background: rgba(232,133,58,0.15);
+  border: 1px solid rgba(232,133,58,0.4);
+  color: #E8853A;
+}
+.pp-slot-btn--new {
+  background: rgba(0,255,136,0.1);
+  border: 1px solid rgba(0,255,136,0.3);
+  color: #00ff88;
+}
+.pp-slot-delete-btn {
+  color: #ff4444;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+.pp-slots-select-text {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.75rem;
+}
+
+/* ── PUZZLE WRAPPER ── */
+.pp-puzzle-instruction {
+  color: #666;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+/* ── CASO ABERTURA ── */
+.pp-abertura-msg {
+  margin-bottom: 10px;
+}
+.pp-abertura-dialogo-text {
+  margin-bottom: 12px;
+}
+
+/* ── FINAL SCREEN ── */
+.pp-final-center {
+  text-align: center;
+  padding: 40px 0;
+}
+.pp-final-title {
+  font-size: 32px;
+  letter-spacing: 6px;
+}
+.pp-final-text {
+  color: #888;
+  font-size: 14px;
+  margin-top: 16px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 16px auto;
+}
+.pp-final-stat-box {
+  margin-top: 24px;
+}
+.pp-final-stat-value {
+  font-size: 28px;
+  font-weight: bold;
+}
+.pp-final-stat-label {
+  color: #666;
+  font-size: 12px;
+}
+.pp-final-stat-green {
+  color: #22C55E;
+  font-size: 18px;
+}
+.pp-final-fio-bar {
+  height: 6px;
+  background: #1a1a1a;
+  max-width: 400px;
+  margin: 8px auto;
+}
+.pp-final-fio-bar-fill {
+  height: 100%;
+  background: #FFD700;
+}
+.pp-final-fio-count {
+  color: #FFD700;
+  font-size: 12px;
+}
+
+/* ── CADERNO SUSPEITAS ── */
+.pp-caderno-desc {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.pp-caderno-progress-label {
+  color: #555;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.pp-caderno-progress-bar {
+  height: 4px;
+  background: #1a1a1a;
+}
+.pp-caderno-progress-fill {
+  height: 100%;
+  background: #FFD700;
+  transition: width 0.5s;
+}
+.pp-fio-card-label {
+  color: #FFD700;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.pp-fio-card-text {
+  color: #C8C8C8;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.pp-conspiracao-box {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgba(255,215,0,0.2);
+  background: rgba(255,215,0,0.03);
+}
+.pp-conspiracao-text {
+  color: #FFD700;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ── DOSSIER SCREEN ── */
+.pp-dossier-header-right {
+  flex: 1;
+}
+.pp-dossier-caso-nome {
+  color: #F5A623;
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+.pp-dossier-caso-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #555;
+}
+.pp-dossier-dif-badge {
+  border: 1px solid rgba(245,166,35,0.27);
+  padding: 1px 6px;
+  color: #F5A623;
+  letter-spacing: 2px;
+}
+.pp-dossier-acusar-feedback {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #8B0000;
+  color: #8B0000;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.pp-dossier-suspeito-wrap {
+  flex: 1;
+}
+.pp-dossier-suspeito-nome {
+  color: #eee;
+  font-size: 13px;
+}
+.pp-dossier-suspeito-desc {
+  color: #555;
+  font-size: 10px;
+}
+.pp-dossier-acusado-label {
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* ── INVESTIGACAO ── */
+.pp-invest-hp-label {
+  font-size: 10px;
+  color: #555;
+  display: block;
+  text-align: right;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+.pp-puzzle-container-styled {
+  background: linear-gradient(135deg, #0a1f00 0%, #0a0a0a 100%);
+  border: 1px solid #1a3a1a;
+  border-top: 2px solid #F5A623;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  padding: 24px;
+  margin: 16px 0;
+  position: relative;
+}
+.pp-puzzle-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: #F5A623;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  opacity: 0.4;
+}
+
+/* ── RESOLUCAO SCREEN ── */
+.pp-resolucao-dialogo {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.pp-resolucao-fio-card {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.pp-resolucao-fio-label {
+  color: #FFD700;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.pp-resolucao-fio-text {
+  color: #C8C8C8;
+  font-size: 12px;
+  font-style: italic;
+}
+.pp-resolucao-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── MAPA CIDADE ── */
+.pp-mapa-padding-top {
+  padding-top: 40px;
+}
+.pp-mapa-title-wrap {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ── CONFRONTO ── */
+.pp-confronto-mb {
+  margin-bottom: 12px;
+}
+
 /* ── UTILITY CLASSES (replace inline styles) ── */
 .pp-page-full {
   min-height: 100vh;

@@ -62,8 +62,8 @@ export default function MapaCidade() {
   }
 
   return (
-    <div className="pp-container" style={{ paddingTop: 40 }}>
-      <div style={{ textAlign: 'center', marginBottom: 8 }}>
+    <div className="pp-container pp-mapa-padding-top">
+      <div className="pp-mapa-title-wrap">
         <h1 className="pp-title">
           <span className="pp-title-glitch" data-text={t('pp.intro.titulo')}>{t('pp.intro.titulo')}</span>
         </h1>

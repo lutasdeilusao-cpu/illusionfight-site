@@ -8,10 +8,10 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.83.1'
+export const SITE_VERSION = '10.83.2'
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
+export const PP_VERSION        = '2.2.1'  // Pesadelo Particular — arquitetura: CSS inline movido para PP.css, hardcoded strings → i18n, screens/ legado corrigido
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso visual fix (centralizado, card, botão)
 export const ARENA_VERSION     = '1.27.2'  // LDI Arena: CSS inline audit — static styles movidos para Arena.css

@@ -17,19 +17,19 @@ export default function CadernoSuspeitas() {
     <div className="pp-container">
       <div className="pp-dossier-header">
         <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pp.local.mapa_voltar')}</button>
-        <h2 style={{ color: '#FFD700', margin: 0 }}>{t('pp.caderno.titulo')}</h2>
+        <h2 className="pp-dossier-caso-nome">{t('pp.caderno.titulo')}</h2>
       </div>
 
-      <p style={{ color: '#888', fontSize: 12, marginBottom: 20 }}>
+      <p className="pp-caderno-desc">
         {t('pp.caderno.desc')}
       </p>
 
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ color: '#555', fontSize: 10, marginBottom: 4 }}>
+      <div className="pp-dossier-pistas-mb">
+        <div className="pp-caderno-progress-label">
           {t('pp.caderno.progresso', { pct: progresso })}
         </div>
-        <div style={{ height: 4, background: '#1a1a1a' }}>
-          <div style={{ height: '100%', background: '#FFD700', transition: 'width 0.5s', width: `${progresso}%` }} />
+        <div className="pp-caderno-progress-bar">
+          <div className="pp-caderno-progress-fill" style={{ width: `${progresso}%` }} />
         </div>
       </div>
 
@@ -43,10 +43,10 @@ export default function CadernoSuspeitas() {
             const caso = CASOS.find(c => c.id === f.casoId)
             return (
               <div key={f.id} className="pp-fio-card">
-                <div style={{ color: '#FFD700', fontSize: 10, marginBottom: 4 }}>
+                <div className="pp-fio-card-label">
                   {caso?.nome || f.casoId}
                 </div>
-                <div style={{ color: '#C8C8C8', fontSize: 12, fontStyle: 'italic', lineHeight: 1.5 }}>
+                <div className="pp-fio-card-text">
                   {f.texto}
                 </div>
               </div>
@@ -56,8 +56,8 @@ export default function CadernoSuspeitas() {
       )}
 
       {fios.length >= 5 && (
-        <div style={{ marginTop: 24, padding: 16, border: '1px solid #FFD70033', background: 'rgba(255,215,0,0.03)' }}>
-          <p style={{ color: '#FFD700', fontSize: 13, fontStyle: 'italic' }}>
+        <div className="pp-conspiracao-box">
+          <p className="pp-conspiracao-text">
             {fios.length >= 15
               ? t('pp.caderno.conspiracao_15')
               : fios.length >= 10

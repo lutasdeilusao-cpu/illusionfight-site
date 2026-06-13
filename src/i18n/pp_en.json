@@ -17,7 +17,9 @@
     "sim": "YES",
     "selecione_slot": "Select a slot to play",
     "slot_label": "SAVE",
-    "slot_vazio": "empty"
+    "slot_vazio": "empty",
+    "deletar_slot": "Delete slot {num}?",
+    "pistas_label": "Clues"
   },
   "final": {
     "msg_jack": "it was a pleasure working with you.\nmarelia will keep needing someone like you.",
@@ -34,6 +36,10 @@
     "compartilhar": "share with friends",
     "voltar_inicio": "back to start",
     "link_copiado": "link copied!"
+  },
+  "puzzle": {
+    "instrucao": "Solve the puzzle to investigate this location.",
+    "nenhum": "No puzzle needed."
   },
   "convo": {
     "caso_aberto": "Case opened.",

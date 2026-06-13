@@ -68,10 +68,10 @@ export default function Dossier() {
     <div className="pp-container">
       <div className="pp-dossier-header">
         <button className="pp-back" onClick={() => store.setFase('mapa')}>{t('pp.local.mapa_voltar')}</button>
-        <div style={{ flex: 1 }}>
-          <h2 style={{ color: '#F5A623', margin: 0, fontSize: 18, letterSpacing: 3 }}>{caso.nome}</h2>
-          <div style={{ display: 'flex', gap: 12, marginTop: 4, fontSize: 10, color: '#555' }}>
-            <span style={{ border: '1px solid #F5A62344', padding: '1px 6px', color: '#F5A623', letterSpacing: 2 }}>
+        <div className="pp-dossier-header-right">
+          <h2 className="pp-dossier-caso-nome">{caso.nome}</h2>
+          <div className="pp-dossier-caso-meta">
+            <span className="pp-dossier-dif-badge">
               {'◆'.repeat(caso.dificuldade)}
             </span>
             <span>+{caso.reputacao_ganho} rep</span>
@@ -82,7 +82,7 @@ export default function Dossier() {
 
       {resultado?.tipo === 'inocente' && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          style={{ textAlign: 'center', padding: 10, border: '1px solid #8B0000', color: '#8B0000', fontSize: 12, marginBottom: 12 }}>
+          className="pp-dossier-acusar-feedback">
           {t('pp.dossier.inocente')}
         </motion.div>
       )}
@@ -100,9 +100,9 @@ export default function Dossier() {
               <div className="pp-avatar pp-avatar--enemy">
                 {s.nome[0]}
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ color: '#eee', fontSize: 13 }}>{s.nome}</div>
-                <div style={{ color: '#555', fontSize: 10 }}>{s.desc}</div>
+              <div className="pp-dossier-suspeito-wrap">
+                <div className="pp-dossier-suspeito-nome">{s.nome}</div>
+                <div className="pp-dossier-suspeito-desc">{s.desc}</div>
               </div>
               {acusado && <span style={{ color: isCulpado ? '#8B0000' : '#EC4899', fontSize: 10, fontWeight: 'bold', letterSpacing: 2 }}>
                 {isCulpado ? 'CULPADO' : 'ACUSADO'}
