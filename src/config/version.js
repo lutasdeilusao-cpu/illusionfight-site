@@ -8,12 +8,12 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.83.0'
+export const SITE_VERSION = '10.83.1'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
-export const JACK_VERSION      = '5.3.0'  // Jack Dream Beer — guest mode + MainMenu CSS inline fix + privacidade cadastro
+export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso visual fix (centralizado, card, botão)
 export const ARENA_VERSION     = '1.27.2'  // LDI Arena: CSS inline audit — static styles movidos para Arena.css
 export const TAMA_VERSION      = '2.5.1' // Tamagoshi LDI — guest aviso no termo (título, texto explicativo, link cadastro)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")

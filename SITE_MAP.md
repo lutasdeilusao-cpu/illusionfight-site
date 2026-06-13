@@ -534,10 +534,10 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.83.0** 🛠️ | Site — Jack Dream Beer guest mode + aviso de privacidade no cadastro |
+| `SITE_VERSION` | **10.83.1** 🛠️ | Site — Jack Dream Beer guest aviso visual fix (centralizado, card, botão) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
-| `JACK_VERSION` | **5.3.0** | Jack Dream Beer — guest mode + MainMenu CSS inline fix + privacidade cadastro |
+| `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.27.2** | Arena LDI — CSS inline audit: static styles movidos para Arena.css |
 | `TAMA_VERSION` | **2.5.1** | Tamagoshi LDI — guest aviso no termo (título, texto explicativo, link cadastro) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
