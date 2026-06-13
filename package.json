@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "migration": "node scripts/run-migration.js"
+    "migration": "node scripts/run-migration.js",
+    "test:routes": "npx playwright test e2e/routes.spec.js"
   },
   "dependencies": {
     "@playwright/test": "^1.60.0",

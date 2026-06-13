@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.76.0** 🚀 | Site — SITE_MAP.md double-check, limpeza RELATORIO_COMPLETO.md + RELEASE_S1.md |
+| `SITE_VERSION` | **10.77.0** 🚀 | Site — Playwright route test suite + SITE_MAP.md/RELATORIO_COMPLETO.md atualizados |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |

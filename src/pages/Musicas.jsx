@@ -65,7 +65,7 @@ export default function Musicas() {
             const isPlaceholder = !m.publicado
             const hasRealLinks = m.publicado && m.plataformas.some(p => p.url)
             return (
-              <div key={m.id} className={`musica-card${isPlaceholder ? ' musica-card--placeholder' : ''}`}>
+              <div key={`${m.id}-${i}`} className={`musica-card${isPlaceholder ? ' musica-card--placeholder' : ''}`}>
                 <div className="musica-card__capa">
                   {capa && <img src={capa} alt={m.titulo} />}
                   {isPlaceholder && <span className="musica-card__coming-soon">{t('pages.musicas.em_breve')}</span>}
