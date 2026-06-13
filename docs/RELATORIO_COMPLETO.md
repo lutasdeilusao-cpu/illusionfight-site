@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
 > **Data:** 2026-06-13  
-> **Versão do Relatório:** 3.54  
-> **Versão do Site:** 10.74.0  
+> **Versão do Relatório:** 3.55  
+> **Versão do Site:** 10.75.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.74.0 ✅ |
+| **Versão Atual** | 10.75.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 36 rotas ativas (35 nomeadas + 1 catch-all 404) |
 | **Total de Jogos** | 9 jogos |
@@ -407,7 +407,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 ### 5.4 Top Trumps LDI (LDI Super Trunfo em PT)
 
 **Versão Single:** 5.21.0  
-**Versão MP:** 5.10.0  
+**Versão MP:** 5.11.0  
 **Fichas:** Multiplayer 🔒  
 **Rotas base:** `/games/toptrumps`, `/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`
 
@@ -439,6 +439,9 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 #### Changelog v5.21.0 / v5.10.0
 - 🐛 **Fix: IA não escolhe mais rank_sdr** — Rank SDR não é um atributo jogável (é apenas informativo/visual na carta). A IA do SP (TopTrumps.jsx) e o timeout auto-pick do MP (TopTrumpsMP.jsx) agora filtram `rank_sdr` das opções disponíveis
 - ✅ **Confirmado: PPT (jokenpô) é 100% aleatório** — A escolha da IA no PPT usa `Math.floor(Math.random() * 3)`, probabilidade pura sem viés
+
+#### Changelog v5.11.0
+- ⏱️ **Cron job reduzido: `limpar-salas-fantasma`** — Frequência alterada de `*/5 * * * *` (a cada 5 min) para `0 3 * * *` (1x/dia às 3h). Salas com status `'aguardando'` e criadas há mais de 5 minutos agora são limpas apenas diariamente, reduzindo carga desnecessária no banco Supabase.
 
 #### Changelog v5.20.0
 - 🐛 **Fix: salvarDeckTipo violava UNIQUE(user_id,carta_id)** — Ao salvar deck com cartas já existentes na coleção geral, ocorria erro de UNIQUE violation. Agora deleta entries antigas antes de reinserir.
