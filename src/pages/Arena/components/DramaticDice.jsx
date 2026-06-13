@@ -14,7 +14,13 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
   const lastSoundRef = useRef(0)
+  const phaseRef = useRef('intro')
   const isCritical = finalValue === 6
+
+  // Mantém phaseRef sincronizado com o state phase (evita stale closure no rAF)
+  useEffect(() => {
+    phaseRef.current = phase
+  }, [phase])
 
   // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama
   const totalDuration = useRef(
@@ -55,7 +61,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
     let frameId
 
     function tick() {
-      if (stopped) return
+      if (stopped || phaseRef.current !== 'rolling') return
 
       const elapsed = performance.now() - start
       const step = steps[stepIdx]

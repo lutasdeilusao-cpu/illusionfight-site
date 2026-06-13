@@ -1,6 +1,6 @@
 # RELATÓRIO COMPLETO — Illusion Fight
 
-> **Última atualização:** 2026-06-13 — v10.77.0
+> **Última atualização:** 2026-06-13 — v10.77.7
 
 ---
 
@@ -71,11 +71,11 @@ npm run test:routes
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.0** 🚀 | Playwright route test suite + RELATORIO_COMPLETO.md |
+| `SITE_VERSION` | **10.77.7** 🛠️ | fix DramaticDice phantom frame bug (phaseRef guard) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
-| `ARENA_VERSION` | **1.25.1** | Arena LDI |
+| `ARENA_VERSION` | **1.27.1** | Arena LDI — fix DramaticDice phantom frame bug (phaseRef guard) |
 | `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames |

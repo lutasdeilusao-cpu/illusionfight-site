@@ -534,11 +534,11 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.6** 🛠️ | Site — ficha temporária p/ guest na LDI Arena (cria sem conta, joga na sessão) |
+| `SITE_VERSION` | **10.77.7** 🛠️ | Site — fix DramaticDice phantom frame bug (phaseRef guard) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
-| `ARENA_VERSION` | **1.27.0** | Arena LDI — ficha temporária para guest (sem conta) aparece no lobby como jogável |
+| `ARENA_VERSION` | **1.27.1** | Arena LDI — fix DramaticDice phantom frame bug (phaseRef guard) |
 | `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI — S1 sprite completo! 10/10 sprites próprios |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
