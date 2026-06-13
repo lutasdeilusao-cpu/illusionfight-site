@@ -1505,7 +1505,8 @@
         "random": "Cartas aleatórias",
         "cancel": "Cancelar",
         "semDeck": "Nenhum deck salvo para este tamanho",
-        "cartasAleatorias": "{n} cartas aleatórias da sua coleção"
+        "cartasAleatorias": "{n} cartas aleatórias da sua coleção",
+        "semDeckGuest": "Disponível apenas para contas com deck salvo."
       },
       "hud_rodada": "RODADA {n}/{total}",
       "hud_voce": "VOCÊ: {n}",
@@ -1561,7 +1562,9 @@
       "tier_primordial": "PRIMORDIAL",
       "tier_lendario": "LENDÁRIO",
       "tier_sombra": "SOMBRA",
-      "sem_oponente": "Nenhum adversário encontrado. Tente novamente."
+      "sem_oponente": "Nenhum adversário encontrado. Tente novamente.",
+      "guest_cta_criar_conta": "Gostou? Crie uma conta grátis para colecionar cartas e montar seu próprio deck.",
+      "guest_cta_link": "Criar conta"
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

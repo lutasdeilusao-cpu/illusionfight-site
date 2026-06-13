@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.78.0'
+export const SITE_VERSION = '10.79.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
@@ -18,7 +18,7 @@ export const ARENA_VERSION     = '1.27.1'  // LDI Arena: fix DramaticDice phanto
 export const TAMA_VERSION      = '2.5.0' // Tamagoshi LDI — S1 completo: 10/10 sprites próprios (Alion, Indye, Popystar) — último gargalo de assets eliminado!
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
-export const TS_VERSION        = '5.21.0'  // Top Trumps SP: IA não escolhe mais rank_sdr (não é atributo jogável) + PPT já era aleatório (confirmado)
+export const TS_VERSION        = '5.22.0'  // Top Trumps SP: modo ficha temporária para guest (jogar sem conta + deck aleatório de 5 cartas)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
 export const PROTOTYPE_VERSION = '2.0.0' // Protótipo — menu de seleção + HexBoard + Morto Engine

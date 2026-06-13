@@ -1115,6 +1115,19 @@
   margin-bottom: 1.5rem;
 }
 
+.tt-guest-cta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.tt-guest-cta a {
+  color: #F5A623;
+  text-decoration: underline;
+}
+
 .tt-fim-actions {
   display: flex;
   justify-content: center;

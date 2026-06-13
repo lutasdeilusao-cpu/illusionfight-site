@@ -465,6 +465,7 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
     setPlacar(p => ({ ...p, ia: p.ia + 1 }))
     setFase('fim_jogo')
+    if (!user) return
     // Cada partida consuma 1 tentativa (await p/ evitar race condition)
     if (user) {
       const usadas = await consumirTentativa(user.id)
@@ -488,6 +489,10 @@ export default function TopTrumps() {
     }
     else if (placar.jogador === placar.ia) sfx.draw()
     else sfx.lose()
+    if (!user) {
+      setFase('fim_jogo')
+      return
+    }
     const resultado = venceu ? 'vitoria' : placar.jogador === placar.ia ? 'empate' : 'derrota'
     const jogadas = historicoRodadas.length
     const vitorias = historicoRodadas.filter(h => h.resultado === 'ganhou').length
@@ -599,6 +604,14 @@ export default function TopTrumps() {
     })
   }, [user])
 
+  // Guest: gera deck temporário em memória (sem persistência)
+  useEffect(() => {
+    if (user) return
+    if (deckUsuario.length === 0) {
+      setDeckUsuario(embaralhar([...todasCartas]).slice(0, 5))
+    }
+  }, [user])
+
   useEffect(() => {
     if (totalTurnos !== null || deckUsuario.length === 0) { return }
     const opcoes = [5, 10, 15, 20].filter(n => n <= deckUsuario.length)
@@ -625,7 +638,7 @@ export default function TopTrumps() {
             <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
             <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
           </div>
-          <LoginGate feature="o Top Trumps">
+          <>
             {(menuStep === null || menuStep === 'modo') && (
               <div className="tt-modos">
                 <div className="tt-modo-card" onClick={() => { sfx.click(); setMenuStep('config'); }}>
@@ -647,34 +660,40 @@ export default function TopTrumps() {
                       onClick={() => { sfx.click(); setTotalTurnos(n); }}>{n}</button>
                   ))}
                 </div>
-                {jaGanhouHoje ? (
-                  <div className="tt-ja-ganhou-hoje">
-                    <span className="tt-ja-ganhou-icone">🏆</span>
-                    <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou')}</p>
-                  </div>
-                ) : deckUsuario.length >= todasCartas.length ? (
-                  <div className="tt-ja-ganhou-hoje">
-                    <span className="tt-ja-ganhou-icone">🏆</span>
-                    <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou_todas')}</p>
-                  </div>
-                ) : (
-                  <div className="tt-config-tentativas">
-                    {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
-                    <span className="tt-tentativa-texto">{t('games.toptrumps.menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
-                  </div>
+                {user && (
+                  jaGanhouHoje ? (
+                    <div className="tt-ja-ganhou-hoje">
+                      <span className="tt-ja-ganhou-icone">🏆</span>
+                      <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou')}</p>
+                    </div>
+                  ) : deckUsuario.length >= todasCartas.length ? (
+                    <div className="tt-ja-ganhou-hoje">
+                      <span className="tt-ja-ganhou-icone">🏆</span>
+                      <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou_todas')}</p>
+                    </div>
+                  ) : (
+                    <div className="tt-config-tentativas">
+                      {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
+                      <span className="tt-tentativa-texto">{t('games.toptrumps.menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
+                    </div>
+                  )
                 )}
                 <button className={`tt-btn-jogar${totalTurnos !== null ? '' : ' tt-btn-jogar--disabled'}`}
                   disabled={totalTurnos === null} onClick={() => {
                     sfx.click()
                     setShowDeckStart(true)
                   }}>{t('games.toptrumps.jogar')}</button>
+                {user && (
+                  <>
                 <button className="tt-btn-deck-builder" onClick={() => { sfx.click(); setShowDeckBuilder(true) }}>
                   🃏 {t('games.toptrumps.deckBuilderBtn')}
                 </button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
+                  </>
+                )}
               </div>
             )}
-          </LoginGate>
+          </>
           <BackToGamesBtn onClick={() => { sfx.click(); if (menuStep === 'config') { setMenuStep(null) } else { navigate(-1) } }} label={t('games.toptrumps.menu_voltar_games')} />
         </div>
       </div>
@@ -1064,6 +1083,12 @@ export default function TopTrumps() {
           <p className="tt-relatorio-sub">{t('games.toptrumps.relatorio_sub')}</p>
           <div className="tt-relatorio-icone">{icone}</div>
           <h3 className={`tt-relatorio-resultado${venceu ? ' tt-fim-titulo--vitoria' : empatou ? ' tt-fim-titulo--empate' : ' tt-fim-titulo--derrota'}`}>{titulo}</h3>
+          {!user && (
+            <p className="tt-guest-cta">
+              {t('games.toptrumps.guest_cta_criar_conta')}{' '}
+              <Link to="/cadastro">{t('games.toptrumps.guest_cta_link')}</Link>
+            </p>
+          )}
           <div className="tt-relatorio-placar">
             <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.jogador}</span><span className="tt-relatorio-placar-label">{t('games.toptrumps.relatorio_voce')}</span></div>
             <span className="tt-relatorio-placar-divisor">×</span>

@@ -113,7 +113,9 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
                 </>
               ) : (
                 <p className="tt-startdeck-opcao-sem-deck">
-                  {t('games.toptrumps.deckStart.semDeck')}
+                  {userId
+                    ? t('games.toptrumps.deckStart.semDeck')
+                    : t('games.toptrumps.deckStart.semDeckGuest')}
                 </p>
               )}
             </div>

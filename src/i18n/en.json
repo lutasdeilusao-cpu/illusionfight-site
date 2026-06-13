@@ -1478,7 +1478,8 @@
         "random": "Random cards",
         "cancel": "Cancel",
         "semDeck": "No deck saved for this size",
-        "cartasAleatorias": "{n} random cards from your collection"
+        "cartasAleatorias": "{n} random cards from your collection",
+        "semDeckGuest": "Only available for accounts with a saved deck."
       },
       "hud_rodada": "ROUND {n}/{total}",
       "hud_voce": "YOU: {n}",
@@ -1534,7 +1535,9 @@
       "tier_primordial": "PRIMORDIAL",
       "tier_lendario": "LEGENDARY",
       "tier_sombra": "SHADOW",
-      "sem_oponente": "No opponent found. Please try again."
+      "sem_oponente": "No opponent found. Please try again.",
+      "guest_cta_criar_conta": "Liked it? Create a free account to collect cards and build your own deck.",
+      "guest_cta_link": "Create account"
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

@@ -1,6 +1,6 @@
 # RELATÓRIO COMPLETO — Illusion Fight
 
-> **Última atualização:** 2026-06-13 — v10.77.7
+> **Última atualização:** 2026-06-13 — v10.78.0
 
 ---
 
@@ -71,7 +71,7 @@ npm run test:routes
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.7** 🛠️ | fix DramaticDice phantom frame bug (phaseRef guard) |
+| `SITE_VERSION` | **10.78.0** 🛠️ | Prototype menu + HexBoard + i18n pt/en/es |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer |
@@ -82,4 +82,4 @@ npm run test:routes
 | `TS_VERSION` | **5.21.0** | Top Trumps SP |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics |
-| `PROTOTYPE_VERSION` | **1.0.1** | Protótipo |
+| `PROTOTYPE_VERSION` | **2.0.0** | Protótipo — menu de seleção + HexBoard + Morto Engine + i18n pt/en/es |

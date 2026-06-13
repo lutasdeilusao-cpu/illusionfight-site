@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.78.0** 🛠️ | Site — Prototype menu + HexBoard + i18n pt/en/es |
+| `SITE_VERSION` | **10.79.0** 🛠️ | Site — Top Trumps guest mode (jogar sem conta) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
@@ -542,7 +542,7 @@
 | `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI — S1 sprite completo! 10/10 sprites próprios |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
-| `TS_VERSION` | **5.21.0** | Top Trumps SP — IA não escolhe rank_sdr + PPT 100% aleatório |
+| `TS_VERSION` | **5.22.0** | Top Trumps SP — modo ficha temporária para guest (jogar sem conta + deck aleatório de 5 cartas) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
 | `PROTOTYPE_VERSION` | **2.0.0** | Protótipo — menu de seleção + HexBoard + Morto Engine + i18n pt/en/es |
