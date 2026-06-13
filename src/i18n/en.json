@@ -1283,7 +1283,8 @@
       "guest_create_account": "Create free account",
       "guest_save_prompt_title": "Create a free account",
       "guest_save_prompt_desc": "Create a free account to save this sheet and your progress. Your character is ready — don't lose your data!",
-      "guest_continue_without_saving": "Continue without saving",
+      "guest_continue_without_saving": "Continue with temporary sheet",
+      "guest_temp_badge": "🕐 Temporary sheet",
       "powers": {
         "fogo": {
           "chama_rapida": { "name": "Quick Flame", "desc": "Fires a fast flame dealing +2 elemental damage." },

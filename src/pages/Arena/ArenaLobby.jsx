@@ -84,7 +84,11 @@ export default function ArenaLobby({ onNavigate }) {
   const [modalUpgrade, setModalUpgrade] = useState(null) // 'fichas' | 'multiplayer' | null
 
   useEffect(() => {
-    if (!user) return
+    if (!user) {
+      // Guest: pode ter ficha temporária vinda do ArenaCreate
+      setLoading(false)
+      return
+    }
     store.loadSheets(user.id).then(data => {
       const list = Array.isArray(data) ? data : []
       setSheets(list)
@@ -97,6 +101,16 @@ export default function ArenaLobby({ onNavigate }) {
       }
     })
   }, [user])
+
+  // Monitora ficha temporária (guest — !user) para exibir no lobby
+  useEffect(() => {
+    if (user) return
+    if (store.sheet?.sheet_name?.trim()) {
+      setSheets([{ ...store.sheet, _temp: true }])
+    } else {
+      setSheets([])
+    }
+  }, [user, store.sheet?.sheet_name])
 
   const handleLutar = (sheet) => {
     sfx.select()
@@ -254,18 +268,22 @@ export default function ArenaLobby({ onNavigate }) {
       ) : (
         <div className="arena-sheet-list">
           {sheets.map(s => {
+            const isTemp = s._temp
             return (
               <div
-                key={s.id}
-                className="arena-sheet-card-v"
-                style={{ '--elem-cor': '#00B4D8', '--elem-glow': 'rgba(0,180,216,0.1)' }}
+                key={s.id || 'temp'}
+                className={`arena-sheet-card-v ${isTemp ? 'arena-sheet-card-v--temp' : ''}`}
+                style={{ '--elem-cor': isTemp ? '#F5A623' : '#00B4D8', '--elem-glow': isTemp ? 'rgba(245,166,35,0.15)' : 'rgba(0,180,216,0.1)' }}
                 onClick={() => handleLutar(s)}
               >
-                <div className="arena-sheet-avatar">
+                <div className="arena-sheet-avatar" style={isTemp ? { background: 'radial-gradient(circle at 35% 35%, #F5A623, #0a0a0a)', boxShadow: '0 0 20px rgba(245,166,35,0.15)' } : {}}>
                   {(s.sheet_name || 'X')[0].toUpperCase()}
                 </div>
                 <div className="arena-sheet-info">
-                  <div className="arena-sheet-name-v">{s.sheet_name}</div>
+                  <div className="arena-sheet-name-v">
+                    {s.sheet_name}
+                    {isTemp && <span className="arena-temp-badge">{t('games.arena.guest_temp_badge')}</span>}
+                  </div>
                   <ArenaXpBar
                     xpTotal={s.xp_total || 0}
                     t={t}
@@ -281,7 +299,9 @@ export default function ArenaLobby({ onNavigate }) {
                   </div>
                 </div>
                 <div className="arena-sheet-card-actions">
-                  <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title={t('games.arena.excluir_ficha')}>✕</button>
+                  {!isTemp && (
+                    <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title={t('games.arena.excluir_ficha')}>✕</button>
+                  )}
                   <span className="arena-sheet-arrow">→</span>
                 </div>
               </div>

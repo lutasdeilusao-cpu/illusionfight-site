@@ -1283,7 +1283,8 @@
       "guest_create_account": "Crear cuenta gratis",
       "guest_save_prompt_title": "Crea una cuenta gratis",
       "guest_save_prompt_desc": "Crea una cuenta gratis para guardar esta ficha y tu progreso. ¡Tu personaje está listo — no pierdas tus datos!",
-      "guest_continue_without_saving": "Continuar sin guardar",
+      "guest_continue_without_saving": "Continuar con ficha temporal",
+      "guest_temp_badge": "🕐 Ficha temporal",
       "powers": {
         "fogo": {
           "chama_rapida": { "name": "Llama Rápida", "desc": "Dispara una llama veloz que causa +2 de daño elemental." },
