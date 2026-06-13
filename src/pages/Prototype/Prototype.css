@@ -46,6 +46,12 @@
   margin: 0;
 }
 
+.prototype-version {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #7a6530;
+}
+
 .proto-btn {
   font-family: 'Cinzel', serif;
   font-size: 0.85rem;
@@ -83,4 +89,76 @@
   width: 100%;
   border: none;
   min-height: calc(100vh - 60px);
+}
+
+/* ── Menu / Selection Grid ─────────────────────── */
+
+.prototype-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 40px 20px;
+}
+
+.prototype-subtitle {
+  font-size: 1rem;
+  color: #7a7570;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.prototype-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 700px;
+}
+
+.prototype-card {
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 8px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 260px;
+  max-width: 320px;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.prototype-card:hover {
+  border-color: #c9a84c;
+  background: #1a1a22;
+  transform: translateY(-2px);
+}
+
+.prototype-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #c9a84c;
+  letter-spacing: 0.05em;
+}
+
+.prototype-card-desc {
+  font-size: 0.85rem;
+  color: #7a7570;
+  line-height: 1.4;
+}
+
+/* ── Content area ──────────────────────────────── */
+
+.prototype-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

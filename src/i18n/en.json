@@ -2684,5 +2684,24 @@
     },
     "footer": "This page is updated when costs change.",
     "cta": "See plans"
+  },
+  "prototype": {
+    "title": "Prototype",
+    "login_required": "Log in with an admin account to access.",
+    "go_login": "Go to Login",
+    "restricted": "Access restricted to administrators.",
+    "back_home": "Back to Home",
+    "back": "Back",
+    "select_prompt": "Select a prototype to test:",
+    "morto_engine": {
+      "title": "Morto Engine — GENERIC RPG SYSTEM",
+      "desc": "Complete RPG system: creation, tests, battle, magic, effects."
+    },
+    "hex_board": {
+      "title": "Combat Board Hexa",
+      "desc": "Configurable hexagonal board for visual tests.",
+      "cols": "Columns",
+      "rows": "Rows"
+    }
   }
 }

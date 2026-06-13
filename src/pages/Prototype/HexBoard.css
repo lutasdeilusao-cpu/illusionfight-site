@@ -1,0 +1,70 @@
+.hex-board-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 16px;
+  overflow: auto;
+}
+
+.hex-board-controls {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hex-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: #c9a84c;
+  letter-spacing: 0.05em;
+}
+
+.hex-label input[type="range"] {
+  width: 120px;
+  height: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #2e2e3a;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.hex-label input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c9a84c;
+  border: none;
+  cursor: pointer;
+}
+
+.hex-value {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #d4cfc8;
+  min-width: 24px;
+  text-align: center;
+}
+
+.hex-board-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: auto;
+}
+
+.hex-canvas {
+  display: block;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+}

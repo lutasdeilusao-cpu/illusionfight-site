@@ -523,7 +523,7 @@
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
 | `/custos` | Custos | `src/pages/Custos.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Transparência financeira do projeto |
 | `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
-| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | — | ✅ | — | Protótipos admin-only (RPG System Morto) |
+| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` + `HexBoard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Protótipos admin-only: menu de seleção + Morto Engine + Combat Board Hexa |
 | `*` (catch-all) | NotFound | `src/pages/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
 ---
@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.7** 🛠️ | Site — fix DramaticDice phantom frame bug (phaseRef guard) |
+| `SITE_VERSION` | **10.78.0** 🛠️ | Site — Prototype menu + HexBoard + i18n pt/en/es |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.21.0** | Top Trumps SP — IA não escolhe rank_sdr + PPT 100% aleatório |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **1.1.0** | Protótipo RPG — sistema completo: criação, testes, batalha, magia, efeitos |
+| `PROTOTYPE_VERSION` | **2.0.0** | Protótipo — menu de seleção + HexBoard + Morto Engine + i18n pt/en/es |
 
 ---
 

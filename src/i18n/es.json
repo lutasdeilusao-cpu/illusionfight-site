@@ -2684,5 +2684,24 @@
     },
     "footer": "Esta página se actualiza cuando los costos cambian.",
     "cta": "Ver planes"
+  },
+  "prototype": {
+    "title": "Prototipo",
+    "login_required": "Inicia sesión con una cuenta admin para acceder.",
+    "go_login": "Ir a Inicio de Sesión",
+    "restricted": "Acceso restringido a administradores.",
+    "back_home": "Volver al Inicio",
+    "back": "Volver",
+    "select_prompt": "Selecciona un prototipo para probar:",
+    "morto_engine": {
+      "title": "Morto Engine — GENERIC RPG SYSTEM",
+      "desc": "Sistema RPG completo: creación, pruebas, batalla, magia, efectos."
+    },
+    "hex_board": {
+      "title": "Combat Board Hexa",
+      "desc": "Tablero hexagonal configurable para pruebas visuales.",
+      "cols": "Columnas",
+      "rows": "Filas"
+    }
   }
 }
