@@ -48,13 +48,20 @@ export async function limparDeck(userId) {
 }
 
 export async function substituirDeck(userId, cartaIds) {
-  await limparDeck(userId)
+  // Tenta limpar o deck primeiro (pode falhar se RLS não permitir DELETE)
+  const { error: delError } = await supabase
+    .from('toptrumps_decks')
+    .delete()
+    .eq('user_id', userId)
+  if (delError) console.error('[TT] Erro ao limpar deck:', delError)
+
   const unicos = [...new Set(cartaIds)]
   if (unicos.length > 0) {
     const inserts = unicos.map(id => ({ user_id: userId, carta_id: id }))
+    // Usa upsert com onConflict para evitar 23505 se o DELETE não funcionou
     const { error } = await supabase
       .from('toptrumps_decks')
-      .insert(inserts)
+      .upsert(inserts, { onConflict: 'user_id,carta_id', ignoreDuplicates: false })
     if (error) console.error('[TT] Erro ao substituir deck:', error)
   }
 }

@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase'
 
 const FICHAS_POR_TIER = { free: 3, elite: 10, primordial: 30 }
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+const TEST_ACCOUNT_EMAILS = ['conta@teste.com', 'conta1@teste.com', 'conta2@teste.com', 'conta3@teste.com', 'conta4@teste.com', 'conta5@teste.com', 'conta6@teste.com']
 
 const FichasContext = createContext({})
 
@@ -16,16 +17,19 @@ export function FichasProvider({ children }) {
   const [loading, setLoading] = useState(true)
   const [historico, setHistorico] = useState([])
   const [isAdmin, setIsAdmin] = useState(false)
+  const [isTestAccount, setIsTestAccount] = useState(false)
   const [fichasDiariasState, setFichasDiariasState] = useState(3)
   const fichasDiarias = fichasDiariasState
   const hoje = () => new Date().toISOString().split('T')[0]
 
   const carregar = useCallback(async () => {
     if (!user) { setLoading(false); return }
-    // Check admin + role via profiles (fallback por email)
-    const { data: profileData } = await supabase.from('profiles').select('is_admin, role').eq('id', user.id).maybeSingle()
+    // Check admin, is_test_account, role via profiles (fallback por email)
+    const { data: profileData } = await supabase.from('profiles').select('is_admin, is_test_account, role').eq('id', user.id).maybeSingle()
     const adminFlag = profileData?.is_admin || ADMIN_EMAILS.includes(user?.email || '')
     setIsAdmin(adminFlag)
+    const testAccountFlag = profileData?.is_test_account || TEST_ACCOUNT_EMAILS.includes(user?.email || '')
+    setIsTestAccount(!!testAccountFlag)
     const fichasPorRole = { free: 100, elite: 10, primordial: 30, moderator: 10, admin: 999 }
     const rolePerfil = profileData?.role || 'free'
     setFichasDiariasState(fichasPorRole[rolePerfil] || 3)
@@ -76,6 +80,7 @@ export function FichasProvider({ children }) {
 
   const gastarFicha = async (motivo) => {
     if (isAdmin) return true
+    if (isTestAccount) return true // contas de teste têm fichas infinitas — não decrementa
     if (saldo <= 0) return false
     const novoSaldo = saldo - 1
     const { error } = await supabase.from('fichas').update({ saldo: novoSaldo, updated_at: new Date().toISOString() }).eq('user_id', user.id)
@@ -95,7 +100,7 @@ export function FichasProvider({ children }) {
   }
 
   return (
-    <FichasContext.Provider value={{ saldo, fichasHoje, fichasDiarias, podeColetarHoje, isAdmin, loading, historico,
+    <FichasContext.Provider value={{ saldo, fichasHoje, fichasDiarias, podeColetarHoje, isAdmin, isTestAccount, loading, historico,
       coletarDiarias, ganharFichas, gastarFicha, carregarHistorico, recarregar: carregar }}>
       {children}
     </FichasContext.Provider>

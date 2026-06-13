@@ -60,14 +60,12 @@ export default function PerfilTamagoshi() {
       .from('tamagoshi_fama')
       .select('*')
       .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
     setFama(famaData || [])
 
     const { data: badgeData } = await supabase
       .from('tamagoshi_badges')
       .select('*')
       .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
     setBadges(badgeData || [])
 
     setCarregando(false)

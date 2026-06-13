@@ -98,10 +98,9 @@ export function AuthProvider({ children }) {
     const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', userId).limit(1)
     if (data && data.length > 0) { return }
     const locale = localStorage.getItem('ldi-locale') || 'pt'
-    const mod = await import(/* @vite-ignore */ 
-      locale === 'en' ? '../data/supertrunfo-en.json' :
-      locale === 'es' ? '../data/supertrunfo-es.json' :
-      '../data/supertrunfo-pt.json')
+    const supertrunfoModules = import.meta.glob('../data/supertrunfo-*.json')
+    const path = `../data/supertrunfo-${locale}.json`
+    const mod = await supertrunfoModules[path]()
     const todasCartas = mod.default
     const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
     const qtdInicial = 5

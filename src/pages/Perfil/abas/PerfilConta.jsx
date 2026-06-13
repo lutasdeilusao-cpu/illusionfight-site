@@ -64,7 +64,7 @@ export default function PerfilConta() {
   useEffect(() => {
     if (!user) return
     const mesAtual = new Date().toISOString().slice(0, 7)
-    supabase.from('share_submissions').select('status').eq('user_id', user.id).eq('mes_referencia', mesAtual).single().then(({ data }) => {
+    supabase.from('share_submissions').select('status').eq('user_id', user.id).eq('mes_referencia', mesAtual).maybeSingle().then(({ data }) => {
       if (data) setShareStatus(data.status)
     })
   }, [user])

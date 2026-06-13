@@ -18,7 +18,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const SITE_MAP_PATH = path.resolve(__dirname, '..', 'SITE_MAP.md')
 
 // ── Credenciais de teste ──────────────────────────────
-const TEST_EMAIL = 'conta@teste.com'
+// TODO: contas @teste.com precisam de recarga periódica de fichas.
+//       Pode-se automatizar depois com uma rota admin que reseta fichas
+//       para contas com is_test_account = true.
+const TEST_EMAIL = 'conta6@teste.com'
 const TEST_PASSWORD = '000000'
 
 // ── IDs reais para rotas dinâmicas ────────────────────
@@ -215,6 +218,71 @@ test.describe('🚫 Rota 404', () => {
 test.describe('🔒 Rotas Autenticadas', () => {
   test.beforeEach(async ({ page }) => {
     await login(page)
+  })
+
+  // ── Teste de gasto de ficha (conta6@teste.com tem is_test_account, saldo não deve mudar) ──
+  test(`🎰 fichas: jogar Top Trumps não gasta ficha (conta de teste)`, async ({ page }) => {
+    const errors = []
+    page.on('console', (msg) => { if (msg.type() === 'error') errors.push(msg.text()) })
+    const pageErrors = []
+    page.on('pageerror', (err) => { pageErrors.push(err.message) })
+
+    // 1. Lê saldo atual no /perfil (já estamos lá após login)
+    await page.waitForSelector('.perfil-contador-valor', { timeout: 10_000 })
+    const saldoBefore = await page.locator('.perfil-contador-valor').first().innerText()
+    console.log(`[FICHAS] saldo antes: ${saldoBefore}`)
+
+    // 2. Navega para /games/toptrumps
+    await page.goto('/games/toptrumps', { waitUntil: 'load', timeout: 30_000 })
+    await page.waitForTimeout(2000)
+
+    // 3. Passa pelo FichaGateRoute — clica em "[ gastar 1 ficha ]"
+    const fgrBtn = page.locator('.fgr-btn--primary')
+    if (await fgrBtn.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await fgrBtn.click()
+      await page.waitForTimeout(2000)
+    }
+
+    // 4. TopTrumps carregou — clica no modo Single Player
+    await page.waitForSelector('.tt-modo-card', { timeout: 10_000 })
+    await page.locator('.tt-modo-card').first().click()
+    await page.waitForTimeout(1000)
+
+    // 5. Seleciona número de turnos (primeiro botão disponível: 5)
+    const turnoBtn = page.locator('.tt-config-turno-btn').first()
+    await turnoBtn.waitFor({ state: 'visible', timeout: 5000 })
+    await turnoBtn.click()
+    await page.waitForTimeout(500)
+
+    // 6. Clica "Jogar"
+    const jogarBtn = page.locator('.tt-btn-jogar')
+    await jogarBtn.waitFor({ state: 'visible', timeout: 5000 })
+    await jogarBtn.click()
+    await page.waitForTimeout(1000)
+
+    // 7. DeckStartModal — seleciona "aleatório" e confirma
+    const randomOption = page.locator('.tt-startdeck-opcao').last()
+    await randomOption.waitFor({ state: 'visible', timeout: 5000 })
+    await randomOption.click()
+    await page.waitForTimeout(500)
+
+    const confirmBtn = page.locator('.tt-startdeck-btn--confirm')
+    await confirmBtn.waitFor({ state: 'visible', timeout: 5000 })
+    await confirmBtn.click()
+    await page.waitForTimeout(2000)
+
+    // 8. Verifica se o jogo carregou sem erros
+    const all = [...errors, ...pageErrors]
+    expect(all, `console.error durante fluxo Top Trumps:\n${all.join('\n')}`).toEqual([])
+
+    // 9. Volta ao /perfil e lê saldo novamente
+    await page.goto('/perfil', { waitUntil: 'load', timeout: 30_000 })
+    await page.waitForSelector('.perfil-contador-valor', { timeout: 10_000 })
+    const saldoAfter = await page.locator('.perfil-contador-valor').first().innerText()
+    console.log(`[FICHAS] saldo depois: ${saldoAfter}`)
+
+    // 10. Conta de teste (is_test_account = true) — saldo não deve ter mudado
+    expect(saldoAfter, `Saldo de fichas mudou indevidamente: ${saldoBefore} → ${saldoAfter}`).toBe(saldoBefore)
   })
 
   for (const route of authRoutes) {
