@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
+import { useAuth } from '../../../context/AuthContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import './Termo.css'
 
 export default function Termo({ onAceitar, onVoltar }) {
   const { t } = useLanguage()
+  const { user } = useAuth()
   const store = useTamagoshiStore()
   const [etapa, setEtapa] = useState(1)
 
@@ -41,6 +44,17 @@ export default function Termo({ onAceitar, onVoltar }) {
             <p>{t('games.tamagoshi.termo.aviso_vida')}</p>
             <p>{t('games.tamagoshi.termo.aviso_fama')}</p>
           </div>
+
+          {!user && (
+            <div className="tama-termo-guest">
+              <p className="tama-termo-guest-titulo">{t('games.tamagoshi.termo.guest_titulo')}</p>
+              <p className="tama-termo-guest-texto">{t('games.tamagoshi.termo.guest_desc')}</p>
+              <Link to="/cadastro" className="tama-termo-guest-link">
+                {t('games.tamagoshi.termo.guest_criar_conta')}
+              </Link>
+            </div>
+          )}
+
           <button className="tama-termo-btn" onClick={handleLi}>
             [ {t('games.tamagoshi.termo.btn_li')} ]
           </button>

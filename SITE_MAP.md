@@ -534,12 +534,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.81.0** 🛠️ | Site — LDI lobby: guest aviso melhorado |
+| `SITE_VERSION` | **10.82.0** 🛠️ | Site — Tamagoshi termo: guest aviso (título, texto explicativo, link cadastro) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
 | `ARENA_VERSION` | **1.27.2** | Arena LDI — CSS inline audit: static styles movidos para Arena.css |
-| `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI — S1 sprite completo! 10/10 sprites próprios |
+| `TAMA_VERSION` | **2.5.1** | Tamagoshi LDI — guest aviso no termo (título, texto explicativo, link cadastro) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |

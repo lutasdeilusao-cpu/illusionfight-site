@@ -63,6 +63,42 @@
   font-size: 0.8rem;
 }
 
+/* ---- GUEST AVISO ---- */
+
+.tama-termo-guest {
+  border: 1px solid rgba(224, 213, 193, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(224, 213, 193, 0.06);
+  max-width: 420px;
+  width: 100%;
+}
+
+.tama-termo-guest-titulo {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #e0d5c1;
+  margin-bottom: 0.4rem;
+}
+
+.tama-termo-guest-texto {
+  font-size: 0.75rem;
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.tama-termo-guest-link {
+  font-size: 0.7rem;
+  color: #c4a96a;
+  text-decoration: underline;
+  letter-spacing: 0.04em;
+}
+.tama-termo-guest-link:hover {
+  color: #d4b97a;
+}
+
 .tama-termo-btn {
   background: transparent;
   border: 1px solid #666;
