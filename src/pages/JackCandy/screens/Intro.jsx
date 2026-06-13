@@ -94,7 +94,7 @@ export default function Intro() {
 
       {titleDone && store.cervejas < 100 && (
         <div className="jack-buttons">
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.intro_acumulando')}</p>
+          <p className="jack-text jack-text--dim jdc-text-xs">{t('games.jackcandy.intro_acumulando')}</p>
         </div>
       )}
 

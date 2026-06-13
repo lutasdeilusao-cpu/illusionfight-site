@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../context/LanguageContext'
 
 export default function Monologue({ text, onClose }) {
+  const { t } = useLanguage()
   if (!text) return null
   return (
     <AnimatePresence>
@@ -12,7 +14,7 @@ export default function Monologue({ text, onClose }) {
         onClick={onClose}
       >
         <p className="jdc-monologo-text">"{text}"</p>
-        <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem', marginTop: '0.3rem' }}>[ clique para fechar ]</p>
+        <p className="jack-text jack-text--dim jdc-monologo-close">{t('games.jackcandy.monologo_fechar')}</p>
       </motion.div>
     </AnimatePresence>
   )

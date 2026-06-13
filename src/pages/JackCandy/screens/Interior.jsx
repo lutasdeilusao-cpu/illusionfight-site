@@ -103,7 +103,7 @@ export default function Interior({ npcId }) {
           <span className="jdc-interior-nome">{npc.interior}</span>
           <span className="jdc-interior-dono"> — {npc.nome}</span>
         </div>
-        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>
+        <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('vila')}>
           {t('games.jackcandy.interior_sair')}
         </button>
       </div>
@@ -116,7 +116,7 @@ export default function Interior({ npcId }) {
       {/* Missões */}
       {npc.missoes && npc.missoes.length > 0 && (
         <div className="jdc-interior-missoes">
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.3rem' }}>{t('games.jackcandy.interior_missoes')}</p>
+          <p className="jack-text jack-text--dim jdc-text-xs jdc-mb-03">{t('games.jackcandy.interior_missoes')}</p>
           {npc.missoes.map((m, i) => (
             <div key={m.id} className="jdc-interior-missao">
               <span>{missaoStatus[i] === 'done' ? '✅' : missaoStatus[i] === 'open' ? '📋' : '🔒'}</span>
@@ -163,7 +163,7 @@ export default function Interior({ npcId }) {
                 <button className="jack-btn jack-btn--amber"
                   onClick={() => handleComprar(itemId)}
                   disabled={!podeComprar}
-                  style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>
+                  className="jack-btn jack-btn--amber jdc-interior-comprar-btn">
                   {t('games.jackcandy.interior_comprar')}
                 </button>
               </div>
@@ -171,7 +171,7 @@ export default function Interior({ npcId }) {
           )
         })}
         {itensFiltrados.length === 0 && (
-          <p className="jack-text jack-text--dim" style={{ textAlign: 'center', padding: '1rem' }}>
+          <p className="jack-text jack-text--dim jdc-interior-vazio">
             {npc.id === 'paje' && store.flags.TEM_BENGALA && !todosItens.length
               ? t('games.jackcandy.interior_todos_comprados')
               : t('games.jackcandy.interior_nada_disponivel')}

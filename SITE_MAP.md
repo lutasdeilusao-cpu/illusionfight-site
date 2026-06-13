@@ -508,7 +508,7 @@
 | `/games/ldi/clues` | LDIClues | `src/pages/LDI/Clues.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Caderno de pistas |
 | `/games/ldi/end` | LDIEnd | `src/pages/LDI/End.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
-| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
+| `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.1 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo — CSS inline audit: static styles movidos para .css, i18n carregando/monologo_fechar |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v2.0.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + i18n completo nos puzzles (todos os componentes traduzidos pt/en/es) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.27.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone + guest temp sheet (jogável sem conta) |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |

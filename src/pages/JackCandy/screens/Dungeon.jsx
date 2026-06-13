@@ -359,17 +359,17 @@ export default function Dungeon({ dungeonId }) {
 
   if (fase === 'derrota') {
     return (
-      <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
+      <div className="jdc-dungeon jdc-dungeon-center">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-          <div className="jdc-dungeon-end-icon" style={{ color: '#8B0000' }}>{store.autoMode.ativo ? '💀🤖' : '💀'}</div>
-          <p className="jack-text jack-text--crimson" style={{ fontSize: '1.2rem' }}>{t('games.jackcandy.dungeon_morreu')}</p>
+          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--death">{store.autoMode.ativo ? '💀🤖' : '💀'}</div>
+          <p className="jack-text jack-text--crimson jdc-dungeon-end-title">{t('games.jackcandy.dungeon_morreu')}</p>
           {store.autoMode.ativo ? (
             <>
-              <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>🤖 {t('games.jackcandy.dungeon_auto_recuperando')}</p>
-              <p className="jack-text" style={{ fontSize: '1rem', marginTop: '0.3rem' }}>{store.hpAtual}/{store.hpMax}</p>
+              <p className="jack-text jack-text--amber jdc-dungeon-auto-recuperando">🤖 {t('games.jackcandy.dungeon_auto_recuperando')}</p>
+              <p className="jack-text jdc-dungeon-auto-hp">{store.hpAtual}/{store.hpMax}</p>
             </>
           ) : (
-            <button className="jack-btn" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }} style={{ marginTop: '1rem' }}>{t('games.jackcandy.voltar')}</button>
+            <button className="jack-btn jdc-btn-mt-1" onClick={() => { store.setHpAtual(Math.max(1, hpRef.current)); store.setFase('vila') }}>{t('games.jackcandy.voltar')}</button>
           )}
         </motion.div>
       </div>
@@ -378,17 +378,17 @@ export default function Dungeon({ dungeonId }) {
 
   if (fase === 'vitoria') {
     return (
-      <div className="jdc-dungeon" style={{ textAlign: 'center' }}>
+      <div className="jdc-dungeon jdc-dungeon-center">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-          <div className="jdc-dungeon-end-icon" style={{ color: '#F5A623' }}>✅</div>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>{t('games.jackcandy.dungeon_completo', { nome: dungeon?.nome || 'Dungeon' })}</p>
+          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--victory">✅</div>
+          <p className="jack-text jack-text--amber jdc-dungeon-end-title">{t('games.jackcandy.dungeon_completo', { nome: dungeon?.nome || 'Dungeon' })}</p>
           <p className="jack-text">
             🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} {t('games.jackcandy.dungeon_cervejas')}
             {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} ${t('games.jackcandy.dungeon_notas')}` : ''}
             {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} ${t('games.jackcandy.dungeon_fragmentos')}` : ''}
           </p>
           {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ {t('games.jackcandy.dungeon_notas_desbloqueadas')}</p>}
-          <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
+          <div className="jdc-dungeon-victory-actions">
             <button className="jack-btn" onClick={() => {
               if (store._retornoInvestigacao) {
                 store.visitarLocal(store._localPendente)
@@ -422,10 +422,10 @@ export default function Dungeon({ dungeonId }) {
       <div className="jdc-dungeon-status">
         <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
         {dungeon?.mecanica === 'fuga' && (
-          <span className="jack-text--amber" style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.dungeon_round', { atual: fugaRound, total: dungeon.rounds || 15 })}</span>
+          <span className="jack-text--amber jdc-dungeon-status-tag">{t('games.jackcandy.dungeon_round', { atual: fugaRound, total: dungeon.rounds || 15 })}</span>
         )}
         {stealthMode && !stealthDetectado && (
-          <span className="jack-text--crimson" style={{ fontSize: '0.7rem' }}>🥷 {t('games.jackcandy.dungeon_stealth')}</span>
+          <span className="jack-text--crimson jdc-dungeon-status-tag">🥷 {t('games.jackcandy.dungeon_stealth')}</span>
         )}
         <span className="jdc-dungeon-status-hp">
           <span className="jdc-dungeon-status-hp-label">{t('games.jackcandy.dungeon_moral_label')}</span>
@@ -487,7 +487,7 @@ export default function Dungeon({ dungeonId }) {
                   >👤</motion.span>
                 </motion.div>
               ))}
-              {restantes > 5 && <span className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>+{restantes - 5}</span>}
+              {restantes > 5 && <span className="jack-text jack-text--dim jdc-dungeon-enemies-extra">+{restantes - 5}</span>}
             </div>
           </div>
 
@@ -497,7 +497,7 @@ export default function Dungeon({ dungeonId }) {
               animate={{ width: `${pct}%` }}
               transition={{ duration: 0.3 }} />
           </div>
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem', textAlign: 'center', margin: '0.25rem 0' }}>
+          <p className="jack-text jack-text--dim jdc-dungeon-enemies-count">
             {t('games.jackcandy.dungeon_inimigos_restantes', { n: restantes })}
           </p>
         </>

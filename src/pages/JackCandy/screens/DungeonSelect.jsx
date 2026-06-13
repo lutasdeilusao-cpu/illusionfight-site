@@ -48,10 +48,10 @@ export default function DungeonSelect() {
     return (
       <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div className="jdc-vila-title">{t('games.jackcandy.dungeonselect_titulo')}</div>
-        <p className="jack-text jack-text--dim" style={{ textAlign: 'center' }}>
+        <p className="jack-text jack-text--dim jdc-text-center">
           {t('games.jackcandy.dungeonselect_vazio')}
         </p>
-        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>{t('games.jackcandy.voltar')}</button>
+        <button className="jack-btn jdc-btn-mt-1" onClick={() => store.setFase('vila')}>{t('games.jackcandy.voltar')}</button>
       </motion.div>
     )
   }
@@ -59,15 +59,15 @@ export default function DungeonSelect() {
   return (
     <motion.div className="jdc-vila" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-vila-title">{t('games.jackcandy.dungeonselect_titulo')}</div>
-      <p className="jack-text jack-text--dim" style={{ marginBottom: '0.6rem', textAlign: 'center' }}>
+      <p className="jack-text jack-text--dim jdc-dungeonselect-sub">
         {t('games.jackcandy.dungeonselect_sub')}
       </p>
 
-      <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
+      <div className="jdc-dungeonselect-auto-wrap">
         <button
           className={`jack-btn ${store.autoMode.ativo ? 'jack-btn--amber' : ''}`}
           onClick={() => setShowAutoPicker(true)}
-          style={{ fontSize: '0.7rem' }}
+          className="jdc-btn-xs"
         >
           {store.autoMode.ativo ? t('games.jackcandy.dungeonselect_auto_on') : t('games.jackcandy.dungeonselect_auto_off')}
         </button>

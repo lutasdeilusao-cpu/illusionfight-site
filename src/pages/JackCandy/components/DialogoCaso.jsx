@@ -59,7 +59,7 @@ export default function DialogoCaso({ linhas, onFim }) {
     const estilo = PERSONAGEM_STYLE[linha.personagem] || PERSONAGEM_STYLE.jack
     return (
       <motion.div key={idx} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }}
-        style={{ marginBottom: '0.6rem' }}>
+        className="jdc-dialogo-linha">
         {estilo.label && (
           <span style={{ fontFamily: estilo.fonte, color: estilo.cor, fontSize: '0.65rem',
             display: 'block', marginBottom: '0.15rem', letterSpacing: '0.1em' }}>
@@ -77,14 +77,14 @@ export default function DialogoCaso({ linhas, onFim }) {
   }
 
   return (
-    <div style={{ padding: '0.5rem 0' }}>
-      <div style={{ minHeight: '8rem', marginBottom: '1rem' }}>
+    <div className="jdc-dialogo-wrapper">
+      <div className="jdc-dialogo-content">
         {linhasCompletas.map((l, i) => renderLinha(l, i, false))}
         {!terminado && linhaAtual < linhas.length && renderLinha(linhas[linhaAtual], linhaAtual, true)}
       </div>
-      <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+      <div className="jdc-dialogo-actions">
         {!terminado && (
-          <button className="jack-btn" onClick={pular} style={{ fontSize: '0.65rem', borderColor: '#333', color: '#555' }}>
+          <button className="jack-btn jdc-dialogo-btn-skip" onClick={pular}>
             [ pular ]
           </button>
         )}

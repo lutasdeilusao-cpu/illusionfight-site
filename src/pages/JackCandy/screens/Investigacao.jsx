@@ -104,19 +104,19 @@ export default function Investigacao({ localId }) {
     <motion.div className="jdc-investigacao" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-investigacao-header">
         <span className="jack-text--amber">{local.nome}</span>
-        <button className="jack-btn" onClick={() => store.setFase('dossier')} style={{ fontSize: '0.7rem' }}>
+        <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('dossier')}>
           {t('games.jackcandy.investigacao_voltar_dossier')}
         </button>
       </div>
 
-      <div className="jdc-interior-balao" style={{ marginTop: '1rem' }}>
+      <div className="jdc-interior-balao jdc-mt-1">
         <p className="jdc-interior-balao-text">{local.desc}</p>
       </div>
 
       {puzzleAtivo && !puzzleFalhou && (
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '0.85rem' }}>🧩 {local.puzzleLabel}</p>
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem' }}>
+          <p className="jack-text jack-text--amber jdc-inv-puzzle-title">🧩 {local.puzzleLabel}</p>
+          <p className="jack-text jack-text--dim jdc-inv-puzzle-desc">
             {local.puzzle === 'decoder' && t('games.jackcandy.investigacao_puzzle_decoder')}
             {local.puzzle === 'stealth' && t('games.jackcandy.investigacao_puzzle_stealth')}
             {local.puzzle === 'sliding' && t('games.jackcandy.investigacao_puzzle_sliding')}
@@ -137,13 +137,13 @@ export default function Investigacao({ localId }) {
 
       {puzzleFalhou && (
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="jack-text jack-text--crimson" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+          <p className="jack-text jack-text--crimson jdc-inv-fail-title">
             {t('games.jackcandy.investigacao_puzzle_falhou', { dano: DANO_PUZZLE_FALHOU })}
           </p>
-          <p className="jack-text jack-text--dim" style={{ fontSize: '0.75rem', marginBottom: '1rem' }}>
+          <p className="jack-text jack-text--dim jdc-inv-fail-dica">
             {t('games.jackcandy.investigacao_puzzle_falhou_dica')}
           </p>
-          <div className="jack-buttons" style={{ margin: '0 auto', maxWidth: '280px' }}>
+          <div className="jack-buttons jdc-inv-fail-buttons">
             <button className="jack-btn jack-btn--amber" onClick={() => { setPuzzleFalhou(false); setPuzzleAtivo(true) }}>
               {t('games.jackcandy.investigacao_tentar_novo')}
             </button>
@@ -158,8 +158,8 @@ export default function Investigacao({ localId }) {
 
       {temDungeon && !puzzleAtivo && !pistaRevelada && (
         <div className="jdc-investigacao-dungeon-gate">
-          <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>⚔️ {local.dungeonLabel}</p>
-          <button className="jack-btn jack-btn--crimson" onClick={irParaDungeon} style={{ marginTop: '0.5rem' }}>
+          <p className="jack-text jack-text--crimson jdc-inv-dungeon-label">⚔️ {local.dungeonLabel}</p>
+          <button className="jack-btn jack-btn--crimson jdc-btn-mt-05" onClick={irParaDungeon}>
             {t('games.jackcandy.investigacao_enfrentar')}
           </button>
         </div>
@@ -167,14 +167,14 @@ export default function Investigacao({ localId }) {
 
       {pistaRevelada && pista && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginTop: '1rem' }}>🔍 {t('games.jackcandy.investigacao_pista_encontrada')}</p>
+          <p className="jack-text jack-text--amber jdc-inv-pista-title">🔍 {t('games.jackcandy.investigacao_pista_encontrada')}</p>
           <PistaCard pista={pista} />
           {jaVisitado ? (
-            <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
+            <p className="jack-text jack-text--dim jdc-inv-ja-visitado">
               {t('games.jackcandy.investigacao_ja_visitado')}
             </p>
           ) : (
-            <button className="jack-btn jack-btn--amber" onClick={() => store.setFase('dossier')} style={{ marginTop: '0.5rem' }}>
+            <button className="jack-btn jack-btn--amber jdc-btn-mt-05" onClick={() => store.setFase('dossier')}>
               {t('games.jackcandy.investigacao_voltar_dossier')}
             </button>
           )}
@@ -182,7 +182,7 @@ export default function Investigacao({ localId }) {
       )}
 
       {!pistaRevelada && !temDungeon && !puzzleAtivo && !puzzleFalhou && (
-        <button className="jack-btn jack-btn--amber" onClick={handleRevelar} style={{ marginTop: '1rem' }}>
+        <button className="jack-btn jack-btn--amber jdc-btn-mt-1" onClick={handleRevelar}>
           {t('games.jackcandy.investigacao_investigar')}
         </button>
       )}

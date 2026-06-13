@@ -67,13 +67,13 @@ export default function Inventario() {
   return (
     <motion.div className="jdc-inventario-screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="jdc-inventario-header">
-        <span className="jack-text--amber" style={{ fontSize: '1rem', letterSpacing: '0.1em' }}>{t('games.jackcandy.inventario')}</span>
-        <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.voltar')}</button>
+        <span className="jack-text--amber jdc-inventario-titulo">{t('games.jackcandy.inventario')}</span>
+        <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('vila')}>{t('games.jackcandy.voltar')}</button>
       </div>
 
       {/* Equipment Slots */}
       <div className="jdc-inv-equipment">
-        <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>{t('games.jackcandy.equipamento')}</p>
+        <p className="jack-text jack-text--dim jdc-text-xs jdc-mb-05">{t('games.jackcandy.equipamento')}</p>
         <div className="jdc-inv-slots">
           {SLOTS.map(slot => {
             const item = store.equipado[slot]
@@ -111,13 +111,13 @@ export default function Inventario() {
         {/* Quick equip selection */}
         {selectedSlot && (
           <motion.div className="jdc-inv-swap" initial={{ height: 0 }} animate={{ height: 'auto' }}>
-            <p className="jack-text jack-text--dim" style={{ fontSize: '0.65rem' }}>escolha um item para equipar em {SLOT_LABELS[selectedSlot]}:</p>
+            <p className="jack-text jack-text--dim jdc-inv-swap-label">escolha um item para equipar em {SLOT_LABELS[selectedSlot]}:</p>
             {itensEquipaveis.filter(i => {
               const item = ITENS[i.id]
               return item?.slot === selectedSlot
             }).map(i => (
               <button key={i.id} className="jack-btn" onClick={() => handleEquipSlot(i)}
-                style={{ fontSize: '0.75rem', padding: '0.3rem 0.6rem', display: 'block', width: '100%', textAlign: 'left' }}>
+                className="jack-btn jdc-inv-equip-btn">
                 {iconeSlot(ITENS[i.id])} {i.nome}
               </button>
             ))}
@@ -136,7 +136,7 @@ export default function Inventario() {
       </div>
 
       {/* Abas */}
-      <div className="jack-tabs" style={{ marginTop: '0.75rem' }}>
+      <div className="jack-tabs jdc-mt-075">
         <button className={`jack-tab ${aba === 'mochila' ? 'jack-tab--active' : ''}`} onClick={() => setAba('mochila')}>
           {t('games.jackcandy.aba_mochila', { n: store.inventario.length })}
         </button>
@@ -165,12 +165,11 @@ export default function Inventario() {
               <div className="jdc-inv-list-icon">{iconeSlot(full)}</div>
               <div className="jdc-inv-list-info">
                 <span className="jack-text">{item.nome}</span>
-                <span className="jack-text--dim" style={{ fontSize: '0.65rem' }}>{full.desc}</span>
-                {full.cura && <span className="jack-text--crimson" style={{ fontSize: '0.65rem' }}>🧪 +{full.cura} HP</span>}
-                {full.danoBonus && <span className="jack-text--amber" style={{ fontSize: '0.65rem' }}>⚔️ +{full.danoBonus} dano</span>}
+                <span className="jack-text--dim jdc-inv-item-desc">{full.desc}</span>
+                {full.cura && <span className="jack-text--crimson jdc-inv-item-stat">🧪 +{full.cura} HP</span>}
+                {full.danoBonus && <span className="jack-text--amber jdc-inv-item-stat">⚔️ +{full.danoBonus} dano</span>}
               </div>
-              <button className="jack-btn" onClick={() => handleItemAction(item.id)}
-                style={{ fontSize: '0.65rem', padding: '0.15rem 0.4rem' }}>
+              <button className="jack-btn jdc-inv-item-btn" onClick={() => handleItemAction(item.id)}>
                 {isConsumivel ? '[ usar ]' : isUpgrade ? '[ aplicar ]' : isEquipavel ? '[ equipar ]' : '...'}
               </button>
             </motion.div>

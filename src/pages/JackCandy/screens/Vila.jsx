@@ -97,7 +97,7 @@ export default function Vila() {
       </div>
 
       <div className="jdc-vila-title">{cidade.nome}</div>
-      <p className="jack-text jack-text--dim" style={{ marginBottom: '0.5rem', textAlign: 'center' }}>
+      <p className="jack-text jack-text--dim jdc-vila-desc">
         {cidade.desc}
       </p>
 
@@ -132,19 +132,20 @@ export default function Vila() {
               onClick={() => store.setFase('dossier')}
               whileHover={{ scale: 1.03, borderColor: '#EC4899' }}
               whileTap={{ scale: 0.97 }}
-              style={{ borderLeftColor: '#EC4899', gridColumn: '1 / -1' }}
+              className="jdc-vila-card jdc-vila-card--glow jdc-vila-card-full"
+              style={{ borderLeftColor: '#EC4899' }}
             >
               <div className="jdc-vila-card-emoji">🔍</div>
               <div className="jdc-vila-card-info">
-                <span className="jdc-vila-card-nome" style={{ color: '#EC4899' }}>
+                <span className="jdc-vila-card-nome jdc-vila-card-nome--caso">
                   {t('games.jackcandy.vila_caso_andamento')}
                 </span>
                 <span className="jdc-vila-card-desc">{casoAtivo.nome}</span>
-                <span className="jdc-vila-card-detail" style={{ color: '#F5A623' }}>
+                <span className="jdc-vila-card-detail jdc-vila-card-detail--amber">
                   {t('games.jackcandy.vila_progresso_caso', { pistas: store.pistasColetadas.length, restantes: casoAtivo.locais.length - store.locaisVisitados.length })}
                 </span>
               </div>
-              <div className="jdc-vila-card-arrow" style={{ color: '#EC4899' }}>→</div>
+              <div className="jdc-vila-card-arrow jdc-vila-card-arrow--caso">→</div>
             </motion.button>
           )
         })()}
@@ -159,15 +160,16 @@ export default function Vila() {
             }}
             whileHover={{ scale: 1.03, borderColor: '#EC4899' }}
             whileTap={{ scale: 0.97 }}
-            style={{ borderLeftColor: '#EC4899', gridColumn: '1 / -1' }}
+            className="jdc-vila-card jdc-vila-card--glow jdc-vila-card-full"
+            style={{ borderLeftColor: '#EC4899' }}
           >
             <div className="jdc-vila-card-emoji">📋</div>
             <div className="jdc-vila-card-info">
-              <span className="jdc-vila-card-nome" style={{ color: '#EC4899' }}>
+              <span className="jdc-vila-card-nome jdc-vila-card-nome--caso">
                 NOVO CASO
               </span>
               <span className="jdc-vila-card-desc">{casoDisponivel.nome}</span>
-              <span className="jdc-vila-card-detail" style={{ color: '#EC4899' }}>
+              <span className="jdc-vila-card-detail jdc-vila-card-detail--caso">
                 {casoDisponivel.cliente ? t('games.jackcandy.vila_cliente', { nome: casoDisponivel.cliente }) : t('games.jackcandy.vila_sem_cliente')}
               </span>
             </div>

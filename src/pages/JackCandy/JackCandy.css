@@ -51,6 +51,11 @@
   min-height: 100vh;
 }
 
+.jack-content--centered {
+  text-align: center;
+  padding-top: 4rem;
+}
+
 .jack-title {
   font-size: 1.8rem;
   color: #F5A623;
@@ -169,6 +174,29 @@
   margin-bottom: 1.5rem;
 }
 
+/* ===== Dica Toast ===== */
+
+.jdc-dica-toast--visible {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  max-width: 420px;
+  width: 90%;
+  background: rgba(8,8,8,0.97);
+  border: 1px solid #F5A62333;
+  border-left: 3px solid #F5A623;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #C8C8C8;
+  line-height: 1.5;
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(245,166,35,0.08);
+}
+
 /* ===== Monólogo ===== */
 
 .jack-monologo {
@@ -192,6 +220,11 @@
   line-height: 1.5;
 }
 
+.jdc-monologo-close {
+  font-size: 0.65rem;
+  margin-top: 0.3rem;
+}
+
 /* ===== Inventário ===== */
 
 .jack-inventario {
@@ -206,6 +239,459 @@
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+}
+
+/* ===== DialogoCaso ===== */
+
+.jdc-dialogo-wrapper {
+  padding: 0.5rem 0;
+}
+
+.jdc-dialogo-content {
+  min-height: 8rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-dialogo-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.jdc-dialogo-btn-skip {
+  font-size: 0.65rem;
+  border-color: #333;
+  color: #555;
+}
+
+.jdc-dialogo-linha {
+  margin-bottom: 0.6rem;
+}
+
+/* ===== MainMenu ===== */
+
+.jdc-intro--padded {
+  padding-top: 2rem;
+}
+
+.jdc-mainmenu-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.jdc-text-center {
+  text-align: center;
+}
+
+.jdc-text-small {
+  font-size: 0.75rem;
+}
+
+.jdc-mainmenu-confirm-buttons {
+  margin: 1.5rem auto;
+  max-width: 250px;
+}
+
+.jdc-slot-stat--dim {
+  font-size: 0.6rem;
+  color: #666;
+}
+
+.jdc-slot-stat--amber {
+  font-size: 0.55rem;
+  color: #F5A623;
+}
+
+/* ===== StatusBar ===== */
+
+.jdc-sb-btn--rst {
+  border-color: #8B000033;
+  color: #8B000066;
+  font-size: 0.6rem;
+}
+
+/* ===== Shared utilities ===== */
+
+.jdc-btn-mt-1 {
+  margin-top: 1rem;
+}
+
+.jdc-btn-mt-05 {
+  margin-top: 0.5rem;
+}
+
+.jdc-btn-xs {
+  font-size: 0.7rem;
+}
+
+.jdc-text-xs {
+  font-size: 0.7rem;
+}
+
+.jdc-text-center {
+  text-align: center;
+}
+
+.jdc-text-sm {
+  font-size: 0.85rem;
+}
+
+.jdc-icon-lg {
+  font-size: 1.2rem;
+}
+
+.jdc-flex-left {
+  flex: 1;
+  text-align: left;
+}
+
+.jdc-arrow-amber {
+  color: #F5A623;
+}
+
+/* ===== DungeonSelect ===== */
+
+.jdc-dungeonselect-sub {
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.jdc-dungeonselect-auto-wrap {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+/* ===== CasoSelect ===== */
+
+.jdc-casoselect-sub {
+  text-align: center;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.jdc-badge-ongoing {
+  font-size: 0.65rem;
+  margin-left: 0.5rem;
+}
+
+.jdc-casoselect-detail {
+  font-size: 0.65rem;
+  display: block;
+}
+
+.jdc-casoselect-client {
+  font-size: 0.6rem;
+  font-style: italic;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.jdc-casoselect-resolvidos-wrap {
+  margin-top: 1.5rem;
+}
+
+.jdc-casoselect-resolvidos-label {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.jdc-casoselect-resolvido-card {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.jdc-casoselect-resolvido-desc {
+  font-size: 0.65rem;
+  font-style: italic;
+  display: block;
+}
+
+.jdc-casoselect-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ===== CasoAbertura ===== */
+
+.jdc-caso-dialogo--top {
+  margin-top: 1rem;
+}
+
+/* ===== Shared utilities (continued) ===== */
+
+.jdc-mb-05 {
+  margin-bottom: 0.5rem;
+}
+
+.jdc-mb-03 {
+  margin-bottom: 0.3rem;
+}
+
+.jdc-mt-075 {
+  margin-top: 0.75rem;
+}
+
+.jdc-mt-1 {
+  margin-top: 1rem;
+}
+
+/* ===== Inventario ===== */
+
+.jdc-inventario-titulo {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.jdc-inv-swap-label {
+  font-size: 0.65rem;
+}
+
+.jdc-inv-equip-btn {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.jdc-inv-item-desc {
+  font-size: 0.65rem;
+}
+
+.jdc-inv-item-stat {
+  font-size: 0.65rem;
+}
+
+.jdc-inv-item-btn {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+}
+
+/* ===== Interior ===== */
+
+.jdc-interior-comprar-btn {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.jdc-interior-vazio {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ===== Investigacao ===== */
+
+.jdc-inv-puzzle-title {
+  font-size: 0.85rem;
+}
+
+.jdc-inv-puzzle-desc {
+  font-size: 0.75rem;
+}
+
+.jdc-inv-fail-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.jdc-inv-fail-dica {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.jdc-inv-fail-buttons {
+  margin: 0 auto;
+  max-width: 280px;
+}
+
+.jdc-inv-dungeon-label {
+  font-size: 0.8rem;
+}
+
+.jdc-inv-pista-title {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.jdc-inv-ja-visitado {
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== Interrogatorio ===== */
+
+.jdc-interrogatorio-fim-titulo {
+  font-size: 1.2rem;
+}
+
+.jdc-interrogatorio-fim-texto {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.jdc-interrogatorio-fim-btn {
+  margin-top: 1.5rem;
+}
+
+.jdc-interrogatorio-clickable {
+  cursor: pointer;
+}
+
+.jdc-interrogatorio-aviso {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Vila ===== */
+
+.jdc-vila-desc {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.jdc-vila-card-full {
+  grid-column: 1 / -1;
+}
+
+.jdc-vila-card-nome--caso {
+  color: #EC4899;
+}
+
+.jdc-vila-card-detail--amber {
+  color: #F5A623;
+}
+
+.jdc-vila-card-detail--caso {
+  color: #EC4899;
+}
+
+.jdc-vila-card-arrow--caso {
+  color: #EC4899;
+}
+
+/* ===== Dossier ===== */
+
+.jdc-dossier-debug {
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.jdc-dossier-debug-btn {
+  font-size: 0.6rem;
+  border-color: #333;
+  color: #555;
+}
+
+.jdc-dossier-abertura-texto {
+  font-style: italic;
+}
+
+.jdc-dossier-section-title {
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.jdc-dossier-suspeito-desc {
+  font-size: 0.65rem;
+  display: block;
+}
+
+.jdc-dossier-restart-btn {
+  font-size: 0.65rem;
+  border-color: #444;
+  color: #666;
+}
+
+.jdc-dossier-culpado-title {
+  font-size: 0.8rem;
+}
+
+.jdc-dossier-culpado-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.jdc-dossier-acusar-btn {
+  text-align: left;
+}
+
+.jdc-dossier-penalidade {
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.jdc-dossier-local-nome {
+  font-size: 0.8rem;
+}
+
+.jdc-dossier-local-desc {
+  font-size: 0.65rem;
+  display: block;
+}
+
+.jdc-dossier-local-tag {
+  font-size: 0.6rem;
+  display: block;
+}
+
+.jdc-dossier-resolvido-title {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Dungeon ===== */
+
+.jdc-dungeon-center {
+  text-align: center;
+}
+
+.jdc-dungeon-end-icon--death {
+  color: #8B0000;
+}
+
+.jdc-dungeon-end-icon--victory {
+  color: #F5A623;
+}
+
+.jdc-dungeon-end-title {
+  font-size: 1.2rem;
+}
+
+.jdc-dungeon-auto-recuperando {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.jdc-dungeon-auto-hp {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.jdc-dungeon-victory-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.jdc-dungeon-status-tag {
+  font-size: 0.7rem;
+}
+
+.jdc-dungeon-enemies-extra {
+  font-size: 0.7rem;
+}
+
+.jdc-dungeon-enemies-count {
+  font-size: 0.65rem;
+  text-align: center;
+  margin: 0.25rem 0;
 }
 
 .jack-item {

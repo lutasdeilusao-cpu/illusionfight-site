@@ -56,8 +56,8 @@ export default function Dossier() {
   return (
     <motion.div className="jdc-dossier" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       {true && (
-        <div style={{ marginBottom: '0.5rem', display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}>
-          <button className="jack-btn" style={{ fontSize: '0.6rem', borderColor: '#333', color: '#555' }}
+        <div className="jdc-dossier-debug">
+          <button className="jack-btn jdc-dossier-debug-btn"
             onClick={() => {
               if (!casoAtivo) return
               useJackStore.setState({
@@ -85,32 +85,32 @@ export default function Dossier() {
         <>
           <div className="jdc-dossier-header">
             <span className="jdc-dossier-titulo">📋 {casoAtivo.nome}</span>
-            <button className="jack-btn" onClick={() => store.setFase('vila')} style={{ fontSize: '0.7rem' }}>
+            <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('vila')}>
               [ fechar ]
             </button>
           </div>
 
           <div className="jdc-dossier-abertura">
             {casoAtivo.abertura.map((p, i) => (
-              <p key={i} className="jack-text jack-text--dim" style={{ fontStyle: 'italic' }}>{p}</p>
+              <p key={i} className="jack-text jack-text--dim jdc-dossier-abertura-texto">{p}</p>
             ))}
           </div>
 
           <div className="jdc-dossier-suspeitos">
-            <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>{t('games.jackcandy.dossier_suspeitos')}</p>
+            <p className="jack-text jack-text--amber jdc-dossier-section-title">{t('games.jackcandy.dossier_suspeitos')}</p>
             {store.suspeitos.map(s => (
               <div key={s.id} className={`jdc-dossier-suspeito ${s.status === 'eliminado' ? 'jdc-dossier-suspeito--eliminado' : ''} ${s.status === 'acusado' ? 'jdc-dossier-suspeito--acusado' : ''}`}>
                 <span>{s.status === 'eliminado' ? '❌' : s.status === 'acusado' ? '🎯' : '👤'}</span>
                 <div>
                   <span className="jack-text">{s.nome}</span>
-                  <span className="jack-text--dim" style={{ fontSize: '0.65rem', display: 'block' }}>{s.desc}</span>
+                  <span className="jack-text--dim jdc-dossier-suspeito-desc">{s.desc}</span>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="jdc-dossier-pistas">
-            <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
+            <p className="jack-text jack-text--amber jdc-dossier-section-title">
               {t('games.jackcandy.dossier_pistas', { n: store.pistasColetadas.length, total: casoAtivo.pistasNecessarias })}
             </p>
             {store.pistasColetadas.length === 0 && (
@@ -129,34 +129,33 @@ export default function Dossier() {
           <div className="jdc-dossier-acusar">
             {!showAcusar ? (
               <>
-                <button className="jack-btn jack-btn--crimson" onClick={() => setShowAcusar(true)} disabled={!pistasSuficientes}
-                  style={{ marginBottom: '0.3rem' }}>
+                <button className="jack-btn jack-btn--crimson jdc-mb-03" onClick={() => setShowAcusar(true)} disabled={!pistasSuficientes}>
                   {pistasSuficientes ? t('games.jackcandy.dossier_acusar') : t('games.jackcandy.dossier_acusar_incompleto', { n: store.pistasColetadas.length, total: casoAtivo.pistasNecessarias })}
                 </button>
                 {suspeitosAtivos.length === 0 && (
-                  <button className="jack-btn" onClick={() => {
+                  <button className="jack-btn jdc-dossier-restart-btn" onClick={() => {
                     useJackStore.setState({ suspeitos: casoAtivo.suspeitos.map(s => ({ ...s, status: 'ativo' })) })
                     setShowAcusar(false)
-                  }} style={{ fontSize: '0.65rem', borderColor: '#444', color: '#666' }}>
+                  }}>
                     {t('games.jackcandy.dossier_reiniciar')}
                   </button>
                 )}
               </>
             ) : (
               <div>
-                <p className="jack-text jack-text--crimson" style={{ fontSize: '0.8rem' }}>{t('games.jackcandy.dossier_culpado')}</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginTop: '0.5rem' }}>
+                <p className="jack-text jack-text--crimson jdc-dossier-culpado-title">{t('games.jackcandy.dossier_culpado')}</p>
+                <div className="jdc-dossier-culpado-list">
                   {suspeitosAtivos.map(s => (
-                    <button key={s.id} className="jack-btn jack-btn--crimson" onClick={() => handleAcusar(s.id)} style={{ textAlign: 'left' }}>
+                    <button key={s.id} className="jack-btn jack-btn--crimson jdc-dossier-acusar-btn" onClick={() => handleAcusar(s.id)}>
                       [ {s.nome} ]
                     </button>
                   ))}
-                  <button className="jack-btn" onClick={() => setShowAcusar(false)} style={{ fontSize: '0.7rem' }}>
+                  <button className="jack-btn jdc-btn-xs" onClick={() => setShowAcusar(false)}>
                     {t('games.jackcandy.dossier_cancelar')}
                   </button>
                 </div>
                 {store.acusacoesErradas > 0 && (
-                  <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
+                  <p className="jack-text jack-text--dim jdc-dossier-penalidade">
                     {t('games.jackcandy.dossier_penalidade', { n: store.acusacoesErradas })}
                   </p>
                 )}
@@ -165,7 +164,7 @@ export default function Dossier() {
           </div>
 
           <div className="jdc-dossier-locais">
-            <p className="jack-text jack-text--amber" style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>
+            <p className="jack-text jack-text--amber jdc-dossier-section-title">
               {t('games.jackcandy.dossier_locais')}
             </p>
             {casoAtivo.locais.map(loc => {
@@ -176,10 +175,10 @@ export default function Dossier() {
                   style={{ borderLeftColor: visitado ? '#22C55E' : '#F5A623' }}>
                   <span>{visitado ? '✅' : '🔍'}</span>
                   <div className="jdc-dossier-local-info">
-                    <span className="jack-text" style={{ fontSize: '0.8rem' }}>{loc.nome}</span>
-                    {!visitado && <span className="jack-text--dim" style={{ fontSize: '0.65rem', display: 'block' }}>{loc.desc}</span>}
-                    {loc.puzzle && !visitado && <span className="jack-text--amber" style={{ fontSize: '0.6rem', display: 'block' }}>🧩 {loc.puzzleLabel}</span>}
-                    {loc.dungeon && !visitado && <span className="jack-text--crimson" style={{ fontSize: '0.6rem', display: 'block' }}>⚔️ {loc.dungeonLabel}</span>}
+                    <span className="jack-text jdc-dossier-local-nome">{loc.nome}</span>
+                    {!visitado && <span className="jack-text--dim jdc-dossier-local-desc">{loc.desc}</span>}
+                    {loc.puzzle && !visitado && <span className="jack-text--amber jdc-dossier-local-tag">🧩 {loc.puzzleLabel}</span>}
+                    {loc.dungeon && !visitado && <span className="jack-text--crimson jdc-dossier-local-tag">⚔️ {loc.dungeonLabel}</span>}
                   </div>
                   <span className="jdc-dossier-local-arrow">→</span>
                 </button>
@@ -191,8 +190,8 @@ export default function Dossier() {
 
       {resolucaoAtiva && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          style={{ marginTop: '1rem' }}>
-          <p className="jack-text jack-text--amber" style={{ fontSize: '0.75rem', marginBottom: '0.5rem' }}>
+          className="jdc-mt-1">
+          <p className="jack-text jack-text--amber jdc-dossier-resolvido-title">
             {t('games.jackcandy.dossier_resolvido')}
           </p>
           <div className="jdc-caso-dialogo">

@@ -145,7 +145,7 @@ export default function JackCandy() {
   if (!user) {
     return (
       <div className="jack-body">
-        <div className="jack-content" style={{ textAlign: 'center', paddingTop: '4rem' }}>
+        <div className="jack-content jack-content--centered">
           <LoginGate feature="Jack Dream Beer" />
         </div>
       </div>
@@ -166,8 +166,8 @@ export default function JackCandy() {
   if (!loaded) {
     return (
       <div className="jack-body">
-        <div className="jack-content" style={{ textAlign: 'center', paddingTop: '4rem' }}>
-          <p className="jack-text jack-text--dim">carregando...</p>
+        <div className="jack-content jack-content--centered">
+          <p className="jack-text jack-text--dim">{t('games.jackcandy.carregando')}</p>
         </div>
       </div>
     )

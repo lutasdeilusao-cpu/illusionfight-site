@@ -84,25 +84,7 @@ export default function DicaToast() {
           animate={{ opacity: 1, y: 0, x: '-50%' }}
           exit={{ opacity: 0, y: 50, x: '-50%' }}
           onClick={() => setVisivel(false)}
-          style={{
-            position: 'fixed',
-            bottom: '5rem',
-            left: '50%',
-            zIndex: 200,
-            maxWidth: '420px',
-            width: '90%',
-            background: 'rgba(8,8,8,0.97)',
-            border: '1px solid #F5A62333',
-            borderLeft: '3px solid #F5A623',
-            padding: '0.75rem 1rem',
-            cursor: 'pointer',
-            fontFamily: "'Share Tech Mono', monospace",
-            fontSize: '0.75rem',
-            color: '#C8C8C8',
-            lineHeight: 1.5,
-            borderRadius: '2px',
-            boxShadow: '0 0 20px rgba(245,166,35,0.08)',
-          }}
+          className="jdc-dica-toast jdc-dica-toast--visible"
         >
           {dica}
         </motion.div>

@@ -92,12 +92,12 @@ export default function StatusBar() {
               {'🔥'.repeat(Math.min(store.medidorPrimordial, 10))}
             </span>
           )}
-          <button className="jdc-sb-btn" onClick={() => {
+          <button className="jdc-sb-btn jdc-sb-btn--rst" onClick={() => {
             if (window.confirm('Resetar todo o progresso do Jack Dream Beer?')) {
               store.reset()
               window.location.reload()
             }
-          }} style={{ borderColor: '#8B000033', color: '#8B000066', fontSize: '0.6rem' }}>RST</button>
+          }}>RST</button>
           <button className="jdc-sb-btn jdc-sb-btn--save" onClick={handleSave} disabled={saving}>
             {saving ? '...' : 'SAVE'}
           </button>

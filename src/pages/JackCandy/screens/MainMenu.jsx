@@ -33,23 +33,23 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
   }
 
   return (
-    <div className="jdc-intro" style={{ paddingTop: '2rem' }}>
+    <div className="jdc-intro jdc-intro--padded">
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="jdc-main-title">{t('games.jackcandy.titulo')}</h1>
-        <p className="jack-text jack-text--dim" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <p className="jack-text jack-text--dim jdc-mainmenu-subtitle">
           {t('games.jackcandy.subtitulo')}
         </p>
       </motion.div>
 
       {confirmNew !== null ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="jack-text jack-text--amber" style={{ textAlign: 'center' }}>
+          <p className="jack-text jack-text--amber jdc-text-center">
             {t('games.jackcandy.confirmar_novo', { n: confirmNew })}
           </p>
-          <p className="jack-text jack-text--dim" style={{ textAlign: 'center', fontSize: '0.75rem' }}>
+          <p className="jack-text jack-text--dim jdc-text-center jdc-text-small">
             {t('games.jackcandy.perda_progresso')}
           </p>
-          <div className="jack-buttons" style={{ margin: '1.5rem auto', maxWidth: '250px' }}>
+          <div className="jack-buttons jdc-mainmenu-confirm-buttons">
             <button className="jack-btn jack-btn--amber" onClick={handleNewGame}>
               {t('games.jackcandy.sim_novo_jogo')}
             </button>
@@ -78,10 +78,10 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
                     <div className="jdc-slot-stat">🍺 {save.cervejas || 0}</div>
                     <div className="jdc-slot-stat">LV {save.nivel || 1}</div>
                     <div className="jdc-slot-stat">{cidade?.nome || 'Marelia'}</div>
-                    <div className="jdc-slot-stat" style={{ fontSize: '0.6rem', color: '#666' }}>
+                    <div className="jdc-slot-stat jdc-slot-stat--dim">
                       {save.dungeons_completas?.length || 0} dungeons · cap/s {(save.cervejas_por_segundo || 1)}
                     </div>
-                    <div className="jdc-slot-stat" style={{ fontSize: '0.55rem', color: '#F5A623' }}>
+                    <div className="jdc-slot-stat jdc-slot-stat--amber">
                       {save.casos_resolvidos?.length > 0 ? `🔍 ${save.casos_resolvidos.length} caso(s)` : ''}
                     </div>
                   </div>

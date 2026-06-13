@@ -58,13 +58,13 @@ export default function Interrogatorio() {
     return (
       <motion.div className="jdc-interrogatorio" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div className="jdc-interrogatorio-fim">
-          <p className="jack-text jack-text--amber" style={{ fontSize: '1.2rem' }}>
+          <p className="jack-text jack-text--amber jdc-interrogatorio-fim-titulo">
             {DIALOGO_KIM[passo]?.kim || DIALOGO_KIM[passo]?.jack || '"...pronto. satisfeito?"'}
           </p>
-          <p className="jack-text jack-text--dim" style={{ marginTop: '1rem', fontStyle: 'italic' }}>
+          <p className="jack-text jack-text--dim jdc-interrogatorio-fim-texto">
             {t('games.jackcandy.interrogatorio_fim')}
           </p>
-          <button className="jack-btn jack-btn--amber" onClick={finalizar} style={{ marginTop: '1.5rem' }}>
+          <button className="jack-btn jack-btn--amber jdc-interrogatorio-fim-btn" onClick={finalizar}>
             {t('games.jackcandy.interrogatorio_acordar')}
           </button>
         </div>
@@ -76,8 +76,8 @@ export default function Interrogatorio() {
 
   return (
     <motion.div className="jdc-interrogatorio" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-      onClick={avancar} style={{ cursor: 'pointer' }}>
-      <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>
+      onClick={avancar} className="jdc-interrogatorio-clickable">
+      <p className="jack-text jack-text--dim jdc-interrogatorio-aviso">
         {t('games.jackcandy.interrogatorio_clique')}
       </p>
 

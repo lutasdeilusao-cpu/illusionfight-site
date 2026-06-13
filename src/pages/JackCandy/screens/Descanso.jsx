@@ -58,7 +58,7 @@ export default function Descanso() {
           <p className="jack-text jack-text--dim">
             {t('games.jackcandy.descanso_recuperado', { hp, hpMax, pct: hpPct })}
           </p>
-          <button className="jack-btn jack-btn--amber" onClick={() => store.setFase('vila')} style={{ marginTop: '1rem' }}>
+          <button className="jack-btn jack-btn--amber jdc-btn-mt-1" onClick={() => store.setFase('vila')}>
             {t('games.jackcandy.descanso_levantar')}
           </button>
         </div>
@@ -84,13 +84,12 @@ export default function Descanso() {
             transition={{ duration: 0.3 }}
             style={{ backgroundColor: hpColor }} />
         </div>
-        <p className="jack-text jack-text--dim" style={{ fontSize: '0.7rem' }}>
+        <p className="jack-text jack-text--dim jdc-text-xs">
           {t('games.jackcandy.descanso_moral', { hp, hpMax })}
         </p>
 
         {!eraZero && (
-          <button className="jack-btn" onClick={() => { stopRef.current = true; store.setFase('vila') }}
-            style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>
+          <button className="jack-btn jdc-btn-xs jdc-btn-mt-05" onClick={() => { stopRef.current = true; store.setFase('vila') }}>
             {t('games.jackcandy.descanso_acordar_agora')}
           </button>
         )}
