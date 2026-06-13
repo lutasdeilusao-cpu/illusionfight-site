@@ -57,16 +57,8 @@ function ManualBatalha() {
 
 function AdvTooltip({ label, desc, x, y }) {
   const style = {
-    position: 'fixed',
     left: Math.min(x, window.innerWidth - 260),
     top: y - 8,
-    transform: 'translateY(-100%)',
-    zIndex: 600,
-    background: '#0d0d0d',
-    border: '1px solid rgba(245,166,35,0.3)',
-    padding: '10px 14px',
-    maxWidth: 240,
-    pointerEvents: 'none',
   }
   return (
     <div className="arena-adv-tooltip" style={style}>
@@ -182,10 +174,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
 
       {/* INTRO */}
       {step === 'intro' && (
-        <div className="arena-lobby" style={{ paddingTop: 60 }}>
+        <div className="arena-lobby arena-lobby--intro">
           <div className="arena-lobby-hero">
             <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
-            <h1 className="arena-lobby-nome" style={{ fontSize: 36 }}>{t('games.arena.nova_ficha')}</h1>
+            <h1 className="arena-lobby-nome arena-lobby-nome--lg">{t('games.arena.nova_ficha')}</h1>
             <p className="arena-lobby-sub">{t('games.arena.intro_sabe_sistema')}</p>
           </div>
           <div className="arena-lobby-divider" />
@@ -215,7 +207,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
           <div className="arc-header-center">
-            <p className="arena-lobby-titulo" style={{ margin: 0, fontSize: 10 }}>{t('games.arena.nova_ficha')}</p>
+            <p className="arena-lobby-titulo arena-lobby-titulo--sm">{t('games.arena.nova_ficha')}</p>
             {s.sheet_name && <p className="arc-header-name">{s.sheet_name}</p>}
           </div>
           <div className="arena-create-steps">
@@ -274,7 +266,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {errors.name && <p className="arena-err">{errors.name}</p>}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.arma')}</div>
+          <div className="arc-section-label">{t('games.arena.arma')}</div>
           <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder={t('games.arena.ex_arma')} />
 
           <div className="arc-nav">
@@ -306,7 +298,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.vantagens')} <span className="arc-pontos">{advantageCost} pts</span></div>
+          <div className="arc-section-label">{t('games.arena.vantagens')} <span className="arc-pontos">{advantageCost} pts</span></div>
           <div className="arc-chip-grid">
             {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30].map(i => {
               const advData = t(`games.arena.advantages[${i}]`, { returnObjects: true })
@@ -327,7 +319,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.desvantagens')} <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
+          <div className="arc-section-label">{t('games.arena.desvantagens')} <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
           <div className="arc-chip-grid">
             {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map(i => {
               const disData = t(`games.arena.disadvantages[${i}]`, { returnObjects: true })
@@ -348,7 +340,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             })}
           </div>
 
-          <div className="arc-section-label" style={{ marginTop: 24 }}>{t('games.arena.unicas')} <span className="arc-pontos">{perkCost} pts</span></div>
+          <div className="arc-section-label">{t('games.arena.unicas')} <span className="arc-pontos">{perkCost} pts</span></div>
           <div className="arc-chip-grid">
             {[0,1,2,3,4,5].map(i => {
               const pData = t(`games.arena.perks[${i}]`, { returnObjects: true })

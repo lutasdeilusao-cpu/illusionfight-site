@@ -58,6 +58,9 @@
 .arena-loading, .arena-empty { text-align: center; color: #666; padding: 40px; }
 
 /* ===== LOBBY ===== */
+.arena-lobby {}
+.arena-lobby--intro { padding-top: 60px; }
+
 .arena-lobby {
   min-height: 100vh;
   display: flex;
@@ -67,11 +70,18 @@
 }
 
 .arena-lobby-hero { text-align: center; margin-bottom: 48px; }
+.arena-lobby-hero--sm { padding-top: 48px; }
+.arena-lobby-hero--enemies { padding-top: 48px; margin-bottom: 24px; }
+
+.arena-lobby-titulo--sm { margin: 0; font-size: 10px; }
 
 .arena-lobby-titulo {
   font-size: 13px; letter-spacing: 8px; text-transform: uppercase;
   color: #00B4D8; margin: 0 0 12px; font-family: 'Courier New', monospace; opacity: 0.6;
 }
+
+.arena-lobby-nome--lg { font-size: 36px; }
+.arena-lobby-nome--enemy { font-size: 32px; }
 
 .arena-lobby-nome {
   font-size: 48px; font-weight: 900; letter-spacing: 12px; color: #F5A623;
@@ -80,11 +90,15 @@
 
 .arena-lobby-sub { font-size: 12px; color: #444; letter-spacing: 3px; font-family: 'Courier New', monospace; }
 
+.arena-lobby-divider--gap { margin: 24px auto; }
+
 .arena-lobby-divider {
   width: 1px; height: 40px;
   background: linear-gradient(to bottom, transparent, #00B4D8, transparent);
   margin: 0 auto 48px;
 }
+
+.arena-lobby-section-label--row { display: flex; justify-content: space-between; align-items: center; }
 
 .arena-lobby-section-label {
   font-size: 10px; letter-spacing: 4px; color: #333; text-transform: uppercase;
@@ -135,6 +149,8 @@
 .arena-sheet-stat-val { font-size: 16px; font-weight: 700; color: #F5A623; font-family: 'Rajdhani', sans-serif; line-height: 1; }
 .arena-sheet-arrow { color: #333; font-size: 18px; flex-shrink: 0; transition: color 0.2s, transform 0.2s; }
 .arena-sheet-card-v:hover .arena-sheet-arrow { color: #00B4D8; transform: translateX(4px); }
+
+.arena-new-sheet--back { border-color: rgba(255,255,255,0.1); color: #666; }
 
 .arena-new-sheet {
   width: 100%; max-width: 560px; margin-top: 8px; padding: 16px; text-align: center;
@@ -259,6 +275,8 @@
 .arena-btn-sair:hover { border-color: #00B4D8; color: #00B4D8; }
 
 /* ── SFX Toggle ── */
+.arena-sfx-toggle--lobby { margin-top: 0.5rem; font-size: 18px; }
+
 .arena-sfx-toggle {
   background: none; border: none; cursor: pointer; font-size: 16px;
   padding: 0 8px; opacity: 0.5; transition: opacity 0.2s; line-height: 1;
@@ -333,7 +351,18 @@
 .arena-manual-td-val { color: #666; padding: 5px 0; line-height: 1.5; }
 
 /* ===== ADV TOOLTIP ===== */
-.arena-adv-tooltip { font-family: 'Courier New', monospace; box-shadow: 0 4px 24px rgba(0,0,0,0.6); }
+.arena-adv-tooltip {
+  position: fixed;
+  transform: translateY(-100%);
+  z-index: 600;
+  background: #0d0d0d;
+  border: 1px solid rgba(245,166,35,0.3);
+  padding: 10px 14px;
+  max-width: 240px;
+  pointer-events: none;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
 .arena-adv-tooltip-label { font-size: 11px; font-weight: 700; color: #F5A623; letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; }
 .arena-adv-tooltip-desc { font-size: 10px; color: #888; line-height: 1.6; }
 

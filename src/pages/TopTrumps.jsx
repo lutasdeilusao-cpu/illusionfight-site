@@ -639,6 +639,16 @@ export default function TopTrumps() {
             <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
           </div>
           <>
+            {!user && (menuStep === null || menuStep === 'modo') && (
+              <div className="tt-guest-aviso-previo">
+                <p className="tt-guest-aviso-texto">
+                  {t('games.toptrumps.guest_aviso_previo')}
+                </p>
+                <Link to="/cadastro" className="tt-guest-aviso-link">
+                  {t('games.toptrumps.guest_aviso_criar_conta')}
+                </Link>
+              </div>
+            )}
             {(menuStep === null || menuStep === 'modo') && (
               <div className="tt-modos">
                 <div className="tt-modo-card" onClick={() => { sfx.click(); setMenuStep('config'); }}>

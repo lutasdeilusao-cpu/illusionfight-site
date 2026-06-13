@@ -152,7 +152,7 @@ export default function ArenaLobby({ onNavigate }) {
   if (showIntro) {
     return (
       <div className="arena-lobby">
-        <div className="arena-lobby-hero" style={{ paddingTop: 48 }}>
+        <div className="arena-lobby-hero arena-lobby-hero--sm">
           <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
           <h1 className="arena-lobby-nome">{t('games.arena.titulo')}</h1>
         </div>
@@ -178,9 +178,9 @@ export default function ArenaLobby({ onNavigate }) {
     return (
       <div className="arena-lobby">
 
-        <div className="arena-lobby-hero" style={{ paddingTop: 48, marginBottom: 24 }}>
+        <div className="arena-lobby-hero arena-lobby-hero--enemies">
           <p className="arena-lobby-titulo">{t('games.arena.lobby_titulo')}</p>
-          <h1 className="arena-lobby-nome" style={{ fontSize: 32 }}>{selectedSheet.sheet_name}</h1>
+          <h1 className="arena-lobby-nome arena-lobby-nome--enemy">{selectedSheet.sheet_name}</h1>
           <p className="arena-lobby-sub">
             {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
           </p>
@@ -228,7 +228,7 @@ export default function ArenaLobby({ onNavigate }) {
           })}
         </div>
 
-        <button className="arena-new-sheet" style={{ borderColor: 'rgba(255,255,255,0.1)', color: '#666' }}
+        <button className="arena-new-sheet arena-new-sheet--back"
           onClick={() => { sfx.click(); setShowEnemies(null) }}>
           {t('games.arena.voltar')}
         </button>
@@ -250,7 +250,7 @@ export default function ArenaLobby({ onNavigate }) {
       <div className="arena-lobby-divider" />
 
       {/* Lista de fichas */}
-      <div className="arena-lobby-section-label" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="arena-lobby-section-label arena-lobby-section-label--row">
         <span>{t('games.arena.suas_fichas')}</span>
         {user && (
           <span className="arena-limit-counter">
@@ -325,7 +325,7 @@ export default function ArenaLobby({ onNavigate }) {
       )}
 
       {/* Multiplayer — gate Elite+ */}
-      <div className="arena-lobby-divider" style={{ margin: '24px auto' }} />
+      <div className="arena-lobby-divider arena-lobby-divider--gap" />
       <p className="arena-lobby-section-label">{t('games.arena.multiplayer_titulo')}</p>
       {user && perfil?.tier !== 'elite' && perfil?.tier !== 'primordial' ? (
         <button className="arena-new-sheet arena-mp-blocked" onClick={() => { sfx.click(); setModalUpgrade('multiplayer') }}>
@@ -385,8 +385,8 @@ export default function ArenaLobby({ onNavigate }) {
         </div>
       )}
 
-      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} label={t('games.arena.voltar_games')} />
-      <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')} style={{ marginTop: '0.5rem', fontSize: 18 }}>
+      <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />
+      <button className="arena-sfx-toggle arena-sfx-toggle--lobby" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
         {sfx.enabled ? '🔊' : '🔇'}
       </button>
     </div>
