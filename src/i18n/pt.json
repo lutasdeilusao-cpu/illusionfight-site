@@ -2681,6 +2681,11 @@
       "topbar_sub": "Marelia, 1954 · Nível {nivel}",
       "loading": "CARREGANDO...",
       "caderno_vazio": "\"ainda não sei quem é.\nmas cada pista liga um ponto a outro.\""
+    },
+    "guest": {
+      "titulo": "Jogando sem conta",
+      "desc": "Seu progresso (casos resolvidos, pistas, reputação) é mantido apenas durante esta sessão — ao recarregar a página, tudo é perdido e você recomeça do zero. Para manter seu progresso entre visitas, crie uma conta grátis.",
+      "criar_conta": "Criar conta grátis"
     }
   },
   "cookie": {

@@ -2654,6 +2654,11 @@
       "topbar_sub": "Marelia, 1954 · Level {nivel}",
       "loading": "LOADING...",
       "caderno_vazio": "\"I still don't know who it is.\nbut every clue connects one point to another.\""
+    },
+    "guest": {
+      "titulo": "Playing without an account",
+      "desc": "Your progress (solved cases, clues, reputation) is kept only during this session — reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
+      "criar_conta": "Create free account"
     }
   },
   "cookie": {

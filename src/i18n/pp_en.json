@@ -154,11 +154,6 @@
     "casos_resolvidos": "{n}/{total}",
     "hp": "HP: {hp}/30"
   },
-  "guest": {
-    "titulo": "Playing without an account",
-    "desc": "Your progress (solved cases, clues, reputation) is kept only during this session — reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
-    "criar_conta": "Create free account"
-  },
   "feed": {
     "revisitar": "REVISIT",
     "investigar": "INVESTIGATE",
