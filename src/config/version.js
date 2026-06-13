@@ -8,11 +8,11 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.80.2'
+export const SITE_VERSION = '10.81.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
-export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
+export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
 export const ARENA_VERSION     = '1.27.2'  // LDI Arena: CSS inline audit — static styles movidos para Arena.css
 export const TAMA_VERSION      = '2.5.0' // Tamagoshi LDI — S1 completo: 10/10 sprites próprios (Alion, Indye, Popystar) — último gargalo de assets eliminado!

@@ -158,6 +158,16 @@ export default function Lobby() {
           <p className="ldi-lobby-desc">{t('games.ldi.lobby.desc')}</p>
         </div>
 
+        {!user && (
+          <div className="ldi-lobby-guest">
+            <p className="ldi-lobby-guest-titulo">{t('games.ldi.lobby.guest_titulo')}</p>
+            <p className="ldi-lobby-guest-texto">{t('games.ldi.lobby.guest_desc')}</p>
+            <Link to="/cadastro" className="ldi-lobby-guest-link">
+              {t('games.ldi.lobby.guest_criar_conta')}
+            </Link>
+          </div>
+        )}
+
         <div className="ldi-lobby-actions">
           <button onClick={() => setShowNewModal(true)} className="ldi-btn ldi-btn--primary">
             {t('games.ldi.lobby.nova_ficha')}
@@ -205,13 +215,6 @@ export default function Lobby() {
                 </motion.div>
               )
             })}
-          </div>
-        )}
-
-        {!user && (
-          <div className="ldi-lobby-guest">
-            <p>{t('games.ldi.lobby.visitante')}</p>
-            <p><Link to="/login">{t('games.ldi.lobby.faca_login')}</Link> {t('games.ldi.lobby.faca_login_desc')}</p>
           </div>
         )}
 

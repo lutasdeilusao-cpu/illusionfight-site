@@ -534,9 +534,9 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.80.2** 🛠️ | Site — Top Trumps multiplayer travado para guest |
+| `SITE_VERSION` | **10.81.0** 🛠️ | Site — LDI lobby: guest aviso melhorado |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
-| `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
+| `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
 | `ARENA_VERSION` | **1.27.2** | Arena LDI — CSS inline audit: static styles movidos para Arena.css |
 | `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI — S1 sprite completo! 10/10 sprites próprios |

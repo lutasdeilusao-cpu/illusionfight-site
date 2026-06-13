@@ -95,6 +95,43 @@
   margin-right: auto;
 }
 
+/* ---- GUEST AVISO ---- */
+
+.ldi-lobby-guest {
+  border: 1px solid rgba(0, 180, 216, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: rgba(0, 180, 216, 0.06);
+}
+
+.ldi-lobby-guest-titulo {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #00B4D8;
+  margin-bottom: 0.4rem;
+}
+
+.ldi-lobby-guest-texto {
+  font-family: var(--font-narrative);
+  font-size: 0.75rem;
+  color: #C8C8C8;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.ldi-lobby-guest-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #00B4D8;
+  text-decoration: underline;
+  letter-spacing: 0.04em;
+}
+.ldi-lobby-guest-link:hover {
+  color: #0288D1;
+}
+
 .ldi-lobby-actions {
   display: flex;
   flex-direction: column;
