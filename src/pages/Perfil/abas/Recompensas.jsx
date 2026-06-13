@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useFichas } from '../../../context/FichasContext'
+import { FICHAS_GATE_ATIVO } from '../../../config/fichas'
 import './Recompensas.css'
 
 const MOTIVO_KEY_MAP = {
@@ -20,6 +21,9 @@ export default function Recompensas() {
   useEffect(() => { carregarHistorico() }, [])
 
   const handleColetar = async () => { setColetando(true); const ok = await coletarDiarias(); if (ok) setColetado(true); setColetando(false); setTimeout(() => setColetado(false), 3000) }
+
+  // Se o gate de fichas está desativado, não exibe nada
+  if (!FICHAS_GATE_ATIVO) return null
 
   return (
     <div className="recomp-page">

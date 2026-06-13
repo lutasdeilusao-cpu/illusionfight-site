@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.2** 🛠️ | Site — Fix /perfil: erro 406 (.single→.maybeSingle) + erro 400 (remove .order sem coluna) |
+| `SITE_VERSION` | **10.77.3** 🛠️ | Site — Frente A: desabilitar gate de fichas via flag central `FICHAS_GATE_ATIVO` |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |

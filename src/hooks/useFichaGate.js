@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useFichas } from '../context/FichasContext'
+import { FICHAS_GATE_ATIVO } from '../config/fichas'
 
 /**
  * useFichaGate — controle de acesso a jogos via fichas
@@ -40,6 +41,19 @@ export function useFichaGate(nomeJogo) {
   const [modalVisivel, setModalVisivel] = useState(false)    // ModalSemFichas (saldo = 0)
   const [confirmacaoVisivel, setConfirmacaoVisivel] = useState(false) // ModalConfirmacaoFicha
   const [onSucessoPending, setOnSucessoPending] = useState(null)
+
+  // Se o gate de fichas está desativado globalmente, retorna estado "sempre liberado"
+  if (!FICHAS_GATE_ATIVO) {
+    return {
+      tentarEntrar: async (onSucesso) => { onSucesso() },
+      confirmarGasto: async () => {},
+      cancelarGasto: () => {},
+      modalVisivel: false,
+      confirmacaoVisivel: false,
+      fecharModal: () => {},
+      saldo: 0,
+    }
+  }
 
   const tentarEntrar = useCallback(async (onSucesso) => {
     if (loading) return

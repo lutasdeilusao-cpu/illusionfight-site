@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { useFichas } from '../../context/FichasContext'
 import { useDix } from '../../context/DixContext'
+import { FICHAS_GATE_ATIVO } from '../../config/fichas'
 import PerfilConquistas from './abas/PerfilConquistas'
 import PerfilArena from './abas/PerfilArena'
 import PerfilColecao from './abas/PerfilColecao'
@@ -78,19 +79,21 @@ export default function Perfil() {
             </span>
           </div>
           <div className="perfil-contadores">
-            <div className="perfil-contador">
-              <span className="perfil-contador-valor">
-                {isAdmin ? '∞' : fichasLoading ? '—' : saldo}
-              </span>
-              <span className="perfil-contador-label">🎰 {t('site.perfil.fichas')}</span>
-            </div>
+            {FICHAS_GATE_ATIVO && (
+              <div className="perfil-contador">
+                <span className="perfil-contador-valor">
+                  {isAdmin ? '∞' : fichasLoading ? '—' : saldo}
+                </span>
+                <span className="perfil-contador-label">🎰 {t('site.perfil.fichas')}</span>
+              </div>
+            )}
             <div className="perfil-contador">
               <span className="perfil-contador-valor">{dix}</span>
               <span className="perfil-contador-label">💰 DIX</span>
             </div>
           </div>
         </div>
-        {podeColetarHoje && !isAdmin && (
+        {FICHAS_GATE_ATIVO && podeColetarHoje && !isAdmin && (
           <button className="perfil-fichas-coletar" onClick={coletarDiarias}>
             {t('site.perfil.coletar')}
           </button>

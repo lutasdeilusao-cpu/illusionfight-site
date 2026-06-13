@@ -3,6 +3,7 @@ import { useFichas } from '../../context/FichasContext'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { Link } from 'react-router-dom'
+import { FICHAS_GATE_ATIVO } from '../../config/fichas'
 import ModalConfirmacaoFicha from '../ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import ModalSemFichas from '../ModalSemFichas/ModalSemFichas'
 import './FichaGateRoute.css'
@@ -28,6 +29,9 @@ function isDesbloqueadoHoje(gameId) {
 }
 
 export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, children }) {
+  // Se o gate de fichas está desativado globalmente, renderiza os children direto
+  if (!FICHAS_GATE_ATIVO) return children
+
   const { t } = useLanguage()
   const { user } = useAuth()
   const { saldo, gastarFicha, isAdmin, loading } = useFichas()
