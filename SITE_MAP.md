@@ -510,7 +510,7 @@
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/JackCandy/JackCandy.jsx` | ✅ v5.2.0 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo |
 | `/games/minigames` | MiniGames | `src/pages/MiniGames/MiniGames.jsx` | ✅ **v2.0.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade + i18n completo nos puzzles (todos os componentes traduzidos pt/en/es) |
-| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.25.1 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone (i18n completo) |
+| `/games/ldi-arena` | ArenaRoute | `src/pages/Arena/ArenaRoute.jsx` | ✅ v1.26.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone (i18n completo) + guest notice / save prompt |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.2.0 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
@@ -534,11 +534,11 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.4** 🛠️ | Site — protótipo RPG atualizado (sistema completo: criação, testes, batalha, magia, efeitos) |
+| `SITE_VERSION` | **10.77.5** 🛠️ | Site — GuestNotice + save prompt modal p/ jogadores sem conta na LDI Arena |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
-| `ARENA_VERSION` | **1.25.1** | Arena LDI — fix crash pós-vitória (TypeError getState), Leaderboard Arena conectado |
+| `ARENA_VERSION` | **1.26.0** | Arena LDI — guest notice banner + save prompt modal para jogadores sem conta |
 | `TAMA_VERSION` | **2.5.0** | Tamagoshi LDI — S1 sprite completo! 10/10 sprites próprios |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |

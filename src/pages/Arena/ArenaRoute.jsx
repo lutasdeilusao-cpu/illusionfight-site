@@ -7,6 +7,7 @@ import ArenaLobby from './ArenaLobby'
 import ArenaCreate from './ArenaCreate'
 import ArenaCombat from './ArenaCombat'
 import ArenaVictory from './ArenaVictory'
+import GuestNotice from '../../components/GuestNotice/GuestNotice'
 import './Arena.css'
 
 import { ARENA_VERSION } from '../../config/version'
@@ -31,6 +32,7 @@ export default function ArenaRoute() {
 
   return (
     <div className="arena-page">
+      <GuestNotice />
       {fase === 'lobby' && <ArenaLobby onNavigate={setFase} />}
       {fase === 'create' && (
         <ArenaCreate

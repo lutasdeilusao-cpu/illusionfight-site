@@ -4,17 +4,17 @@
  * Todas as versões do site centralizadas aqui.
  * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
  *
- * Última atualização: 2026-06-12
+ * Última atualização: 2026-06-13
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.77.4'
+export const SITE_VERSION = '10.77.5'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.2.0'  // Pesadelo Particular (i18n completo: casos, locais, pistas, suspeitos, narrativas, inimigos pt/en/es)
 export const LDI_VERSION       = '2.0.0'  // Lendas do LDI (i18n completo: scenes, manual, powers, char data, creation flow)
 export const JACK_VERSION      = '5.2.0'  // Jack Dream Beer (BackToGamesBtn unificado)
-export const ARENA_VERSION     = '1.25.1'  // LDI Arena: fix getState error após tela de vitória
+export const ARENA_VERSION     = '1.26.0'  // LDI Arena: guest notice banner + save prompt modal para jogadores sem conta
 export const TAMA_VERSION      = '2.5.0' // Tamagoshi LDI — S1 completo: 10/10 sprites próprios (Alion, Indye, Popystar) — último gargalo de assets eliminado!
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)

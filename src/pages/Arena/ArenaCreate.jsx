@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
@@ -86,6 +87,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   const [manualOpen, setManualOpen] = useState(false)
   const [tooltip, setTooltip] = useState(null)
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
+  const [guestSaveModal, setGuestSaveModal] = useState(false)
   const longPressRef = useRef(null)
 
   useEffect(() => {
@@ -155,8 +157,22 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
     if (s.attributes?.R < 1) { setErrors({ r_min: t('games.arena.erro_r_min') }); setStep('attrs'); return }
     if (totalPoints > 0) { setErrors({ cost: t('games.arena.erro_custo_pos') }); return }
     if (totalPoints < 0) { setErrors({ cost: t('games.arena.erro_custo_neg') }); return }
-    await store.saveToCloud(user?.id)
+    if (!user) {
+      setGuestSaveModal(true)
+      return
+    }
+    await store.saveToCloud(user.id)
     onNavigate('lobby')
+  }
+
+  const handleGuestContinue = () => {
+    setGuestSaveModal(false)
+    onNavigate('lobby')
+  }
+
+  const handleGuestCreateAccount = () => {
+    setGuestSaveModal(false)
+    navigate('/cadastro')
   }
 
   const stepIndex = ['attrs', 'sheet_name', 'specs'].indexOf(step)
@@ -381,6 +397,29 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {manualOpen && <div className="arena-manual-overlay" onClick={() => setManualOpen(false)} />}
 
       {tooltip && <AdvTooltip {...tooltip} />}
+
+      {/* Guest save prompt modal */}
+      <AnimatePresence>
+        {guestSaveModal && (
+          <motion.div className="arena-guest-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setGuestSaveModal(false)}>
+            <motion.div className="arena-guest-modal" initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.85, opacity: 0 }} onClick={e => e.stopPropagation()}>
+              <div className="arena-guest-modal-inner">
+                <div className="arena-guest-modal-emoji">🔒</div>
+                <h2 className="arena-guest-modal-titulo">{t('games.arena.guest_save_prompt_title')}</h2>
+                <p className="arena-guest-modal-desc">{t('games.arena.guest_save_prompt_desc')}</p>
+                <div className="arena-guest-modal-btns">
+                  <button className="arena-guest-modal-btn arena-guest-modal-btn--primary" onClick={handleGuestCreateAccount}>
+                    {t('games.arena.guest_create_account')}
+                  </button>
+                  <button className="arena-guest-modal-btn" onClick={handleGuestContinue}>
+                    {t('games.arena.guest_continue_without_saving')}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

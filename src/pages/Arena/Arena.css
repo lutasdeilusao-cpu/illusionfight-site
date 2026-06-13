@@ -1270,3 +1270,92 @@
 .arena-upgrade-modal-close:hover {
   color: #F5A623;
 }
+
+/* ===== GUEST SAVE MODAL ===== */
+.arena-guest-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.arena-guest-modal {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid rgba(245,166,35,0.25);
+  max-width: 380px;
+  width: 100%;
+  padding: 0;
+  box-shadow: 0 0 40px rgba(245,166,35,0.08);
+}
+
+.arena-guest-modal-inner {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  font-family: 'Courier New', monospace;
+}
+
+.arena-guest-modal-emoji {
+  font-size: 2.5rem;
+}
+
+.arena-guest-modal-titulo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #F5A623;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+}
+
+.arena-guest-modal-desc {
+  font-size: 0.78rem;
+  color: #888;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.arena-guest-modal-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.arena-guest-modal-btn {
+  background: none;
+  border: 1px solid #333;
+  color: #888;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.15s;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.arena-guest-modal-btn:hover {
+  border-color: #888;
+  color: #e8e8e8;
+}
+
+.arena-guest-modal-btn--primary {
+  border-color: #F5A623;
+  color: #F5A623;
+}
+
+.arena-guest-modal-btn--primary:hover {
+  background: rgba(245,166,35,0.1);
+}
