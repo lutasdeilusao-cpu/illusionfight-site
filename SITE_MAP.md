@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.2** 🛠️ | Site — Fix: Vite dynamic import warning in AuthContext (supertrunfo JSON now uses import.meta.glob) |
+| `SITE_VERSION` | **10.77.2** 🛠️ | Site — Fix /perfil: erro 406 (.single→.maybeSingle) + erro 400 (remove .order sem coluna) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
