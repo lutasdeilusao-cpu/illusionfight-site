@@ -589,7 +589,8 @@
       "pais_selecione": "Selecione seu país",
       "pais_obrigatorio": "Selecione seu país",
       "sucesso": "Verifique seu email para confirmar o cadastro.",
-      "erro_perfil": "Conta criada mas erro ao salvar perfil. Tente novamente."
+      "erro_perfil": "Conta criada mas erro ao salvar perfil. Tente novamente.",
+      "privacidade_aviso": "Sua conta serve apenas para salvar seu progresso e histórico nos jogos. Não usamos seus dados para treinar IA, não vendemos dados a terceiros e este site não exibe anúncios nem tem qualquer modelo de monetização baseado em dados."
     },
     "games": {
       "titulo": "GAMES",
@@ -2051,7 +2052,10 @@
       "investigacao_enfrentar": "[ enfrentar ]",
       "investigacao_pista_encontrada": "pista encontrada:",
       "investigacao_ja_visitado": "este local já foi investigado.",
-      "investigacao_investigar": "[ investigar este local ]"
+      "investigacao_investigar": "[ investigar este local ]",
+      "guest_titulo": "Jogando sem conta",
+      "guest_desc": "Seu progresso (cervejas, nível, itens, casos resolvidos) é mantido apenas durante esta sessão — ao recarregar a página, tudo é perdido e você recomeça do zero. Para manter seu progresso entre visitas, crie uma conta grátis.",
+      "guest_criar_conta": "Criar conta grátis"
     },
     "ldi": {
       "titulo": "LDI LENDAS",

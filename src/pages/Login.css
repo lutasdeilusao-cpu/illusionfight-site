@@ -121,3 +121,15 @@
   color: #e8853a;
   text-decoration: underline;
 }
+
+.auth-privacidade-aviso {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  color: #6B6F76;
+  text-align: center;
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}

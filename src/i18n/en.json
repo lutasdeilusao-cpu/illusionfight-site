@@ -589,7 +589,8 @@
       "pais_selecione": "Select your country",
       "pais_obrigatorio": "Please select your country",
       "sucesso": "Check your email to confirm your registration.",
-      "erro_perfil": "Account created but error saving profile. Please try again."
+      "erro_perfil": "Account created but error saving profile. Please try again.",
+      "privacidade_aviso": "Your account is used only to save your progress and history across the games. We don't use your data to train AI, we don't sell data to third parties, and this site has no ads or data-based monetization of any kind."
     },
     "games": {
       "titulo": "GAMES",
@@ -2024,7 +2025,10 @@
       "investigacao_enfrentar": "[ face ]",
       "investigacao_pista_encontrada": "clue found:",
       "investigacao_ja_visitado": "this location has already been investigated.",
-      "investigacao_investigar": "[ investigate this location ]"
+      "investigacao_investigar": "[ investigate this location ]",
+      "guest_titulo": "Playing without an account",
+      "guest_desc": "Your progress (beers, level, items, solved cases) is kept only during this session — reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
+      "guest_criar_conta": "Create free account"
     },
     "ldi": {
       "titulo": "LDI LEGENDS",

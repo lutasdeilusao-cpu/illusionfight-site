@@ -1248,6 +1248,50 @@
 
 .jdc-quest-hp-text {
   font-family: 'Share Tech Mono', monospace;
+
+/* ===== MainMenu back button ===== */
+
+.jdc-mainmenu-back {
+  margin-top: 2rem;
+}
+
+/* ===== Guest aviso ===== */
+
+.jack-guest-aviso {
+  background: rgba(245, 166, 35, 0.04);
+  border: 1px solid #F5A62333;
+  border-left: 3px solid #F5A623;
+  border-radius: 2px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.jack-guest-aviso-titulo {
+  color: #F5A623;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.jack-guest-aviso-texto {
+  color: #888;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.jack-guest-aviso-link {
+  color: #F5A623;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-bottom: 1px solid #F5A62344;
+  transition: all 0.2s;
+}
+
+.jack-guest-aviso-link:hover {
+  color: #fff;
+  border-bottom-color: #F5A623;
+}
   font-size: 0.75rem;
   color: #C8C8C8;
   min-width: 40px;

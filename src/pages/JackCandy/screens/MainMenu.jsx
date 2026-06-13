@@ -100,7 +100,7 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
         </div>
       )}
 
-      <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '2rem' }} />
+      <BackToGamesBtn onClick={() => navigate('/games')} className="jdc-mainmenu-back" />
     </div>
   )
 }

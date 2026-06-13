@@ -85,6 +85,9 @@ export default function Cadastro() {
             <label className="auth-label">{t('site.cadastro.senha')}<input type="password" className="auth-input" value={form.senha} onChange={set('senha')} required /></label>
             <label className="auth-label">{t('site.cadastro.confirmar_senha')}<input type="password" className="auth-input" value={form.confirmarSenha} onChange={set('confirmarSenha')} required /></label>
             <button className="auth-btn" type="submit" disabled={carregando}>{carregando ? t('site.cadastro.cadastrando') : t('site.cadastro.cadastrar')}</button>
+            <p className="auth-privacidade-aviso">
+              {t('site.cadastro.privacidade_aviso')}
+            </p>
           </form>
         )}
         <p className="auth-link-text">{t('site.cadastro.ja_tem_conta')} <Link to="/login" className="auth-link">{t('site.cadastro.entrar_link')}</Link></p>

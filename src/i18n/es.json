@@ -589,7 +589,8 @@
       "pais_selecione": "Selecciona tu país",
       "pais_obrigatorio": "Selecciona tu país",
       "sucesso": "Revisa tu correo para confirmar el registro.",
-      "erro_perfil": "Cuenta creada pero error al guardar perfil. Intenta de nuevo."
+      "erro_perfil": "Cuenta creada pero error al guardar perfil. Intenta de nuevo.",
+      "privacidade_aviso": "Tu cuenta se usa solo para guardar tu progreso e historial en los juegos. No usamos tus datos para entrenar IA, no vendemos datos a terceros, y este sitio no tiene anuncios ni ningún modelo de monetización basado en datos."
     },
     "games": {
       "titulo": "JUEGOS",
@@ -2024,7 +2025,10 @@
       "investigacao_enfrentar": "[ enfrentar ]",
       "investigacao_pista_encontrada": "pista encontrada:",
       "investigacao_ja_visitado": "este lugar ya ha sido investigado.",
-      "investigacao_investigar": "[ investigar este lugar ]"
+      "investigacao_investigar": "[ investigar este lugar ]",
+      "guest_titulo": "Jugando sin cuenta",
+      "guest_desc": "Tu progreso (cervezas, nivel, ítems, casos resueltos) se mantiene solo durante esta sesión: al recargar la página se pierde todo y empiezas de cero. Para mantener tu progreso entre visitas, crea una cuenta gratis.",
+      "guest_criar_conta": "Crear cuenta gratis"
     },
     "ldi": {
       "titulo": "LDI LEYENDAS",

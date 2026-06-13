@@ -1,8 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useReader } from '../../context/ReaderContext'
 import { useJackStore } from './store/useJackStore'
-import LoginGate from '../../components/LoginGate/LoginGate'
+import { useLanguage } from '../../context/LanguageContext'
 import StatusBar from './components/StatusBar'
 import Monologue from './components/Monologue'
 import DicaToast from './components/DicaToast'
@@ -26,6 +27,7 @@ import './JackCandy.css'
 
 export default function JackCandy() {
   const { user } = useAuth()
+  const { t } = useLanguage()
   const { setReaderMode } = useReader()
   const store = useJackStore()
   const [loaded, setLoaded] = useState(false)
@@ -45,7 +47,24 @@ export default function JackCandy() {
   }, [user])
 
   const handleStart = useCallback(async (slotNum, slotData) => {
-    if (!user) return
+    if (!user) {
+      useJackStore.setState({
+        cervejas: 0, cervejasPorSegundo: 1, cervejasTotais: 0,
+        fragmentos: 0, notas: 0,
+        hpAtual: 20, hpMax: 20, nivel: 1, xp: 0,
+        fase: 'intro', flags: {}, dungeonsCompletas: [],
+        inventario: [], equipado: { arma: null, armadura: null, acessorio: null },
+        tempoJogo: 0, titleDone: false, monologoAtual: null,
+        cidadeAtual: 'marelia', periodo: 'DIA',
+        medidorPrimordial: 0, aliadoAtual: null,
+        casoAtivo: null, pistasColetadas: [], suspeitos: [],
+        locaisVisitados: [], acusacoesErradas: 0, casosResolvidos: [],
+        _userId: null, _slot: 'guest',
+      })
+      setCurrentSlot('guest')
+      setLoaded(true)
+      return
+    }
     if (slotData) {
       // Continua save existente
       const state = {
@@ -93,9 +112,9 @@ export default function JackCandy() {
     setSlotsData(updated)
   }, [user, store])
 
-  // Intervals — rodam sempre com usuário logado e slot ativo
+  // Intervals — rodam com slot ativo (logado ou guest)
   useEffect(() => {
-    if (!currentSlot || !user) return
+    if (!currentSlot) return
     const t1 = setInterval(() => {
       const s = useJackStore.getState()
       if (s._slot) s.tick()
@@ -105,7 +124,7 @@ export default function JackCandy() {
       if (s._slot) s.regenHp()
     }, 10000)
     return () => { clearInterval(t1); clearInterval(t2) }
-  }, [currentSlot, user])
+  }, [currentSlot])
 
   // Auto-unlock flags
   useEffect(() => {
@@ -141,22 +160,24 @@ export default function JackCandy() {
     if (store.fragmentos > 0 && !store.flags.JA_VIU_FRAGMENTOS) store.setFlag('JA_VIU_FRAGMENTOS')
   }, [store.flags.TEM_BENGALA, store.fase, store.flags.JA_VIU_VILA, store.fragmentos])
 
-  // LoginGate obrigatório
-  if (!user) {
-    return (
-      <div className="jack-body">
-        <div className="jack-content jack-content--centered">
-          <LoginGate feature="Jack Dream Beer" />
-        </div>
-      </div>
-    )
-  }
-
   // Main Menu
   if (!currentSlot) {
     return (
       <div className="jack-body">
         <div className="jack-content">
+          {!user && (
+            <div className="jack-guest-aviso">
+              <p className="jack-guest-aviso-titulo">
+                {t('games.jackcandy.guest_titulo')}
+              </p>
+              <p className="jack-guest-aviso-texto">
+                {t('games.jackcandy.guest_desc')}
+              </p>
+              <Link to="/cadastro" className="jack-guest-aviso-link">
+                {t('games.jackcandy.guest_criar_conta')}
+              </Link>
+            </div>
+          )}
           <MainMenu slotsData={slotsData} onStart={handleStart} onDeleteSlot={handleDeleteSlot} />
         </div>
       </div>
