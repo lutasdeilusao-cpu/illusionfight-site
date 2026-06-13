@@ -284,6 +284,10 @@
     "text": "Access exclusive content and help keep the work alive.",
     "cta": "HOW TO SUPPORT"
   },
+  "beta": {
+    "message": "🔧 We're in beta! Official launch on {{date}}.",
+    "cta": "Report bug"
+  },
   "trial": {
     "message": "Exclusive content in free access for a limited time — enjoy it!"
   },
@@ -347,6 +351,9 @@
       "benefit1": "$10 or more = 1 free month of ELITE",
       "benefit2": "$50 or more = 1 free month of PRIMORDIAL",
       "cta": "MAKE A DONATION"
+    },
+    "gate": {
+      "pre_lancamento": "Subscriptions open on {{date}}"
     },
     "pix": {
       "title": "Prefer to contribute via PIX?",

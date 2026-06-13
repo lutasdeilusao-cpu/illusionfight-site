@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-*Última atualização: 2026-06-12*
+*Última atualização: 2026-06-13*
+*Versão: 10.74.0*  |  `[SITE] versão carregada: 10.74.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Gate de assinaturas + Banner de beta — assinaturas bloqueadas antes de 14/09/2026 (admin bypass: isaiasgamedev@gmail.com vê fluxo normal); TrialBanner reativado como aviso de beta não-bloqueante com CTA para reportar bugs (oculto para admin). i18n pt/en/es. `src/config/launch.js` centraliza `LAUNCH_DATE` e `ADMIN_EMAILS`.
 *Versão: 10.73.0*  |  `[SITE] versão carregada: 10.73.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Tamagoshi v2.5.0 — S1 sprite completo! 3 novos sprites próprios adicionados: **Alion** (ID 08, ex-Sangueko), **Indye** (ID 09, ex-Igniko), **Popystar** (ID 10, ex-Voidspawn). Agora **10/10 S1** com arte individual (100 sprites no total). Último gargalo de assets eliminado! 🎉🔥
 *Versão: 10.72.0*  |  `[SITE] versão carregada: 10.72.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ Rota catch-all (404) — NotFound component com contador regressivo 5s, redirecionamento automático para home + botão "Ir agora" + i18n pt/en/es + noindex Helmet.
 *Versão: 10.71.0*  |  `[SITE] versão carregada: 10.71.0`  |  🌐 **`https://illusionfight.com/`** (domínio oficial)  |  ✅ ModalSemFichas — refatorado para "CRIE SUA CONTA GRÁTIS — GANHE 100 FICHAS" em pt/en/es. Foco em criar conta grátis + bônus de fichas, sem assinatura/pagamento.

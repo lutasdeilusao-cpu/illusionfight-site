@@ -284,6 +284,10 @@
     "text": "Accede a contenido exclusivo y ayuda a mantener la obra viva.",
     "cta": "CÓMO COLABORAR"
   },
+  "beta": {
+    "message": "🔧 ¡Estamos en beta! Lanzamiento oficial el {{date}}.",
+    "cta": "Reportar error"
+  },
   "trial": {
     "message": "Contenido exclusivo en acceso libre por tiempo limitado — ¡aprovéchalo!"
   },
@@ -347,6 +351,9 @@
       "benefit1": "€10 o más = 1 mes de ELITE gratis",
       "benefit2": "€50 o más = 1 mes de PRIMORDIAL gratis",
       "cta": "HACER UNA DONACIÓN"
+    },
+    "gate": {
+      "pre_lancamento": "Suscripciones abren el {{date}}"
     },
     "pix": {
       "title": "¿Prefieres contribuir vía PIX?",

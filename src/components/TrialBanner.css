@@ -9,6 +9,11 @@
   padding: 0.5rem 1rem;
   text-align: center;
   transition: background 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .trial-banner.scrolled {
@@ -16,10 +21,29 @@
   border-top: 1px solid rgba(244, 162, 39, 0.4);
 }
 
-.trial-banner p {
+.trial-banner__text {
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--accent-amber);
   letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.trial-banner__cta {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  text-decoration: none;
+  border: 1px solid var(--accent-teal);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.trial-banner__cta:hover {
+  background: var(--accent-teal);
+  color: #000;
 }

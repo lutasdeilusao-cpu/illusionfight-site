@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useLanguage } from '../context/LanguageContext'
 import { useAuth } from '../context/AuthContext'
 import { iniciarCheckout, getPriceDisplay } from '../lib/stripe'
+import { LAUNCH_DATE, ADMIN_EMAILS } from '../config/launch'
 import planos from '../data/planos.json'
 import './Assinar.css'
 
@@ -14,6 +15,10 @@ export default function Assinar() {
   const priceDisplay = getPriceDisplay(locale)
   const [loadingTier, setLoadingTier] = useState(null)
   const [feedback, setFeedback] = useState(null)
+
+  const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
+  const hoje = new Date().toISOString().split('T')[0]
+  const isPreLaunch = !isAdmin && hoje < LAUNCH_DATE
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -138,6 +143,10 @@ export default function Assinar() {
                   </ul>
                   {p.cta_disabled ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled">{p[ctaTextKey]}</span>
+                  ) : isPreLaunch && p.id !== 'ranqueado' ? (
+                    <span className="assinar-card__cta assinar-card__cta--disabled assinar-card__cta--gate">
+                      {t('assinar.gate.pre_lancamento', { date: LAUNCH_DATE })}
+                    </span>
                   ) : (
                     <button
                       onClick={() => handleAssinar(p.id.toUpperCase())}

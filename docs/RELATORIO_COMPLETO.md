@@ -1,8 +1,8 @@
 # 📊 RELATÓRIO COMPLETO — ILLUSION FIGHT PORTAL
 
-> **Data:** 2026-06-12  
-> **Versão do Relatório:** 3.53  
-> **Versão do Site:** 10.73.0  
+> **Data:** 2026-06-13  
+> **Versão do Relatório:** 3.54  
+> **Versão do Site:** 10.74.0  
 > **Domínio:** https://illusionfight.com/  
 > **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site  
 > **Lançamento Oficial:** 🗓️ **14 de Setembro de 2026**
@@ -52,7 +52,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 
 | Métrica | Valor |
 |---|---|
-| **Versão Atual** | 10.71.0 ✅ |
+| **Versão Atual** | 10.74.0 ✅ |
 | **Lançamento Oficial** | 🗓️ **14 de Setembro de 2026** |
 | **Total de Rotas** | 36 rotas ativas (35 nomeadas + 1 catch-all 404) |
 | **Total de Jogos** | 9 jogos |
@@ -133,7 +133,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | `NotificationBalloon` | ✅ Completo | Balão de notificação |
 | `ScrollToTop` | ✅ Completo | Botão voltar ao topo |
 | `ScrollToTopOnNav` | ✅ Completo | Scroll automático ao navegar |
-| `TrialBanner` | ✅ Completo (desligado) | `TRIAL_ACTIVE = false` |
+| `TrialBanner` | ✅ Completo (beta ativo) | `BETA_ACTIVE = true` — aviso não-bloqueante de beta, oculto para admin. CTA para reportar bugs. i18n pt/en/es. |
 | `AchievementToast` | ✅ Completo | Toast com partículas |
 | `FichaGateRoute` | ✅ Completo | Gate de fichas para jogos (login + fichas + FREE info) |
 | `LoginGate` | ✅ Completo | Gate de login reutilizável |
@@ -209,6 +209,7 @@ O **Illusion Fight Portal** (Lutas de Ilusão) é uma plataforma web completa qu
 | Stripe Webhook (stripe-webhook) | ✅ Completo |
 | Cancelamento de assinatura (cancel-subscription) | ✅ Completo |
 | Preços dinâmicos por locale | ✅ Completo |
+| **Gate de assinaturas (pré-lançamento)** | ✅ **v10.74.0** — Botões Elite/Primordial desabilitados antes de 14/09/2026 com texto "Assinaturas abrem em {{date}}". Admin bypass via `ADMIN_EMAILS`. Data centralizada em `src/config/launch.js`. |
 | Loja digital (fichas, packs) | ✅ Completo |
 | Produtos físicos (livro, camiseta, etc.) | ✅ Completo (todos marcados como "EM BREVE") |
 
