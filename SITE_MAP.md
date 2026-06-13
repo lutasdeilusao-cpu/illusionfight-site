@@ -90,13 +90,14 @@
     │   ├── FichaGateRoute/            # Gate rota: login + ficha + FREE info em todas as rotas de game
     │   ├── MusicSection/               # Seção home: música
     │   ├── Navbar/                     # Navbar global com menu hamburger
-    │   ├── NotificationBalloon/        # Balão de notificação
+    │   ├── LDINotification/            # Balão de notificação
     │   ├── NowLive/                    # Seção home: agora ao vivo
     │   ├── PlatformIcons.jsx           # Ícones de plataformas de música
     │   ├── Puzzles/                    # 6 puzzles reutilizáveis
     │   ├── ResultCard/                 # Canvas share card com paletas por jogo
     │   ├── ScrollToTop/                # Botão voltar ao topo
     │   ├── ScrollToTopOnNav.jsx        # Scroll to top on navigation change
+    │   ├── NinaMusicPlayer/            # Player de música flutuante
     │   ├── SearchModal/                # Modal de busca global
     │   ├── ShopSection/                # Loja de produtos físicos
     │   ├── SocialBar/                  # Barra de redes sociais
@@ -110,10 +111,13 @@
     │   └── version.js                  # Todas as versões centralizadas
     │
     ├── context/
-    │   ├── AuthContext.jsx             # Provider: user, perfil, session, login, logout
     │   ├── AchievementsContext.jsx     # Provider: desbloquear, toast, persistência Supabase
+    │   ├── AuthContext.jsx             # Provider: user, perfil, session, login, logout
+    │   ├── DixContext.jsx              # Provider: DIX wallet transactions
+    │   ├── EventosContext.jsx          # Provider: eventos globais do sistema
     │   ├── FichasContext.jsx           # Provider: saldo, coleta diária, gastar, role-based
     │   ├── LanguageContext.jsx          # Provider i18n: locale, t(), changeLocale()
+    │   ├── LanguageProvider.jsx        # Provider wrapper i18n
     │   └── ReaderContext.jsx           # Estado readerMode — esconde Navbar/TrialBanner
     │
     ├── lib/
@@ -124,6 +128,7 @@
     │   ├── achievements-pt.json        # Achievements do sistema
     │   ├── episodios.json              # Episódios do webtoon
     │   ├── livro-index.json            # Índice dos capítulos (publicado, título multi-lang)
+    │   ├── loja-digital.json           # Produtos digitais da loja
     │   ├── livro/                      # Capítulos em markdown (pt/, en/, es/)
     │   ├── mundo-pt.json               # Lore do mundo (PT)
     │   ├── mundo-en.json               # Lore do mundo (EN)
@@ -131,6 +136,7 @@
     │   ├── musicas.json                # Dados das músicas
     │   ├── notificacoes.json           # Notificações do sistema
     │   ├── nowlive.json                # Status "ao vivo"
+    │   ├── paises.js                   # Lista de países (formulários)
     │   ├── personagens-pt.json         # Personagens (PT)
     │   ├── personagens-en.json         # Personagens (EN)
     │   ├── personagens-es.json         # Personagens (ES)
@@ -138,7 +144,9 @@
     │   ├── produtos.json               # Produtos da loja
     │   ├── quiz-pt.json                # Banco de perguntas do Quiz
     │   ├── search-index.js             # Índice de busca global
-    │   └── supertrunfo-pt.json         # Cartas do Top Trumps
+    │   ├── supertrunfo-pt.json         # Cartas do Top Trumps (PT)
+    │   ├── supertrunfo-en.json         # Cartas do Top Trumps (EN)
+    │   ├── supertrunfo-es.json         # Cartas do Top Trumps (ES)
     │
     ├── hooks/
     │   ├── useFichaGate.js             # Gate de fichas para jogos
@@ -148,7 +156,8 @@
     │   ├── useScrollReveal.js          # IntersectionObserver reveal
     │   ├── useSlideshow.js             # Slideshow automático
     │   ├── useSwipe.js                 # Detecção de swipe touch
-    │   ├── useTopTrumpsDB.js           # Supabase queries Top Trumps
+    │   ├── useLeaderboardDB.js         # Supabase queries Leaderboard
+    │   ├── usePresence.js              # Presença online
     │   ├── useTopTrumpsMP.js           # Multiplayer Top Trumps
     │   ├── useTypewriter.js            # Efeito typewriter
     │   ├── useViewportScroll.js        # Scroll do viewport
@@ -161,6 +170,9 @@
     │   ├── pp_pt.json                  # Traduções PT (Pesadelo Particular)
     │   ├── pp_en.json                  # Traduções EN (Pesadelo Particular)
     │   ├── pp_es.json                  # Traduções ES (Pesadelo Particular)
+    │   ├── arena-trash-en.json         # Falas arena (EN)
+    │   ├── arena-trash-es.json         # Falas arena (ES)
+    │   ├── cardLabels.js               # Labels de cartas
     │   └── locales.js                  # Import aggregator + LOCALE_LABELS
     │
     ├── pages/
@@ -522,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.75.0** 🚀 | Site — SITE_MAP.md revisado, rotas sincronizadas, versões corrigidas |
+| `SITE_VERSION` | **10.76.0** 🚀 | Site — SITE_MAP.md double-check, limpeza RELATORIO_COMPLETO.md + RELEASE_S1.md |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
@@ -547,7 +559,9 @@
 | `TrialBanner` | Banner trial (oculto readerMode) |
 | `Footer` | Footer global |
 | `ScrollToTop` | Botão voltar ao topo |
-| `NotificationBalloon` | Balão de notificação |
+| `LDINotification` | Balão de notificação |
+| `NinaMusicPlayer` | Player de música flutuante |
+| `UnifiedNotification` | Notificação unificada |
 | `CookieBanner` | Banner LGPD |
 | `AchievementToast` | Toast de achievement |
 
@@ -628,7 +642,7 @@
 
 ### i18n: PT/EN/ES via LanguageContext. PP tem i18n própria.
 
-### z-index: SearchModal(2000) > Navbar(1000) > TrialBanner(998) > CookieBanner(200) > NotificationBalloon(150) > ScrollToTop(100) > MusicSection(50)
+### z-index: SearchModal(2000) > AchievementToast(1500) > Navbar(1000) > TrialBanner(998) > CookieBanner(200) > LDINotification(150) > ScrollToTop(100) > MusicSection(50)
 
 ### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
 

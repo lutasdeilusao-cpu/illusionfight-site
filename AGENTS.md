@@ -134,7 +134,7 @@ At the end of every task, deliver a **report table** with the version changes **
 - **Game pages** (`/games/ldi`, `/games/jackcandy`, `/games/toptrumps`, etc.) have their own data/, store/, components/ subdirectories with independent Zustand stores. They do not share state.
 - **i18n** uses `LanguageContext` (persisted as `ldi-locale` in localStorage) with JSON files in `src/i18n/`. The `t("key.path")` function resolves translations.
 - **ReaderContext** wraps the app — when `readerMode` is true, Navbar and TrialBanner are hidden (used by WebtoonEpisodio and LivroCapitulo).
-- **z-index layers** are defined and must not collide: SearchModal (2000), Navbar (1000), TrialBanner (998), CookieBanner (200), NotificationBalloon (150), ScrollToTop (100), MusicSection dropdown (50).
+- **z-index layers** are defined and must not collide: SearchModal (2000), AchievementToast (1500), Navbar (1000), TrialBanner (998), CookieBanner (200), LDINotification (150), ScrollToTop (100), MusicSection dropdown (50).
 - **Book chapters** are `.md` files in `src/data/livro/{lang}/` loaded via `import.meta.glob`. Publication control is in `src/data/livro-index.json` (`publicado: true/false`).
 - **Webtoon pages** live in `public/webtoon/` (not `src/assets/`) because they need direct URL access.
 - **All other assets** go in `src/assets/` and are imported (Vite processes and hashes them).
