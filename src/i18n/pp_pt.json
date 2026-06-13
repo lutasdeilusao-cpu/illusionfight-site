@@ -154,6 +154,11 @@
     "casos_resolvidos": "{n}/{total}",
     "hp": "HP: {hp}/30"
   },
+  "guest": {
+    "titulo": "Jogando sem conta",
+    "desc": "Seu progresso (casos resolvidos, pistas, reputação) é mantido apenas durante esta sessão — ao recarregar a página, tudo é perdido e você recomeça do zero. Para manter seu progresso entre visitas, crie uma conta grátis.",
+    "criar_conta": "Criar conta grátis"
+  },
   "feed": {
     "revisitar": "REVISITAR",
     "investigar": "INVESTIGAR",

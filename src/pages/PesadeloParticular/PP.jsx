@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CASOS } from './data/casos'
 import { usePPStore } from './store/usePPStore'
@@ -889,7 +889,13 @@ export default function PP() {
   }, [slotsLoaded, appFase])
 
   const handleSlotSelect = async (slotNum) => {
-    if (!user) return
+    if (!user) {
+      // Guest: inicializa estado em memória, sem _userId (não persiste)
+      store.resetStore()
+      usePPStore.setState({ _slot: 'guest', _userId: null })
+      setAppFase('intro')
+      return
+    }
     const slotSave = slotsData[slotNum - 1]
     if (slotSave) {
       // Carregar save existente
@@ -1345,6 +1351,19 @@ export default function PP() {
       <div className="pp-page-full">
         <div className="pp-rain" />
         <div className="pp-page-content">
+          {!user && (
+            <div className="pp-guest-aviso">
+              <p className="pp-guest-aviso-titulo">
+                {t('pp.guest.titulo')}
+              </p>
+              <p className="pp-guest-aviso-texto">
+                {t('pp.guest.desc')}
+              </p>
+              <Link to="/cadastro" className="pp-guest-aviso-link">
+                {t('pp.guest.criar_conta')}
+              </Link>
+            </div>
+          )}
           <div className="pp-menu-label">{t('pp.menu.marelia')}</div>
           <h1 className="pp-menu-title">
             {t('pp.menu.titulo_linha1')}<br/>{t('pp.menu.titulo_linha2')}

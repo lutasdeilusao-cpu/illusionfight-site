@@ -771,6 +771,46 @@
   margin-bottom: 12px;
 }
 
+/* ── GUEST AVISO ── */
+.pp-guest-aviso {
+  text-align: center;
+  padding: 1rem 1.25rem;
+  margin: 0 auto 1.5rem auto;
+  max-width: 480px;
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.05);
+}
+.pp-guest-aviso-titulo {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin-bottom: 0.5rem;
+}
+.pp-guest-aviso-texto {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+.pp-guest-aviso-link {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid #F5A623;
+  border-radius: 4px;
+  color: #F5A623;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pp-guest-aviso-link:hover {
+  background: #F5A623;
+  color: #0a0a0a;
+}
+
 /* ── UTILITY CLASSES (replace inline styles) ── */
 .pp-page-full {
   min-height: 100vh;
