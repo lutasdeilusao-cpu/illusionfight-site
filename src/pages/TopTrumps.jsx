@@ -634,10 +634,12 @@ export default function TopTrumps() {
         <div className="tt-menu-content">
           <div className="tt-title-group"><h1 className="tt-title-main">{t('games.toptrumps.menu_titulo')}</h1><span className="tt-title-sub">{t('games.toptrumps.menu_subtitulo')}</span></div>
           <p className="tt-title-desc">{t('games.toptrumps.menu_desc')}</p>
-          <div className="tt-colecao">
-            <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
-            <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
-          </div>
+          {user && (
+            <div className="tt-colecao">
+              <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
+              <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
+            </div>
+          )}
           <>
             {!user && (menuStep === null || menuStep === 'modo') && (
               <div className="tt-guest-aviso-previo">
