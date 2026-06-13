@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RPG System Morto — Protótipo</title>
+<title>Sistema RPG — Demo</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
   :root {
     --bg:        #0d0d0f;
     --surface:   #141418;
@@ -23,7 +24,9 @@
     --mp-light:  #42a5f5;
     --dmg:       #c0392b;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     background: var(--bg);
     color: var(--text);
@@ -31,53 +34,182 @@
     font-size: 18px;
     min-height: 100vh;
   }
+
+  /* SCREENS */
   .screen { display: none; min-height: 100vh; padding: 24px 16px; }
   .screen.active { display: block; }
+
+  /* TYPOGRAPHY */
   h1 { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); letter-spacing: 0.08em; text-align: center; }
   h2 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em; }
   h3 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--text); letter-spacing: 0.04em; }
+
   .subtitle { text-align: center; color: var(--muted); font-style: italic; font-size: 1rem; margin-top: 6px; }
   .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin-bottom: 16px; }
-  .card-title { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  /* CONTAINER */
   .container { max-width: 680px; margin: 0 auto; }
-  .btn { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.06em; padding: 10px 22px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.15s; }
-  .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent2); }
+
+  /* BUTTONS */
+  .btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent2);
+  }
   .btn-primary:hover { background: var(--accent2); }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
   .btn-secondary:hover { border-color: var(--gold-dim); color: var(--gold); }
-  .btn-gold { background: var(--gold-dim); color: #fff; border: 1px solid var(--gold); }
+  .btn-gold {
+    background: var(--gold-dim);
+    color: #fff;
+    border: 1px solid var(--gold);
+  }
   .btn-gold:hover { background: var(--gold); color: var(--bg); }
-  .attr-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+
+  /* ATTRIBUTE ROWS */
+  .attr-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
   .attr-row:last-child { border-bottom: none; }
   .attr-name { flex: 1; font-size: 1rem; }
   .attr-type { font-size: 0.8rem; color: var(--muted); font-style: italic; }
   .attr-controls { display: flex; align-items: center; gap: 8px; }
-  .attr-val { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); min-width: 28px; text-align: center; }
-  .btn-small { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.1s; }
+  .attr-val {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    min-width: 28px;
+    text-align: center;
+  }
+  .btn-small {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.1s;
+  }
   .btn-small:hover { border-color: var(--gold-dim); color: var(--gold); }
   .btn-small:disabled { opacity: 0.3; cursor: not-allowed; }
-  .points-display { text-align: center; padding: 12px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border); margin-bottom: 16px; }
-  .points-num { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); }
+
+  /* POINTS COUNTER */
+  .points-display {
+    text-align: center;
+    padding: 12px;
+    background: var(--surface);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .points-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+  }
   .points-label { font-size: 0.85rem; color: var(--muted); }
+
+  /* HP/MP BARS */
   .stat-bars { display: flex; flex-direction: column; gap: 10px; }
   .stat-bar-row { display: flex; align-items: center; gap: 10px; }
-  .stat-bar-label { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.08em; min-width: 30px; }
-  .bar-track { flex: 1; height: 14px; background: var(--surface); border-radius: 7px; border: 1px solid var(--border); overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 7px; transition: width 0.4s ease; }
+  .stat-bar-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    min-width: 30px;
+  }
+  .bar-track {
+    flex: 1;
+    height: 14px;
+    background: var(--surface);
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 7px;
+    transition: width 0.4s ease;
+  }
   .bar-hp { background: var(--hp); }
   .bar-mp { background: var(--mp); }
   .bar-hp.low { background: var(--dmg); }
   .stat-val { font-size: 0.9rem; min-width: 60px; text-align: right; color: var(--muted); }
-  .combatants { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-  .combatant-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+
+  /* COMBATANTS */
+  .combatants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .combatant-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+  }
   .combatant-card.player-card { border-color: var(--gold-dim); }
   .combatant-card.enemy-card { border-color: var(--accent); }
-  .combatant-name { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 10px; text-align: center; }
+  .combatant-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
   .player-card .combatant-name { color: var(--gold); }
   .enemy-card .combatant-name { color: var(--accent2); }
-  .log-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px; height: 200px; overflow-y: auto; margin-bottom: 16px; font-size: 0.95rem; line-height: 1.6; }
+
+  /* COMBAT LOG */
+  .log-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
   .log-entry { margin-bottom: 4px; }
   .log-hit { color: var(--gold); }
   .log-dmg { color: var(--dmg); }
@@ -87,33 +219,123 @@
   .log-victory { color: var(--hp-light); font-weight: 600; }
   .log-defeat { color: var(--dmg); font-weight: 600; }
   .log-divider { border-top: 1px solid var(--border); margin: 6px 0; }
-  .attack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
-  .btn-attack { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.04em; padding: 10px 8px; border-radius: 4px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: all 0.15s; text-align: center; }
+
+  /* ATTACK BUTTONS */
+  .attack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .btn-attack {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    padding: 10px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    transition: all 0.15s;
+    text-align: center;
+  }
   .btn-attack:hover:not(:disabled) { border-color: var(--gold-dim); color: var(--gold); background: var(--card); }
   .btn-attack:disabled { opacity: 0.3; cursor: not-allowed; }
   .btn-attack .attr-hint { display: block; font-size: 0.7rem; color: var(--muted); font-style: italic; margin-top: 2px; font-family: 'Crimson Text', serif; }
-  .test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .test-attr-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px; cursor: pointer; text-align: center; transition: all 0.15s; font-family: 'Crimson Text', serif; }
+
+  /* TEST SCREEN */
+  .test-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .test-attr-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+    font-family: 'Crimson Text', serif;
+  }
   .test-attr-btn:hover { border-color: var(--gold-dim); background: var(--card); }
   .test-attr-btn .t-name { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold); }
   .test-attr-btn .t-val { font-size: 1.4rem; color: var(--text); }
   .test-attr-btn .t-hint { font-size: 0.8rem; color: var(--muted); font-style: italic; }
-  .roll-result { text-align: center; padding: 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); margin-top: 12px; }
-  .roll-dice { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold); }
-  .roll-verdict { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 6px; }
+
+  .roll-result {
+    text-align: center;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    margin-top: 12px;
+  }
+  .roll-dice {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+  }
+  .roll-verdict {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    margin-top: 6px;
+  }
   .roll-success { color: var(--hp-light); }
   .roll-fail { color: var(--dmg); }
   .roll-crit-fail { color: var(--accent2); }
   .roll-detail { font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
-  .nav-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
-  .nav-tab { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.06em; padding: 8px 14px; border-radius: 4px; cursor: pointer; background: transparent; border: 1px solid transparent; color: var(--muted); transition: all 0.15s; }
+
+  /* NAV */
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .nav-tab {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
   .nav-tab.active { color: var(--gold); border-color: var(--gold-dim); background: var(--card); }
   .nav-tab:hover:not(.active) { color: var(--text); }
-  .sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* SHEET */
+  .sheet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .sheet-attr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sheet-attr-name { font-size: 0.95rem; }
+  .sheet-attr-val { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); }
+
+  /* XP BARS */
   .xp-row { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
   .xp-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
   .xp-fill { height: 100%; background: var(--gold-dim); border-radius: 2px; transition: width 0.3s; }
   .xp-label { font-size: 0.75rem; color: var(--muted); min-width: 40px; text-align: right; }
+
+  /* MISC */
   .row { display: flex; gap: 10px; align-items: center; }
   .flex-end { justify-content: flex-end; }
   .flex-center { justify-content: center; }
@@ -124,8 +346,48 @@
   .text-muted { color: var(--muted); font-size: 0.9rem; }
   .text-gold { color: var(--gold); }
   .bold { font-weight: 600; }
-  .header-bar { text-align: center; padding: 28px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+
+  .header-bar {
+    text-align: center;
+    padding: 28px 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
   .ornament { color: var(--gold-dim); font-size: 1.1rem; letter-spacing: 0.3em; }
+
+  /* MAGIC PANEL */
+  .magic-panel { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .magic-section-title {
+    font-family: 'Cinzel', serif; font-size: 0.78rem; color: var(--mp-light);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .magic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-bottom: 8px; }
+  .btn-magic {
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.03em;
+    padding: 8px 6px; border-radius: 4px; cursor: pointer;
+    border: 1px solid var(--mp); background: #0d1a2e; color: var(--mp-light);
+    transition: all 0.15s; text-align: center;
+  }
+  .btn-magic:hover:not(:disabled) { background: #1a2e4a; border-color: var(--mp-light); }
+  .btn-magic:disabled { opacity: 0.3; cursor: not-allowed; }
+  .btn-magic .magic-cost { display: block; font-size: 0.68rem; color: var(--muted); font-family: 'Crimson Text',serif; margin-top: 2px; }
+  .btn-magic.selected { background: #1a2e4a; border-color: var(--mp-light); box-shadow: 0 0 6px rgba(66,165,245,0.3); }
+  .mp-counter {
+    font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--mp-light);
+    text-align: center; padding: 6px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 4px; margin-bottom: 8px;
+  }
+  .effect-badge {
+    display: inline-block; font-size: 0.75rem; padding: 2px 6px;
+    border-radius: 3px; margin: 2px; font-family: 'Crimson Text', serif;
+  }
+  .effect-poison  { background: #1a2e1a; color: #66bb6a; border: 1px solid #2e5e2e; }
+  .effect-paralyze { background: #2e2a1a; color: #ffca28; border: 1px solid #5e4e1a; }
+  .effect-faint   { background: #1a1a2e; color: #9e9eff; border: 1px solid #2e2e5e; }
+  .effect-regen   { background: #1a2e2e; color: #4dd0e1; border: 1px solid #1e5e5e; }
+  .effect-fragile { background: #2e1a1a; color: #ef9a9a; border: 1px solid #5e2a2a; }
+
+  /* RESPONSIVE */
   @media (max-width: 480px) {
     .combatants { grid-template-columns: 1fr; }
     .attack-grid { grid-template-columns: 1fr 1fr; }
@@ -136,6 +398,7 @@
 </head>
 <body>
 
+<!-- SCREEN: CREATION -->
 <div id="screen-creation" class="screen active">
   <div class="container">
     <div class="header-bar">
@@ -143,22 +406,28 @@
       <h1>Criação de Personagem</h1>
       <p class="subtitle">Distribua seus pontos e defina quem você é</p>
     </div>
+
     <div class="points-display">
       <div class="points-num" id="pts-left">5</div>
       <div class="points-label">pontos restantes — máximo 3 por atributo</div>
     </div>
+
     <div class="card">
       <div class="card-title">Atributos Básicos</div>
+
       <div id="attr-builder"></div>
     </div>
+
     <div class="card">
       <div class="card-title">Arma</div>
       <div id="weapon-selector" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
     </div>
+
     <div class="card">
       <div class="card-title">Armadura</div>
       <div id="armor-selector" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
     </div>
+
     <div class="card">
       <div class="card-title">Resumo</div>
       <div class="row" style="justify-content:space-between; flex-wrap:wrap; gap:8px;">
@@ -167,13 +436,14 @@
         <span>Classe sugerida: <span class="text-gold bold" id="preview-class">—</span></span>
       </div>
     </div>
-    <div class="row flex-end mt-8" style="gap:8px; flex-wrap:wrap;">
-      <button class="btn btn-primary" id="btn-export" onclick="exportHTML()">⬇ Exportar HTML</button>
-      <button class="btn btn-primary" id="btn-confirm">Confirmar Personagem</button>
+
+    <div class="row flex-end mt-8">
+      <button class="btn btn-primary" id="btn-confirm" onclick="confirmCreation()">Confirmar Personagem</button>
     </div>
   </div>
 </div>
 
+<!-- SCREEN: MAIN -->
 <div id="screen-main" class="screen">
   <div class="container">
     <div class="header-bar">
@@ -181,42 +451,82 @@
       <h1 id="main-char-name">Aventureiro</h1>
       <p class="subtitle">Escolha sua próxima ação</p>
     </div>
+
     <div class="nav-tabs">
-      <button class="nav-tab active" data-tab="tab-sheet">Ficha</button>
-      <button class="nav-tab" data-tab="tab-tests">Testes</button>
-      <button class="nav-tab" data-tab="tab-battle">Batalha</button>
+      <button class="nav-tab active" onclick="showTab('tab-sheet')">Ficha</button>
+      <button class="nav-tab" onclick="showTab('tab-tests')">Testes</button>
+      <button class="nav-tab" onclick="showTab('tab-battle')">Batalha</button>
     </div>
+
+    <!-- TAB: SHEET -->
     <div id="tab-sheet">
-      <div class="card"><div class="card-title">Atributos</div><div class="sheet-grid" id="sheet-attrs"></div></div>
-      <div class="card"><div class="card-title">HP / MP</div><div class="stat-bars" id="sheet-bars"></div></div>
+      <div class="card">
+        <div class="card-title">Atributos</div>
+        <div class="sheet-grid" id="sheet-attrs"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">HP / MP</div>
+        <div class="stat-bars" id="sheet-bars"></div>
+      </div>
     </div>
+
+    <!-- TAB: TESTS -->
     <div id="tab-tests" style="display:none">
       <div class="card">
         <div class="card-title">Teste de Atributo</div>
-        <p class="text-muted" style="margin-bottom:14px;">Role 1d20 contra o atributo escolhido. Menor ou igual = sucesso. 20 = falha automática.</p>
+        <p class="text-muted" style="margin-bottom:14px;">Clique em um atributo para testá-lo. Sucesso e falha dependem do valor do atributo.</p>
         <div class="test-grid" id="test-buttons"></div>
         <div id="test-result" style="display:none" class="roll-result mt-12"></div>
       </div>
     </div>
+
+    <!-- TAB: BATTLE -->
     <div id="tab-battle" style="display:none">
       <div class="combatants" id="combatants-display"></div>
+
       <div class="card" style="padding:12px 14px;">
-        <div class="card-title" style="margin-bottom:10px;">Atacar com</div>
+        <div class="card-title" style="margin-bottom:10px;">Ações</div>
         <div class="attack-grid" id="attack-buttons"></div>
-        <div class="row flex-end mt-8" style="gap:8px;">
-          <button class="btn btn-secondary" id="btn-defend" style="font-size:0.85rem; padding:8px 16px;">Defender</button>
+
+        <div class="magic-panel">
+          <div class="magic-section-title" onclick="toggleMagicPanel()" style="cursor:pointer; user-select:none;">
+            ✦ Magia <span id="magic-toggle-icon">▾</span>
+          </div>
+          <div id="magic-panel-body">
+          <div class="mp-counter" id="mp-display">MP: — / —</div>
+
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Dano adicional</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;" id="dmg-magic-btns"></div>
+
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Efeitos (inimigo)</div>
+          <div class="magic-grid" id="effect-magic-btns"></div>
+
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Suporte (você)</div>
+          <div class="magic-grid" id="support-magic-btns"></div>
+
+          <div id="magic-queue-display" style="min-height:24px; margin-bottom:8px;"></div>
+
+          <div class="row" style="gap:8px; justify-content:space-between;">
+            <button class="btn btn-secondary" id="btn-clear-magic" onclick="clearMagicQueue()" style="font-size:0.8rem; padding:6px 12px;">Limpar</button>
+            <button class="btn btn-secondary" id="btn-defend" onclick="defendAction()" style="font-size:0.85rem; padding:8px 16px;">Defender</button>
+            <button class="btn" id="btn-cast" onclick="castMagic()" style="font-size:0.8rem; padding:6px 14px; background:#0d1a2e; border:1px solid var(--mp); color:var(--mp-light);">Lançar Magia</button>
+          </div>
+          </div><!-- /magic-panel-body -->
         </div>
       </div>
+
       <div class="log-box" id="battle-log"></div>
+
       <div id="battle-end" style="display:none" class="card text-center">
         <div id="battle-end-msg" style="font-family:'Cinzel',serif; font-size:1.2rem; margin-bottom:12px;"></div>
-        <button class="btn btn-gold" id="btn-restart">Nova Batalha</button>
+        <button class="btn btn-gold" onclick="restartBattle()">Nova Batalha</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
 const ATTRS = [
   { id: 'for', name: 'Fortitude',    type: 'Ativo',   hint: 'Ataques pesados' },
   { id: 'dex', name: 'Destreza',     type: 'Ativo',   hint: 'Ataques precisos' },
@@ -225,157 +535,916 @@ const ATTRS = [
   { id: 'res', name: 'Resistência',  type: 'Passivo', hint: 'Defende vs Fortitude' },
   { id: 'det', name: 'Determinação', type: 'Passivo', hint: 'Defende vs Inteligência' },
 ];
+
+// Armas: atributo básico usado no teste, atributo de batalha que rivaliza com armadura
 const WEAPONS = [
   { id: 'espada', name: 'Espada',  level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia', potencia: 5, letalidade: 0, malicia: 0 },
   { id: 'adaga',  name: 'Adaga',   level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 0, letalidade: 5, malicia: 0 },
   { id: 'cajado', name: 'Cajado',  level: 1, dice: 6, atkAttr: 'int', dmgStat: 'malicia', potencia: 0, letalidade: 0, malicia: 5 },
 ];
+
+// Armaduras: atributos de defesa rivalizam com arma
+// potencia vs protecao / letalidade vs evasiva / malicia vs barreira
 const ARMORS = [
   { id: 'armadura',  name: 'Armadura',       level: 1, dice: 6, protecao: 3, evasiva: 2, barreira: 0 },
   { id: 'couto',     name: 'Roupa de Couto', level: 1, dice: 6, protecao: 1, evasiva: 3, barreira: 1 },
   { id: 'tunica',    name: 'Túnica',         level: 1, dice: 6, protecao: 0, evasiva: 1, barreira: 3 },
 ];
-const DMG_VS_DEF = { potencia: 'protecao', letalidade: 'evasiva', malicia: 'barreira' };
-const ATK_VS_DEF_ATTR = { for: 'res', dex: 'agi', int: 'det' };
-let player = {}; let enemy = {}; let battleActive = false; let playerTurn = true;
-let creation = { for:0, dex:0, int:0, agi:0, res:0, det:0 };
-let selectedWeapon = WEAPONS[0]; let selectedArmor = ARMORS[0];
-const MAX_PTS = 5; const MAX_PER = 3;
 
-function getPointsLeft() { return MAX_PTS - Object.values(creation).reduce((a,b) => a+b, 0); }
+// Mapa: atributo de batalha da arma → atributo de batalha da armadura
+const DMG_VS_DEF = { potencia: 'protecao', letalidade: 'evasiva', malicia: 'barreira' };
+
+// Mapa: atributo de ataque (básico) → atributo de defesa (básico) do oponente
+const ATK_VS_DEF_ATTR = { for: 'res', dex: 'agi', int: 'det' };
+
+// Bônus derivados: cada 2 pontos de Destreza = +1 ataque; cada 2 pontos de Agilidade = +1 defesa
+function atkBonus(entity)  { return Math.floor(entity.attrs.dex / 2); }
+function defBonus(entity)  { return Math.floor(entity.attrs.agi / 2); }
+
+// ─── MAGIC DATA ──────────────────────────────────────────────────────────────
+const EFFECTS_ENEMY = [
+  { id:'poison',   name:'Envenenamento', cost:2, defAttr:'res', desc:'-10% HP/turno',   cls:'effect-poison' },
+  { id:'paralyze', name:'Paralisia',     cost:2, defAttr:'res', desc:'40% perde turno', cls:'effect-paralyze' },
+  { id:'faint',    name:'Desmaio',       cost:2, defAttr:'det', desc:'Perde turno+rec', cls:'effect-faint' },
+  { id:'fragile',  name:'Fragilidade',   cost:2, defAttr:'res', desc:'-25% def equip',  cls:'effect-fragile' },
+  { id:'neglect',  name:'Negligência',   cost:2, defAttr:'res', desc:'-25% atk equip',  cls:'effect-fragile' },
+  { id:'imperit',  name:'Imperícia',     cost:2, defAttr:'det', desc:'-25% atk attr',   cls:'effect-fragile' },
+  { id:'imprud',   name:'Imprudência',   cost:2, defAttr:'det', desc:'-25% def attr',   cls:'effect-fragile' },
+];
+const EFFECTS_ALLY = [
+  { id:'regen',   name:'Regeneração', cost:2, desc:'+10% HP/turno',  cls:'effect-regen' },
+  { id:'detox',   name:'Detox',       cost:2, desc:'Limpa efeitos',  cls:'effect-regen' },
+  { id:'blind',   name:'Blindagem',   cost:2, desc:'+25% def equip', cls:'effect-regen' },
+  { id:'prepare', name:'Preparo',     cost:2, desc:'+25% atk equip', cls:'effect-regen' },
+  { id:'skill',   name:'Habilidade',  cost:2, desc:'+25% atk attr',  cls:'effect-regen' },
+  { id:'caution', name:'Cautela',     cost:2, desc:'+25% def attr',  cls:'effect-regen' },
+];
+
+// Fila de magia do jogador
+let magicQueue = { dmgExtra: 0, effect: null, support: null, mpCost: 0 };
+
+function mpCostQueue() {
+  let cost = magicQueue.dmgExtra * 2;
+  let synthCount = 0;
+  if (magicQueue.dmgExtra > 0) { /* base */ }
+  if (magicQueue.effect)  { cost += magicQueue.effect.cost; synthCount++; }
+  if (magicQueue.support) { cost += magicQueue.support.cost; synthCount++; }
+  if (synthCount >= 2) cost += (synthCount - 1); // 1 MP por síntese extra
+  else if (synthCount === 1 && magicQueue.dmgExtra > 0) cost += 1; // síntese dano+efeito
+  return cost;
+}
+
+let magicPanelOpen = true;
+
+function toggleMagicPanel() {
+  magicPanelOpen = !magicPanelOpen;
+  const body = document.getElementById('magic-panel-body');
+  const icon = document.getElementById('magic-toggle-icon');
+  if (body) body.style.display = magicPanelOpen ? '' : 'none';
+  if (icon) icon.textContent = magicPanelOpen ? '▾' : '▸';
+}
+
+function clearMagicQueue() {
+  magicQueue = { dmgExtra: 0, effect: null, support: null, mpCost: 0 };
+  renderMagicPanel();
+}
+
+
+
+let player = {};
+let enemy = {};
+let battleActive = false;
+let playerTurn = true;
+
+// ─── CREATION ────────────────────────────────────────────────────────────────
+let creation = { for:0, dex:0, int:0, agi:0, res:0, det:0 };
+let selectedWeapon = WEAPONS[0];
+let selectedArmor  = ARMORS[0];
+const MAX_PTS = 8;
+const MAX_PER = 3;
+
+function getPointsLeft() {
+  return MAX_PTS - Object.values(creation).reduce((a,b) => a+b, 0);
+}
+
 function renderCreation() {
-  const builder = document.getElementById('attr-builder'); builder.innerHTML = '';
+  const builder = document.getElementById('attr-builder');
+  builder.innerHTML = '';
   ATTRS.forEach(a => {
-    const row = document.createElement('div'); row.className = 'attr-row';
+    const row = document.createElement('div');
+    row.className = 'attr-row';
     const left = getPointsLeft();
-    row.innerHTML =
-      '<div class="attr-name">'+a.name+'<div class="attr-type">'+a.type+' \u2014 '+a.hint+'</div></div>' +
-      '<div class="attr-controls">' +
-      '<button class="btn-small" data-attr="'+a.id+'" data-dir="-1"'+(creation[a.id]<=0?' disabled':'')+'>\u2212</button>' +
-      '<div class="attr-val">'+creation[a.id]+'</div>' +
-      '<button class="btn-small" data-attr="'+a.id+'" data-dir="1"'+(left<=0||creation[a.id]>=MAX_PER?' disabled':'')+'>+</button>' +
-      '</div>';
+    row.innerHTML = `
+      <div class="attr-name">
+        ${a.name}
+        <div class="attr-type">${a.type} — ${a.hint}</div>
+      </div>
+      <div class="attr-controls">
+        <button class="btn-small" onclick="changeAttr('${a.id}',-1)" ${creation[a.id]<=0?'disabled':''}>−</button>
+        <div class="attr-val">${creation[a.id]}</div>
+        <button class="btn-small" onclick="changeAttr('${a.id}',1)" ${(left<=0||creation[a.id]>=MAX_PER)?'disabled':''}>+</button>
+      </div>
+    `;
     builder.appendChild(row);
   });
-  // weapon
-  const ws = document.getElementById('weapon-selector'); ws.innerHTML = '';
-  WEAPONS.forEach(w => {
-    const b = document.createElement('button');
-    b.className = 'btn '+(selectedWeapon.id===w.id?'btn-gold':'btn-secondary');
-    b.style.fontSize = '0.85rem';
-    b.innerHTML = w.name+'<br><small style="font-style:italic;color:var(--muted);">d'+w.dice+' | +'+w[w.dmgStat]+' '+w.dmgStat+'</small>';
-    b.onclick = () => { selectedWeapon = w; renderCreation(); };
-    ws.appendChild(b);
-  });
-  // armor
-  const as = document.getElementById('armor-selector'); as.innerHTML = '';
-  ARMORS.forEach(ar => {
-    const b = document.createElement('button');
-    b.className = 'btn '+(selectedArmor.id===ar.id?'btn-gold':'btn-secondary');
-    b.style.fontSize = '0.85rem';
-    b.innerHTML = ar.name+'<br><small style="font-style:italic;color:var(--muted);">Prot '+ar.protecao+' | Eva '+ar.evasiva+' | Bar '+ar.barreira+'</small>';
-    b.onclick = () => { selectedArmor = ar; renderCreation(); };
-    as.appendChild(b);
-  });
+
+  // Weapon selector
+  const ws = document.getElementById('weapon-selector');
+  if (ws) {
+    ws.innerHTML = '';
+    WEAPONS.forEach(w => {
+      const btn = document.createElement('button');
+      btn.className = 'btn ' + (selectedWeapon.id === w.id ? 'btn-gold' : 'btn-secondary');
+      btn.style.fontSize = '0.85rem';
+      btn.innerHTML = `${w.name}<br><small style="font-style:italic;color:var(--muted);">+${w[w.dmgStat]} ${w.dmgStat}</small>`;
+      btn.onclick = () => { selectedWeapon = w; renderCreation(); };
+      ws.appendChild(btn);
+    });
+  }
+
+  // Armor selector
+  const as = document.getElementById('armor-selector');
+  if (as) {
+    as.innerHTML = '';
+    ARMORS.forEach(ar => {
+      const btn = document.createElement('button');
+      btn.className = 'btn ' + (selectedArmor.id === ar.id ? 'btn-gold' : 'btn-secondary');
+      btn.style.fontSize = '0.85rem';
+      btn.innerHTML = `${ar.name}<br><small style="font-style:italic;color:var(--muted);">Prot ${ar.protecao} | Eva ${ar.evasiva} | Bar ${ar.barreira}</small>`;
+      btn.onclick = () => { selectedArmor = ar; renderCreation(); };
+      as.appendChild(btn);
+    });
+  }
+
   document.getElementById('pts-left').textContent = getPointsLeft();
-  const hp = calcHP(creation.res, creation.for); const mp = calcMP(creation.det, creation.int);
-  document.getElementById('preview-hp').textContent = hp; document.getElementById('preview-mp').textContent = mp;
+
+  const hp = calcHP(creation.res, creation.for);
+  const mp = calcMP(creation.det, creation.int);
+  document.getElementById('preview-hp').textContent = hp;
+  document.getElementById('preview-mp').textContent = mp;
   document.getElementById('preview-class').textContent = suggestClass();
   document.getElementById('btn-confirm').disabled = getPointsLeft() > 0;
 }
-function changeAttr(id, delta) { const next = creation[id] + delta; if (next < 0 || next > MAX_PER) return; if (delta > 0 && getPointsLeft() <= 0) return; creation[id] = next; renderCreation(); }
-function calcHP(res, fort) { const b = res === 0 ? 5 : 10; const s = res === 0 ? 5 : 10; return b + Math.floor(res/2)*s + fort; }
-function calcMP(det, intel) { const b = det === 0 ? 5 : 10; const s = det === 0 ? 5 : 10; return b + Math.floor(det/2)*s + intel; }
-function suggestClass() { const f=creation.for,d=creation.dex,i=creation.int,r=creation.res,a=creation.agi,e=creation.det; if(i>=2&&e>=2)return'Mago';if(d>=2&&a>=2)return'Ladino';if(f>=2&&r>=2)return'Guerreiro';if(f>=2||r>=2)return'Guerreiro';if(d>=2||a>=2)return'Ladino';if(i>=2||e>=2)return'Mago';return'H\u00edbrido'; }
-function confirmCreation() {
-  const mHP=calcHP(creation.res,creation.for),mMP=calcMP(creation.det,creation.int);
-  player={name:'Aventureiro',attrs:{...creation},xp:{for:0,dex:0,int:0,agi:0,res:0,det:0},maxHP:mHP,hp:mHP,maxMP:mMP,mp:mMP,weapon:selectedWeapon,armor:selectedArmor};
-  buildMainScreen(); showScreen('screen-main');
-}
-function buildMainScreen() { renderSheet(); renderTestButtons(); initBattle(); }
-function showTab(id) { ['tab-sheet','tab-tests','tab-battle'].forEach(t=>{document.getElementById(t).style.display=t===id?'':'none';}); document.querySelectorAll('.nav-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id)); }
-function renderSheet() {
-  const g=document.getElementById('sheet-attrs');g.innerHTML='';ATTRS.forEach(a=>{const v=player.attrs[a.id],xp=player.xp[a.id],p=Math.min(xp/xpNeeded(v)*100,100);g.innerHTML+='<div style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 12px;"><div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:.95rem;">'+a.name+'</span><span style="font-family:Cinzel,serif;font-size:1.3rem;color:var(--gold);">'+v+'</span></div><div class="xp-row"><div class="xp-bar"><div class="xp-fill" style="width:'+p+'%"></div></div><div class="xp-label">'+xp+'/'+xpNeeded(v)+' xp</div></div></div>';});
-  const b=document.getElementById('sheet-bars');b.innerHTML='<div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--hp-light)">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(player.hp/player.maxHP<0.3?' low':'')+'" style="width:'+(player.hp/player.maxHP*100)+'%"></div></div><div class="stat-val">'+player.hp+'/'+player.maxHP+'</div></div><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--mp-light)">MP</div><div class="bar-track"><div class="bar-fill bar-mp" style="width:'+(player.mp/player.maxMP*100)+'%"></div></div><div class="stat-val">'+player.mp+'/'+player.maxMP+'</div></div>';
-}
-function xpNeeded(v){if(v<=3)return 10;if(v<=7)return 20;if(v<=11)return 30;if(v<=17)return 40;return 50;}
-function renderTestButtons(){const g=document.getElementById('test-buttons');g.innerHTML='';ATTRS.forEach(a=>{const b=document.createElement('div');b.className='test-attr-btn';b.innerHTML='<div class="t-name">'+a.name+'</div><div class="t-val">'+player.attrs[a.id]+'</div><div class="t-hint">'+a.hint+'</div>';b.onclick=()=>runTest(a);g.appendChild(b);});}
-function runTest(attr){const roll=rollD20(),val=player.attrs[attr.id],crit=roll===20,succ=!crit&&roll<=val;let cls,vrd,d;if(crit){cls='roll-crit-fail';vrd='\u2726 Falha Autom\u00e1tica \u2726';d='Tirou 20 \u2014 falha independente do atributo.';giveXP(attr.id,2);}else if(succ){cls='roll-success';vrd='\u2726 Sucesso \u2726';d=roll+'\u2009\u2264\u2009'+val+' ('+attr.name+') \u2014 +1 XP';giveXP(attr.id,1);}else{cls='roll-fail';vrd='\u2726 Falha \u2726';d=roll+'\u2009>\u2009'+val+' ('+attr.name+') \u2014 +2 XP';giveXP(attr.id,2);}
-  const r=document.getElementById('test-result');r.style.display='';r.innerHTML='<div class="roll-dice">'+roll+'</div><div class="roll-verdict '+cls+'">'+vrd+'</div><div class="roll-detail">'+d+'</div>';renderSheet();renderTestButtons();}
-function initBattle(){enemy=buildEnemy();battleActive=true;playerTurn=true;renderBattle();clearLog();logEntry('\u2694 Uma nova batalha come\u00e7a!','log-info');logEntry(enemy.name+' avança em sua direção.','log-sys');setBattleButtons(true);document.getElementById('battle-end').style.display='none';}
-function buildEnemy(){const t=[{name:'Soldado Renegado',attrs:{for:2,dex:1,int:0,agi:1,res:2,det:0},weapon:WEAPONS[0],armor:ARMORS[0]},{name:'Mercen\u00e1rio Errante',attrs:{for:1,dex:2,int:0,agi:2,res:1,det:0},weapon:WEAPONS[1],armor:ARMORS[1]},{name:'Cultista Sombrio',attrs:{for:0,dex:1,int:2,agi:1,res:0,det:2},weapon:WEAPONS[2],armor:ARMORS[2]}];const te=t[Math.floor(Math.random()*t.length)];return{...te,hp:calcHP(te.attrs.res,te.attrs.for),maxHP:calcHP(te.attrs.res,te.attrs.for)};}
-function renderBattle(){const pp=Math.max(0,player.hp/player.maxHP*100),ep=Math.max(0,enemy.hp/enemy.maxHP*100);const pw=player.weapon,pa=player.armor,ew=enemy.weapon,ea=enemy.armor;
-  document.getElementById('combatants-display').innerHTML='<div class="combatant-card player-card"><div class="combatant-name">'+player.name+'</div><div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">'+pw.name+' \u00b7 '+pa.name+'</div><div class="stat-bars"><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--hp-light);font-size:.75rem;">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(pp<30?' low':'')+'" style="width:'+pp+'%"></div></div><div class="stat-val" style="font-size:.8rem;">'+player.hp+'/'+player.maxHP+'</div></div></div></div><div class="combatant-card enemy-card"><div class="combatant-name">'+enemy.name+'</div><div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">'+ew.name+' \u00b7 '+ea.name+'</div><div class="stat-bars"><div class="stat-bar-row"><div class="stat-bar-label" style="color:var(--dmg);font-size:.75rem;">HP</div><div class="bar-track"><div class="bar-fill bar-hp'+(ep<30?' low':'')+'" style="width:'+ep+'%"></div></div><div class="stat-val" style="font-size:.8rem;">'+enemy.hp+'/'+enemy.maxHP+'</div></div></div></div>';
-  const grid=document.getElementById('attack-buttons');grid.innerHTML='';const w=player.weapon,ds=w.dmgStat,dfs=DMG_VS_DEF[ds],net=w[ds]-enemy.armor[dfs];const btn=document.createElement('button');btn.className='btn-attack';btn.style.gridColumn='span 3';btn.disabled=!battleActive||!playerTurn;btn.innerHTML='Atacar com '+w.name+' <span class="attr-hint">d'+w.dice+' | Teste: '+ATTRS.find(a=>a.id===w.atkAttr).name+' ('+player.attrs[w.atkAttr]+') | Dano potencial: '+net+'</span>';btn.onclick=()=>playerAttack();grid.appendChild(btn);
-  document.getElementById('btn-defend').disabled=!battleActive||!playerTurn;}
-function rollDice(s){return Math.floor(Math.random()*s)+1;}
-function counterAtk(aw,aa,dn,isP){const cw=aw,dmgStat=cw.dmgStat,defStat=DMG_VS_DEF[dmgStat],dmg=cw[dmgStat]-aa[defStat];if(dmg<=0){logEntry('\u2726 Contra-ataque de '+dn+' \u2014 absorvido! Dano: 0.','log-miss');}else{logEntry('\u2726 Contra-ataque de '+dn+'! Dano: '+dmg+'.','log-dmg');if(isP)player.hp=Math.max(0,player.hp-dmg);else enemy.hp=Math.max(0,enemy.hp-dmg);}}
-function playerAttack(){if(!battleActive||!playerTurn)return;setBattleButtons(false);const w=player.weapon,aId=w.atkAttr,dId=ATK_VS_DEF_ATTR[aId],pR=rollDice(w.dice),eR=rollDice(enemy.weapon.dice),pA=player.attrs[aId],eA=enemy.attrs[dId],ds=w.dmgStat,dfs=DMG_VS_DEF[ds],rd=w[ds]-enemy.armor[dfs];logDivider();logEntry('Voc\u00ea ataca com '+w.name+' (d'+w.dice+') \u2014 rola '+pR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+pA,'log-sys');logEntry(enemy.name+' defende \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===dId).name+' '+eA,'log-sys');
-  if(pR===w.dice){logEntry('\u2726 Falha autom\u00e1tica! Voc\u00ea se exp\u00f5e.','log-miss');const eP=eR<=eA&&eR!==enemy.weapon.dice;if(eP){counterAtk(enemy.weapon,player.armor,enemy.name,true);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}}setTimeout(()=>enemyTurn(false),800);return;}
-  const pH=pR<=pA,eP=eR<=eA&&eR!==enemy.weapon.dice;
-  if(!pH&&eP){logEntry('Ataque falhou \u2014 '+pR+' > '+pA+'.','log-miss');logEntry(enemy.name+' aproveita a abertura!','log-info');counterAtk(enemy.weapon,player.armor,enemy.name,true);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}setTimeout(()=>enemyTurn(false),800);return;}
-  if(!pH&&!eP){logEntry('Ataque falhou \u2014 '+pR+' > '+pA+'. '+enemy.name+' tamb\u00e9m errou.','log-miss');setTimeout(()=>enemyTurn(false),600);return;}
-  if(pH&&eP){logEntry(enemy.name+' defendeu perfeitamente \u2014 dano evitado!','log-miss');renderBattle();renderSheet();setTimeout(()=>enemyTurn(false),600);return;}
-  if(rd<=0){logEntry('Golpe conectou mas armadura absorveu tudo!','log-miss');}else{logEntry('Golpe direto! Dano: '+rd+'.','log-dmg');enemy.hp=Math.max(0,enemy.hp-rd);}
-  renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}setTimeout(()=>enemyTurn(false),800);}
-function defendAction(){if(!battleActive||!playerTurn)return;setBattleButtons(false);logDivider();logEntry('Voc\u00ea adota postura defensiva.','log-info');setTimeout(()=>enemyTurnDefended(),600);}
-function enemyTurn(free){if(!battleActive)return;playerTurn=false;const ew=enemy.weapon,aId=ew.atkAttr,dId=ATK_VS_DEF_ATTR[aId],eR=rollDice(ew.dice),pR=free?ew.dice+1:rollDice(player.weapon.dice),eA=enemy.attrs[aId],pA=player.attrs[dId],ds=ew.dmgStat,dfs=DMG_VS_DEF[ds],rd=ew[ds]-player.armor[dfs];logEntry(enemy.name+' ataca com '+ew.name+' (d'+ew.dice+') \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+eA,'log-sys');if(!free)logEntry('Voc\u00ea defende \u2014 rola '+pR+' vs '+ATTRS.find(a=>a.id===dId).name+' '+pA,'log-sys');
-  if(eR===ew.dice){logEntry(enemy.name+' erra \u2014 falha autom\u00e1tica!','log-miss');const pP=!free&&pR<=pA&&pR!==player.weapon.dice;if(pP){logEntry('Voc\u00ea aproveita a abertura!','log-info');counterAtk(player.weapon,enemy.armor,'Voc\u00ea',false);renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}}endPlayerTurn();return;}
-  const eH=eR<=eA,pP=!free&&pR<=pA&&pR!==player.weapon.dice;
-  if(!eH&&pP){logEntry(enemy.name+' falhou \u2014 voc\u00ea contra-ataca!','log-info');counterAtk(player.weapon,enemy.armor,'Voc\u00ea',false);renderBattle();renderSheet();if(enemy.hp<=0){endBattle(true);return;}endPlayerTurn();return;}
-  if(!eH&&!pP){logEntry(enemy.name+' falhou. Voc\u00ea tamb\u00e9m n\u00e3o aproveitou.','log-miss');endPlayerTurn();return;}
-  if(eH&&pP){logEntry('Voc\u00ea defendeu perfeitamente \u2014 dano evitado!','log-miss');renderBattle();renderSheet();endPlayerTurn();return;}
-  if(rd<=0){logEntry('Golpe conectou mas sua armadura absorveu tudo!','log-miss');}else{logEntry('Voc\u00ea sofre '+rd+' de dano!','log-dmg');player.hp=Math.max(0,player.hp-rd);}
-  renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}endPlayerTurn();}
-function enemyTurnDefended(){if(!battleActive)return;const ew=enemy.weapon,aId=ew.atkAttr,eA=enemy.attrs[aId],ds=ew.dmgStat,dfs=DMG_VS_DEF[ds],rd=ew[ds]-player.armor[dfs],eR=rollDice(ew.dice);logEntry(enemy.name+' ataca (def.) \u2014 rola '+eR+' vs '+ATTRS.find(a=>a.id===aId).name+' '+eA,'log-sys');if(eR===ew.dice||eR>eA){logEntry('Postura defensiva funcionou \u2014 ataque desviado!','log-victory');}else{const d=Math.max(0,Math.floor(rd*0.5));if(d<=0){logEntry('Armadura absorveu \u2014 dano: 0.','log-miss');}else{logEntry('Mesmo defendendo, sofreu '+d+' de dano.','log-dmg');player.hp=Math.max(0,player.hp-d);renderBattle();renderSheet();if(player.hp<=0){endBattle(false);return;}}}endPlayerTurn();}
-function endPlayerTurn(){playerTurn=true;setBattleButtons(true);renderBattle();}
-function endBattle(won){battleActive=false;setBattleButtons(false);const end=document.getElementById('battle-end'),msg=document.getElementById('battle-end-msg');end.style.display='';const bs=Object.values(enemy.attrs).reduce((a,b)=>a+b,0)>Object.values(player.attrs).reduce((a,b)=>a+b,0)?5:2;if(won){logEntry('\u2726 Vit\u00f3ria! '+enemy.name+' foi derrotado. \u2726','log-victory');msg.className='log-victory';msg.textContent='Vit\u00f3ria \u2014 '+enemy.name+' caiu.';ATTRS.forEach(a=>giveXP(a.id,bs));logEntry('+'+bs+' XP em todos'+(bs>2?' (inimigo mais forte!)':'')+'.','log-info');}else{logEntry('\u2726 Derrota. Voc\u00ea foi abatido. \u2726','log-defeat');msg.className='log-defeat';msg.textContent='Derrota \u2014 voc\u00ea foi abatido.';player.hp=Math.floor(player.maxHP*0.3);ATTRS.forEach(a=>giveXP(a.id,bs));logEntry('+'+bs+' XP em todos'+(bs>2?' (inimigo mais forte!)':'')+'.','log-info');}renderSheet();renderTestButtons();}
-function restartBattle(){player.hp=player.maxHP;player.mp=player.maxMP;renderSheet();initBattle();}
-function rollD20(){return Math.floor(Math.random()*20)+1;}
-function giveXP(id,amt){player.xp[id]+=amt;const n=xpNeeded(player.attrs[id]);if(player.xp[id]>=n){player.xp[id]-=n;if(player.attrs[id]<20){player.attrs[id]++;player.maxHP=calcHP(player.attrs.res,player.attrs.for);player.maxMP=calcMP(player.attrs.det,player.attrs.int);if(player.hp>player.maxHP)player.hp=player.maxHP;if(player.mp>player.maxMP)player.mp=player.maxMP;logEntry('\u2726 '+ATTRS.find(a=>a.id===id).name+' aumentou para '+player.attrs[id]+'!','log-victory');}}}
-function logEntry(t,c){const b=document.getElementById('battle-log'),p=document.createElement('div');p.className='log-entry '+c;p.textContent=t;b.appendChild(p);b.scrollTop=b.scrollHeight;}
-function logDivider(){const b=document.getElementById('battle-log'),d=document.createElement('div');d.className='log-divider';b.appendChild(d);}
-function clearLog(){document.getElementById('battle-log').innerHTML='';}
-function setBattleButtons(e){document.querySelectorAll('.btn-attack').forEach(b=>b.disabled=!e);document.getElementById('btn-defend').disabled=!e;}
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
-function exportHTML(){
-  const html='<!DOCTYPE html>\\n'+document.documentElement.outerHTML;
-  const blob=new Blob([html],{type:'text/html'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download='rpg-system-morto.html';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
-// Event listeners
-document.addEventListener('DOMContentLoaded', function() {
+function changeAttr(id, delta) {
+  const next = creation[id] + delta;
+  if (next < 0 || next > MAX_PER) return;
+  if (delta > 0 && getPointsLeft() <= 0) return;
+  creation[id] = next;
   renderCreation();
+}
 
-  // Attribute buttons (delegated)
-  document.getElementById('attr-builder').addEventListener('click', function(e) {
-    const btn = e.target.closest('.btn-small');
-    if (!btn) return;
-    changeAttr(btn.dataset.attr, parseInt(btn.dataset.dir));
+function calcHP(res, fort) {
+  const base = res === 0 ? 5 : 10;
+  const scale = res === 0 ? 5 : 10;
+  const pairs = Math.floor(res / 2);
+  return base + pairs * scale + fort;
+}
+
+function calcMP(det, intel) {
+  const base = det === 0 ? 5 : 10;
+  const scale = det === 0 ? 5 : 10;
+  const pairs = Math.floor(det / 2);
+  return base + pairs * scale + intel;
+}
+
+function suggestClass() {
+  const { for: f, dex, int: i, res, agi, det } = creation;
+  if (i >= 2 && det >= 2) return 'Mago';
+  if (dex >= 2 && agi >= 2) return 'Ladino';
+  if (f >= 2 && res >= 2) return 'Guerreiro';
+  if (f >= 2 || res >= 2) return 'Guerreiro';
+  if (dex >= 2 || agi >= 2) return 'Ladino';
+  if (i >= 2 || det >= 2) return 'Mago';
+  return 'Híbrido';
+}
+
+function confirmCreation() {
+  const maxHP = calcHP(creation.res, creation.for);
+  const maxMP = calcMP(creation.det, creation.int);
+  player = {
+    name: 'Aventureiro',
+    attrs: { ...creation },
+    xp: { for:0, dex:0, int:0, agi:0, res:0, det:0 },
+    maxHP, hp: maxHP,
+    maxMP, mp: maxMP,
+    weapon: selectedWeapon,
+    armor:  selectedArmor,
+  };
+  buildMainScreen();
+  showScreen('screen-main');
+}
+
+// ─── MAIN SCREEN ─────────────────────────────────────────────────────────────
+function buildMainScreen() {
+  renderSheet();
+  renderTestButtons();
+  initBattle();
+}
+
+function showTab(id) {
+  ['tab-sheet','tab-tests','tab-battle'].forEach(t => {
+    document.getElementById(t).style.display = t === id ? '' : 'none';
+  });
+  document.querySelectorAll('.nav-tab').forEach((btn, i) => {
+    btn.classList.toggle('active', ['tab-sheet','tab-tests','tab-battle'][i] === id);
+  });
+}
+
+// ─── SHEET ────────────────────────────────────────────────────────────────────
+function renderSheet() {
+  const grid = document.getElementById('sheet-attrs');
+  grid.innerHTML = '';
+  ATTRS.forEach(a => {
+    const val = player.attrs[a.id];
+    const xp = player.xp[a.id];
+    const xpPct = Math.min((xp / xpNeeded(val)) * 100, 100);
+    grid.innerHTML += `
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:10px 12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:.95rem;">${a.name}</span>
+          <span style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--gold);">${val}</span>
+        </div>
+        <div class="xp-row">
+          <div class="xp-bar"><div class="xp-fill" style="width:${xpPct}%"></div></div>
+          <div class="xp-label">${xp}/${xpNeeded(val)} xp</div>
+        </div>
+      </div>
+    `;
   });
 
-  // Confirm
-  document.getElementById('btn-confirm').addEventListener('click', confirmCreation);
+  const bars = document.getElementById('sheet-bars');
+  bars.innerHTML = `
+    <div class="stat-bar-row">
+      <div class="stat-bar-label" style="color:var(--hp-light)">HP</div>
+      <div class="bar-track"><div class="bar-fill bar-hp ${player.hp/player.maxHP < 0.3 ? 'low':''}" style="width:${(player.hp/player.maxHP)*100}%"></div></div>
+      <div class="stat-val">${player.hp} / ${player.maxHP}</div>
+    </div>
+    <div class="stat-bar-row">
+      <div class="stat-bar-label" style="color:var(--mp-light)">MP</div>
+      <div class="bar-track"><div class="bar-fill bar-mp" style="width:${(player.mp/player.maxMP)*100}%"></div></div>
+      <div class="stat-val">${player.mp} / ${player.maxMP}</div>
+    </div>
+  `;
+}
 
-  // Export
-  document.getElementById('btn-export').addEventListener('click', exportHTML);
+// ─── TESTS ────────────────────────────────────────────────────────────────────
+function xpNeeded(attrVal) {
+  if (attrVal <= 3)  return 5;
+  if (attrVal <= 7)  return 10;
+  if (attrVal <= 11) return 15;
+  if (attrVal <= 17) return 20;
+  return 25;
+}
 
-  // Tab navigation
-  document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', function() { showTab(this.dataset.tab); });
+function renderTestButtons() {
+  const grid = document.getElementById('test-buttons');
+  grid.innerHTML = '';
+  ATTRS.forEach(a => {
+    const btn = document.createElement('div');
+    btn.className = 'test-attr-btn';
+    const val = player.attrs[a.id];
+    btn.innerHTML = `
+      <div class="t-name">${a.name}</div>
+      <div class="t-val">${val}</div>
+      <div class="t-hint">${a.hint}</div>
+    `;
+    btn.onclick = () => runTest(a);
+    grid.appendChild(btn);
   });
+}
 
-  // Defend
-  document.getElementById('btn-defend').addEventListener('click', defendAction);
+function runTest(attr) {
+  const val = player.attrs[attr.id];
+  const success = successCheck(val);
 
-  // Restart
-  document.getElementById('btn-restart').addEventListener('click', restartBattle);
-});
+  let cls, verdict, detail;
+  if (success) {
+    cls = 'roll-success'; verdict = '✦ Sucesso ✦';
+    detail = `${attr.name} — +1 XP`;
+    giveXP(attr.id, 1);
+  } else {
+    cls = 'roll-fail'; verdict = '✦ Falha ✦';
+    detail = `${attr.name} — +2 XP`;
+    giveXP(attr.id, 2);
+  }
+
+  const res = document.getElementById('test-result');
+  res.style.display = '';
+  res.innerHTML = `
+    <div class="roll-verdict ${cls}" style="font-size:1.8rem; margin-bottom:8px;">${verdict}</div>
+    <div class="roll-detail">${detail}</div>
+  `;
+  renderSheet();
+  renderTestButtons();
+}
+
+// ─── BATTLE ──────────────────────────────────────────────────────────────────
+function initBattle() {
+  enemy = buildEnemy();
+  battleActive = true;
+  playerTurn = true;
+  renderBattle();
+  clearLog();
+  logEntry('⚔️ Uma nova batalha começa!', 'log-info');
+  logEntry(`${enemy.name} avança em sua direção.`, 'log-sys');
+  setBattleButtons(true);
+  document.getElementById('battle-end').style.display = 'none';
+}
+
+function buildEnemy() {
+  const templates = [
+    { name: 'Soldado Renegado',  attrs: {for:2,dex:1,int:0,agi:1,res:2,det:0}, weapon: WEAPONS[0], armor: ARMORS[0] },
+    { name: 'Mercenário Errante',attrs: {for:1,dex:2,int:0,agi:2,res:1,det:0}, weapon: WEAPONS[1], armor: ARMORS[1] },
+    { name: 'Cultista Sombrio',  attrs: {for:0,dex:1,int:2,agi:1,res:0,det:2}, weapon: WEAPONS[2], armor: ARMORS[2] },
+  ];
+  const t = templates[Math.floor(Math.random() * templates.length)];
+  const maxHP = calcHP(t.attrs.res, t.attrs.for);
+  return { name: t.name, attrs: {...t.attrs}, weapon: t.weapon, armor: t.armor, hp: maxHP, maxHP };
+}
+
+function renderBattle() {
+  const pPct = Math.max(0, (player.hp / player.maxHP) * 100);
+  const ePct = Math.max(0, (enemy.hp / enemy.maxHP) * 100);
+  const pw = player.weapon; const pa = player.armor;
+  const ew = enemy.weapon;  const ea = enemy.armor;
+
+  document.getElementById('combatants-display').innerHTML = `
+    <div class="combatant-card player-card">
+      <div class="combatant-name">${player.name}</div>
+      <div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">${pw.name} · ${pa.name}</div>
+      <div class="stat-bars">
+        <div class="stat-bar-row">
+          <div class="stat-bar-label" style="color:var(--hp-light);font-size:.75rem;">HP</div>
+          <div class="bar-track"><div class="bar-fill bar-hp ${pPct<30?'low':''}" style="width:${pPct}%"></div></div>
+          <div class="stat-val" style="font-size:.8rem;">${player.hp}/${player.maxHP}</div>
+        </div>
+      </div>
+    </div>
+    <div class="combatant-card enemy-card">
+      <div class="combatant-name">${enemy.name}</div>
+      <div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">${ew.name} · ${ea.name}</div>
+      <div class="stat-bars">
+        <div class="stat-bar-row">
+          <div class="stat-bar-label" style="color:var(--dmg);font-size:.75rem;">HP</div>
+          <div class="bar-track"><div class="bar-fill bar-hp ${ePct<30?'low':''}" style="width:${ePct}%"></div></div>
+          <div class="stat-val" style="font-size:.8rem;">${enemy.hp}/${enemy.maxHP}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Botão de ataque — só mostra a arma equipada do jogador
+  const grid = document.getElementById('attack-buttons');
+  grid.innerHTML = '';
+  const w = player.weapon;
+  const atkVal = player.attrs[w.atkAttr];
+  const defStatName = DMG_VS_DEF[w.dmgStat];
+  const defVal = enemy.armor[defStatName];
+  const netDmg = w[w.dmgStat] + atkBonus(player) - defVal - defBonus(enemy);
+  const btn = document.createElement('button');
+  btn.className = 'btn-attack';
+  btn.style.gridColumn = 'span 3';
+  btn.disabled = !battleActive || !playerTurn;
+  btn.innerHTML = `Atacar com ${w.name} <span class="attr-hint">Teste: ${ATTRS.find(a=>a.id===w.atkAttr).name} (${atkVal}) | Dano potencial: ${netDmg}</span>`;
+  btn.onclick = () => playerAttack();
+  grid.appendChild(btn);
+
+  document.getElementById('btn-defend').disabled = !battleActive || !playerTurn;
+}
+
+function rollDice(sides) { return Math.floor(Math.random() * sides) + 1; }
+
+function applyCounterAttack(attackerEntity, attackerWeapon, defenderEntity, defenderArmor, defenderName, isPlayer) {
+  // Contraataque: dano da arma do defensor vs armadura do atacante + bônus derivados
+  const cw = attackerWeapon;
+  const dmgStat = cw.dmgStat;
+  const defStat = DMG_VS_DEF[dmgStat];
+  const bonus = atkBonus(attackerEntity);
+  const defBon = defBonus(defenderEntity);
+  const dmg = cw[dmgStat] + bonus - defenderArmor[defStat] - defBon;
+  const detail = `${cw[dmgStat]}pot+${bonus}atk − ${defenderArmor[defStat]}def+${defBon}agi`;
+  if (dmg <= 0) {
+    logEntry(`✦ Contraataque de ${defenderName} — absorvido! Dano: 0. (${detail})`, 'log-miss');
+  } else {
+    logEntry(`✦ Contraataque de ${defenderName}! Dano: ${dmg}. (${detail})`, 'log-dmg');
+    if (isPlayer) {
+      player.hp = Math.max(0, player.hp - dmg);
+    } else {
+      enemy.hp = Math.max(0, enemy.hp - dmg);
+    }
+  }
+}
+
+function renderMagicPanel() {
+  if (!document.getElementById('mp-display')) return;
+  const cost = mpCostQueue();
+  const mpLeft = player.mp - cost;
+  document.getElementById('mp-display').textContent = `MP: ${player.mp} / ${player.maxMP} — Custo fila: ${cost} (restará ${Math.max(0,mpLeft)})`;
+
+  // Botões de dano adicional
+  const dmgDiv = document.getElementById('dmg-magic-btns');
+  if (dmgDiv) {
+    dmgDiv.innerHTML = '';
+    [1,2,3,4,5].forEach(n => {
+      const mpCost = n * 2;
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.dmgExtra === n ? ' selected' : '');
+      btn.disabled = !battleActive || !playerTurn;
+      btn.innerHTML = `+${n} dano<span class="magic-cost">${mpCost} MP</span>`;
+      btn.onclick = () => { magicQueue.dmgExtra = magicQueue.dmgExtra === n ? 0 : n; renderMagicPanel(); };
+      dmgDiv.appendChild(btn);
+    });
+  }
+
+  // Efeitos em inimigos
+  const effDiv = document.getElementById('effect-magic-btns');
+  if (effDiv) {
+    effDiv.innerHTML = '';
+    EFFECTS_ENEMY.forEach(ef => {
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.effect?.id === ef.id ? ' selected' : '');
+      btn.disabled = !battleActive || !playerTurn;
+      btn.innerHTML = `${ef.name}<span class="magic-cost">${ef.cost} MP · ${ef.desc}</span>`;
+      btn.onclick = () => { magicQueue.effect = magicQueue.effect?.id === ef.id ? null : ef; renderMagicPanel(); };
+      effDiv.appendChild(btn);
+    });
+  }
+
+  // Suporte em aliados
+  const supDiv = document.getElementById('support-magic-btns');
+  if (supDiv) {
+    supDiv.innerHTML = '';
+    EFFECTS_ALLY.forEach(ef => {
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.support?.id === ef.id ? ' selected' : '');
+      btn.disabled = !battleActive || !playerTurn;
+      btn.innerHTML = `${ef.name}<span class="magic-cost">${ef.cost} MP · ${ef.desc}</span>`;
+      btn.onclick = () => { magicQueue.support = magicQueue.support?.id === ef.id ? null : ef; renderMagicPanel(); };
+      supDiv.appendChild(btn);
+    });
+  }
+
+  // Fila atual
+  const queueDiv = document.getElementById('magic-queue-display');
+  if (queueDiv) {
+    let parts = [];
+    if (magicQueue.dmgExtra > 0) parts.push(`<span class="effect-badge effect-poison">+${magicQueue.dmgExtra} dano</span>`);
+    if (magicQueue.effect) parts.push(`<span class="effect-badge ${magicQueue.effect.cls}">${magicQueue.effect.name}</span>`);
+    if (magicQueue.support) parts.push(`<span class="effect-badge effect-regen">${magicQueue.support.name}</span>`);
+    queueDiv.innerHTML = parts.length ? `Fila: ${parts.join(' + ')}` : '<span style="color:var(--muted);font-size:.85rem;">Nenhuma magia selecionada</span>';
+  }
+
+  const castBtn = document.getElementById('btn-cast');
+  if (castBtn) castBtn.disabled = !battleActive || !playerTurn || (magicQueue.dmgExtra === 0 && !magicQueue.effect && !magicQueue.support);
+}
+
+function applyEffect(effect, target, targetEntity, turns) {
+  if (!targetEntity.effects) targetEntity.effects = [];
+  targetEntity.effects = targetEntity.effects.filter(e => e.id !== effect.id);
+  targetEntity.effects.push({ ...effect, turnsLeft: turns });
+  logEntry(`✦ ${effect.name} aplicado por ${turns} turnos!`, 'log-info');
+}
+
+function applySupport(support, targetEntity, turns) {
+  if (!targetEntity.buffs) targetEntity.buffs = [];
+  targetEntity.buffs = targetEntity.buffs.filter(b => b.id !== support.id);
+  targetEntity.buffs.push({ ...support, turnsLeft: turns });
+  logEntry(`✦ ${support.name} aplicado por ${turns} turnos!`, 'log-info');
+}
+
+function processEffects(entity, entityName) {
+  if (!entity.effects || entity.effects.length === 0) return;
+  entity.effects = entity.effects.filter(ef => {
+    if (ef.id === 'poison') {
+      const dmg = Math.max(1, Math.floor(entity.maxHP * 0.1));
+      entity.hp = Math.max(0, entity.hp - dmg);
+      logEntry(`☠️ ${entityName} sofre ${dmg} de veneno. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
+    }
+    if (ef.id === 'regen') {
+      const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
+      entity.hp = Math.min(entity.maxHP, entity.hp + heal);
+      logEntry(`✦ ${entityName} regenera ${heal} HP. (${ef.turnsLeft-1} turnos restantes)`, 'log-victory');
+    }
+    ef.turnsLeft--;
+    return ef.turnsLeft > 0;
+  });
+}
+
+function hasEffect(entity, id) {
+  return entity.effects?.some(e => e.id === id) || false;
+}
+
+function getEffectMod(entity, type) {
+  // Retorna modificador de efeitos de suporte/debuff
+  let mod = 0;
+  if (entity.buffs) entity.buffs.forEach(b => {
+    if (b.id === 'blind'   && type === 'def') mod += 0.25;
+    if (b.id === 'prepare' && type === 'atk') mod += 0.25;
+    if (b.id === 'skill'   && type === 'atk_attr') mod += 0.25;
+    if (b.id === 'caution' && type === 'def_attr') mod += 0.25;
+  });
+  if (entity.effects) entity.effects.forEach(ef => {
+    if (ef.id === 'fragile'  && type === 'def') mod -= 0.25;
+    if (ef.id === 'neglect'  && type === 'atk') mod -= 0.25;
+    if (ef.id === 'imperit'  && type === 'atk_attr') mod -= 0.25;
+    if (ef.id === 'imprud'   && type === 'def_attr') mod -= 0.25;
+  });
+  return mod;
+}
+
+function castMagic() {
+  if (!battleActive || !playerTurn) return;
+  const cost = mpCostQueue();
+  if (cost > player.mp) {
+    logEntry(`MP insuficiente! Necessário: ${cost}, disponível: ${player.mp}.`, 'log-miss');
+    return;
+  }
+  setBattleButtons(false);
+  player.mp -= cost;
+
+  logDivider();
+  logEntry(`Você lança magia! (Custo: ${cost} MP)`, 'log-info');
+
+  const w = player.weapon;
+  const hasAtk = magicQueue.dmgExtra > 0;
+  const hasEff = !!magicQueue.effect;
+  const hasSup = !!magicQueue.support;
+
+  // Dano mágico
+  if (hasAtk) {
+    const attr = player.attrs.int;
+    const castRoll = rollDice(w.dice);
+    const castHit = castRoll !== w.dice && castRoll <= attr;
+    logEntry(`Teste Inteligência — rola ${castRoll} vs ${attr} (d${w.dice})`, 'log-sys');
+    if (!castHit) {
+      logEntry(`Magia de dano falhou${castRoll === w.dice ? ' (falha automática)' : ''}! MP gastos.`, 'log-miss');
+    } else {
+      const baseDmg = w.malicia + atkBonus(player) - enemy.armor.barreira - defBonus(enemy) + magicQueue.dmgExtra;
+      const dmg = Math.max(0, baseDmg);
+      if (dmg <= 0) logEntry('Magia conectou mas barreira absorveu tudo! Dano: 0.', 'log-miss');
+      else {
+        logEntry(`Dano mágico em ${enemy.name}: ${dmg}! (${w.malicia}+${atkBonus(player)}+${magicQueue.dmgExtra}extra − ${enemy.armor.barreira}bar+${defBonus(enemy)}def)`, 'log-dmg');
+        enemy.hp = Math.max(0, enemy.hp - dmg);
+      }
+    }
+  }
+
+  // Efeito em inimigo
+  if (hasEff) {
+    const ef = magicQueue.effect;
+    const extraMp = Math.max(0, cost - ef.cost - (hasAtk ? magicQueue.dmgExtra*2+1 : 0) - (hasSup ? magicQueue.support.cost+1 : 0));
+    const extraTurns = Math.floor(extraMp / 2);
+    const turns = 3 + extraTurns;
+    const difficultyBonus = extraTurns;
+    const defAttrVal = enemy.attrs[ef.defAttr];
+    const adjAttr = Math.max(1, defAttrVal - difficultyBonus);
+    const effRoll = rollDice(w.dice);
+    logEntry(`${enemy.name} resiste (${ef.name}) — rola ${effRoll} vs ${ATTRS.find(a=>a.id===ef.defAttr).name} ${adjAttr}${difficultyBonus>0?` (-${difficultyBonus} dif.)`:''}`, 'log-sys');
+    if (effRoll > adjAttr || effRoll === w.dice) {
+      logEntry(`${enemy.name} resistiu ao efeito!`, 'log-miss');
+    } else {
+      applyEffect(ef, enemy, enemy, turns);
+    }
+  }
+
+  // Suporte em aliado (jogador)
+  if (hasSup) {
+    const sup = magicQueue.support;
+    if (sup.id === 'detox') {
+      player.effects = [];
+      logEntry('✦ Detox! Todos os efeitos negativos removidos.', 'log-victory');
+    } else if (sup.id === 'regen') {
+      const turns = 3;
+      applyEffect({...sup, id:'regen'}, player, player, turns);
+    } else {
+      const turns = 3;
+      applySupport(sup, player, turns);
+      logEntry(`✦ ${sup.name} ativo por ${turns} turnos!`, 'log-victory');
+    }
+  }
+
+  clearMagicQueue();
+  renderBattle();
+  renderSheet();
+  renderMagicPanel();
+
+  if (enemy.hp <= 0) { endBattle(true); return; }
+  setTimeout(() => enemyTurn(false), 800);
+}
+
+function playerAttack() {
+  if (!battleActive || !playerTurn) return;
+  setBattleButtons(false);
+
+  const w = player.weapon;
+  const atkAttrId = w.atkAttr;
+  const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
+
+  const pAttr = player.attrs[atkAttrId];
+  const eAttr = enemy.attrs[defAttrId];
+
+  const dmgStatName = w.dmgStat;
+  const defStatName = DMG_VS_DEF[dmgStatName];
+  const rawDmg = w[dmgStatName] + atkBonus(player) - enemy.armor[defStatName] - defBonus(enemy);
+
+  logDivider();
+  logEntry(`Você ataca com ${w.name} (d${w.dice}).`, 'log-sys');
+
+  const pRoll = rollDice(w.dice);
+  const eRoll = rollDice(enemy.weapon.dice);
+  const pHit = pRoll !== w.dice && pRoll <= pAttr;
+  const ePass = !hasEffect(enemy, 'paralyze') && eRoll !== enemy.weapon.dice && eRoll <= eAttr;
+
+  logEntry(`Você — rola ${pRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${pAttr}`, 'log-sys');
+  logEntry(`${enemy.name} — rola ${eRoll} vs ${ATTRS.find(a=>a.id===defAttrId).name} ${eAttr}`, 'log-sys');
+
+  if (pRoll === w.dice) {
+    logEntry('✦ Falha automática! Você se expõe.', 'log-miss');
+    if (ePass) {
+      applyCounterAttack(enemy, enemy.weapon, player, player.armor, enemy.name, true);
+      renderBattle(); renderSheet();
+      if (player.hp <= 0) { endBattle(false); return; }
+    }
+    setTimeout(() => enemyTurn(false), 800);
+    return;
+  }
+
+  if (!pHit && ePass) {
+    // Atacante falhou, defensor passou → CONTRAATAQUE (não consome turno do inimigo)
+    logEntry('Ataque falhou.', 'log-miss');
+    if (hasEffect(enemy, 'paralyze')) {
+      logEntry(`${enemy.name} está paralisado e não pode contraatacar!`, 'log-info');
+    } else {
+      logEntry(`${enemy.name} aproveita a abertura!`, 'log-info');
+      applyCounterAttack(enemy, enemy.weapon, player, player.armor, enemy.name, true);
+      renderBattle(); renderSheet();
+      if (player.hp <= 0) { endBattle(false); return; }
+    }
+    setTimeout(() => enemyTurn(false), 800);
+    return;
+  }
+
+  if (!pHit && !ePass) {
+    // Ambos falharam → nada acontece
+    logEntry('Ambos falharam — nada acontece.', 'log-miss');
+    setTimeout(() => enemyTurn(false), 600);
+    return;
+  }
+
+  if (pHit && ePass) {
+    // Atacante passou, defensor passou → dano completamente evitado
+    logEntry(`Golpe conectou mas ${enemy.name} defendeu perfeitamente — dano evitado!`, 'log-miss');
+    renderBattle(); renderSheet();
+    setTimeout(() => enemyTurn(false), 600);
+    return;
+  }
+
+  // Atacante passou, defensor falhou → dano cheio
+  const dmg = rawDmg;
+  if (dmg <= 0) {
+    logEntry('Golpe conectou mas armadura absorveu tudo! Dano: 0.', 'log-miss');
+  } else {
+    logEntry(`Golpe direto em ${enemy.name}! Dano: ${dmg}. (${w[dmgStatName]}+${atkBonus(player)}atk − ${enemy.armor[defStatName]}+${defBonus(enemy)}def)`, 'log-dmg');
+    enemy.hp = Math.max(0, enemy.hp - dmg);
+  }
+
+  renderBattle(); renderSheet();
+  if (enemy.hp <= 0) { endBattle(true); return; }
+  setTimeout(() => enemyTurn(false), 800);
+}
+
+function defendAction() {
+  if (!battleActive || !playerTurn) return;
+  setBattleButtons(false);
+  logDivider();
+  logEntry('Você adota postura defensiva.', 'log-info');
+  setTimeout(() => enemyTurnDefended(), 600);
+}
+
+function enemyTurn(free) {
+  if (!battleActive) return;
+  playerTurn = false;
+
+  // Checagem de paralisia — paralisia bloqueia ataque E contraataque
+  if (hasEffect(enemy, 'paralyze')) {
+    const roll = Math.random();
+    if (roll < 0.4) {
+      logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
+      endPlayerTurn();
+      return;
+    } else {
+      logEntry(`⚡ ${enemy.name} tenta resistir à paralisia e age normalmente.`, 'log-sys');
+    }
+  }
+
+  const ew = enemy.weapon;
+  const atkAttrId = ew.atkAttr;
+  const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
+
+  const eAttr = enemy.attrs[atkAttrId];
+  const pAttr = player.attrs[defAttrId];
+
+  const dmgStat = ew.dmgStat;
+  const defStat = DMG_VS_DEF[dmgStat];
+  const rawDmg = ew[dmgStat] + atkBonus(enemy) - player.armor[defStat] - defBonus(player);
+
+  const eRoll = rollDice(ew.dice);
+  const pRoll = free ? (ew.dice + 1) : rollDice(player.weapon.dice);
+
+  logEntry(`${enemy.name} ataca com ${ew.name} (d${ew.dice}) — rola ${eRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${eAttr}`, 'log-sys');
+  if (!free) logEntry(`Você defende — rola ${pRoll} vs ${ATTRS.find(a=>a.id===defAttrId).name} ${pAttr}`, 'log-sys');
+
+  const eHit = free ? false : (eRoll !== ew.dice && eRoll <= eAttr);
+  const pPass = !free && pRoll !== player.weapon.dice && pRoll <= pAttr;
+
+  if (eRoll === ew.dice) {
+    logEntry(`${enemy.name} — falha automática!`, 'log-miss');
+    if (pPass) {
+      logEntry('Você aproveita a abertura!', 'log-info');
+      applyCounterAttack(player, player.weapon, enemy, enemy.armor, 'Você', false);
+      renderBattle(); renderSheet();
+      if (enemy.hp <= 0) { endBattle(true); return; }
+    }
+    endPlayerTurn();
+    return;
+  }
+
+  if (!eHit && pPass) {
+    // Inimigo falhou, jogador passou → CONTRAATAQUE do jogador (não consome turno do jogador)
+    logEntry(`${enemy.name} falhou — você contraataca!`, 'log-info');
+    applyCounterAttack(player, player.weapon, enemy, enemy.armor, 'Você', false);
+    renderBattle(); renderSheet();
+    if (enemy.hp <= 0) { endBattle(true); return; }
+    endPlayerTurn();
+    return;
+  }
+
+  if (!eHit && !pPass) {
+    // Ambos falharam → nada
+    logEntry(`${enemy.name} falhou e você não aproveitou. Nada acontece.`, 'log-miss');
+    endPlayerTurn();
+    return;
+  }
+
+  if (eHit && pPass) {
+    // Inimigo acertou, jogador passou na defesa → dano completamente evitado
+    logEntry('Você defendeu perfeitamente — dano evitado!', 'log-miss');
+    renderBattle(); renderSheet();
+    endPlayerTurn();
+    return;
+  }
+
+  // Inimigo acertou, jogador falhou na defesa → dano cheio
+  const dmg = rawDmg;
+  if (dmg <= 0) {
+    logEntry('Golpe conectou mas sua armadura absorveu tudo! Dano: 0.', 'log-miss');
+  } else {
+    logEntry(`Você sofre ${dmg} de dano! (${ew[dmgStat]}+${atkBonus(enemy)}atk − ${player.armor[defStat]}+${defBonus(player)}def)`, 'log-dmg');
+    player.hp = Math.max(0, player.hp - dmg);
+  }
+
+  renderBattle(); renderSheet();
+  if (player.hp <= 0) { endBattle(false); return; }
+  endPlayerTurn();
+}
+
+function enemyTurnDefended() {
+  if (!battleActive) return;
+  const ew = enemy.weapon;
+  const atkAttrId = ew.atkAttr;
+  const eAttr = enemy.attrs[atkAttrId];
+  const dmgStat = ew.dmgStat;
+  const defStat = DMG_VS_DEF[dmgStat];
+  const rawDmg = ew[dmgStat] + atkBonus(enemy) - player.armor[defStat] - defBonus(player);
+
+  const eRollDef = rollDice(ew.dice);
+  logEntry(`${enemy.name} ataca (postura def.) — rola ${eRollDef} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${eAttr}`, 'log-sys');
+  if (eRollDef === ew.dice || eRollDef > eAttr) {
+    logEntry('Postura defensiva funcionou — ataque desviado!', 'log-victory');
+  } else {
+    // postura defensiva reduz dano pela metade
+    const dmg = Math.max(0, Math.floor(rawDmg * 0.5));
+    if (dmg <= 0) {
+      logEntry('Mesmo acertando, armadura absorveu — dano: 0.', 'log-miss');
+    } else {
+      logEntry(`Mesmo defendendo, sofreu ${dmg} de dano.`, 'log-dmg');
+      player.hp = Math.max(0, player.hp - dmg);
+      renderBattle(); renderSheet();
+      if (player.hp <= 0) { endBattle(false); return; }
+    }
+  }
+  endPlayerTurn();
+}
+
+function endPlayerTurn() {
+  playerTurn = true;
+  setBattleButtons(true);
+  renderBattle();
+}
+
+function totalAttrPoints(entity) {
+  return Object.values(entity.attrs).reduce((a,b) => a+b, 0);
+}
+
+function endBattle(playerWon) {
+  battleActive = false;
+  setBattleButtons(false);
+  const end = document.getElementById('battle-end');
+  const msg = document.getElementById('battle-end-msg');
+  end.style.display = '';
+
+  // XP pós-batalha: +2 em tudo; +5 se inimigo tinha mais pontos totais
+  const enemyStronger = totalAttrPoints(enemy) > totalAttrPoints(player);
+  const bonus = enemyStronger ? 5 : 2;
+
+  if (playerWon) {
+    logEntry(`✦ Vitória! ${enemy.name} foi derrotado. ✦`, 'log-victory');
+    msg.className = 'log-victory';
+    msg.textContent = `Vitória — ${enemy.name} caiu.`;
+    ATTRS.forEach(a => giveXP(a.id, bonus));
+    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigo mais forte!)' : ''}.`, 'log-info');
+  } else {
+    logEntry('✦ Derrota. Você foi abatido. ✦', 'log-defeat');
+    msg.className = 'log-defeat';
+    msg.textContent = 'Derrota — você foi abatido.';
+    player.hp = Math.floor(player.maxHP * 0.3);
+    ATTRS.forEach(a => giveXP(a.id, bonus));
+    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigo mais forte!)' : ''}.`, 'log-info');
+  }
+  renderSheet();
+  renderTestButtons();
+}
+
+function restartBattle() {
+  player.hp = player.maxHP;
+  player.mp = player.maxMP;
+  renderSheet();
+  initBattle();
+}
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function rollD20() { return Math.floor(Math.random() * 20) + 1; }
+
+function successChance(val) {
+  if (val === 0) return 0.10;
+  if (val <= 5)  return 0.50;
+  return Math.min(0.99, 0.50 + (val - 5) * 0.0333);
+}
+
+function successCheck(val) {
+  return Math.random() < successChance(val);
+}
+
+function giveXP(attrId, amount) {
+  player.xp[attrId] += amount;
+  const needed = xpNeeded(player.attrs[attrId]);
+  if (player.xp[attrId] >= needed) {
+    player.xp[attrId] -= needed;
+    if (player.attrs[attrId] < 20) {
+      player.attrs[attrId] += 1;
+      player.maxHP = calcHP(player.attrs.res, player.attrs.for);
+      player.maxMP = calcMP(player.attrs.det, player.attrs.int);
+      if (player.hp > player.maxHP) player.hp = player.maxHP;
+      if (player.mp > player.maxMP) player.mp = player.maxMP;
+      const name = ATTRS.find(a=>a.id===attrId)?.name;
+      logEntry(`✦ ${name} aumentou para ${player.attrs[attrId]}! (próximo nível: ${xpNeeded(player.attrs[attrId])} XP)`, 'log-victory');
+    }
+  }
+}
+
+function logEntry(text, cls = '') {
+  const box = document.getElementById('battle-log');
+  const p = document.createElement('div');
+  p.className = `log-entry ${cls}`;
+  p.textContent = text;
+  box.appendChild(p);
+  box.scrollTop = box.scrollHeight;
+}
+
+function logDivider() {
+  const box = document.getElementById('battle-log');
+  const d = document.createElement('div');
+  d.className = 'log-divider';
+  box.appendChild(d);
+}
+
+function clearLog() {
+  document.getElementById('battle-log').innerHTML = '';
+}
+
+function setBattleButtons(enabled) {
+  document.querySelectorAll('.btn-attack').forEach(b => b.disabled = !enabled);
+  document.getElementById('btn-defend').disabled = !enabled;
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+renderCreation();
 </script>
 </body>
 </html>

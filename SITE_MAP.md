@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.77.3** 🛠️ | Site — Frente A: desabilitar gate de fichas via flag central `FICHAS_GATE_ATIVO` |
+| `SITE_VERSION` | **10.77.4** 🛠️ | Site — protótipo RPG atualizado (sistema completo: criação, testes, batalha, magia, efeitos) |
 | `PP_VERSION` | **2.2.0** | Pesadelo Particular (i18n completo pt/en/es) |
 | `LDI_VERSION` | **2.0.0** | Lendas do LDI (i18n completo pt/en/es) |
 | `JACK_VERSION` | **5.2.0** | Jack Dream Beer (BackToGamesBtn unificado) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.21.0** | Top Trumps SP — IA não escolhe rank_sdr + PPT 100% aleatório |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **1.0.1** | Protótipo RPG System Morto (admin-only, export no HTML) |
+| `PROTOTYPE_VERSION` | **1.1.0** | Protótipo RPG — sistema completo: criação, testes, batalha, magia, efeitos |
 
 ---
 
