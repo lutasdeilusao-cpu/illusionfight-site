@@ -4,6 +4,8 @@ Kim acordou sem alarme.\r
 \r
 Não por disciplina. Por hábito de quem dorme leve o suficiente para ouvir a casa antes de ela acordar. Ficou parado com os olhos abertos no teto, esperando o corpo confirmar que estava acordado de verdade.\r
 \r
+![](/assets/images/livro/01.png)\r
+\r
 Confirmou.\r
 \r
 O celular continuava virado no colchão onde havia pousado às 5h17, depois de três vibrações que ele ignorou. Sabia exatamente quantas mensagens novas havia. Jack era previsível nessa parte.\r
@@ -136,6 +138,8 @@ O universitário com fone nos ouvidos, olhos fechados, cabeça balançando levem
 \r
 Jack ficava perto observando. Em cinco anos havia tentado imitar a metodologia de Kim umas três vezes e falhado nas três.\r
 \r
+![](/assets/images/livro/02.png)\r
+\r
 — O cara do terno vai comprar. — Jack falou baixo.\r
 \r
 — Errado. — Kim não virou. — Vai fingir que vai comprar e pegar o troco errado.\r
@@ -189,6 +193,8 @@ Não porque ignoraram. Porque genuinamente não conectaram o rosto ao nome, não
 Freddy viu os dois passarem sem nem virar a cabeça. Sentiu o calor subir.\r
 \r
 — Hoje vocês me pagam. — Quase inaudível.\r
+\r
+![](/assets/images/livro/03.png)\r
 \r
 Jack virou o rosto. Não para Freddy, não exatamente. O movimento de quem sentiu algo sem saber o quê. O olhar varreu o corredor por meio segundo e pousou brevemente na direção de onde a voz havia vindo.\r
 \r
