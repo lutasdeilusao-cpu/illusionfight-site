@@ -11,4 +11,7 @@ test-results/
 # Fonte original do livro — não publicar
 Lutas de Ilusão - Retcon.md
 
+# Imagens soltas na raiz — usar public/assets/images/ ou src/assets/images/
+/*.png
+
 candybox2_reference
