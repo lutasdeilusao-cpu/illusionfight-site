@@ -4,6 +4,8 @@ Kim woke up without an alarm.
 
 Not out of discipline. Out of the habit of someone who sleeps lightly enough to hear the house before it wakes up. He lay still with his eyes open on the ceiling, waiting for his body to confirm he was really awake.
 
+![](/assets/images/livro/01.png)
+
 It did.
 
 The phone was still face down on the mattress where it had landed at 5:17 AM, after three vibrations he ignored. He knew exactly how many new messages there were. Jack was predictable like that.
@@ -136,6 +138,8 @@ The college student with earbuds in, eyes closed, head bobbing slightly. Impossi
 
 Jack stayed close, watching. In five years he had tried to copy Kim's method about three times and failed every single one.
 
+![](/assets/images/livro/02.png)
+
 — The suit guy's going to buy. — Jack spoke low.
 
 — Wrong. — Kim didn't turn. — He's going to pretend he's going to buy and short-change me.
@@ -189,6 +193,8 @@ Not because they ignored it. Because they genuinely didn't connect the face to a
 Freddy watched the two of them walk by without even turning their heads. Felt the heat rise.
 
 — Today you pay. — Almost inaudible.
+
+![](/assets/images/livro/03.png)
 
 Jack turned his face. Not toward Freddy, not exactly. The movement of someone who felt something without knowing what. His gaze swept the hallway for half a second and landed briefly in the direction the voice had come from.
 

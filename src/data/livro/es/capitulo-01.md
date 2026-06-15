@@ -4,6 +4,8 @@ Kim se despertó sin alarma.
 
 No por disciplina. Por el hábito de quien duerme con la ligereza suficiente para oír la casa antes de que despierte. Se quedó quieto con los ojos abiertos mirando el techo, esperando que su cuerpo confirmara que estaba despierto de verdad.
 
+![](/assets/images/livro/01.png)
+
 Lo confirmó.
 
 El celular seguía boca abajo en el colchón donde había caído a las 5:17, después de tres vibraciones que ignoró. Sabía exactamente cuántos mensajes nuevos había. Jack era predecible en eso.
@@ -136,6 +138,8 @@ El universitario con auriculares, ojos cerrados, cabeza moviéndose levemente. I
 
 Jack se quedaba cerca observando. En cinco años había intentado imitar el método de Kim unas tres veces y había fallado en las tres.
 
+![](/assets/images/livro/02.png)
+
 — El del traje va a comprar. — Jack habló bajo.
 
 — Mal. — Kim no se dio vuelta. — Va a hacer como que va a comprar y me va a dar mal el vuelto.
@@ -189,6 +193,8 @@ No porque ignoraran. Porque genuinamente no conectaron la cara con ningún nombr
 Freddy los vio pasar sin que ninguno siquiera girara la cabeza. Sintió el calor subir.
 
 — Hoy me la pagan. — Casi inaudible.
+
+![](/assets/images/livro/03.png)
 
 Jack giró la cara. No hacia Freddy, no exactamente. El movimiento de quien sintió algo sin saber qué. La mirada barrió el pasillo por medio segundo y se posó brevemente en la dirección de donde había venido la voz.
 
