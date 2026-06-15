@@ -4,7 +4,7 @@ import {
   resolverAtaque, resolverContraAtaque, rolarD6,
   getCasasMovimento, getChanceAcerto,
 } from '../engine/combat'
-import { getCelulasAlcance, getCelulasAtaque, distanciaHex } from '../engine/hexUtils'
+import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
 import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
@@ -95,6 +95,26 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
 
+  // ── Animation state ─────────────────────────────
+  const [movementPath, setMovementPath] = useState(null) // { charId, steps: [{row,col}], current: 0 }
+  const [attackAnim, setAttackAnim] = useState(null) // { type, attackerId, targetId, phase, progress }
+  const [damageFloats, setDamageFloats] = useState([]) // [{ charId, damage, row, col, key }]
+  const [damageFlash, setDamageFlash] = useState({}) // { [charId]: flashCount }
+  const [projectilePos, setProjectilePos] = useState(null) // { x, y } during projectile anim
+  const animatingRef = useRef(false)
+  const animTimersRef = useRef([])
+
+  function clearAnimTimers() {
+    animTimersRef.current.forEach(t => clearTimeout(t))
+    animTimersRef.current = []
+  }
+
+  function setAnimTimer(fn, delay) {
+    const id = setTimeout(fn, delay)
+    animTimersRef.current.push(id)
+    return id
+  }
+
   // FIX 5: usar refs para evitar closures obsoletas na IA
   const charsRef = useRef(characters)
   const turnRef = useRef(currentTurn)
@@ -180,10 +200,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setSubPhase('movimento')
       setPhase(null)
     } else if (sub === 'acao') {
+      // FIX 3+4: alcance PDF = valor do atributo, obstáculos Tipo 1 bloqueiam
+      const alcanceMax = char.tipoAtaque === 'melee' ? 1 : char.pdf
       const atkCells = getCelulasAtaque(
         char.posicao.row, char.posicao.col,
         char.tipoAtaque, cols, rows,
-        char.tipoAtaque === 'melee' ? 1 : 4
+        alcanceMax, obstaculos
       )
       const enemyCells = atkCells.filter(c =>
         characters.some(ch => ch.vivo && ch.time !== char.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
@@ -262,8 +284,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         drawHex(ctx, center, HEX_SIZE, fill, stroke)
 
         if (ch) {
+          const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
           const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, HEX_SIZE * 0.65)
-          if (ch.time === 'jogador') {
+          if (flashOn) {
+            gradient.addColorStop(0, '#ff2222')
+            gradient.addColorStop(1, '#991111')
+          } else if (ch.time === 'jogador') {
             gradient.addColorStop(0, '#2e7d32')
             gradient.addColorStop(1, '#1b4d1b')
           } else {
@@ -294,16 +320,77 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.fillStyle = hpPct > 0.5 ? '#4caf50' : hpPct > 0.25 ? '#ff9800' : '#f44336'
           ctx.fillRect(barX, barY, barW * hpPct, barH)
         }
+
+        // FIX 6: Floating damage numbers
+        const floaters = damageFloats.filter(f => f.row === row && f.col === col)
+        for (const fl of floaters) {
+          ctx.fillStyle = '#ff3333'
+          ctx.font = `bold ${HEX_SIZE * 0.55}px sans-serif`
+          ctx.textAlign = 'center'
+          ctx.textBaseline = 'middle'
+          ctx.shadowColor = 'rgba(255,0,0,0.6)'
+          ctx.shadowBlur = 8
+          ctx.fillText(`-${fl.damage}`, center.x, center.y - HEX_SIZE * 0.8)
+          ctx.shadowBlur = 0
+        }
+
+        // FIX 7: Projetil
+        if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
+          ctx.beginPath()
+          ctx.arc(center.x, center.y, HEX_SIZE * 0.25, 0, Math.PI * 2)
+          ctx.fillStyle = '#ffcc00'
+          ctx.fill()
+          ctx.strokeStyle = '#ff8800'
+          ctx.lineWidth = 2
+          ctx.stroke()
+          // Brilho
+          ctx.beginPath()
+          ctx.arc(center.x, center.y, HEX_SIZE * 0.35, 0, Math.PI * 2)
+          ctx.fillStyle = 'rgba(255,200,0,0.2)'
+          ctx.fill()
+        }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, currentChar])
+
+    // Obstacle icons
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const center = hexCenter(row, col, padX, padY, HEX_SIZE)
+        const key = `${row}_${col}`
+        const obs = obstaculos[key]
+        const item = itensChaoAtual[key]
+        const ch = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
+
+        if (obs && !ch) {
+          ctx.fillStyle = '#fff'
+          ctx.font = '18px sans-serif'
+          ctx.textAlign = 'center'
+          ctx.textBaseline = 'middle'
+          const icons = { 1: '🧱', 2: '🕳️', 3: '🪤', 4: '📦' }
+          ctx.fillText(icons[obs.tipo] || '?', center.x, center.y)
+        } else if (item && !ch && !obs) {
+          ctx.fillStyle = '#fff'
+          ctx.font = '16px sans-serif'
+          ctx.textAlign = 'center'
+          ctx.textBaseline = 'middle'
+          ctx.fillText(item.tipo === 'hp' ? '❤️' : '💙', center.x, center.y)
+        } else if (!obs && !ch && !item) {
+          ctx.fillStyle = '#3a3a4a'
+          ctx.font = '9px monospace'
+          ctx.textAlign = 'center'
+          ctx.textBaseline = 'middle'
+          ctx.fillText(`${row},${col}`, center.x, center.y + HEX_SIZE * 0.15)
+        }
+      }
+    }
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, currentChar, damageFlash, damageFloats, projectilePos])
 
   useEffect(() => { draw() }, [draw])
 
   // Handle canvas click
   function handleCanvasClick(e) {
     const canvas = canvasRef.current
-    if (!canvas || animating || !isPlayerTurn || iaThinking) return
+    if (!canvas || animating || animatingRef.current || !isPlayerTurn || iaThinking) return
     const rect = canvas.getBoundingClientRect()
     const mx = e.clientX - rect.left
     const my = e.clientY - rect.top
@@ -329,15 +416,63 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function moverPersonagem(row, col) {
-    if (!currentChar) return
-    setCharacters(prev =>
-      prev.map(c =>
-        c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
-      )
+    if (!currentChar || animating) return
+    clearAnimTimers()
+
+    // 1. Encontra o caminho célula a célula
+    const origem = currentChar.posicao
+    const caminho = encontrarCaminho(
+      origem.row, origem.col, row, col,
+      cols, rows, obstaculos
     )
-    addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
+
+    if (!caminho || caminho.length < 2) {
+      // Fallback: movimento direto
+      setCharacters(prev =>
+        prev.map(c =>
+          c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
+        )
+      )
+      setHighlightedCells([])
+      setRemainingMove(0)
+      aposMovimento(row, col)
+      return
+    }
+
+    // Pula primeiro item que é a posição atual
+    const steps = caminho.slice(1)
+    animatingRef.current = true
+    setAnimating(true)
+
+    // Tira highlight imediatamente
     setHighlightedCells([])
-    setRemainingMove(0)
+
+    // Anima passo a passo
+    let stepIdx = 0
+    function avancarPasso() {
+      if (stepIdx >= steps.length) {
+        // Animação completa
+        animatingRef.current = false
+        setAnimating(false)
+        setRemainingMove(0)
+        aposMovimento(row, col)
+        return
+      }
+      const passo = steps[stepIdx]
+      setCharacters(prev =>
+        prev.map(c =>
+          c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c
+        )
+      )
+      stepIdx++
+      setAnimTimer(avancarPasso, 150)
+    }
+    setAnimTimer(avancarPasso, 50)
+  }
+
+  function aposMovimento(row, col) {
+    if (!currentChar) return
+    addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
 
     // Coleta item do chão
     const key = `${row}_${col}`
@@ -378,8 +513,135 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     finalizarTurno()
   }
 
+  function aplicarDano(alvoId, dano, donoDoAtaque) {
+    // Aplica dano
+    setCharacters(prev =>
+      prev.map(c =>
+        c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c
+      )
+    )
+
+    if (dano <= 0) return
+
+    // FIX 6: Damage flash + floating number
+    const alvo = characters.find(c => c.id === alvoId)
+    if (!alvo) return
+
+    // Floating damage number
+    const floatKey = Date.now() + Math.random()
+    setDamageFloats(prev => [...prev, { charId: alvoId, damage: dano, row: alvo.posicao?.row, col: alvo.posicao?.col, key: floatKey }])
+    setAnimTimer(() => {
+      setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
+    }, 1200)
+
+    // Flash vermelho (3 pulsações)
+    const fazerFlash = (count) => {
+      if (count >= 6) { // 3 ciclos de on/off
+        setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
+        return
+      }
+      setDamageFlash(prev => ({ ...prev, [alvoId]: count }))
+      setAnimTimer(() => fazerFlash(count + 1), 120)
+    }
+    fazerFlash(0)
+  }
+
+  function animarAtaqueMelee(atacante, alvo, resultado) {
+    const origem = atacante.posicao
+    const destino = alvo.posicao
+
+    // Fase 1: Desliza 70% em direção ao alvo
+    const dirRow = destino.row - origem.row
+    const dirCol = destino.col - origem.col
+    const meioRow = Math.round(origem.row + dirRow * 0.7)
+    const meioCol = Math.round(origem.col + dirCol * 0.7)
+
+    setCharacters(prev =>
+      prev.map(c =>
+        c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
+      )
+    )
+
+    // Fase 2: Pausa (impacto)
+    setAnimTimer(() => {
+      // Fase 3: Retorna à origem
+      setCharacters(prev =>
+        prev.map(c =>
+          c.id === atacante.id ? { ...c, posicao: origem } : c
+        )
+      )
+
+      // Fase 4: Aplica dano + feedback
+      setAnimTimer(() => {
+        aposAnimacaoAtaque(atacante, alvo, resultado)
+      }, 200)
+    }, 300)
+  }
+
+  function animarAtaqueProjetil(atacante, alvo, resultado) {
+    const origem = atacante.posicao
+    const destino = alvo.posicao
+
+    // Anima projétil percorrendo cells em linha reta
+    const cellsPath = encontrarCaminho(origem.row, origem.col, destino.row, destino.col, cols, rows, {})
+    const pathSteps = cellsPath || [origem, destino]
+
+    // Pula a primeira (origem)
+    const steps = pathSteps.slice(1)
+
+    let stepIdx = 0
+    function avancarProjetil() {
+      if (stepIdx >= steps.length) {
+        // Projétil chegou ao alvo → aplica dano
+        aposAnimacaoAtaque(atacante, alvo, resultado)
+        return
+      }
+      const passo = steps[stepIdx]
+      setProjectilePos({ row: passo.row, col: passo.col })
+      stepIdx++
+      setAnimTimer(avancarProjetil, 100)
+    }
+    avancarProjetil()
+  }
+
+  function aposAnimacaoAtaque(atacante, alvo, resultado) {
+    setProjectilePos(null)
+    clearAnimTimers()
+
+    if (resultado.dano > 0) {
+      aplicarDano(alvo.id, resultado.dano, atacante)
+      addLog(`  💥 ${alvo.nome} recebe ${resultado.dano} de dano!`)
+    } else {
+      addLog(`  🛡️ Nenhum dano causado!`)
+    }
+
+    if (resultado.criticoDefensivo) {
+      setAnimTimer(() => {
+        const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
+        contra.logs.forEach(l => addLog(`  ↺ ${l}`))
+        if (contra.dano > 0) {
+          aplicarDano(atacante.id, contra.dano, alvo)
+          addLog(`  ${atacante.nome} recebe ${contra.dano} de dano do contra-ataque!`)
+        }
+        if (resultado.ataqueExtra) {
+          setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+        } else {
+          setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+        }
+      }, 500)
+    } else {
+      if (resultado.ataqueExtra) {
+        setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+      } else {
+        setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+      }
+    }
+  }
+
   function executarAtaque(target) {
     if (!currentChar || animating) return
+    clearAnimTimers()
+    animatingRef.current = true
     setAnimating(true)
     setAttackCells([])
 
@@ -392,40 +654,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
 
-    if (resultado.criticoDefensivo) {
-      setTimeout(() => {
-        const contra = resolverContraAtaque(target, currentChar, resultado.fa / 2)
-        contra.logs.forEach(l => addLog(`  ↺ ${l}`))
-        if (contra.dano > 0) {
-          setCharacters(prev =>
-            prev.map(c =>
-              c.id === currentChar.id ? { ...c, hp: Math.max(0, c.hp - contra.dano) } : c
-            )
-          )
-          addLog(`  ${currentChar.nome} recebe ${contra.dano} de dano do contra-ataque!`)
-        }
-        if (resultado.ataqueExtra) {
-          handleAtaqueExtra(currentChar, target, resultado.fa)
-        } else {
-          finalizarAposAtaque(target, resultado)
-        }
-      }, 800)
+    if (currentChar.tipoAtaque === 'melee') {
+      animarAtaqueMelee(currentChar, target, resultado)
     } else {
-      if (resultado.dano > 0) {
-        setCharacters(prev =>
-          prev.map(c =>
-            c.id === target.id ? { ...c, hp: Math.max(0, c.hp - resultado.dano) } : c
-          )
-        )
-        addLog(`  💥 ${target.nome} recebe ${resultado.dano} de dano!`)
-      } else {
-        addLog(`  🛡️ Nenhum dano causado!`)
-      }
-      if (resultado.ataqueExtra) {
-        setTimeout(() => handleAtaqueExtra(currentChar, target, resultado.fa), 800)
-      } else {
-        setTimeout(() => finalizarAposAtaque(target, resultado), 500)
-      }
+      animarAtaqueProjetil(currentChar, target, resultado)
     }
   }
 
@@ -434,9 +666,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     const danoExtra = Math.max(1, Math.round(faExtra - (alvo.arm + alvo.agi * 0.25)))
     if (danoExtra > 0) {
-      setCharacters(prev =>
-        prev.map(c => c.id === alvo.id ? { ...c, hp: Math.max(0, c.hp - danoExtra) } : c)
-      )
+      aplicarDano(alvo.id, danoExtra, atacante)
       addLog(`  💥 Dano extra: ${danoExtra}`)
     }
     finalizarAposAtaque(alvo, { dano: danoExtra })
@@ -444,7 +674,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function finalizarAposAtaque(alvo, resultado) {
     setAnimating(false)
+    animatingRef.current = false
     setD6Result(null)
+    clearAnimTimers()
 
     // Verifica morte
     const updated = characters.find(c => c.id === alvo.id)
@@ -518,7 +750,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
 
     // Fase Movimento (delay 1s)
-    setTimeout(() => {
+    setAnimTimer(() => {
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
@@ -529,78 +761,149 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`  ${iaChar.nome} — Fase: Movimento`)
 
       const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
+
+      // Mostrar opções de movimento disponíveis da IA por 1 segundo
+      const moveCells = getCelulasAlcance(
+        iaAtual.posicao.row, iaAtual.posicao.col,
+        getCasasMovimento(iaAtual.agi),
+        cols, rows, obstaculos
+      )
+      setHighlightedCells(moveCells)
+
       const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
 
-      if (dec.tipo === 'andar') {
-        setCharacters(prev =>
-          prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: dec.detalhes.row, col: dec.detalhes.col } } : c)
-        )
-        dec.logs.forEach(l => addLog(`  ${l}`))
-      } else {
-        addLog(`  ${iaChar.nome} não se moveu.`)
-      }
+      setAnimTimer(() => {
+        setHighlightedCells([])
 
-      // Fase Ação (delay 1.5s)
-      setTimeout(() => {
-        const charsAgora2 = charsRef.current
-        const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-        if (!iaAtual2 || !iaAtual2.vivo) {
-          setIaThinking(false)
-          finalizarTurno()
-          return
-        }
-        addLog(`  ${iaChar.nome} — Fase: Ação`)
+        if (dec.tipo === 'andar') {
+          const destino = { row: dec.detalhes.row, col: dec.detalhes.col }
+          // Destacar célula escolhida
+          setAttackCells([destino])
 
-        const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-        const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+          // Animar movimento célula a célula
+          const origem = iaAtual.posicao
+          const caminho = encontrarCaminho(
+            origem.row, origem.col, destino.row, destino.col,
+            cols, rows, obstaculos
+          )
+          const steps = caminho ? caminho.slice(1) : [destino]
 
-        if (dec2.tipo === 'atacar') {
-          const alvo = dec2.detalhes.alvo
-          const res = dec2.detalhes.resultado
-          if (res.dano > 0) {
+          let stepIdx = 0
+          function avancarPassoIA() {
+            if (stepIdx >= steps.length) {
+              setAttackCells([])
+              dec.logs.forEach(l => addLog(`  ${l}`))
+              // Após animação, vai para fase de ação
+              setAnimTimer(acaoIA, 300)
+              return
+            }
+            const passo = steps[stepIdx]
             setCharacters(prev =>
-              prev.map(c => c.id === alvo.id ? { ...c, hp: Math.max(0, c.hp - res.dano) } : c)
+              prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
             )
+            stepIdx++
+            setAnimTimer(avancarPassoIA, 150)
           }
-          dec2.logs.forEach(l => addLog(`  ${l}`))
+          setAnimTimer(avancarPassoIA, 400)
+        } else {
+          addLog(`  ${iaChar.nome} não se moveu.`)
+          setAnimTimer(acaoIA, 1000)
+        }
+      }, 1000)
+    }, 1000)
+
+    function acaoIA() {
+      const charsAgora2 = charsRef.current
+      const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
+      if (!iaAtual2 || !iaAtual2.vivo) {
+        setIaThinking(false)
+        finalizarTurno()
+        return
+      }
+      addLog(`  ${iaChar.nome} — Fase: Ação`)
+
+      const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
+      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+
+      if (dec2.tipo === 'atacar') {
+        const alvo = dec2.detalhes.alvo
+        const res = dec2.detalhes.resultado
+
+        // Animação de ataque da IA
+        const atacante = iaAtual2
+        addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
+        dec2.logs.forEach(l => addLog(`  ${l}`))
+
+        const aplicarDanoIA = () => {
+          if (res.dano > 0) {
+            aplicarDano(alvo.id, res.dano, atacante)
+          }
 
           // Verifica morte
-          const alvoAtual = charsAgora2.find(c => c.id === alvo.id)
+          const alvoAtual = charsRef.current.find(c => c.id === alvo.id)
           if (alvoAtual && alvo.hp - res.dano <= 0) {
-            setTimeout(() => {
+            setAnimTimer(() => {
               setCharacters(prev => prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c))
               addLog(`💀 ${alvo.nome} foi derrotado!`)
             }, 300)
           }
-        } else {
-          dec2.logs.forEach(l => addLog(`  ${l}`))
+          finalizarTurnoIA()
         }
 
-        // Finaliza turno IA
-        setTimeout(() => {
-          setIaThinking(false)
-          addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
-
-          if (verificarVitoria()) return
-
-          const order3 = orderRef.current
-          const turnIdx3 = turnRef.current
-          const nextIdx3 = (turnIdx3 + 1) % order3.length
-          const nextId3 = order3[nextIdx3]
-          const chars3 = charsRef.current
-          const nextChar3 = chars3.find(c => c.id === nextId3)
-
-          setCurrentTurn(nextIdx3)
-
-          if (nextChar3?.time === 'ia') {
-            setPhase('enemy_turn')
-            setTimeout(() => executarIA(nextChar3), 1200)
-          } else if (nextChar3) {
-            enterSubPhase('movimento', nextChar3)
+        if (atacante.tipoAtaque === 'melee') {
+          animarAtaqueMelee(atacante, alvo, res)
+          // Sobrescreve o callback do animarAtaqueMelee para chamar finalizarTurnoIA
+          // Na verdade, a animação chama aposAnimacaoAtaque → finalizarAposAtaque → finalizarTurno
+          // Precisamos evitar conflito. Vamos aplicar dano direto e chamar finalizar.
+          // Como a IA não usa o fluxo normal, fazemos manual:
+          clearAnimTimers()
+          if (res.dano > 0) aplicarDano(alvo.id, res.dano, atacante)
+          setAnimTimer(finalizarTurnoIA, 600)
+        } else {
+          // Projétil IA
+          const steps = [atacante.posicao, alvo.posicao]
+          let pIdx = 0
+          function avancarProjIL() {
+            if (pIdx >= steps.length) {
+              if (res.dano > 0) aplicarDano(alvo.id, res.dano, atacante)
+              setAnimTimer(finalizarTurnoIA, 600)
+              return
+            }
+            setProjectilePos(steps[pIdx])
+            pIdx++
+            setAnimTimer(avancarProjIL, 100)
           }
-        }, 800)
-      }, 1500)
-    }, 1000)
+          avancarProjIL()
+        }
+      } else {
+        dec2.logs.forEach(l => addLog(`  ${l}`))
+        setAnimTimer(finalizarTurnoIA, 500)
+      }
+    }
+
+    function finalizarTurnoIA() {
+      setProjectilePos(null)
+      setIaThinking(false)
+      addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
+
+      if (verificarVitoria()) return
+
+      const order3 = orderRef.current
+      const turnIdx3 = turnRef.current
+      const nextIdx3 = (turnIdx3 + 1) % order3.length
+      const nextId3 = order3[nextIdx3]
+      const chars3 = charsRef.current
+      const nextChar3 = chars3.find(c => c.id === nextId3)
+
+      setCurrentTurn(nextIdx3)
+
+      if (nextChar3?.time === 'ia') {
+        setPhase('enemy_turn')
+        setAnimTimer(() => executarIA(nextChar3), 1200)
+      } else if (nextChar3) {
+        enterSubPhase('movimento', nextChar3)
+      }
+    }
   }
 
   function addLog(text) {

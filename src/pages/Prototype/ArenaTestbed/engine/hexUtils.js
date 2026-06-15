@@ -97,10 +97,10 @@ export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstac
 
 /**
  * BFS para encontrar células de ataque alcançáveis
- * Melee: alcance 1
- * Distância: alcance configurável (padrão 4)
+ * Melee: alcance 1 (não atravessa Tipo 1 nem Tipo 2)
+ * Distância: alcance = valor do atributo PDF (não atravessa Tipo 1, mas atravessa Tipo 2)
  */
-export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alcanceMax = 4) {
+export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alcanceMax = 4, obstaculos = {}) {
   const alcance = tipoAtaque === 'melee' ? 1 : alcanceMax
   const visited = new Set()
   const queue = [{ row: startRow, col: startCol, dist: 0 }]
@@ -116,6 +116,14 @@ export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alc
     for (const viz of vizinhos) {
       const key = `${viz.row}_${viz.col}`
       if (visited.has(key)) continue
+
+      // Tipo 1 (Parede) bloqueia absolutamente tudo — Melee e PDF
+      const obs = obstaculos?.[key]
+      if (obs && obs.tipo === 1) continue
+
+      // Tipo 2 (Buraco) bloqueia Melee mas PDF passa
+      if (tipoAtaque === 'melee' && obs && obs.tipo === 2) continue
+
       visited.add(key)
       const newDist = current.dist + 1
       if (newDist <= alcance) {
@@ -128,7 +136,8 @@ export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alc
 }
 
 /**
- * Encontra o caminho mais curto entre duas células (BFS), evitando obstáculos Tipo 1
+ * Encontra o caminho mais curto entre duas células (BFS), evitando obstáculos
+ * Tipo 1 (Parede) e Tipo 2 (Buraco) bloqueiam movimento
  */
 export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows, obstaculos) {
   const visited = new Set()
@@ -145,7 +154,8 @@ export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows,
       const key = `${viz.row}_${viz.col}`
       if (visited.has(key)) continue
       const obs = obstaculos?.[key]
-      if (obs && (obs.tipo === 1 || (obs.tipo === 2 && false))) continue
+      // Tipo 1 e Tipo 2 bloqueiam movimento
+      if (obs && (obs.tipo === 1 || obs.tipo === 2)) continue
       visited.add(key)
       queue.push({ ...viz, path: [...current.path, viz] })
     }

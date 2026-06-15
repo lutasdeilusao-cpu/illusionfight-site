@@ -29,11 +29,12 @@ export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos
 
   if (!alvo) return { tipo: 'finalizar', detalhes: {}, logs: ['Nenhum alvo encontrado.'] }
 
-  // 2. Verificar se pode atacar
+  // 2. Verificar se pode atacar (alcance PDF = valor do atributo)
+  const alcanceMax = personagem.tipoAtaque === 'melee' ? 1 : personagem.pdf
   const celulasAtaque = getCelulasAtaque(
     personagem.posicao.row, personagem.posicao.col,
     personagem.tipoAtaque, cols, rows,
-    personagem.tipoAtaque === 'melee' ? 1 : 4
+    alcanceMax, obstaculos
   )
 
   const podeAtacar = celulasAtaque.some(c => c.row === alvo.posicao.row && c.col === alvo.posicao.col)

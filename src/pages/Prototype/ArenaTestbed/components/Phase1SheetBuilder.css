@@ -386,3 +386,18 @@
   border-color: #7a6530;
   color: #c9a84c;
 }
+
+/* ── Auto-name display ──────────────────────────── */
+.tab-fase1-auto-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.tab-fase1-char-time-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: #c9a84c;
+  letter-spacing: 0.05em;
+}

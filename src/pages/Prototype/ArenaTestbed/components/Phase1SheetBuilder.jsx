@@ -11,19 +11,29 @@ export default function Phase1SheetBuilder({ onConfirm }) {
   const [characters, setCharacters] = useState([])
   const [editing, setEditing] = useState(null)
 
+  /** Gera nome automático baseado no time e ordem */
+  function gerarNomeAutomatico(time, todosChars) {
+    const mesmoTime = todosChars.filter(c => c.time === time)
+    const ordem = mesmoTime.length + 1
+    if (time === 'jogador') return `Jogador ${ordem}`
+    return `IA ${ordem}`
+  }
+
   function addCharacter() {
     if (characters.length >= 4) return
+    const time = characters.filter(c => c.time === 'jogador').length === 0 ? 'jogador' : 'ia'
+    const novoNome = gerarNomeAutomatico(time, characters)
     const newChar = {
       id: `temp_${Date.now()}`,
-      nome: '',
-      time: characters.filter(c => c.time === 'jogador').length === 0 ? 'jogador' : 'ia',
+      nome: novoNome,
+      time,
       tipoAtaque: 'melee',
       orcamento: 9,
       forca: 0,
       agi: 0,
       dex: 0,
       pdf: 0,
-      res: 1, // FIX 1+3: RES mínimo 1, ocupa 1 ponto
+      res: 1,
       arm: 0,
       equipamento: 'nenhum',
       pocaoHP: 0,
@@ -51,13 +61,17 @@ export default function Phase1SheetBuilder({ onConfirm }) {
       }
     }
     if (field === 'orcamento') {
-      // Reset attributes and redistribuir
       updated[idx].forca = 0
       updated[idx].agi = 0
       updated[idx].dex = 0
       updated[idx].pdf = 0
       updated[idx].res = 1
       updated[idx].arm = 0
+    }
+    // Atualiza nome automático se time mudou
+    if (field === 'time') {
+      const mesmoTime = updated.filter(c => c.time === value)
+      updated[idx].nome = gerarNomeAutomatico(value, updated.filter((_, i) => i !== idx))
     }
     setCharacters(updated)
   }
@@ -106,9 +120,8 @@ export default function Phase1SheetBuilder({ onConfirm }) {
   const canProceed = useMemo(() => {
     const hasPlayer = characters.some(c => c.time === 'jogador')
     const hasIA = characters.some(c => c.time === 'ia')
-    const allNamed = characters.every(c => c.nome.trim().length > 0)
     const allBudgetUsed = characters.every(c => pontosRestantes(c) === 0)
-    return hasPlayer && hasIA && allNamed && allBudgetUsed && characters.length > 0
+    return hasPlayer && hasIA && allBudgetUsed && characters.length > 0
   }, [characters])
 
   function handleConfirm() {
@@ -145,16 +158,11 @@ export default function Phase1SheetBuilder({ onConfirm }) {
               >✕</button>
             </div>
 
-            <label className="tab-fase1-field">
-              <span>{t('prototype.arena_testbed.name')}</span>
-              <input
-                type="text"
-                value={char.nome}
-                onChange={e => updateChar(idx, 'nome', e.target.value)}
-                placeholder={t('prototype.arena_testbed.name_placeholder')}
-                maxLength={20}
-              />
-            </label>
+            <div className="tab-fase1-auto-name">
+              <span className="tab-fase1-char-time-label">
+                {char.time === 'jogador' ? '👤' : '🤖'} {char.nome}
+              </span>
+            </div>
 
             <label className="tab-fase1-field">
               <span>{t('prototype.arena_testbed.team')}</span>
