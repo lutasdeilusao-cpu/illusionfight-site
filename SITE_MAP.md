@@ -534,18 +534,18 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.92.0** 🛠️ | Site — Capítulo 03: duas imagens ilustrativas adicionadas em pt/en/es |
+| `SITE_VERSION` | **10.93.0** 🛠️ | Site — Arena Testbed: protótipo de combate GDD v0.1 no /prototype |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
-| `ARENA_VERSION` | **1.27.2** | Arena LDI — CSS inline audit: static styles movidos para Arena.css |
+| `ARENA_VERSION` | **1.28.0** | Arena LDI — Testbed: protótipo de combate GDD v0.1 (3 fases: fichas, tabuleiro, partida) |
 | `TAMA_VERSION` | **2.5.1** | Tamagoshi LDI — guest aviso no termo (título, texto explicativo, link cadastro) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **2.1.0** | Protótipo — RPG Demo: round-based paralisia, efeitos fim de rodada, resistência de efeito corrigida |
+| `PROTOTYPE_VERSION` | **2.2.0** | Protótipo — Arena Testbed: sistema de combate GDD v0.1 completo (3 fases: fichas, tabuleiro, partida) |
 
 ---
 

@@ -1,0 +1,236 @@
+.tab-fase2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tab-fase2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #2e2e3a;
+  background: #141418;
+}
+
+.tab-fase2-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #c9a84c;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.tab-fase2-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 16px;
+  gap: 12px;
+}
+
+.tab-fase2-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px;
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 6px;
+  align-items: flex-start;
+}
+
+.tab-fase2-toolgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tab-fase2-toolgroup-label {
+  font-size: 0.65rem;
+  color: #7a7570;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tab-fase2-tool {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+  background: #1a1a22;
+  color: #d4cfc8;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.tab-fase2-tool:hover {
+  border-color: #7a6530;
+}
+
+.tab-fase2-tool.active {
+  border-color: #c9a84c;
+  background: #2a2a32;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
+}
+
+.tab-fase2-tool-config {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 10px;
+  border-left: 1px solid #2e2e3a;
+}
+
+.tab-fase2-tool-config label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #d4cfc8;
+}
+
+.tab-fase2-tool-config select {
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 3px;
+  color: #d4cfc8;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.tab-fase2-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #d4cfc8;
+  cursor: pointer;
+}
+
+.tab-fase2-checkbox input {
+  accent-color: #c9a84c;
+}
+
+.tab-fase2-canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-fase2-canvas {
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+  cursor: crosshair;
+  max-width: 100%;
+  height: auto;
+}
+
+.tab-fase2-grid-controls {
+  display: flex;
+  gap: 24px;
+}
+
+.tab-fase2-grid-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #c9a84c;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+.tab-fase2-grid-label input[type="range"] {
+  width: 100px;
+  accent-color: #c9a84c;
+}
+
+.tab-fase2-grid-label span {
+  font-family: monospace;
+  color: #d4cfc8;
+  min-width: 20px;
+  text-align: center;
+}
+
+.tab-fase2-char-info {
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.tab-fase2-char-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tab-fase2-char-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #1a1a22;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #d4cfc8;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab-fase2-char-chip:hover {
+  border-color: #7a6530;
+}
+
+.tab-fase2-char-chip.selected {
+  border-color: #c9a84c;
+  background: #2a2a32;
+}
+
+.tab-fase2-char-team.jogador {
+  color: #4caf50;
+}
+
+.tab-fase2-char-team.ia {
+  color: #e74c3c;
+}
+
+.tab-fase2-char-pos {
+  color: #7a7570;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.tab-fase2-hint {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: #c9a84c;
+  font-style: italic;
+  text-align: center;
+}
+
+.tab-fase2-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid #2e2e3a;
+}
+
+.tab-fase2-warning {
+  font-size: 0.8rem;
+  color: #c0392b;
+  margin: 0;
+  text-align: center;
+}

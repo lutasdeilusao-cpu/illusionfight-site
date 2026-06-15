@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { PROTOTYPE_VERSION } from '../../config/version'
 import HexBoard from './HexBoard'
+import ArenaTestbed from './ArenaTestbed/ArenaTestbed'
 import './Prototype.css'
 
 console.log(`[PROTOTYPE] versão carregada: ${PROTOTYPE_VERSION}`)
@@ -24,6 +25,13 @@ const PROTOTYPES = [
     descKey: 'prototype.hex_board.desc',
     type: 'component',
     component: 'HexBoard',
+  },
+  {
+    id: 'arena-testbed',
+    titleKey: 'prototype.arena_testbed.title',
+    descKey: 'prototype.arena_testbed.desc',
+    type: 'component',
+    component: 'ArenaTestbed',
   },
 ]
 
@@ -82,6 +90,8 @@ export default function Prototype() {
             />
           ) : proto.id === 'hex-board' ? (
             <HexBoard />
+          ) : proto.id === 'arena-testbed' ? (
+            <ArenaTestbed />
           ) : null}
         </div>
       </section>
