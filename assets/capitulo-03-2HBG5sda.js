@@ -155,6 +155,8 @@ O sorriso no rosto de Jack não era provocação. Era agradecimento. Anderson, p
 \r
 O uppercut de Jack subiu certeiro no estômago, as pernas impulsionando de baixo, o corpo de Anderson no ar numa posição que qualquer jogador de Street Fighter reconheceria como Shoryuken.\r
 \r
+![](/assets/images/livro/03.png)\r
+\r
 A sequência foi tão rápida e precisa que parou Brock e André no lugar.\r
 \r
 — Porra, Kim. — Jack sacudiu o pulso. — Quantas vezes tenho que repetir: não toca no meu cabelo. Dá trabalho arrumar ele de manhã, caralho.\r
@@ -306,6 +308,8 @@ Jack colocou o SBI nas mãos de Kim com a cerimônia de quem entrega algo que va
 — Bem-vindo ao Lutas de Ilusão.\r
 \r
 Kim colocou a luva. Depois os óculos.\r
+\r
+![](/assets/images/livro/04.png)\r
 \r
 A última coisa que viu antes da ativação foi Jack com o celular já apontado, o sorriso largo tirando uma selfie.\r
 \r

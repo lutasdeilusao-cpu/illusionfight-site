@@ -156,6 +156,8 @@ The smile on Jack's face wasn't provocation. It was gratitude. Anderson, lost in
 
 Jack's uppercut rose clean into Anderson's stomach, legs driving from below, Anderson's body in the air in a position any Street Fighter player would recognize as a Shoryuken.
 
+![](/assets/images/livro/03.png)
+
 The sequence was so fast and precise it stopped Brock and André in place.
 
 — Damn, Kim. — Jack shook out his wrist. — How many times do I have to say it: don't touch my hair. It takes work to fix in the morning.
@@ -307,6 +309,8 @@ Jack placed the SBI in Kim's hands with the ceremony of someone handing over som
 — Welcome to Lutas de Ilusão.
 
 Kim put on the glove. Then the glasses.
+
+![](/assets/images/livro/04.png)
 
 The last thing he saw before activation was Jack with his phone already aimed, big smile taking a selfie.
 
