@@ -56,6 +56,8 @@ export default function LivroCapitulo() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   useEffect(() => {
+    setNotFound(false)
+
     if (!chapter || (!estaDisponivel(chapter, isAdmin) && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
@@ -82,7 +84,7 @@ export default function LivroCapitulo() {
     }
 
     loadChapter()
-  }, [id, chapter])
+  }, [id, chapter, isAdmin, locale])
 
   if (notFound) {
     return (
