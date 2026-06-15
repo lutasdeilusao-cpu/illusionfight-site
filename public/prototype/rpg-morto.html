@@ -844,6 +844,7 @@ function initBattle() {
   enemy = buildEnemy();
   battleActive = true;
   playerTurn = true;
+  clearMagicQueue();
   renderBattle();
   clearLog();
   logEntry('⚔️ Uma nova batalha começa!', 'log-info');
@@ -1035,6 +1036,34 @@ function hasEffect(entity, id) {
   return entity.effects?.some(e => e.id === id) || false;
 }
 
+// Rola UMA VEZ por rodada se a entidade está paralisada nesta rodada.
+// Resultado é cacheado até endRound() ser chamado.
+function rollParalysisRound(entity) {
+  if (!hasEffect(entity, 'paralyze')) {
+    entity.paralyzedThisRound = false;
+    entity.paralyzedRoundRolled = false;
+    return false;
+  }
+  if (!entity.paralyzedRoundRolled) {
+    entity.paralyzedThisRound = Math.random() < 0.4;
+    entity.paralyzedRoundRolled = true;
+    if (entity.paralyzedThisRound) {
+      logEntry(`⚡ ${entity === enemy ? enemy.name : 'Você'} está paralisado nesta rodada! (40%)`, 'log-info');
+    }
+  }
+  return entity.paralyzedThisRound;
+}
+
+// Processa fim de rodada: tique de efeitos (veneno/regen), duração, e reseta paralisia
+function endRound() {
+  processEffects(enemy, enemy.name);
+  processEffects(player, 'Você');
+  enemy.paralyzedRoundRolled = false;
+  enemy.paralyzedThisRound = false;
+  player.paralyzedRoundRolled = false;
+  player.paralyzedThisRound = false;
+}
+
 function getEffectMod(entity, type) {
   // Retorna modificador de efeitos de suporte/debuff
   let mod = 0;
@@ -1101,7 +1130,8 @@ function castMagic() {
     const adjAttr = Math.max(1, defAttrVal - difficultyBonus);
     const effRoll = rollDice(w.dice);
     logEntry(`${enemy.name} resiste (${ef.name}) — rola ${effRoll} vs ${ATTRS.find(a=>a.id===ef.defAttr).name} ${adjAttr}${difficultyBonus>0?` (-${difficultyBonus} dif.)`:''}`, 'log-sys');
-    if (effRoll > adjAttr || effRoll === w.dice) {
+    const resisted = effRoll <= adjAttr && effRoll !== w.dice;
+    if (resisted) {
       logEntry(`${enemy.name} resistiu ao efeito!`, 'log-miss');
     } else {
       applyEffect(ef, enemy, enemy, turns);
@@ -1151,6 +1181,8 @@ function playerAttack() {
   logDivider();
   logEntry(`Você ataca com ${w.name} (d${w.dice}).`, 'log-sys');
 
+  const enemyParalyzed = rollParalysisRound(enemy);
+
   const pRoll = rollDice(w.dice);
   const eRoll = rollDice(enemy.weapon.dice);
   const pHit = pRoll !== w.dice && pRoll <= pAttr;
@@ -1161,10 +1193,12 @@ function playerAttack() {
 
   if (pRoll === w.dice) {
     logEntry('✦ Falha automática! Você se expõe.', 'log-miss');
-    if (ePass) {
+    if (ePass && !enemyParalyzed) {
       applyCounterAttack(enemy, enemy.weapon, player, player.armor, enemy.name, true);
       renderBattle(); renderSheet();
       if (player.hp <= 0) { endBattle(false); return; }
+    } else if (ePass && enemyParalyzed) {
+      logEntry(`${enemy.name} está paralisado e não pode contraatacar!`, 'log-info');
     }
     setTimeout(() => enemyTurn(false), 800);
     return;
@@ -1173,7 +1207,7 @@ function playerAttack() {
   if (!pHit && ePass) {
     // Atacante falhou, defensor passou → CONTRAATAQUE (não consome turno do inimigo)
     logEntry('Ataque falhou.', 'log-miss');
-    if (hasEffect(enemy, 'paralyze')) {
+    if (enemyParalyzed) {
       logEntry(`${enemy.name} está paralisado e não pode contraatacar!`, 'log-info');
     } else {
       logEntry(`${enemy.name} aproveita a abertura!`, 'log-info');
@@ -1226,16 +1260,11 @@ function enemyTurn(free) {
   if (!battleActive) return;
   playerTurn = false;
 
-  // Checagem de paralisia — paralisia bloqueia ataque E contraataque
-  if (hasEffect(enemy, 'paralyze')) {
-    const roll = Math.random();
-    if (roll < 0.4) {
-      logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
-      endPlayerTurn();
-      return;
-    } else {
-      logEntry(`⚡ ${enemy.name} tenta resistir à paralisia e age normalmente.`, 'log-sys');
-    }
+  // Checagem de paralisia — uma rolagem por rodada, bloqueia ataque E contraataque
+  if (rollParalysisRound(enemy)) {
+    logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
+    endPlayerTurn();
+    return;
   }
 
   const ew = enemy.weapon;
@@ -1311,6 +1340,14 @@ function enemyTurn(free) {
 
 function enemyTurnDefended() {
   if (!battleActive) return;
+
+  // Checagem de paralisia — mesma rolagem da rodada
+  if (rollParalysisRound(enemy)) {
+    logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
+    endPlayerTurn();
+    return;
+  }
+
   const ew = enemy.weapon;
   const atkAttrId = ew.atkAttr;
   const eAttr = enemy.attrs[atkAttrId];
@@ -1338,9 +1375,14 @@ function enemyTurnDefended() {
 }
 
 function endPlayerTurn() {
+  endRound();
   playerTurn = true;
   setBattleButtons(true);
   renderBattle();
+  renderSheet();
+  renderMagicPanel();
+  if (player.hp <= 0) { endBattle(false); }
+  if (enemy.hp <= 0) { endBattle(true); }
 }
 
 function totalAttrPoints(entity) {
