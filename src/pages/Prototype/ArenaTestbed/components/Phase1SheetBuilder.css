@@ -387,6 +387,35 @@
   color: #c9a84c;
 }
 
+/* ── AGI toggle ─────────────────────────────────── */
+.tab-fase1-agi-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #d4cfc8;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.04em;
+  transition: border-color 0.15s;
+}
+
+.tab-fase1-agi-toggle:hover {
+  border-color: #7a6530;
+}
+
+.tab-fase1-agi-toggle input[type="checkbox"] {
+  accent-color: #c9a84c;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 /* ── Auto-name display ──────────────────────────── */
 .tab-fase1-auto-name {
   display: flex;

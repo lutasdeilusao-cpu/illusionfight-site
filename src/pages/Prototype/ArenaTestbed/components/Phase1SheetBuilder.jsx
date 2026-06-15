@@ -6,7 +6,7 @@ import './Phase1SheetBuilder.css'
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21]
 
-export default function Phase1SheetBuilder({ onConfirm }) {
+export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAgiToggle }) {
   const { t } = useLanguage()
   const [characters, setCharacters] = useState([])
   const [editing, setEditing] = useState(null)
@@ -132,7 +132,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
         c.equipamento, c.pocaoHP, c.pocaoMP
       )
     })
-    onConfirm(finalChars)
+    onConfirm(finalChars, agiUmPraUm)
   }
 
   return (
@@ -290,6 +290,13 @@ export default function Phase1SheetBuilder({ onConfirm }) {
         {characters.length > 0 && characters.some(c => pontosRestantes(c) !== 0) && (
           <p className="tab-fase1-warning">{t('prototype.arena_testbed.budget_warning')}</p>
         )}
+
+        {/* FIX 4: AGI movement toggle */}
+        <label className="tab-fase1-agi-toggle">
+          <input type="checkbox" checked={agiUmPraUm} onChange={e => onAgiToggle?.(e.target.checked)} />
+          <span>{t('prototype.arena_testbed.agi_toggle_label')}</span>
+        </label>
+
         <button className="tab-btn tab-btn-primary" disabled={!canProceed} onClick={handleConfirm}>
           {t('prototype.arena_testbed.next_board')} →
         </button>

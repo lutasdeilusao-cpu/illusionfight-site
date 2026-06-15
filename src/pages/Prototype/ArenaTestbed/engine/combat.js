@@ -157,8 +157,11 @@ export function rolarD6() {
 
 /**
  * Calcula casas de movimento baseado em AGI
+ * @param {number} agi - valor de AGI
+ * @param {boolean} [agiUmPraUm=false] - se true, 1 AGI = 1 casa de movimento
  */
-export function getCasasMovimento(agi) {
+export function getCasasMovimento(agi, agiUmPraUm = false) {
+  if (agiUmPraUm) return Math.max(1, agi)
   if (agi <= 2) return 1
   if (agi <= 5) return 2
   if (agi <= 8) return 3

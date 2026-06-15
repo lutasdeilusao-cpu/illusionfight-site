@@ -68,7 +68,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
 
-  const { boardChars, obstaculos, itensChao, cols, rows } = boardState
+  const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
   // Combat state
   const [characters, setCharacters] = useState(() =>
@@ -182,9 +182,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   function enterSubPhase(sub, char) {
     if (!char) return
     if (sub === 'movimento') {
+      const mov = getCasasMovimento(char.agi, agiUmPraUm)
       const moveCells = getCelulasAlcance(
         char.posicao.row, char.posicao.col,
-        getCasasMovimento(char.agi),
+        mov,
         cols, rows, obstaculos
       )
       const freeCells = moveCells.filter(c => {
@@ -196,7 +197,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       })
       setHighlightedCells(freeCells)
       setAttackCells([])
-      setRemainingMove(getCasasMovimento(char.agi))
+      setRemainingMove(mov)
       setSubPhase('movimento')
       setPhase(null)
     } else if (sub === 'acao') {
@@ -474,6 +475,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!currentChar) return
     addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
 
+    // FIX 3: Criar referência do char com posição já atualizada
+    const charAtualizado = {
+      ...currentChar,
+      posicao: { row, col },
+    }
+
     // Coleta item do chão
     const key = `${row}_${col}`
     if (itensChaoAtual[key]) {
@@ -495,8 +502,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
 
-    // Vai para fase de ação
-    enterSubPhase('acao', currentChar)
+    // FIX 3: Passa char com posição atualizada para fase de ação
+    enterSubPhase('acao', charAtualizado)
   }
 
   function pularMovimento() {
@@ -582,8 +589,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const origem = atacante.posicao
     const destino = alvo.posicao
 
-    // Anima projétil percorrendo cells em linha reta
-    const cellsPath = encontrarCaminho(origem.row, origem.col, destino.row, destino.col, cols, rows, {})
+    // Anima projétil percorrendo cells — FIX 1: usa obstaculos reais para bloquear Parede
+    const cellsPath = encontrarCaminho(origem.row, origem.col, destino.row, destino.col, cols, rows, obstaculos)
     const pathSteps = cellsPath || [origem, destino]
 
     // Pula a primeira (origem)
@@ -678,16 +685,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setD6Result(null)
     clearAnimTimers()
 
-    // Verifica morte
-    const updated = characters.find(c => c.id === alvo.id)
-    if (updated && alvo.hp - (resultado.dano || 0) <= 0) {
+    // FIX 2: Verifica morte usando o HP já atualizado por aplicarDano()
+    const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
+    if (hpAtual <= 0) {
+      // Marca como morto e remove da ordem de turno
       setCharacters(prev =>
         prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
       )
+      setTurnOrder(prev => prev.filter(id => id !== alvo.id))
       addLog(`💀 ${alvo.nome} foi derrotado!`)
-    }
 
-    finalizarTurno()
+      // Verifica vitória imediatamente após a morte
+      setAnimTimer(() => {
+        if (verificarVitoria()) return
+        finalizarTurno()
+      }, 100)
+    } else {
+      finalizarTurno()
+    }
   }
 
   function usarItem(tipo) {
@@ -714,8 +729,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function verificarVitoria() {
-    const pVivos = characters.filter(c => c.vivo && c.time === 'jogador')
-    const iVivos = characters.filter(c => c.vivo && c.time === 'ia')
+    // FIX 2: Usa refs para garantir dados atualizados
+    const chars = charsRef.current
+    const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
+    const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
     if (pVivos.length === 0) { setWinner('ia'); setPhase('resultado'); addLog('🏆 IA venceu a partida!'); return true }
     if (iVivos.length === 0) { setWinner('jogador'); setPhase('resultado'); addLog('🏆 Jogador venceu a partida!'); return true }
     return false
@@ -763,14 +780,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
 
       // Mostrar opções de movimento disponíveis da IA por 1 segundo
+      const movIA = getCasasMovimento(iaAtual.agi, agiUmPraUm)
       const moveCells = getCelulasAlcance(
         iaAtual.posicao.row, iaAtual.posicao.col,
-        getCasasMovimento(iaAtual.agi),
+        movIA,
         cols, rows, obstaculos
       )
       setHighlightedCells(moveCells)
 
-      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
+      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual, agiUmPraUm)
 
       setAnimTimer(() => {
         setHighlightedCells([])
@@ -823,7 +841,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`  ${iaChar.nome} — Fase: Ação`)
 
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual, agiUmPraUm)
 
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo

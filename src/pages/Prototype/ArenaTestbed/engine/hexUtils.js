@@ -96,9 +96,58 @@ export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstac
 }
 
 /**
+ * Desenha uma linha entre duas células hexagonais usando algoritmo DDA adaptado
+ * Retorna todas as células que a linha atravessa (incluindo origem e destino)
+ */
+export function getCelulasNaLinha(rowA, colA, rowB, colB) {
+  // Converte para coordenadas axiais
+  const ax = colA - Math.floor(rowA / 2)
+  const ay = rowA
+  const bx = colB - Math.floor(rowB / 2)
+  const by = rowB
+
+  const dist = distanciaHex({ row: rowA, col: colA }, { row: rowB, col: colB })
+  if (dist === 0) return [{ row: rowA, col: colA }]
+
+  const cells = []
+  // Amostra N+1 pontos igualmente espaçados na linha
+  const steps = Math.ceil(dist) * 3
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps
+    const rx = ax + (bx - ax) * t
+    const ry = ay + (by - ay) * t
+    // Converte axial de volta para offset (row, col)
+    const colAmostra = Math.round(rx + ry / 2)
+    const rowAmostra = Math.round(ry)
+    const key = `${rowAmostra}_${colAmostra}`
+    if (!cells.some(c => c.key === key)) {
+      cells.push({ row: rowAmostra, col: colAmostra, key })
+    }
+  }
+  return cells
+}
+
+/**
+ * Verifica se há linha de visão desobstruída entre duas células
+ * Retorna true se NENHUM obstáculo Tipo 1 estiver no caminho
+ */
+export function temLinhaVisao(rowA, colA, rowB, colB, obstaculos) {
+  const cells = getCelulasNaLinha(rowA, colA, rowB, colB)
+  for (const cell of cells) {
+    // Ignora a célula de origem e destino
+    if (cell.row === rowA && cell.col === colA) continue
+    if (cell.row === rowB && cell.col === colB) continue
+    const obs = obstaculos?.[cell.key]
+    if (obs && obs.tipo === 1) return false
+  }
+  return true
+}
+
+/**
  * BFS para encontrar células de ataque alcançáveis
  * Melee: alcance 1 (não atravessa Tipo 1 nem Tipo 2)
  * Distância: alcance = valor do atributo PDF (não atravessa Tipo 1, mas atravessa Tipo 2)
+ * PDF também verifica linha de visão — Parede (Tipo 1) no caminho invalida o alvo
  */
 export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alcanceMax = 4, obstaculos = {}) {
   const alcance = tipoAtaque === 'melee' ? 1 : alcanceMax
@@ -132,6 +181,14 @@ export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alc
       queue.push({ ...viz, dist: newDist })
     }
   }
+
+  // FIX 1: Para ataques à distância, filtra células sem linha de visão (Tipo 1 no caminho)
+  if (tipoAtaque === 'distancia') {
+    return result.filter(cell =>
+      temLinhaVisao(startRow, startCol, cell.row, cell.col, obstaculos)
+    )
+  }
+
   return result
 }
 

@@ -10,7 +10,7 @@ import { resolverAtaque, rolarD6, getChanceAcerto, getCasasMovimento } from './c
  * Decide a ação da IA para um personagem
  * @returns {{ tipo: 'andar'|'atacar'|'usar_item'|'finalizar', detalhes: object, log: string[] }}
  */
-export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos, cols, rows, itensChao) {
+export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos, cols, rows, itensChao, agiUmPraUm = false) {
   const logs = []
   const acoes = []
 
@@ -66,7 +66,7 @@ export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos
   }
 
   // 3. Mover em direção ao inimigo mais próximo
-  const casasMov = getCasasMovimento(personagem.agi)
+  const casasMov = getCasasMovimento(personagem.agi, agiUmPraUm)
 
   // BFS para encontrar caminho
   const caminho = encontrarCaminho(

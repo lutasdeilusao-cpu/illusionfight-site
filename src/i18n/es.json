@@ -2830,7 +2830,8 @@
       "phase_label": "Fase",
       "skip_move": "Saltar Movimiento",
       "skip_action": "Saltar Acción",
-      "attack_or_item_hint": "Haz clic en un enemigo en el tablero para atacar O usa un objeto abajo."
+      "attack_or_item_hint": "Haz clic en un enemigo en el tablero para atacar O usa un objeto abajo.",
+      "agi_toggle_label": "Regla de movimiento: 1 AGI = 1 celda"
     }
   }
 }
