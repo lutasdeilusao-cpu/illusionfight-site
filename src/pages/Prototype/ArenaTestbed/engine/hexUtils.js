@@ -1,58 +1,81 @@
 /**
  * Hex grid utilities — LDI Arena Testbed
- * Suporte para grids hexagonais (top-down, flat-top)
+ * Suporte para grids hexagonais (odd-r offset, flat-top)
+ *
+ * REFATORADO v2 — Funções centralizadas de linha de visão e alcance
+ * usando coordenadas cúbicas para precisão máxima.
  */
 
 const SQRT3 = Math.sqrt(3)
 
-/**
- * Gera coordenadas de todos os hexágonos no grid
- */
+// ── Conversão Offset ↔ Cúbico (odd-r) ──────────────────
+// offset: { row, col }  |  cubo: { q, r, s }
+
+function offsetToCubo(row, col) {
+  const q = col - Math.floor(row / 2)
+  const r = row
+  const s = -q - r
+  return { q, r, s }
+}
+
+function cuboToOffset(q, r) {
+  const col = q + Math.floor(r / 2)
+  const row = r
+  return { row, col }
+}
+
+function cuboRound(q, r, s) {
+  let qr = Math.round(q)
+  let rr = Math.round(r)
+  let sr = Math.round(s)
+  const dq = Math.abs(qr - q)
+  const dr = Math.abs(rr - r)
+  const ds = Math.abs(sr - s)
+  if (dq > dr && dq > ds) qr = -rr - sr
+  else if (dr > ds) rr = -qr - sr
+  else sr = -qr - rr
+  return { q: qr, r: rr, s: sr }
+}
+
+function cuboLerp(a, b, t) {
+  return {
+    q: a.q + (b.q - a.q) * t,
+    r: a.r + (b.r - a.r) * t,
+    s: a.s + (b.s - a.s) * t,
+  }
+}
+
+// ── Geração do grid ────────────────────────────────────
+
 export function gerarGrid(cols, rows) {
   const cells = []
-  const w = SQRT3 // largura de um hex
-  const h = 1.5   // altura de um hex
-
+  const w = SQRT3
+  const h = 1.5
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const offsetX = row % 2 === 0 ? 0 : w / 2
       const cx = col * w + offsetX
       const cy = row * h
-      cells.push({
-        row,
-        col,
-        cx,
-        cy,
-        hexX: cx,
-        hexY: cy,
-        id: `${row}_${col}`,
-      })
+      cells.push({ row, col, cx, cy, hexX: cx, hexY: cy, id: `${row}_${col}` })
     }
   }
   return cells
 }
 
-/**
- * Distância em hexágonos entre duas células (flat-top axial)
- */
+// ── Distância hexagonal ────────────────────────────────
+
 export function distanciaHex(a, b) {
-  const ax = a.col - Math.floor(a.row / 2)
-  const ay = a.row
-  const bx = b.col - Math.floor(b.row / 2)
-  const by = b.row
-  const dx = ax - bx
-  const dy = ay - by
-  return (Math.abs(dx) + Math.abs(dx + dy) + Math.abs(dy)) / 2
+  const ca = offsetToCubo(a.row, a.col)
+  const cb = offsetToCubo(b.row, b.col)
+  return (Math.abs(ca.q - cb.q) + Math.abs(ca.r - cb.r) + Math.abs(ca.s - cb.s)) / 2
 }
 
-/**
- * Retorna vizinhos de uma célula (até 6 direções)
- */
+// ── Vizinhos ────────────────────────────────────────────
+
 export function getVizinhos(row, col, cols, rows) {
   const dirs = row % 2 === 0
     ? [[-1, -1], [-1, 0], [0, -1], [0, 1], [1, -1], [1, 0]]
     : [[-1, 0], [-1, 1], [0, -1], [0, 1], [1, 0], [1, 1]]
-
   const neighbors = []
   for (const [dr, dc] of dirs) {
     const nr = row + dr
@@ -64,8 +87,130 @@ export function getVizinhos(row, col, cols, rows) {
   return neighbors
 }
 
+// ═════════════════════════════════════════════════════════
+//  NOVAS FUNÇÕES CENTRALIZADAS — Linha de Visão e Alcance
+// ═════════════════════════════════════════════════════════
+
 /**
- * BFS para encontrar células alcançáveis em N passos
+ * getHexLine — Retorna a lista ordenada de células hexagonais entre
+ * origem e alvo (coordenadas offset), EXCLUINDO a origem e INCLUINDO o alvo.
+ * Usa interpolação cúbica com cubeRound para precisão.
+ *
+ * @param {number} rowA - linha da origem
+ * @param {number} colA - coluna da origem
+ * @param {number} rowB - linha do alvo
+ * @param {number} colB - coluna do alvo
+ * @returns {Array<{row:number, col:number}>} células no caminho (sem origem, com alvo)
+ */
+export function getHexLine(rowA, colA, rowB, colB) {
+  const dist = distanciaHex({ row: rowA, col: colA }, { row: rowB, col: colB })
+  if (dist === 0) return []
+
+  const a = offsetToCubo(rowA, colA)
+  const b = offsetToCubo(rowB, colB)
+
+  const cells = []
+  const steps = Math.ceil(dist)
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps
+    const lerp = cuboLerp(a, b, t)
+    const rounded = cuboRound(lerp.q, lerp.r, lerp.s)
+    const offset = cuboToOffset(rounded.q, rounded.r)
+    // Valida limites do grid
+    cells.push({ row: offset.row, col: offset.col })
+  }
+
+  // Remove duplicatas (caso o rounding gere células repetidas)
+  const seen = new Set()
+  return cells.filter(c => {
+    const key = `${c.row}_${c.col}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+/**
+ * hasWallBetween — Verifica se existe Parede (Tipo 1) entre origem e alvo.
+ * Percorre célula a célula o resultado de getHexLine.
+ * Apenas Tipo 1 bloqueia — Buraco, Destrutível e Móvel não bloqueiam PDF.
+ *
+ * @param {number} rowA
+ * @param {number} colA
+ * @param {number} rowB
+ * @param {number} colB
+ * @param {object} obstaculos - mapa `"row_col" → { tipo }`
+ * @returns {boolean} true se houver parede no caminho
+ */
+export function hasWallBetween(rowA, colA, rowB, colB, obstaculos = {}) {
+  const line = getHexLine(rowA, colA, rowB, colB)
+  // A linha já exclui a origem e inclui o alvo.
+  // Excluímos o alvo também — só células intermediárias importam.
+  for (let i = 0; i < line.length - 1; i++) {
+    const cell = line[i]
+    const key = `${cell.row}_${cell.col}`
+    const obs = obstaculos[key]
+    if (obs && obs.tipo === 1) return true
+  }
+  return false
+}
+
+/**
+ * getCellsInMeleeRange — Retorna as células adjacentes que são alvos
+ * válidos para ataque corpo a corpo.
+ * Parede (Tipo 1) e Buraco (Tipo 2) bloqueiam Melee.
+ * Tipo 3 e Tipo 4 são alvos válidos se adjacentes.
+ *
+ * @returns {Array<{row:number, col:number, distancia:number}>}
+ */
+export function getCellsInMeleeRange(origemRow, origemCol, cols, rows, obstaculos = {}) {
+  const vizinhos = getVizinhos(origemRow, origemCol, cols, rows)
+  return vizinhos
+    .filter(cell => {
+      const key = `${cell.row}_${cell.col}`
+      const obs = obstaculos[key]
+      if (!obs) return true
+      // Tipo 1 e Tipo 2 bloqueiam Melee
+      if (obs.tipo === 1 || obs.tipo === 2) return false
+      return true
+    })
+    .map(cell => ({ row: cell.row, col: cell.col, distancia: 1 }))
+}
+
+/**
+ * getCellsInPdfRange — Retorna todas as células dentro do raio de `pdf`
+ * células de distância hexagonal que têm linha de visão desobstruída
+ * (nenhuma Parede Tipo 1 no caminho entre origem e alvo).
+ * Usa BFS para alcance + hasWallBetween para linha de visão.
+ *
+ * @returns {Array<{row:number, col:number, distancia:number}>}
+ */
+export function getCellsInPdfRange(origemRow, origemCol, pdf, cols, rows, obstaculos = {}) {
+  const result = []
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      if (row === origemRow && col === origemCol) continue
+
+      const dist = distanciaHex({ row: origemRow, col: origemCol }, { row, col })
+      if (dist > pdf) continue
+
+      // Apenas células sem parede no caminho
+      if (!hasWallBetween(origemRow, origemCol, row, col, obstaculos)) {
+        result.push({ row, col, distancia: dist })
+      }
+    }
+  }
+
+  return result
+}
+
+// ═════════════════════════════════════════════════════════
+//  FUNÇÕES LEGADO — Mantidas para movimento / pathfinding
+// ═════════════════════════════════════════════════════════
+
+/**
+ * BFS para encontrar células alcançáveis em N passos (movimento)
  */
 export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstaculos) {
   const visited = new Set()
@@ -85,7 +230,6 @@ export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstac
     for (const viz of vizinhos) {
       const key = `${viz.row}_${viz.col}`
       if (visited.has(key)) continue
-      // Obstáculo Tipo 1 bloqueia passagem
       const obs = obstaculos?.[key]
       if (obs && obs.tipo === 1) continue
       visited.add(key)
@@ -96,100 +240,16 @@ export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstac
 }
 
 /**
- * Desenha uma linha entre duas células hexagonais usando algoritmo DDA adaptado
- * Retorna todas as células que a linha atravessa (incluindo origem e destino)
- */
-export function getCelulasNaLinha(rowA, colA, rowB, colB) {
-  // Converte para coordenadas axiais
-  const ax = colA - Math.floor(rowA / 2)
-  const ay = rowA
-  const bx = colB - Math.floor(rowB / 2)
-  const by = rowB
-
-  const dist = distanciaHex({ row: rowA, col: colA }, { row: rowB, col: colB })
-  if (dist === 0) return [{ row: rowA, col: colA }]
-
-  const cells = []
-  // Amostra N+1 pontos igualmente espaçados na linha
-  const steps = Math.ceil(dist) * 3
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps
-    const rx = ax + (bx - ax) * t
-    const ry = ay + (by - ay) * t
-    // Converte axial de volta para offset (row, col)
-    const colAmostra = Math.round(rx + ry / 2)
-    const rowAmostra = Math.round(ry)
-    const key = `${rowAmostra}_${colAmostra}`
-    if (!cells.some(c => c.key === key)) {
-      cells.push({ row: rowAmostra, col: colAmostra, key })
-    }
-  }
-  return cells
-}
-
-/**
- * Verifica se há linha de visão desobstruída entre duas células
- * Retorna true se NENHUM obstáculo Tipo 1 estiver no caminho
- */
-export function temLinhaVisao(rowA, colA, rowB, colB, obstaculos) {
-  const cells = getCelulasNaLinha(rowA, colA, rowB, colB)
-  for (const cell of cells) {
-    // Ignora a célula de origem e destino
-    if (cell.row === rowA && cell.col === colA) continue
-    if (cell.row === rowB && cell.col === colB) continue
-    const obs = obstaculos?.[cell.key]
-    if (obs && obs.tipo === 1) return false
-  }
-  return true
-}
-
-/**
- * BFS para encontrar células de ataque alcançáveis
- * Melee: alcance 1 (não atravessa Tipo 1 nem Tipo 2)
- * Distância: alcance = valor do atributo PDF (não atravessa Tipo 1, mas atravessa Tipo 2)
- * PDF também verifica linha de visão — Parede (Tipo 1) no caminho invalida o alvo
+ * getCelulasAtaque — Função unificada que delega para as funções
+ * especializadas conforme o tipo de ataque.
+ * Jogador e IA usam esta mesma função — sem lógica paralela.
  */
 export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alcanceMax = 4, obstaculos = {}) {
-  const alcance = tipoAtaque === 'melee' ? 1 : alcanceMax
-  const visited = new Set()
-  const queue = [{ row: startRow, col: startCol, dist: 0 }]
-  const result = []
-
-  visited.add(`${startRow}_${startCol}`)
-
-  while (queue.length > 0) {
-    const current = queue.shift()
-    if (current.dist >= alcance) continue
-
-    const vizinhos = getVizinhos(current.row, current.col, cols, rows)
-    for (const viz of vizinhos) {
-      const key = `${viz.row}_${viz.col}`
-      if (visited.has(key)) continue
-
-      // Tipo 1 (Parede) bloqueia absolutamente tudo — Melee e PDF
-      const obs = obstaculos?.[key]
-      if (obs && obs.tipo === 1) continue
-
-      // Tipo 2 (Buraco) bloqueia Melee mas PDF passa
-      if (tipoAtaque === 'melee' && obs && obs.tipo === 2) continue
-
-      visited.add(key)
-      const newDist = current.dist + 1
-      if (newDist <= alcance) {
-        result.push({ row: viz.row, col: viz.col, distancia: newDist })
-      }
-      queue.push({ ...viz, dist: newDist })
-    }
+  if (tipoAtaque === 'melee') {
+    return getCellsInMeleeRange(startRow, startCol, cols, rows, obstaculos)
   }
-
-  // FIX 1: Para ataques à distância, filtra células sem linha de visão (Tipo 1 no caminho)
-  if (tipoAtaque === 'distancia') {
-    return result.filter(cell =>
-      temLinhaVisao(startRow, startCol, cell.row, cell.col, obstaculos)
-    )
-  }
-
-  return result
+  // distância
+  return getCellsInPdfRange(startRow, startCol, alcanceMax, cols, rows, obstaculos)
 }
 
 /**
@@ -211,7 +271,6 @@ export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows,
       const key = `${viz.row}_${viz.col}`
       if (visited.has(key)) continue
       const obs = obstaculos?.[key]
-      // Tipo 1 e Tipo 2 bloqueiam movimento
       if (obs && (obs.tipo === 1 || obs.tipo === 2)) continue
       visited.add(key)
       queue.push({ ...viz, path: [...current.path, viz] })
