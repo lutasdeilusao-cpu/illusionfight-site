@@ -40,21 +40,21 @@ Kim registrou isso sem virar a cabeça.\r
 \r
 Jack escreveu algo no canto do tablet e deslizou discretamente na direção de Kim.\r
 \r
-*ela é a mais bonita que já entrou nessa sala*\r
+*Meu parça, já era, perdi, tô apaixonado, encontrei a mulher da minha vida inteira, nossos filhos serão estilosos e lindos.*\r
 \r
-Kim leu. Olhou para frente. Digitou a resposta sem pausar os exercícios.\r
+Kim leu. Levantou o olhar de desprezo lentamente para Jack e, ainda olhando para ele, digitou.\r
 \r
-*foca*\r
+*Puta que pariu, toda semana essa merda Jack, foca na porra do exercício.*\r
 \r
 Jack digitou de volta imediatamente.\r
 \r
-*impossível*\r
+*Mas é essa, essa é a escolhida, cabelo rosa, lindo, atitude de deusa, é a dona do meu coração.*\r
 \r
 A Máquina virou para a turma com uma pergunta direta sobre o problema no ar. Jack ergueu a mão antes mesmo de Kim terminar de calcular a resposta. Respondeu certo. A Máquina assentiu com a economia de quem confirma o óbvio e voltou para as equações.\r
 \r
-Jack se recostou com a satisfação de quem acabou de se apresentar sem precisar dizer o nome.\r
+Jack se recostou com a satisfação de quem sabe que deixou sua marca.\r
 \r
-Nina não havia olhado para ele uma vez.\r
+Nina não havia olhado para ele nem uma vez.\r
 \r
 ---\r
 \r
@@ -68,7 +68,7 @@ Nina não tirou os olhos do tablet.\r
 \r
 — Talvez sua mente pequena não tenha tido a capacidade de raciocinar, mas eu não me apresentei exatamente porque quero evitar o desprazer de conversas como essas.\r
 \r
-Kim ficou absolutamente imóvel.\r
+Kim ficou absolutamente estático. Já havia visto Jack ser rejeitado, mas tão ácido e tão rápido era um novo recorde.\r
 \r
 Jack abriu a boca. Fechou. Abriu de novo.\r
 \r
@@ -80,9 +80,17 @@ Voltou para o tablet.\r
 \r
 O silêncio de Jack tinha textura. Era o silêncio de alguém que foi ao chão de uma altura que não esperava e ainda está processando o impacto.\r
 \r
-Kim virou o rosto devagar na direção do amigo. Apontou para ele com um dedo, sem pressa, sem fazer barulho. O sorriso que veio junto não era de quem achou graça. Era de quem esperou anos por um momento assim e finalmente estava cobrando com juros.\r
+Kim virou o rosto devagar na direção do amigo. Apontou para ele com um dedo, sem pressa, sem fazer barulho. Abriu o celular e começou a digitar algo com a solenidade de quem documenta um evento histórico.\r
 \r
-Jack não tinha resposta para isso também.\r
+Jack olhou para a tela. Olhou para Kim. A expressão fechou.\r
+\r
+— Não tá anotando isso não.\r
+\r
+Kim não respondeu. Continuou digitando.\r
+\r
+— Kim.\r
+\r
+Guardou o celular no bolso.\r
 \r
 A sala havia registrado tudo. Risadinhas percorreram as carteiras em onda. Até a Máquina, que ainda estava na porta, pareceu deixar escapar algo que quase era expressão antes de virar de costas.\r
 \r
@@ -92,7 +100,7 @@ Nina não levantou os olhos.\r
 \r
 Jack fechou a boca.\r
 \r
-*Essa eu vou guardar pra sempre.*\r
+*Tá de parabéns hein cara, mico épico e ainda na frente do Kim, ele nunca vai me deixar esquecer isso.*\r
 \r
 ---\r
 \r
@@ -108,10 +116,8 @@ O cara da jaqueta varreu o ambiente com os olhos, localizou Kim e Jack nas carte
 \r
 Para ele era a terceira aula.\r
 \r
-Nina tirou os óculos devagar e olhou para a cena. Para os cinco sem uniforme. Para os rostos dos outros alunos, sem surpresa, só decepção de quem esperava resultado diferente.\r
+Nina tirou os óculos devagar e olhou para a cena. Para os cinco sem uniforme. Para os rostos dos outros alunos, sem surpresa. Seguiu o olhar do grandão e pela primeira vez observou Kim e Jack — os dois conversavam despreocupados entre si, claramente sendo o alvo daquele grupo.\r
 \r
-*Então é assim que funciona aqui.*\r
+*Finalmente um pouco de ação. Não era o que eu esperava numa escola de elite, mas despertou minha curiosidade.*\r
 \r
-Guardou o tablet na mochila e esperou.\r
-\r
-`;export{e as default};
+Guardou o tablet na mochila e esperou.`;export{e as default};

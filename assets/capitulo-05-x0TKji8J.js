@@ -8,31 +8,29 @@ Thunderbolt olhou para a tela holográfica que flutuava ao lado dele.\r
 \r
 Ele virou o rosto para Kim com a expressão de quem acabou de receber uma tarefa administrativa.\r
 \r
-Kim estava de pé.\r
+Kim estava com o pescoço preso na mão de Thunderbolt. O olhar, pelo menos o que podia ser visto dele, era de fúria. Apoiado na própria força de vontade apenas. Os dedos fraturados da mão direita eram um mapa de inchaço e sangue coagulado. A respiração vinha em rajadas curtas, cada uma custando mais do que a anterior.\r
 \r
-Mal, apoiado na própria vontade mais do que nas pernas, mas de pé. Os dedos fraturados da mão direita eram um mapa de inchaço e sangue coagulado. A respiração vinha em rajadas curtas, cada uma custando mais do que a anterior.\r
-\r
-Mas de pé.\r
+Mas ainda olhava, firme.\r
 \r
 Thunderbolt inclinou a cabeça levemente para o lado, avaliando.\r
 \r
-— Você ainda está tentando.\r
+— Eu admiro o espírito seu e do outro. Na escola essa postura pode funcionar, mas eu vou te mostrar que nesse lugar as coisas são bem diferentes.\r
 \r
 Não era admiração. Era curiosidade entomológica. O tipo que antecede o alfinete.\r
 \r
-Kim enrolou as pernas em torno do braço de Thunderbolt antes que o próximo golpe saísse, usando o impulso para se soltar do pescoço. Caiu mal, rolou, ficou de joelhos por um segundo. Thunderbolt não se moveu. Kim se levantou com a velocidade que restava, girou, e com a mão esquerda desferiu um soco no rosto de Thunderbolt.\r
+Kim enrolou as pernas em torno do braço de Thunderbolt antes que o próximo golpe saísse, usando o impulso para soltar o próprio pescoço. Caiu mal, rolou, ficou de joelhos por um segundo. Thunderbolt não se moveu. Kim se levantou com a velocidade que restava, girou, saltou impulsionado para frente e com a mão esquerda desferiu um soco no rosto de Thunderbolt.\r
 \r
 O impacto foi o de alguém soprando contra uma parede.\r
 \r
-Thunderbolt nem piscou. Ficou parado com o soco ainda encostado no rosto, olhando para Kim com aquela expressão que não era raiva. Era algo mais frio.\r
+Thunderbolt nem piscou. Ficou parado com o soco ainda encostado no rosto, olhando para Kim com uma expressão que não era raiva. Era algo mais frio.\r
 \r
 — Acabou?\r
 \r
-Kim abaixou o braço.\r
+Kim deixou cair o braço. A intensidade do soco contra a carcaça dura de Thunderbolt tinha deixado a mão esquerda ensanguentada até os nós.\r
 \r
 — Bom.\r
 \r
-O chute lateral acertou o joelho de Kim com precisão que não era acidente. O estalo percorreu a arena inteira antes do grito, e o grito não saiu porque Kim mordeu a língua até sangrar para não deixar. O joelho dobrou para dentro num ângulo que joelhos não dobram. Kim foi ao chão pela terceira vez, as mãos no concreto, a perna direita recusando qualquer instrução.\r
+O chute lateral acertou o joelho de Kim sem aviso. O estalo eclodiu pela arena inteira antes que qualquer grito pudesse sair, e o grito não saiu porque Kim mordeu a língua até sangrar para não deixar. O joelho dobrou para dentro num ângulo que joelhos não dobram. Kim foi ao chão pela terceira vez, as mãos no concreto, a perna direita recusando qualquer instrução.\r
 \r
 — NeoGuide. Marque ajoelhar como concluído.\r
 \r
@@ -54,7 +52,7 @@ Soco na sobrancelha. A carne abriu, o sangue desceu pelo lado direito.\r
 \r
 Soco aberto na têmpora. A visão branqueou por dois segundos.\r
 \r
-Kim não chorava. Mas o sangue misturado com o suor que escorria pela testa, pela sobrancelha aberta, pelo nariz que havia cedido em algum momento que ele não havia registrado, tudo descia pelo rosto em filetes que convergiam e escorriam pelo queixo.\r
+Kim não chorava. Mas o sangue misturado com o suor que escorria pela testa, pela sobrancelha aberta, pelo nariz que havia cedido em algum momento que ele não havia registrado — tudo descia pelo rosto em filetes que convergiam e escorriam pelo queixo.\r
 \r
 Das arquibancadas, de longe, parecia choro.\r
 \r
@@ -62,7 +60,7 @@ Thunderbolt olhou para a plateia.\r
 \r
 — NeoGuide.\r
 \r
-— Item chorando marcado como concluído por interpretação visual. Próximo item: implorar.\r
+— Item chorar marcado como concluído por interpretação visual. Próximo item: implorar.\r
 \r
 O silêncio nas arquibancadas era agora o tipo que acontece quando uma multidão percebe coletivamente que atravessou uma linha sem saber quando.\r
 \r
@@ -76,7 +74,7 @@ Kim estava de joelhos no concreto, o joelho direito inchado além do reconhecív
 \r
 Kim ergueu os olhos.\r
 \r
-Não havia súplica naquele olhar. Não havia medo. Havia algo mais simples e mais intratável do que os dois, algo que Thunderbolt reconheceu como problema antes de nomear o que era.\r
+Não havia súplica naquele olhar. Não havia medo. Havia algo mais simples e mais intratável do que os dois, algo que Thunderbolt reconheceu como problema antes de conseguir nomear o que era.\r
 \r
 — Implore.\r
 \r
@@ -120,7 +118,7 @@ Não foi de uma vez. Foi em pedaços, cada um indo embora separado dos outros co
 \r
 Um pensamento atravessou o que restava de lucidez:\r
 \r
-*Não imploro. Não imploro pra ninguém. Nunca.*\r
+*Eu nunca implorei e nunca vou implorar, cuzão.*\r
 \r
 Depois o vidro engrossou demais e a arena sumiu.\r
 \r
@@ -128,13 +126,15 @@ Depois o vidro engrossou demais e a arena sumiu.\r
 \r
 O lugar não tinha chão confirmado.\r
 \r
-Kim descobriu isso quando tentou sentir onde estava pisando e não chegou a uma conclusão. Havia escuridão densa, presente, com peso próprio. Havia ar úmido. E havia, em algum lugar distante, o som de água pingando em ritmo que não era aleatório mas também não era música.\r
+Kim descobriu isso quando tentou sentir onde estava pisando e não chegou a uma conclusão. Havia escuridão densa, presente, com peso próprio. Havia ar úmido. E havia, em algum lugar distante, o som de água pingando em ritmo que não era aleatório, mas também não era música.\r
 \r
-E havia o homem.\r
+*Morri!?*\r
+\r
+Uma forma humana apareceu.\r
 \r
 Materializou das sombras devagar, como se o escuro fosse tecido se abrindo. Cabelos brancos caindo pelos ombros. Barba longa descendo pelo peito. Vestes de linho com símbolos dourados que pulsavam. Por cima das vestes, uma bombeta preta levemente inclinada para o lado. Nos olhos, óculos juliet espelhados que refletiam a própria escuridão ao redor. Na mão direita, um berimbau que ele segurava com a naturalidade de quem não percebe que está fazendo isso.\r
 \r
-A mão esquerda se estendeu. Kim a pegou. O toque era quente e firme, humano demais para aquele lugar.\r
+A mão esquerda se estendeu. Kim a pegou de forma instintiva e não planejada. O toque era quente e firme, humano demais para aquele lugar.\r
 \r
 O homem abriu a boca.\r
 \r
@@ -144,7 +144,7 @@ Kim ficou olhando para ele.\r
 \r
 — O olho que vê a si mesmo não precisa de espelho. Mas o espelho que não reflete também é porta. Pequeno gafanhoto, o urso não pergunta ao mel porque ele é doce.\r
 \r
-*Estou morto. Isso é o que acontece depois.*\r
+*Estou morto. Mas sério, eu não esperava isso nem do inferno nem do céu. QUE PORRA É ESSA, CARALHO?*\r
 \r
 — Espera aí que eu tô tentando criar atmosfera. — O homem se virou bruscamente para o lado, gesticulando com o berimbau para o nada. — Deixa eu terminar. O cervo que—\r
 \r
@@ -154,53 +154,53 @@ Parou. Ficou ouvindo algo que Kim não ouvia.\r
 \r
 O homem suspirou com a resignação de alguém que perdeu um argumento para uma audiência invisível. Cruzou os braços, o berimbau balançando levemente na mão. Quando voltou a falar, a voz era completamente outra.\r
 \r
-— Cheguei pra divar! Eita porra, se tá zuado pra caramba, véi. No limite, nos acréscimos do segundo tempo, é que você me aparece aqui?\r
+— Cheguei pra divar! Eita porra, se tá mais zuado que carniça, véi! No limite, nos acréscimos do segundo tempo, é que você me aparece aqui, tá se achando a pica das galáxias né?\r
 \r
-Kim abriu a boca.\r
+Kim abriu a boca e fechou. Não sabia como reagir àquilo.\r
 \r
-— Maluco se acha que eu tô de 171? Tá na Disney?\r
+— Parça se acha que eu tô de 171? Tá na Disney, Heloooo?\r
 \r
-— Eu não sei quem você é. E não estou com muita sorte em conhecer novas pessoas ultimamente.\r
+— Quem caralhos é você, maluco?\r
 \r
 O homem franziu a testa com a expressão de quem está sendo injustamente subestimado. Bateu no peito com orgulho, ajustou a bombeta com o indicador.\r
 \r
-— Certo, então chega de enrolation. Cheguei pra mitar. Sou Pajé da tribo Xakaxi, me chamo Pajé Yawanari. Fiquei na responsa de proteger todos os poderes sagrados deste mundão.\r
+— Certo, então chega de enrolação. O mito chegou. Sou Pajé da tribo Xakaxi, me chamo Pajé Yawanari. Fiquei na responsa de manter o selo sagrado de todos os poderes ancestrais.\r
 \r
 Avaliou Kim de cima a baixo com olhos que continham algo que não cabia em olhos normais.\r
 \r
-— E vejo que, como seu avô, você é fodinha. Neto do fodão. — Virou para o lado. — Ah, e não liga pro meu parceiro aqui, ele tá na Disney mesmo.\r
+— E vejo que, como seu avô, você é o fodinha. Neto do fodão. — Virou para o lado. — Ah, e não liga pro meu chavoso aqui, esse tá na Disney mesmo.\r
 \r
 Kim olhou para o lado. Não havia ninguém.\r
 \r
-*Definitivamente estou morto.*\r
+*Definitivamente estou morto e louco.*\r
 \r
-— Véi, você tem mais poder do que imagina. Mas tem mais perigo a sua volta do que jamais poderia imaginar. Essa merda que você tá passando agora é só uma pulga no cu do macaco.\r
+— Véi, você tem mais poder do que imagina, parça. Mas tem mais perigo à sua volta do que jamais poderia imaginar. Essa merda que você tá passando agora é só uma pulga no cu do macaco.\r
 \r
 Passou a mão na barba grisalha, um sorriso travesso nos lábios.\r
 \r
-— Se você quiser, eu dou um help pra soltar isso aí e tu ficar brabão. Tipo Super Saiyajin. — Virou para o lado. — O quê? Claro que sim, você não tá vendo que ele tá fudido? — Pausa. — Eu sei que o outro é embassado mas faze o quê. Sem isso esse aqui tá cancelado.\r
+— Se você quiser, eu dou um help pra soltar o Monstro, e tu vai ficar brabão. Tipo Super Saiyajin. — Virou para o lado. — O quê? Claro que sim, você não tá vendo que ele tá fudido? — Pausa. — Eu sei que o outro é embassado, o caralho a quatro, e outras porras mais, mas faze o quê. Sem isso, esse aqui tá cancelado.\r
 \r
-Kim estava com a perna quebrada. Os dedos fraturados. O rosto desmontado. E um pajé imortal de quinhentos anos com bombeta preta e óculos juliet espelhados falando com amigos imaginários no escuro enquanto segurava um berimbau e citava Dragon Ball.\r
+Kim estava com a perna quebrada. Os dedos fraturados. O rosto desmontado. E um pajé imortal com bombeta preta e óculos juliet espelhados falando com amigos imaginários no escuro enquanto segurava um berimbau e citava Dragon Ball.\r
 \r
 Com o pouco de força que restava, reuniu o ar nos pulmões.\r
 \r
-— Eu quero poder.\r
+— Eu quero socar aquele filho da puta. E depois o Jack.\r
 \r
 O sorriso de Yawanari abriu devagar. Dentes amarelados pelo tempo. Os olhos acendendo com algo que não era exatamente luz mas funcionava como ela.\r
 \r
-— Vixi. Tá na hora de soltar o monstro.\r
+— Pediu, tá pedido. Depois não me venha arrependido.\r
 \r
-Depositou o berimbau no ar do lado dele, onde ficou suspenso sem nada que o sustentasse. Os dedos calejados pousaram nas costas de Kim.\r
+Depositou o berimbau no ar ao lado dele, onde ficou suspenso sem nada que o sustentasse. Os dedos calejados pousaram nas costas de Kim.\r
 \r
-O que veio depois não foi suave. Uma corrente partiu do ponto de contato e desceu pelo corpo inteiro, não elétrica, não quente, algo anterior a esses dois conceitos, algo que o corpo de Kim reconhecia sem que Kim soubesse por quê. Os músculos contraíram todos de uma vez, depois relaxaram em espasmos. A dor se misturou com outra coisa sem nome.\r
+O que veio depois não foi suave. Uma corrente partiu do ponto de contato e desceu pelo corpo inteiro — não elétrica, não quente, algo anterior a esses dois conceitos, algo que o corpo de Kim reconhecia sem que Kim soubesse por quê. Os músculos contraíram todos de uma vez, depois relaxaram em espasmos. A dor se misturou com outra coisa sem nome.\r
 \r
 *Se eu sobreviver a isso vou estrangular esse desgraçado com as próprias mãos.*\r
 \r
 Yawanari se afastou. Pegou o berimbau do ar. Virou para o lado e murmurou para o parceiro invisível.\r
 \r
-— Espero que num dê ruim. — Para Kim. — Nem adianta pegar ranço de mim se der merda, rapaz. Viva com tuas escolhas. Eu já tô vazando. Fuis.\r
+— Espero que não dê ruim. — Para Kim. — Nem adianta pegar ranço de mim se der merda, rapaz. Viva com suas escolhas. Eu já tô vazando. Fuis. Ah, última coisa — deixa o like!\r
 \r
-Ergueu a perna direita e estampou o pé no chão.\r
+Fez uma cara de danadão, língua de fora, dedos em V. Ergueu a perna direita e estampou o pé no chão.\r
 \r
 A onda de choque foi luminosa e total, branca e dourada se expandindo em camadas a partir do ponto de contato, varrendo tudo.\r
 \r
@@ -208,7 +208,7 @@ A onda de choque foi luminosa e total, branca e dourada se expandindo em camadas
 \r
 Kim voltou.\r
 \r
-A arena se materializou ao redor com a brutalidade de sempre. O chão frio, o barulho da plateia, o cheiro de sangue e concreto. Thunderbolt estava exatamente onde havia ficado, os dedos já posicionados ao redor do anelar de Kim para a continuação sistemática do que havia começado.\r
+A arena se materializou ao redor com a brutalidade de sempre. O chão frio, o barulho da plateia, o cheiro de sangue e concreto. Thunderbolt estava exatamente onde havia ficado, a mão fechada, pronto para reiniciar.\r
 \r
 O punho ia descer.\r
 \r
@@ -226,14 +226,10 @@ Não sabia por quê.\r
 \r
 Nas arquibancadas, Jack parou de respirar. Depois soltou o ar devagar, os nós dos dedos ainda brancos na grade.\r
 \r
-Havia algo naquela imagem, Kim de joelhos com o rosto destruído e os olhos que não pertenciam mais àquela situação, que Jack reconhecia de um lugar muito fundo. Não do LDI. Não das brigas de rua. De muito antes de tudo isso.\r
+Havia algo naquela imagem — Kim de joelhos com o rosto destruído e os olhos que não pertenciam mais àquela situação — que Jack reconhecia de um lugar muito fundo. Não do LDI. Não das brigas de rua. De muito antes de tudo isso.\r
 \r
 *Lá vem.*\r
 \r
 As chamas começaram nas costas de Kim.\r
 \r
-Negras.\r
-\r
----\r
-\r
-`;export{e as default};
+Negras.`;export{e as default};

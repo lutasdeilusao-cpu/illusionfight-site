@@ -202,14 +202,10 @@ O cara ao lado de Freddy guardou o celular. Olhou para ele sem expressão partic
 \r
 Para ele era mais uma terça-feira.\r
 \r
----\r
+Jack falava do fim de semana, da bebida, das garotas. Kim ouvia com metade da atenção. A outra metade ainda estava no corredor, num olho roxo que não havia registrado conscientemente mas que ficou de alguma forma.\r
 \r
 A porta da sala estava fechada. Kim encostou a mão na maçaneta.\r
 \r
-*Mais um dia.*\r
+*Atrasados como sempre. Tenho que arrumar outro esquema logo.*\r
 \r
-Abriu.\r
-\r
----\r
-\r
-`;export{e as default};
+Abriu.`;export{e as default};
