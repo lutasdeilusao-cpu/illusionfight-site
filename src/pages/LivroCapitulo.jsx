@@ -49,8 +49,29 @@ export default function LivroCapitulo() {
     if (saved) window.scrollTo(0, parseInt(saved))
   }, [id])
 
+  const FONT_SIZES = [14, 16, 18, 20, 24]
+  const FONT_FAMILIES = [
+    { label: t('pages.livro.padrao'), value: 'var(--font-body)' },
+    { label: t('pages.livro.serif'),  value: 'Georgia, serif' },
+    { label: t('pages.livro.sans'),   value: 'Inter, sans-serif' },
+    { label: t('pages.livro.mono'),   value: 'var(--font-mono)' },
+  ]
+  const WIDTHS = [
+    { label: t('pages.livro.estreito'), value: '520px' },
+    { label: t('pages.livro.medio'),    value: '680px' },
+    { label: t('pages.livro.largo'),    value: '860px' },
+  ]
+
   const [md, setMd] = useState('')
   const [notFound, setNotFound] = useState(false)
+  const [showSettings, setShowSettings]     = useState(false)
+  const [fontSize, setFontSize]             = useState(() => Number(localStorage.getItem('ldi-reader-fontsize')   || 18))
+  const [fontFamily, setFontFamily]         = useState(() => localStorage.getItem('ldi-reader-fontfamily')        || 'var(--font-body)')
+  const [contentWidth, setContentWidth]     = useState(() => localStorage.getItem('ldi-reader-width')             || '680px')
+
+  useEffect(() => { localStorage.setItem('ldi-reader-fontsize',   fontSize)     }, [fontSize])
+  useEffect(() => { localStorage.setItem('ldi-reader-fontfamily', fontFamily)   }, [fontFamily])
+  useEffect(() => { localStorage.setItem('ldi-reader-width',      contentWidth) }, [contentWidth])
 
   const chapter = index.find(ch => ch.id === id)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
@@ -119,6 +140,72 @@ export default function LivroCapitulo() {
           {t('pages.livro.voltar_indice')}
         </button>
 
+        <div className="reader-settings-wrap">
+          <button
+            className="reader-settings-toggle"
+            onClick={() => setShowSettings(s => !s)}
+            aria-label={t('pages.livro.config_leitura')}
+          >
+            Aa
+          </button>
+
+          {showSettings && (
+            <div className="reader-settings-panel">
+              {/* Tamanho da fonte */}
+              <div className="reader-settings-row">
+                <span className="reader-settings-label">{t('pages.livro.fonte')}</span>
+                <div className="reader-settings-group">
+                  <button
+                    className="reader-settings-btn"
+                    onClick={() => setFontSize(s => Math.max(14, s - 2))}
+                  >
+                    A−
+                  </button>
+                  <span className="reader-settings-value">{fontSize}px</span>
+                  <button
+                    className="reader-settings-btn"
+                    onClick={() => setFontSize(s => Math.min(24, s + 2))}
+                  >
+                    A+
+                  </button>
+                </div>
+              </div>
+
+              {/* Família da fonte */}
+              <div className="reader-settings-row">
+                <span className="reader-settings-label">{t('pages.livro.tipo')}</span>
+                <div className="reader-settings-group">
+                  {FONT_FAMILIES.map(f => (
+                    <button
+                      key={f.value}
+                      className={`reader-settings-btn${fontFamily === f.value ? ' reader-settings-btn--active' : ''}`}
+                      onClick={() => setFontFamily(f.value)}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Largura do conteúdo */}
+              <div className="reader-settings-row">
+                <span className="reader-settings-label">{t('pages.livro.largura')}</span>
+                <div className="reader-settings-group">
+                  {WIDTHS.map(w => (
+                    <button
+                      key={w.value}
+                      className={`reader-settings-btn${contentWidth === w.value ? ' reader-settings-btn--active' : ''}`}
+                      onClick={() => setContentWidth(w.value)}
+                    >
+                      {w.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         <div className="livro-capitulo__header">
           <div className="livro-capitulo__header-numero">
             {chapter ? `${t('pages.livro.capitulo')} ${String(chapter.numero).padStart(2, '0')}` : ''}
@@ -126,7 +213,14 @@ export default function LivroCapitulo() {
           {chapter && <h1 className="livro-capitulo__header-titulo">{chapter[tituloKey]}</h1>}
         </div>
 
-        <div className="livro-capitulo__content">
+        <div
+          className="livro-capitulo__content"
+          style={{
+            '--reader-font-size': `${fontSize}px`,
+            '--reader-font-family': fontFamily,
+            '--reader-max-width': contentWidth,
+          }}
+        >
           <ReactMarkdown>{md}</ReactMarkdown>
         </div>
 

@@ -2410,7 +2410,18 @@
       "premium": "PREMIUM",
       "nao_encontrado": "Este capítulo aún no ha sido publicado.",
       "voltar_indice": "← VOLVER AL ÍNDICE",
-      "capitulo": "CAPÍTULO"
+      "capitulo": "CAPÍTULO",
+      "config_leitura": "Configuraciones de lectura",
+      "fonte": "Fuente",
+      "tipo": "Tipo",
+      "largura": "Ancho",
+      "estreito": "Estrecho",
+      "medio": "Medio",
+      "largo": "Ancho",
+      "padrao": "Por defecto",
+      "serif": "Serif",
+      "sans": "Sans",
+      "mono": "Mono"
     },
     "webtoon": {
       "titulo": "WEBTOON",
