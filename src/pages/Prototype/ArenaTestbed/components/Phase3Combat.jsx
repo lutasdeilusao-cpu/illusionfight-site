@@ -145,6 +145,19 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }
 
+  /** Inicia o turno de um jogador — seta ordem, índice e entra na subfase de movimento */
+  function startPlayerTurn(order, startIndex) {
+    setTurnOrder(order)
+    setCurrentTurn(startIndex)
+    const firstChar = characters.find(c => c.id === order[startIndex])
+    if (firstChar?.time === 'ia') {
+      setPhase('enemy_turn')
+      setTimeout(() => executarIA(firstChar), 1000)
+    } else if (firstChar) {
+      enterSubPhase('movimento', firstChar)
+    }
+  }
+
 /** Entra em uma subfase do turno (movimento ou acao) */
   function enterSubPhase(sub, char) {
     if (!char) return
