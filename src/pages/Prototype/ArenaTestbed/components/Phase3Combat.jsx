@@ -61,6 +61,9 @@ function pixelToHex(px, py, cols, rows, padX, padY, size) {
   return closest
 }
 
+/** Nomes das subfases do turno do jogador */
+const SUB_PHASES = ['movimento', 'ataque', 'item']
+
 export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
@@ -77,7 +80,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   )
   const [turnOrder, setTurnOrder] = useState([])
   const [currentTurn, setCurrentTurn] = useState(0)
-  const [phase, setPhase] = useState('prepare') // prepare | movement | action | enemy_turn | resultado
+  const [phase, setPhase] = useState('prepare')
+  // prepare | resultado | enemy_turn
+  // subPhase controla as 3 fases do turno do jogador: movimento | ataque | item
+  const [subPhase, setSubPhase] = useState(null)
   const [highlightedCells, setHighlightedCells] = useState([])
   const [attackCells, setAttackCells] = useState([])
   const [battleLog, setBattleLog] = useState([])
@@ -89,10 +95,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
 
+  // FIX 5: usar refs para evitar closures obsoletas na IA
+  const charsRef = useRef(characters)
+  const turnRef = useRef(currentTurn)
+  const orderRef = useRef(turnOrder)
+  useEffect(() => { charsRef.current = characters }, [characters])
+  useEffect(() => { turnRef.current = currentTurn }, [currentTurn])
+  useEffect(() => { orderRef.current = turnOrder }, [turnOrder])
+
   // Remaining movement for current char
   const [remainingMove, setRemainingMove] = useState(0)
-  const [hasActed, setHasActed] = useState(false)
-  const [hasMoved, setHasMoved] = useState(false)
 
   // Initialize turn order
   useEffect(() => {
@@ -113,7 +125,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setJokenpoNeeded(ties[0])
     } else {
       setTurnOrder(sorted.map(ch => ch.id))
-      setPhase('movement')
+      startPlayerTurn(sorted.map(ch => ch.id), 0)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -121,37 +133,52 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const tieGroup = jokenpoNeeded
     const remaining = pendingJokenpo.slice(1)
     setPendingJokenpo(remaining)
-
-    // Reorder the tie group: winner first, then random
-    const sorted = [...tieGroup]
-    if (winnerName) {
-      const winner = sorted.find(c => c.nome === winnerName)
-      const rest = sorted.filter(c => c.nome !== winnerName)
-      // Winner first, rest in random order
-      for (let i = rest.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [rest[i], rest[j]] = [rest[j], rest[i]]
-      }
-      const reordered = [winner, ...rest]
-      // Update positions in tie group
-      setTurnOrder(prev => {
-        const currentOrder = characters.filter(c => c.vivo).sort((a, b) => b.agi - a.agi)
-        // Replace the tied positions
-        return currentOrder.map(ch => ch.id)
-      })
-    }
-
     setJokenpoNeeded(null)
 
-    if (remaining.length > 0) {
-      // Next tie group
-      setTimeout(() => setJokenpoNeeded(remaining[0]), 500)
-    } else {
-      // All ties resolved, build final order
+    if (!remaining.length) {
       const alive = characters.filter(c => c.vivo)
       const sorted = [...alive].sort((a, b) => b.agi - a.agi)
       setTurnOrder(sorted.map(ch => ch.id))
-      setPhase('movement')
+      startPlayerTurn(sorted.map(ch => ch.id), 0)
+    } else {
+      setTimeout(() => setJokenpoNeeded(remaining[0]), 500)
+    }
+  }
+
+/** Entra em uma subfase do turno (movimento ou acao) */
+  function enterSubPhase(sub, char) {
+    if (!char) return
+    if (sub === 'movimento') {
+      const moveCells = getCelulasAlcance(
+        char.posicao.row, char.posicao.col,
+        getCasasMovimento(char.agi),
+        cols, rows, obstaculos
+      )
+      const freeCells = moveCells.filter(c => {
+        const occupied = characters.some(ch =>
+          ch.vivo && ch.id !== char.id && ch.posicao?.row === c.row && ch.posicao?.col === c.col
+        )
+        const hasObstacle = obstaculos[`${c.row}_${c.col}`]?.tipo === 1
+        return !occupied && !hasObstacle
+      })
+      setHighlightedCells(freeCells)
+      setAttackCells([])
+      setRemainingMove(getCasasMovimento(char.agi))
+      setSubPhase('movimento')
+      setPhase(null)
+    } else if (sub === 'acao') {
+      const atkCells = getCelulasAtaque(
+        char.posicao.row, char.posicao.col,
+        char.tipoAtaque, cols, rows,
+        char.tipoAtaque === 'melee' ? 1 : 4
+      )
+      const enemyCells = atkCells.filter(c =>
+        characters.some(ch => ch.vivo && ch.time !== char.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
+      )
+      setAttackCells(enemyCells)
+      setHighlightedCells([])
+      setSubPhase('acao')
+      setPhase(null)
     }
   }
 
@@ -161,6 +188,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }, [characters, turnOrder, currentTurn])
 
   const isPlayerTurn = currentChar?.time === 'jogador'
+
+  /** Label traduzido da subfase */
+  const subPhaseLabel = useMemo(() => {
+    if (!subPhase) return ''
+    return subPhase === 'movimento'
+      ? t('prototype.arena_testbed.subphase_move')
+      : t('prototype.arena_testbed.subphase_action')
+  }, [subPhase, t])
 
   // Draw canvas
   const draw = useCallback(() => {
@@ -213,7 +248,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
         drawHex(ctx, center, HEX_SIZE, fill, stroke)
 
-        // Character
         if (ch) {
           const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, HEX_SIZE * 0.65)
           if (ch.time === 'jogador') {
@@ -237,7 +271,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.textBaseline = 'middle'
           ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y - 2)
 
-          // HP bar
           const barW = HEX_SIZE * 0.9
           const barH = 4
           const barX = center.x - barW / 2
@@ -270,39 +303,30 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     const { row, col } = hex
 
-    if (phase === 'movement') {
-      // Move if cell is highlighted
+    if (subPhase === 'movimento') {
       if (highlightedCells.some(c => c.row === row && c.col === col)) {
-        moveCharacter(row, col)
+        moverPersonagem(row, col)
       }
-    } else if (phase === 'action') {
-      // Attack if cell is in attack range
+    } else if (subPhase === 'acao') {
       if (attackCells.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
-        if (target) {
-          executeAttack(target)
-        }
-      } else if (highlightedCells.some(c => c.row === row && c.col === col)) {
-        moveCharacter(row, col)
+        if (target) executarAtaque(target)
       }
     }
   }
 
-  function moveCharacter(row, col) {
-    if (!currentChar || hasActed) return
+  function moverPersonagem(row, col) {
+    if (!currentChar) return
     setCharacters(prev =>
       prev.map(c =>
-        c.id === currentChar.id
-          ? { ...c, posicao: { row, col } }
-          : c
+        c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
       )
     )
-    addLog(`[${currentChar.nome}]({${currentChar.time === 'jogador' ? 'JOGADOR' : 'IA'}}) Moveu para (${row}, ${col})`)
-    setHasMoved(true)
+    addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
     setHighlightedCells([])
     setRemainingMove(0)
 
-    // Check for item on ground
+    // Coleta item do chão
     const key = `${row}_${col}`
     if (itensChaoAtual[key]) {
       const item = itensChaoAtual[key]
@@ -319,27 +343,33 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             : c
         )
       )
-      setItensChaoAtual(prev => {
-        const next = { ...prev }
-        delete next[key]
-        return next
-      })
+      setItensChaoAtual(prev => { const n = { ...prev }; delete n[key]; return n })
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
 
-    if (!hasActed) {
-      setPhase('action')
-    } else {
-      finishTurn()
-    }
+    // Vai para fase de ação
+    enterSubPhase('acao', currentChar)
   }
 
-  function executeAttack(target) {
+  function pularMovimento() {
+    if (!currentChar) return
+    addLog(`[${currentChar.nome}] Pulou a fase de movimento.`)
+    setHighlightedCells([])
+    enterSubPhase('acao', currentChar)
+  }
+
+  function pularAcao() {
+    if (!currentChar) return
+    addLog(`[${currentChar.nome}] Pulou a fase de ação.`)
+    setAttackCells([])
+    finalizarTurno()
+  }
+
+  function executarAtaque(target) {
     if (!currentChar || animating) return
     setAnimating(true)
     setAttackCells([])
 
-    // Roll d6 for attacker
     const d6Val = rolarD6()
     setD6Result(d6Val)
 
@@ -350,48 +380,38 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     resultado.logs.forEach(l => addLog(`  ${l}`))
 
     if (resultado.criticoDefensivo) {
-      // Contra-ataque
       setTimeout(() => {
         const contra = resolverContraAtaque(target, currentChar, resultado.fa / 2)
         contra.logs.forEach(l => addLog(`  ↺ ${l}`))
         if (contra.dano > 0) {
           setCharacters(prev =>
             prev.map(c =>
-              c.id === currentChar.id
-                ? { ...c, hp: Math.max(0, c.hp - contra.dano) }
-                : c
+              c.id === currentChar.id ? { ...c, hp: Math.max(0, c.hp - contra.dano) } : c
             )
           )
           addLog(`  ${currentChar.nome} recebe ${contra.dano} de dano do contra-ataque!`)
         }
-
-        // Ataque extra
         if (resultado.ataqueExtra) {
           handleAtaqueExtra(currentChar, target, resultado.fa)
         } else {
-          finishAfterAttack(target, resultado)
+          finalizarAposAtaque(target, resultado)
         }
       }, 800)
     } else {
-      // Apply damage
       if (resultado.dano > 0) {
         setCharacters(prev =>
           prev.map(c =>
-            c.id === target.id
-              ? { ...c, hp: Math.max(0, c.hp - resultado.dano) }
-              : c
+            c.id === target.id ? { ...c, hp: Math.max(0, c.hp - resultado.dano) } : c
           )
         )
         addLog(`  💥 ${target.nome} recebe ${resultado.dano} de dano!`)
       } else {
         addLog(`  🛡️ Nenhum dano causado!`)
       }
-
-      // Ataque extra
       if (resultado.ataqueExtra) {
         setTimeout(() => handleAtaqueExtra(currentChar, target, resultado.fa), 800)
       } else {
-        setTimeout(() => finishAfterAttack(target, resultado), 500)
+        setTimeout(() => finalizarAposAtaque(target, resultado), 500)
       }
     }
   }
@@ -399,42 +419,34 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   function handleAtaqueExtra(atacante, alvo, faBase) {
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
-
-    const d6Atk = rolarD6()
-    // Simplified extra attack
     const danoExtra = Math.max(1, Math.round(faExtra - (alvo.arm + alvo.agi * 0.25)))
     if (danoExtra > 0) {
       setCharacters(prev =>
-        prev.map(c =>
-          c.id === alvo.id
-            ? { ...c, hp: Math.max(0, c.hp - danoExtra) }
-            : c
-        )
+        prev.map(c => c.id === alvo.id ? { ...c, hp: Math.max(0, c.hp - danoExtra) } : c)
       )
       addLog(`  💥 Dano extra: ${danoExtra}`)
     }
-    finishAfterAttack(alvo, { dano: danoExtra })
+    finalizarAposAtaque(alvo, { dano: danoExtra })
   }
 
-  function finishAfterAttack(target, resultado) {
+  function finalizarAposAtaque(alvo, resultado) {
     setAnimating(false)
     setD6Result(null)
-    setHasActed(true)
 
-    // Check if target died
-    const updatedTarget = characters.find(c => c.id === target.id)
-    if (updatedTarget && updatedTarget.hp <= 0) {
+    // Verifica morte
+    const updated = characters.find(c => c.id === alvo.id)
+    if (updated && alvo.hp - (resultado.dano || 0) <= 0) {
       setCharacters(prev =>
-        prev.map(c => c.id === target.id ? { ...c, vivo: false } : c)
+        prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
       )
-      addLog(`💀 ${target.nome} foi derrotado!`)
+      addLog(`💀 ${alvo.nome} foi derrotado!`)
     }
 
-    finishTurn()
+    finalizarTurno()
   }
 
-  function useItem(tipo) {
-    if (!currentChar || animating || hasActed) return
+  function usarItem(tipo) {
+    if (!currentChar || animating) return
     const key = tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
     const qty = currentChar.inventario?.[key] || 0
     if (qty <= 0) return
@@ -443,9 +455,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       prev.map(c => {
         if (c.id !== currentChar.id) return c
         const newQty = (c.inventario?.[key] || 0) - 1
-        const bonus = tipo === 'hp' ? 5 : 5
         const max = tipo === 'hp' ? c.hpMax : c.mpMax
-        const newVal = Math.min(max, (tipo === 'hp' ? c.hp : c.mp) + bonus)
+        const newVal = Math.min(max, (tipo === 'hp' ? c.hp : c.mp) + 5)
         return {
           ...c,
           [tipo === 'hp' ? 'hp' : 'mp']: newVal,
@@ -454,189 +465,136 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       })
     )
     addLog(`💊 ${currentChar.nome} usou Poção ${tipo === 'hp' ? 'HP' : 'MP'}! (+5)`)
-    setHasActed(true)
-    finishTurn()
+    finalizarTurno()
   }
 
-  function finishTurn() {
-    // Check win condition
-    const playerAlive = characters.filter(c => c.vivo && c.time === 'jogador')
-    const iaAlive = characters.filter(c => c.vivo && c.time === 'ia')
+  function verificarVitoria() {
+    const pVivos = characters.filter(c => c.vivo && c.time === 'jogador')
+    const iVivos = characters.filter(c => c.vivo && c.time === 'ia')
+    if (pVivos.length === 0) { setWinner('ia'); setPhase('resultado'); addLog('🏆 IA venceu a partida!'); return true }
+    if (iVivos.length === 0) { setWinner('jogador'); setPhase('resultado'); addLog('🏆 Jogador venceu a partida!'); return true }
+    return false
+  }
 
-    if (playerAlive.length === 0) {
-      setWinner('ia')
-      setPhase('resultado')
-      addLog('🏆 IA venceu a partida!')
-      return
-    }
-    if (iaAlive.length === 0) {
-      setWinner('jogador')
-      setPhase('resultado')
-      addLog('🏆 Jogador venceu a partida!')
-      return
-    }
+  function finalizarTurno() {
+    if (verificarVitoria()) return
 
-    // Next turn
-    const nextTurn = (currentTurn + 1) % turnOrder.length
-    setCurrentTurn(nextTurn)
-    setHasActed(false)
-    setHasMoved(false)
+    setSubPhase(null)
 
-    const nextChar = characters.find(c => c.id === turnOrder[nextTurn])
+    // FIX 5: usar refs para garantir valores atuais
+    const order = orderRef.current
+    const turnIdx = turnRef.current
+    const nextIdx = (turnIdx + 1) % order.length
+    const nextId = order[nextIdx]
+    const chars = charsRef.current
+    const nextChar = chars.find(c => c.id === nextId)
+
+    setCurrentTurn(nextIdx)
+
     if (nextChar?.time === 'ia') {
       setPhase('enemy_turn')
-      setTimeout(() => executeIA(nextChar), 1000)
-    } else {
-      startMovementPhase(nextChar)
+      setTimeout(() => executarIA(nextChar), 1000)
+    } else if (nextChar) {
+      enterSubPhase('movimento', nextChar)
     }
   }
 
-  function startMovementPhase(char) {
-    if (!char) return
-    const moveCells = getCelulasAlcance(
-      char.posicao.row, char.posicao.col,
-      getCasasMovimento(char.agi),
-      cols, rows, obstaculos
-    )
-    // Filter out cells occupied by other characters
-    const freeCells = moveCells.filter(c => {
-      const occupied = characters.some(ch =>
-        ch.vivo && ch.id !== char.id && ch.posicao?.row === c.row && ch.posicao?.col === c.col
-      )
-      const hasObstacle = obstaculos[`${c.row}_${c.col}`]?.tipo === 1
-      return !occupied && !hasObstacle
-    })
-    setHighlightedCells(freeCells)
-    setRemainingMove(getCasasMovimento(char.agi))
-    setPhase('movement')
-  }
-
-  // IA execution
-  function executeIA(iaChar) {
+  // ── IA ─────────────────────────────────────────────
+  function executarIA(iaChar) {
     setIaThinking(true)
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
 
-    // Phase 1: Movement (with delay)
+    // Fase Movimento (delay 1s)
     setTimeout(() => {
-      addLog(`  ${iaChar.nome} está pensando... (Fase de Movimento)`)
-      const playerChars = characters.filter(c => c.vivo && c.time === 'jogador')
-      const iaChars = characters.filter(c => c.vivo && c.time === 'ia')
+      const charsAgora = charsRef.current
+      const iaAtual = charsAgora.find(c => c.id === iaChar.id)
+      if (!iaAtual || !iaAtual.vivo) {
+        setIaThinking(false)
+        finalizarTurno()
+        return
+      }
+      addLog(`  ${iaChar.nome} — Fase: Movimento`)
 
-      const decisao = decidirAcaoIA(
-        iaChar, playerChars, characters, obstaculos, cols, rows, itensChaoAtual
-      )
+      const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
+      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
 
-      if (decisao.tipo === 'andar') {
+      if (dec.tipo === 'andar') {
         setCharacters(prev =>
-          prev.map(c =>
-            c.id === iaChar.id
-              ? { ...c, posicao: { row: decisao.detalhes.row, col: decisao.detalhes.col } }
-              : c
-          )
+          prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: dec.detalhes.row, col: dec.detalhes.col } } : c)
         )
-        decisao.logs.forEach(l => addLog(`  ${l}`))
+        dec.logs.forEach(l => addLog(`  ${l}`))
+      } else {
+        addLog(`  ${iaChar.nome} não se moveu.`)
       }
 
-      // Phase 2: Action (with more delay)
+      // Fase Ação (delay 1.5s)
       setTimeout(() => {
-        addLog(`  ${iaChar.nome} está decidindo ação... (Fase de Ação)`)
+        const charsAgora2 = charsRef.current
+        const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
+        if (!iaAtual2 || !iaAtual2.vivo) {
+          setIaThinking(false)
+          finalizarTurno()
+          return
+        }
+        addLog(`  ${iaChar.nome} — Fase: Ação`)
 
-        const decisao2 = decidirAcaoIA(
-          characters.find(c => c.id === iaChar.id) || iaChar,
-          characters.filter(c => c.vivo && c.time === 'jogador'),
-          characters, obstaculos, cols, rows, itensChaoAtual
-        )
+        const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
+        const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
 
-        if (decisao2.tipo === 'atacar') {
-          const target = decisao2.detalhes.alvo
-          const resultado = decisao2.detalhes.resultado
-
-          if (resultado.dano > 0) {
+        if (dec2.tipo === 'atacar') {
+          const alvo = dec2.detalhes.alvo
+          const res = dec2.detalhes.resultado
+          if (res.dano > 0) {
             setCharacters(prev =>
-              prev.map(c =>
-                c.id === target.id
-                  ? { ...c, hp: Math.max(0, c.hp - resultado.dano) }
-                  : c
-              )
+              prev.map(c => c.id === alvo.id ? { ...c, hp: Math.max(0, c.hp - res.dano) } : c)
             )
           }
+          dec2.logs.forEach(l => addLog(`  ${l}`))
 
-          decisao2.logs.forEach(l => addLog(`  ${l}`))
-
-          // Check for death
-          const updatedTarget = characters.find(c => c.id === target.id)
-          if (updatedTarget && target.hp - resultado.dano <= 0) {
+          // Verifica morte
+          const alvoAtual = charsAgora2.find(c => c.id === alvo.id)
+          if (alvoAtual && alvo.hp - res.dano <= 0) {
             setTimeout(() => {
-              setCharacters(prev =>
-                prev.map(c => c.id === target.id ? { ...c, vivo: false } : c)
-              )
-              addLog(`💀 ${target.nome} foi derrotado!`)
+              setCharacters(prev => prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c))
+              addLog(`💀 ${alvo.nome} foi derrotado!`)
             }, 300)
           }
         } else {
-          decisao2.logs.forEach(l => addLog(`  ${l}`))
+          dec2.logs.forEach(l => addLog(`  ${l}`))
         }
 
-        // Finalizar turno da IA
+        // Finaliza turno IA
         setTimeout(() => {
           setIaThinking(false)
           addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
 
-          // Check win condition
-          const pAlive = characters.filter(c => c.vivo && c.time === 'jogador')
-          const iAlive = characters.filter(c => c.vivo && c.time === 'ia')
+          if (verificarVitoria()) return
 
-          if (pAlive.length === 0) {
-            setWinner('ia')
-            setPhase('resultado')
-            addLog('🏆 IA venceu a partida!')
-            return
-          }
-          if (iAlive.length === 0) {
-            setWinner('jogador')
-            setPhase('resultado')
-            addLog('🏆 Jogador venceu a partida!')
-            return
-          }
+          const order3 = orderRef.current
+          const turnIdx3 = turnRef.current
+          const nextIdx3 = (turnIdx3 + 1) % order3.length
+          const nextId3 = order3[nextIdx3]
+          const chars3 = charsRef.current
+          const nextChar3 = chars3.find(c => c.id === nextId3)
 
-          const nextTurn = (currentTurn + 1) % turnOrder.length
-          setCurrentTurn(nextTurn)
-          setHasActed(false)
-          setHasMoved(false)
+          setCurrentTurn(nextIdx3)
 
-          const nextChar = characters.find(c => c.id === turnOrder[nextTurn])
-          if (nextChar?.time === 'ia') {
+          if (nextChar3?.time === 'ia') {
             setPhase('enemy_turn')
-            setTimeout(() => executeIA(nextChar), 1200)
-          } else if (nextChar) {
-            startMovementPhase(nextChar)
+            setTimeout(() => executarIA(nextChar3), 1200)
+          } else if (nextChar3) {
+            enterSubPhase('movimento', nextChar3)
           }
         }, 800)
-      }, 1200)
-    }, 800)
+      }, 1500)
+    }, 1000)
   }
 
   function addLog(text) {
     setBattleLog(prev => [...prev, { text, time: Date.now() }])
   }
 
-  // Start action phase (when player clicks "Ação" button)
-  function startActionPhase() {
-    if (!currentChar) return
-    const atkCells = getCelulasAtaque(
-      currentChar.posicao.row, currentChar.posicao.col,
-      currentChar.tipoAtaque, cols, rows,
-      currentChar.tipoAtaque === 'melee' ? 1 : 4
-    )
-    // Filter only cells with enemies
-    const enemyCells = atkCells.filter(c => {
-      return characters.some(ch => ch.vivo && ch.time !== currentChar.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
-    })
-    setAttackCells(enemyCells)
-    setHighlightedCells([])
-    setPhase('action')
-  }
-
+  // ── Render ─────────────────────────────────────────
   if (phase === 'prepare') {
     return (
       <div className="tab-combat-phase-loading">
@@ -653,13 +611,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             ? t('prototype.arena_testbed.victory_player')
             : t('prototype.arena_testbed.victory_ia')}
           </h2>
-          <p className="tab-combat-result-sub">
-            {t('prototype.arena_testbed.match_over')}
-          </p>
-          <button
-            className="tab-btn tab-btn-primary"
-            onClick={onBackToPhase1}
-          >
+          <p className="tab-combat-result-sub">{t('prototype.arena_testbed.match_over')}</p>
+          <button className="tab-btn tab-btn-primary" onClick={onBackToPhase1}>
             {t('prototype.arena_testbed.play_again')}
           </button>
         </div>
@@ -678,11 +631,18 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       )}
 
       <div className="tab-combat-header">
-        <h3>{t('prototype.arena_testbed.phase3_title')}</h3>
+        <div className="tab-combat-header-left">
+          <h3>{t('prototype.arena_testbed.phase3_title')}</h3>
+        </div>
         <div className="tab-combat-turn-info">
           {currentChar && (
             <span className={`tab-combat-turn-char ${currentChar.time}`}>
               {t('prototype.arena_testbed.turn_of')} {currentChar.nome}
+              {!iaThinking && isPlayerTurn && subPhase && (
+                <span className="tab-combat-subphase-badge">
+                  {' — '}{t('prototype.arena_testbed.phase_label')}: {subPhaseLabel}
+                </span>
+              )}
               {iaThinking && ` (${t('prototype.arena_testbed.thinking')})`}
             </span>
           )}
@@ -690,47 +650,31 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       </div>
 
       <div className="tab-combat-body">
-        {/* Canvas board */}
         <div className="tab-combat-board">
-          <canvas
-            ref={canvasRef}
-            className="tab-combat-canvas"
-            onClick={handleCanvasClick}
-          />
+          <canvas ref={canvasRef} className="tab-combat-canvas" onClick={handleCanvasClick} />
         </div>
 
-        {/* Side panel */}
         <div className="tab-combat-side">
-          {/* Character status */}
+          {/* Status dos personagens */}
           <div className="tab-combat-status">
             <h4>{t('prototype.arena_testbed.characters')}</h4>
             {characters.filter(c => c.vivo).map(ch => (
-              <div
-                key={ch.id}
-                className={`tab-combat-char-card ${ch.id === currentChar?.id ? 'active' : ''} ${!ch.vivo ? 'dead' : ''}`}
-              >
+              <div key={ch.id} className={`tab-combat-char-card ${ch.id === currentChar?.id ? 'active' : ''}`}>
                 <div className="tab-combat-char-name">
-                  <span className={`tab-combat-team-dot ${ch.time}`} />
-                  {ch.nome}
+                  <span className={`tab-combat-team-dot ${ch.time}`} /> {ch.nome}
                 </div>
                 <div className="tab-combat-char-bars">
                   <div className="tab-combat-bar-row">
                     <span className="tab-combat-bar-label hp">HP</span>
                     <div className="tab-combat-bar-track">
-                      <div
-                        className="tab-combat-bar-fill hp"
-                        style={{ width: `${(ch.hp / ch.hpMax) * 100}%` }}
-                      />
+                      <div className="tab-combat-bar-fill hp" style={{ width: `${(ch.hp / ch.hpMax) * 100}%` }} />
                     </div>
                     <span className="tab-combat-bar-val">{Math.ceil(ch.hp)}/{ch.hpMax}</span>
                   </div>
                   <div className="tab-combat-bar-row">
                     <span className="tab-combat-bar-label mp">MP</span>
                     <div className="tab-combat-bar-track">
-                      <div
-                        className="tab-combat-bar-fill mp"
-                        style={{ width: `${(ch.mp / ch.mpMax) * 100}%` }}
-                      />
+                      <div className="tab-combat-bar-fill mp" style={{ width: `${(ch.mp / ch.mpMax) * 100}%` }} />
                     </div>
                     <span className="tab-combat-bar-val">{Math.ceil(ch.mp)}/{ch.mpMax}</span>
                   </div>
@@ -739,91 +683,67 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             ))}
           </div>
 
-          {/* Combat controls */}
+          {/* ── Controles do jogador ────────────────── */}
           {isPlayerTurn && !iaThinking && (
             <div className="tab-combat-controls">
-              {phase === 'movement' && !hasActed && (
+              {subPhase === 'movimento' && (
                 <>
+                  <p className="tab-combat-phase-title">
+                    🔵 {t('prototype.arena_testbed.subphase_move')}
+                  </p>
                   <p className="tab-combat-hint">
                     {t('prototype.arena_testbed.move_hint', { moves: remainingMove })}
                   </p>
-                  <button
-                    className="tab-btn tab-btn-secondary"
-                    onClick={startActionPhase}
-                    disabled={hasActed}
-                  >
-                    {t('prototype.arena_testbed.action_phase')} ⚔️
+                  <button className="tab-btn tab-btn-secondary" onClick={pularMovimento}>
+                    ⏭️ {t('prototype.arena_testbed.skip_move')}
                   </button>
                 </>
               )}
-              {phase === 'action' && !hasActed && (
+
+              {subPhase === 'acao' && (
                 <>
+                  <p className="tab-combat-phase-title">
+                    🔴 {t('prototype.arena_testbed.subphase_action')}
+                  </p>
                   <p className="tab-combat-hint">
-                    {hasMoved
-                      ? t('prototype.arena_testbed.action_or_move_hint')
-                      : t('prototype.arena_testbed.attack_hint')}
+                    {t('prototype.arena_testbed.attack_or_item_hint')}
                   </p>
                   <div className="tab-combat-action-btns">
                     <button
                       className="tab-btn tab-btn-primary"
-                      onClick={() => {
-                        if (attackCells.length > 0) {
-                          // Attack via clicking canvas
-                        }
-                      }}
                       disabled={attackCells.length === 0}
                     >
-                      {t('prototype.arena_testbed.attack_btn')}
                       {currentChar?.tipoAtaque === 'melee'
-                        ? ` (${t('prototype.arena_testbed.melee_short')})`
-                        : ` (${t('prototype.arena_testbed.distance_short')})`
+                        ? `${t('prototype.arena_testbed.attack_btn')} (${t('prototype.arena_testbed.melee_short')})`
+                        : `${t('prototype.arena_testbed.attack_btn')} (${t('prototype.arena_testbed.distance_short')})`
                       }
                     </button>
                     {currentChar?.inventario?.pocaoHP > 0 && (
-                      <button
-                        className="tab-btn tab-btn-secondary"
-                        onClick={() => useItem('hp')}
-                      >
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
                         ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
                       </button>
                     )}
                     {currentChar?.inventario?.pocaoMP > 0 && (
-                      <button
-                        className="tab-btn tab-btn-secondary"
-                        onClick={() => useItem('mp')}
-                      >
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
                         💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
                       </button>
                     )}
                   </div>
-                  <button
-                    className="tab-btn tab-btn-gold"
-                    onClick={finishTurn}
-                  >
-                    {t('prototype.arena_testbed.end_turn')}
+                  <button className="tab-btn tab-btn-gold" onClick={pularAcao}>
+                    ⏭️ {t('prototype.arena_testbed.skip_action')}
                   </button>
                 </>
-              )}
-              {hasActed && (
-                <button
-                  className="tab-btn tab-btn-gold"
-                  onClick={finishTurn}
-                >
-                  {t('prototype.arena_testbed.end_turn')}
-                </button>
               )}
             </div>
           )}
 
           {iaThinking && (
             <div className="tab-combat-ia-thinking">
-              <span className="tab-combat-ia-dots">
-                {t('prototype.arena_testbed.ia_thinking')}
-              </span>
+              <span className="tab-combat-ia-dots">{t('prototype.arena_testbed.ia_thinking')}</span>
             </div>
           )}
 
-          {/* Battle Log */}
+          {/* Log */}
           <div className="tab-combat-log">
             <h4>{t('prototype.arena_testbed.battle_log')}</h4>
             <div className="tab-combat-log-list">

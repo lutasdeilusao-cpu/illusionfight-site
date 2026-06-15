@@ -2820,7 +2820,17 @@
       "jokenpo_papel": "Papel",
       "jokenpo_tesoura": "Tijeras",
       "jokenpo_tie": "¡Empate! Nadie ganó ventaja.",
-      "jokenpo_winner": "{{winner}} ganó el Piedra-Papel-Tijeras!"
+      "jokenpo_winner": "{{winner}} ganó el Piedra-Papel-Tijeras!",
+      "budget_label": "Presupuesto de Puntos",
+      "budget_points": "puntos",
+      "points_remaining": "Puntos Restantes",
+      "budget_warning": "Distribuye todos los puntos antes de continuar.",
+      "subphase_move": "Movimiento",
+      "subphase_action": "Acción",
+      "phase_label": "Fase",
+      "skip_move": "Saltar Movimiento",
+      "skip_action": "Saltar Acción",
+      "attack_or_item_hint": "Haz clic en un enemigo en el tablero para atacar O usa un objeto abajo."
     }
   }
 }

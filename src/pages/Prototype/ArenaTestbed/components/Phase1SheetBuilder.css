@@ -279,9 +279,68 @@
 .tab-fase1-summary-val.hp-color { color: #4caf50; }
 .tab-fase1-summary-val.mp-color { color: #42a5f5; }
 
+/* ── Budget / Orçamento ─────────────────────────── */
+.tab-fase1-budget {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  border-top: 1px solid #2e2e3a;
+  border-bottom: 1px solid #2e2e3a;
+}
+
+.tab-fase1-budget-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #141418;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+}
+
+.tab-fase1-budget-counter.zero {
+  border-color: #4caf50;
+}
+
+.tab-fase1-budget-counter.negativo {
+  border-color: #c0392b;
+}
+
+.tab-fase1-budget-label {
+  font-size: 0.75rem;
+  color: #7a7570;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tab-fase1-budget-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #c9a84c;
+}
+
+.tab-fase1-budget-counter.zero .tab-fase1-budget-value {
+  color: #4caf50;
+}
+
+.tab-fase1-budget-counter.negativo .tab-fase1-budget-value {
+  color: #c0392b;
+}
+
+.tab-fase1-warning {
+  font-size: 0.8rem;
+  color: #c9a84c;
+  margin: 0 0 10px;
+  text-align: center;
+  font-style: italic;
+}
+
 .tab-fase1-footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 16px;
   border-top: 1px solid #2e2e3a;
 }

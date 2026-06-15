@@ -534,11 +534,11 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.93.0** 🛠️ | Site — Arena Testbed: protótipo de combate GDD v0.1 no /prototype |
+| `SITE_VERSION` | **10.94.0** 🛠️ | Site — Arena Testbed: fixes fase1 (orçamento, RES), fase3 (3 subfases, skip, IA loop) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
-| `ARENA_VERSION` | **1.28.0** | Arena LDI — Testbed: protótipo de combate GDD v0.1 (3 fases: fichas, tabuleiro, partida) |
+| `ARENA_VERSION` | **1.29.0** | Arena LDI — Testbed: fixes fase1 (orçamento, RES), fase3 (3 subfases, skip, IA loop) |
 | `TAMA_VERSION` | **2.5.1** | Tamagoshi LDI — guest aviso no termo (título, texto explicativo, link cadastro) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |

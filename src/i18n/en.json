@@ -2820,7 +2820,17 @@
       "jokenpo_papel": "Paper",
       "jokenpo_tesoura": "Scissors",
       "jokenpo_tie": "Tie! Nobody gained advantage.",
-      "jokenpo_winner": "{{winner}} won Rock-Paper-Scissors!"
+      "jokenpo_winner": "{{winner}} won Rock-Paper-Scissors!",
+      "budget_label": "Point Budget",
+      "budget_points": "points",
+      "points_remaining": "Points Remaining",
+      "budget_warning": "Allocate all points before continuing.",
+      "subphase_move": "Movement",
+      "subphase_action": "Action",
+      "phase_label": "Phase",
+      "skip_move": "Skip Movement",
+      "skip_action": "Skip Action",
+      "attack_or_item_hint": "Click an enemy on the board to attack OR use an item below."
     }
   }
 }

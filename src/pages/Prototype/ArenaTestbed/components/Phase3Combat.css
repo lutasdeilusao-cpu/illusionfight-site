@@ -315,3 +315,43 @@
   color: #7a7570;
   font-style: italic;
 }
+
+/* ── New: phase indicator in header ─────────────── */
+.tab-combat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-combat-subphase-badge {
+  color: #c9a84c;
+  font-weight: 600;
+}
+
+/* ── Phase title inside controls ────────────────── */
+.tab-combat-phase-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+/* ── Skip buttons ───────────────────────────────── */
+.tab-btn-skip {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  padding: 8px 16px;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+  background: transparent;
+  color: #7a7570;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab-btn-skip:hover {
+  border-color: #7a6530;
+  color: #c9a84c;
+}

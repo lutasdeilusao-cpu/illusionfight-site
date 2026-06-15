@@ -2847,7 +2847,17 @@
       "jokenpo_papel": "Papel",
       "jokenpo_tesoura": "Tesoura",
       "jokenpo_tie": "Empate! Ninguém ganhou vantagem.",
-      "jokenpo_winner": "{{winner}} venceu o Jokenpô!"
+      "jokenpo_winner": "{{winner}} venceu o Jokenpô!",
+      "budget_label": "Orçamento de Pontos",
+      "budget_points": "pontos",
+      "points_remaining": "Pontos Restantes",
+      "budget_warning": "Distribua todos os pontos antes de continuar.",
+      "subphase_move": "Movimento",
+      "subphase_action": "Ação",
+      "phase_label": "Fase",
+      "skip_move": "Pular Movimento",
+      "skip_action": "Pular Ação",
+      "attack_or_item_hint": "Clique em um inimigo no board para atacar OU use um item abaixo."
     }
   }
 }

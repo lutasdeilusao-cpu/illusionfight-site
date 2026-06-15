@@ -167,16 +167,18 @@ export function getCasasMovimento(agi) {
 
 /**
  * Calcula HP baseado em RES
+ * Base: cada ponto de RES = 10 HP. RES 1 = 10, RES 2 = 20, etc.
  */
 export function getHP(res) {
-  return 10 + res * 10
+  return res * 10
 }
 
 /**
  * Calcula MP baseado em RES
+ * Base: cada ponto de RES = 10 MP. RES 1 = 10, RES 2 = 20, etc.
  */
 export function getMP(res) {
-  return 10 + res * 10
+  return res * 10
 }
 
 /**
