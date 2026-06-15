@@ -28,6 +28,8 @@ Disse com uma voz que não pedia licença. Ajustou a alça da mochila de couro n
 
 A Máquina apontou para o assento vago sem tirar os olhos das equações no ar.
 
+![](/assets/images/livro/02.png)
+
 Nina percorreu a sala antes de se mover. Não havia curiosidade nervosa naquele olhar. Havia avaliação. Cada rosto, cada postura, cada detalhe sendo arquivado em ordem de relevância. O assento vago ficava ao lado de Jack.
 
 Ela caminhou até lá e se acomodou com uma economia de movimento que tornava até o ato de tirar o tablet da mochila algo calculado.
