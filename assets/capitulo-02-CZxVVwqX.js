@@ -28,6 +28,8 @@ Dijo con una voz que no pedía permiso. Acomodó la correa de su mochila de cuer
 
 La Máquina señaló el asiento vacío sin apartar los ojos de las ecuaciones en el aire.
 
+![](/assets/images/livro/02.png)
+
 Nina recorrió el salón antes de moverse. No había curiosidad nerviosa en esa mirada. Había evaluación. Cada cara, cada postura, cada detalle siendo archivado en orden de relevancia. El asiento vacío estaba al lado de Jack.
 
 Caminó hasta allá y se acomodó con una economía de movimientos que hacía que hasta el acto de sacar la tablet de la mochila pareciera calculado.

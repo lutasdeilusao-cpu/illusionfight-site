@@ -28,6 +28,8 @@ Said with a voice that wasn't asking for permission. She adjusted the strap of h
 
 The Machine pointed to the empty seat without taking his eyes off the equations in the air.
 
+![](/assets/images/livro/02.png)
+
 Nina scanned the room before she moved. There was no nervous curiosity in that look. There was assessment. Every face, every posture, every detail being filed away in order of relevance. The empty seat was next to Jack.
 
 She walked over and settled in with an economy of movement that made even the act of taking her tablet from her backpack seem calculated.
