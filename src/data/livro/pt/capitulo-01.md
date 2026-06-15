@@ -202,13 +202,10 @@ O cara ao lado de Freddy guardou o celular. Olhou para ele sem expressão partic
 
 Para ele era mais uma terça-feira.
 
----
+Jack falava do fim de semana, da bebida, das garotas. Kim ouvia com metade da atenção. A outra metade ainda estava no corredor, num olho roxo que não havia registrado conscientemente mas que ficou de alguma forma.
 
 A porta da sala estava fechada. Kim encostou a mão na maçaneta.
 
-*Mais um dia.*
+*Atrasados como sempre. Tenho que arrumar outro esquema logo.*
 
 Abriu.
-
----
-

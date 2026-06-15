@@ -1,4 +1,4 @@
-﻿# CAPÍTULO 3 — A Única Regra 
+﻿# CAPÍTULO 3 — A Única Regra
 
 Brock entrou pela porta da sala sem bater.
 
@@ -18,67 +18,77 @@ Kim virou a tela do tablet para o próximo exercício.
 
 Kim ergueu os olhos, avaliou Brock por um segundo, e voltou para o tablet.
 
-— Aceito, mas ja aviso nosso tempo é caro, e você tem que valer o esforço.
+— Aceito, mas já aviso: nosso tempo é caro e você tem que valer o esforço.
 
 Não era pergunta. Não era recusa. Era redirecionamento, dito com a calma de quem já decidiu como a cena vai terminar.
 
-Brock ficou parado por um segundo. Depois assentiu. Profissional o suficiente para reconhecer quando a outra parte controlava o ritmo.
+Brock ficou parado por um segundo. Depois assentiu. Profissional o suficiente para reconhecer quando a outra parte achava que controlava o ritmo.
 
-Kim fechou o tablet, pegou a mochila e caminhou para a porta com Jack ao lado, os dois retomando a discussão da banda no ponto exato onde havia parado. O grupo se abriu para deixá-los passar e fechou atrás deles.
+Kim fechou o tablet, pegou a mochila e caminhou para a porta com Jack ao lado, os dois retomando a discussão da banda no ponto exato onde havia parado. O grupo se abriu para deixá-los passar, todos os quatro com uma curiosidade silenciosa sobre se aquela arrogância era coragem ou burrice.
 
-Freddy ficou parado no meio da sala por um segundo, os punhos fechados, antes de perceber que estava sendo deixado para trás.
+Freddy não tinha a mesma paciência.
 
-Nina não havia se mexido. Olhou para os outros estudantes, para a ausência de surpresa nos rostos, para as expressões de decepção de quem esperava resultado diferente. Anotou mentalmente o que havia visto. Pegou a mochila.
+— Seus filhos da puta! Vocês vão deixar esses dois lixos mandarem em vocês? Eu estou pagando vocês para acabar com a raça deles. Quero vê-los humilhados aqui na frente da escola toda, quero vídeos desses animais sangrando.
+
+Brock conhecia muito bem o serviço. Sabia que clientes exigentes faziam parte do pacote. Virou a cabeça para responder, mas não abriu a boca.
+
+Freddy havia mudado completamente. O que estava no rosto agora não era raiva. Era pavor sólido, bruto, puro. As pernas tremiam visivelmente.
+
+Brock seguiu o olhar do cliente.
+
+Kim e Jack não estavam mais dando risada. Não estavam falando nada. Olhavam para Freddy, os dois ao mesmo tempo, com a expressão de quem acabou de anotar algo importante.
+
+Brock registrou mentalmente.
+
+*Esses dois não são pouca coisa.*
+
+Kim e Jack se viraram e retomaram a conversa normalmente. O resto os seguiu.
+
+Nina não havia se mexido. Olhou para os outros estudantes, para a ausência de surpresa nos rostos, para as expressões de decepção de quem esperava resultado diferente. Pegou a mochila. Não sabia bem por quê, mas precisava ver isso até o fim.
 
 ---
 
 A procissão pelo corredor tinha uma geometria clara.
 
-Kim e Jack na frente, passo tranquilo, a discussão da banda continuando em volume normal sem nenhuma concessão ao grupo atrás. Os quatro capangas com o peso dos passos diferente, o silêncio carregado de quem está se preparando para trabalhar. Brock entre os dois grupos, o celular de volta na mão. Freddy tentando parecer ameaça central quando era claramente a piada do grupo.
+Kim e Jack na frente, passo tranquilo, a discussão da banda continuando em volume normal sem nenhuma concessão ao grupo atrás.
 
-— Acha que tem mais que isso ai? — Jack falou baixo, só para Kim.
+O grupo que os seguia: Jason, estranhamente o mais forte fisicamente mas não o líder, negro retinto, o mais alto, músculos bem delineados sob a regata. Michael, um pouco mais baixo que Brock, cabelos vermelhos espetados, uma cicatriz no rosto descendo até o olho — não era marinheiro de primeira viagem. Anderson, o mais baixo dos cinco, moletom surrado, franja preta cobrindo o olho esquerdo, o olho direito com sede de sangue. André, gordo forte, o mais tranquilo de todos, comendo uma barra de chocolate sem pressa, cabelo black power, pele morena.
 
-— Infelizmente acho que não. — Kim não virou. — Vai ser rápido. Talvez o Grandão de algum trabalho.
+Jack fez a leitura completa do grupo sem parecer que estava olhando.
 
-Jack esticou o pescoço para o lado com um estalo e se esticou num gesto preguiçoso. Kim bocejou entediado.
+— Acha que tem mais que isso aí? — falou baixo, só para Kim.
+
+— Infelizmente acho que não. — Kim não virou. — Vai ser rápido. Talvez o líder dê algum trabalho.
+
+Jack esticou o pescoço com um estalo, gesto preguiçoso. Kim bocejou.
 
 Brock, alguns metros atrás, percebeu os gestos. Franziu levemente o cenho. Voltou para o celular.
 
 ---
 
-O banheiro do corredor B.
+Do lado de fora, Freddy ouvia os dois dentro do banheiro. Não conseguia distinguir as palavras, só o tom — tranquilo, quase entediado, como se o que estava prestes a acontecer fosse uma inconveniência menor no dia deles.
 
-Kim entrou, Jack entrou, o grupo tentou entrar junto. Kim segurou a porta com o braço estendido, bloqueando sem fazer força.
+Isso era pior do que qualquer coisa que ele havia esperado.
 
-— Precisamos trocar de roupa, esse uniforme é caro e um saco de levar. Esperem aqui.
-
-Brock parou o grupo com um gesto. A porta fechou.
-
-A troca foi no sentido contrário da manhã. Uniforme dobrado, jaqueta de volta, boné na cabeça. Jack ajustava o colarinho quando Kim quebrou o silêncio.
-
-— Você consegue se lembrar por que vamos brigar com esses caras?
-
-— Não faço a menor ideia. Deve ser por causa do cara com olho roxo. O resto não é da escola.
-
-— É, não faz diferença mesmo. Que se foda.
-
-Pausa. Jack abriu a torneira, molhou o rosto, fechou.
+Dentro, Jack abriu a torneira, molhou o rosto, fechou.
 
 — Você lembra da última vez que a gente perdeu uma briga?
 
-Kim pausou com a camiseta ainda na mão. Ficou alguns segundos vasculhando a memória de verdade.
+Kim pausou com a camiseta ainda na mão.
 
 — A gente nunca perdeu. O único que acabou com a gente mais de uma vez foi o Campeão.
 
-Jack fez uma careta. Não de raiva. De algo entre desgosto e respeito involuntário que ele claramente não queria sentir.
+Jack fez uma careta. Não de raiva. De algo entre desgosto e respeito involuntário.
 
-— Verdade. O Campeão. Nunca conseguimos dobrar aquele cara, onde será que ele anda?
+— Onde será que ele anda?
 
-— Sumiu ja faz tempo, boatos dizem que ta morto, forte na porrada, mas não mais forte que uma bala. — Kim checou o espelho. — Vamos ser rapidos.To preocupado em nos atrasarmos pra próxima aula.
+— Sumiu faz tempo. Boatos dizem que tá morto. Forte na porrada, mas não mais forte que uma bala. — Kim checou o espelho. — Vamos ser rápidos. Tô preocupado em nos atrasar para a próxima aula.
 
-Sairam do banheiro dando risada e voltaram a discussão.
+Do lado de fora, Freddy ouviu os dois rirem antes de a porta abrir.
 
 ---
+
+Freddy observava os dois caminhando para o anexo. Analisou de cima a baixo e não sentiu nada. Não via a mínima ameaça. Pareciam garotos comuns. Como haviam conseguido lutar com mais de trinta amigos seus e ainda vencer todos? E o pior: o de boné parecia um passa-fome, derrubava alguém e voltava pegar um lanche da festa. O de cabelo verde não parava de beber enquanto brigava, parecia até bêbado. Tudo só havia acabado porque a polícia chegou, e os dois desapareceram do mesmo jeito que tinham aparecido — do nada, deixando mais de trinta homens caídos no chão.
 
 O anexo ficava nos fundos da escola, separado do prédio principal por um pátio descoberto que ninguém usava faz tempo. Janelas sem vidro, vinhas cobrindo as paredes externas, madeira rangendo com o vento. Kim e Jack atravessaram sem olhar para o chão. Sabiam onde pisar.
 
@@ -86,13 +96,21 @@ Começaram a se alongar.
 
 O grupo observava cada movimento dos dois, tentando ler o que aquela calma estava dizendo. Os comentários começaram baixos e foram subindo.
 
-— Se liga parça, esses caras, se acham né.
+— Se liga, parça, esses caras se acham né. — Jason deu um leve soco no ombro de Michael.
 
-— Logo eles vão descobrir que com cria não se brinca.
+— Logo vão descobrir que com cria não se brinca. — Michael respondeu e deu uma risada contida.
 
-— Agora eu vou deitar esses zés.
+Anderson, dobrado nos joelhos olhando para o chão, soltou:
+
+— Vou deitar esses zés. Vai ser caixão fechado.
+
+André limpou a boca suja de chocolate e disse:
+
+— Quero acabar logo com essa palhaçada para não perder o almoço.
 
 Brock ficou quieto. Guardou o celular.
+
+Freddy ficou aliviado vendo que finalmente estavam focados. Quase dez mil moedas não havia sido barato, mas o grupo era conhecido como os melhores da região, indicado por vários amigos que já haviam usado os serviços deles.
 
 Kim ergueu o olhar e acenou para Brock. Sinal simples: estamos prontos.
 
@@ -102,77 +120,102 @@ Os grupos se encontraram no centro do anexo separados por um metro de hostilidad
 
 — Sabe qual é a única regra numa briga de rua?
 
-Brock franziu o cenho de novo. Kim deu de ombros.
+Brock franziu o cenho. Kim virou o polegar para baixo, devagar, como imperador romano decidindo o destino de um gladiador.
 
 — Não há regras.
 
 ---
 
-Rock foi o primeiro.
+Kim chegou baixo, pendulando. Jason jogou o gancho e se dobrou para alcançar. O chute leve atrás do joelho de apoio já instável fez a perna ir. Kim passou para as costas antes que Jason chegasse ao chão, travou o cotovelo contra a clavícula e puxou para baixo. O ombro saiu do lugar com um som que não foi alto mas foi definitivo
 
-Veio pela direita com o ombro baixo tentando agarrar. Kim deixou chegar, entrou embaixo do braço, travou o cotovelo contra a própria clavícula e puxou para baixo. O ombro saiu do lugar com um som que não foi alto mas foi definitivo. Rock foi ao chão segurando o braço.
+— Muleque filho da puta, vou te matar, ahhh!
 
-Do outro lado, Randy avançou em direção a Jack com um cano de aço. Jack mantinha as mãos nos bolsos. O primeiro arco veio, Jack não estava mais lá. Passo lateral, o vento do cano passando pelo rosto. O segundo arco, recuo. No terceiro, Jack se abaixou e estava atrás de Randy antes que ele terminasse o movimento.
+Do outro lado, Michael veio com o cano de aço e os cabelos vermelhos espetados. Jack mantinha as mãos nos bolsos.
+O primeiro arco foi vertical. Jack não tirou a base do lugar, só jogou o tronco para trás enquanto o cano cortava o ar na frente do rosto. Finalizou com um sorriso para Michael, que o deixou mais furioso.
+
+O segundo arco veio horizontal, mirando o pescoço. Jack abaixou a cabeça e o cano passou por cima, o momentum do próprio Michael girando o ombro para fora. Jack deslizou pelo espaço que o arco abriu e estava costa a costa com ele antes que o movimento terminasse.
 
 — E aí, o que achou dela? — Jack perguntou para Kim, completamente relaxado.
 
-— Quem??? Ah a garota nova. — Kim desviou de um golpe direto da faca de Tony sem virar a cabeça. — Mesmo conteúdo de todas aqui, parece ser uma patricinha, que se acha melhor que todos.
+— Quem? Ah, a garota nova. — Anderson veio com a faca estendida direto no peito de Kim, que deu um passo atrás e puxou o pulso pelo próprio impulso. O movimento o fez passar direto. A rotação deixou Kim de frente para Jack e ele continuou — Mesmo conteúdo de sempre. Patricinha que se acha melhor que todos.
 
-A faca de Tony veio de novo. Kim deixou passar pelo lado, entrou, segurou o pulso e torceu para cima até a faca cair. O cotovelo encontrou o queixo. Estalo seco.
+— Que porra de dança é essa, vou te fatiar todo, cuzão. — Anderson virou furioso, viu as costas de Kim e girou a faca, saltando para cravar nas costas dele.
 
-— Mas ela cravou uma humilhação inesquecível em você. Por isso sou eternamente grato.
+Michael havia perdido Jack de vista. Ouvindo a voz do alvo, apenas girou horizontalmente o cano, de costas mesmo, mirando o ombro de Jack.
 
-— A forma como ela me rejeitou só aumentou o interesse. — Jack agora com Randy em chave de braço, a voz normal de quem está tendo uma conversa de ônibus. — Ela tem algo diferente.
+Kim e Jack trocaram um olhar rápido. 
 
-O cotovelo de Jack desceu entre as omoplatas de Randy. Randy foi de joelhos. Mike chegou rodando correntes, o som do giro cortando o ar.
+Kim pegou a cabeça de Jack e o dobrou, jogando o próprio corpo para trás ao mesmo tempo. O cano de Michael passou no espaço onde os dois estavam um segundo antes. 
 
-— As outras não têm isso.
+Kim relançou o corpo para frente no final do arco, agora de frente para Michael. O chute voador saiu com a ponta do pé acertando o queixo com força que o arrancou do chão.
 
-Mike moveu a corrente em arco. Jack desviou, deixou passar, tirou a mão do bolso e deixou a corrente enrolar no próprio braço. Puxou Mike pelo impulso e encaixou um direto no rosto. O nariz de Mike explodiu em sangue.
+Jack, curvado pelo movimento de Kim, virou o rosto no momento exato em que Anderson completava o salto. 
 
-Tony tentou se levantar mesmo sentindo os dentes soltos. Kim pisou no tornozelo de apoio dele. O cara voltou ao chão.
+O sorriso no rosto de Jack não era provocação. Era agradecimento. Anderson, perdido com tudo que havia acontecido naquele segundo, não teve como ver que o peso e a velocidade do próprio corpo seriam seu fim. 
 
-— Você acha todas interessantes. — Kim para Jack.
+O uppercut de Jack subiu certeiro no estômago, as pernas impulsionando de baixo, o corpo de Anderson no ar numa posição que qualquer jogador de Street Fighter reconheceria como Shoryuken.
 
-— Essa é diferente. Juro.
+A sequência foi tão rápida e precisa que parou Brock e André no lugar.
 
-Mike pegou um pedaço de madeira do chão e veio com ele em arco horizontal. Jack arqueou o corpo para trás, o bastão passando a centímetros do nariz. Jack voltou, pegou o braço de Mike no caminho de volta e usou o próprio momentum pra mandá-lo contra a parede. A cabeça encontrou o concreto com um baque que ecoou pelo anexo.
+— Porra, Kim. — Jack sacudiu o pulso. — Quantas vezes tenho que repetir: não toca no meu cabelo. Dá trabalho arrumar ele de manhã, caralho.
 
-Mike escorregou pela parede e ficou.
+Anderson e Michael, estavam completamente fora de combate.
 
-Rock tentou se levantar usando o ombro bom. Kim apareceu atrás dele antes que chegasse à metade. Segurou o crânio com as duas mãos e encaixou a joelhada. Rock voltou estava definitivamente derrotado.
+— Não fuja do assunto, ela cravou uma humilhação inesquecível em você. Por isso sou eternamente grato. Até registrei para futuras referências. — Kim sorriu para o amigo, de maneira ordinária.
 
-Quatro no chão.
+— Eu sabia. Isso só prova que é nosso destino. Uma bela história para contar aos nossos filhos. — Jack puxou um pente do bolso e começou a arrumar o cabelo. — Ela tem algo diferente. As outras não têm isso.
 
-Brock estava de pé no centro do anexo. Havia observado tudo em silêncio, os olhos se movendo, catalogando. Sem celular na mão. Sem pressa. Colocou dois socos ingleses, um em cada mão, e começou a se mover na direção de Jack.
+André rodou a corrente no ar, o som dela cortando o espaço. Jack se afastou, ainda preocupado com o cabelo. Kim virou o rosto.
 
-Não de Kim. De Jack.
+O primeiro arco de André foi vertical em direção a Kim. Jason se levantou ao mesmo tempo, o ombro direito fora do lugar, agonia e fúria no rosto, vindo pela lateral com o braço esquerdo erguido.
 
-Jack percebeu a escolha e algo no rosto dele mudou levemente. O humor saiu. O que ficou era mais frio.
+Kim saltou para trás. Jason ocupou o espaço onde ele estava e a corrente encontrou seu pescoço. Ele apagou antes de chegar ao chão.
 
-— Interessante. — Kim acendeu um cigarro, encostado na parede.
+Kim fechou a distância com André em um movimento, frente a frente, olho no olho. 
 
-Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack desviou por pouco. O segundo parecia um cruzado que Jack esperava, mas Brock não jogou o cruzado só mexeu os ombros com uma finta. Jogou um gancho baixo que pegou as costelas de Jack com força que dobrou o ar dos pulmões de uma vez.
+André ainda não havia processado que havia derrubado o próprio amigo. 
 
-Jack recuou. Primeira vez no capítulo.
+O primeiro soco encaixou no plexo solar, tirando todo o ar de uma vez. O segundo esmagou o fígado. O terceiro acertou o rim. A sequência não deixava espaço para respirar, e quando o quarto golpe encontrou o gogó, as pernas de André fraquejaram e ele começou a deslizar, grande e opulento, sem conseguir segurar o próprio peso.
 
-— Ah. — Kim soprou a fumaça. — Essa foi boa, fiquei com inveja.
+Kim finalizou com uma cotovelada lateral já virando para Jack, confiante de que André não levantaria mais. Bateu as palmas num gesto de encerrado.
 
-Brock avançou sem pausa. Jab, jab, gancho, sempre o mesmo ritmo, forçando Jack para trás sem deixar espaço para respirar. Jack bloqueou o que conseguiu, levou o que não conseguiu. As costelas latejavam com cada respiração.
+— Você acha todas interessantes.
 
-— Porra, que soco do caralho. — Jack entre os dentes para Kim.
+— Mas essa é diferente mesmo. Eu juro. — Jack com o sorriso de sempre.
 
-— Eu sei - Kim olhando com satisfação de quem gosta de ver o amigo apanhar.
+Brock estava de pé no centro do anexo. Havia observado tudo em silêncio, os olhos se movendo, catalogando. Sem celular na mão. Sem pressa. Colocou dois socos ingleses, um em cada mão, e começou a se mover.
 
-— Vai ficar aí parado? - Pergunta Jack, indignado.
+Brock passou rapidamente por Kim como se ele nem estivesse ali.
 
-— Ué ele escolheu você, eu to só dando uma tragada. Aproveita.
+— Interessante. — Kim retira um cigarro no bolso deixando Brock nas suas costas.
 
-Jack deixou o próximo jab passar pelo lado, entrou no espaço vazio, e encaixou um headbutt direto no nariz de Brock. O impacto fez os dois recuarem um passo cada. Brock piscou, o nariz sangrando, e pela primeira vez sua expressão mudou. Não de dor. De reavaliação.
+Jack percebeu a escolha, estava sendo subestimado e algo no rosto dele mudou levemente. O humor saiu. O que ficou era mais frio.
+
+Brock não telegrafou. O primeiro golpe veio direto, um jab rápido que Jack desviou por pouco. O segundo parecia um cruzado que Jack esperava, mas Brock não jogou o cruzado, só mexeu os ombros numa finta. Jogou um gancho baixo que pegou as costelas de Jack com força que dobrou o ar dos pulmões de uma vez.
+
+Jack recuou. Pela primeira vez no capítulo.
+
+Kim já havia acendido o cigarro e observou o último golpe de Brock
+
+— Ah. — Kim soprou a fumaça. — Essa foi boa. Fiquei com inveja.
+
+Brock avançou sem pausa. Jab, jab, gancho, canelada com rodopio e joelhada, sempre o mesmo ritmo, forçando Jack para trás sem deixar espaço para respirar. Jack bloqueou o que conseguiu, levou o que não conseguiu. As costelas latejavam com cada respiração.
+
+— Porra, que soco. — Jack entre os dentes para Kim.
+
+— Eu sei. — Kim olhando com a satisfação de quem gosta de ver o amigo apanhar.
+
+— Vai ficar aí parado?
+
+— Eu estou aproveitando a folga, que é o que você normalmente faz. Agora é contigo, princesa.
+
+Jack tomou uns três jabs no rosto, bem no meio do nariz. Já estava cansando disso. Quando a canelada direita de Brock veio, Jack segurou a perna com a mão esquerda, puxou a camiseta com a direita e o atingiu com uma cabeçada bem no meio da cara
+
+O impacto fez os dois recuarem um passo cada. Brock piscou, o nariz sangrando, e pela primeira vez sua expressão mudou. Não de dor. De reavaliação.
 
 Brock avançou de novo. Jack desta vez não recuou.
 
-O gancho de Brock veio. Jack abaixou, deixou o braço passar pelo topo da cabeça, e cravou três socos no fígado em sequência. Cada um mais fundo que o anterior, os nós dos dedos encontrando o músculo até ele ceder. Brock dobrou. Jack travou o pescoço de Brock debaixo do braço e apertou, o peso do próprio corpo trabalhando contra ele.
+O gancho de Brock veio. Jack usou a própria cabeça novamente, paralisou o golpe no meio do caminho, e cravou três socos no fígado em sequência. Cada um mais fundo que o anterior, os nós dos dedos encontrando o músculo até ele ceder. Brock dobrou. Jack travou o pescoço de Brock debaixo do braço e apertou, o peso do próprio corpo trabalhando contra ele.
 
 Brock lutou por uns dez segundos. Bons dez segundos. Depois parou.
 
@@ -188,13 +231,13 @@ Jack ficou de pé com as costelas latejando, o headbutt havia deixado um corte n
 
 — Eu derrubei três.
 
-— Eu derrubei três também. — Jack respirou fundo. — O Grandão conta dobrado, né.
+— Eu derrubei três também. — Jack respirou fundo. — O grandão conta dobrado, né.
 
 — Não foi o que combinamos.
 
 — Ué, mas não é você que diz que não tem regras?
 
-Kim ofereceu um cigarro pro amigo. Jack aceitou. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.
+Kim ofereceu um cigarro para o amigo. Jack aceitou. Os dois viraram para a coluna de concreto onde dois cotovelos ainda apareciam trêmulos.
 
 — Pode sair daí.
 
@@ -210,7 +253,7 @@ Kim e Jack se entreolharam.
 
 Jack fez um sinal quase imperceptível com a sobrancelha. Kim respondeu com um aceno mínimo.
 
-— Cara, com todo o respeito. — Kim pausou, genuinamente preocupado. — Você é gago? Não tem problema se for, a gente pede desculpa por ter zoado você antes, achei que era só nervoso.
+— Cara, com todo o respeito. — Kim pausou, genuinamente preocupado. — Você é gago? Não tem problema se for, a gente pede desculpa por ter zoado você antes. Achei que era só nervoso.
 
 — EU NÃO SOU GAGO, SEU IDIOTA!
 
@@ -218,7 +261,7 @@ Kim e Jack colocaram as mãos no peito ao mesmo tempo e soltaram um suspiro long
 
 Jack observava a situação com o brilho de quem estava vendo a abertura perfeita. Depois do fora épico de Nina, finalmente havia algo para devolver.
 
-— Eita Kim, vai deixar assim? Esse maninho ai, te desafiar na moral? Se precisar eu te empresto o meu SBI. Ou vai correr como um frango, pô, pô, pôoo.
+— Eita Kim, vai deixar assim? Esse maninho aqui te desafiando na moral? Se precisar eu te empresto o meu SBI. Ou vai correr como um frango, pô, pô, pôoo.
 
 Kim revirou os olhos.
 
@@ -226,19 +269,19 @@ Kim revirou os olhos.
 
 Jack mergulhou a mão na bolsa e tirou o SBI, balançando o dispositivo como quem oferece algo inevitável.
 
-— Tá com "meda" é? Não conhecia essa versão gatinho assutado do JOAQUIM.
+— Tá com medo é? Não conhecia essa versão gatinho assustado do JOAQUIM.
 
-Freddy saiu de trás da coluna com o sorriso irônico que havia a oportunidade perfeita.
+Freddy saiu de trás da coluna com o sorriso irônico de quem viu a abertura perfeita.
 
-— Ah, não tem tempo pra besteira né? Se tá é com medo! Não tenho culpa dos seus problemas. Mas pra alguém conhecido como O REI DA BRIGA, ta parecendo o REI MARICA.
+— Ah, não tem tempo pra besteira né? Tá com medo! Não tenho culpa dos seus problemas. Mas pra alguém conhecido como o REI DA BRIGA, tá parecendo o REI MARICA.
 
 Kim se virou para ele devagar.
 
-— Olha eu realmente to tentando ser comprrensivel aqui, por que você já tá com a cara quebrada, mas não abuse da minha paciência, eu tenho muito pouca.
+— Olha, eu realmente tô tentando ser compreensível aqui, porque você já tá com a cara quebrada. Mas não abuse da minha paciência. Eu tenho muito pouca.
 
 Jack mal segurava a satisfação.
 
-— Vai lá Kim. Mostra pra ele que você não é nenhum MARICA - Jack não se aguentava mais e soltou a gargalhada - Acaba com ele no LDI.
+— Vai lá Kim, mostra pra ele que você não é nenhum marica. — Jack não se aguentava mais e soltou a gargalhada. — Acaba com ele no LDI.
 
 Freddy se aproximou com a confiança artificial de quem tem cinco capangas no chão mas ainda não processou isso completamente.
 
@@ -246,15 +289,15 @@ Freddy se aproximou com a confiança artificial de quem tem cinco capangas no ch
 
 Kim olhou para o SBI na mão de Jack.
 
-Pensou na conta de luz. Nos sessenta de DIX para Helena. No mercado, na folga que poderia tirar a semana inteira com aquela grana, era quase um mês de salário.
+Pensou na conta de luz. Nos sessenta de DIX para Helena. No mercado. Na folga que poderia tirar a semana inteira com aquela grana — era quase um mês de salário.
 
 Estendeu a mão.
 
-— Mostra a grana, e vamo começar.
+— Mostra a grana e vamos começar.
 
-— É claro que eu vou gravar isso. — Jack levantou o celular no ar. — Nada melhor do que ter provas sólidas na mão pra gastar essa grana sem peso na consciência, Kim fico com 50%.
+— É claro que eu vou gravar isso. — Jack levantou o celular no ar. — Nada melhor do que ter provas sólidas na mão para gastar essa grana sem peso na consciência. Kim, fico com cinquenta por cento.
 
-Kim olhou para Jack, Jack sorriu, pois é, ele sabia o amigo que tinha.
+Kim olhou para Jack. Jack sorriu. Pois é, ele sabia o amigo que tinha.
 
 Freddy acessou o celular. A transferência programada para liquidar no momento da derrota dele.
 
@@ -264,7 +307,7 @@ Jack colocou o SBI nas mãos de Kim com a cerimônia de quem entrega algo que va
 
 Kim colocou a luva. Depois os óculos.
 
-A última coisa que viu antes da ativação foi Jack com o celular já apontado, o sorriso largo tirando uma self.
+A última coisa que viu antes da ativação foi Jack com o celular já apontado, o sorriso largo tirando uma selfie.
 
 *Isso foi um erro.*
 
@@ -272,3 +315,10 @@ Ativou.
 
 ---
 
+No meu mundo existe um jogo. Um jogo chamado Lutas de Ilusão, focado somente em batalhas. Pura brutalidade, sangue, sofrimento e glória — como na arena do antigo coliseu romano. Esse jogo, pra mim, era só uma experiência digital para covardes que não querem sentir dor na vida real.
+
+Em pouco tempo eu ia descobrir o quanto eu estava errado. Sobre tudo. Mas o maior erro foi não perceber que a dor era real.
+
+**A DOR É REAL.**
+
+Bem-vindo ao Lutas de Ilusão.

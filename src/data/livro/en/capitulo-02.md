@@ -1,24 +1,22 @@
-### **CHAPTER 2 — THE MACHINE AND THE ROSE**
-
-*(English)*
+# CHAPTER 2 — The Machine and the Rose
 
 The Elite Academy classroom didn't look like a classroom.
 
-The walls responded to touch. The desks had tactile surfaces. The augmented reality glasses waited in their stands as if breathing. Kim and Jack walked in, found their usual spots, and the posture shifted for the second time that morning. Here it wasn't just the uniform. It was real focus.
+The walls responded to touch. The desks had tactile surfaces. Augmented reality glasses waited in their holders as if breathing. Kim and Jack came in, found their usual seats, and their posture shifted for the second time that morning. Here it wasn't just about the uniform. It was real concentration.
 
-The Machine arrived before the bell finished.
+The Machine arrived before the bell finished ringing.
 
-Tall, lean, charcoal-grey suit without a single crease out of place. He greeted the class with two words and zero inflection.
+Tall, lean, charcoal-gray suit without a single crease out of place. He greeted the class with two words and zero inflection.
 
 — Good morning.
 
-The class had already begun.
+Class had already begun.
 
-The stylus rose and equations appeared in the air in layers, each one building on the last, the space between the desks becoming a three-dimensional blackboard. Kim followed on his tablet, fingers moving fast. Jack copied with the concentration of someone who knows he can't waste what's in front of him.
+The stylus rose and equations appeared in the air in layers, each one building the next, the space between the desks becoming a three-dimensional blackboard. Kim followed along on his tablet, fingers moving fast. Jack copied with the focus of someone who knows he can't afford to miss what's in front of him.
 
 Outside that room they were something else. Inside, they were what Osvaldo had bet they would be.
 
-Twenty minutes into the class, the door opened.
+Twenty minutes into class, the door opened.
 
 The Machine didn't stop writing.
 
@@ -26,67 +24,75 @@ The Machine didn't stop writing.
 
 — Nina.
 
-Said with a voice that didn't ask permission. She adjusted the strap of her black leather backpack and walked up to the teacher, extending her wrist where the smartwatch waited for the scan. The blue light validated her enrollment with a beep.
+Said with a voice that wasn't asking for permission. She adjusted the strap of her black leather backpack and walked up to the professor, extending her wrist where the smart watch waited for the scan. The blue light validated her enrollment with a beep.
 
 The Machine pointed to the empty seat without taking his eyes off the equations in the air.
 
-Nina scanned the room before moving. There was no nervous curiosity in that look. There was assessment. Every face, every posture, every detail being filed away in order of relevance. The empty seat was next to Jack.
+Nina scanned the room before she moved. There was no nervous curiosity in that look. There was assessment. Every face, every posture, every detail being filed away in order of relevance. The empty seat was next to Jack.
 
-She walked over and settled in with an economy of movement that made even the act of pulling her tablet from her bag feel calculated.
+She walked over and settled in with an economy of movement that made even the act of taking her tablet from her backpack seem calculated.
 
 Jack stopped breathing at his usual rhythm.
 
-Kim registered that without turning his head.
+Kim registered this without turning his head.
 
 ---
 
 Jack wrote something in the corner of his tablet and slid it discreetly toward Kim.
 
-*she's the most beautiful person who's ever walked into this room*
+*Bro, I'm done, I'm in love, I found the woman of my entire life, our kids are going to be stylish and gorgeous.*
 
-Kim read it. Looked ahead. Typed his response without pausing his exercises.
+Kim read it. He slowly raised a look of contempt toward Jack and, still looking at him, typed back.
 
-*focus*
+*For the love of god, every single week Jack, focus on the damn exercise.*
 
 Jack typed back immediately.
 
-*impossible*
+*But it's her, she's the one, pink hair, gorgeous, goddess energy, she owns my heart.*
 
-The Machine turned to the class with a direct question about the problem in the air. Jack raised his hand before Kim even finished calculating the answer. He got it right. The Machine nodded with the economy of someone confirming the obvious and went back to the equations.
+The Machine turned to the class with a direct question about the problem in the air. Jack raised his hand before Kim even finished calculating the answer. Got it right. The Machine nodded with the economy of someone confirming the obvious and went back to the equations.
 
-Jack leaned back with the satisfaction of someone who had just introduced himself without saying his name.
+Jack leaned back with the satisfaction of someone who knows he made his mark.
 
 Nina hadn't looked at him once.
 
 ---
 
-The between-class bell rang.
+The bell between classes rang.
 
-The Machine collected his materials with the same precision with which he had taught and left without ceremony. The room exhaled. Kim closed his tablet. Jack spun in his chair with the grin of someone who has already decided what he's going to do.
+The Machine collected his materials with the same precision with which he had taught and left without ceremony. The room breathed. Kim closed his tablet. Jack spun in his chair with the smile of someone who has already decided what he's going to do.
 
-— Hi. I'm Jack. Meeting me is going to be a pleasure for you.
+— Hello. I'm Jack. Meeting me is going to be a pleasure for you.
 
 Nina didn't take her eyes off her tablet.
 
-— Your limited mind may have failed to work this out, but I didn't introduce myself for a reason — I was trying to avoid the displeasure of conversations exactly like this one.
+— Perhaps your small mind didn't have the capacity to process this, but I didn't introduce myself precisely because I want to avoid the displeasure of conversations like this one.
 
-Kim went absolutely still.
+Kim went completely still. He had seen Jack get rejected before, but that acidic and that fast was a new record.
 
 Jack opened his mouth. Closed it. Opened it again.
 
-— And, and, I already told you, my name is J... Jack. Nice to meet you.
+— I, I, I already told you, my name is J... Jack. Nice to meet you.
 
-— I'm N. i. n. a. — Each letter separate. A pause between them. — And I'd like to be left alone.
+— I am N. i. n. a. — Each letter separate. A pause between them. — And I'd like to be left alone.
 
 She went back to her tablet.
 
-Jack's silence had texture. It was the silence of someone who hit the floor from a height they didn't see coming and was still processing the impact.
+The silence coming from Jack had texture. It was the silence of someone who hit the floor from a height they didn't expect and is still processing the impact.
 
-Kim turned his face slowly toward his friend. Pointed at him with one finger, unhurried, without a sound. The smile that came with it wasn't the smile of someone who found it funny. It was the smile of someone who had waited years for a moment like this and was finally collecting with interest.
+Kim slowly turned his face toward his friend. He pointed at him with one finger, no rush, no sound. He opened his phone and began typing something with the solemnity of someone documenting a historical event.
 
-Jack had no answer for that either.
+Jack looked at the screen. Looked at Kim. His expression shut down.
 
-The room had caught all of it. Laughter rippled across the desks in a wave. Even the Machine, still standing at the door, seemed to let something slip that almost resembled an expression before he turned his back.
+— You're not writing this down.
+
+Kim didn't answer. Kept typing.
+
+— Kim.
+
+He put his phone in his pocket.
+
+The room had registered everything. Quiet laughter rippled through the desks in a wave. Even the Machine, who was still at the door, seemed to let something that was almost an expression escape before turning away.
 
 Jack tried to regroup. His mouth opened.
 
@@ -94,25 +100,24 @@ Nina didn't look up.
 
 Jack closed his mouth.
 
-*I'm keeping that one forever.*
+*Congratulations man, epic humiliation and in front of Kim of all people, he's never going to let me forget this.*
 
 ---
 
 The classroom door opened.
 
-Not the way doors open between classes. The way doors open when whoever's coming through isn't asking permission.
+Not the way doors open between classes. The way doors open when whoever's coming in isn't asking permission.
 
-The leather jacket guy came in first. Wide shoulders, phone now in his pocket. Behind him, four men with the same posture of people who showed up to work. And after the four, Freddy, black eye still throbbing, a whole night's worth of anger finally reaching its destination.
+The guy in the leather jacket came in first. Broad shoulders, phone now in his pocket. Behind him, four men with the same posture of people who showed up to work. And after the four of them, Freddy, with his black eye still throbbing and a whole night's worth of rage finally arriving at its destination.
 
 The room went quiet in the wrong way.
 
-The jacket guy swept the space with his eyes, located Kim and Jack at their desks and stopped.
+The guy in the jacket swept the room with his eyes, located Kim and Jack at their desks, and stopped.
 
 For him it was third period.
 
-Nina slowly took off her glasses and looked at the scene. At the five without uniforms. At the faces of the other students — no surprise, just the disappointment of someone who expected a different result.
+Nina slowly took off her glasses and looked at the scene. At the five without uniforms. At the faces of the other students, no surprise on any of them. She followed the big guy's gaze and for the first time really looked at Kim and Jack — the two of them talking casually between themselves, clearly the target of that group.
 
-*So this is how it works here.*
+*Finally some action. Not what I expected from an elite school, but it got my attention.*
 
-She put her tablet away in her bag and waited.
-
+She put her tablet in her backpack and waited.

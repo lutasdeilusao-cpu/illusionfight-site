@@ -10,7 +10,7 @@ Kim ficou sem referência de corpo, sem peso, sem chão. Os músculos não respo
 
 — Você está em estado de suspensão neural. — Voz feminina, sintética, absolutamente calma. — Este é um processo padrão de transição antes da imersão completa. Mantenha-se relaxado.
 
-*Relaxado. Claro. Estou boiando no nada,no eter, não vejo outra opção. modo relaxado ativar.*
+*Relaxado. Claro. Estou boiando no nada,no éter, quais são minhas outras opções? Modo relaxado ativar.*
 
 — Verificação concluída. Você é um novo usuário. Será necessário criar seu avatar. Por favor, informe seu nome.
 
@@ -22,7 +22,7 @@ Kim ficou sem referência de corpo, sem peso, sem chão. Os músculos não respo
 
 — Origem?
 
-— Bravara. Marelia. Se precisar do CEP eu não sei de cabeça.
+— Bravara. Marelia. Se precisar do CEP... Eu não sei de cabeça.
 
 Uma pausa de meio segundo - Kim sentiu que ela não gostou da ironia.
 
@@ -38,7 +38,7 @@ Kim ficou olhando para aquilo por um segundo longo.
 
 O chão sumiu.
 
-Kim foi lançado sem aviso, o céu digital abrindo embaixo dele em roxo-carmesim. Nuvens douradas passavam em faixas rápidas, torres que se curvavam em espiral como estruturas de DNA gigantes, cidades inteiras flutuando em órbita lenta. O vento virtual batia no rosto com pressão que seus pulmões sentiam mesmo sem ter explicação para isso.
+Kim foi lançado sem aviso, o céu digital abrindo embaixo dele em vermelho-carmesim. Nuvens douradas passavam em faixas rápidas, torres que se curvavam em espiral como estruturas de DNA gigantes, cidades inteiras flutuando em órbita lenta. O vento virtual batia no rosto com pressão que seus pulmões sentiam mesmo sem ter explicação para isso.
 
 *O Jack sempre falou que era possível sentir aqui. É realmente difícil distinguir essas sensações das reais. Será que dá pra sentir dor aqui?*
 
@@ -50,7 +50,7 @@ Encontrou dreads verdes.
 
 Jack estava na primeira fila com o corpo de um lobisomem digital e o rosto inconfundível, a expressão de quem esperava ver algum avatar épico e estava processando que havia apostado dinheiro na versão normal e cotidiana do próprio amigo. Acima da cabeça dele: *Jack Cachorrão 987654321*.
 
-*Ele apostou dinheiro em mim. Dá pra apostar grana aqui?*
+*Aquilo é grana? Dá pra apostar grana aqui?*
 
 O chão chegou.
 
@@ -68,7 +68,7 @@ Membros longos demais para a proporção do tronco, olhos que eram buracos sem f
 
 A criatura ergueu o microfone e a plateia explodiu.
 
-— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, nosso corajoso estreante, Briguento 142536! Histórico imaculado de zero vitórias e zero derrotas. Como dizem os veteranos: zero derrotas vale mais que mil lamentos. Esperamos sinceramente que ele tenha investido em um bom seguro-saúde! Do lado direito, uma lenda! O temível Raio Celeste, Thunderbolt, o Destruidor! Mil duzentas e uma vitórias, trezentas e cinco derrotas, posição 30.156 no ranking SDR! Apostas abertas!
+— Senhoras e senhores, bem-vindos às Lutas de Ilusão! Do lado esquerdo, nosso corajoso estreante, Briguento 142536! Histórico imaculado de zero vitórias e zero derrotas. Como dizem os veteranos: zero derrotas vale mais que mil lamentos. Esperamos sinceramente que ele tenha investido em um bom seguro-saúde! Do lado direito, uma lenda! O temível Raio Celeste, Thunderbolt, o Destruidor! Mil duzentas e uma vitórias, trezentas e cinco derrotas, posição 30.156 no ranking SDR! AAAAASSSSS apostas estãoooo abertaaaaas!
 
 A arena se dividiu em cores. Uma onda esmagadora de azul elétrico dominou as arquibancadas, quase unânime. Uma ilha pequena de cor diferente marcava os que haviam apostado no azarão.
 
@@ -76,9 +76,9 @@ Jack estava na ilha. Com a expressão de quem começa a questionar decisões.
 
 Kim voltou os olhos para o lado oposto da arena.
 
-O que estava lá não era mais o Freddy que havia tremido atrás de uma coluna de concreto no anexo. A armadura prateada pulsava com energia acumulada, descargas elétricas serpenteando pelas juntas como veias de luz azul. O capacete tinha uma faixa elétrica que percorria o topo e desaparecia atrás dos ombros. O bastão em suas mãos vibrava com uma frequência que Kim podia quase sentir no peito mesmo à distância. As fendas do capacete brilhavam em vermelho vivo.
+O que estava lá não era mais o Freddy que havia tremido atrás de uma coluna de concreto no anexo. A armadura prateada pulsava com energia acumulada, descargas elétricas serpenteando pelas juntas como veias de luz azul. O capacete tinha uma faixa elétrica que percorria o topo e desaparecia atrás dos ombros. A lança em suas mãos vibrava com uma frequência que Kim podia quase sentir no peito mesmo à distância. As fendas do capacete brilhavam em vermelho vivo.
 
-*Parece que o ratinho ganhou uma aparência de Golias. Tenho de admitir, o visual é da hora. Mas não é o primeiro grandão que vou derrubar.*
+*Parece que o ratinho ganhou uma aparência de Golias. Tenho de admitir, o visual é da hora. Mas não é o primeiro grandão que tenho de enfrentar.*
 
 — Apostas encerradas. Que a Luta de Ilusão comece.
 
@@ -90,11 +90,11 @@ O impacto foi elétrico e físico ao mesmo tempo.
 
 Cada fibra muscular contraiu involuntariamente de uma vez, os joelhos cederam, e Kim foi arremessado contra a barreira da arena com força que não combinava com nenhum jogo que ele conhecia. Desabou no chão, o peito subindo e descendo fora de ritmo.
 
-A dor era real.
+A DOR É REAL.
 
 Não era o tipo de dor que você descreve para alguém. Era o tipo que ocupa todo o espaço disponível na cabeça e não deixa lugar para mais nada. O gosto de sangue chegou logo depois, metálico e fundo. O cheiro de pelo queimado era exatamente como imaginava que seria.
 
-*Em nenhum vídeo que o Jack me mostrou eu vi isso. Eu vi eles sofrendo mas achei que era interpretação. Essas pessoas estavam sentindo dor. Que tipo de maluco joga um jogo pra sentir DOR? Três bilhões de pessoas, literalmente escolhendo sofrer. Que tipo de mundo louco é esse?*
+*Em nenhum vídeo que o Jack me mostrou eu vi isso. Eu vi eles sofrendo, mas achei que era interpretação. Essas pessoas estavam sentindo dor. Que tipo de maluco joga um jogo pra sentir DOR? Três bilhões de pessoas, literalmente escolhendo sofrer. Que tipo de mundo "MALUCO" é esse?*
 
 Conseguiu sentar. A barreira da arena estava fria nas costas.
 
@@ -104,9 +104,9 @@ Thunderbolt caminhou na direção dele com passos medidos. Era a caminhada de al
 
 Kim tentou se levantar. As pernas vacilaram. Ficou na metade do caminho, apoiado na barreira, os dentes cerrados.
 
-*Eu não vou perder aqui. Eu sei o que é dor. Eu sei vencer a dor.*
+*Eu não vou perder aqui. Não é a primeira, nem a última vez que sinto isso, eu aguento.*
 
-— Tá se achando demais, mas eu vou—
+— Vai se achando cuzão, eu vou—
 
 A frase foi cortada no meio.
 
@@ -114,13 +114,13 @@ O punho de Thunderbolt enterrou no estômago de Kim com força que não era huma
 
 Thunderbolt posicionou um pé sobre as costas dele e se voltou para a plateia.
 
-— É exatamente para isso que todos vocês estão aqui, não é?
+— Desculpe você ia dizer algo? Isso aqui é LDI, é pra isso que vocês estão aqui não é?
 
 A multidão rugiu.
 
 Kim sentiu o peso do pé sobre as costas e ouviu tudo com o rosto contra o chão da arena.
 
-*Isso é maluquice. Criamos tecnologia para voltar ao tempo dos gladiadores. Insano, completamente. Tenho de dar pelo menos um soco nesse merda.*
+*CARALHO, PORRA. Isso aqui é coliseu de gladiadores, não um jogo. Insano, completamente. Tenho de dar pelo menos um soco nesse merda.*
 
 Thunderbolt se abaixou e capturou a mão direita de Kim com dois dedos. A pressão começou baixa e subiu de forma constante, sem interrupção.
 
@@ -128,7 +128,7 @@ O estalo do mindinho cortou o ar.
 
 Kim mordeu o lábio inferior até sangrar. Não ia dar a Thunderbolt a satisfação do grito. Mas Thunderbolt intensificou, os dedos fraturados comprimidos com mais força ainda.
 
-*Desgraçado. Você ainda vai sentir minha mão esmagando o seu rosto.*
+*Filho da Puta. Eu vou acabar contigo seu merda, e vou fazer você sofrer.*
 
 A consciência começou a fragmentar nas bordas.
 
@@ -154,15 +154,15 @@ Kim parou de se debater. A dor explodiu no rosto, mas o que ficou mais tempo foi
 
 — Itens marcados como concluídos. Próximo item: ajoelhar.
 
-— Essa vai ser mais demorada. — Thunderbolt olhou para Kim com a satisfação de alguém cumprindo uma agenda bem planejada. — Mas não tenho pressa.
+— Essa vai ser mais demorada. — Thunderbolt olhou para Kim com a satisfação de alguém cumprindo uma agenda bem planejada. — Mas eu não tenho pressa.
 
 Nas arquibancadas, Jack estava com os punhos cerrados até os nós branquejarem. A expressão no rosto dele não era mais a de quem apostou errado.
 
 Era outra coisa.
 
-Kim estava pendurado pela garganta com o rosto em sangue, os dedos da mão direita fraturados, sem forças, sentindo como nunca havia sentido antes, derrotado, e em algum lugar no fundo de tudo aquilo, um pensamento persistia com a irracionalidade de algo que não podia ser apagado.
+Kim estava pendurado pela garganta com o rosto em sangue, os dedos da mão direita fraturados, sem forças, sentindo o que nunca havia sentido antes, derrotado, e em algum lugar no fundo de tudo aquilo, um pensamento persistia com a irracionalidade de algo que não podia ser apagado.
 
-*Soco nesse cara. Depois soco no Jack.*
+*Acabar com a raça desse cara. Depois o Jack precisa pagar.*
 
 O escuro começou a avançar pelas bordas da visão.
 

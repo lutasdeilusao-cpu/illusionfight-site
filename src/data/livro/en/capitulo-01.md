@@ -1,182 +1,180 @@
-### **CHAPTER 1 — THE SCRIPT**
-
-*(English)*
+# CHAPTER 1 — The Script
 
 Kim woke up without an alarm.
 
-Not out of discipline. Out of the habit of someone who sleeps light enough to hear the house before it wakes up. He lay still with his eyes open on the ceiling, waiting for his body to confirm he was actually awake.
+Not out of discipline. Out of the habit of someone who sleeps lightly enough to hear the house before it wakes up. He lay still with his eyes open on the ceiling, waiting for his body to confirm he was really awake.
 
-It confirmed.
+It did.
 
-The phone was still face-down on the mattress where it had landed at 5:17 a.m., after three vibrations he ignored. He knew exactly how many new messages there were. Jack was predictable like that.
+The phone was still face down on the mattress where it had landed at 5:17 AM, after three vibrations he ignored. He knew exactly how many new messages there were. Jack was predictable like that.
 
 ---
 
 Helena was still on the couch when Kim came downstairs.
 
-Half her body sliding toward the floor, wrinkled shirt, face marked by yesterday's makeup and the dark circles she always wore. Three empty cans on the floor around her, a fourth tipped over on the cushion. The party had ended late, as always.
+Half her body sliding toward the floor, wrinkled shirt, face marked by yesterday's makeup and the usual dark circles. Three empty cans on the floor around her, a fourth tipped over on the cushion. The party had ended late, as always.
 
 Kim walked past without stopping.
 
-In the kitchen, the sink was buried under plates with dried-out leftovers crusted on the edges. He opened the coffee maker, added the grounds, turned on the stove. The cigarette appeared between his fingers out of habit before he decided to light it. The first drag burned familiar.
+In the kitchen, the sink was piled with plates with dried food on the edges. He opened the coffee maker, put in the grounds, turned on the stove. The cigarette appeared between his fingers out of habit before he decided to light it. The first drag burned familiar.
 
-— Almost made it to the couch this time. — Kim looked toward the living room from the hallway. — Progress.
+— This time she almost made it to the couch. — Kim looked toward the living room from the hallway. — Progress.
 
 Helena's groaning started before the coffee finished. Her hangovers always came with an inventory: phone first, then wallet, then memory of what she'd spent. Kim knew the sequence by heart.
 
-— Kim. — The voice came from the living room, raspy.
+— Kim. — The voice came from the living room, hoarse.
 
 — Coffee's ready.
 
-— I don't want coffee. Send me a transfer.
+— I don't want coffee. Send me a DIX.
 
 Kim drank his own coffee in silence.
 
-— You hear me?
+— Did you hear me?
 
 — I heard you.
 
-— Then send it already. I made plans to go out tonight and I've got nothing.
+— Then send it. I made plans tonight and I'm broke.
 
-Kim set his cup in the sink. He walked into the living room and stood there, looking at her.
+Kim put his cup in the sink. He walked into the living room and stood looking at her.
 
-— This month's bills are already paid. Electricity, water, internet, groceries. All taken care of.
+— I already paid the bills this month. Power, water, internet, groceries. Everything's taken care of.
 
-— Great. Now send the money.
+— Great. Now send the DIX.
 
 — What for?
 
-Helena sat up slowly, her head clearly pounding. The anger arrived before the answer.
+Helena sat up slowly, her head clearly pounding. The anger came before the answer.
 
 — What is this? An audit?
 
-— Just asking what for.
+— I just asked what for.
 
-— To go out, Kim. To buy cigarettes, to grab a beer with my friends, to do whatever I want with my money. Happy now?
+— To go out, Kim. To buy cigarettes, to have a beer with my friends, to do whatever I want with my money. Satisfied?
 
 — It's not your money. It's mine.
 
 The silence that followed had texture.
 
-Helena got up faster than her condition suggested, her eyes snapping awake all at once.
+Helena got up faster than her condition suggested, her eyes snapping awake.
 
-— You've got some nerve staying in my house, eating my food, using my electricity and then questioning what I do with what's rightfully mine? You owe me, kid. Never forget that. Until you're eighteen, you owe me.
+— You have the nerve to live in my house, eat my food, use my electricity, and still question what I do with what's rightfully mine? You owe me, kid. Don't ever forget that. Until you're eighteen, you owe me.
 
-— I pay the bills. I pay for groceries. I pay for everything you spend in here every month. That's what I owe.
+— I pay the bills. I pay for groceries. I pay for everything you spend in this house every month. That's what I owe.
 
-— That's not even close to what you owe.
+— That's nowhere near what you owe.
 
-Kim grabbed his backpack from the chair. Opened it, checked his stuff, unlocked his phone with his thumb and checked his balance. Closed the backpack.
+Kim picked up his backpack from the chair. He opened it, checked his things, unlocked the phone with his thumb and checked his balance. Closed it.
 
-— I'll send sixty.
+— I'll send fifty.
 
 — Send a hundred.
 
-— Seventy and that's final.
+— Sixty and that's it.
 
-— You little son of a— this attitude of yours can only come from that piece of—
+— You son of a bitch. That attitude of yours could only come from that piece of—
 
 — Dona Helena.
 
-His voice didn't rise. It didn't need to. It was the tone that ended sentences before they finished. Both of them had known that for years.
+His voice didn't rise. It didn't need to. It was the tone that ended the sentence before it finished. They both knew that. Had known it for years.
 
-Helena stood there with her mouth half open, the anger searching for another way out. It found the can that was still sealed from the night before.
+Helena stood with her mouth half open, the anger looking for another exit. It found the sealed can from the night before.
 
-The throw came before Kim finished turning toward the door. He extended his arm without looking and caught it in the air, examined the can for a second.
+The throw came before Kim finished turning toward the door. He extended his arm without looking and caught it mid-air, examined the can for a second.
 
 — Your aim's getting better.
 
-— Don't come back, you piece of shit.
+— Don't bother coming back, you piece of trash.
 
 *Same script, every morning. At least it's consistent.*
 
-He put the can in his backpack alongside the books and left.
+He put the can in his backpack alongside his books and left.
 
 ---
 
-Jack was on the second step of the outside stairs.
+Jack was on the second step of the outside staircase.
 
 Green dreads catching the morning light, phone in hand. Always the phone in hand.
 
-— Bro, did you see the video I sent you?
+— Man, did you see the video I sent you?
 
 — Good morning, Jack.
 
-— This guy does something you literally won't believe, it's actually impossible to—
+— This guy does something you won't believe, it's literally impossible to—
 
-Kim pulled the can from his backpack and put it in Jack's hand before he finished the sentence.
+Kim pulled the can from his backpack and placed it in Jack's hand before he finished the sentence.
 
-Jack opened it without thinking, took a sip, made an immediate face.
+Jack opened it without thinking, took a sip, and made an immediate face.
 
-— What the hell is this? It's warm\!
+— What is this garbage? It's warm!
 
 — Gift from Helena. Stop sending me stuff at five in the morning.
 
-— You'll be into it once you're in. Everyone's into it once they're in.
+— You're going to love it once you're in. Everyone does.
 
-— I'm not going to be in it.
+— I'm not getting in.
 
-— That's what you say and yet you're already in my band.
+— That's what you say, and yet here you are already in my band.
 
-— You don't have a band and even if you did, which you don't, I'm not in it.
+— You don't have a band, and even if you did, which you don't, I'm not in it.
 
-— Alright, alright. Band rehearsal tonight.
+— Okay, okay. Band practice tonight.
 
-They walked. The argument about the band lasted two blocks, turned into an argument about the LDI for another block, and died when the first bus appeared at the corner.
+They walked. The argument about the band lasted two blocks, turned into an argument about LDI for another block, and died when the first bus appeared at the corner.
 
 ---
 
 Kim worked in motion.
 
-The backpack went to the corner of the aisle, the small colorful bags came out before the bus picked up speed again. He read the whole aisle in ten seconds, ruled out half the passengers before taking his first step, and chose his route by the kind of look he found.
+The backpack went to the corner of the aisle, the candy bags came out before the bus picked up speed again. He read the entire car in ten seconds, ruled out half the passengers before taking his first step, and chose his route by the type of look he found.
 
-The executive with the tie checking his phone, elbow bent. Too busy to say no, fast enough not to waste time. Direct approach, under fifteen seconds.
+The executive with a tie checking his phone, elbow bent. Too busy to say no, fast enough not to waste time. Direct approach, under fifteen seconds.
 
-The woman with the grocery bag on her lap. She had time, had patience, liked conversation. Two comments about the day, then the pitch.
+The older woman with a grocery bag on her lap. She had time, she had patience, she liked conversation. Two comments about the day, then the offer.
 
-The college kid with headphones in, eyes closed, head nodding slightly. No shot. Next.
+The college student with earbuds in, eyes closed, head bobbing slightly. Impossible. Next.
 
-Jack stayed close, watching. In five years he had tried to copy Kim's method about three times and failed all three.
+Jack stayed close, watching. In five years he had tried to copy Kim's method about three times and failed every single one.
 
-— The suit's going to buy. — Jack said low.
+— The suit guy's going to buy. — Jack spoke low.
 
-— Wrong. — Kim didn't turn. — He's going to act like he's going to buy and shortchange the change.
+— Wrong. — Kim didn't turn. — He's going to pretend he's going to buy and short-change me.
 
-The man in the suit shortchanged the change.
+The suit guy short-changed him.
 
 — How did you know?
 
-— Shoes. Expensive but worn out. Tight on money but doesn't want to look it.
+— Shoes. Expensive but worn out. Tight on cash but doesn't want to look it.
 
-Three buses. Eighteen bags. The day's earnings calculated mentally while the last bus turned at the corner of Elite Academy.
+Three buses. Eighteen candy bags. The day's earnings calculated mentally as the last bus turned the corner at Elite Academy.
 
 ---
 
 Osvaldo was at the gate.
 
-Navy-blue uniform, the keychain jingling when he turned to open it before either of them asked.
+Navy blue uniform, the keychain jingling as he turned to open it before either of them asked.
 
 — Another day.
 
-— Thanks, Osvaldo. — Kim walked through.
+— Thanks, Osvaldo. — Kim passed through.
 
-— You are the finest human being alive. — Jack walked through.
+— You are the greatest human being alive. — Jack passed through.
 
-— Get going before someone sees me.
+— Go on before someone sees me.
 
-In the bathroom, the switch was silent and fast. Jacket folded, cap put away, uniform put on piece by piece. The posture shifted with the clothes. It was what had to be done to stay.
+In the bathroom, the change happened in reverse. Jacket folded, cap put away, uniform on piece by piece. The posture shifted with the clothes. It was what had to be done to stay.
 
-They came out through the hallway toward the classroom.
+They came out into the hallway heading toward the classroom.
 
-The hallway was different.
+The hallway felt different.
 
-Kim noticed before he understood why. Little clusters stopped near the walls when they should have been moving. Conversations in volumes too low for the hour.
+Kim noticed before he understood why. Small clusters of students standing near the walls when they should have been walking. Conversations in a volume too low for that time of morning.
 
-Freddy was leaning against the wall with a guy beside him. No uniform, leather jacket, posture of someone who didn't belong in that hallway and wasn't pretending to. Freddy's black eye was recent, the bruise still vivid at the edges. Two more behind them, equally out of place.
+Freddy was leaning against the wall with a guy next to him. No uniform, leather jacket, the posture of someone who doesn't belong in that hallway and isn't pretending he does. Freddy's black eye was recent, the bruise still vivid at the edges. Two more behind him, equally out of place.
 
 The guy next to Freddy was checking his phone when Freddy straightened up, seeing Kim and Jack approach.
 
-— Wait for third period. — The guy said low, eyes still on the phone.
+— Wait for third period. — The guy spoke low, without taking his eyes off the phone.
 
 — But they're right here—
 
@@ -186,29 +184,28 @@ Freddy shut his mouth. His fists stayed closed.
 
 Kim and Jack walked past.
 
-Not because they were ignoring it. Because they genuinely didn't connect the face to the name, didn't register the presence as a threat, didn't run any calculation about that look. The hallway had other things going on and Freddy was just another angry face in a school full of them.
+Not because they ignored it. Because they genuinely didn't connect the face to any name, didn't register the presence as a threat, didn't make any calculation about that look. The hallway had other things going on and Freddy was just another irritated face in a school full of them.
 
-Freddy watched the two of them walk past without even turning their heads. He felt the heat rise.
+Freddy watched the two of them walk by without even turning their heads. Felt the heat rise.
 
-— You're both going to pay today. — Barely audible.
+— Today you pay. — Almost inaudible.
 
 Jack turned his face. Not toward Freddy, not exactly. The movement of someone who felt something without knowing what. His gaze swept the hallway for half a second and landed briefly in the direction the voice had come from.
 
 Freddy took a step back.
 
-Jack had already turned back to Kim, picking up his sentence in the middle.
+Jack had already turned back to Kim, picking up the sentence mid-thought.
 
-The two of them rounded the corner and disappeared.
+The two of them turned the corner and disappeared.
 
-The guy next to Freddy pocketed his phone. He looked at him with no particular expression, the way you look at work when the work hasn't started yet.
+The guy next to Freddy put his phone away. He looked at him with no particular expression, the way you look at work when the work hasn't started yet.
 
 For him it was just another Tuesday.
 
----
+Jack was talking about the weekend, the drinks, the girls. Kim was listening with half his attention. The other half was still in the hallway, on a black eye he hadn't consciously registered but that stuck somehow.
 
 The classroom door was closed. Kim rested his hand on the handle.
 
-*Another day.*
+*Late as always. I need to find another hustle soon.*
 
 He opened it.
-
