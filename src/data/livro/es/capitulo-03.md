@@ -1,325 +1,325 @@
-# CHAPTER 3 — The Only Rule
+# CAPÍTULO 3 — La Única Regla
 
-Brock walked through the classroom door without knocking.
+Brock entró por la puerta del salón sin llamar.
 
-It wasn't aggressive. It was the entrance of someone who doesn't consider the possibility that a door might be closed to him. The four behind him with the same posture, no uniform, no excuse to be there. And Freddy last, trying to appear as the main reason for the scene when he was clearly the footnote.
+No fue agresivo. Fue la entrada de alguien que no considera la posibilidad de que una puerta pueda estar cerrada para él. Los cuatro detrás con la misma postura, sin uniforme, sin excusa para estar allí. Y Freddy al último, tratando de parecer la razón principal de la escena cuando era claramente la nota al pie.
 
-The room felt it before processing it.
+El salón lo sintió antes de procesarlo.
 
-Kim and Jack didn't turn their heads. They were in the middle of a discussion about whether the band existed or not, the same discussion as always, and the consensus was the same as always — which was two completely different consensuses. Jack insisted the last guitar session had been a rehearsal. Kim insisted it had been an error in judgment.
+Kim y Jack no giraron la cabeza. Estaban en medio de una discusión sobre si la banda existía o no, la misma discusión de siempre, y el consenso era el mismo de siempre — que eran dos consensos completamente distintos. Jack insistía en que la última sesión de guitarra había sido un ensayo. Kim insistía en que había sido un error de juicio.
 
-Brock walked to Kim's desk and stood there.
+Brock caminó hasta el escritorio de Kim y se quedó parado.
 
-Nothing.
+Nada.
 
-Kim flipped the tablet screen to the next exercise.
+Kim giró la pantalla de la tablet hacia el siguiente ejercicio.
 
-— We need to talk. Both of you. — Brock had the patience of someone paid by the hour.
+— Necesitamos hablar. Los dos. — Brock tenía la paciencia de alguien al que le pagan por hora.
 
-Kim raised his eyes, assessed Brock for a second, and went back to the tablet.
+Kim levantó los ojos, evaluó a Brock por un segundo y volvió a la tablet.
 
-— Fine, but fair warning: our time is expensive and you need to be worth the effort.
+— De acuerdo, pero aviso desde ya: nuestro tiempo es caro y tienes que valer el esfuerzo.
 
-Not a question. Not a refusal. A redirection, said with the calm of someone who has already decided how the scene ends.
+No era una pregunta. No era una negativa. Era una redirección, dicha con la calma de quien ya decidió cómo va a terminar la escena.
 
-Brock stood there for a second. Then nodded. Professional enough to recognize when the other party thought they controlled the pace.
+Brock se quedó parado un segundo. Luego asintió. Suficientemente profesional para reconocer cuando la otra parte creía que controlaba el ritmo.
 
-Kim closed the tablet, grabbed his bag and walked to the door with Jack beside him, the two resuming the band discussion at the exact point where it had stopped. The group parted to let them through, all four with a silent curiosity about whether that arrogance was courage or stupidity.
+Kim cerró la tablet, agarró la mochila y caminó hacia la puerta con Jack a su lado, los dos retomando la discusión de la banda exactamente en el punto donde la habían dejado. El grupo se abrió para dejarlos pasar, los cuatro con una curiosidad silenciosa sobre si aquella arrogancia era valentía o estupidez.
 
-Freddy didn't have the same patience.
+Freddy no tenía la misma paciencia.
 
-— You sons of bitches! You're going to let these two pieces of trash run things? I'm paying you to destroy them. I want them humiliated in front of the whole school, I want videos of these animals bleeding.
+— ¡Hijos de puta! ¿Van a dejar que estos dos basuras les den órdenes? Les estoy pagando para acabar con ellos. Quiero verlos humillados frente a toda la escuela, quiero videos de estos animales sangrando.
 
-Brock knew the job well. He knew demanding clients came with the package. He turned his head to respond, but didn't open his mouth.
+Brock conocía muy bien el trabajo. Sabía que los clientes exigentes formaban parte del paquete. Giró la cabeza para responder, pero no abrió la boca.
 
-Freddy had changed completely. What was on his face now wasn't anger. It was solid, raw, pure terror. His legs were visibly trembling.
+Freddy había cambiado por completo. Lo que había en su cara ahora no era rabia. Era terror sólido, bruto, puro. Las piernas le temblaban visiblemente.
 
-Brock followed the client's gaze.
+Brock siguió la mirada del cliente.
 
-Kim and Jack were no longer laughing. They weren't saying anything. They were looking at Freddy, both at the same time, with the expression of someone who has just noted something important.
+Kim y Jack ya no se estaban riendo. No estaban diciendo nada. Miraban a Freddy, los dos al mismo tiempo, con la expresión de quien acaba de anotar algo importante.
 
-Brock made a mental note.
+Brock registró mentalmente.
 
-*These two aren't small-time.*
+*Estos dos no son poca cosa.*
 
-Kim and Jack turned around and resumed the conversation normally. The rest followed.
+Kim y Jack se dieron vuelta y retomaron la conversación normalmente. El resto los siguió.
 
-Nina hadn't moved. She looked at the other students, at the absence of surprise on their faces, at the expressions of disappointment from those who had expected a different result. She picked up her bag. She didn't quite know why, but she needed to see this through.
-
----
-
-The procession through the hallway had a clear geometry.
-
-Kim and Jack in front, steady pace, the band discussion continuing at normal volume with no concession to the group behind them.
-
-The group following: Jason, strangely the physically strongest but not the leader, dark-skinned, the tallest, well-defined muscles under his tank top. Michael, slightly shorter than Brock, spiked red hair, a scar on his face running down to his eye — not a first-timer. Anderson, the shortest of the five, worn hoodie, black bangs covering his left eye, the right eye hungry for blood. André, heavyset but solid, the calmest of them all, eating a chocolate bar without hurry, natural hair, brown skin.
-
-Jack did a full read of the group without appearing to look.
-
-— You think there's more than this? — he said low, just for Kim.
-
-— Unfortunately, I don't think so. — Kim didn't turn. — It'll be quick. Maybe the leader gives some trouble.
-
-Jack rolled his neck with a crack, lazy gesture. Kim yawned.
-
-Brock, a few meters back, noticed the gestures. Frowned slightly. Went back to his phone.
+Nina no se había movido. Miró a los otros estudiantes, la ausencia de sorpresa en sus caras, las expresiones de decepción de quienes esperaban un resultado diferente. Agarró la mochila. No sabía bien por qué, pero necesitaba ver esto hasta el final.
 
 ---
 
-Outside, Freddy listened to the two inside the bathroom. He couldn't make out the words, only the tone — calm, almost bored, as if what was about to happen was a minor inconvenience in their day.
+La procesión por el pasillo tenía una geometría clara.
 
-That was worse than anything he had expected.
+Kim y Jack adelante, paso tranquilo, la discusión de la banda continuando en volumen normal sin ninguna concesión al grupo de atrás.
 
-Inside, Jack turned on the faucet, splashed his face, turned it off.
+El grupo que los seguía: Jason, extrañamente el más fuerte físicamente pero no el líder, de piel muy oscura, el más alto, músculos bien definidos bajo la camiseta sin mangas. Michael, un poco más bajo que Brock, cabello rojo erizado, una cicatriz en el rostro que bajaba hasta el ojo — no era un novato. Anderson, el más bajo de los cinco, sudadera gastada, flequillo negro cubriendo el ojo izquierdo, el ojo derecho con sed de sangre. André, gordo pero sólido, el más tranquilo de todos, comiendo una barra de chocolate sin apuro, cabello afro, piel morena.
 
-— You remember the last time we lost a fight?
+Jack hizo la lectura completa del grupo sin parecer que miraba.
 
-Kim paused with the shirt still in his hand.
+— ¿Crees que hay más? — dijo bajo, solo para Kim.
 
-— We never lost. The only one who put us down more than once was the Champion.
+— Lamentablemente creo que no. — Kim no giró. — Va a ser rápido. Quizás el líder dé algo de trabajo.
 
-Jack made a face. Not anger. Something between disgust and involuntary respect.
+Jack estiró el cuello con un chasquido, gesto perezoso. Kim bostezó.
 
-— Where do you think he is now?
-
-— Disappeared a while back. Word is he's dead. Strong fighter, but not stronger than a bullet. — Kim checked the mirror. — Let's be quick. I'm worried about being late for the next class.
-
-Outside, Freddy heard the two laugh before the door opened.
+Brock, a unos metros de distancia, notó los gestos. Frunció levemente el ceño. Volvió al celular.
 
 ---
 
-Freddy watched the two walking toward the annex. He sized them up and felt nothing. He couldn't see the slightest threat. They looked like ordinary kids. How had they managed to fight over thirty of his friends and still beat them all? And the worst of it: the one with the cap looked like a street kid, would knock someone down and go back for a snack. The one with the green hair wouldn't stop drinking while he fought, looked almost drunk. It had only ended because the police showed up, and the two had vanished the same way they'd appeared — from nowhere, leaving over thirty men on the ground.
+Afuera, Freddy escuchaba a los dos dentro del baño. No podía distinguir las palabras, solo el tono — tranquilo, casi aburrido, como si lo que estaba a punto de ocurrir fuera una inconveniencia menor en su día.
 
-The annex was at the back of the school, separated from the main building by an uncovered courtyard nobody had used in a long time. Windows without glass, vines covering the outer walls, wood creaking in the wind. Kim and Jack crossed without watching their step. They knew where to walk.
+Eso era peor que cualquier cosa que hubiera esperado.
 
-They started stretching.
+Adentro, Jack abrió el grifo, se mojó la cara, lo cerró.
 
-The group watched every movement of the two, trying to read what that calm was saying. Comments started low and grew louder.
+— ¿Te acuerdas de la última vez que perdimos una pelea?
 
-— Watch yourself, bro, these guys think they're something. — Jason gave Michael a light punch on the shoulder.
+Kim hizo una pausa con la camiseta todavía en la mano.
 
-— They'll find out soon enough that you don't mess with real ones. — Michael replied and gave a restrained laugh.
+— Nunca perdimos. El único que nos bajó más de una vez fue el Campeón.
 
-Anderson, bent at the knees looking at the ground, let out:
+Jack hizo una mueca. No de rabia. De algo entre el asco y el respeto involuntario.
 
-— I'm gonna lay these clowns out. Closed casket.
+— ¿Dónde estará ahora?
 
-André wiped his chocolate-stained mouth and said:
+— Desapareció hace tiempo. Se dice que está muerto. Fuerte en la pelea, pero no más fuerte que una bala. — Kim revisó el espejo. — Vamos rápido. Me preocupa llegar tarde a la próxima clase.
 
-— I want to finish this quick so I don't miss lunch.
-
-Brock stayed quiet. Pocketed his phone.
-
-Freddy felt relieved seeing them finally focused. Almost ten thousand coins hadn't been cheap, but the group was known as the best in the area, recommended by several friends who had used their services before.
-
-Kim raised his eyes and nodded to Brock. Simple signal: we're ready.
-
-Freddy, true to instinct, went straight behind a concrete column.
-
-The groups met in the center of the annex separated by a meter of hostility. Kim raised his index finger toward Brock.
-
-— You know what the only rule in a street fight is?
-
-Brock frowned. Kim turned his thumb down, slowly, like a Roman emperor deciding the fate of a gladiator.
-
-— There are no rules.
+Afuera, Freddy escuchó a los dos reírse antes de que la puerta se abriera.
 
 ---
 
-Kim came in low, pendulum movement. Jason threw the hook and bent forward to reach him. The light kick behind the already unstable support knee took the leg out. Kim moved to his back before Jason hit the ground, locked the elbow against Jason's clavicle and pulled down. The shoulder came out of the socket with a sound that wasn't loud but was definitive.
+Freddy observaba a los dos caminando hacia el anexo. Los analizó de arriba abajo y no sintió nada. No veía la mínima amenaza. Parecían chicos comunes. ¿Cómo habían logrado pelear con más de treinta amigos suyos y ganarles a todos? Y lo peor: el del gorro parecía un muerto de hambre, tumbaba a alguien y volvía a buscar algo para comer. El del cabello verde no paraba de beber mientras peleaba, parecía hasta borracho. Todo había terminado solo porque llegó la policía, y los dos desaparecieron igual que habían aparecido — de la nada, dejando más de treinta hombres tirados en el suelo.
 
-— Little son of a bitch, I'll kill you, ahhh!
+El anexo quedaba en la parte trasera de la escuela, separado del edificio principal por un patio descubierto que nadie usaba desde hacía mucho tiempo. Ventanas sin vidrio, enredaderas cubriendo las paredes externas, madera crujiendo con el viento. Kim y Jack cruzaron sin mirar al suelo. Sabían dónde pisar.
 
-On the other side, Michael came with the steel pipe and his spiked red hair. Jack kept his hands in his pockets.
+Empezaron a estirarse.
 
-The first arc was vertical. Jack didn't shift his base, just leaned his torso back while the pipe cut the air in front of his face. He finished with a smile at Michael, which made him angrier.
+El grupo observaba cada movimiento de los dos, tratando de leer lo que esa calma decía. Los comentarios comenzaron bajos y fueron subiendo.
 
-The second arc came horizontal, aiming for the neck. Jack ducked and the pipe passed overhead, Michael's own momentum rotating his shoulder outward. Jack slid through the space the arc opened and was back-to-back with him before the movement finished.
+— Fíjate, bro, estos tipos se creen mucho. — Jason le dio un suave golpe en el hombro a Michael.
 
-— So, what did you think of her? — Jack asked Kim, completely relaxed.
+— Pronto van a descubrir que con los de verdad no se juega. — Michael respondió y soltó una risa contenida.
 
-— Who? Oh, the new girl. — Anderson came with the knife extended straight at Kim's chest. Kim stepped back and pulled the wrist by its own momentum. The movement made him pass right through. The rotation left Kim facing Jack and he continued — Same content as always. Rich girl who thinks she's better than everyone.
+Anderson, doblado con las rodillas mirando al suelo, soltó:
 
-— What kind of dance is this, I'll cut you up, you piece of shit. — Anderson turned furious, saw Kim's back, spun the knife and leapt to drive it into his back.
+— Voy a tumbar a estos inútiles. Cajón cerrado.
 
-Michael had lost sight of Jack. Hearing his target's voice, he simply swung the pipe horizontally, back still turned, aiming at Jack's shoulder.
+André se limpió la boca sucia de chocolate y dijo:
 
-Kim and Jack exchanged a quick look.
+— Quiero terminar con esta payasada para no perder el almuerzo.
 
-Kim grabbed Jack's head and bent it, throwing his own body back at the same time. Michael's pipe passed through the space where they both were a second before.
+Brock se quedó callado. Guardó el celular.
 
-Kim launched his body forward at the end of the arc, now facing Michael. The flying kick came with the tip of his foot hitting the jaw with a force that lifted him off the ground.
+Freddy sintió alivio al ver que finalmente estaban enfocados. Casi diez mil monedas no había sido barato, pero el grupo era conocido como el mejor de la zona, recomendado por varios amigos que ya habían usado sus servicios.
 
-Jack, bent by Kim's movement, turned his face at the exact moment Anderson completed his leap.
+Kim levantó la mirada y le hizo una señal a Brock. Señal simple: estamos listos.
 
-The smile on Jack's face wasn't provocation. It was gratitude. Anderson, lost in everything that had happened in that second, couldn't see that his own weight and velocity would be his end.
+Freddy, fiel a su instinto, fue directo detrás de una columna de concreto.
 
-Jack's uppercut rose clean into Anderson's stomach, legs driving from below, Anderson's body in the air in a position any Street Fighter player would recognize as a Shoryuken.
+Los grupos se encontraron en el centro del anexo separados por un metro de hostilidad. Kim levantó el dedo índice en dirección a Brock.
 
-The sequence was so fast and precise it stopped Brock and André in place.
+— ¿Sabes cuál es la única regla en una pelea callejera?
 
-— Damn, Kim. — Jack shook out his wrist. — How many times do I have to say it: don't touch my hair. It takes work to fix in the morning.
+Brock frunció el ceño. Kim giró el pulgar hacia abajo, despacio, como un emperador romano decidiendo el destino de un gladiador.
 
-Anderson and Michael were completely out of the fight.
-
-— Don't change the subject — she carved an unforgettable humiliation into you. That's why I'm eternally grateful. I even saved it for future reference. — Kim smiled at his friend, matter-of-factly.
-
-— I knew it. This only proves it's our destiny. A beautiful story to tell our kids. — Jack pulled a comb from his pocket and started fixing his hair. — She has something different. The others don't have that.
-
-André swung the chain in the air, the sound of it cutting through the space. Jack stepped back, still focused on his hair. Kim turned his face.
-
-André's first arc was vertical toward Kim. Jason got up at the same time, right shoulder out of the socket, agony and fury on his face, coming from the side with his left arm raised.
-
-Kim stepped back. Jason took the space where he had been and the chain found his neck. He was out before he hit the ground.
-
-Kim closed the distance with André in one movement, face to face, eye to eye.
-
-André hadn't processed yet that he had just taken down his own friend.
-
-The first punch landed in the solar plexus, taking all the air at once. The second crushed the liver. The third hit the kidney. The sequence left no room to breathe, and when the fourth blow found the throat, André's legs buckled and he began to slide, large and heavy, unable to hold his own weight.
-
-Kim finished with a lateral elbow strike already turning toward Jack, confident André wouldn't be getting up again. He clapped his hands in a done gesture.
-
-— You think they're all interesting.
-
-— But this one really is different. I swear. — Jack with his usual smile.
-
-Brock was standing in the center of the annex. He had watched everything in silence, eyes moving, cataloguing. No phone in hand. No hurry. He put on a pair of brass knuckles, one on each hand, and started moving.
-
-Brock moved past Kim quickly as if he wasn't even there.
-
-— Interesting. — Kim pulled a cigarette from his pocket, leaving Brock at his back.
-
-Jack noticed the choice, he was being underestimated, and something in his face changed slightly. The humor left. What remained was colder.
-
-Brock didn't telegraph. The first blow came direct, a fast jab that Jack barely slipped. The second looked like a cross Jack was expecting, but Brock didn't throw the cross, just rolled his shoulders in a feint. He threw a low hook that caught Jack's ribs with a force that folded all the air from his lungs at once.
-
-Jack stepped back. For the first time in the chapter.
-
-Kim had already lit the cigarette and watched Brock's last punch land.
-
-— Ah. — Kim blew the smoke. — That was a good one. I'm jealous.
-
-Brock advanced without pause. Jab, jab, hook, spinning leg kick and knee, always the same rhythm, forcing Jack back without leaving room to breathe. Jack blocked what he could, took what he couldn't. His ribs throbbed with every breath.
-
-— Damn, what a punch. — Jack through his teeth at Kim.
-
-— I know. — Kim watching with the satisfaction of someone who enjoys seeing his friend take a hit.
-
-— You just going to stand there?
-
-— I'm enjoying the break, which is what you normally do. It's your turn now, princess.
-
-Jack took three jabs straight to the face, right on the nose. He was getting tired of this. When Brock's right leg kick came, Jack grabbed the leg with his left hand, pulled the shirt with his right and headbutted him clean in the middle of the face.
-
-The impact made both of them step back one pace each. Brock blinked, nose bleeding, and for the first time his expression changed. Not from pain. From reassessment.
-
-Brock advanced again. Jack didn't step back this time.
-
-Brock's hook came. Jack used his head again, stopped the punch mid-path, and drove three shots into the liver in sequence. Each one deeper than the last, knuckles finding the muscle until it gave. Brock folded. Jack locked Brock's neck under his arm and squeezed, the weight of his own body working against him.
-
-Brock fought for about ten seconds. Good ten seconds. Then he stopped.
-
-Jack set him down on the ground carefully, which was a strange thing to do after strangling someone, but it was the way Jack did things.
+— No hay reglas.
 
 ---
 
-The annex went quiet.
+Kim llegó bajo, en movimiento pendular. Jason lanzó el gancho y se dobló para alcanzarlo. La patada leve detrás de la rodilla de apoyo ya inestable hizo que la pierna cediera. Kim pasó a sus espaldas antes de que Jason llegara al suelo, trabó el codo contra la clavícula de Jason y jaló hacia abajo. El hombro salió de su lugar con un sonido que no fue fuerte pero sí definitivo.
 
-Five on the ground. Brock among them.
+— ¡Mocoso hijo de puta, te voy a matar, ahhh!
 
-Jack stood with his ribs throbbing, the headbutt had left a cut at the top of his head that bled slowly. Kim walked to his friend's side and looked at the five scattered across the floor.
+Del otro lado, Michael vino con el tubo de acero y el cabello rojo erizado. Jack mantenía las manos en los bolsillos.
 
-— I put down three.
+El primer arco fue vertical. Jack no movió la base, solo echó el tronco hacia atrás mientras el tubo cortaba el aire frente a su cara. Terminó con una sonrisa para Michael, que lo puso más furioso.
 
-— I put down three too. — Jack breathed deep. — The big one counts double, right?
+El segundo arco llegó horizontal, apuntando al cuello. Jack agachó la cabeza y el tubo pasó por encima, el propio momentum de Michael girando su hombro hacia afuera. Jack se deslizó por el espacio que el arco abrió y estaba espalda con espalda con él antes de que el movimiento terminara.
 
-— That wasn't what we agreed.
+— Oye, ¿qué te pareció? — Jack le preguntó a Kim, completamente relajado.
 
-— But isn't it you who says there are no rules?
+— ¿Quién? Ah, la chica nueva. — Anderson vino con el cuchillo extendido directo al pecho de Kim, que dio un paso atrás y jaló la muñeca por su propio impulso. El movimiento lo hizo pasar de largo. La rotación dejó a Kim de frente a Jack y continuó — El mismo contenido de siempre. Niña rica que se cree mejor que todos.
 
-Kim offered his friend a cigarette. Jack took it. The two turned toward the concrete column where two elbows were still visibly trembling.
+— ¿Qué clase de baile es este, te voy a rebanar entero, cretino. — Anderson se dio vuelta furioso, vio la espalda de Kim y giró el cuchillo, saltando para clavárselo en la espalda.
 
-— You can come out now.
+Michael había perdido de vista a Jack. Al escuchar la voz de su objetivo, simplemente giró el tubo horizontalmente, de espaldas todavía, apuntando al hombro de Jack.
 
-Silence.
+Kim y Jack intercambiaron una mirada rápida.
 
-— Nobody's going to hit you.
+Kim agarró la cabeza de Jack y lo dobló, lanzando su propio cuerpo hacia atrás al mismo tiempo. El tubo de Michael pasó por el espacio donde los dos estaban un segundo antes.
 
-Freddy came out from behind the column with the expression of someone who doesn't entirely believe that but has no better option. The black eye throbbed. The frustration of a whole night, of the procession through the hallway, of all the hired muscle on the ground, all of it fermenting behind his teeth.
+Kim relanzó el cuerpo hacia adelante al final del arco, ahora de frente a Michael. La patada voladora salió con la punta del pie golpeando el mentón con una fuerza que lo arrancó del suelo.
 
-— I can't... can't... can't believe it. Those guys were se... se... serious. How do you... you... you do that? In an LDI battle I doubt you could pull anything like this!
+Jack, doblado por el movimiento de Kim, giró el rostro en el momento exacto en que Anderson completaba el salto.
 
-Kim and Jack looked at each other.
+La sonrisa en el rostro de Jack no era provocación. Era agradecimiento. Anderson, perdido con todo lo que había pasado en ese segundo, no pudo ver que el peso y la velocidad de su propio cuerpo serían su fin.
 
-Jack made an almost imperceptible signal with his eyebrow. Kim responded with a minimal nod.
+El uppercut de Jack subió certero al estómago, las piernas impulsando desde abajo, el cuerpo de Anderson en el aire en una posición que cualquier jugador de Street Fighter reconocería como un Shoryuken.
 
-— Man, with all due respect. — Kim paused, genuinely concerned. — Do you stutter? There's nothing wrong with it, we'd apologize for making fun of you earlier. I thought it was just nerves.
+La secuencia fue tan rápida y precisa que detuvo a Brock y André en seco.
 
-— I DON'T STUTTER, YOU IDIOT!
+— Mierda, Kim. — Jack sacudió la muñeca. — Cuántas veces tengo que repetirlo: no me toques el cabello. Cuesta trabajo arreglarlo en la mañana.
 
-Kim and Jack put their hands on their chests at the same time and let out a long, sincere sigh of relief.
+Anderson y Michael estaban completamente fuera de combate.
 
-Jack watched the situation with the look of someone who sees the perfect opening. After Nina's epic rejection, there was finally something to give back.
+— No cambies el tema — ella te clavó una humillación inolvidable. Por eso le estoy eternamente agradecido. Hasta lo guardé para futuras referencias. — Kim le sonrió a su amigo, con total naturalidad.
 
-— Hey Kim, you gonna let this slide? This guy challenging you for real? If you need it I'll lend you my SBI. Or are you gonna run like a chicken, bro?
+— Lo sabía. Esto solo prueba que es nuestro destino. Una hermosa historia para contarles a nuestros hijos. — Jack sacó un peine del bolsillo y empezó a arreglarse el cabello. — Ella tiene algo diferente. Las otras no tienen eso.
 
-Kim rolled his eyes.
+André hizo girar la cadena en el aire, el sonido de ella cortando el espacio. Jack se alejó, todavía preocupado por su cabello. Kim giró el rostro.
 
-— I work, study, fight, drink and work again. Nonsense games don't fit in my schedule.
+El primer arco de André fue vertical en dirección a Kim. Jason se levantó al mismo tiempo, el hombro derecho fuera de su lugar, agonía y furia en el rostro, viniendo por el lateral con el brazo izquierdo levantado.
 
-Jack dug his hand into his bag and pulled out the SBI, dangling it like someone offering something inevitable.
+Kim saltó hacia atrás. Jason ocupó el espacio donde él estaba y la cadena encontró su cuello. Cayó inconsciente antes de llegar al suelo.
 
-— Scared, are you? Didn't know this version of you, scaredy-cat JOAQUIM.
+Kim cerró la distancia con André en un movimiento, frente a frente, ojo a ojo.
 
-Freddy came out from behind the column with the ironic smile of someone who saw the perfect opening.
+André todavía no había procesado que acababa de tumbar a su propio amigo.
 
-— Oh, no time for nonsense, huh? You're scared! Not my problem. But for someone known as the KING OF FIGHTS, you're looking more like the KING OF CHICKENS.
+El primer puñetazo encajó en el plexo solar, sacando todo el aire de una vez. El segundo aplastó el hígado. El tercero golpeó el riñón. La secuencia no dejaba espacio para respirar, y cuando el cuarto golpe encontró la garganta, las piernas de André flaquearon y empezó a deslizarse, grande y pesado, sin poder sostener su propio peso.
 
-Kim turned toward him slowly.
+Kim terminó con un codazo lateral ya girando hacia Jack, seguro de que André no se levantaría más. Dio una palmada con las manos en gesto de terminado.
 
-— Look, I'm genuinely trying to be reasonable here, because your face is already broken. But don't push my patience. I have very little of it.
+— Crees que todas te interesan.
 
-Jack could barely hold back his satisfaction.
+— Pero esta sí es diferente. Lo juro. — Jack con su sonrisa de siempre.
 
-— Go on Kim, show him you're not scared. — Jack couldn't hold it anymore and burst out laughing. — Take him down in LDI.
+Brock estaba de pie en el centro del anexo. Había observado todo en silencio, los ojos moviéndose, catalogando. Sin celular en la mano. Sin apuro. Se puso un par de manoplas, una en cada mano, y empezó a moverse.
 
-Freddy approached with the artificial confidence of someone who has five hired fighters on the floor but hasn't completely processed that yet.
+Brock pasó rápidamente por Kim como si no estuviera allí.
 
-— So, do you have the guts? If you win, I'll pay you a thousand coins. If I win, you and your friend can't do anything to me, no matter what I do. That's only valid, of course, if your word is worth anything.
+— Interesante. — Kim sacó un cigarrillo del bolsillo dejando a Brock a sus espaldas.
 
-Kim looked at the SBI in Jack's hand.
+Jack notó la elección, lo estaban subestimando, y algo en su cara cambió levemente. El humor se fue. Lo que quedó era más frío.
 
-He thought about the electricity bill. The sixty in DIX for Helena. The groceries. The week off he could take with that money — it was almost a month's wages.
+Brock no telegrafió. El primer golpe vino directo, un jab rápido que Jack esquivó por poco. El segundo parecía un cruzado que Jack esperaba, pero Brock no lanzó el cruzado, solo movió los hombros en un amague. Lanzó un gancho bajo que le pegó a Jack en las costillas con una fuerza que dobló todo el aire de sus pulmones de una vez.
 
-He extended his hand.
+Jack retrocedió. Por primera vez en el capítulo.
 
-— Show me the money and let's start.
+Kim ya había encendido el cigarrillo y observó el último golpe de Brock.
 
-— Of course I'm recording this. — Jack raised his phone in the air. — Nothing better than having solid proof to spend that money without a guilty conscience. Kim, I get fifty percent.
+— Ah. — Kim sopló el humo. — Ese estuvo bueno. Me dio envidia.
 
-Kim looked at Jack. Jack smiled. Yeah, he knew what kind of friend he had.
+Brock avanzó sin pausa. Jab, jab, gancho, patada giratoria en la espinilla y rodillazo, siempre el mismo ritmo, forzando a Jack hacia atrás sin dejarle espacio para respirar. Jack bloqueó lo que pudo, recibió lo que no pudo. Las costillas le palpitaban con cada respiración.
 
-Freddy accessed his phone. The transfer programmed to settle the moment he lost.
+— Carajo, qué golpe. — Jack entre dientes para Kim.
 
-Jack placed the SBI in Kim's hands with the ceremony of someone handing over something that will change everything.
+— Lo sé. — Kim mirando con la satisfacción de quien disfruta ver a su amigo recibir golpes.
 
-— Welcome to Lutas de Ilusão.
+— ¿Te vas a quedar ahí parado?
 
-Kim put on the glove. Then the glasses.
+— Estoy aprovechando el descanso, que es lo que tú normalmente haces. Ahora te toca a ti, princesa.
 
-The last thing he saw before activation was Jack with his phone already aimed, big smile taking a selfie.
+Jack recibió tres jabs seguidos en la cara, justo en el centro de la nariz. Ya estaba harto de eso. Cuando llegó la patada derecha en la espinilla de Brock, Jack agarró la pierna con la mano izquierda, jaló la camiseta con la derecha y le dio un cabezazo justo en el centro de la cara.
 
-*This was a mistake.*
+El impacto hizo que los dos retrocedieran un paso cada uno. Brock parpadeó, la nariz sangrando, y por primera vez su expresión cambió. No de dolor. De reevaluación.
 
-He activated.
+Brock avanzó de nuevo. Jack esta vez no retrocedió.
+
+El gancho de Brock llegó. Jack usó la propia cabeza de nuevo, paralizó el golpe a mitad de camino, y clavó tres puñetazos al hígado en secuencia. Cada uno más profundo que el anterior, los nudillos encontrando el músculo hasta que cedió. Brock se dobló. Jack trabó el cuello de Brock bajo su brazo y apretó, el peso del propio cuerpo trabajando en su contra.
+
+Brock luchó por unos diez segundos. Buenos diez segundos. Luego se detuvo.
+
+Jack lo depositó en el suelo con cuidado, lo cual era una cosa extraña de hacer después de estrangular a alguien, pero era la manera en que Jack lo hacía.
 
 ---
 
-In my world there is a game. A game called Lutas de Ilusão, focused solely on combat. Pure brutality, blood, suffering and glory — like the arena of the ancient Roman Colosseum. To me, this game was just a digital experience for cowards who don't want to feel real pain.
+El anexo quedó en silencio.
 
-It wouldn't take long for me to discover how wrong I was. About everything. But the biggest mistake was not realizing that the pain was real.
+Cinco en el suelo. Brock entre ellos.
 
-**THE AGONY IS REAL.**
+Jack estaba de pie con las costillas palpitando, el cabezazo había dejado un corte en la parte superior de la cabeza que sangraba despacio. Kim caminó hasta el lado de su amigo y miró a los cinco esparcidos por el suelo.
 
-Welcome to Lutas de Ilusão.
+— Yo tumbé a tres.
+
+— Yo también tumbé a tres. — Jack respiró profundo. — El grandote cuenta doble, ¿no?
+
+— No fue lo que acordamos.
+
+— Pero ¿no eres tú quien dice que no hay reglas?
+
+Kim le ofreció un cigarrillo a su amigo. Jack lo aceptó. Los dos se giraron hacia la columna de concreto donde dos codos todavía aparecían temblorosos.
+
+— Puedes salir de ahí.
+
+Silencio.
+
+— Nadie te va a golpear.
+
+Freddy salió de detrás de la columna con la expresión de quien no cree del todo en eso pero no tiene mejor alternativa. El ojo morado palpitaba. La frustración de toda una noche, de la procesión por el pasillo, de todos los matones tirados en el suelo, todo fermentando detrás de los dientes.
+
+— No pue... pue... puedo creerlo. Esos tipos eran de lo se... se... serio. ¿Cómo lo ha... ha... hacen? ¡En una batalla de LDI dudo que pudieran hacer algo así!
+
+Kim y Jack se miraron.
+
+Jack hizo una señal casi imperceptible con la ceja. Kim respondió con un gesto mínimo.
+
+— Oye, con todo el respeto. — Kim hizo una pausa, genuinamente preocupado. — ¿Tartamudeas? No hay ningún problema si es así, te pediríamos disculpas por haberte molestado antes. Pensé que era solo nerviosismo.
+
+— ¡NO TARTAMUDEO, IDIOTA!
+
+Kim y Jack se pusieron las manos en el pecho al mismo tiempo y soltaron un suspiro largo y sincero de alivio.
+
+Jack observaba la situación con el brillo de quien estaba viendo la apertura perfecta. Después del rechazo épico de Nina, finalmente había algo que devolver.
+
+— Oye Kim, ¿lo vas a dejar así? ¿Este tipo desafiándote en serio? Si necesitas te presto mi SBI. ¿O vas a correr como un gallina, bro?
+
+Kim puso los ojos en blanco.
+
+— Trabajo, estudio, peleo, bebo y vuelvo a trabajar. Las tonterías de jueguitos no caben en mi agenda.
+
+Jack hundió la mano en la bolsa y sacó el SBI, balanceándolo como quien ofrece algo inevitable.
+
+— ¿Tienes miedo? No conocía esta versión miedosa de JOAQUIM.
+
+Freddy salió de detrás de la columna con la sonrisa irónica de quien vio la apertura perfecta.
+
+— Ah, ¿no tienes tiempo para tonterías? ¡Tienes miedo! No es mi problema. Pero para alguien conocido como el REY DE LAS PELEAS, pareces más bien el REY DE LOS COBARDES.
+
+Kim se giró hacia él despacio.
+
+— Mira, realmente estoy tratando de ser comprensivo aquí, porque ya tienes la cara destrozada. Pero no abuses de mi paciencia. Tengo muy poca.
+
+Jack apenas podía contener la satisfacción.
+
+— Vamos Kim, demuéstrale que no tienes miedo. — Jack ya no pudo más y soltó la carcajada. — Acábalo en LDI.
+
+Freddy se acercó con la confianza artificial de quien tiene cinco matones en el suelo pero todavía no ha procesado eso del todo.
+
+— Entonces, ¿tienes agallas? Si ganas, te pago mil monedas. Si yo gano, tú y tu amigo no pueden hacerme nada, sin importar lo que haga. Eso vale, claro, si tu palabra tiene algún valor real.
+
+Kim miró el SBI en la mano de Jack.
+
+Pensó en la factura de la luz. En los sesenta de DIX para Helena. En el mercado. En el descanso que podría tomarse toda la semana con ese dinero — era casi un mes de salario.
+
+Extendió la mano.
+
+— Muéstrame el dinero y empecemos.
+
+— Por supuesto que voy a grabar esto. — Jack levantó el celular en el aire. — Nada mejor que tener pruebas sólidas en la mano para gastar ese dinero sin peso en la conciencia. Kim, me quedo con el cincuenta por ciento.
+
+Kim miró a Jack. Jack sonrió. Claro, él sabía qué clase de amigo tenía.
+
+Freddy accedió al celular. La transferencia programada para liquidarse en el momento de su derrota.
+
+Jack puso el SBI en las manos de Kim con la ceremonia de quien entrega algo que va a cambiarlo todo.
+
+— Bienvenido a Lutas de Ilusão.
+
+Kim se puso el guante. Luego los lentes.
+
+Lo último que vio antes de la activación fue a Jack con el celular ya apuntado, la sonrisa grande tomando una selfie.
+
+*Esto fue un error.*
+
+Activó.
+
+---
+
+En mi mundo existe un juego. Un juego llamado Lutas de Ilusão, enfocado únicamente en batallas. Pura brutalidad, sangre, sufrimiento y gloria — como en la arena del antiguo coliseo romano. Para mí, ese juego era solo una experiencia digital para cobardes que no quieren sentir dolor real.
+
+En poco tiempo iba a descubrir cuánto me equivocaba. En todo. Pero el mayor error fue no darme cuenta de que el dolor era real.
+
+**LA AGONÍA ES REAL.**
+
+Bienvenido a Lutas de Ilusão.
