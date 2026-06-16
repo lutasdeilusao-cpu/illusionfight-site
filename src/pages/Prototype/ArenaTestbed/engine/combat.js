@@ -10,27 +10,20 @@
  * @param {number} distancia - cells de distância do alvo (1 = adjacente)
  * @returns {number} FA final
  */
-export function calcularFA(attacker, isCritico = false, distancia = 1) {
+export function calcularFA(attacker, isCritico = false, distancia = 1, d6Atk = 1) {
   const dexEfetiva = isCritico ? attacker.dex : attacker.dex * 0.25
   let fa
 
   if (attacker.tipoAtaque === 'melee') {
-    fa = attacker.forca + dexEfetiva
+    fa = attacker.forca + dexEfetiva + d6Atk
   } else {
     // Distância: FA = (PDF - 1) + (DEX × 0.25) + d6
-    fa = (attacker.pdf - 1) + dexEfetiva
+    fa = (attacker.pdf - 1) + dexEfetiva + d6Atk
   }
 
   // Equipamento ofensivo
   if (attacker.equipamento === 'ofensivo' || attacker.equipamento === 'ambos') {
     fa += 2
-  }
-
-  // Distância progressiva
-  if (attacker.tipoAtaque === 'distancia') {
-    if (distancia === 0 || distancia === 1) fa = fa // 100%
-    else if (distancia === 2) fa = fa * 0.75 // 75%
-    else fa = fa * 0.5 // 50%
   }
 
   return Math.max(0, Math.round(fa * 10) / 10)
@@ -42,9 +35,9 @@ export function calcularFA(attacker, isCritico = false, distancia = 1) {
  * @param {boolean} isCriticoDef - se o d6 do defensor foi 6
  * @returns {number} FD final
  */
-export function calcularFD(defender, isCriticoDef = false) {
+export function calcularFD(defender, isCriticoDef = false, d6Def = 1) {
   const agiEfetiva = isCriticoDef ? defender.agi : defender.agi * 0.25
-  let fd = defender.arm + agiEfetiva
+  let fd = defender.arm + agiEfetiva + d6Def
 
   // Equipamento defensivo
   if (defender.equipamento === 'defensivo' || defender.equipamento === 'ambos') {
@@ -69,10 +62,10 @@ export function resolverAtaque(atacante, defensor, distancia = 1) {
   const isCriticoOfensivo = d6Atk === 6
   const isCriticoDefensivo = d6Def === 6
 
-  const fa = calcularFA(atacante, isCriticoOfensivo, distancia)
-  const fd = calcularFD(defensor, isCriticoDefensivo)
+  const fa = calcularFA(atacante, isCriticoOfensivo, distancia, d6Atk)
+  const fd = calcularFD(defensor, isCriticoDefensivo, d6Def)
 
-  logs.push(`FA = ${fa} (FOR=${atacante.forca}${atacante.tipoAtaque === 'distancia' ? `, PDF=${atacante.pdf}` : ''}, DEX=${atacante.dex}, d6=${d6Atk}${isCriticoOfensivo ? ' [CRÍTICO OFENSIVO]' : ''})`)
+  logs.push(`FA = ${fa} (${atacante.tipoAtaque === 'melee' ? `FOR=${atacante.forca}` : `PDF=${atacante.pdf}`}, DEX=${atacante.dex}, d6=${d6Atk}${isCriticoOfensivo ? ' [CRÍTICO OFENSIVO]' : ''})`)
   logs.push(`FD = ${fd} (ARM=${defensor.arm}, AGI=${defensor.agi}, d6=${d6Def}${isCriticoDefensivo ? ' [CRÍTICO DEFENSIVO]' : ''})`)
 
   let dano
@@ -89,18 +82,24 @@ export function resolverAtaque(atacante, defensor, distancia = 1) {
     contraAtaque = {
       fa: faContra,
       // a fd do contra-ataque precisa de novo d6
-      fd: calcularFD(atacante, false),
+      fd: calcularFD(atacante, false, rolarD6()),
     }
   } else {
-    dano = Math.max(0, Math.round((fa - fd) * 10) / 10)
-    dano = Math.max(1, Math.round(dano)) // dano mínimo 1
+    let danoBruto = Math.max(0, Math.round((fa - fd) * 10) / 10)
 
-    if (dano > 0) {
-      logs.push(`Dano bruto: ${Math.round((fa - fd) * 10) / 10} → dano final: ${dano}`)
-    } else {
-      dano = 1
-      logs.push(`Dano mínimo: 1`)
+    // Redução de distância aplicada no dano bruto
+    if (atacante.tipoAtaque === 'distancia') {
+      if (distancia === 2) {
+        danoBruto = Math.round(danoBruto * 0.75 * 10) / 10
+        logs.push(`Redução de distância (75%): dano bruto → ${danoBruto}`)
+      } else if (distancia >= 3) {
+        danoBruto = Math.round(danoBruto * 0.5 * 10) / 10
+        logs.push(`Redução de distância (50%): dano bruto → ${danoBruto}`)
+      }
     }
+
+    dano = Math.max(1, Math.round(danoBruto))
+    logs.push(`Dano bruto: ${danoBruto} → dano final: ${dano}`)
 
     // Ataque extra: AGI atacante > 2× AGI defensor
     if (atacante.agi > defensor.agi * 2) {
@@ -130,7 +129,7 @@ export function resolverAtaque(atacante, defensor, distancia = 1) {
 export function resolverContraAtaque(defensorOriginal, atacanteOriginal, faContra) {
   const d6Def = rolarD6()
   const isCritico = d6Def === 6
-  const fd = calcularFD(atacanteOriginal, isCritico)
+  const fd = calcularFD(atacanteOriginal, isCritico, d6Def)
 
   const logs = []
   logs.push(`Contra-ataque: FA = ${faContra}`)
