@@ -2871,7 +2871,9 @@
       "free_turn_hint": "Escolha uma ação para o turno:",
       "log_btn": "Abrir log de batalha",
       "ia_thinking_short": "IA pensando...",
-      "btn_confirm_move": "Confirmar Movimento"
+      "btn_confirm_move": "Confirmar Movimento",
+      "log_blocked": "Golpe completamente bloqueado!",
+      "log_receives_damage": "recebe {{dano}} de dano!"
     }
   }
 }

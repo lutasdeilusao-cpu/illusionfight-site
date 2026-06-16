@@ -2844,7 +2844,9 @@
       "free_turn_hint": "Choose an action for this turn:",
       "log_btn": "Open battle log",
       "ia_thinking_short": "AI thinking...",
-      "btn_confirm_move": "Confirm Move"
+      "btn_confirm_move": "Confirm Move",
+      "log_blocked": "Hit completely blocked!",
+      "log_receives_damage": "takes {{dano}} damage!"
     }
   }
 }

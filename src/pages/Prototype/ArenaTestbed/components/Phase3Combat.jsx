@@ -102,6 +102,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
   const [pendingMove, setPendingMove] = useState(null)
+  const drawerListRef = useRef(null)
+
+  // ── Auto-scroll do log drawer ──────────────────
+  useEffect(() => {
+    if (logDrawerOpen && drawerListRef.current) {
+      drawerListRef.current.scrollTop = drawerListRef.current.scrollHeight
+    }
+  }, [battleLog, logDrawerOpen])
 
   // ── Dynamic hexSize based on container width ──
   useEffect(() => {
@@ -727,11 +735,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setProjectilePos(null)
     clearAnimTimers()
 
-    if (resultado.dano > 0) {
-      aplicarDano(alvo.id, resultado.dano, atacante)
-      addLog(`  💥 ${alvo.nome} recebe ${resultado.dano} de dano!`)
+    if (resultado.criticoDefensivo) {
+      addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
     } else {
-      addLog(`  🛡️ Nenhum dano causado!`)
+      const danoFinal = Math.max(1, resultado.dano || 1)
+      aplicarDano(alvo.id, danoFinal, atacante)
+      addLog(`  💥 ${alvo.nome} ${t('prototype.arena_testbed.log_receives_damage', { dano: danoFinal })}`)
     }
 
     // FIX 4: Feedback visual de crítico defensivo
@@ -1002,12 +1011,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         const callbackFinal = () => {
           setProjectilePos(null)
           setProjectilePath([])
-          if (res.dano > 0) {
-            aplicarDano(alvo.id, res.dano, atacante)
-            addLog(`  💥 ${alvo.nome} recebe ${res.dano} de dano!`)
-            if (res.criticoDefensivo) {
-              adicionarFloatTexto(atacante.id, 'BLOQUEIO!', '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
-            }
+          if (res.criticoDefensivo) {
+            addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
+            adicionarFloatTexto(atacante.id, 'BLOQUEIO!', '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
+          } else {
+            const danoFinal = Math.max(1, res.dano || 1)
+            aplicarDano(alvo.id, danoFinal, atacante)
+            addLog(`  💥 ${alvo.nome} ${t('prototype.arena_testbed.log_receives_damage', { dano: danoFinal })}`)
           }
           const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
@@ -1281,8 +1291,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           <div className="atb-drawer" onClick={e => e.stopPropagation()}>
             <div className="atb-drawer-handle" />
             <div className="atb-drawer-title">{t('prototype.arena_testbed.battle_log')}</div>
-            <div className="atb-drawer-list">
-              {battleLog.slice(-20).reverse().map((entry, i) => (
+            <div className="atb-drawer-list" ref={drawerListRef}>
+              {battleLog.slice(-30).map((entry, i) => (
                 <div key={i} className="atb-drawer-entry">{entry.text}</div>
               ))}
             </div>
