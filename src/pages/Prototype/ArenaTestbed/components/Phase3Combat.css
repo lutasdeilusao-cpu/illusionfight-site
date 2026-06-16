@@ -63,6 +63,47 @@
   background: rgba(0, 238, 255, 0.12);
 }
 
+.atb-top-confirm {
+  background: #00ff88;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+  transition: box-shadow 0.15s;
+}
+.atb-top-confirm:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+}
+
+.atb-top-cancel {
+  background: none;
+  border: 1px solid #ff2244;
+  border-radius: 4px;
+  color: #ff2244;
+  font-size: 1rem;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.atb-top-cancel:hover {
+  background: rgba(255, 34, 68, 0.12);
+}
+
 .atb-top-info {
   flex: 1;
   overflow: hidden;
@@ -96,6 +137,7 @@
 .atb-canvas-wrap {
   position: relative;
   flex: 1;
+  width: 100%;
   min-height: 0;
   overflow: hidden;
   display: flex;
@@ -121,7 +163,8 @@
 }
 
 .atb-canvas {
-  border: 1px solid var(--ldi-border);
+  display: block;
+  border: 1px solid #1e2140;
   border-radius: 4px;
   cursor: pointer;
   max-width: 100%;
@@ -139,10 +182,11 @@
 }
 
 .atb-radial-menu {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  width: 0;
+  height: 0;
   pointer-events: none;
-  z-index: 200;
+  z-index: 600;
 }
 
 .atb-radial-btn {

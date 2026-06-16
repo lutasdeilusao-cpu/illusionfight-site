@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.120.0** | Site — Protótipo: glow hexágonos, menu radial, anúncios de turno v6.1.0 |
+| `SITE_VERSION` | **10.121.0** | Site — Protótipo: correções Phase3 v6.2.0 |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **6.1.0** | Protótipo — Arena Testbed: refinamento visual — glow hexágonos (shadowBlur), menu radial no token, anúncios de turno overlay, botão passar turno no top bar, bottom nav simplificado |
+| `PROTOTYPE_VERSION` | **6.2.0** | Protótipo — Arena Testbed: correções — radial menu position:fixed + clamp viewport, display:block canvas, top bar contextual (confirmar/cancelar/passar), limpeza de estado finalizarTurno, bottom nav hint movimento |
 
 ---
 

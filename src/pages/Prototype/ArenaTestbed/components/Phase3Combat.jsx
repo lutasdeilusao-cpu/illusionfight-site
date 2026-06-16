@@ -543,16 +543,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
       if (clickedOwnToken && !radialMenu) {
         const canvas = canvasRef.current
-        const wrap = canvasContainerRef.current
         const rect = canvas.getBoundingClientRect()
-        const wrapRect = wrap.getBoundingClientRect()
         const sz2 = hexSize
         const center = hexCenter(row, col, sz2 * 1.5, sz2 * SQRT3, sz2)
         const scaleX = canvas.width / rect.width
         const scaleY = canvas.height / rect.height
-        const px = (center.x / scaleX) + (rect.left - wrapRect.left)
-        const py = (center.y / scaleY) + (rect.top - wrapRect.top)
-        setRadialMenu({ charId: currentChar.id, x: px, y: py })
+        const px = (center.x / scaleX) + rect.left
+        const py = (center.y / scaleY) + rect.top
+        const MARGIN = 80
+        const clampedX = Math.max(MARGIN, Math.min(window.innerWidth - MARGIN, px))
+        const clampedY = Math.max(MARGIN, Math.min(window.innerHeight - MARGIN, py))
+        setRadialMenu({ charId: currentChar.id, x: clampedX, y: clampedY })
         return
       }
       if (radialMenu) {
@@ -976,6 +977,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function finalizarTurno() {
+    setHighlightedCells([])
+    setAttackCells([])
+    setRangeCells([])
+    setSubPhaseStep(null)
+    setPendingMove(null)
+    setDestinoEscolhido(null)
+    setCaminhoEscolhido([])
+    setRadialMenu(null)
     animatingRef.current = false
     setAnimating(false)
     if (verificarVitoria()) return
@@ -1202,6 +1211,38 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           </div>
         </div>
       )}
+
+      {radialMenu && isPlayerTurn && subPhase === 'free' && currentChar && (() => {
+        const DIST = 64
+        const RAD = Math.PI / 180
+        const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
+          const x = radialMenu.x + DIST * Math.cos(angleDeg * RAD)
+          const y = radialMenu.y + DIST * Math.sin(angleDeg * RAD)
+          return (
+            <button
+              key={label}
+              className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
+              style={{ left: x, top: y }}
+              disabled={disabled}
+              onClick={onClickFn}
+            >
+              <span className="atb-radial-icon">{icon}</span>
+              <span className="atb-radial-label">{label}</span>
+            </button>
+          )
+        }
+        const btns = []
+        btns.push(mkBtn(210, '👟', 'MOVER', 'atb-radial-move', turnoAcoes.moveu, () => { setRadialMenu(null); iniciarMovimento() }))
+        btns.push(mkBtn(330, '⚔', 'ATACAR', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
+        if (currentChar?.inventario?.pocaoHP > 0) {
+          btns.push(mkBtn(90, '❤', `×${currentChar.inventario.pocaoHP}`, 'atb-radial-hp', false, () => { setRadialMenu(null); usarItem('hp') }))
+        }
+        if (currentChar?.inventario?.pocaoMP > 0) {
+          btns.push(mkBtn(135, '💧', `×${currentChar.inventario.pocaoMP}`, 'atb-radial-mp', false, () => { setRadialMenu(null); usarItem('mp') }))
+        }
+        return <div className="atb-radial-menu">{btns}</div>
+      })()}
+
       <div className="atb-top-bar">
         <button className="atb-top-back" onClick={onBackToPhase1}>←</button>
         <div className="atb-top-info">
@@ -1216,7 +1257,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           </span>
         </div>
         {isPlayerTurn && !iaThinking && (
-          <button className="atb-top-end-turn" onClick={finalizarTurno} title="Passar turno">⏭</button>
+          <>
+            {subPhase === 'movimento' && pendingMove ? (
+              <button className="atb-top-confirm" onClick={confirmarMovimento}>✓</button>
+            ) : subPhase === 'movimento' && !pendingMove ? (
+              <button className="atb-top-cancel" onClick={cancelarAcao}>✕</button>
+            ) : subPhase === 'acao' ? (
+              <button className="atb-top-cancel" onClick={cancelarAcao}>✕</button>
+            ) : (
+              <button className="atb-top-end-turn" onClick={finalizarTurno} title="Passar turno">⏭</button>
+            )}
+          </>
         )}
         <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
       </div>
@@ -1234,37 +1285,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             </div>
           ))}
         </div>
-
-        {radialMenu && isPlayerTurn && subPhase === 'free' && currentChar && (() => {
-          const DIST = 64
-          const RAD = Math.PI / 180
-          const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
-            const x = radialMenu.x + DIST * Math.cos(angleDeg * RAD)
-            const y = radialMenu.y + DIST * Math.sin(angleDeg * RAD)
-            return (
-              <button
-                key={label}
-                className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
-                style={{ left: x, top: y }}
-                disabled={disabled}
-                onClick={onClickFn}
-              >
-                <span className="atb-radial-icon">{icon}</span>
-                <span className="atb-radial-label">{label}</span>
-              </button>
-            )
-          }
-          const btns = []
-          btns.push(mkBtn(210, '👟', 'MOVER', 'atb-radial-move', turnoAcoes.moveu, () => { setRadialMenu(null); iniciarMovimento() }))
-          btns.push(mkBtn(330, '⚔', 'ATACAR', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
-          if (currentChar?.inventario?.pocaoHP > 0) {
-            btns.push(mkBtn(90, '❤', `×${currentChar.inventario.pocaoHP}`, 'atb-radial-hp', false, () => { setRadialMenu(null); usarItem('hp') }))
-          }
-          if (currentChar?.inventario?.pocaoMP > 0) {
-            btns.push(mkBtn(135, '💧', `×${currentChar.inventario.pocaoMP}`, 'atb-radial-mp', false, () => { setRadialMenu(null); usarItem('mp') }))
-          }
-          return <div className="atb-radial-menu">{btns}</div>
-        })()}
       </div>
 
       <div className="atb-hud">
@@ -1307,25 +1327,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             )}
 
             {subPhase === 'movimento' && (
-              <>
-                {!pendingMove ? (
-                  <>
-                    <span className="atb-phase-hint">SELECIONE O DESTINO</span>
-                    <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
-                      × CANCELAR
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button className="atb-action-btn atb-action-btn--confirm" onClick={confirmarMovimento}>
-                      ✓ CONFIRMAR MOVIMENTO
-                    </button>
-                    <button className="atb-action-btn atb-action-btn--cancel" onClick={() => setPendingMove(null)}>
-                      × CANCELAR
-                    </button>
-                  </>
-                )}
-              </>
+              <span className="atb-phase-hint">
+                {pendingMove
+                  ? `→ (${pendingMove.row}, ${pendingMove.col}) · confirme acima`
+                  : 'Selecione uma célula para mover'}
+              </span>
             )}
 
             {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (
