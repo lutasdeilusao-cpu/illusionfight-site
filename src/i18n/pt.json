@@ -2858,6 +2858,7 @@
       "skip_move": "Pular Movimento",
       "skip_action": "Pular Ação",
       "attack_or_item_hint": "Clique em um inimigo no board para atacar OU use um item abaixo.",
+      "click_target_hint": "Clique no alvo desejado no tabuleiro para atacar.",
       "agi_toggle_label": "Regra de movimento: 1 AGI = 1 casa"
     }
   }

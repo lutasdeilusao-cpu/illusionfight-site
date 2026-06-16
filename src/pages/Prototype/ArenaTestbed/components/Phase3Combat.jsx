@@ -4,7 +4,7 @@ import {
   resolverAtaque, resolverContraAtaque, rolarD6,
   getCasasMovimento, getChanceAcerto,
 } from '../engine/combat'
-import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho } from '../engine/hexUtils'
+import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
 import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
@@ -553,7 +553,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     fazerFlash(0)
   }
 
-  function animarAtaqueMelee(atacante, alvo, resultado) {
+  function animarAtaqueMelee(atacante, alvo, resultado, onFinalizar) {
     const origem = atacante.posicao
     const destino = alvo.posicao
 
@@ -580,33 +580,30 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
       // Fase 4: Aplica dano + feedback
       setAnimTimer(() => {
-        aposAnimacaoAtaque(atacante, alvo, resultado)
+        if (onFinalizar) onFinalizar()
+        else aposAnimacaoAtaque(atacante, alvo, resultado)
       }, 200)
     }, 300)
   }
 
-  function animarAtaqueProjetil(atacante, alvo, resultado) {
+  function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
     const origem = atacante.posicao
     const destino = alvo.posicao
 
-    // Anima projétil percorrendo cells — FIX 1: usa obstaculos reais para bloquear Parede
-    const cellsPath = encontrarCaminho(origem.row, origem.col, destino.row, destino.col, cols, rows, obstaculos)
-    const pathSteps = cellsPath || [origem, destino]
-
-    // Pula a primeira (origem)
-    const steps = pathSteps.slice(1)
+    // Projétil percorre linha reta hexagonal entre origem e alvo
+    const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
 
     let stepIdx = 0
     function avancarProjetil() {
       if (stepIdx >= steps.length) {
-        // Projétil chegou ao alvo → aplica dano
-        aposAnimacaoAtaque(atacante, alvo, resultado)
+        setProjectilePos(null)
+        if (onFinalizar) onFinalizar()
+        else aposAnimacaoAtaque(atacante, alvo, resultado)
         return
       }
-      const passo = steps[stepIdx]
-      setProjectilePos({ row: passo.row, col: passo.col })
+      setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
       stepIdx++
-      setAnimTimer(avancarProjetil, 100)
+      setAnimTimer(avancarProjetil, 180)
     }
     avancarProjetil()
   }
@@ -846,52 +843,37 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
-
-        // Animação de ataque da IA
         const atacante = iaAtual2
+
         addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
         dec2.logs.forEach(l => addLog(`  ${l}`))
 
-        const aplicarDanoIA = () => {
+        const callbackFinal = () => {
+          setProjectilePos(null)
           if (res.dano > 0) {
             aplicarDano(alvo.id, res.dano, atacante)
+            addLog(`  💥 ${alvo.nome} recebe ${res.dano} de dano!`)
           }
-
-          // Verifica morte
-          const alvoAtual = charsRef.current.find(c => c.id === alvo.id)
-          if (alvoAtual && alvo.hp - res.dano <= 0) {
+          const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
+          if (hpAtual <= 0) {
+            setCharacters(prev =>
+              prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
+            )
+            setTurnOrder(prev => prev.filter(id => id !== alvo.id))
+            addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => {
-              setCharacters(prev => prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c))
-              addLog(`💀 ${alvo.nome} foi derrotado!`)
-            }, 300)
+              if (verificarVitoria()) return
+              finalizarTurnoIA()
+            }, 100)
+          } else {
+            finalizarTurnoIA()
           }
-          finalizarTurnoIA()
         }
 
         if (atacante.tipoAtaque === 'melee') {
-          animarAtaqueMelee(atacante, alvo, res)
-          // Sobrescreve o callback do animarAtaqueMelee para chamar finalizarTurnoIA
-          // Na verdade, a animação chama aposAnimacaoAtaque → finalizarAposAtaque → finalizarTurno
-          // Precisamos evitar conflito. Vamos aplicar dano direto e chamar finalizar.
-          // Como a IA não usa o fluxo normal, fazemos manual:
-          clearAnimTimers()
-          if (res.dano > 0) aplicarDano(alvo.id, res.dano, atacante)
-          setAnimTimer(finalizarTurnoIA, 600)
+          animarAtaqueMelee(atacante, alvo, res, callbackFinal)
         } else {
-          // Projétil IA
-          const steps = [atacante.posicao, alvo.posicao]
-          let pIdx = 0
-          function avancarProjIL() {
-            if (pIdx >= steps.length) {
-              if (res.dano > 0) aplicarDano(alvo.id, res.dano, atacante)
-              setAnimTimer(finalizarTurnoIA, 600)
-              return
-            }
-            setProjectilePos(steps[pIdx])
-            pIdx++
-            setAnimTimer(avancarProjIL, 100)
-          }
-          avancarProjIL()
+          animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
         }
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
@@ -1040,12 +1022,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                     🔴 {t('prototype.arena_testbed.subphase_action')}
                   </p>
                   <p className="tab-combat-hint">
-                    {t('prototype.arena_testbed.attack_or_item_hint')}
+                    {attackCells.length > 1
+                      ? t('prototype.arena_testbed.click_target_hint')
+                      : t('prototype.arena_testbed.attack_or_item_hint')
+                    }
                   </p>
                   <div className="tab-combat-action-btns">
                     <button
                       className="tab-btn tab-btn-primary"
                       disabled={attackCells.length === 0}
+                      onClick={() => {
+                        if (attackCells.length === 1) {
+                          const cell = attackCells[0]
+                          const target = characters.find(c => c.vivo && c.posicao?.row === cell.row && c.posicao?.col === cell.col)
+                          if (target) executarAtaque(target)
+                        }
+                      }}
                     >
                       {currentChar?.tipoAtaque === 'melee'
                         ? `${t('prototype.arena_testbed.attack_btn')} (${t('prototype.arena_testbed.melee_short')})`

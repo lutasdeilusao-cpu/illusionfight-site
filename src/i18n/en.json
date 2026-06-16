@@ -2831,6 +2831,7 @@
       "skip_move": "Skip Movement",
       "skip_action": "Skip Action",
       "attack_or_item_hint": "Click an enemy on the board to attack OR use an item below.",
+      "click_target_hint": "Click the desired target on the board to attack.",
       "agi_toggle_label": "Movement rule: 1 AGI = 1 cell"
     }
   }
