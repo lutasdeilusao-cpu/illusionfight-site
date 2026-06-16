@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react'
+import { useState, useRef, useEffect, useMemo, useLayoutEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import * as PIXI from 'pixi.js'
 import {
@@ -76,58 +76,64 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }, [battleLog, logDrawerOpen])
 
-  // ── Dynamic hexSize + Pixi initialization ──
-  useEffect(() => {
+  // ── Dynamic hexSize + Pixi initialization (useLayoutEffect → antes de qualquer useEffect) ──
+  useLayoutEffect(() => {
     const el = pixiContainerRef.current
-    if (!el) return
+    if (!el) {
+      console.log('[ATB] pixiContainerRef AINDA null — adiando init')
+      return
+    }
 
     function calcAndInit() {
-      const containerW = el.clientWidth || 360
-      const parentH = el.parentElement?.clientHeight || 0
-      const containerH = el.clientHeight > 0
-        ? el.clientHeight
-        : parentH > 0
-          ? parentH
-          : Math.floor(window.innerHeight * 0.55)
+      try {
+        const containerW = el.clientWidth || 360
+        const parentH = el.parentElement?.clientHeight || 0
+        const containerH = el.clientHeight > 0
+          ? el.clientHeight
+          : parentH > 0
+            ? parentH
+            : Math.floor(window.innerHeight * 0.55)
 
-      // DIAGNÓSTICO — remover após fix confirmado
-      console.log('[ATB] calcAndInit', {
-        elClientW: el.clientWidth,
-        elClientH: el.clientHeight,
-        parentClientH: el.parentElement?.clientHeight,
-        windowInnerH: window.innerHeight,
-        containerW,
-        containerH,
-        appExists: !!appRef.current,
-      })
+        console.log('[ATB] calcAndInit', {
+          elClientW: el.clientWidth,
+          elClientH: el.clientHeight,
+          parentClientH: el.parentElement?.clientHeight,
+          windowInnerH: window.innerHeight,
+          containerW,
+          containerH,
+          appExists: !!appRef.current,
+        })
 
-      const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
-      const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
-      const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
+        const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
+        const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
+        const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
 
-      console.log('[ATB] hexSize calculado', { sizeByWidth, sizeByHeight, sz })
+        console.log('[ATB] hexSize calculado', { sizeByWidth, sizeByHeight, sz })
 
-      setHexSize(sz)
+        setHexSize(sz)
 
-      if (appRef.current) {
-        const { width, height } = canvasSize(cols, rows, sz)
-        appRef.current.renderer.resize(width, height)
-      } else {
-        const { width, height } = canvasSize(cols, rows, sz)
-        console.log('[ATB] criando Pixi app', { width, height, sz })
-        const app = createPixiApp(el, width, height)
-        appRef.current = app
+        if (appRef.current) {
+          const { width, height } = canvasSize(cols, rows, sz)
+          appRef.current.renderer.resize(width, height)
+        } else {
+          const { width, height } = canvasSize(cols, rows, sz)
+          console.log('[ATB] criando Pixi app', { width, height, sz })
+          const app = createPixiApp(el, width, height)
+          appRef.current = app
 
-        const boardLayer = new PIXI.Container()
-        app.stage.addChild(boardLayer)
-        boardLayerRef.current = boardLayer
+          const boardLayer = new PIXI.Container()
+          app.stage.addChild(boardLayer)
+          boardLayerRef.current = boardLayer
 
-        const effectsLayer = new PIXI.Container()
-        app.stage.addChild(effectsLayer)
-        effectsLayerRef.current = effectsLayer
+          const effectsLayer = new PIXI.Container()
+          app.stage.addChild(effectsLayer)
+          effectsLayerRef.current = effectsLayer
 
-        app.view.addEventListener('click', handleCanvasEventPixi)
-        app.view.addEventListener('touchend', handleTouchPixi, { passive: false })
+          app.view.addEventListener('click', handleCanvasEventPixi)
+          app.view.addEventListener('touchend', handleTouchPixi, { passive: false })
+        }
+      } catch (err) {
+        console.error('[ATB] ERRO em calcAndInit', err)
       }
     }
 
