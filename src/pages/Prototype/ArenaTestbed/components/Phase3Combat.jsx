@@ -97,6 +97,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [d6Result, setD6Result] = useState(null)
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
+  const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
 
   // ── Animation state ─────────────────────────────
   const [movementPath, setMovementPath] = useState(null) // { charId, steps: [{row,col}], current: 0 }
@@ -177,7 +178,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setPhase('enemy_turn')
       setTimeout(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
-      enterSubPhase('movimento', firstChar)
+      setTurnoAcoes({ moveu: false, atacou: false })
+      setSubPhase('free')
+      setHighlightedCells([])
+      setAttackCells([])
+      setRangeCells([])
     }
   }
 
@@ -224,9 +229,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   /** Label traduzido da subfase */
   const subPhaseLabel = useMemo(() => {
     if (!subPhase) return ''
-    return subPhase === 'movimento'
-      ? t('prototype.arena_testbed.subphase_move')
-      : t('prototype.arena_testbed.subphase_action')
+    if (subPhase === 'free') return t('prototype.arena_testbed.free_turn_hint')
+    if (subPhase === 'movimento') return t('prototype.arena_testbed.subphase_move')
+    return t('prototype.arena_testbed.subphase_action')
   }, [subPhase, t])
 
   // Draw canvas
@@ -515,8 +520,39 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
 
-    // FIX 3: Passa char com posição atualizada para fase de ação
-    enterSubPhase('acao', charAtualizado)
+    // FIX 2: Volta ao estado livre com moveu=true
+    setTurnoAcoes(prev => ({ ...prev, moveu: true }))
+    setSubPhase('free')
+    setHighlightedCells([])
+  }
+
+  // ── FIX 2: Ações livres do turno ──────────────────────
+  function iniciarMovimento() {
+    if (!currentChar || animating || turnoAcoes.moveu) return
+    const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
+    const moveCells = getCelulasAlcance(
+      currentChar.posicao.row, currentChar.posicao.col,
+      mov, cols, rows, obstaculos
+    )
+    const freeCells = moveCells.filter(c => {
+      const occupied = characters.some(ch =>
+        ch.vivo && ch.id !== currentChar.id && ch.posicao?.row === c.row && ch.posicao?.col === c.col
+      )
+      const hasObstacle = obstaculos[`${c.row}_${c.col}`]?.tipo === 1
+      return !occupied && !hasObstacle
+    })
+    setHighlightedCells(freeCells)
+    setAttackCells([])
+    setRemainingMove(mov)
+    setSubPhase('movimento')
+  }
+
+  function cancelarAcao() {
+    setHighlightedCells([])
+    setAttackCells([])
+    setRangeCells([])
+    setSubPhaseStep(null)
+    setSubPhase('free')
   }
 
   function pularMovimento() {
@@ -573,21 +609,21 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const alvo = characters.find(c => c.id === alvoId)
     if (!alvo) return
 
-    // Floating damage number
+    // Floating damage number — usa setTimeout nativo para não ser cancelado por clearAnimTimers()
     const floatKey = Date.now() + Math.random()
     setDamageFloats(prev => [...prev, { charId: alvoId, damage: dano, row: alvo.posicao?.row, col: alvo.posicao?.col, key: floatKey }])
-    setAnimTimer(() => {
+    setTimeout(() => {
       setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
     }, 1200)
 
-    // Flash vermelho (3 pulsações)
+    // Flash vermelho (3 pulsações) — setTimeout nativo
     const fazerFlash = (count) => {
       if (count >= 6) { // 3 ciclos de on/off
         setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
         return
       }
       setDamageFlash(prev => ({ ...prev, [alvoId]: count }))
-      setAnimTimer(() => fazerFlash(count + 1), 120)
+      setTimeout(() => fazerFlash(count + 1), 120)
     }
     fazerFlash(0)
   }
@@ -692,11 +728,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }
 
-  // FIX 4: Adiciona float de texto (bloqueio, extra, contra)
+  // FIX 4: Adiciona float de texto (bloqueio, extra, contra) — setTimeout nativo
   function adicionarFloatTexto(charId, texto, cor, row, col) {
     const floatKey = Date.now() + Math.random()
     setDamageFloats(prev => [...prev, { charId, texto, cor, row, col, key: floatKey }])
-    setAnimTimer(() => {
+    setTimeout(() => {
       setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
     }, 1400)
   }
@@ -759,7 +795,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         finalizarTurno()
       }, 300)
     } else {
-      finalizarTurno()
+      // FIX 2: Volta ao estado livre com atacou=true
+      setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+      setSubPhase('free')
+      setHighlightedCells([])
+      setAttackCells([])
+      setRangeCells([])
     }
   }
 
@@ -815,7 +856,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setPhase('enemy_turn')
       setTimeout(() => executarIA(nextChar), 1000)
     } else if (nextChar) {
-      enterSubPhase('movimento', nextChar)
+      setTurnoAcoes({ moveu: false, atacou: false })
+      setSubPhase('free')
+      setHighlightedCells([])
+      setAttackCells([])
+      setRangeCells([])
     }
   }
 
@@ -906,8 +951,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         const res = dec2.detalhes.resultado
         const atacante = iaAtual2
 
-        addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
-        dec2.logs.forEach(l => addLog(`  ${l}`))
+        // FIX 3: IA mostra range visual antes de atacar
+        const alcanceMaxIA = atacante.tipoAtaque === 'melee' ? 1 : atacante.pdf
+        const rangeCellsIA = getCelulasAtaque(
+          atacante.posicao.row, atacante.posicao.col,
+          atacante.tipoAtaque, cols, rows,
+          alcanceMaxIA, obstaculos
+        )
+        // Mostra range completo (amarelo) por 800ms
+        setRangeCells(rangeCellsIA)
+        setAttackCells([])
 
         const callbackFinal = () => {
           setProjectilePos(null)
@@ -915,12 +968,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           if (res.dano > 0) {
             aplicarDano(alvo.id, res.dano, atacante)
             addLog(`  💥 ${alvo.nome} recebe ${res.dano} de dano!`)
-            // FIX 4: Feedback visual na IA também
             if (res.criticoDefensivo) {
               adicionarFloatTexto(atacante.id, 'BLOQUEIO!', '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
             }
           }
-          // FIX 1+5: Atualiza ref manualmente antes de verificar vitória
           const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
             charsRef.current = charsRef.current.map(c =>
@@ -938,11 +989,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           }
         }
 
-        if (atacante.tipoAtaque === 'melee') {
-          animarAtaqueMelee(atacante, alvo, res, callbackFinal)
-        } else {
-          animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
-        }
+        // Range visual: 800ms amarelo → 400ms alvo → ataque
+        setAnimTimer(() => {
+          setRangeCells([])
+          setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
+
+          setAnimTimer(() => {
+            setRangeCells([])
+            setAttackCells([])
+            addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
+            dec2.logs.forEach(l => addLog(`  ${l}`))
+
+            if (atacante.tipoAtaque === 'melee') {
+              animarAtaqueMelee(atacante, alvo, res, callbackFinal)
+            } else {
+              animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
+            }
+          }, 400)
+        }, 800)
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
@@ -970,7 +1034,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setPhase('enemy_turn')
         setAnimTimer(() => executarIA(nextChar3), 1200)
       } else if (nextChar3) {
-        enterSubPhase('movimento', nextChar3)
+        setTurnoAcoes({ moveu: false, atacou: false })
+        setSubPhase('free')
+        setHighlightedCells([])
+        setAttackCells([])
+        setRangeCells([])
       }
     }
   }
@@ -1071,6 +1139,46 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           {/* ── Controles do jogador ────────────────── */}
           {isPlayerTurn && !iaThinking && (
             <div className="tab-combat-controls">
+              {/* FIX 2: Estado livre — botões Mover, Atacar, Encerrar Turno */}
+              {subPhase === 'free' && (
+                <>
+                  <p className="tab-combat-phase-title">
+                    🎯 {t('prototype.arena_testbed.free_turn_hint')}
+                  </p>
+                  <div className="tab-combat-action-btns">
+                    <button
+                      className="tab-btn tab-btn-secondary"
+                      disabled={turnoAcoes.moveu}
+                      onClick={iniciarMovimento}
+                      style={turnoAcoes.moveu ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+                    >
+                      🔵 {t('prototype.arena_testbed.btn_move')}
+                    </button>
+                    <button
+                      className="tab-btn tab-btn-primary"
+                      disabled={turnoAcoes.atacou}
+                      onClick={() => { setSubPhaseStep('escolher_acao'); setSubPhase('acao'); }}
+                      style={turnoAcoes.atacou ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+                    >
+                      ⚔️ {t('prototype.arena_testbed.btn_attack')}
+                    </button>
+                    {currentChar?.inventario?.pocaoHP > 0 && (
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
+                        ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
+                      </button>
+                    )}
+                    {currentChar?.inventario?.pocaoMP > 0 && (
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
+                        💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
+                      </button>
+                    )}
+                  </div>
+                  <button className="tab-btn tab-btn-gold" onClick={finalizarTurno}>
+                    ⏭️ {t('prototype.arena_testbed.btn_end_turn')}
+                  </button>
+                </>
+              )}
+
               {subPhase === 'movimento' && (
                 <>
                   <p className="tab-combat-phase-title">
@@ -1079,8 +1187,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                   <p className="tab-combat-hint">
                     {t('prototype.arena_testbed.move_hint', { moves: remainingMove })}
                   </p>
-                  <button className="tab-btn tab-btn-secondary" onClick={pularMovimento}>
-                    ⏭️ {t('prototype.arena_testbed.skip_move')}
+                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
+                    🔙 {t('prototype.arena_testbed.btn_cancel')}
                   </button>
                 </>
               )}
@@ -1114,8 +1222,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                       </button>
                     )}
                   </div>
-                  <button className="tab-btn tab-btn-gold" onClick={pularAcao}>
-                    ⏭️ {t('prototype.arena_testbed.skip_action')}
+                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
+                    🔙 {t('prototype.arena_testbed.btn_cancel')}
                   </button>
                 </>
               )}
@@ -1140,8 +1248,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                       </button>
                     )}
                   </div>
-                  <button className="tab-btn tab-btn-gold" onClick={() => { setSubPhaseStep('escolher_acao'); setRangeCells([]); setAttackCells([]); }}>
-                    🔙 {t('prototype.arena_testbed.back')}
+                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
+                    🔙 {t('prototype.arena_testbed.btn_cancel')}
                   </button>
                 </>
               )}

@@ -2863,7 +2863,12 @@
       "action_common_attack": "Ataque Comum",
       "action_common_attack_desc": "Ataque básico usando FOR ou PDF + DEX",
       "choose_target_hint": "Clique no inimigo para atacar",
-      "agi_toggle_label": "Regra de movimento: 1 AGI = 1 casa"
+      "agi_toggle_label": "Regra de movimento: 1 AGI = 1 casa",
+      "btn_move": "Mover",
+      "btn_attack": "Atacar",
+      "btn_end_turn": "Encerrar Turno",
+      "btn_cancel": "Cancelar",
+      "free_turn_hint": "Escolha uma ação para o turno:"
     }
   }
 }

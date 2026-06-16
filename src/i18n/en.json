@@ -2836,7 +2836,12 @@
       "action_common_attack": "Common Attack",
       "action_common_attack_desc": "Basic attack using STR or SPD + DEX",
       "choose_target_hint": "Click the enemy to attack",
-      "agi_toggle_label": "Movement rule: 1 AGI = 1 cell"
+      "agi_toggle_label": "Movement rule: 1 AGI = 1 cell",
+      "btn_move": "Move",
+      "btn_attack": "Attack",
+      "btn_end_turn": "End Turn",
+      "btn_cancel": "Cancel",
+      "free_turn_hint": "Choose an action for this turn:"
     }
   }
 }

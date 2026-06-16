@@ -2836,7 +2836,12 @@
       "action_common_attack": "Ataque Común",
       "action_common_attack_desc": "Ataque básico usando FUE o PDF + DES",
       "choose_target_hint": "Haz clic en el enemigo para atacar",
-      "agi_toggle_label": "Regla de movimiento: 1 AGI = 1 celda"
+      "agi_toggle_label": "Regla de movimiento: 1 AGI = 1 celda",
+      "btn_move": "Mover",
+      "btn_attack": "Atacar",
+      "btn_end_turn": "Finalizar Turno",
+      "btn_cancel": "Cancelar",
+      "free_turn_hint": "Elige una acción para el turno:"
     }
   }
 }
