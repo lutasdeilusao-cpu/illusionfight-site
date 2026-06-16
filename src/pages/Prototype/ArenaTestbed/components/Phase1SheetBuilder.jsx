@@ -4,7 +4,7 @@ import { getHP, getMP, getCasasMovimento, criarPersonagem } from '../engine/comb
 import './Phase1SheetBuilder.css'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
-const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21]
+const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 
 export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAgiToggle }) {
   const { t } = useLanguage()
@@ -23,22 +23,42 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
     if (characters.length >= 4) return
     const time = characters.filter(c => c.time === 'jogador').length === 0 ? 'jogador' : 'ia'
     const novoNome = gerarNomeAutomatico(time, characters)
-    const newChar = {
-      id: `temp_${Date.now()}`,
-      nome: novoNome,
-      time,
-      tipoAtaque: 'melee',
-      orcamento: 9,
-      forca: 0,
-      agi: 0,
-      dex: 0,
-      pdf: 0,
-      res: 1,
-      arm: 0,
-      equipamento: 'nenhum',
-      pocaoHP: 0,
-      pocaoMP: 0,
-    }
+
+    const isJogador = type => type === 'jogador'
+    const newChar = isJogador(time)
+      ? {
+          id: `temp_${Date.now()}`,
+          nome: novoNome,
+          time,
+          tipoAtaque: 'melee',
+          orcamento: 6,
+          forca: 3,
+          agi: 2,
+          dex: 0,
+          pdf: 0,
+          res: 1,
+          arm: 0,
+          equipamento: 'nenhum',
+          pocaoHP: 0,
+          pocaoMP: 0,
+        }
+      : {
+          id: `temp_${Date.now()}`,
+          nome: novoNome,
+          time,
+          tipoAtaque: 'distancia',
+          orcamento: 6,
+          forca: 0,
+          agi: 0,
+          dex: 1,
+          pdf: 4,
+          res: 1,
+          arm: 0,
+          equipamento: 'nenhum',
+          pocaoHP: 0,
+          pocaoMP: 0,
+        }
+
     setCharacters([...characters, newChar])
     setEditing(characters.length)
   }

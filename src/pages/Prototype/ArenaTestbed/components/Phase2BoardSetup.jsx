@@ -68,8 +68,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
 
-  const [cols, setCols] = useState(9)
-  const [rows, setRows] = useState(7)
+  const [cols, setCols] = useState(7)
+  const [rows, setRows] = useState(11)
   const [boardChars, setBoardChars] = useState([]) // { id, row, col }
   const [obstaculos, setObstaculos] = useState({})
   const [itensChao, setItensChao] = useState({})
@@ -293,7 +293,7 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
       } else if (selectedChar) {
         // Move character to this cell if empty
         if (boardChars.some(c => c.row === row && c.col === col)) return
-        if (obstaculos[key]) return
+        if (obstaculos[key]?.tipo === 1 || obstaculos[key]?.tipo === 2) return
         setBoardChars(prev =>
           prev.map(c =>
             c.charId === selectedChar.charId
@@ -456,17 +456,17 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
             <div className="atb-stepper-group">
               <span className="atb-stepper-label">{t('prototype.arena_testbed.cols')}</span>
               <div className="atb-stepper">
-                <button className="atb-stepper-btn" disabled={cols <= 7} onClick={() => setCols(c => Math.max(7, c - 2))}>−</button>
+                <button className="atb-stepper-btn" disabled={cols <= 1} onClick={() => setCols(c => Math.max(1, c - 1))}>−</button>
                 <span className="atb-stepper-value">{cols}</span>
-                <button className="atb-stepper-btn" disabled={cols >= 11} onClick={() => setCols(c => Math.min(11, c + 2))}>+</button>
+                <button className="atb-stepper-btn" disabled={cols >= 10} onClick={() => setCols(c => Math.min(10, c + 1))}>+</button>
               </div>
             </div>
             <div className="atb-stepper-group">
               <span className="atb-stepper-label">{t('prototype.arena_testbed.rows')}</span>
               <div className="atb-stepper">
-                <button className="atb-stepper-btn" disabled={rows <= 7} onClick={() => setRows(r => Math.max(7, r - 2))}>−</button>
+                <button className="atb-stepper-btn" disabled={rows <= 1} onClick={() => setRows(r => Math.max(1, r - 1))}>−</button>
                 <span className="atb-stepper-value">{rows}</span>
-                <button className="atb-stepper-btn" disabled={rows >= 11} onClick={() => setRows(r => Math.min(11, r + 2))}>+</button>
+                <button className="atb-stepper-btn" disabled={rows >= 15} onClick={() => setRows(r => Math.min(15, r + 1))}>+</button>
               </div>
             </div>
           </div>

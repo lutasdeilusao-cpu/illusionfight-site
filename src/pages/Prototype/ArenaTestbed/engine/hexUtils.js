@@ -232,7 +232,7 @@ export function getCelulasAlcance(startRow, startCol, passos, cols, rows, obstac
       const key = `${viz.row}_${viz.col}`
       if (visited.has(key)) continue
       const obs = obstaculos?.[key]
-      if (obs && obs.tipo === 1) continue
+      if (obs && (obs.tipo === 1 || obs.tipo === 2)) continue
       visited.add(key)
       queue.push({ ...viz, dist: current.dist + 1 })
     }
