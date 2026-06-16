@@ -166,14 +166,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     })
 
     const ties = Object.values(agiGroups).filter(g => g.length > 1)
-    if (ties.length > 0) {
-      // Need jokenpo for ties - start with first tie group
-      setPendingJokenpo(ties)
-      setJokenpoNeeded(ties[0])
-    } else {
-      setTurnOrder(sorted.map(ch => ch.id))
-      startPlayerTurn(sorted.map(ch => ch.id), 0)
-    }
+
+    setTimeout(() => {
+      if (ties.length > 0) {
+        setPendingJokenpo(ties)
+        setJokenpoNeeded(ties[0])
+      } else {
+        const order = sorted.map(ch => ch.id)
+        setTurnOrder(order)
+        startPlayerTurn(order, 0)
+      }
+    }, 0)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleJokenpoResult(winnerName) {

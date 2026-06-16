@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.102.0** | Site — Arena Testbed: refactor mobile-first + ReaderMode + steppers cols/rows + CSS atb- |
+| `SITE_VERSION` | **10.102.1** | Site — Arena Testbed: fix Phase3Combat preso em prepare (setTimeout no init) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **2.6.0** | Protótipo — Arena Testbed: refactor mobile-first + ReaderMode + steppers cols/rows + CSS atb- |
+| `PROTOTYPE_VERSION` | **2.6.1** | Protótipo — Arena Testbed: fix Phase3Combat preso em prepare (setTimeout no init) |
 
 ---
 
