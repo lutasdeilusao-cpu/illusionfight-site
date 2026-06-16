@@ -59,7 +59,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
 
   // ── Mobile UI state ────────────────────────────
-  const [hexSize, setHexSize] = useState(30)
+  const [hexSize, setHexSize] = useState(0)
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
   const [pendingMove, setPendingMove] = useState(null)
@@ -131,16 +131,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
 
-    // Aguarda o browser terminar o layout antes de ler clientHeight
-    const rafId = requestAnimationFrame(() => {
-      calcAndInit()
-    })
+    calcAndInit()
     const ro = new ResizeObserver(calcAndInit)
     ro.observe(el)
     window.addEventListener('resize', calcAndInit)
 
     return () => {
-      cancelAnimationFrame(rafId)
       ro.disconnect()
       window.removeEventListener('resize', calcAndInit)
       if (appRef.current) {
