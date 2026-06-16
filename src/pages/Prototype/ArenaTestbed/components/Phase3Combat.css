@@ -143,8 +143,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--ldi-bg);
-  background-image: radial-gradient(ellipse at 50% 40%, #0d1030 0%, #05060f 100%);
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0,0,0,0.6) 100%),
+    radial-gradient(ellipse at 20% 30%, rgba(40,20,5,0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(30,15,0,0.4) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 20%, rgba(50,25,5,0.3) 0%, transparent 40%),
+    linear-gradient(135deg, #2a1500 0%, #1e1000 30%, #2d1800 60%, #1a0e00 100%);
 }
 
 .atb-canvas-wrap::before {
@@ -238,6 +242,15 @@
 .atb-radial-mp:hover {
   background: rgba(0, 238, 255, 0.15);
   box-shadow: 0 0 12px rgba(0, 238, 255, 0.4);
+}
+
+.atb-radial-cancel {
+  border-color: #888;
+  color: #ccc;
+}
+.atb-radial-cancel:hover {
+  background: rgba(136, 136, 136, 0.15);
+  box-shadow: 0 0 12px rgba(136, 136, 136, 0.4);
 }
 
 .atb-radial-btn.disabled {

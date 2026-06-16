@@ -106,6 +106,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [iaThinking, setIaThinking] = useState(false)
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
   const [radialMenu, setRadialMenu] = useState(null)
+  const [radialAtaque, setRadialAtaque] = useState(null)
   const [turnAnnouncement, setTurnAnnouncement] = useState(null)
 
   const [hexSize, setHexSize] = useState(30)
@@ -154,6 +155,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
+  const offsetRef = useRef({ x: 0, y: 0 })
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -288,12 +290,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const sz = hexSize
     const w = sz * 1.5
     const h = sz * SQRT3
-    const padX = sz * 1.5
-    const padY = sz * SQRT3
-    const canvasW = cols * w + w / 2 + padX * 2
-    const canvasH = rows * h + h / 2 + padY * 2
-    canvas.width = canvasW
-    canvas.height = canvasH
+    const container = canvasContainerRef.current
+    const containerW = container ? container.clientWidth : 400
+    const containerH = container ? container.clientHeight : 300
+    const gridW = cols * w + w / 2
+    const gridH = rows * h + h / 2
+    const offsetX = Math.max(sz * 0.5, (containerW - gridW) / 2)
+    const offsetY = Math.max(sz * 0.5, (containerH - gridH) / 2)
+    canvas.width = containerW
+    canvas.height = containerH
+    offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
@@ -303,6 +309,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const destSet = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
     const destKey = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
 
+    const padX = offsetX
+    const padY = offsetY
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
         const center = hexCenter(row, col, padX, padY, sz)
@@ -533,8 +541,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
     const sz = hexSize
-    const padX = sz * 1.5
-    const padY = sz * SQRT3
+    const padX = offsetRef.current.x || sz * 1.5
+    const padY = offsetRef.current.y || sz * SQRT3
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
     const { row, col } = hex
@@ -545,12 +553,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         const canvas = canvasRef.current
         const rect = canvas.getBoundingClientRect()
         const sz2 = hexSize
-        const center = hexCenter(row, col, sz2 * 1.5, sz2 * SQRT3, sz2)
-        const scaleX = canvas.width / rect.width
-        const scaleY = canvas.height / rect.height
-        const px = (center.x / scaleX) + rect.left
-        const py = (center.y / scaleY) + rect.top
-        const MARGIN = 80
+        const center = hexCenter(row, col, offsetRef.current.x || sz2 * 1.5, offsetRef.current.y || sz2 * SQRT3, sz2)
+        const scaleX = rect.width / canvas.width
+        const scaleY = rect.height / canvas.height
+        const px = center.x * scaleX + rect.left
+        const py = center.y * scaleY + rect.top
+        const MARGIN = 70
         const clampedX = Math.max(MARGIN, Math.min(window.innerWidth - MARGIN, px))
         const clampedY = Math.max(MARGIN, Math.min(window.innerHeight - MARGIN, py))
         setRadialMenu({ charId: currentChar.id, x: clampedX, y: clampedY })
@@ -704,6 +712,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setCaminhoEscolhido([])
     setSubPhase('free')
     setRadialMenu(null)
+    setRadialAtaque(null)
   }
 
   function confirmarMovimento() {
@@ -749,16 +758,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function adicionarBalao(alvoId, texto, tipo, row, col) {
     const canvas = canvasRef.current
-    const wrap = canvasContainerRef.current
-    if (!canvas || !wrap) return
+    if (!canvas) return
     const rect = canvas.getBoundingClientRect()
-    const wrapRect = wrap.getBoundingClientRect()
     const sz = hexSize
-    const center = hexCenter(row, col, sz * 1.5, sz * SQRT3, sz)
-    const scaleX = canvas.width / rect.width
-    const scaleY = canvas.height / rect.height
-    const balaoX = (center.x / scaleX) + (rect.left - wrapRect.left)
-    const balaoY = (center.y / scaleY) + (rect.top - wrapRect.top) - sz * 0.8
+    const center = hexCenter(row, col, offsetRef.current.x || sz * 1.5, offsetRef.current.y || sz * SQRT3, sz)
+    const scaleX = rect.width / canvas.width
+    const scaleY = rect.height / canvas.height
+    const balaoX = center.x * scaleX + rect.left
+    const balaoY = center.y * scaleY + rect.top - sz * 0.8
     const key = Date.now() + Math.random()
     setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
     setTimeout(() => {
@@ -942,6 +949,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setAttackCells([])
       setRangeCells([])
       setRadialMenu(null)
+      setRadialAtaque(null)
     }
   }
 
@@ -985,6 +993,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setDestinoEscolhido(null)
     setCaminhoEscolhido([])
     setRadialMenu(null)
+    setRadialAtaque(null)
     animatingRef.current = false
     setAnimating(false)
     if (verificarVitoria()) return
@@ -1213,7 +1222,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       )}
 
       {radialMenu && isPlayerTurn && subPhase === 'free' && currentChar && (() => {
-        const DIST = 64
+        const DIST = 52
         const RAD = Math.PI / 180
         const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
           const x = radialMenu.x + DIST * Math.cos(angleDeg * RAD)
@@ -1233,13 +1242,38 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
         const btns = []
         btns.push(mkBtn(210, '👟', 'MOVER', 'atb-radial-move', turnoAcoes.moveu, () => { setRadialMenu(null); iniciarMovimento() }))
-        btns.push(mkBtn(330, '⚔', 'ATACAR', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
+        btns.push(mkBtn(330, '⚔', 'ATACAR', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setRadialAtaque({ x: radialMenu.x, y: radialMenu.y }) }))
         if (currentChar?.inventario?.pocaoHP > 0) {
           btns.push(mkBtn(90, '❤', `×${currentChar.inventario.pocaoHP}`, 'atb-radial-hp', false, () => { setRadialMenu(null); usarItem('hp') }))
         }
         if (currentChar?.inventario?.pocaoMP > 0) {
           btns.push(mkBtn(135, '💧', `×${currentChar.inventario.pocaoMP}`, 'atb-radial-mp', false, () => { setRadialMenu(null); usarItem('mp') }))
         }
+        return <div className="atb-radial-menu">{btns}</div>
+      })()}
+
+      {radialAtaque && isPlayerTurn && subPhase === 'free' && (() => {
+        const DIST = 52
+        const RAD = Math.PI / 180
+        const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
+          const x = radialAtaque.x + DIST * Math.cos(angleDeg * RAD)
+          const y = radialAtaque.y + DIST * Math.sin(angleDeg * RAD)
+          return (
+            <button
+              key={label}
+              className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
+              style={{ left: x, top: y }}
+              disabled={disabled}
+              onClick={onClickFn}
+            >
+              <span className="atb-radial-icon">{icon}</span>
+              <span className="atb-radial-label">{label}</span>
+            </button>
+          )
+        }
+        const btns = []
+        btns.push(mkBtn(270, '⚔', 'COMUM', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialAtaque(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
+        btns.push(mkBtn(180, '✕', 'VOLTAR', 'atb-radial-cancel', false, () => { setRadialAtaque(null); setRadialMenu({ charId: currentChar.id, x: radialAtaque.x, y: radialAtaque.y }) }))
         return <div className="atb-radial-menu">{btns}</div>
       })()}
 
