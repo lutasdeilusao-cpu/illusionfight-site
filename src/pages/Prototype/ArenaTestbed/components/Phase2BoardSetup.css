@@ -1,84 +1,112 @@
+@import '../ldi-tokens.css';
+
+/* ═══════════════════════════════════════════════════
+   Phase2BoardSetup.css — LDI Board Setup
+   ═══════════════════════════════════════════════════ */
+
 .tab-fase2 {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  background: var(--ldi-dark);
 }
+
+/* ── Header ─────────────────────────────────────── */
 
 .tab-fase2-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
-  border-bottom: 1px solid #2e2e3a;
-  background: #141418;
+  padding: 12px var(--ldi-space-lg);
+  border-bottom: 1px solid var(--ldi-border);
+  background: var(--ldi-gradient-header);
+  position: relative;
+}
+
+.tab-fase2-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: var(--ldi-gradient-cyan);
+  opacity: 0.25;
 }
 
 .tab-fase2-header h3 {
-  font-family: 'Cinzel', serif;
+  font-family: var(--ldi-font-heading);
   font-size: 1.1rem;
-  color: #c9a84c;
+  background: var(--ldi-gradient-cyan);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
+
+/* ── Body ───────────────────────────────────────── */
 
 .tab-fase2-body {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  padding: 16px;
+  padding: var(--ldi-space-md);
   gap: 12px;
 }
+
+/* ── Toolbar ────────────────────────────────────── */
 
 .tab-fase2-toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   padding: 10px;
-  background: #141418;
-  border: 1px solid #2e2e3a;
-  border-radius: 6px;
+  background: var(--ldi-surface);
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-md);
   align-items: flex-start;
 }
 
 .tab-fase2-toolgroup {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--ldi-space-xs);
 }
 
 .tab-fase2-toolgroup-label {
-  font-size: 0.65rem;
-  color: #7a7570;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+  color: var(--ldi-text-dim);
+  font-family: var(--ldi-font-heading);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .tab-fase2-tool {
   width: 36px;
   height: 36px;
-  border: 1px solid #2e2e3a;
-  border-radius: 4px;
-  background: #1a1a22;
-  color: #d4cfc8;
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-sm);
+  background: var(--ldi-black);
+  color: var(--ldi-text);
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s;
+  transition: all var(--ldi-transition-fast);
 }
 
 .tab-fase2-tool:hover {
-  border-color: #7a6530;
+  border-color: var(--ldi-cyan);
 }
 
 .tab-fase2-tool.active {
-  border-color: #c9a84c;
-  background: #2a2a32;
-  box-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
+  border-color: var(--ldi-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 8px var(--ldi-cyan-glow);
 }
 
 .tab-fase2-tool-config {
@@ -86,38 +114,45 @@
   gap: 12px;
   align-items: center;
   padding: 6px 10px;
-  border-left: 1px solid #2e2e3a;
+  border-left: 1px solid var(--ldi-border);
 }
 
 .tab-fase2-tool-config label {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
-  color: #d4cfc8;
+  font-size: 0.75rem;
+  color: var(--ldi-text);
 }
 
 .tab-fase2-tool-config select {
-  background: #141418;
-  border: 1px solid #2e2e3a;
-  border-radius: 3px;
-  color: #d4cfc8;
+  background: var(--ldi-black);
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-sm);
+  color: var(--ldi-text);
   padding: 2px 6px;
   font-size: 0.8rem;
+  outline: none;
+}
+
+.tab-fase2-tool-config select:focus {
+  border-color: var(--ldi-cyan);
 }
 
 .tab-fase2-checkbox {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
-  color: #d4cfc8;
+  font-size: 0.75rem;
+  color: var(--ldi-text);
   cursor: pointer;
 }
 
 .tab-fase2-checkbox input {
-  accent-color: #c9a84c;
+  accent-color: var(--ldi-cyan);
 }
+
+/* ── Canvas ─────────────────────────────────────── */
 
 .tab-fase2-canvas-wrap {
   display: flex;
@@ -129,8 +164,8 @@
 }
 
 .tab-fase2-canvas {
-  border: 1px solid #2e2e3a;
-  border-radius: 4px;
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-sm);
   cursor: crosshair;
   max-width: 100%;
   max-height: 100%;
@@ -138,11 +173,11 @@
   touch-action: none;
 }
 
-/* ── Stepper Controls (replacing sliders) ──────── */
+/* ── Stepper Controls ───────────────────────────── */
 
 .atb-stepper-row {
   display: flex;
-  gap: 32px;
+  gap: var(--ldi-space-xl);
   align-items: center;
   justify-content: center;
 }
@@ -155,59 +190,62 @@
 }
 
 .atb-stepper-label {
-  font-size: 0.75rem;
-  color: #c9a84c;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  color: var(--ldi-cyan);
+  font-family: var(--ldi-font-heading);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .atb-stepper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--ldi-space-sm);
 }
 
 .atb-stepper-btn {
   width: 36px;
   height: 36px;
-  border: 1px solid #c9a84c;
-  border-radius: 4px;
+  border: 1px solid var(--ldi-cyan);
+  border-radius: var(--ldi-radius-sm);
   background: transparent;
-  color: #c9a84c;
+  color: var(--ldi-cyan);
   font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s;
+  transition: all var(--ldi-transition-fast);
   line-height: 1;
 }
 
 .atb-stepper-btn:hover:not(:disabled) {
-  background: rgba(201, 168, 76, 0.15);
+  background: rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 10px var(--ldi-cyan-glow);
 }
 
 .atb-stepper-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
-  border-color: #444;
-  color: #666;
+  border-color: var(--ldi-text-muted);
+  color: var(--ldi-text-muted);
 }
 
 .atb-stepper-value {
-  font-family: monospace;
+  font-family: var(--ldi-font-mono);
   font-size: 1.1rem;
-  color: #d4cfc8;
+  color: var(--ldi-text);
   min-width: 24px;
   text-align: center;
 }
 
+/* ── Char Info ──────────────────────────────────── */
+
 .tab-fase2-char-info {
-  background: #141418;
-  border: 1px solid #2e2e3a;
-  border-radius: 6px;
+  background: var(--ldi-surface);
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-md);
   padding: 10px;
 }
 
@@ -222,61 +260,67 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: #1a1a22;
-  border: 1px solid #2e2e3a;
-  border-radius: 4px;
+  background: var(--ldi-black);
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-sm);
   font-size: 0.8rem;
-  color: #d4cfc8;
+  color: var(--ldi-text);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all var(--ldi-transition-fast);
 }
 
 .tab-fase2-char-chip:hover {
-  border-color: #7a6530;
+  border-color: var(--ldi-cyan);
 }
 
 .tab-fase2-char-chip.selected {
-  border-color: #c9a84c;
-  background: #2a2a32;
+  border-color: var(--ldi-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 6px var(--ldi-cyan-glow);
 }
 
 .tab-fase2-char-team.jogador {
-  color: #4caf50;
+  color: var(--ldi-hp);
 }
 
 .tab-fase2-char-team.ia {
-  color: #e74c3c;
+  color: var(--ldi-attack);
 }
 
 .tab-fase2-char-pos {
-  color: #7a7570;
-  font-family: monospace;
-  font-size: 0.75rem;
+  color: var(--ldi-text-dim);
+  font-family: var(--ldi-font-mono);
+  font-size: 0.7rem;
 }
 
 .tab-fase2-hint {
-  margin: 8px 0 0;
-  font-size: 0.8rem;
-  color: #c9a84c;
+  margin: var(--ldi-space-sm) 0 0;
+  font-size: 0.75rem;
+  color: var(--ldi-cyan);
   font-style: italic;
   text-align: center;
 }
+
+/* ── Footer ─────────────────────────────────────── */
 
 .tab-fase2-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 16px;
-  border-top: 1px solid #2e2e3a;
+  gap: var(--ldi-space-sm);
+  padding: var(--ldi-space-md);
+  border-top: 1px solid var(--ldi-border);
+  background: var(--ldi-gradient-header);
 }
 
 .tab-fase2-warning {
-  font-size: 0.8rem;
-  color: #c0392b;
+  font-size: 0.75rem;
+  color: var(--ldi-danger);
   margin: 0;
   text-align: center;
 }
+
+/* ── Pixi Container ─────────────────────────────── */
 
 .tab-fase2-pixi-container {
   width: 100%;
@@ -288,6 +332,6 @@
 
 .tab-fase2-pixi-container canvas {
   display: block;
-  border: 1px solid #2e2e3a;
-  border-radius: 4px;
+  border: 1px solid var(--ldi-border);
+  border-radius: var(--ldi-radius-sm);
 }

@@ -1,9 +1,15 @@
+@import './ldi-tokens.css';
+
+/* ═══════════════════════════════════════════════════
+   ArenaTestbed.css — LDI Arena Testbed Layout
+   ═══════════════════════════════════════════════════ */
+
 .tab-arena-testbed {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #0d0d0f;
-  color: #d4cfc8;
+  background: var(--ldi-dark);
+  color: var(--ldi-text);
 }
 
 /* ── Step Indicator ─────────────────────────────── */
@@ -12,18 +18,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 16px 20px;
-  background: #141418;
-  border-bottom: 1px solid #2e2e3a;
+  gap: var(--ldi-space-md);
+  padding: var(--ldi-space-md) var(--ldi-space-lg);
+  background: var(--ldi-surface);
+  border-bottom: 1px solid var(--ldi-border);
+  position: relative;
+}
+
+.tab-step-indicator::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--ldi-gradient-cyan);
+  opacity: 0.3;
 }
 
 .tab-step-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  opacity: 0.5;
-  transition: opacity 0.2s;
+  gap: var(--ldi-space-sm);
+  opacity: 0.4;
+  transition: opacity var(--ldi-transition-normal);
 }
 
 .tab-step-item.active {
@@ -31,40 +49,47 @@
 }
 
 .tab-step-item.done {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .tab-step-circle {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  border: 2px solid #2e2e3a;
+  border-radius: var(--ldi-radius-full);
+  border: 2px solid var(--ldi-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
+  font-family: var(--ldi-font-heading);
   font-size: 0.8rem;
-  color: #7a7570;
-  transition: all 0.2s;
+  color: var(--ldi-text-muted);
+  transition: all var(--ldi-transition-normal);
+  position: relative;
 }
 
 .tab-step-item.active .tab-step-circle {
-  border-color: #c9a84c;
-  color: #c9a84c;
-  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--ldi-cyan);
+  color: var(--ldi-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: var(--ldi-shadow-cyan);
 }
 
 .tab-step-item.done .tab-step-circle {
-  border-color: #4caf50;
-  color: #4caf50;
-  background: rgba(76, 175, 80, 0.1);
+  border-color: var(--ldi-hp);
+  color: var(--ldi-hp);
+  background: rgba(34, 197, 94, 0.1);
 }
 
 .tab-step-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  color: #d4cfc8;
-  letter-spacing: 0.04em;
+  font-family: var(--ldi-font-heading);
+  font-size: 0.7rem;
+  color: var(--ldi-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tab-step-item.active .tab-step-label {
+  color: var(--ldi-cyan);
 }
 
 /* ── Phase Content ──────────────────────────────── */
