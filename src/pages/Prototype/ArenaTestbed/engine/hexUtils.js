@@ -255,9 +255,10 @@ export function getCelulasAtaque(startRow, startCol, tipoAtaque, cols, rows, alc
 
 /**
  * Encontra o caminho mais curto entre duas células (BFS), evitando obstáculos
- * Tipo 1 (Parede) e Tipo 2 (Buraco) bloqueiam movimento
+ * Tipo 1 (Parede) e Tipo 2 (Buraco) bloqueiam movimento.
+ * Também evita células ocupadas por outros personagens (exceto o destino final).
  */
-export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows, obstaculos) {
+export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows, obstaculos, ocupadas = new Set()) {
   const visited = new Set()
   const queue = [{ row: startRow, col: startCol, path: [{ row: startRow, col: startCol }] }]
   visited.add(`${startRow}_${startCol}`)
@@ -273,6 +274,8 @@ export function encontrarCaminho(startRow, startCol, endRow, endCol, cols, rows,
       if (visited.has(key)) continue
       const obs = obstaculos?.[key]
       if (obs && (obs.tipo === 1 || obs.tipo === 2)) continue
+      // Bloqueia células ocupadas por outros personagens (exceto destino final)
+      if (ocupadas.has(key) && !(viz.row === endRow && viz.col === endCol)) continue
       visited.add(key)
       queue.push({ ...viz, path: [...current.path, viz] })
     }

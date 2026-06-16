@@ -220,6 +220,12 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     return playerOK && iaOK && noOverlap && allPlaced
   }, [boardChars, cols, allPlaced])
 
+  function handleTouch(e) {
+    e.preventDefault()
+    const touch = e.changedTouches[0]
+    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
+  }
+
   function handleCanvasClick(e) {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -436,6 +442,7 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
             ref={canvasRef}
             className="tab-fase2-canvas"
             onClick={handleCanvasClick}
+            onTouchEnd={handleTouch}
             onMouseMove={handleCanvasMove}
             onMouseLeave={() => setHoveredCell(null)}
           />

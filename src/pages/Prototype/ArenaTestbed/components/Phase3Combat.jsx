@@ -104,6 +104,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [pendingMove, setPendingMove] = useState(null)
   const drawerListRef = useRef(null)
 
+  // ── Destino escolhido / caminho highlight ──────
+  const [destinoEscolhido, setDestinoEscolhido] = useState(null)
+  const [caminhoEscolhido, setCaminhoEscolhido] = useState([])
+
   // ── Auto-scroll do log drawer ──────────────────
   useEffect(() => {
     if (logDrawerOpen && drawerListRef.current) {
@@ -111,14 +115,18 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }, [battleLog, logDrawerOpen])
 
-  // ── Dynamic hexSize based on container width ──
+  // ── Dynamic hexSize based on container width AND height ──
   useEffect(() => {
     function calcSize() {
       const el = canvasContainerRef.current
       if (!el) return
-      const w = el.clientWidth
-      const size = Math.floor((w / (cols + 0.5)) / SQRT3)
-      setHexSize(Math.max(20, Math.min(36, size)))
+      const containerW = el.clientWidth
+      const containerH = el.clientHeight || window.innerHeight * 0.55
+
+      const sizeByWidth = Math.floor((containerW / (cols + 0.5)) / SQRT3)
+      const sizeByHeight = Math.floor((containerH / (rows * 1.5 + 0.5)))
+      const size = Math.min(sizeByWidth, sizeByHeight)
+      setHexSize(Math.max(18, Math.min(36, size)))
     }
     calcSize()
     const ro = new ResizeObserver(calcSize)
@@ -128,7 +136,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       ro.disconnect()
       window.removeEventListener('resize', calcSize)
     }
-  }, [cols])
+  }, [cols, rows])
 
   // ── Animation state ─────────────────────────────
   const [movementPath, setMovementPath] = useState(null) // { charId, steps: [{row,col}], current: 0 }
@@ -293,6 +301,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const atkSet = new Set(attackCells.map(c => `${c.row}_${c.col}`))
     const rangeSet = new Set(rangeCells.map(c => `${c.row}_${c.col}`))
     const projPathSet = new Set(projectilePath.map(c => `${c.row}_${c.col}`))
+    const destSet = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
+    const destKey = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
@@ -324,7 +334,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           stroke = '#4caf50'
         }
 
+        // Caminho escolhido — fill mais claro, borda branca
+        if (destSet.has(key) && key !== destKey) {
+          fill = '#3a5a3a'
+          stroke = '#ffffff'
+        }
+
+        // Destino escolhido — fill azul claro, borda branca grossa
+        if (destKey && key === destKey) {
+          fill = '#2a4a6a'
+          stroke = '#ffffff'
+        }
+
         drawHex(ctx, center, sz, fill, stroke)
+
+        // Borda mais grossa no destino escolhido
+        if (destKey && key === destKey) {
+          drawHex(ctx, center, sz, fill, 'rgba(255,255,255,0.8)', 2.5)
+        }
 
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
@@ -438,9 +465,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath, hexSize])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath, hexSize, caminhoEscolhido, destinoEscolhido])
 
   useEffect(() => { draw() }, [draw])
+
+  // Handle canvas touch (mobile)
+  function handleTouch(e) {
+    e.preventDefault()
+    const touch = e.changedTouches[0]
+    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
+  }
 
   // Handle canvas click
   function handleCanvasClick(e) {
@@ -461,6 +495,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     if (subPhase === 'movimento') {
       if (highlightedCells.some(c => c.row === row && c.col === col)) {
+        // Calcula caminho para highlight de destino
+        const ocupadas = new Set(
+          characters.filter(c => c.vivo && c.id !== currentChar.id)
+            .map(c => `${c.posicao.row}_${c.posicao.col}`)
+        )
+        const cam = encontrarCaminho(
+          currentChar.posicao.row, currentChar.posicao.col,
+          row, col, cols, rows, obstaculos, ocupadas
+        )
+        setDestinoEscolhido({ row, col })
+        setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
         setPendingMove({ row, col })
       }
     } else if (subPhase === 'acao') {
@@ -475,11 +520,20 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!currentChar || animating) return
     clearAnimTimers()
 
+    // Limpa highlights de destino
+    setDestinoEscolhido(null)
+    setCaminhoEscolhido([])
+
     // 1. Encontra o caminho célula a célula
     const origem = currentChar.posicao
+    const ocupadas = new Set(
+      characters
+        .filter(c => c.vivo && c.id !== currentChar.id)
+        .map(c => `${c.posicao.row}_${c.posicao.col}`)
+    )
     const caminho = encontrarCaminho(
       origem.row, origem.col, row, col,
-      cols, rows, obstaculos
+      cols, rows, obstaculos, ocupadas
     )
 
     if (!caminho || caminho.length < 2) {
@@ -590,6 +644,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setRangeCells([])
     setSubPhaseStep(null)
     setPendingMove(null)
+    setDestinoEscolhido(null)
+    setCaminhoEscolhido([])
     setSubPhase('free')
   }
 
@@ -949,9 +1005,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
           // Animar movimento célula a célula
           const origem = iaAtual.posicao
+          const ocupadasIA = new Set(
+            charsAgora
+              .filter(c => c.vivo && c.id !== iaChar.id)
+              .map(c => `${c.posicao.row}_${c.posicao.col}`)
+          )
           const caminho = encontrarCaminho(
             origem.row, origem.col, destino.row, destino.col,
-            cols, rows, obstaculos
+            cols, rows, obstaculos, ocupadasIA
           )
           const steps = caminho ? caminho.slice(1) : [destino]
 
@@ -1162,7 +1223,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
       {/* ── Canvas ─────────────────────────────────── */}
       <div className="atb-canvas-wrap" ref={canvasContainerRef}>
-        <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} />
+        <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
       </div>
 
       {/* ── HUD — Chips de personagens ─────────────── */}

@@ -68,11 +68,18 @@ export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos
   // 3. Mover em direção ao inimigo mais próximo
   const casasMov = getCasasMovimento(personagem.agi, agiUmPraUm)
 
+  // Constrói set de células ocupadas por outros personagens vivos
+  const ocupadas = new Set(
+    todosPersonagens
+      .filter(p => p.vivo && p.posicao && p.id !== personagem.id)
+      .map(p => `${p.posicao.row}_${p.posicao.col}`)
+  )
+
   // BFS para encontrar caminho
   const caminho = encontrarCaminho(
     personagem.posicao.row, personagem.posicao.col,
     alvo.posicao.row, alvo.posicao.col,
-    cols, rows, obstaculos
+    cols, rows, obstaculos, ocupadas
   )
 
   if (caminho && caminho.length > 1) {
