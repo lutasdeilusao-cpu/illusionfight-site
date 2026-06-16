@@ -145,9 +145,10 @@ export function getHexLine(rowA, colA, rowB, colB) {
 export function hasWallBetween(rowA, colA, rowB, colB, obstaculos = {}) {
   const line = getHexLine(rowA, colA, rowB, colB)
   // A linha já exclui a origem e inclui o alvo.
-  // Excluímos o alvo também — só células intermediárias importam.
-  for (let i = 0; i < line.length - 1; i++) {
-    const cell = line[i]
+  // Excluímos o alvo por coordenada (não por índice) — após dedup
+  // em getHexLine o alvo pode não estar no último índice.
+  for (const cell of line) {
+    if (cell.row === rowB && cell.col === colB) continue
     const key = `${cell.row}_${cell.col}`
     const obs = obstaculos[key]
     if (obs && obs.tipo === 1) return true
