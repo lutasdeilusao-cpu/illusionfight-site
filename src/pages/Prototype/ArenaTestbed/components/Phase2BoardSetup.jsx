@@ -230,8 +230,10 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const canvas = canvasRef.current
     if (!canvas) return
     const rect = canvas.getBoundingClientRect()
-    const mx = e.clientX - rect.left
-    const my = e.clientY - rect.top
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+    const mx = (e.clientX - rect.left) * scaleX
+    const my = (e.clientY - rect.top) * scaleY
     const w = HEX_SIZE * SQRT3
     const h = HEX_SIZE * 1.5
     const padX = HEX_SIZE * SQRT3
@@ -309,8 +311,10 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const canvas = canvasRef.current
     if (!canvas) return
     const rect = canvas.getBoundingClientRect()
-    const mx = e.clientX - rect.left
-    const my = e.clientY - rect.top
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+    const mx = (e.clientX - rect.left) * scaleX
+    const my = (e.clientY - rect.top) * scaleY
     const w = HEX_SIZE * SQRT3
     const h = HEX_SIZE * 1.5
     const padX = HEX_SIZE * SQRT3

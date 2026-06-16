@@ -481,8 +481,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const canvas = canvasRef.current
     if (!canvas || animating || animatingRef.current || !isPlayerTurn || iaThinking) return
     const rect = canvas.getBoundingClientRect()
-    const mx = e.clientX - rect.left
-    const my = e.clientY - rect.top
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+    const mx = (e.clientX - rect.left) * scaleX
+    const my = (e.clientY - rect.top) * scaleY
     const sz = hexSize
     const w = sz * SQRT3
     const h = sz * 1.5
