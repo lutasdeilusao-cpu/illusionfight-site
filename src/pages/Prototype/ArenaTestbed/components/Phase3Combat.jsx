@@ -299,6 +299,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const offsetY = Math.max(sz * 0.5, (containerH - gridH) / 2)
     canvas.width = containerW
     canvas.height = containerH
+    canvas.style.width = containerW + 'px'
+    canvas.style.height = containerH + 'px'
     offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -318,8 +320,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         const obs = obstaculos[key]
         const ch = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
 
-        let fill = '#080b18'
-        let stroke = '#151830'
+        let fill = '#3d2208'
+        let stroke = '#5c3410'
 
         if (obs) {
           const colors = { 1: '#555', 2: '#080b18', 3: '#8b4513', 4: '#6b5b3e' }
@@ -359,7 +361,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         } else if (hlSet.has(key)) {
           shadow = { blur: 12, color: '#00eeff' }
         } else if (!obs && !ch && !itensChaoAtual[key]) {
-          shadow = { blur: 6, color: '#1a2060' }
+          shadow = { blur: 4, color: '#7a4a1a' }
         }
 
         const lw = destKey && key === destKey ? 2.5 : (hlSet.has(key) ? 1.5 : (atkSet.has(key) ? 1.5 : (rangeSet.has(key) ? 1 : 1)))
@@ -1272,7 +1274,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           )
         }
         const btns = []
-        btns.push(mkBtn(270, '⚔', 'COMUM', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialAtaque(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
+        btns.push(mkBtn(270, '⚔', 'COMUM', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialAtaque(null); escolherAcao('common_attack') }))
         btns.push(mkBtn(180, '✕', 'VOLTAR', 'atb-radial-cancel', false, () => { setRadialAtaque(null); setRadialMenu({ charId: currentChar.id, x: radialAtaque.x, y: radialAtaque.y }) }))
         return <div className="atb-radial-menu">{btns}</div>
       })()}
