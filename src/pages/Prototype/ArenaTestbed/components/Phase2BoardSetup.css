@@ -1,303 +1,318 @@
-/* ── Phase 2 — Montagem do Tabuleiro ── */
-.tab-fase2 {
+.p2-root {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-height: 100dvh;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #0a0a0f;
 }
 
-.tab-fase2-header {
+.p2-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: rgba(0,0,0,0.4);
-  flex-shrink: 0;
+  padding: 12px 20px;
+  border-bottom: 1px solid #2a2a4a;
+  background: #0a0a0f;
 }
 
-.tab-fase2-header h3 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #F5A623;
+.p2-header h3 {
+  font-size: 16px;
+  color: #0af;
   margin: 0;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.tab-fase2-body {
+.p2-body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  padding: 8px;
-  gap: 8px;
-  min-height: 0;
-}
-
-/* ── Toolbar ─────────────────────────────────────── */
-.tab-fase2-toolbar {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 8px;
-  padding: 8px 10px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  align-items: flex-start;
-  overflow-x: auto;
-  scrollbar-width: none;
-  flex-shrink: 0;
-}
-.tab-fase2-toolbar::-webkit-scrollbar { display: none; }
-
-.tab-fase2-toolgroup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.tab-fase2-toolgroup-label {
-  font-size: 8px;
-  color: #333;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.tab-fase2-tool {
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
-  color: #888;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.15s;
-  flex-shrink: 0;
-}
-
-.tab-fase2-tool:hover {
-  border-color: rgba(245,166,35,0.3);
-  color: #F5A623;
-}
-
-.tab-fase2-tool.active {
-  border-color: #F5A623;
-  background: rgba(245,166,35,0.08);
-  color: #F5A623;
-  box-shadow: 0 0 8px rgba(245,166,35,0.15);
-}
-
-.tab-fase2-tool-config {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  padding: 6px 10px;
-  border-left: 1px solid rgba(255,255,255,0.06);
-}
-
-.tab-fase2-tool-config label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  color: #666;
-  font-family: 'Courier New', monospace;
-}
-
-.tab-fase2-tool-config select {
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.06);
-  color: #eee;
-  padding: 3px 6px;
-  font-size: 10px;
-  font-family: 'Courier New', monospace;
-}
-
-.tab-fase2-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  color: #666;
-  font-family: 'Courier New', monospace;
-  cursor: pointer;
-}
-
-.tab-fase2-checkbox input {
-  accent-color: #00B4D8;
-}
-
-/* ── Canvas wrap ─────────────────────────────────── */
-.tab-fase2-canvas-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  overflow: hidden;
-  width: 100%;
-}
-
-.tab-fase2-pixi-container {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  touch-action: none;
-}
-
-.tab-fase2-pixi-container canvas {
-  display: block;
-  border: 1px solid rgba(0,180,216,0.1);
-}
-
-/* ── Steppers ────────────────────────────────────── */
-.atb-stepper-row {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  justify-content: center;
-}
-
-.atb-stepper-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.atb-stepper-label {
-  font-size: 8px;
-  color: #333;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.atb-stepper {
-  display: flex;
-  align-items: center;
+  overflow: auto;
+  padding: 16px;
   gap: 12px;
 }
 
-.atb-stepper-btn {
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(0,180,216,0.3);
+.p2-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.p2-toolgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p2-toolgroup-label {
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.p2-tool {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  background: #0a0a0f;
+  color: #ccc;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.p2-tool:hover {
+  border-color: #0af;
+}
+
+.p2-tool.active {
+  border-color: #0af;
+  background: #1a1a3e;
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+}
+
+.p2-tool-config {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 10px;
+  border-left: 1px solid #2a2a4a;
+}
+
+.p2-tool-config label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.p2-tool-config select {
+  background: #0a0a0f;
+  border: 1px solid #2a2a4a;
+  border-radius: 4px;
+  color: #ccc;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.p2-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.p2-checkbox input {
+  accent-color: #0af;
+}
+
+.p2-canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.p2-canvas {
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  cursor: crosshair;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.p2-stepper-row {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.p2-stepper-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.p2-stepper-label {
+  font-size: 11px;
+  color: #0af;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.p2-stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p2-stepper-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #0af;
+  border-radius: 6px;
   background: transparent;
-  color: #00B4D8;
-  font-size: 1.1rem;
+  color: #0af;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.15s;
-  font-family: 'Courier New', monospace;
+  line-height: 1;
 }
 
-.atb-stepper-btn:hover:not(:disabled) {
-  background: rgba(0,180,216,0.1);
-  border-color: #00B4D8;
+.p2-stepper-btn:hover:not(:disabled) {
+  background: rgba(0, 170, 255, 0.15);
 }
 
-.atb-stepper-btn:disabled {
-  opacity: 0.2;
+.p2-stepper-btn:disabled {
+  opacity: 0.3;
   cursor: not-allowed;
-  border-color: #222;
-  color: #333;
+  border-color: #444;
+  color: #666;
 }
 
-.atb-stepper-value {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #eee;
+.p2-stepper-value {
+  font-family: monospace;
+  font-size: 14px;
+  color: #ccc;
   min-width: 24px;
   text-align: center;
 }
 
-/* ── Char info ───────────────────────────────────── */
-.tab-fase2-char-info {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 10px 12px;
+.p2-char-info {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  padding: 10px;
 }
 
-.tab-fase2-char-list {
+.p2-char-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-.tab-fase2-char-chip {
+.p2-char-chip {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-left: 2px solid rgba(0,180,216,0.3);
-  font-size: 10px;
-  color: #888;
+  padding: 4px 10px;
+  background: #0a0a0f;
+  border: 1px solid #2a2a4a;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #ccc;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
   transition: all 0.15s;
-  letter-spacing: 1px;
 }
 
-.tab-fase2-char-chip:hover {
-  border-left-color: #00B4D8;
-  color: #eee;
+.p2-char-chip:hover {
+  border-color: #0af;
 }
 
-.tab-fase2-char-chip.selected {
-  border-left-color: #F5A623;
-  background: rgba(245,166,35,0.04);
-  color: #F5A623;
+.p2-char-chip.selected {
+  border-color: #0af;
+  background: #1a1a3e;
 }
 
-.tab-fase2-char-team.jogador { color: #00B4D8; }
-.tab-fase2-char-team.ia      { color: #cc4444; }
-
-.tab-fase2-char-pos {
-  color: #333;
-  font-family: 'Courier New', monospace;
-  font-size: 9px;
+.p2-char-team.jogador {
+  color: #00ff88;
 }
 
-.tab-fase2-hint {
+.p2-char-team.ia {
+  color: #ff4444;
+}
+
+.p2-char-pos {
+  color: #666;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.p2-hint {
   margin: 8px 0 0;
-  font-size: 10px;
-  color: #F5A623;
-  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #0af;
+  font-style: italic;
   text-align: center;
-  letter-spacing: 2px;
 }
 
-.tab-fase2-footer {
+.p2-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: rgba(0,0,0,0.4);
-  flex-shrink: 0;
+  padding: 16px;
+  border-top: 1px solid #2a2a4a;
 }
 
-.tab-fase2-warning {
-  font-size: 10px;
-  color: #cc4444;
+.p2-warning {
+  font-size: 12px;
+  color: #ff4444;
   margin: 0;
   text-align: center;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 2px;
+}
+
+.p2-btn {
+  font-size: 14px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.p2-btn-primary {
+  background: #0044ff;
+  color: #fff;
+  border: 1px solid #0066ff;
+}
+
+.p2-btn-primary:hover {
+  background: #0066ff;
+}
+
+.p2-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.p2-btn-primary:disabled:hover {
+  background: #0044ff;
+}
+
+.p2-btn-secondary {
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  color: #888;
+  font-size: 13px;
+  padding: 6px 16px;
+}
+
+.p2-btn-secondary:hover {
+  border-color: #0af;
+  color: #0af;
 }

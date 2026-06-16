@@ -5,8 +5,6 @@ import './Phase1SheetBuilder.css'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
-const EMOJI_OPTIONS_JOGADOR = ['⚔️','🥊','🗡️','🛡️','🧙','🥷','🦸','🐉','🔥','💀','🌊','⚡']
-const EMOJI_OPTIONS_IA      = ['🤖','👾','💣','🦂','🕷️','🐺','🦇','☠️','🌑','🧿','👁️','⚙️']
 
 export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAgiToggle }) {
   const { t } = useLanguage()
@@ -43,7 +41,6 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
           equipamento: 'nenhum',
           pocaoHP: 0,
           pocaoMP: 0,
-          emoji: EMOJI_OPTIONS_JOGADOR[0],
         }
       : {
           id: `temp_${Date.now()}`,
@@ -60,7 +57,6 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
           equipamento: 'nenhum',
           pocaoHP: 0,
           pocaoMP: 0,
-          emoji: EMOJI_OPTIONS_IA[0],
         }
 
     setCharacters([...characters, newChar])
@@ -150,62 +146,45 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
 
   function handleConfirm() {
     const finalChars = characters.map(c => {
-      const char = criarPersonagem(
+      return criarPersonagem(
         c.nome, c.time, c.tipoAtaque,
         c.forca, c.agi, c.dex, c.pdf, c.res, c.arm,
         c.equipamento, c.pocaoHP, c.pocaoMP
       )
-      char.emoji = c.emoji || ''
-      return char
     })
     onConfirm(finalChars, agiUmPraUm)
   }
 
   return (
-    <div className="tab-fase1">
-      <div className="tab-fase1-header">
+    <div className="p1-root">
+      <div className="p1-header">
         <h3>{t('prototype.arena_testbed.phase1_title')}</h3>
-        <p className="tab-fase1-subtitle">{t('prototype.arena_testbed.phase1_desc')}</p>
+        <p className="p1-subtitle">{t('prototype.arena_testbed.phase1_desc')}</p>
       </div>
 
-      <div className="tab-fase1-chars">
+      <div className="p1-chars">
         {characters.map((char, idx) => {
           const restantes = pontosRestantes(char)
           return (
-          <div key={char.id} className={`tab-fase1-card ${editing === idx ? 'editing' : ''}`}>
-            <div className="tab-fase1-card-header">
-              <span className="tab-fase1-char-num">
+          <div key={char.id} className={`p1-card ${editing === idx ? 'editing' : ''}`}>
+            <div className="p1-card-header">
+              <span className="p1-char-num">
                 {t('prototype.arena_testbed.character')} {idx + 1}
               </span>
               <button
-                className="tab-btn-remove"
+                className="p1-btn-remove"
                 onClick={() => removeCharacter(idx)}
                 title={t('prototype.arena_testbed.remove')}
               >✕</button>
             </div>
 
-            <div className="tab-fase1-auto-name">
-              <span className="tab-fase1-char-time-label">
-                {char.time === 'jogador' ? '👤' : '🤖'} {char.nome}
+            <div className="p1-auto-name">
+              <span className={`p1-char-time-label ${char.time}`}>
+                {char.nome}
               </span>
             </div>
 
-            <div className="tab-fase1-emoji-selector">
-              <span className="tab-fase1-field-label">{t('prototype.arena_testbed.choose_emoji')}</span>
-              <div className="tab-fase1-emoji-grid">
-                {(char.time === 'jogador' ? EMOJI_OPTIONS_JOGADOR : EMOJI_OPTIONS_IA).map(em => (
-                  <button
-                    key={em}
-                    className={`tab-fase1-emoji-btn ${char.emoji === em ? 'selected' : ''}`}
-                    onClick={() => updateChar(idx, 'emoji', em)}
-                  >
-                    {em}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <label className="tab-fase1-field">
+            <label className="p1-field">
               <span>{t('prototype.arena_testbed.team')}</span>
               <select value={char.time} onChange={e => updateChar(idx, 'time', e.target.value)}>
                 <option value="jogador">{t('prototype.arena_testbed.team_player')}</option>
@@ -213,14 +192,14 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
               </select>
             </label>
 
-            <div className="tab-fase1-radio-group">
-              <span className="tab-fase1-radio-label">{t('prototype.arena_testbed.attack_type')}</span>
-              <label className="tab-fase1-radio">
+            <div className="p1-radio-group">
+              <span className="p1-radio-label">{t('prototype.arena_testbed.attack_type')}</span>
+              <label className="p1-radio">
                 <input type="radio" name={`atk_${idx}`} checked={char.tipoAtaque === 'melee'}
                   onChange={() => updateChar(idx, 'tipoAtaque', 'melee')} />
                 {t('prototype.arena_testbed.melee')} (FOR)
               </label>
-              <label className="tab-fase1-radio">
+              <label className="p1-radio">
                 <input type="radio" name={`atk_${idx}`} checked={char.tipoAtaque === 'distancia'}
                   onChange={() => updateChar(idx, 'tipoAtaque', 'distancia')} />
                 {t('prototype.arena_testbed.distance')} (PDF)
@@ -228,8 +207,8 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
             </div>
 
             {/* ── FIX 2: Seletor de orçamento ────── */}
-            <div className="tab-fase1-budget">
-              <label className="tab-fase1-field">
+            <div className="p1-budget">
+              <label className="p1-field">
                 <span>{t('prototype.arena_testbed.budget_label')}</span>
                 <select value={char.orcamento} onChange={e => updateChar(idx, 'orcamento', Number(e.target.value))}>
                   {BUDGET_OPTIONS.map(b => (
@@ -237,14 +216,14 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
                   ))}
                 </select>
               </label>
-              <div className={`tab-fase1-budget-counter ${restantes === 0 ? 'zero' : restantes < 0 ? 'negativo' : ''}`}>
-                <span className="tab-fase1-budget-label">{t('prototype.arena_testbed.points_remaining')}</span>
-                <span className="tab-fase1-budget-value">{restantes} / {char.orcamento}</span>
+              <div className={`p1-budget-counter ${restantes === 0 ? 'zero' : restantes < 0 ? 'negativo' : ''}`}>
+                <span className="p1-budget-label">{t('prototype.arena_testbed.points_remaining')}</span>
+                <span className="p1-budget-value">{restantes} / {char.orcamento}</span>
               </div>
             </div>
 
             {/* ── Atributos ──────────────────────── */}
-            <div className="tab-fase1-attrs">
+            <div className="p1-attrs">
               {ATTRIBUTES.map(attr => {
                 const isBlocked =
                   (attr === 'pdf' && char.tipoAtaque === 'melee') ||
@@ -252,23 +231,24 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
                 const val = isBlocked ? 0 : (char[attr] || 0)
                 const minVal = attr === 'res' ? 1 : 0
                 return (
-                  <div key={attr} className="tab-fase1-attr-row">
-                    <span className="tab-fase1-attr-name">{t(`prototype.arena_testbed.attr_${attr}`)}</span>
-                    <div className="tab-fase1-attr-controls">
-                      <button className="tab-btn-small"
+                  <div key={attr} className="p1-attr-row">
+                    <span className={`p1-attr-name ${attr}`}>{t(`prototype.arena_testbed.attr_${attr}`)}</span>
+                    <div className="p1-attr-controls">
+                      <button className="p1-btn-small"
                         disabled={val <= minVal || isBlocked}
                         onClick={() => updateAttr(idx, attr, -1)}>−</button>
-                      <span className={`tab-fase1-attr-val ${isBlocked ? 'blocked' : ''}`}>{val}</span>
-                      <button className="tab-btn-small"
+                      <span className={`p1-attr-val ${isBlocked ? 'blocked' : ''}`}>{val}</span>
+                      <button className="p1-btn-small"
                         disabled={isBlocked || restantes <= 0}
                         onClick={() => updateAttr(idx, attr, +1)}>+</button>
+                      <span className="p1-attr-tokens">({val}/{char.orcamento})</span>
                     </div>
                   </div>
                 )
               })}
             </div>
 
-            <label className="tab-fase1-field">
+            <label className="p1-field">
               <span>{t('prototype.arena_testbed.equipment')}</span>
               <select value={char.equipamento} onChange={e => updateChar(idx, 'equipamento', e.target.value)}>
                 <option value="nenhum">{t('prototype.arena_testbed.equip_none')}</option>
@@ -278,42 +258,42 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
               </select>
             </label>
 
-            <div className="tab-fase1-items">
-              <span className="tab-fase1-items-label">{t('prototype.arena_testbed.inventory')}</span>
-              <label className="tab-fase1-item-row">
+            <div className="p1-items">
+              <span className="p1-items-label">{t('prototype.arena_testbed.inventory')}</span>
+              <label className="p1-item-row">
                 <span>{t('prototype.arena_testbed.potion_hp')} (+5)</span>
-                <div className="tab-fase1-attr-controls">
-                  <button className="tab-btn-small" disabled={char.pocaoHP <= 0}
+                <div className="p1-attr-controls">
+                  <button className="p1-btn-small" disabled={char.pocaoHP <= 0}
                     onClick={() => updateChar(idx, 'pocaoHP', Math.max(0, char.pocaoHP - 1))}>−</button>
-                  <span className="tab-fase1-attr-val">{char.pocaoHP}</span>
-                  <button className="tab-btn-small" disabled={char.pocaoHP >= 5}
+                  <span className="p1-attr-val">{char.pocaoHP}</span>
+                  <button className="p1-btn-small" disabled={char.pocaoHP >= 5}
                     onClick={() => updateChar(idx, 'pocaoHP', char.pocaoHP + 1)}>+</button>
                 </div>
               </label>
-              <label className="tab-fase1-item-row">
+              <label className="p1-item-row">
                 <span>{t('prototype.arena_testbed.potion_mp')} (+5)</span>
-                <div className="tab-fase1-attr-controls">
-                  <button className="tab-btn-small" disabled={char.pocaoMP <= 0}
+                <div className="p1-attr-controls">
+                  <button className="p1-btn-small" disabled={char.pocaoMP <= 0}
                     onClick={() => updateChar(idx, 'pocaoMP', Math.max(0, char.pocaoMP - 1))}>−</button>
-                  <span className="tab-fase1-attr-val">{char.pocaoMP}</span>
-                  <button className="tab-btn-small" disabled={char.pocaoMP >= 5}
+                  <span className="p1-attr-val">{char.pocaoMP}</span>
+                  <button className="p1-btn-small" disabled={char.pocaoMP >= 5}
                     onClick={() => updateChar(idx, 'pocaoMP', char.pocaoMP + 1)}>+</button>
                 </div>
               </label>
             </div>
 
-            <div className="tab-fase1-summary">
-              <div className="tab-fase1-summary-row">
-                <span className="tab-fase1-summary-label">HP</span>
-                <span className="tab-fase1-summary-val hp-color">{getHP(char.res)}</span>
+            <div className="p1-summary">
+              <div className="p1-summary-row">
+                <span className="p1-summary-label">HP</span>
+                <span className="p1-summary-val hp">{getHP(char.res)}</span>
               </div>
-              <div className="tab-fase1-summary-row">
-                <span className="tab-fase1-summary-label">MP</span>
-                <span className="tab-fase1-summary-val mp-color">{getMP(char.res)}</span>
+              <div className="p1-summary-row">
+                <span className="p1-summary-label">MP</span>
+                <span className="p1-summary-val mp">{getMP(char.res)}</span>
               </div>
-              <div className="tab-fase1-summary-row">
-                <span className="tab-fase1-summary-label">{t('prototype.arena_testbed.move')}</span>
-                <span className="tab-fase1-summary-val">{getCasasMovimento(char.agi)}</span>
+              <div className="p1-summary-row">
+                <span className="p1-summary-label">{t('prototype.arena_testbed.move')}</span>
+                <span className="p1-summary-val">{getCasasMovimento(char.agi)}</span>
               </div>
             </div>
           </div>
@@ -322,23 +302,23 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
       </div>
 
       {characters.length < 4 && (
-        <button className="tab-btn tab-btn-secondary" onClick={addCharacter}>
+        <button className="p1-btn p1-btn-secondary" onClick={addCharacter}>
           + {t('prototype.arena_testbed.add_char')}
         </button>
       )}
 
-      <div className="tab-fase1-footer">
+      <div className="p1-footer">
         {characters.length > 0 && characters.some(c => pontosRestantes(c) !== 0) && (
-          <p className="tab-fase1-warning">{t('prototype.arena_testbed.budget_warning')}</p>
+          <p className="p1-warning">{t('prototype.arena_testbed.budget_warning')}</p>
         )}
 
         {/* FIX 4: AGI movement toggle */}
-        <label className="tab-fase1-agi-toggle">
+        <label className="p1-agi-toggle">
           <input type="checkbox" checked={agiUmPraUm} onChange={e => onAgiToggle?.(e.target.checked)} />
           <span>{t('prototype.arena_testbed.agi_toggle_label')}</span>
         </label>
 
-        <button className="tab-btn tab-btn-primary" disabled={!canProceed} onClick={handleConfirm}>
+        <button className="p1-btn p1-btn-primary" disabled={!canProceed} onClick={handleConfirm}>
           {t('prototype.arena_testbed.next_board')} →
         </button>
       </div>

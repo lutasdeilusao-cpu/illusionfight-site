@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.117.0'
+export const SITE_VERSION = '10.118.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -21,7 +21,7 @@ export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os 
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
-export const PROTOTYPE_VERSION = '4.7.0' // Protótipo — Arena Testbed: fix hexCorners flat-top + COLORS LDI + closure stale handlers + glow
+export const PROTOTYPE_VERSION = '5.0.0' // Protótipo — Arena Testbed: visual completo Canvas 2D + CSS + balões dano Ragnarok v5.0.0
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
