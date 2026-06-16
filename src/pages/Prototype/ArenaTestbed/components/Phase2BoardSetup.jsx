@@ -7,7 +7,7 @@ import {
 } from '../engine/pixiRenderer'
 import './Phase2BoardSetup.css'
 
-const HEX_SIZE = 32
+const HEX_SIZE = 20
 const SQRT3 = Math.sqrt(3)
 
 function pixelToHex(px, py, cols, rows, padX, padY, size) {

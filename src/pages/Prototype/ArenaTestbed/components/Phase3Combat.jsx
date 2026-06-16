@@ -89,9 +89,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         : parentH > 0
           ? parentH
           : Math.floor(window.innerHeight * 0.55)
+
+      // DIAGNÓSTICO — remover após fix confirmado
+      console.log('[ATB] calcAndInit', {
+        elClientW: el.clientWidth,
+        elClientH: el.clientHeight,
+        parentClientH: el.parentElement?.clientHeight,
+        windowInnerH: window.innerHeight,
+        containerW,
+        containerH,
+        appExists: !!appRef.current,
+      })
+
       const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
       const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
       const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
+
+      console.log('[ATB] hexSize calculado', { sizeByWidth, sizeByHeight, sz })
+
       setHexSize(sz)
 
       if (appRef.current) {
@@ -99,6 +114,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         appRef.current.renderer.resize(width, height)
       } else {
         const { width, height } = canvasSize(cols, rows, sz)
+        console.log('[ATB] criando Pixi app', { width, height, sz })
         const app = createPixiApp(el, width, height)
         appRef.current = app
 
@@ -282,6 +298,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   function renderBoardPixi() {
     const app = appRef.current
     const layer = boardLayerRef.current
+    console.log('[ATB] renderBoardPixi', { hasApp: !!app, hasLayer: !!layer, hexSize })
     if (!app || !layer) return
 
     layer.removeChildren()
