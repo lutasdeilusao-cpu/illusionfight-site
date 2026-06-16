@@ -698,18 +698,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function aplicarDano(alvoId, dano, donoDoAtaque) {
-    // Aplica dano
-    setCharacters(prev =>
-      prev.map(c =>
-        c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c
-      )
-    )
-
     if (dano <= 0) return
 
-    // FIX 6: Damage flash + floating number
-    const alvo = characters.find(c => c.id === alvoId)
+    // Calcula HP resultante de forma síncrona via ref, antes do setState
+    const alvo = charsRef.current.find(c => c.id === alvoId)
     if (!alvo) return
+    const novoHp = Math.max(0, alvo.hp - dano)
+
+    // Atualiza ref imediatamente — garante que verificações posteriores vejam o valor correto
+    charsRef.current = charsRef.current.map(c =>
+      c.id === alvoId ? { ...c, hp: novoHp } : c
+    )
+
+    // Atualiza estado React (assíncrono — para re-render)
+    setCharacters(prev =>
+      prev.map(c =>
+        c.id === alvoId ? { ...c, hp: novoHp } : c
+      )
+    )
 
     // Floating damage number — usa setTimeout nativo para não ser cancelado por clearAnimTimers()
     const floatKey = Date.now() + Math.random()
@@ -784,7 +790,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       // Remove células já percorridas do rastro
       setProjectilePath(prev => prev.filter((_, i) => i > 0))
       stepIdx++
-      setAnimTimer(avancarProjetil, 180)
+      setAnimTimer(avancarProjetil, 320)
     }
     avancarProjetil()
   }
@@ -1039,8 +1045,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           addLog(`  ${iaChar.nome} não se moveu.`)
           setAnimTimer(acaoIA, 1000)
         }
-      }, 1000)
-    }, 1000)
+      }, 1800)
+    }, 1500)
 
     function acaoIA() {
       const charsAgora2 = charsRef.current
@@ -1099,7 +1105,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           }
         }
 
-        // Range visual: 800ms amarelo → 400ms alvo → ataque
+        // Range visual: 1200ms amarelo → 700ms alvo → ataque
         setAnimTimer(() => {
           setRangeCells([])
           setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
@@ -1115,8 +1121,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             } else {
               animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
             }
-          }, 400)
-        }, 800)
+          }, 700)
+        }, 1200)
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
@@ -1142,7 +1148,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
       if (nextChar3?.time === 'ia') {
         setPhase('enemy_turn')
-        setAnimTimer(() => executarIA(nextChar3), 1200)
+        setAnimTimer(() => executarIA(nextChar3), 1800)
       } else if (nextChar3) {
         setPhase(null)
         setTurnoAcoes({ moveu: false, atacou: false })

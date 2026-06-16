@@ -4,11 +4,11 @@
  * Todas as versões do site centralizadas aqui.
  * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
  *
- * Última atualização: 2026-06-13
+ * Última atualização: 2026-06-16
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.105.0'
+export const SITE_VERSION = '10.106.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -21,7 +21,7 @@ export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os 
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
-export const PROTOTYPE_VERSION = '2.9.0' // Protótipo — Arena Testbed: fix touch precision canvas scale ratio Phase2 e Phase3
+export const PROTOTYPE_VERSION = '2.10.0' // Protótipo — Arena Testbed: fix morte imediata + slowdown IA e projétil PDF
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
