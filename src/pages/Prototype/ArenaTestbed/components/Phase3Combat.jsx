@@ -28,6 +28,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const boardLayerRef = useRef(null)
   const effectsLayerRef = useRef(null)
   const canvasContainerRef = useRef(null)
+  const animatingRef = useRef(false)
+
+  // ── Refs anti-closure stale ──────────────────────
+  const subPhaseRef = useRef(subPhase)
+  const subPhaseStepRef = useRef(subPhaseStep)
+  const highlightedCellsRef = useRef(highlightedCells)
+  const attackCellsRef = useRef(attackCells)
+  const currentCharRef = useRef(currentChar)
+  const isPlayerTurnRef = useRef(false)
+  const charsRef = useRef(characters)
+  const hexSizeRef = useRef(0)
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
@@ -75,6 +86,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       drawerListRef.current.scrollTop = drawerListRef.current.scrollHeight
     }
   }, [battleLog, logDrawerOpen])
+
+  // ── Sincronizar refs anti-closure stale ──────────
+  useEffect(() => { subPhaseRef.current = subPhase }, [subPhase])
+  useEffect(() => { subPhaseStepRef.current = subPhaseStep }, [subPhaseStep])
+  useEffect(() => { highlightedCellsRef.current = highlightedCells }, [highlightedCells])
+  useEffect(() => { attackCellsRef.current = attackCells }, [attackCells])
+  useEffect(() => { currentCharRef.current = currentChar }, [currentChar])
+  useEffect(() => { charsRef.current = characters }, [characters])
+  useEffect(() => { isPlayerTurnRef.current = currentChar?.time === 'jogador' }, [currentChar])
+  useEffect(() => { hexSizeRef.current = hexSize }, [hexSize])
 
   // ── Dynamic hexSize + Pixi initialization (useLayoutEffect → antes de qualquer useEffect) ──
   useLayoutEffect(() => {
@@ -165,7 +186,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [attackAnim, setAttackAnim] = useState(null) // { type, attackerId, targetId, phase, progress }
   const [damageFlash, setDamageFlash] = useState({}) // { [charId]: flashCount }
   const [projectilePos, setProjectilePos] = useState(null) // { x, y } during projectile anim
-  const animatingRef = useRef(false)
   const animTimersRef = useRef([])
 
   function clearAnimTimers() {
@@ -180,10 +200,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   // FIX 5: usar refs para evitar closures obsoletas na IA
-  const charsRef = useRef(characters)
   const turnRef = useRef(currentTurn)
   const orderRef = useRef(turnOrder)
-  useEffect(() => { charsRef.current = characters }, [characters])
   useEffect(() => { turnRef.current = currentTurn }, [currentTurn])
   useEffect(() => { orderRef.current = turnOrder }, [turnOrder])
 
@@ -358,6 +376,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
         const g = new PIXI.Graphics()
         const pts = hexCorners(cx, cy, sz)
+        const isHighlighted = hlSet.has(key) || atkSet.has(key) || rangeSet.has(key) || destSet.has(key) || (destKey && key === destKey)
+        if (isHighlighted) {
+          g.lineStyle(strokeWidth + 2, strokeColor, 0.35)
+          g.beginFill(fillColor, 0)
+          g.drawPolygon(pts)
+          g.endFill()
+        }
         g.lineStyle(strokeWidth, strokeColor, 1)
         g.beginFill(fillColor)
         g.drawPolygon(pts)
@@ -439,35 +464,42 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   // Handle click on Pixi canvas
   function handleCanvasEventPixi(e) {
     const app = appRef.current
-    if (!app || animating || animatingRef.current || !isPlayerTurn || iaThinking) return
+    if (!app || animatingRef.current || !isPlayerTurnRef.current) return
     const rect = app.view.getBoundingClientRect()
     const scaleX = app.view.width / rect.width
     const scaleY = app.view.height / rect.height
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
-    const sz = hexSize
+    const sz = hexSizeRef.current
     const { padX, padY } = canvasSize(cols, rows, sz)
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
     const { row, col } = hex
 
-    if (subPhase === 'movimento') {
-      if (highlightedCells.some(c => c.row === row && c.col === col)) {
+    const sp = subPhaseRef.current
+    const sps = subPhaseStepRef.current
+    const cc = currentCharRef.current
+    const hl = highlightedCellsRef.current
+    const atk = attackCellsRef.current
+    const chars = charsRef.current
+
+    if (sp === 'movimento') {
+      if (hl.some(c => c.row === row && c.col === col)) {
         const ocupadas = new Set(
-          characters.filter(c => c.vivo && c.id !== currentChar.id)
+          chars.filter(c => c.vivo && c.id !== cc.id)
             .map(c => `${c.posicao.row}_${c.posicao.col}`)
         )
         const cam = encontrarCaminho(
-          currentChar.posicao.row, currentChar.posicao.col,
+          cc.posicao.row, cc.posicao.col,
           row, col, cols, rows, obstaculos, ocupadas
         )
         setDestinoEscolhido({ row, col })
         setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
         setPendingMove({ row, col })
       }
-    } else if (subPhase === 'acao') {
-      if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
-        const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
+    } else if (sp === 'acao') {
+      if (sps === 'escolher_alvo' && atk.some(c => c.row === row && c.col === col)) {
+        const target = chars.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
         if (target) executarAtaque(target)
       }
     }

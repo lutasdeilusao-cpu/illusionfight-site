@@ -10,33 +10,33 @@ const SQRT3 = Math.sqrt(3)
 
 // ── Paleta ────────────────────────────────────────
 export const COLORS = {
-  hexBase:        0x12121e,
-  hexStroke:      0x2a2a4a,
-  hexHighlight:   0x0a3a2a,
-  hexHighStroke:  0x22c55e,
-  hexAtk:         0x3a0a0a,
-  hexAtkStroke:   0xef4444,
-  hexRange:       0x3a3a0a,
-  hexRangeStroke: 0xc9a84c,
-  hexPath:        0x0a2a3a,
-  hexPathStroke:  0x00d4ff,
-  hexDest:        0x1a0a3a,
-  hexDestStroke:  0x7c3aed,
-  obsWall:        0x555555,
-  obsHole:        0x0a0a1e,
-  obsTrap:        0x8b4513,
-  obsBox:         0x6b5b3e,
-  itemHP:         0x0a3a0a,
-  itemMP:         0x0a1a3a,
-  playerFill:     0x1a6b2e,
-  playerStroke:   0x22c55e,
-  iaFill:         0x9b1a1a,
-  iaStroke:       0xef4444,
-  activeStroke:   0x00d4ff,
+  hexBase:        0x0d1117,
+  hexStroke:      0x1e3a5f,
+  hexHighlight:   0x0d2d1a,
+  hexHighStroke:  0x00ff88,
+  hexAtk:         0x2d0a0a,
+  hexAtkStroke:   0xff3333,
+  hexRange:       0x2d2a08,
+  hexRangeStroke: 0xf5a623,
+  hexPath:        0x0a1e2d,
+  hexPathStroke:  0x00b4d8,
+  hexDest:        0x1a0d3a,
+  hexDestStroke:  0x9b59b6,
+  obsWall:        0x3a3a3a,
+  obsHole:        0x050510,
+  obsTrap:        0x5c2d0a,
+  obsBox:         0x4a3d28,
+  itemHP:         0x0d2d0a,
+  itemMP:         0x0a0d2d,
+  playerFill:     0x0a2040,
+  playerStroke:   0x00b4d8,
+  iaFill:         0x400a0a,
+  iaStroke:       0xcc2222,
+  activeStroke:   0xf5a623,
   flashFill:      0xff2222,
-  particleNormal: 0x00d4ff,
+  particleNormal: 0x00b4d8,
   particleCrit:   0xff6600,
-  particleMelee:  0xef4444,
+  particleMelee:  0xff3333,
   particleBlock:  0x4488ff,
   white:          0xffffff,
   black:          0x000000,
@@ -56,7 +56,7 @@ export function hexCenter(row, col, padX, padY, size) {
 export function hexCorners(cx, cy, size) {
   const pts = []
   for (let i = 0; i < 6; i++) {
-    const angle = (Math.PI / 180) * (60 * i - 30)
+    const angle = (Math.PI / 180) * (60 * i)
     pts.push(cx + size * Math.cos(angle), cy + size * Math.sin(angle))
   }
   return pts
@@ -93,9 +93,15 @@ export function createPixiApp(container, width, height) {
 }
 
 // ── Desenhar hexágono como Graphics ───────────────
-export function drawHexGraphics(g, cx, cy, size, fillColor, strokeColor, strokeWidth = 1.5) {
+export function drawHexGraphics(g, cx, cy, size, fillColor, strokeColor, strokeWidth = 1.5, glowAlpha = 0) {
   const pts = hexCorners(cx, cy, size)
   g.clear()
+  if (glowAlpha > 0) {
+    g.lineStyle(strokeWidth + 3, strokeColor, glowAlpha * 0.4)
+    g.beginFill(fillColor, 0)
+    g.drawPolygon(pts)
+    g.endFill()
+  }
   g.lineStyle(strokeWidth, strokeColor, 1)
   g.beginFill(fillColor)
   g.drawPolygon(pts)
