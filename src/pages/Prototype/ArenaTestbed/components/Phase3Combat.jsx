@@ -83,7 +83,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     function calcAndInit() {
       const containerW = el.clientWidth || 360
-      const containerH = el.clientHeight || window.innerHeight * 0.55
+      const containerH = (el.clientHeight > 0 ? el.clientHeight : null)
+        || el.parentElement?.clientHeight
+        || window.innerHeight * 0.55
       const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
       const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
       const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
