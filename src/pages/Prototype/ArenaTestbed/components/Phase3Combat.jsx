@@ -204,6 +204,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setPhase('enemy_turn')
       setTimeout(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
+      setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
       setHighlightedCells([])
@@ -891,6 +892,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setPhase('enemy_turn')
       setTimeout(() => executarIA(nextChar), 1000)
     } else if (nextChar) {
+      setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
       setHighlightedCells([])
@@ -1069,6 +1071,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setPhase('enemy_turn')
         setAnimTimer(() => executarIA(nextChar3), 1200)
       } else if (nextChar3) {
+        setPhase(null)
         setTurnoAcoes({ moveu: false, atacou: false })
         setSubPhase('free')
         setHighlightedCells([])
