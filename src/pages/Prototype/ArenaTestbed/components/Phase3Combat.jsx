@@ -83,9 +83,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     function calcAndInit() {
       const containerW = el.clientWidth || 360
-      const containerH = (el.clientHeight > 0 ? el.clientHeight : null)
-        || el.parentElement?.clientHeight
-        || window.innerHeight * 0.55
+      const parentH = el.parentElement?.clientHeight || 0
+      const containerH = el.clientHeight > 0
+        ? el.clientHeight
+        : parentH > 0
+          ? parentH
+          : Math.floor(window.innerHeight * 0.55)
       const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
       const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
       const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
@@ -112,12 +115,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
 
-    calcAndInit()
+    // Aguarda o browser terminar o layout antes de ler clientHeight
+    const rafId = requestAnimationFrame(() => {
+      calcAndInit()
+    })
     const ro = new ResizeObserver(calcAndInit)
     ro.observe(el)
     window.addEventListener('resize', calcAndInit)
 
     return () => {
+      cancelAnimationFrame(rafId)
       ro.disconnect()
       window.removeEventListener('resize', calcAndInit)
       if (appRef.current) {

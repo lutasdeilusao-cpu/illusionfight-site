@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.111.0** | Site — Arena Testbed fixes: canvas Phase3 altura zero + toolbar Phase2 mobile scroll |
+| `SITE_VERSION` | **10.112.0** | Site — Arena Testbed fixes: Pixi init aguardar layout + canvas wrap altura correta |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **4.1.0** | Protótipo — Arena Testbed: fix canvas Phase3 altura zero + toolbar Phase2 mobile scroll |
+| `PROTOTYPE_VERSION` | **4.2.0** | Protótipo — Arena Testbed: fix Pixi init aguardar layout + canvas wrap altura correta |
 
 ---
 
