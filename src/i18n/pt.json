@@ -2859,6 +2859,10 @@
       "skip_action": "Pular Ação",
       "attack_or_item_hint": "Clique em um inimigo no board para atacar OU use um item abaixo.",
       "click_target_hint": "Clique no alvo desejado no tabuleiro para atacar.",
+      "choose_action_hint": "Escolha uma ação:",
+      "action_common_attack": "Ataque Comum",
+      "action_common_attack_desc": "Ataque básico usando FOR ou PDF + DEX",
+      "choose_target_hint": "Clique no inimigo para atacar",
       "agi_toggle_label": "Regra de movimento: 1 AGI = 1 casa"
     }
   }

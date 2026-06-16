@@ -2832,6 +2832,10 @@
       "skip_action": "Skip Action",
       "attack_or_item_hint": "Click an enemy on the board to attack OR use an item below.",
       "click_target_hint": "Click the desired target on the board to attack.",
+      "choose_action_hint": "Choose an action:",
+      "action_common_attack": "Common Attack",
+      "action_common_attack_desc": "Basic attack using STR or SPD + DEX",
+      "choose_target_hint": "Click the enemy to attack",
       "agi_toggle_label": "Movement rule: 1 AGI = 1 cell"
     }
   }

@@ -355,3 +355,14 @@
   border-color: #7a6530;
   color: #c9a84c;
 }
+
+/* ── Action description inside button ───────────── */
+.tab-combat-action-desc {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: #7a7570;
+  margin-top: 2px;
+  font-family: sans-serif;
+  letter-spacing: 0.03em;
+}

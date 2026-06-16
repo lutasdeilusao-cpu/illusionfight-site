@@ -86,6 +86,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [subPhase, setSubPhase] = useState(null)
   const [highlightedCells, setHighlightedCells] = useState([])
   const [attackCells, setAttackCells] = useState([])
+  const [rangeCells, setRangeCells] = useState([]) // FIX 2: all cells in range (yellow)
+  const [subPhaseStep, setSubPhaseStep] = useState(null) // FIX 2: 'escolher_acao' | 'escolher_alvo'
+  const [projectilePath, setProjectilePath] = useState([]) // FIX 3: projectile trail cells
   const [battleLog, setBattleLog] = useState([])
   const [winner, setWinner] = useState(null)
   const [jokenpoNeeded, setJokenpoNeeded] = useState(null)
@@ -201,18 +204,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setSubPhase('movimento')
       setPhase(null)
     } else if (sub === 'acao') {
-      // FIX 3+4: alcance PDF = valor do atributo, obstáculos Tipo 1 bloqueiam
-      const alcanceMax = char.tipoAtaque === 'melee' ? 1 : char.pdf
-      const atkCells = getCelulasAtaque(
-        char.posicao.row, char.posicao.col,
-        char.tipoAtaque, cols, rows,
-        alcanceMax, obstaculos
-      )
-      const enemyCells = atkCells.filter(c =>
-        characters.some(ch => ch.vivo && ch.time !== char.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
-      )
-      setAttackCells(enemyCells)
+      // FIX 2: primeiro mostra menu de ações, depois de escolher mostra alcance
       setHighlightedCells([])
+      setAttackCells([])
+      setRangeCells([])
+      setSubPhaseStep('escolher_acao')
       setSubPhase('acao')
       setPhase(null)
     }
@@ -254,6 +250,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
     const atkSet = new Set(attackCells.map(c => `${c.row}_${c.col}`))
+    const rangeSet = new Set(rangeCells.map(c => `${c.row}_${c.col}`))
+    const projPathSet = new Set(projectilePath.map(c => `${c.row}_${c.col}`))
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
@@ -277,6 +275,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         if (atkSet.has(key)) {
           fill = '#3a1a1a'
           stroke = '#e74c3c'
+        } else if (rangeSet.has(key)) {
+          fill = '#3a3a1a'
+          stroke = '#f0c040'
         } else if (hlSet.has(key)) {
           fill = '#2a3a2a'
           stroke = '#4caf50'
@@ -322,20 +323,32 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.fillRect(barX, barY, barW * hpPct, barH)
         }
 
-        // FIX 6: Floating damage numbers
+        // FIX 4: Floating numbers/text (dano, bloqueio, extra, contra)
         const floaters = damageFloats.filter(f => f.row === row && f.col === col)
         for (const fl of floaters) {
-          ctx.fillStyle = '#ff3333'
-          ctx.font = `bold ${HEX_SIZE * 0.55}px sans-serif`
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
-          ctx.shadowColor = 'rgba(255,0,0,0.6)'
           ctx.shadowBlur = 8
-          ctx.fillText(`-${fl.damage}`, center.x, center.y - HEX_SIZE * 0.8)
+          if (fl.texto) {
+            ctx.fillStyle = fl.cor || '#ffffff'
+            ctx.font = `bold ${HEX_SIZE * 0.5}px sans-serif`
+            ctx.shadowColor = fl.cor ? fl.cor.replace(')', ',0.6)').replace('rgb', 'rgba') : 'rgba(255,255,255,0.5)'
+            ctx.fillText(fl.texto, center.x, center.y - HEX_SIZE * 0.8)
+          } else {
+            ctx.fillStyle = '#ff3333'
+            ctx.font = `bold ${HEX_SIZE * 0.55}px sans-serif`
+            ctx.shadowColor = 'rgba(255,0,0,0.6)'
+            ctx.fillText(`-${fl.damage}`, center.x, center.y - HEX_SIZE * 0.8)
+          }
           ctx.shadowBlur = 0
         }
 
-        // FIX 7: Projetil
+        // FIX 3: Rastro do projétil — células do caminho com borda amarela fraca
+        if (projPathSet.has(key) && !projectilePos?.row === row && !projectilePos?.col === col) {
+          drawHex(ctx, center, HEX_SIZE, fill, 'rgba(255, 200, 0, 0.3)', 2)
+        }
+
+        // Projétil
         if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
           ctx.beginPath()
           ctx.arc(center.x, center.y, HEX_SIZE * 0.25, 0, Math.PI * 2)
@@ -384,7 +397,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, currentChar, damageFlash, damageFloats, projectilePos])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath])
 
   useEffect(() => { draw() }, [draw])
 
@@ -409,7 +422,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         moverPersonagem(row, col)
       }
     } else if (subPhase === 'acao') {
-      if (attackCells.some(c => c.row === row && c.col === col)) {
+      if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
         if (target) executarAtaque(target)
       }
@@ -513,10 +526,36 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     enterSubPhase('acao', currentChar)
   }
 
+  // FIX 2: Escolher ação (menu) → mostrar alcance → clicar no alvo
+  function escolherAcao(tipoAcao) {
+    if (!currentChar || animating) return
+    addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
+
+    const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
+    const atkCells = getCelulasAtaque(
+      currentChar.posicao.row, currentChar.posicao.col,
+      currentChar.tipoAtaque, cols, rows,
+      alcanceMax, obstaculos
+    )
+
+    // Todas as células no alcance (amarelo)
+    setRangeCells(atkCells)
+
+    // Células com inimigos (vermelho)
+    const enemyCells = atkCells.filter(c =>
+      characters.some(ch => ch.vivo && ch.time !== currentChar.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
+    )
+    setAttackCells(enemyCells)
+    setHighlightedCells([])
+    setSubPhaseStep('escolher_alvo')
+  }
+
   function pularAcao() {
     if (!currentChar) return
     addLog(`[${currentChar.nome}] Pulou a fase de ação.`)
     setAttackCells([])
+    setRangeCells([])
+    setSubPhaseStep(null)
     finalizarTurno()
   }
 
@@ -590,18 +629,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const origem = atacante.posicao
     const destino = alvo.posicao
 
-    // Projétil percorre linha reta hexagonal entre origem e alvo
+    // FIX 3: Projétil com rastro — todas as células acendem, depois apagam conforme avança
     const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
+    setProjectilePath(steps)
 
     let stepIdx = 0
     function avancarProjetil() {
       if (stepIdx >= steps.length) {
         setProjectilePos(null)
+        setProjectilePath([])
         if (onFinalizar) onFinalizar()
         else aposAnimacaoAtaque(atacante, alvo, resultado)
         return
       }
       setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
+      // Remove células já percorridas do rastro
+      setProjectilePath(prev => prev.filter((_, i) => i > 0))
       stepIdx++
       setAnimTimer(avancarProjetil, 180)
     }
@@ -619,12 +662,19 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`  🛡️ Nenhum dano causado!`)
     }
 
+    // FIX 4: Feedback visual de crítico defensivo
+    if (resultado.criticoDefensivo) {
+      adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
+    }
+
     if (resultado.criticoDefensivo) {
       setAnimTimer(() => {
         const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
         contra.logs.forEach(l => addLog(`  ↺ ${l}`))
         if (contra.dano > 0) {
           aplicarDano(atacante.id, contra.dano, alvo)
+          // FIX 4: CONTRA! no atacante original
+          adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
           addLog(`  ${atacante.nome} recebe ${contra.dano} de dano do contra-ataque!`)
         }
         if (resultado.ataqueExtra) {
@@ -640,6 +690,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
       }
     }
+  }
+
+  // FIX 4: Adiciona float de texto (bloqueio, extra, contra)
+  function adicionarFloatTexto(charId, texto, cor, row, col) {
+    const floatKey = Date.now() + Math.random()
+    setDamageFloats(prev => [...prev, { charId, texto, cor, row, col, key: floatKey }])
+    setAnimTimer(() => {
+      setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
+    }, 1400)
   }
 
   function executarAtaque(target) {
@@ -668,6 +727,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   function handleAtaqueExtra(atacante, alvo, faBase) {
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
+    // FIX 4: EXTRA! no atacante
+    adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
     const danoExtra = Math.max(1, Math.round(faExtra - (alvo.arm + alvo.agi * 0.25)))
     if (danoExtra > 0) {
       aplicarDano(alvo.id, danoExtra, atacante)
@@ -682,21 +743,21 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setD6Result(null)
     clearAnimTimers()
 
-    // FIX 2: Verifica morte usando o HP já atualizado por aplicarDano()
+    // FIX 1: HP já foi atualizado por aplicarDano() mas ref pode estar desatualizado
     const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
     if (hpAtual <= 0) {
-      // Marca como morto e remove da ordem de turno
-      setCharacters(prev =>
-        prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
+      // Atualiza ref manualmente antes de verificar vitória
+      charsRef.current = charsRef.current.map(c =>
+        c.id === alvo.id ? { ...c, vivo: false } : c
       )
+      setCharacters(charsRef.current)
       setTurnOrder(prev => prev.filter(id => id !== alvo.id))
       addLog(`💀 ${alvo.nome} foi derrotado!`)
 
-      // Verifica vitória imediatamente após a morte
       setAnimTimer(() => {
         if (verificarVitoria()) return
         finalizarTurno()
-      }, 100)
+      }, 300)
     } else {
       finalizarTurno()
     }
@@ -850,21 +911,28 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
         const callbackFinal = () => {
           setProjectilePos(null)
+          setProjectilePath([])
           if (res.dano > 0) {
             aplicarDano(alvo.id, res.dano, atacante)
             addLog(`  💥 ${alvo.nome} recebe ${res.dano} de dano!`)
+            // FIX 4: Feedback visual na IA também
+            if (res.criticoDefensivo) {
+              adicionarFloatTexto(atacante.id, 'BLOQUEIO!', '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
+            }
           }
+          // FIX 1+5: Atualiza ref manualmente antes de verificar vitória
           const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
-            setCharacters(prev =>
-              prev.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
+            charsRef.current = charsRef.current.map(c =>
+              c.id === alvo.id ? { ...c, vivo: false } : c
             )
+            setCharacters(charsRef.current)
             setTurnOrder(prev => prev.filter(id => id !== alvo.id))
             addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => {
               if (verificarVitoria()) return
               finalizarTurnoIA()
-            }, 100)
+            }, 300)
           } else {
             finalizarTurnoIA()
           }
@@ -883,6 +951,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     function finalizarTurnoIA() {
       setProjectilePos(null)
+      setProjectilePath([])
       setIaThinking(false)
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
 
@@ -1016,33 +1085,23 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                 </>
               )}
 
-              {subPhase === 'acao' && (
+              {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (
                 <>
                   <p className="tab-combat-phase-title">
                     🔴 {t('prototype.arena_testbed.subphase_action')}
                   </p>
                   <p className="tab-combat-hint">
-                    {attackCells.length > 1
-                      ? t('prototype.arena_testbed.click_target_hint')
-                      : t('prototype.arena_testbed.attack_or_item_hint')
-                    }
+                    {t('prototype.arena_testbed.choose_action_hint')}
                   </p>
                   <div className="tab-combat-action-btns">
                     <button
                       className="tab-btn tab-btn-primary"
-                      disabled={attackCells.length === 0}
-                      onClick={() => {
-                        if (attackCells.length === 1) {
-                          const cell = attackCells[0]
-                          const target = characters.find(c => c.vivo && c.posicao?.row === cell.row && c.posicao?.col === cell.col)
-                          if (target) executarAtaque(target)
-                        }
-                      }}
+                      onClick={() => escolherAcao('common_attack')}
                     >
-                      {currentChar?.tipoAtaque === 'melee'
-                        ? `${t('prototype.arena_testbed.attack_btn')} (${t('prototype.arena_testbed.melee_short')})`
-                        : `${t('prototype.arena_testbed.attack_btn')} (${t('prototype.arena_testbed.distance_short')})`
-                      }
+                      ⚔️ {t('prototype.arena_testbed.action_common_attack')}
+                      <span className="tab-combat-action-desc">
+                        {t('prototype.arena_testbed.action_common_attack_desc')}
+                      </span>
                     </button>
                     {currentChar?.inventario?.pocaoHP > 0 && (
                       <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
@@ -1057,6 +1116,32 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                   </div>
                   <button className="tab-btn tab-btn-gold" onClick={pularAcao}>
                     ⏭️ {t('prototype.arena_testbed.skip_action')}
+                  </button>
+                </>
+              )}
+
+              {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
+                <>
+                  <p className="tab-combat-phase-title">
+                    🔴 {t('prototype.arena_testbed.subphase_action')}
+                  </p>
+                  <p className="tab-combat-hint">
+                    {t('prototype.arena_testbed.choose_target_hint')}
+                  </p>
+                  <div className="tab-combat-action-btns">
+                    {currentChar?.inventario?.pocaoHP > 0 && (
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
+                        ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
+                      </button>
+                    )}
+                    {currentChar?.inventario?.pocaoMP > 0 && (
+                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
+                        💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
+                      </button>
+                    )}
+                  </div>
+                  <button className="tab-btn tab-btn-gold" onClick={() => { setSubPhaseStep('escolher_acao'); setRangeCells([]); setAttackCells([]); }}>
+                    🔙 {t('prototype.arena_testbed.back')}
                   </button>
                 </>
               )}

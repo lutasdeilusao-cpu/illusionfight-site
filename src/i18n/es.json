@@ -2832,6 +2832,10 @@
       "skip_action": "Saltar Acción",
       "attack_or_item_hint": "Haz clic en un enemigo en el tablero para atacar O usa un objeto abajo.",
       "click_target_hint": "Haz clic en el objetivo deseado en el tablero para atacar.",
+      "choose_action_hint": "Elige una acción:",
+      "action_common_attack": "Ataque Común",
+      "action_common_attack_desc": "Ataque básico usando FUE o PDF + DES",
+      "choose_target_hint": "Haz clic en el enemigo para atacar",
       "agi_toggle_label": "Regla de movimiento: 1 AGI = 1 celda"
     }
   }
