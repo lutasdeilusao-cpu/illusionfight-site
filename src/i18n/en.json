@@ -2841,7 +2841,10 @@
       "btn_attack": "Attack",
       "btn_end_turn": "End Turn",
       "btn_cancel": "Cancel",
-      "free_turn_hint": "Choose an action for this turn:"
+      "free_turn_hint": "Choose an action for this turn:",
+      "log_btn": "Open battle log",
+      "ia_thinking_short": "AI thinking...",
+      "btn_confirm_move": "Confirm Move"
     }
   }
 }

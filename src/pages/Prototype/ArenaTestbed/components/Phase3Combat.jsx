@@ -9,7 +9,6 @@ import { decidirAcaoIA } from '../engine/ai'
 import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
 
-const HEX_SIZE = 30
 const SQRT3 = Math.sqrt(3)
 
 function hexCorner(center, size, i) {
@@ -67,6 +66,7 @@ const SUB_PHASES = ['movimento', 'ataque', 'item']
 export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
+  const canvasContainerRef = useRef(null)
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
@@ -81,14 +81,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [turnOrder, setTurnOrder] = useState([])
   const [currentTurn, setCurrentTurn] = useState(0)
   const [phase, setPhase] = useState('prepare')
-  // prepare | resultado | enemy_turn
-  // subPhase controla as 3 fases do turno do jogador: movimento | ataque | item
   const [subPhase, setSubPhase] = useState(null)
   const [highlightedCells, setHighlightedCells] = useState([])
   const [attackCells, setAttackCells] = useState([])
-  const [rangeCells, setRangeCells] = useState([]) // FIX 2: all cells in range (yellow)
-  const [subPhaseStep, setSubPhaseStep] = useState(null) // FIX 2: 'escolher_acao' | 'escolher_alvo'
-  const [projectilePath, setProjectilePath] = useState([]) // FIX 3: projectile trail cells
+  const [rangeCells, setRangeCells] = useState([])
+  const [subPhaseStep, setSubPhaseStep] = useState(null)
+  const [projectilePath, setProjectilePath] = useState([])
   const [battleLog, setBattleLog] = useState([])
   const [winner, setWinner] = useState(null)
   const [jokenpoNeeded, setJokenpoNeeded] = useState(null)
@@ -98,6 +96,31 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
+
+  // ── Mobile UI state ────────────────────────────
+  const [hexSize, setHexSize] = useState(30)
+  const [logDrawerOpen, setLogDrawerOpen] = useState(false)
+  const [charModal, setCharModal] = useState(null)
+  const [pendingMove, setPendingMove] = useState(null)
+
+  // ── Dynamic hexSize based on container width ──
+  useEffect(() => {
+    function calcSize() {
+      const el = canvasContainerRef.current
+      if (!el) return
+      const w = el.clientWidth
+      const size = Math.floor((w / (cols + 0.5)) / SQRT3)
+      setHexSize(Math.max(20, Math.min(36, size)))
+    }
+    calcSize()
+    const ro = new ResizeObserver(calcSize)
+    if (canvasContainerRef.current) ro.observe(canvasContainerRef.current)
+    window.addEventListener('resize', calcSize)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', calcSize)
+    }
+  }, [cols])
 
   // ── Animation state ─────────────────────────────
   const [movementPath, setMovementPath] = useState(null) // { charId, steps: [{row,col}], current: 0 }
@@ -241,10 +264,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const w = HEX_SIZE * SQRT3
-    const h = HEX_SIZE * 1.5
-    const padX = HEX_SIZE * SQRT3
-    const padY = HEX_SIZE * 1.5
+    const sz = hexSize
+    const w = sz * SQRT3
+    const h = sz * 1.5
+    const padX = sz * SQRT3
+    const padY = sz * 1.5
 
     const canvasW = cols * w + w / 2 + padX * 2
     const canvasH = rows * h + h / 3 + padY * 2
@@ -260,7 +284,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const center = hexCenter(row, col, padX, padY, HEX_SIZE)
+        const center = hexCenter(row, col, padX, padY, sz)
         const key = `${row}_${col}`
         const obs = obstaculos[key]
         const ch = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
@@ -288,11 +312,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           stroke = '#4caf50'
         }
 
-        drawHex(ctx, center, HEX_SIZE, fill, stroke)
+        drawHex(ctx, center, sz, fill, stroke)
 
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
-          const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, HEX_SIZE * 0.65)
+          const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.65)
           if (flashOn) {
             gradient.addColorStop(0, '#ff2222')
             gradient.addColorStop(1, '#991111')
@@ -304,7 +328,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             gradient.addColorStop(1, '#7b1a1a')
           }
           ctx.beginPath()
-          ctx.arc(center.x, center.y, HEX_SIZE * 0.55, 0, Math.PI * 2)
+          ctx.arc(center.x, center.y, sz * 0.55, 0, Math.PI * 2)
           ctx.fillStyle = gradient
           ctx.fill()
           ctx.strokeStyle = ch.id === currentChar?.id ? '#c9a84c' : (ch.time === 'jogador' ? '#4caf50' : '#e74c3c')
@@ -312,15 +336,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.stroke()
 
           ctx.fillStyle = '#fff'
-          ctx.font = `bold ${HEX_SIZE * 0.35}px sans-serif`
+          ctx.font = `bold ${sz * 0.35}px sans-serif`
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
           ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y - 2)
 
-          const barW = HEX_SIZE * 0.9
+          const barW = sz * 0.9
           const barH = 4
           const barX = center.x - barW / 2
-          const barY = center.y + HEX_SIZE * 0.45
+          const barY = center.y + sz * 0.45
           ctx.fillStyle = '#333'
           ctx.fillRect(barX, barY, barW, barH)
           const hpPct = ch.hp / ch.hpMax
@@ -336,27 +360,27 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.shadowBlur = 8
           if (fl.texto) {
             ctx.fillStyle = fl.cor || '#ffffff'
-            ctx.font = `bold ${HEX_SIZE * 0.5}px sans-serif`
+            ctx.font = `bold ${sz * 0.5}px sans-serif`
             ctx.shadowColor = fl.cor ? fl.cor.replace(')', ',0.6)').replace('rgb', 'rgba') : 'rgba(255,255,255,0.5)'
-            ctx.fillText(fl.texto, center.x, center.y - HEX_SIZE * 0.8)
+            ctx.fillText(fl.texto, center.x, center.y - sz * 0.8)
           } else {
             ctx.fillStyle = '#ff3333'
-            ctx.font = `bold ${HEX_SIZE * 0.55}px sans-serif`
+            ctx.font = `bold ${sz * 0.55}px sans-serif`
             ctx.shadowColor = 'rgba(255,0,0,0.6)'
-            ctx.fillText(`-${fl.damage}`, center.x, center.y - HEX_SIZE * 0.8)
+            ctx.fillText(`-${fl.damage}`, center.x, center.y - sz * 0.8)
           }
           ctx.shadowBlur = 0
         }
 
         // FIX 3: Rastro do projétil — células do caminho com borda amarela fraca
         if (projPathSet.has(key) && !projectilePos?.row === row && !projectilePos?.col === col) {
-          drawHex(ctx, center, HEX_SIZE, fill, 'rgba(255, 200, 0, 0.3)', 2)
+          drawHex(ctx, center, sz, fill, 'rgba(255, 200, 0, 0.3)', 2)
         }
 
         // Projétil
         if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
           ctx.beginPath()
-          ctx.arc(center.x, center.y, HEX_SIZE * 0.25, 0, Math.PI * 2)
+          ctx.arc(center.x, center.y, sz * 0.25, 0, Math.PI * 2)
           ctx.fillStyle = '#ffcc00'
           ctx.fill()
           ctx.strokeStyle = '#ff8800'
@@ -364,7 +388,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.stroke()
           // Brilho
           ctx.beginPath()
-          ctx.arc(center.x, center.y, HEX_SIZE * 0.35, 0, Math.PI * 2)
+          ctx.arc(center.x, center.y, sz * 0.35, 0, Math.PI * 2)
           ctx.fillStyle = 'rgba(255,200,0,0.2)'
           ctx.fill()
         }
@@ -374,7 +398,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     // Obstacle icons
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const center = hexCenter(row, col, padX, padY, HEX_SIZE)
+        const center = hexCenter(row, col, padX, padY, sz)
         const key = `${row}_${col}`
         const obs = obstaculos[key]
         const item = itensChaoAtual[key]
@@ -398,11 +422,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           ctx.font = '9px monospace'
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
-          ctx.fillText(`${row},${col}`, center.x, center.y + HEX_SIZE * 0.15)
+          ctx.fillText(`${row},${col}`, center.x, center.y + sz * 0.15)
         }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath, hexSize])
 
   useEffect(() => { draw() }, [draw])
 
@@ -413,18 +437,19 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const rect = canvas.getBoundingClientRect()
     const mx = e.clientX - rect.left
     const my = e.clientY - rect.top
-    const w = HEX_SIZE * SQRT3
-    const h = HEX_SIZE * 1.5
-    const padX = HEX_SIZE * SQRT3
-    const padY = HEX_SIZE * 1.5
-    const hex = pixelToHex(mx, my, cols, rows, padX, padY, HEX_SIZE)
+    const sz = hexSize
+    const w = sz * SQRT3
+    const h = sz * 1.5
+    const padX = sz * SQRT3
+    const padY = sz * 1.5
+    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
 
     const { row, col } = hex
 
     if (subPhase === 'movimento') {
       if (highlightedCells.some(c => c.row === row && c.col === col)) {
-        moverPersonagem(row, col)
+        setPendingMove({ row, col })
       }
     } else if (subPhase === 'acao') {
       if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
@@ -552,7 +577,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setAttackCells([])
     setRangeCells([])
     setSubPhaseStep(null)
+    setPendingMove(null)
     setSubPhase('free')
+  }
+
+  function confirmarMovimento() {
+    if (!pendingMove) return
+    moverPersonagem(pendingMove.row, pendingMove.col)
+    setPendingMove(null)
   }
 
   function pularMovimento() {
@@ -1050,7 +1082,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   // ── Render ─────────────────────────────────────────
   if (phase === 'prepare') {
     return (
-      <div className="tab-combat-phase-loading">
+      <div className="atb-phase-loading">
         <p>{t('prototype.arena_testbed.preparing_battle')}</p>
       </div>
     )
@@ -1058,14 +1090,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   if (phase === 'resultado' && winner) {
     return (
-      <div className="tab-combat-result">
-        <div className="tab-combat-result-card">
+      <div className="atb-result">
+        <div className="atb-result-card">
           <h2>{winner === 'jogador'
             ? t('prototype.arena_testbed.victory_player')
             : t('prototype.arena_testbed.victory_ia')}
           </h2>
-          <p className="tab-combat-result-sub">{t('prototype.arena_testbed.match_over')}</p>
-          <button className="tab-btn tab-btn-primary" onClick={onBackToPhase1}>
+          <p className="atb-result-sub">{t('prototype.arena_testbed.match_over')}</p>
+          <button className="atb-btn atb-btn-primary" onClick={onBackToPhase1}>
             {t('prototype.arena_testbed.play_again')}
           </button>
         </div>
@@ -1074,7 +1106,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   return (
-    <div className="tab-combat">
+    <div className="atb-root">
       {jokenpoNeeded && (
         <JokenpoModal
           player1Name={jokenpoNeeded[0]?.nome || '?'}
@@ -1083,196 +1115,213 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         />
       )}
 
-      <div className="tab-combat-header">
-        <div className="tab-combat-header-left">
-          <h3>{t('prototype.arena_testbed.phase3_title')}</h3>
-        </div>
-        <div className="tab-combat-turn-info">
-          {currentChar && (
-            <span className={`tab-combat-turn-char ${currentChar.time}`}>
-              {t('prototype.arena_testbed.turn_of')} {currentChar.nome}
-              {!iaThinking && isPlayerTurn && subPhase && (
-                <span className="tab-combat-subphase-badge">
-                  {' — '}{t('prototype.arena_testbed.phase_label')}: {subPhaseLabel}
-                </span>
-              )}
-              {iaThinking && ` (${t('prototype.arena_testbed.thinking')})`}
-            </span>
-          )}
+      {/* ── Status bar (fake, igual ao PP) ─────────── */}
+      <div className="atb-status-bar">
+        <span className="atb-status-time">
+          {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+        </span>
+        <div className="atb-status-icons">
+          <span>📶</span><span>🔋</span>
         </div>
       </div>
 
-      <div className="tab-combat-body">
-        <div className="tab-combat-board">
-          <canvas ref={canvasRef} className="tab-combat-canvas" onClick={handleCanvasClick} />
+      {/* ── Top Bar ────────────────────────────────── */}
+      <div className="atb-top-bar">
+        <button className="atb-top-back" onClick={onBackToPhase1}>←</button>
+        <div className="atb-top-info">
+          <span className="atb-top-turn">
+            {currentChar
+              ? `${t('prototype.arena_testbed.turn_of')} ${currentChar.nome}`
+              : t('prototype.arena_testbed.preparing_battle')}
+            {!iaThinking && isPlayerTurn && subPhase && (
+              <span className="atb-top-subphase"> — {subPhaseLabel}</span>
+            )}
+            {iaThinking && ` (${t('prototype.arena_testbed.ia_thinking_short')})`}
+          </span>
         </div>
+        <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)} title={t('prototype.arena_testbed.log_btn')}>
+          📋
+        </button>
+      </div>
 
-        <div className="tab-combat-side">
-          {/* Status dos personagens */}
-          <div className="tab-combat-status">
-            <h4>{t('prototype.arena_testbed.characters')}</h4>
-            {characters.filter(c => c.vivo).map(ch => (
-              <div key={ch.id} className={`tab-combat-char-card ${ch.id === currentChar?.id ? 'active' : ''}`}>
-                <div className="tab-combat-char-name">
-                  <span className={`tab-combat-team-dot ${ch.time}`} /> {ch.nome}
-                </div>
-                <div className="tab-combat-char-bars">
-                  <div className="tab-combat-bar-row">
-                    <span className="tab-combat-bar-label hp">HP</span>
-                    <div className="tab-combat-bar-track">
-                      <div className="tab-combat-bar-fill hp" style={{ width: `${(ch.hp / ch.hpMax) * 100}%` }} />
+      {/* ── Canvas ─────────────────────────────────── */}
+      <div className="atb-canvas-wrap" ref={canvasContainerRef}>
+        <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} />
+      </div>
+
+      {/* ── HUD — Chips de personagens ─────────────── */}
+      <div className="atb-hud">
+        {characters.filter(c => c.vivo).map(ch => {
+          const isActive = ch.id === currentChar?.id
+          return (
+            <div
+              key={ch.id}
+              className={`atb-hud-chip ${isActive ? 'atb-hud-chip--active' : ''}`}
+              onClick={() => setCharModal(ch)}
+            >
+              <div className={`atb-hud-dot ${ch.time}`} />
+              <div className="atb-hud-info">
+                <div className="atb-hud-name">{ch.nome}</div>
+                <div className="atb-hud-bars">
+                  <div className="atb-hud-bar-row">
+                    <div className="atb-hud-bar-track">
+                      <div className="atb-hud-bar-fill hp" style={{ width: `${(ch.hp / ch.hpMax) * 100}%` }} />
                     </div>
-                    <span className="tab-combat-bar-val">{Math.ceil(ch.hp)}/{ch.hpMax}</span>
                   </div>
-                  <div className="tab-combat-bar-row">
-                    <span className="tab-combat-bar-label mp">MP</span>
-                    <div className="tab-combat-bar-track">
-                      <div className="tab-combat-bar-fill mp" style={{ width: `${(ch.mp / ch.mpMax) * 100}%` }} />
+                  <div className="atb-hud-bar-row">
+                    <div className="atb-hud-bar-track">
+                      <div className="atb-hud-bar-fill mp" style={{ width: `${(ch.mp / ch.mpMax) * 100}%` }} />
                     </div>
-                    <span className="tab-combat-bar-val">{Math.ceil(ch.mp)}/{ch.mpMax}</span>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+          )
+        })}
+      </div>
+
+      {/* ── Bottom Nav — Ações ─────────────────────── */}
+      <div className="atb-bottom-nav">
+        {isPlayerTurn && !iaThinking ? (
+          <>
+            {/* Fase livre: escolha de ação */}
+            {subPhase === 'free' && (
+              <>
+                <button
+                  className="atb-action-btn"
+                  disabled={turnoAcoes.moveu}
+                  onClick={iniciarMovimento}
+                >
+                  👟 {t('prototype.arena_testbed.btn_move')}
+                </button>
+                <button
+                  className="atb-action-btn atb-action-btn--attack"
+                  disabled={turnoAcoes.atacou}
+                  onClick={() => { setSubPhaseStep('escolher_acao'); setSubPhase('acao'); }}
+                >
+                  ⚔️ {t('prototype.arena_testbed.btn_attack')}
+                </button>
+                {currentChar?.inventario?.pocaoHP > 0 && (
+                  <button className="atb-action-btn atb-action-btn--item" onClick={() => usarItem('hp')}>
+                    ❤️ {currentChar.inventario.pocaoHP}
+                  </button>
+                )}
+                {currentChar?.inventario?.pocaoMP > 0 && (
+                  <button className="atb-action-btn atb-action-btn--item" onClick={() => usarItem('mp')}>
+                    💙 {currentChar.inventario.pocaoMP}
+                  </button>
+                )}
+                <button className="atb-action-btn atb-action-btn--end" onClick={finalizarTurno}>
+                  ⏭️
+                </button>
+              </>
+            )}
+
+            {/* Fase movimento: stepper com confirmação */}
+            {subPhase === 'movimento' && (
+              <>
+                {!pendingMove ? (
+                  <>
+                    <span className="atb-phase-hint">{t('prototype.arena_testbed.move_hint', { moves: remainingMove })}</span>
+                    <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                      ❌ {t('prototype.arena_testbed.btn_cancel')}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className="atb-action-btn atb-action-btn--confirm" onClick={confirmarMovimento}>
+                      ✅ {t('prototype.arena_testbed.btn_confirm_move')}
+                    </button>
+                    <button className="atb-action-btn atb-action-btn--cancel" onClick={() => setPendingMove(null)}>
+                      ❌ {t('prototype.arena_testbed.btn_cancel')}
+                    </button>
+                  </>
+                )}
+              </>
+            )}
+
+            {/* Fase ação: escolher ação */}
+            {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (
+              <>
+                <button className="atb-action-btn atb-action-btn--attack" onClick={() => escolherAcao('common_attack')}>
+                  ⚔️ {t('prototype.arena_testbed.action_common_attack')}
+                </button>
+                <button className="atb-action-btn atb-action-btn--skip" onClick={pularAcao}>
+                  ⏭️ {t('prototype.arena_testbed.skip_action')}
+                </button>
+              </>
+            )}
+
+            {/* Fase ação: escolher alvo */}
+            {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
+              <>
+                <span className="atb-phase-hint">{t('prototype.arena_testbed.choose_target_hint')}</span>
+                <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                  ❌ {t('prototype.arena_testbed.btn_cancel')}
+                </button>
+              </>
+            )}
+          </>
+        ) : (
+          <div className="atb-ia-thinking-row">
+            <span className="atb-ia-dots">{t('prototype.arena_testbed.ia_thinking_short')}</span>
           </div>
+        )}
+      </div>
 
-          {/* ── Controles do jogador ────────────────── */}
-          {isPlayerTurn && !iaThinking && (
-            <div className="tab-combat-controls">
-              {/* FIX 2: Estado livre — botões Mover, Atacar, Encerrar Turno */}
-              {subPhase === 'free' && (
-                <>
-                  <p className="tab-combat-phase-title">
-                    🎯 {t('prototype.arena_testbed.free_turn_hint')}
-                  </p>
-                  <div className="tab-combat-action-btns">
-                    <button
-                      className="tab-btn tab-btn-secondary"
-                      disabled={turnoAcoes.moveu}
-                      onClick={iniciarMovimento}
-                      style={turnoAcoes.moveu ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                    >
-                      🔵 {t('prototype.arena_testbed.btn_move')}
-                    </button>
-                    <button
-                      className="tab-btn tab-btn-primary"
-                      disabled={turnoAcoes.atacou}
-                      onClick={() => { setSubPhaseStep('escolher_acao'); setSubPhase('acao'); }}
-                      style={turnoAcoes.atacou ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                    >
-                      ⚔️ {t('prototype.arena_testbed.btn_attack')}
-                    </button>
-                    {currentChar?.inventario?.pocaoHP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
-                        ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
-                      </button>
-                    )}
-                    {currentChar?.inventario?.pocaoMP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
-                        💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
-                      </button>
-                    )}
-                  </div>
-                  <button className="tab-btn tab-btn-gold" onClick={finalizarTurno}>
-                    ⏭️ {t('prototype.arena_testbed.btn_end_turn')}
-                  </button>
-                </>
-              )}
-
-              {subPhase === 'movimento' && (
-                <>
-                  <p className="tab-combat-phase-title">
-                    🔵 {t('prototype.arena_testbed.subphase_move')}
-                  </p>
-                  <p className="tab-combat-hint">
-                    {t('prototype.arena_testbed.move_hint', { moves: remainingMove })}
-                  </p>
-                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
-                    🔙 {t('prototype.arena_testbed.btn_cancel')}
-                  </button>
-                </>
-              )}
-
-              {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (
-                <>
-                  <p className="tab-combat-phase-title">
-                    🔴 {t('prototype.arena_testbed.subphase_action')}
-                  </p>
-                  <p className="tab-combat-hint">
-                    {t('prototype.arena_testbed.choose_action_hint')}
-                  </p>
-                  <div className="tab-combat-action-btns">
-                    <button
-                      className="tab-btn tab-btn-primary"
-                      onClick={() => escolherAcao('common_attack')}
-                    >
-                      ⚔️ {t('prototype.arena_testbed.action_common_attack')}
-                      <span className="tab-combat-action-desc">
-                        {t('prototype.arena_testbed.action_common_attack_desc')}
-                      </span>
-                    </button>
-                    {currentChar?.inventario?.pocaoHP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
-                        ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
-                      </button>
-                    )}
-                    {currentChar?.inventario?.pocaoMP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
-                        💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
-                      </button>
-                    )}
-                  </div>
-                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
-                    🔙 {t('prototype.arena_testbed.btn_cancel')}
-                  </button>
-                </>
-              )}
-
-              {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
-                <>
-                  <p className="tab-combat-phase-title">
-                    🔴 {t('prototype.arena_testbed.subphase_action')}
-                  </p>
-                  <p className="tab-combat-hint">
-                    {t('prototype.arena_testbed.choose_target_hint')}
-                  </p>
-                  <div className="tab-combat-action-btns">
-                    {currentChar?.inventario?.pocaoHP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('hp')}>
-                        ❤️ {t('prototype.arena_testbed.use_hp_potion')} ({currentChar.inventario.pocaoHP})
-                      </button>
-                    )}
-                    {currentChar?.inventario?.pocaoMP > 0 && (
-                      <button className="tab-btn tab-btn-secondary" onClick={() => usarItem('mp')}>
-                        💙 {t('prototype.arena_testbed.use_mp_potion')} ({currentChar.inventario.pocaoMP})
-                      </button>
-                    )}
-                  </div>
-                  <button className="tab-btn tab-btn-gold" onClick={cancelarAcao}>
-                    🔙 {t('prototype.arena_testbed.btn_cancel')}
-                  </button>
-                </>
-              )}
-            </div>
-          )}
-
-          {iaThinking && (
-            <div className="tab-combat-ia-thinking">
-              <span className="tab-combat-ia-dots">{t('prototype.arena_testbed.ia_thinking')}</span>
-            </div>
-          )}
-
-          {/* Log */}
-          <div className="tab-combat-log">
-            <h4>{t('prototype.arena_testbed.battle_log')}</h4>
-            <div className="tab-combat-log-list">
-              {battleLog.slice(-30).map((entry, i) => (
-                <p key={i} className="tab-combat-log-entry">{entry.text}</p>
+      {/* ── Log Drawer ─────────────────────────────── */}
+      {logDrawerOpen && (
+        <div className="atb-drawer-overlay" onClick={() => setLogDrawerOpen(false)}>
+          <div className="atb-drawer" onClick={e => e.stopPropagation()}>
+            <div className="atb-drawer-handle" />
+            <div className="atb-drawer-title">{t('prototype.arena_testbed.battle_log')}</div>
+            <div className="atb-drawer-list">
+              {battleLog.slice(-20).reverse().map((entry, i) => (
+                <div key={i} className="atb-drawer-entry">{entry.text}</div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* ── Character Detail Modal ──────────────────── */}
+      {charModal && (
+        <div className="atb-modal-overlay" onClick={() => setCharModal(null)}>
+          <div className="atb-modal" onClick={e => e.stopPropagation()}>
+            <div className="atb-modal-header">
+              <div className={`atb-modal-dot ${charModal.time}`} />
+              <span className="atb-modal-name">{charModal.nome}</span>
+              <button className="atb-modal-close" onClick={() => setCharModal(null)}>✕</button>
+            </div>
+            <div className="atb-modal-body">
+              <div className="atb-modal-stat">
+                <span className="atb-modal-stat-label hp">HP</span>
+                <div className="atb-modal-bar-track">
+                  <div className="atb-modal-bar-fill hp" style={{ width: `${(charModal.hp / charModal.hpMax) * 100}%` }} />
+                </div>
+                <span className="atb-modal-stat-val">{Math.ceil(charModal.hp)}/{charModal.hpMax}</span>
+              </div>
+              <div className="atb-modal-stat">
+                <span className="atb-modal-stat-label mp">MP</span>
+                <div className="atb-modal-bar-track">
+                  <div className="atb-modal-bar-fill mp" style={{ width: `${(charModal.mp / charModal.mpMax) * 100}%` }} />
+                </div>
+                <span className="atb-modal-stat-val">{Math.ceil(charModal.mp)}/{charModal.mpMax}</span>
+              </div>
+              <div className="atb-modal-attr-row">
+                <span>FOR: {charModal.forca}</span>
+                <span>AGI: {charModal.agi}</span>
+                <span>DEX: {charModal.dex}</span>
+              </div>
+              <div className="atb-modal-attr-row">
+                <span>PDF: {charModal.pdf}</span>
+                <span>RES: {charModal.res}</span>
+                <span>ARM: {charModal.arm}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -68,8 +68,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
 
-  const [cols, setCols] = useState(8)
-  const [rows, setRows] = useState(6)
+  const [cols, setCols] = useState(9)
+  const [rows, setRows] = useState(7)
   const [boardChars, setBoardChars] = useState([]) // { id, row, col }
   const [obstaculos, setObstaculos] = useState({})
   const [itensChao, setItensChao] = useState({})
@@ -440,18 +440,24 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
             onMouseLeave={() => setHoveredCell(null)}
           />
 
-          {/* Grid Controls */}
-          <div className="tab-fase2-grid-controls">
-            <label className="tab-fase2-grid-label">
-              {t('prototype.arena_testbed.cols')}
-              <input type="range" min={4} max={16} value={cols} onChange={e => setCols(Number(e.target.value))} />
-              <span>{cols}</span>
-            </label>
-            <label className="tab-fase2-grid-label">
-              {t('prototype.arena_testbed.rows')}
-              <input type="range" min={3} max={12} value={rows} onChange={e => setRows(Number(e.target.value))} />
-              <span>{rows}</span>
-            </label>
+          {/* Grid Controls — Steppers */}
+          <div className="atb-stepper-row">
+            <div className="atb-stepper-group">
+              <span className="atb-stepper-label">{t('prototype.arena_testbed.cols')}</span>
+              <div className="atb-stepper">
+                <button className="atb-stepper-btn" disabled={cols <= 7} onClick={() => setCols(c => Math.max(7, c - 2))}>−</button>
+                <span className="atb-stepper-value">{cols}</span>
+                <button className="atb-stepper-btn" disabled={cols >= 11} onClick={() => setCols(c => Math.min(11, c + 2))}>+</button>
+              </div>
+            </div>
+            <div className="atb-stepper-group">
+              <span className="atb-stepper-label">{t('prototype.arena_testbed.rows')}</span>
+              <div className="atb-stepper">
+                <button className="atb-stepper-btn" disabled={rows <= 7} onClick={() => setRows(r => Math.max(7, r - 2))}>−</button>
+                <span className="atb-stepper-value">{rows}</span>
+                <button className="atb-stepper-btn" disabled={rows >= 11} onClick={() => setRows(r => Math.min(11, r + 2))}>+</button>
+              </div>
+            </div>
           </div>
         </div>
 

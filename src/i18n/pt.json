@@ -2868,7 +2868,10 @@
       "btn_attack": "Atacar",
       "btn_end_turn": "Encerrar Turno",
       "btn_cancel": "Cancelar",
-      "free_turn_hint": "Escolha uma ação para o turno:"
+      "free_turn_hint": "Escolha uma ação para o turno:",
+      "log_btn": "Abrir log de batalha",
+      "ia_thinking_short": "IA pensando...",
+      "btn_confirm_move": "Confirmar Movimento"
     }
   }
 }

@@ -134,30 +134,69 @@
   height: auto;
 }
 
-.tab-fase2-grid-controls {
+/* ── Stepper Controls (replacing sliders) ──────── */
+
+.atb-stepper-row {
   display: flex;
-  gap: 24px;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
 }
 
-.tab-fase2-grid-label {
+.atb-stepper-group {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
+  gap: 6px;
+}
+
+.atb-stepper-label {
+  font-size: 0.75rem;
   color: #c9a84c;
   font-family: 'Cinzel', serif;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.tab-fase2-grid-label input[type="range"] {
-  width: 100px;
-  accent-color: #c9a84c;
+.atb-stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.tab-fase2-grid-label span {
+.atb-stepper-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #c9a84c;
+  border-radius: 4px;
+  background: transparent;
+  color: #c9a84c;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  line-height: 1;
+}
+
+.atb-stepper-btn:hover:not(:disabled) {
+  background: rgba(201, 168, 76, 0.15);
+}
+
+.atb-stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #444;
+  color: #666;
+}
+
+.atb-stepper-value {
   font-family: monospace;
+  font-size: 1.1rem;
   color: #d4cfc8;
-  min-width: 20px;
+  min-width: 24px;
   text-align: center;
 }
 
