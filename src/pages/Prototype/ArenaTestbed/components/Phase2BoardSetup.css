@@ -1,159 +1,135 @@
-@import '../ldi-tokens.css';
-
-/* ═══════════════════════════════════════════════════
-   Phase2BoardSetup.css — LDI Board Setup
-   ═══════════════════════════════════════════════════ */
-
+/* ── Phase 2 — Montagem do Tabuleiro ── */
 .tab-fase2 {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background: var(--ldi-dark);
+  background: #0a0a0a;
 }
-
-/* ── Header ─────────────────────────────────────── */
 
 .tab-fase2-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px var(--ldi-space-lg);
-  border-bottom: 1px solid var(--ldi-border);
-  background: var(--ldi-gradient-header);
-  position: relative;
-}
-
-.tab-fase2-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 5%;
-  right: 5%;
-  height: 1px;
-  background: var(--ldi-gradient-cyan);
-  opacity: 0.25;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.4);
+  flex-shrink: 0;
 }
 
 .tab-fase2-header h3 {
-  font-family: var(--ldi-font-heading);
-  font-size: 1.1rem;
-  background: var(--ldi-gradient-cyan);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #F5A623;
   margin: 0;
-  letter-spacing: 0.06em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
-
-/* ── Body ───────────────────────────────────────── */
 
 .tab-fase2-body {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  padding: var(--ldi-space-md);
-  gap: 12px;
+  padding: 12px;
+  gap: 10px;
+  scrollbar-width: none;
 }
+.tab-fase2-body::-webkit-scrollbar { display: none; }
 
-/* ── Toolbar ────────────────────────────────────── */
-
+/* ── Toolbar ─────────────────────────────────────── */
 .tab-fase2-toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  padding: 10px;
-  background: var(--ldi-surface);
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-md);
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
   align-items: flex-start;
 }
 
 .tab-fase2-toolgroup {
   display: flex;
   flex-direction: column;
-  gap: var(--ldi-space-xs);
+  gap: 4px;
 }
 
 .tab-fase2-toolgroup-label {
-  font-size: 0.6rem;
-  color: var(--ldi-text-dim);
-  font-family: var(--ldi-font-heading);
-  letter-spacing: 0.06em;
+  font-size: 8px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .tab-fase2-tool {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-sm);
-  background: var(--ldi-black);
-  color: var(--ldi-text);
-  font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #888;
+  font-size: 0.95rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--ldi-transition-fast);
+  transition: all 0.15s;
 }
 
 .tab-fase2-tool:hover {
-  border-color: var(--ldi-cyan);
+  border-color: rgba(245,166,35,0.3);
+  color: #F5A623;
 }
 
 .tab-fase2-tool.active {
-  border-color: var(--ldi-cyan);
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 8px var(--ldi-cyan-glow);
+  border-color: #F5A623;
+  background: rgba(245,166,35,0.08);
+  color: #F5A623;
+  box-shadow: 0 0 8px rgba(245,166,35,0.15);
 }
 
 .tab-fase2-tool-config {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   padding: 6px 10px;
-  border-left: 1px solid var(--ldi-border);
+  border-left: 1px solid rgba(255,255,255,0.06);
 }
 
 .tab-fase2-tool-config label {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
-  color: var(--ldi-text);
+  font-size: 10px;
+  color: #666;
+  font-family: 'Courier New', monospace;
 }
 
 .tab-fase2-tool-config select {
-  background: var(--ldi-black);
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-sm);
-  color: var(--ldi-text);
-  padding: 2px 6px;
-  font-size: 0.8rem;
-  outline: none;
-}
-
-.tab-fase2-tool-config select:focus {
-  border-color: var(--ldi-cyan);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #eee;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
 }
 
 .tab-fase2-checkbox {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
-  color: var(--ldi-text);
+  font-size: 10px;
+  color: #666;
+  font-family: 'Courier New', monospace;
   cursor: pointer;
 }
 
 .tab-fase2-checkbox input {
-  accent-color: var(--ldi-cyan);
+  accent-color: #00B4D8;
 }
 
-/* ── Canvas ─────────────────────────────────────── */
-
+/* ── Canvas wrap ─────────────────────────────────── */
 .tab-fase2-canvas-wrap {
   display: flex;
   flex-direction: column;
@@ -163,21 +139,23 @@
   width: 100%;
 }
 
-.tab-fase2-canvas {
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-sm);
-  cursor: crosshair;
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
+.tab-fase2-pixi-container {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
   touch-action: none;
 }
 
-/* ── Stepper Controls ───────────────────────────── */
+.tab-fase2-pixi-container canvas {
+  display: block;
+  border: 1px solid rgba(0,180,216,0.1);
+}
 
+/* ── Steppers ────────────────────────────────────── */
 .atb-stepper-row {
   display: flex;
-  gap: var(--ldi-space-xl);
+  gap: 24px;
   align-items: center;
   justify-content: center;
 }
@@ -190,63 +168,61 @@
 }
 
 .atb-stepper-label {
-  font-size: 0.7rem;
-  color: var(--ldi-cyan);
-  font-family: var(--ldi-font-heading);
-  letter-spacing: 0.06em;
+  font-size: 8px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .atb-stepper {
   display: flex;
   align-items: center;
-  gap: var(--ldi-space-sm);
+  gap: 12px;
 }
 
 .atb-stepper-btn {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--ldi-cyan);
-  border-radius: var(--ldi-radius-sm);
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0,180,216,0.3);
   background: transparent;
-  color: var(--ldi-cyan);
-  font-size: 1.3rem;
+  color: #00B4D8;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--ldi-transition-fast);
-  line-height: 1;
+  transition: all 0.15s;
+  font-family: 'Courier New', monospace;
 }
 
 .atb-stepper-btn:hover:not(:disabled) {
-  background: rgba(0, 212, 255, 0.15);
-  box-shadow: 0 0 10px var(--ldi-cyan-glow);
+  background: rgba(0,180,216,0.1);
+  border-color: #00B4D8;
 }
 
 .atb-stepper-btn:disabled {
-  opacity: 0.3;
+  opacity: 0.2;
   cursor: not-allowed;
-  border-color: var(--ldi-text-muted);
-  color: var(--ldi-text-muted);
+  border-color: #222;
+  color: #333;
 }
 
 .atb-stepper-value {
-  font-family: var(--ldi-font-mono);
-  font-size: 1.1rem;
-  color: var(--ldi-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #eee;
   min-width: 24px;
   text-align: center;
 }
 
-/* ── Char Info ──────────────────────────────────── */
-
+/* ── Char info ───────────────────────────────────── */
 .tab-fase2-char-info {
-  background: var(--ldi-surface);
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-md);
-  padding: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 12px;
 }
 
 .tab-fase2-char-list {
@@ -259,79 +235,63 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  background: var(--ldi-black);
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-sm);
-  font-size: 0.8rem;
-  color: var(--ldi-text);
+  padding: 5px 12px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 2px solid rgba(0,180,216,0.3);
+  font-size: 10px;
+  color: #888;
   cursor: pointer;
-  transition: all var(--ldi-transition-fast);
+  font-family: 'Courier New', monospace;
+  transition: all 0.15s;
+  letter-spacing: 1px;
 }
 
 .tab-fase2-char-chip:hover {
-  border-color: var(--ldi-cyan);
+  border-left-color: #00B4D8;
+  color: #eee;
 }
 
 .tab-fase2-char-chip.selected {
-  border-color: var(--ldi-cyan);
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 6px var(--ldi-cyan-glow);
+  border-left-color: #F5A623;
+  background: rgba(245,166,35,0.04);
+  color: #F5A623;
 }
 
-.tab-fase2-char-team.jogador {
-  color: var(--ldi-hp);
-}
-
-.tab-fase2-char-team.ia {
-  color: var(--ldi-attack);
-}
+.tab-fase2-char-team.jogador { color: #00B4D8; }
+.tab-fase2-char-team.ia      { color: #cc4444; }
 
 .tab-fase2-char-pos {
-  color: var(--ldi-text-dim);
-  font-family: var(--ldi-font-mono);
-  font-size: 0.7rem;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
 }
 
 .tab-fase2-hint {
-  margin: var(--ldi-space-sm) 0 0;
-  font-size: 0.75rem;
-  color: var(--ldi-cyan);
-  font-style: italic;
+  margin: 8px 0 0;
+  font-size: 10px;
+  color: #F5A623;
+  font-family: 'Courier New', monospace;
   text-align: center;
+  letter-spacing: 2px;
 }
-
-/* ── Footer ─────────────────────────────────────── */
 
 .tab-fase2-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--ldi-space-sm);
-  padding: var(--ldi-space-md);
-  border-top: 1px solid var(--ldi-border);
-  background: var(--ldi-gradient-header);
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.4);
+  flex-shrink: 0;
 }
 
 .tab-fase2-warning {
-  font-size: 0.75rem;
-  color: var(--ldi-danger);
+  font-size: 10px;
+  color: #cc4444;
   margin: 0;
   text-align: center;
-}
-
-/* ── Pixi Container ─────────────────────────────── */
-
-.tab-fase2-pixi-container {
-  width: 100%;
-  overflow: auto;
-  display: flex;
-  justify-content: center;
-  touch-action: none;
-}
-
-.tab-fase2-pixi-container canvas {
-  display: block;
-  border: 1px solid var(--ldi-border);
-  border-radius: var(--ldi-radius-sm);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
 }
