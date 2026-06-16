@@ -430,3 +430,49 @@
   color: #c9a84c;
   letter-spacing: 0.05em;
 }
+
+.tab-fase1-emoji-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  border-top: 1px solid #2e2e3a;
+}
+
+.tab-fase1-field-label {
+  font-size: 0.75rem;
+  color: #7a7570;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tab-fase1-emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tab-fase1-emoji-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+  background: #141418;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.tab-fase1-emoji-btn:hover {
+  border-color: #7a6530;
+}
+
+.tab-fase1-emoji-btn.selected {
+  border-color: #c9a84c;
+  background: #2a2a32;
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.4);
+}

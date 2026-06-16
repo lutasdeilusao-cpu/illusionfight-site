@@ -2846,7 +2846,8 @@
       "ia_thinking_short": "AI thinking...",
       "btn_confirm_move": "Confirm Move",
       "log_blocked": "Hit completely blocked!",
-      "log_receives_damage": "takes {{dano}} damage!"
+      "log_receives_damage": "takes {{dano}} damage!",
+      "choose_emoji": "Choose Emoji"
     }
   }
 }

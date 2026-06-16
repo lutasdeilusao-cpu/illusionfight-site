@@ -1,71 +1,32 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
+import * as PIXI from 'pixi.js'
 import {
   resolverAtaque, resolverContraAtaque, rolarD6,
   getCasasMovimento, getChanceAcerto,
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
+import {
+  createPixiApp, hexCenter, hexCorners, canvasSize,
+  COLORS, obsIcon, itemIcon,
+  spawnDamageFloat, spawnTextFloat, spawnMeleeParticles,
+  spawnProjectile, screenFlash,
+} from '../engine/pixiRenderer'
 import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
 
 const SQRT3 = Math.sqrt(3)
-
-function hexCorner(center, size, i) {
-  const angle = (Math.PI / 180) * (60 * i - 30)
-  return {
-    x: center.x + size * Math.cos(angle),
-    y: center.y + size * Math.sin(angle),
-  }
-}
-
-function drawHex(ctx, center, size, fill, stroke, lineWidth = 1.5) {
-  ctx.beginPath()
-  for (let i = 0; i < 6; i++) {
-    const p = hexCorner(center, size, i)
-    if (i === 0) ctx.moveTo(p.x, p.y)
-    else ctx.lineTo(p.x, p.y)
-  }
-  ctx.closePath()
-  ctx.fillStyle = fill
-  ctx.fill()
-  ctx.strokeStyle = stroke
-  ctx.lineWidth = lineWidth
-  ctx.stroke()
-}
-
-function hexCenter(row, col, padX, padY, size) {
-  const w = size * SQRT3
-  const h = size * 1.5
-  const offsetX = row % 2 === 0 ? 0 : w / 2
-  return {
-    x: padX + col * w + offsetX,
-    y: padY + row * h,
-  }
-}
-
-function pixelToHex(px, py, cols, rows, padX, padY, size) {
-  let closest = null
-  let closestDist = Infinity
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      const c = hexCenter(row, col, padX, padY, size)
-      const dist = Math.sqrt((px - c.x) ** 2 + (py - c.y) ** 2)
-      if (dist < closestDist && dist < size) {
-        closestDist = dist
-        closest = { row, col }
-      }
-    }
-  }
-  return closest
-}
 
 /** Nomes das subfases do turno do jogador */
 const SUB_PHASES = ['movimento', 'ataque', 'item']
 
 export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const { t } = useLanguage()
-  const canvasRef = useRef(null)
+  const pixiContainerRef = useRef(null)
+  const appRef = useRef(null)
+  const boardLayerRef = useRef(null)
+  const effectsLayerRef = useRef(null)
   const canvasContainerRef = useRef(null)
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
@@ -115,33 +76,60 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }, [battleLog, logDrawerOpen])
 
-  // ── Dynamic hexSize based on container width AND height ──
+  // ── Dynamic hexSize + Pixi initialization ──
   useEffect(() => {
-    function calcSize() {
-      const el = canvasContainerRef.current
-      if (!el) return
-      const containerW = el.clientWidth
-      const containerH = el.clientHeight || window.innerHeight * 0.55
+    const el = pixiContainerRef.current
+    if (!el) return
 
-      const sizeByWidth = Math.floor((containerW / (cols + 0.5)) / SQRT3)
-      const sizeByHeight = Math.floor((containerH / (rows * 1.5 + 0.5)))
-      const size = Math.min(sizeByWidth, sizeByHeight)
-      setHexSize(Math.max(18, Math.min(36, size)))
+    function calcAndInit() {
+      const containerW = el.clientWidth || 360
+      const containerH = el.clientHeight || window.innerHeight * 0.55
+      const sizeByWidth  = Math.floor((containerW / (cols + 0.5)) / SQRT3)
+      const sizeByHeight = Math.floor(containerH / (rows * 1.5 + 0.5))
+      const sz = Math.max(18, Math.min(36, Math.min(sizeByWidth, sizeByHeight)))
+      setHexSize(sz)
+
+      if (appRef.current) {
+        const { width, height } = canvasSize(cols, rows, sz)
+        appRef.current.renderer.resize(width, height)
+      } else {
+        const { width, height } = canvasSize(cols, rows, sz)
+        const app = createPixiApp(el, width, height)
+        appRef.current = app
+
+        const boardLayer = new PIXI.Container()
+        app.stage.addChild(boardLayer)
+        boardLayerRef.current = boardLayer
+
+        const effectsLayer = new PIXI.Container()
+        app.stage.addChild(effectsLayer)
+        effectsLayerRef.current = effectsLayer
+
+        app.view.addEventListener('click', handleCanvasEventPixi)
+        app.view.addEventListener('touchend', handleTouchPixi, { passive: false })
+      }
     }
-    calcSize()
-    const ro = new ResizeObserver(calcSize)
-    if (canvasContainerRef.current) ro.observe(canvasContainerRef.current)
-    window.addEventListener('resize', calcSize)
+
+    calcAndInit()
+    const ro = new ResizeObserver(calcAndInit)
+    ro.observe(el)
+    window.addEventListener('resize', calcAndInit)
+
     return () => {
       ro.disconnect()
-      window.removeEventListener('resize', calcSize)
+      window.removeEventListener('resize', calcAndInit)
+      if (appRef.current) {
+        appRef.current.view.removeEventListener('click', handleCanvasEventPixi)
+        appRef.current.view.removeEventListener('touchend', handleTouchPixi)
+        appRef.current.destroy(true, { children: true })
+        appRef.current = null
+      }
     }
-  }, [cols, rows])
+  }, [cols, rows]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Animation state ─────────────────────────────
   const [movementPath, setMovementPath] = useState(null) // { charId, steps: [{row,col}], current: 0 }
   const [attackAnim, setAttackAnim] = useState(null) // { type, attackerId, targetId, phase, progress }
-  const [damageFloats, setDamageFloats] = useState([]) // [{ charId, damage, row, col, key }]
   const [damageFlash, setDamageFlash] = useState({}) // { [charId]: flashCount }
   const [projectilePos, setProjectilePos] = useState(null) // { x, y } during projectile anim
   const animatingRef = useRef(false)
@@ -277,227 +265,160 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     return t('prototype.arena_testbed.subphase_action')
   }, [subPhase, t])
 
-  // Draw canvas
-  const draw = useCallback(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+  // ── Render Board with Pixi ──────────────────────
+  useEffect(() => {
+    renderBoardPixi()
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, hexSize, caminhoEscolhido, destinoEscolhido])
+
+  function renderBoardPixi() {
+    const app = appRef.current
+    const layer = boardLayerRef.current
+    if (!app || !layer) return
+
+    layer.removeChildren()
 
     const sz = hexSize
-    const w = sz * SQRT3
-    const h = sz * 1.5
-    const padX = sz * SQRT3
-    const padY = sz * 1.5
+    const { padX, padY } = canvasSize(cols, rows, sz)
 
-    const canvasW = cols * w + w / 2 + padX * 2
-    const canvasH = rows * h + h / 3 + padY * 2
-
-    canvas.width = canvasW
-    canvas.height = canvasH
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
-    const atkSet = new Set(attackCells.map(c => `${c.row}_${c.col}`))
+    const hlSet    = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
+    const atkSet   = new Set(attackCells.map(c => `${c.row}_${c.col}`))
     const rangeSet = new Set(rangeCells.map(c => `${c.row}_${c.col}`))
-    const projPathSet = new Set(projectilePath.map(c => `${c.row}_${c.col}`))
-    const destSet = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
-    const destKey = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
+    const destSet  = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
+    const destKey  = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const center = hexCenter(row, col, padX, padY, sz)
+        const { x: cx, y: cy } = hexCenter(row, col, padX, padY, sz)
         const key = `${row}_${col}`
-        const obs = obstaculos[key]
-        const ch = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
+        const obs  = obstaculos[key]
+        const item = itensChaoAtual[key]
+        const ch   = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
 
-        let fill = '#1a1a22'
-        let stroke = '#2e2e3a'
+        let fillColor   = COLORS.hexBase
+        let strokeColor = COLORS.hexStroke
+        let strokeWidth = 1.5
 
         if (obs) {
-          const colors = { 1: '#555', 2: '#1a1a2e', 3: '#8b4513', 4: '#6b5b3e' }
-          fill = colors[obs.tipo] || '#555'
-          stroke = '#444'
-        } else if (itensChaoAtual[key]) {
-          fill = itensChaoAtual[key].tipo === 'hp' ? '#1b3a1b' : '#1a2a4a'
-          stroke = itensChaoAtual[key].tipo === 'hp' ? '#4caf50' : '#42a5f5'
+          const colors = { 1: COLORS.obsWall, 2: COLORS.obsHole, 3: COLORS.obsTrap, 4: COLORS.obsBox }
+          fillColor = colors[obs.tipo] || COLORS.obsWall
+          strokeColor = 0x444444
+        } else if (item) {
+          fillColor   = item.tipo === 'hp' ? COLORS.itemHP : COLORS.itemMP
+          strokeColor = item.tipo === 'hp' ? COLORS.hexHighStroke : 0x42a5f5
         }
 
         if (atkSet.has(key)) {
-          fill = '#3a1a1a'
-          stroke = '#e74c3c'
+          fillColor = COLORS.hexAtk; strokeColor = COLORS.hexAtkStroke
         } else if (rangeSet.has(key)) {
-          fill = '#3a3a1a'
-          stroke = '#f0c040'
+          fillColor = COLORS.hexRange; strokeColor = COLORS.hexRangeStroke
         } else if (hlSet.has(key)) {
-          fill = '#2a3a2a'
-          stroke = '#4caf50'
+          fillColor = COLORS.hexHighlight; strokeColor = COLORS.hexHighStroke
         }
 
-        // Caminho escolhido — fill mais claro, borda branca
         if (destSet.has(key) && key !== destKey) {
-          fill = '#3a5a3a'
-          stroke = '#ffffff'
+          fillColor = COLORS.hexPath; strokeColor = COLORS.hexPathStroke
+        }
+        if (destKey && key === destKey) {
+          fillColor = COLORS.hexDest; strokeColor = COLORS.hexDestStroke; strokeWidth = 2.5
         }
 
-        // Destino escolhido — fill azul claro, borda branca grossa
-        if (destKey && key === destKey) {
-          fill = '#2a4a6a'
-          stroke = '#ffffff'
-        }
+        const g = new PIXI.Graphics()
+        const pts = hexCorners(cx, cy, sz)
+        g.lineStyle(strokeWidth, strokeColor, 1)
+        g.beginFill(fillColor)
+        g.drawPolygon(pts)
+        g.endFill()
+        layer.addChild(g)
 
-        drawHex(ctx, center, sz, fill, stroke)
-
-        // Borda mais grossa no destino escolhido
-        if (destKey && key === destKey) {
-          drawHex(ctx, center, sz, fill, 'rgba(255,255,255,0.8)', 2.5)
+        if (obs && !ch) {
+          const icon = new PIXI.Text(obsIcon(obs.tipo), { fontSize: 18 })
+          icon.anchor.set(0.5, 0.5); icon.x = cx; icon.y = cy
+          layer.addChild(icon)
+        } else if (item && !ch && !obs) {
+          const icon = new PIXI.Text(itemIcon(item.tipo), { fontSize: 16 })
+          icon.anchor.set(0.5, 0.5); icon.x = cx; icon.y = cy
+          layer.addChild(icon)
+        } else if (!obs && !ch && !item) {
+          const coord = new PIXI.Text(`${row},${col}`, { fontSize: 9, fill: 0x3a3a4a, fontFamily: 'monospace' })
+          coord.anchor.set(0.5, 0.5); coord.x = cx; coord.y = cy + sz * 0.15
+          layer.addChild(coord)
         }
 
         if (ch) {
-          const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
-          const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.65)
-          if (flashOn) {
-            gradient.addColorStop(0, '#ff2222')
-            gradient.addColorStop(1, '#991111')
-          } else if (ch.time === 'jogador') {
-            gradient.addColorStop(0, '#2e7d32')
-            gradient.addColorStop(1, '#1b4d1b')
-          } else {
-            gradient.addColorStop(0, '#c0392b')
-            gradient.addColorStop(1, '#7b1a1a')
-          }
-          ctx.beginPath()
-          ctx.arc(center.x, center.y, sz * 0.55, 0, Math.PI * 2)
-          ctx.fillStyle = gradient
-          ctx.fill()
-          ctx.strokeStyle = ch.id === currentChar?.id ? '#c9a84c' : (ch.time === 'jogador' ? '#4caf50' : '#e74c3c')
-          ctx.lineWidth = ch.id === currentChar?.id ? 3 : 2
-          ctx.stroke()
+          const isActive  = ch.id === currentChar?.id
+          const flashOn   = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
+          const fillC     = flashOn ? COLORS.flashFill : (ch.time === 'jogador' ? COLORS.playerFill : COLORS.iaFill)
+          const strokeC   = isActive ? COLORS.activeStroke : (ch.time === 'jogador' ? COLORS.playerStroke : COLORS.iaStroke)
+          const sWidth    = isActive ? 3 : 2
 
-          ctx.fillStyle = '#fff'
-          ctx.font = `bold ${sz * 0.35}px sans-serif`
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y - 2)
+          const dot = new PIXI.Graphics()
+          dot.lineStyle(sWidth, strokeC, 1)
+          dot.beginFill(fillC)
+          dot.drawCircle(cx, cy, sz * 0.55)
+          dot.endFill()
+          layer.addChild(dot)
+
+          const label = new PIXI.Text(ch.emoji || ch.nome.charAt(0).toUpperCase(), {
+            fontSize: Math.round(sz * 0.38),
+            fill: 0xffffff,
+            fontWeight: 'bold',
+          })
+          label.anchor.set(0.5, 0.5); label.x = cx; label.y = cy - 2
+          layer.addChild(label)
 
           const barW = sz * 0.9
-          const barH = 4
-          const barX = center.x - barW / 2
-          const barY = center.y + sz * 0.45
-          ctx.fillStyle = '#333'
-          ctx.fillRect(barX, barY, barW, barH)
-          const hpPct = ch.hp / ch.hpMax
-          ctx.fillStyle = hpPct > 0.5 ? '#4caf50' : hpPct > 0.25 ? '#ff9800' : '#f44336'
-          ctx.fillRect(barX, barY, barW * hpPct, barH)
+          const barBg = new PIXI.Graphics()
+          barBg.beginFill(0x333333)
+          barBg.drawRect(cx - barW / 2, cy + sz * 0.45, barW, 4)
+          barBg.endFill()
+          layer.addChild(barBg)
+
+          const pct     = Math.max(0, ch.hp / ch.hpMax)
+          const barColor = pct > 0.5 ? 0x4caf50 : pct > 0.25 ? 0xff9800 : 0xf44336
+          const barFg = new PIXI.Graphics()
+          barFg.beginFill(barColor)
+          barFg.drawRect(cx - barW / 2, cy + sz * 0.45, barW * pct, 4)
+          barFg.endFill()
+          layer.addChild(barFg)
         }
 
-        // FIX 4: Floating numbers/text (dano, bloqueio, extra, contra)
-        const floaters = damageFloats.filter(f => f.row === row && f.col === col)
-        for (const fl of floaters) {
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          ctx.shadowBlur = 8
-          if (fl.texto) {
-            ctx.fillStyle = fl.cor || '#ffffff'
-            ctx.font = `bold ${sz * 0.5}px sans-serif`
-            ctx.shadowColor = fl.cor ? fl.cor.replace(')', ',0.6)').replace('rgb', 'rgba') : 'rgba(255,255,255,0.5)'
-            ctx.fillText(fl.texto, center.x, center.y - sz * 0.8)
-          } else {
-            ctx.fillStyle = '#ff3333'
-            ctx.font = `bold ${sz * 0.55}px sans-serif`
-            ctx.shadowColor = 'rgba(255,0,0,0.6)'
-            ctx.fillText(`-${fl.damage}`, center.x, center.y - sz * 0.8)
-          }
-          ctx.shadowBlur = 0
-        }
-
-        // FIX 3: Rastro do projétil — células do caminho com borda amarela fraca
-        if (projPathSet.has(key) && !projectilePos?.row === row && !projectilePos?.col === col) {
-          drawHex(ctx, center, sz, fill, 'rgba(255, 200, 0, 0.3)', 2)
-        }
-
-        // Projétil
         if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
-          ctx.beginPath()
-          ctx.arc(center.x, center.y, sz * 0.25, 0, Math.PI * 2)
-          ctx.fillStyle = '#ffcc00'
-          ctx.fill()
-          ctx.strokeStyle = '#ff8800'
-          ctx.lineWidth = 2
-          ctx.stroke()
-          // Brilho
-          ctx.beginPath()
-          ctx.arc(center.x, center.y, sz * 0.35, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(255,200,0,0.2)'
-          ctx.fill()
+          const proj = new PIXI.Graphics()
+          proj.beginFill(0xffcc00)
+          proj.drawCircle(cx, cy, sz * 0.25)
+          proj.endFill()
+          proj.lineStyle(2, 0xff8800, 0.8)
+          proj.drawCircle(cx, cy, sz * 0.35)
+          layer.addChild(proj)
         }
       }
     }
-
-    // Obstacle icons
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-        const center = hexCenter(row, col, padX, padY, sz)
-        const key = `${row}_${col}`
-        const obs = obstaculos[key]
-        const item = itensChaoAtual[key]
-        const ch = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
-
-        if (obs && !ch) {
-          ctx.fillStyle = '#fff'
-          ctx.font = '18px sans-serif'
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          const icons = { 1: '🧱', 2: '🕳️', 3: '🪤', 4: '📦' }
-          ctx.fillText(icons[obs.tipo] || '?', center.x, center.y)
-        } else if (item && !ch && !obs) {
-          ctx.fillStyle = '#fff'
-          ctx.font = '16px sans-serif'
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          ctx.fillText(item.tipo === 'hp' ? '❤️' : '💙', center.x, center.y)
-        } else if (!obs && !ch && !item) {
-          ctx.fillStyle = '#3a3a4a'
-          ctx.font = '9px monospace'
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          ctx.fillText(`${row},${col}`, center.x, center.y + sz * 0.15)
-        }
-      }
-    }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, damageFloats, projectilePos, projectilePath, hexSize, caminhoEscolhido, destinoEscolhido])
-
-  useEffect(() => { draw() }, [draw])
-
-  // Handle canvas touch (mobile)
-  function handleTouch(e) {
-    e.preventDefault()
-    const touch = e.changedTouches[0]
-    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
   }
 
-  // Handle canvas click
-  function handleCanvasClick(e) {
-    const canvas = canvasRef.current
-    if (!canvas || animating || animatingRef.current || !isPlayerTurn || iaThinking) return
-    const rect = canvas.getBoundingClientRect()
-    const scaleX = canvas.width / rect.width
-    const scaleY = canvas.height / rect.height
+  // Handle touch on Pixi canvas
+  function handleTouchPixi(e) {
+    e.preventDefault()
+    const touch = e.changedTouches[0]
+    handleCanvasEventPixi({ clientX: touch.clientX, clientY: touch.clientY })
+  }
+
+  // Handle click on Pixi canvas
+  function handleCanvasEventPixi(e) {
+    const app = appRef.current
+    if (!app || animating || animatingRef.current || !isPlayerTurn || iaThinking) return
+    const rect = app.view.getBoundingClientRect()
+    const scaleX = app.view.width / rect.width
+    const scaleY = app.view.height / rect.height
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
     const sz = hexSize
-    const w = sz * SQRT3
-    const h = sz * 1.5
-    const padX = sz * SQRT3
-    const padY = sz * 1.5
+    const { padX, padY } = canvasSize(cols, rows, sz)
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
-
     const { row, col } = hex
 
     if (subPhase === 'movimento') {
       if (highlightedCells.some(c => c.row === row && c.col === col)) {
-        // Calcula caminho para highlight de destino
         const ocupadas = new Set(
           characters.filter(c => c.vivo && c.id !== currentChar.id)
             .map(c => `${c.posicao.row}_${c.posicao.col}`)
@@ -516,6 +437,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         if (target) executarAtaque(target)
       }
     }
+  }
+
+  function pixelToHex(px, py, cols, rows, padX, padY, size) {
+    let closest = null
+    let closestDist = Infinity
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const c = hexCenter(row, col, padX, padY, size)
+        const dist = Math.sqrt((px - c.x) ** 2 + (py - c.y) ** 2)
+        if (dist < closestDist && dist < size) {
+          closestDist = dist
+          closest = { row, col }
+        }
+      }
+    }
+    return closest
   }
 
   function moverPersonagem(row, col) {
@@ -700,33 +637,33 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   function aplicarDano(alvoId, dano, donoDoAtaque) {
     if (dano <= 0) return
 
-    // Calcula HP resultante de forma síncrona via ref, antes do setState
     const alvo = charsRef.current.find(c => c.id === alvoId)
     if (!alvo) return
     const novoHp = Math.max(0, alvo.hp - dano)
 
-    // Atualiza ref imediatamente — garante que verificações posteriores vejam o valor correto
     charsRef.current = charsRef.current.map(c =>
       c.id === alvoId ? { ...c, hp: novoHp } : c
     )
 
-    // Atualiza estado React (assíncrono — para re-render)
     setCharacters(prev =>
       prev.map(c =>
         c.id === alvoId ? { ...c, hp: novoHp } : c
       )
     )
 
-    // Floating damage number — usa setTimeout nativo para não ser cancelado por clearAnimTimers()
-    const floatKey = Date.now() + Math.random()
-    setDamageFloats(prev => [...prev, { charId: alvoId, damage: dano, row: alvo.posicao?.row, col: alvo.posicao?.col, key: floatKey }])
-    setTimeout(() => {
-      setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
-    }, 1200)
+    // Pixi: Damage float
+    const isCrit = false
+    const sz = hexSize
+    const { padX, padY } = canvasSize(cols, rows, sz)
+    const pos = alvo.posicao
+    if (pos && effectsLayerRef.current && appRef.current) {
+      const { x, y } = hexCenter(pos.row, pos.col, padX, padY, sz)
+      spawnDamageFloat(effectsLayerRef.current, x, y, dano, isCrit)
+    }
 
-    // Flash vermelho (3 pulsações) — setTimeout nativo
+    // Flash vermelho (3 pulsações)
     const fazerFlash = (count) => {
-      if (count >= 6) { // 3 ciclos de on/off
+      if (count >= 6) {
         setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
         return
       }
@@ -737,31 +674,36 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function animarAtaqueMelee(atacante, alvo, resultado, onFinalizar) {
-    const origem = atacante.posicao
+    const sz = hexSize
+    const { padX, padY } = canvasSize(cols, rows, sz)
+    const origem  = atacante.posicao
     const destino = alvo.posicao
+    const isCrit  = resultado.criticoOfensivo
 
-    // Fase 1: Desliza 70% em direção ao alvo
-    const dirRow = destino.row - origem.row
-    const dirCol = destino.col - origem.col
+    if (isCrit && effectsLayerRef.current && appRef.current) {
+      const { width, height } = canvasSize(cols, rows, sz)
+      screenFlash(effectsLayerRef.current, width, height, 0xff4444)
+    }
+
+    const dirRow  = destino.row - origem.row
+    const dirCol  = destino.col - origem.col
     const meioRow = Math.round(origem.row + dirRow * 0.7)
     const meioCol = Math.round(origem.col + dirCol * 0.7)
 
-    setCharacters(prev =>
-      prev.map(c =>
-        c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
-      )
-    )
+    setCharacters(prev => prev.map(c =>
+      c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
+    ))
 
-    // Fase 2: Pausa (impacto)
     setAnimTimer(() => {
-      // Fase 3: Retorna à origem
-      setCharacters(prev =>
-        prev.map(c =>
-          c.id === atacante.id ? { ...c, posicao: origem } : c
-        )
-      )
+      if (effectsLayerRef.current) {
+        const { x, y } = hexCenter(destino.row, destino.col, padX, padY, sz)
+        spawnMeleeParticles(effectsLayerRef.current, x, y, isCrit)
+      }
 
-      // Fase 4: Aplica dano + feedback
+      setCharacters(prev => prev.map(c =>
+        c.id === atacante.id ? { ...c, posicao: origem } : c
+      ))
+
       setAnimTimer(() => {
         if (onFinalizar) onFinalizar()
         else aposAnimacaoAtaque(atacante, alvo, resultado)
@@ -770,29 +712,24 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
-    const origem = atacante.posicao
-    const destino = alvo.posicao
+    const sz = hexSize
+    const { padX, padY } = canvasSize(cols, rows, sz)
+    const { x: fromX, y: fromY } = hexCenter(atacante.posicao.row, atacante.posicao.col, padX, padY, sz)
+    const { x: toX,   y: toY   } = hexCenter(alvo.posicao.row,    alvo.posicao.col,    padX, padY, sz)
+    const isCrit = resultado.criticoOfensivo
 
-    // FIX 3: Projétil com rastro — todas as células acendem, depois apagam conforme avança
-    const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
-    setProjectilePath(steps)
+    if (isCrit && effectsLayerRef.current && appRef.current) {
+      const { width, height } = canvasSize(cols, rows, sz)
+      screenFlash(effectsLayerRef.current, width, height, 0xffffff)
+    }
 
-    let stepIdx = 0
-    function avancarProjetil() {
-      if (stepIdx >= steps.length) {
-        setProjectilePos(null)
-        setProjectilePath([])
+    spawnProjectile(
+      effectsLayerRef.current, fromX, fromY, toX, toY, isCrit,
+      () => {
         if (onFinalizar) onFinalizar()
         else aposAnimacaoAtaque(atacante, alvo, resultado)
-        return
       }
-      setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
-      // Remove células já percorridas do rastro
-      setProjectilePath(prev => prev.filter((_, i) => i > 0))
-      stepIdx++
-      setAnimTimer(avancarProjetil, 320)
-    }
-    avancarProjetil()
+    )
   }
 
   function aposAnimacaoAtaque(atacante, alvo, resultado) {
@@ -837,13 +774,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }
 
-  // FIX 4: Adiciona float de texto (bloqueio, extra, contra) — setTimeout nativo
+  // FIX 4: Adiciona float de texto (bloqueio, extra, contra) via Pixi
   function adicionarFloatTexto(charId, texto, cor, row, col) {
-    const floatKey = Date.now() + Math.random()
-    setDamageFloats(prev => [...prev, { charId, texto, cor, row, col, key: floatKey }])
-    setTimeout(() => {
-      setDamageFloats(prev => prev.filter(f => f.key !== floatKey))
-    }, 1400)
+    if (!effectsLayerRef.current || !appRef.current) return
+    const sz = hexSize
+    const { padX, padY } = canvasSize(cols, rows, sz)
+    const { x, y } = hexCenter(row, col, padX, padY, sz)
+    const colorMap = { '#4488ff': 0x4488ff, '#ff8800': 0xff8800, '#ffcc00': 0xffcc00 }
+    const pixiColor = colorMap[cor] || 0xffffff
+    spawnTextFloat(effectsLayerRef.current, x, y, texto, pixiColor)
   }
 
   function executarAtaque(target) {
@@ -1229,9 +1168,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         </button>
       </div>
 
-      {/* ── Canvas ─────────────────────────────────── */}
+      {/* ── Canvas Pixi ────────────────────────────── */}
       <div className="atb-canvas-wrap" ref={canvasContainerRef}>
-        <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
+        <div ref={pixiContainerRef} className="atb-pixi-container" />
       </div>
 
       {/* ── HUD — Chips de personagens ─────────────── */}

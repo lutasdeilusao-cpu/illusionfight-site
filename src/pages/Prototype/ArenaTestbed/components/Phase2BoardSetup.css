@@ -277,3 +277,17 @@
   margin: 0;
   text-align: center;
 }
+
+.tab-fase2-pixi-container {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  touch-action: none;
+}
+
+.tab-fase2-pixi-container canvas {
+  display: block;
+  border: 1px solid #2e2e3a;
+  border-radius: 4px;
+}

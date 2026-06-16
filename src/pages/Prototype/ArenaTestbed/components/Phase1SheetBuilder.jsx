@@ -5,6 +5,8 @@ import './Phase1SheetBuilder.css'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+const EMOJI_OPTIONS_JOGADOR = ['⚔️','🥊','🗡️','🛡️','🧙','🥷','🦸','🐉','🔥','💀','🌊','⚡']
+const EMOJI_OPTIONS_IA      = ['🤖','👾','💣','🦂','🕷️','🐺','🦇','☠️','🌑','🧿','👁️','⚙️']
 
 export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAgiToggle }) {
   const { t } = useLanguage()
@@ -41,6 +43,7 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
           equipamento: 'nenhum',
           pocaoHP: 0,
           pocaoMP: 0,
+          emoji: EMOJI_OPTIONS_JOGADOR[0],
         }
       : {
           id: `temp_${Date.now()}`,
@@ -57,6 +60,7 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
           equipamento: 'nenhum',
           pocaoHP: 0,
           pocaoMP: 0,
+          emoji: EMOJI_OPTIONS_IA[0],
         }
 
     setCharacters([...characters, newChar])
@@ -146,11 +150,13 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
 
   function handleConfirm() {
     const finalChars = characters.map(c => {
-      return criarPersonagem(
+      const char = criarPersonagem(
         c.nome, c.time, c.tipoAtaque,
         c.forca, c.agi, c.dex, c.pdf, c.res, c.arm,
         c.equipamento, c.pocaoHP, c.pocaoMP
       )
+      char.emoji = c.emoji || ''
+      return char
     })
     onConfirm(finalChars, agiUmPraUm)
   }
@@ -182,6 +188,21 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAg
               <span className="tab-fase1-char-time-label">
                 {char.time === 'jogador' ? '👤' : '🤖'} {char.nome}
               </span>
+            </div>
+
+            <div className="tab-fase1-emoji-selector">
+              <span className="tab-fase1-field-label">{t('prototype.arena_testbed.choose_emoji')}</span>
+              <div className="tab-fase1-emoji-grid">
+                {(char.time === 'jogador' ? EMOJI_OPTIONS_JOGADOR : EMOJI_OPTIONS_IA).map(em => (
+                  <button
+                    key={em}
+                    className={`tab-fase1-emoji-btn ${char.emoji === em ? 'selected' : ''}`}
+                    onClick={() => updateChar(idx, 'emoji', em)}
+                  >
+                    {em}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <label className="tab-fase1-field">

@@ -2873,7 +2873,8 @@
       "ia_thinking_short": "IA pensando...",
       "btn_confirm_move": "Confirmar Movimento",
       "log_blocked": "Golpe completamente bloqueado!",
-      "log_receives_damage": "recebe {{dano}} de dano!"
+      "log_receives_damage": "recebe {{dano}} de dano!",
+      "choose_emoji": "Escolher Emoji"
     }
   }
 }

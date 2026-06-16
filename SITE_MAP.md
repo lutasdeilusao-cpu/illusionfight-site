@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.107.0** | Site — preset personagens + orçamento 6 + stepper 1×1 + buraco bloqueia |
+| `SITE_VERSION` | **10.108.0** | Site — migração Pixi.js v7 Arena Testbed |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **2.11.0** | Protótipo — Arena Testbed: preset personagens + orçamento 6 + stepper 1×1 + buraco bloqueia |
+| `PROTOTYPE_VERSION` | **2.12.0** | Protótipo — Arena Testbed: migração Pixi.js v7 — visual full juice Phase2 e Phase3 |
 
 ---
 
