@@ -19,7 +19,7 @@ function hexCorner(center, size, i) {
   }
 }
 
-function drawHex(ctx, center, size, fill, stroke, lineWidth = 1.5) {
+function drawHex(ctx, center, size, fill, stroke, lineWidth = 1.5, shadow = null) {
   ctx.beginPath()
   for (let i = 0; i < 6; i++) {
     const p = hexCorner(center, size, i)
@@ -29,9 +29,17 @@ function drawHex(ctx, center, size, fill, stroke, lineWidth = 1.5) {
   ctx.closePath()
   ctx.fillStyle = fill
   ctx.fill()
+  if (shadow) {
+    ctx.shadowBlur = shadow.blur
+    ctx.shadowColor = shadow.color
+  }
   ctx.strokeStyle = stroke
   ctx.lineWidth = lineWidth
   ctx.stroke()
+  if (shadow) {
+    ctx.shadowBlur = 0
+    ctx.shadowColor = 'transparent'
+  }
 }
 
 function hexCenter(row, col, padX, padY, size) {
@@ -97,6 +105,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
+  const [radialMenu, setRadialMenu] = useState(null)
+  const [turnAnnouncement, setTurnAnnouncement] = useState(null)
 
   const [hexSize, setHexSize] = useState(30)
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
@@ -143,6 +153,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [flashDmg, setFlashDmg] = useState(false)
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
+  const announceTimerRef = useRef(null)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -153,6 +164,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const id = setTimeout(fn, delay)
     animTimersRef.current.push(id)
     return id
+  }
+
+  function anunciar(texto, duracao = 2000) {
+    setTurnAnnouncement(texto)
+    if (announceTimerRef.current) clearTimeout(announceTimerRef.current)
+    announceTimerRef.current = setTimeout(() => setTurnAnnouncement(null), duracao)
   }
 
   const charsRef = useRef(characters)
@@ -206,6 +223,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const firstChar = characters.find(c => c.id === order[startIndex])
     if (firstChar?.time === 'ia') {
       setPhase('enemy_turn')
+      anunciar('TURNO DA IA', 1500)
       setTimeout(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
       setPhase(null)
@@ -214,6 +232,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
+      anunciar('TURNO DO JOGADOR')
     }
   }
 
@@ -324,7 +343,19 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           stroke = '#ffffff'
         }
 
-        drawHex(ctx, center, sz, fill, stroke, destKey && key === destKey ? 2.5 : (hlSet.has(key) ? 1.5 : (atkSet.has(key) ? 1.5 : (rangeSet.has(key) ? 1 : 1))))
+        let shadow = null
+        if (atkSet.has(key)) {
+          shadow = { blur: 12, color: '#ff2244' }
+        } else if (rangeSet.has(key)) {
+          shadow = { blur: 8, color: '#ffcc00' }
+        } else if (hlSet.has(key)) {
+          shadow = { blur: 12, color: '#00eeff' }
+        } else if (!obs && !ch && !itensChaoAtual[key]) {
+          shadow = { blur: 6, color: '#1a2060' }
+        }
+
+        const lw = destKey && key === destKey ? 2.5 : (hlSet.has(key) ? 1.5 : (atkSet.has(key) ? 1.5 : (rangeSet.has(key) ? 1 : 1)))
+        drawHex(ctx, center, sz, fill, stroke, lw, shadow)
 
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
@@ -508,6 +539,28 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!hex) return
     const { row, col } = hex
 
+    if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
+      const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
+      if (clickedOwnToken && !radialMenu) {
+        const canvas = canvasRef.current
+        const wrap = canvasContainerRef.current
+        const rect = canvas.getBoundingClientRect()
+        const wrapRect = wrap.getBoundingClientRect()
+        const sz2 = hexSize
+        const center = hexCenter(row, col, sz2 * 1.5, sz2 * SQRT3, sz2)
+        const scaleX = canvas.width / rect.width
+        const scaleY = canvas.height / rect.height
+        const px = (center.x / scaleX) + (rect.left - wrapRect.left)
+        const py = (center.y / scaleY) + (rect.top - wrapRect.top)
+        setRadialMenu({ charId: currentChar.id, x: px, y: py })
+        return
+      }
+      if (radialMenu) {
+        setRadialMenu(null)
+        return
+      }
+    }
+
     if (subPhase === 'movimento') {
       if (highlightedCells.some(c => c.row === row && c.col === col)) {
         const ocupadas = new Set(
@@ -615,10 +668,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
     setSubPhase('free')
     setHighlightedCells([])
+    setRadialMenu(null)
   }
 
   function iniciarMovimento() {
     if (!currentChar || animating || turnoAcoes.moveu) return
+    setRadialMenu(null)
+    anunciar('MOVIMENTO', 1200)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
       currentChar.posicao.row, currentChar.posicao.col,
@@ -646,6 +702,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setDestinoEscolhido(null)
     setCaminhoEscolhido([])
     setSubPhase('free')
+    setRadialMenu(null)
   }
 
   function confirmarMovimento() {
@@ -663,6 +720,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function escolherAcao(tipoAcao) {
     if (!currentChar || animating) return
+    anunciar('ATAQUE', 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
     const atkCells = getCelulasAtaque(
@@ -882,6 +940,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
+      setRadialMenu(null)
     }
   }
 
@@ -911,8 +970,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const chars = charsRef.current
     const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
     const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
-    if (pVivos.length === 0) { setWinner('ia'); setPhase('resultado'); addLog('🏆 IA venceu a partida!'); return true }
-    if (iVivos.length === 0) { setWinner('jogador'); setPhase('resultado'); addLog('🏆 Jogador venceu a partida!'); return true }
+    if (pVivos.length === 0) { setWinner('ia'); setPhase('resultado'); anunciar('DERROTA', 3000); addLog('🏆 IA venceu a partida!'); return true }
+    if (iVivos.length === 0) { setWinner('jogador'); setPhase('resultado'); anunciar('VITÓRIA!', 3000); addLog('🏆 Jogador venceu a partida!'); return true }
     return false
   }
 
@@ -930,6 +989,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setCurrentTurn(nextIdx)
     if (nextChar?.time === 'ia') {
       setPhase('enemy_turn')
+      anunciar('TURNO DA IA', 1500)
       setTimeout(() => executarIA(nextChar), 1000)
     } else if (nextChar) {
       setPhase(null)
@@ -938,6 +998,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
+      anunciar('TURNO DO JOGADOR')
     }
   }
 
@@ -1131,6 +1192,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         />
       )}
 
+      {turnAnnouncement && (
+        <div className="atb-announcement-overlay">
+          <div className={`atb-announcement-text ${
+            turnAnnouncement.includes('IA') || turnAnnouncement === 'DERROTA' ? 'ia' :
+            turnAnnouncement === 'VITÓRIA!' ? 'vitoria' : ''
+          }`}>
+            {turnAnnouncement}
+          </div>
+        </div>
+      )}
       <div className="atb-top-bar">
         <button className="atb-top-back" onClick={onBackToPhase1}>←</button>
         <div className="atb-top-info">
@@ -1144,6 +1215,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             {iaThinking && ` · IA`}
           </span>
         </div>
+        {isPlayerTurn && !iaThinking && (
+          <button className="atb-top-end-turn" onClick={finalizarTurno} title="Passar turno">⏭</button>
+        )}
         <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
       </div>
 
@@ -1160,6 +1234,37 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             </div>
           ))}
         </div>
+
+        {radialMenu && isPlayerTurn && subPhase === 'free' && currentChar && (() => {
+          const DIST = 64
+          const RAD = Math.PI / 180
+          const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
+            const x = radialMenu.x + DIST * Math.cos(angleDeg * RAD)
+            const y = radialMenu.y + DIST * Math.sin(angleDeg * RAD)
+            return (
+              <button
+                key={label}
+                className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
+                style={{ left: x, top: y }}
+                disabled={disabled}
+                onClick={onClickFn}
+              >
+                <span className="atb-radial-icon">{icon}</span>
+                <span className="atb-radial-label">{label}</span>
+              </button>
+            )
+          }
+          const btns = []
+          btns.push(mkBtn(210, '👟', 'MOVER', 'atb-radial-move', turnoAcoes.moveu, () => { setRadialMenu(null); iniciarMovimento() }))
+          btns.push(mkBtn(330, '⚔', 'ATACAR', 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setSubPhaseStep('escolher_acao'); setSubPhase('acao') }))
+          if (currentChar?.inventario?.pocaoHP > 0) {
+            btns.push(mkBtn(90, '❤', `×${currentChar.inventario.pocaoHP}`, 'atb-radial-hp', false, () => { setRadialMenu(null); usarItem('hp') }))
+          }
+          if (currentChar?.inventario?.pocaoMP > 0) {
+            btns.push(mkBtn(135, '💧', `×${currentChar.inventario.pocaoMP}`, 'atb-radial-mp', false, () => { setRadialMenu(null); usarItem('mp') }))
+          }
+          return <div className="atb-radial-menu">{btns}</div>
+        })()}
       </div>
 
       <div className="atb-hud">
@@ -1196,37 +1301,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         {isPlayerTurn && !iaThinking ? (
           <>
             {subPhase === 'free' && (
-              <>
-                <button
-                  className="atb-action-btn"
-                  disabled={turnoAcoes.moveu}
-                  onClick={iniciarMovimento}
-                >
-                  👟 MOVER
-                </button>
-                <button
-                  className="atb-action-btn atb-action-btn--attack"
-                  disabled={turnoAcoes.atacou}
-                  onClick={() => { setSubPhaseStep('escolher_acao'); setSubPhase('acao'); }}
-                >
-                  ⚔ ATACAR
-                </button>
-                {currentChar?.inventario?.pocaoHP > 0 && (
-                  <button className="atb-action-btn atb-action-btn--item" onClick={() => usarItem('hp')}>
-                    ❤
-                    <span className="atb-item-qty">{currentChar.inventario.pocaoHP}</span>
-                  </button>
-                )}
-                {currentChar?.inventario?.pocaoMP > 0 && (
-                  <button className="atb-action-btn atb-action-btn--item" onClick={() => usarItem('mp')}>
-                    💧
-                    <span className="atb-item-qty">{currentChar.inventario.pocaoMP}</span>
-                  </button>
-                )}
-                <button className="atb-action-btn atb-action-btn--end" onClick={finalizarTurno}>
-                  ⏭
-                </button>
-              </>
+              <span className="atb-phase-hint">
+                {radialMenu ? '' : 'Toque no seu personagem para agir'}
+              </span>
             )}
 
             {subPhase === 'movimento' && (
