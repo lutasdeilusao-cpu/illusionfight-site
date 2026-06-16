@@ -7,7 +7,6 @@ import {
 } from '../engine/pixiRenderer'
 import './Phase2BoardSetup.css'
 
-const HEX_SIZE = 20
 const SQRT3 = Math.sqrt(3)
 
 function pixelToHex(px, py, cols, rows, padX, padY, size) {
@@ -51,22 +50,50 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
   const [obs3Effect, setObs3Effect] = useState('nenhum')
   const [obs4Movable, setObs4Movable] = useState(false)
   const [obs4Destructible, setObs4Destructible] = useState(false)
+  const [hexSize, setHexSize] = useState(24)
+  const hexSizeRef = useRef(24)
 
-  // Inicializa Pixi
+  // Inicializa Pixi com hexSize dinâmico
   useEffect(() => {
-    if (!pixiContainerRef.current) return
-    const { width, height } = canvasSize(cols, rows, HEX_SIZE)
-    const app = createPixiApp(pixiContainerRef.current, width, height)
-    appRef.current = app
-    const layer = new PIXI.Container()
-    app.stage.addChild(layer)
-    boardLayerRef.current = layer
+    const el = pixiContainerRef.current
+    if (!el) return
 
-    app.view.addEventListener('click', handleCanvasEvent)
-    app.view.addEventListener('touchend', handleTouchEvent, { passive: false })
-    app.view.addEventListener('mousemove', handleMouseMove)
+    function calcHexSize() {
+      const containerW = el.clientWidth || 360
+      const containerH = el.clientHeight || el.parentElement?.clientHeight || 400
+      const sizeByW = Math.floor((containerW / (cols + 0.5)) / SQRT3)
+      const sizeByH = Math.floor(containerH / (rows * 1.5 + 0.5))
+      return Math.max(14, Math.min(32, Math.min(sizeByW, sizeByH)))
+    }
+
+    function initOrResize() {
+      const sz = calcHexSize()
+      hexSizeRef.current = sz
+      setHexSize(sz)
+      const { width, height } = canvasSize(cols, rows, sz)
+      if (appRef.current) {
+        appRef.current.renderer.resize(width, height)
+      } else {
+        const app = createPixiApp(el, width, height)
+        appRef.current = app
+        const layer = new PIXI.Container()
+        app.stage.addChild(layer)
+        boardLayerRef.current = layer
+        app.view.addEventListener('click', handleCanvasEvent)
+        app.view.addEventListener('touchend', handleTouchEvent, { passive: false })
+        app.view.addEventListener('mousemove', handleMouseMove)
+      }
+    }
+
+    const rafId = requestAnimationFrame(initOrResize)
+    const ro = new ResizeObserver(initOrResize)
+    ro.observe(el)
+    window.addEventListener('resize', initOrResize)
 
     return () => {
+      cancelAnimationFrame(rafId)
+      ro.disconnect()
+      window.removeEventListener('resize', initOrResize)
       if (appRef.current) {
         appRef.current.view.removeEventListener('click', handleCanvasEvent)
         appRef.current.view.removeEventListener('touchend', handleTouchEvent)
@@ -75,15 +102,13 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
         appRef.current = null
       }
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [cols, rows]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Re-render board when state changes
   useEffect(() => {
     if (!appRef.current) return
-    const { width, height, padX, padY } = canvasSize(cols, rows, HEX_SIZE)
-    appRef.current.renderer.resize(width, height)
     renderBoard()
-  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, selectedChar])
+  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, selectedChar, hexSize])
 
   function getEventCoords(e) {
     const rect = appRef.current?.view.getBoundingClientRect()
@@ -105,16 +130,16 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
   function handleMouseMove(e) {
     const coords = getEventCoords(e)
     if (!coords) return
-    const { padX, padY } = canvasSize(cols, rows, HEX_SIZE)
-    const hex = pixelToHex(coords.x, coords.y, cols, rows, padX, padY, HEX_SIZE)
+    const { padX, padY } = canvasSize(cols, rows, hexSizeRef.current)
+    const hex = pixelToHex(coords.x, coords.y, cols, rows, padX, padY, hexSizeRef.current)
     setHoveredCell(hex)
   }
 
   function handleCanvasEvent(e) {
     const coords = getEventCoords(e)
     if (!coords) return
-    const { padX, padY } = canvasSize(cols, rows, HEX_SIZE)
-    const hex = pixelToHex(coords.x, coords.y, cols, rows, padX, padY, HEX_SIZE)
+    const { padX, padY } = canvasSize(cols, rows, hexSizeRef.current)
+    const hex = pixelToHex(coords.x, coords.y, cols, rows, padX, padY, hexSizeRef.current)
     if (!hex) return
     const { row, col } = hex
     const key = `${row}_${col}`
@@ -167,8 +192,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     if (!layer || !app) return
     layer.removeChildren()
 
-    const { padX, padY } = canvasSize(cols, rows, HEX_SIZE)
-    const sz = HEX_SIZE
+    const sz = hexSizeRef.current
+    const { padX, padY } = canvasSize(cols, rows, sz)
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {

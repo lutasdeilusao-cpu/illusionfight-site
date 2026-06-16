@@ -80,8 +80,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useLayoutEffect(() => {
     const el = pixiContainerRef.current
     if (!el) {
-      console.log('[ATB] pixiContainerRef AINDA null — adiando init')
-      return
+      // Retry após próximo frame se ref ainda não está montado
+      const retryId = requestAnimationFrame(() => {
+        if (pixiContainerRef.current) {
+          // força re-execução limpando e re-observando
+          pixiContainerRef.current.dispatchEvent(new Event('resize'))
+        }
+      })
+      return () => cancelAnimationFrame(retryId)
     }
 
     function calcAndInit() {
@@ -1132,14 +1138,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   // ── Render ─────────────────────────────────────────
-  if (phase === 'prepare') {
-    return (
-      <div className="atb-phase-loading">
-        <p>{t('prototype.arena_testbed.preparing_battle')}</p>
-      </div>
-    )
-  }
-
   if (phase === 'resultado' && winner) {
     return (
       <div className="atb-result">
@@ -1199,6 +1197,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       {/* ── Canvas Pixi ────────────────────────────── */}
       <div className="atb-canvas-wrap" ref={canvasContainerRef}>
         <div ref={pixiContainerRef} className="atb-pixi-container" />
+        {phase === 'prepare' && (
+          <div className="atb-loading-overlay">
+            <span>{t('prototype.arena_testbed.preparing_battle')}</span>
+          </div>
+        )}
       </div>
 
       {/* ── HUD — Chips de personagens ─────────────── */}
