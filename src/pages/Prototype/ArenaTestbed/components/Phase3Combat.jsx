@@ -141,7 +141,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setHexSize(Math.max(18, Math.min(36, size)))
       const canvas = canvasRef.current
       if (canvas) {
-        const PAD = Math.max(8, Math.min(16, size))
+        const PAD = Math.max(8, Math.min(14, size))
         const w = PAD * 1.5
         const h = PAD * SQRT3
         const newW = Math.round(cols * w + w / 2 + PAD * 2)
@@ -313,7 +313,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const sz = Math.max(18, Math.min(hexSize, sizeByWidth, sizeByHeight))
     const w = sz * 1.5
     const h = sz * SQRT3
-    const PAD = Math.max(8, Math.min(16, sz))
+    const PAD = Math.max(8, Math.min(14, sz))
     const gridW = cols * w + w / 2 + PAD * 2
     const gridH = rows * h + h / 2 + PAD * 2
     const offsetX = PAD
