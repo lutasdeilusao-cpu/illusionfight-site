@@ -366,8 +366,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     canvas.width = newW
     canvas.height = newH
-    canvas.style.width = newW + 'px'
-    canvas.style.height = newH + 'px'
     offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -1344,7 +1342,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             <button
               key={label}
               className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
-              style={{ left: x, top: y }}
+              style={{ '--x': x, '--y': y }}
               disabled={disabled}
               onClick={onClickFn}
             >
@@ -1375,7 +1373,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             <button
               key={label}
               className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
-              style={{ left: x, top: y }}
+              style={{ '--x': x, '--y': y }}
               disabled={disabled}
               onClick={onClickFn}
             >
@@ -1426,7 +1424,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             <div
               key={b.key}
               className={`atb-balloon atb-balloon--${b.tipo}`}
-              style={{ left: b.x, top: b.y }}
+              style={{ '--x': b.x, '--y': b.y }}
             >
               {b.texto}
             </div>
@@ -1449,12 +1447,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                 <div className="atb-hud-bars">
                   <div className="atb-hud-bar-row">
                     <div className="atb-hud-bar-track">
-                      <div className="atb-hud-bar-fill hp" style={{ width: `${(ch.hp / ch.hpMax) * 100}%` }} />
+                      <div className="atb-hud-bar-fill hp" style={{ '--pct': `${(ch.hp / ch.hpMax) * 100}%` }} />
                     </div>
                   </div>
                   <div className="atb-hud-bar-row">
                     <div className="atb-hud-bar-track">
-                      <div className="atb-hud-bar-fill mp" style={{ width: `${(ch.mp / ch.mpMax) * 100}%` }} />
+                      <div className="atb-hud-bar-fill mp" style={{ '--pct': `${(ch.mp / ch.mpMax) * 100}%` }} />
                     </div>
                   </div>
                 </div>
@@ -1534,14 +1532,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
               <div className="atb-modal-stat">
                 <span className="atb-modal-stat-label hp">{t('prototype.arena_testbed.label_hp')}</span>
                 <div className="atb-modal-bar-track">
-                  <div className="atb-modal-bar-fill hp" style={{ width: `${(charModal.hp / charModal.hpMax) * 100}%` }} />
+                  <div className="atb-modal-bar-fill hp" style={{ '--pct': `${(charModal.hp / charModal.hpMax) * 100}%` }} />
                 </div>
                 <span className="atb-modal-stat-val">{Math.ceil(charModal.hp)}/{charModal.hpMax}</span>
               </div>
               <div className="atb-modal-stat">
                 <span className="atb-modal-stat-label mp">{t('prototype.arena_testbed.label_mp')}</span>
                 <div className="atb-modal-bar-track">
-                  <div className="atb-modal-bar-fill mp" style={{ width: `${(charModal.mp / charModal.mpMax) * 100}%` }} />
+                  <div className="atb-modal-bar-fill mp" style={{ '--pct': `${(charModal.mp / charModal.mpMax) * 100}%` }} />
                 </div>
                 <span className="atb-modal-stat-val">{Math.ceil(charModal.mp)}/{charModal.mpMax}</span>
               </div>

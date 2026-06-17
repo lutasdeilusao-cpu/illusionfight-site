@@ -193,6 +193,8 @@
 
 .atb-radial-btn {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
   pointer-events: all;
   width: 52px;
   height: 52px;
@@ -277,6 +279,8 @@
 
 .atb-balloon {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
   font-weight: 700;
   text-shadow: 0 0 8px currentColor;
   animation: atb-balloon-float 1.2s ease-out forwards;
@@ -382,6 +386,7 @@
 
 .atb-hud-bar-fill {
   height: 100%;
+  width: var(--pct);
   transition: width 0.3s ease;
 }
 
@@ -664,6 +669,7 @@
 
 .atb-modal-bar-fill {
   height: 100%;
+  width: var(--pct);
   transition: width 0.3s ease;
 }
 
