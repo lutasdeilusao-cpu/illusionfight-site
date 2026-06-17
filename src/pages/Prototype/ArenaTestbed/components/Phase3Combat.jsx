@@ -54,8 +54,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [iaThinking, setIaThinking] = useState(false)
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
-  const [radialMenu, setRadialMenu] = useState(null)
-  const [radialAtaque, setRadialAtaque] = useState(null)
+  const [actionPanel, setActionPanel] = useState(false)
   const [turnAnnouncement, setTurnAnnouncement] = useState(null)
   const [announcementClass, setAnnouncementClass] = useState('')
 
@@ -482,22 +481,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
     if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
       const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
-      if (clickedOwnToken && !radialMenu) {
-        const rect2 = canvas.getBoundingClientRect()
-        const sz2 = sizeRef.current
-        const center = hexCenter(row, col, offsetRef.current.x || sz2 * 1.5, offsetRef.current.y || sz2 * SQRT3, sz2)
-        const scaleX2 = rect2.width / canvas.width
-        const scaleY2 = rect2.height / canvas.height
-        const px = center.x * scaleX2 + rect2.left
-        const py = center.y * scaleY2 + rect2.top
-        const MARGIN = 70
-        const clampedX = Math.max(MARGIN, Math.min(window.innerWidth - MARGIN, px))
-        const clampedY = Math.max(MARGIN, Math.min(window.innerHeight - MARGIN, py))
-        setRadialMenu({ charId: currentChar.id, x: clampedX, y: clampedY })
+      if (clickedOwnToken && !actionPanel) {
+        setActionPanel(true)
         return
       }
-      if (radialMenu) {
-        setRadialMenu(null)
+      if (actionPanel) {
+        setActionPanel(false)
         return
       }
     }
@@ -524,7 +513,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }, [
     isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
-    currentChar, radialMenu, highlightedCells, attackCells, characters, obstaculos,
+    currentChar, actionPanel, highlightedCells, attackCells, characters, obstaculos,
   ])
 
   const handleTouch = useCallback((e) => {
@@ -619,12 +608,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
     setSubPhase('free')
     setHighlightedCells([])
-    setRadialMenu(null)
+    setActionPanel(false)
   }
 
   function iniciarMovimento() {
     if (!currentChar || animating || turnoAcoes.moveu) return
-    setRadialMenu(null)
+    setActionPanel(false)
     anunciar(t('prototype.arena_testbed.announce_move'), 1200)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
@@ -653,8 +642,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setDestinoEscolhido(null)
     setCaminhoEscolhido([])
     setSubPhase('free')
-    setRadialMenu(null)
-    setRadialAtaque(null)
+    setActionPanel(false)
   }
 
   function confirmarMovimento() {
@@ -945,8 +933,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setPendingMove(null)
     setDestinoEscolhido(null)
     setCaminhoEscolhido([])
-    setRadialMenu(null)
-    setRadialAtaque(null)
+    setActionPanel(false)
     animatingRef.current = false
     setAnimating(false)
     if (verificarVitoria()) return
@@ -1171,61 +1158,47 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         </div>
       )}
 
-      {radialMenu && isPlayerTurn && subPhase === 'free' && currentChar && (() => {
-        const DIST = 52
-        const RAD = Math.PI / 180
-        const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
-          const x = radialMenu.x + DIST * Math.cos(angleDeg * RAD)
-          const y = radialMenu.y + DIST * Math.sin(angleDeg * RAD)
-          return (
+      {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
+        <div className="atb-action-panel">
+          <div className="atb-action-panel-name">{currentChar.nome}</div>
+          <button
+            className="atb-action-panel-btn"
+            disabled={turnoAcoes.moveu}
+            onClick={() => { setActionPanel(false); iniciarMovimento() }}
+          >
+            👟 {t('prototype.arena_testbed.btn_move')}
+          </button>
+          <button
+            className="atb-action-panel-btn atb-action-panel-btn--attack"
+            disabled={turnoAcoes.atacou}
+            onClick={() => { setActionPanel(false); escolherAcao('common_attack') }}
+          >
+            ⚔ {t('prototype.arena_testbed.btn_attack')}
+          </button>
+          {currentChar?.inventario?.pocaoHP > 0 && (
             <button
-              key={label}
-              className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
-              style={{ '--x': x, '--y': y }}
-              disabled={disabled}
-              onClick={onClickFn}
+              className="atb-action-panel-btn atb-action-panel-btn--hp"
+              onClick={() => { setActionPanel(false); usarItem('hp') }}
             >
-              <span className="atb-radial-icon">{icon}</span>
-              <span className="atb-radial-label">{label}</span>
+              ❤ ×{currentChar.inventario.pocaoHP}
             </button>
-          )
-        }
-        const btns = []
-        btns.push(mkBtn(210, '👟', t('prototype.arena_testbed.btn_move'), 'atb-radial-move', turnoAcoes.moveu, () => { setRadialMenu(null); iniciarMovimento() }))
-        btns.push(mkBtn(330, '⚔', t('prototype.arena_testbed.btn_attack'), 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialMenu(null); setRadialAtaque({ x: radialMenu.x, y: radialMenu.y }) }))
-        if (currentChar?.inventario?.pocaoHP > 0) {
-          btns.push(mkBtn(90, '❤', `×${currentChar.inventario.pocaoHP}`, 'atb-radial-hp', false, () => { setRadialMenu(null); usarItem('hp') }))
-        }
-        if (currentChar?.inventario?.pocaoMP > 0) {
-          btns.push(mkBtn(135, '💧', `×${currentChar.inventario.pocaoMP}`, 'atb-radial-mp', false, () => { setRadialMenu(null); usarItem('mp') }))
-        }
-        return <div className="atb-radial-menu">{btns}</div>
-      })()}
-
-      {radialAtaque && isPlayerTurn && subPhase === 'free' && (() => {
-        const DIST = 52
-        const RAD = Math.PI / 180
-        const mkBtn = (angleDeg, icon, label, cls, disabled, onClickFn) => {
-          const x = radialAtaque.x + DIST * Math.cos(angleDeg * RAD)
-          const y = radialAtaque.y + DIST * Math.sin(angleDeg * RAD)
-          return (
+          )}
+          {currentChar?.inventario?.pocaoMP > 0 && (
             <button
-              key={label}
-              className={`atb-radial-btn ${cls}${disabled ? ' disabled' : ''}`}
-              style={{ '--x': x, '--y': y }}
-              disabled={disabled}
-              onClick={onClickFn}
+              className="atb-action-panel-btn atb-action-panel-btn--mp"
+              onClick={() => { setActionPanel(false); usarItem('mp') }}
             >
-              <span className="atb-radial-icon">{icon}</span>
-              <span className="atb-radial-label">{label}</span>
+              💧 ×{currentChar.inventario.pocaoMP}
             </button>
-          )
-        }
-        const btns = []
-        btns.push(mkBtn(270, '⚔', t('prototype.arena_testbed.btn_common'), 'atb-radial-attack', turnoAcoes.atacou, () => { setRadialAtaque(null); escolherAcao('common_attack') }))
-        btns.push(mkBtn(180, '✕', t('prototype.arena_testbed.back'), 'atb-radial-cancel', false, () => { setRadialAtaque(null); setRadialMenu({ charId: currentChar.id, x: radialAtaque.x, y: radialAtaque.y }) }))
-        return <div className="atb-radial-menu">{btns}</div>
-      })()}
+          )}
+          <button
+            className="atb-action-panel-btn atb-action-panel-btn--close"
+            onClick={() => setActionPanel(false)}
+          >
+            ✕ {t('prototype.arena_testbed.back')}
+          </button>
+        </div>
+      )}
 
       <div className="atb-top-bar">
         <button className="atb-top-back" onClick={onBackToPhase1}>←</button>
@@ -1306,7 +1279,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           <>
             {subPhase === 'free' && (
               <span className="atb-phase-hint">
-                {radialMenu ? '' : t('prototype.arena_testbed.free_hint')}
+                {actionPanel ? '' : t('prototype.arena_testbed.free_hint')}
               </span>
             )}
 
