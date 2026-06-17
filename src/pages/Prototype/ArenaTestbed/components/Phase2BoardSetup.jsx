@@ -17,12 +17,11 @@ const OBSTACLE_TYPES = [
 export default function Phase2BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
+  const [cols, setCols] = useState(7)
+  const [rows, setRows] = useState(11)
   const { hexSize, calcVersion, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
     canvasRef, cols, rows, minSz: 14, maxSz: 40,
   })
-
-  const [cols, setCols] = useState(7)
-  const [rows, setRows] = useState(11)
   const [boardChars, setBoardChars] = useState([])
   const [obstaculos, setObstaculos] = useState({})
   const [itensChao, setItensChao] = useState({})

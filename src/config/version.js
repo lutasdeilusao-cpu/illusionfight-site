@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.155.0'
+export const SITE_VERSION = '10.155.1'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -22,7 +22,7 @@ export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
 export const MORTO_VERSION = '1.0.0' // Morto em Jaime — 3v3 RPG engine (teste bege)
-export const ARENATESTBED_VERSION = '1.9.2' // Arena Testbed — fix: cols/rows dinâmicos + portrait sem texto + constantes domínio
+export const ARENATESTBED_VERSION = '1.9.3' // Arena Testbed — fix: Temporal Dead Zone cols/rows no useHexCanvas
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
