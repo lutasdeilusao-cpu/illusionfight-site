@@ -39,31 +39,34 @@ export function decidirAcaoIA(personagem, inimigos, todosPersonagens, obstaculos
 
   const podeAtacar = celulasAtaque.some(c => c.row === alvo.posicao.row && c.col === alvo.posicao.col)
 
-  if (podeAtacar) {
-    // Calcular distância para o alvo
-    const dist = celulasAtaque.find(
-      c => c.row === alvo.posicao.row && c.col === alvo.posicao.col
-    )?.distancia || 1
+    if (podeAtacar) {
+      const dist = celulasAtaque.find(
+        c => c.row === alvo.posicao.row && c.col === alvo.posicao.col
+      )?.distancia || 1
 
-    // Chance de acerto
-    const chance = getChanceAcerto(personagem.dex, alvo.agi)
-    const roll = Math.random()
+      const chance = getChanceAcerto(personagem.dex, alvo.agi)
+      const roll = Math.random()
+      const acertou = roll <= chance || personagem.dex > alvo.agi
 
-    if (roll <= chance || personagem.dex > alvo.agi) {
-      const resultado = resolverAtaque(personagem, alvo, dist)
-      return {
-        tipo: 'atacar',
-        detalhes: { alvo, resultado, distancia: dist },
-        logs: [
-          `[${personagem.nome}] Atacando ${alvo.nome} (distância ${dist})`,
-          ...resultado.logs,
-        ],
+      if (acertou) {
+        const resultado = resolverAtaque(personagem, alvo, dist)
+        return {
+          tipo: 'atacar',
+          detalhes: { alvo, resultado, distancia: dist, miss: false },
+          logs: [
+            `[${personagem.nome}] Atacando ${alvo.nome} (distância ${dist})`,
+            ...resultado.logs,
+          ],
+        }
+      } else {
+        logs.push(`[${personagem.nome}] Tentou atacar ${alvo.nome} mas errou! (chance: ${Math.round(chance * 100)}%)`)
+        return {
+          tipo: 'atacar',
+          detalhes: { alvo, resultado: null, distancia: dist, miss: true },
+          logs,
+        }
       }
-    } else {
-      logs.push(`[${personagem.nome}] Tentou atacar ${alvo.nome} mas errou! (chance: ${Math.round(chance * 100)}%)`)
-      return { tipo: 'finalizar', detalhes: {}, logs }
     }
-  }
 
   // 3. Mover em direção ao inimigo mais próximo
   const casasMov = getCasasMovimento(personagem.agi, agiUmPraUm)

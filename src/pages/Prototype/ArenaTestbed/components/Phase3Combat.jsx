@@ -1088,6 +1088,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
+        const isMiss = dec2.detalhes.miss === true
         const atacante = iaAtual2
         const alcanceMaxIA = atacante.tipoAtaque === 'melee' ? 1 : atacante.pdf
         const rangeCellsIA = getCelulasAtaque(
@@ -1101,6 +1102,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           if (winnerRef.current) { finalizarTurnoIA(); return }
           setProjectilePos(null)
           setProjectilePath([])
+
+          if (isMiss) {
+            adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
+            finalizarTurnoIA()
+            return
+          }
+
           if (res.criticoDefensivo) {
             addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
             adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
@@ -1143,14 +1151,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }, 1200)
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
-        const logErrou = dec2.logs.find(l => l.includes('errou'))
-        if (logErrou) {
-          const inimigosVivos = charsRef.current.filter(c => c.vivo && c.time === 'jogador')
-          if (inimigosVivos.length > 0) {
-            const alvoMiss = inimigosVivos[0]
-            adicionarBalao(alvoMiss.id, 'MISS!', 'miss', alvoMiss.posicao?.row, alvoMiss.posicao?.col)
-          }
-        }
         setAnimTimer(finalizarTurnoIA, 500)
       }
     }
