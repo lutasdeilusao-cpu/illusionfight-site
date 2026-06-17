@@ -160,13 +160,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
-  const subPhaseRef = useRef(subPhase)
-  const subPhaseStepRef = useRef(subPhaseStep)
-  const attackCellsRef = useRef(attackCells)
-  const highlightedCellsRef = useRef(highlightedCells)
-  const pendingMoveRef = useRef(pendingMove)
-  const isPlayerTurnRef = useRef(isPlayerTurn)
-  const iaThinkingRef = useRef(iaThinking)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -192,13 +185,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useEffect(() => { charsRef.current = characters }, [characters])
   useEffect(() => { turnRef.current = currentTurn }, [currentTurn])
   useEffect(() => { orderRef.current = turnOrder }, [turnOrder])
-  useEffect(() => { subPhaseRef.current = subPhase }, [subPhase])
-  useEffect(() => { subPhaseStepRef.current = subPhaseStep }, [subPhaseStep])
-  useEffect(() => { attackCellsRef.current = attackCells }, [attackCells])
-  useEffect(() => { highlightedCellsRef.current = highlightedCells }, [highlightedCells])
-  useEffect(() => { pendingMoveRef.current = pendingMove }, [pendingMove])
-  useEffect(() => { isPlayerTurnRef.current = isPlayerTurn }, [isPlayerTurn])
-  useEffect(() => { iaThinkingRef.current = iaThinking }, [iaThinking])
 
   const [remainingMove, setRemainingMove] = useState(0)
 
@@ -545,15 +531,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     return () => cancelAnimationFrame(rafRef.current)
   }, [draw])
 
-  function handleTouch(e) {
-    if (e.cancelable) e.preventDefault()
-    const touch = e.changedTouches[0]
-    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
-  }
-
-  function handleCanvasClick(e) {
+  const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current
-    if (!canvas || animatingRef.current || !isPlayerTurnRef.current || iaThinkingRef.current) return
+    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinking) return
     const rect = canvas.getBoundingClientRect()
     const scaleX = canvas.width / rect.width
     const scaleY = canvas.height / rect.height
@@ -566,7 +546,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!hex) return
     const { row, col } = hex
 
-    if (subPhaseRef.current === 'free' && isPlayerTurnRef.current && !iaThinkingRef.current) {
+    if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
       const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
       if (clickedOwnToken && !radialMenu) {
         const rect2 = canvas.getBoundingClientRect()
@@ -588,8 +568,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
 
-    if (subPhaseRef.current === 'movimento') {
-      if (highlightedCellsRef.current.some(c => c.row === row && c.col === col)) {
+    if (subPhase === 'movimento') {
+      if (highlightedCells.some(c => c.row === row && c.col === col)) {
         const ocupadas = new Set(
           characters.filter(c => c.vivo && c.id !== currentChar.id)
             .map(c => `${c.posicao.row}_${c.posicao.col}`)
@@ -602,13 +582,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
         setPendingMove({ row, col })
       }
-    } else if (subPhaseRef.current === 'acao') {
-      if (subPhaseStepRef.current === 'escolher_alvo' && attackCellsRef.current.some(c => c.row === row && c.col === col)) {
+    } else if (subPhase === 'acao') {
+      if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
         if (target) executarAtaque(target)
       }
     }
-  }
+  }, [
+    isPlayerTurn, iaThinking, hexSize, cols, rows, subPhase, subPhaseStep,
+    currentChar, radialMenu, highlightedCells, attackCells, characters, obstaculos,
+  ])
+
+  const handleTouch = useCallback((e) => {
+    if (e.cancelable) e.preventDefault()
+    const touch = e.changedTouches[0]
+    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
+  }, [handleCanvasClick])
 
   function moverPersonagem(row, col) {
     if (!currentChar || animating) return
