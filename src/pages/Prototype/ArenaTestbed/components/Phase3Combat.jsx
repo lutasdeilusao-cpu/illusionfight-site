@@ -85,6 +85,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const offsetRef = useRef({ x: 0, y: 0 })
   const executarAtaqueRef = useRef(null)
   const moverPersonagemRef = useRef(null)
+  const winnerRef = useRef(null)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -466,7 +467,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current
-    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinking) return
+    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinking || winnerRef.current) return
     const rect = canvas.getBoundingClientRect()
     const scaleX = canvas.width / rect.width
     const scaleY = canvas.height / rect.height
@@ -692,7 +693,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!canvas) return
     const rect = canvas.getBoundingClientRect()
     const sz = sizeRef.current
-    const center = hexCenter(row, col, offsetRef.current.x || sz * 1.5, offsetRef.current.y || sz * SQRT3, sz)
+    const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
     const scaleX = rect.width / canvas.width
     const scaleY = rect.height / canvas.height
     const containerRect = canvasContainerRef.current?.getBoundingClientRect()
@@ -873,6 +874,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     animatingRef.current = false
     setD6Result(null)
     clearAnimTimers()
+
+    if (winnerRef.current) return
+
     const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
     if (hpAtual <= 0) {
       charsRef.current = charsRef.current.map(c =>
@@ -921,8 +925,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const chars = charsRef.current
     const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
     const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
-    if (pVivos.length === 0) { setWinner('ia'); setPhase('resultado'); anunciar(t('prototype.arena_testbed.announce_defeat'), 3000, 'ia'); addLog('🏆 IA venceu a partida!'); return true }
-    if (iVivos.length === 0) { setWinner('jogador'); setPhase('resultado'); anunciar(t('prototype.arena_testbed.announce_victory'), 3000, 'vitoria'); addLog('🏆 Jogador venceu a partida!'); return true }
+    if (pVivos.length === 0) {
+      winnerRef.current = 'ia'
+      setWinner('ia')
+      setPhase('resultado')
+      anunciar(t('prototype.arena_testbed.announce_defeat'), 3000, 'ia')
+      addLog('🏆 IA venceu a partida!')
+      return true
+    }
+    if (iVivos.length === 0) {
+      winnerRef.current = 'jogador'
+      setWinner('jogador')
+      setPhase('resultado')
+      anunciar(t('prototype.arena_testbed.announce_victory'), 3000, 'vitoria')
+      addLog('🏆 Jogador venceu a partida!')
+      return true
+    }
     return false
   }
 
@@ -1045,6 +1063,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setRangeCells(rangeCellsIA)
         setAttackCells([])
         const callbackFinal = () => {
+          if (winnerRef.current) { finalizarTurnoIA(); return }
           setProjectilePos(null)
           setProjectilePath([])
           if (res.criticoDefensivo) {
