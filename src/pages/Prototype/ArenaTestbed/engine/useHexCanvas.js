@@ -120,10 +120,6 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const padX = Math.round((containerW - gridSpan) / 2)
   const padY = Math.round((containerH - totalH) / 2 + hexH / 2)
 
-  console.log(
-    `[HEX] cols:${cols} rows:${rows} sz:${sz} padX:${padX} padY:${padY} grid:${gridW.toFixed(0)}x${gridH.toFixed(0)} fill:${((gridW/containerW)*100).toFixed(0)}%w ${((gridH/containerH)*100).toFixed(0)}%h`
-  )
-
   if (containerW <= 0 || containerH <= 0) return
 
   canvas.width = containerW

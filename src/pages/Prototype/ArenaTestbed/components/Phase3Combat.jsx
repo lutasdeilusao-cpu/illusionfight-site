@@ -21,7 +21,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const trailRef = useRef([])
   const rafRef = useRef(null)
 
-  const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
+  const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = true } = boardState
 
   const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
           hexCenter, hexCorner, pixelToHex,
@@ -150,16 +150,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }
 
-  function logEstadoTurno(origem) {
+  function logEstadoTurno(origem, orderLocal, idxLocal) {
     const chars = charsRef.current
-    const order = orderRef.current
-    const turnIdx = turnRef.current
-    const ativo = chars.find(c => c.id === order[turnIdx])
+    const ativo = chars.find(c => c.id === orderLocal[idxLocal])
     console.log(
       `[TURNO:${origem}] ativo=${ativo?.nome}(${ativo?.time})` +
-      ` turnoAcoes será resetado` +
       ` | vivos: ${chars.filter(c => c.vivo).map(c => `${c.nome}(hp=${c.hp})`).join(', ')}` +
-      ` | order=[${order.join(',')}] idx=${turnIdx}`
+      ` | order=[${orderLocal.join(',')}] idx=${idxLocal}`
     )
   }
 
@@ -172,7 +169,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
       setTimeout(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
-      logEstadoTurno('startPlayerTurn')
+      logEstadoTurno('startPlayerTurn', order, startIndex)
       setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
@@ -802,6 +799,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     clearAnimTimers()
     if (resultado.criticoDefensivo) {
       addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
+      adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
     } else {
       const danoFinal = Math.max(1, resultado.dano || 1)
       aplicarDano(alvo.id, danoFinal, atacante)
@@ -984,7 +982,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
       setTimeout(() => executarIA(nextChar), 1000)
     } else if (nextChar) {
-      logEstadoTurno('finalizarTurno')
+      logEstadoTurno('finalizarTurno', order, nextIdx)
       setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
@@ -1067,6 +1065,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual, agiUmPraUm)
+      console.log(`[IA:acao] tipo=${dec2.tipo} podeAtacar=${dec2.tipo === 'atacar'} iaPos=(${iaAtual2.posicao?.row},${iaAtual2.posicao?.col}) alvo=${dec2.detalhes?.alvo?.nome} alvoPos=(${dec2.detalhes?.alvo?.posicao?.row},${dec2.detalhes?.alvo?.posicao?.col})`)
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
@@ -1086,6 +1085,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           if (res.criticoDefensivo) {
             addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
             adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
+            adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
           } else {
             const danoFinal = Math.max(1, res.dano || 1)
             aplicarDano(alvo.id, danoFinal, atacante)
@@ -1145,7 +1145,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setPhase('enemy_turn')
         setAnimTimer(() => executarIA(nextChar3), 1800)
       } else if (nextChar3) {
-        logEstadoTurno('finalizarTurnoIA')
+        logEstadoTurno('finalizarTurnoIA', order3, nextIdx3)
         setPhase(null)
         setTurnoAcoes({ moveu: false, atacou: false })
         setSubPhase('free')
@@ -1251,15 +1251,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             {iaThinking && ` · ${t('prototype.arena_testbed.ia_thinking_short')}`}
           </span>
         </div>
-        {isPlayerTurn && !iaThinking && (
-          <>
-            {subPhase === 'acao' ? (
-              <button className="atb-top-cancel" onClick={cancelarAcao}>✕</button>
-            ) : (
-              <button className="atb-top-end-turn" onClick={finalizarTurno} title={t('prototype.arena_testbed.end_turn')}>⏭</button>
-            )}
-          </>
-        )}
         <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
       </div>
 
@@ -1312,9 +1303,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         {isPlayerTurn && !iaThinking ? (
           <>
             {subPhase === 'free' && (
-              <span className="atb-phase-hint">
-                {actionPanel ? '' : t('prototype.arena_testbed.free_hint')}
-              </span>
+              <>
+                <span className="atb-phase-hint">
+                  {actionPanel ? '' : t('prototype.arena_testbed.free_hint')}
+                </span>
+                <button className="atb-action-btn atb-action-btn--end" onClick={finalizarTurno}>
+                  ⏭ {t('prototype.arena_testbed.end_turn')}
+                </button>
+              </>
             )}
 
             {subPhase === 'movimento' && (
