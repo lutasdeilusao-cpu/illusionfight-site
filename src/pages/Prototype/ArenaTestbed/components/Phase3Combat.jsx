@@ -312,8 +312,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const sz = Math.max(18, Math.min(36, Math.min(byWidth, byHeight)))
     const PAD = sz
 
-    const gridW = cols * sz * 1.5 + sz * 0.75
-    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+    const gridW = (cols - 1) * sz * 1.5 + sz * 2
+    const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
 
     const padX = Math.round((containerW - gridW) / 2)
     const padY = Math.round((containerH - gridH) / 2)
