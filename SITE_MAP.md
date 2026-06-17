@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.8** | Site — recalc mede parent (padding descontado) + denominadores corrigidos |
+| `SITE_VERSION` | **10.156.9** | Site — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -544,9 +544,9 @@
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
-| `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
+| `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **1.0.0** | Morto em Jaime — 3v3 RPG engine (teste bege) |
-| `ARENATESTBED_VERSION` | **1.10.8** | Arena Testbed — recalc mede parent (padding descontado) + denominadores corrigidos |
+| `ARENATESTBED_VERSION` | **1.10.9** | Arena Testbed — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 
 ---
 

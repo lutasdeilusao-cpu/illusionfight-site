@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.156.8'
+export const SITE_VERSION = '10.156.9'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -20,9 +20,9 @@ export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
-export const TATICS_VERSION    = '7.4.0'  // Arena LDI Tatics (tagline i18n pt/en/es: "Já pensou em jogar Pokémon...?")
+export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const MORTO_VERSION = '1.0.0' // Morto em Jaime — 3v3 RPG engine (teste bege)
-export const ARENATESTBED_VERSION = '1.10.8' // Arena Testbed — recalc mede parent (padding descontado) + denominadores corrigidos
+export const ARENATESTBED_VERSION = '1.10.9' // Arena Testbed — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

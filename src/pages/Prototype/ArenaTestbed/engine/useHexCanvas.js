@@ -64,9 +64,10 @@ function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
   const byHeight = Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
-  const gridW = (cols - 1) * sz * 1.5 + sz * 2
+  const gridSpan = (cols - 1) * sz * 1.5
+  const gridW = gridSpan + sz * 2
   const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-  const padX = Math.round((containerW - gridW) / 2)
+  const padX = Math.round((containerW - gridSpan) / 2)
   const padY = Math.round((containerH - gridH) / 2)
   return { hexSize: sz, padX, padY, gridW, gridH }
 }
@@ -105,9 +106,10 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
   const byHeight = Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
-  const gridW = (cols - 1) * sz * 1.5 + sz * 2
+  const gridSpan = (cols - 1) * sz * 1.5
+  const gridW = gridSpan + sz * 2
   const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-  const padX = Math.round((containerW - gridW) / 2)
+  const padX = Math.round((containerW - gridSpan) / 2)
   const padY = Math.round((containerH - gridH) / 2)
 
   console.group('%c[HEXCANVAS RECALC]', 'color: #00eeff; font-weight: bold; font-size: 13px')
