@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.133.0** | Site — sz limitado ao container, canvas nunca overflow |
+| `SITE_VERSION` | **10.136.0** | Site — fórmula exata PAD + logs diagnóstico draw |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -546,7 +546,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
 | `MORTO_VERSION` | **1.0.0** | Morto em Jaime — 3v3 RPG engine (teste bege) |
-| `ARENATESTBED_VERSION` | **1.6.1** | Arena Testbed — sz limitado ao container, canvas nunca overflow |
+| `ARENATESTBED_VERSION` | **1.6.4** | Arena Testbed — fórmula exata PAD + logs diagnóstico draw |
 
 ---
 

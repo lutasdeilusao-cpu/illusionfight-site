@@ -77,6 +77,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const angleRef = useRef(0)
   const trailRef = useRef([])
   const rafRef = useRef(null)
+  const lastDrawDebugRef = useRef('')
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
@@ -134,8 +135,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const hudH = document.querySelector('.atb-hud')?.offsetHeight || 52
       const navH = document.querySelector('.atb-bottom-nav')?.offsetHeight || 52
       const containerH = el.clientHeight > 50 ? el.clientHeight : (window.innerHeight - topH - hudH - navH)
-      const sizeByWidth = Math.floor((containerW / (cols + 0.5)) / SQRT3)
-      const sizeByHeight = Math.floor((containerH / (rows * 1.5 + 0.5)))
+      const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75 + 2))
+      const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2))
       const size = Math.min(sizeByWidth, sizeByHeight)
       setHexSize(Math.max(18, Math.min(36, size)))
     }
@@ -297,8 +298,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const container = canvasContainerRef.current
     const containerW = container ? container.clientWidth : 400
     const containerH = container ? container.clientHeight : 300
-    const sizeByWidth = Math.floor((containerW / (cols + 0.5)) / SQRT3)
-    const sizeByHeight = Math.floor((containerH / (rows * 1.5 + 0.5)))
+    const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75 + 2))
+    const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2))
     const sz = Math.max(18, Math.min(hexSize, sizeByWidth, sizeByHeight))
     const w = sz * 1.5
     const h = sz * SQRT3
@@ -307,6 +308,23 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const gridH = rows * h + h / 2 + PAD * 2
     const offsetX = PAD
     const offsetY = PAD
+
+    const debugKey = `${containerW}x${containerH}|sz${sz}|gw${Math.round(gridW)}|gh${Math.round(gridH)}`
+    if (debugKey !== lastDrawDebugRef.current) {
+      lastDrawDebugRef.current = debugKey
+      console.log('[DRAW DEBUG]',
+        '\n  containerW:', containerW, '| containerH:', containerH,
+        '\n  cols:', cols, '| rows:', rows,
+        '\n  PAD:', sz,
+        '\n  sizeByWidth calc:', containerW / (cols * 1.5 + 0.75 + 2),
+        '\n  sizeByHeight calc:', containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2),
+        '\n  sz final:', sz,
+        '\n  gridW:', Math.round(gridW), '(deveria ser <=', containerW, ')',
+        '\n  gridH:', Math.round(gridH), '(deveria ser <=', containerH, ')',
+        '\n  gridW > containerW?', gridW > containerW,
+        '\n  gridH > containerH?', gridH > containerH,
+      )
+    }
 
     const newW = Math.round(gridW)
     const newH = Math.round(gridH)
