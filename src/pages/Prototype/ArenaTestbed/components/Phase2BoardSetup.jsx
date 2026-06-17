@@ -110,8 +110,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
     const sz = Math.max(14, Math.min(40, Math.min(byWidth, byHeight)))
 
-    const gridW = cols * sz * 1.5 + sz * 0.75
-    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+const gridW = (cols - 1) * sz * 1.5 + sz * 2
+const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
 
     const padX = Math.round((containerW - gridW) / 2)
     const padY = Math.round((containerH - gridH) / 2)
@@ -233,8 +233,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
       Math.floor(canvas.width / (cols * 1.5 + 0.75)),
       Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
     )))
-    const gridW = cols * sz * 1.5 + sz * 0.75
-    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+const gridW = (cols - 1) * sz * 1.5 + sz * 2
+const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
     const padX = Math.round((canvas.width - gridW) / 2)
     const padY = Math.round((canvas.height - gridH) / 2)
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
@@ -303,8 +303,8 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
       Math.floor(canvas.width / (cols * 1.5 + 0.75)),
       Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
     )))
-    const gridW = cols * sz * 1.5 + sz * 0.75
-    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+const gridW = (cols - 1) * sz * 1.5 + sz * 2
+const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
     const padX = Math.round((canvas.width - gridW) / 2)
     const padY = Math.round((canvas.height - gridH) / 2)
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
