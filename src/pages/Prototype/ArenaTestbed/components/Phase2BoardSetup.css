@@ -192,6 +192,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
 }
 
 .p2-canvas-wrap {
@@ -205,6 +206,7 @@
   background: var(--ldi-bg);
   background-image: radial-gradient(ellipse at 50% 40%, #0d1030 0%, #05060f 100%);
   overflow: hidden;
+  min-height: 0;
   position: relative;
 }
 

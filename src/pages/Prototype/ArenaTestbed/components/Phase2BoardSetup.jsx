@@ -201,6 +201,14 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
 
   useEffect(() => { draw() }, [draw])
 
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const observer = new ResizeObserver(() => draw())
+    observer.observe(canvas)
+    return () => observer.disconnect()
+  }, [draw])
+
   const allPlaced = useMemo(() => {
     return boardChars.length === characters.length
   }, [boardChars, characters])
