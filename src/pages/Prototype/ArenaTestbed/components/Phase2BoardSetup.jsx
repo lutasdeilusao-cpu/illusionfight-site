@@ -258,14 +258,14 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
                 onClick={() => setTool('select')}
               >
                 <span className="p2-tool-icon">👆</span>
-                {t('prototype.arena_testbed.tool_select')}
+                <span className="p2-btn-label">{t('prototype.arena_testbed.tool_select')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'eraser' ? 'active' : ''}`}
                 onClick={() => setTool('eraser')}
               >
                 <span className="p2-tool-icon">🧹</span>
-                {t('prototype.arena_testbed.tool_eraser')}
+                <span className="p2-btn-label">{t('prototype.arena_testbed.tool_eraser')}</span>
               </button>
             </div>
           </div>
@@ -280,7 +280,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
                   onClick={() => setTool(`obs${ot.id}`)}
                 >
                   <span className="p2-tool-icon">{ot.icon}</span>
-                  {t(ot.labelKey)}
+                  <span className="p2-btn-label">{t(ot.labelKey)}</span>
                 </button>
               ))}
             </div>
@@ -294,14 +294,14 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
                 onClick={() => setTool('item_hp')}
               >
                 <span className="p2-tool-icon">❤️</span>
-                {t('prototype.arena_testbed.label_hp')}
+                <span className="p2-btn-label">{t('prototype.arena_testbed.label_hp')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'item_mp' ? 'active' : ''}`}
                 onClick={() => setTool('item_mp')}
               >
                 <span className="p2-tool-icon">💧</span>
-                {t('prototype.arena_testbed.label_mp')}
+                <span className="p2-btn-label">{t('prototype.arena_testbed.label_mp')}</span>
               </button>
             </div>
           </div>

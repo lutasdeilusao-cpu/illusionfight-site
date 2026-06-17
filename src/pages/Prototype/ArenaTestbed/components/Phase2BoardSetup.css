@@ -185,8 +185,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
   padding: 12px;
   background: var(--ldi-bg);
   background-image: radial-gradient(ellipse at 50% 40%, #0d1030 0%, #05060f 100%);
@@ -363,7 +363,7 @@
   aspect-ratio: 1;
 }
 
-.p2-root.portrait .p2-tool-btn span:not(.p2-tool-icon) {
+.p2-root.portrait .p2-btn-label {
   display: none;
 }
 
