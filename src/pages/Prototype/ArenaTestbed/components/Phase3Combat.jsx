@@ -141,9 +141,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setHexSize(Math.max(18, Math.min(36, size)))
       const canvas = canvasRef.current
       if (canvas) {
-        const PAD = Math.max(8, Math.min(14, size))
-        const w = PAD * 1.5
-        const h = PAD * SQRT3
+        const sz = Math.max(18, Math.min(36, size))
+        const w = sz * 1.5
+        const h = sz * SQRT3
+        const PAD = sz
         const newW = Math.round(cols * w + w / 2 + PAD * 2)
         const newH = Math.round(rows * h + h / 2 + PAD * 2)
         canvas.width = newW
