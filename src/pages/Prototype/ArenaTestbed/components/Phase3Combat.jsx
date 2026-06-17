@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import {
-  resolverAtaque, resolverContraAtaque, rolarD6,
+  resolverAtaque, resolverContraAtaque, rolarD6, calcularFD,
   getCasasMovimento, getChanceAcerto,
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
@@ -970,12 +970,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_extra'), '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
-    const danoExtra = Math.max(1, Math.round(faExtra - (alvo.arm + alvo.agi * 0.25)))
-    if (danoExtra > 0) {
-      aplicarDano(alvo.id, danoExtra, atacante)
+
+    const d6Def = rolarD6()
+    const isCriticoDefExtra = d6Def === 6
+    const fd = calcularFD(alvo, isCriticoDefExtra, d6Def)
+    addLog(`  🎲 ${alvo.nome} FD extra: ARM=${alvo.arm} AGI=${alvo.agi} d6=${d6Def}${isCriticoDefExtra ? ' [CRÍTICO DEFENSIVO]' : ''} → FD=${fd}`)
+
+    if (isCriticoDefExtra) {
+      addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
+      adicionarFloatTexto(alvo.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
+      finalizarAposAtaque(alvo, { dano: 0 })
+    } else {
+      const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
+      aplicarDano(alvo.id, danoExtra, atacante)
+      finalizarAposAtaque(alvo, { dano: danoExtra })
     }
-    finalizarAposAtaque(alvo, { dano: danoExtra })
   }
 
   function finalizarAposAtaque(alvo, resultado) {
