@@ -24,7 +24,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
-  const { recalc, getCellAt, getHexCenter, drawHex, hexCenter, hexCorner, pixelToHex } = useHexCanvas({
+  const { recalc, calcVersion, getCellAt, getHexCenter, drawHex, hexCenter, hexCorner, pixelToHex } = useHexCanvas({
     canvasRef, cols, rows, minSz: 18, maxSz: 36,
   })
 
@@ -578,7 +578,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
     rafRef.current = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(rafRef.current)
-  }, [draw])
+  }, [draw, calcVersion])
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current

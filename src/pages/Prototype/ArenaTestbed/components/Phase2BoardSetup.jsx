@@ -13,7 +13,7 @@ const OBSTACLE_TYPES = [
 export default function Phase2BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
-  const { hexSize, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
+  const { hexSize, calcVersion, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
     canvasRef, cols: 7, rows: 11, minSz: 14, maxSz: 40,
   })
 
@@ -139,7 +139,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
     }
   }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, hexCenter, drawHex, padRef, sizeRef])
 
-  useEffect(() => { draw() }, [draw])
+  useEffect(() => { draw() }, [draw, calcVersion])
 
   const allPlaced = useMemo(() => {
     return boardChars.length === characters.length

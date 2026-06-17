@@ -73,6 +73,7 @@ function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
 
 export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz = 40 }) {
   const [hexSize, setHexSize] = useState(30)
+  const [calcVersion, setCalcVersion] = useState(0)
   const padRef = useRef({ x: 0, y: 0 })
   const sizeRef = useRef(30)
 
@@ -92,6 +93,7 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
     setHexSize(sz)
     sizeRef.current = sz
     padRef.current = { x: padX, y: padY }
+    setCalcVersion(v => v + 1)
   }, [canvasRef, cols, rows, minSz, maxSz])
 
   useEffect(() => {
@@ -135,6 +137,7 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
 
   return {
     hexSize,
+    calcVersion,
     recalc,
     getCanvasPoint,
     getCellAt,
