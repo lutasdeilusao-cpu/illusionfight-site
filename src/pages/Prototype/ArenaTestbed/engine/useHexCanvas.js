@@ -62,17 +62,17 @@ function pixelToHex(px, py, cols, rows, padX, padY, size) {
 
 function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
-  const byHeight = Math.floor(containerH / (rows * SQRT3))
+  const byHeight = cols > 1
+    ? Math.floor(containerH / (rows * SQRT3 + SQRT3 / 2))
+    : Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridSpan = (cols - 1) * sz * 1.5
   const gridW = gridSpan + sz * 2
   const hexH = sz * SQRT3
-  const gridSpanH = (rows - 1) * hexH
-  const extraBottom = cols > 1 ? hexH / 2 : 0
-  const totalSpan = gridSpanH + extraBottom
-  const gridH = gridSpanH + hexH
+  const totalH = rows * hexH + (cols > 1 ? hexH / 2 : 0)
+  const gridH = rows * hexH
   const padX = Math.round((containerW - gridSpan) / 2)
-  const padY = Math.round((containerH - totalSpan) / 2)
+  const padY = Math.round((containerH - totalH) / 2 + hexH / 2)
   return { hexSize: sz, padX, padY, gridW, gridH }
 }
 
@@ -108,17 +108,17 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const containerH = Math.round(parent.clientHeight - pPadTop - pPadBottom)
 
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
-  const byHeight = Math.floor(containerH / (rows * SQRT3))
+  const byHeight = cols > 1
+    ? Math.floor(containerH / (rows * SQRT3 + SQRT3 / 2))
+    : Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridSpan = (cols - 1) * sz * 1.5
   const gridW = gridSpan + sz * 2
   const hexH = sz * SQRT3
-  const gridSpanH = (rows - 1) * hexH
-  const extraBottom = cols > 1 ? hexH / 2 : 0
-  const totalSpan = gridSpanH + extraBottom
-  const gridH = gridSpanH + hexH
+  const totalH = rows * hexH + (cols > 1 ? hexH / 2 : 0)
+  const gridH = rows * hexH
   const padX = Math.round((containerW - gridSpan) / 2)
-  const padY = Math.round((containerH - totalSpan) / 2)
+  const padY = Math.round((containerH - totalH) / 2 + hexH / 2)
 
   console.log(
     `[HEX] cols:${cols} rows:${rows} sz:${sz} padX:${padX} padY:${padY} grid:${gridW.toFixed(0)}x${gridH.toFixed(0)} fill:${((gridW/containerW)*100).toFixed(0)}%w ${((gridH/containerH)*100).toFixed(0)}%h`
