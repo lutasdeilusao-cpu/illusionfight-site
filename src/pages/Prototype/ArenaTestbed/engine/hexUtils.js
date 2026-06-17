@@ -12,15 +12,15 @@ const SQRT3 = Math.sqrt(3)
 // offset: { row, col }  |  cubo: { q, r, s }
 
 function offsetToCubo(row, col) {
-  const q = col - Math.floor(row / 2)
-  const r = row
+  const q = col
+  const r = row - (col - (col & 1)) / 2
   const s = -q - r
   return { q, r, s }
 }
 
 function cuboToOffset(q, r) {
-  const col = q + Math.floor(r / 2)
-  const row = r
+  const col = q
+  const row = r + (q - (q & 1)) / 2
   return { row, col }
 }
 
@@ -73,9 +73,9 @@ export function distanciaHex(a, b) {
 // ── Vizinhos ────────────────────────────────────────────
 
 export function getVizinhos(row, col, cols, rows) {
-  const dirs = row % 2 === 0
-    ? [[-1, -1], [-1, 0], [0, -1], [0, 1], [1, -1], [1, 0]]
-    : [[-1, 0], [-1, 1], [0, -1], [0, 1], [1, 0], [1, 1]]
+  const dirs = col % 2 === 0
+    ? [[-1, 0], [1, 0], [-1, -1], [0, -1], [-1, 1], [0, 1]]
+    : [[-1, 0], [1, 0], [0, -1], [1, -1], [0, 1], [1, 1]]
   const neighbors = []
   for (const [dr, dc] of dirs) {
     const nr = row + dr

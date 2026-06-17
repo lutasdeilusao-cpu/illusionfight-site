@@ -695,8 +695,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const center = hexCenter(row, col, offsetRef.current.x || sz * 1.5, offsetRef.current.y || sz * SQRT3, sz)
     const scaleX = rect.width / canvas.width
     const scaleY = rect.height / canvas.height
-    const balaoX = center.x * scaleX + rect.left
-    const balaoY = center.y * scaleY + rect.top - sz * 0.8
+    const containerRect = canvasContainerRef.current?.getBoundingClientRect()
+    const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
+    const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
     const key = Date.now() + Math.random()
     setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
     setTimeout(() => {
@@ -1215,11 +1216,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         </div>
         {isPlayerTurn && !iaThinking && (
           <>
-            {subPhase === 'movimento' && pendingMove ? (
-              <button className="atb-top-confirm" onClick={confirmarMovimento}>✓</button>
-            ) : subPhase === 'movimento' && !pendingMove ? (
-              <button className="atb-top-cancel" onClick={cancelarAcao}>✕</button>
-            ) : subPhase === 'acao' ? (
+            {subPhase === 'acao' ? (
               <button className="atb-top-cancel" onClick={cancelarAcao}>✕</button>
             ) : (
               <button className="atb-top-end-turn" onClick={finalizarTurno} title={t('prototype.arena_testbed.end_turn')}>⏭</button>
@@ -1284,11 +1281,20 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             )}
 
             {subPhase === 'movimento' && (
-              <span className="atb-phase-hint">
-                {pendingMove
-                  ? t('prototype.arena_testbed.move_confirm_hint', { row: pendingMove.row, col: pendingMove.col })
-                  : t('prototype.arena_testbed.move_select_hint')}
-              </span>
+              <>
+                {pendingMove ? (
+                  <>
+                    <button className="atb-action-btn atb-action-btn--confirm" onClick={confirmarMovimento}>
+                      ✓ {t('prototype.arena_testbed.btn_confirm_move')}
+                    </button>
+                    <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                      ✕ {t('prototype.arena_testbed.btn_cancel')}
+                    </button>
+                  </>
+                ) : (
+                  <span className="atb-phase-hint">{t('prototype.arena_testbed.move_select_hint')}</span>
+                )}
+              </>
             )}
 
             {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (

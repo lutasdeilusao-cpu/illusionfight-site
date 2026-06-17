@@ -66,28 +66,6 @@
   background: rgba(0, 238, 255, 0.12);
 }
 
-.atb-top-confirm {
-  background: #00ff88;
-  border: none;
-  border-radius: 4px;
-  color: #000;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-  transition: box-shadow 0.15s;
-}
-.atb-top-confirm:hover {
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
-}
-
 .atb-top-cancel {
   background: none;
   border: 1px solid #ff2244;
