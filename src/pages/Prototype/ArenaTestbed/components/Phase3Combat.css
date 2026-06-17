@@ -138,6 +138,7 @@
 }
 
 .atb-canvas-wrap {
+  border: 6px solid red;
   position: relative;
   flex: 1;
   min-height: 0;
@@ -170,6 +171,7 @@
 }
 
 .atb-canvas {
+  border: 6px solid lime;
   display: block;
   cursor: pointer;
   z-index: 2;
