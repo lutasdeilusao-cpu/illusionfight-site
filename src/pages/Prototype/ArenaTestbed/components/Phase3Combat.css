@@ -261,6 +261,7 @@
 .atb-balloon--block  { color: var(--ldi-cyan); font-family: var(--ldi-font-hud); font-size: 14px; }
 .atb-balloon--extra  { color: var(--ldi-gold); font-family: var(--ldi-font-hud); font-size: 14px; }
 .atb-balloon--contra { color: #ff8800; font-family: var(--ldi-font-hud); font-size: 14px; }
+.atb-balloon--miss   { color: #aaaaaa; font-family: var(--ldi-font-hud); font-size: 16px; }
 
 @keyframes atb-balloon-float {
   0% {
@@ -430,6 +431,13 @@
   color: var(--ldi-cyan);
   min-width: 40px;
   flex: 0;
+}
+
+.atb-action-btn--end-turn {
+  flex: 0 0 auto;
+  min-width: 140px;
+  border-color: var(--ldi-cyan);
+  color: var(--ldi-cyan);
 }
 
 .atb-action-btn--skip {

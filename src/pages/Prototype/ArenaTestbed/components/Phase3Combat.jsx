@@ -177,6 +177,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setAttackCells([])
       setRangeCells([])
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
+      setTimeout(() => {
+        anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+      }, 2200)
     }
   }
 
@@ -803,7 +806,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     } else {
       const danoFinal = Math.max(1, resultado.dano || 1)
       aplicarDano(alvo.id, danoFinal, atacante)
-      addLog(`  💥 ${alvo.nome} ${t('prototype.arena_testbed.log_receives_damage', { dano: danoFinal })}`)
+      addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
     }
     if (resultado.criticoDefensivo) {
       adicionarFloatTexto(alvo.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
@@ -990,6 +993,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setAttackCells([])
       setRangeCells([])
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
+      setTimeout(() => {
+        anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+      }, 2200)
     }
   }
 
@@ -1089,7 +1095,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           } else {
             const danoFinal = Math.max(1, res.dano || 1)
             aplicarDano(alvo.id, danoFinal, atacante)
-            addLog(`  💥 ${alvo.nome} ${t('prototype.arena_testbed.log_receives_damage', { dano: danoFinal })}`)
+            addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
           }
           const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
@@ -1124,6 +1130,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }, 1200)
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
+        const logErrou = dec2.logs.find(l => l.includes('errou'))
+        if (logErrou) {
+          const inimigosVivos = charsRef.current.filter(c => c.vivo && c.time === 'jogador')
+          if (inimigosVivos.length > 0) {
+            const alvoMiss = inimigosVivos[0]
+            adicionarBalao(alvoMiss.id, 'MISS!', 'miss', alvoMiss.posicao?.row, alvoMiss.posicao?.col)
+          }
+        }
         setAnimTimer(finalizarTurnoIA, 500)
       }
     }
@@ -1152,6 +1166,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        setTimeout(() => {
+          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+        }, 2200)
       }
     }
   }
@@ -1303,14 +1321,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         {isPlayerTurn && !iaThinking ? (
           <>
             {subPhase === 'free' && (
-              <>
-                <span className="atb-phase-hint">
-                  {actionPanel ? '' : t('prototype.arena_testbed.free_hint')}
-                </span>
-                <button className="atb-action-btn atb-action-btn--end" onClick={finalizarTurno}>
-                  ⏭ {t('prototype.arena_testbed.end_turn')}
-                </button>
-              </>
+              <button className="atb-action-btn atb-action-btn--end-turn" onClick={finalizarTurno}>
+                ⏭ {t('prototype.arena_testbed.end_turn')}
+              </button>
             )}
 
             {subPhase === 'movimento' && (
