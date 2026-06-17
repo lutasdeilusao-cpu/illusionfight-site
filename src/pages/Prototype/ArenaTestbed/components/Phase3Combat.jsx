@@ -324,6 +324,18 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         '\n  gridW > containerW?', gridW > containerW,
         '\n  gridH > containerH?', gridH > containerH,
       )
+      const canvasRect = canvas.getBoundingClientRect()
+      const wrapRect = canvasContainerRef.current?.getBoundingClientRect()
+      console.log('[DRAW POSITION]',
+        '\n  canvas.getBoundingClientRect:',
+          `left=${canvasRect.left.toFixed(1)} top=${canvasRect.top.toFixed(1)} width=${canvasRect.width.toFixed(1)} height=${canvasRect.height.toFixed(1)}`,
+        '\n  wrap.getBoundingClientRect:',
+          wrapRect ? `left=${wrapRect.left.toFixed(1)} top=${wrapRect.top.toFixed(1)} width=${wrapRect.width.toFixed(1)} height=${wrapRect.height.toFixed(1)}` : 'N/A',
+        '\n  canvas.offsetLeft:', canvas.offsetLeft,
+        '\n  canvas.offsetTop:', canvas.offsetTop,
+        '\n  canvas.offsetParent tag:', canvas.offsetParent?.tagName,
+        '\n  canvas.offsetParent class:', canvas.offsetParent?.className,
+      )
     }
 
     const newW = Math.round(gridW)
