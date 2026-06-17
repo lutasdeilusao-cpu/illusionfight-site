@@ -78,23 +78,82 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const sizeRef = useRef(30)
 
   const recalc = useCallback(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const parent = canvas.parentElement
-    if (!parent) return
-    const containerW = parent.clientWidth
-    const containerH = parent.clientHeight
-    if (containerW <= 0 || containerH <= 0) return
+  const canvas = canvasRef.current
+  if (!canvas) return
+  const parent = canvas.parentElement
+  if (!parent) return
 
-    canvas.width = containerW
-    canvas.height = containerH
+  const parentW = parent.clientWidth
+  const parentH = parent.clientHeight
+  const parentRect = parent.getBoundingClientRect()
+  const canvasRect = canvas.getBoundingClientRect()
+  const parentStyle = window.getComputedStyle(parent)
+  const canvasStyle = window.getComputedStyle(canvas)
 
-    const { hexSize: sz, padX, padY } = calcGridProps(containerW, containerH, cols, rows, minSz, maxSz)
-    setHexSize(sz)
-    sizeRef.current = sz
-    padRef.current = { x: padX, y: padY }
-    setCalcVersion(v => v + 1)
-  }, [canvasRef, cols, rows, minSz, maxSz])
+  const containerW = parent.clientWidth
+  const containerH = parent.clientHeight
+
+  const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+  const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+  const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
+  const gridW = (cols - 1) * sz * 1.5 + sz * 2
+  const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
+  const padX = Math.round((containerW - gridW) / 2)
+  const padY = Math.round((containerH - gridH) / 2)
+
+  console.group('%c[HEXCANVAS RECALC]', 'color: #00eeff; font-weight: bold; font-size: 13px')
+
+  console.group('📦 PARENT (.p2-canvas-wrap)')
+  console.log('clientWidth:', parentW, '| clientHeight:', parentH)
+  console.log('getBoundingClientRect:', `left=${parentRect.left.toFixed(0)} top=${parentRect.top.toFixed(0)} w=${parentRect.width.toFixed(0)} h=${parentRect.height.toFixed(0)}`)
+  console.log('padding:', parentStyle.padding)
+  console.log('boxSizing:', parentStyle.boxSizing)
+  console.log('display:', parentStyle.display)
+  console.log('overflow:', parentStyle.overflow)
+  console.groupEnd()
+
+  console.group('🖼️ CANVAS')
+  console.log('canvas.width (attr):', canvas.width, '| canvas.height (attr):', canvas.height)
+  console.log('canvas.clientWidth:', canvas.clientWidth, '| canvas.clientHeight:', canvas.clientHeight)
+  console.log('getBoundingClientRect:', `left=${canvasRect.left.toFixed(0)} top=${canvasRect.top.toFixed(0)} w=${canvasRect.width.toFixed(0)} h=${canvasRect.height.toFixed(0)}`)
+  console.log('CSS width:', canvasStyle.width, '| CSS height:', canvasStyle.height)
+  console.log('display:', canvasStyle.display)
+  console.groupEnd()
+
+  console.group('📐 GRID INPUT')
+  console.log('cols:', cols, '| rows:', rows)
+  console.log('minSz:', minSz, '| maxSz:', maxSz)
+  console.log('containerW usado:', containerW, '| containerH usado:', containerH)
+  console.groupEnd()
+
+  console.group('🔢 CÁLCULO sz')
+  console.log('byWidth = floor(', containerW, '/ (', cols, '* 1.5 + 0.75)) =', byWidth)
+  console.log('byHeight = floor(', containerH, '/ (', rows, '* SQRT3 + SQRT3 * 0.5)) =', byHeight)
+  console.log('Math.min(byWidth, byHeight) =', Math.min(byWidth, byHeight))
+  console.log('LIMITANTE:', byWidth < byHeight ? 'LARGURA (byWidth)' : 'ALTURA (byHeight)')
+  console.log('sz FINAL:', sz)
+  console.groupEnd()
+
+  console.group('📏 GRID OUTPUT')
+  console.log('gridW:', gridW.toFixed(1), '| containerW:', containerW, '| sobra X:', (containerW - gridW).toFixed(1))
+  console.log('gridH:', gridH.toFixed(1), '| containerH:', containerH, '| sobra Y:', (containerH - gridH).toFixed(1))
+  console.log('padX:', padX, '| padY:', padY)
+  console.log('grid preenche largura:', ((gridW / containerW) * 100).toFixed(1) + '%')
+  console.log('grid preenche altura:', ((gridH / containerH) * 100).toFixed(1) + '%')
+  console.groupEnd()
+
+  console.groupEnd()
+
+  if (containerW <= 0 || containerH <= 0) return
+
+  canvas.width = containerW
+  canvas.height = containerH
+
+  setHexSize(sz)
+  sizeRef.current = sz
+  padRef.current = { x: padX, y: padY }
+  setCalcVersion(v => v + 1)
+}, [canvasRef, cols, rows, minSz, maxSz])
 
   useEffect(() => {
     recalc()
