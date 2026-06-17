@@ -90,17 +90,20 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const parentStyle = window.getComputedStyle(parent)
   const canvasStyle = window.getComputedStyle(canvas)
 
-  const rect = canvas.getBoundingClientRect()
-  const style = window.getComputedStyle(canvas)
-  const borderLeft = parseFloat(style.borderLeftWidth) || 0
-  const borderRight = parseFloat(style.borderRightWidth) || 0
-  const borderTop = parseFloat(style.borderTopWidth) || 0
-  const borderBottom = parseFloat(style.borderBottomWidth) || 0
-  const containerW = Math.round(rect.width - borderLeft - borderRight)
-  const containerH = Math.round(rect.height - borderTop - borderBottom)
+  const pStyle = window.getComputedStyle(parent)
+  const pBorderLeft = parseFloat(pStyle.borderLeftWidth) || 0
+  const pBorderRight = parseFloat(pStyle.borderRightWidth) || 0
+  const pBorderTop = parseFloat(pStyle.borderTopWidth) || 0
+  const pBorderBottom = parseFloat(pStyle.borderBottomWidth) || 0
+  const pPadLeft = parseFloat(pStyle.paddingLeft) || 0
+  const pPadRight = parseFloat(pStyle.paddingRight) || 0
+  const pPadTop = parseFloat(pStyle.paddingTop) || 0
+  const pPadBottom = parseFloat(pStyle.paddingBottom) || 0
+  const containerW = Math.round(parent.clientWidth - pPadLeft - pPadRight)
+  const containerH = Math.round(parent.clientHeight - pPadTop - pPadBottom)
 
-  const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-  const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+  const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
+  const byHeight = Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridW = (cols - 1) * sz * 1.5 + sz * 2
   const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
@@ -133,8 +136,8 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   console.groupEnd()
 
   console.group('🔢 CÁLCULO sz')
-  console.log('byWidth = floor(', containerW, '/ (', cols, '* 1.5 + 0.75)) =', byWidth)
-  console.log('byHeight = floor(', containerH, '/ (', rows, '* SQRT3 + SQRT3 * 0.5)) =', byHeight)
+  console.log('byWidth = floor(', containerW, '/ (', cols, '* 1.5 + 0.5)) =', byWidth)
+  console.log('byHeight = floor(', containerH, '/ (', rows, '* SQRT3)) =', byHeight)
   console.log('Math.min(byWidth, byHeight) =', Math.min(byWidth, byHeight))
   console.log('LIMITANTE:', byWidth < byHeight ? 'LARGURA (byWidth)' : 'ALTURA (byHeight)')
   console.log('sz FINAL:', sz)
