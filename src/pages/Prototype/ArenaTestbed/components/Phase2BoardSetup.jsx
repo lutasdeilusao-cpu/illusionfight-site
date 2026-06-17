@@ -3,6 +3,10 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import useHexCanvas from '../engine/useHexCanvas'
 import './Phase2BoardSetup.css'
 
+const OBS3_HP_OPTIONS = [1, 2, 3]
+const MAX_COLS = 10
+const MAX_ROWS = 15
+
 const OBSTACLE_TYPES = [
   { id: 1, labelKey: 'prototype.arena_testbed.obs1', icon: '🧱' },
   { id: 2, labelKey: 'prototype.arena_testbed.obs2', icon: '🕳️' },
@@ -14,7 +18,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const { hexSize, calcVersion, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
-    canvasRef, cols: 7, rows: 11, minSz: 14, maxSz: 40,
+    canvasRef, cols, rows, minSz: 14, maxSz: 40,
   })
 
   const [cols, setCols] = useState(7)
@@ -54,8 +58,6 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
     })
     setBoardChars(initial)
   }, [characters, cols, rows])
-
-  useEffect(() => { recalc() }, [recalc, cols, rows])
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current
@@ -310,9 +312,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
               <label>
                 <span>{t('prototype.arena_testbed.label_hp')}:</span>
                 <select value={obs3HP} onChange={e => setObs3HP(Number(e.target.value))}>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
+                  {OBS3_HP_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
                 </select>
               </label>
               <label>
@@ -374,7 +374,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
               <div className="p2-stepper">
                 <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => setCols(c => Math.max(1, c - 1))}>−</button>
                 <span className="p2-stepper-value">{cols}</span>
-                <button className="p2-stepper-btn" disabled={cols >= 10} onClick={() => setCols(c => Math.min(10, c + 1))}>+</button>
+                <button className="p2-stepper-btn" disabled={cols >= MAX_COLS} onClick={() => setCols(c => Math.min(MAX_COLS, c + 1))}>+</button>
               </div>
             </div>
             <div className="p2-stepper-group">
@@ -382,7 +382,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
               <div className="p2-stepper">
                 <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => setRows(r => Math.max(1, r - 1))}>−</button>
                 <span className="p2-stepper-value">{rows}</span>
-                <button className="p2-stepper-btn" disabled={rows >= 15} onClick={() => setRows(r => Math.min(15, r + 1))}>+</button>
+                <button className="p2-stepper-btn" disabled={rows >= MAX_ROWS} onClick={() => setRows(r => Math.min(MAX_ROWS, r + 1))}>+</button>
               </div>
             </div>
           </div>

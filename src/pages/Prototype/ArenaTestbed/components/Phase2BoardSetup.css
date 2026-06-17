@@ -336,10 +336,15 @@
   flex-direction: row;
   flex-wrap: nowrap;
   padding: 6px 8px;
-  gap: 6px;
+  gap: 4px;
   overflow-y: visible;
   overflow-x: auto;
   flex-shrink: 0;
+  align-items: center;
+}
+
+.p2-root.portrait .p2-left > div {
+  display: contents;
 }
 
 .p2-root.portrait .p2-section-label {
@@ -347,15 +352,13 @@
 }
 
 .p2-root.portrait .p2-tool-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
+  display: contents;
 }
 
 .p2-root.portrait .p2-tool-btn {
-  width: 44px;
-  height: 44px;
-  max-height: 44px;
+  width: 40px;
+  height: 40px;
+  max-height: 40px;
   flex-shrink: 0;
   aspect-ratio: 1;
 }
@@ -369,10 +372,12 @@
 }
 
 .p2-root.portrait .p2-chars-section {
-  flex-direction: row;
-  margin-top: 0;
-  align-self: center;
+  display: contents;
+}
+
+.p2-root.portrait .p2-char-chip {
   flex-shrink: 0;
+  padding: 4px 6px;
 }
 
 .p2-root.portrait .p2-tool-config {
