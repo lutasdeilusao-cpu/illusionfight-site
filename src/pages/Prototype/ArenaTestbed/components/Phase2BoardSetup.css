@@ -1,7 +1,8 @@
 .p2-root {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   background: var(--ldi-bg);
 }
@@ -193,7 +194,6 @@
   overflow: hidden;
   min-height: 0;
   position: relative;
-  height: 100000px;
 }
 
 .p2-canvas {
@@ -201,8 +201,7 @@
   display: block;
   cursor: crosshair;
   width: 100%;
-  flex: 1;
-  height: 100000px;
+  height: 100%;
   min-height: 0;
   touch-action: none;
 }
@@ -386,3 +385,45 @@
 .p2-root.portrait .p2-tool-config {
   display: none;
 }
+
+/* DEBUG — substitui <canvas> temporariamente */
+.p2-canvas-debug {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p2-canvas-debug::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: white;
+}
+
+.p2-canvas-debug::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: white;
+}
+
+.p2-canvas-debug-box {
+  width: 20px;
+  height: 20px;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── DEBUG BORDERS ─────────────────────────── */
+.p2-root      { outline: 2px solid magenta; }
+.p2-body      { outline: 2px solid orange; }
+.p2-right     { outline: 2px solid yellow; }

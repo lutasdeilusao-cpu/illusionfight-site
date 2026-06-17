@@ -152,6 +152,27 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
 
   useEffect(() => { draw() }, [draw, calcVersion])
 
+  useEffect(() => {
+    const wrap = document.querySelector('.p2-canvas-wrap')
+    if (!wrap) return
+    const r = wrap.getBoundingClientRect()
+    const cx = r.width / 2
+    const cy = r.height / 2
+    // labels
+    const make = (text, x, y) => {
+      const el = document.createElement('div')
+      el.style.cssText = `position:absolute;color:white;font-size:11px;font-family:monospace;background:rgba(0,0,0,0.7);padding:2px 4px;pointer-events:none;`
+      el.style.left = x + 'px'
+      el.style.top = y + 'px'
+      el.textContent = text
+      wrap.appendChild(el)
+    }
+    make(`← ${Math.round(cx)}px`, 4, cy - 14)
+    make(`${Math.round(r.width - cx)}px →`, cx + 4, cy - 14)
+    make(`↑ ${Math.round(cy)}px`, cx + 4, 4)
+    make(`↓ ${Math.round(r.height - cy)}px`, cx + 4, cy + 4)
+  }, [])
+
   const allPlaced = useMemo(() => {
     return boardChars.length === characters.length
   }, [boardChars, characters])
@@ -365,6 +386,9 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
               onMouseMove={handleCanvasMove}
               onMouseLeave={() => setHoveredCell(null)}
             />
+            <div className="p2-canvas-debug">
+              <div className="p2-canvas-debug-box" />
+            </div>
           </div>
 
           <div className="p2-stepper-row">
