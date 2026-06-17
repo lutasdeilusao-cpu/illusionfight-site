@@ -160,6 +160,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
+  const executarAtaqueRef = useRef(null)
+  const moverPersonagemRef = useRef(null)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -544,6 +546,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const padY = offsetRef.current.y || sz * SQRT3
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
+    console.log('[CANVAS CLICK] hex:', hex,
+      '| subPhase:', subPhase,
+      '| subPhaseStep:', subPhaseStep,
+      '| attackCells:', attackCells.length,
+      '| animatingRef:', animatingRef.current,
+      '| isPlayerTurn:', isPlayerTurn,
+      '| iaThinking:', iaThinking,
+      '| currentChar:', currentChar?.nome
+    )
     const { row, col } = hex
 
     if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
@@ -585,7 +596,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     } else if (subPhase === 'acao') {
       if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
-        if (target) executarAtaque(target)
+        if (target) executarAtaqueRef.current?.(target)
       }
     }
   }, [
@@ -654,6 +665,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
     setAnimTimer(avancarPasso, 50)
   }
+  moverPersonagemRef.current = moverPersonagem
 
   function aposMovimento(row, col) {
     if (!currentChar) return
@@ -724,7 +736,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function confirmarMovimento() {
     if (!pendingMove) return
-    moverPersonagem(pendingMove.row, pendingMove.col)
+    moverPersonagemRef.current?.(pendingMove.row, pendingMove.col)
     setPendingMove(null)
   }
 
@@ -919,6 +931,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       animarAtaqueProjetil(currentChar, target, resultado)
     }
   }
+  executarAtaqueRef.current = executarAtaque
 
   function handleAtaqueExtra(atacante, alvo, faBase) {
     const faExtra = Math.round((faBase / 2) * 10) / 10

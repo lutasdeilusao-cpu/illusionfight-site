@@ -5,9 +5,7 @@
   inset: 0;
   background: var(--ldi-bg);
   color: var(--ldi-text);
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
   scrollbar-width: none;
 }
 
@@ -141,10 +139,8 @@
 
 .atb-canvas-wrap {
   position: relative;
-  width: 100%;
-  min-height: 300px;
-  height: 55vh;
-  flex-shrink: 0;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
