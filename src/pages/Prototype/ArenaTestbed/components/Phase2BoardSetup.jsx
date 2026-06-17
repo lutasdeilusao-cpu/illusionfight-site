@@ -5,7 +5,7 @@ import './Phase2BoardSetup.css'
 const SQRT3 = Math.sqrt(3)
 
 function hexCorner(center, size, i) {
-  const angle = (Math.PI / 180) * (60 * i - 30)
+  const angle = (Math.PI / 180) * (60 * i)
   return {
     x: center.x + size * Math.cos(angle),
     y: center.y + size * Math.sin(angle),
@@ -28,12 +28,12 @@ function drawHex(ctx, center, size, fill, stroke, lineWidth = 1) {
 }
 
 function hexCenter(row, col, padX, padY, size) {
-  const w = size * SQRT3
-  const h = size * 1.5
-  const offsetX = row % 2 === 0 ? 0 : w / 2
+  const w = size * 1.5
+  const h = size * SQRT3
+  const offsetY = col % 2 === 0 ? 0 : h / 2
   return {
-    x: padX + col * w + offsetX,
-    y: padY + row * h,
+    x: padX + col * w,
+    y: padY + row * h + offsetY,
   }
 }
 
@@ -101,13 +101,13 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const w = hexSize * SQRT3
-    const h = hexSize * 1.5
-    const padX = hexSize * SQRT3
-    const padY = hexSize * 1.5
+    const w = hexSize * 1.5
+    const h = hexSize * SQRT3
+    const padX = hexSize
+    const padY = hexSize
 
     const canvasW = cols * w + w / 2 + padX * 2
-    const canvasH = rows * h + h / 3 + padY * 2
+    const canvasH = rows * h + h / 2 + padY * 2
 
     canvas.width = canvasW
     canvas.height = canvasH
