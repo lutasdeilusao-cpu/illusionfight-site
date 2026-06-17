@@ -61,8 +61,8 @@ function pixelToHex(px, py, cols, rows, padX, padY, size) {
 }
 
 function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
-  const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-  const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+  const byWidth = Math.floor(containerW / (cols * 1.5 + 0.5))
+  const byHeight = Math.floor(containerH / (rows * SQRT3))
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridW = (cols - 1) * sz * 1.5 + sz * 2
   const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
