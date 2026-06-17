@@ -289,6 +289,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     return t('prototype.arena_testbed.subphase_action')
   }, [subPhase, t])
 
+  const lastSizeRef = useRef('')
+  const frameCountRef = useRef(0)
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -304,6 +307,28 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const gridH = rows * h + h / 2
     const offsetX = Math.max(sz * 0.5, (containerW - gridW) / 2)
     const offsetY = Math.max(sz * 0.5, (containerH - gridH) / 2)
+
+    const sizeKey = `${containerW}x${containerH}|${gridW.toFixed(0)}x${gridH.toFixed(0)}`
+    if (sizeKey !== lastSizeRef.current || frameCountRef.current % 120 === 0) {
+      lastSizeRef.current = sizeKey
+      console.log(
+        '[PHASE3 CANVAS] ===== TABULEIRO =====',
+        '\n  Viewport:', window.innerWidth + 'x' + window.innerHeight,
+        '\n  Container (client):', containerW + 'x' + containerH,
+        '\n  Container (getBoundingClientRect):',
+          container ? `(${container.getBoundingClientRect().width.toFixed(0)}x${container.getBoundingClientRect().height.toFixed(0)})` : 'N/A',
+        '\n  Grid:', cols + 'x' + rows, `| hexSize:${sz}px | eachHex:${w.toFixed(0)}x${h.toFixed(0)}`,
+        '\n  Grid dimensão calculada:', gridW.toFixed(1) + 'x' + gridH.toFixed(1),
+        '\n  Offset para centralizar:', 'offsetX=' + offsetX.toFixed(1) + ' offsetY=' + offsetY.toFixed(1),
+        '\n  Canvas attr (internal):', canvas.width + 'x' + canvas.height,
+        '\n  Canvas style (display):', canvas.style.width + 'x' + canvas.style.height,
+        '\n  canvas.getBoundingClientRect:', `(${canvas.getBoundingClientRect().width.toFixed(0)}x${canvas.getBoundingClientRect().height.toFixed(0)})`,
+        '\n  Grid centralizado?', (containerW - gridW) / 2 >= 0 ? 'SIM' : 'NÃO — grid maior que container',
+        '\n  ================================'
+      )
+    }
+    frameCountRef.current++
+
     canvas.width = containerW
     canvas.height = containerH
     canvas.style.width = containerW + 'px'
@@ -523,6 +548,36 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, hexSize, caminhoEscolhido, destinoEscolhido])
 
   useEffect(() => {
+    const container = canvasContainerRef.current
+    const canvas = canvasRef.current
+    const vpW = window.innerWidth
+    const vpH = window.innerHeight
+    console.log(
+      '[PHASE3 MOUNT] ===== INÍCIO — MONTAGEM DO TABULEIRO =====',
+      '\n  Viewport:', vpW + 'x' + vpH,
+      '\n  Container (se existir):', container ? container.clientWidth + 'x' + container.clientHeight : 'N/A',
+      '\n  Canvas (se existir):', canvas ? canvas.width + 'x' + canvas.height : 'N/A',
+      '\n  Grid specs:', cols + ' colunas x ' + rows + ' linhas',
+      '\n  hexSize:', hexSize,
+      '\n  Personagens no board:', characters.length,
+      '\n  ================================================'
+    )
+    if (container) {
+      const ro = new ResizeObserver(entries => {
+        for (const entry of entries) {
+          const { inlineSize, blockSize } = entry.contentBoxSize?.[0] || {}
+          const w = entry.contentRect.width
+          const h = entry.contentRect.height
+          console.log('[PHASE3 RESIZE] Container redimensionado:', w.toFixed(0) + 'x' + h.toFixed(0),
+            inlineSize !== undefined ? `| contentBox: ${inlineSize.toFixed(0)}x${blockSize.toFixed(0)}` : '')
+        }
+      })
+      ro.observe(container)
+      return () => { ro.disconnect() }
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
     function loop() {
       angleRef.current = (angleRef.current || 0) + 0.018
       trailRef.current = trailRef.current
@@ -548,15 +603,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const padY = offsetRef.current.y || sz * SQRT3
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
-    console.log('[CANVAS CLICK] hex:', hex,
-      '| subPhase:', subPhase,
-      '| subPhaseStep:', subPhaseStep,
-      '| attackCells:', attackCells.length,
-      '| animatingRef:', animatingRef.current,
-      '| isPlayerTurn:', isPlayerTurn,
-      '| iaThinking:', iaThinking,
-      '| currentChar:', currentChar?.nome
-    )
     const { row, col } = hex
 
     if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
