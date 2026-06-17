@@ -20,7 +20,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const angleRef = useRef(0)
   const trailRef = useRef([])
   const rafRef = useRef(null)
-  const lastDrawDebugRef = useRef('')
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
@@ -265,66 +264,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const padX = Math.round((containerW - gridW) / 2)
     const padY = Math.round((containerH - gridH) / 2)
 
-    const debugKey = `${containerW}x${containerH}|sz${sz}|gw${Math.round(gridW)}|gh${Math.round(gridH)}`
-    if (debugKey !== lastDrawDebugRef.current) {
-      lastDrawDebugRef.current = debugKey
-      console.log('[DRAW DEBUG]',
-        '\n  containerW:', containerW, '| containerH:', containerH,
-        '\n  cols:', cols, '| rows:', rows,
-        '\n  PAD:', PAD,
-        '\n  sizeByWidth calc:', containerW / (cols * 1.5 + 0.75),
-        '\n  sizeByHeight calc:', containerH / (rows * SQRT3 + SQRT3 * 0.5),
-        '\n  sz final:', sz,
-        '\n  gridW:', Math.round(gridW), '(deveria ser <=', containerW, ')',
-        '\n  gridH:', Math.round(gridH), '(deveria ser <=', containerH, ')',
-        '\n  gridW > containerW?', gridW > containerW,
-        '\n  gridH > containerH?', gridH > containerH,
-      )
-      const canvasRect = canvas.getBoundingClientRect()
-      const wrapRect = canvasContainerRef.current?.getBoundingClientRect()
-      console.log('[DRAW POSITION]',
-        '\n  canvas.getBoundingClientRect:',
-          `left=${canvasRect.left.toFixed(1)} top=${canvasRect.top.toFixed(1)} width=${canvasRect.width.toFixed(1)} height=${canvasRect.height.toFixed(1)}`,
-        '\n  wrap.getBoundingClientRect:',
-          wrapRect ? `left=${wrapRect.left.toFixed(1)} top=${wrapRect.top.toFixed(1)} width=${wrapRect.width.toFixed(1)} height=${wrapRect.height.toFixed(1)}` : 'N/A',
-        '\n  canvas.offsetLeft:', canvas.offsetLeft,
-        '\n  canvas.offsetTop:', canvas.offsetTop,
-        '\n  canvas.offsetParent tag:', canvas.offsetParent?.tagName,
-        '\n  canvas.offsetParent class:', canvas.offsetParent?.className,
-      )
-      const cs = window.getComputedStyle(canvas)
-      const csWrap = window.getComputedStyle(canvasContainerRef.current)
-      console.log('[DRAW COMPUTED]',
-        '\n  canvas display:', cs.display,
-        '\n  canvas position:', cs.position,
-        '\n  canvas margin:', cs.margin,
-        '\n  canvas padding:', cs.padding,
-        '\n  canvas left:', cs.left,
-        '\n  canvas top:', cs.top,
-        '\n  wrap display:', csWrap.display,
-        '\n  wrap justifyContent:', csWrap.justifyContent,
-        '\n  wrap alignItems:', csWrap.alignItems,
-        '\n  wrap flexDirection:', csWrap.flexDirection,
-        '\n  wrap padding:', csWrap.padding,
-        '\n  wrap boxSizing:', csWrap.boxSizing,
-      )
-      const wrapEl = canvasContainerRef.current
-      if (wrapEl) {
-        const children = Array.from(wrapEl.children)
-        children.forEach((child, i) => {
-          const r = child.getBoundingClientRect()
-          console.log(`[WRAP CHILD ${i}]`,
-            'tag:', child.tagName,
-            'class:', child.className,
-            'rect:', `left=${r.left.toFixed(1)} width=${r.width.toFixed(1)} height=${r.height.toFixed(1)}`,
-            'offsetLeft:', child.offsetLeft,
-            'position:', window.getComputedStyle(child).position,
-            'display:', window.getComputedStyle(child).display,
-          )
-        })
-      }
-    }
-
     offsetRef.current = { x: padX, y: padY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -540,32 +479,36 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useEffect(() => {
     const container = canvasContainerRef.current
     const canvas = canvasRef.current
-    const vpW = window.innerWidth
-    const vpH = window.innerHeight
-    console.log(
-      '[PHASE3 MOUNT] ===== INÍCIO — MONTAGEM DO TABULEIRO =====',
-      '\n  Viewport:', vpW + 'x' + vpH,
-      '\n  Container (se existir):', container ? container.clientWidth + 'x' + container.clientHeight : 'N/A',
-      '\n  Canvas (se existir):', canvas ? canvas.width + 'x' + canvas.height : 'N/A',
-      '\n  Grid specs:', cols + ' colunas x ' + rows + ' linhas',
-      '\n  hexSize:', hexSize,
-      '\n  Personagens no board:', characters.length,
-      '\n  ================================================'
-    )
+    console.log(`[PHASE3] mount cols:${cols} rows:${rows} chars:${characters.length}`)
     if (container) {
       const ro = new ResizeObserver(entries => {
         for (const entry of entries) {
           const { inlineSize, blockSize } = entry.contentBoxSize?.[0] || {}
           const w = entry.contentRect.width
           const h = entry.contentRect.height
-          console.log('[PHASE3 RESIZE] Container redimensionado:', w.toFixed(0) + 'x' + h.toFixed(0),
-            inlineSize !== undefined ? `| contentBox: ${inlineSize.toFixed(0)}x${blockSize.toFixed(0)}` : '')
+          console.log(`[PHASE3] resize ${w.toFixed(0)}x${h.toFixed(0)}`)
         }
       })
       ro.observe(container)
       return () => { ro.disconnect() }
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const wrap = canvasContainerRef.current
+    if (!wrap) return
+    const r = wrap.getBoundingClientRect()
+    const cx = Math.round(r.width / 2)
+    const cy = Math.round(r.height / 2)
+    const set = (id, txt) => {
+      const el = wrap.querySelector('#' + id)
+      if (el) el.textContent = txt
+    }
+    set('p3-lbl-left',   `← ${cx}px`)
+    set('p3-lbl-right',  `${cx}px →`)
+    set('p3-lbl-top',    `↑ ${cy}px`)
+    set('p3-lbl-bottom', `↓ ${cy}px`)
+  }, [calcVersion])
 
   useEffect(() => {
     function loop() {
@@ -1408,8 +1351,17 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                     <div className="atb-hud-bar-track">
                       <div className="atb-hud-bar-fill mp" style={{ '--pct': `${(ch.mp / ch.mpMax) * 100}%` }} />
                     </div>
-                  </div>
-                </div>
+        </div>
+        <div className="p3-debug-overlay">
+          <div className="p3-debug-cross-h" />
+          <div className="p3-debug-cross-v" />
+          <div className="p3-debug-center" />
+          <div className="p3-debug-label p3-debug-left" id="p3-lbl-left" />
+          <div className="p3-debug-label p3-debug-right" id="p3-lbl-right" />
+          <div className="p3-debug-label p3-debug-top" id="p3-lbl-top" />
+          <div className="p3-debug-label p3-debug-bottom" id="p3-lbl-bottom" />
+        </div>
+      </div>
               </div>
             </div>
           )
