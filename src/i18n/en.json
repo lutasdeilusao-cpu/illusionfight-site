@@ -2730,12 +2730,6 @@
       "title": "Morto Engine — GENERIC RPG SYSTEM",
       "desc": "Complete RPG system: creation, tests, battle, magic, effects."
     },
-    "hex_board": {
-      "title": "Combat Board Hexa",
-      "desc": "Configurable hexagonal board for visual tests.",
-      "cols": "Columns",
-      "rows": "Rows"
-    },
     "arena_testbed": {
       "title": "Arena Testbed — Mechanics Test",
       "desc": "Complete GDD v0.1 combat system testbed: sheets, board, and match.",

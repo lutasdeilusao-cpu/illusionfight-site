@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { PROTOTYPE_VERSION } from '../../config/version'
-import HexBoard from './HexBoard'
+import { MORTO_VERSION, ARENATESTBED_VERSION } from '../../config/version'
 import ArenaTestbed from './ArenaTestbed/ArenaTestbed'
 import './Prototype.css'
 
-console.log(`[PROTOTYPE] versão carregada: ${PROTOTYPE_VERSION}`)
+console.log(`[MORTO] versão carregada: ${MORTO_VERSION}`)
+console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
@@ -16,20 +16,15 @@ const PROTOTYPES = [
     id: 'morto-engine',
     titleKey: 'prototype.morto_engine.title',
     descKey: 'prototype.morto_engine.desc',
+    version: MORTO_VERSION,
     type: 'iframe',
     src: '/prototype/rpg-morto.html',
-  },
-  {
-    id: 'hex-board',
-    titleKey: 'prototype.hex_board.title',
-    descKey: 'prototype.hex_board.desc',
-    type: 'component',
-    component: 'HexBoard',
   },
   {
     id: 'arena-testbed',
     titleKey: 'prototype.arena_testbed.title',
     descKey: 'prototype.arena_testbed.desc',
+    version: ARENATESTBED_VERSION,
     type: 'component',
     component: 'ArenaTestbed',
   },
@@ -88,8 +83,6 @@ export default function Prototype() {
               title={t(proto.titleKey)}
               className="prototype-iframe"
             />
-          ) : proto.id === 'hex-board' ? (
-            <HexBoard />
           ) : proto.id === 'arena-testbed' ? (
             <ArenaTestbed />
           ) : null}
@@ -100,10 +93,9 @@ export default function Prototype() {
 
   return (
     <section className="prototype-page">
-      <div className="prototype-header">
-        <h2>{t('prototype.title')}</h2>
-        <span className="prototype-version">v{PROTOTYPE_VERSION}</span>
-      </div>
+        <div className="prototype-header">
+          <h2>{t('prototype.title')}</h2>
+        </div>
       <div className="prototype-menu">
         <p className="prototype-subtitle">{t('prototype.select_prompt')}</p>
         <div className="prototype-grid">
@@ -115,6 +107,7 @@ export default function Prototype() {
             >
               <span className="prototype-card-title">{t(proto.titleKey)}</span>
               <span className="prototype-card-desc">{t(proto.descKey)}</span>
+              {proto.version && <span className="prototype-card-version">v{proto.version}</span>}
             </button>
           ))}
         </div>
