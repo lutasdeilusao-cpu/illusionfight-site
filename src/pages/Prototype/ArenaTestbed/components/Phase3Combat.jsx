@@ -294,7 +294,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-    const sz = hexSize
+    const container = canvasContainerRef.current
+    const containerW = container ? container.clientWidth : 400
+    const containerH = container ? container.clientHeight : 300
+    const sizeByWidth = Math.floor((containerW / (cols + 0.5)) / SQRT3)
+    const sizeByHeight = Math.floor((containerH / (rows * 1.5 + 0.5)))
+    const sz = Math.max(18, Math.min(hexSize, sizeByWidth, sizeByHeight))
     const w = sz * 1.5
     const h = sz * SQRT3
     const PAD = sz
