@@ -17,7 +17,7 @@ export default function ArenaTestbed() {
   const [phase, setPhase] = useState(1) // 1 | 2 | 3
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
-  const [agiUmPraUm, setAgiUmPraUm] = useState(false) // FIX 4: 1 AGI = 1 casa
+  const [agiUmPraUm, setAgiUmPraUm] = useState(true) // 1 AGI = 1 casa
 
   function handlePhase1Confirm(chars, agiFlag) {
     setCharacters(chars)

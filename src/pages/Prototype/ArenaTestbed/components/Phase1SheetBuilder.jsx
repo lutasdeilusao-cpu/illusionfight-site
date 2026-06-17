@@ -6,7 +6,7 @@ import './Phase1SheetBuilder.css'
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 
-export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = false, onAgiToggle }) {
+export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = true, onAgiToggle }) {
   const { t } = useLanguage()
   const [characters, setCharacters] = useState([])
   const [editing, setEditing] = useState(null)

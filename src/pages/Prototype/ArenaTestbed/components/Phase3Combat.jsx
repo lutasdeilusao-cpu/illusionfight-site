@@ -626,7 +626,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function iniciarMovimento() {
     if (!currentChar || animating || turnoAcoes.moveu) return
-    console.log(`[ACAO:movimento] turnoAcoes=`, turnoAcoes, `animating=${animating} animatingRef=${animatingRef.current}`)
     setActionPanel(false)
     anunciar(t('prototype.arena_testbed.announce_move'), 1200)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
@@ -674,7 +673,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function escolherAcao(tipoAcao) {
     if (!currentChar || animating) return
-    console.log(`[ACAO:${tipoAcao ?? 'ataque'}] turnoAcoes=`, turnoAcoes, `animating=${animating} animatingRef=${animatingRef.current}`)
     anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
@@ -823,7 +821,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         if (resultado.ataqueExtra) {
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
         } else {
-          setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+          setAnimTimer(() => {
+            const hpAtacante = charsRef.current.find(c => c.id === atacante.id)?.hp ?? 0
+            if (hpAtacante <= 0) {
+              charsRef.current = charsRef.current.map(c =>
+                c.id === atacante.id ? { ...c, vivo: false } : c
+              )
+              setCharacters(charsRef.current)
+              setTurnOrder(prev => prev.filter(id => id !== atacante.id))
+              addLog(`💀 ${atacante.nome} foi derrotado pelo contra-ataque!`)
+              setAnimating(false)
+              animatingRef.current = false
+              if (!verificarVitoria()) finalizarTurno()
+            } else {
+              finalizarAposAtaque(alvo, resultado)
+            }
+          }, 400)
         }
       }, 500)
     } else {
@@ -1247,12 +1260,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
               💧 ×{currentChar.inventario.pocaoMP}
             </button>
           )}
-          <button
-            className="atb-action-panel-btn atb-action-panel-btn--close"
-            onClick={() => setActionPanel(false)}
-          >
-            ✕ {t('prototype.arena_testbed.back')}
-          </button>
         </div>
       )}
 
@@ -1337,9 +1344,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                       ✕ {t('prototype.arena_testbed.btn_cancel')}
                     </button>
                   </>
-                ) : (
-                  <span className="atb-phase-hint">{t('prototype.arena_testbed.move_select_hint')}</span>
-                )}
+                ) : null}
               </>
             )}
 
@@ -1356,7 +1361,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
             {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
               <>
-                <span className="atb-phase-hint">{t('prototype.arena_testbed.choose_target_hint')}</span>
                 <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
                   × {t('prototype.arena_testbed.btn_cancel')}
                 </button>

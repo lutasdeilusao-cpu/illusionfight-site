@@ -18,7 +18,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const [cols, setCols] = useState(7)
-  const [rows, setRows] = useState(11)
+  const [rows, setRows] = useState(4)
   const { hexSize, calcVersion, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
     canvasRef, cols, rows, minSz: 14, maxSz: 50000000000000000,
   })
