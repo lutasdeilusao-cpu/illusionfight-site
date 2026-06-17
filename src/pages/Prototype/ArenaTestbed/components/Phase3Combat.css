@@ -138,7 +138,6 @@
 }
 
 .atb-canvas-wrap {
-  border: 6px solid red;
   position: relative;
   flex: 1;
   min-height: 0;
@@ -171,7 +170,6 @@
 }
 
 .atb-canvas {
-  border: 6px solid lime;
   display: block;
   cursor: pointer;
   z-index: 2;
@@ -832,41 +830,4 @@
   100% { transform: scale(1.1); }
 }
 
-/* ── DEBUG OVERLAY ─────────────────────────── */
-.p3-debug-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-}
-.p3-debug-cross-h {
-  position: absolute;
-  top: 50%; left: 0; right: 0;
-  height: 1px;
-  background: white;
-}
-.p3-debug-cross-v {
-  position: absolute;
-  left: 50%; top: 0; bottom: 0;
-  width: 1px;
-  background: white;
-}
-.p3-debug-center {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 16px; height: 16px;
-  background: white;
-  transform: translate(-50%, -50%);
-}
-.p3-debug-label {
-  position: absolute;
-  color: white;
-  font-size: 11px;
-  font-family: monospace;
-  background: rgba(0,0,0,0.7);
-  padding: 2px 4px;
-}
-.p3-debug-left   { top: 50%; left: 4px;  transform: translateY(-100%) }
-.p3-debug-right  { top: 50%; right: 4px; transform: translateY(-100%) }
-.p3-debug-top    { left: 50%; top: 4px;  transform: translateX(4px) }
-.p3-debug-bottom { left: 50%; bottom: 4px; transform: translateX(4px) }
+

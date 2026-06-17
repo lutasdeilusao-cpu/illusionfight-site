@@ -453,22 +453,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const wrap = canvasContainerRef.current
-    if (!wrap) return
-    const r = wrap.getBoundingClientRect()
-    const cx = Math.round(r.width / 2)
-    const cy = Math.round(r.height / 2)
-    const set = (id, txt) => {
-      const el = wrap.querySelector('#' + id)
-      if (el) el.textContent = txt
-    }
-    set('p3-lbl-left',   `← ${cx}px`)
-    set('p3-lbl-right',  `${cx}px →`)
-    set('p3-lbl-top',    `↑ ${cy}px`)
-    set('p3-lbl-bottom', `↓ ${cy}px`)
-  }, [calcVersion])
-
-  useEffect(() => {
     function loop() {
       angleRef.current = (angleRef.current || 0) + 0.018
       trailRef.current = trailRef.current
@@ -1284,15 +1268,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
               {b.texto}
             </div>
           ))}
-        </div>
-        <div className="p3-debug-overlay">
-          <div className="p3-debug-cross-h" />
-          <div className="p3-debug-cross-v" />
-          <div className="p3-debug-center" />
-          <div className="p3-debug-label p3-debug-left" id="p3-lbl-left" />
-          <div className="p3-debug-label p3-debug-right" id="p3-lbl-right" />
-          <div className="p3-debug-label p3-debug-top" id="p3-lbl-top" />
-          <div className="p3-debug-label p3-debug-bottom" id="p3-lbl-bottom" />
         </div>
       </div>
 
