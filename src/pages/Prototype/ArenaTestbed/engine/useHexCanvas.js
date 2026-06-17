@@ -66,9 +66,8 @@ function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridW = (cols - 1) * sz * 1.5 + sz * 2
   const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-  const PAD_TOP = sz
   const padX = Math.round((containerW - gridW) / 2)
-  const padY = PAD_TOP
+  const padY = Math.round((containerH - gridH) / 2)
   return { hexSize: sz, padX, padY, gridW, gridH }
 }
 
