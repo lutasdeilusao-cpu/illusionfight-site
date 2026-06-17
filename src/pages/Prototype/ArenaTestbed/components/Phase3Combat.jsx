@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
+import useHexCanvas from '../engine/useHexCanvas'
 import {
   resolverAtaque, resolverContraAtaque, rolarD6, calcularFD,
   getCasasMovimento, getChanceAcerto,
@@ -10,64 +11,6 @@ import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
 
 const SQRT3 = Math.sqrt(3)
-
-function hexCorner(center, size, i) {
-  const angle = (Math.PI / 180) * (60 * i)
-  return {
-    x: center.x + size * Math.cos(angle),
-    y: center.y + size * Math.sin(angle),
-  }
-}
-
-function drawHex(ctx, center, size, fill, stroke, lineWidth = 1.5, shadow = null) {
-  ctx.beginPath()
-  for (let i = 0; i < 6; i++) {
-    const p = hexCorner(center, size, i)
-    if (i === 0) ctx.moveTo(p.x, p.y)
-    else ctx.lineTo(p.x, p.y)
-  }
-  ctx.closePath()
-  ctx.fillStyle = fill
-  ctx.fill()
-  if (shadow) {
-    ctx.shadowBlur = shadow.blur
-    ctx.shadowColor = shadow.color
-  }
-  ctx.strokeStyle = stroke
-  ctx.lineWidth = lineWidth
-  ctx.stroke()
-  if (shadow) {
-    ctx.shadowBlur = 0
-    ctx.shadowColor = 'transparent'
-  }
-}
-
-function hexCenter(row, col, padX, padY, size) {
-  const w = size * 1.5
-  const h = size * SQRT3
-  const offsetY = col % 2 === 0 ? 0 : h / 2
-  return {
-    x: padX + col * w,
-    y: padY + row * h + offsetY,
-  }
-}
-
-function pixelToHex(px, py, cols, rows, padX, padY, size) {
-  let closest = null
-  let closestDist = Infinity
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      const c = hexCenter(row, col, padX, padY, size)
-      const dist = Math.sqrt((px - c.x) ** 2 + (py - c.y) ** 2)
-      if (dist < closestDist && dist < size) {
-        closestDist = dist
-        closest = { row, col }
-      }
-    }
-  }
-  return closest
-}
-
 const SUB_PHASES = ['movimento', 'ataque', 'item']
 
 export default function Phase3Combat({ boardState, onBackToPhase1 }) {
@@ -80,6 +23,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const lastDrawDebugRef = useRef('')
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
+
+  const { recalc, getCellAt, getHexCenter, drawHex, hexCenter, hexCorner, pixelToHex } = useHexCanvas({
+    canvasRef, cols, rows, minSz: 18, maxSz: 36,
+  })
 
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -1072,9 +1019,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       setRangeCells([])
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
     }
-  }
-
-  function enterSubPhase(sub, char) {
   }
 
   function usarItem(tipo) {

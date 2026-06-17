@@ -1,70 +1,21 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
+import useHexCanvas from '../engine/useHexCanvas'
 import './Phase2BoardSetup.css'
 
-const SQRT3 = Math.sqrt(3)
-
-function hexCorner(center, size, i) {
-  const angle = (Math.PI / 180) * (60 * i)
-  return {
-    x: center.x + size * Math.cos(angle),
-    y: center.y + size * Math.sin(angle),
-  }
-}
-
-function drawHex(ctx, center, size, fill, stroke, lineWidth = 1) {
-  ctx.beginPath()
-  for (let i = 0; i < 6; i++) {
-    const p = hexCorner(center, size, i)
-    if (i === 0) ctx.moveTo(p.x, p.y)
-    else ctx.lineTo(p.x, p.y)
-  }
-  ctx.closePath()
-  ctx.fillStyle = fill
-  ctx.fill()
-  ctx.strokeStyle = stroke
-  ctx.lineWidth = lineWidth
-  ctx.stroke()
-}
-
-function hexCenter(row, col, padX, padY, size) {
-  const w = size * 1.5
-  const h = size * SQRT3
-  const offsetY = col % 2 === 0 ? 0 : h / 2
-  return {
-    x: padX + col * w,
-    y: padY + row * h + offsetY,
-  }
-}
-
-function pixelToHex(px, py, cols, rows, padX, padY, size) {
-  const w = size * SQRT3
-  const h = size * 1.5
-  let closest = null
-  let closestDist = Infinity
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      const c = hexCenter(row, col, padX, padY, size)
-      const dist = Math.sqrt((px - c.x) ** 2 + (py - c.y) ** 2)
-      if (dist < closestDist && dist < size) {
-        closestDist = dist
-        closest = { row, col }
-      }
-    }
-  }
-  return closest
-}
-
 const OBSTACLE_TYPES = [
-  { id: 1, labelKey: 'prototype.arena_testbed.obs1', icon: '🧱', nome: 'PAREDE' },
-  { id: 2, labelKey: 'prototype.arena_testbed.obs2', icon: '🕳️', nome: 'BURACO' },
-  { id: 3, labelKey: 'prototype.arena_testbed.obs3', icon: '🪤', nome: 'ARMADILHA' },
-  { id: 4, labelKey: 'prototype.arena_testbed.obs4', icon: '📦', nome: 'CAIXA' },
+  { id: 1, labelKey: 'prototype.arena_testbed.obs1', icon: '🧱' },
+  { id: 2, labelKey: 'prototype.arena_testbed.obs2', icon: '🕳️' },
+  { id: 3, labelKey: 'prototype.arena_testbed.obs3', icon: '🪤' },
+  { id: 4, labelKey: 'prototype.arena_testbed.obs4', icon: '📦' },
 ]
 
-export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
+export default function Phase2BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
+  const { hexSize, recalc, getCellAt, hexCenter, drawHex, padRef, sizeRef } = useHexCanvas({
+    canvasRef, cols: 7, rows: 11, minSz: 14, maxSz: 40,
+  })
 
   const [cols, setCols] = useState(7)
   const [rows, setRows] = useState(11)
@@ -94,27 +45,16 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     setBoardChars(initial)
   }, [characters, cols, rows])
 
+  useEffect(() => { recalc() }, [recalc, cols, rows])
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    canvas.width = canvas.clientWidth
-    canvas.height = canvas.clientHeight
-
-    const containerW = canvas.clientWidth
-    const containerH = canvas.clientHeight
-
-    const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-    const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
-    const sz = Math.max(14, Math.min(40, Math.min(byWidth, byHeight)))
-
-const gridW = (cols - 1) * sz * 1.5 + sz * 2
-const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-
-    const padX = Math.round((containerW - gridW) / 2)
-    const padY = Math.round((containerH - gridH) / 2)
+    const sz = sizeRef.current
+    const { x: padX, y: padY } = padRef.current
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -197,17 +137,9 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
         }
       }
     }
-  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell])
+  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, hexCenter, drawHex, padRef, sizeRef])
 
   useEffect(() => { draw() }, [draw])
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const observer = new ResizeObserver(() => draw())
-    observer.observe(canvas)
-    return () => observer.disconnect()
-  }, [draw])
 
   const allPlaced = useMemo(() => {
     return boardChars.length === characters.length
@@ -230,22 +162,7 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
   }
 
   function handleCanvasClick(e) {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const rect = canvas.getBoundingClientRect()
-    const scaleX = canvas.width / rect.width
-    const scaleY = canvas.height / rect.height
-    const mx = (e.clientX - rect.left) * scaleX
-    const my = (e.clientY - rect.top) * scaleY
-    const sz = Math.max(14, Math.min(40, Math.min(
-      Math.floor(canvas.width / (cols * 1.5 + 0.75)),
-      Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
-    )))
-const gridW = (cols - 1) * sz * 1.5 + sz * 2
-const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-    const padX = Math.round((canvas.width - gridW) / 2)
-    const padY = Math.round((canvas.height - gridH) / 2)
-    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
+    const hex = getCellAt(e.clientX, e.clientY)
     if (!hex) return
     const { row, col } = hex
     const key = `${row}_${col}`
@@ -300,22 +217,7 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
   }
 
   function handleCanvasMove(e) {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const rect = canvas.getBoundingClientRect()
-    const scaleX = canvas.width / rect.width
-    const scaleY = canvas.height / rect.height
-    const mx = (e.clientX - rect.left) * scaleX
-    const my = (e.clientY - rect.top) * scaleY
-    const sz = Math.max(14, Math.min(40, Math.min(
-      Math.floor(canvas.width / (cols * 1.5 + 0.75)),
-      Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
-    )))
-const gridW = (cols - 1) * sz * 1.5 + sz * 2
-const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-    const padX = Math.round((canvas.width - gridW) / 2)
-    const padY = Math.round((canvas.height - gridH) / 2)
-    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
+    const hex = getCellAt(e.clientX, e.clientY)
     setHoveredCell(hex)
   }
 
@@ -338,27 +240,27 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
       <div className="p2-body">
         <div className="p2-left">
           <div>
-            <span className="p2-section-label">FERRAMENTAS</span>
+            <span className="p2-section-label">{t('prototype.arena_testbed.tools')}</span>
             <div className="p2-tool-grid two-col">
               <button
                 className={`p2-tool-btn ${tool === 'select' ? 'active' : ''}`}
                 onClick={() => setTool('select')}
               >
                 <span className="p2-tool-icon">👆</span>
-                SELECIONAR
+                {t('prototype.arena_testbed.tool_select')}
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'eraser' ? 'active' : ''}`}
                 onClick={() => setTool('eraser')}
               >
                 <span className="p2-tool-icon">🧹</span>
-                APAGAR
+                {t('prototype.arena_testbed.tool_eraser')}
               </button>
             </div>
           </div>
 
           <div>
-            <span className="p2-section-label">OBSTÁCULOS</span>
+            <span className="p2-section-label">{t('prototype.arena_testbed.obstacles')}</span>
             <div className="p2-tool-grid four-grid">
               {OBSTACLE_TYPES.map(ot => (
                 <button
@@ -367,28 +269,28 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
                   onClick={() => setTool(`obs${ot.id}`)}
                 >
                   <span className="p2-tool-icon">{ot.icon}</span>
-                  {ot.nome}
+                  {t(ot.labelKey)}
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <span className="p2-section-label">ITENS</span>
+            <span className="p2-section-label">{t('prototype.arena_testbed.items')}</span>
             <div className="p2-tool-grid two-col">
               <button
                 className={`p2-tool-btn ${tool === 'item_hp' ? 'active' : ''}`}
                 onClick={() => setTool('item_hp')}
               >
                 <span className="p2-tool-icon">❤️</span>
-                HP
+                {t('prototype.arena_testbed.label_hp')}
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'item_mp' ? 'active' : ''}`}
                 onClick={() => setTool('item_mp')}
               >
                 <span className="p2-tool-icon">💧</span>
-                MP
+                {t('prototype.arena_testbed.label_mp')}
               </button>
             </div>
           </div>
@@ -396,7 +298,7 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
           {tool === 'obs3' && (
             <div className="p2-tool-config">
               <label>
-                <span>HP:</span>
+                <span>{t('prototype.arena_testbed.label_hp')}:</span>
                 <select value={obs3HP} onChange={e => setObs3HP(Number(e.target.value))}>
                   <option value={1}>1</option>
                   <option value={2}>2</option>
@@ -404,11 +306,11 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
                 </select>
               </label>
               <label>
-                <span>EFEITO:</span>
+                <span>{t('prototype.arena_testbed.effect')}:</span>
                 <select value={obs3Effect} onChange={e => setObs3Effect(e.target.value)}>
-                  <option value="nenhum">NENHUM</option>
-                  <option value="explosao">EXPLOSÃO</option>
-                  <option value="congelamento">CONGELAMENTO</option>
+                  <option value="nenhum">{t('prototype.arena_testbed.effect_none')}</option>
+                  <option value="explosao">{t('prototype.arena_testbed.effect_explosion')}</option>
+                  <option value="congelamento">{t('prototype.arena_testbed.effect_freeze')}</option>
                 </select>
               </label>
             </div>
@@ -418,11 +320,11 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
             <div className="p2-tool-config">
               <label className="p2-checkbox">
                 <input type="checkbox" checked={obs4Movable} onChange={e => setObs4Movable(e.target.checked)} />
-                MÓVEL
+                {t('prototype.arena_testbed.movable')}
               </label>
               <label className="p2-checkbox">
                 <input type="checkbox" checked={obs4Destructible} onChange={e => setObs4Destructible(e.target.checked)} />
-                DESTRUÍVEL
+                {t('prototype.arena_testbed.destructible')}
               </label>
             </div>
           )}
@@ -458,7 +360,7 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
 
           <div className="p2-stepper-row">
             <div className="p2-stepper-group">
-              <span className="p2-stepper-label">COLUNAS</span>
+              <span className="p2-stepper-label">{t('prototype.arena_testbed.cols')}</span>
               <div className="p2-stepper">
                 <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => setCols(c => Math.max(1, c - 1))}>−</button>
                 <span className="p2-stepper-value">{cols}</span>
@@ -466,7 +368,7 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
               </div>
             </div>
             <div className="p2-stepper-group">
-              <span className="p2-stepper-label">LINHAS</span>
+              <span className="p2-stepper-label">{t('prototype.arena_testbed.rows')}</span>
               <div className="p2-stepper">
                 <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => setRows(r => Math.max(1, r - 1))}>−</button>
                 <span className="p2-stepper-value">{rows}</span>
@@ -481,13 +383,13 @@ const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
               disabled={!validPlacement}
               onClick={handleConfirm}
             >
-              ⚔ INICIAR PARTIDA
+              ⚔ {t('prototype.arena_testbed.start_match')}
             </button>
             {selectedChar && (
-              <p className="p2-hint">CLIQUE NO TABULEIRO PARA POSICIONAR</p>
+              <p className="p2-hint">{t('prototype.arena_testbed.click_to_place')}</p>
             )}
             {!validPlacement && !selectedChar && (
-              <p className="p2-warning">POSICIONE JOGADORES À ESQUERDA E IA À DIREITA</p>
+              <p className="p2-warning">{t('prototype.arena_testbed.placement_warning')}</p>
             )}
           </div>
         </div>
