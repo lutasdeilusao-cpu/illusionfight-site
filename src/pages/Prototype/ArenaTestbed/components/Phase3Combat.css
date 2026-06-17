@@ -1,13 +1,18 @@
 .atb-root {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  position: fixed;
+  inset: 0;
   background: var(--ldi-bg);
   color: var(--ldi-text);
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.atb-root::-webkit-scrollbar {
+  display: none;
 }
 
 .atb-top-bar {
@@ -136,9 +141,10 @@
 
 .atb-canvas-wrap {
   position: relative;
-  flex: 1;
   width: 100%;
-  min-height: 0;
+  min-height: 300px;
+  height: 55vh;
+  flex-shrink: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -170,8 +176,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  border: 1px solid #1e2140;
-  border-radius: 4px;
   cursor: pointer;
   position: relative;
   z-index: 2;

@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.123.0** | Site — Protótipo: canvas fullsize + fluxo ataque radial + células terra v6.4.0 |
+| `SITE_VERSION` | **10.124.0** | Site — Protótipo: stale closure ataque + canvas mobile + scroll + i18n v6.5.0 |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -545,7 +545,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.4.0** | Arena LDI Tatics (tagline i18n pt/en/es) |
-| `PROTOTYPE_VERSION` | **6.4.0** | Protótipo — Arena Testbed: canvas fullsize via style width/height, fluxo ataque radial COMUM → escolherAcao, células vazias em tons de terra |
+| `PROTOTYPE_VERSION` | **6.5.0** | Protótipo — Arena Testbed: fix stale closure ataque + canvas mobile sizing + scroll mobile + i18n auditoria |
 
 ---
 

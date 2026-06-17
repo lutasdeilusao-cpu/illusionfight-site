@@ -2874,7 +2874,22 @@
       "btn_confirm_move": "Confirmar Movimento",
       "log_blocked": "Golpe completamente bloqueado!",
       "log_receives_damage": "recebe {{dano}} de dano!",
-      "choose_emoji": "Escolher Emoji"
+      "choose_emoji": "Escolher Emoji",
+      "btn_common": "Comum",
+      "free_hint": "Toque no seu personagem para agir",
+      "move_select_hint": "Selecione uma célula para mover",
+      "move_confirm_hint": "→ ({{row}}, {{col}}) · confirme acima",
+      "announce_player_turn": "TURNO DO JOGADOR",
+      "announce_ia_turn": "TURNO DA IA",
+      "announce_move": "MOVIMENTO",
+      "announce_attack": "ATAQUE",
+      "announce_victory": "VITÓRIA!",
+      "announce_defeat": "DERROTA",
+      "label_hp": "HP",
+      "label_mp": "MP",
+      "float_blocked": "BLOQUEIO!",
+      "float_contra": "CONTRA!",
+      "float_extra": "EXTRA!"
     }
   }
 }
