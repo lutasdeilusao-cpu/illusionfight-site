@@ -306,6 +306,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const offsetY = Math.max(sz * 0.5, (containerH - gridH) / 2)
     canvas.width = containerW
     canvas.height = containerH
+    canvas.style.width = containerW + 'px'
+    canvas.style.height = containerH + 'px'
     offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -764,6 +766,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     setAttackCells(enemyCells)
     setHighlightedCells([])
     setSubPhaseStep('escolher_alvo')
+    setSubPhase('acao')
   }
 
   function pularAcao() {
