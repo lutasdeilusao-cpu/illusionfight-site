@@ -24,22 +24,6 @@
   gap: 14px;
 }
 
-@media (max-width: 600px) {
-  .p2-body {
-    flex-direction: column;
-  }
-  .p2-left {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--ldi-border);
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 8px;
-    gap: 8px;
-    overflow-y: visible;
-  }
-}
-
 .p2-section-label {
   font-family: var(--ldi-font-hud);
   font-size: 9px;
@@ -83,6 +67,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 4px;
+  
 }
 
 .p2-tool-btn .p2-tool-icon {
@@ -338,4 +323,58 @@
   margin: 0;
   text-align: center;
   letter-spacing: 0.05em;
+}
+
+.p2-root.portrait .p2-body {
+  flex-direction: column;
+}
+
+.p2-root.portrait .p2-left {
+  width: 100%;
+  border-right: none;
+  border-bottom: 1px solid var(--ldi-border);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 6px 8px;
+  gap: 6px;
+  overflow-y: visible;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.p2-root.portrait .p2-section-label {
+  display: none;
+}
+
+.p2-root.portrait .p2-tool-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.p2-root.portrait .p2-tool-btn {
+  width: 44px;
+  height: 44px;
+  max-height: 44px;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+}
+
+.p2-root.portrait .p2-tool-btn span:not(.p2-tool-icon) {
+  display: none;
+}
+
+.p2-root.portrait .p2-tool-btn .p2-tool-icon {
+  font-size: 22px;
+}
+
+.p2-root.portrait .p2-chars-section {
+  flex-direction: row;
+  margin-top: 0;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.p2-root.portrait .p2-tool-config {
+  display: none;
 }

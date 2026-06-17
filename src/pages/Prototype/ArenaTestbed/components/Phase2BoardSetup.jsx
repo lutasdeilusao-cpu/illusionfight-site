@@ -29,6 +29,16 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
   const [obs3Effect, setObs3Effect] = useState('nenhum')
   const [obs4Movable, setObs4Movable] = useState(false)
   const [obs4Destructible, setObs4Destructible] = useState(false)
+  const [isPortrait, setIsPortrait] = useState(
+    () => window.matchMedia('(orientation: portrait)').matches
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(orientation: portrait)')
+    const handler = e => setIsPortrait(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   useEffect(() => {
     const initial = characters.map((ch, idx) => {
@@ -236,7 +246,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
   }
 
   return (
-    <div className="p2-root">
+    <div className={`p2-root ${isPortrait ? 'portrait' : ''}`}>
       <div className="p2-body">
         <div className="p2-left">
           <div>
