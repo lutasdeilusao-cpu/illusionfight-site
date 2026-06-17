@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.19** | Site — fix: balões padRef + morte HP=0 (winnerRef) Phase3 |
+| `SITE_VERSION` | **10.156.20** | Site — fix: balões unidade px + debug log Phase3 |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -546,7 +546,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **1.0.0** | Morto em Jaime — 3v3 RPG engine (teste bege) |
-| `ARENATESTBED_VERSION` | **1.10.20** | Arena Testbed — fix: balões padRef + morte HP=0 (winnerRef) |
+| `ARENATESTBED_VERSION` | **1.10.21** | Arena Testbed — fix: balões unidade px + debug log |
 
 ---
 

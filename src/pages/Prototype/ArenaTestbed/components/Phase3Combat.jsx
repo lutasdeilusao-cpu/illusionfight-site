@@ -699,6 +699,18 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const containerRect = canvasContainerRef.current?.getBoundingClientRect()
     const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
     const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
+
+  console.log(
+    `[BALAO] texto="${texto}" row=${row} col=${col}` +
+    ` | pad=(${padRef.current.x},${padRef.current.y}) sz=${sz}` +
+    ` | center=(${center.x.toFixed(1)},${center.y.toFixed(1)})` +
+    ` | scale=(${scaleX.toFixed(3)},${scaleY.toFixed(3)})` +
+    ` | canvas=${canvas.width}x${canvas.height}` +
+    ` | rect=(${rect.left.toFixed(1)},${rect.top.toFixed(1)},${rect.width.toFixed(1)}x${rect.height.toFixed(1)})` +
+    ` | container=(${containerRect?.left.toFixed(1)},${containerRect?.top.toFixed(1)})` +
+    ` | balao=(${balaoX.toFixed(1)},${balaoY.toFixed(1)})`
+  )
+
     const key = Date.now() + Math.random()
     setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
     setTimeout(() => {
@@ -1252,7 +1264,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             <div
               key={b.key}
               className={`atb-balloon atb-balloon--${b.tipo}`}
-              style={{ '--x': b.x, '--y': b.y }}
+              style={{ '--x': `${b.x}px`, '--y': `${b.y}px` }}
             >
               {b.texto}
             </div>
