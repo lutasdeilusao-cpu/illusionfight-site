@@ -195,6 +195,7 @@
 }
 
 .p2-canvas-wrap {
+  border: 6px solid red;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -208,7 +209,7 @@
 }
 
 .p2-canvas {
-  border: 1px solid var(--ldi-border);
+  border: 6px solid lime;
   border-radius: 4px;
   cursor: crosshair;
   max-width: 100%;
