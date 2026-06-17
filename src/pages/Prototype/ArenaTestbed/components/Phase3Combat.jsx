@@ -150,6 +150,19 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
   }
 
+  function logEstadoTurno(origem) {
+    const chars = charsRef.current
+    const order = orderRef.current
+    const turnIdx = turnRef.current
+    const ativo = chars.find(c => c.id === order[turnIdx])
+    console.log(
+      `[TURNO:${origem}] ativo=${ativo?.nome}(${ativo?.time})` +
+      ` turnoAcoes será resetado` +
+      ` | vivos: ${chars.filter(c => c.vivo).map(c => `${c.nome}(hp=${c.hp})`).join(', ')}` +
+      ` | order=[${order.join(',')}] idx=${turnIdx}`
+    )
+  }
+
   function startPlayerTurn(order, startIndex) {
     setTurnOrder(order)
     setCurrentTurn(startIndex)
@@ -159,6 +172,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
       setTimeout(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
+      logEstadoTurno('startPlayerTurn')
       setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
@@ -437,14 +451,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useEffect(() => {
     const container = canvasContainerRef.current
     const canvas = canvasRef.current
-    console.log(`[PHASE3] mount cols:${cols} rows:${rows} chars:${characters.length}`)
     if (container) {
       const ro = new ResizeObserver(entries => {
         for (const entry of entries) {
           const { inlineSize, blockSize } = entry.contentBoxSize?.[0] || {}
           const w = entry.contentRect.width
           const h = entry.contentRect.height
-          console.log(`[PHASE3] resize ${w.toFixed(0)}x${h.toFixed(0)}`)
         }
       })
       ro.observe(container)
@@ -614,6 +626,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function iniciarMovimento() {
     if (!currentChar || animating || turnoAcoes.moveu) return
+    console.log(`[ACAO:movimento] turnoAcoes=`, turnoAcoes, `animating=${animating} animatingRef=${animatingRef.current}`)
     setActionPanel(false)
     anunciar(t('prototype.arena_testbed.announce_move'), 1200)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
@@ -661,6 +674,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function escolherAcao(tipoAcao) {
     if (!currentChar || animating) return
+    console.log(`[ACAO:${tipoAcao ?? 'ataque'}] turnoAcoes=`, turnoAcoes, `animating=${animating} animatingRef=${animatingRef.current}`)
     anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
@@ -699,17 +713,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const containerRect = canvasContainerRef.current?.getBoundingClientRect()
     const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
     const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
-
-  console.log(
-    `[BALAO] texto="${texto}" row=${row} col=${col}` +
-    ` | pad=(${padRef.current.x},${padRef.current.y}) sz=${sz}` +
-    ` | center=(${center.x.toFixed(1)},${center.y.toFixed(1)})` +
-    ` | scale=(${scaleX.toFixed(3)},${scaleY.toFixed(3)})` +
-    ` | canvas=${canvas.width}x${canvas.height}` +
-    ` | rect=(${rect.left.toFixed(1)},${rect.top.toFixed(1)},${rect.width.toFixed(1)}x${rect.height.toFixed(1)})` +
-    ` | container=(${containerRect?.left.toFixed(1)},${containerRect?.top.toFixed(1)})` +
-    ` | balao=(${balaoX.toFixed(1)},${balaoY.toFixed(1)})`
-  )
 
     const key = Date.now() + Math.random()
     setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
@@ -981,6 +984,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
       setTimeout(() => executarIA(nextChar), 1000)
     } else if (nextChar) {
+      logEstadoTurno('finalizarTurno')
       setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
@@ -993,6 +997,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function executarIA(iaChar) {
     setIaThinking(true)
+    console.log(`[IA:inicio] iaChar=${iaChar.nome} winnerRef=${winnerRef.current}`)
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(() => {
       const charsAgora = charsRef.current
@@ -1140,6 +1145,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setPhase('enemy_turn')
         setAnimTimer(() => executarIA(nextChar3), 1800)
       } else if (nextChar3) {
+        logEstadoTurno('finalizarTurnoIA')
         setPhase(null)
         setTurnoAcoes({ moveu: false, atacou: false })
         setSubPhase('free')
