@@ -23,7 +23,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = false } = boardState
 
-  const { recalc, calcVersion, getCellAt, getHexCenter, drawHex, hexCenter, hexCorner, pixelToHex } = useHexCanvas({
+  const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
+          hexCenter, hexCorner, pixelToHex,
+          padRef, sizeRef } = useHexCanvas({
     canvasRef, cols, rows, minSz: 18, maxSz: 36,
   })
 
@@ -57,7 +59,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [turnAnnouncement, setTurnAnnouncement] = useState(null)
   const [announcementClass, setAnnouncementClass] = useState('')
 
-  const [hexSize, setHexSize] = useState(30)
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
   const [pendingMove, setPendingMove] = useState(null)
@@ -71,35 +72,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       drawerListRef.current.scrollTop = drawerListRef.current.scrollHeight
     }
   }, [battleLog, logDrawerOpen])
-
-  useEffect(() => {
-    function calcSize() {
-      const el = canvasContainerRef.current
-      if (!el) return
-      const containerW = el.clientWidth
-      const topH = document.querySelector('.atb-top-bar')?.offsetHeight || 52
-      const hudH = document.querySelector('.atb-hud')?.offsetHeight || 52
-      const navH = document.querySelector('.atb-bottom-nav')?.offsetHeight || 52
-      const containerH = el.clientHeight > 50 ? el.clientHeight : (window.innerHeight - topH - hudH - navH)
-      const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-      const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
-      const sz = Math.max(18, Math.min(36, Math.min(byWidth, byHeight)))
-      setHexSize(sz)
-      const canvas = canvasRef.current
-      if (canvas) {
-        canvas.width = canvas.clientWidth
-        canvas.height = canvas.clientHeight
-      }
-    }
-    calcSize()
-    const ro = new ResizeObserver(calcSize)
-    if (canvasContainerRef.current) ro.observe(canvasContainerRef.current)
-    window.addEventListener('resize', calcSize)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', calcSize)
-    }
-  }, [cols, rows])
 
   const [movementPath, setMovementPath] = useState(null)
   const [attackAnim, setAttackAnim] = useState(null)
@@ -247,23 +219,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    canvas.width = canvas.clientWidth
-    canvas.height = canvas.clientHeight
-
-    const containerW = canvas.clientWidth
-    const containerH = canvas.clientHeight
-
-    const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-    const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
-    const sz = Math.max(18, Math.min(36, Math.min(byWidth, byHeight)))
-    const PAD = sz
-
-    const gridW = (cols - 1) * sz * 1.5 + sz * 2
-    const gridH = (rows - 1) * sz * SQRT3 + sz * SQRT3
-
-    const padX = Math.round((containerW - gridW) / 2)
-    const padY = Math.round((containerH - gridH) / 2)
-
+    const sz = sizeRef.current
+    const padX = padRef.current.x
+    const padY = padRef.current.y
     offsetRef.current = { x: padX, y: padY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -443,7 +401,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     }
 
     for (const t of trailRef.current) {
-      const tc = hexCenter(t.row, t.col, sz * 1.5, sz * SQRT3, sz)
+      const tc = hexCenter(t.row, t.col, padX, padY, sz)
       ctx.beginPath()
       ctx.arc(tc.x, tc.y, sz * 0.3, 0, Math.PI * 2)
       ctx.fillStyle = `rgba(0,238,255,${t.alpha * 0.4})`
@@ -531,7 +489,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const scaleY = canvas.height / rect.height
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
-    const sz = hexSize
+    const sz = sizeRef.current
     const padX = offsetRef.current.x || sz * 1.5
     const padY = offsetRef.current.y || sz * SQRT3
     const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
@@ -542,7 +500,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
       if (clickedOwnToken && !radialMenu) {
         const rect2 = canvas.getBoundingClientRect()
-        const sz2 = hexSize
+        const sz2 = sizeRef.current
         const center = hexCenter(row, col, offsetRef.current.x || sz2 * 1.5, offsetRef.current.y || sz2 * SQRT3, sz2)
         const scaleX2 = rect2.width / canvas.width
         const scaleY2 = rect2.height / canvas.height
@@ -581,7 +539,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
   }, [
-    isPlayerTurn, iaThinking, hexSize, cols, rows, subPhase, subPhaseStep,
+    isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
     currentChar, radialMenu, highlightedCells, attackCells, characters, obstaculos,
   ])
 
@@ -761,7 +719,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const canvas = canvasRef.current
     if (!canvas) return
     const rect = canvas.getBoundingClientRect()
-    const sz = hexSize
+    const sz = sizeRef.current
     const center = hexCenter(row, col, offsetRef.current.x || sz * 1.5, offsetRef.current.y || sz * SQRT3, sz)
     const scaleX = rect.width / canvas.width
     const scaleY = rect.height / canvas.height
@@ -1327,6 +1285,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             </div>
           ))}
         </div>
+        <div className="p3-debug-overlay">
+          <div className="p3-debug-cross-h" />
+          <div className="p3-debug-cross-v" />
+          <div className="p3-debug-center" />
+          <div className="p3-debug-label p3-debug-left" id="p3-lbl-left" />
+          <div className="p3-debug-label p3-debug-right" id="p3-lbl-right" />
+          <div className="p3-debug-label p3-debug-top" id="p3-lbl-top" />
+          <div className="p3-debug-label p3-debug-bottom" id="p3-lbl-bottom" />
+        </div>
       </div>
 
       <div className="atb-hud">
@@ -1351,17 +1318,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                     <div className="atb-hud-bar-track">
                       <div className="atb-hud-bar-fill mp" style={{ '--pct': `${(ch.mp / ch.mpMax) * 100}%` }} />
                     </div>
-        </div>
-        <div className="p3-debug-overlay">
-          <div className="p3-debug-cross-h" />
-          <div className="p3-debug-cross-v" />
-          <div className="p3-debug-center" />
-          <div className="p3-debug-label p3-debug-left" id="p3-lbl-left" />
-          <div className="p3-debug-label p3-debug-right" id="p3-lbl-right" />
-          <div className="p3-debug-label p3-debug-top" id="p3-lbl-top" />
-          <div className="p3-debug-label p3-debug-bottom" id="p3-lbl-bottom" />
-        </div>
-      </div>
+                  </div>
+                </div>
               </div>
             </div>
           )
