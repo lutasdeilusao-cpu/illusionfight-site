@@ -336,6 +336,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         '\n  canvas.offsetParent tag:', canvas.offsetParent?.tagName,
         '\n  canvas.offsetParent class:', canvas.offsetParent?.className,
       )
+      const cs = window.getComputedStyle(canvas)
+      const csWrap = window.getComputedStyle(canvasContainerRef.current)
+      console.log('[DRAW COMPUTED]',
+        '\n  canvas display:', cs.display,
+        '\n  canvas position:', cs.position,
+        '\n  canvas margin:', cs.margin,
+        '\n  canvas padding:', cs.padding,
+        '\n  canvas left:', cs.left,
+        '\n  canvas top:', cs.top,
+        '\n  wrap display:', csWrap.display,
+        '\n  wrap justifyContent:', csWrap.justifyContent,
+        '\n  wrap alignItems:', csWrap.alignItems,
+        '\n  wrap flexDirection:', csWrap.flexDirection,
+        '\n  wrap padding:', csWrap.padding,
+        '\n  wrap boxSizing:', csWrap.boxSizing,
+      )
     }
 
     const newW = Math.round(gridW)
