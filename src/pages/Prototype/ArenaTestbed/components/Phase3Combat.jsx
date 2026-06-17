@@ -289,9 +289,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     return t('prototype.arena_testbed.subphase_action')
   }, [subPhase, t])
 
-  const lastSizeRef = useRef('')
-  const frameCountRef = useRef(0)
-
   const draw = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -300,39 +297,26 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const sz = hexSize
     const w = sz * 1.5
     const h = sz * SQRT3
-    const container = canvasContainerRef.current
-    const containerW = container ? container.clientWidth : 400
-    const containerH = container ? container.clientHeight : 300
-    const gridW = cols * w + w / 2
-    const gridH = rows * h + h / 2
-    const offsetX = Math.max(sz * 0.5, (containerW - gridW) / 2)
-    const offsetY = Math.max(sz * 0.5, (containerH - gridH) / 2)
+    const PAD = sz
+    const gridW = cols * w + w / 2 + PAD * 2
+    const gridH = rows * h + h / 2 + PAD * 2
+    const offsetX = PAD
+    const offsetY = PAD
 
-    const sizeKey = `${containerW}x${containerH}|${gridW.toFixed(0)}x${gridH.toFixed(0)}`
-    if (sizeKey !== lastSizeRef.current || frameCountRef.current % 120 === 0) {
-      lastSizeRef.current = sizeKey
+    const newW = Math.round(gridW)
+    const newH = Math.round(gridH)
+    if (canvas.width !== newW || canvas.height !== newH) {
       console.log(
-        '[PHASE3 CANVAS] ===== TABULEIRO =====',
-        '\n  Viewport:', window.innerWidth + 'x' + window.innerHeight,
-        '\n  Container (client):', containerW + 'x' + containerH,
-        '\n  Container (getBoundingClientRect):',
-          container ? `(${container.getBoundingClientRect().width.toFixed(0)}x${container.getBoundingClientRect().height.toFixed(0)})` : 'N/A',
-        '\n  Grid:', cols + 'x' + rows, `| hexSize:${sz}px | eachHex:${w.toFixed(0)}x${h.toFixed(0)}`,
-        '\n  Grid dimensão calculada:', gridW.toFixed(1) + 'x' + gridH.toFixed(1),
-        '\n  Offset para centralizar:', 'offsetX=' + offsetX.toFixed(1) + ' offsetY=' + offsetY.toFixed(1),
-        '\n  Canvas attr (internal):', canvas.width + 'x' + canvas.height,
-        '\n  Canvas style (display):', canvas.style.width + 'x' + canvas.style.height,
-        '\n  canvas.getBoundingClientRect:', `(${canvas.getBoundingClientRect().width.toFixed(0)}x${canvas.getBoundingClientRect().height.toFixed(0)})`,
-        '\n  Grid centralizado?', (containerW - gridW) / 2 >= 0 ? 'SIM' : 'NÃO — grid maior que container',
-        '\n  ================================'
+        '[PHASE3 CANVAS] Grid redimensionado:',
+        cols + 'x' + rows, `| hexSize:${sz}px | canvas: ${newW}x${newH}`,
+        '| Viewport:', window.innerWidth + 'x' + window.innerHeight
       )
     }
-    frameCountRef.current++
 
-    canvas.width = containerW
-    canvas.height = containerH
-    canvas.style.width = containerW + 'px'
-    canvas.style.height = containerH + 'px'
+    canvas.width = newW
+    canvas.height = newH
+    canvas.style.width = newW + 'px'
+    canvas.style.height = newH + 'px'
     offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 

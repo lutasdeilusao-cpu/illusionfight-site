@@ -142,7 +142,7 @@
   flex: 1;
   min-height: 0;
   min-width: 0;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,8 +171,6 @@
 
 .atb-canvas {
   display: block;
-  position: absolute;
-  inset: 0;
   cursor: pointer;
   z-index: 2;
 }
