@@ -91,8 +91,13 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const canvasStyle = window.getComputedStyle(canvas)
 
   const rect = canvas.getBoundingClientRect()
-  const containerW = Math.round(rect.width)
-  const containerH = Math.round(rect.height)
+  const style = window.getComputedStyle(canvas)
+  const borderLeft = parseFloat(style.borderLeftWidth) || 0
+  const borderRight = parseFloat(style.borderRightWidth) || 0
+  const borderTop = parseFloat(style.borderTopWidth) || 0
+  const borderBottom = parseFloat(style.borderBottomWidth) || 0
+  const containerW = Math.round(rect.width - borderLeft - borderRight)
+  const containerH = Math.round(rect.height - borderTop - borderBottom)
 
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
   const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
