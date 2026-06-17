@@ -90,8 +90,8 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const parentStyle = window.getComputedStyle(parent)
   const canvasStyle = window.getComputedStyle(canvas)
 
-  const containerW = parent.clientWidth
-  const containerH = parent.clientHeight
+  const containerW = canvas.clientWidth
+  const containerH = canvas.clientHeight
 
   const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
   const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
