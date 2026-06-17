@@ -139,6 +139,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2))
       const size = Math.min(sizeByWidth, sizeByHeight)
       setHexSize(Math.max(18, Math.min(36, size)))
+      const canvas = canvasRef.current
+      if (canvas) {
+        const PAD = Math.max(18, Math.min(36, size))
+        const w = PAD * 1.5
+        const h = PAD * SQRT3
+        const newW = Math.round(cols * w + w / 2 + PAD * 2)
+        const newH = Math.round(rows * h + h / 2 + PAD * 2)
+        canvas.width = newW
+        canvas.height = newH
+      }
     }
     calcSize()
     const ro = new ResizeObserver(calcSize)
@@ -369,18 +379,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
 
-    const newW = Math.round(gridW)
-    const newH = Math.round(gridH)
-    if (canvas.width !== newW || canvas.height !== newH) {
-      console.log(
-        '[PHASE3 CANVAS] Grid redimensionado:',
-        cols + 'x' + rows, `| hexSize:${sz}px | canvas: ${newW}x${newH}`,
-        '| Viewport:', window.innerWidth + 'x' + window.innerHeight
-      )
-    }
-
-    canvas.width = newW
-    canvas.height = newH
     offsetRef.current = { x: offsetX, y: offsetY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
