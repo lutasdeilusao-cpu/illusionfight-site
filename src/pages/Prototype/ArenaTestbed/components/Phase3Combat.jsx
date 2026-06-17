@@ -135,20 +135,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const hudH = document.querySelector('.atb-hud')?.offsetHeight || 52
       const navH = document.querySelector('.atb-bottom-nav')?.offsetHeight || 52
       const containerH = el.clientHeight > 50 ? el.clientHeight : (window.innerHeight - topH - hudH - navH)
-      const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-      const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
-      const size = Math.min(sizeByWidth, sizeByHeight)
-      setHexSize(Math.max(18, Math.min(36, size)))
+      const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+      const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+      const sz = Math.max(18, Math.min(36, Math.min(byWidth, byHeight)))
+      setHexSize(sz)
       const canvas = canvasRef.current
       if (canvas) {
-        const sz = Math.max(18, Math.min(36, size))
-        const w = sz * 1.5
-        const h = sz * SQRT3
-        const PAD = Math.round(sz * 0.5)
-        const newW = Math.round(cols * w + w / 2 + PAD * 2)
-        const newH = Math.round(rows * h + h / 2 + PAD * 2)
-        canvas.width = newW
-        canvas.height = newH
+        canvas.width = canvas.clientWidth
+        canvas.height = canvas.clientHeight
       }
     }
     calcSize()
@@ -306,19 +300,22 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-    const container = canvasContainerRef.current
-    const containerW = container ? container.clientWidth : 400
-    const containerH = container ? container.clientHeight : 300
-    const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
-    const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
-    const sz = Math.max(18, Math.min(hexSize, sizeByWidth, sizeByHeight))
-    const w = sz * 1.5
-    const h = sz * SQRT3
-    const PAD = Math.round(sz * 0.5)
-    const gridW = cols * w + w / 2 + PAD * 2
-    const gridH = rows * h + h / 2 + PAD * 2
-    const offsetX = PAD
-    const offsetY = PAD
+
+    canvas.width = canvas.clientWidth
+    canvas.height = canvas.clientHeight
+
+    const containerW = canvas.clientWidth
+    const containerH = canvas.clientHeight
+
+    const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+    const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+    const sz = Math.max(18, Math.min(36, Math.min(byWidth, byHeight)))
+
+    const gridW = cols * sz * 1.5 + sz * 0.75
+    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+
+    const padX = Math.round((containerW - gridW) / 2)
+    const padY = Math.round((containerH - gridH) / 2)
 
     const debugKey = `${containerW}x${containerH}|sz${sz}|gw${Math.round(gridW)}|gh${Math.round(gridH)}`
     if (debugKey !== lastDrawDebugRef.current) {
@@ -380,7 +377,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       }
     }
 
-    offsetRef.current = { x: offsetX, y: offsetY }
+    offsetRef.current = { x: padX, y: padY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
@@ -390,8 +387,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const destSet = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
     const destKey = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
 
-    const padX = offsetX
-    const padY = offsetY
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
         const center = hexCenter(row, col, padX, padY, sz)
@@ -592,7 +587,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, hexSize, caminhoEscolhido, destinoEscolhido])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido])
 
   useEffect(() => {
     const container = canvasContainerRef.current

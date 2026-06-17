@@ -74,7 +74,6 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
   const [tool, setTool] = useState('select')
   const [selectedChar, setSelectedChar] = useState(null)
   const [hoveredCell, setHoveredCell] = useState(null)
-  const [hexSize, setHexSize] = useState(24)
   const [obs3HP, setObs3HP] = useState(1)
   const [obs3Effect, setObs3Effect] = useState('nenhum')
   const [obs4Movable, setObs4Movable] = useState(false)
@@ -101,21 +100,27 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const w = hexSize * 1.5
-    const h = hexSize * SQRT3
-    const padX = hexSize
-    const padY = hexSize
+    canvas.width = canvas.clientWidth
+    canvas.height = canvas.clientHeight
 
-    const canvasW = cols * w + w / 2 + padX * 2
-    const canvasH = rows * h + h / 2 + padY * 2
+    const containerW = canvas.clientWidth
+    const containerH = canvas.clientHeight
 
-    canvas.width = canvasW
-    canvas.height = canvasH
+    const byWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+    const byHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
+    const sz = Math.max(14, Math.min(40, Math.min(byWidth, byHeight)))
+
+    const gridW = cols * sz * 1.5 + sz * 0.75
+    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+
+    const padX = Math.round((containerW - gridW) / 2)
+    const padY = Math.round((containerH - gridH) / 2)
+
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const center = hexCenter(row, col, padX, padY, hexSize)
+        const center = hexCenter(row, col, padX, padY, sz)
         const key = `${row}_${col}`
         const obs = obstaculos[key]
         const item = itensChao[key]
@@ -136,7 +141,7 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
           stroke = '#00eeff'
         }
 
-        drawHex(ctx, center, hexSize, fill, stroke, stroke === '#00eeff' ? 2 : 1)
+        drawHex(ctx, center, sz, fill, stroke, stroke === '#00eeff' ? 2 : 1)
 
         if (obs) {
           ctx.fillStyle = '#fff'
@@ -157,34 +162,34 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
 
         if (ch) {
           if (ch.time === 'jogador') {
-            const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, hexSize * 0.7)
+            const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.7)
             grad.addColorStop(0, '#003322')
             grad.addColorStop(1, '#001a10')
             ctx.beginPath()
-            ctx.arc(center.x, center.y, hexSize * 0.5, 0, Math.PI * 2)
+            ctx.arc(center.x, center.y, sz * 0.5, 0, Math.PI * 2)
             ctx.fillStyle = grad
             ctx.fill()
             ctx.strokeStyle = '#00ff88'
             ctx.lineWidth = 2
             ctx.stroke()
             ctx.fillStyle = '#00ff88'
-            ctx.font = `bold ${hexSize * 0.38}px Orbitron, sans-serif`
+            ctx.font = `bold ${sz * 0.38}px Orbitron, sans-serif`
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
             ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y)
           } else {
-            const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, hexSize * 0.7)
+            const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.7)
             grad.addColorStop(0, '#330011')
             grad.addColorStop(1, '#1a0008')
             ctx.beginPath()
-            ctx.arc(center.x, center.y, hexSize * 0.5, 0, Math.PI * 2)
+            ctx.arc(center.x, center.y, sz * 0.5, 0, Math.PI * 2)
             ctx.fillStyle = grad
             ctx.fill()
             ctx.strokeStyle = '#ff2244'
             ctx.lineWidth = 2
             ctx.stroke()
             ctx.fillStyle = '#ff2244'
-            ctx.font = `bold ${hexSize * 0.38}px Orbitron, sans-serif`
+            ctx.font = `bold ${sz * 0.38}px Orbitron, sans-serif`
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
             ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y)
@@ -192,7 +197,7 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
         }
       }
     }
-  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, hexSize])
+  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell])
 
   useEffect(() => { draw() }, [draw])
 
@@ -224,11 +229,15 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const scaleY = canvas.height / rect.height
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
-    const w = hexSize * SQRT3
-    const h = hexSize * 1.5
-    const padX = hexSize * SQRT3
-    const padY = hexSize * 1.5
-    const hex = pixelToHex(mx, my, cols, rows, padX, padY, hexSize)
+    const sz = Math.max(14, Math.min(40, Math.min(
+      Math.floor(canvas.width / (cols * 1.5 + 0.75)),
+      Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
+    )))
+    const gridW = cols * sz * 1.5 + sz * 0.75
+    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+    const padX = Math.round((canvas.width - gridW) / 2)
+    const padY = Math.round((canvas.height - gridH) / 2)
+    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     if (!hex) return
     const { row, col } = hex
     const key = `${row}_${col}`
@@ -290,11 +299,15 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
     const scaleY = canvas.height / rect.height
     const mx = (e.clientX - rect.left) * scaleX
     const my = (e.clientY - rect.top) * scaleY
-    const w = hexSize * SQRT3
-    const h = hexSize * 1.5
-    const padX = hexSize * SQRT3
-    const padY = hexSize * 1.5
-    const hex = pixelToHex(mx, my, cols, rows, padX, padY, hexSize)
+    const sz = Math.max(14, Math.min(40, Math.min(
+      Math.floor(canvas.width / (cols * 1.5 + 0.75)),
+      Math.floor(canvas.height / (rows * SQRT3 + SQRT3 * 0.5))
+    )))
+    const gridW = cols * sz * 1.5 + sz * 0.75
+    const gridH = rows * sz * SQRT3 + sz * SQRT3 * 0.5
+    const padX = Math.round((canvas.width - gridW) / 2)
+    const padY = Math.round((canvas.height - gridH) / 2)
+    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
     setHoveredCell(hex)
   }
 
@@ -450,14 +463,6 @@ export default function Phase2BoardSetup({ characters, onConfirm, onBack }) {
                 <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => setRows(r => Math.max(1, r - 1))}>−</button>
                 <span className="p2-stepper-value">{rows}</span>
                 <button className="p2-stepper-btn" disabled={rows >= 15} onClick={() => setRows(r => Math.min(15, r + 1))}>+</button>
-              </div>
-            </div>
-            <div className="p2-stepper-group">
-              <span className="p2-stepper-label">TAMANHO</span>
-              <div className="p2-stepper">
-                <button className="p2-stepper-btn" disabled={hexSize <= 14} onClick={() => setHexSize(s => Math.max(14, s - 2))}>−</button>
-                <span className="p2-stepper-value">{hexSize}</span>
-                <button className="p2-stepper-btn" disabled={hexSize >= 40} onClick={() => setHexSize(s => Math.min(40, s + 2))}>+</button>
               </div>
             </div>
           </div>
