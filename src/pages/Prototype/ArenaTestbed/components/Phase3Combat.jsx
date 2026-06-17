@@ -352,6 +352,21 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         '\n  wrap padding:', csWrap.padding,
         '\n  wrap boxSizing:', csWrap.boxSizing,
       )
+      const wrapEl = canvasContainerRef.current
+      if (wrapEl) {
+        const children = Array.from(wrapEl.children)
+        children.forEach((child, i) => {
+          const r = child.getBoundingClientRect()
+          console.log(`[WRAP CHILD ${i}]`,
+            'tag:', child.tagName,
+            'class:', child.className,
+            'rect:', `left=${r.left.toFixed(1)} width=${r.width.toFixed(1)} height=${r.height.toFixed(1)}`,
+            'offsetLeft:', child.offsetLeft,
+            'position:', window.getComputedStyle(child).position,
+            'display:', window.getComputedStyle(child).display,
+          )
+        })
+      }
     }
 
     const newW = Math.round(gridW)
