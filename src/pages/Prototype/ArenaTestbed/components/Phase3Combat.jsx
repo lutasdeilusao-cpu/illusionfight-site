@@ -135,8 +135,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const hudH = document.querySelector('.atb-hud')?.offsetHeight || 52
       const navH = document.querySelector('.atb-bottom-nav')?.offsetHeight || 52
       const containerH = el.clientHeight > 50 ? el.clientHeight : (window.innerHeight - topH - hudH - navH)
-      const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75 + 2))
-      const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2))
+      const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+      const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
       const size = Math.min(sizeByWidth, sizeByHeight)
       setHexSize(Math.max(18, Math.min(36, size)))
       const canvas = canvasRef.current
@@ -144,7 +144,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         const sz = Math.max(18, Math.min(36, size))
         const w = sz * 1.5
         const h = sz * SQRT3
-        const PAD = sz
+        const PAD = Math.round(sz * 0.5)
         const newW = Math.round(cols * w + w / 2 + PAD * 2)
         const newH = Math.round(rows * h + h / 2 + PAD * 2)
         canvas.width = newW
@@ -309,12 +309,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     const container = canvasContainerRef.current
     const containerW = container ? container.clientWidth : 400
     const containerH = container ? container.clientHeight : 300
-    const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75 + 2))
-    const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2))
+    const sizeByWidth = Math.floor(containerW / (cols * 1.5 + 0.75))
+    const sizeByHeight = Math.floor(containerH / (rows * SQRT3 + SQRT3 * 0.5))
     const sz = Math.max(18, Math.min(hexSize, sizeByWidth, sizeByHeight))
     const w = sz * 1.5
     const h = sz * SQRT3
-    const PAD = Math.max(8, Math.min(14, sz))
+    const PAD = Math.round(sz * 0.5)
     const gridW = cols * w + w / 2 + PAD * 2
     const gridH = rows * h + h / 2 + PAD * 2
     const offsetX = PAD
@@ -326,9 +326,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       console.log('[DRAW DEBUG]',
         '\n  containerW:', containerW, '| containerH:', containerH,
         '\n  cols:', cols, '| rows:', rows,
-        '\n  PAD:', sz,
-        '\n  sizeByWidth calc:', containerW / (cols * 1.5 + 0.75 + 2),
-        '\n  sizeByHeight calc:', containerH / (rows * SQRT3 + SQRT3 * 0.5 + 2),
+        '\n  PAD:', PAD,
+        '\n  sizeByWidth calc:', containerW / (cols * 1.5 + 0.75),
+        '\n  sizeByHeight calc:', containerH / (rows * SQRT3 + SQRT3 * 0.5),
         '\n  sz final:', sz,
         '\n  gridW:', Math.round(gridW), '(deveria ser <=', containerW, ')',
         '\n  gridH:', Math.round(gridH), '(deveria ser <=', containerH, ')',
