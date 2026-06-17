@@ -66,10 +66,13 @@ function calcGridProps(containerW, containerH, cols, rows, minSz, maxSz) {
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridSpan = (cols - 1) * sz * 1.5
   const gridW = gridSpan + sz * 2
-  const gridSpanH = (rows - 1) * sz * SQRT3
-  const gridH = gridSpanH + sz * SQRT3
+  const hexH = sz * SQRT3
+  const gridSpanH = (rows - 1) * hexH
+  const extraBottom = cols > 1 ? hexH / 2 : 0
+  const totalSpan = gridSpanH + extraBottom
+  const gridH = gridSpanH + hexH
   const padX = Math.round((containerW - gridSpan) / 2)
-  const padY = Math.round((containerH - gridSpanH) / 2)
+  const padY = Math.round((containerH - totalSpan) / 2)
   return { hexSize: sz, padX, padY, gridW, gridH }
 }
 
@@ -109,10 +112,13 @@ export default function useHexCanvas({ canvasRef, cols, rows, minSz = 14, maxSz 
   const sz = Math.max(minSz, Math.min(maxSz, Math.min(byWidth, byHeight)))
   const gridSpan = (cols - 1) * sz * 1.5
   const gridW = gridSpan + sz * 2
-  const gridSpanH = (rows - 1) * sz * SQRT3
-  const gridH = gridSpanH + sz * SQRT3
+  const hexH = sz * SQRT3
+  const gridSpanH = (rows - 1) * hexH
+  const extraBottom = cols > 1 ? hexH / 2 : 0
+  const totalSpan = gridSpanH + extraBottom
+  const gridH = gridSpanH + hexH
   const padX = Math.round((containerW - gridSpan) / 2)
-  const padY = Math.round((containerH - gridSpanH) / 2)
+  const padY = Math.round((containerH - totalSpan) / 2)
 
   console.log(
     `[HEX] cols:${cols} rows:${rows} sz:${sz} padX:${padX} padY:${padY} grid:${gridW.toFixed(0)}x${gridH.toFixed(0)} fill:${((gridW/containerW)*100).toFixed(0)}%w ${((gridH/containerH)*100).toFixed(0)}%h`
