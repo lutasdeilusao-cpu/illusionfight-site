@@ -37,7 +37,7 @@ export default function Cadastro() {
     const { data, error } = await supabase.auth.signUp({
       email: form.email,
       password: form.senha,
-      options: { emailRedirectTo: window.location.origin }
+      options: { emailRedirectTo: 'https://illusionfight.com/login' }
     })
     if (error) { setErro(error.message); setCarregando(false); return }
     setCarregando(false)
