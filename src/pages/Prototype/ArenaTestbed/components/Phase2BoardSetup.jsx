@@ -32,6 +32,8 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
   const [obs3Effect, setObs3Effect] = useState('nenhum')
   const [obs4Movable, setObs4Movable] = useState(false)
   const [obs4Destructible, setObs4Destructible] = useState(false)
+  const tileImgRef = useRef(null)
+  const [tileLoaded, setTileLoaded] = useState(false)
   const [isPortrait, setIsPortrait] = useState(
     () => window.matchMedia('(orientation: portrait)').matches
   )
@@ -92,7 +94,33 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
           stroke = '#00eeff'
         }
 
-        drawHex(ctx, center, sz, fill, stroke, stroke === '#00eeff' ? 2 : 1)
+        if (!obs && !item && tileImgRef.current) {
+          ctx.save()
+          ctx.beginPath()
+          for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 180) * (60 * i)
+            const px = center.x + sz * Math.cos(angle)
+            const py = center.y + sz * Math.sin(angle)
+            i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py)
+          }
+          ctx.closePath()
+          ctx.clip()
+          ctx.drawImage(tileImgRef.current, center.x - sz, center.y - sz, sz * 2, sz * 2)
+          ctx.restore()
+          ctx.beginPath()
+          for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 180) * (60 * i)
+            const px = center.x + sz * Math.cos(angle)
+            const py = center.y + sz * Math.sin(angle)
+            i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py)
+          }
+          ctx.closePath()
+          ctx.strokeStyle = stroke
+          ctx.lineWidth = stroke === '#00eeff' ? 2 : 1
+          ctx.stroke()
+        } else {
+          drawHex(ctx, center, sz, fill, stroke, stroke === '#00eeff' ? 2 : 1)
+        }
 
         if (obs) {
           ctx.fillStyle = '#fff'
@@ -148,7 +176,16 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
         }
       }
     }
-  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, hexCenter, drawHex, padRef, sizeRef])
+  }, [cols, rows, boardChars, obstaculos, itensChao, hoveredCell, hexCenter, drawHex, padRef, sizeRef, tileLoaded])
+
+  useEffect(() => {
+    const img = new Image()
+    img.src = '/assets/arena/terrenos/tile_default.png'
+    img.onload = () => {
+      tileImgRef.current = img
+      setTileLoaded(true)
+    }
+  }, [])
 
   useEffect(() => { draw() }, [draw, calcVersion])
 
@@ -242,6 +279,7 @@ export default function Phase2BoardSetup({ characters, onConfirm }) {
       itensChao,
       cols,
       rows,
+      tileUrl: '/assets/arena/terrenos/tile_default.png',
     }
     onConfirm(finalBoard)
   }

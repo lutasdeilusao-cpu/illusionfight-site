@@ -21,7 +21,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const trailRef = useRef([])
   const rafRef = useRef(null)
 
-  const { boardChars, obstaculos, itensChao, cols, rows } = boardState
+  const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
   const agiUmPraUm = true
 
   const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
@@ -91,6 +91,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const moverPersonagemRef = useRef(null)
   const winnerRef = useRef(null)
   const iaThinkingRef = useRef(false)
+  const tileImgRef = useRef(null)
+  const [tileLoaded, setTileLoaded] = useState(false)
   const sortedGlobalRef = useRef([])
   const crossTieQueueRef = useRef([])
   const crossTieResultsRef = useRef([])
@@ -121,6 +123,16 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useEffect(() => { orderRef.current = turnOrder }, [turnOrder])
 
   const [remainingMove, setRemainingMove] = useState(0)
+
+  useEffect(() => {
+    if (!tileUrl) return
+    const img = new Image()
+    img.src = tileUrl
+    img.onload = () => {
+      tileImgRef.current = img
+      setTileLoaded(true)
+    }
+  }, [tileUrl])
 
   useEffect(() => {
     const alive = characters.filter(c => c.vivo)
@@ -426,7 +438,39 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
 
         const lw = destKey && key === destKey ? 2.5 : (hlSet.has(key) ? 1.5 : (atkSet.has(key) ? 1.5 : (rangeSet.has(key) ? 1 : 1)))
-        drawHex(ctx, center, sz, fill, stroke, lw, shadow)
+        if (!obs && !itensChaoAtual[key] && tileImgRef.current) {
+          ctx.save()
+          ctx.beginPath()
+          for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 180) * (60 * i)
+            const px = center.x + sz * Math.cos(angle)
+            const py = center.y + sz * Math.sin(angle)
+            i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py)
+          }
+          ctx.closePath()
+          ctx.clip()
+          ctx.drawImage(tileImgRef.current, center.x - sz, center.y - sz, sz * 2, sz * 2)
+          if (fill !== '#3d2208') {
+            ctx.fillStyle = fill
+            ctx.fill()
+          }
+          ctx.restore()
+          ctx.beginPath()
+          for (let i = 0; i < 6; i++) {
+            const angle = (Math.PI / 180) * (60 * i)
+            const px = center.x + sz * Math.cos(angle)
+            const py = center.y + sz * Math.sin(angle)
+            i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py)
+          }
+          ctx.closePath()
+          if (shadow) { ctx.shadowBlur = shadow.blur; ctx.shadowColor = shadow.color }
+          ctx.strokeStyle = stroke
+          ctx.lineWidth = lw
+          ctx.stroke()
+          ctx.shadowBlur = 0
+        } else {
+          drawHex(ctx, center, sz, fill, stroke, lw, shadow)
+        }
 
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
@@ -574,7 +618,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         }
       }
     }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
 
   useEffect(() => {
     const container = canvasContainerRef.current
