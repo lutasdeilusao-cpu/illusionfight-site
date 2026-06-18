@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistema RPG — Demo</title>
+<title>Sistema RPG — 3v3</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
@@ -387,6 +387,15 @@
   .effect-regen   { background: #1a2e2e; color: #4dd0e1; border: 1px solid #1e5e5e; }
   .effect-fragile { background: #2e1a1a; color: #ef9a9a; border: 1px solid #5e2a2a; }
 
+  /* COMBATANTS LIST */
+  .combatants-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .log-defeat { color: var(--dmg); font-weight: 600; }
+
   /* RESPONSIVE */
   @media (max-width: 480px) {
     .combatants { grid-template-columns: 1fr; }
@@ -403,12 +412,12 @@
   <div class="container">
     <div class="header-bar">
       <div class="ornament">✦ ✦ ✦</div>
-      <h1>Criação de Personagem</h1>
+      <h1>Criação — Sistema 3v3</h1>
       <p class="subtitle">Distribua seus pontos e defina quem você é</p>
     </div>
 
     <div class="points-display">
-      <div class="points-num" id="pts-left">5</div>
+      <div class="points-num" id="pts-left">8</div>
       <div class="points-label">pontos restantes — máximo 3 por atributo</div>
     </div>
 
@@ -437,8 +446,13 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="card-title">Escolha 2 Aliados</div>
+      <div id="ally-selector" style="display:flex; flex-direction:column; gap:8px;"></div>
+    </div>
+
     <div class="row flex-end mt-8">
-      <button class="btn btn-primary" id="btn-confirm" onclick="confirmCreation()">Confirmar Personagem</button>
+      <button class="btn btn-primary" id="btn-confirm" onclick="confirmCreation()">Confirmar e Iniciar</button>
     </div>
   </div>
 </div>
@@ -448,7 +462,7 @@
   <div class="container">
     <div class="header-bar">
       <div class="ornament">✦ ✦ ✦</div>
-      <h1 id="main-char-name">Aventureiro</h1>
+      <h1>Batalha 3v3</h1>
       <p class="subtitle">Escolha sua próxima ação</p>
     </div>
 
@@ -482,10 +496,21 @@
 
     <!-- TAB: BATTLE -->
     <div id="tab-battle" style="display:none">
-      <div class="combatants" id="combatants-display"></div>
+      <div class="card text-center" id="turn-indicator" style="padding:10px; margin-bottom:10px;">
+        <span style="font-family:'Cinzel',serif; color:var(--gold);">Aguardando início...</span>
+      </div>
 
-      <div class="card" style="padding:12px 14px;">
-        <div class="card-title" style="margin-bottom:10px;">Ações</div>
+      <div class="combatants-list" id="combatants-display"></div>
+
+      <div class="card" id="action-panel" style="padding:12px 14px;">
+        <div class="card-title" style="margin-bottom:10px;">Ações — <span id="action-actor-name" style="color:var(--gold);font-size:0.85rem;"></span></div>
+
+        <div id="target-selector" style="display:none; margin-bottom:10px;">
+          <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;" id="target-selector-label">Escolha o alvo:</div>
+          <div id="target-buttons" style="display:flex; flex-direction:column; gap:6px;"></div>
+          <button class="btn btn-secondary" style="margin-top:8px; font-size:0.8rem;" onclick="cancelTargeting()">Cancelar</button>
+        </div>
+
         <div class="attack-grid" id="attack-buttons"></div>
 
         <div class="magic-panel">
@@ -495,8 +520,14 @@
           <div id="magic-panel-body">
           <div class="mp-counter" id="mp-display">MP: — / —</div>
 
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Área de efeito</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;" id="area-magic-btns"></div>
+
           <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Dano adicional</div>
           <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;" id="dmg-magic-btns"></div>
+
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Cura (aliados)</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;" id="heal-magic-btns"></div>
 
           <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Efeitos (inimigo)</div>
           <div class="magic-grid" id="effect-magic-btns"></div>
@@ -504,13 +535,17 @@
           <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Suporte (você)</div>
           <div class="magic-grid" id="support-magic-btns"></div>
 
+          <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Reviver</div>
+          <div id="revive-magic-btn" style="margin-bottom:10px;"></div>
+
           <div id="magic-queue-display" style="min-height:24px; margin-bottom:8px;"></div>
 
-          <div class="row" style="gap:8px; justify-content:space-between;">
-            <button class="btn btn-secondary" id="btn-clear-magic" onclick="clearMagicQueue()" style="font-size:0.8rem; padding:6px 12px;">Limpar</button>
-            <button class="btn btn-secondary" id="btn-defend" onclick="defendAction()" style="font-size:0.85rem; padding:8px 16px;">Defender</button>
-            <button class="btn" id="btn-cast" onclick="castMagic()" style="font-size:0.8rem; padding:6px 14px; background:#0d1a2e; border:1px solid var(--mp); color:var(--mp-light);">Lançar Magia</button>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:8px;">
+            <button class="btn btn-secondary" id="btn-clear-magic" onclick="clearMagicQueue()" style="font-size:0.8rem;">Limpar</button>
+            <button class="btn btn-secondary" id="btn-defend" onclick="defendAction()" style="font-size:0.8rem;">Esperar</button>
+            <button class="btn btn-secondary" id="btn-meditate" onclick="meditateAction()" style="font-size:0.8rem; border-color:var(--mp); color:var(--mp-light);">Meditar</button>
           </div>
+          <button class="btn" id="btn-cast" onclick="castMagic()" style="width:100%; font-size:0.85rem; padding:10px; background:#0d1a2e; border:1px solid var(--mp); color:var(--mp-light);">✦ Lançar Magia ✦</button>
           </div><!-- /magic-panel-body -->
         </div>
       </div>
@@ -538,7 +573,7 @@ const ATTRS = [
 
 // Armas: atributo básico usado no teste, atributo de batalha que rivaliza com armadura
 const WEAPONS = [
-  { id: 'espada', name: 'Espada',  level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia', potencia: 5, letalidade: 0, malicia: 0 },
+  { id: 'espada', name: 'Espada',  level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia', potencia: 6, letalidade: 0, malicia: 0 }, // +1 dano base
   { id: 'adaga',  name: 'Adaga',   level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 0, letalidade: 5, malicia: 0 },
   { id: 'cajado', name: 'Cajado',  level: 1, dice: 6, atkAttr: 'int', dmgStat: 'malicia', potencia: 0, letalidade: 0, malicia: 5 },
 ];
@@ -561,36 +596,85 @@ const ATK_VS_DEF_ATTR = { for: 'res', dex: 'agi', int: 'det' };
 function atkBonus(entity)  { return Math.floor(entity.attrs.dex / 2); }
 function defBonus(entity)  { return Math.floor(entity.attrs.agi / 2); }
 
+// ─── ALLY & ENEMY TEMPLATES ───────────────────────────────────────────────────
+const ALLY_TEMPLATES = [
+  { id:'brunhilda', name:'Brunhilda', role:'Guerreira', attrs:{for:3,dex:1,int:0,agi:1,res:2,det:1}, weapon: WEAPONS[0], armor: ARMORS[0] },
+  { id:'finn',      name:'Finn',      role:'Ladino',    attrs:{for:1,dex:3,int:0,agi:3,res:1,det:0}, weapon: WEAPONS[1], armor: ARMORS[1] },
+  { id:'elowen',    name:'Elowen',    role:'Maga',      attrs:{for:0,dex:1,int:3,agi:1,res:0,det:3}, weapon: WEAPONS[2], armor: ARMORS[2] },
+  { id:'boran',     name:'Boran',     role:'Defensor',  attrs:{for:2,dex:0,int:0,agi:1,res:3,det:2}, weapon: WEAPONS[0], armor: ARMORS[0] },
+];
+
+const ENEMY_TEMPLATES = [
+  { name:'Soldado Renegado',  attrs:{for:2,dex:1,int:0,agi:1,res:2,det:0}, weapon: WEAPONS[0], armor: ARMORS[0] },
+  { name:'Mercenário Errante',attrs:{for:1,dex:2,int:0,agi:2,res:1,det:0}, weapon: WEAPONS[1], armor: ARMORS[1] },
+  { name:'Cultista Sombrio',  attrs:{for:0,dex:1,int:2,agi:1,res:0,det:2}, weapon: WEAPONS[2], armor: ARMORS[2] },
+  { name:'Bandido Veloz',     attrs:{for:1,dex:3,int:0,agi:2,res:0,det:0}, weapon: WEAPONS[1], armor: ARMORS[1] },
+  { name:'Bruto das Cavernas',attrs:{for:3,dex:0,int:0,agi:0,res:3,det:0}, weapon: WEAPONS[0], armor: ARMORS[0] },
+];
+
+// Cria um combatente completo a partir de um template
+function makeCombatant(template, side, id, isPlayerControlled) {
+  const maxHP = calcHP(template.attrs.res, template.attrs.for);
+  const maxMP = calcMP(template.attrs.det, template.attrs.int);
+  return {
+    id,
+    name: template.name,
+    role: template.role || null,
+    side, // 'player' ou 'enemy'
+    isPlayerControlled: !!isPlayerControlled,
+    attrs: { ...template.attrs },
+    weapon: template.weapon,
+    armor: template.armor,
+    maxHP, hp: maxHP,
+    maxMP, mp: maxMP,
+    effects: [],
+    buffs: [],
+    alive: true,
+    paralyzedRoundRolled: false,
+    paralyzedThisRound: false,
+  };
+}
+
 // ─── MAGIC DATA ──────────────────────────────────────────────────────────────
 const EFFECTS_ENEMY = [
   { id:'poison',   name:'Envenenamento', cost:2, defAttr:'res', desc:'-10% HP/turno',   cls:'effect-poison' },
   { id:'paralyze', name:'Paralisia',     cost:2, defAttr:'res', desc:'40% perde turno', cls:'effect-paralyze' },
   { id:'faint',    name:'Desmaio',       cost:2, defAttr:'det', desc:'Perde turno+rec', cls:'effect-faint' },
-  { id:'fragile',  name:'Fragilidade',   cost:2, defAttr:'res', desc:'-25% def equip',  cls:'effect-fragile' },
-  { id:'neglect',  name:'Negligência',   cost:2, defAttr:'res', desc:'-25% atk equip',  cls:'effect-fragile' },
+  { id:'fragile',  name:'Fragilidade',   cost:2, defAttr:'det', desc:'-25% def equip',  cls:'effect-fragile' },
+  { id:'neglect',  name:'Negligência',   cost:2, defAttr:'det', desc:'-25% atk equip',  cls:'effect-fragile' },
   { id:'imperit',  name:'Imperícia',     cost:2, defAttr:'det', desc:'-25% atk attr',   cls:'effect-fragile' },
   { id:'imprud',   name:'Imprudência',   cost:2, defAttr:'det', desc:'-25% def attr',   cls:'effect-fragile' },
 ];
 const EFFECTS_ALLY = [
-  { id:'regen',   name:'Regeneração', cost:2, desc:'+10% HP/turno',  cls:'effect-regen' },
-  { id:'detox',   name:'Detox',       cost:2, desc:'Limpa efeitos',  cls:'effect-regen' },
-  { id:'blind',   name:'Blindagem',   cost:2, desc:'+25% def equip', cls:'effect-regen' },
-  { id:'prepare', name:'Preparo',     cost:2, desc:'+25% atk equip', cls:'effect-regen' },
-  { id:'skill',   name:'Habilidade',  cost:2, desc:'+25% atk attr',  cls:'effect-regen' },
-  { id:'caution', name:'Cautela',     cost:2, desc:'+25% def attr',  cls:'effect-regen' },
+  { id:'regen',   name:'Regeneração', cost:2,  desc:'+10% HP/turno',  cls:'effect-regen' },
+  { id:'detox',   name:'Detox',       cost:2,  desc:'Limpa efeitos',  cls:'effect-regen' },
+  { id:'blind',   name:'Blindagem',   cost:2,  desc:'+25% def equip', cls:'effect-regen' },
+  { id:'prepare', name:'Preparo',     cost:2,  desc:'+25% atk equip', cls:'effect-regen' },
+  { id:'skill',   name:'Habilidade',  cost:2,  desc:'+25% atk attr',  cls:'effect-regen' },
+  { id:'caution', name:'Cautela',     cost:2,  desc:'+25% def attr',  cls:'effect-regen' },
+  { id:'revive',  name:'Reviver',     cost:10, desc:'Revive com 1 HP', cls:'effect-regen' },
 ];
 
 // Fila de magia do jogador
-let magicQueue = { dmgExtra: 0, effect: null, support: null, mpCost: 0 };
+let magicQueue = { dmgExtra: 0, healExtra: 0, area: null, effect: null, support: null, revive: false, mpCost: 0 };
+// area: null | 'two' (3 MP, 2 alvos) | 'all' (5 MP, todos)
 
 function mpCostQueue() {
+  if (magicQueue.revive) return 10; // Reviver é sempre independente, custo fixo
   let cost = magicQueue.dmgExtra * 2;
-  let synthCount = 0;
-  if (magicQueue.dmgExtra > 0) { /* base */ }
-  if (magicQueue.effect)  { cost += magicQueue.effect.cost; synthCount++; }
-  if (magicQueue.support) { cost += magicQueue.support.cost; synthCount++; }
-  if (synthCount >= 2) cost += (synthCount - 1); // 1 MP por síntese extra
-  else if (synthCount === 1 && magicQueue.dmgExtra > 0) cost += 1; // síntese dano+efeito
+  cost += magicQueue.healExtra * 2;
+  if (magicQueue.area === 'two') cost += 3;
+  else if (magicQueue.area === 'all') cost += 5;
+  if (magicQueue.effect)  { cost += magicQueue.effect.cost; }
+  if (magicQueue.support) { cost += magicQueue.support.cost; }
+  const typeCount = [
+    magicQueue.dmgExtra > 0,
+    magicQueue.healExtra > 0,
+    !!magicQueue.area,
+    !!magicQueue.effect,
+    !!magicQueue.support
+  ].filter(Boolean).length;
+  if (typeCount >= 2) cost += typeCount - 1;
   return cost;
 }
 
@@ -605,7 +689,7 @@ function toggleMagicPanel() {
 }
 
 function clearMagicQueue() {
-  magicQueue = { dmgExtra: 0, effect: null, support: null, mpCost: 0 };
+  magicQueue = { dmgExtra: 0, healExtra: 0, area: null, effect: null, support: null, revive: false, mpCost: 0 };
   renderMagicPanel();
 }
 
@@ -614,12 +698,12 @@ function clearMagicQueue() {
 let player = {};
 let enemy = {};
 let battleActive = false;
-let playerTurn = true;
 
 // ─── CREATION ────────────────────────────────────────────────────────────────
 let creation = { for:0, dex:0, int:0, agi:0, res:0, det:0 };
 let selectedWeapon = WEAPONS[0];
 let selectedArmor  = ARMORS[0];
+let selectedAllies = [ALLY_TEMPLATES[0], ALLY_TEMPLATES[1]];
 const MAX_PTS = 8;
 const MAX_PER = 3;
 
@@ -676,6 +760,23 @@ function renderCreation() {
     });
   }
 
+  // Ally selector
+  const als = document.getElementById('ally-selector');
+  if (als) {
+    als.innerHTML = '';
+    ALLY_TEMPLATES.forEach(a => {
+      const selected = selectedAllies.some(x => x.id === a.id);
+      const btn = document.createElement('button');
+      btn.className = 'btn ' + (selected ? 'btn-gold' : 'btn-secondary');
+      btn.style.textAlign = 'left';
+      btn.style.fontSize = '0.85rem';
+      const attrSummary = ATTRS.map(at => `${at.name.slice(0,3)} ${a.attrs[at.id]}`).join(' · ');
+      btn.innerHTML = `<strong>${a.name}</strong> — ${a.role}<br><small style="font-style:italic;color:var(--muted);">${attrSummary} | ${a.weapon.name} · ${a.armor.name}</small>`;
+      btn.onclick = () => toggleAlly(a);
+      als.appendChild(btn);
+    });
+  }
+
   document.getElementById('pts-left').textContent = getPointsLeft();
 
   const hp = calcHP(creation.res, creation.for);
@@ -691,6 +792,20 @@ function changeAttr(id, delta) {
   if (next < 0 || next > MAX_PER) return;
   if (delta > 0 && getPointsLeft() <= 0) return;
   creation[id] = next;
+  renderCreation();
+}
+
+function toggleAlly(template) {
+  const idx = selectedAllies.findIndex(a => a.id === template.id);
+  if (idx >= 0) {
+    if (selectedAllies.length > 1) selectedAllies.splice(idx, 1);
+  } else {
+    if (selectedAllies.length < 2) {
+      selectedAllies.push(template);
+    } else {
+      selectedAllies[1] = template; // substitui o segundo
+    }
+  }
   renderCreation();
 }
 
@@ -719,27 +834,63 @@ function suggestClass() {
   return 'Híbrido';
 }
 
+let combatants = []; // todos os combatentes da batalha atual (6: player+2 aliados+3 inimigos)
+
+function pickRandomEnemies(n) {
+  const pool = [...ENEMY_TEMPLATES];
+  const chosen = [];
+  for (let i = 0; i < n; i++) {
+    const idx = Math.floor(Math.random() * pool.length);
+    chosen.push(pool[idx]);
+    pool.splice(idx, 1);
+    if (pool.length === 0) pool.push(...ENEMY_TEMPLATES); // recicla se faltar
+  }
+  return chosen;
+}
+
 function confirmCreation() {
   const maxHP = calcHP(creation.res, creation.for);
   const maxMP = calcMP(creation.det, creation.int);
   player = {
+    id: 'player',
     name: 'Aventureiro',
+    side: 'player',
+    isPlayerControlled: true,
     attrs: { ...creation },
     xp: { for:0, dex:0, int:0, agi:0, res:0, det:0 },
     maxHP, hp: maxHP,
     maxMP, mp: maxMP,
     weapon: selectedWeapon,
     armor:  selectedArmor,
+    effects: [], buffs: [],
+    alive: true,
+    paralyzedRoundRolled: false, paralyzedThisRound: false,
   };
+
+  const ally1 = makeCombatant(selectedAllies[0], 'player', 'ally1', true);
+  const ally2 = makeCombatant(selectedAllies[1], 'player', 'ally2', true);
+
+  const enemyTemplates = pickRandomEnemies(3);
+  const enemy1 = makeCombatant(enemyTemplates[0], 'enemy', 'enemy1', false);
+  const enemy2 = makeCombatant(enemyTemplates[1], 'enemy', 'enemy2', false);
+  const enemy3 = makeCombatant(enemyTemplates[2], 'enemy', 'enemy3', false);
+
+  combatants = [player, ally1, ally2, enemy1, enemy2, enemy3];
+
   buildMainScreen();
   showScreen('screen-main');
 }
+
+function alivePlayerSide() { return combatants.filter(c => c.side === 'player' && c.alive); }
+function aliveEnemySide()  { return combatants.filter(c => c.side === 'enemy'  && c.alive); }
+function getCombatant(id)  { return combatants.find(c => c.id === id); }
 
 // ─── MAIN SCREEN ─────────────────────────────────────────────────────────────
 function buildMainScreen() {
   renderSheet();
   renderTestButtons();
-  initBattle();
+  // initBattle é chamado ao confirmar personagem, após montar combatants[]
+  setTimeout(initBattle, 200);
 }
 
 function showTab(id) {
@@ -840,108 +991,465 @@ function runTest(attr) {
 }
 
 // ─── BATTLE ──────────────────────────────────────────────────────────────────
-function initBattle() {
-  enemy = buildEnemy();
-  battleActive = true;
-  playerTurn = true;
-  clearMagicQueue();
-  renderBattle();
-  clearLog();
-  logEntry('⚔️ Uma nova batalha começa!', 'log-info');
-  logEntry(`${enemy.name} avança em sua direção.`, 'log-sys');
-  setBattleButtons(true);
-  document.getElementById('battle-end').style.display = 'none';
+function applyDamage(entity, dmg) {
+  entity.hp = Math.max(0, entity.hp - dmg);
+  if (entity.hp === 0 && entity.alive) {
+    entity.alive = false;
+    logEntry(`💀 ${entity.name} foi derrotado!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat');
+  }
 }
 
-function buildEnemy() {
-  const templates = [
-    { name: 'Soldado Renegado',  attrs: {for:2,dex:1,int:0,agi:1,res:2,det:0}, weapon: WEAPONS[0], armor: ARMORS[0] },
-    { name: 'Mercenário Errante',attrs: {for:1,dex:2,int:0,agi:2,res:1,det:0}, weapon: WEAPONS[1], armor: ARMORS[1] },
-    { name: 'Cultista Sombrio',  attrs: {for:0,dex:1,int:2,agi:1,res:0,det:2}, weapon: WEAPONS[2], armor: ARMORS[2] },
-  ];
-  const t = templates[Math.floor(Math.random() * templates.length)];
-  const maxHP = calcHP(t.attrs.res, t.attrs.for);
-  return { name: t.name, attrs: {...t.attrs}, weapon: t.weapon, armor: t.armor, hp: maxHP, maxHP };
+function initBattle() {
+  battleActive = true;
+  currentActor = null;
+  pendingAction = null;
+  clearLog();
+  logEntry('⚔ Uma nova batalha começa!', 'log-info');
+  logEntry(`Seu grupo: ${combatants[0].name}, ${combatants[1].name}, ${combatants[2].name}`, 'log-sys');
+  logEntry(`Oponentes: ${combatants[3].name}, ${combatants[4].name}, ${combatants[5].name}`, 'log-sys');
+  document.getElementById('battle-end').style.display = 'none';
+  hideTargetSelector();
+  startRound();
 }
 
 function renderBattle() {
-  const pPct = Math.max(0, (player.hp / player.maxHP) * 100);
-  const ePct = Math.max(0, (enemy.hp / enemy.maxHP) * 100);
-  const pw = player.weapon; const pa = player.armor;
-  const ew = enemy.weapon;  const ea = enemy.armor;
+  const display = document.getElementById('combatants-display');
+  display.innerHTML = '';
+  combatants.forEach(c => {
+    const pct = Math.max(0, (c.hp / c.maxHP) * 100);
+    const isCurrent = currentActor && currentActor.id === c.id;
+    const cardClass = c.side === 'player' ? 'player-card' : 'enemy-card';
+    const card = document.createElement('div');
+    card.className = `combatant-card ${cardClass}`;
+    card.style.opacity = c.alive ? '1' : '0.4';
+    if (isCurrent) card.style.boxShadow = '0 0 0 2px var(--gold)';
 
-  document.getElementById('combatants-display').innerHTML = `
-    <div class="combatant-card player-card">
-      <div class="combatant-name">${player.name}</div>
-      <div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">${pw.name} · ${pa.name}</div>
+    let badges = '';
+    (c.effects||[]).forEach(e => {
+      const ef = [...EFFECTS_ENEMY, ...EFFECTS_ALLY].find(x=>x.id===e.id);
+      badges += `<span class="effect-badge ${ef?.cls||'effect-fragile'}">${ef?.name||e.id} (${e.turnsLeft})</span>`;
+    });
+    (c.buffs||[]).forEach(b => {
+      badges += `<span class="effect-badge effect-regen">${b.name} (${b.turnsLeft})</span>`;
+    });
+    if (c.defending) badges += `<span class="effect-badge effect-regen">Defendendo</span>`;
+
+    card.innerHTML = `
+      <div class="combatant-name">${c.name}${c.role?` <span style="color:var(--muted);font-size:.7rem;">(${c.role})</span>`:''}${!c.alive?' ☠':''}</div>
+      <div style="font-size:.7rem;color:var(--muted);text-align:center;margin-bottom:4px;">${c.weapon.name} · ${c.armor.name}</div>
       <div class="stat-bars">
         <div class="stat-bar-row">
-          <div class="stat-bar-label" style="color:var(--hp-light);font-size:.75rem;">HP</div>
-          <div class="bar-track"><div class="bar-fill bar-hp ${pPct<30?'low':''}" style="width:${pPct}%"></div></div>
-          <div class="stat-val" style="font-size:.8rem;">${player.hp}/${player.maxHP}</div>
+          <div class="stat-bar-label" style="color:var(--hp-light);font-size:.7rem;">HP</div>
+          <div class="bar-track"><div class="bar-fill bar-hp ${pct<30?'low':''}" style="width:${pct}%"></div></div>
+          <div class="stat-val" style="font-size:.75rem;">${c.hp}/${c.maxHP}</div>
         </div>
+        ${c.maxMP>0?`<div class="stat-bar-row">
+          <div class="stat-bar-label" style="color:var(--mp-light);font-size:.7rem;">MP</div>
+          <div class="bar-track"><div class="bar-fill bar-mp" style="width:${(c.mp/c.maxMP)*100}%"></div></div>
+          <div class="stat-val" style="font-size:.75rem;">${c.mp}/${c.maxMP}</div>
+        </div>`:''}
       </div>
-    </div>
-    <div class="combatant-card enemy-card">
-      <div class="combatant-name">${enemy.name}</div>
-      <div style="font-size:.75rem;color:var(--muted);text-align:center;margin-bottom:6px;">${ew.name} · ${ea.name}</div>
-      <div class="stat-bars">
-        <div class="stat-bar-row">
-          <div class="stat-bar-label" style="color:var(--dmg);font-size:.75rem;">HP</div>
-          <div class="bar-track"><div class="bar-fill bar-hp ${ePct<30?'low':''}" style="width:${ePct}%"></div></div>
-          <div class="stat-val" style="font-size:.8rem;">${enemy.hp}/${enemy.maxHP}</div>
-        </div>
-      </div>
-    </div>
-  `;
+      ${badges ? `<div style="margin-top:4px;">${badges}</div>` : ''}
+    `;
+    display.appendChild(card);
+  });
 
-  // Botão de ataque — só mostra a arma equipada do jogador
+  const ti = document.getElementById('turn-indicator');
+  ti.innerHTML = currentActor
+    ? `<span style="font-family:'Cinzel',serif; color:var(--gold);">Vez de: ${currentActor.name}</span>`
+    : `<span style="font-family:'Cinzel',serif; color:var(--gold);">...</span>`;
+
+  const actionPanel = document.getElementById('action-panel');
   const grid = document.getElementById('attack-buttons');
+  const defendBtn = document.getElementById('btn-defend');
+
+  if (!currentActor || !currentActor.isPlayerControlled) {
+    actionPanel.style.display = 'none';
+    return;
+  }
+  actionPanel.style.display = '';
+  const actorLabel = document.getElementById('action-actor-name');
+  if (actorLabel) actorLabel.textContent = currentActor ? currentActor.name : '';
+
+  // Painel de magia só visível para quem usa cajado
+  const magicPanel = document.querySelector('.magic-panel');
+  if (magicPanel) {
+    const hasMagic = currentActor && currentActor.weapon.malicia > 0;
+    magicPanel.style.display = hasMagic ? '' : 'none';
+    if (!hasMagic) clearMagicQueue();
+  }
+
+  if (pendingAction) {
+    grid.innerHTML = '';
+    defendBtn.disabled = true;
+    return;
+  }
+
   grid.innerHTML = '';
-  const w = player.weapon;
-  const atkVal = player.attrs[w.atkAttr];
-  const defStatName = DMG_VS_DEF[w.dmgStat];
-  const defVal = enemy.armor[defStatName];
-  const netDmg = w[w.dmgStat] + atkBonus(player) - defVal - defBonus(enemy);
+  const actor = currentActor;
+  const w = actor.weapon;
+  const atkVal = actor.attrs[w.atkAttr];
   const btn = document.createElement('button');
   btn.className = 'btn-attack';
   btn.style.gridColumn = 'span 3';
-  btn.disabled = !battleActive || !playerTurn;
-  btn.innerHTML = `Atacar com ${w.name} <span class="attr-hint">Teste: ${ATTRS.find(a=>a.id===w.atkAttr).name} (${atkVal}) | Dano potencial: ${netDmg}</span>`;
-  btn.onclick = () => playerAttack();
+  btn.innerHTML = `Atacar com ${w.name} <span class="attr-hint">Teste: ${ATTRS.find(a=>a.id===w.atkAttr).name} (${atkVal})</span>`;
+  btn.onclick = () => startTargeting('attack');
   grid.appendChild(btn);
+  defendBtn.disabled = false;
+}
 
-  document.getElementById('btn-defend').disabled = !battleActive || !playerTurn;
+// ─── ALVO ──────────────────────────────────────────────────────────────────
+function startTargeting(type) {
+  pendingAction = type;
+  areaTargetsPicked = [];
+  const selector = document.getElementById('target-selector');
+  const btnsDiv = document.getElementById('target-buttons');
+  const label = document.getElementById('target-selector-label');
+  btnsDiv.innerHTML = '';
+
+  let targets;
+  if (type === 'magic_revive') {
+    targets = combatants.filter(c => c.side === 'player' && !c.alive);
+  } else if (type === 'magic_support' || type === 'magic_heal') {
+    targets = alivePlayerSide();
+  } else if (type === 'magic_area_two') {
+    // pool depende do tipo de magia (ofensiva → inimigos, cura/suporte → aliados)
+    const isHeal = magicQueue.healExtra > 0 || magicQueue.support;
+    targets = isHeal ? alivePlayerSide() : aliveEnemySide();
+  } else {
+    targets = aliveEnemySide();
+  }
+
+  if (type === 'magic_area_two') {
+    if (label) label.textContent = 'Escolha 2 alvos (0/2):';
+    renderAreaTwoButtons(targets, btnsDiv, label);
+  } else {
+    if (label) label.textContent = 'Escolha o alvo:';
+    targets.forEach(t => {
+      const btn = document.createElement('button');
+      btn.className = 'btn btn-secondary';
+      btn.style.textAlign = 'left';
+      btn.style.fontSize = '0.85rem';
+      btn.innerHTML = `${t.name} <span style="color:var(--muted);">(HP ${t.hp}/${t.maxHP})</span>`;
+      btn.onclick = () => resolveTargetedAction(t);
+      btnsDiv.appendChild(btn);
+    });
+  }
+
+  selector.style.display = '';
+  document.getElementById('attack-buttons').style.display = 'none';
+  document.getElementById('btn-defend').disabled = true;
+}
+
+function renderAreaTwoButtons(targets, btnsDiv, label) {
+  btnsDiv.innerHTML = '';
+  targets.forEach(t => {
+    const picked = areaTargetsPicked.includes(t);
+    const btn = document.createElement('button');
+    btn.className = 'btn ' + (picked ? 'btn-gold' : 'btn-secondary');
+    btn.style.textAlign = 'left';
+    btn.style.fontSize = '0.85rem';
+    btn.id = 'area-btn-' + t.id;
+    btn.innerHTML = `${picked ? '✦ ' : ''}${t.name} <span style="color:var(--muted);">(HP ${t.hp}/${t.maxHP})</span>`;
+    btn.onclick = () => toggleAreaTarget(t, targets, label);
+    btnsDiv.appendChild(btn);
+  });
+
+  // Botão confirmar — só aparece com 2 selecionados
+  const confirmBtn = document.createElement('button');
+  confirmBtn.id = 'area-confirm-btn';
+  confirmBtn.className = 'btn btn-primary';
+  confirmBtn.style.marginTop = '8px';
+  confirmBtn.style.fontSize = '0.85rem';
+  confirmBtn.style.display = areaTargetsPicked.length === 2 ? '' : 'none';
+  confirmBtn.textContent = 'Confirmar alvos';
+  confirmBtn.onclick = () => resolveAreaTwo();
+  btnsDiv.appendChild(confirmBtn);
+}
+
+function toggleAreaTarget(target, targets, label) {
+  const idx = areaTargetsPicked.indexOf(target);
+  if (idx >= 0) {
+    areaTargetsPicked.splice(idx, 1);
+  } else if (areaTargetsPicked.length < 2) {
+    areaTargetsPicked.push(target);
+  }
+  const btnsDiv = document.getElementById('target-buttons');
+  if (label) label.textContent = `Escolha 2 alvos (${areaTargetsPicked.length}/2):`;
+  renderAreaTwoButtons(targets, btnsDiv, label);
+}
+
+function resolveAreaTwo() {
+  const actor = currentActor;
+  hideTargetSelector();
+  pendingAction = null;
+  const isHeal = magicQueue.healExtra > 0;
+  const isSupport = !!magicQueue.support && !isHeal;
+  const type = isHeal ? 'heal' : isSupport ? 'support' : 'offense';
+  castMagicArea(actor, type, areaTargetsPicked);
+  areaTargetsPicked = [];
+}
+
+function cancelTargeting() {
+  pendingAction = null;
+  hideTargetSelector();
+  renderBattle();
+}
+
+function hideTargetSelector() {
+  const sel = document.getElementById('target-selector');
+  const grid = document.getElementById('attack-buttons');
+  if (sel) sel.style.display = 'none';
+  if (grid) grid.style.display = '';
+}
+
+function resolveTargetedAction(target) {
+  const actor = currentActor;
+  const action = pendingAction;
+  hideTargetSelector();
+  pendingAction = null;
+
+  if (action === 'attack') {
+    resolveAttack(actor, target);
+    renderBattle(); renderSheet();
+    endTurn();
+  } else if (action === 'magic_revive') {
+    // Reviver — testa Inteligência, custa 10 MP fixo
+    const cost = 10;
+    if (cost > actor.mp) {
+      logEntry(`MP insuficiente! Necessário: ${cost}, disponível: ${actor.mp}.`, 'log-miss');
+      clearMagicQueue(); renderBattle(); renderMagicPanel(); return;
+    }
+    actor.mp -= cost;
+    logDivider();
+    logEntry(`${actor.name} tenta reviver ${target.name}! (Custo: ${cost} MP)`, 'log-info');
+    const w = actor.weapon;
+    const attr = actor.attrs.int;
+    const roll = rollDice(w.dice);
+    const hit  = roll !== w.dice && roll <= attr;
+    logEntry(`Teste Inteligência — rola ${roll} vs ${attr} (d${w.dice})`, 'log-sys');
+    if (!hit) {
+      logEntry(`Reviver falhou${roll === w.dice ? ' (falha automática)' : ''}! MP gastos.`, 'log-miss');
+    } else {
+      target.alive = true;
+      target.hp = 1;
+      target.effects = [];
+      target.buffs = [];
+      target.paralyzedRoundRolled = false;
+      target.paralyzedThisRound = false;
+      logEntry(`✦ ${target.name} voltou ao combate com 1 HP!`, 'log-victory');
+    }
+    clearMagicQueue();
+    renderBattle(); renderSheet(); renderMagicPanel();
+    endTurn();
+  } else if (action === 'magic_heal') {
+    // Cura alvo único
+    const cost = mpCostQueue();
+    if (cost > actor.mp) { logEntry(`MP insuficiente! Necessário: ${cost}.`, 'log-miss'); clearMagicQueue(); renderBattle(); renderMagicPanel(); return; }
+    actor.mp -= cost;
+    logDivider();
+    logEntry(`${actor.name} cura ${target.name}! (Custo: ${cost} MP)`, 'log-info');
+    const w = actor.weapon;
+    const attr = actor.attrs.int;
+    const roll = rollDice(w.dice);
+    const hit  = roll !== w.dice && roll <= attr;
+    logEntry(`Teste Inteligência — rola ${roll} vs ${attr}`, 'log-sys');
+    if (!hit) {
+      logEntry(`Cura falhou${roll===w.dice?' (falha auto)':''}! MP gastos.`, 'log-miss');
+    } else {
+      target.hp = Math.min(target.maxHP, target.hp + magicQueue.healExtra);
+      logEntry(`✦ ${target.name} recupera ${magicQueue.healExtra} HP!`, 'log-victory');
+    }
+    clearMagicQueue();
+    renderBattle(); renderSheet(); renderMagicPanel();
+    endTurn();
+  } else if (action === 'magic_offensive' || action === 'magic_support') {
+    castMagicResolved(actor, target);
+  }
 }
 
 function rollDice(sides) { return Math.floor(Math.random() * sides) + 1; }
 
+function calcRawDmg(attacker, defender) {
+  const w = attacker.weapon;
+  const dmgStat = w.dmgStat;
+  const defStat = DMG_VS_DEF[dmgStat];
+  const atkBase = w[dmgStat];
+  const defBase = defender.armor[defStat];
+  const atkMod = getEffectMod(attacker, 'atk');
+  const defMod = getEffectMod(defender, 'def');
+  const atkFinal = Math.round(atkBase * (1 + atkMod));
+  const defFinal = Math.round(defBase * (1 + defMod));
+  return atkFinal + atkBonus(attacker) - defFinal - defBonus(defender);
+}
+
+function resolveAttack(attacker, defender) {
+  const w = attacker.weapon;
+  const atkAttrId = w.atkAttr;
+  const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
+  // Mods de atributo
+  const atkAttr = Math.max(1, Math.round(attacker.attrs[atkAttrId] * (1 + getEffectMod(attacker, 'atk_attr'))));
+  const defAttr = Math.max(1, Math.round(defender.attrs[defAttrId] * (1 + getEffectMod(defender, 'def_attr'))));
+  const rawDmg  = calcRawDmg(attacker, defender);
+
+  const defFainted   = hasEffect(defender, 'faint');
+  const defParalyzed = defFainted ? false : rollParalysisRound(defender);
+
+  logEntry(`${attacker.name} ataca ${defender.name} com ${w.name} (d${w.dice})`, 'log-sys');
+
+  // ── Desmaiado: sem defesa, sem contraataque ──────────────────────────────
+  if (defFainted) {
+    const aRoll = rollDice(w.dice);
+    const aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    logEntry(`${attacker.name} rola ${aRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${atkAttr}`, 'log-sys');
+    logEntry(`${defender.name} está desmaiado — sem defesa e sem contraataque!`, 'log-info');
+    if (!aHit) {
+      logEntry(`${attacker.name} errou mesmo com ${defender.name} desmaiado!`, 'log-miss');
+      return;
+    }
+    const atkMod     = getEffectMod(attacker, 'atk');
+    const atkBase    = Math.round(w[w.dmgStat] * (1 + atkMod));
+    const explosiveFull = Math.max(1, atkBase + atkBonus(attacker));
+    const explosiveDmg  = Math.max(1, Math.floor(explosiveFull / 2));
+    applyDamage(defender, explosiveDmg);
+    logEntry(`💥 Golpe em ${defender.name} desmaiado! ${explosiveDmg} de dano (sem defesa, metade)!`, 'log-dmg');
+    defender.effects = defender.effects.filter(e => e.id !== 'faint');
+    logEntry(`${defender.name} acorda do desmaio!`, 'log-info');
+    return;
+  }
+
+  // ── Defensor conjurou magia neste turno — sem contraataque, sem frenético ──
+  if (defender.actedWithMagic) {
+    const aRoll = rollDice(w.dice);
+    const aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    logEntry(`${attacker.name} rola ${aRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${atkAttr}`, 'log-sys');
+    logEntry(`${defender.name} conjurou magia — sem defesa nem contraataque!`, 'log-info');
+    if (!aHit) {
+      logEntry(`${attacker.name} errou!`, 'log-miss');
+    } else {
+      const dmg = Math.max(1, calcRawDmg(attacker, defender));
+      applyDamage(defender, dmg);
+      logEntry(`${defender.name} sofre ${dmg} de dano!`, 'log-dmg');
+    }
+    return;
+  }
+
+  // ── Combate normal ────────────────────────────────────────────────────────
+  const FRANTIC_LINES = [
+    'Os dois entram em um combate frenético!',
+    'Lâminas se cruzam sem parar — nenhum cede terreno!',
+    'O combate se torna caótico — cada golpe é bloqueado!',
+    'Uma troca furiosa de ataques — nenhum consegue vantagem!',
+    'O duelo acelera — os movimentos se tornam impossíveis de acompanhar!',
+  ];
+
+  let aRoll, dRoll, aHit, dPass;
+  let clashCount = 0;
+  const MAX_CLASHES = 5;
+
+  do {
+    aRoll = rollDice(w.dice);
+    dRoll = defParalyzed ? null : rollDice(defender.weapon.dice);
+
+    aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    dPass = !defParalyzed && dRoll !== defender.weapon.dice && dRoll <= defAttr;
+
+    // Falha automática do atacante — sai do loop imediatamente
+    if (aRoll === w.dice) {
+      logEntry(`✦ Falha automática de ${attacker.name}! (rolou ${aRoll})`, 'log-miss');
+      if (dPass) {
+        const cRaw = calcRawDmg(defender, attacker);
+        const adagaFull = defender.weapon.id === 'adaga' && defender.attrs.agi > attacker.attrs.agi;
+        const cDmg = adagaFull ? Math.max(1, cRaw) : Math.max(1, Math.floor(cRaw / 2));
+        const cLabel = adagaFull ? 'dano cheio (adaga mais rápida)' : 'metade';
+        logEntry(`${defender.name} contraataca! Dano: ${cDmg} (${cLabel}).`, 'log-dmg');
+        applyDamage(attacker, cDmg);
+      }
+      return;
+    }
+
+    if (aHit && dPass) {
+      clashCount++;
+      // Log resumido: uma linha por clash com ambos os rolls
+      const clashLabel = clashCount < MAX_CLASHES
+        ? (FRANTIC_LINES[clashCount - 1] || 'O combate continua frenético!')
+        : FRANTIC_LINES[4];
+      logEntry(`[${clashCount}/${MAX_CLASHES}] ${clashLabel} (atk ${aRoll} vs ${atkAttr} / def ${dRoll} vs ${defAttr})`, 'log-info');
+
+      if (clashCount >= MAX_CLASHES) {
+        // Sorteio final: quem rolar mais alto no dado decide
+        const tieAtkRoll = rollDice(w.dice);
+        const tieDefRoll = rollDice(defender.weapon.dice);
+        logEntry(`Sorteio decisivo! ${attacker.name} rola ${tieAtkRoll} vs ${defender.name} rola ${tieDefRoll}`, 'log-sys');
+        if (tieAtkRoll >= tieDefRoll) {
+          logEntry(`${attacker.name} rompe a defesa de ${defender.name} por um fio!`, 'log-hit');
+          const halfDmg = Math.max(1, Math.floor(rawDmg / 2));
+          applyDamage(defender, halfDmg);
+          logEntry(`${defender.name} sofre ${halfDmg} de dano (metade por desgaste)!`, 'log-dmg');
+        } else {
+          logEntry(`${defender.name} resiste e ${attacker.name} recua exausto!`, 'log-miss');
+          const halfDmg = Math.max(1, Math.floor(calcRawDmg(defender, attacker) / 2));
+          applyDamage(attacker, halfDmg);
+          logEntry(`${attacker.name} sofre ${halfDmg} de dano (recuo)!`, 'log-dmg');
+        }
+        return;
+      }
+    } else {
+      // Resultado diferente — log dos rolls antes de sair do loop
+      if (!defParalyzed) {
+        logEntry(`${attacker.name} rola ${aRoll} vs ${atkAttr} / ${defender.name} rola ${dRoll} vs ${defAttr}`, 'log-sys');
+      } else {
+        logEntry(`${attacker.name} rola ${aRoll} vs ${atkAttr} / ${defender.name} paralisado`, 'log-sys');
+      }
+    }
+
+  } while (aHit && dPass);
+
+  // ── Resolução final (saiu do loop com resultado diferente) ────────────────
+  if (!aHit && dPass) {
+    logEntry(`${attacker.name} falhou — ${defender.name} contraataca!`, 'log-miss');
+    const cRaw2 = calcRawDmg(defender, attacker);
+    const adagaFull2 = defender.weapon.id === 'adaga' && defender.attrs.agi > attacker.attrs.agi;
+    const cDmg2 = adagaFull2 ? Math.max(1, cRaw2) : Math.max(1, Math.floor(cRaw2 / 2));
+    const cLabel2 = adagaFull2 ? 'dano cheio (adaga mais rápida)' : 'metade';
+    logEntry(`Contraataque: ${cDmg2} de dano em ${attacker.name} (${cLabel2})!`, 'log-dmg');
+    applyDamage(attacker, cDmg2);
+    return;
+  }
+
+  if (!aHit && !dPass) {
+    logEntry(`Ambos falharam — nada acontece.`, 'log-miss');
+    return;
+  }
+
+  // aHit && !dPass — dano cheio, mínimo 1
+  const finalDmg = Math.max(1, rawDmg);
+  applyDamage(defender, finalDmg);
+  logEntry(`${defender.name} sofre ${finalDmg} de dano!`, 'log-dmg');
+}
+
 function applyCounterAttack(attackerEntity, attackerWeapon, defenderEntity, defenderArmor, defenderName, isPlayer) {
-  // Contraataque: dano da arma do defensor vs armadura do atacante + bônus derivados
+  // mantido para compatibilidade mas resolveAttack substitui nos combates 3v3
   const cw = attackerWeapon;
   const dmgStat = cw.dmgStat;
   const defStat = DMG_VS_DEF[dmgStat];
   const bonus = atkBonus(attackerEntity);
   const defBon = defBonus(defenderEntity);
   const dmg = cw[dmgStat] + bonus - defenderArmor[defStat] - defBon;
-  const detail = `${cw[dmgStat]}pot+${bonus}atk − ${defenderArmor[defStat]}def+${defBon}agi`;
-  if (dmg <= 0) {
-    logEntry(`✦ Contraataque de ${defenderName} — absorvido! Dano: 0. (${detail})`, 'log-miss');
-  } else {
-    logEntry(`✦ Contraataque de ${defenderName}! Dano: ${dmg}. (${detail})`, 'log-dmg');
-    if (isPlayer) {
-      player.hp = Math.max(0, player.hp - dmg);
-    } else {
-      enemy.hp = Math.max(0, enemy.hp - dmg);
-    }
+  if (dmg <= 0) logEntry(`✦ Contraataque absorvido! Dano: 0.`, 'log-miss');
+  else {
+    logEntry(`✦ Contraataque! Dano: ${dmg}.`, 'log-dmg');
+    if (isPlayer) player.hp = Math.max(0, player.hp - dmg);
+    else defenderEntity.hp = Math.max(0, defenderEntity.hp - dmg);
   }
 }
 
 function renderMagicPanel() {
   if (!document.getElementById('mp-display')) return;
+  const actor = currentActor || player;
   const cost = mpCostQueue();
-  const mpLeft = player.mp - cost;
-  document.getElementById('mp-display').textContent = `MP: ${player.mp} / ${player.maxMP} — Custo fila: ${cost} (restará ${Math.max(0,mpLeft)})`;
+  const mpLeft = actor.mp - cost;
+  document.getElementById('mp-display').textContent = `MP de ${actor.name}: ${actor.mp} / ${actor.maxMP} — Custo fila: ${cost} (restará ${Math.max(0,mpLeft)})`;
 
   // Botões de dano adicional
   const dmgDiv = document.getElementById('dmg-magic-btns');
@@ -951,10 +1459,28 @@ function renderMagicPanel() {
       const mpCost = n * 2;
       const btn = document.createElement('button');
       btn.className = 'btn-magic' + (magicQueue.dmgExtra === n ? ' selected' : '');
-      btn.disabled = !battleActive || !playerTurn;
+      btn.disabled = !battleActive;
       btn.innerHTML = `+${n} dano<span class="magic-cost">${mpCost} MP</span>`;
       btn.onclick = () => { magicQueue.dmgExtra = magicQueue.dmgExtra === n ? 0 : n; renderMagicPanel(); };
       dmgDiv.appendChild(btn);
+    });
+  }
+
+  // Botões de cura
+  const healDiv = document.getElementById('heal-magic-btns');
+  if (healDiv) {
+    healDiv.innerHTML = '';
+    [1,2,3,4,5].forEach(n => {
+      const mpCost = n * 2;
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.healExtra === n ? ' selected' : '');
+      btn.style.borderColor = 'var(--hp)';
+      btn.style.color = 'var(--hp-light)';
+      if (magicQueue.healExtra === n) btn.style.background = '#0d2e0d';
+      btn.disabled = !battleActive;
+      btn.innerHTML = `+${n} cura<span class="magic-cost">${mpCost} MP</span>`;
+      btn.onclick = () => { magicQueue.healExtra = magicQueue.healExtra === n ? 0 : n; renderMagicPanel(); };
+      healDiv.appendChild(btn);
     });
   }
 
@@ -965,24 +1491,60 @@ function renderMagicPanel() {
     EFFECTS_ENEMY.forEach(ef => {
       const btn = document.createElement('button');
       btn.className = 'btn-magic' + (magicQueue.effect?.id === ef.id ? ' selected' : '');
-      btn.disabled = !battleActive || !playerTurn;
+      btn.disabled = !battleActive || !(currentActor && currentActor.isPlayerControlled);
       btn.innerHTML = `${ef.name}<span class="magic-cost">${ef.cost} MP · ${ef.desc}</span>`;
       btn.onclick = () => { magicQueue.effect = magicQueue.effect?.id === ef.id ? null : ef; renderMagicPanel(); };
       effDiv.appendChild(btn);
     });
   }
 
-  // Suporte em aliados
+  // Suporte em aliados (exceto Reviver que tem botão próprio)
   const supDiv = document.getElementById('support-magic-btns');
   if (supDiv) {
     supDiv.innerHTML = '';
-    EFFECTS_ALLY.forEach(ef => {
+    EFFECTS_ALLY.filter(ef => ef.id !== 'revive').forEach(ef => {
       const btn = document.createElement('button');
       btn.className = 'btn-magic' + (magicQueue.support?.id === ef.id ? ' selected' : '');
-      btn.disabled = !battleActive || !playerTurn;
+      btn.disabled = !battleActive;
       btn.innerHTML = `${ef.name}<span class="magic-cost">${ef.cost} MP · ${ef.desc}</span>`;
       btn.onclick = () => { magicQueue.support = magicQueue.support?.id === ef.id ? null : ef; renderMagicPanel(); };
       supDiv.appendChild(btn);
+    });
+  }
+
+  // Reviver — só aparece se houver aliados derrotados
+  const reviveDiv = document.getElementById('revive-magic-btn');
+  if (reviveDiv) {
+    reviveDiv.innerHTML = '';
+    const deadAllies = combatants.filter(c => c.side === 'player' && !c.alive);
+    if (deadAllies.length > 0) {
+      const reviveEf = EFFECTS_ALLY.find(ef => ef.id === 'revive');
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.revive ? ' selected' : '');
+      btn.style.gridColumn = 'span 3';
+      btn.disabled = !battleActive;
+      btn.innerHTML = `${reviveEf.name}<span class="magic-cost">${reviveEf.cost} MP · ${reviveEf.desc}</span>`;
+      btn.onclick = () => { magicQueue.revive = !magicQueue.revive; renderMagicPanel(); };
+      reviveDiv.appendChild(btn);
+    } else {
+      reviveDiv.innerHTML = '<span style="color:var(--muted);font-size:.8rem;font-style:italic;">Nenhum aliado derrotado</span>';
+    }
+  }
+
+  // Área
+  const areaDiv = document.getElementById('area-magic-btns');
+  if (areaDiv) {
+    areaDiv.innerHTML = '';
+    [
+      { id: 'two', label: '2 alvos',    cost: 3 },
+      { id: 'all', label: 'Todos',      cost: 5 },
+    ].forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'btn-magic' + (magicQueue.area === opt.id ? ' selected' : '');
+      btn.disabled = !battleActive;
+      btn.innerHTML = `${opt.label}<span class="magic-cost">${opt.cost} MP</span>`;
+      btn.onclick = () => { magicQueue.area = magicQueue.area === opt.id ? null : opt.id; renderMagicPanel(); };
+      areaDiv.appendChild(btn);
     });
   }
 
@@ -991,13 +1553,102 @@ function renderMagicPanel() {
   if (queueDiv) {
     let parts = [];
     if (magicQueue.dmgExtra > 0) parts.push(`<span class="effect-badge effect-poison">+${magicQueue.dmgExtra} dano</span>`);
+    if (magicQueue.healExtra > 0) parts.push(`<span class="effect-badge effect-regen">+${magicQueue.healExtra} cura</span>`);
+    if (magicQueue.area) parts.push(`<span class="effect-badge effect-paralyze">Área: ${magicQueue.area === 'two' ? '2 alvos' : 'todos'}</span>`);
     if (magicQueue.effect) parts.push(`<span class="effect-badge ${magicQueue.effect.cls}">${magicQueue.effect.name}</span>`);
     if (magicQueue.support) parts.push(`<span class="effect-badge effect-regen">${magicQueue.support.name}</span>`);
+    if (magicQueue.revive) parts.push(`<span class="effect-badge effect-regen">Reviver (10 MP)</span>`);
     queueDiv.innerHTML = parts.length ? `Fila: ${parts.join(' + ')}` : '<span style="color:var(--muted);font-size:.85rem;">Nenhuma magia selecionada</span>';
   }
 
   const castBtn = document.getElementById('btn-cast');
-  if (castBtn) castBtn.disabled = !battleActive || !playerTurn || (magicQueue.dmgExtra === 0 && !magicQueue.effect && !magicQueue.support);
+  const isPlayerTurn = currentActor && currentActor.isPlayerControlled;
+  if (castBtn) castBtn.disabled = !battleActive || !isPlayerTurn || (magicQueue.dmgExtra === 0 && magicQueue.healExtra === 0 && !magicQueue.effect && !magicQueue.support && !magicQueue.area && !magicQueue.revive);
+}
+
+// ─── TURN ENGINE (3v3) ────────────────────────────────────────────────────────
+let turnOrder = [];
+let turnIndex = 0;
+let currentActor = null;
+let pendingAction = null; // 'attack' | 'magic'
+let areaTargetsPicked = []; // alvos escolhidos para área 'two'
+
+function startRound() {
+  if (!battleActive) return;
+  combatants.forEach(c => { c.paralyzedRoundRolled = false; c.paralyzedThisRound = false; });
+  turnOrder = combatants
+    .filter(c => c.alive)
+    .map(c => ({ c, init: c.attrs.agi + Math.random() * 2 }))
+    .sort((a,b) => b.init - a.init)
+    .map(x => x.c);
+  turnIndex = 0;
+  logDivider();
+  logEntry(`— Nova rodada — Ordem: ${turnOrder.map(c=>c.name).join(' → ')}`, 'log-info');
+  processTurn();
+}
+
+function processTurn() {
+  if (!battleActive) return;
+
+  if (checkBattleEnd()) return;
+
+  if (turnIndex >= turnOrder.length) {
+    combatants.forEach(c => { if (c.alive) processEffects(c, c.name); });
+    if (checkBattleEnd()) return;
+    setTimeout(startRound, 600);
+    return;
+  }
+
+  const actor = turnOrder[turnIndex];
+  if (!actor.alive) { turnIndex++; processTurn(); return; }
+
+  currentActor = actor;
+  actor.actedWithMagic = false;
+
+  if (rollParalysisRound(actor)) {
+    logEntry(`⚡ ${actor.name} está paralisado e perde o turno!`, 'log-info');
+    turnIndex++;
+    renderBattle();
+    setTimeout(processTurn, 500);
+    return;
+  }
+
+  if (hasEffect(actor, 'faint')) {
+    const heal = Math.max(1, Math.floor(actor.maxHP * 0.05));
+    actor.hp = Math.min(actor.maxHP, actor.hp + heal);
+    actor.effects = actor.effects.filter(e => e.id !== 'faint');
+    logEntry(`💤 ${actor.name} está desmaiado, perde o turno e recupera ${heal} HP!`, 'log-info');
+    turnIndex++;
+    renderBattle();
+    setTimeout(processTurn, 500);
+    return;
+  }
+
+  if (actor.side === 'enemy') {
+    setBattleButtons(false);
+    renderBattle();
+    setTimeout(() => { aiAct(actor); }, 700);
+  } else {
+    renderBattle();
+    renderMagicPanel();
+    setBattleButtons(true);
+  }
+}
+
+function endTurn() {
+  turnIndex++;
+  currentActor = null;
+  pendingAction = null;
+  hideTargetSelector();
+  clearMagicQueue();
+  setTimeout(processTurn, 600);
+}
+
+function checkBattleEnd() {
+  if (!battleActive) return true;
+  if (aliveEnemySide().length === 0) { endBattle(true); return true; }
+  if (alivePlayerSide().length === 0) { endBattle(false); return true; }
+  return false;
 }
 
 function applyEffect(effect, target, targetEntity, turns) {
@@ -1015,21 +1666,32 @@ function applySupport(support, targetEntity, turns) {
 }
 
 function processEffects(entity, entityName) {
-  if (!entity.effects || entity.effects.length === 0) return;
-  entity.effects = entity.effects.filter(ef => {
-    if (ef.id === 'poison') {
-      const dmg = Math.max(1, Math.floor(entity.maxHP * 0.1));
-      entity.hp = Math.max(0, entity.hp - dmg);
-      logEntry(`☠️ ${entityName} sofre ${dmg} de veneno. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
-    }
-    if (ef.id === 'regen') {
-      const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
-      entity.hp = Math.min(entity.maxHP, entity.hp + heal);
-      logEntry(`✦ ${entityName} regenera ${heal} HP. (${ef.turnsLeft-1} turnos restantes)`, 'log-victory');
-    }
-    ef.turnsLeft--;
-    return ef.turnsLeft > 0;
-  });
+  // Efeitos
+  if (entity.effects && entity.effects.length > 0) {
+    entity.effects = entity.effects.filter(ef => {
+      if (ef.id === 'poison') {
+        const dmg = Math.max(1, Math.floor(entity.maxHP * 0.1));
+        entity.hp = Math.max(0, entity.hp - dmg);
+        logEntry(`☠ ${entityName} sofre ${dmg} de veneno. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
+      }
+      if (ef.id === 'regen') {
+        const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
+        entity.hp = Math.min(entity.maxHP, entity.hp + heal);
+        logEntry(`✦ ${entityName} regenera ${heal} HP. (${ef.turnsLeft-1} turnos restantes)`, 'log-victory');
+      }
+      // faint: lógica de turno perdido fica em processTurn(); aqui só decrementa
+      ef.turnsLeft--;
+      return ef.turnsLeft > 0;
+    });
+  }
+  // Buffs: decrementar turnsLeft e remover expirados
+  if (entity.buffs && entity.buffs.length > 0) {
+    entity.buffs = entity.buffs.filter(b => {
+      b.turnsLeft--;
+      if (b.turnsLeft <= 0) logEntry(`${entityName}: efeito ${b.name} expirou.`, 'log-sys');
+      return b.turnsLeft > 0;
+    });
+  }
 }
 
 function hasEffect(entity, id) {
@@ -1045,23 +1707,22 @@ function rollParalysisRound(entity) {
     return false;
   }
   if (!entity.paralyzedRoundRolled) {
-    entity.paralyzedThisRound = Math.random() < 0.4;
+    entity.paralyzedThisRound = Math.random() < 0.5;
     entity.paralyzedRoundRolled = true;
     if (entity.paralyzedThisRound) {
-      logEntry(`⚡ ${entity === enemy ? enemy.name : 'Você'} está paralisado nesta rodada! (40%)`, 'log-info');
+      logEntry(`⚡ ${entity.name} está paralisado nesta rodada! (40%)`, 'log-info');
     }
   }
   return entity.paralyzedThisRound;
 }
 
-// Processa fim de rodada: tique de efeitos (veneno/regen), duração, e reseta paralisia
+// endRound: processado pelo processTurn no 3v3, mantido como alias
 function endRound() {
-  processEffects(enemy, enemy.name);
-  processEffects(player, 'Você');
-  enemy.paralyzedRoundRolled = false;
-  enemy.paralyzedThisRound = false;
-  player.paralyzedRoundRolled = false;
-  player.paralyzedThisRound = false;
+  combatants.forEach(c => {
+    if (c.alive) processEffects(c, c.name);
+    c.paralyzedRoundRolled = false;
+    c.paralyzedThisRound = false;
+  });
 }
 
 function getEffectMod(entity, type) {
@@ -1082,308 +1743,301 @@ function getEffectMod(entity, type) {
   return mod;
 }
 
-function castMagic() {
-  if (!battleActive || !playerTurn) return;
-  const cost = mpCostQueue();
-  if (cost > player.mp) {
-    logEntry(`MP insuficiente! Necessário: ${cost}, disponível: ${player.mp}.`, 'log-miss');
-    return;
-  }
-  setBattleButtons(false);
-  player.mp -= cost;
-
+// IA dos inimigos
+function aiAct(actor) {
   logDivider();
-  logEntry(`Você lança magia! (Custo: ${cost} MP)`, 'log-info');
+  const targets = alivePlayerSide();
+  if (targets.length === 0) { endBattle(true); return; }
 
-  const w = player.weapon;
-  const hasAtk = magicQueue.dmgExtra > 0;
-  const hasEff = !!magicQueue.effect;
-  const hasSup = !!magicQueue.support;
+  // Cultista usa magia se tiver cajado, int >= 1 e MP suficiente
+  const isCaster = actor.weapon.malicia > 0 && actor.attrs.int >= 1 && actor.mp >= 2;
 
-  // Dano mágico
-  if (hasAtk) {
-    const attr = player.attrs.int;
-    const castRoll = rollDice(w.dice);
-    const castHit = castRoll !== w.dice && castRoll <= attr;
-    logEntry(`Teste Inteligência — rola ${castRoll} vs ${attr} (d${w.dice})`, 'log-sys');
-    if (!castHit) {
-      logEntry(`Magia de dano falhou${castRoll === w.dice ? ' (falha automática)' : ''}! MP gastos.`, 'log-miss');
+  const useMagic = isCaster && actor.mp >= 2;
+
+  if (useMagic) {
+    const roll = Math.random();
+    const target = targets[Math.floor(Math.random() * targets.length)];
+
+    if (roll < 0.35) {
+      logEntry(`${actor.name} conjura magia de dano em ${target.name}!`, 'log-info');
+      actor.mp -= 2;
+      applyMagicDmg(actor, target, 1);
+    } else if (roll < 0.65) {
+      const ef = EFFECTS_ENEMY.find(e => e.id === 'poison');
+      logEntry(`${actor.name} conjura Envenenamento em ${target.name}!`, 'log-info');
+      actor.mp -= ef.cost;
+      applyMagicEffect(actor, target, ef, 3);
+    } else if (roll < 0.90) {
+      const ef = EFFECTS_ENEMY.find(e => e.id === 'paralyze');
+      logEntry(`${actor.name} conjura Paralisia em ${target.name}!`, 'log-info');
+      actor.mp -= ef.cost;
+      applyMagicEffect(actor, target, ef, 3);
     } else {
-      const baseDmg = w.malicia + atkBonus(player) - enemy.armor.barreira - defBonus(enemy) + magicQueue.dmgExtra;
-      const dmg = Math.max(0, baseDmg);
-      if (dmg <= 0) logEntry('Magia conectou mas barreira absorveu tudo! Dano: 0.', 'log-miss');
-      else {
-        logEntry(`Dano mágico em ${enemy.name}: ${dmg}! (${w.malicia}+${atkBonus(player)}+${magicQueue.dmgExtra}extra − ${enemy.armor.barreira}bar+${defBonus(enemy)}def)`, 'log-dmg');
-        enemy.hp = Math.max(0, enemy.hp - dmg);
-      }
+      const ef = EFFECTS_ENEMY.find(e => e.id === 'faint');
+      logEntry(`${actor.name} conjura Desmaio em ${target.name}!`, 'log-info');
+      actor.mp -= ef.cost;
+      applyMagicEffect(actor, target, ef, 3);
     }
-  }
-
-  // Efeito em inimigo
-  if (hasEff) {
-    const ef = magicQueue.effect;
-    const extraMp = Math.max(0, cost - ef.cost - (hasAtk ? magicQueue.dmgExtra*2+1 : 0) - (hasSup ? magicQueue.support.cost+1 : 0));
-    const extraTurns = Math.floor(extraMp / 2);
-    const turns = 3 + extraTurns;
-    const difficultyBonus = extraTurns;
-    const defAttrVal = enemy.attrs[ef.defAttr];
-    const adjAttr = Math.max(1, defAttrVal - difficultyBonus);
-    const effRoll = rollDice(w.dice);
-    logEntry(`${enemy.name} resiste (${ef.name}) — rola ${effRoll} vs ${ATTRS.find(a=>a.id===ef.defAttr).name} ${adjAttr}${difficultyBonus>0?` (-${difficultyBonus} dif.)`:''}`, 'log-sys');
-    const resisted = effRoll <= adjAttr && effRoll !== w.dice;
-    if (resisted) {
-      logEntry(`${enemy.name} resistiu ao efeito!`, 'log-miss');
-    } else {
-      applyEffect(ef, enemy, enemy, turns);
-    }
-  }
-
-  // Suporte em aliado (jogador)
-  if (hasSup) {
-    const sup = magicQueue.support;
-    if (sup.id === 'detox') {
-      player.effects = [];
-      logEntry('✦ Detox! Todos os efeitos negativos removidos.', 'log-victory');
-    } else if (sup.id === 'regen') {
-      const turns = 3;
-      applyEffect({...sup, id:'regen'}, player, player, turns);
-    } else {
-      const turns = 3;
-      applySupport(sup, player, turns);
-      logEntry(`✦ ${sup.name} ativo por ${turns} turnos!`, 'log-victory');
-    }
-  }
-
-  clearMagicQueue();
-  renderBattle();
-  renderSheet();
-  renderMagicPanel();
-
-  if (enemy.hp <= 0) { endBattle(true); return; }
-  setTimeout(() => enemyTurn(false), 800);
-}
-
-function playerAttack() {
-  if (!battleActive || !playerTurn) return;
-  setBattleButtons(false);
-
-  const w = player.weapon;
-  const atkAttrId = w.atkAttr;
-  const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
-
-  const pAttr = player.attrs[atkAttrId];
-  const eAttr = enemy.attrs[defAttrId];
-
-  const dmgStatName = w.dmgStat;
-  const defStatName = DMG_VS_DEF[dmgStatName];
-  const rawDmg = w[dmgStatName] + atkBonus(player) - enemy.armor[defStatName] - defBonus(enemy);
-
-  logDivider();
-  logEntry(`Você ataca com ${w.name} (d${w.dice}).`, 'log-sys');
-
-  const enemyParalyzed = rollParalysisRound(enemy);
-
-  const pRoll = rollDice(w.dice);
-  const eRoll = rollDice(enemy.weapon.dice);
-  const pHit = pRoll !== w.dice && pRoll <= pAttr;
-  const ePass = !hasEffect(enemy, 'paralyze') && eRoll !== enemy.weapon.dice && eRoll <= eAttr;
-
-  logEntry(`Você — rola ${pRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${pAttr}`, 'log-sys');
-  logEntry(`${enemy.name} — rola ${eRoll} vs ${ATTRS.find(a=>a.id===defAttrId).name} ${eAttr}`, 'log-sys');
-
-  if (pRoll === w.dice) {
-    logEntry('✦ Falha automática! Você se expõe.', 'log-miss');
-    if (ePass && !enemyParalyzed) {
-      applyCounterAttack(enemy, enemy.weapon, player, player.armor, enemy.name, true);
-      renderBattle(); renderSheet();
-      if (player.hp <= 0) { endBattle(false); return; }
-    } else if (ePass && enemyParalyzed) {
-      logEntry(`${enemy.name} está paralisado e não pode contraatacar!`, 'log-info');
-    }
-    setTimeout(() => enemyTurn(false), 800);
-    return;
-  }
-
-  if (!pHit && ePass) {
-    // Atacante falhou, defensor passou → CONTRAATAQUE (não consome turno do inimigo)
-    logEntry('Ataque falhou.', 'log-miss');
-    if (enemyParalyzed) {
-      logEntry(`${enemy.name} está paralisado e não pode contraatacar!`, 'log-info');
-    } else {
-      logEntry(`${enemy.name} aproveita a abertura!`, 'log-info');
-      applyCounterAttack(enemy, enemy.weapon, player, player.armor, enemy.name, true);
-      renderBattle(); renderSheet();
-      if (player.hp <= 0) { endBattle(false); return; }
-    }
-    setTimeout(() => enemyTurn(false), 800);
-    return;
-  }
-
-  if (!pHit && !ePass) {
-    // Ambos falharam → nada acontece
-    logEntry('Ambos falharam — nada acontece.', 'log-miss');
-    setTimeout(() => enemyTurn(false), 600);
-    return;
-  }
-
-  if (pHit && ePass) {
-    // Atacante passou, defensor passou → dano completamente evitado
-    logEntry(`Golpe conectou mas ${enemy.name} defendeu perfeitamente — dano evitado!`, 'log-miss');
-    renderBattle(); renderSheet();
-    setTimeout(() => enemyTurn(false), 600);
-    return;
-  }
-
-  // Atacante passou, defensor falhou → dano cheio
-  const dmg = rawDmg;
-  if (dmg <= 0) {
-    logEntry('Golpe conectou mas armadura absorveu tudo! Dano: 0.', 'log-miss');
   } else {
-    logEntry(`Golpe direto em ${enemy.name}! Dano: ${dmg}. (${w[dmgStatName]}+${atkBonus(player)}atk − ${enemy.armor[defStatName]}+${defBonus(enemy)}def)`, 'log-dmg');
-    enemy.hp = Math.max(0, enemy.hp - dmg);
+    // Ataque físico — caster sem MP ou combatente não-mágico
+    if (isCaster && actor.mp < 2) logEntry(`${actor.name} está sem MP — ataca fisicamente!`, 'log-sys');
+    const target = targets[Math.floor(Math.random() * targets.length)];
+    resolveAttack(actor, target);
   }
 
   renderBattle(); renderSheet();
-  if (enemy.hp <= 0) { endBattle(true); return; }
-  setTimeout(() => enemyTurn(false), 800);
+  if (checkBattleEnd()) return;
+  endTurn();
 }
 
 function defendAction() {
-  if (!battleActive || !playerTurn) return;
+  if (!currentActor) return;
+  const actor = currentActor;
   setBattleButtons(false);
   logDivider();
-  logEntry('Você adota postura defensiva.', 'log-info');
-  setTimeout(() => enemyTurnDefended(), 600);
+  logEntry(`${actor.name} aguarda o próximo movimento.`, 'log-info');
+  actor.defending = true;
+  setTimeout(() => { actor.defending = false; endTurn(); }, 400);
 }
 
-function enemyTurn(free) {
-  if (!battleActive) return;
-  playerTurn = false;
+function meditateAction() {
+  if (!currentActor) return;
+  const actor = currentActor;
+  if (actor.mp >= actor.maxMP) {
+    logEntry(`${actor.name} já está com MP cheio!`, 'log-miss');
+    return;
+  }
+  setBattleButtons(false);
+  logDivider();
+  const recover = Math.max(1, Math.floor(actor.maxMP * 0.25));
+  actor.mp = Math.min(actor.maxMP, actor.mp + recover);
+  logEntry(`${actor.name} medita e recupera ${recover} MP. (${actor.mp}/${actor.maxMP})`, 'log-info');
+  renderBattle(); renderSheet(); renderMagicPanel();
+  setTimeout(endTurn, 400);
+}
 
-  // Checagem de paralisia — uma rolagem por rodada, bloqueia ataque E contraataque
-  if (rollParalysisRound(enemy)) {
-    logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
-    endPlayerTurn();
+function castMagic() {
+  if (!currentActor) return;
+
+  // Paralisado não pode usar magia
+  if (hasEffect(currentActor, 'paralyze') && currentActor.paralyzedThisRound) {
+    logEntry(`${currentActor.name} está paralisado e não pode conjurar magias!`, 'log-miss');
     return;
   }
 
-  const ew = enemy.weapon;
-  const atkAttrId = ew.atkAttr;
-  const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
-
-  const eAttr = enemy.attrs[atkAttrId];
-  const pAttr = player.attrs[defAttrId];
-
-  const dmgStat = ew.dmgStat;
-  const defStat = DMG_VS_DEF[dmgStat];
-  const rawDmg = ew[dmgStat] + atkBonus(enemy) - player.armor[defStat] - defBonus(player);
-
-  const eRoll = rollDice(ew.dice);
-  const pRoll = free ? (ew.dice + 1) : rollDice(player.weapon.dice);
-
-  logEntry(`${enemy.name} ataca com ${ew.name} (d${ew.dice}) — rola ${eRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${eAttr}`, 'log-sys');
-  if (!free) logEntry(`Você defende — rola ${pRoll} vs ${ATTRS.find(a=>a.id===defAttrId).name} ${pAttr}`, 'log-sys');
-
-  const eHit = free ? false : (eRoll !== ew.dice && eRoll <= eAttr);
-  const pPass = !free && pRoll !== player.weapon.dice && pRoll <= pAttr;
-
-  if (eRoll === ew.dice) {
-    logEntry(`${enemy.name} — falha automática!`, 'log-miss');
-    if (pPass) {
-      logEntry('Você aproveita a abertura!', 'log-info');
-      applyCounterAttack(player, player.weapon, enemy, enemy.armor, 'Você', false);
-      renderBattle(); renderSheet();
-      if (enemy.hp <= 0) { endBattle(true); return; }
+  // Reviver é completamente independente — pede alvo entre aliados derrotados
+  if (magicQueue.revive) {
+    if (magicQueue.area) {
+      logEntry('Reviver não pode ser usado com área. Limpe a fila e tente novamente.', 'log-miss');
+      return;
     }
-    endPlayerTurn();
+    startTargeting('magic_revive');
     return;
   }
 
-  if (!eHit && pPass) {
-    // Inimigo falhou, jogador passou → CONTRAATAQUE do jogador (não consome turno do jogador)
-    logEntry(`${enemy.name} falhou — você contraataca!`, 'log-info');
-    applyCounterAttack(player, player.weapon, enemy, enemy.armor, 'Você', false);
-    renderBattle(); renderSheet();
-    if (enemy.hp <= 0) { endBattle(true); return; }
-    endPlayerTurn();
+  const hasHeal    = magicQueue.healExtra > 0;
+  const hasOffense = magicQueue.dmgExtra > 0 || magicQueue.effect;
+  const hasSupport = !!magicQueue.support;
+  const hasArea    = magicQueue.area; // null | 'two' | 'all'
+
+  if (!hasHeal && !hasOffense && !hasSupport) {
+    logEntry('Nenhuma magia selecionada.', 'log-miss');
     return;
   }
 
-  if (!eHit && !pPass) {
-    // Ambos falharam → nada
-    logEntry(`${enemy.name} falhou e você não aproveitou. Nada acontece.`, 'log-miss');
-    endPlayerTurn();
+  // Cura é sempre independente — ignora dano/efeito se ambos estiverem selecionados
+  if (hasHeal) {
+    if (hasArea === 'two') { startTargeting('magic_area_two'); return; }
+    if (hasArea) { castMagicArea(currentActor, 'heal'); return; }
+    startTargeting('magic_heal');
     return;
   }
 
-  if (eHit && pPass) {
-    // Inimigo acertou, jogador passou na defesa → dano completamente evitado
-    logEntry('Você defendeu perfeitamente — dano evitado!', 'log-miss');
-    renderBattle(); renderSheet();
-    endPlayerTurn();
+  // Suporte sem cura
+  if (hasSupport && !hasOffense) {
+    if (hasArea === 'two') { startTargeting('magic_area_two'); return; }
+    if (hasArea) { castMagicArea(currentActor, 'support'); return; }
+    startTargeting('magic_support');
     return;
   }
 
-  // Inimigo acertou, jogador falhou na defesa → dano cheio
-  const dmg = rawDmg;
-  if (dmg <= 0) {
-    logEntry('Golpe conectou mas sua armadura absorveu tudo! Dano: 0.', 'log-miss');
-  } else {
-    logEntry(`Você sofre ${dmg} de dano! (${ew[dmgStat]}+${atkBonus(enemy)}atk − ${player.armor[defStat]}+${defBonus(player)}def)`, 'log-dmg');
-    player.hp = Math.max(0, player.hp - dmg);
-  }
-
-  renderBattle(); renderSheet();
-  if (player.hp <= 0) { endBattle(false); return; }
-  endPlayerTurn();
+  // Ofensivo (dano / efeito / suporte combinado)
+  if (hasArea === 'two') { startTargeting('magic_area_two'); return; }
+  if (hasArea) { castMagicArea(currentActor, 'offense'); return; }
+  startTargeting('magic_offensive');
 }
 
-function enemyTurnDefended() {
-  if (!battleActive) return;
+function applyMagicDmg(actor, target, dmgExtra = null) {
+  const w = actor.weapon;
+  // Dano mágico exige arma com Malícia (cajado). Sem ela, a ação é bloqueada sem custo de MP.
+  if (w.malicia <= 0) {
+    logEntry(`${actor.name} não pode causar dano mágico com ${w.name} — use um Cajado.`, 'log-miss');
+    return false; // sinaliza falha para o chamador não cobrar MP
+  }
+  const extra = dmgExtra !== null ? dmgExtra : magicQueue.dmgExtra;
+  const attr = actor.attrs.int;
+  const castRoll = rollDice(w.dice);
+  const castHit = castRoll !== w.dice && castRoll <= attr;
+  logEntry(`${actor.name} → ${target.name}: Inteligência rola ${castRoll} vs ${attr}`, 'log-sys');
+  if (!castHit) { logEntry(`Magia falhou${castRoll === w.dice ? ' (falha auto)':''}!`, 'log-miss'); return true; }
+  const dmg = Math.max(0, w.malicia + atkBonus(actor) - target.armor.barreira - defBonus(target) + extra);
+  if (dmg <= 0) logEntry(`Barreira absorveu! Dano: 0.`, 'log-miss');
+  else { applyDamage(target, dmg); logEntry(`Dano mágico em ${target.name}: ${dmg}!`, 'log-dmg'); }
+  return true;
+}
 
-  // Checagem de paralisia — mesma rolagem da rodada
-  if (rollParalysisRound(enemy)) {
-    logEntry(`⚡ ${enemy.name} está paralisado e perde o turno!`, 'log-info');
-    endPlayerTurn();
+function applyMagicEffect(actor, target, ef, turns) {
+  const w = actor.weapon;
+  const adjAttr = Math.max(1, target.attrs[ef.defAttr]);
+  const effRoll = rollDice(w.dice);
+  logEntry(`${target.name} resiste (${ef.name}) — rola ${effRoll} vs ${ATTRS.find(a=>a.id===ef.defAttr).name} ${adjAttr}`, 'log-sys');
+  if (effRoll <= adjAttr && effRoll !== w.dice) logEntry(`${target.name} resistiu!`, 'log-miss');
+  else applyEffect(ef, target, target, turns);
+}
+
+function getAreaTargets() {
+  const isHeal = magicQueue.healExtra > 0 || magicQueue.support;
+  const pool = isHeal ? alivePlayerSide() : aliveEnemySide();
+  if (magicQueue.area === 'all') return pool;
+  if (magicQueue.area === 'two') return pool.slice(0, 2);
+  return [];
+}
+
+function castMagicArea(actor, type, targets = null) {
+  const cost = mpCostQueue();
+  if (cost > actor.mp) {
+    logEntry(`MP insuficiente! Necessário: ${cost}, disponível: ${actor.mp}.`, 'log-miss');
+    clearMagicQueue(); renderBattle(); renderMagicPanel();
     return;
   }
 
-  const ew = enemy.weapon;
-  const atkAttrId = ew.atkAttr;
-  const eAttr = enemy.attrs[atkAttrId];
-  const dmgStat = ew.dmgStat;
-  const defStat = DMG_VS_DEF[dmgStat];
-  const rawDmg = ew[dmgStat] + atkBonus(enemy) - player.armor[defStat] - defBonus(player);
+  // Opção A: bloquear dano em área se arma não tem Malícia
+  if (type === 'offense' && magicQueue.dmgExtra > 0 && actor.weapon.malicia <= 0) {
+    logEntry(`${actor.name} não pode causar dano mágico com ${actor.weapon.name} — use um Cajado.`, 'log-miss');
+    clearMagicQueue(); renderBattle(); renderMagicPanel();
+    return;
+  }
 
-  const eRollDef = rollDice(ew.dice);
-  logEntry(`${enemy.name} ataca (postura def.) — rola ${eRollDef} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${eAttr}`, 'log-sys');
-  if (eRollDef === ew.dice || eRollDef > eAttr) {
-    logEntry('Postura defensiva funcionou — ataque desviado!', 'log-victory');
+  actor.mp -= cost;
+  logDivider();
+
+  if (!targets || targets.length === 0) targets = getAreaTargets();
+  if (targets.length === 0) {
+    logEntry('Nenhum alvo disponível para magia em área.', 'log-miss');
+    clearMagicQueue(); renderBattle(); renderMagicPanel();
+    return;
+  }
+
+  const turns = 3;
+  logEntry(`${actor.name} lança magia em área! (${targets.map(t => t.name).join(', ')}) — Custo: ${cost} MP`, 'log-info');
+
+  if (type === 'heal') {
+    const w = actor.weapon;
+    const attr = actor.attrs.int;
+    targets.forEach(t => {
+      const roll = rollDice(w.dice);
+      const hit  = roll !== w.dice && roll <= attr;
+      logEntry(`Cura → ${t.name}: Inteligência rola ${roll} vs ${attr}`, 'log-sys');
+      if (!hit) { logEntry(`Cura em ${t.name} falhou${roll === w.dice ? ' (falha auto)' : ''}!`, 'log-miss'); }
+      else {
+        t.hp = Math.min(t.maxHP, t.hp + magicQueue.healExtra);
+        logEntry(`✦ ${t.name} recupera ${magicQueue.healExtra} HP!`, 'log-victory');
+      }
+    });
+
+  } else if (type === 'support') {
+    const sup = magicQueue.support;
+    targets.forEach(t => {
+      const supRoll = rollDice(actor.weapon.dice);
+      const supHit  = supRoll !== actor.weapon.dice && supRoll <= actor.attrs.int;
+      logEntry(`${actor.name} testa Inteligência para ${sup.name} em ${t.name}: rola ${supRoll} vs ${actor.attrs.int}`, 'log-sys');
+      if (!supHit) { logEntry(`${sup.name} em ${t.name} falhou${supRoll === actor.weapon.dice ? ' (falha auto)':''}!`, 'log-miss'); }
+      else if (sup.id === 'detox') { t.effects = t.effects.filter(e => !['poison','paralyze','faint'].includes(e.id)); logEntry(`✦ Detox em ${t.name}! (veneno, paralisia e desmaio removidos)`, 'log-victory'); }
+      else if (sup.id === 'regen') applyEffect({ ...sup, id: 'regen' }, t, t, turns);
+      else { applySupport(sup, t, turns); }
+    });
+
+  } else if (type === 'offense') {
+    const hasAtk = magicQueue.dmgExtra > 0;
+    const hasEff = !!magicQueue.effect;
+    targets.forEach(t => {
+      if (hasAtk) applyMagicDmg(actor, t);
+      if (hasEff) applyMagicEffect(actor, t, magicQueue.effect, turns);
+    });
+  }
+
+  clearMagicQueue();
+  renderBattle(); renderSheet(); renderMagicPanel();
+  if (checkBattleEnd()) return;
+  if (actor) actor.actedWithMagic = true;
+  endTurn();
+}
+
+function castMagicResolved(actor, target) {
+  const cost = mpCostQueue();
+  if (cost > actor.mp) {
+    logEntry(`MP insuficiente! Necessário: ${cost}, disponível: ${actor.mp}.`, 'log-miss');
+    clearMagicQueue(); renderBattle(); renderMagicPanel();
+    return;
+  }
+  actor.mp -= cost;
+  logDivider();
+
+  const hasAtk = magicQueue.dmgExtra > 0;
+  const hasArea = !!magicQueue.area;
+  const hasEff = !!magicQueue.effect;
+  const hasSup = !!magicQueue.support;
+  const turns = 3;
+
+  if (hasArea) {
+    const areaTargets = getAreaTargets();
+    logEntry(`${actor.name} lança magia em área! (${areaTargets.map(t=>t.name).join(', ')}) — Custo: ${cost} MP`, 'log-info');
+
+    areaTargets.forEach(t => {
+      if (hasAtk) applyMagicDmg(actor, t);
+      if (hasEff) applyMagicEffect(actor, t, magicQueue.effect, turns);
+    });
+
   } else {
-    // postura defensiva reduz dano pela metade
-    const dmg = Math.max(0, Math.floor(rawDmg * 0.5));
-    if (dmg <= 0) {
-      logEntry('Mesmo acertando, armadura absorveu — dano: 0.', 'log-miss');
-    } else {
-      logEntry(`Mesmo defendendo, sofreu ${dmg} de dano.`, 'log-dmg');
-      player.hp = Math.max(0, player.hp - dmg);
-      renderBattle(); renderSheet();
-      if (player.hp <= 0) { endBattle(false); return; }
+    // Alvo único
+    logEntry(`${actor.name} lança magia em ${target.name}! (Custo: ${cost} MP)`, 'log-info');
+
+    if (hasAtk) applyMagicDmg(actor, target);
+
+    if (hasEff) {
+      const ef = magicQueue.effect;
+      const extraMp = Math.max(0, cost - ef.cost - (hasAtk ? magicQueue.dmgExtra*2+1:0) - (hasSup ? magicQueue.support.cost+1:0));
+      const extraTurns = Math.floor(extraMp / 2);
+      applyMagicEffect(actor, target, ef, turns + extraTurns);
     }
+
+    if (hasSup) {
+      const sup = magicQueue.support;
+      const supRoll = rollDice(actor.weapon.dice);
+      const supHit  = supRoll !== actor.weapon.dice && supRoll <= actor.attrs.int;
+      logEntry(`${actor.name} testa Inteligência para ${sup.name}: rola ${supRoll} vs ${actor.attrs.int}`, 'log-sys');
+      if (!supHit) { logEntry(`${sup.name} falhou${supRoll === actor.weapon.dice ? ' (falha auto)':''}! MP gastos.`, 'log-miss'); }
+      else if (sup.id === 'detox') { target.effects = target.effects.filter(e => !['poison','paralyze','faint'].includes(e.id)); logEntry(`✦ Detox em ${target.name}! (veneno, paralisia e desmaio removidos)`, 'log-victory'); }
+      else if (sup.id === 'regen') applyEffect({...sup, id:'regen'}, target, target, turns);
+      else { applySupport(sup, target, turns); }
+    }
+
   }
-  endPlayerTurn();
+
+  clearMagicQueue();
+  renderBattle(); renderSheet(); renderMagicPanel();
+  if (checkBattleEnd()) return;
+  if (actor) actor.actedWithMagic = true;
+  endTurn();
 }
 
-function endPlayerTurn() {
-  endRound();
-  playerTurn = true;
-  setBattleButtons(true);
-  renderBattle();
-  renderSheet();
-  renderMagicPanel();
-  if (player.hp <= 0) { endBattle(false); }
-  if (enemy.hp <= 0) { endBattle(true); }
-}
+// playerAttack e enemyTurn obsoletos no 3v3 — substituídos por resolveAttack e aiAct
+// mantidos como stubs para não quebrar referências antigas
+function playerAttack() { /* substituído por resolveTargetedAction */ }
+function enemyTurn(free) { /* substituído por aiAct */ }
+function enemyTurnDefended() { /* substituído por defendAction */ }
+
+function endPlayerTurn() { endTurn(); } // alias para compatibilidade
 
 function totalAttrPoints(entity) {
   return Object.values(entity.attrs).reduce((a,b) => a+b, 0);
@@ -1396,31 +2050,45 @@ function endBattle(playerWon) {
   const msg = document.getElementById('battle-end-msg');
   end.style.display = '';
 
-  // XP pós-batalha: +2 em tudo; +5 se inimigo tinha mais pontos totais
-  const enemyStronger = totalAttrPoints(enemy) > totalAttrPoints(player);
+  const enemyTotal = aliveEnemySide().concat(combatants.filter(c=>c.side==='enemy'))
+    .reduce((sum,e) => sum + totalAttrPoints(e), 0) / 3;
+  const playerTotal = totalAttrPoints(player);
+  const enemyStronger = enemyTotal > playerTotal;
   const bonus = enemyStronger ? 5 : 2;
 
   if (playerWon) {
-    logEntry(`✦ Vitória! ${enemy.name} foi derrotado. ✦`, 'log-victory');
+    logEntry(`✦ Vitória! Todos os oponentes foram derrotados! ✦`, 'log-victory');
     msg.className = 'log-victory';
-    msg.textContent = `Vitória — ${enemy.name} caiu.`;
+    msg.textContent = 'Vitória — os oponentes caíram!';
     ATTRS.forEach(a => giveXP(a.id, bonus));
-    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigo mais forte!)' : ''}.`, 'log-info');
+    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigos mais fortes!)' : ''}.`, 'log-info');
   } else {
-    logEntry('✦ Derrota. Você foi abatido. ✦', 'log-defeat');
+    logEntry(`✦ Derrota. Seu grupo foi abatido. ✦`, 'log-defeat');
     msg.className = 'log-defeat';
-    msg.textContent = 'Derrota — você foi abatido.';
+    msg.textContent = 'Derrota — seu grupo foi abatido.';
     player.hp = Math.floor(player.maxHP * 0.3);
     ATTRS.forEach(a => giveXP(a.id, bonus));
-    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigo mais forte!)' : ''}.`, 'log-info');
+    logEntry(`+${bonus} XP em todos os atributos${enemyStronger ? ' (inimigos mais fortes!)' : ''}.`, 'log-info');
   }
   renderSheet();
   renderTestButtons();
 }
 
 function restartBattle() {
-  player.hp = player.maxHP;
-  player.mp = player.maxMP;
+  // recria inimigos sorteados e restaura HP/MP de todos
+  const newEnemyTemplates = pickRandomEnemies(3);
+  const e1 = makeCombatant(newEnemyTemplates[0], 'enemy', 'enemy1', false);
+  const e2 = makeCombatant(newEnemyTemplates[1], 'enemy', 'enemy2', false);
+  const e3 = makeCombatant(newEnemyTemplates[2], 'enemy', 'enemy3', false);
+
+  // restaura lado do jogador
+  combatants.filter(c => c.side === 'player').forEach(c => {
+    c.hp = c.maxHP; c.mp = c.maxMP;
+    c.alive = true; c.effects = []; c.buffs = [];
+    c.paralyzedRoundRolled = false; c.paralyzedThisRound = false;
+  });
+
+  combatants = [...combatants.filter(c => c.side === 'player'), e1, e2, e3];
   renderSheet();
   initBattle();
 }
@@ -1477,7 +2145,12 @@ function clearLog() {
 
 function setBattleButtons(enabled) {
   document.querySelectorAll('.btn-attack').forEach(b => b.disabled = !enabled);
-  document.getElementById('btn-defend').disabled = !enabled;
+  const def = document.getElementById('btn-defend');
+  if (def) def.disabled = !enabled;
+  const med = document.getElementById('btn-meditate');
+  if (med) med.disabled = !enabled;
+  const cast = document.getElementById('btn-cast');
+  if (cast) cast.disabled = !enabled;
 }
 
 function showScreen(id) {
