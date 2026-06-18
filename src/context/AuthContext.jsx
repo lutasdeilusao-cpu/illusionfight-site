@@ -73,6 +73,27 @@ export function AuthProvider({ children }) {
       if (session?.user) {
         await carregarPerfil(session.user.id)
         if (event === 'SIGNED_IN') {
+          const { data: existing } = await supabase
+            .from('profiles')
+            .select('id')
+            .eq('id', session.user.id)
+            .maybeSingle()
+          if (!existing) {
+            const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
+            if (dadosPendentes) {
+              await supabase.from('profiles').insert({
+                id: session.user.id,
+                nome: dadosPendentes.nome,
+                telefone: dadosPendentes.telefone,
+                country_code: dadosPendentes.pais
+              })
+              await supabase.from('user_achievements').upsert({
+                user_id: session.user.id,
+                achievement_id: 'recrutado'
+              }, { onConflict: 'user_id,achievement_id' })
+              sessionStorage.removeItem('ldi-cadastro-pendente')
+            }
+          }
           await garantirDeckInicial(session.user.id)
           const horas = await registrarSessao(session.user.id)
           setHorasDesdeUltimaSessao(horas)

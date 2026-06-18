@@ -1,16 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
-import { useAuth } from '../context/AuthContext'
-import { useAchievements } from '../context/AchievementsContext'
 import { useLanguage } from '../context/LanguageContext'
 import { PAISES } from '../data/paises'
 import './Login.css'
 
 export default function Cadastro() {
   const { t, locale } = useLanguage()
-  const { carregarPerfil } = useAuth()
-  const { migrarLocalParaSupabase, desbloquear } = useAchievements()
   const [cadastroConcluido, setCadastroConcluido] = useState(false)
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', pais: '', senha: '', confirmarSenha: '' })
   const [erro, setErro] = useState('')
@@ -33,30 +29,17 @@ export default function Cadastro() {
     const erroValidacao = validar()
     if (erroValidacao) { setErro(erroValidacao); return }
     setCarregando(true)
+    sessionStorage.setItem('ldi-cadastro-pendente', JSON.stringify({
+      nome: form.nome,
+      telefone: form.telefone,
+      pais: form.pais
+    }))
     const { data, error } = await supabase.auth.signUp({
       email: form.email,
       password: form.senha,
       options: { emailRedirectTo: window.location.origin }
     })
     if (error) { setErro(error.message); setCarregando(false); return }
-    if (data.user) {
-      const { error: perfilError } = await supabase
-        .from('profiles')
-        .insert({ id: data.user.id, nome: form.nome, telefone: form.telefone, country_code: form.pais })
-      if (perfilError) {
-        console.error('Erro perfil:', perfilError)
-        setErro(t('site.cadastro.erro_perfil'))
-        setCarregando(false)
-        return
-      }
-      await supabase.from('user_achievements').upsert({
-        user_id: data.user.id,
-        achievement_id: 'recrutado'
-      }, { onConflict: 'user_id,achievement_id' })
-      await migrarLocalParaSupabase(data.user.id)
-      await desbloquear('recrutado')
-      await carregarPerfil(data.user.id)
-    }
     setCarregando(false)
     setCadastroConcluido(true)
   }
