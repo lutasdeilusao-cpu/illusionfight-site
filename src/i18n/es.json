@@ -590,6 +590,8 @@
       "pais_obrigatorio": "Selecciona tu país",
       "sucesso": "Revisa tu correo para confirmar el registro.",
       "erro_perfil": "Cuenta creada pero error al guardar perfil. Intenta de nuevo.",
+      "confirme_titulo": "Verifica tu correo",
+      "confirme_mensagem": "Enviamos un enlace de confirmación a tu correo electrónico. Abre tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.",
       "privacidade_aviso": "Tu cuenta se usa solo para guardar tu progreso e historial en los juegos. No usamos tus datos para entrenar IA, no vendemos datos a terceros, y este sitio no tiene anuncios ni ningún modelo de monetización basado en datos."
     },
     "games": {

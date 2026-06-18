@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
@@ -11,7 +11,7 @@ export default function Cadastro() {
   const { t, locale } = useLanguage()
   const { carregarPerfil } = useAuth()
   const { migrarLocalParaSupabase, desbloquear } = useAchievements()
-  const navigate = useNavigate()
+  const [cadastroConcluido, setCadastroConcluido] = useState(false)
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', pais: '', senha: '', confirmarSenha: '' })
   const [erro, setErro] = useState('')
   const [carregando, setCarregando] = useState(false)
@@ -58,7 +58,21 @@ export default function Cadastro() {
       await carregarPerfil(data.user.id)
     }
     setCarregando(false)
-    navigate('/')
+    setCadastroConcluido(true)
+  }
+
+  if (cadastroConcluido) {
+    return (
+      <section className="auth-page">
+        <div className="auth-card">
+          <h1 className="auth-titulo">{t('site.cadastro.confirme_titulo')}</h1>
+          <p className="auth-sub">{t('site.cadastro.confirme_mensagem')}</p>
+          <p className="auth-link-text">
+            <Link to="/login" className="auth-link">{t('site.cadastro.entrar_link')}</Link>
+          </p>
+        </div>
+      </section>
+    )
   }
 
   return (
