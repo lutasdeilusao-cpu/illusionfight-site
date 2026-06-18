@@ -26,65 +26,6 @@
   text-transform: uppercase;
 }
 
-.p1-agi-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 6px 12px;
-  background: var(--ldi-bg2);
-  border: 1px solid var(--ldi-border);
-  border-radius: 4px;
-}
-
-.p1-agi-bar span {
-  font-family: var(--ldi-font-hud);
-  font-size: 9px;
-  color: var(--ldi-text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.p1-switch {
-  position: relative;
-  width: 36px;
-  height: 18px;
-  cursor: pointer;
-}
-
-.p1-switch input {
-  display: none;
-}
-
-.p1-switch-track {
-  position: absolute;
-  inset: 0;
-  background: var(--ldi-bg3);
-  border: 1px solid var(--ldi-border);
-  border-radius: 9px;
-  transition: all 0.2s;
-}
-
-.p1-switch input:checked + .p1-switch-track {
-  background: var(--ldi-cyan-dim);
-  border-color: var(--ldi-cyan);
-}
-
-.p1-switch-knob {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ldi-text-dim);
-  transition: all 0.2s;
-}
-
-.p1-switch input:checked + .p1-switch-track .p1-switch-knob {
-  left: 20px;
-  background: var(--ldi-cyan);
-}
 
 .p1-chars {
   display: flex;

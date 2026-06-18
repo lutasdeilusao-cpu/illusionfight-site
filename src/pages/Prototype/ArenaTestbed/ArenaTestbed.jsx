@@ -17,16 +17,14 @@ export default function ArenaTestbed() {
   const [phase, setPhase] = useState(1) // 1 | 2 | 3
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
-  const [agiUmPraUm, setAgiUmPraUm] = useState(true) // 1 AGI = 1 casa
 
-  function handlePhase1Confirm(chars, agiFlag) {
+  function handlePhase1Confirm(chars) {
     setCharacters(chars)
-    if (agiFlag !== undefined) setAgiUmPraUm(agiFlag)
     setPhase(2)
   }
 
   function handlePhase2Confirm(board) {
-    setBoardState({ ...board, agiUmPraUm })
+    setBoardState({ ...board })
     setPhase(3)
   }
 
@@ -68,8 +66,6 @@ export default function ArenaTestbed() {
         {phase === 1 && (
           <Phase1SheetBuilder
             onConfirm={handlePhase1Confirm}
-            agiUmPraUm={agiUmPraUm}
-            onAgiToggle={setAgiUmPraUm}
           />
         )}
         {phase === 2 && (

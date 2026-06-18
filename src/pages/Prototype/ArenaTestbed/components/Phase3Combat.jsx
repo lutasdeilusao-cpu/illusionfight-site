@@ -21,7 +21,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const trailRef = useRef([])
   const rafRef = useRef(null)
 
-  const { boardChars, obstaculos, itensChao, cols, rows, agiUmPraUm = true } = boardState
+  const { boardChars, obstaculos, itensChao, cols, rows } = boardState
+  const agiUmPraUm = true
 
   const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
           hexCenter, hexCorner, pixelToHex,
@@ -48,7 +49,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [battleLog, setBattleLog] = useState([])
   const [winner, setWinner] = useState(null)
   const [jokenpoNeeded, setJokenpoNeeded] = useState(null)
-  const [pendingJokenpo, setPendingJokenpo] = useState([])
+  const [orderingPhase, setOrderingPhase] = useState(null)
+  const [playerTeamOrder, setPlayerTeamOrder] = useState([])
+  const [crossTieQueue, setCrossTieQueue] = useState([])
+  const [currentCrossTie, setCurrentCrossTie] = useState(null)
   const [animating, setAnimating] = useState(false)
   const [d6Result, setD6Result] = useState(null)
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
@@ -86,6 +90,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const executarAtaqueRef = useRef(null)
   const moverPersonagemRef = useRef(null)
   const winnerRef = useRef(null)
+  const iaThinkingRef = useRef(false)
+  const sortedGlobalRef = useRef([])
+  const crossTieQueueRef = useRef([])
+  const crossTieResultsRef = useRef([])
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -117,18 +125,52 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   useEffect(() => {
     const alive = characters.filter(c => c.vivo)
     const sorted = [...alive].sort((a, b) => b.agi - a.agi)
+
     const agiGroups = {}
     sorted.forEach(ch => {
       if (!agiGroups[ch.agi]) agiGroups[ch.agi] = []
       agiGroups[ch.agi].push(ch)
     })
-    const ties = Object.values(agiGroups).filter(g => g.length > 1)
-    setTimeout(() => {
-      if (ties.length > 0) {
-        setPendingJokenpo(ties)
-        setJokenpoNeeded(ties[0])
+
+    const grupos = Object.values(agiGroups).sort((a, b) => b[0].agi - a[0].agi)
+
+    const ordemParcial = []
+    const empatesInternosJogador = []
+    const empatesCruzados = []
+
+    for (const grupo of grupos) {
+      if (grupo.length === 1) {
+        ordemParcial.push(grupo[0])
+        continue
+      }
+      const jogadores = grupo.filter(c => c.time === 'jogador')
+      const ias = grupo.filter(c => c.time === 'ia')
+
+      if (ias.length === 0) {
+        ordemParcial.push(...jogadores)
+        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+      } else if (jogadores.length === 0) {
+        const shuffled = [...ias].sort(() => Math.random() - 0.5)
+        ordemParcial.push(...shuffled)
       } else {
-        const order = sorted.map(ch => ch.id)
+        const shuffledIas = [...ias].sort(() => Math.random() - 0.5)
+        ordemParcial.push(...jogadores, ...shuffledIas)
+        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+        empatesCruzados.push({ agi: grupo[0].agi, jogadores, ias: shuffledIas })
+      }
+    }
+
+    sortedGlobalRef.current = ordemParcial
+
+    setTimeout(() => {
+      const timeJogador = ordemParcial.filter(c => c.time === 'jogador')
+      setPlayerTeamOrder(timeJogador)
+
+      if (empatesInternosJogador.length > 0 || empatesCruzados.length > 0) {
+        setOrderingPhase('player_internal')
+        setCrossTieQueue(empatesCruzados)
+      } else {
+        const order = ordemParcial.map(c => c.id)
         setTurnOrder(order)
         startPlayerTurn(order, 0)
       }
@@ -136,18 +178,104 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }, [])
 
   function handleJokenpoResult(winnerName) {
-    const tieGroup = jokenpoNeeded
-    const remaining = pendingJokenpo.slice(1)
-    setPendingJokenpo(remaining)
-    setJokenpoNeeded(null)
-    if (!remaining.length) {
-      const alive = characters.filter(c => c.vivo)
-      const sorted = [...alive].sort((a, b) => b.agi - a.agi)
-      setTurnOrder(sorted.map(ch => ch.id))
-      startPlayerTurn(sorted.map(ch => ch.id), 0)
-    } else {
-      setTimeout(() => setJokenpoNeeded(remaining[0]), 500)
+    if (orderingPhase === 'jokenpo_cross') {
+      handleJokenpoResultCruzado(winnerName)
     }
+  }
+
+  function confirmarOrdemInterna() {
+    const base = sortedGlobalRef.current
+    let jogadorIdx = 0
+    const novaOrdem = base.map(c => {
+      if (c.time === 'jogador') return playerTeamOrder[jogadorIdx++]
+      return c
+    })
+    sortedGlobalRef.current = novaOrdem
+
+    if (crossTieQueue.length > 0) {
+      setOrderingPhase('jokenpo_cross')
+      iniciarProximoJokenpoCruzado(crossTieQueue, novaOrdem)
+    } else {
+      setOrderingPhase(null)
+      const order = novaOrdem.map(c => c.id)
+      setTurnOrder(order)
+      startPlayerTurn(order, 0)
+    }
+  }
+
+  function iniciarProximoJokenpoCruzado(queue, ordemAtual) {
+    if (queue.length === 0) {
+      aplicarOrdemCruzada(ordemAtual)
+      return
+    }
+    const grupo = queue[0]
+    const jogadoresRestantes = grupo.jogadores.filter(j =>
+      !crossTieResultsRef.current.some(r => r.winner?.id === j.id || r.loser?.id === j.id)
+    )
+    const iasRestantes = grupo.ias.filter(ia =>
+      !crossTieResultsRef.current.some(r => r.winner?.id === ia.id || r.loser?.id === ia.id)
+    )
+
+    if (jogadoresRestantes.length === 0 || iasRestantes.length === 0) {
+      crossTieQueueRef.current = queue.slice(1)
+      iniciarProximoJokenpoCruzado(queue.slice(1), ordemAtual)
+      return
+    }
+
+    setCurrentCrossTie({
+      playerChar: jogadoresRestantes[0],
+      iaChar: iasRestantes[0],
+      grupoAgi: grupo.agi,
+      remainingQueue: queue,
+    })
+    setJokenpoNeeded([jogadoresRestantes[0], iasRestantes[0]])
+  }
+
+  function handleJokenpoResultCruzado(winnerName) {
+    const { playerChar, iaChar, remainingQueue } = currentCrossTie
+    const winner = winnerName === playerChar.nome ? playerChar : iaChar
+    const loser = winner.id === playerChar.id ? iaChar : playerChar
+
+    crossTieResultsRef.current.push({ winner, loser })
+    setJokenpoNeeded(null)
+    setCurrentCrossTie(null)
+
+    iniciarProximoJokenpoCruzado(remainingQueue, sortedGlobalRef.current)
+  }
+
+  function aplicarOrdemCruzada(ordemBase) {
+    const results = crossTieResultsRef.current
+    const novaOrdem = [...ordemBase]
+
+    for (const grupo of [...new Set(results.map(r => r.winner.agi))]) {
+      const blocoIdx = []
+      novaOrdem.forEach((c, i) => {
+        if (c.agi === grupo && results.some(r => r.winner.id === c.id || r.loser.id === c.id)) blocoIdx.push(i)
+      })
+      if (blocoIdx.length === 0) continue
+
+      const winners = results.filter(r => r.winner.agi === grupo).map(r => r.winner)
+      const losers = results.filter(r => r.loser.agi === grupo).map(r => r.loser)
+
+      const winnerOrdem = winners.filter(w => bloco.some(b => b.id === w.id))
+      const loserOrdem = losers.filter(l => bloco.some(b => b.id === l.id))
+      const blocoOrdenado = []
+      const maxLen = Math.max(winnerOrdem.length, loserOrdem.length)
+      for (let i = 0; i < maxLen; i++) {
+        if (winnerOrdem[i]) blocoOrdenado.push(winnerOrdem[i])
+        if (loserOrdem[i]) blocoOrdenado.push(loserOrdem[i])
+      }
+
+      blocoIdx.forEach((pos, i) => {
+        if (blocoOrdenado[i]) novaOrdem[pos] = blocoOrdenado[i]
+      })
+    }
+
+    sortedGlobalRef.current = novaOrdem
+    setOrderingPhase(null)
+    const order = novaOrdem.map(c => c.id)
+    setTurnOrder(order)
+    startPlayerTurn(order, 0)
   }
 
   function logEstadoTurno(origem, orderLocal, idxLocal) {
@@ -479,7 +607,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current
-    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinking || winnerRef.current) return
+    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinkingRef.current || winnerRef.current) return
     const rect = canvas.getBoundingClientRect()
     const scaleX = canvas.width / rect.width
     const scaleY = canvas.height / rect.height
@@ -916,7 +1044,13 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
-        finalizarTurno()
+        // Não finalizar turno — devolver controle ao jogador com atacou:true
+        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        setSubPhase('free')
+        setHighlightedCells([])
+        setAttackCells([])
+        setRangeCells([])
+        anunciar(t('prototype.arena_testbed.announce_player_turn'))
       }, 300)
     } else {
       setTurnoAcoes(prev => ({ ...prev, atacou: true }))
@@ -1014,12 +1148,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function executarIA(iaChar) {
     setIaThinking(true)
+    iaThinkingRef.current = true
     console.log(`[IA:inicio] iaChar=${iaChar.nome} winnerRef=${winnerRef.current}`)
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(() => {
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
+        iaThinkingRef.current = false
         setIaThinking(false)
         finalizarTurno()
         return
@@ -1032,7 +1168,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         movIA, cols, rows, obstaculos
       )
       setHighlightedCells(moveCells)
-      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual, agiUmPraUm)
+      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
       setAnimTimer(() => {
         setHighlightedCells([])
         if (dec.tipo === 'andar') {
@@ -1077,13 +1213,14 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
       const charsAgora2 = charsRef.current
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
       if (!iaAtual2 || !iaAtual2.vivo) {
+        iaThinkingRef.current = false
         setIaThinking(false)
         finalizarTurno()
         return
       }
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual, agiUmPraUm)
+      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
       console.log(`[IA:acao] tipo=${dec2.tipo} podeAtacar=${dec2.tipo === 'atacar'} iaPos=(${iaAtual2.posicao?.row},${iaAtual2.posicao?.col}) alvo=${dec2.detalhes?.alvo?.nome} alvoPos=(${dec2.detalhes?.alvo?.posicao?.row},${dec2.detalhes?.alvo?.posicao?.col})`)
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
@@ -1158,9 +1295,12 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     function finalizarTurnoIA() {
       setProjectilePos(null)
       setProjectilePath([])
-      setIaThinking(false)
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
-      if (verificarVitoria()) return
+      if (verificarVitoria()) {
+        iaThinkingRef.current = false
+        setIaThinking(false)
+        return
+      }
       const order3 = orderRef.current
       const turnIdx3 = turnRef.current
       const nextIdx3 = (turnIdx3 + 1) % order3.length
@@ -1179,10 +1319,15 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        iaThinkingRef.current = false
+        setIaThinking(false)
         anunciar(t('prototype.arena_testbed.announce_player_turn'))
         setTimeout(() => {
           anunciar(t('prototype.arena_testbed.free_hint'), 2500)
         }, 2200)
+      } else {
+        iaThinkingRef.current = false
+        setIaThinking(false)
       }
     }
   }
@@ -1209,6 +1354,54 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   }
 
   return (
+    <>
+      {orderingPhase === 'player_internal' && (
+        <div className="atb-ordering-overlay">
+          <div className="atb-ordering-modal">
+            <div className="atb-ordering-title">ORDEM DE ATAQUE — SEU TIME</div>
+            <div className="atb-ordering-subtitle">
+              Reordene os personagens com mesma AGI usando as setas
+            </div>
+            <div className="atb-ordering-list">
+              {playerTeamOrder.map((ch, idx) => {
+                const prevSameAgi = idx > 0 && playerTeamOrder[idx - 1].agi === ch.agi
+                const nextSameAgi = idx < playerTeamOrder.length - 1 && playerTeamOrder[idx + 1].agi === ch.agi
+                const isMovable = prevSameAgi || nextSameAgi
+                return (
+                  <div key={ch.id} className={`atb-ordering-row ${isMovable ? 'movable' : 'locked'}`}>
+                    <div className="atb-ordering-position">{idx + 1}º</div>
+                    <div className="atb-ordering-name">{ch.nome}</div>
+                    <div className="atb-ordering-agi">AGI {ch.agi}</div>
+                    <div className="atb-ordering-arrows">
+                      <button
+                        className="atb-ordering-btn"
+                        disabled={!isMovable || idx === 0 || playerTeamOrder[idx - 1].agi !== ch.agi}
+                        onClick={() => {
+                          const novo = [...playerTeamOrder]
+                          ;[novo[idx - 1], novo[idx]] = [novo[idx], novo[idx - 1]]
+                          setPlayerTeamOrder(novo)
+                        }}
+                      >▲</button>
+                      <button
+                        className="atb-ordering-btn"
+                        disabled={!isMovable || idx === playerTeamOrder.length - 1 || playerTeamOrder[idx + 1].agi !== ch.agi}
+                        onClick={() => {
+                          const novo = [...playerTeamOrder]
+                          ;[novo[idx], novo[idx + 1]] = [novo[idx + 1], novo[idx]]
+                          setPlayerTeamOrder(novo)
+                        }}
+                      >▼</button>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <button className="atb-ordering-confirm" onClick={confirmarOrdemInterna}>
+              ✓ CONFIRMAR ORDEM
+            </button>
+          </div>
+        </div>
+      )}
     <div className={`atb-root ${shaking ? 'atb-shake' : ''}`}>
       {flashDmg && <div className="atb-flash-overlay" />}
       {jokenpoNeeded && (
@@ -1426,5 +1619,6 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         </div>
       )}
     </div>
+    </>
   )
 }

@@ -6,7 +6,7 @@ import './Phase1SheetBuilder.css'
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
 const BUDGET_OPTIONS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 
-export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = true, onAgiToggle }) {
+export default function Phase1SheetBuilder({ onConfirm }) {
   const { t } = useLanguage()
   const [characters, setCharacters] = useState([])
   const [editing, setEditing] = useState(null)
@@ -132,23 +132,13 @@ export default function Phase1SheetBuilder({ onConfirm, agiUmPraUm = true, onAgi
         c.equipamento, c.pocaoHP, c.pocaoMP
       )
     })
-    onConfirm(finalChars, agiUmPraUm)
+    onConfirm(finalChars, true)
   }
 
   return (
     <div className="p1-root">
       <div className="p1-header">
         <h3>CONSTRUÇÃO DE FICHAS</h3>
-      </div>
-
-      <div className="p1-agi-bar">
-        <span>1 AGI = 1 CASA</span>
-        <label className="p1-switch">
-          <input type="checkbox" checked={agiUmPraUm} onChange={e => onAgiToggle?.(e.target.checked)} />
-          <div className="p1-switch-track">
-            <div className="p1-switch-knob" />
-          </div>
-        </label>
       </div>
 
       <div className="p1-chars">
