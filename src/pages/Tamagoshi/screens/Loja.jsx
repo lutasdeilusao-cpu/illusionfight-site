@@ -12,6 +12,13 @@ export default function Loja({ onVoltar }) {
   const [msg, setMsg] = useState('')
   const inv = store.inventario || {}
 
+  const TRADUZIR_ERRO_LOJA = {
+    'usuario nao autenticado': 'erro_nao_autenticado',
+    'DIX insuficiente': 'erro_dix_insuficiente',
+    'erro ao gastar DIX': 'erro_gastar_dix',
+    'item nao disponivel no inventario': 'erro_item_indisponivel',
+  }
+
   useEffect(() => {
     if (store._userId) store.getSaldoDix(store._userId).then(s => setSaldo(store._isAdmin ? '∞' : s))
   }, [])
@@ -23,7 +30,7 @@ export default function Loja({ onVoltar }) {
       setMsg(t('games.tamagoshi.comprado', { emoji: item.emoji, nome: tItem(item.id) }))
       setTimeout(() => setMsg(''), 2000)
     } catch (e) {
-      setMsg(e.message)
+      setMsg(t('games.tamagoshi.' + (TRADUZIR_ERRO_LOJA[e.message] || 'erro_desconhecido')))
       setTimeout(() => setMsg(''), 3000)
     }
   }

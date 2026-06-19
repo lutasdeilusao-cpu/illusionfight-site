@@ -1840,6 +1840,7 @@
       "gacha_criaturas": "criaturas",
       "gacha_aceitar": "ACEPTAR",
       "gacha_recusar": "RECHAZAR",
+      "gacha_gratis": "GRATIS",
       "gacha_giro_gratis": "1ER GIRO GRATIS",
       "em_breve": "PRÓXIMAMENTE",
 
@@ -1856,6 +1857,23 @@
       "puzzle_labirinto": "Laberinto",
       "puzzle_anagrama": "Anagrama",
       "puzzle_forca": "Palabra Secreta",
+
+      "fala_draken_boasvindas": "...viniste a verme en el vacío... gracias",
+      "fala_draken_morte": "finalmente... descanso en la oscuridad eterna",
+      "fala_kaiser_boasvindas": "ay, qué bueno que viniste a verme",
+      "fala_kaiser_morte": "me convertí en vapor... volveré como lluvia algún día",
+      "fala_kroniki_boasvindas": "tic tac… llegaste justo a tiempo",
+      "fala_kroniki_morte": "el reloj se paró",
+      "fala_lenna_boasvindas": "¡Señal estabilizada! ¡Llegaste!",
+      "fala_lenna_morte": "Señal perdida... cambiando de frecuencia",
+      "fala_yawaru_boasvindas": "la paleta se volvió más colorida contigo",
+      "fala_yawaru_morte": "mi obra maestra quedó incompleta...",
+      "fala_alion_boasvindas": "...volviste. la sangre reacciona.",
+      "fala_alion_morte": "el rojo se volvió negro... al fin, descanso",
+      "fala_indye_boasvindas": "Por fin apareciste. No es que estuviera esperando.",
+      "fala_indye_morte": "hasta el fuego más intenso se apaga un día",
+      "fala_popystar_boasvindas": "> USUARIO IDENTIFICADO. BIENVENIDO. <",
+      "fala_popystar_morte": "> DESCONECTADO DEL SISTEMA <",
 
       "termo": {
         "titulo": "TÉRMINO DE RESPONSABILIDAD",
@@ -1878,6 +1896,12 @@
         "btn_aceitar": "SÍ, ACEPTO LA RESPONSABILIDAD",
         "btn_recusar": "Aún no estoy listo"
       },
+      "criatura_desconhecida": "???",
+      "erro_nao_autenticado": "Usuario no autenticado",
+      "erro_dix_insuficiente": "DIX insuficiente",
+      "erro_gastar_dix": "Error al gastar DIX",
+      "erro_item_indisponivel": "Artículo no disponible en inventario",
+      "erro_desconhecido": "Error desconocido",
       "cooldown_disponivel": "disponible"
     },
     "pesadelo": {

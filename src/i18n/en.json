@@ -1840,6 +1840,7 @@
       "gacha_criaturas": "creatures",
       "gacha_aceitar": "ACCEPT",
       "gacha_recusar": "REFUSE",
+      "gacha_gratis": "FREE",
       "gacha_giro_gratis": "1ST FREE SPIN",
       "em_breve": "COMING SOON",
 
@@ -1856,6 +1857,23 @@
       "puzzle_labirinto": "Maze",
       "puzzle_anagrama": "Anagram",
       "puzzle_forca": "Secret Word",
+
+      "fala_draken_boasvindas": "...you came to see me in the void... thank you",
+      "fala_draken_morte": "finally... rest in the eternal darkness",
+      "fala_kaiser_boasvindas": "oh, you came to see me!",
+      "fala_kaiser_morte": "I turned to vapor... I'll return as rain one day",
+      "fala_kroniki_boasvindas": "tick tock… you arrived right on time",
+      "fala_kroniki_morte": "the clock stopped",
+      "fala_lenna_boasvindas": "Signal stabilized! You arrived!",
+      "fala_lenna_morte": "Signal lost... changing frequencies",
+      "fala_yawaru_boasvindas": "The palette got more colorful with you",
+      "fala_yawaru_morte": "My masterpiece remained unfinished...",
+      "fala_alion_boasvindas": "...you're back. the blood reacts.",
+      "fala_alion_morte": "The red turned black... finally, rest",
+      "fala_indye_boasvindas": "Finally showed up. Not like I was waiting.",
+      "fala_indye_morte": "Even the most intense fire goes out one day",
+      "fala_popystar_boasvindas": "> USER IDENTIFIED. WELCOME. <",
+      "fala_popystar_morte": "> DISCONNECTED FROM SYSTEM <",
 
       "termo": {
         "titulo": "TERM OF RESPONSIBILITY",
@@ -1878,6 +1896,12 @@
         "btn_aceitar": "YES, I ACCEPT THE RESPONSIBILITY",
         "btn_recusar": "I'm not ready yet"
       },
+      "criatura_desconhecida": "???",
+      "erro_nao_autenticado": "Not authenticated",
+      "erro_dix_insuficiente": "Not enough DIX",
+      "erro_gastar_dix": "Error spending DIX",
+      "erro_item_indisponivel": "Item not available in inventory",
+      "erro_desconhecido": "Unknown error",
       "cooldown_disponivel": "available"
     },
     "pesadelo": {

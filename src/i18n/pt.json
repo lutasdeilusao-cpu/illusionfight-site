@@ -1867,6 +1867,7 @@
       "gacha_criaturas": "criaturas",
       "gacha_aceitar": "ACEITAR",
       "gacha_recusar": "RECUSAR",
+      "gacha_gratis": "GRÁTIS",
       "gacha_giro_gratis": "1º GIRO GRÁTIS",
       "em_breve": "EM BREVE",
 
@@ -1905,6 +1906,12 @@
         "btn_aceitar": "SIM, ACEITO A RESPONSABILIDADE",
         "btn_recusar": "Ainda não estou pronto"
       },
+      "criatura_desconhecida": "???",
+      "erro_nao_autenticado": "Usuário não autenticado",
+      "erro_dix_insuficiente": "DIX insuficiente",
+      "erro_gastar_dix": "Erro ao gastar DIX",
+      "erro_item_indisponivel": "Item não disponível no inventário",
+      "erro_desconhecido": "Erro desconhecido",
       "cooldown_disponivel": "disponível"
     },
     "pesadelo": {

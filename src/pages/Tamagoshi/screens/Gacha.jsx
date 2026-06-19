@@ -35,6 +35,12 @@ export default function Gacha({ onConcluir, onVoltar }) {
   const [erro, setErro] = useState('')
   const [aceita, setAceita] = useState(false)
 
+  const TRADUZIR_ERRO_GACHA = {
+    'usuario nao autenticado': 'erro_nao_autenticado',
+    'DIX insuficiente': 'erro_dix_insuficiente',
+    'erro ao gastar DIX': 'erro_gastar_dix',
+  }
+
   const saldo = store._isAdmin ? Infinity : (store._dixSaldo || 0)
   const primeiroGiroGratis = !isFreeSpinUsed()
   const podePagar = store._isAdmin || primeiroGiroGratis || saldo >= DIX_GACHA
@@ -68,7 +74,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
       try {
         await store.gastarDix(store._userId, DIX_GACHA, `gacha temporada ${temporada}`)
       } catch (e) {
-        setErro(e.message)
+        setErro(t('games.tamagoshi.' + (TRADUZIR_ERRO_GACHA[e.message] || 'erro_desconhecido')))
         setGirando(false)
         return
       }
@@ -93,7 +99,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
     <div className="tama-screen">
       <div className="tama-gacha">
         <h2 className="tama-gacha-title">{t('games.tamagoshi.gacha_titulo')}</h2>
-        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: primeiroGiroGratis ? 'GRÁTIS' : DIX_GACHA })}</p>
+        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</p>
 
         {/* Seletor de temporada — T1 disponível, T2 EM BREVE */}
         <div className="tama-gacha-temporadas">
@@ -135,7 +141,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
             {girando ? (
               <span className="tama-gacha-girando">{t('games.tamagoshi.gacha_girando')} 🎰</span>
             ) : (
-              <span>{t('games.tamagoshi.gacha_girar', { custo: primeiroGiroGratis ? 'GRÁTIS' : DIX_GACHA })}</span>
+              <span>{t('games.tamagoshi.gacha_girar', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</span>
             )}
           </motion.button>
         )}
