@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { MORTO_VERSION, ARENATESTBED_VERSION } from '../../config/version'
 import ArenaTestbed from './ArenaTestbed/ArenaTestbed'
+import mortoHtml from './rpg-morto.html?raw'
 import './Prototype.css'
 
 console.log(`[MORTO] versão carregada: ${MORTO_VERSION}`)
@@ -18,7 +19,7 @@ const PROTOTYPES = [
     descKey: 'prototype.morto_engine.desc',
     version: MORTO_VERSION,
     type: 'iframe',
-    src: '/prototype/rpg-morto.html',
+    html: mortoHtml,
   },
   {
     id: 'arena-testbed',
@@ -79,7 +80,7 @@ export default function Prototype() {
         <div className="prototype-content">
           {proto.type === 'iframe' ? (
             <iframe
-              src={proto.src}
+              srcDoc={proto.html}
               title={t(proto.titleKey)}
               className="prototype-iframe"
             />
