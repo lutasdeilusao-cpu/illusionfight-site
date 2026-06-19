@@ -41,7 +41,7 @@ function getConfig(puzzleId) {
 }
 
 export default function Brincadeira({ onConcluir }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
 
@@ -67,7 +67,7 @@ export default function Brincadeira({ onConcluir }) {
     setFaseJogo('resultado')
     store.brincar()
     store.ganharDix(store._userId, DIX_POR_ACAO, 'brincou com criatura')
-    const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId, t)
+    const texto = getFala(store.personalidade, 'boasVindas', store.criaturaId, t, locale)
     setFala(texto || t('games.tamagoshi.brincadeira_divertido'))
   }
 

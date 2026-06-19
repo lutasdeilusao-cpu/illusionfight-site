@@ -88,9 +88,14 @@ export const PERS_NOME_KEY = {
   COMICO: 'comico',
 }
 
-import { FALAS_CRIATURA } from './falas-criatura'
+import { FALAS_CRIATURA as FALAS_PT } from './falas-criatura-pt'
+import { FALAS_CRIATURA as FALAS_EN } from './falas-criatura-en'
+import { FALAS_CRIATURA as FALAS_ES } from './falas-criatura-es'
 
-export function getFala(tipo, chave, criaturaId, tFn) {
+const FALAS_MAP = { pt: FALAS_PT, en: FALAS_EN, es: FALAS_ES }
+
+export function getFala(tipo, chave, criaturaId, tFn, locale) {
+  const FALAS = FALAS_MAP[locale] || FALAS_PT
   if (tFn) {
     const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
     const chaveLower = chave.toLowerCase()
@@ -107,8 +112,8 @@ export function getFala(tipo, chave, criaturaId, tFn) {
       if (notifTranslated !== notifKey) return notifTranslated
     }
   }
-  if (criaturaId && FALAS_CRIATURA[criaturaId]?.[chave]) {
-    const arr = FALAS_CRIATURA[criaturaId][chave]
+  if (criaturaId && FALAS[criaturaId]?.[chave]) {
+    const arr = FALAS[criaturaId][chave]
     return arr[Math.floor(Math.random() * arr.length)]
   }
   return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'

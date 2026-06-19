@@ -12,7 +12,7 @@ import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { useNavigate } from 'react-router-dom'
 
 export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const store = useTamagoshiStore()
   const pers = PERSONALIDADES[store.personalidade] || PERSONALIDADES.CARENTE
@@ -33,14 +33,14 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   useEffect(() => {
     sfx.notificacao()
     if (store.status === 'critico') {
-      setFala(getFala(store.personalidade, 'critico', store.criaturaId, t))
+      setFala(getFala(store.personalidade, 'critico', store.criaturaId, t, locale))
       setMostrando('critico')
     } else if (metricasBaixas.length) {
       const { key } = metricasBaixas[0]
-      setFala(getFala(store.personalidade, key, store.criaturaId, t))
+      setFala(getFala(store.personalidade, key, store.criaturaId, t, locale))
       setMostrando(key)
     } else {
-      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId, t))
+      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId, t, locale))
       setMostrando('boasVindas')
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])
