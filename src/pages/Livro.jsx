@@ -51,7 +51,7 @@ export default function Livro() {
         <h2 className="section-title">{t('pages.livro.titulo')}</h2>
         <div className="livro-page__list">
           {index.map(ch => {
-            const liberado = estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
+            const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
             return (
               <div key={ch.id} className="livro-page__item">
                 <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>

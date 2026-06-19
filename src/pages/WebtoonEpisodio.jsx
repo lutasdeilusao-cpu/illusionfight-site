@@ -54,7 +54,7 @@ export default function WebtoonEpisodio() {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         if (id === '00') desbloquearRef.current('episodio_zero')
-        if (id === '01' && !sessionStorage.getItem('ldi-modal-lancamento-visto')) setShowModal(true)
+        if ((id === '00' || id === '01') && !sessionStorage.getItem('ldi-modal-lancamento-visto')) setShowModal(true)
       }
     }, { threshold: 0.1 })
     observer.observe(ultimaPaginaRef.current)
@@ -68,7 +68,7 @@ export default function WebtoonEpisodio() {
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
-  if (!ep || (id !== '01' && !estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
+  if (!ep || (id !== '00' && id !== '01' && !estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
     return (
       <section className="webtoon-ep-page">
         <div className="container">
