@@ -302,12 +302,19 @@ export const useTamagoshiStore = create((set, get) => ({
     // Notificacoes (apenas se mudou de vivo->critico ou barras baixas)
     if (novo.status === 'critico' && statusAnterior === 'vivo') {
       try {
-        const nome = CRIATURAS.find(c => c.id === state.criaturaId)?.nome || 'Seu Tamagoshi'
-        useNotificationStore.getState().push(`${nome} esta em estado CRITICO! ⚠️`, 'ver tamagoshi', '/games/tamagoshi')
+        const nome = CRIATURAS.find(c => c.id === state.criaturaId)?.nome || '???'
+        const locale = (() => { try { return localStorage.getItem('ldi-locale') || 'pt' } catch { return 'pt' } })()
+        const CRIT_TEXTS = {
+          pt: '{nome} está em estado CRÍTICO! ⚠️',
+          en: '{nome} is in critical condition! ⚠️',
+          es: '¡{nome} está en estado CRÍTICO! ⚠️',
+        }
+        const critMsg = (CRIT_TEXTS[locale] || CRIT_TEXTS.pt).replace('{nome}', nome)
+        useNotificationStore.getState().push(critMsg, 'ver tamagoshi', '/games/tamagoshi')
         if ('Notification' in window && Notification.permission === 'granted' && 'serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then(sw => {
             sw.showNotification('🐉 Tamagoshi LDI', {
-              body: `${nome} esta em estado CRITICO! ⚠️`,
+              body: critMsg,
               icon: '/favicon.svg', badge: '/favicon.svg',
               tag: 'tamagoshi', renotify: true,
               data: { url: '/games/tamagoshi' },
@@ -542,15 +549,15 @@ export const useTamagoshiStore = create((set, get) => ({
     if (!state.nascidoEm) return 'ovo'
     const fase = calcularFase(state.nascidoEm)
     if (fase !== state._faseAtual && state._userId) {
-      const faseLabel = { filhote: 'Filhote', jovem: 'Jovem', adulto: 'Adulto', veterano: 'Veterano', anciao: 'Anciao', partida: 'Partida' }
-      if (faseLabel[fase]) {
+      if (fase) {
+        const descricao = `tama_fase_${fase}`
         const { data: existente } = await supabase.from('perfil_eventos')
-          .select('id').eq('user_id', state._userId).eq('tipo', 'tama_fase').eq('descricao', `Tamagoshi evoluiu para ${faseLabel[fase]}`).limit(1)
+          .select('id').eq('user_id', state._userId).eq('tipo', 'tama_fase').eq('descricao', descricao).limit(1)
         if (!existente || existente.length === 0) {
           await supabase.from('perfil_eventos').insert({
-            user_id: state._userId, tipo: 'tama_fase', descricao: `Tamagoshi evoluiu para ${faseLabel[fase]}`, valor: 1,
+            user_id: state._userId, tipo: 'tama_fase', descricao, valor: 1,
           })
-          console.log(`[Eventos] registrado: tama_fase -- Tamagoshi evoluiu para ${faseLabel[fase]}`)
+          console.log(`[Eventos] registrado: tama_fase -- ${descricao}`)
         }
       }
       set({ _faseAtual: fase })
@@ -614,7 +621,9 @@ export const useTamagoshiStore = create((set, get) => ({
         const diasDesde = (agora - ultimaTroca) / 86400000
         if (diasDesde < 90) {
           const restam = Math.ceil(90 - diasDesde)
-          throw new Error(`conta free so pode trocar a cada 3 meses. faltam ${restam} dias.`)
+          const err = new Error('FREE_COOLDOWN')
+          err.params = { dias: restam }
+          throw err
         }
       }
     }
@@ -623,7 +632,7 @@ export const useTamagoshiStore = create((set, get) => ({
       if (ultimaTroca) {
         const mesUltima = `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}`
         const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
-        if (mesUltima === mesAgora) throw new Error('conta elite ja usou a troca deste mes.')
+        if (mesUltima === mesAgora) throw new Error('ELITE_MES_USED')
       }
     }
 
@@ -632,13 +641,15 @@ export const useTamagoshiStore = create((set, get) => ({
         const diasDesde = (agora - ultimaTroca) / 86400000
         if (diasDesde < 15) {
           const restam = Math.ceil(15 - diasDesde)
-          throw new Error(`primordial precisa esperar 15 dias entre trocas. faltam ${restam} dias.`)
+          const err = new Error('PRIMORDIAL_COOLDOWN')
+          err.params = { dias: restam }
+          throw err
         }
       }
       const mesUltima = ultimaTroca ? `${ultimaTroca.getMonth()}-${ultimaTroca.getFullYear()}` : null
       const mesAgora = `${agora.getMonth()}-${agora.getFullYear()}`
       if (mesUltima === mesAgora && (tama.trocas_no_mes || 0) >= 2) {
-        throw new Error('primordial ja usou as 2 trocas deste mes.')
+        throw new Error('PRIMORDIAL_MES_USED')
       }
     }
   },
@@ -650,8 +661,8 @@ export const useTamagoshiStore = create((set, get) => ({
       .eq('user_id', userId)
       .eq('slot', slotA)
       .maybeSingle()
-    if (err || !tama) throw new Error('tamagoshi nao encontrado')
-    if (tama.status !== 'vivo') throw new Error('so pode trocar tamagoshi vivo')
+    if (err || !tama) throw new Error('TAMA_NAO_ENCONTRADO')
+    if (tama.status !== 'vivo') throw new Error('TAMA_PRECISA_VIVO')
 
     const key = crypto.randomUUID().replace(/-/g, '').slice(0, 8).toUpperCase()
 
@@ -663,7 +674,7 @@ export const useTamagoshiStore = create((set, get) => ({
       status: 'pendente',
       expira_em: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
     })
-    if (insertErr) throw new Error('erro ao criar pedido de troca')
+    if (insertErr) throw new Error('ERRO_CRIAR_PEDIDO')
     return key
   },
 
@@ -675,15 +686,15 @@ export const useTamagoshiStore = create((set, get) => ({
       .eq('status', 'pendente')
       .gte('expira_em', new Date().toISOString())
       .maybeSingle()
-    if (err || !troca) throw new Error('key invalida ou expirada')
-    if (troca.user_id_a === userId) throw new Error('nao pode trocar consigo mesmo')
+    if (err || !troca) throw new Error('KEY_INVALIDA_EXPIRADA')
+    if (troca.user_id_a === userId) throw new Error('TROCAR_CONSIGO_MESMO')
 
     const [tamaA, tamaB] = await Promise.all([
       supabase.from('tamagoshi_saves').select('*').eq('user_id', troca.user_id_a).eq('slot', troca.slot_a).maybeSingle(),
       supabase.from('tamagoshi_saves').select('*').eq('user_id', userId).eq('slot', slotB).maybeSingle(),
     ])
-    if (!tamaA.data || !tamaB.data) throw new Error('tamagoshi nao encontrado')
-    if (tamaA.data.status !== 'vivo' || tamaB.data.status !== 'vivo') throw new Error('ambos precisam estar vivos para trocar')
+    if (!tamaA.data || !tamaB.data) throw new Error('TAMA_NAO_ENCONTRADO')
+    if (tamaA.data.status !== 'vivo' || tamaB.data.status !== 'vivo') throw new Error('AMBOS_PRECISAM_VIVOS')
 
     const { data: perfilA } = await supabase.from('profiles').select('role').eq('id', troca.user_id_a).maybeSingle()
     const tierA = perfilA?.role || 'free'
@@ -696,8 +707,8 @@ export const useTamagoshiStore = create((set, get) => ({
     }
 
     const agora = new Date()
-    try { get().verificarPermissaoTroca(tamaA.data, tierA) } catch (e) { throw new Error(`dono A: ${e.message}`) }
-    try { get().verificarPermissaoTroca(tamaB.data, tierB) } catch (e) { throw new Error(`voce: ${e.message}`) }
+    try { get().verificarPermissaoTroca(tamaA.data, tierA) } catch (e) { const err = new Error('DONO_A_ERRO'); err.inner = e; err.innerParams = e.params; throw err }
+    try { get().verificarPermissaoTroca(tamaB.data, tierB) } catch (e) { const err = new Error('VOCE_ERRO'); err.inner = e; err.innerParams = e.params; throw err }
 
     const resetFields = {
       fase: 'criatura', estagio: 1, status: 'vivo',

@@ -340,7 +340,7 @@ export default function Passear({ onConcluir }) {
                   <div key={i} className="tama-passear-historico-linha">
                     <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>
                     <span>⭐ {h.coins}</span>
-                    <span>p{h.stage}</span>
+                    <span>{t('games.tamagoshi.passear_stage_abbr', { n: h.stage })}</span>
                     <span className="tama-passear-historico-data">{h.date}</span>
                   </div>
                 ))}

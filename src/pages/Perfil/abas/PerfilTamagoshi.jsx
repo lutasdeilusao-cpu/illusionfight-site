@@ -10,6 +10,37 @@ import { CRIATURAS } from '../../Tamagoshi/data/criaturas'
 import { BADGES } from '../../Tamagoshi/data/moedas'
 import './PerfilTamagoshi.css'
 
+const ERROR_I18N_MAP = {
+  'FREE_COOLDOWN':         { key: 'games.tamagoshi.troca_erro_free_cooldown',        paramKey: 'dias' },
+  'ELITE_MES_USED':        { key: 'games.tamagoshi.troca_erro_elite_mes' },
+  'PRIMORDIAL_COOLDOWN':   { key: 'games.tamagoshi.troca_erro_primordial_cooldown',  paramKey: 'dias' },
+  'PRIMORDIAL_MES_USED':   { key: 'games.tamagoshi.troca_erro_primordial_mes' },
+  'TAMA_NAO_ENCONTRADO':   { key: 'games.tamagoshi.troca_erro_nao_encontrado' },
+  'TAMA_PRECISA_VIVO':     { key: 'games.tamagoshi.troca_erro_so_vivo' },
+  'ERRO_CRIAR_PEDIDO':     { key: 'games.tamagoshi.troca_erro_criar_pedido' },
+  'KEY_INVALIDA_EXPIRADA': { key: 'games.tamagoshi.troca_erro_key_invalida' },
+  'TROCAR_CONSIGO_MESMO':  { key: 'games.tamagoshi.troca_erro_consigo_mesmo' },
+  'AMBOS_PRECISAM_VIVOS':  { key: 'games.tamagoshi.troca_erro_ambos_vivos' },
+}
+
+function traduzirErro(e, tFn) {
+  const code = e?.message
+  const entry = ERROR_I18N_MAP[code]
+  if (entry) {
+    const params = entry.paramKey && e.params ? { [entry.paramKey]: e.params[entry.paramKey] } : undefined
+    return tFn(entry.key, params)
+  }
+  if (code === 'DONO_A_ERRO' || code === 'VOCE_ERRO') {
+    const innerCode = e.inner?.message
+    const innerEntry = ERROR_I18N_MAP[innerCode]
+    const msg = innerEntry
+      ? (innerEntry.paramKey && e.innerParams ? tFn(innerEntry.key, { [innerEntry.paramKey]: e.innerParams[innerEntry.paramKey] }) : tFn(innerEntry.key))
+      : innerCode || '?'
+    return tFn(code === 'DONO_A_ERRO' ? 'games.tamagoshi.troca_erro_dono_a' : 'games.tamagoshi.troca_erro_voce', { msg })
+  }
+  return e.message
+}
+
 export default function PerfilTamagoshi() {
   const { t } = useLanguage()
   const navigate = useNavigate()
@@ -83,7 +114,7 @@ export default function PerfilTamagoshi() {
       setKeyGerada(key)
       setMsg({ texto: t('site.perfil.troca_key_gerada'), tipo: 'ok' })
     } catch (e) {
-      setMsg({ texto: e.message, tipo: 'erro' })
+      setMsg({ texto: traduzirErro(e, t), tipo: 'erro' })
     }
     setPropondo(false)
   }
@@ -103,7 +134,7 @@ export default function PerfilTamagoshi() {
       setKeyInput('')
       carregarTama()
     } catch (e) {
-      setMsg({ texto: e.message, tipo: 'erro' })
+      setMsg({ texto: traduzirErro(e, t), tipo: 'erro' })
     }
     setConfirmando(false)
   }

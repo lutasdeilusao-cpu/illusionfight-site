@@ -109,6 +109,10 @@ export function getFala(tipo, chave, criaturaId, tFn) {
         const translated = tFn(falaKey)
         if (translated !== falaKey) return translated
       }
+      // Fallback i18n: notif da personalidade (cobre fome, sede, passeio, critico)
+      const notifKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
+      const notifTranslated = tFn(notifKey)
+      if (notifTranslated !== notifKey) return notifTranslated
     }
   }
   // Fallback: dados das criaturas em português
