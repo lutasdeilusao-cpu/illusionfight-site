@@ -12,10 +12,10 @@ const JOGOS = [
   { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
   { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.lancado' },
   { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.lancado' },
+  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.lancado' },
   { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta' },
   { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta' },
   { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta' },
-  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.beta' },
   { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', emBreve: true },
   { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', emBreve: true },
 ]
