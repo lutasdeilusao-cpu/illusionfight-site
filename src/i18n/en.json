@@ -622,7 +622,6 @@
         "tatics": "LDI TATICS",
         "minigames": "MINI GAMES",
         "duelo": "LDI DUELO",
-        "morto": "Morto Engine",
         "quiz": "SDR Quiz",
         "leaderboard": "Leaderboard"
       },
@@ -636,7 +635,6 @@
         "tatics": "Ever thought of playing Pokémon but with tactical battles? That's right, and I'm testing it. I'll release it for everyone soon.",
         "minigames": "standalone puzzles. no login. just skill.",
         "duelo": "Ever thought of playing Yu-Gi-Oh but with battles on a board? That's right, and I'm testing it. I'll release it for everyone soon.",
-        "morto": "Complete 3v3 system with character creation, tactical combat, magic and effects.",
         "quiz": "test your knowledge of the LDI universe.",
         "leaderboard": "global player ranking."
       }
@@ -2892,12 +2890,6 @@
       "float_blocked": "BLOCKED!",
       "float_contra": "COUNTER!",
       "float_extra": "EXTRA!"
-    },
-    "morto": {
-      "titulo": "Morto Engine",
-      "subtitulo": "creation · combat · magic",
-      "meta_title": "Morto Engine — Illusion Fight",
-      "meta_desc": "Complete 3v3 RPG system: create your character, test attributes, fight tactical battles with magic and effects."
     }
   }
 }

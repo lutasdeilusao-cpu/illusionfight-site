@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.156.36'
+export const SITE_VERSION = '10.156.37'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -21,7 +21,7 @@ export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os 
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
-export const MORTO_VERSION = '2.1.0' // Morto Engine — rota /games/morto standalone com iframe + i18n
+export const MORTO_VERSION = '2.5.1' // Morto Engine — revert public route, keep only via /prototype admin page
 export const ARENATESTBED_VERSION = '1.10.30' // Phase2+3 tile de terreno via drawImage com clip hexagonal
 
 // ── Logs (executam na inicialização do site) ──────
