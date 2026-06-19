@@ -1730,9 +1730,9 @@
       "saude_item_termometro": "Thermometer",
       "saude_item_curativo": "Bandage",
       "saude_item_xarope": "Syrup",
-      "saude_instrucao_termometro": "Take Kroniki's temperature",
-      "saude_instrucao_curativo": "Put a bandage on Kroniki",
-      "saude_instrucao_xarope": "Give the syrup to Kroniki",
+      "saude_instrucao_termometro": "Take the creature's temperature",
+      "saude_instrucao_curativo": "Put a bandage on the creature",
+      "saude_instrucao_xarope": "Give the syrup to the creature",
 
       "badge_criador_iniciante": "Beginner Creator",
       "badge_cuidador_dedicado": "Dedicated Caretaker",

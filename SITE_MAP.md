@@ -534,12 +534,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.49** | Tamagoshi — audit: item_comida_* slug keys → numeric IDs |
+| `SITE_VERSION` | **10.156.50** | Tamagoshi — force audit: remove identifiers nome→ID + i18n Kroniki→criatura |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.0** | Arena LDI — Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI (ver PROTOTYPE 2.10.0 para fix morte imediata) |
-| `TAMA_VERSION` | **3.3.0** | Tamagoshi LDI — audit: item_comida_* slug keys → numeric IDs |
+| `TAMA_VERSION` | **3.3.1** | Tamagoshi LDI — force audit: remove identifiers nome→ID + i18n Kroniki→criatura |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |

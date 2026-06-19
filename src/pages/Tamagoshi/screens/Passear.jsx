@@ -4,7 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { sfx } from '../sfx'
 import { sfxMinigames, tom } from '../../../components/Puzzles/sfx-minigames'
-import kronikIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
+import img1Idle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
 const BASE_SPEED = 2, STAGE_COUNT = 10
@@ -30,7 +30,7 @@ export default function Passear({ onConcluir }) {
 
   useEffect(() => {
     const img = new Image()
-    img.src = kronikIdle
+    img.src = img1Idle
     img.onload = () => { imgRef.current = img }
   }, [])
 

@@ -1,270 +1,270 @@
-import kronikiIdle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
-import kronikiHungry from '../../../assets/images/tamagoshi/01/kroniki-hungry.png'
-import kronikiEnjoy from '../../../assets/images/tamagoshi/01/kroniki-enjoy.png'
-import kronikiHappy from '../../../assets/images/tamagoshi/01/kroniki-happy.png'
-import kronikiAbandoned from '../../../assets/images/tamagoshi/01/kroniki-abandoned.png'
-import kronikiAnger from '../../../assets/images/tamagoshi/01/kroniki-anger.png'
-import kronikiDirty from '../../../assets/images/tamagoshi/01/kroniki-dirty.png'
-import kronikiSick from '../../../assets/images/tamagoshi/01/kroniki-sick.png'
-import kronikiSleepy from '../../../assets/images/tamagoshi/01/kroniki-sleepy.png'
-import kronikiPresentation from '../../../assets/images/tamagoshi/01/kroniki-presentation.png'
+import img1Idle from '../../../assets/images/tamagoshi/01/kroniki-idle.png'
+import img1Hungry from '../../../assets/images/tamagoshi/01/kroniki-hungry.png'
+import img1Enjoy from '../../../assets/images/tamagoshi/01/kroniki-enjoy.png'
+import img1Happy from '../../../assets/images/tamagoshi/01/kroniki-happy.png'
+import img1Abandoned from '../../../assets/images/tamagoshi/01/kroniki-abandoned.png'
+import img1Anger from '../../../assets/images/tamagoshi/01/kroniki-anger.png'
+import img1Dirty from '../../../assets/images/tamagoshi/01/kroniki-dirty.png'
+import img1Sick from '../../../assets/images/tamagoshi/01/kroniki-sick.png'
+import img1Sleepy from '../../../assets/images/tamagoshi/01/kroniki-sleepy.png'
+import img1Presentation from '../../../assets/images/tamagoshi/01/kroniki-presentation.png'
 
-import ninkaIdle from '../../../assets/images/tamagoshi/02/ninka-idle.png'
-import ninkaHungry from '../../../assets/images/tamagoshi/02/ninka-hungry.png'
-import ninkaEnjoy from '../../../assets/images/tamagoshi/02/ninka-enjoy.png'
-import ninkaHappy from '../../../assets/images/tamagoshi/02/ninka-happy.png'
-import ninkaAbandoned from '../../../assets/images/tamagoshi/02/ninka-abandoned.png'
-import ninkaAnger from '../../../assets/images/tamagoshi/02/ninka-angry.png'
-import ninkaDirty from '../../../assets/images/tamagoshi/02/ninka-dirty.png'
-import ninkaSick from '../../../assets/images/tamagoshi/02/ninka-sick.png'
-import ninkaSleepy from '../../../assets/images/tamagoshi/02/ninka-sleepy.png'
-import ninkaPresentation from '../../../assets/images/tamagoshi/02/ninka-presentation.png'
+import img2Idle from '../../../assets/images/tamagoshi/02/ninka-idle.png'
+import img2Hungry from '../../../assets/images/tamagoshi/02/ninka-hungry.png'
+import img2Enjoy from '../../../assets/images/tamagoshi/02/ninka-enjoy.png'
+import img2Happy from '../../../assets/images/tamagoshi/02/ninka-happy.png'
+import img2Abandoned from '../../../assets/images/tamagoshi/02/ninka-abandoned.png'
+import img2Anger from '../../../assets/images/tamagoshi/02/ninka-angry.png'
+import img2Dirty from '../../../assets/images/tamagoshi/02/ninka-dirty.png'
+import img2Sick from '../../../assets/images/tamagoshi/02/ninka-sick.png'
+import img2Sleepy from '../../../assets/images/tamagoshi/02/ninka-sleepy.png'
+import img2Presentation from '../../../assets/images/tamagoshi/02/ninka-presentation.png'
 
-import kroumIdle from '../../../assets/images/tamagoshi/03/kroum-idle.png'
-import kroumHungry from '../../../assets/images/tamagoshi/03/kroum-hungry.png'
-import kroumEnjoy from '../../../assets/images/tamagoshi/03/kroum-enjoy.png'
-import kroumHappy from '../../../assets/images/tamagoshi/03/kroum-happy.png'
-import kroumAbandoned from '../../../assets/images/tamagoshi/03/kroum-abandoned.png'
-import kroumAnger from '../../../assets/images/tamagoshi/03/kroum-anger.png'
-import kroumDirty from '../../../assets/images/tamagoshi/03/kroum-dirty.png'
-import kroumSick from '../../../assets/images/tamagoshi/03/kroum-sick.png'
-import kroumSleepy from '../../../assets/images/tamagoshi/03/kroum-sleepy.png'
-import kroumPresentation from '../../../assets/images/tamagoshi/03/kroum-presentation.png'
+import img3Idle from '../../../assets/images/tamagoshi/03/kroum-idle.png'
+import img3Hungry from '../../../assets/images/tamagoshi/03/kroum-hungry.png'
+import img3Enjoy from '../../../assets/images/tamagoshi/03/kroum-enjoy.png'
+import img3Happy from '../../../assets/images/tamagoshi/03/kroum-happy.png'
+import img3Abandoned from '../../../assets/images/tamagoshi/03/kroum-abandoned.png'
+import img3Anger from '../../../assets/images/tamagoshi/03/kroum-anger.png'
+import img3Dirty from '../../../assets/images/tamagoshi/03/kroum-dirty.png'
+import img3Sick from '../../../assets/images/tamagoshi/03/kroum-sick.png'
+import img3Sleepy from '../../../assets/images/tamagoshi/03/kroum-sleepy.png'
+import img3Presentation from '../../../assets/images/tamagoshi/03/kroum-presentation.png'
 
-import drakenIdle from '../../../assets/images/tamagoshi/04/draken-idle.png'
-import drakenHungry from '../../../assets/images/tamagoshi/04/draken-hungry.png'
-import drakenEnjoy from '../../../assets/images/tamagoshi/04/draken-enjoy.png'
-import drakenHappy from '../../../assets/images/tamagoshi/04/draken-happy.png'
-import drakenAbandoned from '../../../assets/images/tamagoshi/04/draken-abandoned.png'
-import drakenAnger from '../../../assets/images/tamagoshi/04/draken-anger.png'
-import drakenDirty from '../../../assets/images/tamagoshi/04/draken-dirty.png'
-import drakenSick from '../../../assets/images/tamagoshi/04/draken-sick.png'
-import drakenSleepy from '../../../assets/images/tamagoshi/04/draken-sleepy.png'
-import drakenPresentation from '../../../assets/images/tamagoshi/04/draken-presentation.png'
+import img4Idle from '../../../assets/images/tamagoshi/04/draken-idle.png'
+import img4Hungry from '../../../assets/images/tamagoshi/04/draken-hungry.png'
+import img4Enjoy from '../../../assets/images/tamagoshi/04/draken-enjoy.png'
+import img4Happy from '../../../assets/images/tamagoshi/04/draken-happy.png'
+import img4Abandoned from '../../../assets/images/tamagoshi/04/draken-abandoned.png'
+import img4Anger from '../../../assets/images/tamagoshi/04/draken-anger.png'
+import img4Dirty from '../../../assets/images/tamagoshi/04/draken-dirty.png'
+import img4Sick from '../../../assets/images/tamagoshi/04/draken-sick.png'
+import img4Sleepy from '../../../assets/images/tamagoshi/04/draken-sleepy.png'
+import img4Presentation from '../../../assets/images/tamagoshi/04/draken-presentation.png'
 
-import kaiserIdle from '../../../assets/images/tamagoshi/05/kaiser-idle.png'
-import kaiserHungry from '../../../assets/images/tamagoshi/05/kaiser-hungry.png'
-import kaiserEnjoy from '../../../assets/images/tamagoshi/05/kaiser-enjoy.png'
-import kaiserHappy from '../../../assets/images/tamagoshi/05/kaiser-happy.png'
-import kaiserAbandoned from '../../../assets/images/tamagoshi/05/kaiser-abandoned.png'
-import kaiserAnger from '../../../assets/images/tamagoshi/05/kaiser-anger.png'
-import kaiserDirty from '../../../assets/images/tamagoshi/05/kaiser-dirty.png'
-import kaiserSick from '../../../assets/images/tamagoshi/05/kaiser-sick.png'
-import kaiserSleepy from '../../../assets/images/tamagoshi/05/kaiser-sleepy.png'
-import kaiserPresentation from '../../../assets/images/tamagoshi/05/kaiser-presentation.png'
+import img5Idle from '../../../assets/images/tamagoshi/05/kaiser-idle.png'
+import img5Hungry from '../../../assets/images/tamagoshi/05/kaiser-hungry.png'
+import img5Enjoy from '../../../assets/images/tamagoshi/05/kaiser-enjoy.png'
+import img5Happy from '../../../assets/images/tamagoshi/05/kaiser-happy.png'
+import img5Abandoned from '../../../assets/images/tamagoshi/05/kaiser-abandoned.png'
+import img5Anger from '../../../assets/images/tamagoshi/05/kaiser-anger.png'
+import img5Dirty from '../../../assets/images/tamagoshi/05/kaiser-dirty.png'
+import img5Sick from '../../../assets/images/tamagoshi/05/kaiser-sick.png'
+import img5Sleepy from '../../../assets/images/tamagoshi/05/kaiser-sleepy.png'
+import img5Presentation from '../../../assets/images/tamagoshi/05/kaiser-presentation.png'
 
-import lennaIdle from '../../../assets/images/tamagoshi/06/lenna-idle.png'
-import lennaHungry from '../../../assets/images/tamagoshi/06/lenna-hungry.png'
-import lennaEnjoy from '../../../assets/images/tamagoshi/06/lenna-enjoy.png'
-import lennaHappy from '../../../assets/images/tamagoshi/06/lenna-happy.png'
-import lennaAbandoned from '../../../assets/images/tamagoshi/06/lenna-abandoned.png'
-import lennaAnger from '../../../assets/images/tamagoshi/06/lenna-anger.png'
-import lennaDirty from '../../../assets/images/tamagoshi/06/lenna-dirty.png'
-import lennaSick from '../../../assets/images/tamagoshi/06/lenna-sick.png'
-import lennaSleepy from '../../../assets/images/tamagoshi/06/lenna-sleepy.png'
-import lennaPresentation from '../../../assets/images/tamagoshi/06/lenna-presentation.png'
+import img6Idle from '../../../assets/images/tamagoshi/06/lenna-idle.png'
+import img6Hungry from '../../../assets/images/tamagoshi/06/lenna-hungry.png'
+import img6Enjoy from '../../../assets/images/tamagoshi/06/lenna-enjoy.png'
+import img6Happy from '../../../assets/images/tamagoshi/06/lenna-happy.png'
+import img6Abandoned from '../../../assets/images/tamagoshi/06/lenna-abandoned.png'
+import img6Anger from '../../../assets/images/tamagoshi/06/lenna-anger.png'
+import img6Dirty from '../../../assets/images/tamagoshi/06/lenna-dirty.png'
+import img6Sick from '../../../assets/images/tamagoshi/06/lenna-sick.png'
+import img6Sleepy from '../../../assets/images/tamagoshi/06/lenna-sleepy.png'
+import img6Presentation from '../../../assets/images/tamagoshi/06/lenna-presentation.png'
 
-import yawaruIdle from '../../../assets/images/tamagoshi/07/yawaru-idle.png'
-import yawaruHungry from '../../../assets/images/tamagoshi/07/yawaru-hungry.png'
-import yawaruEnjoy from '../../../assets/images/tamagoshi/07/yawaru-enjoy.png'
-import yawaruHappy from '../../../assets/images/tamagoshi/07/yawaru-happy.png'
-import yawaruAbandoned from '../../../assets/images/tamagoshi/07/yawaru-abandoned.png'
-import yawaruAnger from '../../../assets/images/tamagoshi/07/yawaru-anger.png'
-import yawaruDirty from '../../../assets/images/tamagoshi/07/yawaru-dirty.png'
-import yawaruSick from '../../../assets/images/tamagoshi/07/yawaru-sick.png'
-import yawaruSleepy from '../../../assets/images/tamagoshi/07/yawaru-sleepy.png'
-import yawaruPresentation from '../../../assets/images/tamagoshi/07/yawaru-presentation.png'
+import img7Idle from '../../../assets/images/tamagoshi/07/yawaru-idle.png'
+import img7Hungry from '../../../assets/images/tamagoshi/07/yawaru-hungry.png'
+import img7Enjoy from '../../../assets/images/tamagoshi/07/yawaru-enjoy.png'
+import img7Happy from '../../../assets/images/tamagoshi/07/yawaru-happy.png'
+import img7Abandoned from '../../../assets/images/tamagoshi/07/yawaru-abandoned.png'
+import img7Anger from '../../../assets/images/tamagoshi/07/yawaru-anger.png'
+import img7Dirty from '../../../assets/images/tamagoshi/07/yawaru-dirty.png'
+import img7Sick from '../../../assets/images/tamagoshi/07/yawaru-sick.png'
+import img7Sleepy from '../../../assets/images/tamagoshi/07/yawaru-sleepy.png'
+import img7Presentation from '../../../assets/images/tamagoshi/07/yawaru-presentation.png'
 
-import alionIdle from '../../../assets/images/tamagoshi/08/alion-idle.png'
-import alionHungry from '../../../assets/images/tamagoshi/08/alion-hungry.png'
-import alionEnjoy from '../../../assets/images/tamagoshi/08/alion-enjoy.png'
-import alionHappy from '../../../assets/images/tamagoshi/08/alion-happy.png'
-import alionAbandoned from '../../../assets/images/tamagoshi/08/alion-abandoned.png'
-import alionAnger from '../../../assets/images/tamagoshi/08/alion-anger.png'
-import alionDirty from '../../../assets/images/tamagoshi/08/alion-dirty.png'
-import alionSick from '../../../assets/images/tamagoshi/08/alion-sick.png'
-import alionSleepy from '../../../assets/images/tamagoshi/08/alion-sleepy.png'
-import alionPresentation from '../../../assets/images/tamagoshi/08/alion-presentation.png'
+import img8Idle from '../../../assets/images/tamagoshi/08/alion-idle.png'
+import img8Hungry from '../../../assets/images/tamagoshi/08/alion-hungry.png'
+import img8Enjoy from '../../../assets/images/tamagoshi/08/alion-enjoy.png'
+import img8Happy from '../../../assets/images/tamagoshi/08/alion-happy.png'
+import img8Abandoned from '../../../assets/images/tamagoshi/08/alion-abandoned.png'
+import img8Anger from '../../../assets/images/tamagoshi/08/alion-anger.png'
+import img8Dirty from '../../../assets/images/tamagoshi/08/alion-dirty.png'
+import img8Sick from '../../../assets/images/tamagoshi/08/alion-sick.png'
+import img8Sleepy from '../../../assets/images/tamagoshi/08/alion-sleepy.png'
+import img8Presentation from '../../../assets/images/tamagoshi/08/alion-presentation.png'
 
-import indyeIdle from '../../../assets/images/tamagoshi/09/indye-idle.png'
-import indyeHungry from '../../../assets/images/tamagoshi/09/indye-hungry.png'
-import indyeEnjoy from '../../../assets/images/tamagoshi/09/indye-enjoy.png'
-import indyeHappy from '../../../assets/images/tamagoshi/09/indye-happy.png'
-import indyeAbandoned from '../../../assets/images/tamagoshi/09/indye-abandoned.png'
-import indyeAnger from '../../../assets/images/tamagoshi/09/indye-anger.png'
-import indyeDirty from '../../../assets/images/tamagoshi/09/indye-dirty.png'
-import indyeSick from '../../../assets/images/tamagoshi/09/indye-sick.png'
-import indyeSleepy from '../../../assets/images/tamagoshi/09/indye-sleepy.png'
-import indyePresentation from '../../../assets/images/tamagoshi/09/indye-presentation.png'
+import img9Idle from '../../../assets/images/tamagoshi/09/indye-idle.png'
+import img9Hungry from '../../../assets/images/tamagoshi/09/indye-hungry.png'
+import img9Enjoy from '../../../assets/images/tamagoshi/09/indye-enjoy.png'
+import img9Happy from '../../../assets/images/tamagoshi/09/indye-happy.png'
+import img9Abandoned from '../../../assets/images/tamagoshi/09/indye-abandoned.png'
+import img9Anger from '../../../assets/images/tamagoshi/09/indye-anger.png'
+import img9Dirty from '../../../assets/images/tamagoshi/09/indye-dirty.png'
+import img9Sick from '../../../assets/images/tamagoshi/09/indye-sick.png'
+import img9Sleepy from '../../../assets/images/tamagoshi/09/indye-sleepy.png'
+import img9Presentation from '../../../assets/images/tamagoshi/09/indye-presentation.png'
 
-import popystarIdle from '../../../assets/images/tamagoshi/10/popystar-idle.png'
-import popystarHungry from '../../../assets/images/tamagoshi/10/popystar-hungry.png'
-import popystarEnjoy from '../../../assets/images/tamagoshi/10/popystar-enjoy.png'
-import popystarHappy from '../../../assets/images/tamagoshi/10/popystar-happy.png'
-import popystarAbandoned from '../../../assets/images/tamagoshi/10/popystar-abandoned.png'
-import popystarAnger from '../../../assets/images/tamagoshi/10/popystar-anger.png'
-import popystarDirty from '../../../assets/images/tamagoshi/10/popystar-dirty.png'
-import popystarSick from '../../../assets/images/tamagoshi/10/popystar-sick.png'
-import popystarSleepy from '../../../assets/images/tamagoshi/10/popystar-sleepy.png'
-import popystarPresentation from '../../../assets/images/tamagoshi/10/popystar-presentation.png'
+import img10Idle from '../../../assets/images/tamagoshi/10/popystar-idle.png'
+import img10Hungry from '../../../assets/images/tamagoshi/10/popystar-hungry.png'
+import img10Enjoy from '../../../assets/images/tamagoshi/10/popystar-enjoy.png'
+import img10Happy from '../../../assets/images/tamagoshi/10/popystar-happy.png'
+import img10Abandoned from '../../../assets/images/tamagoshi/10/popystar-abandoned.png'
+import img10Anger from '../../../assets/images/tamagoshi/10/popystar-anger.png'
+import img10Dirty from '../../../assets/images/tamagoshi/10/popystar-dirty.png'
+import img10Sick from '../../../assets/images/tamagoshi/10/popystar-sick.png'
+import img10Sleepy from '../../../assets/images/tamagoshi/10/popystar-sleepy.png'
+import img10Presentation from '../../../assets/images/tamagoshi/10/popystar-presentation.png'
 
-const KRONIKI_SPRITE = {
-  imagem: kronikiIdle,
+const SPRITE_1 = {
+  imagem: img1Idle,
   gifs: {
-    idle: kronikiIdle,
-    comendo: kronikiHungry,
-    satisfeito: kronikiEnjoy,
-    feliz: kronikiHappy,
-    abandonado: kronikiAbandoned,
-    raiva: kronikiAnger,
-    sujo: kronikiDirty,
-    doente: kronikiSick,
-    sonolento: kronikiSleepy,
-    apresentacao: kronikiPresentation,
+    idle: img1Idle,
+    comendo: img1Hungry,
+    satisfeito: img1Enjoy,
+    feliz: img1Happy,
+    abandonado: img1Abandoned,
+    raiva: img1Anger,
+    sujo: img1Dirty,
+    doente: img1Sick,
+    sonolento: img1Sleepy,
+    apresentacao: img1Presentation,
   },
 }
 
-const NINKA_SPRITE = {
-  imagem: ninkaIdle,
+const SPRITE_2 = {
+  imagem: img2Idle,
   gifs: {
-    idle: ninkaIdle,
-    comendo: ninkaHungry,
-    satisfeito: ninkaEnjoy,
-    feliz: ninkaHappy,
-    abandonado: ninkaAbandoned,
-    raiva: ninkaAnger,
-    sujo: ninkaDirty,
-    doente: ninkaSick,
-    sonolento: ninkaSleepy,
-    apresentacao: ninkaPresentation,
+    idle: img2Idle,
+    comendo: img2Hungry,
+    satisfeito: img2Enjoy,
+    feliz: img2Happy,
+    abandonado: img2Abandoned,
+    raiva: img2Anger,
+    sujo: img2Dirty,
+    doente: img2Sick,
+    sonolento: img2Sleepy,
+    apresentacao: img2Presentation,
   },
 }
 
-const KROUM_SPRITE = {
-  imagem: kroumIdle,
+const SPRITE_3 = {
+  imagem: img3Idle,
   gifs: {
-    idle: kroumIdle,
-    comendo: kroumHungry,
-    satisfeito: kroumEnjoy,
-    feliz: kroumHappy,
-    abandonado: kroumAbandoned,
-    raiva: kroumAnger,
-    sujo: kroumDirty,
-    doente: kroumSick,
-    sonolento: kroumSleepy,
-    apresentacao: kroumPresentation,
+    idle: img3Idle,
+    comendo: img3Hungry,
+    satisfeito: img3Enjoy,
+    feliz: img3Happy,
+    abandonado: img3Abandoned,
+    raiva: img3Anger,
+    sujo: img3Dirty,
+    doente: img3Sick,
+    sonolento: img3Sleepy,
+    apresentacao: img3Presentation,
   },
 }
 
-const DRAKEN_SPRITE = {
-  imagem: drakenIdle,
+const SPRITE_4 = {
+  imagem: img4Idle,
   gifs: {
-    idle: drakenIdle,
-    comendo: drakenHungry,
-    satisfeito: drakenEnjoy,
-    feliz: drakenHappy,
-    abandonado: drakenAbandoned,
-    raiva: drakenAnger,
-    sujo: drakenDirty,
-    doente: drakenSick,
-    sonolento: drakenSleepy,
-    apresentacao: drakenPresentation,
+    idle: img4Idle,
+    comendo: img4Hungry,
+    satisfeito: img4Enjoy,
+    feliz: img4Happy,
+    abandonado: img4Abandoned,
+    raiva: img4Anger,
+    sujo: img4Dirty,
+    doente: img4Sick,
+    sonolento: img4Sleepy,
+    apresentacao: img4Presentation,
   },
 }
 
-const KAISER_SPRITE = {
-  imagem: kaiserIdle,
+const SPRITE_5 = {
+  imagem: img5Idle,
   gifs: {
-    idle: kaiserIdle,
-    comendo: kaiserHungry,
-    satisfeito: kaiserEnjoy,
-    feliz: kaiserHappy,
-    abandonado: kaiserAbandoned,
-    raiva: kaiserAnger,
-    sujo: kaiserDirty,
-    doente: kaiserSick,
-    sonolento: kaiserSleepy,
-    apresentacao: kaiserPresentation,
+    idle: img5Idle,
+    comendo: img5Hungry,
+    satisfeito: img5Enjoy,
+    feliz: img5Happy,
+    abandonado: img5Abandoned,
+    raiva: img5Anger,
+    sujo: img5Dirty,
+    doente: img5Sick,
+    sonolento: img5Sleepy,
+    apresentacao: img5Presentation,
   },
 }
 
-const LENNA_SPRITE = {
-  imagem: lennaIdle,
+const SPRITE_6 = {
+  imagem: img6Idle,
   gifs: {
-    idle: lennaIdle,
-    comendo: lennaHungry,
-    satisfeito: lennaEnjoy,
-    feliz: lennaHappy,
-    abandonado: lennaAbandoned,
-    raiva: lennaAnger,
-    sujo: lennaDirty,
-    doente: lennaSick,
-    sonolento: lennaSleepy,
-    apresentacao: lennaPresentation,
+    idle: img6Idle,
+    comendo: img6Hungry,
+    satisfeito: img6Enjoy,
+    feliz: img6Happy,
+    abandonado: img6Abandoned,
+    raiva: img6Anger,
+    sujo: img6Dirty,
+    doente: img6Sick,
+    sonolento: img6Sleepy,
+    apresentacao: img6Presentation,
   },
 }
 
-const YAWARU_SPRITE = {
-  imagem: yawaruIdle,
+const SPRITE_7 = {
+  imagem: img7Idle,
   gifs: {
-    idle: yawaruIdle,
-    comendo: yawaruHungry,
-    satisfeito: yawaruEnjoy,
-    feliz: yawaruHappy,
-    abandonado: yawaruAbandoned,
-    raiva: yawaruAnger,
-    sujo: yawaruDirty,
-    doente: yawaruSick,
-    sonolento: yawaruSleepy,
-    apresentacao: yawaruPresentation,
+    idle: img7Idle,
+    comendo: img7Hungry,
+    satisfeito: img7Enjoy,
+    feliz: img7Happy,
+    abandonado: img7Abandoned,
+    raiva: img7Anger,
+    sujo: img7Dirty,
+    doente: img7Sick,
+    sonolento: img7Sleepy,
+    apresentacao: img7Presentation,
   },
 }
 
-const ALION_SPRITE = {
-  imagem: alionIdle,
+const SPRITE_8 = {
+  imagem: img8Idle,
   gifs: {
-    idle: alionIdle,
-    comendo: alionHungry,
-    satisfeito: alionEnjoy,
-    feliz: alionHappy,
-    abandonado: alionAbandoned,
-    raiva: alionAnger,
-    sujo: alionDirty,
-    doente: alionSick,
-    sonolento: alionSleepy,
-    apresentacao: alionPresentation,
+    idle: img8Idle,
+    comendo: img8Hungry,
+    satisfeito: img8Enjoy,
+    feliz: img8Happy,
+    abandonado: img8Abandoned,
+    raiva: img8Anger,
+    sujo: img8Dirty,
+    doente: img8Sick,
+    sonolento: img8Sleepy,
+    apresentacao: img8Presentation,
   },
 }
 
-const INDYE_SPRITE = {
-  imagem: indyeIdle,
+const SPRITE_9 = {
+  imagem: img9Idle,
   gifs: {
-    idle: indyeIdle,
-    comendo: indyeHungry,
-    satisfeito: indyeEnjoy,
-    feliz: indyeHappy,
-    abandonado: indyeAbandoned,
-    raiva: indyeAnger,
-    sujo: indyeDirty,
-    doente: indyeSick,
-    sonolento: indyeSleepy,
-    apresentacao: indyePresentation,
+    idle: img9Idle,
+    comendo: img9Hungry,
+    satisfeito: img9Enjoy,
+    feliz: img9Happy,
+    abandonado: img9Abandoned,
+    raiva: img9Anger,
+    sujo: img9Dirty,
+    doente: img9Sick,
+    sonolento: img9Sleepy,
+    apresentacao: img9Presentation,
   },
 }
 
-const POPYSTAR_SPRITE = {
-  imagem: popystarIdle,
+const SPRITE_10 = {
+  imagem: img10Idle,
   gifs: {
-    idle: popystarIdle,
-    comendo: popystarHungry,
-    satisfeito: popystarEnjoy,
-    feliz: popystarHappy,
-    abandonado: popystarAbandoned,
-    raiva: popystarAnger,
-    sujo: popystarDirty,
-    doente: popystarSick,
-    sonolento: popystarSleepy,
-    apresentacao: popystarPresentation,
+    idle: img10Idle,
+    comendo: img10Hungry,
+    satisfeito: img10Enjoy,
+    feliz: img10Happy,
+    abandonado: img10Abandoned,
+    raiva: img10Anger,
+    sujo: img10Dirty,
+    doente: img10Sick,
+    sonolento: img10Sleepy,
+    apresentacao: img10Presentation,
   },
 }
 
@@ -313,18 +313,18 @@ const CRIATURAS_BASE = [
 
 // Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback
 const SPRITE_MAP = {
-  2: NINKA_SPRITE,
-  3: KROUM_SPRITE,
-  4: DRAKEN_SPRITE,
-  5: KAISER_SPRITE,
-  6: LENNA_SPRITE,
-  7: YAWARU_SPRITE,
-  8: ALION_SPRITE,
-  9: INDYE_SPRITE,
-  10: POPYSTAR_SPRITE,
+  2: SPRITE_2,
+  3: SPRITE_3,
+  4: SPRITE_4,
+  5: SPRITE_5,
+  6: SPRITE_6,
+  7: SPRITE_7,
+  8: SPRITE_8,
+  9: SPRITE_9,
+  10: SPRITE_10,
 }
 
 export const CRIATURAS = CRIATURAS_BASE.map(c => ({
   ...c,
-  ...(SPRITE_MAP[c.id] || KRONIKI_SPRITE),
+  ...(SPRITE_MAP[c.id] || SPRITE_1),
 }))

@@ -1730,9 +1730,9 @@
       "saude_item_termometro": "Termómetro",
       "saude_item_curativo": "Curita",
       "saude_item_xarope": "Jarabe",
-      "saude_instrucao_termometro": "Toma la temperatura de Kroniki",
-      "saude_instrucao_curativo": "Ponle una curita a Kroniki",
-      "saude_instrucao_xarope": "Dale el jarabe a Kroniki",
+      "saude_instrucao_termometro": "Toma la temperatura de la criatura",
+      "saude_instrucao_curativo": "Ponle una curita a la criatura",
+      "saude_instrucao_xarope": "Dale el jarabe a la criatura",
 
       "badge_criador_iniciante": "Creador Principiante",
       "badge_cuidador_dedicado": "Cuidador Dedicado",
