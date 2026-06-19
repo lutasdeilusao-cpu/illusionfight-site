@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../components/Puzzles'
-import { useFichas } from '../../context/FichasContext'
 import { useEventos } from '../../context/EventosContext'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
@@ -35,10 +34,7 @@ function formatTempo(ms) {
 export default function MiniGames() {
   const { t } = useLanguage()
   const navigate = useNavigate()
-  const { isAdmin } = useFichas()
   const { registrarEvento } = useEventos()
-  const tier = 'free'
-  const podeElite = isAdmin || tier !== 'free'
 
   const [jogoAtivo, setJogoAtivo] = useState(null)
   const [fase, setFase] = useState('hub')
@@ -122,49 +118,47 @@ export default function MiniGames() {
   if (fase === 'selecionar_dificuldade') {
     const isStealth = jogoAtivo.id === 'stealth'
     const DIF_LABEL_KEYS = { easy: 'games.minigames.dif_facil', medium: 'games.minigames.dif_medio', hard: 'games.minigames.dif_dificil', extreme: 'games.minigames.dif_extreme', epic: 'games.minigames.dif_epico' }
-    const DIF_BADGE_KEYS = { FREE: 'quiz.modo_free_badge', ELITE: 'quiz.modo_premium_badge' }
     const DIF_CONFIGS = {
       stealth: [
         { id: 'easy', specs: ['grid 4×4','3 câmeras','⏱ 30s'], preview: 16, cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, cor: '#F5A623', free: false },
-        { id: 'hard', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, cor: '#8B0000', free: false },
+        { id: 'medium', specs: ['grid 8×8','5 câmeras','⏱ 60s'], preview: 64, cor: '#F5A623', free: true },
+        { id: 'hard', specs: ['grid 12×12','8 câmeras','⏱ 90s'], preview: 144, cor: '#8B0000', free: true },
       ],
       decoder: [
         { id: 'easy', specs: ['1 barra','5 tent.','⏱ 45s'], emoji: '📡', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', cor: '#F5A623', free: false },
-        { id: 'hard', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', cor: '#8B0000', free: false },
-        { id: 'extreme', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', cor: '#8B0000', free: false },
+        { id: 'medium', specs: ['2 barras','4 tent.','⏱ 45s'], emoji: '📡', cor: '#F5A623', free: true },
+        { id: 'hard', specs: ['3 barras','3 tent.','⏱ 30s'], emoji: '📡', cor: '#8B0000', free: true },
+        { id: 'extreme', specs: ['4 barras','3 tent.','⏱ 20s'], emoji: '📡', cor: '#8B0000', free: true },
       ],
       forca: [
         { id: 'easy',    specs: ['6 erros', 'sem timer', '6 opções'],  emoji: '🎡', cor: '#22C55E', free: true },
-        { id: 'medium',  specs: ['5 erros', '⏱ 60s',    '8 opções'],  emoji: '🎡', cor: '#F5A623', free: false },
-        { id: 'hard',    specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', cor: '#8B0000', free: false },
-        { id: 'extreme', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', cor: '#8B0000', free: false },
+        { id: 'medium',  specs: ['5 erros', '⏱ 60s',    '8 opções'],  emoji: '🎡', cor: '#F5A623', free: true },
+        { id: 'hard',    specs: ['4 erros', '⏱ 45s',    '10 opções'], emoji: '🎡', cor: '#8B0000', free: true },
+        { id: 'extreme', specs: ['3 erros', '⏱ 30s',    '12 opções'], emoji: '🎡', cor: '#8B0000', free: true },
       ],
       sliding: [
         { id: 'easy', specs: ['grid 3×3','8 peças','sem timer'], emoji: '🧩', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', cor: '#F5A623', free: false },
-        { id: 'hard', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', cor: '#8B0000', free: false },
+        { id: 'medium', specs: ['grid 4×4','15 peças','sem timer'], emoji: '🧩', cor: '#F5A623', free: true },
+        { id: 'hard', specs: ['grid 5×5','24 peças','sem timer'], emoji: '🧩', cor: '#8B0000', free: true },
       ],
       labirinto: [
         { id: 'easy',   specs: ['8×8',  'sem timer', 'sem dica'],   emoji: '🌀', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', cor: '#F5A623', free: false },
-        { id: 'hard',   specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', cor: '#8B0000', free: false },
+        { id: 'medium', specs: ['12×12','⏱ 90s',    'dica 15s'],   emoji: '🌀', cor: '#F5A623', free: true },
+        { id: 'hard',   specs: ['16×16','⏱ 60s',    'dica 15s'],   emoji: '🌀', cor: '#8B0000', free: true },
       ],
       simon: [
         { id: 'easy',   specs: ['5 rounds', '3 passos', '4 cores'], emoji: '🔵', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['6 rounds', '4 passos', '4 cores'], emoji: '🔵', cor: '#F5A623', free: false },
-        { id: 'hard',   specs: ['8 rounds', '5 passos', '4 cores'], emoji: '🔵', cor: '#8B0000', free: false },
+        { id: 'medium', specs: ['6 rounds', '4 passos', '4 cores'], emoji: '🔵', cor: '#F5A623', free: true },
+        { id: 'hard',   specs: ['8 rounds', '5 passos', '4 cores'], emoji: '🔵', cor: '#8B0000', free: true },
       ],
       anagrama: [
         { id: 'easy',    specs: ['1 palavra', '5 tent.', '⏱ 45s'], emoji: '🔤', cor: '#22C55E', free: true },
-        { id: 'medium',  specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', cor: '#F5A623', free: false },
-        { id: 'hard',    specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', cor: '#8B0000', free: false },
-        { id: 'extreme', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', cor: '#8B0000', free: false },
-        { id: 'epic',    specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', cor: '#8B0000', free: false },
+        { id: 'medium',  specs: ['2 palavras','4 tent.', '⏱ 40s'], emoji: '🔤', cor: '#F5A623', free: true },
+        { id: 'hard',    specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', cor: '#8B0000', free: true },
+        { id: 'extreme', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', cor: '#8B0000', free: true },
+        { id: 'epic',    specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', cor: '#8B0000', free: true },
       ],
     }
-    const badgeKey = (d) => d.free ? 'quiz.modo_free_badge' : 'quiz.modo_premium_badge'
     const difs = DIF_CONFIGS[jogoAtivo.id] || []
     return (
       <div className="mg-page"><div className="mg-scanlines" />
@@ -174,24 +168,17 @@ export default function MiniGames() {
             <p className="mg-dif-sub">{t('games.minigames.dif_escolha')}</p>
           </div>
           <div className="mg-dif-grid">
-            {difs.map(d => {
-              const locked = !d.free && !podeElite
-              return (
-                <div key={d.id} className={`mg-dif-card ${locked ? 'mg-dif-card--locked' : ''}`}
-                  onClick={() => !locked && iniciarJogo(jogoAtivo, d.id)}>
-                  <div className="mg-dif-card-inner">
-                    <span className="mg-dif-nivel" style={{ color: d.cor }}>{t(DIF_LABEL_KEYS[d.id])}</span>
-                    <span className="mg-dif-emoji">{locked ? '🔒' : d.emoji || '🟢'}</span>
-                    <div className="mg-dif-specs">{d.specs.map(s => <span key={s}>{s}</span>)}</div>
-                    {isStealth && <div className="mg-dif-preview">{Array.from({length:d.preview}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>}
-                    <span className={`mg-dif-badge ${d.free ? 'mg-dif-badge--free' : locked ? 'mg-dif-badge--locked' : 'mg-dif-badge--elite'}`}>
-                      {locked ? 'ELITE+' : t(badgeKey(d))}
-                    </span>
-                    {locked && <p className="mg-dif-locked-msg">{t('games.minigames.dif_locked')}</p>}
-                  </div>
+            {difs.map(d => (
+              <div key={d.id} className="mg-dif-card" onClick={() => iniciarJogo(jogoAtivo, d.id)}>
+                <div className="mg-dif-card-inner">
+                  <span className="mg-dif-nivel" style={{ color: d.cor }}>{t(DIF_LABEL_KEYS[d.id])}</span>
+                  <span className="mg-dif-emoji">{d.emoji || '🟢'}</span>
+                  <div className="mg-dif-specs">{d.specs.map(s => <span key={s}>{s}</span>)}</div>
+                  {isStealth && <div className="mg-dif-preview">{Array.from({length:d.preview}).map((_,i)=><div key={i} className="mg-dif-preview-cell" />)}</div>}
+                  <span className="mg-dif-badge mg-dif-badge--free">{t('quiz.modo_free_badge')}</span>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>
             <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
