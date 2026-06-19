@@ -38,9 +38,11 @@ function gerarBolhas() {
 export default function RestaurarSaude({ onConcluir, onIrLoja }) {
   const { t, locale } = useLanguage()
   const store = useTamagoshiStore()
-  const inv = store.inventario || {}
 
-  const itensFaltando = ITENS_SAUDE.filter(item => (inv[item] || 0) < 1)
+  const [itensFaltando] = useState(() => {
+    const inv = store.inventario || {}
+    return ITENS_SAUDE.filter(item => (inv[item] || 0) < 1)
+  })
 
   const [ordem, setOrdem] = useState([])
   const [acaoAtual, setAcaoAtual] = useState(0)
