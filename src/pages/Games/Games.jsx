@@ -18,6 +18,7 @@ const JOGOS = [
   { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.beta' },
   { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', emBreve: true },
   { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', emBreve: true },
+  { id: 'morto', nomeKey: 'site.games.nomes.morto', tagKey: 'site.games.taglines.morto', emoji: '🗡️', cor: '#8B4513', rota: '/games/morto', badgeKey: 'site.games.badges.beta' },
 ]
 
 const BADGE_CORES = {

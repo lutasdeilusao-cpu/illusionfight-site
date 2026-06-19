@@ -52,6 +52,7 @@ import ArenaTaticsRoute from './pages/ArenaTatics/ArenaTaticsRoute'
 import PP from './pages/PesadeloParticular/PP'
 import DueloRoute from './pages/Duelo/DueloRoute'
 import Tamagoshi from './pages/Tamagoshi/Tamagoshi'
+import Morto from './pages/Morto/Morto'
 import Loja from './pages/Loja/Loja'
 import Custos from './pages/Custos'
 import NotFound from './pages/NotFound/NotFound'
@@ -106,6 +107,7 @@ export default function App() {
         <Route path="/games/pesadelo" element={<FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute>} />
         <Route path="/games/duelo" element={<FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute>} />
         <Route path="/games/tamagoshi" element={<FichaGateRoute isFree={true} gameId="tamagoshi" feature="o Tamagoshi LDI" nomeExibicao="Tamagoshi LDI"><Tamagoshi /></FichaGateRoute>} />
+        <Route path="/games/morto" element={<Morto />} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
