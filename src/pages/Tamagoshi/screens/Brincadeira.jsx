@@ -20,12 +20,12 @@ import {
 // e também aparece como card standalone no MiniGames. Se adicionar novos puzzles,
 // mantenha o Enduro fora desta lista.
 const PUZZLES = [
-  { id: 'stealth',  nome: 'Infiltração',     Component: PuzzleStealthGrid },
-  { id: 'decoder',  nome: 'Decoder',          Component: PuzzleDecoder },
-  { id: 'sliding',  nome: 'Sliding Tiles',    Component: PuzzleSlidingTiles },
-  { id: 'labirinto',nome: 'Labirinto',        Component: PuzzleLabirinto },
-  { id: 'anagrama', nome: 'Anagrama',         Component: PuzzleAnagrama },
-  { id: 'forca',    nome: 'Palavra Secreta',  Component: PuzzleForça },
+  { id: 'stealth',  nomeKey: 'puzzle_stealth',  Component: PuzzleStealthGrid },
+  { id: 'decoder',  nomeKey: 'puzzle_decoder',  Component: PuzzleDecoder },
+  { id: 'sliding',  nomeKey: 'puzzle_sliding',  Component: PuzzleSlidingTiles },
+  { id: 'labirinto',nomeKey: 'puzzle_labirinto',Component: PuzzleLabirinto },
+  { id: 'anagrama', nomeKey: 'puzzle_anagrama', Component: PuzzleAnagrama },
+  { id: 'forca',    nomeKey: 'puzzle_forca',    Component: PuzzleForça },
 ]
 
 function getConfig(puzzleId) {
@@ -113,7 +113,7 @@ export default function Brincadeira({ onConcluir }) {
             className="tama-brincadeira-apresentando-icone"
           >🎲</motion.div>
           <h2 className="tama-brincadeira-apresentando-nome">
-            {puzzle.nome}
+            {t('games.tamagoshi.' + puzzle.nomeKey)}
           </h2>
           <p className="tama-brincadeira-apresentando-sub">{t('games.tamagoshi.brincadeira_preparando')}</p>
         </div>
@@ -123,7 +123,7 @@ export default function Brincadeira({ onConcluir }) {
         <div className="tama-brincadeira tama-brincadeira--jogando">
           <div className="tama-brincadeira-header">
             <span className="tama-brincadeira-header-nome">
-              {puzzle.nome}
+              {t('games.tamagoshi.' + puzzle.nomeKey)}
             </span>
             <button
               className="tama-btn tama-btn--sair"

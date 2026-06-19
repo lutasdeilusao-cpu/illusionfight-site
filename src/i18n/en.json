@@ -1850,6 +1850,12 @@
       "brincadeira_ganhou_desc": "the creature loved playing with you!",
       "brincadeira_perdeu_desc": "try again or practice in Minigames!",
       "brincadeira_mais_puzzles": "+ puzzles",
+      "puzzle_stealth": "Infiltration",
+      "puzzle_decoder": "Decoder",
+      "puzzle_sliding": "Sliding Tiles",
+      "puzzle_labirinto": "Maze",
+      "puzzle_anagrama": "Anagram",
+      "puzzle_forca": "Secret Word",
 
       "termo": {
         "titulo": "TERM OF RESPONSIBILITY",

@@ -1850,6 +1850,12 @@
       "brincadeira_ganhou_desc": "¡a la criatura le encantó jugar contigo!",
       "brincadeira_perdeu_desc": "intenta de nuevo o practica en Minijuegos!",
       "brincadeira_mais_puzzles": "+ puzzles",
+      "puzzle_stealth": "Infiltración",
+      "puzzle_decoder": "Decoder",
+      "puzzle_sliding": "Sliding Tiles",
+      "puzzle_labirinto": "Laberinto",
+      "puzzle_anagrama": "Anagrama",
+      "puzzle_forca": "Palabra Secreta",
 
       "termo": {
         "titulo": "TÉRMINO DE RESPONSABILIDAD",

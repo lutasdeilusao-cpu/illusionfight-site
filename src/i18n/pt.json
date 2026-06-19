@@ -1877,6 +1877,12 @@
       "brincadeira_ganhou_desc": "a criatura adorou brincar com você!",
       "brincadeira_perdeu_desc": "tente de novo ou pratique nos Minigames!",
       "brincadeira_mais_puzzles": "+ puzzles",
+      "puzzle_stealth": "Infiltração",
+      "puzzle_decoder": "Decoder",
+      "puzzle_sliding": "Sliding Tiles",
+      "puzzle_labirinto": "Labirinto",
+      "puzzle_anagrama": "Anagrama",
+      "puzzle_forca": "Palavra Secreta",
 
       "termo": {
         "titulo": "TERMO DE RESPONSABILIDADE",
