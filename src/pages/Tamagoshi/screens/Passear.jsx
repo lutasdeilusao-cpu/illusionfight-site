@@ -303,7 +303,7 @@ export default function Passear({ onConcluir }) {
           <motion.div key="ready" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             className="tama-passear-card">
             <div className="tama-passear-card-icone">🏎</div>
-            <p className="tama-passear-card-titulo">{t('games.tamagoshi.passear_enduro_kroniki')}</p>
+            <p className="tama-passear-card-titulo">{t('games.tamagoshi.passear_enduro')}</p>
             <p className="tama-passear-card-desc">{t('games.tamagoshi.passear_desc', { n: STAGE_COUNT })}</p>
             <p className="tama-passear-card-setas">{t('games.tamagoshi.passear_setas')}</p>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startGame} className="tama-btn">{t('games.tamagoshi.iniciar_passeio')}</motion.button>

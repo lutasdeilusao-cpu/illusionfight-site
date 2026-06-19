@@ -6,7 +6,6 @@ import { sfx } from '../sfx'
 import { CRIATURAS } from '../data/criaturas'
 import CriaturaSprite from '../components/CriaturaSprite'
 import { ITENS_LOJA, COMIDA_TEMATICA, ITEM_KEY_MAP } from '../data/itens_loja'
-import { CRIATURA_ID_TO_SLUG } from '../data/criaturas'
 import { DIX_POR_ACAO } from '../data/moedas'
 
 export default function Alimentar({ onConcluir }) {
@@ -20,7 +19,7 @@ export default function Alimentar({ onConcluir }) {
 
   const inv = store.inventario || {}
   const comidasDisponiveis = ITENS_LOJA.filter(i => i.categoria === 'comida')
-  const tematica = COMIDA_TEMATICA[CRIATURA_ID_TO_SLUG[store.criaturaId]]
+  const tematica = COMIDA_TEMATICA[store.criaturaId]
   const todasComidas = tematica ? [tematica, ...comidasDisponiveis] : comidasDisponiveis
   const comidasNoInv = todasComidas.filter(c => (inv[c.id] || 0) > 0)
   const temAlguma = comidasNoInv.length > 0

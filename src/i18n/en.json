@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "links": [
       "Webtoon",
@@ -24,7 +24,7 @@
       "secondary": "LEARN MORE"
     },
     "slide1": {
-      "tag": "Illusion Fight — Book 1",
+      "tag": "Illusion Fight â€” Book 1",
       "titulo": "The Illusion",
       "subtitulo": "Kim is 17, sells candy on buses and just entered an arena where the pain is 100% real. Three billion players. Zero preparation.",
       "cta1": "Read now",
@@ -33,7 +33,7 @@
     "slide2": {
       "tag": "Webtoon",
       "titulo": "A picture is worth a thousand words.",
-      "subtitulo": "Monthly release here on the portal — one week ahead of any other platform. Early access for those who arrived first.",
+      "subtitulo": "Monthly release here on the portal â€” one week ahead of any other platform. Early access for those who arrived first.",
       "cta1": "Read episode"
     },
     "slide3": {
@@ -79,13 +79,13 @@
     "cta": "VIEW ALL",
     "webtoon": {
       "text": "Also available on Webtoon Canvas",
-      "subscribers": "— subscribers",
+      "subscribers": "â€” subscribers",
       "cta": "READ ON WEBTOON"
     }
   },
   "musicas": {
     "subtitle": "The soundtrack of the Illusion Fight universe",
-    "clipesPlaceholder": "Music videos in production — coming soon."
+    "clipesPlaceholder": "Music videos in production â€” coming soon."
   },
   "music": {
     "title": "MUSIC",
@@ -98,18 +98,18 @@
   "login_gate": {
     "texto": "To access {feature} you need an account.",
     "criar": "CREATE FREE ACCOUNT",
-    "entrar": "I already have an account — log in"
+    "entrar": "I already have an account â€” log in"
   },
   "modal_sem_fichas": {
     "titulo": "CREATE YOUR FREE ACCOUNT",
     "desc": "Create your free account now and get 100 tokens to play {jogo} for free!",
-    "criar_conta": "CREATE FREE ACCOUNT — GET 100 TOKENS",
+    "criar_conta": "CREATE FREE ACCOUNT â€” GET 100 TOKENS",
     "voltar": "back"
   },
   "modal_confirmacao_ficha": {
     "titulo": "SPEND 1 TOKEN?",
     "desc": "you'll spend 1 token to unlock {jogo}.",
-    "duracao": "⏳ valid for 24 hours — play as much as you want!",
+    "duracao": "â³ valid for 24 hours â€” play as much as you want!",
     "saldo_atual": "current balance",
     "saldo_restante": "balance after",
     "confirmar": "spend 1 token",
@@ -124,18 +124,18 @@
   "nowlive": {
     "title": "NOW LIVE",
     "subtitle": "Follow the Illusion Fight universe on social media",
-    "abrir": "OPEN →"
+    "abrir": "OPEN â†’"
   },
   "shop": {
     "titulo": "UNIVERSE ITEMS",
     "fisico": "PHYSICAL",
     "digital": "DIGITAL",
     "subtitulo": "tokens, DIX and exclusive items",
-    "ver_tudo": "VIEW ALL →",
+    "ver_tudo": "VIEW ALL â†’",
     "comprar": "BUY",
-    "adquirido": "✓ OWNED",
-    "footer": "© 2026 Illusion Fight — Pay securely via Stripe",
-    "page_title": "Shop — Illusion Fight",
+    "adquirido": "âœ“ OWNED",
+    "footer": "Â© 2026 Illusion Fight â€” Pay securely via Stripe",
+    "page_title": "Shop â€” Illusion Fight",
     "page_desc": "Buy tokens, DIX and exclusive items from the Illusion Fight universe.",
     "page_og_desc": "Buy tokens, DIX and exclusive items.",
     "fichas": "tokens",
@@ -285,11 +285,11 @@
     "cta": "HOW TO SUPPORT"
   },
   "beta": {
-    "message": "🔧 We're in beta! Official launch on {{date}}.",
+    "message": "ðŸ”§ We're in beta! Official launch on {{date}}.",
     "cta": "Report bug"
   },
   "trial": {
-    "message": "Exclusive content in free access for a limited time — enjoy it!"
+    "message": "Exclusive content in free access for a limited time â€” enjoy it!"
   },
   "footer": {
     "columns": [
@@ -325,7 +325,7 @@
         ]
       }
     ],
-    "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Art generated with AI assistance"
+    "copyright": "Â© 2026 Illusion Fight Â· By: Isaias Leal Â· Art generated with AI assistance"
   },
   "assinar": {
     "titulo": "Your class. Your choice.",
@@ -334,16 +334,16 @@
     "cta": "Subscribe",
     "custosBtn": "Our Costs",
     "nota": "* USD and EUR prices are approximate. Payment via Stripe or PIX.",
-    "plano_atual": "✓ Current plan",
-    "pagamento_pendente": "⚠️ Payment pending",
+    "plano_atual": "âœ“ Current plan",
+    "pagamento_pendente": "âš ï¸ Payment pending",
     "cancela_em": "Cancels on {{data}}",
     "fazer_downgrade": "Make downgrade",
     "fazer_upgrade": "Make upgrade",
     "aguarde": "Please wait...",
     "feedback": {
-      "sucesso": "✅ {{tier}} subscription activated! Welcome to the club.",
+      "sucesso": "âœ… {{tier}} subscription activated! Welcome to the club.",
       "cancelado": "Purchase cancelled. No charges were made.",
-      "erro": "❌ {{mensagem}}"
+      "erro": "âŒ {{mensagem}}"
     },
     "doacao": {
       "title": "Prefer to support without subscribing?",
@@ -367,7 +367,7 @@
     "botao": "Subscribe to Newsletter",
     "gratis": "Free. No spam.",
     "ctaTitulo": "Get the updates",
-    "ctaDescricao": "Monthly newsletter — behind the scenes, releases and expanded universe.",
+    "ctaDescricao": "Monthly newsletter â€” behind the scenes, releases and expanded universe.",
     "ctaBotao": "Subscribe free"
   },
   "tatics": {
@@ -390,7 +390,7 @@
       "sub_only": "SUBSCRIBERS ONLY",
       "detective_label": "DETECTIVE",
       "idoso_label": "ELDER",
-      "idoso_dialog": "ELDER: \"I've lived here since Marélia was just a village. A lot has changed...\"",
+      "idoso_dialog": "ELDER: \"I've lived here since MarÃ©lia was just a village. A lot has changed...\"",
       "crianca_label": "CHILD",
       "crianca_dialog": "CHILD: \"They say Yohualticit messes with strange things!\"",
       "vendedor_label": "VENDOR",
@@ -400,7 +400,7 @@
       "operario_label": "WORKER",
       "operario_dialog": "WORKER: \"The factory never stops. Three shifts a day.\"",
       "marinheiro_label": "SAILOR",
-      "marinheiro_dialog": "SAILOR: \"I've sailed the seven seas. Marélia is the safest port.\"",
+      "marinheiro_dialog": "SAILOR: \"I've sailed the seven seas. MarÃ©lia is the safest port.\"",
       "feirante_label": "MARKETEER",
       "feirante_dialog": "MARKETEER: \"Straight from the farm! Fresh fruit every day!\"",
       "cozinheira_label": "COOK",
@@ -418,9 +418,9 @@
     },
     "buildings": {
       "yohualticit": "YOHUALTICIT BUILDING",
-      "jao": "SEU JÃO'S MARKET",
+      "jao": "SEU JÃƒO'S MARKET",
       "recovery": "RECOVERY CENTER",
-      "bar": "ZÉ'S BAR",
+      "bar": "ZÃ‰'S BAR",
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
@@ -438,16 +438,16 @@
       "sul": "SOUTH DISTRICT",
       "yohualticit": "YOHUALTICIT AREA",
       "industrial": "INDUSTRIAL DISTRICT",
-      "porto": "MARÉLIA PORT",
+      "porto": "MARÃ‰LIA PORT",
       "mercado": "POPULAR MARKET",
       "suburbio": "SUBURBS",
       "residencial_oeste": "WEST RESIDENTIAL"
     },
     "interior_names": {
       "yohualticit": "YOHUALTICIT BUILDING",
-      "jao": "SEU JÃO'S MARKET",
+      "jao": "SEU JÃƒO'S MARKET",
       "recovery": "RECOVERY CENTER",
-      "bar": "ZÉ'S BAR",
+      "bar": "ZÃ‰'S BAR",
       "training": "TRAINING CENTER",
       "fashion": "FASHION CENTER",
       "save": "SAVE CENTER",
@@ -475,8 +475,8 @@
     "confirm_nao": "NO, NOT YET",
     "confirm_sim": "YES, END TURN",
     "vitoria": "VICTORY",
-    "vitorias_streak": "{n} wins · Streak: {streak}",
-    "streak_bonus": "🔥 STREAK {n} — SDR bonus active!",
+    "vitorias_streak": "{n} wins Â· Streak: {streak}",
+    "streak_bonus": "ðŸ”¥ STREAK {n} â€” SDR bonus active!",
     "proxima_batalha": "NEXT BATTLE",
     "derrota": "DEFEAT",
     "derrota_msg": "Session ended. Returning to observer mode.",
@@ -485,8 +485,8 @@
     "sair": "EXIT",
     "intro_sub": "TACTICAL COMBAT SYSTEM",
     "intro_acessar": "ACCESS SYSTEM",
-    "intro_simulacao": "⚙ AI SIMULATION",
-    "intro_teste": "🧪 QUICK TEST",
+    "intro_simulacao": "âš™ AI SIMULATION",
+    "intro_teste": "ðŸ§ª QUICK TEST",
     "intro_nexus": "NEXUS PROTOCOL",
     "fase_idle": "YOUR TURN",
     "fase_acao": "CHOOSE AN ACTION",
@@ -499,14 +499,14 @@
   "quiz": {
     "titulo": "TEST YOUR RANKING",
     "subtitulo": "Three billion fighters. One ranking. How much do you really know about LDI?",
-    "nexus_tag": "NEXUS PHANTASM — HERALD OF THE ARENAS",
-    "nexus_resultado": "NEXUS PHANTASM — OFFICIAL RESULT",
-    "timer_aviso": "30 seconds per question · speed counts toward final rank",
+    "nexus_tag": "NEXUS PHANTASM â€” HERALD OF THE ARENAS",
+    "nexus_resultado": "NEXUS PHANTASM â€” OFFICIAL RESULT",
+    "timer_aviso": "30 seconds per question Â· speed counts toward final rank",
     "ajuda_pular": "SKIP",
     "ajuda_universitarios": "UNIVERSITY",
     "ajuda_consultar": "Who do you want to ask?",
-    "proxima": "NEXT →",
-    "ver_resultado": "SEE RESULT →",
+    "proxima": "NEXT â†’",
+    "ver_resultado": "SEE RESULT â†’",
     "rank_label": "estimated SDR position",
     "stat_acertos": "correct",
     "stat_erros": "wrong",
@@ -519,9 +519,9 @@
     "bloqueio_desc": "Subscribe to unlock RECRUTA and ELITE modes, rank history and unlimited university help.",
     "bloqueio_btn": "VIEW PLANS",
     "bloqueio_voltar": "Go back",
-    "modo_recruta_desc": "Basic — any fan can join",
-    "modo_ranqueado_desc": "Free — 5 easy + 5 medium",
-    "modo_elite_desc": "Complete — from prologue to Kronos",
+    "modo_recruta_desc": "Basic â€” any fan can join",
+    "modo_ranqueado_desc": "Free â€” 5 easy + 5 medium",
+    "modo_elite_desc": "Complete â€” from prologue to Kronos",
     "modo_free_badge": "FREE",
     "modo_premium_badge": "PREMIUM",
     "perguntas_count": "{n} questions",
@@ -546,13 +546,13 @@
   "autor": {
     "blocks": [
       "I started working at 13, selling candy on buses. I didn't know it then, but I was living the story I'd one day write.",
-      "At 17, in a history class, I realized we never told the story of Brazil's indigenous peoples, that whole world before \"discovery\". I saw an entire universe waiting there. That's when Lutas de Ilusão began. I wrote it in Word, printed it at school, and handed out the pages. Every week people asked for the next chapter. My writing was rough, but the story worked.",
+      "At 17, in a history class, I realized we never told the story of Brazil's indigenous peoples, that whole world before \"discovery\". I saw an entire universe waiting there. That's when Lutas de IlusÃ£o began. I wrote it in Word, printed it at school, and handed out the pages. Every week people asked for the next chapter. My writing was rough, but the story worked.",
       "That was the era of the Rock Crew, a name we didn't even choose (our principal gave it to us after we broke a vase in the schoolyard, the thing was always clogged anyway) and it stuck forever. Years later, from 21 to 25, I had a band called The Problem. LDI was always there in the background, waiting.",
       "At 25 I got married. I have a wonderful daughter and wife, and it wasn't easy, but if it were easy, everyone would do it, haha.",
       "At 30 I'd been a public servant for 10 years, earning less than $200 a month, and I wasn't happy. I decided to flip everything upside down: studied hard for a scholarship, and by my first semester of college I already had a job. I started specializing in console porting, Nintendo, Xbox, and PlayStation.",
       "The moment that defined everything happened at my first company, less than a year after the Switch launched. Nobody there knew how to work with that console. I was an intern, handed a dev kit, some documentation, and a game: \"you have one month to ship it, this is your test.\" That's how it began.",
       "I got into games and worked on international projects, including titles like Five Nights at Freddy's and a release that reached the God of War universe. But I want to be honest: as much as I love this industry, it isn't stable, and everyone in it knows that. If you didn't, now you do. I moved into traditional software development (starting over from junior again). Today I'm 40, and I'm finally publishing this story.",
-      "Lutas de Ilusão is an independent project. Every chapter, every webtoon page, every song has real cost and real work behind it. Supporting it is the only way to keep it alive and growing."
+      "Lutas de IlusÃ£o is an independent project. Every chapter, every webtoon page, every song has real cost and real work behind it. Supporting it is the only way to keep it alive and growing."
     ],
     "cta": "SUPPORT THE PROJECT"
   },
@@ -596,14 +596,14 @@
     },
     "games": {
       "titulo": "GAMES",
-      "meta_title": "Games — Illusion Fight",
-      "meta_desc": "Play Illusion Fight games online — card games, tactical RPG, detective, tamagoshi, arena battles and more. Free and premium games.",
+      "meta_title": "Games â€” Illusion Fight",
+      "meta_desc": "Play Illusion Fight games online â€” card games, tactical RPG, detective, tamagoshi, arena battles and more. Free and premium games.",
       "subtitulo": "explore beyond the main story",
       "secao_jogos": "GAMES",
       "secao_conteudo": "CONTENT",
       "inserir_ficha": "INSERT TOKEN",
       "em_breve": "COMING SOON",
-      "credits": "ILLUSION FIGHT — 1 PLAYER",
+      "credits": "ILLUSION FIGHT â€” 1 PLAYER",
       "badges": {
         "free": "FREE",
         "lancado": "RELEASED",
@@ -632,7 +632,7 @@
         "arena": "Classic TURN-BASED combat building a sheet and rolling dice. Single Player and Online Multiplayer.",
         "tama": "There's no way you can resist this cute thing, but if you're going to have one, you have to take care of it responsibly.",
         "trumps": "Collectible cards on your account. Build your deck. Single Player and Online Multiplayer.",
-        "tatics": "Ever thought of playing Pokémon but with tactical battles? That's right, and I'm testing it. I'll release it for everyone soon.",
+        "tatics": "Ever thought of playing PokÃ©mon but with tactical battles? That's right, and I'm testing it. I'll release it for everyone soon.",
         "minigames": "standalone puzzles. no login. just skill.",
         "duelo": "Ever thought of playing Yu-Gi-Oh but with battles on a board? That's right, and I'm testing it. I'll release it for everyone soon.",
         "quiz": "test your knowledge of the LDI universe.",
@@ -640,7 +640,7 @@
       }
     },
     "leaderboard": {
-      "titulo": "ARENA — GLOBAL RANKING",
+      "titulo": "ARENA â€” GLOBAL RANKING",
       "subtitulo": "The best Top Trumps players in the LDI universe",
       "abas": {
         "toptrumps": "Top Trumps",
@@ -707,10 +707,10 @@
       "billing_status_expired": "Expired",
       "billing_status_none": "No subscription",
       "share_titulo": "MONTHLY ACHIEVEMENT",
-      "share_desc": "Shared LDI on X, YouTube, TikTok or any network this month? Paste the link for auditing and earn the achievement 🔥",
-      "share_aprovado": "✓ Share approved this month. Come back next month!",
-      "share_pendente": "⏳ Link sent — under review.",
-      "share_rejeitado": "✗ Link rejected.",
+      "share_desc": "Shared LDI on X, YouTube, TikTok or any network this month? Paste the link for auditing and earn the achievement ðŸ”¥",
+      "share_aprovado": "âœ“ Share approved this month. Come back next month!",
+      "share_pendente": "â³ Link sent â€” under review.",
+      "share_rejeitado": "âœ— Link rejected.",
       "share_ja_enviou": "You've already sent a link this month.",
       "share_placeholder": "https://x.com/yourprofile/status/...",
       "share_enviar": "SUBMIT FOR REVIEW",
@@ -722,9 +722,9 @@
       "progresso_ja_resgatou": "Reward already claimed! +500 DIX",
 
       "tama_carregando": "LOADING...",
-      "tama_meu_tamagoshi": "🥚 My Tamagoshi",
+      "tama_meu_tamagoshi": "ðŸ¥š My Tamagoshi",
       "tama_sem_tamagoshi": "you don't have a tamagoshi yet.",
-      "tama_ir_pegar": "🥚 Go get your Tamagoshi",
+      "tama_ir_pegar": "ðŸ¥š Go get your Tamagoshi",
       "tama_limite_trocas": "trade limit:",
       "tama_free_troca": "1 every 3 months",
       "tama_elite_troca": "1 per month",
@@ -736,10 +736,10 @@
       "tama_confirmando": "CONFIRMING...",
       "tama_sua_key": "your key (valid for 24h):",
       "tama_clique_copiar": "click to copy",
-      "tama_badges_titulo": "🏅 earned badges",
-      "tama_fama_titulo": "🏛️ hall of fame",
+      "tama_badges_titulo": "ðŸ… earned badges",
+      "tama_fama_titulo": "ðŸ›ï¸ hall of fame",
       "tama_sem_nome": "no name",
-      "tama_jogar": "🎮 Play Tamagoshi",
+      "tama_jogar": "ðŸŽ® Play Tamagoshi",
       "troca_erro_vivo": "can only trade living tamagoshi",
       "troca_key_gerada": "key generated! share with another player",
       "troca_cole_key": "paste the key first",
@@ -751,12 +751,12 @@
       "slot_2": "Slot 2",
       "troca_notif_ver": "view tamagoshi",
 
-      "arena_titulo": "�️ LDI ARENA",
+      "arena_titulo": "ï¿½ï¸ LDI ARENA",
       "arena_fichas": "Sheets",
       "arena_xp_total": "Total XP",
       "arena_inimigos": "Unlocked Enemies",
-      "arena_sem_fichas": "No character sheets yet — create your fighter!",
-      "arena_ir_para": "GO TO LDI ARENA →",
+      "arena_sem_fichas": "No character sheets yet â€” create your fighter!",
+      "arena_ir_para": "GO TO LDI ARENA â†’",
       "arena_atributos": "Attributes",
 
       "colecao_season_1": "SEASON 1",
@@ -767,16 +767,16 @@
       "colecao_obs": "Greyed-out cards are waiting to be discovered. Play Top Trumps Single Player to unlock them!",
 
       "conquistas_secreto": "Secret achievement",
-      "conquistas_desbloqueado": "✓ UNLOCKED",
-      "conquistas_bloqueado": "🔒 LOCKED",
+      "conquistas_desbloqueado": "âœ“ UNLOCKED",
+      "conquistas_bloqueado": "ðŸ”’ LOCKED",
 
       "recomp_fichas_disponiveis": "available tokens",
-      "recomp_admin_bypass": "★ admin account — token bypass active",
+      "recomp_admin_bypass": "â˜… admin account â€” token bypass active",
       "recomp_ficha_diaria": "DAILY TOKEN",
       "recomp_fichas_disponiveis_valor": "+ {n} tokens available",
       "recomp_fichas_coletadas_hoje": "tokens collected today",
       "recomp_clique_coletar": "click to collect",
-      "recomp_reset_meia_noite": "resets at midnight · {n} tokens/day",
+      "recomp_reset_meia_noite": "resets at midnight Â· {n} tokens/day",
       "recomp_coletar_btn": "CLAIM",
       "recomp_coletadas_msg": "+{n} tokens collected!",
       "recomp_como_ganhar": "HOW TO EARN TOKENS",
@@ -798,16 +798,16 @@
       "recomp_acao_compartilhar": "Share result",
       "recomp_acao_elite": "Subscribe Elite",
       "recomp_acao_primordial": "Subscribe Primordial",
-      "recomp_acoes_fichas": "+{n} 🎰"
+      "recomp_acoes_fichas": "+{n} ðŸŽ°"
     }
   },
   "games": {
     "duelo": {
       "titulo": "LDI DUEL",
-      "subtitulo": "summon · attack · win",
+      "subtitulo": "summon Â· attack Â· win",
       "descricao": "60 cards. 30 monsters. 15 spells. 15 traps.",
       "descricao2": "Build your strategy. Defeat the AI.",
-      "descricao3": "Same deck for both sides — victory is skill.",
+      "descricao3": "Same deck for both sides â€” victory is skill.",
       "iniciar": "START DUEL",
       "lp": "LP",
       "cartas": "CARDS",
@@ -874,62 +874,62 @@
           "nome": "Infiltration",
           "desc": "avoid the cameras. reach the goal.",
           "detalhe": "rotating camera cones. a route exists. find it.",
-          "dificuldade": "★★☆"
+          "dificuldade": "â˜…â˜…â˜†"
         },
         "decoder": {
           "nome": "Decoder",
           "desc": "ciphered message. crack the code.",
           "detalhe": "frequency sliders. align the signals. decipher the message.",
-          "dificuldade": "★☆☆"
+          "dificuldade": "â˜…â˜†â˜†"
         },
         "sliding": {
           "nome": "Sliding Tiles",
           "desc": "rearrange the tiles in the right order.",
           "detalhe": "slide the blocks. one empty slot. complete the picture.",
-          "dificuldade": "★★★"
+          "dificuldade": "â˜…â˜…â˜…"
         },
         "labirinto": {
           "nome": "Maze",
           "desc": "find the exit. no map.",
           "detalhe": "invisible walls. only your touch. only your instinct.",
-          "dificuldade": "★★☆"
+          "dificuldade": "â˜…â˜…â˜†"
         },
         "forca": {
           "nome": "Hangman",
           "desc": "guess the word. mistakes cost.",
           "detalhe": "letter by letter. each error brings you closer to the end.",
-          "dificuldade": "★☆☆"
+          "dificuldade": "â˜…â˜†â˜†"
         },
         "anagrama": {
           "nome": "Anagram",
           "desc": "scrambled. rearrange. discover.",
           "detalhe": "letters out of order. your brain is the decoder.",
-          "dificuldade": "★★☆"
+          "dificuldade": "â˜…â˜…â˜†"
         },
         "simon": {
           "nome": "Simon Says",
           "desc": "memorize the sequence. repeat without error.",
           "detalhe": "growing color sequence. one mistake and restart. how far can you go?",
-          "dificuldade": "★★☆"
+          "dificuldade": "â˜…â˜…â˜†"
         }
       },
       "stealth": {
-        "titulo_jogo": "🥷 Infiltration Grid",
+        "titulo_jogo": "ðŸ¥· Infiltration Grid",
         "instrucao": "avoid the cameras and their vision cones. use WASD, arrows or swipe.",
         "capturado": "you've been caught"
       },
-      "timer": "⏱ {s}s",
+      "timer": "â± {s}s",
       "tentativas": "attempts: {a}/{b}",
       "erros": "mistakes: {a}/{b}",
-      "passou": "✓ passed.",
-      "falhou": "✗ failed.",
+      "passou": "âœ“ passed.",
+      "falhou": "âœ— failed.",
       "confirmar": "CONFIRM",
       "desistir": "GIVE UP",
       "hub_subtitulo": "standalone puzzles. no login. no save. just skill.",
-      "hub_voltar": "← back to games",
-      "hub_footer": "© ILLUSION FIGHT — INSERT COIN",
+      "hub_voltar": "â† back to games",
+      "hub_footer": "Â© ILLUSION FIGHT â€” INSERT COIN",
       "dif_escolha": "choose difficulty",
-      "dif_voltar": "← back",
+      "dif_voltar": "â† back",
       "dif_facil": "EASY",
       "dif_medio": "MEDIUM",
       "dif_dificil": "HARD",
@@ -939,52 +939,52 @@
       "resultado_vitoria": "MISSION COMPLETE",
       "resultado_derrota": "GAME OVER",
       "resultado_tempo": "TIME",
-      "resultado_recorde": "★ NEW RECORD ★",
+      "resultado_recorde": "â˜… NEW RECORD â˜…",
       "resultado_jogar_novamente": "[ play again ]",
       "resultado_tentar_novamente": "[ try again ]",
       "resultado_voltar": "[ back ]",
-      "jogando_sair": "[ ← quit ]",
+      "jogando_sair": "[ â† quit ]",
       "puzzle_enduro_nome": "Enduro Kroniki",
       "puzzle_enduro_tagline": "endless track. dodge obstacles. collect coins.",
       "puzzle_enduro_desc": "endless runner with 10 tracks. obstacles and coins. survive to the end.",
-      "puzzle_enduro_dificuldade": "★★☆",
+      "puzzle_enduro_dificuldade": "â˜…â˜…â˜†",
       "badge_lancado": "RELEASED",
       "decoder": {
-        "titulo_jogo": "📡 Frequency Decoder",
+        "titulo_jogo": "ðŸ“¡ Frequency Decoder",
         "instrucao_1": "tune the correct frequency to decipher the message.",
         "instrucao_n": "tune all frequencies to decipher the message.",
-        "alinhado": "✓ frequencies aligned — confirm",
-        "decifrado": "✓ signal deciphered.",
+        "alinhado": "âœ“ frequencies aligned â€” confirm",
+        "decifrado": "âœ“ signal deciphered.",
         "decodificar": "[ decode ({n}/{total}) ]"
       },
       "sliding": {
-        "titulo_jogo": "🧩 Torn Document",
+        "titulo_jogo": "ðŸ§© Torn Document",
         "instrucao": "reassemble the document. order the pieces. use arrows or click.",
         "movimentos": "moves: {n}",
         "objetivo": "goal: order 1-{n} left to right, empty slot in bottom right corner",
         "desistir": "[ give up ]"
       },
       "labirinto": {
-        "titulo_jogo": "🌀 Maze",
+        "titulo_jogo": "ðŸŒ€ Maze",
         "instrucao": "find the exit. use WASD, arrows or swipe."
       },
       "anagrama": {
-        "titulo_jogo": "🔤 Anagram",
+        "titulo_jogo": "ðŸ”¤ Anagram",
         "instrucao_letra": "rearrange the letters to form the correct word.",
         "instrucao_palavra": "rearrange the words to form the correct phrase.",
         "limpar": "[ clear ]",
         "formado": "formed: "
       },
       "forca": {
-        "titulo_jogo": "🎡 Secret Word",
+        "titulo_jogo": "ðŸŽ¡ Secret Word",
         "instrucao": "discover the word by clicking letters. accuse the word when you know it.",
         "possiveis": "POSSIBLE ({n}/{total})",
-        "acusar_instrucao": "click a word to accuse · wrong accusation = -2 attempts"
+        "acusar_instrucao": "click a word to accuse Â· wrong accusation = -2 attempts"
       },
       "simon": {
         "round_label": "Round {n}/{max}",
-        "observando": "👁️ Watching...",
-        "repita": "👆 Repeat!"
+        "observando": "ðŸ‘ï¸ Watching...",
+        "repita": "ðŸ‘† Repeat!"
       }
     },
     "tatics": {
@@ -1005,8 +1005,8 @@
       "confirm_nao": "NO, NOT YET",
       "confirm_sim": "YES, END TURN",
       "vitoria": "VICTORY",
-      "vitorias_streak": "{n} wins · Streak: {streak}",
-      "streak_bonus": "🔥 STREAK {n} — SDR bonus active!",
+      "vitorias_streak": "{n} wins Â· Streak: {streak}",
+      "streak_bonus": "ðŸ”¥ STREAK {n} â€” SDR bonus active!",
       "proxima_batalha": "NEXT BATTLE",
       "derrota": "DEFEAT",
       "derrota_msg": "Session ended. Returning to observer mode.",
@@ -1015,8 +1015,8 @@
       "sair": "EXIT",
       "intro_sub": "TACTICAL COMBAT SYSTEM",
       "intro_acessar": "ACCESS SYSTEM",
-      "intro_simulacao": "⚙ AI SIMULATION",
-      "intro_teste": "🧪 QUICK TEST",
+      "intro_simulacao": "âš™ AI SIMULATION",
+      "intro_teste": "ðŸ§ª QUICK TEST",
       "intro_nexus": "NEXUS PROTOCOL",
       "fase_idle": "YOUR TURN",
       "fase_acao": "CHOOSE AN ACTION",
@@ -1026,7 +1026,7 @@
       "fase_animando": "ANIMATING...",
       "fase_inimigo": "ENEMY ACTING...",
       "sim_titulo": "AUTO SIMULATION",
-      "sim_sub": "AI vs AI — watch autonomous battles",
+      "sim_sub": "AI vs AI â€” watch autonomous battles",
       "sim_personagens": "Characters per team",
       "sim_quantidade_ias": "Number of AIs",
       "sim_velocidade": "Speed",
@@ -1038,12 +1038,12 @@
       "sim_iniciar": "START SIMULATION",
       "classe_titulo": "SELECT YOUR CLASS",
       "classe_toque": "Tap a class to see details",
-      "classe_free": "🔒 FREE",
+      "classe_free": "ðŸ”’ FREE",
       "classe_elite": "Available on Elite plan",
       "pre_batalha": "PRE-BATTLE",
       "seu_time": "YOUR TEAM",
       "inimigos": "ENEMIES",
-      "vs": "⚔️ VS ⚔️",
+      "vs": "âš”ï¸ VS âš”ï¸",
       "nivel": "Lv.",
       "tier": "Tier",
       "iniciar_batalha": "START BATTLE"
@@ -1053,8 +1053,8 @@
       "nova_ficha": "NEW SHEET",
       "inserir_ficha": "INSERT TOKEN",
       "escolher_outra": "CHOOSE ANOTHER SHEET",
-      "voltar_games": "← BACK TO GAMES",
-      "escolher_oponente": "← CHOOSE OPPONENT",
+      "voltar_games": "â† BACK TO GAMES",
+      "escolher_oponente": "â† CHOOSE OPPONENT",
       "derrota": "DEFEAT",
       "derrota_sub": "Defeat only makes the warrior stronger.",
       "vitoria": "VICTORY",
@@ -1066,8 +1066,8 @@
       "xp": "XP: {n}",
       "xp_gain": "+{n} XP",
       "xp_faltam": "{n} XP until next level",
-      "xp_level_up_ready": "⚡ READY TO LEVEL UP!",
-      "novo_oponente": "🔓 NEW OPPONENT UNLOCKED: {name}",
+      "xp_level_up_ready": "âš¡ READY TO LEVEL UP!",
+      "novo_oponente": "ðŸ”“ NEW OPPONENT UNLOCKED: {name}",
       "sem_fichas": "NO TOKENS",
       "criar_ficha": "CREATE SHEET",
       "lobby_titulo": "SELECT YOUR SHEET",
@@ -1091,10 +1091,10 @@
       "escolher_elemento": "Choose your Elemental",
       "pts_disponiveis": "pts available",
       "precisa_ser_zero": "(must be 0)",
-      "proximo": "NEXT →",
+      "proximo": "NEXT â†’",
       "voltar": "BACK",
       "modo_standalone": "standalone mode",
-      "lobby_sub": "create your sheet · fight the CPU · climb the ranking",
+      "lobby_sub": "create your sheet Â· fight the CPU Â· climb the ranking",
       "suas_fichas": "your sheets",
       "carregando": "loading...",
       "inimigos_desbloqueados": "unlocked enemies",
@@ -1113,7 +1113,7 @@
       "erro_r_min": "Resistance (R) needs at least 1 point.",
       "erro_custo_pos": "Advantages outweigh disadvantages. Balance the score.",
       "erro_custo_neg": "Disadvantages outweigh advantages. Balance the score.",
-      "balanco": "advantages {v} + unique {p} − disadvantages {d} = {total} (must be 0)",
+      "balanco": "advantages {v} + unique {p} âˆ’ disadvantages {d} = {total} (must be 0)",
       "placeholder_nome": "fighter name...",
       "modo_fists": "Fists",
       "modo_armed": "Armed",
@@ -1123,16 +1123,16 @@
       "combat_entrar_sem": "ENTER (no powers)",
       "combat_entrar_com": "ENTER ({n} powers)",
       "combat_vez_inimigo": "=== ENEMY'S TURN ===",
-      "perto_morte": "⚠ NEAR DEATH",
-      "dice_critico": "⚡ CRITICAL!",
+      "perto_morte": "âš  NEAR DEATH",
+      "dice_critico": "âš¡ CRITICAL!",
       "dice_resultado": "result: {n}",
-      "log_iniciativa": "🎲 Initiative: You {pInit} vs {enemyName} {eInit}",
-      "log_vitoria": "⚔️ VICTORY!",
-      "log_derrota": "💀 You were defeated!",
+      "log_iniciativa": "ðŸŽ² Initiative: You {pInit} vs {enemyName} {eInit}",
+      "log_vitoria": "âš”ï¸ VICTORY!",
+      "log_derrota": "ðŸ’€ You were defeated!",
 
-      "btn_lobby": "← lobby",
-      "btn_proximo": "next →",
-      "btn_voltar": "← back",
+      "btn_lobby": "â† lobby",
+      "btn_proximo": "next â†’",
+      "btn_voltar": "â† back",
       "btn_salvar_lutar": "SAVE & FIGHT",
       "btn_fugir": "FLEE",
       "btn_sair": "EXIT",
@@ -1142,8 +1142,8 @@
       "fa_label": "FA",
       "fd_label": "FD",
       "sfx_toggle": "Toggle SFX",
-      "card_ataque": "⚔ attack",
-      "card_ataque_inimigo": "⚔ enemy attack",
+      "card_ataque": "âš” attack",
+      "card_ataque_inimigo": "âš” enemy attack",
       "card_poder": "power",
       "card_dano": "damage",
       "card_bloqueado": "blocked",
@@ -1156,7 +1156,7 @@
       "intro_ler_manual_sub": "learn the system before creating your sheet",
       "intro_criar_direto": "CREATE DIRECTLY",
       "intro_criar_direto_sub": "I already know what I'm doing",
-      "intro_dica_manual": "💡 the manual is accessible via the <strong>?</strong> button during creation",
+      "intro_dica_manual": "ðŸ’¡ the manual is accessible via the <strong>?</strong> button during creation",
       "attrs_pontos_restantes": "{n} pts remaining",
 
       "attr_labels": {
@@ -1251,9 +1251,9 @@
       ],
       "manual": {
         "fundamentos": { "titulo": "Fundamentals", "conteudo": "LDI is a virtual combat system where pain is real.\nThree billion players compete for position in the SDR ranking.\nEach fighter chooses a primary elemental that defines their powers." },
-        "atributos": { "titulo": "Attributes", "tabela": [["F — Power","Melee damage"],["H — Agility","Initiative, dodge, speed"],["R — Resistance","HP and MP base"],["A — Protection","Damage absorption, passive defense"],["PdF — Elemental Power","Damage and strength of elemental attacks"]], "extra": "Scale: 0 = common | 1 = practitioner | 2 = experienced | 3 = veteran | 4 = elite | 5 = absolute top\nHP = R × 5 | MP = PdF × 5" },
-        "combate": { "titulo": "Battle System", "conteudo": "INITIATIVE: H + 1d6 — highest acts first\n\nFA (Melee): F + H + 1d6\nFA (Elemental): PdF + H + 1d6\n\nFD (Normal): A + H + 1d6\nFD (Helpless): A + 1d6\n\nDAMAGE: FA − FD (minimum 0)\nCRITICAL: die = 6 → doubles F, PdF or A" },
-        "elementais": { "titulo": "The 7 Elementals", "tabela": [["🔥 Fire","Explosive, aggressive. High damage, constant pressure"],["💧 Water","Fluid, adaptable. Control, healing, versatility"],["🪨 Earth","Solid, resistant. Defense, stun, sustain"],["💨 Wind","Fast, evasive. Initiative, evasion, mobility"],["🌑 Darkness","Corrosive, draining. Absorption, debuff, weakening"],["✨ Light","Purifying, protective. Healing, protection, blindness"],["⚪ Neutral","Balanced. Versatile, no weaknesses, no peaks"]] },
+        "atributos": { "titulo": "Attributes", "tabela": [["F â€” Power","Melee damage"],["H â€” Agility","Initiative, dodge, speed"],["R â€” Resistance","HP and MP base"],["A â€” Protection","Damage absorption, passive defense"],["PdF â€” Elemental Power","Damage and strength of elemental attacks"]], "extra": "Scale: 0 = common | 1 = practitioner | 2 = experienced | 3 = veteran | 4 = elite | 5 = absolute top\nHP = R Ã— 5 | MP = PdF Ã— 5" },
+        "combate": { "titulo": "Battle System", "conteudo": "INITIATIVE: H + 1d6 â€” highest acts first\n\nFA (Melee): F + H + 1d6\nFA (Elemental): PdF + H + 1d6\n\nFD (Normal): A + H + 1d6\nFD (Helpless): A + 1d6\n\nDAMAGE: FA âˆ’ FD (minimum 0)\nCRITICAL: die = 6 â†’ doubles F, PdF or A" },
+        "elementais": { "titulo": "The 7 Elementals", "tabela": [["ðŸ”¥ Fire","Explosive, aggressive. High damage, constant pressure"],["ðŸ’§ Water","Fluid, adaptable. Control, healing, versatility"],["ðŸª¨ Earth","Solid, resistant. Defense, stun, sustain"],["ðŸ’¨ Wind","Fast, evasive. Initiative, evasion, mobility"],["ðŸŒ‘ Darkness","Corrosive, draining. Absorption, debuff, weakening"],["âœ¨ Light","Purifying, protective. Healing, protection, blindness"],["âšª Neutral","Balanced. Versatile, no weaknesses, no peaks"]] },
         "vantagens": { "titulo": "Advantages and Disadvantages", "conteudo": "Advantages cost character points and represent special techniques and powers.\nDisadvantages grant extra points but impose real restrictions.\n\nThe final balance must be zero: cost of advantages = gain from disadvantages." },
         "xp": { "titulo": "XP and Evolution", "conteudo": "Victory in fair battle: +10 XP\nDefeat in fair battle: +1 XP\n\nEvery 100 XP: 1 character point to spend on attribute or advantage." }
       },
@@ -1282,12 +1282,12 @@
         "npc_hacker_sdr": "SDR Hacker",
         "npc_nordico_karnazar": "Karnazar Fighter"
       },
-      "guest_banner": "You're playing without an account — your progress won't be saved.",
+      "guest_banner": "You're playing without an account â€” your progress won't be saved.",
       "guest_create_account": "Create free account",
       "guest_save_prompt_title": "Create a free account",
-      "guest_save_prompt_desc": "Create a free account to save this sheet and your progress. Your character is ready — don't lose your data!",
+      "guest_save_prompt_desc": "Create a free account to save this sheet and your progress. Your character is ready â€” don't lose your data!",
       "guest_continue_without_saving": "Continue with temporary sheet",
-      "guest_temp_badge": "🕐 Temporary sheet",
+      "guest_temp_badge": "ðŸ• Temporary sheet",
       "powers": {
         "fogo": {
           "chama_rapida": { "name": "Quick Flame", "desc": "Fires a fast flame dealing +2 elemental damage." },
@@ -1408,8 +1408,8 @@
         "procurando": "SEARCHING...",
         "btn_fila_publica": "PUBLIC QUEUE",
         "erro_criar": "Error creating room",
-        "presenca_disponivel": "🟢 {{n}} player(s) available now for multiplayer",
-        "presenca_vazio": "🔴 No players available right now. Try again soon."
+        "presenca_disponivel": "ðŸŸ¢ {{n}} player(s) available now for multiplayer",
+        "presenca_vazio": "ðŸ”´ No players available right now. Try again soon."
       },
       "mp": {
         "conectando": "CONNECTING...",
@@ -1418,9 +1418,9 @@
         "sua_vez": "YOUR TURN",
         "vez_oponente": "OPPONENT'S TURN",
         "selecionando": "SELECTING...",
-        "ppt": "ROCK · PAPER · SCISSORS",
+        "ppt": "ROCK Â· PAPER Â· SCISSORS",
         "carregando": "LOADING MATCH...",
-        "ppt_titulo": "ROCK · PAPER · SCISSORS",
+        "ppt_titulo": "ROCK Â· PAPER Â· SCISSORS",
         "ppt_subtitulo": "Winner chooses the first attribute",
         "ppt_aguardando": "Waiting for opponent...",
         "ppt_voce": "YOU",
@@ -1438,13 +1438,13 @@
         "revelacao_voce_venceu": "YOU WIN!",
         "revelacao_oponente_venceu": "OPPONENT WINS!",
         "revelacao_empate": "DRAW!",
-        "revelacao_voce_venceu_exclamacao": "💥 YOU WIN!",
-        "revelacao_oponente_venceu_exclamacao": "💥 OPPONENT WINS!",
-        "revelacao_empate_exclamacao": "⚡ DRAW!",
+        "revelacao_voce_venceu_exclamacao": "ðŸ’¥ YOU WIN!",
+        "revelacao_oponente_venceu_exclamacao": "ðŸ’¥ OPPONENT WINS!",
+        "revelacao_empate_exclamacao": "âš¡ DRAW!",
         "atributo_escolhido": "Attribute: {nome}"
       },
       "menu_titulo": "TOP TRUMPS",
-      "menu_subtitulo": "— LDI",
+      "menu_subtitulo": "â€” LDI",
       "menu_desc": "Collectible card game from the LDI universe",
       "menu_cartas_coletadas": "{n} / {total} CARDS COLLECTED",
       "menu_single_player": "SINGLE PLAYER",
@@ -1453,9 +1453,9 @@
       "menu_multi_desc": "Play against other players in real time",
       "menu_num_turnos": "NUMBER OF TURNS",
       "menu_tentativas": "{restantes}/{max} attempts to win a card today",
-      "menu_ja_ganhou": "✅ YOU ALREADY WON YOUR CARD TODAY! Come back tomorrow for new attempts.",
-      "menu_ja_ganhou_todas": "✅ YOU HAVE COLLECTED ALL 30 CARDS! Congratulations!",
-      "menu_album": "View my card album →",
+      "menu_ja_ganhou": "âœ… YOU ALREADY WON YOUR CARD TODAY! Come back tomorrow for new attempts.",
+      "menu_ja_ganhou_todas": "âœ… YOU HAVE COLLECTED ALL 30 CARDS! Congratulations!",
+      "menu_album": "View my card album â†’",
       "menu_voltar_games": "BACK TO GAMES",
       "menu_voltar_menu": "BACK TO MENU",
       "deckBuilderBtn": "BUILD DECK",
@@ -1498,7 +1498,7 @@
       "recompensa_carta_misteriosa": "MYSTERY CARD",
       "recompensa_confirmar": "CONFIRM REWARD",
       "relatorio_titulo": "ARENA REPORT",
-      "relatorio_sub": "Top Trumps — LDI",
+      "relatorio_sub": "Top Trumps â€” LDI",
       "relatorio_voce": "YOU",
       "relatorio_ia_label": "AI",
       "relatorio_rodadas": "Rounds",
@@ -1542,7 +1542,7 @@
       "multiplayer_locked_titulo": "Multiplayer requires an account",
       "multiplayer_locked_desc": "To play against other players in real time, you need an account with an Elite or Primordial subscription. Create your free account to get started.",
       "multiplayer_locked_criar_conta": "Create free account",
-      "guest_aviso_previo": "You're playing without an account — you'll use a temporary deck of 5 random cards. Results aren't saved and cards won't be kept. To save your deck and earn reward cards for wins, create a free account.",
+      "guest_aviso_previo": "You're playing without an account â€” you'll use a temporary deck of 5 random cards. Results aren't saved and cards won't be kept. To save your deck and earn reward cards for wins, create a free account.",
       "guest_aviso_criar_conta": "Create free account",
       "guest_cta_criar_conta": "Players with an account earn reward cards for every win. Create yours for free and start collecting.",
       "guest_cta_link": "Create account"
@@ -1570,11 +1570,11 @@
       "codigo_info": "Share the code for your opponent to join.",
       "input_placeholder": "Code (LDI-XXXX)",
       "aposta_title": "Select the card you want to bet:",
-      "aposta_aviso": "⚠️ If you lose, this card is gone from your deck forever",
+      "aposta_aviso": "âš ï¸ If you lose, this card is gone from your deck forever",
       "aposta_aguardando": "Bet confirmed. Waiting for opponent...",
       "aposta_oponente_pronto": "Opponent has already bet.",
-      "aviso_titulo": "BET MODE — READ BEFORE CONTINUING",
-      "aviso_texto": "If you disconnect during the match for any reason — internet outage, closing the app, battery dying — you automatically lose and lose the bet card. No exceptions.",
+      "aviso_titulo": "BET MODE â€” READ BEFORE CONTINUING",
+      "aviso_texto": "If you disconnect during the match for any reason â€” internet outage, closing the app, battery dying â€” you automatically lose and lose the bet card. No exceptions.",
       "frases_fila": [
         "Analyzing the SDR...",
         "Please wait, the arena is locating you.",
@@ -1626,25 +1626,25 @@
       "brincar": "[ play ]",
       "loja": "[ shop ]",
       "voltar": "back",
-      "fome": "🍖 Hunger",
-      "higiene": "🧼 Hygiene",
-      "energia": "⚡ Energy",
-      "humor": "🎭 Mood",
-      "saude": "❤️ Health",
+      "fome": "ðŸ– Hunger",
+      "higiene": "ðŸ§¼ Hygiene",
+      "energia": "âš¡ Energy",
+      "humor": "ðŸŽ­ Mood",
+      "saude": "â¤ï¸ Health",
       "saude_btn": "[ health ]",
       "saude_titulo": "RESTORE HEALTH",
       "saude_concluido": "HEALTH RESTORED!",
       "saude_recuperado": "Health +{valor}",
       "saude_feito": "[ DONE ]",
-      "dix_infinito": "🪙 ∞ DIX",
-      "dix_display": "🪙 {saldo} DIX",
+      "dix_infinito": "ðŸª™ âˆž DIX",
+      "dix_display": "ðŸª™ {saldo} DIX",
       "dix_label": "DIX",
       "loja_link": "[shop]",
       "critico": "CRITICAL",
-      "fast_on": "⏩ fast: on",
-      "inventario_titulo": "🎒 your inventory",
+      "fast_on": "â© fast: on",
+      "inventario_titulo": "ðŸŽ’ your inventory",
       "comprar": "buy",
-      "pegar": "🎁 claim",
+      "pegar": "ðŸŽ claim",
       "iniciar_passeio": "START",
       "fim_passeio": "WALK OVER",
       "jogar_novamente": "PLAY AGAIN",
@@ -1656,38 +1656,38 @@
       "voltar_extras": "[ back to extras ]",
       "slot_vazio": "empty",
       "novo_jogo": "new game",
-      "admin": "⚙ admin",
-      "fast_off": "▶ fast: off",
+      "admin": "âš™ admin",
+      "fast_off": "â–¶ fast: off",
       "trocar": "[ swap ]",
       "ultimos_resultados": "last results:",
-      "coletadas": "⭐ {n} collected",
+      "coletadas": "â­ {n} collected",
       "partida_titulo": "DEPARTURE",
       "luto_titulo": "MOURNING",
-      "loja_titulo": "🏪 DIX shop",
+      "loja_titulo": "ðŸª DIX shop",
       "selecao_titulo": "a being emerges from the egg",
       "selecao_sub": "who do you want it to be?",
-      "banhar_title": "🧼 bathe",
+      "banhar_title": "ðŸ§¼ bathe",
       "banhar_hint": "drag up and down to scrub",
-      "banhar_sem_sabonete": "you have no soap — visit the shop",
-      "alimentar_title": "🍖 feed",
-      "alimentar_sem_comida": "you have no food — visit the shop",
-      "passeio_title": "🌙 walk around Marelia",
+      "banhar_sem_sabonete": "you have no soap â€” visit the shop",
+      "alimentar_title": "ðŸ– feed",
+      "alimentar_sem_comida": "you have no food â€” visit the shop",
+      "passeio_title": "ðŸŒ™ walk around Marelia",
       "passeio_sub": "where to?",
       "brincadeira_preparando": "preparing challenge...",
-      "brincadeira_divertido": "that was fun! 🎉",
-      "brincadeira_treinar": "you can practice more in Minigames! 💪",
+      "brincadeira_divertido": "that was fun! ðŸŽ‰",
+      "brincadeira_treinar": "you can practice more in Minigames! ðŸ’ª",
       "luto_se_foi": "{nome} is gone",
       "luto_novo_ovo_em": "new egg available in",
-      "luto_ciclo_recomeca": "the cycle begins anew — a new egg awaits",
+      "luto_ciclo_recomeca": "the cycle begins anew â€” a new egg awaits",
       "luto_recomecar": "start over",
-      "passear_enduro_kroniki": "ENDURO KRONIKI",
-      "passear_desc": "{n} stages · dodge · collect ⭐",
+      "passear_enduro": "ENDURO KRONIKI",
+      "passear_desc": "{n} stages Â· dodge Â· collect â­",
       "passear_setas": "arrow keys or swipe",
       "passear_todas_pistas": "All stages completed!",
       "sem_fichas": "NO TOKENS",
       "comprado": "{emoji} {nome} purchased!",
-      "banhar_item_shampoo": "Special Shampoo ✨",
-      "banhar_item_sabonete": "Teal Soap 🧼",
+      "banhar_item_shampoo": "Special Shampoo âœ¨",
+      "banhar_item_sabonete": "Teal Soap ðŸ§¼",
       "troca_erro_vivo": "can only trade living tamagoshi",
       "troca_key_gerada": "key generated! share with another player",
       "troca_cole_key": "paste the key first",
@@ -1697,7 +1697,7 @@
       "slot_1": "Slot 1",
       "slot_2": "Slot 2",
       "passear_stage_abbr": "S{n}",
-      "notificacao_critico": "{nome} is in critical condition! ⚠️",
+      "notificacao_critico": "{nome} is in critical condition! âš ï¸",
       "troca_erro_free_cooldown": "free account can only trade every 3 months. {dias} days remaining.",
       "troca_erro_elite_mes": "elite account has already used this month's trade.",
       "troca_erro_primordial_cooldown": "primordial must wait 15 days between trades. {dias} days remaining.",
@@ -1718,7 +1718,7 @@
       "fase_partida": "Departure",
       "fase_evoluiu": "Tamagoshi evolved to {fase}",
 
-      "partida_concluida": "✨ departure completed",
+      "partida_concluida": "âœ¨ departure completed",
       "partida_salao_fama": "{nome} has entered the Marelia Hall of Fame.",
       "partida_ver_salao": "[ view in hall of fame ]",
       "partida_adotar_nova": "[ adopt new creature ]",
@@ -1807,7 +1807,7 @@
       "raridade_epico": "epic",
       "raridade_lendario": "legendary",
 
-      "notif_carente_boasvindas": "\"ah… you came. i was counting the seconds.\"",
+      "notif_carente_boasvindas": "\"ahâ€¦ you came. i was counting the seconds.\"",
       "notif_carente_fome": "\"i'm hungry but it's fine, stay there, i can handle it... probably\"",
       "notif_carente_sede": "\"three hours without water. three. hours. i'm totally fine not\"",
       "notif_carente_passeio": "\"you didn't take me out today. i stayed here alone. staring at the wall.\"",
@@ -1837,7 +1837,7 @@
       "notif_filosofo_passeio": "\"it's been a while since i've seen the skies of Marelia. or any sky.\"",
       "notif_filosofo_critico": "\"i'm approaching an interesting frontier. i'd rather not cross it today.\"",
       "notif_filosofo_morte": "\"the frontier has been crossed. don't worry. it's just another journey.\"",
-      "notif_comico_boasvindas": "\"ah! it's you! what a coincidence! i was just thinking about… something else.\"",
+      "notif_comico_boasvindas": "\"ah! it's you! what a coincidence! i was just thinking aboutâ€¦ something else.\"",
       "notif_comico_fome": "\"dude. cookie. simple as that.\"",
       "notif_comico_sede": "\"water. juice. anything. even that boring flat water is fine\"",
       "notif_comico_passeio": "\"we need to go out. i saw a pigeon here that i want to get to know better\"",
@@ -1849,10 +1849,10 @@
       "selecionar_slot": "Select Slot",
       "fechar": "Close",
 
-      "gacha_titulo": "🎰 Season Raffle",
+      "gacha_titulo": "ðŸŽ° Season Raffle",
       "gacha_sub": "Spin for {custo} DIX and win a random creature from the season!",
-      "gacha_entrar": "Raffle 🎰",
-      "gacha_girar": "🎲 Spin ({custo} DIX)",
+      "gacha_entrar": "Raffle ðŸŽ°",
+      "gacha_girar": "ðŸŽ² Spin ({custo} DIX)",
       "gacha_girando": "SPINNING",
       "gacha_embaralhando": "shuffling creatures...",
       "gacha_saldo_insuficiente": "Not enough DIX to spin the raffle!",
@@ -1880,22 +1880,22 @@
       "puzzle_anagrama": "Anagram",
       "puzzle_forca": "Secret Word",
 
-      "fala_draken_boasvindas": "...you came to see me in the void... thank you",
-      "fala_draken_morte": "finally... rest in the eternal darkness",
-      "fala_kaiser_boasvindas": "oh, you came to see me!",
-      "fala_kaiser_morte": "I turned to vapor... I'll return as rain one day",
-      "fala_kroniki_boasvindas": "tick tock… you arrived right on time",
-      "fala_kroniki_morte": "the clock stopped",
-      "fala_lenna_boasvindas": "Signal stabilized! You arrived!",
-      "fala_lenna_morte": "Signal lost... changing frequencies",
-      "fala_yawaru_boasvindas": "The palette got more colorful with you",
-      "fala_yawaru_morte": "My masterpiece remained unfinished...",
-      "fala_alion_boasvindas": "...you're back. the blood reacts.",
-      "fala_alion_morte": "The red turned black... finally, rest",
-      "fala_indye_boasvindas": "Finally showed up. Not like I was waiting.",
-      "fala_indye_morte": "Even the most intense fire goes out one day",
-      "fala_popystar_boasvindas": "> USER IDENTIFIED. WELCOME. <",
-      "fala_popystar_morte": "> DISCONNECTED FROM SYSTEM <",
+      "fala_4_boasvindas": "...you came to see me in the void... thank you",
+      "fala_4_morte": "finally... rest in the eternal darkness",
+      "fala_5_boasvindas": "oh, you came to see me!",
+      "fala_5_morte": "I turned to vapor... I'll return as rain one day",
+      "fala_1_boasvindas": "tick tockâ€¦ you arrived right on time",
+      "fala_1_morte": "the clock stopped",
+      "fala_6_boasvindas": "Signal stabilized! You arrived!",
+      "fala_6_morte": "Signal lost... changing frequencies",
+      "fala_7_boasvindas": "The palette got more colorful with you",
+      "fala_7_morte": "My masterpiece remained unfinished...",
+      "fala_8_boasvindas": "...you're back. the blood reacts.",
+      "fala_8_morte": "The red turned black... finally, rest",
+      "fala_9_boasvindas": "Finally showed up. Not like I was waiting.",
+      "fala_9_morte": "Even the most intense fire goes out one day",
+      "fala_10_boasvindas": "> USER IDENTIFIED. WELCOME. <",
+      "fala_10_morte": "> DISCONNECTED FROM SYSTEM <",
 
       "termo": {
         "titulo": "TERM OF RESPONSIBILITY",
@@ -1910,7 +1910,7 @@
         "aviso_vida": "Your Tamagoshi will live up to 1 year. After that, it will move on.",
         "aviso_fama": "When your Tamagoshi departs, it will enter the Hall of Fame and be remembered forever.",
         "guest_titulo": "Playing without an account",
-        "guest_desc": "Your creature and progress are saved only during this session — reloading the page or closing the browser loses everything, and you'll start over next visit. To keep your creature alive between sessions, create a free account.",
+        "guest_desc": "Your creature and progress are saved only during this session â€” reloading the page or closing the browser loses everything, and you'll start over next visit. To keep your creature alive between sessions, create a free account.",
         "guest_criar_conta": "Create free account",
         "btn_li": "I HAVE READ AND UNDERSTAND THE TERMS",
         "confirmacao_titulo": "ARE YOU SURE?",
@@ -1968,7 +1968,7 @@
       "descansar": "REST",
       "investigar": "INVESTIGATE",
       "dialogar": "TALK",
-      "avançar": "ADVANCE",
+      "avanÃ§ar": "ADVANCE",
       "coletar": "COLLECT",
       "usar": "USE",
       "examinar": "EXAMINE",
@@ -1991,15 +1991,15 @@
       "aba_mochila": "bag ({n})",
       "aba_consumiveis": "consumables ({n})",
       "aba_upgrades": "upgrades ({n})",
-      "vila_dia": "☀️ DAY",
-      "vila_noite": "🌙 NIGHT",
+      "vila_dia": "â˜€ï¸ DAY",
+      "vila_noite": "ðŸŒ™ NIGHT",
       "vila_caso_andamento": "ongoing case",
       "vila_novo_caso": "NEW CASE",
       "vila_cliente": "client: {nome}",
       "vila_sem_cliente": "no client",
       "vila_trancado": "locked",
-      "vila_dungeon": "⚔️ dungeon",
-      "vila_progresso_caso": "{pistas} clues · {restantes} locations left",
+      "vila_dungeon": "âš”ï¸ dungeon",
+      "vila_progresso_caso": "{pistas} clues Â· {restantes} locations left",
       "interior_sair": "[ leave ]",
       "interior_missoes": "quests:",
       "interior_comprar": "[ buy ]",
@@ -2011,15 +2011,15 @@
       "dossier_suspeitos": "SUSPECTS",
       "dossier_pistas": "CLUES ({n}/{total} minimum)",
       "dossier_sem_pistas": "no clues yet. visit the case locations.",
-      "dossier_dica": "👓 \"you have enough evidence for an accusation. but more clues increase your chances.\" — Prof. Machine",
+      "dossier_dica": "ðŸ‘“ \"you have enough evidence for an accusation. but more clues increase your chances.\" â€” Prof. Machine",
       "dossier_acusar": "[ accuse ]",
-      "dossier_acusar_incompleto": "[ accuse — {n}/{total} clues ]",
+      "dossier_acusar_incompleto": "[ accuse â€” {n}/{total} clues ]",
       "dossier_reiniciar": "[ restart suspects ]",
       "dossier_culpado": "who is guilty?",
       "dossier_cancelar": "[ cancel ]",
-      "dossier_penalidade": "wrong accusations: {n}. penalty: -50🍺 each.",
+      "dossier_penalidade": "wrong accusations: {n}. penalty: -50ðŸº each.",
       "dossier_locais": "LOCATIONS TO INVESTIGATE",
-      "dossier_resolvido": "✅ case solved.",
+      "dossier_resolvido": "âœ… case solved.",
       "descanso_acordou": "you woke up.",
       "descanso_recuperado": "Morale recovered to {hp}/{hpMax} ({pct}%).",
       "descanso_levantar": "[ get up ]",
@@ -2030,27 +2030,27 @@
       "dungeonselect_titulo": "DUNGEONS",
       "dungeonselect_vazio": "no dungeons available. explore the village first.",
       "dungeonselect_sub": "enter where the night is darkest",
-      "dungeonselect_auto_on": "[ 🤖 AUTO ]",
-      "dungeonselect_auto_off": "[ 🤖 auto ]",
-      "dungeonselect_legenda_nova": "⚔️ New",
-      "dungeonselect_legenda_rejogar": "🔄 Replay",
-      "dungeonselect_legenda_noturna": "🌙 Night",
-      "dungeonselect_auto_trocar": "🤖 AUTO active — change dungeon?",
+      "dungeonselect_auto_on": "[ ðŸ¤– AUTO ]",
+      "dungeonselect_auto_off": "[ ðŸ¤– auto ]",
+      "dungeonselect_legenda_nova": "âš”ï¸ New",
+      "dungeonselect_legenda_rejogar": "ðŸ”„ Replay",
+      "dungeonselect_legenda_noturna": "ðŸŒ™ Night",
+      "dungeonselect_auto_trocar": "ðŸ¤– AUTO active â€” change dungeon?",
       "dungeonselect_auto_selecionar": "Select dungeon for auto",
-      "dungeonselect_auto_aviso": "⚠️ auto mode takes longer to level up",
+      "dungeonselect_auto_aviso": "âš ï¸ auto mode takes longer to level up",
       "dungeonselect_auto_sufixo": " (auto)",
       "dungeonselect_auto_desligar": "[ turn off auto ]",
       "dungeonselect_cancelar": "[ cancel ]",
       "casoselect_titulo": "CASES",
       "casoselect_sub": "investigate. accuse. solve.",
       "casoselect_vazio": "no cases available yet.",
-      "casoselect_andamento": "● ongoing",
+      "casoselect_andamento": "â— ongoing",
       "casoselect_cliente": "client: {nome}",
       "casoselect_anonimo": "anonymous",
       "casoselect_resolvidos": "SOLVED",
       "dungeon_nao_encontrada": "dungeon not found: {id}",
       "dungeon_morreu": "you died.",
-      "dungeon_auto_recuperando": "AUTO — recovering HP...",
+      "dungeon_auto_recuperando": "AUTO â€” recovering HP...",
       "dungeon_completo": "{nome} complete!",
       "dungeon_cervejas": "beers",
       "dungeon_notas": "notes",
@@ -2071,17 +2071,17 @@
       "investigacao_puzzle_stealth": "the area is guarded. pass without being seen. red zones = camera sees you.",
       "investigacao_puzzle_sliding": "the document was torn. reconstruct the pieces.",
       "investigacao_puzzle_default": "solve the puzzle to continue.",
-      "investigacao_puzzle_falhou": "❌ puzzle failed — -{dano} morale",
+      "investigacao_puzzle_falhou": "âŒ puzzle failed â€” -{dano} morale",
       "investigacao_puzzle_falhou_dica": "you can try again or break down the door. breaking down is not elegant. but it works.",
       "investigacao_tentar_novo": "[ try again ]",
-      "investigacao_arrombar": "[ break in — {custo}🍺 ]",
-      "investigacao_sem_cervejas": "[ no beers ({atual}/{custo}🍺) ]",
+      "investigacao_arrombar": "[ break in â€” {custo}ðŸº ]",
+      "investigacao_sem_cervejas": "[ no beers ({atual}/{custo}ðŸº) ]",
       "investigacao_enfrentar": "[ face ]",
       "investigacao_pista_encontrada": "clue found:",
       "investigacao_ja_visitado": "this location has already been investigated.",
       "investigacao_investigar": "[ investigate this location ]",
       "guest_titulo": "Playing without an account",
-      "guest_desc": "Your progress (beers, level, items, solved cases) is kept only during this session — reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
+      "guest_desc": "Your progress (beers, level, items, solved cases) is kept only during this session â€” reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
       "guest_criar_conta": "Create free account"
     },
     "ldi": {
@@ -2117,13 +2117,13 @@
         "sub": "Arc 1: Discovery",
         "desc": "A digital gamebook narrative RPG set in the Illusion Fight universe. Your choices define your destiny in the arena.",
         "nova_ficha": "NEW SHEET",
-        "manual": "📖 Game Manual",
+        "manual": "ðŸ“– Game Manual",
         "suas_fichas": "Your Sheets",
         "carregando": "Loading...",
         "sem_fichas": "No saved sheets yet.",
         "continuar": "CONTINUE",
         "guest_titulo": "Playing without an account",
-        "guest_desc": "Your progress is kept only during this session — if you reload the page or close the browser, your character sheet and adventure progress are lost. To really save and continue another day, create a free account.",
+        "guest_desc": "Your progress is kept only during this session â€” if you reload the page or close the browser, your character sheet and adventure progress are lost. To really save and continue another day, create a free account.",
         "guest_criar_conta": "Create free account",
         "modal_titulo": "New Sheet",
         "modal_sub": "Choose how to create your character in LDI:",
@@ -2163,23 +2163,23 @@
         "titulo": "Character Sheet"
       },
       "cluebook": {
-        "titulo": "📓 Clue Book",
+        "titulo": "ðŸ““ Clue Book",
         "vazio": "No clues collected yet.",
         "todas": "All ({n})",
         "dia": "Day {n}"
       },
       "end": {
-        "retrospecto": "📜 Retrospective",
-        "conquistas": "🏅 Achievements ({n}/{total})",
-        "decisoes": "🎯 Decisions That Most Impacted",
-        "estatisticas": "📊 Statistics",
+        "retrospecto": "ðŸ“œ Retrospective",
+        "conquistas": "ðŸ… Achievements ({n}/{total})",
+        "decisoes": "ðŸŽ¯ Decisions That Most Impacted",
+        "estatisticas": "ðŸ“Š Statistics",
         "dia": "In-game day",
         "pistas": "Clues",
         "xp_total": "Total XP",
         "xp": "XP",
         "creditos": "Credits",
         "conquistas_label": "Achievements",
-        "pistas_coletadas": "📋 Collected Clues",
+        "pistas_coletadas": "ðŸ“‹ Collected Clues",
         "pistas_label": "Clues:"
       },
       "attr_forca": "Power",
@@ -2189,20 +2189,20 @@
       "attr_poder_elemental": "Elemental Power",
       "create_steps": {
         "step1_question": "How do you prefer to move in the LDI?",
-        "step1_a": "Explosion and speed — break in, break everything",
-        "step1_b": "Silence and precision — go unnoticed",
-        "step1_c": "Resistance and presence — nobody moves you",
+        "step1_a": "Explosion and speed â€” break in, break everything",
+        "step1_b": "Silence and precision â€” go unnoticed",
+        "step1_c": "Resistance and presence â€” nobody moves you",
         "step2_question": "Your element has been detected...",
         "step2_a": "Accept the element the system chose (Fire)",
-        "step2_b": "Refuse — the system got it wrong (Water)",
+        "step2_b": "Refuse â€” the system got it wrong (Water)",
         "step3_question": "Which combat kit do you want to start with?",
-        "step3_a": "Data Katana — reach and precision",
-        "step3_b": "Twin Blades — speed and double strike",
-        "step3_c": "Chain Blade — versatility and defense",
+        "step3_a": "Data Katana â€” reach and precision",
+        "step3_b": "Twin Blades â€” speed and double strike",
+        "step3_c": "Chain Blade â€” versatility and defense",
         "step4_question": "What do you want to achieve in the LDI?",
-        "step4_a": "Power — reach the top of the ranking",
-        "step4_b": "Knowledge — unravel the system's secrets",
-        "step4_c": "Connection — build alliances and history"
+        "step4_a": "Power â€” reach the top of the ranking",
+        "step4_b": "Knowledge â€” unravel the system's secrets",
+        "step4_c": "Connection â€” build alliances and history"
       },
       "attr_names": {
         "F": "Power",
@@ -2229,9 +2229,9 @@
       "char_data": {
         "attr_F": "Power (F): Melee combat damage. Essential in Unarmed and Armed modes. The higher, the more HP you take per attack.",
         "attr_H": "Agility (H): Speed and initiative. Essential for acting first and dodging. Favors Armed mode and increases your FD.",
-        "attr_R": "Resistance (R): Your max HP (HP = R × 5). Vital in any mode. Without resistance, you won't last till the end.",
+        "attr_R": "Resistance (R): Your max HP (HP = R Ã— 5). Vital in any mode. Without resistance, you won't last till the end.",
         "attr_A": "Protection (A): Damage reduction and defense. Favors Unarmed mode. Increases your FD and damage resistance.",
-        "attr_PdF": "Elemental Power (PdF): Elemental damage and max MP (MP = PdF × 4). Essential in Power mode. Unlocks elemental attacks.",
+        "attr_PdF": "Elemental Power (PdF): Elemental damage and max MP (MP = PdF Ã— 4). Essential in Power mode. Unlocks elemental attacks.",
         "adv_reflexos_rapidos": "Quick Reflexes",
         "adv_reflexos_rapidos_desc": "Your reaction is faster than the LDI average. You gain +1 on initiative rolls and can act first even against faster opponents.",
         "adv_corpo_adaptado": "Adapted Body",
@@ -2273,7 +2273,7 @@
         "perk_esquiva_agil": "Agile Dodge",
         "perk_esquiva_agil_desc": "You have trained reflexes. +1 FD if your H is higher than the enemy's.",
         "perk_golpe_pesado": "Heavy Strike",
-        "perk_golpe_pesado_desc": "Your blows carry brute force. +2 damage on critical (FA - FD ≥ 5).",
+        "perk_golpe_pesado_desc": "Your blows carry brute force. +2 damage on critical (FA - FD â‰¥ 5).",
         "perk_postura_defensiva": "Defensive Stance",
         "perk_postura_defensiva_desc": "You know how to protect yourself. +2 FD, but -1 FA this turn.",
         "perk_ataque_preciso": "Precise Attack",
@@ -2292,27 +2292,27 @@
         "spec_elemental_desc": "Your elemental connection is maximum. In Power mode, you can spend 2 extra MP to double elemental damage."
       },
       "manual": {
-        "title": "📖 Game Manual",
+        "title": "ðŸ“– Game Manual",
         "sections": [
           {
             "title": "What is the LDI?",
-            "content": "LDI stands for \"Lutas de Ilusão\" (Illusion Fight), a digital combat system where fighters connect their minds to battle in virtual arenas. You are a new competitor in Arc 1: Discovery."
+            "content": "LDI stands for \"Lutas de IlusÃ£o\" (Illusion Fight), a digital combat system where fighters connect their minds to battle in virtual arenas. You are a new competitor in Arc 1: Discovery."
           },
           {
             "title": "Attributes",
-            "content": "F (Power): Melee damage. Favors Unarmed and Armed.\nH (Agility): Initiative and dodge. Favors Armed.\nR (Resistance): Max HP (R × 5). Vital for any style.\nA (Protection): Defense and damage reduction. Favors Unarmed.\nPdF (Elemental Power): Elemental damage and MP (PdF × 4). Essential for Power mode."
+            "content": "F (Power): Melee damage. Favors Unarmed and Armed.\nH (Agility): Initiative and dodge. Favors Armed.\nR (Resistance): Max HP (R Ã— 5). Vital for any style.\nA (Protection): Defense and damage reduction. Favors Unarmed.\nPdF (Elemental Power): Elemental damage and MP (PdF Ã— 4). Essential for Power mode."
           },
           {
-            "title": "Combat — Modes",
-            "content": "✊ Unarmed: Uses F and A. Moderate damage, high defense.\n⚔️ Armed: Uses F and H. High damage, high initiative.\n⚡ Power: Uses PdF and MP. Elemental damage, consumes MP."
+            "title": "Combat â€” Modes",
+            "content": "âœŠ Unarmed: Uses F and A. Moderate damage, high defense.\nâš”ï¸ Armed: Uses F and H. High damage, high initiative.\nâš¡ Power: Uses PdF and MP. Elemental damage, consumes MP."
           },
           {
-            "title": "Combat — System",
+            "title": "Combat â€” System",
             "content": "Each turn: you attack (FA) and the enemy defends (FD). If FA > FD, you deal damage equal to the difference. Then the enemy attacks. Whoever reduces the opponent's HP to zero first wins."
           },
           {
             "title": "HP and MP",
-            "content": "HP (Hit Points): R × 5. If it reaches zero, you lose the combat.\nMP (Magic Points): PdF × 4. Used for Power mode attacks and special actions. Recovers when resting or with items."
+            "content": "HP (Hit Points): R Ã— 5. If it reaches zero, you lose the combat.\nMP (Magic Points): PdF Ã— 4. Used for Power mode attacks and special actions. Recovers when resting or with items."
           },
           {
             "title": "Powers",
@@ -2328,7 +2328,7 @@
           },
           {
             "title": "Survival Tips",
-            "content": "1. Don't neglect R — low HP = quick death.\n2. Choose a main combat mode and focus on the right attributes.\n3. Save credits for healing items.\n4. Explore everything — clues reveal secrets and alternate endings.\n5. If you're losing, the option to flee exists for a reason."
+            "content": "1. Don't neglect R â€” low HP = quick death.\n2. Choose a main combat mode and focus on the right attributes.\n3. Save credits for healing items.\n4. Explore everything â€” clues reveal secrets and alternate endings.\n5. If you're losing, the option to flee exists for a reason."
           }
         ]
       },
@@ -2397,11 +2397,11 @@
         "levelup_restam": "Distribute {n} remaining point(s)",
         "levelup_confirmar": "CONFIRM",
         "carregando": "Loading...",
-        "hud_ficha": "📋 Sheet",
+        "hud_ficha": "ðŸ“‹ Sheet",
         "hud_dia": "Day {n}",
-        "hud_creditos": "💰 {n}",
-        "hud_pistas": "📓 Clues ({n})",
-        "hud_manual": "📖 Manual"
+        "hud_creditos": "ðŸ’° {n}",
+        "hud_pistas": "ðŸ““ Clues ({n})",
+        "hud_manual": "ðŸ“– Manual"
       },
       "combat": {
         "power_titulo": "Prepare Powers",
@@ -2409,7 +2409,7 @@
         "power_count": "{n}/4 selected",
         "entrar_sem": "ENTER COMBAT (NO POWERS)",
         "entrar_com": "ENTER COMBAT ({n} POWERS)",
-        "poderes_preparados": "🔮 Powers prepared: {poderes}",
+        "poderes_preparados": "ðŸ”® Powers prepared: {poderes}",
         "nenhum": "none",
         "xp_toast": "+{n} XP"
       }
@@ -2428,7 +2428,7 @@
       "pre_batalha": "PRE-BATTLE",
       "seu_time": "YOUR TEAM",
       "inimigos": "ENEMIES",
-      "vs": "⚔️ VS ⚔️",
+      "vs": "âš”ï¸ VS âš”ï¸",
       "nivel": "Lv.",
       "tier": "Tier",
       "confirmar": "CONFIRM"
@@ -2446,7 +2446,7 @@
     "sem_submissoes": "No pending submissions.",
     "carregando": "CARREGANDO...",
     "btn_voltar": "BACK",
-    "auditoria_titulo": "AUDIT — PENDING SHARES",
+    "auditoria_titulo": "AUDIT â€” PENDING SHARES",
     "pendentes_count": "{n} pending",
     "acesso_negado": "Access denied."
   },
@@ -2458,12 +2458,12 @@
     },
     "livro": {
       "titulo": "CHAPTERS",
-      "continuar_lendo": "→ Continue reading",
+      "continuar_lendo": "â†’ Continue reading",
       "cap": "CH.",
       "em_breve": "COMING SOON",
       "premium": "PREMIUM",
       "nao_encontrado": "This chapter has not been published yet.",
-      "voltar_indice": "← BACK TO INDEX",
+      "voltar_indice": "â† BACK TO INDEX",
       "capitulo": "CHAPTER",
       "config_leitura": "Reading settings",
       "fonte": "Font size",
@@ -2479,12 +2479,12 @@
     },
     "webtoon": {
       "titulo": "WEBTOON",
-      "continuar": "→ Continue",
-      "voltar": "← BACK",
+      "continuar": "â†’ Continue",
+      "voltar": "â† BACK",
       "nao_encontrado": "Episode not found.",
       "em_breve": "COMING SOON",
-      "anterior": "← Previous Episode",
-      "proximo": "Next Episode →",
+      "anterior": "â† Previous Episode",
+      "proximo": "Next Episode â†’",
       "pagina": "Page"
     },
     "mundo": {
@@ -2498,15 +2498,15 @@
       "glossario": "GLOSSARY",
       "personagens_titulo": "MEET THE CHARACTERS",
       "ver_todos": "VIEW ALL",
-      "timeline_prev": "← PREVIOUS",
-      "timeline_next": "NEXT →",
-      "og_title": "World — Illusion Fight Universe",
-      "og_desc": "Explore the Illusion Fight universe — Bravara, the LDI arena, the Xakaxi tribe, timeline, glossary, and the complete lore.",
+      "timeline_prev": "â† PREVIOUS",
+      "timeline_next": "NEXT â†’",
+      "og_title": "World â€” Illusion Fight Universe",
+      "og_desc": "Explore the Illusion Fight universe â€” Bravara, the LDI arena, the Xakaxi tribe, timeline, glossary, and the complete lore.",
       "premium": "PREMIUM",
       "premium_ritual": "Detailed Sealing Ritual, Yawanari, Powa and Tawira sheets, and the Primordial Sagas"
     },
     "personagens": {
-      "voltar": "← CHARACTERS",
+      "voltar": "â† CHARACTERS",
       "nao_encontrado": "Character not found.",
       "idade": "Age",
       "status": "Status",
@@ -2522,7 +2522,7 @@
       "name": "ISAIAS LEAL"
     },
     "assinar": {
-      "og_title": "Subscribe — Illusion Fight",
+      "og_title": "Subscribe â€” Illusion Fight",
       "og_desc": "Choose your tier: Ranked, Elite or Primordial. Each level unlocks new access to the Illusion Fight universe."
     },
     "leaderboard": {
@@ -2538,19 +2538,19 @@
       "badges": "Badges"
     },
     "helmet": {
-      "home": "Illusion Fight — The pain is 100% real",
-      "musicas": "Music — Illusion Fight",
-      "livro": "Book — Illusion Fight",
-      "webtoon": "Webtoon — Illusion Fight",
-      "mundo": "World — Illusion Fight",
-      "autor": "Author — Illusion Fight",
-      "personagens": "Characters — Illusion Fight",
-      "assinar": "Subscribe — Illusion Fight",
-      "personagem_nao_encontrado": "Character not found — Illusion Fight",
-      "capitulo_nao_encontrado": "Chapter not found — Illusion Fight"
+      "home": "Illusion Fight â€” The pain is 100% real",
+      "musicas": "Music â€” Illusion Fight",
+      "livro": "Book â€” Illusion Fight",
+      "webtoon": "Webtoon â€” Illusion Fight",
+      "mundo": "World â€” Illusion Fight",
+      "autor": "Author â€” Illusion Fight",
+      "personagens": "Characters â€” Illusion Fight",
+      "assinar": "Subscribe â€” Illusion Fight",
+      "personagem_nao_encontrado": "Character not found â€” Illusion Fight",
+      "capitulo_nao_encontrado": "Chapter not found â€” Illusion Fight"
     },
     "notFound": {
-      "titulo": "Page not found — Illusion Fight",
+      "titulo": "Page not found â€” Illusion Fight",
       "mensagem": "This page does not exist.",
       "redirect": "You will be redirected to the home page in",
       "cta": "Go now"
@@ -2569,17 +2569,17 @@
       "selecione_slot": "Select a save slot",
       "slot_label": "Save",
       "slot_vazio": "Empty",
-      "continuar": "● CONTINUE",
+      "continuar": "â— CONTINUE",
       "nivel_casos": "level {nivel}, {casos} cases solved",
-      "novo_jogo": "○ NEW GAME",
-      "voltar_site": "← back to site",
+      "novo_jogo": "â—‹ NEW GAME",
+      "voltar_site": "â† back to site",
       "confirmar": "are you sure?\nthis deletes everything.",
       "nao": "NO",
       "sim": "YES"
     },
     "final": {
       "msg_jack": "it was a pleasure working with you.\nmarelia will keep needing someone like you.",
-      "jack_label": "Jack Cachorrão",
+      "jack_label": "Jack CachorrÃ£o",
       "creditos_titulo": "PRIVATE NIGHTMARE",
       "creditos_temporada": "Season 1",
       "creditos_historia": "a story by",
@@ -2588,7 +2588,7 @@
       "creditos_autor": "ISAIAS LEAL",
       "creditos_obrigado": "thank you for playing",
       "creditos_prox_temp": "see you next season.",
-      "nivel_casos_label": "level {nivel} · {casos} cases solved",
+      "nivel_casos_label": "level {nivel} Â· {casos} cases solved",
       "compartilhar": "share with friends",
       "voltar_inicio": "back to start",
       "link_copiado": "link copied!"
@@ -2596,24 +2596,24 @@
     "convo": {
       "caso_aberto": "Case opened.",
       "caso_encerrado": "Case closed.",
-      "jack_nome": "Jack Cachorrão",
-      "online": "● online"
+      "jack_nome": "Jack CachorrÃ£o",
+      "online": "â— online"
     },
     "batalha": {
-      "titulo": "CONFRONT · LEVEL {nivel}",
+      "titulo": "CONFRONT Â· LEVEL {nivel}",
       "comeca": "The confrontation begins.",
-      "atacar": "⚔️ ATTACK",
-      "inimigo_agindo": "⏳ Enemy acting...",
-      "vitoria": "✓ Victory!",
-      "derrota": "✗ Defeat",
+      "atacar": "âš”ï¸ ATTACK",
+      "inimigo_agindo": "â³ Enemy acting...",
+      "vitoria": "âœ“ Victory!",
+      "derrota": "âœ— Defeat",
       "jack_ataca": "Jack attacks: {dano} damage",
       "inimigo_ataca": "{nome} attacks: {dano} damage",
       "inimigo_derrotado": "Enemy defeated!",
       "jack_derrotado": "Jack was defeated...",
-      "critico": "⚡ CRITICAL!",
+      "critico": "âš¡ CRITICAL!",
       "resultado": "result: {valor}",
-      "vitoria_msg": "⚔️ VICTORY!",
-      "derrota_msg": "💀 You were defeated!",
+      "vitoria_msg": "âš”ï¸ VICTORY!",
+      "derrota_msg": "ðŸ’€ You were defeated!",
       "voce_ataca": "You attack and deal {dano} damage.",
       "inimigo_ataca_log": "{nome} attacks and deals {dano} damage."
     },
@@ -2621,7 +2621,7 @@
       "confronto": "Confrontation Required",
       "puzzle": "Solve Puzzle to Investigate",
       "investigar": "Investigate Location",
-      "voltar_dossier": "← Back to Dossier",
+      "voltar_dossier": "â† Back to Dossier",
       "evidencia_encontrada": "EVIDENCE FOUND",
       "todos_investigados": "All locations investigated",
       "voltar_dossier_btn": "BACK TO DOSSIER",
@@ -2629,8 +2629,8 @@
       "investigar_btn": "INVESTIGATE",
       "investigar_puzzle_btn": "INVESTIGATE (puzzle)",
       "hp_label": "HP",
-      "dossier_voltar": "← dossier",
-      "mapa_voltar": "← map",
+      "dossier_voltar": "â† dossier",
+      "mapa_voltar": "â† map",
       "puzzle_instrucao": "Solve the puzzle to investigate this location.",
       "puzzle_nenhum": "No puzzle needed."
     },
@@ -2645,7 +2645,7 @@
       "ver_abertura": "View opening conversation",
       "pistas_label": "CLUES COLLECTED",
       "evidencias": "EVIDENCE",
-      "resolvido_badge": "SOLVED ✓",
+      "resolvido_badge": "SOLVED âœ“",
       "sem_requisito": "no requirement",
       "novo_fio": "NEW THREAD"
     },
@@ -2658,12 +2658,12 @@
     },
     "phone": {
       "chamada": "INCOMING CALL",
-      "atender": "📞 ANSWER",
-      "recusar": "✕ DECLINE",
+      "atender": "ðŸ“ž ANSWER",
+      "recusar": "âœ• DECLINE",
       "suspeito_label": "Suspect"
     },
     "story": {
-      "fio_label": "⚡ CONSPIRACY THREAD"
+      "fio_label": "âš¡ CONSPIRACY THREAD"
     },
     "caderno": {
       "titulo": "Suspect Notebook",
@@ -2681,8 +2681,8 @@
     },
     "fimscreen": {
       "titulo": "END OF NIGHTMARE",
-      "completo": "You collected enough clues. Kim was confronted with all the evidence. The dream ends with clarity — but the memories remain.",
-      "fragmentado": "You didn't get all the clues. Kim admits to some crimes, but partially escapes. The dream ends with doubt — maybe there's more to uncover.",
+      "completo": "You collected enough clues. Kim was confronted with all the evidence. The dream ends with clarity â€” but the memories remain.",
+      "fragmentado": "You didn't get all the clues. Kim admits to some crimes, but partially escapes. The dream ends with doubt â€” maybe there's more to uncover.",
       "reputacao_label": "total reputation",
       "casos_label": "cases solved",
       "fios_label": "Thread clues collected",
@@ -2702,7 +2702,7 @@
       "investigar": "INVESTIGATE"
     },
     "geral": {
-      "reputacao": "★ {valor}",
+      "reputacao": "â˜… {valor}",
       "casos_resolvidos": "{n}/{total}",
       "hp": "HP: {hp}/30"
     },
@@ -2716,13 +2716,13 @@
       "status_nivel": "LEVEL",
       "status_fios": "CONSPIRACY THREADS",
       "topbar_nome": "Private Nightmare",
-      "topbar_sub": "Marelia, 1954 · Level {nivel}",
+      "topbar_sub": "Marelia, 1954 Â· Level {nivel}",
       "loading": "LOADING...",
       "caderno_vazio": "\"I still don't know who it is.\nbut every clue connects one point to another.\""
     },
     "guest": {
       "titulo": "Playing without an account",
-      "desc": "Your progress (solved cases, clues, reputation) is kept only during this session — reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
+      "desc": "Your progress (solved cases, clues, reputation) is kept only during this session â€” reloading the page loses everything and you start over. To keep your progress between visits, create a free account.",
       "criar_conta": "Create free account"
     }
   },
@@ -2738,19 +2738,19 @@
     },
     "yes": "Yes",
     "no": "No",
-    "playerHint": "A small player will be in the corner of the screen. Stop anytime. 🎵"
+    "playerHint": "A small player will be in the corner of the screen. Stop anytime. ðŸŽµ"
   },
   "custos": {
     "title": "How this project exists",
-    "intro": "Illusion Fight is an independent project. One person, 23 years of development, launching in 2026. No investor. No team. Just a developer who works a full-time job from 9 to 6, then spends nights and weekends building this. Holidays, late nights, every free hour — man, that's just how it goes.",
+    "intro": "Illusion Fight is an independent project. One person, 23 years of development, launching in 2026. No investor. No team. Just a developer who works a full-time job from 9 to 6, then spends nights and weekends building this. Holidays, late nights, every free hour â€” man, that's just how it goes.",
     "s1": {
       "title": "What it costs to keep this running",
       "sub": "Current infrastructure",
       "item1": "illusionfight.com domain",
-      "item2": "Supabase — database, authentication, server functions",
-      "item3": "Stripe — payment processing",
+      "item2": "Supabase â€” database, authentication, server functions",
+      "item3": "Stripe â€” payment processing",
       "sub2": "What it'll cost as it grows",
-      "body": "Right now costs are low because the user base is still small. When it scales — and it will — it'll need dedicated servers, more database capacity, more processing power. Every online feature has a real cost. Real-time multiplayer, progress saving, global ranking — all of it runs on infrastructure that charges per use."
+      "body": "Right now costs are low because the user base is still small. When it scales â€” and it will â€” it'll need dedicated servers, more database capacity, more processing power. Every online feature has a real cost. Real-time multiplayer, progress saving, global ranking â€” all of it runs on infrastructure that charges per use."
     },
     "s2": {
       "title": "Why free accounts have limits",
@@ -2758,16 +2758,16 @@
     },
     "s3": {
       "title": "What your subscription funds",
-      "item1": "Infrastructure for everyone — including people who don't pay",
+      "item1": "Infrastructure for everyone â€” including people who don't pay",
       "item2": "Production of new webtoon episodes",
       "item3": "New games and updates",
-      "item4": "Time — the scarcest resource here"
+      "item4": "Time â€” the scarcest resource here"
     },
     "s4": {
       "title": "One thing worth saying",
       "body": "No money goes to ads. No data is sold. No banners. The product is the product.",
-      "thanks": "If you use it, enjoy it, and can contribute — thank you. That keeps the lights on.",
-      "free": "If you can't contribute right now — that's fine. Enjoy what's available."
+      "thanks": "If you use it, enjoy it, and can contribute â€” thank you. That keeps the lights on.",
+      "free": "If you can't contribute right now â€” that's fine. Enjoy what's available."
     },
     "footer": "This page is updated when costs change.",
     "cta": "See plans"
@@ -2781,18 +2781,18 @@
     "back": "Back",
     "select_prompt": "Select a prototype to test:",
     "morto_engine": {
-      "title": "Morto Engine — GENERIC RPG SYSTEM",
+      "title": "Morto Engine â€” GENERIC RPG SYSTEM",
       "desc": "Complete RPG system: creation, tests, battle, magic, effects."
     },
     "arena_testbed": {
-      "title": "Arena Testbed — Mechanics Test",
+      "title": "Arena Testbed â€” Mechanics Test",
       "desc": "Complete GDD v0.1 combat system testbed: sheets, board, and match.",
-      "phase1_title": "PHASE 1 — Character Sheet Building",
+      "phase1_title": "PHASE 1 â€” Character Sheet Building",
       "phase1_desc": "Build the characters for the test. Minimum 1 per team.",
       "phase1_short": "Sheets",
-      "phase2_title": "PHASE 2 — Board Setup",
+      "phase2_title": "PHASE 2 â€” Board Setup",
       "phase2_short": "Board",
-      "phase3_title": "PHASE 3 — Match",
+      "phase3_title": "PHASE 3 â€” Match",
       "phase3_short": "Combat",
       "character": "Character",
       "remove": "Remove",
@@ -2862,8 +2862,8 @@
       "victory_ia": "DEFEAT!",
       "match_over": "The match is over.",
       "play_again": "Play Again",
-      "jokenpo_title": "Rock-Paper-Scissors — Tiebreaker",
-      "jokenpo_desc": "{{p1}} vs {{p2}} — choose to break the turn order tie!",
+      "jokenpo_title": "Rock-Paper-Scissors â€” Tiebreaker",
+      "jokenpo_desc": "{{p1}} vs {{p2}} â€” choose to break the turn order tie!",
       "jokenpo_pedra": "Rock",
       "jokenpo_papel": "Paper",
       "jokenpo_tesoura": "Scissors",
@@ -2899,7 +2899,7 @@
       "btn_common": "Common",
       "free_hint": "Tap your character to act",
       "move_select_hint": "Select a cell to move",
-      "move_confirm_hint": "→ ({{row}}, {{col}}) · confirm above",
+      "move_confirm_hint": "â†’ ({{row}}, {{col}}) Â· confirm above",
       "announce_player_turn": "PLAYER TURN",
       "announce_ia_turn": "AI TURN",
       "announce_move": "MOVEMENT",

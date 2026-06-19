@@ -89,38 +89,27 @@ export const PERS_NOME_KEY = {
 }
 
 import { FALAS_CRIATURA } from './falas-criatura'
-import { CRIATURA_ID_TO_SLUG } from './criaturas'
 
 export function getFala(tipo, chave, criaturaId, tFn) {
-  // Se tem tFn, tenta i18n primeiro
   if (tFn) {
     const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
     const chaveLower = chave.toLowerCase()
     if (!criaturaId) {
-      // Notificação de personalidade (não criatura-específica)
       const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const translated = tFn(i18nKey)
       if (translated !== i18nKey) return translated
     } else {
-      // Fala específica de criatura — tenta chave i18n primeiro
-      const slug = CRIATURA_ID_TO_SLUG[criaturaId]
-      if (slug) {
-        const falaKey = 'games.tamagoshi.fala_' + slug + '_' + chaveLower
-        const translated = tFn(falaKey)
-        if (translated !== falaKey) return translated
-      }
-      // Fallback i18n: notif da personalidade (cobre fome, sede, passeio, critico)
+      const falaKey = 'games.tamagoshi.fala_' + criaturaId + '_' + chaveLower
+      const translated = tFn(falaKey)
+      if (translated !== falaKey) return translated
       const notifKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const notifTranslated = tFn(notifKey)
       if (notifTranslated !== notifKey) return notifTranslated
     }
   }
-  // Fallback: dados das criaturas em português
-  const slug = criaturaId ? CRIATURA_ID_TO_SLUG[criaturaId] : null
-  if (slug && FALAS_CRIATURA[slug]?.[chave]) {
-    const arr = FALAS_CRIATURA[slug][chave]
+  if (criaturaId && FALAS_CRIATURA[criaturaId]?.[chave]) {
+    const arr = FALAS_CRIATURA[criaturaId][chave]
     return arr[Math.floor(Math.random() * arr.length)]
   }
-  // Fallback: notificação genérica da personalidade
   return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
 }
