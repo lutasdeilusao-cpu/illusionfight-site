@@ -1,4 +1,4 @@
-﻿{
+{
   "nav": {
     "links": [
       "Webtoon",
@@ -1924,7 +1924,9 @@
       "erro_gastar_dix": "Error spending DIX",
       "erro_item_indisponivel": "Item not available in inventory",
       "erro_desconhecido": "Unknown error",
-      "cooldown_disponivel": "available"
+      "cooldown_disponivel": "available",
+      "cooldown_formato": "{h}h {m}m",
+      "cooldown_formato": "{h}h {m}m"
     },
     "pesadelo": {
       "titulo": "PARTICULAR NIGHTMARE",

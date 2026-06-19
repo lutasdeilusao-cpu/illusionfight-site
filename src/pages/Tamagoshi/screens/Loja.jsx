@@ -87,7 +87,7 @@ export default function Loja({ onVoltar }) {
               <div className="tama-loja-card-emoji">{item.emoji}</div>
               <div className="tama-loja-card-info">
                 <span className="tama-loja-card-nome">{tItem(item.id)}</span>
-                <span className="tama-loja-card-preco">{item.preco} DIX</span>
+                <span className="tama-loja-card-preco">{item.preco} {t('games.tamagoshi.dix_label')}</span>
                 {qtd > 0 && <span className="tama-loja-card-qtd">inv: {qtd}x</span>}
               </div>
               <button

@@ -1,10 +1,10 @@
 ﻿export const ITENS_LOJA = [
-  { id: 'comida_basica', nome: 'RaÃ§Ã£o PadrÃ£o', preco: 10, categoria: 'comida', emoji: 'ðŸ–' },
-  { id: 'comida_especial', nome: 'Prato Especial', preco: 25, categoria: 'comida', emoji: 'ðŸ±' },
-  { id: 'comida_primordial', nome: 'Energia Ancestral', preco: 50, categoria: 'comida', emoji: 'ðŸ”¥' },
-  { id: 'sabonete', nome: 'Sabonete Teal', preco: 10, categoria: 'higiene', emoji: 'ðŸ§¼' },
-  { id: 'shampoo', nome: 'Shampoo Especial', preco: 20, categoria: 'higiene', emoji: 'âœ¨' },
-  { id: 'guia', nome: 'Guia de Marelia', preco: 15, categoria: 'passeio', emoji: 'ðŸ—ºï¸' },
+  { id: 'comida_basica', nome: 'Ração Padrão', preco: 10, categoria: 'comida', emoji: '🍖' },
+  { id: 'comida_especial', nome: 'Prato Especial', preco: 25, categoria: 'comida', emoji: '🍱' },
+  { id: 'comida_primordial', nome: 'Energia Ancestral', preco: 50, categoria: 'comida', emoji: '🔥' },
+  { id: 'sabonete', nome: 'Sabonete Teal', preco: 10, categoria: 'higiene', emoji: '🧼' },
+  { id: 'shampoo', nome: 'Shampoo Especial', preco: 20, categoria: 'higiene', emoji: '✨' },
+  { id: 'guia', nome: 'Guia de Marelia', preco: 15, categoria: 'passeio', emoji: '🗺️' },
 ]
 
 export const ITEM_KEY_MAP = {

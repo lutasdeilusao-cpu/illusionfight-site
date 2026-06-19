@@ -12,7 +12,7 @@ export default function CooldownTimer({ ate }) {
       if (diff <= 0) { setRestante(t('games.tamagoshi.cooldown_disponivel')); return }
       const h = Math.floor(diff / (1000 * 60 * 60))
       const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-      setRestante(`${h}h ${m}m`)
+      setRestante(t('games.tamagoshi.cooldown_formato', { h, m }))
     }
     fn()
     const id = setInterval(fn, 10000)
