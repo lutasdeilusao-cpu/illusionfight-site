@@ -95,9 +95,9 @@ export function getFala(tipo, chave, criaturaId, tFn) {
   // Se tem tFn, tenta i18n primeiro
   if (tFn) {
     const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
+    const chaveLower = chave.toLowerCase()
     if (!criaturaId) {
       // Notificação de personalidade (não criatura-específica)
-      const chaveLower = chave.toLowerCase()
       const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const translated = tFn(i18nKey)
       if (translated !== i18nKey) return translated
