@@ -1,82 +1,95 @@
 .progress {
   padding: 5rem 0;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
-/* ── Grid de cards quadradinhos das 5 últimas atualizações ── */
-.updates-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.75rem;
-  margin-top: 2.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 24px;
-}
-
-.update-item {
+.games-carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.4rem;
-  padding: 1rem 0.6rem;
-  background: var(--bg-elevated, #111);
-  border: 1px solid var(--border-subtle, #222);
-  border-radius: 6px;
-  aspect-ratio: 1 / 1;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.update-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.games-carousel-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: games-carousel-entrada 0.4s ease-out;
+  max-width: 480px;
+  width: 100%;
 }
 
-.update-item__badge {
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 3px;
+@keyframes games-carousel-entrada {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.games-carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: rgba(var(--cor-neon), 0.4);
+}
+
+.games-carousel-emoji {
+  font-size: 2.5rem;
   flex-shrink: 0;
-  background: color-mix(in srgb, var(--area-color, #888) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--area-color, #888) 50%, transparent);
-  color: var(--area-color, #888);
+  width: 56px;
+  text-align: center;
 }
 
-.update-item__content {
+.games-carousel-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  align-items: center;
+  gap: 2px;
 }
 
-.update-item__label {
-  font-family: var(--font-mono, 'Share Tech Mono', monospace);
+.games-carousel-nome {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.games-carousel-tag {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.games-carousel-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
   font-weight: 600;
-  color: var(--text-primary, #e8e8e8);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22C55E;
+  flex-shrink: 0;
 }
 
-.update-item__status {
-  font-family: var(--font-body, 'IBM Plex Sans', sans-serif);
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: var(--accent-teal, #00B4D8);
+.games-carousel-dots {
+  display: flex;
+  gap: 6px;
 }
 
-/* ── Fallback para navegadores sem color-mix ── */
-@supports not (color: color-mix(in srgb, red, transparent)) {
-  .update-item__badge {
-    background: rgba(136, 136, 136, 0.08);
-    border-color: rgba(136, 136, 136, 0.3);
-  }
+.games-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease;
+}
+
+.games-carousel-dot--active {
+  background: rgba(255, 255, 255, 0.6);
 }
