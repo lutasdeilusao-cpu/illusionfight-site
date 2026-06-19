@@ -8,14 +8,14 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.156.50'
+export const SITE_VERSION = '10.156.51'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso visual fix (centralizado, card, botão)
 export const ARENA_VERSION     = '1.31.0'  // LDI Arena Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI
-export const TAMA_VERSION      = '3.3.1' // Tamagoshi LDI — force audit: remove identifiers nome→ID + i18n Kroniki→criatura
+export const TAMA_VERSION      = '3.3.2' // Tamagoshi LDI — auditoria reconexão pós-renomeação (15 arquivos verificados, 0 quebras)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '2.0.0'  // MiniGames (i18n completo: todos os puzzles traduzidos pt/en/es)
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
