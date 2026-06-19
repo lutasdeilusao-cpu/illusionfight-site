@@ -36,5 +36,41 @@
     "idiomas": ["pt"],
     "thumbnail": "thumb-ep01.png",
     "data": "2026-06-09"
+  },
+  {
+    "id": "02",
+    "numero": 2,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "idiomas": ["pt"]
+  },
+  {
+    "id": "03",
+    "numero": 3,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "idiomas": ["pt"]
+  },
+  {
+    "id": "04",
+    "numero": 4,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "idiomas": ["pt"]
+  },
+  {
+    "id": "05",
+    "numero": 5,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "idiomas": ["pt"]
   }
 ]

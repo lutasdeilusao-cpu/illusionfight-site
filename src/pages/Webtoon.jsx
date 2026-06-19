@@ -8,6 +8,7 @@ import { estaDisponivel } from '../config/site'
 import episodios from '../data/episodios.json'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
 import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
+import comingSoonImg from '../assets/images/ComingSoon.png'
 import './Webtoon.css'
 
 const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
@@ -68,12 +69,12 @@ export default function Webtoon() {
                     {thumb ? (
                       <img src={thumb} alt={ep[tituloKey]} />
                     ) : (
-                      <span className="webtoon-card__num">EP. {String(ep.numero).padStart(2, '0')}</span>
+                      <img src={comingSoonImg} alt={ep[tituloKey]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     )}
-                    {!liberado && (
+                    {!liberado && ep.data_publicacao && (
                       <div className="webtoon-card__overlay">
                         <span className="webtoon-card__badge">
-                          {ep.data_publicacao ? `${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}` : t('pages.webtoon.em_breve')}
+                          {`${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}`}
                         </span>
                       </div>
                     )}

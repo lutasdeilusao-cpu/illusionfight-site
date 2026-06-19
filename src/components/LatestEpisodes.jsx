@@ -33,7 +33,7 @@ export default function LatestEpisodes() {
       <div className="container">
         <h2 className="section-title">{t('episodes.title')}</h2>
         <div className="episodes__grid">
-          {episodios.filter(ep => ep.publicado).map(ep => {
+          {episodios.map(ep => {
             const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
             return (
               <div
