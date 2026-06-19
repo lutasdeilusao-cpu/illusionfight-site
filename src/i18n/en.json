@@ -966,7 +966,9 @@
       },
       "labirinto": {
         "titulo_jogo": "🌀 Maze",
-        "instrucao": "find the exit. use WASD, arrows or swipe."
+        "instrucao": "find the exit. use WASD, arrows or swipe.",
+        "policial_chegando": "🚨 police in {n}s",
+        "policial_alerta": "🚨 POLICE IN THE MAZE!"
       },
       "anagrama": {
         "titulo_jogo": "🔤 Anagram",

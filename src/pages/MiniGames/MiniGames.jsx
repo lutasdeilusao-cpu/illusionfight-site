@@ -48,7 +48,7 @@ export default function MiniGames() {
       const saved = localStorage.getItem('ldi-minigames-recordes')
       if (saved) setRecordes(JSON.parse(saved))
     } catch (_) {}
-    console.log('[MINIGAMES] hub carregado | recordes:', Object.keys(recordes).length)
+
   }, [])
 
   const tentarIniciar = (game) => {
@@ -63,7 +63,7 @@ export default function MiniGames() {
     setFase('jogando')
     setTempoInicio(Date.now())
     setTempoFinal(null)
-    console.log('[MINIGAMES] iniciando:', game.id, '| dificuldade:', dif)
+
   }
 
   const handleVitoria = () => {
@@ -78,11 +78,11 @@ export default function MiniGames() {
       novosRecordes[key] = tempo
       setRecordes(novosRecordes)
       try { localStorage.setItem('ldi-minigames-recordes', JSON.stringify(novosRecordes)) } catch (_) {}
-      console.log('[MINIGAMES] novo recorde:', key, formatTempo(tempo))
+
     }
   }
 
-  const handleDerrota = () => { setFase('derrota'); console.log('[MINIGAMES] derrota em:', jogoAtivo.id) }
+  const handleDerrota = () => { setFase('derrota') }
 
   const comDificuldade = (g) => g && ['stealth','decoder','sliding','labirinto','anagrama','forca','simon'].includes(g.id)
   const voltarHub = () => { setJogoAtivo(null); setFase('hub'); setTempoInicio(null); setTempoFinal(null); setDificuldadeSelecionada(null) }
@@ -106,7 +106,7 @@ export default function MiniGames() {
       case 'sliding':
         const difSliding = dificuldadeSelecionada || 'easy'
         const slidingSize = difSliding === 'hard' ? 5 : difSliding === 'medium' ? 4 : 3
-        console.log('[SLIDING] difficulty:', difSliding, '| size:', slidingSize)
+
         return <PuzzleSlidingTiles {...props} config={{ size: slidingSize }} />
       case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />

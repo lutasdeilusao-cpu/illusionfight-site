@@ -100,8 +100,6 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
 
   const goalPos = { r: size-1, c: size-1 }
 
-  console.log('[STEALTH] hard mode | visionRange:', visionRange, '| pegadas ativas:', pegadasVisiveis)
-
   useEffect(() => {
     const update = () => {
       const el = containerRef.current
@@ -126,9 +124,7 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
       visionValida.delete('0,0')
       visionValida.delete(`${size-1},${size-1}`)
       tentativas++
-      console.log(`[STEALTH] tentativa ${tentativas} | caminho livre:`, temCaminhoLivre(visionValida, camsValidas, size))
     } while (!temCaminhoLivre(visionValida, camsValidas, size) && tentativas < maxTentativas)
-    console.log('[STEALTH] size:', size, '| maxTentativas:', maxTentativas, '| tentativas usadas:', tentativas)
     setCameras(camsValidas)
     setVisionCells(visionValida)
 
@@ -239,8 +235,6 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
     pegadasTimerRef.current = t
     return () => clearInterval(t)
   }, [done, size])
-
-  console.log('[HOOKS] useSwipe, useZoom, useViewportScroll extraídos e aplicados no Stealth')
 
   const distToGoal = Math.abs(playerPos.r - goalPos.r) + Math.abs(playerPos.c - goalPos.c)
   const showGoalArrow = isMobile && (distToGoal > viewportCells || size >= 12) && zoom < 3

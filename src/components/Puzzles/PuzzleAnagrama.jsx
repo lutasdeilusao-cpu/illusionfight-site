@@ -75,8 +75,6 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
   const [palavrasResolvidas, setPalavrasResolvidas] = useState([])
   const palavraAtual = palavras[indicePalavraAtual]
 
-  console.log('[ANAGRAMA] difficulty:', difficulty, '| palavras:', palavras, '| tipo:', cfg.tipo)
-
   useEffect(() => {
     if (done) return
     const interval = setInterval(() => { setTimeLeft(prev => { if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 } return prev - 1 }) }, 1000)
@@ -92,7 +90,6 @@ export default function PuzzleAnagrama({ onSolve, onFail, config = {} }) {
     if (done || selected.length === 0) return
     const formado = selected.map(i => unidades[i]).join(cfg.tipo === 'palavra' ? ' ' : '').trim()
     const correto = palavraAtual
-    console.log('[ANAGRAMA] formado:', JSON.stringify(formado), '| correto:', JSON.stringify(correto), '| match:', formado === correto)
     if (formado === correto) {
       const novasResolvidas = [...palavrasResolvidas, palavraAtual]
       setPalavrasResolvidas(novasResolvidas); setSelected([]); setMsg(`✓ "${palavraAtual}"`)

@@ -966,7 +966,9 @@
       },
       "labirinto": {
         "titulo_jogo": "🌀 Laberinto",
-        "instrucao": "encuentra la salida. usa WASD, flechas o swipe."
+        "instrucao": "encuentra la salida. usa WASD, flechas o swipe.",
+        "policial_chegando": "🚨 policía en {n}s",
+        "policial_alerta": "🚨 ¡POLICÍA EN EL LABERINTO!"
       },
       "anagrama": {
         "titulo_jogo": "🔤 Anagrama",

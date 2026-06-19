@@ -52,9 +52,9 @@ import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
 const MAZE_CONFIGS = {
-  easy:   { rows: 8,  cols: 8,  cellPx: 36, timer: null  },
-  medium: { rows: 12, cols: 12, cellPx: 32, timer: 90    },
-  hard:   { rows: 16, cols: 16, cellPx: 28, timer: 60    },
+  easy:   { rows: 8,  cols: 8,  cellPx: 36, timer: null,  policeDelay: 30, policeSpeed: 1500 },
+  medium: { rows: 12, cols: 12, cellPx: 32, timer: 90,    policeDelay: 20, policeSpeed: 1000 },
+  hard:   { rows: 16, cols: 16, cellPx: 28, timer: 60,    policeDelay: 12, policeSpeed: 600 },
 }
 
 export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
@@ -74,13 +74,15 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
   const [timeLeft, setTimeLeft] = useState(cfg.timer)
   const [dica, setDica] = useState(false)
   const [dicaPath, setDicaPath] = useState([])
+  const [policeCountdown, setPoliceCountdown] = useState(cfg.policeDelay)
+  const [policeActive, setPoliceActive] = useState(false)
+  const [policePos, setPolicePos] = useState({ r: 0, c: 0 })
+  const [policeAlert, setPoliceAlert] = useState(false)
   const lastMovimentoSfx = useRef(0)
 
   const goalPos = { r: rows - 1, c: cols - 1 }
   const viewportCells = isMobile ? (difficulty === 'hard' ? 8 : 7) : Math.max(rows, cols)
   const viewportPx = viewportCells * cellPx
-
-  console.log('[LABIRINTO] difficulty:', difficulty, '| size:', rows, 'x', cols, '| timer:', cfg.timer)
 
   const { zoom, setZoom, controlsVisible, showControls } = useZoom({ min: 1, max: 3 })
   const gridOffset = useViewportScroll(playerPos, cellPx, viewportPx, Math.max(rows, cols))
@@ -95,6 +97,52 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
     }, 1000)
     return () => clearInterval(interval)
   }, [done, cfg.timer])
+
+  // Police countdown
+  useEffect(() => {
+    if (done || policeActive) return
+    if (policeCountdown <= 0) {
+      setPoliceActive(true)
+      setPolicePos({ r: 0, c: 0 })
+      if (playerPos.r === 0 && playerPos.c === 0) {
+        setDone(true)
+        sfxMinigames.alarme()
+        setTimeout(() => onFail?.(), 500)
+        return
+      }
+      setPoliceAlert(true)
+      sfxMinigames.alarme()
+      setTimeout(() => setPoliceAlert(false), 2000)
+      return
+    }
+    const t = setTimeout(() => setPoliceCountdown(p => p - 1), 1000)
+    return () => clearTimeout(t)
+  }, [done, policeActive, policeCountdown])
+
+  // Police movement (BFS toward player) — usar refs para evitar reset do intervalo
+  const policePosRef = useRef(policePos)
+  policePosRef.current = policePos
+  const playerPosRef = useRef(playerPos)
+  playerPosRef.current = playerPos
+  const mazeRef = useRef(maze)
+  mazeRef.current = maze
+  useEffect(() => {
+    if (done || !policeActive) return
+    const interval = setInterval(() => {
+      const path = bfsPath(mazeRef.current, policePosRef.current, playerPosRef.current, rows, cols)
+      if (path.length > 1) {
+        const next = path[1]
+        if (next.r === playerPosRef.current.r && next.c === playerPosRef.current.c) {
+          setDone(true)
+          sfxMinigames.alarme()
+          setTimeout(() => onFail?.(), 500)
+          return
+        }
+        setPolicePos(next)
+      }
+    }, cfg.policeSpeed)
+    return () => clearInterval(interval)
+  }, [done, policeActive, rows, cols, cfg.policeSpeed])
 
   useEffect(() => {
     if (difficulty === 'easy' || done) return
@@ -134,12 +182,18 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
 
     setPlayerPos({ r: nr, c: nc })
     setMoves(m => m + 1)
+    if (policeActive && nr === policePos.r && nc === policePos.c) {
+      setDone(true)
+      sfxMinigames.alarme()
+      setTimeout(() => onFail?.(), 500)
+      return
+    }
     if (nr === goalPos.r && nc === goalPos.c) {
       setDone(true)
       sfxMinigames.vitoria()
       setTimeout(() => onSolve?.(), 400)
     }
-  }, [playerPos, maze, done, rows, cols])
+  }, [playerPos, maze, done, rows, cols, policeActive, policePos])
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -167,18 +221,21 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
         </span>
         <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.65rem', color:'#555' }}>{difficulty.toUpperCase()} · {rows}×{cols}</span>
       </div>
+      {!policeActive && policeCountdown > 0 && <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.7rem', color:'#DC143C', textAlign:'center', marginBottom:'0.3rem' }}>{t('games.minigames.labirinto.policial_chegando', { n: policeCountdown })}</p>}
+      {policeAlert && <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.75rem', color:'#DC143C', textAlign:'center', marginBottom:'0.3rem', animation:'timer-urgent 0.5s infinite' }}>{t('games.minigames.labirinto.policial_alerta')}</p>}
       <div ref={viewportRef} className="puzzle-stealth-viewport"
         style={{ width: viewportPx, height: viewportPx, overflow: 'hidden', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}
         onTouchStart={showControls} onClick={showControls}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: cols * cellPx, height: rows * cellPx, transform: `translate(${gridOffset.x}px, ${gridOffset.y}px) scale(${zoomScale})`, transformOrigin: 'top left' }}>
           {maze.map((row, r) => row.map((cell, c) => {
             const isPlayer = playerPos.r === r && playerPos.c === c
+            const isPolice = policeActive && policePos.r === r && policePos.c === c
             const isGoal = goalPos.r === r && goalPos.c === c
             const isDica = dica && dicaPath.some(p => p.r === r && p.c === c)
             return (
               <div key={`${r},${c}`} style={{
                 position: 'absolute', top: r * cellPx, left: c * cellPx, width: cellPx, height: cellPx,
-                background: isPlayer ? 'rgba(245,166,35,0.2)' : isGoal ? 'rgba(34,197,94,0.15)' : isDica ? 'rgba(168,85,247,0.15)' : '#0a0a0a',
+                background: isPlayer ? 'rgba(245,166,35,0.2)' : isPolice ? 'rgba(220,20,60,0.25)' : isGoal ? 'rgba(34,197,94,0.15)' : isDica ? 'rgba(168,85,247,0.15)' : '#0a0a0a',
                 borderTop: cell.n ? '2px solid #2a2a2a' : '2px solid transparent',
                 borderBottom: cell.s ? '2px solid #2a2a2a' : '2px solid transparent',
                 borderRight: cell.e ? '2px solid #2a2a2a' : '2px solid transparent',
@@ -186,8 +243,8 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: cellPx * 0.5, transition: 'background 0.15s', boxSizing: 'border-box',
               }}>
-                {isPlayer ? '🕵️' : isGoal ? <span className="puzzle-stealth-goal-icon">🚪</span> : ''}
-                {isDica && !isPlayer && !isGoal && <span style={{ opacity: 0.6, fontSize: cellPx * 0.4 }}>👣</span>}
+                {isPlayer ? '🕵️' : isPolice ? '👮' : isGoal ? <span className="puzzle-stealth-goal-icon">🚪</span> : ''}
+                {isDica && !isPlayer && !isPolice && !isGoal && <span style={{ opacity: 0.6, fontSize: cellPx * 0.4 }}>👣</span>}
               </div>
             )
           }))}

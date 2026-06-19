@@ -82,8 +82,6 @@ export default function PuzzleForça({ onSolve, onFail, config = {} }) {
   const letrasResposta = useMemo(() => new Set(resposta.replace(/ /g, '').split('')), [resposta])
   const possíveis = useMemo(() => filtrarPossíveis(opcoes, resposta, letrasCorretas, letrasErradas), [opcoes, resposta, letrasCorretas, letrasErradas])
 
-  console.log('[FORCA] difficulty:', difficulty, '| resposta:', resposta, '| opcoes:', opcoes.length)
-
   useEffect(() => {
     if (!cfg.timer || done) return
     const interval = setInterval(() => { setTimeLeft(prev => { if (prev <= 1) { setDone(true); setTimeout(() => onFail?.(), 500); return 0 } return prev - 1 }) }, 1000)
