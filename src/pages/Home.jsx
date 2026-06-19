@@ -9,7 +9,6 @@ import BookChaptersRow from '../components/BookChaptersRow'
 import MusicSection from '../components/MusicSection'
 import NowLive from '../components/NowLive'
 import StoryProgress from '../components/StoryProgress'
-import ShopSection from '../components/ShopSection'
 
 export default function Home() {
   const newsletterRef = useScrollReveal()
@@ -63,7 +62,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <ShopSection />
     </>
   )
 }
