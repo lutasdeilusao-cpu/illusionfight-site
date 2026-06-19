@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { useReader } from '../../context/ReaderContext'
 import { MORTO_VERSION, ARENATESTBED_VERSION } from '../../config/version'
 import ArenaTestbed from './ArenaTestbed/ArenaTestbed'
 import mortoHtml from './rpg-morto.html?raw'
@@ -35,7 +36,10 @@ export default function Prototype() {
   const { user } = useAuth()
   const { t } = useLanguage()
   const navigate = useNavigate()
+  const { setReaderMode } = useReader()
   const [selected, setSelected] = useState(null)
+
+  useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
   const isAdmin = user && ADMIN_EMAILS.includes(user.email)
 

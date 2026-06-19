@@ -1,18 +1,11 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
-import { useReader } from '../../../context/ReaderContext'
 import Phase1SheetBuilder from './components/Phase1SheetBuilder'
 import Phase2BoardSetup from './components/Phase2BoardSetup'
 import Phase3Combat from './components/Phase3Combat'
 import './ArenaTestbed.css'
 
 export default function ArenaTestbed() {
-  const { setReaderMode } = useReader()
-
-  useEffect(() => {
-    setReaderMode(true)
-    return () => setReaderMode(false)
-  }, [setReaderMode])
   const { t } = useLanguage()
   const [phase, setPhase] = useState(1) // 1 | 2 | 3
   const [characters, setCharacters] = useState([])
