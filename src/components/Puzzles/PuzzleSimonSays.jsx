@@ -14,6 +14,7 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
   const [playerSeq, setPlayerSeq] = useState([])
   const [phase, setPhase] = useState('showing')
   const [activeIndex, setActiveIndex] = useState(-1)
+  const [errorIndex, setErrorIndex] = useState(-1)
   const [round, setRound] = useState(0)
 
   // Refs para evitar stale closures nos callbacks
@@ -49,6 +50,7 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
 
   useEffect(() => {
     if (phase !== 'showing') return
+    setErrorIndex(-1)
     if (round >= maxRounds) { onSolveRef.current(); return }
     const newSeq = [...seqRef.current]
     if (newSeq.length === 0) {
@@ -79,19 +81,20 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
     const seq = seqRef.current
     const player = playerRef.current
     const next = player.length
-    console.log('[SIMON] click cor:', colorIndex, '| next index:', next, '| seq len:', seq.length, '| phase:', p)
     const nome = COR_NOME[colorIndex]
     sfxMinigames.simon[nome]?.()
     if (colorIndex !== seq[next]) {
-      console.log('[SIMON] erro! esperado:', seq[next], 'recebido:', colorIndex)
+      setErrorIndex(colorIndex)
       sfxMinigames.simon.erroSimon()
-      onFailRef.current()
+      setTimeout(() => onFailRef.current(), 500)
       return
     }
+    setActiveIndex(colorIndex)
+    const t = setTimeout(() => setActiveIndex(-1), 300)
+    timeoutsRef.current.push(t)
     const newPlayer = [...player, colorIndex]
     setPlayerSeq(newPlayer)
     if (newPlayer.length >= seq.length) {
-      console.log('[SIMON] sequencia completa! round completo')
       sfxMinigames.simon.sequenciaCompleta()
       setPhase('showing')
       setRound(r => r + 1)
@@ -118,7 +121,7 @@ export default function PuzzleSimonSays({ onSolve, onFail, config = {} }) {
               aspectRatio: '1',
               borderRadius: '12px',
               border: `3px solid ${COLORS[i]}`,
-              backgroundColor: activeIndex === i ? COLORS[i] : `${COLORS[i]}33`,
+              backgroundColor: errorIndex === i ? '#FF0000' : activeIndex === i ? COLORS[i] : `${COLORS[i]}33`,
               cursor: phase === 'input' ? 'pointer' : 'default',
               transition: 'background-color 0.1s, transform 0.1s',
               transform: activeIndex === i ? 'scale(1.05)' : 'scale(1)',
