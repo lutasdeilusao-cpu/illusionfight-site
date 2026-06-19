@@ -514,7 +514,7 @@
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/PesadeloParticular/PP.jsx` | ✅ v2.3.1 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, guest mode, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.1 | ✅ S1 sprite completo! | ✅ PT ✅ EN ✅ ES | Criaturas por ID numérico, encoding UTF-8 corrigido, IDs 2(Ninka) e 3(Kroum) adicionados ao FALAS_CRIATURA |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.2 | ✅ S1 sprite completo! | ✅ PT ✅ EN ✅ ES | 32 criaturas em FALAS_CRIATURA ordenadas por ID (1-32), double-encoding corrigido |
 | `/loja` | Loja | `src/pages/Loja/Loja.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Produtos físicos e digitais |
 | `/leaderboard` | Leaderboard | `src/pages/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
@@ -534,12 +534,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.40** | Prototype: rpg-morto.html removido de public/, import raw em src/pages/Prototype/ |
+| `SITE_VERSION` | **10.156.44** | Tamagoshi — fix: BOM + double-encoding + add ID 2(Ninka) 3(Kroum) + reorder IDs 1-32 + fix build |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.0** | Arena LDI — Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI (ver PROTOTYPE 2.10.0 para fix morte imediata) |
-| `TAMA_VERSION` | **3.0.1** | Tamagoshi LDI — fix: UTF-8 encoding falas-criatura + add missing IDs 2(Ninka) 3(Kroum) |
+| `TAMA_VERSION` | **3.0.3** | Tamagoshi LDI — fix: BOM + double-encoding + add ID 2(Ninka) 3(Kroum) + reorder IDs 1-32 + fix build |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
