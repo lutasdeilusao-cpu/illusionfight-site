@@ -24,12 +24,16 @@ export default function LatestEpisodes() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
   const descKey = locale === 'en' ? 'descricao_en' : locale === 'es' ? 'descricao_es' : 'descricao_pt'
 
-  const episodiosReais = useMemo(() => episodios.filter(ep => thumbMap[ep.thumbnail]), [])
+  const featured = useMemo(() => {
+    const disponiveis = episodios
+      .filter(ep => thumbMap[ep.thumbnail])
+      .filter(ep => ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE)
+      .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
+    return disponiveis[0]
+  }, [isAdmin])
 
-  const featured = episodiosReais[episodiosReais.length - 1]
   const lista = episodios.filter(ep => ep.id !== featured?.id)
-
-  const liberadoFeatured = featured && (featured.id === '00' || estaDisponivel(featured, isAdmin) || TRIAL_ACTIVE)
+  const liberadoFeatured = !!featured
 
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
