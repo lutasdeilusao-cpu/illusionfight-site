@@ -112,6 +112,7 @@ export default function Tamagoshi() {
   }
 
   const handleGachaAbrir = () => setSubFase('gacha')
+  const handleIrLoja = () => setSubFase('loja')
   const handleGachaConcluir = () => setSubFase(null)
 
   const handleVoltarExtras = () => {
@@ -143,7 +144,7 @@ export default function Tamagoshi() {
   if (subFase === 'banhar') return <div className="tama-body"><div className="tama-content"><Banhar onConcluir={handleVoltar} /></div></div>
   if (subFase === 'passear') return <div className="tama-body"><div className="tama-content"><Passear onConcluir={handleVoltar} /></div></div>
   if (subFase === 'brincar') return <div className="tama-body"><div className="tama-content"><Brincadeira onConcluir={handleVoltar} /></div></div>
-  if (subFase === 'saude') return <div className="tama-body"><div className="tama-content"><RestaurarSaude onConcluir={handleVoltar} /></div></div>
+  if (subFase === 'saude') return <div className="tama-body"><div className="tama-content"><RestaurarSaude onConcluir={handleVoltar} onIrLoja={handleIrLoja} /></div></div>
   if (subFase === 'loja') return <div className="tama-body"><div className="tama-content"><Loja onVoltar={handleVoltar} /></div></div>
   if (subFase === 'gacha') return <div className="tama-body"><div className="tama-content"><Gacha onConcluir={handleGachaConcluir} onVoltar={handleVoltar} /></div></div>
 

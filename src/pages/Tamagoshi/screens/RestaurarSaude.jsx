@@ -8,6 +8,7 @@ import CriaturaSprite from '../components/CriaturaSprite'
 import { DIX_POR_ACAO } from '../data/moedas'
 
 const ACOES = ['termometro', 'curativo', 'xarope']
+const ITENS_SAUDE = ['termometro', 'curativo', 'xarope']
 
 const ITEM_EMOJI = {
   termometro: '🌡️',
@@ -34,9 +35,12 @@ function gerarBolhas() {
   }))
 }
 
-export default function RestaurarSaude({ onConcluir }) {
+export default function RestaurarSaude({ onConcluir, onIrLoja }) {
   const { t, locale } = useLanguage()
   const store = useTamagoshiStore()
+  const inv = store.inventario || {}
+
+  const itensFaltando = ITENS_SAUDE.filter(item => (inv[item] || 0) < 1)
 
   const [ordem, setOrdem] = useState([])
   const [acaoAtual, setAcaoAtual] = useState(0)
@@ -109,7 +113,10 @@ export default function RestaurarSaude({ onConcluir }) {
           }))
           setEstrelas(stars)
 
-          // Aplicar saúde +25%
+          // Consumir itens de saúde e aplicar +25%
+          store.consumirItem('termometro')
+          store.consumirItem('curativo')
+          store.consumirItem('xarope')
           store.restaurarSaude()
           store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saúde')
         }, 600)
@@ -186,6 +193,9 @@ export default function RestaurarSaude({ onConcluir }) {
               delay: i * 0.1,
             }))
             setEstrelas(stars)
+            store.consumirItem('termometro')
+            store.consumirItem('curativo')
+            store.consumirItem('xarope')
             store.restaurarSaude()
             store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saúde')
           }, 600)
@@ -201,6 +211,42 @@ export default function RestaurarSaude({ onConcluir }) {
 
     setTouchPos(null)
   }, [touchPos, ordem, acaoAtual, dispararEfeito, store])
+
+  // Verificar se todos os itens de saúde estão no inventário
+  if (itensFaltando.length > 0) {
+    return (
+      <div className="tama-acao-screen">
+        <div className="tama-saude-faltando">
+          <div className="tama-saude-faltando-emoji">🚑</div>
+          <h2 className="tama-acao-title">{t('games.tamagoshi.saude_faltando_titulo')}</h2>
+          <p className="tama-saude-faltando-desc">{t('games.tamagoshi.saude_faltando_desc')}</p>
+          <ul className="tama-saude-faltando-lista">
+            {itensFaltando.map(item => (
+              <li key={item} className="tama-saude-faltando-item">
+                {ITEM_EMOJI[item]} {t('games.tamagoshi.saude_item_' + item)}
+              </li>
+            ))}
+          </ul>
+          <motion.button
+            className="tama-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onIrLoja}
+          >
+            {t('games.tamagoshi.saude_ir_loja')}
+          </motion.button>
+          <motion.button
+            className="tama-btn tama-btn--voltar-opaco"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onConcluir}
+          >
+            [ {t('games.tamagoshi.voltar')} ]
+          </motion.button>
+        </div>
+      </div>
+    )
+  }
 
   const acaoCorrente = ordem[acaoAtual]
   const instrucaoAtual = acaoCorrente ? t('games.tamagoshi.saude_instrucao_' + acaoCorrente) : ''

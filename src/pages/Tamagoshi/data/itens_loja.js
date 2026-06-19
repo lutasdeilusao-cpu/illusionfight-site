@@ -5,6 +5,9 @@
   { id: 'sabonete', nome: 'Sabonete Teal', preco: 10, categoria: 'higiene', emoji: '🧼' },
   { id: 'shampoo', nome: 'Shampoo Especial', preco: 20, categoria: 'higiene', emoji: '✨' },
   { id: 'guia', nome: 'Guia de Marelia', preco: 15, categoria: 'passeio', emoji: '🗺️' },
+  { id: 'termometro', nome: 'Termômetro', preco: 30, categoria: 'saude', emoji: '🌡️' },
+  { id: 'curativo', nome: 'Curativo', preco: 25, categoria: 'saude', emoji: '🩹' },
+  { id: 'xarope', nome: 'Xarope', preco: 35, categoria: 'saude', emoji: '🍶' },
 ]
 
 export const ITEM_KEY_MAP = {
@@ -14,6 +17,9 @@ export const ITEM_KEY_MAP = {
   sabonete: 'item_sabonete',
   shampoo: 'item_shampoo',
   guia: 'item_guia',
+  termometro: 'item_termometro',
+  curativo: 'item_curativo',
+  xarope: 'item_xarope',
   28: 'item_comida_28',
   1: 'item_comida_1',
   17: 'item_comida_17',
