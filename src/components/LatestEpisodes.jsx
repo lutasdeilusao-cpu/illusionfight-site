@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -8,15 +9,9 @@ import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
 import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
 import comingSoonImg from '../assets/images/ComingSoon.png'
 import episodios from '../data/episodios.json'
-
-const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
 import './LatestEpisodes.css'
 
-function formatarData(dataStr) {
-  if (!dataStr) return ''
-  const [a, m, d] = dataStr.split('-')
-  return `${d}/${m}/${a}`
-}
+const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
 
 export default function LatestEpisodes() {
   const { t, locale } = useLanguage()
@@ -26,51 +21,72 @@ export default function LatestEpisodes() {
   const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
-  const fraseKey = locale === 'en' ? 'frase_en' : locale === 'es' ? 'frase_es' : 'frase_pt'
+  const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
+  const descKey = locale === 'en' ? 'descricao_en' : locale === 'es' ? 'descricao_es' : 'descricao_pt'
+
+  const episodiosReais = useMemo(() => episodios.filter(ep => thumbMap[ep.thumbnail]), [])
+
+  const featured = episodiosReais[episodiosReais.length - 1]
+  const lista = episodios.filter(ep => ep.id !== featured?.id)
+
+  const liberadoFeatured = featured && (featured.id === '00' || estaDisponivel(featured, isAdmin) || TRIAL_ACTIVE)
 
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
       <div className="container">
         <h2 className="section-title">{t('episodes.title')}</h2>
-        <div className="episodes__grid">
-          {episodios.map(ep => {
+
+        {featured && (
+          <div className="episodes-featured">
+            <div
+              className={`episodes-featured-card${liberadoFeatured ? '' : ' episodes-featured-card--locked'}`}
+              onClick={() => liberadoFeatured && navigate(`/webtoon/${featured.id}`)}
+            >
+              <img className="episodes-featured-img" src={thumbMap[featured.thumbnail]} alt={featured[tituloKey]} />
+              <div className="episodes-featured-overlay">
+                <span className={`episodes-featured-badge${liberadoFeatured ? ' episodes-featured-badge--live' : ' episodes-featured-badge--soon'}`}>
+                  {liberadoFeatured ? t('episodes.badge.free') : t('pages.webtoon.em_breve')}
+                </span>
+                <span className="episodes-featured-numero">EP. {String(featured.numero).padStart(2, '0')}</span>
+                <h3 className="episodes-featured-titulo">{featured[tituloKey]}</h3>
+                <p className="episodes-featured-desc">{featured[descKey]}</p>
+                {liberadoFeatured && (
+                  <button className="episodes-featured-btn" onClick={(e) => { e.stopPropagation(); navigate(`/webtoon/${featured.id}`) }}>
+                    {t('episodes.featured_ler')}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="episodes-list">
+          {lista.map(ep => {
             const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
+            const temThumb = thumbMap[ep.thumbnail]
             return (
               <div
                 key={ep.id}
-                className={`episode-card${liberado ? '' : ' episode-card--locked'}`}
+                className={`episode-list-item${liberado ? '' : ' episode-list-item--locked'}`}
                 onClick={() => liberado && navigate(`/webtoon/${ep.id}`)}
               >
-                <div className="episode-card-image-wrapper">
-                  <img
-                    src={liberado ? (thumbMap[ep.thumbnail] || thumbEp00) : comingSoonImg}
-                    alt={ep.titulo_pt}
-                    className="episode-card-image"
-                  />
-                  {liberado && (
-                    <div className="episode-card-overlay">
-                      <p className="episode-card-quote">"{ep[fraseKey]}"</p>
-                      <span className="episode-card-badge episode-card-badge--FREE">{t('episodes.badge.free')}</span>
-                    </div>
-                  )}
-                  {!liberado && ep.data_publicacao && (
-                    <div className="episode-card-overlay episode-card-overlay--locked">
-                      <span className="episode-card-badge episode-card-badge--coming">
-                        {`${t('pages.webtoon.em_breve')} ${formatarData(ep.data_publicacao)}`}
-                      </span>
-                    </div>
-                  )}
+                <div className="episode-list-thumb">
+                  <img src={temThumb ? thumbMap[ep.thumbnail] : comingSoonImg} alt={ep[tituloKey]} />
                 </div>
-                <div className="episode-card-footer">
-                  <span className="episode-card-number">EP. {String(ep.numero).padStart(2, '0')}</span>
-                  <h3 className={`episode-card-title${liberado ? '' : ' episode-card-title--locked'}`}>{ep.titulo_pt}</h3>
+                <div className="episode-list-info">
+                  <span className="episode-list-numero">EP. {String(ep.numero).padStart(2, '0')}</span>
+                  <span className="episode-list-titulo">{ep[tituloKey]}</span>
+                  <span className={`episode-list-status${liberado ? ' episode-list-status--live' : ' episode-list-status--soon'}`}>
+                    {liberado ? t('episodes.badge.free') : t('pages.webtoon.em_breve')}
+                  </span>
                 </div>
               </div>
             )
           })}
         </div>
+
         <div className="episodes__footer">
-          <button className="btn btn--outline">{t('episodes.cta')}</button>
+          <button className="btn btn--outline" onClick={() => navigate('/webtoon')}>{t('episodes.cta')}</button>
         </div>
       </div>
     </section>

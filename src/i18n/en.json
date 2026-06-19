@@ -76,7 +76,8 @@
       "premium": "PREMIUM"
     },
     "thumbnail": "Thumbnail",
-    "cta": "VIEW ALL",
+    "cta": "VIEW ALL →",
+    "featured_ler": "READ NOW",
     "webtoon": {
       "text": "Also available on Webtoon Canvas",
       "subscribers": "— subscribers",
