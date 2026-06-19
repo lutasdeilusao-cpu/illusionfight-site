@@ -97,14 +97,15 @@ export function getFala(tipo, chave, criaturaId, tFn) {
     const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
     if (!criaturaId) {
       // Notificação de personalidade (não criatura-específica)
-      const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chave
+      const chaveLower = chave.toLowerCase()
+      const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const translated = tFn(i18nKey)
       if (translated !== i18nKey) return translated
     } else {
       // Fala específica de criatura — tenta chave i18n primeiro
       const slug = CRIATURA_ID_TO_SLUG[criaturaId]
       if (slug) {
-        const falaKey = 'games.tamagoshi.fala_' + slug + '_' + chave
+        const falaKey = 'games.tamagoshi.fala_' + slug + '_' + chaveLower
         const translated = tFn(falaKey)
         if (translated !== falaKey) return translated
       }

@@ -1620,6 +1620,7 @@
       "fim_voltar_games": "BACK TO MENU",
       "atributo_escolhido": "Chosen attribute: {nome}"
     },
+    "backToGames": "BACK TO GAMES",
     "tamagoshi": {
       "alimentar": "[ feed ]",
       "banhar": "[ bathe ]",
