@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.63** | Games: reordenar top 4 + LDI Mini Games + Arena beta |
+| `SITE_VERSION` | **10.156.64** | TrialBanner: z-index abaixo cookie + sumir 30s + sessionStorage |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -643,7 +643,7 @@
 
 ### i18n: PT/EN/ES via LanguageContext. PP tem i18n própria.
 
-### z-index: SearchModal(2000) > AchievementToast(1500) > Navbar(1000) > TrialBanner(998) > CookieBanner(200) > LDINotification(150) > ScrollToTop(100) > MusicSection(50)
+### z-index: SearchModal(2000) > AchievementToast(1500) > Navbar(1000) > CookieBanner(200) > LDINotification(150) > TrialBanner(140) > ScrollToTop(100) > MusicSection(50)
 
 ### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
 
