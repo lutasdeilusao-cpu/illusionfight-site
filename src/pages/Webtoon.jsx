@@ -56,7 +56,7 @@ export default function Webtoon() {
           <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
           <div className="webtoon-grid">
             {episodios.map(ep => {
-              const liberado = ep.id === '00' || ep.id === '01' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
+              const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
               const thumb = thumbMap[ep.thumbnail]
               return (
                 <div

@@ -55,7 +55,7 @@ export default function BookChaptersRow() {
         <button className="book-chapters-arrow book-chapters-arrow--left" onClick={scrollLeft}>‹</button>
         <div className="book-chapters-scroll" ref={scrollRef}>
           {capitulos.map(cap => {
-            const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
+            const liberado = cap.id === 'capitulo-01' || estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
             const Wrapper = liberado ? Link : 'div'
             const wrapperProps = liberado ? { to: `/livro/${cap.id}` } : {}
             return (
