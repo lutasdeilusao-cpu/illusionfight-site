@@ -1880,24 +1880,7 @@
       "puzzle_anagrama": "Anagrama",
       "puzzle_forca": "Palabra Secreta",
 
-      "fala_4_boasvindas": "...viniste a verme en el vacío... gracias",
-      "fala_4_morte": "finalmente... descanso en la oscuridad eterna",
-      "fala_5_boasvindas": "ay, qué bueno que viniste a verme",
-      "fala_5_morte": "me convertí en vapor... volveré como lluvia algún día",
-      "fala_1_boasvindas": "tic tac… llegaste justo a tiempo",
-      "fala_1_morte": "el reloj se paró",
-      "fala_6_boasvindas": "¡Señal estabilizada! ¡Llegaste!",
-      "fala_6_morte": "Señal perdida... cambiando de frecuencia",
-      "fala_7_boasvindas": "la paleta se volvió más colorida contigo",
-      "fala_7_morte": "mi obra maestra quedó incompleta...",
-      "fala_8_boasvindas": "...volviste. la sangre reacciona.",
-      "fala_8_morte": "el rojo se volvió negro... al fin, descanso",
-      "fala_9_boasvindas": "Por fin apareciste. No es que estuviera esperando.",
-      "fala_9_morte": "hasta el fuego más intenso se apaga un día",
-      "fala_10_boasvindas": "> USUARIO IDENTIFICADO. BIENVENIDO. <",
-      "fala_10_morte": "> DESCONECTADO DEL SISTEMA <",
-
-      "termo": {
+"termo": {
         "titulo": "TÉRMINO DE RESPONSABILIDAD",
         "intro": "Antes de continuar, lea con atención. Un Tamagoshi es un ser vivo digital. Depende de ti para sobrevivir.",
         "regra_alimentar": "Debes alimentarlo regularmente",

@@ -31,16 +31,23 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
   }, [store.fome, store.higiene, store.energia, store.humor, store.saude])
 
   useEffect(() => {
+    console.log('[CRIATURA] status=' + store.status + ' personalidade=' + store.personalidade + ' criaturaId=' + store.criaturaId + ' locale=' + locale + ' metricas=' + metricasBaixas.length)
     sfx.notificacao()
     if (store.status === 'critico') {
-      setFala(getFala(store.personalidade, 'critico', store.criaturaId, t, locale))
+      const f = getFala(store.personalidade, 'critico', store.criaturaId, t, locale)
+      console.log('[CRIATURA] setFala critico =', JSON.stringify(f))
+      setFala(f)
       setMostrando('critico')
     } else if (metricasBaixas.length) {
       const { key } = metricasBaixas[0]
-      setFala(getFala(store.personalidade, key, store.criaturaId, t, locale))
+      const f = getFala(store.personalidade, key, store.criaturaId, t, locale)
+      console.log('[CRIATURA] setFala metrica key=' + key + ' =', JSON.stringify(f))
+      setFala(f)
       setMostrando(key)
     } else {
-      setFala(getFala(store.personalidade, 'boasVindas', store.criaturaId, t, locale))
+      const f = getFala(store.personalidade, 'boasVindas', store.criaturaId, t, locale)
+      console.log('[CRIATURA] setFala boasVindas =', JSON.stringify(f))
+      setFala(f)
       setMostrando('boasVindas')
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])

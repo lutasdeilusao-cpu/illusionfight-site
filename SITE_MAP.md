@@ -534,12 +534,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.46** | Tamagoshi — auditoria i18n + locale em getFala + CSS inline + encoding pt/es + cooldown i18n |
+| `SITE_VERSION` | **10.156.47** | Tamagoshi — fix en.json emoji encoding + remove fala_* i18n keys + debug logs |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.0** | Arena LDI — Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI (ver PROTOTYPE 2.10.0 para fix morte imediata) |
-| `TAMA_VERSION` | **3.2.0** | Tamagoshi LDI — auditoria i18n + locale em getFala + CSS inline + encoding pt/es + cooldown i18n |
+| `TAMA_VERSION` | **3.2.1** | Tamagoshi LDI — fix en.json emoji encoding + remove fala_* i18n keys + debug logs |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **2.0.0** | MiniGames (i18n completo pt/en/es) |
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |

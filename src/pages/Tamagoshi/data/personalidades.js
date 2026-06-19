@@ -96,25 +96,30 @@ const FALAS_MAP = { pt: FALAS_PT, en: FALAS_EN, es: FALAS_ES }
 
 export function getFala(tipo, chave, criaturaId, tFn, locale) {
   const FALAS = FALAS_MAP[locale] || FALAS_PT
+  console.log('[FALA] locale=' + locale + ' tipo=' + tipo + ' chave=' + chave + ' criaturaId=' + criaturaId + ' hasFALAS=' + (criaturaId && FALAS[criaturaId] ? 'YES' : 'NO'))
   if (tFn) {
     const tipoKey = PERS_NOME_KEY[tipo] || 'carente'
     const chaveLower = chave.toLowerCase()
     if (!criaturaId) {
       const i18nKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const translated = tFn(i18nKey)
-      if (translated !== i18nKey) return translated
+      if (translated !== i18nKey) { console.log('[FALA] i18n notif match: ' + translated.slice(0,50)); return translated }
     } else {
       const falaKey = 'games.tamagoshi.fala_' + criaturaId + '_' + chaveLower
       const translated = tFn(falaKey)
-      if (translated !== falaKey) return translated
+      if (translated !== falaKey) { console.log('[FALA] i18n fala match: ' + translated.slice(0,50)); return translated }
       const notifKey = 'games.tamagoshi.notif_' + tipoKey + '_' + chaveLower
       const notifTranslated = tFn(notifKey)
-      if (notifTranslated !== notifKey) return notifTranslated
+      if (notifTranslated !== notifKey) { console.log('[FALA] i18n notif fallback: ' + notifTranslated.slice(0,50)); return notifTranslated }
     }
   }
   if (criaturaId && FALAS[criaturaId]?.[chave]) {
     const arr = FALAS[criaturaId][chave]
-    return arr[Math.floor(Math.random() * arr.length)]
+    const result = arr[Math.floor(Math.random() * arr.length)]
+    console.log('[FALA] file match: ' + (result ? result.slice(0,50) : 'EMPTY'))
+    return result
   }
-  return PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
+  const fallback = PERSONALIDADES[tipo]?.notificacoes[chave] || '...'
+  console.log('[FALA] fallback: ' + fallback.slice(0,50))
+  return fallback
 }
