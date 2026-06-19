@@ -21,7 +21,7 @@ export default function NowLive() {
       <div className="container">
         <h2 className="section-title">{t('nowlive.title')}</h2>
         <p className="nowlive-subtitle">{t('nowlive.subtitle')}</p>
-        <div className="nowlive-row">
+        <div className="nowlive-grid">
           {items.map(item => {
             const [r, g, b] = platRGB[item.icone] || [100, 100, 100]
             const Icon = platformIconMap[item.icone]
@@ -32,16 +32,14 @@ export default function NowLive() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nowlive-card"
-                style={{ '--plat-r': r, '--plat-g': g, '--plat-b': b }}
+                style={{ '--plat-r': r, '--plat-g': g, '--plat-b': b, '--cor-plat': item.corPlataforma }}
               >
                 <div className="nowlive-card-thumb">
                   <div className="nowlive-card-overlay">{t('nowlive.abrir')}</div>
                   {Icon && <span className="nowlive-card-icon"><Icon /></span>}
                 </div>
                 <div className="nowlive-card-footer">
-                  <span className="nowlive-card-label" style={{ color: item.corPlataforma }}>
-                    {item.plataforma}
-                  </span>
+                  <span className="nowlive-card-label">{item.plataforma}</span>
                   <h3 className="nowlive-card-titulo">{item.titulo}</h3>
                   <p className="nowlive-card-desc">{item.descricao}</p>
                 </div>

@@ -18,20 +18,18 @@
   margin-bottom: 2rem;
 }
 
-.nowlive-row {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+.nowlive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 560px;
+  margin: 2rem auto 0;
 }
 
 .nowlive-card {
-  width: 260px;
-  height: 340px;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   text-decoration: none;
   display: flex;
@@ -40,15 +38,15 @@
 }
 
 .nowlive-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-4px) scale(1.02);
   border-color: rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.5);
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 8px 28px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.3);
 }
 
 .nowlive-card-thumb {
-  height: 220px;
+  height: 100px;
   background: linear-gradient(
     135deg,
     rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.25) 0%,
@@ -67,8 +65,8 @@
   position: absolute;
   top: -20px;
   right: -20px;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -79,21 +77,21 @@
 }
 
 .nowlive-card:hover .nowlive-card-thumb::before {
-  width: 140px;
-  height: 140px;
+  width: 110px;
+  height: 110px;
 }
 
 .nowlive-card-icon {
-  width: 96px;
-  height: 96px;
+  width: 48px;
+  height: 48px;
   opacity: 0.9;
   z-index: 1;
   pointer-events: none;
 }
 
 .nowlive-card-icon svg {
-  width: 96px;
-  height: 96px;
+  width: 48px;
+  height: 48px;
 }
 
 .nowlive-card-overlay {
@@ -106,7 +104,7 @@
   opacity: 0;
   transition: opacity 0.2s ease;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: white;
   letter-spacing: 0.05em;
@@ -118,54 +116,55 @@
 }
 
 .nowlive-card-footer {
-  padding: 16px;
+  padding: 10px 12px 12px;
   background: var(--bg-elevated);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nowlive-card-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--cor-plat);
 }
 
 .nowlive-card-titulo {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
   margin: 0;
 }
 
 .nowlive-card-desc {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   margin: 0;
 }
 
-@media (max-width: 640px) {
-  .nowlive-card {
-    width: 220px;
-    height: 300px;
+@media (max-width: 480px) {
+  .nowlive-grid {
+    gap: 10px;
+    max-width: 100%;
   }
 
   .nowlive-card-thumb {
-    height: 180px;
+    height: 80px;
   }
 
   .nowlive-card-icon {
-    width: 64px;
-    height: 64px;
+    width: 36px;
+    height: 36px;
   }
 
   .nowlive-card-icon svg {
-    width: 64px;
-    height: 64px;
+    width: 36px;
+    height: 36px;
   }
 }
