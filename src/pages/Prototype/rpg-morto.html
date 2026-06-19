@@ -386,6 +386,8 @@
   .effect-faint   { background: #1a1a2e; color: #9e9eff; border: 1px solid #2e2e5e; }
   .effect-regen   { background: #1a2e2e; color: #4dd0e1; border: 1px solid #1e5e5e; }
   .effect-fragile { background: #2e1a1a; color: #ef9a9a; border: 1px solid #5e2a2a; }
+  .effect-bleed   { background: #3a1010; color: #ff6b6b; border: 1px solid #6e2020; }
+  .effect-disease { background: #2a1a2e; color: #ce93d8; border: 1px solid #5e3a6e; }
 
   /* COMBATANTS LIST */
   .combatants-list {
@@ -513,11 +515,25 @@
 
         <div class="attack-grid" id="attack-buttons"></div>
 
-        <div class="magic-panel">
-          <div class="magic-section-title" onclick="toggleMagicPanel()" style="cursor:pointer; user-select:none;">
-            ✦ Magia <span id="magic-toggle-icon">▾</span>
-          </div>
-          <div id="magic-panel-body">
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:8px;">
+          <button class="btn btn-secondary" id="btn-defend" onclick="defendAction()" style="font-size:0.8rem;">Esperar</button>
+          <button class="btn btn-secondary" id="btn-swap" onclick="openSwapPanel()" style="font-size:0.8rem;">Trocar</button>
+          <button class="btn btn-secondary" id="btn-inventory" onclick="openInventoryPanel()" style="font-size:0.8rem; border-color:var(--gold-dim); color:var(--gold);">🎒 Inventário</button>
+        </div>
+      </div>
+
+      <!-- PAINEL DE HABILIDADES POR ARMA -->
+      <div id="skill-panel" class="card" style="padding:12px 14px; display:none;">
+        <div class="card-title" style="margin-bottom:8px;">Habilidades — <span id="skill-panel-weapon" style="color:var(--gold);font-size:0.85rem;"></span></div>
+
+        <!-- Flechas (só aparece para Arco) -->
+        <div id="arrow-panel" style="display:none;">
+          <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">Flecha preferida:</div>
+          <div id="arrow-buttons" style="display:flex; flex-direction:column; gap:6px; margin-bottom:8px;"></div>
+        </div>
+
+        <!-- Magia do Cajado (só aparece para Cajado) -->
+        <div id="cajado-magic-panel" style="display:none;">
           <div class="mp-counter" id="mp-display">MP: — / —</div>
 
           <div style="margin-bottom:6px; font-size:0.8rem; color:var(--muted);">Área de efeito</div>
@@ -540,14 +556,38 @@
 
           <div id="magic-queue-display" style="min-height:24px; margin-bottom:8px;"></div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:8px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
             <button class="btn btn-secondary" id="btn-clear-magic" onclick="clearMagicQueue()" style="font-size:0.8rem;">Limpar</button>
-            <button class="btn btn-secondary" id="btn-defend" onclick="defendAction()" style="font-size:0.8rem;">Esperar</button>
-            <button class="btn btn-secondary" id="btn-meditate" onclick="meditateAction()" style="font-size:0.8rem; border-color:var(--mp); color:var(--mp-light);">Meditar</button>
+            <button class="btn" id="btn-cast" onclick="castMagic()" style="font-size:0.85rem; background:#0d1a2e; border:1px solid var(--mp); color:var(--mp-light);">✦ Lançar Magia ✦</button>
           </div>
-          <button class="btn" id="btn-cast" onclick="castMagic()" style="width:100%; font-size:0.85rem; padding:10px; background:#0d1a2e; border:1px solid var(--mp); color:var(--mp-light);">✦ Lançar Magia ✦</button>
-          </div><!-- /magic-panel-body -->
         </div>
+
+        <!-- Placeholder para outras armas -->
+        <div id="skill-buttons">
+          <span style="color:var(--muted);font-size:0.85rem;font-style:italic;">Nenhuma habilidade disponível ainda.</span>
+        </div>
+      </div>
+
+      <!-- INVENTÁRIO -->
+      <div id="inventory-panel" class="card" style="padding:12px 14px; display:none;">
+        <div class="card-title" style="margin-bottom:8px;">🎒 Inventário — <span id="inventory-actor-name" style="color:var(--gold);font-size:0.85rem;"></span></div>
+        <div id="inventory-target-selector" style="display:none; margin-bottom:10px;">
+          <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">Usar em quem?</div>
+          <div id="inventory-target-buttons" style="display:flex; flex-direction:column; gap:6px;"></div>
+          <button class="btn btn-secondary" style="margin-top:8px; font-size:0.8rem;" onclick="cancelInventoryTarget()">Cancelar</button>
+        </div>
+        <div id="inventory-items" style="display:flex; flex-direction:column; gap:6px;"></div>
+        <button class="btn btn-secondary" onclick="closeInventoryPanel()" style="font-size:0.8rem; margin-top:10px;">Fechar</button>
+      </div>
+
+      <!-- TROCA DE ARMA / ARMADURA -->
+      <div id="swap-panel" class="card" style="padding:12px 14px; display:none;">
+        <div class="card-title" style="margin-bottom:8px;">Trocar Equipamento <span style="color:var(--muted);font-size:0.75rem;">(consome o turno)</span></div>
+        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">Arma:</div>
+        <div id="swap-weapon-buttons" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;"></div>
+        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:6px;">Armadura:</div>
+        <div id="swap-armor-buttons" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;"></div>
+        <button class="btn btn-secondary" onclick="closeSwapPanel()" style="font-size:0.8rem;">Cancelar</button>
       </div>
 
       <div class="log-box" id="battle-log"></div>
@@ -573,9 +613,12 @@ const ATTRS = [
 
 // Armas: atributo básico usado no teste, atributo de batalha que rivaliza com armadura
 const WEAPONS = [
-  { id: 'espada', name: 'Espada',  level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia', potencia: 6, letalidade: 0, malicia: 0 }, // +1 dano base
-  { id: 'adaga',  name: 'Adaga',   level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 0, letalidade: 5, malicia: 0 },
-  { id: 'cajado', name: 'Cajado',  level: 1, dice: 6, atkAttr: 'int', dmgStat: 'malicia', potencia: 0, letalidade: 0, malicia: 5 },
+  { id: 'espada',        name: 'Espada Longa',   level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia',   potencia: 6, letalidade: 0, malicia: 0 },
+  { id: 'adaga',         name: 'Adaga',           level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 0, letalidade: 5, malicia: 0 },
+  { id: 'cajado',        name: 'Cajado',          level: 1, dice: 6, atkAttr: 'int', dmgStat: 'malicia',    potencia: 0, letalidade: 0, malicia: 5 },
+  { id: 'espada_escudo', name: 'Espada e Escudo', level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'potencia',   potencia: 5, letalidade: 0, malicia: 0, shieldRegen: true },
+  { id: 'arco',          name: 'Arco',            level: 1, dice: 6, atkAttr: 'dex', dmgStat: 'letalidade', potencia: 3, letalidade: 3, malicia: 3, arrowBased: true },
+  { id: 'maos_livres',   name: 'Mãos Livres',     level: 1, dice: 6, atkAttr: 'for', dmgStat: 'potencia',   potencia: 0, letalidade: 0, malicia: 0, unarmed: true },
 ];
 
 // Armaduras: atributos de defesa rivalizam com arma
@@ -595,6 +638,53 @@ const ATK_VS_DEF_ATTR = { for: 'res', dex: 'agi', int: 'det' };
 // Bônus derivados: cada 2 pontos de Destreza = +1 ataque; cada 2 pontos de Agilidade = +1 defesa
 function atkBonus(entity)  { return Math.floor(entity.attrs.dex / 2); }
 function defBonus(entity)  { return Math.floor(entity.attrs.agi / 2); }
+
+// ─── ITENS ───────────────────────────────────────────────────────────────────
+// Poções / Manás: cura por dado. Curativos: removem efeitos. Café Forte: revive.
+const ITEMS_CONSUMABLE = [
+  { id:'pocao_p',   name:'Poção Pequena', type:'heal_hp', dice:10,  desc:'Cura 1d10 de HP' },
+  { id:'pocao_m',   name:'Poção Média',   type:'heal_hp', dice:20,  desc:'Cura 1d20 de HP' },
+  { id:'pocao_g',   name:'Poção Grande',  type:'heal_hp', dice:100, desc:'Cura 1d100 de HP' },
+  { id:'mana_p',    name:'Maná Pequena',  type:'heal_mp', dice:10,  desc:'Cura 1d10 de MP' },
+  { id:'mana_m',    name:'Maná Média',    type:'heal_mp', dice:20,  desc:'Cura 1d20 de MP' },
+  { id:'mana_g',    name:'Maná Grande',   type:'heal_mp', dice:100, desc:'Cura 1d100 de MP' },
+  { id:'ataduras',  name:'Ataduras',      type:'cure', removes:['bleed'],    desc:'Remove Sangramento' },
+  { id:'antidoto',  name:'Antídoto',      type:'cure', removes:['poison'],   desc:'Remove Envenenamento' },
+  { id:'camomila',  name:'Camomila',      type:'cure', removes:['paralyze'], desc:'Remove Paralisia' },
+  { id:'xarope',    name:'Xarope',        type:'cure', removes:['disease_light','disease_medium','disease_severe'], desc:'Remove Doença' },
+  { id:'cafe_forte',name:'Café Forte',    type:'revive', desc:'Revive aliado derrotado com 1 HP' },
+];
+
+// Flechas: definem o atributo de dano usado pelo Arco (Potência/Letalidade/Malícia)
+// e, nas variantes de efeito, uma chance de aplicar um efeito (sempre testado como Letalidade)
+const ARROWS = [
+  { id:'flecha_pesada',    name:'Flechas Pesadas',           dmgStat:'potencia',   desc:'Ataque com Potência' },
+  { id:'flecha_afiada',    name:'Flechas Afiadas',            dmgStat:'letalidade', desc:'Ataque com Letalidade' },
+  { id:'flecha_corrompida',name:'Flechas Corrompidas',        dmgStat:'malicia',    desc:'Ataque com Malícia' },
+  { id:'flecha_venenosa',  name:'Flechas Afiadas Envenenadas', dmgStat:'letalidade', desc:'Letalidade — pode causar Envenenamento', effect:'poison' },
+  { id:'flecha_paralisante',name:'Flechas Afiadas Paralizantes',dmgStat:'letalidade', desc:'Letalidade — pode causar Paralisia', effect:'paralyze' },
+  { id:'flecha_lacerante', name:'Flechas Afiadas Lacerantes',  dmgStat:'letalidade', desc:'Letalidade — pode causar Sangramento', effect:'bleed' },
+];
+// Ordem de preferência padrão quando o jogador ataca sem escolher flecha
+const ARROW_DEFAULT_ORDER = ['flecha_pesada','flecha_afiada','flecha_corrompida','flecha_venenosa','flecha_paralisante','flecha_lacerante'];
+
+// Estoque inicial de cada item (vazio em jogo real — usado agora para testes de sistema)
+const STARTING_INVENTORY = {
+  pocao_p: 5, pocao_m: 5, pocao_g: 5,
+  mana_p: 5, mana_m: 5, mana_g: 5,
+  ataduras: 5, antidoto: 5, camomila: 5, xarope: 5,
+  cafe_forte: 5,
+  flecha_pesada: 50, flecha_afiada: 50, flecha_corrompida: 50,
+  flecha_venenosa: 10, flecha_paralisante: 10, flecha_lacerante: 10,
+};
+
+function makeInventory() {
+  return { ...STARTING_INVENTORY };
+}
+
+function getItemDef(id) {
+  return ITEMS_CONSUMABLE.find(i => i.id === id) || ARROWS.find(a => a.id === id);
+}
 
 // ─── ALLY & ENEMY TEMPLATES ───────────────────────────────────────────────────
 const ALLY_TEMPLATES = [
@@ -632,12 +722,16 @@ function makeCombatant(template, side, id, isPlayerControlled) {
     alive: true,
     paralyzedRoundRolled: false,
     paralyzedThisRound: false,
+    inventory: isPlayerControlled ? makeInventory() : null,
+    preferredArrow: null, // última flecha escolhida manualmente pelo arqueiro
+    disease: null, // { stage: 'light'|'medium'|'severe', roundsSick: 0 }
   };
 }
 
 // ─── MAGIC DATA ──────────────────────────────────────────────────────────────
 const EFFECTS_ENEMY = [
   { id:'poison',   name:'Envenenamento', cost:2, defAttr:'res', desc:'-10% HP/turno',   cls:'effect-poison' },
+  { id:'bleed',    name:'Sangramento',   cost:2, defAttr:'res', desc:'-10% HP/turno',   cls:'effect-poison' },
   { id:'paralyze', name:'Paralisia',     cost:2, defAttr:'res', desc:'40% perde turno', cls:'effect-paralyze' },
   { id:'faint',    name:'Desmaio',       cost:2, defAttr:'det', desc:'Perde turno+rec', cls:'effect-faint' },
   { id:'fragile',  name:'Fragilidade',   cost:2, defAttr:'det', desc:'-25% def equip',  cls:'effect-fragile' },
@@ -865,6 +959,9 @@ function confirmCreation() {
     effects: [], buffs: [],
     alive: true,
     paralyzedRoundRolled: false, paralyzedThisRound: false,
+    inventory: makeInventory(),
+    preferredArrow: null,
+    disease: null,
   };
 
   const ally1 = makeCombatant(selectedAllies[0], 'player', 'ally1', true);
@@ -992,7 +1089,26 @@ function runTest(attr) {
 
 // ─── BATTLE ──────────────────────────────────────────────────────────────────
 function applyDamage(entity, dmg) {
+  // Túnica: absorção de emergência — ativa se Int>=2, Det>=3, HP<10
+  if (entity.armor && entity.armor.id === 'tunica' &&
+      entity.attrs.int >= 2 && entity.attrs.det >= 3 &&
+      entity.hp < 10 && entity.mp > 0) {
+    const absorbed = Math.max(1, Math.ceil(dmg * 0.10));
+    const mpCost   = absorbed;
+    if (entity.mp >= mpCost) {
+      entity.mp -= mpCost;
+      dmg = Math.max(0, dmg - absorbed);
+      logEntry(`🔮 Túnica de ${entity.name} absorve ${absorbed} de dano! (−${mpCost} MP)`, 'log-info');
+    }
+  }
+
   entity.hp = Math.max(0, entity.hp - dmg);
+  // Atordoamento cancela ao receber qualquer dano
+  if (entity.effects) {
+    const hadStun = entity.effects.some(e => e.id === 'stun');
+    entity.effects = entity.effects.filter(e => e.id !== 'stun');
+    if (hadStun) logEntry(`${entity.name} se recupera do atordoamento!`, 'log-info');
+  }
   if (entity.hp === 0 && entity.alive) {
     entity.alive = false;
     logEntry(`💀 ${entity.name} foi derrotado!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat');
@@ -1003,6 +1119,7 @@ function initBattle() {
   battleActive = true;
   currentActor = null;
   pendingAction = null;
+  globalRoundCount = 0;
   clearLog();
   logEntry('⚔ Uma nova batalha começa!', 'log-info');
   logEntry(`Seu grupo: ${combatants[0].name}, ${combatants[1].name}, ${combatants[2].name}`, 'log-sys');
@@ -1016,7 +1133,8 @@ function renderBattle() {
   const display = document.getElementById('combatants-display');
   display.innerHTML = '';
   combatants.forEach(c => {
-    const pct = Math.max(0, (c.hp / c.maxHP) * 100);
+    const effMaxHP = getEffectiveMaxHP(c);
+    const pct = Math.max(0, (c.hp / effMaxHP) * 100);
     const isCurrent = currentActor && currentActor.id === c.id;
     const cardClass = c.side === 'player' ? 'player-card' : 'enemy-card';
     const card = document.createElement('div');
@@ -1027,21 +1145,29 @@ function renderBattle() {
     let badges = '';
     (c.effects||[]).forEach(e => {
       const ef = [...EFFECTS_ENEMY, ...EFFECTS_ALLY].find(x=>x.id===e.id);
-      badges += `<span class="effect-badge ${ef?.cls||'effect-fragile'}">${ef?.name||e.id} (${e.turnsLeft})</span>`;
+      const cls = e.id === 'bleed' ? 'effect-bleed' : (ef?.cls||'effect-fragile');
+      const nm  = e.id === 'bleed' ? 'Sangramento' : (ef?.name||e.id);
+      badges += `<span class="effect-badge ${cls}">${nm} (${e.turnsLeft})</span>`;
     });
     (c.buffs||[]).forEach(b => {
       badges += `<span class="effect-badge effect-regen">${b.name} (${b.turnsLeft})</span>`;
     });
     if (c.defending) badges += `<span class="effect-badge effect-regen">Defendendo</span>`;
+    if (c.disease) {
+      const dLabel = {light:'Doença Leve',medium:'Doença Média',severe:'Doença Grave'}[c.disease.stage];
+      badges += `<span class="effect-badge effect-disease">${dLabel}</span>`;
+    }
+
+    const arrowLabel = c.weapon.arrowBased ? ` · ${getActiveArrowName(c)}` : '';
 
     card.innerHTML = `
       <div class="combatant-name">${c.name}${c.role?` <span style="color:var(--muted);font-size:.7rem;">(${c.role})</span>`:''}${!c.alive?' ☠':''}</div>
-      <div style="font-size:.7rem;color:var(--muted);text-align:center;margin-bottom:4px;">${c.weapon.name} · ${c.armor.name}</div>
+      <div style="font-size:.7rem;color:var(--muted);text-align:center;margin-bottom:4px;">${c.weapon.name}${arrowLabel} · ${c.armor.name}</div>
       <div class="stat-bars">
         <div class="stat-bar-row">
           <div class="stat-bar-label" style="color:var(--hp-light);font-size:.7rem;">HP</div>
           <div class="bar-track"><div class="bar-fill bar-hp ${pct<30?'low':''}" style="width:${pct}%"></div></div>
-          <div class="stat-val" style="font-size:.75rem;">${c.hp}/${c.maxHP}</div>
+          <div class="stat-val" style="font-size:.75rem;">${c.hp}/${effMaxHP}${effMaxHP!==c.maxHP?`<span style="color:var(--dmg);font-size:.65rem;"> (${c.maxHP})</span>`:''}</div>
         </div>
         ${c.maxMP>0?`<div class="stat-bar-row">
           <div class="stat-bar-label" style="color:var(--mp-light);font-size:.7rem;">MP</div>
@@ -1065,19 +1191,17 @@ function renderBattle() {
 
   if (!currentActor || !currentActor.isPlayerControlled) {
     actionPanel.style.display = 'none';
+    ['skill-panel','swap-panel','inventory-panel'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
     return;
   }
   actionPanel.style.display = '';
   const actorLabel = document.getElementById('action-actor-name');
   if (actorLabel) actorLabel.textContent = currentActor ? currentActor.name : '';
 
-  // Painel de magia só visível para quem usa cajado
-  const magicPanel = document.querySelector('.magic-panel');
-  if (magicPanel) {
-    const hasMagic = currentActor && currentActor.weapon.malicia > 0;
-    magicPanel.style.display = hasMagic ? '' : 'none';
-    if (!hasMagic) clearMagicQueue();
-  }
+  // Magia agora é parte do skill-panel — controlada por renderSkillPanel()
 
   if (pendingAction) {
     grid.innerHTML = '';
@@ -1095,6 +1219,19 @@ function renderBattle() {
   btn.innerHTML = `Atacar com ${w.name} <span class="attr-hint">Teste: ${ATTRS.find(a=>a.id===w.atkAttr).name} (${atkVal})</span>`;
   btn.onclick = () => startTargeting('attack');
   grid.appendChild(btn);
+
+  // Botões Esperar / Trocar / Inventário fora do painel de magia (para não-magos)
+  if (!w.malicia) {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px;';
+    row.innerHTML = `
+      <button class="btn btn-secondary" onclick="defendAction()" style="font-size:0.8rem;">Esperar</button>
+      <button class="btn btn-secondary" onclick="openSwapPanel()" style="font-size:0.8rem;">Trocar</button>
+      <button class="btn btn-secondary" onclick="openInventoryPanel()" style="font-size:0.8rem;border-color:var(--gold-dim);color:var(--gold);">🎒 Inventário</button>
+    `;
+    grid.appendChild(row);
+  }
+
   defendBtn.disabled = false;
 }
 
@@ -1272,12 +1409,25 @@ function rollDice(sides) { return Math.floor(Math.random() * sides) + 1; }
 
 function calcRawDmg(attacker, defender) {
   const w = attacker.weapon;
+
+  // Mãos Livres: dano proporcional ao HP atual, teto = (For+Res)/2
+  if (w.unarmed) {
+    const base = Math.floor((attacker.attrs.for + attacker.attrs.res) / 2);
+    const hpPct = attacker.hp / attacker.maxHP;
+    return Math.max(1, Math.floor(base * hpPct));
+  }
+
+  // Arco: delega para função com suporte a flechas
+  if (w.arrowBased) return calcRawDmgWithArrow(attacker, defender);
+
   const dmgStat = w.dmgStat;
   const defStat = DMG_VS_DEF[dmgStat];
-  const atkBase = w[dmgStat];
+
+  // Espada e Escudo: usa Potência para dano mesmo testando com Destreza
+  const atkBase = w.id === 'espada_escudo' ? w.potencia : w[dmgStat];
   const defBase = defender.armor[defStat];
-  const atkMod = getEffectMod(attacker, 'atk');
-  const defMod = getEffectMod(defender, 'def');
+  const atkMod  = getEffectMod(attacker, 'atk');
+  const defMod  = getEffectMod(defender, 'def');
   const atkFinal = Math.round(atkBase * (1 + atkMod));
   const defFinal = Math.round(defBase * (1 + defMod));
   return atkFinal + atkBonus(attacker) - defFinal - defBonus(defender);
@@ -1285,51 +1435,78 @@ function calcRawDmg(attacker, defender) {
 
 function resolveAttack(attacker, defender) {
   const w = attacker.weapon;
-  const atkAttrId = w.atkAttr;
+
+  // Arco: resolve flecha ativa, podendo usar Mãos Livres se sem estoque
+  let activeArrow = null;
+  let effectiveWeapon = w;
+  if (w.arrowBased) {
+    activeArrow = getActiveArrow(attacker);
+    if (!activeArrow) {
+      // Sem flechas — usa Mãos Livres
+      logEntry(`${attacker.name} sem flechas — usa Mãos Livres!`, 'log-info');
+      effectiveWeapon = WEAPONS.find(x => x.unarmed);
+    }
+  }
+
+  const atkAttrId = effectiveWeapon.atkAttr;
   const defAttrId = ATK_VS_DEF_ATTR[atkAttrId];
-  // Mods de atributo
   const atkAttr = Math.max(1, Math.round(attacker.attrs[atkAttrId] * (1 + getEffectMod(attacker, 'atk_attr'))));
   const defAttr = Math.max(1, Math.round(defender.attrs[defAttrId] * (1 + getEffectMod(defender, 'def_attr'))));
-  const rawDmg  = calcRawDmg(attacker, defender);
+  const rawDmg  = w.arrowBased && activeArrow
+    ? calcRawDmgWithArrow(attacker, defender, activeArrow)
+    : calcRawDmg(attacker, defender);
 
   const defFainted   = hasEffect(defender, 'faint');
   const defParalyzed = defFainted ? false : rollParalysisRound(defender);
 
-  logEntry(`${attacker.name} ataca ${defender.name} com ${w.name} (d${w.dice})`, 'log-sys');
+  const weaponLabel = w.arrowBased
+    ? (activeArrow ? `${w.name} (${activeArrow.name})` : 'Mãos Livres')
+    : w.name;
+  logEntry(`${attacker.name} ataca ${defender.name} com ${weaponLabel} (d${effectiveWeapon.dice})`, 'log-sys');
+
+  // Consome a flecha ANTES de resolver o ataque
+  if (w.arrowBased && activeArrow && attacker.inventory) {
+    attacker.inventory[activeArrow.id] = Math.max(0, (attacker.inventory[activeArrow.id] || 0) - 1);
+    // Se a flecha preferida acabou, limpa a preferência
+    if (attacker.preferredArrow === activeArrow.id && attacker.inventory[activeArrow.id] === 0) {
+      attacker.preferredArrow = null;
+    }
+  }
 
   // ── Desmaiado: sem defesa, sem contraataque ──────────────────────────────
   if (defFainted) {
-    const aRoll = rollDice(w.dice);
-    const aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    const aRoll = rollDice(effectiveWeapon.dice);
+    const aHit  = aRoll !== effectiveWeapon.dice && aRoll <= atkAttr;
     logEntry(`${attacker.name} rola ${aRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${atkAttr}`, 'log-sys');
     logEntry(`${defender.name} está desmaiado — sem defesa e sem contraataque!`, 'log-info');
     if (!aHit) {
       logEntry(`${attacker.name} errou mesmo com ${defender.name} desmaiado!`, 'log-miss');
       return;
     }
-    const atkMod     = getEffectMod(attacker, 'atk');
-    const atkBase    = Math.round(w[w.dmgStat] * (1 + atkMod));
-    const explosiveFull = Math.max(1, atkBase + atkBonus(attacker));
+    // Dano sem armadura = rawDmg + defesa da armadura (neutralizamos a subtração), dividido por 2
+    const explosiveFull = Math.max(1, rawDmg + atkBonus(attacker));
     const explosiveDmg  = Math.max(1, Math.floor(explosiveFull / 2));
     applyDamage(defender, explosiveDmg);
     logEntry(`💥 Golpe em ${defender.name} desmaiado! ${explosiveDmg} de dano (sem defesa, metade)!`, 'log-dmg');
     defender.effects = defender.effects.filter(e => e.id !== 'faint');
     logEntry(`${defender.name} acorda do desmaio!`, 'log-info');
+    if (activeArrow?.effect) rollArrowEffect(attacker, defender, activeArrow);
     return;
   }
 
   // ── Defensor conjurou magia neste turno — sem contraataque, sem frenético ──
   if (defender.actedWithMagic) {
-    const aRoll = rollDice(w.dice);
-    const aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    const aRoll = rollDice(effectiveWeapon.dice);
+    const aHit  = aRoll !== effectiveWeapon.dice && aRoll <= atkAttr;
     logEntry(`${attacker.name} rola ${aRoll} vs ${ATTRS.find(a=>a.id===atkAttrId).name} ${atkAttr}`, 'log-sys');
     logEntry(`${defender.name} conjurou magia — sem defesa nem contraataque!`, 'log-info');
     if (!aHit) {
       logEntry(`${attacker.name} errou!`, 'log-miss');
     } else {
-      const dmg = Math.max(1, calcRawDmg(attacker, defender));
+      const dmg = Math.max(1, rawDmg);
       applyDamage(defender, dmg);
       logEntry(`${defender.name} sofre ${dmg} de dano!`, 'log-dmg');
+      if (activeArrow?.effect) rollArrowEffect(attacker, defender, activeArrow);
     }
     return;
   }
@@ -1348,14 +1525,14 @@ function resolveAttack(attacker, defender) {
   const MAX_CLASHES = 5;
 
   do {
-    aRoll = rollDice(w.dice);
+    aRoll = rollDice(effectiveWeapon.dice);
     dRoll = defParalyzed ? null : rollDice(defender.weapon.dice);
 
-    aHit  = aRoll !== w.dice && aRoll <= atkAttr;
+    aHit  = aRoll !== effectiveWeapon.dice && aRoll <= atkAttr;
     dPass = !defParalyzed && dRoll !== defender.weapon.dice && dRoll <= defAttr;
 
     // Falha automática do atacante — sai do loop imediatamente
-    if (aRoll === w.dice) {
+    if (aRoll === effectiveWeapon.dice) {
       logEntry(`✦ Falha automática de ${attacker.name}! (rolou ${aRoll})`, 'log-miss');
       if (dPass) {
         const cRaw = calcRawDmg(defender, attacker);
@@ -1378,14 +1555,15 @@ function resolveAttack(attacker, defender) {
 
       if (clashCount >= MAX_CLASHES) {
         // Sorteio final: quem rolar mais alto no dado decide
-        const tieAtkRoll = rollDice(w.dice);
+        const tieAtkRoll = rollDice(effectiveWeapon.dice);
         const tieDefRoll = rollDice(defender.weapon.dice);
         logEntry(`Sorteio decisivo! ${attacker.name} rola ${tieAtkRoll} vs ${defender.name} rola ${tieDefRoll}`, 'log-sys');
         if (tieAtkRoll >= tieDefRoll) {
           logEntry(`${attacker.name} rompe a defesa de ${defender.name} por um fio!`, 'log-hit');
-          const halfDmg = Math.max(1, Math.floor(rawDmg / 2));
+          const shieldFull = attacker.weapon.id === 'espada_escudo';
+          const halfDmg = shieldFull ? Math.max(1, rawDmg) : Math.max(1, Math.floor(rawDmg / 2));
           applyDamage(defender, halfDmg);
-          logEntry(`${defender.name} sofre ${halfDmg} de dano (metade por desgaste)!`, 'log-dmg');
+          logEntry(`${defender.name} sofre ${halfDmg} de dano${shieldFull ? ' (escudo mantém dano cheio)' : ' (metade por desgaste)'}!`, 'log-dmg');
         } else {
           logEntry(`${defender.name} resiste e ${attacker.name} recua exausto!`, 'log-miss');
           const halfDmg = Math.max(1, Math.floor(calcRawDmg(defender, attacker) / 2));
@@ -1426,6 +1604,12 @@ function resolveAttack(attacker, defender) {
   const finalDmg = Math.max(1, rawDmg);
   applyDamage(defender, finalDmg);
   logEntry(`${defender.name} sofre ${finalDmg} de dano!`, 'log-dmg');
+  rollStun(attacker, defender);
+
+  // Efeito de flecha especial (se ataque acertou e causou dano ≥0, mesmo que 0)
+  if (activeArrow?.effect) {
+    rollArrowEffect(attacker, defender, activeArrow);
+  }
 }
 
 function applyCounterAttack(attackerEntity, attackerWeapon, defenderEntity, defenderArmor, defenderName, isPlayer) {
@@ -1575,7 +1759,14 @@ let areaTargetsPicked = []; // alvos escolhidos para área 'two'
 
 function startRound() {
   if (!battleActive) return;
+  globalRoundCount++;
   combatants.forEach(c => { c.paralyzedRoundRolled = false; c.paralyzedThisRound = false; });
+  // Progressão de doença a cada 10 rodadas
+  if (globalRoundCount % 10 === 0) {
+    processDiseaseProgression();
+    renderBattle();
+    if (checkBattleEnd()) return;
+  }
   turnOrder = combatants
     .filter(c => c.alive)
     .map(c => ({ c, init: c.attrs.agi + Math.random() * 2 }))
@@ -1604,6 +1795,7 @@ function processTurn() {
 
   currentActor = actor;
   actor.actedWithMagic = false;
+  processWeaponPassives(actor);
 
   if (rollParalysisRound(actor)) {
     logEntry(`⚡ ${actor.name} está paralisado e perde o turno!`, 'log-info');
@@ -1624,6 +1816,14 @@ function processTurn() {
     return;
   }
 
+  if (hasEffect(actor, 'stun')) {
+    // Atordoado: sem magia (bloqueado em castMagic), 25% ataca aliado
+    actor.effects = actor.effects.filter(e => e.id !== 'stun');
+    logEntry(`⚡ ${actor.name} está atordoado!`, 'log-info');
+    // Lógica de desvio de alvo aplicada na IA e no turno do jogador via flag
+    actor.stunThisTurn = true;
+  }
+
   if (actor.side === 'enemy') {
     setBattleButtons(false);
     renderBattle();
@@ -1631,11 +1831,13 @@ function processTurn() {
   } else {
     renderBattle();
     renderMagicPanel();
+    renderSkillPanel();
     setBattleButtons(true);
   }
 }
 
 function endTurn() {
+  if (currentActor) currentActor.stunThisTurn = false;
   turnIndex++;
   currentActor = null;
   pendingAction = null;
@@ -1673,6 +1875,13 @@ function processEffects(entity, entityName) {
         const dmg = Math.max(1, Math.floor(entity.maxHP * 0.1));
         entity.hp = Math.max(0, entity.hp - dmg);
         logEntry(`☠ ${entityName} sofre ${dmg} de veneno. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
+        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`💀 ${entityName} foi derrotado pelo veneno!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
+      }
+      if (ef.id === 'bleed') {
+        const dmg = Math.max(1, Math.floor(entity.maxHP * 0.1));
+        entity.hp = Math.max(0, entity.hp - dmg);
+        logEntry(`🩸 ${entityName} sofre ${dmg} de sangramento. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
+        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`💀 ${entityName} foi derrotado pelo sangramento!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
       }
       if (ef.id === 'regen') {
         const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
@@ -1743,6 +1952,205 @@ function getEffectMod(entity, type) {
   return mod;
 }
 
+// ─── TROCA DE EQUIPAMENTO ────────────────────────────────────────────────────
+function openSwapPanel() {
+  if (!currentActor) return;
+  const actor = currentActor;
+  const isAdventurer = actor.id === 'player';
+
+  const swapPanel = document.getElementById('swap-panel');
+  const wBtns = document.getElementById('swap-weapon-buttons');
+  const aBtns = document.getElementById('swap-armor-buttons');
+  wBtns.innerHTML = '';
+  aBtns.innerHTML = '';
+
+  // Armas disponíveis
+  const availableWeapons = isAdventurer
+    ? WEAPONS
+    : WEAPONS.filter(w => w.dmgStat === actor.weapon.dmgStat || w.unarmed);
+
+  availableWeapons.forEach(w => {
+    const current = actor.weapon.id === w.id;
+    const btn = document.createElement('button');
+    btn.className = 'btn ' + (current ? 'btn-gold' : 'btn-secondary');
+    btn.style.fontSize = '0.8rem';
+    btn.innerHTML = `${w.name}${current ? ' ✦' : ''}`;
+    btn.disabled = current;
+    btn.onclick = () => { swapWeapon(actor, w); closeSwapPanel(); };
+    wBtns.appendChild(btn);
+  });
+
+  // Armaduras disponíveis (todas para aventureiro, mesma para aliados)
+  const availableArmors = isAdventurer
+    ? ARMORS
+    : [actor.armor]; // aliados mantêm armadura
+
+  availableArmors.forEach(ar => {
+    const current = actor.armor.id === ar.id;
+    const btn = document.createElement('button');
+    btn.className = 'btn ' + (current ? 'btn-gold' : 'btn-secondary');
+    btn.style.fontSize = '0.8rem';
+    btn.innerHTML = `${ar.name}${current ? ' ✦' : ''}`;
+    btn.disabled = current;
+    btn.onclick = () => { swapArmor(actor, ar); closeSwapPanel(); };
+    aBtns.appendChild(btn);
+  });
+
+  swapPanel.style.display = '';
+  document.getElementById('action-panel').style.display = 'none';
+  document.getElementById('skill-panel').style.display = 'none';
+  document.getElementById('inventory-panel').style.display = 'none';
+}
+
+function closeSwapPanel() {
+  document.getElementById('swap-panel').style.display = 'none';
+  document.getElementById('action-panel').style.display = '';
+  renderSkillPanel();
+}
+
+function swapWeapon(actor, newWeapon) {
+  if (actor.weapon.id === newWeapon.id) return;
+  logDivider();
+  logEntry(`${actor.name} troca ${actor.weapon.name} por ${newWeapon.name}. (turno consumido)`, 'log-info');
+  actor.weapon = newWeapon;
+  actor.shieldRegenCounter = 0; // reset contador do escudo
+  clearMagicQueue();
+  renderBattle(); renderSheet(); renderMagicPanel(); renderSkillPanel();
+  endTurn();
+}
+
+function swapArmor(actor, newArmor) {
+  if (actor.armor.id === newArmor.id) return;
+  logDivider();
+  logEntry(`${actor.name} troca ${actor.armor.name} por ${newArmor.name}. (turno consumido)`, 'log-info');
+  actor.armor = newArmor;
+  renderBattle(); renderSheet();
+  endTurn();
+}
+
+// ─── PAINEL DE HABILIDADES ────────────────────────────────────────────────────
+function renderSkillPanel() {
+  const panel = document.getElementById('skill-panel');
+  const label = document.getElementById('skill-panel-weapon');
+  if (!panel || !currentActor) return;
+  const actor = currentActor;
+  label.textContent = actor.weapon.name;
+  panel.style.display = '';
+
+  const isCajado  = actor.weapon.id === 'cajado';
+  const isArco    = !!actor.weapon.arrowBased;
+
+  // Cajado: mostra painel de magia, oculta placeholder e flechas
+  const cajadoPanel = document.getElementById('cajado-magic-panel');
+  const skillBtns   = document.getElementById('skill-buttons');
+  const arrowPanel  = document.getElementById('arrow-panel');
+
+  if (isCajado) {
+    cajadoPanel.style.display = '';
+    skillBtns.style.display   = 'none';
+    arrowPanel.style.display  = 'none';
+    renderMagicPanel();
+    return;
+  }
+
+  cajadoPanel.style.display = 'none';
+  skillBtns.style.display   = '';
+
+  // Arco: mostra painel de flechas
+  if (isArco) {
+    arrowPanel.style.display = '';
+    const arrowBtns = document.getElementById('arrow-buttons');
+    arrowBtns.innerHTML = '';
+    const inv = actor.inventory || {};
+    ARROWS.forEach(ar => {
+      const qty = inv[ar.id] || 0;
+      const isPreferred = actor.preferredArrow === ar.id;
+      const isActive = getActiveArrow(actor)?.id === ar.id;
+      const btn = document.createElement('button');
+      btn.className = 'btn ' + (isPreferred ? 'btn-gold' : 'btn-secondary');
+      btn.style.fontSize = '0.8rem';
+      btn.style.textAlign = 'left';
+      btn.disabled = qty === 0;
+      btn.innerHTML = `${isActive && !isPreferred ? '→ ' : ''}${ar.name} <span style="color:var(--muted);">(${qty})</span><br><small style="font-style:italic;color:var(--muted);">${ar.desc}</small>`;
+      btn.onclick = () => {
+        actor.preferredArrow = isPreferred ? null : ar.id;
+        renderSkillPanel();
+        renderBattle();
+      };
+      arrowBtns.appendChild(btn);
+    });
+    if (ARROWS.every(ar => (inv[ar.id] || 0) === 0)) {
+      arrowBtns.innerHTML = '<span style="color:var(--dmg);font-size:.85rem;">Sem flechas — usando Mãos Livres!</span>';
+    }
+  } else {
+    arrowPanel.style.display = 'none';
+  }
+
+  // Placeholder para armas sem habilidades definidas
+  skillBtns.innerHTML = '<span style="color:var(--muted);font-size:0.85rem;font-style:italic;">Nenhuma habilidade disponível ainda.</span>';
+}
+
+// Passivas de arma — executadas no início do turno do portador
+function processWeaponPassives(actor) {
+  if (!actor.alive) return;
+
+  // Cajado: recupera 1 MP por turno
+  if (actor.weapon.id === 'cajado' && actor.mp < actor.maxMP) {
+    actor.mp = Math.min(actor.maxMP, actor.mp + 1);
+    logEntry(`✦ ${actor.name} recupera 1 MP pelo cajado. (${actor.mp}/${actor.maxMP})`, 'log-sys');
+  }
+
+  // Espada e Escudo: regenera 1 HP a cada 2 turnos, teto 50% HP máximo
+  if (actor.weapon.id === 'espada_escudo') {
+    if (!actor.shieldRegenCounter) actor.shieldRegenCounter = 0;
+    actor.shieldRegenCounter++;
+    if (actor.shieldRegenCounter >= 2) {
+      actor.shieldRegenCounter = 0;
+      const cap = Math.floor(actor.maxHP * 0.5);
+      if (actor.hp < cap) {
+        actor.hp = Math.min(cap, actor.hp + 1);
+        logEntry(`🛡 ${actor.name} recupera 1 HP pelo escudo. (${actor.hp}/${actor.maxHP})`, 'log-sys');
+      }
+    }
+  }
+}
+
+// Atordoamento de Mãos Livres — chamado após causar dano
+function rollStun(attacker, defender) {
+  if (!attacker.weapon.unarmed) return;
+  const chance = (attacker.attrs.for + attacker.attrs.res) * 0.5 / 100;
+  if (Math.random() < chance) {
+    if (!defender.effects) defender.effects = [];
+    defender.effects = defender.effects.filter(e => e.id !== 'stun');
+    defender.effects.push({ id: 'stun', turnsLeft: 1 });
+    logEntry(`⚡ ${defender.name} está Atordoado! (sem magia, 25% ataca aliado)`, 'log-info');
+  }
+}
+
+// Efeito de flecha especial — chamado quando ataque acerta
+function rollArrowEffect(attacker, defender, arrow) {
+  if (!arrow.effect) return;
+  // Testa resistência do defensor (Resistência contra efeito de flecha)
+  const w = attacker.weapon;
+  const resVal = defender.attrs.res;
+  const resRoll = rollDice(w.dice);
+  const effectDef = EFFECTS_ENEMY.find(e => e.id === arrow.effect);
+  const effectName = arrow.effect === 'bleed' ? 'Sangramento' : (effectDef?.name || arrow.effect);
+  logEntry(`🏹 ${defender.name} testa Resistência contra ${effectName}: rola ${resRoll} vs ${resVal}`, 'log-sys');
+  if (resRoll !== w.dice && resRoll <= resVal) {
+    logEntry(`${defender.name} resistiu ao ${effectName}!`, 'log-miss');
+    return;
+  }
+  if (arrow.effect === 'bleed') {
+    if (!defender.effects) defender.effects = [];
+    defender.effects = defender.effects.filter(e => e.id !== 'bleed');
+    defender.effects.push({ id: 'bleed', turnsLeft: 3 });
+    logEntry(`🩸 ${defender.name} está Sangrando! (-10% HP/turno por 3 turnos)`, 'log-dmg');
+  } else if (effectDef) {
+    applyEffect(effectDef, defender, defender, 3);
+  }
+}
+
 // IA dos inimigos
 function aiAct(actor) {
   logDivider();
@@ -1751,6 +2159,22 @@ function aiAct(actor) {
 
   // Cultista usa magia se tiver cajado, int >= 1 e MP suficiente
   const isCaster = actor.weapon.malicia > 0 && actor.attrs.int >= 1 && actor.mp >= 2;
+
+  // Atordoado: 25% chance de atacar aliado em vez de inimigo
+  if (actor.stunThisTurn) {
+    actor.stunThisTurn = false;
+    if (Math.random() < 0.25) {
+      const friendlies = (actor.side === 'enemy' ? aliveEnemySide() : alivePlayerSide()).filter(c => c.id !== actor.id);
+      if (friendlies.length > 0) {
+        const wrongTarget = friendlies[Math.floor(Math.random() * friendlies.length)];
+        logEntry(`${actor.name} está confuso e ataca ${wrongTarget.name} (aliado)!`, 'log-info');
+        resolveAttack(actor, wrongTarget);
+        renderBattle(); renderSheet();
+        if (checkBattleEnd()) return;
+        endTurn(); return;
+      }
+    }
+  }
 
   const useMagic = isCaster && actor.mp >= 2;
 
@@ -1800,28 +2224,17 @@ function defendAction() {
   setTimeout(() => { actor.defending = false; endTurn(); }, 400);
 }
 
-function meditateAction() {
-  if (!currentActor) return;
-  const actor = currentActor;
-  if (actor.mp >= actor.maxMP) {
-    logEntry(`${actor.name} já está com MP cheio!`, 'log-miss');
-    return;
-  }
-  setBattleButtons(false);
-  logDivider();
-  const recover = Math.max(1, Math.floor(actor.maxMP * 0.25));
-  actor.mp = Math.min(actor.maxMP, actor.mp + recover);
-  logEntry(`${actor.name} medita e recupera ${recover} MP. (${actor.mp}/${actor.maxMP})`, 'log-info');
-  renderBattle(); renderSheet(); renderMagicPanel();
-  setTimeout(endTurn, 400);
-}
-
 function castMagic() {
   if (!currentActor) return;
 
   // Paralisado não pode usar magia
   if (hasEffect(currentActor, 'paralyze') && currentActor.paralyzedThisRound) {
     logEntry(`${currentActor.name} está paralisado e não pode conjurar magias!`, 'log-miss');
+    return;
+  }
+  // Atordoado não pode usar magia
+  if (currentActor.stunThisTurn) {
+    logEntry(`${currentActor.name} está atordoado e não pode conjurar magias!`, 'log-miss');
     return;
   }
 
@@ -2093,6 +2506,296 @@ function restartBattle() {
   initBattle();
 }
 
+// ─── DOENÇA ──────────────────────────────────────────────────────────────────
+const DISEASE_STAGES = ['light', 'medium', 'severe'];
+const DISEASE_HP_REDUCTION = { light: 0.10, medium: 0.25, severe: 0.50 };
+const DISEASE_LABELS = { light: 'Doença Leve', medium: 'Doença Média', severe: 'Doença Grave' };
+
+function getEffectiveMaxHP(entity) {
+  if (!entity.disease) return entity.maxHP;
+  const reduction = DISEASE_HP_REDUCTION[entity.disease.stage];
+  return Math.max(1, Math.floor(entity.maxHP * (1 - reduction)));
+}
+
+// Aplica doença a uma entidade (chamado externamente, ex: aventura)
+function applyDisease(entity, stage = 'light') {
+  entity.disease = { stage, roundsSick: 0 };
+  logEntry(`☣ ${entity.name} contraiu ${DISEASE_LABELS[stage]}!`, 'log-info');
+  // Ajusta HP para não ultrapassar o novo máximo efetivo
+  const effMax = getEffectiveMaxHP(entity);
+  if (entity.hp > effMax) entity.hp = effMax;
+}
+
+// Processa progressão de doença — chamado a cada 10 rodadas (rodada global)
+let globalRoundCount = 0;
+function processDiseaseProgression() {
+  combatants.filter(c => c.alive && c.disease).forEach(entity => {
+    entity.disease.roundsSick++;
+
+    // A cada 10 rodadas: teste de Resistência para progredir
+    if (entity.disease.roundsSick % 10 === 0) {
+      const resVal = entity.attrs.res;
+      const resRoll = rollDice(20);
+      const resisted = resRoll <= resVal && resRoll !== 20;
+      logEntry(`☣ ${entity.name}: teste de progressão da doença — rola ${resRoll} vs Resistência ${resVal}`, 'log-sys');
+      if (!resisted) {
+        const idx = DISEASE_STAGES.indexOf(entity.disease.stage);
+        if (idx < DISEASE_STAGES.length - 1) {
+          entity.disease.stage = DISEASE_STAGES[idx + 1];
+          logEntry(`☣ A doença de ${entity.name} progrediu para ${DISEASE_LABELS[entity.disease.stage]}!`, 'log-dmg');
+          const effMax = getEffectiveMaxHP(entity);
+          if (entity.hp > effMax) { entity.hp = effMax; }
+        }
+        // Doença Grave: após 10 rodadas causa Envenenamento automático
+        if (entity.disease.stage === 'severe') {
+          logEntry(`☣ Doença Grave: ${entity.name} é automaticamente envenenado!`, 'log-dmg');
+          applyEffect({ id:'poison', name:'Envenenamento', cls:'effect-poison', defAttr:'res' }, entity, entity, 3);
+        }
+      } else {
+        logEntry(`${entity.name} resistiu à progressão da doença!`, 'log-info');
+      }
+
+      // Contágio: aliados testam Resistência a cada 10 rodadas
+      const allies = combatants.filter(c => c.alive && c.id !== entity.id && c.side === entity.side && !c.disease);
+      allies.forEach(ally => {
+        const aRoll = rollDice(20);
+        const aRes  = ally.attrs.res;
+        const infected = aRoll > aRes || aRoll === 20;
+        logEntry(`☣ ${ally.name}: teste de contágio — rola ${aRoll} vs Resistência ${aRes}`, 'log-sys');
+        if (infected) {
+          applyDisease(ally, 'light');
+        } else {
+          logEntry(`${ally.name} não foi infectado.`, 'log-sys');
+        }
+      });
+    }
+  });
+}
+
+// ─── ARCO / FLECHAS ──────────────────────────────────────────────────────────
+function getActiveArrow(actor) {
+  if (!actor.weapon.arrowBased) return null;
+  const inv = actor.inventory || {};
+
+  // Se tem preferência manual e ainda tem estoque, usa ela
+  if (actor.preferredArrow && (inv[actor.preferredArrow] || 0) > 0) {
+    return ARROWS.find(a => a.id === actor.preferredArrow) || null;
+  }
+
+  // Lógica padrão: ordem de prioridade
+  for (const id of ARROW_DEFAULT_ORDER) {
+    if ((inv[id] || 0) > 0) return ARROWS.find(a => a.id === id) || null;
+  }
+  return null; // sem flechas — usa Mãos Livres
+}
+
+function getActiveArrowName(actor) {
+  const arrow = getActiveArrow(actor);
+  return arrow ? arrow.name : 'Mãos Livres';
+}
+
+// calcRawDmg com suporte a Arco (flecha define dmgStat)
+function calcRawDmgWithArrow(attacker, defender, arrowOverride) {
+  const w = attacker.weapon;
+
+  if (w.unarmed) {
+    const base = Math.floor((attacker.attrs.for + attacker.attrs.res) / 2);
+    const hpPct = attacker.hp / attacker.maxHP;
+    return Math.max(1, Math.floor(base * hpPct));
+  }
+
+  if (w.arrowBased) {
+    const arrow = arrowOverride || getActiveArrow(attacker);
+    if (!arrow) {
+      // sem flecha → Mãos Livres
+      const base = Math.floor((attacker.attrs.for + attacker.attrs.res) / 2);
+      const hpPct = attacker.hp / attacker.maxHP;
+      return Math.max(1, Math.floor(base * hpPct));
+    }
+    const dmgStat = arrow.dmgStat;
+    const defStat = DMG_VS_DEF[dmgStat];
+    const atkBase = w[dmgStat]; // = 3 para todas as flechas
+    const defBase = defender.armor[defStat];
+    const atkMod  = getEffectMod(attacker, 'atk');
+    const defMod  = getEffectMod(defender, 'def');
+    const atkFinal = Math.round(atkBase * (1 + atkMod));
+    const defFinal = Math.round(defBase * (1 + defMod));
+    return atkFinal + atkBonus(attacker) - defFinal - defBonus(defender);
+  }
+
+  return calcRawDmg(attacker, defender);
+}
+
+// ─── INVENTÁRIO ──────────────────────────────────────────────────────────────
+let pendingItemUse = null; // { actor, item }
+
+function openInventoryPanel() {
+  if (!currentActor) return;
+  const actor = currentActor;
+  document.getElementById('inventory-actor-name').textContent = actor.name;
+  document.getElementById('inventory-target-selector').style.display = 'none';
+  renderInventoryItems(actor);
+  document.getElementById('inventory-panel').style.display = '';
+  document.getElementById('action-panel').style.display = 'none';
+  document.getElementById('skill-panel').style.display = 'none';
+}
+
+function closeInventoryPanel() {
+  document.getElementById('inventory-panel').style.display = 'none';
+  document.getElementById('action-panel').style.display = '';
+  renderSkillPanel();
+}
+
+function renderInventoryItems(actor) {
+  const inv = actor.inventory || {};
+  const container = document.getElementById('inventory-items');
+  container.innerHTML = '';
+
+  const allItems = [...ITEMS_CONSUMABLE];
+  let hasAny = false;
+
+  allItems.forEach(item => {
+    const qty = inv[item.id] || 0;
+    if (qty === 0) return;
+    hasAny = true;
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;';
+    row.innerHTML = `
+      <div style="flex:1;">
+        <div style="font-size:.9rem;">${item.name} <span style="color:var(--muted);font-size:.8rem;">(${qty})</span></div>
+        <div style="font-size:.75rem;color:var(--muted);font-style:italic;">${item.desc}</div>
+      </div>
+      <button class="btn btn-secondary" style="font-size:.8rem;padding:6px 12px;" onclick="selectItemUse('${item.id}')">Usar</button>
+    `;
+    container.appendChild(row);
+  });
+
+  if (!hasAny) {
+    container.innerHTML = '<span style="color:var(--muted);font-size:.85rem;font-style:italic;">Inventário vazio.</span>';
+  }
+}
+
+function selectItemUse(itemId) {
+  const actor = currentActor;
+  const item = getItemDef(itemId);
+  if (!item) return;
+  pendingItemUse = { actor, item };
+
+  // Itens que precisam de alvo
+  if (item.type === 'heal_hp' || item.type === 'heal_mp') {
+    // Pode usar em si mesmo ou aliados vivos
+    showInventoryTargetSelector(alivePlayerSide(), resolveItemUse);
+  } else if (item.type === 'cure') {
+    showInventoryTargetSelector(alivePlayerSide(), resolveItemUse);
+  } else if (item.type === 'revive') {
+    const dead = combatants.filter(c => c.side === 'player' && !c.alive);
+    if (dead.length === 0) {
+      logEntry('Não há aliados derrotados para reviver!', 'log-miss');
+      return;
+    }
+    showInventoryTargetSelector(dead, resolveItemUse);
+  }
+}
+
+function showInventoryTargetSelector(targets, callback) {
+  const sel = document.getElementById('inventory-target-selector');
+  const btns = document.getElementById('inventory-target-buttons');
+  btns.innerHTML = '';
+  targets.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-secondary';
+    btn.style.cssText = 'text-align:left;font-size:.85rem;';
+    const effMax = getEffectiveMaxHP(t);
+    btn.innerHTML = `${t.name} <span style="color:var(--muted);">(HP ${t.hp}/${effMax})</span>`;
+    btn.onclick = () => callback(t);
+    btns.appendChild(btn);
+  });
+  sel.style.display = '';
+}
+
+function cancelInventoryTarget() {
+  document.getElementById('inventory-target-selector').style.display = 'none';
+  pendingItemUse = null;
+}
+
+function resolveItemUse(target) {
+  if (!pendingItemUse) return;
+  const { actor, item } = pendingItemUse;
+  pendingItemUse = null;
+  document.getElementById('inventory-target-selector').style.display = 'none';
+
+  const inv = actor.inventory;
+  if (!inv || (inv[item.id] || 0) === 0) {
+    logEntry(`Sem ${item.name} no inventário!`, 'log-miss');
+    closeInventoryPanel();
+    return;
+  }
+  inv[item.id]--;
+
+  logDivider();
+
+  if (item.type === 'heal_hp') {
+    const heal = rollDice(item.dice);
+    const effMax = getEffectiveMaxHP(target);
+    const before = target.hp;
+    target.hp = Math.min(effMax, target.hp + heal);
+    const actual = target.hp - before;
+    logEntry(`🧪 ${actor.name} usa ${item.name} em ${target.name}: cura ${actual} HP! (d${item.dice} → ${heal})`, 'log-victory');
+  } else if (item.type === 'heal_mp') {
+    const heal = rollDice(item.dice);
+    const before = target.mp;
+    target.mp = Math.min(target.maxMP, target.mp + heal);
+    const actual = target.mp - before;
+    logEntry(`🔵 ${actor.name} usa ${item.name} em ${target.name}: recupera ${actual} MP! (d${item.dice} → ${heal})`, 'log-info');
+  } else if (item.type === 'cure') {
+    const removed = [];
+    let diseaseRemoved = false;
+
+    item.removes.forEach(effectId => {
+      // Doença: tratada separadamente para não iterar 3 vezes
+      if (effectId.startsWith('disease_')) {
+        if (!diseaseRemoved && target.disease) {
+          diseaseRemoved = true;
+          removed.push(DISEASE_LABELS[target.disease.stage] || 'Doença');
+          target.disease = null;
+          // Restaura HP ao máximo efetivo (sem redução de doença)
+          if (target.hp > target.maxHP) target.hp = target.maxHP;
+        }
+        return;
+      }
+      // Efeitos normais (bleed, poison, paralyze...)
+      const had = target.effects?.some(e => e.id === effectId);
+      if (had) {
+        target.effects = target.effects.filter(e => e.id !== effectId);
+        const ef = EFFECTS_ENEMY.find(x => x.id === effectId);
+        const label = effectId === 'bleed' ? 'Sangramento' : (ef?.name || effectId);
+        removed.push(label);
+      }
+    });
+
+    if (removed.length > 0) {
+      logEntry(`💊 ${actor.name} usa ${item.name} em ${target.name}: remove ${removed.join(', ')}!`, 'log-victory');
+    } else {
+      logEntry(`${actor.name} usa ${item.name} em ${target.name}: nenhum efeito a remover.`, 'log-sys');
+    }
+  } else if (item.type === 'revive') {
+    target.alive = true;
+    target.hp = 1;
+    target.effects = [];
+    target.buffs = [];
+    target.paralyzedRoundRolled = false;
+    target.paralyzedThisRound = false;
+    logEntry(`☕ ${actor.name} usa ${item.name}: ${target.name} voltou ao combate com 1 HP!`, 'log-victory');
+  }
+
+  closeInventoryPanel();
+  renderBattle();
+  renderSheet();
+  renderMagicPanel();
+  if (checkBattleEnd()) return;
+  endTurn();
+}
+
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function rollD20() { return Math.floor(Math.random() * 20) + 1; }
 
@@ -2147,10 +2850,12 @@ function setBattleButtons(enabled) {
   document.querySelectorAll('.btn-attack').forEach(b => b.disabled = !enabled);
   const def = document.getElementById('btn-defend');
   if (def) def.disabled = !enabled;
-  const med = document.getElementById('btn-meditate');
-  if (med) med.disabled = !enabled;
+  const swp = document.getElementById('btn-swap');
+  if (swp) swp.disabled = !enabled;
   const cast = document.getElementById('btn-cast');
   if (cast) cast.disabled = !enabled;
+  const inv = document.getElementById('btn-inventory');
+  if (inv) inv.disabled = !enabled;
 }
 
 function showScreen(id) {
