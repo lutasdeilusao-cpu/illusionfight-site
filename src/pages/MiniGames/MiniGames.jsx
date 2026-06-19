@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { useReader } from '../../context/ReaderContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../components/Puzzles'
 import { useEventos } from '../../context/EventosContext'
 import BackToGamesBtn from '../../components/BackToGamesBtn/BackToGamesBtn'
@@ -35,6 +36,9 @@ export default function MiniGames() {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { registrarEvento } = useEventos()
+  const { setReaderMode } = useReader()
+
+  useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
   const [jogoAtivo, setJogoAtivo] = useState(null)
   const [fase, setFase] = useState('hub')
