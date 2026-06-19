@@ -106,6 +106,36 @@ At the end of every task, deliver a **report table** with the version changes **
 - **Always** read `SITE_MAP.md` before changes that affect routes or versions
 - **Read `SITE_MAP.md` first** for route tables, component inventory, data file locations, and z-index layer map before navigating the codebase
 
+## Decisões e Hurdles Documentados
+
+Registro vivo de problemas já resolvidos no projeto para o agente não repetir os mesmos erros.
+
+- **Canvas height não se comporta como div em flex** — sempre medir o pai, nunca o canvas
+- **FK profiles_id_fkey** — insert em profiles só após SIGNED_IN, nunca no signUp direto
+- **emailRedirectTo** deve ser URL fixa `https://illusionfight.com/login`, nunca `window.location.origin`
+- **Nunca migrar para nova biblioteca de rendering sem ganho visual comprovado** (lição Pixi.js)
+- **Sempre `maybeSingle()`** em vez de `single()` no Supabase para evitar erro em resultado vazio
+
+## Regra Anti-Over-Engineering
+
+Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.
+
+## Regra de Tamanho de Arquivo
+
+Todo arquivo tocado com **mais de 300 linhas** deve ser avaliado para extração antes de adicionar mais código. Propor a extração, não executar sem aprovação.
+
+## Segurança é hábito, não fase
+
+Nenhum commit pode passar com:
+- String hardcoded visível ao usuário
+- CSS inline (`style={{}}` para propriedades visuais)
+- Chave i18n faltando em **PT/EN/ES**
+- Insert direto em tabela Supabase fora do listener correto
+
+## Este documento é trabalho em progresso
+
+AGENTS.md **deve crescer** a cada problema novo resolvido no projeto. A cada task concluída com uma decisão relevante de arquitetura, o agente **deve propor adição** ao AGENTS.md.
+
 ## Architecture notes
 
 - **Game pages** (`/games/ldi`, `/games/jackcandy`, `/games/toptrumps`, etc.) have their own data/, store/, components/ subdirectories with independent Zustand stores. They do not share state.
