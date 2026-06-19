@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
@@ -8,6 +8,7 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
 import { useEventos } from '../context/EventosContext'
+import ModalLancamento from '../components/ModalLancamento/ModalLancamento'
 import episodios from '../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -30,6 +31,7 @@ export default function WebtoonEpisodio() {
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
   const ultimaPaginaRef = useRef(null)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     setReaderMode(true)
@@ -50,7 +52,10 @@ export default function WebtoonEpisodio() {
   useEffect(() => {
     if (!ultimaPaginaRef.current) return
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && id === '00') desbloquearRef.current('episodio_zero')
+      if (entry.isIntersecting) {
+        if (id === '00') desbloquearRef.current('episodio_zero')
+        if (id === '01' && !sessionStorage.getItem('ldi-modal-lancamento-visto')) setShowModal(true)
+      }
     }, { threshold: 0.1 })
     observer.observe(ultimaPaginaRef.current)
     return () => observer.disconnect()
@@ -63,7 +68,7 @@ export default function WebtoonEpisodio() {
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
-  if (!ep || (!estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
+  if (!ep || (id !== '01' && !estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
     return (
       <section className="webtoon-ep-page">
         <div className="container">
@@ -129,6 +134,8 @@ export default function WebtoonEpisodio() {
           )}
         </div>
       </nav>
+
+      <ModalLancamento mostrar={showModal} onFechar={() => setShowModal(false)} />
     </>
   )
 }

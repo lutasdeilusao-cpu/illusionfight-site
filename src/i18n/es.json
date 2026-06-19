@@ -605,6 +605,14 @@
       "jogar": "JUGAR",
       "em_breve": "PRÓXIMAMENTE",
       "credits": "LUTAS DE ILUSIÓN — 1 JUGADOR",
+      "modal_lancamento": {
+        "titulo": "¿Te gustó? Hay mucho más por venir.",
+        "corpo": "Más capítulos se lanzarán el día del lanzamiento oficial de la plataforma. Esto es solo una muestra.",
+        "cta_guest": "Crea tu cuenta gratis — es rápido y no perderás nada de lo que conquistes aquí.",
+        "logado": "¡Gracias por leer! Te avisaremos el día del lanzamiento.",
+        "botao_conta": "CREAR CUENTA GRATIS",
+        "fechar": "Entendido"
+      },
       "badges": {
         "free": "GRATIS",
         "lancado": "LANZADO",

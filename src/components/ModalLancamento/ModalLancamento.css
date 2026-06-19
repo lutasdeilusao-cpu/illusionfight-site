@@ -1,0 +1,92 @@
+.modal-lancamento-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-lancamento {
+  background: #111;
+  border: 1px solid #F5A623;
+  border-radius: 8px;
+  max-width: 440px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  animation: modal-lancamento-entrada 0.3s ease-out;
+}
+
+@keyframes modal-lancamento-entrada {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-lancamento-titulo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #F5A623;
+  margin: 0 0 0.75rem;
+}
+
+.modal-lancamento-corpo {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.modal-lancamento-cta-texto {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #22C55E;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+.modal-lancamento-logado {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #22C55E;
+  margin: 0 0 1rem;
+}
+
+.modal-lancamento-btn {
+  display: block;
+  margin: 0 auto 0.75rem;
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 1px solid #F5A623;
+  color: #F5A623;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.modal-lancamento-btn:hover {
+  background: #F5A623;
+  color: #000;
+}
+
+.modal-lancamento-fechar {
+  background: none;
+  border: none;
+  color: #666;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.2s;
+}
+
+.modal-lancamento-fechar:hover {
+  color: #aaa;
+}

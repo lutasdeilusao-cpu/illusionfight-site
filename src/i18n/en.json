@@ -605,6 +605,14 @@
       "jogar": "PLAY",
       "em_breve": "COMING SOON",
       "credits": "ILLUSION FIGHT — 1 PLAYER",
+      "modal_lancamento": {
+        "titulo": "Liked it? There's much more to come.",
+        "corpo": "More chapters will be released on the official launch day. This is just a taste.",
+        "cta_guest": "Create your free account — it's quick and you won't miss anything you earn here.",
+        "logado": "Thanks for reading! We'll notify you on launch day.",
+        "botao_conta": "CREATE FREE ACCOUNT",
+        "fechar": "Got it"
+      },
       "badges": {
         "free": "FREE",
         "lancado": "RELEASED",

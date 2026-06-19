@@ -9,6 +9,7 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
 import { useAchievements } from '../context/AchievementsContext'
 import { useEventos } from '../context/EventosContext'
+import ModalLancamento from '../components/ModalLancamento/ModalLancamento'
 import index from '../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -68,6 +69,8 @@ export default function LivroCapitulo() {
   const [fontSize, setFontSize]             = useState(() => Number(localStorage.getItem('ldi-reader-fontsize')   || 18))
   const [fontFamily, setFontFamily]         = useState(() => localStorage.getItem('ldi-reader-fontfamily')        || 'var(--font-body)')
   const [contentWidth, setContentWidth]     = useState(() => localStorage.getItem('ldi-reader-width')             || '680px')
+  const [showModal, setShowModal]           = useState(false)
+  const sentinelRef = useRef(null)
 
   useEffect(() => { localStorage.setItem('ldi-reader-fontsize',   fontSize)     }, [fontSize])
   useEffect(() => { localStorage.setItem('ldi-reader-fontfamily', fontFamily)   }, [fontFamily])
@@ -79,7 +82,7 @@ export default function LivroCapitulo() {
   useEffect(() => {
     setNotFound(false)
 
-    if (!chapter || (!estaDisponivel(chapter, isAdmin) && !TRIAL_ACTIVE)) {
+    if (!chapter || (id !== 'capitulo-01' && !estaDisponivel(chapter, isAdmin) && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
     }
@@ -106,6 +109,17 @@ export default function LivroCapitulo() {
 
     loadChapter()
   }, [id, chapter, isAdmin, locale])
+
+  // Sentinel: dispara modal ao final do capítulo 1
+  useEffect(() => {
+    if (id !== 'capitulo-01' || !sentinelRef.current) return
+    if (sessionStorage.getItem('ldi-modal-lancamento-visto')) return
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setShowModal(true)
+    }, { threshold: 0.1 })
+    obs.observe(sentinelRef.current)
+    return () => obs.disconnect()
+  }, [id, md])
 
   if (notFound) {
     return (
@@ -222,7 +236,10 @@ export default function LivroCapitulo() {
           }}
         >
           <ReactMarkdown>{md}</ReactMarkdown>
+          <div ref={sentinelRef} style={{ height: 1 }} />
         </div>
+
+        <ModalLancamento mostrar={showModal} onFechar={() => setShowModal(false)} />
 
         <div className="livro-nav-flutuante">
           {anterior && (
