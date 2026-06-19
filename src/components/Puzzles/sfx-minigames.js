@@ -46,6 +46,9 @@ export const sfxMinigames = {
   slide:     () => tom(280, 0.08, 'triangle', 0.15),
   revelar:   () => tom(660, 0.1, 'sine', 0.25),
 
+  // ── Labirinto: sirene do perseguidor ──────────────
+  alarme:    () => { for (let i = 0; i < 4; i++) { tom(700, 0.1, 'square', 0.3, i * 0.2); tom(500, 0.1, 'square', 0.3, i * 0.2 + 0.1) } },
+
   // ── Simon Says — cada cor tem frequência única ──
   simon: {
     vermelho: () => tom(261, 0.4, 'sine', 0.5),
