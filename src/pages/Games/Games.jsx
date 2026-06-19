@@ -104,7 +104,7 @@ export default function Games() {
                 <div className="extras-jogo-emoji">{jogo.emoji}</div>
                 <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
                 <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
-                {!bloqueado && <div className="extras-jogo-cta">{t('site.games.inserir_ficha')}</div>}
+                {!bloqueado && <div className="extras-jogo-cta">{t(user ? 'site.games.inserir_ficha' : 'site.games.jogar')}</div>}
                 {jogo.emBreve && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
               </div>
               <div className="extras-jogo-card-borda" />
