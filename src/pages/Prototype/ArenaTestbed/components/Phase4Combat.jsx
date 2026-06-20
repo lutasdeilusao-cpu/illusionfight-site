@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import useHexCanvas from '../engine/useHexCanvas'
 import {
-  resolverAtaque, resolverContraAtaque, rolarD6, calcularFD,
+  resolverAtaque, resolverContraAtaque, rolarD6, calcularFA, calcularFD,
   getCasasMovimento, getChanceAcerto,
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
@@ -10,6 +10,8 @@ import { decidirAcaoIA } from '../engine/ai'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel, aplicarBonusPoder } from '../data/poderes'
 import JokenpoModal from './JokenpoModal'
 import PowerChoiceModal from './PowerChoiceModal'
+import PowerLinePreview from './PowerLinePreview'
+import { getPersonagensNaLinha } from '../engine/getLineInDirection'
 import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -89,6 +91,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const [defensePending, setDefensePending] = useState(null)
   const [powerAttackMode, setPowerAttackMode] = useState(false)
   const [powerChoiceModal, setPowerChoiceModal] = useState(null)
+  const [linePreview, setLinePreview] = useState(null)
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
@@ -906,6 +909,20 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   function confirmarEscolhaAtaque(opcao) {
     setPowerChoiceModal(null)
     if (!currentChar || animating || inputLockedRef.current) return
+
+    if (opcao.poderId) {
+      const poder = PODERES_BASE.find(p => p.id === opcao.poderId)
+      if (poder?.padrao === 'linha_reta') {
+        setLinePreview({
+          poder,
+          origemRow: currentChar.posicao.row,
+          origemCol: currentChar.posicao.col,
+          forca: currentChar.forca,
+        })
+        return
+      }
+    }
+
     setPowerAttackMode(!!opcao.poderId)
     const nomeTipo = opcao.poderId ? 'power_attack' : 'common_attack'
     addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
@@ -927,6 +944,66 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setHighlightedCells([])
     setSubPhaseStep('escolher_alvo')
     setSubPhase('acao')
+  }
+
+  function handleLinePreviewConfirm({ direcao, alvos, distancia: alcance }) {
+    setLinePreview(null)
+    if (!currentChar || animating || inputLockedRef.current) return
+    executarLinhaAtaque(direcao, alvos)
+  }
+
+  function executarLinhaAtaque(direcao, alvos) {
+    if (!currentChar) return
+    setActionPanel(false)
+
+    const poder = PODERES_BASE.find(p => p.id === 'investida')
+    if (poder && currentChar.mp >= poder.custoMP) {
+      setCharacters(prev => prev.map(c =>
+        c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
+      ))
+    }
+
+    clearAnimTimers()
+    animatingRef.current = true
+    inputLockedRef.current = true
+    setAnimating(true)
+
+    const d6Atk = rolarD6()
+    const isCritico = d6Atk === 6
+    const fa = calcularFA(currentChar, isCritico, 1, d6Atk)
+
+    addLog(`⚡ ${currentChar.nome} usou Investida! (${direcao}) — FA=${fa}`)
+
+    if (alvos.length === 0) {
+      addLog(`  Nenhum alvo na linha ${direcao}.`)
+      finalizarAposAtaque(currentChar, { dano: 0 })
+      return
+    }
+
+    const charsAtualizados = [...charsRef.current]
+    const attackerId = currentChar.id
+
+    alvos.forEach((a, i) => {
+      const multiplier = a.multiplier
+      const faFinal = Math.round(fa * multiplier * 10) / 10
+      const d6Def = rolarD6()
+      const isCriticoDef = d6Def === 6
+      const fd = calcularFD(a.char, isCriticoDef, d6Def)
+      const dano = Math.max(1, Math.round(faFinal - fd))
+      const idx = charsAtualizados.findIndex(c => c.id === a.char.id)
+      if (idx !== -1) {
+        charsAtualizados[idx] = { ...charsAtualizados[idx], hp: Math.max(0, charsAtualizados[idx].hp - dano) }
+      }
+      addLog(`  🎯 ${a.char.nome} (casa ${a.pos}): FA=${faFinal} × FD=${fd} = ${dano} de dano!`)
+      aplicarDano(a.char.id, dano, currentChar)
+    })
+
+    charsRef.current = charsAtualizados
+    setCharacters(charsAtualizados)
+
+    const ultimoAlvo = alvos[alvos.length - 1]
+    addLog(`  ✅ ${ultimoAlvo.char.nome} foi o último alvo da Investida.`)
+    finalizarAposAtaque(ultimoAlvo.char, { dano: 0 })
   }
 
   function pularAcao() {
@@ -1617,6 +1694,19 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
               confirmarEscolhaAtaque(op)
             }
           }}
+        />
+      )}
+
+      {linePreview && (
+        <PowerLinePreview
+          origemRow={linePreview.origemRow}
+          origemCol={linePreview.origemCol}
+          forca={linePreview.forca}
+          cols={cols}
+          rows={rows}
+          personagens={characters}
+          onConfirm={handleLinePreviewConfirm}
+          onCancel={() => setLinePreview(null)}
         />
       )}
 

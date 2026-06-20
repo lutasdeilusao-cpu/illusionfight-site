@@ -29,6 +29,16 @@ export const PODERES_BASE = [
     custoMP: 3,
     efeito: { atributo: 'fd', bonus: 2 },
   },
+  {
+    id: 'investida',
+    nome_pt: 'Investida',
+    nome_en: 'Charge',
+    nome_es: 'Carga',
+    tipo: 'ativo',
+    gatilho: 'ataque',
+    custoMP: 5,
+    padrao: 'linha_reta',
+  },
 ]
 
 export function getPoderesPorId(ids) {
