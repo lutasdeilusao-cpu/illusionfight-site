@@ -24,7 +24,16 @@
 }
 .atb-hud-bars { display: flex; flex-direction: column; gap: 2px; }
 .atb-hud-bar-row { height: 3px; }
-.atb-hud-bar-track { height: 3px; background: #0a0a0a; overflow: hidden; }
+.atb-hud-bar-track { height: 3px; background: #0a0a0a; overflow: hidden; position: relative; }
 .atb-hud-bar-fill { height: 100%; width: var(--pct); transition: width 0.3s ease; }
 .atb-hud-bar-fill.hp { background: #00ff88; }
+.atb-hud-bar-fill.hp-delta {
+  position: absolute; inset: 0;
+  background: #ff2244;
+  animation: atb-delta-shrink 0.8s ease-out forwards;
+}
+@keyframes atb-delta-shrink {
+  0%   { opacity: 0.7; }
+  100% { opacity: 0; }
+}
 .atb-hud-bar-fill.mp { background: var(--ldi-cyan); }

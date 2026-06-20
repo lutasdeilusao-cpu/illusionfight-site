@@ -937,3 +937,48 @@
 .atb-ordering-confirm:hover {
   opacity: 0.9;
 }
+
+.atb-hud-bar-track { position: relative; }
+.atb-hud-bar-fill.hp-delta {
+  position: absolute; inset: 0;
+  background: #ff2244;
+  animation: atb-delta-shrink 0.8s ease-out forwards;
+}
+@keyframes atb-delta-shrink {
+  0% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+.atb-dano-popup {
+  position: fixed; inset: 0; z-index: 700;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.atb-dano-popup-num {
+  font-family: 'Orbitron', sans-serif; font-size: 5rem; font-weight: 900;
+  color: #ff2244; text-shadow: 0 0 30px rgba(255,34,68,0.8), 0 0 60px rgba(255,34,68,0.4);
+  animation: atb-dano-pop 0.8s ease-out forwards;
+}
+@keyframes atb-dano-pop {
+  0% { transform: scale(0.3); opacity: 0; }
+  30% { transform: scale(1.3); opacity: 1; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.1); opacity: 0; }
+}
+
+.atb-attack-banner {
+  position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
+  z-index: 700; pointer-events: none;
+}
+.atb-attack-banner-text {
+  font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700;
+  color: #ff2244; text-shadow: 0 0 20px rgba(255,34,68,0.6);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  animation: atb-banner-in 1.2s ease-out forwards;
+}
+@keyframes atb-banner-in {
+  0% { transform: translateY(-30px); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}

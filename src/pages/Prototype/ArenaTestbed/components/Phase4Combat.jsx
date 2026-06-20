@@ -89,6 +89,9 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const [defensePending, setDefensePending] = useState(null)
   const [powerAttackMode, setPowerAttackMode] = useState(false)
   const [powerChoiceModal, setPowerChoiceModal] = useState(null)
+  const [danoPopup, setDanoPopup] = useState(null)
+  const [hpAnterior, setHpAnterior] = useState({})
+  const [attackBanner, setAttackBanner] = useState(null)
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
@@ -952,6 +955,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     const alvo = charsRef.current.find(c => c.id === alvoId)
     if (!alvo) return
     const novoHp = Math.max(0, alvo.hp - dano)
+    setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
     charsRef.current = charsRef.current.map(c =>
       c.id === alvoId ? { ...c, hp: novoHp } : c
     )
@@ -960,6 +964,8 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         c.id === alvoId ? { ...c, hp: novoHp } : c
       )
     )
+    setDanoPopup({ dano, alvoId, key: Date.now() })
+    setTimeout(() => setDanoPopup(null), 800)
     adicionarBalao(alvoId, `-${dano}`, 'damage', alvo.posicao?.row, alvo.posicao?.col)
     setShaking(true)
     setTimeout(() => setShaking(false), 500)
@@ -1396,6 +1402,11 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         }
         // Check if target player has defense power
         const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
+        function mostrarBannerAtaqueIA() {
+          const bannerText = `${atacante.nome} ${t('prototype.arena_testbed.ia_attack_banner')}`
+          setAttackBanner({ texto: bannerText })
+          setTimeout(() => setAttackBanner(null), 1500)
+        }
         function iniciarAnimacaoAtaqueIA() {
           setAnimTimer(() => {
             setRangeCells([])
@@ -1414,6 +1425,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
           }, 1200)
         }
         if (podeDefesa) {
+          mostrarBannerAtaqueIA()
           setDefensePending({
             alvo,
             atacante,
@@ -1430,6 +1442,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
             },
           })
         } else {
+          mostrarBannerAtaqueIA()
           defesaBonusRef.current = 0
           iniciarAnimacaoAtaqueIA()
         }
@@ -1614,6 +1627,18 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         )
       })()}
 
+      {danoPopup && (
+        <div className="atb-dano-popup" key={danoPopup.key}>
+          <div className="atb-dano-popup-num">-{danoPopup.dano}</div>
+        </div>
+      )}
+
+      {attackBanner && (
+        <div className="atb-attack-banner">
+          <div className="atb-attack-banner-text">{attackBanner.texto}</div>
+        </div>
+      )}
+
       {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
         <div className="atb-action-panel">
           <div className="atb-action-panel-name">{currentChar.nome}</div>
@@ -1684,6 +1709,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       <div className="atb-hud">
         {characters.filter(c => c.vivo).map(ch => {
           const isActive = ch.id === currentChar?.id
+          const hpAntigo = hpAnterior[ch.id] ?? ch.hp
+          const hpPct = (ch.hp / ch.hpMax) * 100
+          const antigoPct = (hpAntigo / ch.hpMax) * 100
+          const perdeuHP = hpAntigo > ch.hp
           return (
             <div
               key={ch.id}
@@ -1696,7 +1725,8 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
                 <div className="atb-hud-bars">
                   <div className="atb-hud-bar-row">
                     <div className="atb-hud-bar-track">
-                      <div className="atb-hud-bar-fill hp" style={{ '--pct': `${(ch.hp / ch.hpMax) * 100}%` }} />
+                      {perdeuHP && <div className="atb-hud-bar-fill hp-delta" style={{ '--pct': `${antigoPct}%` }} />}
+                      <div className="atb-hud-bar-fill hp" style={{ '--pct': `${hpPct}%` }} />
                     </div>
                   </div>
                   <div className="atb-hud-bar-row">

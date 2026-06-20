@@ -2842,6 +2842,7 @@
       "pcm_fa_label": "Ataque recebido: FA",
       "pcm_comum": "Ataque Comum",
       "pcm_sem_poder": "Não usar poder",
+      "ia_attack_banner": "ATACA!",
       "character": "Personagem",
       "remove": "Remover",
       "name": "Nome",

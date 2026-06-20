@@ -2816,6 +2816,7 @@
       "pcm_fa_label": "Incoming attack: FA",
       "pcm_comum": "Common Attack",
       "pcm_sem_poder": "Don't use power",
+      "ia_attack_banner": "ATTACKS!",
       "character": "Character",
       "remove": "Remove",
       "name": "Name",
