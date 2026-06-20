@@ -1042,7 +1042,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setAttackCells([])
 
     let atacanteFinal = currentChar
-    const poderesAtivos = getPoderesPorId(poderesEscolhidos[currentChar.id] || [])
+    const poderesAtivos = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
 
     if (powerAttackMode) {
       const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
