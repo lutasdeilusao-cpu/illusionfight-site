@@ -92,6 +92,8 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
+  const [inputLocked, setInputLocked] = useState(false)
+  const inputLockedRef = useRef(false)
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
@@ -665,7 +667,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current
-    if (!canvas || animatingRef.current || !isPlayerTurn || iaThinkingRef.current || winnerRef.current) return
+    if (!canvas || inputLockedRef.current || !isPlayerTurn || winnerRef.current) return
     const rect = canvas.getBoundingClientRect()
     const scaleX = canvas.width / rect.width
     const scaleY = canvas.height / rect.height
@@ -722,7 +724,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }, [handleCanvasClick])
 
   function moverPersonagem(row, col) {
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     clearAnimTimers()
     setDestinoEscolhido(null)
     setCaminhoEscolhido([])
@@ -752,6 +754,8 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
     const steps = caminho.slice(1)
     animatingRef.current = true
+    inputLockedRef.current = true
+    setInputLocked(true)
     setAnimating(true)
     setHighlightedCells([])
 
@@ -808,10 +812,12 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
+    inputLockedRef.current = false
+    setInputLocked(false)
   }
 
   function iniciarMovimento() {
-    if (!currentChar || animating || turnoAcoes.moveu) return
+    if (!currentChar || animating || inputLockedRef.current || turnoAcoes.moveu) return
     setActionPanel(false)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
@@ -857,7 +863,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function escolherAcao(tipoAcao) {
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     setPowerAttackMode(tipoAcao === 'power_attack')
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
@@ -877,7 +883,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function escolherTipoAtaque() {
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     const poderesDisponiveis = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
       .filter(p => p.gatilho === 'ataque' && currentChar.mp >= p.custoMP)
     if (poderesDisponiveis.length === 0) {
@@ -899,7 +905,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function confirmarEscolhaAtaque(opcao) {
     setPowerChoiceModal(null)
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     setPowerAttackMode(!!opcao.poderId)
     const nomeTipo = opcao.poderId ? 'power_attack' : 'common_attack'
     addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
@@ -1091,9 +1097,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function executarAtaque(target) {
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     clearAnimTimers()
     animatingRef.current = true
+    inputLockedRef.current = true
     setAnimating(true)
     setAttackCells([])
 
@@ -1157,6 +1164,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     animatingRef.current = false
     setD6Result(null)
     clearAnimTimers()
+    inputLockedRef.current = true
 
     if (winnerRef.current) return
 
@@ -1170,26 +1178,35 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
-        // Não finalizar turno — devolver controle ao jogador com atacou:true
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
         setSubPhase('free')
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
         anunciar(t('prototype.arena_testbed.announce_player_turn'))
-      }, 300)
+        setTimeout(() => {
+          inputLockedRef.current = false
+          setInputLocked(false)
+        }, 1500)
+      }, 1200)
     } else {
-      setTurnoAcoes(prev => ({ ...prev, atacou: true }))
-      setSubPhase('free')
-      setHighlightedCells([])
-      setAttackCells([])
-      setRangeCells([])
-      anunciar(t('prototype.arena_testbed.announce_player_turn'))
+      setAnimTimer(() => {
+        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        setSubPhase('free')
+        setHighlightedCells([])
+        setAttackCells([])
+        setRangeCells([])
+        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        setTimeout(() => {
+          inputLockedRef.current = false
+          setInputLocked(false)
+        }, 1500)
+      }, 800)
     }
   }
 
   function usarItem(tipo) {
-    if (!currentChar || animating) return
+    if (!currentChar || animating || inputLockedRef.current) return
     const key = tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
     const qty = currentChar.inventario?.[key] || 0
     if (qty <= 0) return
@@ -1244,6 +1261,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setActionPanel(false)
     animatingRef.current = false
     setAnimating(false)
+    inputLockedRef.current = true
     if (verificarVitoria()) return
     setSubPhase(null)
     const order = orderRef.current
@@ -1265,19 +1283,26 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
-      anunciar(t('prototype.arena_testbed.announce_player_turn'))
-      setTimeout(() => {
-        if (!tutorialMostradoRef.current) {
-          tutorialMostradoRef.current = true
-          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-        }
-      }, 2200)
+      inputLockedRef.current = true
+      setAnimTimer(() => {
+        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        setTimeout(() => {
+          inputLockedRef.current = false
+          setInputLocked(false)
+          if (!tutorialMostradoRef.current) {
+            tutorialMostradoRef.current = true
+            anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+          }
+        }, 1500)
+      }, 500)
     }
   }
 
   function executarIA(iaChar) {
     setIaThinking(true)
+    setInputLocked(true)
     iaThinkingRef.current = true
+    inputLockedRef.current = true
     console.log(`[IA:inicio] iaChar=${iaChar.nome} winnerRef=${winnerRef.current}`)
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(() => {
@@ -1371,7 +1396,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
           if (isMiss) {
             adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
-            finalizarTurnoIA()
+            setAnimTimer(() => finalizarTurnoIA(), 1300)
             return
           }
 
@@ -1398,9 +1423,9 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
             setAnimTimer(() => {
               if (verificarVitoria()) return
               finalizarTurnoIA()
-            }, 300)
+            }, 1200)
           } else {
-            finalizarTurnoIA()
+            setAnimTimer(() => finalizarTurnoIA(), 800)
           }
         }
         // Check if target player has defense power
@@ -1484,13 +1509,17 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setRangeCells([])
         iaThinkingRef.current = false
         setIaThinking(false)
+        setAnimTimer(() => {
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
       setTimeout(() => {
+        inputLockedRef.current = false
+        setInputLocked(false)
         if (!tutorialMostradoRef.current) {
           tutorialMostradoRef.current = true
           anunciar(t('prototype.arena_testbed.free_hint'), 2500)
         }
-      }, 2200)
+      }, 1500)
+      }, 500)
       } else {
         iaThinkingRef.current = false
         setIaThinking(false)
@@ -1645,7 +1674,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         </div>
       )}
 
-      {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
+      {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && !inputLocked && (
         <div className="atb-action-panel">
           <div className="atb-action-panel-name">{currentChar.nome}</div>
           <button
@@ -1748,7 +1777,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       </div>
 
       <div className="atb-bottom-nav">
-        {isPlayerTurn && !iaThinking ? (
+        {isPlayerTurn && !iaThinking && !inputLocked ? (
           <>
             {subPhase === 'free' && (
               <button className="atb-action-btn atb-action-btn--end-turn" onClick={finalizarTurno}>
