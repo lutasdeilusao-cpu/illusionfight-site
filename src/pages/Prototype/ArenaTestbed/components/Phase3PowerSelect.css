@@ -1,0 +1,78 @@
+.tab-power-select {
+  display: flex; flex-direction: column; gap: 1rem;
+  padding: 1rem; max-width: 600px; margin: 0 auto;
+}
+.tab-power-select-header { text-align: center; }
+.tab-power-select-header h2 {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 14px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--ldi-cyan, #00eeff); text-transform: uppercase; margin: 0 0 4px;
+}
+.tab-power-select-subtitle {
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 12px; color: var(--ldi-text-dim, #888); margin: 0;
+}
+.tab-power-select-chars { display: flex; flex-direction: column; gap: 12px; }
+.tab-power-char-card {
+  background: var(--ldi-bg2, #111); border: 1px solid var(--ldi-border, #222);
+  border-radius: 8px; overflow: hidden;
+}
+.tab-power-char-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; background: var(--ldi-bg, #0a0a0a);
+  border-bottom: 1px solid var(--ldi-border, #222);
+}
+.tab-power-char-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.tab-power-char-dot.jogador { background: #00ff88; }
+.tab-power-char-dot.ia { background: #ff2244; }
+.tab-power-char-name {
+  flex: 1; font-family: var(--ldi-font-hud, monospace);
+  font-size: 12px; font-weight: 700; color: var(--ldi-text, #ccc);
+}
+.tab-power-char-limit {
+  font-family: var(--ldi-font-mono, monospace);
+  font-size: 10px; color: var(--ldi-cyan, #00eeff);
+}
+.tab-power-grid {
+  display: flex; gap: 6px; padding: 8px; flex-wrap: wrap;
+}
+.tab-power-btn {
+  flex: 1; min-width: 120px;
+  background: var(--ldi-bg, #0a0a0a); border: 1px solid var(--ldi-border, #222);
+  border-radius: 6px; padding: 8px; cursor: pointer;
+  display: flex; flex-direction: column; gap: 2px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tab-power-btn:hover { border-color: var(--ldi-cyan, #00eeff); }
+.tab-power-btn.selected { border-color: #00ff88; background: rgba(0,255,136,0.08); }
+.tab-power-btn.disabled { opacity: 0.35; cursor: not-allowed; }
+.tab-power-btn.disabled:hover { border-color: var(--ldi-border, #222); }
+.tab-power-btn-nome {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 11px; font-weight: 700; color: var(--ldi-text, #ccc);
+}
+.tab-power-btn-mp {
+  font-family: var(--ldi-font-mono, monospace);
+  font-size: 9px; color: var(--ldi-cyan, #00eeff);
+}
+.tab-power-btn-gatilho {
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 8px; color: var(--ldi-text-dim, #666);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.tab-power-select-footer {
+  display: flex; gap: 8px; justify-content: center; margin-top: 0.5rem;
+}
+.tab-power-btn-back {
+  background: none; border: 1px solid var(--ldi-border, #222);
+  border-radius: 4px; color: var(--ldi-text-dim, #888);
+  font-family: var(--ldi-font-hud, monospace); font-size: 11px;
+  padding: 8px 20px; cursor: pointer;
+}
+.tab-power-btn-confirm {
+  background: var(--ldi-cyan, #00eeff); border: none; border-radius: 4px;
+  color: var(--ldi-bg, #000); font-family: var(--ldi-font-hud, monospace);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 8px 20px; cursor: pointer;
+}
+.tab-power-btn-confirm:hover { opacity: 0.9; }

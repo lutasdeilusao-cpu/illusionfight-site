@@ -7,13 +7,14 @@ import {
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
+import { PODERES_BASE, getPoderesPorId, temPoderDisponivel, aplicarBonusPoder } from '../data/poderes'
 import JokenpoModal from './JokenpoModal'
 import './Phase3Combat.css'
 
 const SQRT3 = Math.sqrt(3)
 const SUB_PHASES = ['movimento', 'ataque', 'item']
 
-export default function Phase3Combat({ boardState, onBackToPhase1 }) {
+export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBackToPhase1, onBackToPhase3 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const canvasContainerRef = useRef(null)
@@ -83,6 +84,8 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const [balloons, setBalloons] = useState([])
   const [shaking, setShaking] = useState(false)
   const [flashDmg, setFlashDmg] = useState(false)
+  const [defensePending, setDefensePending] = useState(null)
+  const [powerAttackMode, setPowerAttackMode] = useState(false)
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
@@ -96,6 +99,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
   const sortedGlobalRef = useRef([])
   const crossTieQueueRef = useRef([])
   const crossTieResultsRef = useRef([])
+  const defesaBonusRef = useRef(0)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -845,6 +849,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
 
   function escolherAcao(tipoAcao) {
     if (!currentChar || animating) return
+    setPowerAttackMode(tipoAcao === 'power_attack')
     anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
@@ -1034,10 +1039,30 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
     animatingRef.current = true
     setAnimating(true)
     setAttackCells([])
+
+    let atacanteFinal = currentChar
+    const poderesAtivos = getPoderesPorId(poderesEscolhidos[currentChar.id] || [])
+
+    if (powerAttackMode) {
+      const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
+      if (poder && currentChar.mp >= poder.custoMP) {
+        setCharacters(prev => prev.map(c =>
+          c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
+        ))
+        if (poder.efeito.atributo === 'fa') {
+          atacanteFinal = { ...currentChar, forca: currentChar.forca + poder.efeito.bonus }
+        } else if (poder.efeito.atributo === 'pdf') {
+          atacanteFinal = { ...currentChar, pdf: currentChar.pdf + poder.efeito.bonus }
+        }
+        addLog(`⚡ ${currentChar.nome} usou ${poder.nome_pt}!`)
+      }
+      setPowerAttackMode(false)
+    }
+
     const d6Val = rolarD6()
     setD6Result(d6Val)
     const dist = distanciaHex(currentChar.posicao, target.posicao)
-    const resultado = resolverAtaque(currentChar, target, Math.ceil(dist))
+    const resultado = resolverAtaque(atacanteFinal, target, Math.ceil(dist))
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
     if (currentChar.tipoAtaque === 'melee') {
@@ -1295,7 +1320,10 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
             adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
           } else {
-            const danoFinal = Math.max(1, res.dano || 1)
+            const danoBase = Math.max(1, res.dano || 1)
+            const danoFinal = Math.max(1, danoBase - defesaBonusRef.current)
+            defesaBonusRef.current = 0
+            if (danoFinal < danoBase) addLog(`  🛡️ Defesa+2 reduziu dano: ${danoBase} → ${danoFinal}`)
             aplicarDano(alvo.id, danoFinal, atacante)
             addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
           }
@@ -1315,21 +1343,44 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
             finalizarTurnoIA()
           }
         }
-        setAnimTimer(() => {
-          setRangeCells([])
-          setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
+        // Check if target player has defense power
+        const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
+        function iniciarAnimacaoAtaqueIA() {
           setAnimTimer(() => {
             setRangeCells([])
-            setAttackCells([])
-            addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
-            dec2.logs.forEach(l => addLog(`  ${l}`))
-            if (atacante.tipoAtaque === 'melee') {
-              animarAtaqueMelee(atacante, alvo, res, callbackFinal)
-            } else {
-              animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
-            }
-          }, 700)
-        }, 1200)
+            setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
+            setAnimTimer(() => {
+              setRangeCells([])
+              setAttackCells([])
+              addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
+              dec2.logs.forEach(l => addLog(`  ${l}`))
+              if (atacante.tipoAtaque === 'melee') {
+                animarAtaqueMelee(atacante, alvo, res, callbackFinal)
+              } else {
+                animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
+              }
+            }, 700)
+          }, 1200)
+        }
+        if (podeDefesa) {
+          setDefensePending({
+            alvo,
+            atacante,
+            onResolve: (bonus) => {
+              defesaBonusRef.current = bonus
+              if (bonus > 0) {
+                setCharacters(prev => prev.map(c =>
+                  c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c
+                ))
+                addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
+              }
+              iniciarAnimacaoAtaqueIA()
+            },
+          })
+        } else {
+          defesaBonusRef.current = 0
+          iniciarAnimacaoAtaqueIA()
+        }
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
@@ -1464,6 +1515,31 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         </div>
       )}
 
+      {defensePending && (
+        <div className="atb-modal-overlay">
+          <div className="atb-modal" style={{ maxWidth: 300, padding: 16, textAlign: 'center' }}>
+            <div className="atb-modal-name" style={{ marginBottom: 12 }}>
+              {t('prototype.arena_testbed.defense_title', { nome: defensePending.alvo.nome })}
+            </div>
+            <p style={{ fontFamily: 'var(--ldi-font-body)', fontSize: 12, color: '#888', margin: '0 0 12px' }}>
+              {t('prototype.arena_testbed.defense_prompt', { custo: 3, bonus: 2 })}
+            </p>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
+              <button className="atb-action-btn atb-action-btn--confirm" onClick={() => {
+                const cb = defensePending.onResolve
+                setDefensePending(null)
+                cb(2)
+              }}>{t('prototype.arena_testbed.defense_yes')}</button>
+              <button className="atb-action-btn atb-action-btn--cancel" onClick={() => {
+                const cb = defensePending.onResolve
+                setDefensePending(null)
+                cb(0)
+              }}>{t('prototype.arena_testbed.defense_no')}</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
         <div className="atb-action-panel">
           <div className="atb-action-panel-name">{currentChar.nome}</div>
@@ -1590,6 +1666,11 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
                 <button className="atb-action-btn atb-action-btn--attack" onClick={() => escolherAcao('common_attack')}>
                   ⚔ {t('prototype.arena_testbed.action_common_attack')}
                 </button>
+                {currentChar && (temPoderDisponivel(currentChar, poderesEscolhidos, 'ataque', 3)) && (
+                  <button className="atb-action-btn atb-action-btn--attack" onClick={() => escolherAcao('power_attack')}>
+                    ⚡ {t('prototype.arena_testbed.action_power_attack')}
+                  </button>
+                )}
                 <button className="atb-action-btn atb-action-btn--skip" onClick={pularAcao}>
                   ⏭ {t('prototype.arena_testbed.skip_action')}
                 </button>
