@@ -176,14 +176,18 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
       if (ias.length === 0) {
         ordemParcial.push(...jogadores)
-        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+        if (jogadores.length >= 2) {
+          empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+        }
       } else if (jogadores.length === 0) {
         const shuffled = [...ias].sort(() => Math.random() - 0.5)
         ordemParcial.push(...shuffled)
       } else {
         const shuffledIas = [...ias].sort(() => Math.random() - 0.5)
         ordemParcial.push(...jogadores, ...shuffledIas)
-        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+        if (jogadores.length >= 2) {
+          empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+        }
         empatesCruzados.push({ agi: grupo[0].agi, jogadores, ias: shuffledIas })
       }
     }
@@ -194,9 +198,15 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       const timeJogador = ordemParcial.filter(c => c.time === 'jogador')
       setPlayerTeamOrder(timeJogador)
 
-      if (empatesInternosJogador.length > 0 || empatesCruzados.length > 0) {
+      if (empatesInternosJogador.length > 0) {
         setOrderingPhase('player_internal')
         setCrossTieQueue(empatesCruzados)
+      } else if (empatesCruzados.length > 0) {
+        setOrderingPhase('jokenpo_cross')
+        setCrossTieQueue(empatesCruzados)
+        crossTieQueueRef.current = empatesCruzados
+        sortedGlobalRef.current = ordemParcial
+        iniciarProximoJokenpoCruzado(empatesCruzados, ordemParcial)
       } else {
         const order = ordemParcial.map(c => c.id)
         setTurnOrder(order)
@@ -284,6 +294,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
       const winners = results.filter(r => r.winner.agi === grupo).map(r => r.winner)
       const losers = results.filter(r => r.loser.agi === grupo).map(r => r.loser)
+      const bloco = blocoIdx.map(i => novaOrdem[i])
 
       const winnerOrdem = winners.filter(w => bloco.some(b => b.id === w.id))
       const loserOrdem = losers.filter(l => bloco.some(b => b.id === l.id))
