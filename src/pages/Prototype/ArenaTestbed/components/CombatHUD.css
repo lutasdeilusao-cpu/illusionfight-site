@@ -1,0 +1,40 @@
+.atb-hud {
+  display: flex; gap: 6px; padding: 6px 10px;
+  background: var(--ldi-bg, #0a0e14);
+  border-top: 1px solid var(--ldi-border, #1a1e24);
+  overflow-x: auto; flex-shrink: 0;
+  scrollbar-width: thin; scrollbar-color: #333 transparent;
+}
+.atb-hud-chip {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+  flex-shrink: 0;
+}
+.atb-hud-chip--active { border-color: #00eeff; background: rgba(0,238,255,0.06); }
+.atb-hud-chip:hover { background: rgba(255,255,255,0.04); }
+.atb-hud-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+.atb-hud-dot.jogador { background: #00ff88; }
+.atb-hud-dot.ia { background: #ff2244; }
+.atb-hud-info { display: flex; flex-direction: column; gap: 2px; }
+.atb-hud-name {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 9px; font-weight: 700; color: var(--ldi-text, #ccc);
+  white-space: nowrap;
+}
+.atb-hud-bars { display: flex; flex-direction: column; gap: 1px; }
+.atb-hud-bar-row { height: 3px; }
+.atb-hud-bar-track {
+  width: 48px; height: 3px;
+  background: #0a0a0a; border-radius: 2px; overflow: hidden;
+}
+.atb-hud-bar-fill {
+  height: 100%; border-radius: 2px; width: var(--pct, 0%);
+}
+.atb-hud-bar-fill.hp { background: #00ff88; }
+.atb-hud-bar-fill.mp { background: #00eeff; }

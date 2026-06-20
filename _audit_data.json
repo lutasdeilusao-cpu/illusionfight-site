@@ -1,0 +1,482 @@
+﻿[
+    {
+        "Lines":  4440,
+        "RelPath":  "pages\\PesadeloParticular\\data\\casos.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  3039,
+        "RelPath":  "pages\\ArenaTatics\\ArenaTatics.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  2922,
+        "RelPath":  "i18n\\pt.json",
+        "Ext":  ".json",
+        "Dir":  "i18n"
+    },
+    {
+        "Lines":  2897,
+        "RelPath":  "i18n\\en.json",
+        "Ext":  ".json",
+        "Dir":  "i18n"
+    },
+    {
+        "Lines":  2896,
+        "RelPath":  "i18n\\es.json",
+        "Ext":  ".json",
+        "Dir":  "i18n"
+    },
+    {
+        "Lines":  2563,
+        "RelPath":  "pages\\Prototype\\rpg-morto.html",
+        "Ext":  ".html",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  2391,
+        "RelPath":  "pages\\LDI\\LDI.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  2230,
+        "RelPath":  "data\\supertrunfo-pt.json",
+        "Ext":  ".json",
+        "Dir":  "data"
+    },
+    {
+        "Lines":  2230,
+        "RelPath":  "data\\supertrunfo-en.json",
+        "Ext":  ".json",
+        "Dir":  "data"
+    },
+    {
+        "Lines":  2230,
+        "RelPath":  "data\\supertrunfo-es.json",
+        "Ext":  ".json",
+        "Dir":  "data"
+    },
+    {
+        "Lines":  1916,
+        "RelPath":  "pages\\TopTrumps.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1868,
+        "RelPath":  "pages\\JackCandy\\JackCandy.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1729,
+        "RelPath":  "pages\\Tamagoshi\\Tamagoshi.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1570,
+        "RelPath":  "pages\\Tamagoshi\\data\\falas-criatura-pt.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1570,
+        "RelPath":  "pages\\Tamagoshi\\data\\falas-criatura-en.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1570,
+        "RelPath":  "pages\\Tamagoshi\\data\\falas-criatura-es.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1545,
+        "RelPath":  "pages\\Prototype\\ArenaTestbed\\components\\Phase3Combat.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1492,
+        "RelPath":  "data\\quiz-pt.json",
+        "Ext":  ".json",
+        "Dir":  "data"
+    },
+    {
+        "Lines":  1399,
+        "RelPath":  "pages\\PesadeloParticular\\PP.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1398,
+        "RelPath":  "pages\\PesadeloParticular\\PP.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1253,
+        "RelPath":  "pages\\Arena\\Arena.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1190,
+        "RelPath":  "data\\musicas.json",
+        "Ext":  ".json",
+        "Dir":  "data"
+    },
+    {
+        "Lines":  1171,
+        "RelPath":  "pages\\Duelo\\Duelo.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  1090,
+        "RelPath":  "pages\\TopTrumps.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  955,
+        "RelPath":  "pages\\Duelo\\DueloRoute.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  883,
+        "RelPath":  "pages\\TopTrumpsMP.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  869,
+        "RelPath":  "pages\\Arena\\ArenaCombat.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  860,
+        "RelPath":  "pages\\Duelo\\store\\useDueloStore.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  824,
+        "RelPath":  "pages\\Prototype\\ArenaTestbed\\components\\Phase3Combat.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  824,
+        "RelPath":  "pages\\ArenaTatics\\screens\\BuildingInterior.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  783,
+        "RelPath":  "pages\\ArenaTatics\\screens\\Batalha.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  772,
+        "RelPath":  "pages\\LDI\\data\\scenes\\es\\act1.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  772,
+        "RelPath":  "pages\\LDI\\data\\scenes\\pt\\act1.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  772,
+        "RelPath":  "pages\\LDI\\data\\scenes\\en\\act1.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  761,
+        "RelPath":  "pages\\TopTrumpsMP.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  733,
+        "RelPath":  "pages\\ArenaTatics\\data\\districts.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  663,
+        "RelPath":  "pages\\Perfil.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  663,
+        "RelPath":  "pages\\Quiz.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  659,
+        "RelPath":  "pages\\Tamagoshi\\store\\useTamagoshiStore.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  573,
+        "RelPath":  "pages\\LDI\\data\\scenes\\pt\\act3.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  533,
+        "RelPath":  "pages\\LDI\\Create.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  531,
+        "RelPath":  "pages\\ArenaTatics\\data\\classTree.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  530,
+        "RelPath":  "pages\\JackCandy\\screens\\Dungeon.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  522,
+        "RelPath":  "pages\\LDI\\data\\scenes\\en\\act3.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  488,
+        "RelPath":  "pages\\TopTrumpsLobby.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  477,
+        "RelPath":  "pages\\LDI\\components\\CombatView.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  459,
+        "RelPath":  "pages\\Mundo.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  442,
+        "RelPath":  "i18n\\arena-trash-es.json",
+        "Ext":  ".json",
+        "Dir":  "i18n"
+    },
+    {
+        "Lines":  442,
+        "RelPath":  "i18n\\arena-trash-en.json",
+        "Ext":  ".json",
+        "Dir":  "i18n"
+    },
+    {
+        "Lines":  428,
+        "RelPath":  "pages\\PesadeloParticular\\data\\pp-i18n.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  409,
+        "RelPath":  "pages\\Prototype\\ArenaTestbed\\components\\Phase2BoardSetup.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  401,
+        "RelPath":  "pages\\Tamagoshi\\screens\\RestaurarSaude.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  400,
+        "RelPath":  "pages\\Quiz.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  398,
+        "RelPath":  "pages\\JackCandy\\store\\useJackStore.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  394,
+        "RelPath":  "pages\\Assinar.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  386,
+        "RelPath":  "pages\\ArenaTatics\\screens\\CityOverworld.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  384,
+        "RelPath":  "components\\Puzzles\\Puzzles.css",
+        "Ext":  ".css",
+        "Dir":  "components"
+    },
+    {
+        "Lines":  382,
+        "RelPath":  "pages\\ArenaTatics\\data\\aiPersonalities.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  381,
+        "RelPath":  "pages\\Arena\\ArenaCreate.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  372,
+        "RelPath":  "pages\\TopTrumps\\components\\DeckBuilder.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  360,
+        "RelPath":  "pages\\Arena\\ArenaLobby.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  359,
+        "RelPath":  "pages\\Prototype\\ArenaTestbed\\components\\Phase1SheetBuilder.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  358,
+        "RelPath":  "pages\\ArenaTatics\\components\\GridCanvas.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  357,
+        "RelPath":  "hooks\\useLeaderboardDB.js",
+        "Ext":  ".js",
+        "Dir":  "hooks"
+    },
+    {
+        "Lines":  354,
+        "RelPath":  "components\\HeroSlideshow.css",
+        "Ext":  ".css",
+        "Dir":  "components"
+    },
+    {
+        "Lines":  351,
+        "RelPath":  "lib\\sfx.js",
+        "Ext":  ".js",
+        "Dir":  "lib"
+    },
+    {
+        "Lines":  346,
+        "RelPath":  "pages\\ArenaTatics\\screens\\BatalhaSimulacao.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  341,
+        "RelPath":  "pages\\Perfil\\abas\\PerfilTamagoshi.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  340,
+        "RelPath":  "pages\\Tamagoshi\\screens\\Passear.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  340,
+        "RelPath":  "components\\Navbar.css",
+        "Ext":  ".css",
+        "Dir":  "components"
+    },
+    {
+        "Lines":  335,
+        "RelPath":  "pages\\Prototype\\ArenaTestbed\\components\\Phase2BoardSetup.css",
+        "Ext":  ".css",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  332,
+        "RelPath":  "pages\\TopTrumps\\components\\DeckBuilder.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  325,
+        "RelPath":  "pages\\LDI\\store\\useGameStore.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  324,
+        "RelPath":  "pages\\TopTrumpsLobby.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  319,
+        "RelPath":  "pages\\LDI\\data\\scenes\\pt\\act2.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  319,
+        "RelPath":  "pages\\LDI\\data\\scenes\\en\\act2.json",
+        "Ext":  ".json",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  312,
+        "RelPath":  "pages\\Duelo\\engine\\ai.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  305,
+        "RelPath":  "components\\NinaMusicPlayer\\NinaMusicPlayer.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "components"
+    },
+    {
+        "Lines":  303,
+        "RelPath":  "pages\\Tamagoshi\\data\\criaturas.js",
+        "Ext":  ".js",
+        "Dir":  "pages"
+    },
+    {
+        "Lines":  301,
+        "RelPath":  "pages\\Duelo\\components\\Board.jsx",
+        "Ext":  ".jsx",
+        "Dir":  "pages"
+    }
+]

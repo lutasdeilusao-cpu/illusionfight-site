@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.156.78** | Footer: accordion colapsável no mobile |
+| `SITE_VERSION` | **10.156.79** | Phase3Combat refatorado — 7 extrações de baixo risco |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -546,7 +546,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **1.10.30** | Phase2+3 tile de terreno via drawImage com clip hexagonal |
+| `ARENATESTBED_VERSION` | **2.0.0** | Phase3Combat refatorado: draw/turnOrder/modais/HUD extraídos |
 
 ---
 

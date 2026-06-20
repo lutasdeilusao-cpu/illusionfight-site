@@ -1,0 +1,61 @@
+.atb-ordering-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.85);
+  display: flex; align-items: center; justify-content: center;
+}
+.atb-ordering-modal {
+  background: var(--ldi-bg, #0a0e14);
+  border: 1px solid var(--ldi-border, #1a1e24);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 400px; width: 90%;
+}
+.atb-ordering-title {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; color: #00eeff;
+  text-align: center; margin-bottom: 4px;
+}
+.atb-ordering-subtitle {
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 11px; color: #888;
+  text-align: center; margin-bottom: 1rem;
+}
+.atb-ordering-list {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.atb-ordering-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px;
+  background: rgba(0,238,255,0.04);
+  border-radius: 4px;
+}
+.atb-ordering-row.locked { opacity: 0.5; }
+.atb-ordering-position {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 10px; color: #555; width: 20px; text-align: right;
+}
+.atb-ordering-name {
+  flex: 1; font-family: var(--ldi-font-body, sans-serif);
+  font-size: 13px; color: var(--ldi-text, #ccc);
+}
+.atb-ordering-agi {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 10px; color: #00eeff; width: 40px;
+}
+.atb-ordering-arrows { display: flex; gap: 2px; }
+.atb-ordering-btn {
+  background: none; border: 1px solid #333; border-radius: 3px;
+  color: #888; cursor: pointer; width: 22px; height: 22px;
+  font-size: 10px; display: flex; align-items: center; justify-content: center;
+}
+.atb-ordering-btn:disabled { opacity: 0.2; cursor: default; }
+.atb-ordering-btn:not(:disabled):hover { border-color: #00eeff; color: #00eeff; }
+.atb-ordering-confirm {
+  display: block; margin: 1rem auto 0;
+  background: none; border: 1px solid #00eeff; border-radius: 4px;
+  color: #00eeff; font-family: var(--ldi-font-hud, monospace);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 8px 20px; cursor: pointer;
+}
+.atb-ordering-confirm:hover { background: rgba(0,238,255,0.1); }

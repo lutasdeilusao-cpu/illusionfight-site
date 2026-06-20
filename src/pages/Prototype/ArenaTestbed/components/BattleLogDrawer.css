@@ -1,0 +1,31 @@
+.atb-drawer-overlay {
+  position: fixed; inset: 0; z-index: 80;
+  background: rgba(0,0,0,0.4);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.atb-drawer {
+  background: var(--ldi-bg, #0a0e14);
+  border: 1px solid var(--ldi-border, #1a1e24);
+  border-radius: 12px 12px 0 0;
+  width: 100%; max-width: 500px;
+  max-height: 50vh;
+  display: flex; flex-direction: column;
+  padding: 8px 12px 12px;
+}
+.atb-drawer-handle {
+  width: 40px; height: 4px; border-radius: 2px;
+  background: #333; margin: 0 auto 8px;
+}
+.atb-drawer-title {
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: #888; margin-bottom: 6px;
+}
+.atb-drawer-list {
+  flex: 1; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.atb-drawer-entry {
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 11px; color: #aaa; line-height: 1.4;
+}
