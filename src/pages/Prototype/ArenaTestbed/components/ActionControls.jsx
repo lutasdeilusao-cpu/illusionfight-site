@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../context/LanguageContext'
+import './ActionControls.css'
 
 export default function ActionControls({
   subPhase, subPhaseStep, isPlayerTurn, iaThinking, currentChar,

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
+import './BattleLogDrawer.css'
 
 export default function BattleLogDrawer({ open, battleLog, onClose }) {
   const { t } = useLanguage()

@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../context/LanguageContext'
+import './CombatHUD.css'
 
 export default function CombatHUD({ characters, currentChar, onCharClick }) {
   const { t } = useLanguage()

@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../context/LanguageContext'
+import './OrderingModal.css'
 
 export default function OrderingModal({ playerTeamOrder, setPlayerTeamOrder, onConfirm }) {
   const { t } = useLanguage()

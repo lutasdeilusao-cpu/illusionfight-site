@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../context/LanguageContext'
+import './CharInfoModal.css'
 
 export default function CharInfoModal({ char, onClose }) {
   const { t } = useLanguage()
