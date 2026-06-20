@@ -2,7 +2,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import './ActionControls.css'
 
 export default function ActionControls({
-  subPhase, subPhaseStep, isPlayerTurn, iaThinking, currentChar,
+  actionPanel, subPhase, subPhaseStep, isPlayerTurn, iaThinking, currentChar,
   turnoAcoes, pendingMove,
   onAction, onMove, onAttack, onUseItem, onConfirmMove,
   onCancel, onSkipMove, onSkipAction, onEndTurn,
@@ -11,7 +11,7 @@ export default function ActionControls({
 
   return (
     <>
-      {isPlayerTurn && subPhase === 'free' && currentChar && (
+      {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
         <div className="atb-action-panel">
           <div className="atb-action-panel-name">{currentChar.nome}</div>
           <button

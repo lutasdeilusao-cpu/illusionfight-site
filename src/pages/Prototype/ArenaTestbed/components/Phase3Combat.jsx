@@ -774,6 +774,7 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
         )}
 
         <ActionControls
+          actionPanel={actionPanel}
           subPhase={subPhase}
           subPhaseStep={subPhaseStep}
           isPlayerTurn={isPlayerTurn}
@@ -782,8 +783,9 @@ export default function Phase3Combat({ boardState, onBackToPhase1 }) {
           turnoAcoes={turnoAcoes}
           pendingMove={pendingMove}
           onAction={(type) => {
+            setActionPanel(false)
             if (type === 'move') iniciarMovimento()
-            else if (type === 'attack') { setActionPanel(false); escolherAcao('common_attack') }
+            else if (type === 'attack') escolherAcao('common_attack')
           }}
           onMove={() => {}}
           onAttack={() => escolherAcao('common_attack')}
