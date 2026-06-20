@@ -939,3 +939,18 @@
 }
 
 
+
+.atb-modal--defense {
+  max-width: 300px; padding: 16px; text-align: center;
+}
+.atb-modal--defense-title {
+  font-family: var(--ldi-font-hud); font-size: 13px;
+  color: var(--ldi-cyan); margin-bottom: 12px;
+}
+.atb-modal--defense-text {
+  font-family: var(--ldi-font-body); font-size: 12px;
+  color: #888; margin: 0 0 12px;
+}
+.atb-modal--defense-buttons {
+  display: flex; gap: 8px; justify-content: center;
+}

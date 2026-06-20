@@ -9,7 +9,7 @@ import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, ge
 import { decidirAcaoIA } from '../engine/ai'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel, aplicarBonusPoder } from '../data/poderes'
 import JokenpoModal from './JokenpoModal'
-import './Phase3Combat.css'
+import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
 const SUB_PHASES = ['movimento', 'ataque', 'item']
@@ -1517,14 +1517,14 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
       {defensePending && (
         <div className="atb-modal-overlay">
-          <div className="atb-modal" style={{ maxWidth: 300, padding: 16, textAlign: 'center' }}>
-            <div className="atb-modal-name" style={{ marginBottom: 12 }}>
+          <div className="atb-modal atb-modal--defense">
+            <div className="atb-modal--defense-title">
               {t('prototype.arena_testbed.defense_title', { nome: defensePending.alvo.nome })}
             </div>
-            <p style={{ fontFamily: 'var(--ldi-font-body)', fontSize: 12, color: '#888', margin: '0 0 12px' }}>
+            <p className="atb-modal--defense-text">
               {t('prototype.arena_testbed.defense_prompt', { custo: 3, bonus: 2 })}
             </p>
-            <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
+            <div className="atb-modal--defense-buttons">
               <button className="atb-action-btn atb-action-btn--confirm" onClick={() => {
                 const cb = defensePending.onResolve
                 setDefensePending(null)
