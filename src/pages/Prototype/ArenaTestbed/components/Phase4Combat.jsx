@@ -813,7 +813,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   function iniciarMovimento() {
     if (!currentChar || animating || turnoAcoes.moveu) return
     setActionPanel(false)
-    anunciar(t('prototype.arena_testbed.announce_move'), 1200)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
       currentChar.posicao.row, currentChar.posicao.col,
@@ -860,7 +859,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   function escolherAcao(tipoAcao) {
     if (!currentChar || animating) return
     setPowerAttackMode(tipoAcao === 'power_attack')
-    anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${tipoAcao}`)
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
     const atkCells = getCelulasAtaque(
@@ -904,7 +902,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (!currentChar || animating) return
     setPowerAttackMode(!!opcao.poderId)
     const nomeTipo = opcao.poderId ? 'power_attack' : 'common_attack'
-    anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
     if (opcao.poderId) {
       const poder = PODERES_BASE.find(p => p.id === opcao.poderId)
@@ -970,7 +967,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     )
     setDanoPopup({ dano, alvoId, key: Date.now() })
     setTimeout(() => setDanoPopup(null), 800)
-    adicionarBalao(alvoId, `-${dano}`, 'damage', alvo.posicao?.row, alvo.posicao?.col)
     setShaking(true)
     setTimeout(() => setShaking(false), 500)
     setFlashDmg(true)
