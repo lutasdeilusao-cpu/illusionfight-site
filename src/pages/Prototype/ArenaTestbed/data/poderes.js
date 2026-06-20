@@ -36,7 +36,7 @@ export function getPoderesPorId(ids) {
 }
 
 export function getPoderesDisponiveis(char, poderesIds) {
-  const ids = poderesIds[char.id] || []
+  const ids = poderesIds[char.id] || char.poderesEscolhidos || []
   return ids.map(id => PODERES_BASE.find(p => p.id === id)).filter(Boolean)
 }
 

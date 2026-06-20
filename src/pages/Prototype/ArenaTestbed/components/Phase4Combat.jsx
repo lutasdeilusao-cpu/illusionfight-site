@@ -36,6 +36,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       ...bc.charData,
       posicao: { row: bc.row, col: bc.col },
       vivo: true,
+      poderesEscolhidos: poderesEscolhidos[bc.charData?.id] || [],
     }))
   )
   const [turnOrder, setTurnOrder] = useState([])
