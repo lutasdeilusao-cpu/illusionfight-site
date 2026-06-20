@@ -9,6 +9,7 @@ import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, ge
 import { decidirAcaoIA } from '../engine/ai'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel, aplicarBonusPoder } from '../data/poderes'
 import JokenpoModal from './JokenpoModal'
+import PowerChoiceModal from './PowerChoiceModal'
 import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -87,6 +88,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const [flashDmg, setFlashDmg] = useState(false)
   const [defensePending, setDefensePending] = useState(null)
   const [powerAttackMode, setPowerAttackMode] = useState(false)
+  const [powerChoiceModal, setPowerChoiceModal] = useState(null)
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
@@ -871,22 +873,29 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function escolherTipoAtaque() {
     if (!currentChar || animating) return
-    setHighlightedCells([])
-    setAttackCells([])
-    setRangeCells([])
-    setSubPhaseStep('escolher_tipo_ataque')
-    setSubPhase('acao')
+    const poderesDisponiveis = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
+      .filter(p => p.gatilho === 'ataque' && currentChar.mp >= p.custoMP)
+    const opcoes = [
+      { rotulo: t('prototype.arena_testbed.pcm_comum'), poderId: null, custoMP: 0, disponivel: true },
+      ...poderesDisponiveis.map(p => ({
+        rotulo: `${p.nome_pt} (-${p.custoMP} MP)`,
+        poderId: p.id,
+        custoMP: p.custoMP,
+        disponivel: true,
+      })),
+    ]
+    setPowerChoiceModal({ mode: 'ataque', charName: currentChar.nome, opcoes })
   }
 
-  function confirmarTipoAtaque(comPoder) {
+  function confirmarEscolhaAtaque(opcao) {
+    setPowerChoiceModal(null)
     if (!currentChar || animating) return
-    setPowerAttackMode(comPoder)
-    const nomeTipo = comPoder ? 'power_attack' : 'common_attack'
+    setPowerAttackMode(!!opcao.poderId)
+    const nomeTipo = opcao.poderId ? 'power_attack' : 'common_attack'
     anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
     addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
-    if (comPoder) {
-      const poderesAtivos = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
-      const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
+    if (opcao.poderId) {
+      const poder = PODERES_BASE.find(p => p.id === opcao.poderId)
       if (poder) addLog(`⚡ ${currentChar.nome} usará ${poder.nome_pt}!`)
     }
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
@@ -1403,6 +1412,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
           setDefensePending({
             alvo,
             atacante,
+            faBruto: res.fa,
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
               if (bonus > 0) {
@@ -1544,6 +1554,19 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         />
       )}
 
+      {powerChoiceModal && (
+        <PowerChoiceModal
+          mode={powerChoiceModal.mode}
+          charName={powerChoiceModal.charName}
+          opcoes={powerChoiceModal.opcoes}
+          onEscolher={(op) => {
+            if (powerChoiceModal.mode === 'ataque') {
+              confirmarEscolhaAtaque(op)
+            }
+          }}
+        />
+      )}
+
       {turnAnnouncement && (
         <div className="atb-announcement-overlay">
           <div className={`atb-announcement-text ${announcementClass}`}>
@@ -1552,30 +1575,39 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         </div>
       )}
 
-      {defensePending && (
-        <div className="atb-modal-overlay">
-          <div className="atb-modal atb-modal--defense">
-            <div className="atb-modal--defense-title">
-              {t('prototype.arena_testbed.defense_title', { nome: defensePending.alvo.nome })}
-            </div>
-            <p className="atb-modal--defense-text">
-              {t('prototype.arena_testbed.defense_prompt', { custo: 3, bonus: 2 })}
-            </p>
-            <div className="atb-modal--defense-buttons">
-              <button className="atb-action-btn atb-action-btn--confirm" onClick={() => {
-                const cb = defensePending.onResolve
-                setDefensePending(null)
-                cb(2)
-              }}>{t('prototype.arena_testbed.defense_yes')}</button>
-              <button className="atb-action-btn atb-action-btn--cancel" onClick={() => {
-                const cb = defensePending.onResolve
-                setDefensePending(null)
-                cb(0)
-              }}>{t('prototype.arena_testbed.defense_no')}</button>
-            </div>
-          </div>
-        </div>
-      )}
+      {defensePending && (() => {
+        const poderesDefesa = getPoderesPorId(poderesEscolhidos[defensePending.alvo.id] || defensePending.alvo.poderesEscolhidos || [])
+          .filter(p => p.gatilho === 'defesa' && defensePending.alvo.mp >= p.custoMP)
+        const opcoes = [
+          { rotulo: t('prototype.arena_testbed.pcm_sem_poder'), poderId: null, custoMP: 0, disponivel: true },
+          ...poderesDefesa.map(p => ({
+            rotulo: `${p.nome_pt} (-${p.custoMP} MP)`,
+            poderId: p.id,
+            custoMP: p.custoMP,
+            disponivel: true,
+          })),
+        ]
+        return (
+          <PowerChoiceModal
+            mode="defesa"
+            charName={defensePending.alvo.nome}
+            faBruto={defensePending.faBruto}
+            opcoes={opcoes}
+            onEscolher={(op) => {
+              setDefensePending(null)
+              const bonus = op.poderId ? 2 : 0
+              defesaBonusRef.current = bonus
+              if (bonus > 0) {
+                setCharacters(prev => prev.map(c =>
+                  c.id === defensePending.alvo.id ? { ...c, mp: c.mp - 3 } : c
+                ))
+                addLog(`🛡️ ${defensePending.alvo.nome} usou Defesa+2! (-3 MP)`)
+              }
+              defensePending.onResolve(bonus)
+            }}
+          />
+        )
+      })()}
 
       {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && (
         <div className="atb-action-panel">
@@ -1695,22 +1727,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
                     </button>
                   </>
                 ) : null}
-              </>
-            )}
-
-            {subPhase === 'acao' && subPhaseStep === 'escolher_tipo_ataque' && (
-              <>
-                <button className="atb-action-btn atb-action-btn--attack" onClick={() => confirmarTipoAtaque(false)}>
-                  ⚔ {t('prototype.arena_testbed.action_common_attack')}
-                </button>
-                {currentChar && (temPoderDisponivel(currentChar, poderesEscolhidos, 'ataque', 3)) && (
-                  <button className="atb-action-btn atb-action-btn--attack" onClick={() => confirmarTipoAtaque(true)}>
-                    ⚡ {t('prototype.arena_testbed.action_power_attack')}
-                  </button>
-                )}
-                <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
-                  × {t('prototype.arena_testbed.btn_cancel')}
-                </button>
               </>
             )}
 
