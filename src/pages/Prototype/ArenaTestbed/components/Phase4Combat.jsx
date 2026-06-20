@@ -106,6 +106,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const crossTieQueueRef = useRef([])
   const crossTieResultsRef = useRef([])
   const defesaBonusRef = useRef(0)
+  const tutorialMostradoRef = useRef(false)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -328,7 +329,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setRangeCells([])
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
       setTimeout(() => {
-        anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+        if (!tutorialMostradoRef.current) {
+          tutorialMostradoRef.current = true
+          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+        }
       }, 2200)
     }
   }
@@ -1267,7 +1271,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setRangeCells([])
       anunciar(t('prototype.arena_testbed.announce_player_turn'))
       setTimeout(() => {
-        anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+        if (!tutorialMostradoRef.current) {
+          tutorialMostradoRef.current = true
+          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+        }
       }, 2200)
     }
   }
@@ -1481,10 +1488,13 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setRangeCells([])
         iaThinkingRef.current = false
         setIaThinking(false)
-        anunciar(t('prototype.arena_testbed.announce_player_turn'))
-        setTimeout(() => {
+      anunciar(t('prototype.arena_testbed.announce_player_turn'))
+      setTimeout(() => {
+        if (!tutorialMostradoRef.current) {
+          tutorialMostradoRef.current = true
           anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-        }, 2200)
+        }
+      }, 2200)
       } else {
         iaThinkingRef.current = false
         setIaThinking(false)
