@@ -869,6 +869,42 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setSubPhase('acao')
   }
 
+  function escolherTipoAtaque() {
+    if (!currentChar || animating) return
+    setHighlightedCells([])
+    setAttackCells([])
+    setRangeCells([])
+    setSubPhaseStep('escolher_tipo_ataque')
+    setSubPhase('acao')
+  }
+
+  function confirmarTipoAtaque(comPoder) {
+    if (!currentChar || animating) return
+    setPowerAttackMode(comPoder)
+    const nomeTipo = comPoder ? 'power_attack' : 'common_attack'
+    anunciar(t('prototype.arena_testbed.announce_attack'), 1200)
+    addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
+    if (comPoder) {
+      const poderesAtivos = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
+      const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
+      if (poder) addLog(`⚡ ${currentChar.nome} usará ${poder.nome_pt}!`)
+    }
+    const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
+    const atkCells = getCelulasAtaque(
+      currentChar.posicao.row, currentChar.posicao.col,
+      currentChar.tipoAtaque, cols, rows,
+      alcanceMax, obstaculos
+    )
+    setRangeCells(atkCells)
+    const enemyCells = atkCells.filter(c =>
+      characters.some(ch => ch.vivo && ch.time !== currentChar.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
+    )
+    setAttackCells(enemyCells)
+    setHighlightedCells([])
+    setSubPhaseStep('escolher_alvo')
+    setSubPhase('acao')
+  }
+
   function pularAcao() {
     if (!currentChar) return
     addLog(`[${currentChar.nome}] Pulou a fase de ação.`)
@@ -1554,7 +1590,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
           <button
             className="atb-action-panel-btn atb-action-panel-btn--attack"
             disabled={turnoAcoes.atacou}
-            onClick={() => { setActionPanel(false); escolherAcao('common_attack') }}
+            onClick={() => { setActionPanel(false); escolherTipoAtaque() }}
           >
             ⚔ {t('prototype.arena_testbed.btn_attack')}
           </button>
@@ -1662,18 +1698,18 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
               </>
             )}
 
-            {subPhase === 'acao' && subPhaseStep === 'escolher_acao' && (
+            {subPhase === 'acao' && subPhaseStep === 'escolher_tipo_ataque' && (
               <>
-                <button className="atb-action-btn atb-action-btn--attack" onClick={() => escolherAcao('common_attack')}>
+                <button className="atb-action-btn atb-action-btn--attack" onClick={() => confirmarTipoAtaque(false)}>
                   ⚔ {t('prototype.arena_testbed.action_common_attack')}
                 </button>
                 {currentChar && (temPoderDisponivel(currentChar, poderesEscolhidos, 'ataque', 3)) && (
-                  <button className="atb-action-btn atb-action-btn--attack" onClick={() => escolherAcao('power_attack')}>
+                  <button className="atb-action-btn atb-action-btn--attack" onClick={() => confirmarTipoAtaque(true)}>
                     ⚡ {t('prototype.arena_testbed.action_power_attack')}
                   </button>
                 )}
-                <button className="atb-action-btn atb-action-btn--skip" onClick={pularAcao}>
-                  ⏭ {t('prototype.arena_testbed.skip_action')}
+                <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                  × {t('prototype.arena_testbed.btn_cancel')}
                 </button>
               </>
             )}
