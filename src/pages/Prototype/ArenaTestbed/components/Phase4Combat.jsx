@@ -875,6 +875,11 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (!currentChar || animating) return
     const poderesDisponiveis = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
       .filter(p => p.gatilho === 'ataque' && currentChar.mp >= p.custoMP)
+    if (poderesDisponiveis.length === 0) {
+      setActionPanel(false)
+      confirmarEscolhaAtaque({ rotulo: '', poderId: null, custoMP: 0, disponivel: true })
+      return
+    }
     const opcoes = [
       { rotulo: t('prototype.arena_testbed.pcm_comum'), poderId: null, custoMP: 0, disponivel: true },
       ...poderesDisponiveis.map(p => ({
