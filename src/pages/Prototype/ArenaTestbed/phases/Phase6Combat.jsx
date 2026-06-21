@@ -8,6 +8,7 @@ import {
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
 import { getPersonalidadePorId } from '../engine/ai/personalidades/index'
+import { EstagioIA } from '../engine/ai/estagios'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
