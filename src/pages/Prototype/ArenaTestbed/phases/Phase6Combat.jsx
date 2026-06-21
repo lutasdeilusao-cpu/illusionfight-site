@@ -9,6 +9,7 @@ import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, ge
 import { decidirAcaoIA } from '../engine/ai'
 import { getPersonalidadePorId } from '../engine/ai/personalidades/index'
 import { EstagioIA } from '../engine/ai/estagios'
+import { mostrarBannerAtaqueIA } from '../engine/ai/efeitosVisuaisIA'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
@@ -1191,9 +1192,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         }
         const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         function mostrarBannerAtaqueIA() {
-          const bannerText = `${atacante.nome} ${t('prototype.arena_testbed.ia_attack_banner')}`
-          setAttackBanner({ texto: bannerText })
-          setTimeout(() => setAttackBanner(null), 1500)
+          mostrarBannerAtaqueIA(atacante.nome, t, setAttackBanner)
         }
         function iniciarAnimacaoAtaqueIA() {
           setAnimTimer(() => {
