@@ -802,10 +802,19 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const origem = atacante.posicao
     const destino = alvo.posicao
     const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
+    console.log('[DEBUG] animarAtaqueProjetil', { origem, destino, stepsLength: steps.length })
+    if (steps.length === 0) {
+      console.warn('[DEBUG] animarAtaqueProjetil: steps vazio, chamando onFinalizar direto')
+      if (onFinalizar) onFinalizar()
+      else aposAnimacaoAtaque(atacante, alvo, resultado)
+      return
+    }
     setProjectilePath(steps)
     let stepIdx = 0
+    let maxIter = steps.length * 2
     function avancarProjetil() {
-      if (stepIdx >= steps.length) {
+      if (stepIdx >= steps.length || stepIdx >= maxIter) {
+        console.log('[DEBUG] avancarProjetil: finalizado', { stepIdx, stepsLength: steps.length, finalizou: stepIdx >= steps.length })
         setProjectilePos(null)
         setProjectilePath([])
         if (onFinalizar) onFinalizar()
@@ -1127,20 +1136,20 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }
 
     function estagioAgir() {
-      try {
-        const charsAgora2 = charsRef.current
-        const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-        if (!iaAtual2 || !iaAtual2.vivo) {
-          iaThinkingRef.current = false
-          setIaThinking(false)
-          finalizarTurno()
-          return
-        }
-        addLog(`  ${iaChar.nome} — Fase: Ação`)
-        const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-        console.log('[DEBUG] estagioAgir calling decidirAcaoComPersonalidade', { iaId: iaAtual2.id, inimigosCount: inimigos2.length })
-        const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
-        console.log('[DEBUG] estagioAgir decision result', { tipo: dec2.tipo })
+      const charsAgora2 = charsRef.current
+      const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
+      if (!iaAtual2 || !iaAtual2.vivo) {
+        iaThinkingRef.current = false
+        setIaThinking(false)
+        finalizarTurno()
+        return
+      }
+      addLog(`  ${iaChar.nome} — Fase: Ação`)
+      const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
+      const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+      console.log('[DEBUG] estagioAgir decision result', { tipo: dec2.tipo })
+      if (dec2.tipo === 'atacar') {
+        console.log('[DEBUG] estagioAgir: executando ataque', { alvoNome: dec2.detalhes.alvo?.nome, isMiss: dec2.detalhes.miss })
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
@@ -1194,10 +1203,10 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           }
         }
         const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
-        function mostrarBannerAtaqueIA() {
+        const mostrarBannerAtaqueIA_ = () => {
           mostrarBannerAtaqueIA(atacante.nome, t, setAttackBanner)
         }
-        function iniciarAnimacaoAtaqueIA() {
+        const iniciarAnimacaoAtaqueIA_ = () => {
           setAnimTimer(() => {
             setRangeCells([])
             setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
@@ -1215,7 +1224,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           }, 1200)
         }
         if (podeDefesa) {
-          mostrarBannerAtaqueIA()
+          mostrarBannerAtaqueIA_()
           setDefensePending({
             alvo,
             atacante,
@@ -1228,24 +1237,18 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
                 ))
                 addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
               }
-              iniciarAnimacaoAtaqueIA()
+              iniciarAnimacaoAtaqueIA_()
             },
           })
         } else {
-          mostrarBannerAtaqueIA()
+          mostrarBannerAtaqueIA_()
           defesaBonusRef.current = 0
-          iniciarAnimacaoAtaqueIA()
+          iniciarAnimacaoAtaqueIA_()
         }
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
       }
-    } catch (err) {
-      console.error('[IA] Erro em estagioAgir:', err)
-      addLog(`  ⚠️ Erro na ação da IA: ${err.message}`)
-      iaThinkingRef.current = false
-      setIaThinking(false)
-      finalizarTurno()
     }
   }
 
