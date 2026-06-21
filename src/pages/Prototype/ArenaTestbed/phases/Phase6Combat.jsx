@@ -1047,11 +1047,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     avancarEAcionar()
   }
 
-  function decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao) {
+  function decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao, fase = 'acao') {
     const personalidade = getPersonalidadePorId(iaAtual.personalidadeId)
     console.log(`[IA] personalidadeId: ${iaAtual.personalidadeId} → encontrada: ${!!personalidade}`)
     if (personalidade) {
-      return personalidade.fn(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
+      return personalidade.fn(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao, fase)
     }
     return decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
   }
@@ -1079,7 +1079,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         movIA, cols, rows, obstaculos
       )
       setHighlightedCells(moveCells)
-      const dec = decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
+      const dec = decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual, 'movimento')
       setAnimTimer(() => {
         setHighlightedCells([])
         if (dec.tipo === 'andar') {

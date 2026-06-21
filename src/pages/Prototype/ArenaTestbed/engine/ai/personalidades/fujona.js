@@ -1,18 +1,24 @@
 import { distanciaHex, getCelulasAtaque, getVizinhos, encontrarCaminho } from '../../hexUtils'
 import { getCasasMovimento, getChanceAcerto, resolverAtaque } from '../../combat'
 
-function podeAtacarAlvo(personagem, alvo, cols, rows, obstaculos) {
-  const alcanceMax = personagem.tipoAtaque === 'melee' ? 1 : personagem.pdf
-  const celulas = getCelulasAtaque(personagem.posicao.row, personagem.posicao.col, personagem.tipoAtaque, cols, rows, alcanceMax, obstaculos)
-  return celulas.some(c => c.row === alvo.posicao.row && c.col === alvo.posicao.col)
-}
-
 function inimigoMaisProximo(personagem, inimigos) {
   let alvo = null, menorDist = Infinity
   for (const ini of inimigos) {
     if (!ini.vivo || !ini.posicao) continue
     const dist = distanciaHex(personagem.posicao, ini.posicao)
     if (dist < menorDist) { menorDist = dist; alvo = ini }
+  }
+  return alvo
+}
+
+function inimigoMaisFracoEmAlcance(personagem, inimigos, cols, rows, obstaculos) {
+  const alcanceMax = personagem.tipoAtaque === 'melee' ? 1 : personagem.pdf
+  const celulas = getCelulasAtaque(personagem.posicao.row, personagem.posicao.col, personagem.tipoAtaque, cols, rows, alcanceMax, obstaculos)
+  let alvo = null, menorHP = Infinity
+  for (const ini of inimigos) {
+    if (!ini.vivo || !ini.posicao) continue
+    const emAlcance = celulas.some(c => c.row === ini.posicao.row && c.col === ini.posicao.col)
+    if (emAlcance && ini.hp < menorHP) { menorHP = ini.hp; alvo = ini }
   }
   return alvo
 }
@@ -37,52 +43,61 @@ function celulaMaisDistante(personagem, inimigos, cols, rows, obstaculos) {
   return melhor
 }
 
-export function acaoFujona(personagem, inimigos, todosPersonagens, obstaculos, cols, rows, itensChao) {
-  const logs = []
-  const LIMIAR_FUGA = 0.4
-  const hpPct = personagem.hp / personagem.hpMax
-  const estaComMedo = hpPct < LIMIAR_FUGA
-
-  if (estaComMedo) {
-    const fuga = celulaMaisDistante(personagem, inimigos, cols, rows, obstaculos)
-    if (fuga) {
-      logs.push(`😰 ${personagem.nome} está com medo! Fugindo para (${fuga.row}, ${fuga.col})`)
-      return { tipo: 'andar', detalhes: { row: fuga.row, col: fuga.col }, logs }
-    }
-  }
-
+function avancarUmaCasa(personagem, inimigos, cols, rows, obstaculos) {
+  const vizinhos = getVizinhos(personagem.posicao.row, personagem.posicao.col, cols, rows)
   const alvo = inimigoMaisProximo(personagem, inimigos)
-  if (!alvo) return { tipo: 'finalizar', detalhes: {}, logs: ['Nenhum alvo encontrado.'] }
+  if (!alvo) return null
+  let melhor = null, menorDist = Infinity
+  for (const viz of vizinhos) {
+    const key = `${viz.row}_${viz.col}`
+    const obs = obstaculos?.[key]
+    if (obs && (obs.tipo === 1 || obs.tipo === 2)) continue
+    const ocupada = inimigos.some(p => p.vivo && p.posicao?.row === viz.row && p.posicao?.col === viz.col)
+    if (ocupada) continue
+    const d = distanciaHex(viz, alvo.posicao)
+    const distAtual = distanciaHex(personagem.posicao, alvo.posicao)
+    if (d < distAtual && d < menorDist) { menorDist = d; melhor = viz }
+  }
+  return melhor
+}
 
-  const jaEmAlcance = podeAtacarAlvo(personagem, alvo, cols, rows, obstaculos)
+export function acaoFujona(personagem, inimigos, todosPersonagens, obstaculos, cols, rows, itensChao, fase = 'acao') {
+  const logs = []
 
-  if (estaComMedo && jaEmAlcance) {
+  if (fase === 'movimento') {
     const fuga = celulaMaisDistante(personagem, inimigos, cols, rows, obstaculos)
     if (fuga) {
-      logs.push(`😰 ${personagem.nome} recua de ${alvo.nome}!`)
+      logs.push(`😰 ${personagem.nome} foge para (${fuga.row}, ${fuga.col})`)
       return { tipo: 'andar', detalhes: { row: fuga.row, col: fuga.col }, logs }
     }
+    const avancar = avancarUmaCasa(personagem, inimigos, cols, rows, obstaculos)
+    if (avancar) {
+      logs.push(`😰 ${personagem.nome} está encurralado! Avança para (${avancar.row}, ${avancar.col})`)
+      return { tipo: 'andar', detalhes: { row: avancar.row, col: avancar.col }, logs }
+    }
+    logs.push(`😰 ${personagem.nome} não tem para onde ir.`)
+    return { tipo: 'finalizar', detalhes: {}, logs }
   }
 
-  if (jaEmAlcance && !estaComMedo) {
+  if (fase === 'acao') {
+    const alvo = inimigoMaisFracoEmAlcance(personagem, inimigos, cols, rows, obstaculos)
+    if (!alvo) {
+      logs.push(`🚶 ${personagem.nome} não tem alvo em alcance após fugir.`)
+      return { tipo: 'finalizar', detalhes: {}, logs }
+    }
     const dist = distanciaHex(personagem.posicao, alvo.posicao)
     const chance = getChanceAcerto(personagem.dex, alvo.agi)
     const roll = Math.random()
     const acertou = roll <= chance || personagem.dex > alvo.agi
     if (acertou) {
       const resultado = resolverAtaque(personagem, alvo, Math.ceil(dist))
-      logs.push(`🤷 ${personagem.nome} ataca ${alvo.nome} relutantemente.`)
+      logs.push(`🎯 ${personagem.nome} ataca ${alvo.nome} à distância após fugir.`)
       return { tipo: 'atacar', detalhes: { alvo, resultado, distancia: Math.ceil(dist), miss: false }, logs }
     }
-    logs.push(`🤷 ${personagem.nome} tentou atacar mas errou.`)
+    logs.push(`🎯 ${personagem.nome} tenta atacar ${alvo.nome} mas erra.`)
     return { tipo: 'atacar', detalhes: { alvo, resultado: null, distancia: Math.ceil(dist), miss: true }, logs }
   }
 
-  const fuga = celulaMaisDistante(personagem, inimigos, cols, rows, obstaculos)
-  if (fuga) {
-    logs.push(`🚶 ${personagem.nome} mantém distância.`)
-    return { tipo: 'andar', detalhes: { row: fuga.row, col: fuga.col }, logs }
-  }
-
-  return { tipo: 'finalizar', detalhes: {}, logs: [`${personagem.nome} não conseguiu agir.`] }
+  logs.push(`${personagem.nome} — fase desconhecida: ${fase}`)
+  return { tipo: 'finalizar', detalhes: {}, logs }
 }
