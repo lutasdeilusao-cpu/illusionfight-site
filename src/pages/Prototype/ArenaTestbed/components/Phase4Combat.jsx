@@ -206,17 +206,14 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       } else {
         const order = ordemParcial.map(c => c.id)
         tc.inicializar(order)
-        setTurnVersion(v => v + 1)
-        avancarEAcionar()
+        configurarTurnoPara(tc.quemEstaNaVez())
       }
     }, 0)
   }, [])
 
-  function avancarEAcionar() {
-    const nextId = tc.avancarTurno()
+  function configurarTurnoPara(charId) {
     setTurnVersion(v => v + 1)
-    if (!nextId) return
-    const proxChar = characters.find(c => c.id === nextId)
+    const proxChar = characters.find(c => c.id === charId)
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       setPhase('enemy_turn')
@@ -244,6 +241,11 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     }
   }
 
+  function avancarEAcionar() {
+    const nextId = tc.avancarTurno()
+    if (nextId) configurarTurnoPara(nextId)
+  }
+
   function handleJokenpoResult(winnerName) {
     if (orderingPhase === 'jokenpo_cross') {
       handleJokenpoResultCruzado(winnerName)
@@ -266,8 +268,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setOrderingPhase(null)
       const order = novaOrdem.map(c => c.id)
       tc.inicializar(order)
-      setTurnVersion(v => v + 1)
-      avancarEAcionar()
+      configurarTurnoPara(tc.quemEstaNaVez())
     }
   }
 
@@ -344,8 +345,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setOrderingPhase(null)
     const order = novaOrdem.map(c => c.id)
     tc.inicializar(order)
-    setTurnVersion(v => v + 1)
-    avancarEAcionar()
+    configurarTurnoPara(tc.quemEstaNaVez())
   }
 
   function enterSubPhase(sub, char) {
