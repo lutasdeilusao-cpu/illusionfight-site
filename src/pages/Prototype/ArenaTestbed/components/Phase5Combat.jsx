@@ -226,7 +226,8 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       setPhase('enemy_turn')
-      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: getDisplayName(proxChar) }), 1500, 'ia')
+      const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
+      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: nomeAnuncio }), 1500, 'ia')
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
       setPhase(null)
@@ -514,14 +515,14 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
           const isPlayer = ch.time === 'jogador'
-          const jogadores = characters.filter(c => c.time === 'jogador')
-          const playerIndex = jogadores.findIndex(j => j.id === ch.id)
-          const playerColors = ['#00ff88', '#4488ff', '#ffcc00', '#ff8800']
-          const corToken = isPlayer ? playerColors[playerIndex % playerColors.length] : '#ff2244'
-          const corBgToken = isPlayer ? '#001a0d' : '#1a0008'
-          const corSpokes = isPlayer
-            ? `rgba(${playerIndex === 0 ? '0,255,136' : playerIndex === 1 ? '68,136,255' : '255,204,0'},0.6)`
-            : 'rgba(255,34,68,0.6)'
+          const cor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
+          const icone = ch.aparencia?.icone
+          const nomeDisplay = ch.aparencia?.nome || ch.nome || ''
+          const corBg = isPlayer ? '#001a0d' : '#1a0008'
+          const r = parseInt(cor.slice(1,3), 16)
+          const g = parseInt(cor.slice(3,5), 16)
+          const b = parseInt(cor.slice(5,7), 16)
+          const corSpokes = isPlayer ? `rgba(${r},${g},${b},0.6)` : 'rgba(255,34,68,0.6)'
 
           if (isPlayer) {
             const angle = angleRef.current
@@ -541,17 +542,30 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
 
             ctx.beginPath()
             ctx.arc(center.x, center.y, sz * 0.48, 0, Math.PI * 2)
-            ctx.fillStyle = corBgToken
+            ctx.fillStyle = corBg
             ctx.fill()
-            ctx.strokeStyle = corToken
+            ctx.strokeStyle = cor
             ctx.lineWidth = 2
             ctx.stroke()
 
-            ctx.fillStyle = corToken
-            ctx.font = `700 ${sz * 0.35}px Orbitron, sans-serif`
-            ctx.textAlign = 'center'
-            ctx.textBaseline = 'middle'
-            ctx.fillText(ch.nome ? ch.nome.charAt(0).toUpperCase() : (getDisplayName(ch).charAt(0)), center.x, center.y)
+            if (icone) {
+              ctx.save()
+              ctx.translate(center.x, center.y)
+              ctx.strokeStyle = cor
+              ctx.lineWidth = 2
+              ctx.beginPath()
+              if (icone === 'circle') ctx.arc(0, 0, sz * 0.18, 0, Math.PI * 2)
+              else if (icone === 'square') ctx.rect(-sz * 0.16, -sz * 0.16, sz * 0.32, sz * 0.32)
+              else if (icone === 'diamond') { ctx.moveTo(0, -sz * 0.22); ctx.lineTo(sz * 0.18, 0); ctx.lineTo(0, sz * 0.22); ctx.lineTo(-sz * 0.18, 0); ctx.closePath() }
+              ctx.stroke()
+              ctx.restore()
+            } else {
+              ctx.fillStyle = cor
+              ctx.font = `700 ${sz * 0.35}px Orbitron, sans-serif`
+              ctx.textAlign = 'center'
+              ctx.textBaseline = 'middle'
+              ctx.fillText(nomeDisplay.charAt(0).toUpperCase(), center.x, center.y)
+            }
           } else {
             const angle = angleRef.current
             ctx.save()
@@ -580,7 +594,7 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
             ctx.font = `700 ${sz * 0.35}px Orbitron, sans-serif`
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
-            ctx.fillText(ch.nome ? ch.nome.charAt(0).toUpperCase() : '?', center.x, center.y)
+            ctx.fillText(nomeDisplay.charAt(0).toUpperCase() || '?', center.x, center.y)
           }
 
           const isActive = ch.id === currentChar?.id
@@ -588,7 +602,7 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
             ctx.beginPath()
             ctx.arc(center.x, center.y, sz * 0.85, 0, Math.PI * 2)
             ctx.globalAlpha = 0.3 + 0.2 * Math.sin(Date.now() / 300)
-            ctx.strokeStyle = isPlayer ? (playerIndex === 0 ? '#00eeff' : playerIndex === 1 ? '#88aaff' : '#ffcc88') : '#ff2244'
+            ctx.strokeStyle = isPlayer ? cor : '#ff2244'
             ctx.lineWidth = 1
             ctx.stroke()
             ctx.globalAlpha = 1
@@ -1276,7 +1290,8 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: getDisplayName(currentChar) }))
+        const nomeAnuncio = currentChar?.aparencia?.nome || currentChar?.nome || getDisplayName(currentChar)
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -1290,7 +1305,8 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: getDisplayName(currentChar) }))
+        const nomeAnuncio3 = currentChar?.aparencia?.nome || currentChar?.nome || getDisplayName(currentChar)
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio3 }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -1774,10 +1790,7 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
           const antigoPct = (hpAntigo / ch.hpMax) * 100
           const perdeuHP = hpAntigo > ch.hp
           const isPlayer = ch.time === 'jogador'
-          const jogadores = characters.filter(c => c.time === 'jogador')
-          const playerIndex = jogadores.findIndex(j => j.id === ch.id)
-          const playerColors = ['#00ff88', '#4488ff', '#ffcc00', '#ff8800']
-          const dotColor = isPlayer ? playerColors[playerIndex % playerColors.length] : '#ff2244'
+          const dotColor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
           return (
             <div
               key={ch.id}
@@ -1786,7 +1799,7 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
             >
               <div className="atb-hud-dot" style={{ '--dot-color': dotColor }} />
               <div className="atb-hud-info">
-                <div className="atb-hud-name">{ch.nome}</div>
+                <div className="atb-hud-name">{ch.aparencia?.nome || ch.nome}</div>
                 <div className="atb-hud-bars">
                   <div className="atb-hud-bar-row">
                     <div className="atb-hud-bar-track">

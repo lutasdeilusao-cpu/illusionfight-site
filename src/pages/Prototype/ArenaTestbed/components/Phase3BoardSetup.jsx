@@ -51,8 +51,9 @@ export default function Phase3BoardSetup({ characters, onConfirm }) {
       const assignedRow = ch.time === 'jogador' ? (idx % 2) * (rows - 1) : (idx % 2) * (rows - 1)
       return {
         charId: ch.id,
-        nome: ch.nome,
+        nome: ch.aparencia?.nome || ch.nome || '',
         time: ch.time,
+        aparencia: ch.aparencia,
         row: assignedRow,
         col: assignedCol,
       }
@@ -140,22 +141,41 @@ export default function Phase3BoardSetup({ characters, onConfirm }) {
         }
 
         if (ch) {
+          const cor = ch.aparencia?.cor || (ch.time === 'jogador' ? '#00ff88' : '#ff2244')
+          const icone = ch.aparencia?.icone
+
           if (ch.time === 'jogador') {
             const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.7)
-            grad.addColorStop(0, '#003322')
-            grad.addColorStop(1, '#001a10')
+            const r = parseInt(cor.slice(1,3), 16)
+            const g = parseInt(cor.slice(3,5), 16)
+            const b = parseInt(cor.slice(5,7), 16)
+            grad.addColorStop(0, `rgba(${r},${g},${b},0.1)`)
+            grad.addColorStop(1, `rgba(0,0,0,0.4)`)
             ctx.beginPath()
             ctx.arc(center.x, center.y, sz * 0.5, 0, Math.PI * 2)
             ctx.fillStyle = grad
             ctx.fill()
-            ctx.strokeStyle = '#00ff88'
+            ctx.strokeStyle = cor
             ctx.lineWidth = 2
             ctx.stroke()
-            ctx.fillStyle = '#00ff88'
-            ctx.font = `bold ${sz * 0.38}px Orbitron, sans-serif`
-            ctx.textAlign = 'center'
-            ctx.textBaseline = 'middle'
-            ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y)
+            ctx.fillStyle = cor
+            if (icone) {
+              ctx.save()
+              ctx.translate(center.x, center.y)
+              ctx.strokeStyle = cor
+              ctx.lineWidth = 2
+              ctx.beginPath()
+              if (icone === 'circle') ctx.arc(0, 0, sz * 0.2, 0, Math.PI * 2)
+              else if (icone === 'square') ctx.rect(-sz * 0.18, -sz * 0.18, sz * 0.36, sz * 0.36)
+              else if (icone === 'diamond') { ctx.moveTo(0, -sz * 0.25); ctx.lineTo(sz * 0.2, 0); ctx.lineTo(0, sz * 0.25); ctx.lineTo(-sz * 0.2, 0); ctx.closePath() }
+              ctx.stroke()
+              ctx.restore()
+            } else {
+              ctx.font = `bold ${sz * 0.38}px Orbitron, sans-serif`
+              ctx.textAlign = 'center'
+              ctx.textBaseline = 'middle'
+              ctx.fillText(ch.nome ? ch.nome.charAt(0).toUpperCase() : '?', center.x, center.y)
+            }
           } else {
             const grad = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, sz * 0.7)
             grad.addColorStop(0, '#330011')
@@ -386,7 +406,7 @@ export default function Phase3BoardSetup({ characters, onConfirm }) {
                 <span className={`p2-char-team ${ch.time}`}>
                   {ch.time === 'jogador' ? '👤' : '🤖'}
                 </span>
-                <span>{ch.nome}</span>
+                <span>{ch.aparencia?.nome || ch.nome}</span>
                 <span className="p2-char-pos">({ch.row},{ch.col})</span>
               </div>
             ))}
