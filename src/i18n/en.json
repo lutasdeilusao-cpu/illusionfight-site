@@ -3013,7 +3013,13 @@
       "poder_raio_luz": "Light Ray",
       "poder_raio_luz_desc": "A luminous beam that increases ranged attack damage by +2.",
       "poder_fulgor": "Radiance",
-      "poder_fulgor_desc": "A burst of pure light that increases ranged attack damage by +3."
+      "poder_fulgor_desc": "A burst of pure light that increases ranged attack damage by +3.",
+      "ia_personalidade_sanguinaria": "Bloodthirsty",
+      "ia_personalidade_sanguinaria_desc": "Always attacks the enemy with the lowest HP, without retreating. Uses the strongest available power.",
+      "ia_personalidade_fujona": "Cowardly",
+      "ia_personalidade_fujona_desc": "Flees from combat when low on HP. Only attacks if there is no other choice.",
+      "ia_personalidade_persistente": "Persistent",
+      "ia_personalidade_persistente_desc": "Stays on the same target for multiple turns, only switching if another enemy gets weaker."
     }
   }
 }

@@ -1,6 +1,6 @@
 import { distanciaHex, getCelulasAtaque, getVizinhos, encontrarCaminho } from '../../hexUtils'
 import { getCasasMovimento, getChanceAcerto, resolverAtaque } from '../../combat'
-import { getPoderesPorId } from '../../data/poderes'
+import { getPoderesPorId } from '../../../data/poderes'
 
 function melhorPoderParaAtaque(personagem, poderesIds) {
   const poderes = getPoderesPorId(poderesIds)

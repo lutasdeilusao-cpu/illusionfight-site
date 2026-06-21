@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { getHP, getMP, getCasasMovimento, criarPersonagem } from '../engine/combat'
+import { PERSONALIDADES_IA } from '../engine/ai/personalidades/index'
 import './Phase1SheetBuilder.css'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
@@ -45,6 +46,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
           id: `temp_${Date.now()}`,
           nome: novoNome,
           time,
+          personalidadeId: 'sanguinaria',
           tipoAtaque: 'distancia',
           orcamento: 6,
           forca: 0,
@@ -126,11 +128,15 @@ export default function Phase1SheetBuilder({ onConfirm }) {
 
   function handleConfirm() {
     const finalChars = characters.map(c => {
-      return criarPersonagem(
+      const base = criarPersonagem(
         c.nome, c.time, c.tipoAtaque,
         c.forca, c.agi, c.dex, c.pdf, c.res, c.arm,
         c.equipamento, c.pocaoHP, c.pocaoMP
       )
+      if (c.time === 'ia') {
+        base.personalidadeId = c.personalidadeId || 'sanguinaria'
+      }
+      return base
     })
     onConfirm(finalChars, true)
   }
@@ -163,6 +169,17 @@ export default function Phase1SheetBuilder({ onConfirm }) {
                 <option value="ia">IA</option>
               </select>
             </label>
+
+            {char.time === 'ia' && (
+              <label className="p1-field">
+                <span>{t('prototype.arena_testbed.ia_personalidade_label')}</span>
+                <select value={char.personalidadeId || 'sanguinaria'} onChange={e => updateChar(idx, 'personalidadeId', e.target.value)}>
+                  {PERSONALIDADES_IA.map(p => (
+                    <option key={p.id} value={p.id}>{t('prototype.arena_testbed.' + p.chaveI18n)}</option>
+                  ))}
+                </select>
+              </label>
+            )}
 
             <div className="p1-toggle-group">
               <button

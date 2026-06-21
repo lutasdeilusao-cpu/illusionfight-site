@@ -7,6 +7,7 @@ import {
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
+import { getPersonalidadePorId } from '../engine/ai/personalidades/index'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
@@ -1046,6 +1047,14 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     avancarEAcionar()
   }
 
+  function decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao) {
+    const personalidade = getPersonalidadePorId(iaAtual.personalidadeId)
+    if (personalidade) {
+      return personalidade.fn(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
+    }
+    return decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
+  }
+
   function executarIA(iaChar) {
     setIaThinking(true)
     setInputLocked(true)
@@ -1069,7 +1078,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         movIA, cols, rows, obstaculos
       )
       setHighlightedCells(moveCells)
-      const dec = decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
+      const dec = decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual)
       setAnimTimer(() => {
         setHighlightedCells([])
         if (dec.tipo === 'andar') {
@@ -1121,7 +1130,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-      const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+      const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
