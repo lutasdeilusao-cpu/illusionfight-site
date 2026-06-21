@@ -1,0 +1,25 @@
+.pfb-root {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 12px 0;
+}
+.pfb-elementos {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.pfb-elem-btn {
+  padding: 6px 12px; border-radius: 4px;
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+  cursor: pointer; border: 1px solid var(--ldi-border, #1a1e26);
+  background: var(--ldi-bg, #0a0e14);
+  color: var(--ldi-text-dim, #888);
+  transition: all 0.12s;
+}
+.pfb-elem-btn:hover { border-color: var(--ldi-text-dim, #888); }
+.pfb-elem-btn--ativo {
+  border-color: var(--ldi-cyan, #00eeff);
+  color: var(--ldi-cyan, #00eeff);
+  background: rgba(0,238,255,0.06);
+}
+.pfb-ordem {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}

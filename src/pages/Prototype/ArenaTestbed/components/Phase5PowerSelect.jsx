@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { PODERES_BASE } from '../data/poderes'
+import PowerFilterBar from './PowerFilterBar'
+import PowerGrid from './PowerGrid'
 import './Phase5PowerSelect.css'
 
 export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
   const { t } = useLanguage()
-
   const [selecoes, setSelecoes] = useState({})
+  const [filtroElemento, setFiltroElemento] = useState(null)
+  const [ordenacao, setOrdenacao] = useState(null)
+  const [sortDir, setSortDir] = useState('crescente')
 
   const togglePoder = (charId, poderId, limite) => {
     setSelecoes(prev => {
@@ -39,6 +43,38 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
         {characters.map(ch => {
           const limite = Math.min(ch.res || 1, 4)
           const escolhidos = selecoes[ch.id] || []
+          const tipoChar = ch.tipoAtaque === 'melee' ? 'forca' : 'pdf'
+
+          const poderesFiltrados = useMemo(() => {
+            let lista = PODERES_BASE.filter(p => {
+              if (p.tipoPersonagem !== 'universal' && p.tipoPersonagem !== tipoChar) return false
+              if (filtroElemento !== null && p.elemento !== filtroElemento) return false
+              return true
+            })
+
+            if (ordenacao === 'fa') {
+              lista.sort((a, b) => {
+                const va = a.valorComparativo?.fa ?? -1
+                const vb = b.valorComparativo?.fa ?? -1
+                return sortDir === 'crescente' ? va - vb : vb - va
+              })
+            } else if (ordenacao === 'fd') {
+              lista.sort((a, b) => {
+                const va = a.valorComparativo?.fd ?? -1
+                const vb = b.valorComparativo?.fd ?? -1
+                return sortDir === 'crescente' ? va - vb : vb - va
+              })
+            } else if (ordenacao === 'az') {
+              lista.sort((a, b) => {
+                const na = t('prototype.arena_testbed.' + a.chaveI18n)
+                const nb = t('prototype.arena_testbed.' + b.chaveI18n)
+                return na.localeCompare(nb)
+              })
+            }
+
+            return lista
+          }, [filtroElemento, ordenacao, sortDir, tipoChar, t])
+
           return (
             <div key={ch.id} className="tab-power-char-card">
               <div className="tab-power-char-head">
@@ -48,31 +84,23 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
                   {t('prototype.arena_testbed.power_limit', { n: escolhidos.length, max: limite })}
                 </span>
               </div>
-              <div className="tab-power-grid">
-                {PODERES_BASE.filter(poder => {
-                  const tipoChar = ch.tipoAtaque === 'melee' ? 'forca' : 'pdf'
-                  return poder.tipoPersonagem === 'universal' || poder.tipoPersonagem === tipoChar
-                }).map(poder => {
-                  const selected = escolhidos.includes(poder.id)
-                  const atLimit = escolhidos.length >= limite && !selected
-                  return (
-                    <button
-                      key={poder.id}
-                      className={`tab-power-btn ${selected ? 'selected' : ''} ${atLimit ? 'disabled' : ''}`}
-                      onClick={() => togglePoder(ch.id, poder.id, limite)}
-                      disabled={atLimit}
-                    >
-                      <span className="tab-power-btn-nome">{t('prototype.arena_testbed.' + poder.chaveI18n)}</span>
-                      <span className="tab-power-btn-mp">-{poder.custoMP} MP</span>
-                      <span className="tab-power-btn-gatilho">
-                        {poder.gatilho === 'ataque'
-                          ? t('prototype.arena_testbed.power_trigger_attack')
-                          : t('prototype.arena_testbed.power_trigger_defense')}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
+
+              <PowerFilterBar
+                filtroElemento={filtroElemento}
+                setFiltroElemento={setFiltroElemento}
+                ordenacao={ordenacao}
+                setOrdenacao={setOrdenacao}
+                sortDir={sortDir}
+                setSortDir={setSortDir}
+              />
+
+              <PowerGrid
+                poderes={poderesFiltrados}
+                selecoes={escolhidos}
+                limite={limite}
+                charId={ch.id}
+                onToggle={togglePoder}
+              />
             </div>
           )
         })}

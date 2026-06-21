@@ -1,0 +1,13 @@
+.st-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 10px; border-radius: 4px;
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+  cursor: pointer; border: 1px solid var(--ldi-border, #1a1e26);
+  background: var(--ldi-bg, #0a0e14);
+  color: var(--ldi-text-dim, #888);
+  transition: all 0.12s;
+}
+.st-btn:hover { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-text, #ccc); }
+.st-btn--ativo { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-cyan, #00eeff); }
+.st-seta { font-size: 8px; }

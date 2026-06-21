@@ -1,0 +1,7 @@
+.pd-root {
+  padding: 8px 12px 10px;
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 11px; line-height: 1.6;
+  color: var(--ldi-text-dim, #999);
+  border-top: 1px solid var(--ldi-border, #1a1e26);
+}
