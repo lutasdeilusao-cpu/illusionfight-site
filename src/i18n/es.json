@@ -2797,12 +2797,14 @@
       "phase0_short": "Inicio",
       "phase2_title": "FASE 2 — Personalización",
       "phase2_short": "Personalizar",
-      "phase3_title": "FASE 3 — Montaje del Tablero",
-      "phase3_short": "Tablero",
-      "phase4_title": "FASE 4 — Selección de Poderes",
-      "phase4_short": "Poderes",
-      "phase5_title": "FASE 5 — Batalla",
-      "phase5_short": "Combate",
+      "phase3_title": "FASE 3 — Selección de Modo",
+      "phase3_short": "Modo",
+      "phase4_title": "FASE 4 — Montaje del Tablero",
+      "phase4_short": "Tablero",
+      "phase5_title": "FASE 5 — Selección de Poderes",
+      "phase5_short": "Poderes",
+      "phase6_title": "FASE 6 — Batalla",
+      "phase6_short": "Combate",
       "power_title": "Seleccíon de Poderes",
       "power_subtitle": "Elige los poderes que cada personaje llevará al combate",
       "power_short": "Poderes",
@@ -2961,7 +2963,12 @@
       "p2_nome": "Nombre",
       "p2_confirm": "Confirmar e Ir al Tablero",
       "fichaStorage.max_fichas": "Máximo de 9 fichas guardadas.",
-      "fichaStorage.max_personagens": "Máximo de 3 personajes por batalla."
+      "fichaStorage.max_personagens": "Máximo de 3 personajes por batalla.",
+      "p3_title": "Elige el Modo de Juego",
+      "p3_subtitle": "Selecciona cómo quieres jugar",
+      "p3_training": "Entrenamiento",
+      "p3_campaign": "Campaña",
+      "p3_soon": "Próximamente"
     }
   }
 }

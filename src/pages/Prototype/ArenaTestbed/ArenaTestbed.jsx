@@ -4,9 +4,10 @@ import { PODERES_BASE } from './data/poderes'
 import Phase0Start from './components/Phase0Start'
 import Phase1SheetBuilder from './components/Phase1SheetBuilder'
 import Phase2Customize from './components/Phase2Customize'
-import Phase3BoardSetup from './components/Phase3BoardSetup'
-import Phase4PowerSelect from './components/Phase4PowerSelect'
-import Phase5Combat from './components/Phase5Combat'
+import Phase3ModeSelect from './components/Phase3ModeSelect'
+import Phase4BoardSetup from './components/Phase4BoardSetup'
+import Phase5PowerSelect from './components/Phase5PowerSelect'
+import Phase6Combat from './components/Phase6Combat'
 import { salvarFicha } from './data/fichaStorage'
 import './ArenaTestbed.css'
 
@@ -37,9 +38,13 @@ export default function ArenaTestbed() {
     setPhase(3)
   }
 
-  function handlePhase3Confirm(board) {
-    setBoardState({ ...board })
+  function handleSelectTraining() {
     setPhase(4)
+  }
+
+  function handlePhase4Confirm(board) {
+    setBoardState({ ...board })
+    setPhase(5)
   }
 
   function handlePowerConfirm(poderes) {
@@ -52,7 +57,7 @@ export default function ArenaTestbed() {
       }
     })
     setPoderesEscolhidos(poderesComIA)
-    setPhase(5)
+    setPhase(6)
   }
 
   function handleBackToPhase0() {
@@ -78,6 +83,10 @@ export default function ArenaTestbed() {
     setPhase(4)
   }
 
+  function handleBackToPhase5() {
+    setPhase(5)
+  }
+
   const stepLabels = useMemo(() => [
     t('prototype.arena_testbed.phase0_short'),
     t('prototype.arena_testbed.phase1_short'),
@@ -85,12 +94,13 @@ export default function ArenaTestbed() {
     t('prototype.arena_testbed.phase3_short'),
     t('prototype.arena_testbed.phase4_short'),
     t('prototype.arena_testbed.phase5_short'),
+    t('prototype.arena_testbed.phase6_short'),
   ], [t])
 
   return (
     <div className="tab-arena-testbed">
       <div className="tab-step-indicator">
-        {[0, 1, 2, 3, 4, 5].map(step => (
+        {[0, 1, 2, 3, 4, 5, 6].map(step => (
           <div
             key={step}
             className={`tab-step-item ${phase === step ? 'active' : ''} ${phase > step ? 'done' : ''}`}
@@ -123,25 +133,31 @@ export default function ArenaTestbed() {
           />
         )}
         {phase === 3 && (
-          <Phase3BoardSetup
-            characters={characters}
-            onConfirm={handlePhase3Confirm}
+          <Phase3ModeSelect
+            onSelectTraining={handleSelectTraining}
             onBack={handleBackToPhase2}
           />
         )}
         {phase === 4 && (
-          <Phase4PowerSelect
+          <Phase4BoardSetup
             characters={characters}
-            onConfirm={handlePowerConfirm}
+            onConfirm={handlePhase4Confirm}
             onBack={handleBackToPhase3}
           />
         )}
-        {phase === 5 && boardState && (
-          <Phase5Combat
+        {phase === 5 && (
+          <Phase5PowerSelect
+            characters={characters}
+            onConfirm={handlePowerConfirm}
+            onBack={handleBackToPhase4}
+          />
+        )}
+        {phase === 6 && boardState && (
+          <Phase6Combat
             boardState={boardState}
             poderesEscolhidos={poderesEscolhidos}
             onBackToPhase1={handleBackToPhase0}
-            onBackToPhase4={handleBackToPhase4}
+            onBackToPhase5={handleBackToPhase5}
           />
         )}
       </div>

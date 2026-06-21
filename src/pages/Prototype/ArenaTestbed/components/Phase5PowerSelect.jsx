@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { PODERES_BASE } from '../data/poderes'
-import './Phase4PowerSelect.css'
+import './Phase5PowerSelect.css'
 
-export default function Phase4PowerSelect({ characters, onConfirm, onBack }) {
+export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
   const { t } = useLanguage()
 
   const [selecoes, setSelecoes] = useState({})

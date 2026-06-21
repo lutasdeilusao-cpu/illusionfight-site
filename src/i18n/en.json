@@ -2798,12 +2798,14 @@
       "phase0_short": "Start",
       "phase2_title": "PHASE 2 — Customization",
       "phase2_short": "Customize",
-      "phase3_title": "PHASE 3 — Board Setup",
-      "phase3_short": "Board",
-      "phase4_title": "PHASE 4 — Power Selection",
-      "phase4_short": "Powers",
-      "phase5_title": "PHASE 5 — Battle",
-      "phase5_short": "Combat",
+      "phase3_title": "PHASE 3 — Mode Select",
+      "phase3_short": "Mode",
+      "phase4_title": "PHASE 4 — Board Setup",
+      "phase4_short": "Board",
+      "phase5_title": "PHASE 5 — Power Selection",
+      "phase5_short": "Powers",
+      "phase6_title": "PHASE 6 — Battle",
+      "phase6_short": "Combat",
       "power_title": "Power Selection",
       "power_subtitle": "Choose which powers each character will bring to combat",
       "power_short": "Powers",
@@ -2962,7 +2964,12 @@
       "p2_nome": "Name",
       "p2_confirm": "Confirm and Go to Board",
       "fichaStorage.max_fichas": "Maximum of 9 saved sheets.",
-      "fichaStorage.max_personagens": "Maximum of 3 characters per battle."
+      "fichaStorage.max_personagens": "Maximum of 3 characters per battle.",
+      "p3_title": "Choose Game Mode",
+      "p3_subtitle": "Select how you want to play",
+      "p3_training": "Training",
+      "p3_campaign": "Campaign",
+      "p3_soon": "Coming soon"
     }
   }
 }
