@@ -238,7 +238,8 @@ export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBac
       setRangeCells([])
       inputLockedRef.current = true
       setAnimTimer(() => {
-        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
+      anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
