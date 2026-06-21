@@ -13,6 +13,7 @@ import PowerChoiceModal from './PowerChoiceModal'
 import PowerLinePreview from './PowerLinePreview'
 import { getPersonagensNaLinha } from '../engine/getLineInDirection'
 import * as tc from '../engine/TurnController'
+import { TipoAcao } from '../engine/TurnController'
 import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -819,7 +820,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
-    tc.registrarAcao(currentChar.id, 'mover')
+    tc.registrarAcao(currentChar.id, TipoAcao.MOVER)
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
@@ -829,7 +830,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function iniciarMovimento() {
     if (!currentChar || animating || inputLockedRef.current || turnoAcoes.moveu) return
-    if (!tc.podeAgir(currentChar.id, 'mover')) return
+    if (!tc.podeAgir(currentChar.id, TipoAcao.MOVER)) return
     setActionPanel(false)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
@@ -1184,7 +1185,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function executarAtaque(target) {
     if (!currentChar || animating || inputLockedRef.current) return
-    if (!tc.podeAgir(currentChar.id, 'atacar')) return
+    if (!tc.podeAgir(currentChar.id, TipoAcao.ATACAR)) return
     clearAnimTimers()
     animatingRef.current = true
     inputLockedRef.current = true
@@ -1266,7 +1267,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setAnimTimer(() => {
         if (verificarVitoria()) return
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
-        tc.registrarAcao(currentChar.id, 'atacar')
+        tc.registrarAcao(currentChar.id, TipoAcao.ATACAR)
         setSubPhase('free')
         setHighlightedCells([])
         setAttackCells([])
@@ -1280,7 +1281,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     } else {
       setAnimTimer(() => {
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
-        tc.registrarAcao(currentChar.id, 'atacar')
+        tc.registrarAcao(currentChar.id, TipoAcao.ATACAR)
         setSubPhase('free')
         setHighlightedCells([])
         setAttackCells([])

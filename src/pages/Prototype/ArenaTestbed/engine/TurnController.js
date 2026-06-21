@@ -1,21 +1,22 @@
-/**
- * TurnController — Orquestrador único de turno
- *
- * Módulo puro (sem JSX, sem React). Estado interno nunca exposto diretamente.
- * Toda interação com turno passa exclusivamente pela API pública.
- *
- * Uso:
- *   import * as tc from './TurnController'
- *   tc.inicializar(['id1','id2','id3'])
- *   tc.quemEstaNaVez()           // → 'id1'
- *   tc.avancarTurno()            // → 'id2'
- *   tc.podeAgir('id2', 'mover')  // → true
- */
+export const TipoAcao = Object.freeze({
+  MOVER: 'mover',
+  ATACAR: 'atacar',
+  USAR_PODER: 'usar_poder',
+  USAR_ITEM: 'usar_item',
+})
+
+const CHAVES_ACAO = Object.values(TipoAcao)
+
+function criarAcoes() {
+  const acoes = {}
+  CHAVES_ACAO.forEach(k => { acoes[k] = false })
+  return acoes
+}
 
 const state = {
   ordem: [],
   posicaoAtual: 0,
-  acoesDoTurno: { moveu: false, atacou: false },
+  acoesDoTurno: criarAcoes(),
   mortos: new Set(),
   versao: 0,
 }
@@ -31,6 +32,17 @@ function log(acao, detalhes) {
   console.log(`[TURN_CONTROLLER] ${acao}`, info)
 }
 
+function validarTipoAcao(tipoAcao) {
+  if (!CHAVES_ACAO.includes(tipoAcao)) {
+    console.error(
+      `[TURN_CONTROLLER] ERRO: tipoAcao inválido recebido: "${tipoAcao}". ` +
+      `Valores aceitos: ${CHAVES_ACAO.join(', ')}`
+    )
+    return false
+  }
+  return true
+}
+
 export function getVersao() {
   return state.versao
 }
@@ -38,7 +50,7 @@ export function getVersao() {
 export function inicializar(ordemDefinida) {
   state.ordem = [...ordemDefinida]
   state.posicaoAtual = 0
-  state.acoesDoTurno = { moveu: false, atacou: false }
+  state.acoesDoTurno = criarAcoes()
   state.mortos = new Set()
   state.versao++
   log('inicializar', { ordem: `[${ordemDefinida.join(',')}]` })
@@ -49,10 +61,13 @@ export function quemEstaNaVez() {
   if (state.ordem.length === 0) return null
   const id = state.ordem[state.posicaoAtual]
   if (!id) return null
+  if (state.mortos.has(id)) return null
   return id
 }
 
 export function podeAgir(personagemId, tipoAcao) {
+  if (!validarTipoAcao(tipoAcao)) return false
+
   const atual = quemEstaNaVez()
   if (!atual) {
     log('podeAgir:NEGADO', { motivo: 'ninguem_na_vez', personagemId, tipoAcao })
@@ -66,12 +81,8 @@ export function podeAgir(personagemId, tipoAcao) {
     log('podeAgir:NEGADO', { motivo: 'personagem_morto', personagemId, tipoAcao })
     return false
   }
-  if (tipoAcao === 'mover' && state.acoesDoTurno.moveu) {
-    log('podeAgir:NEGADO', { motivo: 'ja_moveu', personagemId, tipoAcao })
-    return false
-  }
-  if (tipoAcao === 'atacar' && state.acoesDoTurno.atacou) {
-    log('podeAgir:NEGADO', { motivo: 'ja_atacou', personagemId, tipoAcao })
+  if (state.acoesDoTurno[tipoAcao]) {
+    log('podeAgir:NEGADO', { motivo: `ja_${tipoAcao}`, personagemId, tipoAcao })
     return false
   }
   return true
@@ -79,8 +90,7 @@ export function podeAgir(personagemId, tipoAcao) {
 
 export function registrarAcao(personagemId, tipoAcao) {
   if (!podeAgir(personagemId, tipoAcao)) return false
-  if (tipoAcao === 'mover') state.acoesDoTurno.moveu = true
-  if (tipoAcao === 'atacar') state.acoesDoTurno.atacou = true
+  state.acoesDoTurno[tipoAcao] = true
   log('registrarAcao', { personagemId, tipoAcao, acoes: { ...state.acoesDoTurno } })
   state.versao++
   return true
@@ -105,7 +115,7 @@ export function avancarTurno() {
     }
   }
 
-  state.acoesDoTurno = { moveu: false, atacou: false }
+  state.acoesDoTurno = criarAcoes()
   state.versao++
 
   if (!encontrou) {
