@@ -5,12 +5,17 @@ import PowerFilterBar from './PowerFilterBar'
 import PowerGrid from './PowerGrid'
 import './Phase5PowerSelect.css'
 
-export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
+export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJogo }) {
   const { t } = useLanguage()
   const [selecoes, setSelecoes] = useState({})
+  const [expandido, setExpandido] = useState(null)
   const [filtroElemento, setFiltroElemento] = useState(null)
   const [ordenacao, setOrdenacao] = useState(null)
   const [sortDir, setSortDir] = useState('crescente')
+
+  // TODO: quando ModoJogo.CAMPANHA existir de verdade, filtrar characters
+  // para esconder time === 'ia' aqui. Hoje não faz nada — Campanha não está
+  // disponível para o jogador escolher ainda.
 
   const togglePoder = (charId, poderId, limite) => {
     setSelecoes(prev => {
@@ -32,6 +37,10 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
     return (selecoes[ch.id] || []).length <= limite
   })
 
+  function toggleExpandir(charId) {
+    setExpandido(prev => prev === charId ? null : charId)
+  }
+
   return (
     <div className="tab-power-select">
       <div className="tab-power-select-header">
@@ -43,9 +52,11 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
         {characters.map(ch => {
           const limite = Math.min(ch.res || 1, 4)
           const escolhidos = selecoes[ch.id] || []
+          const isExpanded = expandido === ch.id
           const tipoChar = ch.tipoAtaque === 'melee' ? 'forca' : 'pdf'
 
           const poderesFiltrados = useMemo(() => {
+            if (!isExpanded) return []
             let lista = PODERES_BASE.filter(p => {
               if (p.tipoPersonagem !== 'universal' && p.tipoPersonagem !== tipoChar) return false
               if (filtroElemento !== null && p.elemento !== filtroElemento) return false
@@ -73,34 +84,38 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack }) {
             }
 
             return lista
-          }, [filtroElemento, ordenacao, sortDir, tipoChar, t])
+          }, [isExpanded, filtroElemento, ordenacao, sortDir, tipoChar, t])
 
           return (
-            <div key={ch.id} className="tab-power-char-card">
-              <div className="tab-power-char-head">
+            <div key={ch.id} className={`tab-power-char-card ${isExpanded ? 'tab-power-char-card--expanded' : ''}`}>
+              <button className="tab-power-char-head" onClick={() => toggleExpandir(ch.id)}>
                 <span className={`tab-power-char-dot ${ch.time}`} />
                 <span className="tab-power-char-name">{ch.nome}</span>
                 <span className="tab-power-char-limit">
                   {t('prototype.arena_testbed.power_limit', { n: escolhidos.length, max: limite })}
                 </span>
-              </div>
+                <span className="tab-power-chevron">{isExpanded ? '▲' : '▼'}</span>
+              </button>
 
-              <PowerFilterBar
-                filtroElemento={filtroElemento}
-                setFiltroElemento={setFiltroElemento}
-                ordenacao={ordenacao}
-                setOrdenacao={setOrdenacao}
-                sortDir={sortDir}
-                setSortDir={setSortDir}
-              />
-
-              <PowerGrid
-                poderes={poderesFiltrados}
-                selecoes={escolhidos}
-                limite={limite}
-                charId={ch.id}
-                onToggle={togglePoder}
-              />
+              {isExpanded && (
+                <>
+                  <PowerFilterBar
+                    filtroElemento={filtroElemento}
+                    setFiltroElemento={setFiltroElemento}
+                    ordenacao={ordenacao}
+                    setOrdenacao={setOrdenacao}
+                    sortDir={sortDir}
+                    setSortDir={setSortDir}
+                  />
+                  <PowerGrid
+                    poderes={poderesFiltrados}
+                    selecoes={escolhidos}
+                    limite={limite}
+                    charId={ch.id}
+                    onToggle={togglePoder}
+                  />
+                </>
+              )}
             </div>
           )
         })}

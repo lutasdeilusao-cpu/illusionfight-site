@@ -17,11 +17,16 @@
   background: var(--ldi-bg2, #111); border: 1px solid var(--ldi-border, #222);
   border-radius: 8px; overflow: hidden;
 }
+.tab-power-char-card--expanded { border-color: var(--ldi-cyan, #00eeff); }
 .tab-power-char-head {
   display: flex; align-items: center; gap: 8px;
-  padding: 8px 12px; background: var(--ldi-bg, #0a0a0a);
-  border-bottom: 1px solid var(--ldi-border, #222);
+  padding: 10px 12px; background: var(--ldi-bg, #0a0a0a);
+  border: none; width: 100%; cursor: pointer;
+  color: var(--ldi-text, #ccc);
+  font-family: inherit; text-align: left;
+  transition: background 0.12s;
 }
+.tab-power-char-head:hover { background: var(--ldi-bg2, #151515); }
 .tab-power-char-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .tab-power-char-dot.jogador { background: #00ff88; }
 .tab-power-char-dot.ia { background: #ff2244; }
@@ -32,6 +37,10 @@
 .tab-power-char-limit {
   font-family: var(--ldi-font-mono, monospace);
   font-size: 10px; color: var(--ldi-cyan, #00eeff);
+}
+.tab-power-chevron {
+  font-size: 10px; color: var(--ldi-text-dim, #666);
+  flex-shrink: 0;
 }
 .tab-power-grid {
   display: flex; gap: 6px; padding: 8px; flex-wrap: wrap;

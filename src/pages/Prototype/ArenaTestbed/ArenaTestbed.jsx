@@ -23,9 +23,15 @@ export const FaseArena = Object.freeze({
 
 const ORDEM_FASES = Object.values(FaseArena)
 
+export const ModoJogo = Object.freeze({
+  TREINO: 'treino',
+  CAMPANHA: 'campanha',
+})
+
 export default function ArenaTestbed() {
   const { t } = useLanguage()
   const [phase, setPhase] = useState(FaseArena.INICIO)
+  const [modoJogo, setModoJogo] = useState(null)
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
@@ -55,6 +61,7 @@ export default function ArenaTestbed() {
   }
 
   function handleSelectTraining() {
+    setModoJogo(ModoJogo.TREINO)
     setPhase(FaseArena.TABULEIRO)
   }
 
@@ -78,6 +85,7 @@ export default function ArenaTestbed() {
 
   function handleBackToInicio() {
     setPhase(FaseArena.INICIO)
+    setModoJogo(null)
     setCharacters([])
     setBoardState(null)
     setPoderesEscolhidos({})
@@ -123,15 +131,15 @@ export default function ArenaTestbed() {
     },
     [FaseArena.TABULEIRO]: {
       Componente: Phase4BoardSetup,
-      props: () => ({ characters, onConfirm: handlePhase4Confirm, onBack: handleBackToModo }),
+      props: () => ({ characters, modoJogo, onConfirm: handlePhase4Confirm, onBack: handleBackToModo }),
     },
     [FaseArena.PODERES]: {
       Componente: Phase5PowerSelect,
-      props: () => ({ characters, onConfirm: handlePowerConfirm, onBack: handleBackToTabuleiro }),
+      props: () => ({ characters, modoJogo, onConfirm: handlePowerConfirm, onBack: handleBackToTabuleiro }),
     },
     [FaseArena.COMBATE]: {
       Componente: Phase6Combat,
-      props: () => ({ boardState, poderesEscolhidos, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
+      props: () => ({ boardState, poderesEscolhidos, modoJogo, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
       condicaoExtra: () => !!boardState,
     },
   }
