@@ -1049,10 +1049,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao) {
     const personalidade = getPersonalidadePorId(iaAtual.personalidadeId)
+    console.log(`[IA] personalidadeId: ${iaAtual.personalidadeId} → encontrada: ${!!personalidade}`)
     if (personalidade) {
       return personalidade.fn(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
     }
-    return decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
+    return decidirAcaoIA(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChao)
   }
 
   function executarIA(iaChar) {
