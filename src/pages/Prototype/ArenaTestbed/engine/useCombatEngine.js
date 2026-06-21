@@ -14,6 +14,7 @@ import { decidirAcaoIA } from './ai'
 import { getPersonalidadePorId } from './ai/personalidades/index'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import { executarMecanica } from './mecanicasPoder'
+import { TipoAcao } from './TurnController'
 
 export default function useCombatEngine({
   boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm = true,
@@ -204,6 +205,7 @@ export default function useCombatEngine({
       addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
+        tc.registrarAcao(currentCharIdRef.current, TipoAcao.ATACAR)
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
         setSubPhase('free')
         setHighlightedCells([])
@@ -212,6 +214,7 @@ export default function useCombatEngine({
       }, 1200)
     } else {
       setAnimTimer(() => {
+        tc.registrarAcao(currentCharIdRef.current, TipoAcao.ATACAR)
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
         setSubPhase('free')
         setHighlightedCells([])
@@ -262,6 +265,19 @@ export default function useCombatEngine({
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar) return
     addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
+    const key = `${row}_${col}`
+    if (itensChaoAtual[key]) {
+      const item = itensChaoAtual[key]
+      const potKey = item.tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
+      charsRef.current = charsRef.current.map(c =>
+        c.id === currentChar.id
+          ? { ...c, inventario: { ...c.inventario, [potKey]: (c.inventario?.[potKey] || 0) + 1 } }
+          : c
+      )
+      setCharacters(charsRef.current)
+      setItensChaoAtual(prev => { const n = { ...prev }; delete n[key]; return n })
+      addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
+    }
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
     setSubPhase('free')
     setHighlightedCells([])
