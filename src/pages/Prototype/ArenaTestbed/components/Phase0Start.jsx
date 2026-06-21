@@ -7,6 +7,7 @@ import './Phase0Start.css'
 export default function Phase0Start({ onNewGame, onLoadGame }) {
   const { t } = useLanguage()
   const [fichas, setFichas] = useState([])
+  const [deleteTarget, setDeleteTarget] = useState(null)
 
   useEffect(() => {
     carregarFichas().then(setFichas)
@@ -16,6 +17,7 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
 
   async function handleDelete(id) {
     await deletarFicha(id)
+    setDeleteTarget(null)
     const atualizadas = await carregarFichas()
     setFichas(atualizadas)
   }
@@ -32,7 +34,7 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
         <button
           className="p0-btn p0-btn--secondary"
           disabled={fichas.length === 0}
-          onClick={() => {}}
+          onClick={() => fichas.length > 0 && onLoadGame(fichas[0])}
         >
           {t('prototype.arena_testbed.p0_load_game')}
         </button>
@@ -51,7 +53,7 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
                   <button className="p0-lista-btn" onClick={() => onLoadGame(f)}>
                     {t('prototype.arena_testbed.p0_load')}
                   </button>
-                  <button className="p0-lista-btn p0-lista-btn--del" onClick={() => handleDelete(f.id)}>
+                  <button className="p0-lista-btn p0-lista-btn--del" onClick={() => setDeleteTarget(f)}>
                     {t('prototype.arena_testbed.p0_delete')}
                   </button>
                 </div>
@@ -64,6 +66,26 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
           <div className="p0-aviso">{t('prototype.arena_testbed.' + podeSalvar.motivo)}</div>
         )}
       </div>
+
+      {deleteTarget && (
+        <div className="p0-modal-overlay" onClick={() => setDeleteTarget(null)}>
+          <div className="p0-modal" onClick={e => e.stopPropagation()}>
+            <div className="p0-modal-text">
+              {t('prototype.arena_testbed.p0_delete_confirm', {
+                nome: deleteTarget.personagens?.map(p => p.aparencia?.nome || '?').join(', ') || '?'
+              })}
+            </div>
+            <div className="p0-modal-actions">
+              <button className="p0-modal-btn" onClick={() => setDeleteTarget(null)}>
+                {t('prototype.arena_testbed.p0_cancel')}
+              </button>
+              <button className="p0-modal-btn p0-modal-btn--del" onClick={() => handleDelete(deleteTarget.id)}>
+                {t('prototype.arena_testbed.p0_confirm_delete')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

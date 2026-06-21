@@ -29,12 +29,15 @@ export default function ArenaTestbed() {
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
+  const [fichaId, setFichaId] = useState(null)
 
   function handleNewGame() {
+    setFichaId(null)
     setPhase(FaseArena.FICHA)
   }
 
   function handleLoadGame(ficha) {
+    setFichaId(ficha.id || null)
     setCharacters(ficha.personagens || [])
     setPhase(FaseArena.PERSONALIZACAO)
   }
@@ -46,7 +49,8 @@ export default function ArenaTestbed() {
 
   function handlePhase2Confirm(chars) {
     setCharacters(chars)
-    salvarFicha({ personagens: chars })
+    salvarFicha({ id: fichaId, personagens: chars })
+    setFichaId(null)
     setPhase(FaseArena.MODO)
   }
 
@@ -77,6 +81,7 @@ export default function ArenaTestbed() {
     setCharacters([])
     setBoardState(null)
     setPoderesEscolhidos({})
+    setFichaId(null)
   }
 
   function handleBackToFicha() {

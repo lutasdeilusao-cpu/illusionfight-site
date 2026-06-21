@@ -70,3 +70,32 @@
   font-family: var(--ldi-font-body, sans-serif);
   font-size: 11px; color: #ff8866; text-align: center;
 }
+.p0-modal-overlay {
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,0.7);
+  display: flex; align-items: center; justify-content: center;
+}
+.p0-modal {
+  background: var(--ldi-bg2, #0e1219);
+  border: 1px solid var(--ldi-border, #1a1e26);
+  border-radius: 8px; padding: 24px;
+  max-width: 360px; width: 90%;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.p0-modal-text {
+  font-family: var(--ldi-font-body, sans-serif);
+  font-size: 13px; color: var(--ldi-text, #ccc); line-height: 1.5;
+}
+.p0-modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.p0-modal-btn {
+  padding: 8px 16px; border-radius: 4px;
+  font-family: var(--ldi-font-hud, monospace);
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  cursor: pointer; border: 1px solid var(--ldi-border, #1a1e26);
+  background: var(--ldi-bg, #0a0e14);
+  color: var(--ldi-text-dim, #888);
+  transition: all 0.12s;
+}
+.p0-modal-btn:hover { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-cyan, #00eeff); }
+.p0-modal-btn--del { border-color: rgba(255,34,68,0.3); color: #ff6688; }
+.p0-modal-btn--del:hover { border-color: #ff2244; color: #ff2244; }
