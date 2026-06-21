@@ -7,13 +7,12 @@ import {
 } from '../engine/combat'
 import { getCelulasAlcance, getCelulasAtaque, distanciaHex, encontrarCaminho, getHexLine } from '../engine/hexUtils'
 import { decidirAcaoIA } from '../engine/ai'
-import { PODERES_BASE, getPoderesPorId, temPoderDisponivel, aplicarBonusPoder } from '../data/poderes'
+import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import JokenpoModal from './JokenpoModal'
 import PowerChoiceModal from './PowerChoiceModal'
-import PowerLinePreview from './PowerLinePreview'
-import { getPersonagensNaLinha } from '../engine/getLineInDirection'
 import * as tc from '../engine/TurnController'
 import { TipoAcao } from '../engine/TurnController'
+import { executarMecanica } from '../engine/mecanicasPoder'
 import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -92,7 +91,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   const [defensePending, setDefensePending] = useState(null)
   const [powerAttackMode, setPowerAttackMode] = useState(false)
   const [powerChoiceModal, setPowerChoiceModal] = useState(null)
-  const [linePreview, setLinePreview] = useState(null)
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
@@ -393,6 +391,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (subPhase === 'movimento') return t('prototype.arena_testbed.subphase_move')
     return t('prototype.arena_testbed.subphase_action')
   }, [subPhase, t])
+
+  useEffect(() => {
+    return tc.onTurnoIniciado(() => {})
+  }, [])
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current
@@ -907,7 +909,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     const opcoes = [
       { rotulo: t('prototype.arena_testbed.pcm_comum'), poderId: null, custoMP: 0, disponivel: true },
       ...poderesDisponiveis.map(p => ({
-        rotulo: `${p.nome_pt} (-${p.custoMP} MP)`,
+        rotulo: `${t('prototype.arena_testbed.' + p.chaveI18n)} (-${p.custoMP} MP)`,
         poderId: p.id,
         custoMP: p.custoMP,
         disponivel: true,
@@ -922,24 +924,11 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
     if (opcao.poderId) {
       const poder = PODERES_BASE.find(p => p.id === opcao.poderId)
-      if (poder?.padrao === 'linha_reta') {
-        setLinePreview({
-          poder,
-          origemRow: currentChar.posicao.row,
-          origemCol: currentChar.posicao.col,
-          forca: currentChar.forca,
-        })
-        return
-      }
+      if (poder) addLog(`⚡ ${currentChar.nome} usará ${t('prototype.arena_testbed.' + poder.chaveI18n)}!`)
     }
-
     setPowerAttackMode(!!opcao.poderId)
     const nomeTipo = opcao.poderId ? 'power_attack' : 'common_attack'
     addLog(`[${currentChar.nome}] Escolheu: ${nomeTipo}`)
-    if (opcao.poderId) {
-      const poder = PODERES_BASE.find(p => p.id === opcao.poderId)
-      if (poder) addLog(`⚡ ${currentChar.nome} usará ${poder.nome_pt}!`)
-    }
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
     const atkCells = getCelulasAtaque(
       currentChar.posicao.row, currentChar.posicao.col,
@@ -1197,17 +1186,13 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
     if (powerAttackMode) {
       const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
-      if (poder && currentChar.mp >= poder.custoMP) {
-        setCharacters(prev => prev.map(c =>
-          c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
-        ))
-        if (poder.efeito.atributo === 'fa') {
-          atacanteFinal = { ...currentChar, forca: currentChar.forca + poder.efeito.bonus }
-        } else if (poder.efeito.atributo === 'pdf') {
-          atacanteFinal = { ...currentChar, pdf: currentChar.pdf + poder.efeito.bonus }
+        if (poder && currentChar.mp >= poder.custoMP) {
+          setCharacters(prev => prev.map(c =>
+            c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
+          ))
+          atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
+          addLog(`⚡ ${currentChar.nome} usou ${t('prototype.arena_testbed.' + poder.chaveI18n)}!`)
         }
-        addLog(`⚡ ${currentChar.nome} usou ${poder.nome_pt}!`)
-      }
       setPowerAttackMode(false)
     }
 
@@ -1641,19 +1626,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         />
       )}
 
-      {linePreview && (
-        <PowerLinePreview
-          origemRow={linePreview.origemRow}
-          origemCol={linePreview.origemCol}
-          forca={linePreview.forca}
-          cols={cols}
-          rows={rows}
-          personagens={characters}
-          onConfirm={handleLinePreviewConfirm}
-          onCancel={() => setLinePreview(null)}
-        />
-      )}
-
       {turnAnnouncement && (
         <div className="atb-announcement-overlay">
           <div className={`atb-announcement-text ${announcementClass}`}>
@@ -1668,7 +1640,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         const opcoes = [
           { rotulo: t('prototype.arena_testbed.pcm_sem_poder'), poderId: null, custoMP: 0, disponivel: true },
           ...poderesDefesa.map(p => ({
-            rotulo: `${p.nome_pt} (-${p.custoMP} MP)`,
+            rotulo: `${t('prototype.arena_testbed.' + p.chaveI18n)} (-${p.custoMP} MP)`,
             poderId: p.id,
             custoMP: p.custoMP,
             disponivel: true,

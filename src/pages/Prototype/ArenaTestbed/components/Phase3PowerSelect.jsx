@@ -4,8 +4,7 @@ import { PODERES_BASE } from '../data/poderes'
 import './Phase3PowerSelect.css'
 
 export default function Phase3PowerSelect({ characters, onConfirm, onBack }) {
-  const { t, locale } = useLanguage()
-  const nomeKey = locale === 'en' ? 'nome_en' : locale === 'es' ? 'nome_es' : 'nome_pt'
+  const { t } = useLanguage()
 
   const [selecoes, setSelecoes] = useState({})
 
@@ -60,7 +59,7 @@ export default function Phase3PowerSelect({ characters, onConfirm, onBack }) {
                       onClick={() => togglePoder(ch.id, poder.id, limite)}
                       disabled={atLimit}
                     >
-                      <span className="tab-power-btn-nome">{poder[nomeKey]}</span>
+                      <span className="tab-power-btn-nome">{t('prototype.arena_testbed.' + poder.chaveI18n)}</span>
                       <span className="tab-power-btn-mp">-{poder.custoMP} MP</span>
                       <span className="tab-power-btn-gatilho">
                         {poder.gatilho === 'ataque'

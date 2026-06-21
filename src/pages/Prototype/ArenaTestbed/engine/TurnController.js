@@ -3,6 +3,7 @@ export const TipoAcao = Object.freeze({
   ATACAR: 'atacar',
   USAR_PODER: 'usar_poder',
   USAR_ITEM: 'usar_item',
+  CARREGAR_PODER: 'carregar_poder',
 })
 
 const CHAVES_ACAO = Object.values(TipoAcao)
@@ -19,6 +20,10 @@ const state = {
   acoesDoTurno: criarAcoes(),
   mortos: new Set(),
   versao: 0,
+  onTurnoIniciadoCallbacks: [],
+  agendamentos: new Map(),
+  agendamentoListoCallbacks: [],
+  restricoes: new Map(),
 }
 
 function log(acao, detalhes) {
@@ -52,6 +57,8 @@ export function inicializar(ordemDefinida) {
   state.posicaoAtual = 0
   state.acoesDoTurno = criarAcoes()
   state.mortos = new Set()
+  state.agendamentos = new Map()
+  state.restricoes = new Map()
   state.versao++
   log('inicializar', { ordem: `[${ordemDefinida.join(',')}]` })
   return state.ordem[0] || null
@@ -85,6 +92,14 @@ export function podeAgir(personagemId, tipoAcao) {
     log('podeAgir:NEGADO', { motivo: `ja_${tipoAcao}`, personagemId, tipoAcao })
     return false
   }
+  const restricao = state.restricoes.get(personagemId)
+  if (restricao) {
+    const bloqueado = restricao.tiposBloqueados === '*' || restricao.tiposBloqueados.includes(tipoAcao)
+    if (bloqueado) {
+      log('podeAgir:NEGADO', { motivo: restricao.motivo, personagemId, tipoAcao })
+      return false
+    }
+  }
   return true
 }
 
@@ -116,12 +131,30 @@ export function avancarTurno() {
   }
 
   state.acoesDoTurno = criarAcoes()
-  state.versao++
 
   if (!encontrou) {
+    state.versao++
     log('avancarTurno:TODOS_MORTOS', { antigoId })
     return null
   }
+
+  const agendamento = state.agendamentos.get(novoId)
+  if (agendamento) {
+    agendamento.turnosRestantes--
+    log('avancarTurno:agendamento', { personagemId: novoId, turnosRestantes: agendamento.turnosRestantes })
+    if (agendamento.turnosRestantes <= 0) {
+      state.agendamentos.delete(novoId)
+      state.agendamentoListoCallbacks.forEach(cb => {
+        try { cb(novoId, agendamento) } catch (e) { console.error(e) }
+      })
+    }
+  }
+
+  state.versao++
+
+  state.onTurnoIniciadoCallbacks.forEach(cb => {
+    try { cb(novoId) } catch (e) { console.error(e) }
+  })
 
   const mortosPulados = tentativas - 1
   log('avancarTurno', { de: antigoId, para: novoId, mortosPulados, posicao: state.posicaoAtual })
@@ -144,4 +177,46 @@ export function getOrdemCompleta() {
 
 export function getAcoesDoTurno() {
   return { ...state.acoesDoTurno }
+}
+
+export function onTurnoIniciado(callback) {
+  state.onTurnoIniciadoCallbacks.push(callback)
+  return () => {
+    const i = state.onTurnoIniciadoCallbacks.indexOf(callback)
+    if (i !== -1) state.onTurnoIniciadoCallbacks.splice(i, 1)
+  }
+}
+
+export function agendarAcao(personagemId, { turnosRestantes, tipoAcao, meta = {} }) {
+  state.agendamentos.set(personagemId, { turnosRestantes, tipoAcao, meta })
+  state.versao++
+  log('agendarAcao', { personagemId, turnosRestantes, tipoAcao })
+}
+
+export function getAgendamento(personagemId) {
+  return state.agendamentos.get(personagemId) || null
+}
+
+export function onAgendamentoListo(callback) {
+  state.agendamentoListoCallbacks.push(callback)
+  return () => {
+    const i = state.agendamentoListoCallbacks.indexOf(callback)
+    if (i !== -1) state.agendamentoListoCallbacks.splice(i, 1)
+  }
+}
+
+export function definirRestricao(personagemId, { tiposBloqueados, motivo }) {
+  state.restricoes.set(personagemId, { tiposBloqueados, motivo })
+  state.versao++
+  log('definirRestricao', { personagemId, tiposBloqueados: JSON.stringify(tiposBloqueados), motivo })
+}
+
+export function removerRestricao(personagemId) {
+  state.restricoes.delete(personagemId)
+  state.versao++
+  log('removerRestricao', { personagemId })
+}
+
+export function getRestricoes(personagemId) {
+  return state.restricoes.get(personagemId) || null
 }
