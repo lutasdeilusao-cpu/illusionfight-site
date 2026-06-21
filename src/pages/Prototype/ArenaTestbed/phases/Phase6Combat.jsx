@@ -1127,17 +1127,20 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }
 
     function estagioAgir() {
-      const charsAgora2 = charsRef.current
-      const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-      if (!iaAtual2 || !iaAtual2.vivo) {
-        iaThinkingRef.current = false
-        setIaThinking(false)
-        finalizarTurno()
-        return
-      }
-      addLog(`  ${iaChar.nome} — Fase: Ação`)
-      const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
-      const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+      try {
+        const charsAgora2 = charsRef.current
+        const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
+        if (!iaAtual2 || !iaAtual2.vivo) {
+          iaThinkingRef.current = false
+          setIaThinking(false)
+          finalizarTurno()
+          return
+        }
+        addLog(`  ${iaChar.nome} — Fase: Ação`)
+        const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
+        console.log('[DEBUG] estagioAgir calling decidirAcaoComPersonalidade', { iaId: iaAtual2.id, inimigosCount: inimigos2.length })
+        const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
+        console.log('[DEBUG] estagioAgir decision result', { tipo: dec2.tipo })
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
@@ -1237,7 +1240,14 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
       }
+    } catch (err) {
+      console.error('[IA] Erro em estagioAgir:', err)
+      addLog(`  ⚠️ Erro na ação da IA: ${err.message}`)
+      iaThinkingRef.current = false
+      setIaThinking(false)
+      finalizarTurno()
     }
+  }
 
     function finalizarTurnoIA() {
       setProjectilePos(null)

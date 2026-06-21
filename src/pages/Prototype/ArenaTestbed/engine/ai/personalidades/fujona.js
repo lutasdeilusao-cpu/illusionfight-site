@@ -12,14 +12,17 @@ function inimigoMaisProximo(personagem, inimigos) {
 }
 
 function inimigoMaisFracoEmAlcance(personagem, inimigos, cols, rows, obstaculos) {
+  console.log('[DEBUG] inimigoMaisFracoEmAlcance called', { pos: personagem.posicao, pdf: personagem.pdf, tipo: personagem.tipoAtaque })
   const alcanceMax = personagem.tipoAtaque === 'melee' ? 1 : personagem.pdf
   const celulas = getCelulasAtaque(personagem.posicao.row, personagem.posicao.col, personagem.tipoAtaque, cols, rows, alcanceMax, obstaculos)
+  console.log('[DEBUG] getCelulasAtaque returned', { nCells: celulas.length })
   let alvo = null, menorHP = Infinity
   for (const ini of inimigos) {
     if (!ini.vivo || !ini.posicao) continue
     const emAlcance = celulas.some(c => c.row === ini.posicao.row && c.col === ini.posicao.col)
     if (emAlcance && ini.hp < menorHP) { menorHP = ini.hp; alvo = ini }
   }
+  console.log('[DEBUG] inimigoMaisFracoEmAlcance found', { alvo: alvo?.nome, hp: alvo?.hp })
   return alvo
 }
 
