@@ -50,6 +50,11 @@ export default function useCombatEngine({
   const [iaThinking, setIaThinking] = useState(false)
   const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
   const [turnVersion, setTurnVersion] = useState(0)
+  const [orderingPhase, setOrderingPhase] = useState(null)
+  const [jokenpoNeeded, setJokenpoNeeded] = useState(null)
+  const [currentCrossTie, setCurrentCrossTie] = useState(null)
+  const [playerTeamOrder, setPlayerTeamOrder] = useState([])
+  const [crossTieQueue, setCrossTieQueue] = useState([])
 
   const charsRef = useRef(characters)
   const animatingRef = useRef(false)
@@ -67,7 +72,8 @@ export default function useCombatEngine({
   useEffect(() => { charsRef.current = characters }, [characters])
   useEffect(() => { currentCharIdRef.current = currentCharId }, [currentCharId])
 
-  const isPlayerTurn = characters.find(c => c.id === currentCharId)?.time === 'jogador'
+  const currentChar = characters.find(c => c.id === currentCharId)
+  const isPlayerTurn = currentChar?.time === 'jogador'
 
   function addLog(text) { if (onLog) onLog(text) }
 
@@ -99,26 +105,20 @@ export default function useCombatEngine({
     const pVivos = c.filter(ch => ch.vivo && ch.time === 'jogador')
     const iVivos = c.filter(ch => ch.vivo && ch.time === 'ia')
     if (pVivos.length === 0) {
-      winnerRef.current = 'ia'
-      setWinner('ia')
+      winnerRef.current = 'ia'; setWinner('ia')
       if (onVitoria) onVitoria('ia')
-      addLog('🏆 IA venceu a partida!')
-      return true
+      addLog('🏆 IA venceu a partida!'); return true
     }
     if (iVivos.length === 0) {
-      winnerRef.current = 'jogador'
-      setWinner('jogador')
+      winnerRef.current = 'jogador'; setWinner('jogador')
       if (onVitoria) onVitoria('jogador')
-      addLog('🏆 Jogador venceu a partida!')
-      return true
+      addLog('🏆 Jogador venceu a partida!'); return true
     }
     return false
   }
 
   function aplicarDano(alvoId, dano, atacante) {
-    charsRef.current = charsRef.current.map(c =>
-      c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c
-    )
+    charsRef.current = charsRef.current.map(c => c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c)
     setCharacters(charsRef.current)
     if (onDano) onDano(alvoId, dano)
   }
@@ -148,7 +148,7 @@ export default function useCombatEngine({
   function aposAnimacaoAtaque(atacante, alvo, resultado) {
     clearAnimTimers()
     if (resultado.criticoDefensivo) {
-      addLog(`  🛡️ ${'Bloqueio!'}`)
+      addLog(`  🛡️ BLOQUEIO!`)
       adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
     } else {
       aplicarDano(alvo.id, Math.max(1, resultado.dano || 1), atacante)
@@ -162,9 +162,8 @@ export default function useCombatEngine({
           aplicarDano(atacante.id, contra.dano, alvo)
           adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
         }
-        if (resultado.ataqueExtra) {
-          setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-        } else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+        if (resultado.ataqueExtra) setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+        else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
       }, 500)
     } else {
       if (resultado.ataqueExtra) setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
@@ -172,22 +171,28 @@ export default function useCombatEngine({
     }
   }
 
+  // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
   function handleAtaqueExtra(atacante, alvo, faBase) {
     const faExtra = Math.round((faBase / 2) * 10) / 10
+    addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
     const d6Def = rolarD6()
     const isCriticoDefExtra = d6Def === 6
     const fd = calcularFD(alvo, isCriticoDefExtra, d6Def)
+    addLog(`  🎲 ${alvo.nome} FD extra: ARM=${alvo.arm} AGI=${alvo.agi} d6=${d6Def}${isCriticoDefExtra ? ' [CRÍTICO DEFENSIVO]' : ''} → FD=${fd}`)
     if (isCriticoDefExtra) {
+      addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
       adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
       finalizarAposAtaque(alvo, { dano: 0 })
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
+      addLog(`  💥 Dano extra: ${danoExtra}`)
       aplicarDano(alvo.id, danoExtra, atacante)
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
 
+  // Bug 2 fix: finalizarAposAtaque volta para subPhase:'free' em vez de chamar onTurnoJogador
   function finalizarAposAtaque(alvo, resultado) {
     animatingRef.current = false
     if (winnerRef.current) return
@@ -199,47 +204,40 @@ export default function useCombatEngine({
       addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
-        setTurnoAcoes({ moveu: false, atacou: false })
-        if (onTurnoJogador) onTurnoJogador()
+        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        setSubPhase('free')
+        setHighlightedCells([])
+        setAttackCells([])
+        setRangeCells([])
       }, 1200)
     } else {
       setAnimTimer(() => {
-        setTurnoAcoes({ moveu: false, atacou: false })
-        if (onTurnoJogador) onTurnoJogador()
+        setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        setSubPhase('free')
+        setHighlightedCells([])
+        setAttackCells([])
+        setRangeCells([])
       }, 800)
     }
   }
 
-  function handleAtaqueExtra(atacante, alvo, faBase) {
-    const faExtra = Math.round((faBase / 2) * 10) / 10
-    adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
-    const d6Def = rolarD6()
-    const isCriticoDefExtra = d6Def === 6
-    const fd = calcularFD(alvo, isCriticoDefExtra, d6Def)
-    if (isCriticoDefExtra) {
-      adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
-      finalizarAposAtaque(alvo, { dano: 0 })
-    } else {
-      const danoExtra = Math.max(1, Math.round(faExtra - fd))
-      aplicarDano(alvo.id, danoExtra, atacante)
-      finalizarAposAtaque(alvo, { dano: danoExtra })
-    }
-  }
-
-  function handleCanvasClick(e) { return }
-
   function iniciarMovimento() {
-    const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
-    if (!currentChar || animatingRef.current || turnoAcoes.moveu) return
+    const ch = charsRef.current.find(c => c.id === currentCharIdRef.current)
+    if (!ch || animatingRef.current || turnoAcoes.moveu) return
     setActionPanel(false)
-    const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
-    const moveCells = getCelulasAlcance(currentChar.posicao.row, currentChar.posicao.col, mov, cols, rows, obstaculos)
-    setHighlightedCells(moveCells)
+    const mov = getCasasMovimento(ch.agi, agiUmPraUm)
+    setHighlightedCells(getCelulasAlcance(ch.posicao.row, ch.posicao.col, mov, cols, rows, obstaculos))
     setSubPhase('movimento')
   }
 
+  // Bug 3 fix: moverPersonagem calcula pathfinding internamente, não lê de estado React
   function moverPersonagem(row, col) {
-    const caminho = caminhoEscolhido
+    const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
+    if (!currentChar) return
+    const ocupadas = new Set(
+      charsRef.current.filter(c => c.vivo && c.id !== currentChar.id).map(c => `${c.posicao.row}_${c.posicao.col}`)
+    )
+    const caminho = encontrarCaminho(currentChar.posicao.row, currentChar.posicao.col, row, col, cols, rows, obstaculos, ocupadas)
     if (!caminho || caminho.length === 0) return
     const steps = caminho.slice(1)
     animatingRef.current = true
@@ -252,9 +250,7 @@ export default function useCombatEngine({
         return
       }
       const passo = steps[stepIdx]
-      charsRef.current = charsRef.current.map(c =>
-        c.id === currentCharIdRef.current ? { ...c, posicao: { row: passo.row, col: passo.col } } : c
-      )
+      charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
       setCharacters(charsRef.current)
       stepIdx++
       setAnimTimer(avancarPasso, 150)
@@ -279,14 +275,8 @@ export default function useCombatEngine({
   }
 
   function cancelarAcao() {
-    setSubPhase('free')
-    setHighlightedCells([])
-    setAttackCells([])
-    setRangeCells([])
-    setSubPhaseStep(null)
-    setPendingMove(null)
-    setDestinoEscolhido(null)
-    setCaminhoEscolhido([])
+    setSubPhase('free'); setHighlightedCells([]); setAttackCells([]); setRangeCells([])
+    setSubPhaseStep(null); setPendingMove(null); setDestinoEscolhido(null); setCaminhoEscolhido([])
   }
 
   function escolherTipoAtaque() {
@@ -310,10 +300,7 @@ export default function useCombatEngine({
     const alcanceMax = currentChar.tipoAtaque === 'melee' ? 1 : currentChar.pdf
     const atkCells = getCelulasAtaque(currentChar.posicao.row, currentChar.posicao.col, currentChar.tipoAtaque, cols, rows, alcanceMax, obstaculos)
     setRangeCells(atkCells)
-    const enemyCells = atkCells.filter(c =>
-      charsRef.current.some(ch => ch.vivo && ch.time !== currentChar.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)
-    )
-    setAttackCells(enemyCells)
+    setAttackCells(atkCells.filter(c => charsRef.current.some(ch => ch.vivo && ch.time !== currentChar.time && ch.posicao?.row === c.row && ch.posicao?.col === c.col)))
     setHighlightedCells([])
     setSubPhaseStep('escolher_alvo')
     setSubPhase('acao')
@@ -331,9 +318,7 @@ export default function useCombatEngine({
       const poder = getPoderesPorId(poderesEscolhidos[currentChar.id] || currentChar.poderesEscolhidos || [])
         .find(p => p.gatilho === 'ataque')
       if (poder && currentChar.mp >= poder.custoMP) {
-        charsRef.current = charsRef.current.map(c =>
-          c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
-        )
+        charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c)
         setCharacters(charsRef.current)
         atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
       }
@@ -367,19 +352,11 @@ export default function useCombatEngine({
     finalizarTurno()
   }
 
-  function pularAcao() {
-    finalizarTurno()
-  }
+  function pularAcao() { finalizarTurno() }
 
   function finalizarTurno() {
-    setHighlightedCells([])
-    setAttackCells([])
-    setRangeCells([])
-    setSubPhaseStep(null)
-    setPendingMove(null)
-    setDestinoEscolhido(null)
-    setCaminhoEscolhido([])
-    setActionPanel(false)
+    setHighlightedCells([]); setAttackCells([]); setRangeCells([]); setSubPhaseStep(null)
+    setPendingMove(null); setDestinoEscolhido(null); setCaminhoEscolhido([]); setActionPanel(false)
     animatingRef.current = false
     if (verificarVitoria()) return
     setSubPhase(null)
@@ -387,7 +364,9 @@ export default function useCombatEngine({
   }
 
   function configurarTurnoPara(charId) {
-    setCurrentTurn(charId)
+    setCurrentCharId(charId)
+    currentCharIdRef.current = charId
+    setTurnVersion(v => v + 1)
     const proxChar = charsRef.current.find(c => c.id === charId)
     if (!proxChar) return
     if (proxChar.time === 'ia') {
@@ -403,12 +382,6 @@ export default function useCombatEngine({
     }
   }
 
-  function setCurrentTurn(charId) {
-    setCurrentCharId(charId)
-    currentCharIdRef.current = charId
-    setTurnVersion(v => v + 1)
-  }
-
   function avancarEAcionar() {
     const nextId = tc.avancarTurno()
     if (nextId) configurarTurnoPara(nextId)
@@ -418,11 +391,15 @@ export default function useCombatEngine({
     const alive = charsRef.current.filter(c => c.vivo)
     const { ordemParcial, empatesInternosJogador, empatesCruzados } = calcularGruposEOrdem(alive)
     sortedGlobalRef.current = ordemParcial
+    const timeJogador = ordemParcial.filter(c => c.time === 'jogador')
+    setPlayerTeamOrder(timeJogador)
 
     if (empatesInternosJogador.length > 0) {
-      crossTieQueueRef.current = empatesCruzados
-      onTurnoJogador?.()
+      setOrderingPhase('player_internal')
+      setCrossTieQueue(empatesCruzados)
     } else if (empatesCruzados.length > 0) {
+      setOrderingPhase('jokenpo_cross')
+      setCrossTieQueue(empatesCruzados)
       crossTieQueueRef.current = empatesCruzados
       sortedGlobalRef.current = ordemParcial
       iniciarProximoJokenpoCruzado(empatesCruzados, ordemParcial)
@@ -439,8 +416,10 @@ export default function useCombatEngine({
     sortedGlobalRef.current = novaOrdem
     const queue = crossTieQueueRef.current
     if (queue && queue.length > 0) {
+      setOrderingPhase('jokenpo_cross')
       iniciarProximoJokenpoCruzado(queue, novaOrdem)
     } else {
+      setOrderingPhase(null)
       const order = novaOrdem.map(c => c.id)
       tc.inicializar(order)
       configurarTurnoPara(tc.quemEstaNaVez())
@@ -458,21 +437,24 @@ export default function useCombatEngine({
       iniciarProximoJokenpoCruzado(encontrado.remainingQueue, ordemAtual)
       return
     }
-    if (onTurnoJogador) onTurnoJogador({ tipo: 'jokenpo', playerChar: encontrado.playerChar, iaChar: encontrado.iaChar })
+    setCurrentCrossTie({ playerChar: encontrado.playerChar, iaChar: encontrado.iaChar, grupoAgi: encontrado.grupo.agi, remainingQueue: encontrado.remainingQueue })
+    setJokenpoNeeded([encontrado.playerChar, encontrado.iaChar])
   }
 
-  function handleJokenpoResult(winnerName, playerChar, iaChar) {
+  function handleJokenpoResult(winnerName) {
+    if (!currentCrossTie) return
+    const { playerChar, iaChar, remainingQueue } = currentCrossTie
     const { winner, loser } = processarResultadoJokenpo(playerChar, iaChar, winnerName)
     crossTieResultsRef.current.push({ winner, loser })
-    iniciarProximoJokenpoCruzado(
-      [{ jogadores: [playerChar], ias: [iaChar] }],
-      sortedGlobalRef.current
-    )
+    setJokenpoNeeded(null)
+    setCurrentCrossTie(null)
+    iniciarProximoJokenpoCruzado(remainingQueue, sortedGlobalRef.current)
   }
 
   function aplicarOrdemCruzada(ordemBase) {
     const novaOrdem = aplicarResultadosCruzados(ordemBase, crossTieResultsRef.current)
     sortedGlobalRef.current = novaOrdem
+    setOrderingPhase(null)
     const order = novaOrdem.map(c => c.id)
     tc.inicializar(order)
     configurarTurnoPara(tc.quemEstaNaVez())
@@ -485,8 +467,7 @@ export default function useCombatEngine({
   }
 
   function executarIA(iaChar) {
-    setIaThinking(true)
-    iaThinkingRef.current = true
+    setIaThinking(true); iaThinkingRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(estagioPensar, 1500)
 
@@ -512,15 +493,12 @@ export default function useCombatEngine({
           let stepIdx = 0
           function avancarPassoIA() {
             if (stepIdx >= steps.length) {
-              setAttackCells([])
-              dec.logs.forEach(l => addLog(`  ${l}`))
-              setAnimTimer(estagioAgir, 300)
-              return
+              setAttackCells([]); dec.logs.forEach(l => addLog(`  ${l}`))
+              setAnimTimer(estagioAgir, 300); return
             }
             charsRef.current = charsRef.current.map(c => c.id === iaChar.id ? { ...c, posicao: { row: steps[stepIdx].row, col: steps[stepIdx].col } } : c)
             setCharacters(charsRef.current)
-            stepIdx++
-            setAnimTimer(avancarPassoIA, 150)
+            stepIdx++; setAnimTimer(avancarPassoIA, 150)
           }
           setAnimTimer(avancarPassoIA, 400)
         } else {
@@ -538,31 +516,23 @@ export default function useCombatEngine({
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
       if (dec2.tipo === 'atacar') {
-        const alvo = dec2.detalhes.alvo
-        const res = dec2.detalhes.resultado
-        const isMiss = dec2.detalhes.miss === true
+        const alvo = dec2.detalhes.alvo; const res = dec2.detalhes.resultado; const isMiss = dec2.detalhes.miss === true
         const atacante = iaAtual2
         setRangeCells(getCelulasAtaque(atacante.posicao.row, atacante.posicao.col, atacante.tipoAtaque, cols, rows, atacante.tipoAtaque === 'melee' ? 1 : atacante.pdf, obstaculos))
         setAttackCells([])
         const callbackFinal = () => {
           if (winnerRef.current) { finalizarTurnoIA(); return }
-          if (isMiss) {
-            adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
-            setAnimTimer(() => finalizarTurnoIA(), 1300)
-            return
-          }
+          if (isMiss) { adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col); setAnimTimer(() => finalizarTurnoIA(), 1300); return }
           if (res.criticoDefensivo) {
             adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
           } else {
-            const danoFinal = Math.max(1, (res.dano || 1) - defesaBonusRef.current)
-            defesaBonusRef.current = 0
+            const danoFinal = Math.max(1, (res.dano || 1) - defesaBonusRef.current); defesaBonusRef.current = 0
             aplicarDano(alvo.id, danoFinal, atacante)
           }
           const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
             charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
-            setCharacters(charsRef.current)
-            tc.marcarMorto(alvo.id)
+            setCharacters(charsRef.current); tc.marcarMorto(alvo.id)
             addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => { if (verificarVitoria()) return; finalizarTurnoIA() }, 1200)
           } else setAnimTimer(() => finalizarTurnoIA(), 800)
@@ -573,8 +543,7 @@ export default function useCombatEngine({
             setRangeCells([])
             setAttackCells([{ row: alvo.posicao.row, col: alvo.posicao.col }])
             setAnimTimer(() => {
-              setRangeCells([])
-              setAttackCells([])
+              setRangeCells([]); setAttackCells([])
               addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
               dec2.logs.forEach(l => addLog(`  ${l}`))
               if (atacante.tipoAtaque === 'melee') animarAtaqueMelee(atacante, alvo, res, callbackFinal)
@@ -588,8 +557,7 @@ export default function useCombatEngine({
               defesaBonusRef.current = bonus
               if (bonus > 0) {
                 charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c)
-                setCharacters(charsRef.current)
-                addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
+                setCharacters(charsRef.current); addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
               }
               iniciarAnimacaoAtaqueIA()
             },
@@ -603,15 +571,14 @@ export default function useCombatEngine({
 
     function finalizarTurnoIA() {
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
-      iaThinkingRef.current = false
-      setIaThinking(false)
+      iaThinkingRef.current = false; setIaThinking(false)
       if (verificarVitoria()) return
       avancarEAcionar()
     }
   }
 
   return {
-    characters, turnoAceos: turnoAcoes, currentCharId, isPlayerTurn,
+    characters, turnoAcoes, currentCharId, isPlayerTurn,
     iniciarPartida, iniciarMovimento, moverPersonagem, confirmarMovimento,
     cancelarAcao, escolherTipoAtaque, confirmarEscolhaAtaque, executarAtaque,
     usarItem, pularAcao, finalizarTurno, executarIA,
@@ -624,5 +591,6 @@ export default function useCombatEngine({
     pendingMove, destinoEscolhido, caminhoEscolhido, actionPanel,
     powerChoiceModal, defensePending, winner, iaThinking, itensChaoAtual,
     confirmarOrdemInterna, handleJokenpoResult, iniciarPartida,
+    orderingPhase, jokenpoNeeded, currentCrossTie, playerTeamOrder, crossTieQueue,
   }
 }
