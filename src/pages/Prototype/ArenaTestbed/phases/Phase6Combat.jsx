@@ -963,8 +963,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        const nomeAnuncio = currentChar?.aparencia?.nome || currentChar?.nome || getDisplayName(currentChar)
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -978,8 +976,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        const nomeAnuncio3 = currentChar?.aparencia?.nome || currentChar?.nome || getDisplayName(currentChar)
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio3 }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
