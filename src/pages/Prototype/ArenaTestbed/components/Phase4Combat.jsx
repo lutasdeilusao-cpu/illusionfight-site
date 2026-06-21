@@ -12,6 +12,7 @@ import JokenpoModal from './JokenpoModal'
 import PowerChoiceModal from './PowerChoiceModal'
 import PowerLinePreview from './PowerLinePreview'
 import { getPersonagensNaLinha } from '../engine/getLineInDirection'
+import * as tc from '../engine/TurnController'
 import './Phase4Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -42,8 +43,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       poderesEscolhidos: poderesEscolhidos[bc.charData?.id] || [],
     }))
   )
-  const [turnOrder, setTurnOrder] = useState([])
-  const [currentTurn, setCurrentTurn] = useState(0)
+  const [turnVersion, setTurnVersion] = useState(0)
   const [phase, setPhase] = useState('prepare')
   const [subPhase, setSubPhase] = useState(null)
   const [highlightedCells, setHighlightedCells] = useState([])
@@ -132,11 +132,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   const charsRef = useRef(characters)
-  const turnRef = useRef(currentTurn)
-  const orderRef = useRef(turnOrder)
   useEffect(() => { charsRef.current = characters }, [characters])
-  useEffect(() => { turnRef.current = currentTurn }, [currentTurn])
-  useEffect(() => { orderRef.current = turnOrder }, [turnOrder])
 
   const [remainingMove, setRemainingMove] = useState(0)
 
@@ -209,11 +205,44 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         iniciarProximoJokenpoCruzado(empatesCruzados, ordemParcial)
       } else {
         const order = ordemParcial.map(c => c.id)
-        setTurnOrder(order)
-        startPlayerTurn(order, 0)
+        tc.inicializar(order)
+        setTurnVersion(v => v + 1)
+        avancarEAcionar()
       }
     }, 0)
   }, [])
+
+  function avancarEAcionar() {
+    const nextId = tc.avancarTurno()
+    setTurnVersion(v => v + 1)
+    if (!nextId) return
+    const proxChar = characters.find(c => c.id === nextId)
+    if (!proxChar) return
+    if (proxChar.time === 'ia') {
+      setPhase('enemy_turn')
+      anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
+      setAnimTimer(() => executarIA(proxChar), 1000)
+    } else {
+      setPhase(null)
+      setTurnoAcoes({ moveu: false, atacou: false })
+      setSubPhase('free')
+      setHighlightedCells([])
+      setAttackCells([])
+      setRangeCells([])
+      inputLockedRef.current = true
+      setAnimTimer(() => {
+        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        setTimeout(() => {
+          inputLockedRef.current = false
+          setInputLocked(false)
+          if (!tutorialMostradoRef.current) {
+            tutorialMostradoRef.current = true
+            anunciar(t('prototype.arena_testbed.free_hint'), 2500)
+          }
+        }, 1500)
+      }, 500)
+    }
+  }
 
   function handleJokenpoResult(winnerName) {
     if (orderingPhase === 'jokenpo_cross') {
@@ -236,8 +265,9 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     } else {
       setOrderingPhase(null)
       const order = novaOrdem.map(c => c.id)
-      setTurnOrder(order)
-      startPlayerTurn(order, 0)
+      tc.inicializar(order)
+      setTurnVersion(v => v + 1)
+      avancarEAcionar()
     }
   }
 
@@ -313,44 +343,9 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     sortedGlobalRef.current = novaOrdem
     setOrderingPhase(null)
     const order = novaOrdem.map(c => c.id)
-    setTurnOrder(order)
-    startPlayerTurn(order, 0)
-  }
-
-  function logEstadoTurno(origem, orderLocal, idxLocal) {
-    const chars = charsRef.current
-    const ativo = chars.find(c => c.id === orderLocal[idxLocal])
-    console.log(
-      `[TURNO:${origem}] ativo=${ativo?.nome}(${ativo?.time})` +
-      ` | vivos: ${chars.filter(c => c.vivo).map(c => `${c.nome}(hp=${c.hp})`).join(', ')}` +
-      ` | order=[${orderLocal.join(',')}] idx=${idxLocal}`
-    )
-  }
-
-  function startPlayerTurn(order, startIndex) {
-    setTurnOrder(order)
-    setCurrentTurn(startIndex)
-    const firstChar = characters.find(c => c.id === order[startIndex])
-    if (firstChar?.time === 'ia') {
-      setPhase('enemy_turn')
-      anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
-      setAnimTimer(() => executarIA(firstChar), 1000)
-    } else if (firstChar) {
-      logEstadoTurno('startPlayerTurn', order, startIndex)
-      setPhase(null)
-      setTurnoAcoes({ moveu: false, atacou: false })
-      setSubPhase('free')
-      setHighlightedCells([])
-      setAttackCells([])
-      setRangeCells([])
-      anunciar(t('prototype.arena_testbed.announce_player_turn'))
-      setTimeout(() => {
-        if (!tutorialMostradoRef.current) {
-          tutorialMostradoRef.current = true
-          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-        }
-      }, 2200)
-    }
+    tc.inicializar(order)
+    setTurnVersion(v => v + 1)
+    avancarEAcionar()
   }
 
   function enterSubPhase(sub, char) {
@@ -384,9 +379,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   const currentChar = useMemo(() => {
-    if (turnOrder.length === 0) return null
-    return characters.find(c => c.id === turnOrder[currentTurn])
-  }, [characters, turnOrder, currentTurn])
+    const id = tc.quemEstaNaVez()
+    if (!id) return null
+    return characters.find(c => c.id === id)
+  }, [characters, turnVersion])
 
   const isPlayerTurn = currentChar?.time === 'jogador'
 
@@ -823,6 +819,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
+    tc.registrarAcao(currentChar.id, 'mover')
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
@@ -832,6 +829,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function iniciarMovimento() {
     if (!currentChar || animating || inputLockedRef.current || turnoAcoes.moveu) return
+    if (!tc.podeAgir(currentChar.id, 'mover')) return
     setActionPanel(false)
     const mov = getCasasMovimento(currentChar.agi, agiUmPraUm)
     const moveCells = getCelulasAlcance(
@@ -1156,7 +1154,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
                 c.id === atacante.id ? { ...c, vivo: false } : c
               )
               setCharacters(charsRef.current)
-              setTurnOrder(prev => prev.filter(id => id !== atacante.id))
+              tc.marcarMorto(atacante.id)
               addLog(`💀 ${atacante.nome} foi derrotado pelo contra-ataque!`)
               setAnimating(false)
               animatingRef.current = false
@@ -1186,6 +1184,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function executarAtaque(target) {
     if (!currentChar || animating || inputLockedRef.current) return
+    if (!tc.podeAgir(currentChar.id, 'atacar')) return
     clearAnimTimers()
     animatingRef.current = true
     inputLockedRef.current = true
@@ -1262,11 +1261,12 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         c.id === alvo.id ? { ...c, vivo: false } : c
       )
       setCharacters(charsRef.current)
-      setTurnOrder(prev => prev.filter(id => id !== alvo.id))
+      tc.marcarMorto(alvo.id)
       addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        tc.registrarAcao(currentChar.id, 'atacar')
         setSubPhase('free')
         setHighlightedCells([])
         setAttackCells([])
@@ -1280,6 +1280,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     } else {
       setAnimTimer(() => {
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
+        tc.registrarAcao(currentChar.id, 'atacar')
         setSubPhase('free')
         setHighlightedCells([])
         setAttackCells([])
@@ -1352,51 +1353,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     inputLockedRef.current = true
     if (verificarVitoria()) return
     setSubPhase(null)
-    const order = orderRef.current
-    const chars = charsRef.current
-    const currentId = currentChar?.id
-    const currentIdx = currentId ? order.indexOf(currentId) : -1
-    let nextIdx = currentIdx !== -1 ? (currentIdx + 1) % order.length : 0
-    let nextChar = chars.find(c => c.vivo && c.id === order[nextIdx])
-    let tentativas = 0
-    while (!nextChar && tentativas < order.length) {
-      nextIdx = (nextIdx + 1) % order.length
-      nextChar = chars.find(c => c.vivo && c.id === order[nextIdx])
-      tentativas++
-    }
-    if (!nextChar) {
-      animatingRef.current = false
-      setAnimating(false)
-      inputLockedRef.current = false
-      setInputLocked(false)
-      return
-    }
-    setCurrentTurn(nextIdx)
-    if (nextChar.time === 'ia') {
-      setPhase('enemy_turn')
-      anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
-      setAnimTimer(() => executarIA(nextChar), 1000)
-    } else {
-      logEstadoTurno('finalizarTurno', order, nextIdx)
-      setPhase(null)
-      setTurnoAcoes({ moveu: false, atacou: false })
-      setSubPhase('free')
-      setHighlightedCells([])
-      setAttackCells([])
-      setRangeCells([])
-      inputLockedRef.current = true
-      setAnimTimer(() => {
-        anunciar(t('prototype.arena_testbed.announce_player_turn'))
-        setTimeout(() => {
-          inputLockedRef.current = false
-          setInputLocked(false)
-          if (!tutorialMostradoRef.current) {
-            tutorialMostradoRef.current = true
-            anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-          }
-        }, 1500)
-      }, 500)
-    }
+    avancarEAcionar()
   }
 
   function executarIA(iaChar) {
@@ -1404,7 +1361,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setInputLocked(true)
     iaThinkingRef.current = true
     inputLockedRef.current = true
-    console.log(`[IA:inicio] iaChar=${iaChar.nome} winnerRef=${winnerRef.current}`)
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(() => {
       const charsAgora = charsRef.current
@@ -1476,7 +1432,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoIA(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
-      console.log(`[IA:acao] tipo=${dec2.tipo} podeAtacar=${dec2.tipo === 'atacar'} iaPos=(${iaAtual2.posicao?.row},${iaAtual2.posicao?.col}) alvo=${dec2.detalhes?.alvo?.nome} alvoPos=(${dec2.detalhes?.alvo?.posicao?.row},${dec2.detalhes?.alvo?.posicao?.col})`)
       if (dec2.tipo === 'atacar') {
         const alvo = dec2.detalhes.alvo
         const res = dec2.detalhes.resultado
@@ -1519,7 +1474,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
               c.id === alvo.id ? { ...c, vivo: false } : c
             )
             setCharacters(charsRef.current)
-            setTurnOrder(prev => prev.filter(id => id !== alvo.id))
+            tc.marcarMorto(alvo.id)
             addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => {
               if (verificarVitoria()) return
@@ -1585,55 +1540,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       setProjectilePos(null)
       setProjectilePath([])
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
-      if (verificarVitoria()) {
-        iaThinkingRef.current = false
-        setIaThinking(false)
-        return
-      }
-      const order3 = orderRef.current
-      const chars3 = charsRef.current
-      const iaIdx = order3.indexOf(iaChar.id)
-      let nextIdx3 = iaIdx !== -1 ? (iaIdx + 1) % order3.length : 0
-      let nextChar3 = chars3.find(c => c.vivo && c.id === order3[nextIdx3])
-      let tentativas3 = 0
-      while (!nextChar3 && tentativas3 < order3.length) {
-        nextIdx3 = (nextIdx3 + 1) % order3.length
-        nextChar3 = chars3.find(c => c.vivo && c.id === order3[nextIdx3])
-        tentativas3++
-      }
-      if (!nextChar3) {
-        iaThinkingRef.current = false
-        setIaThinking(false)
-        inputLockedRef.current = false
-        setInputLocked(false)
-        return
-      }
-      setCurrentTurn(nextIdx3)
-      if (nextChar3.time === 'ia') {
-        setPhase('enemy_turn')
-        setAnimTimer(() => executarIA(nextChar3), 1800)
-      } else {
-        logEstadoTurno('finalizarTurnoIA', order3, nextIdx3)
-        setPhase(null)
-        setTurnoAcoes({ moveu: false, atacou: false })
-        setSubPhase('free')
-        setHighlightedCells([])
-        setAttackCells([])
-        setRangeCells([])
-        iaThinkingRef.current = false
-        setIaThinking(false)
-        setAnimTimer(() => {
-      anunciar(t('prototype.arena_testbed.announce_player_turn'))
-      setTimeout(() => {
-        inputLockedRef.current = false
-        setInputLocked(false)
-        if (!tutorialMostradoRef.current) {
-          tutorialMostradoRef.current = true
-          anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-        }
-      }, 1500)
-      }, 500)
-      }
+      iaThinkingRef.current = false
+      setIaThinking(false)
+      if (verificarVitoria()) return
+      avancarEAcionar()
     }
   }
 
