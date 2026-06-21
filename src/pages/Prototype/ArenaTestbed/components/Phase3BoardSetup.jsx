@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import useHexCanvas from '../engine/useHexCanvas'
-import './Phase2BoardSetup.css'
+import './Phase3BoardSetup.css'
 
 const OBS3_HP_OPTIONS = [1, 2, 3]
 const MAX_COLS = 10
@@ -14,7 +14,7 @@ const OBSTACLE_TYPES = [
   { id: 4, labelKey: 'prototype.arena_testbed.obs4', icon: '📦' },
 ]
 
-export default function Phase2BoardSetup({ characters, onConfirm }) {
+export default function Phase3BoardSetup({ characters, onConfirm }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const [cols, setCols] = useState(7)

@@ -2,30 +2,29 @@ import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { PODERES_BASE } from './data/poderes'
 import Phase1SheetBuilder from './components/Phase1SheetBuilder'
-import Phase2BoardSetup from './components/Phase2BoardSetup'
-import Phase3PowerSelect from './components/Phase3PowerSelect'
-import Phase4Combat from './components/Phase4Combat'
+import Phase3BoardSetup from './components/Phase3BoardSetup'
+import Phase4PowerSelect from './components/Phase4PowerSelect'
+import Phase5Combat from './components/Phase5Combat'
 import './ArenaTestbed.css'
 
 export default function ArenaTestbed() {
   const { t } = useLanguage()
-  const [phase, setPhase] = useState(1) // 1 | 2 | 3 | 4
+  const [phase, setPhase] = useState(1)
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
 
   function handlePhase1Confirm(chars) {
     setCharacters(chars)
-    setPhase(2)
-  }
-
-  function handlePhase2Confirm(board) {
-    setBoardState({ ...board })
     setPhase(3)
   }
 
+  function handlePhase3Confirm(board) {
+    setBoardState({ ...board })
+    setPhase(4)
+  }
+
   function handlePowerConfirm(poderes) {
-    // Auto-assign random powers for IA characters
     const poderesComIA = { ...poderes }
     characters.filter(ch => ch.time === 'ia').forEach(ch => {
       if (!poderesComIA[ch.id]) {
@@ -35,7 +34,7 @@ export default function ArenaTestbed() {
       }
     })
     setPoderesEscolhidos(poderesComIA)
-    setPhase(4)
+    setPhase(5)
   }
 
   function handleBackToPhase1() {
@@ -45,25 +44,26 @@ export default function ArenaTestbed() {
     setPoderesEscolhidos({})
   }
 
-  function handleBackToPhase2() {
-    setPhase(2)
-  }
-
   function handleBackToPhase3() {
     setPhase(3)
   }
 
+  function handleBackToPhase4() {
+    setPhase(4)
+  }
+
   const stepLabels = useMemo(() => [
     t('prototype.arena_testbed.phase1_short'),
-    t('prototype.arena_testbed.phase2_short'),
-    t('prototype.arena_testbed.power_short'),
+    '',
+    t('prototype.arena_testbed.phase3_short'),
     t('prototype.arena_testbed.phase4_short'),
+    t('prototype.arena_testbed.phase5_short'),
   ], [t])
 
   return (
     <div className="tab-arena-testbed">
       <div className="tab-step-indicator">
-        {[1, 2, 3, 4].map(step => (
+        {[1, 3, 4, 5].map(step => (
           <div
             key={step}
             className={`tab-step-item ${phase === step ? 'active' : ''} ${phase > step ? 'done' : ''}`}
@@ -82,26 +82,26 @@ export default function ArenaTestbed() {
             onConfirm={handlePhase1Confirm}
           />
         )}
-        {phase === 2 && (
-          <Phase2BoardSetup
+        {phase === 3 && (
+          <Phase3BoardSetup
             characters={characters}
-            onConfirm={handlePhase2Confirm}
+            onConfirm={handlePhase3Confirm}
             onBack={handleBackToPhase1}
           />
         )}
-        {phase === 3 && (
-          <Phase3PowerSelect
+        {phase === 4 && (
+          <Phase4PowerSelect
             characters={characters}
             onConfirm={handlePowerConfirm}
-            onBack={handleBackToPhase2}
+            onBack={handleBackToPhase3}
           />
         )}
-        {phase === 4 && boardState && (
-          <Phase4Combat
+        {phase === 5 && boardState && (
+          <Phase5Combat
             boardState={boardState}
             poderesEscolhidos={poderesEscolhidos}
             onBackToPhase1={handleBackToPhase1}
-            onBackToPhase3={handleBackToPhase3}
+            onBackToPhase4={handleBackToPhase4}
           />
         )}
       </div>

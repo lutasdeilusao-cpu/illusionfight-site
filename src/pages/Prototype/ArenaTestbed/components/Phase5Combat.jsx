@@ -13,12 +13,12 @@ import PowerChoiceModal from './PowerChoiceModal'
 import * as tc from '../engine/TurnController'
 import { TipoAcao } from '../engine/TurnController'
 import { executarMecanica } from '../engine/mecanicasPoder'
-import './Phase4Combat.css'
+import './Phase5Combat.css'
 
 const SQRT3 = Math.sqrt(3)
 const SUB_PHASES = ['movimento', 'ataque', 'item']
 
-export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBackToPhase1, onBackToPhase3 }) {
+export default function Phase5Combat({ boardState, poderesEscolhidos = {}, onBackToPhase1, onBackToPhase4 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const canvasContainerRef = useRef(null)
