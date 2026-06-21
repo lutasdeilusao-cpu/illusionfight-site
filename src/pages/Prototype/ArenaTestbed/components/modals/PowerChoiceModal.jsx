@@ -1,4 +1,4 @@
-import { useLanguage } from '../../../../context/LanguageContext'
+import { useLanguage } from '../../../../../context/LanguageContext'
 import './PowerChoiceModal.css'
 
 export default function PowerChoiceModal({ mode, charName, faBruto, opcoes, onEscolher }) {

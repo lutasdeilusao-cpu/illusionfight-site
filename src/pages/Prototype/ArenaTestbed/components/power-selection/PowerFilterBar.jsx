@@ -1,4 +1,4 @@
-import { useLanguage } from '../../../../context/LanguageContext'
+import { useLanguage } from '../../../../../context/LanguageContext'
 import SortToggle from './SortToggle'
 import './PowerFilterBar.css'
 

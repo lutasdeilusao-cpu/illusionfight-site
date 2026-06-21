@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { PODERES_BASE } from '../data/poderes'
-import PowerFilterBar from './PowerFilterBar'
-import PowerGrid from './PowerGrid'
+import PowerFilterBar from '../components/power-selection/PowerFilterBar'
+import PowerGrid from '../components/power-selection/PowerGrid'
 import './Phase5PowerSelect.css'
 
 export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJogo }) {
