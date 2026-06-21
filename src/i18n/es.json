@@ -2793,6 +2793,10 @@
       "phase1_title": "FASE 1 — Construcción de Fichas",
       "phase1_desc": "Construye los personajes para la prueba. Mínimo 1 por equipo.",
       "phase1_short": "Fichas",
+      "phase0_title": "FASE 0 — Inicio",
+      "phase0_short": "Inicio",
+      "phase2_title": "FASE 2 — Personalización",
+      "phase2_short": "Personalizar",
       "phase3_title": "FASE 3 — Montaje del Tablero",
       "phase3_short": "Tablero",
       "phase4_title": "FASE 4 — Selección de Poderes",
@@ -2943,7 +2947,21 @@
       "label_mp": "MP",
       "float_blocked": "¡BLOQUEADO!",
       "float_contra": "¡CONTRA!",
-      "float_extra": "¡EXTRA!"
+      "float_extra": "¡EXTRA!",
+      "p0_new_game": "Crear Nueva Ficha",
+      "p0_load_game": "Cargar Ficha Guardada",
+      "p0_saved_sheets": "Fichas guardadas",
+      "p0_load": "Cargar",
+      "p0_delete": "Eliminar",
+      "p2_title": "Personalización de Personajes",
+      "p2_subtitle": "Elige color, icono y nombre para cada personaje",
+      "p2_jogador": "Jugador",
+      "p2_cor": "Color",
+      "p2_icone": "Icono",
+      "p2_nome": "Nombre",
+      "p2_confirm": "Confirmar e Ir al Tablero",
+      "fichaStorage.max_fichas": "Máximo de 9 fichas guardadas.",
+      "fichaStorage.max_personagens": "Máximo de 3 personajes por batalla."
     }
   }
 }

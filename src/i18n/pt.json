@@ -2820,6 +2820,10 @@
       "phase1_title": "FASE 1 — Construção de Fichas",
       "phase1_desc": "Monte os personagens que vão participar do teste. Mínimo 1 por time.",
       "phase1_short": "Fichas",
+      "phase0_title": "FASE 0 — Início",
+      "phase0_short": "Início",
+      "phase2_title": "FASE 2 — Personalização",
+      "phase2_short": "Personalizar",
       "phase3_title": "FASE 3 — Montagem do Tabuleiro",
       "phase3_short": "Tabuleiro",
       "phase4_title": "FASE 4 — Seleção de Poderes",
@@ -2970,7 +2974,21 @@
       "label_mp": "MP",
       "float_blocked": "BLOQUEIO!",
       "float_contra": "CONTRA!",
-      "float_extra": "EXTRA!"
+      "float_extra": "EXTRA!",
+      "p0_new_game": "Criar Nova Ficha",
+      "p0_load_game": "Carregar Ficha Existente",
+      "p0_saved_sheets": "Fichas salvas",
+      "p0_load": "Carregar",
+      "p0_delete": "Excluir",
+      "p2_title": "Personalização de Personagens",
+      "p2_subtitle": "Escolha cor, ícone e nome para cada personagem",
+      "p2_jogador": "Jogador",
+      "p2_cor": "Cor",
+      "p2_icone": "Ícone",
+      "p2_nome": "Nome",
+      "p2_confirm": "Confirmar e Ir para o Tabuleiro",
+      "fichaStorage.max_fichas": "Máximo de 9 fichas salvas.",
+      "fichaStorage.max_personagens": "Máximo de 3 personagens por batalha."
     }
   }
 }
