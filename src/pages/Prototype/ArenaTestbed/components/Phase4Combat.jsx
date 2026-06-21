@@ -1353,9 +1353,10 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (verificarVitoria()) return
     setSubPhase(null)
     const order = orderRef.current
-    const turnIdx = turnRef.current
     const chars = charsRef.current
-    let nextIdx = (turnIdx + 1) % order.length
+    const currentId = currentChar?.id
+    const currentIdx = currentId ? order.indexOf(currentId) : -1
+    let nextIdx = currentIdx !== -1 ? (currentIdx + 1) % order.length : 0
     let nextChar = chars.find(c => c.vivo && c.id === order[nextIdx])
     let tentativas = 0
     while (!nextChar && tentativas < order.length) {
@@ -1590,9 +1591,9 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         return
       }
       const order3 = orderRef.current
-      const turnIdx3 = turnRef.current
       const chars3 = charsRef.current
-      let nextIdx3 = (turnIdx3 + 1) % order3.length
+      const iaIdx = order3.indexOf(iaChar.id)
+      let nextIdx3 = iaIdx !== -1 ? (iaIdx + 1) % order3.length : 0
       let nextChar3 = chars3.find(c => c.vivo && c.id === order3[nextIdx3])
       let tentativas3 = 0
       while (!nextChar3 && tentativas3 < order3.length) {
