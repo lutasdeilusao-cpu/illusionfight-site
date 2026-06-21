@@ -334,7 +334,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (firstChar?.time === 'ia') {
       setPhase('enemy_turn')
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
-      setTimeout(() => executarIA(firstChar), 1000)
+      setAnimTimer(() => executarIA(firstChar), 1000)
     } else if (firstChar) {
       logEstadoTurno('startPlayerTurn', order, startIndex)
       setPhase(null)
@@ -1354,16 +1354,28 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     setSubPhase(null)
     const order = orderRef.current
     const turnIdx = turnRef.current
-    const nextIdx = (turnIdx + 1) % order.length
-    const nextId = order[nextIdx]
     const chars = charsRef.current
-    const nextChar = chars.find(c => c.id === nextId)
+    let nextIdx = (turnIdx + 1) % order.length
+    let nextChar = chars.find(c => c.vivo && c.id === order[nextIdx])
+    let tentativas = 0
+    while (!nextChar && tentativas < order.length) {
+      nextIdx = (nextIdx + 1) % order.length
+      nextChar = chars.find(c => c.vivo && c.id === order[nextIdx])
+      tentativas++
+    }
+    if (!nextChar) {
+      animatingRef.current = false
+      setAnimating(false)
+      inputLockedRef.current = false
+      setInputLocked(false)
+      return
+    }
     setCurrentTurn(nextIdx)
-    if (nextChar?.time === 'ia') {
+    if (nextChar.time === 'ia') {
       setPhase('enemy_turn')
       anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
-      setTimeout(() => executarIA(nextChar), 1000)
-    } else if (nextChar) {
+      setAnimTimer(() => executarIA(nextChar), 1000)
+    } else {
       logEstadoTurno('finalizarTurno', order, nextIdx)
       setPhase(null)
       setTurnoAcoes({ moveu: false, atacou: false })
@@ -1579,15 +1591,27 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       const order3 = orderRef.current
       const turnIdx3 = turnRef.current
-      const nextIdx3 = (turnIdx3 + 1) % order3.length
-      const nextId3 = order3[nextIdx3]
       const chars3 = charsRef.current
-      const nextChar3 = chars3.find(c => c.id === nextId3)
+      let nextIdx3 = (turnIdx3 + 1) % order3.length
+      let nextChar3 = chars3.find(c => c.vivo && c.id === order3[nextIdx3])
+      let tentativas3 = 0
+      while (!nextChar3 && tentativas3 < order3.length) {
+        nextIdx3 = (nextIdx3 + 1) % order3.length
+        nextChar3 = chars3.find(c => c.vivo && c.id === order3[nextIdx3])
+        tentativas3++
+      }
+      if (!nextChar3) {
+        iaThinkingRef.current = false
+        setIaThinking(false)
+        inputLockedRef.current = false
+        setInputLocked(false)
+        return
+      }
       setCurrentTurn(nextIdx3)
-      if (nextChar3?.time === 'ia') {
+      if (nextChar3.time === 'ia') {
         setPhase('enemy_turn')
         setAnimTimer(() => executarIA(nextChar3), 1800)
-      } else if (nextChar3) {
+      } else {
         logEstadoTurno('finalizarTurnoIA', order3, nextIdx3)
         setPhase(null)
         setTurnoAcoes({ moveu: false, atacou: false })
@@ -1608,9 +1632,6 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         }
       }, 1500)
       }, 500)
-      } else {
-        iaThinkingRef.current = false
-        setIaThinking(false)
       }
     }
   }
