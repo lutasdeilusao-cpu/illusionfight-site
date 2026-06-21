@@ -14,6 +14,11 @@ import * as tc from '../engine/TurnController'
 import { TipoAcao } from '../engine/TurnController'
 import { executarMecanica } from '../engine/mecanicasPoder'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
+import {
+  calcularGruposEOrdem, aplicarOrdemInterna,
+  encontrarProximoJokenpo, processarResultadoJokenpo,
+  aplicarResultadosCruzados,
+} from '../engine/turnOrder'
 import './Phase6Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -147,47 +152,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }, [tileUrl])
 
   useEffect(() => {
-    const alive = characters.filter(c => c.vivo)
-    const sorted = [...alive].sort((a, b) => b.agi - a.agi)
-
-    const agiGroups = {}
-    sorted.forEach(ch => {
-      if (!agiGroups[ch.agi]) agiGroups[ch.agi] = []
-      agiGroups[ch.agi].push(ch)
-    })
-
-    const grupos = Object.values(agiGroups).sort((a, b) => b[0].agi - a[0].agi)
-
-    const ordemParcial = []
-    const empatesInternosJogador = []
-    const empatesCruzados = []
-
-    for (const grupo of grupos) {
-      if (grupo.length === 1) {
-        ordemParcial.push(grupo[0])
-        continue
-      }
-      const jogadores = grupo.filter(c => c.time === 'jogador')
-      const ias = grupo.filter(c => c.time === 'ia')
-
-      if (ias.length === 0) {
-        ordemParcial.push(...jogadores)
-        if (jogadores.length >= 2) {
-          empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
-        }
-      } else if (jogadores.length === 0) {
-        const shuffled = [...ias].sort(() => Math.random() - 0.5)
-        ordemParcial.push(...shuffled)
-      } else {
-        const shuffledIas = [...ias].sort(() => Math.random() - 0.5)
-        ordemParcial.push(...jogadores, ...shuffledIas)
-        if (jogadores.length >= 2) {
-          empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
-        }
-        empatesCruzados.push({ agi: grupo[0].agi, jogadores, ias: shuffledIas })
-      }
-    }
-
+    const { ordemParcial, empatesInternosJogador, empatesCruzados } = calcularGruposEOrdem(characters)
     sortedGlobalRef.current = ordemParcial
 
     setTimeout(() => {
@@ -266,11 +231,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function confirmarOrdemInterna() {
     const base = sortedGlobalRef.current
-    let jogadorIdx = 0
-    const novaOrdem = base.map(c => {
-      if (c.time === 'jogador') return playerTeamOrder[jogadorIdx++]
-      return c
-    })
+    const novaOrdem = aplicarOrdemInterna(base, playerTeamOrder)
     sortedGlobalRef.current = novaOrdem
 
     if (crossTieQueue.length > 0) {
@@ -285,37 +246,29 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function iniciarProximoJokenpoCruzado(queue, ordemAtual) {
-    if (queue.length === 0) {
+    const encontrado = encontrarProximoJokenpo(queue, crossTieResultsRef.current)
+    if (!encontrado) {
       aplicarOrdemCruzada(ordemAtual)
       return
     }
-    const grupo = queue[0]
-    const jogadoresRestantes = grupo.jogadores.filter(j =>
-      !crossTieResultsRef.current.some(r => r.winner?.id === j.id || r.loser?.id === j.id)
-    )
-    const iasRestantes = grupo.ias.filter(ia =>
-      !crossTieResultsRef.current.some(r => r.winner?.id === ia.id || r.loser?.id === ia.id)
-    )
-
-    if (jogadoresRestantes.length === 0 || iasRestantes.length === 0) {
+    if (encontrado.salto) {
       crossTieQueueRef.current = queue.slice(1)
-      iniciarProximoJokenpoCruzado(queue.slice(1), ordemAtual)
+      iniciarProximoJokenpoCruzado(encontrado.remainingQueue, ordemAtual)
       return
     }
 
     setCurrentCrossTie({
-      playerChar: jogadoresRestantes[0],
-      iaChar: iasRestantes[0],
-      grupoAgi: grupo.agi,
-      remainingQueue: queue,
+      playerChar: encontrado.playerChar,
+      iaChar: encontrado.iaChar,
+      grupoAgi: encontrado.grupo.agi,
+      remainingQueue: encontrado.remainingQueue,
     })
-    setJokenpoNeeded([jogadoresRestantes[0], iasRestantes[0]])
+    setJokenpoNeeded([encontrado.playerChar, encontrado.iaChar])
   }
 
   function handleJokenpoResultCruzado(winnerName) {
     const { playerChar, iaChar, remainingQueue } = currentCrossTie
-    const winner = winnerName === playerChar.nome ? playerChar : iaChar
-    const loser = winner.id === playerChar.id ? iaChar : playerChar
+    const { winner, loser } = processarResultadoJokenpo(playerChar, iaChar, winnerName)
 
     crossTieResultsRef.current.push({ winner, loser })
     setJokenpoNeeded(null)
@@ -325,34 +278,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function aplicarOrdemCruzada(ordemBase) {
-    const results = crossTieResultsRef.current
-    const novaOrdem = [...ordemBase]
-
-    for (const grupo of [...new Set(results.map(r => r.winner.agi))]) {
-      const blocoIdx = []
-      novaOrdem.forEach((c, i) => {
-        if (c.agi === grupo && results.some(r => r.winner.id === c.id || r.loser.id === c.id)) blocoIdx.push(i)
-      })
-      if (blocoIdx.length === 0) continue
-
-      const winners = results.filter(r => r.winner.agi === grupo).map(r => r.winner)
-      const losers = results.filter(r => r.loser.agi === grupo).map(r => r.loser)
-      const bloco = blocoIdx.map(i => novaOrdem[i])
-
-      const winnerOrdem = winners.filter(w => bloco.some(b => b.id === w.id))
-      const loserOrdem = losers.filter(l => bloco.some(b => b.id === l.id))
-      const blocoOrdenado = []
-      const maxLen = Math.max(winnerOrdem.length, loserOrdem.length)
-      for (let i = 0; i < maxLen; i++) {
-        if (winnerOrdem[i]) blocoOrdenado.push(winnerOrdem[i])
-        if (loserOrdem[i]) blocoOrdenado.push(loserOrdem[i])
-      }
-
-      blocoIdx.forEach((pos, i) => {
-        if (blocoOrdenado[i]) novaOrdem[pos] = blocoOrdenado[i]
-      })
-    }
-
+    const novaOrdem = aplicarResultadosCruzados(ordemBase, crossTieResultsRef.current)
     sortedGlobalRef.current = novaOrdem
     setOrderingPhase(null)
     const order = novaOrdem.map(c => c.id)

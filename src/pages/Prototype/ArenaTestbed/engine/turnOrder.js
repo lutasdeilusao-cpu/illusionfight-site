@@ -1,67 +1,72 @@
-export function buildOrderFromCharacters(aliveChars) {
-  const sorted = [...aliveChars].sort((a, b) => b.agi - a.agi)
+/**
+ * turnOrder — Funções puras de cálculo de ordem de turno
+ *
+ * Separação clara:
+ * - Cálculo puro → funções exportadas (aqui)
+ * - Estado de UI/React → em Phase6Combat.jsx (orquestrador)
+ *
+ * Regras de negócio (validadas):
+ * - AGI maior → primeiro na fila (decrescente)
+ * - Empate interno (2+ jogadores, sem IA) → reordenação manual
+ * - Empate cruzado (jogador + IA) → Jokenpo
+ * - Empate só entre IAs → aleatório
+ * - Ordem definida uma vez, vale a partida inteira
+ */
+
+export function calcularGruposEOrdem(characters) {
+  const alive = characters.filter(c => c.vivo)
+  const sorted = [...alive].sort((a, b) => b.agi - a.agi)
+
   const agiGroups = {}
   sorted.forEach(ch => {
     if (!agiGroups[ch.agi]) agiGroups[ch.agi] = []
     agiGroups[ch.agi].push(ch)
   })
-  const grupos = Object.values(agiGroups).sort((a, b) => b[0].agi - a[0].agi)
 
+  const grupos = Object.values(agiGroups).sort((a, b) => b[0].agi - a[0].agi)
   const ordemParcial = []
   const empatesInternosJogador = []
   const empatesCruzados = []
 
   for (const grupo of grupos) {
-    if (grupo.length === 1) { ordemParcial.push(grupo[0]); continue }
+    if (grupo.length === 1) {
+      ordemParcial.push(grupo[0])
+      continue
+    }
     const jogadores = grupo.filter(c => c.time === 'jogador')
     const ias = grupo.filter(c => c.time === 'ia')
+
     if (ias.length === 0) {
       ordemParcial.push(...jogadores)
-      empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+      if (jogadores.length >= 2) {
+        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+      }
     } else if (jogadores.length === 0) {
-      ordemParcial.push(...[...ias].sort(() => Math.random() - 0.5))
+      const shuffled = [...ias].sort(() => Math.random() - 0.5)
+      ordemParcial.push(...shuffled)
     } else {
       const shuffledIas = [...ias].sort(() => Math.random() - 0.5)
       ordemParcial.push(...jogadores, ...shuffledIas)
-      empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+      if (jogadores.length >= 2) {
+        empatesInternosJogador.push({ agi: grupo[0].agi, chars: jogadores })
+      }
       empatesCruzados.push({ agi: grupo[0].agi, jogadores, ias: shuffledIas })
     }
   }
+
   return { ordemParcial, empatesInternosJogador, empatesCruzados }
 }
 
-export function confirmarOrdemInterna(
-  baseOrder, playerTeamOrder, crossTieQueue, crossTieResults,
-) {
+export function aplicarOrdemInterna(ordemBase, playerTeamOrder) {
   let jogadorIdx = 0
-  const novaOrdem = baseOrder.map(c => {
+  return ordemBase.map(c => {
     if (c.time === 'jogador') return playerTeamOrder[jogadorIdx++]
     return c
   })
-
-  if (crossTieQueue.length > 0) {
-    return {
-      result: 'cross_tie',
-      ordem: novaOrdem,
-      queue: crossTieQueue,
-      results: crossTieResults,
-    }
-  }
-
-  return {
-    result: 'done',
-    ordem: novaOrdem,
-    order: novaOrdem.map(c => c.id),
-  }
 }
 
-export function iniciarProximoJokenpoCruzado(
-  queue, ordemAtual, crossTieResults,
-) {
-  if (queue.length === 0) {
-    const ordemFinal = aplicarOrdemCruzada(ordemAtual, crossTieResults)
-    return { result: 'done', ordem: ordemFinal, order: ordemFinal.map(c => c.id) }
-  }
+export function encontrarProximoJokenpo(queue, crossTieResults) {
+  if (queue.length === 0) return null
 
   const grupo = queue[0]
   const jogadoresRestantes = grupo.jogadores.filter(j =>
@@ -72,39 +77,36 @@ export function iniciarProximoJokenpoCruzado(
   )
 
   if (jogadoresRestantes.length === 0 || iasRestantes.length === 0) {
-    return iniciarProximoJokenpoCruzado(queue.slice(1), ordemAtual, crossTieResults)
+    return { grupo, salto: true, remainingQueue: queue.slice(1) }
   }
 
   return {
-    result: 'jokenpo',
+    grupo,
+    salto: false,
     playerChar: jogadoresRestantes[0],
     iaChar: iasRestantes[0],
-    grupoAgi: grupo.agi,
     remainingQueue: queue,
   }
 }
 
-export function handleJokenpoResultCruzado(winnerName, crossTieState, crossTieResults) {
-  const { playerChar, iaChar, remainingQueue } = crossTieState
+export function processarResultadoJokenpo(playerChar, iaChar, winnerName) {
   const winner = winnerName === playerChar.nome ? playerChar : iaChar
   const loser = winner.id === playerChar.id ? iaChar : playerChar
-  const newResults = [...crossTieResults, { winner, loser }]
-  return { winner, loser, newResults }
+  return { winner, loser }
 }
 
-export function aplicarOrdemCruzada(ordemBase, crossTieResults) {
-  const results = crossTieResults
+export function aplicarResultadosCruzados(ordemBase, crossTieResults) {
   const novaOrdem = [...ordemBase]
 
-  for (const grupo of [...new Set(results.map(r => r.winner.agi))]) {
+  for (const grupo of [...new Set(crossTieResults.map(r => r.winner.agi))]) {
     const blocoIdx = []
     novaOrdem.forEach((c, i) => {
-      if (c.agi === grupo && results.some(r => r.winner.id === c.id || r.loser.id === c.id)) blocoIdx.push(i)
+      if (c.agi === grupo && crossTieResults.some(r => r.winner.id === c.id || r.loser.id === c.id)) blocoIdx.push(i)
     })
     if (blocoIdx.length === 0) continue
 
-    const winners = results.filter(r => r.winner.agi === grupo).map(r => r.winner)
-    const losers = results.filter(r => r.loser.agi === grupo).map(r => r.loser)
+    const winners = crossTieResults.filter(r => r.winner.agi === grupo).map(r => r.winner)
+    const losers = crossTieResults.filter(r => r.loser.agi === grupo).map(r => r.loser)
     const bloco = blocoIdx.map(i => novaOrdem[i])
 
     const winnerOrdem = winners.filter(w => bloco.some(b => b.id === w.id))
@@ -115,6 +117,7 @@ export function aplicarOrdemCruzada(ordemBase, crossTieResults) {
       if (winnerOrdem[i]) blocoOrdenado.push(winnerOrdem[i])
       if (loserOrdem[i]) blocoOrdenado.push(loserOrdem[i])
     }
+
     blocoIdx.forEach((pos, i) => {
       if (blocoOrdenado[i]) novaOrdem[pos] = blocoOrdenado[i]
     })
