@@ -87,7 +87,12 @@ export function drawBoard({
         const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
         const angle = angleRef.current
         const isPlayer = ch.time === 'jogador'
-        const color = isPlayer ? '#00ff88' : '#ff2244'
+
+        const jogadores = characters.filter(c => c.time === 'jogador')
+        const playerIndex = jogadores.findIndex(j => j.id === ch.id)
+        const playerColors = ['#00ff88', '#4488ff', '#ffcc00', '#ff8800']
+        const iaColor = '#ff2244'
+        const color = isPlayer ? playerColors[playerIndex % playerColors.length] : iaColor
         const bgColor = isPlayer ? '#001a0d' : '#1a0008'
 
         ctx.save()
@@ -118,7 +123,7 @@ export function drawBoard({
           ctx.beginPath()
           ctx.arc(center.x, center.y, sz * 0.85, 0, Math.PI * 2)
           ctx.globalAlpha = 0.3 + 0.2 * Math.sin(Date.now() / 300)
-          ctx.strokeStyle = isPlayer ? '#00eeff' : '#ff2244'
+          ctx.strokeStyle = isPlayer ? (playerIndex === 0 ? '#00eeff' : playerIndex === 1 ? '#88aaff' : '#ffcc88') : '#ff2244'
           ctx.lineWidth = 1; ctx.stroke()
           ctx.globalAlpha = 1
         }

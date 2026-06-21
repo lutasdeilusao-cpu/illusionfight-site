@@ -9,6 +9,7 @@ export const PODERES_BASE = [
     visualId: null,
     tipoExecucao: 'instantaneo',
     turnosCarregamento: 0,
+    tipoPersonagem: 'forca',
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const PODERES_BASE = [
     visualId: null,
     tipoExecucao: 'instantaneo',
     turnosCarregamento: 0,
+    tipoPersonagem: 'pdf',
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ export const PODERES_BASE = [
     visualId: null,
     tipoExecucao: 'instantaneo',
     turnosCarregamento: 0,
+    tipoPersonagem: 'universal',
   },
 ]
 

@@ -216,7 +216,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       setPhase('enemy_turn')
-      anunciar(t('prototype.arena_testbed.announce_ia_turn'), 1500, 'ia')
+      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: proxChar.nome }), 1500, 'ia')
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
       setPhase(null)
@@ -1248,7 +1248,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
       )
       setCharacters(charsRef.current)
       tc.marcarMorto(alvo.id)
-      addLog(`💀 ${alvo.nome} foi derrotado!`)
+        addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
         if (verificarVitoria()) return
         setTurnoAcoes(prev => ({ ...prev, atacou: true }))
@@ -1257,7 +1257,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: currentChar?.nome || '' }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -1271,7 +1271,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn'))
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: currentChar?.nome || '' }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -1754,13 +1754,18 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
           const hpPct = (ch.hp / ch.hpMax) * 100
           const antigoPct = (hpAntigo / ch.hpMax) * 100
           const perdeuHP = hpAntigo > ch.hp
+          const isPlayer = ch.time === 'jogador'
+          const jogadores = characters.filter(c => c.time === 'jogador')
+          const playerIndex = jogadores.findIndex(j => j.id === ch.id)
+          const playerColors = ['#00ff88', '#4488ff', '#ffcc00', '#ff8800']
+          const dotColor = isPlayer ? playerColors[playerIndex % playerColors.length] : '#ff2244'
           return (
             <div
               key={ch.id}
               className={`atb-hud-chip ${isActive ? 'atb-hud-chip--active' : ''}`}
               onClick={() => setCharModal(ch)}
             >
-              <div className={`atb-hud-dot ${ch.time}`} />
+              <div className="atb-hud-dot" style={{ '--dot-color': dotColor }} />
               <div className="atb-hud-info">
                 <div className="atb-hud-name">{ch.nome}</div>
                 <div className="atb-hud-bars">

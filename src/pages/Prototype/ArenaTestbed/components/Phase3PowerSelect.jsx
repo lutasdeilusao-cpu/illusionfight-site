@@ -49,7 +49,10 @@ export default function Phase3PowerSelect({ characters, onConfirm, onBack }) {
                 </span>
               </div>
               <div className="tab-power-grid">
-                {PODERES_BASE.map(poder => {
+                {PODERES_BASE.filter(poder => {
+                  const tipoChar = ch.tipoAtaque === 'melee' ? 'forca' : 'pdf'
+                  return poder.tipoPersonagem === 'universal' || poder.tipoPersonagem === tipoChar
+                }).map(poder => {
                   const selected = escolhidos.includes(poder.id)
                   const atLimit = escolhidos.length >= limite && !selected
                   return (

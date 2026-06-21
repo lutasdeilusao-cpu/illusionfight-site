@@ -320,6 +320,7 @@
 
 .atb-hud-dot.jogador { background: #00ff88; }
 .atb-hud-dot.ia { background: var(--ldi-red); }
+.atb-hud-dot { background: var(--dot-color, #00ff88); }
 
 .atb-hud-info {
   flex: 1;
