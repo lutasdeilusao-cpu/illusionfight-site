@@ -210,13 +210,23 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
     }, 0)
   }, [])
 
+  function getDisplayName(ch) {
+    if (ch?.nome) return ch.nome
+    const jogadores = characters.filter(c => c.time === 'jogador')
+    const idx = jogadores.findIndex(j => j.id === ch?.id)
+    if (ch?.time === 'jogador') return `Jogador ${idx + 1}`
+    const ias = characters.filter(c => c.time === 'ia')
+    const iaIdx = ias.findIndex(i => i.id === ch?.id)
+    return `IA ${iaIdx + 1}`
+  }
+
   function configurarTurnoPara(charId) {
     setTurnVersion(v => v + 1)
     const proxChar = characters.find(c => c.id === charId)
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       setPhase('enemy_turn')
-      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: proxChar.nome }), 1500, 'ia')
+      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: getDisplayName(proxChar) }), 1500, 'ia')
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
       setPhase(null)
@@ -503,8 +513,17 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
         if (ch) {
           const flashOn = damageFlash[ch.id] !== undefined && damageFlash[ch.id] % 2 === 0
+          const isPlayer = ch.time === 'jogador'
+          const jogadores = characters.filter(c => c.time === 'jogador')
+          const playerIndex = jogadores.findIndex(j => j.id === ch.id)
+          const playerColors = ['#00ff88', '#4488ff', '#ffcc00', '#ff8800']
+          const corToken = isPlayer ? playerColors[playerIndex % playerColors.length] : '#ff2244'
+          const corBgToken = isPlayer ? '#001a0d' : '#1a0008'
+          const corSpokes = isPlayer
+            ? `rgba(${playerIndex === 0 ? '0,255,136' : playerIndex === 1 ? '68,136,255' : '255,204,0'},0.6)`
+            : 'rgba(255,34,68,0.6)'
 
-          if (ch.time === 'jogador') {
+          if (isPlayer) {
             const angle = angleRef.current
             ctx.save()
             ctx.translate(center.x, center.y)
@@ -513,7 +532,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
               ctx.beginPath()
               ctx.moveTo(sz * 0.62, 0)
               ctx.lineTo(sz * 0.72, 0)
-              ctx.strokeStyle = 'rgba(0,255,136,0.6)'
+              ctx.strokeStyle = corSpokes
               ctx.lineWidth = 2
               ctx.stroke()
               ctx.rotate(Math.PI / 3)
@@ -522,17 +541,17 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
 
             ctx.beginPath()
             ctx.arc(center.x, center.y, sz * 0.48, 0, Math.PI * 2)
-            ctx.fillStyle = '#001a0d'
+            ctx.fillStyle = corBgToken
             ctx.fill()
-            ctx.strokeStyle = '#00ff88'
+            ctx.strokeStyle = corToken
             ctx.lineWidth = 2
             ctx.stroke()
 
-            ctx.fillStyle = '#00ff88'
+            ctx.fillStyle = corToken
             ctx.font = `700 ${sz * 0.35}px Orbitron, sans-serif`
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
-            ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y)
+            ctx.fillText(ch.nome ? ch.nome.charAt(0).toUpperCase() : (getDisplayName(ch).charAt(0)), center.x, center.y)
           } else {
             const angle = angleRef.current
             ctx.save()
@@ -561,7 +580,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
             ctx.font = `700 ${sz * 0.35}px Orbitron, sans-serif`
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
-            ctx.fillText(ch.nome.charAt(0).toUpperCase(), center.x, center.y)
+            ctx.fillText(ch.nome ? ch.nome.charAt(0).toUpperCase() : '?', center.x, center.y)
           }
 
           const isActive = ch.id === currentChar?.id
@@ -569,7 +588,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
             ctx.beginPath()
             ctx.arc(center.x, center.y, sz * 0.85, 0, Math.PI * 2)
             ctx.globalAlpha = 0.3 + 0.2 * Math.sin(Date.now() / 300)
-            ctx.strokeStyle = ch.time === 'jogador' ? '#00eeff' : '#ff2244'
+            ctx.strokeStyle = isPlayer ? (playerIndex === 0 ? '#00eeff' : playerIndex === 1 ? '#88aaff' : '#ffcc88') : '#ff2244'
             ctx.lineWidth = 1
             ctx.stroke()
             ctx.globalAlpha = 1
@@ -1257,7 +1276,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: currentChar?.nome || '' }))
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: getDisplayName(currentChar) }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
@@ -1271,7 +1290,7 @@ export default function Phase4Combat({ boardState, poderesEscolhidos = {}, onBac
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: currentChar?.nome || '' }))
+        anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: getDisplayName(currentChar) }))
         setTimeout(() => {
           inputLockedRef.current = false
           setInputLocked(false)
