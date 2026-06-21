@@ -11,40 +11,52 @@ import Phase6Combat from './components/Phase6Combat'
 import { salvarFicha } from './data/fichaStorage'
 import './ArenaTestbed.css'
 
+export const FaseArena = Object.freeze({
+  INICIO: 0,
+  FICHA: 1,
+  PERSONALIZACAO: 2,
+  MODO: 3,
+  TABULEIRO: 4,
+  PODERES: 5,
+  COMBATE: 6,
+})
+
+const ORDEM_FASES = Object.values(FaseArena)
+
 export default function ArenaTestbed() {
   const { t } = useLanguage()
-  const [phase, setPhase] = useState(0)
+  const [phase, setPhase] = useState(FaseArena.INICIO)
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
 
   function handleNewGame() {
-    setPhase(1)
+    setPhase(FaseArena.FICHA)
   }
 
   function handleLoadGame(ficha) {
     setCharacters(ficha.personagens || [])
-    setPhase(2)
+    setPhase(FaseArena.PERSONALIZACAO)
   }
 
   function handlePhase1Confirm(chars) {
     setCharacters(chars)
-    setPhase(2)
+    setPhase(FaseArena.PERSONALIZACAO)
   }
 
   function handlePhase2Confirm(chars) {
     setCharacters(chars)
     salvarFicha({ personagens: chars })
-    setPhase(3)
+    setPhase(FaseArena.MODO)
   }
 
   function handleSelectTraining() {
-    setPhase(4)
+    setPhase(FaseArena.TABULEIRO)
   }
 
   function handlePhase4Confirm(board) {
     setBoardState({ ...board })
-    setPhase(5)
+    setPhase(FaseArena.PODERES)
   }
 
   function handlePowerConfirm(poderes) {
@@ -57,50 +69,75 @@ export default function ArenaTestbed() {
       }
     })
     setPoderesEscolhidos(poderesComIA)
-    setPhase(6)
+    setPhase(FaseArena.COMBATE)
   }
 
-  function handleBackToPhase0() {
-    setPhase(0)
+  function handleBackToInicio() {
+    setPhase(FaseArena.INICIO)
     setCharacters([])
     setBoardState(null)
     setPoderesEscolhidos({})
   }
 
-  function handleBackToPhase1() {
-    setPhase(1)
+  function handleBackToFicha() {
+    setPhase(FaseArena.FICHA)
   }
 
-  function handleBackToPhase2() {
-    setPhase(2)
+  function handleBackToPersonalizacao() {
+    setPhase(FaseArena.PERSONALIZACAO)
   }
 
-  function handleBackToPhase3() {
-    setPhase(3)
+  function handleBackToModo() {
+    setPhase(FaseArena.MODO)
   }
 
-  function handleBackToPhase4() {
-    setPhase(4)
+  function handleBackToTabuleiro() {
+    setPhase(FaseArena.TABULEIRO)
   }
 
-  function handleBackToPhase5() {
-    setPhase(5)
+  function handleBackToPoderes() {
+    setPhase(FaseArena.PODERES)
   }
 
-  const stepLabels = useMemo(() => [
-    t('prototype.arena_testbed.phase0_short'),
-    t('prototype.arena_testbed.phase1_short'),
-    t('prototype.arena_testbed.phase2_short'),
-    t('prototype.arena_testbed.phase3_short'),
-    t('prototype.arena_testbed.phase4_short'),
-    t('prototype.arena_testbed.phase5_short'),
-    t('prototype.arena_testbed.phase6_short'),
-  ], [t])
+  const FASES_CONFIG = {
+    [FaseArena.INICIO]: {
+      Componente: Phase0Start,
+      props: () => ({ onNewGame: handleNewGame, onLoadGame: handleLoadGame }),
+    },
+    [FaseArena.FICHA]: {
+      Componente: Phase1SheetBuilder,
+      props: () => ({ onConfirm: handlePhase1Confirm }),
+    },
+    [FaseArena.PERSONALIZACAO]: {
+      Componente: Phase2Customize,
+      props: () => ({ personagens: characters, onConfirm: handlePhase2Confirm, onBack: handleBackToInicio }),
+    },
+    [FaseArena.MODO]: {
+      Componente: Phase3ModeSelect,
+      props: () => ({ onSelectTraining: handleSelectTraining, onBack: handleBackToPersonalizacao }),
+    },
+    [FaseArena.TABULEIRO]: {
+      Componente: Phase4BoardSetup,
+      props: () => ({ characters, onConfirm: handlePhase4Confirm, onBack: handleBackToModo }),
+    },
+    [FaseArena.PODERES]: {
+      Componente: Phase5PowerSelect,
+      props: () => ({ characters, onConfirm: handlePowerConfirm, onBack: handleBackToTabuleiro }),
+    },
+    [FaseArena.COMBATE]: {
+      Componente: Phase6Combat,
+      props: () => ({ boardState, poderesEscolhidos, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
+      condicaoExtra: () => !!boardState,
+    },
+  }
+
+  const config = FASES_CONFIG[phase]
+  const podeRenderizar = config && (!config.condicaoExtra || config.condicaoExtra())
 
   return (
     <div className="tab-arena-testbed">
       <div className="tab-step-indicator">
-        {[0, 1, 2, 3, 4, 5, 6].map(step => (
+        {ORDEM_FASES.map(step => (
           <div
             key={step}
             className={`tab-step-item ${phase === step ? 'active' : ''} ${phase > step ? 'done' : ''}`}
@@ -108,57 +145,13 @@ export default function ArenaTestbed() {
             <div className="tab-step-circle">
               {phase > step ? '✓' : step + 1}
             </div>
-            <span className="tab-step-label">{stepLabels[step]}</span>
           </div>
         ))}
       </div>
 
       <div className="tab-phase-content">
-        {phase === 0 && (
-          <Phase0Start
-            onNewGame={handleNewGame}
-            onLoadGame={handleLoadGame}
-          />
-        )}
-        {phase === 1 && (
-          <Phase1SheetBuilder
-            onConfirm={handlePhase1Confirm}
-          />
-        )}
-        {phase === 2 && (
-          <Phase2Customize
-            personagens={characters}
-            onConfirm={handlePhase2Confirm}
-            onBack={handleBackToPhase0}
-          />
-        )}
-        {phase === 3 && (
-          <Phase3ModeSelect
-            onSelectTraining={handleSelectTraining}
-            onBack={handleBackToPhase2}
-          />
-        )}
-        {phase === 4 && (
-          <Phase4BoardSetup
-            characters={characters}
-            onConfirm={handlePhase4Confirm}
-            onBack={handleBackToPhase3}
-          />
-        )}
-        {phase === 5 && (
-          <Phase5PowerSelect
-            characters={characters}
-            onConfirm={handlePowerConfirm}
-            onBack={handleBackToPhase4}
-          />
-        )}
-        {phase === 6 && boardState && (
-          <Phase6Combat
-            boardState={boardState}
-            poderesEscolhidos={poderesEscolhidos}
-            onBackToPhase1={handleBackToPhase0}
-            onBackToPhase5={handleBackToPhase5}
-          />
+        {podeRenderizar && (
+          <config.Componente {...config.props()} />
         )}
       </div>
     </div>
