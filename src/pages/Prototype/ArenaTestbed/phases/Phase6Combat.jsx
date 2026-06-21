@@ -1062,7 +1062,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     iaThinkingRef.current = true
     inputLockedRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
-    setAnimTimer(() => {
+    setAnimTimer(estagioPensar, 1500)
+
+    function estagioPensar() {
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
@@ -1080,7 +1082,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       )
       setHighlightedCells(moveCells)
       const dec = decidirAcaoComPersonalidade(iaAtual, inimigos, charsAgora, obstaculos, cols, rows, itensChaoAtual, 'movimento')
-      setAnimTimer(() => {
+      setAnimTimer(estagioMover, 1800)
+
+      function estagioMover() {
         setHighlightedCells([])
         if (dec.tipo === 'andar') {
           const destino = { row: dec.detalhes.row, col: dec.detalhes.col }
@@ -1101,7 +1105,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             if (stepIdx >= steps.length) {
               setAttackCells([])
               dec.logs.forEach(l => addLog(`  ${l}`))
-              setAnimTimer(acaoIA, 300)
+              setAnimTimer(estagioAgir, 300)
               return
             }
             const passo = steps[stepIdx]
@@ -1115,12 +1119,12 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           setAnimTimer(avancarPassoIA, 400)
         } else {
           addLog(`  ${iaChar.nome} não se moveu.`)
-          setAnimTimer(acaoIA, 1000)
+          setAnimTimer(estagioAgir, 1000)
         }
-      }, 1800)
-    }, 1500)
+      }
+    }
 
-    function acaoIA() {
+    function estagioAgir() {
       const charsAgora2 = charsRef.current
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
       if (!iaAtual2 || !iaAtual2.vivo) {
@@ -1184,7 +1188,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             setAnimTimer(() => finalizarTurnoIA(), 800)
           }
         }
-        // Check if target player has defense power
         const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         function mostrarBannerAtaqueIA() {
           const bannerText = `${atacante.nome} ${t('prototype.arena_testbed.ia_attack_banner')}`
