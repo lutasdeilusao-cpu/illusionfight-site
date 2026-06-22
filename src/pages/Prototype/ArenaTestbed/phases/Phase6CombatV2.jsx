@@ -478,7 +478,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
             const antigoPct = (hpAntigo / ch.hpMax) * 100
             const perdeuHP = hpAntigo > ch.hp
             const isPlayer = ch.time === 'jogador'
-            const dotColor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
+            const dotColor = ch.aparencia?.cor || (isPlayer ? 'var(--color-team-jogador)' : 'var(--color-team-ia)')
             return (
               <div key={ch.id} className={`atb-hud-chip ${isActive ? 'atb-hud-chip--active' : ''}`}
                 onClick={() => setCharModal(ch)}>
