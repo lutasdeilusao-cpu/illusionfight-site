@@ -222,6 +222,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const animatingRef = useRef(false)
   const announceTimerRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
+  const executarAtaqueRef = useRef(null)
+  const moverPersonagemRef = useRef(null)
+  const winnerRef = useRef(null)
   const tileImgRef = useRef(null)
   const [tileLoaded, setTileLoaded] = useState(false)
 
