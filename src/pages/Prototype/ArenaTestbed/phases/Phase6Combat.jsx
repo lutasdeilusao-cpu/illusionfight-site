@@ -145,7 +145,16 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       avancarProjetil()
     },
-    onVitoria: () => {},
+    onVitoria: (vencedor) => {
+      setPhase('resultado')
+      anunciar(
+        vencedor === 'jogador'
+          ? t('prototype.arena_testbed.announce_victory')
+          : t('prototype.arena_testbed.announce_defeat'),
+        3000,
+        vencedor === 'jogador' ? 'vitoria' : 'ia'
+      )
+    },
     onTurnoJogador: (proxChar) => {
       const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
       anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
@@ -161,38 +170,31 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   })
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
-  const { characters, currentCharId } = combat
+  const {
+    characters, currentCharId, turnoAcoes, winner, iaThinking, itensChaoAtual,
+  } = combat
+  const {
+    subPhase, subPhaseStep, highlightedCells, attackCells, rangeCells,
+    actionPanel, powerAttackMode, powerChoiceModal, defensePending,
+  } = ui
+  const {
+    orderingPhase, jokenpoNeeded, currentCrossTie, playerTeamOrder, crossTieQueue,
+  } = ordering
+  const {
+    pendingMove, destinoEscolhido, caminhoEscolhido,
+  } = move
   const [turnVersion, setTurnVersion] = useState(0)
   const [phase, setPhase] = useState('prepare')
-  const [subPhase, setSubPhase] = useState(null)
-  const [highlightedCells, setHighlightedCells] = useState([])
-  const [attackCells, setAttackCells] = useState([])
-  const [rangeCells, setRangeCells] = useState([])
-  const [subPhaseStep, setSubPhaseStep] = useState(null)
   const [projectilePath, setProjectilePath] = useState([])
   const [battleLog, setBattleLog] = useState([])
-  const [winner, setWinner] = useState(null)
-  const [jokenpoNeeded, setJokenpoNeeded] = useState(null)
-  const [orderingPhase, setOrderingPhase] = useState(null)
-  const [playerTeamOrder, setPlayerTeamOrder] = useState([])
-  const [crossTieQueue, setCrossTieQueue] = useState([])
-  const [currentCrossTie, setCurrentCrossTie] = useState(null)
   const [animating, setAnimating] = useState(false)
   const [d6Result, setD6Result] = useState(null)
-  const [itensChaoAtual, setItensChaoAtual] = useState(itensChao || {})
-  const [iaThinking, setIaThinking] = useState(false)
-  const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
-  const [actionPanel, setActionPanel] = useState(false)
   const [turnAnnouncement, setTurnAnnouncement] = useState(null)
   const [announcementClass, setAnnouncementClass] = useState('')
 
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
-  const [pendingMove, setPendingMove] = useState(null)
   const drawerListRef = useRef(null)
-
-  const [destinoEscolhido, setDestinoEscolhido] = useState(null)
-  const [caminhoEscolhido, setCaminhoEscolhido] = useState([])
 
   useEffect(() => {
     if (logDrawerOpen && drawerListRef.current) {
@@ -207,9 +209,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const [balloons, setBalloons] = useState([])
   const [shaking, setShaking] = useState(false)
   const [flashDmg, setFlashDmg] = useState(false)
-  const [defensePending, setDefensePending] = useState(null)
-  const [powerAttackMode, setPowerAttackMode] = useState(false)
-  const [powerChoiceModal, setPowerChoiceModal] = useState(null)
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
@@ -260,28 +259,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }, [tileUrl])
 
   useEffect(() => {
-    const { ordemParcial, empatesInternosJogador, empatesCruzados } = calcularGruposEOrdem(characters)
-    sortedGlobalRef.current = ordemParcial
-
-    setTimeout(() => {
-      const timeJogador = ordemParcial.filter(c => c.time === 'jogador')
-      setPlayerTeamOrder(timeJogador)
-
-      if (empatesInternosJogador.length > 0) {
-        setOrderingPhase('player_internal')
-        setCrossTieQueue(empatesCruzados)
-      } else if (empatesCruzados.length > 0) {
-        setOrderingPhase('jokenpo_cross')
-        setCrossTieQueue(empatesCruzados)
-        crossTieQueueRef.current = empatesCruzados
-        sortedGlobalRef.current = ordemParcial
-        iniciarProximoJokenpoCruzado(empatesCruzados, ordemParcial)
-      } else {
-        const order = ordemParcial.map(c => c.id)
-        tc.inicializar(order)
-        configurarTurnoPara(tc.quemEstaNaVez())
-      }
-    }, 0)
+    engine.actions.iniciarPartida()
   }, [])
 
   function getDisplayName(ch) {
@@ -292,105 +270,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const ias = characters.filter(c => c.time === 'ia')
     const iaIdx = ias.findIndex(i => i.id === ch?.id)
     return `IA ${iaIdx + 1}`
-  }
-
-  function configurarTurnoPara(charId) {
-    setTurnVersion(v => v + 1)
-    const proxChar = characters.find(c => c.id === charId)
-    if (!proxChar) return
-    if (proxChar.time === 'ia') {
-      setPhase('enemy_turn')
-      const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
-      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: nomeAnuncio }), 1500, 'ia')
-      setAnimTimer(() => executarIA(proxChar), 1000)
-    } else {
-      setPhase(null)
-      setTurnoAcoes({ moveu: false, atacou: false })
-      setSubPhase('free')
-      setHighlightedCells([])
-      setAttackCells([])
-      setRangeCells([])
-      lockInput()
-      setAnimTimer(() => {
-        const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
-      anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
-        setTimeout(() => {
-          unlockInput(0)
-          if (!tutorialMostradoRef.current) {
-            tutorialMostradoRef.current = true
-            anunciar(t('prototype.arena_testbed.free_hint'), 2500)
-          }
-        }, 1500)
-      }, 500)
-    }
-  }
-
-  function avancarEAcionar() {
-    const nextId = tc.avancarTurno()
-    if (nextId) configurarTurnoPara(nextId)
-  }
-
-  function handleJokenpoResult(winnerName) {
-    if (orderingPhase === 'jokenpo_cross') {
-      handleJokenpoResultCruzado(winnerName)
-    }
-  }
-
-  function confirmarOrdemInterna() {
-    const base = sortedGlobalRef.current
-    const novaOrdem = aplicarOrdemInterna(base, playerTeamOrder)
-    sortedGlobalRef.current = novaOrdem
-
-    if (crossTieQueue.length > 0) {
-      setOrderingPhase('jokenpo_cross')
-      iniciarProximoJokenpoCruzado(crossTieQueue, novaOrdem)
-    } else {
-      setOrderingPhase(null)
-      const order = novaOrdem.map(c => c.id)
-      tc.inicializar(order)
-      configurarTurnoPara(tc.quemEstaNaVez())
-    }
-  }
-
-  function iniciarProximoJokenpoCruzado(queue, ordemAtual) {
-    const encontrado = encontrarProximoJokenpo(queue, crossTieResultsRef.current)
-    if (!encontrado) {
-      aplicarOrdemCruzada(ordemAtual)
-      return
-    }
-    if (encontrado.salto) {
-      crossTieQueueRef.current = queue.slice(1)
-      iniciarProximoJokenpoCruzado(encontrado.remainingQueue, ordemAtual)
-      return
-    }
-
-    setCurrentCrossTie({
-      playerChar: encontrado.playerChar,
-      iaChar: encontrado.iaChar,
-      grupoAgi: encontrado.grupo.agi,
-      remainingQueue: encontrado.remainingQueue,
-    })
-    setJokenpoNeeded([encontrado.playerChar, encontrado.iaChar])
-  }
-
-  function handleJokenpoResultCruzado(winnerName) {
-    const { playerChar, iaChar, remainingQueue } = currentCrossTie
-    const { winner, loser } = processarResultadoJokenpo(playerChar, iaChar, winnerName)
-
-    crossTieResultsRef.current.push({ winner, loser })
-    setJokenpoNeeded(null)
-    setCurrentCrossTie(null)
-
-    iniciarProximoJokenpoCruzado(remainingQueue, sortedGlobalRef.current)
-  }
-
-  function aplicarOrdemCruzada(ordemBase) {
-    const novaOrdem = aplicarResultadosCruzados(ordemBase, crossTieResultsRef.current)
-    sortedGlobalRef.current = novaOrdem
-    setOrderingPhase(null)
-    const order = novaOrdem.map(c => c.id)
-    tc.inicializar(order)
-    configurarTurnoPara(tc.quemEstaNaVez())
   }
 
   function enterSubPhase(sub, char) {
@@ -424,10 +303,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   const currentChar = useMemo(() => {
-    const id = tc.quemEstaNaVez()
-    if (!id) return null
-    return characters.find(c => c.id === id)
-  }, [characters, turnVersion])
+    if (!engine.combat.currentCharId) return null
+    return engine.combat.characters.find(c => c.id === engine.combat.currentCharId)
+  }, [engine.combat.characters, engine.combat.currentCharId])
 
   const isPlayerTurn = currentChar?.time === 'jogador'
 
@@ -1448,7 +1326,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
                         onClick={() => {
                           const novo = [...playerTeamOrder]
                           ;[novo[idx - 1], novo[idx]] = [novo[idx], novo[idx - 1]]
-                          setPlayerTeamOrder(novo)
+                          set.setPlayerTeamOrder(novo)
                         }}
                       >▲</button>
                       <button
@@ -1457,7 +1335,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
                         onClick={() => {
                           const novo = [...playerTeamOrder]
                           ;[novo[idx], novo[idx + 1]] = [novo[idx + 1], novo[idx]]
-                          setPlayerTeamOrder(novo)
+                          set.setPlayerTeamOrder(novo)
                         }}
                       >▼</button>
                     </div>
@@ -1465,7 +1343,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
                 )
               })}
             </div>
-            <button className="atb-ordering-confirm" onClick={confirmarOrdemInterna}>
+            <button className="atb-ordering-confirm" onClick={() => actions.confirmarOrdemInterna(playerTeamOrder)}>
               ✓ CONFIRMAR ORDEM
             </button>
           </div>
@@ -1477,7 +1355,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         <JokenpoModal
           player1Name={jokenpoNeeded[0]?.nome || '?'}
           player2Name={jokenpoNeeded[1]?.nome || '?'}
-          onResult={handleJokenpoResult}
+          onResult={actions.handleJokenpoResult}
         />
       )}
 

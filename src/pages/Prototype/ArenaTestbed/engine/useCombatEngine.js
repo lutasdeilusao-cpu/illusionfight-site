@@ -642,6 +642,8 @@ export default function useCombatEngine({
       setActionPanel, setPowerAttackMode, setPowerChoiceModal,
       setPendingMove, setDestinoEscolhido, setCaminhoEscolhido,
       setIaThinking, setPhase,
+      setWinner, setOrderingPhase, setJokenpoNeeded, setCurrentCrossTie,
+      setPlayerTeamOrder, setCrossTieQueue, setItensChaoAtual, setDefensePending,
     },
     actions: {
       iniciarPartida, iniciarMovimento, moverPersonagem, confirmarMovimento,
