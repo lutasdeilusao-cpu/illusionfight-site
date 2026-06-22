@@ -22,6 +22,7 @@ export default function useCombatEngine({
   onLog, onDano, onBalao,
   onAnimarMelee, onAnimarProjetil,
   onVitoria, onTurnoJogador, onTurnoIA,
+  onLockInput, onUnlockInput,
   onAtualizarChars,
 }) {
   const [characters, setCharacters] = useState(() =>
@@ -60,7 +61,6 @@ export default function useCombatEngine({
   const charsRef = useRef(characters)
   const animatingRef = useRef(false)
   const iaThinkingRef = useRef(false)
-  const inputLockedRef = useRef(false)
   const winnerRef = useRef(null)
   const animTimersRef = useRef([])
   const sortedGlobalRef = useRef([])
@@ -77,6 +77,14 @@ export default function useCombatEngine({
   const isPlayerTurn = currentChar?.time === 'jogador'
 
   function addLog(text) { if (onLog) onLog(text) }
+
+  function syncCharacters(updater) {
+    const next = typeof updater === 'function' ? updater(charsRef.current) : updater
+    charsRef.current = next
+    setCharacters(next)
+  }
+
+  function getCharacters() { return charsRef.current }
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -211,6 +219,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        if (onUnlockInput) onUnlockInput(1500)
       }, 1200)
     } else {
       setAnimTimer(() => {
@@ -220,6 +229,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        if (onUnlockInput) onUnlockInput(1500)
       }, 800)
     }
   }
@@ -227,9 +237,18 @@ export default function useCombatEngine({
   function iniciarMovimento() {
     const ch = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!ch || animatingRef.current || turnoAcoes.moveu) return
+    if (!tc.podeAgir(currentCharIdRef.current, TipoAcao.MOVER)) return
     setActionPanel(false)
     const mov = getCasasMovimento(ch.agi, agiUmPraUm)
-    setHighlightedCells(getCelulasAlcance(ch.posicao.row, ch.posicao.col, mov, cols, rows, obstaculos))
+    const moveCells = getCelulasAlcance(ch.posicao.row, ch.posicao.col, mov, cols, rows, obstaculos)
+    const freeCells = moveCells.filter(c => {
+      const occupied = charsRef.current.some(c2 =>
+        c2.vivo && c2.id !== currentCharIdRef.current && c2.posicao?.row === c.row && c2.posicao?.col === c.col
+      )
+      const hasObstacle = obstaculos[`${c.row}_${c.col}`]?.tipo === 1
+      return !occupied && !hasObstacle
+    })
+    setHighlightedCells(freeCells)
     setSubPhase('movimento')
   }
 
@@ -244,6 +263,7 @@ export default function useCombatEngine({
     if (!caminho || caminho.length === 0) return
     const steps = caminho.slice(1)
     animatingRef.current = true
+    if (onLockInput) onLockInput()
     setHighlightedCells([])
     let stepIdx = 0
     function avancarPasso() {
@@ -279,9 +299,11 @@ export default function useCombatEngine({
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
+    tc.registrarAcao(currentCharIdRef.current, TipoAcao.MOVER)
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
+    if (onUnlockInput) onUnlockInput(0)
   }
 
   function confirmarMovimento() {
@@ -325,8 +347,10 @@ export default function useCombatEngine({
   function executarAtaque(target) {
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar || animatingRef.current) return
+    if (!tc.podeAgir(currentCharIdRef.current, TipoAcao.ATACAR)) return
     clearAnimTimers()
     animatingRef.current = true
+    if (onLockInput) onLockInput()
     setAttackCells([])
 
     let atacanteFinal = currentChar
@@ -387,6 +411,7 @@ export default function useCombatEngine({
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       if (onTurnoIA) onTurnoIA(proxChar)
+      if (onLockInput) onLockInput()
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
       setTurnoAcoes({ moveu: false, atacou: false })
@@ -394,6 +419,7 @@ export default function useCombatEngine({
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
+      if (onLockInput) onLockInput()
       if (onTurnoJogador) onTurnoJogador(proxChar)
     }
   }
@@ -588,13 +614,14 @@ export default function useCombatEngine({
     function finalizarTurnoIA() {
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
       iaThinkingRef.current = false; setIaThinking(false)
+      if (onUnlockInput) onUnlockInput(0)
       if (verificarVitoria()) return
       avancarEAcionar()
     }
   }
 
   return {
-    characters, turnoAcoes, currentCharId, isPlayerTurn,
+    characters, turnoAcoes, currentCharId, isPlayerTurn, syncCharacters, getCharacters,
     iniciarPartida, iniciarMovimento, moverPersonagem, confirmarMovimento,
     cancelarAcao, escolherTipoAtaque, confirmarEscolhaAtaque, executarAtaque,
     usarItem, pularAcao, finalizarTurno, executarIA,

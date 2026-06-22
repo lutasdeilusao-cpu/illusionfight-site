@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import useCombatEngine from '../engine/useCombatEngine'
+import useInputLock from '../engine/useInputLock'
 import { useLanguage } from '../../../../context/LanguageContext'
 import useHexCanvas from '../engine/useHexCanvas'
 import {
@@ -44,14 +46,29 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     canvasRef, cols, rows, minSz: 18, maxSz: 36,
   })
 
-  const [characters, setCharacters] = useState(() =>
-    boardChars.map(bc => ({
-      ...bc.charData,
-      posicao: { row: bc.row, col: bc.col },
-      vivo: true,
-      poderesEscolhidos: poderesEscolhidos[bc.charData?.id] || [],
-    }))
-  )
+  const engine = useCombatEngine({
+    boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm,
+    onLog: (text) => setBattleLog(prev => [...prev, { text, time: Date.now() }]),
+    onDano: () => {},
+    onBalao: () => {},
+    onAnimarMelee: () => {},
+    onAnimarProjetil: () => {},
+    onVitoria: () => {},
+    onTurnoJogador: (proxChar) => {
+      const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
+      anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
+      unlockInput(1500)
+    },
+    onTurnoIA: (proxChar) => {
+      const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
+      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome: nomeAnuncio }), 1500, 'ia')
+    },
+    onLockInput: lockInput,
+    onUnlockInput: unlockInput,
+    onAtualizarChars: () => {},
+  })
+
+  const { characters, currentCharId, syncCharacters } = engine
   const [turnVersion, setTurnVersion] = useState(0)
   const [phase, setPhase] = useState('prepare')
   const [subPhase, setSubPhase] = useState(null)
@@ -103,8 +120,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
-  const [inputLocked, setInputLocked] = useState(false)
-  const inputLockedRef = useRef(false)
+  const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
@@ -138,9 +154,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (announceTimerRef.current) clearTimeout(announceTimerRef.current)
     announceTimerRef.current = setTimeout(() => { setTurnAnnouncement(null); setAnnouncementClass('') }, duracao)
   }
-
-  const charsRef = useRef(characters)
-  useEffect(() => { charsRef.current = characters }, [characters])
 
   const [remainingMove, setRemainingMove] = useState(0)
 
@@ -205,13 +218,12 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
-      inputLockedRef.current = true
+      lockInput()
       setAnimTimer(() => {
         const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
       anunciar(t('prototype.arena_testbed.announce_player_turn', { nome: nomeAnuncio }))
         setTimeout(() => {
-          inputLockedRef.current = false
-          setInputLocked(false)
+          unlockInput(0)
           if (!tutorialMostradoRef.current) {
             tutorialMostradoRef.current = true
             anunciar(t('prototype.arena_testbed.free_hint'), 2500)
@@ -463,7 +475,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     )
 
     if (!caminho || caminho.length < 2) {
-      setCharacters(prev =>
+      syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
         )
@@ -476,8 +488,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     const steps = caminho.slice(1)
     animatingRef.current = true
-    inputLockedRef.current = true
-    setInputLocked(true)
+    lockInput()
     setAnimating(true)
     setHighlightedCells([])
 
@@ -492,7 +503,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       const passo = steps[stepIdx]
       trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-      setCharacters(prev =>
+      syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c
         )
@@ -514,7 +525,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = `${row}_${col}`
     if (itensChaoAtual[key]) {
       const item = itensChaoAtual[key]
-      setCharacters(prev =>
+      syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id
             ? {
@@ -535,8 +546,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
-    inputLockedRef.current = false
-    setInputLocked(false)
+    unlockInput(0)
   }
 
   function iniciarMovimento() {
@@ -666,14 +676,14 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     const poder = PODERES_BASE.find(p => p.id === 'investida')
     if (poder && currentChar.mp >= poder.custoMP) {
-      setCharacters(prev => prev.map(c =>
+      syncCharacters(prev => prev.map(c =>
         c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
       ))
     }
 
     clearAnimTimers()
     animatingRef.current = true
-    inputLockedRef.current = true
+    lockInput()
     setAnimating(true)
 
     const d6Atk = rolarD6()
@@ -688,7 +698,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       return
     }
 
-    const charsAtualizados = [...charsRef.current]
+    const charsAtualizados = [...characters]
     const attackerId = currentChar.id
 
     alvos.forEach((a, i) => {
@@ -706,8 +716,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       aplicarDano(a.char.id, dano, currentChar)
     })
 
-    charsRef.current = charsAtualizados
-    setCharacters(charsAtualizados)
+    syncCharacters(charsAtualizados)
 
     const ultimoAlvo = alvos[alvos.length - 1]
     addLog(`  ✅ ${ultimoAlvo.char.nome} foi o último alvo da Investida.`)
@@ -744,14 +753,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function aplicarDano(alvoId, dano, donoDoAtaque) {
     if (dano <= 0) return
-    const alvo = charsRef.current.find(c => c.id === alvoId)
+    const alvo = characters.find(c => c.id === alvoId)
     if (!alvo) return
     const novoHp = Math.max(0, alvo.hp - dano)
     setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
-    charsRef.current = charsRef.current.map(c =>
-      c.id === alvoId ? { ...c, hp: novoHp } : c
-    )
-    setCharacters(prev =>
+    syncCharacters(prev =>
       prev.map(c =>
         c.id === alvoId ? { ...c, hp: novoHp } : c
       )
@@ -780,13 +786,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const dirCol = destino.col - origem.col
     const meioRow = Math.round(origem.row + dirRow * 0.7)
     const meioCol = Math.round(origem.col + dirCol * 0.7)
-    setCharacters(prev =>
+    syncCharacters(prev =>
       prev.map(c =>
         c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
       )
     )
     setAnimTimer(() => {
-      setCharacters(prev =>
+      syncCharacters(prev =>
         prev.map(c =>
           c.id === atacante.id ? { ...c, posicao: origem } : c
         )
@@ -856,12 +862,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
         } else {
           setAnimTimer(() => {
-            const hpAtacante = charsRef.current.find(c => c.id === atacante.id)?.hp ?? 0
+            const hpAtacante = getCharacters().find(c => c.id === atacante.id)?.hp ?? 0
             if (hpAtacante <= 0) {
-              charsRef.current = charsRef.current.map(c =>
+              syncCharacters(prev => prev.map(c =>
                 c.id === atacante.id ? { ...c, vivo: false } : c
-              )
-              setCharacters(charsRef.current)
+              ))
               tc.marcarMorto(atacante.id)
               addLog(`💀 ${atacante.nome} foi derrotado pelo contra-ataque!`)
               setAnimating(false)
@@ -895,7 +900,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (!tc.podeAgir(currentChar.id, TipoAcao.ATACAR)) return
     clearAnimTimers()
     animatingRef.current = true
-    inputLockedRef.current = true
+    lockInput()
     setAnimating(true)
     setAttackCells([])
 
@@ -905,7 +910,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (powerAttackMode) {
       const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
         if (poder && currentChar.mp >= poder.custoMP) {
-          setCharacters(prev => prev.map(c =>
+          syncCharacters(prev => prev.map(c =>
             c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
           ))
           atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
@@ -955,16 +960,15 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     animatingRef.current = false
     setD6Result(null)
     clearAnimTimers()
-    inputLockedRef.current = true
+    lockInput()
 
     if (winnerRef.current) return
 
-    const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
+    const hpAtual = getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
     if (hpAtual <= 0) {
-      charsRef.current = charsRef.current.map(c =>
+      syncCharacters(prev => prev.map(c =>
         c.id === alvo.id ? { ...c, vivo: false } : c
-      )
-      setCharacters(charsRef.current)
+      ))
       tc.marcarMorto(alvo.id)
         addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
@@ -976,8 +980,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         setAttackCells([])
         setRangeCells([])
         setTimeout(() => {
-          inputLockedRef.current = false
-          setInputLocked(false)
+          unlockInput(0)
         }, 1500)
       }, 1200)
     } else {
@@ -989,8 +992,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         setAttackCells([])
         setRangeCells([])
         setTimeout(() => {
-          inputLockedRef.current = false
-          setInputLocked(false)
+          unlockInput(0)
         }, 1500)
       }, 800)
     }
@@ -1001,7 +1003,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
     const qty = currentChar.inventario?.[key] || 0
     if (qty <= 0) return
-    setCharacters(prev =>
+    syncCharacters(prev =>
       prev.map(c => {
         if (c.id !== currentChar.id) return c
         const newQty = (c.inventario?.[key] || 0) - 1
@@ -1019,7 +1021,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function verificarVitoria() {
-    const chars = charsRef.current
+    const chars = getCharacters()
     const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
     const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
     if (pVivos.length === 0) {
@@ -1052,7 +1054,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     setActionPanel(false)
     animatingRef.current = false
     setAnimating(false)
-    inputLockedRef.current = true
+    lockInput()
     if (verificarVitoria()) return
     setSubPhase(null)
     avancarEAcionar()
@@ -1069,14 +1071,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
   function executarIA(iaChar) {
     setIaThinking(true)
-    setInputLocked(true)
+    lockInput()
     iaThinkingRef.current = true
-    inputLockedRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(estagioPensar, 1500)
 
     function estagioPensar() {
-      const charsAgora = charsRef.current
+      const charsAgora = getCharacters()
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
         iaThinkingRef.current = false
@@ -1121,7 +1122,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             }
             const passo = steps[stepIdx]
             trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-            setCharacters(prev =>
+            syncCharacters(prev =>
               prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
             )
             stepIdx++
@@ -1136,7 +1137,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }
 
     function estagioAgir() {
-      const charsAgora2 = charsRef.current
+      const charsAgora2 = getCharacters()
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
       if (!iaAtual2 || !iaAtual2.vivo) {
         iaThinkingRef.current = false
@@ -1186,12 +1187,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             aplicarDano(alvo.id, danoFinal, atacante)
             addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
           }
-          const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
+          const hpAtual = getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
-            charsRef.current = charsRef.current.map(c =>
+            syncCharacters(prev => prev.map(c =>
               c.id === alvo.id ? { ...c, vivo: false } : c
-            )
-            setCharacters(charsRef.current)
+            ))
             tc.marcarMorto(alvo.id)
             addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => {
@@ -1202,7 +1202,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             setAnimTimer(() => finalizarTurnoIA(), 800)
           }
         }
-        const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
+        const podeDefesa = alvo.time === 'jogador' && getCharacters().find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         const mostrarBannerAtaqueIA_ = () => {
           mostrarBannerAtaqueIA(atacante.nome, t, setAttackBanner)
         }
@@ -1232,7 +1232,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                setCharacters(prev => prev.map(c =>
+                syncCharacters(prev => prev.map(c =>
                   c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
                 addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
@@ -1387,7 +1387,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
               const bonus = op.poderId ? 2 : 0
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                setCharacters(prev => prev.map(c =>
+                syncCharacters(prev => prev.map(c =>
                   c.id === defensePending.alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
                 addLog(`🛡️ ${defensePending.alvo.nome} usou Defesa+2! (-3 MP)`)
