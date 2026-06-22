@@ -63,6 +63,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
+      console.log('[INV-12] onAnimarMelee callback chamado', { atacanteId: atacante.id, onFinalizarDefinido: !!onFinalizar })
       const origem = atacante.posicao
       const destino = alvo.posicao
       const dirRow = destino.row - origem.row
@@ -78,22 +79,25 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           prev.map(c => c.id === atacante.id ? { ...c, posicao: origem } : c)
         )
         engine.utils.setAnimTimer(() => {
-          if (onFinalizar) onFinalizar()
+          if (onFinalizar) {
+            console.log('[INV-13] onAnimarMelee → chamando onFinalizar')
+            onFinalizar()
+          }
         }, 200)
       }, 300)
     },
 
     onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
-      const origem = atacante.posicao
+      console.log('[INV-14] onAnimarProjetil callback chamado', { atacanteId: atacante.id, onFinalizarDefinido: !!onFinalizar })
       const destino = alvo.posicao
       const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
-      if (steps.length === 0) { if (onFinalizar) onFinalizar(); return }
+      if (steps.length === 0) { console.log('[INV-15] onAnimarProjetil → chamando onFinalizar (steps vazio)'); if (onFinalizar) onFinalizar(); return }
       setProjectilePath(steps)
       let stepIdx = 0
       function avancar() {
         if (stepIdx >= steps.length) {
           setProjectilePos(null); setProjectilePath([])
-          if (onFinalizar) onFinalizar(); return
+          console.log('[INV-15] onAnimarProjetil → chamando onFinalizar (fim)'); if (onFinalizar) onFinalizar(); return
         }
         setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
         setProjectilePath(prev => prev.filter((_, i) => i > 0))

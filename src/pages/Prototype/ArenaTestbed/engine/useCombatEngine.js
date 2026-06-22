@@ -148,16 +148,19 @@ export default function useCombatEngine({
   }
 
   function animarAtaqueMelee(atacante, alvo, resultado, onFinalizar) {
+    console.log('[INV-03] animarAtaqueMelee chamado', { onAnimarMeleeDefinido: !!onAnimarMelee, onFinalizarDefinido: !!onFinalizar })
     if (onAnimarMelee) onAnimarMelee(atacante, alvo, resultado, onFinalizar)
     else if (onFinalizar) onFinalizar()
   }
 
   function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
+    console.log('[INV-04] animarAtaqueProjetil chamado', { onAnimarProjetilDefinido: !!onAnimarProjetil, onFinalizarDefinido: !!onFinalizar })
     if (onAnimarProjetil) onAnimarProjetil(atacante, alvo, resultado, onFinalizar)
     else if (onFinalizar) onFinalizar()
   }
 
   function aposAnimacaoAtaque(atacante, alvo, resultado) {
+    console.log('[INV-05] aposAnimacaoAtaque chamado', { atacanteId: atacante.id, alvoId: alvo.id, criticoDefensivo: resultado.criticoDefensivo, ataqueExtra: resultado.ataqueExtra, dano: resultado.dano })
     clearAnimTimers()
     if (resultado.criticoDefensivo) {
       addLog(`  🛡️ BLOQUEIO!`)
@@ -176,20 +179,29 @@ export default function useCombatEngine({
         }
         if (resultado.ataqueExtra) {
           console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: 0, criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
+          console.log('[INV-06] disparando handleAtaqueExtra', { danoTotal: 0, fa: resultado.fa })
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-        } else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+        } else {
+          console.log('[INV-07] disparando finalizarAposAtaque direto', { danoTotal: 0 })
+          setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+        }
       }, 500)
     } else {
       if (resultado.ataqueExtra) {
         console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: Math.max(1, resultado.dano || 1), criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
+        console.log('[INV-06] disparando handleAtaqueExtra', { danoTotal: Math.max(1, resultado.dano || 1), fa: resultado.fa })
         setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-      } else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+      } else {
+        console.log('[INV-07] disparando finalizarAposAtaque direto', { danoTotal: Math.max(1, resultado.dano || 1) })
+        setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+      }
     }
   }
 
   // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
   function handleAtaqueExtra(atacante, alvo, faBase) {
     console.log('[ATK-EXTRA] handleAtaqueExtra iniciado', { faBase, danoAcumulado: 0, alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current })
+    console.log('[INV-08] handleAtaqueExtra chamado', { faBase, danoAcumulado: 0, alvoId: alvo.id, winnerRef: winnerRef.current })
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
@@ -201,12 +213,14 @@ export default function useCombatEngine({
       addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
       adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
       console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: 0, isCriticoDefExtra, alvoId: alvo.id })
+      console.log('[INV-09] handleAtaqueExtra → finalizarAposAtaque', { danoAcumulado: 0, isCriticoDefExtra })
       finalizarAposAtaque(alvo, { dano: 0 })
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
       aplicarDano(alvo.id, danoExtra, atacante)
       console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: danoExtra, isCriticoDefExtra, alvoId: alvo.id })
+      console.log('[INV-09] handleAtaqueExtra → finalizarAposAtaque', { danoAcumulado: danoExtra, isCriticoDefExtra })
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
@@ -214,6 +228,7 @@ export default function useCombatEngine({
   // Bug 2 fix: finalizarAposAtaque volta para subPhase:'free' em vez de chamar onTurnoJogador
   function finalizarAposAtaque(alvo, resultado) {
     console.log('[ATK-EXTRA] finalizarAposAtaque iniciado', { alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current, hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado' })
+    console.log('[INV-10] finalizarAposAtaque chamado', { alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current, hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado' })
     animatingRef.current = false
     if (winnerRef.current) return
     const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
@@ -231,6 +246,7 @@ export default function useCombatEngine({
         setAttackCells([])
         setRangeCells([])
         console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
+        console.log('[INV-11] onUnlockInput sendo chamado', { definido: !!onUnlockInput })
         if (onUnlockInput) onUnlockInput(1500)
       }, 1200)
     } else {
@@ -242,6 +258,7 @@ export default function useCombatEngine({
         setAttackCells([])
         setRangeCells([])
         console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
+        console.log('[INV-11] onUnlockInput sendo chamado', { definido: !!onUnlockInput })
         if (onUnlockInput) onUnlockInput(1500)
       }, 800)
     }
@@ -358,6 +375,7 @@ export default function useCombatEngine({
   }
 
   function executarAtaque(target) {
+    console.log('[INV-01] executarAtaque chamado', { targetId: target.id, targetNome: target.nome })
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar || animatingRef.current) return
     if (!tc.podeAgir(currentCharIdRef.current, TipoAcao.ATACAR)) return
@@ -383,6 +401,7 @@ export default function useCombatEngine({
     const resultado = resolverAtaque(atacanteFinal, target, Math.ceil(dist))
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
+    console.log('[INV-02] chamando animação', { tipo: currentChar.tipoAtaque, onFinalizarDefinido: false })
     if (currentChar.tipoAtaque === 'melee') animarAtaqueMelee(currentChar, target, resultado)
     else animarAtaqueProjetil(currentChar, target, resultado)
   }
