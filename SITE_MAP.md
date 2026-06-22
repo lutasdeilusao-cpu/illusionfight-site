@@ -534,7 +534,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.158.10** | INVESTIGACAO.md com greps e trechos de código |
+| `SITE_VERSION` | **10.158.11** | Fix: executarAtaque passa onFinalizar para animação do jogador |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -546,7 +546,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **6.3.5** | INVESTIGACAO.md com greps e trechos de código |
+| `ARENATESTBED_VERSION` | **6.3.6** | Fix: executarAtaque passa onFinalizar para animação do jogador |
 
 ---
 

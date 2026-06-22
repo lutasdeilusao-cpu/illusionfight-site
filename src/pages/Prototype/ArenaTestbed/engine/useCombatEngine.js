@@ -402,8 +402,9 @@ export default function useCombatEngine({
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
     console.log('[INV-02] chamando animação', { tipo: currentChar.tipoAtaque, onFinalizarDefinido: false })
-    if (currentChar.tipoAtaque === 'melee') animarAtaqueMelee(currentChar, target, resultado)
-    else animarAtaqueProjetil(currentChar, target, resultado)
+    const cbFinalizar = () => aposAnimacaoAtaque(currentChar, target, resultado)
+    if (currentChar.tipoAtaque === 'melee') animarAtaqueMelee(currentChar, target, resultado, cbFinalizar)
+    else animarAtaqueProjetil(currentChar, target, resultado, cbFinalizar)
   }
 
   function usarItem(tipo) {
