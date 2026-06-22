@@ -63,10 +63,18 @@ export default function useUIController() {
     setTimeout(() => setDanoPopup(null), 800)
   }
 
+  function getSubPhaseLabel(subPhase, t) {
+    if (!subPhase) return ''
+    if (subPhase === 'free') return t('prototype.arena_testbed.free_turn_hint')
+    if (subPhase === 'movimento') return t('prototype.arena_testbed.subphase_move')
+    return t('prototype.arena_testbed.subphase_action')
+  }
+
   return {
     turnAnnouncement, announcementClass,
     attackBanner, balloons, damageFlash, shaking, flashDmg, danoPopup,
     anunciar, mostrarBannerAtaque, adicionarBalao,
     dispararFlash, dispararImpacto, mostrarDanoPopup,
+    getSubPhaseLabel,
   }
 }

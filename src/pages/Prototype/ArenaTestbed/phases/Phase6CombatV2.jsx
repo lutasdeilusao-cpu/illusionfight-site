@@ -2,12 +2,14 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import useCombatEngine from '../engine/useCombatEngine'
 import useInputLock from '../engine/useInputLock'
 import useUIController from '../engine/useUIController'
+import useCanvasLoop from '../engine/useCanvasLoop'
 import useHexCanvas from '../engine/useHexCanvas'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
 import { getHexLine, encontrarCaminho } from '../engine/hexUtils'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
+import CharModal from '../components/modals/CharModal'
 import './Phase6Combat.css'
 
 const SQRT3 = Math.sqrt(3)
@@ -18,7 +20,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const canvasContainerRef = useRef(null)
   const angleRef = useRef(0)
   const trailRef = useRef([])
-  const rafRef = useRef(null)
 
   const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
 
@@ -179,23 +180,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     }
   }, [tileUrl])
 
-  function getDisplayName(ch) {
-    if (ch?.nome) return ch.nome
-    const jogadores = characters.filter(c => c.time === 'jogador')
-    const idx = jogadores.findIndex(j => j.id === ch?.id)
-    if (ch?.time === 'jogador') return `Jogador ${idx + 1}`
-    const ias = characters.filter(c => c.time === 'ia')
-    const iaIdx = ias.findIndex(i => i.id === ch?.id)
-    return `IA ${iaIdx + 1}`
-  }
-
-  const subPhaseLabel = useMemo(() => {
-    if (!subPhase) return ''
-    if (subPhase === 'free') return t('prototype.arena_testbed.free_turn_hint')
-    if (subPhase === 'movimento') return t('prototype.arena_testbed.subphase_move')
-    return t('prototype.arena_testbed.subphase_action')
-  }, [subPhase, t])
-
   const draw = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -216,18 +200,16 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     })
   }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, uiCtrl.damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
 
-  useEffect(() => {
-    function loop() {
+  useCanvasLoop({
+    draw,
+    calcVersion,
+    onFrame: () => {
       angleRef.current = (angleRef.current || 0) + 0.018
       trailRef.current = trailRef.current
         .map(t => ({ ...t, alpha: t.alpha - 0.07 }))
         .filter(t => t.alpha > 0)
-      draw()
-      rafRef.current = requestAnimationFrame(loop)
-    }
-    rafRef.current = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(rafRef.current)
-  }, [draw, calcVersion])
+    },
+  })
 
   const handleCanvasClick = useCallback((e) => {
     const canvas = canvasRef.current
@@ -424,7 +406,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
                 ? `${t('prototype.arena_testbed.turn_of')} ${currentChar.nome}`
                 : t('prototype.arena_testbed.preparing_battle')}
               {isPlayerTurn && subPhase && (
-                <span className="atb-top-subphase"> · {subPhaseLabel}</span>
+                <span className="atb-top-subphase"> · {uiCtrl.getSubPhaseLabel(subPhase, t)}</span>
               )}
               {iaThinking && ` · ${t('prototype.arena_testbed.ia_thinking_short')}`}
             </span>
@@ -523,41 +505,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           </div>
         )}
         {charModal && (
-          <div className="atb-modal-overlay" onClick={() => setCharModal(null)}>
-            <div className="atb-modal" onClick={e => e.stopPropagation()}>
-              <div className="atb-modal-header">
-                <div className={`atb-modal-dot ${charModal.time}`} />
-                <span className="atb-modal-name">{charModal.nome}</span>
-                <button className="atb-modal-close" onClick={() => setCharModal(null)}>✕</button>
-              </div>
-              <div className="atb-modal-body">
-                <div className="atb-modal-stat">
-                  <span className="atb-modal-stat-label hp">{t('prototype.arena_testbed.label_hp')}</span>
-                  <div className="atb-modal-bar-track">
-                    <div className="atb-modal-bar-fill hp" style={{ '--pct': `${(charModal.hp / charModal.hpMax) * 100}%` }} />
-                  </div>
-                  <span className="atb-modal-stat-val">{Math.ceil(charModal.hp)}/{charModal.hpMax}</span>
-                </div>
-                <div className="atb-modal-stat">
-                  <span className="atb-modal-stat-label mp">{t('prototype.arena_testbed.label_mp')}</span>
-                  <div className="atb-modal-bar-track">
-                    <div className="atb-modal-bar-fill mp" style={{ '--pct': `${(charModal.mp / charModal.mpMax) * 100}%` }} />
-                  </div>
-                  <span className="atb-modal-stat-val">{Math.ceil(charModal.mp)}/{charModal.mpMax}</span>
-                </div>
-                <div className="atb-modal-attr-row">
-                  <span>{t('prototype.arena_testbed.attr_forca')}: {charModal.forca}</span>
-                  <span>{t('prototype.arena_testbed.attr_agi')}: {charModal.agi}</span>
-                  <span>{t('prototype.arena_testbed.attr_dex')}: {charModal.dex}</span>
-                </div>
-                <div className="atb-modal-attr-row">
-                  <span>{t('prototype.arena_testbed.attr_pdf')}: {charModal.pdf}</span>
-                  <span>{t('prototype.arena_testbed.attr_res')}: {charModal.res}</span>
-                  <span>{t('prototype.arena_testbed.attr_arm')}: {charModal.arm}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <CharModal
+            char={charModal}
+            onClose={() => setCharModal(null)}
+            t={t}
+          />
         )}
       </div>
     </>
