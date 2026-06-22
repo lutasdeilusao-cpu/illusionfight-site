@@ -436,6 +436,7 @@ export default function useCombatEngine({
   }
 
   function configurarTurnoPara(charId) {
+    console.log('[INV-A08] configurarTurnoPara', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     setCurrentCharId(charId)
     currentCharIdRef.current = charId
     setTurnVersion(v => v + 1)
@@ -446,6 +447,7 @@ export default function useCombatEngine({
       if (onLockInput) onLockInput()
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
+      console.log('[INV-A12] setIaThinking FALSE')
       setIaThinking(false)
       iaThinkingRef.current = false
       setTurnoAcoes({ moveu: false, atacou: false })
@@ -543,6 +545,8 @@ export default function useCombatEngine({
   }
 
   function executarIA(iaChar) {
+    console.log('[INV-A09] executarIA iniciado', { iaCharId: iaChar.id })
+    console.log('[INV-A11] setIaThinking TRUE')
     setIaThinking(true); iaThinkingRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(estagioPensar, 1500)
@@ -550,7 +554,7 @@ export default function useCombatEngine({
     function estagioPensar() {
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
-      if (!iaAtual || !iaAtual.vivo) { iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual || !iaAtual.vivo) { console.log('[INV-A12] setIaThinking FALSE'); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Movimento`)
       const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
       setHighlightedCells(getCelulasAlcance(iaAtual.posicao.row, iaAtual.posicao.col, getCasasMovimento(iaAtual.agi, agiUmPraUm), cols, rows, obstaculos))
@@ -588,7 +592,7 @@ export default function useCombatEngine({
     function estagioAgir() {
       const charsAgora2 = charsRef.current
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-      if (!iaAtual2 || !iaAtual2.vivo) { iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual2 || !iaAtual2.vivo) { console.log('[INV-A12] setIaThinking FALSE'); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
@@ -659,6 +663,7 @@ export default function useCombatEngine({
 
     function finalizarTurnoIA() {
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
+      console.log('[INV-A12] setIaThinking FALSE')
       iaThinkingRef.current = false; setIaThinking(false)
       if (onUnlockInput) onUnlockInput(0)
       if (verificarVitoria()) return

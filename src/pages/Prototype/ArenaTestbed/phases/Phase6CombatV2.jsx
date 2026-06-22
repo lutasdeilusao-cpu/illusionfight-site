@@ -120,18 +120,20 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onTurnoJogador: (proxChar) => {
+      console.log('[INV-B05] onTurnoJogador callback', { proxCharId: proxChar.id })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
       unlockInput(1500)
     },
 
     onTurnoIA: (proxChar) => {
+      console.log('[INV-B06] onTurnoIA callback', { proxCharId: proxChar.id })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
     },
 
-    onLockInput: lockInput,
-    onUnlockInput: unlockInput,
+    onLockInput: () => { console.log('[INV-B07] onLockInput chamado'); lockInput() },
+    onUnlockInput: (delay) => { console.log('[INV-B08] onUnlockInput chamado', { delay }); unlockInput(delay) },
     onAtualizarChars: () => {},
 
     onTrail: (passo) => {
