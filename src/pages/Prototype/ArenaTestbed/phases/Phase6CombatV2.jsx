@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import useCombatEngine from '../engine/useCombatEngine'
 import useInputLock from '../engine/useInputLock'
+import useUIController from '../engine/useUIController'
 import useHexCanvas from '../engine/useHexCanvas'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
-import { mostrarBannerAtaqueIA } from '../engine/ai/efeitosVisuaisIA'
 import { getHexLine, encontrarCaminho } from '../engine/hexUtils'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
@@ -30,6 +30,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
+  const uiCtrl = useUIController()
+
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
 
@@ -40,21 +42,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       const alvo = engine.combat.characters.find(c => c.id === alvoId)
       if (!alvo) return
       setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
-      setDanoPopup({ dano, alvoId, key: Date.now() })
-      setTimeout(() => setDanoPopup(null), 800)
-      setShaking(true)
-      setTimeout(() => setShaking(false), 500)
-      setFlashDmg(true)
-      setTimeout(() => setFlashDmg(false), 400)
-      const fazerFlash = (count) => {
-        if (count >= 6) {
-          setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
-          return
-        }
-        setDamageFlash(prev => ({ ...prev, [alvoId]: count }))
-        setTimeout(() => fazerFlash(count + 1), 120)
-      }
-      fazerFlash(0)
+      uiCtrl.mostrarDanoPopup(alvoId, dano)
+      uiCtrl.dispararImpacto()
+      uiCtrl.dispararFlash(alvoId)
     },
 
     onBalao: ({ alvoId, texto, tipo, row, col }) => {
@@ -68,9 +58,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       const containerRect = canvasContainerRef.current?.getBoundingClientRect()
       const x = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
       const y = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
-      const key = Date.now() + Math.random()
-      setBalloons(prev => [...prev, { id: key, x, y, texto, tipo, key }])
-      setTimeout(() => setBalloons(prev => prev.filter(b => b.key !== key)), 1300)
+      uiCtrl.adicionarBalao({ x, y, texto, tipo })
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
@@ -116,7 +104,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onVitoria: (vencedor) => {
       setPhase('resultado')
-      anunciar(
+      uiCtrl.anunciar(
         vencedor === 'jogador'
           ? t('prototype.arena_testbed.announce_victory')
           : t('prototype.arena_testbed.announce_defeat'),
@@ -127,13 +115,13 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onTurnoJogador: (proxChar) => {
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
-      anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
+      uiCtrl.anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
       unlockInput(1500)
     },
 
     onTurnoIA: (proxChar) => {
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
-      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
+      uiCtrl.anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
     },
 
     onLockInput: lockInput,
@@ -144,7 +132,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
     },
 
-    onBannerIA: (nome) => mostrarBannerAtaqueIA(nome, t, setAttackBanner),
+    onBannerIA: (nome) => uiCtrl.mostrarBannerAtaque(`${nome} ${t('prototype.arena_testbed.ia_attack_banner')}`),
     onAnimating: (val) => setAnimating(val),
     onProjetilPos: (pos) => setProjectilePos(pos),
     onProjetilPath: (path) => setProjectilePath(path),
@@ -167,24 +155,15 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const [phase, setPhase] = useState('prepare')
   const [battleLog, setBattleLog] = useState([])
   const [animating, setAnimating] = useState(false)
-  const [turnAnnouncement, setTurnAnnouncement] = useState(null)
-  const [announcementClass, setAnnouncementClass] = useState('')
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
-  const [damageFlash, setDamageFlash] = useState({})
   const [projectilePos, setProjectilePos] = useState(null)
   const [projectilePath, setProjectilePath] = useState([])
-  const [balloons, setBalloons] = useState([])
-  const [shaking, setShaking] = useState(false)
-  const [flashDmg, setFlashDmg] = useState(false)
-  const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
-  const [attackBanner, setAttackBanner] = useState(null)
   const [tileLoaded, setTileLoaded] = useState(false)
 
   const tileImgRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
-  const announceTimerRef = useRef(null)
 
   useEffect(() => {
     actions.iniciarPartida()
@@ -199,13 +178,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       setTileLoaded(true)
     }
   }, [tileUrl])
-
-  function anunciar(texto, duracao = 2000, cls = '') {
-    setTurnAnnouncement(texto)
-    setAnnouncementClass(cls)
-    if (announceTimerRef.current) clearTimeout(announceTimerRef.current)
-    announceTimerRef.current = setTimeout(() => { setTurnAnnouncement(null); setAnnouncementClass('') }, duracao)
-  }
 
   function getDisplayName(ch) {
     if (ch?.nome) return ch.nome
@@ -237,12 +209,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     drawCombatBoard(ctx, {
       characters, obstaculos, itensChaoAtual, cols, rows,
       highlightedCells, attackCells, rangeCells, currentChar,
-      damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+      damageFlash: uiCtrl.damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
       tileImg: tileImgRef.current, sz, padX, padY,
       angle: angleRef.current, trail: trailRef.current,
       hexCenter, drawHex,
     })
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, uiCtrl.damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
 
   useEffect(() => {
     function loop() {
@@ -368,8 +340,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           </div>
         </div>
       )}
-      <div className={`atb-root ${shaking ? 'atb-shake' : ''}`}>
-        {flashDmg && <div className="atb-flash-overlay" />}
+      <div className={`atb-root $      {uiCtrl.shaking ? 'atb-shake' : ''}`}>
+        {uiCtrl.flashDmg && <div className="atb-flash-overlay" />}
         {jokenpoNeeded && (
           <JokenpoModal
             player1Name={jokenpoNeeded[0]?.nome || '?'}
@@ -393,9 +365,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
             }}
           />
         )}
-        {turnAnnouncement && (
+        {uiCtrl.turnAnnouncement && (
           <div className="atb-announcement-overlay">
-            <div className={`atb-announcement-text ${announcementClass}`}>{turnAnnouncement}</div>
+            <div className={`atb-announcement-text ${uiCtrl.announcementClass}`}>{uiCtrl.turnAnnouncement}</div>
           </div>
         )}
         {defensePending && (
@@ -409,12 +381,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
             }}
           />
         )}
-        {danoPopup && <div className="atb-dano-popup" key={danoPopup.key}>
-          <div className="atb-dano-popup-num">-{danoPopup.dano}</div>
+        {uiCtrl.danoPopup && <div className="atb-dano-popup" key={uiCtrl.danoPopup.key}>
+          <div className="atb-dano-popup-num">-{uiCtrl.danoPopup.dano}</div>
         </div>}
-        {attackBanner && (
+        {uiCtrl.attackBanner && (
           <div className="atb-attack-banner">
-            <div className="atb-attack-banner-text">{attackBanner.texto}</div>
+            <div className="atb-attack-banner-text">{uiCtrl.attackBanner.texto}</div>
           </div>
         )}
         {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && !inputLocked && (
@@ -462,7 +434,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
         <div className="atb-canvas-wrap" ref={canvasContainerRef}>
           <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
           <div className="atb-balloon-container">
-            {balloons.map(b => (
+            {uiCtrl.balloons.map(b => (
               <div key={b.key} className={`atb-balloon atb-balloon--${b.tipo}`}
                 style={{ '--x': `${b.x}px`, '--y': `${b.y}px` }}>
                 {b.texto}
