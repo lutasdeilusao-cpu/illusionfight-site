@@ -53,7 +53,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     onLog: (text) => setBattleLog(prev => [...prev, { text, time: Date.now() }]),
     onDano: (alvoId, dano) => {
       if (dano <= 0) return
-      const alvo = engine.characters.find(c => c.id === alvoId)
+      const alvo = engine.combat.characters.find(c => c.id === alvoId)
       if (!alvo) return
       setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
       setDanoPopup({ dano, alvoId, key: Date.now() })
@@ -94,22 +94,22 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       const dirCol = destino.col - origem.col
       const meioRow = Math.round(origem.row + dirRow * 0.7)
       const meioCol = Math.round(origem.col + dirCol * 0.7)
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'onAnimarMelee-lunge', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'onAnimarMelee-lunge', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev =>
         prev.map(c =>
           c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
         )
       )
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'onAnimarMelee-lunge', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
-      engine.setAnimTimer(() => {
-        console.log('[INV-HP] syncCharacters chamado', { caller: 'onAnimarMelee-return', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-        engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'onAnimarMelee-lunge', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      engine.utils.setAnimTimer(() => {
+        console.log('[INV-HP] syncCharacters chamado', { caller: 'onAnimarMelee-return', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+        engine.utils.syncCharacters(prev =>
           prev.map(c =>
             c.id === atacante.id ? { ...c, posicao: origem } : c
           )
         )
-        console.log('[INV-HP] syncCharacters resultado', { caller: 'onAnimarMelee-return', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
-        engine.setAnimTimer(() => {
+        console.log('[INV-HP] syncCharacters resultado', { caller: 'onAnimarMelee-return', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+        engine.utils.setAnimTimer(() => {
           if (onFinalizar) onFinalizar()
           else aposAnimacaoAtaque(atacante, alvo, resultado)
         }, 200)
@@ -141,7 +141,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
         setProjectilePath(prev => prev.filter((_, i) => i > 0))
         stepIdx++
-        engine.setAnimTimer(avancarProjetil, 320)
+        engine.utils.setAnimTimer(avancarProjetil, 320)
       }
       avancarProjetil()
     },
@@ -160,7 +160,8 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     onAtualizarChars: () => {},
   })
 
-  const { characters, currentCharId } = engine
+  const { combat, ui, ordering, move, actions, set, utils } = engine
+  const { characters, currentCharId } = combat
   const [turnVersion, setTurnVersion] = useState(0)
   const [phase, setPhase] = useState('prepare')
   const [subPhase, setSubPhase] = useState(null)
@@ -566,13 +567,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     )
 
     if (!caminho || caminho.length < 2) {
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'moverPersonagem-fallback', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'moverPersonagem-fallback', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
         )
       )
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'moverPersonagem-fallback', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'moverPersonagem-fallback', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
       setHighlightedCells([])
       setRemainingMove(0)
       aposMovimento(row, col)
@@ -596,13 +597,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       const passo = steps[stepIdx]
       trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'moverPersonagem-step', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'moverPersonagem-step', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c
         )
       )
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'moverPersonagem-step', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'moverPersonagem-step', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
       stepIdx++
       setAnimTimer(avancarPasso, 150)
     }
@@ -620,8 +621,8 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = `${row}_${col}`
     if (itensChaoAtual[key]) {
       const item = itensChaoAtual[key]
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'aposMovimento-item', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'aposMovimento-item', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id
             ? {
@@ -634,7 +635,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             : c
         )
       )
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'aposMovimento-item', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'aposMovimento-item', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
       setItensChaoAtual(prev => { const n = { ...prev }; delete n[key]; return n })
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
@@ -773,11 +774,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     const poder = PODERES_BASE.find(p => p.id === 'investida')
     if (poder && currentChar.mp >= poder.custoMP) {
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'executarLinhaAtaque-power', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev => prev.map(c =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'executarLinhaAtaque-power', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev => prev.map(c =>
         c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
       ))
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'executarLinhaAtaque-power', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'executarLinhaAtaque-power', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
     }
 
     clearAnimTimers()
@@ -815,8 +816,8 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       applyDanoEffect(a.char.id, dano, currentChar)
     })
 
-    console.log('[INV-HP] syncCharacters chamado', { caller: 'executarLinhaAtaque-bulk', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: charsAtualizados.map(c => ({ id: c.id, hp: c.hp })) })
-    engine.syncCharacters(charsAtualizados)
+    console.log('[INV-HP] syncCharacters chamado', { caller: 'executarLinhaAtaque-bulk', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: charsAtualizados.map(c => ({ id: c.id, hp: c.hp })) })
+    engine.utils.syncCharacters(charsAtualizados)
 
     const ultimoAlvo = alvos[alvos.length - 1]
     addLog(`  ✅ ${ultimoAlvo.char.nome} foi o último alvo da Investida.`)
@@ -858,13 +859,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const novoHp = Math.max(0, alvo.hp - dano)
     console.log('[INV-HP] fluxo-dano', { origem: donoDoAtaque?.time || 'phase6', alvoId, dano, alvoNome: alvo.nome })
     setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
-    console.log('[INV-HP] syncCharacters chamado', { caller: 'applyDanoEffect', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-    engine.syncCharacters(prev =>
+    console.log('[INV-HP] syncCharacters chamado', { caller: 'applyDanoEffect', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+    engine.utils.syncCharacters(prev =>
       prev.map(c =>
         c.id === alvoId ? { ...c, hp: novoHp } : c
       )
     )
-    console.log('[INV-HP] syncCharacters resultado', { caller: 'applyDanoEffect', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+    console.log('[INV-HP] syncCharacters resultado', { caller: 'applyDanoEffect', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
     setDanoPopup({ dano, alvoId, key: Date.now() })
     setTimeout(() => setDanoPopup(null), 800)
     setShaking(true)
@@ -889,21 +890,21 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const dirCol = destino.col - origem.col
     const meioRow = Math.round(origem.row + dirRow * 0.7)
     const meioCol = Math.round(origem.col + dirCol * 0.7)
-    console.log('[INV-HP] syncCharacters chamado', { caller: 'meleeAttackAnim-lunge', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-    engine.syncCharacters(prev =>
+    console.log('[INV-HP] syncCharacters chamado', { caller: 'meleeAttackAnim-lunge', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+    engine.utils.syncCharacters(prev =>
       prev.map(c =>
         c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
       )
     )
-    console.log('[INV-HP] syncCharacters resultado', { caller: 'meleeAttackAnim-lunge', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+    console.log('[INV-HP] syncCharacters resultado', { caller: 'meleeAttackAnim-lunge', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
     setAnimTimer(() => {
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'meleeAttackAnim-return', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'meleeAttackAnim-return', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev =>
         prev.map(c =>
           c.id === atacante.id ? { ...c, posicao: origem } : c
         )
       )
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'meleeAttackAnim-return', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'meleeAttackAnim-return', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
       setAnimTimer(() => {
         if (onFinalizar) onFinalizar()
         else aposAnimacaoAtaque(atacante, alvo, resultado)
@@ -970,13 +971,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         } else {
           if (danoTotal > 0) applyDanoEffect(alvo.id, danoTotal, atacante)
           setAnimTimer(() => {
-            const hpAtacante = engine.getCharacters().find(c => c.id === atacante.id)?.hp ?? 0
+            const hpAtacante = engine.utils.getCharacters().find(c => c.id === atacante.id)?.hp ?? 0
             if (hpAtacante <= 0) {
-              console.log('[INV-HP] syncCharacters chamado', { caller: 'aposAnimacaoAtaque-death', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-              engine.syncCharacters(prev => prev.map(c =>
+              console.log('[INV-HP] syncCharacters chamado', { caller: 'aposAnimacaoAtaque-death', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+              engine.utils.syncCharacters(prev => prev.map(c =>
                 c.id === atacante.id ? { ...c, vivo: false } : c
               ))
-              console.log('[INV-HP] syncCharacters resultado', { caller: 'aposAnimacaoAtaque-death', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+              console.log('[INV-HP] syncCharacters resultado', { caller: 'aposAnimacaoAtaque-death', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
               tc.marcarMorto(atacante.id)
               addLog(`💀 ${atacante.nome} foi derrotado pelo contra-ataque!`)
               setAnimating(false)
@@ -1033,11 +1034,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (powerAttackMode) {
       const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
         if (poder && currentChar.mp >= poder.custoMP) {
-          console.log('[INV-HP] syncCharacters chamado', { caller: 'executarAtaque-power', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-          engine.syncCharacters(prev => prev.map(c =>
+          console.log('[INV-HP] syncCharacters chamado', { caller: 'executarAtaque-power', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+          engine.utils.syncCharacters(prev => prev.map(c =>
             c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
           ))
-          console.log('[INV-HP] syncCharacters resultado', { caller: 'executarAtaque-power', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+          console.log('[INV-HP] syncCharacters resultado', { caller: 'executarAtaque-power', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
           atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
           addLog(`⚡ ${currentChar.nome} usou ${t('prototype.arena_testbed.' + poder.chaveI18n)}!`)
         }
@@ -1091,13 +1092,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     if (winnerRef.current) return
 
-    const hpAtual = engine.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
+    const hpAtual = engine.utils.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
     if (hpAtual <= 0) {
-      console.log('[INV-HP] syncCharacters chamado', { caller: 'finalizarAposAtaque-death', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-      engine.syncCharacters(prev => prev.map(c =>
+      console.log('[INV-HP] syncCharacters chamado', { caller: 'finalizarAposAtaque-death', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+      engine.utils.syncCharacters(prev => prev.map(c =>
         c.id === alvo.id ? { ...c, vivo: false } : c
       ))
-      console.log('[INV-HP] syncCharacters resultado', { caller: 'finalizarAposAtaque-death', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+      console.log('[INV-HP] syncCharacters resultado', { caller: 'finalizarAposAtaque-death', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
       tc.marcarMorto(alvo.id)
         addLog(`💀 ${alvo.nome} foi derrotado!`)
       setAnimTimer(() => {
@@ -1132,8 +1133,8 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
     const qty = currentChar.inventario?.[key] || 0
     if (qty <= 0) return
-    console.log('[INV-HP] syncCharacters chamado', { caller: 'usarItem-potion', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-    engine.syncCharacters(prev =>
+    console.log('[INV-HP] syncCharacters chamado', { caller: 'usarItem-potion', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+    engine.utils.syncCharacters(prev =>
       prev.map(c => {
         if (c.id !== currentChar.id) return c
         const newQty = (c.inventario?.[key] || 0) - 1
@@ -1146,13 +1147,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         }
       })
     )
-    console.log('[INV-HP] syncCharacters resultado', { caller: 'usarItem-potion', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+    console.log('[INV-HP] syncCharacters resultado', { caller: 'usarItem-potion', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
     addLog(`💊 ${currentChar.nome} usou Poção ${tipo === 'hp' ? 'HP' : 'MP'}! (+5)`)
     finalizarTurno()
   }
 
   function verificarVitoria() {
-    const chars = engine.getCharacters()
+    const chars = engine.utils.getCharacters()
     const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
     const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
     if (pVivos.length === 0) {
@@ -1208,7 +1209,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     setAnimTimer(estagioPensar, 1500)
 
     function estagioPensar() {
-      const charsAgora = engine.getCharacters()
+      const charsAgora = engine.utils.getCharacters()
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
         iaThinkingRef.current = false
@@ -1253,11 +1254,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             }
             const passo = steps[stepIdx]
             trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-            console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-mover-step', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-            engine.syncCharacters(prev =>
+            console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-mover-step', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+            engine.utils.syncCharacters(prev =>
               prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
             )
-            console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-mover-step', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+            console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-mover-step', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
             stepIdx++
             setAnimTimer(avancarPassoIA, 150)
           }
@@ -1270,7 +1271,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }
 
     function estagioAgir() {
-      const charsAgora2 = engine.getCharacters()
+      const charsAgora2 = engine.utils.getCharacters()
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
       if (!iaAtual2 || !iaAtual2.vivo) {
         iaThinkingRef.current = false
@@ -1320,13 +1321,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             applyDanoEffect(alvo.id, danoFinal, atacante)
             addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
           }
-          const hpAtual = engine.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
+          const hpAtual = engine.utils.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
-            console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-callbackFinal-death', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-            engine.syncCharacters(prev => prev.map(c =>
+            console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-callbackFinal-death', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+            engine.utils.syncCharacters(prev => prev.map(c =>
               c.id === alvo.id ? { ...c, vivo: false } : c
             ))
-            console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-callbackFinal-death', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+            console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-callbackFinal-death', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
             tc.marcarMorto(alvo.id)
             addLog(`💀 ${alvo.nome} foi derrotado!`)
             setAnimTimer(() => {
@@ -1337,7 +1338,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             setAnimTimer(() => finalizarTurnoIA(), 800)
           }
         }
-        const podeDefesa = alvo.time === 'jogador' && engine.getCharacters().find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
+        const podeDefesa = alvo.time === 'jogador' && engine.utils.getCharacters().find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         const mostrarBannerAtaqueIA_ = () => {
           mostrarBannerAtaqueIA(atacante.nome, t, setAttackBanner)
         }
@@ -1367,11 +1368,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-defesa-mp', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-                engine.syncCharacters(prev => prev.map(c =>
+                console.log('[INV-HP] syncCharacters chamado', { caller: 'ia-defesa-mp', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+                engine.utils.syncCharacters(prev => prev.map(c =>
                   c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
-                console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-defesa-mp', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+                console.log('[INV-HP] syncCharacters resultado', { caller: 'ia-defesa-mp', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
                 addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
               }
               iniciarAnimacaoAtaqueIA_()
@@ -1524,11 +1525,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
               const bonus = op.poderId ? 2 : 0
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                console.log('[INV-HP] syncCharacters chamado', { caller: 'defensePending-mp', hpAntes: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
-                engine.syncCharacters(prev => prev.map(c =>
+                console.log('[INV-HP] syncCharacters chamado', { caller: 'defensePending-mp', hpAntes: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })), snapshot: 'reducer' })
+                engine.utils.syncCharacters(prev => prev.map(c =>
                   c.id === defensePending.alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
-                console.log('[INV-HP] syncCharacters resultado', { caller: 'defensePending-mp', hpDepois: engine.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
+                console.log('[INV-HP] syncCharacters resultado', { caller: 'defensePending-mp', hpDepois: engine.utils.getCharacters().map(c => ({ id: c.id, hp: c.hp })) })
                 addLog(`🛡️ ${defensePending.alvo.nome} usou Defesa+2! (-3 MP)`)
               }
               defensePending.onResolve(bonus)

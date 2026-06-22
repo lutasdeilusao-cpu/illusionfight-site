@@ -623,19 +623,34 @@ export default function useCombatEngine({
   }
 
   return {
-    characters, turnoAcoes, currentCharId, isPlayerTurn, syncCharacters, getCharacters,
-    iniciarPartida, iniciarMovimento, moverPersonagem, confirmarMovimento,
-    cancelarAcao, escolherTipoAtaque, confirmarEscolhaAtaque, executarAtaque,
-    usarItem, pularAcao, finalizarTurno, executarIA,
-    setAnimTimer, clearAnimTimers, setTurnoAcoes,
-    setHighlightedCells, setAttackCells, setRangeCells,
-    setActionPanel, setPowerAttackMode, setPowerChoiceModal, setSubPhase,
-    setSubPhaseStep, setPendingMove, setDestinoEscolhido, setCaminhoEscolhido,
-    setIaThinking, setPhase, addLog, turnVersion,
-    highlightedCells, attackCells, rangeCells, subPhase, subPhaseStep,
-    pendingMove, destinoEscolhido, caminhoEscolhido, actionPanel,
-    powerChoiceModal, defensePending, winner, iaThinking, itensChaoAtual,
-    confirmarOrdemInterna, handleJokenpoResult, iniciarPartida,
-    orderingPhase, jokenpoNeeded, currentCrossTie, playerTeamOrder, crossTieQueue,
+    combat: {
+      characters, currentCharId, turnoAcoes, winner, iaThinking, itensChaoAtual, isPlayerTurn,
+    },
+    ui: {
+      subPhase, subPhaseStep, highlightedCells, attackCells, rangeCells,
+      actionPanel, powerAttackMode, powerChoiceModal, defensePending,
+    },
+    ordering: {
+      orderingPhase, jokenpoNeeded, currentCrossTie, playerTeamOrder, crossTieQueue,
+    },
+    move: {
+      pendingMove, destinoEscolhido, caminhoEscolhido,
+    },
+    set: {
+      setTurnoAcoes, setSubPhase, setSubPhaseStep,
+      setHighlightedCells, setAttackCells, setRangeCells,
+      setActionPanel, setPowerAttackMode, setPowerChoiceModal,
+      setPendingMove, setDestinoEscolhido, setCaminhoEscolhido,
+      setIaThinking, setPhase,
+    },
+    actions: {
+      iniciarPartida, iniciarMovimento, moverPersonagem, confirmarMovimento,
+      cancelarAcao, escolherTipoAtaque, confirmarEscolhaAtaque, executarAtaque,
+      usarItem, pularAcao, finalizarTurno, executarIA,
+      confirmarOrdemInterna, handleJokenpoResult,
+    },
+    utils: {
+      syncCharacters, getCharacters, setAnimTimer, clearAnimTimers, addLog, turnVersion,
+    },
   }
 }
