@@ -24,6 +24,7 @@ export default function useCombatEngine({
   onVitoria, onTurnoJogador, onTurnoIA,
   onLockInput, onUnlockInput,
   onAtualizarChars,
+  onTrail, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -542,6 +543,7 @@ export default function useCombatEngine({
             }
             charsRef.current = charsRef.current.map(c => c.id === iaChar.id ? { ...c, posicao: { row: steps[stepIdx].row, col: steps[stepIdx].col } } : c)
             setCharacters(charsRef.current)
+            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col })
             stepIdx++; setAnimTimer(avancarPassoIA, 150)
           }
           setAnimTimer(avancarPassoIA, 400)
@@ -596,6 +598,7 @@ export default function useCombatEngine({
           }, 1200)
         }
         if (podeDefesa) {
+          if (onBannerIA) onBannerIA(atacante.nome)
           setDefensePending({ alvo, atacante, faBruto: res.fa,
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
@@ -606,7 +609,7 @@ export default function useCombatEngine({
               iniciarAnimacaoAtaqueIA()
             },
           })
-        } else { defesaBonusRef.current = 0; iniciarAnimacaoAtaqueIA() }
+        } else { defesaBonusRef.current = 0; if (onBannerIA) onBannerIA(atacante.nome); iniciarAnimacaoAtaqueIA() }
       } else {
         dec2.logs.forEach(l => addLog(`  ${l}`))
         setAnimTimer(finalizarTurnoIA, 500)
