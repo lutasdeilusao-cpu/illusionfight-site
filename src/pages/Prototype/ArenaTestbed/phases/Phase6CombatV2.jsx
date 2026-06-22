@@ -89,6 +89,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
       console.log('[INV-14] onAnimarProjetil callback chamado', { atacanteId: atacante.id, onFinalizarDefinido: !!onFinalizar })
+      const origem = atacante.posicao
       const destino = alvo.posicao
       const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
       if (steps.length === 0) { console.log('[INV-15] onAnimarProjetil → chamando onFinalizar (steps vazio)'); if (onFinalizar) onFinalizar(); return }
