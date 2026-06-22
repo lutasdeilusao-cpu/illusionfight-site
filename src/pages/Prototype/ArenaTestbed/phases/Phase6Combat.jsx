@@ -46,6 +46,8 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     canvasRef, cols, rows, minSz: 18, maxSz: 36,
   })
 
+  const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
+
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm,
     onLog: (text) => setBattleLog(prev => [...prev, { text, time: Date.now() }]),
@@ -120,7 +122,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const [danoPopup, setDanoPopup] = useState(null)
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
-  const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
   const animatingRef = useRef(false)
   const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
