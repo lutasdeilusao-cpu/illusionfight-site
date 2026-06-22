@@ -51,10 +51,96 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm,
     onLog: (text) => setBattleLog(prev => [...prev, { text, time: Date.now() }]),
-    onDano: () => {},
-    onBalao: () => {},
-    onAnimarMelee: () => {},
-    onAnimarProjetil: () => {},
+    onDano: (alvoId, dano) => {
+      if (dano <= 0) return
+      const alvo = engine.characters.find(c => c.id === alvoId)
+      if (!alvo) return
+      setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
+      setDanoPopup({ dano, alvoId, key: Date.now() })
+      setTimeout(() => setDanoPopup(null), 800)
+      setShaking(true)
+      setTimeout(() => setShaking(false), 500)
+      setFlashDmg(true)
+      setTimeout(() => setFlashDmg(false), 400)
+      const fazerFlash = (count) => {
+        if (count >= 6) {
+          setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
+          return
+        }
+        setDamageFlash(prev => ({ ...prev, [alvoId]: count }))
+        setTimeout(() => fazerFlash(count + 1), 120)
+      }
+      fazerFlash(0)
+    },
+    onBalao: ({ alvoId, texto, tipo, row, col }) => {
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const rect = canvas.getBoundingClientRect()
+      const sz = sizeRef.current
+      const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
+      const scaleX = rect.width / canvas.width
+      const scaleY = rect.height / canvas.height
+      const containerRect = canvasContainerRef.current?.getBoundingClientRect()
+      const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
+      const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
+      const key = Date.now() + Math.random()
+      setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
+      setTimeout(() => { setBalloons(prev => prev.filter(b => b.key !== key)) }, 1300)
+    },
+    onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
+      const origem = atacante.posicao
+      const destino = alvo.posicao
+      const dirRow = destino.row - origem.row
+      const dirCol = destino.col - origem.col
+      const meioRow = Math.round(origem.row + dirRow * 0.7)
+      const meioCol = Math.round(origem.col + dirCol * 0.7)
+      engine.syncCharacters(prev =>
+        prev.map(c =>
+          c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
+        )
+      )
+      engine.setAnimTimer(() => {
+        engine.syncCharacters(prev =>
+          prev.map(c =>
+            c.id === atacante.id ? { ...c, posicao: origem } : c
+          )
+        )
+        engine.setAnimTimer(() => {
+          if (onFinalizar) onFinalizar()
+          else aposAnimacaoAtaque(atacante, alvo, resultado)
+        }, 200)
+      }, 300)
+    },
+    onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
+      const origem = atacante.posicao
+      const destino = alvo.posicao
+      const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
+      console.log('[DEBUG] animarAtaqueProjetil', { origem, destino, stepsLength: steps.length })
+      if (steps.length === 0) {
+        console.warn('[DEBUG] animarAtaqueProjetil: steps vazio, chamando onFinalizar direto')
+        if (onFinalizar) onFinalizar()
+        else aposAnimacaoAtaque(atacante, alvo, resultado)
+        return
+      }
+      setProjectilePath(steps)
+      let stepIdx = 0
+      let maxIter = steps.length * 2
+      function avancarProjetil() {
+        if (stepIdx >= steps.length || stepIdx >= maxIter) {
+          console.log('[DEBUG] avancarProjetil: finalizado', { stepIdx, stepsLength: steps.length, finalizou: stepIdx >= steps.length })
+          setProjectilePos(null)
+          setProjectilePath([])
+          if (onFinalizar) onFinalizar()
+          else aposAnimacaoAtaque(atacante, alvo, resultado)
+          return
+        }
+        setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
+        setProjectilePath(prev => prev.filter((_, i) => i > 0))
+        stepIdx++
+        engine.setAnimTimer(avancarProjetil, 320)
+      }
+      avancarProjetil()
+    },
     onVitoria: () => {},
     onTurnoJogador: (proxChar) => {
       const nomeAnuncio = proxChar.aparencia?.nome || proxChar.nome || getDisplayName(proxChar)
@@ -70,7 +156,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     onAtualizarChars: () => {},
   })
 
-  const { characters, currentCharId, syncCharacters } = engine
+  const { characters, currentCharId } = engine
   const [turnVersion, setTurnVersion] = useState(0)
   const [phase, setPhase] = useState('prepare')
   const [subPhase, setSubPhase] = useState(null)
@@ -476,7 +562,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     )
 
     if (!caminho || caminho.length < 2) {
-      syncCharacters(prev =>
+      engine.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row, col } } : c
         )
@@ -504,7 +590,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
       }
       const passo = steps[stepIdx]
       trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-      syncCharacters(prev =>
+      engine.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c
         )
@@ -526,7 +612,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = `${row}_${col}`
     if (itensChaoAtual[key]) {
       const item = itensChaoAtual[key]
-      syncCharacters(prev =>
+      engine.syncCharacters(prev =>
         prev.map(c =>
           c.id === currentChar.id
             ? {
@@ -677,7 +763,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     const poder = PODERES_BASE.find(p => p.id === 'investida')
     if (poder && currentChar.mp >= poder.custoMP) {
-      syncCharacters(prev => prev.map(c =>
+      engine.syncCharacters(prev => prev.map(c =>
         c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
       ))
     }
@@ -714,10 +800,10 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         charsAtualizados[idx] = { ...charsAtualizados[idx], hp: Math.max(0, charsAtualizados[idx].hp - dano) }
       }
       addLog(`  🎯 ${a.char.nome} (casa ${a.pos}): FA=${faFinal} × FD=${fd} = ${dano} de dano!`)
-      aplicarDano(a.char.id, dano, currentChar)
+      applyDanoEffect(a.char.id, dano, currentChar)
     })
 
-    syncCharacters(charsAtualizados)
+    engine.syncCharacters(charsAtualizados)
 
     const ultimoAlvo = alvos[alvos.length - 1]
     addLog(`  ✅ ${ultimoAlvo.char.nome} foi o último alvo da Investida.`)
@@ -733,7 +819,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     finalizarTurno()
   }
 
-  function adicionarBalao(alvoId, texto, tipo, row, col) {
+  function addBalao(alvoId, texto, tipo, row, col) {
     const canvas = canvasRef.current
     if (!canvas) return
     const rect = canvas.getBoundingClientRect()
@@ -752,13 +838,13 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }, 1300)
   }
 
-  function aplicarDano(alvoId, dano, donoDoAtaque) {
+  function applyDanoEffect(alvoId, dano, donoDoAtaque) {
     if (dano <= 0) return
     const alvo = characters.find(c => c.id === alvoId)
     if (!alvo) return
     const novoHp = Math.max(0, alvo.hp - dano)
     setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
-    syncCharacters(prev =>
+    engine.syncCharacters(prev =>
       prev.map(c =>
         c.id === alvoId ? { ...c, hp: novoHp } : c
       )
@@ -780,20 +866,20 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     fazerFlash(0)
   }
 
-  function animarAtaqueMelee(atacante, alvo, resultado, onFinalizar) {
+  function meleeAttackAnim(atacante, alvo, resultado, onFinalizar) {
     const origem = atacante.posicao
     const destino = alvo.posicao
     const dirRow = destino.row - origem.row
     const dirCol = destino.col - origem.col
     const meioRow = Math.round(origem.row + dirRow * 0.7)
     const meioCol = Math.round(origem.col + dirCol * 0.7)
-    syncCharacters(prev =>
+    engine.syncCharacters(prev =>
       prev.map(c =>
         c.id === atacante.id ? { ...c, posicao: { row: meioRow, col: meioCol } } : c
       )
     )
     setAnimTimer(() => {
-      syncCharacters(prev =>
+      engine.syncCharacters(prev =>
         prev.map(c =>
           c.id === atacante.id ? { ...c, posicao: origem } : c
         )
@@ -805,7 +891,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }, 300)
   }
 
-  function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
+  function projetilAttackAnim(atacante, alvo, resultado, onFinalizar) {
     const origem = atacante.posicao
     const destino = alvo.posicao
     const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
@@ -841,10 +927,10 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     clearAnimTimers()
     if (resultado.criticoDefensivo) {
       addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
-      adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
+      addBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
     } else {
       const danoFinal = Math.max(1, resultado.dano || 1)
-      aplicarDano(alvo.id, danoFinal, atacante)
+      applyDanoEffect(alvo.id, danoFinal, atacante)
       addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
     }
     if (resultado.criticoDefensivo) {
@@ -855,7 +941,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
         contra.logs.forEach(l => addLog(`  ↺ ${l}`))
         if (contra.dano > 0) {
-          aplicarDano(atacante.id, contra.dano, alvo)
+          applyDanoEffect(atacante.id, contra.dano, alvo)
           adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_contra'), '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
           addLog(`  ${atacante.nome} recebe ${contra.dano} de dano do contra-ataque!`)
         }
@@ -863,9 +949,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
         } else {
           setAnimTimer(() => {
-            const hpAtacante = getCharacters().find(c => c.id === atacante.id)?.hp ?? 0
+            const hpAtacante = engine.getCharacters().find(c => c.id === atacante.id)?.hp ?? 0
             if (hpAtacante <= 0) {
-              syncCharacters(prev => prev.map(c =>
+              engine.syncCharacters(prev => prev.map(c =>
                 c.id === atacante.id ? { ...c, vivo: false } : c
               ))
               tc.marcarMorto(atacante.id)
@@ -893,7 +979,19 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (cor === '#ffcc00') tipo = 'extra'
     else if (cor === '#ff8800') tipo = 'contra'
     else if (cor === '#4488ff') tipo = 'block'
-    adicionarBalao(charId, texto, tipo, row, col)
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const rect = canvas.getBoundingClientRect()
+    const sz = sizeRef.current
+    const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
+    const scaleX = rect.width / canvas.width
+    const scaleY = rect.height / canvas.height
+    const containerRect = canvasContainerRef.current?.getBoundingClientRect()
+    const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
+    const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
+    const key = Date.now() + Math.random()
+    setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
+    setTimeout(() => { setBalloons(prev => prev.filter(b => b.key !== key)) }, 1300)
   }
 
   function executarAtaque(target) {
@@ -911,7 +1009,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (powerAttackMode) {
       const poder = poderesAtivos.find(p => p.gatilho === 'ataque')
         if (poder && currentChar.mp >= poder.custoMP) {
-          syncCharacters(prev => prev.map(c =>
+          engine.syncCharacters(prev => prev.map(c =>
             c.id === currentChar.id ? { ...c, mp: c.mp - poder.custoMP } : c
           ))
           atacanteFinal = executarMecanica(poder.mecanicaId, poder.params, { atacante: currentChar })
@@ -927,9 +1025,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
     if (currentChar.tipoAtaque === 'melee') {
-      animarAtaqueMelee(currentChar, target, resultado)
+      meleeAttackAnim(currentChar, target, resultado)
     } else {
-      animarAtaqueProjetil(currentChar, target, resultado)
+      projetilAttackAnim(currentChar, target, resultado)
     }
   }
   executarAtaqueRef.current = executarAtaque
@@ -951,7 +1049,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
-      aplicarDano(alvo.id, danoExtra, atacante)
+      applyDanoEffect(alvo.id, danoExtra, atacante)
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
@@ -965,9 +1063,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
     if (winnerRef.current) return
 
-    const hpAtual = getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
+    const hpAtual = engine.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
     if (hpAtual <= 0) {
-      syncCharacters(prev => prev.map(c =>
+      engine.syncCharacters(prev => prev.map(c =>
         c.id === alvo.id ? { ...c, vivo: false } : c
       ))
       tc.marcarMorto(alvo.id)
@@ -1004,7 +1102,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const key = tipo === 'hp' ? 'pocaoHP' : 'pocaoMP'
     const qty = currentChar.inventario?.[key] || 0
     if (qty <= 0) return
-    syncCharacters(prev =>
+    engine.syncCharacters(prev =>
       prev.map(c => {
         if (c.id !== currentChar.id) return c
         const newQty = (c.inventario?.[key] || 0) - 1
@@ -1022,7 +1120,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   }
 
   function verificarVitoria() {
-    const chars = getCharacters()
+    const chars = engine.getCharacters()
     const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
     const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
     if (pVivos.length === 0) {
@@ -1078,7 +1176,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     setAnimTimer(estagioPensar, 1500)
 
     function estagioPensar() {
-      const charsAgora = getCharacters()
+      const charsAgora = engine.getCharacters()
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
       if (!iaAtual || !iaAtual.vivo) {
         iaThinkingRef.current = false
@@ -1123,7 +1221,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             }
             const passo = steps[stepIdx]
             trailRef.current = [...trailRef.current, { row: passo.row, col: passo.col, alpha: 1.0 }]
-            syncCharacters(prev =>
+            engine.syncCharacters(prev =>
               prev.map(c => c.id === iaChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
             )
             stepIdx++
@@ -1138,7 +1236,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     }
 
     function estagioAgir() {
-      const charsAgora2 = getCharacters()
+      const charsAgora2 = engine.getCharacters()
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
       if (!iaAtual2 || !iaAtual2.vivo) {
         iaThinkingRef.current = false
@@ -1171,7 +1269,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           setProjectilePath([])
 
           if (isMiss) {
-            adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
+            addBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
             setAnimTimer(() => finalizarTurnoIA(), 1300)
             return
           }
@@ -1179,18 +1277,18 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           if (res.criticoDefensivo) {
             addLog(`  🛡️ ${t('prototype.arena_testbed.log_blocked')}`)
             adicionarFloatTexto(atacante.id, t('prototype.arena_testbed.float_blocked'), '#4488ff', atacante.posicao?.row, atacante.posicao?.col)
-            adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
+            addBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
           } else {
             const danoBase = Math.max(1, res.dano || 1)
             const danoFinal = Math.max(1, danoBase - defesaBonusRef.current)
             defesaBonusRef.current = 0
             if (danoFinal < danoBase) addLog(`  🛡️ Defesa+2 reduziu dano: ${danoBase} → ${danoFinal}`)
-            aplicarDano(alvo.id, danoFinal, atacante)
+            applyDanoEffect(alvo.id, danoFinal, atacante)
             addLog(`  💥 ${alvo.nome} recebeu ${danoFinal} de dano!`)
           }
-          const hpAtual = getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
+          const hpAtual = engine.getCharacters().find(c => c.id === alvo.id)?.hp ?? 0
           if (hpAtual <= 0) {
-            syncCharacters(prev => prev.map(c =>
+            engine.syncCharacters(prev => prev.map(c =>
               c.id === alvo.id ? { ...c, vivo: false } : c
             ))
             tc.marcarMorto(alvo.id)
@@ -1203,7 +1301,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             setAnimTimer(() => finalizarTurnoIA(), 800)
           }
         }
-        const podeDefesa = alvo.time === 'jogador' && getCharacters().find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
+        const podeDefesa = alvo.time === 'jogador' && engine.getCharacters().find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         const mostrarBannerAtaqueIA_ = () => {
           mostrarBannerAtaqueIA(atacante.nome, t, setAttackBanner)
         }
@@ -1217,9 +1315,9 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
               addLog(`  ${atacante.nome} ataca ${alvo.nome}!`)
               dec2.logs.forEach(l => addLog(`  ${l}`))
               if (atacante.tipoAtaque === 'melee') {
-                animarAtaqueMelee(atacante, alvo, res, callbackFinal)
+                meleeAttackAnim(atacante, alvo, res, callbackFinal)
               } else {
-                animarAtaqueProjetil(atacante, alvo, res, callbackFinal)
+                projetilAttackAnim(atacante, alvo, res, callbackFinal)
               }
             }, 700)
           }, 1200)
@@ -1233,7 +1331,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                syncCharacters(prev => prev.map(c =>
+                engine.syncCharacters(prev => prev.map(c =>
                   c.id === alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
                 addLog(`🛡️ ${alvo.nome} usou Defesa+2! (-3 MP)`)
@@ -1388,7 +1486,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
               const bonus = op.poderId ? 2 : 0
               defesaBonusRef.current = bonus
               if (bonus > 0) {
-                syncCharacters(prev => prev.map(c =>
+                engine.syncCharacters(prev => prev.map(c =>
                   c.id === defensePending.alvo.id ? { ...c, mp: c.mp - 3 } : c
                 ))
                 addLog(`🛡️ ${defensePending.alvo.nome} usou Defesa+2! (-3 MP)`)
