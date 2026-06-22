@@ -174,17 +174,22 @@ export default function useCombatEngine({
           aplicarDano(atacante.id, contra.dano, alvo)
           adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
         }
-        if (resultado.ataqueExtra) setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-        else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+        if (resultado.ataqueExtra) {
+          console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: 0, criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
+          setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+        } else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
       }, 500)
     } else {
-      if (resultado.ataqueExtra) setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-      else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+      if (resultado.ataqueExtra) {
+        console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: Math.max(1, resultado.dano || 1), criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
+        setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+      } else setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
     }
   }
 
   // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
   function handleAtaqueExtra(atacante, alvo, faBase) {
+    console.log('[ATK-EXTRA] handleAtaqueExtra iniciado', { faBase, danoAcumulado: 0, alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current })
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
@@ -195,17 +200,20 @@ export default function useCombatEngine({
     if (isCriticoDefExtra) {
       addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
       adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
+      console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: 0, isCriticoDefExtra, alvoId: alvo.id })
       finalizarAposAtaque(alvo, { dano: 0 })
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
       aplicarDano(alvo.id, danoExtra, atacante)
+      console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: danoExtra, isCriticoDefExtra, alvoId: alvo.id })
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
 
   // Bug 2 fix: finalizarAposAtaque volta para subPhase:'free' em vez de chamar onTurnoJogador
   function finalizarAposAtaque(alvo, resultado) {
+    console.log('[ATK-EXTRA] finalizarAposAtaque iniciado', { alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current, hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado' })
     animatingRef.current = false
     if (winnerRef.current) return
     const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
@@ -222,6 +230,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
         if (onUnlockInput) onUnlockInput(1500)
       }, 1200)
     } else {
@@ -232,6 +241,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
+        console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
         if (onUnlockInput) onUnlockInput(1500)
       }, 800)
     }
