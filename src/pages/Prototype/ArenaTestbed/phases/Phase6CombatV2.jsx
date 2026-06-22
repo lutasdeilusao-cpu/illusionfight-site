@@ -1,0 +1,631 @@
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import useCombatEngine from '../engine/useCombatEngine'
+import useInputLock from '../engine/useInputLock'
+import useHexCanvas from '../engine/useHexCanvas'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { drawCombatBoard } from '../engine/drawCombatBoard'
+import { mostrarBannerAtaqueIA } from '../engine/ai/efeitosVisuaisIA'
+import { getHexLine, encontrarCaminho } from '../engine/hexUtils'
+import JokenpoModal from '../components/modals/JokenpoModal'
+import PowerChoiceModal from '../components/modals/PowerChoiceModal'
+import './Phase6Combat.css'
+
+const SQRT3 = Math.sqrt(3)
+
+export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onBackToPhase1, onBackToPhase5 }) {
+  const { t } = useLanguage()
+  const canvasRef = useRef(null)
+  const canvasContainerRef = useRef(null)
+  const angleRef = useRef(0)
+  const trailRef = useRef([])
+  const rafRef = useRef(null)
+
+  const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
+
+  const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
+          hexCenter, hexCorner, pixelToHex,
+          padRef, sizeRef } = useHexCanvas({
+    canvasRef, cols, rows, minSz: 18, maxSz: 36,
+  })
+
+  const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
+
+  const engine = useCombatEngine({
+    boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
+
+    onLog: (text) => setBattleLog(prev => [...prev, { text, time: Date.now() }]),
+
+    onDano: (alvoId, dano) => {
+      if (dano <= 0) return
+      const alvo = engine.combat.characters.find(c => c.id === alvoId)
+      if (!alvo) return
+      setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
+      setDanoPopup({ dano, alvoId, key: Date.now() })
+      setTimeout(() => setDanoPopup(null), 800)
+      setShaking(true)
+      setTimeout(() => setShaking(false), 500)
+      setFlashDmg(true)
+      setTimeout(() => setFlashDmg(false), 400)
+      const fazerFlash = (count) => {
+        if (count >= 6) {
+          setDamageFlash(prev => { const n = { ...prev }; delete n[alvoId]; return n })
+          return
+        }
+        setDamageFlash(prev => ({ ...prev, [alvoId]: count }))
+        setTimeout(() => fazerFlash(count + 1), 120)
+      }
+      fazerFlash(0)
+    },
+
+    onBalao: ({ alvoId, texto, tipo, row, col }) => {
+      const canvas = canvasRef.current
+      if (!canvas) return
+      const rect = canvas.getBoundingClientRect()
+      const sz = sizeRef.current
+      const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
+      const scaleX = rect.width / canvas.width
+      const scaleY = rect.height / canvas.height
+      const containerRect = canvasContainerRef.current?.getBoundingClientRect()
+      const x = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
+      const y = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
+      const key = Date.now() + Math.random()
+      setBalloons(prev => [...prev, { id: key, x, y, texto, tipo, key }])
+      setTimeout(() => setBalloons(prev => prev.filter(b => b.key !== key)), 1300)
+    },
+
+    onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
+      const origem = atacante.posicao
+      const destino = alvo.posicao
+      const dirRow = destino.row - origem.row
+      const dirCol = destino.col - origem.col
+      const meioRow = Math.round(origem.row + dirRow * 0.7)
+      const meioCol = Math.round(origem.col + dirCol * 0.7)
+      engine.utils.syncCharacters(prev =>
+        prev.map(c => c.id === atacante.id
+          ? { ...c, posicao: { row: meioRow, col: meioCol } } : c)
+      )
+      engine.utils.setAnimTimer(() => {
+        engine.utils.syncCharacters(prev =>
+          prev.map(c => c.id === atacante.id ? { ...c, posicao: origem } : c)
+        )
+        engine.utils.setAnimTimer(() => {
+          if (onFinalizar) onFinalizar()
+        }, 200)
+      }, 300)
+    },
+
+    onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
+      const origem = atacante.posicao
+      const destino = alvo.posicao
+      const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
+      if (steps.length === 0) { if (onFinalizar) onFinalizar(); return }
+      setProjectilePath(steps)
+      let stepIdx = 0
+      function avancar() {
+        if (stepIdx >= steps.length) {
+          setProjectilePos(null); setProjectilePath([])
+          if (onFinalizar) onFinalizar(); return
+        }
+        setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
+        setProjectilePath(prev => prev.filter((_, i) => i > 0))
+        stepIdx++
+        engine.utils.setAnimTimer(avancar, 320)
+      }
+      avancar()
+    },
+
+    onVitoria: (vencedor) => {
+      setPhase('resultado')
+      anunciar(
+        vencedor === 'jogador'
+          ? t('prototype.arena_testbed.announce_victory')
+          : t('prototype.arena_testbed.announce_defeat'),
+        3000,
+        vencedor === 'jogador' ? 'vitoria' : 'ia'
+      )
+    },
+
+    onTurnoJogador: (proxChar) => {
+      const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
+      anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
+      unlockInput(1500)
+    },
+
+    onTurnoIA: (proxChar) => {
+      const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
+      anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
+    },
+
+    onLockInput: lockInput,
+    onUnlockInput: unlockInput,
+    onAtualizarChars: () => {},
+
+    onTrail: (passo) => {
+      trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
+    },
+
+    onBannerIA: (nome) => mostrarBannerAtaqueIA(nome, t, setAttackBanner),
+    onAnimating: (val) => setAnimating(val),
+    onProjetilPos: (pos) => setProjectilePos(pos),
+    onProjetilPath: (path) => setProjectilePath(path),
+  })
+
+  const { combat, ui, ordering, move, actions, set, utils } = engine
+  const { characters, currentCharId, turnoAcoes, winner, iaThinking, itensChaoAtual } = combat
+  const { subPhase, subPhaseStep, highlightedCells, attackCells, rangeCells,
+          actionPanel, powerAttackMode, powerChoiceModal, defensePending } = ui
+  const { orderingPhase, jokenpoNeeded, currentCrossTie,
+          playerTeamOrder, crossTieQueue } = ordering
+  const { pendingMove, destinoEscolhido, caminhoEscolhido } = move
+
+  const currentChar = useMemo(() =>
+    characters.find(c => c.id === currentCharId),
+    [characters, currentCharId]
+  )
+  const isPlayerTurn = currentChar?.time === 'jogador'
+
+  const [phase, setPhase] = useState('prepare')
+  const [battleLog, setBattleLog] = useState([])
+  const [animating, setAnimating] = useState(false)
+  const [turnAnnouncement, setTurnAnnouncement] = useState(null)
+  const [announcementClass, setAnnouncementClass] = useState('')
+  const [logDrawerOpen, setLogDrawerOpen] = useState(false)
+  const [charModal, setCharModal] = useState(null)
+  const [damageFlash, setDamageFlash] = useState({})
+  const [projectilePos, setProjectilePos] = useState(null)
+  const [projectilePath, setProjectilePath] = useState([])
+  const [balloons, setBalloons] = useState([])
+  const [shaking, setShaking] = useState(false)
+  const [flashDmg, setFlashDmg] = useState(false)
+  const [danoPopup, setDanoPopup] = useState(null)
+  const [hpAnterior, setHpAnterior] = useState({})
+  const [attackBanner, setAttackBanner] = useState(null)
+  const [tileLoaded, setTileLoaded] = useState(false)
+  const [remainingMove, setRemainingMove] = useState(0)
+
+  const tileImgRef = useRef(null)
+  const offsetRef = useRef({ x: 0, y: 0 })
+  const announceTimerRef = useRef(null)
+
+  useEffect(() => {
+    actions.iniciarPartida()
+  }, [])
+
+  useEffect(() => {
+    if (!tileUrl) return
+    const img = new Image()
+    img.src = tileUrl
+    img.onload = () => {
+      tileImgRef.current = img
+      setTileLoaded(true)
+    }
+  }, [tileUrl])
+
+  function anunciar(texto, duracao = 2000, cls = '') {
+    setTurnAnnouncement(texto)
+    setAnnouncementClass(cls)
+    if (announceTimerRef.current) clearTimeout(announceTimerRef.current)
+    announceTimerRef.current = setTimeout(() => { setTurnAnnouncement(null); setAnnouncementClass('') }, duracao)
+  }
+
+  function getDisplayName(ch) {
+    if (ch?.nome) return ch.nome
+    const jogadores = characters.filter(c => c.time === 'jogador')
+    const idx = jogadores.findIndex(j => j.id === ch?.id)
+    if (ch?.time === 'jogador') return `Jogador ${idx + 1}`
+    const ias = characters.filter(c => c.time === 'ia')
+    const iaIdx = ias.findIndex(i => i.id === ch?.id)
+    return `IA ${iaIdx + 1}`
+  }
+
+  const subPhaseLabel = useMemo(() => {
+    if (!subPhase) return ''
+    if (subPhase === 'free') return t('prototype.arena_testbed.free_turn_hint')
+    if (subPhase === 'movimento') return t('prototype.arena_testbed.subphase_move')
+    return t('prototype.arena_testbed.subphase_action')
+  }, [subPhase, t])
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    const sz = sizeRef.current
+    const padX = padRef.current.x
+    const padY = padRef.current.y
+    offsetRef.current = { x: padX, y: padY }
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawCombatBoard(ctx, {
+      characters, obstaculos, itensChaoAtual, cols, rows,
+      highlightedCells, attackCells, rangeCells, currentChar,
+      damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+      tileImg: tileImgRef.current, sz, padX, padY,
+      angle: angleRef.current, trail: trailRef.current,
+      hexCenter, drawHex,
+    })
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
+
+  useEffect(() => {
+    function loop() {
+      angleRef.current = (angleRef.current || 0) + 0.018
+      trailRef.current = trailRef.current
+        .map(t => ({ ...t, alpha: t.alpha - 0.07 }))
+        .filter(t => t.alpha > 0)
+      draw()
+      rafRef.current = requestAnimationFrame(loop)
+    }
+    rafRef.current = requestAnimationFrame(loop)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [draw, calcVersion])
+
+  const handleCanvasClick = useCallback((e) => {
+    const canvas = canvasRef.current
+    if (!canvas || inputLockedRef.current || !isPlayerTurn || winner) return
+    const rect = canvas.getBoundingClientRect()
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+    const mx = (e.clientX - rect.left) * scaleX
+    const my = (e.clientY - rect.top) * scaleY
+    const sz = sizeRef.current
+    const padX = offsetRef.current.x || sz * 1.5
+    const padY = offsetRef.current.y || sz * SQRT3
+    const hex = pixelToHex(mx, my, cols, rows, padX, padY, sz)
+    if (!hex) return
+    const { row, col } = hex
+
+    if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
+      const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
+      if (clickedOwnToken && !actionPanel) { set.setActionPanel(true); return }
+      if (actionPanel) { set.setActionPanel(false); return }
+    }
+
+    if (subPhase === 'movimento') {
+      if (highlightedCells.some(c => c.row === row && c.col === col)) {
+        const ocupadas = new Set(
+          characters.filter(c => c.vivo && c.id !== currentChar.id)
+            .map(c => `${c.posicao.row}_${c.posicao.col}`)
+        )
+        const cam = encontrarCaminho(
+          currentChar.posicao.row, currentChar.posicao.col,
+          row, col, cols, rows, obstaculos, ocupadas
+        )
+        set.setDestinoEscolhido({ row, col })
+        set.setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
+        set.setPendingMove({ row, col })
+      }
+    } else if (subPhase === 'acao') {
+      if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
+        const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
+        if (target) actions.executarAtaque(target)
+      }
+    }
+  }, [isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
+      currentChar, actionPanel, highlightedCells, attackCells,
+      characters, obstaculos, set, actions])
+
+  const handleTouch = useCallback((e) => {
+    if (e.cancelable) e.preventDefault()
+    const touch = e.changedTouches[0]
+    handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
+  }, [handleCanvasClick])
+
+  function addLog(text) { setBattleLog(prev => [...prev, { text, time: Date.now() }]) }
+
+  function addBalao(alvoId, texto, tipo, row, col) {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const rect = canvas.getBoundingClientRect()
+    const sz = sizeRef.current
+    const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
+    const scaleX = rect.width / canvas.width
+    const scaleY = rect.height / canvas.height
+    const containerRect = canvasContainerRef.current?.getBoundingClientRect()
+    const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
+    const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
+    const key = Date.now() + Math.random()
+    setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
+    setTimeout(() => { setBalloons(prev => prev.filter(b => b.key !== key)) }, 1300)
+  }
+
+  function adicionarFloatTexto(charId, texto, cor, row, col) {
+    let tipo = 'block'
+    if (cor === '#ffcc00') tipo = 'extra'
+    else if (cor === '#ff8800') tipo = 'contra'
+    else if (cor === '#4488ff') tipo = 'block'
+    addBalao(charId, texto, tipo, row, col)
+  }
+
+  if (phase === 'resultado' && winner) {
+    return (
+      <div className="atb-result">
+        <div className="atb-result-card">
+          <h2>{winner === 'jogador'
+            ? t('prototype.arena_testbed.victory_player')
+            : t('prototype.arena_testbed.victory_ia')}
+          </h2>
+          <p className="atb-result-sub">{t('prototype.arena_testbed.match_over')}</p>
+          <button className="atb-btn atb-btn-primary" onClick={onBackToPhase1}>
+            {t('prototype.arena_testbed.play_again')}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      {orderingPhase === 'player_internal' && (
+        <div className="atb-ordering-overlay">
+          <div className="atb-ordering-modal">
+            <div className="atb-ordering-title">{t('prototype.arena_testbed.ordering_title')}</div>
+            <div className="atb-ordering-subtitle">{t('prototype.arena_testbed.ordering_subtitle')}</div>
+            <div className="atb-ordering-list">
+              {playerTeamOrder.map((ch, idx) => {
+                const prevSameAgi = idx > 0 && playerTeamOrder[idx - 1].agi === ch.agi
+                const nextSameAgi = idx < playerTeamOrder.length - 1 && playerTeamOrder[idx + 1].agi === ch.agi
+                const isMovable = prevSameAgi || nextSameAgi
+                return (
+                  <div key={ch.id} className={`atb-ordering-row ${isMovable ? 'movable' : 'locked'}`}>
+                    <div className="atb-ordering-position">{idx + 1}º</div>
+                    <div className="atb-ordering-name">{ch.nome}</div>
+                    <div className="atb-ordering-agi">AGI {ch.agi}</div>
+                    <div className="atb-ordering-arrows">
+                      <button className="atb-ordering-btn"
+                        disabled={!isMovable || idx === 0 || playerTeamOrder[idx - 1].agi !== ch.agi}
+                        onClick={() => {
+                          const novo = [...playerTeamOrder]
+                          ;[novo[idx - 1], novo[idx]] = [novo[idx], novo[idx - 1]]
+                          set.setPlayerTeamOrder(novo)
+                        }}>▲</button>
+                      <button className="atb-ordering-btn"
+                        disabled={!isMovable || idx === playerTeamOrder.length - 1 || playerTeamOrder[idx + 1].agi !== ch.agi}
+                        onClick={() => {
+                          const novo = [...playerTeamOrder]
+                          ;[novo[idx], novo[idx + 1]] = [novo[idx + 1], novo[idx]]
+                          set.setPlayerTeamOrder(novo)
+                        }}>▼</button>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <button className="atb-ordering-confirm" onClick={() => actions.confirmarOrdemInterna(playerTeamOrder)}>
+              ✓ {t('prototype.arena_testbed.ordering_confirm')}
+            </button>
+          </div>
+        </div>
+      )}
+      <div className={`atb-root ${shaking ? 'atb-shake' : ''}`}>
+        {flashDmg && <div className="atb-flash-overlay" />}
+        {jokenpoNeeded && (
+          <JokenpoModal
+            player1Name={jokenpoNeeded[0]?.nome || '?'}
+            player2Name={jokenpoNeeded[1]?.nome || '?'}
+            onResult={actions.handleJokenpoResult}
+          />
+        )}
+        {powerChoiceModal && (
+          <PowerChoiceModal
+            mode={powerChoiceModal.mode}
+            charName={powerChoiceModal.charName}
+            opcoes={powerChoiceModal.opcoes}
+            onEscolher={(op) => {
+              if (powerChoiceModal.mode === 'ataque') {
+                actions.confirmarEscolhaAtaque(op)
+              } else if (powerChoiceModal.mode === 'defesa') {
+                set.setDefensePending(null)
+                const bonus = op.poderId ? 2 : 0
+                defensePending.onResolve(bonus)
+              }
+            }}
+          />
+        )}
+        {turnAnnouncement && (
+          <div className="atb-announcement-overlay">
+            <div className={`atb-announcement-text ${announcementClass}`}>{turnAnnouncement}</div>
+          </div>
+        )}
+        {defensePending && (() => {
+          const poderesDefesa = getPoderesPorId(poderesEscolhidos[defensePending.alvo.id] || defensePending.alvo.poderesEscolhidos || [])
+            .filter(p => p.gatilho === 'defesa' && defensePending.alvo.mp >= p.custoMP)
+          const opcoes = [
+            { rotulo: t('prototype.arena_testbed.pcm_sem_poder'), poderId: null, custoMP: 0, disponivel: true },
+            ...poderesDefesa.map(p => ({
+              rotulo: `${t('prototype.arena_testbed.' + p.chaveI18n)} (-${p.custoMP} MP)`,
+              poderId: p.id, custoMP: p.custoMP, disponivel: true,
+            })),
+          ]
+          return (
+            <PowerChoiceModal
+              mode="defesa" charName={defensePending.alvo.nome}
+              faBruto={defensePending.faBruto} opcoes={opcoes}
+              onEscolher={(op) => {
+                set.setDefensePending(null)
+                const bonus = op.poderId ? 2 : 0
+                defensePending.onResolve(bonus)
+              }}
+            />
+          )
+        })()}
+        {danoPopup && <div className="atb-dano-popup" key={danoPopup.key}>
+          <div className="atb-dano-popup-num">-{danoPopup.dano}</div>
+        </div>}
+        {attackBanner && (
+          <div className="atb-attack-banner">
+            <div className="atb-attack-banner-text">{attackBanner.texto}</div>
+          </div>
+        )}
+        {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && !inputLocked && (
+          <div className="atb-action-panel">
+            <div className="atb-action-panel-name">{currentChar.nome}</div>
+            <button className="atb-action-panel-btn"
+              disabled={turnoAcoes.moveu}
+              onClick={actions.iniciarMovimento}>
+              👟 {t('prototype.arena_testbed.btn_move')}
+            </button>
+            <button className="atb-action-panel-btn atb-action-panel-btn--attack"
+              disabled={turnoAcoes.atacou}
+              onClick={actions.escolherTipoAtaque}>
+              ⚔ {t('prototype.arena_testbed.btn_attack')}
+            </button>
+            {currentChar?.inventario?.pocaoHP > 0 && (
+              <button className="atb-action-panel-btn atb-action-panel-btn--hp"
+                onClick={() => actions.usarItem('hp')}>
+                ❤ ×{currentChar.inventario.pocaoHP}
+              </button>
+            )}
+            {currentChar?.inventario?.pocaoMP > 0 && (
+              <button className="atb-action-panel-btn atb-action-panel-btn--mp"
+                onClick={() => actions.usarItem('mp')}>
+                💧 ×{currentChar.inventario.pocaoMP}
+              </button>
+            )}
+          </div>
+        )}
+        <div className="atb-top-bar">
+          <button className="atb-top-back" onClick={onBackToPhase1}>←</button>
+          <div className="atb-top-info">
+            <span className={`atb-top-turn ${currentChar?.time === 'ia' ? 'enemy' : 'player'}`}>
+              {currentChar
+                ? `${t('prototype.arena_testbed.turn_of')} ${currentChar.nome}`
+                : t('prototype.arena_testbed.preparing_battle')}
+              {isPlayerTurn && subPhase && (
+                <span className="atb-top-subphase"> · {subPhaseLabel}</span>
+              )}
+              {iaThinking && ` · ${t('prototype.arena_testbed.ia_thinking_short')}`}
+            </span>
+          </div>
+          <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
+        </div>
+        <div className="atb-canvas-wrap" ref={canvasContainerRef}>
+          <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
+          <div className="atb-balloon-container">
+            {balloons.map(b => (
+              <div key={b.key} className={`atb-balloon atb-balloon--${b.tipo}`}
+                style={{ '--x': `${b.x}px`, '--y': `${b.y}px` }}>
+                {b.texto}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="atb-hud">
+          {characters.filter(c => c.vivo).map(ch => {
+            const isActive = ch.id === currentChar?.id
+            const hpAntigo = hpAnterior[ch.id] ?? ch.hp
+            const hpPct = (ch.hp / ch.hpMax) * 100
+            const antigoPct = (hpAntigo / ch.hpMax) * 100
+            const perdeuHP = hpAntigo > ch.hp
+            const isPlayer = ch.time === 'jogador'
+            const dotColor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
+            return (
+              <div key={ch.id} className={`atb-hud-chip ${isActive ? 'atb-hud-chip--active' : ''}`}
+                onClick={() => setCharModal(ch)}>
+                <div className="atb-hud-dot" style={{ '--dot-color': dotColor }} />
+                <div className="atb-hud-info">
+                  <div className="atb-hud-name">{ch.aparencia?.nome || ch.nome}</div>
+                  <div className="atb-hud-bars">
+                    <div className="atb-hud-bar-row">
+                      <div className="atb-hud-bar-track">
+                        {perdeuHP && <div className="atb-hud-bar-fill hp-delta" style={{ '--pct': `${antigoPct}%` }} />}
+                        <div className="atb-hud-bar-fill hp" style={{ '--pct': `${hpPct}%` }} />
+                      </div>
+                    </div>
+                    <div className="atb-hud-bar-row">
+                      <div className="atb-hud-bar-track">
+                        <div className="atb-hud-bar-fill mp" style={{ '--pct': `${(ch.mp / ch.mpMax) * 100}%` }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        <div className="atb-bottom-nav">
+          {isPlayerTurn && !iaThinking && !inputLocked ? (
+            <>
+              {subPhase === 'free' && (
+                <button className="atb-action-btn atb-action-btn--end-turn" onClick={actions.finalizarTurno}>
+                  ⏭ {t('prototype.arena_testbed.end_turn')}
+                </button>
+              )}
+              {subPhase === 'movimento' && (
+                <>
+                  {pendingMove ? (
+                    <>
+                      <button className="atb-action-btn atb-action-btn--confirm" onClick={actions.confirmarMovimento}>
+                        ✓ {t('prototype.arena_testbed.btn_confirm_move')}
+                      </button>
+                      <button className="atb-action-btn atb-action-btn--cancel" onClick={actions.cancelarAcao}>
+                        ✕ {t('prototype.arena_testbed.btn_cancel')}
+                      </button>
+                    </>
+                  ) : null}
+                </>
+              )}
+              {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
+                <button className="atb-action-btn atb-action-btn--cancel" onClick={actions.cancelarAcao}>
+                  × {t('prototype.arena_testbed.btn_cancel')}
+                </button>
+              )}
+            </>
+          ) : (
+            <div className="atb-ia-thinking-row">
+              <span className="atb-ia-dots">{t('prototype.arena_testbed.ia_thinking')}</span>
+            </div>
+          )}
+        </div>
+        {logDrawerOpen && (
+          <div className="atb-drawer-overlay" onClick={() => setLogDrawerOpen(false)}>
+            <div className="atb-drawer" onClick={e => e.stopPropagation()}>
+              <div className="atb-drawer-handle" />
+              <div className="atb-drawer-title">{t('prototype.arena_testbed.battle_log')}</div>
+              <div className="atb-drawer-list">
+                {battleLog.slice(-30).map((entry, i) => (
+                  <div key={i} className="atb-drawer-entry">{entry.text}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        {charModal && (
+          <div className="atb-modal-overlay" onClick={() => setCharModal(null)}>
+            <div className="atb-modal" onClick={e => e.stopPropagation()}>
+              <div className="atb-modal-header">
+                <div className={`atb-modal-dot ${charModal.time}`} />
+                <span className="atb-modal-name">{charModal.nome}</span>
+                <button className="atb-modal-close" onClick={() => setCharModal(null)}>✕</button>
+              </div>
+              <div className="atb-modal-body">
+                <div className="atb-modal-stat">
+                  <span className="atb-modal-stat-label hp">{t('prototype.arena_testbed.label_hp')}</span>
+                  <div className="atb-modal-bar-track">
+                    <div className="atb-modal-bar-fill hp" style={{ '--pct': `${(charModal.hp / charModal.hpMax) * 100}%` }} />
+                  </div>
+                  <span className="atb-modal-stat-val">{Math.ceil(charModal.hp)}/{charModal.hpMax}</span>
+                </div>
+                <div className="atb-modal-stat">
+                  <span className="atb-modal-stat-label mp">{t('prototype.arena_testbed.label_mp')}</span>
+                  <div className="atb-modal-bar-track">
+                    <div className="atb-modal-bar-fill mp" style={{ '--pct': `${(charModal.mp / charModal.mpMax) * 100}%` }} />
+                  </div>
+                  <span className="atb-modal-stat-val">{Math.ceil(charModal.mp)}/{charModal.mpMax}</span>
+                </div>
+                <div className="atb-modal-attr-row">
+                  <span>{t('prototype.arena_testbed.attr_forca')}: {charModal.forca}</span>
+                  <span>{t('prototype.arena_testbed.attr_agi')}: {charModal.agi}</span>
+                  <span>{t('prototype.arena_testbed.attr_dex')}: {charModal.dex}</span>
+                </div>
+                <div className="atb-modal-attr-row">
+                  <span>{t('prototype.arena_testbed.attr_pdf')}: {charModal.pdf}</span>
+                  <span>{t('prototype.arena_testbed.attr_res')}: {charModal.res}</span>
+                  <span>{t('prototype.arena_testbed.attr_arm')}: {charModal.arm}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  )
+}

@@ -8,6 +8,7 @@ import Phase3ModeSelect from './phases/Phase3ModeSelect'
 import Phase4BoardSetup from './phases/Phase4BoardSetup'
 import Phase5PowerSelect from './phases/Phase5PowerSelect'
 import Phase6Combat from './phases/Phase6Combat'
+import Phase6CombatV2 from './phases/Phase6CombatV2'
 import { salvarFicha } from './data/fichaStorage'
 import './ArenaTestbed.css'
 
@@ -19,6 +20,7 @@ export const FaseArena = Object.freeze({
   TABULEIRO: 4,
   PODERES: 5,
   COMBATE: 6,
+  COMBATE_V2: 7,
 })
 
 const ORDEM_FASES = Object.values(FaseArena)
@@ -36,6 +38,7 @@ export default function ArenaTestbed() {
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
   const [fichaId, setFichaId] = useState(null)
+  const [usarV2, setUsarV2] = useState(false)
 
   function handleNewGame() {
     setFichaId(null)
@@ -62,6 +65,13 @@ export default function ArenaTestbed() {
 
   function handleSelectTraining() {
     setModoJogo(ModoJogo.TREINO)
+    setUsarV2(false)
+    setPhase(FaseArena.TABULEIRO)
+  }
+
+  function handleSelectTrainingV2() {
+    setModoJogo(ModoJogo.TREINO)
+    setUsarV2(true)
     setPhase(FaseArena.TABULEIRO)
   }
 
@@ -80,7 +90,7 @@ export default function ArenaTestbed() {
       }
     })
     setPoderesEscolhidos(poderesComIA)
-    setPhase(FaseArena.COMBATE)
+    setPhase(usarV2 ? FaseArena.COMBATE_V2 : FaseArena.COMBATE)
   }
 
   function handleBackToInicio() {
@@ -127,7 +137,7 @@ export default function ArenaTestbed() {
     },
     [FaseArena.MODO]: {
       Componente: Phase3ModeSelect,
-      props: () => ({ onSelectTraining: handleSelectTraining, onBack: handleBackToPersonalizacao }),
+      props: () => ({ onSelectTraining: handleSelectTraining, onSelectTrainingV2: handleSelectTrainingV2, onBack: handleBackToPersonalizacao }),
     },
     [FaseArena.TABULEIRO]: {
       Componente: Phase4BoardSetup,
@@ -140,6 +150,11 @@ export default function ArenaTestbed() {
     [FaseArena.COMBATE]: {
       Componente: Phase6Combat,
       props: () => ({ boardState, poderesEscolhidos, modoJogo, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
+      condicaoExtra: () => !!boardState,
+    },
+    [FaseArena.COMBATE_V2]: {
+      Componente: Phase6CombatV2,
+      props: () => ({ boardState, poderesEscolhidos, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
       condicaoExtra: () => !!boardState,
     },
   }
