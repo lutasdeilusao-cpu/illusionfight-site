@@ -220,20 +220,10 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
   const animatingRef = useRef(false)
-  const animTimersRef = useRef([])
   const announceTimerRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
-  const executarAtaqueRef = useRef(null)
-  const moverPersonagemRef = useRef(null)
-  const winnerRef = useRef(null)
-  const iaThinkingRef = useRef(false)
   const tileImgRef = useRef(null)
   const [tileLoaded, setTileLoaded] = useState(false)
-  const sortedGlobalRef = useRef([])
-  const crossTieQueueRef = useRef([])
-  const crossTieResultsRef = useRef([])
-  const defesaBonusRef = useRef(0)
-  const tutorialMostradoRef = useRef(false)
 
   function clearAnimTimers() {
     animTimersRef.current.forEach(t => clearTimeout(t))
@@ -277,36 +267,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     const ias = characters.filter(c => c.time === 'ia')
     const iaIdx = ias.findIndex(i => i.id === ch?.id)
     return `IA ${iaIdx + 1}`
-  }
-
-  function enterSubPhase(sub, char) {
-    if (!char) return
-    if (sub === 'movimento') {
-      const mov = getCasasMovimento(char.agi, agiUmPraUm)
-      const moveCells = getCelulasAlcance(
-        char.posicao.row, char.posicao.col, mov,
-        cols, rows, obstaculos
-      )
-      const freeCells = moveCells.filter(c => {
-        const occupied = characters.some(ch =>
-          ch.vivo && ch.id !== char.id && ch.posicao?.row === c.row && ch.posicao?.col === c.col
-        )
-        const hasObstacle = obstaculos[`${c.row}_${c.col}`]?.tipo === 1
-        return !occupied && !hasObstacle
-      })
-      setHighlightedCells(freeCells)
-      setAttackCells([])
-      setRemainingMove(mov)
-      setSubPhase('movimento')
-      setPhase(null)
-    } else if (sub === 'acao') {
-      setHighlightedCells([])
-      setAttackCells([])
-      setRangeCells([])
-      setSubPhaseStep('escolher_acao')
-      setSubPhase('acao')
-      setPhase(null)
-    }
   }
 
   const currentChar = useMemo(() => {
@@ -394,11 +354,11 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     if (subPhase === 'free' && isPlayerTurn && !iaThinking) {
       const clickedOwnToken = currentChar?.posicao?.row === row && currentChar?.posicao?.col === col
       if (clickedOwnToken && !actionPanel) {
-        setActionPanel(true)
+        set.setActionPanel(true)
         return
       }
       if (actionPanel) {
-        setActionPanel(false)
+        set.setActionPanel(false)
         return
       }
     }
@@ -413,19 +373,20 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           currentChar.posicao.row, currentChar.posicao.col,
           row, col, cols, rows, obstaculos, ocupadas
         )
-        setDestinoEscolhido({ row, col })
-        setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
-        setPendingMove({ row, col })
+        set.setDestinoEscolhido({ row, col })
+        set.setCaminhoEscolhido(cam ? cam.slice(1) : [{ row, col }])
+        set.setPendingMove({ row, col })
       }
     } else if (subPhase === 'acao') {
       if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
-        if (target) executarAtaqueRef.current?.(target)
+        if (target) actions.executarAtaque(target)
       }
     }
   }, [
     isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
     currentChar, actionPanel, highlightedCells, attackCells, characters, obstaculos,
+    set, actions,
   ])
 
   const handleTouch = useCallback((e) => {
@@ -1037,46 +998,6 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
     finalizarTurno()
   }
 
-  function verificarVitoria() {
-    const chars = engine.utils.getCharacters()
-    const pVivos = chars.filter(c => c.vivo && c.time === 'jogador')
-    const iVivos = chars.filter(c => c.vivo && c.time === 'ia')
-    if (pVivos.length === 0) {
-      winnerRef.current = 'ia'
-      setWinner('ia')
-      setPhase('resultado')
-      anunciar(t('prototype.arena_testbed.announce_defeat'), 3000, 'ia')
-      addLog('🏆 IA venceu a partida!')
-      return true
-    }
-    if (iVivos.length === 0) {
-      winnerRef.current = 'jogador'
-      setWinner('jogador')
-      setPhase('resultado')
-      anunciar(t('prototype.arena_testbed.announce_victory'), 3000, 'vitoria')
-      addLog('🏆 Jogador venceu a partida!')
-      return true
-    }
-    return false
-  }
-
-  function finalizarTurno() {
-    setHighlightedCells([])
-    setAttackCells([])
-    setRangeCells([])
-    setSubPhaseStep(null)
-    setPendingMove(null)
-    setDestinoEscolhido(null)
-    setCaminhoEscolhido([])
-    setActionPanel(false)
-    animatingRef.current = false
-    setAnimating(false)
-    lockInput()
-    if (verificarVitoria()) return
-    setSubPhase(null)
-    avancarEAcionar()
-  }
-
   function addLog(text) {
     setBattleLog(prev => [...prev, { text, time: Date.now() }])
   }
@@ -1164,7 +1085,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           opcoes={powerChoiceModal.opcoes}
           onEscolher={(op) => {
             if (powerChoiceModal.mode === 'ataque') {
-              confirmarEscolhaAtaque(op)
+              engine.actions.confirmarEscolhaAtaque(op)
             }
           }}
         />
@@ -1232,21 +1153,21 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           <button
             className="atb-action-panel-btn"
             disabled={turnoAcoes.moveu}
-            onClick={() => { setActionPanel(false); iniciarMovimento() }}
+            onClick={actions.iniciarMovimento}
           >
             👟 {t('prototype.arena_testbed.btn_move')}
           </button>
           <button
             className="atb-action-panel-btn atb-action-panel-btn--attack"
             disabled={turnoAcoes.atacou}
-            onClick={() => { setActionPanel(false); escolherTipoAtaque() }}
+            onClick={actions.escolherTipoAtaque}
           >
             ⚔ {t('prototype.arena_testbed.btn_attack')}
           </button>
           {currentChar?.inventario?.pocaoHP > 0 && (
             <button
               className="atb-action-panel-btn atb-action-panel-btn--hp"
-              onClick={() => { setActionPanel(false); usarItem('hp') }}
+              onClick={() => actions.usarItem('hp')}
             >
               ❤ ×{currentChar.inventario.pocaoHP}
             </button>
@@ -1254,7 +1175,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
           {currentChar?.inventario?.pocaoMP > 0 && (
             <button
               className="atb-action-panel-btn atb-action-panel-btn--mp"
-              onClick={() => { setActionPanel(false); usarItem('mp') }}
+              onClick={() => actions.usarItem('mp')}
             >
               💧 ×{currentChar.inventario.pocaoMP}
             </button>
@@ -1334,7 +1255,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
         {isPlayerTurn && !iaThinking && !inputLocked ? (
           <>
             {subPhase === 'free' && (
-              <button className="atb-action-btn atb-action-btn--end-turn" onClick={finalizarTurno}>
+              <button className="atb-action-btn atb-action-btn--end-turn" onClick={actions.finalizarTurno}>
                 ⏭ {t('prototype.arena_testbed.end_turn')}
               </button>
             )}
@@ -1343,10 +1264,10 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
               <>
                 {pendingMove ? (
                   <>
-                    <button className="atb-action-btn atb-action-btn--confirm" onClick={confirmarMovimento}>
+                    <button className="atb-action-btn atb-action-btn--confirm" onClick={actions.confirmarMovimento}>
                       ✓ {t('prototype.arena_testbed.btn_confirm_move')}
                     </button>
-                    <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                    <button className="atb-action-btn atb-action-btn--cancel" onClick={actions.cancelarAcao}>
                       ✕ {t('prototype.arena_testbed.btn_cancel')}
                     </button>
                   </>
@@ -1356,7 +1277,7 @@ export default function Phase6Combat({ boardState, poderesEscolhidos = {}, onBac
 
             {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
               <>
-                <button className="atb-action-btn atb-action-btn--cancel" onClick={cancelarAcao}>
+                <button className="atb-action-btn atb-action-btn--cancel" onClick={actions.cancelarAcao}>
                   × {t('prototype.arena_testbed.btn_cancel')}
                 </button>
               </>
