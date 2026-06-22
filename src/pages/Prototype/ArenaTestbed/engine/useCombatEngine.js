@@ -128,10 +128,8 @@ export default function useCombatEngine({
   }
 
   function aplicarDano(alvoId, dano, atacante) {
-    console.log('[INV-HP] fluxo-dano', { origem: atacante?.time || 'desconhecido', alvoId, dano, atacanteNome: atacante?.nome })
     charsRef.current = charsRef.current.map(c => c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c)
     setCharacters(charsRef.current)
-    console.log('[INV-HP] onDano disparado', { alvoId, dano, hpAntes: (charsRef.current.find(c => c.id === alvoId)?.hp ?? 0) + dano })
     if (onDano) onDano(alvoId, dano)
   }
 
@@ -148,19 +146,16 @@ export default function useCombatEngine({
   }
 
   function animarAtaqueMelee(atacante, alvo, resultado, onFinalizar) {
-    console.log('[INV-03] animarAtaqueMelee chamado', { onAnimarMeleeDefinido: !!onAnimarMelee, onFinalizarDefinido: !!onFinalizar })
     if (onAnimarMelee) onAnimarMelee(atacante, alvo, resultado, onFinalizar)
     else if (onFinalizar) onFinalizar()
   }
 
   function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
-    console.log('[INV-04] animarAtaqueProjetil chamado', { onAnimarProjetilDefinido: !!onAnimarProjetil, onFinalizarDefinido: !!onFinalizar })
     if (onAnimarProjetil) onAnimarProjetil(atacante, alvo, resultado, onFinalizar)
     else if (onFinalizar) onFinalizar()
   }
 
   function aposAnimacaoAtaque(atacante, alvo, resultado) {
-    console.log('[INV-05] aposAnimacaoAtaque chamado', { atacanteId: atacante.id, alvoId: alvo.id, criticoDefensivo: resultado.criticoDefensivo, ataqueExtra: resultado.ataqueExtra, dano: resultado.dano })
     clearAnimTimers()
     if (resultado.criticoDefensivo) {
       addLog(`  🛡️ BLOQUEIO!`)
@@ -178,21 +173,15 @@ export default function useCombatEngine({
           adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
         }
         if (resultado.ataqueExtra) {
-          console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: 0, criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
-          console.log('[INV-06] disparando handleAtaqueExtra', { danoTotal: 0, fa: resultado.fa })
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
         } else {
-          console.log('[INV-07] disparando finalizarAposAtaque direto', { danoTotal: 0 })
           setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
         }
       }, 500)
     } else {
       if (resultado.ataqueExtra) {
-        console.log('[ATK-EXTRA] ataqueExtra detectado', { danoTotal: Math.max(1, resultado.dano || 1), criticoDefensivo: resultado.criticoDefensivo, fa: resultado.fa })
-        console.log('[INV-06] disparando handleAtaqueExtra', { danoTotal: Math.max(1, resultado.dano || 1), fa: resultado.fa })
         setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
       } else {
-        console.log('[INV-07] disparando finalizarAposAtaque direto', { danoTotal: Math.max(1, resultado.dano || 1) })
         setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
       }
     }
@@ -200,8 +189,6 @@ export default function useCombatEngine({
 
   // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
   function handleAtaqueExtra(atacante, alvo, faBase) {
-    console.log('[ATK-EXTRA] handleAtaqueExtra iniciado', { faBase, danoAcumulado: 0, alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current })
-    console.log('[INV-08] handleAtaqueExtra chamado', { faBase, danoAcumulado: 0, alvoId: alvo.id, winnerRef: winnerRef.current })
     const faExtra = Math.round((faBase / 2) * 10) / 10
     addLog(`⚡ ATAQUE EXTRA! FA = ${faExtra}`)
     adicionarFloatTexto(atacante.id, 'EXTRA!', '#ffcc00', atacante.posicao?.row, atacante.posicao?.col)
@@ -212,23 +199,17 @@ export default function useCombatEngine({
     if (isCriticoDefExtra) {
       addLog(`  🛡️ ${alvo.nome} defendeu criticamente o ataque extra!`)
       adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
-      console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: 0, isCriticoDefExtra, alvoId: alvo.id })
-      console.log('[INV-09] handleAtaqueExtra → finalizarAposAtaque', { danoAcumulado: 0, isCriticoDefExtra })
       finalizarAposAtaque(alvo, { dano: 0 })
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
       aplicarDano(alvo.id, danoExtra, atacante)
-      console.log('[ATK-EXTRA] chamando finalizarAposAtaque', { danoAcumulado: danoExtra, isCriticoDefExtra, alvoId: alvo.id })
-      console.log('[INV-09] handleAtaqueExtra → finalizarAposAtaque', { danoAcumulado: danoExtra, isCriticoDefExtra })
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
 
   // Bug 2 fix: finalizarAposAtaque volta para subPhase:'free' em vez de chamar onTurnoJogador
   function finalizarAposAtaque(alvo, resultado) {
-    console.log('[ATK-EXTRA] finalizarAposAtaque iniciado', { alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current, hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado' })
-    console.log('[INV-10] finalizarAposAtaque chamado', { alvoId: alvo.id, winnerRef: winnerRef.current, animatingRef: animatingRef.current, hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado' })
     animatingRef.current = false
     if (winnerRef.current) return
     const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
@@ -245,8 +226,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
-        console.log('[INV-11] onUnlockInput sendo chamado', { definido: !!onUnlockInput })
+        console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarAposAtaque-morto', delay: 1500 })
         if (onUnlockInput) onUnlockInput(1500)
       }, 1200)
     } else {
@@ -257,8 +237,7 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        console.log('[ATK-EXTRA] chamando onUnlockInput', { hpAtual: charsRef.current.find(c => c.id === alvo.id)?.hp ?? 'não encontrado', winnerRef: winnerRef.current })
-        console.log('[INV-11] onUnlockInput sendo chamado', { definido: !!onUnlockInput })
+        console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarAposAtaque-vivo', delay: 1500 })
         if (onUnlockInput) onUnlockInput(1500)
       }, 800)
     }
@@ -293,6 +272,7 @@ export default function useCombatEngine({
     if (!caminho || caminho.length === 0) return
     const steps = caminho.slice(1)
     animatingRef.current = true
+    console.log('[TC-09] onLockInput chamado', { caller: 'moverPersonagem' })
     if (onLockInput) onLockInput()
     setHighlightedCells([])
     let stepIdx = 0
@@ -333,6 +313,7 @@ export default function useCombatEngine({
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
+    console.log('[TC-10] onUnlockInput chamado', { caller: 'aposMovimento', delay: 0 })
     if (onUnlockInput) onUnlockInput(0)
   }
 
@@ -375,12 +356,12 @@ export default function useCombatEngine({
   }
 
   function executarAtaque(target) {
-    console.log('[INV-01] executarAtaque chamado', { targetId: target.id, targetNome: target.nome })
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar || animatingRef.current) return
     if (!tc.podeAgir(currentCharIdRef.current, TipoAcao.ATACAR)) return
     clearAnimTimers()
     animatingRef.current = true
+    console.log('[TC-09] onLockInput chamado', { caller: 'executarAtaque' })
     if (onLockInput) onLockInput()
     setAttackCells([])
 
@@ -401,7 +382,6 @@ export default function useCombatEngine({
     const resultado = resolverAtaque(atacanteFinal, target, Math.ceil(dist))
     addLog(`⚔️ ${currentChar.nome} ataca ${target.nome}!`)
     resultado.logs.forEach(l => addLog(`  ${l}`))
-    console.log('[INV-02] chamando animação', { tipo: currentChar.tipoAtaque, onFinalizarDefinido: false })
     const cbFinalizar = () => aposAnimacaoAtaque(currentChar, target, resultado)
     if (currentChar.tipoAtaque === 'melee') animarAtaqueMelee(currentChar, target, resultado, cbFinalizar)
     else animarAtaqueProjetil(currentChar, target, resultado, cbFinalizar)
@@ -437,7 +417,7 @@ export default function useCombatEngine({
   }
 
   function configurarTurnoPara(charId) {
-    console.log('[INV-A08] configurarTurnoPara', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
+    console.log('[TC-01] configurarTurnoPara', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     setCurrentCharId(charId)
     currentCharIdRef.current = charId
     setTurnVersion(v => v + 1)
@@ -445,10 +425,11 @@ export default function useCombatEngine({
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       if (onTurnoIA) onTurnoIA(proxChar)
+      console.log('[TC-09] onLockInput chamado', { caller: 'configurarTurnoPara-ia' })
       if (onLockInput) onLockInput()
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
-      console.log('[INV-A12] setIaThinking FALSE')
+      console.log('[TC-03] setIaThinking → FALSE', { caller: 'configurarTurnoPara-jogador' })
       setIaThinking(false)
       iaThinkingRef.current = false
       setTurnoAcoes({ moveu: false, atacou: false })
@@ -456,12 +437,14 @@ export default function useCombatEngine({
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
+      console.log('[TC-09] onLockInput chamado', { caller: 'configurarTurnoPara-jogador' })
       if (onLockInput) onLockInput()
       if (onTurnoJogador) onTurnoJogador(proxChar)
     }
   }
 
   function avancarEAcionar() {
+    console.log('[TC-11] avancarEAcionar chamado')
     const nextId = tc.avancarTurno()
     if (nextId) configurarTurnoPara(nextId)
   }
@@ -546,16 +529,17 @@ export default function useCombatEngine({
   }
 
   function executarIA(iaChar) {
-    console.log('[INV-A09] executarIA iniciado', { iaCharId: iaChar.id })
-    console.log('[INV-A11] setIaThinking TRUE')
+    console.log('[TC-02] setIaThinking → TRUE', { caller: 'executarIA' })
+    console.log('[TC-04] executarIA iniciado', { iaCharId: iaChar.id })
     setIaThinking(true); iaThinkingRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(estagioPensar, 1500)
 
     function estagioPensar() {
+      console.log('[TC-05] estagioPensar iniciado', { iaCharId: iaChar.id })
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
-      if (!iaAtual || !iaAtual.vivo) { console.log('[INV-A12] setIaThinking FALSE'); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual || !iaAtual.vivo) { console.log('[TC-03] setIaThinking → FALSE', { caller: 'estagioPensar-morto' }); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Movimento`)
       const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
       setHighlightedCells(getCelulasAlcance(iaAtual.posicao.row, iaAtual.posicao.col, getCasasMovimento(iaAtual.agi, agiUmPraUm), cols, rows, obstaculos))
@@ -563,6 +547,7 @@ export default function useCombatEngine({
       setAnimTimer(estagioMover, 1800)
 
       function estagioMover() {
+        console.log('[TC-06] estagioMover iniciado', { iaCharId: iaChar.id })
         setHighlightedCells([])
         if (dec.tipo === 'andar') {
           const destino = { row: dec.detalhes.row, col: dec.detalhes.col }
@@ -591,9 +576,10 @@ export default function useCombatEngine({
     }
 
     function estagioAgir() {
+      console.log('[TC-07] estagioAgir iniciado', { iaCharId: iaChar.id })
       const charsAgora2 = charsRef.current
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-      if (!iaAtual2 || !iaAtual2.vivo) { console.log('[INV-A12] setIaThinking FALSE'); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual2 || !iaAtual2.vivo) { console.log('[TC-03] setIaThinking → FALSE', { caller: 'estagioAgir-morto' }); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
@@ -663,11 +649,13 @@ export default function useCombatEngine({
     }
 
     function finalizarTurnoIA() {
+      console.log('[TC-03] setIaThinking → FALSE', { caller: 'finalizarTurnoIA' })
+      console.log('[TC-08] finalizarTurnoIA iniciado', { iaCharId: iaChar.id, winnerRef: winnerRef.current })
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
-      console.log('[INV-A12] setIaThinking FALSE')
       iaThinkingRef.current = false; setIaThinking(false)
+      console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarTurnoIA', delay: 0 })
       if (onUnlockInput) onUnlockInput(0)
-      if (verificarVitoria()) return
+    if (verificarVitoria()) return
       avancarEAcionar()
     }
   }

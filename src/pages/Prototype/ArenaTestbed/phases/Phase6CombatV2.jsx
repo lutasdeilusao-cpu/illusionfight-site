@@ -63,7 +63,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
-      console.log('[INV-12] onAnimarMelee callback chamado', { atacanteId: atacante.id, onFinalizarDefinido: !!onFinalizar })
       const origem = atacante.posicao
       const destino = alvo.posicao
       const dirRow = destino.row - origem.row
@@ -80,7 +79,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
         )
         engine.utils.setAnimTimer(() => {
           if (onFinalizar) {
-            console.log('[INV-13] onAnimarMelee → chamando onFinalizar')
             onFinalizar()
           }
         }, 200)
@@ -88,17 +86,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
-      console.log('[INV-14] onAnimarProjetil callback chamado', { atacanteId: atacante.id, onFinalizarDefinido: !!onFinalizar })
       const origem = atacante.posicao
       const destino = alvo.posicao
       const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
-      if (steps.length === 0) { console.log('[INV-15] onAnimarProjetil → chamando onFinalizar (steps vazio)'); if (onFinalizar) onFinalizar(); return }
       setProjectilePath(steps)
       let stepIdx = 0
       function avancar() {
         if (stepIdx >= steps.length) {
           setProjectilePos(null); setProjectilePath([])
-          console.log('[INV-15] onAnimarProjetil → chamando onFinalizar (fim)'); if (onFinalizar) onFinalizar(); return
         }
         setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
         setProjectilePath(prev => prev.filter((_, i) => i > 0))
@@ -120,21 +115,21 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onTurnoJogador: (proxChar) => {
-      console.log('[INV-B05] onTurnoJogador callback', { proxCharId: proxChar.id })
+      console.log('[TC-12] onTurnoJogador', { proxCharId: proxChar.id, inputLockedAntes: inputLockedRef.current })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
       unlockInput(1500)
     },
 
     onTurnoIA: (proxChar) => {
-      console.log('[INV-B06] onTurnoIA callback', { proxCharId: proxChar.id })
+      console.log('[TC-13] onTurnoIA', { proxCharId: proxChar.id, inputLockedAntes: inputLockedRef.current })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
     },
 
-    onLockInput: () => { console.log('[INV-B07] onLockInput chamado'); lockInput() },
-    onUnlockInput: (delay) => { console.log('[INV-B08] onUnlockInput chamado', { delay }); unlockInput(delay) },
     onAtualizarChars: () => {},
+    onLockInput: () => { console.log('[TC-14] onLockInput → lockInput()'); lockInput() },
+    onUnlockInput: (delay) => { console.log('[TC-15] onUnlockInput → unlockInput()', { delay }); unlockInput(delay) },
 
     onTrail: (passo) => {
       trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
@@ -176,6 +171,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   useEffect(() => {
     actions.iniciarPartida()
   }, [])
+
+  useEffect(() => {
+    console.log('[TC-16] iaThinking mudou', { iaThinking, isPlayerTurn: currentChar?.time === 'jogador', currentCharId: currentChar?.id })
+  }, [iaThinking])
 
   useEffect(() => {
     if (!tileUrl) return
