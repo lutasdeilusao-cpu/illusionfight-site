@@ -127,8 +127,10 @@ export default function useCombatEngine({
   }
 
   function aplicarDano(alvoId, dano, atacante) {
+    console.log('[INV-HP] fluxo-dano', { origem: atacante?.time || 'desconhecido', alvoId, dano, atacanteNome: atacante?.nome })
     charsRef.current = charsRef.current.map(c => c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c)
     setCharacters(charsRef.current)
+    console.log('[INV-HP] onDano disparado', { alvoId, dano, hpAntes: (charsRef.current.find(c => c.id === alvoId)?.hp ?? 0) + dano })
     if (onDano) onDano(alvoId, dano)
   }
 
