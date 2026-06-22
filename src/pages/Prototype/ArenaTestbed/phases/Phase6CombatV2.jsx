@@ -181,7 +181,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const [hpAnterior, setHpAnterior] = useState({})
   const [attackBanner, setAttackBanner] = useState(null)
   const [tileLoaded, setTileLoaded] = useState(false)
-  const [remainingMove, setRemainingMove] = useState(0)
 
   const tileImgRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })
@@ -309,32 +308,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     handleCanvasClick({ clientX: touch.clientX, clientY: touch.clientY })
   }, [handleCanvasClick])
 
-  function addLog(text) { setBattleLog(prev => [...prev, { text, time: Date.now() }]) }
-
-  function addBalao(alvoId, texto, tipo, row, col) {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const rect = canvas.getBoundingClientRect()
-    const sz = sizeRef.current
-    const center = hexCenter(row, col, padRef.current.x, padRef.current.y, sz)
-    const scaleX = rect.width / canvas.width
-    const scaleY = rect.height / canvas.height
-    const containerRect = canvasContainerRef.current?.getBoundingClientRect()
-    const balaoX = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
-    const balaoY = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
-    const key = Date.now() + Math.random()
-    setBalloons(prev => [...prev, { id: key, x: balaoX, y: balaoY, texto, tipo, key }])
-    setTimeout(() => { setBalloons(prev => prev.filter(b => b.key !== key)) }, 1300)
-  }
-
-  function adicionarFloatTexto(charId, texto, cor, row, col) {
-    let tipo = 'block'
-    if (cor === '#ffcc00') tipo = 'extra'
-    else if (cor === '#ff8800') tipo = 'contra'
-    else if (cor === '#4488ff') tipo = 'block'
-    addBalao(charId, texto, tipo, row, col)
-  }
-
   if (phase === 'resultado' && winner) {
     return (
       <div className="atb-result">
@@ -425,28 +398,17 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
             <div className={`atb-announcement-text ${announcementClass}`}>{turnAnnouncement}</div>
           </div>
         )}
-        {defensePending && (() => {
-          const poderesDefesa = getPoderesPorId(poderesEscolhidos[defensePending.alvo.id] || defensePending.alvo.poderesEscolhidos || [])
-            .filter(p => p.gatilho === 'defesa' && defensePending.alvo.mp >= p.custoMP)
-          const opcoes = [
-            { rotulo: t('prototype.arena_testbed.pcm_sem_poder'), poderId: null, custoMP: 0, disponivel: true },
-            ...poderesDefesa.map(p => ({
-              rotulo: `${t('prototype.arena_testbed.' + p.chaveI18n)} (-${p.custoMP} MP)`,
-              poderId: p.id, custoMP: p.custoMP, disponivel: true,
-            })),
-          ]
-          return (
-            <PowerChoiceModal
-              mode="defesa" charName={defensePending.alvo.nome}
-              faBruto={defensePending.faBruto} opcoes={opcoes}
-              onEscolher={(op) => {
-                set.setDefensePending(null)
-                const bonus = op.poderId ? 2 : 0
-                defensePending.onResolve(bonus)
-              }}
-            />
-          )
-        })()}
+        {defensePending && (
+          <PowerChoiceModal
+            mode="defesa" charName={defensePending.alvo.nome}
+            faBruto={defensePending.faBruto} opcoes={defensePending.opcoes}
+            onEscolher={(op) => {
+              set.setDefensePending(null)
+              const bonus = op.poderId ? 2 : 0
+              defensePending.onResolve(bonus)
+            }}
+          />
+        )}
         {danoPopup && <div className="atb-dano-popup" key={danoPopup.key}>
           <div className="atb-dano-popup-num">-{danoPopup.dano}</div>
         </div>}

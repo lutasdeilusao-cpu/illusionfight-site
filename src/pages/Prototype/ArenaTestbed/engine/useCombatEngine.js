@@ -417,6 +417,8 @@ export default function useCombatEngine({
       if (onLockInput) onLockInput()
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
+      setIaThinking(false)
+      iaThinkingRef.current = false
       setTurnoAcoes({ moveu: false, atacou: false })
       setSubPhase('free')
       setHighlightedCells([])
@@ -599,7 +601,17 @@ export default function useCombatEngine({
         }
         if (podeDefesa) {
           if (onBannerIA) onBannerIA(atacante.nome)
-          setDefensePending({ alvo, atacante, faBruto: res.fa,
+          const poderesDefesa = getPoderesPorId(
+            poderesEscolhidos[alvo.id] || alvo.poderesEscolhidos || []
+          ).filter(p => p.gatilho === 'defesa' && alvo.mp >= p.custoMP)
+          const opcoesDefesa = [
+            { rotulo: 'Sem poder', poderId: null, custoMP: 0, disponivel: true },
+            ...poderesDefesa.map(p => ({
+              rotulo: `${p.chaveI18n} (-${p.custoMP} MP)`,
+              poderId: p.id, custoMP: p.custoMP, disponivel: true,
+            })),
+          ]
+          setDefensePending({ alvo, atacante, faBruto: res.fa, opcoes: opcoesDefesa,
             onResolve: (bonus) => {
               defesaBonusRef.current = bonus
               if (bonus > 0) {
