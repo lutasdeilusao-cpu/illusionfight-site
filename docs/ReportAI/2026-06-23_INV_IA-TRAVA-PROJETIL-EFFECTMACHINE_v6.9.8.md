@@ -187,4 +187,4 @@ Log fornecido pelo usuário:
 
 ---
 
-**Status:** INVESTIGAÇÃO EM ANDAMENTO — aguardando autorização para aplicar correção (Opção A recomendada).
+**Status:** CORRIGIDO — ver `docs/ReportAI/2026-06-23_FIX_IA-TRAVA-PROJETIL-CANAL-CANVAS_v6.9.9.md`
