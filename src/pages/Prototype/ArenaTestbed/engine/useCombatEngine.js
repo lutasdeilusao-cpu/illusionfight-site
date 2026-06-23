@@ -27,7 +27,9 @@ export default function useCombatEngine({
   onLockInput, onUnlockInput,
   onAtualizarChars,
   onTrail, onClearTrail, onClearHighlight, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
-  onSetCharScales, onSetCharVisualPos, onGetHexCenter,
+  onSetCharScales, onSetCharVisualPos, onSetCharRotation,
+  onGetHexCenter, onGetSz,
+  onEmitParticles,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -286,12 +288,13 @@ export default function useCombatEngine({
     const moveAnimId = currentChar.animacoes?.movimento ?? 1
     const animFn = getMovementAnimation(moveAnimId)
 
+    const realSz = onGetSz ? onGetSz() : 36
     animFn({
       charId: currentChar.id,
       origem: currentChar.posicao,
       destino: { row, col },
       steps,
-      sz: 0,
+      sz: realSz,
       charsRef,
       syncCharacters,
       setAnimTimer,
@@ -299,10 +302,12 @@ export default function useCombatEngine({
       onClearTrail,
       setCharScales: onSetCharScales || (() => {}),
       setCharVisualPos: onSetCharVisualPos || (() => {}),
+      setCharRotation: onSetCharRotation || (() => {}),
       hexCenter: onGetHexCenter || ((r, c) => ({ x: 0, y: 0 })),
       padX: 0,
       padY: 0,
       moveAnimId,
+      onEmitParticles: onEmitParticles || (() => {}),
       onFinalize: () => {
         animatingRef.current = false
         aposMovimento(row, col)
@@ -577,12 +582,13 @@ export default function useCombatEngine({
           const moveAnimId = iaAtual.animacoes?.movimento ?? 1
           const animFn = getMovementAnimation(moveAnimId)
 
+          const realSz = onGetSz ? onGetSz() : 36
           animFn({
             charId: iaChar.id,
             origem: iaAtual.posicao,
             destino,
             steps,
-            sz: 0,
+            sz: realSz,
             charsRef,
             syncCharacters,
             setAnimTimer,
@@ -590,10 +596,12 @@ export default function useCombatEngine({
             onClearTrail,
             setCharScales: onSetCharScales || (() => {}),
             setCharVisualPos: onSetCharVisualPos || (() => {}),
+            setCharRotation: onSetCharRotation || (() => {}),
             hexCenter: onGetHexCenter || ((r, c) => ({ x: 0, y: 0 })),
             padX: 0,
             padY: 0,
             moveAnimId,
+            onEmitParticles: onEmitParticles || (() => {}),
             onFinalize: () => {
               if (onClearTrail) onClearTrail()
               setAttackCells([]); dec.logs.forEach(l => addLog(`  ${l}`))
