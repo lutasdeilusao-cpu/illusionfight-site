@@ -1,0 +1,96 @@
+.atb-hud {
+  display: flex;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--ldi-bg2);
+  border-top: 1px solid var(--ldi-border);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.atb-hud-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ldi-bg3);
+  border: 1px solid var(--ldi-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: border-color 0.12s;
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.atb-hud-chip:hover {
+  border-color: var(--ldi-cyan);
+}
+
+.atb-hud-chip--active {
+  border-color: var(--ldi-cyan);
+  background: var(--ldi-bg2);
+}
+
+.atb-hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.atb-hud-dot.jogador { background: #00ff88; }
+.atb-hud-dot.ia { background: var(--ldi-red); }
+.atb-hud-dot { background: var(--dot-color, #00ff88); }
+
+.atb-hud-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.atb-hud-name {
+  font-family: var(--ldi-font-hud);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ldi-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.atb-hud-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.atb-hud-bar-row { height: 3px; }
+
+.atb-hud-bar-track {
+  height: 3px;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.atb-hud-bar-track { position: relative; }
+
+.atb-hud-bar-fill {
+  height: 100%;
+  width: var(--pct);
+  transition: width 0.3s ease;
+}
+
+.atb-hud-bar-fill.hp { background: #00ff88; }
+.atb-hud-bar-fill.mp { background: var(--ldi-cyan); }
+
+.atb-hud-bar-fill.hp-delta {
+  position: absolute; inset: 0;
+  background: #ff2244;
+  animation: atb-delta-shrink 0.8s ease-out forwards;
+}
+
+@keyframes atb-delta-shrink {
+  0% { opacity: 0.7; }
+  100% { opacity: 0; }
+}

@@ -10,7 +10,10 @@ import { getHexLine, encontrarCaminho } from '../engine/hexUtils'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
 import CharModal from '../components/modals/CharModal'
-import './Phase6Combat.css'
+import './Phase6CombatV2.css'
+import './atb-canvas.css'
+import './atb-hud.css'
+import './atb-ui.css'
 
 const SQRT3 = Math.sqrt(3)
 
