@@ -216,7 +216,7 @@ export function drawCombatBoard(ctx, params) {
       }
 
       if (projPathSet.has(key) && projectilePos?.row !== row && projectilePos?.col !== col) {
-        drawHex(ctx, center, sz, fill, 'rgba(255,200,0,0.3)', 2)
+        drawHex(ctx, center, sz, 'transparent', 'rgba(255,200,0,0.3)', 2)
       }
 
       if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
