@@ -145,6 +145,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     onAnimating: (val) => setAnimating(val),
     onProjetilPos: (pos) => setProjectilePos(pos),
     onProjetilPath: (path) => setProjectilePath(path),
+    onSetCharScales: (updater) => setCharScalesRef.current(updater),
+    onSetCharVisualPos: (updater) => setCharVisualPosRef.current(updater),
+    onGetHexCenter: (row, col) => hexCenter(row, col, padRef.current.x, padRef.current.y, sizeRef.current),
   })
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
@@ -168,12 +171,19 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const [projectilePath, setProjectilePath] = useState([])
   const [hpAnterior, setHpAnterior] = useState({})
   const [tileLoaded, setTileLoaded] = useState(false)
+  const [charScales, setCharScales] = useState({})
+  const [charVisualPos, setCharVisualPos] = useState({})
 
   charsFnRef.current = characters
   syncCharsFnRef.current = utils.syncCharacters
   setAnimTimerFnRef.current = utils.setAnimTimer
   setProjectilePosRef.current = setProjectilePos
   setProjectilePathRef.current = setProjectilePath
+
+  const setCharScalesRef = useRef(setCharScales)
+  const setCharVisualPosRef = useRef(setCharVisualPos)
+  useEffect(() => { setCharScalesRef.current = setCharScales }, [setCharScales])
+  useEffect(() => { setCharVisualPosRef.current = setCharVisualPos }, [setCharVisualPos])
 
   highlightRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
 
@@ -245,15 +255,16 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     offsetRef.current = { x: padX, y: padY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     const hl = highlightRef.current
-    drawCombatBoard(ctx, {
-      characters, obstaculos, itensChaoAtual, cols, rows,
-      highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
-      damageFlash: {}, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
-      tileImg: tileImgRef.current, sz, padX, padY,
-      angle: angleRef.current, trail: trailRef.current,
-      hexCenter, drawHex,
-    })
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
+      drawCombatBoard(ctx, {
+        characters, obstaculos, itensChaoAtual, cols, rows,
+        highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
+        damageFlash: {}, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+        tileImg: tileImgRef.current, sz, padX, padY,
+        angle: angleRef.current, trail: trailRef.current,
+        hexCenter, drawHex,
+        charScales, charVisualPos,
+      })
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos])
 
   useCanvasLoop({
     draw,

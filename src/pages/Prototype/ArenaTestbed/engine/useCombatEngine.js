@@ -16,6 +16,7 @@ import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poder
 import { executarMecanica } from './mecanicasPoder'
 import { TipoAcao } from './TurnController'
 import { emit } from './eventBus'
+import { getMovementAnimation } from './animations/movement/index'
 
 export default function useCombatEngine({
   boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm = true,
@@ -26,6 +27,7 @@ export default function useCombatEngine({
   onLockInput, onUnlockInput,
   onAtualizarChars,
   onTrail, onClearTrail, onClearHighlight, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
+  onSetCharScales, onSetCharVisualPos, onGetHexCenter,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -280,21 +282,32 @@ export default function useCombatEngine({
     animatingRef.current = true
     if (onLockInput) onLockInput()
     setHighlightedCells([])
-    let stepIdx = 0
-    function avancarPasso() {
-      if (stepIdx >= steps.length) {
+
+    const moveAnimId = currentChar.animacoes?.movimento ?? 1
+    const animFn = getMovementAnimation(moveAnimId)
+
+    animFn({
+      charId: currentChar.id,
+      origem: currentChar.posicao,
+      destino: { row, col },
+      steps,
+      sz: 0,
+      charsRef,
+      syncCharacters,
+      setAnimTimer,
+      onTrail,
+      onClearTrail,
+      setCharScales: onSetCharScales || (() => {}),
+      setCharVisualPos: onSetCharVisualPos || (() => {}),
+      hexCenter: onGetHexCenter || ((r, c) => ({ x: 0, y: 0 })),
+      padX: 0,
+      padY: 0,
+      moveAnimId,
+      onFinalize: () => {
         animatingRef.current = false
         aposMovimento(row, col)
-        return
-      }
-      const passo = steps[stepIdx]
-      charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
-      setCharacters(charsRef.current)
-      if (onTrail) onTrail({ row: passo.row, col: passo.col, moveAnimId: currentChar.animacoes?.movimento ?? 1 })
-      stepIdx++
-      setAnimTimer(avancarPasso, 150)
-    }
-    setAnimTimer(avancarPasso, 50)
+      },
+    })
   }
 
   function aposMovimento(row, col) {
@@ -560,19 +573,33 @@ export default function useCombatEngine({
           const ocupadasIA = new Set(charsAgora.filter(c => c.vivo && c.id !== iaChar.id).map(c => `${c.posicao.row}_${c.posicao.col}`))
           const caminho = encontrarCaminho(origem.row, origem.col, destino.row, destino.col, cols, rows, obstaculos, ocupadasIA)
           const steps = caminho ? caminho.slice(1) : [destino]
-          let stepIdx = 0
-          function avancarPassoIA() {
-            if (stepIdx >= steps.length) {
+
+          const moveAnimId = iaAtual.animacoes?.movimento ?? 1
+          const animFn = getMovementAnimation(moveAnimId)
+
+          animFn({
+            charId: iaChar.id,
+            origem: iaAtual.posicao,
+            destino,
+            steps,
+            sz: 0,
+            charsRef,
+            syncCharacters,
+            setAnimTimer,
+            onTrail,
+            onClearTrail,
+            setCharScales: onSetCharScales || (() => {}),
+            setCharVisualPos: onSetCharVisualPos || (() => {}),
+            hexCenter: onGetHexCenter || ((r, c) => ({ x: 0, y: 0 })),
+            padX: 0,
+            padY: 0,
+            moveAnimId,
+            onFinalize: () => {
               if (onClearTrail) onClearTrail()
               setAttackCells([]); dec.logs.forEach(l => addLog(`  ${l}`))
-              setAnimTimer(estagioAgir, 300); return
-            }
-            charsRef.current = charsRef.current.map(c => c.id === iaChar.id ? { ...c, posicao: { row: steps[stepIdx].row, col: steps[stepIdx].col } } : c)
-            setCharacters(charsRef.current)
-            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaAtual.animacoes?.movimento ?? 1 })
-            stepIdx++; setAnimTimer(avancarPassoIA, 150)
-          }
-          setAnimTimer(avancarPassoIA, 400)
+              setAnimTimer(estagioAgir, 300)
+            },
+          })
         } else {
           addLog(`  ${iaChar.nome} não se moveu.`)
           setAnimTimer(estagioAgir, 1000)
