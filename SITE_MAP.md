@@ -21,16 +21,43 @@
 ├── .env                                # Variáveis dev (VITE_DEBUG=true)
 ├── .env.production                     # Variáveis prod (VITE_DEBUG=false)
 ├── public/
-│   ├── favicon.svg                     # Favicon LDI
+│   ├── favicon-ldi.png                 # Favicon (logo LDI, 512×512 PNG)
 │   ├── og-image.jpg                    # Open Graph preview (1200×630)
 │   ├── 404.html                        # Redirect SPA para GitHub Pages
-│   ├── sitemap.xml                     # Sitemap para crawlers
+│   ├── sitemap.xml                     # Sitemap para crawlers (18 URLs ativas)
 │   ├── sw.js                           # Service worker (placeholder)
-│   ├── assets/                         # Assets públicos (imagens de fallback)
+│   ├── CNAME                           # Domínio customizado
+│   ├── _redirects                      # 10 regras de trailing slash (301)
+│   ├── assets/                         # Assets públicos
+│   │   ├── arena/terrenos/
+│   │   │   └── tile_default.png        # Tile padrão do tabuleiro
+│   │   └── images/
+│   │       ├── characters/             # 10 renders: alan, helena, jack, kim, kronos, lisa, nina, shuntaro, voidhunter, yawanari
+│   │       ├── livro/                  # 4 capas de capítulo (01~04.png)
+│   │       └── tamagoshi/              # Sprites tamagoshi
 │   ├── fonts/
-│   │   └── BringRace.otf              # Fonte customizada
+│   │   ├── animeace2_bld.ttf           # Fonte anime (animeace2)
+│   │   ├── BringRace.otf               # Fonte customizada LDI
+│   │   ├── Ethnocentric-Regular.otf    # Fonte sci-fi
+│   │   └── RacingGames.ttf             # Fonte racing
+│   ├── games/                          # HTML estático SEO (15 dirs com index.html)
+│   │   ├── index.html                  # /games/
+│   │   ├── jackcandy/index.html        # /games/jackcandy/
+│   │   ├── ldi/index.html              # /games/ldi/
+│   │   ├── ldi-arena/index.html        # /games/ldi-arena/
+│   │   ├── ldi-tatics/index.html       # /games/ldi-tatics/
+│   │   ├── minigames/index.html        # /games/minigames/
+│   │   └── pesadelo/index.html         # /games/pesadelo/
+│   ├── leaderboard/index.html          # /leaderboard/
+│   ├── livro/index.html                # /livro/
+│   ├── loja/index.html                 # /loja/
+│   ├── mundo/index.html                # /mundo/
+│   ├── musicas/index.html              # /musicas/
+│   ├── personagens/index.html          # /personagens/
+│   ├── quiz/index.html                 # /quiz/
 │   └── webtoon/
-│       └── 00/pt/01~21.png             # 21 páginas do webtoon Ep. 00
+│       ├── index.html                  # /webtoon/
+│       ├── 00/pt/01~21.png             # 21 páginas do webtoon Ep. 00
 │       └── 01/pt/01~37.png             # 37 páginas do webtoon Ep. 01 (O Sonho)
 ├── supabase/
 │   ├── migrations/
@@ -67,15 +94,18 @@
     ├── index.css                       # CSS Global (reset, vars, .btn, .glitch, reveal, newsletter-cta, home-support)
     │
     ├── assets/images/
-    │   ├── banners/                    # banner-01.png ~ banner-04.png (~2.3MB cada)
+│   │   ├── banners/                    # banner-01.png ~ banner-05.png (~2.3MB cada)
 │   │   ├── characters/                 # jack-balloon.png, CS.png
-│   │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png│   │   ├── livro/                      # capitulo-01.png ~ capitulo-03.png (capas oficiais dos 3 caps publicados)│   │   ├── logos/                      # logo-pt.png, logo-en.png
+│   │   ├── episodes/                   # thumb-ep00.png, thumb-ep01.png
+│   │   ├── livro/                      # capitulo-01.png ~ capitulo-03.png (capas oficiais dos 3 caps publicados)
+│   │   ├── logos/                      # logo-pt.png, logo-en.png
 │   │   ├── music/                      # 01.png ~ 16.png (capas randomizadas por visita)
 │   │   ├── ComingSoon.png              # Placeholder para conteúdo não lançado (~2.3MB)
     │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)
     │
     ├── components/
-    │   ├── AchievementToast/           # Toast de achievement com partículas
+    │   ├── AchievementToast/           # Toast de achievement com partículas (dentro do AchievementsContext)
+    │   ├── BackToGamesBtn              # Botão voltar para /games/
     │   ├── BookChaptersRow/            # Seção home: capítulos do livro
     │   ├── CharacterCard/              # Card de personagem
     │   ├── CharactersRow/              # Seção home: grid personagens
@@ -86,14 +116,17 @@
     │   ├── LatestEpisodes/             # Seção home: últimos episódios
     │   ├── LoginGate/                  # Gate de login reutilizável
     │   ├── ModalConfirmacaoFicha/      # Modal confirmação antes de gastar ficha
+    │   ├── ModalLancamento             # Modal de lançamento/newsletter
     │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS"
     │   ├── FichaGateRoute/            # Gate rota: login + ficha + FREE info em todas as rotas de game
+    │   ├── GuestNotice                 # Aviso para usuários guest
     │   ├── MusicSection/               # Seção home: música
     │   ├── Navbar/                     # Navbar global com menu hamburger
     │   ├── LDINotification/            # Balão de notificação
     │   ├── NowLive/                    # Seção home: agora ao vivo
     │   ├── PlatformIcons.jsx           # Ícones de plataformas de música
-    │   ├── Puzzles/                    # 6 puzzles reutilizáveis
+    │   ├── ProdutoDigitalCard          # Card de produto digital na loja
+    │   ├── Puzzles/                    # 7 puzzles + index.js + css + sfx
     │   ├── ResultCard/                 # Canvas share card com paletas por jogo
     │   ├── ScrollToTop/                # Botão voltar ao topo
     │   ├── ScrollToTopOnNav.jsx        # Scroll to top on navigation change
@@ -101,9 +134,11 @@
     │   ├── SearchModal/                # Modal de busca global
     │   ├── ShopSection/                # Loja de produtos físicos
     │   ├── SocialBar/                  # Barra de redes sociais
+    │   ├── TopTrumpsCard               # Card de carta Top Trumps (reutilizado no SP e MP)
     │   ├── StoryProgress/              # Seção home: progresso da história
     │   ├── TrialBanner/                # Banner de teste gratuito
-    │   └── TypewriterPhrase/           # Typewriter animado
+    │   ├── TypewriterPhrase/           # Typewriter animado
+    │   └── UnifiedNotification/        # Notificação unificada global (renderizada em App.jsx)
     │
     ├── config/
     │   ├── site.js                     # SITE_NAME, SITE_NAME_PT, DOMAIN
@@ -489,7 +524,7 @@
 | `/livro` | Livro | `src/pages/Livro.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 16 capítulos com controle de publicação |
 | `/livro/:id` | LivroCapitulo | `src/pages/LivroCapitulo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor react-markdown, lazy loading, readerMode |
 | `/assinar` | Assinar | `src/pages/Assinar.jsx` | ✅ v2.90 | ✅ Stripe | ✅ PT ✅ EN ✅ ES | Inline CSS removido, hardcoded strings → t(), Helmet i18n, i18n pt/en/es completo |
-| `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | História do autor Isaias Leal |
+| `/autor` | Autor | `src/pages/Autor.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Sobre o projeto e o universo |
 | `/webtoon` | Webtoon | `src/pages/Webtoon.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Grid episódios com thumbnails |
 | `/webtoon/:id` | WebtoonEpisodio | `src/pages/WebtoonEpisodio.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Leitor vertical lazy load, readerMode |
 | `/musicas` | Musicas | `src/pages/Musicas.jsx` | — | ✅ FINALIZADO | ✅ PT ✅ EN ✅ ES | 36 faixas oficiais, shuffle ao carregar, links para todas as plataformas |
@@ -526,6 +561,14 @@
 | `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Protótipos admin-only: menu de seleção + Morto Engine (bundled via raw import) + Arena Testbed |
 | `*` (catch-all) | NotFound | `src/pages/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
+> **📌 SE0 e Indexação:**
+> - **Sitemap público** (`public/sitemap.xml`) contém **18 URLs** — as páginas públicas listadas acima. Rotas privadas (`/login`, `/cadastro`, `/perfil`, `/admin`, `/assinar`, `/custos`, `/prototype`) e multiplayer (`/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`) **não estão no sitemap**.
+> - `/games/tamagoshi` e `/games/duelo` existem no React Router mas **não estão no sitemap público** (não indexadas pelo Google).
+> - **15 arquivos HTML estáticos** em `public/*/index.html` são servidos pelo GitHub Pages para crawlers que não executam JS — cada um com `<meta http-equiv="refresh">` redirecionando para a SPA real + `<title>` e `<meta description>` específicos.
+> - **`public/_redirects`** — 10 regras de trailing slash (301) para rotas sem barra → com barra.
+> - **`index.html` raiz** — JSON-LD schema.org/WebSite, meta tags sem "brasileiro" ou "autor".
+> - **Rotas protegidas por autenticação** (`🔒` na tabela acima) usam `<FichaGateRoute>` para verificar login + fichas antes de liberar o jogo. `/games/toptrumps/lobby` e `/games/toptrumps/multiplayer` exigem conta.
+
 ---
 
 ## 3. VERSÕES
@@ -534,7 +577,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.159.1** | Fix: favicon-ldi.png instalado |
+| `SITE_VERSION` | **10.159.2** | Docs: SITE_MAP.md auditoria e sincronização |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -564,7 +607,9 @@
 | `NinaMusicPlayer` | Player de música flutuante |
 | `UnifiedNotification` | Notificação unificada |
 | `CookieBanner` | Banner LGPD |
-| `AchievementToast` | Toast de achievement |
+| `LoginGate` | Gate de login reutilizável (importado, usado internamente) |
+
+> **Nota:** `AchievementToast` não é renderizado diretamente em App.jsx — está dentro do `AchievementsContext`. `FichaGateRoute` é um wrapper de rota usado em cada `<Route>` de jogo.
 
 ---
 
@@ -599,7 +644,6 @@
 | `009_tamagoshi_v2.sql` | Tamagoshi v2 |
 | `010_profiles_admin_role.sql` | Admin role em profiles |
 | `010_tamagoshi_fix_columns.sql` | Fix colunas tamagoshi |
-| `010_stripe_billing.sql` | Stripe subscription |
 | `011_arena_tatics_roster.sql` | Arena Tatics roster |
 | `012_tatics_card_pool.sql` | Card pool + evolução |
 | `013_fichas_tables.sql` | Tabelas fichas + fichas_historico |
@@ -613,6 +657,8 @@
 | `019_dix_initial_1000.sql` | 1000 DIX iniciais |
 | `020_toptrumps_decks_unique_constraint.sql` | UNIQUE (user_id, carta_id) |
 | `021_toptrumps_stats_carta_ganha.sql` | Coluna carta_ganha_hoje |
+| `021_profiles_is_test_account.sql` | Flag is_test_account em profiles |
+| `022_fix_null_country_codes.sql` | Fix países null em profiles |
 
 ### Tabelas principais: `profiles`, `toptrumps_decks`, `share_submissions`, `tamagoshi_saves`, `tamagoshi_trocas`, `dix_wallet`, `dix_historico`, `tamagoshi_badges`, `tamagoshi_fama`
 
