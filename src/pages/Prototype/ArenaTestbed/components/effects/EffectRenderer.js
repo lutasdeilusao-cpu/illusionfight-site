@@ -1,5 +1,16 @@
 import { emit } from '../../engine/eventBus'
 
+function logAnimIds(primitivo, dados) {
+  const animIds = {}
+  const campos = ['moveAnimId', 'attackAnimId', 'defenseAnimId', 'skillAnimId', 'effectAnimId']
+  campos.forEach(campo => {
+    if (dados?.[campo] !== undefined) animIds[campo] = dados[campo]
+  })
+  if (Object.keys(animIds).length > 0) {
+    console.log(`[ANIM][${primitivo}]`, animIds)
+  }
+}
+
 let _refs = {}
 export function init(refs) { _refs = refs }
 
@@ -25,6 +36,7 @@ function getHexLine(r1, c1, r2, c2) {
 const primitivos = {
   ProjetilEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] ProjetilEffect', { params, dados, alvo })
+    logAnimIds('ProjetilEffect', dados)
     const { atacanteId, alvoId, onFinalizar } = dados
     if (!atacanteId || !alvoId || !_refs.charsRef) {
       if (onFinalizar) setTimeout(onFinalizar, 100)
@@ -68,10 +80,14 @@ const primitivos = {
     avancar()
   },
 
-  ImpactoEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] ImpactoEffect', { params, dados, alvo }),
+  ImpactoEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] ImpactoEffect', { params, dados, alvo })
+    logAnimIds('ImpactoEffect', dados)
+  },
 
   AuraEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] AuraEffect', { params, dados, alvo })
+    logAnimIds('AuraEffect', dados)
     const { atacanteId, alvoId, onFinalizar } = dados
     if (!atacanteId || !_refs.charsRef || !_refs.syncCharsRef) {
       if (onFinalizar) setTimeout(onFinalizar, 50)
@@ -110,6 +126,7 @@ const primitivos = {
 
   TrailEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] TrailEffect', { params, dados, alvo })
+    logAnimIds('TrailEffect', dados)
     if (!_refs.trailRef) return
     const { row, col } = dados
     _refs.trailRef.current = [
@@ -120,6 +137,7 @@ const primitivos = {
 
   HighlightEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] HighlightEffect', { params, dados, alvo })
+    logAnimIds('HighlightEffect', dados)
     if (!_refs.highlightRef) return
     const { tipo, cor } = params
     const cells = dados?.cells
@@ -134,10 +152,22 @@ const primitivos = {
     }
   },
 
-  StatusEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] StatusEffect', { params, dados, alvo }),
-  TextoEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] TextoEffect', { params, dados, alvo }),
-  FlashEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] FlashEffect', { params, dados, alvo }),
-  ShakeEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] ShakeEffect', { params, dados, alvo }),
+  StatusEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] StatusEffect', { params, dados, alvo })
+    logAnimIds('StatusEffect', dados)
+  },
+  TextoEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] TextoEffect', { params, dados, alvo })
+    logAnimIds('TextoEffect', dados)
+  },
+  FlashEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] FlashEffect', { params, dados, alvo })
+    logAnimIds('FlashEffect', dados)
+  },
+  ShakeEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] ShakeEffect', { params, dados, alvo })
+    logAnimIds('ShakeEffect', dados)
+  },
 }
 
 export function executar(primitivo, { params, dados, alvo }) {
