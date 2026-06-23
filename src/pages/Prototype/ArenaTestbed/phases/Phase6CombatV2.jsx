@@ -20,7 +20,7 @@ import { emit } from '../engine/eventBus'
 
 const SQRT3 = Math.sqrt(3)
 
-export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onBackToPhase1, onBackToPhase5 }) {
+export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, animacoesPorChar = {}, onBackToPhase1, onBackToPhase5 }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
   const canvasContainerRef = useRef(null)
@@ -34,7 +34,20 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const setProjectilePathRef = useRef()
   const charactersRef = useRef([])
 
-  const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
+  const { obstaculos, itensChao, cols, rows, tileUrl } = boardState
+  const rawBoardChars = boardState.boardChars
+  const boardChars = useMemo(() =>
+    rawBoardChars.map(bc => ({
+      ...bc,
+      charData: {
+        ...bc.charData,
+        animacoes: animacoesPorChar[bc.charData?.id] || {
+          movimento: 1, ataque: 1, defesa: 1, habilidade: 1, efeito: 1,
+        },
+      },
+    })),
+    [rawBoardChars, animacoesPorChar]
+  )
 
   const { recalc, calcVersion, getCellAt, getHexCenter, drawHex,
           hexCenter, hexCorner, pixelToHex,
@@ -117,7 +130,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     onUnlockInput: (delay) => { unlockInput(delay) },
 
     onTrail: (passo) => {
-      dispatchEffect({ tipo: 'trail', alvo: null, dados: { row: passo.row, col: passo.col }, caller: 'onTrail' })
+      dispatchEffect({ tipo: 'trail', alvo: null, dados: { row: passo.row, col: passo.col, moveAnimId: passo.moveAnimId }, caller: 'onTrail' })
     },
     onClearHighlight: () => {
       clearHighlight()

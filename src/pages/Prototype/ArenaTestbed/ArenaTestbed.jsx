@@ -7,6 +7,7 @@ import Phase2Customize from './phases/Phase2Customize'
 import Phase3ModeSelect from './phases/Phase3ModeSelect'
 import Phase4BoardSetup from './phases/Phase4BoardSetup'
 import Phase5PowerSelect from './phases/Phase5PowerSelect'
+import Phase5bAnimDebug from './phases/Phase5bAnimDebug'
 import Phase6CombatV2 from './phases/Phase6CombatV2'
 import { salvarFicha } from './data/fichaStorage'
 import './ArenaTestbed.css'
@@ -18,7 +19,8 @@ export const FaseArena = Object.freeze({
   MODO: 3,
   TABULEIRO: 4,
   PODERES: 5,
-  COMBATE_V2: 6,
+  ANIM_DEBUG: 6,
+  COMBATE_V2: 7,
 })
 
 const ORDEM_FASES = Object.values(FaseArena)
@@ -35,6 +37,7 @@ export default function ArenaTestbed() {
   const [characters, setCharacters] = useState([])
   const [boardState, setBoardState] = useState(null)
   const [poderesEscolhidos, setPoderesEscolhidos] = useState({})
+  const [animacoesPorChar, setAnimacoesPorChar] = useState({})
   const [fichaId, setFichaId] = useState(null)
 
   function handleNewGame() {
@@ -80,7 +83,8 @@ export default function ArenaTestbed() {
       }
     })
     setPoderesEscolhidos(poderesComIA)
-    setPhase(FaseArena.COMBATE_V2)
+    setAnimacoesPorChar({})
+    setPhase(FaseArena.ANIM_DEBUG)
   }
 
   function handleBackToInicio() {
@@ -89,6 +93,7 @@ export default function ArenaTestbed() {
     setCharacters([])
     setBoardState(null)
     setPoderesEscolhidos({})
+    setAnimacoesPorChar({})
     setFichaId(null)
   }
 
@@ -110,6 +115,15 @@ export default function ArenaTestbed() {
 
   function handleBackToPoderes() {
     setPhase(FaseArena.PODERES)
+  }
+
+  function handleAnimDebugConfirm(animacoes) {
+    setAnimacoesPorChar(animacoes)
+    setPhase(FaseArena.COMBATE_V2)
+  }
+
+  function handleBackToAnimDebug() {
+    setPhase(FaseArena.ANIM_DEBUG)
   }
 
   const FASES_CONFIG = {
@@ -137,9 +151,13 @@ export default function ArenaTestbed() {
       Componente: Phase5PowerSelect,
       props: () => ({ characters, modoJogo, onConfirm: handlePowerConfirm, onBack: handleBackToTabuleiro }),
     },
+    [FaseArena.ANIM_DEBUG]: {
+      Componente: Phase5bAnimDebug,
+      props: () => ({ boardChars: boardState?.boardChars || [], onConfirmar: handleAnimDebugConfirm, onBack: handleBackToPoderes }),
+    },
     [FaseArena.COMBATE_V2]: {
       Componente: Phase6CombatV2,
-      props: () => ({ boardState, poderesEscolhidos, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToPoderes }),
+      props: () => ({ boardState, poderesEscolhidos, animacoesPorChar, onBackToPhase1: handleBackToInicio, onBackToPhase5: handleBackToAnimDebug }),
       condicaoExtra: () => !!boardState,
     },
   }

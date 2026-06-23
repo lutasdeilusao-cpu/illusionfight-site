@@ -33,6 +33,13 @@ export default function useCombatEngine({
       posicao: { row: bc.row, col: bc.col },
       vivo: true,
       poderesEscolhidos: poderesEscolhidos[bc.charData?.id] || [],
+      animacoes: {
+        movimento:   bc.charData?.animacoes?.movimento   ?? 1,
+        ataque:      bc.charData?.animacoes?.ataque      ?? 1,
+        defesa:      bc.charData?.animacoes?.defesa      ?? 1,
+        habilidade:  bc.charData?.animacoes?.habilidade  ?? 1,
+        efeito:      bc.charData?.animacoes?.efeito      ?? 1,
+      },
     }))
   )
   const [turnoAcoes, setTurnoAcoes] = useState({ moveu: false, atacou: false })
@@ -283,7 +290,7 @@ export default function useCombatEngine({
       const passo = steps[stepIdx]
       charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
       setCharacters(charsRef.current)
-      if (onTrail) onTrail({ row: passo.row, col: passo.col })
+      if (onTrail) onTrail({ row: passo.row, col: passo.col, moveAnimId: currentChar.animacoes?.movimento ?? 1 })
       stepIdx++
       setAnimTimer(avancarPasso, 150)
     }
@@ -562,7 +569,7 @@ export default function useCombatEngine({
             }
             charsRef.current = charsRef.current.map(c => c.id === iaChar.id ? { ...c, posicao: { row: steps[stepIdx].row, col: steps[stepIdx].col } } : c)
             setCharacters(charsRef.current)
-            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col })
+            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaChar.animacoes?.movimento ?? 1 })
             stepIdx++; setAnimTimer(avancarPassoIA, 150)
           }
           setAnimTimer(avancarPassoIA, 400)

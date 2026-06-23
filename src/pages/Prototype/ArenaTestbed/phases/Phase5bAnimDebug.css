@@ -1,0 +1,173 @@
+.tab-anim-debug {
+  padding: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  border: 2px solid #ffaa00;
+  border-radius: 12px;
+  background: #1a1a1a;
+}
+
+.tab-anim-debug-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tab-anim-debug-badge {
+  display: inline-block;
+  background: #ffaa00;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.tab-anim-debug-header h2 {
+  margin: 4px 0;
+  font-size: 1.25rem;
+  color: #ffcc44;
+}
+
+.tab-anim-debug-subtitle {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 4px 0 0;
+}
+
+.tab-anim-debug-chars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tab-anim-debug-card {
+  background: #252525;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.tab-anim-debug-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.tab-anim-debug-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot-color, #888);
+  flex-shrink: 0;
+}
+
+.tab-anim-debug-name {
+  font-weight: 600;
+  color: #ddd;
+  flex: 1;
+}
+
+.tab-anim-debug-team {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.tab-anim-debug-team.jogador {
+  background: rgba(0, 120, 255, 0.2);
+  color: #4488ff;
+}
+
+.tab-anim-debug-team.ia {
+  background: rgba(255, 60, 60, 0.2);
+  color: #ff4444;
+}
+
+.tab-anim-debug-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tab-anim-debug-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-anim-debug-label {
+  width: 90px;
+  font-size: 0.8rem;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.tab-anim-debug-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.tab-anim-debug-btn {
+  width: 32px;
+  height: 28px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #333;
+  color: #aaa;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab-anim-debug-btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+.tab-anim-debug-btn.active {
+  background: #ffaa00;
+  color: #000;
+  border-color: #ffaa00;
+  font-weight: 700;
+}
+
+.tab-anim-debug-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tab-anim-debug-btn-back,
+.tab-anim-debug-btn-confirm {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab-anim-debug-btn-back {
+  background: #444;
+  color: #ccc;
+}
+
+.tab-anim-debug-btn-back:hover {
+  background: #555;
+}
+
+.tab-anim-debug-btn-confirm {
+  background: #22aa44;
+  color: #fff;
+}
+
+.tab-anim-debug-btn-confirm:hover {
+  background: #28cc50;
+}

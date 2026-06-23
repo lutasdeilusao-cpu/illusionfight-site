@@ -124,7 +124,7 @@ export const EFFECTS_MAP = {
     duracao: 500,
     prioridade: 1,
     primitivo: 'TrailEffect',
-    dadosObrigatorios: ['row', 'col'],
+    dadosObrigatorios: ['row', 'col', 'moveAnimId'],
     params: {
       cor: '#8888ff',
       particula: null,
