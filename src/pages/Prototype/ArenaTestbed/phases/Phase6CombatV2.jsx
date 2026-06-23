@@ -94,8 +94,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       function avancar() {
         if (stepIdx >= steps.length) {
           setProjectilePos(null); setProjectilePath([])
+          if (onFinalizar) onFinalizar(); return
         }
-        setProjectilePos({ row: steps[stepIdx].row, col: steps[stepIdx].col })
+        const passo = steps[stepIdx]
+        if (!passo || passo.row === undefined || passo.col === undefined) {
+          setProjectilePos(null); setProjectilePath([])
+          if (onFinalizar) onFinalizar(); return
+        }
+        setProjectilePos({ row: passo.row, col: passo.col })
         setProjectilePath(prev => prev.filter((_, i) => i > 0))
         stepIdx++
         engine.utils.setAnimTimer(avancar, 320)
@@ -513,11 +519,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
                 </button>
               )}
             </>
-          ) : (
+          ) : iaThinking ? (
             <div className="atb-ia-thinking-row">
               <span className="atb-ia-dots">{t('prototype.arena_testbed.ia_thinking')}</span>
             </div>
-          )}
+          ) : null}
         </div>
         {logDrawerOpen && (
           <div className="atb-drawer-overlay" onClick={() => setLogDrawerOpen(false)}>

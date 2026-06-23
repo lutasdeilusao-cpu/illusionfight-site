@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.158.14'
+export const SITE_VERSION = '10.158.15'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -22,7 +22,7 @@ export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const MORTO_VERSION = '3.3.1' // Morto Engine — atualizado para versão 3v3-3-1
-export const ARENATESTBED_VERSION = '6.3.9' // Investigação: logs VIS-01/02 quando banner iaThinking aparece visualmente
+export const ARENATESTBED_VERSION = '6.4.0' // Fix: spinner IA durante turno jogador + TypeError row undefined projétil
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
