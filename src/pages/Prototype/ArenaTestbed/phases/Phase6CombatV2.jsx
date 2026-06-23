@@ -136,14 +136,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           playerTeamOrder, crossTieQueue } = ordering
   const { pendingMove, destinoEscolhido, caminhoEscolhido } = move
 
-  charsFnRef.current = characters
-  syncCharsFnRef.current = utils.syncCharacters
-  setAnimTimerFnRef.current = utils.setAnimTimer
-  setProjectilePosRef.current = setProjectilePos
-  setProjectilePathRef.current = setProjectilePath
-
-  highlightRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
-
   const currentChar = useMemo(() => characters.find(c => c.id === currentCharId), [characters, currentCharId])
   const isPlayerTurn = currentChar?.time === 'jogador'
 
@@ -156,6 +148,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const [projectilePath, setProjectilePath] = useState([])
   const [hpAnterior, setHpAnterior] = useState({})
   const [tileLoaded, setTileLoaded] = useState(false)
+
+  charsFnRef.current = characters
+  syncCharsFnRef.current = utils.syncCharacters
+  setAnimTimerFnRef.current = utils.setAnimTimer
+  setProjectilePosRef.current = setProjectilePos
+  setProjectilePathRef.current = setProjectilePath
+
+  highlightRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
 
   const tileImgRef = useRef(null)
   const offsetRef = useRef({ x: 0, y: 0 })

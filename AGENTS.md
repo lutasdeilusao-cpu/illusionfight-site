@@ -9,7 +9,7 @@ No exceptions. Every modification to any game file:
 1. **🔴 BUMP THE VERSION** — Abra `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão\SiteLDI\src\config\version.js` e **INCREMENTE** a versão do jogo/site modificado.
    > **Regra absoluta:** toda task que toca **qualquer arquivo** do projeto sobe `SITE_VERSION` patch obrigatoriamente, sem exceção. Se a task também mexe em um jogo específico, sobe a versão do jogo **e** a do site.
 2. **🔴 Update `SITE_MAP.md`** — Atualize o número da versão na tabela de rotas
-3. **`npm run build`** — if it fails, fix before proceeding
+3. **`npm run build`** — if it fails, fix before proceeding. `sourcemap: true` é obrigatório em todas as builds até o lançamento (Setembro 2026). Nunca remover sem autorização explícita de Isaias.
 4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
 5. **`git push`**
 6. **`npm run deploy`**
