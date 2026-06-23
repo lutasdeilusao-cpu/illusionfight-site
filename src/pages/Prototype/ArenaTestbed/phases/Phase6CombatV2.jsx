@@ -121,21 +121,19 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onTurnoJogador: (proxChar) => {
-      console.log('[TC-12] onTurnoJogador', { proxCharId: proxChar.id, inputLockedAntes: inputLockedRef.current })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
       unlockInput(1500)
     },
 
     onTurnoIA: (proxChar) => {
-      console.log('[TC-13] onTurnoIA', { proxCharId: proxChar.id, inputLockedAntes: inputLockedRef.current })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
     },
 
     onAtualizarChars: () => {},
-    onLockInput: () => { console.log('[TC-14] onLockInput → lockInput()'); lockInput() },
-    onUnlockInput: (delay) => { console.log('[TC-15] onUnlockInput → unlockInput()', { delay }); unlockInput(delay) },
+    onLockInput: () => { lockInput() },
+    onUnlockInput: (delay) => { unlockInput(delay) },
 
     onTrail: (passo) => {
       trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
@@ -155,11 +153,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           playerTeamOrder, crossTieQueue } = ordering
   const { pendingMove, destinoEscolhido, caminhoEscolhido } = move
 
-  const currentChar = useMemo(() => {
-    const found = characters.find(c => c.id === currentCharId)
-    console.log('[TC-19] currentChar recalculado', { currentCharId, found: !!found, time: found?.time ?? 'undefined' })
-    return found
-  }, [characters, currentCharId])
+  const currentChar = useMemo(() => characters.find(c => c.id === currentCharId), [characters, currentCharId])
   const isPlayerTurn = currentChar?.time === 'jogador'
 
   const [phase, setPhase] = useState('prepare')
@@ -178,10 +172,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   useEffect(() => {
     actions.iniciarPartida()
   }, [])
-
-  useEffect(() => {
-    console.log('[TC-16] iaThinking mudou', { iaThinking, isPlayerTurn: currentChar?.time === 'jogador', currentCharId: currentChar?.id })
-  }, [iaThinking])
 
   useEffect(() => {
     if (!tileUrl) return
@@ -421,17 +411,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
               {isPlayerTurn && subPhase && (
                 <span className="atb-top-subphase"> · {uiCtrl.getSubPhaseLabel(subPhase, t)}</span>
               )}
-              {(() => {
-                if (iaThinking) {
-                  console.log('[VIS-01] texto iaThinking VISÍVEL NA TELA (top bar)', {
-                    iaThinking, isPlayerTurn, currentCharId,
-                    currentCharTime: currentChar?.time ?? 'undefined',
-                    quemEstaNaVezId: engine.combat.currentCharId,
-                    quemEstaNaVezTime: engine.combat.characters.find(c => c.id === engine.combat.currentCharId)?.time ?? 'undefined'
-                  })
-                }
-                return iaThinking ? ` · ${t('prototype.arena_testbed.ia_thinking_short')}` : null
-              })()}
+              {iaThinking ? ` · ${t('prototype.arena_testbed.ia_thinking_short')}` : null}
             </span>
           </div>
           <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
@@ -481,17 +461,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           })}
         </div>
         <div className="atb-bottom-nav">
-          {(() => {
-            const mostraSpinner = !isPlayerTurn || iaThinking || inputLocked
-            if (mostraSpinner) {
-              console.log('[VIS-02] texto iaThinking VISÍVEL NA TELA (bottom nav spinner)', {
-                isPlayerTurn, iaThinking, inputLocked,
-                quemEstaNaVezId: engine.combat.currentCharId,
-                quemEstaNaVezTime: engine.combat.characters.find(c => c.id === engine.combat.currentCharId)?.time ?? 'undefined'
-              })
-            }
-            return null
-          })()}
           {isPlayerTurn && !iaThinking && !inputLocked ? (
             <>
               {subPhase === 'free' && (

@@ -226,7 +226,6 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarAposAtaque-morto', delay: 1500 })
         if (onUnlockInput) onUnlockInput(1500)
       }, 1200)
     } else {
@@ -237,7 +236,6 @@ export default function useCombatEngine({
         setHighlightedCells([])
         setAttackCells([])
         setRangeCells([])
-        console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarAposAtaque-vivo', delay: 1500 })
         if (onUnlockInput) onUnlockInput(1500)
       }, 800)
     }
@@ -272,7 +270,6 @@ export default function useCombatEngine({
     if (!caminho || caminho.length === 0) return
     const steps = caminho.slice(1)
     animatingRef.current = true
-    console.log('[TC-09] onLockInput chamado', { caller: 'moverPersonagem' })
     if (onLockInput) onLockInput()
     setHighlightedCells([])
     let stepIdx = 0
@@ -313,7 +310,6 @@ export default function useCombatEngine({
     setSubPhase('free')
     setHighlightedCells([])
     setActionPanel(false)
-    console.log('[TC-10] onUnlockInput chamado', { caller: 'aposMovimento', delay: 0 })
     if (onUnlockInput) onUnlockInput(0)
   }
 
@@ -361,7 +357,6 @@ export default function useCombatEngine({
     if (!tc.podeAgir(currentCharIdRef.current, TipoAcao.ATACAR)) return
     clearAnimTimers()
     animatingRef.current = true
-    console.log('[TC-09] onLockInput chamado', { caller: 'executarAtaque' })
     if (onLockInput) onLockInput()
     setAttackCells([])
 
@@ -417,20 +412,16 @@ export default function useCombatEngine({
   }
 
   function configurarTurnoPara(charId) {
-    console.log('[TC-01] configurarTurnoPara', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     setCurrentCharId(charId)
-    console.log('[TC-20] setCurrentCharId chamado', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     currentCharIdRef.current = charId
     setTurnVersion(v => v + 1)
     const proxChar = charsRef.current.find(c => c.id === charId)
     if (!proxChar) return
     if (proxChar.time === 'ia') {
       if (onTurnoIA) onTurnoIA(proxChar)
-      console.log('[TC-09] onLockInput chamado', { caller: 'configurarTurnoPara-ia' })
       if (onLockInput) onLockInput()
       setAnimTimer(() => executarIA(proxChar), 1000)
     } else {
-      console.log('[TC-03] setIaThinking → FALSE', { caller: 'configurarTurnoPara-jogador' })
       setIaThinking(false)
       iaThinkingRef.current = false
       setTurnoAcoes({ moveu: false, atacou: false })
@@ -438,14 +429,12 @@ export default function useCombatEngine({
       setHighlightedCells([])
       setAttackCells([])
       setRangeCells([])
-      console.log('[TC-09] onLockInput chamado', { caller: 'configurarTurnoPara-jogador' })
       if (onLockInput) onLockInput()
       if (onTurnoJogador) onTurnoJogador(proxChar)
     }
   }
 
   function avancarEAcionar() {
-    console.log('[TC-11] avancarEAcionar chamado')
     const nextId = tc.avancarTurno()
     if (nextId) configurarTurnoPara(nextId)
   }
@@ -530,17 +519,14 @@ export default function useCombatEngine({
   }
 
   function executarIA(iaChar) {
-    console.log('[TC-02] setIaThinking → TRUE', { caller: 'executarIA' })
-    console.log('[TC-04] executarIA iniciado', { iaCharId: iaChar.id })
     setIaThinking(true); iaThinkingRef.current = true
     addLog(`🤖 Turno da IA: ${iaChar.nome}`)
     setAnimTimer(estagioPensar, 1500)
 
     function estagioPensar() {
-      console.log('[TC-05] estagioPensar iniciado', { iaCharId: iaChar.id })
       const charsAgora = charsRef.current
       const iaAtual = charsAgora.find(c => c.id === iaChar.id)
-      if (!iaAtual || !iaAtual.vivo) { console.log('[TC-03] setIaThinking → FALSE', { caller: 'estagioPensar-morto' }); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual || !iaAtual.vivo) { iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Movimento`)
       const inimigos = charsAgora.filter(c => c.vivo && c.time === 'jogador')
       setHighlightedCells(getCelulasAlcance(iaAtual.posicao.row, iaAtual.posicao.col, getCasasMovimento(iaAtual.agi, agiUmPraUm), cols, rows, obstaculos))
@@ -548,7 +534,6 @@ export default function useCombatEngine({
       setAnimTimer(estagioMover, 1800)
 
       function estagioMover() {
-        console.log('[TC-06] estagioMover iniciado', { iaCharId: iaChar.id })
         setHighlightedCells([])
         if (dec.tipo === 'andar') {
           const destino = { row: dec.detalhes.row, col: dec.detalhes.col }
@@ -577,10 +562,9 @@ export default function useCombatEngine({
     }
 
     function estagioAgir() {
-      console.log('[TC-07] estagioAgir iniciado', { iaCharId: iaChar.id })
       const charsAgora2 = charsRef.current
       const iaAtual2 = charsAgora2.find(c => c.id === iaChar.id)
-      if (!iaAtual2 || !iaAtual2.vivo) { console.log('[TC-03] setIaThinking → FALSE', { caller: 'estagioAgir-morto' }); iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
+      if (!iaAtual2 || !iaAtual2.vivo) { iaThinkingRef.current = false; setIaThinking(false); finalizarTurno(); return }
       addLog(`  ${iaChar.nome} — Fase: Ação`)
       const inimigos2 = charsAgora2.filter(c => c.vivo && c.time === 'jogador')
       const dec2 = decidirAcaoComPersonalidade(iaAtual2, inimigos2, charsAgora2, obstaculos, cols, rows, itensChaoAtual)
@@ -650,11 +634,8 @@ export default function useCombatEngine({
     }
 
     function finalizarTurnoIA() {
-      console.log('[TC-03] setIaThinking → FALSE', { caller: 'finalizarTurnoIA' })
-      console.log('[TC-08] finalizarTurnoIA iniciado', { iaCharId: iaChar.id, winnerRef: winnerRef.current })
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
       iaThinkingRef.current = false; setIaThinking(false)
-      console.log('[TC-10] onUnlockInput chamado', { caller: 'finalizarTurnoIA', delay: 0 })
       if (onUnlockInput) onUnlockInput(0)
     if (verificarVitoria()) return
       avancarEAcionar()
