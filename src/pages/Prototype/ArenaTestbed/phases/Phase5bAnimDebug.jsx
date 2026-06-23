@@ -1,3 +1,7 @@
+// [DEBUG] Phase5bAnimDebug — seleção de animações por personagem
+// Esta phase é exclusivamente para testes internos.
+// NÃO incluir no build de produção para usuários finais.
+
 import { useState } from 'react'
 import './Phase5bAnimDebug.css'
 

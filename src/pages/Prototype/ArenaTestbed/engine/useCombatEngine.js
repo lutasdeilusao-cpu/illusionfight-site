@@ -569,7 +569,7 @@ export default function useCombatEngine({
             }
             charsRef.current = charsRef.current.map(c => c.id === iaChar.id ? { ...c, posicao: { row: steps[stepIdx].row, col: steps[stepIdx].col } } : c)
             setCharacters(charsRef.current)
-            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaChar.animacoes?.movimento ?? 1 })
+            if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaAtual.animacoes?.movimento ?? 1 })
             stepIdx++; setAnimTimer(avancarPassoIA, 150)
           }
           setAnimTimer(avancarPassoIA, 400)
