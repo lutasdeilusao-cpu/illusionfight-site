@@ -33,6 +33,13 @@
   color: var(--accent-teal);
   letter-spacing: 0.05em;
   flex-shrink: 0;
+  line-height: 0;
+}
+
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .navbar__links {
