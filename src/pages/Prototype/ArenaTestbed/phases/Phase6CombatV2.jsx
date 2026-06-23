@@ -44,7 +44,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
   const uiCtrl = useUIController()
-  const { dispatchEffect, finalizarEfeito } = useEffectMachine()
+  const { dispatchEffect, finalizarEfeito, setEffectTimer } = useEffectMachine()
 
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
@@ -168,6 +168,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
   useEffect(() => {
     actions.iniciarPartida()
+  }, [])
+
+  useEffect(() => {
+    setEffectTimer(utils.setAnimTimer)
   }, [])
 
   useEffect(() => {

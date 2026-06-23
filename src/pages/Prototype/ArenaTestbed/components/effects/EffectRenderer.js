@@ -21,20 +21,20 @@ function getHexLine(r1, c1, r2, c2) {
 }
 
 const primitivos = {
-  ProjetilEffect: (params) => {
-    console.log('[PRIMITIVO] ProjetilEffect', params)
-    const { atacanteId, alvoId, onFinalizar } = params
+  ProjetilEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] ProjetilEffect', { params, dados, alvo })
+    const { atacanteId, alvoId, onFinalizar } = dados
     if (!atacanteId || !alvoId || !_refs.charsRef) {
       if (onFinalizar) setTimeout(onFinalizar, 100)
       return
     }
     const chars = _refs.charsRef.current
     const atacante = chars.find(c => c.id === atacanteId)
-    const alvo = chars.find(c => c.id === alvoId)
-    if (!atacante || !alvo) { if (onFinalizar) setTimeout(onFinalizar, 100); return }
+    const personagemAlvo = chars.find(c => c.id === alvoId)
+    if (!atacante || !personagemAlvo) { if (onFinalizar) setTimeout(onFinalizar, 100); return }
 
     const origem = atacante.posicao
-    const destino = alvo.posicao
+    const destino = personagemAlvo.posicao
     const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
     const setTimer = _refs.setAnimTimerRef?.current || ((fn, d) => setTimeout(fn, d))
     const setProjPos = _refs.setProjectilePosRef?.current
@@ -64,22 +64,22 @@ const primitivos = {
     avancar()
   },
 
-  ImpactoEffect: (params) => console.log('[PRIMITIVO] ImpactoEffect', params),
+  ImpactoEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] ImpactoEffect', { params, dados, alvo }),
 
-  AuraEffect: (params) => {
-    console.log('[PRIMITIVO] AuraEffect', params)
-    const { atacanteId, alvoId, onFinalizar } = params
+  AuraEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] AuraEffect', { params, dados, alvo })
+    const { atacanteId, alvoId, onFinalizar } = dados
     if (!atacanteId || !_refs.charsRef || !_refs.syncCharsRef) {
       if (onFinalizar) setTimeout(onFinalizar, 50)
       return
     }
     const chars = _refs.charsRef.current
     const atacante = chars.find(c => c.id === atacanteId)
-    const alvo = _refs.charsRef.current.find(c => c.id === alvoId)
-    if (!atacante || !alvo) { if (onFinalizar) setTimeout(onFinalizar, 50); return }
+    const personagemAlvo = chars.find(c => c.id === alvoId)
+    if (!atacante || !personagemAlvo) { if (onFinalizar) setTimeout(onFinalizar, 50); return }
 
     const origem = { ...atacante.posicao }
-    const destino = alvo.posicao
+    const destino = personagemAlvo.posicao
     const dirRow = destino.row - origem.row
     const dirCol = destino.col - origem.col
     const meioRow = Math.round(origem.row + dirRow * 0.7)
@@ -103,20 +103,21 @@ const primitivos = {
     }, 300)
   },
 
-  TrailEffect: (params) => {
-    console.log('[PRIMITIVO] TrailEffect', params)
+  TrailEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] TrailEffect', { params, dados, alvo })
     if (!_refs.trailRef) return
-    const { row, col } = params
+    const { row, col } = dados
     _refs.trailRef.current = [
       ..._refs.trailRef.current,
       { row, col, alpha: 1.0 }
     ]
   },
 
-  HighlightEffect: (params) => {
-    console.log('[PRIMITIVO] HighlightEffect', params)
+  HighlightEffect: ({ params, dados, alvo }) => {
+    console.log('[PRIMITIVO] HighlightEffect', { params, dados, alvo })
     if (!_refs.highlightRef) return
-    const { tipo, cells, cor } = params
+    const { tipo, cor } = params
+    const cells = dados?.cells
     if (tipo === 'limpar') {
       _refs.highlightRef.current = { move: [], attack: [], range: [] }
       return
@@ -128,17 +129,17 @@ const primitivos = {
     }
   },
 
-  StatusEffect: (params) => console.log('[PRIMITIVO] StatusEffect', params),
-  TextoEffect: (params) => console.log('[PRIMITIVO] TextoEffect', params),
-  FlashEffect: (params) => console.log('[PRIMITIVO] FlashEffect', params),
-  ShakeEffect: (params) => console.log('[PRIMITIVO] ShakeEffect', params),
+  StatusEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] StatusEffect', { params, dados, alvo }),
+  TextoEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] TextoEffect', { params, dados, alvo }),
+  FlashEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] FlashEffect', { params, dados, alvo }),
+  ShakeEffect: ({ params, dados, alvo }) => console.log('[PRIMITIVO] ShakeEffect', { params, dados, alvo }),
 }
 
-export function executar(primitivo, params) {
+export function executar(primitivo, { params, dados, alvo }) {
   const fn = primitivos[primitivo]
   if (!fn) {
     console.warn('[EFFECT_RENDERER] primitivo desconhecido:', primitivo)
     return
   }
-  fn(params)
+  fn({ params, dados, alvo })
 }

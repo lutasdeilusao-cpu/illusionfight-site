@@ -20,6 +20,11 @@ export default function useEffectMachine() {
     hud: { ...canaisPadrao.hud },
   })
   const [, forceUpdate] = useState(0)
+  const timerFnRef = useRef((fn, delay) => setTimeout(fn, delay))
+
+  const setEffectTimer = useCallback((fn) => {
+    timerFnRef.current = fn
+  }, [])
 
   function finalizarEfeito(canal) {
     const c = canaisRef.current[canal]
@@ -39,7 +44,9 @@ export default function useEffectMachine() {
 
   function executarEfeitoInterno(canal, definicao, tipo, alvo, dados) {
     const c = canaisRef.current[canal]
-    c.estado = tipo === 'vitoria' ? ESTADO_BLOQUEADO : ESTADO_EXECUTANDO
+    c.estado = (tipo === 'vitoria' && canal !== 'hud')
+      ? ESTADO_BLOQUEADO
+      : ESTADO_EXECUTANDO
     c.ativo = { tipo, alvo, dados }
 
     console.log('[EFFECT][' + canal + '] iniciando:', tipo, {
@@ -50,10 +57,21 @@ export default function useEffectMachine() {
       timestamp: Date.now(),
     })
 
-    executarRenderer(definicao.primitivo, { ...definicao.params, ...dados, alvo })
+    executarRenderer(definicao.primitivo, { params: definicao.params, dados, alvo })
 
-    if (definicao.tipo === 'pontual') {
-      setTimeout(() => finalizarEfeito(canal), definicao.duracao)
+    if (definicao.duracao_auto === true) {
+      timerFnRef.current(() => finalizarEfeito(canal), definicao.duracao)
+    }
+
+    if (definicao.duracao_auto === false) {
+      if (!dados?.onFinalizar) {
+        console.error(
+          '[EFFECT] ERRO: efeito com duracao_auto:false sem onFinalizar.',
+          'Tipo:', tipo, 'Canal:', canal,
+          'O canal ficará travado. Finalizando automaticamente em 5s como fallback.'
+        )
+        timerFnRef.current(() => finalizarEfeito(canal), 5000)
+      }
     }
     forceUpdate(n => n + 1)
   }
@@ -67,11 +85,6 @@ export default function useEffectMachine() {
 
     const canal = definicao.canal || 'overlay'
     const c = canaisRef.current[canal]
-
-    if (canal === 'hud') {
-      executarEfeitoInterno(canal, definicao, tipo, alvo, dados)
-      return
-    }
 
     if (c.estado === ESTADO_BLOQUEADO) {
       console.warn('[EFFECT] canal bloqueado por vitoria. Rejeitado:', tipo, 'caller:', caller)
@@ -110,6 +123,7 @@ export default function useEffectMachine() {
   return {
     dispatchEffect,
     finalizarEfeito,
+    setEffectTimer,
     getEstadoCanal,
     getEfeitoAtivo,
     getFilaCanal,

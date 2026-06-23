@@ -1,7 +1,7 @@
 export const EFFECTS_MAP = {
   dano: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 800,
     prioridade: 1,
     primitivo: 'TextoEffect',
@@ -17,7 +17,7 @@ export const EFFECTS_MAP = {
   },
   flash: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 400,
     prioridade: 1,
     primitivo: 'FlashEffect',
@@ -33,7 +33,7 @@ export const EFFECTS_MAP = {
   },
   shake: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 500,
     prioridade: 1,
     primitivo: 'ShakeEffect',
@@ -49,7 +49,7 @@ export const EFFECTS_MAP = {
   },
   balao: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 1300,
     prioridade: 2,
     primitivo: 'TextoEffect',
@@ -65,7 +65,7 @@ export const EFFECTS_MAP = {
   },
   popup: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 800,
     prioridade: 1,
     primitivo: 'TextoEffect',
@@ -81,7 +81,7 @@ export const EFFECTS_MAP = {
   },
   banner_ia: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 1500,
     prioridade: 1,
     primitivo: 'TextoEffect',
@@ -97,7 +97,7 @@ export const EFFECTS_MAP = {
   },
   anuncio_turno: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 2000,
     prioridade: 0,
     primitivo: 'TextoEffect',
@@ -113,7 +113,7 @@ export const EFFECTS_MAP = {
   },
   trail: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 500,
     prioridade: 1,
     primitivo: 'TrailEffect',
@@ -129,7 +129,7 @@ export const EFFECTS_MAP = {
   },
   melee: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 500,
     prioridade: 1,
     primitivo: 'AuraEffect',
@@ -145,7 +145,7 @@ export const EFFECTS_MAP = {
   },
   projetil: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 600,
     prioridade: 1,
     primitivo: 'ProjetilEffect',
@@ -161,7 +161,7 @@ export const EFFECTS_MAP = {
   },
   ia_thinking: {
     canal: 'hud',
-    tipo: 'persistente',
+    duracao_auto: false,
     duracaoPorTurno: 3000,
     prioridade: 1,
     primitivo: 'TextoEffect',
@@ -177,7 +177,7 @@ export const EFFECTS_MAP = {
   },
   vitoria: {
     canal: 'overlay',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 3000,
     prioridade: 0,
     primitivo: 'TextoEffect',
@@ -193,7 +193,7 @@ export const EFFECTS_MAP = {
   },
   hp_delta: {
     canal: 'hud',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 600,
     prioridade: 1,
     primitivo: 'AuraEffect',
@@ -209,7 +209,7 @@ export const EFFECTS_MAP = {
   },
   bola_de_fogo: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 600,
     primitivo: 'ProjetilEffect',
     params: {
@@ -224,7 +224,7 @@ export const EFFECTS_MAP = {
   },
   bola_de_gelo: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 600,
     primitivo: 'ProjetilEffect',
     params: {
@@ -239,7 +239,7 @@ export const EFFECTS_MAP = {
   },
   veneno: {
     canal: 'overlay',
-    tipo: 'persistente',
+    duracao_auto: false,
     duracaoPorTurno: 600,
     prioridade: 1,
     primitivo: 'StatusEffect',
@@ -255,7 +255,7 @@ export const EFFECTS_MAP = {
   },
   highlight_movimento: {
     canal: 'canvas',
-    tipo: 'persistente',
+    duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
     params: {
@@ -269,7 +269,7 @@ export const EFFECTS_MAP = {
   },
   highlight_ataque: {
     canal: 'canvas',
-    tipo: 'persistente',
+    duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
     params: {
@@ -283,7 +283,7 @@ export const EFFECTS_MAP = {
   },
   highlight_range: {
     canal: 'canvas',
-    tipo: 'persistente',
+    duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
     params: {
@@ -297,7 +297,7 @@ export const EFFECTS_MAP = {
   },
   highlight_limpar: {
     canal: 'canvas',
-    tipo: 'pontual',
+    duracao_auto: true,
     duracao: 1,
     prioridade: 99,
     primitivo: 'HighlightEffect',
