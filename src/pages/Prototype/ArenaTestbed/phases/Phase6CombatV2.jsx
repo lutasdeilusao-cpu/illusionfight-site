@@ -53,9 +53,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       dispatchEffect({ tipo: 'shake', alvo: null, dados: {}, caller: 'onDano' })
       dispatchEffect({ tipo: 'flash', alvo: alvoId, dados: {}, caller: 'onDano' })
       dispatchEffect({ tipo: 'hp_delta', alvo: alvoId, dados: { dano }, caller: 'onDano' })
-      uiCtrl.mostrarDanoPopup(alvoId, dano)
-      uiCtrl.dispararImpacto()
-      uiCtrl.dispararFlash(alvoId)
     },
 
     onBalao: ({ alvoId, texto, tipo, row, col }) => {
@@ -70,7 +67,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       const containerRect = canvasContainerRef.current?.getBoundingClientRect()
       const x = center.x * scaleX + rect.left - (containerRect?.left ?? 0)
       const y = center.y * scaleY + rect.top - (containerRect?.top ?? 0) - sz * 0.8
-      uiCtrl.adicionarBalao({ x, y, texto, tipo })
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
@@ -159,7 +155,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onBannerIA: (nome) => {
       dispatchEffect({ tipo: 'banner_ia', alvo: null, dados: { nome }, caller: 'onBannerIA' })
-      uiCtrl.mostrarBannerAtaque(`${nome} ${t('prototype.arena_testbed.ia_attack_banner')}`)
     },
     onAnimating: (val) => setAnimating(val),
     onProjetilPos: (pos) => setProjectilePos(pos),
@@ -217,12 +212,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     drawCombatBoard(ctx, {
       characters, obstaculos, itensChaoAtual, cols, rows,
       highlightedCells, attackCells, rangeCells, currentChar,
-      damageFlash: uiCtrl.damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+      damageFlash: {}, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
       tileImg: tileImgRef.current, sz, padX, padY,
       angle: angleRef.current, trail: trailRef.current,
       hexCenter, drawHex,
     })
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, uiCtrl.damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
 
   useCanvasLoop({
     draw,
@@ -346,8 +341,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           </div>
         </div>
       )}
-      <div className={`atb-root $      {uiCtrl.shaking ? 'atb-shake' : ''}`}>
-        {uiCtrl.flashDmg && <div className="atb-flash-overlay" />}
+      <div className="atb-root">
         {jokenpoNeeded && (
           <JokenpoModal
             player1Name={jokenpoNeeded[0]?.nome || '?'}
@@ -395,14 +389,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
             }}
           />
         )}
-        {uiCtrl.danoPopup && <div className="atb-dano-popup" key={uiCtrl.danoPopup.key}>
-          <div className="atb-dano-popup-num">-{uiCtrl.danoPopup.dano}</div>
-        </div>}
-        {uiCtrl.attackBanner && (
-          <div className="atb-attack-banner">
-            <div className="atb-attack-banner-text">{uiCtrl.attackBanner.texto}</div>
-          </div>
-        )}
+
         {actionPanel && isPlayerTurn && subPhase === 'free' && currentChar && !inputLocked && (
           <div className="atb-action-panel">
             <div className="atb-action-panel-name">{currentChar.nome}</div>
@@ -447,14 +434,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
         </div>
         <div className="atb-canvas-wrap" ref={canvasContainerRef}>
           <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
-          <div className="atb-balloon-container">
-            {uiCtrl.balloons.map(b => (
-              <div key={b.key} className={`atb-balloon atb-balloon--${b.tipo}`}
-                style={{ '--x': `${b.x}px`, '--y': `${b.y}px` }}>
-                {b.texto}
-              </div>
-            ))}
-          </div>
+          <div className="atb-balloon-container"></div>
         </div>
         <div className="atb-hud">
           {characters.filter(c => c.vivo).map(ch => {
