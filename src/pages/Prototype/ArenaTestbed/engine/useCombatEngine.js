@@ -324,6 +324,7 @@ export default function useCombatEngine({
   }
 
   function cancelarAcao() {
+    if (onClearHighlight) onClearHighlight()
     setSubPhase('free'); setHighlightedCells([]); setAttackCells([]); setRangeCells([])
     setSubPhaseStep(null); setPendingMove(null); setDestinoEscolhido(null); setCaminhoEscolhido([])
   }
