@@ -419,6 +419,7 @@ export default function useCombatEngine({
   function configurarTurnoPara(charId) {
     console.log('[TC-01] configurarTurnoPara', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     setCurrentCharId(charId)
+    console.log('[TC-20] setCurrentCharId chamado', { charId, time: charsRef.current.find(c => c.id === charId)?.time })
     currentCharIdRef.current = charId
     setTurnVersion(v => v + 1)
     const proxChar = charsRef.current.find(c => c.id === charId)

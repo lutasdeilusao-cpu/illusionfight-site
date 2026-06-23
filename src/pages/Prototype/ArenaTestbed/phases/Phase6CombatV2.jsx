@@ -149,10 +149,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           playerTeamOrder, crossTieQueue } = ordering
   const { pendingMove, destinoEscolhido, caminhoEscolhido } = move
 
-  const currentChar = useMemo(() =>
-    characters.find(c => c.id === currentCharId),
-    [characters, currentCharId]
-  )
+  const currentChar = useMemo(() => {
+    const found = characters.find(c => c.id === currentCharId)
+    console.log('[TC-19] currentChar recalculado', { currentCharId, found: !!found, time: found?.time ?? 'undefined' })
+    return found
+  }, [characters, currentCharId])
   const isPlayerTurn = currentChar?.time === 'jogador'
 
   const [phase, setPhase] = useState('prepare')
@@ -414,7 +415,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
               {isPlayerTurn && subPhase && (
                 <span className="atb-top-subphase"> · {uiCtrl.getSubPhaseLabel(subPhase, t)}</span>
               )}
-              {iaThinking && ` · ${t('prototype.arena_testbed.ia_thinking_short')}`}
+              {(() => {
+                if (iaThinking) {
+                  console.log('[TC-17] BANNER iaThinking RENDERIZANDO', { iaThinking, isPlayerTurn, currentCharId, currentCharTime: currentChar?.time ?? 'undefined' })
+                }
+                return iaThinking ? ` · ${t('prototype.arena_testbed.ia_thinking_short')}` : null
+              })()}
             </span>
           </div>
           <button className="atb-top-log-btn" onClick={() => setLogDrawerOpen(true)}>≡</button>
@@ -464,6 +470,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           })}
         </div>
         <div className="atb-bottom-nav">
+          {(() => { console.log('[TC-18] RENDER botões', { isPlayerTurn, iaThinking, inputLocked, currentCharId, currentCharTime: currentChar?.time ?? 'undefined' }); return null })()}
           {isPlayerTurn && !iaThinking && !inputLocked ? (
             <>
               {subPhase === 'free' && (
