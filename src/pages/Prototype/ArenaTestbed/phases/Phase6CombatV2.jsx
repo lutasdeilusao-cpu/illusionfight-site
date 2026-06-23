@@ -31,6 +31,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const highlightRef = useRef({ move: [], attack: [], range: [] })
   const setProjectilePosRef = useRef()
   const setProjectilePathRef = useRef()
+  const charactersRef = useRef([])
 
   const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
 
@@ -52,7 +53,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onDano: (alvoId, dano) => {
       if (dano <= 0) return
-      const alvo = engine.combat.characters.find(c => c.id === alvoId)
+      const alvo = charactersRef.current.find(c => c.id === alvoId)
       if (!alvo) return
       setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
       dispatchEffect({ tipo: 'dano', alvo: alvoId, dados: { valor: dano }, caller: 'onDano' })
@@ -130,6 +131,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
   const { characters, currentCharId, turnoAcoes, winner, iaThinking, itensChaoAtual } = combat
+  charactersRef.current = characters
   const { subPhase, subPhaseStep, highlightedCells, attackCells, rangeCells,
           actionPanel, powerAttackMode, powerChoiceModal, defensePending } = ui
   const { orderingPhase, jokenpoNeeded, currentCrossTie,
