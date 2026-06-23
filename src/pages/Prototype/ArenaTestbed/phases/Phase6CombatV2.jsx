@@ -341,7 +341,15 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           <PowerChoiceModal
             mode={powerChoiceModal.mode}
             charName={powerChoiceModal.charName}
-            opcoes={powerChoiceModal.opcoes}
+            opcoes={[
+              { rotulo: t('prototype.arena_testbed.pcm_comum'), poderId: null, custoMP: 0, disponivel: true },
+              ...(powerChoiceModal.opcoes || []).map(p => ({
+                rotulo: `${t('prototype.arena_testbed.' + p.chaveI18n)} (-${p.custoMP} MP)`,
+                poderId: p.id,
+                custoMP: p.custoMP,
+                disponivel: true,
+              })),
+            ]}
             onEscolher={(op) => {
               if (powerChoiceModal.mode === 'ataque') {
                 actions.confirmarEscolhaAtaque(op)
