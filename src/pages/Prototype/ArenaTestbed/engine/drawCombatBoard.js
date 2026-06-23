@@ -42,17 +42,17 @@ export function drawCombatBoard(ctx, params) {
         fill = 'rgba(255,204,0,0.05)'
         stroke = '#ffcc00'
       } else if (hlSet.has(key)) {
-        fill = 'rgba(0,238,255,0.06)'
-        stroke = '#00eeff'
+        fill = 'rgba(255,255,255,0.06)'
+        stroke = '#ffffff'
       }
 
       if (destSet.has(key) && key !== destKey) {
-        fill = 'rgba(0,238,255,0.12)'
+        fill = 'rgba(255,255,255,0.12)'
         stroke = 'rgba(255,255,255,0.6)'
       }
 
       if (destKey && key === destKey) {
-        fill = 'rgba(0,238,255,0.2)'
+        fill = 'rgba(255,255,255,0.2)'
         stroke = '#ffffff'
       }
 
@@ -62,7 +62,7 @@ export function drawCombatBoard(ctx, params) {
       } else if (rangeSet.has(key)) {
         shadow = { blur: 8, color: '#ffcc00' }
       } else if (hlSet.has(key)) {
-        shadow = { blur: 12, color: '#00eeff' }
+        shadow = { blur: 12, color: '#ffffff' }
       } else if (!obs && !ch && !itensChaoAtual[key]) {
         shadow = { blur: 4, color: '#7a4a1a' }
       }
@@ -239,7 +239,7 @@ export function drawCombatBoard(ctx, params) {
     const tc = hexCenter(t.row, t.col, padX, padY, sz)
     ctx.beginPath()
     ctx.arc(tc.x, tc.y, sz * 0.3, 0, Math.PI * 2)
-    ctx.fillStyle = `rgba(0,238,255,${t.alpha * 0.4})`
+    ctx.fillStyle = `rgba(255,255,255,${t.alpha * 0.4})`
     ctx.fill()
   }
 
