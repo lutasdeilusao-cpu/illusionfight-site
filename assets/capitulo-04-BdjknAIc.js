@@ -167,3 +167,4 @@ Kim hung by his throat with a bloodied face, the fingers of his right hand fract
 *Destroy this guy. Then Jack needs to pay up.*
 
 The dark started closing in from the edges of his vision.`;export{e as default};
+//# sourceMappingURL=capitulo-04-BdjknAIc.js.map

@@ -211,3 +211,4 @@ Pausa.\r
 Outra pausa, menor.\r
 \r
 — Ou prefere O Primordial?`;export{e as default};
+//# sourceMappingURL=capitulo-06-CAsyQEuk.js.map

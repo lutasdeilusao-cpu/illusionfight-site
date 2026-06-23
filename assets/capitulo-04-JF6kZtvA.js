@@ -167,3 +167,4 @@ Kim estava pendurado pela garganta com o rosto em sangue, os dedos da mão direi
 O escuro começou a avançar pelas bordas da visão.\r
 \r
 `;export{e as default};
+//# sourceMappingURL=capitulo-04-JF6kZtvA.js.map

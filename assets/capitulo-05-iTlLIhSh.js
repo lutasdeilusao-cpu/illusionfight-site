@@ -233,3 +233,4 @@ There was something in that image — Kim on his knees with his face destroyed a
 The flames started on Kim's back.
 
 Black.`;export{e as default};
+//# sourceMappingURL=capitulo-05-iTlLIhSh.js.map

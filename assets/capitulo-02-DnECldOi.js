@@ -123,3 +123,4 @@ Nina slowly took off her glasses and looked at the scene. At the five without un
 *Finally some action. Not what I expected from an elite school, but it got my attention.*
 
 She put her tablet in her backpack and waited.`;export{e as default};
+//# sourceMappingURL=capitulo-02-DnECldOi.js.map

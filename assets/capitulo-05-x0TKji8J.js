@@ -233,3 +233,4 @@ Havia algo naquela imagem — Kim de joelhos com o rosto destruído e os olhos q
 As chamas começaram nas costas de Kim.\r
 \r
 Negras.`;export{e as default};
+//# sourceMappingURL=capitulo-05-x0TKji8J.js.map

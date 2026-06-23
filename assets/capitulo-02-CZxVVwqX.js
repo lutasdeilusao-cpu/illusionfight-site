@@ -123,3 +123,4 @@ Nina se quitó los lentes despacio y miró la escena. A los cinco sin uniforme. 
 *Finalmente un poco de acción. No era lo que esperaba de una escuela de elite, pero despertó mi curiosidad.*
 
 Guardó la tablet en la mochila y esperó.`;export{e as default};
+//# sourceMappingURL=capitulo-02-CZxVVwqX.js.map

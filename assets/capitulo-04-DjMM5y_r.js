@@ -167,3 +167,4 @@ Kim colgaba por el cuello con la cara ensangrentada, los dedos de la mano derech
 *Destruir a este tipo. Después Jack tiene que pagar.*
 
 La oscuridad empezó a avanzar por los bordes de su visión.`;export{e as default};
+//# sourceMappingURL=capitulo-04-DjMM5y_r.js.map
