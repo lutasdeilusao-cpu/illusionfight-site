@@ -16,6 +16,7 @@ import './atb-hud.css'
 import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
 import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
+import { emit } from '../engine/eventBus'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -44,7 +45,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
   const uiCtrl = useUIController()
-  const { dispatchEffect, finalizarEfeito, setEffectTimer } = useEffectMachine()
+  const { dispatchEffect, setEffectTimer } = useEffectMachine()
 
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
@@ -120,7 +121,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
     onClearHighlight: () => {
       clearHighlight()
-      finalizarEfeito('canvas')
+      emit('effect:end', { canal: 'canvas' })
     },
     onClearTrail: () => {
       trailRef.current = []
@@ -209,16 +210,16 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       dispatchEffect({ tipo: 'highlight_range', canal: 'canvas', dados: { cells: rangeCells } })
     }
     if (highlightedCells.length === 0 && prev.move.length > 0) {
-      finalizarEfeito('canvas')
+      emit('effect:end', { canal: 'canvas' })
     }
     if (attackCells.length === 0 && prev.attack.length > 0) {
-      finalizarEfeito('canvas')
+      emit('effect:end', { canal: 'canvas' })
     }
     if (rangeCells.length === 0 && prev.range.length > 0) {
-      finalizarEfeito('canvas')
+      emit('effect:end', { canal: 'canvas' })
     }
     prevCellsRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
-  }, [highlightedCells, attackCells, rangeCells, dispatchEffect, finalizarEfeito])
+  }, [highlightedCells, attackCells, rangeCells, dispatchEffect])
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current

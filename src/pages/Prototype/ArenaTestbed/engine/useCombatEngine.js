@@ -15,6 +15,7 @@ import { getPersonalidadePorId } from './ai/personalidades/index'
 import { PODERES_BASE, getPoderesPorId, temPoderDisponivel } from '../data/poderes'
 import { executarMecanica } from './mecanicasPoder'
 import { TipoAcao } from './TurnController'
+import { emit } from './eventBus'
 
 export default function useCombatEngine({
   boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm = true,
@@ -647,6 +648,7 @@ export default function useCombatEngine({
     function finalizarTurnoIA() {
       addLog(`  ✅ ${iaChar.nome} finalizou o turno.`)
       iaThinkingRef.current = false; setIaThinking(false)
+      emit('effect:end', { canal: 'hud' })
       if (onUnlockInput) onUnlockInput(0)
     if (verificarVitoria()) return
       avancarEAcionar()

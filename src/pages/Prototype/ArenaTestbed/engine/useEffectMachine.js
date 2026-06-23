@@ -1,6 +1,7 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { EFFECTS_MAP } from '../components/effects/effectsMap'
 import { executar as executarRenderer } from '../components/effects/EffectRenderer'
+import { on, off, emit } from './eventBus'
 
 const ESTADO_IDLE = 'IDLE'
 const ESTADO_EXECUTANDO = 'EXECUTANDO'
@@ -24,6 +25,14 @@ export default function useEffectMachine() {
 
   const setEffectTimer = useCallback((fn) => {
     timerFnRef.current = fn
+  }, [])
+
+  useEffect(() => {
+    function handleEffectEnd({ canal }) {
+      finalizarEfeito(canal)
+    }
+    on('effect:end', handleEffectEnd)
+    return () => off('effect:end', handleEffectEnd)
   }, [])
 
   function finalizarEfeito(canal) {
@@ -60,18 +69,7 @@ export default function useEffectMachine() {
     executarRenderer(definicao.primitivo, { params: definicao.params, dados, alvo })
 
     if (definicao.duracao_auto === true) {
-      timerFnRef.current(() => finalizarEfeito(canal), definicao.duracao)
-    }
-
-    if (definicao.duracao_auto === false) {
-      if (!dados?.onFinalizar) {
-        console.error(
-          '[EFFECT] ERRO: efeito com duracao_auto:false sem onFinalizar.',
-          'Tipo:', tipo, 'Canal:', canal,
-          'O canal ficará travado. Finalizando automaticamente em 5s como fallback.'
-        )
-        timerFnRef.current(() => finalizarEfeito(canal), 5000)
-      }
+      timerFnRef.current(() => emit('effect:end', { canal }), definicao.duracao)
     }
     forceUpdate(n => n + 1)
   }
@@ -122,7 +120,6 @@ export default function useEffectMachine() {
 
   return {
     dispatchEffect,
-    finalizarEfeito,
     setEffectTimer,
     getEstadoCanal,
     getEfeitoAtivo,

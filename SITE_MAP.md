@@ -577,7 +577,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.160.17** | REFACTOR: useEffectMachine — 5 correções arquiteturais (setAnimTimer, duracao_auto, hud queue, params/dados, onFinalizar guard) |
+| `SITE_VERSION` | **10.160.18** | FEAT: EventBus singleton + integração useEffectMachine (effect:end) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -589,7 +589,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **6.10.0** | REFACTOR: useEffectMachine — 5 correções arquiteturais (setAnimTimer, duracao_auto, hud queue, params/dados, onFinalizar guard) |
+| `ARENATESTBED_VERSION` | **6.11.0** | FEAT: EventBus singleton + integração useEffectMachine (effect:end) |
 
 ---
 
@@ -690,6 +690,8 @@
 ### i18n: PT/EN/ES via LanguageContext. PP tem i18n própria.
 
 ### z-index: SearchModal(2000) > AchievementToast(1500) > Navbar(1000) > CookieBanner(200) > LDINotification(150) > TrialBanner(140) > ScrollToTop(100) > MusicSection(50)
+
+### engine/eventBus.js: Singleton pub/sub (on/off/emit). Integrado ao useEffectMachine (ouvinte `effect:end`), EffectRenderer (emite de primitivos), Phase6CombatV2 (`onClearHighlight`/highlights), useCombatEngine (`finalizarTurnoIA`). Substitui chamadas diretas a `finalizarEfeito` por `emit('effect:end', { canal })`.
 
 ### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
 

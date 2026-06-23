@@ -1,3 +1,5 @@
+import { emit } from '../../engine/eventBus'
+
 let _refs = {}
 export function init(refs) { _refs = refs }
 
@@ -46,6 +48,7 @@ const primitivos = {
       if (stepIdx >= steps.length) {
         if (setProjPos) setProjPos(null)
         if (setProjPath) setProjPath([])
+        emit('effect:end', { canal: 'canvas' })
         if (onFinalizar) onFinalizar()
         return
       }
@@ -53,6 +56,7 @@ const primitivos = {
       if (!passo || passo.row === undefined || passo.col === undefined) {
         if (setProjPos) setProjPos(null)
         if (setProjPath) setProjPath([])
+        emit('effect:end', { canal: 'canvas' })
         if (onFinalizar) onFinalizar()
         return
       }
@@ -98,6 +102,7 @@ const primitivos = {
         )
       }
       setTimer(() => {
+        emit('effect:end', { canal: 'canvas' })
         if (onFinalizar) onFinalizar()
       }, 200)
     }, 300)
