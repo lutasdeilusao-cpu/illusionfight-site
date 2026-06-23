@@ -14,6 +14,7 @@ import './Phase6CombatV2.css'
 import './atb-canvas.css'
 import './atb-hud.css'
 import './atb-ui.css'
+import useEffectMachine from '../engine/useEffectMachine'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -35,6 +36,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
   const uiCtrl = useUIController()
+  const { dispatchEffect } = useEffectMachine()
 
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
@@ -46,12 +48,18 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
       const alvo = engine.combat.characters.find(c => c.id === alvoId)
       if (!alvo) return
       setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
+      dispatchEffect({ tipo: 'dano', alvo: alvoId, dados: { valor: dano }, caller: 'onDano' })
+      dispatchEffect({ tipo: 'popup', alvo: alvoId, dados: { valor: dano }, caller: 'onDano' })
+      dispatchEffect({ tipo: 'shake', alvo: null, dados: {}, caller: 'onDano' })
+      dispatchEffect({ tipo: 'flash', alvo: alvoId, dados: {}, caller: 'onDano' })
+      dispatchEffect({ tipo: 'hp_delta', alvo: alvoId, dados: { dano }, caller: 'onDano' })
       uiCtrl.mostrarDanoPopup(alvoId, dano)
       uiCtrl.dispararImpacto()
       uiCtrl.dispararFlash(alvoId)
     },
 
     onBalao: ({ alvoId, texto, tipo, row, col }) => {
+      dispatchEffect({ tipo: 'balao', alvo: alvoId, dados: { texto, tipo, row, col }, caller: 'onBalao' })
       const canvas = canvasRef.current
       if (!canvas) return
       const rect = canvas.getBoundingClientRect()
@@ -66,6 +74,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
+      dispatchEffect({ tipo: 'melee', alvo: alvo.id, dados: { atacanteId: atacante.id, resultado }, caller: 'onAnimarMelee' })
       const origem = atacante.posicao
       const destino = alvo.posicao
       const dirRow = destino.row - origem.row
@@ -89,6 +98,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
+      dispatchEffect({ tipo: 'projetil', alvo: alvo.id, dados: { atacanteId: atacante.id, resultado }, caller: 'onAnimarProjetil' })
       const origem = atacante.posicao
       const destino = alvo.posicao
       const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
@@ -113,6 +123,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onVitoria: (vencedor) => {
+      dispatchEffect({ tipo: 'vitoria', alvo: null, dados: { vencedor }, caller: 'onVitoria' })
       setPhase('resultado')
       uiCtrl.anunciar(
         vencedor === 'jogador'
@@ -124,12 +135,15 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onTurnoJogador: (proxChar) => {
+      dispatchEffect({ tipo: 'anuncio_turno', alvo: proxChar.id, dados: { nome: proxChar.nome, time: 'jogador' }, caller: 'onTurnoJogador' })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'Jogador'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_player_turn', { nome }))
       unlockInput(1500)
     },
 
     onTurnoIA: (proxChar) => {
+      dispatchEffect({ tipo: 'anuncio_turno', alvo: proxChar.id, dados: { nome: proxChar.nome, time: 'ia' }, caller: 'onTurnoIA' })
+      dispatchEffect({ tipo: 'ia_thinking', alvo: proxChar.id, dados: {}, caller: 'onTurnoIA' })
       const nome = proxChar.aparencia?.nome || proxChar.nome || 'IA'
       uiCtrl.anunciar(t('prototype.arena_testbed.announce_ia_turn', { nome }), 1500, 'ia')
     },
@@ -139,10 +153,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     onUnlockInput: (delay) => { unlockInput(delay) },
 
     onTrail: (passo) => {
+      dispatchEffect({ tipo: 'trail', alvo: null, dados: { row: passo.row, col: passo.col }, caller: 'onTrail' })
       trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
     },
 
-    onBannerIA: (nome) => uiCtrl.mostrarBannerAtaque(`${nome} ${t('prototype.arena_testbed.ia_attack_banner')}`),
+    onBannerIA: (nome) => {
+      dispatchEffect({ tipo: 'banner_ia', alvo: null, dados: { nome }, caller: 'onBannerIA' })
+      uiCtrl.mostrarBannerAtaque(`${nome} ${t('prototype.arena_testbed.ia_attack_banner')}`)
+    },
     onAnimating: (val) => setAnimating(val),
     onProjetilPos: (pos) => setProjectilePos(pos),
     onProjetilPath: (path) => setProjectilePath(path),

@@ -577,7 +577,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.159.8** | Fix: PowerChoiceModal opcoes formatadas + ataque comum |
+| `SITE_VERSION` | **10.159.9** | feat: useEffectMachine v1 — estrutura base + EffectRenderer + effectsMap |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -589,7 +589,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **6.6.1** | Fix: PowerChoiceModal opcoes formatadas + ataque comum |
+| `ARENATESTBED_VERSION` | **6.7.0** | feat: useEffectMachine v1 — estrutura base + EffectRenderer + effectsMap |
 
 ---
 
