@@ -24,7 +24,7 @@ export default function useCombatEngine({
   onVitoria, onTurnoJogador, onTurnoIA,
   onLockInput, onUnlockInput,
   onAtualizarChars,
-  onTrail, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
+  onTrail, onClearTrail, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -282,6 +282,7 @@ export default function useCombatEngine({
       const passo = steps[stepIdx]
       charsRef.current = charsRef.current.map(c => c.id === currentChar.id ? { ...c, posicao: { row: passo.row, col: passo.col } } : c)
       setCharacters(charsRef.current)
+      if (onTrail) onTrail({ row: passo.row, col: passo.col })
       stepIdx++
       setAnimTimer(avancarPasso, 150)
     }
@@ -305,6 +306,7 @@ export default function useCombatEngine({
       setItensChaoAtual(prev => { const n = { ...prev }; delete n[key]; return n })
       addLog(`[${currentChar.nome}] Coletou Poção ${item.tipo === 'hp' ? 'HP' : 'MP'} do chão!`)
     }
+    if (onClearTrail) onClearTrail()
     setTurnoAcoes(prev => ({ ...prev, moveu: true }))
     tc.registrarAcao(currentCharIdRef.current, TipoAcao.MOVER)
     setSubPhase('free')
@@ -545,6 +547,7 @@ export default function useCombatEngine({
           let stepIdx = 0
           function avancarPassoIA() {
             if (stepIdx >= steps.length) {
+              if (onClearTrail) onClearTrail()
               setAttackCells([]); dec.logs.forEach(l => addLog(`  ${l}`))
               setAnimTimer(estagioAgir, 300); return
             }

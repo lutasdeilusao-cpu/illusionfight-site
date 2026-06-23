@@ -6,7 +6,7 @@ import useCanvasLoop from '../engine/useCanvasLoop'
 import useHexCanvas from '../engine/useHexCanvas'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
-import { getHexLine, encontrarCaminho } from '../engine/hexUtils'
+import { encontrarCaminho } from '../engine/hexUtils'
 import JokenpoModal from '../components/modals/JokenpoModal'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
 import CharModal from '../components/modals/CharModal'
@@ -15,6 +15,7 @@ import './atb-canvas.css'
 import './atb-hud.css'
 import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
+import { init as initRenderer } from '../components/effects/EffectRenderer'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -24,6 +25,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const canvasContainerRef = useRef(null)
   const angleRef = useRef(0)
   const trailRef = useRef([])
+  const charsFnRef = useRef()
+  const syncCharsFnRef = useRef()
+  const setAnimTimerFnRef = useRef()
+  const highlightRef = useRef({ move: [], attack: [], range: [] })
+  const setProjectilePosRef = useRef()
+  const setProjectilePathRef = useRef()
 
   const { boardChars, obstaculos, itensChao, cols, rows, tileUrl } = boardState
 
@@ -70,52 +77,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
 
     onAnimarMelee: (atacante, alvo, resultado, onFinalizar) => {
-      dispatchEffect({ tipo: 'melee', alvo: alvo.id, dados: { atacanteId: atacante.id, resultado }, caller: 'onAnimarMelee' })
-      const origem = atacante.posicao
-      const destino = alvo.posicao
-      const dirRow = destino.row - origem.row
-      const dirCol = destino.col - origem.col
-      const meioRow = Math.round(origem.row + dirRow * 0.7)
-      const meioCol = Math.round(origem.col + dirCol * 0.7)
-      engine.utils.syncCharacters(prev =>
-        prev.map(c => c.id === atacante.id
-          ? { ...c, posicao: { row: meioRow, col: meioCol } } : c)
-      )
-      engine.utils.setAnimTimer(() => {
-        engine.utils.syncCharacters(prev =>
-          prev.map(c => c.id === atacante.id ? { ...c, posicao: origem } : c)
-        )
-        engine.utils.setAnimTimer(() => {
-          if (onFinalizar) {
-            onFinalizar()
-          }
-        }, 200)
-      }, 300)
+      dispatchEffect({ tipo: 'melee', alvo: alvo.id, dados: { atacanteId: atacante.id, alvoId: alvo.id, resultado, onFinalizar }, caller: 'onAnimarMelee' })
     },
 
     onAnimarProjetil: (atacante, alvo, resultado, onFinalizar) => {
-      dispatchEffect({ tipo: 'projetil', alvo: alvo.id, dados: { atacanteId: atacante.id, resultado }, caller: 'onAnimarProjetil' })
-      const origem = atacante.posicao
-      const destino = alvo.posicao
-      const steps = getHexLine(origem.row, origem.col, destino.row, destino.col)
-      setProjectilePath(steps)
-      let stepIdx = 0
-      function avancar() {
-        if (stepIdx >= steps.length) {
-          setProjectilePos(null); setProjectilePath([])
-          if (onFinalizar) onFinalizar(); return
-        }
-        const passo = steps[stepIdx]
-        if (!passo || passo.row === undefined || passo.col === undefined) {
-          setProjectilePos(null); setProjectilePath([])
-          if (onFinalizar) onFinalizar(); return
-        }
-        setProjectilePos({ row: passo.row, col: passo.col })
-        setProjectilePath(prev => prev.filter((_, i) => i > 0))
-        stepIdx++
-        engine.utils.setAnimTimer(avancar, 320)
-      }
-      avancar()
+      dispatchEffect({ tipo: 'projetil', alvo: alvo.id, dados: { atacanteId: atacante.id, alvoId: alvo.id, resultado, onFinalizar }, caller: 'onAnimarProjetil' })
     },
 
     onVitoria: (vencedor) => {
@@ -150,9 +116,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
 
     onTrail: (passo) => {
       dispatchEffect({ tipo: 'trail', alvo: null, dados: { row: passo.row, col: passo.col }, caller: 'onTrail' })
-      trailRef.current = [...trailRef.current, { ...passo, alpha: 1.0 }]
     },
-
+    onClearTrail: () => {
+      trailRef.current = []
+    },
     onBannerIA: (nome) => {
       dispatchEffect({ tipo: 'banner_ia', alvo: null, dados: { nome }, caller: 'onBannerIA' })
     },
@@ -168,6 +135,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const { orderingPhase, jokenpoNeeded, currentCrossTie,
           playerTeamOrder, crossTieQueue } = ordering
   const { pendingMove, destinoEscolhido, caminhoEscolhido } = move
+
+  charsFnRef.current = characters
+  syncCharsFnRef.current = utils.syncCharacters
+  setAnimTimerFnRef.current = utils.setAnimTimer
+  setProjectilePosRef.current = setProjectilePos
+  setProjectilePathRef.current = setProjectilePath
+
+  highlightRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
 
   const currentChar = useMemo(() => characters.find(c => c.id === currentCharId), [characters, currentCharId])
   const isPlayerTurn = currentChar?.time === 'jogador'
@@ -199,6 +174,37 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     }
   }, [tileUrl])
 
+  useEffect(() => {
+    initRenderer({
+      trailRef,
+      charsRef: charsFnRef,
+      syncCharsRef: syncCharsFnRef,
+      setAnimTimerRef: setAnimTimerFnRef,
+      setProjectilePosRef: setProjectilePosRef,
+      setProjectilePathRef: setProjectilePathRef,
+      highlightRef,
+    })
+  }, [])
+
+  const prevCellsRef = useRef({ move: [], attack: [], range: [] })
+  useEffect(() => {
+    const prev = prevCellsRef.current
+    if (highlightedCells.length > 0 && prev.move.length === 0) {
+      dispatchEffect({ tipo: 'highlight_movimento', canal: 'canvas', dados: { cells: highlightedCells } })
+    }
+    if (attackCells.length > 0 && prev.attack.length === 0) {
+      dispatchEffect({ tipo: 'highlight_ataque', canal: 'canvas', dados: { cells: attackCells } })
+    }
+    if (rangeCells.length > 0 && prev.range.length === 0) {
+      dispatchEffect({ tipo: 'highlight_range', canal: 'canvas', dados: { cells: rangeCells } })
+    }
+    if (highlightedCells.length === 0 && attackCells.length === 0 && rangeCells.length === 0 &&
+        (prev.move.length > 0 || prev.attack.length > 0 || prev.range.length > 0)) {
+      dispatchEffect({ tipo: 'highlight_limpar', canal: 'canvas', dados: { tipo: 'limpar' } })
+    }
+    prevCellsRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
+  }, [highlightedCells, attackCells, rangeCells, dispatchEffect])
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -209,15 +215,16 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     const padY = padRef.current.y
     offsetRef.current = { x: padX, y: padY }
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    const hl = highlightRef.current
     drawCombatBoard(ctx, {
       characters, obstaculos, itensChaoAtual, cols, rows,
-      highlightedCells, attackCells, rangeCells, currentChar,
+      highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
       damageFlash: {}, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
       tileImg: tileImgRef.current, sz, padX, padY,
       angle: angleRef.current, trail: trailRef.current,
       hexCenter, drawHex,
     })
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, highlightedCells, attackCells, rangeCells, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded])
 
   useCanvasLoop({
     draw,
@@ -252,7 +259,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     }
 
     if (subPhase === 'movimento') {
-      if (highlightedCells.some(c => c.row === row && c.col === col)) {
+      const hl = highlightRef.current
+      if (hl.move.some(c => c.row === row && c.col === col)) {
         const ocupadas = new Set(
           characters.filter(c => c.vivo && c.id !== currentChar.id)
             .map(c => `${c.posicao.row}_${c.posicao.col}`)
@@ -266,14 +274,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
         set.setPendingMove({ row, col })
       }
     } else if (subPhase === 'acao') {
-      if (subPhaseStep === 'escolher_alvo' && attackCells.some(c => c.row === row && c.col === col)) {
+      const hl2 = highlightRef.current
+      if (subPhaseStep === 'escolher_alvo' && hl2.attack.some(c => c.row === row && c.col === col)) {
         const target = characters.find(c => c.vivo && c.posicao?.row === row && c.posicao?.col === col)
         if (target) actions.executarAtaque(target)
       }
     }
   }, [isPlayerTurn, iaThinking, cols, rows, subPhase, subPhaseStep,
-      currentChar, actionPanel, highlightedCells, attackCells,
-      characters, obstaculos, set, actions])
+      currentChar, actionPanel, characters, obstaculos, set, actions])
 
   const handleTouch = useCallback((e) => {
     if (e.cancelable) e.preventDefault()
