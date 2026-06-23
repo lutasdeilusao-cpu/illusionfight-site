@@ -1,4 +1,4 @@
-import '../../phases/Phase6Combat.css'
+import '../../phases/atb-ui.css'
 
 export default function CharModal({ char, onClose, t }) {
   return (

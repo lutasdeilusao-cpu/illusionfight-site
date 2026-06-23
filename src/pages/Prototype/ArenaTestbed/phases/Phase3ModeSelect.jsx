@@ -1,7 +1,7 @@
 import { useLanguage } from '../../../../context/LanguageContext'
 import './Phase3ModeSelect.css'
 
-export default function Phase3ModeSelect({ onSelectTraining, onSelectTrainingV2, onBack }) {
+export default function Phase3ModeSelect({ onSelectTraining, onBack }) {
   const { t } = useLanguage()
 
   return (
@@ -13,11 +13,6 @@ export default function Phase3ModeSelect({ onSelectTraining, onSelectTrainingV2,
         <button className="p3-btn p3-btn--training" onClick={onSelectTraining}>
           <span className="p3-btn-icon">⚔</span>
           <span className="p3-btn-label">{t('prototype.arena_testbed.p3_training')}</span>
-        </button>
-
-        <button className="p3-btn p3-btn--training" onClick={onSelectTrainingV2}>
-          <span className="p3-btn-icon">⚔</span>
-          <span className="p3-btn-label">{t('prototype.arena_testbed.btn_treino_v2')}</span>
         </button>
 
         <button className="p3-btn p3-btn--campaign" disabled>
