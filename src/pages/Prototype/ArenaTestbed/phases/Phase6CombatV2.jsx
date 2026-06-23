@@ -417,7 +417,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
               )}
               {(() => {
                 if (iaThinking) {
-                  console.log('[TC-17] BANNER iaThinking RENDERIZANDO', { iaThinking, isPlayerTurn, currentCharId, currentCharTime: currentChar?.time ?? 'undefined' })
+                  console.log('[VIS-01] texto iaThinking VISÍVEL NA TELA (top bar)', {
+                    iaThinking, isPlayerTurn, currentCharId,
+                    currentCharTime: currentChar?.time ?? 'undefined',
+                    quemEstaNaVezId: engine.combat.currentCharId,
+                    quemEstaNaVezTime: engine.combat.characters.find(c => c.id === engine.combat.currentCharId)?.time ?? 'undefined'
+                  })
                 }
                 return iaThinking ? ` · ${t('prototype.arena_testbed.ia_thinking_short')}` : null
               })()}
@@ -470,7 +475,17 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
           })}
         </div>
         <div className="atb-bottom-nav">
-          {(() => { console.log('[TC-18] RENDER botões', { isPlayerTurn, iaThinking, inputLocked, currentCharId, currentCharTime: currentChar?.time ?? 'undefined' }); return null })()}
+          {(() => {
+            const mostraSpinner = !isPlayerTurn || iaThinking || inputLocked
+            if (mostraSpinner) {
+              console.log('[VIS-02] texto iaThinking VISÍVEL NA TELA (bottom nav spinner)', {
+                isPlayerTurn, iaThinking, inputLocked,
+                quemEstaNaVezId: engine.combat.currentCharId,
+                quemEstaNaVezTime: engine.combat.characters.find(c => c.id === engine.combat.currentCharId)?.time ?? 'undefined'
+              })
+            }
+            return null
+          })()}
           {isPlayerTurn && !iaThinking && !inputLocked ? (
             <>
               {subPhase === 'free' && (
