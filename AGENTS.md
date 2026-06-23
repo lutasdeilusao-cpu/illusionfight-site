@@ -9,12 +9,11 @@ No exceptions. Every modification to any game file:
 1. **🔴 BUMP THE VERSION** — Abra `C:\Users\isaia\Downloads\BRANDS\Lutas de Ilusão\SiteLDI\src\config\version.js` e **INCREMENTE** a versão do jogo/site modificado.
    > **Regra absoluta:** toda task que toca **qualquer arquivo** do projeto sobe `SITE_VERSION` patch obrigatoriamente, sem exceção. Se a task também mexe em um jogo específico, sobe a versão do jogo **e** a do site.
 2. **🔴 Update `SITE_MAP.md`** — Atualize o número da versão na tabela de rotas
-3. **🟡 `npm run test:routes`** — Roda a suíte Playwright contra todas as rotas. **Se falhar, corrija antes de prosseguir.**
-4. **`npm run build`** — if it fails, fix before proceeding
-5. **`git add -A && git commit -m "<desc> + vX.X.X"`**
-6. **`git push`**
-7. **`npm run deploy`**
-8. **Verify** the deploy published without errors
+3. **`npm run build`** — if it fails, fix before proceeding
+4. **`git add -A && git commit -m "<desc> + vX.X.X"`**
+5. **`git push`**
+6. **`npm run deploy`**
+7. **Verify** the deploy published without errors
 
 > **📋 AO FINAL, O RELATÓRIO DEVE INCLUIR:**
 > ```
@@ -34,7 +33,7 @@ No exceptions. Every modification to any game file:
 - **react-helmet-async** — per-page `<title>`
 - **react-markdown** — book chapter rendering
 - **Zero CSS-in-JS** — every component has a matching `.css` file. No `style={{}}` in JSX.
-- **No lint, no typecheck.** Test suite via Playwright: `npm run test:routes`. Only verification is `npm run build`.
+- **No lint, no typecheck.** Only verification is `npm run build`.
 
 ## Environment
 

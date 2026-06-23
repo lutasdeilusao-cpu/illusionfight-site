@@ -61,20 +61,6 @@ export default function TopTrumpsMP() {
     setSomAtivo(novo)
   }
 
-  // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
-  useEffect(() => {
-    if (fase === 'jogando' && !jaMovi) {
-      if (!__heartbeatRodando) {
-        sfx.startHeartbeatLoop()
-        __heartbeatRodando = true
-      }
-    } else {
-      sfx.stopHeartbeatLoop()
-      __heartbeatRodando = false
-    }
-    return () => { sfx.stopHeartbeatLoop(); __heartbeatRodando = false }
-  }, [fase, jaMovi])
-
   const salaId = searchParams.get('sala')
 
   const [sala, setSala] = useState(null)
@@ -88,8 +74,22 @@ export default function TopTrumpsMP() {
   const [movimentoRecebido, setMovimentoRecebido] = useState(false)
   const [ultimoMovimento, setUltimoMovimento] = useState(null)
   const [girando, setGirando] = useState(false)
-  const [particulas, setParticulas] = useState([])
+  const [cartaSelecionada, setCartaSelecionada] = useState(null)
   const [jaMovi, setJaMovi] = useState(false)
+
+  // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
+  useEffect(() => {
+    if (fase === 'jogando' && !jaMovi) {
+      if (!__heartbeatRodando) {
+        sfx.startHeartbeatLoop()
+        __heartbeatRodando = true
+      }
+    } else {
+      sfx.stopHeartbeatLoop()
+      __heartbeatRodando = false
+    }
+    return () => { sfx.stopHeartbeatLoop(); __heartbeatRodando = false }
+  }, [fase, jaMovi])
   const [meuPapel, setMeuPapel] = useState(null)
   const [deckLocal, setDeckLocal] = useState([])
   const [deckOponente, setDeckOponente] = useState([])
