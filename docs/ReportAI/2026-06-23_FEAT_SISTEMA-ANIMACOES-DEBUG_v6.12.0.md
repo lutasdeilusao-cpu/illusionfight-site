@@ -1,8 +1,8 @@
 # FEAT: Sistema de animacoes na ficha + Phase5bAnimDebug [DEBUG]
 
 **Data:** 2026-06-23
-**Versão:** SITE 10.160.19 → **10.160.20** · ARENATESTBED 6.11.1 → **6.12.0**
-**Commit:** `5476f433`
+**Versão:** SITE 10.160.20 → **10.160.21** · ARENATESTBED 6.12.0 → **6.12.1**
+**Commit:** `c314ae9a`
 **Deploy:** ✅ Published
 
 ---
@@ -201,12 +201,12 @@ Build sem erros. Warnings conhecidos.
 
 | Constante | Antes | Depois |
 |-----------|-------|--------|
-| `SITE_VERSION` | 10.160.19 | **10.160.20** |
-| `ARENATESTBED_VERSION` | 6.11.1 | **6.12.0** |
+| `SITE_VERSION` | 10.160.20 | **10.160.21** |
+| `ARENATESTBED_VERSION` | 6.12.0 | **6.12.1** |
 
 | Item | Valor |
 |------|-------|
-| **Commit hash** | `5476f433` |
+| **Commit hash** | `c314ae9a` |
 | **Mensagem** | `feat: sistema animacoes ficha + Phase5bAnimDebug [DEBUG] + v6.12.0` |
 | **Deploy** | ✅ Published |
 | **Arquivos criados** | 2 (`Phase5bAnimDebug.jsx`, `Phase5bAnimDebug.css`) |
@@ -215,7 +215,29 @@ Build sem erros. Warnings conhecidos.
 
 ---
 
-## 7. Sinais de alerta — verificação
+## 7. Correções aplicadas na 2ª rodada
+
+### 7.1 — Cabeçalho `// [DEBUG]` em Phase5bAnimDebug.jsx
+```js
+// [DEBUG] Phase5bAnimDebug — seleção de animações por personagem
+// Esta phase é exclusivamente para testes internos.
+// NÃO incluir no build de produção para usuários finais.
+```
+❌ Ausente na 1ª entrega. ✅ Adicionado.
+
+### 7.2 — `iaAtual` em vez de `iaChar` no onTrail da IA
+```js
+// ANTES (linha 572):
+if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaChar.animacoes?.movimento ?? 1 })
+
+// DEPOIS:
+if (onTrail) onTrail({ row: steps[stepIdx].row, col: steps[stepIdx].col, moveAnimId: iaAtual.animacoes?.movimento ?? 1 })
+```
+❌ `iaChar` na 1ª entrega. ✅ Corrigido para `iaAtual` conforme especificação.
+
+---
+
+## 8. Sinais de alerta — verificação
 
 - ✅ `animacoes` presente na inicialização de characters (useCombatEngine.js:36-42)
 - ✅ `onTrail` com `moveAnimId` em ambas chamadas (jogador linha 286, IA linha 565)
