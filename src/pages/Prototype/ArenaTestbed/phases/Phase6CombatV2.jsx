@@ -191,9 +191,20 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     })
   }, [])
 
-  // NOTA: highlights visuais são sincronizados via highlightRef.current no useEffect acima.
-  //       Não usar dispatchEffect para highlights — eles bloqueariam o canal canvas
-  //       e impediriam trail, projetil e outros efeitos de executarem.
+  const prevCellsRef = useRef({ move: [], attack: [], range: [] })
+  useEffect(() => {
+    const prev = prevCellsRef.current
+    if (highlightedCells.length > 0 && prev.move.length === 0) {
+      dispatchEffect({ tipo: 'highlight_movimento', canal: 'canvas', dados: { cells: highlightedCells } })
+    }
+    if (attackCells.length > 0 && prev.attack.length === 0) {
+      dispatchEffect({ tipo: 'highlight_ataque', canal: 'canvas', dados: { cells: attackCells } })
+    }
+    if (rangeCells.length > 0 && prev.range.length === 0) {
+      dispatchEffect({ tipo: 'highlight_range', canal: 'canvas', dados: { cells: rangeCells } })
+    }
+    prevCellsRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
+  }, [highlightedCells, attackCells, rangeCells, dispatchEffect])
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current
