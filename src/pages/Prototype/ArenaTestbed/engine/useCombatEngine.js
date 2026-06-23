@@ -312,6 +312,8 @@ export default function useCombatEngine({
     tc.registrarAcao(currentCharIdRef.current, TipoAcao.MOVER)
     setSubPhase('free')
     setHighlightedCells([])
+    setCaminhoEscolhido([])
+    setDestinoEscolhido(null)
     setActionPanel(false)
     if (onUnlockInput) onUnlockInput(0)
   }
@@ -321,6 +323,8 @@ export default function useCombatEngine({
     if (onClearHighlight) onClearHighlight()
     moverPersonagem(pendingMove.row, pendingMove.col)
     setPendingMove(null)
+    setCaminhoEscolhido([])
+    setDestinoEscolhido(null)
   }
 
   function cancelarAcao() {
