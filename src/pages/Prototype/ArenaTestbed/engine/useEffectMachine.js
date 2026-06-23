@@ -109,6 +109,7 @@ export default function useEffectMachine() {
 
   return {
     dispatchEffect,
+    finalizarEfeito,
     getEstadoCanal,
     getEfeitoAtivo,
     getFilaCanal,

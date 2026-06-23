@@ -44,7 +44,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
   const { inputLocked, inputLockedRef, lockInput, unlockInput } = useInputLock()
 
   const uiCtrl = useUIController()
-  const { dispatchEffect } = useEffectMachine()
+  const { dispatchEffect, finalizarEfeito } = useEffectMachine()
 
   const engine = useCombatEngine({
     boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm: true,
@@ -120,6 +120,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     },
     onClearHighlight: () => {
       clearHighlight()
+      finalizarEfeito('canvas')
     },
     onClearTrail: () => {
       trailRef.current = []
@@ -203,8 +204,17 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     if (rangeCells.length > 0 && prev.range.length === 0) {
       dispatchEffect({ tipo: 'highlight_range', canal: 'canvas', dados: { cells: rangeCells } })
     }
+    if (highlightedCells.length === 0 && prev.move.length > 0) {
+      finalizarEfeito('canvas')
+    }
+    if (attackCells.length === 0 && prev.attack.length > 0) {
+      finalizarEfeito('canvas')
+    }
+    if (rangeCells.length === 0 && prev.range.length > 0) {
+      finalizarEfeito('canvas')
+    }
     prevCellsRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
-  }, [highlightedCells, attackCells, rangeCells, dispatchEffect])
+  }, [highlightedCells, attackCells, rangeCells, dispatchEffect, finalizarEfeito])
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current
