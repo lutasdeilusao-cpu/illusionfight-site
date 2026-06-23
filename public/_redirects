@@ -1,0 +1,14 @@
+# Redirects — GitHub Pages (respeitado pelo Googlebot e alguns crawlers)
+# Formato: <origem> <destino> <código>
+
+# Trailing slash redirects
+/musicas    /musicas/    301
+/webtoon    /webtoon/    301
+/autor      /autor/      301
+/livro      /livro/      301
+/games      /games/      301
+/mundo      /mundo/      301
+/loja       /loja/       301
+/personagens /personagens/ 301
+/quiz       /quiz/       301
+/leaderboard /leaderboard/ 301
