@@ -24,7 +24,7 @@ export default function useCombatEngine({
   onVitoria, onTurnoJogador, onTurnoIA,
   onLockInput, onUnlockInput,
   onAtualizarChars,
-  onTrail, onClearTrail, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
+  onTrail, onClearTrail, onClearHighlight, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -290,6 +290,7 @@ export default function useCombatEngine({
   }
 
   function aposMovimento(row, col) {
+    if (onClearHighlight) onClearHighlight()
     const currentChar = charsRef.current.find(c => c.id === currentCharIdRef.current)
     if (!currentChar) return
     addLog(`[${currentChar.nome}] Moveu para (${row}, ${col})`)
@@ -317,6 +318,7 @@ export default function useCombatEngine({
 
   function confirmarMovimento() {
     if (!pendingMove) return
+    if (onClearHighlight) onClearHighlight()
     moverPersonagem(pendingMove.row, pendingMove.col)
     setPendingMove(null)
   }

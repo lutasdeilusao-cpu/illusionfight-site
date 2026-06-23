@@ -15,7 +15,7 @@ import './atb-canvas.css'
 import './atb-hud.css'
 import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
-import { init as initRenderer } from '../components/effects/EffectRenderer'
+import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -118,6 +118,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     onTrail: (passo) => {
       dispatchEffect({ tipo: 'trail', alvo: null, dados: { row: passo.row, col: passo.col }, caller: 'onTrail' })
     },
+    onClearHighlight: () => {
+      clearHighlight()
+    },
     onClearTrail: () => {
       trailRef.current = []
     },
@@ -199,10 +202,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, onB
     }
     if (rangeCells.length > 0 && prev.range.length === 0) {
       dispatchEffect({ tipo: 'highlight_range', canal: 'canvas', dados: { cells: rangeCells } })
-    }
-    if (highlightedCells.length === 0 && attackCells.length === 0 && rangeCells.length === 0 &&
-        (prev.move.length > 0 || prev.attack.length > 0 || prev.range.length > 0)) {
-      dispatchEffect({ tipo: 'highlight_limpar', canal: 'canvas', dados: { tipo: 'limpar' } })
     }
     prevCellsRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
   }, [highlightedCells, attackCells, rangeCells, dispatchEffect])

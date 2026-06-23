@@ -1,6 +1,12 @@
 let _refs = {}
 export function init(refs) { _refs = refs }
 
+export function clearHighlight() {
+  if (_refs.highlightRef) {
+    _refs.highlightRef.current = { move: [], attack: [], range: [] }
+  }
+}
+
 function getHexLine(r1, c1, r2, c2) {
   const steps = []
   const dr = r2 - r1
