@@ -81,6 +81,19 @@ export default function useEffectMachine() {
       return
     }
 
+    const ausentes = (definicao.dadosObrigatorios || [])
+      .filter(campo => !dados || dados[campo] === undefined || dados[campo] === null)
+
+    if (ausentes.length > 0) {
+      console.error(
+        '[EFFECT] CONTRATO QUEBRADO:',
+        `"${tipo}" exige dados.${ausentes.join(', dados.')}`,
+        '\nRecebido:', dados,
+        '\nCaller:', caller
+      )
+      return
+    }
+
     const canal = definicao.canal || 'overlay'
     const c = canaisRef.current[canal]
 

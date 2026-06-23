@@ -5,6 +5,7 @@ export const EFFECTS_MAP = {
     duracao: 800,
     prioridade: 1,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['valor'],
     params: {
       cor: '#ffffff',
       particula: null,
@@ -21,6 +22,7 @@ export const EFFECTS_MAP = {
     duracao: 400,
     prioridade: 1,
     primitivo: 'FlashEffect',
+    dadosObrigatorios: [],
     params: {
       cor: '#ff0000',
       particula: null,
@@ -37,6 +39,7 @@ export const EFFECTS_MAP = {
     duracao: 500,
     prioridade: 1,
     primitivo: 'ShakeEffect',
+    dadosObrigatorios: [],
     params: {
       cor: null,
       particula: null,
@@ -53,6 +56,7 @@ export const EFFECTS_MAP = {
     duracao: 1300,
     prioridade: 2,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['texto', 'tipo'],
     params: {
       cor: '#ffcc00',
       particula: null,
@@ -69,6 +73,7 @@ export const EFFECTS_MAP = {
     duracao: 800,
     prioridade: 1,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['valor'],
     params: {
       cor: '#ffffff',
       particula: null,
@@ -85,6 +90,7 @@ export const EFFECTS_MAP = {
     duracao: 1500,
     prioridade: 1,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['nome'],
     params: {
       cor: '#ff4444',
       particula: null,
@@ -101,6 +107,7 @@ export const EFFECTS_MAP = {
     duracao: 2000,
     prioridade: 0,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['nome', 'time'],
     params: {
       cor: '#ffffff',
       particula: null,
@@ -117,6 +124,7 @@ export const EFFECTS_MAP = {
     duracao: 500,
     prioridade: 1,
     primitivo: 'TrailEffect',
+    dadosObrigatorios: ['row', 'col'],
     params: {
       cor: '#8888ff',
       particula: null,
@@ -133,6 +141,7 @@ export const EFFECTS_MAP = {
     duracao: 500,
     prioridade: 1,
     primitivo: 'AuraEffect',
+    dadosObrigatorios: ['atacanteId', 'alvoId', 'onFinalizar'],
     params: {
       cor: '#ff8800',
       particula: 'fogo',
@@ -149,6 +158,7 @@ export const EFFECTS_MAP = {
     duracao: 600,
     prioridade: 1,
     primitivo: 'ProjetilEffect',
+    dadosObrigatorios: ['atacanteId', 'alvoId', 'onFinalizar'],
     params: {
       cor: '#ffaa00',
       particula: null,
@@ -165,6 +175,7 @@ export const EFFECTS_MAP = {
     duracaoPorTurno: 3000,
     prioridade: 1,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: [],
     params: {
       cor: '#aaaaaa',
       particula: null,
@@ -181,6 +192,7 @@ export const EFFECTS_MAP = {
     duracao: 3000,
     prioridade: 0,
     primitivo: 'TextoEffect',
+    dadosObrigatorios: ['vencedor'],
     params: {
       cor: '#ffd700',
       particula: null,
@@ -197,6 +209,7 @@ export const EFFECTS_MAP = {
     duracao: 600,
     prioridade: 1,
     primitivo: 'AuraEffect',
+    dadosObrigatorios: ['dano'],
     params: {
       cor: '#ff4444',
       particula: null,
@@ -212,6 +225,7 @@ export const EFFECTS_MAP = {
     duracao_auto: true,
     duracao: 600,
     primitivo: 'ProjetilEffect',
+    dadosObrigatorios: ['atacanteId', 'alvoId', 'onFinalizar'],
     params: {
       cor: '#ff4400',
       particula: 'fogo',
@@ -227,6 +241,7 @@ export const EFFECTS_MAP = {
     duracao_auto: true,
     duracao: 600,
     primitivo: 'ProjetilEffect',
+    dadosObrigatorios: ['atacanteId', 'alvoId', 'onFinalizar'],
     params: {
       cor: '#00aaff',
       particula: 'gelo',
@@ -243,6 +258,7 @@ export const EFFECTS_MAP = {
     duracaoPorTurno: 600,
     prioridade: 1,
     primitivo: 'StatusEffect',
+    dadosObrigatorios: [],
     params: {
       cor: '#44ff00',
       particula: 'veneno',
@@ -258,6 +274,7 @@ export const EFFECTS_MAP = {
     duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
+    dadosObrigatorios: ['cells'],
     params: {
       cor: '#00eeff',
       alpha: 0.06,
@@ -272,6 +289,7 @@ export const EFFECTS_MAP = {
     duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
+    dadosObrigatorios: ['cells'],
     params: {
       cor: '#ff2244',
       alpha: 0.08,
@@ -286,6 +304,7 @@ export const EFFECTS_MAP = {
     duracao_auto: false,
     prioridade: 0,
     primitivo: 'HighlightEffect',
+    dadosObrigatorios: ['cells'],
     params: {
       cor: '#ffcc00',
       alpha: 0.05,
@@ -301,6 +320,7 @@ export const EFFECTS_MAP = {
     duracao: 1,
     prioridade: 99,
     primitivo: 'HighlightEffect',
+    dadosObrigatorios: [],
     params: {
       cor: null,
       alpha: 0,
