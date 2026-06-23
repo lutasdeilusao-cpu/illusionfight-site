@@ -368,6 +368,7 @@ export default function useCombatEngine({
     animatingRef.current = true
     if (onLockInput) onLockInput()
     setAttackCells([])
+    setRangeCells([])
 
     let atacanteFinal = currentChar
     if (powerAttackMode) {
