@@ -3,6 +3,7 @@
 // NÃO incluir no build de produção para usuários finais.
 
 import { useState } from 'react'
+import { MovementAnimId } from '../engine/animations/movement/index'
 import './Phase5bAnimDebug.css'
 
 const TIPOS_ANIMACAO = ['movimento', 'ataque', 'defesa', 'habilidade', 'efeito']
@@ -64,15 +65,27 @@ export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
                   <div key={tipo} className="tab-anim-debug-row">
                     <span className="tab-anim-debug-label">{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</span>
                     <div className="tab-anim-debug-btns">
-                      {OPCOES.map(val => (
-                        <button
-                          key={val}
-                          className={`tab-anim-debug-btn ${chAnim?.[tipo] === val ? 'active' : ''}`}
-                          onClick={() => setAnim(id, tipo, val)}
-                        >
-                          {val}
-                        </button>
-                      ))}
+                      {tipo === 'movimento' ? (
+                        Object.entries(MovementAnimId).map(([name, animId]) => (
+                          <button
+                            key={animId}
+                            className={`tab-anim-debug-btn ${chAnim?.[tipo] === animId ? 'active' : ''}`}
+                            onClick={() => setAnim(id, tipo, animId)}
+                          >
+                            {animId}
+                          </button>
+                        ))
+                      ) : (
+                        OPCOES.map(val => (
+                          <button
+                            key={val}
+                            className={`tab-anim-debug-btn ${chAnim?.[tipo] === val ? 'active' : ''}`}
+                            onClick={() => setAnim(id, tipo, val)}
+                          >
+                            {val}
+                          </button>
+                        ))
+                      )}
                     </div>
                   </div>
                 ))}
