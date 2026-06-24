@@ -17,7 +17,7 @@ import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
 import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
 import { emit } from '../engine/eventBus'
-import { emitBurst, updateParticles, drawParticles, drawKiBall, drawProjectile } from '../engine/animations/particles'
+import { emitBurst, updateParticles, drawParticles, drawKiBall, drawProjectile, drawShield } from '../engine/animations/particles'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -32,6 +32,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const setAnimTimerFnRef = useRef()
   const highlightRef = useRef({ move: [], attack: [], range: [] })
   const projectileRef = useRef(null)
+  const shieldRef = useRef(null)
   const charactersRef = useRef([])
 
   const { obstaculos, itensChao, cols, rows, tileUrl } = boardState
@@ -157,6 +158,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       )
     },
     onSetKiBall: (val) => setKiBall(val),
+    onSetCharFlash: (updater) => setCharFlashRef.current(updater),
+    onSetShield: (val) => { shieldRef.current = val },
   })
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
@@ -182,6 +185,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const [charVisualPos, setCharVisualPos] = useState({})
   const [charRotation, setCharRotation] = useState({})
   const [kiBall, setKiBall] = useState(null)
+  const [charFlash, setCharFlash] = useState({})
   const frameCountRef = useRef(0)
   const particlesRef = useRef([])
 
@@ -193,9 +197,11 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const setCharScalesRef = useRef(setCharScales)
   const setCharVisualPosRef = useRef(setCharVisualPos)
   const setCharRotationRef = useRef(setCharRotation)
+  const setCharFlashRef = useRef(setCharFlash)
   useEffect(() => { setCharScalesRef.current = setCharScales }, [setCharScales])
   useEffect(() => { setCharVisualPosRef.current = setCharVisualPos }, [setCharVisualPos])
   useEffect(() => { setCharRotationRef.current = setCharRotation }, [setCharRotation])
+  useEffect(() => { setCharFlashRef.current = setCharFlash }, [setCharFlash])
 
   highlightRef.current = { move: highlightedCells, attack: attackCells, range: rangeCells }
 
@@ -274,13 +280,17 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         angle: angleRef.current, trail: trailRef.current,
         hexCenter, drawHex,
         charScales, charVisualPos, charRotation,
+        charFlash,
       })
       drawParticles(ctx, particlesRef.current)
       if (kiBall?.active) {
         drawKiBall(ctx, kiBall.x, kiBall.y, frameCountRef.current)
       }
       drawProjectile(ctx, projectileRef.current)
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall])
+      if (shieldRef.current?.active) {
+        drawShield(ctx, shieldRef.current, sizeRef.current, frameCountRef.current)
+      }
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall, charFlash])
 
   useCanvasLoop({
     draw,

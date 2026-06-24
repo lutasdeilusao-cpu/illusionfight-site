@@ -1,4 +1,4 @@
-function drawCharacter(ctx, ch, x, y, scale, rotation, currentChar, angle, sz) {
+function drawCharacter(ctx, ch, x, y, scale, rotation, currentChar, angle, sz, charFlash) {
   const isPlayer = ch.time === 'jogador'
   const cor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
   const icone = ch.aparencia?.icone
@@ -86,6 +86,17 @@ function drawCharacter(ctx, ch, x, y, scale, rotation, currentChar, angle, sz) {
   ctx.fillRect(barX, barY, barW * hpPct, barH)
   ctx.shadowBlur = 0
 
+  const flash = charFlash?.[ch.id]
+  if (flash?.alpha > 0) {
+    ctx.save()
+    ctx.globalAlpha = flash.alpha
+    ctx.beginPath()
+    ctx.arc(x, y, sz * 0.52, 0, Math.PI * 2)
+    ctx.fillStyle = flash.color
+    ctx.fill()
+    ctx.restore()
+  }
+
   ctx.restore()
 }
 
@@ -99,6 +110,7 @@ export function drawCombatBoard(ctx, params) {
     angle, trail,
     hexCenter, drawHex,
     charScales = {}, charVisualPos = {}, charRotation = {},
+    charFlash = {},
   } = params
 
   const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
@@ -200,7 +212,7 @@ export function drawCombatBoard(ctx, params) {
           // SKIP — drawn in pass 2 (on top of everything)
         } else if (scale > 0.01) {
           const rotation = charRotation[ch.id] ?? 0
-          drawCharacter(ctx, ch, center.x, center.y, scale, rotation, currentChar, angle, sz)
+          drawCharacter(ctx, ch, center.x, center.y, scale, rotation, currentChar, angle, sz, charFlash)
         }
       }
 
@@ -214,7 +226,7 @@ export function drawCombatBoard(ctx, params) {
     const scale = charScales[charId] ?? 1.0
     if (scale <= 0.01) continue
     const rotation = charRotation[charId] ?? 0
-    drawCharacter(ctx, ch, visualPos.x, visualPos.y, scale, rotation, currentChar, angle, sz)
+    drawCharacter(ctx, ch, visualPos.x, visualPos.y, scale, rotation, currentChar, angle, sz, charFlash)
   }
 
   for (const t of trail) {

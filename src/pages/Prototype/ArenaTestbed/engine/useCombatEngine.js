@@ -18,6 +18,7 @@ import { TipoAcao } from './TurnController'
 import { emit } from './eventBus'
 import { getMovementAnimation } from './animations/movement/index'
 import { getAttackAnimation, getRangeAnimation } from './animations/attack/index'
+import { getDefenseAnimation, DefenseAnimId } from './animations/defense/index'
 
 export default function useCombatEngine({
   boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm = true,
@@ -31,6 +32,7 @@ export default function useCombatEngine({
   onSetCharScales, onSetCharVisualPos, onSetCharRotation,
   onGetHexCenter, onGetSz,
   onEmitParticles, onSetKiBall, onSetProjectile,
+  onSetCharFlash, onSetShield,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -87,6 +89,30 @@ export default function useCombatEngine({
 
   useEffect(() => { charsRef.current = characters }, [characters])
   useEffect(() => { currentCharIdRef.current = currentCharId }, [currentCharId])
+
+  function animarDefesa(alvo, atacante, tipo, onFinalizar) {
+    const animId = alvo.animacoes?.defesa ?? 1
+
+    const resolvedId = tipo === 'hit' ? DefenseAnimId.HIT
+      : tipo === 'block' ? DefenseAnimId.BLOCK
+      : animId
+
+    const animFn = getDefenseAnimation(resolvedId)
+    animFn({
+      charId: alvo.id,
+      alvo,
+      atacante,
+      tipo,
+      onGetHexCenter: onGetHexCenter || (() => ({ x: 0, y: 0 })),
+      setAnimTimer,
+      setCharVisualPos: onSetCharVisualPos || (() => {}),
+      setCharFlash: onSetCharFlash || (() => {}),
+      onEmitParticles: onEmitParticles || (() => {}),
+      setShield: onSetShield || (() => {}),
+      sz: onGetSz ? onGetSz() : 36,
+      onFinalize: onFinalizar,
+    })
+  }
 
   const currentChar = characters.find(c => c.id === currentCharId)
   const isPlayerTurn = currentChar?.time === 'jogador'
@@ -204,34 +230,39 @@ export default function useCombatEngine({
 
   function aposAnimacaoAtaque(atacante, alvo, resultado) {
     clearAnimTimers()
-    if (resultado.criticoDefensivo) {
-      addLog(`  🛡️ BLOQUEIO!`)
-      adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
-    } else {
-      aplicarDano(alvo.id, Math.max(1, resultado.dano || 1), atacante)
-    }
-    if (resultado.criticoDefensivo) {
-      adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
-      setAnimTimer(() => {
-        const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
-        contra.logs.forEach(l => addLog(`  ↺ ${l}`))
-        if (contra.dano > 0) {
-          aplicarDano(atacante.id, contra.dano, alvo)
-          adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
-        }
+
+    const tipo = resultado.criticoDefensivo ? 'block' : 'hit'
+
+    animarDefesa(alvo, atacante, tipo, () => {
+      if (resultado.criticoDefensivo) {
+        addLog(`  🛡️ BLOQUEIO!`)
+        adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
+      } else {
+        aplicarDano(alvo.id, Math.max(1, resultado.dano || 1), atacante)
+      }
+      if (resultado.criticoDefensivo) {
+        adicionarFloatTexto(alvo.id, 'BLOQUEIO!', '#4488ff', alvo.posicao?.row, alvo.posicao?.col)
+        setAnimTimer(() => {
+          const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
+          contra.logs.forEach(l => addLog(`  ↺ ${l}`))
+          if (contra.dano > 0) {
+            aplicarDano(atacante.id, contra.dano, alvo)
+            adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
+          }
+          if (resultado.ataqueExtra) {
+            setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
+          } else {
+            setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
+          }
+        }, 500)
+      } else {
         if (resultado.ataqueExtra) {
           setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
         } else {
           setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
         }
-      }, 500)
-    } else {
-      if (resultado.ataqueExtra) {
-        setAnimTimer(() => handleAtaqueExtra(atacante, alvo, resultado.fa), 600)
-      } else {
-        setAnimTimer(() => finalizarAposAtaque(alvo, resultado), 400)
       }
-    }
+    })
   }
 
   // Bug 1 fix: única declaração de handleAtaqueExtra com os logs completos da bíblia
@@ -665,19 +696,28 @@ export default function useCombatEngine({
         const callbackFinal = () => {
           if (winnerRef.current) { finalizarTurnoIA(); return }
           if (isMiss) { adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col); setAnimTimer(() => finalizarTurnoIA(), 1300); return }
-          if (res.criticoDefensivo) {
-            adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
-          } else {
-            const danoFinal = Math.max(1, (res.dano || 1) - defesaBonusRef.current); defesaBonusRef.current = 0
-            aplicarDano(alvo.id, danoFinal, atacante)
-          }
-          const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
-          if (hpAtual <= 0) {
-            charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
-            setCharacters(charsRef.current); tc.marcarMorto(alvo.id)
-            addLog(`💀 ${alvo.nome} foi derrotado!`)
-            setAnimTimer(() => { if (verificarVitoria()) return; finalizarTurnoIA() }, 1200)
-          } else setAnimTimer(() => finalizarTurnoIA(), 800)
+
+          const tipoDef = res.criticoDefensivo ? 'block'
+            : (defesaBonusRef.current > 0) ? 'magic'
+            : 'hit'
+          const bonusDef = defesaBonusRef.current
+          defesaBonusRef.current = 0
+
+          animarDefesa(alvo, atacante, tipoDef, () => {
+            if (res.criticoDefensivo) {
+              adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
+            } else {
+              const danoFinal = Math.max(1, (res.dano || 1) - bonusDef)
+              aplicarDano(alvo.id, danoFinal, atacante)
+            }
+            const hpAtual = charsRef.current.find(c => c.id === alvo.id)?.hp ?? 0
+            if (hpAtual <= 0) {
+              charsRef.current = charsRef.current.map(c => c.id === alvo.id ? { ...c, vivo: false } : c)
+              setCharacters(charsRef.current); tc.marcarMorto(alvo.id)
+              addLog(`💀 ${alvo.nome} foi derrotado!`)
+              setAnimTimer(() => { if (verificarVitoria()) return; finalizarTurnoIA() }, 1200)
+            } else setAnimTimer(() => finalizarTurnoIA(), 800)
+          })
         }
         const podeDefesa = alvo.time === 'jogador' && charsRef.current.find(c => c.id === alvo.id)?.mp >= 3 && temPoderDisponivel(alvo, poderesEscolhidos, 'defesa', 3)
         function iniciarAnimacaoAtaqueIA() {

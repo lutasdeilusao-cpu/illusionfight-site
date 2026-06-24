@@ -153,6 +153,61 @@ export function drawProjectile(ctx, projectile) {
  * @param {number} steps
  * @returns {Array<{x,y}>}
  */
+/**
+ * Draw a magic shield barrier
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {Object} shield — { x, y, angle, alpha, shake }
+ * @param {number} sz — hex size for scaling
+ * @param {number} frameCount
+ */
+export function drawShield(ctx, shield, sz, frameCount) {
+  if (!shield?.active || shield.alpha <= 0) return
+
+  const shakeX = shield.shake
+    ? Math.sin(frameCount * 1.2) * 3 : 0
+  const shakeY = shield.shake
+    ? Math.cos(frameCount * 0.9) * 2 : 0
+
+  const x = shield.x + shakeX
+  const y = shield.y + shakeY
+
+  ctx.save()
+  ctx.globalAlpha = shield.alpha
+  ctx.translate(x, y)
+  ctx.rotate(shield.angle)
+
+  ctx.shadowBlur = 20
+  ctx.shadowColor = '#00aaff'
+
+  ctx.beginPath()
+  ctx.arc(0, 0, sz * 0.7, -Math.PI * 0.6, Math.PI * 0.6)
+  ctx.strokeStyle = '#00eeff'
+  ctx.lineWidth = 3
+  ctx.stroke()
+
+  ctx.beginPath()
+  ctx.arc(0, 0, sz * 0.7, -Math.PI * 0.6, Math.PI * 0.6)
+  ctx.lineTo(0, 0)
+  ctx.closePath()
+  ctx.fillStyle = 'rgba(0, 180, 255, 0.15)'
+  ctx.fill()
+
+  for (let i = 0; i < 4; i++) {
+    const lineAngle = -Math.PI * 0.5 + (Math.PI * i / 3)
+      + Math.sin(frameCount * 0.1 + i) * 0.05
+    const r1 = sz * 0.55
+    const r2 = sz * 0.7
+    ctx.beginPath()
+    ctx.moveTo(Math.cos(lineAngle) * r1, Math.sin(lineAngle) * r1)
+    ctx.lineTo(Math.cos(lineAngle) * r2, Math.sin(lineAngle) * r2)
+    ctx.strokeStyle = 'rgba(0, 238, 255, 0.6)'
+    ctx.lineWidth = 1.5
+    ctx.stroke()
+  }
+
+  ctx.restore()
+}
+
 export function getLinePath(x1, y1, x2, y2, steps) {
   const points = []
   for (let i = 1; i <= steps; i++) {

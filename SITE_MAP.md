@@ -558,7 +558,7 @@
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
 | `/custos` | Custos | `src/pages/Custos.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Transparência financeira do projeto |
 | `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
-| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Protótipos admin-only: menu de seleção + Morto Engine (bundled via raw import) + Arena Testbed. Arquivos: `Phase5bAnimDebug.jsx/.css` [DEBUG], `engine/animations/movement/` (Standard/Teleport/Slingshot), `engine/animations/attack/` (StandardPlus/RageDash/EnergyPunch/StraightShot/BurstFire/SpiritGun), `engine/animations/particles.js` |
+| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Protótipos admin-only: menu de seleção + Morto Engine (bundled via raw import) + Arena Testbed. Arquivos: `Phase5bAnimDebug.jsx/.css` [DEBUG], `engine/animations/movement/` (Standard/Teleport/Slingshot), `engine/animations/attack/` (StandardPlus/RageDash/EnergyPunch/StraightShot/BurstFire/SpiritGun), `engine/animations/defense/` (Hit/Block/MagicShield), `engine/animations/particles.js` |
 | `*` (catch-all) | NotFound | `src/pages/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
 > **📌 SE0 e Indexação:**
@@ -577,7 +577,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.160.29** | FEAT: 3 range attack animations — StraightShot + BurstFire + SpiritGun |
+| `SITE_VERSION` | **10.160.30** | FEAT: 3 defense animations — Hit + Block + MagicShield |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -589,7 +589,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **6.16.0** | FEAT: 3 range attack animations — StraightShot + BurstFire + SpiritGun |
+| `ARENATESTBED_VERSION` | **6.17.0** | FEAT: 3 defense animations — Hit + Block + MagicShield |
 
 ---
 
