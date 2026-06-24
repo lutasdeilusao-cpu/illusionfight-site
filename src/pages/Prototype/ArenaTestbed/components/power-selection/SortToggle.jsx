@@ -1,10 +1,11 @@
+import { audio } from '../../engine/audioManager'
 import './SortToggle.css'
 
 export default function SortToggle({ label, ativo, crescente, onClick }) {
   return (
     <button
       className={`st-btn ${ativo ? 'st-btn--ativo' : ''}`}
-      onClick={onClick}
+      onClick={() => { audio.toggle(); onClick() }}
     >
       <span className="st-label">{label}</span>
       {ativo && (

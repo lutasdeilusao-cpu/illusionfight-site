@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { getHP, getMP, getCasasMovimento, criarPersonagem } from '../engine/combat'
 import { PERSONALIDADES_IA } from '../engine/ai/personalidades/index'
+import { audio } from '../engine/audioManager'
 import './Phase1SheetBuilder.css'
 
 const ATTRIBUTES = ['forca', 'agi', 'dex', 'pdf', 'res', 'arm']
@@ -158,7 +159,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
               </span>
               <button
                 className="p1-btn-remove"
-                onClick={() => removeCharacter(idx)}
+                onClick={() => { audio.cancel(); removeCharacter(idx) }}
               >✕</button>
             </div>
 
@@ -184,13 +185,13 @@ export default function Phase1SheetBuilder({ onConfirm }) {
             <div className="p1-toggle-group">
               <button
                 className={`p1-toggle-btn ${char.tipoAtaque === 'melee' ? 'melee-active' : ''}`}
-                onClick={() => updateChar(idx, 'tipoAtaque', 'melee')}
+                onClick={() => { audio.toggle(); updateChar(idx, 'tipoAtaque', 'melee') }}
               >
                 ⚔ CORPO A CORPO
               </button>
               <button
                 className={`p1-toggle-btn ${char.tipoAtaque === 'distancia' ? 'distance-active' : ''}`}
-                onClick={() => updateChar(idx, 'tipoAtaque', 'distancia')}
+                onClick={() => { audio.toggle(); updateChar(idx, 'tipoAtaque', 'distancia') }}
               >
                 ◎ DISTÂNCIA
               </button>
@@ -198,11 +199,11 @@ export default function Phase1SheetBuilder({ onConfirm }) {
 
             <div className="p1-budget">
               <div className="p1-budget-row">
-                {BUDGET_OPTIONS.map(b => (
+                  {BUDGET_OPTIONS.map(b => (
                   <button
                     key={b}
                     className={`p1-budget-chip ${char.orcamento === b ? 'active' : ''}`}
-                    onClick={() => updateChar(idx, 'orcamento', b)}
+                    onClick={() => { audio.select(); updateChar(idx, 'orcamento', b) }}
                   >{b}</button>
                 ))}
               </div>
@@ -224,11 +225,11 @@ export default function Phase1SheetBuilder({ onConfirm }) {
                     <div className="p1-attr-controls">
                       <button className="p1-btn-small"
                         disabled={val <= minVal || isBlocked}
-                        onClick={() => updateAttr(idx, attr, -1)}>−</button>
+                        onClick={() => { audio.click(); updateAttr(idx, attr, -1) }}>−</button>
                       <span className={`p1-attr-val ${isBlocked ? 'blocked' : ''}`}>{val}</span>
                       <button className="p1-btn-small"
                         disabled={isBlocked || restantes <= 0}
-                        onClick={() => updateAttr(idx, attr, +1)}>+</button>
+                        onClick={() => { audio.click(); updateAttr(idx, attr, +1) }}>+</button>
                     </div>
                   </div>
                 )
@@ -247,22 +248,22 @@ export default function Phase1SheetBuilder({ onConfirm }) {
               </label>
             </div>
 
-            <div className="p1-items">
+              <div className="p1-items">
               <div className="p1-item-row">
                 <span>❤ HP</span>
                 <button className="p1-btn-small" disabled={char.pocaoHP <= 0}
-                  onClick={() => updateChar(idx, 'pocaoHP', Math.max(0, char.pocaoHP - 1))}>−</button>
+                  onClick={() => { audio.click(); updateChar(idx, 'pocaoHP', Math.max(0, char.pocaoHP - 1)) }}>−</button>
                 <span className="p1-attr-val">×{char.pocaoHP}</span>
                 <button className="p1-btn-small" disabled={char.pocaoHP >= 5}
-                  onClick={() => updateChar(idx, 'pocaoHP', char.pocaoHP + 1)}>+</button>
+                  onClick={() => { audio.click(); updateChar(idx, 'pocaoHP', char.pocaoHP + 1) }}>+</button>
               </div>
               <div className="p1-item-row">
                 <span>💧 MP</span>
                 <button className="p1-btn-small" disabled={char.pocaoMP <= 0}
-                  onClick={() => updateChar(idx, 'pocaoMP', Math.max(0, char.pocaoMP - 1))}>−</button>
+                  onClick={() => { audio.click(); updateChar(idx, 'pocaoMP', Math.max(0, char.pocaoMP - 1)) }}>−</button>
                 <span className="p1-attr-val">×{char.pocaoMP}</span>
                 <button className="p1-btn-small" disabled={char.pocaoMP >= 5}
-                  onClick={() => updateChar(idx, 'pocaoMP', char.pocaoMP + 1)}>+</button>
+                  onClick={() => { audio.click(); updateChar(idx, 'pocaoMP', char.pocaoMP + 1) }}>+</button>
               </div>
             </div>
 
@@ -277,7 +278,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
       </div>
 
       {characters.length < 4 && (
-        <button className="p1-add-btn" onClick={addCharacter}>
+        <button className="p1-add-btn" onClick={() => { audio.toggle(); addCharacter() }}>
           + NOVO COMBATENTE
         </button>
       )}
@@ -287,7 +288,7 @@ export default function Phase1SheetBuilder({ onConfirm }) {
           <p className="p1-warning">DISTRIBUA TODOS OS PONTOS DE ATRIBUTO</p>
         )}
 
-        <button className="p1-btn-primary" disabled={!canProceed} onClick={handleConfirm}>
+        <button className="p1-btn-primary" disabled={!canProceed} onClick={() => { audio.confirm(); handleConfirm() }}>
           ▶ MONTAR TABULEIRO
         </button>
       </div>

@@ -1,5 +1,6 @@
 import { useLanguage } from '../../../../../context/LanguageContext'
 import SortToggle from './SortToggle'
+import { audio } from '../../engine/audioManager'
 import './PowerFilterBar.css'
 
 const ELEMENTOS = ['fogo', 'agua', 'terra', 'ar', 'trevas', 'luz']
@@ -21,7 +22,7 @@ export default function PowerFilterBar({ filtroElemento, setFiltroElemento, orde
       <div className="pfb-elementos">
         <button
           className={`pfb-elem-btn ${filtroElemento === null ? 'pfb-elem-btn--ativo' : ''}`}
-          onClick={() => setFiltroElemento(null)}
+          onClick={() => { audio.toggle(); setFiltroElemento(null) }}
         >
           {t('prototype.arena_testbed.pfb_geral')}
         </button>
@@ -29,7 +30,7 @@ export default function PowerFilterBar({ filtroElemento, setFiltroElemento, orde
           <button
             key={elem}
             className={`pfb-elem-btn pfb-elem-btn--${elem} ${filtroElemento === elem ? 'pfb-elem-btn--ativo' : ''}`}
-            onClick={() => setFiltroElemento(elem)}
+            onClick={() => { audio.toggle(); setFiltroElemento(elem) }}
           >
             {t('prototype.arena_testbed.pfb_' + elem)}
           </button>

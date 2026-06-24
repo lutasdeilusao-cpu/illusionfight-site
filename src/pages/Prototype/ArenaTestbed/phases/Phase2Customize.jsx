@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { podeAdicionarPersonagemABatalha, getCoresDisponiveis, getNomesDisponiveis } from '../engine/regrasFicha'
+import { audio } from '../engine/audioManager'
 import './Phase2Customize.css'
 
 const ICONES = ['circle', 'square', 'diamond']
@@ -60,13 +61,13 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
                   {['#00ff88', '#4488ff', '#ffcc00'].map(cor => {
                     const ocupada = !coresDisponiveis.includes(cor) && ch.aparencia?.cor !== cor
                     return (
-                      <button
-                        key={cor}
-                        className={`p2-cor-btn ${ch.aparencia?.cor === cor ? 'p2-cor-btn--sel' : ''}`}
-                        style={{ '--cor': cor }}
-                        onClick={() => updateChar(idx, 'cor', cor)}
-                        disabled={ocupada}
-                      />
+                    <button
+                      key={cor}
+                      className={`p2-cor-btn ${ch.aparencia?.cor === cor ? 'p2-cor-btn--sel' : ''}`}
+                      style={{ '--cor': cor }}
+                      onClick={() => { audio.select(); updateChar(idx, 'cor', cor) }}
+                      disabled={ocupada}
+                    />
                     )
                   })}
                 </div>
@@ -79,7 +80,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
                     <button
                       key={ico}
                       className={`p2-ico-btn ${ch.aparencia?.icone === ico ? 'p2-ico-btn--sel' : ''}`}
-                      onClick={() => updateChar(idx, 'icone', ico)}
+                      onClick={() => { audio.select(); updateChar(idx, 'icone', ico) }}
                     >
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={ch.aparencia?.cor || '#00ff88'} strokeWidth="2">
                         {ico === 'circle' && <circle cx="12" cy="12" r="8" />}
@@ -100,7 +101,7 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
                       <button
                         key={nome}
                         className={`p2-nome-btn ${ch.aparencia?.nome === nome ? 'p2-nome-btn--sel' : ''}`}
-                        onClick={() => updateChar(idx, 'nome', nome)}
+                        onClick={() => { audio.select(); updateChar(idx, 'nome', nome) }}
                         disabled={ocupado}
                       >
                         {nome}
@@ -115,10 +116,10 @@ export default function Phase2Customize({ personagens, onConfirm, onBack }) {
       </div>
 
       <div className="p2-footer">
-        <button className="p2-btn p2-btn--back" onClick={onBack}>
+        <button className="p2-btn p2-btn--back" onClick={() => { audio.cancel(); onBack() }}>
           {t('prototype.arena_testbed.back')}
         </button>
-        <button className="p2-btn p2-btn--confirm" onClick={confirmar}>
+        <button className="p2-btn p2-btn--confirm" onClick={() => { audio.confirm(); confirmar() }}>
           {t('prototype.arena_testbed.p2_confirm')}
         </button>
       </div>

@@ -1,4 +1,5 @@
 import { emit } from '../../engine/eventBus'
+import { audio } from '../../engine/audioManager'
 
 function logAnimIds(primitivo, dados) {
   const animIds = {}
@@ -255,6 +256,9 @@ export function executar(primitivo, { params, dados, alvo }) {
   if (!fn) {
     console.warn('[EFFECT_RENDERER] primitivo desconhecido:', primitivo)
     return
+  }
+  if (params.som) {
+    audio.play(params.som)
   }
   fn({ params, dados, alvo })
 }

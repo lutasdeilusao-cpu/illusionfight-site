@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
+import { audio } from '../../engine/audioManager'
 import './JokenpoModal.css'
 
 const OPTIONS = ['pedra', 'papel', 'tesoura']
@@ -26,7 +27,9 @@ export default function JokenpoModal({ player1Name, player2Name, onResult, onClo
     setIaChoice(ia)
     const res = getResult(opt, ia)
     setResult(res)
+    audio.jokenpoChoice()
     setTimeout(() => {
+      audio.jokenpoResult()
       onResult(res === 'p1' ? player1Name : res === 'p2' ? player2Name : null)
     }, 1500)
   }

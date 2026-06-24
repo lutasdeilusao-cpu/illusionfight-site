@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { carregarFichas, deletarFicha } from '../data/fichaStorage'
 import { podeSalvarNovaFicha } from '../engine/regrasFicha'
+import { audio } from '../engine/audioManager'
 import './Phase0Start.css'
 
 export default function Phase0Start({ onNewGame, onLoadGame }) {
@@ -27,14 +28,14 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
       <div className="p0-card">
         <h1 className="p0-title">Arena Testbed</h1>
 
-        <button className="p0-btn p0-btn--primary" onClick={onNewGame}>
+        <button className="p0-btn p0-btn--primary" onClick={() => { audio.confirm(); onNewGame() }}>
           {t('prototype.arena_testbed.p0_new_game')}
         </button>
 
         <button
           className="p0-btn p0-btn--secondary"
           disabled={fichas.length === 0}
-          onClick={() => fichas.length > 0 && onLoadGame(fichas[0])}
+          onClick={() => { audio.select(); fichas.length > 0 && onLoadGame(fichas[0]) }}
         >
           {t('prototype.arena_testbed.p0_load_game')}
         </button>
@@ -50,10 +51,10 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
                   {f.personagens?.map(p => p.aparencia?.nome || '?').join(', ')}
                 </div>
                 <div className="p0-lista-acoes">
-                  <button className="p0-lista-btn" onClick={() => onLoadGame(f)}>
+                  <button className="p0-lista-btn" onClick={() => { audio.select(); onLoadGame(f) }}>
                     {t('prototype.arena_testbed.p0_load')}
                   </button>
-                  <button className="p0-lista-btn p0-lista-btn--del" onClick={() => setDeleteTarget(f)}>
+                  <button className="p0-lista-btn p0-lista-btn--del" onClick={() => { audio.cancel(); setDeleteTarget(f) }}>
                     {t('prototype.arena_testbed.p0_delete')}
                   </button>
                 </div>
@@ -76,10 +77,10 @@ export default function Phase0Start({ onNewGame, onLoadGame }) {
               })}
             </div>
             <div className="p0-modal-actions">
-              <button className="p0-modal-btn" onClick={() => setDeleteTarget(null)}>
+              <button className="p0-modal-btn" onClick={() => { audio.cancel(); setDeleteTarget(null) }}>
                 {t('prototype.arena_testbed.p0_cancel')}
               </button>
-              <button className="p0-modal-btn p0-modal-btn--del" onClick={() => handleDelete(deleteTarget.id)}>
+              <button className="p0-modal-btn p0-modal-btn--del" onClick={() => { audio.confirm(); handleDelete(deleteTarget.id) }}>
                 {t('prototype.arena_testbed.p0_confirm_delete')}
               </button>
             </div>

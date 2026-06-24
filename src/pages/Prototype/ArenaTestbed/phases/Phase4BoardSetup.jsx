@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import useHexCanvas from '../engine/useHexCanvas'
+import { audio } from '../engine/audioManager'
 import './Phase4BoardSetup.css'
 
 const OBS3_HP_OPTIONS = [1, 2, 3]
@@ -313,14 +314,14 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-tool-grid two-col">
               <button
                 className={`p2-tool-btn ${tool === 'select' ? 'active' : ''}`}
-                onClick={() => setTool('select')}
+                onClick={() => { audio.toggle(); setTool('select') }}
               >
                 <span className="p2-tool-icon">👆</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.tool_select')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'eraser' ? 'active' : ''}`}
-                onClick={() => setTool('eraser')}
+                onClick={() => { audio.toggle(); setTool('eraser') }}
               >
                 <span className="p2-tool-icon">🧹</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.tool_eraser')}</span>
@@ -335,7 +336,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
                 <button
                   key={ot.id}
                   className={`p2-tool-btn ${tool === `obs${ot.id}` ? 'active' : ''}`}
-                  onClick={() => setTool(`obs${ot.id}`)}
+                  onClick={() => { audio.toggle(); setTool(`obs${ot.id}`) }}
                 >
                   <span className="p2-tool-icon">{ot.icon}</span>
                   <span className="p2-btn-label">{t(ot.labelKey)}</span>
@@ -349,14 +350,14 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-tool-grid two-col">
               <button
                 className={`p2-tool-btn ${tool === 'item_hp' ? 'active' : ''}`}
-                onClick={() => setTool('item_hp')}
+                onClick={() => { audio.toggle(); setTool('item_hp') }}
               >
                 <span className="p2-tool-icon">❤️</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.label_hp')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'item_mp' ? 'active' : ''}`}
-                onClick={() => setTool('item_mp')}
+                onClick={() => { audio.toggle(); setTool('item_mp') }}
               >
                 <span className="p2-tool-icon">💧</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.label_mp')}</span>
@@ -368,7 +369,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-tool-config">
               <label>
                 <span>{t('prototype.arena_testbed.label_hp')}:</span>
-                <select value={obs3HP} onChange={e => setObs3HP(Number(e.target.value))}>
+                <select value={obs3HP} onChange={e => { audio.select(); setObs3HP(Number(e.target.value)) }}>
                   {OBS3_HP_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
                 </select>
               </label>
@@ -401,7 +402,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
               <div
                 key={ch.charId}
                 className={`p2-char-chip ${selectedChar?.charId === ch.charId ? 'selected' : ''}`}
-                onClick={() => setSelectedChar(ch)}
+                onClick={() => { audio.select(); setSelectedChar(ch) }}
               >
                 <span className={`p2-char-team ${ch.time}`}>
                   {ch.time === 'jogador' ? '👤' : '🤖'}
@@ -429,17 +430,17 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-stepper-group">
               <span className="p2-stepper-label">{t('prototype.arena_testbed.cols')}</span>
               <div className="p2-stepper">
-                <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => setCols(c => Math.max(1, c - 1))}>−</button>
+                <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => { audio.click(); setCols(c => Math.max(1, c - 1)) }}>−</button>
                 <span className="p2-stepper-value">{cols}</span>
-                <button className="p2-stepper-btn" disabled={cols >= MAX_COLS} onClick={() => setCols(c => Math.min(MAX_COLS, c + 1))}>+</button>
+                <button className="p2-stepper-btn" disabled={cols >= MAX_COLS} onClick={() => { audio.click(); setCols(c => Math.min(MAX_COLS, c + 1)) }}>+</button>
               </div>
             </div>
             <div className="p2-stepper-group">
               <span className="p2-stepper-label">{t('prototype.arena_testbed.rows')}</span>
               <div className="p2-stepper">
-                <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => setRows(r => Math.max(1, r - 1))}>−</button>
+                <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => { audio.click(); setRows(r => Math.max(1, r - 1)) }}>−</button>
                 <span className="p2-stepper-value">{rows}</span>
-                <button className="p2-stepper-btn" disabled={rows >= MAX_ROWS} onClick={() => setRows(r => Math.min(MAX_ROWS, r + 1))}>+</button>
+                <button className="p2-stepper-btn" disabled={rows >= MAX_ROWS} onClick={() => { audio.click(); setRows(r => Math.min(MAX_ROWS, r + 1)) }}>+</button>
               </div>
             </div>
           </div>
@@ -448,7 +449,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <button
               className="p2-btn-primary"
               disabled={!validPlacement}
-              onClick={handleConfirm}
+              onClick={() => { audio.confirm(); handleConfirm() }}
             >
               ⚔ {t('prototype.arena_testbed.start_match')}
             </button>

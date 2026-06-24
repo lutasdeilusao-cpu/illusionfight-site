@@ -3,6 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { PODERES_BASE } from '../data/poderes'
 import PowerFilterBar from '../components/power-selection/PowerFilterBar'
 import PowerGrid from '../components/power-selection/PowerGrid'
+import { audio } from '../engine/audioManager'
 import './Phase5PowerSelect.css'
 
 export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJogo }) {
@@ -88,7 +89,7 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
 
           return (
             <div key={ch.id} className={`tab-power-char-card ${isExpanded ? 'tab-power-char-card--expanded' : ''}`}>
-              <button className="tab-power-char-head" onClick={() => toggleExpandir(ch.id)}>
+              <button className="tab-power-char-head" onClick={() => { audio.toggle(); toggleExpandir(ch.id) }}>
                 <span className={`tab-power-char-dot ${ch.time}`} />
                 <span className="tab-power-char-name">{ch.nome}</span>
                 <span className="tab-power-char-limit">
@@ -122,10 +123,10 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
       </div>
 
       <div className="tab-power-select-footer">
-        <button className="tab-power-btn-back" onClick={onBack}>
+        <button className="tab-power-btn-back" onClick={() => { audio.cancel(); onBack() }}>
           {t('prototype.arena_testbed.back')}
         </button>
-        <button className="tab-power-btn-confirm" onClick={handleConfirm}>
+        <button className="tab-power-btn-confirm" onClick={() => { audio.confirm(); handleConfirm() }}>
           {t('prototype.arena_testbed.start_match')}
         </button>
       </div>

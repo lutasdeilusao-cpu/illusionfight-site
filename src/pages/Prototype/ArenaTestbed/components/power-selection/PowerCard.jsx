@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import PowerDescription from './PowerDescription'
+import { audio } from '../../engine/audioManager'
 import './PowerCard.css'
 
 const ELEM_ICON = { fogo: '🔥', agua: '💧', terra: '🪨', ar: '🌪️', trevas: '🌑', luz: '✨' }
@@ -11,7 +12,7 @@ export default function PowerCard({ poder, selected, atLimit, onToggle, tipoChar
 
   return (
     <div className={`pc-card ${selected ? 'pc-card--sel' : ''} ${atLimit && !selected ? 'pc-card--lim' : ''}`}>
-      <button className="pc-btn" onClick={() => onToggle()} disabled={atLimit && !selected}>
+      <button className="pc-btn" onClick={() => { audio.toggle(); onToggle() }} disabled={atLimit && !selected}>
         <div className="pc-head">
           <span className="pc-elem">{poder.elemento ? ELEM_ICON[poder.elemento] || '' : '⚙️'}</span>
           <span className="pc-nome">{t('prototype.arena_testbed.' + poder.chaveI18n)}</span>
@@ -27,7 +28,7 @@ export default function PowerCard({ poder, selected, atLimit, onToggle, tipoChar
         </div>
       </button>
 
-      <button className="pc-desc-btn" onClick={() => setExpanded(!expanded)}>
+      <button className="pc-desc-btn" onClick={() => { audio.click(); setExpanded(!expanded) }}>
         {expanded ? '▲' : '▼'}
       </button>
 

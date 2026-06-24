@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../../context/LanguageContext'
+import { audio } from '../../engine/audioManager'
 import './PowerChoiceModal.css'
 
 export default function PowerChoiceModal({ mode, charName, faBruto, opcoes, onEscolher }) {
@@ -28,7 +29,7 @@ export default function PowerChoiceModal({ mode, charName, faBruto, opcoes, onEs
             <button
               key={i}
               className={`pcm-btn ${op.poderId ? 'pcm-btn--poder' : 'pcm-btn--comum'}`}
-              onClick={() => onEscolher(op)}
+              onClick={() => { audio.powerActivate(); onEscolher(op) }}
               disabled={!op.disponivel}
             >
               <span className="pcm-btn-label">{op.rotulo}</span>
