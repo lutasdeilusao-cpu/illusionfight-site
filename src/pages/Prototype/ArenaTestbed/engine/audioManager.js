@@ -136,6 +136,16 @@ class AudioManager {
 
   isEnabled() { return this.enabled }
 
+  /**
+   * Generic dispatch: calls the method matching `key` if it exists.
+   * Used by EffectRenderer (audio.play(params.som)).
+   */
+  play(key) {
+    if (typeof this[key] === 'function') {
+      this[key]()
+    }
+  }
+
   // ── UI Sounds ──
 
   click() { this._play('click') }

@@ -589,7 +589,7 @@
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
-| `ARENATESTBED_VERSION` | **6.21.1** | FEAT: real audio files replace Web Audio synthesis — JC Sounds + Kenney UI + Atelier UI packs in /arena/sfx/ |
+| `ARENATESTBED_VERSION` | **6.21.2** | FIX: add play(key) method to AudioManager — EffectRenderer was calling audio.play() which didn't exist |
 
 ---
 
