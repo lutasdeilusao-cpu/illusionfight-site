@@ -19,7 +19,8 @@ export function execute({
   charId, steps,
   charsRef, syncCharacters,
   setAnimTimer, onTrail, onClearTrail,
-  moveAnimId, onFinalize,
+  setCharVisualPos, moveAnimId, onFinalize,
+  hexCenter, padX, padY, sz,
 }) {
   let stepIdx = 0
 
@@ -29,13 +30,26 @@ export function execute({
       if (onFinalize) onFinalize()
       return
     }
+    const isLastStep = stepIdx === steps.length - 1
     const step = steps[stepIdx]
-    syncCharacters(prev =>
-      prev.map(c => c.id === charId
-        ? { ...c, posicao: { row: step.row, col: step.col } }
-        : c
+
+    if (isLastStep) {
+      syncCharacters(prev =>
+        prev.map(c => c.id === charId
+          ? { ...c, posicao: { row: step.row, col: step.col } }
+          : c
+        )
       )
-    )
+      if (setCharVisualPos) {
+        setCharVisualPos(prev => { const n = { ...prev }; delete n[charId]; return n })
+      }
+    } else {
+      const center = hexCenter(step.row, step.col, padX, padY, sz)
+      if (setCharVisualPos) {
+        setCharVisualPos(prev => ({ ...prev, [charId]: { x: center.x, y: center.y } }))
+      }
+    }
+
     if (onTrail) onTrail({ row: step.row, col: step.col, moveAnimId })
     stepIdx++
     setAnimTimer(advance, 150)

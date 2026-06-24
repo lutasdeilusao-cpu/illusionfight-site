@@ -8,7 +8,7 @@ export function execute({
   charId, origem, destino,
   charsRef, syncCharacters,
   setAnimTimer, onClearTrail,
-  setCharScales, setCharRotation, moveAnimId, onFinalize,
+  setCharScales, setCharRotation, setCharVisualPos, moveAnimId, onFinalize,
   onEmitParticles, onGetHexCenter,
 }) {
   let step = 0
