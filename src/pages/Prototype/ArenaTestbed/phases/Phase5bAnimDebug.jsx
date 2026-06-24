@@ -4,7 +4,7 @@
 
 import { useState } from 'react'
 import { MovementAnimId } from '../engine/animations/movement/index'
-import { AttackAnimId } from '../engine/animations/attack/index'
+import { AttackAnimId, RangeAnimId } from '../engine/animations/attack/index'
 import './Phase5bAnimDebug.css'
 
 const TIPOS_ANIMACAO = ['movimento', 'ataqueMelee', 'ataqueRange', 'defesa', 'habilidade', 'efeito']
@@ -36,7 +36,8 @@ export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
 
   function getAnimIdEnum(tipo) {
     if (tipo === 'movimento') return MovementAnimId
-    if (tipo === 'ataqueMelee' || tipo === 'ataqueRange') return AttackAnimId
+    if (tipo === 'ataqueMelee') return AttackAnimId
+    if (tipo === 'ataqueRange') return RangeAnimId
     return null
   }
 

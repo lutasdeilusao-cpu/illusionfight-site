@@ -17,7 +17,7 @@ import { executarMecanica } from './mecanicasPoder'
 import { TipoAcao } from './TurnController'
 import { emit } from './eventBus'
 import { getMovementAnimation } from './animations/movement/index'
-import { getAttackAnimation } from './animations/attack/index'
+import { getAttackAnimation, getRangeAnimation } from './animations/attack/index'
 
 export default function useCombatEngine({
   boardChars, obstaculos, itensChao, cols, rows, poderesEscolhidos, agiUmPraUm = true,
@@ -30,7 +30,7 @@ export default function useCombatEngine({
   onTrail, onClearTrail, onClearHighlight, onBannerIA, onAnimating, onProjetilPos, onProjetilPath,
   onSetCharScales, onSetCharVisualPos, onSetCharRotation,
   onGetHexCenter, onGetSz,
-  onEmitParticles, onSetKiBall,
+  onEmitParticles, onSetKiBall, onSetProjectile,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -181,8 +181,25 @@ export default function useCombatEngine({
   }
 
   function animarAtaqueProjetil(atacante, alvo, resultado, onFinalizar) {
-    if (onAnimarProjetil) onAnimarProjetil(atacante, alvo, resultado, onFinalizar)
-    else if (onFinalizar) onFinalizar()
+    const animId = atacante.animacoes?.ataqueRange ?? 1
+    const animFn = getRangeAnimation(animId)
+    animFn({
+      charId: atacante.id,
+      atacante,
+      alvo,
+      resultado,
+      obstaculos,
+      onGetHexCenter: onGetHexCenter || (() => ({ x: 0, y: 0 })),
+      setAnimTimer,
+      setCharVisualPos: onSetCharVisualPos || (() => {}),
+      onEmitParticles: onEmitParticles || (() => {}),
+      setProjectile: onSetProjectile || (() => {}),
+      setKiBall: onSetKiBall || (() => {}),
+      onBalloon: (alvoId, texto, tipo, row, col) => {
+        adicionarBalao(alvoId, texto, tipo, row, col)
+      },
+      onFinalize: onFinalizar,
+    })
   }
 
   function aposAnimacaoAtaque(atacante, alvo, resultado) {

@@ -17,7 +17,7 @@ import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
 import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
 import { emit } from '../engine/eventBus'
-import { emitBurst, updateParticles, drawParticles, drawKiBall } from '../engine/animations/particles'
+import { emitBurst, updateParticles, drawParticles, drawKiBall, drawProjectile } from '../engine/animations/particles'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -31,8 +31,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const syncCharsFnRef = useRef()
   const setAnimTimerFnRef = useRef()
   const highlightRef = useRef({ move: [], attack: [], range: [] })
-  const setProjectilePosRef = useRef()
-  const setProjectilePathRef = useRef()
+  const projectileRef = useRef(null)
   const charactersRef = useRef([])
 
   const { obstaculos, itensChao, cols, rows, tileUrl } = boardState
@@ -145,8 +144,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       dispatchEffect({ tipo: 'banner_ia', alvo: null, dados: { nome }, caller: 'onBannerIA' })
     },
     onAnimating: (val) => setAnimating(val),
-    onProjetilPos: (pos) => setProjectilePos(pos),
-    onProjetilPath: (path) => setProjectilePath(path),
+    onSetProjectile: (val) => { projectileRef.current = val },
     onSetCharScales: (updater) => setCharScalesRef.current(updater),
     onSetCharVisualPos: (updater) => setCharVisualPosRef.current(updater),
     onSetCharRotation: (updater) => setCharRotationRef.current(updater),
@@ -178,8 +176,6 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const [animating, setAnimating] = useState(false)
   const [logDrawerOpen, setLogDrawerOpen] = useState(false)
   const [charModal, setCharModal] = useState(null)
-  const [projectilePos, setProjectilePos] = useState(null)
-  const [projectilePath, setProjectilePath] = useState([])
   const [hpAnterior, setHpAnterior] = useState({})
   const [tileLoaded, setTileLoaded] = useState(false)
   const [charScales, setCharScales] = useState({})
@@ -192,8 +188,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   charsFnRef.current = characters
   syncCharsFnRef.current = utils.syncCharacters
   setAnimTimerFnRef.current = utils.setAnimTimer
-  setProjectilePosRef.current = setProjectilePos
-  setProjectilePathRef.current = setProjectilePath
+
 
   const setCharScalesRef = useRef(setCharScales)
   const setCharVisualPosRef = useRef(setCharVisualPos)
@@ -231,8 +226,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       charsRef: charsFnRef,
       syncCharsRef: syncCharsFnRef,
       setAnimTimerRef: setAnimTimerFnRef,
-      setProjectilePosRef: setProjectilePosRef,
-      setProjectilePathRef: setProjectilePathRef,
+
       highlightRef,
     })
   }, [])
@@ -275,7 +269,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       drawCombatBoard(ctx, {
         characters, obstaculos, itensChaoAtual, cols, rows,
         highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
-        damageFlash: {}, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+        damageFlash: {}, caminhoEscolhido, destinoEscolhido,
         tileImg: tileImgRef.current, sz, padX, padY,
         angle: angleRef.current, trail: trailRef.current,
         hexCenter, drawHex,
@@ -285,7 +279,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       if (kiBall?.active) {
         drawKiBall(ctx, kiBall.x, kiBall.y, frameCountRef.current)
       }
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall])
+      drawProjectile(ctx, projectileRef.current)
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall])
 
   useCanvasLoop({
     draw,
@@ -296,6 +291,14 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         .map(t => ({ ...t, alpha: t.alpha - 0.07 }))
         .filter(t => t.alpha > 0)
       particlesRef.current = updateParticles(particlesRef.current)
+      if (projectileRef.current?.active) {
+        projectileRef.current = {
+          ...projectileRef.current,
+          trail: (projectileRef.current.trail || [])
+            .map(t => ({ ...t, alpha: t.alpha - 0.08 }))
+            .filter(t => t.alpha > 0),
+        }
+      }
       frameCountRef.current++
     },
   })

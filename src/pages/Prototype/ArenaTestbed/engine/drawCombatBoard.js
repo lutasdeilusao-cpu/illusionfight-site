@@ -93,7 +93,7 @@ export function drawCombatBoard(ctx, params) {
   const {
     characters, obstaculos, itensChaoAtual, cols, rows,
     highlightedCells, attackCells, rangeCells, currentChar,
-    damageFlash, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido,
+    damageFlash, caminhoEscolhido, destinoEscolhido,
     tileImg, sz,
     padX, padY,
     angle, trail,
@@ -104,7 +104,6 @@ export function drawCombatBoard(ctx, params) {
   const hlSet = new Set(highlightedCells.map(c => `${c.row}_${c.col}`))
   const atkSet = new Set(attackCells.map(c => `${c.row}_${c.col}`))
   const rangeSet = new Set(rangeCells.map(c => `${c.row}_${c.col}`))
-  const projPathSet = new Set(projectilePath.map(c => `${c.row}_${c.col}`))
   const destSet = new Set(caminhoEscolhido.map(c => `${c.row}_${c.col}`))
   const destKey = destinoEscolhido ? `${destinoEscolhido.row}_${destinoEscolhido.col}` : null
 
@@ -205,23 +204,6 @@ export function drawCombatBoard(ctx, params) {
         }
       }
 
-      if (projPathSet.has(key) && projectilePos?.row !== row && projectilePos?.col !== col) {
-        drawHex(ctx, center, sz, 'transparent', 'rgba(255,200,0,0.3)', 2)
-      }
-
-      if (projectilePos && projectilePos.row === row && projectilePos.col === col) {
-        ctx.beginPath()
-        ctx.arc(center.x, center.y, sz * 0.25, 0, Math.PI * 2)
-        ctx.fillStyle = '#ffcc00'
-        ctx.fill()
-        ctx.strokeStyle = '#ff8800'
-        ctx.lineWidth = 2
-        ctx.stroke()
-        ctx.beginPath()
-        ctx.arc(center.x, center.y, sz * 0.35, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(255,200,0,0.2)'
-        ctx.fill()
-      }
     }
   }
 
