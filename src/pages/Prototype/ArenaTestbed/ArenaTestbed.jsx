@@ -1,6 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { PODERES_BASE } from './data/poderes'
+import { audio } from './engine/audioManager'
 import Phase0Start from './phases/Phase0Start'
 import Phase1SheetBuilder from './phases/Phase1SheetBuilder'
 import Phase2Customize from './phases/Phase2Customize'
@@ -32,6 +33,9 @@ export const ModoJogo = Object.freeze({
 
 export default function ArenaTestbed() {
   const { t } = useLanguage()
+
+  useEffect(() => { audio.preload() }, [])
+
   const [phase, setPhase] = useState(FaseArena.INICIO)
   const [modoJogo, setModoJogo] = useState(null)
   const [characters, setCharacters] = useState([])

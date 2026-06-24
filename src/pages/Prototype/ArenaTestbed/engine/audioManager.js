@@ -1,590 +1,195 @@
 const SFX_STORAGE_KEY = 'arena-sfx-enabled'
 
 /**
- * ArenaTestbed AudioManager
+ * ArenaTestbed AudioManager v2
  *
- * Procedural sound synthesis using Web Audio API.
- * Techniques used:
- *   - Layered oscillators + noise for rich impacts
- *   - BiquadFilterNode for harmonic shaping (explosions, whooshes)
- *   - StereoPannerNode for spatial movement cues
- *   - ADSR-like envelopes via scheduled rampToValue
- *   - Random pitch variation (±varPct) for organic repetition
- *   - Arpeggios for victory/defeat/item sequences
- *
- * No external files — all sounds generated at runtime.
+ * Real audio files loaded from /arena/sfx/ organized by category.
+ * Uses Web Audio API decodeAudioData() for preloading + AudioBufferSourceNode for playback.
+ * Fallback: synthesized noise-based step sound when file unavailable.
  */
 class AudioManager {
   constructor() {
     this.ctx = null
     this.enabled = localStorage.getItem(SFX_STORAGE_KEY) !== 'false'
-    this._oscCount = 0
+    this._buffers = {}
+    this._loaded = false
   }
 
-  toggle() {
+  getContext() {
+    if (!this.ctx) {
+      this.ctx = new (window.AudioContext || window.webkitAudioContext)()
+    }
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume()
+    }
+    return this.ctx
+  }
+
+  async preload() {
+    if (this._loaded) return
+    const ctx = this.getContext()
+
+    const files = [
+      // UI
+      ['click', '/arena/sfx/ui/click.wav', 'wav'],
+      ['select', '/arena/sfx/ui/select.wav', 'wav'],
+      ['confirm', '/arena/sfx/ui/confirm.wav', 'wav'],
+      ['cancel', '/arena/sfx/ui/cancel.wav', 'wav'],
+      ['toggle', '/arena/sfx/ui/toggle.wav', 'wav'],
+      ['notification', '/arena/sfx/ui/notification.wav', 'wav'],
+      ['error', '/arena/sfx/ui/error.wav', 'wav'],
+      ['select_magic', '/arena/sfx/ui/select_magic.wav', 'wav'],
+      ['notification_magic', '/arena/sfx/ui/notification_magic.wav', 'wav'],
+
+      // Combat
+      ['sword_hit', '/arena/sfx/combat/sword_hit.wav', 'wav'],
+      ['sword_hit_2', '/arena/sfx/combat/sword_hit_2.wav', 'wav'],
+      ['sword_swing', '/arena/sfx/combat/sword_swing.wav', 'wav'],
+      ['heavy_hit', '/arena/sfx/combat/heavy_hit.wav', 'wav'],
+      ['heavy_swing', '/arena/sfx/combat/heavy_swing.wav', 'wav'],
+      ['dagger_hit', '/arena/sfx/combat/dagger_hit.wav', 'wav'],
+      ['dagger_swing', '/arena/sfx/combat/dagger_swing.wav', 'wav'],
+
+      // Magic
+      ['explosion', '/arena/sfx/magic/explosion.ogg', 'ogg'],
+      ['fireball', '/arena/sfx/magic/fireball.ogg', 'ogg'],
+      ['fireball_2', '/arena/sfx/magic/fireball_2.ogg', 'ogg'],
+      ['fire_buff', '/arena/sfx/magic/fire_buff.ogg', 'ogg'],
+      ['fire_spray', '/arena/sfx/magic/fire_spray.ogg', 'ogg'],
+      ['fire_impact', '/arena/sfx/magic/fire_impact.wav', 'wav'],
+      ['fire_launch', '/arena/sfx/magic/fire_launch.wav', 'wav'],
+      ['ice_barrage', '/arena/sfx/magic/ice_barrage.ogg', 'ogg'],
+      ['ice_freeze', '/arena/sfx/magic/ice_freeze.ogg', 'ogg'],
+      ['ice_impact', '/arena/sfx/magic/ice_impact.wav', 'wav'],
+      ['ice_launch', '/arena/sfx/magic/ice_launch.wav', 'wav'],
+      ['ice_throw', '/arena/sfx/magic/ice_throw.ogg', 'ogg'],
+      ['meteor', '/arena/sfx/magic/meteor.ogg', 'ogg'],
+      ['water_spray', '/arena/sfx/magic/water_spray.ogg', 'ogg'],
+      ['spell_impact', '/arena/sfx/magic/spell_impact.ogg', 'ogg'],
+      ['heal', '/arena/sfx/magic/heal.wav', 'wav'],
+      ['shield', '/arena/sfx/magic/shield.wav', 'wav'],
+      ['teleport', '/arena/sfx/magic/teleport.wav', 'wav'],
+      ['electric_hit', '/arena/sfx/magic/electric_hit.wav', 'wav'],
+      ['electric_launch', '/arena/sfx/magic/electric_launch.wav', 'wav'],
+
+      // Phase
+      ['victory', '/arena/sfx/phase/victory.wav', 'wav'],
+      ['defeat', '/arena/sfx/phase/defeat.ogg', 'ogg'],
+      ['turn_start', '/arena/sfx/phase/turn_start.wav', 'wav'],
+      ['ia_thinking', '/arena/sfx/phase/ia_thinking.wav', 'wav'],
+      ['phase_transition', '/arena/sfx/phase/phase_transition.wav', 'wav'],
+      ['battle_start', '/arena/sfx/phase/battle_start.ogg', 'ogg'],
+
+      // Item
+      ['item_pickup', '/arena/sfx/item/item_pickup.wav', 'wav'],
+    ]
+
+    const results = await Promise.allSettled(
+      files.map(([key, url]) =>
+        fetch(url)
+          .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`)
+            return r.arrayBuffer()
+          })
+          .then(buf => ctx.decodeAudioData(buf))
+          .then(ab => { this._buffers[key] = ab })
+      )
+    )
+
+    const ok = results.filter(r => r.status === 'fulfilled').length
+    const fail = results.filter(r => r.status === 'rejected').length
+    if (fail > 0) {
+      console.warn(`[AudioManager] ${fail}/${files.length} files failed to load (${ok} OK)`)
+    }
+    this._loaded = true
+  }
+
+  _play(key) {
+    if (!this.enabled) return
+    const ctx = this.getContext()
+    if (!this._buffers[key]) return
+
+    const src = ctx.createBufferSource()
+    src.buffer = this._buffers[key]
+    src.connect(ctx.destination)
+    src.start(0)
+  }
+
+  _playRandom(...keys) {
+    if (!this.enabled) return
+    const valid = keys.filter(k => this._buffers[k])
+    if (valid.length === 0) return
+    const pick = valid[Math.floor(Math.random() * valid.length)]
+    this._play(pick)
+  }
+
+  // ── Master toggle ──
+
+  toggleMute() {
     this.enabled = !this.enabled
     localStorage.setItem(SFX_STORAGE_KEY, this.enabled ? 'true' : 'false')
     return this.enabled
   }
 
-  on() {
-    this.enabled = true
-    localStorage.setItem(SFX_STORAGE_KEY, 'true')
-  }
+  on() { this.enabled = true; localStorage.setItem(SFX_STORAGE_KEY, 'true') }
+  off() { this.enabled = false; localStorage.setItem(SFX_STORAGE_KEY, 'false') }
 
-  off() {
-    this.enabled = false
-    localStorage.setItem(SFX_STORAGE_KEY, 'false')
-  }
+  isEnabled() { return this.enabled }
 
-  _getCtx() {
-    if (!this.ctx) {
-      const Ctor = window.AudioContext || window.webkitAudioContext
-      if (!Ctor) return null
-      this.ctx = new Ctor()
-    }
-    if (this.ctx.state === 'suspended') this.ctx.resume()
-    return this.ctx
-  }
+  // ── UI Sounds ──
 
-  /** Apply ±varPct random variation to a frequency */
-  _vary(freq, varPct = 0.05) {
-    return freq * (1 + (Math.random() - 0.5) * varPct * 2)
-  }
+  click() { this._play('click') }
+  select() { this._play('select') }
+  confirm() { this._play('confirm') }
+  cancel() { this._play('cancel') }
+  toggleSound() { this._play('toggle') }
+  /** @deprecated Use toggleSound() — kept for backward compat */
+  toggle() { this._play('toggle') }
+  notification() { this._play('notification') }
+  error() { this._play('error') }
 
-  /** Single oscillator with gain envelope */
-  _tone(freq, duration, type = 'sine', volume = 0.15, delay = 0) {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime + delay
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = type
-    osc.frequency.setValueAtTime(freq, now)
-    gain.gain.setValueAtTime(volume, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + duration)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + duration)
-  }
+  // ── Combat Sounds ──
 
-  /** White noise burst through optional lowpass filter */
-  _noise(duration, volume = 0.1, delay = 0, filterFreq = null) {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime + delay
-    const bufferSize = Math.max(1, Math.ceil(ctx.sampleRate * duration))
-    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
-    const data = buffer.getChannelData(0)
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1
-    }
-    const source = ctx.createBufferSource()
-    source.buffer = buffer
-    const gain = ctx.createGain()
-    gain.gain.setValueAtTime(volume, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + duration)
-    let output = source
-    if (filterFreq !== null) {
-      const filter = ctx.createBiquadFilter()
-      filter.type = 'lowpass'
-      filter.frequency.setValueAtTime(filterFreq, now)
-      source.connect(filter)
-      output = filter
-    }
-    output.connect(gain)
-    gain.connect(ctx.destination)
-    source.start(now)
-  }
+  hit() { this._playRandom('sword_hit', 'sword_hit_2') }
+  hitHeavy() { this._play('heavy_hit') }
+  hitCritical() { this._playRandom('spell_impact', 'explosion') }
+  miss() { this._play('sword_swing') }  // whoosh = miss
+  block() { this._playRandom('heavy_hit', 'sword_hit') }
+  counter() { this._play('dagger_hit') }
+  extraHit() { this._play('dagger_swing') }
+  magicShield() { this._play('shield') }
 
-  /** Tone with exponential frequency sweep (up or down) */
-  _sweep(fromFreq, toFreq, duration, type = 'sine', volume = 0.15, delay = 0) {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime + delay
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = type
-    osc.frequency.setValueAtTime(fromFreq, now)
-    osc.frequency.exponentialRampToValueAtTime(Math.max(20, toFreq), now + duration)
-    gain.gain.setValueAtTime(volume, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + duration)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + duration)
-  }
+  // ── Movement ──
 
-  /** Two tones in quick succession (dual blip) */
-  _dualTone(f1, f2, gap, duration, type = 'sine', volume = 0.12) {
-    this._tone(f1, duration, type, volume)
-    this._tone(f2, duration, type, volume * 0.8, gap)
-  }
-
-  /** Rapid sequence of notes (arpeggio) */
-  _arpeggio(notes, noteDuration, gap, type = 'triangle', volume = 0.1) {
-    notes.forEach((f, i) => {
-      this._tone(f, noteDuration, type, volume, i * gap)
-    })
-  }
-
-  /** Noise burst with bandpass filter — "click" layer */
-  _clickNoise(volume = 0.06, filterFreq = 3000, Q = 0.5) {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-    const dur = 0.03
-    const bufferSize = Math.max(1, Math.ceil(ctx.sampleRate * dur))
-    const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
-    const data = buffer.getChannelData(0)
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1
-    }
-    const source = ctx.createBufferSource()
-    source.buffer = buffer
-    const filter = ctx.createBiquadFilter()
-    filter.type = 'bandpass'
-    filter.frequency.setValueAtTime(filterFreq, now)
-    filter.Q.setValueAtTime(Q, now)
-    const gain = ctx.createGain()
-    gain.gain.setValueAtTime(volume, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + dur)
-    source.connect(filter)
-    filter.connect(gain)
-    gain.connect(ctx.destination)
-    source.start(now)
-  }
-
-  // ──────────────────────────────
-  //  UI SOUNDS
-  // ──────────────────────────────
-
-  click() {
-    this._tone(this._vary(800), 0.05, 'square', 0.05)
-  }
-
-  select() {
-    this._dualTone(this._vary(660), this._vary(880), 0.05, 0.1, 'triangle', 0.1)
-  }
-
-  confirm() {
-    this._tone(this._vary(523), 0.1, 'triangle', 0.08)
-    this._tone(this._vary(659), 0.1, 'triangle', 0.07, 0.08)
-    this._tone(this._vary(784), 0.12, 'sine', 0.06, 0.16)
-  }
-
-  cancel() {
-    this._tone(this._vary(400), 0.08, 'square', 0.06)
-    this._tone(this._vary(300), 0.12, 'square', 0.04, 0.06)
-  }
-
-  toggle() {
-    this._tone(this._vary(600), 0.04, 'square', 0.04)
-    this._tone(this._vary(900), 0.04, 'square', 0.03, 0.04)
-  }
-
-  notification() {
-    this._tone(this._vary(1200), 0.06, 'sine', 0.05)
-    this._tone(this._vary(1500), 0.08, 'sine', 0.04, 0.06)
-    this._tone(this._vary(2000), 0.1, 'sine', 0.03, 0.13)
-  }
-
-  error() {
-    this._tone(this._vary(300), 0.1, 'sawtooth', 0.06)
-    this._tone(this._vary(250), 0.15, 'sawtooth', 0.04, 0.08)
-  }
-
-  // ──────────────────────────────
-  //  COMBAT SOUNDS
-  // ──────────────────────────────
-
-  /** Light hit — quick sawtooth sweep down + noise tick */
-  hit() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-    const basePitch = this._vary(400, 0.1)
-
-    // Percussive body: quick downward sweep
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'sawtooth'
-    osc.frequency.setValueAtTime(basePitch, now)
-    osc.frequency.exponentialRampToValueAtTime(80, now + 0.06)
-    gain.gain.setValueAtTime(0.12, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.08)
-
-    // Sharp noise transient on top
-    this._clickNoise(0.04, 4000, 1)
-  }
-
-  /** Heavy hit — deeper sweep + filtered noise rumble */
-  hitHeavy() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-    const basePitch = this._vary(200, 0.08)
-
-    // Deep body
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'sawtooth'
-    osc.frequency.setValueAtTime(basePitch, now)
-    osc.frequency.exponentialRampToValueAtTime(50, now + 0.15)
-    gain.gain.setValueAtTime(0.18, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.2)
-
-    // Low rumble layer
-    const osc2 = ctx.createOscillator()
-    const gain2 = ctx.createGain()
-    osc2.type = 'sine'
-    osc2.frequency.setValueAtTime(60, now)
-    osc2.frequency.exponentialRampToValueAtTime(30, now + 0.2)
-    gain2.gain.setValueAtTime(0.15, now)
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.25)
-    osc2.connect(gain2)
-    gain2.connect(ctx.destination)
-    osc2.start(now)
-    osc2.stop(now + 0.25)
-
-    // Filtered noise thud
-    this._noise(0.12, 0.1, 0, 800)
-  }
-
-  /** Critical hit — bright ping + heavy impact layered */
-  hitCritical() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    // Bright pre-ping
-    const ping = ctx.createOscillator()
-    const pingGain = ctx.createGain()
-    ping.type = 'triangle'
-    ping.frequency.setValueAtTime(this._vary(1200), now)
-    ping.frequency.exponentialRampToValueAtTime(600, now + 0.12)
-    pingGain.gain.setValueAtTime(0.12, now)
-    pingGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12)
-    ping.connect(pingGain)
-    pingGain.connect(ctx.destination)
-    ping.start(now)
-    ping.stop(now + 0.12)
-
-    this.hitHeavy()
-  }
-
-  /** Miss — short airy whoosh (filtered noise, high) */
-  miss() {
-    this._noise(0.08, 0.03, 0, 4000)
-    this._tone(this._vary(200), 0.06, 'triangle', 0.03, 0.02)
-  }
-
-  /** Block — metallic ping (high square wave) */
-  block() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-    const freq = this._vary(2000, 0.05)
-
-    // Bright metallic strike
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'square'
-    osc.frequency.setValueAtTime(freq, now)
-    osc.frequency.exponentialRampToValueAtTime(freq * 0.7, now + 0.08)
-    gain.gain.setValueAtTime(0.08, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.1)
-
-    // Subtle low thud
-    this._tone(80, 0.06, 'sine', 0.06, 0.02)
-  }
-
-  /** Counter — quick reverse sweep (up then down) */
-  counter() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-    const freq = this._vary(300)
-
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(freq, now)
-    osc.frequency.exponentialRampToValueAtTime(freq * 2.5, now + 0.06)
-    osc.frequency.exponentialRampToValueAtTime(freq * 0.5, now + 0.14)
-    gain.gain.setValueAtTime(0.1, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.16)
-  }
-
-  /** Magic shield — ethereal shimmer with vibrato-like modulation */
-  magicShield() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    // Rising shimmer
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(this._vary(600), now)
-    osc.frequency.linearRampToValueAtTime(this._vary(1200), now + 0.2)
-    osc.frequency.linearRampToValueAtTime(this._vary(800), now + 0.35)
-    gain.gain.setValueAtTime(0.08, now)
-    gain.gain.setValueAtTime(0.12, now + 0.15)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.4)
-
-    // Sparkle noise
-    this._noise(0.12, 0.03, 0.05, 5000)
-    this._noise(0.08, 0.02, 0.2, 8000)
-  }
-
-  /** Extra hit — quick double tap */
-  extraHit() {
-    this._tone(this._vary(500), 0.04, 'square', 0.06)
-    this._tone(this._vary(400), 0.04, 'square', 0.05, 0.05)
-    this._clickNoise(0.03, 3500)
-  }
-
-  // ──────────────────────────────
-  //  MOVEMENT SOUNDS
-  // ──────────────────────────────
-
-  /** Footstep — soft noise burst with low thud */
-  step() {
-    this._noise(0.04, 0.03, 0, 1500)
-    this._tone(this._vary(80, 0.15), 0.05, 'sine', 0.04)
-  }
-
-  /** Teleport — ascending whoosh + arrival pop, panned */
-  teleport() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    // Ascending sweep (whoosh)
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(150, now)
-    osc.frequency.exponentialRampToValueAtTime(1200, now + 0.2)
-    gain.gain.setValueAtTime(0.08, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.25)
-
-    // Whoosh noise layer
-    this._noise(0.2, 0.04, 0, 2000)
-    this._noise(0.15, 0.03, 0, 500)
-
-    // Arrival pop
-    this._tone(800, 0.06, 'square', 0.06, 0.22)
-  }
-
-  /** Slingshot — stretch (tension) then release (snap) */
+  step() { this._playRandom('dagger_hit', 'item_pickup') }
+  teleport() { this._play('teleport') }
   slingshot() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    // Stretching tension (slow descending)
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(500, now)
-    osc.frequency.exponentialRampToValueAtTime(200, now + 0.15)
-    gain.gain.setValueAtTime(0.06, now)
-    gain.gain.setValueAtTime(0.08, now + 0.1)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.18)
-
-    // Release snap at end
-    this._tone(this._vary(1500), 0.04, 'square', 0.07, 0.16)
-    this._noise(0.04, 0.05, 0.16, 4000)
+    if (this._buffers['bow_attack']) this._play('bow_attack')
+    else this._play('fire_launch')
   }
 
-  // ──────────────────────────────
-  //  PHASE / EVENT SOUNDS
-  // ──────────────────────────────
+  // ── Phase ──
 
-  /** Victory — triumphant ascending arpeggio with finale */
-  victory() {
-    this._arpeggio([523, 659, 784, 1047], 0.2, 0.1, 'triangle', 0.1)
-    this._tone(1047, 0.5, 'sine', 0.08, 0.45)
-    // Sparkle
-    this._noise(0.3, 0.04, 0.4, 6000)
-  }
+  victory() { this._play('victory') }
+  defeat() { this._play('defeat') }
+  turnStart() { this._play('turn_start') }
+  iaThinking() { this._play('ia_thinking') }
+  phaseTransition() { this._play('phase_transition') }
+  battleStart() { this._play('battle_start') }
 
-  /** Defeat — sad descending */
-  defeat() {
-    this._tone(this._vary(500), 0.2, 'triangle', 0.08)
-    this._tone(this._vary(420), 0.2, 'triangle', 0.06, 0.2)
-    this._tone(this._vary(340), 0.25, 'triangle', 0.05, 0.4)
-    this._tone(this._vary(220), 0.4, 'sine', 0.06, 0.6)
-  }
+  // ── Item ──
 
-  /** Turn start — attention chime */
-  turnStart() {
-    this._tone(this._vary(880), 0.08, 'triangle', 0.06)
-    this._tone(this._vary(1100), 0.12, 'sine', 0.05, 0.06)
-  }
+  itemUse() { this._play('item_pickup') }
+  itemError() { this._play('error') }
 
-  /** IA thinking — subtle wooden tick */
-  iaThinking() {
-    this._tone(this._vary(300), 0.03, 'square', 0.03)
-    this._tone(this._vary(350), 0.03, 'square', 0.02, 0.04)
-  }
+  // ── Special ──
 
-  /** Phase transition — swipe whoosh */
-  phaseTransition() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(200, now)
-    osc.frequency.exponentialRampToValueAtTime(1800, now + 0.25)
-    gain.gain.setValueAtTime(0.06, now)
-    gain.gain.setValueAtTime(0.08, now + 0.1)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.3)
-
-    this._noise(0.25, 0.05, 0, 3000)
-  }
-
-  /** Battle start — dramatic hit */
-  battleStart() {
-    this._tone(80, 0.3, 'sine', 0.15)
-    this._tone(60, 0.4, 'sine', 0.1, 0.15)
-    this._noise(0.15, 0.1)
-    this._noise(0.1, 0.06, 0.15)
-  }
-
-  // ──────────────────────────────
-  //  ITEM SOUNDS
-  // ──────────────────────────────
-
-  /** Use item — positive glug */
-  itemUse() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(this._vary(400), now)
-    osc.frequency.exponentialRampToValueAtTime(this._vary(600), now + 0.1)
-    osc.frequency.exponentialRampToValueAtTime(this._vary(500), now + 0.18)
-    gain.gain.setValueAtTime(0.08, now)
-    gain.gain.setValueAtTime(0.1, now + 0.08)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.22)
-  }
-
-  /** Item error — buzz */
-  itemError() {
-    this._tone(this._vary(200), 0.12, 'square', 0.05)
-    this._tone(this._vary(150), 0.15, 'square', 0.04, 0.08)
-  }
-
-  // ──────────────────────────────
-  //  SPECIAL SOUNDS
-  // ──────────────────────────────
-
-  /** Power activation — rising energy surge */
-  powerActivate() {
-    const ctx = this._getCtx()
-    if (!ctx || !this.enabled) return
-    const now = ctx.currentTime
-
-    // Rumble ascendente
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'sawtooth'
-    osc.frequency.setValueAtTime(80, now)
-    osc.frequency.exponentialRampToValueAtTime(500, now + 0.35)
-    gain.gain.setValueAtTime(0.1, now)
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start(now)
-    osc.stop(now + 0.4)
-
-    // Harmonics brilhantes
-    this._tone(this._vary(600), 0.12, 'triangle', 0.07, 0.08)
-    this._tone(this._vary(900), 0.1, 'sine', 0.05, 0.14)
-    this._tone(this._vary(1200), 0.08, 'sine', 0.04, 0.2)
-
-    // Explosão final
-    this._noise(0.12, 0.08, 0.25, 3000)
-    this._tone(60, 0.3, 'sine', 0.12, 0.3)
-  }
-
-  /** Jokenpo choice reveal — drumroll-like build up */
-  jokenpoChoice() {
-    this._tone(this._vary(700), 0.06, 'triangle', 0.06)
-    this._tone(this._vary(900), 0.06, 'triangle', 0.05, 0.07)
-  }
-
-  /** Jokenpo result — decisive hit */
-  jokenpoResult() {
-    this._tone(this._vary(600), 0.08, 'square', 0.08)
-    this._tone(this._vary(400), 0.12, 'sine', 0.06, 0.04)
-  }
-
-  /** Dice roll tick */
-  diceTick() {
-    this._noise(0.03, 0.03, 0, 4000)
-    this._tone(this._vary(1500), 0.02, 'square', 0.03)
-  }
-
-  /** Dice land */
-  diceLand() {
-    this._tone(this._vary(200), 0.06, 'square', 0.08)
-    this._tone(this._vary(150), 0.1, 'sine', 0.06, 0.02)
-    this._noise(0.04, 0.05)
-  }
-
-  /** Generic play by sound name (for effectsMap wiring) */
-  play(name) {
-    if (typeof this[name] === 'function') {
-      this[name]()
-    }
-  }
+  powerActivate() { this._playRandom('fire_launch', 'electric_launch', 'shield') }
+  jokenpoChoice() { this._play('select_magic') }
+  jokenpoResult() { this._play('confirm') }
+  diceTick() { this._play('click') }
+  diceLand() { this._play('toggle') }
 }
 
-export const audio = new AudioManager()
+const audio = new AudioManager()
+export { audio }
