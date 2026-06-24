@@ -2787,6 +2787,10 @@
       "title": "Morto Engine — GENERIC RPG SYSTEM",
       "desc": "Sistema RPG completo: creación, pruebas, batalla, magia, efectos."
     },
+    "srgrm": {
+      "title": "Sistema de RPG Genérico por Rafael Morto",
+      "desc": "Prototipo de sistema de combate 3v3"
+    },
     "arena_testbed": {
       "title": "Arena Testbed — Prueba de Mecánicas",
       "desc": "Banco de pruebas completo del sistema de combate GDD v0.1: fichas, tablero y partida.",

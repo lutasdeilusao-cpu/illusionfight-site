@@ -579,7 +579,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.161.40** | SRGRM 3v3 replace Morto Engine — game-logic.js modularizado, hub de rotas Prototype, remoção do iframe morto |
+| `SITE_VERSION` | **10.161.41** | i18n: traduções SRGRM pt/en/es no hub de protótipos |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
