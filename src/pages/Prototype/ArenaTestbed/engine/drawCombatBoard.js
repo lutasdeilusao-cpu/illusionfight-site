@@ -1,7 +1,4 @@
-function drawChar(ctx, ch, x, y, scale, {
-  sz, angle, currentChar, charRotation = {},
-}) {
-  const rot = charRotation[ch.id] ?? 0
+function drawCharacter(ctx, ch, x, y, scale, rotation, currentChar, angle, sz) {
   const isPlayer = ch.time === 'jogador'
   const cor = ch.aparencia?.cor || (isPlayer ? '#00ff88' : '#ff2244')
   const icone = ch.aparencia?.icone
@@ -14,7 +11,7 @@ function drawChar(ctx, ch, x, y, scale, {
 
   ctx.save()
   ctx.translate(x, y)
-  if (rot) ctx.rotate(rot)
+  if (rotation) ctx.rotate(rotation)
   ctx.scale(scale, scale)
   ctx.translate(-x, -y)
 
@@ -200,12 +197,11 @@ export function drawCombatBoard(ctx, params) {
       if (ch) {
         const visualPos = charVisualPos[ch.id]
         const scale = charScales[ch.id] ?? 1.0
-        if (scale > 0.01) {
-          if (visualPos) {
-            drawChar(ctx, ch, visualPos.x, visualPos.y, scale, { sz, angle, currentChar, charRotation })
-          } else {
-            drawChar(ctx, ch, center.x, center.y, scale, { sz, angle, currentChar, charRotation })
-          }
+        if (visualPos) {
+          // SKIP — drawn in pass 2 (on top of everything)
+        } else if (scale > 0.01) {
+          const rotation = charRotation[ch.id] ?? 0
+          drawCharacter(ctx, ch, center.x, center.y, scale, rotation, currentChar, angle, sz)
         }
       }
 
@@ -227,6 +223,16 @@ export function drawCombatBoard(ctx, params) {
         ctx.fill()
       }
     }
+  }
+
+  // PASS 2 — animated characters drawn on top of everything
+  for (const [charId, visualPos] of Object.entries(charVisualPos)) {
+    const ch = characters.find(c => c.id === charId && c.vivo)
+    if (!ch) continue
+    const scale = charScales[charId] ?? 1.0
+    if (scale <= 0.01) continue
+    const rotation = charRotation[charId] ?? 0
+    drawCharacter(ctx, ch, visualPos.x, visualPos.y, scale, rotation, currentChar, angle, sz)
   }
 
   for (const t of trail) {
