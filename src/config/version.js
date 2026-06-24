@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.162.40'
+export const SITE_VERSION = '10.162.41'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -21,7 +21,7 @@ export const MINIGAMES_VERSION = '4.0.2'  // readerMode: Navbar e Footer ocultos
 export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado para guest (modal de login)
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
-export const SRGRM_VERSION = '3.4.1' // SRGRM 3v3 — replace Morto Engine (imported from rpg_3v3-3-4-1.html, inlined game-logic.js)
+export const SRGRM_VERSION = '3.4.2' // SRGRM 3v3 — replace Morto Engine (imported from rpg_3v3-3-4-1.html, inlined game-logic.js)
 export const ARENATESTBED_VERSION = '6.21.2' // FIX: add play(key) method to AudioManager — EffectRenderer was calling audio.play() which didn't exist
 
 // ── Logs (executam na inicialização do site) ──────
