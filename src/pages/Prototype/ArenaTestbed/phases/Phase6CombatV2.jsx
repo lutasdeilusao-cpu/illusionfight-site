@@ -18,6 +18,12 @@ import useEffectMachine from '../engine/useEffectMachine'
 import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
 import { emit } from '../engine/eventBus'
 import { emitBurst, updateParticles, drawParticles, drawKiBall, drawProjectile, drawShield } from '../engine/animations/particles'
+import {
+  triggerShake, updateShake, applyShake, restoreShake, ShakePreset,
+  triggerCanvasFlash, updateCanvasFlash, drawCanvasFlash, FlashPreset,
+  triggerHitStop, isHitStopActive, HitStopPreset,
+  spawnFloatingText, updateFloatingTexts, drawFloatingTexts, TextPreset,
+} from '../engine/animations/juice'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -33,6 +39,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const highlightRef = useRef({ move: [], attack: [], range: [] })
   const projectileRef = useRef(null)
   const shieldRef = useRef(null)
+  const shakeRef = useRef(null)
+  const canvasFlashRef = useRef(null)
+  const hitStopRef = useRef(null)
+  const floatingTextsRef = useRef([])
   const charactersRef = useRef([])
 
   const { obstaculos, itensChao, cols, rows, tileUrl } = boardState
@@ -160,6 +170,55 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     onSetKiBall: (val) => setKiBall(val),
     onSetCharFlash: (updater) => setCharFlashRef.current(updater),
     onSetShield: (val) => { shieldRef.current = val },
+    onGetHitStopRef: () => hitStopRef,
+    onJuiceHit: ({ dano, critico, bloqueio, contra, extraHit, miss, magic, alvoPos }) => {
+      if (critico) {
+        triggerShake(shakeRef, ShakePreset.CRITICAL.intensity, ShakePreset.CRITICAL.decay)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.CRITICAL.color, FlashPreset.CRITICAL.alpha, FlashPreset.CRITICAL.decay)
+        triggerHitStop(hitStopRef, HitStopPreset.CRITICAL)
+      } else if (bloqueio) {
+        triggerShake(shakeRef, ShakePreset.MEDIUM.intensity, ShakePreset.MEDIUM.decay)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.BLOCK.color, FlashPreset.BLOCK.alpha, FlashPreset.BLOCK.decay)
+        triggerHitStop(hitStopRef, HitStopPreset.MEDIUM)
+      } else if (dano >= 8) {
+        triggerShake(shakeRef, ShakePreset.HEAVY.intensity, ShakePreset.HEAVY.decay)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.NORMAL_HIT.color, FlashPreset.NORMAL_HIT.alpha, FlashPreset.NORMAL_HIT.decay)
+        triggerHitStop(hitStopRef, HitStopPreset.HEAVY)
+      } else {
+        triggerShake(shakeRef, ShakePreset.LIGHT.intensity, ShakePreset.LIGHT.decay)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.NORMAL_HIT.color, FlashPreset.NORMAL_HIT.alpha * 0.6, FlashPreset.NORMAL_HIT.decay)
+        triggerHitStop(hitStopRef, HitStopPreset.LIGHT)
+      }
+
+      if (!alvoPos) return
+      const { x, y } = alvoPos
+
+      if (miss) {
+        spawnFloatingText(floatingTextsRef, x, y - 10, 'MISS!', TextPreset.MISS)
+      } else if (bloqueio) {
+        spawnFloatingText(floatingTextsRef, x, y - 10, 'BLOCK!', TextPreset.BLOCK)
+      } else if (dano > 0) {
+        const preset = critico ? TextPreset.DAMAGE_CRITICAL
+          : dano >= 8 ? TextPreset.DAMAGE_HEAVY
+          : TextPreset.DAMAGE_NORMAL
+        spawnFloatingText(floatingTextsRef, x, y - 10, String(dano), preset)
+      }
+
+      if (critico) {
+        spawnFloatingText(floatingTextsRef, x, y - 32, 'CRITICAL!', TextPreset.CRITICAL_TEXT)
+      }
+      if (contra) {
+        spawnFloatingText(floatingTextsRef, x, y - 28, 'COUNTER!', TextPreset.COUNTER)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.COUNTER.color, FlashPreset.COUNTER.alpha, FlashPreset.COUNTER.decay)
+      }
+      if (extraHit) {
+        spawnFloatingText(floatingTextsRef, x, y - 28, 'EXTRA HIT!', TextPreset.EXTRA_HIT)
+      }
+      if (magic) {
+        spawnFloatingText(floatingTextsRef, x, y - 28, 'MAGIC SHIELD!', TextPreset.MAGIC)
+        triggerCanvasFlash(canvasFlashRef, FlashPreset.MAGIC.color, FlashPreset.MAGIC.alpha, FlashPreset.MAGIC.decay)
+      }
+    },
   })
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
@@ -270,26 +329,41 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     const padX = padRef.current.x
     const padY = padRef.current.y
     offsetRef.current = { x: padX, y: padY }
+
+    // hit stop check — skip frame render entirely
+    if (isHitStopActive(hitStopRef)) return
+
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     const hl = highlightRef.current
-      drawCombatBoard(ctx, {
-        characters, obstaculos, itensChaoAtual, cols, rows,
-        highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
-        damageFlash: {}, caminhoEscolhido, destinoEscolhido,
-        tileImg: tileImgRef.current, sz, padX, padY,
-        angle: angleRef.current, trail: trailRef.current,
-        hexCenter, drawHex,
-        charScales, charVisualPos, charRotation,
-        charFlash,
-      })
-      drawParticles(ctx, particlesRef.current)
-      if (kiBall?.active) {
-        drawKiBall(ctx, kiBall.x, kiBall.y, frameCountRef.current)
-      }
-      drawProjectile(ctx, projectileRef.current)
-      if (shieldRef.current?.active) {
-        drawShield(ctx, shieldRef.current, sizeRef.current, frameCountRef.current)
-      }
+
+    // apply shake before drawing
+    applyShake(ctx, shakeRef)
+
+    drawCombatBoard(ctx, {
+      characters, obstaculos, itensChaoAtual, cols, rows,
+      highlightedCells: hl.move, attackCells: hl.attack, rangeCells: hl.range, currentChar,
+      damageFlash: {}, caminhoEscolhido, destinoEscolhido,
+      tileImg: tileImgRef.current, sz, padX, padY,
+      angle: angleRef.current, trail: trailRef.current,
+      hexCenter, drawHex,
+      charScales, charVisualPos, charRotation,
+      charFlash,
+    })
+    drawParticles(ctx, particlesRef.current)
+    if (kiBall?.active) {
+      drawKiBall(ctx, kiBall.x, kiBall.y, frameCountRef.current)
+    }
+    drawProjectile(ctx, projectileRef.current)
+    if (shieldRef.current?.active) {
+      drawShield(ctx, shieldRef.current, sizeRef.current, frameCountRef.current)
+    }
+    drawFloatingTexts(ctx, floatingTextsRef, sz)
+
+    // restore shake before canvas flash (flash not affected by shake)
+    restoreShake(ctx, shakeRef)
+
+    // canvas flash drawn without shake — always centered
+    drawCanvasFlash(ctx, canvasFlashRef, canvas.width, canvas.height)
   }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall, charFlash])
 
   useCanvasLoop({
@@ -309,6 +383,9 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
             .filter(t => t.alpha > 0),
         }
       }
+      updateShake(shakeRef)
+      updateCanvasFlash(canvasFlashRef)
+      updateFloatingTexts(floatingTextsRef)
       frameCountRef.current++
     },
   })

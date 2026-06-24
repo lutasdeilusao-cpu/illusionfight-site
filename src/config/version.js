@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.160.30'
+export const SITE_VERSION = '10.160.31'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -22,7 +22,7 @@ export const TS_VERSION        = '5.22.3'  // Top Trumps SP: multiplayer travado
 export const TM_VERSION        = '5.11.0'  // Top Trumps Multiplayer: cron job limpar-salas-fantasma reduzido de 5min para 24h (3h da manhã)
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const MORTO_VERSION = '3.3.1' // Morto Engine — atualizado para versão 3v3-3-1
-export const ARENATESTBED_VERSION = '6.17.0' // FEAT: 3 defense animations — Hit + Block + MagicShield
+export const ARENATESTBED_VERSION = '6.18.0' // FEAT: juice system — ScreenShake + DamageNumbers + HitStop + CanvasFlash + CombatText
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

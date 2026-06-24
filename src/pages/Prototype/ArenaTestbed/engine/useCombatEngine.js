@@ -33,6 +33,7 @@ export default function useCombatEngine({
   onGetHexCenter, onGetSz,
   onEmitParticles, onSetKiBall, onSetProjectile,
   onSetCharFlash, onSetShield,
+  onJuiceHit, onGetHitStopRef,
 }) {
   const [characters, setCharacters] = useState(() =>
     boardChars.map(bc => ({
@@ -90,6 +91,24 @@ export default function useCombatEngine({
   useEffect(() => { charsRef.current = characters }, [characters])
   useEffect(() => { currentCharIdRef.current = currentCharId }, [currentCharId])
 
+  const hitStopRef = onGetHitStopRef ? onGetHitStopRef() : { current: null }
+
+  function isHitStopActiveLocal() {
+    const h = hitStopRef.current
+    if (!h?.active) return false
+    if (Date.now() - h.startTime >= h.duration) {
+      hitStopRef.current = null
+      return false
+    }
+    return true
+  }
+
+  function dispararJuice(alvo, opcoes = {}) {
+    if (!onJuiceHit || !onGetHexCenter) return
+    const pos = onGetHexCenter(alvo.posicao.row, alvo.posicao.col)
+    onJuiceHit({ ...opcoes, alvoPos: pos })
+  }
+
   function animarDefesa(alvo, atacante, tipo, onFinalizar) {
     const animId = alvo.animacoes?.defesa ?? 1
 
@@ -133,7 +152,12 @@ export default function useCombatEngine({
   }
 
   function setAnimTimer(fn, delay) {
-    const id = setTimeout(fn, delay)
+    let extra = 0
+    if (isHitStopActiveLocal()) {
+      const h = hitStopRef.current
+      extra = Math.max(0, h.duration - (Date.now() - h.startTime))
+    }
+    const id = setTimeout(fn, delay + extra)
     animTimersRef.current.push(id)
     return id
   }
@@ -167,10 +191,12 @@ export default function useCombatEngine({
     return false
   }
 
-  function aplicarDano(alvoId, dano, atacante) {
+  function aplicarDano(alvoId, dano, atacante, opcoes = {}) {
     charsRef.current = charsRef.current.map(c => c.id === alvoId ? { ...c, hp: Math.max(0, c.hp - dano) } : c)
     setCharacters(charsRef.current)
     if (onDano) onDano(alvoId, dano)
+    const alvo = charsRef.current.find(c => c.id === alvoId)
+    if (alvo) dispararJuice(alvo, { dano, critico: opcoes.critico, ...opcoes })
   }
 
   function adicionarBalao(alvoId, texto, tipo, row, col) {
@@ -237,6 +263,7 @@ export default function useCombatEngine({
       if (resultado.criticoDefensivo) {
         addLog(`  🛡️ BLOQUEIO!`)
         adicionarBalao(alvo.id, 'CRÍTICO DEF!', 'block', alvo.posicao?.row, alvo.posicao?.col)
+        dispararJuice(alvo, { dano: 0, bloqueio: true })
       } else {
         aplicarDano(alvo.id, Math.max(1, resultado.dano || 1), atacante)
       }
@@ -246,7 +273,7 @@ export default function useCombatEngine({
           const contra = resolverContraAtaque(alvo, atacante, resultado.fa / 2)
           contra.logs.forEach(l => addLog(`  ↺ ${l}`))
           if (contra.dano > 0) {
-            aplicarDano(atacante.id, contra.dano, alvo)
+            aplicarDano(atacante.id, contra.dano, alvo, { contra: true })
             adicionarFloatTexto(atacante.id, 'CONTRA!', '#ff8800', atacante.posicao?.row, atacante.posicao?.col)
           }
           if (resultado.ataqueExtra) {
@@ -281,7 +308,7 @@ export default function useCombatEngine({
     } else {
       const danoExtra = Math.max(1, Math.round(faExtra - fd))
       addLog(`  💥 Dano extra: ${danoExtra}`)
-      aplicarDano(alvo.id, danoExtra, atacante)
+      aplicarDano(alvo.id, danoExtra, atacante, { extraHit: true })
       finalizarAposAtaque(alvo, { dano: danoExtra })
     }
   }
@@ -695,7 +722,12 @@ export default function useCombatEngine({
         setAttackCells([])
         const callbackFinal = () => {
           if (winnerRef.current) { finalizarTurnoIA(); return }
-          if (isMiss) { adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col); setAnimTimer(() => finalizarTurnoIA(), 1300); return }
+          if (isMiss) {
+            adicionarBalao(alvo.id, 'MISS!', 'miss', alvo.posicao?.row, alvo.posicao?.col)
+            dispararJuice(alvo, { dano: 0, miss: true })
+            setAnimTimer(() => finalizarTurnoIA(), 1300)
+            return
+          }
 
           const tipoDef = res.criticoDefensivo ? 'block'
             : (defesaBonusRef.current > 0) ? 'magic'
@@ -706,6 +738,11 @@ export default function useCombatEngine({
           animarDefesa(alvo, atacante, tipoDef, () => {
             if (res.criticoDefensivo) {
               adicionarBalao(atacante.id, 'CRÍTICO DEF!', 'block', atacante.posicao?.row, atacante.posicao?.col)
+              dispararJuice(alvo, { dano: 0, bloqueio: true })
+            } else if (bonusDef > 0) {
+              const danoFinal = Math.max(1, (res.dano || 1) - bonusDef)
+              aplicarDano(alvo.id, danoFinal, atacante)
+              dispararJuice(alvo, { dano: 0, magic: true })
             } else {
               const danoFinal = Math.max(1, (res.dano || 1) - bonusDef)
               aplicarDano(alvo.id, danoFinal, atacante)
