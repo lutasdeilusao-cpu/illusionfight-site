@@ -10,7 +10,6 @@
  * @param {number} [decay=0.85]
  */
 export function triggerShake(shakeRef, intensity, decay = 0.85) {
-  console.log('[JUICE] triggerShake', JSON.stringify({ intensity, decay }))
   shakeRef.current = { intensity, decay, offsetX: 0, offsetY: 0 }
 }
 
@@ -19,7 +18,6 @@ export function triggerShake(shakeRef, intensity, decay = 0.85) {
  * @param {Object} shakeRef
  */
 export function updateShake(shakeRef) {
-  console.log('[JUICE] updateShake', shakeRef.current ? JSON.stringify({ intensity: shakeRef.current.intensity.toFixed(2) }) : 'null')
   const s = shakeRef.current
   if (!s || s.intensity < 0.3) {
     shakeRef.current = null
@@ -67,7 +65,6 @@ export const ShakePreset = {
  */
 export function triggerCanvasFlash(canvasFlashRef, color,
   alpha = 0.35, decay = 0.12) {
-  console.log('[JUICE] triggerCanvasFlash', JSON.stringify({ color, alpha, decay }))
   canvasFlashRef.current = { color, alpha, decay }
 }
 
@@ -87,7 +84,6 @@ export function updateCanvasFlash(canvasFlashRef) {
 export function drawCanvasFlash(ctx, canvasFlashRef,
   canvasWidth, canvasHeight) {
   const f = canvasFlashRef.current
-  console.log('[JUICE] drawCanvasFlash', f ? JSON.stringify({ color: f.color, alpha: f.alpha.toFixed(3) }) : 'null')
   if (!f || f.alpha <= 0) return
   ctx.save()
   ctx.globalAlpha = f.alpha
@@ -113,7 +109,6 @@ export const FlashPreset = {
  * @param {number} [duration=90] — milliseconds
  */
 export function triggerHitStop(hitStopRef, duration = 90) {
-  console.log('[JUICE] triggerHitStop', JSON.stringify({ duration }))
   hitStopRef.current = {
     active: true,
     duration,
@@ -160,7 +155,6 @@ export function spawnFloatingText(floatingTextsRef, x, y, text, {
   life = 55,
   weight = 'bold',
 } = {}) {
-  console.log('[JUICE] spawnFloatingText', JSON.stringify({ x, y, text, color, size, life }))
   floatingTextsRef.current = [
     ...floatingTextsRef.current,
     { x, y, text, color, size, alpha: 1.0, vy, vx, life, weight },
@@ -186,7 +180,6 @@ export function updateFloatingTexts(floatingTextsRef) {
  * Draw all floating texts
  */
 export function drawFloatingTexts(ctx, floatingTextsRef, sz) {
-  console.log('[JUICE] drawFloatingTexts count:', floatingTextsRef.current.length)
   for (const t of floatingTextsRef.current) {
     ctx.save()
     ctx.globalAlpha = t.alpha
