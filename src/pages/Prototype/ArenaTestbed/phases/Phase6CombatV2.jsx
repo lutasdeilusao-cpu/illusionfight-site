@@ -17,7 +17,7 @@ import './atb-ui.css'
 import useEffectMachine from '../engine/useEffectMachine'
 import { init as initRenderer, clearHighlight } from '../components/effects/EffectRenderer'
 import { emit } from '../engine/eventBus'
-import { emitBurst, updateParticles, drawParticles } from '../engine/animations/particles'
+import { emitBurst, updateParticles, drawParticles, drawKiBall } from '../engine/animations/particles'
 
 const SQRT3 = Math.sqrt(3)
 
@@ -158,6 +158,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         x, y, options
       )
     },
+    onSetKiBall: (val) => setKiBall(val),
   })
 
   const { combat, ui, ordering, move, actions, set, utils } = engine
@@ -184,6 +185,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const [charScales, setCharScales] = useState({})
   const [charVisualPos, setCharVisualPos] = useState({})
   const [charRotation, setCharRotation] = useState({})
+  const [kiBall, setKiBall] = useState(null)
+  const frameCountRef = useRef(0)
   const particlesRef = useRef([])
 
   charsFnRef.current = characters
@@ -279,7 +282,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         charScales, charVisualPos, charRotation,
       })
       drawParticles(ctx, particlesRef.current)
-  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation])
+      if (kiBall?.active) {
+        drawKiBall(ctx, kiBall.x, kiBall.y, frameCountRef.current)
+      }
+  }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, projectilePos, projectilePath, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall])
 
   useCanvasLoop({
     draw,
@@ -290,6 +296,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         .map(t => ({ ...t, alpha: t.alpha - 0.07 }))
         .filter(t => t.alpha > 0)
       particlesRef.current = updateParticles(particlesRef.current)
+      frameCountRef.current++
     },
   })
 

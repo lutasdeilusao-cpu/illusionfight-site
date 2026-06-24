@@ -1,4 +1,6 @@
-import { execute as standard } from './attackAnim1Standard'
+import { execute as standardPlus } from './attackAnim1StandardPlus'
+import { execute as rageDash     } from './attackAnim2RageDash'
+import { execute as energyPunch  } from './attackAnim3EnergyPunch'
 
 /**
  * AttackAnimId — enum de IDs de animação de ataque.
@@ -9,17 +11,17 @@ import { execute as standard } from './attackAnim1Standard'
  *   4. Registrar no REGISTRY
  */
 export const AttackAnimId = {
-  STANDARD: 1,
-  POWER:    2,
-  CHARGE:   3,
+  STANDARD_PLUS: 1,
+  RAGE_DASH:     2,
+  ENERGY_PUNCH:  3,
 }
 
 const REGISTRY = {
-  [AttackAnimId.STANDARD]: standard,
-  [AttackAnimId.POWER]:    standard,
-  [AttackAnimId.CHARGE]:   standard,
+  [AttackAnimId.STANDARD_PLUS]: standardPlus,
+  [AttackAnimId.RAGE_DASH]:     rageDash,
+  [AttackAnimId.ENERGY_PUNCH]:  energyPunch,
 }
 
 export function getAttackAnimation(id) {
-  return REGISTRY[id] || REGISTRY[AttackAnimId.STANDARD]
+  return REGISTRY[id] || REGISTRY[AttackAnimId.STANDARD_PLUS]
 }

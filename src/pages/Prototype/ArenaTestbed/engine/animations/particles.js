@@ -45,6 +45,60 @@ export function updateParticles(particles, decay = 0.06) {
     .filter(p => p.alpha > 0)
 }
 
+/**
+ * Draw a ki ball with spikes and glow
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {number} x
+ * @param {number} y
+ * @param {number} frameCount — for spike animation
+ */
+export function drawKiBall(ctx, x, y, frameCount) {
+  const SPIKE_COUNT = 8
+  const BASE_RADIUS = 6
+  const MIN_SPIKE = 4
+  const MAX_SPIKE = 10
+
+  ctx.save()
+  ctx.shadowBlur = 20
+  ctx.shadowColor = '#ffff00'
+
+  // glow ring
+  ctx.beginPath()
+  ctx.arc(x, y, BASE_RADIUS * 1.8, 0, Math.PI * 2)
+  ctx.fillStyle = 'rgba(255,255,100,0.15)'
+  ctx.fill()
+
+  // spikes
+  ctx.beginPath()
+  for (let i = 0; i < SPIKE_COUNT; i++) {
+    const angle = (Math.PI * 2 / SPIKE_COUNT) * i
+      + (frameCount * 0.08)
+    const spikeLen = MIN_SPIKE
+      + Math.random() * (MAX_SPIKE - MIN_SPIKE)
+    const innerX = x + Math.cos(angle) * BASE_RADIUS
+    const innerY = y + Math.sin(angle) * BASE_RADIUS
+    const outerX = x + Math.cos(angle) * (BASE_RADIUS + spikeLen)
+    const outerY = y + Math.sin(angle) * (BASE_RADIUS + spikeLen)
+    ctx.moveTo(innerX, innerY)
+    ctx.lineTo(outerX, outerY)
+  }
+  ctx.strokeStyle = '#ffff44'
+  ctx.lineWidth = 2
+  ctx.stroke()
+
+  // core
+  ctx.beginPath()
+  ctx.arc(x, y, BASE_RADIUS, 0, Math.PI * 2)
+  const gradient = ctx.createRadialGradient(x, y, 0, x, y, BASE_RADIUS)
+  gradient.addColorStop(0, '#ffffff')
+  gradient.addColorStop(0.5, '#ffff88')
+  gradient.addColorStop(1, '#ffaa00')
+  ctx.fillStyle = gradient
+  ctx.fill()
+
+  ctx.restore()
+}
+
 export function drawParticles(ctx, particles) {
   for (const p of particles) {
     ctx.save()
