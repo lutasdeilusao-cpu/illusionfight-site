@@ -172,6 +172,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     onSetShield: (val) => { shieldRef.current = val },
     onGetHitStopRef: () => hitStopRef,
     onJuiceHit: ({ dano, critico, bloqueio, contra, extraHit, miss, magic, alvoPos }) => {
+      console.log('[JUICE] onJuiceHit received', JSON.stringify({
+        dano, critico, bloqueio, contra, extraHit, miss, magic,
+        alvoPosX: alvoPos?.x, alvoPosY: alvoPos?.y,
+      }))
       if (critico) {
         triggerShake(shakeRef, ShakePreset.CRITICAL.intensity, ShakePreset.CRITICAL.decay)
         triggerCanvasFlash(canvasFlashRef, FlashPreset.CRITICAL.color, FlashPreset.CRITICAL.alpha, FlashPreset.CRITICAL.decay)
@@ -330,8 +334,12 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     const padY = padRef.current.y
     offsetRef.current = { x: padX, y: padY }
 
+    console.log('[JUICE] draw frame — hitStop check')
     // hit stop check — skip frame render entirely
-    if (isHitStopActive(hitStopRef)) return
+    if (isHitStopActive(hitStopRef)) {
+      console.log('[JUICE] draw — SKIP FRAME (hit stop active)')
+      return
+    }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     const hl = highlightRef.current
@@ -370,6 +378,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     draw,
     calcVersion,
     onFrame: () => {
+      console.log('[JUICE] onFrame — update cycle')
       angleRef.current = (angleRef.current || 0) + 0.018
       trailRef.current = trailRef.current
         .map(t => ({ ...t, alpha: t.alpha - 0.07 }))

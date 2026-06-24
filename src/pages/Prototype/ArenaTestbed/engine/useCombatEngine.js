@@ -104,8 +104,18 @@ export default function useCombatEngine({
   }
 
   function dispararJuice(alvo, opcoes = {}) {
-    if (!onJuiceHit || !onGetHexCenter) return
+    console.log('[JUICE] dispararJuice called', JSON.stringify({
+      alvoId: alvo?.id,
+      temPosicao: !!alvo?.posicao,
+      posRow: alvo?.posicao?.row,
+      posCol: alvo?.posicao?.col,
+      opcoes: Object.keys(opcoes),
+      temOnJuiceHit: !!onJuiceHit,
+      temOnGetHexCenter: !!onGetHexCenter,
+    }))
+    if (!onJuiceHit || !onGetHexCenter) { console.log('[JUICE] EARLY RETURN — onJuiceHit or onGetHexCenter missing'); return }
     const pos = onGetHexCenter(alvo.posicao.row, alvo.posicao.col)
+    console.log('[JUICE] dispararJuice pos', JSON.stringify({ x: pos?.x, y: pos?.y }))
     onJuiceHit({ ...opcoes, alvoPos: pos })
   }
 
