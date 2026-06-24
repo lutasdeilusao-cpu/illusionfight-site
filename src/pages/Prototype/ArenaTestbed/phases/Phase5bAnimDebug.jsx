@@ -4,9 +4,10 @@
 
 import { useState } from 'react'
 import { MovementAnimId } from '../engine/animations/movement/index'
+import { AttackAnimId } from '../engine/animations/attack/index'
 import './Phase5bAnimDebug.css'
 
-const TIPOS_ANIMACAO = ['movimento', 'ataque', 'defesa', 'habilidade', 'efeito']
+const TIPOS_ANIMACAO = ['movimento', 'ataqueMelee', 'ataqueRange', 'defesa', 'habilidade', 'efeito']
 const OPCOES = [1, 2, 3]
 
 export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
@@ -16,7 +17,8 @@ export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
       const id = bc.charData?.id || bc.id
       map[id] = {
         movimento: 1,
-        ataque: 1,
+        ataqueMelee: 1,
+        ataqueRange: 1,
         defesa: 1,
         habilidade: 1,
         efeito: 1,
@@ -30,6 +32,12 @@ export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
       ...prev,
       [charId]: { ...prev[charId], [tipo]: valor },
     }))
+  }
+
+  function getAnimIdEnum(tipo) {
+    if (tipo === 'movimento') return MovementAnimId
+    if (tipo === 'ataqueMelee' || tipo === 'ataqueRange') return AttackAnimId
+    return null
   }
 
   return (
@@ -61,34 +69,41 @@ export default function Phase5bAnimDebug({ boardChars, onConfirmar, onBack }) {
               </div>
 
               <div className="tab-anim-debug-rows">
-                {TIPOS_ANIMACAO.map(tipo => (
-                  <div key={tipo} className="tab-anim-debug-row">
-                    <span className="tab-anim-debug-label">{tipo.charAt(0).toUpperCase() + tipo.slice(1)}</span>
-                    <div className="tab-anim-debug-btns">
-                      {tipo === 'movimento' ? (
-                        Object.entries(MovementAnimId).map(([name, animId]) => (
-                          <button
-                            key={animId}
-                            className={`tab-anim-debug-btn ${chAnim?.[tipo] === animId ? 'active' : ''}`}
-                            onClick={() => setAnim(id, tipo, animId)}
-                          >
-                            {animId}
-                          </button>
-                        ))
-                      ) : (
-                        OPCOES.map(val => (
-                          <button
-                            key={val}
-                            className={`tab-anim-debug-btn ${chAnim?.[tipo] === val ? 'active' : ''}`}
-                            onClick={() => setAnim(id, tipo, val)}
-                          >
-                            {val}
-                          </button>
-                        ))
-                      )}
+                {TIPOS_ANIMACAO.map(tipo => {
+                  const enumObj = getAnimIdEnum(tipo)
+                  return (
+                    <div key={tipo} className="tab-anim-debug-row">
+                      <span className="tab-anim-debug-label">
+                        {tipo === 'ataqueMelee' ? 'Attack Melee' :
+                         tipo === 'ataqueRange' ? 'Attack Range' :
+                         tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+                      </span>
+                      <div className="tab-anim-debug-btns">
+                        {enumObj ? (
+                          Object.entries(enumObj).map(([name, animId]) => (
+                            <button
+                              key={animId}
+                              className={`tab-anim-debug-btn ${chAnim?.[tipo] === animId ? 'active' : ''}`}
+                              onClick={() => setAnim(id, tipo, animId)}
+                            >
+                              {animId}
+                            </button>
+                          ))
+                        ) : (
+                          OPCOES.map(val => (
+                            <button
+                              key={val}
+                              className={`tab-anim-debug-btn ${chAnim?.[tipo] === val ? 'active' : ''}`}
+                              onClick={() => setAnim(id, tipo, val)}
+                            >
+                              {val}
+                            </button>
+                          ))
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           )

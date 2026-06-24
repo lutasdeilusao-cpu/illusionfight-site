@@ -43,7 +43,8 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       charData: {
         ...bc.charData,
         animacoes: animacoesPorChar[bc.charData?.id] || {
-          movimento: 1, ataque: 1, defesa: 1, habilidade: 1, efeito: 1,
+          movimento: 1, ataqueMelee: 1, ataqueRange: 1,
+          defesa: 1, habilidade: 1, efeito: 1,
         },
       },
     })),

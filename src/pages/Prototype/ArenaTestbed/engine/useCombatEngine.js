@@ -38,11 +38,12 @@ export default function useCombatEngine({
       vivo: true,
       poderesEscolhidos: poderesEscolhidos[bc.charData?.id] || [],
       animacoes: {
-        movimento:   bc.charData?.animacoes?.movimento   ?? 1,
-        ataque:      bc.charData?.animacoes?.ataque      ?? 1,
-        defesa:      bc.charData?.animacoes?.defesa      ?? 1,
-        habilidade:  bc.charData?.animacoes?.habilidade  ?? 1,
-        efeito:      bc.charData?.animacoes?.efeito      ?? 1,
+        movimento:    bc.charData?.animacoes?.movimento    ?? 1,
+        ataqueMelee:  bc.charData?.animacoes?.ataqueMelee  ?? 1,
+        ataqueRange:  bc.charData?.animacoes?.ataqueRange  ?? 1,
+        defesa:       bc.charData?.animacoes?.defesa       ?? 1,
+        habilidade:   bc.charData?.animacoes?.habilidade   ?? 1,
+        efeito:       bc.charData?.animacoes?.efeito       ?? 1,
       },
     }))
   )
