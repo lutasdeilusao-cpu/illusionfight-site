@@ -1,34 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
-import { MORTO_VERSION, ARENATESTBED_VERSION } from '../../config/version'
-import ArenaTestbed from './ArenaTestbed/ArenaTestbed'
-import mortoHtml from './rpg-morto.html?raw'
+import { SRGRM_VERSION, ARENATESTBED_VERSION } from '../../config/version'
 import './Prototype.css'
 
-console.log(`[MORTO] versão carregada: ${MORTO_VERSION}`)
+console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
 console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 const PROTOTYPES = [
   {
-    id: 'morto-engine',
-    titleKey: 'prototype.morto_engine.title',
-    descKey: 'prototype.morto_engine.desc',
-    version: MORTO_VERSION,
-    type: 'iframe',
-    html: mortoHtml,
+    id: 'srgrm',
+    titleKey: 'prototype.srgrm.title',
+    descKey: 'prototype.srgrm.desc',
+    version: SRGRM_VERSION,
+    route: '/prototype/srgrm',
   },
   {
     id: 'arena-testbed',
     titleKey: 'prototype.arena_testbed.title',
     descKey: 'prototype.arena_testbed.desc',
     version: ARENATESTBED_VERSION,
-    type: 'component',
-    component: 'ArenaTestbed',
+    route: '/prototype/arenatestbed',
   },
 ]
 
@@ -37,7 +33,6 @@ export default function Prototype() {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
-  const [selected, setSelected] = useState(null)
 
   useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
@@ -71,31 +66,6 @@ export default function Prototype() {
     )
   }
 
-  if (selected) {
-    const proto = PROTOTYPES.find(p => p.id === selected)
-    return (
-      <section className="prototype-page">
-        <div className="prototype-header">
-          <h2>{t(proto.titleKey)}</h2>
-          <button className="proto-btn proto-btn-secondary" onClick={() => setSelected(null)}>
-            {t('prototype.back')}
-          </button>
-        </div>
-        <div className="prototype-content">
-          {proto.type === 'iframe' ? (
-            <iframe
-              srcDoc={proto.html}
-              title={t(proto.titleKey)}
-              className="prototype-iframe"
-            />
-          ) : proto.id === 'arena-testbed' ? (
-            <ArenaTestbed />
-          ) : null}
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section className="prototype-page">
         <div className="prototype-header">
@@ -108,7 +78,7 @@ export default function Prototype() {
             <button
               key={proto.id}
               className="prototype-card"
-              onClick={() => setSelected(proto.id)}
+              onClick={() => navigate(proto.route)}
             >
               <span className="prototype-card-title">{t(proto.titleKey)}</span>
               <span className="prototype-card-desc">{t(proto.descKey)}</span>

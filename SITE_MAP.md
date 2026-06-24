@@ -558,7 +558,9 @@
 | `/perfil` | Perfil | `src/pages/Perfil/Perfil.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub 6 abas + assinatura Stripe |
 | `/custos` | Custos | `src/pages/Custos.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Transparência financeira do projeto |
 | `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
-| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Protótipos admin-only: menu de seleção + Morto Engine (bundled via raw import) + Arena Testbed. Arquivos: `Phase5bAnimDebug.jsx/.css` [DEBUG], `engine/animations/movement/` (Standard/Teleport/Slingshot), `engine/animations/attack/` (StandardPlus/RageDash/EnergyPunch/StraightShot/BurstFire/SpiritGun), `engine/animations/defense/` (Hit/Block/MagicShield), `engine/animations/particles.js`, `engine/animations/juice.js` |
+| `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Hub de protótipos admin-only: cards que navegam para sub-rotas. |
+| `/prototype/srgrm` | SRGRM 3v3 | `src/pages/Prototype/SRGRM/SRGRM.jsx` + `game-logic.js` | ✅ v3.4.1 | ✅ | ✅ PT ✅ EN ✅ ES | Sistema RPG 3v3 (substitui Morto Engine). Criação de personagem, aliados, combate tático. |
+| `/prototype/arenatestbed` | Arena Testbed | `src/pages/Prototype/ArenaTestbed/ArenaTestbed.jsx` | ✅ v6.21.2 | ✅ | ✅ PT ✅ EN ✅ ES | Testbed de animações e combate da Arena. |
 | `*` (catch-all) | NotFound | `src/pages/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
 > **📌 SE0 e Indexação:**
@@ -577,7 +579,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.160.39** | FEAT: real audio files replace Web Audio synthesis — JC Sounds + Kenney UI + Atelier UI packs in /arena/sfx/ |
+| `SITE_VERSION` | **10.161.40** | SRGRM 3v3 replace Morto Engine — game-logic.js modularizado, hub de rotas Prototype, remoção do iframe morto |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -588,7 +590,7 @@
 | `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
-| `MORTO_VERSION` | **3.3.1** | Morto Engine — atualizado para versão 3v3-3-1 |
+| `SRGRM_VERSION` | **3.4.1** | SRGRM 3v3 — replace Morto Engine (imported from rpg_3v3-3-4-1.html, inlined game-logic.js) |
 | `ARENATESTBED_VERSION` | **6.21.2** | FIX: add play(key) method to AudioManager — EffectRenderer was calling audio.play() which didn't exist |
 
 ---

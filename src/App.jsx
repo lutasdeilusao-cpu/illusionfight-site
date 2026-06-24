@@ -38,6 +38,8 @@ import Cadastro from './pages/Cadastro'
 import Perfil from './pages/Perfil/Perfil'
 import Admin from './pages/Admin'
 import Prototype from './pages/Prototype/Prototype'
+import SRGRM from './pages/Prototype/SRGRM/SRGRM'
+import ArenaTestbed from './pages/Prototype/ArenaTestbed/ArenaTestbed'
 import LDILobby from './pages/LDI/Lobby'
 import LDICreate from './pages/LDI/Create'
 import LDIGame from './pages/LDI/Game'
@@ -115,6 +117,8 @@ export default function App() {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/prototype" element={<Prototype />} />
+        <Route path="/prototype/srgrm" element={<SRGRM />} />
+        <Route path="/prototype/arenatestbed" element={<ArenaTestbed />} />
         <Route path="/custos" element={<Custos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
