@@ -44,6 +44,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
   const hitStopRef = useRef(null)
   const floatingTextsRef = useRef([])
   const charactersRef = useRef([])
+  const overlayContainerRef = useRef(null)
 
   const { obstaculos, itensChao, cols, rows, tileUrl } = boardState
   const rawBoardChars = boardState.boardChars
@@ -82,8 +83,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       const alvo = charactersRef.current.find(c => c.id === alvoId)
       if (!alvo) return
       setHpAnterior(prev => ({ ...prev, [alvoId]: alvo.hp }))
-      dispatchEffect({ tipo: 'dano', alvo: alvoId, dados: { valor: dano }, caller: 'onDano' })
-      dispatchEffect({ tipo: 'popup', alvo: alvoId, dados: { valor: dano }, caller: 'onDano' })
+      dispatchEffect({ tipo: 'impacto', alvo: alvoId, dados: { valor: dano, critico: dano >= 8 }, caller: 'onDano' })
       dispatchEffect({ tipo: 'shake', alvo: null, dados: {}, caller: 'onDano' })
       dispatchEffect({ tipo: 'flash', alvo: alvoId, dados: {}, caller: 'onDano' })
       dispatchEffect({ tipo: 'hp_delta', alvo: alvoId, dados: { dano }, caller: 'onDano' })
@@ -294,6 +294,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       setAnimTimerRef: setAnimTimerFnRef,
 
       highlightRef,
+      overlayContainerRef,
     })
   }, [])
 
@@ -599,7 +600,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
         </div>
         <div className="atb-canvas-wrap" ref={canvasContainerRef}>
           <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
-          <div className="atb-balloon-container"></div>
+          <div className="atb-balloon-container" ref={overlayContainerRef}></div>
         </div>
         <div className="atb-hud">
           {characters.filter(c => c.vivo).map(ch => {

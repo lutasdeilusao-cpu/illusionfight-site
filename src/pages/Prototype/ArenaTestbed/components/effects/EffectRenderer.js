@@ -83,6 +83,30 @@ const primitivos = {
   ImpactoEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] ImpactoEffect', { params, dados, alvo })
     logAnimIds('ImpactoEffect', dados)
+    const container = _refs.overlayContainerRef?.current
+    if (!container) {
+      emit('effect:end', { canal: 'overlay' })
+      return
+    }
+    const critico = dados.critico || false
+    const el = document.createElement('div')
+    el.className = critico
+      ? 'atb-overlay-impacto atb-overlay-impacto--critico'
+      : 'atb-overlay-impacto'
+    el.textContent = String(dados.valor ?? '')
+    if (dados.alvoPos) {
+      el.style.setProperty('--overlay-x', `${dados.alvoPos.x}px`)
+      el.style.setProperty('--overlay-y', `${dados.alvoPos.y}px`)
+    }
+    container.appendChild(el)
+    requestAnimationFrame(() => {
+      el.classList.add('atb-overlay-impacto--active')
+    })
+    const duracao = critico ? 1300 : 1200
+    setTimeout(() => {
+      el.remove()
+      emit('effect:end', { canal: 'overlay' })
+    }, duracao)
   },
 
   AuraEffect: ({ params, dados, alvo }) => {
@@ -159,14 +183,70 @@ const primitivos = {
   TextoEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] TextoEffect', { params, dados, alvo })
     logAnimIds('TextoEffect', dados)
+    const container = _refs.overlayContainerRef?.current
+    if (!container) {
+      emit('effect:end', { canal: 'overlay' })
+      return
+    }
+    const el = document.createElement('div')
+    el.className = 'atb-overlay-texto'
+    const conteudo = dados.valor !== undefined ? String(dados.valor)
+      : dados.nome ? dados.nome
+      : dados.texto ? dados.texto
+      : ''
+    el.textContent = conteudo
+    if (dados.alvoPos) {
+      el.style.setProperty('--overlay-x', `${dados.alvoPos.x}px`)
+      el.style.setProperty('--overlay-y', `${dados.alvoPos.y}px`)
+      el.classList.add('atb-overlay-texto--positioned')
+    } else {
+      el.classList.add('atb-overlay-texto--centered')
+    }
+    container.appendChild(el)
+    requestAnimationFrame(() => {
+      el.classList.add('atb-overlay-texto--active')
+    })
+    const duracao = params.duracao || 800
+    setTimeout(() => {
+      el.remove()
+      emit('effect:end', { canal: 'overlay' })
+    }, duracao)
   },
   FlashEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] FlashEffect', { params, dados, alvo })
     logAnimIds('FlashEffect', dados)
+    const container = _refs.overlayContainerRef?.current
+    if (!container) {
+      emit('effect:end', { canal: 'overlay' })
+      return
+    }
+    const el = document.createElement('div')
+    el.className = 'atb-overlay-flash'
+    el.style.setProperty('--flash-color', params.cor || '#ff0000')
+    container.appendChild(el)
+    requestAnimationFrame(() => {
+      el.classList.add('atb-overlay-flash--active')
+    })
+    const duracao = params.duracao || 400
+    setTimeout(() => {
+      el.remove()
+      emit('effect:end', { canal: 'overlay' })
+    }, duracao)
   },
   ShakeEffect: ({ params, dados, alvo }) => {
     console.log('[PRIMITIVO] ShakeEffect', { params, dados, alvo })
     logAnimIds('ShakeEffect', dados)
+    const container = _refs.overlayContainerRef?.current
+    if (!container) {
+      emit('effect:end', { canal: 'overlay' })
+      return
+    }
+    container.classList.add('atb-overlay-shake')
+    const duracao = params.duracao || 500
+    setTimeout(() => {
+      container.classList.remove('atb-overlay-shake')
+      emit('effect:end', { canal: 'overlay' })
+    }, duracao)
   },
 }
 

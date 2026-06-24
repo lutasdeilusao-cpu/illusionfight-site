@@ -1,8 +1,23 @@
 export const EFFECTS_MAP = {
+  impacto: {
+    canal: 'overlay',
+    duracao_auto: false,
+    prioridade: 2,
+    primitivo: 'ImpactoEffect',
+    dadosObrigatorios: ['valor'],
+    params: {
+      cor: '#ff4444',
+      particula: null,
+      tamanho: 1.0,
+      velocidade: 'rapida',
+      som: null,
+      impactoAoChegar: null,
+      impactoParams: null,
+    },
+  },
   dano: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 800,
+    duracao_auto: false,
     prioridade: 1,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['valor'],
@@ -18,8 +33,7 @@ export const EFFECTS_MAP = {
   },
   flash: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 400,
+    duracao_auto: false,
     prioridade: 1,
     primitivo: 'FlashEffect',
     dadosObrigatorios: [],
@@ -35,8 +49,7 @@ export const EFFECTS_MAP = {
   },
   shake: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 500,
+    duracao_auto: false,
     prioridade: 1,
     primitivo: 'ShakeEffect',
     dadosObrigatorios: [],
@@ -52,8 +65,7 @@ export const EFFECTS_MAP = {
   },
   balao: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 1300,
+    duracao_auto: false,
     prioridade: 2,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['texto', 'tipo'],
@@ -69,8 +81,7 @@ export const EFFECTS_MAP = {
   },
   popup: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 800,
+    duracao_auto: false,
     prioridade: 1,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['valor'],
@@ -86,8 +97,7 @@ export const EFFECTS_MAP = {
   },
   banner_ia: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 1500,
+    duracao_auto: false,
     prioridade: 1,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['nome'],
@@ -103,8 +113,7 @@ export const EFFECTS_MAP = {
   },
   anuncio_turno: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 2000,
+    duracao_auto: false,
     prioridade: 0,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['nome', 'time'],
@@ -188,8 +197,7 @@ export const EFFECTS_MAP = {
   },
   vitoria: {
     canal: 'overlay',
-    duracao_auto: true,
-    duracao: 3000,
+    duracao_auto: false,
     prioridade: 0,
     primitivo: 'TextoEffect',
     dadosObrigatorios: ['vencedor'],
