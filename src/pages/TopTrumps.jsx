@@ -4,7 +4,6 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import { useAchievements } from '../context/AchievementsContext'
 import { useReader } from '../context/ReaderContext'
-import LoginGate from '../components/LoginGate/LoginGate'
 import { useLanguage } from '../context/LanguageContext'
 import { getDeck } from '../lib/getDeck'
 import { TS_VERSION } from '../config/version'
@@ -820,7 +819,7 @@ export default function TopTrumps() {
           />
           <div className={`tt-vs-epico${cortinaAtiva ? ' tt-cortina-ativa' : ''}`}>
             <div className="tt-vs-glow" />
-            <span className="tt-vs-texto-grande">VS</span>
+            <span className="tt-vs-texto-grande">{t('games.toptrumps.mp.hud_vs')}</span>
           </div>
           <div className={`tt-card-oponente-wrapper${cartaSumindo ? ' tt-carta-sumindo' : ''}`}>
             <TopTrumpsCard
