@@ -34,7 +34,7 @@
 │   │   └── images/
 │   │       ├── characters/             # 10 renders: alan, helena, jack, kim, kronos, lisa, nina, shuntaro, voidhunter, yawanari
 │   │       ├── livro/                  # 4 capas de capítulo (01~04.png)
-│   │       └── tamagoshi/              # Sprites tamagoshi
+│   │       └── tamagoshi/              # Sprites tamagoshi (SEO fallback)
 │   ├── fonts/
 │   │   ├── animeace2_bld.ttf           # Fonte anime (animeace2)
 │   │   ├── BringRace.otf               # Fonte customizada LDI
@@ -48,6 +48,7 @@
 │   │   ├── ldi-tatics/index.html       # /games/ldi-tatics/
 │   │   ├── minigames/index.html        # /games/minigames/
 │   │   └── pesadelo/index.html         # /games/pesadelo/
+│   ├── arena/sfx/                      # SFX de combate (combat/, item/, magic/, phase/, ui/)
 │   ├── leaderboard/index.html          # /leaderboard/
 │   ├── livro/index.html                # /livro/
 │   ├── loja/index.html                 # /loja/
@@ -70,7 +71,6 @@
 │   │   ├── 009_tamagoshi_v2.sql        # Tamagoshi v2
 │   │   ├── 010_profiles_admin_role.sql # Profiles: is_admin, role, tier
 │   │   ├── 010_tamagoshi_fix_columns.sql # Tamagoshi fix colunas
-│   │   ├── 010_stripe_billing.sql      # Stripe: subscription columns
 │   │   ├── 011_arena_tatics_roster.sql # Arena Tatics roster
 │   │   ├── 012_tatics_card_pool.sql    # Cartas + evolução (v7.0)
 │   │   ├── 013_fichas_tables.sql       # Fichas + fichas_historico
@@ -83,7 +83,9 @@
 │   │   ├── 018_profiles_country.sql    # País nos perfis
 │   │   ├── 019_dix_initial_1000.sql    # 1000 DIX iniciais
 │   │   ├── 020_toptrumps_decks_unique_constraint.sql # UNIQUE (user_id, carta_id)
-│   │   └── 021_toptrumps_stats_carta_ganha.sql # Coluna carta_ganha_hoje
+│   │   ├── 021_toptrumps_stats_carta_ganha.sql # Coluna carta_ganha_hoje
+│   │   ├── 021_profiles_is_test_account.sql # Flag is_test_account em profiles
+│   │   └── 022_fix_null_country_codes.sql # Fix países null em profiles
 │   └── functions/
 │       ├── create-checkout-session/index.ts  # Stripe checkout (JWT obrigatório)
 │       ├── stripe-webhook/index.ts           # Stripe webhook (no-verify-jwt)
@@ -101,7 +103,9 @@
 │   │   ├── logos/                      # logo-pt.png, logo-en.png
 │   │   ├── music/                      # 01.png ~ 16.png (capas randomizadas por visita)
 │   │   ├── ComingSoon.png              # Placeholder para conteúdo não lançado (~2.3MB)
-    │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-*.png)
+    │   ├── cards/                      # Cartas Top Trumps + TemplateBase 0-5 + CardInterrogation
+    │   ├── prototype/                  # tile_test.png
+    │   └── tamagoshi/                  # Sprites tamagoshi (kroniki-* por ID, 01~10)
     │
     ├── components/
     │   ├── AchievementToast/           # Toast de achievement com partículas (dentro do AchievementsContext)
@@ -143,7 +147,9 @@
     ├── config/
     │   ├── site.js                     # SITE_NAME, SITE_NAME_PT, DOMAIN
     │   ├── trial.js                    # TRIAL_ACTIVE = false
-    │   └── version.js                  # Todas as versões centralizadas
+    │   ├── version.js                  # Todas as versões centralizadas
+    │   ├── fichas.js                   # Constantes de fichas (FREE_LIMITE, CUSTOS)
+    │   └── launch.js                   # Datas de lançamento
     │
     ├── context/
     │   ├── AchievementsContext.jsx     # Provider: desbloquear, toast, persistência Supabase
@@ -157,7 +163,10 @@
     │
     ├── lib/
     │   ├── supabase.js                 # Cliente Supabase (anon key + URL)
-    │   └── stripe.js                   # Stripe frontend: iniciarCheckout(), cancelarAssinatura(), getPriceDisplay()
+    │   ├── stripe.js                   # Stripe frontend: iniciarCheckout(), cancelarAssinatura(), getPriceDisplay()
+    │   ├── getDeck.js                  # Utilitário de carregamento de deck
+    │   ├── notificationManager.js      # Gerenciador de notificações
+    │   └── sfx.js                      # Sistema de SFX (click, select, reward, etc.)
     │
     ├── data/
     │   ├── achievements-pt.json        # Achievements do sistema
@@ -246,6 +255,15 @@
     │   ├── TopTrumpsLobby.css
     │   ├── TopTrumpsMP.jsx             # Partida multiplayer
     │   ├── TopTrumpsMP.css
+    │   ├── TopTrumps/hooks/
+    │   │   └── useTopTrumpsDeck.js     # Hook de deck Supabase
+    │   ├── TopTrumps/components/
+    │   │   ├── CardViewerModal.jsx     # Modal visualizador de carta
+    │   │   ├── CardViewerModal.css
+    │   │   ├── DeckBuilder.jsx         # Construtor de deck
+    │   │   ├── DeckBuilder.css
+    │   │   ├── DeckStartModal.jsx      # Modal início de jogo
+    │   │   └── DeckStartModal.css
     │   ├── Webtoon.jsx                 # Grid episódios webtoon
     │   ├── Webtoon.css
     │   ├── WebtoonEpisodio.jsx         # Leitor webtoon
@@ -258,6 +276,10 @@
     │   │   ├── ArenaCreate.jsx         # Criação de ficha
     │   │   ├── ArenaCombat.jsx         # Tela de combate
     │   │   ├── ArenaVictory.jsx        # Tela de vitória
+    │   │   ├── components/
+    │   │   │   ├── ArenaXpBar.jsx      # Barra de XP
+    │   │   │   ├── DramaticDice.jsx    # Dado dramático
+    │   │   │   └── DramaticDice.css
     │   │   ├── store/
     │   │   │   └── useArenaStore.js    # Zustand: sheet, match, XP, Supabase
     │   │   └── data/
@@ -448,6 +470,8 @@
     │   │       ├── PerfilConta.jsx        # Aba: conta + assinatura Stripe
     │   │       ├── PerfilTamagoshi.jsx    # Aba: tamagoshi
     │   │       ├── PerfilTamagoshi.css
+    │   │       ├── PerfilProgresso.jsx    # Aba: progresso do jogo
+    │   │       ├── PerfilProgresso.css
     │   │       ├── Recompensas.jsx        # Aba: recompensas
     │   │       └── Recompensas.css
     │   │
@@ -484,32 +508,37 @@
     │       ├── data/
     │       │   ├── criaturas.js        # 32 criaturas
     │       │   ├── evolucoes.js        # 4 estágios
-    │       │   ├── falas-criatura.js   # Falas por criatura
+    │       │   ├── falas-criatura-pt.js # Falas por criatura (PT)
+    │       │   ├── falas-criatura-en.js # Falas por criatura (EN)
+    │       │   ├── falas-criatura-es.js # Falas por criatura (ES)
     │       │   ├── itens_loja.js       # Itens da loja
     │       │   ├── moedas.js           # DIX constants
     │       │   ├── tamagoshi-season1.json # JSON T1: IDs 1-10
     │       │   ├── passeios.js         # 6 locais
     │       │   ├── personalidades.js   # 6 personalidades
-    │       │   └── sfx.js              # Sons sintéticos via Web Audio API
+    │       ├── sfx.js                  # Sons sintéticos via Web Audio API
     │       ├── screens/
     │       │   ├── Alimentar.jsx       # Minigame alimentar
     │       │   ├── Banhar.jsx          # Minigame banhar
     │       │   ├── Brincadeira.jsx     # 4 mini-interações
     │       │   ├── Criatura.jsx        # Tela principal
+    │       │   ├── Gacha.jsx           # Gacha (sorteio de criaturas)
     │       │   ├── Loja.jsx            # Loja de itens
     │       │   ├── Luto.jsx            # Morte + cooldown
     │       │   ├── Ovo.jsx             # Ovo pulsante
     │       │   ├── Partida.jsx         # Despedida + fama
     │       │   ├── Passear.jsx         # Minigame grid
     │       │   ├── Passeio.jsx         # Seleção de local
-    │       │   └── Selecao.jsx         # Escolha da criatura
+    │       │   ├── RestaurarSaude.jsx  # Cura de criatura
+    │       │   ├── Selecao.jsx         # Escolha da criatura
+    │       │   ├── Termo.jsx           # Termo de uso do jogo
+    │       │   └── Termo.css
     │       └── components/
     │           ├── BalloonFala.jsx     # Balão de fala
     │           ├── CooldownTimer.jsx   # Timer de cooldown
     │           ├── CriaturaSprite.jsx  # Sprite da criatura
     │           └── MetricBar.jsx       # Barra de métricas
     │
-    └── store/                          # (vazio — stores estão por página)
 ```
 
 ---
@@ -559,7 +588,7 @@
 | `/custos` | Custos | `src/pages/Custos.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Transparência financeira do projeto |
 | `/admin` | Admin | `src/pages/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
 | `/prototype` | Prototype | `src/pages/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Hub de protótipos admin-only: cards que navegam para sub-rotas. |
-| `/prototype/srgrm` | SRGRM 3v3 | `src/pages/Prototype/SRGRM/SRGRM.jsx` + `game-logic.js` | ✅ v3.4.1 | ✅ | ✅ PT ✅ EN ✅ ES | Sistema RPG 3v3 (substitui Morto Engine). Criação de personagem, aliados, combate tático. |
+| `/prototype/srgrm` | SRGRM 3v3 | `src/pages/Prototype/SRGRM/SRGRM.jsx` + `game-logic.js` | ✅ v3.5.0 | ✅ | ✅ PT ✅ EN ✅ ES | Sistema RPG 3v3 (substitui Morto Engine). Criação de personagem, aliados, combate tático. |
 | `/prototype/arenatestbed` | Arena Testbed | `src/pages/Prototype/ArenaTestbed/ArenaTestbed.jsx` | ✅ v6.21.2 | ✅ | ✅ PT ✅ EN ✅ ES | Testbed de animações e combate da Arena. |
 | `*` (catch-all) | NotFound | `src/pages/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
@@ -579,7 +608,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.162.46** | auditoria CSS inline Top Trumps — removido import LoginGate, VS → i18n |
+| `SITE_VERSION` | **10.162.47** | auditoria SITE_MAP.md — correção de arquivos ausentes/obsoletos e notas de versão |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -590,7 +619,7 @@
 | `TS_VERSION` | **5.24.1** | Top Trumps SP — auditoria CSS inline: removido import LoginGate, VS → i18n |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
-| `SRGRM_VERSION` | **3.4.1** | SRGRM 3v3 — replace Morto Engine (imported from rpg_3v3-3-4-1.html, inlined game-logic.js) |
+| `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.21.2** | FIX: add play(key) method to AudioManager — EffectRenderer was calling audio.play() which didn't exist |
 
 ---
