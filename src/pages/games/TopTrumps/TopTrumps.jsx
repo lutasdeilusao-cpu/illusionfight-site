@@ -14,6 +14,7 @@ import TopTrumpsCard from '../../../components/TopTrumpsCard/TopTrumpsCard'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 import { usePresence } from '../../../hooks/usePresence'
+import { useSwipe } from '../../../hooks/useSwipe'
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
 import img01 from '../../../assets/images/cards/characters/card-01.png'
 import img02 from '../../../assets/images/cards/characters/card-02.png'
@@ -118,11 +119,19 @@ export default function TopTrumps() {
   const [historicoRodadas, setHistoricoRodadas] = useState([])
   const [showDesistirModal, setShowDesistirModal] = useState(false)
   const [modalMultiplayerLocked, setModalMultiplayerLocked] = useState(false)
+  const [swipeRevealed, setSwipeRevealed] = useState(false)
 
   // Card viewer + deck builder
   const [viewerIdx, setViewerIdx] = useState(null)
   const [showDeckBuilder, setShowDeckBuilder] = useState(false)
   const [showDeckStart, setShowDeckStart] = useState(false)
+
+  // Swipe handlers
+  const swipeHandlers = useSwipe({
+    onSwipeLeft: () => setSwipeRevealed(true),
+    onSwipeRight: () => setSwipeRevealed(false),
+    threshold: 50
+  })
 
   // Template randomization (6 templates, 0-5)
   const [templateIdxJogador, setTemplateIdxJogador] = useState(0)
@@ -391,6 +400,7 @@ export default function TopTrumps() {
   }
 
   function proximaRodada() {
+    setSwipeRevealed(false)
     sfx.nextRound()
     if (rodada >= totalTurnos) { finalizarPartida(); return }
     // Usa módulo para ciclar pelas cartas do deck — cada deck contém cartas únicas
@@ -780,55 +790,51 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
-        {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
         </button>
-        {isVezIA && (
-          <div className="tt-vez-ia-overlay">
-            <p className="tt-vez-ia-mensagem">{t('games.toptrumps.mp.hud_adversario_escolhendo')}</p>
-          </div>
-        )}
-        <div className="tt-hud-new">
-          <div className="tt-round-badge">
-            <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
-          </div>
-          <div className="tt-score-row">
-            <div className="tt-score-item tt-score--player">
-              <span className="tt-score-label">{t('games.toptrumps.voce')}</span>
-              <span className="tt-score-value">{placar.jogador}</span>
+        <div className="tt-game-container">
+          <div className="tt-game-header">
+            <div className="tt-game-round">
+              {t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}
             </div>
-            <div className="tt-score-divider">:</div>
-            <div className="tt-score-item tt-score--ia">
-              <span className="tt-score-label">{t('games.toptrumps.ia')}</span>
-              <span className="tt-score-value">{placar.ia}</span>
+            <div className="tt-game-score">
+              <span className="tt-score-you">{t('games.toptrumps.voce')} {placar.jogador}</span>
+              <span className="tt-score-sep">:</span>
+              <span className="tt-score-ai">{t('games.toptrumps.ia')} {placar.ia}</span>
             </div>
           </div>
-        </div>
-        <div className="tt-cards">
-          <TopTrumpsCard
-            characterImage={bgCarta(cartaJogador)}
-            name={cartaJogador.nome}
-            description={cartaJogador.descricao}
-            locale={locale}
-            attributes={cartaJogador.atributos}
-            onAttributeClick={(attrKey) => onClickAtributo(attrKey)}
-            disabled={girando || !!confirmandoAtributo || isVezIA || iaEscolhendo}
-            templateIndex={templateIdxJogador}
-          />
-          <div className={`tt-vs-epico${cortinaAtiva ? ' tt-cortina-ativa' : ''}`}>
-            <div className="tt-vs-glow" />
-            <span className="tt-vs-texto-grande">{t('games.toptrumps.mp.hud_vs')}</span>
+          <div className="tt-opponent-mini-wrapper">
+            <span className="tt-opponent-mini-label">
+              {isVezIA
+                ? t('games.toptrumps.adversario_escolhendo')
+                : t('games.toptrumps.adversario')}
+            </span>
+            <div className="tt-card--mini-wrapper">
+              <TopTrumpsCard
+                mystery={true}
+                mini={true}
+                locale={locale}
+                templateIndex={cartaIA ? (cartaIA.id % 6) : 0}
+              />
+            </div>
           </div>
-          <div className={`tt-card-oponente-wrapper${cartaSumindo ? ' tt-carta-sumindo' : ''}`}>
+          <div className="tt-player-card-wrapper">
             <TopTrumpsCard
-              mystery
-              name=""
-              description=""
+              characterImage={bgCarta(cartaJogador)}
+              name={cartaJogador.nome}
+              description={cartaJogador.descricao}
               locale={locale}
-              attributes={{}}
-              templateIndex={templateIdxIA}
+              attributes={cartaJogador.atributos}
+              onAttributeClick={!isVezIA ? (attr) => onClickAtributo(attr) : undefined}
+              disabled={girando || !!confirmandoAtributo || isVezIA || iaEscolhendo}
+              templateIndex={templateIdxJogador}
             />
+          </div>
+          <div className="tt-game-footer">
+            <button className="tt-btn-desistir" onClick={() => { sfx.click(); setShowDesistirModal(true); }}>
+              {t('games.toptrumps.desistir')}
+            </button>
           </div>
         </div>
 
@@ -866,25 +872,12 @@ export default function TopTrumps() {
           )
         })()}
 
-        {/* Curtain overlay for animation */}
         {cortinaAtiva && (
           <div className="tt-curtain-overlay">
             <div className="tt-curtain-inner" />
             <div className="tt-curtain-onomatopeia">
               <span className="tt-onoma-texto">{onomaTexto}</span>
             </div>
-          </div>
-        )}
-
-        {/* DESISTIR button at bottom center */}
-        {!confirmandoAtributo && !cortinaAtiva && !isVezIA && !iaEscolhendo && (
-          <div className="tt-desistir-wrapper">
-            <button
-              className="tt-desistir-btn"
-              onClick={() => { sfx.click(); setShowDesistirModal(true); }}
-            >
-              {t('games.toptrumps.desistir')}
-            </button>
           </div>
         )}
 
@@ -895,18 +888,8 @@ export default function TopTrumps() {
               <h3 className="tt-desistir-modal-titulo">{t('games.toptrumps.desistir_modal_titulo')}</h3>
               <p className="tt-desistir-modal-desc">{t('games.toptrumps.desistir_modal_desc')}</p>
               <div className="tt-desistir-modal-actions">
-                <button
-                  className="tt-desistir-modal-btn tt-desistir-modal-btn--cancel"
-                  onClick={() => { sfx.click(); setShowDesistirModal(false); }}
-                >
-                  {t('games.toptrumps.cancelar')}
-                </button>
-                <button
-                  className="tt-desistir-modal-btn tt-desistir-modal-btn--confirm"
-                  onClick={handleDesistir}
-                >
-                  {t('games.toptrumps.desistir_modal_confirmar')}
-                </button>
+                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--cancel" onClick={() => { sfx.click(); setShowDesistirModal(false); }}>{t('games.toptrumps.cancelar')}</button>
+                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--confirm" onClick={handleDesistir}>{t('games.toptrumps.desistir_modal_confirmar')}</button>
               </div>
             </div>
           </div>
@@ -920,6 +903,8 @@ export default function TopTrumps() {
     if (!cartaJogador || !cartaIA) return null
     const attr = atributos.find(a => a.id === atributoEscolhido)
     const locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
+    const vJ = cartaJogador.atributos[atributoEscolhido]
+    const vI = cartaIA.atributos[atributoEscolhido]
     return (
       <>
         <div className="tt-fire-particles">
@@ -928,66 +913,78 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
-        {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         {particulas.map(p => (
           <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
         ))}
-        <div className="tt-hud-new">
-          <div className="tt-round-badge">
-            <span className="tt-round-label">{t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}</span>
-          </div>
-          <div className="tt-score-row">
-            <div className="tt-score-item tt-score--player">
-              <span className="tt-score-label">{t('games.toptrumps.voce')}</span>
-              <span className="tt-score-value">{placar.jogador}</span>
+        <div className="tt-result-container">
+          <div className="tt-game-header">
+            <div className="tt-game-round">
+              {t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}
             </div>
-            <div className="tt-score-divider">:</div>
-            <div className="tt-score-item tt-score--ia">
-              <span className="tt-score-label">{t('games.toptrumps.ia')}</span>
-              <span className="tt-score-value">{placar.ia}</span>
+            <div className="tt-game-score">
+              <span className="tt-score-you">{placar.jogador}</span>
+              <span className="tt-score-sep">:</span>
+              <span className="tt-score-ai">{placar.ia}</span>
             </div>
           </div>
-        </div>
-        <div className="tt-cards">
-          <TopTrumpsCard
-            characterImage={bgCarta(cartaJogador)}
-            name={cartaJogador.nome}
-            description={cartaJogador.descricao}
-            locale={locale}
-            attributes={cartaJogador.atributos}
-            templateIndex={templateIdxJogador}
-          />
-          <div className={`tt-vs tt-vs--result ${resultado === 'ganhou' ? 'tt-vs--vitoria' : resultado === 'perdeu' ? 'tt-vs--derrota' : 'tt-vs--empate'}`}>
-            <span className="tt-resultado-texto">{resultado === 'ganhou' ? t('games.toptrumps.result_voce_venceu') : resultado === 'perdeu' ? t('games.toptrumps.result_ia_venceu') : t('games.toptrumps.result_empate')}</span>
-            {attr && (
-              <div className="tt-resultado-attr-box">
-                <span className="tt-resultado-attr-nome tt-resultado-attr-nome--escolhido">{t(attr.nomeKey)}</span>
-                <div className="tt-resultado-attr-duelo">
-                  <div className="tt-resultado-attr-lado tt-resultado-attr-lado--jogador">
-                    <span className="tt-resultado-attr-label">{t('games.toptrumps.voce')}</span>
-                    <span className={`tt-resultado-attr-valor ${resultado === 'ganhou' ? 'tt-resultado-attr--ganhou' : resultado === 'perdeu' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaJogador.atributos[atributoEscolhido]}</span>
-                  </div>
-                  <span className="tt-resultado-attr-x">×</span>
-                  <div className="tt-resultado-attr-lado tt-resultado-attr-lado--ia">
-                    <span className="tt-resultado-attr-label">{t('games.toptrumps.ia')}</span>
-                    <span className={`tt-resultado-attr-valor ${resultado === 'perdeu' ? 'tt-resultado-attr--ganhou' : resultado === 'ganhou' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaIA.atributos[atributoEscolhido]}</span>
-                  </div>
-                </div>
+          <div className={`tt-result-badge ${
+            resultado === 'ganhou' ? 'tt-result-win' :
+            resultado === 'perdeu' ? 'tt-result-lose' :
+            'tt-result-draw'
+          }`}>
+            {resultado === 'ganhou' ? t('games.toptrumps.voce_venceu') :
+             resultado === 'perdeu' ? t('games.toptrumps.ia_venceu') :
+             t('games.toptrumps.empate')}
+          </div>
+          {attr && (
+            <div className="tt-result-attr-comparison">
+              <div className="tt-result-attr-name">{t(attr.nomeKey)}</div>
+              <div className="tt-result-values">
+                <span className="tt-result-val-you">{vJ}</span>
+                <span className="tt-result-val-sep">×</span>
+                <span className="tt-result-val-ai">{vI}</span>
               </div>
-            )}
-            <button className="tt-proxima-btn" onClick={proximaRodada}>{rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.result_proxima')}</button>
+            </div>
+          )}
+          <div className="tt-cards-swipe-container" {...swipeHandlers}>
+            <div className={`tt-cards-swipe-track${swipeRevealed ? ' tt-cards-swipe-track--revealed' : ''}`}>
+              <div className="tt-swipe-card-slot">
+                <span className="tt-swipe-label">{t('games.toptrumps.sua_carta')}</span>
+                <TopTrumpsCard
+                  characterImage={bgCarta(cartaJogador)}
+                  name={cartaJogador.nome}
+                  description={cartaJogador.descricao}
+                  locale={locale}
+                  attributes={cartaJogador.atributos}
+                  disabled={true}
+                  templateIndex={templateIdxJogador}
+                />
+              </div>
+              <div className="tt-swipe-card-slot">
+                <span className="tt-swipe-label">{t('games.toptrumps.carta_adversario')}</span>
+                <TopTrumpsCard
+                  characterImage={bgCarta(cartaIA)}
+                  name={cartaIA.nome}
+                  description={cartaIA.descricao}
+                  locale={locale}
+                  attributes={cartaIA.atributos}
+                  disabled={true}
+                  templateIndex={templateIdxIA}
+                />
+              </div>
+            </div>
           </div>
-          <TopTrumpsCard
-            characterImage={bgCarta(cartaIA)}
-            name={cartaIA.nome}
-            description={cartaIA.descricao}
-            locale={locale}
-            attributes={cartaIA.atributos}
-            templateIndex={templateIdxIA}
-          />
+          <div className="tt-swipe-hint">
+            {swipeRevealed
+              ? `← ${t('games.toptrumps.swipe_voltar')}`
+              : `${t('games.toptrumps.swipe_ver_adversario')} →`}
+          </div>
+          <button className="tt-btn-next-round" onClick={proximaRodada}>
+            {rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.proxima_rodada')}
+          </button>
         </div>
       </section>
       </>

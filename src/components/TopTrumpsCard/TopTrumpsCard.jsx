@@ -36,6 +36,7 @@ export default function TopTrumpsCard({
   onAttributeClick,
   disabled = false,
   templateIndex = 0,
+  mini = false,
 }) {
   const labels = CARD_LABELS[locale] || CARD_LABELS.pt
 
@@ -52,7 +53,7 @@ export default function TopTrumpsCard({
   }
 
   return (
-    <div className="tt-card-wrapper">
+    <div className={`tt-card-wrapper${mini ? ' tt-card--mini' : ''}${faceDown ? ' tt-card--facedown' : ''}`}>
       <div className="tt-card-template">
         {/* Camada 1 — Background do personagem (img tag, no inline style) */}
         <img className="tt-card-character-bg-img"
