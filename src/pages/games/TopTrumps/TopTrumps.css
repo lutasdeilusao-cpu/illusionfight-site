@@ -2371,7 +2371,7 @@
 }
 .tt-card--mini-wrapper {
   width: 100%;
-  height: 240px;
+  height: 238px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -2442,19 +2442,24 @@
 }
 .tt-vs-heartbeat-glow {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,133,58,0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232,133,58,0.55) 0%, rgba(232,133,58,0.15) 50%, transparent 75%);
   animation: tt-vs-heartbeat-pulse 1.8s ease-in-out infinite;
   z-index: 1;
+  filter: blur(2px);
 }
 .tt-vs-heartbeat-glow::after {
   content: '';
   position: absolute;
-  inset: -8px;
+  inset: -10px;
   border-radius: 50%;
-  border: 1.5px solid rgba(232,133,58,0.3);
+  border: 2px solid rgba(232,133,58,0.65);
+  box-shadow:
+    0 0 12px rgba(232,133,58,0.5),
+    0 0 24px rgba(232,133,58,0.3),
+    inset 0 0 12px rgba(232,133,58,0.15);
   animation: tt-vs-heartbeat-pulse 1.8s ease-in-out infinite 0.2s;
 }
 .tt-vs-heartbeat-text {
