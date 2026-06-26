@@ -532,7 +532,7 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/Games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.21.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
+| `/games/toptrumps` | TopTrumps | `src/pages/TopTrumps.jsx` | ✅ v5.22.4 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Deck builder integrado à conta, visualização de carta, recompensa diária |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/TopTrumpsMP.jsx` | ✅ v5.11.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida multiplayer em tempo real |
 | `/games/ldi` | LDILobby | `src/pages/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -587,7 +587,7 @@
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **4.0.2** | readerMode: Navbar e Footer ocultos |
-| `TS_VERSION` | **5.22.3** | Top Trumps SP — multiplayer travado para guest (modal de login) |
+| `TS_VERSION` | **5.22.4** | Top Trumps SP — remove dead code inverso rank_sdr |
 | `TM_VERSION` | **5.11.0** | Top Trumps MP — cron job limpar-salas-fantasma diário (3h) |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.4.1** | SRGRM 3v3 — replace Morto Engine (imported from rpg_3v3-3-4-1.html, inlined game-logic.js) |

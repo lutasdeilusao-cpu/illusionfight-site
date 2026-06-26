@@ -38,7 +38,7 @@ export default function TopTrumpsMP() {
   const todasCartas = deck.cartas
   const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
     id, nomeKey: attrNomeKey(id),
-    descricao, inverso: id === 'rank_sdr'
+    descricao
   }))
   const { setReaderMode } = useReader()
   const [searchParams] = useSearchParams()
@@ -342,8 +342,7 @@ export default function TopTrumpsMP() {
         const v2 = cartaJ2.atributos[movJ2.atributo]
 
         let res
-        if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
-        else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+        res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
         // segue lógica existente para atualizar estado e sala
         const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
@@ -418,8 +417,7 @@ export default function TopTrumpsMP() {
         }
 
         let res
-        if (attr.inverso) res = v1 < v2 ? 'j1_venceu' : v1 > v2 ? 'j2_venceu' : 'empate'
-        else res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
+        res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
         const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
         const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')

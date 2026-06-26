@@ -171,15 +171,15 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
                     if (val === undefined) return null
                     const maxV = maxAtrib[k] || val
                     const pct = Math.round((val / maxV) * 100)
-                    const inverso = k === 'rank_sdr'
+                    const isRankSdr = k === 'rank_sdr'
                     return (
                       <div key={k} className="tt-viewer-stat">
                         <span className="tt-viewer-stat-label">{attrNome(k)}</span>
-                        <span className="tt-viewer-stat-val">{inverso ? `#${val}` : val}</span>
+                        <span className="tt-viewer-stat-val">{isRankSdr ? `#${val}` : val}</span>
                         <div className="tt-viewer-stat-bar">
                           <div
                             className="tt-viewer-stat-bar-fill"
-                            ref={el => { if (el) el.style.width = `${inverso ? Math.max(5, 100 - pct) : pct}%` }}
+                            ref={el => { if (el) el.style.width = `${isRankSdr ? Math.max(5, 100 - pct) : pct}%` }}
                           />
                         </div>
                       </div>

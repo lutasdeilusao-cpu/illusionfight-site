@@ -103,7 +103,7 @@ export default function TopTrumps() {
   const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
   const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
     id, nomeKey: attrNomeKey(id),
-    descricao, inverso: id === 'rank_sdr'
+    descricao
   }))
   const { user, perfil } = useAuth()
   usePresence({ userId: user?.id, modo: 'single', tier: perfil?.tier || 'free' })
@@ -385,8 +385,7 @@ export default function TopTrumps() {
     const vJ = cartaJogador.atributos[attrKey]
     const vI = cartaIA.atributos[attrKey]
     let res
-    if (attr.inverso) res = vJ < vI ? 'ganhou' : vJ > vI ? 'perdeu' : 'empate'
-    else res = vJ > vI ? 'ganhou' : vJ < vI ? 'perdeu' : 'empate'
+    res = vJ > vI ? 'ganhou' : vJ < vI ? 'perdeu' : 'empate'
 
     setAtributoEscolhido(attrKey)
     setResultado(res)
@@ -1104,7 +1103,7 @@ export default function TopTrumps() {
     historicoRodadas.forEach(h => {
       if (h.resultado === 'ganhou') {
         const attr = atributos.find(a => a.nome === h.atributo)
-        const diff = attr?.inverso ? h.valorIA - h.valorJogador : h.valorJogador - h.valorIA
+        const diff = h.valorJogador - h.valorIA
         if (diff > melhorDiferenca) { melhorDiferenca = diff; melhorRodada = h }
       }
     })

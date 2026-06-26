@@ -283,7 +283,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                   {/* Atributos em lista compacta */}
                   <div className="tt-deckbuilder-viewer-stats">
                     {Object.entries(viewingCard.atributos || {}).map(([k, v]) => {
-                      const inverso = k === 'rank_sdr'
+                      const isRankSdr = k === 'rank_sdr'
                       return (
                         <div key={k} className="tt-deckbuilder-viewer-stat">
                           <span className="tt-deckbuilder-viewer-stat-label">
@@ -298,7 +298,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                               poder_explosivo: t('games.toptrumps.atributo_poder_explosivo'),
                             }[k] || k}
                           </span>
-                          <span className="tt-deckbuilder-viewer-stat-val">{inverso ? `#${v}` : v}</span>
+                          <span className="tt-deckbuilder-viewer-stat-val">{isRankSdr ? `#${v}` : v}</span>
                         </div>
                       )
                     })}
