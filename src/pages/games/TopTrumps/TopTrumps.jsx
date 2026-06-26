@@ -820,6 +820,10 @@ export default function TopTrumps() {
               />
             </div>
           </div>
+          <div className="tt-vs-heartbeat">
+            <div className="tt-vs-heartbeat-glow" />
+            <span className="tt-vs-heartbeat-text">VS</span>
+          </div>
           <div className="tt-player-card-wrapper">
             <TopTrumpsCard
               characterImage={bgCarta(cartaJogador)}
@@ -979,9 +983,11 @@ export default function TopTrumps() {
             </div>
           </div>
           <div className="tt-swipe-hint">
-            {swipeRevealed
-              ? `← ${t('games.toptrumps.swipe_voltar')}`
-              : `${t('games.toptrumps.swipe_ver_adversario')} →`}
+            {swipeRevealed ? (
+              <><span className="tt-swipe-arrow">←</span> {t('games.toptrumps.swipe_voltar')}</>
+            ) : (
+              <>{t('games.toptrumps.swipe_ver_adversario')} <span className="tt-swipe-arrow">→</span></>
+            )}
           </div>
           <button className="tt-btn-next-round" onClick={proximaRodada}>
             {rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.proxima_rodada')}

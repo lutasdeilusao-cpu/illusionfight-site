@@ -494,7 +494,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.163.6** | fix: correção de imports ausentes + âœ corruption + encoding emojis |
+| `SITE_VERSION` | **10.163.7** | fix: layout mobile-first TT — scroll, heartbeat VS, swipe arrow, proporções |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
