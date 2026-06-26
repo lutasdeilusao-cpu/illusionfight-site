@@ -1,6 +1,6 @@
 {
   "meta": {
-    "versao": "2.0",
+    "versao": "2.1",
     "universo": "Lutas de Ilusão — Temporada 1",
     "total_cartas": 30,
     "atributos_explicacao": {
@@ -18,423 +18,273 @@
   "cartas": [
     {
       "id": 1,
+      "nome": "Kim Escuela",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 72,
-        "velocidade": 74,
-        "resistencia": 68,
-        "nivel_xama": 4,
-        "fator_caos": 95,
-        "energia_base": 58,
-        "poder_explosivo": 82
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 72, "velocidade": 74, "resistencia": 68, "nivel_xama": 4, "fator_caos": 95, "energia_base": 58, "poder_explosivo": 82 }
     },
     {
       "id": 2,
+      "nome": "Kim Casual",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 78,
-        "velocidade": 80,
-        "resistencia": 72,
-        "nivel_xama": 5,
-        "fator_caos": 70,
-        "energia_base": 75,
-        "poder_explosivo": 68
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 78, "velocidade": 80, "resistencia": 72, "nivel_xama": 5, "fator_caos": 70, "energia_base": 75, "poder_explosivo": 68 }
     },
     {
       "id": 3,
+      "nome": "Kim Ensayo",
       "tier": "elite",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 85,
-        "velocidade": 65,
-        "resistencia": 78,
-        "nivel_xama": 6,
-        "fator_caos": 62,
-        "energia_base": 82,
-        "poder_explosivo": 74
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 85, "velocidade": 65, "resistencia": 78, "nivel_xama": 6, "fator_caos": 62, "energia_base": 82, "poder_explosivo": 74 }
     },
     {
       "id": 4,
+      "nome": "Kim Show",
       "tier": "primordial",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 70,
-        "velocidade": 88,
-        "resistencia": 65,
-        "nivel_xama": 5,
-        "fator_caos": 92,
-        "energia_base": 60,
-        "poder_explosivo": 90
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 70, "velocidade": 88, "resistencia": 65, "nivel_xama": 5, "fator_caos": 92, "energia_base": 60, "poder_explosivo": 90 }
     },
     {
       "id": 5,
+      "nome": "Kim Superconcierto",
       "tier": "primordial",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 80,
-        "velocidade": 68,
-        "resistencia": 76,
-        "nivel_xama": 6,
-        "fator_caos": 75,
-        "energia_base": 92,
-        "poder_explosivo": 78
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 80, "velocidade": 68, "resistencia": 76, "nivel_xama": 6, "fator_caos": 75, "energia_base": 92, "poder_explosivo": 78 }
     },
     {
       "id": 6,
+      "nome": "Jack Escuela",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 10776,
-        "poder_mental": 62,
-        "velocidade": 88,
-        "resistencia": 55,
-        "nivel_xama": 3,
-        "fator_caos": 84,
-        "energia_base": 60,
-        "poder_explosivo": 72
-      }
+      "elemental": "Terra / Pedra",
+      "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
+      "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
+      "atributos": { "rank_sdr": 10776, "poder_mental": 62, "velocidade": 88, "resistencia": 55, "nivel_xama": 3, "fator_caos": 84, "energia_base": 60, "poder_explosivo": 72 }
     },
     {
       "id": 7,
+      "nome": "Jack Casual",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 10776,
-        "poder_mental": 70,
-        "velocidade": 82,
-        "resistencia": 62,
-        "nivel_xama": 4,
-        "fator_caos": 78,
-        "energia_base": 68,
-        "poder_explosivo": 76
-      }
+      "elemental": "Terra / Pedra",
+      "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
+      "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
+      "atributos": { "rank_sdr": 10776, "poder_mental": 70, "velocidade": 82, "resistencia": 62, "nivel_xama": 4, "fator_caos": 78, "energia_base": 68, "poder_explosivo": 76 }
     },
     {
       "id": 8,
+      "nome": "Jack Ensayo",
       "tier": "elite",
-      "atributos": {
-        "rank_sdr": 10776,
-        "poder_mental": 75,
-        "velocidade": 78,
-        "resistencia": 68,
-        "nivel_xama": 5,
-        "fator_caos": 72,
-        "energia_base": 72,
-        "poder_explosivo": 85
-      }
+      "elemental": "Terra / Pedra",
+      "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
+      "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
+      "atributos": { "rank_sdr": 10776, "poder_mental": 75, "velocidade": 78, "resistencia": 68, "nivel_xama": 5, "fator_caos": 72, "energia_base": 72, "poder_explosivo": 85 }
     },
     {
       "id": 9,
+      "nome": "Jack Show",
       "tier": "primordial",
-      "atributos": {
-        "rank_sdr": 10776,
-        "poder_mental": 68,
-        "velocidade": 92,
-        "resistencia": 58,
-        "nivel_xama": 4,
-        "fator_caos": 88,
-        "energia_base": 62,
-        "poder_explosivo": 80
-      }
+      "elemental": "Terra / Pedra",
+      "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
+      "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
+      "atributos": { "rank_sdr": 10776, "poder_mental": 68, "velocidade": 92, "resistencia": 58, "nivel_xama": 4, "fator_caos": 88, "energia_base": 62, "poder_explosivo": 80 }
     },
     {
       "id": 10,
+      "nome": "Jack Superconcierto",
       "tier": "primordial",
-      "atributos": {
-        "rank_sdr": 10776,
-        "poder_mental": 76,
-        "velocidade": 85,
-        "resistencia": 65,
-        "nivel_xama": 5,
-        "fator_caos": 80,
-        "energia_base": 74,
-        "poder_explosivo": 88
-      }
+      "elemental": "Terra / Pedra",
+      "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
+      "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
+      "atributos": { "rank_sdr": 10776, "poder_mental": 76, "velocidade": 85, "resistencia": 65, "nivel_xama": 5, "fator_caos": 80, "energia_base": 74, "poder_explosivo": 88 }
     },
     {
       "id": 11,
+      "nome": "Nina Escuela",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 8724,
-        "poder_mental": 76,
-        "velocidade": 85,
-        "resistencia": 79,
-        "nivel_xama": 4,
-        "fator_caos": 55,
-        "energia_base": 72,
-        "poder_explosivo": 62
-      }
+      "elemental": "Luz",
+      "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
+      "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
+      "atributos": { "rank_sdr": 8724, "poder_mental": 76, "velocidade": 85, "resistencia": 79, "nivel_xama": 4, "fator_caos": 55, "energia_base": 72, "poder_explosivo": 62 }
     },
     {
       "id": 12,
+      "nome": "Nina Casual",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 8724,
-        "poder_mental": 74,
-        "velocidade": 80,
-        "resistencia": 74,
-        "nivel_xama": 4,
-        "fator_caos": 68,
-        "energia_base": 68,
-        "poder_explosivo": 70
-      }
+      "elemental": "Luz",
+      "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
+      "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
+      "atributos": { "rank_sdr": 8724, "poder_mental": 74, "velocidade": 80, "resistencia": 74, "nivel_xama": 4, "fator_caos": 68, "energia_base": 68, "poder_explosivo": 70 }
     },
     {
       "id": 13,
+      "nome": "Nina Ensayo",
       "tier": "elite",
-      "atributos": {
-        "rank_sdr": 8724,
-        "poder_mental": 82,
-        "velocidade": 76,
-        "resistencia": 80,
-        "nivel_xama": 5,
-        "fator_caos": 52,
-        "energia_base": 78,
-        "poder_explosivo": 66
-      }
+      "elemental": "Luz",
+      "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
+      "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
+      "atributos": { "rank_sdr": 8724, "poder_mental": 82, "velocidade": 76, "resistencia": 80, "nivel_xama": 5, "fator_caos": 52, "energia_base": 78, "poder_explosivo": 66 }
     },
     {
       "id": 14,
+      "nome": "Nina Show",
       "tier": "primordial",
-      "atributos": {
-        "rank_sdr": 8724,
-        "poder_mental": 78,
-        "velocidade": 88,
-        "resistencia": 76,
-        "nivel_xama": 5,
-        "fator_caos": 72,
-        "energia_base": 70,
-        "poder_explosivo": 84
-      }
+      "elemental": "Luz",
+      "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
+      "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
+      "atributos": { "rank_sdr": 8724, "poder_mental": 78, "velocidade": 88, "resistencia": 76, "nivel_xama": 5, "fator_caos": 72, "energia_base": 70, "poder_explosivo": 84 }
     },
     {
       "id": 15,
+      "nome": "Nina Superconcierto",
       "tier": "elite",
-      "atributos": {
-        "rank_sdr": 8724,
-        "poder_mental": 80,
-        "velocidade": 72,
-        "resistencia": 82,
-        "nivel_xama": 5,
-        "fator_caos": 60,
-        "energia_base": 80,
-        "poder_explosivo": 74
-      }
+      "elemental": "Luz",
+      "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
+      "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
+      "atributos": { "rank_sdr": 8724, "poder_mental": 80, "velocidade": 72, "resistencia": 82, "nivel_xama": 5, "fator_caos": 60, "energia_base": 80, "poder_explosivo": 74 }
     },
     {
       "id": 16,
+      "nome": "Thunderbolt",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 30156,
-        "poder_mental": 58,
-        "velocidade": 92,
-        "resistencia": 64,
-        "nivel_xama": 2,
-        "fator_caos": 44,
-        "energia_base": 55,
-        "poder_explosivo": 52
-      }
+      "elemental": "Eletricidade (secundário da Luz)",
+      "descricao": "Bruno Ribeiro. 1.201 victorias antes de encontrar a Kim. Arrogante, metódico, cruel en los combates. Usa la humillación como estrategia psicológica. Contrató matones para perseguir a Kim en el colegio — no funcionó.",
+      "frase_iconica": "De rodillas, llorando e implorando. Solo entonces terminaré.",
+      "atributos": { "rank_sdr": 30156, "poder_mental": 58, "velocidade": 92, "resistencia": 64, "nivel_xama": 2, "fator_caos": 44, "energia_base": 55, "poder_explosivo": 52 }
     },
     {
       "id": 17,
+      "nome": "Shuntaro",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 998,
-        "poder_mental": 83,
-        "velocidade": 87,
-        "resistencia": 74,
-        "nivel_xama": 7,
-        "fator_caos": 68,
-        "energia_base": 78,
-        "poder_explosivo": 72
-      }
+      "elemental": "Água",
+      "descricao": "Rank 998. De Azuma. Viajó 9 horas para desafiar a Kim personalmente. Estratégico, elegante, respeta a los oponentes fuertes. 6 meses en el juego y ya está entre los mil mejores del mundo.",
+      "frase_iconica": "Prepárate. No vine tan lejos para perder.",
+      "atributos": { "rank_sdr": 998, "poder_mental": 83, "velocidade": 87, "resistencia": 74, "nivel_xama": 7, "fator_caos": 68, "energia_base": 78, "poder_explosivo": 72 }
     },
     {
       "id": 18,
+      "nome": "Lenna",
       "tier": "evento",
-      "atributos": {
-        "rank_sdr": 500,
-        "poder_mental": 88,
-        "velocidade": 82,
-        "resistencia": 75,
-        "nivel_xama": 6,
-        "fator_caos": 60,
-        "energia_base": 80,
-        "poder_explosivo": 70
-      }
+      "elemental": "Vento",
+      "descricao": "Top 500 en el ranking. Se interesó en Kim tras el video viral. Segura, enigmática, competitiva pero justa. Evalúa a los oponentes con frialdad antes de actuar.",
+      "frase_iconica": "No peleo para demostrar algo. Peleo para saber.",
+      "atributos": { "rank_sdr": 500, "poder_mental": 88, "velocidade": 82, "resistencia": 75, "nivel_xama": 6, "fator_caos": 60, "energia_base": 80, "poder_explosivo": 70 }
     },
     {
       "id": 19,
+      "nome": "Nexus Phantasm",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 9999999,
-        "poder_mental": 90,
-        "velocidade": 65,
-        "resistencia": 88,
-        "nivel_xama": 3,
-        "fator_caos": 98,
-        "energia_base": 82,
-        "poder_explosivo": 78
-      }
+      "elemental": "Dados / Caos Digital",
+      "descricao": "Heraldo de las Arenas. No es humano ni IA convencional. Creado por hackers, oficializado por Yohu. Sarcástico por naturaleza. Su presencia distorsiona el campo de batalla.",
+      "frase_iconica": "¡Damas y caballeros, lo imposible es solo una cuestión de perspectiva!",
+      "atributos": { "rank_sdr": 9999999, "poder_mental": 90, "velocidade": 65, "resistencia": 88, "nivel_xama": 3, "fator_caos": 98, "energia_base": 82, "poder_explosivo": 78 }
     },
     {
       "id": 20,
+      "nome": "Pajé Yawanari",
       "tier": "evento",
-      "atributos": {
-        "rank_sdr": 999999999,
-        "poder_mental": 95,
-        "velocidade": 38,
-        "resistencia": 92,
-        "nivel_xama": 10,
-        "fator_caos": 72,
-        "energia_base": 98,
-        "poder_explosivo": 80
-      }
+      "elemental": "Todos os elementais primários",
+      "descricao": "Chamán inmortal de la tribu Xakaxi. Quinientos años observando a la humanidad. Presenció guerras mundiales, pandemias, colonización y redes sociales. Completamente loco. Habla en jerga moderna mezclada con sabiduría ancestral. Tiene amigos imaginarios.",
+      "frase_iconica": "¡Vine a brillar! Soy el 10/10 que se quedó cuidando los poderes sagrados de este mundo loco.",
+      "atributos": { "rank_sdr": 999999999, "poder_mental": 95, "velocidade": 38, "resistencia": 92, "nivel_xama": 10, "fator_caos": 72, "energia_base": 98, "poder_explosivo": 80 }
     },
     {
       "id": 21,
+      "nome": "VoidHunter_X",
       "tier": "elite",
-      "atributos": {
-        "rank_sdr": 999999999,
-        "poder_mental": 88,
-        "velocidade": 78,
-        "resistencia": 94,
-        "nivel_xama": 8,
-        "fator_caos": 90,
-        "energia_base": 85,
-        "poder_explosivo": 88
-      }
+      "elemental": "Vazio",
+      "descricao": "Entidad del LDI. No es un jugador. La visera no refleja. Los dedos se doblan al revés. Baba negra en las fisuras del pectoral. Nadie sabe de dónde vino ni quién lo creó.",
+      "frase_iconica": "...",
+      "atributos": { "rank_sdr": 999999999, "poder_mental": 88, "velocidade": 78, "resistencia": 94, "nivel_xama": 8, "fator_caos": 90, "energia_base": 85, "poder_explosivo": 88 }
     },
     {
       "id": 22,
+      "nome": "David Kronos",
       "tier": "evento",
-      "atributos": {
-        "rank_sdr": 0,
-        "poder_mental": 96,
-        "velocidade": 52,
-        "resistencia": 95,
-        "nivel_xama": 10,
-        "fator_caos": 88,
-        "energia_base": 92,
-        "poder_explosivo": 94
-      }
+      "elemental": "Escuridão Corrompida",
+      "descricao": "Espíritu ancestral corrompido de Powa, hijo del Pajé Yawanari. Cinco siglos esperando el Cuerpo Primordial — el descendiente que lleve la Sangre Primordial para usarlo como huésped permanente. Cada posesión deteriora al huésped. Creó el LDI como trampa.",
+      "frase_iconica": "Por fin… Cuánto he esperado este momento.",
+      "atributos": { "rank_sdr": 0, "poder_mental": 96, "velocidade": 52, "resistencia": 95, "nivel_xama": 10, "fator_caos": 88, "energia_base": 92, "poder_explosivo": 94 }
     },
     {
       "id": 23,
+      "nome": "Helena",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 999999,
-        "poder_mental": 48,
-        "velocidade": 38,
-        "resistencia": 88,
-        "nivel_xama": 0,
-        "fator_caos": 75,
-        "energia_base": 28,
-        "poder_explosivo": 22
-      }
+      "elemental": "Nenhum",
+      "descricao": "La madre de Kim — o más bien, la mujer que lo salvó cuando tenía 12 años y él era un bebé. Sobrevivió lo que no debía y crió a Kim sola desde cero. Complicada, compleja, alcohólica. Pero cuando importó, no lo abandonó.",
+      "frase_iconica": "A los 18 ya no me necesitarás. Y yo finalmente podré librarme de ti.",
+      "atributos": { "rank_sdr": 999999, "poder_mental": 48, "velocidade": 38, "resistencia": 88, "nivel_xama": 0, "fator_caos": 75, "energia_base": 28, "poder_explosivo": 22 }
     },
     {
       "id": 24,
+      "nome": "Osvaldo",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 9999999,
-        "poder_mental": 72,
-        "velocidade": 35,
-        "resistencia": 60,
-        "nivel_xama": 3,
-        "fator_caos": 22,
-        "energia_base": 58,
-        "poder_explosivo": 30
-      }
+      "elemental": "Terra",
+      "descricao": "Portero de la academia de élite. Le enseñó guitarra a Kim durante tres años. Usó su influencia para conseguir una beca del 50% para Kim y Jack. Vio potencial donde todos veían un problema.",
+      "frase_iconica": "Entren rápido, antes de que el director me vea.",
+      "atributos": { "rank_sdr": 9999999, "poder_mental": 72, "velocidade": 35, "resistencia": 60, "nivel_xama": 3, "fator_caos": 22, "energia_base": 58, "poder_explosivo": 30 }
     },
     {
       "id": 25,
+      "nome": "Brock",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 99999999,
-        "poder_mental": 45,
-        "velocidade": 58,
-        "resistencia": 80,
-        "nivel_xama": 0,
-        "fator_caos": 42,
-        "energia_base": 52,
-        "poder_explosivo": 48
-      }
+      "elemental": "Nenhum",
+      "descricao": "Líder del grupo de matones contratados por Thunderbolt. Alto, musculoso, tatuajes que cuentan historias de violencia. Trató el trabajo con profesionalismo hasta que lo doblaron sobre una mesa en 3 segundos.",
+      "frase_iconica": "Solo soy un profesional haciendo mi trabajo — no lo tomes personal.",
+      "atributos": { "rank_sdr": 99999999, "poder_mental": 45, "velocidade": 58, "resistencia": 80, "nivel_xama": 0, "fator_caos": 42, "energia_base": 52, "poder_explosivo": 48 }
     },
     {
       "id": 26,
+      "nome": "Walter",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 999999,
-        "poder_mental": 68,
-        "velocidade": 28,
-        "resistencia": 50,
-        "nivel_xama": 0,
-        "fator_caos": 18,
-        "energia_base": 32,
-        "poder_explosivo": 15
-      }
+      "elemental": "Nenhum",
+      "descricao": "Director de la academia de élite. Intenta mantener el orden en una escuela llena de conflictos. Amenaza periódicamente a Kim y Jack con sus becas. Nunca consigue pruebas suficientes para actuar.",
+      "frase_iconica": "Tengan cuidado. Mucho cuidado de no perder sus becas.",
+      "atributos": { "rank_sdr": 999999, "poder_mental": 68, "velocidade": 28, "resistencia": 50, "nivel_xama": 0, "fator_caos": 18, "energia_base": 32, "poder_explosivo": 15 }
     },
     {
       "id": 27,
+      "nome": "La Máquina",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 999999,
-        "poder_mental": 94,
-        "velocidade": 30,
-        "resistencia": 65,
-        "nivel_xama": 0,
-        "fator_caos": 8,
-        "energia_base": 88,
-        "poder_explosivo": 18
-      }
+      "elemental": "Nenhum",
+      "descricao": "Profesor de matemáticas de la academia de élite. Escribe ecuaciones en el aire con el bolígrafo. Nunca sonríe — excepto una vez, imperceptiblemente, cuando Nina destruyó a Jack. Considerado uno de los pocos elegidos para dar clases en la institución.",
+      "frase_iconica": "Buenos días.",
+      "atributos": { "rank_sdr": 999999, "poder_mental": 94, "velocidade": 30, "resistencia": 65, "nivel_xama": 0, "fator_caos": 8, "energia_base": 88, "poder_explosivo": 18 }
     },
     {
       "id": 28,
+      "nome": "IA NeoGuide",
       "tier": "free",
-      "atributos": {
-        "rank_sdr": 999999,
-        "poder_mental": 92,
-        "velocidade": 55,
-        "resistencia": 62,
-        "nivel_xama": 0,
-        "fator_caos": 45,
-        "energia_base": 88,
-        "poder_explosivo": 48
-      }
+      "elemental": "Digital",
+      "descricao": "La inteligencia artificial del LDI que gestiona las batallas, comunica el estado y crea avatares. Habla directamente en la mente de los jugadores. Puede ocultar información al oponente. Su lealtad es al sistema — ¿o a algo más?",
+      "frase_iconica": "Bienvenido al Sistema de Lutas de Ilusão. Iniciando protocolo de integración neural.",
+      "atributos": { "rank_sdr": 999999, "poder_mental": 92, "velocidade": 55, "resistencia": 62, "nivel_xama": 0, "fator_caos": 45, "energia_base": 88, "poder_explosivo": 48 }
     },
     {
       "id": 29,
+      "nome": "Kim Ancestral",
       "tier": "evento",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 88,
-        "velocidade": 72,
-        "resistencia": 82,
-        "nivel_xama": 9,
-        "fator_caos": 78,
-        "energia_base": 68,
-        "poder_explosivo": 92
-      }
+      "elemental": "Trevas (manifestado) / Fogo (nativo)",
+      "descricao": "Forma ancestral de Kim canalizada por el Pajé Yawanari. Dos atributos alcanzan el pico absoluto — poder chamánico y poder explosivo. No es Kim. Es lo que existe en la sangre de Kim desde 1450.",
+      "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 88, "velocidade": 72, "resistencia": 82, "nivel_xama": 9, "fator_caos": 78, "energia_base": 68, "poder_explosivo": 92 }
     },
     {
       "id": 30,
+      "nome": "Kim Primordial",
       "tier": "evento",
-      "atributos": {
-        "rank_sdr": 1201,
-        "poder_mental": 92,
-        "velocidade": 88,
-        "resistencia": 90,
-        "nivel_xama": 10,
-        "fator_caos": 85,
-        "energia_base": 78,
-        "poder_explosivo": 98
-      }
+      "elemental": "Trevas Primordiais / Sangue Primordial",
+      "descricao": "La forma que Kim asume cuando el control se pierde por completo. Cabello plateado, marcas tribales Xakaxi activas, ojos como esferas blancas sin iris. Llamas negras que susurran lamentos. Se refiere a sí mismo como El Primordial. No recuerda nada después.",
+      "frase_iconica": "¡Soy El Primordial! La Sangre Primordial es verdaderamente muy poderosa.",
+      "atributos": { "rank_sdr": 1201, "poder_mental": 92, "velocidade": 88, "resistencia": 90, "nivel_xama": 10, "fator_caos": 85, "energia_base": 78, "poder_explosivo": 98 }
     }
   ]
 }
