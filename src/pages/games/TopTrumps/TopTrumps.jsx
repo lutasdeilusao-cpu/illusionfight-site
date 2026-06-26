@@ -584,7 +584,7 @@ export default function TopTrumps() {
           <div className="tt-card-sample tt-card-sample--3"><div className="tt-card-sample-pattern" /><div className="tt-card-sample-logo">LDI</div></div>
         </div></div>
         <div className="tt-menu-content">
-          <div className="tt-title-group"><h1 className="tt-title-main">{t('games.toptrumps.menu_titulo')}</h1><span className="tt-title-sub">{t('games.toptrumps.menu_subtitulo')}</span></div>
+          <div className="tt-title-group"><h1 className="tt-title-main">{t('games.toptrumps.menu_titulo')}</h1></div>
           <p className="tt-title-desc">{t('games.toptrumps.menu_desc')}</p>
           {user && (
             <div className="tt-colecao">

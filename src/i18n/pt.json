@@ -1491,7 +1491,7 @@
         "atributo_escolhido": "Atributo: {nome}"
       },
       "menu_titulo": "LDI TOP TRUMPS",
-      "menu_subtitulo": "— LDI",
+      "menu_subtitulo": "",
       "menu_desc": "Jogo de cartas colecionáveis do universo LDI",
       "menu_cartas_coletadas": "{n} / {total} CARTAS COLETADAS",
       "menu_single_player": "SINGLE PLAYER",
@@ -1545,7 +1545,7 @@
       "recompensa_carta_misteriosa": "CARTA MISTERIOSA",
       "recompensa_confirmar": "CONFIRMAR RECOMPENSA",
       "relatorio_titulo": "RELATÓRIO DA ARENA",
-      "relatorio_sub": "Top Trumps — LDI",
+      "relatorio_sub": "Top Trumps",
       "relatorio_voce": "VOCÊ",
       "relatorio_ia_label": "IA",
       "relatorio_rodadas": "Rodadas",
