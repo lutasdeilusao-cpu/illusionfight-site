@@ -494,7 +494,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.165.0** | fix PPT — traduções, layout mobile empilhado, revelação simultânea |
+| `SITE_VERSION` | **10.166.0** | i18n Top Trumps extraída para tt_pt/en/es.json + fix PPT keys faltantes |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -502,7 +502,7 @@
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **4.0.2** | readerMode: Navbar e Footer ocultos |
-| `TS_VERSION` | **5.27.0** | Top Trumps SP — fix PPT: traduções, layout mobile, revelação simultânea |
+| `TS_VERSION` | **5.28.0** | Top Trumps SP — i18n extraída para tt_pt/en/es.json + fix PPT keys |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |

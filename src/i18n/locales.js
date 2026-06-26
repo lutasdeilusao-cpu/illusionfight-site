@@ -4,6 +4,9 @@ import en from './en.json'
 import pp_pt from './pp_pt.json'
 import pp_en from './pp_en.json'
 import pp_es from './pp_es.json'
+import tt_pt from './tt_pt.json'
+import tt_en from './tt_en.json'
+import tt_es from './tt_es.json'
 import trash_en from './arena-trash-en.json'
 import trash_es from './arena-trash-es.json'
 
@@ -26,9 +29,9 @@ function deepMerge(target, ...sources) {
 }
 
 export const locales = {
-  pt: { ...pt, ...pp_pt },
-  es: deepMerge({ ...es, ...pp_es }, trash_es),
-  en: deepMerge({ ...en, ...pp_en }, trash_en),
+  pt: deepMerge({ ...pt, ...pp_pt }, tt_pt),
+  es: deepMerge({ ...es, ...pp_es }, trash_es, tt_es),
+  en: deepMerge({ ...en, ...pp_en }, trash_en, tt_en),
 }
 
 export const LOCALE_LABELS = {
