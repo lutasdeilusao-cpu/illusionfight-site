@@ -1,4 +1,4 @@
-﻿// ─── SRGRM game-logic.js ──────────────────────────────────────────────────
+// ─── SRGRM game-logic.js ──────────────────────────────────────────────────
 // Extração fiel de rpg_3v3-3-4-1.html (linhas 604-3516)
 // ZERO alterações de lógica — apenas encapsulamento para React
 
@@ -644,7 +644,7 @@ function applyDamage(entity, dmg, skipCobertura = false) {
     if (protector && protector.id !== entity.id) {
       const half1 = Math.ceil(dmg / 2);
       const half2 = Math.floor(dmg / 2);
-      logEntry(`ðŸ›¡ ${protector.name} cobre ${entity.name} e divide o dano!`, 'log-info');
+      logEntry(`🛡 ${protector.name} cobre ${entity.name} e divide o dano!`, 'log-info');
       applyDamage(protector, half1, true);
       applyDamage(entity, half2, true);
       return;
@@ -660,7 +660,7 @@ function applyDamage(entity, dmg, skipCobertura = false) {
     if (entity.mp >= mpCost) {
       entity.mp -= mpCost;
       dmg = Math.max(0, dmg - absorbed);
-      logEntry(`ðŸ”® TÃºnica de ${entity.name} absorve ${absorbed} de dano! (âˆ’${mpCost} MP)`, 'log-info');
+      logEntry(`🔮 TÃºnica de ${entity.name} absorve ${absorbed} de dano! (âˆ’${mpCost} MP)`, 'log-info');
     }
   }
 
@@ -673,7 +673,7 @@ function applyDamage(entity, dmg, skipCobertura = false) {
   }
   if (entity.hp === 0 && entity.alive) {
     entity.alive = false;
-    logEntry(`ðŸ’€ ${entity.name} foi derrotado!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat');
+    logEntry(`💀 ${entity.name} foi derrotado!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat');
   }
 }
 
@@ -996,12 +996,12 @@ function calcRawDmg(attacker, defender) {
   // Passiva de Cota de Malha/Armadura de Placas/Pesada: rolagem mÃ¡xima concede +1 de defesa (sÃ³ neste cÃ¡lculo)
   if (defRoll.isMax && defender.armor.armorPassive === 'plate') {
     defBase += 1;
-    logEntry(`ðŸ›¡ ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! (+1)`, 'log-sys');
+    logEntry(`🛡 ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! (+1)`, 'log-sys');
   }
   // Passiva de Roupa de Couro/CouraÃ§a: rolagem mÃ¡xima causa 1 de dano de retaliaÃ§Ã£o (nÃ£o se aplica a magia)
   if (defRoll.isMax && defender.armor.armorPassive === 'leather' && !attacker.actedWithMagic) {
     applyDamage(attacker, 1);
-    logEntry(`ðŸ—¡ ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! ${attacker.name} sofre 1 de dano de retaliaÃ§Ã£o!`, 'log-dmg');
+    logEntry(`🗡 ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! ${attacker.name} sofre 1 de dano de retaliaÃ§Ã£o!`, 'log-dmg');
   }
 
   const atkMod  = getEffectMod(attacker, 'atk');
@@ -1069,7 +1069,7 @@ function resolveAttack(attacker, defender) {
     const explosiveFull = Math.max(1, rawDmg + atkBonus(attacker));
     const explosiveDmg  = Math.max(1, Math.floor(explosiveFull / 2));
     applyDamage(defender, explosiveDmg);
-    logEntry(`ðŸ’¥ Golpe em ${defender.name} desmaiado! ${explosiveDmg} de dano (sem defesa, metade)!`, 'log-dmg');
+    logEntry(`💥 Golpe em ${defender.name} desmaiado! ${explosiveDmg} de dano (sem defesa, metade)!`, 'log-dmg');
     defender.effects = defender.effects.filter(e => e.id !== 'faint');
     logEntry(`${defender.name} acorda do desmaio!`, 'log-info');
     if (activeArrow?.effect) rollArrowEffect(attacker, defender, activeArrow);
@@ -1447,7 +1447,7 @@ function processTurn() {
     const heal = Math.max(1, Math.floor(actor.maxHP * 0.05));
     actor.hp = Math.min(actor.maxHP, actor.hp + heal);
     actor.effects = actor.effects.filter(e => e.id !== 'faint');
-    logEntry(`ðŸ’¤ ${actor.name} estÃ¡ desmaiado, perde o turno e recupera ${heal} HP!`, 'log-info');
+    logEntry(`💤 ${actor.name} estÃ¡ desmaiado, perde o turno e recupera ${heal} HP!`, 'log-info');
     actor.comboStage = 1;
     turnIndex++;
     renderBattle();
@@ -1536,15 +1536,15 @@ function processEffects(entity, entityName) {
         const dmg = Math.max(1, Math.floor(entity.maxHP * pct));
         entity.hp = Math.max(0, entity.hp - dmg);
         logEntry(`â˜  ${entityName} sofre ${dmg} de veneno. (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
-        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`ðŸ’€ ${entityName} foi derrotado pelo veneno!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
+        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`💀 ${entityName} foi derrotado pelo veneno!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
       }
       if (ef.id === 'bleed') {
         const stack = ef.stack || 1;
         const pct = BLEED_STACK_PCT[Math.min(stack, 3) - 1];
         const dmg = Math.max(1, Math.floor(entity.maxHP * pct));
         entity.hp = Math.max(0, entity.hp - dmg);
-        logEntry(`ðŸ©¸ ${entityName} sofre ${dmg} de sangramento (stack ${stack}). (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
-        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`ðŸ’€ ${entityName} foi derrotado pelo sangramento!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
+        logEntry(`🩸 ${entityName} sofre ${dmg} de sangramento (stack ${stack}). (${ef.turnsLeft-1} turnos restantes)`, 'log-dmg');
+        if (entity.hp === 0 && entity.alive) { entity.alive = false; logEntry(`💀 ${entityName} foi derrotado pelo sangramento!`, entity.side === 'enemy' ? 'log-victory' : 'log-defeat'); }
       }
       if (ef.id === 'regen') {
         const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
@@ -1867,7 +1867,7 @@ function setCobertura(actor, target) {
     logEntry(`${actor.name} para de proteger ${target.name}.`, 'log-info');
   } else {
     actor.protecting = target.id;
-    logEntry(`ðŸ›¡ ${actor.name} agora protege ${target.name}! (divide 50% do dano recebido)`, 'log-info');
+    logEntry(`🛡 ${actor.name} agora protege ${target.name}! (divide 50% do dano recebido)`, 'log-info');
   }
   renderBattle(); renderSheet();
   endTurn();
@@ -1987,7 +1987,7 @@ function processWeaponPassives(actor) {
       const cap = Math.floor(actor.maxHP * 0.5);
       if (actor.hp < cap) {
         actor.hp = Math.min(cap, actor.hp + 1);
-        logEntry(`ðŸ›¡ ${actor.name} recupera 1 HP pelo escudo. (${actor.hp}/${actor.maxHP})`, 'log-sys');
+        logEntry(`🛡 ${actor.name} recupera 1 HP pelo escudo. (${actor.hp}/${actor.maxHP})`, 'log-sys');
       }
     }
   }
@@ -2013,10 +2013,10 @@ function applyBleed(target) {
   if (existing) {
     existing.stack = Math.min(3, (existing.stack || 1) + 1);
     existing.turnsLeft = 3;
-    logEntry(`ðŸ©¸ ${target.name} sangra mais intensamente! (stack ${existing.stack}/3, ${Math.round(BLEED_STACK_PCT[existing.stack-1]*100)}% HP/turno)`, 'log-dmg');
+    logEntry(`🩸 ${target.name} sangra mais intensamente! (stack ${existing.stack}/3, ${Math.round(BLEED_STACK_PCT[existing.stack-1]*100)}% HP/turno)`, 'log-dmg');
   } else {
     target.effects.push({ id: 'bleed', turnsLeft: 3, stack: 1 });
-    logEntry(`ðŸ©¸ ${target.name} estÃ¡ Sangrando! (10% HP/turno por 3 turnos)`, 'log-dmg');
+    logEntry(`🩸 ${target.name} estÃ¡ Sangrando! (10% HP/turno por 3 turnos)`, 'log-dmg');
   }
 }
 
@@ -2027,10 +2027,10 @@ function applyBleedNoStack(target) {
   const existing = target.effects.find(e => e.id === 'bleed');
   if (existing) {
     existing.turnsLeft = 3;
-    logEntry(`ðŸ©¸ ${target.name} continua Sangrando! (stack ${existing.stack || 1}/3, duraÃ§Ã£o renovada)`, 'log-dmg');
+    logEntry(`🩸 ${target.name} continua Sangrando! (stack ${existing.stack || 1}/3, duraÃ§Ã£o renovada)`, 'log-dmg');
   } else {
     target.effects.push({ id: 'bleed', turnsLeft: 3, stack: 1 });
-    logEntry(`ðŸ©¸ ${target.name} estÃ¡ Sangrando! (10% HP/turno por 3 turnos)`, 'log-dmg');
+    logEntry(`🩸 ${target.name} estÃ¡ Sangrando! (10% HP/turno por 3 turnos)`, 'log-dmg');
   }
 }
 
@@ -2039,7 +2039,7 @@ function rollArrowEffect(attacker, defender, arrow) {
   if (!arrow.effect) return;
   // Sangramento de flecha tem 40% de chance de sequer tentar (antes do teste de resistÃªncia)
   if (arrow.effect === 'bleed' && Math.random() >= 0.40) {
-    logEntry(`ðŸ¹ A flecha nÃ£o corta fundo o suficiente para causar Sangramento.`, 'log-miss');
+    logEntry(`🏹 A flecha nÃ£o corta fundo o suficiente para causar Sangramento.`, 'log-miss');
     return;
   }
   // Testa resistÃªncia do defensor (ResistÃªncia contra efeito de flecha)
@@ -2050,7 +2050,7 @@ function rollArrowEffect(attacker, defender, arrow) {
   if (arrow.effect === 'poison') effectDef = POISON_TIERS[0];
   else if (arrow.effect === 'paralyze') effectDef = PARALYZE_TIERS[0];
   const effectName = arrow.effect === 'bleed' ? 'Sangramento' : (effectDef?.name || arrow.effect);
-  logEntry(`ðŸ¹ ${defender.name} testa ResistÃªncia contra ${effectName}: rola ${resRoll} vs ${resVal}`, 'log-sys');
+  logEntry(`🏹 ${defender.name} testa ResistÃªncia contra ${effectName}: rola ${resRoll} vs ${resVal}`, 'log-sys');
   if (resRoll !== w.dice && resRoll <= resVal) {
     logEntry(`${defender.name} resistiu ao ${effectName}!`, 'log-miss');
     return;
@@ -2614,11 +2614,11 @@ function calcRawDmgWithArrow(attacker, defender, arrowOverride) {
     let defBase = defRoll.value;
     if (defRoll.isMax && defender.armor.armorPassive === 'plate') {
       defBase += 1;
-      logEntry(`ðŸ›¡ ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! (+1)`, 'log-sys');
+      logEntry(`🛡 ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! (+1)`, 'log-sys');
     }
     if (defRoll.isMax && defender.armor.armorPassive === 'leather' && !attacker.actedWithMagic) {
       applyDamage(attacker, 1);
-      logEntry(`ðŸ—¡ ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! ${attacker.name} sofre 1 de dano de retaliaÃ§Ã£o!`, 'log-dmg');
+      logEntry(`🗡 ${defender.name}: defesa mÃ¡xima na ${defender.armor.name}! ${attacker.name} sofre 1 de dano de retaliaÃ§Ã£o!`, 'log-dmg');
     }
     const atkMod  = getEffectMod(attacker, 'atk');
     const defMod  = getEffectMod(defender, 'def');
@@ -2744,13 +2744,13 @@ function resolveItemUse(target) {
     const before = target.hp;
     target.hp = Math.min(effMax, target.hp + heal);
     const actual = target.hp - before;
-    logEntry(`ðŸ§ª ${actor.name} usa ${item.name} em ${target.name}: cura ${actual} HP! (d${item.dice} â†’ ${heal})`, 'log-victory');
+    logEntry(`🧪 ${actor.name} usa ${item.name} em ${target.name}: cura ${actual} HP! (d${item.dice} â†’ ${heal})`, 'log-victory');
   } else if (item.type === 'heal_mp') {
     const heal = rollDice(item.dice);
     const before = target.mp;
     target.mp = Math.min(target.maxMP, target.mp + heal);
     const actual = target.mp - before;
-    logEntry(`ðŸ”µ ${actor.name} usa ${item.name} em ${target.name}: recupera ${actual} MP! (d${item.dice} â†’ ${heal})`, 'log-info');
+    logEntry(`🔵 ${actor.name} usa ${item.name} em ${target.name}: recupera ${actual} MP! (d${item.dice} â†’ ${heal})`, 'log-info');
   } else if (item.type === 'cure') {
     const removed = [];
     let diseaseRemoved = false;
@@ -2783,7 +2783,7 @@ function resolveItemUse(target) {
     });
 
     if (removed.length > 0) {
-      logEntry(`ðŸ’Š ${actor.name} usa ${item.name} em ${target.name}: remove ${removed.join(', ')}!`, 'log-victory');
+      logEntry(`💊 ${actor.name} usa ${item.name} em ${target.name}: remove ${removed.join(', ')}!`, 'log-victory');
     } else {
       logEntry(`${actor.name} usa ${item.name} em ${target.name}: nenhum efeito a remover.`, 'log-sys');
     }
