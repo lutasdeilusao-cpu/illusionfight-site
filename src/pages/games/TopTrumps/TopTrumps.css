@@ -2330,7 +2330,18 @@
    Desktop: centralizado em coluna única.
    ============================================ */
 
-.tt-game-container,
+.tt-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0.5rem max(1rem, env(safe-area-inset-right)) max(0.5rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+}
 .tt-result-container {
   display: flex; flex-direction: column; align-items: center;
   width: 100%; max-width: 480px; margin: 0 auto;
@@ -2357,9 +2368,30 @@
   font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--color-text-muted, #666); margin-bottom: 0;
 }
-.tt-card--mini-wrapper { width: 100%; display: flex; justify-content: center; align-items: center; }
-.tt-card--mini { transform: scale(0.60); transform-origin: center; pointer-events: none; flex-shrink: 0; }
-.tt-player-card-wrapper { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 0; overflow: hidden; }
+.tt-card--mini-wrapper {
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.tt-card--mini {
+  transform: scale(0.33);
+  transform-origin: top center;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+.tt-player-card-wrapper {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
 .tt-player-card-wrapper .tt-card-wrapper { max-height: 100%; }
 .tt-player-card-wrapper .tt-card-wrapper .tt-card-template img { max-height: 100%; object-fit: contain; }
 
@@ -2395,9 +2427,15 @@
   }
 }
 .tt-vs-heartbeat {
-  display: flex; align-items: center; justify-content: center;
-  position: relative; flex-shrink: 0; width: 100%;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 .tt-vs-heartbeat-glow {
   display: none;
