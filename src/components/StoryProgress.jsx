@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { JOGOS } from '../pages/Games/Games'
+import { JOGOS } from '../pages/games/Games'
 import './StoryProgress.css'
 
 export default function StoryProgress() {
