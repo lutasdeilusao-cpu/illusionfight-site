@@ -33,7 +33,7 @@ function bgCarta(carta) { return CARD_IMAGES[carta?.id] || cardFallback }
 const ATTR_KEYS = ['rank_sdr', 'poder_mental', 'velocidade', 'resistencia', 'nivel_xama', 'fator_caos', 'energia_base', 'poder_explosivo']
 
 export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, onPrev, onNext }) {
-  const { t, locale } = useLanguage()
+  const { t, tt, locale } = useLanguage()
   const tem = deckIds?.some(id => carta?.id === id)
 
   const handleKeyDown = useCallback((e) => {
@@ -62,14 +62,14 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
 
   const attrNome = (key) => {
     const map = {
-      rank_sdr: t('games.toptrumps.atributo_rank_sdr'),
-      poder_mental: t('games.toptrumps.atributo_poder_mental'),
-      velocidade: t('games.toptrumps.atributo_velocidade'),
-      resistencia: t('games.toptrumps.atributo_resistencia'),
-      nivel_xama: t('games.toptrumps.atributo_nivel_xama'),
-      fator_caos: t('games.toptrumps.atributo_fator_caos'),
-      energia_base: t('games.toptrumps.atributo_energia_base'),
-      poder_explosivo: t('games.toptrumps.atributo_poder_explosivo'),
+      rank_sdr: tt('atributo_rank_sdr'),
+      poder_mental: tt('atributo_poder_mental'),
+      velocidade: tt('atributo_velocidade'),
+      resistencia: tt('atributo_resistencia'),
+      nivel_xama: tt('atributo_nivel_xama'),
+      fator_caos: tt('atributo_fator_caos'),
+      energia_base: tt('atributo_energia_base'),
+      poder_explosivo: tt('atributo_poder_explosivo'),
     }
     return map[key] || key
   }
@@ -83,11 +83,11 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
   const copias = deckIds?.filter(id => carta.id === id).length || 0
 
   const tierNomes = {
-    free: t('games.toptrumps.tier_free'),
-    elite: t('games.toptrumps.tier_elite'),
-    primordial: t('games.toptrumps.tier_primordial'),
-    lendario: t('games.toptrumps.tier_lendario'),
-    sombra: t('games.toptrumps.tier_sombra')
+    free: tt('tier_free'),
+    elite: tt('tier_elite'),
+    primordial: tt('tier_primordial'),
+    lendario: tt('tier_lendario'),
+    sombra: tt('tier_sombra')
   }
 
   return (
@@ -140,7 +140,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
                   </span>
                 )}
                 <span className="tt-viewer-copias">
-                  {copias > 1 ? `${copias}x ` : ''}{t('games.toptrumps.cardViewer.copies', { n: copias })}
+                  {copias > 1 ? `${copias}x ` : ''}{tt('cardViewer.copies', { n: copias })}
                 </span>
               </div>
 
@@ -159,7 +159,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
               {/* Stats */}
               {tem && (
                 <div className="tt-viewer-stats">
-                  <h4 className="tt-viewer-stats-title">{t('games.toptrumps.cardViewer.stats')}</h4>
+                  <h4 className="tt-viewer-stats-title">{tt('cardViewer.stats')}</h4>
                   {ATTR_KEYS.map(k => {
                     const val = carta.atributos?.[k]
                     if (val === undefined) return null
@@ -183,7 +183,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
               )}
 
               {!tem && (
-                <p className="tt-viewer-locked-msg">{t('games.toptrumps.cardViewer.locked')}</p>
+                <p className="tt-viewer-locked-msg">{tt('cardViewer.locked')}</p>
               )}
             </div>
           </div>

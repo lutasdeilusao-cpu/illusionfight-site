@@ -42,7 +42,7 @@ const DECK_CONFIG = [
 ]
 
 export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved }) {
-  const { t, locale } = useLanguage()
+  const { t, tt, locale } = useLanguage()
   const [deckType, setDeckType] = useState('deck_5')
   const [selecionadas, setSelecionadas] = useState([])
   const [deckNome, setDeckNome] = useState('')
@@ -124,10 +124,10 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
           onClick={e => e.stopPropagation()}
         >
           <button className="tt-deckbuilder-close" onClick={onClose}>✕</button>
-          <h2 className="tt-deckbuilder-title">{t('games.toptrumps.deckBuilder.title')}</h2>
+          <h2 className="tt-deckbuilder-title">{tt('deckBuilder.title')}</h2>
 
           {!temMinimo ? (
-            <p className="tt-deckbuilder-min-msg">{t('games.toptrumps.deckBuilder.minCards')}</p>
+            <p className="tt-deckbuilder-min-msg">{tt('deckBuilder.minCards')}</p>
           ) : (
             <>
               {/* Deck type tabs */}
@@ -146,7 +146,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
               {/* Deck name */}
               <input
                 className="tt-deckbuilder-name-input"
-                placeholder={t('games.toptrumps.deckBuilder.deckNamePlaceholder')}
+                placeholder={tt('deckBuilder.deckNamePlaceholder')}
                 value={deckNome}
                 onChange={e => setDeckNome(e.target.value)}
                 maxLength={30}
@@ -157,7 +157,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                 {/* Collection side */}
                 <div className="tt-deckbuilder-collection">
                   <h4 className="tt-deckbuilder-side-title">
-                    {t('games.toptrumps.deckBuilder.yourCards')}
+                    {tt('deckBuilder.yourCards')}
                   </h4>
                   <div className="tt-deckbuilder-grid">
                     {cartasDisponiveis.map(carta => {
@@ -212,14 +212,14 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
               {/* Actions */}
               <div className="tt-deckbuilder-actions">
                 <button className="tt-deckbuilder-btn tt-deckbuilder-btn--limpar" onClick={handleLimpar}>
-                  {t('games.toptrumps.deckBuilder.clear')}
+                  {tt('deckBuilder.clear')}
                 </button>
                 <button
                   className={`tt-deckbuilder-btn tt-deckbuilder-btn--salvar${podeSalvar ? '' : ' tt-deckbuilder-btn--disabled'}`}
                   disabled={!podeSalvar || salvando}
                   onClick={handleSalvar}
                 >
-                  {salvando ? '...' : salvo ? '✓' : t('games.toptrumps.deckBuilder.save')}
+                  {salvando ? '...' : salvo ? '✓' : tt('deckBuilder.save')}
                 </button>
               </div>
             </>
@@ -285,14 +285,14 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                         <div key={k} className="tt-deckbuilder-viewer-stat">
                           <span className="tt-deckbuilder-viewer-stat-label">
                             {{
-                              rank_sdr: t('games.toptrumps.atributo_rank_sdr'),
-                              poder_mental: t('games.toptrumps.atributo_poder_mental'),
-                              velocidade: t('games.toptrumps.atributo_velocidade'),
-                              resistencia: t('games.toptrumps.atributo_resistencia'),
-                              nivel_xama: t('games.toptrumps.atributo_nivel_xama'),
-                              fator_caos: t('games.toptrumps.atributo_fator_caos'),
-                              energia_base: t('games.toptrumps.atributo_energia_base'),
-                              poder_explosivo: t('games.toptrumps.atributo_poder_explosivo'),
+                              rank_sdr: tt('atributo_rank_sdr'),
+                              poder_mental: tt('atributo_poder_mental'),
+                              velocidade: tt('atributo_velocidade'),
+                              resistencia: tt('atributo_resistencia'),
+                              nivel_xama: tt('atributo_nivel_xama'),
+                              fator_caos: tt('atributo_fator_caos'),
+                              energia_base: tt('atributo_energia_base'),
+                              poder_explosivo: tt('atributo_poder_explosivo'),
                             }[k] || k}
                           </span>
                           <span className="tt-deckbuilder-viewer-stat-val">{isRankSdr ? `#${v}` : v}</span>
@@ -314,7 +314,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                               className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--add"
                               onClick={() => { adicionar(viewingCard); setViewingCard(null) }}
                             >
-                              + {t('games.toptrumps.deckBuilder.add')}
+                              + {tt('deckBuilder.add')}
                             </button>
                           )}
                           {jaEsta > 0 && (
@@ -327,7 +327,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                                 setViewingCard(null)
                               }}
                             >
-                              - {t('games.toptrumps.deckBuilder.remove')}
+                              - {tt('deckBuilder.remove')}
                             </button>
                           )}
                         </>
@@ -337,7 +337,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                       className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--back"
                       onClick={() => setViewingCard(null)}
                     >
-                      {t('games.toptrumps.deckBuilder.back')}
+                      {tt('deckBuilder.back')}
                     </button>
                   </div>
                 </div>

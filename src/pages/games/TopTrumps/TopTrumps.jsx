@@ -53,15 +53,15 @@ function bgCarta(carta) {
 
 function attrNomeKey(id) {
   const map = {
-    rank_sdr: 'games.toptrumps.atributo_rank_sdr',
-    poder_mental: 'games.toptrumps.atributo_poder_mental',
-    velocidade: 'games.toptrumps.atributo_velocidade',
-    resistencia: 'games.toptrumps.atributo_resistencia',
-    nivel_xama: 'games.toptrumps.atributo_nivel_xama',
-    fator_caos: 'games.toptrumps.atributo_fator_caos',
-    energia_base: 'games.toptrumps.atributo_energia_base',
+    rank_sdr: 'atributo_rank_sdr',
+    poder_mental: 'atributo_poder_mental',
+    velocidade: 'atributo_velocidade',
+    resistencia: 'atributo_resistencia',
+    nivel_xama: 'atributo_nivel_xama',
+    fator_caos: 'atributo_fator_caos',
+    energia_base: 'atributo_energia_base',
   }
-  return map[id] || 'games.toptrumps.atributo_poder_explosivo'
+  return map[id] || 'atributo_poder_explosivo'
 }
 
 function embaralhar(arr) { return [...arr].sort(() => Math.random() - 0.5) }
@@ -76,7 +76,7 @@ function keyPorUser(user, suffix) {
 }
 
 export default function TopTrumps() {
-  const { t, locale } = useLanguage()
+  const { t, tt, locale } = useLanguage()
   const navigate = useNavigate()
   const deck = getDeck(locale)
   const todasCartas = deck.cartas
@@ -429,7 +429,7 @@ export default function TopTrumps() {
         rodada,
         cartaJogador: { nome: cartaJogador.nome, atributos: cartaJogador.atributos },
         cartaIA: { nome: cartaIA.nome, atributos: cartaIA.atributos },
-        atributo: t(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res,
+        atributo: tt(attr.nomeKey), valorJogador: vJ, valorIA: vI, resultado: res,
         escolhidoPor
       }])
 
@@ -621,7 +621,7 @@ export default function TopTrumps() {
     return (
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
         {/* Sound toggle */}
-          <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+          <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-menu-cards"><div className="tt-card-stack">
@@ -629,11 +629,11 @@ export default function TopTrumps() {
           <div className="tt-card-sample tt-card-sample--3"><div className="tt-card-sample-pattern" /><div className="tt-card-sample-logo">LDI</div></div>
         </div></div>
         <div className="tt-menu-content">
-          <div className="tt-title-group"><h1 className="tt-title-main">{t('games.toptrumps.menu_titulo')}</h1></div>
-          <p className="tt-title-desc">{t('games.toptrumps.menu_desc')}</p>
+          <div className="tt-title-group"><h1 className="tt-title-main">{tt('menu_titulo')}</h1></div>
+          <p className="tt-title-desc">{tt('menu_desc')}</p>
           {user && (
             <div className="tt-colecao">
-              <span className="tt-colecao-label">{t('games.toptrumps.menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
+              <span className="tt-colecao-label">{tt('menu_cartas_coletadas', { n: deckUsuario.length, total: todasCartas.length })}</span>
               <div className="tt-colecao-bar"><div className="tt-colecao-bar-fill" ref={el => { if (el) el.style.setProperty('--fill', `${pct}%`) }} /></div>
             </div>
           )}
@@ -641,26 +641,26 @@ export default function TopTrumps() {
             {!user && (menuStep === null || menuStep === 'modo') && (
               <div className="tt-guest-aviso-previo">
                 <p className="tt-guest-aviso-texto">
-                  {t('games.toptrumps.guest_aviso_previo')}
+                  {tt('guest_aviso_previo')}
                 </p>
                 <Link to="/cadastro" className="tt-guest-aviso-link">
-                  {t('games.toptrumps.guest_aviso_criar_conta')}
+                  {tt('guest_aviso_criar_conta')}
                 </Link>
               </div>
             )}
             {(menuStep === null || menuStep === 'modo') && (
               <div className="tt-modos">
                 <div className="tt-modo-card" onClick={() => { sfx.click(); setMenuStep('config'); }}>
-                  <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_single_player')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_single_desc')}</p>
+                  <h3 className="tt-modo-titulo">{tt('menu_single_player')}</h3><p className="tt-modo-desc">{tt('menu_single_desc')}</p>
                 </div>
                 {user ? (
                   <Link to="/games/toptrumps/lobby" className="tt-modo-card" onClick={() => sfx.click()}>
-                    <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3><p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
+                    <h3 className="tt-modo-titulo">{tt('menu_multiplayer')}</h3><p className="tt-modo-desc">{tt('menu_multi_desc')}</p>
                   </Link>
                 ) : (
                   <div className="tt-modo-card tt-modo-card--locked" onClick={() => { sfx.click(); setModalMultiplayerLocked(true) }}>
-                    <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3>
-                    <p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
+                    <h3 className="tt-modo-titulo">{tt('menu_multiplayer')}</h3>
+                    <p className="tt-modo-desc">{tt('menu_multi_desc')}</p>
                     <span className="tt-modo-card-lock-icon">🔒</span>
                   </div>
                 )}
@@ -668,7 +668,7 @@ export default function TopTrumps() {
             )}
             {menuStep === 'config' && (
               <div className="tt-config tt-fade-in">
-                <span className="tt-config-label">{t('games.toptrumps.menu_num_turnos')}</span>
+                <span className="tt-config-label">{tt('menu_num_turnos')}</span>
                 <div className="tt-config-turnos">
                   {[5, 10, 15, 20].map(n => (
                     <button key={n}
@@ -681,17 +681,17 @@ export default function TopTrumps() {
                   jaGanhouHoje ? (
                     <div className="tt-ja-ganhou-hoje">
                       <span className="tt-ja-ganhou-icone">🏆</span>
-                      <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou')}</p>
+                      <p className="tt-ja-ganhou-texto">{tt('menu_ja_ganhou')}</p>
                     </div>
                   ) : deckUsuario.length >= todasCartas.length ? (
                     <div className="tt-ja-ganhou-hoje">
                       <span className="tt-ja-ganhou-icone">🏆</span>
-                      <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou_todas')}</p>
+                      <p className="tt-ja-ganhou-texto">{tt('menu_ja_ganhou_todas')}</p>
                     </div>
                   ) : (
                     <div className="tt-config-tentativas">
                       {Array.from({length: tentativasMax}).map((_, i) => (<span key={i} className={`tt-tentativa-dot${i < (tentativasMax - tentativasRestantes) ? ' tt-tentativa-dot--gasta' : ''}`} />))}
-                      <span className="tt-tentativa-texto">{t('games.toptrumps.menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
+                      <span className="tt-tentativa-texto">{tt('menu_tentativas', { restantes: tentativasRestantes, max: tentativasMax })}</span>
                     </div>
                   )
                 )}
@@ -699,19 +699,19 @@ export default function TopTrumps() {
                   disabled={totalTurnos === null} onClick={() => {
                     sfx.click()
                     setShowDeckStart(true)
-                  }}>{t('games.toptrumps.jogar')}</button>
+                  }}>{tt('jogar')}</button>
                 {user && (
                   <>
                 <button className="tt-btn-deck-builder" onClick={() => { sfx.click(); setShowDeckBuilder(true) }}>
-                  🃏 {t('games.toptrumps.deckBuilderBtn')}
+                  🃏 {tt('deckBuilderBtn')}
                 </button>
-                <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
+                <Link to="/perfil?aba=colecao" className="tt-link-album">{tt('menu_album')}</Link>
                   </>
                 )}
               </div>
             )}
           </>
-          <BackToGamesBtn onClick={() => { sfx.click(); if (menuStep === 'config') { setMenuStep(null) } else { navigate(-1) } }} label={t('games.toptrumps.menu_voltar_games')} />
+          <BackToGamesBtn onClick={() => { sfx.click(); if (menuStep === 'config') { setMenuStep(null) } else { navigate(-1) } }} label={tt('menu_voltar_games')} />
         </div>
       </div>
       {/* Card Viewer */}
@@ -756,14 +756,14 @@ export default function TopTrumps() {
       {modalMultiplayerLocked && (
         <div className="tt-locked-overlay" onClick={() => setModalMultiplayerLocked(false)}>
           <div className="tt-locked-modal" onClick={e => e.stopPropagation()}>
-            <h3 className="tt-locked-titulo">{t('games.toptrumps.multiplayer_locked_titulo')}</h3>
-            <p className="tt-locked-desc">{t('games.toptrumps.multiplayer_locked_desc')}</p>
+            <h3 className="tt-locked-titulo">{tt('multiplayer_locked_titulo')}</h3>
+            <p className="tt-locked-desc">{tt('multiplayer_locked_desc')}</p>
             <div className="tt-locked-actions">
               <Link to="/cadastro" className="tt-locked-btn tt-locked-btn--primary" onClick={() => sfx.click()}>
-                {t('games.toptrumps.multiplayer_locked_criar_conta')}
+                {tt('multiplayer_locked_criar_conta')}
               </Link>
               <button className="tt-locked-btn" onClick={() => { sfx.click(); setModalMultiplayerLocked(false) }}>
-                {t('games.toptrumps.cancelar')}
+                {tt('cancelar')}
               </button>
             </div>
           </div>
@@ -780,12 +780,12 @@ export default function TopTrumps() {
     const maoIA = emojiMap[pptMaoIA] || ''
     return (
       <section className="tt-page">
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
         </button>
         <div className="tt-ppt-container">
-          <h2 className="tt-ppt-titulo">{t('games.toptrumps.ppt_titulo')}</h2>
-          <p className="tt-ppt-subtitulo">{t('games.toptrumps.ppt_subtitulo')}</p>
+          <h2 className="tt-ppt-titulo">{tt('ppt_titulo')}</h2>
+          <p className="tt-ppt-subtitulo">{tt('ppt_subtitulo')}</p>
 
           {pptFase === 'escolha' && (
             <>
@@ -795,11 +795,11 @@ export default function TopTrumps() {
                     className="tt-ppt-btn"
                     onClick={() => handlePptEscolha(id)}>
                     <span className="tt-ppt-emoji">{emojiMap[id]}</span>
-                    <span className="tt-ppt-label">{t(`games.toptrumps.ppt_${id}`)}</span>
+                    <span className="tt-ppt-label">{tt(`ppt_${id}`)}</span>
                   </button>
                 ))}
               </div>
-              <p className="tt-ppt-aguardando">{t('games.toptrumps.ppt_aguardando')}</p>
+              <p className="tt-ppt-aguardando">{tt('ppt_aguardando')}</p>
             </>
           )}
 
@@ -808,13 +808,13 @@ export default function TopTrumps() {
               <div className="tt-ppt-maos">
                 <div className={`tt-ppt-mao tt-ppt-mao--jogador${pptShake ? ' tt-ppt-shake' : ''}`}>
                   <span className="tt-ppt-emoji">{iconeAtual}</span>
-                  <span className="tt-ppt-label">{t('games.toptrumps.ppt_voce')}</span>
+                  <span className="tt-ppt-label">{tt('ppt_voce')}</span>
                 </div>
                 <div className="tt-ppt-vs">
                   <span className="tt-ppt-texto-animado">{pptTexto}</span>
                 </div>
                 <div className={`tt-ppt-mao tt-ppt-mao--ia${pptShake ? ' tt-ppt-shake' : ''}`}>
-                  <span className="tt-ppt-label">{t('games.toptrumps.ppt_ia')}</span>
+                  <span className="tt-ppt-label">{tt('ppt_ia')}</span>
                   <span className="tt-ppt-emoji tt-ppt-emoji--ia">{iconeAtual}</span>
                 </div>
               </div>
@@ -834,19 +834,19 @@ export default function TopTrumps() {
               <div className="tt-ppt-maos">
                 <div className={`tt-ppt-mao tt-ppt-mao--jogador${vencedor === 'jogador' ? ' flash-vencedor' : ''}`}>
                   <span className="tt-ppt-emoji">{maoJogador}</span>
-                  <span className="tt-ppt-label">{t('games.toptrumps.ppt_voce')}</span>
+                  <span className="tt-ppt-label">{tt('ppt_voce')}</span>
                 </div>
                 <div className={`tt-ppt-mao tt-ppt-mao--ia${vencedor === 'ia' ? ' flash-vencedor' : ''}`}>
-                  <span className="tt-ppt-label">{t('games.toptrumps.ppt_ia')}</span>
+                  <span className="tt-ppt-label">{tt('ppt_ia')}</span>
                   <span className="tt-ppt-emoji tt-ppt-emoji--ia">{maoIA}</span>
                 </div>
               </div>
               <div className={`tt-ppt-resultado-texto tt-resultado--${vencedor}`}>
                 {vencedor === 'jogador'
-                  ? t('games.toptrumps.ppt_voce_vence')
+                  ? tt('ppt_voce_vence')
                   : vencedor === 'ia'
-                  ? t('games.toptrumps.ppt_ia_vence')
-                  : t('games.toptrumps.ppt_empate')}
+                  ? tt('ppt_ia_vence')
+                  : tt('ppt_empate')}
               </div>
             </div>
               )
@@ -869,25 +869,25 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
         </button>
         <div className="tt-game-container">
           <div className="tt-game-header">
             <div className="tt-game-round">
-              {t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}
+              {tt('hud_rodada', { n: rodada, total: totalTurnos })}
             </div>
             <div className="tt-game-score">
-              <span className="tt-score-you">{t('games.toptrumps.voce')} {placar.jogador}</span>
+              <span className="tt-score-you">{tt('voce')} {placar.jogador}</span>
               <span className="tt-score-sep">:</span>
-              <span className="tt-score-ai">{t('games.toptrumps.ia')} {placar.ia}</span>
+              <span className="tt-score-ai">{tt('ia')} {placar.ia}</span>
             </div>
           </div>
           <div className="tt-opponent-mini-wrapper">
             <span className="tt-opponent-mini-label">
               {isVezIA
-                ? t('games.toptrumps.adversario_escolhendo')
-                : t('games.toptrumps.adversario')}
+                ? tt('adversario_escolhendo')
+                : tt('adversario')}
             </span>
             <div className="tt-card--mini-wrapper">
               <TopTrumpsCard
@@ -916,7 +916,7 @@ export default function TopTrumps() {
           </div>
           <div className="tt-game-footer">
             <button className="tt-btn-desistir" onClick={() => { sfx.click(); setShowDesistirModal(true); }}>
-              {t('games.toptrumps.desistir')}
+              {tt('desistir')}
             </button>
           </div>
         </div>
@@ -930,25 +930,25 @@ export default function TopTrumps() {
           return (
             <div className="tt-confirm-overlay">
               <div className="tt-confirm-modal">
-                <span className="tt-confirm-label">{t('games.toptrumps.confirmar_atributo')}</span>
-                <span className="tt-confirm-attr-nome">{attr ? t(attr.nomeKey) : ''}</span>
+                <span className="tt-confirm-label">{tt('confirmar_atributo')}</span>
+                <span className="tt-confirm-attr-nome">{attr ? tt(attr.nomeKey) : ''}</span>
                 <div className="tt-confirm-values">
                   <div className="tt-confirm-value-box">
-                    <span className="tt-confirm-value-label">{t('games.toptrumps.seu_valor')}</span>
+                    <span className="tt-confirm-value-label">{tt('seu_valor')}</span>
                     <span className="tt-confirm-value-num">{vJ}</span>
                   </div>
                   <div className="tt-confirm-value-box">
-                    <span className="tt-confirm-value-label">{t('games.toptrumps.valor_maximo')}</span>
+                    <span className="tt-confirm-value-label">{tt('valor_maximo')}</span>
                     <span className="tt-confirm-value-num tt-confirm-value-max">{maxV}</span>
                   </div>
                 </div>
                 <div className="tt-confirm-bar">
                   <div className="tt-confirm-bar-fill" ref={el => { if (el) el.style.width = `${pctMax}%` }} />
                 </div>
-                <span className="tt-confirm-pct">{t('games.toptrumps.do_maximo', { pct: pctMax })}</span>
+                <span className="tt-confirm-pct">{tt('do_maximo', { pct: pctMax })}</span>
                 <div className="tt-confirm-buttons">
-                  <button className="tt-confirm-btn tt-confirm-btn--cancel" onClick={cancelarJogada}>{t('games.toptrumps.cancelar')}</button>
-                  <button className="tt-confirm-btn tt-confirm-btn--ok" onClick={confirmarJogada}>{t('games.toptrumps.confirmar')}</button>
+                  <button className="tt-confirm-btn tt-confirm-btn--cancel" onClick={cancelarJogada}>{tt('cancelar')}</button>
+                  <button className="tt-confirm-btn tt-confirm-btn--ok" onClick={confirmarJogada}>{tt('confirmar')}</button>
                 </div>
               </div>
             </div>
@@ -968,11 +968,11 @@ export default function TopTrumps() {
         {showDesistirModal && (
           <div className="tt-desistir-overlay" onClick={() => setShowDesistirModal(false)}>
             <div className="tt-desistir-modal" onClick={e => e.stopPropagation()}>
-              <h3 className="tt-desistir-modal-titulo">{t('games.toptrumps.desistir_modal_titulo')}</h3>
-              <p className="tt-desistir-modal-desc">{t('games.toptrumps.desistir_modal_desc')}</p>
+              <h3 className="tt-desistir-modal-titulo">{tt('desistir_modal_titulo')}</h3>
+              <p className="tt-desistir-modal-desc">{tt('desistir_modal_desc')}</p>
               <div className="tt-desistir-modal-actions">
-                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--cancel" onClick={() => { sfx.click(); setShowDesistirModal(false); }}>{t('games.toptrumps.cancelar')}</button>
-                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--confirm" onClick={handleDesistir}>{t('games.toptrumps.desistir_modal_confirmar')}</button>
+                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--cancel" onClick={() => { sfx.click(); setShowDesistirModal(false); }}>{tt('cancelar')}</button>
+                <button className="tt-desistir-modal-btn tt-desistir-modal-btn--confirm" onClick={handleDesistir}>{tt('desistir_modal_confirmar')}</button>
               </div>
             </div>
           </div>
@@ -996,7 +996,7 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         {particulas.map(p => (
@@ -1005,7 +1005,7 @@ export default function TopTrumps() {
         <div className="tt-result-container">
           <div className="tt-game-header">
             <div className="tt-game-round">
-              {t('games.toptrumps.hud_rodada', { n: rodada, total: totalTurnos })}
+              {tt('hud_rodada', { n: rodada, total: totalTurnos })}
             </div>
             <div className="tt-game-score">
               <span className="tt-score-you">{placar.jogador}</span>
@@ -1018,13 +1018,13 @@ export default function TopTrumps() {
             resultado === 'perdeu' ? 'tt-result-lose' :
             'tt-result-draw'
           }`}>
-            {resultado === 'ganhou' ? t('games.toptrumps.voce_venceu') :
-             resultado === 'perdeu' ? t('games.toptrumps.ia_venceu') :
-             t('games.toptrumps.empate')}
+            {resultado === 'ganhou' ? tt('voce_venceu') :
+             resultado === 'perdeu' ? tt('ia_venceu') :
+             tt('empate')}
           </div>
           {attr && (
             <div className="tt-result-attr-comparison">
-              <div className="tt-result-attr-name">{t(attr.nomeKey)}</div>
+              <div className="tt-result-attr-name">{tt(attr.nomeKey)}</div>
               <div className="tt-result-values">
                 <span className="tt-result-val-you">{vJ}</span>
                 <span className="tt-result-val-sep">×</span>
@@ -1035,7 +1035,7 @@ export default function TopTrumps() {
           <div className="tt-cards-swipe-container" {...swipeHandlers}>
             <div className={`tt-cards-swipe-track${swipeRevealed ? ' tt-cards-swipe-track--revealed' : ''}`}>
               <div className="tt-swipe-card-slot">
-                <span className="tt-swipe-label">{t('games.toptrumps.sua_carta')}</span>
+                <span className="tt-swipe-label">{tt('sua_carta')}</span>
                 <TopTrumpsCard
                   characterImage={bgCarta(cartaJogador)}
                   name={cartaJogador.nome}
@@ -1047,7 +1047,7 @@ export default function TopTrumps() {
                 />
               </div>
               <div className="tt-swipe-card-slot">
-                <span className="tt-swipe-label">{t('games.toptrumps.carta_adversario')}</span>
+                <span className="tt-swipe-label">{tt('carta_adversario')}</span>
                 <TopTrumpsCard
                   characterImage={bgCarta(cartaIA)}
                   name={cartaIA.nome}
@@ -1062,13 +1062,13 @@ export default function TopTrumps() {
           </div>
           <div className="tt-swipe-hint">
             {swipeRevealed ? (
-              <><span className="tt-swipe-arrow">←</span> {t('games.toptrumps.swipe_voltar')}</>
+              <><span className="tt-swipe-arrow">←</span> {tt('swipe_voltar')}</>
             ) : (
-              <>{t('games.toptrumps.swipe_ver_adversario')} <span className="tt-swipe-arrow">→</span></>
+              <>{tt('swipe_ver_adversario')} <span className="tt-swipe-arrow">→</span></>
             )}
           </div>
           <button className="tt-btn-next-round" onClick={proximaRodada}>
-            {rodada >= totalTurnos ? t('games.toptrumps.result_final') : t('games.toptrumps.proxima_rodada')}
+            {rodada >= totalTurnos ? tt('result_final') : tt('proxima_rodada')}
           </button>
         </div>
       </section>
@@ -1081,12 +1081,12 @@ export default function TopTrumps() {
     return (
       <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-recompensa">
-          <h2 className="tt-recompensa-titulo">{t('games.toptrumps.recompensa_titulo')}</h2>
-          <p className="tt-recompensa-sub">{t('games.toptrumps.recompensa_sub')}</p>
+          <h2 className="tt-recompensa-titulo">{tt('recompensa_titulo')}</h2>
+          <p className="tt-recompensa-sub">{tt('recompensa_sub')}</p>
           <div className="tt-recompensa-cards">
             {recompensaOpcoes.map((carta) => (
               <div key={carta.id} className={`tt-recompensa-card${cartaRecompensaSelecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`} onClick={() => { sfx.select(); setCartaRecompensaSelecionada(carta); }}>
@@ -1099,11 +1099,11 @@ export default function TopTrumps() {
                     attributes={carta.atributos}
                     templateIndex={0}
                   />
-                ) : (<div className="tt-recompensa-card-verso"><span className="tt-recompensa-card-verso-texto">?</span><p className="tt-recompensa-card-verso-label">{t('games.toptrumps.recompensa_carta_misteriosa')}</p></div>)}
+                ) : (<div className="tt-recompensa-card-verso"><span className="tt-recompensa-card-verso-texto">?</span><p className="tt-recompensa-card-verso-label">{tt('recompensa_carta_misteriosa')}</p></div>)}
               </div>
             ))}
           </div>
-                <button className="tt-btn-confirmar" disabled={!cartaRecompensaSelecionada} onClick={() => { sfx.reward(); escolherRecompensa(cartaRecompensaSelecionada); }}>{t('games.toptrumps.recompensa_confirmar')}</button>
+                <button className="tt-btn-confirmar" disabled={!cartaRecompensaSelecionada} onClick={() => { sfx.reward(); escolherRecompensa(cartaRecompensaSelecionada); }}>{tt('recompensa_confirmar')}</button>
         </div>
       </section>
     )
@@ -1127,45 +1127,45 @@ export default function TopTrumps() {
       }
     })
     const icone = venceu ? '🏆' : empatou ? '🤝' : '💀'
-    const titulo = venceu ? t('games.toptrumps.result_voce_venceu') : empatou ? t('games.toptrumps.result_empate') : t('games.toptrumps.result_ia_venceu')
+    const titulo = venceu ? tt('result_voce_venceu') : empatou ? tt('result_empate') : tt('result_ia_venceu')
     return (
       <section className="tt-page">
         {/* Sound toggle */}
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-relatorio">
-          <h2 className="tt-relatorio-titulo">{t('games.toptrumps.relatorio_titulo')}</h2>
-          <p className="tt-relatorio-sub">{t('games.toptrumps.relatorio_sub')}</p>
+          <h2 className="tt-relatorio-titulo">{tt('relatorio_titulo')}</h2>
+          <p className="tt-relatorio-sub">{tt('relatorio_sub')}</p>
           <div className="tt-relatorio-icone">{icone}</div>
           <h3 className={`tt-relatorio-resultado${venceu ? ' tt-fim-titulo--vitoria' : empatou ? ' tt-fim-titulo--empate' : ' tt-fim-titulo--derrota'}`}>{titulo}</h3>
           {!user && (
             <p className="tt-guest-cta">
-              {t('games.toptrumps.guest_cta_criar_conta')}{' '}
-              <Link to="/cadastro">{t('games.toptrumps.guest_cta_link')}</Link>
+              {tt('guest_cta_criar_conta')}{' '}
+              <Link to="/cadastro">{tt('guest_cta_link')}</Link>
             </p>
           )}
           <div className="tt-relatorio-placar">
-            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.jogador}</span><span className="tt-relatorio-placar-label">{t('games.toptrumps.relatorio_voce')}</span></div>
+            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.jogador}</span><span className="tt-relatorio-placar-label">{tt('relatorio_voce')}</span></div>
             <span className="tt-relatorio-placar-divisor">×</span>
-            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.ia}</span><span className="tt-relatorio-placar-label">{t('games.toptrumps.relatorio_ia_label')}</span></div>
+            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.ia}</span><span className="tt-relatorio-placar-label">{tt('relatorio_ia_label')}</span></div>
           </div>
           <div className="tt-relatorio-stats">
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{rodadasJogadas}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_rodadas')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{placar.jogador}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_vitorias')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_derrotas')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_empates')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_attr_usado')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador.nome || '—'}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_melhor_vitoria')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{rodadasJogadas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_rodadas')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{placar.jogador}</span><span className="tt-relatorio-stat-label">{tt('relatorio_vitorias')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_derrotas')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{tt('relatorio_empates')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador.nome || '—'}</span><span className="tt-relatorio-stat-label">{tt('relatorio_melhor_vitoria')}</span></div>
           </div>
           <div className="tt-relatorio-lista">
-            <h4 className="tt-relatorio-lista-titulo">{t('games.toptrumps.relatorio_confrontos')}</h4>
+            <h4 className="tt-relatorio-lista-titulo">{tt('relatorio_confrontos')}</h4>
             {historicoRodadas.map((h, i) => (<div key={i} className="tt-relatorio-lista-item"><span className="tt-relatorio-lista-icon">{h.resultado === 'ganhou' ? '✓' : h.resultado === 'perdeu' ? '✗' : '='}</span><span className="tt-relatorio-lista-nome">{h.cartaJogador.nome} vs {h.cartaIA.nome}</span><span className="tt-relatorio-lista-attr">{h.atributo}</span><span className="tt-relatorio-lista-valor">{h.valorJogador} × {h.valorIA}</span></div>))}
           </div>
-          {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
+          {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{tt('relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">
-            <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{t('games.toptrumps.btn_jogar_novamente')}</button>
-            <BackToGamesBtn onClick={() => { sfx.click(); setFase('menu'); }} label={t('games.toptrumps.menu_voltar_menu')} />
+            <button className="tt-btn-jogar" onClick={() => { sfx.click(); setFase('menu'); }}>{tt('btn_jogar_novamente')}</button>
+            <BackToGamesBtn onClick={() => { sfx.click(); setFase('menu'); }} label={tt('menu_voltar_menu')} />
           </div>
         </div>
       </section>

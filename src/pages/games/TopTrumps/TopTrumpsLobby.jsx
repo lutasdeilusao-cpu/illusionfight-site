@@ -13,7 +13,7 @@ import './TopTrumpsLobby.css'
 const todasCartas = deck.cartas
 
 export default function TopTrumpsLobby() {
-  const { t, locale } = useLanguage()
+  const { t, tt, locale } = useLanguage()
   const deck = getDeck(locale)
   const { user, perfil } = useAuth()
   const { setReaderMode } = useReader()
@@ -122,7 +122,7 @@ export default function TopTrumpsLobby() {
     setAguardando(true)
     setErro('')
     const result = await criarSala(user.id, modo, 'privada', turnos)
-    if (!result) { setErro(t('games.toptrumps.lobby.erro_criar')); setAguardando(false); return }
+    if (!result) { setErro(tt('lobby.erro_criar')); setAguardando(false); return }
     setCodigoSala(result.codigo)
     setSalaId(result.salaId)
     setSouJ1(true)
@@ -173,7 +173,7 @@ export default function TopTrumpsLobby() {
   // Typewriter effect for waiting screen
   useEffect(() => {
     if (!naFila) return
-    const frase = t('games.toptrumps.lobby.frases_fila')[fraseIdx]
+    const frase = tt('lobby.frases_fila')[fraseIdx]
     if (digitando) {
       if (charIdx < frase.length) {
         const t = setTimeout(() => setCharIdx(i => i + 1), 40)
@@ -190,7 +190,7 @@ export default function TopTrumpsLobby() {
       }
     } else {
       const t = setTimeout(() => {
-        setFraseIdx(i => (i + 1) % t('games.toptrumps.lobby.frases_fila').length)
+        setFraseIdx(i => (i + 1) % tt('lobby.frases_fila').length)
         setCharIdx(0)
         setDigitando(true)
       }, 2800)
@@ -216,29 +216,29 @@ export default function TopTrumpsLobby() {
 
       return (
         <section className="ttmp-page">
-      <h1 className="ttmp-titulo">{t('games.toptrumps.lobby.titulo')}</h1>
+      <h1 className="ttmp-titulo">{tt('lobby.titulo')}</h1>
 
       {etapa === 'modo' && (
         <div className="ttmp-modos">
           <div className="ttmp-modo-card" onClick={() => selecionarModo('free')}>
-            <h3 className="ttmp-modo-titulo">{t('games.toptrumps.lobby.modo_free')}</h3>
-            <p className="ttmp-modo-desc">{t('games.toptrumps.lobby.modo_free_desc')}</p>
+            <h3 className="ttmp-modo-titulo">{tt('lobby.modo_free')}</h3>
+            <p className="ttmp-modo-desc">{tt('lobby.modo_free_desc')}</p>
           </div>
           <div className={`ttmp-modo-card ttmp-modo-card--warning${ehFree ? ' ttmp-modo-card--disabled' : ''}`}
             onClick={() => { if (!ehFree) selecionarModo('apostado') }}>
             <div className="ttmp-modo-card-header">
-              <h3 className="ttmp-modo-titulo">{t('games.toptrumps.lobby.modo_apostado')}</h3>
-              {ehFree && <span className="ttmp-modo-badge">{t('games.toptrumps.lobby.modo_elite_badge')}</span>}
+              <h3 className="ttmp-modo-titulo">{tt('lobby.modo_apostado')}</h3>
+              {ehFree && <span className="ttmp-modo-badge">{tt('lobby.modo_elite_badge')}</span>}
             </div>
-            <p className="ttmp-modo-desc">{t('games.toptrumps.lobby.modo_apostado_desc')}</p>
-            {ehFree && <p className="ttmp-modo-restricao">{t('games.toptrumps.lobby.modo_apostado_restricao')}</p>}
+            <p className="ttmp-modo-desc">{tt('lobby.modo_apostado_desc')}</p>
+            {ehFree && <p className="ttmp-modo-restricao">{tt('lobby.modo_apostado_restricao')}</p>}
           </div>
         </div>
       )}
 
       {etapa === 'turnos' && (
         <div className="ttmp-turnos-wrap">
-          <p className="ttmp-info">{t('games.toptrumps.lobby.turnos_info')}</p>
+          <p className="ttmp-info">{tt('lobby.turnos_info')}</p>
           <div className="ttmp-turnos">
             {[5, 10, 15, 20].map(n => (
               <button key={n}
@@ -251,17 +251,17 @@ export default function TopTrumpsLobby() {
 
       {naFila && (
         <div className="ttmp-fila">
-          <h2 className="ttmp-fila-titulo">{t('games.toptrumps.lobby.fila_titulo')}</h2>
+          <h2 className="ttmp-fila-titulo">{tt('lobby.fila_titulo')}</h2>
           <div className="ttmp-fila-frase">
             <span className={`ttmp-fila-texto${glitch ? ' ttmp-fila-glitch' : ''}`}>
-              {t('games.toptrumps.lobby.frases_fila')[fraseIdx]?.slice(0, charIdx)}
+              {tt('lobby.frases_fila')[fraseIdx]?.slice(0, charIdx)}
             </span>
             <span className="ttmp-fila-cursor">|</span>
           </div>
           <div className="ttmp-fila-dots">
             <span className="ttmp-dot" /><span className="ttmp-dot" /><span className="ttmp-dot" />
           </div>
-          <button className="ttmp-fila-sair" onClick={handleSairFila}>{t('games.toptrumps.lobby.fila_sair')}</button>
+          <button className="ttmp-fila-sair" onClick={handleSairFila}>{tt('lobby.fila_sair')}</button>
         </div>
       )}
 
@@ -269,31 +269,31 @@ export default function TopTrumpsLobby() {
         <div className="ttmp-matchmaking">
           {!podeJogar ? (
             <div className="ttmp-limite">
-              <p>{t('games.toptrumps.lobby.limite_aviso', { usadas: limiteInfo?.usadas, limite: limiteInfo?.limite })}</p>
+              <p>{tt('lobby.limite_aviso', { usadas: limiteInfo?.usadas, limite: limiteInfo?.limite })}</p>
             </div>
           ) : (
             <>
-              <p className="ttmp-info">{t('games.toptrumps.lobby.matchmaking_info')}</p>
+              <p className="ttmp-info">{tt('lobby.matchmaking_info')}</p>
 
               <p className={`ttmp-presenca-aviso${outrosDisponiveis > 0 ? ' ttmp-presenca-aviso--ativo' : ''}`}>
                 {outrosDisponiveis > 0
-                  ? t('games.toptrumps.lobby.presenca_disponivel', { n: outrosDisponiveis })
-                  : t('games.toptrumps.lobby.presenca_vazio')}
+                  ? tt('lobby.presenca_disponivel', { n: outrosDisponiveis })
+                  : tt('lobby.presenca_vazio')}
               </p>
 
               <div className="ttmp-matchmaking-botoes">
                 <button className="ttmp-btn" onClick={handleCriarSala} disabled={aguardando}>
-                  {aguardando ? t('games.toptrumps.lobby.criando') : t('games.toptrumps.lobby.btn_criar_sala')}
+                  {aguardando ? tt('lobby.criando') : tt('lobby.btn_criar_sala')}
                 </button>
                 <div className="ttmp-entrar-codigo">
-                  <input type="text" className="ttmp-input" placeholder={t('games.toptrumps.lobby.input_placeholder')} value={codigoInput}
+                  <input type="text" className="ttmp-input" placeholder={tt('lobby.input_placeholder')} value={codigoInput}
                     onChange={e => setCodigoInput(e.target.value.toUpperCase())} maxLength={8} />
                   <button className="ttmp-btn" onClick={handleEntrarCodigo} disabled={codigoInput.length < 8 || aguardando}>
-                    {t('games.toptrumps.lobby.btn_entrar')}
+                    {tt('lobby.btn_entrar')}
                   </button>
                 </div>
                 <button className="ttmp-btn" onClick={handleFilaPublica} disabled={aguardando || naFila}>
-                  {aguardando ? t('games.toptrumps.lobby.procurando') : t('games.toptrumps.lobby.btn_fila_publica')}
+                  {aguardando ? tt('lobby.procurando') : tt('lobby.btn_fila_publica')}
                 </button>
               </div>
               {aguardando && <div className="ttmp-spinner" />}
@@ -302,17 +302,17 @@ export default function TopTrumpsLobby() {
 
           {codigoSala && (
             <div className="ttmp-codigo-container">
-              <p className="ttmp-codigo-label">{t('games.toptrumps.lobby.codigo_label')}</p>
+              <p className="ttmp-codigo-label">{tt('lobby.codigo_label')}</p>
               <div className="ttmp-codigo">{codigoSala}</div>
-              <button className="ttmp-codigo-btn" onClick={copyCodigo}>{t('games.toptrumps.lobby.btn_copiar_codigo')}</button>
-              <p className="ttmp-info">{t('games.toptrumps.lobby.codigo_info')}</p>
+              <button className="ttmp-codigo-btn" onClick={copyCodigo}>{tt('lobby.btn_copiar_codigo')}</button>
+              <p className="ttmp-info">{tt('lobby.codigo_info')}</p>
             </div>
           )}
 
           {modo === 'apostado' && salaId && !apostaConfirmada && (
             <div className="ttmp-aposta">
-              <p className="ttmp-aposta-title">{t('games.toptrumps.lobby.aposta_title')}</p>
-              <p className="ttmp-aposta-aviso">{t('games.toptrumps.lobby.aposta_aviso')}</p>
+              <p className="ttmp-aposta-title">{tt('lobby.aposta_title')}</p>
+              <p className="ttmp-aposta-aviso">{tt('lobby.aposta_aviso')}</p>
               <div className="ttmp-aposta-grid">
                 {deckUsuario.map(carta => (
                   <div key={carta.id}
@@ -325,7 +325,7 @@ export default function TopTrumpsLobby() {
               </div>
               <button className="ttmp-btn" disabled={!cartaAposta}
                 onClick={() => { if (!avisoApostadoConfirmado) setShowAviso(true); else handleConfirmarAposta() }}>
-                {t('games.toptrumps.lobby.btn_confirmar_aposta')}
+                {tt('lobby.btn_confirmar_aposta')}
               </button>
             </div>
           )}
@@ -333,22 +333,22 @@ export default function TopTrumpsLobby() {
           {showAviso && (
             <div className="ttmp-aviso-overlay" onClick={() => setShowAviso(false)}>
               <div className="ttmp-aviso-modal" onClick={e => e.stopPropagation()}>
-                <h2 className="ttmp-aviso-titulo">{t('games.toptrumps.lobby.aviso_titulo')}</h2>
-                <p className="ttmp-aviso-texto">{t('games.toptrumps.lobby.aviso_texto')}</p>
+                <h2 className="ttmp-aviso-titulo">{tt('lobby.aviso_titulo')}</h2>
+                <p className="ttmp-aviso-texto">{tt('lobby.aviso_texto')}</p>
                 <div className="ttmp-aviso-botoes">
                   <button className="ttmp-btn ttmp-btn--teal" onClick={() => { setAvisoApostadoConfirmado(true); setShowAviso(false); handleConfirmarAposta() }}>
-                    {t('games.toptrumps.lobby.btn_entendi')}
+                    {tt('lobby.btn_entendi')}
                   </button>
                   <button className="ttmp-btn ttmp-btn--transparente" onClick={() => setShowAviso(false)}>
-                    {t('games.toptrumps.lobby.btn_voltar')}
+                    {tt('lobby.btn_voltar')}
                   </button>
                 </div>
               </div>
             </div>
           )}
 
-          {apostaConfirmada && <p className="ttmp-info">{t('games.toptrumps.lobby.aposta_aguardando')}</p>}
-          {apostaOponente && <p className="ttmp-info">{t('games.toptrumps.lobby.aposta_oponente_pronto')}</p>}
+          {apostaConfirmada && <p className="ttmp-info">{tt('lobby.aposta_aguardando')}</p>}
+          {apostaOponente && <p className="ttmp-info">{tt('lobby.aposta_oponente_pronto')}</p>}
           {erro && <p className="ttmp-erro">{erro}</p>}
           {mensagem && <p className="ttmp-mensagem">{mensagem}</p>}
         </div>

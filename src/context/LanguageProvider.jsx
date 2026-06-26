@@ -29,13 +29,17 @@ export function LanguageProvider({ children }) {
     return result
   }, [locale])
 
+  const tt = useCallback((path, vars) => {
+    return t(`games.toptrumps.${path}`, vars)
+  }, [t])
+
   const changeLocale = useCallback((next) => {
     setLocale(next)
     try { localStorage.setItem('ldi-locale', next) } catch {}
   }, [])
 
   return (
-    <LanguageContext.Provider value={{ locale, t, changeLocale }}>
+    <LanguageContext.Provider value={{ locale, t, tt, changeLocale }}>
       {children}
     </LanguageContext.Provider>
   )

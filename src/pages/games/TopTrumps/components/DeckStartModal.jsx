@@ -32,7 +32,7 @@ const CARD_IMAGES = {
 function bgCarta(carta) { return CARD_IMAGES[carta?.id] || cardFallback }
 
 export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onConfirm, onCancel }) {
-  const { t } = useLanguage()
+  const { t, tt } = useLanguage()
   const [decksCompletos, setDecksCompletos] = useState({})
   const [escolha, setEscolha] = useState(null)
 
@@ -85,7 +85,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
           onClick={e => e.stopPropagation()}
         >
           <button className="tt-startdeck-close" onClick={onCancel}>✕</button>
-          <h2 className="tt-startdeck-title">{t('games.toptrumps.deckStart.title')}</h2>
+          <h2 className="tt-startdeck-title">{tt('deckStart.title')}</h2>
 
           <div className="tt-startdeck-opcoes">
             {/* Option A: use deck */}
@@ -94,11 +94,11 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
               onClick={() => deckDisponivel && setEscolha('deck')}
             >
               <h3 className="tt-startdeck-opcao-titulo">
-                {t('games.toptrumps.deckStart.useDeck')}
+                {tt('deckStart.useDeck')}
               </h3>
               {deckDisponivel ? (
                 <>
-                  <p className="tt-startdeck-opcao-nome">{deckDisponivel.nome || `${t('games.toptrumps.deckBuilder.title')} ${totalTurnos}`}</p>
+                  <p className="tt-startdeck-opcao-nome">{deckDisponivel.nome || `${tt('deckBuilder.title')} ${totalTurnos}`}</p>
                   <div className="tt-startdeck-preview">
                     {deckDisponivel.cartas.slice(0, 5).map((id, i) => {
                       const carta = getCarta(id)
@@ -114,8 +114,8 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
               ) : (
                 <p className="tt-startdeck-opcao-sem-deck">
                   {userId
-                    ? t('games.toptrumps.deckStart.semDeck')
-                    : t('games.toptrumps.deckStart.semDeckGuest')}
+                    ? tt('deckStart.semDeck')
+                    : tt('deckStart.semDeckGuest')}
                 </p>
               )}
             </div>
@@ -125,23 +125,23 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
               className={`tt-startdeck-opcao${escolha === 'random' ? ' tt-startdeck-opcao--selected' : ''}`}
               onClick={() => setEscolha('random')}
             >
-              <h3 className="tt-startdeck-opcao-titulo">{t('games.toptrumps.deckStart.random')}</h3>
+              <h3 className="tt-startdeck-opcao-titulo">{tt('deckStart.random')}</h3>
               <p className="tt-startdeck-opcao-desc">
-                {t('games.toptrumps.deckStart.cartasAleatorias', { n: totalTurnos })}
+                {tt('deckStart.cartasAleatorias', { n: totalTurnos })}
               </p>
             </div>
           </div>
 
           <div className="tt-startdeck-actions">
             <button className="tt-startdeck-btn tt-startdeck-btn--cancel" onClick={onCancel}>
-              {t('games.toptrumps.deckStart.cancel')}
+              {tt('deckStart.cancel')}
             </button>
             <button
               className={`tt-startdeck-btn tt-startdeck-btn--confirm${!escolha ? ' tt-startdeck-btn--disabled' : ''}`}
               disabled={!escolha}
               onClick={handleConfirmar}
             >
-              {t('games.toptrumps.jogar')}
+              {tt('jogar')}
             </button>
           </div>
         </motion.div>

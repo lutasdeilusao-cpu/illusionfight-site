@@ -15,15 +15,15 @@ let __heartbeatRodando = false
 
 function attrNomeKey(id) {
   const map = {
-    rank_sdr: 'games.toptrumps.atributo_rank_sdr',
-    poder_mental: 'games.toptrumps.atributo_poder_mental',
-    velocidade: 'games.toptrumps.atributo_velocidade',
-    resistencia: 'games.toptrumps.atributo_resistencia',
-    nivel_xama: 'games.toptrumps.atributo_nivel_xama',
-    fator_caos: 'games.toptrumps.atributo_fator_caos',
-    energia_base: 'games.toptrumps.atributo_energia_base',
+    rank_sdr: 'atributo_rank_sdr',
+    poder_mental: 'atributo_poder_mental',
+    velocidade: 'atributo_velocidade',
+    resistencia: 'atributo_resistencia',
+    nivel_xama: 'atributo_nivel_xama',
+    fator_caos: 'atributo_fator_caos',
+    energia_base: 'atributo_energia_base',
   }
-  return map[id] || 'games.toptrumps.atributo_poder_explosivo'
+  return map[id] || 'atributo_poder_explosivo'
 }
 
 function avatarCor(id) {
@@ -33,7 +33,7 @@ function avatarCor(id) {
 
 import { TM_VERSION } from '../../../config/version'
 export default function TopTrumpsMP() {
-  const { t, locale } = useLanguage()
+  const { t, tt, locale } = useLanguage()
   const deck = getDeck(locale)
   const todasCartas = deck.cartas
   const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
@@ -483,7 +483,7 @@ export default function TopTrumpsMP() {
     const timer = setTimeout(async () => {
       await supabase.from('toptrumps_salas').delete().eq('id', salaId)
       navigate('/games/toptrumps/lobby', {
-        state: { mensagem: t('games.toptrumps.sem_oponente') }
+        state: { mensagem: tt('sem_oponente') }
       })
     }, 120000)
     return () => clearTimeout(timer)
@@ -635,7 +635,7 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-loading">
           <div className="ttmp-loading-spinner" />
-          <p>{t('games.toptrumps.mp.carregando')}</p>
+          <p>{tt('mp.carregando')}</p>
         </div>
       </section>
     )
@@ -643,16 +643,16 @@ export default function TopTrumpsMP() {
 
   if (fase === 'ppt') {
     const opcoes = [
-      { valor: 0, nome: t('games.toptrumps.ppt_pedra'), icone: '\u270A' },
-      { valor: 1, nome: t('games.toptrumps.ppt_papel'), icone: '\u270B' },
-      { valor: 2, nome: t('games.toptrumps.ppt_tesoura'), icone: '\u270C\uFE0F' }
+      { valor: 0, nome: tt('ppt_pedra'), icone: '\u270A' },
+      { valor: 1, nome: tt('ppt_papel'), icone: '\u270B' },
+      { valor: 2, nome: tt('ppt_tesoura'), icone: '\u270C\uFE0F' }
     ]
     const minhaEscolha = meuPapel === 'j1' ? sala?.carta_aposta_j1 : sala?.carta_aposta_j2
     return (
       <section className="ttmp-page">
         <div className="ttmp-ppt-container">
-          <h2 className="ttmp-ppt-titulo">{t('games.toptrumps.mp.ppt_titulo')}</h2>
-          <p className="ttmp-ppt-subtitulo">{t('games.toptrumps.mp.ppt_subtitulo')}</p>
+          <h2 className="ttmp-ppt-titulo">{tt('mp.ppt_titulo')}</h2>
+          <p className="ttmp-ppt-subtitulo">{tt('mp.ppt_subtitulo')}</p>
           {!pptAmbosEscolheram ? (
             <>
               <div className="ttmp-ppt-opcoes">
@@ -670,13 +670,13 @@ export default function TopTrumpsMP() {
                   </button>
                 ))}
               </div>
-              {pptEscolhi && <p className="ttmp-ppt-aguardando">{t('games.toptrumps.mp.ppt_aguardando')}</p>}
+              {pptEscolhi && <p className="ttmp-ppt-aguardando">{tt('mp.ppt_aguardando')}</p>}
             </>
           ) : (
             <div className="ttmp-ppt-resultado">
               <div className="ttmp-ppt-jogadores">
                 <div className="ttmp-ppt-jogada">
-                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.mp.ppt_voce')}</span>
+                  <span className="ttmp-ppt-jogada-label">{tt('mp.ppt_voce')}</span>
                   <span className="ttmp-ppt-jogada-icone">
                     {opcoes.find(o => o.valor === minhaEscolha)?.icone}
                   </span>
@@ -689,7 +689,7 @@ export default function TopTrumpsMP() {
                 </div>
               </div>
               <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${pptResultado}`}>
-                {pptResultado === 'ganhou' ? t('games.toptrumps.mp.ppt_venceu') : pptResultado === 'perdeu' ? t('games.toptrumps.mp.ppt_perdeu') : t('games.toptrumps.mp.ppt_empate')}
+                {pptResultado === 'ganhou' ? tt('mp.ppt_venceu') : pptResultado === 'perdeu' ? tt('mp.ppt_perdeu') : tt('mp.ppt_empate')}
               </div>
             </div>
           )}
@@ -703,7 +703,7 @@ export default function TopTrumpsMP() {
       <section className="ttmp-page">
         <div className="ttmp-loading">
           <div className="ttmp-loading-spinner" />
-          <p>{t('games.toptrumps.mp.preparando_cartas')}</p>
+          <p>{tt('mp.preparando_cartas')}</p>
         </div>
       </section>
     )
@@ -715,16 +715,16 @@ export default function TopTrumpsMP() {
           ))}
         </div>
         <section className="ttmp-page">
-        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
+        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
           {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
+            <span className="ttmp-hud-nome">{tt('mp.hud_voce')}</span>
             <span className="ttmp-hud-placar-valor">{placar.eu}</span>
           </div>
           <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">{t('games.toptrumps.mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
+            <span className="ttmp-hud-rodada">{tt('mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
             <div className={`ttmp-timer${tempoRestante <= 5 ? ' ttmp-timer--warn' : ''}`}>
               <svg viewBox="0 0 60 60" className="ttmp-timer-svg">
                 <circle cx="30" cy="30" r="26" className="ttmp-timer-bg" />
@@ -753,16 +753,16 @@ export default function TopTrumpsMP() {
                   disabled={!ehMinhaVez || jaMovi}
                   onClick={() => jogarAtributo(attr.id)}
                   title={attr.descricao}>
-                  <span className="ttmp-atributo-nome">{t(attr.nomeKey)}</span>
+                  <span className="ttmp-atributo-nome">{tt(attr.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaLocal.atributos[attr.id]}</span>
                 </button>
               ))}
             </div>
           </div>
           <div className="ttmp-vs">
-            <span className="ttmp-vs-texto">{t('games.toptrumps.mp.hud_vs')}</span>
+            <span className="ttmp-vs-texto">{tt('mp.hud_vs')}</span>
             {!ehMinhaVez && !jaMovi && (
-              <span className="ttmp-vez-message">{t('games.toptrumps.mp.hud_adversario_escolhendo')}</span>
+              <span className="ttmp-vez-message">{tt('mp.hud_adversario_escolhendo')}</span>
             )}
           </div>
           <div className={`ttmp-card${girando ? ' ttmp-spinning-reveal' : ''}`}>
@@ -783,7 +783,7 @@ export default function TopTrumpsMP() {
                     }
                     return (
                       <div key={a.id} className={c}>
-                        <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
+                        <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
                         <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
                       </div>
                     )
@@ -800,7 +800,7 @@ export default function TopTrumpsMP() {
                 <div className="ttmp-card-atributos">
                   {atributos.map(attr => (
                     <div key={attr.id} className="ttmp-atributo-btn ttmp-atributo-btn--disabled">
-                      <span className="ttmp-atributo-nome">{t(attr.nomeKey)}</span>
+                      <span className="ttmp-atributo-nome">{tt(attr.nomeKey)}</span>
                       <span className="ttmp-atributo-valor">??</span>
                     </div>
                   ))}
@@ -826,7 +826,7 @@ export default function TopTrumpsMP() {
   if (fase === 'revelacao') {
     if (!cartaLocal || !cartaOponente) return null
     const attr = atributos.find(a => a.id === atributoEscolhido)
-    const vezTexto = sala?.jogador_da_vez === user.id ? t('games.toptrumps.mp.revelacao_sua_vez') : t('games.toptrumps.mp.revelacao_vez_oponente', { nome: oponenteNome })
+    const vezTexto = sala?.jogador_da_vez === user.id ? tt('mp.revelacao_sua_vez') : tt('mp.revelacao_vez_oponente', { nome: oponenteNome })
 
     return (
       <>
@@ -842,22 +842,22 @@ export default function TopTrumpsMP() {
         ))}
         <div className="ttmp-revelacao-banner">
           <div>
-            <span className="ttmp-revelacao-title">{t('games.toptrumps.mp.revelacao_titulo')}</span>
+            <span className="ttmp-revelacao-title">{tt('mp.revelacao_titulo')}</span>
             <span className="ttmp-revelacao-subtitle">{vezTexto}</span>
           </div>
           <span className={`ttmp-resultado-badge ttmp-resultado--${resultadoRodada}`}>
-            {resultadoRodada === 'ganhou' ? t('games.toptrumps.mp.revelacao_voce_venceu') : resultadoRodada === 'perdeu' ? t('games.toptrumps.mp.revelacao_oponente_venceu') : t('games.toptrumps.mp.revelacao_empate')}
+            {resultadoRodada === 'ganhou' ? tt('mp.revelacao_voce_venceu') : resultadoRodada === 'perdeu' ? tt('mp.revelacao_oponente_venceu') : tt('mp.revelacao_empate')}
           </span>
         </div>
 
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">{t('games.toptrumps.mp.hud_voce')}</span>
+            <span className="ttmp-hud-nome">{tt('mp.hud_voce')}</span>
             <span className="ttmp-hud-placar-valor">{placar.eu}</span>
           </div>
           <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">{t('games.toptrumps.mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
-            <span className="ttmp-revelacao-note">{t('games.toptrumps.mp.atributo_escolhido', { nome: attr ? t(attr.nomeKey) : '' })}</span>
+            <span className="ttmp-hud-rodada">{tt('mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
+            <span className="ttmp-revelacao-note">{tt('mp.atributo_escolhido', { nome: attr ? tt(attr.nomeKey) : '' })}</span>
           </div>
           <div className="ttmp-hud-oponente">
             <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
@@ -875,7 +875,7 @@ export default function TopTrumpsMP() {
             <div className="ttmp-card-atributos">
               {atributos.map(a => (
                 <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
+                  <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaLocal.atributos[a.id]}</span>
                 </div>
               ))}
@@ -884,9 +884,9 @@ export default function TopTrumpsMP() {
 
           <div className="ttmp-vs">
             <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
-              {resultadoRodada === 'ganhou' ? t('games.toptrumps.mp.revelacao_voce_venceu_exclamacao') : resultadoRodada === 'perdeu' ? t('games.toptrumps.mp.revelacao_oponente_venceu_exclamacao') : t('games.toptrumps.mp.revelacao_empate_exclamacao')}
+              {resultadoRodada === 'ganhou' ? tt('mp.revelacao_voce_venceu_exclamacao') : resultadoRodada === 'perdeu' ? tt('mp.revelacao_oponente_venceu_exclamacao') : tt('mp.revelacao_empate_exclamacao')}
             </span>
-            <span className="ttmp-resultado-atributo">{attr ? t(attr.nomeKey) : ''}</span>
+            <span className="ttmp-resultado-atributo">{attr ? tt(attr.nomeKey) : ''}</span>
           </div>
 
           <div className="ttmp-card ttmp-card--revelado">
@@ -898,7 +898,7 @@ export default function TopTrumpsMP() {
             <div className="ttmp-card-atributos">
               {atributos.map(a => (
                 <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{t(a.nomeKey)}</span>
+                  <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
                   <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
                 </div>
               ))}
@@ -907,7 +907,7 @@ export default function TopTrumpsMP() {
         </div>
 
         <button className="ttmp-proxima-btn" onClick={seguirParaProximaRodada}>
-          {t('games.toptrumps.mp.revelacao_proxima')}
+          {tt('mp.revelacao_proxima')}
         </button>
       </section>
       </>
@@ -928,17 +928,17 @@ export default function TopTrumpsMP() {
     return (
       <section className="ttmp-page">
         <div className="ttmp-fim">
-          <h2 className="ttmp-fim-titulo">{t('games.toptrumps.mp.fim_titulo')}</h2>
+          <h2 className="ttmp-fim-titulo">{tt('mp.fim_titulo')}</h2>
           <div className={`ttmp-fim-icone${venceu ? ' ttmp-fim-icone--vitoria' : empatou ? ' ttmp-fim-icone--empate' : ' ttmp-fim-icone--derrota'}`}>
             {venceu ? '🏆' : empatou ? '🤝' : '💀'}
           </div>
           <h3 className={`ttmp-fim-resultado${venceu ? ' ttmp-fim-titulo--vitoria' : empatou ? ' ttmp-fim-titulo--empate' : ' ttmp-fim-titulo--derrota'}`}>
-            {venceu ? t('games.toptrumps.mp.fim_voce_venceu') : empatou ? t('games.toptrumps.mp.fim_empate') : t('games.toptrumps.mp.fim_voce_perdeu')}
+            {venceu ? tt('mp.fim_voce_venceu') : empatou ? tt('mp.fim_empate') : tt('mp.fim_voce_perdeu')}
           </h3>
           <div className="ttmp-fim-placar">
             <div className="ttmp-fim-placar-item">
               <span className="ttmp-fim-placar-valor">{placar.eu}</span>
-              <span className="ttmp-fim-placar-label">{t('games.toptrumps.mp.fim_voce')}</span>
+              <span className="ttmp-fim-placar-label">{tt('mp.fim_voce')}</span>
             </div>
             <span className="ttmp-fim-placar-divisor">×</span>
             <div className="ttmp-fim-placar-item">
@@ -947,7 +947,7 @@ export default function TopTrumpsMP() {
             </div>
           </div>
           <div className="ttmp-fim-actions">
-            <BackToGamesBtn to="/" onClick={() => sfx.click()} label={t('games.toptrumps.mp.fim_voltar_games')} />
+            <BackToGamesBtn to="/" onClick={() => sfx.click()} label={tt('mp.fim_voltar_games')} />
           </div>
         </div>
       </section>
