@@ -30,6 +30,7 @@
 .tt-page--menu {
   position: relative;
   overflow: hidden;
+  justify-content: center;
 }
 
 .tt-menu-bg {
@@ -501,14 +502,15 @@
 /* ---- GAME SCREENS (shared) ---- */
 
 .tt-page {
-  min-height: 100vh;
-  padding: 6rem 1.5rem 3rem;
+  height: 100dvh;
+  padding: 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   background: transparent;
+  overflow: hidden;
 }
 
 /* Background animation via ::before (não afeta position:fixed dos filhos) */
@@ -1428,12 +1430,6 @@
     gap: 0.75rem;
   }
 
-  .tt-page {
-    overflow-x: hidden;
-    padding: 5rem 0.5rem 2rem;
-    align-items: center;
-  }
-
   .tt-confirm-modal {
     width: 90%;
     max-width: 340px;
@@ -2069,8 +2065,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  height: 100dvh;
   gap: 1.5rem;
+  overflow: hidden;
 }
 
 .ttmp-ppt-titulo {
@@ -2230,7 +2227,7 @@
   display: flex; flex-direction: column; align-items: center;
   width: 100%; max-width: 480px; margin: 0 auto;
   height: 100dvh; padding: 0 0.75rem 0.5rem;
-  box-sizing: border-box; overflow: hidden;
+  box-sizing: border-box; overflow: hidden; justify-content: flex-start;
 }
 .tt-game-header {
   display: flex; justify-content: space-between; align-items: center;
@@ -2252,8 +2249,8 @@
   font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--color-text-muted, #666); margin-bottom: 0.1rem;
 }
-.tt-card--mini-wrapper { width: 100%; height: 72px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
-.tt-card--mini { transform: scale(0.22); transform-origin: top center; pointer-events: none; flex-shrink: 0; }
+.tt-card--mini-wrapper { width: 100%; height: 90px; overflow: hidden; display: flex; justify-content: center; align-items: flex-start; }
+.tt-card--mini { transform: scale(0.28); transform-origin: top center; pointer-events: none; flex-shrink: 0; }
 .tt-player-card-wrapper { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 0; overflow: hidden; }
 .tt-player-card-wrapper .tt-card-wrapper { max-height: 100%; }
 .tt-player-card-wrapper .tt-card-wrapper .tt-card-template img { max-height: 100%; object-fit: contain; }
@@ -2297,7 +2294,7 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.tt-game-footer { width: 100%; display: flex; justify-content: center; padding-top: 0.3rem; flex-shrink: 0; }
+.tt-game-footer { width: 100%; display: flex; justify-content: center; padding-top: 0.3rem; flex-shrink: 0; margin-top: auto; padding-bottom: 0.5rem; }
 .tt-btn-desistir {
   background: transparent; border: 1px solid var(--color-danger, #f44);
   color: var(--color-danger, #f44); padding: 0.35rem 1.2rem; border-radius: 4px;
