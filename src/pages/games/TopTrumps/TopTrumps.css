@@ -2087,10 +2087,10 @@
 }
 
 /* ══════════════════════════════════════════
-   PPT (JOKENPÔ) — copiado de TopTrumpsMP.css
+   PPT (JOKENPÔ)
    ══════════════════════════════════════════ */
 
-.ttmp-ppt-container {
+.tt-ppt-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2098,129 +2098,136 @@
   height: 100dvh;
   gap: 1.5rem;
   overflow: hidden;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-.ttmp-ppt-titulo {
+.tt-ppt-titulo {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #EAEAEA;
   margin: 0;
+  text-align: center;
 }
 
-.ttmp-ppt-subtitulo {
+.tt-ppt-subtitulo {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.8rem;
   color: #8B8F96;
   margin: 0;
+  text-align: center;
 }
 
-.ttmp-ppt-opcoes {
-  display: flex;
-  gap: 1rem;
-}
-
-.ttmp-ppt-btn {
+.tt-ppt-opcoes {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.tt-ppt-btn {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1.25rem 1.75rem;
-  background: rgba(255,255,255,0.04);
-  border: 2px solid #2A2D31;
-  border-radius: 10px;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
   font-family: "Rajdhani", sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: #EAEAEA;
 }
 
-.ttmp-ppt-btn:hover:not(:disabled) {
-  border-color: #e8853a;
-  background: rgba(232,133,58,0.08);
+.tt-ppt-btn:hover,
+.tt-ppt-btn:active {
+  transform: scale(1.03);
+  border-color: var(--color-accent, #f90);
+  background: rgba(255,153,0,0.1);
 }
 
-.ttmp-ppt-btn:disabled {
-  cursor: default;
-  opacity: 0.35;
-}
-
-.ttmp-ppt-icone {
-  font-size: 2rem;
+.tt-ppt-emoji {
+  font-size: 2.5rem;
   line-height: 1;
 }
 
-.ttmp-ppt-nome {
-  letter-spacing: 0.05em;
+.tt-ppt-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.ttmp-ppt-aguardando {
+.tt-ppt-aguardando {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
   color: #e8853a;
-  animation: ttmp-pulse 1.2s ease-in-out infinite;
+  animation: tt-ppt-pulse 1.2s ease-in-out infinite;
   margin: 0;
+  text-align: center;
 }
 
 /* ── Batalha PPT (animação JO/KEN/PÔ) ── */
-.ttmp-ppt-batalha {
+.tt-ppt-batalha {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: 100%;
 }
 
-.ttmp-ppt-maos {
+.tt-ppt-maos {
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-.ttmp-ppt-mao {
+.tt-ppt-mao {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
   transition: filter 0.3s, transform 0.3s;
+  min-width: 5rem;
 }
 
-.ttmp-ppt-mao-icone {
-  font-size: 2.8rem;
-  line-height: 1;
-  transition: transform 0.3s;
+.tt-ppt-mao--jogador .tt-ppt-emoji,
+.tt-ppt-mao--ia .tt-ppt-emoji {
+  font-size: 3rem;
 }
 
-.ttmp-ppt-mao-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem;
-  color: #8B8F96;
-  letter-spacing: 0.08em;
-}
-
-.ttmp-ppt-vs {
+.tt-ppt-vs {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 4rem;
 }
 
-.ttmp-ppt-texto-animado {
+.tt-ppt-texto-animado {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #e8853a;
-  animation: ttmp-pop-in 0.25s ease-out;
+  animation: tt-ppt-pop-in 0.25s ease-out;
+  white-space: nowrap;
 }
 
-.ttmp-ppt-progresso {
+.tt-ppt-progresso {
   display: flex;
   gap: 0.5rem;
 }
 
-.ttmp-ppt-bolinha {
+.tt-ppt-bolinha {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
@@ -2228,63 +2235,64 @@
   transition: background 0.2s;
 }
 
-.ttmp-ppt-bolinha.ativo {
+.tt-ppt-bolinha.ativo {
   background: #e8853a;
 }
 
-.ttmp-ppt-batalha--revelado .ttmp-ppt-mao {
-  animation: ttmp-reveal 0.4s ease-out;
+.tt-ppt-batalha--revelado .tt-ppt-mao {
+  animation: tt-ppt-reveal 0.4s ease-out;
 }
 
-.ttmp-ppt-resultado-texto {
+.tt-ppt-resultado-texto {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  animation: ttmp-pop-in 0.35s ease-out;
+  animation: tt-ppt-pop-in 0.35s ease-out;
+  text-align: center;
 }
 
-.ttmp-resultado--jogador {
+.tt-resultado--jogador {
   color: #1ea064;
 }
 
-.ttmp-resultado--ia {
+.tt-resultado--ia {
   color: #e74c3c;
 }
 
-.ttmp-resultado--empate {
+.tt-resultado--empate {
   color: #e8853a;
 }
 
 /* ── Shake das mãos durante JO/KEN/PÔ ── */
-.ttmp-ppt-mao.shake {
-  animation: ttmp-shake 0.25s ease-in-out 2;
+.tt-ppt-mao.tt-ppt-shake {
+  animation: tt-ppt-shake 0.25s ease-in-out 2;
 }
 
-.ttmp-ppt-mao.flash-vencedor {
+.tt-ppt-mao.flash-vencedor {
   filter: drop-shadow(0 0 12px #1ea064);
   transform: scale(1.15);
 }
 
 /* ── Keyframes ── */
-@keyframes ttmp-pop-in {
+@keyframes tt-ppt-pop-in {
   0%   { transform: scale(0.5); opacity: 0; }
   60%  { transform: scale(1.15); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-@keyframes ttmp-shake {
+@keyframes tt-ppt-shake {
   0%, 100% { transform: rotate(0deg); }
   25%      { transform: rotate(-12deg); }
   75%      { transform: rotate(12deg); }
 }
 
-@keyframes ttmp-reveal {
+@keyframes tt-ppt-reveal {
   0%   { transform: scale(0.3); opacity: 0; }
   60%  { transform: scale(1.1); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-@keyframes ttmp-pulse {
+@keyframes tt-ppt-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
