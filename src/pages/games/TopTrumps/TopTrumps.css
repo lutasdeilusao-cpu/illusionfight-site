@@ -129,6 +129,9 @@
 
 .tt-menu-content {
   max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tt-title-group {
@@ -240,6 +243,11 @@
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.15s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .tt-modo-card:hover {
