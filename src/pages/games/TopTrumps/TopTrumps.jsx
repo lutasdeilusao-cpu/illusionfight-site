@@ -883,6 +883,22 @@ export default function TopTrumps() {
               <span className="tt-score-ai">{tt('ia')} {placar.ia}</span>
             </div>
           </div>
+          <div className="tt-player-card-wrapper">
+            <TopTrumpsCard
+              characterImage={bgCarta(cartaJogador)}
+              name={cartaJogador.nome}
+              description={cartaJogador.descricao}
+              locale={locale}
+              attributes={cartaJogador.atributos}
+              onAttributeClick={!isVezIA ? (attr) => onClickAtributo(attr) : undefined}
+              disabled={girando || !!confirmandoAtributo || isVezIA || iaEscolhendo}
+              templateIndex={templateIdxJogador}
+            />
+          </div>
+          <div className="tt-vs-heartbeat">
+            <div className="tt-vs-heartbeat-glow" />
+            <span className="tt-vs-heartbeat-text">VS</span>
+          </div>
           <div className="tt-opponent-mini-wrapper">
             <span className="tt-opponent-mini-label">
               {isVezIA
@@ -897,22 +913,6 @@ export default function TopTrumps() {
                 templateIndex={cartaIA ? (cartaIA.id % 6) : 0}
               />
             </div>
-          </div>
-          <div className="tt-vs-heartbeat">
-            <div className="tt-vs-heartbeat-glow" />
-            <span className="tt-vs-heartbeat-text">VS</span>
-          </div>
-          <div className="tt-player-card-wrapper">
-            <TopTrumpsCard
-              characterImage={bgCarta(cartaJogador)}
-              name={cartaJogador.nome}
-              description={cartaJogador.descricao}
-              locale={locale}
-              attributes={cartaJogador.atributos}
-              onAttributeClick={!isVezIA ? (attr) => onClickAtributo(attr) : undefined}
-              disabled={girando || !!confirmandoAtributo || isVezIA || iaEscolhendo}
-              templateIndex={templateIdxJogador}
-            />
           </div>
           <div className="tt-game-footer">
             <button className="tt-btn-desistir" onClick={() => { sfx.click(); setShowDesistirModal(true); }}>

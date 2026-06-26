@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.168.0'
+export const SITE_VERSION = '10.169.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -18,7 +18,7 @@ export const ARENA_VERSION     = '1.31.0'  // LDI Arena Testbed: fixes linha de 
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '4.0.2'  // readerMode: Navbar e Footer ocultos
-export const TS_VERSION        = '5.30.0'  // Top Trumps SP: add ppt_rock/paper/scissors aliases nos 3 tt_*.json (SP usava keys inglesas, JSONs tinham só nomes pt) + v10.168.0
+export const TS_VERSION        = '5.31.0'  // Top Trumps SP: gameplay layout redesign — player card top, opponent card bottom (40%), fix cut-off + v10.169.0
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
