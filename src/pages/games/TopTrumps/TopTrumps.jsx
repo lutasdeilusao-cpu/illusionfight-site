@@ -869,10 +869,10 @@ export default function TopTrumps() {
           ))}
         </div>
         <section className="tt-page">
-        <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
-          {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
-        </button>
         <div className="tt-game-container">
+          <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
+            {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
+          </button>
           <div className="tt-game-header">
             <div className="tt-game-round">
               {tt('hud_rodada', { n: rodada, total: totalTurnos })}
