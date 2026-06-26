@@ -2334,12 +2334,12 @@
 .tt-result-container {
   display: flex; flex-direction: column; align-items: center;
   width: 100%; max-width: 480px; margin: 0 auto;
-  height: 100dvh; padding: 0 0.75rem 0.5rem;
+  height: 100dvh; padding: 0.4rem 0.75rem 0.2rem;
   box-sizing: border-box; overflow: hidden; justify-content: flex-start;
 }
 .tt-game-header {
   display: flex; justify-content: space-between; align-items: center;
-  width: 100%; padding: 0.4rem 0; flex-shrink: 0;
+  width: 100%; padding: 0.25rem 0; flex-shrink: 0;
 }
 .tt-game-round {
   font-size: 0.72rem; font-family: var(--font-accent, 'BringRace', sans-serif);
@@ -2351,40 +2351,64 @@
 .tt-score-ai  { color: var(--color-danger, #f44); }
 .tt-opponent-mini-wrapper {
   width: 100%; display: flex; flex-direction: column; align-items: center;
-  flex-shrink: 0; margin-top: 0.1rem; padding-bottom: 0.15rem;
+  flex-shrink: 0; margin-top: 0; padding-bottom: 0.05rem;
 }
 .tt-opponent-mini-label {
-  font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--color-text-muted, #666); margin-bottom: 0.1rem;
+  font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--color-text-muted, #666); margin-bottom: 0;
 }
 .tt-card--mini-wrapper { width: 100%; display: flex; justify-content: center; align-items: center; }
-.tt-card--mini { transform: scale(0.30); transform-origin: center; pointer-events: none; flex-shrink: 0; }
-.tt-player-card-wrapper { flex: 1; display: flex; align-items: flex-start; justify-content: center; width: 100%; min-height: 0; overflow: hidden; padding-top: 0.3rem; }
+.tt-card--mini { transform: scale(0.60); transform-origin: center; pointer-events: none; flex-shrink: 0; }
+.tt-player-card-wrapper { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 0; overflow: hidden; }
 .tt-player-card-wrapper .tt-card-wrapper { max-height: 100%; }
 .tt-player-card-wrapper .tt-card-wrapper .tt-card-template img { max-height: 100%; object-fit: contain; }
+
+/* Override responsive card scales for bigger player card */
+@media (max-width: 460px) {
+  .tt-player-card-wrapper .tt-card-wrapper {
+    width: calc(550px * 0.68);
+    height: calc(720px * 0.68);
+  }
+  .tt-player-card-wrapper .tt-card-template {
+    transform: scale(0.68);
+    transform-origin: top left;
+  }
+}
+@media (min-width: 461px) and (max-width: 768px) {
+  .tt-player-card-wrapper .tt-card-wrapper {
+    width: calc(550px * 0.78);
+    height: calc(720px * 0.78);
+  }
+  .tt-player-card-wrapper .tt-card-template {
+    transform: scale(0.78);
+    transform-origin: top left;
+  }
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .tt-player-card-wrapper .tt-card-wrapper {
+    width: calc(550px * 0.88);
+    height: calc(720px * 0.88);
+  }
+  .tt-player-card-wrapper .tt-card-template {
+    transform: scale(0.88);
+    transform-origin: top left;
+  }
+}
 .tt-vs-heartbeat {
   display: flex; align-items: center; justify-content: center;
   position: relative; flex-shrink: 0; width: 100%;
-  padding: 0.1rem 0;
+  padding: 0;
 }
 .tt-vs-heartbeat-glow {
-  position: absolute; width: 160px; height: 80px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,133,58,0.35) 0%, rgba(232,133,58,0.1) 30%, transparent 65%);
-  animation: tt-vs-heartbeat-pulse 1.8s ease-in-out infinite;
-  filter: blur(4px);
+  display: none;
 }
 .tt-vs-heartbeat-glow::after {
-  content: ''; position: absolute; inset: -15px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(244,162,39,0.12) 0%, transparent 50%);
-  animation: tt-vs-heartbeat-pulse 1.8s ease-in-out infinite reverse;
-  filter: blur(6px);
+  display: none;
 }
 .tt-vs-heartbeat-text {
   position: relative; z-index: 5;
   font-family: "RacingGames", "Orbitron", sans-serif;
-  font-size: 2rem; font-weight: 900; line-height: 1;
+  font-size: 1.4rem; font-weight: 900; line-height: 1;
   background: linear-gradient(135deg, #e8853a, #f4a227, #e8853a);
   background-size: 300% 300%;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -2402,7 +2426,7 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.tt-game-footer { width: 100%; display: flex; justify-content: center; padding-top: 0.3rem; flex-shrink: 0; margin-top: auto; padding-bottom: 0.5rem; }
+.tt-game-footer { width: 100%; display: flex; justify-content: center; padding-top: 0.15rem; flex-shrink: 0; margin-top: auto; padding-bottom: 0.2rem; }
 .tt-btn-desistir {
   background: transparent; border: 1px solid var(--color-danger, #f44);
   color: var(--color-danger, #f44); padding: 0.35rem 1.2rem; border-radius: 4px;
