@@ -178,7 +178,7 @@ export default function ArenaTestbed() {
             className={`tab-step-item ${phase === step ? 'active' : ''} ${phase > step ? 'done' : ''}`}
           >
             <div className="tab-step-circle">
-              {phase > step ? 'âœ“' : step + 1}
+              {phase > step ? '✓' : step + 1}
             </div>
           </div>
         ))}

@@ -136,7 +136,7 @@ export default function Assinar() {
                   <ul className="assinar-card__benefits">
                     {p[benefKey].map((b, i) => (
                       <li key={i} className={`assinar-card__benefit${isBase ? ' assinar-card__benefit--muted' : ''}`}>
-                        <span className="assinar-card__check">âœ“</span>
+                        <span className="assinar-card__check">✓</span>
                         {b}
                       </li>
                     ))}

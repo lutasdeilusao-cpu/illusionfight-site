@@ -48,7 +48,7 @@ export default function Partida({ onSalaoFama, onNovaAdocao }) {
               animate={{ x: [0, 60, 120, 200], opacity: [1, 0.8, 0.4, 0] }}
               transition={{ duration: 2.5, ease: 'easeInOut' }}
             >
-              {criatura?.emoji || 'âœ¨'}
+              {criatura?.emoji || '✨'}
             </motion.div>
             <motion.div
               className="tama-partida-luz"

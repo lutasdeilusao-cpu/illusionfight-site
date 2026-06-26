@@ -27,7 +27,7 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
             animate={{ opacity: [0, 1, 0], y: -200 }}
             transition={{ duration: 2 + Math.random() * 2, delay: Math.random() * 2, repeat: Infinity }}
             style={{ position: 'absolute', bottom: 0, fontSize: '0.6rem' }}>
-            âœ¨
+            ✨
           </motion.div>
         ))}
       </div>

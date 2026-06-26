@@ -100,7 +100,7 @@ export default function Investigacao() {
               <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}>
-                <div className="pp-pista-tipo">{p.tipo === 'fio' ? 'âœ¨ FIO' : p.tipo.toUpperCase()}</div>
+                <div className="pp-pista-tipo">{p.tipo === 'fio' ? '✨ FIO' : p.tipo.toUpperCase()}</div>
                 <div className="pp-pista-texto">{p.texto}</div>
               </motion.div>
             ))}

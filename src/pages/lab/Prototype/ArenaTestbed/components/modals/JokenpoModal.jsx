@@ -51,7 +51,7 @@ export default function JokenpoModal({ player1Name, player2Name, onResult, onClo
                 onClick={() => handleChoose(opt)}
               >
                 <span className="tab-jokenpo-icon">
-                  {opt === 'pedra' ? 'âœŠ' : opt === 'papel' ? 'âœ‹' : 'âœŒï¸'}
+                  {opt === 'pedra' ? '✊' : opt === 'papel' ? '✋' : '✌ï¸'}
                 </span>
                 <span>{t(`prototype.arena_testbed.jokenpo_${opt}`)}</span>
               </button>
@@ -64,14 +64,14 @@ export default function JokenpoModal({ player1Name, player2Name, onResult, onClo
             <div className="tab-jokenpo-battle">
               <div className="tab-jokenpo-player">
                 <span className="tab-jokenpo-icon">
-                  {choice === 'pedra' ? 'âœŠ' : choice === 'papel' ? 'âœ‹' : 'âœŒï¸'}
+                  {choice === 'pedra' ? '✊' : choice === 'papel' ? '✋' : '✌ï¸'}
                 </span>
                 <span className="tab-jokenpo-name">{player1Name}</span>
               </div>
               <span className="tab-jokenpo-vs">VS</span>
               <div className="tab-jokenpo-player">
                 <span className="tab-jokenpo-icon">
-                  {iaChoice === 'pedra' ? 'âœŠ' : iaChoice === 'papel' ? 'âœ‹' : 'âœŒï¸'}
+                  {iaChoice === 'pedra' ? '✊' : iaChoice === 'papel' ? '✋' : '✌ï¸'}
                 </span>
                 <span className="tab-jokenpo-name">{player2Name}</span>
               </div>

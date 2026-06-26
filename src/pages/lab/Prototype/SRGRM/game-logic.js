@@ -617,11 +617,11 @@ function runTest(attr) {
 
   let cls, verdict, detail;
   if (success) {
-    cls = 'roll-success'; verdict = 'âœ¦ Sucesso âœ¦';
+    cls = 'roll-success'; verdict = '✦ Sucesso ✦';
     detail = `${attr.name} â€” +1 XP`;
     giveXP(attr.id, 1);
   } else {
-    cls = 'roll-fail'; verdict = 'âœ¦ Falha âœ¦';
+    cls = 'roll-fail'; verdict = '✦ Falha ✦';
     detail = `${attr.name} â€” +2 XP`;
     giveXP(attr.id, 2);
   }
@@ -857,7 +857,7 @@ function renderAreaTwoButtons(targets, btnsDiv, label) {
     btn.style.textAlign = 'left';
     btn.style.fontSize = '0.85rem';
     btn.id = 'area-btn-' + t.id;
-    btn.innerHTML = `${picked ? 'âœ¦ ' : ''}${t.name} <span style="color:var(--muted);">(HP ${t.hp}/${t.maxHP})</span>`;
+    btn.innerHTML = `${picked ? '✦ ' : ''}${t.name} <span style="color:var(--muted);">(HP ${t.hp}/${t.maxHP})</span>`;
     btn.onclick = () => toggleAreaTarget(t, targets, label);
     btnsDiv.appendChild(btn);
   });
@@ -943,8 +943,8 @@ function resolveTargetedAction(target) {
     target.buffs = [];
     target.paralyzedRoundRolled = false;
     target.paralyzedThisRound = false;
-    logEntry(`âœ¦ ${actor.name} revive ${target.name}! (Custo: ${cost} MP) â€” 1d${actor.attrs.det} â†’ ${diceRoll} + ${intBonus} (IntÃ·2)`, 'log-info');
-    logEntry(`âœ¦ ${target.name} voltou ao combate com ${reviveHp} HP!`, 'log-victory');
+    logEntry(`✦ ${actor.name} revive ${target.name}! (Custo: ${cost} MP) â€” 1d${actor.attrs.det} â†’ ${diceRoll} + ${intBonus} (IntÃ·2)`, 'log-info');
+    logEntry(`✦ ${target.name} voltou ao combate com ${reviveHp} HP!`, 'log-victory');
     clearMagicQueue();
     renderBattle(); renderSheet(); renderMagicPanel();
     endTurn();
@@ -1122,7 +1122,7 @@ function resolveAttack(attacker, defender) {
 
     // Falha automÃ¡tica do atacante â€” sai do loop imediatamente
     if (aRoll === effectiveWeapon.dice) {
-      logEntry(`âœ¦ Falha automÃ¡tica de ${attacker.name}! (rolou ${aRoll})`, 'log-miss');
+      logEntry(`✦ Falha automÃ¡tica de ${attacker.name}! (rolou ${aRoll})`, 'log-miss');
       if (dPass) {
         const cRaw = calcRawDmg(defender, attacker);
         const adagaFull = defender.weapon.id === 'adaga' && defender.attrs.agi > attacker.attrs.agi;
@@ -1219,9 +1219,9 @@ function applyCounterAttack(attackerEntity, attackerWeapon, defenderEntity, defe
   const bonus = atkBonus(attackerEntity);
   const defBon = defBonus(defenderEntity);
   const dmg = cw[dmgStat] + bonus - defenderArmor[defStat] - defBon;
-  if (dmg <= 0) logEntry(`âœ¦ Contraataque absorvido! Dano: 0.`, 'log-miss');
+  if (dmg <= 0) logEntry(`✦ Contraataque absorvido! Dano: 0.`, 'log-miss');
   else {
-    logEntry(`âœ¦ Contraataque! Dano: ${dmg}.`, 'log-dmg');
+    logEntry(`✦ Contraataque! Dano: ${dmg}.`, 'log-dmg');
     if (isPlayer) player.hp = Math.max(0, player.hp - dmg);
     else defenderEntity.hp = Math.max(0, defenderEntity.hp - dmg);
   }
@@ -1503,14 +1503,14 @@ function applyEffect(effect, target, targetEntity, turns) {
   if (!targetEntity.effects) targetEntity.effects = [];
   targetEntity.effects = targetEntity.effects.filter(e => e.id !== effect.id);
   targetEntity.effects.push({ ...effect, turnsLeft: turns });
-  logEntry(`âœ¦ ${effect.name} aplicado por ${turns} turnos!`, 'log-info');
+  logEntry(`✦ ${effect.name} aplicado por ${turns} turnos!`, 'log-info');
 }
 
 function applySupport(support, targetEntity, turns) {
   if (!targetEntity.buffs) targetEntity.buffs = [];
   targetEntity.buffs = targetEntity.buffs.filter(b => b.id !== support.id);
   targetEntity.buffs.push({ ...support, turnsLeft: turns });
-  logEntry(`âœ¦ ${support.name} aplicado por ${turns} turnos!`, 'log-info');
+  logEntry(`✦ ${support.name} aplicado por ${turns} turnos!`, 'log-info');
 }
 
 // Aplica uma pilha de suportes (Regen/Detox/Blindagem/etc) num Ãºnico lance.
@@ -1521,7 +1521,7 @@ function resolveSupportStack(actor, target, supports, turns) {
     const supHit  = supRoll !== actor.weapon.dice && supRoll <= actor.attrs.int;
     logEntry(`${actor.name} testa InteligÃªncia para ${sup.name}: rola ${supRoll} vs ${actor.attrs.int}`, 'log-sys');
     if (!supHit) { logEntry(`${sup.name} falhou${supRoll === actor.weapon.dice ? ' (falha auto)' : ''}! MP gastos.`, 'log-miss'); return; }
-    if (sup.id === 'detox') { target.effects = target.effects.filter(e => !e.id.startsWith('poison') && !e.id.startsWith('paralyze') && e.id !== 'faint'); logEntry(`âœ¦ Detox em ${target.name}! (veneno, paralisia e desmaio removidos)`, 'log-victory'); }
+    if (sup.id === 'detox') { target.effects = target.effects.filter(e => !e.id.startsWith('poison') && !e.id.startsWith('paralyze') && e.id !== 'faint'); logEntry(`✦ Detox em ${target.name}! (veneno, paralisia e desmaio removidos)`, 'log-victory'); }
     else if (sup.id === 'regen') applyEffect({ ...sup, id: 'regen' }, target, target, turns);
     else { applySupport(sup, target, turns); }
   });
@@ -1549,7 +1549,7 @@ function processEffects(entity, entityName) {
       if (ef.id === 'regen') {
         const heal = Math.max(1, Math.floor(entity.maxHP * 0.1));
         entity.hp = Math.min(entity.maxHP, entity.hp + heal);
-        logEntry(`âœ¦ ${entityName} regenera ${heal} HP. (${ef.turnsLeft-1} turnos restantes)`, 'log-victory');
+        logEntry(`✦ ${entityName} regenera ${heal} HP. (${ef.turnsLeft-1} turnos restantes)`, 'log-victory');
       }
       // faint: lÃ³gica de turno perdido fica em processTurn(); aqui sÃ³ decrementa
       ef.turnsLeft--;
@@ -1653,7 +1653,7 @@ function openSwapPanel() {
     const btn = document.createElement('button');
     btn.className = 'btn ' + (current ? 'btn-gold' : 'btn-secondary');
     btn.style.fontSize = '0.8rem';
-    btn.innerHTML = `${w.name}${current ? ' âœ¦' : ''}`;
+    btn.innerHTML = `${w.name}${current ? ' ✦' : ''}`;
     btn.disabled = current;
     btn.onclick = () => { swapWeapon(actor, w); closeSwapPanel(); };
     wBtns.appendChild(btn);
@@ -1669,7 +1669,7 @@ function openSwapPanel() {
     const btn = document.createElement('button');
     btn.className = 'btn ' + (current ? 'btn-gold' : 'btn-secondary');
     btn.style.fontSize = '0.8rem';
-    btn.innerHTML = `${ar.name}${current ? ' âœ¦' : ''}`;
+    btn.innerHTML = `${ar.name}${current ? ' ✦' : ''}`;
     btn.disabled = current;
     btn.onclick = () => { swapArmor(actor, ar); closeSwapPanel(); };
     aBtns.appendChild(btn);
@@ -1816,7 +1816,7 @@ function renderSkillPanel() {
       btn.className = 'btn-magic';
       const available = stage === c.stage - 1;
       btn.disabled = !available || actor.mp < c.cost;
-      btn.innerHTML = `${c.label}${available ? ' âœ¦' : ''}<span class="magic-cost">${c.cost > 0 ? c.cost + ' MP Â· ' : 'GrÃ¡tis Â· '}+${c.bonus}% atordoamento</span>`;
+      btn.innerHTML = `${c.label}${available ? ' ✦' : ''}<span class="magic-cost">${c.cost > 0 ? c.cost + ' MP Â· ' : 'GrÃ¡tis Â· '}+${c.bonus}% atordoamento</span>`;
       btn.onclick = () => startTargeting(c.action);
       skillBtns.appendChild(btn);
     });
@@ -1944,10 +1944,10 @@ function resolveComboAttack(actor, target, action) {
   if (actor.lastAttackHit) {
     if (stage.next > 0) {
       actor.comboStage = stage.next;
-      logEntry(`âœ¦ ${actor.name} desbloqueou o prÃ³ximo golpe do combo!`, 'log-victory');
+      logEntry(`✦ ${actor.name} desbloqueou o prÃ³ximo golpe do combo!`, 'log-victory');
     } else {
       actor.comboStage = 1; // combo completo, reinicia
-      logEntry(`âœ¦ ${actor.name} completou o combo!`, 'log-victory');
+      logEntry(`✦ ${actor.name} completou o combo!`, 'log-victory');
     }
   } else {
     actor.comboStage = 1;
@@ -1975,7 +1975,7 @@ function processWeaponPassives(actor) {
   // Cajado: recupera 1 MP por turno
   if (isCajadoWeapon(actor.weapon) && actor.mp < actor.maxMP) {
     actor.mp = Math.min(actor.maxMP, actor.mp + 1);
-    logEntry(`âœ¦ ${actor.name} recupera 1 MP pelo cajado. (${actor.mp}/${actor.maxMP})`, 'log-sys');
+    logEntry(`✦ ${actor.name} recupera 1 MP pelo cajado. (${actor.mp}/${actor.maxMP})`, 'log-sys');
   }
 
   // Espada e Escudo: regenera 1 HP a cada 2 turnos, teto 50% HP mÃ¡ximo
@@ -2338,7 +2338,7 @@ function resolveHealSpell(actor, target, tierId) {
   const before = target.hp;
   target.hp = Math.min(target.maxHP, target.hp + heal);
   const actual = target.hp - before;
-  logEntry(`âœ¦ ${actor.name} lanÃ§a ${tier.name} em ${target.name}! (Custo: ${tier.cost} MP, d${tier.dice} â†’ ${heal}) Cura ${actual} HP.`, 'log-victory');
+  logEntry(`✦ ${actor.name} lanÃ§a ${tier.name} em ${target.name}! (Custo: ${tier.cost} MP, d${tier.dice} â†’ ${heal}) Cura ${actual} HP.`, 'log-victory');
   renderBattle(); renderSheet(); renderMagicPanel();
   if (checkBattleEnd()) return;
   endTurn();
@@ -2458,11 +2458,11 @@ function endBattle(playerWon) {
   const enemySideAll  = combatants.filter(c => c.side === 'enemy');
 
   if (playerWon) {
-    logEntry(`âœ¦ VitÃ³ria! Todos os oponentes foram derrotados! âœ¦`, 'log-victory');
+    logEntry(`✦ VitÃ³ria! Todos os oponentes foram derrotados! ✦`, 'log-victory');
     msg.className = 'log-victory';
     msg.textContent = 'VitÃ³ria â€” os oponentes caÃ­ram!';
   } else {
-    logEntry(`âœ¦ Derrota. Seu grupo foi abatido. âœ¦`, 'log-defeat');
+    logEntry(`✦ Derrota. Seu grupo foi abatido. ✦`, 'log-defeat');
     msg.className = 'log-defeat';
     msg.textContent = 'Derrota â€” seu grupo foi abatido.';
     player.hp = Math.floor(player.maxHP * 0.3);
@@ -2830,7 +2830,7 @@ function giveXP(attrId, amount) {
       if (player.hp > player.maxHP) player.hp = player.maxHP;
       if (player.mp > player.maxMP) player.mp = player.maxMP;
       const name = ATTRS.find(a=>a.id===attrId)?.name;
-      logEntry(`âœ¦ ${name} aumentou para ${player.attrs[attrId]}! (prÃ³ximo nÃ­vel: ${xpNeeded(player.attrs[attrId])} XP)`, 'log-victory');
+      logEntry(`✦ ${name} aumentou para ${player.attrs[attrId]}! (prÃ³ximo nÃ­vel: ${xpNeeded(player.attrs[attrId])} XP)`, 'log-victory');
     }
   }
 }
@@ -2849,7 +2849,7 @@ function giveXPTo(entity, attrId, amount) {
       if (entity.hp > entity.maxHP) entity.hp = entity.maxHP;
       if (entity.mp > entity.maxMP) entity.mp = entity.maxMP;
       const name = ATTRS.find(a=>a.id===attrId)?.name;
-      logEntry(`âœ¦ ${entity.name}: ${name} aumentou para ${entity.attrs[attrId]}!`, 'log-victory');
+      logEntry(`✦ ${entity.name}: ${name} aumentou para ${entity.attrs[attrId]}!`, 'log-victory');
     }
   }
 }

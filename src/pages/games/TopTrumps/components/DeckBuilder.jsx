@@ -123,7 +123,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={e => e.stopPropagation()}
         >
-          <button className="tt-deckbuilder-close" onClick={onClose}>âœ•</button>
+          <button className="tt-deckbuilder-close" onClick={onClose}>✕</button>
           <h2 className="tt-deckbuilder-title">{t('games.toptrumps.deckBuilder.title')}</h2>
 
           {!temMinimo ? (
@@ -219,7 +219,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                   disabled={!podeSalvar || salvando}
                   onClick={handleSalvar}
                 >
-                  {salvando ? '...' : salvo ? 'âœ“' : t('games.toptrumps.deckBuilder.save')}
+                  {salvando ? '...' : salvo ? '✓' : t('games.toptrumps.deckBuilder.save')}
                 </button>
               </div>
             </>
@@ -244,7 +244,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
               transition={{ type: 'spring', damping: 20, stiffness: 300 }}
               onClick={e => e.stopPropagation()}
             >
-              <button className="tt-deckbuilder-close" onClick={() => setViewingCard(null)}>âœ•</button>
+              <button className="tt-deckbuilder-close" onClick={() => setViewingCard(null)}>✕</button>
 
               <div className="tt-deckbuilder-viewer-layout">
                 {/* Card render (exactly like in-game but not clickable) */}

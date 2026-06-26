@@ -92,7 +92,7 @@ export default function MapaCidade() {
                   {c.id.split('_')[1]}
                 </text>
                 {casosResolvidos.includes(c.id) && (
-                  <text x={n.x} y={n.y + 5} textAnchor="middle" fill="#fff" fontSize="11">âœ“</text>
+                  <text x={n.x} y={n.y + 5} textAnchor="middle" fill="#fff" fontSize="11">✓</text>
                 )}
               </g>
             )

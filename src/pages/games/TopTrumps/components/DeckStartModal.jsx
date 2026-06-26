@@ -84,7 +84,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={e => e.stopPropagation()}
         >
-          <button className="tt-startdeck-close" onClick={onCancel}>âœ•</button>
+          <button className="tt-startdeck-close" onClick={onCancel}>✕</button>
           <h2 className="tt-startdeck-title">{t('games.toptrumps.deckStart.title')}</h2>
 
           <div className="tt-startdeck-opcoes">
