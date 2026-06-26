@@ -1,4 +1,4 @@
-import { getHexLine, distanciaHex } from './hexUtils'
+import { getHexLine, distanciaHex } from '../engine/hexUtils'
 
 const DIRECOES = {
   norte: { dr: -1, dc: 0 },

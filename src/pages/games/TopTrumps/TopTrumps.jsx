@@ -35,6 +35,7 @@ import img21 from '../../../assets/images/cards/characters/card-21.png'
 import img23 from '../../../assets/images/cards/characters/card-23.png'
 import CardViewerModal from './components/CardViewerModal'
 import DeckBuilder from './components/DeckBuilder'
+import DeckStartModal from './components/DeckStartModal'
 import './TopTrumps.css'
 
 // ── Imagens oficiais por id_num (season 1) ──

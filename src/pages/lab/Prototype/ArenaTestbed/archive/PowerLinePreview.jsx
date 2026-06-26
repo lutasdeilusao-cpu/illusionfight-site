@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
-import { getPersonagensNaLinha } from '../engine/getLineInDirection'
+import { getPersonagensNaLinha } from './getLineInDirection'
 import './PowerLinePreview.css'
 
 export default function PowerLinePreview({ origemRow, origemCol, forca, cols, rows, personagens, onConfirm, onCancel }) {
