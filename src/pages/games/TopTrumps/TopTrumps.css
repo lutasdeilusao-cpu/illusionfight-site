@@ -2164,54 +2164,124 @@
   margin: 0;
 }
 
-.ttmp-ppt-resultado {
+/* ── Batalha PPT (animação JO/KEN/PÔ) ── */
+.ttmp-ppt-batalha {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.ttmp-ppt-jogadores {
+.ttmp-ppt-maos {
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: center;
 }
 
-.ttmp-ppt-jogada {
+.ttmp-ppt-mao {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+  transition: filter 0.3s, transform 0.3s;
 }
 
-.ttmp-ppt-jogada-label {
+.ttmp-ppt-mao-icone {
+  font-size: 2.8rem;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+.ttmp-ppt-mao-label {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.6rem;
   color: #8B8F96;
   letter-spacing: 0.08em;
 }
 
-.ttmp-ppt-jogada-icone {
-  font-size: 2.5rem;
-  line-height: 1;
+.ttmp-ppt-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+}
+
+.ttmp-ppt-texto-animado {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e8853a;
+  animation: ttmp-pop-in 0.25s ease-out;
+}
+
+.ttmp-ppt-progresso {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ttmp-ppt-bolinha {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #2A2D31;
+  transition: background 0.2s;
+}
+
+.ttmp-ppt-bolinha.ativo {
+  background: #e8853a;
+}
+
+.ttmp-ppt-batalha--revelado .ttmp-ppt-mao {
+  animation: ttmp-reveal 0.4s ease-out;
 }
 
 .ttmp-ppt-resultado-texto {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
+  animation: ttmp-pop-in 0.35s ease-out;
 }
 
-.ttmp-resultado--ganhou {
+.ttmp-resultado--jogador {
   color: #1ea064;
 }
 
-.ttmp-resultado--perdeu {
+.ttmp-resultado--ia {
   color: #e74c3c;
 }
 
 .ttmp-resultado--empate {
   color: #e8853a;
+}
+
+/* ── Shake das mãos durante JO/KEN/PÔ ── */
+.ttmp-ppt-mao.shake {
+  animation: ttmp-shake 0.25s ease-in-out 2;
+}
+
+.ttmp-ppt-mao.flash-vencedor {
+  filter: drop-shadow(0 0 12px #1ea064);
+  transform: scale(1.15);
+}
+
+/* ── Keyframes ── */
+@keyframes ttmp-pop-in {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes ttmp-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-12deg); }
+  75%      { transform: rotate(12deg); }
+}
+
+@keyframes ttmp-reveal {
+  0%   { transform: scale(0.3); opacity: 0; }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes ttmp-pulse {

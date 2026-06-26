@@ -167,10 +167,11 @@ export default function TopTrumps() {
   const [revelandoResultado, setRevelandoResultado] = useState(false)
 
   // ── PPT inicial (jokenpô decorativo) ──
-  const [pptEscolha, setPptEscolha] = useState(null)
-  const [pptEscolhaIA, setPptEscolhaIA] = useState(null)
-  const [pptResultado, setPptResultado] = useState(null)
-  const [pptRevelado, setPptRevelado] = useState(false)
+  const [pptFase, setPptFase] = useState('escolha')
+  const [pptTexto, setPptTexto] = useState('')
+  const [pptMaoJogador, setPptMaoJogador] = useState(null)
+  const [pptMaoIA, setPptMaoIA] = useState(null)
+  const [pptShake, setPptShake] = useState(false)
 
   // ── Alternância de turnos ──
   const [vezAtual, setVezAtual] = useState('jogador')
@@ -259,40 +260,63 @@ export default function TopTrumps() {
     setHistoricoRodadas([])
     sortearTemplates()
     // PPT decorativo antes da primeira rodada
-    setPptEscolha(null)
-    setPptEscolhaIA(null)
-    setPptResultado(null)
-    setPptRevelado(false)
+    setPptFase('escolha')
+    setPptTexto('')
+    setPptMaoJogador(null)
+    setPptMaoIA(null)
+    setPptShake(false)
     setVezAtual('jogador')
     setIaEscolhendo(false)
     setFase('ppt')
   }
 
-  function escolherPPT(valor) {
-    if (pptEscolha !== null) return
+  function determinarVencedorPPT(jogador, ia) {
+    if (jogador === ia) return 'empate'
+    if (
+      (jogador === 'rock'     && ia === 'scissors') ||
+      (jogador === 'paper'    && ia === 'rock')     ||
+      (jogador === 'scissors' && ia === 'paper')
+    ) return 'jogador'
+    return 'ia'
+  }
+
+  const delay = (ms) => new Promise(r => setTimeout(r, ms))
+
+  async function handlePptEscolha(jogadorId) {
+    if (pptFase !== 'escolha') return
     sfx.pptChoice?.() || sfx.select()
-    setPptEscolha(valor)
-    // IA "pensa" e escolhe após delay
-    setTimeout(() => {
-      const escolhaIA = Math.floor(Math.random() * 3)
-      setPptEscolhaIA(escolhaIA)
-      const diff = (3 + valor - escolhaIA) % 3
-      const res = diff === 0 ? 'empate' : diff === 1 ? 'ganhou' : 'perdeu'
-      setPptResultado(res)
-      setPptRevelado(true)
-      if (res === 'ganhou') sfx.win()
-      else if (res === 'perdeu') sfx.lose()
-      else sfx.draw()
-      // Define quem começa: jogador venceu ou empatou → jogador; IA venceu → IA
-      const primeiro = (res === 'ganhou' || res === 'empate') ? 'jogador' : 'ia'
-      setVezAtual(primeiro)
-      // Transição automática para a primeira rodada
-      setTimeout(() => {
-        setRodada(1)
-        setFase('jogando')
-        // IA será disparada pelo useEffect abaixo
-      }, 2000)
-    }, 1200)
+    setPptMaoJogador(jogadorId)
+    // Gera escolha da IA
+    const opcoes = ['rock', 'paper', 'scissors']
+    const iaId = opcoes[Math.floor(Math.random() * 3)]
+    setPptMaoIA(iaId)
+    // Fase 1: animação JO → KEN → PÔ com shake
+    setPptFase('animando')
+    const passos = [
+      { texto: 'JO',   atraso: 400 },
+      { texto: 'KEN',  atraso: 400 },
+      { texto: 'PÔ!', atraso: 500 },
+    ]
+    for (const passo of passos) {
+      setPptTexto(passo.texto)
+      setPptShake(true)
+      await delay(passo.atraso)
+      setPptShake(false)
+      await delay(150)
+    }
+    // Fase 2: revela resultado
+    const res = determinarVencedorPPT(jogadorId, iaId)
+    setPptFase('resultado')
+    if (res === 'jogador') sfx.win()
+    else if (res === 'ia') sfx.lose()
+    else sfx.draw()
+    // Quem começa: jogador venceu/empatou → jogador; IA venceu → IA
+    const primeiro = (res === 'jogador' || res === 'empate') ? 'jogador' : 'ia'
+    setVezAtual(primeiro)
+    // Transição para primeira rodada após 1,5s
+    await delay(1500)
+    setRodada(1)
+    setFase('jogando')
   }
 
   function gerarParticulas(tipo) {
@@ -730,49 +754,85 @@ export default function TopTrumps() {
 
   if (fase === 'ppt') {
     const opcoes = [
-      { valor: 0, nome: t('games.toptrumps.ppt_pedra'), icone: '\u270A' },
-      { valor: 1, nome: t('games.toptrumps.ppt_papel'), icone: '\u270B' },
-      { valor: 2, nome: t('games.toptrumps.ppt_tesoura'), icone: '\u270C\uFE0F' }
+      { id: 'rock',     nome: t('games.toptrumps.ppt_rock'),     icone: '\u270A' },
+      { id: 'paper',    nome: t('games.toptrumps.ppt_paper'),    icone: '\u270B' },
+      { id: 'scissors', nome: t('games.toptrumps.ppt_scissors'), icone: '\u270C\uFE0F' }
     ]
+    const iconeJogador = opcoes.find(o => o.id === pptMaoJogador)?.icone || ''
+    const iconeIA = opcoes.find(o => o.id === pptMaoIA)?.icone || ''
     return (
       <section className="tt-page">
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
           {somAtivo ? '\uD83D\uDD0A' : '\uD83D\uDD07'}
         </button>
         <div className="ttmp-ppt-container">
-          <h2 className="ttmp-ppt-titulo">{t('games.toptrumps.mp.ppt_titulo')}</h2>
-          <p className="ttmp-ppt-subtitulo">{t('games.toptrumps.mp.ppt_subtitulo')}</p>
-          {!pptRevelado ? (
+          <h2 className="ttmp-ppt-titulo">{t('games.toptrumps.ppt_titulo')}</h2>
+          <p className="ttmp-ppt-subtitulo">{t('games.toptrumps.ppt_subtitulo')}</p>
+
+          {pptFase === 'escolha' && (
             <>
               <div className="ttmp-ppt-opcoes">
                 {opcoes.map(op => (
-                  <button key={op.valor}
+                  <button key={op.id}
                     className="ttmp-ppt-btn"
-                    disabled={pptEscolha !== null}
-                    onClick={() => escolherPPT(op.valor)}>
+                    onClick={() => handlePptEscolha(op.id)}>
                     <span className="ttmp-ppt-icone">{op.icone}</span>
                     <span className="ttmp-ppt-nome">{op.nome}</span>
                   </button>
                 ))}
               </div>
-              {pptEscolha !== null && <p className="ttmp-ppt-aguardando">{t('games.toptrumps.mp.ppt_aguardando')}</p>}
+              <p className="ttmp-ppt-aguardando">{t('games.toptrumps.ppt_aguardando')}</p>
             </>
-          ) : (
-            <div className="ttmp-ppt-resultado">
-              <div className="ttmp-ppt-jogadores">
-                <div className="ttmp-ppt-jogada">
-                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.mp.ppt_voce')}</span>
-                  <span className="ttmp-ppt-jogada-icone">{opcoes.find(o => o.valor === pptEscolha)?.icone}</span>
+          )}
+
+          {pptFase === 'animando' && (
+            <div className="ttmp-ppt-batalha">
+              <div className="ttmp-ppt-maos">
+                <div className={`ttmp-ppt-mao ttmp-ppt-mao--jogador ${pptShake ? 'shake' : ''}`}>
+                  <span className="ttmp-ppt-mao-icone">{iconeJogador}</span>
+                  <span className="ttmp-ppt-mao-label">{t('games.toptrumps.ppt_voce')}</span>
                 </div>
-                <div className="ttmp-ppt-jogada">
-                  <span className="ttmp-ppt-jogada-label">{t('games.toptrumps.ia')}</span>
-                  <span className="ttmp-ppt-jogada-icone">{opcoes.find(o => o.valor === pptEscolhaIA)?.icone}</span>
+                <div className="ttmp-ppt-vs">
+                  <span className="ttmp-ppt-texto-animado">{pptTexto}</span>
+                </div>
+                <div className={`ttmp-ppt-mao ttmp-ppt-mao--ia ${pptShake ? 'shake' : ''}`}>
+                  <span className="ttmp-ppt-mao-icone">{iconeIA}</span>
+                  <span className="ttmp-ppt-mao-label">{t('games.toptrumps.ppt_ia')}</span>
                 </div>
               </div>
-              <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${pptResultado}`}>
-                {pptResultado === 'ganhou' ? t('games.toptrumps.mp.ppt_venceu') : pptResultado === 'perdeu' ? t('games.toptrumps.mp.ppt_perdeu') : t('games.toptrumps.mp.ppt_empate')}
+              <div className="ttmp-ppt-progresso">
+                <span className="ttmp-ppt-bolinha ativo" />
+                <span className="ttmp-ppt-bolinha ativo" />
+                <span className="ttmp-ppt-bolinha ativo" />
               </div>
             </div>
+          )}
+
+          {pptFase === 'resultado' && (
+            (() => {
+              const vencedor = determinarVencedorPPT(pptMaoJogador, pptMaoIA)
+              return (
+            <div className="ttmp-ppt-batalha ttmp-ppt-batalha--revelado">
+              <div className="ttmp-ppt-maos">
+                <div className={`ttmp-ppt-mao ttmp-ppt-mao--jogador ${vencedor === 'jogador' ? 'flash-vencedor' : ''}`}>
+                  <span className="ttmp-ppt-mao-icone">{iconeJogador}</span>
+                  <span className="ttmp-ppt-mao-label">{t('games.toptrumps.ppt_voce')}</span>
+                </div>
+                <div className={`ttmp-ppt-mao ttmp-ppt-mao--ia ${vencedor === 'ia' ? 'flash-vencedor' : ''}`}>
+                  <span className="ttmp-ppt-mao-icone">{iconeIA}</span>
+                  <span className="ttmp-ppt-mao-label">{t('games.toptrumps.ppt_ia')}</span>
+                </div>
+              </div>
+              <div className={`ttmp-ppt-resultado-texto ttmp-resultado--${vencedor}`}>
+                {vencedor === 'jogador'
+                  ? t('games.toptrumps.ppt_voce_vence')
+                  : vencedor === 'ia'
+                  ? t('games.toptrumps.ppt_ia_vence')
+                  : t('games.toptrumps.ppt_empate')}
+              </div>
+            </div>
+              )
+            })()
           )}
         </div>
       </section>
