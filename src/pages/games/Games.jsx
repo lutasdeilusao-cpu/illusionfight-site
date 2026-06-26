@@ -9,15 +9,15 @@ import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalC
 import './Games.css'
 
 export const JOGOS = [
-  { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: 'ðŸƒ', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
-  { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: 'ðŸ¥š', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.lancado' },
-  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: 'ðŸŽ®', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.lancado' },
-  { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: 'ðŸŸï¸', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.beta' },
-  { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: 'âš”ï¸', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta' },
-  { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: 'ðŸº', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta' },
-  { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: 'ðŸ•µï¸', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta' },
-  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: 'â™Ÿï¸', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', emBreve: true },
-  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: 'âš”ï¸', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', emBreve: true },
+  { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
+  { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.lancado' },
+  { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.lancado' },
+  { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.beta' },
+  { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta' },
+  { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta' },
+  { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta' },
+  { id: 'tatics', nomeKey: 'site.games.nomes.tatics', tagKey: 'site.games.taglines.tatics', emoji: '♟️', cor: '#666', rota: '/games/ldi-tatics', badgeKey: 'site.games.badges.em_breve', emBreve: true },
+  { id: 'duelo', nomeKey: 'site.games.nomes.duelo', tagKey: 'site.games.taglines.duelo', emoji: '⚔️', cor: '#666', rota: '/games/duelo', badgeKey: 'site.games.badges.em_breve', emBreve: true },
 ]
 
 const BADGE_CORES = {
@@ -28,8 +28,8 @@ const BADGE_CORES = {
 }
 
 const CONTEUDO = [
-  { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: 'ðŸŽ¯', cor: '#22C55E', rota: '/quiz', badgeKey: 'site.games.badges.free' },
-  { id: 'leaderboard', nomeKey: 'site.games.nomes.leaderboard', tagKey: 'site.games.taglines.leaderboard', emoji: 'ðŸ†', cor: '#F5A623', rota: '/leaderboard', badgeKey: 'site.games.badges.free' },
+  { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: '🎯', cor: '#22C55E', rota: '/quiz', badgeKey: 'site.games.badges.free' },
+  { id: 'leaderboard', nomeKey: 'site.games.nomes.leaderboard', tagKey: 'site.games.taglines.leaderboard', emoji: '🏆', cor: '#F5A623', rota: '/leaderboard', badgeKey: 'site.games.badges.free' },
 ]
 
 // Games that require ficha (not FREE badge)
@@ -83,13 +83,13 @@ export default function Games() {
           <span className="extras-titulo-glitch" data-text={t('site.games.titulo')}>{t('site.games.titulo')}</span>
         </h1>
         <p className="extras-subtitulo">
-          <span className="extras-cursor">â–ˆ</span> {t('site.games.subtitulo')}
+          <span className="extras-cursor">█</span> {t('site.games.subtitulo')}
         </p>
       </div>
 
       <section className="extras-secao">
         <div className="extras-secao-label">
-          <span>â–¶ {t('site.games.secao_jogos')}</span>
+          <span>▶ {t('site.games.secao_jogos')}</span>
           <div className="extras-secao-linha" />
         </div>
         <div className="extras-jogos-grid">
@@ -116,7 +116,7 @@ export default function Games() {
 
       <section className="extras-secao">
         <div className="extras-secao-label">
-          <span>â–¶ {t('site.games.secao_conteudo')}</span>
+          <span>▶ {t('site.games.secao_conteudo')}</span>
           <div className="extras-secao-linha" />
         </div>
         <div className="extras-conteudo-grid">
@@ -132,7 +132,7 @@ export default function Games() {
       </section>
 
       <div className="extras-footer-arcade">
-        <span className="extras-footer-credits">Â© {new Date().getFullYear()} {t('site.games.credits')}</span>
+        <span className="extras-footer-credits">© {new Date().getFullYear()} {t('site.games.credits')}</span>
       </div>
 
       {/* Modals for each gated game */}

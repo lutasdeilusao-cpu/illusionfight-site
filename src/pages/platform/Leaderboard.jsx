@@ -23,7 +23,7 @@ function RankingSection({ rank, carregando, posicao, scope, setScope, user, perf
       <div className="lb-ranking-meta">
         <span className="lb-periodo">{getPeriodLabel()}</span>
         <div className="lb-scope-toggle">
-          <button className={`lb-scope-btn${scope === 'global' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('global')}>ðŸŒŽ Global</button>
+          <button className={`lb-scope-btn${scope === 'global' ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope('global')}>🌎 Global</button>
           {meuPais && (
             <button className={`lb-scope-btn${scope === meuPais ? ' lb-scope-btn--ativo' : ''}`} onClick={() => setScope(meuPais)}>
               {getNomePais(meuPais, locale)}
@@ -155,8 +155,8 @@ export default function Leaderboard() {
             rank={rankTT} carregando={carregandoTT} posicao={posicaoTT}
             scope={scopeTT} setScope={setScopeTT}
             user={user} perfil={perfil} t={t} locale={locale}
-            msgVazio="Nenhuma partida ranqueada este mÃªs ainda. Seja o primeiro!"
-            msgSemPosicao="VocÃª ainda nÃ£o pontuou este mÃªs. VenÃ§a uma partida para entrar!"
+            msgVazio="Nenhuma partida ranqueada este mês ainda. Seja o primeiro!"
+            msgSemPosicao="Você ainda não pontuou este mês. Vença uma partida para entrar!"
           />
         )}
 
@@ -165,8 +165,8 @@ export default function Leaderboard() {
             rank={rankArena} carregando={carregandoArena} posicao={posicaoArena}
             scope={scopeArena} setScope={setScopeArena}
             user={user} perfil={perfil} t={t} locale={locale}
-            msgVazio="Nenhuma vitÃ³ria ranqueada este mÃªs ainda. Seja o primeiro!"
-            msgSemPosicao="VocÃª ainda nÃ£o pontuou este mÃªs. VenÃ§a uma batalha na Arena!"
+            msgVazio="Nenhuma vitória ranqueada este mês ainda. Seja o primeiro!"
+            msgSemPosicao="Você ainda não pontuou este mês. Vença uma batalha na Arena!"
           />
         )}
 
@@ -176,8 +176,8 @@ export default function Leaderboard() {
             scope={scopeTama} setScope={setScopeTama}
             user={user} perfil={perfil} t={t} locale={locale}
             colVitorias={false}
-            msgVazio="Nenhum cuidador pontuou este mÃªs ainda. Cuide da sua criatura para entrar!"
-            msgSemPosicao="VocÃª ainda nÃ£o pontuou este mÃªs. Alimente, banhe ou passeie com sua criatura!"
+            msgVazio="Nenhum cuidador pontuou este mês ainda. Cuide da sua criatura para entrar!"
+            msgSemPosicao="Você ainda não pontuou este mês. Alimente, banhe ou passeie com sua criatura!"
           />
         )}
 

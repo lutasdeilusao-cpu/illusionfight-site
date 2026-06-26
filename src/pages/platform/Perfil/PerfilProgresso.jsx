@@ -8,35 +8,35 @@ function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime()
   const mins = Math.floor(diff / 60000)
   if (mins < 1) return 'agora'
-  if (mins < 60) return `${mins}m atrÃ¡s`
+  if (mins < 60) return `${mins}m atrás`
   const hours = Math.floor(mins / 60)
-  if (hours < 24) return `${hours}h atrÃ¡s`
+  if (hours < 24) return `${hours}h atrás`
   const days = Math.floor(hours / 24)
   if (days === 1) return 'ontem'
-  return `${days}d atrÃ¡s`
+  return `${days}d atrás`
 }
 
 function iconePorTipo(tipo) {
   const mapa = {
-    webtoon_lido: 'ðŸ“–',
-    capitulo_lido: 'ðŸ“–',
-    sessao_longa: 'â±ï¸',
-    jogo_jogado: 'ðŸŽ®',
-    caso_resolvido: 'ðŸ”',
-    arena_vitoria: 'âš”ï¸',
-    arena_levelup: 'â¬†ï¸',
-    tama_criado: 'ðŸ¥š',
-    tama_fase: 'ðŸ¥š',
-    lendas_personagem: 'ðŸ“',
-    lendas_act: 'ðŸŽ­',
-    trumps_vitoria: 'ðŸƒ',
-    trumps_carta: 'ðŸƒ',
-    jack_caso: 'ðŸº',
-    conquista: 'ðŸ†',
-    minigame_completo: 'ðŸŽ¯',
-    perfil_completo: 'ðŸŒŸ',
+    webtoon_lido: '📖',
+    capitulo_lido: '📖',
+    sessao_longa: '⏱️',
+    jogo_jogado: '🎮',
+    caso_resolvido: '🔍',
+    arena_vitoria: '⚔️',
+    arena_levelup: '⬆️',
+    tama_criado: '🥚',
+    tama_fase: '🥚',
+    lendas_personagem: '📝',
+    lendas_act: '🎭',
+    trumps_vitoria: '🃏',
+    trumps_carta: '🃏',
+    jack_caso: '🍺',
+    conquista: '🏆',
+    minigame_completo: '🎯',
+    perfil_completo: '🌟',
   }
-  return mapa[tipo] || 'ðŸ“Œ'
+  return mapa[tipo] || '📌'
 }
 
 export default function PerfilProgresso() {
@@ -75,7 +75,7 @@ export default function PerfilProgresso() {
         <span className="perfil-progresso-contagem">{metasAtingidas.length}/{METAS_PROGRESSO.length}</span>
       </div>
 
-      {/* Ãšltimos eventos */}
+      {/* Últimos eventos */}
       {eventos.length > 0 && (
         <div className="perfil-progresso-eventos">
           {eventos.map((ev, i) => (
@@ -91,7 +91,7 @@ export default function PerfilProgresso() {
       {/* Banner 100% */}
       {progresso === 100 && !jaResgatou && (
         <div className="perfil-progresso-premio">
-          <span className="perfil-progresso-premio-icone">ðŸŒŸ</span>
+          <span className="perfil-progresso-premio-icone">🌟</span>
           <span className="perfil-progresso-premio-texto">{t('site.perfil.progresso_100_parabens')}</span>
           <button
             className="perfil-progresso-premio-btn"
@@ -105,7 +105,7 @@ export default function PerfilProgresso() {
 
       {jaResgatou && progresso === 100 && (
         <div className="perfil-progresso-premio perfil-progresso-premio--resgatado">
-          <span className="perfil-progresso-premio-icone">âœ…</span>
+          <span className="perfil-progresso-premio-icone">✅</span>
           <span className="perfil-progresso-premio-texto">{t('site.perfil.progresso_ja_resgatou')}</span>
         </div>
       )}
@@ -117,7 +117,7 @@ export default function PerfilProgresso() {
             const atingida = metasAtingidas.includes(meta.id)
             return (
               <div key={meta.id} className={`perfil-progresso-meta${atingida ? '--ok' : '--pendente'}`}>
-                <span className="perfil-progresso-meta-status">{atingida ? 'âœ“' : 'â—‹'}</span>
+                <span className="perfil-progresso-meta-status">{atingida ? '✓' : '○'}</span>
                 <span className="perfil-progresso-meta-label">{meta.label}</span>
               </div>
             )

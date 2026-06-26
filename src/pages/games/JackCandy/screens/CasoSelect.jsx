@@ -20,7 +20,7 @@ export default function CasoSelect() {
   )
 
   useEffect(() => {
-    console.log('[CASOS] disponÃ­veis:', casosDisponiveis.map(c => c.id))
+    console.log('[CASOS] disponíveis:', casosDisponiveis.map(c => c.id))
     console.log('[CASOS] resolvidos:', casosResolvidos.map(c => c.id))
   }, [store.casosResolvidos, store.flags])
 
@@ -52,7 +52,7 @@ export default function CasoSelect() {
           }}
           whileHover={{ x: 4 }}
         >
-          <span className="jdc-icon-lg">ðŸ“‹</span>
+          <span className="jdc-icon-lg">📋</span>
           <div className="jdc-flex-left">
             <span className="jack-text" style={{ fontSize: '0.85rem' }}>
               {caso.nome}
@@ -61,13 +61,13 @@ export default function CasoSelect() {
               )}
             </span>
             <span className="jack-text--dim jdc-casoselect-detail">
-              {caso.cidade} Â· {caso.suspeitos.length} suspeitos Â· {caso.pistasNecessarias} pistas mÃ­nimas
+              {caso.cidade} · {caso.suspeitos.length} suspeitos · {caso.pistasNecessarias} pistas mínimas
             </span>
             <span className="jack-text--dim jdc-casoselect-client">
               {t('games.jackcandy.casoselect_cliente', { nome: caso.cliente || t('games.jackcandy.casoselect_anonimo') })}
             </span>
           </div>
-          <span className="jdc-arrow-amber">â†’</span>
+          <span className="jdc-arrow-amber">→</span>
         </motion.button>
       ))}
 
@@ -79,7 +79,7 @@ export default function CasoSelect() {
           {casosResolvidos.map(caso => (
             <div key={caso.id} className="jdc-dungeon-card"
               className="jdc-casoselect-resolvido-card" style={{ borderLeftColor: '#22C55E' }}>
-              <span className="jdc-icon-lg">âœ…</span>
+              <span className="jdc-icon-lg">✅</span>
               <div className="jdc-flex-left">
                 <span className="jack-text jdc-text-sm">{caso.nome}</span>
                 <span className="jack-text--dim jdc-casoselect-resolvido-desc">

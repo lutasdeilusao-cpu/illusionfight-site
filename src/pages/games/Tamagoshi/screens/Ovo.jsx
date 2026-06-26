@@ -11,7 +11,7 @@ export default function Ovo({ onEclodir }) {
           animate={{ scale: [1, 1.08, 1], rotate: [0, -3, 3, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         >
-          ðŸ¥š
+          🥚
         </motion.div>
         <p className="tama-ovo-text">{t('games.tamagoshi.ovo_texto')}</p>
         <motion.button

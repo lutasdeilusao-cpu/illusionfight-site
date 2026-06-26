@@ -75,14 +75,14 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
                 <div className="jdc-slot-num">{t('games.jackcandy.slot', { n: num })}</div>
                 {save ? (
                   <div className="jdc-slot-info">
-                    <div className="jdc-slot-stat">ðŸº {save.cervejas || 0}</div>
+                    <div className="jdc-slot-stat">🍺 {save.cervejas || 0}</div>
                     <div className="jdc-slot-stat">LV {save.nivel || 1}</div>
                     <div className="jdc-slot-stat">{cidade?.nome || 'Marelia'}</div>
                     <div className="jdc-slot-stat jdc-slot-stat--dim">
-                      {save.dungeons_completas?.length || 0} dungeons Â· cap/s {(save.cervejas_por_segundo || 1)}
+                      {save.dungeons_completas?.length || 0} dungeons · cap/s {(save.cervejas_por_segundo || 1)}
                     </div>
                     <div className="jdc-slot-stat jdc-slot-stat--amber">
-                      {save.casos_resolvidos?.length > 0 ? `ðŸ” ${save.casos_resolvidos.length} caso(s)` : ''}
+                      {save.casos_resolvidos?.length > 0 ? `🔍 ${save.casos_resolvidos.length} caso(s)` : ''}
                     </div>
                   </div>
                 ) : (
@@ -92,7 +92,7 @@ export default function MainMenu({ slotsData, onStart, onDeleteSlot }) {
                   </div>
                 )}
                 {save && (
-                  <span className="jdc-slot-delete" onClick={(e) => handleDelete(num, e)} title={t('games.jackcandy.apagar')}>ðŸ—‘ï¸</span>
+                  <span className="jdc-slot-delete" onClick={(e) => handleDelete(num, e)} title={t('games.jackcandy.apagar')}>🗑️</span>
                 )}
               </motion.button>
             )

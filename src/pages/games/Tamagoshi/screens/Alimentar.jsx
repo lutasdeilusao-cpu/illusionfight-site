@@ -23,7 +23,7 @@ export default function Alimentar({ onConcluir }) {
   const todasComidas = tematica ? [tematica, ...comidasDisponiveis] : comidasDisponiveis
   const comidasNoInv = todasComidas.filter(c => (inv[c.id] || 0) > 0)
   const temAlguma = comidasNoInv.length > 0
-  const emojiExibicao = ultimoItem?.emoji || comidasNoInv[0]?.emoji || 'ðŸ–'
+  const emojiExibicao = ultimoItem?.emoji || comidasNoInv[0]?.emoji || '🍖'
 
   const handleAlimentar = async (itemId) => {
     if (animando) return

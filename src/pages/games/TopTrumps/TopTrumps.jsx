@@ -32,9 +32,11 @@ import img14 from '../../../assets/images/cards/characters/card-14.png'
 import img15 from '../../../assets/images/cards/characters/card-15.png'
 import img21 from '../../../assets/images/cards/characters/card-21.png'
 import img23 from '../../../assets/images/cards/characters/card-23.png'
+import CardViewerModal from './components/CardViewerModal'
+import DeckBuilder from './components/DeckBuilder'
 import './TopTrumps.css'
 
-// â”€â”€ Imagens oficiais por id_num (season 1) â”€â”€
+// ── Imagens oficiais por id_num (season 1) ──
 const CARD_IMAGES = {
   1: img01, 2: img02, 3: img03, 4: img04, 5: img05,
   6: img06, 7: img07, 8: img08, 9: img09, 10: img10,
@@ -154,17 +156,17 @@ export default function TopTrumps() {
   const [cortinaAtiva, setCortinaAtiva] = useState(false)
   const [revelandoResultado, setRevelandoResultado] = useState(false)
 
-  // â”€â”€ PPT inicial (jokenpÃ´ decorativo) â”€â”€
+  // ── PPT inicial (jokenpô decorativo) ──
   const [pptEscolha, setPptEscolha] = useState(null)
   const [pptEscolhaIA, setPptEscolhaIA] = useState(null)
   const [pptResultado, setPptResultado] = useState(null)
   const [pptRevelado, setPptRevelado] = useState(false)
 
-  // â”€â”€ AlternÃ¢ncia de turnos â”€â”€
+  // ── Alternância de turnos ──
   const [vezAtual, setVezAtual] = useState('jogador')
   const [iaEscolhendo, setIaEscolhendo] = useState(false)
 
-  // â”€â”€ Heartbeat loop durante a escolha de atributo â”€â”€
+  // ── Heartbeat loop durante a escolha de atributo ──
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   function toggleSom() {
     const novo = sfx.toggle()
@@ -179,7 +181,7 @@ export default function TopTrumps() {
     return () => sfx.stopHeartbeatLoop()
   }, [fase, confirmandoAtributo])
 
-  // â”€â”€ IA turn trigger: quando vezAtual === 'ia' e fase === 'jogando', dispara com delay â”€â”€
+  // ── IA turn trigger: quando vezAtual === 'ia' e fase === 'jogando', dispara com delay ──
   useEffect(() => {
     if (vezAtual !== 'ia' || fase !== 'jogando') return
     const timer = setTimeout(() => iaEscolherAtributo(), 500)
@@ -231,13 +233,13 @@ export default function TopTrumps() {
   }
 
   function iniciarJogoComCartas(cartaIds) {
-    // cartaIds = array de IDs (id_num) vindos do deck ou aleatÃ³rio
-    // Garante que nÃ£o haja cartas repetidas dentro do deck de cada jogador
+    // cartaIds = array de IDs (id_num) vindos do deck ou aleatório
+    // Garante que não haja cartas repetidas dentro do deck de cada jogador
     sfx.nextRound()
-    // Player: 5 cartas Ãºnicas da coleÃ§Ã£o (embaralhadas)
+    // Player: 5 cartas únicas da coleção (embaralhadas)
     const pool = embaralhar([...deckUsuario])
     const cartasJogador = pool.slice(0, 5)
-    // IA: 5 cartas Ãºnicas da coleÃ§Ã£o (pode coincidir com as do player)
+    // IA: 5 cartas únicas da coleção (pode coincidir com as do player)
     const cartasIA = embaralhar([...deckUsuario]).slice(0, 5)
     setDeckJogador(cartasJogador)
     setDeckIA(cartasIA)
@@ -260,7 +262,7 @@ export default function TopTrumps() {
     if (pptEscolha !== null) return
     sfx.pptChoice?.() || sfx.select()
     setPptEscolha(valor)
-    // IA "pensa" e escolhe apÃ³s delay
+    // IA "pensa" e escolhe após delay
     setTimeout(() => {
       const escolhaIA = Math.floor(Math.random() * 3)
       setPptEscolhaIA(escolhaIA)
@@ -271,14 +273,14 @@ export default function TopTrumps() {
       if (res === 'ganhou') sfx.win()
       else if (res === 'perdeu') sfx.lose()
       else sfx.draw()
-      // Define quem comeÃ§a: jogador venceu ou empatou â†’ jogador; IA venceu â†’ IA
+      // Define quem começa: jogador venceu ou empatou → jogador; IA venceu → IA
       const primeiro = (res === 'ganhou' || res === 'empate') ? 'jogador' : 'ia'
       setVezAtual(primeiro)
-      // TransiÃ§Ã£o automÃ¡tica para a primeira rodada
+      // Transição automática para a primeira rodada
       setTimeout(() => {
         setRodada(1)
         setFase('jogando')
-        // IA serÃ¡ disparada pelo useEffect abaixo
+        // IA será disparada pelo useEffect abaixo
       }, 2000)
     }, 1200)
   }
@@ -312,11 +314,11 @@ export default function TopTrumps() {
   function iaEscolherAtributo() {
     if (!cartaJogador || !cartaIA || fase !== 'jogando') return
     setIaEscolhendo(true)
-    // Aguarda delay dramÃ¡tico antes de escolher
+    // Aguarda delay dramático antes de escolher
     setTimeout(() => {
       if (!cartaJogador || !cartaIA) { setIaEscolhendo(false); return }
-      // IA escolhe um atributo aleatÃ³rio (nÃ£o vÃª os valores do jogador â€” Ã© justo)
-      // rank_sdr nÃ£o Ã© um atributo jogÃ¡vel (Ã© apenas informativo na carta)
+      // IA escolhe um atributo aleatório (não vê os valores do jogador — é justo)
+      // rank_sdr não é um atributo jogável (é apenas informativo na carta)
       const attrsDisponiveis = atributos.filter(attr => cartaIA.atributos[attr.id] !== undefined && attr.id !== 'rank_sdr')
       if (!attrsDisponiveis.length) { setIaEscolhendo(false); return }
       const escolhido = attrsDisponiveis[Math.floor(Math.random() * attrsDisponiveis.length)]
@@ -391,14 +393,14 @@ export default function TopTrumps() {
   function proximaRodada() {
     sfx.nextRound()
     if (rodada >= totalTurnos) { finalizarPartida(); return }
-    // Usa mÃ³dulo para ciclar pelas cartas do deck â€” cada deck contÃ©m cartas Ãºnicas
+    // Usa módulo para ciclar pelas cartas do deck — cada deck contém cartas únicas
     const pJ = deckJogador[rodada % deckJogador.length]
     const pI = deckIA[rodada % deckIA.length]
     setCartaJogador(pJ); setCartaIA(pI)
     setAtributoEscolhido(null); setResultado(null)
     setRodada(r => r + 1); setFase('jogando')
     sortearTemplates()
-    // Alterna vezAtual (IA serÃ¡ disparada pelo useEffect abaixo)
+    // Alterna vezAtual (IA será disparada pelo useEffect abaixo)
     setVezAtual(v => v === 'jogador' ? 'ia' : 'jogador')
   }
 
@@ -446,7 +448,7 @@ export default function TopTrumps() {
     const derrotas = historicoRodadas.filter(h => h.resultado === 'perdeu').length
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
 
-    // Cada partida consuma 1 tentativa â€” AWAIT para evitar race condition
+    // Cada partida consuma 1 tentativa — AWAIT para evitar race condition
     let usadasHoje = 0
     if (user) {
       usadasHoje = await consumirTentativa(user.id)
@@ -481,11 +483,11 @@ export default function TopTrumps() {
   }
 
   async function escolherRecompensa(carta) {
-    // VerificaÃ§Ã£o extra no banco ANTES de dar a carta (anti-reload)
+    // Verificação extra no banco ANTES de dar a carta (anti-reload)
     if (user) {
       const jaGanhou = await verificarCartaGanhaHoje(user.id)
       if (jaGanhou) {
-        console.warn('[TT] Tentativa de ganhar carta novamente no mesmo dia â€” bloqueado pelo servidor')
+        console.warn('[TT] Tentativa de ganhar carta novamente no mesmo dia — bloqueado pelo servidor')
         setFase('fim_jogo')
         return
       }
@@ -516,7 +518,7 @@ export default function TopTrumps() {
       let cartas = idsUnicos.map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
 
       if (idsUnicos.length > 0 && cartas.length < 5) {
-        console.log('[TT] deck corrompido â€” apenas', cartas.length, 'cartas vÃ¡lidas de', idsUnicos.length, '. Gerando novo deck...')
+        console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', idsUnicos.length, '. Gerando novo deck...')
         const novas = embaralhar([...todasCartas]).slice(0, 5)
         substituirDeck(user.id, novas.map(c => c.id)).then(() => {
           setDeckUsuario(novas)
@@ -531,7 +533,7 @@ export default function TopTrumps() {
         const todosIds = todasCartas.map(c => c.id)
         const faltando = todosIds.filter(n => !idsTem.has(n))
         if (faltando.length > 0) {
-          console.log('[TT] Admin auto-fill â€” adicionando cartas faltantes:', faltando)
+          console.log('[TT] Admin auto-fill — adicionando cartas faltantes:', faltando)
           salvarCartasDeck(user.id, faltando)
         }
       }
@@ -543,7 +545,7 @@ export default function TopTrumps() {
     })
   }, [user])
 
-  // Guest: gera deck temporÃ¡rio em memÃ³ria (sem persistÃªncia)
+  // Guest: gera deck temporário em memória (sem persistência)
   useEffect(() => {
     if (user) return
     if (deckUsuario.length === 0) {
@@ -564,7 +566,7 @@ export default function TopTrumps() {
       <section className="tt-page tt-page--menu"><div className="tt-menu-bg" /><div className="tt-menu-layout">
         {/* Sound toggle */}
           <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-menu-cards"><div className="tt-card-stack">
           <div className="tt-card-sample tt-card-sample--1" /><div className="tt-card-sample tt-card-sample--2" />
@@ -603,7 +605,7 @@ export default function TopTrumps() {
                   <div className="tt-modo-card tt-modo-card--locked" onClick={() => { sfx.click(); setModalMultiplayerLocked(true) }}>
                     <h3 className="tt-modo-titulo">{t('games.toptrumps.menu_multiplayer')}</h3>
                     <p className="tt-modo-desc">{t('games.toptrumps.menu_multi_desc')}</p>
-                    <span className="tt-modo-card-lock-icon">ðŸ”’</span>
+                    <span className="tt-modo-card-lock-icon">🔒</span>
                   </div>
                 )}
               </div>
@@ -622,12 +624,12 @@ export default function TopTrumps() {
                 {user && (
                   jaGanhouHoje ? (
                     <div className="tt-ja-ganhou-hoje">
-                      <span className="tt-ja-ganhou-icone">ðŸ†</span>
+                      <span className="tt-ja-ganhou-icone">🏆</span>
                       <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou')}</p>
                     </div>
                   ) : deckUsuario.length >= todasCartas.length ? (
                     <div className="tt-ja-ganhou-hoje">
-                      <span className="tt-ja-ganhou-icone">ðŸ†</span>
+                      <span className="tt-ja-ganhou-icone">🏆</span>
                       <p className="tt-ja-ganhou-texto">{t('games.toptrumps.menu_ja_ganhou_todas')}</p>
                     </div>
                   ) : (
@@ -645,7 +647,7 @@ export default function TopTrumps() {
                 {user && (
                   <>
                 <button className="tt-btn-deck-builder" onClick={() => { sfx.click(); setShowDeckBuilder(true) }}>
-                  ðŸƒ {t('games.toptrumps.deckBuilderBtn')}
+                  🃏 {t('games.toptrumps.deckBuilderBtn')}
                 </button>
                 <Link to="/perfil?aba=colecao" className="tt-link-album">{t('games.toptrumps.menu_album')}</Link>
                   </>
@@ -928,7 +930,7 @@ export default function TopTrumps() {
         <section className="tt-page">
         {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {somAtivo ? '🔊' : '🔇'}
         </button>
         {particulas.map(p => (
           <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
@@ -968,7 +970,7 @@ export default function TopTrumps() {
                     <span className="tt-resultado-attr-label">{t('games.toptrumps.voce')}</span>
                     <span className={`tt-resultado-attr-valor ${resultado === 'ganhou' ? 'tt-resultado-attr--ganhou' : resultado === 'perdeu' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaJogador.atributos[atributoEscolhido]}</span>
                   </div>
-                  <span className="tt-resultado-attr-x">Ã—</span>
+                  <span className="tt-resultado-attr-x">×</span>
                   <div className="tt-resultado-attr-lado tt-resultado-attr-lado--ia">
                     <span className="tt-resultado-attr-label">{t('games.toptrumps.ia')}</span>
                     <span className={`tt-resultado-attr-valor ${resultado === 'perdeu' ? 'tt-resultado-attr--ganhou' : resultado === 'ganhou' ? 'tt-resultado-attr--perdeu' : ''}`}>{cartaIA.atributos[atributoEscolhido]}</span>
@@ -998,7 +1000,7 @@ export default function TopTrumps() {
       <section className="tt-page">
         {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-recompensa">
           <h2 className="tt-recompensa-titulo">{t('games.toptrumps.recompensa_titulo')}</h2>
@@ -1033,7 +1035,7 @@ export default function TopTrumps() {
     const empates = historicoRodadas.filter(h => h.resultado === 'empate').length
     const freqAttr = {}
     historicoRodadas.forEach(h => { freqAttr[h.atributo] = (freqAttr[h.atributo] || 0) + 1 })
-    const attrMaisEscolhido = Object.entries(freqAttr).sort((a, b) => b[1] - a[1])[0]?.[0] || 'â€”'
+    const attrMaisEscolhido = Object.entries(freqAttr).sort((a, b) => b[1] - a[1])[0]?.[0] || '—'
     let melhorDiferenca = -1, melhorRodada = null
     historicoRodadas.forEach(h => {
       if (h.resultado === 'ganhou') {
@@ -1042,13 +1044,13 @@ export default function TopTrumps() {
         if (diff > melhorDiferenca) { melhorDiferenca = diff; melhorRodada = h }
       }
     })
-    const icone = venceu ? 'ðŸ†' : empatou ? 'ðŸ¤' : 'ðŸ’€'
+    const icone = venceu ? '🏆' : empatou ? '🤝' : '💀'
     const titulo = venceu ? t('games.toptrumps.result_voce_venceu') : empatou ? t('games.toptrumps.result_empate') : t('games.toptrumps.result_ia_venceu')
     return (
       <section className="tt-page">
         {/* Sound toggle */}
         <button className="tt-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="tt-relatorio">
           <h2 className="tt-relatorio-titulo">{t('games.toptrumps.relatorio_titulo')}</h2>
@@ -1063,7 +1065,7 @@ export default function TopTrumps() {
           )}
           <div className="tt-relatorio-placar">
             <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.jogador}</span><span className="tt-relatorio-placar-label">{t('games.toptrumps.relatorio_voce')}</span></div>
-            <span className="tt-relatorio-placar-divisor">Ã—</span>
+            <span className="tt-relatorio-placar-divisor">×</span>
             <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar.ia}</span><span className="tt-relatorio-placar-label">{t('games.toptrumps.relatorio_ia_label')}</span></div>
           </div>
           <div className="tt-relatorio-stats">
@@ -1072,11 +1074,11 @@ export default function TopTrumps() {
             <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_derrotas')}</span></div>
             <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_empates')}</span></div>
             <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_attr_usado')}</span></div>
-            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador.nome || 'â€”'}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_melhor_vitoria')}</span></div>
+            <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador.nome || '—'}</span><span className="tt-relatorio-stat-label">{t('games.toptrumps.relatorio_melhor_vitoria')}</span></div>
           </div>
           <div className="tt-relatorio-lista">
             <h4 className="tt-relatorio-lista-titulo">{t('games.toptrumps.relatorio_confrontos')}</h4>
-            {historicoRodadas.map((h, i) => (<div key={i} className="tt-relatorio-lista-item"><span className="tt-relatorio-lista-icon">{h.resultado === 'ganhou' ? 'âœ“' : h.resultado === 'perdeu' ? 'âœ—' : '='}</span><span className="tt-relatorio-lista-nome">{h.cartaJogador.nome} vs {h.cartaIA.nome}</span><span className="tt-relatorio-lista-attr">{h.atributo}</span><span className="tt-relatorio-lista-valor">{h.valorJogador} Ã— {h.valorIA}</span></div>))}
+            {historicoRodadas.map((h, i) => (<div key={i} className="tt-relatorio-lista-item"><span className="tt-relatorio-lista-icon">{h.resultado === 'ganhou' ? '✓' : h.resultado === 'perdeu' ? '✗' : '='}</span><span className="tt-relatorio-lista-nome">{h.cartaJogador.nome} vs {h.cartaIA.nome}</span><span className="tt-relatorio-lista-attr">{h.atributo}</span><span className="tt-relatorio-lista-valor">{h.valorJogador} × {h.valorIA}</span></div>))}
           </div>
           {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{t('games.toptrumps.relatorio_ja_ganhou')}</p>}
           <div className="tt-fim-actions">

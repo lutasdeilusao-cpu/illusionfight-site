@@ -51,7 +51,7 @@ export default function Dossier() {
           <p style={{ color: '#666', fontSize: 14 }}>{t('pp.dossier.reputacao', { valor: resultado.ganho })}</p>
           <p style={{ color: '#888', fontSize: 12, maxWidth: 400, margin: '16px auto', lineHeight: 1.7 }}>
             {caso.dialogoResolucao.map((l, i) => (
-              <span key={i} style={{ display: 'block', marginBottom: 8, color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narraÃ§Ã£o' ? 'italic' : 'normal' }}>
+              <span key={i} style={{ display: 'block', marginBottom: 8, color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
                 {l.texto}
               </span>
             ))}
@@ -72,7 +72,7 @@ export default function Dossier() {
           <h2 className="pp-dossier-caso-nome">{caso.nome}</h2>
           <div className="pp-dossier-caso-meta">
             <span className="pp-dossier-dif-badge">
-              {'â—†'.repeat(caso.dificuldade)}
+              {'◆'.repeat(caso.dificuldade)}
             </span>
             <span>+{caso.reputacao_ganho} rep</span>
             <span>{t('pp.geral.hp', { hp: store.hp })}</span>
@@ -114,11 +114,11 @@ export default function Dossier() {
 
       {/* PISTAS */}
       <div className="pp-section">
-        <div className="pp-section-label">{t('pp.dossier.pistas_label')} ({pistasColetadas.length}/{caso.pistasNecessarias} mÃ­nimo)</div>
+        <div className="pp-section-label">{t('pp.dossier.pistas_label')} ({pistasColetadas.length}/{caso.pistasNecessarias} mínimo)</div>
         {pistas.filter(p => pistasColetadas.includes(p.id)).map(p => (
           <motion.div key={p.id} className={`pp-pista-card ${p.tipo === 'fio' ? 'pp-pista-fio' : ''}`}
             initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
-            <div className="pp-pista-tipo">{p.tipo === 'fio' ? 'âœ¨ FIO' : p.tipo.toUpperCase()}</div>
+            <div className="pp-pista-tipo">{p.tipo === 'fio' ? '✨ FIO' : p.tipo.toUpperCase()}</div>
             <div className="pp-pista-texto">{p.texto}</div>
           </motion.div>
         ))}
@@ -137,13 +137,13 @@ export default function Dossier() {
           return (
             <div key={l.id} className={`pp-dossier-local ${visitado ? 'pp-dossier-local--visitado' : ''}`}
               onClick={() => { if (!visitado) store.setFase('investigar') }}>
-              <span style={{ fontSize: 14 }}>ðŸ”</span>
+              <span style={{ fontSize: 14 }}>🔍</span>
               <div style={{ flex: 1 }}>
                 <div style={{ color: '#eee', fontSize: 13 }}>{l.nome}</div>
                 <div style={{ color: '#666', fontSize: 10 }}>{l.desc}</div>
               </div>
-              {visitado ? <span style={{ color: '#22C55E', fontSize: 12 }}>âœ“</span> :
-                <span style={{ color: '#F5A623', fontSize: 14 }}>â†’</span>}
+              {visitado ? <span style={{ color: '#22C55E', fontSize: 12 }}>✓</span> :
+                <span style={{ color: '#F5A623', fontSize: 14 }}>→</span>}
             </div>
           )
         })}
@@ -158,12 +158,12 @@ export default function Dossier() {
           </button>
         ) : (
           <div>
-            <div className="pp-section-label">QUEM Ã‰ O CULPADO?</div>
+            <div className="pp-section-label">QUEM É O CULPADO?</div>
             {suspeitos.map(s => (
               <button key={s.id} className="pp-btn pp-btn--danger"
                 style={{ display: 'block', width: '100%', marginBottom: 4, textAlign: 'left' }}
                 onClick={() => handleAcusar(s.id)}>
-                âš¡ {s.nome}
+                ⚡ {s.nome}
               </button>
             ))}
             <button className="pp-btn pp-btn-sair" onClick={() => setShowAcusar(false)} style={{ marginTop: 4 }}>

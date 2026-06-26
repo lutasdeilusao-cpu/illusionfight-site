@@ -78,13 +78,13 @@ export default function PerfilColecao({ userId }) {
 
   return (
     <div className="perfil-colecao">
-      {/* Deck Builder Button â€” topo */}
+      {/* Deck Builder Button — topo */}
       <div className="perfil-colecao-deckbuilder-top">
         <button
           className="perfil-colecao-deckbuilder-btn"
           onClick={() => setShowDeckBuilder(true)}
         >
-          ðŸƒ {t('games.toptrumps.deckBuilderBtn')}
+          🃏 {t('games.toptrumps.deckBuilderBtn')}
         </button>
       </div>
 
@@ -108,7 +108,7 @@ export default function PerfilColecao({ userId }) {
         <div className="perfil-colecao-bar">
           <div className="perfil-colecao-bar-fill" style={{ width: `${progresso}%` }} />
         </div>
-        <span className="perfil-colecao-bar-texto">{obtidas.length} {obtained} Â· {todasCartas.length - obtidas.length} {missing}</span>
+        <span className="perfil-colecao-bar-texto">{obtidas.length} {obtained} · {todasCartas.length - obtidas.length} {missing}</span>
       </div>
 
       {/* Grid de cartas */}
@@ -135,7 +135,7 @@ export default function PerfilColecao({ userId }) {
               <div className="perfil-colecao-card-info">
                 <span className="perfil-colecao-card-nome">{tem ? carta.nome : '???'}</span>
                 <span className="perfil-colecao-card-elemental">
-                  {tem ? (carta.elemental || 'â€”') : 'â€”'}
+                  {tem ? (carta.elemental || '—') : '—'}
                 </span>
               </div>
             </div>

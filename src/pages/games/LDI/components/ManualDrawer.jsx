@@ -31,8 +31,8 @@ export default function ManualDrawer({ open, onClose }) {
             exit="exit"
           >
             <div className="ldi-drawer-header">
-              <h2>{manual?.title || 'ðŸ“– Manual'}</h2>
-              <button className="ldi-drawer-close" onClick={onClose}>âœ•</button>
+              <h2>{manual?.title || '📖 Manual'}</h2>
+              <button className="ldi-drawer-close" onClick={onClose}>✕</button>
             </div>
             <div className="ldi-drawer-body">
               {sections.map((section, i) => (

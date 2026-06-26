@@ -48,7 +48,7 @@ export default function Vila() {
     return false
   }
 
-  // Determinar prÃ³ximo objetivo (card que deve glow)
+  // Determinar próximo objetivo (card que deve glow)
   const getNextObjectiveId = () => {
     const f = store.flags || {}
     const dc = store.dungeonsCompletas || []
@@ -65,7 +65,7 @@ export default function Vila() {
   }
   const nextId = getNextObjectiveId()
 
-  // Verificar casos disponÃ­veis nesta cidade
+  // Verificar casos disponíveis nesta cidade
   const casoDisponivel = Object.values(CASOS).find(c => {
     if (store.casosResolvidos?.includes(c.id)) return false
     if (store.casoAtivo) return false
@@ -101,13 +101,13 @@ export default function Vila() {
         {cidade.desc}
       </p>
 
-      {/* NavegaÃ§Ã£o entre cidades */}
+      {/* Navegação entre cidades */}
       <div className="jdc-vila-nav-cidades">
         <button
           className={`jdc-sb-btn ${!podeNavegar('anterior') ? 'jdc-sb-btn--disabled' : ''}`}
           onClick={() => podeNavegar('anterior') && irParaCidade(nav.anterior)}
           disabled={!podeNavegar('anterior')}
-        >â—€ {nav.anterior ? getCidade(nav.anterior).nome : ''}</button>
+        >◀ {nav.anterior ? getCidade(nav.anterior).nome : ''}</button>
         <div className="jdc-vila-nav-indicador">
           {['marelia', 'auranis', 'karnazar'].map(id => (
             <span key={id} className={`jdc-vila-nav-dot ${id === cidadeId ? 'jdc-vila-nav-dot--active' : ''} ${!store.flags.AURANIS_LIBERADO && id !== 'marelia' ? 'jdc-vila-nav-dot--locked' : ''}`} />
@@ -117,12 +117,12 @@ export default function Vila() {
           className={`jdc-sb-btn ${!podeNavegar('proxima') ? 'jdc-sb-btn--disabled' : ''}`}
           onClick={() => podeNavegar('proxima') && irParaCidade(nav.proxima)}
           disabled={!podeNavegar('proxima')}
-        >{nav.proxima ? getCidade(nav.proxima).nome : ''} â–¶</button>
+        >{nav.proxima ? getCidade(nav.proxima).nome : ''} ▶</button>
       </div>
 
       {/* Grid de locais */}
       <div className="jdc-vila-grid">
-        {/* Caso em andamento â€” sempre visÃ­vel no topo */}
+        {/* Caso em andamento — sempre visível no topo */}
         {store.casoAtivo && (() => {
           const casoAtivo = CASOS[store.casoAtivo]
           if (!casoAtivo) return null
@@ -135,7 +135,7 @@ export default function Vila() {
               className="jdc-vila-card jdc-vila-card--glow jdc-vila-card-full"
               style={{ borderLeftColor: '#EC4899' }}
             >
-              <div className="jdc-vila-card-emoji">ðŸ”</div>
+              <div className="jdc-vila-card-emoji">🔍</div>
               <div className="jdc-vila-card-info">
                 <span className="jdc-vila-card-nome jdc-vila-card-nome--caso">
                   {t('games.jackcandy.vila_caso_andamento')}
@@ -145,12 +145,12 @@ export default function Vila() {
                   {t('games.jackcandy.vila_progresso_caso', { pistas: store.pistasColetadas.length, restantes: casoAtivo.locais.length - store.locaisVisitados.length })}
                 </span>
               </div>
-              <div className="jdc-vila-card-arrow jdc-vila-card-arrow--caso">â†’</div>
+              <div className="jdc-vila-card-arrow jdc-vila-card-arrow--caso">→</div>
             </motion.button>
           )
         })()}
 
-        {/* Caso disponÃ­vel â€” card destacado */}
+        {/* Caso disponível — card destacado */}
         {casoDisponivel && (
           <motion.button
             className="jdc-vila-card jdc-vila-card--glow"
@@ -163,7 +163,7 @@ export default function Vila() {
             className="jdc-vila-card jdc-vila-card--glow jdc-vila-card-full"
             style={{ borderLeftColor: '#EC4899' }}
           >
-            <div className="jdc-vila-card-emoji">ðŸ“‹</div>
+            <div className="jdc-vila-card-emoji">📋</div>
             <div className="jdc-vila-card-info">
               <span className="jdc-vila-card-nome jdc-vila-card-nome--caso">
                 NOVO CASO
@@ -173,7 +173,7 @@ export default function Vila() {
                 {casoDisponivel.cliente ? t('games.jackcandy.vila_cliente', { nome: casoDisponivel.cliente }) : t('games.jackcandy.vila_sem_cliente')}
               </span>
             </div>
-            <div className="jdc-vila-card-arrow" style={{ color: '#EC4899' }}>â†’</div>
+            <div className="jdc-vila-card-arrow" style={{ color: '#EC4899' }}>→</div>
           </motion.button>
         )}
 
@@ -219,7 +219,7 @@ export default function Vila() {
               whileTap={{ scale: locked ? 1 : 0.97 }}
               style={{ borderLeftColor: local.cor }}
             >
-              <div className="jdc-vila-card-emoji">{locked ? 'ðŸ”’' : local.emoji}</div>
+              <div className="jdc-vila-card-emoji">{locked ? '🔒' : local.emoji}</div>
               <div className="jdc-vila-card-info">
                 <span className="jdc-vila-card-nome" style={{ color: locked ? '#444' : '#C8C8C8' }}>
                   {local.nome}
@@ -231,7 +231,7 @@ export default function Vila() {
                   <span className="jdc-vila-card-detail">{t('games.jackcandy.vila_dungeon')}</span>
                 )}
               </div>
-              <div className="jdc-vila-card-arrow" style={{ color: local.cor }}>â†’</div>
+              <div className="jdc-vila-card-arrow" style={{ color: local.cor }}>→</div>
             </motion.button>
           )
         })}

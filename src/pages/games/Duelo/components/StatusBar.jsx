@@ -19,14 +19,14 @@ export default function StatusBar({ card }) {
         {isMonster && (
           <>
             <span className="duelo-statusbar-atk">{t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def}</span>
-            <span className="duelo-statusbar-movrng">ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng}</span>
+            <span className="duelo-statusbar-movrng">👟{card.mov} 🎯{card.rng}</span>
           </>
         )}
         {!isMonster && card.type === 'SPELL' && (
           <span className="duelo-statusbar-type">{t('games.duelo.card_magia')} {card.duracao > 0 ? `(${card.duracao} turnos)` : ''}</span>
         )}
         {!isMonster && card.type === 'TRAP' && (
-          <span className="duelo-statusbar-type">{t('games.duelo.card_armadilha')} (Ã¡rea: {card.area})</span>
+          <span className="duelo-statusbar-type">{t('games.duelo.card_armadilha')} (área: {card.area})</span>
         )}
         <span className="duelo-statusbar-desc">{card.desc}</span>
       </div>

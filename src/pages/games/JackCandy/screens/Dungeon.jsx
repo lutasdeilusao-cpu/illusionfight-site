@@ -107,7 +107,7 @@ export default function Dungeon({ dungeonId }) {
   }, [])
 
   if (!dungeon) {
-    console.error('[JACK] Dungeon nÃ£o encontrada:', dungeonId, 'keys disponÃ­veis:', Object.keys(DUNGEONS))
+    console.error('[JACK] Dungeon não encontrada:', dungeonId, 'keys disponíveis:', Object.keys(DUNGEONS))
     return (
       <div className="jdc-dungeon">
         <p className="jack-text jack-text--crimson">{t('games.jackcandy.dungeon_nao_encontrada', { id: dungeonId })}</p>
@@ -143,7 +143,7 @@ export default function Dungeon({ dungeonId }) {
         setAnimDano(true)
         setTimeout(() => setAnimDano(false), 300)
         addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
-        setLog(l => [...l, `ðŸŽ² rolou ${rolagem}... falhou! (-${dmg} HP)`])
+        setLog(l => [...l, `🎲 rolou ${rolagem}... falhou! (-${dmg} HP)`])
         if (novoHp <= 0) {
           stopRef.current = true
           store.setHpAtual(0)
@@ -152,7 +152,7 @@ export default function Dungeon({ dungeonId }) {
           return
         }
       } else {
-        setLog(l => [...l, `ðŸŽ² rolou ${rolagem}! esquivou.`])
+        setLog(l => [...l, `🎲 rolou ${rolagem}! esquivou.`])
       }
       setFugaRound(r => {
         const novo = r + 1
@@ -162,7 +162,7 @@ export default function Dungeon({ dungeonId }) {
           if (dungeon.desbloqueiaFlag) store.setFlag(dungeon.desbloqueiaFlag)
           if (dungeon.dropCap) { store.ganharCervejas(dungeon.dropCap); store.ganharXp(Math.max(1, Math.floor(dungeon.dropCap / 8))) }
           store.incrementarMedidor()
-          setLog(l => [...l, `ðŸ—¼ Kronos: "vocÃª Ã© mais interessante do que achei."`, `ðŸ’¨ ejetado de volta.`])
+          setLog(l => [...l, `🗼 Kronos: "você é mais interessante do que achei."`, `💨 ejetado de volta.`])
           store.setMonologo(MONOLOGUES.kronos_aparece)
           irParaVitoriaOuAuto()
           return novo
@@ -195,14 +195,14 @@ export default function Dungeon({ dungeonId }) {
           setTimeout(() => setAnimKill(false), 400)
           setProgresso(prev => prev + 1)
           addOnomatopeia('SLY...', 'hit')
-          setLog(l => [...l, `ðŸ¥· passou sem ser visto. (-1 inimigo)`])
+          setLog(l => [...l, `🥷 passou sem ser visto. (-1 inimigo)`])
           if (inimigosRef.current <= 0) {
             finalizarDungeon(dungeon, 3)
           }
           return
         } else {
           setStealthDetectado(true)
-          setLog(l => [...l, `ðŸ‘€ foi detectado! combate inicia.`])
+          setLog(l => [...l, `👀 foi detectado! combate inicia.`])
           return
         }
       }
@@ -228,7 +228,7 @@ export default function Dungeon({ dungeonId }) {
 
         if (inimigosRef.current <= 0) {
           stopRef.current = true
-          setLog(l => [...l, `ðŸ’¥ derrubou! (${atq} vs ${def})`, `âœ… todos derrubados!`])
+          setLog(l => [...l, `💥 derrubou! (${atq} vs ${def})`, `✅ todos derrubados!`])
           if (dungeon?.boss) {
             setTimeout(() => bossBattle(dungeon), 1000)
           } else {
@@ -238,7 +238,7 @@ export default function Dungeon({ dungeonId }) {
           }
           return
         }
-        setLog(l => [...l, `ðŸ’¥ derrubou! (${atq} vs ${def})`])
+        setLog(l => [...l, `💥 derrubou! (${atq} vs ${def})`])
         return
       }
 
@@ -261,12 +261,12 @@ export default function Dungeon({ dungeonId }) {
       if (novoHp <= 0) {
         stopRef.current = true
         store.setHpAtual(0)
-        setLog(l => [...l, `âŒ errou. (${atq} vs ${def})`, `âš”ï¸ ataque inimigo! (-${dmgFinal} HP)`, `ðŸ’€ vocÃª morreu.`])
+        setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ ataque inimigo! (-${dmgFinal} HP)`, `💀 você morreu.`])
         store.setMonologo(MONOLOGUES.morre)
         setTimeout(() => setFase('derrota'), 100)
         return
       }
-      setLog(l => [...l, `âŒ errou. (${atq} vs ${def})`, `âš”ï¸ ataque inimigo! (-${dmgFinal} HP)`])
+      setLog(l => [...l, `❌ errou. (${atq} vs ${def})`, `⚔️ ataque inimigo! (-${dmgFinal} HP)`])
     }
 
     const interval = setInterval(tick, INTERVALO)
@@ -299,7 +299,7 @@ export default function Dungeon({ dungeonId }) {
       addOnomatopeia(HIT_WORDS[Math.floor(Math.random() * HIT_WORDS.length)], 'hit')
       store.setHpAtual(hpRef.current)
       finalizarDungeon(d, 1)
-      setLog(l => [...l, `ðŸŽ¯ acertou ${boss.nome}!`, `ðŸ† ${boss.nome} derrotado!`])
+      setLog(l => [...l, `🎯 acertou ${boss.nome}!`, `🏆 ${boss.nome} derrotado!`])
       irParaVitoriaOuAuto()
     } else {
       addOnomatopeia('MISS!', 'miss')
@@ -313,7 +313,7 @@ export default function Dungeon({ dungeonId }) {
       addOnomatopeia(DAMAGE_WORDS[Math.floor(Math.random() * DAMAGE_WORDS.length)], 'damage')
       if (novoHp <= 0) {
         store.setHpAtual(0)
-        setLog(l => [...l, `${boss.nome} revidou! (-${dmgB} HP)`, `ðŸ’€ derrotado pelo boss.`])
+        setLog(l => [...l, `${boss.nome} revidou! (-${dmgB} HP)`, `💀 derrotado pelo boss.`])
         setTimeout(() => setFase('derrota'), 100)
       } else {
         setAnimAtk(true)
@@ -323,12 +323,12 @@ export default function Dungeon({ dungeonId }) {
           addOnomatopeia(HIT_WORDS[Math.floor(Math.random() * HIT_WORDS.length)], 'hit')
           store.setHpAtual(hpRef.current)
           finalizarDungeon(d, 1)
-          setLog(l => [...l, `ðŸŽ¯ ${boss.nome} derrotado!`])
+          setLog(l => [...l, `🎯 ${boss.nome} derrotado!`])
           irParaVitoriaOuAuto()
         } else {
           addOnomatopeia('MISS!', 'miss')
           store.setHpAtual(0)
-          setLog(l => [...l, `${boss.nome} contra-atacou!`, `ðŸ’€ derrotado.`])
+          setLog(l => [...l, `${boss.nome} contra-atacou!`, `💀 derrotado.`])
           setTimeout(() => setFase('derrota'), 100)
         }
       }
@@ -361,11 +361,11 @@ export default function Dungeon({ dungeonId }) {
     return (
       <div className="jdc-dungeon jdc-dungeon-center">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--death">{store.autoMode.ativo ? 'ðŸ’€ðŸ¤–' : 'ðŸ’€'}</div>
+          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--death">{store.autoMode.ativo ? '💀🤖' : '💀'}</div>
           <p className="jack-text jack-text--crimson jdc-dungeon-end-title">{t('games.jackcandy.dungeon_morreu')}</p>
           {store.autoMode.ativo ? (
             <>
-              <p className="jack-text jack-text--amber jdc-dungeon-auto-recuperando">ðŸ¤– {t('games.jackcandy.dungeon_auto_recuperando')}</p>
+              <p className="jack-text jack-text--amber jdc-dungeon-auto-recuperando">🤖 {t('games.jackcandy.dungeon_auto_recuperando')}</p>
               <p className="jack-text jdc-dungeon-auto-hp">{store.hpAtual}/{store.hpMax}</p>
             </>
           ) : (
@@ -380,14 +380,14 @@ export default function Dungeon({ dungeonId }) {
     return (
       <div className="jdc-dungeon jdc-dungeon-center">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}>
-          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--victory">âœ…</div>
+          <div className="jdc-dungeon-end-icon jdc-dungeon-end-icon--victory">✅</div>
           <p className="jack-text jack-text--amber jdc-dungeon-end-title">{t('games.jackcandy.dungeon_completo', { nome: dungeon?.nome || 'Dungeon' })}</p>
           <p className="jack-text">
-            ðŸº +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} {t('games.jackcandy.dungeon_cervejas')}
-            {dungeon?.dropNotas > 0 ? ` Â· ðŸ’µ ${dungeon?.dropNotas} ${t('games.jackcandy.dungeon_notas')}` : ''}
-            {dungeon?.dropFragmentos > 0 ? ` Â· ðŸ’Ž ${dungeon?.dropFragmentos} ${t('games.jackcandy.dungeon_fragmentos')}` : ''}
+            🍺 +{dungeon?.mecanica === 'stealth' && !stealthDetectado ? Math.floor((dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0) * 3) : (dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} {t('games.jackcandy.dungeon_cervejas')}
+            {dungeon?.dropNotas > 0 ? ` · 💵 ${dungeon?.dropNotas} ${t('games.jackcandy.dungeon_notas')}` : ''}
+            {dungeon?.dropFragmentos > 0 ? ` · 💎 ${dungeon?.dropFragmentos} ${t('games.jackcandy.dungeon_fragmentos')}` : ''}
           </p>
-          {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">ðŸ·ï¸ {t('games.jackcandy.dungeon_notas_desbloqueadas')}</p>}
+          {dungeon?.id === 'onibus' && <p className="jack-text jack-text--dim">🏷️ {t('games.jackcandy.dungeon_notas_desbloqueadas')}</p>}
           <div className="jdc-dungeon-victory-actions">
             <button className="jack-btn" onClick={() => {
               if (store._retornoInvestigacao) {
@@ -403,9 +403,9 @@ export default function Dungeon({ dungeonId }) {
               subtitle: `${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)} cervejas`,
               context: 'dungeon',
               stats: [
-                { label: 'Cervejas', value: `ðŸº ${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)}` },
-                { label: 'Notas', value: `ðŸ’µ ${dungeon?.dropNotas || 0}` },
-                { label: 'Fragmentos', value: `ðŸ’Ž ${dungeon?.dropFragmentos || 0}` },
+                { label: 'Cervejas', value: `🍺 ${(dungeon?.infinito ? dropCapState : dungeon?.dropCap || 0)}` },
+                { label: 'Notas', value: `💵 ${dungeon?.dropNotas || 0}` },
+                { label: 'Fragmentos', value: `💎 ${dungeon?.dropFragmentos || 0}` },
                 { label: 'Dungeons', value: store.dungeonsCompletas?.length || 0 },
               ],
             })}
@@ -418,14 +418,14 @@ export default function Dungeon({ dungeonId }) {
 
   return (
     <div className="jdc-dungeon">
-      {store.autoMode.ativo && <div className="jdc-auto-tag">ðŸ¤– AUTO</div>}
+      {store.autoMode.ativo && <div className="jdc-auto-tag">🤖 AUTO</div>}
       <div className="jdc-dungeon-status">
         <span className="jdc-dungeon-status-loc">{dungeon?.nome || 'Dungeon'}</span>
         {dungeon?.mecanica === 'fuga' && (
           <span className="jack-text--amber jdc-dungeon-status-tag">{t('games.jackcandy.dungeon_round', { atual: fugaRound, total: dungeon.rounds || 15 })}</span>
         )}
         {stealthMode && !stealthDetectado && (
-          <span className="jack-text--crimson jdc-dungeon-status-tag">ðŸ¥· {t('games.jackcandy.dungeon_stealth')}</span>
+          <span className="jack-text--crimson jdc-dungeon-status-tag">🥷 {t('games.jackcandy.dungeon_stealth')}</span>
         )}
         <span className="jdc-dungeon-status-hp">
           <span className="jdc-dungeon-status-hp-label">{t('games.jackcandy.dungeon_moral_label')}</span>
@@ -451,7 +451,7 @@ export default function Dungeon({ dungeonId }) {
                   damping: animDano ? 8 : 15,
                 }}
               >
-                {primordialAtivo ? 'ðŸ”¥' : 'ðŸ•µï¸'}
+                {primordialAtivo ? '🔥' : '🕵️'}
               </motion.div>
               <span className="jdc-dungeon-player-label">Jack{primordialAtivo ? '*' : ''}</span>
             </div>
@@ -484,7 +484,7 @@ export default function Dungeon({ dungeonId }) {
                   <motion.span className="jdc-dungeon-enemy-emoji"
                     animate={animKill ? { opacity: 0, scale: 0, x: 20 } : {}}
                     transition={{ duration: 0.3 }}
-                  >ðŸ‘¤</motion.span>
+                  >👤</motion.span>
                 </motion.div>
               ))}
               {restantes > 5 && <span className="jack-text jack-text--dim jdc-dungeon-enemies-extra">+{restantes - 5}</span>}
@@ -535,9 +535,9 @@ export default function Dungeon({ dungeonId }) {
             const novaHp = Math.min(hpMax, hp + (full.cura || 0))
             setHp(novaHp)
             hpRef.current = novaHp
-            setLog(l => [...l, `ðŸ§ª usou ${item.nome}. +${full.cura || 0} HP`])
+            setLog(l => [...l, `🧪 usou ${item.nome}. +${full.cura || 0} HP`])
           }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
-            [ ðŸ§ª {item.nome} ]
+            [ 🧪 {item.nome} ]
           </button>
         ))}
         {store.inventario.filter(i => i.id === 'ultimo_cigarro').map(item => (
@@ -546,9 +546,9 @@ export default function Dungeon({ dungeonId }) {
             const novaHp = hpMax
             setHp(novaHp)
             hpRef.current = novaHp
-            setLog(l => [...l, `ðŸš¬ Ãºltimo cigarro. Moral total.`])
+            setLog(l => [...l, `🚬 último cigarro. Moral total.`])
           }} style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', margin: '0 0.2rem 0.2rem 0' }}>
-            [ ðŸš¬ {t('games.jackcandy.dungeon_ultimo_cigarro')} ]
+            [ 🚬 {t('games.jackcandy.dungeon_ultimo_cigarro')} ]
           </button>
         ))}
       </div>
@@ -561,7 +561,7 @@ export default function Dungeon({ dungeonId }) {
           onClick={() => store.setAutoMode(null)}
           style={{ fontSize: '0.65rem', padding: '0.2rem 0.4rem' }}
         >
-          [ desligar ðŸ¤– ]
+          [ desligar 🤖 ]
         </button>}
         <button className="jack-btn jack-btn--crimson" onClick={() => { stopRef.current = true; store.setFase('vila') }}>
           [ fugir ]

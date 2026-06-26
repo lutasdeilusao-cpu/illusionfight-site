@@ -9,7 +9,7 @@ import { useEventos } from '../../../context/EventosContext'
 import { sfx } from '../../../lib/sfx'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
-const ATTR_EMOJI = { F: 'ðŸ’ª', H: 'ðŸŽ¯', R: 'ðŸ›¡ï¸', A: 'ðŸ¦¾', PdF: 'âœ¨' }
+const ATTR_EMOJI = { F: '💪', H: '🎯', R: '🛡️', A: '🦾', PdF: '✨' }
 
 const ADV_COSTS = [1,1,2,1,2,2,1,1,1,1,1,2,1,2,1,2,2,4,1,2,1,2,1,1,3,1,1,2,1,2,1]
 const DIS_GAINS = [1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1]
@@ -30,7 +30,7 @@ function ManualBatalha() {
             <button className={`arena-manual-section-btn ${aberta === id ? 'arena-manual-section-btn--open' : ''}`}
               onClick={() => setAberta(aberta === id ? null : id)}>
               {sec.titulo}
-              <span className="arena-manual-section-arrow">{aberta === id ? 'â–²' : 'â–¼'}</span>
+              <span className="arena-manual-section-arrow">{aberta === id ? '▲' : '▼'}</span>
             </button>
             {aberta === id && (
               <div className="arena-manual-section-body">
@@ -116,7 +116,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
     const list = s[key] || []
     const exists = list.find(x => x.label === item.label)
     if (exists) { sfx.cancel(); store.updateSheet({ [key]: list.filter(x => x.label !== item.label) }); return }
-    // Desvantagens: mÃ¡ximo 3 pontos acumulados
+    // Desvantagens: máximo 3 pontos acumulados
     if (key === 'disadvantages') {
       const currentGain = (s.disadvantages || []).reduce((sum, x) => sum + (x.gain || 0), 0)
       if (currentGain + (item.gain || 0) > 3) return
@@ -183,12 +183,12 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <div className="arena-lobby-divider" />
           <div className="arc-intro-grid">
             <div className="arc-intro-card" onClick={() => { sfx.click(); setManualOpen(true) }}>
-              <div className="arc-intro-card-icon">ðŸ“–</div>
+              <div className="arc-intro-card-icon">📖</div>
               <div className="arc-intro-card-titulo">{t('games.arena.intro_ler_manual')}</div>
               <div className="arc-intro-card-sub">{t('games.arena.intro_ler_manual_sub')}</div>
             </div>
             <div className="arc-intro-card arc-intro-card--primary" onClick={() => { sfx.click(); setStep('attrs') }}>
-              <div className="arc-intro-card-icon">âš”ï¸</div>
+              <div className="arc-intro-card-icon">⚔️</div>
               <div className="arc-intro-card-titulo">{t('games.arena.intro_criar_direto')}</div>
               <div className="arc-intro-card-sub">{t('games.arena.intro_criar_direto_sub')}</div>
             </div>
@@ -204,7 +204,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       {step !== 'intro' && (
         <div className="arc-header">
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-            {sfx.enabled ? 'ðŸ”Š' : 'ðŸ”‡'}
+            {sfx.enabled ? '🔊' : '🔇'}
           </button>
           <div className="arc-header-center">
             <p className="arena-lobby-titulo arena-lobby-titulo--sm">{t('games.arena.nova_ficha')}</p>
@@ -231,7 +231,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
                   <div className="arc-attr-desc">{t(`games.arena.attr_desc.${attr}`)}</div>
                 </div>
                 <div className="arc-attr-controls">
-                  <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, -1)} disabled={attrs[attr] <= 0}>âˆ’</button>
+                  <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, -1)} disabled={attrs[attr] <= 0}>−</button>
                   <span className="arc-attr-val">{attrs[attr]}</span>
                   <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, 1)} disabled={attrs[attr] >= 5 || points <= 0}>+</button>
                 </div>
@@ -373,7 +373,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
         </div>
       )}
 
-      {/* botÃ£o ? */}
+      {/* botão ? */}
       {step !== 'intro' && (
         <button className="arena-manual-btn" onClick={() => setManualOpen(true)} title={t('games.arena.manual_titulo')}>?</button>
       )}
@@ -382,7 +382,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       <div className={`arena-manual-drawer ${manualOpen ? 'arena-manual-drawer--open' : ''}`}>
         <div className="arena-manual-drawer-header">
           <span className="arena-manual-drawer-titulo">{t('games.arena.manual_titulo')}</span>
-          <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>âœ•</button>
+          <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>✕</button>
         </div>
         <div className="arena-manual-drawer-body"><ManualBatalha /></div>
       </div>
@@ -396,7 +396,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <motion.div className="arena-guest-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setGuestSaveModal(false)}>
             <motion.div className="arena-guest-modal" initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.85, opacity: 0 }} onClick={e => e.stopPropagation()}>
               <div className="arena-guest-modal-inner">
-                <div className="arena-guest-modal-emoji">ðŸ”’</div>
+                <div className="arena-guest-modal-emoji">🔒</div>
                 <h2 className="arena-guest-modal-titulo">{t('games.arena.guest_save_prompt_title')}</h2>
                 <p className="arena-guest-modal-desc">{t('games.arena.guest_save_prompt_desc')}</p>
                 <div className="arena-guest-modal-btns">

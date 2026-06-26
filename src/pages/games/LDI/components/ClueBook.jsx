@@ -12,7 +12,7 @@ export default function ClueBook({ clues, onClose }) {
       <div className="ldi-cluebook">
         <div className="ldi-cluebook-header">
           <h2>{t('games.ldi.cluebook.titulo')}</h2>
-          <button className="ldi-cluebook-close" onClick={onClose}>âœ•</button>
+          <button className="ldi-cluebook-close" onClick={onClose}>✕</button>
         </div>
         <p className="ldi-cluebook-empty">{t('games.ldi.cluebook.vazio')}</p>
       </div>
@@ -26,7 +26,7 @@ export default function ClueBook({ clues, onClose }) {
     <div className="ldi-cluebook">
       <div className="ldi-cluebook-header">
         <h2>{t('games.ldi.cluebook.titulo')}</h2>
-        <button className="ldi-cluebook-close" onClick={onClose}>âœ•</button>
+        <button className="ldi-cluebook-close" onClick={onClose}>✕</button>
       </div>
 
       <div className="ldi-cluebook-filters">
@@ -62,7 +62,7 @@ export default function ClueBook({ clues, onClose }) {
               <p className="ldi-clue-text">{clue.text}</p>
               {clue.connected && (
                 <div className="ldi-clue-connected">
-                  ðŸ”— Conectadas
+                  🔗 Conectadas
                 </div>
               )}
             </motion.div>

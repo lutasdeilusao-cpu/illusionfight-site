@@ -13,13 +13,13 @@ export default function DungeonSelect() {
 
   const todas = Object.values(DUNGEONS)
 
-  // Filtro progressivo: sÃ³ mostra dungeons desbloqueadas
+  // Filtro progressivo: só mostra dungeons desbloqueadas
   const dungeons = todas.filter(d => {
-    // Sempre disponÃ­vel se tutorial
+    // Sempre disponível se tutorial
     if (d.tutorial) return flags.TEM_BENGALA
     // Requer dungeon anterior completada
     if (d.requerDungeon && !dc.includes(d.requerDungeon)) return false
-    // Requer flag especÃ­fica
+    // Requer flag específica
     if (d.requerFlag && !flags[d.requerFlag]) return false
     // Dungeons noturnas precisam de NOITE
     if (d.noturna && store.periodo !== 'NOITE') return false
@@ -32,15 +32,15 @@ export default function DungeonSelect() {
     }
     // Rua requer onibus
     if (d.id === 'rua' && !dc.includes('onibus')) return false
-    // Ã”nibus noturno requer onibus completo
+    // Ônibus noturno requer onibus completo
     if (d.id === 'onibus_noturno' && !flags.NOTAS_LIBERADO) return false
     // Risca a Faca Interior requer flag
     if (d.id === 'risca_faca_interior' && !flags.RISCA_FACA_LIBERADO) return false
-    // Anexo: disponÃ­vel desde o inÃ­cio
+    // Anexo: disponível desde o início
     if (d.id === 'anexo') return flags.TEM_BENGALA
-    // Onibus: disponÃ­vel desde o inÃ­cio
+    // Onibus: disponível desde o início
     if (d.id === 'onibus') return flags.TEM_BENGALA
-    // Outros: visÃ­vel por padrÃ£o se TEM_BENGALA
+    // Outros: visível por padrão se TEM_BENGALA
     return flags.TEM_BENGALA
   })
 
@@ -87,24 +87,24 @@ export default function DungeonSelect() {
               style={{ borderLeftColor: completa ? '#22C55E' : '#8B0000' }}
             >
               <div className="jdc-vila-card-emoji">
-                {completa ? 'ðŸ”„' : (d.emoji || 'âš”ï¸')}
+                {completa ? '🔄' : (d.emoji || '⚔️')}
               </div>
               <div className="jdc-vila-card-info">
                 <span className="jdc-vila-card-nome">{d.nome}</span>
                 <span className="jdc-vila-card-desc">{d.desc}</span>
                 <span className="jdc-vila-card-detail">
-                  {d.mecanica === 'fuga' ? `âš¡ fuga Â· ${d.dropCap || 0} ðŸº` :
-                   d.mecanica === 'stealth' ? `ðŸ¥· stealth Â· ${d.inimigos} inimigos` :
-                   d.infinito ? `â™¾ï¸ infinito Â· escala c/ nÃ­vel` :
+                  {d.mecanica === 'fuga' ? `⚡ fuga · ${d.dropCap || 0} 🍺` :
+                   d.mecanica === 'stealth' ? `🥷 stealth · ${d.inimigos} inimigos` :
+                   d.infinito ? `♾️ infinito · escala c/ nível` :
                    completa
-                    ? `rejogar (${Math.floor((d.dropCap || 0) / 2)} ðŸº)`
-                    : `${d.inimigos} inimigos Â· ${d.dropCap || 0} ðŸº`}
-                  {d.dropNotas > 0 ? ` Â· ${d.dropNotas} notas` : ''}
-                  {d.dropFragmentos > 0 ? ` Â· ${d.dropFragmentos} ðŸ’Ž` : ''}
-                  {d.boss ? ` Â· boss: ${d.boss.nome}` : ''}
+                    ? `rejogar (${Math.floor((d.dropCap || 0) / 2)} 🍺)`
+                    : `${d.inimigos} inimigos · ${d.dropCap || 0} 🍺`}
+                  {d.dropNotas > 0 ? ` · ${d.dropNotas} notas` : ''}
+                  {d.dropFragmentos > 0 ? ` · ${d.dropFragmentos} 💎` : ''}
+                  {d.boss ? ` · boss: ${d.boss.nome}` : ''}
                 </span>
               </div>
-              <div className="jdc-vila-card-arrow" style={{ color: completa ? '#22C55E' : '#8B0000' }}>â†’</div>
+              <div className="jdc-vila-card-arrow" style={{ color: completa ? '#22C55E' : '#8B0000' }}>→</div>
             </motion.button>
           )
         })}
@@ -138,13 +138,13 @@ export default function DungeonSelect() {
                       store.setFase(`dungeon_${d.id}`)
                     }}
                   >
-                    <span className="jdc-auto-picker-item-emoji">{isAtiva ? 'ðŸ¤–' : (d.emoji || 'âš”ï¸')}</span>
+                    <span className="jdc-auto-picker-item-emoji">{isAtiva ? '🤖' : (d.emoji || '⚔️')}</span>
                     <span className="jdc-auto-picker-item-info">
                       <span className="jdc-auto-picker-item-nome">{d.nome}{isAtiva ? t('games.jackcandy.dungeonselect_auto_sufixo') : ''}</span>
                       <span className="jdc-auto-picker-item-desc">
-                        {completa ? `ðŸ”„ ${Math.floor((d.dropCap || 0) / 2)} ðŸº` : `${d.inimigos || '?'} inim Â· ${d.dropCap || 0} ðŸº`}
-                        {d.infinito ? ' Â· â™¾ï¸' : ''}
-                        {d.boss ? ` Â· boss` : ''}
+                        {completa ? `🔄 ${Math.floor((d.dropCap || 0) / 2)} 🍺` : `${d.inimigos || '?'} inim · ${d.dropCap || 0} 🍺`}
+                        {d.infinito ? ' · ♾️' : ''}
+                        {d.boss ? ` · boss` : ''}
                       </span>
                     </span>
                   </button>

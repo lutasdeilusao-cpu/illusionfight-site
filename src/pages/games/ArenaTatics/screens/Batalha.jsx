@@ -20,14 +20,14 @@ import { getElem } from '../data/elementals'
 import { sortearIAs, resolverAcaoIA, getDescricaoIA } from '../data/aiPersonalities'
 import { resolverAtaque, processarStatus, temStatus, podeAgir, podeMover } from '../data/combat'
 
-// â”€â”€ Helpers â”€â”€
+// ── Helpers ──
 function getSkills(p) {
-  // Novos personagens jÃ¡ tÃªm skills embutidas
+  // Novos personagens já têm skills embutidas
   if (p.skills && p.skills.length > 0 && p.skills[0].dano !== undefined) return p.skills
   const c = CLASSES[p.classe]; return c?.skills_base || []
 }
 
-// Conjunto de cÃ©lulas ocupadas (aliados, inimigos, obstÃ¡culos)
+// Conjunto de células ocupadas (aliados, inimigos, obstáculos)
 function getOcupadas(aliados, inimigos, obstrucoes, ignoreId = null) {
   const set = new Set()
   aliados.forEach(a => { if (a.id !== ignoreId && a.hp > 0) set.add(`${a.x},${a.y}`) })
@@ -50,7 +50,7 @@ function getAlcanceMovimento(p, aliados = [], inimigos = [], obstrucoes = [], l 
 }
 
 function temLinhaVisao(x1, y1, x2, y2, obstrucoes = []) {
-  // Verifica cada cÃ©lula no caminho horizontalâ†’vertical
+  // Verifica cada célula no caminho horizontal→vertical
   let cx = x1, cy = y1
   const obsSet = new Set(obstrucoes.map(o => `${o.x},${o.y}`))
   // Horizontal
@@ -69,7 +69,7 @@ function getAlvoOcupadas(aliados, obstrucoes) {
 
 function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [], l = 16, c = 16) {
   const casas = []
-  // Apenas aliados e obstÃ¡culos bloqueiam â€” inimigos sÃ£o ALVOS vÃ¡lidos
+  // Apenas aliados e obstáculos bloqueiam — inimigos são ALVOS válidos
   const bloqueadas = getAlvoOcupadas(aliados, obstrucoes)
   for (let dx = -skill.alcance; dx <= skill.alcance; dx++)
     for (let dy = -skill.alcance; dy <= skill.alcance; dy++)
@@ -82,12 +82,12 @@ function getAlcanceSkill(p, skill, aliados = [], inimigos = [], obstrucoes = [],
   return casas
 }
 
-// â”€â”€ Helper: verifica se um ponto estÃ¡ em um array de alcance â”€â”€
+// ── Helper: verifica se um ponto está em um array de alcance ──
 function estahEmAlcance(x, y, alcance) {
   return alcance.some(cel => cel.x === x && cel.y === y)
 }
 
-// â”€â”€ Path calculator â€” BFS para contornar obstÃ¡culos corretamente â”€â”€
+// ── Path calculator — BFS para contornar obstáculos corretamente ──
 function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16) {
   if (x1 === x2 && y1 === y2) return []
   
@@ -98,7 +98,7 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16)
   while (queue.length > 0) {
     const { x, y, path } = queue.shift()
     
-    // 4 direÃ§Ãµes: cima, baixo, esquerda, direita
+    // 4 direções: cima, baixo, esquerda, direita
     const neighbors = [
       { nx: x, ny: y - 1 }, // cima
       { nx: x, ny: y + 1 }, // baixo
@@ -111,7 +111,7 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16)
       if (nx < 0 || nx >= c || ny < 0 || ny >= l) continue
       
       const key = `${nx},${ny}`
-      // Pula se jÃ¡ visitou ou se estÃ¡ bloqueado
+      // Pula se já visitou ou se está bloqueado
       if (visited.has(key) || bloqueadas.has(key)) continue
       
       const newPath = [...path, { x: nx, y: ny }]
@@ -124,12 +124,12 @@ function calcularCaminho(x1, y1, x2, y2, bloqueadas = new Set(), l = 16, c = 16)
     }
   }
   
-  // Sem rota possÃ­vel
+  // Sem rota possível
   console.warn(`[Pathfinding] Sem rota de (${x1},${y1}) para (${x2},${y2})`)
   return []
 }
 
-// â”€â”€ Fase label helper â”€â”€
+// ── Fase label helper ──
 function getFaseLabel(fase, t) {
   const map = {
     idle:        'tatics.fase_idle',
@@ -145,8 +145,8 @@ function getFaseLabel(fase, t) {
     skillSelect: '#E24B4A', target: '#E24B4A', animando: '#F4A227', inimigo: '#E24B4A',
   }
   const iconeMap = {
-    idle: 'âš”ï¸', actionMenu: 'ðŸŽ¯', mover: 'ðŸ‘£',
-    skillSelect: 'âš¡', target: 'ðŸŽ¯', animando: 'ðŸ‘£', inimigo: 'â³',
+    idle: '⚔️', actionMenu: '🎯', mover: '👣',
+    skillSelect: '⚡', target: '🎯', animando: '👣', inimigo: '⏳',
   }
   const key = map[fase]
   if (key && t) return { texto: t(key), icone: iconeMap[fase] || '', cor: corMap[fase] || '#4F5359' }
@@ -186,15 +186,15 @@ export default function Batalha({ onVitoria, onDerrota }) {
   const jaMoveu = selectedAlly?.jaMoveu ?? false
   const jaAtacou = selectedAlly?.jaAtacou ?? false
 
-  // Verifica se todos os aliados estÃ£o exaustos
+  // Verifica se todos os aliados estão exaustos
   const todosExaustos = aliados.filter(a => a.hp > 0).every(a => a.jaMoveu && a.jaAtacou)
 
-  // Se estiver animando movimento, mostra o ally na posiÃ§Ã£o animada
+  // Se estiver animando movimento, mostra o ally na posição animada
   const aliadosVisiveis = animPos && selectedAlly
     ? aliados.map(a => a.id === selectedAlly.id ? { ...a, x: animPos.x, y: animPos.y } : a)
     : aliados
 
-  // Durante animaÃ§Ã£o do caminho, mostra sÃ³ as cÃ©lulas do caminho ainda nÃ£o visitadas
+  // Durante animação do caminho, mostra só as células do caminho ainda não visitadas
   const alcanceVisivel = faseAcao === 'animando' && caminhoAtivo
     ? caminhoAtivo.slice(passoAtual)
     : alcance
@@ -210,7 +210,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     ? inimigos.map(i => i.id === enemyDisplay.currentEnemyId ? { ...i, x: enemyDisplay.animPos.x, y: enemyDisplay.animPos.y } : i)
     : inimigos
 
-  // â”€â”€ Helpers visuais â”€â”€
+  // ── Helpers visuais ──
   const showDano = (v, x, y, crit = false) => {
     const id = danoId.current++; setDanos(d => [...d, { id, valor: v, x, y, critico: crit }])
     setTimeout(() => setDanos(d => d.filter(dd => dd.id !== id)), 900)
@@ -223,7 +223,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setSelectedSkill(null); setAlcance([])
   }
 
-  // â”€â”€ Verifica se todos exaustos e decide turno â”€â”€
+  // ── Verifica se todos exaustos e decide turno ──
   const verificarFimTurno = () => {
     if (todosExaustos) {
       setTimeout(() => turnoInimigo(), 400)
@@ -233,7 +233,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     }
   }
 
-  // â”€â”€ 1. IDLE â†’ clicou no personagem â†’ ACTION MENU â”€â”€
+  // ── 1. IDLE → clicou no personagem → ACTION MENU ──
   const handleAllyClick = (a) => {
     if (faseAcao !== 'idle') return
     if (a.jaMoveu && a.jaAtacou) return // exausto
@@ -243,24 +243,24 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setSelectedAlly(a); setFaseAcao('actionMenu')
   }
 
-  // â”€â”€ 2. ACTION MENU â†’ escolheu MOVER â”€â”€
+  // ── 2. ACTION MENU → escolheu MOVER ──
   const handleActionMover = () => {
     if (!selectedAlly) return
     setAlcance(getAlcanceMovimento(selectedAlly, aliados, inimigos, obstrucoes)); setFaseAcao('mover')
   }
 
-  // â”€â”€ 2b. ACTION MENU â†’ escolheu ATACAR â”€â”€
+  // ── 2b. ACTION MENU → escolheu ATACAR ──
   const handleActionAtacar = () => {
     if (!selectedAlly) return
     setAlcance([]); setFaseAcao('skillSelect')
   }
 
-  // â”€â”€ 2c. ACTION MENU â†’ fechou (volta pra idle) â”€â”€
+  // ── 2c. ACTION MENU → fechou (volta pra idle) ──
   const handleActionClose = () => {
     limparSelecao(); setFaseAcao('idle')
   }
 
-  // â”€â”€ 3. MOVER â†’ clicou numa casa â†’ anima caminho (lento, cÃ©lula por cÃ©lula) â”€â”€
+  // ── 3. MOVER → clicou numa casa → anima caminho (lento, célula por célula) ──
   const handleMoveClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedAlly) return
 
@@ -268,7 +268,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const path = calcularCaminho(selectedAlly.x, selectedAlly.y, x, y, ocup)
     if (path.length === 0) { setFaseAcao('actionMenu'); return }
 
-    // Mostra sÃ³ o caminho, apaga o resto
+    // Mostra só o caminho, apaga o resto
     setAlcance(path)
     setCaminhoAtivo(path)
     setPassoAtual(0)
@@ -276,7 +276,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setFaseAcao('animando')
 
     let step = 0
-    const TICK = V // ms por cÃ©lula
+    const TICK = V // ms por célula
 
     const tick = () => {
       if (step >= path.length) {
@@ -284,7 +284,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         setAnimPos(null)
         setCaminhoAtivo(null)
         setAlcance([])
-        // Se jÃ¡ atacou tambÃ©m â†’ exausto, verifica todos
+        // Se já atacou também → exausto, verifica todos
         if (selectedAlly.jaAtacou) {
           verificarFimTurno()
         } else {
@@ -304,7 +304,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setAlcance([]); setFaseAcao('actionMenu')
   }
 
-  // â”€â”€ 4. SKILL SELECT â†’ escolheu uma skill â”€â”€
+  // ── 4. SKILL SELECT → escolheu uma skill ──
   const handleSkillSelect = (skill) => {
     setSelectedSkill(skill); setAlcance(getAlcanceSkill(selectedAlly, skill, aliados, inimigos, obstrucoes)); setFaseAcao('target')
   }
@@ -313,7 +313,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setSelectedSkill(null); setFaseAcao('actionMenu')
   }
 
-  // â”€â”€ 5. TARGET â†’ clicou no grid â”€â”€
+  // ── 5. TARGET → clicou no grid ──
   const handleTargetClick = (x, y, cel) => {
     if (!cel.emAlcance || !selectedSkill || !selectedAlly) return
     const alvo = inimigos.find(i => i.x === x && i.y === y)
@@ -327,7 +327,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const elemAtacante = getElem(selectedAlly.elemental)
     screenShake(elemAtacante.shakePerfil, gridRef)
 
-    // Juice: flash na cÃ©lula do alvo
+    // Juice: flash na célula do alvo
     flashCelula(`[data-cell="${alvo.x},${alvo.y}"]`, selectedAlly.elemental, 'recebe')
 
     // Aplica dano + consome energia via store (garante re-render da UI)
@@ -339,7 +339,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       energia: Math.max(0, selectedAlly.energia - custoEnergia),
       jaAtacou: true,
     })
-    // MutaÃ§Ã£o direta tambÃ©m para manter referÃªncia local consistente
+    // Mutação direta também para manter referência local consistente
     alvo.hp = Math.max(0, alvo.hp - danoFinal)
     selectedAlly.energia = Math.max(0, selectedAlly.energia - custoEnergia)
     selectedAlly.jaAtacou = true
@@ -348,7 +348,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       showDano(danoFinal, x * 48 + 24, y * 48 + 24, crit)
     } else {
       showDano(0, x * 48 + 24, y * 48 + 24, false)
-      setEnemyLog(`ðŸ˜¤ ${selectedAlly.nome} errou!`)
+      setEnemyLog(`😤 ${selectedAlly.nome} errou!`)
     }
 
     // Juice: show combat result modal
@@ -376,7 +376,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
     limparAcao()
 
-    // Se jÃ¡ moveu â†’ exausto, verifica se todos acabaram
+    // Se já moveu → exausto, verifica se todos acabaram
     if (selectedAlly.jaMoveu) {
       verificarFimTurno()
     } else {
@@ -388,17 +388,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setSelectedSkill(null); setAlcance([]); setFaseAcao('skillSelect')
   }
 
-  // â”€â”€ Grid click dispatcher (bloqueado no freeLook) â”€â”€
+  // ── Grid click dispatcher (bloqueado no freeLook) ──
   const handleGridClick = (x, y, cel) => {
-    if (freeLook) return // modo visualizaÃ§Ã£o: nÃ£o executa aÃ§Ãµes
+    if (freeLook) return // modo visualização: não executa ações
     if (faseAcao === 'mover') handleMoveClick(x, y, cel)
     else if (faseAcao === 'target') handleTargetClick(x, y, cel)
     else if (faseAcao === 'idle' && cel.aliado) handleAllyClick(cel.aliado)
   }
 
-  // â”€â”€ Helper: skills do inimigo por ID â”€â”€
+  // ── Helper: skills do inimigo por ID ──
   function getInimigoSkills(inimigo) {
-    // Novos personagens jÃ¡ tÃªm skills embutidas
+    // Novos personagens já têm skills embutidas
     if (inimigo.skills && inimigo.skills.length > 0 && inimigo.skills[0].dano !== undefined) {
       return inimigo.skills
     }
@@ -409,7 +409,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     return skillIds.map(id => cls.skills_base.find(s => s.id === id)).filter(Boolean)
   }
 
-  // â”€â”€ ENEMY TURN â€” visual completo como Player â”€â”€
+  // ── ENEMY TURN — visual completo como Player ──
   const turnoInimigo = useCallback(() => {
     setFaseAcao('inimigo')
     setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
@@ -418,7 +418,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     const aliadosVivos = [...aliados].filter(a => a.hp > 0)
     if (inimigosVivos.length === 0 || aliadosVivos.length === 0) {
       store.avancarTurno();
-      // Reseta flags de aÃ§Ã£o dos aliados para o novo turno
+      // Reseta flags de ação dos aliados para o novo turno
       aliados.forEach(a => { a.jaMoveu = false; a.jaAtacou = false })
       setFaseAcao('idle'); return
     }
@@ -440,7 +440,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
           }
         })
         store.avancarTurno();
-        // Reseta flags de aÃ§Ã£o dos aliados para o novo turno
+        // Reseta flags de ação dos aliados para o novo turno
         aliados.forEach(a => { a.jaMoveu = false; a.jaAtacou = false })
         setFaseAcao('idle')
         return
@@ -457,8 +457,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
 
       const podeAtacar = melhorSkill && melhorSkill.alcance >= dist
 
-      // â”€â”€ STEP 1: THINKING + target highlight â”€â”€
-      setEnemyLog(`ðŸŽ¯ ${inimigo.nome} â†’ ${alvo.nome}`)
+      // ── STEP 1: THINKING + target highlight ──
+      setEnemyLog(`🎯 ${inimigo.nome} → ${alvo.nome}`)
       setEnemyTarget({ x: alvo.x, y: alvo.y })
       setEnemyDisplay({ subFase: 'thinking', alcance: [], animPos: null, currentEnemyId: inimigo.id })
       tickRef.current++
@@ -467,10 +467,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
       const temVisao = podeAtacar && estahEmAlcance(alvo.x, alvo.y, attackRange)
 
       if (podeAtacar && temVisao) {
-        // â”€â”€ LINHA DE VISÃƒO LIVRE: ataca direto â”€â”€
+        // ── LINHA DE VISÃO LIVRE: ataca direto ──
         setTimeout(() => {
           setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
-          setEnemyLog(`âš¡ ${inimigo.nome} usa ${melhorSkill.nome}`)
+          setEnemyLog(`⚡ ${inimigo.nome} usa ${melhorSkill.nome}`)
           tickRef.current++
 
           setTimeout(() => {
@@ -494,9 +494,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
               store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
               store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
               store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoFinal })
-              setEnemyLog(`ðŸ’¥ ${inimigo.nome} causou ${danoFinal} em ${alvo.nome}`)
+              setEnemyLog(`💥 ${inimigo.nome} causou ${danoFinal} em ${alvo.nome}`)
             } else {
-              setEnemyLog(`ðŸ˜¤ ${inimigo.nome} errou o ataque!`)
+              setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
             }
             setEnemyTarget(null)
             setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
@@ -511,21 +511,21 @@ export default function Batalha({ onVitoria, onDerrota }) {
           }, V)
         }, V * 0.8)
       } else if (podeAtacar && !temVisao) {
-        // â”€â”€ OBSTÃCULO NO MEIO: tenta mover para uma cÃ©lula com visÃ£o livre â”€â”€
+        // ── OBSTÁCULO NO MEIO: tenta mover para uma célula com visão livre ──
         const moveRange = getAlcanceMovimento(inimigo, aliados, inimigos, obstrucoes)
         const ocup2 = getOcupadas(aliados, inimigos, obstrucoes, inimigo.id)
 
-        // Procura cÃ©lula onde o inimigo consegue atacar (alcance + linha de visÃ£o)
+        // Procura célula onde o inimigo consegue atacar (alcance + linha de visão)
         let melhorCelula = null
         let melhorDist = Infinity
         for (const cell of moveRange) {
-          // Simula o ataque dessa cÃ©lula candidata
+          // Simula o ataque dessa célula candidata
           const cellSkillRange = getAlcanceSkill(
             { ...inimigo, x: cell.x, y: cell.y },
             melhorSkill, inimigos, aliados, obstrucoes
           )
           if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange)) {
-            // Se a cÃ©lula jÃ¡ estÃ¡ no caminho sem bloquear
+            // Se a célula já está no caminho sem bloquear
             const caminho = calcularCaminho(inimigo.x, inimigo.y, cell.x, cell.y, ocup2)
             if (caminho.length > 0 || (cell.x === inimigo.x && cell.y === inimigo.y)) {
               const d = Math.abs(cell.x - alvo.x) + Math.abs(cell.y - alvo.y)
@@ -535,10 +535,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
         }
 
         if (melhorCelula) {
-          // Achou cÃ©lula viÃ¡vel â†’ move e ataca
+          // Achou célula viável → move e ataca
           const path = calcularCaminho(inimigo.x, inimigo.y, melhorCelula.x, melhorCelula.y, ocup2)
           setEnemyDisplay({ subFase: 'movePreview', alcance: moveRange, animPos: null, currentEnemyId: inimigo.id })
-          setEnemyLog(`ðŸ‘£ ${inimigo.nome} contorna obstÃ¡culo`)
+          setEnemyLog(`👣 ${inimigo.nome} contorna obstáculo`)
           setEnemyTarget(null)
           tickRef.current++
 
@@ -549,10 +549,10 @@ export default function Batalha({ onVitoria, onDerrota }) {
               inimigo.x = melhorCelula.x; inimigo.y = melhorCelula.y
               tickRef.current++
 
-              // Ataca da nova posiÃ§Ã£o
+              // Ataca da nova posição
               const cellSkillRange2 = getAlcanceSkill(inimigo, melhorSkill, inimigos, aliados, obstrucoes)
               setEnemyDisplay({ subFase: 'attackPreview', alcance: cellSkillRange2, animPos: null, currentEnemyId: inimigo.id })
-              setEnemyLog(`âš¡ ${inimigo.nome} usa ${melhorSkill.nome}`)
+              setEnemyLog(`⚡ ${inimigo.nome} usa ${melhorSkill.nome}`)
               setEnemyTarget({ x: alvo.x, y: alvo.y })
               tickRef.current++
 
@@ -574,9 +574,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
                   store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
                   store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
                   store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoF })
-                  setEnemyLog(`ðŸ’¥ ${inimigo.nome} causou ${danoF} em ${alvo.nome}`)
+                  setEnemyLog(`💥 ${inimigo.nome} causou ${danoF} em ${alvo.nome}`)
                 } else {
-                  setEnemyLog(`ðŸ˜¤ ${inimigo.nome} errou o ataque!`)
+                  setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
                 }
                 setEnemyTarget(null)
                 setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
@@ -601,8 +601,8 @@ export default function Batalha({ onVitoria, onDerrota }) {
           }
           setTimeout(tickMove, TICK)
         } else {
-          // Nenhuma cÃ©lula viÃ¡vel â†’ pula
-          setEnemyLog(`ðŸ˜ ${inimigo.nome} sem rota de ataque`)
+          // Nenhuma célula viável → pula
+          setEnemyLog(`😐 ${inimigo.nome} sem rota de ataque`)
           setEnemyTarget(null)
           setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
           tickRef.current++
@@ -610,23 +610,23 @@ export default function Batalha({ onVitoria, onDerrota }) {
           setTimeout(processarInimigo, V * 0.5)
         }
       } else {
-        // â”€â”€ PRECISA MOVER: mostra grid de movimento â”€â”€
+        // ── PRECISA MOVER: mostra grid de movimento ──
         const moveRange = getAlcanceMovimento(inimigo, aliados, inimigos, obstrucoes)
 
         setTimeout(() => {
           setEnemyDisplay({ subFase: 'movePreview', alcance: moveRange, animPos: null, currentEnemyId: inimigo.id })
-          setEnemyLog(`ðŸ‘£ ${inimigo.nome} calcula rota`)
+          setEnemyLog(`👣 ${inimigo.nome} calcula rota`)
           setEnemyTarget(null)
           tickRef.current++
 
-          // Escolhe melhor cÃ©lula: prefere com linha de visÃ£o, senÃ£o a mais perto
+          // Escolhe melhor célula: prefere com linha de visão, senão a mais perto
           let bestCell = null
           let bestDist = Infinity
           let fallbackCell = null
           let fallbackDist = Infinity
           for (const cell of moveRange) {
             const d = Math.abs(cell.x - alvo.x) + Math.abs(cell.y - alvo.y)
-            // Tenta simular ataque dessa cÃ©lula
+            // Tenta simular ataque dessa célula
             const cellSkillRange = getAlcanceSkill(
               { ...inimigo, x: cell.x, y: cell.y },
               melhorSkill, inimigos, aliados, obstrucoes
@@ -634,15 +634,15 @@ export default function Batalha({ onVitoria, onDerrota }) {
             if (estahEmAlcance(alvo.x, alvo.y, cellSkillRange) && d < bestDist) {
               bestDist = d; bestCell = cell
             }
-            // Fallback: cÃ©lula mais perto do alvo
+            // Fallback: célula mais perto do alvo
             if (d < fallbackDist) { fallbackDist = d; fallbackCell = cell }
           }
-          // Se nenhuma cÃ©lula tem visÃ£o, usa a mais perto
+          // Se nenhuma célula tem visão, usa a mais perto
           if (!bestCell) bestCell = fallbackCell
 
           if (!bestCell) { currentIdx++; setTimeout(processarInimigo, V * 0.3); return }
 
-          // â”€â”€ ANIMA CAMINHO â”€â”€
+          // ── ANIMA CAMINHO ──
           const ocup = getOcupadas(aliados, inimigos, obstrucoes, inimigo.id)
           const path = calcularCaminho(inimigo.x, inimigo.y, bestCell.x, bestCell.y, ocup)
           const TICK = V
@@ -653,7 +653,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
               inimigo.x = bestCell.x; inimigo.y = bestCell.y
               tickRef.current++
 
-              // â”€â”€ AGORA TENTA ATACAR â”€â”€
+              // ── AGORA TENTA ATACAR ──
               const dist2 = Math.abs(inimigo.x - alvo.x) + Math.abs(inimigo.y - alvo.y)
               const skill2 = skills.filter(s => (s.dano || 0) > 0 && (inimigo.energia || 99) >= s.custo)
                 .sort((a, b) => b.dano - a.dano)[0]
@@ -662,14 +662,14 @@ export default function Batalha({ onVitoria, onDerrota }) {
               if (pode2) {
                 const attackRange = getAlcanceSkill(inimigo, skill2, inimigos, aliados, obstrucoes)
                 setEnemyDisplay({ subFase: 'attackPreview', alcance: attackRange, animPos: null, currentEnemyId: inimigo.id })
-                setEnemyLog(`âš¡ ${inimigo.nome} usa ${skill2.nome}`)
+                setEnemyLog(`⚡ ${inimigo.nome} usa ${skill2.nome}`)
                 setEnemyTarget({ x: alvo.x, y: alvo.y })
                 tickRef.current++
 
                 setTimeout(() => {
-                  // â”€â”€ VALIDA: alvo ainda estÃ¡ no alcance (linha de visÃ£o)? â”€â”€
+                  // ── VALIDA: alvo ainda está no alcance (linha de visão)? ──
                   if (!estahEmAlcance(alvo.x, alvo.y, attackRange)) {
-                    setEnemyLog(`ðŸ˜ ${inimigo.nome} perdeu o alvo!`)
+                    setEnemyLog(`😐 ${inimigo.nome} perdeu o alvo!`)
                     currentIdx++
                     setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
                     tickRef.current++
@@ -694,9 +694,9 @@ export default function Batalha({ onVitoria, onDerrota }) {
                     store.atualizarPersonagem('aliados', alvo.id, { hp: alvo.hp })
                     store.atualizarPersonagem('inimigos', inimigo.id, { energia: inimigo.energia })
                     store.executarAcao({ tipo: 'ataque_inimigo', de: inimigo.nome, alvo: alvo.nome, dano: danoFinal2 })
-                    setEnemyLog(`ðŸ’¥ ${inimigo.nome} causou ${danoFinal2} em ${alvo.nome}`)
+                    setEnemyLog(`💥 ${inimigo.nome} causou ${danoFinal2} em ${alvo.nome}`)
                   } else {
-                    setEnemyLog(`ðŸ˜¤ ${inimigo.nome} errou o ataque!`)
+                    setEnemyLog(`😤 ${inimigo.nome} errou o ataque!`)
                   }
                   setEnemyTarget(null)
                   setEnemyDisplay({ subFase: 'attackDone', alcance: [], animPos: null, currentEnemyId: inimigo.id })
@@ -709,7 +709,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
                   setTimeout(processarInimigo, V * 0.5)
                 }, V)
               } else {
-                setEnemyLog(`ðŸ˜¤ ${inimigo.nome} nÃ£o alcanÃ§a`)
+                setEnemyLog(`😤 ${inimigo.nome} não alcança`)
                 currentIdx++
                 setEnemyDisplay({ subFase: 'idle', alcance: [], animPos: null, currentEnemyId: null })
                 setTimeout(processarInimigo, V * 0.5)
@@ -734,7 +734,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
     setTimeout(processarInimigo, V * 0.8)
   }, [aliados, inimigos, turno, store, obstrucoes])
 
-  // â”€â”€ END TURN â”€â”€
+  // ── END TURN ──
   const handleEndTurn = () => {
     setShowEndConfirm(false); limparSelecao(); turnoInimigo()
   }
@@ -767,7 +767,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         onClick={() => setFreeLook(f => !f)}
         title={freeLook ? 'Voltar ao modo combate' : 'Visualizar mapa'}
       >
-        {freeLook ? 'âš”' : 'ðŸ”'}
+        {freeLook ? '⚔' : '🔍'}
       </button>
 
       {/* Enemy log */}
@@ -781,7 +781,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
       <StatusBar personagens={aliadosVisiveis.filter(a => a.hp > 0)} lado="aliado" />
       <StatusBar personagens={inimigosVisiveis.filter(i => i.hp > 0)} lado="inimigo" />
 
-      {/* â”€â”€ ACTION MENU (bottom sheet) â”€â”€ */}
+      {/* ── ACTION MENU (bottom sheet) ── */}
       <AnimatePresence>
         {faseAcao === 'actionMenu' && selectedAlly && (
           <ActionMenu
@@ -797,7 +797,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
         )}
       </AnimatePresence>
 
-      {/* â”€â”€ SKILL MODAL â”€â”€ */}
+      {/* ── SKILL MODAL ── */}
       <AnimatePresence>
         {faseAcao === 'skillSelect' && selectedAlly && (
           <SkillPreviewModal personagem={selectedAlly} skills={getSkills(selectedAlly)}
@@ -806,17 +806,17 @@ export default function Batalha({ onVitoria, onDerrota }) {
         )}
       </AnimatePresence>
 
-      {/* â”€â”€ COMBAT RESULT MODAL â”€â”€ */}
+      {/* ── COMBAT RESULT MODAL ── */}
       <CombatResultModal resultado={combatResult} onFechar={() => setCombatResult(null)} />
 
-      {/* â”€â”€ ENEMY TURN BANNER â”€â”€ */}
+      {/* ── ENEMY TURN BANNER ── */}
       <AnimatePresence>
         {enemyBanner && (
           <EnemyTurnBanner acao={enemyBanner} onFechar={() => setEnemyBanner(null)} />
         )}
       </AnimatePresence>
 
-      {/* â”€â”€ IDLE: ally buttons + END TURN â”€â”€ */}
+      {/* ── IDLE: ally buttons + END TURN ── */}
       {faseAcao === 'idle' && (
         <div className="tatics-ally-section">
           <div className="tatics-ally-list">
@@ -832,7 +832,7 @@ export default function Batalha({ onVitoria, onDerrota }) {
                     border: `1px solid ${cor}44`,
                   }}>
                   <div className="tatics-ally-btn-icon">
-                    {exausto ? 'ðŸ”’' : a.classe === 'karuak' ? 'ðŸ›¡ï¸' : a.classe === 'moraki' ? 'ðŸŒªï¸' : a.classe === 'tivara' ? 'ðŸ¹' : a.classe === 'zephyra' ? 'ðŸŒŠ' : a.classe === 'ignis' ? 'ðŸ”¥' : 'ðŸ—¡ï¸'}
+                    {exausto ? '🔒' : a.classe === 'karuak' ? '🛡️' : a.classe === 'moraki' ? '🌪️' : a.classe === 'tivara' ? '🏹' : a.classe === 'zephyra' ? '🌊' : a.classe === 'ignis' ? '🔥' : '🗡️'}
                   </div>
                   <div className="tatics-ally-btn-name">{a.nome}</div>
                   <div className="tatics-ally-btn-hp">{a.hp}/{a.hpMax}</div>
@@ -842,35 +842,35 @@ export default function Batalha({ onVitoria, onDerrota }) {
           </div>
           {/* End Turn button */}
           <button className="tatics-ally-endturn" onClick={() => setShowEndConfirm(true)}>
-            â­ FINALIZAR TURNO
+            ⏭ FINALIZAR TURNO
           </button>
         </div>
       )}
 
-      {/* â”€â”€ Mover instruction â”€â”€ */}
+      {/* ── Mover instruction ── */}
       {faseAcao === 'mover' && (
         <div className="tatics-instruction">
-          <span className="tatics-instruction-move">ðŸ‘£ Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
-          <button onClick={handleCancelMove} className="tatics-instruction-btn">CANCELAR âœ•</button>
+          <span className="tatics-instruction-move">👣 Toque em uma casa amarela para mover {selectedAlly?.nome}</span>
+          <button onClick={handleCancelMove} className="tatics-instruction-btn">CANCELAR ✕</button>
         </div>
       )}
 
-      {/* â”€â”€ Target instruction â”€â”€ */}
+      {/* ── Target instruction ── */}
       {faseAcao === 'target' && (
         <div className="tatics-instruction">
-          <span className="tatics-instruction-attack">âš”ï¸ Toque em um inimigo para usar {selectedSkill?.nome}</span>
-          <button onClick={handleBackToSkills} className="tatics-instruction-btn">VOLTAR â—€</button>
+          <span className="tatics-instruction-attack">⚔️ Toque em um inimigo para usar {selectedSkill?.nome}</span>
+          <button onClick={handleBackToSkills} className="tatics-instruction-btn">VOLTAR ◀</button>
         </div>
       )}
 
-      {/* â”€â”€ Inimigo agindo â”€â”€ */}
+      {/* ── Inimigo agindo ── */}
       {faseAcao === 'inimigo' && (
         <div className="tatics-enemy-turn-info">
-          {enemyLog || 'â³ INIMIGO AGINDO...'}
+          {enemyLog || '⏳ INIMIGO AGINDO...'}
         </div>
       )}
 
-      {/* â”€â”€ Confirm End Turn modal â”€â”€ */}
+      {/* ── Confirm End Turn modal ── */}
       <AnimatePresence>
         {showEndConfirm && (
           <ConfirmEndTurn

@@ -20,9 +20,9 @@ const ELEMENTAL_COLORS = {
 }
 
 const WEAPON_ICONS = {
-  katana: 'ðŸ—¡ï¸',
-  laminas: 'âš”ï¸',
-  corrente: 'ðŸ”—',
+  katana: '🗡️',
+  laminas: '⚔️',
+  corrente: '🔗',
 }
 
 export default function Lobby() {
@@ -67,7 +67,7 @@ export default function Lobby() {
     if (titlePhase === 'glitch') {
       setTitleText('LENDAS D0 LDI')
       const t1 = setTimeout(() => setTitleText('L3ND4S D0 LD1'), 100)
-      const t2 = setTimeout(() => setTitleText('â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆ â–ˆâ–ˆâ–ˆ'), 200)
+      const t2 = setTimeout(() => setTitleText('██████ ███'), 200)
       const t3 = setTimeout(() => setTitleText('LENDAS D0 LD1'), 350)
       const t4 = setTimeout(() => setTitleText('L3ND4S D0 LDI'), 450)
       const t5 = setTimeout(() => setTitleText(''), 600)
@@ -197,7 +197,7 @@ export default function Lobby() {
                 >
                   <div className="ldi-save-card-header">
                     <span className="ldi-save-card-name">{s.sheet_name}</span>
-                    <button className="ldi-save-delete" onClick={() => handleDelete(s.id)} title={t('games.ldi.lobby.deletar')}>ðŸ—‘</button>
+                    <button className="ldi-save-delete" onClick={() => handleDelete(s.id)} title={t('games.ldi.lobby.deletar')}>🗑</button>
                   </div>
                   <div className="ldi-save-card-badges">
                     {Object.entries({ F: attrs.F, H: attrs.H, R: attrs.R, A: attrs.A, PdF: attrs.PdF }).map(([k, v]) => (
@@ -206,7 +206,7 @@ export default function Lobby() {
                   </div>
                   <div className="ldi-save-card-footer">
                     <span className="ldi-save-card-weapon">{weaponIcon} {s.weapon}</span>
-                    <span className="ldi-save-card-elemental" style={{ color: elColor }}>â— {s.elemental || t('games.ldi.lobby.neutro')}</span>
+                    <span className="ldi-save-card-elemental" style={{ color: elColor }}>● {s.elemental || t('games.ldi.lobby.neutro')}</span>
                     <span className="ldi-save-card-arc">{arcoLabel}</span>
                     <button className="ldi-btn ldi-btn--continue" onClick={() => handleContinue(s.id)}>
                       {t('games.ldi.lobby.continuar')}
@@ -244,12 +244,12 @@ export default function Lobby() {
               <p className="ldi-modal-sub">{t('games.ldi.lobby.modal_sub')}</p>
               <div className="ldi-modal-options">
                 <button className="ldi-modal-option" onClick={handleNewGuided}>
-                  <span className="ldi-modal-option-icon">ðŸ¤–</span>
+                  <span className="ldi-modal-option-icon">🤖</span>
                   <span className="ldi-modal-option-title">{t('games.ldi.lobby.modal_neoguide')}</span>
                   <span className="ldi-modal-option-desc">{t('games.ldi.lobby.modal_neoguide_desc')}</span>
                 </button>
                 <button className="ldi-modal-option" onClick={handleNewFull}>
-                  <span className="ldi-modal-option-icon">âš™ï¸</span>
+                  <span className="ldi-modal-option-icon">⚙️</span>
                   <span className="ldi-modal-option-title">{t('games.ldi.lobby.modal_zero')}</span>
                   <span className="ldi-modal-option-desc">{t('games.ldi.lobby.modal_zero_desc')}</span>
                 </button>

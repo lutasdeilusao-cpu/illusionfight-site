@@ -20,14 +20,14 @@ export default function Descanso() {
       setHp(h => {
         const novo = Math.min(h + 2, hpMax)
         store.setHpAtual(novo)
-        // Se comeÃ§ou com 0 HP, sÃ³ recupera metade
+        // Se começou com 0 HP, só recupera metade
         if (eraZero && novo >= Math.ceil(hpMax * 0.5)) {
           stopRef.current = true
           setTimeout(() => setAcordou(true), 500)
-          store.setMonologo('vocÃª descansou. nem tudo voltou. mas o suficiente.')
+          store.setMonologo('você descansou. nem tudo voltou. mas o suficiente.')
           return novo
         }
-        // Se nÃ£o era 0, recupera atÃ© 100% ou 75% se HP estava crÃ­tico
+        // Se não era 0, recupera até 100% ou 75% se HP estava crítico
         if (novo >= hpMax && !eraZero) {
           stopRef.current = true
           setTimeout(() => setAcordou(true), 500)
@@ -36,7 +36,7 @@ export default function Descanso() {
         if (novo >= Math.ceil(hpMax * 0.75) && eraZero === false && hp < Math.ceil(hpMax * 0.5)) {
           stopRef.current = true
           setTimeout(() => setAcordou(true), 500)
-          store.setMonologo('vocÃª descansou. se sente melhor.')
+          store.setMonologo('você descansou. se sente melhor.')
           return novo
         }
         return novo
@@ -53,7 +53,7 @@ export default function Descanso() {
     return (
       <motion.div className="jdc-descanso" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div className="jdc-descanso-card">
-          <div className="jdc-descanso-icon">ðŸŒ…</div>
+          <div className="jdc-descanso-icon">🌅</div>
           <p className="jack-text jack-text--amber">{t('games.jackcandy.descanso_acordou')}</p>
           <p className="jack-text jack-text--dim">
             {t('games.jackcandy.descanso_recuperado', { hp, hpMax, pct: hpPct })}
@@ -71,7 +71,7 @@ export default function Descanso() {
       <div className="jdc-descanso-card">
         <div className="jdc-descanso-icon">
           <motion.span animate={{ opacity: [0.3, 0.8, 0.3] }} transition={{ duration: 2, repeat: Infinity }}>
-            ðŸ˜´
+            😴
           </motion.span>
         </div>
         <p className="jack-text jack-text--dim">

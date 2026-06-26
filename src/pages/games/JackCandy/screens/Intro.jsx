@@ -40,7 +40,7 @@ export default function Intro() {
     const handler = (e) => {
       console.log('[DEBUG] tecla pressionada:', e.key, 'shift:', e.shiftKey)
       if (e.key === 'D' && e.shiftKey) {
-        console.log('[DEBUG] Shift+D detectado â€” carregando save de dev')
+        console.log('[DEBUG] Shift+D detectado — carregando save de dev')
         useJackStore.setState({
           cervejas: 500,
           cervejasTotais: 500,
@@ -88,7 +88,7 @@ export default function Intro() {
 
       {titleDone && (
         <div className="jdc-intro-counter">
-          ðŸº <span className="jack-text--amber">{store.cervejas}</span>
+          🍺 <span className="jack-text--amber">{store.cervejas}</span>
         </div>
       )}
 
@@ -100,16 +100,16 @@ export default function Intro() {
 
       {showPaje && !store.flags.TEM_BENGALA && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          <p className="jack-text">{'>'} um velho de bombeta preta parou na calÃ§ada.</p>
-          <p className="jack-text">{'>'} berimbau na mÃ£o. barraca de souvenirs.</p>
+          <p className="jack-text">{'>'} um velho de bombeta preta parou na calçada.</p>
+          <p className="jack-text">{'>'} berimbau na mão. barraca de souvenirs.</p>
           <p className="jack-text">{'>'} no meio da madrugada.</p>
-          <p className="jack-text jack-text--amber">[PAJÃ‰] "cheguei pra divar. o que vai ser?"</p>
+          <p className="jack-text jack-text--amber">[PAJÉ] "cheguei pra divar. o que vai ser?"</p>
           <div className="jack-buttons">
             <button
               className="jack-btn jack-btn--amber"
               onClick={() => store.comprarBengala()}
             >
-              [ bengala steampunk â€” 100 ðŸº ]
+              [ bengala steampunk — 100 🍺 ]
             </button>
           </div>
         </motion.div>

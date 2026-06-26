@@ -20,7 +20,7 @@ import './Duelo.css'
 
 const delay = ms => new Promise(r => setTimeout(r, ms))
 
-// AnimaÃ§Ã£o de moeda girando â€” puramente visual, timeline gerenciada pelo store
+// Animação de moeda girando — puramente visual, timeline gerenciada pelo store
 function CoinTossAnimation() {
   const { t } = useLanguage()
   const coinResult = useDueloStore(s => s.coinResult)
@@ -38,7 +38,7 @@ function CoinTossAnimation() {
         transition={!isDone ? { duration: 2, ease: 'easeInOut' } : { duration: 0.3 }}
       >
         <span className="duelo-coin-face">
-          {isDone ? (coinResult === 'PLAYER' ? 'ðŸ‘¤' : 'ðŸ¤–') : 'ðŸª™'}
+          {isDone ? (coinResult === 'PLAYER' ? '👤' : '🤖') : '🪙'}
         </span>
       </motion.div>
       <motion.p
@@ -54,7 +54,7 @@ function CoinTossAnimation() {
   )
 }
 
-// AnimaÃ§Ã£o de saque de 5 cartas â€” puramente visual
+// Animação de saque de 5 cartas — puramente visual
 function DrawAnimation() {
   const [revealed, setRevealed] = useState(0)
   const { t } = useLanguage()
@@ -111,7 +111,7 @@ function DrawAnimation() {
 function SpellConfirmModal({ card, onConfirm, onCancel }) {
   if (!card) return null
   const isBuff = ['ATK_BOOST', 'DEF_BOOST', 'MOV_BOOST', 'RNG_BOOST', 'DUPLICATE', 'TELEPORT'].includes(card.effect)
-  const tipo = isBuff ? 'âœ¨ BUFF' : 'â¬‡ DEBUFF'
+  const tipo = isBuff ? '✨ BUFF' : '⬇ DEBUFF'
   const alvo = isBuff ? 'monstro aliado' : 'monstro inimigo'
   return (
     <motion.div className="duelo-confirm-modal-overlay"
@@ -121,23 +121,23 @@ function SpellConfirmModal({ card, onConfirm, onCancel }) {
         initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
         style={{ borderColor: isBuff ? '#22C55E' : '#EF4444' }}
       >
-        <p className="duelo-confirm-title">{isBuff ? 'âœ¨' : 'â¬‡'} {card.name}</p>
-        <p className="duelo-confirm-desc">{tipo} Â· {card.effect}</p>
+        <p className="duelo-confirm-title">{isBuff ? '✨' : '⬇'} {card.name}</p>
+        <p className="duelo-confirm-desc">{tipo} · {card.effect}</p>
         {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
         <p className="duelo-confirm-question">
           Deseja usar <strong>{card.name}</strong> em um {alvo}?
         </p>
         {card.duracao > 0 && (
           <p className="duelo-confirm-area-hint">
-            â³ Efeito dura {card.duracao} turno(s)
+            ⏳ Efeito dura {card.duracao} turno(s)
           </p>
         )}
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
-            âœ… USAR
+            ✅ USAR
           </button>
           <button className="duelo-phase-btn" onClick={onCancel}>
-            âŒ CANCELAR
+            ❌ CANCELAR
           </button>
         </div>
       </motion.div>
@@ -160,18 +160,18 @@ function ConfirmPlaceModal({ card, onConfirm, onCancel }) {
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 50 }}
       >
-        <p className="duelo-confirm-title">ðŸƒ {card.name}</p>
+        <p className="duelo-confirm-title">🃏 {card.name}</p>
         <p className="duelo-confirm-desc">
-          âš” {card.atk}/{card.def} Â· ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng}
+          ⚔ {card.atk}/{card.def} · 👟{card.mov} 🎯{card.rng}
         </p>
         {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
         <p className="duelo-confirm-question">Descer no tabuleiro?</p>
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
-            âœ… DESCER
+            ✅ DESCER
           </button>
           <button className="duelo-phase-btn" onClick={onCancel}>
-            âŒ CANCELAR
+            ❌ CANCELAR
           </button>
         </div>
       </motion.div>
@@ -179,7 +179,7 @@ function ConfirmPlaceModal({ card, onConfirm, onCancel }) {
   )
 }
 
-// Modal de confirmaÃ§Ã£o para Armadilha/Magia
+// Modal de confirmação para Armadilha/Magia
 function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
   if (!pending) return null
   const { row, col, type, card } = pending
@@ -198,12 +198,12 @@ function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
         exit={{ scale: 0.8, y: 50 }}
       >
         <p className="duelo-confirm-title">
-          {isTrap ? 'ðŸ•³ï¸' : 'âœ¨'} {card.name}
+          {isTrap ? '🕳️' : '✨'} {card.name}
         </p>
         <p className="duelo-confirm-desc">
           {isTrap
-            ? `ðŸ“ CÃ©lula [${row},${col}] Â· Ãrea: ${card.area} Â· Gatilho: ${card.gatilho}`
-            : `ðŸ“ Alvo: [${row},${col}] Â· Efeito: ${card.effect}${card.duracao > 0 ? ` (${card.duracao}t)` : ''}`
+            ? `📍 Célula [${row},${col}] · Área: ${card.area} · Gatilho: ${card.gatilho}`
+            : `📍 Alvo: [${row},${col}] · Efeito: ${card.effect}${card.duracao > 0 ? ` (${card.duracao}t)` : ''}`
           }
         </p>
         {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
@@ -215,18 +215,18 @@ function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
         </p>
         <p className="duelo-confirm-area-hint">
           {isTrap
-            ? `âš ï¸ A Ã¡rea de ${card.area} casa(s) ao redor serÃ¡ afetada (destaque roxo)`
+            ? `⚠️ A área de ${card.area} casa(s) ao redor será afetada (destaque roxo)`
             : card.duracao > 0
-              ? `â³ Efeito persistente por ${card.duracao} turno(s) no campo`
-              : 'âš¡ Efeito instantÃ¢neo â€” use com sabedoria'
+              ? `⏳ Efeito persistente por ${card.duracao} turno(s) no campo`
+              : '⚡ Efeito instantâneo — use com sabedoria'
           }
         </p>
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
-            âœ… {isTrap ? 'ARMAR' : 'USAR'}
+            ✅ {isTrap ? 'ARMAR' : 'USAR'}
           </button>
           <button className="duelo-phase-btn" onClick={onCancel}>
-            ðŸ”„ ESCOLHER OUTRA CÃ‰LULA
+            🔄 ESCOLHER OUTRA CÉLULA
           </button>
         </div>
       </motion.div>
@@ -234,7 +234,7 @@ function ConfirmTrapSpellModal({ pending, onConfirm, onCancel }) {
   )
 }
 
-// Modal 1: Aviso de que a carta precisa de sacrifÃ­cios
+// Modal 1: Aviso de que a carta precisa de sacrifícios
 function SacrificeWarningModal({ card, onSelect, onCancel }) {
   if (!card) return null
   const grid = useDueloStore.getState().grid
@@ -254,34 +254,34 @@ function SacrificeWarningModal({ card, onSelect, onCancel }) {
       <motion.div className="duelo-confirm-modal duelo-confirm-modal--sacrifice"
         initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
       >
-        <p className="duelo-confirm-title">ðŸ”¥ {card.name}</p>
+        <p className="duelo-confirm-title">🔥 {card.name}</p>
         <p className="duelo-confirm-desc">
-          âš” {card.atk}/{card.def} Â· ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng} Â· {'â˜…'.repeat(card.estrelas || 1)}
+          ⚔ {card.atk}/{card.def} · 👟{card.mov} 🎯{card.rng} · {'★'.repeat(card.estrelas || 1)}
         </p>
         {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
         <p className="duelo-confirm-question">
-          Esta carta precisa de <strong>{sac} sacrifÃ­cio(s)</strong> para ser invocada!
+          Esta carta precisa de <strong>{sac} sacrifício(s)</strong> para ser invocada!
         </p>
         {insuficiente ? (
           <p className="duelo-confirm-area-hint" style={{ color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }}>
-            âŒ VocÃª tem apenas <strong>{meusMonstros} monstro(s)</strong> no campo,
-            mas precisa de <strong>{sac} sacrifÃ­cio(s)</strong>.
+            ❌ Você tem apenas <strong>{meusMonstros} monstro(s)</strong> no campo,
+            mas precisa de <strong>{sac} sacrifício(s)</strong>.
             Coloque mais monstros no campo primeiro!
           </p>
         ) : (
           <p className="duelo-confirm-area-hint">
-            VocÃª tem <strong>{meusMonstros} monstro(s)</strong> no campo.
+            Você tem <strong>{meusMonstros} monstro(s)</strong> no campo.
             Clique em "SELECIONAR" e depois escolha {sac} monstro(s) aliado(s) para sacrificar.
           </p>
         )}
         <div className="duelo-confirm-btns">
           {!insuficiente && (
             <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onSelect}>
-              âœ… SELECIONAR SACRIFÃCIO(S)
+              ✅ SELECIONAR SACRIFÍCIO(S)
             </button>
           )}
           <button className="duelo-phase-btn" onClick={onCancel}>
-            {insuficiente ? 'âŒ VOLTAR' : 'âŒ CANCELAR'}
+            {insuficiente ? '❌ VOLTAR' : '❌ CANCELAR'}
           </button>
         </div>
       </motion.div>
@@ -289,7 +289,7 @@ function SacrificeWarningModal({ card, onSelect, onCancel }) {
   )
 }
 
-// Modal 2: ConfirmaÃ§Ã£o final do sacrifÃ­cio
+// Modal 2: Confirmação final do sacrifício
 function ConfirmSacrificeModal({ targets, card, onConfirm, onCancel }) {
   if (!card || !targets?.length) return null
   return (
@@ -299,26 +299,26 @@ function ConfirmSacrificeModal({ targets, card, onConfirm, onCancel }) {
       <motion.div className="duelo-confirm-modal duelo-confirm-modal--sacrifice"
         initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
       >
-        <p className="duelo-confirm-title">âš ï¸ CONFIRMAR SACRIFÃCIO</p>
+        <p className="duelo-confirm-title">⚠️ CONFIRMAR SACRIFÍCIO</p>
         <p className="duelo-confirm-desc">
-          Invocar <strong>{card.name}</strong> ({card.estrelas}â˜…)
+          Invocar <strong>{card.name}</strong> ({card.estrelas}★)
         </p>
         <div className="duelo-sacrifice-list">
           <p className="duelo-sacrifice-list-title">Monstros a serem sacrificados:</p>
           {targets.map((t, i) => (
             <p key={i} className="duelo-sacrifice-item">
-              ðŸ”¥ {t.card.name} â€” [ATK {t.card.atk}/{t.card.def}] em [{t.row},{t.col}]
+              🔥 {t.card.name} — [ATK {t.card.atk}/{t.card.def}] em [{t.row},{t.col}]
             </p>
           ))}
         </div>
         <p className="duelo-confirm-question">Tem certeza que deseja sacrificar esses monstros?</p>
-        <p className="duelo-confirm-area-hint">ApÃ³s confirmado, os monstros serÃ£o enviados ao cemitÃ©rio e {card.name} serÃ¡ invocado no campo.</p>
+        <p className="duelo-confirm-area-hint">Após confirmado, os monstros serão enviados ao cemitério e {card.name} será invocado no campo.</p>
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
-            âœ… SIM, SACRIFICAR
+            ✅ SIM, SACRIFICAR
           </button>
           <button className="duelo-phase-btn" onClick={onCancel}>
-            ðŸ”„ NÃƒO, VOLTAR
+            🔄 NÃO, VOLTAR
           </button>
         </div>
       </motion.div>
@@ -370,10 +370,10 @@ function VerCartasModal({ onClose }) {
       >
         <div className="duelo-vercartas-tabs">
           <button className={`duelo-vercartas-tab ${aba === 'mao' ? 'active' : ''}`}
-            onClick={() => setAba('mao')}>ðŸƒ MINHA MÃƒO ({hand.length})</button>
+            onClick={() => setAba('mao')}>🃏 MINHA MÃO ({hand.length})</button>
           <button className={`duelo-vercartas-tab ${aba === 'campo' ? 'active' : ''}`}
-            onClick={() => setAba('campo')}>ðŸŽ¯ CAMPO ({campoCount})</button>
-          <button className="duelo-vercartas-close" onClick={onClose}>âœ•</button>
+            onClick={() => setAba('campo')}>🎯 CAMPO ({campoCount})</button>
+          <button className="duelo-vercartas-close" onClick={onClose}>✕</button>
         </div>
         <div className="duelo-vercartas-content">
           {aba === 'mao' && hand.map(card => (
@@ -384,26 +384,26 @@ function VerCartasModal({ onClose }) {
               <span className="duelo-vercartas-card-name">{card.name}</span>
               {card.type === 'MONSTER' && (
                 <span className="duelo-vercartas-card-stats">
-                  âš”{card.atk} ðŸ›¡{card.def} ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng}
-                  {'â˜…'.repeat(card.estrelas || 1)}
+                  ⚔{card.atk} 🛡{card.def} 👟{card.mov} 🎯{card.rng}
+                  {'★'.repeat(card.estrelas || 1)}
                 </span>
               )}
               {card.type === 'SPELL' && <span className="duelo-vercartas-card-effect">{card.desc}</span>}
-              {card.type === 'TRAP' && <span className="duelo-vercartas-card-effect">Ãrea {card.area} â€” {card.desc}</span>}
+              {card.type === 'TRAP' && <span className="duelo-vercartas-card-effect">Área {card.area} — {card.desc}</span>}
             </div>
           ))}
           {aba === 'campo' && (
             <>
               {/* Monstros */}
-              {allFieldMonsters.length > 0 && <p className="duelo-vercartas-section-title">ðŸƒ MONSTROS</p>}
+              {allFieldMonsters.length > 0 && <p className="duelo-vercartas-section-title">🃏 MONSTROS</p>}
               {allFieldMonsters.map((m, i) => (
                 <div key={i} className="duelo-vercartas-card duelo-vercartas-card--field"
                   onClick={() => setSelCard(m === selCard ? null : m)}
                   style={{ borderColor: m.owner === 'PLAYER' ? '#00B4D8' : '#EF4444' }}
                 >
-                  <span className="duelo-vercartas-card-name">{m.owner === 'PLAYER' ? 'ðŸ‘¤' : 'ðŸ¤–'} {m.name}</span>
+                  <span className="duelo-vercartas-card-name">{m.owner === 'PLAYER' ? '👤' : '🤖'} {m.name}</span>
                   <span className="duelo-vercartas-card-stats">
-                    âš”{m.atk} ðŸ›¡{m.def} ðŸ‘Ÿ{m.mov} ðŸŽ¯{m.rng} [{m.row},{m.col}]
+                    ⚔{m.atk} 🛡{m.def} 👟{m.mov} 🎯{m.rng} [{m.row},{m.col}]
                   </span>
                   {/* Buff/debuff tags */}
                   {getBuffsForMonster(m.id_num).map((buff, bi) => {
@@ -411,7 +411,7 @@ function VerCartasModal({ onClose }) {
                     const remaining = Math.max(0, (buff.expiresOnTurn || 0) - turnNumber)
                     return (
                       <span key={bi} className={`duelo-vercartas-effect ${isBuff ? '' : 'duelo-vercartas-effect--debuff'}`}>
-                        {isBuff ? 'â¬†' : 'â¬‡'} {buff.atkBonus ? `${buff.atkBonus > 0 ? '+' : ''}${buff.atkBonus}ATK` : ''}
+                        {isBuff ? '⬆' : '⬇'} {buff.atkBonus ? `${buff.atkBonus > 0 ? '+' : ''}${buff.atkBonus}ATK` : ''}
                         {buff.defBonus ? `${buff.defBonus > 0 ? '+' : ''}${buff.defBonus}DEF` : ''}
                         {' '}({remaining}t)
                       </span>
@@ -419,35 +419,35 @@ function VerCartasModal({ onClose }) {
                   })}
                   {/* Field effects (magias persistentes) */}
                   {fieldEffects.filter(fe => fe.targetId === m.id_num).map((fe, fi) => (
-                    <span key={fi} className="duelo-vercartas-effect">âœ¨ {fe.cardName} ({fe.remainingTurns}t)</span>
+                    <span key={fi} className="duelo-vercartas-effect">✨ {fe.cardName} ({fe.remainingTurns}t)</span>
                   ))}
                 </div>
               ))}
               {/* Armadilhas ativas */}
-              {allFieldTraps.length > 0 && <p className="duelo-vercartas-section-title">ðŸ•³ï¸ ARMADILHAS ATIVAS</p>}
+              {allFieldTraps.length > 0 && <p className="duelo-vercartas-section-title">🕳️ ARMADILHAS ATIVAS</p>}
               {allFieldTraps.map((trap, i) => (
                 <div key={i} className="duelo-vercartas-card"
                   style={{ borderColor: trap.owner === 'PLAYER' ? '#8B5CF6' : '#EF4444', borderLeft: '3px solid' }}
                 >
                   <span className="duelo-vercartas-card-name">
-                    {trap.owner === 'PLAYER' ? 'ðŸ‘¤' : 'ðŸ¤–'} {trap.name}
+                    {trap.owner === 'PLAYER' ? '👤' : '🤖'} {trap.name}
                   </span>
                   <span className="duelo-vercartas-card-stats">
-                    ðŸ“ [{trap.row},{trap.col}] Â· Ãrea: {trap.area} Â· Gatilho: {trap.gatilho || 'STEP'}
-                    {trap.turnosRestantes !== undefined && ` Â· â³ ${trap.turnosRestantes}t restantes`}
+                    📍 [{trap.row},{trap.col}] · Área: {trap.area} · Gatilho: {trap.gatilho || 'STEP'}
+                    {trap.turnosRestantes !== undefined && ` · ⏳ ${trap.turnosRestantes}t restantes`}
                   </span>
                   <span className="duelo-vercartas-card-effect">{trap.desc}</span>
                 </div>
               ))}
               {/* Magias persistentes */}
-              {persistentSpells.length > 0 && <p className="duelo-vercartas-section-title">âœ¨ MAGIAS ATIVAS</p>}
+              {persistentSpells.length > 0 && <p className="duelo-vercartas-section-title">✨ MAGIAS ATIVAS</p>}
               {persistentSpells.map((spell, i) => (
                 <div key={i} className="duelo-vercartas-card"
                   style={{ borderColor: '#22C55E', borderLeft: '3px solid' }}
                 >
-                  <span className="duelo-vercartas-card-name">âœ¨ {spell.cardName}</span>
+                  <span className="duelo-vercartas-card-name">✨ {spell.cardName}</span>
                   <span className="duelo-vercartas-card-stats">
-                    ðŸ“ [{spell.row},{spell.col}] Â· Efeito: {spell.effect} Â· â³ {spell.remainingTurns}t restantes
+                    📍 [{spell.row},{spell.col}] · Efeito: {spell.effect} · ⏳ {spell.remainingTurns}t restantes
                   </span>
                 </div>
               ))}
@@ -469,7 +469,7 @@ function VerCartasModal({ onClose }) {
   )
 }
 
-// Modal de ativaÃ§Ã£o de armadilha (quando inimigo estÃ¡ na Ã¡rea)
+// Modal de ativação de armadilha (quando inimigo está na área)
 function TrapActivationModal({ target, onConfirm, onCancel }) {
   if (!target) return null
   return (
@@ -479,23 +479,23 @@ function TrapActivationModal({ target, onConfirm, onCancel }) {
       <motion.div className="duelo-confirm-modal duelo-confirm-modal--trap"
         initial={{ scale: 0.8, y: 50 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.8, y: 50 }}
       >
-        <p className="duelo-confirm-title">âš¡ ARMADILHA DETECTADA!</p>
+        <p className="duelo-confirm-title">⚡ ARMADILHA DETECTADA!</p>
         <p className="duelo-confirm-desc">
-          Monstro inimigo em [{target.row},{target.col}] estÃ¡ na Ã¡rea de <strong>{target.trapCard?.name}</strong>!
+          Monstro inimigo em [{target.row},{target.col}] está na área de <strong>{target.trapCard?.name}</strong>!
         </p>
         <p className="duelo-confirm-flavor">"{target.trapCard?.desc}"</p>
         {target.trapCard?.effectValue > 0 && (
           <p className="duelo-confirm-area-hint">
-            âš ï¸ Efeito: {target.trapCard.effectValue} de dano ao dono do monstro
+            ⚠️ Efeito: {target.trapCard.effectValue} de dano ao dono do monstro
           </p>
         )}
         <p className="duelo-confirm-question">Ativar armadilha agora?</p>
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn duelo-phase-btn--active" onClick={onConfirm}>
-            âš¡ ATIVAR
+            ⚡ ATIVAR
           </button>
           <button className="duelo-phase-btn" onClick={onCancel}>
-            â­ï¸ IGNORAR
+            ⏭️ IGNORAR
           </button>
         </div>
       </motion.div>
@@ -503,7 +503,7 @@ function TrapActivationModal({ target, onConfirm, onCancel }) {
   )
 }
 
-// Modal de informaÃ§Ã£o de carta no campo
+// Modal de informação de carta no campo
 function FieldCardInfoModal({ info, onClose }) {
   if (!info) return null
   const { row, col, card, type } = info
@@ -520,17 +520,17 @@ function FieldCardInfoModal({ info, onClose }) {
         style={{ borderColor: isMonster ? '#F5A623' : isTrap ? '#8B5CF6' : '#22C55E' }}
       >
         <p className="duelo-confirm-title">
-          {isMonster ? 'ðŸƒ' : isTrap ? 'ðŸ•³ï¸' : 'âœ¨'} {card.name}
+          {isMonster ? '🃏' : isTrap ? '🕳️' : '✨'} {card.name}
         </p>
         <p className="duelo-confirm-desc">
-          {isMonster && `âš” ${card.atk}/${card.def} Â· ðŸ‘Ÿ${card.mov} ðŸŽ¯${card.rng} Â· ${'â˜…'.repeat(card.estrelas || 1)}`}
-          {isTrap && `ðŸ“ [${row},${col}] Â· Ãrea: ${card.area} Â· Gatilho: ${card.gatilho || 'STEP'}`}
-          {!isMonster && !isTrap && `ðŸ“ [${row},${col}]`}
+          {isMonster && `⚔ ${card.atk}/${card.def} · 👟${card.mov} 🎯${card.rng} · ${'★'.repeat(card.estrelas || 1)}`}
+          {isTrap && `📍 [${row},${col}] · Área: ${card.area} · Gatilho: ${card.gatilho || 'STEP'}`}
+          {!isMonster && !isTrap && `📍 [${row},${col}]`}
         </p>
         {card.desc && <p className="duelo-confirm-flavor">"{card.desc}"</p>}
         <div className="duelo-confirm-btns">
           <button className="duelo-phase-btn" onClick={onClose}>
-            âœ• FECHAR
+            ✕ FECHAR
           </button>
         </div>
       </motion.div>
@@ -553,7 +553,7 @@ export default function DueloRoute() {
   const [verCartas, setVerCartas] = useState(false)
   const aiRunning = useRef(false)
 
-  // â”€â”€ Route protection: only admins â”€â”€
+  // ── Route protection: only admins ──
   useEffect(() => {
     if (!carregando && (!user || perfil?.is_admin !== true)) {
       navigate('/games')
@@ -570,7 +570,7 @@ export default function DueloRoute() {
   const startGame = () => {
     store.resetGame()
     setFase('game')
-    // Gerencia a timeline de animaÃ§Ãµes diretamente no escopo do clique
+    // Gerencia a timeline de animações diretamente no escopo do clique
     const t1 = setTimeout(() => {
       store.doCoinToss()
     }, 100)
@@ -585,25 +585,25 @@ export default function DueloRoute() {
 
   const handleCardHover = useCallback((card) => setHoveredCard(card), [])
 
-  // â”€â”€ Clique em carta da mÃ£o â”€â”€
+  // ── Clique em carta da mão ──
   const handleCardClick = useCallback((card) => {
     const s = useDueloStore.getState()
     if (!card || s.currentTurn !== 'PLAYER' || s.gamePhase !== 'PLAYING' || s.turnPhase !== 'DESCER') return
     store.selectHandCard(card)
   }, [store])
 
-  // â”€â”€ Clique no grid â”€â”€
+  // ── Clique no grid ──
   const handleGridClick = useCallback((row, col) => {
     const s = useDueloStore.getState()
     if (s.gamePhase !== 'PLAYING' || s.currentTurn !== 'PLAYER') return
 
-    // Fase DESCER â€” colocando carta no grid
+    // Fase DESCER — colocando carta no grid
     if (s.turnPhase === 'DESCER' && s.waitingForGridTarget) {
       store.placeCardOnGrid(row, col)
       return
     }
 
-    // Fase MOVIMENTO â€” mover monstro
+    // Fase MOVIMENTO — mover monstro
     if (s.turnPhase === 'MOVIMENTO') {
       const cell = s.grid[row][col]
       // Se clicou em casa de MOV
@@ -611,7 +611,7 @@ export default function DueloRoute() {
         store.moveMonster(row, col)
         return
       }
-      // Se clicou em monstro aliado â€” seleciona
+      // Se clicou em monstro aliado — seleciona
       if (cell?.monster && cell.monster.owner === 'PLAYER') {
         store.selectMonster(row, col)
         return
@@ -620,7 +620,7 @@ export default function DueloRoute() {
       return
     }
 
-    // Fase ATAQUE â€” atacar
+    // Fase ATAQUE — atacar
     if (s.turnPhase === 'ATAQUE') {
       const cell = s.grid[row][col]
       // Se clicou em casa de ataque
@@ -628,7 +628,7 @@ export default function DueloRoute() {
         store.attackMonster(row, col)
         return
       }
-      // Se clicou em monstro aliado â€” seleciona
+      // Se clicou em monstro aliado — seleciona
       if (cell?.monster && cell.monster.owner === 'PLAYER') {
         store.selectMonster(row, col)
         return
@@ -638,26 +638,26 @@ export default function DueloRoute() {
     }
   }, [store])
 
-  // â”€â”€ PRÃ“XIMA FASE â”€â”€
+  // ── PRÓXIMA FASE ──
   const handleProximaFase = () => {
     store.nextTurnPhase()
   }
 
-  // â”€â”€ Finalizar turno do player â”€â”€
+  // ── Finalizar turno do player ──
   const handlePlayerEndTurn = () => {
     store.playerEndTurn()
   }
 
-  // â”€â”€ IA DELAYS â”€â”€
+  // ── IA DELAYS ──
   const IA_DELAYS = {
-    entre_fases: 800,      // ms entre COMPRA â†’ INVOCAR â†’ AÃ‡ÃƒO â†’ MAGIA â†’ FIM
+    entre_fases: 800,      // ms entre COMPRA → INVOCAR → AÇÃO → MAGIA → FIM
     antes_mover: 600,      // ms antes de mover um monstro
     antes_atacar: 700,     // ms antes de atacar
     antes_magia: 500,      // ms antes de jogar magia
     pensando: 400,         // ms do banner "IA pensando..."
   }
 
-  // â”€â”€ IA Turn (executa as 3 fases em sequÃªncia com delays visÃ­veis) â”€â”€
+  // ── IA Turn (executa as 3 fases em sequência com delays visíveis) ──
   useEffect(() => {
     if (store.currentTurn !== 'AI' || store.gamePhase !== 'PLAYING' || fase !== 'game' || iaPending) return
 
@@ -681,7 +681,7 @@ export default function DueloRoute() {
         return
       }
 
-      // Fase MOVIMENTO da IA (sem movimento na primeira rodada se IA comeÃ§ar)
+      // Fase MOVIMENTO da IA (sem movimento na primeira rodada se IA começar)
       if (!(state1.isFirstTurn && state1.coinResult === 'AI')) {
         await delay(IA_DELAYS.entre_fases)
         setIaPhase('MOVIMENTO')
@@ -720,7 +720,7 @@ export default function DueloRoute() {
     runAI()
   }, [store.currentTurn, store.gamePhase, fase, iaPending, store])
 
-  // â”€â”€ Verifica condiÃ§Ã£o de vitÃ³ria apÃ³s cada aÃ§Ã£o â”€â”€
+  // ── Verifica condição de vitória após cada ação ──
   useEffect(() => {
     const s = useDueloStore.getState()
     if (s.gamePhase === 'PLAYING') {
@@ -735,10 +735,10 @@ export default function DueloRoute() {
     }
   }, [store.grid, store.playerHand, store.aiHand, store.playerDeck, store.aiDeck])
 
-  // â”€â”€ AnÃºncio de fase â”€â”€
+  // ── Anúncio de fase ──
   const [localAnnouncement, setLocalAnnouncement] = useState(null)
 
-  // Escuta anÃºncios do store e tambÃ©m os gera localmente para transiÃ§Ãµes de fase
+  // Escuta anúncios do store e também os gera localmente para transições de fase
   useEffect(() => {
     const s = useDueloStore.getState()
     if (s.gamePhase !== 'PLAYING') return
@@ -748,13 +748,13 @@ export default function DueloRoute() {
 
     let ann = null
     if (isPlayerTurn) {
-      if (turnPhase === 'DESCER') ann = { text: 'FASE 1 â€” ESCOLHA SUAS CARTAS', icon: 'ðŸƒ' }
-      else if (turnPhase === 'MOVIMENTO') ann = { text: 'FASE 2 â€” MOVIMENTO', icon: 'ðŸ‘Ÿ' }
-      else if (turnPhase === 'ATAQUE') ann = { text: 'FASE 3 â€” ATAQUE', icon: 'âš”ï¸' }
+      if (turnPhase === 'DESCER') ann = { text: 'FASE 1 — ESCOLHA SUAS CARTAS', icon: '🃏' }
+      else if (turnPhase === 'MOVIMENTO') ann = { text: 'FASE 2 — MOVIMENTO', icon: '👟' }
+      else if (turnPhase === 'ATAQUE') ann = { text: 'FASE 3 — ATAQUE', icon: '⚔️' }
     } else if (iaPending) {
-      if (iaPhase === 'DESCER') ann = { text: 'ðŸ¤– IA â€” COLOCANDO CARTAS...', icon: 'ðŸƒ' }
-      else if (iaPhase === 'MOVIMENTO') ann = { text: 'ðŸ¤– IA â€” MOVENDO MONSTROS...', icon: 'ðŸ‘Ÿ' }
-      else if (iaPhase === 'ATAQUE') ann = { text: 'ðŸ¤– IA â€” ATACANDO...', icon: 'âš”ï¸' }
+      if (iaPhase === 'DESCER') ann = { text: '🤖 IA — COLOCANDO CARTAS...', icon: '🃏' }
+      else if (iaPhase === 'MOVIMENTO') ann = { text: '🤖 IA — MOVENDO MONSTROS...', icon: '👟' }
+      else if (iaPhase === 'ATAQUE') ann = { text: '🤖 IA — ATACANDO...', icon: '⚔️' }
     }
 
     if (ann) {
@@ -766,14 +766,14 @@ export default function DueloRoute() {
     }
   }, [iaPhase, iaPending, store.gamePhase])
 
-  // â”€â”€ Game Over â”€â”€
+  // ── Game Over ──
   useEffect(() => {
     if (store.gamePhase === 'OVER' && fase === 'game') {
       setTimeout(() => setFase(store.winner === 'PLAYER' ? 'victory' : 'defeat'), 1500)
     }
   }, [store.gamePhase, fase, store.winner])
 
-  // â”€â”€ Render â”€â”€
+  // ── Render ──
   if (fase === 'menu') return <DueloMenu onStart={startGame} />
 
   // Coin Toss
@@ -806,23 +806,23 @@ export default function DueloRoute() {
   if (s.gamePhase === 'OVER') {
     hintText = ''
   } else if (s.waitingForGridTarget === 'teleport_dest') {
-    hintText = `ðŸŒ€ Clique em uma casa VAZIA para teleportar ${s.teleportSource?.card?.name || 'o monstro'}`
+    hintText = `🌀 Clique em uma casa VAZIA para teleportar ${s.teleportSource?.card?.name || 'o monstro'}`
   } else if (s.waitingForGridTarget === 'monster') {
-    hintText = `ðŸ‘† Clique em uma casa vazia no tabuleiro para posicionar ${s.selectedHandCard?.name}`
+    hintText = `👆 Clique em uma casa vazia no tabuleiro para posicionar ${s.selectedHandCard?.name}`
   } else if (s.waitingForGridTarget === 'trap') {
-    hintText = `ðŸ‘† Clique em uma casa vazia em QUALQUER lugar do tabuleiro para armar ${s.selectedHandCard?.name} (oculta)`
+    hintText = `👆 Clique em uma casa vazia em QUALQUER lugar do tabuleiro para armar ${s.selectedHandCard?.name} (oculta)`
   } else if (s.waitingForGridTarget === 'sacrifice') {
     const sac = s.selectedHandCard?.estrelas >= 6 ? 3 : s.selectedHandCard?.estrelas === 5 ? 2 : s.selectedHandCard?.estrelas === 4 ? 1 : 0
     const selecionados = s.sacrificeTargets?.length || 0
     const restantes = Math.max(0, sac - selecionados)
-    hintText = `âš ï¸ Clique em ${restantes > 0 ? `MAIS ${restantes} MONSTRO(S) ALIADO(S)` : 'MONSTRO(S) ALIADO(S)'} para sacrificar e invocar ${s.selectedHandCard?.name} (${s.selectedHandCard?.estrelas || 1}â˜…, precisa de ${sac} sacrifÃ­cio(s))`
+    hintText = `⚠️ Clique em ${restantes > 0 ? `MAIS ${restantes} MONSTRO(S) ALIADO(S)` : 'MONSTRO(S) ALIADO(S)'} para sacrificar e invocar ${s.selectedHandCard?.name} (${s.selectedHandCard?.estrelas || 1}★, precisa de ${sac} sacrifício(s))`
   } else if (s.waitingForGridTarget === 'spell') {
     const spellCard = s.selectedHandCard
     if (spellCard && s.spellTargetOwner) {
       const alvoDesc = s.spellTargetOwner === 'PLAYER' ? 'aliado' : 'inimigo'
-      hintText = `ðŸ‘† Clique em um monstro ${alvoDesc} (destacado em verde) para usar ${spellCard.name}`
+      hintText = `👆 Clique em um monstro ${alvoDesc} (destacado em verde) para usar ${spellCard.name}`
     } else {
-      hintText = `ðŸ‘† Clique em um alvo para usar ${spellCard?.name || 'magia'}`
+      hintText = `👆 Clique em um alvo para usar ${spellCard?.name || 'magia'}`
     }
   } else if (turnPhase === 'DESCER' && isPlayerTurn) {
     hintText = t('games.duelo.hint_descer')
@@ -941,7 +941,7 @@ export default function DueloRoute() {
         <Board />
       </div>
 
-      {/* MÃ£o do jogador */}
+      {/* Mão do jogador */}
       {s.playerHand.length > 0 && (
         <Hand
           cards={s.playerHand}
@@ -958,30 +958,30 @@ export default function DueloRoute() {
       {/* Controles de fase */}
       <div className="duelo-controls">
         <span className="duelo-turn-indicator">
-          {t('games.duelo.turno_label')} <span>{s.turnNumber}</span> Â· {isPlayerTurn ? t('games.duelo.turno_voce') : iaPending ? `${t('games.duelo.turno_ia_pensando')} (${iaPhase})` : t('games.duelo.turno_ia')}
+          {t('games.duelo.turno_label')} <span>{s.turnNumber}</span> · {isPlayerTurn ? t('games.duelo.turno_voce') : iaPending ? `${t('games.duelo.turno_ia_pensando')} (${iaPhase})` : t('games.duelo.turno_ia')}
         </span>
         <span className="duelo-phase-indicator">
-          {turnPhase === 'DESCER' ? 'FASE 1 â€” DESCER' : turnPhase === 'MOVIMENTO' ? 'FASE 2 â€” MOVIMENTO' : 'FASE 3 â€” ATAQUE'}
+          {turnPhase === 'DESCER' ? 'FASE 1 — DESCER' : turnPhase === 'MOVIMENTO' ? 'FASE 2 — MOVIMENTO' : 'FASE 3 — ATAQUE'}
         </span>
 
         {s.gamePhase !== 'OVER' && (
           <button className="duelo-phase-btn" onClick={() => setVerCartas(true)} style={{ fontSize: '9px' }}>
-            ðŸ“– VER CARTAS
+            📖 VER CARTAS
           </button>
         )}
         {isPlayerTurn && s.gamePhase !== 'OVER' && (
           <>
-            {/* Cancelar seleÃ§Ã£o de carta na mÃ£o */}
+            {/* Cancelar seleção de carta na mão */}
             {s.selectedHandCard && (
               <button className="duelo-phase-btn" onClick={() => store.cancelSelection()}>
-                âŒ CANCELAR CARTA
+                ❌ CANCELAR CARTA
               </button>
             )}
 
-            {/* PRÃ“XIMA FASE */}
+            {/* PRÓXIMA FASE */}
             {s.turnPhase === 'DESCER' && !s.waitingForGridTarget && !s.confirmPlace && (
               <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handleProximaFase}>
-                ðŸ“‹ PRÃ“XIMA FASE
+                📋 PRÓXIMA FASE
               </button>
             )}
 
@@ -991,7 +991,7 @@ export default function DueloRoute() {
                   <span className="duelo-phase-hint">Clique em uma casa azul para mover</span>
                 )}
                 <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handleProximaFase}>
-                  ðŸ“‹ PRÃ“XIMA FASE
+                  📋 PRÓXIMA FASE
                 </button>
               </>
             )}
@@ -1000,11 +1000,11 @@ export default function DueloRoute() {
               <>
                 {s.canDirectAttack && (
                   <button className="duelo-phase-btn duelo-phase-btn--direct" onClick={() => store.directAttack()} style={{ background: '#EF4444', borderColor: '#EF4444', animation: 'pulse 1s infinite' }}>
-                    âš¡ ATACAR DIRETO
+                    ⚡ ATACAR DIRETO
                   </button>
                 )}
                 <button className="duelo-phase-btn duelo-phase-btn--active" onClick={handlePlayerEndTurn}>
-                  â¹ï¸ ENCERRAR TURNO
+                  ⏹️ ENCERRAR TURNO
                 </button>
               </>
             )}
@@ -1013,7 +1013,7 @@ export default function DueloRoute() {
 
         {s.gamePhase === 'OVER' && (
           <span className="duelo-phase-over">
-            {s.winner === 'PLAYER' ? `ðŸ† ${t('games.duelo.vitoria')}!` : `ðŸ’€ ${t('games.duelo.derrota')}`}
+            {s.winner === 'PLAYER' ? `🏆 ${t('games.duelo.vitoria')}!` : `💀 ${t('games.duelo.derrota')}`}
           </span>
         )}
       </div>

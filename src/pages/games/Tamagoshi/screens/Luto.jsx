@@ -20,7 +20,7 @@ export default function Luto() {
           animate={{ scale: [1, 0.8, 0.6, 0.8, 1], opacity: [1, 0.5, 0.3, 0.5, 1] }}
           transition={{ duration: 4, repeat: Infinity }}
         >
-          ðŸ’”
+          💔
         </motion.div>
         <h2 className="tama-luto-title">{t('games.tamagoshi.luto_se_foi', { nome: store.nomeCustom })}</h2>
         <p className="tama-luto-epitafio">{epitafio}</p>

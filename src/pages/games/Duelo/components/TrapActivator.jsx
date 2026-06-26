@@ -13,7 +13,7 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
       }}>
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
           style={{ textAlign: 'center', maxWidth: 400, width: '100%' }}>
-          <div style={{ fontSize: 32, marginBottom: 8 }}>ðŸ•³ï¸</div>
+          <div style={{ fontSize: 32, marginBottom: 8 }}>🕳️</div>
           <p style={{ fontFamily: "'Rajdhani',sans-serif", fontSize: 18, color: '#EF4444', marginBottom: 8 }}>
             {t('games.duelo.btn_ativar_armadilha')}
           </p>
@@ -24,7 +24,7 @@ export default function TrapActivator({ trap, onActivate, onSkip }) {
             {trap.desc || trap.description}
           </p>
           <p style={{ fontSize: 10, color: '#777', fontFamily: "'Courier New',monospace", marginBottom: 20 }}>
-            Ãrea: {trap.area} Â· Gatilho: {trap.gatilho}
+            Área: {trap.area} · Gatilho: {trap.gatilho}
           </p>
           <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
             <button onClick={onSkip} style={{

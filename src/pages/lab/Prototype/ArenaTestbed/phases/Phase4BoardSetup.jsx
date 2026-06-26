@@ -9,10 +9,10 @@ const MAX_COLS = 10
 const MAX_ROWS = 15
 
 const OBSTACLE_TYPES = [
-  { id: 1, labelKey: 'prototype.arena_testbed.obs1', icon: 'ðŸ§±' },
-  { id: 2, labelKey: 'prototype.arena_testbed.obs2', icon: 'ðŸ•³ï¸' },
-  { id: 3, labelKey: 'prototype.arena_testbed.obs3', icon: 'ðŸª¤' },
-  { id: 4, labelKey: 'prototype.arena_testbed.obs4', icon: 'ðŸ“¦' },
+  { id: 1, labelKey: 'prototype.arena_testbed.obs1', icon: '🧱' },
+  { id: 2, labelKey: 'prototype.arena_testbed.obs2', icon: '🕳️' },
+  { id: 3, labelKey: 'prototype.arena_testbed.obs3', icon: '🪤' },
+  { id: 4, labelKey: 'prototype.arena_testbed.obs4', icon: '📦' },
 ]
 
 export default function Phase4BoardSetup({ characters, onConfirm }) {
@@ -138,7 +138,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
           ctx.font = '14px sans-serif'
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
-          ctx.fillText(item.tipo === 'hp' ? 'â¤ï¸' : 'ðŸ’™', center.x, center.y)
+          ctx.fillText(item.tipo === 'hp' ? '❤️' : '💙', center.x, center.y)
         }
 
         if (ch) {
@@ -316,14 +316,14 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
                 className={`p2-tool-btn ${tool === 'select' ? 'active' : ''}`}
                 onClick={() => { audio.toggle(); setTool('select') }}
               >
-                <span className="p2-tool-icon">ðŸ‘†</span>
+                <span className="p2-tool-icon">👆</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.tool_select')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'eraser' ? 'active' : ''}`}
                 onClick={() => { audio.toggle(); setTool('eraser') }}
               >
-                <span className="p2-tool-icon">ðŸ§¹</span>
+                <span className="p2-tool-icon">🧹</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.tool_eraser')}</span>
               </button>
             </div>
@@ -352,14 +352,14 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
                 className={`p2-tool-btn ${tool === 'item_hp' ? 'active' : ''}`}
                 onClick={() => { audio.toggle(); setTool('item_hp') }}
               >
-                <span className="p2-tool-icon">â¤ï¸</span>
+                <span className="p2-tool-icon">❤️</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.label_hp')}</span>
               </button>
               <button
                 className={`p2-tool-btn ${tool === 'item_mp' ? 'active' : ''}`}
                 onClick={() => { audio.toggle(); setTool('item_mp') }}
               >
-                <span className="p2-tool-icon">ðŸ’§</span>
+                <span className="p2-tool-icon">💧</span>
                 <span className="p2-btn-label">{t('prototype.arena_testbed.label_mp')}</span>
               </button>
             </div>
@@ -405,7 +405,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
                 onClick={() => { audio.select(); setSelectedChar(ch) }}
               >
                 <span className={`p2-char-team ${ch.time}`}>
-                  {ch.time === 'jogador' ? 'ðŸ‘¤' : 'ðŸ¤–'}
+                  {ch.time === 'jogador' ? '👤' : '🤖'}
                 </span>
                 <span>{ch.aparencia?.nome || ch.nome}</span>
                 <span className="p2-char-pos">({ch.row},{ch.col})</span>
@@ -430,7 +430,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-stepper-group">
               <span className="p2-stepper-label">{t('prototype.arena_testbed.cols')}</span>
               <div className="p2-stepper">
-                <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => { audio.click(); setCols(c => Math.max(1, c - 1)) }}>âˆ’</button>
+                <button className="p2-stepper-btn" disabled={cols <= 1} onClick={() => { audio.click(); setCols(c => Math.max(1, c - 1)) }}>−</button>
                 <span className="p2-stepper-value">{cols}</span>
                 <button className="p2-stepper-btn" disabled={cols >= MAX_COLS} onClick={() => { audio.click(); setCols(c => Math.min(MAX_COLS, c + 1)) }}>+</button>
               </div>
@@ -438,7 +438,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
             <div className="p2-stepper-group">
               <span className="p2-stepper-label">{t('prototype.arena_testbed.rows')}</span>
               <div className="p2-stepper">
-                <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => { audio.click(); setRows(r => Math.max(1, r - 1)) }}>âˆ’</button>
+                <button className="p2-stepper-btn" disabled={rows <= 1} onClick={() => { audio.click(); setRows(r => Math.max(1, r - 1)) }}>−</button>
                 <span className="p2-stepper-value">{rows}</span>
                 <button className="p2-stepper-btn" disabled={rows >= MAX_ROWS} onClick={() => { audio.click(); setRows(r => Math.min(MAX_ROWS, r + 1)) }}>+</button>
               </div>
@@ -451,7 +451,7 @@ export default function Phase4BoardSetup({ characters, onConfirm }) {
               disabled={!validPlacement}
               onClick={() => { audio.confirm(); handleConfirm() }}
             >
-              âš” {t('prototype.arena_testbed.start_match')}
+              ⚔ {t('prototype.arena_testbed.start_match')}
             </button>
             {selectedChar && (
               <p className="p2-hint">{t('prototype.arena_testbed.click_to_place')}</p>

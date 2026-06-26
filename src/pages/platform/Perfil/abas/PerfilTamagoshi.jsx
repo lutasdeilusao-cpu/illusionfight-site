@@ -174,18 +174,18 @@ export default function PerfilTamagoshi() {
                     if (src) {
                       return <img src={src} alt={c?.nome || ''} className="perfil-tama-card-img" draggable={false} />
                     }
-                    return <span className="perfil-tama-card-emoji">{c?.emoji || 'ðŸ¥š'}</span>
+                    return <span className="perfil-tama-card-emoji">{c?.emoji || '🥚'}</span>
                   })()}
                 </div>
                 <div className="perfil-tama-card-info">
                   <span className="perfil-tama-card-nome">{c?.nome || 'sem nome'}</span>
                   <span className="perfil-tama-card-pers" style={{ '--tama-cor': persCor(tipo) }}>
-                    {PERSONALIDADES[tipo]?.nome || tipo || 'â€”'}
+                    {PERSONALIDADES[tipo]?.nome || tipo || '—'}
                   </span>
               <span className="perfil-tama-card-status" style={{
                 '--status-cor': tama.status === 'vivo' ? '#22C55E' : tama.status === 'critico' ? '#E02020' : '#666'
               }}>
-                {tama.status?.toUpperCase() || 'â€”'}
+                {tama.status?.toUpperCase() || '—'}
               </span>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function PerfilTamagoshi() {
               const c = CRIATURAS.find(cr => cr.id === b.criatura_id)
               return (
                 <div key={b.id} className="perfil-tama-badge-item" title={badgeEntry?.nome || b.badge_id}>
-                  <span className="perfil-tama-badge-emoji">{badgeEntry?.emoji || 'ðŸ…'}</span>
+                  <span className="perfil-tama-badge-emoji">{badgeEntry?.emoji || '🏅'}</span>
                   <span className="perfil-tama-badge-nome">{badgeEntry?.nome || b.badge_id}</span>
                   {c && <span className="perfil-tama-badge-criatura">{c.emoji}</span>}
                 </div>
@@ -280,7 +280,7 @@ export default function PerfilTamagoshi() {
               const c = CRIATURAS.find(cr => cr.id === f.criatura_id)
               return (
                 <div key={f.id} className="perfil-tama-fama-card">
-                  <span className="perfil-tama-fama-emoji">{c?.emoji || 'âœ¨'}</span>
+                  <span className="perfil-tama-fama-emoji">{c?.emoji || '✨'}</span>
                   <span className="perfil-tama-fama-nome">{c?.nome || t('site.perfil.tama_sem_nome')}</span>
                   <span className="perfil-tama-fama-badges">{t('site.perfil.fama_badges', { n: f.badges?.length || 0 })}</span>
                 </div>

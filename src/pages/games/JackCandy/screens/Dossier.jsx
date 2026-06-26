@@ -41,7 +41,7 @@ export default function Dossier() {
       setResolucaoAtiva(true)
       setShowAcusar(false)
       setCasoResolvidoId(casoAtivo.id)
-      store.setMonologo('Ã© ele. sempre foi ele.')
+      store.setMonologo('é ele. sempre foi ele.')
       registrarEvento('jack_caso', 'Resolveu um caso no Jack Dream Beer', 1)
       registrarEvento('jogo_jogado', 'Jogou Jack Dream Beer', 1)
       store.resolverCaso(casoAtivo.flagResolucao)
@@ -84,7 +84,7 @@ export default function Dossier() {
       {casoAtivo && (
         <>
           <div className="jdc-dossier-header">
-            <span className="jdc-dossier-titulo">ðŸ“‹ {casoAtivo.nome}</span>
+            <span className="jdc-dossier-titulo">📋 {casoAtivo.nome}</span>
             <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('vila')}>
               [ fechar ]
             </button>
@@ -100,7 +100,7 @@ export default function Dossier() {
             <p className="jack-text jack-text--amber jdc-dossier-section-title">{t('games.jackcandy.dossier_suspeitos')}</p>
             {store.suspeitos.map(s => (
               <div key={s.id} className={`jdc-dossier-suspeito ${s.status === 'eliminado' ? 'jdc-dossier-suspeito--eliminado' : ''} ${s.status === 'acusado' ? 'jdc-dossier-suspeito--acusado' : ''}`}>
-                <span>{s.status === 'eliminado' ? 'âŒ' : s.status === 'acusado' ? 'ðŸŽ¯' : 'ðŸ‘¤'}</span>
+                <span>{s.status === 'eliminado' ? '❌' : s.status === 'acusado' ? '🎯' : '👤'}</span>
                 <div>
                   <span className="jack-text">{s.nome}</span>
                   <span className="jack-text--dim jdc-dossier-suspeito-desc">{s.desc}</span>
@@ -173,14 +173,14 @@ export default function Dossier() {
                 <button key={loc.id} className={`jdc-dossier-local ${visitado ? 'jdc-dossier-local--visitado' : ''}`}
                   onClick={() => { store.setMonologo(loc.desc); store.setFase(`investigar_${loc.id}`) }}
                   style={{ borderLeftColor: visitado ? '#22C55E' : '#F5A623' }}>
-                  <span>{visitado ? 'âœ…' : 'ðŸ”'}</span>
+                  <span>{visitado ? '✅' : '🔍'}</span>
                   <div className="jdc-dossier-local-info">
                     <span className="jack-text jdc-dossier-local-nome">{loc.nome}</span>
                     {!visitado && <span className="jack-text--dim jdc-dossier-local-desc">{loc.desc}</span>}
-                    {loc.puzzle && !visitado && <span className="jack-text--amber jdc-dossier-local-tag">ðŸ§© {loc.puzzleLabel}</span>}
-                    {loc.dungeon && !visitado && <span className="jack-text--crimson jdc-dossier-local-tag">âš”ï¸ {loc.dungeonLabel}</span>}
+                    {loc.puzzle && !visitado && <span className="jack-text--amber jdc-dossier-local-tag">🧩 {loc.puzzleLabel}</span>}
+                    {loc.dungeon && !visitado && <span className="jack-text--crimson jdc-dossier-local-tag">⚔️ {loc.dungeonLabel}</span>}
                   </div>
-                  <span className="jdc-dossier-local-arrow">â†’</span>
+                  <span className="jdc-dossier-local-arrow">→</span>
                 </button>
               )
             })}

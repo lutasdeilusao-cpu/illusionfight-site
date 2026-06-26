@@ -373,7 +373,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
     // restore shake before canvas flash (flash not affected by shake)
     restoreShake(ctx, shakeRef)
 
-    // canvas flash drawn without shake â€” always centered
+    // canvas flash drawn without shake — always centered
     drawCanvasFlash(ctx, canvasFlashRef, canvas.width, canvas.height)
   }, [characters, obstaculos, itensChaoAtual, cols, rows, currentChar, caminhoEscolhido, destinoEscolhido, tileLoaded, charScales, charVisualPos, charRotation, kiBall, charFlash])
 
@@ -490,7 +490,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
                 const isMovable = prevSameAgi || nextSameAgi
                 return (
                   <div key={ch.id} className={`atb-ordering-row ${isMovable ? 'movable' : 'locked'}`}>
-                    <div className="atb-ordering-position">{idx + 1}Âº</div>
+                    <div className="atb-ordering-position">{idx + 1}º</div>
                     <div className="atb-ordering-name">{ch.nome}</div>
                     <div className="atb-ordering-agi">AGI {ch.agi}</div>
                     <div className="atb-ordering-arrows">
@@ -500,21 +500,21 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
                           const novo = [...playerTeamOrder]
                           ;[novo[idx - 1], novo[idx]] = [novo[idx], novo[idx - 1]]
                           set.setPlayerTeamOrder(novo)
-                        }}>â–²</button>
+                        }}>▲</button>
                       <button className="atb-ordering-btn"
                         disabled={!isMovable || idx === playerTeamOrder.length - 1 || playerTeamOrder[idx + 1].agi !== ch.agi}
                         onClick={() => {
                           const novo = [...playerTeamOrder]
                           ;[novo[idx], novo[idx + 1]] = [novo[idx + 1], novo[idx]]
                           set.setPlayerTeamOrder(novo)
-                        }}>â–¼</button>
+                        }}>▼</button>
                     </div>
                   </div>
                 )
               })}
             </div>
             <button className="atb-ordering-confirm" onClick={() => { audio.confirm(); actions.confirmarOrdemInterna(playerTeamOrder) }}>
-              âœ“ {t('prototype.arena_testbed.ordering_confirm')}
+              ✓ {t('prototype.arena_testbed.ordering_confirm')}
             </button>
           </div>
         </div>
@@ -574,41 +574,41 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
             <button className="atb-action-panel-btn"
               disabled={turnoAcoes.moveu}
               onClick={() => { audio.select(); actions.iniciarMovimento() }}>
-              ðŸ‘Ÿ {t('prototype.arena_testbed.btn_move')}
+              👟 {t('prototype.arena_testbed.btn_move')}
             </button>
             <button className="atb-action-panel-btn atb-action-panel-btn--attack"
               disabled={turnoAcoes.atacou}
               onClick={() => { audio.confirm(); actions.escolherTipoAtaque() }}>
-              âš” {t('prototype.arena_testbed.btn_attack')}
+              ⚔ {t('prototype.arena_testbed.btn_attack')}
             </button>
             {currentChar?.inventario?.pocaoHP > 0 && (
               <button className="atb-action-panel-btn atb-action-panel-btn--hp"
                 onClick={() => { audio.itemUse(); actions.usarItem('hp') }}>
-                â¤ Ã—{currentChar.inventario.pocaoHP}
+                ❤ ×{currentChar.inventario.pocaoHP}
               </button>
             )}
             {currentChar?.inventario?.pocaoMP > 0 && (
               <button className="atb-action-panel-btn atb-action-panel-btn--mp"
                 onClick={() => { audio.itemUse(); actions.usarItem('mp') }}>
-                ðŸ’§ Ã—{currentChar.inventario.pocaoMP}
+                💧 ×{currentChar.inventario.pocaoMP}
               </button>
             )}
           </div>
         )}
         <div className="atb-top-bar">
-          <button className="atb-top-back" onClick={() => { audio.cancel(); onBackToPhase1() }}>â†</button>
+          <button className="atb-top-back" onClick={() => { audio.cancel(); onBackToPhase1() }}>←</button>
           <div className="atb-top-info">
             <span className={`atb-top-turn ${currentChar?.time === 'ia' ? 'enemy' : 'player'}`}>
               {currentChar
                 ? `${t('prototype.arena_testbed.turn_of')} ${currentChar.nome}`
                 : t('prototype.arena_testbed.preparing_battle')}
               {isPlayerTurn && subPhase && (
-                <span className="atb-top-subphase"> Â· {uiCtrl.getSubPhaseLabel(subPhase, t)}</span>
+                <span className="atb-top-subphase"> · {uiCtrl.getSubPhaseLabel(subPhase, t)}</span>
               )}
-              {iaThinking ? ` Â· ${t('prototype.arena_testbed.ia_thinking_short')}` : null}
+              {iaThinking ? ` · ${t('prototype.arena_testbed.ia_thinking_short')}` : null}
             </span>
           </div>
-          <button className="atb-top-log-btn" onClick={() => { audio.click(); setLogDrawerOpen(true) }}>â‰¡</button>
+          <button className="atb-top-log-btn" onClick={() => { audio.click(); setLogDrawerOpen(true) }}>≡</button>
         </div>
         <div className="atb-canvas-wrap" ref={canvasContainerRef}>
           <canvas ref={canvasRef} className="atb-canvas" onClick={handleCanvasClick} onTouchEnd={handleTouch} />
@@ -652,7 +652,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
             <>
               {subPhase === 'free' && (
                 <button className="atb-action-btn atb-action-btn--end-turn" onClick={() => { audio.cancel(); actions.finalizarTurno() }}>
-                  â­ {t('prototype.arena_testbed.end_turn')}
+                  ⏭ {t('prototype.arena_testbed.end_turn')}
                 </button>
               )}
               {subPhase === 'movimento' && (
@@ -660,10 +660,10 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
                   {pendingMove ? (
                     <>
                       <button className="atb-action-btn atb-action-btn--confirm" onClick={() => { audio.confirm(); actions.confirmarMovimento() }}>
-                        âœ“ {t('prototype.arena_testbed.btn_confirm_move')}
+                        ✓ {t('prototype.arena_testbed.btn_confirm_move')}
                       </button>
                       <button className="atb-action-btn atb-action-btn--cancel" onClick={() => { audio.cancel(); actions.cancelarAcao() }}>
-                        âœ• {t('prototype.arena_testbed.btn_cancel')}
+                        ✕ {t('prototype.arena_testbed.btn_cancel')}
                       </button>
                     </>
                   ) : null}
@@ -671,7 +671,7 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
               )}
               {subPhase === 'acao' && subPhaseStep === 'escolher_alvo' && (
                 <button className="atb-action-btn atb-action-btn--cancel" onClick={() => { audio.cancel(); actions.cancelarAcao() }}>
-                  Ã— {t('prototype.arena_testbed.btn_cancel')}
+                  × {t('prototype.arena_testbed.btn_cancel')}
                 </button>
               )}
             </>

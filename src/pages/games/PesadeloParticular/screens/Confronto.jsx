@@ -26,7 +26,7 @@ function DicePP({ value, onDone }) {
   const cls = phase === 'rolling' ? 'pp-dice-number pp-dice-rolling' : `pp-dice-number pp-dice-showing${crit ? ' pp-dice-crit' : ''}`
   return (
     <motion.div className="pp-dice-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-      <motion.div className={cls} animate={phase === 'rolling' ? { rotate: [0, 15, -15, 10, -10, 0], scale: [1, 1.05, 0.95, 1] } : { scale: 1 }} transition={phase === 'rolling' ? { duration: 0.15, repeat: Infinity } : {}}>ðŸŽ² {n}</motion.div>
+      <motion.div className={cls} animate={phase === 'rolling' ? { rotate: [0, 15, -15, 10, -10, 0], scale: [1, 1.05, 0.95, 1] } : { scale: 1 }} transition={phase === 'rolling' ? { duration: 0.15, repeat: Infinity } : {}}>🎲 {n}</motion.div>
       {phase === 'showing' && <motion.div className={`pp-dice-label${crit ? ' pp-dice-label--crit' : ''}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>{crit ? t('pp.batalha.critico') : t('pp.batalha.resultado', { valor: value })}</motion.div>}
     </motion.div>
   )
@@ -120,10 +120,10 @@ export default function Confronto() {
       <div className="pp-container">
         <div className="pp-dossier-header">
           <button className="pp-back" onClick={() => store.setFase('dossier')}>{t('pp.local.dossier_voltar')}</button>
-          <h2 className="pp-dossier-caso-nome">InterrogatÃ³rio: {caso.confronto?.alvo}</h2>
+          <h2 className="pp-dossier-caso-nome">Interrogatório: {caso.confronto?.alvo}</h2>
         </div>
         <p className="pp-resolucao-dialogo">
-          VocÃª confronta {caso.confronto?.alvo} com todas as evidÃªncias coletadas. Cada acusaÃ§Ã£o precisa de uma pista do tipo Fio no Caderno de Suspeitas para ser feita.
+          Você confronta {caso.confronto?.alvo} com todas as evidências coletadas. Cada acusação precisa de uma pista do tipo Fio no Caderno de Suspeitas para ser feita.
         </p>
         <button className="pp-btn pp-btn--primary" onClick={() => store.setFase('dossier')}>CONTINUAR</button>
       </div>

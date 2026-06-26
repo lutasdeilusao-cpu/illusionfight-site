@@ -54,7 +54,7 @@ export default function TopTrumpsMP() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // â”€â”€ Sound toggle â”€â”€
+  // ── Sound toggle ──
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   function toggleSom() {
     const novo = sfx.toggle()
@@ -77,7 +77,7 @@ export default function TopTrumpsMP() {
   const [cartaSelecionada, setCartaSelecionada] = useState(null)
   const [jaMovi, setJaMovi] = useState(false)
 
-  // â”€â”€ Heartbeat contÃ­nuo durante o jogo (igual ao SP) â”€â”€
+  // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
   useEffect(() => {
     if (fase === 'jogando' && !jaMovi) {
       if (!__heartbeatRodando) {
@@ -174,7 +174,7 @@ export default function TopTrumpsMP() {
         .map(id => todasCartas.find(c => c.id === id))
         .filter(Boolean)
       if (!cartas.length) return
-      // Embaralha para nÃ£o usar sempre as mesmas cartas na ordem do banco
+      // Embaralha para não usar sempre as mesmas cartas na ordem do banco
       const embaralhadas = [...cartas].sort(() => Math.random() - 0.5)
       const qtd = Math.min(sala.total_turnos, embaralhadas.length)
       setDeckLocal(embaralhadas.slice(0, qtd))
@@ -226,7 +226,7 @@ export default function TopTrumpsMP() {
         if (t <= 1) {
           clearInterval(iv)
           sfx.timerUrgent()
-          // rank_sdr nÃ£o Ã© atributo jogÃ¡vel (apenas informativo na carta)
+          // rank_sdr não é atributo jogável (apenas informativo na carta)
           const attrs = atributos.filter(a => a.id !== 'rank_sdr').map(a => a.id)
           const rand = attrs[Math.floor(Math.random() * attrs.length)]
           const s = salaRef.current
@@ -325,7 +325,7 @@ export default function TopTrumpsMP() {
         .order('criado_em', { ascending: true })
       if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
-      // Caso padrÃ£o: dois movimentos (ambos jogadores jogaram)
+      // Caso padrão: dois movimentos (ambos jogadores jogaram)
       if (movs && movs.length >= 2) {
         const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
         const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
@@ -344,7 +344,7 @@ export default function TopTrumpsMP() {
         let res
         res = v1 > v2 ? 'j1_venceu' : v1 < v2 ? 'j2_venceu' : 'empate'
 
-        // segue lÃ³gica existente para atualizar estado e sala
+        // segue lógica existente para atualizar estado e sala
         const papel = s.jogador1_id === user.id ? 'j1' : 'j2'
         const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
         const empatou = res === 'empate'
@@ -469,13 +469,13 @@ export default function TopTrumpsMP() {
 
       return
     } catch (err) {
-      console.error('[MP] resolverRodada erro crÃ­tico:', err)
+      console.error('[MP] resolverRodada erro crítico:', err)
     }
   }
 
-  // NOTE: Para Top Trumps (um jogador por rodada) nÃ£o dependemos mais
+  // NOTE: Para Top Trumps (um jogador por rodada) não dependemos mais
   // dos refs jaMovi/movimentoRecebido para decidir quando resolver a rodada.
-  // A resoluÃ§Ã£o Ã© acionada imediatamente ao receber o INSERT na tabela
+  // A resolução é acionada imediatamente ao receber o INSERT na tabela
   // `toptrumps_movimentos` (veja subscribeToMovimentos abaixo).
 
   useEffect(() => {
@@ -515,7 +515,7 @@ export default function TopTrumpsMP() {
     return () => clearInterval(interval)
   }, [salaId, user, fase, meuPapel])
 
-  // beforeunload: jogador fechou o browser â†’ ele perde
+  // beforeunload: jogador fechou o browser → ele perde
   useEffect(() => {
     if (!salaId || !user) return
     const handleUnload = () => {
@@ -535,7 +535,7 @@ export default function TopTrumpsMP() {
       const anterior = salaRef.current
       setSala(s)
 
-      // J2 entrou na sala â†’ PPT phase para ambos os clientes
+      // J2 entrou na sala → PPT phase para ambos os clientes
       if (s.status === 'em_jogo' && s.jogador2_id && (!anterior || !anterior.jogador2_id)) {
         setFase('ppt')
         return
@@ -716,7 +716,7 @@ export default function TopTrumpsMP() {
         </div>
         <section className="ttmp-page">
         <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? t('games.toptrumps.som_desativar') : t('games.toptrumps.som_ativar')}>
-          {somAtivo ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {somAtivo ? '🔊' : '🔇'}
         </button>
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
@@ -742,7 +742,7 @@ export default function TopTrumpsMP() {
         <div className="ttmp-mesa">
           <div className="ttmp-card">
             <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('â€”')[0].trim().charAt(0)}</span>
+              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
             <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
@@ -769,7 +769,7 @@ export default function TopTrumpsMP() {
             {cartaOponente ? (
               <>
                 <div className="ttmp-card-avatar">
-                  <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('â€”')[0].trim().charAt(0)}</span>
+                  <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
                 </div>
                 <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
                 <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
@@ -868,7 +868,7 @@ export default function TopTrumpsMP() {
         <div className="ttmp-mesa ttmp-mesa--revelacao">
           <div className="ttmp-card ttmp-card--revelado">
             <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('â€”')[0].trim().charAt(0)}</span>
+              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
             <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
@@ -891,7 +891,7 @@ export default function TopTrumpsMP() {
 
           <div className="ttmp-card ttmp-card--revelado">
             <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('â€”')[0].trim().charAt(0)}</span>
+              <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
             </div>
             <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
             <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
@@ -930,7 +930,7 @@ export default function TopTrumpsMP() {
         <div className="ttmp-fim">
           <h2 className="ttmp-fim-titulo">{t('games.toptrumps.mp.fim_titulo')}</h2>
           <div className={`ttmp-fim-icone${venceu ? ' ttmp-fim-icone--vitoria' : empatou ? ' ttmp-fim-icone--empate' : ' ttmp-fim-icone--derrota'}`}>
-            {venceu ? 'ðŸ†' : empatou ? 'ðŸ¤' : 'ðŸ’€'}
+            {venceu ? '🏆' : empatou ? '🤝' : '💀'}
           </div>
           <h3 className={`ttmp-fim-resultado${venceu ? ' ttmp-fim-titulo--vitoria' : empatou ? ' ttmp-fim-titulo--empate' : ' ttmp-fim-titulo--derrota'}`}>
             {venceu ? t('games.toptrumps.mp.fim_voce_venceu') : empatou ? t('games.toptrumps.mp.fim_empate') : t('games.toptrumps.mp.fim_voce_perdeu')}
@@ -940,7 +940,7 @@ export default function TopTrumpsMP() {
               <span className="ttmp-fim-placar-valor">{placar.eu}</span>
               <span className="ttmp-fim-placar-label">{t('games.toptrumps.mp.fim_voce')}</span>
             </div>
-            <span className="ttmp-fim-placar-divisor">Ã—</span>
+            <span className="ttmp-fim-placar-divisor">×</span>
             <div className="ttmp-fim-placar-item">
               <span className="ttmp-fim-placar-valor">{placar.oponente}</span>
               <span className="ttmp-fim-placar-label">{oponenteNome.toUpperCase()}</span>

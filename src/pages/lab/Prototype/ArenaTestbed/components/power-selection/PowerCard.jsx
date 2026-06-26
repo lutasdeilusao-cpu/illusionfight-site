@@ -4,7 +4,7 @@ import PowerDescription from './PowerDescription'
 import { audio } from '../../engine/audioManager'
 import './PowerCard.css'
 
-const ELEM_ICON = { fogo: 'ðŸ”¥', agua: 'ðŸ’§', terra: 'ðŸª¨', ar: 'ðŸŒªï¸', trevas: 'ðŸŒ‘', luz: 'âœ¨' }
+const ELEM_ICON = { fogo: '🔥', agua: '💧', terra: '🪨', ar: '🌪️', trevas: '🌑', luz: '✨' }
 
 export default function PowerCard({ poder, selected, atLimit, onToggle, tipoChar }) {
   const { t } = useLanguage()
@@ -14,7 +14,7 @@ export default function PowerCard({ poder, selected, atLimit, onToggle, tipoChar
     <div className={`pc-card ${selected ? 'pc-card--sel' : ''} ${atLimit && !selected ? 'pc-card--lim' : ''}`}>
       <button className="pc-btn" onClick={() => { audio.toggle(); onToggle() }} disabled={atLimit && !selected}>
         <div className="pc-head">
-          <span className="pc-elem">{poder.elemento ? ELEM_ICON[poder.elemento] || '' : 'âš™ï¸'}</span>
+          <span className="pc-elem">{poder.elemento ? ELEM_ICON[poder.elemento] || '' : '⚙️'}</span>
           <span className="pc-nome">{t('prototype.arena_testbed.' + poder.chaveI18n)}</span>
           <span className="pc-mp">-{poder.custoMP} MP</span>
         </div>
@@ -24,12 +24,12 @@ export default function PowerCard({ poder, selected, atLimit, onToggle, tipoChar
               ? t('prototype.arena_testbed.power_trigger_attack')
               : t('prototype.arena_testbed.power_trigger_defense')}
           </span>
-          {selected && <span className="pc-check">âœ“</span>}
+          {selected && <span className="pc-check">✓</span>}
         </div>
       </button>
 
       <button className="pc-desc-btn" onClick={() => { audio.click(); setExpanded(!expanded) }}>
-        {expanded ? 'â–²' : 'â–¼'}
+        {expanded ? '▲' : '▼'}
       </button>
 
       {expanded && (

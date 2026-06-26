@@ -38,7 +38,7 @@ export default function Card({ card, faceDown = false, small = false, onClick, o
       style={borderStyle}
       onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={handleClick}>
       <div className="duelo-card-art" style={artBg}>
-        <span className="duelo-card-art-icon">{isMonster ? 'âš”ï¸' : card.type === 'SPELL' ? 'âœ¨' : 'ðŸ•³ï¸'}</span>
+        <span className="duelo-card-art-icon">{isMonster ? '⚔️' : card.type === 'SPELL' ? '✨' : '🕳️'}</span>
       </div>
       <div className="duelo-card-info" style={{ borderTop: `1px solid ${color}33` }}>
         <span className="duelo-card-name" style={{ color }}>{card.name}</span>
@@ -46,7 +46,7 @@ export default function Card({ card, faceDown = false, small = false, onClick, o
           <div className="duelo-card-stats">
             <span>{t('games.duelo.card_atk')} {effectiveAtk} / {t('games.duelo.card_def')} {card.def}</span>
             <span className="duelo-card-movrng">
-              ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng}
+              👟{card.mov} 🎯{card.rng}
             </span>
           </div>
         )}

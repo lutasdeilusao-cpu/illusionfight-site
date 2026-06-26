@@ -10,31 +10,31 @@ import './LDI.css'
 const END_MESSAGES = {
   ended_defeat: {
     title: 'K.O.',
-    text: 'VocÃª foi longe. Mas nÃ£o longe o suficiente.',
-    icon: 'ðŸ’€',
+    text: 'Você foi longe. Mas não longe o suficiente.',
+    icon: '💀',
   },
   ended_fork: {
     title: 'RECUSA',
-    text: 'VocÃª estava certo em recusar. Mas isso nÃ£o foi suficiente.',
-    icon: 'ðŸšª',
+    text: 'Você estava certo em recusar. Mas isso não foi suficiente.',
+    icon: '🚪',
   },
   ended_victory: {
-    title: 'VITÃ“RIA',
-    text: 'O Arco 1 estÃ¡ completo. Mas a lenda apenas comeÃ§ou.',
-    icon: 'ðŸ†',
+    title: 'VITÓRIA',
+    text: 'O Arco 1 está completo. Mas a lenda apenas começou.',
+    icon: '🏆',
   },
 }
 
 const ACHIEVEMENTS = [
   { id: 'punho_puro', name: 'Punho Puro', desc: 'Termine o jogo sem usar Poder nenhuma vez', check: (s) => !s?.flags?.CONFRONTO_FINAL && s?.status === 'ended_victory' },
-  { id: 'diplomata', name: 'Diplomata', desc: 'Resolva o Ato IV por negociaÃ§Ã£o', check: (s) => s?.flags?.VITORIA_NEGOCIACAO },
-  { id: 'investigador', name: 'Investigador', desc: 'Resolva o Ato IV por exposiÃ§Ã£o', check: (s) => s?.flags?.VITORIA_EXPOSICAO },
+  { id: 'diplomata', name: 'Diplomata', desc: 'Resolva o Ato IV por negociação', check: (s) => s?.flags?.VITORIA_NEGOCIACAO },
+  { id: 'investigador', name: 'Investigador', desc: 'Resolva o Ato IV por exposição', check: (s) => s?.flags?.VITORIA_EXPOSICAO },
   { id: 'guerreiro', name: 'Guerreiro', desc: 'Derrote NULL_ENTITY em combate direto', check: (s) => s?.flags?.CONFRONTO_FINAL && s?.status === 'ended_victory' },
-  { id: 'teimoso', name: 'Teimoso', desc: 'Enfrente o boss despreparado e venÃ§a', check: (s) => s?.flags?.CONFRONTO_DESPREPARADO && s?.status === 'ended_victory' },
-  { id: 'recruta', name: 'Recruta', desc: 'Aceite entrar para a OrganizaÃ§Ã£o', check: (s) => s?.flags?.ACEITOU_ORGANIZACAO },
+  { id: 'teimoso', name: 'Teimoso', desc: 'Enfrente o boss despreparado e vença', check: (s) => s?.flags?.CONFRONTO_DESPREPARADO && s?.status === 'ended_victory' },
+  { id: 'recruta', name: 'Recruta', desc: 'Aceite entrar para a Organização', check: (s) => s?.flags?.ACEITOU_ORGANIZACAO },
   { id: 'sobrevivente', name: 'Sobrevivente', desc: 'Complete o Arco 1', check: (s) => s?.status === 'ended_victory' },
-  { id: 'acordo', name: 'Acordo Escuro', desc: 'Aceite o acordo do vilÃ£o', check: (s) => s?.flags?.ACEITOU_ACORDO },
-  { id: 'honra', name: 'Honrado', desc: 'Mantenha o cÃ³digo de honra atÃ© o fim', check: (s) => s?.status === 'ended_victory' },
+  { id: 'acordo', name: 'Acordo Escuro', desc: 'Aceite o acordo do vilão', check: (s) => s?.flags?.ACEITOU_ACORDO },
+  { id: 'honra', name: 'Honrado', desc: 'Mantenha o código de honra até o fim', check: (s) => s?.status === 'ended_victory' },
 ]
 
 export default function End() {
@@ -63,7 +63,7 @@ export default function End() {
                 const has = unlocked.find(u => u.id === a.id)
                 return (
                   <div key={a.id} className={`ldi-end-achievement ${has ? 'ldi-end-achievement--ok' : ''}`}>
-                    <span className="ldi-end-achievement-icon">{has ? 'âœ…' : 'â¬œ'}</span>
+                    <span className="ldi-end-achievement-icon">{has ? '✅' : '⬜'}</span>
                     <div>
                       <div className="ldi-end-achievement-name">{a.name}</div>
                       <div className="ldi-end-achievement-desc">{a.desc}</div>
@@ -202,7 +202,7 @@ export default function End() {
             transition={{ delay: 3, duration: 0.5 }}
           >
             {unlocked.slice(0, 3).map(a => (
-              <span key={a.id} className="ldi-end-ach-badge">âœ… {a.name}</span>
+              <span key={a.id} className="ldi-end-ach-badge">✅ {a.name}</span>
             ))}
             {unlocked.length > 3 && <span className="ldi-end-ach-badge">+{unlocked.length - 3}</span>}
           </motion.div>
@@ -215,7 +215,7 @@ export default function End() {
           transition={{ delay: 3.5, duration: 0.5 }}
         >
           <button className="ldi-btn ldi-btn--outline" onClick={() => setShowRetro(true)}>
-            ðŸ“œ VER RETROSPECTO
+            📜 VER RETROSPECTO
           </button>
           <Link
             to="/games/ldi/game"

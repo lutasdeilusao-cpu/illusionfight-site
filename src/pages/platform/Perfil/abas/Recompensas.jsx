@@ -22,14 +22,14 @@ export default function Recompensas() {
 
   const handleColetar = async () => { setColetando(true); const ok = await coletarDiarias(); if (ok) setColetado(true); setColetando(false); setTimeout(() => setColetado(false), 3000) }
 
-  // Se o gate de fichas estÃ¡ desativado, nÃ£o exibe nada
+  // Se o gate de fichas está desativado, não exibe nada
   if (!FICHAS_GATE_ATIVO) return null
 
   return (
     <div className="recomp-page">
       <div className="recomp-saldo">
-        <span className="recomp-saldo-emoji">ðŸŽ°</span>
-        <div><p className="recomp-saldo-val">{isAdmin ? 'âˆž' : saldo}</p><p className="recomp-saldo-label">{t('site.perfil.recomp_fichas_disponiveis')}</p></div>
+        <span className="recomp-saldo-emoji">🎰</span>
+        <div><p className="recomp-saldo-val">{isAdmin ? '∞' : saldo}</p><p className="recomp-saldo-label">{t('site.perfil.recomp_fichas_disponiveis')}</p></div>
       </div>
       {isAdmin && <p className="recomp-admin">{t('site.perfil.recomp_admin_bypass')}</p>}
       {!isAdmin && (
@@ -38,7 +38,7 @@ export default function Recompensas() {
           <motion.div className={`recomp-ticket ${podeColetarHoje ? 'recomp-ticket--disponivel' : 'recomp-ticket--coletado'}`}
             whileHover={podeColetarHoje ? { scale: 1.02 } : {}} onClick={podeColetarHoje ? handleColetar : undefined}>
             <div className="recomp-ticket-inner">
-              <span className="recomp-ticket-emoji">{podeColetarHoje ? 'ðŸŽŸï¸' : 'âœ…'}</span>
+              <span className="recomp-ticket-emoji">{podeColetarHoje ? '🎟️' : '✅'}</span>
               <div>
                 <p className="recomp-ticket-titulo">{podeColetarHoje ? t('site.perfil.recomp_fichas_disponiveis_valor', { n: fichasDiarias }) : t('site.perfil.recomp_fichas_coletadas_hoje')}</p>
                 <p className="recomp-ticket-sub">{podeColetarHoje ? t('site.perfil.recomp_clique_coletar') : t('site.perfil.recomp_reset_meia_noite', { n: fichasDiarias })}</p>
@@ -54,13 +54,13 @@ export default function Recompensas() {
         <p className="recomp-secao-label">{t('site.perfil.recomp_como_ganhar')}</p>
         <div className="recomp-como-grid">
           {[
-            { emoji: 'ðŸ“–', acaoKey: 'site.perfil.recomp_acao_livro', fichas: '+1' },
-            { emoji: 'ðŸ“º', acaoKey: 'site.perfil.recomp_acao_webtoon', fichas: '+1' },
-            { emoji: 'ðŸ†', acaoKey: 'site.perfil.recomp_acao_achievement', fichas: '+1' },
-            { emoji: 'ðŸ‘¥', acaoKey: 'site.perfil.recomp_acao_indicar', fichas: '+3' },
-            { emoji: 'ðŸ“¤', acaoKey: 'site.perfil.recomp_acao_compartilhar', fichas: '+2' },
-            { emoji: 'â­', acaoKey: 'site.perfil.recomp_acao_elite', fichas: '10/dia' },
-            { emoji: 'ðŸ’Ž', acaoKey: 'site.perfil.recomp_acao_primordial', fichas: '30/dia' }
+            { emoji: '📖', acaoKey: 'site.perfil.recomp_acao_livro', fichas: '+1' },
+            { emoji: '📺', acaoKey: 'site.perfil.recomp_acao_webtoon', fichas: '+1' },
+            { emoji: '🏆', acaoKey: 'site.perfil.recomp_acao_achievement', fichas: '+1' },
+            { emoji: '👥', acaoKey: 'site.perfil.recomp_acao_indicar', fichas: '+3' },
+            { emoji: '📤', acaoKey: 'site.perfil.recomp_acao_compartilhar', fichas: '+2' },
+            { emoji: '⭐', acaoKey: 'site.perfil.recomp_acao_elite', fichas: '10/dia' },
+            { emoji: '💎', acaoKey: 'site.perfil.recomp_acao_primordial', fichas: '30/dia' }
           ].map((item, i) => (
             <div key={i} className="recomp-como-item"><span>{item.emoji}</span><span className="recomp-como-acao">{t(item.acaoKey)}</span><span className="recomp-como-fichas">{t('site.perfil.recomp_acoes_fichas', { n: item.fichas })}</span></div>
           ))}
@@ -72,7 +72,7 @@ export default function Recompensas() {
           {historico.map(h => (
             <div key={h.id} className={`recomp-hist-item ${h.tipo === 'ganho' ? 'recomp-hist-item--ganho' : 'recomp-hist-item--gasto'}`}>
               <span className="recomp-hist-motivo">{MOTIVO_KEY_MAP[h.motivo] ? t(MOTIVO_KEY_MAP[h.motivo]) : h.motivo}</span>
-              <span className="recomp-hist-qtd">{h.tipo === 'ganho' ? '+' : '-'}{h.quantidade} ðŸŽ°</span>
+              <span className="recomp-hist-qtd">{h.tipo === 'ganho' ? '+' : '-'}{h.quantidade} 🎰</span>
             </div>
           ))}
         </div>

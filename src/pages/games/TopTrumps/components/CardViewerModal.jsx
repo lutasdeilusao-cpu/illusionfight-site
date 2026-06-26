@@ -110,12 +110,12 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
           onClick={e => e.stopPropagation()}
         >
           {/* Close + nav */}
-          <button className="tt-viewer-close" onClick={onClose}>âœ•</button>
+          <button className="tt-viewer-close" onClick={onClose}>✕</button>
           {onPrev && idx > 0 && (
-            <button className="tt-viewer-nav tt-viewer-nav--prev" onClick={() => { sfx.click(); onPrev() }}>â€¹</button>
+            <button className="tt-viewer-nav tt-viewer-nav--prev" onClick={() => { sfx.click(); onPrev() }}>‹</button>
           )}
           {onNext && idx < cartas.length - 1 && (
-            <button className="tt-viewer-nav tt-viewer-nav--next" onClick={() => { sfx.click(); onNext() }}>â€º</button>
+            <button className="tt-viewer-nav tt-viewer-nav--next" onClick={() => { sfx.click(); onNext() }}>›</button>
           )}
 
           <div className="tt-viewer-layout">
@@ -126,7 +126,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
                 alt={carta.nome}
                 className={`tt-viewer-image${!tem ? ' tt-viewer-image--locked' : ''}`}
               />
-              {!tem && <div className="tt-viewer-locked-badge">ðŸ”’</div>}
+              {!tem && <div className="tt-viewer-locked-badge">🔒</div>}
             </div>
 
             {/* Info */}

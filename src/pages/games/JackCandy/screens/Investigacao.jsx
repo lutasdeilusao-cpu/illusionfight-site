@@ -48,7 +48,7 @@ export default function Investigacao({ localId }) {
     }
   }, [store.locaisVisitados, store._retornoInvestigacao])
 
-  // Returns condicionais SÃ“ depois de todos os hooks
+  // Returns condicionais SÓ depois de todos os hooks
   if (!caso || !local) {
     store.setFase('dossier')
     return null
@@ -81,7 +81,7 @@ export default function Investigacao({ localId }) {
   }
 
   const handlePuzzleFail = () => {
-    console.log('[INV] puzzle falhou. moral antes:', store.hpAtual, '| apÃ³s:', store.hpAtual - DANO_PUZZLE_FALHOU)
+    console.log('[INV] puzzle falhou. moral antes:', store.hpAtual, '| após:', store.hpAtual - DANO_PUZZLE_FALHOU)
     store.setHpAtual(store.hpAtual - DANO_PUZZLE_FALHOU)
     store.setMonologo(`fui visto. custa ${DANO_PUZZLE_FALHOU} de moral.`)
     setPuzzleFalhou(true)
@@ -115,7 +115,7 @@ export default function Investigacao({ localId }) {
 
       {puzzleAtivo && !puzzleFalhou && (
         <motion.div className="jdc-investigacao-puzzle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="jack-text jack-text--amber jdc-inv-puzzle-title">ðŸ§© {local.puzzleLabel}</p>
+          <p className="jack-text jack-text--amber jdc-inv-puzzle-title">🧩 {local.puzzleLabel}</p>
           <p className="jack-text jack-text--dim jdc-inv-puzzle-desc">
             {local.puzzle === 'decoder' && t('games.jackcandy.investigacao_puzzle_decoder')}
             {local.puzzle === 'stealth' && t('games.jackcandy.investigacao_puzzle_stealth')}
@@ -158,7 +158,7 @@ export default function Investigacao({ localId }) {
 
       {temDungeon && !puzzleAtivo && !pistaRevelada && (
         <div className="jdc-investigacao-dungeon-gate">
-          <p className="jack-text jack-text--crimson jdc-inv-dungeon-label">âš”ï¸ {local.dungeonLabel}</p>
+          <p className="jack-text jack-text--crimson jdc-inv-dungeon-label">⚔️ {local.dungeonLabel}</p>
           <button className="jack-btn jack-btn--crimson jdc-btn-mt-05" onClick={irParaDungeon}>
             {t('games.jackcandy.investigacao_enfrentar')}
           </button>
@@ -167,7 +167,7 @@ export default function Investigacao({ localId }) {
 
       {pistaRevelada && pista && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="jack-text jack-text--amber jdc-inv-pista-title">ðŸ” {t('games.jackcandy.investigacao_pista_encontrada')}</p>
+          <p className="jack-text jack-text--amber jdc-inv-pista-title">🔍 {t('games.jackcandy.investigacao_pista_encontrada')}</p>
           <PistaCard pista={pista} />
           {jaVisitado ? (
             <p className="jack-text jack-text--dim jdc-inv-ja-visitado">

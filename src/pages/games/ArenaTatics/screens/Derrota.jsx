@@ -10,7 +10,7 @@ export default function Derrota({ onRevanche, onSair }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>ðŸ’€</div>
+        <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>💀</div>
         <h1 style={{ fontFamily: 'Courier New', fontSize: '1.3rem', fontWeight: 900, color: '#ff4444', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
           {t('tatics.derrota')}
         </h1>

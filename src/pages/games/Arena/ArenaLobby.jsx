@@ -49,7 +49,7 @@ function NeoGuideIntro({ onShow }) {
 
   return (
     <div className="arena-lobby-intro">
-      <div className="arena-ng-avatar">â—ˆ</div>
+      <div className="arena-ng-avatar">◈</div>
       <div className="arena-ng-text">
         {passo === 0 ? texto : linhas[0]}
         {passo === 0 && <span className="arena-ng-cursor" />}
@@ -85,7 +85,7 @@ export default function ArenaLobby({ onNavigate }) {
 
   useEffect(() => {
     if (!user) {
-      // Guest: pode ter ficha temporÃ¡ria vinda do ArenaCreate
+      // Guest: pode ter ficha temporária vinda do ArenaCreate
       setLoading(false)
       return
     }
@@ -93,7 +93,7 @@ export default function ArenaLobby({ onNavigate }) {
       const list = Array.isArray(data) ? data : []
       setSheets(list)
       setLoading(false)
-      // Se voltou de uma partida com ficha carregada, auto-mostra seleÃ§Ã£o de oponente
+      // Se voltou de uma partida com ficha carregada, auto-mostra seleção de oponente
       const currentSheet = store.sheet
       if (currentSheet?.id) {
         const match = list.find(s => s.id === currentSheet.id)
@@ -102,7 +102,7 @@ export default function ArenaLobby({ onNavigate }) {
     })
   }, [user])
 
-  // Monitora ficha temporÃ¡ria (guest â€” !user) para exibir no lobby
+  // Monitora ficha temporária (guest — !user) para exibir no lobby
   useEffect(() => {
     if (user) return
     if (store.sheet?.sheet_name?.trim()) {
@@ -143,7 +143,7 @@ export default function ArenaLobby({ onNavigate }) {
         return
       }
       setSheets(prev => prev.filter(s => s.id !== sheetId))
-      console.log('[ARENA] Ficha excluÃ­da:', sheetId)
+      console.log('[ARENA] Ficha excluída:', sheetId)
     } catch (err) {
       console.error('[ARENA] Erro ao excluir ficha:', err)
     }
@@ -209,7 +209,7 @@ export default function ArenaLobby({ onNavigate }) {
                 <div className="arena-sheet-info">
                   <div className="arena-sheet-name-v">{t('games.arena.enemy_names.' + enemy.id) || enemy.name}</div>
                   <div className="arena-sheet-meta">
-                    rank #{enemy.rank} Â· tier {enemy.tier} Â· {t('games.arena.diff_' + (enemy.difficulty || 'easy'))}
+                    rank #{enemy.rank} · tier {enemy.tier} · {t('games.arena.diff_' + (enemy.difficulty || 'easy'))}
                   </div>
                   <div className="arena-sheet-stats">
                     {['F','H','R','A','PdF'].map(attr => (
@@ -222,7 +222,7 @@ export default function ArenaLobby({ onNavigate }) {
                     ))}
                   </div>
                 </div>
-                <span className="arena-sheet-arrow">â†’</span>
+                <span className="arena-sheet-arrow">→</span>
               </div>
             )
           })}
@@ -300,9 +300,9 @@ export default function ArenaLobby({ onNavigate }) {
                 </div>
                 <div className="arena-sheet-card-actions">
                   {!isTemp && (
-                    <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title={t('games.arena.excluir_ficha')}>âœ•</button>
+                    <button className="arena-sheet-delete-btn" onClick={(e) => handleDelete(e, s.id)} title={t('games.arena.excluir_ficha')}>✕</button>
                   )}
-                  <span className="arena-sheet-arrow">â†’</span>
+                  <span className="arena-sheet-arrow">→</span>
                 </div>
               </div>
             )
@@ -310,7 +310,7 @@ export default function ArenaLobby({ onNavigate }) {
         </div>
       )}
 
-      {/* Nova ficha â€” bloqueada se atingiu limite */}
+      {/* Nova ficha — bloqueada se atingiu limite */}
       {user && !podeCriarFicha(perfil, sheets.length) ? (
         <button className="arena-new-sheet arena-new-sheet--blocked" onClick={() => { sfx.click(); setModalUpgrade('fichas') }}>
           <span className="arena-new-sheet-icon">+</span>
@@ -324,18 +324,18 @@ export default function ArenaLobby({ onNavigate }) {
         </button>
       )}
 
-      {/* Multiplayer â€” gate Elite+ */}
+      {/* Multiplayer — gate Elite+ */}
       <div className="arena-lobby-divider arena-lobby-divider--gap" />
       <p className="arena-lobby-section-label">{t('games.arena.multiplayer_titulo')}</p>
       {user && perfil?.tier !== 'elite' && perfil?.tier !== 'primordial' ? (
         <button className="arena-new-sheet arena-mp-blocked" onClick={() => { sfx.click(); setModalUpgrade('multiplayer') }}>
-          <span className="arena-new-sheet-icon">ðŸŒ</span>
+          <span className="arena-new-sheet-icon">🌐</span>
           {t('games.arena.multiplayer_titulo')}
           <span className="arena-limite-upgrade-tag">{t('games.arena.multiplayer.apenas_elite')}</span>
         </button>
       ) : (
         <button className="arena-new-sheet" onClick={() => { sfx.click(); /* TODO: navegar para multiplayer */ }}>
-          <span className="arena-new-sheet-icon">ðŸŒ</span>
+          <span className="arena-new-sheet-icon">🌐</span>
           {t('games.arena.multiplayer_titulo')}
         </button>
       )}
@@ -346,7 +346,7 @@ export default function ArenaLobby({ onNavigate }) {
           <div className="arena-upgrade-modal" onClick={e => e.stopPropagation()}>
             {modalUpgrade === 'fichas' ? (
               <>
-                <div className="arena-upgrade-modal-icon">ðŸ”’</div>
+                <div className="arena-upgrade-modal-icon">🔒</div>
                 <h2 className="arena-upgrade-modal-titulo">{t('games.arena.limite.modal_titulo')}</h2>
                 <p className="arena-upgrade-modal-body">
                   {perfil?.tier
@@ -372,7 +372,7 @@ export default function ArenaLobby({ onNavigate }) {
               </>
             ) : (
               <>
-                <div className="arena-upgrade-modal-icon">ðŸŒ</div>
+                <div className="arena-upgrade-modal-icon">🌐</div>
                 <h2 className="arena-upgrade-modal-titulo">{t('games.arena.multiplayer.modal_titulo')}</h2>
                 <p className="arena-upgrade-modal-body">{t('games.arena.multiplayer.modal_body')}</p>
                 <button className="arena-upgrade-modal-btn" onClick={() => { sfx.click(); navigate('/assinar') }}>
@@ -380,14 +380,14 @@ export default function ArenaLobby({ onNavigate }) {
                 </button>
               </>
             )}
-            <button className="arena-upgrade-modal-close" onClick={() => setModalUpgrade(null)}>âœ•</button>
+            <button className="arena-upgrade-modal-close" onClick={() => setModalUpgrade(null)}>✕</button>
           </div>
         </div>
       )}
 
       <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.arena.voltar_games')} />
       <button className="arena-sfx-toggle arena-sfx-toggle--lobby" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-        {sfx.enabled ? 'ðŸ”Š' : 'ðŸ”‡'}
+        {sfx.enabled ? '🔊' : '🔇'}
       </button>
     </div>
   )

@@ -33,7 +33,7 @@ export default function ArenaVictory({ onNavigate }) {
   const [hpAtual, setHpAtual] = useState(pvMax)
   const [nextUnlock, setNextUnlock] = useState(null)
 
-  // Tocar som de vitÃ³ria ou derrota na montagem
+  // Tocar som de vitória ou derrota na montagem
   useEffect(() => {
     if (isVitoria) {
       sfx.win()
@@ -44,14 +44,14 @@ export default function ArenaVictory({ onNavigate }) {
     }
   }, [isVitoria])
 
-  // Fase 1 â€” mensagem final do inimigo
+  // Fase 1 — mensagem final do inimigo
   useEffect(() => {
     if (fase !== 'mensagem') return
     const t = setTimeout(() => setFase('hpzero'), 2500)
     return () => clearTimeout(t)
   }, [fase])
 
-  // Fase 2 â€” HP indo a zero
+  // Fase 2 — HP indo a zero
   useEffect(() => {
     if (fase !== 'hpzero') return
     const duracao = 1500
@@ -64,7 +64,7 @@ export default function ArenaVictory({ onNavigate }) {
       setHpAtual(Math.round(startHp * (1 - pct)))
       if (pct < 1) frame = requestAnimationFrame(step)
       else {
-        // Ao chegar em 0 HP, toca explosÃ£o final
+        // Ao chegar em 0 HP, toca explosão final
         sfx.explosion()
         setTimeout(() => setFase('resultado'), 400)
       }
@@ -73,18 +73,18 @@ export default function ArenaVictory({ onNavigate }) {
     return () => cancelAnimationFrame(frame)
   }, [fase, pvMax])
 
-  // Ganhar XP + desbloquear prÃ³ximo inimigo na vitÃ³ria
+  // Ganhar XP + desbloquear próximo inimigo na vitória
   useEffect(() => {
     if (!isVitoria || fase !== 'resultado') return
-    // 1. Ganhar XP (sÃ­ncrono â€” Zustand set Ã© sync)
+    // 1. Ganhar XP (síncrono — Zustand set é sync)
     const pointsAntes = sheet.attribute_points_gained || 0
     store.gainXp(xpGain)
     const pointsDepois = (useArenaStore.getState().sheet?.attribute_points_gained) || 0
     if (pointsDepois > pointsAntes) {
       const novoNivel = pointsDepois + 1
-      registrarEvento('arena_levelup', `Subiu para nÃ­vel ${novoNivel} na Arena`, novoNivel)
+      registrarEvento('arena_levelup', `Subiu para nível ${novoNivel} na Arena`, novoNivel)
     }
-    // 2. Desbloquear prÃ³ximo inimigo
+    // 2. Desbloquear próximo inimigo
     const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
     const nextId = ENEMY_ORDER[defeatedIdx + 1]
     const before = sheet.enemies_unlocked || ['treinamento']
@@ -92,7 +92,7 @@ export default function ArenaVictory({ onNavigate }) {
     if (nextId && !before.includes(nextId)) {
       setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
     }
-    // 3. Persistir no Supabase (pega o state jÃ¡ atualizado)
+    // 3. Persistir no Supabase (pega o state já atualizado)
     setTimeout(() => store.saveToCloud(user?.id), 400)
     if (user?.id) registrarPontuacaoArenaRanking(user.id)
   }, [fase, isVitoria])
@@ -100,7 +100,7 @@ export default function ArenaVictory({ onNavigate }) {
   if (!isVitoria) {
     return (
       <div className="arena-victory arena-container">
-        {/* PartÃ­culas de explosÃ£o â€” derrota */}
+        {/* Partículas de explosão — derrota */}
         <div className="arena-victory-particles arena-victory-particles--defeat">
           {[...Array(20)].map((_, i) => (
             <motion.span
@@ -147,14 +147,14 @@ export default function ArenaVictory({ onNavigate }) {
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
           <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.escolher_oponente')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-            {sfx.enabled ? 'ðŸ”Š' : 'ðŸ”‡'}
+            {sfx.enabled ? '🔊' : '🔇'}
           </button>
         </div>
       </div>
     )
   }
 
-  // Fase 1 â€” mensagem do inimigo derrotado
+  // Fase 1 — mensagem do inimigo derrotado
   if (fase === 'mensagem') {
     const defeatPhrases = enemy?.trash_talk?.defeat || enemy?.trash_talk?.enemy_near_death
     const fallbacks = [0,1,2].map(i => t(`games.arena.defeat_fallbacks[${i}]`))
@@ -178,7 +178,7 @@ export default function ArenaVictory({ onNavigate }) {
     )
   }
 
-  // Fase 2 â€” HP indo a zero + K.O.
+  // Fase 2 — HP indo a zero + K.O.
   if (fase === 'hpzero') {
     const hpPct = Math.max(0, (hpAtual / pvMax) * 100)
     return (
@@ -201,10 +201,10 @@ export default function ArenaVictory({ onNavigate }) {
     )
   }
 
-  // Fase 3 â€” vitÃ³ria
+  // Fase 3 — vitória
   return (
     <div className="arena-victory arena-container">
-      {/* PartÃ­culas de comemoraÃ§Ã£o â€” vitÃ³ria */}
+      {/* Partículas de comemoração — vitória */}
       <div className="arena-victory-particles arena-victory-particles--victory">
         {[...Array(30)].map((_, i) => (
           <motion.span
@@ -297,7 +297,7 @@ export default function ArenaVictory({ onNavigate }) {
           <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
           <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.escolher_oponente')} />
           <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-            {sfx.enabled ? 'ðŸ”Š' : 'ðŸ”‡'}
+            {sfx.enabled ? '🔊' : '🔇'}
           </button>
         </div>
       </motion.div>

@@ -32,17 +32,17 @@ function gerarDicaGangue(personagem, pergunta) {
     const dicaTexto = pergunta.dicas?.[personagem]
     if (dicaTexto) return { texto: dicaTexto, correto: true, indice: pergunta.correta }
     const fallbacks = {
-      kim: "Olha... eu acho que Ã© essa, mas nÃ£o me pergunta qual.",
-      jack: "Ã‰ ESSA AÃ, PODE CONFiar!",
-      nina: "Ã“bvio que Ã© essa."
+      kim: "Olha... eu acho que é essa, mas não me pergunta qual.",
+      jack: "É ESSA AÍ, PODE CONFiar!",
+      nina: "Óbvio que é essa."
     }
     return { texto: fallbacks[personagem] || fallbacks.kim, correto: true, indice: pergunta.correta }
   } else {
     const erradas = pergunta.alternativas.map((_, i) => i).filter(i => i !== pergunta.correta)
     const indiceErrado = erradas[Math.floor(Math.random() * erradas.length)]
     const textoErrado = {
-      kim: `Olha... eu acho que Ã© a ${String.fromCharCode(65 + indiceErrado)}.`,
-      jack: `Com certeza Ã© a ${String.fromCharCode(65 + indiceErrado)}, pode marcar!`,
+      kim: `Olha... eu acho que é a ${String.fromCharCode(65 + indiceErrado)}.`,
+      jack: `Com certeza é a ${String.fromCharCode(65 + indiceErrado)}, pode marcar!`,
       nina: `${String.fromCharCode(65 + indiceErrado)}.`
     }
     return { texto: textoErrado[personagem], correto: false, indice: indiceErrado }
@@ -253,7 +253,7 @@ export default function Quiz() {
                 <p className="quiz-modo-total">{t('quiz.perguntas_count', { n: config.total })}</p>
                 <p className="quiz-modo-desc">{t(config.descKey)}</p>
                 {config.premium && !TRIAL_ACTIVE && (
-                  <span className="quiz-modo-lock">ðŸ”’</span>
+                  <span className="quiz-modo-lock">🔒</span>
                 )}
               </div>
             ))}
@@ -322,8 +322,8 @@ export default function Quiz() {
                 >
                   <span className="quiz-alternativa-letra">{letra}</span>
                   <span className="quiz-alternativa-texto">{alt}</span>
-                  {confirmada && i === pergunta.correta && <span className="quiz-alternativa-icon"> âœ“</span>}
-                  {confirmada && ultimaResposta === i && i !== pergunta.correta && <span className="quiz-alternativa-icon"> âœ—</span>}
+                  {confirmada && i === pergunta.correta && <span className="quiz-alternativa-icon"> ✓</span>}
+                  {confirmada && ultimaResposta === i && i !== pergunta.correta && <span className="quiz-alternativa-icon"> ✗</span>}
                 </button>
               )
             })}
@@ -416,7 +416,7 @@ export default function Quiz() {
                 key={i}
                 className={`quiz-revisao-item${entry.pulada ? ' quiz-revisao-item--pulada' : entry.acertou ? ' quiz-revisao-item--certa' : ' quiz-revisao-item--errada'}`}
               >
-                <span className="quiz-revisao-icon">{entry.pulada ? 'â­' : entry.acertou ? 'âœ“' : 'âœ—'}</span>
+                <span className="quiz-revisao-icon">{entry.pulada ? '⏭' : entry.acertou ? '✓' : '✗'}</span>
                 <span className="quiz-revisao-pergunta">{entry.pergunta.pergunta}</span>
                 {!entry.pulada && !entry.acertou && (
                   <span className="quiz-revisao-correta">{t('quiz.revisao_correta')} {entry.pergunta.alternativas[entry.pergunta.correta]}</span>

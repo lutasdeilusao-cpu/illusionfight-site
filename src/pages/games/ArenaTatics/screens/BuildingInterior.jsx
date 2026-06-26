@@ -10,10 +10,10 @@ const SPRITE_W = 32
 const SPRITE_H = 32
 const INTERIOR_SIZE = 800
 
-/* â”€â”€ INTERIOR LAYOUTS â”€â”€ */
+/* ── INTERIOR LAYOUTS ── */
 const INTERIOR_NAMES = {} // populated at runtime via i18n
 
-/* â”€â”€ INTERIOR SPAWNS â”€â”€ */
+/* ── INTERIOR SPAWNS ── */
 const interiorSpawns = {
   yohualticit: { x: 200, y: 450 },
   jao: { x: 150, y: 200 },
@@ -30,13 +30,13 @@ const interiorSpawns = {
   concessionaria: { x: 200, y: 300 },
 }
 
-/* â”€â”€ EXIT ZONE â”€â”€ */
+/* ── EXIT ZONE ── */
 const EXIT_ZONE = { x: 350, y: 750, w: 100, h: 50, name: 'SAIDA' }
 
-/* â”€â”€ Coleta zonas de interiores para colisÃ£o â”€â”€ */
+/* ── Coleta zonas de interiores para colisão ── */
 function getInteriorColliders(mapId) {
   const cols = []
-  // NOTA: EXIT_ZONE nÃ£o entra aqui â€” a saÃ­da nÃ£o tem colisÃ£o,
+  // NOTA: EXIT_ZONE não entra aqui — a saída não tem colisão,
   // o jogador sai automaticamente ao pisar nela.
   
   if (mapId === 'yohualticit') {
@@ -60,8 +60,8 @@ function getInteriorColliders(mapId) {
     cols.push({ x: 0, y: 0, w: 800, h: 16 })
     cols.push({ x: 0, y: 0, w: 16, h: 800 })
     cols.push({ x: 784, y: 0, w: 16, h: 800 })
-    // NOTA: Sem parede inferior â€” a zona de saÃ­da (EXIT_ZONE: y=750~800)
-    // precisa estar acessÃ­vel. O limite ny+SPRITE_H>INTERIOR_SIZE jÃ¡
+    // NOTA: Sem parede inferior — a zona de saída (EXIT_ZONE: y=750~800)
+    // precisa estar acessível. O limite ny+SPRITE_H>INTERIOR_SIZE já
     // impede o jogador de sair do mapa.
   }
   return cols
@@ -96,9 +96,9 @@ function getInteriorZone(px, py) {
   return null
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════
    BUILD INTERIOR FUNCTION (Draws the interior canvas)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════════ */
 function buildInterior(ctx, mapId) {
   const W = INTERIOR_SIZE, H = INTERIOR_SIZE
 
@@ -129,9 +129,9 @@ function buildInterior(ctx, mapId) {
       ctx.font = 'bold 10px monospace'
       ctx.fillStyle = '#e8c96a'
       ctx.textAlign = 'center'
-      ctx.fillText('RECEPÃ‡ÃƒO', 400, 225)
+      ctx.fillText('RECEPÇÃO', 400, 225)
 
-      // 20 numbered doors â€” left column (ANDAR 01â€“10)
+      // 20 numbered doors — left column (ANDAR 01–10)
       const leftDoorX = 50, rightDoorX = 690
       for (let i = 0; i < 10; i++) {
         const yPos = 40 + i * 50
@@ -171,7 +171,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillRect(352, 752, 96, 36)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
 
       // Central hall label
       ctx.fillStyle = 'rgba(232,201,106,0.15)'
@@ -205,7 +205,7 @@ function buildInterior(ctx, mapId) {
         ctx.fillStyle = '#e8c96a'
         ctx.font = 'bold 7px monospace'
         ctx.textAlign = 'center'
-        const labels = ['FRUTAS', 'GRÃƒOS', 'ARTESANATO', 'CARNES', 'LATICÃNIOS', 'ERVAS', 'SEU JÃƒO', 'OFERTAS']
+        const labels = ['FRUTAS', 'GRÃOS', 'ARTESANATO', 'CARNES', 'LATICÍNIOS', 'ERVAS', 'SEU JÃO', 'OFERTAS']
         ctx.fillText(labels[i], s.x + s.w / 2, s.y + s.h / 2 + 3)
       })
       // Exit
@@ -214,12 +214,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'recovery': {
-      // Recovery Center â€” clean medical style
+      // Recovery Center — clean medical style
       ctx.fillStyle = '#3a5a4a'
       ctx.fillRect(16, 16, 768, 768)
       // Healing stations
@@ -238,7 +238,7 @@ function buildInterior(ctx, mapId) {
         ctx.fillStyle = '#88ffaa'
         ctx.font = 'bold 7px monospace'
         ctx.textAlign = 'center'
-        ctx.fillText('âœ¦ RECUPERAÃ‡ÃƒO âœ¦', s.x + s.w / 2, s.y + s.h / 2 + 3)
+        ctx.fillText('✦ RECUPERAÇÃO ✦', s.x + s.w / 2, s.y + s.h / 2 + 3)
       })
       // Reception
       ctx.fillStyle = '#5a7a5a'
@@ -246,19 +246,19 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#88ffaa'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('CENTRAL DE RECUPERAÃ‡ÃƒO', 400, 580)
+      ctx.fillText('CENTRAL DE RECUPERAÇÃO', 400, 580)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'bar': {
-      // Bar do ZÃ© â€” warm tavern style
+      // Bar do Zé — warm tavern style
       ctx.fillStyle = '#4a3030'
       ctx.fillRect(16, 16, 768, 768)
       // Bar counter
@@ -269,7 +269,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#e8c96a'
       ctx.font = 'bold 12px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('BAR DO ZÃ‰', 400, 275)
+      ctx.fillText('BAR DO ZÉ', 400, 275)
       // Tables
       const tables = [
         { x: 100, y: 400 }, { x: 300, y: 400 }, { x: 500, y: 400 },
@@ -297,12 +297,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'training': {
-      // Training Center â€” dojo / gym style
+      // Training Center — dojo / gym style
       ctx.fillStyle = '#2a303a'
       ctx.fillRect(16, 16, 768, 768)
       // Training mats
@@ -320,25 +320,25 @@ function buildInterior(ctx, mapId) {
         ctx.fillStyle = '#88aacc'
         ctx.font = 'bold 10px monospace'
         ctx.textAlign = 'center'
-        ctx.fillText('ESTAÃ‡ÃƒO DE TREINO', m.x + m.w / 2, m.y + m.h / 2 + 3)
+        ctx.fillText('ESTAÇÃO DE TREINO', m.x + m.w / 2, m.y + m.h / 2 + 3)
       })
       // Premium badge
       ctx.fillStyle = '#ff4444'
       ctx.font = 'bold 14px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('âš¡ EXCLUSIVO ASSINANTES âš¡', 400, 700)
+      ctx.fillText('⚡ EXCLUSIVO ASSINANTES ⚡', 400, 700)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'fashion': {
-      // Fashion Center â€” stylish boutique
+      // Fashion Center — stylish boutique
       ctx.fillStyle = '#3a2030'
       ctx.fillRect(16, 16, 768, 768)
       // Mannequin stands
@@ -367,12 +367,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'save': {
-      // Save Center â€” clean data center
+      // Save Center — clean data center
       ctx.fillStyle = '#3a3a3a'
       ctx.fillRect(16, 16, 768, 768)
       // Data terminals
@@ -385,7 +385,7 @@ function buildInterior(ctx, mapId) {
         ctx.fillStyle = '#88ddff'
         ctx.font = 'bold 8px monospace'
         ctx.textAlign = 'center'
-        ctx.fillText('ðŸ–¥ TERMINAL', sx + 60, sy + 55)
+        ctx.fillText('🖥 TERMINAL', sx + 60, sy + 55)
       }
       // Central server
       ctx.fillStyle = '#4a5a4a'
@@ -402,12 +402,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'casa': {
-      // Casa do Personagem â€” cozy home
+      // Casa do Personagem — cozy home
       ctx.fillStyle = '#3a3028'
       ctx.fillRect(16, 16, 768, 768)
       // Living room
@@ -421,7 +421,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#e8c96a'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ›‹ SALA DE ESTAR', 200, 115)
+      ctx.fillText('🛋 SALA DE ESTAR', 200, 115)
       // Clue board (right wall)
       ctx.fillStyle = '#4a3a2a'
       ctx.fillRect(500, 50, 250, 300)
@@ -430,7 +430,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ffcc88'
       ctx.font = 'bold 12px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ“Œ CADERNO DE PISTAS', 625, 100)
+      ctx.fillText('📌 CADERNO DE PISTAS', 625, 100)
       // String lines (decorative)
       for (let i = 0; i < 5; i++) {
         ctx.strokeStyle = 'rgba(255,204,136,0.2)'
@@ -447,19 +447,19 @@ function buildInterior(ctx, mapId) {
       ctx.fillRect(54, 404, 192, 142)
       ctx.fillStyle = '#e8c96a'
       ctx.font = 'bold 10px monospace'
-      ctx.fillText('ðŸ› QUARTO', 150, 480)
+      ctx.fillText('🛏 QUARTO', 150, 480)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'info': {
-      // Posto de InformaÃ§Ãµes â€” guia turÃ­stico, mapas, dicas
+      // Posto de Informações — guia turístico, mapas, dicas
       ctx.fillStyle = '#3a4a5a'
       ctx.fillRect(16, 16, 768, 768)
       // Info counter
@@ -470,7 +470,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#88ccff'
       ctx.font = 'bold 12px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ“‹ POSTO DE INFORMAÃ‡Ã•ES', 400, 235)
+      ctx.fillText('📋 POSTO DE INFORMAÇÕES', 400, 235)
       // Map on wall
       ctx.fillStyle = '#2a3a4a'
       ctx.fillRect(100, 60, 200, 160)
@@ -478,7 +478,7 @@ function buildInterior(ctx, mapId) {
       ctx.fillRect(104, 64, 192, 152)
       ctx.fillStyle = '#88aacc'
       ctx.font = 'bold 10px monospace'
-      ctx.fillText('ðŸ—º MAPA DE MARÃ‰LIA', 200, 100)
+      ctx.fillText('🗺 MAPA DE MARÉLIA', 200, 100)
       // Decorative lines (roads on map)
       ctx.strokeStyle = 'rgba(136,204,255,0.2)'
       ctx.lineWidth = 1
@@ -501,12 +501,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'equipment_shop': {
-      // Loja de Equipamentos â€” armas, armaduras, acessÃ³rios
+      // Loja de Equipamentos — armas, armaduras, acessórios
       ctx.fillStyle = '#2a2a3a'
       ctx.fillRect(16, 16, 768, 768)
       // Weapon racks (left wall)
@@ -519,7 +519,7 @@ function buildInterior(ctx, mapId) {
         ctx.font = 'bold 7px monospace'
         ctx.textAlign = 'center'
         const armas = ['ESPADA', 'MACHADO', 'ADAGA', 'CAJADO']
-        ctx.fillText(`âš” ${armas[i]}`, 90, 110 + i * 120)
+        ctx.fillText(`⚔ ${armas[i]}`, 90, 110 + i * 120)
       }
       // Armor stands (right wall)
       for (let i = 0; i < 3; i++) {
@@ -529,7 +529,7 @@ function buildInterior(ctx, mapId) {
         ctx.fillRect(624, 104 + i * 140, 112, 112)
         ctx.fillStyle = '#88ffcc'
         ctx.font = 'bold 7px monospace'
-        ctx.fillText(`ðŸ›¡ ARMADURA`, 680, 160 + i * 140)
+        ctx.fillText(`🛡 ARMADURA`, 680, 160 + i * 140)
       }
       // Counter
       ctx.fillStyle = '#3a3a4a'
@@ -539,19 +539,19 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ffd700'
       ctx.font = 'bold 12px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ’° BALCÃƒO', 400, 535)
+      ctx.fillText('💰 BALCÃO', 400, 535)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'biblioteca': {
-      // Biblioteca â€” conhecimento, lore, arquivos
+      // Biblioteca — conhecimento, lore, arquivos
       ctx.fillStyle = '#2a2a30'
       ctx.fillRect(16, 16, 768, 768)
       // Bookshelves
@@ -578,19 +578,19 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#e8c96a'
       ctx.font = 'bold 9px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ“– MESA DE LEITURA â€” LORE DE MARÃ‰LIA', 400, 500)
+      ctx.fillText('📖 MESA DE LEITURA — LORE DE MARÉLIA', 400, 500)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'arena_sub': {
-      // Arena SubterrÃ¢nea â€” batalhas opcionais clandestinas
+      // Arena Subterrânea — batalhas opcionais clandestinas
       ctx.fillStyle = '#1a1a1a'
       ctx.fillRect(16, 16, 768, 768)
       // Fighting pit (center)
@@ -634,12 +634,12 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
     case 'concessionaria': {
-      // ConcessionÃ¡ria â€” veÃ­culos e montarias
+      // Concessionária — veículos e montarias
       ctx.fillStyle = '#3a3a3a'
       ctx.fillRect(16, 16, 768, 768)
       // Showroom floor (shiny)
@@ -651,9 +651,9 @@ function buildInterior(ctx, mapId) {
       }
       // Vehicles (display cars)
       const vehicles = [
-        { x: 100, y: 150, color: '#cc4444', label: 'ðŸš— SEDAN' },
-        { x: 300, y: 150, color: '#44aacc', label: 'ðŸš™ OFF-ROAD' },
-        { x: 500, y: 150, color: '#88cc44', label: 'ðŸ MOTO' },
+        { x: 100, y: 150, color: '#cc4444', label: '🚗 SEDAN' },
+        { x: 300, y: 150, color: '#44aacc', label: '🚙 OFF-ROAD' },
+        { x: 500, y: 150, color: '#88cc44', label: '🏍 MOTO' },
       ]
       vehicles.forEach(v => {
         ctx.fillStyle = v.color
@@ -673,14 +673,14 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#88ffff'
       ctx.font = 'bold 11px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('ðŸ’° VENDAS', 400, 585)
+      ctx.fillText('💰 VENDAS', 400, 585)
       // Exit
       ctx.fillStyle = '#6a2a2a'
       ctx.fillRect(350, 750, 100, 40)
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
       break
     }
 
@@ -697,14 +697,14 @@ function buildInterior(ctx, mapId) {
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 10px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText('SAÃDA', 400, 775)
+      ctx.fillText('SAÍDA', 400, 775)
     }
   }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════
    COMPONENT
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════════ */
 export default function BuildingInterior({ mapId, buildingName, onExit }) {
   const { t } = useLanguage()
   const canvasRef = useRef(null)
@@ -734,7 +734,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     lastFrameTime: 0,
   })
 
-  /* â”€â”€ Draw interior map â”€â”€ */
+  /* ── Draw interior map ── */
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -745,7 +745,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     buildInterior(ctx, mapId)
   }, [mapId])
 
-  /* â”€â”€ Game Loop â”€â”€ */
+  /* ── Game Loop ── */
   useEffect(() => {
     const s = stateRef.current
     const player = playerRef.current
@@ -785,7 +785,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
       if (nx < 0 || ny < 0 || nx + SPRITE_W > INTERIOR_SIZE || ny + SPRITE_H > INTERIOR_SIZE) return
       if (playerCollidesInterior(nx, ny, mapId)) return
 
-      // NOTA: NÃ£o tem auto-exit aqui â€” sÃ³ sai apertando A na zona de saÃ­da
+      // NOTA: Não tem auto-exit aqui — só sai apertando A na zona de saída
 
       if (dy === 1)  { s.spriteDir = 'down';  s.spriteFlip = false }
       if (dy === -1) { s.spriteDir = 'up';    s.spriteFlip = false }
@@ -835,7 +835,7 @@ export default function BuildingInterior({ mapId, buildingName, onExit }) {
     }
   }, [mapId, buildingName])
 
-  /* â”€â”€ Teclado removido â€” jogo 100% touch/mobile â”€â”€ */
+  /* ── Teclado removido — jogo 100% touch/mobile ── */
 
   const handleAnalogMove = useCallback((dx, dy) => {
     const s = stateRef.current

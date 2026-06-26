@@ -11,9 +11,9 @@ const ACOES = ['termometro', 'curativo', 'xarope']
 const ITENS_SAUDE = ['termometro', 'curativo', 'xarope']
 
 const ITEM_EMOJI = {
-  termometro: 'ðŸŒ¡ï¸',
-  curativo:   'ðŸ©¹',
-  xarope:     'ðŸ¶',
+  termometro: '🌡️',
+  curativo:   '🩹',
+  xarope:     '🍶',
 }
 
 function gerarParticulas() {
@@ -68,7 +68,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
     setEfeitoAtivo(acao)
 
     if (acao === 'termometro') {
-      const temps = ['36.5Â°C', '37.0Â°C', '37.2Â°C', '36.8Â°C', '37.1Â°C']
+      const temps = ['36.5°C', '37.0°C', '37.2°C', '36.8°C', '37.1°C']
       setTempNumber(temps[Math.floor(Math.random() * temps.length)])
       setParticulas(gerarParticulas())
       setTimeout(() => setParticulas([]), 1200)
@@ -101,7 +101,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
       dispararEfeito(acaoEsperada)
 
       if (acaoAtual === 2) {
-        // Ãšltima aÃ§Ã£o â€” conclui apÃ³s delay do efeito
+        // Última ação — conclui após delay do efeito
         setTimeout(() => {
           sfx.conclusao()
           setMostrandoConclusao(true)
@@ -115,12 +115,12 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
           }))
           setEstrelas(stars)
 
-          // Consumir itens de saÃºde e aplicar +25%
+          // Consumir itens de saúde e aplicar +25%
           store.consumirItem('termometro')
           store.consumirItem('curativo')
           store.consumirItem('xarope')
           store.restaurarSaude()
-          store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saÃºde')
+          store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saúde')
         }, 600)
       } else {
         setTimeout(() => {
@@ -130,7 +130,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
     } else {
       sfx.erro()
     }
-    // Se soltou item errado, nÃ£o avanÃ§a
+    // Se soltou item errado, não avança
   }, [ordem, acaoAtual, dispararEfeito, store])
 
   const handleDragOver = useCallback((e) => {
@@ -145,7 +145,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
     setArrastando(true)
   }, [])
 
-  // â”€â”€ Touch handlers (mobile) â”€â”€
+  // ── Touch handlers (mobile) ──
   const handleTouchStart = useCallback((e, acao) => {
     sfx.drag()
     const touch = e.touches[0]
@@ -199,7 +199,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
             store.consumirItem('curativo')
             store.consumirItem('xarope')
             store.restaurarSaude()
-            store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saÃºde')
+            store.ganharDix(store._userId, DIX_POR_ACAO, 'restaurou saúde')
           }, 600)
         } else {
           setTimeout(() => {
@@ -214,12 +214,12 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
     setTouchPos(null)
   }, [touchPos, ordem, acaoAtual, dispararEfeito, store])
 
-  // Verificar se todos os itens de saÃºde estÃ£o no inventÃ¡rio
+  // Verificar se todos os itens de saúde estão no inventário
   if (itensFaltando.length > 0) {
     return (
       <div className="tama-acao-screen">
         <div className="tama-saude-faltando">
-          <div className="tama-saude-faltando-emoji">ðŸš‘</div>
+          <div className="tama-saude-faltando-emoji">🚑</div>
           <h2 className="tama-acao-title">{t('games.tamagoshi.saude_faltando_titulo')}</h2>
           <p className="tama-saude-faltando-desc">{t('games.tamagoshi.saude_faltando_desc')}</p>
           <ul className="tama-saude-faltando-lista">
@@ -258,7 +258,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
 
   return (
     <div className="tama-acao-screen">
-      {/* ConclusÃ£o */}
+      {/* Conclusão */}
       <AnimatePresence>
         {mostrandoConclusao && (
           <motion.div
@@ -273,7 +273,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
               animate={{ scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
             >
-              <div className="tama-saude-conclusao-emoji">ðŸŽ‰</div>
+              <div className="tama-saude-conclusao-emoji">🎉</div>
               <div className="tama-saude-conclusao-titulo">{t('games.tamagoshi.saude_concluido')}</div>
               <div className="tama-saude-conclusao-sub">{t('games.tamagoshi.saude_recuperado', { valor: '+25%' })}</div>
 
@@ -287,7 +287,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
                     animate={{ opacity: [0, 1, 0], x: s.dx, y: s.dy, scale: [0, 1.5, 0] }}
                     transition={{ duration: 1.2, delay: s.delay }}
                   >
-                    âœ¨
+                    ✨
                   </motion.span>
                 ))}
               </div>
@@ -305,7 +305,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
         )}
       </AnimatePresence>
 
-      {/* TÃ­tulo */}
+      {/* Título */}
       <h2 className="tama-acao-title">{t('games.tamagoshi.saude_titulo')}</h2>
 
       {/* Bolinhas de progresso */}
@@ -321,7 +321,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
         </span>
       </div>
 
-      {/* InstruÃ§Ã£o */}
+      {/* Instrução */}
       {instrucaoAtual && (
         <motion.p
           className="tama-acao-hint"
@@ -334,7 +334,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
         </motion.p>
       )}
 
-      {/* Ãrea do drop zone + sprite */}
+      {/* Área do drop zone + sprite */}
       <div
         ref={dropZoneRef}
         className={`tama-saude-dropzone ${arrastando ? 'tama-saude-dropzone--hover' : ''} ${efeitoAtivo ? 'tama-saude-dropzone--efeito' : ''}`}
@@ -342,7 +342,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
         onDragOver={handleDragOver}
         onTouchEnd={handleTouchEnd}
       >
-        {/* PartÃ­culas do termÃ´metro */}
+        {/* Partículas do termômetro */}
         {efeitoAtivo === 'termometro' && particulas.map(p => (
           <div
             key={p.id}
@@ -351,7 +351,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
           />
         ))}
 
-        {/* NÃºmero de temperatura */}
+        {/* Número de temperatura */}
         {tempNumber && (
           <motion.div
             className="tama-saude-temp"
@@ -371,7 +371,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
           >
-            ðŸ©¹
+            🩹
           </motion.div>
         )}
 
@@ -399,12 +399,12 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            ðŸ˜Š
+            😊
           </motion.div>
         )}
       </div>
 
-      {/* Item arrastÃ¡vel */}
+      {/* Item arrastável */}
       {acaoCorrente && !concluido && (
         <motion.div
           key={acaoCorrente}
@@ -431,7 +431,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
         </div>
       )}
 
-      {/* BotÃ£o voltar (sÃ³ quando nÃ£o estiver concluindo) */}
+      {/* Botão voltar (só quando não estiver concluindo) */}
       {!mostrandoConclusao && (
         <motion.button
           className="tama-btn tama-saude-voltar"

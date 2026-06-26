@@ -59,7 +59,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
 
     setGirando(true)
 
-    // AnimaÃ§Ã£o de rolagem (simula 1.5s de "girando")
+    // Animação de rolagem (simula 1.5s de "girando")
     await new Promise(r => setTimeout(r, 1500))
 
     const criatura = sortearT1()
@@ -69,7 +69,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
       return
     }
 
-    // Primeiro giro Ã© grÃ¡tis; demais debitam DIX
+    // Primeiro giro é grátis; demais debitam DIX
     if (!store._isAdmin && !primeiroGiroGratis) {
       try {
         await store.gastarDix(store._userId, DIX_GACHA, `gacha temporada ${temporada}`)
@@ -101,7 +101,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
         <h2 className="tama-gacha-title">{t('games.tamagoshi.gacha_titulo')}</h2>
         <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</p>
 
-        {/* Seletor de temporada â€” T1 disponÃ­vel, T2 EM BREVE */}
+        {/* Seletor de temporada — T1 disponível, T2 EM BREVE */}
         <div className="tama-gacha-temporadas">
           <button
             className={`tama-gacha-temp-btn ${temporada === 1 ? 'tama-gacha-temp-btn--ativo' : ''}`}
@@ -120,16 +120,16 @@ export default function Gacha({ onConcluir, onVoltar }) {
           </button>
         </div>
 
-        {/* Saldo + badge de giro grÃ¡tis */}
+        {/* Saldo + badge de giro grátis */}
         <div className="tama-gacha-saldo">
-          <span>{t('games.tamagoshi.dix_display', { saldo: store._isAdmin ? 'âˆž' : saldo })}</span>
-          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">ðŸŽ {t('games.tamagoshi.gacha_giro_gratis')}</span>}
+          <span>{t('games.tamagoshi.dix_display', { saldo: store._isAdmin ? '∞' : saldo })}</span>
+          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">🎁 {t('games.tamagoshi.gacha_giro_gratis')}</span>}
         </div>
 
         {/* Erro */}
         {erro && <p className="tama-gacha-erro">{erro}</p>}
 
-        {/* BotÃ£o girar */}
+        {/* Botão girar */}
         {!sorteada && (
           <motion.button
             className="tama-btn gacha-btn-roll"
@@ -139,14 +139,14 @@ export default function Gacha({ onConcluir, onVoltar }) {
             disabled={girando || !podePagar}
           >
             {girando ? (
-              <span className="tama-gacha-girando">{t('games.tamagoshi.gacha_girando')} ðŸŽ°</span>
+              <span className="tama-gacha-girando">{t('games.tamagoshi.gacha_girando')} 🎰</span>
             ) : (
               <span>{t('games.tamagoshi.gacha_girar', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</span>
             )}
           </motion.button>
         )}
 
-        {/* AnimaÃ§Ã£o de rolagem */}
+        {/* Animação de rolagem */}
         <AnimatePresence>
           {girando && (
             <motion.div
@@ -156,7 +156,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
               exit={{ opacity: 0 }}
             >
               <div className="tama-gacha-rolagem-emoji">
-                {['ðŸŽ²', 'âœ¨', 'ðŸŒŸ', 'ðŸ’«', 'â­'].map((e, i) => (
+                {['🎲', '✨', '🌟', '💫', '⭐'].map((e, i) => (
                   <motion.span
                     key={i}
                     className="tama-gacha-rolagem-item"
@@ -219,7 +219,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
           )}
         </AnimatePresence>
 
-        {/* BotÃ£o voltar */}
+        {/* Botão voltar */}
         {!sorteada && !girando && (
           <motion.button
             className="tama-btn tama-gacha-voltar"

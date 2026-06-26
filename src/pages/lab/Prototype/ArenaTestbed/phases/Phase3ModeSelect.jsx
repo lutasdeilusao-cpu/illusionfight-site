@@ -12,12 +12,12 @@ export default function Phase3ModeSelect({ onSelectTraining, onBack }) {
         <p className="p3-subtitle">{t('prototype.arena_testbed.p3_subtitle')}</p>
 
         <button className="p3-btn p3-btn--training" onClick={() => { audio.confirm(); onSelectTraining() }}>
-          <span className="p3-btn-icon">âš”</span>
+          <span className="p3-btn-icon">⚔</span>
           <span className="p3-btn-label">{t('prototype.arena_testbed.p3_training')}</span>
         </button>
 
         <button className="p3-btn p3-btn--campaign" disabled>
-          <span className="p3-btn-icon">ðŸ“œ</span>
+          <span className="p3-btn-icon">📜</span>
           <span className="p3-btn-label">{t('prototype.arena_testbed.p3_campaign')}</span>
           <span className="p3-btn-badge">{t('prototype.arena_testbed.p3_soon')}</span>
         </button>

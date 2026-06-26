@@ -141,7 +141,7 @@ export default function Combat() {
             <h2 className="ldi-power-select-title">{t('games.ldi.combat.power_titulo')}</h2>
             <p className="ldi-power-select-sub">
               {t('games.ldi.combat.power_sub', { elemental })}
-              <button className="ldi-power-select-manual" onClick={() => setShowManual(true)}>ðŸ“–</button>
+              <button className="ldi-power-select-manual" onClick={() => setShowManual(true)}>📖</button>
             </p>
             <div className="ldi-power-select-grid">
               {availablePowers.map(p => {
@@ -156,7 +156,7 @@ export default function Combat() {
                   >
                     <div className="ldi-power-select-card-header">
                       <span className="ldi-power-select-card-name">{p.name}</span>
-                      <span className="ldi-power-select-card-cost">âš¡{p.cost} PM</span>
+                      <span className="ldi-power-select-card-cost">⚡{p.cost} PM</span>
                     </div>
                     <p className="ldi-power-select-card-desc">{p.desc}</p>
                   </motion.button>
@@ -181,7 +181,7 @@ export default function Combat() {
 
   return (
     <div className="ldi-page ldi-page--combat">
-      <div className="ldi-combat-manual-btn" onClick={() => setShowManual(true)} title="Manual">ðŸ“–</div>
+      <div className="ldi-combat-manual-btn" onClick={() => setShowManual(true)} title="Manual">📖</div>
       <AnimatePresence>
         {showXpToast && (
           <motion.div

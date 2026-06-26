@@ -7,7 +7,7 @@ import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import SEASON_1 from '../data/tamagoshi-season1.json'
 
-// Temporada ativa para seleÃ§Ã£o gratuita (usa JSON dedicado da Temporada 1)
+// Temporada ativa para seleção gratuita (usa JSON dedicado da Temporada 1)
 const CRIATURAS_T1 = CRIATURAS.filter(c => SEASON_1.criaturas.includes(c.id))
 
 // Limite de slots por tier (T1: todos max 1; desbloqueado na T2)
@@ -31,8 +31,8 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
   const opcoes = useMemo(() => {
     if (atingiuLimite) return []
     const qtd = userTier === 'primordial' ? 10 : userTier === 'elite' ? 3 : 1
-    // Embaralha todas as 10 criaturas T1 e pega qtd aleatÃ³rias
-    // Isso garante que free users recebam 1 das 10 (nÃ£o sempre Kroniki)
+    // Embaralha todas as 10 criaturas T1 e pega qtd aleatórias
+    // Isso garante que free users recebam 1 das 10 (não sempre Kroniki)
     const todasEmbaralhadas = shuffle(CRIATURAS_T1)
     return todasEmbaralhadas.slice(0, qtd)
   }, [userTier])
@@ -80,7 +80,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
         </div>
         )} {/* fim do ternary atingiuLimite */}
 
-        {/* Gacha â€” acesso ao sorteio T1 */}
+        {/* Gacha — acesso ao sorteio T1 */}
         <div className="tama-selecao-gacha">
           <motion.button
             className="tama-btn gacha-btn-entry"
@@ -88,7 +88,7 @@ export default function Selecao({ onEscolher, userTier, onGacha }) {
             whileTap={{ scale: 0.95 }}
             onClick={onGacha}
           >
-            ðŸŽ° {t('games.tamagoshi.gacha_entrar')}
+            🎰 {t('games.tamagoshi.gacha_entrar')}
           </motion.button>
         </div>
       </div>

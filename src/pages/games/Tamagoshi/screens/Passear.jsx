@@ -80,7 +80,7 @@ export default function Passear({ onConcluir }) {
     const cx = lw * s.lane + (lw - 50) / 2 + 25
     const cy = H - 50 - 16 + 25
     ctx.save()
-    // AnimaÃ§Ã£o de dano: girar 360Â° + emoji de raiva
+    // Animação de dano: girar 360° + emoji de raiva
     if (s.dmgTimer > 0) {
       const rot = (1 - s.dmgTimer / 15) * Math.PI * 2
       ctx.translate(cx, cy)
@@ -95,7 +95,7 @@ export default function Passear({ onConcluir }) {
       ctx.save()
       ctx.font = '28px "Segoe UI Emoji","Apple Color Emoji",sans-serif'
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-      ctx.fillText('ðŸ˜ ', cx, cy - 40)
+      ctx.fillText('😠', cx, cy - 40)
       ctx.restore()
     } else {
       ctx.beginPath()
@@ -116,7 +116,7 @@ export default function Passear({ onConcluir }) {
     ctx.textAlign = 'left'; ctx.fillText('\uD83D\uDEE3\uFE0F ' + s.score, 12, 20)
     ctx.textAlign = 'right'
     const maxVidas = getVidas(store.inventario)
-    let h = ''; for (let i = 0; i < maxVidas; i++) h += i < s.lives ? 'â¤ï¸' : 'ðŸ–¤'
+    let h = ''; for (let i = 0; i < maxVidas; i++) h += i < s.lives ? '❤️' : '🖤'
     ctx.fillText(h, W - 12, 20)
     ctx.fillStyle = '#FFD700'; ctx.textAlign = 'left'; ctx.font = '11px monospace'; ctx.textBaseline = 'bottom'
     ctx.fillText('\u25C6 ' + s.coinsCollected, 12, H - 8)
@@ -132,18 +132,18 @@ export default function Passear({ onConcluir }) {
       s.speed = BASE_SPEED + (s.stage - 1) * 0.3; s.roadOff += s.speed
       s.score = Math.floor(s.frame * s.speed / 10) + s.stage * 200
       const lw = GAME_W / LANE_COUNT
-      // SFX: motor pulsante â€” throttle 100ms
+      // SFX: motor pulsante — throttle 100ms
       if (!s.lastMotorSfx || s.frame - s.lastMotorSfx > 6) {
         s.lastMotorSfx = s.frame
         tom(80, 0.1, 'square', 0.1)
       }
       if (s.frame - (s.lastObs || 0) > Math.max(50, 110 - (s.stage - 1) * 6)) {
         s.lastObs = s.frame
-        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['ðŸª¨','ðŸŒ³','ðŸ§±','ðŸ—¿','ðŸªµ'][Math.floor(Math.random() * 5)] })
+        s.obstacles.push({ x: lw * Math.floor(Math.random() * LANE_COUNT), y: -50, e: ['🪨','🌳','🧱','🗿','🪵'][Math.floor(Math.random() * 5)] })
       }
       if (s.frame - (s.lastCoin || 0) > Math.max(100, 200 - (s.stage - 1) * 11)) {
         s.lastCoin = s.frame
-        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -36, e: 'â­' })
+        s.coins.push({ x: lw * Math.floor(Math.random() * LANE_COUNT) + 7, y: -36, e: '⭐' })
       }
       const cx = lw * s.lane + lw / 2
       const cy = GAME_H - 50 - 16 + 25
@@ -213,7 +213,7 @@ export default function Passear({ onConcluir }) {
     rafRef.current = requestAnimationFrame(loop)
   }
 
-  // Keyboard handler â€” window level (always works)
+  // Keyboard handler — window level (always works)
   useEffect(() => {
     if (phase !== 'playing') return
     function h(e) {
@@ -224,7 +224,7 @@ export default function Passear({ onConcluir }) {
     return () => window.removeEventListener('keydown', h)
   }, [phase])
 
-  // Touch/Mouse handler â€” window level (canvas may not be mounted yet when effect runs)
+  // Touch/Mouse handler — window level (canvas may not be mounted yet when effect runs)
   useEffect(() => {
     if (phase !== 'playing') return
     function getCanvasRect() {
@@ -302,7 +302,7 @@ export default function Passear({ onConcluir }) {
         {phase === 'ready' && (
           <motion.div key="ready" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             className="tama-passear-card">
-            <div className="tama-passear-card-icone">ðŸŽ</div>
+            <div className="tama-passear-card-icone">🏎</div>
             <p className="tama-passear-card-titulo">{t('games.tamagoshi.passear_enduro')}</p>
             <p className="tama-passear-card-desc">{t('games.tamagoshi.passear_desc', { n: STAGE_COUNT })}</p>
             <p className="tama-passear-card-setas">{t('games.tamagoshi.passear_setas')}</p>
@@ -327,7 +327,7 @@ export default function Passear({ onConcluir }) {
         {phase === 'gameover' && (
           <motion.div key="gameover" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             className="tama-passear-gameover">
-            <div className="tama-passear-gameover-icone">ðŸ’¥</div>
+            <div className="tama-passear-gameover-icone">💥</div>
             <p className="tama-passear-gameover-titulo">{t('games.tamagoshi.fim_passeio')}</p>
             {stage >= STAGE_COUNT && <p className="tama-passear-gameover-todas">{t('games.tamagoshi.passear_todas_pistas')}</p>}
             <p className="tama-passear-gameover-pontos">{dispScore}</p>
@@ -339,7 +339,7 @@ export default function Passear({ onConcluir }) {
                 {historico.map((h, i) => (
                   <div key={i} className="tama-passear-historico-linha">
                     <span>{'\uD83D\uDEE3\uFE0F'} {h.score}</span>
-                    <span>â­ {h.coins}</span>
+                    <span>⭐ {h.coins}</span>
                     <span>{t('games.tamagoshi.passear_stage_abbr', { n: h.stage })}</span>
                     <span className="tama-passear-historico-data">{h.date}</span>
                   </div>

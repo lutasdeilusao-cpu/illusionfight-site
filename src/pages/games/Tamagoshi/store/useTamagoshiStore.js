@@ -305,15 +305,15 @@ export const useTamagoshiStore = create((set, get) => ({
         const nome = CRIATURAS.find(c => c.id === state.criaturaId)?.nome || '???'
         const locale = (() => { try { return localStorage.getItem('ldi-locale') || 'pt' } catch { return 'pt' } })()
         const CRIT_TEXTS = {
-          pt: '{nome} estÃ¡ em estado CRÃTICO! âš ï¸',
-          en: '{nome} is in critical condition! âš ï¸',
-          es: 'Â¡{nome} estÃ¡ en estado CRÃTICO! âš ï¸',
+          pt: '{nome} está em estado CRÍTICO! ⚠️',
+          en: '{nome} is in critical condition! ⚠️',
+          es: '¡{nome} está en estado CRÍTICO! ⚠️',
         }
         const critMsg = (CRIT_TEXTS[locale] || CRIT_TEXTS.pt).replace('{nome}', nome)
         useNotificationStore.getState().push(critMsg, 'ver tamagoshi', '/games/tamagoshi')
         if ('Notification' in window && Notification.permission === 'granted' && 'serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then(sw => {
-            sw.showNotification('ðŸ‰ Tamagoshi LDI', {
+            sw.showNotification('🐉 Tamagoshi LDI', {
               body: critMsg,
               icon: '/favicon.svg', badge: '/favicon.svg',
               tag: 'tamagoshi', renotify: true,

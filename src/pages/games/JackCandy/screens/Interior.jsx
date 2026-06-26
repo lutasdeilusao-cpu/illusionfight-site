@@ -16,9 +16,9 @@ export default function Interior({ npcId }) {
   if (!npc) return null
 
   const moedaIcon = (moeda) => {
-    if (moeda === 'nota') return 'ðŸ’µ'
-    if (moeda === 'fragmento') return 'ðŸ’Ž'
-    return 'ðŸº'
+    if (moeda === 'nota') return '💵'
+    if (moeda === 'fragmento') return '💎'
+    return '🍺'
   }
 
   const moedaNome = (moeda) => {
@@ -51,21 +51,21 @@ export default function Interior({ npcId }) {
     addBalao(msgCompra)
   }
 
-  // Todos os itens do NPC (incluindo loja secreta se aplicÃ¡vel)
+  // Todos os itens do NPC (incluindo loja secreta se aplicável)
   const todosItens = [
     ...(npc.itens || []),
     ...(npc.loja_secreta && store.flags[npc.requerFlagLoja] ? npc.loja_secreta : [])
   ].filter(itemId => {
     const item = ITENS[itemId]
     if (!item) return false
-    // JÃ¡ equipado â†’ esconde
+    // Já equipado → esconde
     const eq = store.equipado
     if (eq.arma?.id === itemId || eq.armadura?.id === itemId || eq.acessorio?.id === itemId) return false
-    // JÃ¡ no inventÃ¡rio â†’ esconde
+    // Já no inventário → esconde
     if (store.inventario.find(i => i.id === itemId)) return false
-    // Bengala sÃ³ aparece antes de comprar
+    // Bengala só aparece antes de comprar
     if (itemId === 'bengala_steampunk' && store.flags.TEM_BENGALA) return false
-    // NÃ£o-consumÃ­veis jÃ¡ comprados nÃ£o aparecem
+    // Não-consumíveis já comprados não aparecem
     if (!item.cura && (store.comprou || []).includes(itemId)) return false
     return true
   })
@@ -87,12 +87,12 @@ export default function Interior({ npcId }) {
   }) || []
 
   const iconeSlot = (item) => {
-    if (item.cura) return 'ðŸ§ª'
-    if (item.slot === 'arma') return 'âš”ï¸'
-    if (item.slot === 'armadura') return 'ðŸ›¡ï¸'
-    if (item.slot === 'acessorio') return 'ðŸ’'
-    if (item.danoBonus) return 'ðŸ”§'
-    return 'ðŸ“¦'
+    if (item.cura) return '🧪'
+    if (item.slot === 'arma') return '⚔️'
+    if (item.slot === 'armadura') return '🛡️'
+    if (item.slot === 'acessorio') return '💍'
+    if (item.danoBonus) return '🔧'
+    return '📦'
   }
 
   return (
@@ -101,25 +101,25 @@ export default function Interior({ npcId }) {
       <div className="jdc-interior-header">
         <div>
           <span className="jdc-interior-nome">{npc.interior}</span>
-          <span className="jdc-interior-dono"> â€” {npc.nome}</span>
+          <span className="jdc-interior-dono"> — {npc.nome}</span>
         </div>
         <button className="jack-btn jdc-btn-xs" onClick={() => store.setFase('vila')}>
           {t('games.jackcandy.interior_sair')}
         </button>
       </div>
 
-      {/* BalÃ£o de saudaÃ§Ã£o */}
+      {/* Balão de saudação */}
       <div className="jdc-interior-balao">
         <p className="jdc-interior-balao-text">{npc.saudacao}</p>
       </div>
 
-      {/* MissÃµes */}
+      {/* Missões */}
       {npc.missoes && npc.missoes.length > 0 && (
         <div className="jdc-interior-missoes">
           <p className="jack-text jack-text--dim jdc-text-xs jdc-mb-03">{t('games.jackcandy.interior_missoes')}</p>
           {npc.missoes.map((m, i) => (
             <div key={m.id} className="jdc-interior-missao">
-              <span>{missaoStatus[i] === 'done' ? 'âœ…' : missaoStatus[i] === 'open' ? 'ðŸ“‹' : 'ðŸ”’'}</span>
+              <span>{missaoStatus[i] === 'done' ? '✅' : missaoStatus[i] === 'open' ? '📋' : '🔒'}</span>
               <span className="jack-text">{m.nome}</span>
               {m.desc && <span className="jack-text--dim">{m.desc}</span>}
             </div>
@@ -149,11 +149,11 @@ export default function Interior({ npcId }) {
                 <span className="jdc-interior-item-nome">{item.nome}</span>
                 <span className="jdc-interior-item-desc">{item.desc}</span>
                 <div className="jdc-interior-item-stats">
-                  {item.dano && <span>âš”ï¸ +{item.dano}</span>}
-                  {item.capPerSeg && <span>ðŸº/s +{item.capPerSeg}</span>}
-                  {item.hpMaxBonus && <span>â¤ï¸ +{item.hpMaxBonus} Moral</span>}
-                  {item.cura && <span>ðŸ§ª +{item.cura} Moral</span>}
-                  {item.reducaoDano && <span>ðŸ›¡ï¸ -{item.reducaoDano} dmg</span>}
+                  {item.dano && <span>⚔️ +{item.dano}</span>}
+                  {item.capPerSeg && <span>🍺/s +{item.capPerSeg}</span>}
+                  {item.hpMaxBonus && <span>❤️ +{item.hpMaxBonus} Moral</span>}
+                  {item.cura && <span>🧪 +{item.cura} Moral</span>}
+                  {item.reducaoDano && <span>🛡️ -{item.reducaoDano} dmg</span>}
                 </div>
               </div>
               <div className="jdc-interior-item-preco">
@@ -185,7 +185,7 @@ export default function Interior({ npcId }) {
           animate={{ opacity: 1, y: 0 }}>{msg}</motion.p>
       )}
 
-      {/* BalÃµes flutuantes */}
+      {/* Balões flutuantes */}
       <div className="jdc-interior-baloes-flutuantes">
         <AnimatePresence>
           {baloes.map((b, i) => (

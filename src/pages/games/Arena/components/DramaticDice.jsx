@@ -4,31 +4,31 @@ import { sfx } from '../../../../lib/sfx'
 import './DramaticDice.css'
 
 /**
- * DramaticDice â€” Tela cheia que pausa o jogo e mostra um dado rodando
- * com efeito cinematogrÃ¡fico (comeÃ§a rÃ¡pido, desacelera, revela o nÃºmero).
+ * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
+ * com efeito cinematográfico (começa rápido, desacelera, revela o número).
  *
  * @param {{ finalValue: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string }} props
  */
 export default function DramaticDice({ finalValue, side, onComplete, powerName }) {
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
-  const [phase, setPhase] = useState('intro')        // intro â†’ rolling â†’ reveal â†’ done
+  const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
   const lastSoundRef = useRef(0)
   const phaseRef = useRef('intro')
   const isCritical = finalValue === 6
 
-  // MantÃ©m phaseRef sincronizado com o state phase (evita stale closure no rAF)
+  // Mantém phaseRef sincronizado com o state phase (evita stale closure no rAF)
   useEffect(() => {
     phaseRef.current = phase
   }, [phase])
 
-  // DuraÃ§Ã£o: normal 1.5s~2s, crÃ­tico 2s fixo para mais drama
+  // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama
   const totalDuration = useRef(
     isCritical ? 2000 : (1500 + Math.random() * 500)
   )
 
   useEffect(() => {
-    // Fase 1: intro â€” show the "?" for a moment
+    // Fase 1: intro — show the "?" for a moment
     const t1 = setTimeout(() => {
       setPhase('rolling')
     }, 400)
@@ -43,13 +43,13 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
     const start = performance.now()
     const rollDuration = totalDuration.current
 
-    // Gera delays com easing CÃšBICO (comeÃ§a rÃ¡pido, desacelera MUITO no final)
+    // Gera delays com easing CÚBICO (começa rápido, desacelera MUITO no final)
     const steps = []
     let accum = 0
     while (accum < rollDuration) {
-      const progress = accum / rollDuration // 0 â†’ 1
-      // delay cÃºbico: comeÃ§a em ~30ms, termina em ~350ms
-      // curva cÃºbica: fica mais lento exponencialmente perto do fim
+      const progress = accum / rollDuration // 0 → 1
+      // delay cúbico: começa em ~30ms, termina em ~350ms
+      // curva cúbica: fica mais lento exponencialmente perto do fim
       const rawDelay = 30 + Math.pow(progress, 1.8) * 320
       const jitter = (Math.random() - 0.5) * 20
       const delay = Math.max(20, Math.min(400, rawDelay + jitter))
@@ -67,7 +67,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
       const step = steps[stepIdx]
 
       if (step && elapsed >= step.at) {
-        // Sorteia um nÃºmero diferente do atual (usa ref p/ nÃ£o causar loop)
+        // Sorteia um número diferente do atual (usa ref p/ não causar loop)
         let next
         do {
           next = Math.floor(Math.random() * 6) + 1
@@ -75,7 +75,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
         displayRef.current = next
         setDisplay(next)
 
-        // Som de tick a cada troca de nÃºmero (com debounce)
+        // Som de tick a cada troca de número (com debounce)
         const now = Date.now()
         if (now - lastSoundRef.current > 30) {
           lastSoundRef.current = now
@@ -88,7 +88,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
       if (elapsed < rollDuration) {
         frameId = requestAnimationFrame(tick)
       } else {
-        // Roll acabou â†’ fase de REVELAÃ‡ÃƒO
+        // Roll acabou → fase de REVELAÇÃO
         sfx.diceLand()
         setPhase('reveal')
         setDisplay(finalValue)
@@ -97,9 +97,9 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
 
     frameId = requestAnimationFrame(tick)
     return () => { stopped = true; cancelAnimationFrame(frameId) }
-  }, [phase, finalValue]) // â† sem display! ref evita o loop infinito
+  }, [phase, finalValue]) // ← sem display! ref evita o loop infinito
 
-  // Na fase reveal, espera 1s (normal) ou 1.2s (crÃ­tico) e chama onComplete
+  // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete
   useEffect(() => {
     if (phase !== 'reveal') return
     const delay = isCritical ? 1200 : 1000
@@ -112,15 +112,15 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
 
   const isPlayer = side === 'player'
 
-  // VariaÃ§Ãµes das frases dramÃ¡ticas
+  // Variações das frases dramáticas
   const dramaticPhrases = {
     player: {
       rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÃTICO!', '6!', 'PERFEITO!'],
+      critical: ['CRÍTICO!', '6!', 'PERFEITO!'],
     },
     enemy: {
       rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÃTICO!', '6!', 'FATAL!'],
+      critical: ['CRÍTICO!', '6!', 'FATAL!'],
     }
   }
 
@@ -137,7 +137,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
         <div className="dramatic-dice-bg" />
 
         <div className="dramatic-dice-container">
-          {/* Nome do poder (se houver) â€” aparece antes da label */}
+          {/* Nome do poder (se houver) — aparece antes da label */}
           {powerName && (
             <motion.div
               className="dramatic-dice-powername"
@@ -145,18 +145,18 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.05, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
             >
-              âš¡ {powerName} âš¡
+              ⚡ {powerName} ⚡
             </motion.div>
           )}
 
-          {/* RÃ³tulo: ROLL DO JOGADOR / ROLL DO INIMIGO */}
+          {/* Rótulo: ROLL DO JOGADOR / ROLL DO INIMIGO */}
           <motion.div
             className="dramatic-dice-label"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
           >
-            {isPlayer ? 'ðŸŽ¯ SEU ATAQUE' : 'ðŸ’€ ATAQUE INIMIGO'}
+            {isPlayer ? '🎯 SEU ATAQUE' : '💀 ATAQUE INIMIGO'}
           </motion.div>
 
           {/* O dado em si */}
@@ -182,13 +182,13 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
                 { duration: 0.3 }
               }
             >
-              <span className="dramatic-dice-emoji">ðŸŽ²</span>
+              <span className="dramatic-dice-emoji">🎲</span>
               <span className={`dramatic-dice-number ${phase === 'reveal' ? 'dramatic-dice-number--final' : ''} ${isCritical && phase === 'reveal' ? 'dramatic-dice-number--critico' : ''}`}>
                 {display ?? '?'}
               </span>
             </motion.div>
 
-            {/* PartÃ­culas / estrelas ao redor no reveal */}
+            {/* Partículas / estrelas ao redor no reveal */}
             {phase === 'reveal' && (
               <motion.div
                 className="dramatic-dice-particles"
@@ -215,7 +215,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
                         background: isCritical ? '#F5A623' : '#00B4D8',
                       }}
                     >
-                      {isCritical ? 'âœ¦' : 'â€¢'}
+                      {isCritical ? '✦' : '•'}
                     </motion.span>
                   )
                 })}
@@ -223,7 +223,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
             )}
           </div>
 
-          {/* Frase dramÃ¡tica embaixo */}
+          {/* Frase dramática embaixo */}
           <motion.div
             className="dramatic-dice-subtext"
             key={phase}
@@ -231,7 +231,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {phase === 'intro' && 'ðŸŽ² Preparando...'}
+            {phase === 'intro' && '🎲 Preparando...'}
             {phase === 'rolling' && 'Girando... Girando...'}
             {phase === 'reveal' && (
               <motion.span
@@ -240,14 +240,14 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
                 transition={{ duration: 0.5, repeat: Infinity }}
               >
                 {isCritical
-                  ? (isPlayer ? 'âš¡ CRÃTICO! GOLPE PERFEITO! âš¡' : 'ðŸ’€ CRÃTICO! GOLPE FATAL! ðŸ’€')
-                  : `ðŸŽ¯ RESULTADO: ${finalValue}!`
+                  ? (isPlayer ? '⚡ CRÍTICO! GOLPE PERFEITO! ⚡' : '💀 CRÍTICO! GOLPE FATAL! 💀')
+                  : `🎯 RESULTADO: ${finalValue}!`
                 }
               </motion.span>
             )}
           </motion.div>
 
-          {/* Barra de progresso no rodapÃ© (sutil) */}
+          {/* Barra de progresso no rodapé (sutil) */}
           {phase === 'rolling' && (
             <motion.div
               className="dramatic-dice-progress"

@@ -14,7 +14,7 @@ import './Arena.css'
 const ONOMATOPEIAS_FISTS = ['POW!', 'WHAM!', 'CRACK!']
 const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
-const MODE_ICONS = { fists: 'âœŠ', armed: 'âš”ï¸', power: 'âš¡' }
+const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = {}
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
@@ -31,7 +31,7 @@ function pickTrash(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-/** Toca um som de ataque aleatÃ³rio entre 6 variantes */
+/** Toca um som de ataque aleatório entre 6 variantes */
 function playAttackSfx() {
   const attacks = [
     () => sfx.attackSlash(),
@@ -80,7 +80,7 @@ function DiceSlot({ finalValue }) {
 
   return (
     <motion.div className="arena-dice-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
-      <motion.div className={numberClass} animate={anim} transition={trans}>ðŸŽ² {display}</motion.div>
+      <motion.div className={numberClass} animate={anim} transition={trans}>🎲 {display}</motion.div>
       {phase === 'showing' && (
         <motion.div className={labelClass} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
           {isCritical ? t('games.arena.dice_critico') : t('games.arena.dice_resultado', { n: finalValue })}
@@ -109,8 +109,8 @@ function OnomaPopup({ word, onDone }) {
 }
 
 /**
- * MatchResult â€” Overlay que aparece quando a partida termina (vitÃ³ria ou derrota).
- * Mostra o resultado por 2s, depois exibe um botÃ£o "PrÃ³ximo" para navegar.
+ * MatchResult — Overlay que aparece quando a partida termina (vitória ou derrota).
+ * Mostra o resultado por 2s, depois exibe um botão "Próximo" para navegar.
  */
 function MatchResult({ result, t, enemyName, onNext }) {
   const [showBtn, setShowBtn] = useState(false)
@@ -137,7 +137,7 @@ function MatchResult({ result, t, enemyName, onNext }) {
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 200, damping: 12 }}
         >
-          {isVitoria ? 'ðŸ†' : 'ðŸ’€'}
+          {isVitoria ? '🏆' : '💀'}
         </motion.div>
 
         <motion.h1
@@ -172,7 +172,7 @@ function MatchResult({ result, t, enemyName, onNext }) {
           />
         )}
 
-        {/* BotÃ£o aparece apÃ³s 2s */}
+        {/* Botão aparece após 2s */}
         {showBtn && (
           <motion.button
             className="arena-match-result-btn"
@@ -192,7 +192,7 @@ function MatchResult({ result, t, enemyName, onNext }) {
 }
 
 /**
- * PowerReveal â€” Tela cheia que mostra o nome do poder antes do dado rolar.
+ * PowerReveal — Tela cheia que mostra o nome do poder antes do dado rolar.
  * Aparece por ~1.2s com o nome do golpe em estilo Impact, depois chama onDone.
  */
 function PowerReveal({ powerName, onDone }) {
@@ -216,7 +216,7 @@ function PowerReveal({ powerName, onDone }) {
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
         >
-          âš¡ {powerName} âš¡
+          ⚡ {powerName} ⚡
         </motion.div>
         <motion.div
           style={{
@@ -308,7 +308,7 @@ export default function ArenaCombat({ onNavigate }) {
     setTimeout(() => addTrashWithDelay('battle_start'), 800)
   }, [])
 
-  // Auto-scroll â€” sempre acompanha a conversa
+  // Auto-scroll — sempre acompanha a conversa
   const scrollLogToBottom = useCallback(() => {
     if (logAreaRef.current) {
       logAreaRef.current.scrollTop = logAreaRef.current.scrollHeight
@@ -447,7 +447,7 @@ export default function ArenaCombat({ onNavigate }) {
     const pv = pvRef.current
 
     switch (s) {
-      // 0 â†’ jogador jogou dado, mostra resultado, atualiza HP inimigo, checa morte
+      // 0 → jogador jogou dado, mostra resultado, atualiza HP inimigo, checa morte
       case 0: {
         const nEPv = Math.max(0, pv.enemy - d.pDmg)
         setEnemyPv(nEPv)
@@ -475,7 +475,7 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 1 â†’ onomatopeia do player terminou, mostra overlay VEZ DO INIMIGO
+      // 1 → onomatopeia do player terminou, mostra overlay VEZ DO INIMIGO
       case 1: {
         setDamageFloat(null)
         setTurnOverlay(true)
@@ -484,7 +484,7 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 2 â†’ overlay terminou, mostra dado do inimigo com DramaticDice
+      // 2 → overlay terminou, mostra dado do inimigo com DramaticDice
       case 2: {
         setTurnOverlay(false)
         sfx.select()
@@ -501,7 +501,7 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 3 â†’ dado do inimigo terminou, atualiza HP player, checa morte
+      // 3 → dado do inimigo terminou, atualiza HP player, checa morte
       case 3: {
         const nPPv = Math.max(0, pv.player - d.eDmg)
         setPlayerPv(nPPv)
@@ -529,7 +529,7 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 4 â†’ onomatopeia do inimigo terminou, mostra trash talk
+      // 4 → onomatopeia do inimigo terminou, mostra trash talk
       case 4: {
         setDamageFloat(null)
         stepRef.current = 5
@@ -537,7 +537,7 @@ export default function ArenaCombat({ onNavigate }) {
         break
       }
 
-      // 5 â†’ trash terminou, volta ao idle
+      // 5 → trash terminou, volta ao idle
       case 5: {
         cleanup()
         stepRef.current = -1
@@ -577,9 +577,9 @@ export default function ArenaCombat({ onNavigate }) {
     setAtkDisabled(true)
     stepRef.current = 0
 
-    // Se tem poder, mostra o nome do golpe ANTES do dado (fase de revelaÃ§Ã£o)
+    // Se tem poder, mostra o nome do golpe ANTES do dado (fase de revelação)
     if (powerCost > 0) {
-      // Usa o powerId passado pelo botÃ£o clicado, NÃƒO selectedPowers[0]
+      // Usa o powerId passado pelo botão clicado, NÃO selectedPowers[0]
       const pName = getPowerName(powerId)
       // Toca som especial de poder + voz
       sfx.powerUsage()
@@ -601,7 +601,7 @@ export default function ArenaCombat({ onNavigate }) {
         })
       }, 1200)
     } else {
-      // Ataque normal â€” vai direto pro DramaticDice
+      // Ataque normal — vai direto pro DramaticDice
       playAttackSfx()
       sfx.select()
       setDiceKey(k => k + 1)
@@ -631,15 +631,15 @@ export default function ArenaCombat({ onNavigate }) {
                 onClick={() => { sfx.click(); togglePower(p.id) }}
                 whileHover={{ x: 0 }}
               >
-                <div className="arena-power-card-icon">âš¡</div>
+                <div className="arena-power-card-icon">⚡</div>
                 <div className="arena-power-card-body">
                   <div className="arena-power-header">
                     <span className="arena-power-header-name">{t('games.arena.powers.' + elemental + '.' + p.id + '.name') || p.name}</span>
-                    <span className="arena-power-header-cost">âš¡ {p.cost} PM</span>
+                    <span className="arena-power-header-cost">⚡ {p.cost} PM</span>
                   </div>
                   <p>{t('games.arena.powers.' + elemental + '.' + p.id + '.desc') || p.desc}</p>
                 </div>
-                <span className="arena-power-card-check">âœ“</span>
+                <span className="arena-power-card-check">✓</span>
               </motion.button>
             ))}
           </div>
@@ -670,12 +670,12 @@ export default function ArenaCombat({ onNavigate }) {
   }
   const playerElemCor = elemCores[elemental] || '#00B4D8'
   const enemyElemCor = elemCores[enemy.elemental] || '#cc4444'
-  const MODE_EMOJI = { fists: 'âœŠ', armed: 'âš”ï¸', power: 'âš¡' }
+  const MODE_EMOJI = { fists: '✊', armed: '⚔️', power: '⚡' }
 
   return (
     <div className="arena-combat arena-container">
 
-      {/* PowerReveal â€” mostra o nome do poder antes do dado (apenas player) */}
+      {/* PowerReveal — mostra o nome do poder antes do dado (apenas player) */}
       {powerReveal && (
         <PowerReveal
           powerName={powerReveal.powerName}
@@ -683,7 +683,7 @@ export default function ArenaCombat({ onNavigate }) {
         />
       )}
 
-      {/* DramaticDice â€” sobrepÃµe tudo durante a rolagem de dado */}
+      {/* DramaticDice — sobrepõe tudo durante a rolagem de dado */}
       {dramaticDice && (
         <DramaticDice
           key={diceKey}
@@ -694,7 +694,7 @@ export default function ArenaCombat({ onNavigate }) {
         />
       )}
 
-      {/* MatchResult â€” sobrepÃµe tudo quando a partida termina */}
+      {/* MatchResult — sobrepõe tudo quando a partida termina */}
       {matchResult && (
         <MatchResult
           result={matchResult}
@@ -765,7 +765,7 @@ export default function ArenaCombat({ onNavigate }) {
         <span className="arena-vs-bar-label">VS</span>
         <div className="arena-vs-bar-line" />
         <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-          {sfx.enabled ? 'ðŸ”Š' : 'ðŸ”‡'}
+          {sfx.enabled ? '🔊' : '🔇'}
         </button>
       </div>
 
@@ -803,7 +803,7 @@ export default function ArenaCombat({ onNavigate }) {
                       </div>
                       {l.diceRoll != null && (
                         <div className="arena-attack-card-row">
-                          <span className="arena-attack-card-key">ðŸŽ²</span>
+                          <span className="arena-attack-card-key">🎲</span>
                           <span className="arena-attack-card-val" style={{ color: l.diceRoll === 6 ? '#F5A623' : '#888', fontSize: 14, fontWeight: 700 }}>
                             {l.diceRoll}
                           </span>
@@ -812,7 +812,7 @@ export default function ArenaCombat({ onNavigate }) {
                       {l.powerName && (
                         <div className="arena-attack-card-row">
                           <span className="arena-attack-card-key">{t('games.arena.card_poder')}</span>
-                          <span className="arena-attack-card-val">âš¡ {l.powerName} +{l.powerBonus}</span>
+                          <span className="arena-attack-card-val">⚡ {l.powerName} +{l.powerBonus}</span>
                         </div>
                       )}
                       <div className="arena-attack-card-divider" />
@@ -912,7 +912,7 @@ export default function ArenaCombat({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.08 }}
             >
-              ðŸ’¬ {phrase}
+              💬 {phrase}
             </motion.button>
           ))}
         </div>
@@ -933,13 +933,13 @@ export default function ArenaCombat({ onNavigate }) {
               if (!fp) return null
               const can = playerPm >= (fp.cost || 1) && !atkDisabled
               return <button key={id} className="arena-power-btn" disabled={!can}
-                onClick={() => { sfx.click(); handleAttack(fp.cost || 1, id) }}>{t('games.arena.powers.' + elemental + '.' + id + '.name') || fp.name} âš¡{fp.cost} PM</button>
+                onClick={() => { sfx.click(); handleAttack(fp.cost || 1, id) }}>{t('games.arena.powers.' + elemental + '.' + id + '.name') || fp.name} ⚡{fp.cost} PM</button>
             })}
           </div>
         )}
         <div className="arena-actions-row">
           <button className="arena-exit-btn" onClick={() => { sfx.click(); cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>
-            âœ• {t('games.arena.btn_sair')}
+            ✕ {t('games.arena.btn_sair')}
           </button>
           <button className="arena-btn-flee" onClick={() => { sfx.click(); cleanup(); store.endMatch('defeat'); onNavigate('lobby') }} disabled={atkDisabled}>{t('games.arena.btn_fugir')}</button>
           <button className="arena-attack-btn" onClick={() => handleAttack()} disabled={atkDisabled}>

@@ -4,15 +4,15 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { getNo, getEvolucaoAtiva } from '../data/classTree'
 
 /**
- * EvolutionScreen â€” Tela de evoluÃ§Ã£o de classe
+ * EvolutionScreen — Tela de evolução de classe
  *
- * Exibida automaticamente ao atingir nÃ­vel 40 ou 70.
- * Para personagens do roster: evoluÃ§Ã£o automÃ¡tica sem escolha.
- * Mostra animaÃ§Ã£o + nova classe + frase de lore + preview das skills.
+ * Exibida automaticamente ao atingir nível 40 ou 70.
+ * Para personagens do roster: evolução automática sem escolha.
+ * Mostra animação + nova classe + frase de lore + preview das skills.
  */
 export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
   const { t } = useLanguage()
-  const [step, setStep] = useState('intro') // intro â†’ preview â†’ confirmado
+  const [step, setStep] = useState('intro') // intro → preview → confirmado
   const [showDetails, setShowDetails] = useState(false)
 
   const evoPath = rosterEntry?.caminhoEvolutivo
@@ -21,7 +21,7 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
 
   const evolucao = evoPath ? getEvolucaoAtiva(rosterEntry.classe, nivel, evoPath) : null
 
-  // Se nÃ£o tem evoluÃ§Ã£o para esse nÃ­vel, confirma automaticamente
+  // Se não tem evolução para esse nível, confirma automaticamente
   useEffect(() => {
     if (!evolucao) {
       onConfirm?.()
@@ -78,12 +78,12 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
                 fontSize: '3rem',
               }}
             >
-              {rosterEntry.classe === 'karuak' ? 'ðŸ›¡ï¸'
-                : rosterEntry.classe === 'moraki' ? 'ðŸŒªï¸'
-                : rosterEntry.classe === 'tivara' ? 'ðŸ¹'
-                : rosterEntry.classe === 'zephyra' ? 'ðŸŒŠ'
-                : rosterEntry.classe === 'ignis' ? 'ðŸ”¥'
-                : 'ðŸ—¡ï¸'}
+              {rosterEntry.classe === 'karuak' ? '🛡️'
+                : rosterEntry.classe === 'moraki' ? '🌪️'
+                : rosterEntry.classe === 'tivara' ? '🏹'
+                : rosterEntry.classe === 'zephyra' ? '🌊'
+                : rosterEntry.classe === 'ignis' ? '🔥'
+                : '🗡️'}
             </motion.div>
 
             <motion.div
@@ -92,7 +92,7 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
               transition={{ delay: 0.5 }}
             >
               <div style={{ color: '#FFD700', fontSize: '1.2rem', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 8 }}>
-                {isNv70 ? 'EVOLUÃ‡ÃƒO FINAL' : 'EVOLUÃ‡ÃƒO'}
+                {isNv70 ? 'EVOLUÇÃO FINAL' : 'EVOLUÇÃO'}
               </div>
               <div style={{ color: '#aaa', fontSize: '0.85rem', marginBottom: 4 }}>
                 {nomeAntigo}
@@ -103,7 +103,7 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
                 transition={{ delay: 1.0 }}
                 style={{ color: '#fff', fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.1em', marginBottom: 12 }}
               >
-                â†’ {nomeNovo}
+                → {nomeNovo}
               </motion.div>
 
               {fraseLore && (
@@ -184,7 +184,7 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
 
             {evolucao.bonusAtributos && (
               <div style={{ marginTop: 8 }}>
-                <div style={{ color: '#FFD700', fontSize: '0.6rem', marginBottom: 4 }}>BÃ”NUS DE ATRIBUTOS</div>
+                <div style={{ color: '#FFD700', fontSize: '0.6rem', marginBottom: 4 }}>BÔNUS DE ATRIBUTOS</div>
                 <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                   {Object.entries(evolucao.bonusAtributos).map(([k, v]) => (
                     <span key={k} style={{
@@ -246,7 +246,7 @@ export default function EvolutionScreen({ rosterEntry, nivel, onConfirm }) {
               }}
             />
             <div style={{ color: '#4ECDC4', fontSize: '1rem', fontWeight: 700, letterSpacing: '0.15em' }}>
-              EVOLUÃ‡ÃƒO CONCLUÃDA
+              EVOLUÇÃO CONCLUÍDA
             </div>
             <div style={{ color: '#888', fontSize: '0.7rem', marginTop: 8 }}>
               {nomeNovo}

@@ -54,7 +54,7 @@ export default function StatusBar() {
     <div className="jdc-statusbar">
       <div className="jdc-statusbar-row">
         <span className="jdc-sb-resources">
-          ðŸº {store.cervejas} {temFragmentos ? `| ðŸ’Ž ${store.fragmentos}` : ''} | notas: {store.notas}
+          🍺 {store.cervejas} {temFragmentos ? `| 💎 ${store.fragmentos}` : ''} | notas: {store.notas}
         </span>
         <span className="jdc-sb-nav">
           <button className={`jdc-sb-btn ${store.fase === 'vila' ? 'jdc-sb-btn--active' : ''}`}
@@ -79,17 +79,17 @@ export default function StatusBar() {
             }}
             disabled={!temCasoAtivo && !temCasoDisponivel}
           >
-            {temCasoAtivo ? 'ðŸ” CASO' : 'ðŸ“‹ CASOS'}
+            {temCasoAtivo ? '🔍 CASO' : '📋 CASOS'}
           </button>
           <button className="jdc-sb-btn"
             onClick={alternarPeriodo}
             disabled={periodoCd > 0}
             style={{ borderColor: '#F5A62333', color: periodoCd > 0 ? '#444' : '#F5A62366' }}>
-            {periodoCd > 0 ? `${periodoCd}s` : store.hpAtual < store.hpMax * 0.5 ? 'ðŸ˜´' : store.periodo === 'DIA' ? 'ðŸŒ™' : 'â˜€ï¸'}
+            {periodoCd > 0 ? `${periodoCd}s` : store.hpAtual < store.hpMax * 0.5 ? '😴' : store.periodo === 'DIA' ? '🌙' : '☀️'}
           </button>
           {mostraPrimordial && (
             <span className="jdc-sb-primordial" title={`Medidor Primordial: ${store.medidorPrimordial}/10`}>
-              {'ðŸ”¥'.repeat(Math.min(store.medidorPrimordial, 10))}
+              {'🔥'.repeat(Math.min(store.medidorPrimordial, 10))}
             </span>
           )}
           <button className="jdc-sb-btn jdc-sb-btn--rst" onClick={() => {
@@ -110,9 +110,9 @@ export default function StatusBar() {
         </div>
         <span className="jdc-sb-hp-text">{store.hpAtual}/{store.hpMax}</span>
         <span className="jdc-sb-level">
-          LV {store.nivel} | ðŸº/s {store.cervejasPorSegundo}
-          {reducao > 0 ? ` | ðŸ›¡ï¸ -${reducao}` : ''}
-          {danoArma > 0 ? ` | âš”ï¸ +${danoArma}` : ''}
+          LV {store.nivel} | 🍺/s {store.cervejasPorSegundo}
+          {reducao > 0 ? ` | 🛡️ -${reducao}` : ''}
+          {danoArma > 0 ? ` | ⚔️ +${danoArma}` : ''}
         </span>
         <div className="jdc-sb-xpbar-wrap" title={`${store.xp}/${xpNeeded} XP`}>
           <div className="jdc-sb-xpbar-fill" style={{ width: `${xpPct}%` }} />

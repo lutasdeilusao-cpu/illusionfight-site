@@ -52,7 +52,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
     }
   }, [store.fome, store.higiene, store.energia, store.humor, store.status, store.personalidade])
 
-  const icones = { fome: 'ðŸ–', higiene: 'ðŸ§¼', energia: 'âš¡', humor: 'ðŸŽ­' }
+  const icones = { fome: '🍖', higiene: '🧼', energia: '⚡', humor: '🎭' }
 
   const [adminTrocaAberta, setAdminTrocaAberta] = useState(false)
   const [trocaAberta, setTrocaAberta] = useState(false)
@@ -65,7 +65,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
     setAdminTrocaAberta(false)
   }
 
-  const dixSaldo = store._isAdmin ? 'âˆž' : store._dixSaldo
+  const dixSaldo = store._isAdmin ? '∞' : store._dixSaldo
 
   return (
     <div className="tama-screen">
@@ -89,11 +89,11 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
         />
 
         <div className="tama-metricas">
-          <MetricBar label={t('games.tamagoshi.fome')} valor={store.fome} cor="#F5A623" icone="ðŸ–" />
-          <MetricBar label={t('games.tamagoshi.higiene')} valor={store.higiene} cor="#00B4D8" icone="ðŸ§¼" />
-          <MetricBar label={t('games.tamagoshi.energia')} valor={store.energia} cor="#22C55E" icone="âš¡" />
-          <MetricBar label={t('games.tamagoshi.humor')} valor={store.humor} cor="#EC4899" icone="ðŸŽ­" />
-          <MetricBar label={t('games.tamagoshi.saude')} valor={store.saude} cor="#FF4444" icone="â¤ï¸" />
+          <MetricBar label={t('games.tamagoshi.fome')} valor={store.fome} cor="#F5A623" icone="🍖" />
+          <MetricBar label={t('games.tamagoshi.higiene')} valor={store.higiene} cor="#00B4D8" icone="🧼" />
+          <MetricBar label={t('games.tamagoshi.energia')} valor={store.energia} cor="#22C55E" icone="⚡" />
+          <MetricBar label={t('games.tamagoshi.humor')} valor={store.humor} cor="#EC4899" icone="🎭" />
+          <MetricBar label={t('games.tamagoshi.saude')} valor={store.saude} cor="#FF4444" icone="❤️" />
         </div>
 
         {slots.length > 1 && (
@@ -104,7 +104,7 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
               whileTap={{ scale: 0.95 }}
               onClick={() => setTrocaAberta(true)}
             >
-              ðŸ”„ {t('games.tamagoshi.trocar_tama')}
+              🔄 {t('games.tamagoshi.trocar_tama')}
             </motion.button>
           </div>
         )}
@@ -140,10 +140,10 @@ export default function Criatura({ isAdmin, onAction, onLoja, onVoltar, subFase 
                           setTrocaAberta(false)
                         }}
                       >
-                        <span className="tama-slot-emoji">{criatura?.emoji || 'ðŸ‰'}</span>
+                        <span className="tama-slot-emoji">{criatura?.emoji || '🐉'}</span>
                         <span className="tama-slot-nome">{criatura?.nome || t('games.tamagoshi.criatura_desconhecida')}</span>
                         <span className="tama-slot-status">
-                          {isAtivo ? 'âœ…' : s.hibernando ? 'ðŸ’¤' : 'âœ…'}
+                          {isAtivo ? '✅' : s.hibernando ? '💤' : '✅'}
                         </span>
                       </button>
                     )

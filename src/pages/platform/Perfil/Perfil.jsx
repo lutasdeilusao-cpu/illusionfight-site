@@ -21,12 +21,12 @@ const TIER_CONFIG = {
 }
 
 const SECOES = [
-  { id: 'colecao',    icone: 'ðŸƒ', labelKey: 'site.perfil.abas_colecao' },
-  { id: 'tamagoshi',  icone: 'ðŸ¥š', labelKey: 'site.perfil.abas_tamagoshi' },
-  { id: 'arena',      icone: 'âš”ï¸', labelKey: 'site.perfil.abas_arena' },
-  { id: 'conquistas', icone: 'ðŸ†', labelKey: 'site.perfil.abas_conquistas' },
-  { id: 'recompensas',icone: 'ðŸŽ°', labelKey: 'site.perfil.abas_recompensas' },
-  { id: 'conta',      icone: 'âš™ï¸', labelKey: 'site.perfil.abas_conta' },
+  { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
+  { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi' },
+  { id: 'arena',      icone: '⚔️', labelKey: 'site.perfil.abas_arena' },
+  { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
+  { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
+  { id: 'conta',      icone: '⚙️', labelKey: 'site.perfil.abas_conta' },
 ]
 
 export default function Perfil() {
@@ -75,21 +75,21 @@ export default function Perfil() {
             <p className="perfil-email">{user.email}</p>
             <span className="perfil-tier-badge"
               style={{ color: tierCfg.cor, borderColor: tierCfg.bordaCor + '44', background: tierCfg.cor + '11' }}>
-              â˜… {t(tierCfg.labelKey)}
+              ★ {t(tierCfg.labelKey)}
             </span>
           </div>
           <div className="perfil-contadores">
             {FICHAS_GATE_ATIVO && (
               <div className="perfil-contador">
                 <span className="perfil-contador-valor">
-                  {isAdmin ? 'âˆž' : fichasLoading ? 'â€”' : saldo}
+                  {isAdmin ? '∞' : fichasLoading ? '—' : saldo}
                 </span>
-                <span className="perfil-contador-label">ðŸŽ° {t('site.perfil.fichas')}</span>
+                <span className="perfil-contador-label">🎰 {t('site.perfil.fichas')}</span>
               </div>
             )}
             <div className="perfil-contador">
               <span className="perfil-contador-valor">{dix}</span>
-              <span className="perfil-contador-label">ðŸ’° DIX</span>
+              <span className="perfil-contador-label">💰 DIX</span>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Perfil() {
       {/* Barra de Progresso */}
       <PerfilProgresso />
 
-      {/* SeÃ§Ãµes colapsÃ¡veis */}
+      {/* Seções colapsáveis */}
       <div className="perfil-secoes">
         {SECOES.map((secao) => {
           const aberta = abertos[secao.id]
@@ -118,7 +118,7 @@ export default function Perfil() {
                   {secao.icone} {t(secao.labelKey)}
                 </span>
                 <span className={`perfil-secao-seta${aberta ? '' : ' fechado'}`}>
-                  {aberta ? 'â–¼' : 'â–º'}
+                  {aberta ? '▼' : '►'}
                 </span>
               </button>
               <div className={`perfil-secao-corpo${aberta ? '' : ' fechado'}`}>

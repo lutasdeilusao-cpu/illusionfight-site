@@ -4,21 +4,21 @@ import { useJackStore } from '../store/useJackStore'
 import { useLanguage } from '../../../../context/LanguageContext'
 
 const DIALOGO_KIM = [
-  { jack: 'era vocÃª.', kim: 'era eu.' },
-  { jack: 'por quÃª?', kim: '...' },
-  { kim: 'eu avisei.', jack: 'avisou o quÃª?' },
+  { jack: 'era você.', kim: 'era eu.' },
+  { jack: 'por quê?', kim: '...' },
+  { kim: 'eu avisei.', jack: 'avisou o quê?' },
   { kim: 'que esse sonho ia dar problema.' },
-  { jack: 'vocÃª sabotou tudo. osvaldo. o carregamento. os envelopes.' },
+  { jack: 'você sabotou tudo. osvaldo. o carregamento. os envelopes.' },
   { kim: 'senta.', jack: '...' },
-  { kim: 'nÃ£o foi sabotagem. foi preparaÃ§Ã£o.' },
-  { jack: 'preparaÃ§Ã£o pra quÃª?' },
-  { kim: 'pra isso. pra vocÃª chegar aqui. pra vocÃª entender.' },
-  { jack: 'entender o quÃª, kim?' },
-  { kim: 'que vocÃª nÃ£o tÃ¡ sozinho nesse sonho. que eu tÃ´ aqui desde o comeÃ§o. que eu sempre vou estar.' },
+  { kim: 'não foi sabotagem. foi preparação.' },
+  { jack: 'preparação pra quê?' },
+  { kim: 'pra isso. pra você chegar aqui. pra você entender.' },
+  { jack: 'entender o quê, kim?' },
+  { kim: 'que você não tá sozinho nesse sonho. que eu tô aqui desde o começo. que eu sempre vou estar.' },
   { jack: '...' },
-  { kim: 'o sonho vai acabar. vocÃª vai acordar. e eu vou estar do seu lado.' },
-  { kim: 'nÃ£o como garÃ§om. como eu. kim de verdade.' },
-  { jack: 'vocÃª Ã© um idiota.' },
+  { kim: 'o sonho vai acabar. você vai acordar. e eu vou estar do seu lado.' },
+  { kim: 'não como garçom. como eu. kim de verdade.' },
+  { jack: 'você é um idiota.' },
   { kim: 'eu sei.' },
 ]
 
@@ -45,12 +45,12 @@ export default function Interrogatorio() {
       context: 'caso',
       stats: [
         { label: 'Casos', value: '4/4' },
-        { label: 'Cervejas', value: `ðŸº ${store.cervejas}` },
+        { label: 'Cervejas', value: `🍺 ${store.cervejas}` },
         { label: 'Dungeons', value: store.dungeonsCompletas?.length || 0 },
-        { label: 'NÃ­vel', value: `LV ${store.nivel}` },
+        { label: 'Nível', value: `LV ${store.nivel}` },
       ],
     })
-    store.setMonologo('kim caiu. mas ele estava sorrindo. eu odeio quando ele faz isso. "te preparando", ele disse. "acorda, jack." eu acordei. kim tava do meu lado mandando meme no whatsapp. tÃ­pico.')
+    store.setMonologo('kim caiu. mas ele estava sorrindo. eu odeio quando ele faz isso. "te preparando", ele disse. "acorda, jack." eu acordei. kim tava do meu lado mandando meme no whatsapp. típico.')
     store.setFase('vila')
   }
 
@@ -83,9 +83,9 @@ export default function Interrogatorio() {
 
       <div className="jdc-interrogatorio-cena">
         <div className="jdc-interrogatorio-personagens">
-          <div className="jdc-interrogatorio-jack">ðŸ•µï¸ Jack</div>
+          <div className="jdc-interrogatorio-jack">🕵️ Jack</div>
           <div className="jdc-interrogatorio-vs">vs</div>
-          <div className="jdc-interrogatorio-kim">ðŸº Kim</div>
+          <div className="jdc-interrogatorio-kim">🍺 Kim</div>
         </div>
 
         <div className="jdc-interrogatorio-dialogo">

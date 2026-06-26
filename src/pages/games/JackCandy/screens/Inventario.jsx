@@ -5,8 +5,8 @@ import { useJackStore } from '../store/useJackStore'
 import { ITENS } from '../data/itens'
 
 const SLOTS = ['arma', 'armadura', 'acessorio']
-const SLOT_ICONS = { arma: 'âš”ï¸', armadura: 'ðŸ›¡ï¸', acessorio: 'ðŸ’' }
-const SLOT_LABELS = { arma: 'Arma', armadura: 'Armadura', acessorio: 'AcessÃ³rio' }
+const SLOT_ICONS = { arma: '⚔️', armadura: '🛡️', acessorio: '💍' }
+const SLOT_LABELS = { arma: 'Arma', armadura: 'Armadura', acessorio: 'Acessório' }
 
 export default function Inventario() {
   const { t } = useLanguage()
@@ -56,12 +56,12 @@ export default function Inventario() {
   })
 
   const iconeSlot = (item) => {
-    if (item?.cura) return 'ðŸ§ª'
-    if (item?.slot === 'arma') return 'âš”ï¸'
-    if (item?.slot === 'armadura') return 'ðŸ›¡ï¸'
-    if (item?.slot === 'acessorio') return 'ðŸ’'
-    if (item?.danoBonus) return 'ðŸ”§'
-    return 'ðŸ“¦'
+    if (item?.cura) return '🧪'
+    if (item?.slot === 'arma') return '⚔️'
+    if (item?.slot === 'armadura') return '🛡️'
+    if (item?.slot === 'acessorio') return '💍'
+    if (item?.danoBonus) return '🔧'
+    return '📦'
   }
 
   return (
@@ -96,12 +96,12 @@ export default function Inventario() {
                 </div>
                 {item && (
                   <div className="jdc-inv-slot-stats">
-                    {item.dano > 0 && <span>âš”ï¸+{item.dano}</span>}
-                    {item.reducaoDano > 0 && <span>ðŸ›¡ï¸-{item.reducaoDano}</span>}
+                    {item.dano > 0 && <span>⚔️+{item.dano}</span>}
+                    {item.reducaoDano > 0 && <span>🛡️-{item.reducaoDano}</span>}
                   </div>
                 )}
                 <button className="jdc-inv-slot-action" onClick={(e) => { e.stopPropagation(); handleDesequipar(slot); }}>
-                  {item ? 'ðŸ—‘ï¸' : 'â–¶'}
+                  {item ? '🗑️' : '▶'}
                 </button>
               </div>
             )
@@ -130,9 +130,9 @@ export default function Inventario() {
 
       {/* Stats */}
       <div className="jdc-inv-stats">
-        <span>âš”ï¸ dano: {store.equipado?.arma?.dano || 0}</span>
-        <span>ðŸ›¡ï¸ def: {store.equipado?.armadura?.reducaoDano || 0}</span>
-        <span>ðŸº/s: {store.cervejasPorSegundo}</span>
+        <span>⚔️ dano: {store.equipado?.arma?.dano || 0}</span>
+        <span>🛡️ def: {store.equipado?.armadura?.reducaoDano || 0}</span>
+        <span>🍺/s: {store.cervejasPorSegundo}</span>
       </div>
 
       {/* Abas */}
@@ -166,8 +166,8 @@ export default function Inventario() {
               <div className="jdc-inv-list-info">
                 <span className="jack-text">{item.nome}</span>
                 <span className="jack-text--dim jdc-inv-item-desc">{full.desc}</span>
-                {full.cura && <span className="jack-text--crimson jdc-inv-item-stat">ðŸ§ª +{full.cura} HP</span>}
-                {full.danoBonus && <span className="jack-text--amber jdc-inv-item-stat">âš”ï¸ +{full.danoBonus} dano</span>}
+                {full.cura && <span className="jack-text--crimson jdc-inv-item-stat">🧪 +{full.cura} HP</span>}
+                {full.danoBonus && <span className="jack-text--amber jdc-inv-item-stat">⚔️ +{full.danoBonus} dano</span>}
               </div>
               <button className="jack-btn jdc-inv-item-btn" onClick={() => handleItemAction(item.id)}>
                 {isConsumivel ? '[ usar ]' : isUpgrade ? '[ aplicar ]' : isEquipavel ? '[ equipar ]' : '...'}

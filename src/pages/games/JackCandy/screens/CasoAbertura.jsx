@@ -27,13 +27,13 @@ export default function CasoAbertura() {
       {!introFim && (
         <IntroNoir onFim={() => {
           setIntroFim(true)
-          console.log('[CASO_ABERTURA] intro noir concluÃ­da')
+          console.log('[CASO_ABERTURA] intro noir concluída')
         }} />
       )}
       {introFim && (
         <>
           <div className="jdc-investigacao-header">
-            <span className="jack-text--amber">ðŸ“‹ {caso.nome}</span>
+            <span className="jack-text--amber">📋 {caso.nome}</span>
             <button className="jack-btn" onClick={() => store.setFase('caso_select')}
               style={{ fontSize: '0.7rem' }}>{t('games.jackcandy.voltar')}</button>
           </div>

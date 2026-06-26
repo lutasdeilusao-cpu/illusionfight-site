@@ -23,7 +23,7 @@ export default function CardPreviewModal({ card, onClose }) {
         </h2>
         {card.type === 'MONSTER' && (
           <p style={{ fontFamily: "'Courier New',monospace", fontSize: 11, color: '#666', letterSpacing: 2, margin: '4px 0' }}>
-            {t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def} Â· ðŸ‘Ÿ{card.mov} ðŸŽ¯{card.rng}
+            {t('games.duelo.card_atk')} {card.atk} / {t('games.duelo.card_def')} {card.def} · 👟{card.mov} 🎯{card.rng}
           </p>
         )}
         {card.type !== 'MONSTER' && (
