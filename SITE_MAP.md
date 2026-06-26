@@ -494,7 +494,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.171.0** | PR BR outreach: +67 contacts from email CSV +18 from round1_round2 merged into br.csv |
+| `SITE_VERSION` | **10.172.0** | PR BR outreach: +27 new contacts from user list + Filipe (⭐ priority) added to br.csv and br_email.csv |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
