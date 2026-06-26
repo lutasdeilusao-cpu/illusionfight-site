@@ -1,6 +1,0 @@
-Name	Handle	Platform	Estimated Followers	Email	Niche	Outreach Angle	Category	Country
-Comicstorian	@Comicstorian	YouTube	3.12M	Comicstorian@gmail.com	Comic book audiobooks/storytelling	Pitch free action webtoon universe for comic audiobook format - original IP with game/book/OST tie-ins	WEBTOON/MANGA	US
-CohhCarnage	@CohhCarnage	YouTube/Twitch	1M	Business@Cohh.tv	Gaming/streaming/tactical RPG	Free indie tactical hex-grid RPG with deep universe - streaming coverage/review	GAMES	US
-The Escapist	@EscapistMag	Website/YouTube/Magazine	1M+	contact@escapistmag.com	Gaming/geek culture press	Free indie transmedia universe feature pitch - solo dev 23-year project spanning webtoon, tactical RPG, book series, and 36-track OST	PRESS	US
-Boing Boing	@BoingBoing	Website	5M+ monthly	tips@boingboing.net	Geek/DIY/culture blog	Solo creator 23-year transmedia project - perfect DIY creator story pitch for geek culture audience	PRESS	US
-Giant Bomb	@giantbomb	Website/Podcast	500K+	tips@giantbomb.com	Game reviews/previews/culture	Free indie tactical RPG quick-look feature pitch - solo dev story with transmedia universe	GAMES	US
