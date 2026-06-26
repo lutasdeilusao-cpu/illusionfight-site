@@ -70,7 +70,7 @@ export default function TopTrumpsLobby() {
   useEffect(() => {
     if (!user) return
     carregarDeckDB(user.id).then(ids => {
-      const cartas = (ids || []).map(id => todasCartas.find(c => c.id_num === id)).filter(Boolean)
+      const cartas = (ids || []).map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
       setDeckUsuario(cartas)
     })
   }, [user])
@@ -201,7 +201,7 @@ export default function TopTrumpsLobby() {
   async function handleConfirmarAposta() {
     if (!user || !salaId || !cartaAposta) return
     setErro('')
-    await definirAposta(salaId, user.id, cartaAposta.id_num, souJ1)
+    await definirAposta(salaId, user.id, cartaAposta.id, souJ1)
     await confirmarAposta(salaId, souJ1)
     setApostaConfirmada(true)
   }

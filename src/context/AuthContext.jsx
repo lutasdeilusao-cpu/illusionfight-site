@@ -126,7 +126,7 @@ export function AuthProvider({ children }) {
     const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
     const qtdInicial = 5
     const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, qtdInicial)
-    const rows = embaralhadas.map(c => ({ user_id: userId, carta_id: c.id_num }))
+    const rows = embaralhadas.map(c => ({ user_id: userId, carta_id: c.id }))
     const { error } = await supabase.from('toptrumps_decks').insert(rows)
     if (error) console.error('[Auth] erro ao criar deck inicial:', error)
     else console.log('[Auth] deck inicial criado com', rows.length, 'cartas')

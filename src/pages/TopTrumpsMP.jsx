@@ -171,7 +171,7 @@ export default function TopTrumpsMP() {
           vistos.add(id)
           return true
         })
-        .map(id => todasCartas.find(c => c.id_num === id))
+        .map(id => todasCartas.find(c => c.id === id))
         .filter(Boolean)
       if (!cartas.length) return
       // Embaralha para não usar sempre as mesmas cartas na ordem do banco
@@ -204,7 +204,7 @@ export default function TopTrumpsMP() {
           vistos.add(id)
           return true
         })
-        .map(id => todasCartas.find(c => c.id_num === id))
+        .map(id => todasCartas.find(c => c.id === id))
         .filter(Boolean)
       // Embaralha para variedade
       const embaralhadas = [...cartasOpp].sort(() => Math.random() - 0.5)
@@ -232,7 +232,7 @@ export default function TopTrumpsMP() {
           const s = salaRef.current
           const idxOp = ((s.turno_atual || 1) - 1) % Math.max(deckOponenteRef.current.length, 1)
           const cartaOp = deckOponenteRef.current[idxOp] || null
-          registrarMovimento(s.id, user.id, cartaLocalRef.current?.id_num, rand, true, cartaOp?.id_num || null).then(() => {
+          registrarMovimento(s.id, user.id, cartaLocalRef.current?.id, rand, true, cartaOp?.id || null).then(() => {
             setJaMovi(true)
           })
           return 0
@@ -270,7 +270,7 @@ export default function TopTrumpsMP() {
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
-    registrarMovimento(sala.id, user.id, cartaLocal.id_num, atributoId, false, cartaOp?.id_num || null).then(() => {
+    registrarMovimento(sala.id, user.id, cartaLocal.id, atributoId, false, cartaOp?.id || null).then(() => {
       setJaMovi(true)
     })
   }
@@ -331,8 +331,8 @@ export default function TopTrumpsMP() {
         const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
         if (!movJ1 || !movJ2) return
 
-        const cartaJ1 = todasCartas.find(c => c.id_num === movJ1.carta_id)
-        const cartaJ2 = todasCartas.find(c => c.id_num === movJ2.carta_id)
+        const cartaJ1 = todasCartas.find(c => c.id === movJ1.carta_id)
+        const cartaJ2 = todasCartas.find(c => c.id === movJ2.carta_id)
         if (!cartaJ1 || !cartaJ2) return
 
         const attr = atributos.find(a => a.id === movJ1.atributo)
@@ -395,11 +395,11 @@ export default function TopTrumpsMP() {
 
       if (movs && movs.length === 1) {
         const mov = movs[0]
-        const cartaAtiva = todasCartas.find(c => c.id_num === mov.carta_id)
+        const cartaAtiva = todasCartas.find(c => c.id === mov.carta_id)
         if (!cartaAtiva) { return }
 
         const cartaOponenteObj = mov.carta_id_oponente
-          ? todasCartas.find(c => c.id_num === mov.carta_id_oponente)
+          ? todasCartas.find(c => c.id === mov.carta_id_oponente)
           : null
 
         if (!cartaOponenteObj) { return }

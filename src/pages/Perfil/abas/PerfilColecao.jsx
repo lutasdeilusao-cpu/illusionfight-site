@@ -30,21 +30,7 @@ const CARD_IMAGES = {
   21: img21, 23: img23,
 }
 
-// Season 1 — 30 cartas da temporada (mesma lista do TopTrumps.jsx)
-// 20 cartas são distribuídas para novos jogadores, 10 são para eventos do admin
-const SEASON_1_IDS = [
-  'kim_briguento',       'jack_vitoria',        'nina_angel',
-  'thunderbolt_trovao',  'shuntaro_rei_xama',
-  'lisa_top500',         'nexus_phantasm',      'yawanari_imortal',
-  'voidhunter_void',     'david_kronos_primordial',
-  'xakaxi_cacique',      'nara_guerreira',      'powa_corrompido',
-  'helena_sobrevivente', 'osvaldo_porteiro',    'ryan_grato',
-  'samuel_valentao',     'roxy_mercenaria',     'brock_lider_capanga',
-  'walter_diretor',      'a_maquina_professor', 'neo_guide_ia',
-  'narrador_arena',      'sarah_arenia',        'alex_draymoor',
-  'mia_thessor',         'jaret_wendor',        'mikael_zylvaron',
-  'isabella_erendale',   'tira_valetis',
-]
+
 
 export default function PerfilColecao({ userId }) {
   const { t, locale } = useLanguage()
@@ -54,14 +40,13 @@ export default function PerfilColecao({ userId }) {
   const [showDeckBuilder, setShowDeckBuilder] = useState(false)
   const [viewerIdx, setViewerIdx] = useState(null)
 
-  const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
+  const todasCartas = deck.cartas
 
   function bgCarta(carta) {
-    return CARD_IMAGES[carta?.id_num] || cardFallback
+    return CARD_IMAGES[carta?.id] || cardFallback
   }
 
   function temCarta(deckId, carta) {
-    if (typeof deckId === 'number') return carta.id_num === deckId
     return carta.id === deckId
   }
 

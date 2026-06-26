@@ -31,7 +31,7 @@ const CARD_IMAGES = {
   11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
   21: img21, 23: img23,
 }
-function bgCarta(carta) { return CARD_IMAGES[carta?.id_num] || cardFallback }
+function bgCarta(carta) { return CARD_IMAGES[carta?.id] || cardFallback }
 
 const DECK_LABELS = { deck_5: '5', deck_10: '10', deck_15: '15', deck_20: '20' }
 const DECK_CONFIG = [
@@ -52,10 +52,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
 
   const config = DECK_CONFIG.find(c => c.key === deckType)
   const cartasDisponiveis = deck.cartas.filter(c =>
-    deckIds.some(id => {
-      if (typeof id === 'number') return c.id_num === id
-      return c.id === id
-    })
+    deckIds.some(id => c.id === id)
   )
 
   useEffect(() => {
@@ -71,7 +68,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
 
   const adicionar = (carta) => {
     if (selecionadas.length >= (config?.size || 5)) return
-    const id = carta.id_num || carta.id
+                      const id = carta.id
     // Não permite adicionar a mesma carta duas vezes no mesmo deck
     if (selecionadas.includes(id)) return
     sfx.select()
@@ -107,7 +104,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
   // Get card details by id
   const getCarta = (id) => {
     const n = Number(id)
-    return deck.cartas.find(c => c.id_num === n) || deck.cartas.find(c => c.id === id)
+    return deck.cartas.find(c => c.id === n)
   }
 
   return (
@@ -164,7 +161,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                   </h4>
                   <div className="tt-deckbuilder-grid">
                     {cartasDisponiveis.map(carta => {
-                      const id = carta.id_num || carta.id
+    const id = carta.id
                       const jaTem = selecionadas.filter(s => s === id).length
                       const maxAtingido = selecionadas.length >= (config?.size || 5)
                       return (
@@ -307,7 +304,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                   {/* Actions */}
                   <div className="tt-deckbuilder-viewer-actions">
                     {(() => {
-                      const cardId = viewingCard.id_num || viewingCard.id
+                      const cardId = viewingCard.id
                       const jaEsta = selecionadas.filter(s => s === cardId).length
                       const podeAdd = selecionadas.length < (config?.size || 5) && jaEsta === 0
                       return (
@@ -324,7 +321,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                             <button
                               className="tt-deckbuilder-viewer-btn tt-deckbuilder-viewer-btn--remove"
                               onClick={() => {
-                                const cardId2 = viewingCard.id_num || viewingCard.id
+                                const cardId2 = viewingCard.id
                                 const idx = selecionadas.findLastIndex(s => s === cardId2)
                                 if (idx >= 0) remover(idx)
                                 setViewingCard(null)

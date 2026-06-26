@@ -28,16 +28,13 @@ const CARD_IMAGES = {
   11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
   21: img21, 23: img23,
 }
-function bgCarta(carta) { return CARD_IMAGES[carta?.id_num] || cardFallback }
+function bgCarta(carta) { return CARD_IMAGES[carta?.id] || cardFallback }
 
 const ATTR_KEYS = ['rank_sdr', 'poder_mental', 'velocidade', 'resistencia', 'nivel_xama', 'fator_caos', 'energia_base', 'poder_explosivo']
 
 export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, onPrev, onNext }) {
   const { t, locale } = useLanguage()
-  const tem = deckIds?.some(id => {
-    if (typeof id === 'number') return carta?.id_num === id
-    return carta?.id === id
-  })
+  const tem = deckIds?.some(id => carta?.id === id)
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose()
@@ -83,10 +80,7 @@ export default function CardViewerModal({ carta, deckIds, cartas, idx, onClose, 
     return acc
   }, {})
 
-  const copias = deckIds?.filter(id => {
-    if (typeof id === 'number') return carta.id_num === id
-    return carta.id === id
-  }).length || 0
+  const copias = deckIds?.filter(id => carta.id === id).length || 0
 
   const tierNomes = {
     free: t('games.toptrumps.tier_free'),

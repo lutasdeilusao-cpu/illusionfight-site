@@ -46,31 +46,10 @@ const CARD_IMAGES = {
   21: img21, 23: img23,
 }
 function bgCarta(carta) {
-  return CARD_IMAGES[carta?.id_num] || cardFallback
+  return CARD_IMAGES[carta?.id] || cardFallback
 }
 
-// ── Season 1 — 30 cartas da temporada ──
-// 20 cartas são distribuídas para novos jogadores, 10 são para eventos do admin
-const SEASON_1_IDS = [
-  'kim_briguento',       'jack_vitoria',        'nina_angel',
-  'thunderbolt_trovao',  'shuntaro_rei_xama',
-  'lisa_top500',         'nexus_phantasm',      'yawanari_imortal',
-  'voidhunter_void',     'david_kronos_primordial',
-  'xakaxi_cacique',      'nara_guerreira',      'powa_corrompido',
-  'helena_sobrevivente', 'osvaldo_porteiro',    'ryan_grato',
-  'samuel_valentao',     'roxy_mercenaria',     'brock_lider_capanga',
-  'walter_diretor',      'a_maquina_professor', 'neo_guide_ia',
-  'narrador_arena',      'sarah_arenia',        'alex_draymoor',
-  'mia_thessor',         'jaret_wendor',        'mikael_zylvaron',
-  'isabella_erendale',   'tira_valetis',
-]
 
-// Nexus Phantasm sobe de Elite → Primordial na Season 1
-const TIER_OVERRIDE = { nexus_phantasm: 'primordial' }
-
-function tierReal(carta) {
-  return TIER_OVERRIDE[carta.id] || carta.tier
-}
 
 function attrNomeKey(id) {
   const map = {
@@ -100,7 +79,7 @@ export default function TopTrumps() {
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const deck = getDeck(locale)
-  const todasCartas = deck.cartas.filter(c => SEASON_1_IDS.includes(c.id))
+  const todasCartas = deck.cartas
   const atributos = Object.entries(deck.meta.atributos_explicacao).map(([id, descricao]) => ({
     id, nomeKey: attrNomeKey(id),
     descricao
@@ -227,35 +206,7 @@ export default function TopTrumps() {
   }
 
   function getCartasIniciais() {
-    const userTier = getTierInicial()
-    const qtd = userTier === 'primordial' ? 15 : userTier === 'elite' ? 10 : 5
-    const porTier = Math.max(1, Math.floor(qtd / 4))
-
-    // Agrupa cartas por tier real (considerando override)
-    const grupos = { free: [], elite: [], lendario: [], primordial: [] }
-    todasCartas.forEach(c => {
-      const t = tierReal(c)
-      if (grupos[t]) grupos[t].push(c)
-    })
-
-    const selecionadas = []
-    const tiers = ['free', 'elite', 'lendario', 'primordial']
-
-    // Garante pelo menos `porTier` cartas de cada tier
-    tiers.forEach(t => {
-      const pool = embaralhar(grupos[t])
-      selecionadas.push(...pool.slice(0, porTier))
-    })
-
-    // Preenche resto aleatoriamente entre todas as cartas
-    const restante = qtd - selecionadas.length
-    if (restante > 0) {
-      const jaTem = new Set(selecionadas.map(c => c.id))
-      const pool = embaralhar(todasCartas.filter(c => !jaTem.has(c.id)))
-      selecionadas.push(...pool.slice(0, restante))
-    }
-
-    return embaralhar(selecionadas)
+    return embaralhar([...todasCartas]).slice(0, 5)
   }
 
   async function carregarDeckLocal() {
@@ -511,8 +462,8 @@ export default function TopTrumps() {
       const podeGanhar = tentativasSobrando > 0 && !jaGanhou
       if (podeGanhar) {
         // Usa deckUsuario (carregado do Supabase) em vez de localStorage
-        const idsTem = new Set(deckUsuario.map(c => String(c.id_num ?? c.id)))
-        const pool = todasCartas.filter(c => !idsTem.has(String(c.id_num)))
+        const idsTem = new Set(deckUsuario.map(c => String(c.id)))
+        const pool = todasCartas.filter(c => !idsTem.has(String(c.id)))
         if (pool.length > 0) {
           setRecompensaOpcoes(embaralhar(pool).slice(0, 3))
           setFase('recompensa')
@@ -545,14 +496,14 @@ export default function TopTrumps() {
     }
     const chave = getDeckKey()
     const ids = JSON.parse(localStorage.getItem(chave) || '[]')
-    ids.push(carta.id_num)
+    ids.push(carta.id)
     localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
-    salvarCartasDeck(user.id, [carta.id_num])
+    salvarCartasDeck(user.id, [carta.id])
     setJaGanhouHoje(true)
     await marcarCartaGanha(user.id)
     const pendente = window.__partidaPendente || { jogadas: historicoRodadas.length, vitorias: 0, derrotas: 0, empates: 0, resultado: 'vitoria' }
-    registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id_num }).then(stats => {
+    registrarPartida(user.id, { ...pendente, carta_recompensa: carta.id }).then(stats => {
       if (stats.total_vitorias === 1) desbloquearRef.current('primeira_vitoria_trumps')
       if (stats.total_partidas === 10) desbloquearRef.current('veterano_trumps_10')
       if (stats.total_partidas === 100) desbloquearRef.current('centuriao_trumps')
@@ -565,20 +516,13 @@ export default function TopTrumps() {
   useEffect(() => {
     if (!user) return
     carregarDeckDB(user.id).then(ids => {
-      // Aceita tanto id_num (número) quanto id (slug string) — compatibilidade migração
-      // Dedup para remover cartas repetidas que possam existir de versões antigas
       const idsUnicos = [...new Set(ids || [])]
-      let cartas = idsUnicos.map(id => {
-        let c = todasCartas.find(c => c.id_num === id)
-        if (!c) c = todasCartas.find(c => c.id === id)
-        return c
-      }).filter(Boolean)
+      let cartas = idsUnicos.map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
 
-      // Se o banco tem dados mas menos de 5 cartas válidas, gera deck novo
       if (idsUnicos.length > 0 && cartas.length < 5) {
         console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', idsUnicos.length, '. Gerando novo deck...')
-        const novas = getCartasIniciais()
-        substituirDeck(user.id, novas.map(c => c.id_num)).then(() => {
+        const novas = embaralhar([...todasCartas]).slice(0, 5)
+        substituirDeck(user.id, novas.map(c => c.id)).then(() => {
           setDeckUsuario(novas)
         })
         return
@@ -586,10 +530,9 @@ export default function TopTrumps() {
 
       setDeckUsuario(cartas)
 
-      // ── Admin auto-fill: garante TODAS as cartas da temporada ──
       if (perfil?.role === 'admin' || perfil?.is_admin) {
         const idsTem = new Set(idsUnicos.map(id => Number(id)))
-        const todosIds = todasCartas.map(c => c.id_num)
+        const todosIds = todasCartas.map(c => c.id)
         const faltando = todosIds.filter(n => !idsTem.has(n))
         if (faltando.length > 0) {
           console.log('[TT] Admin auto-fill — adicionando cartas faltantes:', faltando)
@@ -731,16 +674,12 @@ export default function TopTrumps() {
         <DeckBuilder
           userId={user?.id}
           deck={{ cartas: todasCartas }}
-          deckIds={deckUsuario.map(c => c.id_num ?? c.id)}
+          deckIds={deckUsuario.map(c => c.id)}
           onSaved={() => {
             setShowDeckBuilder(false);
             if (user) {
               carregarDeckDB(user.id).then(ids => {
-                const cartas = (ids || []).map(id => {
-                  let c = todasCartas.find(c => c.id_num === id)
-                  if (!c) c = todasCartas.find(c => c.id === id)
-                  return c
-                }).filter(Boolean)
+                  const cartas = (ids || []).map(id => todasCartas.find(c => c.id === id)).filter(Boolean)
                 setDeckUsuario(cartas)
               })
             }
@@ -754,7 +693,7 @@ export default function TopTrumps() {
           userId={user?.id}
           deck={{ cartas: todasCartas }}
           totalTurnos={totalTurnos}
-          deckIds={deckUsuario.map(c => c.id_num ?? c.id)}
+          deckIds={deckUsuario.map(c => c.id)}
           onConfirm={(ids) => { setShowDeckStart(false); iniciarJogoComCartas(ids); }}
           onCancel={() => setShowDeckStart(false)}
         />

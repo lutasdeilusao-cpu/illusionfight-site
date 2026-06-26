@@ -29,7 +29,7 @@ const CARD_IMAGES = {
   11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
   21: img21, 23: img23,
 }
-function bgCarta(carta) { return CARD_IMAGES[carta?.id_num] || cardFallback }
+function bgCarta(carta) { return CARD_IMAGES[carta?.id] || cardFallback }
 
 export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onConfirm, onCancel }) {
   const { t } = useLanguage()
@@ -46,7 +46,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
   const deckDisponivel = decksCompletos[deckKey]
   const getCarta = (id) => {
     const n = Number(id)
-    return deck.cartas.find(c => c.id_num === n) || deck.cartas.find(c => c.id === id)
+    return deck.cartas.find(c => c.id === n)
   }
 
   const handleConfirmar = () => {
@@ -60,7 +60,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
       // Random cards from collection — sem repetir
       const disponiveis = deckIds.filter(id => {
         const n = Number(id)
-        return deck.cartas.some(c => c.id_num === n || c.id === id)
+        return deck.cartas.some(c => c.id === n)
       })
       const unicas = [...new Set(disponiveis)]
       const embaralhadas = [...unicas].sort(() => Math.random() - 0.5)
