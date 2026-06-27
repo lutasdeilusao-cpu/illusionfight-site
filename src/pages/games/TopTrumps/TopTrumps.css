@@ -2502,8 +2502,6 @@
 }
 
 .tt-swipe-card-slot .tt-card-template {
-  width: calc(550px * 0.54);
-  height: calc(720px * 0.54);
   transform: scale(0.54);
   transform-origin: top center;
 }
