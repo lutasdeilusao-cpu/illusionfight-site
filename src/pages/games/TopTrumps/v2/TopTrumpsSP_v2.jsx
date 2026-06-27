@@ -45,9 +45,11 @@ export default function TopTrumpsSP_v2() {
 
   const deckHook = useTopTrumpsDeck({ user, perfil, todasCartas: deck.cartas })
   const histRef = useRef([])
-  const rewards = useTopTrumpsRewards({ user, deckUsuario: deckHook.deckUsuario, setDeckUsuario: deckHook.setDeckUsuario, todasCartas: deck.cartas, historicoRodadas: histRef.current, desbloquear, onRecompensaConfirmada: () => game.setFase('fim_jogo') })
-  const effects = useGameEffects({ fase: game?.fase, confirmandoAtributo: game?.confirmandoAtributo })
-  const game = useTopTrumpsSP({ user, deckUsuario: deckHook.deckUsuario, todasCartas: deck.cartas, atributos, jaGanhouHoje: rewards.jaGanhouHoje, tentativasMax: rewards.tentativasMax, consumir: rewards.consumir, registrarPartida, registrarEvento, registrarPontuacaoRanking, desbloquear, onEfeitosRevelacao: effects.iniciarEfeitosRevelacao, onFinalizarComRecompensa: (opcoes) => { game.setRecompensaOpcoes(opcoes); game.setFase('recompensa') } })
+  const gameRef = useRef(null)
+  const rewards = useTopTrumpsRewards({ user, deckUsuario: deckHook.deckUsuario, setDeckUsuario: deckHook.setDeckUsuario, todasCartas: deck.cartas, historicoRodadas: histRef.current, desbloquear, onRecompensaConfirmada: () => gameRef.current?.setFase('fim_jogo') })
+  const effects = useGameEffects({ fase: 'menu', confirmandoAtributo: null })
+  const game = useTopTrumpsSP({ user, deckUsuario: deckHook.deckUsuario, todasCartas: deck.cartas, atributos, jaGanhouHoje: rewards.jaGanhouHoje, tentativasMax: rewards.tentativasMax, consumir: rewards.consumir, registrarPartida, registrarEvento, registrarPontuacaoRanking, desbloquear, onEfeitosRevelacao: effects.iniciarEfeitosRevelacao, onFinalizarComRecompensa: (opcoes) => { gameRef.current?.setRecompensaOpcoes(opcoes); gameRef.current?.setFase('recompensa') } })
+  gameRef.current = game
   histRef.current = game.historicoRodadas
 
   if (game.fase === 'menu') return <MenuScreen deckUsuario={deckHook.deckUsuario} todasCartas={deck.cartas} jaGanhouHoje={rewards.jaGanhouHoje} tentativasMax={rewards.tentativasMax} tentativasRestantes={rewards.tentativasRestantes} totalTurnos={game.totalTurnos} onSetTotalTurnos={(n) => game.setTotalTurnos(n)} onJogar={() => game.iniciarJogoComCartas()} user={user} locale={locale} tt={tt} />
