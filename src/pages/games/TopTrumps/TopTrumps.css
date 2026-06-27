@@ -2503,7 +2503,7 @@
 
 .tt-swipe-card-slot .tt-card-template {
   transform: scale(0.54);
-  transform-origin: top center;
+  transform-origin: top left;
 }
 .tt-swipe-label {
   font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
