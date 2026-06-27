@@ -247,3 +247,23 @@
   10%, 50%, 90% { transform: translateX(-5px); }
   30%, 70% { transform: translateX(5px); }
 }
+
+.arena-jkp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.arena-jkp-overlay .jkp-container {
+  max-width: 380px;
+  width: 90%;
+  background: #1A1D21;
+  border: 1px solid rgba(232,133,58,0.3);
+  border-radius: 16px;
+  padding: 2rem;
+}

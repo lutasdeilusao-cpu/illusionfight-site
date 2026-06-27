@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.180.4'
+export const SITE_VERSION = '10.181.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -18,11 +18,11 @@ export const ARENA_VERSION     = '1.31.0'  // LDI Arena Testbed: fixes linha de 
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
 export const MINIGAMES_VERSION = '4.0.2'  // readerMode: Navbar e Footer ocultos
-export const TS_VERSION        = '5.39.4'  // Top Trumps SP: arrow button absolute positioned as circle at 15px lateral
+export const TS_VERSION        = '5.40.0'  // Top Trumps SP: migrado para Jokempo reutilizável
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
-export const ARENATESTBED_VERSION = '6.21.4' // ArenaTestbed: add reader mode (hide Navbar/Footer)
+export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

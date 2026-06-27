@@ -1,0 +1,150 @@
+.jkp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.jkp-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin: 0;
+  text-align: center;
+}
+
+.jkp-subtitulo {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #8B8F96;
+  margin: 0;
+  text-align: center;
+}
+
+.jkp-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.jkp-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.jkp-btn:hover,
+.jkp-btn:active {
+  transform: scale(1.03);
+  border-color: #e8853a;
+  background: rgba(232,133,58,0.1);
+}
+
+.jkp-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.jkp-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.jkp-batalha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.jkp-texto-animado {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e8853a;
+  animation: jkp-pop-in 0.25s ease-out;
+  margin: 0;
+}
+
+.jkp-maos {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.jkp-mao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 5rem;
+}
+
+.jkp-mao-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  letter-spacing: 0.06em;
+}
+
+.jkp-mao--vencedor .jkp-emoji {
+  filter: drop-shadow(0 0 12px #1ea064);
+  transform: scale(1.2);
+}
+
+.jkp-mao--perdedor .jkp-emoji {
+  opacity: 0.4;
+}
+
+.jkp-resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.jkp-resultado-texto {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  animation: jkp-pop-in 0.35s ease-out;
+}
+
+.jkp-resultado--win  { color: #1ea064; }
+.jkp-resultado--lose { color: #e74c3c; }
+.jkp-resultado--draw { color: #e8853a; }
+
+@keyframes jkp-pop-in {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}

@@ -7,7 +7,7 @@ import useHexCanvas from '../engine/useHexCanvas'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { drawCombatBoard } from '../engine/drawCombatBoard'
 import { encontrarCaminho } from '../engine/hexUtils'
-import JokenpoModal from '../components/modals/JokenpoModal'
+import Jokempo from '../../../../../components/Jokempo/Jokempo'
 import PowerChoiceModal from '../components/modals/PowerChoiceModal'
 import CharModal from '../components/modals/CharModal'
 import './Phase6CombatV2.css'
@@ -521,11 +521,26 @@ export default function Phase6CombatV2({ boardState, poderesEscolhidos = {}, ani
       )}
       <div className="atb-root">
         {jokenpoNeeded && (
-          <JokenpoModal
-            player1Name={jokenpoNeeded[0]?.nome || '?'}
-            player2Name={jokenpoNeeded[1]?.nome || '?'}
-            onResult={actions.handleJokenpoResult}
-          />
+          <div className="arena-jkp-overlay">
+            <Jokempo
+              player1Name={jokenpoNeeded[0]?.nome || 'P1'}
+              player2Name={jokenpoNeeded[1]?.nome || 'P2'}
+              animated={false}
+              onResult={(winnerName) => actions.handleJokenpoResult(winnerName)}
+              i18nLabels={{
+                title:    t('prototype.arena_testbed.jokenpo_title'),
+                subtitle: t('prototype.arena_testbed.jokenpo_desc', { p1: jokenpoNeeded[0]?.nome || 'P1', p2: jokenpoNeeded[1]?.nome || 'P2' }),
+                rock:     t('prototype.arena_testbed.jokenpo_pedra'),
+                paper:    t('prototype.arena_testbed.jokenpo_papel'),
+                scissors: t('prototype.arena_testbed.jokenpo_tesoura'),
+                you:      jokenpoNeeded[0]?.nome || 'P1',
+                opponent: jokenpoNeeded[1]?.nome || 'P2',
+                win:      t('prototype.arena_testbed.jokenpo_winner', { winner: jokenpoNeeded[0]?.nome || 'P1' }),
+                lose:     t('prototype.arena_testbed.jokenpo_winner', { winner: jokenpoNeeded[1]?.nome || 'P2' }),
+                draw:     t('prototype.arena_testbed.jokenpo_tie'),
+              }}
+            />
+          </div>
         )}
         {powerChoiceModal && (
           <PowerChoiceModal
