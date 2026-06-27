@@ -8,7 +8,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'TikTok',
-    href: 'https://www.tiktok.com/@illusionfight',
+    href: 'https://www.tiktok.com/@illusionfightif',
     path: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.562 9.08a4.81 4.81 0 0 1-2.92-1.02v4.69a4.69 4.69 0 1 1-4.01-4.63v2.6a2.13 2.13 0 1 0 1.77 2.08V5.21h2.56a4.77 4.77 0 0 0 2.6 3.87z',
   },
   {
