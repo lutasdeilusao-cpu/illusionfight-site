@@ -2495,7 +2495,18 @@
 .tt-cards-swipe-track { display: flex; width: 200%; height: 100%; transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94); transform: translateX(0%); }
 .tt-cards-swipe-track--revealed { transform: translateX(-50%); }
 .tt-swipe-card-slot { width: 50%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
-.tt-swipe-card-slot .tt-card-wrapper { max-height: 100%; max-width: 100%; }
+.tt-swipe-card-slot .tt-card-wrapper {
+  width: calc(550px * 0.54);
+  height: calc(720px * 0.54);
+  overflow: hidden;
+}
+
+.tt-swipe-card-slot .tt-card-template {
+  width: calc(550px * 0.54);
+  height: calc(720px * 0.54);
+  transform: scale(0.54);
+  transform-origin: top center;
+}
 .tt-swipe-label {
   font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--color-text-muted, #666); margin-bottom: 0.15rem; flex-shrink: 0;
@@ -2505,8 +2516,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.25);
