@@ -46,7 +46,7 @@ export default function TopTrumpsSP_v2() {
   const deckHook = useTopTrumpsDeck({ user, perfil, todasCartas: deck.cartas })
   const histRef = useRef([])
   const gameRef = useRef(null)
-  const rewards = useTopTrumpsRewards({ user, deckUsuario: deckHook.deckUsuario, setDeckUsuario: deckHook.setDeckUsuario, todasCartas: deck.cartas, historicoRodadas: histRef.current, desbloquear, onRecompensaConfirmada: () => gameRef.current?.setFase('fim_jogo') })
+  const rewards = useTopTrumpsRewards({ user, perfil, deckUsuario: deckHook.deckUsuario, setDeckUsuario: deckHook.setDeckUsuario, todasCartas: deck.cartas, historicoRodadas: histRef.current, desbloquear, onRecompensaConfirmada: () => gameRef.current?.setFase('fim_jogo') })
   const effects = useGameEffects({ fase: 'menu', confirmandoAtributo: null })
   const game = useTopTrumpsSP({ user, deckUsuario: deckHook.deckUsuario, todasCartas: deck.cartas, atributos, jaGanhouHoje: rewards.jaGanhouHoje, tentativasMax: rewards.tentativasMax, consumir: rewards.consumir, registrarPartida, registrarEvento, registrarPontuacaoRanking, desbloquear, onEfeitosRevelacao: effects.iniciarEfeitosRevelacao, onFinalizarComRecompensa: (opcoes) => { gameRef.current?.setRecompensaOpcoes(opcoes); gameRef.current?.setFase('recompensa') } })
   gameRef.current = game

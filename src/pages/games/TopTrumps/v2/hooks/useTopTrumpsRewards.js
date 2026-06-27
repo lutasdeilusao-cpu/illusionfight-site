@@ -16,7 +16,7 @@ function getDeckKey(user) {
 }
 
 export function useTopTrumpsRewards({
-  user, deckUsuario, setDeckUsuario, todasCartas,
+  user, perfil, deckUsuario, setDeckUsuario, todasCartas,
   historicoRodadas, desbloquear, onRecompensaConfirmada
 }) {
   const [jaGanhouHoje, setJaGanhouHoje] = useState(false)
