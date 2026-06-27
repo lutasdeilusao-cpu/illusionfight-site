@@ -1,0 +1,14 @@
+:root {
+  --tt-orange: #e8853a;
+  --tt-orange-alt: #f4a227;
+  --tt-win: #1ea064;
+  --tt-lose: #e74c3c;
+  --tt-bg-card: rgba(255,255,255,0.04);
+  --tt-border: #2A2D31;
+  --tt-text: #EAEAEA;
+  --tt-muted: #8B8F96;
+  --tt-dark: #4F5359;
+  --font-rajdhani: "Rajdhani", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-ibm: "IBM Plex Sans", sans-serif;
+}
