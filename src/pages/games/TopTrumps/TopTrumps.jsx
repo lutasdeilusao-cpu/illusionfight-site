@@ -14,7 +14,6 @@ import TopTrumpsCard from '../../../components/TopTrumpsCard/TopTrumpsCard'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 import { usePresence } from '../../../hooks/usePresence'
-import { useSwipe } from '../../../hooks/useSwipe'
 import cardFallback from '../../../assets/images/cards/characters/card-fallback.png'
 import img01 from '../../../assets/images/cards/characters/card-01.png'
 import img02 from '../../../assets/images/cards/characters/card-02.png'
@@ -126,13 +125,6 @@ export default function TopTrumps() {
   const [viewerIdx, setViewerIdx] = useState(null)
   const [showDeckBuilder, setShowDeckBuilder] = useState(false)
   const [showDeckStart, setShowDeckStart] = useState(false)
-
-  // Swipe handlers
-  const swipeHandlers = useSwipe({
-    onSwipeLeft: () => setSwipeRevealed(true),
-    onSwipeRight: () => setSwipeRevealed(false),
-    threshold: 50
-  })
 
   // Template randomization (6 templates, 0-5)
   const [templateIdxJogador, setTemplateIdxJogador] = useState(0)
@@ -1032,7 +1024,7 @@ export default function TopTrumps() {
               </div>
             </div>
           )}
-          <div className="tt-cards-swipe-container" {...swipeHandlers}>
+          <div className="tt-cards-swipe-container">
             <div className={`tt-cards-swipe-track${swipeRevealed ? ' tt-cards-swipe-track--revealed' : ''}`}>
               <div className="tt-swipe-card-slot">
                 <span className="tt-swipe-label">{tt('sua_carta')}</span>
@@ -1060,13 +1052,16 @@ export default function TopTrumps() {
               </div>
             </div>
           </div>
-          <div className="tt-swipe-hint">
+          <button
+            className={`tt-swipe-btn${swipeRevealed ? ' tt-swipe-btn--revealed' : ''}`}
+            onClick={() => setSwipeRevealed(prev => !prev)}
+          >
             {swipeRevealed ? (
-              <><span className="tt-swipe-arrow">←</span> {tt('swipe_voltar')}</>
+              <><span className="tt-swipe-btn-icon">←</span> {tt('swipe_voltar')}</>
             ) : (
-              <>{tt('swipe_ver_adversario')} <span className="tt-swipe-arrow">→</span></>
+              <>{tt('swipe_ver_adversario')} <span className="tt-swipe-btn-icon">→</span></>
             )}
-          </div>
+          </button>
           <button className="tt-btn-next-round" onClick={proximaRodada}>
             {rodada >= totalTurnos ? tt('result_final') : tt('proxima_rodada')}
           </button>

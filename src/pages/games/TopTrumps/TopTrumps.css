@@ -2501,18 +2501,17 @@
   color: var(--color-text-muted, #666); margin-bottom: 0.15rem; flex-shrink: 0;
 }
 /* Swipe hint with arrow animation */
-.tt-swipe-hint {
-  font-size: 0.68rem; color: var(--color-text-muted, #888); text-align: center;
-  padding: 0.25rem 0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+.tt-swipe-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  align-self: flex-end;
+  background: var(--color-surface-2, #2a2a3e); color: var(--color-text, #eee);
+  border: 1px solid var(--color-border, #444); border-radius: 6px;
+  padding: 0.5rem 1rem; font-size: 0.75rem; cursor: pointer;
+  transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
 }
-.tt-swipe-arrow {
-  display: inline-block; font-size: 1rem; line-height: 1; flex-shrink: 0;
-  animation: tt-swipe-arrow-pulse 1.4s ease-in-out infinite;
-}
-@keyframes tt-swipe-arrow-pulse {
-  0%, 100% { transform: translateX(0); opacity: 0.4; }
-  50% { transform: translateX(4px); opacity: 1; }
-}
+.tt-swipe-btn:hover { background: var(--color-surface-3, #333); border-color: var(--color-accent, #f90); }
+.tt-swipe-btn--revealed { align-self: flex-start; }
+.tt-swipe-btn-icon { display: inline-block; font-size: 1rem; line-height: 1; }
 @keyframes tt-hint-pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
 .tt-btn-next-round {
   width: 100%; max-width: 360px; padding: 0.65rem;
