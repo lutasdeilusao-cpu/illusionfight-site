@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.180.2'
+export const SITE_VERSION = '10.180.3'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -22,7 +22,7 @@ export const TS_VERSION        = '5.39.4'  // Top Trumps SP: arrow button absolu
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
-export const ARENATESTBED_VERSION = '6.21.3' // JokenpoModal: fix emoji corruption + onPointerDown for mobile touch
+export const ARENATESTBED_VERSION = '6.21.4' // ArenaTestbed: add reader mode (hide Navbar/Footer)
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

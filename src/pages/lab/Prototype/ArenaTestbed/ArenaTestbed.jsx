@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
+import { useReader } from '../../../../context/ReaderContext'
 import { PODERES_BASE } from './data/poderes'
 import { audio } from './engine/audioManager'
 import Phase0Start from './phases/Phase0Start'
@@ -33,6 +34,9 @@ export const ModoJogo = Object.freeze({
 
 export default function ArenaTestbed() {
   const { t } = useLanguage()
+  const { setReaderMode } = useReader()
+
+  useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
 
   useEffect(() => { audio.preload() }, [])
 
