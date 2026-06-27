@@ -1,6 +1,6 @@
 @import '../../styles/tokens.css';
 
-.tt-result-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; margin: 0 auto; height: 100dvh; padding: 0.4rem 0.75rem 0.2rem; box-sizing: border-box; overflow: hidden; justify-content: flex-start; }
+.tt-result-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; margin: 0 auto; height: 100dvh; padding: 0.4rem max(0.75rem, env(safe-area-inset-right)) 0.2rem max(0.75rem, env(safe-area-inset-left)); box-sizing: border-box; overflow: hidden; justify-content: flex-start; }
 .tt-result-badge { font-size: 1.1rem; font-weight: 700; font-family: var(--font-accent, 'BringRace', sans-serif); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 1rem; border-radius: 6px; margin: 0.3rem 0; flex-shrink: 0; }
 .tt-result-win { color: var(--color-success, #4caf50); background: rgba(76,175,80,0.1); }
 .tt-result-lose { color: var(--color-danger, #f44); background: rgba(255,68,68,0.1); }
