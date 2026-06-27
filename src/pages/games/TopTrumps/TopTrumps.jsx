@@ -1051,17 +1051,14 @@ export default function TopTrumps() {
                 />
               </div>
             </div>
+            <button
+              className={`tt-swipe-btn${swipeRevealed ? ' tt-swipe-btn--left' : ' tt-swipe-btn--right'}`}
+              onClick={() => setSwipeRevealed(r => !r)}
+              aria-label={swipeRevealed ? tt('swipe_voltar') : tt('swipe_ver_adversario')}
+            >
+              {swipeRevealed ? '←' : '→'}
+            </button>
           </div>
-          <button
-            className={`tt-swipe-btn${swipeRevealed ? ' tt-swipe-btn--revealed' : ''}`}
-            onClick={() => setSwipeRevealed(prev => !prev)}
-          >
-            {swipeRevealed ? (
-              <><span className="tt-swipe-btn-icon">←</span> {tt('swipe_voltar')}</>
-            ) : (
-              <>{tt('swipe_ver_adversario')} <span className="tt-swipe-btn-icon">→</span></>
-            )}
-          </button>
           <button className="tt-btn-next-round" onClick={proximaRodada}>
             {rodada >= totalTurnos ? tt('result_final') : tt('proxima_rodada')}
           </button>
