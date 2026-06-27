@@ -1,24 +1,24 @@
 import { useRef } from 'react'
 
 export function useSwipe({ onSwipeLeft, onSwipeRight, threshold = 50 }) {
-  const touchStartX = useRef(null)
-  const touchStartY = useRef(null)
+  const startX = useRef(null)
+  const startY = useRef(null)
 
-  function onTouchStart(e) {
-    touchStartX.current = e.touches[0].clientX
-    touchStartY.current = e.touches[0].clientY
+  function onPointerDown(e) {
+    startX.current = e.clientX
+    startY.current = e.clientY
   }
 
-  function onTouchEnd(e) {
-    if (touchStartX.current === null) return
-    const deltaX = e.changedTouches[0].clientX - touchStartX.current
-    const deltaY = e.changedTouches[0].clientY - touchStartY.current
+  function onPointerUp(e) {
+    if (startX.current === null) return
+    const deltaX = e.clientX - startX.current
+    const deltaY = e.clientY - startY.current
     if (Math.abs(deltaX) < Math.abs(deltaY)) return
     if (deltaX < -threshold && onSwipeLeft) onSwipeLeft()
     if (deltaX > threshold && onSwipeRight) onSwipeRight()
-    touchStartX.current = null
-    touchStartY.current = null
+    startX.current = null
+    startY.current = null
   }
 
-  return { onTouchStart, onTouchEnd }
+  return { onPointerDown, onPointerUp }
 }
