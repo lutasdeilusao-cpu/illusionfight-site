@@ -54,6 +54,7 @@
   border: 1px solid #2e2e3a;
   border-radius: 8px;
   cursor: pointer;
+  touch-action: manipulation;
   transition: all 0.15s;
   color: #d4cfc8;
   font-family: 'Cinzel', serif;
