@@ -1,4 +1,4 @@
-@import '../../styles/tokens.css';
+@import '../styles/tokens.css';
 
 .tt-page--menu { position: relative; overflow: hidden; justify-content: center; }
 .tt-menu-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(232,133,58,0.03) 0%, transparent 60%); pointer-events: none; }

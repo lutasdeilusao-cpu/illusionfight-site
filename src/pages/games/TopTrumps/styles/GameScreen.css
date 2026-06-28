@@ -1,4 +1,4 @@
-@import '../../styles/tokens.css';
+@import '../styles/tokens.css';
 
 .tt-page { height: 100dvh; padding: 0; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; background: transparent; overflow: hidden; }
 .tt-page::before { content: ''; position: absolute; inset: 0; z-index: -1; animation: tt-bg-cycle 14s ease-in-out infinite alternate; pointer-events: none; }
