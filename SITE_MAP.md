@@ -494,7 +494,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.15** | BR CSV quebrado em 6 blocos (listas_email_br/) |
+| `SITE_VERSION` | **10.183.16** | INT → 33 blocos + Estrelas → 20 blocos (listas_email_int/ + listas_email_estrelas/) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
