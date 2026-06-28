@@ -37,7 +37,7 @@ function cardImage(carta) {
 export default function TopTrumpsSP_v2_RewardTest() {
   const { tt, locale } = useLanguage()
   const deck = getDeck(locale)
-  const opcoes = [...deck.cartas].sort(() => Math.random() - 0.5).slice(0, 3)
+  const [opcoes] = useState(() => [...deck.cartas].sort(() => Math.random() - 0.5).slice(0, 3))
   const [selecionada, setSelecionada] = useState(null)
   const [confirmada, setConfirmada] = useState(false)
 

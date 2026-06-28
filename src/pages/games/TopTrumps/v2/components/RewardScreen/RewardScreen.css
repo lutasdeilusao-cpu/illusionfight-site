@@ -1,0 +1,15 @@
+@import '../../styles/tokens.css';
+
+.tt-recompensa-card {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tt-recompensa-card-virada-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 8px;
+}

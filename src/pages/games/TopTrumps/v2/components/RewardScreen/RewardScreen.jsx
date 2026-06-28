@@ -1,4 +1,5 @@
 import TopTrumpsCard from '../../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import './RewardScreen.css'
 
 export default function RewardScreen({
   opcoes, selecionada, onSelecionar, onConfirmar, locale, tt, cardImage
@@ -14,14 +15,16 @@ export default function RewardScreen({
             <div key={carta.id} className={`tt-recompensa-card${selecionada?.id === carta.id ? ' tt-recompensa-card--virada' : ''}`}
               onClick={() => onSelecionar(carta)}>
               {selecionada?.id === carta.id ? (
-                <TopTrumpsCard
-                  characterImage={cardImage ? cardImage(carta) : (carta.imagem || '')}
-                  name={carta.nome}
-                  description={carta.descricao}
-                  locale={localeStr}
-                  attributes={carta.atributos}
-                  templateIndex={0}
-                />
+                <div className="tt-recompensa-card-virada-wrapper">
+                  <TopTrumpsCard
+                    characterImage={cardImage ? cardImage(carta) : (carta.imagem || '')}
+                    name={carta.nome}
+                    description={carta.descricao}
+                    locale={localeStr}
+                    attributes={carta.atributos}
+                    templateIndex={0}
+                  />
+                </div>
               ) : (
                 <div className="tt-recompensa-card-verso">
                   <span className="tt-recompensa-card-verso-texto">?</span>
