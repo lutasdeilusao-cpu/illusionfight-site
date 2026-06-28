@@ -6,14 +6,14 @@
 .tt-fade-in { animation: ttFadeIn 0.3s ease forwards; }
 @keyframes ttFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-.tt-game-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; height: 100dvh; padding: 0.5rem max(1rem,env(safe-area-inset-right)) max(0.5rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left)); box-sizing: border-box; }
+.tt-game-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; height: 100dvh; padding: 0.5rem max(1rem,env(safe-area-inset-right)) max(0.5rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left)); box-sizing: border-box; justify-content: space-between; }
 .tt-game-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0.25rem 0; flex-shrink: 0; }
 .tt-game-round { font-size: 0.72rem; font-family: var(--font-accent, 'BringRace', sans-serif); color: var(--color-accent, #f90); text-transform: uppercase; letter-spacing: 0.05em; }
 .tt-game-score { display: flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; font-weight: 700; }
 .tt-score-you { color: var(--color-success, #4caf50); }
 .tt-score-sep { color: var(--color-text-muted, #666); }
 .tt-score-ai { color: var(--color-danger, #f44); }
-.tt-player-card-wrapper { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; position: relative; z-index: 2; }
+.tt-player-card-wrapper { flex: 0 0 auto; min-height: 0; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; position: relative; z-index: 2; }
 .tt-player-card-wrapper .tt-card-wrapper, .tt-card--mini-wrapper .tt-card-wrapper { width: calc(550px * 0.54); height: calc(720px * 0.54); overflow: hidden; }
 .tt-player-card-wrapper .tt-card-template, .tt-card--mini-wrapper .tt-card-template { transform: scale(0.54); transform-origin: top left; }
 .tt-opponent-mini-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; flex: 0 0 30dvh; min-height: 140px; max-height: 350px; overflow: hidden; position: relative; z-index: 2; }
