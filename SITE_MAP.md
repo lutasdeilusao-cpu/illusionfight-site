@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.**
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-06-29**
 
 ---
 
@@ -480,6 +480,9 @@
 
 > **📌 SE0 e Indexação:**
 > - **Sitemap público** (`public/sitemap.xml`) contém **18 URLs** — as páginas públicas listadas acima. Rotas privadas (`/login`, `/cadastro`, `/perfil`, `/admin`, `/assinar`, `/custos`, `/prototype`) e multiplayer (`/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`) **não estão no sitemap**.
+> - **`robots.txt`** existe e aponta para `https://illusionfight.com/sitemap.xml`.
+> - **`_redirects`** agora cobre também as subpáginas de games (17 regras no total, todas 301).
+> - **Páginas estáticas criadas:** `public/autor/index.html` e `public/games/toptrumps/index.html` para eliminar 404.**.
 > - `/games/tamagoshi` e `/games/duelo` existem no React Router mas **não estão no sitemap público** (não indexadas pelo Google).
 > - **15 arquivos HTML estáticos** em `public/*/index.html` são servidos pelo GitHub Pages para crawlers que não executam JS — cada um com `<meta http-equiv="refresh">` redirecionando para a SPA real + `<title>` e `<meta description>` específicos.
 > - **`public/_redirects`** — 10 regras de trailing slash (301) para rotas sem barra → com barra.
@@ -494,7 +497,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.16** | INT → 33 blocos + Estrelas → 20 blocos (listas_email_int/ + listas_email_estrelas/) |
+| `SITE_VERSION` | **10.183.17** | SEO: fix indexação — robots.txt, sitemap lastmod, páginas 404 autor e toptrumps, _redirects games |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
