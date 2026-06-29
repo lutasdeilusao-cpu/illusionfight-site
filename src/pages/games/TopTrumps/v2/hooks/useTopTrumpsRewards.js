@@ -3,7 +3,7 @@ import {
   carregarTentativas, consumirTentativa,
   salvarCartasDeck, marcarCartaGanha,
   verificarCartaGanhaHoje, registrarPartida
-} from '../../../../hooks/useLeaderboardDB'
+} from '../../../../../hooks/useLeaderboardDB'
 
 function getTierInicial(user, perfil) {
   if (!user) return 'free'

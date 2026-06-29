@@ -447,7 +447,10 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.4 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | TopTrumps.css monolith replaced by per-component CSS imports |
+| `/games/toptrumps` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | v2 single-player (versão atual) |
+| `/games/toptrumps/v2` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps |
+| `/games/toptrumps/v2/reward-test` | TopTrumpsSP_v2_RewardTest | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2_RewardTest.jsx` | ✅ v5.44.7 | ✅ Teste de recompensa | ✅ PT ✅ EN ✅ ES | Tela de recompensa isolada para testes |
+| `/games/toptrumps/legacy` | TopTrumps | `src/pages/games/TopTrumps/TopTrumps.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ FichaGate | ✅ PT ✅ EN ✅ ES | v1 legado (acesso por FichaGateRoute) |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | JSON v2 — id numérico em vez de slug |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -497,7 +500,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.20** | Top Trumps — CSS monolith (TopTrumps.css) fully replaced by per-component CSS imports |
+| `SITE_VERSION` | **10.183.21** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -505,7 +508,7 @@
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **4.0.2** | readerMode: Navbar e Footer ocultos |
-| `TS_VERSION` | **5.45.4** | Top Trumps — CSS monolith (TopTrumps.css) fully replaced by per-component CSS imports |
+| `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |

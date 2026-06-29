@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import TopTrumpsCard from '../../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import FireParticles from '../FireParticles/FireParticles'
 import CurtainReveal from '../CurtainReveal/CurtainReveal'
-import './GameScreen.css'
-import '../FireParticles/FireParticles.css'
 
 export default function GameScreen({
   cartaJogador, cartaIA, cartaJogadorImg, cartaIAImg,

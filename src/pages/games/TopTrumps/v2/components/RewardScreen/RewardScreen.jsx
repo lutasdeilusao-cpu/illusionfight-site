@@ -1,4 +1,4 @@
-import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import TopTrumpsCard from '../../../../../../components/TopTrumpsCard/TopTrumpsCard'
 import './RewardScreen.css'
 
 export default function RewardScreen({

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGamesBtn'
-import '../../styles/GameOverScreen.css'
+import BackToGamesBtn from '../../../../../../components/BackToGamesBtn/BackToGamesBtn'
 
 export default function GameOverScreen({
   placar, historicoRodadas, jaGanhouHoje, user, atributos, onJogarNovamente, tt
@@ -14,7 +13,6 @@ export default function GameOverScreen({
   const freqAttr = {}
   historicoRodadas?.forEach(h => { freqAttr[h.atributo] = (freqAttr[h.atributo] || 0) + 1 })
   const attrMaisEscolhido = Object.entries(freqAttr).sort((a, b) => b[1] - a[1])[0]?.[0] || '\u2014'
-  const attrMaisEscolhidoTraduzido = attrMaisEscolhido === '\u2014' ? attrMaisEscolhido : tt(attrMaisEscolhido)
   let melhorDiferenca = -1, melhorRodada = null
   historicoRodadas?.forEach(h => {
     if (h.resultado === 'ganhou') {
@@ -49,7 +47,7 @@ export default function GameOverScreen({
           <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{vitorias}</span><span className="tt-relatorio-stat-label">{tt('relatorio_vitorias')}</span></div>
           <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_derrotas')}</span></div>
           <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{tt('relatorio_empates')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhidoTraduzido}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
+          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
           <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador?.nome || '\u2014'}</span><span className="tt-relatorio-stat-label">{tt('relatorio_melhor_vitoria')}</span></div>
         </div>
         <div className="tt-relatorio-lista">
@@ -58,7 +56,7 @@ export default function GameOverScreen({
             <div key={i} className="tt-relatorio-lista-item">
               <span className="tt-relatorio-lista-icon">{h.resultado === 'ganhou' ? '\u2713' : h.resultado === 'perdeu' ? '\u2717' : '='}</span>
               <span className="tt-relatorio-lista-nome">{h.cartaJogador?.nome} vs {h.cartaIA?.nome}</span>
-              <span className="tt-relatorio-lista-attr">{tt(h.atributo)}</span>
+              <span className="tt-relatorio-lista-attr">{h.atributo}</span>
               <span className="tt-relatorio-lista-valor">{h.valorJogador} {'\u00D7'} {h.valorIA}</span>
             </div>
           ))}

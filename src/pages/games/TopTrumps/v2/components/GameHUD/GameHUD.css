@@ -1,0 +1,28 @@
+.tt-game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.25rem 0;
+  flex-shrink: 0;
+}
+
+.tt-game-round {
+  font-size: 0.72rem;
+  font-family: var(--font-accent, 'BringRace', sans-serif);
+  color: var(--color-accent, #f90);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tt-game-score {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tt-score-you { color: var(--color-success, #4caf50); }
+.tt-score-sep { color: var(--color-text-muted, #666); }
+.tt-score-ai  { color: var(--color-danger, #f44); }

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGamesBtn'
-import CardViewerModal from '../../components/CardViewerModal'
-import DeckBuilder from '../../components/DeckBuilder'
-import DeckStartModal from '../../components/DeckStartModal'
-import '../../styles/MenuScreen.css'
+import BackToGamesBtn from '../../../../../../components/BackToGamesBtn/BackToGamesBtn'
+import CardViewerModal from '../../../components/CardViewerModal'
+import DeckBuilder from '../../../components/DeckBuilder'
+import DeckStartModal from '../../../components/DeckStartModal'
 
 export default function MenuScreen({
   deckUsuario, todasCartas, jaGanhouHoje, tentativasMax, tentativasRestantes,

@@ -1,4 +1,4 @@
-@import '../styles/tokens.css';
+@import '../../styles/tokens.css';
 
 .tt-page--menu { position: relative; overflow: hidden; justify-content: center; }
 .tt-menu-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(232,133,58,0.03) 0%, transparent 60%); pointer-events: none; }
@@ -9,8 +9,6 @@
 .tt-card-sample--1 { top: 0; left: 0; transform: rotate(-8deg); }
 .tt-card-sample--2 { top: 4px; left: 6px; transform: rotate(-2deg); }
 .tt-card-sample--3 { top: 8px; left: 12px; transform: rotate(3deg); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; background: rgba(255,200,0,0.06); }
-.tt-card-sample-pattern { width: 60%; height: 60%; background: radial-gradient(circle, rgba(232,133,58,0.15) 0%, transparent 70%); border-radius: 50%; }
-.tt-card-sample-logo { font-family: var(--font-accent, 'BringRace', sans-serif); font-size: 1.2rem; color: rgba(232,133,58,0.3); margin-top: 0.25rem; }
 .tt-menu-content { max-width: 420px; display: flex; flex-direction: column; align-items: center; }
 .tt-title-group { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
 .tt-title-main { font-family: var(--font-rajdhani); font-size: 2.6rem; font-weight: 700; color: #f0ece0; letter-spacing: 0.04em; margin: 0; }
@@ -20,15 +18,9 @@
 .tt-colecao-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 4px; margin-top: 0.5rem; overflow: hidden; }
 .tt-colecao-bar-fill { height: 100%; width: var(--fill,0%); background: #e8853a; border-radius: 4px; transition: width 0.4s ease; }
 .tt-guest-aviso-previo { border: 1px solid rgba(245,166,35,0.2); border-radius: 8px; padding: 0.75rem 1rem; margin-top: 1rem; margin-bottom: 0.5rem; background: rgba(245,166,35,0.06); }
-.tt-guest-aviso-texto { font-family: var(--font-ibm); font-size: 0.8rem; color: #8B8F96; line-height: 1.4; margin: 0 0 0.5rem; }
-.tt-guest-aviso-link { font-family: var(--font-mono); font-size: 0.7rem; color: #F5A623; text-decoration: underline; }
-.tt-guest-aviso-link:hover { color: #e8853a; }
 .tt-modos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem; }
 .tt-modo-card { border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.15s; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .tt-modo-card:hover { border-color: rgba(232,133,58,0.6); background: rgba(232,133,58,0.08); transform: translateY(-2px); }
-.tt-modo-card--locked { cursor: pointer; opacity: 0.7; border-color: rgba(255,255,255,0.08); }
-.tt-modo-card--locked:hover { opacity: 0.9; }
-.tt-modo-card-lock-icon { position: absolute; top: 6px; right: 8px; font-size: 0.85rem; }
 .tt-config { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem max(1.25rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.25rem,env(safe-area-inset-left)); box-sizing: border-box; width: 100%; max-width: 480px; margin-right: auto; margin-left: auto; }
 .tt-config-turnos { display: flex; justify-content: center; gap: 0.75rem; width: 100%; }
 .tt-config-turno-btn { width: 48px; height: 48px; border: 1px solid rgba(232,133,58,0.5); border-radius: 6px; background: transparent; font-family: var(--font-rajdhani); font-size: 1.1rem; font-weight: 700; color: #EAEAEA; cursor: pointer; transition: background 0.15s, color 0.15s; }
@@ -37,101 +29,10 @@
 .tt-config-tentativas { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; width: 100%; }
 .tt-tentativa-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #e8853a; background: transparent; }
 .tt-tentativa-dot--gasta { background: #e8853a; }
-.tt-tentativa-texto { font-family: var(--font-ibm); font-size: 0.7rem; color: #8B8F96; margin-left: 0.25rem; }
-.tt-sem-tentativas { text-align: center; margin-top: 1rem; padding: 1rem; border: 1px solid rgba(231,76,60,0.3); border-radius: 8px; background: rgba(231,76,60,0.06); }
 .tt-btn-jogar { width: 100%; box-sizing: border-box; margin-top: 1.5rem; padding: 14px; font-family: var(--font-rajdhani); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; background: #e8853a; color: #000; border: none; border-radius: 6px; cursor: pointer; transition: filter 0.2s, transform 0.15s; }
-.tt-btn-jogar--disabled { opacity: 0.35; cursor: not-allowed; }
 .tt-btn-deck-builder { width: 100%; box-sizing: border-box; margin-top: 0.5rem; padding: 10px; font-family: var(--font-rajdhani); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; background: #1e2024; color: #e8853a; border: 1px solid #e8853a; border-radius: 6px; cursor: pointer; }
 .tt-link-album { display: block; width: 100%; text-align: center; font-family: var(--font-ibm); font-size: 0.8rem; color: #e8853a; text-decoration: none; margin-top: 1rem; }
 .tt-ja-ganhou-hoje { display: flex; align-items: center; gap: 0.6rem; margin-top: 1.5rem; padding: 1rem 1.2rem; width: 100%; box-sizing: border-box; background: rgba(232,133,58,0.12); border: 1px solid rgba(232,133,58,0.35); border-radius: 10px; }
-.tt-ja-ganhou-icone { font-size: 1.5rem; line-height: 1; }
-.tt-ja-ganhou-texto { font-family: var(--font-ibm); font-size: 0.8rem; color: #e8853a; margin: 0; line-height: 1.3; }
-
-/* ---- LOCKED MODAL (guest multiplayer) ---- */
-.tt-locked-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: tt-fade-in 0.2s ease;
-}
-.tt-locked-modal {
-  background: #1A1D21;
-  border: 1px solid rgba(232,133,58,0.3);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 420px;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(232,133,58,0.1);
-  animation: tt-confirm-enter 0.3s ease;
-}
-.tt-locked-titulo {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #f4a227;
-  text-align: center;
-  margin: 0;
-}
-.tt-locked-desc {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.85rem;
-  color: #8B8F96;
-  text-align: center;
-  line-height: 1.5;
-  margin: 0;
-}
-.tt-locked-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  width: 100%;
-}
-.tt-locked-btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.05em;
-  border: 1px solid #4F5359;
-  background: transparent;
-  color: #8B8F96;
-  text-align: center;
-  text-decoration: none;
-}
-.tt-locked-btn:hover {
-  border-color: #8B8F96;
-  color: #EAEAEA;
-}
-.tt-locked-btn--primary {
-  border: 1px solid #e8853a;
-  background: rgba(232,133,58,0.15);
-  color: #e8853a;
-}
-.tt-locked-btn--primary:hover {
-  background: rgba(232,133,58,0.3);
-  border-color: #f4a227;
-  color: #f4a227;
-}
-@keyframes tt-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes tt-confirm-enter {
-  from { opacity: 0; transform: scale(0.9) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
+.tt-locked-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; }
+.tt-locked-modal { background: #1A1D21; border: 1px solid rgba(231,76,60,0.3); border-radius: 16px; padding: 2rem; max-width: 400px; width: 90%; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 @media (max-width: 768px) { .tt-menu-layout { grid-template-columns: 1fr; gap: 2rem; min-height: auto; } .tt-menu-cards { display: none; } .tt-title-main { font-size: 2rem; } }
