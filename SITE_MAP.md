@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-06-29**
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-06-29
 
 ---
 
@@ -13,7 +13,7 @@
 ├── vite.config.js                      # Configuração Vite (base: /)
 ├── AGENTS.md                           # Regras do agente + workflow obrigatório
 ├── SITE_MAP.md                         # Este arquivo
-├── docs/                                # Documentação do projeto
+├── docs/                                # Documentação do projeto (BIBLIA_DO_DEPLOY.md, ReportAI/)
 ├── scripts/                             # Scripts utilitários
 ├── sandbox/                             # Sandbox de testes
 ├── TilemapReact/                        # Testes de tilemap React
@@ -497,7 +497,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.17** | SEO: fix indexação — robots.txt, sitemap lastmod, páginas 404 autor e toptrumps, _redirects games |
+| `SITE_VERSION` | **10.183.18** | docs: Bíblia do Deploy — documentação completa do workflow de deploy |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
