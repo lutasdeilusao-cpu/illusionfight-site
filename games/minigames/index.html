@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Illusion Fight — Arena Virtual. A dor é 100% real.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&display=swap" rel="stylesheet" />
+    <style>@font-face { font-family: 'RacingGames'; src: url('/fonts/RacingGames.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }</style>
+
+    <!-- SEO básico -->
+    <meta name="description" content="Illusion Fight é um universo de ficção científica: webtoon de ação, jogos táticos, trilha sonora original e lore construído ao longo de anos. Arena virtual. Dor 100% real.">
+    <meta name="keywords" content="illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica, LDI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://illusionfight.com/">
+
+    <!-- Open Graph (Facebook, WhatsApp, Discord) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://illusionfight.com/">
+    <meta property="og:title" content="Illusion Fight — Arena Virtual. A dor é 100% real.">
+    <meta property="og:description" content="Um universo de ficção científica com webtoon, jogos táticos e trilha sonora original. Lutas de Ilusão — a dor é 100% real.">
+    <meta property="og:image" content="https://illusionfight.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Illusion Fight">
+
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://illusionfight.com/">
+    <meta name="twitter:title" content="Illusion Fight — Arena Virtual. A dor é 100% real.">
+    <meta name="twitter:description" content="Webtoon, jogos táticos, música original. Lutas de Ilusão — arena virtual, dor 100% real.">
+    <meta name="twitter:image" content="https://illusionfight.com/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-ldi.png" />
+    <link rel="apple-touch-icon" href="/favicon-ldi.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <script>
+      // Restaura URL limpa a partir do padrão /?/path (404.html redirect)
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+
+      // Fallback: se veio via sessionStorage.redirect (meta refresh do 404.html)
+      (function() {
+        var redirect = sessionStorage.redirect;
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          var path = redirect.replace(/^https?:\/\/[^\/]+/, '');
+          if (path && path !== '/') {
+            window.history.replaceState(null, null, path);
+          }
+        }
+      }());
+    </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVDGMZ1F58"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QVDGMZ1F58');
+    </script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Illusion Fight",
+      "alternateName": "Lutas de Ilusão",
+      "url": "https://illusionfight.com",
+      "description": "Illusion Fight é um universo de ficção científica com webtoon, jogos táticos, trilha sonora original e lore extenso. Arena virtual. Dor 100% real.",
+      "inLanguage": ["pt-BR", "en", "es"],
+      "genre": "Science Fiction",
+      "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-cK65_qxn.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-qtSeY9y1.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator && 'PushManager' in window) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {})
+      }
+    </script>
+  </body>
+</html>

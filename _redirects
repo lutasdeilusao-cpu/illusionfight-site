@@ -1,0 +1,23 @@
+# Redirects — GitHub Pages (respeitado pelo Googlebot e alguns crawlers)
+# Formato: <origem> <destino> <código>
+
+# Trailing slash redirects
+/musicas    /musicas/    301
+/webtoon    /webtoon/    301
+/autor      /autor/      301
+/livro      /livro/      301
+/games      /games/      301
+/mundo      /mundo/      301
+/loja       /loja/       301
+/personagens /personagens/ 301
+/quiz       /quiz/       301
+/leaderboard /leaderboard/ 301
+
+# Game subpage trailing slash redirects
+/games/ldi /games/ldi/ 301
+/games/ldi-arena /games/ldi-arena/ 301
+/games/ldi-tatics /games/ldi-tatics/ 301
+/games/jackcandy /games/jackcandy/ 301
+/games/pesadelo /games/pesadelo/ 301
+/games/minigames /games/minigames/ 301
+/games/toptrumps /games/toptrumps/ 301
