@@ -447,7 +447,7 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.1 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Ajuste fino: atributo traduzido + VS centralizado |
+| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.3 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | GameScreen.css dead code deletado, flex: 1 → flex: 0 0 auto, VS colado na carta |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | JSON v2 — id numérico em vez de slug |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -497,7 +497,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.18** | docs: Bíblia do Deploy — documentação completa do workflow de deploy |
+| `SITE_VERSION` | **10.183.19** | docs: GameScreen.css dead code deletado + flex fix VS heartbeat ativo |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -505,7 +505,7 @@
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
 | `MINIGAMES_VERSION` | **4.0.2** | readerMode: Navbar e Footer ocultos |
-| `TS_VERSION` | **5.45.2** | Top Trumps — fix: VS deslocado para baixo (flex layout) |
+| `TS_VERSION` | **5.45.3** | Top Trumps — fix real: GameScreen.css dead code deletado, flex: 1 → flex: 0 0 auto no TopTrumps.css |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
