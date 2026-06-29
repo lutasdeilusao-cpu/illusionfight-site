@@ -1,21 +1,173 @@
 @import '../styles/tokens.css';
 
-.tt-result-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; margin: 0 auto; height: 100dvh; padding: 0.4rem max(0.75rem, env(safe-area-inset-right)) 0.2rem max(0.75rem, env(safe-area-inset-left)); box-sizing: border-box; overflow: hidden; justify-content: flex-start; }
-.tt-result-badge { font-size: 1.1rem; font-weight: 700; font-family: var(--font-accent, 'BringRace', sans-serif); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 1rem; border-radius: 6px; margin: 0.3rem 0; flex-shrink: 0; }
+.tt-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100dvh;
+  padding: 0.4rem max(0.75rem, env(safe-area-inset-right)) 0.2rem max(0.75rem, env(safe-area-inset-left));
+  box-sizing: border-box;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.tt-game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.25rem 0;
+  flex-shrink: 0;
+}
+
+.tt-game-round {
+  font-size: 0.72rem;
+  font-family: var(--font-accent, 'BringRace', sans-serif);
+  color: var(--color-accent, #f90);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tt-game-score {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tt-score-you { color: var(--color-success, #4caf50); }
+.tt-score-sep { color: var(--color-text-muted, #666); }
+.tt-score-ai  { color: var(--color-danger, #f44); }
+
+.tt-result-badge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--font-accent, 'BringRace', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 1rem;
+  border-radius: 6px;
+  margin: 0.3rem 0;
+  flex-shrink: 0;
+}
+
 .tt-result-win { color: var(--color-success, #4caf50); background: rgba(76,175,80,0.1); }
 .tt-result-lose { color: var(--color-danger, #f44); background: rgba(255,68,68,0.1); }
 .tt-result-draw { color: var(--color-accent, #f90); background: rgba(255,153,0,0.1); }
-.tt-result-attr-comparison { display: flex; flex-direction: column; align-items: center; margin: 0.2rem 0; flex-shrink: 0; }
-.tt-result-attr-name { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted, #666); margin-bottom: 0.15rem; }
-.tt-result-values { display: flex; gap: 0.6rem; align-items: center; font-size: 1.2rem; font-weight: 700; }
-.tt-cards-swipe-container { flex: 1; width: 100%; overflow: hidden; min-height: 0; position: relative; user-select: none; }
-.tt-cards-swipe-track { display: flex; width: 200%; height: 100%; transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94); transform: translateX(0%); }
+
+.tt-result-attr-comparison {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.2rem 0;
+  flex-shrink: 0;
+}
+
+.tt-result-attr-name {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #666);
+  margin-bottom: 0.15rem;
+}
+
+.tt-result-values {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.tt-result-val-you { color: var(--color-success, #4caf50); }
+.tt-result-val-sep { color: var(--color-text-muted, #666); font-size: 0.8rem; }
+.tt-result-val-ai  { color: var(--color-danger, #f44); }
+
+.tt-cards-swipe-container {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+  user-select: none;
+}
+
+.tt-cards-swipe-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94);
+  transform: translateX(0%);
+}
+
 .tt-cards-swipe-track--revealed { transform: translateX(-50%); }
-.tt-swipe-card-slot { width: 50%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
-.tt-swipe-card-slot .tt-card-wrapper { width: calc(550px * 0.54); height: calc(720px * 0.54); overflow: hidden; }
-.tt-swipe-card-slot .tt-card-template { transform: scale(0.54); transform-origin: top left; }
-.tt-swipe-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted, #666); margin-bottom: 0.15rem; flex-shrink: 0; }
-.tt-swipe-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 2.75rem; height: 2.75rem; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #fff; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
+
+.tt-swipe-card-slot {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tt-swipe-card-slot .tt-card-wrapper {
+  width: calc(550px * 0.54);
+  height: calc(720px * 0.54);
+  overflow: hidden;
+}
+
+.tt-swipe-card-slot .tt-card-template {
+  transform: scale(0.54);
+  transform-origin: top left;
+}
+
+.tt-swipe-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #666);
+  margin-bottom: 0.15rem;
+  flex-shrink: 0;
+}
+
+.tt-swipe-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
 .tt-swipe-btn--right { right: 15px; }
 .tt-swipe-btn--left { left: 15px; }
-.tt-btn-next-round { width: 100%; max-width: 360px; padding: 0.65rem; background: var(--color-accent, #f90); color: #000; border: none; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer; margin-top: 0.3rem; flex-shrink: 0; }
+
+.tt-btn-next-round {
+  width: 100%;
+  max-width: 360px;
+  padding: 0.65rem;
+  background: var(--color-accent, #f90);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}

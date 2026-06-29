@@ -1,6 +1,7 @@
 import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
-import FireParticles from '../FireParticles/FireParticles'
-import BurstParticles from '../BurstParticles/BurstParticles'
+import '../../styles/ResultScreen.css'
+import '../FireParticles/FireParticles.css'
+import '../BurstParticles/BurstParticles.css'
 
 export default function ResultScreen({
   cartaJogador, cartaIA, cartaJogadorImg, cartaIAImg,
