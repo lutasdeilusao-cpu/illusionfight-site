@@ -139,7 +139,7 @@ export default function LivroCapitulo() {
   const next = idx < index.length - 1 ? index[idx + 1] : null
   const prevPublished = prev && estaDisponivel(prev, isAdmin) ? prev : null
   const nextPublished = next && estaDisponivel(next, isAdmin) ? next : null
-  const capitulos = index.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
+  const capitulos = index.filter(c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
   const currentIndex = capitulos.findIndex(c => c.id === id)
   const anterior = capitulos[currentIndex - 1]
   const proximo = capitulos[currentIndex + 1]
@@ -147,7 +147,7 @@ export default function LivroCapitulo() {
   return (
     <section className="livro-capitulo">
       <Helmet>
-        <title>{chapter ? `${chapter[tituloKey]} â€” ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
+        <title>{chapter ? `${chapter[tituloKey]} — ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
       </Helmet>
       <div className="container">
         <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>

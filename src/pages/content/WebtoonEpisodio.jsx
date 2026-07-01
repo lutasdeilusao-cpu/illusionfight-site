@@ -89,7 +89,7 @@ export default function WebtoonEpisodio() {
 
   return (
     <>
-      <Helmet><title>{`${ep[tituloKey]} â€” ${t('site.nome_curto')}`}</title></Helmet>
+      <Helmet><title>{`${ep[tituloKey]} — ${t('site.nome_curto')}`}</title></Helmet>
 
       <header className="webtoon-ep-header">
         <div className="container">
@@ -97,7 +97,7 @@ export default function WebtoonEpisodio() {
             {t('pages.webtoon.voltar')}
           </button>
           <h1 className="webtoon-ep-header__title">
-            EP. {String(ep.numero).padStart(2, '0')} â€” {ep[tituloKey]}
+            EP. {String(ep.numero).padStart(2, '0')} — {ep[tituloKey]}
           </h1>
         </div>
       </header>
