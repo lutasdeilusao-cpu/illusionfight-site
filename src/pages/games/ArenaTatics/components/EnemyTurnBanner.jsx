@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { getElem } from '../data/elementals'
+import { useLanguage } from '../../../../context/LanguageContext'
 
 /**
  * EnemyTurnBanner — Banner épico quando inimigo age
  */
 export default function EnemyTurnBanner({ acao, onFechar }) {
+  const { t } = useLanguage()
   if (!acao) return null
   const elem = getElem(acao.atacante?.elemental)
 
@@ -20,7 +22,7 @@ export default function EnemyTurnBanner({ acao, onFechar }) {
     }}>
       <div className="enemy-turn-banner-inner">
         <div className="enemy-turn-banner-skill" style={{ color: elem.cor }}>
-          {acao.skill?.nome?.toUpperCase() || 'ATAQUE'}
+          {acao.skill?.nome?.toUpperCase() || t('tatics.combat.ataque')}
         </div>
         <div className="enemy-turn-banner-names">
           {acao.atacante?.nome}
