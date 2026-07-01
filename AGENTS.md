@@ -115,6 +115,7 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 - **emailRedirectTo** deve ser URL fixa `https://illusionfight.com/login`, nunca `window.location.origin`
 - **Nunca migrar para nova biblioteca de rendering sem ganho visual comprovado** (lição Pixi.js)
 - **Sempre `maybeSingle()`** em vez de `single()` no Supabase para evitar erro em resultado vazio
+- **Glob path quebra silenciosamente ao mover componente de pasta** — `import.meta.glob` usa caminho relativo ao arquivo atual. Se o componente é movido (ex: `src/pages/` → `src/pages/content/`), o glob `'../data/**/*.md'` não acha mais nada, mas não dá erro — só retorna vazio. Sempre verificar paths de `import.meta.glob` após refactors que movem arquivos.
 
 ## Regra Anti-Over-Engineering
 
