@@ -13,7 +13,7 @@ import ModalLancamento from '../../components/ModalLancamento/ModalLancamento'
 import index from '../../data/livro-index.json'
 import './LivroCapitulo.css'
 
-const chapterLoaders = import.meta.glob('../data/livro/**/*.md', { query: '?raw', import: 'default' })
+const chapterLoaders = import.meta.glob('../../data/livro/**/*.md', { query: '?raw', import: 'default' })
 
 export default function LivroCapitulo() {
   const { setReaderMode } = useReader()
@@ -89,11 +89,10 @@ export default function LivroCapitulo() {
 
     const loadChapter = async () => {
       const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
-      const path = `../data/livro/${lang}/${id}.md`
+      const path = `../../data/livro/${lang}/${id}.md`
       let loader = chapterLoaders[path]
-      // fallback: se nÃ£o achar no locale atual, tenta PT
       if (!loader) {
-        const fallbackPath = `../data/livro/pt/${id}.md`
+        const fallbackPath = `../../data/livro/pt/${id}.md`
         loader = chapterLoaders[fallbackPath]
       }
       if (loader) {
