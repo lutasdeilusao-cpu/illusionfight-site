@@ -116,6 +116,42 @@
     "confirmar": "spend 1 token",
     "cancelar": "cancel"
   },
+  "resultcard": {
+    "btn_x": "𝕏 Share",
+    "btn_whatsapp": "📱 WhatsApp",
+    "btn_download": "💾 Save",
+    "btn_copy": "📋 Copy text",
+    "copied": "✅ Copied",
+    "fechar": "[ close ]",
+    "jogador": "Player"
+  },
+  "ficha_gate": {
+    "carregando": "loading...",
+    "gamefree": {
+      "titulo": "FREE",
+      "desc": "{nome} is a FREE game — no token cost!",
+      "sub": "play as much as you want.",
+      "jogar": "[ PLAY ]"
+    },
+    "confirmacao": {
+      "titulo": "SPEND 1 TOKEN?",
+      "desc": "you'll spend 1 token to unlock {nome}.",
+      "duracao": "⏳ valid for 24 hours — play as much as you want!",
+      "saldo_atual": "current balance",
+      "saldo_restante": "balance after",
+      "gastando": "...",
+      "confirmar": "[ spend 1 token ]",
+      "coletar_mais": "collect more tokens"
+    },
+    "semfichas": {
+      "titulo": "NO TOKENS",
+      "desc": "you need 1 token to play {nome}.",
+      "sub": "daily tokens reset at midnight.",
+      "coletar": "collect tokens",
+      "assinar": "subscribe elite — 10 tokens/day",
+      "voltar": "back to games"
+    }
+  },
   "search": {
     "placeholder": "Search characters, chapters, lore...",
     "fechar": "ESC",
@@ -464,6 +500,17 @@
     "turno_n": "TURN {n}",
     "hp": "HP",
     "mp": "MP",
+    "sp": "SP",
+    "area_efeito": "AREA OF EFFECT",
+    "combat": {
+      "ataque": "ATTACK",
+      "critico": "CRITICAL!",
+      "dmg": "DMG",
+      "esquiva_perfeita": "PERFECT DODGE",
+      "miss": "MISS",
+      "rng": "RNG",
+      "cd": "CD"
+    },
     "ja_movido": "ALREADY MOVED",
     "mover": "MOVE",
     "ja_atacou": "ALREADY ATTACKED",

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getElem } from '../data/elementals'
+import { useLanguage } from '../../../../context/LanguageContext'
 
 /**
  * CombatResultModal — Modal épico de resultado de ataque
  * Fases: entrada → impacto → efeitos → saída
  */
 export default function CombatResultModal({ resultado, onFechar }) {
+  const { t } = useLanguage()
   const [fase, setFase] = useState('entrada')
   const elem = getElem(resultado?.atacante?.elemental)
 
@@ -43,7 +45,7 @@ export default function CombatResultModal({ resultado, onFechar }) {
             <TokenMini nome={atacante?.nome} elemental={atacante?.elemental} />
             <div className="combat-modal-vs">
               <span style={{ color: elem.cor, fontSize: '1.2rem', fontFamily: 'Rajdhani', fontWeight: 700 }}>
-                {skill?.nome?.toUpperCase() || 'ATAQUE'}
+                {skill?.nome?.toUpperCase() || t('tatics.combat.ataque')}
               </span>
               <span style={{ color: '#4F5359', fontSize: '0.55rem', fontFamily: 'JetBrains Mono' }}>
                 ───────▶
@@ -56,17 +58,17 @@ export default function CombatResultModal({ resultado, onFechar }) {
           {!miss && (
             <div className={`combat-modal-dano ${critico ? 'critico' : ''}`}>
               {critico && (
-                <span className="combat-modal-critico-label">CRÍTICO!</span>
+                <span className="combat-modal-critico-label">{t('tatics.combat.critico')}</span>
               )}
               <span className="combat-modal-dano-numero">{dano}</span>
-              <span className="combat-modal-dano-label">DMG</span>
+              <span className="combat-modal-dano-label">{t('tatics.combat.dmg')}</span>
             </div>
           )}
 
           {/* Miss */}
           {miss && (
             <div className="combat-modal-miss">
-              {missTipo === 'perfeita' ? 'ESQUIVA PERFEITA' : 'MISS'}
+              {missTipo === 'perfeita' ? t('tatics.combat.esquiva_perfeita') : t('tatics.combat.miss')}
             </div>
           )}
 
@@ -113,6 +115,7 @@ function TokenMini({ nome, elemental, dimmed }) {
 }
 
 function HpBarDelta({ antes, depois, max, cor, fase }) {
+  const { t } = useLanguage()
   const pctAntes = (antes / max) * 100
   const pctDepois = (depois / max) * 100
   const perdeu = antes - depois
@@ -120,7 +123,7 @@ function HpBarDelta({ antes, depois, max, cor, fase }) {
   return (
     <div className="combat-modal-hp-container">
       <div className="combat-modal-hp-header">
-        <span className="combat-modal-hp-label">HP</span>
+        <span className="combat-modal-hp-label">{t('tatics.hp')}</span>
         <span className="combat-modal-hp-perda">-{perdeu}</span>
       </div>
       <div className="combat-modal-hp-bar">

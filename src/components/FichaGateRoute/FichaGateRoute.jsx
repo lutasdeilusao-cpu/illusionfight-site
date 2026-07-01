@@ -77,7 +77,7 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
 
   // ── Carregando ──
   if (etapa === 'carregando') {
-    return <div className="fgr-gate"><div className="fgr-icon">⏳</div><p className="fgr-text">carregando...</p></div>
+    return       <div className="fgr-gate"><div className="fgr-icon">⏳</div><p className="fgr-text">{t('ficha_gate.carregando')}</p></div>
   }
 
   // ── Game FREE — avisa que não gasta ficha ──
@@ -85,11 +85,11 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
     return (
       <div className="fgr-gate">
         <div className="fgr-icon">🎁</div>
-        <p className="fgr-titulo" style={{ color: '#22C55E' }}>GRATUITO</p>
-        <p className="fgr-desc">{nomeExibicao || feature} é um jogo <strong style={{ color: '#22C55E' }}>FREE</strong> — não gasta ficha!</p>
-        <p className="fgr-sub">jogue à vontade, quantas vezes quiser.</p>
+        <p className="fgr-titulo" style={{ color: '#22C55E' }}>{t('ficha_gate.gamefree.titulo')}</p>
+        <p className="fgr-desc">{t('ficha_gate.gamefree.desc', { nome: nomeExibicao || feature })}</p>
+        <p className="fgr-sub">{t('ficha_gate.gamefree.sub')}</p>
         <button className="fgr-btn fgr-btn--primary" onClick={() => setEtapa('liberado')}>
-          [ JOGAR ]
+          {t('ficha_gate.gamefree.jogar')}
         </button>
       </div>
     )
@@ -105,19 +105,19 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
     return (
       <div className="fgr-gate">
         <div className="fgr-icon">🎰</div>
-        <p className="fgr-titulo">GASTAR 1 FICHA?</p>
-        <p className="fgr-desc">você vai gastar 1 ficha para desbloquear {nomeExibicao || feature}.</p>
-        <p className="fgr-duracao">⏳ válido por 24 horas — jogue à vontade!</p>
+        <p className="fgr-titulo">{t('ficha_gate.confirmacao.titulo')}</p>
+        <p className="fgr-desc">{t('ficha_gate.confirmacao.desc', { nome: nomeExibicao || feature })}</p>
+        <p className="fgr-duracao">{t('ficha_gate.confirmacao.duracao')}</p>
         <div className="fgr-saldo-row">
-          <span>saldo atual</span><span className="fgr-val">{saldo} 🎰</span>
+          <span>{t('ficha_gate.confirmacao.saldo_atual')}</span><span className="fgr-val">{saldo} 🎰</span>
         </div>
         <div className="fgr-saldo-row fgr-saldo-row--restante">
-          <span>saldo após gastar</span><span className="fgr-val">{saldo - 1} 🎰</span>
+          <span>{t('ficha_gate.confirmacao.saldo_restante')}</span><span className="fgr-val">{saldo - 1} 🎰</span>
         </div>
         <button className="fgr-btn fgr-btn--primary" onClick={handleConfirmar} disabled={gastando}>
-          {gastando ? '...' : '[ gastar 1 ficha ]'}
+          {gastando ? t('ficha_gate.confirmacao.gastando') : t('ficha_gate.confirmacao.confirmar')}
         </button>
-        <Link to="/perfil?aba=recompensas" className="fgr-link">coletar mais fichas</Link>
+        <Link to="/perfil?aba=recompensas" className="fgr-link">{t('ficha_gate.confirmacao.coletar_mais')}</Link>
       </div>
     )
   }
@@ -127,12 +127,12 @@ export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, 
     return (
       <div className="fgr-gate">
         <div className="fgr-icon">🎰</div>
-        <p className="fgr-titulo">SEM FICHAS</p>
-        <p className="fgr-desc">você precisa de 1 ficha para jogar {nomeExibicao || feature}.</p>
-        <p className="fgr-sub">fichas diárias resetam à meia-noite.</p>
-        <Link to="/perfil?aba=recompensas" className="fgr-btn fgr-btn--primary">coletar fichas</Link>
-        <Link to="/assinar" className="fgr-btn fgr-btn--elite">assinar elite — 10 fichas/dia</Link>
-        <Link to="/games" className="fgr-link">voltar aos games</Link>
+        <p className="fgr-titulo">{t('ficha_gate.semfichas.titulo')}</p>
+        <p className="fgr-desc">{t('ficha_gate.semfichas.desc', { nome: nomeExibicao || feature })}</p>
+        <p className="fgr-sub">{t('ficha_gate.semfichas.sub')}</p>
+        <Link to="/perfil?aba=recompensas" className="fgr-btn fgr-btn--primary">{t('ficha_gate.semfichas.coletar')}</Link>
+        <Link to="/assinar" className="fgr-btn fgr-btn--elite">{t('ficha_gate.semfichas.assinar')}</Link>
+        <Link to="/games" className="fgr-link">{t('ficha_gate.semfichas.voltar')}</Link>
       </div>
     )
   }

@@ -116,6 +116,42 @@
     "confirmar": "gastar 1 ficha",
     "cancelar": "cancelar"
   },
+  "resultcard": {
+    "btn_x": "𝕏 Compartir",
+    "btn_whatsapp": "📱 WhatsApp",
+    "btn_download": "💾 Guardar",
+    "btn_copy": "📋 Copiar texto",
+    "copied": "✅ Copiado",
+    "fechar": "[ cerrar ]",
+    "jogador": "Jugador"
+  },
+  "ficha_gate": {
+    "carregando": "cargando...",
+    "gamefree": {
+      "titulo": "GRATIS",
+      "desc": "{nome} es un juego GRATIS — ¡no gasta fichas!",
+      "sub": "juega todo lo que quieras.",
+      "jogar": "[ JUGAR ]"
+    },
+    "confirmacao": {
+      "titulo": "¿GASTAR 1 FICHA?",
+      "desc": "vas a gastar 1 ficha para desbloquear {nome}.",
+      "duracao": "⏳ válido por 24 horas — ¡juega todo lo que quieras!",
+      "saldo_atual": "saldo actual",
+      "saldo_restante": "saldo después",
+      "gastando": "...",
+      "confirmar": "[ gastar 1 ficha ]",
+      "coletar_mais": "recoger más fichas"
+    },
+    "semfichas": {
+      "titulo": "SIN FICHAS",
+      "desc": "necesitas 1 ficha para jugar {nome}.",
+      "sub": "fichas diarias se reinician a medianoche.",
+      "coletar": "recoger fichas",
+      "assinar": "suscribirse elite — 10 fichas/día",
+      "voltar": "volver a los juegos"
+    }
+  },
   "search": {
     "placeholder": "Buscar personajes, capítulos, lore...",
     "fechar": "ESC",
@@ -464,6 +500,17 @@
     "turno_n": "TURNO {n}",
     "hp": "PV",
     "mp": "PM",
+    "sp": "PE",
+    "area_efeito": "ÁREA DE EFECTO",
+    "combat": {
+      "ataque": "ATAQUE",
+      "critico": "¡CRÍTICO!",
+      "dmg": "DAÑO",
+      "esquiva_perfeita": "ESQUIVA PERFECTA",
+      "miss": "FALLO",
+      "rng": "ALC",
+      "cd": "CD"
+    },
     "ja_movido": "YA MOVIDO",
     "mover": "MOVERTE",
     "ja_atacou": "YA ATACÓ",

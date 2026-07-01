@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getElem } from '../data/elementals'
 import { EfeitoTag } from './JuiceComponents'
+import { useLanguage } from '../../../../context/LanguageContext'
 
 /**
  * Padrões de área para preview
@@ -33,6 +34,7 @@ function getPadrao(skill) {
  * MiniGridPreview — Preview 7x7 da área de efeito
  */
 function MiniGridPreview({ skill, cor }) {
+  const { t } = useLanguage()
   const padrao = getPadrao(skill)
   const SIZE = 7
   const CENTER = 3
@@ -40,7 +42,7 @@ function MiniGridPreview({ skill, cor }) {
 
   return (
     <div className="tatics-mini-grid-wrap" style={{ borderColor: `${cor}20` }}>
-      <span className="tatics-mini-grid-label">ÁREA DE EFEITO</span>
+      <span className="tatics-mini-grid-label">{t('tatics.area_efeito')}</span>
       <div className="tatics-mini-grid">
         {Array.from({ length: SIZE }, (_, row) =>
           Array.from({ length: SIZE }, (_, col) => {
@@ -69,6 +71,7 @@ function MiniGridPreview({ skill, cor }) {
  * SkillPreviewModal — Modal de habilidades com preview visual
  */
 export default function SkillPreviewModal({ personagem, skills, onUsar, onFechar }) {
+  const { t } = useLanguage()
   const [skillHover, setSkillHover] = useState(null)
   const elem = getElem(personagem?.elemental)
   const spAtual = personagem?.energia || 0
@@ -101,7 +104,7 @@ export default function SkillPreviewModal({ personagem, skills, onUsar, onFechar
               {personagem.nome?.toUpperCase()}
             </span>
             <span className="skill-modal-sp">
-              SP: {spAtual}/{spMax}
+              {t('tatics.sp')}: {spAtual}/{spMax}
             </span>
           </div>
 
@@ -134,7 +137,7 @@ export default function SkillPreviewModal({ personagem, skills, onUsar, onFechar
                     color: disponivel ? elem.cor : '#555',
                   }}>
                     <span className="tatics-skill-custo-valor">{skill.custo || 0}</span>
-                    <span className="tatics-skill-custo-label">SP</span>
+                    <span className="tatics-skill-custo-label">{t('tatics.sp')}</span>
                   </div>
 
                   {/* Info */}
@@ -153,11 +156,11 @@ export default function SkillPreviewModal({ personagem, skills, onUsar, onFechar
                   {/* Meta */}
                   <div className="tatics-skill-meta">
                     {skill.dano > 0 && (
-                      <span className="skill-meta-dmg">{skill.dano} DMG</span>
+                      <span className="skill-meta-dmg">{skill.dano} {t('tatics.combat.dmg')}</span>
                     )}
-                    <span className="skill-meta-rng">RNG {skill.alcance || 1}</span>
+                    <span className="skill-meta-rng">{t('tatics.combat.rng')} {skill.alcance || 1}</span>
                     {skill.cd > 0 && (
-                      <span className="skill-meta-cd">CD {skill.cd}</span>
+                      <span className="skill-meta-cd">{t('tatics.combat.cd')} {skill.cd}</span>
                     )}
                   </div>
                 </button>

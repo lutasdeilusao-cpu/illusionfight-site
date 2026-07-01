@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { getCorPorElemental } from '../data/cosmeticos'
+import { useLanguage } from '../../../../context/LanguageContext'
 
 export default function SkillModal({ personagem, skills, onSelect, onClose }) {
+  const { t } = useLanguage()
   const corElem = personagem.elemental ? getCorPorElemental(personagem.elemental) : '#00B4D8'
   return (
     <motion.div
@@ -18,7 +20,7 @@ export default function SkillModal({ personagem, skills, onSelect, onClose }) {
           <div className="tatics-skill-header-info">
             <span className="tatics-skill-header-nome">{personagem.nome}</span>
             <span className="tatics-skill-header-mp">
-              ⚡ {personagem.energia}/{personagem.energiaMax} MP
+              ⚡ {personagem.energia}/{personagem.energiaMax} {t('tatics.mp')}
             </span>
           </div>
           <button className="tatics-skill-close" onClick={onClose}>✕</button>
@@ -37,7 +39,7 @@ export default function SkillModal({ personagem, skills, onSelect, onClose }) {
               >
                 <div className={`tatics-skill-custo ${podeUsar ? 'custo-disponivel' : 'custo-indisponivel'}`}>
                   <span className="tatics-skill-custo-valor">{skill.custo}</span>
-                  <span className="tatics-skill-custo-label">MP</span>
+                  <span className="tatics-skill-custo-label">{t('tatics.mp')}</span>
                 </div>
                 <div className="tatics-skill-info">
                   <div className="tatics-skill-nome">{skill.nome}</div>

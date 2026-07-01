@@ -1,9 +1,11 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PALETTES, getFrase } from './palettes'
+import { useLanguage } from '../../context/LanguageContext'
 import './ResultCard.css'
 
 export default function ResultCard({ open, onClose, game, title, subtitle, stats, context }) {
+  const { t } = useLanguage()
   const canvasRef = useRef(null)
   const [shareImg, setShareImg] = useState(null)
   const [copied, setCopied] = useState(false)
@@ -201,21 +203,21 @@ export default function ResultCard({ open, onClose, game, title, subtitle, stats
             {/* Share buttons */}
             <div className="resultcard-actions">
               <button className="resultcard-btn resultcard-btn--x" onClick={() => handleShare('x')}>
-                𝕏 Compartilhar
+                {t('resultcard.btn_x')}
               </button>
               <button className="resultcard-btn resultcard-btn--whatsapp" onClick={() => handleShare('whatsapp')}>
-                📱 WhatsApp
+                {t('resultcard.btn_whatsapp')}
               </button>
               <button className="resultcard-btn resultcard-btn--download" onClick={() => handleShare('download')}>
-                💾 Salvar
+                {t('resultcard.btn_download')}
               </button>
               <button className="resultcard-btn resultcard-btn--copy" onClick={() => handleShare('copy')}>
-                {copied ? '✅ Copiado' : '📋 Copiar texto'}
+                {copied ? t('resultcard.copied') : t('resultcard.btn_copy')}
               </button>
             </div>
 
             <button className="resultcard-close" onClick={onClose} style={{ color: palette.textDim }}>
-              [ fechar ]
+              {t('resultcard.fechar')}
             </button>
           </motion.div>
         </motion.div>
