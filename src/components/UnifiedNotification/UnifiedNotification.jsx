@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { notificationManager, NotificationType } from '../../lib/notificationManager'
 import { useLanguage } from '../../context/LanguageContext'
+import { useAuth } from '../../context/AuthContext'
 import jackImg from '../../assets/images/characters/jack-balloon.png'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import tamaImg from '../../assets/images/tamagoshi/01/kroniki-presentation.png'
@@ -17,6 +18,7 @@ export default function UnifiedNotification() {
   const [typedText, setTypedText] = useState('')
   const [typingDone, setTypingDone] = useState(false)
   const { t } = useLanguage()
+  const { user } = useAuth()
   const autoTimerRef = useRef(null)
   const checkIntervalRef = useRef(null)
   const ninaCbRef = useRef(null)
@@ -24,6 +26,11 @@ export default function UnifiedNotification() {
   // Tenta puxar da fila — mas primeiro verifica notificação pendente da Nina
   const tryPull = useCallback(() => {
     if (current) return
+
+    // Defesa: guest não pode ver achievement de jeito nenhum
+    if (!user) {
+      notificationManager.clearByType('achievement')
+    }
 
     // PRIORIDADE MÁXIMA: Nina notification (não passa pelo notificationManager)
     const ninaPending = window.__ninaPendingNotification
@@ -42,14 +49,16 @@ export default function UnifiedNotification() {
 
     // Fallback: fila normal do notificationManager
     // Achievement tem prioridade — busca na fila inteira com bypass de cooldown
-    const item = notificationManager.findAndPull('achievement', true) || notificationManager.pull()
+    const item = user
+      ? (notificationManager.findAndPull('achievement', true) || notificationManager.pull())
+      : notificationManager.pull()
     if (item) {
       setCurrent(item)
       setIsClosing(false)
       setTypedText('')
       setTypingDone(false)
     }
-  }, [current])
+  }, [current, user])
 
   // Polling + subscribe
   useEffect(() => {
