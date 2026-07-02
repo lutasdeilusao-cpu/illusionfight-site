@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.183.34'
+export const SITE_VERSION = '10.183.35'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -23,7 +23,7 @@ export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration �
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
-export const KP_VERSION = '1.0.0' // Kernel Panic — engine extraída de kernel-panic.html com useReducer + 37 funções puras + IA estado→estado
+export const KP_VERSION = '1.1.0' // Kernel Panic — UI components + CSS migration + useAITurnPresenter + 17 componentes burros + entry point
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KERNEL PANIC — Manual do Operador</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap');
+
+:root {
+  --ink:     #05050f;
+  --felt:    #0a0a1a;
+  --grove:   #0d0d20;
+  --olive:   #1a1a3a;
+  --cyan:    #00e5ff;
+  --purple:  #b400ff;
+  --pink:    #ff00aa;
+  --red:     #ff0055;
+  --khaki:   #c8d8e8;
+  --ghost:   #4a5a8a;
+  --mono:    'Share Tech Mono', monospace;
+  --display: 'Bebas Neue', sans-serif;
+  --body:    'Barlow', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--ink);
+  color: var(--khaki);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* scanlines */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px
+  );
+  pointer-events: none;
+}
+
+/* grid bg */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.wrapper {
+  position: relative; z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 80px;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--olive);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-reticle {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,229,255,0.08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover-reticle::before, .cover-reticle::after {
+  content: ''; position: absolute; background: rgba(0,229,255,0.06);
+}
+.cover-reticle::before { width: 1px; height: 100%; left: 50%; top: 0; }
+.cover-reticle::after  { width: 100%; height: 1px; top: 50%; left: 0; }
+
+.cover-tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--ghost);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cover-title {
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  letter-spacing: 0.15em;
+  line-height: 1;
+  color: var(--cyan);
+  text-shadow: 0 0 30px rgba(0,229,255,0.4), 0 0 60px rgba(0,229,255,0.15);
+  margin-bottom: 8px;
+}
+
+@keyframes glitch {
+  0%,92%  { text-shadow: 0 0 30px rgba(0,229,255,0.4); transform: none; }
+  93%     { text-shadow: -3px 0 var(--purple), 3px 0 var(--red); transform: skewX(-2deg); }
+  94%     { text-shadow: 3px 0 var(--purple), -3px 0 var(--red); transform: skewX(2deg); }
+  95%,100%{ text-shadow: 0 0 30px rgba(0,229,255,0.4); transform: none; }
+}
+.cover-title { animation: glitch 6s infinite; }
+
+.cover-sub {
+  font-family: var(--display);
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  letter-spacing: 0.2em;
+  color: var(--purple);
+  margin-bottom: 32px;
+}
+
+.cover-desc {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ghost);
+  letter-spacing: 0.12em;
+  line-height: 2;
+  text-transform: uppercase;
+  max-width: 400px;
+}
+
+.cover-badge {
+  margin-top: 48px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--ghost);
+  border: 1px solid var(--olive);
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--olive);
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--ghost);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.section-title.purple { color: var(--purple); }
+.section-title.pink   { color: var(--pink); }
+
+p {
+  font-size: 0.95rem;
+  color: var(--khaki);
+  margin-bottom: 14px;
+  line-height: 1.8;
+}
+p:last-child { margin-bottom: 0; }
+
+strong { color: var(--cyan); font-weight: 600; }
+em { color: var(--purple); font-style: normal; }
+
+/* ── HIGHLIGHT BOX ── */
+.box {
+  background: var(--grove);
+  border: 1px solid var(--olive);
+  border-left: 3px solid var(--cyan);
+  padding: 14px 16px;
+  margin: 16px 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 2;
+  color: var(--khaki);
+}
+.box.purple { border-left-color: var(--purple); }
+.box.pink   { border-left-color: var(--pink); }
+.box.red    { border-left-color: var(--red); }
+
+.box-title {
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 6px;
+  display: block;
+}
+.box.purple .box-title { color: var(--purple); }
+.box.pink   .box-title { color: var(--pink); }
+.box.red    .box-title { color: var(--red); }
+
+/* ── ATTRIBUTE GRID ── */
+.attr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 16px 0;
+}
+.attr-card {
+  background: var(--grove);
+  border: 1px solid var(--olive);
+  padding: 12px 14px;
+}
+.attr-name {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.attr-name.atk  { color: var(--cyan); }
+.attr-name.def  { color: var(--purple); }
+.attr-name.exp  { color: var(--red); }
+.attr-vs {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ghost);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.attr-desc {
+  font-size: 0.78rem;
+  color: var(--khaki);
+  line-height: 1.5;
+}
+
+/* ── TURN STEPS ── */
+.steps { margin: 16px 0; display: flex; flex-direction: column; gap: 8px; }
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--grove);
+  border: 1px solid var(--olive);
+  padding: 12px 14px;
+}
+.step-num {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  color: var(--cyan);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+.step-body { flex: 1; }
+.step-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 3px;
+}
+.step-desc {
+  font-size: 0.82rem;
+  color: var(--khaki);
+  line-height: 1.6;
+}
+.step-optional .step-num { color: var(--ghost); }
+.step-optional .step-title { color: var(--ghost); }
+.step-optional { border-color: #111130; }
+
+/* ── CARD TYPE LIST ── */
+.card-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.card-item {
+  background: var(--grove);
+  border: 1px solid var(--olive);
+  padding: 12px 14px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.card-accent {
+  width: 4px;
+  align-self: stretch;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.card-accent.atk  { background: var(--cyan); }
+.card-accent.def  { background: var(--purple); }
+.card-accent.efx  { background: var(--pink); }
+.card-accent.eqp  { background: #ffaa00; }
+.card-accent.ter  { background: var(--ghost); }
+.card-body { flex: 1; }
+.card-type-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.card-type-label.atk  { color: var(--cyan); }
+.card-type-label.def  { color: var(--purple); }
+.card-type-label.efx  { color: var(--pink); }
+.card-type-label.eqp  { color: #ffaa00; }
+.card-type-label.ter  { color: var(--ghost); }
+.card-item-name {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--khaki);
+  margin-bottom: 4px;
+}
+.card-item-desc {
+  font-size: 0.78rem;
+  color: var(--ghost);
+  line-height: 1.5;
+}
+
+/* ── FORMULA BOX ── */
+.formula {
+  background: var(--felt);
+  border: 1px solid var(--cyan);
+  padding: 18px 20px;
+  margin: 16px 0;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,229,255,0.08);
+}
+.formula-eq {
+  font-family: var(--display);
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  line-height: 1.4;
+}
+.formula-note {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--ghost);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* ── TERRAIN TABLE ── */
+.terrain-list { display: flex; flex-direction: column; gap: 6px; margin: 16px 0; }
+.terrain-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: var(--grove);
+  border: 1px solid var(--olive);
+}
+.terrain-icon { font-size: 1.2rem; flex-shrink: 0; width: 28px; text-align: center; }
+.terrain-body { flex: 1; }
+.terrain-name {
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.terrain-effect {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--ghost);
+  letter-spacing: 0.06em;
+}
+
+/* ── WARNING BOX ── */
+.warning {
+  background: rgba(255,0,85,0.06);
+  border: 1px solid rgba(255,0,85,0.3);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--red);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+.warning::before { content: '⚠ '; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--olive);
+}
+.divider span {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--ghost);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--ghost);
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+@media (max-width: 480px) {
+  .attr-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-reticle"></div>
+  <div class="cover-tag">Manual do Operador · Versão 1.0</div>
+  <div class="cover-title">KERNEL<br>PANIC</div>
+  <div class="cover-sub">Protocolo de Eliminação</div>
+  <div class="cover-desc">
+    Um jogo de cartas tático para dois operadores<br>
+    Sistema D20 · Dois jogadores · Um terminal
+  </div>
+  <div class="cover-badge">Classificação: Acesso Liberado</div>
+</div>
+
+<!-- O QUE É -->
+<div class="section">
+  <div class="section-tag">// 01 — Briefing</div>
+  <div class="section-title">O Que É Kernel Panic</div>
+
+  <p>
+    <strong>Kernel Panic</strong> é um jogo de cartas tático para dois jogadores, ambientado num mundo cyberpunk onde operadores de elite se eliminam usando módulos cibernéticos, hacks e ataques de precisão neural.
+  </p>
+  <p>
+    Cada operador acumula <strong>módulos de ataque e defesa</strong> no seu grid ao longo das rodadas. Quando o momento é certo — ou a pressão é alta demais — um disparo é executado. Um dado de vinte faces decide o destino.
+  </p>
+
+  <div class="box">
+    <span class="box-title">Conceito central</span>
+    Quanto mais tempo você espera para atacar, mais <em>Exposição</em> acumula — e mais vulnerável fica. O jogo pressiona os dois lados ao mesmo tempo.
+  </div>
+</div>
+
+<!-- O TABULEIRO -->
+<div class="section">
+  <div class="section-tag">// 02 — Infraestrutura</div>
+  <div class="section-title purple">O Tabuleiro</div>
+
+  <p>A mesa de jogo tem os seguintes elementos:</p>
+
+  <div class="card-list">
+    <div class="card-item">
+      <div class="card-accent atk"></div>
+      <div class="card-body">
+        <div class="card-type-label atk">Stack</div>
+        <div class="card-item-name">Monte de Compra</div>
+        <div class="card-item-desc">Monte compartilhado entre os dois operadores. Quando esgota, o lixo é embaralhado e vira um novo stack.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent ter"></div>
+      <div class="card-body">
+        <div class="card-type-label ter">Ambiente</div>
+        <div class="card-item-name">Monte de Ambiente</div>
+        <div class="card-item-desc">Monte separado de condições de combate. A cada 3 ciclos uma nova carta é sacada e afeta os dois operadores. As cartas voltam ao monte quando expiram — nunca vão ao lixo.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-type-label efx">Lixo</div>
+        <div class="card-item-name">Cemitério</div>
+        <div class="card-item-desc">Onde os módulos usados ou descartados vão parar. Compartilhado entre os operadores.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent def"></div>
+      <div class="card-body">
+        <div class="card-type-label def">Grid</div>
+        <div class="card-item-name">Campo de cada operador</div>
+        <div class="card-item-desc">Cada operador tem 6 slots no seu grid. Os módulos são instalados com a face para baixo — o oponente não sabe o que está lá. Você pode consultar seus próprios módulos a qualquer momento.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box purple">
+    <span class="box-title">Buffer</span>
+    A mão de cada operador. Você começa com 5 módulos e nunca pode ter mais de 5 ao final do seu ciclo.
+  </div>
+</div>
+
+<!-- ATRIBUTOS -->
+<div class="section">
+  <div class="section-tag">// 03 — Especificações</div>
+  <div class="section-title">Atributos</div>
+
+  <p>Cada operador possui quatro atributos de combate e um atributo de risco:</p>
+
+  <div class="attr-grid">
+    <div class="attr-card">
+      <div class="attr-name atk">Mira Ocular</div>
+      <div class="attr-vs">Ataque · Bloqueado por Blindagem</div>
+      <div class="attr-desc">Implante neural de precisão. Ataque direto e calibrado.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-name atk">Scan</div>
+      <div class="attr-vs">Ataque · Bloqueado por Sinal Fantasma</div>
+      <div class="attr-desc">Detecção eletrônica do alvo. Rastreamento de posição e vulnerabilidades.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-name def">Blindagem</div>
+      <div class="attr-vs">Defesa · Contra Mira Ocular</div>
+      <div class="attr-desc">Armadura cibernética. Neutraliza ataques de precisão direta.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-name def">Sinal Fantasma</div>
+      <div class="attr-vs">Defesa · Contra Scan</div>
+      <div class="attr-desc">Interferência de rastreamento. Torna o operador invisível aos sensores inimigos.</div>
+    </div>
+  </div>
+
+  <div class="warning">
+    Blindagem só neutraliza Mira Ocular. Sinal Fantasma só neutraliza Scan. Misturar errado é deixar o ataque passar.
+  </div>
+
+  <div class="attr-card" style="margin-top:10px">
+    <div class="attr-name exp">Exposição</div>
+    <div class="attr-vs">Risco · Visível para os dois operadores</div>
+    <div class="attr-desc">Quanto mais alta a Exposição, mais fácil é acertar um tiro em você. Ela sobe naturalmente a cada ciclo após o terceiro, e dispara após qualquer ataque. Gerenciá-la é tão importante quanto atacar.</div>
+  </div>
+
+  <div class="box red" style="margin-top:16px">
+    <span class="box-title">Mecânica de Exposição</span>
+    — Fica em 0 nos primeiros 3 ciclos<br>
+    — A partir do ciclo 4: sobe +1 por ciclo<br>
+    — Ao executar um ataque: +8 imediatos, decaindo −2 por ciclo<br>
+    — Se você disparar e errar, continua exposto. Atire com cuidado.
+  </div>
+</div>
+
+<!-- SEU TURNO -->
+<div class="section">
+  <div class="section-tag">// 04 — Protocolo</div>
+  <div class="section-title pink">Seu Ciclo</div>
+
+  <p>A cada ciclo, o operador ativo executa as seguintes ações — nesta ordem:</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Download — Obrigatório</div>
+        <div class="step-desc">Baixe 1 módulo do stack. Isso é sempre obrigatório. Módulos extras podem ser baixados até completar 5 no buffer — cada download extra custa <strong>+1 de Exposição</strong>.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Instalar — Opcional</div>
+        <div class="step-desc">Instale até <strong>2 módulos</strong> do buffer no seu grid. Os módulos são instalados com a face para baixo — o oponente não sabe o que você instalou.</div>
+      </div>
+    </div>
+    <div class="step step-optional">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Ativar Equipamento — Opcional</div>
+        <div class="step-desc">Se tiver módulos de equipamento instalados no grid, você pode ativá-los. Equipamentos <strong>não consomem o ciclo</strong> — podem ser usados antes ou depois de instalar módulos.</div>
+      </div>
+    </div>
+    <div class="step step-optional">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Executar Ataque — Opcional</div>
+        <div class="step-desc">Execute um ataque contra o oponente. Escolha quais módulos de ataque usar. O oponente responde com sua defesa. <strong>O ataque sempre encerra o ciclo.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <span class="box-title">Limite de buffer</span>
+    Ao final do ciclo você não pode ter mais de 5 módulos no buffer. Se tiver mais, descarte o excedente — ou instale no grid para não perder.
+  </div>
+</div>
+
+<!-- O ATAQUE -->
+<div class="section">
+  <div class="section-tag">// 05 — Execução</div>
+  <div class="section-title">O Ataque</div>
+
+  <p>Ataques só podem ser executados a partir do <strong>ciclo 4</strong>. Antes disso, os operadores estão se posicionando.</p>
+
+  <div class="divider"><span>Fluxo do ataque</span></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Atacante escolhe os módulos</div>
+        <div class="step-desc">Selecione quais módulos de Mira Ocular e Scan do seu grid serão usados. Você não precisa usar todos — escolha estrategicamente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Defensor escolhe os módulos</div>
+        <div class="step-desc">O defensor vê o breakdown do ataque — quanto Mira Ocular e quanto Scan está vindo — e escolhe quais módulos de Blindagem e Sinal Fantasma usar para bloquear.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Resolução</div>
+        <div class="step-desc">O sistema calcula o resultado e rola o D20. Módulos usados vão ao lixo independente do resultado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="formula-eq">
+      ( ATAQUE − DEFESA ) + EXPOSIÇÃO DO ALVO
+      <br>= ALVO DO D20
+    </div>
+    <div class="formula-note">
+      Role o D20 — se o resultado for ≤ ao alvo, o ataque é certeiro · 20 sempre falha
+    </div>
+  </div>
+
+  <div class="box red">
+    <span class="box-title">Resultado negativo</span>
+    Se Ataque − Defesa for negativo, o resultado é tratado como zero. Mas a Exposição do defensor ainda conta — nunca é impossível acertar.
+  </div>
+
+  <p>Um <strong>acerto certeiro é letal</strong> — o operador é eliminado e a partida termina. Salvo efeito de módulo especial como o Decoy.</p>
+  <p>Em caso de <strong>falha</strong>, todos os módulos usados no ataque e na defesa vão ao lixo. A Exposição do atacante ainda sobe.</p>
+</div>
+
+<!-- TIPOS DE CARTA -->
+<div class="section">
+  <div class="section-tag">// 06 — Inventário</div>
+  <div class="section-title purple">Tipos de Módulo</div>
+
+  <div class="card-list">
+
+    <div class="card-item">
+      <div class="card-accent atk"></div>
+      <div class="card-body">
+        <div class="card-type-label atk">Módulo de Ataque</div>
+        <div class="card-item-name">Mira Ocular / Scan</div>
+        <div class="card-item-desc">Somam poder ao ataque. Valores de +1 a +3. Mira Ocular é bloqueada por Blindagem. Scan é bloqueado por Sinal Fantasma. Vão ao lixo após o ataque.</div>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <div class="card-accent def"></div>
+      <div class="card-body">
+        <div class="card-type-label def">Módulo de Defesa</div>
+        <div class="card-item-name">Blindagem / Sinal Fantasma</div>
+        <div class="card-item-desc">Reduzem o poder do ataque recebido. Valores de +1 a +3. Só funcionam contra o tipo correto de ataque. Vão ao lixo após a defesa.</div>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-type-label efx">Módulo de Efeito</div>
+        <div class="card-item-name">Decoy · Contra-Hack · Segundo Pulso</div>
+        <div class="card-item-desc">Ativados automaticamente ou opcionalmente em condições específicas. Ficam instalados no grid aguardando o momento certo.</div>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Módulo de Equipamento</div>
+        <div class="card-item-name">Vírus · Spyware · DDoS · Firewall Trap · Deep Scan</div>
+        <div class="card-item-desc">Ativados no seu ciclo, sem custo de ação. Agem sobre o grid do oponente. Vão ao lixo após uso.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"><span>Módulos de Efeito em detalhe</span></div>
+
+  <div class="card-list">
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-type-label efx">Efeito · Obrigatório · Ativado ao ser acertado</div>
+        <div class="card-item-name">Decoy</div>
+        <div class="card-item-desc">Se o operador receber um acerto certeiro, o Decoy é ativado <strong>automaticamente</strong> — o ataque é absorvido. O operador sobrevive. Não há escolha: se o Decoy estiver no grid, ele age.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-type-label efx">Efeito · Opcional · Após falha do oponente</div>
+        <div class="card-item-name">Contra-Hack</div>
+        <div class="card-item-desc">Se o oponente errar o ataque, você pode executar um contra-ataque imediato sem gastar seu ciclo. A Exposição sobe normalmente como num ataque padrão. O cálculo já considera o aumento de Exposição do oponente pelo ataque falho.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-type-label efx">Efeito · Opcional · Após falhar seu ataque</div>
+        <div class="card-item-name">Segundo Pulso</div>
+        <div class="card-item-desc">Se você errar um ataque, pode executar um segundo ataque imediatamente. Este segundo ataque gera apenas <strong>metade da Exposição</strong> que um ataque normal geraria. Só pode ser usado uma vez por sequência.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span>Módulos de Equipamento em detalhe</span></div>
+
+  <div class="card-list">
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Equipamento</div>
+        <div class="card-item-name">Vírus</div>
+        <div class="card-item-desc">Destrói um módulo instalado no grid do oponente. O módulo vai direto ao lixo.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Equipamento · Requer espaço no buffer</div>
+        <div class="card-item-name">Spyware</div>
+        <div class="card-item-desc">Copia um módulo do grid do oponente para o seu buffer. Só pode ser usado se você tiver espaço no buffer — com 5 módulos na mão, o Spyware é inutilizável.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Equipamento</div>
+        <div class="card-item-name">DDoS</div>
+        <div class="card-item-desc">Ataque distribuído. A Exposição do oponente sobe +3. A sua sobe +1. Uma jogada agressiva para pressionar o oponente a atirar antes de estar pronto.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Equipamento</div>
+        <div class="card-item-name">Firewall Trap</div>
+        <div class="card-item-desc">Bloqueia um slot vazio do grid do oponente por 5 ciclos. O slot fica inutilizável — o oponente não pode instalar módulos nele.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-type-label eqp">Equipamento</div>
+        <div class="card-item-name">Deep Scan</div>
+        <div class="card-item-desc">Escaneia o buffer do oponente e revela 2 módulos aleatórios. Você vê o que o oponente tem na mão — informação valiosa para antecipar o próximo ataque.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AMBIENTE -->
+<div class="section">
+  <div class="section-tag">// 07 — Condições Externas</div>
+  <div class="section-title pink">Condições de Ambiente</div>
+
+  <p>A cada <strong>3 ciclos</strong>, uma nova condição de ambiente é ativada e afeta os <strong>dois operadores</strong>. As condições ficam ativas por 3 ciclos e depois voltam ao monte — podendo ser sacadas novamente.</p>
+
+  <div class="terrain-list">
+    <div class="terrain-item">
+      <div class="terrain-icon">☣</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Chuva Ácida</div>
+        <div class="terrain-effect">Scan −3, Sinal Fantasma +3 para ambos. Sensores comprometidos, camuflagem favorecida.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">⚡</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Pulso EMP</div>
+        <div class="terrain-effect">Exposição −3 após qualquer ataque. A descarga eletromagnética dispersa os sinais.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">🔆</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Luz Neon Intensa</div>
+        <div class="terrain-effect">Mira Ocular −3, Scan +3 para ambos. O excesso de luz dificulta a mira direta mas amplia a detecção eletrônica.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">📡</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Interferência Solar</div>
+        <div class="terrain-effect">Sorteia aleatoriamente um operador: −1 Scan e −1 Sinal Fantasma. O outro recebe +1 em ambos.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">🌫</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Névoa de Dados</div>
+        <div class="terrain-effect">Sinal Fantasma +2 para ambos. O ambiente digital está saturado de ruído.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">💀</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Blackout de Rede</div>
+        <div class="terrain-effect">Anula todos os módulos de Scan em campo. Detecção eletrônica completamente comprometida.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">🔴</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Sobrecarga do Sistema</div>
+        <div class="terrain-effect">Anula todos os módulos de Blindagem em campo. As armaduras cibernéticas entram em colapso.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">⬜</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Ambiente Neutro</div>
+        <div class="terrain-effect">Sem efeito. As condições estão estáveis.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">🌑</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Modo Stealth</div>
+        <div class="terrain-effect">Sinal Fantasma +3 para ambos. Exposição +2 adicional após qualquer ataque. A escuridão protege, mas atacar expõe mais.</div>
+      </div>
+    </div>
+    <div class="terrain-item">
+      <div class="terrain-icon">💾</div>
+      <div class="terrain-body">
+        <div class="terrain-name">Zona de Guerra Cyber</div>
+        <div class="terrain-effect">A Exposição sobe 2 pontos por ciclo em vez de 1. O ambiente está em colapso total — a pressão é dobrada.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VITÓRIA -->
+<div class="section">
+  <div class="section-tag">// 08 — Encerramento</div>
+  <div class="section-title">Vitória e Derrota</div>
+
+  <p>A partida termina quando um operador é atingido por um ataque certeiro <strong>sem ter um Decoy instalado no grid</strong>.</p>
+
+  <div class="box">
+    <span class="box-title">Kernel Panic</span>
+    O sistema inimigo entrou em colapso. Acesso total obtido. Missão encerrada com sucesso.
+  </div>
+
+  <div class="box red">
+    <span class="box-title">System Failure</span>
+    Seu sistema foi comprometido. O kernel entrou em pânico. Não há recuperação possível.
+  </div>
+
+  <p>No modo <strong>Solitário</strong>, o operador enfrenta um agente de IA em dificuldade Fácil ou Médio. O modo Difícil está em desenvolvimento.</p>
+  <p>No modo <strong>Rede Local</strong>, dois operadores usam o mesmo terminal. Uma tela de transferência aparece entre cada ciclo para proteger a privacidade do buffer.</p>
+</div>
+
+<!-- DICAS -->
+<div class="section">
+  <div class="section-tag">// 09 — Inteligência de Campo</div>
+  <div class="section-title purple">Dicas para Operadores</div>
+
+  <div class="card-list">
+    <div class="card-item">
+      <div class="card-accent atk"></div>
+      <div class="card-body">
+        <div class="card-item-name">Gerencie sua Exposição</div>
+        <div class="card-item-desc">Comprar módulos extras custa Exposição. Atacar custa Exposição. Cada decisão tem um preço — calcule quando vale a pena.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent def"></div>
+      <div class="card-body">
+        <div class="card-item-name">Defenda com o tipo certo</div>
+        <div class="card-item-desc">Blindagem não bloqueia Scan. Sinal Fantasma não bloqueia Mira Ocular. Observe o breakdown do ataque antes de escolher.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent efx"></div>
+      <div class="card-body">
+        <div class="card-item-name">O Decoy é sua vida</div>
+        <div class="card-item-desc">Instale o Decoy no grid assim que possível. Ele ativa automaticamente — você não precisa fazer nada. É sua única segunda chance.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent eqp"></div>
+      <div class="card-body">
+        <div class="card-item-name">Equipamentos mudam o jogo</div>
+        <div class="card-item-desc">Um Vírus no momento certo destrói meses de acúmulo do oponente. O Deep Scan revela o que está vindo. Use com timing.</div>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="card-accent ter"></div>
+      <div class="card-body">
+        <div class="card-item-name">Leia o ambiente</div>
+        <div class="card-item-desc">A Sobrecarga do Sistema anula Blindagem — ataque neste ciclo. O Blackout de Rede anula Scan — use só Mira Ocular. O ambiente muda tudo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>Kernel Panic · Manual do Operador · v1.0</div>
+  <div>Protocolo de Eliminação · Sistema D20</div>
+  <div style="margin-top:12px;color:#2a2a5a">// FIM DO DOCUMENTO</div>
+</div>
+
+</div>
+</body>
+</html>
