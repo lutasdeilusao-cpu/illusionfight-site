@@ -41,7 +41,8 @@ export default function UnifiedNotification() {
     }
 
     // Fallback: fila normal do notificationManager
-    const item = notificationManager.pull()
+    // Achievement tem prioridade — busca na fila inteira com bypass de cooldown
+    const item = notificationManager.findAndPull('achievement', true) || notificationManager.pull()
     if (item) {
       setCurrent(item)
       setIsClosing(false)

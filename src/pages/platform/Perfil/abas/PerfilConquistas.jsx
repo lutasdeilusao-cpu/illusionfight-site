@@ -4,6 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useFichas } from '../../../../context/FichasContext'
 import { supabase } from '../../../../lib/supabase'
+import { notificationManager } from '../../../../lib/notificationManager'
 import todosAchievements from '../../../../data/achievements-pt.json'
 
 export default function PerfilConquistas() {
@@ -26,6 +27,7 @@ export default function PerfilConquistas() {
     const { data: removidosEventos, error: err2 } = await supabase
       .from('perfil_eventos').delete().eq('user_id', user.id).eq('tipo', 'conquista').select()
     if (err2) { console.error('[Reset] erro perfil_eventos:', err2); setResetando(false); return }
+    notificationManager.clear()
     await refresh()
     setConfirmando(false)
     setResetando(false)

@@ -45,18 +45,19 @@ export const notificationManager = {
 
   /**
    * Tenta obter a próxima notificação da fila.
-   * Respeita o cooldown de 15 min (exceto nina_music).
+   * Respeita o cooldown de 15 min, a menos que bypassCooldown=true.
    * Se aprovada, remove da fila e registra o timestamp.
+   * @param {boolean} [bypassCooldown=false] - se true, ignora o cooldown de 15 min
    * @returns {{type, data, id}|null}
    */
-  pull() {
+  pull(bypassCooldown = false) {
     const queue = this._getQueue()
     if (queue.length === 0) return null
 
     const item = queue[0]
     const lastTime = this._getLastTime()
     const now = Date.now()
-    if (now - lastTime >= COOLDOWN_MS) {
+    if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
       queue.shift()
       this._saveQueue(queue)
       this._setLastTime(now)
@@ -86,6 +87,23 @@ export const notificationManager = {
   timeUntilNext() {
     const remaining = COOLDOWN_MS - (Date.now() - this._getLastTime())
     return Math.max(0, remaining)
+  },
+
+  /** Busca e remove o primeiro item de um tipo específico, com bypass opcional de cooldown */
+  findAndPull(type, bypassCooldown = false) {
+    const queue = this._getQueue()
+    const idx = queue.findIndex(item => item.type === type)
+    if (idx === -1) return null
+    const item = queue[idx]
+    const lastTime = this._getLastTime()
+    const now = Date.now()
+    if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
+      queue.splice(idx, 1)
+      this._saveQueue(queue)
+      this._setLastTime(now)
+      return item
+    }
+    return null
   },
 
   /** Limpa a fila inteira */
