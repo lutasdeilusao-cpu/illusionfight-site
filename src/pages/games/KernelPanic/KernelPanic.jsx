@@ -35,6 +35,7 @@ export default function KernelPanic() {
   const [atkSelection, setAtkSelection] = useState([])
   const prevGameOverRef = useRef(false)
   const prevShotResultRef = useRef(null)
+  const lastHandoffPlayerRef = useRef(-1)
 
   useEffect(() => {
     if (state.gameOver) prevGameOverRef.current = true
@@ -53,14 +54,14 @@ export default function KernelPanic() {
   }, [state._shotResult, isPresenting])
 
   useEffect(() => {
-    if (!state.gameOver && handoff === null && !resultOverlay && !isPresenting) {
-      const isAIMode = state.mode === 'solo-easy' || state.mode === 'solo-medium'
-      if (!isAIMode && state.currentPlayer >= 0) {
-        const t = setTimeout(() => setHandoff(state.currentPlayer), 300)
-        return () => clearTimeout(t)
-      }
-    }
-  }, [state.currentPlayer, state.round, state.gameOver, handoff, resultOverlay, isPresenting, state.mode])
+    if (state.gameOver || resultOverlay || isPresenting) return
+    const isAIMode = state.mode === 'solo-easy' || state.mode === 'solo-medium'
+    if (isAIMode || state.currentPlayer < 0) return
+    if (state.currentPlayer === lastHandoffPlayerRef.current) return
+    lastHandoffPlayerRef.current = state.currentPlayer
+    const t = setTimeout(() => setHandoff(state.currentPlayer), 300)
+    return () => clearTimeout(t)
+  }, [state.currentPlayer, state.round, state.gameOver, resultOverlay, isPresenting, state.mode])
 
   const startGame = useCallback((mode) => {
     setScreen('game')

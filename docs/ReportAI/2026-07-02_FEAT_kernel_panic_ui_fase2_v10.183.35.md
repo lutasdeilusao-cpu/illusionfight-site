@@ -186,13 +186,40 @@ npm run build → ✓ built in 1.79s (0 errors)
 ```
 
 ### Etapa B — Dev server
-Não executado (não necessário — build já validou compilação).
+O Vite dev server sobe em `http://localhost:5173` e serve a rota `/prototype/kernel-panic` sem erros.
 
 ### Etapa C — Healthcheck
 Build sem warnings relacionados ao Kernel Panic. Apenas warnings preexistentes (chunk size, dynamic import supertrunfo).
 
-### Etapa D — Playwright
-Não executado (a ser coberto na Task 3 com integração de rota real). O entry point está montado mas ainda não possui rota no React Router — documentado como pendente para Task 3.
+### Etapa D — Playwright (6 testes, 6/6 ✅)
+
+Rota de teste: `/prototype/kernel-panic` adicionada em `App.jsx` para viabilizar o teste (será substituída pelo toggle oficial na Task 3).
+
+| Teste | Descrição | Resultado |
+|---|---|---|
+| A | Rota carrega sem erros de console | ✅ |
+| B | Menu → iniciar partida local (versus) | ✅ |
+| C | Menu → iniciar solo fácil | ✅ |
+| D | Handoff entre jogadores (J1 → PRONTO → PASSAR → J2) | ✅ |
+| E | IA animada (solo fácil, 4 screenshots durante animação) | ✅ |
+| F | Mobile 375px — layout responsivo | ✅ |
+
+**Screenshots capturados em** `test-results/kp-scope/`:
+- `kp-scope-inicio.png` — estado inicial da partida solo fácil
+- `kp-scope-antes-ia.png` — antes do turno da IA
+- `kp-scope-ia-step1.png` — durante animação da IA (passo 1)
+- `kp-scope-ia-step2.png` — durante animação da IA (passo 2)
+- `kp-scope-ia-step3.png` — durante animação da IA (passo 3)
+- `kp-scope-ia-fim.png` — após animação da IA
+- `kp-scope-mobile-375px.png` — layout em viewport 375×812
+
+**Comando:**
+```
+npx playwright test e2e/kernel_panic_scope.spec.js --reporter=list
+→ 6 passed (38.9s)
+```
+
+**Fix aplicado durante o teste:** O handoff loop (re-aparecia após dismiss porque o useEffect disparava de novo com `handoff === null`). Corrigido com `lastHandoffPlayerRef` — só mostra handoff quando `currentPlayer` muda de fato.
 
 ---
 
@@ -252,8 +279,7 @@ src/pages/games/KernelPanic/
 
 ## 11. Pendências para Task 3
 
-- [ ] Integração de rota real no React Router (toggle oficial)
-- [ ] Playwright test de escopo (Etapa D)
+- [ ] Integração de rota real no React Router (toggle oficial) — atualmente em `/prototype/kernel-panic`
+- [ ] Remover rota temporária `/prototype/kernel-panic` da `App.jsx` quando toggle oficial for implementado
 - [ ] i18n (pt/en/es)
 - [ ] Conquistas (backlog)
-- [ ] Teste mobile 375px com screenshots
