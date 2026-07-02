@@ -15,10 +15,16 @@ export function AchievementsProvider({ children }) {
 
   useEffect(() => {
     if (user) {
+      if (!user.id) {
+        setDesbloqueados([])
+        return
+      }
       migrarLocalParaSupabase(user.id).then(() => carregarDoSupabase())
     } else {
-      // Sem conta = sem achievements. Não carrega do localStorage.
+      // Sem conta = sem achievements. Limpa fila p/ evitar que notificações
+      // de achievements de sessão anterior apareçam para guest (issue #guest-popup)
       setDesbloqueados([])
+      notificationManager.clearByType('achievement')
     }
   }, [user])
 

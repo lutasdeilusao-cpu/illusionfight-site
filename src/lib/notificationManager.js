@@ -106,6 +106,13 @@ export const notificationManager = {
     return null
   },
 
+  /** Remove da fila todos os itens de um tipo específico */
+  clearByType(type) {
+    const queue = this._getQueue().filter(item => item.type !== type)
+    this._saveQueue(queue)
+    this._notifyListeners()
+  },
+
   /** Limpa a fila inteira */
   clear() {
     localStorage.removeItem(STORAGE_QUEUE)
