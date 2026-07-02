@@ -500,7 +500,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.26** | feat: reset admin de conquistas (própria conta) + confirmação modal + i18n pt/en/es + refetch automático |
+| `SITE_VERSION` | **10.183.27** | feat: reset admin de conquistas + fix: .select() verifica DELETE real + migration 023 RLS policy |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |

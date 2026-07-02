@@ -16,9 +16,15 @@ export default function PerfilConquistas() {
 
   async function handleReset() {
     setResetando(true)
-    const { error: err1 } = await supabase.from('user_achievements').delete().eq('user_id', user.id)
+    const { data: removidos, error: err1 } = await supabase
+      .from('user_achievements').delete().eq('user_id', user.id).select()
     if (err1) { console.error('[Reset] erro user_achievements:', err1); setResetando(false); return }
-    const { error: err2 } = await supabase.from('perfil_eventos').delete().eq('user_id', user.id).eq('tipo', 'conquista')
+    if (!removidos || removidos.length === 0) {
+      console.error('[Reset] RLS bloqueou DELETE user_achievements — aplicar migration 023 no Supabase dashboard')
+      setResetando(false); return
+    }
+    const { data: removidosEventos, error: err2 } = await supabase
+      .from('perfil_eventos').delete().eq('user_id', user.id).eq('tipo', 'conquista').select()
     if (err2) { console.error('[Reset] erro perfil_eventos:', err2); setResetando(false); return }
     await refresh()
     setConfirmando(false)
