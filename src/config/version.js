@@ -4,11 +4,11 @@
  * Todas as versões do site centralizadas aqui.
  * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
  *
- * Última atualização: 2026-06-16
+ * Última atualização: 2026-07-02
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.183.33'
+export const SITE_VERSION = '10.183.34'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -23,6 +23,7 @@ export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration �
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
+export const KP_VERSION = '1.0.0' // Kernel Panic — engine extraída de kernel-panic.html com useReducer + 37 funções puras + IA estado→estado
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
@@ -33,6 +34,7 @@ console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
 console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
 console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)
+console.log(`[KP] versão carregada: ${KP_VERSION}`)
 console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
 console.log(`[MINIGAMES] versão carregada: ${MINIGAMES_VERSION}`)

@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-02
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-02 (engine refactor)
 
 ---
 
@@ -500,7 +500,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.33** | feat: toggle Games LDI / Kernel Panic com estética hacker — aba temática separada com placeholder vazio, i18n PT/EN/ES, CSS modular sem contaminação |
+| `SITE_VERSION` | **10.183.34** | feat: Kernel Panic engine extraction — useReducer + 37 pure functions + AI estado→estado + parity test 5/5 ✅ |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
@@ -513,6 +513,7 @@
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
+| `KP_VERSION` | **1.0.0** | Kernel Panic — engine extraída de kernel-panic.html com useReducer + 37 funções puras + IA estado→estado |
 
 ---
 
