@@ -1,4 +1,4 @@
-import { Fragment, useState, lazy, Suspense } from 'react'
+import { Fragment, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -28,19 +28,21 @@ const BADGE_CORES = {
   free: '#22C55E',
 }
 
+const KERNEL_JOGOS = [
+  { id: 'kernelpanic', nomeKey: 'site.games.nomes.kernel_panic', tagKey: 'site.games.taglines.kernel_panic', emoji: '💀', cor: '#A855F4', rota: '/games/kernel-panic', badgeKey: 'site.games.badges.beta' },
+]
+
 const CONTEUDO = [
   { id: 'quiz', nomeKey: 'site.games.nomes.quiz', tagKey: 'site.games.taglines.quiz', emoji: '🎯', cor: '#22C55E', rota: '/quiz', badgeKey: 'site.games.badges.free' },
   { id: 'leaderboard', nomeKey: 'site.games.nomes.leaderboard', tagKey: 'site.games.taglines.leaderboard', emoji: '🏆', cor: '#F5A623', rota: '/leaderboard', badgeKey: 'site.games.badges.free' },
 ]
 
 // Games that require ficha (not FREE badge)
-const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo', 'kernelpanic']
+const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo']
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 const ABAS = ['ldi', 'kernel']
-
-const KernelPanicComp = lazy(() => import('./KernelPanic/KernelPanic'))
 
 export default function Games() {
   const [aba, setAba] = useState('ldi')
@@ -132,15 +134,26 @@ export default function Games() {
       ) : (
         <section className="kp-secao">
           <div className="kp-grid-bg" />
-          <div className="kp-header">
-            <h2 className="kp-titulo">
-              KERNEL<br />PANIC
-            </h2>
-            <p className="kp-tagline">{t('site.games.kernel_tagline')}</p>
+          <div className="extras-secao-label">
+            <span>▶ {t('site.games.toggle_kernel')}</span>
+            <div className="extras-secao-linha" />
           </div>
-          <Suspense fallback={<div className="kp-loading">{t('site.games.kernel_loading')}</div>}>
-            <KernelPanicComp />
-          </Suspense>
+          <div className="extras-jogos-grid">
+            {KERNEL_JOGOS.map(jogo => (
+              <div key={jogo.id} className="extras-jogo-card"
+                style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || '#666' }}
+                onClick={() => navigate(jogo.rota)}>
+                <div className="extras-jogo-card-inner">
+                  <div className="extras-jogo-badge">{t(jogo.badgeKey)}</div>
+                  <div className="extras-jogo-emoji">{jogo.emoji}</div>
+                  <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
+                  <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
+                  <div className="extras-jogo-cta">{t('site.games.jogar')}</div>
+                </div>
+                <div className="extras-jogo-card-borda" />
+              </div>
+            ))}
+          </div>
         </section>
       )}
 

@@ -654,7 +654,7 @@
       "em_breve": "PRÓXIMAMENTE",
       "credits": "LUTAS DE ILUSIÓN — 1 JUGADOR",
       "toggle_ldi": "Games LDI",
-      "toggle_kernel": "Kernel Panic",
+      "toggle_kernel": "Kernel Games",
       "kernel_tagline": "PROTOCOLO DE ELIMINACIÓN",
       "kernel_empty": "ningún protocolo disponible aún.",
       "modal_lancamento": {
@@ -684,7 +684,8 @@
         "minigames": "LDI MINI JUEGOS",
         "duelo": "DUELO LDI",
         "quiz": "Quiz SDR",
-        "leaderboard": "Clasificación"
+        "leaderboard": "Clasificación",
+        "kernel_panic": "Kernel Panic"
       },
       "taglines": {
         "ldi": "RPG NARRATIVO, crea tu avatar, toma tus decisiones, enfréntate a tus batallas, ¡descubre la verdad!",
@@ -697,7 +698,8 @@
         "minigames": "puzzles independientes. sin login. solo habilidad.",
         "duelo": "¿Alguna vez pensaste en jugar Yu-Gi-Oh pero con batallas en un tablero? Así es, y lo estoy probando. Pronto lo liberaré para todos.",
         "quiz": "prueba tu conocimiento del universo LDI.",
-        "leaderboard": "ranking global de jugadores."
+        "leaderboard": "ranking global de jugadores.",
+        "kernel_panic": "Protocolo de Eliminación"
       }
     },
     "leaderboard": {

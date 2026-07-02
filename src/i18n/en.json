@@ -654,7 +654,7 @@
       "em_breve": "COMING SOON",
       "credits": "ILLUSION FIGHT — 1 PLAYER",
       "toggle_ldi": "LDI Games",
-      "toggle_kernel": "Kernel Panic",
+      "toggle_kernel": "Kernel Games",
       "kernel_tagline": "ELIMINATION PROTOCOL",
       "kernel_empty": "no protocol available yet.",
       "modal_lancamento": {
@@ -684,7 +684,8 @@
         "minigames": "LDI MINI GAMES",
         "duelo": "LDI DUELO",
         "quiz": "SDR Quiz",
-        "leaderboard": "Leaderboard"
+        "leaderboard": "Leaderboard",
+        "kernel_panic": "Kernel Panic"
       },
       "taglines": {
         "ldi": "NARRATIVE RPG, create your avatar, make your choices, face your battles, discover the truth!",
@@ -697,7 +698,8 @@
         "minigames": "standalone puzzles. no login. just skill.",
         "duelo": "Ever thought of playing Yu-Gi-Oh but with battles on a board? That's right, and I'm testing it. I'll release it for everyone soon.",
         "quiz": "test your knowledge of the LDI universe.",
-        "leaderboard": "global player ranking."
+        "leaderboard": "global player ranking.",
+        "kernel_panic": "Elimination Protocol"
       }
     },
     "leaderboard": {

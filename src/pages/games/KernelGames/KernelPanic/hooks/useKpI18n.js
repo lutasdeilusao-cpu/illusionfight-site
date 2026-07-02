@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useLanguage } from '../../../../context/LanguageContext'
+import { useLanguage } from '../../../../../context/LanguageContext'
 
 function getNested(obj, path) {
   const normalized = path.replace(/\[(\d+)\]/g, '.$1')

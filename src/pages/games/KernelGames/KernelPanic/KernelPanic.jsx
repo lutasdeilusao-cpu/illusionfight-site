@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import { useKernelPanicEngine, terrainInfoLine } from './hooks/useKernelPanicEngine'
 import { useAITurnPresenter } from './hooks/useAITurnPresenter'
 import { useKpI18n } from './hooks/useKpI18n'
+import { useReader } from '../../../../context/ReaderContext'
 import KPMenu from './components/KPMenu'
 import KPInfoBar from './components/KPInfoBar'
 import KPTerrainBar from './components/KPTerrainBar'
@@ -20,6 +21,9 @@ import KPAIWaitOverlay from './components/KPAIWaitOverlay'
 import './KernelPanic.css'
 
 export default function KernelPanic() {
+  const { setReaderMode } = useReader()
+  useEffect(() => { setReaderMode(true); return () => setReaderMode(false) }, [setReaderMode])
+
   const { state, actions } = useKernelPanicEngine()
   const { t } = useKpI18n()
   const { initGame, drawCard, playToField, activateEquip, advanceTurn, confirmShot, resolveShot, activateReaction } = actions
