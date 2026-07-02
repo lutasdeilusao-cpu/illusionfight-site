@@ -50,10 +50,14 @@ export function AchievementsProvider({ children }) {
     if (!achievement) return
     const { error } = await supabase.from('user_achievements').insert({ user_id: user.id, achievement_id: achievementId })
     if (error) {
+      if (error.code === '23505') {
+        setDesbloqueados(prev => prev.includes(achievementId) ? prev : [...prev, achievementId])
+        return
+      }
       console.error('ERRO AO SALVAR ACHIEVEMENT:', error)
       return
     }
-    setDesbloqueados(prev => [...prev, achievementId])
+    setDesbloqueados(prev => prev.includes(achievementId) ? prev : [...prev, achievementId])
     notificationManager.push('achievement', {
       nome: achievement.nome,
       descricao: achievement.descricao,
