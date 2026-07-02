@@ -1,3 +1,4 @@
+import { useKpI18n } from '../hooks/useKpI18n'
 import KPFieldSlot from './KPFieldSlot'
 import KPHandCard from './KPHandCard'
 
@@ -6,19 +7,20 @@ export default function KPPlayerPanel({
   onInspect, onPlayToField, onActivateEquip, onDrawCard,
   onOpenShot, onPass, showActions, cardsPlayedThisTurn, drawnThisTurn,
 }) {
+  const { t } = useKpI18n()
   const prefix = playerIdx === 0 ? 'p1' : 'p2'
   const panelClass = `player-panel ${isOpponent ? 'is-opponent' : ''}`
 
   return (
     <div className={panelClass}>
       <div className="player-header">
-        <div className={`player-name ${prefix}`}>J{playerIdx + 1}</div>
-        {isCurrent && <div className="player-turn-badge">OPERANDO</div>}
+        <div className={`player-name ${prefix}`}>{t('kp.playerpanel.prefix')}{playerIdx + 1}</div>
+        {isCurrent && <div className="player-turn-badge">{t('kp.playerpanel.operando')}</div>}
         {!isCurrent && <div className="player-turn-badge hidden">—</div>}
       </div>
 
       <div className="field-area">
-        <div className="field-label">Grid</div>
+        <div className="field-label">{t('kp.playerpanel.grid')}</div>
         <div className="field-grid">
           {player.field.map((card, i) => (
             <KPFieldSlot
@@ -36,10 +38,10 @@ export default function KPPlayerPanel({
       </div>
 
       <div className="hand-area">
-        <div className="hand-label">Buffer</div>
+        <div className="hand-label">{t('kp.playerpanel.buffer')}</div>
         <div className="hand-cards">
           {player.hand.length === 0 && (
-            <div className="hand-empty">— vazio —</div>
+            <div className="hand-empty">{t('kp.playerpanel.vazio')}</div>
           )}
           {player.hand.map((card, i) => (
             <KPHandCard
@@ -56,13 +58,13 @@ export default function KPPlayerPanel({
       {showActions && (
         <div className="action-row">
           <button className="btn btn-draw" disabled={!canAct || drawnThisTurn || player.hand.length >= 5} onClick={onDrawCard}>
-            {drawnThisTurn ? 'COMPRADO' : 'COMPRAR'}
+            {drawnThisTurn ? t('kp.playerpanel.comprado') : t('kp.playerpanel.comprar')}
           </button>
           <button className="btn btn-shoot" disabled={!canAct || cardsPlayedThisTurn === 0} onClick={onOpenShot}>
-            ATIRAR
+            {t('kp.playerpanel.atirar')}
           </button>
           <button className="btn btn-pass" disabled={!canAct} onClick={onPass}>
-            PASSAR
+            {t('kp.playerpanel.passar')}
           </button>
         </div>
       )}

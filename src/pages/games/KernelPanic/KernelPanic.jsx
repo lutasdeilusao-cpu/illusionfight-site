@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useKernelPanicEngine, terrainInfoLine } from './hooks/useKernelPanicEngine'
 import { useAITurnPresenter } from './hooks/useAITurnPresenter'
+import { useKpI18n } from './hooks/useKpI18n'
 import KPMenu from './components/KPMenu'
 import KPInfoBar from './components/KPInfoBar'
 import KPTerrainBar from './components/KPTerrainBar'
@@ -20,6 +21,7 @@ import './KernelPanic.css'
 
 export default function KernelPanic() {
   const { state, actions } = useKernelPanicEngine()
+  const { t } = useKpI18n()
   const { initGame, drawCard, playToField, activateEquip, advanceTurn, confirmShot, resolveShot, activateReaction } = actions
   const { isPresenting, currentStep, actionQueue, cancel: cancelPresentation } = useAITurnPresenter(state)
 
@@ -139,8 +141,8 @@ export default function KernelPanic() {
       <header>
         <div className="logo">KERNEL<span> PANIC</span></div>
         <div className="header-meta">
-          <div>Ciclo {state.round}</div>
-          <div>{state.mode === 'solo-easy' ? 'SOLO FÁCIL' : state.mode === 'solo-medium' ? 'SOLO MÉDIO' : 'VERSUS'}</div>
+          <div>{t('kp.global.ciclo')} {state.round}</div>
+          <div>{state.mode === 'solo-easy' ? t('kp.global.solo_facil') : state.mode === 'solo-medium' ? t('kp.global.solo_medio') : t('kp.global.versus')}</div>
         </div>
       </header>
 

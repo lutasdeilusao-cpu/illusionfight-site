@@ -1,20 +1,23 @@
+import { useKpI18n } from '../hooks/useKpI18n'
+
 export default function KPReactionPopup({ open, card, onReact, onDecline }) {
+  const { t } = useKpI18n()
   if (!open) return null
   return (
     <div className="shot-overlay show" style={{ zIndex: 95 }}>
       <div className="shot-box" style={{ borderColor: '#ff00aa' }}>
-        <h2 style={{ color: '#ff00aa' }}>REAÇÃO</h2>
-        <div className="shot-sub">Uma carta de reação está disponível</div>
-        <div className="shot-section-label">Disparar {card?.name}?</div>
+        <h2 style={{ color: '#ff00aa' }}>{t('kp.reaction.titulo')}</h2>
+        <div className="shot-sub">{t('kp.reaction.disponivel')}</div>
+        <div className="shot-section-label">{t('kp.reaction.disparar', { card: card?.name })}</div>
         <div className="shot-summary">
-          Permite um segundo disparo com metade da geração de Exposição.
+          {t('kp.reaction.descricao')}
         </div>
         <div className="shot-actions">
           <button className="btn-fire" onClick={onReact} style={{ background: '#ff00aa', borderColor: '#ff00aa' }}>
-            USAR
+            {t('kp.reaction.usar')}
           </button>
           <button className="btn-cancel-shot" onClick={onDecline}>
-            DECLINAR
+            {t('kp.reaction.declinar')}
           </button>
         </div>
       </div>

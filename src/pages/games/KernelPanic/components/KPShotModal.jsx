@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useKpI18n } from '../hooks/useKpI18n'
 
 export default function KPShotModal({ open, playerField, playerIdx, onConfirm, onCancel }) {
+  const { t } = useKpI18n()
   const [selected, setSelected] = useState([])
 
   if (!open) return null
@@ -36,10 +38,10 @@ export default function KPShotModal({ open, playerField, playerIdx, onConfirm, o
   return (
     <div className="shot-overlay show">
       <div className="shot-box">
-        <h2>CONFIRMAR ATAQUE</h2>
-        <div className="shot-sub">Selecione os módulos de ataque</div>
+        <h2>{t('kp.shot.confirmar_ataque')}</h2>
+        <div className="shot-sub">{t('kp.shot.selecione_ataque')}</div>
 
-        <div className="shot-section-label">Ataque</div>
+        <div className="shot-section-label">{t('kp.shot.ataque')}</div>
         <div className="shot-cards">
           {atkCards.map(({ card, slotIdx }) => (
             <button key={slotIdx} className={`shot-card-btn ${getChosenClass(slotIdx)}`}
@@ -47,10 +49,10 @@ export default function KPShotModal({ open, playerField, playerIdx, onConfirm, o
               {card.name} {card.bonus > 0 ? `+${card.bonus}` : ''}
             </button>
           ))}
-          {atkCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>Nenhum módulo de ataque</span>}
+          {atkCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>{t('kp.shot.sem_ataque')}</span>}
         </div>
 
-        <div className="shot-section-label">Defesa (opcional)</div>
+        <div className="shot-section-label">{t('kp.shot.defesa_opcional')}</div>
         <div className="shot-cards">
           {defCards.map(({ card, slotIdx }) => (
             <button key={slotIdx} className={`shot-card-btn ${getChosenClass(slotIdx)}`}
@@ -58,12 +60,12 @@ export default function KPShotModal({ open, playerField, playerIdx, onConfirm, o
               {card.name} {card.bonus > 0 ? `+${card.bonus}` : ''}
             </button>
           ))}
-          {defCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>Nenhum módulo de defesa</span>}
+          {defCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>{t('kp.shot.sem_defesa')}</span>}
         </div>
 
         {efxCards.length > 0 && (
           <>
-            <div className="shot-section-label">Efeito</div>
+            <div className="shot-section-label">{t('kp.shot.efeito')}</div>
             <div className="shot-cards">
               {efxCards.map(({ card, slotIdx }) => (
                 <button key={slotIdx} className={`shot-card-btn ${getChosenClass(slotIdx)}`}
@@ -76,16 +78,16 @@ export default function KPShotModal({ open, playerField, playerIdx, onConfirm, o
         )}
 
         <div className="shot-summary">
-          Potência de fogo: <span className="hl">{atkPower}</span> | Defesa: <span className="hl">{defPower}</span>
+          {t('kp.shot.potencia_fogo')} <span className="hl">{atkPower}</span> | {t('kp.shot.defesa')} <span className="hl">{defPower}</span>
         </div>
 
         <div className="shot-actions">
           <button className="btn-fire" disabled={selected.filter(s => s.role === 'atk').length === 0}
             onClick={() => onConfirm(selected)}>
-            ATIRAR
+            {t('kp.shot.atirar')}
           </button>
           <button className="btn-cancel-shot" onClick={() => { setSelected([]); onCancel() }}>
-            CANCELAR
+            {t('kp.shot.cancelar')}
           </button>
         </div>
       </div>

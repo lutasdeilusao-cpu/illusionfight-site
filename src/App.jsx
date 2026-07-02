@@ -56,7 +56,6 @@ import ArenaTaticsRoute from './pages/games/ArenaTatics/ArenaTaticsRoute'
 import PP from './pages/games/PesadeloParticular/PP'
 import DueloRoute from './pages/games/Duelo/DueloRoute'
 import Tamagoshi from './pages/games/Tamagoshi/Tamagoshi'
-import KernelPanic from './pages/games/KernelPanic/KernelPanic'
 import Loja from './pages/site/Loja/Loja'
 import Custos from './pages/site/Custos'
 import NotFound from './pages/site/NotFound/NotFound'
@@ -125,7 +124,6 @@ export default function App() {
         <Route path="/prototype" element={<Prototype />} />
         <Route path="/prototype/srgrm" element={<SRGRM />} />
         <Route path="/prototype/arenatestbed" element={<ArenaTestbed />} />
-        <Route path="/prototype/kernel-panic" element={<KernelPanic />} />
         <Route path="/custos" element={<Custos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

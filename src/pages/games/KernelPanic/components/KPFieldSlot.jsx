@@ -1,6 +1,9 @@
+import { useKpI18n } from '../hooks/useKpI18n'
+
 export default function KPFieldSlot({ card, slotIdx, disabled, round, onClick, onInspect, isOpponent }) {
+  const { t } = useKpI18n()
   if (disabled) {
-    return <div className="field-slot disabled-slot" title={`Slot bloqueado até ciclo ${round + 5}`} />
+    return <div className="field-slot disabled-slot" title={t('kp.fieldslot.bloqueado', { round: round + 5 })} />
   }
 
   if (!card) {

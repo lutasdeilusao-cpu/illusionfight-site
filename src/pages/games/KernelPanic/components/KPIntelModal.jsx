@@ -1,10 +1,13 @@
+import { useKpI18n } from '../hooks/useKpI18n'
+
 export default function KPIntelModal({ cards, onClose }) {
+  const { t } = useKpI18n()
   if (!cards || cards.length === 0) return null
   return (
     <div className="inspect-overlay show" style={{ zIndex: 260 }}>
       <div className="inspect-box">
-        <div className="ib-type">INTELIGÊNCIA</div>
-        <div className="ib-name">Cartas reveladas</div>
+        <div className="ib-type">{t('kp.intel.titulo')}</div>
+        <div className="ib-name">{t('kp.intel.subtitulo')}</div>
         <div style={{ display: 'flex', gap: 8, marginBottom: 18 }}>
           {cards.map((c, i) => (
             <div key={i} style={{
@@ -15,7 +18,7 @@ export default function KPIntelModal({ cards, onClose }) {
             </div>
           ))}
         </div>
-        <button className="btn-inspect-close" onClick={onClose}>FECHAR</button>
+        <button className="btn-inspect-close" onClick={onClose}>{t('kp.intel.fechar')}</button>
       </div>
     </div>
   )

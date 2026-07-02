@@ -16,3 +16,14 @@ Lutas de Ilusão - Retcon.md
 
 candybox2_reference
 _screenshot.mjs
+
+# Artefatos de teste locais — evitar poluir a raiz
+.dev-*.log
+.dev-*.err
+.dev-*.pid
+.dev-*.out
+.srv.*
+.log1-*.txt
+kp-test-*.log
+.test-results.log
+.build-log.txt

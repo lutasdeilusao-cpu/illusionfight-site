@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -34,11 +34,13 @@ const CONTEUDO = [
 ]
 
 // Games that require ficha (not FREE badge)
-const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo']
+const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo', 'kernelpanic']
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 const ABAS = ['ldi', 'kernel']
+
+const KernelPanicComp = lazy(() => import('./KernelPanic/KernelPanic'))
 
 export default function Games() {
   const [aba, setAba] = useState('ldi')
@@ -136,9 +138,9 @@ export default function Games() {
             </h2>
             <p className="kp-tagline">{t('site.games.kernel_tagline')}</p>
           </div>
-          <div className="kp-empty">
-            <p className="kp-empty-msg">{t('site.games.kernel_empty')}</p>
-          </div>
+          <Suspense fallback={<div className="kp-loading">{t('site.games.kernel_loading')}</div>}>
+            <KernelPanicComp />
+          </Suspense>
         </section>
       )}
 

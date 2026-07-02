@@ -1,4 +1,7 @@
+import { useKpI18n } from '../hooks/useKpI18n'
+
 export default function KPTerrainBar({ terrain, roundsLeft, terrainInfo }) {
+  const { t } = useKpI18n()
   if (!terrain) return null
   return (
     <div className="terrain-strip">
@@ -9,7 +12,7 @@ export default function KPTerrainBar({ terrain, roundsLeft, terrainInfo }) {
       </div>
       <div className="terrain-timer">
         <span>{roundsLeft}</span>
-        {roundsLeft === 1 ? 'ciclo' : 'ciclos'}
+        {roundsLeft === 1 ? t('kp.terrain.ciclo') : t('kp.terrain.ciclos')}
       </div>
     </div>
   )

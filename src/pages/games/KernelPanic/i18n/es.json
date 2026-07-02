@@ -1,0 +1,139 @@
+{
+  "menu": {
+    "titulo": "KERNEL PANIC",
+    "tagline": "Ataque Cibernético",
+    "versus": "VERSUS",
+    "versus_sub": "2 jugadores en el mismo dispositivo",
+    "solo": "SOLO",
+    "solo_sub": "Enfrenta a la IA",
+    "dificuldade": "DIFICULTAD",
+    "selecione_nivel": "Selecciona el nivel",
+    "facil": "FÁCIL",
+    "facil_sub": "IA prioriza aleatoriedad",
+    "medio": "MEDIO",
+    "medio_sub": "IA toma decisiones tácticas",
+    "voltar": "← Volver"
+  },
+  "global": {
+    "ciclo": "Ciclo",
+    "solo_facil": "SOLO FÁCIL",
+    "solo_medio": "SOLO MEDIO",
+    "versus": "VERSUS"
+  },
+  "infobar": {
+    "ciclo": "Ciclo",
+    "operador": "Operador",
+    "stack": "Stack",
+    "lixo": "Descarte"
+  },
+  "terrain": {
+    "ciclo": "ciclo",
+    "ciclos": "ciclos"
+  },
+  "terraininfo": {
+    "precisao": "Precisión {mod}",
+    "visao": "Escáner {mod}",
+    "protecao": "Blindaje {mod}",
+    "camuflagem": "Señal Fantasma {mod}",
+    "scan_anulado": "Escáner anulado",
+    "blindagem_anulada": "Blindaje anulado"
+  },
+  "perigo": {
+    "player_prefix": "J"
+  },
+  "playerpanel": {
+    "prefix": "J",
+    "operando": "OPERANDO",
+    "grid": "Cuadrícula",
+    "buffer": "Buffer",
+    "vazio": "— vacío —",
+    "comprado": "ROBADO",
+    "comprar": "ROBAR",
+    "atirar": "DISPARAR",
+    "passar": "PASAR"
+  },
+  "fieldslot": {
+    "bloqueado": "Espacio bloqueado hasta ciclo {round}"
+  },
+  "shot": {
+    "confirmar_ataque": "CONFIRMAR ATAQUE",
+    "selecione_ataque": "Selecciona los módulos de ataque",
+    "ataque": "Ataque",
+    "sem_ataque": "Ningún módulo de ataque",
+    "defesa_opcional": "Defensa (opcional)",
+    "sem_defesa": "Ningún módulo de defensa",
+    "efeito": "Efecto",
+    "potencia_fogo": "Potencia de fuego:",
+    "defesa": "Defensa:",
+    "atirar": "DISPARAR",
+    "cancelar": "CANCELAR"
+  },
+  "defense": {
+    "titulo": "DEFENSA",
+    "selecione_defesa": "Selecciona la defensa de J{player}",
+    "defesa": "Defensa",
+    "sem_defesa": "Ninguna defensa disponible",
+    "reacao": "Reacción",
+    "total": "Defensa total:",
+    "confirmar": "CONFIRMAR",
+    "cancelar": "CANCELAR"
+  },
+  "reaction": {
+    "titulo": "REACCIÓN",
+    "disponivel": "Una carta de reacción está disponible",
+    "disparar": "¿Disparar {card}?",
+    "descricao": "Permite un segundo disparo con la mitad de generación de Exposición.",
+    "usar": "USAR",
+    "declinar": "DECLINAR"
+  },
+  "result": {
+    "acertou": "🚀 ACIERTO",
+    "errou": "💥 FALLO",
+    "decoy": "¡Ataque absorbido por el Decoy!",
+    "calc_atk_def": "Ataque {atk} - Defensa {def} = {diff}",
+    "calc_perigo": "+ Peligro {perigo}",
+    "alvo": "Objetivo {target}",
+    "rolagem_hit": "Tirada: {rolled} ≤ {target}",
+    "rolagem_miss": "Tirada: {rolled} > {target}",
+    "atingido": "GOLPEADO",
+    "falhou": "FALLÓ",
+    "continuar": "CONTINUAR"
+  },
+  "victory": {
+    "vitoria": "VICTORIA",
+    "derrota": "DERROTA",
+    "venceu_texto": "¡Operador ganó el combate!",
+    "perdeu_texto": "IA dominó el sistema...",
+    "revanche": "REVANCHA",
+    "menu": "MENÚ"
+  },
+  "message": {
+    "ok": "OK"
+  },
+  "handoff": {
+    "titulo": "NUEVO OPERADOR",
+    "instrucao": "Pasa el dispositivo",
+    "pronto": "LISTO"
+  },
+  "intel": {
+    "titulo": "INTELIGENCIA",
+    "subtitulo": "Cartas reveladas",
+    "fechar": "CERRAR"
+  },
+  "inspect": {
+    "atributo": "Atributo: {attr}",
+    "trigger": "Trigger: {trigger}",
+    "fechar": "CERRAR"
+  },
+  "aiwait": {
+    "titulo": "IA PROCESANDO",
+    "baixando": "Descargando módulo...",
+    "instalando": "Instalando módulo en la cuadrícula...",
+    "ativando": "Activando equipamiento...",
+    "atacando": "Iniciando ataque...",
+    "encerrando": "Finalizando ciclo...",
+    "exposicao": "Exposición aumentando...",
+    "processando": "Procesando...",
+    "algoritmo": "Ejecutando algoritmo..."
+  }
+}

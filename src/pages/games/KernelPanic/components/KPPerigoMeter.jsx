@@ -12,12 +12,15 @@ function PipRow({ value }) {
   return <div className="perigo-track">{pips}</div>
 }
 
+import { useKpI18n } from '../hooks/useKpI18n'
+
 export default function KPPerigoMeter({ players }) {
+  const { t } = useKpI18n()
   return (
     <div className="perigo-row">
       {players.map((pl, i) => (
         <div key={i} className="perigo-card">
-          <div className="perigo-label">J{i + 1}</div>
+          <div className="perigo-label">{t('kp.perigo.player_prefix')}{i + 1}</div>
           <PipRow value={pl.perigo} />
           <div className={`perigo-value ${pl.perigo >= 10 ? 'danger' : ''}`}>{pl.perigo}</div>
         </div>

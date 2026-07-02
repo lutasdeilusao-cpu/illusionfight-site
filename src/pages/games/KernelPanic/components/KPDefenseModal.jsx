@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useKpI18n } from '../hooks/useKpI18n'
 
 export default function KPDefenseModal({ open, playerField, atkSelection, playerIdx, onConfirm, onCancel }) {
+  const { t } = useKpI18n()
   const [selected, setSelected] = useState([])
 
   if (!open) return null
@@ -32,10 +34,10 @@ export default function KPDefenseModal({ open, playerField, atkSelection, player
   return (
     <div className="shot-overlay show">
       <div className="shot-box">
-        <h2>DEFESA</h2>
-        <div className="shot-sub">Selecione a defesa de J{playerIdx + 1}</div>
+        <h2>{t('kp.defense.titulo')}</h2>
+        <div className="shot-sub">{t('kp.defense.selecione_defesa', { player: playerIdx + 1 })}</div>
 
-        <div className="shot-section-label">Defesa</div>
+        <div className="shot-section-label">{t('kp.defense.defesa')}</div>
         <div className="shot-cards">
           {defCards.map(({ card, slotIdx }) => (
             <button key={slotIdx} className={`shot-card-btn ${getChosenClass(slotIdx)}`}
@@ -43,12 +45,12 @@ export default function KPDefenseModal({ open, playerField, atkSelection, player
               {card.name} {card.bonus > 0 ? `+${card.bonus}` : ''}
             </button>
           ))}
-          {defCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>Nenhuma defesa disponível</span>}
+          {defCards.length === 0 && <span style={{ color: 'var(--ghost)', fontSize: 'var(--fs-xs)' }}>{t('kp.defense.sem_defesa')}</span>}
         </div>
 
         {efxCards.length > 0 && (
           <>
-            <div className="shot-section-label">Reação</div>
+            <div className="shot-section-label">{t('kp.defense.reacao')}</div>
             <div className="shot-cards">
               {efxCards.map(({ card, slotIdx }) => (
                 <button key={slotIdx} className={`shot-card-btn ${getChosenClass(slotIdx)}`}
@@ -61,15 +63,15 @@ export default function KPDefenseModal({ open, playerField, atkSelection, player
         )}
 
         <div className="shot-summary">
-          Defesa total: <span className="hl">{defPower}</span>
+          {t('kp.defense.total')} <span className="hl">{defPower}</span>
         </div>
 
         <div className="shot-actions">
           <button className="btn-fire" onClick={() => onConfirm(selected)}>
-            CONFIRMAR
+            {t('kp.defense.confirmar')}
           </button>
           <button className="btn-cancel-shot" onClick={() => { setSelected([]); onCancel() }}>
-            CANCELAR
+            {t('kp.defense.cancelar')}
           </button>
         </div>
       </div>

@@ -1,23 +1,25 @@
 import { useState } from 'react'
+import { useKpI18n } from '../hooks/useKpI18n'
 
 export default function KPMenu({ onStart }) {
+  const { t } = useKpI18n()
   const [sub, setSub] = useState(null)
 
   if (sub === 'solo') {
     return (
       <div className="menu-overlay show">
         <div className="diff-box">
-          <div className="diff-title">DIFICULDADE</div>
-          <div className="diff-sub">Selecione o nível</div>
+          <div className="diff-title">{t('kp.menu.dificuldade')}</div>
+          <div className="diff-sub">{t('kp.menu.selecione_nivel')}</div>
           <button className="menu-btn" onClick={() => onStart('solo-easy')}>
             <span className="menu-btn-arrow">▶</span>
-            <span className="menu-btn-label">FÁCIL<span className="menu-btn-sub">IA prioritiza aleatoriedade</span></span>
+            <span className="menu-btn-label">{t('kp.menu.facil')}<span className="menu-btn-sub">{t('kp.menu.facil_sub')}</span></span>
           </button>
           <button className="menu-btn" onClick={() => onStart('solo-medium')}>
             <span className="menu-btn-arrow">▶</span>
-            <span className="menu-btn-label">MÉDIO<span className="menu-btn-sub">IA toma decisões táticas</span></span>
+            <span className="menu-btn-label">{t('kp.menu.medio')}<span className="menu-btn-sub">{t('kp.menu.medio_sub')}</span></span>
           </button>
-          <button className="diff-back" onClick={() => setSub(null)}>← Voltar</button>
+          <button className="diff-back" onClick={() => setSub(null)}>{t('kp.menu.voltar')}</button>
         </div>
       </div>
     )
@@ -26,15 +28,15 @@ export default function KPMenu({ onStart }) {
   return (
     <div className="menu-overlay show">
       <div className="menu-box">
-        <div className="menu-logo">KERNEL PANIC</div>
-        <div className="menu-tagline">Ataque Cibernético</div>
+        <div className="menu-logo">{t('kp.menu.titulo')}</div>
+        <div className="menu-tagline">{t('kp.menu.tagline')}</div>
         <button className="menu-btn" onClick={() => onStart('local')}>
           <span className="menu-btn-arrow">▶</span>
-          <span className="menu-btn-label">VERSUS<span className="menu-btn-sub">2 jogadores no mesmo dispositivo</span></span>
+          <span className="menu-btn-label">{t('kp.menu.versus')}<span className="menu-btn-sub">{t('kp.menu.versus_sub')}</span></span>
         </button>
         <button className="menu-btn" onClick={() => setSub('solo')}>
           <span className="menu-btn-arrow">▶</span>
-          <span className="menu-btn-label">SOLO<span className="menu-btn-sub">Enfrente a IA</span></span>
+          <span className="menu-btn-label">{t('kp.menu.solo')}<span className="menu-btn-sub">{t('kp.menu.solo_sub')}</span></span>
         </button>
       </div>
     </div>

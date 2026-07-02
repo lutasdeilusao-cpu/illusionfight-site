@@ -1,0 +1,139 @@
+{
+  "menu": {
+    "titulo": "KERNEL PANIC",
+    "tagline": "Cyber Attack",
+    "versus": "VERSUS",
+    "versus_sub": "2 players on the same device",
+    "solo": "SOLO",
+    "solo_sub": "Face the AI",
+    "dificuldade": "DIFFICULTY",
+    "selecione_nivel": "Select level",
+    "facil": "EASY",
+    "facil_sub": "AI prioritizes randomness",
+    "medio": "MEDIUM",
+    "medio_sub": "AI makes tactical decisions",
+    "voltar": "← Back"
+  },
+  "global": {
+    "ciclo": "Cycle",
+    "solo_facil": "SOLO EASY",
+    "solo_medio": "SOLO MEDIUM",
+    "versus": "VERSUS"
+  },
+  "infobar": {
+    "ciclo": "Cycle",
+    "operador": "Operator",
+    "stack": "Stack",
+    "lixo": "Discard"
+  },
+  "terrain": {
+    "ciclo": "cycle",
+    "ciclos": "cycles"
+  },
+  "terraininfo": {
+    "precisao": "Precision {mod}",
+    "visao": "Scan {mod}",
+    "protecao": "Armor {mod}",
+    "camuflagem": "Ghost Signal {mod}",
+    "scan_anulado": "Scan nullified",
+    "blindagem_anulada": "Armor nullified"
+  },
+  "perigo": {
+    "player_prefix": "P"
+  },
+  "playerpanel": {
+    "prefix": "P",
+    "operando": "ACTIVE",
+    "grid": "Grid",
+    "buffer": "Buffer",
+    "vazio": "— empty —",
+    "comprado": "DRAWN",
+    "comprar": "DRAW",
+    "atirar": "SHOOT",
+    "passar": "PASS"
+  },
+  "fieldslot": {
+    "bloqueado": "Slot blocked until cycle {round}"
+  },
+  "shot": {
+    "confirmar_ataque": "CONFIRM ATTACK",
+    "selecione_ataque": "Select attack modules",
+    "ataque": "Attack",
+    "sem_ataque": "No attack module",
+    "defesa_opcional": "Defense (optional)",
+    "sem_defesa": "No defense module",
+    "efeito": "Effect",
+    "potencia_fogo": "Firepower:",
+    "defesa": "Defense:",
+    "atirar": "SHOOT",
+    "cancelar": "CANCEL"
+  },
+  "defense": {
+    "titulo": "DEFENSE",
+    "selecione_defesa": "Select P{player} defense",
+    "defesa": "Defense",
+    "sem_defesa": "No defense available",
+    "reacao": "Reaction",
+    "total": "Total defense:",
+    "confirmar": "CONFIRM",
+    "cancelar": "CANCEL"
+  },
+  "reaction": {
+    "titulo": "REACTION",
+    "disponivel": "A reaction card is available",
+    "disparar": "Trigger {card}?",
+    "descricao": "Allows a second shot with half Exposure generation.",
+    "usar": "USE",
+    "declinar": "DECLINE"
+  },
+  "result": {
+    "acertou": "🚀 HIT",
+    "errou": "💥 MISS",
+    "decoy": "Attack absorbed by Decoy!",
+    "calc_atk_def": "Attack {atk} - Defense {def} = {diff}",
+    "calc_perigo": "+ Perigo {perigo}",
+    "alvo": "Target {target}",
+    "rolagem_hit": "Roll: {rolled} ≤ {target}",
+    "rolagem_miss": "Roll: {rolled} > {target}",
+    "atingido": "HIT",
+    "falhou": "MISSED",
+    "continuar": "CONTINUE"
+  },
+  "victory": {
+    "vitoria": "VICTORY",
+    "derrota": "DEFEAT",
+    "venceu_texto": "Operator won the match!",
+    "perdeu_texto": "AI dominated the system...",
+    "revanche": "REMATCH",
+    "menu": "MENU"
+  },
+  "message": {
+    "ok": "OK"
+  },
+  "handoff": {
+    "titulo": "NEW OPERATOR",
+    "instrucao": "Pass the device",
+    "pronto": "READY"
+  },
+  "intel": {
+    "titulo": "INTELLIGENCE",
+    "subtitulo": "Revealed cards",
+    "fechar": "CLOSE"
+  },
+  "inspect": {
+    "atributo": "Attribute: {attr}",
+    "trigger": "Trigger: {trigger}",
+    "fechar": "CLOSE"
+  },
+  "aiwait": {
+    "titulo": "AI PROCESSING",
+    "baixando": "Downloading module...",
+    "instalando": "Installing module to grid...",
+    "ativando": "Activating equipment...",
+    "atacando": "Initiating attack...",
+    "encerrando": "Ending cycle...",
+    "exposicao": "Exposure increasing...",
+    "processando": "Processing...",
+    "algoritmo": "Running algorithm..."
+  }
+}
