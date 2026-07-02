@@ -1,10 +1,30 @@
+import { useState } from 'react'
 import { useAchievements } from '../../../../context/AchievementsContext'
 import { useLanguage } from '../../../../context/LanguageContext'
+import { useAuth } from '../../../../context/AuthContext'
+import { useFichas } from '../../../../context/FichasContext'
+import { supabase } from '../../../../lib/supabase'
 import todosAchievements from '../../../../data/achievements-pt.json'
 
 export default function PerfilConquistas() {
   const { t } = useLanguage()
-  const { desbloqueados } = useAchievements()
+  const { desbloqueados, refresh } = useAchievements()
+  const { user } = useAuth()
+  const { isAdmin } = useFichas()
+  const [confirmando, setConfirmando] = useState(false)
+  const [resetando, setResetando] = useState(false)
+
+  async function handleReset() {
+    setResetando(true)
+    const { error: err1 } = await supabase.from('user_achievements').delete().eq('user_id', user.id)
+    if (err1) { console.error('[Reset] erro user_achievements:', err1); setResetando(false); return }
+    const { error: err2 } = await supabase.from('perfil_eventos').delete().eq('user_id', user.id).eq('tipo', 'conquista')
+    if (err2) { console.error('[Reset] erro perfil_eventos:', err2); setResetando(false); return }
+    await refresh()
+    setConfirmando(false)
+    setResetando(false)
+  }
+
   return (
     <div className="perfil-achievements">
       {todosAchievements.map(a => {
@@ -21,6 +41,31 @@ export default function PerfilConquistas() {
           </div>
         )
       })}
+
+      {isAdmin && (
+        <div className="perfil-admin-reset-area">
+          <button className="perfil-admin-reset-btn" onClick={() => setConfirmando(true)}>
+            {t('site.perfil.admin_reset_btn')}
+          </button>
+        </div>
+      )}
+
+      {confirmando && (
+        <div className="perfil-admin-reset-modal-overlay" onClick={() => !resetando && setConfirmando(false)}>
+          <div className="perfil-admin-reset-modal" onClick={e => e.stopPropagation()}>
+            <p className="perfil-admin-reset-modal-titulo">{t('site.perfil.admin_reset_confirm_titulo')}</p>
+            <p className="perfil-admin-reset-modal-desc">{t('site.perfil.admin_reset_confirm_desc')}</p>
+            <div className="perfil-admin-reset-modal-acoes">
+              <button className="perfil-admin-reset-btn-cancelar" disabled={resetando} onClick={() => setConfirmando(false)}>
+                {t('site.perfil.admin_reset_cancelar')}
+              </button>
+              <button className="perfil-admin-reset-btn-confirmar" disabled={resetando} onClick={handleReset}>
+                {resetando ? t('site.perfil.admin_reset_resetando') : t('site.perfil.admin_reset_confirmar')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

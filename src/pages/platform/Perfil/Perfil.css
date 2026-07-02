@@ -756,6 +756,108 @@
 .perfil-jogo-rank { font-size: 0.6rem; color: #F5A623; text-decoration: none; }
 .perfil-jogo-rank:hover { text-decoration: underline; }
 
+/* ===== ADMIN RESET ===== */
+.perfil-admin-reset-area {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+.perfil-admin-reset-btn {
+  background: #1a0000;
+  border: 1px solid #441111;
+  color: #cc3333;
+  padding: 0.6rem 1.4rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.perfil-admin-reset-btn:hover {
+  background: #2a0000;
+  border-color: #cc3333;
+}
+
+/* ===== ADMIN RESET MODAL ===== */
+.perfil-admin-reset-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.perfil-admin-reset-modal {
+  background: #0d0d0d;
+  border: 1px solid #441111;
+  border-radius: 4px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.perfil-admin-reset-modal-titulo {
+  font-size: 0.9rem;
+  color: #cc3333;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: 0.1em;
+}
+
+.perfil-admin-reset-modal-desc {
+  font-size: 0.7rem;
+  color: #888;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.perfil-admin-reset-modal-acoes {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.perfil-admin-reset-btn-cancelar,
+.perfil-admin-reset-btn-confirmar {
+  padding: 0.5rem 1.2rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #333;
+  transition: background 0.15s;
+}
+
+.perfil-admin-reset-btn-cancelar {
+  background: #111;
+  color: #888;
+}
+
+.perfil-admin-reset-btn-cancelar:hover { background: #222; }
+
+.perfil-admin-reset-btn-confirmar {
+  background: #330000;
+  border-color: #661111;
+  color: #ee4444;
+}
+
+.perfil-admin-reset-btn-confirmar:hover { background: #440000; }
+
+.perfil-admin-reset-btn-confirmar:disabled,
+.perfil-admin-reset-btn-cancelar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .perfil-header-inner { flex-wrap: wrap; gap: 1rem; }

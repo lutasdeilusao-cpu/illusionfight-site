@@ -79,8 +79,15 @@ export function AchievementsProvider({ children }) {
     setToastPendente(null)
   }
 
+  const refresh = useCallback(async () => {
+    if (!user) { setDesbloqueados([]); return }
+    const { data, error } = await supabase.from('user_achievements').select('achievement_id').eq('user_id', user.id)
+    if (error) { console.error('Erro ao recarregar achievements:', error); return }
+    setDesbloqueados(data ? data.map(d => d.achievement_id) : [])
+  }, [user])
+
   return (
-    <AchievementsContext.Provider value={{ desbloqueados, desbloquear, toastPendente, fecharToast, migrarLocalParaSupabase, registrarGangue }}>
+    <AchievementsContext.Provider value={{ desbloqueados, desbloquear, toastPendente, fecharToast, refresh, migrarLocalParaSupabase, registrarGangue }}>
       {children}
     </AchievementsContext.Provider>
   )
