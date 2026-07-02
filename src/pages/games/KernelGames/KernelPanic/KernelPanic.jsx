@@ -147,6 +147,7 @@ export default function KernelPanic() {
         <div className="header-meta">
           <div>{t('kp.global.ciclo')} {state.round}</div>
           <div>{state.mode === 'solo-easy' ? t('kp.global.solo_facil') : state.mode === 'solo-medium' ? t('kp.global.solo_medio') : t('kp.global.versus')}</div>
+          <button className="btn-header-menu" onClick={() => setScreen('menu')}>{t('kp.menu.voltar')}</button>
         </div>
       </header>
 

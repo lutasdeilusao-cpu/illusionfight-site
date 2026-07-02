@@ -12,7 +12,10 @@
     "facil_sub": "IA prioriza aleatoriedade",
     "medio": "MÉDIO",
     "medio_sub": "IA toma decisões táticas",
-    "voltar": "← Voltar"
+    "voltar": "← Voltar",
+    "voltar_jogos": "← Voltar aos Jogos",
+    "manual": "📖 Manual",
+    "manual_sub": "Como jogar"
   },
   "global": {
     "ciclo": "Ciclo",
@@ -124,6 +127,153 @@
     "atributo": "Atributo: {attr}",
     "trigger": "Trigger: {trigger}",
     "fechar": "FECHAR"
+  },
+  "manual": {
+    "cover": {
+      "tag": "Manual do Operador · Versão 1.0",
+      "sub": "Protocolo de Eliminação",
+      "desc": "Um jogo de cartas tático para dois operadores\nSistema D20 · Dois jogadores · Um terminal",
+      "badge": "Classificação: Acesso Liberado"
+    },
+    "s01": {
+      "tag": "// 01 — Briefing",
+      "title": "O Que É Kernel Panic",
+      "p": [
+        "Kernel Panic é um jogo de cartas tático para dois jogadores, ambientado num mundo cyberpunk onde operadores de elite se eliminam usando módulos cibernéticos, hacks e ataques de precisão neural.",
+        "Cada operador acumula módulos de ataque e defesa no seu grid ao longo das rodadas. Quando o momento é certo — ou a pressão é alta demais — um disparo é executado. Um dado de vinte faces decide o destino."
+      ],
+      "box_title": "Conceito central",
+      "box_text": "Quanto mais tempo você espera para atacar, mais Exposição acumula — e mais vulnerável fica. O jogo pressiona os dois lados ao mesmo tempo."
+    },
+    "s02": {
+      "tag": "// 02 — Infraestrutura",
+      "title": "O Tabuleiro",
+      "intro": "A mesa de jogo tem os seguintes elementos:",
+      "items": [
+        { "accent": "atk", "type": "Stack", "name": "Monte de Compra", "desc": "Monte compartilhado entre os dois operadores. Quando esgota, o lixo é embaralhado e vira um novo stack." },
+        { "accent": "ter", "type": "Ambiente", "name": "Monte de Ambiente", "desc": "Monte separado de condições de combate. A cada 3 ciclos uma nova carta é sacada e afeta os dois operadores. As cartas voltam ao monte quando expiram — nunca vão ao lixo." },
+        { "accent": "efx", "type": "Lixo", "name": "Cemitério", "desc": "Onde os módulos usados ou descartados vão parar. Compartilhado entre os operadores." },
+        { "accent": "def", "type": "Grid", "name": "Campo de cada operador", "desc": "Cada operador tem 6 slots no seu grid. Os módulos são instalados com a face para baixo — o oponente não sabe o que está lá. Você pode consultar seus próprios módulos a qualquer momento." }
+      ],
+      "buf_title": "Buffer",
+      "buf_text": "A mão de cada operador. Você começa com 5 módulos e nunca pode ter mais de 5 ao final do seu ciclo."
+    },
+    "s03": {
+      "tag": "// 03 — Especificações",
+      "title": "Atributos",
+      "intro": "Cada operador possui quatro atributos de combate e um atributo de risco:",
+      "mira": { "name": "Mira Ocular", "vs": "Ataque · Bloqueado por Blindagem", "desc": "Implante neural de precisão. Ataque direto e calibrado." },
+      "scan": { "name": "Scan", "vs": "Ataque · Bloqueado por Sinal Fantasma", "desc": "Detecção eletrônica do alvo. Rastreamento de posição e vulnerabilidades." },
+      "blind": { "name": "Blindagem", "vs": "Defesa · Contra Mira Ocular", "desc": "Armadura cibernética. Neutraliza ataques de precisão direta." },
+      "ghost": { "name": "Sinal Fantasma", "vs": "Defesa · Contra Scan", "desc": "Interferência de rastreamento. Torna o operador invisível aos sensores inimigos." },
+      "warn": "Blindagem só neutraliza Mira Ocular. Sinal Fantasma só neutraliza Scan. Misturar errado é deixar o ataque passar.",
+      "exp": { "name": "Exposição", "vs": "Risco · Visível para os dois operadores", "desc": "Quanto mais alta a Exposição, mais fácil é acertar um tiro em você. Ela sobe naturalmente a cada ciclo após o terceiro, e dispara após qualquer ataque. Gerenciá-la é tão importante quanto atacar." },
+      "exp_title": "Mecânica de Exposição",
+      "exp_rules": [
+        "— Fica em 0 nos primeiros 3 ciclos",
+        "— A partir do ciclo 4: sobe +1 por ciclo",
+        "— Ao executar um ataque: +8 imediatos, decaindo −2 por ciclo",
+        "— Se você disparar e errar, continua exposto. Atire com cuidado."
+      ]
+    },
+    "s04": {
+      "tag": "// 04 — Protocolo",
+      "title": "Seu Ciclo",
+      "intro": "A cada ciclo, o operador ativo executa as seguintes ações — nesta ordem:",
+      "steps": [
+        { "num": 1, "title": "Download — Obrigatório", "desc": "Baixe 1 módulo do stack. Isso é sempre obrigatório. Módulos extras podem ser baixados até completar 5 no buffer — cada download extra custa +1 de Exposição.", "optional": false },
+        { "num": 2, "title": "Instalar — Opcional", "desc": "Instale até 2 módulos do buffer no seu grid. Os módulos são instalados com a face para baixo — o oponente não sabe o que você instalou.", "optional": true },
+        { "num": 3, "title": "Ativar Equipamento — Opcional", "desc": "Se tiver módulos de equipamento instalados no grid, você pode ativá-los. Equipamentos não consomem o ciclo — podem ser usados antes ou depois de instalar módulos.", "optional": true },
+        { "num": 4, "title": "Executar Ataque — Opcional", "desc": "Execute um ataque contra o oponente. Escolha quais módulos de ataque usar. O oponente responde com sua defesa. O ataque sempre encerra o ciclo.", "optional": true }
+      ],
+      "buf_title": "Limite de buffer",
+      "buf_text": "Ao final do ciclo você não pode ter mais de 5 módulos no buffer. Se tiver mais, descarte o excedente — ou instale no grid para não perder."
+    },
+    "s05": {
+      "tag": "// 05 — Execução",
+      "title": "O Ataque",
+      "intro": "Ataques só podem ser executados a partir do ciclo 4. Antes disso, os operadores estão se posicionando.",
+      "divider": "Fluxo do ataque",
+      "steps": [
+        { "num": 1, "title": "Atacante escolhe os módulos", "desc": "Selecione quais módulos de Mira Ocular e Scan do seu grid serão usados. Você não precisa usar todos — escolha estrategicamente." },
+        { "num": 2, "title": "Defensor escolhe os módulos", "desc": "O defensor vê o breakdown do ataque — quanto Mira Ocular e quanto Scan está vindo — e escolhe quais módulos de Blindagem e Sinal Fantasma usar para bloquear." },
+        { "num": 3, "title": "Resolução", "desc": "O sistema calcula o resultado e rola o D20. Módulos usados vão ao lixo independente do resultado." }
+      ],
+      "formula_eq": "( ATAQUE − DEFESA ) + EXPOSIÇÃO DO ALVO\n= ALVO DO D20",
+      "formula_note": "Role o D20 — se o resultado for ≤ ao alvo, o ataque é certeiro · 20 sempre falha",
+      "neg_title": "Resultado negativo",
+      "neg_text": "Se Ataque − Defesa for negativo, o resultado é tratado como zero. Mas a Exposição do defensor ainda conta — nunca é impossível acertar.",
+      "acerto": "Um acerto certeiro é letal — o operador é eliminado e a partida termina. Salvo efeito de módulo especial como o Decoy.",
+      "falha": "Em caso de falha, todos os módulos usados no ataque e na defesa vão ao lixo. A Exposição do atacante ainda sobe."
+    },
+    "s06": {
+      "tag": "// 06 — Inventário",
+      "title": "Tipos de Módulo",
+      "items": [
+        { "accent": "atk", "name": "Módulo de Ataque", "desc": "Mira Ocular / Scan. Somam poder ao ataque. Valores de +1 a +3. Vão ao lixo após o ataque." },
+        { "accent": "def", "name": "Módulo de Defesa", "desc": "Blindagem / Sinal Fantasma. Reduzem o poder do ataque recebido. Valores de +1 a +3. Só funcionam contra o tipo correto de ataque." },
+        { "accent": "efx", "name": "Módulo de Efeito", "desc": "Decoy · Contra-Hack · Segundo Pulso. Ativados automaticamente ou opcionalmente em condições específicas. Ficam instalados no grid aguardando." },
+        { "accent": "eqp", "name": "Módulo de Equipamento", "desc": "Vírus · Spyware · DDoS · Firewall Trap · Deep Scan. Ativados no seu ciclo, sem custo de ação. Vão ao lixo após uso." }
+      ],
+      "efeitos_title": "Módulos de Efeito em detalhe",
+      "efeitos": [
+        { "accent": "efx", "type": "Efeito · Obrigatório · Ativado ao ser acertado", "name": "Decoy", "desc": "Se o operador receber um acerto certeiro, o Decoy é ativado automaticamente — o ataque é absorvido. O operador sobrevive. Não há escolha: se o Decoy estiver no grid, ele age." },
+        { "accent": "efx", "type": "Efeito · Opcional · Após falha do oponente", "name": "Contra-Hack", "desc": "Se o oponente errar o ataque, você pode executar um contra-ataque imediato sem gastar seu ciclo. A Exposição sobe normalmente. O cálculo já considera o aumento de Exposição do oponente pelo ataque falho." },
+        { "accent": "efx", "type": "Efeito · Opcional · Após falhar seu ataque", "name": "Segundo Pulso", "desc": "Se você errar um ataque, pode executar um segundo ataque imediatamente. Este segundo ataque gera apenas metade da Exposição que um ataque normal geraria. Só pode ser usado uma vez por sequência." }
+      ],
+      "equip_title": "Módulos de Equipamento em detalhe",
+      "equip": [
+        { "accent": "eqp", "type": "Equipamento", "name": "Vírus", "desc": "Destrói um módulo instalado no grid do oponente. O módulo vai direto ao lixo." },
+        { "accent": "eqp", "type": "Equipamento · Requer espaço no buffer", "name": "Spyware", "desc": "Copia um módulo do grid do oponente para o seu buffer. Só pode ser usado se você tiver espaço no buffer." },
+        { "accent": "eqp", "type": "Equipamento", "name": "DDoS", "desc": "A Exposição do oponente sobe +3. A sua sobe +1. Uma jogada agressiva para pressionar o oponente a atirar antes de estar pronto." },
+        { "accent": "eqp", "type": "Equipamento", "name": "Firewall Trap", "desc": "Bloqueia um slot vazio do grid do oponente por 5 ciclos. O slot fica inutilizável." },
+        { "accent": "eqp", "type": "Equipamento", "name": "Deep Scan", "desc": "Escaneia o buffer do oponente e revela 2 módulos aleatórios. Informação valiosa para antecipar o próximo ataque." }
+      ]
+    },
+    "s07": {
+      "tag": "// 07 — Condições Externas",
+      "title": "Condições de Ambiente",
+      "intro": "A cada 3 ciclos, uma nova condição de ambiente é ativada e afeta os dois operadores. As condições ficam ativas por 3 ciclos e depois voltam ao monte — podendo ser sacadas novamente.",
+      "items": [
+        { "icon": "\u2623", "name": "Chuva Ácida", "effect": "Scan −3, Sinal Fantasma +3 para ambos. Sensores comprometidos, camuflagem favorecida." },
+        { "icon": "\u26A1", "name": "Pulso EMP", "effect": "Exposição −3 após qualquer ataque. A descarga eletromagnética dispersa os sinais." },
+        { "icon": "\uD83D\uDD06", "name": "Luz Neon Intensa", "effect": "Mira Ocular −3, Scan +3 para ambos. Excesso de luz dificulta mira direta mas amplia detecção eletrônica." },
+        { "icon": "\uD83D\uDCE1", "name": "Interferência Solar", "effect": "Sorteia um operador: −1 Scan e −1 Sinal Fantasma. O outro recebe +1 em ambos." },
+        { "icon": "\uD83C\uDF2B", "name": "Névoa de Dados", "effect": "Sinal Fantasma +2 para ambos. O ambiente digital está saturado de ruído." },
+        { "icon": "\uD83D\uDC80", "name": "Blackout de Rede", "effect": "Anula todos os módulos de Scan em campo. Detecção eletrônica comprometida." },
+        { "icon": "\uD83D\uDD34", "name": "Sobrecarga do Sistema", "effect": "Anula todos os módulos de Blindagem em campo. Armaduras cibernéticas colapsam." },
+        { "icon": "\u2B1C", "name": "Ambiente Neutro", "effect": "Sem efeito. As condições estão estáveis." },
+        { "icon": "\uD83C\uDF11", "name": "Modo Stealth", "effect": "Sinal Fantasma +3 para ambos. Exposição +2 adicional após qualquer ataque." },
+        { "icon": "\uD83D\uDCBE", "name": "Zona de Guerra Cyber", "effect": "Exposição sobe 2 pontos por ciclo em vez de 1. A pressão é dobrada." }
+      ]
+    },
+    "s08": {
+      "tag": "// 08 — Encerramento",
+      "title": "Vitória e Derrota",
+      "intro": "A partida termina quando um operador é atingido por um ataque certeiro sem ter um Decoy instalado no grid.",
+      "kp_title": "Kernel Panic",
+      "kp_text": "O sistema inimigo entrou em colapso. Acesso total obtido. Missão encerrada com sucesso.",
+      "sf_title": "System Failure",
+      "sf_text": "Seu sistema foi comprometido. O kernel entrou em pânico. Não há recuperação possível.",
+      "solo": "No modo Solitário, o operador enfrenta um agente de IA em dificuldade Fácil ou Médio. O modo Difícil está em desenvolvimento.",
+      "local": "No modo Rede Local, dois operadores usam o mesmo terminal. Uma tela de transferência aparece entre cada ciclo para proteger a privacidade do buffer."
+    },
+    "s09": {
+      "tag": "// 09 — Inteligência de Campo",
+      "title": "Dicas para Operadores",
+      "items": [
+        { "accent": "atk", "name": "Gerencie sua Exposição", "desc": "Comprar módulos extras custa Exposição. Atacar custa Exposição. Cada decisão tem um preço — calcule quando vale a pena." },
+        { "accent": "def", "name": "Defenda com o tipo certo", "desc": "Blindagem não bloqueia Scan. Sinal Fantasma não bloqueia Mira Ocular. Observe o breakdown do ataque antes de escolher." },
+        { "accent": "efx", "name": "O Decoy é sua vida", "desc": "Instale o Decoy no grid assim que possível. Ele ativa automaticamente — você não precisa fazer nada. É sua única segunda chance." },
+        { "accent": "eqp", "name": "Equipamentos mudam o jogo", "desc": "Um Vírus no momento certo destrói meses de acúmulo do oponente. O Deep Scan revela o que está vindo. Use com timing." },
+        { "accent": "ter", "name": "Leia o ambiente", "desc": "A Sobrecarga do Sistema anula Blindagem — ataque neste ciclo. O Blackout de Rede anula Scan — use só Mira Ocular. O ambiente muda tudo." }
+      ]
+    },
+    "footer": {
+      "l1": "Kernel Panic · Manual do Operador · v1.0",
+      "l2": "Protocolo de Eliminação · Sistema D20",
+      "end": "// FIM DO DOCUMENTO"
+    }
   },
   "aiwait": {
     "titulo": "IA PROCESSANDO",

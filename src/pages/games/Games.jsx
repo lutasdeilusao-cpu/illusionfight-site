@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
@@ -45,7 +45,8 @@ const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 const ABAS = ['ldi', 'kernel']
 
 export default function Games() {
-  const [aba, setAba] = useState('ldi')
+  const [searchParams] = useSearchParams()
+  const [aba, setAba] = useState(searchParams.get('aba') === 'kernel' ? 'kernel' : 'ldi')
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()

@@ -12,7 +12,10 @@
     "facil_sub": "AI prioritizes randomness",
     "medio": "MEDIUM",
     "medio_sub": "AI makes tactical decisions",
-    "voltar": "← Back"
+    "voltar": "← Back",
+    "voltar_jogos": "← Back to Games",
+    "manual": "📖 Manual",
+    "manual_sub": "How to play"
   },
   "global": {
     "ciclo": "Cycle",
@@ -124,6 +127,153 @@
     "atributo": "Attribute: {attr}",
     "trigger": "Trigger: {trigger}",
     "fechar": "CLOSE"
+  },
+  "manual": {
+    "cover": {
+      "tag": "Operator's Manual · Version 1.0",
+      "sub": "Elimination Protocol",
+      "desc": "A tactical card game for two operators\nD20 System · Two players · One terminal",
+      "badge": "Classification: Clearance Granted"
+    },
+    "s01": {
+      "tag": "// 01 — Briefing",
+      "title": "What Is Kernel Panic",
+      "p": [
+        "Kernel Panic is a tactical card game for two players, set in a cyberpunk world where elite operators eliminate each other using cyber modules, hacks, and neural precision strikes.",
+        "Each operator accumulates attack and defense modules on their grid over the rounds. When the moment is right — or the pressure too high — a shot is fired. A twenty-sided die decides the fate."
+      ],
+      "box_title": "Core concept",
+      "box_text": "The longer you wait to attack, the more Exposure you build — and the more vulnerable you become. The game pressures both sides at once."
+    },
+    "s02": {
+      "tag": "// 02 — Infrastructure",
+      "title": "The Board",
+      "intro": "The game table has the following elements:",
+      "items": [
+        { "accent": "atk", "type": "Stack", "name": "Draw Pile", "desc": "Shared pile between both operators. When depleted, the discard is shuffled into a new stack." },
+        { "accent": "ter", "type": "Environment", "name": "Terrain Pile", "desc": "Separate pile of combat conditions. Every 3 cycles a new card is drawn affecting both operators. Cards return to the pile when expired — never to the discard." },
+        { "accent": "efx", "type": "Discard", "name": "Cemetery", "desc": "Where used or discarded modules go. Shared between operators." },
+        { "accent": "def", "type": "Grid", "name": "Each operator's field", "desc": "Each operator has 6 grid slots. Modules are installed face-down — the opponent doesn't know what's there. You may inspect your own modules at any time." }
+      ],
+      "buf_title": "Buffer",
+      "buf_text": "Each operator's hand. You start with 5 modules and can never have more than 5 at the end of your cycle."
+    },
+    "s03": {
+      "tag": "// 03 — Specifications",
+      "title": "Attributes",
+      "intro": "Each operator has four combat attributes and one risk attribute:",
+      "mira": { "name": "Ocular Aim", "vs": "Attack · Blocked by Armor", "desc": "Neural precision implant. Direct and calibrated attack." },
+      "scan": { "name": "Scan", "vs": "Attack · Blocked by Ghost Signal", "desc": "Electronic target detection. Position and vulnerability tracking." },
+      "blind": { "name": "Armor", "vs": "Defense · Against Ocular Aim", "desc": "Cyber armor. Neutralizes direct precision attacks." },
+      "ghost": { "name": "Ghost Signal", "vs": "Defense · Against Scan", "desc": "Tracking interference. Makes the operator invisible to enemy sensors." },
+      "warn": "Armor only blocks Ocular Aim. Ghost Signal only blocks Scan. Matching wrong means letting the attack through.",
+      "exp": { "name": "Exposure", "vs": "Risk · Visible to both operators", "desc": "The higher the Exposure, the easier it is to hit you. It rises naturally each cycle after the third, and spikes after any attack. Managing it is as important as attacking." },
+      "exp_title": "Exposure Mechanics",
+      "exp_rules": [
+        "— Starts at 0 for the first 3 cycles",
+        "— From cycle 4 onward: increases +1 per cycle",
+        "— When executing an attack: +8 immediate, decaying −2 per cycle",
+        "— If you fire and miss, you stay exposed. Shoot carefully."
+      ]
+    },
+    "s04": {
+      "tag": "// 04 — Protocol",
+      "title": "Your Cycle",
+      "intro": "Each cycle, the active operator performs the following actions — in order:",
+      "steps": [
+        { "num": 1, "title": "Draw — Mandatory", "desc": "Draw 1 module from the stack. This is always mandatory. Extra modules can be drawn up to 5 in the buffer — each extra draw costs +1 Exposure.", "optional": false },
+        { "num": 2, "title": "Install — Optional", "desc": "Install up to 2 modules from the buffer onto your grid. Modules are installed face-down — the opponent doesn't know what you installed.", "optional": true },
+        { "num": 3, "title": "Activate Equipment — Optional", "desc": "If you have equipment modules installed on the grid, you can activate them. Equipment does not consume the cycle — can be used before or after installing modules.", "optional": true },
+        { "num": 4, "title": "Execute Attack — Optional", "desc": "Execute an attack against the opponent. Choose which attack modules to use. The opponent responds with defense. Attack always ends the cycle.", "optional": true }
+      ],
+      "buf_title": "Buffer limit",
+      "buf_text": "At the end of the cycle you cannot have more than 5 modules in the buffer. If you have more, discard the excess — or install on the grid to avoid losing them."
+    },
+    "s05": {
+      "tag": "// 05 — Execution",
+      "title": "The Attack",
+      "intro": "Attacks can only be executed from cycle 4 onward. Before that, operators are positioning.",
+      "divider": "Attack flow",
+      "steps": [
+        { "num": 1, "title": "Attacker chooses modules", "desc": "Select which Ocular Aim and Scan modules on your grid will be used. You don't have to use all — choose strategically." },
+        { "num": 2, "title": "Defender chooses modules", "desc": "The defender sees the attack breakdown — how much Ocular Aim and Scan is coming — and chooses which Armor and Ghost Signal modules to block with." },
+        { "num": 3, "title": "Resolution", "desc": "The system calculates the result and rolls the D20. Used modules go to the discard regardless of the result." }
+      ],
+      "formula_eq": "( ATTACK − DEFENSE ) + TARGET EXPOSURE\n= D20 TARGET",
+      "formula_note": "Roll D20 — if the result is ≤ to the target, the attack hits · 20 always fails",
+      "neg_title": "Negative result",
+      "neg_text": "If Attack − Defense is negative, the result is treated as zero. But the defender's Exposure still counts — it's never impossible to hit.",
+      "acerto": "A successful hit is lethal — the operator is eliminated and the match ends. Unless a special module effect like Decoy intervenes.",
+      "falha": "On a miss, all modules used in the attack and defense go to the discard. The attacker's Exposure still rises."
+    },
+    "s06": {
+      "tag": "// 06 — Inventory",
+      "title": "Module Types",
+      "items": [
+        { "accent": "atk", "name": "Attack Module", "desc": "Ocular Aim / Scan. Adds attack power. Values from +1 to +3. Goes to discard after attack." },
+        { "accent": "def", "name": "Defense Module", "desc": "Armor / Ghost Signal. Reduces incoming attack power. Values from +1 to +3. Only works against the correct attack type." },
+        { "accent": "efx", "name": "Effect Module", "desc": "Decoy · Counter-Hack · Second Pulse. Activated automatically or optionally under specific conditions. Stay on grid awaiting trigger." },
+        { "accent": "eqp", "name": "Equipment Module", "desc": "Virus · Spyware · DDoS · Firewall Trap · Deep Scan. Activated on your cycle with no action cost. Go to discard after use." }
+      ],
+      "efeitos_title": "Effect Modules in detail",
+      "efeitos": [
+        { "accent": "efx", "type": "Effect · Mandatory · Triggered on hit", "name": "Decoy", "desc": "If the operator receives a lethal hit, Decoy activates automatically — the attack is absorbed. The operator survives. No choice: if Decoy is on the grid, it acts." },
+        { "accent": "efx", "type": "Effect · Optional · After opponent fails", "name": "Counter-Hack", "desc": "If the opponent misses the attack, you may execute an immediate counter-attack without spending your cycle. Exposure rises normally." },
+        { "accent": "efx", "type": "Effect · Optional · After you miss", "name": "Second Pulse", "desc": "If you miss an attack, you may execute a second attack immediately. This second attack generates only half the Exposure of a normal attack. Usable once per sequence." }
+      ],
+      "equip_title": "Equipment Modules in detail",
+      "equip": [
+        { "accent": "eqp", "type": "Equipment", "name": "Virus", "desc": "Destroys a module installed on the opponent's grid. Module goes straight to discard." },
+        { "accent": "eqp", "type": "Equipment · Requires buffer space", "name": "Spyware", "desc": "Copies a module from the opponent's grid to your buffer. Can only be used if you have buffer space." },
+        { "accent": "eqp", "type": "Equipment", "name": "DDoS", "desc": "Opponent's Exposure rises +3. Yours rises +1. An aggressive play to pressure the opponent into firing before ready." },
+        { "accent": "eqp", "type": "Equipment", "name": "Firewall Trap", "desc": "Blocks an empty slot on the opponent's grid for 5 cycles. The slot becomes unusable." },
+        { "accent": "eqp", "type": "Equipment", "name": "Deep Scan", "desc": "Scans the opponent's buffer and reveals 2 random modules. Valuable intel to anticipate the next attack." }
+      ]
+    },
+    "s07": {
+      "tag": "// 07 — External Conditions",
+      "title": "Terrain Conditions",
+      "intro": "Every 3 cycles, a new terrain condition is activated affecting both operators. Conditions stay active for 3 cycles then return to the pile — possibly being drawn again.",
+      "items": [
+        { "icon": "\u2623", "name": "Acid Rain", "effect": "Scan −3, Ghost Signal +3 for both. Sensors compromised, camouflage favored." },
+        { "icon": "\u26A1", "name": "EMP Pulse", "effect": "Exposure −3 after any attack. Electromagnetic discharge disperses signals." },
+        { "icon": "\uD83D\uDD06", "name": "Intense Neon Light", "effect": "Ocular Aim −3, Scan +3 for both. Excess light hinders direct aim but enhances electronic detection." },
+        { "icon": "\uD83D\uDCE1", "name": "Solar Interference", "effect": "Random operator: −1 Scan and −1 Ghost Signal. The other gets +1 to both." },
+        { "icon": "\uD83C\uDF2B", "name": "Data Fog", "effect": "Ghost Signal +2 for both. The digital environment is saturated with noise." },
+        { "icon": "\uD83D\uDC80", "name": "Network Blackout", "effect": "Nullifies all Scan modules on the field. Electronic detection compromised." },
+        { "icon": "\uD83D\uDD34", "name": "System Overload", "effect": "Nullifies all Armor modules on the field. Cyber armors collapse." },
+        { "icon": "\u2B1C", "name": "Neutral Environment", "effect": "No effect. Conditions are stable." },
+        { "icon": "\uD83C\uDF11", "name": "Stealth Mode", "effect": "Ghost Signal +3 for both. Exposure +2 additional after any attack." },
+        { "icon": "\uD83D\uDCBE", "name": "Cyber War Zone", "effect": "Exposure rises 2 points per cycle instead of 1. Pressure is doubled." }
+      ]
+    },
+    "s08": {
+      "tag": "// 08 — Closure",
+      "title": "Victory and Defeat",
+      "intro": "The match ends when an operator is hit by a lethal attack without having a Decoy installed on the grid.",
+      "kp_title": "Kernel Panic",
+      "kp_text": "The enemy system has collapsed. Total access obtained. Mission completed successfully.",
+      "sf_title": "System Failure",
+      "sf_text": "Your system has been compromised. The kernel panicked. No recovery possible.",
+      "solo": "In Solo mode, the operator faces an AI agent on Easy or Medium difficulty. Hard mode is in development.",
+      "local": "In Local Network mode, two operators use the same terminal. A handoff screen appears between each cycle to protect buffer privacy."
+    },
+    "s09": {
+      "tag": "// 09 — Field Intelligence",
+      "title": "Tips for Operators",
+      "items": [
+        { "accent": "atk", "name": "Manage your Exposure", "desc": "Drawing extra modules costs Exposure. Attacking costs Exposure. Every decision has a price — calculate when it's worth it." },
+        { "accent": "def", "name": "Defend with the right type", "desc": "Armor doesn't block Scan. Ghost Signal doesn't block Ocular Aim. Watch the attack breakdown before choosing." },
+        { "accent": "efx", "name": "Decoy is your life", "desc": "Install Decoy on the grid as soon as possible. It activates automatically — you don't need to do anything. It's your only second chance." },
+        { "accent": "eqp", "name": "Equipment changes the game", "desc": "A well-timed Virus destroys months of the opponent's buildup. Deep Scan reveals what's coming. Use with timing." },
+        { "accent": "ter", "name": "Read the environment", "desc": "System Overload nullifies Armor — attack this cycle. Network Blackout nullifies Scan — use only Ocular Aim. The terrain changes everything." }
+      ]
+    },
+    "footer": {
+      "l1": "Kernel Panic · Operator's Manual · v1.0",
+      "l2": "Elimination Protocol · D20 System",
+      "end": "// END OF DOCUMENT"
+    }
   },
   "aiwait": {
     "titulo": "AI PROCESSING",
