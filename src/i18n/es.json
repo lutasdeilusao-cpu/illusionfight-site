@@ -653,6 +653,10 @@
       "jogar": "JUGAR",
       "em_breve": "PRÓXIMAMENTE",
       "credits": "LUTAS DE ILUSIÓN — 1 JUGADOR",
+      "toggle_ldi": "Games LDI",
+      "toggle_kernel": "Kernel Panic",
+      "kernel_tagline": "PROTOCOLO DE ELIMINACIÓN",
+      "kernel_empty": "ningún protocolo disponible aún.",
       "modal_lancamento": {
         "titulo": "¿Te gustó? Hay mucho más por venir.",
         "corpo": "Más capítulos se lanzarán el día del lanzamiento oficial de la plataforma. Esto es solo una muestra.",

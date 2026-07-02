@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -7,6 +7,7 @@ import { useFichaGate } from '../../hooks/useFichaGate'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import './Games.css'
+import './kernel-panic.css'
 
 export const JOGOS = [
   { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
@@ -37,7 +38,10 @@ const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pes
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
+const ABAS = ['ldi', 'kernel']
+
 export default function Games() {
+  const [aba, setAba] = useState('ldi')
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
@@ -87,32 +91,56 @@ export default function Games() {
         </p>
       </div>
 
-      <section className="extras-secao">
-        <div className="extras-secao-label">
-          <span>▶ {t('site.games.secao_jogos')}</span>
-          <div className="extras-secao-linha" />
-        </div>
-        <div className="extras-jogos-grid">
-          {JOGOS.map(jogo => {
-            const bloqueado = jogo.emBreve && !isAdmin
-            return (
-            <div key={jogo.id} className={`extras-jogo-card ${bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
-              style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || '#666' }}
-              onClick={() => handleJogoClick(jogo)}>
-              <div className="extras-jogo-card-inner">
-                <div className={`extras-jogo-badge ${jogo.emBreve ? 'extras-jogo-badge--embreve' : ''}`}>{t(jogo.badgeKey)}</div>
-                <div className="extras-jogo-emoji">{jogo.emoji}</div>
-                <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
-                <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
-                {!bloqueado && <div className="extras-jogo-cta">{t(user ? 'site.games.inserir_ficha' : 'site.games.jogar')}</div>}
-                {jogo.emBreve && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
+      <div className="kp-toggle">
+        {ABAS.map(a => (
+          <button key={a} className={`kp-toggle-btn ${aba === a ? 'kp-toggle-btn--ativa' : ''}`}
+            onClick={() => setAba(a)}>
+            {a === 'ldi' ? t('site.games.toggle_ldi') : t('site.games.toggle_kernel')}
+          </button>
+        ))}
+      </div>
+
+      {aba === 'ldi' ? (
+        <section className="extras-secao">
+          <div className="extras-secao-label">
+            <span>▶ {t('site.games.secao_jogos')}</span>
+            <div className="extras-secao-linha" />
+          </div>
+          <div className="extras-jogos-grid">
+            {JOGOS.map(jogo => {
+              const bloqueado = jogo.emBreve && !isAdmin
+              return (
+              <div key={jogo.id} className={`extras-jogo-card ${bloqueado ? 'extras-jogo-card--bloqueado' : ''}`}
+                style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || '#666' }}
+                onClick={() => handleJogoClick(jogo)}>
+                <div className="extras-jogo-card-inner">
+                  <div className={`extras-jogo-badge ${jogo.emBreve ? 'extras-jogo-badge--embreve' : ''}`}>{t(jogo.badgeKey)}</div>
+                  <div className="extras-jogo-emoji">{jogo.emoji}</div>
+                  <h2 className="extras-jogo-nome">{t(jogo.nomeKey)}</h2>
+                  <p className="extras-jogo-tagline">{t(jogo.tagKey)}</p>
+                  {!bloqueado && <div className="extras-jogo-cta">{t(user ? 'site.games.inserir_ficha' : 'site.games.jogar')}</div>}
+                  {jogo.emBreve && <div className="extras-jogo-cta extras-jogo-cta--bloqueado">{t('site.games.em_breve')}</div>}
+                </div>
+                <div className="extras-jogo-card-borda" />
               </div>
-              <div className="extras-jogo-card-borda" />
-            </div>
-            )
-          })}
-        </div>
-      </section>
+              )
+            })}
+          </div>
+        </section>
+      ) : (
+        <section className="kp-secao">
+          <div className="kp-grid-bg" />
+          <div className="kp-header">
+            <h2 className="kp-titulo">
+              KERNEL<br />PANIC
+            </h2>
+            <p className="kp-tagline">{t('site.games.kernel_tagline')}</p>
+          </div>
+          <div className="kp-empty">
+            <p className="kp-empty-msg">{t('site.games.kernel_empty')}</p>
+          </div>
+        </section>
+      )}
 
       <section className="extras-secao">
         <div className="extras-secao-label">

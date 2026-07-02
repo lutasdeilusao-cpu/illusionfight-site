@@ -653,6 +653,10 @@
       "jogar": "PLAY",
       "em_breve": "COMING SOON",
       "credits": "ILLUSION FIGHT — 1 PLAYER",
+      "toggle_ldi": "LDI Games",
+      "toggle_kernel": "Kernel Panic",
+      "kernel_tagline": "ELIMINATION PROTOCOL",
+      "kernel_empty": "no protocol available yet.",
       "modal_lancamento": {
         "titulo": "Liked it? There's much more to come.",
         "corpo": "More chapters will be released on the official launch day. This is just a taste.",
