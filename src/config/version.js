@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.185.0'
+export const SITE_VERSION = '10.186.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -25,7 +25,7 @@ export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do origina
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
 export const KP_VERSION = '1.4.0' // Manual do operador + botão Voltar + ?aba=kernel na URL
 export const SLIDING_VERSION   = '1.0.1'  // PuzzleSlidingRafael — port de mg01_sliding.html
-export const CODIGO_VERSION    = '1.0.1'  // PuzzleCodigoPerdido — port de mg03_forca.html
+export const CODIGO_VERSION    = '1.0.2'  // PuzzleCodigoPerdido — fix: WORDS hardcoded movidas para rafael_{locale}.json
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

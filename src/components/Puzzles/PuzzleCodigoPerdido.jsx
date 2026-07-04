@@ -3,26 +3,6 @@ import { useRafaelI18n } from './useRafaelI18n'
 import { useLanguage } from '../../context/LanguageContext'
 import './PuzzleCodigoPerdido.css'
 
-const WORDS = {
-  easy: [
-    'NARC','HACK','CHIP','GRID','NODE','BYTE','CORE','DATA','FIRE','LINK',
-    'SCAN','PORT','FLUX','LOOP','WIRE','BOOT','KILL','VOID','ROOT','NANO',
-    'GLITCH','VIRUS','PROXY','DRONE','CYBER','ROGUE','NEXUS','PULSE','TRACE',
-  ],
-  normal: [
-    'FIREWALL','IMPLANTE','NETRUNNER','BLACKOUT','TERMINAL','PROTOCOLO',
-    'SYSADMIN','BACKDOOR','ROOTKIT','MALWARE','SPYWARE','EXPLOIT',
-    'FIRMWARE','OVERFLOW','DARKWEB','PAYLOAD','SANDBOX','CLUSTER',
-    'QUANTUM','HARDCODE','LOGFILE','DECRYPT','ENCRYPT','NETWORK',
-  ],
-  hard: [
-    'CIBERNETICO','INTELIGENCIA','COMPILADOR','DEPURACAO','SOBRECARGA',
-    'ARQUITETURA','PROCESSADOR','DESFRAGMENTAR','CRIPTOGRAFIA',
-    'VULNERABILIDADE','AUTENTICACAO','INFRAESTRUTURA','DECODIFICADOR',
-    'MONITORAMENTO','IDENTIFICACAO',
-  ],
-}
-
 const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
 const MAX_ERRORS = 6
 
@@ -37,7 +17,7 @@ function pick(arr) {
 }
 
 export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
-  const { t } = useRafaelI18n()
+  const { t, loaded } = useRafaelI18n()
   const { t: gt } = useLanguage()
 
   const [phase, setPhase] = useState('select')
@@ -59,7 +39,9 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
   }, [])
 
   const startGame = useCallback(() => {
-    const pool = WORDS[diff]
+    if (!loaded) return
+    const pool = t(`codigo_perdido.words.${diff}`)
+    if (!Array.isArray(pool) || pool.length === 0) return
     const w = pick(pool)
     setWord(w)
     setGuessed(new Set())
@@ -68,7 +50,7 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
     setGuessCount(0)
     setActive(true)
     setPhase('game')
-  }, [diff])
+  }, [diff, loaded, t])
 
   useEffect(() => {
     if (phase !== 'countdown') return

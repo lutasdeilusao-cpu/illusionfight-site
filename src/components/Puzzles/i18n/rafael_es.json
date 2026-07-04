@@ -11,6 +11,25 @@
     "dif_easy": "Palabras cortas · 4–6 letras",
     "dif_normal": "Palabras medianas · 7–9 letras",
     "dif_hard": "Palabras largas · 10–14 letras",
-    "hud_letras": "letras"
+    "hud_letras": "letras",
+    "words": {
+      "easy": [
+        "NARC","HACK","CHIP","GRID","NODO","BYTE","CORE","DATA","FIRE","LINK",
+        "SCAN","PUERTO","FLUJO","BUCLE","CABLE","BOOT","KILL","VOID","ROOT","NANO",
+        "FALLO","VIRUS","PROXY","DRON","CYBER","ROGUE","NEXO","PULSO","TRAZA"
+      ],
+      "normal": [
+        "CORTAPUEGOS","IMPLANTE","NETRUNNER","APAGON","TERMINAL","PROTOCOLO",
+        "SYSADMIN","BACKDOOR","ROOTKIT","MALWARE","SPYWARE","EXPLOIT",
+        "FIRMWARE","DESBORDE","DARKWEB","PAYLOAD","SANDBOX","CLUSTER",
+        "CUANTICO","HARDCODE","LOGFILE","DECRYPT","ENCRYPT","RED"
+      ],
+      "hard": [
+        "CIBERNETICO","INTELIGENCIA","COMPILADOR","DEPURACION","SOBRECARGA",
+        "ARQUITECTURA","PROCESADOR","DESFRAGMENTAR","CRIPTOGRAFIA",
+        "VULNERABILIDAD","AUTENTICACION","INFRAESTRUCTURA","DECODIFICADOR",
+        "MONITOREO","IDENTIFICACION"
+      ]
+    }
   }
 }
