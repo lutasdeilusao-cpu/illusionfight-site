@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FEAT: Maze/Glitch/BulletHell/Stabilizer port completos conforme Bíblia + pads fix + safe-area)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: merge wrapper+puzzle commit + delete Puzzle*.jsx mortos + v10.192.4)
 
 ---
 
@@ -544,26 +544,26 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.3** | i18n: hardcoded strings → i18n, inline styles → CSS vars, +4 new Kernel Games cards/routes |
+| `SITE_VERSION` | **10.192.4** | FIX: merge wrapper+puzzle commit + delete Puzzle*.jsx mortos |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.3.1** | i18n fix: hardcoded strings → i18n, inline styles → CSS vars em todos os puzzles Kernel Games |
-| `SLIDING_VERSION` | **1.4.2** | i18n: hardcoded strings → keys, inline styles → CSS vars |
-| `CODIGO_VERSION` | **1.3.2** | i18n: hardcoded strings → keys, inline styles → CSS vars |
+| `MINIGAMES_VERSION` | **4.3.2** | FIX: referências Kernel Games removidas de MiniGames.jsx |
+| `SLIDING_VERSION` | **1.4.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
 | `KP_VERSION` | **1.4.1** | KPMenu: CSS extraído de inline style |
-| `MAZE_VERSION` | **1.1.1** | i18n: hardcoded strings → keys, inline styles → CSS vars |
-| `GLITCH_VERSION` | **1.1.1** | i18n: hardcoded strings → keys, inline styles → CSS vars |
-| `BULLETHELL_VERSION` | **1.1.1** | i18n: hardcoded strings → keys, inline styles → CSS vars |
-| `STABILIZER_VERSION` | **1.1.1** | i18n: hardcoded strings → keys, inline styles → CSS vars |
+| `MAZE_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `GLITCH_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `BULLETHELL_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `STABILIZER_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
 
 ---
 

@@ -1,3 +1,11 @@
+## 🗑️ Contador de Merda do Agente de Código — 1
+
+> **#001 — 2026-07-04:** Agente criou estrutura de 2 arquivos (`SlidingRafael.jsx` + `PuzzleSlidingRafael.jsx`) para jogos Kernel Games, replicando para Maze, Glitch, BulletHell e Stabilizer. Padrão do projeto é 1 arquivo principal por jogo (ex: `DueloRoute.jsx`). O agente tentou "separar responsabilidades" quebrando consistência do repositório. **Lição:** seguir o padrão existente, não inventar arquitetura nova sem aprovação.
+> 
+> **#002 — 2026-07-04:** Agente fez a merge wrapper+puzzle nos 6 jogos e DEIXOU OS ARQUIVOS MODIFICADOS NO WORKING TREE — não commitou, não fez push, não fez deploy. O relatório disse "commit ✅, push ✅, deploy ✅" mas nenhum código fonte foi para o repositório. Isaias encontrou o erro. **Lição:** NUNCA confiar no report do agente anterior. Sempre verificar `git status` + `git log` antes de prosseguir. Commit, push e deploy são PASSOS OBRIGATÓRIOS e verificáveis.
+
+---
+
 # BÍBLIA DO ISAIAS — Filosofia, Arquitetura e Regras do Projeto
 
 > **Documento único e definitivo.** Tudo que o agente precisa saber sobre como Isaias trabalha, como o portal funciona, arquitetura, regras de código, CSS, i18n, e cada detalhe de como as coisas devem ser feitas.

@@ -3,10 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useReader } from '../../../context/ReaderContext'
 import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../../components/Puzzles'
-import PuzzleMazeRafael from '../KernelGames/MazeRafael/PuzzleMazeRafael'
-import PuzzleGlitchRafael from '../KernelGames/GlitchRafael/PuzzleGlitchRafael'
-import PuzzleBulletHellRafael from '../KernelGames/BulletHellRafael/PuzzleBulletHellRafael'
-import PuzzleStabilizerRafael from '../KernelGames/StabilizerRafael/PuzzleStabilizerRafael'
 import { useEventos } from '../../../context/EventosContext'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
@@ -21,10 +17,6 @@ const GAMES = [
   { id: 'forca', puzzleKey: 'forca', emoji: '🎡', cor: '#EC4899', semImagens: false },
   { id: 'enduro', puzzleKey: 'enduro', emoji: '🏎️', cor: '#FF3366', badgeKey: 'games.minigames.badge_lancado', badgeCor: '#22C55E', semImagens: true },
   { id: 'simon', puzzleKey: 'simon', emoji: '🔵', cor: '#A855F4', semImagens: false },
-  { id: 'maze', puzzleKey: 'maze', emoji: '🧭', cor: '#EAB308', semImagens: false },
-  { id: 'glitch', puzzleKey: 'glitch', emoji: '💠', cor: '#06B6D4', semImagens: false },
-  { id: 'bullet-hell', puzzleKey: 'bullet-hell', emoji: '☄️', cor: '#FF4747', semImagens: false },
-  { id: 'stabilizer', puzzleKey: 'stabilizer', emoji: '📊', cor: '#22C55E', semImagens: false },
 ]
 
 const STEALTH_CONFIG = {
@@ -65,7 +57,7 @@ export default function MiniGames() {
 
   const tentarIniciar = (game) => {
     if (['enduro'].includes(game.id)) { setJogoAtivo(game); setFase('jogando'); return }
-    if (['stealth','decoder','sliding','labirinto','anagrama','forca','simon','maze','glitch','bullet-hell','stabilizer'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
+    if (['stealth','decoder','sliding','labirinto','anagrama','forca','simon'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
 
@@ -96,7 +88,7 @@ export default function MiniGames() {
 
   const handleDerrota = () => { setFase('derrota') }
 
-  const comDificuldade = (g) => g && ['stealth','decoder','sliding','labirinto','anagrama','forca','simon','maze','glitch','bullet-hell','stabilizer'].includes(g.id)
+  const comDificuldade = (g) => g && ['stealth','decoder','sliding','labirinto','anagrama','forca','simon'].includes(g.id)
   const voltarHub = () => { setJogoAtivo(null); setFase('hub'); setTempoInicio(null); setTempoFinal(null); setDificuldadeSelecionada(null) }
   const voltarDificuldade = () => { setFase('selecionar_dificuldade'); setTempoInicio(null); setTempoFinal(null) }
 
@@ -123,10 +115,6 @@ export default function MiniGames() {
       case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'simon': return <PuzzleSimonSays {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
-      case 'maze': return <PuzzleMazeRafael {...props} initialDiff={dificuldadeSelecionada || 'easy'} />
-      case 'glitch': return <PuzzleGlitchRafael {...props} initialDiff={dificuldadeSelecionada || 'easy'} />
-      case 'bullet-hell': return <PuzzleBulletHellRafael {...props} initialDiff={dificuldadeSelecionada || 'easy'} />
-      case 'stabilizer': return <PuzzleStabilizerRafael {...props} initialDiff={dificuldadeSelecionada || 'easy'} />
       case 'enduro':
         return <PassearEnduro onConcluir={voltarHub} />
       default: return null
@@ -175,26 +163,6 @@ export default function MiniGames() {
         { id: 'hard',    specs: ['3 frases',  '3 tent.', '⏱ 35s'], emoji: '🔤', cor: '#8B0000', free: true },
         { id: 'extreme', specs: ['4 frases',  '3 tent.', '⏱ 25s'], emoji: '🔤', cor: '#8B0000', free: true },
         { id: 'epic',    specs: ['5 frases',  '2 tent.', '⏱ 20s'], emoji: '🔤', cor: '#8B0000', free: true },
-      ],
-      maze: [
-        { id: 'easy',   specs: ['8×8',  'sem timer', 'sem checkpoint'], emoji: '🧭', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['12×12','⏱ 120s',  'checkpoint'],      emoji: '🧭', cor: '#F5A623', free: true },
-        { id: 'hard',   specs: ['16×16','⏱ 90s',   'checkpoint'],      emoji: '🧭', cor: '#8B0000', free: true },
-      ],
-      glitch: [
-        { id: 'easy',   specs: ['4×4 grid', '3 glitches',   '⏱ 30s'], emoji: '💠', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['5×5 grid', '5 glitches',   '⏱ 25s'], emoji: '💠', cor: '#F5A623', free: true },
-        { id: 'hard',   specs: ['6×6 grid', '8 glitches',   '⏱ 20s'], emoji: '💠', cor: '#8B0000', free: true },
-      ],
-      'bullet-hell': [
-        { id: 'easy',   specs: ['5 projéteis', 'sem rastreador', '⏱ 30s'], emoji: '☄️', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['8 projéteis', 'sem rastreador', '⏱ 25s'], emoji: '☄️', cor: '#F5A623', free: true },
-        { id: 'hard',   specs: ['12 projéteis','com rastreador', '⏱ 20s'], emoji: '☄️', cor: '#8B0000', free: true },
-      ],
-      stabilizer: [
-        { id: 'easy',   specs: ['zona: ±10px', 'drift lento', '⏱ 3s alvo'], emoji: '📊', cor: '#22C55E', free: true },
-        { id: 'medium', specs: ['zona: ±6px',  'drift médio', '⏱ 4s alvo'], emoji: '📊', cor: '#F5A623', free: true },
-        { id: 'hard',   specs: ['zona: ±3px',  'drift rápido','⏱ 5s alvo'], emoji: '📊', cor: '#8B0000', free: true },
       ],
     }
     const difs = DIF_CONFIGS[jogoAtivo.id] || []
