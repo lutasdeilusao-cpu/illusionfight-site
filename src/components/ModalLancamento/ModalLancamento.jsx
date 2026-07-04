@@ -3,17 +3,15 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import './ModalLancamento.css'
 
-const STORAGE_KEY = 'ldi-modal-lancamento-visto'
-
 export default function ModalLancamento({ mostrar, onFechar }) {
   const { t } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
 
-  if (!mostrar) return null
+  // Guest nunca vê este modal
+  if (!user || !mostrar) return null
 
   const handleFechar = () => {
-    sessionStorage.setItem(STORAGE_KEY, '1')
     onFechar()
   }
 

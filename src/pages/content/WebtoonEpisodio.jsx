@@ -50,16 +50,17 @@ export default function WebtoonEpisodio() {
   }, [id])
 
   useEffect(() => {
+    if (!user) return
     if (!ultimaPaginaRef.current) return
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         if (id === '00') desbloquearRef.current('episodio_zero')
-        if ((id === '00') && !sessionStorage.getItem('ldi-modal-lancamento-visto')) setShowModal(true)
+        if (id === '00') setShowModal(true)
       }
     }, { threshold: 0.1 })
     observer.observe(ultimaPaginaRef.current)
     return () => observer.disconnect()
-  }, [id])
+  }, [id, user])
 
   const ep = episodios.find(e => e.id === id)
   const idx = episodios.findIndex(e => e.id === id)

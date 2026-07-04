@@ -109,16 +109,16 @@ export default function LivroCapitulo() {
     loadChapter()
   }, [id, chapter, isAdmin, locale])
 
-  // Sentinel: dispara modal ao final do capÃ­tulo 1
+  // Sentinel: dispara modal ao final do capÃ­tulo 1 (sÃ³ para logado)
   useEffect(() => {
+    if (!user) return
     if (id !== 'capitulo-01' || !sentinelRef.current) return
-    if (sessionStorage.getItem('ldi-modal-lancamento-visto')) return
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) setShowModal(true)
     }, { threshold: 0.1 })
     obs.observe(sentinelRef.current)
     return () => obs.disconnect()
-  }, [id, md])
+  }, [id, md, user])
 
   if (notFound) {
     return (
