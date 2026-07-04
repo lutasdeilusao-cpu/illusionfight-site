@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.5'
+export const SITE_VERSION = '10.192.6'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -26,7 +26,7 @@ export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado d
 export const KP_VERSION = '1.4.1' // KPMenu: CSS extraído de inline style
 export const SLIDING_VERSION   = '1.4.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
 export const CODIGO_VERSION    = '1.3.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
-export const MAZE_VERSION      = '1.1.3'  // fix: null ref em startGame (countdown sem canvas)
+export const MAZE_VERSION      = '1.1.4'  // fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído
 export const GLITCH_VERSION    = '1.1.2'  // merge wrapper+puzzle em 1 arquivo + fix commit
 export const BULLETHELL_VERSION = '1.1.3' // fix: null ref em startGame (countdown sem canvas)
 export const STABILIZER_VERSION = '1.1.2' // merge wrapper+puzzle em 1 arquivo + fix commit

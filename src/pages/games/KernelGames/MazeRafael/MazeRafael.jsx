@@ -105,8 +105,7 @@ function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff }) {
     return { x: ox + c * cs + cs / 2, y: oy + r * cs + cs / 2 }
   }
 
-  function getUnvisitedNeighbors(r, c) {
-    const m = mazeRef.current
+  function getUnvisitedNeighbors(m, r, c) {
     return [['N',r-1,c],['S',r+1,c],['E',r,c+1],['W',r,c-1]]
       .filter(([,nr,nc]) => nr >= 0 && nr < rowsRef.current && nc >= 0 && nc < colsRef.current && !m[nr][nc].visited)
   }
@@ -163,7 +162,7 @@ function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff }) {
     maze[0][0].visited = true
     while (stack.length) {
       const [r, c] = stack[stack.length - 1]
-      const nbrs = shuffleArr(getUnvisitedNeighbors(r, c))
+      const nbrs = shuffleArr(getUnvisitedNeighbors(maze, r, c))
       if (nbrs.length === 0) { stack.pop(); continue }
       const [dir, nr, nc] = nbrs[0]
       maze[r][c].walls[dir] = false

@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: null ref em startGame Maze+BulletHell + v10.192.5)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: getUnvisitedNeighbors local maze param + Bíblia #003 + v10.192.6)
 
 ---
 

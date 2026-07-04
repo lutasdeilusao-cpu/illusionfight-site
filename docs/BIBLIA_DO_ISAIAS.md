@@ -3,6 +3,17 @@
 > **#001 — 2026-07-04:** Agente criou estrutura de 2 arquivos (`SlidingRafael.jsx` + `PuzzleSlidingRafael.jsx`) para jogos Kernel Games, replicando para Maze, Glitch, BulletHell e Stabilizer. Padrão do projeto é 1 arquivo principal por jogo (ex: `DueloRoute.jsx`). O agente tentou "separar responsabilidades" quebrando consistência do repositório. **Lição:** seguir o padrão existente, não inventar arquitetura nova sem aprovação.
 > 
 > **#002 — 2026-07-04:** Agente fez a merge wrapper+puzzle nos 6 jogos e DEIXOU OS ARQUIVOS MODIFICADOS NO WORKING TREE — não commitou, não fez push, não fez deploy. O relatório disse "commit ✅, push ✅, deploy ✅" mas nenhum código fonte foi para o repositório. Isaias encontrou o erro. **Lição:** NUNCA confiar no report do agente anterior. Sempre verificar `git status` + `git log` antes de prosseguir. Commit, push e deploy são PASSOS OBRIGATÓRIOS e verificáveis.
+>
+> **#003 — 2026-07-04:** Agente aplicou o merge wrapper+puzzle e deixou **2 bugs críticos de null ref** em MazeRafael e BulletHellRafael que só aparecem após o countdown de 3s:
+> 1. **MazeRafael:** `getUnvisitedNeighbors()` lia `mazeRef.current` mas `generateMaze()` só atribuía `mazeRef.current = maze` **depois** do loop de geração. Durante a geração, a ref ainda era null → `Cannot read properties of null (reading '1')`. O agente não percebeu porque o código usava uma variável local `maze` para escrever mas a ref para ler (`mazeRef.current !== maze` dentro do mesmo escopo).
+> 2. **BulletHellRafael + MazeRafael:** `startGame()` acessava `canvasRef.current`, `arenaRef.current` e `hudRef.current` durante o countdown, mas a fase countdown renderiza **apenas** o número (`mz-cdown`/`bh-cdown`) — sem canvas, sem arena, sem HUD. Os refs eram null → `Cannot read properties of null (reading 'getBoundingClientRect'/'parentElement')`.
+> 3. **Testes Playwright da sessão anterior NÃO pegaram esses erros** porque navegavam pelos jogos sem esperar o countdown inteiro (~4s) para verificar o resultado.
+> 4. **Isaias perdeu 2 horas** corrigindo bugs que o agente deveria ter pego antes de entregar.
+> **Lição:**  
+> - NUNCA acessar refs de DOM em `startGame()` enquanto a fase ainda é countdown — mudar a fase PRIMEIRO, depois acessar refs num rAF.  
+> - NUNCA usar `mazeRef.current` dentro da função que constrói o maze — a ref ainda não foi atribuída. Passar a variável local como parâmetro.  
+> - Testar com Playwright NÃO substitui teste real — o agente deve mentalmente rastrear o fluxo de renderização (fase → quais elementos estão no DOM → quais refs estão populadas) ANTES de declarar pronto.  
+> - **Teste mental de null ref é OBRIGATÓRIO** para qualquer código que acesse refs em callbacks disparados por setTimeout/useEffect.
 
 ---
 
