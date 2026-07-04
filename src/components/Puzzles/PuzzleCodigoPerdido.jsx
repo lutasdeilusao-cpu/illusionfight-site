@@ -17,7 +17,7 @@ function pick(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
+export default function PuzzleCodigoPerdido({ onSolve, onFail, onBack }) {
   const { t, loaded } = useRafaelI18n()
   const { t: gt } = useLanguage()
 
@@ -122,6 +122,9 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
             <span className="cp-di">{t('codigo_perdido.dif_hard')}</span>
           </button>
         </div>
+        <div className="cp-back-row">
+          <button className="cp-back-btn" onClick={onBack}>← {gt('games.minigames.voltar')}</button>
+        </div>
       </div>
     )
   }
@@ -141,6 +144,9 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
   return (
     <div className="cp-screen cp-game" style={{ position: 'relative', width: '100%', height: '100%' }}>
       <div className="cp-hud">
+        <button className="cp-hud-back" onClick={() => { setActive(false); setPhase('select') }} aria-label="Voltar">
+          ←
+        </button>
         <div className="cp-hud-lives" style={{ color: livesColor }}>{hearts}</div>
         <div className="cp-hud-center">
           <span className="cp-hud-word-len">{word.length}</span>

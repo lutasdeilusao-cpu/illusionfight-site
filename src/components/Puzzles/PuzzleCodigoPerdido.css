@@ -98,6 +98,48 @@
   .cp-dif-hard:hover { border-color: var(--cp-red); background: rgba(255,0,85,.04); }
 }
 
+/* ── Back Buttons ── */
+.cp-back-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 340px;
+}
+.cp-back-btn {
+  background: transparent;
+  border: 1px solid var(--cp-ghost);
+  color: var(--cp-ghost);
+  font-family: var(--cp-mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: .15s;
+  width: 100%;
+}
+.cp-back-btn:active { border-color: var(--cp-cyan); color: var(--cp-cyan); }
+
+.cp-hud-back {
+  background: none;
+  border: 1px solid var(--cp-ghost);
+  color: var(--cp-cyan);
+  font-size: 1.1rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .15s;
+  flex-shrink: 0;
+  line-height: 1;
+  border-radius: 2px;
+}
+.cp-hud-back:active { background: rgba(0,229,255,.1); }
+
 .cp-cdown { background: var(--cp-bg); }
 
 .cp-cdown-n {
@@ -330,6 +372,21 @@
   opacity: .35;
 }
 
+/* ── Mobile-first: keyboard keys, touch area ── */
+.cp-kb-key {
+  min-height: 44px;
+  max-width: 44px;
+  font-size: .82rem;
+}
+
+@media (min-width: 600px) {
+  .cp-kb-key {
+    min-height: 40px;
+    max-width: 38px;
+    font-size: .72rem;
+  }
+}
+
 @media(hover:hover) {
   .cp-kb-key:hover:not(.cp-used-key):not(.cp-used-hit):not(.cp-used-miss) {
     border-color: var(--cp-cyan);
@@ -423,4 +480,80 @@
 @media(hover:hover) {
   .cp-res-btn.cp-p:hover { background: var(--cp-cyan); color: var(--cp-bg); }
   .cp-res-btn.cp-s:hover { border-color: var(--cp-cyan); color: var(--cp-cyan); }
+}
+
+/* ── Mobile-first ── */
+/* Default: mobile styles */
+.cp-sel-title {
+  font-size: 2.2rem;
+}
+.cp-hud {
+  padding: 6px 10px;
+}
+.cp-hud-lives {
+  font-size: 1.4rem;
+  min-width: 60px;
+}
+.cp-hud-word-len {
+  font-size: 1.2rem;
+}
+.cp-hud-diff {
+  min-width: 60px;
+}
+.cp-screen {
+  padding: 20px 14px;
+}
+.cp-game-body {
+  padding: 12px 10px 10px;
+}
+.cp-cdown-n {
+  font-size: 5rem;
+}
+.cp-letter-char {
+  font-size: 1.5rem;
+  min-height: 26px;
+}
+.cp-error-pip {
+  width: 20px;
+}
+.cp-keyboard {
+  max-width: 340px;
+}
+
+@media (min-width: 600px) {
+  .cp-sel-title {
+    font-size: 3.4rem;
+  }
+  .cp-hud {
+    padding: 8px 16px;
+  }
+  .cp-hud-lives {
+    font-size: 2rem;
+    min-width: 90px;
+  }
+  .cp-hud-word-len {
+    font-size: 1.4rem;
+  }
+  .cp-hud-diff {
+    min-width: 90px;
+  }
+  .cp-screen {
+    padding: 24px 20px;
+  }
+  .cp-game-body {
+    padding: 16px 14px 12px;
+  }
+  .cp-cdown-n {
+    font-size: 9rem;
+  }
+  .cp-letter-char {
+    font-size: 1.9rem;
+    min-height: 32px;
+  }
+  .cp-error-pip {
+    width: 28px;
+  }
+  .cp-keyboard {
+    max-width: 420px;
+  }
 }

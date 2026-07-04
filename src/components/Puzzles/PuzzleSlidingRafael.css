@@ -106,6 +106,48 @@
   .sr-dif-hard:hover { border-color: var(--sr-red); background: rgba(255,0,85,.04); }
 }
 
+/* ── Back Buttons ── */
+.sr-back-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 340px;
+}
+.sr-back-btn {
+  background: transparent;
+  border: 1px solid var(--sr-ghost);
+  color: var(--sr-ghost);
+  font-family: var(--sr-mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: .15s;
+  width: 100%;
+}
+.sr-back-btn:active { border-color: var(--sr-cyan); color: var(--sr-cyan); }
+
+.sr-hud-back {
+  background: none;
+  border: 1px solid var(--sr-ghost);
+  color: var(--sr-cyan);
+  font-size: 1.1rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .15s;
+  flex-shrink: 0;
+  line-height: 1;
+  border-radius: 2px;
+}
+.sr-hud-back:active { background: rgba(0,229,255,.1); }
+
 .sr-cdown {
   background: var(--sr-bg);
 }
@@ -270,4 +312,61 @@
 @keyframes sr-flashAnim {
   0% { background: #0d2640; box-shadow: 0 0 18px rgba(0,229,255,0.5); }
   100% { background: var(--sr-dim); box-shadow: none; }
+}
+
+/* ── Mobile-first ── */
+/* Default: mobile styles */
+.sr-sel-title {
+  font-size: 2.2rem;
+}
+.sr-hud {
+  padding: 6px 10px;
+}
+.sr-hud-timer {
+  font-size: 1.4rem;
+  min-width: 60px;
+}
+.sr-hud-moves {
+  font-size: 1.2rem;
+}
+.sr-hud-diff {
+  min-width: 60px;
+}
+.sr-screen {
+  padding: 20px 14px;
+}
+.sr-arena {
+  padding: 10px;
+}
+.sr-cdown-n {
+  font-size: 5rem;
+}
+
+/* Tablet+ */
+@media (min-width: 600px) {
+  .sr-sel-title {
+    font-size: 3.4rem;
+  }
+  .sr-hud {
+    padding: 8px 16px;
+  }
+  .sr-hud-timer {
+    font-size: 2.2rem;
+    min-width: 80px;
+  }
+  .sr-hud-moves {
+    font-size: 1.5rem;
+  }
+  .sr-hud-diff {
+    min-width: 80px;
+  }
+  .sr-screen {
+    padding: 28px 20px;
+  }
+  .sr-arena {
+    padding: 16px;
+  }
+  .sr-cdown-n {
+    font-size: 9rem;
+  }
 }

@@ -43,7 +43,7 @@ function isSolved(board, size) {
   return board[total - 1] === 0
 }
 
-export default function PuzzleSlidingRafael({ onSolve, onFail }) {
+export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   const { t } = useRafaelI18n()
   const { t: gt } = useLanguage()
 
@@ -199,6 +199,9 @@ export default function PuzzleSlidingRafael({ onSolve, onFail }) {
             <span className="sr-di">{t('sliding_rafael.dif_hard')}</span>
           </button>
         </div>
+        <div className="sr-back-row">
+          <button className="sr-back-btn" onClick={onBack}>← {gt('games.minigames.voltar')}</button>
+        </div>
       </div>
     )
   }
@@ -218,6 +221,9 @@ export default function PuzzleSlidingRafael({ onSolve, onFail }) {
   return (
     <div className="sr-screen sr-game" style={{ position: 'relative', width: '100%', height: '100%' }}>
       <div className="sr-hud">
+        <button className="sr-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+          ←
+        </button>
         <div className={`sr-hud-timer ${timerClass}`}>
           {formatTime(displayTime || 0)}
         </div>

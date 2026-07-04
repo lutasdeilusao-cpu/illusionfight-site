@@ -57,7 +57,7 @@ export default function CodigoPerdido() {
   return (
     <div className="kg-page">
       <div className="kg-scanlines" />
-      <PuzzleCodigoPerdido key={plays} onSolve={handleSolve} onFail={handleFail} />
+      <PuzzleCodigoPerdido key={plays} onSolve={handleSolve} onFail={handleFail} onBack={() => navigate('/games')} />
     </div>
   )
 }

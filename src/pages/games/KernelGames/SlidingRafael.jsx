@@ -58,7 +58,7 @@ export default function SlidingRafael() {
   return (
     <div className="kg-page">
       <div className="kg-scanlines" />
-      <PuzzleSlidingRafael key={plays} onSolve={handleSolve} onFail={handleFail} />
+      <PuzzleSlidingRafael key={plays} onSolve={handleSolve} onFail={handleFail} onBack={() => navigate('/games')} />
     </div>
   )
 }
