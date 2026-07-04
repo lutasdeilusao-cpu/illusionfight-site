@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (REFACTOR: todos os jogos Rafael movidos para KernelGames/ com pastas específicas)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FEAT: Maze/Glitch/BulletHell/Stabilizer port completos conforme Bíblia + pads fix + safe-area)
 
 ---
 
@@ -544,14 +544,14 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.1** | REFACTOR: todos os jogos Rafael movidos para KernelGames/ com pastas específicas |
+| `SITE_VERSION` | **10.192.2** | Port completo MG-02/04/05/06 conforme Bíblia + padding/safe-area fixes |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.2.2** | Imports atualizados: puzzles Rafael movidos para KernelGames/ |
+| `MINIGAMES_VERSION` | **4.3.0** | +4 novos puzzles: Maze, Glitch, BulletHell, Stabilizer (port Bíblia) |
 | `SLIDING_VERSION` | **1.4.1** | Movido para KernelGames/SlidingRafael/ |
 | `CODIGO_VERSION` | **1.3.1** | Movido para KernelGames/CodigoPerdido/ |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
@@ -560,10 +560,10 @@
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
 | `KP_VERSION` | **1.4.0** | Manual do operador (modal) + botão Voltar + ?aba=kernel na URL games |
-| `MAZE_VERSION` | **1.0.1** | Movido para KernelGames/MazeRafael/ |
-| `GLITCH_VERSION` | **1.0.1** | Movido para KernelGames/GlitchRafael/ |
-| `BULLETHELL_VERSION` | **1.0.1** | Movido para KernelGames/BulletHellRafael/ |
-| `STABILIZER_VERSION` | **1.0.1** | Movido para KernelGames/StabilizerRafael/ |
+| `MAZE_VERSION` | **1.1.0** | Port completo Bíblia: Canvas DFS, checkpoint, penalty, step interpolation |
+| `GLITCH_VERSION` | **1.1.0** | Port completo Bíblia: DOM `<pre>` grid, anomalia '2', hittimer |
+| `BULLETHELL_VERSION` | **1.1.0** | Port completo Bíblia: Canvas shmup, tracking, waiting-for-touch |
+| `STABILIZER_VERSION` | **1.1.0** | Port completo Bíblia: DOM bar, drift/push, zona verde/vermelha |
 
 ---
 
