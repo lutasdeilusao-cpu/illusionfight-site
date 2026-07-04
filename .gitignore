@@ -17,6 +17,9 @@ Lutas de Ilusão - Retcon.md
 candybox2_reference
 _screenshot.mjs
 
+# Relatórios de investigação — documentos internos do agente
+docs/ReportAI/
+
 # Artefatos de teste locais — evitar poluir a raiz
 .dev-*.log
 .dev-*.err

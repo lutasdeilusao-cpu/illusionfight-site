@@ -85,6 +85,14 @@ export function AchievementsProvider({ children }) {
     desbloquear('conhece_a_gangue')
   }
 
+  const desbloquearOuConvidar = useCallback((achievementId) => {
+    if (!user) {
+      notificationManager.push('cta_conta', { achievementId })
+      return
+    }
+    desbloquear(achievementId)
+  }, [desbloquear, user])
+
   function fecharToast() {
     setToastPendente(null)
   }
@@ -97,7 +105,7 @@ export function AchievementsProvider({ children }) {
   }, [user])
 
   return (
-    <AchievementsContext.Provider value={{ desbloqueados, desbloquear, toastPendente, fecharToast, refresh, migrarLocalParaSupabase, registrarGangue }}>
+    <AchievementsContext.Provider value={{ desbloqueados, desbloquear, desbloquearOuConvidar, toastPendente, fecharToast, refresh, migrarLocalParaSupabase, registrarGangue }}>
       {children}
     </AchievementsContext.Provider>
   )

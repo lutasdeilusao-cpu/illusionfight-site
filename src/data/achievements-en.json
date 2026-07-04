@@ -1,0 +1,129 @@
+[
+  {
+    "id": "primeiro_acesso",
+    "nome": "First Access to the Arena",
+    "descricao": "You entered. The LDI registered your presence.",
+    "icone": "⚔",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "tempo_1min"
+  },
+  {
+    "id": "recrutado",
+    "nome": "Recruited",
+    "descricao": "You created your account. Welcome to SDR.",
+    "icone": "🎖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "cadastro"
+  },
+  {
+    "id": "leitor_marelia",
+    "nome": "Reader of Marélia",
+    "descricao": "You read the first chapter of the book.",
+    "icone": "📖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "livro_cap01"
+  },
+  {
+    "id": "episodio_zero",
+    "nome": "Episode Zero",
+    "descricao": "You watched the webtoon prologue.",
+    "icone": "🎬",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "webtoon_ep00_completo"
+  },
+  {
+    "id": "conhece_a_gangue",
+    "nome": "Meet the Gang",
+    "descricao": "You consulted the gang in the quiz.",
+    "icone": "👊",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "gangue_todos"
+  },
+  {
+    "id": "ranqueado_sdr",
+    "nome": "SDR Ranked",
+    "descricao": "You completed the quiz for the first time.",
+    "icone": "🏆",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_completo"
+  },
+  {
+    "id": "briguento",
+    "nome": "Brawler",
+    "descricao": "You scored 8 out of 10 in Ranked mode.",
+    "icone": "💥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_score_80"
+  },
+  {
+    "id": "sangue_primordial",
+    "nome": "???",
+    "descricao": "The system registered an anomaly in your profile.",
+    "icone": "🩸",
+    "secreto": true,
+    "tier": 1,
+    "trigger": "tempo_10min"
+  },
+  {
+    "id": "divulgador",
+    "nome": "Arena Promoter",
+    "descricao": "You shared the LDI on social media. The arena grows.",
+    "icone": "🔥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "share_aprovado",
+    "recorrente": true
+  },
+  {
+    "id": "primeira_vitoria_trumps",
+    "nome": "First Victory in the Arena",
+    "descricao": "You won your first Top Trumps match.",
+    "icone": "🃏",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_primeira_vitoria"
+  },
+  {
+    "id": "primeira_derrota_trumps",
+    "nome": "Arena Apprentice",
+    "descricao": "You lost your first match. The lesson stings but stays.",
+    "icone": "💀",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "trumps_primeira_derrota"
+  },
+  {
+    "id": "veterano_trumps_10",
+    "nome": "Arena Veteran",
+    "descricao": "10 Top Trumps matches played.",
+    "icone": "🎴",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_10_partidas"
+  },
+  {
+    "id": "centuriao_trumps",
+    "nome": "Arena Centurion",
+    "descricao": "100 Top Trumps matches played. Respect.",
+    "icone": "👑",
+    "secreto": true,
+    "tier": 2,
+    "trigger": "trumps_100_partidas"
+  },
+  {
+    "id": "lenda_trumps",
+    "nome": "Living Legend",
+    "descricao": "1000 matches. You are the LDI.",
+    "icone": "🌑",
+    "secreto": true,
+    "tier": 3,
+    "trigger": "trumps_1000_partidas"
+  }
+]

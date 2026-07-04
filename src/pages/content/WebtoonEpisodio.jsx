@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -8,7 +8,6 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
-import ModalLancamento from '../../components/ModalLancamento/ModalLancamento'
 import episodios from '../../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -24,14 +23,13 @@ export default function WebtoonEpisodio() {
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { user, perfil } = useAuth()
-  const { desbloquear } = useAchievements()
+  const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
   const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
-  const desbloquearRef = useRef(desbloquear)
-  useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
+  const desbloquearOuConvidarRef = useRef(desbloquearOuConvidar)
+  useEffect(() => { desbloquearOuConvidarRef.current = desbloquearOuConvidar }, [desbloquearOuConvidar])
   const ultimaPaginaRef = useRef(null)
-  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     setReaderMode(true)
@@ -50,17 +48,15 @@ export default function WebtoonEpisodio() {
   }, [id])
 
   useEffect(() => {
-    if (!user) return
     if (!ultimaPaginaRef.current) return
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        if (id === '00') desbloquearRef.current('episodio_zero')
-        if (id === '00') setShowModal(true)
+        if (id === '00') desbloquearOuConvidarRef.current('episodio_zero')
       }
     }, { threshold: 0.1 })
     observer.observe(ultimaPaginaRef.current)
     return () => observer.disconnect()
-  }, [id, user])
+  }, [id])
 
   const ep = episodios.find(e => e.id === id)
   const idx = episodios.findIndex(e => e.id === id)
@@ -136,7 +132,6 @@ export default function WebtoonEpisodio() {
         </div>
       </nav>
 
-      <ModalLancamento mostrar={showModal} onFechar={() => setShowModal(false)} />
     </>
   )
 }

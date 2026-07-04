@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-02 (Kernel Panic v1.4.0)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (Unificação CTA guest + achievements v10.184.0)
 
 ---
 
@@ -120,7 +120,6 @@
     │   ├── LatestEpisodes/             # Seção home: últimos episódios
     │   ├── LoginGate/                  # Gate de login reutilizável
     │   ├── ModalConfirmacaoFicha/      # Modal confirmação antes de gastar ficha
-    │   ├── ModalLancamento             # Modal de lançamento/newsletter
     │   ├── ModalSemFichas/             # Modal arcade "SEM FICHAS"
     │   ├── FichaGateRoute/            # Gate rota: login + ficha + FREE info em todas as rotas de game
     │   ├── GuestNotice                 # Aviso para usuários guest
@@ -169,7 +168,12 @@
     │   └── sfx.js                      # Sistema de SFX (click, select, reward, etc.)
     │
     ├── data/
-    │   ├── achievements-pt.json        # Achievements do sistema
+    │   ├── achievements-pt.json        # Achievements do sistema (PT)
+    │   ├── achievements-en.json        # Achievements do sistema (EN)
+    │   ├── achievements-es.json        # Achievements do sistema (ES)
+    │   ├── achievements-strings-pt.json # Strings do sistema de achievements (CTA guest, PT)
+    │   ├── achievements-strings-en.json # Strings do sistema de achievements (CTA guest, EN)
+    │   ├── achievements-strings-es.json # Strings do sistema de achievements (CTA guest, ES)
     │   ├── episodios.json              # Episódios do webtoon
     │   ├── livro-index.json            # Índice dos capítulos (publicado, título multi-lang)
     │   ├── loja-digital.json           # Produtos digitais da loja
@@ -501,7 +505,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.183.40** | fix: modal cadastro nunca aparece para guest + remoção sessionStorage |
+| `SITE_VERSION` | **10.184.0** | refactor: unificar CTA guest com sistema de achievements + i18n dedicado (ModalLancamento removido) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |

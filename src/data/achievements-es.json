@@ -1,0 +1,129 @@
+[
+  {
+    "id": "primeiro_acesso",
+    "nome": "Primer Acceso a la Arena",
+    "descricao": "Entraste. El LDI registró tu presencia.",
+    "icone": "⚔",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "tempo_1min"
+  },
+  {
+    "id": "recrutado",
+    "nome": "Reclutado",
+    "descricao": "Creaste tu cuenta. Bienvenido al SDR.",
+    "icone": "🎖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "cadastro"
+  },
+  {
+    "id": "leitor_marelia",
+    "nome": "Lector de Marélia",
+    "descricao": "Leíste el primer capítulo del libro.",
+    "icone": "📖",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "livro_cap01"
+  },
+  {
+    "id": "episodio_zero",
+    "nome": "Episodio Cero",
+    "descricao": "Viste el prólogo del webtoon.",
+    "icone": "🎬",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "webtoon_ep00_completo"
+  },
+  {
+    "id": "conhece_a_gangue",
+    "nome": "Conoce a la Banda",
+    "descricao": "Consultaste a la banda en el quiz.",
+    "icone": "👊",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "gangue_todos"
+  },
+  {
+    "id": "ranqueado_sdr",
+    "nome": "Clasificado en SDR",
+    "descricao": "Completaste el quiz por primera vez.",
+    "icone": "🏆",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_completo"
+  },
+  {
+    "id": "briguento",
+    "nome": "Peleón",
+    "descricao": "Acertaste 8 de 10 en modo Clasificado.",
+    "icone": "💥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "quiz_score_80"
+  },
+  {
+    "id": "sangue_primordial",
+    "nome": "???",
+    "descricao": "El sistema registró una anomalía en tu perfil.",
+    "icone": "🩸",
+    "secreto": true,
+    "tier": 1,
+    "trigger": "tempo_10min"
+  },
+  {
+    "id": "divulgador",
+    "nome": "Promotor de la Arena",
+    "descricao": "Compartiste el LDI en redes. La arena crece.",
+    "icone": "🔥",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "share_aprovado",
+    "recorrente": true
+  },
+  {
+    "id": "primeira_vitoria_trumps",
+    "nome": "Primera Victoria en la Arena",
+    "descricao": "Ganaste tu primera partida de Top Trumps.",
+    "icone": "🃏",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_primeira_vitoria"
+  },
+  {
+    "id": "primeira_derrota_trumps",
+    "nome": "Aprendiz de la Arena",
+    "descricao": "Perdiste tu primera partida. La lección duele, pero queda.",
+    "icone": "💀",
+    "secreto": false,
+    "tier": 0,
+    "trigger": "trumps_primeira_derrota"
+  },
+  {
+    "id": "veterano_trumps_10",
+    "nome": "Veterano de la Arena",
+    "descricao": "10 partidas de Top Trumps disputadas.",
+    "icone": "🎴",
+    "secreto": false,
+    "tier": 1,
+    "trigger": "trumps_10_partidas"
+  },
+  {
+    "id": "centuriao_trumps",
+    "nome": "Centurión de la Arena",
+    "descricao": "100 partidas de Top Trumps disputadas. Respeto.",
+    "icone": "👑",
+    "secreto": true,
+    "tier": 2,
+    "trigger": "trumps_100_partidas"
+  },
+  {
+    "id": "lenda_trumps",
+    "nome": "Leyenda Viva",
+    "descricao": "1000 partidas. Tú eres el LDI.",
+    "icone": "🌑",
+    "secreto": true,
+    "tier": 3,
+    "trigger": "trumps_1000_partidas"
+  }
+]

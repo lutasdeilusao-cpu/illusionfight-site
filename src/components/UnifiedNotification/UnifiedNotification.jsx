@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { notificationManager, NotificationType } from '../../lib/notificationManager'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
@@ -7,6 +7,12 @@ import jackImg from '../../assets/images/characters/jack-balloon.png'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
 import tamaImg from '../../assets/images/tamagoshi/01/kroniki-presentation.png'
 import thumbEp00 from '../../assets/images/episodes/thumb-ep00.png'
+import achievPt from '../../data/achievements-pt.json'
+import achievEn from '../../data/achievements-en.json'
+import achievEs from '../../data/achievements-es.json'
+import stringsPt from '../../data/achievements-strings-pt.json'
+import stringsEn from '../../data/achievements-strings-en.json'
+import stringsEs from '../../data/achievements-strings-es.json'
 // Reusa os CSS existentes — nenhum estilo novo
 import '../LDINotification/LDINotification.css'
 import '../AchievementToast/AchievementToast.css'
@@ -17,8 +23,9 @@ export default function UnifiedNotification() {
   const [isClosing, setIsClosing] = useState(false)
   const [typedText, setTypedText] = useState('')
   const [typingDone, setTypingDone] = useState(false)
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const { user } = useAuth()
+  const navigate = useNavigate()
   const autoTimerRef = useRef(null)
   const checkIntervalRef = useRef(null)
   const ninaCbRef = useRef(null)
@@ -48,10 +55,10 @@ export default function UnifiedNotification() {
     }
 
     // Fallback: fila normal do notificationManager
-    // Achievement tem prioridade — busca na fila inteira com bypass de cooldown
+    // Achievement (logado) ou CTA (guest) tem prioridade — busca na fila inteira com bypass de cooldown
     const item = user
       ? (notificationManager.findAndPull('achievement', true) || notificationManager.pull())
-      : notificationManager.pull()
+      : (notificationManager.findAndPull('cta_conta', true) || notificationManager.pull())
     if (item) {
       setCurrent(item)
       setIsClosing(false)
@@ -93,7 +100,7 @@ export default function UnifiedNotification() {
   useEffect(() => {
     if (!current) return
     const duration =
-      current.type === NotificationType.ACHIEVEMENT ? 6000 :
+      current.type === NotificationType.ACHIEVEMENT || current.type === NotificationType.CTA_CONTA ? 6000 :
       current.type === NotificationType.NINA_MUSIC ? 0 : // nina fecha manualmente
       10000
     if (duration === 0) return
@@ -126,6 +133,10 @@ export default function UnifiedNotification() {
     return () => { window.__ninaNotificationCb = undefined }
   }, [])
 
+  // ── Locale-aware data ──
+  const achievList = locale === 'en' ? achievEn : locale === 'es' ? achievEs : achievPt
+  const ctaStrings = locale === 'en' ? stringsEn : locale === 'es' ? stringsEs : stringsPt
+
   if (!current) return null
 
   // ═══════════════════════════════════════
@@ -148,6 +159,32 @@ export default function UnifiedNotification() {
           <div className="achievement-descricao">{ach.descricao}</div>
           <button className="achievement-btn" onClick={handleClose}>
             {t('achievement.continuar')}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  // ═══════════════════════════════════════
+  // CTA_CONTA — guest CTA, mesma UI do achievement
+  // ═══════════════════════════════════════
+  if (current.type === NotificationType.CTA_CONTA) {
+    const ach = achievList.find(a => a.id === current.data.achievementId)
+    return (
+      <div className="achievement-overlay" onClick={handleClose}>
+        <div className="achievement-card" onClick={e => e.stopPropagation()}>
+          <div className="achievement-particles">
+            {[...Array(12)].map((_, i) => (
+              <span key={i} className={`particle p-${i}`} />
+            ))}
+          </div>
+          <img src={thumbEp00} className="achievement-jack" alt="Jack" />
+          <div className="achievement-label">{ctaStrings.cta_conta.titulo}</div>
+          {ach && <div className="achievement-icone">{ach.icone}</div>}
+          {ach && <div className="achievement-nome">{ach.nome}</div>}
+          <div className="achievement-descricao">{ctaStrings.cta_conta.mensagem}</div>
+          <button className="achievement-btn" onClick={() => { handleClose(); navigate('/cadastro') }}>
+            {ctaStrings.cta_conta.botao}
           </button>
         </div>
       </div>

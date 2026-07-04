@@ -8,6 +8,7 @@
  *   import { notificationManager } from '../../lib/notificationManager'
  *   notificationManager.push('ldi_tip', { mensagem, cta, url, personagem })
  *   notificationManager.push('achievement', { nome, descricao, icone })
+ *   notificationManager.push('cta_conta', { achievementId })
  *   notificationManager.push('nina_music', { greetingKey })
  */
 
@@ -17,6 +18,7 @@ const COOLDOWN_MS = 15 * 60 * 1000 // 15 minutos
 
 export const NotificationType = {
   ACHIEVEMENT: 'achievement',
+  CTA_CONTA: 'cta_conta',
   LDI_TIP: 'ldi_tip',
   NINA_MUSIC: 'nina_music',
 }
@@ -24,7 +26,7 @@ export const NotificationType = {
 export const notificationManager = {
   /**
    * Adiciona uma notificação à fila.
-   * @param {'achievement'|'ldi_tip'|'nina_music'} type
+   * @param {'achievement'|'cta_conta'|'ldi_tip'|'nina_music'} type
    * @param {object} data - dados específicos do tipo
    */
   push(type, data) {

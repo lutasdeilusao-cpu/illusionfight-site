@@ -9,7 +9,6 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
-import ModalLancamento from '../../components/ModalLancamento/ModalLancamento'
 import index from '../../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -21,12 +20,12 @@ export default function LivroCapitulo() {
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { user, perfil } = useAuth()
-  const { desbloquear } = useAchievements()
+  const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
   const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
-  const desbloquearRef = useRef(desbloquear)
-  useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
+  const desbloquearOuConvidarRef = useRef(desbloquearOuConvidar)
+  useEffect(() => { desbloquearOuConvidarRef.current = desbloquearOuConvidar }, [desbloquearOuConvidar])
 
   useEffect(() => {
     setReaderMode(true)
@@ -69,7 +68,6 @@ export default function LivroCapitulo() {
   const [fontSize, setFontSize]             = useState(() => Number(localStorage.getItem('ldi-reader-fontsize')   || 18))
   const [fontFamily, setFontFamily]         = useState(() => localStorage.getItem('ldi-reader-fontfamily')        || 'var(--font-body)')
   const [contentWidth, setContentWidth]     = useState(() => localStorage.getItem('ldi-reader-width')             || '680px')
-  const [showModal, setShowModal]           = useState(false)
   const sentinelRef = useRef(null)
 
   useEffect(() => { localStorage.setItem('ldi-reader-fontsize',   fontSize)     }, [fontSize])
@@ -99,7 +97,6 @@ export default function LivroCapitulo() {
         try {
           const content = await loader()
           setMd(content)
-          if (id === 'capitulo-01') desbloquearRef.current('leitor_marelia')
           return
         } catch {}
       }
@@ -109,16 +106,15 @@ export default function LivroCapitulo() {
     loadChapter()
   }, [id, chapter, isAdmin, locale])
 
-  // Sentinel: dispara modal ao final do capÃ­tulo 1 (sÃ³ para logado)
+  // Sentinel: dispara achievement (logado) ou CTA (guest) ao final do capÃ­tulo 1
   useEffect(() => {
-    if (!user) return
     if (id !== 'capitulo-01' || !sentinelRef.current) return
     const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setShowModal(true)
+      if (entry.isIntersecting) desbloquearOuConvidarRef.current('leitor_marelia')
     }, { threshold: 0.1 })
     obs.observe(sentinelRef.current)
     return () => obs.disconnect()
-  }, [id, md, user])
+  }, [id, md])
 
   if (notFound) {
     return (
@@ -237,8 +233,6 @@ export default function LivroCapitulo() {
           <ReactMarkdown>{md}</ReactMarkdown>
           <div ref={sentinelRef} style={{ height: 1 }} />
         </div>
-
-        <ModalLancamento mostrar={showModal} onFechar={() => setShowModal(false)} />
 
         <div className="livro-nav-flutuante">
           {anterior && (
