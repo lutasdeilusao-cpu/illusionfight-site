@@ -7,9 +7,9 @@ import './PuzzleStabilizerRafael.css'
 const NEEDED_TIME = 5
 
 const CFG = {
-  easy:   { drift:100, push:160, zoneW:.20, zoneStay:2.2, dangerChance:.20, dangerDur:1.2, roundTime:30, label:'FÁCIL',   col:'#00e5ff' },
-  normal: { drift:60,  push:120, zoneW:.17, zoneStay:2.8, dangerChance:.35, dangerDur:1.5, roundTime:30, label:'NORMAL',  col:'#b400ff' },
-  hard:   { drift:105, push:200, zoneW:.13, zoneStay:1.6, dangerChance:.55, dangerDur:1.8, roundTime:40, label:'DIFÍCIL', col:'#ff0055' },
+  easy:   { drift:100, push:160, zoneW:.20, zoneStay:2.2, dangerChance:.20, dangerDur:1.2, roundTime:30, labelKey:'games.minigames.dif_facil',   col:'#00e5ff' },
+  normal: { drift:60,  push:120, zoneW:.17, zoneStay:2.8, dangerChance:.35, dangerDur:1.5, roundTime:30, labelKey:'games.minigames.dif_medio',  col:'#b400ff' },
+  hard:   { drift:105, push:200, zoneW:.13, zoneStay:1.6, dangerChance:.55, dangerDur:1.8, roundTime:40, labelKey:'games.minigames.dif_dificil', col:'#ff0055' },
 }
 
 const MSGS_OK = [
@@ -249,8 +249,8 @@ export default function PuzzleStabilizerRafael({ onSolve, onFail, onBack, initia
   if (phase === 'select') {
     return (
       <div className="st-screen st-grid-bg">
-        <div className="st-sel-tag">Minigame · MG-06</div>
-        <div className="st-sel-title">SINAL<br />ESTÁVEL</div>
+        <div className="st-sel-tag">{t('stabilizer_rafael.mg_tag')}</div>
+        <div className="st-sel-title">{t('stabilizer_rafael.title')}</div>
         <div className="st-sel-sub">{t('stabilizer_rafael.subtitulo')}</div>
         <div className="st-btns">
           <button className="st-diff-btn st-dif-easy" onClick={() => countdown('easy')}>
@@ -278,7 +278,7 @@ export default function PuzzleStabilizerRafael({ onSolve, onFail, onBack, initia
     const col = cdownN === 0 && cfg ? cfg.col : '#00e5ff'
     return (
       <div className="st-screen st-cdown">
-        <div className="st-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="st-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -290,18 +290,18 @@ export default function PuzzleStabilizerRafael({ onSolve, onFail, onBack, initia
   return (
     <div className="st-screen st-game">
       <div className="st-hud">
-        <button className="st-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+        <button className="st-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
         <div className={`st-hud-timer ${timerClass}`}>
           {displayTime}
         </div>
         <div className="st-hud-center">
-          <span className="st-hud-lock" style={{ color: 'var(--st-lock-color, var(--st-ghost))' }}>{displayLocked}s</span>
+          <span className="st-hud-lock">{displayLocked}s</span>
           <span className="st-hud-lbl">{t('stabilizer_rafael.hud_na_zona')}</span>
         </div>
-        <div className="st-hud-diff" style={{ color: cfg?.col }}>
-          {cfg?.label}
+        <div className="st-hud-diff" style={{ '--diff-col': cfg?.col }}>
+          {gt(cfg?.labelKey)}
         </div>
       </div>
       <div className="st-arena" ref={arenaRef}>
@@ -323,7 +323,7 @@ export default function PuzzleStabilizerRafael({ onSolve, onFail, onBack, initia
           <div className="st-progress-track">
             <div
               className={'st-progress-fill' + (lockedTimeRef.current >= NEEDED_TIME ? ' st-complete' : '')}
-              style={{ width: pct + '%' }}
+              style={{ '--st-pct': pct + '%' }}
             />
           </div>
         </div>

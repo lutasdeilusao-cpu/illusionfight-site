@@ -130,8 +130,8 @@
   font-family: var(--bh-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--bh-cyan);
-  text-shadow: 0 0 30px var(--bh-cyan);
+  color: var(--cd-col, var(--bh-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--bh-cyan));
   animation: bh-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -206,6 +206,7 @@
   font-size: 1.3rem;
   letter-spacing: .08em;
   display: block;
+  color: var(--mode-col, var(--bh-cyan));
 }
 
 .bh-hud-lbl {
@@ -223,6 +224,7 @@
   text-align: right;
   min-width: 72px;
   font-family: var(--bh-mono);
+  color: var(--diff-col, var(--bh-cyan));
 }
 
 .bh-canvas {

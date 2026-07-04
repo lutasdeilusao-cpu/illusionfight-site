@@ -49,7 +49,7 @@ export default function KPMenu({ onStart }) {
           <span className="menu-btn-arrow">📖</span>
           <span className="menu-btn-label">{t('kp.menu.manual')}<span className="menu-btn-sub">{t('kp.menu.manual_sub')}</span></span>
         </button>
-        <button className="diff-back" style={{ marginTop: 12, width: '100%' }} onClick={() => navigate('/games?aba=kernel')}>{t('kp.menu.voltar_jogos')}</button>
+        <button className="diff-back" onClick={() => navigate('/games?aba=kernel')}>{t('kp.menu.voltar_jogos')}</button>
       </div>
     </div>
   )

@@ -5,9 +5,9 @@ import { sfx } from '../../../../lib/sfx'
 import './PuzzleMazeRafael.css'
 
 const CFG = {
-  easy:   { time:30, cellsMinDim:5, wallThick:8, playerR:10, checkpoint:false, label:'FÁCIL',   col:'#00e5ff' },
-  normal: { time:45, cellsMinDim:7, wallThick:6, playerR:9,  checkpoint:true,  label:'NORMAL',  col:'#b400ff' },
-  hard:   { time:60, cellsMinDim:8, wallThick:4, playerR:7,  checkpoint:true,  label:'DIFÍCIL', col:'#ff0055' },
+  easy:   { time:30, cellsMinDim:5, wallThick:8, playerR:10, checkpoint:false, labelKey:'games.minigames.dif_facil',   col:'#00e5ff' },
+  normal: { time:45, cellsMinDim:7, wallThick:6, playerR:9,  checkpoint:true,  labelKey:'games.minigames.dif_medio',  col:'#b400ff' },
+  hard:   { time:60, cellsMinDim:8, wallThick:4, playerR:7,  checkpoint:true,  labelKey:'games.minigames.dif_dificil', col:'#ff0055' },
 }
 const PENALTY = 5
 
@@ -513,8 +513,8 @@ export default function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff 
   if (phase === 'select') {
     return (
       <div className="mz-screen mz-grid-bg">
-        <div className="mz-sel-tag">Minigame · MG-02</div>
-        <div className="mz-sel-title">LABIRINTO</div>
+        <div className="mz-sel-tag">{t('maze_rafael.mg_tag')}</div>
+        <div className="mz-sel-title">{t('maze_rafael.title')}</div>
         <div className="mz-sel-sub">{t('maze_rafael.subtitulo')}</div>
         <div className="mz-btns">
           <button className="mz-diff-btn mz-dif-easy" onClick={() => countdown('easy')}>
@@ -542,7 +542,7 @@ export default function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff 
     const col = cdownN === 0 && cfg ? cfg.col : '#00e5ff'
     return (
       <div className="mz-screen mz-cdown">
-        <div className="mz-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="mz-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -552,7 +552,7 @@ export default function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff 
   return (
     <div className="mz-screen mz-game">
       <div className="mz-hud" ref={hudRef}>
-        <button className="mz-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+        <button className="mz-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
         <div className={`mz-hud-timer ${timerClass}`}>
@@ -562,8 +562,8 @@ export default function PuzzleMazeRafael({ onSolve, onFail, onBack, initialDiff 
           <span className="mz-hud-errors">{errors}</span>
           <span className="mz-hud-lbl">{t('maze_rafael.hud_erros')}</span>
         </div>
-        <div className="mz-hud-diff" style={{ color: cfg?.col }}>
-          {cfg?.label}
+        <div className="mz-hud-diff" style={{ '--diff-col': cfg?.col }}>
+          {gt(cfg?.labelKey)}
         </div>
       </div>
       <div className="mz-arena" ref={arenaRef}>

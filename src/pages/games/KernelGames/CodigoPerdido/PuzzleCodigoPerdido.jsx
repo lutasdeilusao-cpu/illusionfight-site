@@ -8,9 +8,9 @@ const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
 const MAX_ERRORS = 6
 
 const DIF_CFG = {
-  easy:   { col: '#00e5ff', label: 'FÁCIL' },
-  normal: { col: '#b400ff', label: 'NORMAL' },
-  hard:   { col: '#ff0055', label: 'DIFÍCIL' },
+  easy:   { col: '#00e5ff', labelKey: 'games.minigames.dif_facil' },
+  normal: { col: '#b400ff', labelKey: 'games.minigames.dif_medio' },
+  hard:   { col: '#ff0055', labelKey: 'games.minigames.dif_dificil' },
 }
 
 function pick(arr) {
@@ -105,8 +105,8 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail, onBack }) {
   if (phase === 'select') {
     return (
       <div className="cp-screen cp-grid-bg">
-        <div className="cp-sel-tag">Minigame · MG-03</div>
-        <div className="cp-sel-title">CÓDIGO<br />PERDIDO</div>
+        <div className="cp-sel-tag">{t('codigo_perdido.mg_tag')}</div>
+        <div className="cp-sel-title">{t('codigo_perdido.title')}</div>
         <div className="cp-sel-sub">{t('codigo_perdido.subtitulo')}</div>
         <div className="cp-btns">
           <button className="cp-diff-btn cp-dif-easy" onClick={() => countdown('easy')}>
@@ -134,7 +134,7 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail, onBack }) {
     const col = cdownN === 0 && cfg ? cfg.col : '#00e5ff'
     return (
       <div className="cp-screen cp-cdown">
-        <div className="cp-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="cp-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -142,17 +142,17 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail, onBack }) {
   }
 
   return (
-    <div className="cp-screen cp-game" style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div className="cp-screen cp-game">
       <div className="cp-hud">
-        <button className="cp-hud-back" onClick={() => { setActive(false); setPhase('select') }} aria-label="Voltar">
+        <button className="cp-hud-back" onClick={() => { setActive(false); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
-        <div className="cp-hud-lives" style={{ color: livesColor }}>{hearts}</div>
+        <div className="cp-hud-lives" style={{ '--lives-col': livesColor }}>{hearts}</div>
         <div className="cp-hud-center">
           <span className="cp-hud-word-len">{word.length}</span>
           <span className="cp-hud-lbl">{t('codigo_perdido.hud_letras')}</span>
         </div>
-        <div className="cp-hud-diff" style={{ color: cfg?.col }}>{cfg?.label}</div>
+        <div className="cp-hud-diff" style={{ '--diff-col': cfg?.col }}>{gt(cfg?.labelKey)}</div>
       </div>
       <div className="cp-game-body">
         <div className="cp-error-track">

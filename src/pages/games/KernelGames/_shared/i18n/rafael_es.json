@@ -1,13 +1,15 @@
 {
   "sliding_rafael": {
-    "subtitulo": "Reorganiza el flujo de datos fragmentado",
+    "mg_tag": "Minijuego · MG-01",
+    "title": "ROMPECABEZAS\nDESLIZANTE",
     "dif_easy": "Cuadrícula 3×3 · 8 piezas · 3 minutos",
     "dif_normal": "Cuadrícula 4×4 · 15 piezas · 10 minutos",
     "dif_hard": "Cuadrícula 5×5 · 24 piezas · 20 minutos",
     "hud_moves": "movimientos"
   },
   "codigo_perdido": {
-    "subtitulo": "Identifica la palabra · 6 errores permitidos",
+    "mg_tag": "Minijuego · MG-03",
+    "title": "CÓDIGO\nPERDIDO",
     "dif_easy": "Palabras cortas · 4–6 letras",
     "dif_normal": "Palabras medianas · 7–9 letras",
     "dif_hard": "Palabras largas · 10–14 letras",
@@ -33,21 +35,24 @@
     }
   },
   "maze_rafael": {
-    "subtitulo": "Traza el camino · No toques las paredes",
+    "mg_tag": "Minijuego · MG-02",
+    "title": "LABERINTO",
     "dif_easy": "Pasillo ancho · 30 segundos · −5s por error",
     "dif_normal": "Pasillo medio · punto de control · 45 segundos · −5s por error",
     "dif_hard": "Pasillo estrecho · punto de control · 60 segundos · −5s por error",
     "hud_erros": "errores (−5s)"
   },
   "glitch_rafael": {
-    "subtitulo": "Localiza la anomalía en el flujo de datos",
+    "mg_tag": "Minijuego · MG-04",
+    "title": "ENCUENTRA\nEL GLITCH",
     "dif_easy": "1 fallo · fuente grande · 30 segundos",
     "dif_normal": "3 fallos · fuente mediana · 40 segundos",
     "dif_hard": "6 fallos · fuente pequeña · 50 segundos",
     "hud_glitches": "fallos"
   },
   "bullet_hell_rafael": {
-    "subtitulo": "Toca la pantalla · Muévete · Sobrevive",
+    "mg_tag": "Minijuego · MG-05",
+    "title": "LLUVIA DE\nPROYECTILES",
     "dif_easy": "5 proyectiles · trayectoria recta · 15 segundos",
     "dif_normal": "7 proyectiles · trayectoria recta · 20 segundos",
     "dif_hard": "5 proyectiles · 1 rastreador · 20 segundos",
@@ -56,7 +61,8 @@
     "timer_on_tap": "El temporizador comienza al primer toque"
   },
   "stabilizer_rafael": {
-    "subtitulo": "Verde = gana tiempo · Rojo = pierde tiempo · 30s ronda",
+    "mg_tag": "Minijuego · MG-06",
+    "title": "SEÑAL\nESTABLE",
     "dif_easy": "Deriva ligera · zona ancha · zona roja rara",
     "dif_normal": "Deriva media · zona media · zona roja ocasional",
     "dif_hard": "Deriva fuerte · zona estrecha · zona roja frecuente · 40s",

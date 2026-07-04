@@ -156,8 +156,8 @@
   font-family: var(--sr-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--sr-cyan);
-  text-shadow: 0 0 30px var(--sr-cyan);
+  color: var(--cd-col, var(--sr-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--sr-cyan));
   animation: sr-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -170,6 +170,9 @@
   padding: 0;
   justify-content: flex-start;
   gap: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .sr-hud {
@@ -233,6 +236,7 @@
   text-align: right;
   min-width: 80px;
   font-family: var(--sr-mono);
+  color: var(--diff-col, var(--sr-cyan));
 }
 
 .sr-arena {
@@ -257,6 +261,8 @@
   width: 100%;
   flex: 1;
   max-height: 100%;
+  grid-template-columns: repeat(var(--sr-cols, 3), 1fr);
+  grid-template-rows: repeat(var(--sr-cols, 3), 1fr);
 }
 
 .sr-tile {

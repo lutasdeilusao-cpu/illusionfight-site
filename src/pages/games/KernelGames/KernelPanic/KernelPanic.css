@@ -1159,12 +1159,10 @@ header {
   background: transparent;
   border: none;
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 12px;
   padding: 0;
   min-height: var(--touch);
-  display: flex;
-  align-items: center;
-  transition: color 0.15s;
+  width: 100%;
 }
 
 .diff-back:active { color: var(--khaki); }

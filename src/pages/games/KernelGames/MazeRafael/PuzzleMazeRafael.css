@@ -130,8 +130,8 @@
   font-family: var(--mz-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--mz-cyan);
-  text-shadow: 0 0 30px var(--mz-cyan);
+  color: var(--cd-col, var(--mz-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--mz-cyan));
   animation: mz-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -223,6 +223,7 @@
   text-align: right;
   min-width: 72px;
   font-family: var(--mz-mono);
+  color: var(--diff-col, var(--mz-cyan));
 }
 
 .mz-arena {

@@ -59,6 +59,10 @@ import Tamagoshi from './pages/games/Tamagoshi/Tamagoshi'
 import KernelPanic from './pages/games/KernelGames/KernelPanic/KernelPanic'
 import SlidingRafael from './pages/games/KernelGames/SlidingRafael/SlidingRafael'
 import CodigoPerdido from './pages/games/KernelGames/CodigoPerdido/CodigoPerdido'
+import MazeRafael from './pages/games/KernelGames/MazeRafael/MazeRafael'
+import GlitchRafael from './pages/games/KernelGames/GlitchRafael/GlitchRafael'
+import BulletHellRafael from './pages/games/KernelGames/BulletHellRafael/BulletHellRafael'
+import StabilizerRafael from './pages/games/KernelGames/StabilizerRafael/StabilizerRafael'
 import Loja from './pages/site/Loja/Loja'
 import Custos from './pages/site/Custos'
 import NotFound from './pages/site/NotFound/NotFound'
@@ -119,6 +123,10 @@ export default function App() {
         <Route path="/games/kernel-panic" element={<KernelPanic />} />
         <Route path="/games/sliding-rafael" element={<SlidingRafael />} />
         <Route path="/games/codigo-perdido" element={<CodigoPerdido />} />
+        <Route path="/games/maze-rafael" element={<MazeRafael />} />
+        <Route path="/games/glitch-rafael" element={<GlitchRafael />} />
+        <Route path="/games/bullet-hell-rafael" element={<BulletHellRafael />} />
+        <Route path="/games/stabilizer-rafael" element={<StabilizerRafael />} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />

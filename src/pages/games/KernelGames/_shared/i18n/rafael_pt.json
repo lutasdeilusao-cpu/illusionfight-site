@@ -1,5 +1,7 @@
 {
   "sliding_rafael": {
+    "mg_tag": "Minigame · MG-01",
+    "title": "SLIDING\nPUZZLE",
     "subtitulo": "Reorganize o fluxo de dados fragmentado",
     "dif_easy": "Grade 3×3 · 8 peças · 3 minutos",
     "dif_normal": "Grade 4×4 · 15 peças · 10 minutos",
@@ -7,6 +9,8 @@
     "hud_moves": "movimentos"
   },
   "codigo_perdido": {
+    "mg_tag": "Minigame · MG-03",
+    "title": "CÓDIGO\nPERDIDO",
     "subtitulo": "Identifique a palavra · 6 erros permitidos",
     "dif_easy": "Palavras curtas · 4–6 letras",
     "dif_normal": "Palavras médias · 7–9 letras",
@@ -33,6 +37,8 @@
     }
   },
   "maze_rafael": {
+    "mg_tag": "Minigame · MG-02",
+    "title": "LABIRINTO",
     "subtitulo": "Trace o caminho · Não toque nas paredes",
     "dif_easy": "Corredor largo · 30 segundos · −5s por erro",
     "dif_normal": "Corredor médio · checkpoint · 45 segundos · −5s por erro",
@@ -40,6 +46,8 @@
     "hud_erros": "erros (−5s)"
   },
   "glitch_rafael": {
+    "mg_tag": "Minigame · MG-04",
+    "title": "ENCONTRE\nO GLITCH",
     "subtitulo": "Localize a anomalia no fluxo de dados",
     "dif_easy": "1 glitch · fonte grande · 30 segundos",
     "dif_normal": "3 glitches · fonte média · 40 segundos",
@@ -47,6 +55,8 @@
     "hud_glitches": "glitches"
   },
   "bullet_hell_rafael": {
+    "mg_tag": "Minigame · MG-05",
+    "title": "BULLET\nHELL",
     "subtitulo": "Toque na tela · Mova · Sobreviva",
     "dif_easy": "5 projéteis · trajetória reta · 15 segundos",
     "dif_normal": "7 projéteis · trajetória reta · 20 segundos",
@@ -56,6 +66,8 @@
     "timer_on_tap": "O timer inicia no primeiro toque"
   },
   "stabilizer_rafael": {
+    "mg_tag": "Minigame · MG-06",
+    "title": "SINAL\nESTÁVEL",
     "subtitulo": "Verde = ganhe tempo · Vermelho = perde tempo · 30s de round",
     "dif_easy": "Arrasto leve · zona larga · zona vermelha rara",
     "dif_normal": "Arrasto médio · zona média · zona vermelha ocasional",

@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useReader } from '../../../../context/ReaderContext'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { sfx } from '../../../../lib/sfx'
-import PuzzleSlidingRafael from './PuzzleSlidingRafael'
+import PuzzleBulletHellRafael from './PuzzleBulletHellRafael'
 import '../KernelGame.css'
 
-export default function SlidingRafael() {
+export default function BulletHellRafael() {
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const { t } = useLanguage()
@@ -28,7 +27,7 @@ export default function SlidingRafael() {
         <div className="kg-result">
           <div className="kg-result-emoji">🏆</div>
           <h2 className="kg-result-title kg-result-win">{t('games.minigames.resultado_vitoria')}</h2>
-          <p className="kg-result-sub">{t('site.games.nomes.sliding_rafael')}</p>
+          <p className="kg-result-sub">{t('site.games.nomes.bullet_hell_rafael')}</p>
           <div className="kg-result-btns">
             <button className="kg-btn kg-btn-win" onClick={retry}>{t('games.minigames.resultado_jogar_novamente')}</button>
             <button className="kg-btn kg-btn-back" onClick={() => navigate('/games')}>{t('games.minigames.voltar')}</button>
@@ -45,7 +44,7 @@ export default function SlidingRafael() {
         <div className="kg-result">
           <div className="kg-result-emoji">💀</div>
           <h2 className="kg-result-title kg-result-lose">{t('games.minigames.resultado_derrota')}</h2>
-          <p className="kg-result-sub">{t('site.games.nomes.sliding_rafael')}</p>
+          <p className="kg-result-sub">{t('site.games.nomes.bullet_hell_rafael')}</p>
           <div className="kg-result-btns">
             <button className="kg-btn kg-btn-lose" onClick={retry}>{t('games.minigames.resultado_tentar_novamente')}</button>
             <button className="kg-btn kg-btn-back" onClick={() => navigate('/games')}>{t('games.minigames.voltar')}</button>
@@ -58,7 +57,7 @@ export default function SlidingRafael() {
   return (
     <div className="kg-page">
       <div className="kg-scanlines" />
-      <PuzzleSlidingRafael key={plays} onSolve={handleSolve} onFail={handleFail} onBack={() => navigate('/games')} />
+      <PuzzleBulletHellRafael key={plays} onSolve={handleSolve} onFail={handleFail} onBack={() => navigate('/games')} />
     </div>
   )
 }

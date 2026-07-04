@@ -27,7 +27,7 @@ export default function CodigoPerdido() {
         <div className="kg-result">
           <div className="kg-result-emoji">🏆</div>
           <h2 className="kg-result-title kg-result-win">{t('games.minigames.resultado_vitoria')}</h2>
-          <p className="kg-result-sub">Código Perdido</p>
+          <p className="kg-result-sub">{t('site.games.nomes.codigo_perdido')}</p>
           <div className="kg-result-btns">
             <button className="kg-btn kg-btn-win" onClick={retry}>{t('games.minigames.resultado_jogar_novamente')}</button>
             <button className="kg-btn kg-btn-back" onClick={() => navigate('/games')}>{t('games.minigames.voltar')}</button>
@@ -44,7 +44,7 @@ export default function CodigoPerdido() {
         <div className="kg-result">
           <div className="kg-result-emoji">💀</div>
           <h2 className="kg-result-title kg-result-lose">{t('games.minigames.resultado_derrota')}</h2>
-          <p className="kg-result-sub">Código Perdido</p>
+          <p className="kg-result-sub">{t('site.games.nomes.codigo_perdido')}</p>
           <div className="kg-result-btns">
             <button className="kg-btn kg-btn-lose" onClick={retry}>{t('games.minigames.resultado_tentar_novamente')}</button>
             <button className="kg-btn kg-btn-back" onClick={() => navigate('/games')}>{t('games.minigames.voltar')}</button>

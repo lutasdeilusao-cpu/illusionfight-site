@@ -5,9 +5,9 @@ import { sfx } from '../../../../lib/sfx'
 import './PuzzleBulletHellRafael.css'
 
 const CFG = {
-  easy:   { n:5, time:15, speed:160, r:22, tracking:false, steerDeg:0,  label:'FÁCIL',   col:'#00e5ff' },
-  normal: { n:7, time:20, speed:200, r:18, tracking:false, steerDeg:0,  label:'NORMAL',  col:'#b400ff' },
-  hard:   { n:5, time:20, speed:240, r:14, tracking:true,  steerDeg:10, label:'DIFÍCIL', col:'#ff0055' },
+  easy:   { n:5, time:15, speed:160, r:22, tracking:false, steerDeg:0,  labelKey:'games.minigames.dif_facil',   col:'#00e5ff' },
+  normal: { n:7, time:20, speed:200, r:18, tracking:false, steerDeg:0,  labelKey:'games.minigames.dif_medio',  col:'#b400ff' },
+  hard:   { n:5, time:20, speed:240, r:14, tracking:true,  steerDeg:10, labelKey:'games.minigames.dif_dificil', col:'#ff0055' },
 }
 
 function hexAlpha(hex, a) {
@@ -338,8 +338,8 @@ export default function PuzzleBulletHellRafael({ onSolve, onFail, onBack, initia
   if (phase === 'select') {
     return (
       <div className="bh-screen bh-grid-bg">
-        <div className="bh-sel-tag">Minigame · MG-05</div>
-        <div className="bh-sel-title">BULLET<br />HELL</div>
+        <div className="bh-sel-tag">{t('bullet_hell_rafael.mg_tag')}</div>
+        <div className="bh-sel-title">{t('bullet_hell_rafael.title')}</div>
         <div className="bh-sel-sub">{t('bullet_hell_rafael.subtitulo')}</div>
         <div className="bh-btns">
           <button className="bh-diff-btn bh-dif-easy" onClick={() => countdown('easy')}>
@@ -367,7 +367,7 @@ export default function PuzzleBulletHellRafael({ onSolve, onFail, onBack, initia
     const col = cdownN === 0 && cfg ? cfg.col : '#00e5ff'
     return (
       <div className="bh-screen bh-cdown">
-        <div className="bh-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="bh-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -377,18 +377,18 @@ export default function PuzzleBulletHellRafael({ onSolve, onFail, onBack, initia
   return (
     <div className="bh-screen bh-game">
       <div className="bh-hud" ref={hudRef}>
-        <button className="bh-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+        <button className="bh-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
         <div className={`bh-hud-timer ${timerClass}`}>
           {waitingRef.current ? '—' : displayTime}
         </div>
         <div className="bh-hud-center">
-          <span className="bh-hud-mode" style={{ color: cfg?.col }}>{cfg?.label}</span>
+          <span className="bh-hud-mode" style={{ '--mode-col': cfg?.col }}>{gt(cfg?.labelKey)}</span>
           <span className="bh-hud-lbl">{t('bullet_hell_rafael.hud_sobreviva')}</span>
         </div>
-        <div className="bh-hud-diff" style={{ color: cfg?.col }}>
-          {cfg?.label}
+        <div className="bh-hud-diff" style={{ '--diff-col': cfg?.col }}>
+          {gt(cfg?.labelKey)}
         </div>
       </div>
       <canvas ref={canvasRef} className="bh-canvas" />

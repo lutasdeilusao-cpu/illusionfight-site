@@ -687,7 +687,11 @@
         "leaderboard": "Leaderboard",
         "kernel_panic": "Kernel Panic",
         "sliding_rafael": "Sliding Puzzle",
-        "codigo_perdido": "Código Perdido"
+        "codigo_perdido": "Lost Code",
+        "maze_rafael": "Maze Runner",
+        "glitch_rafael": "Find the Glitch",
+        "bullet_hell_rafael": "Bullet Hell",
+        "stabilizer_rafael": "Signal Stabilizer"
       },
       "taglines": {
         "ldi": "NARRATIVE RPG, create your avatar, make your choices, face your battles, discover the truth!",
@@ -703,7 +707,11 @@
         "leaderboard": "global player ranking.",
         "kernel_panic": "Elimination Protocol",
         "sliding_rafael": "Reorganize the fragmented data flow",
-        "codigo_perdido": "Identify the word · 6 errors allowed"
+        "codigo_perdido": "Identify the word · 6 errors allowed",
+        "maze_rafael": "checkpoint maze with wall penalties",
+        "glitch_rafael": "find the glitch hidden in data",
+        "bullet_hell_rafael": "survive the bullet chaos",
+        "stabilizer_rafael": "keep the signal in the green zone"
       }
     },
     "leaderboard": {

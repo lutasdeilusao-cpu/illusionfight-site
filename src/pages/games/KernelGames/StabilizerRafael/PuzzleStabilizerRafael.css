@@ -139,8 +139,8 @@
   font-family: var(--st-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--st-cyan);
-  text-shadow: 0 0 30px var(--st-cyan);
+  color: var(--cd-col, var(--st-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--st-cyan));
   animation: st-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -218,6 +218,7 @@
   display: block;
   line-height: 1;
   transition: color .2s;
+  color: var(--st-lock-color, var(--st-ghost));
 }
 
 .st-hud-lbl {
@@ -235,6 +236,7 @@
   text-align: right;
   min-width: 60px;
   font-family: var(--st-mono);
+  color: var(--diff-col, var(--st-cyan));
 }
 
 .st-arena {
@@ -382,6 +384,7 @@
   background: var(--st-green);
   box-shadow: 0 0 6px rgba(0,255,136,.5);
   transition: width .1s linear, background .2s;
+  width: var(--st-pct, 0%);
 }
 
 .st-progress-fill.st-complete {

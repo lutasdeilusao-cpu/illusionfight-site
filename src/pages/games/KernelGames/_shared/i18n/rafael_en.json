@@ -1,13 +1,15 @@
 {
   "sliding_rafael": {
-    "subtitulo": "Reorganize the fragmented data flow",
+    "mg_tag": "Minigame · MG-01",
+    "title": "SLIDING\nPUZZLE",
     "dif_easy": "Grid 3×3 · 8 pieces · 3 minutes",
     "dif_normal": "Grid 4×4 · 15 pieces · 10 minutes",
     "dif_hard": "Grid 5×5 · 24 pieces · 20 minutes",
     "hud_moves": "moves"
   },
   "codigo_perdido": {
-    "subtitulo": "Identify the word · 6 errors allowed",
+    "mg_tag": "Minigame · MG-03",
+    "title": "LOST\nCODE",
     "dif_easy": "Short words · 4–6 letters",
     "dif_normal": "Medium words · 7–9 letters",
     "dif_hard": "Long words · 10–14 letters",
@@ -33,21 +35,24 @@
     }
   },
   "maze_rafael": {
-    "subtitulo": "Trace the path · Do not touch the walls",
+    "mg_tag": "Minigame · MG-02",
+    "title": "MAZE\nRUNNER",
     "dif_easy": "Wide corridor · 30 seconds · −5s per error",
     "dif_normal": "Medium corridor · checkpoint · 45 seconds · −5s per error",
     "dif_hard": "Narrow corridor · checkpoint · 60 seconds · −5s per error",
     "hud_erros": "errors (−5s)"
   },
   "glitch_rafael": {
-    "subtitulo": "Find the anomaly in the data flow",
+    "mg_tag": "Minigame · MG-04",
+    "title": "FIND THE\nGLITCH",
     "dif_easy": "1 glitch · large font · 30 seconds",
     "dif_normal": "3 glitches · medium font · 40 seconds",
     "dif_hard": "6 glitches · small font · 50 seconds",
     "hud_glitches": "glitches"
   },
   "bullet_hell_rafael": {
-    "subtitulo": "Touch the screen · Move · Survive",
+    "mg_tag": "Minigame · MG-05",
+    "title": "BULLET\nHELL",
     "dif_easy": "5 projectiles · straight path · 15 seconds",
     "dif_normal": "7 projectiles · straight path · 20 seconds",
     "dif_hard": "5 projectiles · 1 tracker · 20 seconds",
@@ -56,7 +61,8 @@
     "timer_on_tap": "Timer starts on first touch"
   },
   "stabilizer_rafael": {
-    "subtitulo": "Green = gain time · Red = lose time · 30s round",
+    "mg_tag": "Minigame · MG-06",
+    "title": "SIGNAL\nSTABILIZER",
     "dif_easy": "Light drift · wide zone · rare red zone",
     "dif_normal": "Medium drift · medium zone · occasional red zone",
     "dif_hard": "Strong drift · narrow zone · frequent red zone · 40s",

@@ -686,8 +686,12 @@
         "quiz": "Quiz SDR",
         "leaderboard": "Leaderboard",
         "kernel_panic": "Kernel Panic",
-        "sliding_rafael": "Sliding Puzzle",
-        "codigo_perdido": "Código Perdido"
+        "sliding_rafael": "Quebra-Cabeça Deslizante",
+        "codigo_perdido": "Código Perdido",
+        "maze_rafael": "Labirinto",
+        "glitch_rafael": "Encontre o Glitch",
+        "bullet_hell_rafael": "Chuva de Projéteis",
+        "stabilizer_rafael": "Sinal Estável"
       },
       "taglines": {
         "ldi": "RPG NARRATIVO, crie seu avatar, faça suas escolhas, enfrente suas batalhas descubra a verdade!",
@@ -703,7 +707,11 @@
         "leaderboard": "ranking global de jogadores.",
         "kernel_panic": "Protocolo de Eliminação",
         "sliding_rafael": "Reorganize o fluxo de dados fragmentado",
-        "codigo_perdido": "Identifique a palavra · 6 erros permitidos"
+        "codigo_perdido": "Identifique a palavra · 6 erros permitidos",
+        "maze_rafael": "labirinto com checkpoint e penalidades",
+        "glitch_rafael": "encontre a anomalia entre os dados",
+        "bullet_hell_rafael": "sobreviva ao caos de projéteis",
+        "stabilizer_rafael": "mantenha o sinal na zona verde"
       }
     },
     "leaderboard": {

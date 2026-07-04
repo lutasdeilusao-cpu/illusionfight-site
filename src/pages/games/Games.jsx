@@ -32,6 +32,10 @@ const KERNEL_JOGOS = [
   { id: 'kernelpanic', nomeKey: 'site.games.nomes.kernel_panic', tagKey: 'site.games.taglines.kernel_panic', emoji: '💀', cor: '#A855F4', rota: '/games/kernel-panic', badgeKey: 'site.games.badges.beta' },
   { id: 'sliding_rafael', nomeKey: 'site.games.nomes.sliding_rafael', tagKey: 'site.games.taglines.sliding_rafael', emoji: '🧩', cor: '#00e5ff', rota: '/games/sliding-rafael', badgeKey: 'site.games.badges.lancado' },
   { id: 'codigo_perdido', nomeKey: 'site.games.nomes.codigo_perdido', tagKey: 'site.games.taglines.codigo_perdido', emoji: '🔐', cor: '#00e5ff', rota: '/games/codigo-perdido', badgeKey: 'site.games.badges.lancado' },
+  { id: 'maze_rafael', nomeKey: 'site.games.nomes.maze_rafael', tagKey: 'site.games.taglines.maze_rafael', emoji: '🧭', cor: '#00e5ff', rota: '/games/maze-rafael', badgeKey: 'site.games.badges.lancado' },
+  { id: 'glitch_rafael', nomeKey: 'site.games.nomes.glitch_rafael', tagKey: 'site.games.taglines.glitch_rafael', emoji: '📡', cor: '#b400ff', rota: '/games/glitch-rafael', badgeKey: 'site.games.badges.lancado' },
+  { id: 'bullet_hell_rafael', nomeKey: 'site.games.nomes.bullet_hell_rafael', tagKey: 'site.games.taglines.bullet_hell_rafael', emoji: '💥', cor: '#ff0055', rota: '/games/bullet-hell-rafael', badgeKey: 'site.games.badges.lancado' },
+  { id: 'stabilizer_rafael', nomeKey: 'site.games.nomes.stabilizer_rafael', tagKey: 'site.games.taglines.stabilizer_rafael', emoji: '📶', cor: '#00ff88', rota: '/games/stabilizer-rafael', badgeKey: 'site.games.badges.lancado' },
 ]
 
 const CONTEUDO = [

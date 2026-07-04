@@ -5,9 +5,9 @@ import { sfx } from '../../../../lib/sfx'
 import './PuzzleGlitchRafael.css'
 
 const CFG = {
-  easy:   { n:1, time:30, fs:20, lh:1.38, label:'FÁCIL',   col:'#00e5ff' },
-  normal: { n:3, time:40, fs:14, lh:1.36, label:'NORMAL',  col:'#b400ff' },
-  hard:   { n:6, time:50, fs:13, lh:1.34, label:'DIFÍCIL', col:'#ff0055' },
+  easy:   { n:1, time:30, fs:20, lh:1.38, labelKey:'games.minigames.dif_facil',   col:'#00e5ff' },
+  normal: { n:3, time:40, fs:14, lh:1.36, labelKey:'games.minigames.dif_medio',  col:'#b400ff' },
+  hard:   { n:6, time:50, fs:13, lh:1.34, labelKey:'games.minigames.dif_dificil', col:'#ff0055' },
 }
 
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)] }
@@ -201,8 +201,8 @@ export default function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDif
   if (phase === 'select') {
     return (
       <div className="gr-screen gr-grid-bg">
-        <div className="gr-sel-tag">Minigame · MG-04</div>
-        <div className="gr-sel-title">ENCONTRE<br />O GLITCH</div>
+        <div className="gr-sel-tag">{t('glitch_rafael.mg_tag')}</div>
+        <div className="gr-sel-title">{t('glitch_rafael.title')}</div>
         <div className="gr-sel-sub">{t('glitch_rafael.subtitulo')}</div>
         <div className="gr-btns">
           <button className="gr-diff-btn gr-dif-easy" onClick={() => countdown('easy')}>
@@ -230,7 +230,7 @@ export default function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDif
     const col = cdownN === 0 && cfg ? cfg.col : '#00e5ff'
     return (
       <div className="gr-screen gr-cdown">
-        <div className="gr-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="gr-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -240,7 +240,7 @@ export default function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDif
   return (
     <div className="gr-screen gr-game">
       <div className="gr-hud">
-        <button className="gr-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+        <button className="gr-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
         <div className={`gr-hud-timer ${timerClass}`}>
@@ -250,12 +250,12 @@ export default function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDif
           <span className="gr-hud-found">{found}/{total}</span>
           <span className="gr-hud-lbl">{t('glitch_rafael.hud_glitches')}</span>
         </div>
-        <div className="gr-hud-diff" style={{ color: cfg?.col }}>
-          {cfg?.label}
+        <div className="gr-hud-diff" style={{ '--diff-col': cfg?.col }}>
+          {gt(cfg?.labelKey)}
         </div>
       </div>
       <div className="gr-grid-wrap" ref={wrapRef}>
-        <pre className="gr-grid-pre" style={{ fontSize: cfg?.fs + 'px', lineHeight: cfg?.lh }}>
+        <pre className="gr-grid-pre" style={{ '--gr-fs': cfg?.fs + 'px', '--gr-lh': cfg?.lh }}>
           {gridData.map(d => {
             const isHit = hitIndices.has(d.idx)
             const isRevealed = revealedRef.current && d.isGlitch && !isHit

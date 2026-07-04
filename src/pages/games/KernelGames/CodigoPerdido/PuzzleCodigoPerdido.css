@@ -146,8 +146,8 @@
   font-family: var(--cp-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--cp-cyan);
-  text-shadow: 0 0 30px var(--cp-cyan);
+  color: var(--cd-col, var(--cp-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--cp-cyan));
   animation: cp-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -160,6 +160,9 @@
   justify-content: flex-start;
   padding: 0;
   gap: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .cp-hud {
@@ -178,6 +181,7 @@
   font-size: 2rem;
   letter-spacing: .04em;
   min-width: 90px;
+  color: var(--lives-col, var(--cp-cyan));
 }
 
 .cp-hud-center { text-align: center; }
@@ -205,6 +209,7 @@
   text-align: right;
   min-width: 90px;
   font-family: var(--cp-mono);
+  color: var(--diff-col, var(--cp-cyan));
 }
 
 .cp-game-body {

@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.2'
+export const SITE_VERSION = '10.192.3'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -17,19 +17,19 @@ export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso vis
 export const ARENA_VERSION     = '1.31.1'  // ArenaVictory: CSS extraído de inline style para classes
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
-export const MINIGAMES_VERSION = '4.3.0'  // +4 novos puzzles: Maze, Glitch, BulletHell, Stabilizer (port Bíblia)
+export const MINIGAMES_VERSION = '4.3.1'  // i18n fix: hardcoded strings → i18n, inline styles → CSS vars em todos os puzzles Kernel Games
 export const TS_VERSION        = '5.44.7'  // Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados)
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
-export const KP_VERSION = '1.4.0' // Manual do operador + botão Voltar + ?aba=kernel na URL
-export const SLIDING_VERSION   = '1.4.1'  // Movido para KernelGames/SlidingRafael/
-export const CODIGO_VERSION    = '1.3.1'  // Movido para KernelGames/CodigoPerdido/
-export const MAZE_VERSION      = '1.1.0'  // Port completo conforme Bíblia: Canvas, checkpoint, penalty
-export const GLITCH_VERSION    = '1.1.0'  // Port completo conforme Bíblia: DOM grid, anomalia, hittimer
-export const BULLETHELL_VERSION = '1.1.0' // Port completo conforme Bíblia: Canvas shmup, tracking, waiting-for-touch
-export const STABILIZER_VERSION = '1.1.0' // Port completo conforme Bíblia: DOM bar, drift, zona verde/vermelha
+export const KP_VERSION = '1.4.1' // KPMenu: CSS extraído de inline style
+export const SLIDING_VERSION   = '1.4.2'  // i18n: hardcoded strings → keys, inline styles → CSS vars
+export const CODIGO_VERSION    = '1.3.2'  // i18n: hardcoded strings → keys, inline styles → CSS vars
+export const MAZE_VERSION      = '1.1.1'  // i18n: hardcoded strings → keys, inline styles → CSS vars
+export const GLITCH_VERSION    = '1.1.1'  // i18n: hardcoded strings → keys, inline styles → CSS vars
+export const BULLETHELL_VERSION = '1.1.1' // i18n: hardcoded strings → keys, inline styles → CSS vars
+export const STABILIZER_VERSION = '1.1.1' // i18n: hardcoded strings → keys, inline styles → CSS vars
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

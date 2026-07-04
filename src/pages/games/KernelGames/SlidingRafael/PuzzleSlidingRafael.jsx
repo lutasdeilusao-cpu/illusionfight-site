@@ -5,9 +5,9 @@ import { sfx } from '../../../../lib/sfx'
 import './PuzzleSlidingRafael.css'
 
 const CFG = {
-  easy:   { size: 3, time: 180,  label: 'FÁCIL',   col: '#00e5ff' },
-  normal: { size: 4, time: 600,  label: 'NORMAL',  col: '#b400ff' },
-  hard:   { size: 5, time: 1200, label: 'DIFÍCIL', col: '#ff0055' },
+  easy:   { size: 3, time: 180,  labelKey:'games.minigames.dif_facil',   col: '#00e5ff' },
+  normal: { size: 4, time: 600,  labelKey:'games.minigames.dif_medio',  col: '#b400ff' },
+  hard:   { size: 5, time: 1200, labelKey:'games.minigames.dif_dificil', col: '#ff0055' },
 }
 
 function getNeighbors(idx, n) {
@@ -185,8 +185,8 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   if (phase === 'select') {
     return (
       <div className="sr-screen sr-grid-bg">
-        <div className="sr-sel-tag">Minigame · MG-01</div>
-        <div className="sr-sel-title">SLIDING<br />PUZZLE</div>
+        <div className="sr-sel-tag">{t('sliding_rafael.mg_tag')}</div>
+        <div className="sr-sel-title">{t('sliding_rafael.title')}</div>
         <div className="sr-sel-sub">{t('sliding_rafael.subtitulo')}</div>
         <div className="sr-btns">
           <button className="sr-diff-btn sr-dif-easy" onClick={() => countdown('easy')}>
@@ -214,7 +214,7 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
     const col = cdownN === 0 && cfgRef.current ? cfgRef.current.col : '#00e5ff'
     return (
       <div className="sr-screen sr-cdown">
-        <div className="sr-cdown-n" style={{ color: col, textShadow: `0 0 30px ${col}` }} key={cdownN}>
+        <div className="sr-cdown-n" style={{ '--cd-col': col }} key={cdownN}>
           {showText}
         </div>
       </div>
@@ -222,9 +222,9 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   }
 
   return (
-    <div className="sr-screen sr-game" style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div className="sr-screen sr-game">
       <div className="sr-hud">
-        <button className="sr-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label="Voltar">
+        <button className="sr-hud-back" onClick={() => { cleanup(); setPhase('select') }} aria-label={gt('games.minigames.voltar')}>
           ←
         </button>
         <div className={`sr-hud-timer ${timerClass}`}>
@@ -234,18 +234,15 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
           <span className="sr-hud-moves">{moves}</span>
           <span className="sr-hud-lbl">{t('sliding_rafael.hud_moves')}</span>
         </div>
-        <div className="sr-hud-diff" style={{ color: cfgRef.current?.col }}>
-          {cfgRef.current?.label}
+        <div className="sr-hud-diff" style={{ '--diff-col': cfgRef.current?.col }}>
+          {gt(cfgRef.current?.labelKey)}
         </div>
       </div>
       <div className="sr-arena" ref={arenaRef}>
         <div
           ref={gridRef}
           className="sr-puzzle-grid"
-          style={{
-            gridTemplateColumns: `repeat(${size}, 1fr)`,
-            gridTemplateRows: `repeat(${size}, 1fr)`,
-          }}
+          style={{ '--sr-cols': size }}
         >
           {board.map((val, i) => {
             const isMovable = val !== 0 && getNeighbors(emptyIdx, size).includes(i)
@@ -260,7 +257,6 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
                   (!isMovable && isCorrect ? ' sr-correct' : '') +
                   (flashIdx === i ? ' sr-flash' : '')
                 }
-                style={{ fontSize: 'var(--sr-fs, 24px)' }}
                 onClick={() => onTileClick(i)}
               >
                 {!isEmpty ? val : ''}

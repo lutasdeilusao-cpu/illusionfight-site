@@ -130,8 +130,8 @@
   font-family: var(--gr-head);
   font-size: 9rem;
   line-height: 1;
-  color: var(--gr-cyan);
-  text-shadow: 0 0 30px var(--gr-cyan);
+  color: var(--cd-col, var(--gr-cyan));
+  text-shadow: 0 0 30px var(--cd-col, var(--gr-cyan));
   animation: gr-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
 }
 
@@ -217,6 +217,7 @@
   text-align: right;
   min-width: 72px;
   font-family: var(--gr-mono);
+  color: var(--diff-col, var(--gr-cyan));
 }
 
 .gr-grid-wrap {
@@ -238,10 +239,11 @@
   padding: 6px 8px;
   white-space: pre;
   overflow: hidden;
-  line-height: inherit;
+  line-height: var(--gr-lh, 1.36);
   font-family: var(--gr-mono);
   letter-spacing: .04em;
   margin: 0;
+  font-size: var(--gr-fs, 14px);
 }
 
 .gr-ch {
