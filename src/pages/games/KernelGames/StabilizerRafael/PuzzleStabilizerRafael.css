@@ -247,7 +247,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  padding: 16px 12px;
+  padding: 8px;
   touch-action: none;
   background: var(--st-bg);
   background-image:

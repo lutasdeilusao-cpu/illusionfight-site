@@ -318,7 +318,7 @@ function PuzzleBulletHellRafael({ onSolve, onFail, onBack, initialDiff }) {
       const t = setTimeout(() => { sfx.countdownTick(); setCdownN(n => n - 1) }, 850)
       return () => clearTimeout(t)
     }
-    const t = setTimeout(() => { sfx.select(); startGame() }, 550)
+    const t = setTimeout(() => { sfx.select(); setPhase('game'); requestAnimationFrame(() => startGame()) }, 550)
     return () => clearTimeout(t)
   }, [phase, cdownN, startGame])
 
