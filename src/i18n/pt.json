@@ -685,7 +685,9 @@
         "duelo": "DUELO LDI",
         "quiz": "Quiz SDR",
         "leaderboard": "Leaderboard",
-        "kernel_panic": "Kernel Panic"
+        "kernel_panic": "Kernel Panic",
+        "sliding_puzzle": "Sliding Puzzle",
+        "codigo_perdido": "Código Perdido"
       },
       "taglines": {
         "ldi": "RPG NARRATIVO, crie seu avatar, faça suas escolhas, enfrente suas batalhas descubra a verdade!",
@@ -699,7 +701,9 @@
         "duelo": "Já pensou em jogar Yu-Gi-Oh só que com batalhas em um tabuleiro? Pois é, e estou testando. Logo libero para todos vocês.",
         "quiz": "teste seu conhecimento do universo LDI.",
         "leaderboard": "ranking global de jogadores.",
-        "kernel_panic": "Protocolo de Eliminação"
+        "kernel_panic": "Protocolo de Eliminação",
+        "sliding_puzzle": "Reorganize o fluxo de dados fragmentado",
+        "codigo_perdido": "Decifre o código antes que o firewall o apague"
       }
     },
     "leaderboard": {

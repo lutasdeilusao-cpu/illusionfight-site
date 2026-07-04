@@ -280,6 +280,55 @@
 
 /* === Sliding Tiles === */
 
+.sliding-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.sliding-timer {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00e5ff;
+  min-width: 60px;
+  letter-spacing: 0.06em;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.sliding-timer--warn {
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+.sliding-timer--danger {
+  color: #ff0055;
+  text-shadow: 0 0 10px #ff0055;
+  animation: sliding-blink 0.45s infinite;
+}
+
+@keyframes sliding-blink {
+  50% { opacity: 0.4 }
+}
+
+.sliding-moves {
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 0.1em;
+}
+
+.sliding-diff {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  min-width: 60px;
+  text-align: right;
+}
+
 .puzzle-sliding-grid {
   display: grid;
   gap: 3px;
@@ -307,6 +356,197 @@
   font-family: 'Share Tech Mono', monospace;
   font-size: 1rem;
   color: #F5A623;
+}
+
+/* === Código Perdido (Forca Kernel) === */
+.codigo-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.3rem;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.codigo-lives {
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  min-width: 80px;
+  transition: color 0.3s;
+}
+
+.codigo-diff {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: right;
+  min-width: 60px;
+}
+
+.codigo-spec {
+  font-size: 0.6rem;
+  color: #555;
+  text-align: center;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.codigo-error-track {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.codigo-pip {
+  width: 24px;
+  height: 4px;
+  background: #2a3a5a;
+  border-radius: 2px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.codigo-pip--used {
+  background: #ff0055;
+  box-shadow: 0 0 6px #ff0055;
+}
+
+.codigo-word-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 8px;
+  padding: 0.5rem 0;
+}
+
+.codigo-letter-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 20px;
+}
+
+.codigo-letter-char {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: #00e5ff;
+  min-height: 30px;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(0,229,255,0.4);
+  transition: all 0.2s;
+}
+
+.codigo-letter-char--hidden {
+  color: transparent;
+}
+
+.codigo-letter-char--wrong {
+  color: #ff0055;
+  text-shadow: 0 0 10px rgba(255,0,85,0.5);
+  animation: codigo-shake 0.3s;
+}
+
+@keyframes codigo-shake {
+  0%,100% { transform: translateX(0) }
+  25% { transform: translateX(-4px) }
+  75% { transform: translateX(4px) }
+}
+
+.codigo-letter-line {
+  width: 100%;
+  height: 1px;
+  background: #2a3a5a;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.codigo-letter-line--revealed {
+  background: #00e5ff;
+  box-shadow: 0 0 4px #00e5ff;
+}
+
+.codigo-wrong-letters {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: #ff0055;
+  text-align: center;
+  min-height: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.codigo-keyboard {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.codigo-kb-row {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.codigo-kb-key {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #2a3a5a;
+  background: rgba(13,26,46,0.8);
+  color: #00e5ff;
+  flex: 1;
+  max-width: 34px;
+  min-height: 36px;
+  cursor: pointer;
+  transition: all 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.codigo-kb-key:active:not(:disabled) {
+  background: rgba(0,229,255,0.15);
+  border-color: #00e5ff;
+  transform: scale(0.92);
+}
+
+.codigo-kb-key--hit {
+  color: rgba(0,229,255,0.3);
+  border-color: rgba(0,229,255,0.2);
+  background: transparent;
+  cursor: default;
+  opacity: 0.35;
+}
+
+.codigo-kb-key--miss {
+  color: rgba(255,0,85,0.3);
+  border-color: rgba(255,0,85,0.2);
+  background: transparent;
+  cursor: default;
+  opacity: 0.35;
+}
+
+.codigo-kb-key:disabled:not(.codigo-kb-key--hit):not(.codigo-kb-key--miss) {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.codigo-result {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: #555;
+  text-align: center;
+  line-height: 1.9;
+  margin-top: 0.75rem;
 }
 
 /* === Labirinto === */

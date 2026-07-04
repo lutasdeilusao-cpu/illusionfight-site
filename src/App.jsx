@@ -57,6 +57,8 @@ import PP from './pages/games/PesadeloParticular/PP'
 import DueloRoute from './pages/games/Duelo/DueloRoute'
 import Tamagoshi from './pages/games/Tamagoshi/Tamagoshi'
 import KernelPanic from './pages/games/KernelGames/KernelPanic/KernelPanic'
+import SlidingPuzzle from './pages/games/KernelGames/SlidingPuzzle/SlidingPuzzle'
+import CodigoPerdido from './pages/games/KernelGames/CodigoPerdido/CodigoPerdido'
 import Loja from './pages/site/Loja/Loja'
 import Custos from './pages/site/Custos'
 import NotFound from './pages/site/NotFound/NotFound'
@@ -114,6 +116,8 @@ export default function App() {
         <Route path="/games/pesadelo" element={<FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute>} />
         <Route path="/games/duelo" element={<FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute>} />
         <Route path="/games/tamagoshi" element={<FichaGateRoute isFree={true} gameId="tamagoshi" feature="o Tamagoshi LDI" nomeExibicao="Tamagoshi LDI"><Tamagoshi /></FichaGateRoute>} />
+        <Route path="/games/sliding-puzzle" element={<SlidingPuzzle />} />
+        <Route path="/games/codigo-perdido" element={<CodigoPerdido />} />
         <Route path="/games/kernel-panic" element={<KernelPanic />} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/games" element={<Games />} />
