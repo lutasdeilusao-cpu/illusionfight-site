@@ -186,7 +186,7 @@ export default function MiniGames() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <div className="mg-centered">
             <BackToGamesBtn onClick={voltarHub} label="← VOLTAR AOS MINIGAMES" />
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function MiniGames() {
         <div className="mg-resultado-btns">
           <button className="mg-btn" style={{ borderColor: jogoAtivo.cor, color: jogoAtivo.cor }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_jogar_novamente')}</button>
         </div>
-        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+        <div className="mg-back-wrapper">
           <BackToGamesBtn onClick={comDificuldade(jogoAtivo) ? voltarDificuldade : voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
@@ -216,12 +216,12 @@ export default function MiniGames() {
     <div className="mg-page"><div className="mg-scanlines" />
       <div className="mg-resultado">
         <div className="mg-resultado-emoji">💀</div>
-        <h2 className="mg-resultado-titulo" style={{ color: '#8B0000' }}>{t('games.minigames.resultado_derrota')}</h2>
+        <h2 className="mg-resultado-titulo mg-cor-derrota">{t('games.minigames.resultado_derrota')}</h2>
         <p className="mg-resultado-jogo">{t(gameNomeKey(jogoAtivo))}</p>
         <div className="mg-resultado-btns">
-          <button className="mg-btn" style={{ borderColor: '#8B0000', color: '#8B0000' }} onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_tentar_novamente')}</button>
+          <button className="mg-btn mg-btn-derrota" onClick={() => iniciarJogo(jogoAtivo, dificuldadeSelecionada || 'easy')}>{t('games.minigames.resultado_tentar_novamente')}</button>
         </div>
-        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+        <div className="mg-back-wrapper">
           <BackToGamesBtn onClick={comDificuldade(jogoAtivo) ? voltarDificuldade : voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
@@ -235,7 +235,7 @@ export default function MiniGames() {
           <span className="mg-jogando-nome" style={{ color: jogoAtivo.cor }}>{jogoAtivo.emoji} {t(gameNomeKey(jogoAtivo))}{dificuldadeSelecionada && ` (${dificuldadeSelecionada})`}</span>
         </div>
         <div className="mg-jogando-area">{renderPuzzle()}</div>
-        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+        <div className="mg-back-wrapper">
           <BackToGamesBtn onClick={comDificuldade(jogoAtivo) ? voltarDificuldade : voltarHub} label={t('games.minigames.voltar')} />
         </div>
       </div>
@@ -261,7 +261,7 @@ export default function MiniGames() {
           </div>
         ))}
       </div>
-      <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+      <div className="mg-back-wrapper">
         <BackToGamesBtn onClick={() => navigate('/games')} label={t('games.minigames.hub_voltar')} />
       </div>
       <div className="mg-footer"><span>{t('games.minigames.hub_footer')}</span></div>

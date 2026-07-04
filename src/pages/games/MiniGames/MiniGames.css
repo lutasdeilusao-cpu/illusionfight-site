@@ -104,6 +104,11 @@
 .mg-dif-preview--hard { grid-template-columns: repeat(12, 1fr); }
 .mg-dif-preview-cell { background: #1a1a1a; border-radius: 1px; }
 .mg-dif-badge { font-size: 0.55rem; padding: 0.15rem 0.5rem; border-radius: 2px; letter-spacing: 0.15em; border: 1px solid; }
+.mg-centered { text-align: center; margin-top: 2rem; }
+.mg-back-wrapper { text-align: center; margin-top: 1.5rem; }
+.mg-cor-derrota { color: #8B0000; }
+.mg-btn-derrota { border-color: #8B0000; color: #8B0000; }
+
 .mg-dif-badge--free { color: #22C55E; border-color: #22C55E44; background: #22C55E11; }
 .mg-dif-badge--elite { color: #00B4D8; border-color: #00B4D844; background: #00B4D811; }
 .mg-dif-badge--locked { color: #444; border-color: #333; background: transparent; }

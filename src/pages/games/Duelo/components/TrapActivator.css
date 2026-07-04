@@ -1,0 +1,72 @@
+/* TrapActivator — modal de armadilha */
+.ta-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ta-card {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+.ta-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.ta-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  color: #EF4444;
+  margin-bottom: 8px;
+}
+.ta-name {
+  font-size: 12px;
+  color: #888;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 4px;
+}
+.ta-desc {
+  font-size: 10px;
+  color: #555;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+.ta-area {
+  font-size: 10px;
+  color: #777;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 20px;
+}
+.ta-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.ta-btn-skip {
+  background: none;
+  border: 1px solid #333;
+  color: #666;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+}
+.ta-btn-activate {
+  background: linear-gradient(135deg, #8B0000, #a00000);
+  border: 1px solid #cc0000;
+  color: #eee;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.ta-btn-skip:hover { border-color: #666; color: #888; }
+.ta-btn-activate:hover { background: linear-gradient(135deg, #a00000, #cc0000); }

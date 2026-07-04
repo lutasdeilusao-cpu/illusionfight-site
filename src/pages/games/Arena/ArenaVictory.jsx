@@ -163,12 +163,12 @@ export default function ArenaVictory({ onNavigate }) {
       : fallbacks[Math.floor(Math.random() * fallbacks.length)]
 
     return (
-      <div className="arena-victory arena-container" style={{ background: '#0a0a0a' }}>
-        <div style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', padding:'2rem' }}>
+      <div className="arena-victory arena-container arena-victory-screen">
+        <div className="arena-victory-body">
           <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
             <div className="arena-chat-msg">
               <div className="arena-chat-avatar arena-chat-avatar--trash">{(t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name || 'I')[0]}</div>
-              <div className="arena-chat-bubble arena-chat-bubble--trash" style={{ fontSize:'0.95rem', lineHeight:1.6 }}>
+              <div className="arena-chat-bubble arena-chat-bubble--trash arena-chat-bubble--trash-victory">
                 {line}
               </div>
             </div>
@@ -182,17 +182,16 @@ export default function ArenaVictory({ onNavigate }) {
   if (fase === 'hpzero') {
     const hpPct = Math.max(0, (hpAtual / pvMax) * 100)
     return (
-      <div className="arena-victory arena-container" style={{ background: '#0a0a0a' }}>
-        <div style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', padding:'2rem' }}>
-          <h3 style={{ fontFamily:"'Share Tech Mono',monospace", color:'#888', marginBottom:'1rem', fontSize:'0.85rem' }}>{t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
-          <div className="arena-bar-wrap" style={{ width:'100%', maxWidth:300 }}>
-            <div className="arena-bar" style={{ height:12 }}>
-              <motion.div className="arena-bar-fill arena-bar-red"
+      <div className="arena-victory arena-container arena-victory-screen">
+        <div className="arena-victory-body arena-victory-body--center">
+          <h3 className="arena-hp-enemy-name">{t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
+          <div className="arena-bar-wrap arena-hp-bar-wrap">
+            <div className="arena-bar arena-hp-bar">
+              <motion.div className="arena-bar-fill arena-bar-red arena-hp-bar-fill"
                 animate={{ width: `${hpPct}%` }}
-                transition={{ duration: 0.05 }}
-                style={{ height:'100%', boxShadow: '0 0 8px rgba(220,20,60,0.5)' }} />
+                transition={{ duration: 0.05 }} />
             </div>
-            <span style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.7rem', color:'#DC143C', marginTop:4, display:'block', textAlign:'right' }}>
+            <span className="arena-hp-label">
               {hpAtual} / {pvMax}
             </span>
           </div>
@@ -235,14 +234,12 @@ export default function ArenaVictory({ onNavigate }) {
         ))}
       </div>
       <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
-        <motion.div
-          initial={{ scale: 0.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
-          style={{ textAlign:'center', fontSize:'3.5rem', fontFamily:"'Impact','Arial Black',sans-serif",
-            color:'#F5A623', textShadow:'3px 3px 0 #8B0000, 0 0 30px rgba(245,166,35,0.8)',
-            marginBottom:'1rem', letterSpacing:'4px' }}
-        >
+          <motion.div
+            className="arena-ko-text"
+            initial={{ scale: 0.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
+          >
           {t('games.arena.ko')}
         </motion.div>
         <div className="arena-victory-header">
@@ -277,16 +274,10 @@ export default function ArenaVictory({ onNavigate }) {
 
         {nextUnlock && (
           <motion.div
+            className="arena-unlock-badge"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            style={{
-              margin: '12px auto', padding: '10px 20px',
-              border: '1px solid rgba(245,166,35,0.3)',
-              background: 'rgba(245,166,35,0.05)',
-              color: '#F5A623', fontFamily: "'Courier New', monospace",
-              fontSize: '11px', letterSpacing: '2px', maxWidth: 360,
-            }}
           >
             {t('games.arena.novo_oponente', { name: nextUnlock })}
           </motion.div>

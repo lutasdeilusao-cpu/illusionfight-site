@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (Unificação CTA guest + achievements v10.184.0)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (CSS inline → classes: TrapActivator/ArenaVictory/MiniGames v10.190.0)
 
 ---
 
@@ -507,14 +507,14 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.189.0** | FIX: portrait container (max-width 480px) + padding mínimo + tile sizing corrigido (regra geral do portal: todo jogo em vertical) |
+| `SITE_VERSION` | **10.190.0** | CSS inline → classes: TrapActivator, ArenaVictory, MiniGames (3 violações críticas) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
-| `ARENA_VERSION` | **1.31.0** | Arena LDI — Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI (ver PROTOTYPE 2.10.0 para fix morte imediata) |
+| `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
-| `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
-| `MINIGAMES_VERSION` | **4.1.1** | - sliding_rafael - codigo_perdido (movidos para Kernel Games) |
+| `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
+| `MINIGAMES_VERSION` | **4.1.2** | CSS inline removido (style textAlign/marginTop repetido → .mg-centered/.mg-back-wrapper) |
 | `SLIDING_VERSION` | **1.3.0** | PuzzleSlidingRafael — portrait container, padding 8px arena, tile sizing corrigido |
 | `CODIGO_VERSION` | **1.3.0** | PuzzleCodigoPerdido — portrait container, padding mínimo, keyboard sem max-width |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
