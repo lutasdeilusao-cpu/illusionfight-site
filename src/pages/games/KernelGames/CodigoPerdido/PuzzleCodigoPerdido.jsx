@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useRafaelI18n } from './useRafaelI18n'
-import { useLanguage } from '../../context/LanguageContext'
-import { sfx } from '../../lib/sfx'
+import { useRafaelI18n } from '../_shared/useRafaelI18n'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { sfx } from '../../../../lib/sfx'
 import './PuzzleCodigoPerdido.css'
 
 const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']

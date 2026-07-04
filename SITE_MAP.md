@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX SlidingRafael espaço/safe area + v10.192.0)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (REFACTOR: todos os jogos Rafael movidos para KernelGames/ com pastas específicas)
 
 ---
 
@@ -129,7 +129,7 @@
     │   ├── NowLive/                    # Seção home: agora ao vivo
     │   ├── PlatformIcons.jsx           # Ícones de plataformas de música
     │   ├── ProdutoDigitalCard          # Card de produto digital na loja
-    │   ├── Puzzles/                    # 7 puzzles + index.js + css + sfx
+    │   ├── Puzzles/                    # 7 puzzles (não-Rafael) + index.js + css + sfx
     │   ├── ResultCard/                 # Canvas share card com paletas por jogo
     │   ├── ScrollToTop/                # Botão voltar ao topo
     │   ├── ScrollToTopOnNav.jsx        # Scroll to top on navigation change
@@ -244,6 +244,43 @@
     │   │       ├── TopTrumpsMP.css
     │   │       ├── components/
     │   │       └── hooks/
+    │   │
+    │   ├── KernelGames/                  # Rafael games + Kernel Panic
+    │   │   ├── KernelGame.css            # Shared styles (result screens, scanlines)
+    │   │   ├── _shared/                  # Shared utils for Rafael games
+    │   │   │   ├── useRafaelI18n.js
+    │   │   │   └── i18n/
+    │   │   │       ├── rafael_pt.json
+    │   │   │       ├── rafael_en.json
+    │   │   │       └── rafael_es.json
+    │   │   ├── SlidingRafael/            # MG-01 Sliding Puzzle
+    │   │   │   ├── SlidingRafael.jsx     # Page wrapper
+    │   │   │   ├── PuzzleSlidingRafael.jsx
+    │   │   │   └── PuzzleSlidingRafael.css
+    │   │   ├── CodigoPerdido/            # MG-03 Código Perdido (forca)
+    │   │   │   ├── CodigoPerdido.jsx     # Page wrapper
+    │   │   │   ├── PuzzleCodigoPerdido.jsx
+    │   │   │   └── PuzzleCodigoPerdido.css
+    │   │   ├── MazeRafael/              # MG-02 Labirinto
+    │   │   │   ├── PuzzleMazeRafael.jsx
+    │   │   │   └── PuzzleMazeRafael.css
+    │   │   ├── GlitchRafael/            # MG-04 Encontre o Glitch
+    │   │   │   ├── PuzzleGlitchRafael.jsx
+    │   │   │   └── PuzzleGlitchRafael.css
+    │   │   ├── BulletHellRafael/        # MG-05 Bullet Hell
+    │   │   │   ├── PuzzleBulletHellRafael.jsx
+    │   │   │   └── PuzzleBulletHellRafael.css
+    │   │   ├── StabilizerRafael/        # MG-06 Sinal Estável
+    │   │   │   ├── PuzzleStabilizerRafael.jsx
+    │   │   │   └── PuzzleStabilizerRafael.css
+    │   │   └── KernelPanic/             # Kernel Panic card game
+    │   │       ├── KernelPanic.jsx
+    │   │       ├── KernelPanic.css
+    │   │       ├── kernel-panic-section.css  # KP section on /games
+    │   │       ├── components/
+    │   │       ├── data/
+    │   │       ├── hooks/
+    │   │       └── i18n/
     │   │
     │   ├── content/                     # Conteúdo do site
     │   │   ├── Livro.jsx                # Lista de capítulos
@@ -473,8 +510,8 @@
 | `/games/duelo` | DueloRoute | `src/pages/games/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
 | `/games/tamagoshi` | Tamagoshi | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.2 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | 32 criaturas em FALAS_CRIATURA ordenadas por ID (1-32), double-encoding corrigido |
 | `/games/kernel-panic` | KernelPanic | `src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx` | ✅ v1.4.0 | ✅ Beta | ✅ PT ✅ EN ✅ ES | Jogo de cartas tático — Manual do operador + Voltar + aba kernel |
-| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael.jsx` | ✅ **v1.4.0** | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — CSS Grid 1fr, safe area, fonte maior |
-| `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
+| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx` | ✅ **v1.4.0** | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — CSS Grid 1fr, safe area, fonte maior |
+| `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Produtos físicos e digitais |
 | `/leaderboard` | Leaderboard | `src/pages/platform/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
@@ -507,26 +544,26 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.0** | FIX SlidingRafael: CSS Grid 1fr, safe area insets, fonte maior, ResizeObserver |
+| `SITE_VERSION` | **10.192.1** | REFACTOR: todos os jogos Rafael movidos para KernelGames/ com pastas específicas |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.2.1** | SlidingRafael: CSS Grid 1fr + safe area insets + fonte maior |
-| `SLIDING_VERSION` | **1.4.0** | PuzzleSlidingRafael — CSS Grid 1fr + safe area env() + ResizeObserver + fonte maior |
-| `CODIGO_VERSION` | **1.3.0** | PuzzleCodigoPerdido — portrait container, padding mínimo, keyboard sem max-width |
+| `MINIGAMES_VERSION` | **4.2.2** | Imports atualizados: puzzles Rafael movidos para KernelGames/ |
+| `SLIDING_VERSION` | **1.4.1** | Movido para KernelGames/SlidingRafael/ |
+| `CODIGO_VERSION` | **1.3.1** | Movido para KernelGames/CodigoPerdido/ |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
 | `KP_VERSION` | **1.4.0** | Manual do operador (modal) + botão Voltar + ?aba=kernel na URL games |
-| `MAZE_VERSION` | **1.0.0** | PuzzleMazeRafael — MG-02 Labirinto (Canvas DFS maze, checkpoint, penalty) |
-| `GLITCH_VERSION` | **1.0.0** | PuzzleGlitchRafael — MG-04 Encontre o Glitch (DOM grid, anomalia '2') |
-| `BULLETHELL_VERSION` | **1.0.0** | PuzzleBulletHellRafael — MG-05 Bullet Hell (Canvas shmup, n-bullets, tracking) |
-| `STABILIZER_VERSION` | **1.0.0** | PuzzleStabilizerRafael — MG-06 Estabilizador (DOM bar, drift/push, zona verde) |
+| `MAZE_VERSION` | **1.0.1** | Movido para KernelGames/MazeRafael/ |
+| `GLITCH_VERSION` | **1.0.1** | Movido para KernelGames/GlitchRafael/ |
+| `BULLETHELL_VERSION` | **1.0.1** | Movido para KernelGames/BulletHellRafael/ |
+| `STABILIZER_VERSION` | **1.0.1** | Movido para KernelGames/StabilizerRafael/ |
 
 ---
 

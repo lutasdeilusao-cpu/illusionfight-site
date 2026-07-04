@@ -7,7 +7,7 @@ import { useFichaGate } from '../../hooks/useFichaGate'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import './Games.css'
-import './kernel-panic.css'
+import './KernelGames/KernelPanic/kernel-panic-section.css'
 
 export const JOGOS = [
   { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
