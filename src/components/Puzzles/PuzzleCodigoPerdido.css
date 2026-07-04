@@ -54,14 +54,14 @@
   color: var(--cp-ghost);
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   font-family: var(--cp-mono);
 }
 
 .cp-btns {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
   max-width: 340px;
 }
@@ -214,7 +214,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 14px 12px;
+  padding: 8px 6px 6px;
   overflow: hidden;
 }
 
@@ -311,7 +311,6 @@
 
 .cp-keyboard {
   width: 100%;
-  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -375,15 +374,13 @@
 /* ── Mobile-first: keyboard keys, touch area ── */
 .cp-kb-key {
   min-height: 44px;
-  max-width: 44px;
   font-size: .82rem;
 }
 
 @media (min-width: 600px) {
   .cp-kb-key {
-    min-height: 40px;
-    max-width: 38px;
-    font-size: .72rem;
+    min-height: 44px;
+    font-size: .82rem;
   }
 }
 
@@ -480,80 +477,4 @@
 @media(hover:hover) {
   .cp-res-btn.cp-p:hover { background: var(--cp-cyan); color: var(--cp-bg); }
   .cp-res-btn.cp-s:hover { border-color: var(--cp-cyan); color: var(--cp-cyan); }
-}
-
-/* ── Mobile-first ── */
-/* Default: mobile styles */
-.cp-sel-title {
-  font-size: 2.2rem;
-}
-.cp-hud {
-  padding: 6px 10px;
-}
-.cp-hud-lives {
-  font-size: 1.4rem;
-  min-width: 60px;
-}
-.cp-hud-word-len {
-  font-size: 1.2rem;
-}
-.cp-hud-diff {
-  min-width: 60px;
-}
-.cp-screen {
-  padding: 20px 14px;
-}
-.cp-game-body {
-  padding: 12px 10px 10px;
-}
-.cp-cdown-n {
-  font-size: 5rem;
-}
-.cp-letter-char {
-  font-size: 1.5rem;
-  min-height: 26px;
-}
-.cp-error-pip {
-  width: 20px;
-}
-.cp-keyboard {
-  max-width: 340px;
-}
-
-@media (min-width: 600px) {
-  .cp-sel-title {
-    font-size: 3.4rem;
-  }
-  .cp-hud {
-    padding: 8px 16px;
-  }
-  .cp-hud-lives {
-    font-size: 2rem;
-    min-width: 90px;
-  }
-  .cp-hud-word-len {
-    font-size: 1.4rem;
-  }
-  .cp-hud-diff {
-    min-width: 90px;
-  }
-  .cp-screen {
-    padding: 24px 20px;
-  }
-  .cp-game-body {
-    padding: 16px 14px 12px;
-  }
-  .cp-cdown-n {
-    font-size: 9rem;
-  }
-  .cp-letter-char {
-    font-size: 1.9rem;
-    min-height: 32px;
-  }
-  .cp-error-pip {
-    width: 28px;
-  }
-  .cp-keyboard {
-    max-width: 420px;
-  }
 }

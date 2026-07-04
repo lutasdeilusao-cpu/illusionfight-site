@@ -134,8 +134,8 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
     const calcSize = () => {
       const a = arenaRef.current
       if (!a) return
-      const aW = a.clientWidth - 32
-      const aH = a.clientHeight - 32
+      const aW = a.clientWidth - 16
+      const aH = a.clientHeight - 16
       const maxSide = Math.min(aW, aH)
       const sz = cfgRef.current?.size || 3
       const ts = Math.floor((maxSide - (sz - 1) * 4) / sz)

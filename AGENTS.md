@@ -117,6 +117,16 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 - **Sempre `maybeSingle()`** em vez de `single()` no Supabase para evitar erro em resultado vazio
 - **Glob path quebra silenciosamente ao mover componente de pasta** — `import.meta.glob` usa caminho relativo ao arquivo atual. Se o componente é movido (ex: `src/pages/` → `src/pages/content/`), o glob `'../data/**/*.md'` não acha mais nada, mas não dá erro — só retorna vazio. Sempre verificar paths de `import.meta.glob` após refactors que movem arquivos.
 - **notificationManager.queue persiste em localStorage entre sessões** — achievements enfileirados por um usuário logado permanecem na fila após logout. Quando o guest continua navegando, `UnifiedNotification` encontra as notificações stale e exibe popup de achievement. A correção é limpar (`clearByType('achievement')`) na transição `user → null` em `AchievementsContext`. As notificações LDI tip não são afetadas.
+- **Kernel Games: layout OBRIGATORIAMENTE vertical (portrait)** — REGRA GERAL DO PORTAL. Não existe versão desktop. Todo jogo, independente do dispositivo, deve ocupar UM container vertical (max-width: 480px, margin: 0 auto) centralizado na tela. O background (scanlines) usa position: fixed para cobrir o viewport atrás do jogo. O jogo NUNCA estica horizontalmente.
+- **Kernel Games: padding mínimo, espaço máximo** — dentro do container portrait, cada pixel conta:
+  - `.sr-arena` / arena: padding 8px (não 16px). O cálculo de tileSize no JS deve bater com o CSS (`clientWidth - 16` para padding 8px).
+  - `.sr-hud` / `.cp-hud`: padding 6px 12px (não 8px 16px)
+  - `.cp-game-body`: padding 8px 6px 6px (não 16px 14px 12px)
+  - Margens de elementos de menu: 24px (não 40px)
+  - Keyboard: sem max-width no container, teclas sem max-width individual, `flex: 1` distribui igualmente, min-height 44px
+- **Kernel Games: CSS mobile-first NÃO é media query no fim** — o layout deve ser pensado para retrato desde o início. Adicionar `@media (min-width: 600px)` com overrides no final do CSS é trabalho superficial e NÃO será aceito. O container .kg-page com max-width já resolve a adaptação.
+- **Kernel Games: hierarquia de botão Voltar** — dentro do gameplay: `setPhase('select')` + cleanup (volta ao menu de dificuldade). No menu de dificuldade: `onBack` prop → `navigate('/games')` (volta ao catálogo Kernel Games).
+- **Isaias exige revisão visual real, não checklist burocrática** — toda mudança de CSS/layout deve ser pensada e testada visualmente. Valores arbitrários sem intenção de uso de espaço serão rejeitados. Se o agente não tem certeza do resultado visual, deve ler os CSS existentes e entender o fluxo de layout antes de editar.
 
 ## Regra Anti-Over-Engineering
 

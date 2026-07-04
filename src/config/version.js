@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.188.0'
+export const SITE_VERSION = '10.189.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -24,8 +24,8 @@ export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centraliz
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
 export const KP_VERSION = '1.4.0' // Manual do operador + botão Voltar + ?aba=kernel na URL
-export const SLIDING_VERSION   = '1.2.0'  // PuzzleSlidingRafael — CSS mobile-first + back buttons (gameplay→select, select→catalog)
-export const CODIGO_VERSION    = '1.2.0'  // PuzzleCodigoPerdido — CSS mobile-first + back buttons (gameplay→select, select→catalog)
+export const SLIDING_VERSION   = '1.3.0'  // PuzzleSlidingRafael — CSS: portrait container, padding mínimo, tile sizing corrigido
+export const CODIGO_VERSION    = '1.3.0'  // PuzzleCodigoPerdido — CSS: portrait container, padding mínimo, keyboard sem max-width
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

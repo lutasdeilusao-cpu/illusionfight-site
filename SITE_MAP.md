@@ -473,8 +473,8 @@
 | `/games/duelo` | DueloRoute | `src/pages/games/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
 | `/games/tamagoshi` | Tamagoshi | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.2 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | 32 criaturas em FALAS_CRIATURA ordenadas por ID (1-32), double-encoding corrigido |
 | `/games/kernel-panic` | KernelPanic | `src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx` | ✅ v1.4.0 | ✅ Beta | ✅ PT ✅ EN ✅ ES | Jogo de cartas tático — Manual do operador + Voltar + aba kernel |
-| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael.jsx` | ✅ v1.2.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — standalone Kernel Games + readerMode + SFX + CSS mobile-first + back buttons |
-| `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido.jsx` | ✅ v1.2.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — standalone Kernel Games + readerMode + SFX + CSS mobile-first + back buttons |
+| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — portrait container, padding mínimo, tile sizing corrigido |
+| `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Produtos físicos e digitais |
 | `/leaderboard` | Leaderboard | `src/pages/platform/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
