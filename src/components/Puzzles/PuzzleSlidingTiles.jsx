@@ -28,46 +28,18 @@ function shuffleSolvable(size) {
   return arr
 }
 
-function formatTimer(seconds) {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${String(s).padStart(2, '0')}`
-}
-
 export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
   const { t } = useLanguage()
   const size = config.size || 3
   const total = size * size
   const goal = Array.from({ length: total - 1 }, (_, i) => i + 1).concat(null)
 
-  const timerSeconds = config.timerSeconds || 0
-  const difficultyLabel = config.difficultyLabel || ''
-  const difficultyColor = config.difficultyColor || ''
-
   const [board, setBoard] = useState(() => shuffleSolvable(size))
   const [moves, setMoves] = useState(0)
   const [done, setDone] = useState(false)
-  const [timeLeft, setTimeLeft] = useState(timerSeconds)
-  const [timerActive, setTimerActive] = useState(false)
   const lastSlideSfx = useRef(0)
-  const timerRef = useRef(null)
 
   const blankIdx = board.indexOf(null)
-
-  useEffect(() => {
-    if (!timerSeconds || done) return
-    timerRef.current = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) { setDone(true); clearInterval(timerRef.current); setTimeout(() => onFail?.(), 500); return 0 }
-        return prev - 1
-      })
-    }, 1000)
-    setTimerActive(true)
-    return () => { clearInterval(timerRef.current) }
-  }, [timerSeconds, done])
-
-  const timerRatio = timerSeconds ? timeLeft / timerSeconds : 1
-  const timerClass = timerRatio <= 0.1 ? 'sliding-timer--danger' : timerRatio <= 0.25 ? 'sliding-timer--warn' : ''
 
   const tryMove = useCallback((idx) => {
     if (done) return
@@ -78,6 +50,7 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
     const dist = Math.abs(br - tr) + Math.abs(bc - tc)
     if (dist !== 1) return
 
+    // SFX: slide
     sfxMinigames.slide()
 
     const newBoard = [...board]
@@ -86,19 +59,21 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
     setBoard(newBoard)
     setMoves(m => m + 1)
 
+    // SFX: revelar se peça foi pro lugar certo
     const valor = newBoard[blankIdx]
     if (valor !== null && valor === goal[blankIdx]) {
       sfxMinigames.revelar()
     }
 
+    // Check win
     if (newBoard.every((t, i) => t === goal[i])) {
       setDone(true)
-      clearInterval(timerRef.current)
       sfxMinigames.vitoria()
       setTimeout(() => onSolve?.(), 500)
     }
-  }, [board, blankIdx, done, goal, size])
+  }, [board, blankIdx, done])
 
+  // Keyboard
   useEffect(() => {
     const handleKey = (e) => {
       if (done) return
@@ -115,27 +90,13 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [board, blankIdx, done, size, tryMove])
+  }, [board, blankIdx, done])
 
   return (
     <div className="puzzle-container">
-      {(timerSeconds || difficultyLabel) && (
-        <div className="sliding-hud">
-          {timerSeconds > 0 && (
-            <span className={`sliding-timer ${timerClass}`}>
-              {formatTimer(Math.max(0, Math.ceil(timeLeft)))}
-            </span>
-          )}
-          <span className="sliding-moves">
-            {t('games.minigames.sliding.movimentos', { n: moves })}
-          </span>
-          {difficultyLabel && (
-            <span className="sliding-diff" style={{ color: difficultyColor }}>
-              {difficultyLabel}
-            </span>
-          )}
-        </div>
-      )}
+      <div className="puzzle-title">{t('games.minigames.sliding.titulo_jogo')}</div>
+      <p className="puzzle-desc">{t('games.minigames.sliding.instrucao')}</p>
+      <p className="puzzle-moves">{t('games.minigames.sliding.movimentos', { n: moves })}</p>
 
       <div className="puzzle-sliding-grid" style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}>
         {board.map((tile, idx) => (
@@ -157,10 +118,6 @@ export default function PuzzleSlidingTiles({ onSolve, onFail, config = {} }) {
       <button className="jack-btn" onClick={() => onFail?.()} style={{ fontSize: '0.7rem', borderColor: '#8B000033', color: '#666' }}>
         {t('games.minigames.sliding.desistir')}
       </button>
-
-      {!timerSeconds && !difficultyLabel && (
-        <p className="puzzle-moves">{t('games.minigames.sliding.movimentos', { n: moves })}</p>
-      )}
     </div>
   )
 }

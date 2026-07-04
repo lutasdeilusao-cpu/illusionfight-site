@@ -30,8 +30,6 @@ const BADGE_CORES = {
 
 const KERNEL_JOGOS = [
   { id: 'kernelpanic', nomeKey: 'site.games.nomes.kernel_panic', tagKey: 'site.games.taglines.kernel_panic', emoji: '💀', cor: '#A855F4', rota: '/games/kernel-panic', badgeKey: 'site.games.badges.beta' },
-  { id: 'sliding', nomeKey: 'site.games.nomes.sliding_puzzle', tagKey: 'site.games.taglines.sliding_puzzle', emoji: '🧩', cor: '#00e5ff', rota: '/games/sliding-puzzle', badgeKey: 'site.games.badges.novo' },
-  { id: 'codigoperdido', nomeKey: 'site.games.nomes.codigo_perdido', tagKey: 'site.games.taglines.codigo_perdido', emoji: '🔐', cor: '#b400ff', rota: '/games/codigo-perdido', badgeKey: 'site.games.badges.novo' },
 ]
 
 const CONTEUDO = [

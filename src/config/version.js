@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.185.0'
+export const SITE_VERSION = '10.184.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -17,9 +17,7 @@ export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso vis
 export const ARENA_VERSION     = '1.31.0'  // LDI Arena Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
-export const MINIGAMES_VERSION = '4.1.0'  // PuzzleSlidingTiles: timer config + tema cyberpunk
-export const SLIDING_VERSION   = '1.0.0'  // Kernel Games: Sliding Puzzle
-export const CODIGO_VERSION   = '1.0.0'  // Kernel Games: Código Perdido
+export const MINIGAMES_VERSION = '4.0.2'  // readerMode: Navbar e Footer ocultos
 export const TS_VERSION        = '5.44.7'  // Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados)
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
@@ -42,5 +40,3 @@ console.log(`[DUELO] versão carregada: ${DUELO_VERSION}`)
 console.log(`[MINIGAMES] versão carregada: ${MINIGAMES_VERSION}`)
 console.log(`[TS] versão carregada: ${TS_VERSION}`)
 console.log(`[TM] versão carregada: ${TM_VERSION}`)
-console.log(`[SLIDING] versão carregada: ${SLIDING_VERSION}`)
-console.log(`[CODIGO] versão carregada: ${CODIGO_VERSION}`)
