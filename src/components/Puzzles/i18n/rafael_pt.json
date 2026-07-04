@@ -1,0 +1,16 @@
+{
+  "sliding_rafael": {
+    "subtitulo": "Reorganize o fluxo de dados fragmentado",
+    "dif_easy": "Grade 3×3 · 8 peças · 3 minutos",
+    "dif_normal": "Grade 4×4 · 15 peças · 10 minutos",
+    "dif_hard": "Grade 5×5 · 24 peças · 20 minutos",
+    "hud_moves": "movimentos"
+  },
+  "codigo_perdido": {
+    "subtitulo": "Identifique a palavra · 6 erros permitidos",
+    "dif_easy": "Palavras curtas · 4–6 letras",
+    "dif_normal": "Palavras médias · 7–9 letras",
+    "dif_hard": "Palavras longas · 10–14 letras",
+    "hud_letras": "letras"
+  }
+}

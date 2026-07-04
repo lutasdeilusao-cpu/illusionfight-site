@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MG-06 · Estabilizador</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
+
+:root {
+  --bg:     #05050f;
+  --cyan:   #00e5ff;
+  --purple: #b400ff;
+  --red:    #ff0055;
+  --gold:   #ffcc00;
+  --green:  #00ff88;
+  --ghost:  #2a3a5a;
+  --mono:   'Share Tech Mono', monospace;
+  --head:   'Bebas Neue', sans-serif;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); font-family:var(--mono); user-select:none; -webkit-user-select:none; }
+
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.18) 2px,rgba(0,0,0,0.18) 4px);
+}
+
+.grid-bg {
+  background-color:var(--bg);
+  background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+
+.screen { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px 20px; }
+.screen.off { display:none; }
+
+.sel-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; margin-bottom:10px; }
+.sel-title { font-family:var(--head); font-size:3.4rem; letter-spacing:.12em; color:var(--cyan); text-align:center; line-height:1; text-shadow:0 0 24px var(--cyan); margin-bottom:6px; }
+.sel-sub   { font-size:.62rem; letter-spacing:.18em; color:var(--ghost); text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:340px; }
+.diff-btn { background:transparent; border:1px solid var(--ghost); font-family:var(--mono); text-transform:uppercase; display:flex; flex-direction:column; justify-content:center; gap:3px; padding:0 18px; min-height:58px; cursor:pointer; transition:.15s; text-align:left; }
+.diff-btn .dn { font-size:.85rem; letter-spacing:.12em; }
+.diff-btn .di { font-size:.58rem; letter-spacing:.08em; color:var(--ghost); }
+.dif-easy   .dn { color:var(--cyan); }
+.dif-normal .dn { color:var(--purple); }
+.dif-hard   .dn { color:var(--red); }
+.diff-btn:active { opacity:.7; }
+@media(hover:hover){
+  .dif-easy:hover   { border-color:var(--cyan);   background:rgba(0,229,255,.04); }
+  .dif-normal:hover { border-color:var(--purple); background:rgba(180,0,255,.04); }
+  .dif-hard:hover   { border-color:var(--red);    background:rgba(255,0,85,.04); }
+}
+
+#cdown { background:var(--bg); }
+.cdown-n { font-family:var(--head); font-size:9rem; line-height:1; color:var(--cyan); text-shadow:0 0 30px var(--cyan); animation:popIn .6s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes popIn { from{transform:scale(2);opacity:0} to{transform:scale(1);opacity:1} }
+
+#game { gap:0; padding:0; justify-content:flex-start; }
+
+.hud { width:100%; display:flex; align-items:center; justify-content:space-between; padding:8px 16px; border-bottom:1px solid var(--ghost); background:rgba(5,5,15,.95); flex-shrink:0; }
+.hud-timer { font-family:var(--head); font-size:2.2rem; letter-spacing:.06em; color:var(--cyan); min-width:60px; }
+.hud-timer.t-warn   { color:var(--gold); text-shadow:0 0 10px var(--gold); }
+.hud-timer.t-danger { color:var(--red);  text-shadow:0 0 10px var(--red); animation:blink .45s infinite; }
+@keyframes blink { 50%{opacity:.4} }
+.hud-center { text-align:center; }
+.hud-lock   { font-family:var(--head); font-size:1.5rem; display:block; line-height:1; transition:color .2s; }
+.hud-lbl    { font-size:.55rem; letter-spacing:.2em; color:var(--ghost); text-transform:uppercase; }
+.hud-diff   { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; text-align:right; min-width:60px; }
+
+.arena { flex:1; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px; padding:24px 20px; touch-action:none; }
+
+.touch-hint { font-size:.65rem; letter-spacing:.18em; color:var(--ghost); text-transform:uppercase; text-align:center; transition:opacity .3s; }
+
+.bar-wrap { width:100%; max-width:500px; position:relative; }
+.bar-track { width:100%; height:28px; background:#070714; border:1px solid var(--ghost); border-radius:14px; position:relative; overflow:hidden; }
+
+/* Zona — verde ou vermelha */
+.zone { position:absolute; top:0; height:100%; border-radius:14px; transition:background .15s, border-color .15s, box-shadow .15s; }
+.zone.green-active   { background:rgba(0,255,136,0.25); border:1px solid rgba(0,255,136,0.6); box-shadow:0 0 10px rgba(0,255,136,0.3); }
+.zone.green-inactive { background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.2); }
+.zone.red-active     { background:rgba(255,0,85,0.30);  border:1px solid rgba(255,0,85,0.7); box-shadow:0 0 12px rgba(255,0,85,0.4); animation:zonePulse .4s infinite alternate; }
+.zone.red-inactive   { background:rgba(255,0,85,0.10);  border:1px solid rgba(255,0,85,0.25); }
+@keyframes zonePulse { from{box-shadow:0 0 8px rgba(255,0,85,.3)} to{box-shadow:0 0 18px rgba(255,0,85,.7)} }
+
+.marker { position:absolute; top:50%; transform:translateY(-50%); width:4px; height:80%; border-radius:2px; background:var(--cyan); box-shadow:0 0 8px var(--cyan); transition:background .15s, box-shadow .15s; }
+.marker.on-green { background:var(--green); box-shadow:0 0 8px var(--green), 0 0 16px rgba(0,255,136,.4); }
+.marker.on-red   { background:var(--red);   box-shadow:0 0 8px var(--red),   0 0 16px rgba(255,0,85,.4); }
+
+.progress-wrap { width:100%; max-width:500px; }
+.progress-label { display:flex; justify-content:space-between; font-size:.58rem; letter-spacing:.12em; color:var(--ghost); text-transform:uppercase; margin-bottom:5px; }
+.progress-track { width:100%; height:8px; background:#070714; border:1px solid var(--ghost); border-radius:4px; overflow:hidden; }
+.progress-fill  { height:100%; border-radius:4px; background:var(--green); box-shadow:0 0 6px rgba(0,255,136,.5); transition:width .1s linear, background .2s; }
+.progress-fill.complete { background:var(--cyan); box-shadow:0 0 10px rgba(0,229,255,.6); }
+
+/* Aviso de zona vermelha */
+.danger-warn { font-size:.65rem; letter-spacing:.2em; color:var(--red); text-transform:uppercase; text-align:center; min-height:18px; transition:opacity .2s; }
+
+#result { gap:14px; }
+.res-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; }
+.res-title { font-family:var(--head); font-size:3.2rem; letter-spacing:.12em; line-height:1; text-align:center; }
+.res-title.ok  { color:var(--cyan); text-shadow:0 0 20px var(--cyan); }
+.res-title.bad { color:var(--red);  text-shadow:0 0 20px var(--red); }
+.res-msg   { font-size:.68rem; letter-spacing:.08em; color:var(--ghost); text-align:center; line-height:1.9; max-width:300px; }
+.res-stats { border:1px solid var(--ghost); padding:12px 20px; font-size:.65rem; letter-spacing:.1em; color:var(--ghost); line-height:2.1; text-align:center; min-width:260px; background:rgba(0,229,255,.03); }
+.res-stats b { color:var(--cyan); font-weight:normal; }
+.res-btns  { display:flex; flex-direction:column; gap:8px; width:100%; max-width:300px; margin-top:6px; }
+.res-btn   { background:transparent; font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; border:1px solid; min-height:48px; cursor:pointer; transition:.15s; }
+.res-btn.p { border-color:var(--cyan);  color:var(--cyan); }
+.res-btn.s { border-color:var(--ghost); color:var(--ghost); }
+.res-btn.p:active { background:var(--cyan);  color:var(--bg); }
+.res-btn.s:active { border-color:var(--cyan); color:var(--cyan); }
+@media(hover:hover){
+  .res-btn.p:hover { background:var(--cyan);  color:var(--bg); }
+  .res-btn.s:hover { border-color:var(--cyan); color:var(--cyan); }
+}
+</style>
+</head>
+<body>
+
+<div id="sel" class="screen grid-bg">
+  <div class="sel-tag">Minigame · MG-06</div>
+  <div class="sel-title">SINAL<br>ESTÁVEL</div>
+  <div class="sel-sub">Verde = ganhe tempo · Vermelho = perde tempo · 30s de round</div>
+  <div class="btns">
+    <button class="diff-btn dif-easy"   onclick="pick('easy')">
+      <span class="dn">◎ Fácil</span>
+      <span class="di">Arrasto leve · zona larga · zona vermelha rara</span>
+    </button>
+    <button class="diff-btn dif-normal" onclick="pick('normal')">
+      <span class="dn">◎ Normal</span>
+      <span class="di">Arrasto médio · zona média · zona vermelha ocasional</span>
+    </button>
+    <button class="diff-btn dif-hard"   onclick="pick('hard')">
+      <span class="dn">◎ Difícil</span>
+      <span class="di">Arrasto forte · zona estreita · zona vermelha frequente · 40s</span>
+    </button>
+  </div>
+</div>
+
+<div id="cdown" class="screen off">
+  <div class="cdown-n" id="cdown-n">3</div>
+</div>
+
+<div id="game" class="screen off">
+  <div class="hud">
+    <div class="hud-timer" id="htimer">30</div>
+    <div class="hud-center">
+      <span class="hud-lock" id="hlock">0.0s</span>
+      <span class="hud-lbl">na zona</span>
+    </div>
+    <div class="hud-diff" id="hdiff"></div>
+  </div>
+  <div class="arena" id="arena">
+    <div class="touch-hint" id="touch-hint">TOQUE E SEGURE PARA EMPURRAR O SINAL →</div>
+
+    <div class="bar-wrap">
+      <div class="bar-track" id="bar-track">
+        <div class="zone green-inactive" id="zone"></div>
+        <div class="marker" id="marker"></div>
+      </div>
+    </div>
+
+    <div class="danger-warn" id="danger-warn"></div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>TEMPO NA ZONA</span>
+        <span id="prog-label">0.0 / 5.0s</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result" class="screen off grid-bg">
+  <div class="res-tag"   id="rtag"></div>
+  <div class="res-title" id="rtitle"></div>
+  <div class="res-msg"   id="rmsg"></div>
+  <div class="res-stats" id="rstats"></div>
+  <div class="res-btns">
+    <button class="res-btn p" onclick="retry()">◎ Tentar Novamente</button>
+    <button class="res-btn s" onclick="goSel()">← Selecionar Dificuldade</button>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ───────────────────────────────────────────────────────────────────
+// zoneStay:     segundos que a zona fica parada antes de saltar
+// dangerChance: probabilidade de virar vermelha após cada salto (0–1)
+// dangerDur:    duração em segundos da zona vermelha
+const CFG = {
+  easy:   { drift:100, push:160, zoneW:.20, zoneStay:2.2, dangerChance:.20, dangerDur:1.2, roundTime:30, label:'FÁCIL',   col:'#00e5ff' },
+  normal: { drift:60,  push:120, zoneW:.17, zoneStay:2.8, dangerChance:.35, dangerDur:1.5, roundTime:30, label:'NORMAL',  col:'#b400ff' },
+  hard:   { drift:105, push:200, zoneW:.13, zoneStay:1.6, dangerChance:.55, dangerDur:1.8, roundTime:40, label:'DIFÍCIL', col:'#ff0055' },
+};
+
+// roundTime definido por dificuldade em CFG
+const NEEDED_TIME = 5;
+
+const MSGS_OK = [
+  'Sinal estabilizado.\nConexão segura estabelecida.',
+  'Frequência sincronizada.\nProtocolo de comunicação ativo.',
+  'Canal estável, operador.\nTransmissão concluída com sucesso.',
+  'Sinal bloqueado na zona.\nSistema operacional.',
+];
+const MSGS_FAIL = [
+  'Sinal perdido.\nConexão interrompida.',
+  'Frequência instável.\nProtocolo de comunicação falhou.',
+  'Interferência crítica.\nO sinal não pôde ser estabilizado.',
+  'Tempo esgotado.\nA janela de transmissão fechou.',
+];
+
+// ── ESTADO ───────────────────────────────────────────────────────────────────
+let diff, cfg;
+let active   = false;
+let pressing = false;
+
+let markerPos  = 0.5;
+let zonePos    = 0.1;
+let zoneDanger = false;    // true = zona vermelha
+let zoneTimer  = 0;        // tempo até próximo salto/mudança de estado
+let roundTime  = 0;
+let lockedTime = 0;
+
+let raf = null;
+let lastTs = 0;
+let barW = 0;
+
+// ── TELAS ────────────────────────────────────────────────────────────────────
+function show(id) {
+  ['sel','cdown','game','result'].forEach(s =>
+    document.getElementById(s).classList.toggle('off', s !== id)
+  );
+}
+
+// ── FLUXO ────────────────────────────────────────────────────────────────────
+function pick(d) { diff = d; cfg = CFG[d]; countdown(); }
+
+function countdown() {
+  show('cdown');
+  const el = document.getElementById('cdown-n');
+  let n = 3;
+  const step = () => {
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
+    el.textContent = n === 0 ? 'GO!' : n;
+    el.style.color = n === 0 ? cfg.col : '#00e5ff';
+    el.style.textShadow = `0 0 30px ${n === 0 ? cfg.col : '#00e5ff'}`;
+    if (n === 0) { setTimeout(startGame, 550); return; }
+    n--; setTimeout(step, 850);
+  };
+  step();
+}
+
+function startGame() {
+  show('game');
+
+  markerPos  = 0.5;
+  zonePos    = Math.random() * (1 - cfg.zoneW);
+  zoneDanger = false;
+  zoneTimer  = cfg.zoneStay;
+  roundTime  = cfg.roundTime;
+  lockedTime = 0;
+  pressing   = false;
+  active     = true;
+  lastTs     = 0;
+
+  document.getElementById('hdiff').textContent = cfg.label;
+  document.getElementById('hdiff').style.color  = cfg.col;
+  document.getElementById('touch-hint').style.opacity = '1';
+  document.getElementById('danger-warn').textContent = '';
+
+  barW = document.getElementById('bar-track').clientWidth;
+
+  updateHUD(false);
+  updateBar(false);
+
+  const arena = document.getElementById('arena');
+  arena.addEventListener('touchstart',  onDown, { passive:false });
+  arena.addEventListener('touchend',    onUp,   { passive:false });
+  arena.addEventListener('touchcancel', onUp,   { passive:false });
+  arena.addEventListener('mousedown',   onDown);
+  arena.addEventListener('mouseup',     onUp);
+
+  raf = requestAnimationFrame(loop);
+}
+
+// ── INPUT ────────────────────────────────────────────────────────────────────
+function onDown(e) { e.preventDefault(); if (!active) return; pressing = true; document.getElementById('touch-hint').style.opacity = '0'; }
+function onUp(e)   { e.preventDefault(); pressing = false; }
+
+// ── LOOP ─────────────────────────────────────────────────────────────────────
+function loop(ts) {
+  if (!active) return;
+  const dt = Math.min((ts - (lastTs || ts)) / 1000, .05);
+  lastTs = ts;
+
+  // Marcador do jogador
+  const drift = cfg.drift / barW;
+  const push  = cfg.push  / barW;
+  if (pressing) markerPos += push * dt;
+  markerPos -= drift * dt;
+  markerPos  = Math.max(0, Math.min(1, markerPos));
+
+  // Timer da zona (salto e estado de perigo)
+  zoneTimer -= dt;
+  if (zoneTimer <= 0) {
+    if (!zoneDanger) {
+      // Zona ainda verde: decide se vira vermelha ou salta direto
+      if (Math.random() < cfg.dangerChance) {
+        zoneDanger = true;
+        zoneTimer  = cfg.dangerDur;
+      } else {
+        jumpZone();
+      }
+    } else {
+      // Zona era vermelha: volta ao verde e salta
+      zoneDanger = false;
+      jumpZone();
+    }
+  }
+
+  // Verifica posição do jogador na zona
+  const inside = markerPos >= zonePos && markerPos <= zonePos + cfg.zoneW;
+
+  if (inside) {
+    if (zoneDanger) {
+      // Zona vermelha: perde tempo acumulado
+      lockedTime = Math.max(0, lockedTime - dt);
+    } else {
+      // Zona verde: ganha tempo
+      lockedTime = Math.min(NEEDED_TIME, lockedTime + dt);
+    }
+  }
+
+  roundTime -= dt;
+
+  updateHUD(inside);
+  updateBar(inside);
+
+  if (lockedTime >= NEEDED_TIME) { endGame(true);  return; }
+  if (roundTime  <= 0)           { endGame(false); return; }
+
+  raf = requestAnimationFrame(loop);
+}
+
+function jumpZone() {
+  zonePos   = Math.random() * (1 - cfg.zoneW);
+  zoneTimer = cfg.zoneStay;
+}
+
+// ── UI ───────────────────────────────────────────────────────────────────────
+function updateHUD(inside) {
+  const secs = Math.ceil(Math.max(0, roundTime));
+  const el   = document.getElementById('htimer');
+  el.textContent = secs;
+  const ratio    = roundTime / cfg.roundTime;
+  el.className   = 'hud-timer' + (ratio <= .2 ? ' t-danger' : ratio <= .4 ? ' t-warn' : '');
+
+  const lock = document.getElementById('hlock');
+  lock.textContent = lockedTime.toFixed(1) + 's';
+  lock.style.color = inside
+    ? (zoneDanger ? 'var(--red)' : 'var(--green)')
+    : 'var(--ghost)';
+
+  const pct  = (lockedTime / NEEDED_TIME) * 100;
+  const fill = document.getElementById('prog-fill');
+  fill.style.width = pct + '%';
+  fill.className   = 'progress-fill' + (lockedTime >= NEEDED_TIME ? ' complete' : '');
+  document.getElementById('prog-label').textContent =
+    lockedTime.toFixed(1) + ' / ' + NEEDED_TIME.toFixed(1) + 's';
+
+  // Aviso de zona vermelha
+  const warn = document.getElementById('danger-warn');
+  warn.textContent = zoneDanger ? '⚠ ZONA CORROMPIDA — AFASTE-SE' : '';
+}
+
+function updateBar(inside) {
+  const zoneEl   = document.getElementById('zone');
+  const markerEl = document.getElementById('marker');
+
+  zoneEl.style.left  = (zonePos * 100) + '%';
+  zoneEl.style.width = (cfg.zoneW * 100) + '%';
+
+  if (zoneDanger) {
+    zoneEl.className = 'zone ' + (inside ? 'red-active' : 'red-inactive');
+  } else {
+    zoneEl.className = 'zone ' + (inside ? 'green-active' : 'green-inactive');
+  }
+
+  markerEl.style.left = (markerPos * 100) + '%';
+  if (inside && !zoneDanger) markerEl.className = 'marker on-green';
+  else if (inside && zoneDanger) markerEl.className = 'marker on-red';
+  else markerEl.className = 'marker';
+}
+
+// ── FIM ──────────────────────────────────────────────────────────────────────
+function endGame(win) {
+  if (!active) return;
+  active = false;
+  cancelAnimationFrame(raf);
+  clearListeners();
+  setTimeout(() => showResult(win), win ? 400 : 600);
+}
+
+function showResult(win) {
+  show('result');
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  const timeUsed = (cfg.roundTime - Math.max(0, roundTime)).toFixed(1);
+  document.getElementById('rtag').textContent   = win ? 'sinal estabilizado' : 'sinal perdido';
+  document.getElementById('rtitle').textContent = win ? 'TRANSMISSÃO\nCONCLUÍDA' : 'SINAL\nPERDIDO';
+  document.getElementById('rtitle').className   = 'res-title ' + (win ? 'ok' : 'bad');
+  document.getElementById('rmsg').textContent   = pick(win ? MSGS_OK : MSGS_FAIL);
+  document.getElementById('rstats').innerHTML   = `
+DIFICULDADE: <b>${cfg.label}</b><br>
+TEMPO NA ZONA: <b>${lockedTime.toFixed(1)}s / ${NEEDED_TIME}s</b><br>
+TEMPO USADO: <b>${timeUsed}s / ${cfg.roundTime}s</b>
+  `.trim();
+}
+
+function retry() { clearListeners(); countdown(); }
+function goSel() { clearListeners(); show('sel'); }
+
+function clearListeners() {
+  const a = document.getElementById('arena');
+  if (!a) return;
+  a.removeEventListener('touchstart',  onDown);
+  a.removeEventListener('touchend',    onUp);
+  a.removeEventListener('touchcancel', onUp);
+  a.removeEventListener('mousedown',   onDown);
+  a.removeEventListener('mouseup',     onUp);
+}
+</script>
+</body>
+</html>

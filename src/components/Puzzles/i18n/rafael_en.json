@@ -1,0 +1,16 @@
+{
+  "sliding_rafael": {
+    "subtitulo": "Reorganize the fragmented data flow",
+    "dif_easy": "Grid 3×3 · 8 pieces · 3 minutes",
+    "dif_normal": "Grid 4×4 · 15 pieces · 10 minutes",
+    "dif_hard": "Grid 5×5 · 24 pieces · 20 minutes",
+    "hud_moves": "moves"
+  },
+  "codigo_perdido": {
+    "subtitulo": "Identify the word · 6 errors allowed",
+    "dif_easy": "Short words · 4–6 letters",
+    "dif_normal": "Medium words · 7–9 letters",
+    "dif_hard": "Long words · 10–14 letters",
+    "hud_letras": "letters"
+  }
+}

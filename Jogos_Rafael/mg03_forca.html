@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MG-03 · Forca</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
+
+:root {
+  --bg:     #05050f;
+  --cyan:   #00e5ff;
+  --purple: #b400ff;
+  --red:    #ff0055;
+  --gold:   #ffcc00;
+  --ghost:  #2a3a5a;
+  --mono:   'Share Tech Mono', monospace;
+  --head:   'Bebas Neue', sans-serif;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); font-family:var(--mono); user-select:none; -webkit-user-select:none; }
+
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.18) 2px,rgba(0,0,0,0.18) 4px);
+}
+
+.grid-bg {
+  background-color:var(--bg);
+  background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+
+.screen { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px; }
+.screen.off { display:none; }
+
+/* ── SELECT ── */
+.sel-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; margin-bottom:10px; }
+.sel-title { font-family:var(--head); font-size:3.4rem; letter-spacing:.12em; color:var(--cyan); text-align:center; line-height:1; text-shadow:0 0 24px var(--cyan); margin-bottom:6px; }
+.sel-sub   { font-size:.62rem; letter-spacing:.18em; color:var(--ghost); text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:340px; }
+.diff-btn { background:transparent; border:1px solid var(--ghost); font-family:var(--mono); text-transform:uppercase; display:flex; flex-direction:column; justify-content:center; gap:3px; padding:0 18px; min-height:58px; cursor:pointer; transition:.15s; text-align:left; }
+.diff-btn .dn { font-size:.85rem; letter-spacing:.12em; }
+.diff-btn .di { font-size:.58rem; letter-spacing:.08em; color:var(--ghost); }
+.dif-easy   .dn { color:var(--cyan); }
+.dif-normal .dn { color:var(--purple); }
+.dif-hard   .dn { color:var(--red); }
+.diff-btn:active { opacity:.7; }
+@media(hover:hover){
+  .dif-easy:hover   { border-color:var(--cyan);   background:rgba(0,229,255,.04); }
+  .dif-normal:hover { border-color:var(--purple); background:rgba(180,0,255,.04); }
+  .dif-hard:hover   { border-color:var(--red);    background:rgba(255,0,85,.04); }
+}
+
+/* ── COUNTDOWN ── */
+#cdown { background:var(--bg); }
+.cdown-n { font-family:var(--head); font-size:9rem; line-height:1; color:var(--cyan); text-shadow:0 0 30px var(--cyan); animation:popIn .6s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes popIn { from{transform:scale(2);opacity:0} to{transform:scale(1);opacity:1} }
+
+/* ── GAME ── */
+#game { justify-content:flex-start; padding:0; gap:0; }
+
+.hud {
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:8px 16px; border-bottom:1px solid var(--ghost);
+  background:rgba(5,5,15,.95); flex-shrink:0;
+}
+.hud-lives  { font-family:var(--head); font-size:2rem; letter-spacing:.04em; min-width:90px; }
+.hud-center { text-align:center; }
+.hud-word-len { font-family:var(--head); font-size:1.4rem; color:var(--ghost); display:block; line-height:1; }
+.hud-lbl    { font-size:.55rem; letter-spacing:.2em; color:var(--ghost); text-transform:uppercase; }
+.hud-diff   { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; text-align:right; min-width:90px; }
+
+.game-body {
+  flex:1; width:100%; display:flex; flex-direction:column;
+  align-items:center; justify-content:space-between;
+  padding:16px 14px 12px; overflow:hidden;
+}
+
+/* Progresso de erros */
+.error-track {
+  display:flex; gap:6px; align-items:center; margin-bottom:4px;
+}
+.error-pip {
+  width:28px; height:4px; background:var(--ghost); border-radius:2px; transition:.3s;
+}
+.error-pip.used { background:var(--red); box-shadow:0 0 6px var(--red); }
+
+/* Palavra */
+.word-display {
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:6px 10px; padding:8px 0;
+}
+.letter-slot {
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  min-width:22px;
+}
+.letter-char {
+  font-family:var(--head); font-size:1.9rem; letter-spacing:.04em;
+  color:var(--cyan); min-height:32px; line-height:1;
+  text-shadow:0 0 10px rgba(0,229,255,.4);
+  transition:all .2s;
+}
+.letter-char.hidden { color:transparent; }
+.letter-char.wrong  { color:var(--red); text-shadow:0 0 10px rgba(255,0,85,.5); animation:shake .3s; }
+.letter-char.new    { animation:popLetter .35s cubic-bezier(.2,1.4,.4,1); }
+@keyframes popLetter { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+@keyframes shake     { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+.letter-line {
+  width:100%; height:1px; background:var(--ghost);
+}
+.letter-line.revealed { background:var(--cyan); box-shadow:0 0 4px var(--cyan); }
+
+/* Letras erradas */
+.wrong-letters {
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.18em;
+  color:var(--red); text-align:center; min-height:18px;
+  text-transform:uppercase;
+}
+
+/* Teclado */
+.keyboard {
+  width:100%; max-width:420px;
+  display:flex; flex-direction:column; gap:5px;
+}
+.kb-row {
+  display:flex; justify-content:center; gap:4px;
+}
+.kb-key {
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
+  text-transform:uppercase;
+  border:1px solid var(--ghost); background:rgba(13,26,46,.8);
+  color:var(--cyan);
+  flex:1; max-width:38px; min-height:40px;
+  cursor:pointer; transition:.12s;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:2px;
+}
+.kb-key:active:not(.used-key) { background:rgba(0,229,255,.15); border-color:var(--cyan); transform:scale(.92); }
+.kb-key.used-key {
+  color:var(--ghost); border-color:rgba(42,58,90,.4);
+  background:transparent; cursor:default; opacity:.4;
+}
+.kb-key.used-hit {
+  color:rgba(0,229,255,.3); border-color:rgba(0,229,255,.2);
+  background:transparent; cursor:default; opacity:.35;
+}
+.kb-key.used-miss {
+  color:rgba(255,0,85,.3); border-color:rgba(255,0,85,.2);
+  background:transparent; cursor:default; opacity:.35;
+}
+@media(hover:hover){
+  .kb-key:hover:not(.used-key):not(.used-hit):not(.used-miss) {
+    border-color:var(--cyan); background:rgba(0,229,255,.08);
+  }
+}
+
+/* ── RESULT ── */
+#result { gap:14px; }
+.res-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; }
+.res-title { font-family:var(--head); font-size:3.2rem; letter-spacing:.12em; line-height:1; text-align:center; }
+.res-title.ok  { color:var(--cyan); text-shadow:0 0 20px var(--cyan); }
+.res-title.bad { color:var(--red);  text-shadow:0 0 20px var(--red); }
+.res-msg   { font-size:.68rem; letter-spacing:.08em; color:var(--ghost); text-align:center; line-height:1.9; max-width:300px; }
+.res-word  { font-family:var(--head); font-size:2rem; letter-spacing:.12em; text-align:center; color:var(--cyan); }
+.res-stats { border:1px solid var(--ghost); padding:12px 20px; font-size:.65rem; letter-spacing:.1em; color:var(--ghost); line-height:2.1; text-align:center; min-width:260px; background:rgba(0,229,255,.03); }
+.res-stats b { color:var(--cyan); font-weight:normal; }
+.res-btns  { display:flex; flex-direction:column; gap:8px; width:100%; max-width:300px; margin-top:6px; }
+.res-btn   { background:transparent; font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; border:1px solid; min-height:48px; cursor:pointer; transition:.15s; }
+.res-btn.p { border-color:var(--cyan);  color:var(--cyan); }
+.res-btn.s { border-color:var(--ghost); color:var(--ghost); }
+.res-btn.p:active { background:var(--cyan);  color:var(--bg); }
+.res-btn.s:active { border-color:var(--cyan); color:var(--cyan); }
+@media(hover:hover){
+  .res-btn.p:hover { background:var(--cyan);  color:var(--bg); }
+  .res-btn.s:hover { border-color:var(--cyan); color:var(--cyan); }
+}
+</style>
+</head>
+<body>
+
+<!-- SELECT -->
+<div id="sel" class="screen grid-bg">
+  <div class="sel-tag">Minigame · MG-03</div>
+  <div class="sel-title">CÓDIGO<br>PERDIDO</div>
+  <div class="sel-sub">Identifique a palavra · 6 erros permitidos</div>
+  <div class="btns">
+    <button class="diff-btn dif-easy"   onclick="pick('easy')">
+      <span class="dn">◎ Fácil</span>
+      <span class="di">Palavras curtas · 4–6 letras</span>
+    </button>
+    <button class="diff-btn dif-normal" onclick="pick('normal')">
+      <span class="dn">◎ Normal</span>
+      <span class="di">Palavras médias · 7–9 letras</span>
+    </button>
+    <button class="diff-btn dif-hard"   onclick="pick('hard')">
+      <span class="dn">◎ Difícil</span>
+      <span class="di">Palavras longas · 10–14 letras</span>
+    </button>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div id="cdown" class="screen off">
+  <div class="cdown-n" id="cdown-n">3</div>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen off">
+  <div class="hud">
+    <div class="hud-lives" id="hlives"></div>
+    <div class="hud-center">
+      <span class="hud-word-len" id="hwlen">—</span>
+      <span class="hud-lbl">letras</span>
+    </div>
+    <div class="hud-diff" id="hdiff"></div>
+  </div>
+  <div class="game-body">
+    <div class="error-track" id="error-track"></div>
+    <div class="word-display" id="word-display"></div>
+    <div class="wrong-letters" id="wrong-letters"></div>
+    <div class="keyboard" id="keyboard"></div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="screen off grid-bg">
+  <div class="res-tag"   id="rtag"></div>
+  <div class="res-title" id="rtitle"></div>
+  <div class="res-msg"   id="rmsg"></div>
+  <div class="res-word"  id="rword"></div>
+  <div class="res-stats" id="rstats"></div>
+  <div class="res-btns">
+    <button class="res-btn p" onclick="retry()">◎ Tentar Novamente</button>
+    <button class="res-btn s" onclick="goSel()">← Selecionar Dificuldade</button>
+  </div>
+</div>
+
+<script>
+// ── PALAVRAS ─────────────────────────────────────────────────────────────────
+const WORDS = {
+  easy: [
+    'NARC','HACK','CHIP','GRID','NODE','BYTE','CORE','DATA','FIRE','LINK',
+    'SCAN','PORT','FLUX','LOOP','WIRE','BOOT','KILL','VOID','ROOT','NANO',
+    'GLITCH','VIRUS','PROXY','DRONE','CYBER','ROGUE','NEXUS','PULSE','TRACE',
+  ],
+  normal: [
+    'FIREWALL','IMPLANTE','NETRUNNER','BLACKOUT','TERMINAL','PROTOCOLO',
+    'SYSADMIN','BACKDOOR','ROOTKIT','MALWARE','SPYWARE','EXPLOIT',
+    'FIRMWARE','OVERFLOW','DARKWEB','PAYLOAD','SANDBOX','CLUSTER',
+    'QUANTUM','HARDCODE','LOGFILE','DECRYPT','ENCRYPT','NETWORK',
+  ],
+  hard: [
+    'CIBERNETICO','INTELIGENCIA','COMPILADOR','DEPURACAO','SOBRECARGA',
+    'ARQUITETURA','PROCESSADOR','DESFRAGMENTAR','CRIPTOGRAFIA',
+    'VULNERABILIDADE','AUTENTICACAO','INFRAESTRUTURA','DECODIFICADOR',
+    'MONITORAMENTO','IDENTIFICACAO',
+  ],
+};
+
+const MAX_ERRORS = 6;
+const KEYBOARD_ROWS = [
+  'QWERTYUIOP',
+  'ASDFGHJKL',
+  'ZXCVBNM',
+];
+
+const MSGS_OK = [
+  'Palavra decifrada.\nProtocolo de identificação concluído.',
+  'Acesso concedido.\nCódigo correto inserido no sistema.',
+  'Sequência confirmada.\nFirewall desbloqueado.',
+  'Excelente, operador.\nO código estava correto.',
+];
+const MSGS_FAIL = [
+  'Código bloqueado.\nTentativas esgotadas. Acesso negado.',
+  'Autenticação falhou.\nSistema em lockdown.',
+  'Sequência incorreta.\nO sistema iniciou protocolo de defesa.',
+  'Acesso negado.\nA palavra permanece oculta.',
+];
+
+// ── ESTADO ───────────────────────────────────────────────────────────────────
+let diff, cfg;
+let word = '';
+let guessed   = new Set();   // letras acertadas
+let wrongSet  = new Set();   // letras erradas
+let errors    = 0;
+let active    = false;
+let guessCount = 0;
+
+// ── TELAS ────────────────────────────────────────────────────────────────────
+function show(id) {
+  ['sel','cdown','game','result'].forEach(s =>
+    document.getElementById(s).classList.toggle('off', s !== id)
+  );
+}
+
+// ── FLUXO ────────────────────────────────────────────────────────────────────
+function pick(d) {
+  diff = d;
+  cfg  = { easy:{ col:'#00e5ff', label:'FÁCIL' }, normal:{ col:'#b400ff', label:'NORMAL' }, hard:{ col:'#ff0055', label:'DIFÍCIL' } }[d];
+  countdown();
+}
+
+function countdown() {
+  show('cdown');
+  const el = document.getElementById('cdown-n');
+  let n = 3;
+  const step = () => {
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
+    el.textContent = n === 0 ? 'GO!' : n;
+    el.style.color = n === 0 ? cfg.col : '#00e5ff';
+    el.style.textShadow = `0 0 30px ${n === 0 ? cfg.col : '#00e5ff'}`;
+    if (n === 0) { setTimeout(startGame, 550); return; }
+    n--; setTimeout(step, 850);
+  };
+  step();
+}
+
+function startGame() {
+  show('game');
+
+  const pool = WORDS[diff];
+  word = pool[Math.floor(Math.random() * pool.length)];
+
+  guessed    = new Set();
+  wrongSet   = new Set();
+  errors     = 0;
+  guessCount = 0;
+  active     = true;
+
+  document.getElementById('hdiff').textContent = cfg.label;
+  document.getElementById('hdiff').style.color  = cfg.col;
+  document.getElementById('hwlen').textContent  = word.length;
+
+  buildErrorTrack();
+  buildWordDisplay();
+  buildKeyboard();
+  renderLives();
+  document.getElementById('wrong-letters').textContent = '';
+}
+
+// ── CONSTRUÇÃO DA UI ─────────────────────────────────────────────────────────
+function buildErrorTrack() {
+  const track = document.getElementById('error-track');
+  track.innerHTML = '';
+  for (let i = 0; i < MAX_ERRORS; i++) {
+    const pip = document.createElement('div');
+    pip.className = 'error-pip';
+    pip.id        = `pip-${i}`;
+    track.appendChild(pip);
+  }
+}
+
+function buildWordDisplay() {
+  const display = document.getElementById('word-display');
+  display.innerHTML = '';
+  for (let i = 0; i < word.length; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'letter-slot';
+    slot.innerHTML = `
+      <div class="letter-char hidden" id="lc-${i}">_</div>
+      <div class="letter-line" id="ll-${i}"></div>
+    `;
+    display.appendChild(slot);
+  }
+}
+
+function buildKeyboard() {
+  const kb = document.getElementById('keyboard');
+  kb.innerHTML = '';
+  KEYBOARD_ROWS.forEach(row => {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'kb-row';
+    for (const letter of row) {
+      const btn = document.createElement('button');
+      btn.className   = 'kb-key';
+      btn.textContent = letter;
+      btn.id          = `key-${letter}`;
+      btn.onclick     = () => guess(letter);
+      rowDiv.appendChild(btn);
+    }
+    kb.appendChild(rowDiv);
+  });
+}
+
+// ── LÓGICA DO JOGO ───────────────────────────────────────────────────────────
+function guess(letter) {
+  if (!active) return;
+  if (guessed.has(letter) || wrongSet.has(letter)) return;
+
+  guessCount++;
+  const btn = document.getElementById(`key-${letter}`);
+
+  if (word.includes(letter)) {
+    guessed.add(letter);
+    if (btn) btn.className = 'kb-key used-hit';
+
+    // Revela as letras na palavra
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === letter) {
+        const lc = document.getElementById(`lc-${i}`);
+        const ll = document.getElementById(`ll-${i}`);
+        if (lc) { lc.textContent = letter; lc.className = 'letter-char new'; }
+        if (ll) ll.className = 'letter-line revealed';
+      }
+    }
+
+    // Verifica vitória
+    if ([...word].every(l => guessed.has(l))) {
+      active = false;
+      setTimeout(() => endGame(true), 500);
+    }
+  } else {
+    wrongSet.add(letter);
+    errors++;
+    if (btn) btn.className = 'kb-key used-miss';
+
+    // Atualiza pips
+    const pip = document.getElementById(`pip-${errors - 1}`);
+    if (pip) pip.className = 'error-pip used';
+
+    renderLives();
+    renderWrongLetters();
+
+    if (errors >= MAX_ERRORS) {
+      // Revela a palavra
+      active = false;
+      for (let i = 0; i < word.length; i++) {
+        const lc = document.getElementById(`lc-${i}`);
+        if (lc) { lc.textContent = word[i]; lc.className = 'letter-char wrong'; }
+      }
+      setTimeout(() => endGame(false), 900);
+    }
+  }
+}
+
+function renderLives() {
+  const remaining = MAX_ERRORS - errors;
+  const el = document.getElementById('hlives');
+  // Corações como indicador de vidas
+  const hearts = '◈'.repeat(remaining) + '◇'.repeat(errors);
+  el.textContent = hearts;
+  el.style.color  = remaining <= 2 ? 'var(--red)' : remaining <= 4 ? 'var(--gold)' : 'var(--cyan)';
+}
+
+function renderWrongLetters() {
+  const el = document.getElementById('wrong-letters');
+  el.textContent = wrongSet.size > 0 ? [...wrongSet].sort().join('  ') : '';
+}
+
+// ── FIM ──────────────────────────────────────────────────────────────────────
+function endGame(win) {
+  show('result');
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  document.getElementById('rtag').textContent   = win ? 'código identificado' : 'lockdown ativado';
+  document.getElementById('rtitle').textContent = win ? 'ACESSO\nCONCEDIDO'   : 'ACESSO\nNEGADO';
+  document.getElementById('rtitle').className   = 'res-title ' + (win ? 'ok' : 'bad');
+  document.getElementById('rmsg').textContent   = pick(win ? MSGS_OK : MSGS_FAIL);
+  document.getElementById('rword').textContent  = word;
+  document.getElementById('rstats').innerHTML   = `
+DIFICULDADE: <b>${cfg.label}</b><br>
+PALAVRA: <b>${word}</b><br>
+ERROS: <b>${errors} / ${MAX_ERRORS}</b><br>
+TENTATIVAS: <b>${guessCount}</b>
+  `.trim();
+}
+
+function retry() { countdown(); }
+function goSel() { show('sel'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MG-04 · Encontre o Glitch</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
+
+:root {
+  --bg:     #05050f;
+  --cyan:   #00e5ff;
+  --purple: #b400ff;
+  --red:    #ff0055;
+  --gold:   #ffcc00;
+  --ghost:  #2a3a5a;
+  --dim:    rgba(0,229,255,0.45);
+  --mono:   'Share Tech Mono', monospace;
+  --head:   'Bebas Neue', sans-serif;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+
+html, body {
+  width:100%; height:100%;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--cyan);
+  font-family:var(--mono);
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+/* scanlines */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 4px
+  );
+}
+
+/* grid bg used on select + result */
+.grid-bg {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── SCREENS ─────────────────────────────────────────── */
+.screen {
+  position:fixed; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:28px 24px;
+}
+.screen.off { display:none; }
+
+/* ── SELECT ──────────────────────────────────────────── */
+#sel { gap:0; }
+
+.sel-tag {
+  font-size:.62rem; letter-spacing:.35em; color:var(--ghost);
+  text-transform:uppercase; margin-bottom:10px;
+}
+.sel-title {
+  font-family:var(--head); font-size:3.4rem; letter-spacing:.12em;
+  color:var(--cyan); text-align:center; line-height:1;
+  text-shadow:0 0 24px var(--cyan), 0 0 48px rgba(0,229,255,.25);
+  margin-bottom:6px;
+}
+.sel-sub {
+  font-size:.62rem; letter-spacing:.18em; color:var(--ghost);
+  text-transform:uppercase; text-align:center; margin-bottom:40px;
+}
+
+.btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:340px; }
+
+.diff-btn {
+  background:transparent; border:1px solid var(--ghost);
+  font-family:var(--mono); text-transform:uppercase;
+  display:flex; flex-direction:column; justify-content:center; gap:3px;
+  padding:0 18px; min-height:58px; cursor:pointer; transition:.15s;
+  text-align:left;
+}
+.diff-btn .dn { font-size:.85rem; letter-spacing:.12em; color:var(--cyan); }
+.diff-btn .di { font-size:.58rem; letter-spacing:.08em; color:var(--ghost); }
+.diff-btn:active { background:rgba(0,229,255,.05); }
+
+.diff-btn.dif-easy:active   { border-color:var(--cyan); }
+.diff-btn.dif-normal        { }
+.diff-btn.dif-normal .dn    { color:var(--purple); }
+.diff-btn.dif-normal:active { border-color:var(--purple); }
+.diff-btn.dif-hard .dn      { color:var(--red); }
+.diff-btn.dif-hard:active   { border-color:var(--red); }
+
+@media(hover:hover) {
+  .diff-btn:hover           { border-color:var(--cyan); background:rgba(0,229,255,.04); }
+  .diff-btn.dif-normal:hover{ border-color:var(--purple); background:rgba(180,0,255,.04); }
+  .diff-btn.dif-hard:hover  { border-color:var(--red); background:rgba(255,0,85,.04); }
+}
+
+/* ── COUNTDOWN ───────────────────────────────────────── */
+#cdown { background:var(--bg); }
+
+.cdown-n {
+  font-family:var(--head); font-size:9rem; line-height:1;
+  color:var(--cyan); text-shadow:0 0 30px var(--cyan);
+  animation:popIn .6s cubic-bezier(.2,1.4,.4,1) both;
+}
+@keyframes popIn {
+  from { transform:scale(2); opacity:0; }
+  to   { transform:scale(1); opacity:1; }
+}
+
+/* ── GAME ────────────────────────────────────────────── */
+#game { padding:0; justify-content:flex-start; align-items:stretch; }
+
+/* HUD */
+.hud {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 16px; border-bottom:1px solid var(--ghost);
+  background:rgba(5,5,15,.95); flex-shrink:0; z-index:10;
+}
+.hud-timer {
+  font-family:var(--head); font-size:2.2rem; letter-spacing:.06em;
+  min-width:72px; transition:color .3s, text-shadow .3s;
+}
+.hud-timer.t-warn   { color:var(--gold); text-shadow:0 0 12px var(--gold); }
+.hud-timer.t-danger { color:var(--red);  text-shadow:0 0 12px var(--red);
+  animation:blink .45s infinite; }
+@keyframes blink { 50%{opacity:.4} }
+
+.hud-center { text-align:center; }
+.hud-found  {
+  font-family:var(--head); font-size:1.5rem; letter-spacing:.06em;
+  color:var(--cyan); display:block; line-height:1;
+}
+.hud-lbl { font-size:.55rem; letter-spacing:.2em; color:var(--ghost); text-transform:uppercase; }
+
+.hud-diff {
+  font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
+  text-align:right; min-width:72px;
+}
+
+/* Grid */
+.grid-wrap {
+  flex:1; overflow:hidden; position:relative;
+  touch-action:manipulation; cursor:crosshair;
+}
+.grid-pre {
+  position:absolute; inset:0; padding:6px 8px;
+  white-space:pre; overflow:hidden; line-height:inherit;
+  font-family:var(--mono); letter-spacing:.04em;
+}
+
+.ch      { color:var(--dim); }
+.ch.gl   { color:var(--dim); cursor:pointer; }   /* glitch — mesma cor, desafio visual */
+.ch.hit  {
+  color:var(--purple); cursor:default;
+  text-shadow:0 0 6px var(--purple), 0 0 14px var(--purple);
+  animation:hitAnim .35s ease-out both;
+}
+.ch.err  { animation:errAnim .3s ease-out both; }
+@keyframes hitAnim {
+  0%   { transform:scale(2.5); opacity:0; }
+  100% { transform:scale(1);   opacity:1; }
+}
+@keyframes errAnim {
+  0%,100% { color:var(--dim); }
+  50%     { color:var(--red); }
+}
+
+/* ── RESULT ──────────────────────────────────────────── */
+#result { gap:14px; }
+
+.res-tag  { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; }
+.res-title {
+  font-family:var(--head); font-size:3.2rem; letter-spacing:.12em;
+  line-height:1; text-align:center;
+}
+.res-title.ok  { color:var(--cyan);   text-shadow:0 0 20px var(--cyan); }
+.res-title.bad { color:var(--red);    text-shadow:0 0 20px var(--red); }
+.res-msg {
+  font-size:.68rem; letter-spacing:.08em; color:var(--ghost);
+  text-align:center; line-height:1.9; max-width:300px;
+}
+.res-stats {
+  border:1px solid var(--ghost); padding:12px 20px;
+  font-size:.65rem; letter-spacing:.1em; color:var(--ghost);
+  line-height:2.1; text-align:center; min-width:260px;
+  background:rgba(0,229,255,.03);
+}
+.res-stats b { color:var(--cyan); font-weight:normal; }
+
+.res-btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:300px; margin-top:6px; }
+.res-btn {
+  background:transparent; font-family:var(--mono);
+  font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  border:1px solid; min-height:48px; cursor:pointer; transition:.15s;
+}
+.res-btn.p { border-color:var(--cyan);  color:var(--cyan); }
+.res-btn.s { border-color:var(--ghost); color:var(--ghost); }
+.res-btn.p:active { background:var(--cyan);  color:var(--bg); }
+.res-btn.s:active { border-color:var(--cyan); color:var(--cyan); }
+@media(hover:hover){
+  .res-btn.p:hover { background:var(--cyan);  color:var(--bg); }
+  .res-btn.s:hover { border-color:var(--cyan); color:var(--cyan); }
+}
+</style>
+</head>
+<body>
+
+<!-- SELECT -->
+<div id="sel" class="screen grid-bg">
+  <div class="sel-tag">Minigame · MG-04</div>
+  <div class="sel-title">ENCONTRE<br>O GLITCH</div>
+  <div class="sel-sub">Localize a anomalia no fluxo de dados</div>
+  <div class="btns">
+    <button class="diff-btn dif-easy"   onclick="pick('easy')">
+      <span class="dn">◎ Fácil</span>
+      <span class="di">1 glitch · fonte grande · 30 segundos</span>
+    </button>
+    <button class="diff-btn dif-normal" onclick="pick('normal')">
+      <span class="dn">◎ Normal</span>
+      <span class="di">3 glitches · fonte média · 40 segundos</span>
+    </button>
+    <button class="diff-btn dif-hard"   onclick="pick('hard')">
+      <span class="dn">◎ Difícil</span>
+      <span class="di">6 glitches · fonte pequena · 50 segundos</span>
+    </button>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div id="cdown" class="screen off">
+  <div class="cdown-n" id="cdown-n">3</div>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen off">
+  <div class="hud">
+    <div class="hud-timer" id="htimer">30</div>
+    <div class="hud-center">
+      <span class="hud-found" id="hfound">0/1</span>
+      <span class="hud-lbl">glitches</span>
+    </div>
+    <div class="hud-diff" id="hdiff"></div>
+  </div>
+  <div class="grid-wrap" id="gwrap">
+    <pre class="grid-pre" id="gpre"></pre>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="screen off grid-bg">
+  <div class="res-tag"   id="rtag"></div>
+  <div class="res-title" id="rtitle"></div>
+  <div class="res-msg"   id="rmsg"></div>
+  <div class="res-stats" id="rstats"></div>
+  <div class="res-btns">
+    <button class="res-btn p" onclick="retry()">◎ Tentar Novamente</button>
+    <button class="res-btn s" onclick="goSel()">← Selecionar Dificuldade</button>
+  </div>
+</div>
+
+<script>
+// ── CONFIGURAÇÃO ─────────────────────────────────────────────────────────────
+const CFG = {
+  easy:   { n:1, time:30, fs:20, lh:1.38, label:'FÁCIL',   col:'#00e5ff' },
+  normal: { n:3, time:40, fs:14, lh:1.36, label:'NORMAL',  col:'#b400ff' },
+  hard:   { n:6, time:50, fs:13, lh:1.34, label:'DIFÍCIL', col:'#ff0055' },
+};
+
+const MSGS_OK = [
+  'Anomalia neutralizada.\nIntegridade do sistema restaurada.',
+  'Glitch localizado e removido.\nAcesso concedido ao nó principal.',
+  'Excelente varredura, operador.\nO fluxo de dados está limpo.',
+  'Protocolo de detecção concluído.\nSistema estável.',
+];
+const MSGS_FAIL = [
+  'Tempo esgotado.\nO glitch se propagou pelo sistema.',
+  'Varredura incompleta.\nA anomalia permanece ativa no nó.',
+  'Acesso negado.\nFluxo de dados corrompido além do limite.',
+  'Protocolo de detecção falhou.\nReinicie o sistema.',
+];
+
+// ── ESTADO ───────────────────────────────────────────────────────────────────
+let diff, cfg;
+let ticker = null;
+let t0, timeLeft;
+let found, total;
+let active = false;
+let glitchSpans = [];
+
+// ── TELAS ────────────────────────────────────────────────────────────────────
+function show(id) {
+  ['sel','cdown','game','result'].forEach(s =>
+    document.getElementById(s).classList.toggle('off', s !== id)
+  );
+}
+
+// ── FLUXO ────────────────────────────────────────────────────────────────────
+function pick(d) {
+  diff = d;
+  cfg  = CFG[d];
+  countdown();
+}
+
+function countdown() {
+  show('cdown');
+  const el = document.getElementById('cdown-n');
+  let n = 3;
+  const step = () => {
+    el.style.animation = 'none';
+    void el.offsetWidth;              // force reflow para re-acionar
+    el.style.animation = '';
+    el.style.color = '#00e5ff';
+    el.style.textShadow = '0 0 30px #00e5ff';
+    el.textContent = n;
+    if (n === 0) {
+      el.textContent  = 'GO!';
+      el.style.color  = cfg.col;
+      el.style.textShadow = `0 0 30px ${cfg.col}`;
+      setTimeout(startGame, 550);
+      return;
+    }
+    n--;
+    setTimeout(step, 850);
+  };
+  step();
+}
+
+function startGame() {
+  show('game');
+
+  // HUD inicial
+  document.getElementById('hdiff').textContent  = cfg.label;
+  document.getElementById('hdiff').style.color  = cfg.col;
+
+  found = 0;
+  total = cfg.n;
+  updateHUD();
+
+  buildGrid();
+
+  // Timer
+  t0 = Date.now();
+  timeLeft = cfg.time;
+  active = true;
+  ticker = setInterval(tick, 150);
+}
+
+// ── GRID ─────────────────────────────────────────────────────────────────────
+function buildGrid() {
+  const wrap = document.getElementById('gwrap');
+  const pre  = document.getElementById('gpre');
+  pre.innerHTML = '';
+  glitchSpans   = [];
+
+  pre.style.fontSize   = cfg.fs + 'px';
+  pre.style.lineHeight = cfg.lh;
+
+  // Mede char dimensions após aplicar fontSize
+  const measure = document.createElement('span');
+  measure.style.cssText = `font-family:'Share Tech Mono',monospace;font-size:${cfg.fs}px;position:absolute;visibility:hidden;white-space:pre;`;
+  measure.textContent   = '0'.repeat(200);
+  document.body.appendChild(measure);
+  const charW = measure.getBoundingClientRect().width / 200;
+  document.body.removeChild(measure);
+  const charH = cfg.fs * cfg.lh;
+
+  const W = wrap.clientWidth  - 16;
+  const H = wrap.clientHeight - 12;
+  const cols  = Math.max(10, Math.floor(W / charW));
+  const rows  = Math.max(5,  Math.floor(H / charH));
+  const total = cols * rows;
+
+  // Array de chars (0/1)
+  const arr = Array.from({length: total}, () => Math.random() > .5 ? '1' : '0');
+
+  // Posições dos glitches — sem encostarem nas bordas, distância mínima entre si
+  const gpos = pickPositions(total, cfg.n, cols, rows);
+
+  // Render via fragment
+  const frag = document.createDocumentFragment();
+
+  for (let i = 0; i < total; i++) {
+    if (i > 0 && i % cols === 0) frag.appendChild(document.createTextNode('\n'));
+
+    const sp = document.createElement('span');
+    if (gpos.has(i)) {
+      sp.className = 'ch gl';
+      sp.textContent = '2';
+      sp.dataset.g = '1';
+      glitchSpans.push(sp);
+    } else {
+      sp.className = 'ch';
+      sp.textContent = arr[i];
+    }
+    frag.appendChild(sp);
+  }
+
+  pre.appendChild(frag);
+
+  // Delegação de eventos única no container
+  wrap.onclick = handleClick;
+}
+
+function pickPositions(total, n, cols, rows) {
+  const set = new Set();
+  const margin = 3;   // chars de margem nas bordas
+  let tries = 0;
+
+  while (set.size < n && tries < 50000) {
+    tries++;
+    const idx = Math.floor(Math.random() * total);
+    const r = Math.floor(idx / cols);
+    const c = idx % cols;
+    if (c < margin || c > cols - margin - 1) continue;
+    if (r < margin || r > rows - margin - 1) continue;
+
+    // Distância mínima de 6 posições de qualquer glitch existente
+    let ok = true;
+    for (const ex of set) {
+      const dr = Math.abs(r - Math.floor(ex / cols));
+      const dc = Math.abs(c - (ex % cols));
+      if (dr + dc < 6) { ok = false; break; }
+    }
+    if (ok) set.add(idx);
+  }
+  return set;
+}
+
+// ── INTERAÇÕES ───────────────────────────────────────────────────────────────
+function handleClick(e) {
+  if (!active) return;
+  const sp = e.target;
+  if (!sp || sp.tagName !== 'SPAN') return;
+
+  if (sp.dataset.g === '1') {
+    if (sp.classList.contains('hit')) return;   // já encontrado
+    sp.className = 'ch gl hit';
+    found++;
+    updateHUD();
+    if (found >= total) endGame(true);
+  } else {
+    // feedback de erro sem punição
+    sp.classList.add('err');
+    setTimeout(() => sp.classList.remove('err'), 320);
+  }
+}
+
+// ── TIMER ────────────────────────────────────────────────────────────────────
+function tick() {
+  const elapsed = (Date.now() - t0) / 1000;
+  timeLeft = cfg.time - elapsed;
+  if (timeLeft <= 0) { timeLeft = 0; updateHUD(); endGame(false); return; }
+  updateHUD();
+}
+
+function updateHUD() {
+  const secs  = Math.ceil(Math.max(0, timeLeft));
+  const tel   = document.getElementById('htimer');
+  tel.textContent = secs;
+  const ratio = timeLeft / cfg.time;
+  tel.className   = 'hud-timer' +
+    (ratio <= .2 ? ' t-danger' : ratio <= .4 ? ' t-warn' : '');
+
+  document.getElementById('hfound').textContent = `${found}/${total}`;
+}
+
+// ── FIM ──────────────────────────────────────────────────────────────────────
+function endGame(win) {
+  if (!active) return;
+  active = false;
+  clearInterval(ticker);
+
+  // Revela glitches não encontrados em vermelho
+  if (!win) {
+    glitchSpans.forEach(sp => {
+      if (!sp.classList.contains('hit')) {
+        sp.style.color       = '#ff0055';
+        sp.style.textShadow  = '0 0 8px #ff0055';
+      }
+    });
+  }
+
+  const elapsed = cfg.time - Math.max(0, timeLeft);
+  setTimeout(() => showResult(win, elapsed), win ? 700 : 1300);
+}
+
+function showResult(win, elapsed) {
+  show('result');
+
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+  document.getElementById('rtag').textContent   = win ? 'sistema limpo'  : 'falha crítica';
+  document.getElementById('rtitle').textContent = win ? 'GLITCH\nNEUTRALIZADO' : 'SISTEMA\nCORROMPIDO';
+  document.getElementById('rtitle').className   = 'res-title ' + (win ? 'ok' : 'bad');
+  document.getElementById('rmsg').textContent   = pick(win ? MSGS_OK : MSGS_FAIL);
+
+  document.getElementById('rstats').innerHTML = `
+DIFICULDADE: <b>${cfg.label}</b><br>
+GLITCHES: <b>${found} / ${total}</b><br>
+TEMPO: <b>${elapsed.toFixed(1)}s / ${cfg.time}s</b>
+  `.trim();
+}
+
+// ── AÇÕES DA TELA DE RESULTADO ───────────────────────────────────────────────
+function retry()  { countdown(); }
+function goSel()  { show('sel'); }
+</script>
+</body>
+</html>

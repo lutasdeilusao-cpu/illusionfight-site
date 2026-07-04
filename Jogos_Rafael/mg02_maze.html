@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MG-02 · Labirinto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
+
+:root {
+  --bg:     #05050f;
+  --cyan:   #00e5ff;
+  --purple: #b400ff;
+  --red:    #ff0055;
+  --gold:   #ffcc00;
+  --ghost:  #2a3a5a;
+  --mono:   'Share Tech Mono', monospace;
+  --head:   'Bebas Neue', sans-serif;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); font-family:var(--mono); user-select:none; -webkit-user-select:none; }
+
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.18) 2px,rgba(0,0,0,0.18) 4px);
+}
+
+.grid-bg {
+  background-color:var(--bg);
+  background-image:linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+
+.screen { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px 20px; }
+.screen.off { display:none; }
+
+.sel-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; margin-bottom:10px; }
+.sel-title { font-family:var(--head); font-size:3.4rem; letter-spacing:.12em; color:var(--cyan); text-align:center; line-height:1; text-shadow:0 0 24px var(--cyan); margin-bottom:6px; }
+.sel-sub   { font-size:.62rem; letter-spacing:.18em; color:var(--ghost); text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:340px; }
+.diff-btn { background:transparent; border:1px solid var(--ghost); font-family:var(--mono); text-transform:uppercase; display:flex; flex-direction:column; justify-content:center; gap:3px; padding:0 18px; min-height:58px; cursor:pointer; transition:.15s; text-align:left; }
+.diff-btn .dn { font-size:.85rem; letter-spacing:.12em; }
+.diff-btn .di { font-size:.58rem; letter-spacing:.08em; color:var(--ghost); }
+.dif-easy   .dn { color:var(--cyan); }
+.dif-normal .dn { color:var(--purple); }
+.dif-hard   .dn { color:var(--red); }
+.diff-btn:active { opacity:.7; }
+@media(hover:hover){
+  .dif-easy:hover   { border-color:var(--cyan);   background:rgba(0,229,255,.04); }
+  .dif-normal:hover { border-color:var(--purple); background:rgba(180,0,255,.04); }
+  .dif-hard:hover   { border-color:var(--red);    background:rgba(255,0,85,.04); }
+}
+
+#cdown { background:var(--bg); }
+.cdown-n { font-family:var(--head); font-size:9rem; line-height:1; color:var(--cyan); text-shadow:0 0 30px var(--cyan); animation:popIn .6s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes popIn { from{transform:scale(2);opacity:0} to{transform:scale(1);opacity:1} }
+
+#game { padding:0; justify-content:flex-start; }
+.hud { width:100%; display:flex; align-items:center; justify-content:space-between; padding:8px 16px; border-bottom:1px solid var(--ghost); background:rgba(5,5,15,.95); flex-shrink:0; }
+.hud-timer { font-family:var(--head); font-size:2.2rem; letter-spacing:.06em; color:var(--cyan); min-width:72px; transition:color .3s; }
+.hud-timer.t-warn   { color:var(--gold); text-shadow:0 0 10px var(--gold); }
+.hud-timer.t-danger { color:var(--red);  text-shadow:0 0 10px var(--red); animation:blink .45s infinite; }
+@keyframes blink { 50%{opacity:.4} }
+.hud-center { text-align:center; }
+.hud-errors { font-family:var(--head); font-size:1.5rem; color:var(--red); display:block; line-height:1; }
+.hud-lbl    { font-size:.55rem; letter-spacing:.2em; color:var(--ghost); text-transform:uppercase; }
+.hud-diff   { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; text-align:right; min-width:72px; }
+canvas#maze { display:block; flex:1; width:100%; touch-action:none; }
+
+#result { gap:14px; }
+.res-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; }
+.res-title { font-family:var(--head); font-size:3.2rem; letter-spacing:.12em; line-height:1; text-align:center; }
+.res-title.ok  { color:var(--cyan); text-shadow:0 0 20px var(--cyan); }
+.res-title.bad { color:var(--red);  text-shadow:0 0 20px var(--red); }
+.res-msg   { font-size:.68rem; letter-spacing:.08em; color:var(--ghost); text-align:center; line-height:1.9; max-width:300px; }
+.res-stats { border:1px solid var(--ghost); padding:12px 20px; font-size:.65rem; letter-spacing:.1em; color:var(--ghost); line-height:2.1; text-align:center; min-width:260px; background:rgba(0,229,255,.03); }
+.res-stats b { color:var(--cyan); font-weight:normal; }
+.res-btns  { display:flex; flex-direction:column; gap:8px; width:100%; max-width:300px; margin-top:6px; }
+.res-btn   { background:transparent; font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; border:1px solid; min-height:48px; cursor:pointer; transition:.15s; }
+.res-btn.p { border-color:var(--cyan);  color:var(--cyan); }
+.res-btn.s { border-color:var(--ghost); color:var(--ghost); }
+.res-btn.p:active { background:var(--cyan);  color:var(--bg); }
+.res-btn.s:active { border-color:var(--cyan); color:var(--cyan); }
+@media(hover:hover){
+  .res-btn.p:hover { background:var(--cyan);  color:var(--bg); }
+  .res-btn.s:hover { border-color:var(--cyan); color:var(--cyan); }
+}
+</style>
+</head>
+<body>
+
+<div id="sel" class="screen grid-bg">
+  <div class="sel-tag">Minigame · MG-02</div>
+  <div class="sel-title">LABIRINTO</div>
+  <div class="sel-sub">Trace o caminho · Não toque nas paredes</div>
+  <div class="btns">
+    <button class="diff-btn dif-easy"   onclick="pick('easy')">
+      <span class="dn">◎ Fácil</span>
+      <span class="di">Corredor largo · 30 segundos · −5s por erro</span>
+    </button>
+    <button class="diff-btn dif-normal" onclick="pick('normal')">
+      <span class="dn">◎ Normal</span>
+      <span class="di">Corredor médio · checkpoint · 45 segundos · −5s por erro</span>
+    </button>
+    <button class="diff-btn dif-hard"   onclick="pick('hard')">
+      <span class="dn">◎ Difícil</span>
+      <span class="di">Corredor estreito · checkpoint · 60 segundos · −5s por erro</span>
+    </button>
+  </div>
+</div>
+
+<div id="cdown" class="screen off">
+  <div class="cdown-n" id="cdown-n">3</div>
+</div>
+
+<div id="game" class="screen off">
+  <div class="hud">
+    <div class="hud-timer" id="htimer">0:30</div>
+    <div class="hud-center">
+      <span class="hud-errors" id="herrors">0</span>
+      <span class="hud-lbl">erros (−5s)</span>
+    </div>
+    <div class="hud-diff" id="hdiff"></div>
+  </div>
+  <canvas id="maze"></canvas>
+</div>
+
+<div id="result" class="screen off grid-bg">
+  <div class="res-tag"   id="rtag"></div>
+  <div class="res-title" id="rtitle"></div>
+  <div class="res-msg"   id="rmsg"></div>
+  <div class="res-stats" id="rstats"></div>
+  <div class="res-btns">
+    <button class="res-btn p" onclick="retry()">◎ Tentar Novamente</button>
+    <button class="res-btn s" onclick="goSel()">← Selecionar Dificuldade</button>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ───────────────────────────────────────────────────────────────────
+const CFG = {
+  easy:   { time:30,  cellsMinDim:5, wallThick:8, playerR:10, checkpoint:false, label:'FÁCIL',   col:'#00e5ff' },
+  normal: { time:45,  cellsMinDim:7, wallThick:6, playerR:9,  checkpoint:true,  label:'NORMAL',  col:'#b400ff' },
+  hard:   { time:60,  cellsMinDim:8, wallThick:4, playerR:7,  checkpoint:true,  label:'DIFÍCIL', col:'#ff0055' },
+};
+const PENALTY = 5;
+
+const MSGS_OK = [
+  'Rota traçada com precisão.\nSistema infiltrado com sucesso.',
+  'Caminho limpo, operador.\nAcesso ao nó principal concedido.',
+  'Navegação perfeita pelo labirinto.\nFirewall contornado.',
+  'Protocolo de infiltração concluído.\nSem rastros detectados.',
+];
+const MSGS_FAIL = [
+  'Tempo esgotado.\nO sistema de segurança te localizou.',
+  'Rota bloqueada.\nInfiltração falhou.',
+  'Você foi detectado.\nConexão encerrada.',
+  'O labirinto te consumiu.\nTente novamente.',
+];
+
+// ── ESTADO ───────────────────────────────────────────────────────────────────
+let diff, cfg;
+let canvas, ctx, W, H;
+let ticker = null, raf = null;
+let t0, timeLeft;
+let active = false;
+let errors = 0;
+let penaltyFlash = 0;
+let won = false;
+
+let maze = null;
+let cellSize = 0, wallThick = 0;
+let cols = 0, rows = 0;
+
+const player = { x:0, y:0, r:10 };
+let startPos      = { x:0, y:0 };
+let endPos        = { x:0, y:0 };
+let checkpointPos = null;     // posição pixel do checkpoint (null = sem checkpoint)
+let checkpointReached = false; // jogador já passou pelo checkpoint?
+
+// ── TELAS ────────────────────────────────────────────────────────────────────
+function show(id) {
+  ['sel','cdown','game','result'].forEach(s =>
+    document.getElementById(s).classList.toggle('off', s !== id)
+  );
+}
+
+// ── FLUXO ────────────────────────────────────────────────────────────────────
+function pick(d) { diff = d; cfg = CFG[d]; countdown(); }
+
+function countdown() {
+  show('cdown');
+  const el = document.getElementById('cdown-n');
+  let n = 3;
+  const step = () => {
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
+    el.textContent = n === 0 ? 'GO!' : n;
+    el.style.color = n === 0 ? cfg.col : '#00e5ff';
+    el.style.textShadow = `0 0 30px ${n === 0 ? cfg.col : '#00e5ff'}`;
+    if (n === 0) { setTimeout(startGame, 550); return; }
+    n--; setTimeout(step, 850);
+  };
+  step();
+}
+
+function startGame() {
+  show('game');
+  canvas = document.getElementById('maze');
+  ctx    = canvas.getContext('2d');
+  const hud = document.querySelector('.hud');
+  W = canvas.width  = canvas.parentElement.clientWidth;
+  H = canvas.height = canvas.parentElement.clientHeight - hud.offsetHeight;
+
+  document.getElementById('hdiff').textContent = cfg.label;
+  document.getElementById('hdiff').style.color  = cfg.col;
+
+  errors = 0; active = true; won = false; penaltyFlash = 0;
+  checkpointReached = false;
+  document.getElementById('herrors').textContent = '0';
+
+  player.r = cfg.playerR;
+
+  generateMaze();
+  resetPlayer();
+
+  t0 = Date.now(); timeLeft = cfg.time;
+  updateTimerHUD();
+  ticker = setInterval(tickTimer, 200);
+
+  canvas.addEventListener('touchstart', onTouch,    { passive:false });
+  canvas.addEventListener('touchmove',  onTouch,    { passive:false });
+  canvas.addEventListener('touchend',   onTouchEnd, { passive:false });
+  canvas.addEventListener('mousedown',  onMouse);
+  canvas.addEventListener('mousemove',  onMouse);
+  canvas.addEventListener('mouseup',    () => {});
+
+  raf = requestAnimationFrame(loop);
+}
+
+// ── GERAÇÃO DO LABIRINTO (DFS) ───────────────────────────────────────────────
+function generateMaze() {
+  cellSize  = Math.floor(Math.min(W, H) / cfg.cellsMinDim);
+  cellSize  = Math.max(cellSize, 28);
+  wallThick = cfg.wallThick;
+
+  cols = Math.floor(W / cellSize);
+  rows = Math.floor(H / cellSize);
+  if (cols % 2 === 0) cols--;
+  if (rows % 2 === 0) rows--;
+  cols = Math.max(3, cols);
+  rows = Math.max(3, rows);
+
+  maze = Array.from({length: rows}, () =>
+    Array.from({length: cols}, () => ({ walls:{N:true,S:true,E:true,W:true}, visited:false }))
+  );
+
+  // DFS iterativo
+  const stack = [[0, 0]];
+  maze[0][0].visited = true;
+  while (stack.length) {
+    const [r, c] = stack[stack.length - 1];
+    const nbrs   = shuffleArr(getUnvisitedNeighbors(r, c));
+    if (nbrs.length === 0) { stack.pop(); continue; }
+    const [dir, nr, nc] = nbrs[0];
+    maze[r][c].walls[dir]             = false;
+    maze[nr][nc].walls[opposite(dir)] = false;
+    maze[nr][nc].visited = true;
+    stack.push([nr, nc]);
+  }
+
+  startPos = cellCenter(0, 0);
+  endPos   = cellCenter(rows - 1, cols - 1);
+
+  // Checkpoint: meio do caminho real (BFS)
+  if (cfg.checkpoint) {
+    const path = findPath();
+    const mid  = path[Math.floor(path.length / 2)];
+    checkpointPos     = cellCenter(mid[0], mid[1]);
+    checkpointReached = false;
+  } else {
+    checkpointPos = null;
+  }
+}
+
+// BFS: encontra o caminho real de (0,0) até (rows-1, cols-1)
+function findPath() {
+  const visited = Array.from({length: rows}, () => Array(cols).fill(false));
+  const parent  = Array.from({length: rows}, () => Array(cols).fill(null));
+  const queue   = [[0, 0]];
+  visited[0][0] = true;
+
+  while (queue.length) {
+    const [r, c] = queue.shift();
+    if (r === rows - 1 && c === cols - 1) break;
+    for (const [dir, nr, nc] of [['N',r-1,c],['S',r+1,c],['E',r,c+1],['W',r,c-1]]) {
+      if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;
+      if (visited[nr][nc]) continue;
+      if (maze[r][c].walls[dir]) continue;  // parede bloqueia
+      visited[nr][nc] = true;
+      parent[nr][nc]  = [r, c];
+      queue.push([nr, nc]);
+    }
+  }
+
+  // Reconstrói o caminho
+  const path = [];
+  let cur = [rows - 1, cols - 1];
+  while (cur) {
+    path.unshift(cur);
+    cur = parent[cur[0]][cur[1]];
+  }
+  return path;
+}
+
+function getUnvisitedNeighbors(r, c) {
+  return [['N',r-1,c],['S',r+1,c],['E',r,c+1],['W',r,c-1]]
+    .filter(([,nr,nc]) => nr>=0 && nr<rows && nc>=0 && nc<cols && !maze[nr][nc].visited);
+}
+function opposite(d) { return {N:'S',S:'N',E:'W',W:'E'}[d]; }
+function shuffleArr(arr) {
+  for (let i = arr.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; }
+  return arr;
+}
+function cellCenter(r, c) {
+  const ox = (W - cols * cellSize) / 2;
+  const oy = (H - rows * cellSize) / 2;
+  return { x: ox + c*cellSize + cellSize/2, y: oy + r*cellSize + cellSize/2 };
+}
+
+function resetPlayer() {
+  // Volta ao checkpoint se já passou por ele, senão volta ao início
+  if (cfg.checkpoint && checkpointReached && checkpointPos) {
+    player.x = checkpointPos.x;
+    player.y = checkpointPos.y;
+  } else {
+    player.x = startPos.x;
+    player.y = startPos.y;
+  }
+}
+
+// ── INPUT com interpolação ────────────────────────────────────────────────────
+function onTouch(e) {
+  e.preventDefault();
+  if (!active || won) return;
+  const rect = canvas.getBoundingClientRect();
+  movePlayer(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+}
+function onTouchEnd() {}
+function onMouse(e) {
+  if (!active || won) return;
+  if (e.buttons === 0 && e.type === 'mousemove') return;
+  const rect = canvas.getBoundingClientRect();
+  movePlayer(e.clientX - rect.left, e.clientY - rect.top);
+}
+
+function movePlayer(nx, ny) {
+  if (penaltyFlash > 0) return;
+  const dx = nx - player.x, dy = ny - player.y;
+  const dist = Math.hypot(dx, dy);
+  const maxStep = player.r * 0.6;
+  const steps   = Math.max(1, Math.ceil(dist / maxStep));
+  for (let i = 1; i <= steps; i++) {
+    player.x += dx / steps;
+    player.y += dy / steps;
+    if (checkWallCollision()) return;
+    checkCheckpoint();
+    if (checkGoal()) return;
+  }
+}
+
+// ── CHECKPOINT ───────────────────────────────────────────────────────────────
+function checkCheckpoint() {
+  if (!checkpointPos || checkpointReached) return;
+  if (Math.hypot(player.x - checkpointPos.x, player.y - checkpointPos.y) < cellSize * 0.42) {
+    checkpointReached = true;
+  }
+}
+
+// ── COLISÃO ──────────────────────────────────────────────────────────────────
+function checkWallCollision() {
+  if (!maze) return false;
+  const ox = (W - cols * cellSize) / 2;
+  const oy = (H - rows * cellSize) / 2;
+  const c  = Math.floor((player.x - ox) / cellSize);
+  const r  = Math.floor((player.y - oy) / cellSize);
+  if (r < 0 || r >= rows || c < 0 || c >= cols) { triggerPenalty(); return true; }
+  const cell = maze[r][c];
+  const cx   = ox + c * cellSize, cy = oy + r * cellSize;
+  const pr   = player.r, wt = wallThick;
+  if (cell.walls.N && player.y - pr < cy + wt)             { triggerPenalty(); return true; }
+  if (cell.walls.S && player.y + pr > cy + cellSize - wt)  { triggerPenalty(); return true; }
+  if (cell.walls.W && player.x - pr < cx + wt)             { triggerPenalty(); return true; }
+  if (cell.walls.E && player.x + pr > cx + cellSize - wt)  { triggerPenalty(); return true; }
+  return false;
+}
+
+function triggerPenalty() {
+  errors++;
+  timeLeft = Math.max(0, timeLeft - PENALTY);
+  t0 = Date.now() - (cfg.time - timeLeft) * 1000;
+  document.getElementById('herrors').textContent = errors;
+  penaltyFlash = 24;
+  resetPlayer();
+  if (timeLeft <= 0) endGame(false);
+}
+
+function checkGoal() {
+  if (Math.hypot(player.x - endPos.x, player.y - endPos.y) < cellSize * 0.42) {
+    won = true; endGame(true); return true;
+  }
+  return false;
+}
+
+// ── LOOP ─────────────────────────────────────────────────────────────────────
+function loop() {
+  if (!active) return;
+  draw();
+  if (penaltyFlash > 0) penaltyFlash--;
+  raf = requestAnimationFrame(loop);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#05050f';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = 'rgba(0,229,255,0.03)';
+  ctx.lineWidth = 1;
+  for (let x=0;x<W;x+=28){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for (let y=0;y<H;y+=28){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  drawMaze();
+  if (checkpointPos) drawCheckpoint();
+  drawGoal();
+  drawPlayer();
+
+  // Glitch de penalidade
+  if (penaltyFlash > 0) {
+    const prog = penaltyFlash / 24;
+    ctx.fillStyle = `rgba(255,0,85,${prog * 0.22})`;
+    ctx.fillRect(0, 0, W, H);
+    for (let i = 0; i < 10; i++) {
+      const y = Math.random() * H, h = 1 + Math.random() * prog * 8;
+      const shift = (Math.random() - 0.5) * prog * 36;
+      ctx.fillStyle = '#05050f';
+      ctx.fillRect(shift, y, W, h);
+      ctx.fillStyle = Math.random() > 0.5 ? `rgba(255,0,85,${prog*.55})` : `rgba(0,229,255,${prog*.35})`;
+      ctx.fillRect(shift, y, W*(0.4+Math.random()*0.6), h*0.5);
+    }
+    if (prog > 0.3) {
+      for (let i = 0; i < 6; i++) {
+        ctx.fillStyle = Math.random() > 0.5 ? `rgba(255,0,85,${prog*.5})` : `rgba(0,229,255,${prog*.35})`;
+        ctx.fillRect(Math.random()*W, Math.random()*H, Math.random()*prog*60+5, Math.random()*prog*5+1);
+      }
+    }
+    ctx.strokeStyle = `rgba(255,0,85,${prog*.9})`;
+    ctx.lineWidth = 3;
+    ctx.shadowColor = '#ff0055'; ctx.shadowBlur = 18 * prog;
+    ctx.strokeRect(2, 2, W-4, H-4);
+    ctx.shadowBlur = 0;
+  }
+}
+
+function drawMaze() {
+  if (!maze) return;
+  const ox = (W - cols * cellSize) / 2;
+  const oy = (H - rows * cellSize) / 2;
+  const wt = wallThick;
+
+  ctx.fillStyle = '#07071a';
+  ctx.fillRect(ox, oy, cols * cellSize, rows * cellSize);
+
+  ctx.fillStyle = '#0d1a2e';
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x = ox + c*cellSize, y = oy + r*cellSize;
+      const cell = maze[r][c];
+      if (cell.walls.N) ctx.fillRect(x,             y,             cellSize, wt);
+      if (cell.walls.S) ctx.fillRect(x,             y+cellSize-wt, cellSize, wt);
+      if (cell.walls.W) ctx.fillRect(x,             y,             wt, cellSize);
+      if (cell.walls.E) ctx.fillRect(x+cellSize-wt, y,             wt, cellSize);
+    }
+  }
+
+  ctx.strokeStyle = 'rgba(0,229,255,0.3)';
+  ctx.lineWidth   = 1.5;
+  ctx.strokeRect(ox, oy, cols*cellSize, rows*cellSize);
+
+  const fs = Math.max(8, Math.floor(cellSize * 0.26));
+  ctx.font = `${fs}px Share Tech Mono, monospace`;
+  ctx.fillStyle = 'rgba(0,229,255,0.45)';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('IN', startPos.x, startPos.y);
+}
+
+function drawCheckpoint() {
+  const ts    = Date.now() / 1000;
+  const pulse = 0.6 + 0.4 * Math.sin(ts * 4);
+  const cp    = checkpointPos;
+  const col   = checkpointReached ? 'rgba(180,0,255,0.3)' : `rgba(255,204,0,${0.8 * pulse})`;
+  const colG  = checkpointReached ? '#b400ff' : '#ffcc00';
+
+  // Glow
+  const grd = ctx.createRadialGradient(cp.x, cp.y, 0, cp.x, cp.y, cellSize * 0.6);
+  grd.addColorStop(0, checkpointReached ? 'rgba(180,0,255,0.15)' : `rgba(255,204,0,${0.25 * pulse})`);
+  grd.addColorStop(1, 'transparent');
+  ctx.beginPath(); ctx.arc(cp.x, cp.y, cellSize * 0.6, 0, Math.PI*2);
+  ctx.fillStyle = grd; ctx.fill();
+
+  // Círculo
+  ctx.beginPath(); ctx.arc(cp.x, cp.y, cellSize * 0.28, 0, Math.PI*2);
+  ctx.strokeStyle = col;
+  ctx.lineWidth   = 2;
+  ctx.shadowColor = colG; ctx.shadowBlur = checkpointReached ? 4 : 10 * pulse;
+  ctx.stroke(); ctx.shadowBlur = 0;
+
+  // Label
+  const fs = Math.max(7, Math.floor(cellSize * 0.22));
+  ctx.font         = `${fs}px Share Tech Mono, monospace`;
+  ctx.fillStyle    = col;
+  ctx.textAlign    = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(checkpointReached ? '✓ CP' : 'CP', cp.x, cp.y);
+}
+
+function drawGoal() {
+  const ts = Date.now()/1000, pulse = 0.6 + 0.4*Math.sin(ts*3);
+  const grd = ctx.createRadialGradient(endPos.x, endPos.y, 0, endPos.x, endPos.y, cellSize*0.55);
+  grd.addColorStop(0, `rgba(0,229,255,${0.3*pulse})`); grd.addColorStop(1,'transparent');
+  ctx.beginPath(); ctx.arc(endPos.x, endPos.y, cellSize*0.55, 0, Math.PI*2);
+  ctx.fillStyle = grd; ctx.fill();
+  ctx.beginPath(); ctx.arc(endPos.x, endPos.y, cellSize*0.28, 0, Math.PI*2);
+  ctx.strokeStyle = `rgba(0,229,255,${0.8*pulse})`; ctx.lineWidth = 2;
+  ctx.shadowColor = '#00e5ff'; ctx.shadowBlur = 10*pulse; ctx.stroke(); ctx.shadowBlur = 0;
+  const fs = Math.max(8, Math.floor(cellSize*0.24));
+  ctx.font = `${fs}px Share Tech Mono, monospace`;
+  ctx.fillStyle = `rgba(0,229,255,${0.8*pulse})`; ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText('OUT', endPos.x, endPos.y);
+}
+
+function drawPlayer() {
+  const pr = player.r, ts = Date.now()/1000, pulse = 0.8+0.2*Math.sin(ts*6);
+  const grd = ctx.createRadialGradient(player.x, player.y, 0, player.x, player.y, pr*2.8);
+  grd.addColorStop(0, `rgba(0,229,255,${0.22*pulse})`); grd.addColorStop(1,'transparent');
+  ctx.beginPath(); ctx.arc(player.x, player.y, pr*2.8, 0, Math.PI*2);
+  ctx.fillStyle = grd; ctx.fill();
+  ctx.beginPath(); ctx.arc(player.x, player.y, pr, 0, Math.PI*2);
+  ctx.fillStyle = 'rgba(0,229,255,0.18)'; ctx.strokeStyle = '#00e5ff'; ctx.lineWidth = 2;
+  ctx.fill(); ctx.shadowColor='#00e5ff'; ctx.shadowBlur=10*pulse; ctx.stroke(); ctx.shadowBlur=0;
+  const s = pr+5; ctx.strokeStyle='rgba(0,229,255,0.45)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(player.x-s,player.y); ctx.lineTo(player.x+s,player.y);
+  ctx.moveTo(player.x,player.y-s); ctx.lineTo(player.x,player.y+s); ctx.stroke();
+}
+
+// ── TIMER ────────────────────────────────────────────────────────────────────
+function tickTimer() {
+  if (!active || won) return;
+  timeLeft = cfg.time - (Date.now() - t0) / 1000;
+  if (timeLeft <= 0) { timeLeft = 0; updateTimerHUD(); endGame(false); return; }
+  updateTimerHUD();
+}
+
+function updateTimerHUD() {
+  const total = Math.ceil(Math.max(0, timeLeft));
+  const m = Math.floor(total/60), s = total%60;
+  const el = document.getElementById('htimer');
+  el.textContent = `${m}:${String(s).padStart(2,'0')}`;
+  const ratio = timeLeft / cfg.time;
+  el.className = 'hud-timer'+(ratio<=.15?' t-danger':ratio<=.33?' t-warn':'');
+}
+
+// ── FIM ──────────────────────────────────────────────────────────────────────
+function endGame(win) {
+  if (!active) return;
+  active = false;
+  clearInterval(ticker); cancelAnimationFrame(raf); clearListeners();
+  const elapsed = cfg.time - Math.max(0, timeLeft);
+  setTimeout(() => showResult(win, elapsed), win ? 500 : 800);
+}
+
+function showResult(win, elapsed) {
+  show('result');
+  const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+  const m = Math.floor(elapsed/60), s = Math.floor(elapsed%60);
+  document.getElementById('rtag').textContent   = win ? 'rota concluída'    : 'falha crítica';
+  document.getElementById('rtitle').textContent = win ? 'ACESSO\nCONCEDIDO' : 'ACESSO\nNEGADO';
+  document.getElementById('rtitle').className   = 'res-title '+(win?'ok':'bad');
+  document.getElementById('rmsg').textContent   = pick(win ? MSGS_OK : MSGS_FAIL);
+  document.getElementById('rstats').innerHTML   = `
+DIFICULDADE: <b>${cfg.label}</b><br>
+ERROS: <b>${errors}</b><br>
+TEMPO: <b>${m}:${String(s).padStart(2,'0')} / ${Math.floor(cfg.time/60)}:${String(cfg.time%60).padStart(2,'0')}</b>
+  `.trim();
+}
+
+function retry() { clearListeners(); countdown(); }
+function goSel() { clearListeners(); show('sel'); }
+
+function clearListeners() {
+  const c = document.getElementById('maze');
+  if (!c) return;
+  c.removeEventListener('touchstart', onTouch);
+  c.removeEventListener('touchmove',  onTouch);
+  c.removeEventListener('touchend',   onTouchEnd);
+  c.removeEventListener('mousedown',  onMouse);
+  c.removeEventListener('mousemove',  onMouse);
+}
+</script>
+</body>
+</html>

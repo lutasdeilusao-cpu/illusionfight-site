@@ -505,14 +505,16 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.184.0** | refactor: unificar CTA guest com sistema de achievements + i18n dedicado (ModalLancamento removido) |
+| `SITE_VERSION` | **10.185.0** | + PuzzleSlidingRafael + PuzzleCodigoPerdido (port fiel dos jogos Rafael) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.0** | Arena LDI — Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI (ver PROTOTYPE 2.10.0 para fix morte imediata) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.0** | Duelo LDI — ataque direto Yu-Gi-Oh style + fix TELEPORT |
-| `MINIGAMES_VERSION` | **4.0.2** | readerMode: Navbar e Footer ocultos |
+| `MINIGAMES_VERSION` | **4.1.0** | + sliding_rafael + codigo_perdido (Rafael ports isolados) |
+| `SLIDING_VERSION` | **1.0.1** | PuzzleSlidingRafael — port de mg01_sliding.html |
+| `CODIGO_VERSION` | **1.0.1** | PuzzleCodigoPerdido — port de mg03_forca.html |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
