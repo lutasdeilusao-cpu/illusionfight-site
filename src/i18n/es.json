@@ -984,6 +984,30 @@
           "desc": "memoriza la secuencia. repite sin fallar.",
           "detalhe": "secuencia creciente de colores. un error y reinicia. ¿hasta dónde llegarás?",
           "dificuldade": "★★☆"
+        },
+        "maze": {
+          "nome": "Laberinto",
+          "desc": "traza el camino. no toques las paredes.",
+          "detalhe": "laberinto generado por DFS. toca y arrastra. punto de control en normal/difícil.",
+          "dificuldade": "★★★"
+        },
+        "glitch": {
+          "nome": "Encuentra el Fallo",
+          "desc": "localiza la anomalía en el flujo de datos.",
+          "detalhe": "cuadrícula binaria con fallos ocultos. encuéntralos todos antes de que se acabe el tiempo.",
+          "dificuldade": "★★☆"
+        },
+        "bullet-hell": {
+          "nome": "Bullet Hell",
+          "desc": "toca la pantalla. muévete. sobrevive.",
+          "detalhe": "esquiva los proyectiles. el modo difícil incluye un rastreador. sobrevive hasta el final.",
+          "dificuldade": "★★★"
+        },
+        "stabilizer": {
+          "nome": "Señal Estable",
+          "desc": "verde = gana tiempo. rojo = pierde tiempo.",
+          "detalhe": "toca y mantén para empujar la señal. permanece en la zona verde por 5 segundos.",
+          "dificuldade": "★★☆"
         }
       },
       "stealth": {

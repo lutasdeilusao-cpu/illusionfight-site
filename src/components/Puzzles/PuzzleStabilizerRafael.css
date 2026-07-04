@@ -1,0 +1,389 @@
+:root {
+  --st-cyan:   #00e5ff;
+  --st-purple: #b400ff;
+  --st-red:    #ff0055;
+  --st-gold:   #ffcc00;
+  --st-green:  #00ff88;
+  --st-ghost:  #2a3a5a;
+  --st-dim:    #0d1a2e;
+  --st-bg:     #05050f;
+  --st-mono:   'Share Tech Mono', monospace;
+  --st-head:   'Bebas Neue', 'Orbitron', sans-serif;
+}
+
+.st-grid-bg {
+  background-color: var(--st-bg);
+  background-image:
+    linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.st-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+}
+
+.st-sel-tag {
+  font-size: .62rem;
+  letter-spacing: .35em;
+  color: var(--st-ghost);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: var(--st-mono);
+}
+
+.st-sel-title {
+  font-family: var(--st-head);
+  font-size: 3.4rem;
+  letter-spacing: .12em;
+  color: var(--st-cyan);
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 0 24px var(--st-cyan);
+  margin-bottom: 6px;
+}
+
+.st-sel-sub {
+  font-size: .62rem;
+  letter-spacing: .18em;
+  color: var(--st-ghost);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: var(--st-mono);
+}
+
+.st-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.st-diff-btn {
+  background: transparent;
+  border: 1px solid var(--st-ghost);
+  font-family: var(--st-mono);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 18px;
+  min-height: 58px;
+  cursor: pointer;
+  transition: .15s;
+  text-align: left;
+  color: inherit;
+}
+
+.st-diff-btn .st-dn {
+  font-size: .85rem;
+  letter-spacing: .12em;
+}
+
+.st-diff-btn .st-di {
+  font-size: .58rem;
+  letter-spacing: .08em;
+  color: var(--st-ghost);
+}
+
+.st-dif-easy .st-dn { color: var(--st-cyan); }
+.st-dif-normal .st-dn { color: var(--st-purple); }
+.st-dif-hard .st-dn { color: var(--st-red); }
+
+.st-diff-btn:active { opacity: .7; }
+
+@media(hover:hover) {
+  .st-dif-easy:hover { border-color: var(--st-cyan); background: rgba(0,229,255,.04); }
+  .st-dif-normal:hover { border-color: var(--st-purple); background: rgba(180,0,255,.04); }
+  .st-dif-hard:hover { border-color: var(--st-red); background: rgba(255,0,85,.04); }
+}
+
+.st-back-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.st-back-btn {
+  background: transparent;
+  border: 1px solid var(--st-ghost);
+  color: var(--st-ghost);
+  font-family: var(--st-mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: .15s;
+  width: 100%;
+}
+
+.st-back-btn:active { border-color: var(--st-cyan); color: var(--st-cyan); }
+
+.st-cdown { background: var(--st-bg); }
+
+.st-cdown-n {
+  font-family: var(--st-head);
+  font-size: 9rem;
+  line-height: 1;
+  color: var(--st-cyan);
+  text-shadow: 0 0 30px var(--st-cyan);
+  animation: st-popIn .6s cubic-bezier(.2,1.4,.4,1) both;
+}
+
+@keyframes st-popIn {
+  from { transform: scale(2); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.st-game {
+  padding: 0;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.st-hud {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--st-ghost);
+  background: rgba(5,5,15,.95);
+  flex-shrink: 0;
+}
+
+.st-hud-back {
+  background: none;
+  border: 1px solid var(--st-ghost);
+  color: var(--st-cyan);
+  font-size: 1.1rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .15s;
+  flex-shrink: 0;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.st-hud-back:active { background: rgba(0,229,255,.1); }
+
+.st-hud-timer {
+  font-family: var(--st-head);
+  font-size: 2.2rem;
+  letter-spacing: .06em;
+  color: var(--st-cyan);
+  min-width: 60px;
+}
+
+.st-hud-timer.st-t-warn {
+  color: var(--st-gold);
+  text-shadow: 0 0 10px var(--st-gold);
+}
+
+.st-hud-timer.st-t-danger {
+  color: var(--st-red);
+  text-shadow: 0 0 10px var(--st-red);
+  animation: st-blink .45s infinite;
+}
+
+@keyframes st-blink {
+  50% { opacity: .4; }
+}
+
+.st-hud-center {
+  text-align: center;
+}
+
+.st-hud-lock {
+  font-family: var(--st-head);
+  font-size: 1.5rem;
+  display: block;
+  line-height: 1;
+  transition: color .2s;
+}
+
+.st-hud-lbl {
+  font-size: .55rem;
+  letter-spacing: .2em;
+  color: var(--st-ghost);
+  text-transform: uppercase;
+  font-family: var(--st-mono);
+}
+
+.st-hud-diff {
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: right;
+  min-width: 60px;
+  font-family: var(--st-mono);
+}
+
+.st-arena {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 12px;
+  touch-action: none;
+  background: var(--st-bg);
+  background-image:
+    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.st-touch-hint {
+  font-size: .65rem;
+  letter-spacing: .18em;
+  color: var(--st-ghost);
+  text-transform: uppercase;
+  text-align: center;
+  transition: opacity .3s;
+}
+
+.st-hint-hidden {
+  opacity: 0;
+}
+
+.st-bar-wrap {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.st-bar-track {
+  width: 100%;
+  height: 28px;
+  background: #070714;
+  border: 1px solid var(--st-ghost);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.st-zone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 14px;
+  transition: background .15s, border-color .15s, box-shadow .15s;
+}
+
+.st-zone-green-active {
+  background: rgba(0,255,136,0.25);
+  border: 1px solid rgba(0,255,136,0.6);
+  box-shadow: 0 0 10px rgba(0,255,136,0.3);
+}
+
+.st-zone-green-inactive {
+  background: rgba(0,255,136,0.08);
+  border: 1px solid rgba(0,255,136,0.2);
+}
+
+.st-zone-red-active {
+  background: rgba(255,0,85,0.30);
+  border: 1px solid rgba(255,0,85,0.7);
+  box-shadow: 0 0 12px rgba(255,0,85,0.4);
+  animation: st-zonePulse .4s infinite alternate;
+}
+
+.st-zone-red-inactive {
+  background: rgba(255,0,85,0.10);
+  border: 1px solid rgba(255,0,85,0.25);
+}
+
+@keyframes st-zonePulse {
+  from { box-shadow: 0 0 8px rgba(255,0,85,.3); }
+  to { box-shadow: 0 0 18px rgba(255,0,85,.7); }
+}
+
+.st-marker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 80%;
+  border-radius: 2px;
+  background: var(--st-cyan);
+  box-shadow: 0 0 8px var(--st-cyan);
+  transition: background .15s, box-shadow .15s;
+}
+
+.st-marker.st-on-green {
+  background: var(--st-green);
+  box-shadow: 0 0 8px var(--st-green), 0 0 16px rgba(0,255,136,.4);
+}
+
+.st-marker.st-on-red {
+  background: var(--st-red);
+  box-shadow: 0 0 8px var(--st-red), 0 0 16px rgba(255,0,85,.4);
+}
+
+.st-danger-warn {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  color: var(--st-red);
+  text-transform: uppercase;
+  text-align: center;
+  min-height: 18px;
+  transition: opacity .2s;
+}
+
+.st-progress-wrap {
+  width: 100%;
+  max-width: 500px;
+}
+
+.st-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: .58rem;
+  letter-spacing: .12em;
+  color: var(--st-ghost);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-family: var(--st-mono);
+}
+
+.st-progress-track {
+  width: 100%;
+  height: 8px;
+  background: #070714;
+  border: 1px solid var(--st-ghost);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.st-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--st-green);
+  box-shadow: 0 0 6px rgba(0,255,136,.5);
+  transition: width .1s linear, background .2s;
+}
+
+.st-progress-fill.st-complete {
+  background: var(--st-cyan);
+  box-shadow: 0 0 10px rgba(0,229,255,.6);
+}

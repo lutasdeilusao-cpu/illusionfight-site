@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (CSS inline → classes: TrapActivator/ArenaVictory/MiniGames v10.190.0)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (Port MG-02/MG-04/MG-05/MG-06 Rafael + v10.191.0)
 
 ---
 
@@ -466,7 +466,7 @@
 | `/games/ldi/end` | LDIEnd | `src/pages/games/LDI/End.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/games/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/games/JackCandy/JackCandy.jsx` | ✅ v5.2.1 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo — CSS inline audit: static styles movidos para .css, i18n carregando/monologo_fechar |
-| `/games/minigames` | MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | ✅ **v4.0.2** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 8 puzzles arcade, todos os níveis free |
+| `/games/minigames` | MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | ✅ **v4.2.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 12 puzzles arcade (4 novos: Maze, Glitch, Bullet Hell, Stabilizer) |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/games/Arena/ArenaRoute.jsx` | ✅ v1.27.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone + guest temp sheet (jogável sem conta) |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/games/PesadeloParticular/PP.jsx` | ✅ v2.3.1 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, guest mode, Supabase save |
@@ -507,14 +507,14 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.190.0** | CSS inline → classes: TrapActivator, ArenaVictory, MiniGames (3 violações críticas) |
+| `SITE_VERSION` | **10.191.0** | Port MG-02/MG-04/MG-05/MG-06 Rafael + integração catálogo MiniGames |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.1.2** | CSS inline removido (style textAlign/marginTop repetido → .mg-centered/.mg-back-wrapper) |
+| `MINIGAMES_VERSION` | **4.2.0** | +4 jogos Rafael (Maze, Glitch, BulletHell, Stabilizer) + integração catálogo |
 | `SLIDING_VERSION` | **1.3.0** | PuzzleSlidingRafael — portrait container, padding 8px arena, tile sizing corrigido |
 | `CODIGO_VERSION` | **1.3.0** | PuzzleCodigoPerdido — portrait container, padding mínimo, keyboard sem max-width |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
@@ -523,6 +523,10 @@
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
 | `KP_VERSION` | **1.4.0** | Manual do operador (modal) + botão Voltar + ?aba=kernel na URL games |
+| `MAZE_VERSION` | **1.0.0** | PuzzleMazeRafael — MG-02 Labirinto (Canvas DFS maze, checkpoint, penalty) |
+| `GLITCH_VERSION` | **1.0.0** | PuzzleGlitchRafael — MG-04 Encontre o Glitch (DOM grid, anomalia '2') |
+| `BULLETHELL_VERSION` | **1.0.0** | PuzzleBulletHellRafael — MG-05 Bullet Hell (Canvas shmup, n-bullets, tracking) |
+| `STABILIZER_VERSION` | **1.0.0** | PuzzleStabilizerRafael — MG-06 Estabilizador (DOM bar, drift/push, zona verde) |
 
 ---
 

@@ -982,7 +982,31 @@
         "simon": {
           "nome": "Simon Says",
           "desc": "memorize the sequence. repeat without error.",
-          "detalhe": "growing color sequence. one mistake and restart. how far can you go?",
+          "detalhe": "growing color sequence. one mistake resets it. how far can you go?",
+          "dificuldade": "★★☆"
+        },
+        "maze": {
+          "nome": "Maze",
+          "desc": "trace the path. don't touch the walls.",
+          "detalhe": "DFS-generated maze. touch and drag. checkpoint on normal/hard.",
+          "dificuldade": "★★★"
+        },
+        "glitch": {
+          "nome": "Find the Glitch",
+          "desc": "find the anomaly in the data flow.",
+          "detalhe": "binary grid with hidden glitches. find them all before time runs out.",
+          "dificuldade": "★★☆"
+        },
+        "bullet-hell": {
+          "nome": "Bullet Hell",
+          "desc": "touch the screen. move. survive.",
+          "detalhe": "dodge projectiles. hard mode includes a tracker. survive until the end.",
+          "dificuldade": "★★★"
+        },
+        "stabilizer": {
+          "nome": "Stable Signal",
+          "desc": "green = gain time. red = lose time.",
+          "detalhe": "touch and hold to push the signal. stay in the green zone for 5 seconds.",
           "dificuldade": "★★☆"
         }
       },
