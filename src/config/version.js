@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.186.0'
+export const SITE_VERSION = '10.187.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -17,15 +17,15 @@ export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso vis
 export const ARENA_VERSION     = '1.31.0'  // LDI Arena Testbed: fixes linha de visão PDF, morte/partida, ataque pós-movimento, flag AGI
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.0'  // Duelo LDI (tagline i18n pt/en/es: "Já pensou em jogar Yu-Gi-Oh...?")
-export const MINIGAMES_VERSION = '4.1.0'  // + sliding_rafael + codigo_perdido (Rafael ports isolados)
+export const MINIGAMES_VERSION = '4.1.1'  // - sliding_rafael - codigo_perdido (movidos para Kernel Games)
 export const TS_VERSION        = '5.44.7'  // Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados)
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
 export const KP_VERSION = '1.4.0' // Manual do operador + botão Voltar + ?aba=kernel na URL
-export const SLIDING_VERSION   = '1.0.1'  // PuzzleSlidingRafael — port de mg01_sliding.html
-export const CODIGO_VERSION    = '1.0.2'  // PuzzleCodigoPerdido — fix: WORDS hardcoded movidas para rafael_{locale}.json
+export const SLIDING_VERSION   = '1.1.0'  // PuzzleSlidingRafael — standalone Kernel Games page + readerMode + SFX
+export const CODIGO_VERSION    = '1.1.0'  // PuzzleCodigoPerdido — standalone Kernel Games page + readerMode + SFX
 
 // ── Logs (executam na inicialização do site) ──────
 console.log(`[SITE] versão carregada: ${SITE_VERSION}`)

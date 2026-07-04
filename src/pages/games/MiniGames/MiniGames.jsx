@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useReader } from '../../../context/ReaderContext'
-import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays, PuzzleSlidingRafael, PuzzleCodigoPerdido } from '../../../components/Puzzles'
+import { PuzzleDecoder, PuzzleStealthGrid, PuzzleSlidingTiles, PuzzleLabirinto, PuzzleAnagrama, PuzzleForça, PuzzleSimonSays } from '../../../components/Puzzles'
 import { useEventos } from '../../../context/EventosContext'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import PassearEnduro from '../Tamagoshi/screens/Passear'
@@ -17,10 +17,6 @@ const GAMES = [
   { id: 'forca', puzzleKey: 'forca', emoji: '🎡', cor: '#EC4899', semImagens: false },
   { id: 'enduro', puzzleKey: 'enduro', emoji: '🏎️', cor: '#FF3366', badgeKey: 'games.minigames.badge_lancado', badgeCor: '#22C55E', semImagens: true },
   { id: 'simon', puzzleKey: 'simon', emoji: '🔵', cor: '#A855F4', semImagens: false },
-  { id: 'sliding_rafael', puzzleKey: 'sliding_rafael', emoji: '🧩', cor: '#00e5ff', semImagens: false,
-    nome: 'Sliding Puzzle', tagline: 'Reorganize o fluxo de dados fragmentado', detalhe: 'Peças deslizantes com timer. Três níveis de dificuldade.', dificuldade: '★★☆' },
-  { id: 'codigo_perdido', puzzleKey: 'codigo_perdido', emoji: '🔐', cor: '#00e5ff', semImagens: false,
-    nome: 'Código Perdido', tagline: 'Identifique a palavra · 6 erros permitidos', detalhe: 'Teclado QWERTY. Palavras temáticas cyberpunk.', dificuldade: '★★☆' },
 ]
 
 const STEALTH_CONFIG = {
@@ -60,7 +56,7 @@ export default function MiniGames() {
   }, [])
 
   const tentarIniciar = (game) => {
-    if (['sliding_rafael', 'codigo_perdido', 'enduro'].includes(game.id)) { setJogoAtivo(game); setFase('jogando'); return }
+    if (['enduro'].includes(game.id)) { setJogoAtivo(game); setFase('jogando'); return }
     if (['stealth','decoder','sliding','labirinto','anagrama','forca','simon'].includes(game.id)) { setJogoAtivo(game); setFase('selecionar_dificuldade'); return }
     iniciarJogo(game, 'easy')
   }
@@ -119,8 +115,6 @@ export default function MiniGames() {
       case 'labirinto': return <PuzzleLabirinto {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'anagrama': return <PuzzleAnagrama {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
       case 'simon': return <PuzzleSimonSays {...props} config={{ difficulty: dificuldadeSelecionada || 'easy' }} />
-      case 'sliding_rafael': return <PuzzleSlidingRafael onSolve={handleVitoria} onFail={handleDerrota} />
-      case 'codigo_perdido': return <PuzzleCodigoPerdido onSolve={handleVitoria} onFail={handleDerrota} />
       case 'enduro':
         return <PassearEnduro onConcluir={voltarHub} />
       default: return null

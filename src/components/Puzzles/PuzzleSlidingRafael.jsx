@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRafaelI18n } from './useRafaelI18n'
 import { useLanguage } from '../../context/LanguageContext'
+import { sfx } from '../../lib/sfx'
 import './PuzzleSlidingRafael.css'
 
 const CFG = {
@@ -75,6 +76,7 @@ export default function PuzzleSlidingRafael({ onSolve, onFail }) {
   const endGame = useCallback((win) => {
     if (!activeRef.current) return
     cleanup()
+    if (win) sfx.win(); else sfx.lose()
     const t = win ? 600 : 800
     setTimeout(() => { win ? onSolve?.() : onFail?.() }, t)
   }, [cleanup, onSolve, onFail])
@@ -114,10 +116,10 @@ export default function PuzzleSlidingRafael({ onSolve, onFail }) {
   useEffect(() => {
     if (phase !== 'countdown') return
     if (cdownN > 0) {
-      const t = setTimeout(() => setCdownN(n => n - 1), 850)
+      const t = setTimeout(() => { sfx.countdownTick(); setCdownN(n => n - 1) }, 850)
       return () => clearTimeout(t)
     }
-    const t = setTimeout(startGame, 550)
+    const t = setTimeout(() => { sfx.select(); startGame() }, 550)
     return () => clearTimeout(t)
   }, [phase, cdownN, startGame])
 
@@ -150,6 +152,7 @@ export default function PuzzleSlidingRafael({ onSolve, onFail }) {
     const neighbors = getNeighbors(boardRef.current.indexOf(0), cfgRef.current.size)
     if (!neighbors.includes(idx)) return
 
+    sfx.click()
     const newBoard = [...boardRef.current]
     const eIdx = newBoard.indexOf(0)
     ;[newBoard[idx], newBoard[eIdx]] = [newBoard[eIdx], newBoard[idx]]

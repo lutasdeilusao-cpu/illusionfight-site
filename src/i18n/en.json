@@ -685,7 +685,9 @@
         "duelo": "LDI DUELO",
         "quiz": "SDR Quiz",
         "leaderboard": "Leaderboard",
-        "kernel_panic": "Kernel Panic"
+        "kernel_panic": "Kernel Panic",
+        "sliding_rafael": "Sliding Puzzle",
+        "codigo_perdido": "Código Perdido"
       },
       "taglines": {
         "ldi": "NARRATIVE RPG, create your avatar, make your choices, face your battles, discover the truth!",
@@ -699,7 +701,9 @@
         "duelo": "Ever thought of playing Yu-Gi-Oh but with battles on a board? That's right, and I'm testing it. I'll release it for everyone soon.",
         "quiz": "test your knowledge of the LDI universe.",
         "leaderboard": "global player ranking.",
-        "kernel_panic": "Elimination Protocol"
+        "kernel_panic": "Elimination Protocol",
+        "sliding_rafael": "Reorganize the fragmented data flow",
+        "codigo_perdido": "Identify the word · 6 errors allowed"
       }
     },
     "leaderboard": {

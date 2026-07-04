@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useRafaelI18n } from './useRafaelI18n'
 import { useLanguage } from '../../context/LanguageContext'
+import { sfx } from '../../lib/sfx'
 import './PuzzleCodigoPerdido.css'
 
 const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
@@ -55,10 +56,10 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
   useEffect(() => {
     if (phase !== 'countdown') return
     if (cdownN > 0) {
-      const t = setTimeout(() => setCdownN(n => n - 1), 850)
+      const t = setTimeout(() => { sfx.countdownTick(); setCdownN(n => n - 1) }, 850)
       return () => clearTimeout(t)
     }
-    const t = setTimeout(startGame, 550)
+    const t = setTimeout(() => { sfx.select(); startGame() }, 550)
     return () => clearTimeout(t)
   }, [phase, cdownN, startGame])
 
@@ -66,6 +67,7 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
     if (!active) return
     if (guessed.has(letter) || wrongSet.has(letter)) return
 
+    sfx.click()
     setGuessCount(g => g + 1)
 
     if (word.includes(letter)) {
@@ -75,6 +77,7 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
 
       if ([...word].every(l => next.has(l))) {
         setActive(false)
+        sfx.win()
         setTimeout(() => onSolve?.(), 500)
       }
     } else {
@@ -86,6 +89,7 @@ export default function PuzzleCodigoPerdido({ onSolve, onFail }) {
 
       if (newErrors >= MAX_ERRORS) {
         setActive(false)
+        sfx.lose()
         setTimeout(() => onFail?.(), 900)
       }
     }
