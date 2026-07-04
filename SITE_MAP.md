@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (Port MG-02/MG-04/MG-05/MG-06 Rafael + v10.191.0)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX SlidingRafael espaço/safe area + v10.192.0)
 
 ---
 
@@ -466,14 +466,14 @@
 | `/games/ldi/end` | LDIEnd | `src/pages/games/LDI/End.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Tela de fim |
 | `/games/ldi/puzzle` | LDIPuzzle | `src/pages/games/LDI/PuzzlePage.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Roteador de puzzles |
 | `/games/jackcandy` | JackCandy | `src/pages/games/JackCandy/JackCandy.jsx` | ✅ v5.2.1 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | Idle noir investigativo — CSS inline audit: static styles movidos para .css, i18n carregando/monologo_fechar |
-| `/games/minigames` | MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | ✅ **v4.2.0** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 12 puzzles arcade (4 novos: Maze, Glitch, Bullet Hell, Stabilizer) |
+| `/games/minigames` | MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | ✅ **v4.2.1** | ✅ **100%** | ✅ PT ✅ EN ✅ ES | 12 puzzles arcade |
 | `/games/ldi-arena` | ArenaRoute | `src/pages/games/Arena/ArenaRoute.jsx` | ✅ v1.27.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | LDI ARENA — combate CPU standalone + guest temp sheet (jogável sem conta) |
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/games/PesadeloParticular/PP.jsx` | ✅ v2.3.1 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, guest mode, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/games/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
 | `/games/tamagoshi` | Tamagoshi | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.2 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | 32 criaturas em FALAS_CRIATURA ordenadas por ID (1-32), double-encoding corrigido |
 | `/games/kernel-panic` | KernelPanic | `src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx` | ✅ v1.4.0 | ✅ Beta | ✅ PT ✅ EN ✅ ES | Jogo de cartas tático — Manual do operador + Voltar + aba kernel |
-| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — portrait container, padding mínimo, tile sizing corrigido |
+| `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael.jsx` | ✅ **v1.4.0** | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — CSS Grid 1fr, safe area, fonte maior |
 | `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Produtos físicos e digitais |
 | `/leaderboard` | Leaderboard | `src/pages/platform/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
@@ -507,15 +507,15 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.191.0** | Port MG-02/MG-04/MG-05/MG-06 Rafael + integração catálogo MiniGames |
+| `SITE_VERSION` | **10.192.0** | FIX SlidingRafael: CSS Grid 1fr, safe area insets, fonte maior, ResizeObserver |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.2.0** | +4 jogos Rafael (Maze, Glitch, BulletHell, Stabilizer) + integração catálogo |
-| `SLIDING_VERSION` | **1.3.0** | PuzzleSlidingRafael — portrait container, padding 8px arena, tile sizing corrigido |
+| `MINIGAMES_VERSION` | **4.2.1** | SlidingRafael: CSS Grid 1fr + safe area insets + fonte maior |
+| `SLIDING_VERSION` | **1.4.0** | PuzzleSlidingRafael — CSS Grid 1fr + safe area env() + ResizeObserver + fonte maior |
 | `CODIGO_VERSION` | **1.3.0** | PuzzleCodigoPerdido — portrait container, padding mínimo, keyboard sem max-width |
 | `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |

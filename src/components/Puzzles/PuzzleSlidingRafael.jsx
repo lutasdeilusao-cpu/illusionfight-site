@@ -53,7 +53,6 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   const [moves, setMoves] = useState(0)
   const [displayTime, setDisplayTime] = useState(null)
   const [active, setActive] = useState(false)
-  const [tileSize, setTileSize] = useState(0)
   const [flashIdx, setFlashIdx] = useState(-1)
   const [cdownN, setCdownN] = useState(3)
 
@@ -61,6 +60,7 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   const t0Ref = useRef(null)
   const tickerRef = useRef(null)
   const arenaRef = useRef(null)
+  const gridRef = useRef(null)
   const boardRef = useRef([])
   const activeRef = useRef(false)
 
@@ -130,20 +130,25 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   }, [])
 
   useEffect(() => {
-    if (phase !== 'game' || !arenaRef.current) return
-    const calcSize = () => {
-      const a = arenaRef.current
-      if (!a) return
-      const aW = a.clientWidth - 16
-      const aH = a.clientHeight - 16
-      const maxSide = Math.min(aW, aH)
+    if (phase !== 'game' || !gridRef.current) return
+    const syncFont = () => {
+      const g = gridRef.current
+      if (!g) return
       const sz = cfgRef.current?.size || 3
-      const ts = Math.floor((maxSide - (sz - 1) * 4) / sz)
-      setTileSize(Math.max(ts, 30))
+      const cellW = Math.floor((g.clientWidth - (sz - 1) * 4) / sz)
+      const cellH = Math.floor((g.clientHeight - (sz - 1) * 4) / sz)
+      const cell = Math.min(cellW, cellH)
+      const fs = Math.max(16, Math.floor(cell * 0.46))
+      g.style.setProperty('--sr-fs', fs + 'px')
     }
-    calcSize()
-    window.addEventListener('resize', calcSize)
-    return () => window.removeEventListener('resize', calcSize)
+    syncFont()
+    const ro = new ResizeObserver(syncFont)
+    ro.observe(gridRef.current)
+    window.addEventListener('resize', syncFont)
+    return () => {
+      window.removeEventListener('resize', syncFont)
+      ro.disconnect()
+    }
   }, [phase])
 
   const onTileClick = useCallback((idx) => {
@@ -176,8 +181,6 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
     const s = t % 60
     return `${m}:${String(s).padStart(2, '0')}`
   }
-
-  const fontSize = Math.max(14, Math.floor(tileSize * 0.38))
 
   if (phase === 'select') {
     return (
@@ -236,40 +239,35 @@ export default function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
         </div>
       </div>
       <div className="sr-arena" ref={arenaRef}>
-        {tileSize > 0 && (
-          <div
-            className="sr-puzzle-grid"
-            style={{
-              gridTemplateColumns: `repeat(${size}, ${tileSize}px)`,
-              gridTemplateRows: `repeat(${size}, ${tileSize}px)`,
-            }}
-          >
-            {board.map((val, i) => {
-              const isMovable = val !== 0 && getNeighbors(emptyIdx, size).includes(i)
-              const isCorrect = val !== 0 && val === i + 1
-              const isEmpty = val === 0
-              return (
-                <div
-                  key={i}
-                  className={'sr-tile' +
-                    (isEmpty ? ' sr-empty' : '') +
-                    (isMovable ? ' sr-movable' : '') +
-                    (!isMovable && isCorrect ? ' sr-correct' : '') +
-                    (flashIdx === i ? ' sr-flash' : '')
-                  }
-                  style={{
-                    width: tileSize + 'px',
-                    height: tileSize + 'px',
-                    fontSize: fontSize + 'px',
-                  }}
-                  onClick={() => onTileClick(i)}
-                >
-                  {!isEmpty ? val : ''}
-                </div>
-              )
-            })}
-          </div>
-        )}
+        <div
+          ref={gridRef}
+          className="sr-puzzle-grid"
+          style={{
+            gridTemplateColumns: `repeat(${size}, 1fr)`,
+            gridTemplateRows: `repeat(${size}, 1fr)`,
+          }}
+        >
+          {board.map((val, i) => {
+            const isMovable = val !== 0 && getNeighbors(emptyIdx, size).includes(i)
+            const isCorrect = val !== 0 && val === i + 1
+            const isEmpty = val === 0
+            return (
+              <div
+                key={i}
+                className={'sr-tile' +
+                  (isEmpty ? ' sr-empty' : '') +
+                  (isMovable ? ' sr-movable' : '') +
+                  (!isMovable && isCorrect ? ' sr-correct' : '') +
+                  (flashIdx === i ? ' sr-flash' : '')
+                }
+                style={{ fontSize: 'var(--sr-fs, 24px)' }}
+                onClick={() => onTileClick(i)}
+              >
+                {!isEmpty ? val : ''}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
