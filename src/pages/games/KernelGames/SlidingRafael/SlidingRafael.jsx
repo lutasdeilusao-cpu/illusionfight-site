@@ -133,20 +133,24 @@ function PuzzleSlidingRafael({ onSolve, onFail, onBack }) {
   }, [])
 
   useEffect(() => {
-    if (phase !== 'game' || !gridRef.current) return
+    if (phase !== 'game' || !arenaRef.current) return
     const syncFont = () => {
+      const a = arenaRef.current
       const g = gridRef.current
-      if (!g) return
+      if (!a || !g) return
       const sz = cfgRef.current?.size || 3
-      const cellW = Math.floor((g.clientWidth - (sz - 1) * 4) / sz)
-      const cellH = Math.floor((g.clientHeight - (sz - 1) * 4) / sz)
-      const cell = Math.min(cellW, cellH)
+      const availW = a.clientWidth - 16
+      const availH = a.clientHeight - 16
+      const side = Math.max(0, Math.min(availW, availH))
+      if (side <= 0) return
+      g.style.setProperty('--sr-side', side + 'px')
+      const cell = Math.floor((side - (sz - 1) * 4) / sz)
       const fs = Math.max(16, Math.floor(cell * 0.46))
       g.style.setProperty('--sr-fs', fs + 'px')
     }
     syncFont()
     const ro = new ResizeObserver(syncFont)
-    ro.observe(gridRef.current)
+    ro.observe(arenaRef.current)
     window.addEventListener('resize', syncFont)
     return () => {
       window.removeEventListener('resize', syncFont)

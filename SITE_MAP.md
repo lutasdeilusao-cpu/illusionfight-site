@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch grid imperativo DOM real com \n text nodes + v10.192.9)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Sliding grid quadrado via --sr-side + arena centralizada + v10.192.10)
 
 ---
 

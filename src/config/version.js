@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.9'
+export const SITE_VERSION = '10.192.10'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -17,14 +17,14 @@ export const JACK_VERSION      = '5.3.1'  // Jack Dream Beer — guest aviso vis
 export const ARENA_VERSION     = '1.31.1'  // ArenaVictory: CSS extraído de inline style para classes
 export const TAMA_VERSION      = '3.3.3' // Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init)
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
-export const MINIGAMES_VERSION = '4.3.2'  // i18n fix: hardcoded strings → i18n, inline styles → CSS vars em todos os puzzles Kernel Games
+export const MINIGAMES_VERSION = '4.3.3'  // Sliding: grid quadrado via --sr-side + arena centralizada
 export const TS_VERSION        = '5.44.7'  // Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados)
 export const TM_VERSION        = '5.12.0'  // Top Trumps MP: JSON v2 migration — id numérico em vez de slug
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.0' // Jokempo reutilizável: migrado do JokenpoModal
 export const KP_VERSION = '1.4.1' // KPMenu: CSS extraído de inline style
-export const SLIDING_VERSION   = '1.4.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
+export const SLIDING_VERSION   = '1.4.4'  // fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado
 export const CODIGO_VERSION    = '1.3.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
 export const MAZE_VERSION      = '1.1.4'  // fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído
 export const GLITCH_VERSION    = '1.1.5'  // fix: grid imperativo (DOM real) igual original HTML com \n text nodes
