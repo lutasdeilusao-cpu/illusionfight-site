@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch safe-area lateral no grid-wrap + v10.192.11)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (DIAG: console.log handleClick Glitch + v10.192.12)
 
 ---
 

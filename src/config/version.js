@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.11'
+export const SITE_VERSION = '10.192.12'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -27,7 +27,7 @@ export const KP_VERSION = '1.4.1' // KPMenu: CSS extraído de inline style
 export const SLIDING_VERSION   = '1.4.4'  // fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado
 export const CODIGO_VERSION    = '1.3.3'  // merge wrapper+puzzle em 1 arquivo + fix commit
 export const MAZE_VERSION      = '1.1.4'  // fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído
-export const GLITCH_VERSION    = '1.1.6'  // fix: safe-area lateral no grid-wrap + buildGrid mede padding real do wrap
+export const GLITCH_VERSION    = '1.1.7'  // DIAG: console.log handleClick + endGame para depurar vitoria
 export const BULLETHELL_VERSION = '1.1.3' // fix: null ref em startGame (countdown sem canvas)
 export const STABILIZER_VERSION = '1.1.2' // merge wrapper+puzzle em 1 arquivo + fix commit
 

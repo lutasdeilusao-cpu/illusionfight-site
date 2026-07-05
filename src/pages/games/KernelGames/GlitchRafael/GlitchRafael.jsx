@@ -44,8 +44,10 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
   }, [])
 
   const endGame = useCallback((win) => {
-    if (!activeRef.current) return
+    console.log('[GLITCH] endGame(', win, ') activeRef:', activeRef.current, 'found:', foundRef.current, 'total:', totalRef.current)
+    if (!activeRef.current) { console.log('[GLITCH] endGame: inactive, return'); return }
     cleanup()
+    console.log('[GLITCH] endGame: cleanup done, calling onSolve? em', win ? 700 : 1300, 'ms')
 
     if (!win) {
       glitchSpansRef.current.forEach(sp => {
@@ -58,7 +60,7 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
 
     if (win) sfx.win(); else sfx.lose()
     const t = win ? 700 : 1300
-    setTimeout(() => { win ? onSolve?.() : onFail?.() }, t)
+    setTimeout(() => { console.log('[GLITCH] setTimeout disparado, chamando onSolve/onFail'); win ? onSolve?.() : onFail?.() }, t)
   }, [cleanup, onSolve, onFail])
 
   const updateHUD = useCallback(() => {
@@ -69,17 +71,24 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
   }, [])
 
   const handleClick = useCallback((e) => {
+    console.log('[GLITCH] Click', e.target.tagName, 'dg:', e.target.dataset?.g, activeRef.current ? 'active' : 'inactive')
     if (!activeRef.current) return
     const sp = e.target
     if (!sp || sp.tagName !== 'SPAN') return
+    console.log('[GLITCH] Span OK, dataset.g:', sp.dataset.g)
 
     if (sp.dataset.g === '1') {
-      if (sp.classList.contains('gr-hit')) return
+      if (sp.classList.contains('gr-hit')) { console.log('[GLITCH] Already hit'); return }
       sp.className = 'gr-ch gr-gl gr-hit'
       foundRef.current++
+      console.log('[GLITCH] found=', foundRef.current, 'total=', totalRef.current)
       sfx.click()
+      console.log('[GLITCH] chamando updateHUD')
       updateHUD()
-      if (foundRef.current >= totalRef.current) endGame(true)
+      if (foundRef.current >= totalRef.current) {
+        console.log('[GLITCH] VITORIA! chamando endGame(true)')
+        endGame(true)
+      }
     } else {
       sp.classList.add('gr-err')
       setTimeout(() => sp.classList.remove('gr-err'), 320)
