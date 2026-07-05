@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch buildGrid null wrapRef + charW DOM + Bíblia #003 + v10.192.7)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch rowBreak \n entre linhas do grid + v10.192.8)
 
 ---
 

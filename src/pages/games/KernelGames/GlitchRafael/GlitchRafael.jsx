@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useReader } from '../../../../context/ReaderContext'
 import { useLanguage } from '../../../../context/LanguageContext'
@@ -274,9 +274,12 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
             else if (isRevealed) cls += ' gr-revealed'
             else if (d.isGlitch) cls += ' gr-gl'
             return (
-              <span key={d.idx} className={cls} data-idx={d.idx}>
-                {d.char}
-              </span>
+              <Fragment key={d.idx}>
+                {d.rowBreak ? '\n' : null}
+                <span className={cls} data-idx={d.idx}>
+                  {d.char}
+                </span>
+              </Fragment>
             )
           })}
         </pre>

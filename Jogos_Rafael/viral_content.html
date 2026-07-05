@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>VIRAL CONTENT</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap');
+
+:root {
+  --bg:     #05050f;
+  --felt:   #0a0a1a;
+  --grove:  #0d0d20;
+  --olive:  #1a1a3a;
+  --cyan:   #00e5ff;
+  --purple: #b400ff;
+  --red:    #ff0055;
+  --ghost:  #4a5a8a;
+  --khaki:  #c8d8e8;
+  --mono:   'Share Tech Mono', monospace;
+  --head:   'Bebas Neue', sans-serif;
+  --body:   'Barlow', sans-serif;
+  --touch:  44px;
+
+  /* Cores dos jogadores */
+  --p1:     #00e5ff;
+  --p1dim:  rgba(0,229,255,0.15);
+  --p2:     #ff0055;
+  --p2dim:  rgba(255,0,85,0.15);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html,body { width:100%; height:100%; overflow:hidden; background:var(--bg); color:var(--khaki); font-family:var(--body); }
+
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.15) 2px,rgba(0,0,0,0.15) 4px);
+}
+
+/* ── SCREENS ── */
+.screen { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px; overflow-y:auto; }
+.screen.off { display:none; }
+
+/* ── CYBER GRID BG ── */
+.cyber-bg {
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(0,229,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,0.04) 1px,transparent 1px),
+    radial-gradient(ellipse 60% 40% at 20% 30%,rgba(180,0,255,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 55% at 75% 20%,rgba(0,229,255,0.05) 0%,transparent 55%);
+  background-size:28px 28px, 28px 28px, auto, auto;
+}
+
+/* ── GLITCH ANIMATION ── */
+@keyframes glitch {
+  0%,92%,100% { text-shadow:0 0 20px var(--cyan); transform:none; }
+  93%  { text-shadow:-3px 0 var(--purple),3px 0 var(--red); transform:skewX(-2deg); }
+  94%  { text-shadow:3px 0 var(--purple),-3px 0 var(--red); transform:skewX(2deg); }
+  95%  { text-shadow:0 0 20px var(--cyan); transform:none; }
+}
+@keyframes popIn { from{transform:scale(2);opacity:0} to{transform:scale(1);opacity:1} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+@keyframes pulse  { 0%,100%{opacity:1} 50%{opacity:.45} }
+
+/* ── MENU ── */
+.menu-box {
+  display:flex; flex-direction:column; align-items:stretch;
+  padding:32px 28px; width:100%; max-width:380px;
+  background:rgba(10,10,26,0.7);
+  border:1px solid rgba(0,229,255,0.15);
+  backdrop-filter:blur(2px);
+}
+.menu-logo {
+  font-family:var(--head); font-size:3rem; letter-spacing:.15em;
+  color:var(--cyan); text-align:center; line-height:1; margin-bottom:4px;
+  text-shadow:0 0 20px var(--cyan);
+  animation:glitch 5s infinite;
+}
+.menu-tagline {
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.2em;
+  color:var(--ghost); text-align:center; text-transform:uppercase;
+  margin-bottom:36px;
+}
+.menu-btn {
+  font-family:var(--mono); font-size:.8rem; letter-spacing:.12em;
+  text-transform:uppercase; border:none; border-top:1px solid rgba(0,229,255,0.15);
+  color:var(--khaki); background:transparent; padding:0; cursor:pointer;
+  transition:all .15s; width:100%; text-align:left;
+  display:flex; align-items:center; gap:12px; min-height:56px;
+}
+.menu-btn:last-child { border-bottom:1px solid rgba(0,229,255,0.15); }
+.menu-btn:active,.menu-btn:hover { color:var(--cyan); padding-left:6px; }
+.menu-btn-arrow { color:var(--ghost); font-size:.65rem; flex-shrink:0; }
+.menu-btn-label { flex:1; }
+.menu-btn-sub { font-size:.58rem; color:var(--ghost); letter-spacing:.06em; display:block; margin-top:2px; text-transform:none; }
+
+/* ── COUNTDOWN ── */
+#cdown { background:var(--bg); }
+.cdown-n { font-family:var(--head); font-size:9rem; line-height:1; color:var(--cyan); text-shadow:0 0 30px var(--cyan); animation:popIn .6s cubic-bezier(.2,1.4,.4,1) both; }
+
+/* ── HANDOFF ── */
+.handoff-box {
+  text-align:center; padding:36px 32px; width:100%; max-width:360px;
+  background:rgba(10,10,26,0.7); border:1px solid rgba(0,229,255,0.2);
+  backdrop-filter:blur(2px);
+}
+.handoff-order { font-family:var(--mono); font-size:.6rem; letter-spacing:.3em; color:var(--ghost); text-transform:uppercase; margin-bottom:10px; }
+.handoff-player { font-family:var(--head); font-size:3.2rem; letter-spacing:.15em; line-height:1; margin-bottom:6px; }
+.handoff-sub { font-family:var(--mono); font-size:.6rem; letter-spacing:.12em; color:var(--ghost); text-transform:uppercase; margin-bottom:28px; }
+.handoff-btn {
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+  border:1px solid var(--ghost); color:var(--ghost); background:transparent;
+  width:100%; cursor:pointer; transition:.2s; min-height:var(--touch);
+  display:flex; align-items:center; justify-content:center;
+}
+.handoff-btn:active,.handoff-btn:hover { background:rgba(0,229,255,.1); border-color:var(--cyan); color:var(--cyan); }
+
+/* ── AI WAIT ── */
+.ai-wait-box { text-align:center; padding:40px 32px; width:100%; max-width:340px; background:rgba(10,10,26,0.7); border:1px solid rgba(0,229,255,0.2); }
+.ai-wait-label { font-family:var(--mono); font-size:.6rem; letter-spacing:.3em; color:var(--ghost); text-transform:uppercase; margin-bottom:14px; }
+.ai-wait-title { font-family:var(--head); font-size:2.4rem; letter-spacing:.15em; color:var(--cyan); line-height:1; margin-bottom:24px; }
+.ai-dots { display:flex; gap:8px; justify-content:center; margin-bottom:20px; }
+.ai-dot  { width:8px; height:8px; background:var(--cyan); border-radius:50%; animation:aiPulse 1.2s ease-in-out infinite; }
+.ai-dot:nth-child(2){animation-delay:.2s} .ai-dot:nth-child(3){animation-delay:.4s}
+@keyframes aiPulse { 0%,100%{opacity:.2;transform:scale(.8)} 50%{opacity:1;transform:scale(1.2);background:var(--purple)} }
+.ai-wait-sub { font-family:var(--mono); font-size:.58rem; letter-spacing:.15em; color:var(--ghost); text-transform:uppercase; opacity:.6; }
+
+/* ── GAME SCREEN ── */
+#game { padding:0; justify-content:flex-start; }
+
+.game-hud {
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:8px 14px; border-bottom:1px solid var(--olive);
+  background:rgba(5,5,15,.95); flex-shrink:0;
+}
+.player-badge {
+  display:flex; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  padding:4px 10px; border:1px solid; border-radius:2px;
+  transition:all .3s;
+}
+.player-badge.p1 { color:var(--cyan);   border-color:rgba(0,229,255,.4);  background:rgba(0,229,255,.06); }
+.player-badge.p2 { color:var(--red);    border-color:rgba(255,0,85,.4);   background:rgba(255,0,85,.06); }
+.player-badge.active.p1 { background:rgba(0,229,255,.15); border-color:var(--cyan);  box-shadow:0 0 10px rgba(0,229,255,.3); }
+.player-badge.active.p2 { background:rgba(255,0,85,.15);  border-color:var(--red);   box-shadow:0 0 10px rgba(255,0,85,.3); }
+.badge-dot { width:7px; height:7px; border-radius:50%; background:currentColor; }
+.badge-name { font-size:.68rem; }
+.badge-count { font-family:var(--head); font-size:1.1rem; margin-left:2px; }
+
+.turn-label {
+  font-family:var(--head); font-size:1.1rem; letter-spacing:.1em;
+  text-align:center;
+}
+
+/* Board */
+.board-wrap { flex:1; width:100%; display:flex; align-items:center; justify-content:center; padding:12px; }
+
+.board {
+  display:grid; grid-template-columns:repeat(5,1fr);
+  gap:4px; width:100%; max-width:440px;
+}
+
+.cell {
+  aspect-ratio:1; border:1px solid var(--olive);
+  background:var(--felt); border-radius:4px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; position:relative; overflow:hidden;
+  transition:border-color .15s, background .15s;
+}
+.cell::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,transparent 60%);
+  pointer-events:none;
+}
+.cell.p1 { background:var(--p1dim); border-color:rgba(0,229,255,.4); }
+.cell.p2 { background:var(--p2dim); border-color:rgba(255,0,85,.4); }
+.cell.valid:not(.p2-owned) { border-color:rgba(0,229,255,.6); cursor:pointer; }
+.cell.valid.p1:not(.p2-owned) { box-shadow:inset 0 0 8px rgba(0,229,255,.15); }
+.cell:not(.valid) { cursor:default; }
+
+/* Orbs dentro da célula */
+.orbs {
+  display:flex; flex-wrap:wrap; gap:2px;
+  align-items:center; justify-content:center;
+  padding:4px; width:100%; height:100%;
+}
+.orb {
+  border-radius:50%;
+  transition:all .25s cubic-bezier(.2,1.4,.4,1);
+}
+
+/* Animação de explosão */
+.cell.exploding { animation:explodeCell .35s ease-out; }
+@keyframes explodeCell {
+  0%   { transform:scale(1); }
+  40%  { transform:scale(1.25); filter:brightness(2); }
+  100% { transform:scale(1); filter:brightness(1); }
+}
+.cell.receiving { animation:receiveCell .3s ease-out; }
+@keyframes receiveCell {
+  0%   { transform:scale(1); }
+  50%  { transform:scale(1.1); }
+  100% { transform:scale(1); }
+}
+
+/* Log de turno */
+.game-log {
+  width:100%; padding:6px 14px;
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.08em;
+  color:var(--ghost); text-align:center;
+  border-top:1px solid var(--olive); flex-shrink:0;
+  min-height:28px; background:rgba(5,5,15,.8);
+}
+
+/* ── RESULT ── */
+#result { gap:16px; }
+.res-tag   { font-size:.62rem; letter-spacing:.35em; color:var(--ghost); text-transform:uppercase; font-family:var(--mono); }
+.res-title { font-family:var(--head); font-size:3.2rem; letter-spacing:.12em; line-height:1; text-align:center; }
+.res-title.p1-win { color:var(--cyan); text-shadow:0 0 20px var(--cyan); }
+.res-title.p2-win { color:var(--red);  text-shadow:0 0 20px var(--red); }
+.res-stats { border:1px solid var(--ghost); padding:14px 22px; font-family:var(--mono); font-size:.65rem; letter-spacing:.1em; color:var(--ghost); line-height:2.2; text-align:center; min-width:260px; background:rgba(0,229,255,.03); }
+.res-stats b { color:var(--cyan); font-weight:normal; }
+.res-btns { display:flex; flex-direction:column; gap:8px; width:100%; max-width:300px; margin-top:6px; }
+.res-btn  { background:transparent; font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; border:1px solid; min-height:var(--touch); cursor:pointer; transition:.15s; }
+.res-btn.p { border-color:var(--cyan);  color:var(--cyan); }
+.res-btn.s { border-color:var(--ghost); color:var(--ghost); }
+.res-btn.p:active,.res-btn.p:hover { background:var(--cyan);  color:var(--bg); }
+.res-btn.s:active,.res-btn.s:hover { border-color:var(--cyan); color:var(--cyan); }
+
+/* ── MSG OVERLAY ── */
+.msg-overlay { display:none; position:fixed; inset:0; z-index:500; background:rgba(5,5,15,.9); align-items:center; justify-content:center; padding:24px; }
+.msg-overlay.show { display:flex; }
+.msg-box { background:var(--felt); border:1px solid var(--olive); padding:28px 24px; width:100%; max-width:380px; text-align:center; display:flex; flex-direction:column; gap:16px; }
+.msg-accent { font-family:var(--head); font-size:1.4rem; letter-spacing:.15em; color:var(--cyan); }
+.msg-body { font-family:var(--mono); font-size:.68rem; color:var(--khaki); letter-spacing:.08em; line-height:1.9; }
+.msg-close { font-family:var(--mono); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; border:1px solid var(--olive); color:var(--ghost); background:transparent; cursor:pointer; min-height:var(--touch); transition:.15s; }
+.msg-close:hover { border-color:var(--cyan); color:var(--cyan); }
+
+/* ── ONLINE PLACEHOLDER ── */
+.online-box { text-align:center; padding:40px 28px; width:100%; max-width:360px; background:rgba(10,10,26,.7); border:1px solid rgba(0,229,255,.15); }
+.online-title { font-family:var(--head); font-size:2rem; letter-spacing:.15em; color:var(--purple); margin-bottom:12px; }
+.online-sub { font-family:var(--mono); font-size:.65rem; color:var(--ghost); letter-spacing:.1em; line-height:1.8; margin-bottom:28px; }
+.back-btn { font-family:var(--mono); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; border:1px solid var(--ghost); color:var(--ghost); background:transparent; cursor:pointer; min-height:var(--touch); width:100%; transition:.15s; }
+.back-btn:hover { border-color:var(--cyan); color:var(--cyan); }
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+<div id="menu" class="screen cyber-bg">
+  <div class="menu-box">
+    <div class="menu-logo">VIRAL<br>CONTENT</div>
+    <div class="menu-tagline">Protocolo de Contágio · 5×5</div>
+    <button class="menu-btn" onclick="startLocal()">
+      <span class="menu-btn-arrow">◎</span>
+      <span class="menu-btn-label">Rede Local<span class="menu-btn-sub">Dois operadores · mesmo terminal</span></span>
+    </button>
+    <button class="menu-btn" onclick="showOnline()">
+      <span class="menu-btn-arrow">◎</span>
+      <span class="menu-btn-label">Rede Global<span class="menu-btn-sub">Multiplayer online · em breve</span></span>
+    </button>
+    <button class="menu-btn" onclick="startVsAI()">
+      <span class="menu-btn-arrow">◎</span>
+      <span class="menu-btn-label">Contra IA<span class="menu-btn-sub">Execute o agente autônomo</span></span>
+    </button>
+  </div>
+</div>
+
+<!-- ONLINE PLACEHOLDER -->
+<div id="online" class="screen cyber-bg off">
+  <div class="online-box">
+    <div class="online-title">REDE GLOBAL</div>
+    <div class="online-sub">Servidor de matchmaking offline.<br>Protocolo em desenvolvimento.<br>Aguarde a próxima atualização.</div>
+    <button class="back-btn" onclick="show('menu')">← Voltar ao Terminal</button>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div id="cdown" class="screen off" style="background:var(--bg)">
+  <div class="cdown-n" id="cdown-n">3</div>
+</div>
+
+<!-- HANDOFF -->
+<div id="handoff" class="screen cyber-bg off">
+  <div class="handoff-box">
+    <div class="handoff-order">Passe o terminal para</div>
+    <div class="handoff-player" id="handoff-name">Operador 1</div>
+    <div class="handoff-sub">Confirme quando estiver pronto</div>
+    <button class="handoff-btn" onclick="confirmHandoff()">◎ Terminal confirmado</button>
+  </div>
+</div>
+
+<!-- AI WAIT -->
+<div id="ai-wait" class="screen cyber-bg off">
+  <div class="ai-wait-box">
+    <div class="ai-wait-label">Oponente</div>
+    <div class="ai-wait-title">IA</div>
+    <div class="ai-dots"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div>
+    <div class="ai-wait-sub" id="ai-sub">Calculando vetor de infecção...</div>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen off">
+  <div class="game-hud">
+    <div class="player-badge p1 active" id="badge-p1">
+      <div class="badge-dot"></div>
+      <span class="badge-name">OPERADOR 1</span>
+      <span class="badge-count" id="count-p1">0</span>
+    </div>
+    <div class="turn-label" id="turn-label">—</div>
+    <div class="player-badge p2" id="badge-p2">
+      <span class="badge-count" id="count-p2">0</span>
+      <span class="badge-name" id="p2-name">OPERADOR 2</span>
+      <div class="badge-dot"></div>
+    </div>
+  </div>
+  <div class="board-wrap">
+    <div class="board" id="board"></div>
+  </div>
+  <div class="game-log" id="game-log">Vez do Operador 1 — clique em uma célula para infectar.</div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="screen cyber-bg off">
+  <div class="res-tag"   id="rtag"></div>
+  <div class="res-title" id="rtitle"></div>
+  <div class="res-stats" id="rstats"></div>
+  <div class="res-btns">
+    <button class="res-btn p" onclick="playAgain()">◎ Nova Partida</button>
+    <button class="res-btn s" onclick="show('menu')">← Menu Principal</button>
+  </div>
+</div>
+
+<!-- MSG -->
+<div class="msg-overlay" id="msg-overlay">
+  <div class="msg-box">
+    <div class="msg-accent" id="msg-title"></div>
+    <div class="msg-body"   id="msg-body"></div>
+    <button class="msg-close" onclick="closeMsg()">◎ Entendido</button>
+  </div>
+</div>
+
+<script>
+// ── CONSTANTES ───────────────────────────────────────────────────────────────
+const SIZE = 5;
+const TOTAL = SIZE * SIZE;
+
+// Vizinhos em cruz (N, S, E, W)
+function neighbors(idx) {
+  const r = Math.floor(idx / SIZE), c = idx % SIZE;
+  const nb = [];
+  if (r > 0)       nb.push(idx - SIZE);
+  if (r < SIZE-1)  nb.push(idx + SIZE);
+  if (c > 0)       nb.push(idx - 1);
+  if (c < SIZE-1)  nb.push(idx + 1);
+  return nb;
+}
+
+// Limite de peças antes de explodir = número de vizinhos da célula
+function limit(idx) { return neighbors(idx).length; }
+
+// ── ESTADO ───────────────────────────────────────────────────────────────────
+// board[i] = { owner: 0|1|2, count: 0+ }  (0 = vazio)
+let board = [];
+let currentPlayer = 1;   // 1 ou 2
+let moveCount     = 0;
+let gameMode      = 'local';  // 'local' | 'ai'
+let animating     = false;
+let handoffCb     = null;
+let lastMode      = 'local';
+
+// ── TELAS ────────────────────────────────────────────────────────────────────
+function show(id) {
+  ['menu','online','cdown','handoff','ai-wait','game','result'].forEach(s =>
+    document.getElementById(s).classList.toggle('off', s !== id)
+  );
+}
+
+// ── MENU ACTIONS ─────────────────────────────────────────────────────────────
+function startLocal() { lastMode = gameMode = 'local'; countdown(() => initGame()); }
+function startVsAI()  { lastMode = gameMode = 'ai';    countdown(() => initGame()); }
+function showOnline()  { show('online'); }
+function playAgain()   { lastMode === 'ai' ? startVsAI() : startLocal(); }
+
+// ── COUNTDOWN ────────────────────────────────────────────────────────────────
+function countdown(cb) {
+  show('cdown');
+  const el = document.getElementById('cdown-n');
+  let n = 3;
+  const step = () => {
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
+    el.textContent = n === 0 ? 'GO!' : n;
+    el.style.color      = n === 0 ? 'var(--purple)' : 'var(--cyan)';
+    el.style.textShadow = n === 0 ? '0 0 30px var(--purple)' : '0 0 30px var(--cyan)';
+    if (n === 0) { setTimeout(cb, 550); return; }
+    n--; setTimeout(step, 850);
+  };
+  step();
+}
+
+// ── HANDOFF (modo local) ─────────────────────────────────────────────────────
+function doHandoff(playerNum, cb) { cb(); }
+
+function confirmHandoff() {
+  if (handoffCb) { const cb = handoffCb; handoffCb = null; cb(); }
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+function initGame() {
+  board        = Array.from({length: TOTAL}, () => ({ owner:0, count:0 }));
+  currentPlayer = 1;
+  moveCount     = 0;
+  animating     = false;
+
+  const p2Label = gameMode === 'ai' ? 'IA' : 'OPERADOR 2';
+  document.getElementById('p2-name').textContent = p2Label;
+
+  show('game');
+  renderBoard();
+  updateHUD();
+  setLog(`Vez do Operador 1 — clique em uma célula para infectar.`);
+
+  // Em modo IA, começa pelo P1 (humano)
+}
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+function renderBoard() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+  for (let i = 0; i < TOTAL; i++) {
+    const cell = document.createElement('div');
+    cell.className = cellClass(i);
+    cell.id        = `cell-${i}`;
+    cell.onclick   = () => onCellClick(i);
+
+    const orbs = document.createElement('div');
+    orbs.className = 'orbs';
+    orbs.id        = `orbs-${i}`;
+    renderOrbs(orbs, board[i]);
+
+    cell.appendChild(orbs);
+    el.appendChild(cell);
+  }
+}
+
+function cellClass(i) {
+  const c  = board[i];
+  const isValid = c.owner === 0 || c.owner === currentPlayer;
+  let cls = 'cell';
+  if (c.owner === 1) cls += ' p1';
+  if (c.owner === 2) cls += ' p2';
+  if (isValid && !animating) cls += ' valid';
+  if (c.owner === (3 - currentPlayer)) cls += ' p2-owned'; // bloqueia highlight
+  return cls;
+}
+
+function renderOrbs(orbsEl, cell) {
+  orbsEl.innerHTML = '';
+  const count = cell.count;
+  if (count === 0) return;
+
+  const col   = cell.owner === 1 ? 'var(--p1)' : 'var(--red)';
+  const glow  = cell.owner === 1 ? 'rgba(0,229,255,.5)' : 'rgba(255,0,85,.5)';
+  const size  = count <= 2 ? 14 : count <= 3 ? 11 : 9;
+
+  for (let k = 0; k < count; k++) {
+    const orb = document.createElement('div');
+    orb.className = 'orb';
+    orb.style.cssText = `width:${size}px;height:${size}px;background:${col};box-shadow:0 0 5px ${glow};`;
+    orbsEl.appendChild(orb);
+  }
+}
+
+function updateCell(i) {
+  const cellEl = document.getElementById(`cell-${i}`);
+  const orbsEl = document.getElementById(`orbs-${i}`);
+  if (!cellEl || !orbsEl) return;
+  cellEl.className = cellClass(i);
+  renderOrbs(orbsEl, board[i]);
+}
+
+function updateHUD() {
+  let p1 = 0, p2 = 0;
+  board.forEach(c => { if (c.owner===1) p1+=c.count; if (c.owner===2) p2+=c.count; });
+  document.getElementById('count-p1').textContent = p1;
+  document.getElementById('count-p2').textContent = p2;
+
+  const b1 = document.getElementById('badge-p1');
+  const b2 = document.getElementById('badge-p2');
+  b1.classList.toggle('active', currentPlayer === 1);
+  b2.classList.toggle('active', currentPlayer === 2);
+
+  const p2Name = gameMode === 'ai' ? 'IA' : 'OPERADOR 2';
+  document.getElementById('turn-label').textContent =
+    currentPlayer === 1 ? 'OPERADOR 1' : p2Name;
+}
+
+function setLog(msg) {
+  document.getElementById('game-log').textContent = msg;
+}
+
+// ── CLICK ────────────────────────────────────────────────────────────────────
+function onCellClick(i) {
+  if (animating) return;
+  const cell = board[i];
+  if (cell.owner !== 0 && cell.owner !== currentPlayer) return;
+  placeOrb(i, currentPlayer);
+}
+
+// ── LÓGICA ───────────────────────────────────────────────────────────────────
+function placeOrb(i, player) {
+  animating = true;
+  board[i].owner  = player;
+  board[i].count += 1;
+  moveCount++;
+  updateCell(i);
+  updateHUD();
+
+  const p2Name = gameMode === 'ai' ? 'IA' : 'OPERADOR 2';
+  setLog(`${player===1?'Operador 1':p2Name} infectou a célula (${Math.floor(i/SIZE)+1},${i%SIZE+1}).`);
+
+  setTimeout(() => {
+    resolveExplosions(() => {
+      if (checkWin()) return;
+      currentPlayer = currentPlayer === 1 ? 2 : 1;
+      animating = false;
+      updateHUD();
+      afterTurn();
+    });
+  }, 150);
+}
+
+function resolveExplosions(cb) {
+  const queue = [];
+  for (let i = 0; i < TOTAL; i++) {
+    if (board[i].count >= limit(i)) queue.push(i);
+  }
+  if (queue.length === 0) { cb(); return; }
+
+  let idx = 0;
+  const step = () => {
+    if (idx >= queue.length) {
+      // Verifica vitória após cada onda — interrompe a cascata se alguém foi erradicado
+      if (midCascadeWin()) return;
+
+      const newQueue = [];
+      for (let i = 0; i < TOTAL; i++) {
+        if (board[i].count >= limit(i)) newQueue.push(i);
+      }
+      if (newQueue.length === 0) { cb(); return; }
+      queue.length = 0;
+      newQueue.forEach(x => queue.push(x));
+      idx = 0;
+      setTimeout(step, 80);
+      return;
+    }
+
+    const i = queue[idx++];
+    if (board[i].count < limit(i)) { step(); return; }
+
+    explode(i);
+    updateCell(i);
+    neighbors(i).forEach(n => updateCell(n));
+    updateHUD();
+    setTimeout(step, 120);
+  };
+  step();
+}
+
+// Verifica vitória durante a cascata — para o loop se alguém foi erradicado
+function midCascadeWin() {
+  if (moveCount < 4) return false;
+  let p1 = 0, p2 = 0;
+  board.forEach(c => { if(c.owner===1) p1++; if(c.owner===2) p2++; });
+  if (p1 === 0 && p2 > 0) { endGame(2); return true; }
+  if (p2 === 0 && p1 > 0) { endGame(1); return true; }
+  return false;
+}
+
+function explode(i) {
+  const owner  = board[i].owner;
+  const cellEl = document.getElementById(`cell-${i}`);
+  if (cellEl) { cellEl.classList.add('exploding'); setTimeout(() => cellEl.classList.remove('exploding'), 350); }
+
+  // Célula fonte fica vazia
+  board[i].owner = 0;
+  board[i].count = 0;
+
+  // Distribui para vizinhos
+  neighbors(i).forEach(n => {
+    const nb    = board[n];
+    const prevC = nb.count;
+    nb.owner = owner;           // converte para a cor do explosivo
+    nb.count = prevC + 1;       // herda + 1
+
+    const nbEl = document.getElementById(`cell-${n}`);
+    if (nbEl) { nbEl.classList.add('receiving'); setTimeout(() => nbEl.classList.remove('receiving'), 300); }
+  });
+}
+
+// ── VITÓRIA ──────────────────────────────────────────────────────────────────
+function checkWin() {
+  if (moveCount < 4) return false;  // mínimo 2 peças por lado antes de verificar
+
+  let p1 = 0, p2 = 0;
+  board.forEach(c => { if(c.owner===1) p1++; if(c.owner===2) p2++; });
+
+  if (p1 === 0 && p2 > 0) { endGame(2); return true; }
+  if (p2 === 0 && p1 > 0) { endGame(1); return true; }
+  return false;
+}
+
+function endGame(winner) {
+  animating = false;
+  const isAIWin = gameMode === 'ai' && winner === 2;
+  const isHumanWin = gameMode === 'ai' && winner === 1;
+
+  let p1c = 0, p2c = 0, total = 0;
+  board.forEach(c => { if(c.owner===1){p1c+=c.count;} if(c.owner===2){p2c+=c.count;} total+=c.count; });
+
+  const p2Name = gameMode === 'ai' ? 'IA' : 'OPERADOR 2';
+
+  setTimeout(() => {
+    show('result');
+    document.getElementById('rtag').textContent   = winner===1 ? 'vitória' : 'derrota';
+    document.getElementById('rtitle').textContent = winner===1 ? 'INFECÇÃO\nCOMPLETA' : 'SISTEMA\nNEUTRALIZADO';
+    document.getElementById('rtitle').className   = `res-title ${winner===1?'p1-win':'p2-win'}`;
+    document.getElementById('rstats').innerHTML   = `
+VENCEDOR: <b>${winner===1?'OPERADOR 1':p2Name}</b><br>
+JOGADAS: <b>${moveCount}</b><br>
+CÉLULAS P1: <b>${p1c}</b> &nbsp;|&nbsp; CÉLULAS P2: <b>${p2c}</b>
+    `.trim();
+  }, 600);
+}
+
+// ── PÓS-TURNO ────────────────────────────────────────────────────────────────
+function afterTurn() {
+  if (gameMode === 'ai' && currentPlayer === 2) {
+    setTimeout(() => {
+      const move = aiChooseMove();
+      if (move !== -1) placeOrb(move, 2);
+      else { currentPlayer = 1; animating = false; updateHUD(); }
+    }, 500);
+  } else if (gameMode === 'local') {
+    doHandoff(currentPlayer, () => {
+      show('game');
+      const p2Name = currentPlayer === 2 ? 'Operador 2' : 'Operador 1';
+      setLog(`Vez do ${p2Name==='Operador 2'?'Operador 2':'Operador 1'} — clique em uma célula para infectar.`);
+    });
+  } else {
+    setLog(`Vez do ${currentPlayer===1?'Operador 1':'Operador 2'} — clique em uma célula para infectar.`);
+  }
+}
+
+// ── IA ───────────────────────────────────────────────────────────────────────
+function aiChooseMove() {
+  const moves = [];
+  for (let i = 0; i < TOTAL; i++) {
+    if (board[i].owner === 0 || board[i].owner === 2) moves.push(i);
+  }
+  if (moves.length === 0) return -1;
+
+  // Estratégia: prefere células a 1 peça do estouro (pode gerar cadeia)
+  // depois células próprias com mais peças, depois célula aleatória
+  const scored = moves.map(i => {
+    const c   = board[i];
+    const lim = limit(i);
+    const nb  = neighbors(i);
+
+    // Pontuação base
+    let score = c.count * 2;
+
+    // Muito próximo do limite → alta prioridade
+    if (c.count === lim - 1) score += 20;
+
+    // Vizinhos do oponente → ganhar terreno
+    const enemyNb = nb.filter(n => board[n].owner === 1).length;
+    score += enemyNb * 4;
+
+    // Cantos e bordas têm limite menor → explodem mais fácil
+    score += (4 - lim) * 3;
+
+    // Pequeno ruído para variar
+    score += Math.random() * 3;
+
+    return { i, score };
+  });
+
+  scored.sort((a,b) => b.score - a.score);
+  return scored[0].i;
+}
+
+// ── MSG ──────────────────────────────────────────────────────────────────────
+function showMsg(title, body) {
+  document.getElementById('msg-title').textContent = title;
+  document.getElementById('msg-body').textContent  = body;
+  document.getElementById('msg-overlay').classList.add('show');
+}
+function closeMsg() { document.getElementById('msg-overlay').classList.remove('show'); }
+</script>
+</body>
+</html>
