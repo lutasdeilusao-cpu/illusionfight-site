@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (DIAG: console.log handleClick Glitch + v10.192.12)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-05 (fix: salvarDeckTipo limpa cartas antigas do deck_type + v10.192.14)
 
 ---
 
@@ -488,10 +488,10 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | v2 single-player (versão atual) |
-| `/games/toptrumps/v2` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps |
-| `/games/toptrumps/v2/reward-test` | TopTrumpsSP_v2_RewardTest | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2_RewardTest.jsx` | ✅ v5.44.7 | ✅ Teste de recompensa | ✅ PT ✅ EN ✅ ES | Tela de recompensa isolada para testes |
-| `/games/toptrumps/legacy` | TopTrumps | `src/pages/games/TopTrumps/TopTrumps.jsx` | ✅ v5.44.7 | ✅ 1ª temp. ✅ FichaGate | ✅ PT ✅ EN ✅ ES | v1 legado (acesso por FichaGateRoute) |
+| `/games/toptrumps` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | v2 single-player (versão atual) |
+| `/games/toptrumps/v2` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps |
+| `/games/toptrumps/v2/reward-test` | TopTrumpsSP_v2_RewardTest | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2_RewardTest.jsx` | ✅ v5.44.8 | ✅ Teste de recompensa | ✅ PT ✅ EN ✅ ES | Tela de recompensa isolada para testes |
+| `/games/toptrumps/legacy` | TopTrumps | `src/pages/games/TopTrumps/TopTrumps.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ FichaGate | ✅ PT ✅ EN ✅ ES | v1 legado (acesso por FichaGateRoute) |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | JSON v2 — id numérico em vez de slug |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -554,7 +554,7 @@
 | `MINIGAMES_VERSION` | **4.3.2** | FIX: referências Kernel Games removidas de MiniGames.jsx |
 | `SLIDING_VERSION` | **1.4.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `TS_VERSION` | **5.44.7** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
+| `TS_VERSION` | **5.44.8** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |

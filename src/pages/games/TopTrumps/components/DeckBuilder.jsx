@@ -87,11 +87,13 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
     sfx.click()
     setSalvando(true)
     await salvarNomeDeck(userId, deckType, deckNome)
-    await salvarDeckTipo(userId, deckType, selecionadas)
+    const ok = await salvarDeckTipo(userId, deckType, selecionadas)
     setSalvando(false)
-    setSalvo(true)
-    setTimeout(() => setSalvo(false), 2000)
-    if (onSaved) onSaved()
+    if (ok) {
+      setSalvo(true)
+      setTimeout(() => setSalvo(false), 2000)
+      if (onSaved) onSaved()
+    }
   }
 
   const handleLimpar = () => {
