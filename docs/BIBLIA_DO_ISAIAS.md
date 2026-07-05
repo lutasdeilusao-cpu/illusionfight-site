@@ -14,6 +14,18 @@
 > - NUNCA usar `mazeRef.current` dentro da função que constrói o maze — a ref ainda não foi atribuída. Passar a variável local como parâmetro.  
 > - Testar com Playwright NÃO substitui teste real — o agente deve mentalmente rastrear o fluxo de renderização (fase → quais elementos estão no DOM → quais refs estão populadas) ANTES de declarar pronto.  
 > - **Teste mental de null ref é OBRIGATÓRIO** para qualquer código que acesse refs em callbacks disparados por setTimeout/useEffect.
+>
+> **#004 — 2026-07-04:** GlitchRafael grid render usava React JSX (`gridData.map()` → `<span>`) e IGNORAVA o `rowBreak` dos dados. Todos os 1218 caracteres do grid eram renderizados numa ÚNICA LINHA dentro de `<pre>` com `white-space: pre`, estourando horizontalmente o container. O dado `rowBreak: i > 0 && i % cols === 0` EXISTIA no `buildGrid()` mas NUNCA era usado no JSX.
+>
+> **Tentativa falha de fix:** `{d.rowBreak ? '\n' : null}` dentro de `<Fragment>`. Em React produção, o minificador converte `null` para `''` e o reconciler do React 19 otimiza/remove text nodes `\n` considerando-os "insignificantes", resultando em ZERO quebras de linha.
+>
+> **Fix correto:** Construir o grid imperativamente via `document.createDocumentFragment()` + `document.createTextNode('\n')` + `appendChild()`, igual ao original HTML. Armazenar referência ao `<pre>` via `preRef`. O `handleClick` modifica `className` diretamente no DOM (sem `setState`), e `endGame` aplica `sp.style.color` direto nos spans não encontrados — eliminando a necessidade de re-render para atualizações visuais do grid.
+>
+> **Lição:**  
+> - NUNCA confiar em `\n` text nodes via React JSX/VDOM para quebras de linha dentro de `<pre>` — React produção otimiza text nodes adjacentes e pode removê-los.  
+> - SE o original HTML usa DOM imperativo (`createTextNode`, `appendChild`) para construir conteúdo, a versão React DEVE usar o mesmo approach via `useRef` + `useEffect` — React state/JSX NÃO é substituto confiável para manipulação de whitespace em `<pre>`.  
+> - Dados de `buildGrid` que NÃO são usados no render (`rowBreak` existe mas JSX ignora) = BUG. Se uma propriedade existe nos dados, ela DEVE ser usada no render ou removida.  
+> - Playwright test que só verifica console.error NÃO pega grid mal-renderizado. Teste funcional DEVE verificar `pre.textContent.split('\n').length > 1`.
 
 ---
 
