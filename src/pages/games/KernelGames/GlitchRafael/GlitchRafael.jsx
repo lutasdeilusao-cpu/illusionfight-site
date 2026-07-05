@@ -95,7 +95,14 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
     const wrap = wrapRef.current
     if (!wrap) return
     const c = CFG[diff]
-    const charW = c.fs * 0.6
+
+    const measure = document.createElement('span')
+    measure.style.cssText = `font-family:'Share Tech Mono',monospace;font-size:${c.fs}px;position:absolute;visibility:hidden;white-space:pre;`
+    measure.textContent = '0'.repeat(200)
+    document.body.appendChild(measure)
+    const charW = measure.getBoundingClientRect().width / 200
+    document.body.removeChild(measure)
+
     const charH = c.fs * c.lh
 
     const W = wrap.clientWidth - 16
@@ -183,7 +190,7 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
       const t = setTimeout(() => { sfx.countdownTick(); setCdownN(n => n - 1) }, 850)
       return () => clearTimeout(t)
     }
-    const t = setTimeout(() => { sfx.select(); startGame() }, 550)
+    const t = setTimeout(() => { sfx.select(); setPhase('game'); requestAnimationFrame(() => startGame()) }, 550)
     return () => clearTimeout(t)
   }, [phase, cdownN, startGame])
 
