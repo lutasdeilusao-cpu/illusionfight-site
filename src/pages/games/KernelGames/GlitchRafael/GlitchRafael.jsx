@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, Fragment } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useReader } from '../../../../context/ReaderContext'
 import { useLanguage } from '../../../../context/LanguageContext'
@@ -24,12 +24,11 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
   const [cdownN, setCdownN] = useState(initialDiff ? 3 : 3)
   const [found, setFound] = useState(0)
   const [total, setTotal] = useState(0)
-  const [gridData, setGridData] = useState([])
   const [displayTime, setDisplayTime] = useState(0)
-  const [hitIndices, setHitIndices] = useState(new Set())
 
   const cfg = diff ? CFG[diff] : null
   const wrapRef = useRef(null)
+  const preRef = useRef(null)
   const activeRef = useRef(false)
   const tickerRef = useRef(null)
   const t0Ref = useRef(null)
@@ -37,9 +36,7 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
   const foundRef = useRef(0)
   const totalRef = useRef(0)
   const glitchSetRef = useRef(new Set())
-  const hitSetRef = useRef(new Set())
-  const revealedRef = useRef(false)
-  const gridCacheRef = useRef([])
+  const glitchSpansRef = useRef([])
 
   const cleanup = useCallback(() => {
     activeRef.current = false
@@ -51,8 +48,12 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
     cleanup()
 
     if (!win) {
-      revealedRef.current = true
-      setGridData([...gridCacheRef.current])
+      glitchSpansRef.current.forEach(sp => {
+        if (!sp.classList.contains('gr-hit')) {
+          sp.style.color = '#ff0055'
+          sp.style.textShadow = '0 0 8px #ff0055'
+        }
+      })
     }
 
     if (win) sfx.win(); else sfx.lose()
@@ -70,22 +71,16 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
   const handleClick = useCallback((e) => {
     if (!activeRef.current) return
     const sp = e.target
-    if (!sp || sp.tagName !== 'SPAN' || !sp.dataset) return
+    if (!sp || sp.tagName !== 'SPAN') return
 
-    const idx = parseInt(sp.dataset.idx, 10)
-    if (isNaN(idx)) return
-
-    if (glitchSetRef.current.has(idx)) {
-      if (hitSetRef.current.has(idx)) return
-      hitSetRef.current.add(idx)
-      sfx.click()
+    if (sp.dataset.g === '1') {
+      if (sp.classList.contains('gr-hit')) return
+      sp.className = 'gr-ch gr-gl gr-hit'
       foundRef.current++
-      setHitIndices(new Set(hitSetRef.current))
+      sfx.click()
       updateHUD()
       if (foundRef.current >= totalRef.current) endGame(true)
     } else {
-      sp.classList.remove('gr-err')
-      void sp.offsetWidth
       sp.classList.add('gr-err')
       setTimeout(() => sp.classList.remove('gr-err'), 320)
     }
@@ -93,8 +88,15 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
 
   const buildGrid = useCallback(() => {
     const wrap = wrapRef.current
-    if (!wrap) return
+    const pre = preRef.current
+    if (!wrap || !pre) return
     const c = CFG[diff]
+
+    pre.innerHTML = ''
+    glitchSpansRef.current = []
+
+    pre.style.fontSize = c.fs + 'px'
+    pre.style.lineHeight = String(c.lh)
 
     const measure = document.createElement('span')
     measure.style.cssText = `font-family:'Share Tech Mono',monospace;font-size:${c.fs}px;position:absolute;visibility:hidden;white-space:pre;`
@@ -133,26 +135,29 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
     }
 
     glitchSetRef.current = gpos
-    hitSetRef.current = new Set()
+
+    const frag = document.createDocumentFragment()
+    for (let i = 0; i < total; i++) {
+      if (i > 0 && i % cols === 0) frag.appendChild(document.createTextNode('\n'))
+
+      const sp = document.createElement('span')
+      if (gpos.has(i)) {
+        sp.className = 'gr-ch gr-gl'
+        sp.textContent = '2'
+        sp.dataset.g = '1'
+        glitchSpansRef.current.push(sp)
+      } else {
+        sp.className = 'gr-ch'
+        sp.textContent = arr[i]
+      }
+      frag.appendChild(sp)
+    }
+    pre.appendChild(frag)
+
     foundRef.current = 0
     totalRef.current = c.n
-    revealedRef.current = false
-
-    const data = []
-    for (let i = 0; i < total; i++) {
-      data.push({
-        idx: i,
-        char: gpos.has(i) ? '2' : arr[i],
-        isGlitch: gpos.has(i),
-        rowBreak: i > 0 && i % cols === 0,
-      })
-    }
-    gridCacheRef.current = data
-    setGridData(data)
-    setHitIndices(new Set())
-    setFound(0)
-    setTotal(c.n)
-  }, [diff])
+    updateHUD()
+  }, [diff, updateHUD])
 
   const startGame = useCallback(() => {
     const c = CFG[diff]
@@ -174,8 +179,6 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
       }
       updateHUD()
     }, 150)
-
-    setPhase('game')
   }, [diff, buildGrid, updateHUD, endGame])
 
   const countdown = useCallback((d) => {
@@ -265,24 +268,7 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
         </div>
       </div>
       <div className="gr-grid-wrap" ref={wrapRef}>
-        <pre className="gr-grid-pre" style={{ '--gr-fs': cfg?.fs + 'px', '--gr-lh': cfg?.lh }}>
-          {gridData.map(d => {
-            const isHit = hitIndices.has(d.idx)
-            const isRevealed = revealedRef.current && d.isGlitch && !isHit
-            let cls = 'gr-ch'
-            if (isHit) cls += ' gr-hit'
-            else if (isRevealed) cls += ' gr-revealed'
-            else if (d.isGlitch) cls += ' gr-gl'
-            return (
-              <Fragment key={d.idx}>
-                {d.rowBreak ? '\n' : null}
-                <span className={cls} data-idx={d.idx}>
-                  {d.char}
-                </span>
-              </Fragment>
-            )
-          })}
-        </pre>
+        <pre className="gr-grid-pre" ref={preRef} />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch rowBreak \n entre linhas do grid + v10.192.8)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-04 (FIX: Glitch grid imperativo DOM real com \n text nodes + v10.192.9)
 
 ---
 
