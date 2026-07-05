@@ -69,20 +69,25 @@ git push             # push main branch source
 
 | Game | Constant | File |
 |---|---|---|
-| Lendas do LDI | `LDI_VERSION` | `src/pages/LDI/store/useGameStore.js:1` |
-| Jack Dream Candy | `JACK_VERSION` | `src/pages/JackCandy/store/useJackStore.js:1` |
-| Top Trumps | `MP_VERSION` | `src/pages/TopTrumpsMP.jsx:21` (no store dir) |
-| MiniGames | `MINIGAMES_VERSION` | `src/pages/MiniGames/version.js:1` |
-| Arena Mode | `ARENA_VERSION` | `src/pages/Arena/ArenaRoute.jsx:10` (not in store) |
-| Pesadelo Particular | `PP_VERSION` | `src/pages/PesadeloParticular/PP.jsx:7` |
-| Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js` |
 | Site global | `SITE_VERSION` | `src/config/version.js` |
+| Pesadelo Particular | `PP_VERSION` | `src/config/version.js` |
+| Lendas do LDI | `LDI_VERSION` | `src/config/version.js` |
+| Jack Dream Candy | `JACK_VERSION` | `src/config/version.js` |
+| Arena Mode | `ARENA_VERSION` | `src/config/version.js` |
+| Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js` |
+| MiniGames | `MINIGAMES_VERSION` | `src/config/version.js` |
+| Top Trumps SP | `TS_VERSION` | `src/config/version.js` |
+| Top Trumps MP | `TM_VERSION` | `src/config/version.js` |
+
+> **⚠️ Atenção:** A partir de Julho 2026, TODAS as versões estão centralizadas em `src/config/version.js`. As versões individuais nos arquivos de jogo agora são imports desse único arquivo.
 
 Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
 
 
 
 **Automation:** `python deploy.py -g <game> -m "description"` does steps 1-6 in one command. Use `--minor` or `--major` for non-patch bumps. Accepts multiple `-g` values.
+
+> **⚠️ deploy.py restaurado em 2026-07-05** — havia sido deletado na sanitização de documentos (commit `4325d47f`). O script foi reescrito para apontar para `src/config/version.js` (versões centralizadas). Se um agente disser que o deploy.py não existe, é porque não fez `git pull` da versão mais recente.
 
 At the end of every task, deliver a **report table** with the version changes **highlighted**:
 
@@ -127,6 +132,8 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 - **Kernel Games: CSS mobile-first NÃO é media query no fim** — o layout deve ser pensado para retrato desde o início. Adicionar `@media (min-width: 600px)` com overrides no final do CSS é trabalho superficial e NÃO será aceito. O container .kg-page com max-width já resolve a adaptação.
 - **Kernel Games: hierarquia de botão Voltar** — dentro do gameplay: `setPhase('select')` + cleanup (volta ao menu de dificuldade). No menu de dificuldade: `onBack` prop → `navigate('/games')` (volta ao catálogo Kernel Games).
 - **Isaias exige revisão visual real, não checklist burocrática** — toda mudança de CSS/layout deve ser pensada e testada visualmente. Valores arbitrários sem intenção de uso de espaço serão rejeitados. Se o agente não tem certeza do resultado visual, deve ler os CSS existentes e entender o fluxo de layout antes de editar.
+- **deploy.py foi deletado silenciosamente na sanitização de docs (commit `4325d47f`)** — AGENTS.md e BÍBLIA.md continuavam referenciando `python deploy.py` como automação, mas o arquivo não existia. Agentes que tentavam usar recebiam `FileNotFoundError` e "deploy falhou silenciosamente". O script foi reescrito em 2026-07-05 para apontar para `src/config/version.js` (versões centralizadas). Sempre verificar se `deploy.py` existe antes de confiar na documentação. Se sumir de novo, restaurar do histórico do git (`git restore deploy.py`).
+- **Deploy sem commit = deploy perdido** — AGENTS.md workflow diz: bump → build → commit → push → deploy. Pular commit/push faz o código fonte sumir para sempre. O gh-pages recebe o build, mas main não tem o fonte. O script `deploy.py` executa commit+push AUTOMATICAMENTE, evitando esse erro humano. Se o agente estiver fazendo deploy manual, NUNCA pular `git add -A && git commit && git push` antes de `npm run deploy`.
 
 ## Regra Anti-Over-Engineering
 
