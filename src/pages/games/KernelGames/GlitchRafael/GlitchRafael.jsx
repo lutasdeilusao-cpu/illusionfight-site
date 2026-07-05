@@ -107,8 +107,13 @@ function PuzzleGlitchRafael({ onSolve, onFail, onBack, initialDiff }) {
 
     const charH = c.fs * c.lh
 
-    const W = wrap.clientWidth - 16
-    const H = wrap.clientHeight - 12
+    const ws = window.getComputedStyle(wrap)
+    const wPadL = parseFloat(ws.paddingLeft) || 0
+    const wPadR = parseFloat(ws.paddingRight) || 0
+    const wPadT = parseFloat(ws.paddingTop) || 0
+    const wPadB = parseFloat(ws.paddingBottom) || 0
+    const W = wrap.clientWidth - wPadL - wPadR - 16
+    const H = wrap.clientHeight - wPadT - wPadB - 12
     const cols = Math.max(10, Math.floor(W / charW))
     const rows = Math.max(5, Math.floor(H / charH))
     const total = cols * rows
