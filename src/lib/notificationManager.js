@@ -110,16 +110,17 @@ export const notificationManager = {
     const queue = this._getQueue()
     const now = Date.now()
 
-    // Descarta itens expirados do tipo buscado e retorna o primeiro válido
+    // Percorre na ordem FIFO (início → fim), descarta expirados do tipo e retorna o primeiro válido
     let changed = false
-    for (let i = queue.length - 1; i >= 0; i--) {
+    for (let i = 0; i < queue.length; i++) {
       if (queue[i].type !== type) continue
       if (now - queue[i].createdAt > NOTIF_TTL_MS) {
         queue.splice(i, 1)
+        i--                           // ajusta índice após splice
         changed = true
         continue
       }
-      // Item válido encontrado — aplica cooldown check
+      // Primeiro item válido encontrado — aplica cooldown check
       const lastTime = this._getLastTime()
       if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
         const valid = queue[i]
