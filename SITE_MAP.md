@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-05 (fix: salvarDeckTipo limpa cartas antigas do deck_type + v10.192.14)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-10 (auditoria SITE_MAP vs código + v10.192.15)
 
 ---
 
@@ -231,6 +231,25 @@
     │   │   ├── ArenaTatics/             # LDI TATICS
     │   │   ├── Duelo/                   # DUELO LDI
     │   │   ├── JackCandy/               # Jack Dream Beer
+    │   │   │   ├── JackCandy.jsx
+    │   │   │   ├── JackCandy.css
+    │   │   │   ├── components/
+    │   │   │   │   ├── CombatLog.jsx
+    │   │   │   │   ├── DialogoCaso.jsx
+    │   │   │   │   ├── DicaToast.jsx
+    │   │   │   │   ├── IntroNoir.jsx
+    │   │   │   │   ├── Monologue.jsx
+    │   │   │   │   ├── PistaCard.jsx
+    │   │   │   │   └── StatusBar.jsx
+    │   │   │   ├── screens/
+    │   │   │   │   ├── CasoAbertura.jsx, CasoSelect.jsx, Descanso.jsx, Dossier.jsx
+    │   │   │   │   ├── Dungeon.jsx, DungeonSelect.jsx, Interior.jsx, Interrogatorio.jsx
+    │   │   │   │   ├── Intro.jsx, Inventario.jsx, Investigacao.jsx, MainMenu.jsx, Vila.jsx
+    │   │   │   ├── store/
+    │   │   │   │   └── useJackStore.js
+    │   │   │   └── data/
+    │   │   │       ├── casos.js, cidades.js, dungeons.js, flags.js
+    │   │   │       ├── itens.js, monologues.js, npcs.js, pistas.js
     │   │   ├── LDI/                     # LDI LENDAS (RPG narrativo)
     │   │   ├── MiniGames/               # Mini-games arcade
     │   │   ├── PesadeloParticular/      # Pesadelo Particular
@@ -334,10 +353,8 @@
     │   │
     │   └── lab/                         # Laboratório / protótipos
     │       └── Prototype/               # Protótipos (admin-only)
-    │   │       ├── IntroNoir.jsx       # Intro noir
-    │   │       ├── Monologue.jsx       # Monólogo
-    │   │       ├── PistaCard.jsx       # Card de pista
-    │   │       └── StatusBar.jsx       # Barra de status
+    │       │   ├── Prototype.jsx
+    │       │   └── Prototype.css
     │   │
     │   ├── LDI/                        # LDI LENDAS (RPG narrativo)
     │   │   ├── Lobby.jsx               # Lobby do jogo
@@ -512,6 +529,10 @@
 | `/games/kernel-panic` | KernelPanic | `src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx` | ✅ v1.4.0 | ✅ Beta | ✅ PT ✅ EN ✅ ES | Jogo de cartas tático — Manual do operador + Voltar + aba kernel |
 | `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx` | ✅ **v1.4.0** | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — CSS Grid 1fr, safe area, fonte maior |
 | `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
+| `/games/maze-rafael` | MazeRafael | `src/pages/games/KernelGames/MazeRafael/MazeRafael.jsx` | ✅ v1.1.4 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Labirinto (Rafael port) — Canvas maze, DFS generation, safe-area |
+| `/games/glitch-rafael` | GlitchRafael | `src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx` | ✅ v1.1.7 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Encontre o Glitch (Rafael port) — grid imperativo, DOM real com text nodes |
+| `/games/bullet-hell-rafael` | BulletHellRafael | `src/pages/games/KernelGames/BulletHellRafael/BulletHellRafael.jsx` | ✅ v1.1.3 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Bullet Hell (Rafael port) — Canvas 2D, null ref fix |
+| `/games/stabilizer-rafael` | StabilizerRafael | `src/pages/games/KernelGames/StabilizerRafael/StabilizerRafael.jsx` | ✅ v1.1.2 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sinal Estável (Rafael port) — merge wrapper+puzzle |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Produtos físicos e digitais |
 | `/leaderboard` | Leaderboard | `src/pages/platform/Leaderboard.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Ranking global |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 3 modos, banco de perguntas |
@@ -522,7 +543,7 @@
 | `/admin` | Admin | `src/pages/platform/Admin.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Painel admin exclusivo |
 | `/prototype` | Prototype | `src/pages/lab/Prototype/Prototype.jsx` | ✅ v2.5.2 | ✅ | ✅ PT ✅ EN ✅ ES | Hub de protótipos admin-only: cards que navegam para sub-rotas. |
 | `/prototype/srgrm` | SRGRM 3v3 | `src/pages/lab/Prototype/SRGRM/SRGRM.jsx` + `game-logic.js` | ✅ v3.5.0 | ✅ | ✅ PT ✅ EN ✅ ES | Sistema RPG 3v3 (substitui Morto Engine). Criação de personagem, aliados, combate tático. |
-| `/prototype/arenatestbed` | Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` | ✅ v6.21.2 | ✅ | ✅ PT ✅ EN ✅ ES | Testbed de animações e combate da Arena. |
+| `/prototype/arenatestbed` | Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ArenaTestbed.jsx` | ✅ v6.22.0 | ✅ | ✅ PT ✅ EN ✅ ES | Testbed de animações e combate da Arena. |
 | `*` (catch-all) | NotFound | `src/pages/site/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
 > **📌 SE0 e Indexação:**
@@ -551,8 +572,8 @@
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
-| `MINIGAMES_VERSION` | **4.3.2** | FIX: referências Kernel Games removidas de MiniGames.jsx |
-| `SLIDING_VERSION` | **1.4.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
+| `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `TS_VERSION` | **5.44.8** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
 | `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
@@ -560,9 +581,9 @@
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
 | `KP_VERSION` | **1.4.1** | KPMenu: CSS extraído de inline style |
-| `MAZE_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `GLITCH_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `BULLETHELL_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
+| `MAZE_VERSION` | **1.1.4** | fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído |
+| `GLITCH_VERSION` | **1.1.7** | DIAG: console.log handleClick + endGame para depurar vitoria |
+| `BULLETHELL_VERSION` | **1.1.3** | fix: null ref em startGame (countdown sem canvas) |
 | `STABILIZER_VERSION` | **1.1.2** | merge wrapper+puzzle em 1 arquivo + fix commit |
 
 ---
@@ -665,7 +686,9 @@
 
 ### z-index: SearchModal(2000) > AchievementToast(1500) > Navbar(1000) > CookieBanner(200) > LDINotification(150) > TrialBanner(140) > ScrollToTop(100) > MusicSection(50)
 
-### engine/eventBus.js: Singleton pub/sub (on/off/emit). Integrado ao useEffectMachine (ouvinte `effect:end`), EffectRenderer (emite de primitivos), Phase6CombatV2 (`onClearHighlight`/highlights), useCombatEngine (`finalizarTurnoIA`). Substitui chamadas diretas a `finalizarEfeito` por `emit('effect:end', { canal })`.
+### notificationManager (`src/lib/notificationManager.js`): Fila centralizada com TTL de 5 min (`NOTIF_TTL_MS`). Cooldown de 15 min entre notificações. 4 tipos: `achievement` (logado), `cta_conta` (guest), `ldi_tip`, `nina_music` (1x/sessão). `bypassCooldown=true` usado no guest path (findAndPull com cta_conta).
+
+### ArenaTestbed engine/eventBus.js: Singleton pub/sub (on/off/emit). Integrado ao useEffectMachine (ouvinte `effect:end`), EffectRenderer (emite de primitivos), Phase6CombatV2 (`onClearHighlight`/highlights), useCombatEngine (`finalizarTurnoIA`). Substitui chamadas diretas a `finalizarEfeito` por `emit('effect:end', { canal })`.
 
 ### Deploy: `npm run build` → `npm run deploy` (gh-pages). `python deploy.py -g <game> -m "desc"` para automação completa.
 
