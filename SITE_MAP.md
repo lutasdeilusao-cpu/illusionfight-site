@@ -544,7 +544,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.4** | FIX: merge wrapper+puzzle commit + delete Puzzle*.jsx mortos |
+| `SITE_VERSION` | **10.192.15** | fix: TTL 5 min em itens stale da fila de notificações (resolve cta_conta para guest) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |

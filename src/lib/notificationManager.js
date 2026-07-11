@@ -15,6 +15,7 @@
 const STORAGE_LAST = 'ldi-notif-last-time'
 const STORAGE_QUEUE = 'ldi-notif-queue'
 const COOLDOWN_MS = 15 * 60 * 1000 // 15 minutos
+const NOTIF_TTL_MS = 5 * 60 * 1000 // 5 minutos — itens mais velhos são descartados silenciosamente
 
 export const NotificationType = {
   ACHIEVEMENT: 'achievement',
@@ -56,9 +57,21 @@ export const notificationManager = {
     const queue = this._getQueue()
     if (queue.length === 0) return null
 
+    const now = Date.now()
+
+    // Descarta itens expirados do início da fila
+    let changed = false
+    while (queue.length > 0 && now - queue[0].createdAt > NOTIF_TTL_MS) {
+      queue.shift()
+      changed = true
+    }
+    if (queue.length === 0) {
+      if (changed) this._saveQueue(queue)
+      return null
+    }
+
     const item = queue[0]
     const lastTime = this._getLastTime()
-    const now = Date.now()
     if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
       queue.shift()
       this._saveQueue(queue)
@@ -66,6 +79,7 @@ export const notificationManager = {
       return item
     }
 
+    if (changed) this._saveQueue(queue)
     return null // cooldown ativo
   },
 
@@ -94,17 +108,33 @@ export const notificationManager = {
   /** Busca e remove o primeiro item de um tipo específico, com bypass opcional de cooldown */
   findAndPull(type, bypassCooldown = false) {
     const queue = this._getQueue()
-    const idx = queue.findIndex(item => item.type === type)
-    if (idx === -1) return null
-    const item = queue[idx]
-    const lastTime = this._getLastTime()
     const now = Date.now()
-    if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
-      queue.splice(idx, 1)
-      this._saveQueue(queue)
-      this._setLastTime(now)
-      return item
+
+    // Descarta itens expirados do tipo buscado e retorna o primeiro válido
+    let changed = false
+    for (let i = queue.length - 1; i >= 0; i--) {
+      if (queue[i].type !== type) continue
+      if (now - queue[i].createdAt > NOTIF_TTL_MS) {
+        queue.splice(i, 1)
+        changed = true
+        continue
+      }
+      // Item válido encontrado — aplica cooldown check
+      const lastTime = this._getLastTime()
+      if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
+        const valid = queue[i]
+        queue.splice(i, 1)
+        this._saveQueue(queue)
+        this._setLastTime(now)
+        return valid
+      }
+      // Cooldown ativo — não retorna, mas não remove da fila
+      if (changed) this._saveQueue(queue)
+      return null
     }
+
+    // Nenhum item válido do tipo encontrado — salva remoções de expirados se houve
+    if (changed) this._saveQueue(queue)
     return null
   },
 
