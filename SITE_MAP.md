@@ -695,3 +695,10 @@
 
 **Repositório:** https://github.com/lutasdeilusao-cpu/illusionfight-site
 **Site:** https://illusionfight.com/
+
+---
+
+## Pendências técnicas (não urgentes)
+
+- ❌ **[ARENATESTBED]** Limpeza: `archive/getLineInDirection.js`, `archive/PowerLinePreview.jsx/.css` — órfãos confirmados (investigação 2026-07-11), aguardando sessão de testes do Isaias antes de deletar
+- ❌ **[ARENATESTBED]** `ARENATESTBED_MAPA.md` desatualizado — cita `Phase6Combat.jsx` (V1, deletado) 15+ vezes como fase ativa; atualizar para `Phase6CombatV2.jsx` quando a limpeza acontecer

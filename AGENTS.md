@@ -110,19 +110,9 @@ At the end of every task, deliver a **report table** with the version changes **
 - **Always** check ALL cards are present when modifying `src/pages/Extras.jsx`
 - **Always** read `SITE_MAP.md` before changes that affect routes or versions
 - **Read `SITE_MAP.md` first** for route tables, component inventory, data file locations, and z-index layer map before navigating the codebase
-- **Arquivos proibidos — nunca tocar** (caminhos completos, verificados 2026-07-10):
-  - `src/pages/lab/Prototype/ArenaTestbed/engine/combat.js`
-  - `src/pages/games/LDI/engine/combat.js`
-  - `src/pages/games/ArenaTatics/data/combat.js`
-  - `src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js`
-  - `src/pages/lab/Prototype/ArenaTestbed/engine/ai.js`
-  - `src/pages/games/Duelo/engine/ai.js`
-  - `src/pages/lab/Prototype/ArenaTestbed/engine/TurnController.js`
-  - `src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx`
-  - `src/pages/lab/Prototype/ArenaTestbed/` (diretório inteiro — originalmente listado como "src/pages/Arena/", que não existe)
+- **Arquivos proibidos — nunca tocar**:
   - `e2e/routes.spec.js`
-  - `src/pages/lab/Prototype/ArenaTestbed/phases/Phase6Combat.jsx` (deletado em commit `e595baf4`, substituído por `Phase6CombatV2.jsx`)
-  > **⚠️ Múltiplas cópias de `combat.js` e `ai.js` existem em jogos diferentes (LDI, ArenaTatics, Duelo) — são arquivos DISTINTOS, cada um proibido em seu próprio caminho. Nunca inferir por nome de arquivo isolado.**
+  > ArenaTestbed não tem mais restrição de arquivos proibidos (revisado em 11/07/2026 — V1 do combate foi deletado, V2 é a única versão ativa, protótipo em desenvolvimento normal).
 
 ## Decisões e Hurdles Documentados
 
