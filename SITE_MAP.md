@@ -1,6 +1,7 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
 > **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-10 (auditoria SITE_MAP vs código + v10.192.15)
+> **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
 
