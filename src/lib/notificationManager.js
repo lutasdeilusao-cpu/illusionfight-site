@@ -59,12 +59,8 @@ export const notificationManager = {
 
     const now = Date.now()
 
-    // Descarta itens expirados do início da fila
-    let changed = false
-    while (queue.length > 0 && now - queue[0].createdAt > NOTIF_TTL_MS) {
-      queue.shift()
-      changed = true
-    }
+    // Remove todos os itens expirados, independente de tipo ou posição
+    const changed = this._purgeExpired(queue, now)
     if (queue.length === 0) {
       if (changed) this._saveQueue(queue)
       return null
@@ -110,17 +106,13 @@ export const notificationManager = {
     const queue = this._getQueue()
     const now = Date.now()
 
-    // Percorre na ordem FIFO (início → fim), descarta expirados do tipo e retorna o primeiro válido
-    let changed = false
+    // Remove todos os itens expirados, independente de tipo
+    const changed = this._purgeExpired(queue, now)
+
+    // Percorre na ordem FIFO (início → fim), retorna o primeiro item válido do tipo
     for (let i = 0; i < queue.length; i++) {
       if (queue[i].type !== type) continue
-      if (now - queue[i].createdAt > NOTIF_TTL_MS) {
-        queue.splice(i, 1)
-        i--                           // ajusta índice após splice
-        changed = true
-        continue
-      }
-      // Primeiro item válido encontrado — aplica cooldown check
+      // Primeiro item válido do tipo encontrado — aplica cooldown check
       const lastTime = this._getLastTime()
       if (bypassCooldown || now - lastTime >= COOLDOWN_MS) {
         const valid = queue[i]
@@ -134,7 +126,7 @@ export const notificationManager = {
       return null
     }
 
-    // Nenhum item válido do tipo encontrado — salva remoções de expirados se houve
+    // Nenhum item do tipo encontrado — salva remoções de expirados se houve
     if (changed) this._saveQueue(queue)
     return null
   },
@@ -164,6 +156,17 @@ export const notificationManager = {
 
   _saveQueue(q) {
     localStorage.setItem(STORAGE_QUEUE, JSON.stringify(q))
+  },
+
+  _purgeExpired(queue, now) {
+    let changed = false
+    for (let i = queue.length - 1; i >= 0; i--) {
+      if (now - queue[i].createdAt > NOTIF_TTL_MS) {
+        queue.splice(i, 1)
+        changed = true
+      }
+    }
+    return changed
   },
 
   _getLastTime() {
