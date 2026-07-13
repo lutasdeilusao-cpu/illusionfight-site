@@ -10,13 +10,13 @@ export default function Custos() {
   const title = {
     pt: 'Como esse projeto existe | Illusion Fight',
     en: 'How this project exists | Illusion Fight',
-    es: 'CÃ³mo existe este proyecto | Illusion Fight',
+    es: 'Cómo existe este proyecto | Illusion Fight',
   }
 
   const description = {
-    pt: 'Illusion Fight Ã© um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lanÃ§ando em 2026.',
+    pt: 'Illusion Fight é um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lançando em 2026.',
     en: 'Illusion Fight is an independent project. One person, 23 years of development, launching in 2026.',
-    es: 'Illusion Fight es un proyecto independiente. Una persona, 23 aÃ±os de desarrollo, lanzando en 2026.',
+    es: 'Illusion Fight es un proyecto independiente. Una persona, 23 años de desarrollo, lanzando en 2026.',
   }
 
   return (

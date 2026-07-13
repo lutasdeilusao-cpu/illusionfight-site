@@ -40,9 +40,9 @@ export default function Musicas() {
   return (
     <>
       <Helmet>
-        <title>Music â€” Illusion Fight</title>
-        <meta name="description" content="Listen to the Illusion Fight original soundtrack â€” epic instrumental tracks from the LDI universe. Featuring Sinfonia Imperfeita and more." />
-        <meta property="og:title" content="Music â€” Illusion Fight" />
+        <title>Music — Illusion Fight</title>
+        <meta name="description" content="Listen to the Illusion Fight original soundtrack — epic instrumental tracks from the LDI universe. Featuring Sinfonia Imperfeita and more." />
+        <meta property="og:title" content="Music — Illusion Fight" />
         <meta property="og:description" content="Listen to the Illusion Fight original soundtrack from the LDI universe." />
         <meta property="og:url" content="https://illusionfight.com/musicas" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
@@ -72,7 +72,7 @@ export default function Musicas() {
                 </div>
                 <div className="musica-card__info">
                   <h2 className="musica-card__titulo">{m.titulo}</h2>
-                  <p className="musica-card__artista">{m.artista} {m.ano ? `Â· ${m.ano}` : ''}</p>
+                  <p className="musica-card__artista">{m.artista} {m.ano ? `\u00B7 ${m.ano}` : ''}</p>
                   {isPlaceholder ? (
                     <span className="musica-card__badge-placeholder">{t('pages.musicas.em_breve')}</span>
                   ) : (

@@ -12,9 +12,9 @@ export default function Autor() {
   return (
     <>
       <Helmet>
-        <title>About the Author â€” Illusion Fight</title>
-        <meta name="description" content="Learn about Isaias Leal, the creator of Illusion Fight â€” the Brazilian webtoon, games, and transmedia universe set in the LDI arena." />
-        <meta property="og:title" content="About the Author â€” Illusion Fight" />
+        <title>About the Author — Illusion Fight</title>
+        <meta name="description" content="Learn about Isaias Leal, the creator of Illusion Fight — the Brazilian webtoon, games, and transmedia universe set in the LDI arena." />
+        <meta property="og:title" content="About the Author — Illusion Fight" />
         <meta property="og:description" content="Learn about Isaias Leal, the creator of the Illusion Fight universe." />
         <meta property="og:url" content="https://illusionfight.com/autor" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
