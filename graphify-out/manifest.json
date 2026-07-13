@@ -455,9 +455,9 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1783913055.554677,
-    "ast_hash": "51b54434c9b2c02528b48527bebeb898",
-    "semantic_hash": "51b54434c9b2c02528b48527bebeb898"
+    "mtime": 1783913632.3617125,
+    "ast_hash": "0bf3741a2e0d06b4636f72fcfb992e4a",
+    "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
     "mtime": 1783179770.2022922,
@@ -2998,5 +2998,685 @@
     "mtime": 1349609201.44197,
     "ast_hash": "2bb51bdcb9229e89a7ee9f2afb522e74",
     "semantic_hash": "2bb51bdcb9229e89a7ee9f2afb522e74"
+  },
+  ".github/agents/ldi.agent.md": {
+    "mtime": 1780847907.1225696,
+    "ast_hash": "e52f0cd8519c096aaf3c8959f5d46503",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/SKILL.md": {
+    "mtime": 1783913479.801848,
+    "ast_hash": "e9cc1f573abf2bf62ba03a5b7e1e68c0",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/add-watch.md": {
+    "mtime": 1783913431.8478096,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/exports.md": {
+    "mtime": 1783913431.8488104,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1783913431.8498094,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1783913431.8518088,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/hooks.md": {
+    "mtime": 1783913431.8528097,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/query.md": {
+    "mtime": 1783913431.85381,
+    "ast_hash": "3c46f8ad006874260614ed8657d02307",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/transcribe.md": {
+    "mtime": 1783913431.8558152,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": ""
+  },
+  ".opencode/skills/graphify/references/update.md": {
+    "mtime": 1783913431.8578122,
+    "ast_hash": "c698309979460d0f02ba616417844399",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1783913479.8088133,
+    "ast_hash": "d6ea410ada94e72ad62c52ca1f4b6f7d",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg01_sliding.html": {
+    "mtime": 1783187581.6584876,
+    "ast_hash": "4e18f86c87be35692bd321014f7c5d0d",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg02_maze.html": {
+    "mtime": 1783187587.463636,
+    "ast_hash": "edd1fa7dbda6f437e10a29782f5133b5",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg03_forca.html": {
+    "mtime": 1783187585.2009642,
+    "ast_hash": "49edee48f986d143abae5687f76aa9bf",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg04_glitch.html": {
+    "mtime": 1783187591.050898,
+    "ast_hash": "bc901c07975833d3b17a4ac1bb48e88e",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg05_bullethell.html": {
+    "mtime": 1783187583.104779,
+    "ast_hash": "4dc30a280f27bd5ec2b24ca4136b017c",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/mg06_stabilizer.html": {
+    "mtime": 1783187589.8380864,
+    "ast_hash": "f82daf2da854b9b0e47cec39ec3e13e6",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/viral_content.html": {
+    "mtime": 1783216607.5083973,
+    "ast_hash": "738e0ae1d613f33ffd65160f2e41de6e",
+    "semantic_hash": ""
+  },
+  "SITE_MAP.md": {
+    "mtime": 1783913643.374869,
+    "ast_hash": "e9aaa4f755b32ab54c849dcec4c13f7e",
+    "semantic_hash": ""
+  },
+  "docs/BIBLIA_DO_ISAIAS.md": {
+    "mtime": 1783913509.7245553,
+    "ast_hash": "4c843f8f035a37eda53de6955d759d99",
+    "semantic_hash": ""
+  },
+  "docs/Business/FINANCEIRO.md": {
+    "mtime": 1782416583.4870608,
+    "ast_hash": "0b58fadd35a4ff27bb6dc136e7a0b06d",
+    "semantic_hash": ""
+  },
+  "docs/Business/INESTIDORES.md": {
+    "mtime": 1783177194.1653714,
+    "ast_hash": "26e5a95331fd1bb1f9b344b0862ee8aa",
+    "semantic_hash": ""
+  },
+  "docs/Business/Marketing-MAP.md": {
+    "mtime": 1782625064.3942125,
+    "ast_hash": "c69d321a0e83245f565bdc177d898719",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDIDuelo/GDD.md": {
+    "mtime": 1781036076.783291,
+    "ast_hash": "4c98ca45b3887b2d56240f695bae4f94",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDITatics/IasLDITatics.md": {
+    "mtime": 1780721017.8914936,
+    "ast_hash": "8ab4746d783c2c58d57791a9e6eacf8d",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDITatics/RELATORIO_CLASSES_COMPLETO.md": {
+    "mtime": 1780884708.7403224,
+    "ast_hash": "1166523d4a174a94e2abe60e0e084460",
+    "semantic_hash": ""
+  },
+  "docs/Games/LDITatics/RefactoryBattleLDITatics.md": {
+    "mtime": 1780789991.7718258,
+    "ast_hash": "e50af8cbac694150f640ba9ca17c4392",
+    "semantic_hash": ""
+  },
+  "docs/Games/TOP_TRUMPS_CARTAS.md": {
+    "mtime": 1780946111.9022875,
+    "ast_hash": "6b7ecf81f08d0e871d2c6efbb4c7360b",
+    "semantic_hash": ""
+  },
+  "docs/Games/TopTrumps/SEASON1_30_CARDS.md": {
+    "mtime": 1780958699.0408347,
+    "ast_hash": "e77a0602cb61fce6aa440e6f1f22d0f7",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_atomic_facts.md": {
+    "mtime": 1779674119.0931683,
+    "ast_hash": "5b8a60d3b90af0c16c63f196ef0a559c",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_01.txt": {
+    "mtime": 1779812761.8215413,
+    "ast_hash": "509b864fe5e4684d53f3921c5f8cf855",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_02.txt": {
+    "mtime": 1779812761.8225422,
+    "ast_hash": "6a5164bdb64ebae87cee9ab09edb749d",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_03.txt": {
+    "mtime": 1779812761.8235414,
+    "ast_hash": "0a5626c2e824a073b690db66cb70efd7",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_04.txt": {
+    "mtime": 1779812761.8245409,
+    "ast_hash": "2f9c626a350fb4289ba948d5c9a67880",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_05.txt": {
+    "mtime": 1779812761.8255506,
+    "ast_hash": "d3520539458d3f2a0b880aedc30f5d71",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_06.txt": {
+    "mtime": 1779812761.8265457,
+    "ast_hash": "15cab81fe8a72827b93382b2daad1e5e",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_07.txt": {
+    "mtime": 1779812761.8265457,
+    "ast_hash": "623a6ace7d13582deaf0853ab245dc1f",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_08.txt": {
+    "mtime": 1779812761.8275416,
+    "ast_hash": "1430cd6184a2a50caee5f4900f5372c2",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_09.txt": {
+    "mtime": 1779812761.8275416,
+    "ast_hash": "56f44d3433e6abf159498309fc142cb9",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_10.txt": {
+    "mtime": 1779812761.828542,
+    "ast_hash": "5884021a0682f3509a4c05882626120f",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_11.txt": {
+    "mtime": 1779812761.829541,
+    "ast_hash": "0baa18bedac81be2334ff67e7525ea0f",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_12.txt": {
+    "mtime": 1779812761.829541,
+    "ast_hash": "915ef3ddb81fe4f8ef12ec349833f365",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_13.txt": {
+    "mtime": 1779812761.8305414,
+    "ast_hash": "1f268be38913c02851a4d6b372873d39",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/01_chapters/capitulo_14.txt": {
+    "mtime": 1779812761.8305414,
+    "ast_hash": "42166e4b8582c313262074e726f7cf73",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/antagonists.md": {
+    "mtime": 1779673622.6331449,
+    "ast_hash": "76b0fdfb323798e40577c342075d3e15",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/david_kronos.md": {
+    "mtime": 1779673546.7952008,
+    "ast_hash": "d838b49b0896b447377ef595ab852f91",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/helena.md": {
+    "mtime": 1779673536.03337,
+    "ast_hash": "f07cd08798f96034aa8282e33e2e5b18",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/jack.md": {
+    "mtime": 1779673512.7177434,
+    "ast_hash": "eef1551f9a867ec053244c1c0dd0eb53",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/kim.md": {
+    "mtime": 1779673499.704139,
+    "ast_hash": "e4740a38a166f05f58d09721d8162eb4",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/lisa.md": {
+    "mtime": 1779673575.6047058,
+    "ast_hash": "52cad6f3413c5ef3002916a477c5fb2d",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/nina.md": {
+    "mtime": 1779673525.8218336,
+    "ast_hash": "44ec19f39868d80dfdc3c617f60adb01",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/paje_yawanari.md": {
+    "mtime": 1779673557.9109037,
+    "ast_hash": "b7b495afb5c0defe5f1fe742620eccef",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/shuntaro.md": {
+    "mtime": 1779673567.2363465,
+    "ast_hash": "df440a79457b4de10b077511f89a0b3f",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/02_characters/supporting_cast.md": {
+    "mtime": 1779673599.31548,
+    "ast_hash": "44f6207848665ae911ab4b8a25425a6e",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/LDI_mechanics.md": {
+    "mtime": 1779673495.7254498,
+    "ast_hash": "0c199731dae0a8792370531e5e2969f7",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/LDI_monetization.md": {
+    "mtime": 1779673505.6730764,
+    "ast_hash": "09318badcabdfb8a87613d2659f354d7",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/bravara_world.md": {
+    "mtime": 1779673543.565905,
+    "ast_hash": "6b6ef47430e9a609a8747df2faa6978a",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/organizations.md": {
+    "mtime": 1779673557.9099033,
+    "ast_hash": "5a56729c0ab883c408a5c1632fd433f9",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/primordial_power.md": {
+    "mtime": 1779673515.3162775,
+    "ast_hash": "53a52e1d7bfd8edbe65b2b52790dee63",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/03_world/xakaxi_tribe.md": {
+    "mtime": 1779673528.868109,
+    "ast_hash": "782923f7d387412dc8c8c467016021fd",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/04_relationships/group_dynamics.md": {
+    "mtime": 1779673530.0758016,
+    "ast_hash": "14e1ba72cd0a582df2de8c5e0a9abcee",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/04_relationships/relationship_arcs.md": {
+    "mtime": 1779673513.5657423,
+    "ast_hash": "d567fd636f5b29b4d9c2d4a6b2a5bdde",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap01_beats.md": {
+    "mtime": 1779673551.1601293,
+    "ast_hash": "a2075916cfe8b80b2cd80ea7b1eeac26",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap02_beats.md": {
+    "mtime": 1779673571.981744,
+    "ast_hash": "3e0ecc07bb57eadb9580577bca7e8880",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap03_beats.md": {
+    "mtime": 1779673588.792716,
+    "ast_hash": "bd2b1df0720057c9e04bb91ee504bc54",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap04_beats.md": {
+    "mtime": 1779673606.5307603,
+    "ast_hash": "ca3d841c0b7f9e96a0681d6918d6c4e6",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap05_beats.md": {
+    "mtime": 1779673622.2958908,
+    "ast_hash": "586e885f291da456d7baa8c29307fa3b",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap06_beats.md": {
+    "mtime": 1779673638.2771783,
+    "ast_hash": "b0bbf6765160f0cb99290d623ad2ddbf",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap07_beats.md": {
+    "mtime": 1779673652.6316588,
+    "ast_hash": "7e4519518cd48d7119cd1cd935decb31",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap08_beats.md": {
+    "mtime": 1779673665.4807973,
+    "ast_hash": "411586d742601761bc6654538058ad3a",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap09_beats.md": {
+    "mtime": 1779673685.0849538,
+    "ast_hash": "61eb3d713de13839df8c6fbfd4e91f16",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap10_beats.md": {
+    "mtime": 1779673700.0328414,
+    "ast_hash": "47f49184221971118a27331243e32b25",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap11_beats.md": {
+    "mtime": 1779673717.9407992,
+    "ast_hash": "4f91d65822d7d01dbf28bc70c4089b91",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap12_beats.md": {
+    "mtime": 1779673731.7208896,
+    "ast_hash": "aeb490c794d2a7b63050f033f80184ae",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap13_beats.md": {
+    "mtime": 1779673747.3519292,
+    "ast_hash": "3fc1fe6393eef3de524c4c570e7e91f3",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/cap14_beats.md": {
+    "mtime": 1779673832.7109764,
+    "ast_hash": "3b7109ef3457778b079605615b54a158",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/05_chapter_beats/sagas_primordiais_beats.md": {
+    "mtime": 1779673784.4194083,
+    "ast_hash": "37669b8b253417fef9394a56c6e90b69",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/06_timeline.md": {
+    "mtime": 1779673496.4199193,
+    "ast_hash": "1ae45451ea8d21929e3c671faabd6a00",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/07_style_guide.md": {
+    "mtime": 1779673507.288138,
+    "ast_hash": "756669930c5706324d6c8333d1762d13",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/08_universe_pitch.md": {
+    "mtime": 1779673514.4731953,
+    "ast_hash": "d6dc9ed489df442730718f4cd6c246e7",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/09_glossary.md": {
+    "mtime": 1779675411.8686595,
+    "ast_hash": "310b638faf9eefa5366aac863e6f4d4a",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/10_chapter_continuity.md": {
+    "mtime": 1779675411.8696597,
+    "ast_hash": "10dae7d56fcc69bc9e7668e99a54fbfe",
+    "semantic_hash": ""
+  },
+  "docs/LDI/Conhecimento_Otimizado/11_fight_scenes.md": {
+    "mtime": 1779678420.290178,
+    "ast_hash": "d205d9513eef97d5b80e0c5dd4b69e0b",
+    "semantic_hash": ""
+  },
+  "docs/LDI_ARENA/GDD.md": {
+    "mtime": 1781559599.3403757,
+    "ast_hash": "6e568a1ad854a97211acb2d9fdc5a222",
+    "semantic_hash": ""
+  },
+  "docs/TUTORIAL_TAMAGOSHI.md": {
+    "mtime": 1781030708.2634277,
+    "ast_hash": "fb3512805f99cf9036977cf58a992238",
+    "semantic_hash": ""
+  },
+  "docs/importantes/MANUAL_BATALHA_LDI.md": {
+    "mtime": 1780597720.9490514,
+    "ast_hash": "c8a00861c10f4d8edb6f3c8ece86a5f9",
+    "semantic_hash": ""
+  },
+  "docs/reference/kernel-panic-manual.html": {
+    "mtime": 1783021588.4895778,
+    "ast_hash": "b93b61cd0ea32995b714db6961dde9a6",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1783188601.6602988,
+    "ast_hash": "20be485ae5d05ca03c912014a9a42b78",
+    "semantic_hash": ""
+  },
+  "public/404.html": {
+    "mtime": 1781096594.5820005,
+    "ast_hash": "5f457cf19ed0ec64d2739f5412ad204d",
+    "semantic_hash": ""
+  },
+  "public/autor/index.html": {
+    "mtime": 1782707909.6316948,
+    "ast_hash": "2afb16a8e4571f6a46d45e991348cc15",
+    "semantic_hash": ""
+  },
+  "public/leaderboard/index.html": {
+    "mtime": 1782183502.6249695,
+    "ast_hash": "3edd6d64c0099ba1c728ecd1f15f91fd",
+    "semantic_hash": ""
+  },
+  "public/livro/index.html": {
+    "mtime": 1782183505.8226094,
+    "ast_hash": "3fcdbd4a8ffd2f825e553e633c5b09d7",
+    "semantic_hash": ""
+  },
+  "public/loja/index.html": {
+    "mtime": 1782183504.7543893,
+    "ast_hash": "03fa556808b4a9f9d2afa26b52d7ec70",
+    "semantic_hash": ""
+  },
+  "public/mundo/index.html": {
+    "mtime": 1782183498.440234,
+    "ast_hash": "04aa34498769e22284000c4a573b599f",
+    "semantic_hash": ""
+  },
+  "public/musicas/index.html": {
+    "mtime": 1782183499.4865997,
+    "ast_hash": "09e012de276ccee0bde0cd38d563f0fb",
+    "semantic_hash": ""
+  },
+  "public/personagens/index.html": {
+    "mtime": 1782183503.7117586,
+    "ast_hash": "cb289083ccd211c2e11353a4ea4b97de",
+    "semantic_hash": ""
+  },
+  "public/quiz/index.html": {
+    "mtime": 1782183500.5265286,
+    "ast_hash": "5d700297e201bf1a11935214cd55dab8",
+    "semantic_hash": ""
+  },
+  "public/robots.txt": {
+    "mtime": 1782707908.4690425,
+    "ast_hash": "cc27fd114cfd116b1f8fedaccf76702c",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-01.md": {
+    "mtime": 1781550130.7496738,
+    "ast_hash": "eed2758251d908b5b4814633fc392f01",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-02.md": {
+    "mtime": 1781556077.1978457,
+    "ast_hash": "6bd8e4ec5d153c26a53e4f3da5071d30",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-03.md": {
+    "mtime": 1781557265.1893184,
+    "ast_hash": "4918f472c3bcf75028eb412bc94d2437",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-04.md": {
+    "mtime": 1781475570.082683,
+    "ast_hash": "9c59734e971b26fd6cc977f45f231eb6",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-05.md": {
+    "mtime": 1781473134.8863895,
+    "ast_hash": "bbc5c31c1dab5d95ef92740b514eb54a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/en/capitulo-06.md": {
+    "mtime": 1781475816.6691704,
+    "ast_hash": "108acd8e7918b54a3935109238567c48",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-01.md": {
+    "mtime": 1781550130.750674,
+    "ast_hash": "b72e5e6a03629e408de421ed2a54d53c",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-02.md": {
+    "mtime": 1781556077.1978457,
+    "ast_hash": "5e60dd4559f73738a18f604a11ac65e1",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-03.md": {
+    "mtime": 1781557265.1903179,
+    "ast_hash": "89b79d83d0c32c6ab8f197636378307e",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-04.md": {
+    "mtime": 1781475591.9139893,
+    "ast_hash": "19222264e8a67f119dac98b39b4c2a97",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-05.md": {
+    "mtime": 1781473399.5838206,
+    "ast_hash": "c1d2362cdc676ee509031025c76bd294",
+    "semantic_hash": ""
+  },
+  "src/data/livro/es/capitulo-06.md": {
+    "mtime": 1781475988.6811056,
+    "ast_hash": "9fb2a469a5c921eca2c8b0a37bba03ef",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-01.md": {
+    "mtime": 1781550130.7516751,
+    "ast_hash": "7f9658296cba139251026d21ea738b2b",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-02.md": {
+    "mtime": 1781556077.19384,
+    "ast_hash": "4853633056fc6079ebed830f79a0314a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-03.md": {
+    "mtime": 1781557265.188318,
+    "ast_hash": "469bf06b13c37004b709b792cf384391",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-04.md": {
+    "mtime": 1781473465.5439782,
+    "ast_hash": "2f0924a3a0ae0e440f6a360402354f19",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-05.md": {
+    "mtime": 1781472479.2001493,
+    "ast_hash": "220bb1395a964e938eb90d52f4ace213",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-06.md": {
+    "mtime": 1781475474.594931,
+    "ast_hash": "bd5e048e12a1c1b2724c40fc63463a55",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-07.md": {
+    "mtime": 1780349835.7780793,
+    "ast_hash": "26722eb2da0f710d9e78f7314ce9ff6e",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-08.md": {
+    "mtime": 1780349835.7798781,
+    "ast_hash": "0715cde1377c249c09d205277dc4deba",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-09.md": {
+    "mtime": 1780349835.7828944,
+    "ast_hash": "c2a97128080ade95b51725966098c9e4",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-10.md": {
+    "mtime": 1780349835.786845,
+    "ast_hash": "c0eff2b21b986728b29d5d2750ae24c3",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-11.md": {
+    "mtime": 1780349835.7879167,
+    "ast_hash": "c1781bf500fa97145bcd007df450cf4d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-12.md": {
+    "mtime": 1780349835.789818,
+    "ast_hash": "7d452787fb366bd5ee11767b19d69a79",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-13.md": {
+    "mtime": 1780349835.794837,
+    "ast_hash": "3c193b0123dfdf21c3dddeebd8ce069d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-14.md": {
+    "mtime": 1780349835.7978485,
+    "ast_hash": "f0f7e22c710d74215e3937a88b6d1ee5",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-15.md": {
+    "mtime": 1780349835.799853,
+    "ast_hash": "ec60ba2a508082bfdc787e5ff883cc5d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/pt/capitulo-16.md": {
+    "mtime": 1780349835.804064,
+    "ast_hash": "bb87a4ce15924c73eb3eee8a58b91148",
+    "semantic_hash": ""
+  },
+  "src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md": {
+    "mtime": 1782441630.442303,
+    "ast_hash": "3e49458ed78d2adf66354e34cde170de",
+    "semantic_hash": ""
+  },
+  "test_crash_report.md": {
+    "mtime": 1783268709.9287307,
+    "ast_hash": "80f87e6b22d763050a5911b9c77517ed",
+    "semantic_hash": ""
+  },
+  "test_report.md": {
+    "mtime": 1783200740.208422,
+    "ast_hash": "bd9df23ca1c42802ad43d7e2445ff632",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.06.03.Anexo III \u2013Segmentos da Lei Rouanet (1).pdf": {
+    "mtime": 1783192701.344447,
+    "ast_hash": "629b4fb5a1220d4f37429d49e165bf6c",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.06.17.ANEXO II - Contrapartidas de refer\u00eancia (1).pdf": {
+    "mtime": 1783192699.5889535,
+    "ast_hash": "3e004d7a5b6435b7a7ffb685eba72a2e",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.06.29.Anexo I \u2013 Crit\u00e9rios Obrigat\u00f3rios por Modalidade de Patroc\u00ednio.pdf": {
+    "mtime": 1783192697.6946876,
+    "ast_hash": "8ed93e182a663642ccf3b161f49a4e6b",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.06.29_Checklist.pdf": {
+    "mtime": 1783192703.416366,
+    "ast_hash": "1ba3b373cff4ac841ab308842ba0a6d1",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.06.29_Perguntas Frequentes_2026.pdf": {
+    "mtime": 1783192706.728768,
+    "ast_hash": "25d94ba5c20b2fc78f2427af910da75a",
+    "semantic_hash": ""
+  },
+  "Jogos_Rafael/26.07.03.REGULAMENTO 2026.pdf": {
+    "mtime": 1783192695.0290432,
+    "ast_hash": "de553f0cc038564f9324eb3c534d38e4",
+    "semantic_hash": ""
+  },
+  "public/og-image.jpg": {
+    "mtime": 1780353149.8027072,
+    "ast_hash": "06e0e6d4b5613e13394d3862504106f7",
+    "semantic_hash": ""
   }
 }

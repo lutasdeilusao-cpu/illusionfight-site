@@ -37,13 +37,16 @@
 
 ## 0. Antes de qualquer grep amplo — consultar o Graphify
 
-Este projeto tem um grafo de conhecimento gerado pelo Graphify em `graphify-out/`. Antes de greps exploratórios amplos ("onde está X", "quem importa Y", "qual a estrutura de Z"), consultar:
-1. `graphify-out/GRAPH_REPORT.md` — visão geral, god nodes, comunidades
-2. `graphify query "pergunta"` — perguntas específicas de arquitetura
-3. `graphify path <A> <B>` — relação entre dois arquivos
-4. `graphify explain <arquivo>` — detalhe de um nó
+Este projeto tem um grafo de conhecimento gerado pelo Graphify em `graphify-out/`. Serve bem para perguntas de **relação/arquitetura** ("como X se conecta com Y", "o que depende desse módulo", "quais clusters existem"). **Não confiar nele para perguntas de "onde existe um arquivo/nome específico"** — testado em 2026-07-13: `graphify query "onde estão todas as cópias de combat.js e ai.js"` devolveu um traversal com seeds mal interpretados (fuzzy-match tosco nos tokens da pergunta, não busca semântica real) e não achou as cópias que o grep manual já tinha confirmado. Para esse tipo de busca, **grep continua sendo a ferramenta certa**, não `graphify query`.
 
-Não substitui grep/prova de leitura em tasks de bug — a regra de colar output real continua valendo. Mas evita greps cegos e erros como confundir múltiplas cópias de `combat.js`/`ai.js` em jogos diferentes (ver AUDIT 2026-07-11).
+Uso recomendado, nessa ordem:
+1. `graphify-out/GRAPH_REPORT.md` — visão geral, god nodes, comunidades (útil para entender arquitetura geral)
+2. `graphify path <A> <B>` — relação entre dois arquivos conhecidos
+3. `graphify explain <arquivo>` — detalhe de um nó específico já identificado
+4. `graphify query "pergunta"` — usar com ceticismo; validar o resultado antes de confiar, principalmente para perguntas do tipo "onde/quantas cópias existem de X"
+5. `grep` — sempre a ferramenta padrão para localizar arquivos/strings por nome; nunca substituída pelo grafo
+
+Não substitui grep/prova de leitura em tasks de bug — a regra de colar output real continua valendo.
 
 ---
 
