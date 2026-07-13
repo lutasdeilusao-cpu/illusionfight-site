@@ -661,24 +661,26 @@ style={{ textAlign: 'center', marginTop: '2rem' }}  // aparece 5+ vezes
 
 ### 9.2 Constantes de Versão
 
-| Constante | Onde | Descrição |
-|---|---|---|
-| `SITE_VERSION` | `config/version.js` | Versão global do site |
-| `SLIDING_VERSION` | `config/version.js` | PuzzleSlidingRafael |
-| `CODIGO_VERSION` | `config/version.js` | PuzzleCodigoPerdido |
-| `TATICS_VERSION` | `config/version.js` | Arena LDI Tatics |
-| `PP_VERSION` | `config/version.js` | Pesadelo Particular |
-| `LDI_VERSION` | `store/useGameStore.js:1` | Lendas do LDI |
-| `JACK_VERSION` | `store/useJackStore.js:1` | Jack Dream Candy |
-| `MINIGAMES_VERSION` | `MiniGames/version.js:1` | MiniGames |
-| `ARENA_VERSION` | `ArenaRoute.jsx:10` | Arena Mode |
-| `TAMA_VERSION` | `config/version.js` | Tamagoshi |
-| `DUELO_VERSION` | `config/version.js` | Duelo LDI |
-| `TS_VERSION` | `config/version.js` | Top Trumps |
-| `TM_VERSION` | `config/version.js` | Top Trumps MP |
-| `SRGRM_VERSION` | `config/version.js` | SRGRM 3v3 |
-| `ARENATESTBED_VERSION` | `config/version.js` | Arena Testbed |
-| `KP_VERSION` | `config/version.js` | Kernel Panic |
+Todas as constantes estão centralizadas em `src/config/version.js` (desde Julho 2026). Os arquivos de jogo fazem `import` de lá.
+
+| Constante | Descrição |
+|---|---|
+| `SITE_VERSION` | Versão global do site |
+| `SLIDING_VERSION` | PuzzleSlidingRafael |
+| `CODIGO_VERSION` | PuzzleCodigoPerdido |
+| `TATICS_VERSION` | Arena LDI Tatics |
+| `PP_VERSION` | Pesadelo Particular |
+| `LDI_VERSION` | Lendas do LDI |
+| `JACK_VERSION` | Jack Dream Candy |
+| `MINIGAMES_VERSION` | MiniGames |
+| `ARENA_VERSION` | Arena Mode |
+| `TAMA_VERSION` | Tamagoshi |
+| `DUELO_VERSION` | Duelo LDI |
+| `TS_VERSION` | Top Trumps |
+| `TM_VERSION` | Top Trumps MP |
+| `SRGRM_VERSION` | SRGRM 3v3 |
+| `ARENATESTBED_VERSION` | Arena Testbed |
+| `KP_VERSION` | Kernel Panic |
 
 ### 9.3 Regras
 
@@ -746,16 +748,31 @@ sfx.win()
 
 ### 10.5 Notification System
 
-- `notificationManager.js` — fila persistida em localStorage, cooldown de 15 min
-- `UnifiedNotification` — renderizado em App.jsx
-- **Problema conhecido:** fila persiste entre sessões. Limpar `clearByType('achievement')` na transição `user → null` em AchievementsContext.
+- `notificationManager.js` — fila centralizada, singleton exportado
+- Fila persistida em `localStorage` (`ldi-notif-queue`) entre sessões
+- **TTL:** `NOTIF_TTL_MS = 5 min` — itens expirados são removidos silenciosamente em toda leitura da fila (`_purgeExpired`)
+- **Ordem:** FIFO (primeiro a entrar, primeiro a sair)
+- **Cooldown:** global (15 min, não por tipo) — `COOLDOWN_MS = 15 * 60 * 1000`
+- **Tipos:** `achievement`, `cta_conta`, `ldi_tip`, `nina_music`
+- `clearByType('achievement')` na transição `user → null` (AchievementsContext) continua existindo como defense-in-depth — o TTL já resolve o problema de staleness, mas limpar a fila evita popups indevidos para guest
+- `UnifiedNotification` renderizado em App.jsx, inscreve-se via `notificationManager.subscribe()`
 
-### 10.6 DIX — Moeda Secundária (DixContext)
+### 10.6 DIX — Moeda Secundária
 
-- Usada no Tamagoshi
-- Inicial: 1000 DIX (criado no primeiro acesso)
-- +10/ação, +25/login diário
-- Gastos: 5-30 DIX por item
+Duas camadas compartilham a mesma wallet Supabase (`dix_wallet`):
+
+**DixContext** (`src/context/DixContext.jsx`) — wallet global:
+- Cria carteira no primeiro login com saldo por tier: `DIX_BOAS_VINDAS = { free: 100, elite: 500, primordial: 1000 }`
+- Se conta existente chega a zero, recarrega para o tier correspondente
+- Expõe: `creditarDix`, `gastarDix`, `carregarHistorico`, `saldo`, `loading`
+- Usado por: Perfil, PerfilProgresso
+
+**Tamagoshi** (`src/pages/games/Tamagoshi/data/moedas.js`) — constantes de ganho:
+- `DIX_POR_ACAO = 10` (alimentar, banhar, brincar, restaurar saúde)
+- `DIX_LOGIN_DIARIO = 25`
+- `DIX_GACHA = 50`
+- `DIX_BONUS_LOCAL = 5`
+- Tamagoshi escreve direto no Supabase (`useTamagoshiStore.ganharDix`), não passa pelo DixContext
 
 ---
 
@@ -779,7 +796,7 @@ Os arquivos `rafael_*.json` estão em `src/components/Puzzles/i18n/` (NÃO em `s
 
 ### 11.4 Notification Queue Persistence
 
-`notificationManager.queue` persiste em localStorage entre sessões. Achievements enfileirados por usuário logado permanecem após logout. Corrigir limpando `clearByType('achievement')` na transição `user → null`.
+Ver seção **10.5** para documentação completa do sistema. Resumo: fila persiste em localStorage com TTL de 5 min e cooldown global de 15 min. `clearByType('achievement')` na transição `user → null` continua válido como defense-in-depth.
 
 ### 11.5 Canvas Height em Flex
 
