@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-07-13)
 
 ## Corpus Check
-- 653 files · ~755,202 words
+- 653 files · ~755,104 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5bf95119`
+- Built from commit: `041b9556`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -585,7 +585,7 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **430 isolated node(s):** `Índice`, `🗑️ Contador de Merda do Agente de Código — 1`, `0. Antes de qualquer grep amplo — consultar o Graphify`, `1. Filosofia`, `2. Stack & Ambiente` (+425 more)
+- **430 isolated node(s):** `Usage`, `What graphify is for`, `Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)`, `Step 1 - Ensure graphify is installed`, `Step 2 - Detect files` (+425 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -598,7 +598,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 7` to `Community 0`, `Community 1`, `Community 4`, `Community 37`, `Community 8`, `Community 42`, `Community 12`, `Community 13`, `Community 16`, `Community 48`, `Community 17`, `Community 53`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **What connects `Índice`, `🗑️ Contador de Merda do Agente de Código — 1`, `0. Antes de qualquer grep amplo — consultar o Graphify` to the rest of the system?**
+- **What connects `Usage`, `What graphify is for`, `Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)` to the rest of the system?**
   _430 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
