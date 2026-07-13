@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-13 (fix: encoding mojibake no título da aba — 5 páginas Helmet + Custos.jsx + v10.192.19)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-13 (fix: mojibake residual DeckBuilder + Prototype + WebtoonEpisodio + v10.192.20)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---

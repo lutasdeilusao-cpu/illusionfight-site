@@ -184,7 +184,7 @@ export default function DeckBuilder({ userId, deck, deckIds, onClose, onSaved })
                 {/* Deck slots side */}
                 <div className="tt-deckbuilder-slots">
                   <h4 className="tt-deckbuilder-side-title">
-                    {config?.labelKey || 'â€”'} â€” {selecionadas.length}/{config?.size || 5}
+                    {config?.labelKey || '—'} — {selecionadas.length}/{config?.size || 5}
                   </h4>
                   <div className="tt-deckbuilder-slots-grid">
                     {Array.from({ length: config?.size || 5 }).map((_, i) => {

@@ -6,8 +6,8 @@ import { useReader } from '../../../context/ReaderContext'
 import { SRGRM_VERSION, ARENATESTBED_VERSION } from '../../../config/version'
 import './Prototype.css'
 
-console.log(`[SRGRM] versÃ£o carregada: ${SRGRM_VERSION}`)
-console.log(`[ARENATESTBED] versÃ£o carregada: ${ARENATESTBED_VERSION}`)
+console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
+console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 

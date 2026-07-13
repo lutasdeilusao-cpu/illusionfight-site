@@ -39,7 +39,7 @@ export default function WebtoonEpisodio() {
   useEffect(() => { localStorage.setItem('ldi-webtoon-ultimo', id) }, [id])
 
   useEffect(() => {
-    if (id) registrarEvento('webtoon_lido', `Leu o episÃ³dio ${id}`, Number(id))
+    if (id) registrarEvento('webtoon_lido', `Leu o episódio ${id}`, Number(id))
   }, [id])
 
   useEffect(() => {
