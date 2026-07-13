@@ -20,19 +20,19 @@ export default function SRGRM() {
     const el = rootRef.current
     if (!el) return
     setupGame(el)
-    console.log(`[SRGRM] versÃ£o carregada: ${SRGRM_VERSION}`)
+    console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
     return () => teardownGame(el)
   }, [])
 
   return (
     <>
       <Helmet>
-        <title>SRGRM 3v3 â€” Illusion Fight</title>
+        <title>SRGRM 3v3 — Illusion Fight</title>
       </Helmet>
       <div className="prototype-header">
         <h2>SRGRM 3v3</h2>
         <button className="proto-btn proto-btn-secondary" onClick={() => navigate('/prototype')}>
-          â† Voltar
+          ← Voltar
         </button>
       </div>
       <div ref={rootRef} />

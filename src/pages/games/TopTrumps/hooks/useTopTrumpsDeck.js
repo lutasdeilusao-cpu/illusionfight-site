@@ -4,7 +4,7 @@ const DECK_TYPES = ['deck_5', 'deck_10', 'deck_15', 'deck_20']
 const DECK_SIZES = { deck_5: 5, deck_10: 10, deck_15: 15, deck_20: 20 }
 
 /**
- * Carrega as cartas de um deck especÃ­fico do usuÃ¡rio.
+ * Carrega as cartas de um deck específico do usuário.
  */
 export async function carregarDeckTipo(userId, deckType) {
   const { data } = await supabase
@@ -21,7 +21,7 @@ export async function carregarDeckTipo(userId, deckType) {
 
 /**
  * Salva um deck completo (substitui cartas existentes).
- * Remove duplicatas antes de salvar â€” cada carta sÃ³ pode aparecer uma vez.
+ * Remove duplicatas antes de salvar — cada carta só pode aparecer uma vez.
  */
 export async function salvarDeckTipo(userId, deckType, cartaIds) {
   if (cartaIds.length === 0) return true
@@ -72,7 +72,7 @@ export async function salvarNomeDeck(userId, deckType, nome) {
 }
 
 /**
- * Verifica se o usuÃ¡rio tem um deck completo para um determinado tamanho.
+ * Verifica se o usuário tem um deck completo para um determinado tamanho.
  */
 export async function temDeckCompleto(userId, deckType) {
   const cartas = await carregarDeckTipo(userId, deckType)
@@ -80,7 +80,7 @@ export async function temDeckCompleto(userId, deckType) {
 }
 
 /**
- * Retorna os decks que o usuÃ¡rio tem completos.
+ * Retorna os decks que o usuário tem completos.
  */
 export async function listarDecksCompletos(userId) {
   const resultados = {}

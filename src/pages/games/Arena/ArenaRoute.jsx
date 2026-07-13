@@ -11,7 +11,7 @@ import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import './Arena.css'
 
 import { ARENA_VERSION } from '../../../config/version'
-console.log(`[ARENA] versÃ£o carregada: ${ARENA_VERSION}`)
+console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
 
 export default function ArenaRoute() {
   const { user } = useAuth()

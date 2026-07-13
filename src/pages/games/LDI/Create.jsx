@@ -136,7 +136,6 @@ export default function Create() {
   const [chosenWeapon, setChosenWeapon] = useState('')
   const [chosenElemental, setChosenElemental] = useState('')
   const [tooltipAttr, setTooltipAttr] = useState(null)
-  // Full form state
   const [selectedAdvantages, setSelectedAdvantages] = useState([])
   const [selectedDisadvantages, setSelectedDisadvantages] = useState([])
   const [selectedPerks, setSelectedPerks] = useState([])
@@ -155,8 +154,6 @@ export default function Create() {
       navigate('/games/ldi/game', { replace: true })
     }
   }, [navigate])
-
-  // === GUIDED FLOW ===
 
   const handleOption = (opt) => {
     const newAttr = { ...tempAttr }
@@ -225,8 +222,6 @@ export default function Create() {
     registrarEvento('lendas_personagem', 'Criou personagem em Lendas do LDI', 1)
     navigate('/games/ldi/game', { replace: true })
   }
-
-  // === FULL FORM ===
 
   const totalAdvantageCost = selectedAdvantages.reduce((sum, id) => {
     const a = ADVANTAGES.find(x => x.id === id)
@@ -300,8 +295,6 @@ export default function Create() {
     navigate('/games/ldi/game', { replace: true })
   }
 
-  // === RENDER ===
-
   if (tab === 'full') {
     return (
       <div className="ldi-create">
@@ -319,7 +312,7 @@ export default function Create() {
           </div>
 
           <div className="ldi-full-section-title">{t('games.ldi.create.section_atributos')}</div>
-          <div className="ldi-full-budget">Pontos disponÃ­veis: {availablePoints}</div>
+          <div className="ldi-full-budget">Pontos disponíveis: {availablePoints}</div>
           <div className="ldi-full-attrs">
             {Object.entries(ATTR_NAMES).map(([key, label]) => (
               <div key={key} className="ldi-full-attr-row">
@@ -330,7 +323,7 @@ export default function Create() {
                     onMouseLeave={() => setTooltipAttr(null)}
                   >
                     {label}
-                    <span className="ldi-tooltip-icon">â“˜</span>
+                    <span className="ldi-tooltip-icon">ℹ</span>
                   </span>
                   <AnimatePresence>
                     {tooltipAttr === key && (
@@ -346,7 +339,7 @@ export default function Create() {
                   </AnimatePresence>
                 </div>
                 <div className="ldi-full-attr-controls">
-                  <button className="ldi-stat-btn" onClick={() => handleFullAttrChange(key, -1)} disabled={(fullAttr[key] || 0) <= 0}>âˆ’</button>
+                  <button className="ldi-stat-btn" onClick={() => handleFullAttrChange(key, -1)} disabled={(fullAttr[key] || 0) <= 0}>−</button>
                   <span className="ldi-create-stat-value">{fullAttr[key] || 0}</span>
                   <button className="ldi-stat-btn" onClick={() => handleFullAttrChange(key, 1)} disabled={(fullAttr[key] || 0) >= 4 || availablePoints < 1}>+</button>
                 </div>
@@ -363,7 +356,7 @@ export default function Create() {
                 onClick={() => setChosenElemental(el.value)}
                 style={chosenElemental === el.value ? { borderColor: el.color, color: el.color } : {}}
               >
-                <span style={{ color: el.color }}>â—</span> {el.label}
+                <span style={{ color: el.color }}>●</span> {el.label}
               </button>
             ))}
           </div>
@@ -448,16 +441,15 @@ export default function Create() {
           <div className="ldi-full-summary">
             <span>Vantagens: -{totalAdvantageCost}</span>
             <span>Desvantagens: +{totalDisadvantageGain}</span>
-            <span>PerÃ­cias: -{totalPerkCost}</span>
+            <span>Perícias: -{totalPerkCost}</span>
             <span>Atributos gastos: {10 - fullFreePoints}</span>
-            <span className="ldi-full-total">DisponÃ­vel: {availablePoints}</span>
+            <span className="ldi-full-total">Disponível: {availablePoints}</span>
           </div>
 
           <button
-            className="ldi-btn ldi-btn--primary"
+            className="ldi-btn ldi-btn--primary ldi-create-submit"
             onClick={handleFinishFull}
             disabled={availablePoints !== 0}
-            className="ldi-btn ldi-btn--primary ldi-create-submit"
           >
             {availablePoints > 0 ? t('games.ldi.create.btn_distribua') : availablePoints < 0 ? t('games.ldi.create.btn_ultrapassou') : t('games.ldi.create.btn_entrar')}
           </button>
@@ -493,7 +485,7 @@ export default function Create() {
               <div key={key} className="ldi-create-stat">
                 <span className="ldi-create-stat-label">
                   {label}
-                  <span className="ldi-tooltip-icon" onMouseEnter={() => setTooltipAttr(key)} onMouseLeave={() => setTooltipAttr(null)}>â“˜</span>
+                  <span className="ldi-tooltip-icon" onMouseEnter={() => setTooltipAttr(key)} onMouseLeave={() => setTooltipAttr(null)}>ℹ</span>
                 </span>
                 <AnimatePresence>
                   {tooltipAttr === key && (
@@ -503,12 +495,12 @@ export default function Create() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -5 }}
                     >
-                      {ATTR_TOOLTIPS[key]}
+                      {L_ATTR_TOOLTIPS[key]}
                     </motion.div>
                   )}
                 </AnimatePresence>
                 <div className="ldi-create-stat-controls">
-                  <button className="ldi-stat-btn" onClick={() => handleRemovePoint(key)} disabled={(tempAttr[key] || 0) <= 0}>âˆ’</button>
+                  <button className="ldi-stat-btn" onClick={() => handleRemovePoint(key)} disabled={(tempAttr[key] || 0) <= 0}>−</button>
                   <span className="ldi-create-stat-value">{tempAttr[key] || 0}</span>
                   <button className="ldi-stat-btn" onClick={() => handleFreePoint(key)} disabled={freePoints <= 0}>+</button>
                 </div>
@@ -524,7 +516,7 @@ export default function Create() {
             disabled={freePoints !== 0}
             style={freePoints !== 0 ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
           >
-            {freePoints > 0 ? 'Distribua todos os pontos antes de continuar' : freePoints < 0 ? 'VocÃª ultrapassou o limite de pontos' : 'ENTRAR NO LDI'}
+            {freePoints > 0 ? 'Distribua todos os pontos antes de continuar' : freePoints < 0 ? 'Você ultrapassou o limite de pontos' : 'ENTRAR NO LDI'}
           </button>
         </motion.div>
       </div>

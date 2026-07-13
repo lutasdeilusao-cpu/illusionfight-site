@@ -1,5 +1,5 @@
 import { JACK_VERSION } from '../../../../config/version'
-console.log(`[JACK] versÃ£o carregada: ${JACK_VERSION}`)
+console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
 
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
@@ -7,7 +7,7 @@ import { ITENS } from '../data/itens'
 import { MONOLOGUES } from '../data/monologues'
 import { FLAGS } from '../data/flags'
 
-// Cache local â€” NUNCA fonte de verdade, sÃ³ acelera leitura
+// Cache local — NUNCA fonte de verdade, só acelera leitura
 function cacheLocal(state) {
   try {
     if (!state._slot) return
@@ -123,7 +123,7 @@ export const useJackStore = create((set, get) => {
     }),
     zerarMedidor: () => set({ medidorPrimordial: 0 }),
 
-    // === InvestigaÃ§Ã£o ===
+    // === Investigação ===
     iniciarCaso: (casoId, suspeitosIniciais) => {
       set({
         casoAtivo: casoId,
@@ -164,7 +164,7 @@ export const useJackStore = create((set, get) => {
     acusacaoErrada: () => set(state => ({
       acusacoesErradas: state.acusacoesErradas + 1,
       cervejas: Math.max(0, state.cervejas - 50),
-      monologoAtual: 'errei. tÃ­pico. pelo menos nÃ£o cobrei adiantado.',
+      monologoAtual: 'errei. típico. pelo menos não cobrei adiantado.',
     })),
 
     resolverCaso: (flagResolucao) => {
@@ -300,7 +300,7 @@ export const useJackStore = create((set, get) => {
           dungeonsCompletas: novasCompletas,
           flags: { ...state.flags, [flagMap[dungeonId]]: true },
           medidorPrimordial: Math.min(10, state.medidorPrimordial + 1),
-          monologoAtual: xpNova >= xpNeeded ? `nÃ­vel ${nivelNovo}!` : MONOLOGUES.dungeon1_vitoria || '',
+          monologoAtual: xpNova >= xpNeeded ? `nível ${nivelNovo}!` : MONOLOGUES.dungeon1_vitoria || '',
           aliadoAtual: null,
           nivel: nivelNovo, xp: xpFinal, hpMax: hpMaxNovo, hpAtual: hpAtualNovo,
         }
@@ -319,7 +319,7 @@ export const useJackStore = create((set, get) => {
             nivel: state.nivel + 1,
             hpMax: state.hpMax + 5,
             hpAtual: state.hpMax + 5,
-            monologoAtual: `nÃ­vel ${state.nivel + 1}!`,
+            monologoAtual: `nível ${state.nivel + 1}!`,
           }
         }
         return { xp: xpNova }
@@ -360,7 +360,6 @@ export const useJackStore = create((set, get) => {
 
     loadFromCloud: async (userId, slotNum = 1) => {
       if (!userId) return null
-      // Tenta Supabase primeiro
       const { data, error } = await supabase
         .from('jack_saves')
         .select('*')
@@ -371,11 +370,10 @@ export const useJackStore = create((set, get) => {
         cacheLocal({ ...data, _slot: slotNum })
         return data
       }
-      // Fallback: cache local
       return cacheLoad(slotNum)
     },
 
-    // Carrega todos os slots do usuÃ¡rio (para o MainMenu)
+    // Carrega todos os slots do usuário (para o MainMenu)
     loadAllSlots: async (userId) => {
       if (!userId) return [null, null, null]
       const slots = [null, null, null]
@@ -392,7 +390,6 @@ export const useJackStore = create((set, get) => {
           })
         }
       } catch (_) {}
-      // Fallback: cache local
       for (let i = 1; i <= 3; i++) {
         if (!slots[i - 1]) slots[i - 1] = cacheLoad(i)
       }
@@ -400,11 +397,9 @@ export const useJackStore = create((set, get) => {
     },
 
     deleteSlot: async (userId, slotNum) => {
-      // Deleta do Supabase
       if (userId) {
         await supabase.from('jack_saves').delete().eq('user_id', userId).eq('slot_num', slotNum)
       }
-      // Limpa cache local
       localStorage.removeItem(`jack_cache_${slotNum}`)
       localStorage.removeItem(`jack_beer_slot_${slotNum}`)
     },
@@ -423,7 +418,7 @@ export const useJackStore = create((set, get) => {
   }
 })
 
-// Auto-save periÃ³dico (cache local) e Supabase a cada 30s
+// Auto-save periódico (cache local) e Supabase a cada 30s
 setInterval(() => {
   const state = useJackStore.getState()
   if (state._userId && state._slot) {

@@ -78,7 +78,6 @@ export default function Game() {
     }
   }, [combat.active, navigate])
 
-  // Detectar completaÃ§Ã£o de act
   const prevSceneRef = useRef(null)
   useEffect(() => {
     if (currentScene?.id && currentScene.id !== prevSceneRef.current) {
@@ -171,14 +170,14 @@ export default function Game() {
                 <div key={key} className="ldi-levelup-attr" style={isUpgraded ? { borderColor: '#FFD700' } : {}}>
                   <span className="ldi-levelup-attr-label">{label}</span>
                   <span className="ldi-levelup-attr-value">
-                    {isUpgraded ? `${baseVal} â†’ ${currentVal}` : baseVal}
+                    {isUpgraded ? `${baseVal} → ${currentVal}` : baseVal}
                   </span>
                   <button
                     className="ldi-levelup-attr-btn"
                     onClick={() => handleRemoveLevelUp(key)}
                     disabled={!isUpgraded}
                     style={{ marginRight: '0.25rem' }}
-                  >âˆ’</button>
+                  >−</button>
                   <button
                     className="ldi-levelup-attr-btn"
                     onClick={() => handleLevelUpAttr(key)}
@@ -229,7 +228,7 @@ export default function Game() {
           {t('games.ldi.game.hud_manual')}
         </span>
         <span className="ldi-game-hud-item ldi-game-hud-pv">
-          â¤ï¸ {save.pv_current}/{Math.max(1, (sheet?.attributes?.R || 0) * 5)}
+          ❤️ {save.pv_current}/{Math.max(1, (sheet?.attributes?.R || 0) * 5)}
         </span>
       </div>
 

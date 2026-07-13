@@ -27,7 +27,7 @@ export default function Resolucao() {
         <div className="pp-resol-nome">{caso.nome}</div>
         <p className="pp-resolucao-dialogo">
           {caso.dialogoResolucao.map((l, i) => (
-            <span key={i} className="pp-abertura-msg" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narraÃ§Ã£o' ? 'italic' : 'normal' }}>
+            <span key={i} className="pp-abertura-msg" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
               {l.texto}
             </span>
           ))}

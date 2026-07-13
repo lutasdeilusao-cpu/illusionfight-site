@@ -47,7 +47,7 @@ export default function PerfilConta() {
     setSalvandoPais(false)
   }
 
-  // â”€â”€ Dados da assinatura â”€â”€
+  // --- Dados da assinatura ---
   const subscriptionStatus = perfil?.subscription_status
   const cancelAtPeriodEnd = perfil?.cancel_at_period_end
   const tier = perfil?.tier || 'RANQUEADO'
@@ -107,11 +107,11 @@ export default function PerfilConta() {
     }
   }
 
-  // â”€â”€ Render â”€â”€
+  // --- Render ---
   return (
     <div className="perfil-conta">
 
-      {/* â”€â”€ INFORMAÃ‡Ã•ES DA CONTA â”€â”€ */}
+      {/* --- INFORMAÇÕES DA CONTA --- */}
       <div className="perfil-conta-card">
         <h3 className="perfil-section-title">{t('site.perfil.conta_titulo')}</h3>
         <div className="perfil-conta-campo">
@@ -142,7 +142,7 @@ export default function PerfilConta() {
         </div>
       </div>
 
-      {/* â”€â”€ ASSINATURA â”€â”€ */}
+      {/* --- ASSINATURA --- */}
       <div className="perfil-conta-card">
         <h3 className="perfil-section-title">{t('site.perfil.billing_titulo')}</h3>
 
@@ -182,7 +182,7 @@ export default function PerfilConta() {
                 <span className="perfil-billing-value">
                   {new Date(currentPeriodEnd).toLocaleDateString(locale)}
                   {diasRestantes !== null && (
-                    <span className="perfil-billing-dias"> â€” {t('site.perfil.billing_dias_restantes', { n: diasRestantes })}</span>
+                    <span className="perfil-billing-dias"> — {t('site.perfil.billing_dias_restantes', { n: diasRestantes })}</span>
                   )}
                 </span>
               </div>
@@ -197,7 +197,7 @@ export default function PerfilConta() {
           </div>
         )}
 
-        {/* Caso 4: CANCELADA â€” ainda no perÃ­odo */}
+        {/* Caso 4: CANCELADA — ainda no período */}
         {isCanceled && (
           <div className="perfil-billing-details">
             <div className="perfil-billing-row">
@@ -210,7 +210,7 @@ export default function PerfilConta() {
                 <span className="perfil-billing-value">
                   {new Date(currentPeriodEnd).toLocaleDateString(locale)}
                   {diasRestantes !== null && (
-                    <span className="perfil-billing-dias"> â€” {t('site.perfil.billing_dias_restantes', { n: diasRestantes })}</span>
+                    <span className="perfil-billing-dias"> — {t('site.perfil.billing_dias_restantes', { n: diasRestantes })}</span>
                   )}
                 </span>
               </div>
@@ -233,7 +233,7 @@ export default function PerfilConta() {
         )}
       </div>
 
-      {/* â”€â”€ CONQUISTA MENSAL â”€â”€ */}
+      {/* --- CONQUISTA MENSAL --- */}
       <div className="perfil-conta-card">
         <h3 className="perfil-section-title">{t('site.perfil.share_titulo')}</h3>
         <p className="perfil-share-desc">{t('site.perfil.share_desc')}</p>

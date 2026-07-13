@@ -18,7 +18,7 @@ export default function Admin() {
   if (!user || user.email !== ADMIN_EMAIL) {
     return (
       <section className="admin-page">
-        <div className="admin-bloqueado">{t('admin.titulo')} â€” {t('admin.acesso_negado')}</div>
+        <div className="admin-bloqueado">{t('admin.titulo')} — {t('admin.acesso_negado')}</div>
       </section>
     )
   }
@@ -59,7 +59,7 @@ export default function Admin() {
       {submissions.map(s => (
         <div key={s.id} className="admin-card">
           <div className="admin-card-info">
-            <span className="admin-nome">{s.profiles?.nome || 'â€”'}</span>
+            <span className="admin-nome">{s.profiles?.nome || '—'}</span>
             <span className="admin-mes">{s.mes_referencia}</span>
             <a href={s.link} target="_blank" rel="noreferrer" className="admin-link">{s.link}</a>
             <span className="admin-data">{new Date(s.criado_em).toLocaleDateString('pt-BR')}</span>

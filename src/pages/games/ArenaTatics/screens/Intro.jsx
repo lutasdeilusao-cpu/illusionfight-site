@@ -6,11 +6,11 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import BackToGamesBtn from '../../../../components/BackToGamesBtn/BackToGamesBtn'
 
 const LINES_PT = [
-  'SISTEMA DE COMBATE TÃTICO',
+  'SISTEMA DE COMBATE TÁTICO',
   'CARREGANDO PROTOCOLO NEXUS...',
   'ENERGIA MENTAL DETECTADA',
-  'SINCRONIZAÃ‡ÃƒO DE UNIDADES OK',
-  'INICIANDO PROTOCOLO DE SELEÃ‡ÃƒO',
+  'SINCRONIZAÇÃO DE UNIDADES OK',
+  'INICIANDO PROTOCOLO DE SELEÇÃO',
 ]
 const LINES_EN = [
   'TACTICAL COMBAT SYSTEM',
@@ -20,11 +20,11 @@ const LINES_EN = [
   'INITIATING SELECTION PROTOCOL',
 ]
 const LINES_ES = [
-  'SISTEMA DE COMBATE TÃCTICO',
+  'SISTEMA DE COMBATE TÁCTICO',
   'CARGANDO PROTOCOLO NEXUS...',
-  'ENERGÃA MENTAL DETECTADA',
-  'SINCRONIZACIÃ“N DE UNIDADES OK',
-  'INICIANDO PROTOCOLO DE SELECCIÃ“N',
+  'ENERGÍA MENTAL DETECTADA',
+  'SINCRONIZACIÓN DE UNIDADES OK',
+  'INICIANDO PROTOCOLO DE SELECCIÓN',
 ]
 
 export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
@@ -33,7 +33,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
   const containerRef = useRef(null)
 
-  // Typewriter effect for lines
   const { t, locale } = useLanguage()
   const lines = locale === 'en' ? LINES_EN : locale === 'es' ? LINES_ES : LINES_PT
   const delays = [400, 1200, 2000, 2800, 3600]
@@ -54,7 +53,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
 
   const navigate = useNavigate()
 
-  // Mouse parallax for grid
   useEffect(() => {
     const handleMove = (e) => {
       if (!containerRef.current) return
@@ -70,7 +68,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
 
   return (
     <div ref={containerRef} className="tatics-intro">
-      {/* â”€â”€ Background layers â”€â”€ */}
       <div className="tatics-intro-bg" />
       <div className="tatics-intro-grid" style={{
         transform: `perspective(500px) rotateX(60deg) translate(${(cursorPos.x - 0.5) * 20}px, ${(cursorPos.y - 0.5) * 20}px)`,
@@ -78,7 +75,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
       <div className="tatics-intro-scanlines" />
       <div className="tatics-intro-vignette" />
 
-      {/* â”€â”€ Floating particles â”€â”€ */}
       {Array.from({ length: 20 }).map((_, i) => (
         <div
           key={i}
@@ -94,9 +90,7 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
         />
       ))}
 
-      {/* â”€â”€ Content â”€â”€ */}
       <div className="tatics-intro-content">
-        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: -40, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -112,7 +106,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
           <div className="tatics-intro-logo-line" />
         </motion.div>
 
-        {/* Terminal lines */}
         <div className="tatics-intro-terminal">
           {lines.map((text, i) => (
             <AnimatePresence key={i}>
@@ -132,7 +125,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
           ))}
         </div>
 
-        {/* Button */}
         <AnimatePresence>
           {showButton && (
             <>
@@ -185,7 +177,6 @@ export default function Intro({ onEnter, onSimulacao, onTesteSim }) {
           )}
         </AnimatePresence>
 
-        {/* Version */}
         <div className="tatics-intro-version">v{TATICS_VERSION} // {t('tatics.intro_nexus')}</div>
 
         <BackToGamesBtn onClick={() => navigate('/games')} style={{ marginTop: '1rem' }} />

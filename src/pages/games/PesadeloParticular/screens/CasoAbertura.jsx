@@ -48,7 +48,7 @@ export default function CasoAbertura() {
         </div>
         <div className="pp-abertura-dialogo">
           {caso.dialogoAbertura.map((l, i) => (
-            <div key={i} className="pp-abertura-dialogo-text" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'nina' ? '#FF6B6B' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narraÃ§Ã£o' ? 'italic' : 'normal' }}>
+            <div key={i} className="pp-abertura-dialogo-text" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'nina' ? '#FF6B6B' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
               {l.texto}
             </div>
           ))}
@@ -64,13 +64,13 @@ export default function CasoAbertura() {
     <div className="pp-container" onClick={() => { if (linhaAtual >= linhas.length) setFim(true) }}>
       <div className="pp-section-label">{caso.nome}</div>
       {linhasCompletas.map((l, i) => (
-        <div key={i} className="pp-abertura-msg" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'nina' ? '#FF6B6B' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narraÃ§Ã£o' ? 'italic' : 'normal' }}>
+        <div key={i} className="pp-abertura-msg" style={{ color: l.personagem === 'jack' ? '#00FF88' : l.personagem === 'nina' ? '#FF6B6B' : l.personagem === 'kim' ? '#F5A623' : '#888', fontStyle: l.personagem === 'narração' ? 'italic' : 'normal' }}>
           {l.texto}
         </div>
       ))}
       {linhaAtual < linhas.length && (
         <div className="pp-confronto-mb" style={{ color: '#C8C8C8' }}>
-          {textoDigitado}<span className="arena-cursor">â–ˆ</span>
+          {textoDigitado}<span className="arena-cursor">█</span>
         </div>
       )}
     </div>

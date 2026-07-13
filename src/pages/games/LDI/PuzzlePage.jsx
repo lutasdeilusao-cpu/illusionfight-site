@@ -36,7 +36,7 @@ export default function PuzzlePage() {
     for (const r of rewards) {
       if (r.amount <= 0) continue
       if (r.label === 'XP') gainXp(r.amount)
-      if (r.label === 'crÃ©ditos') gainCredits(r.amount)
+      if (r.label === 'créditos') gainCredits(r.amount)
       if (r.label === 'pista') addClue({ text: r.desc, type: 'puzzle' })
     }
     setTimeout(() => {

@@ -110,7 +110,7 @@ export default function Investigacao() {
         {naoVisitados.length > 1 && pistaRevelada && (
           <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
             <button className="pp-btn" onClick={() => { setPistaRevelada(false); setLocalIdx((localIdx + 1) % naoVisitados.length) }}>
-              prÃ³ximo local â†’
+              próximo local →
             </button>
           </div>
         )}

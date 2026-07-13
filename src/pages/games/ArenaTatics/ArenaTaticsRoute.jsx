@@ -22,7 +22,7 @@ import { useCityStore } from './store/useCityStore'
 
 import './ArenaTatics.css'
 
-console.log(`[TATICS] versÃ£o carregada: ${TATICS_VERSION}`)
+console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 
 function randomPick(arr, n) {
   const shuffled = [...arr].sort(() => Math.random() - 0.5)
@@ -64,7 +64,7 @@ export default function ArenaTaticsRoute() {
 
   const isAdmin = perfil?.is_admin === true || perfil?.role === 'admin'
 
-  // â”€â”€ Route protection: only admins can access â”€â”€
+  // --- Route protection: only admins can access ---
   useEffect(() => {
     if (!authCarregando && (!user || perfil?.is_admin !== true)) {
       navigate('/games')
@@ -86,18 +86,18 @@ export default function ArenaTaticsRoute() {
       setLoading(true)
       // Aguarda um pouco e tenta novamente
       await new Promise(r => setTimeout(r, 1500))
-      // Se ainda nÃ£o tem user, falha
+      // Se ainda não tem user, falha
       if (!user) {
-        console.log('[TATICS] UsuÃ¡rio nÃ£o autenticado apÃ³s espera')
+        console.log('[TATICS] Usuário não autenticado após espera')
         setLoading(false)
-        setErro('FaÃ§a login para acessar o sistema')
+        setErro('Faça login para acessar o sistema')
         return
       }
     }
 
     if (!user) {
-      console.log('[TATICS] handleIntroEnter: user Ã© null â€” abortando')
-      setErro('FaÃ§a login para acessar o sistema')
+      console.log('[TATICS] handleIntroEnter: user é null — abortando')
+      setErro('Faça login para acessar o sistema')
       return
     }
 
@@ -108,9 +108,9 @@ export default function ArenaTaticsRoute() {
       let ids = store.personagensIds
       console.log('[TATICS] personagensIds do save:', ids)
 
-      // Todos vÃ£o para a cidade â€” inclusive admins
+      // Todos vão para a cidade — inclusive admins
       if (!ids || ids.length === 0) {
-        console.log('[TATICS] Sem personagens salvos â€” randomizando 2')
+        console.log('[TATICS] Sem personagens salvos — randomizando 2')
         ids = randomPick(ROSTER, 2)
         store.setPersonagensIds(ids)
         const { error: upsertError } = await supabase.from('arena_tatica_saves').upsert({
@@ -126,7 +126,7 @@ export default function ArenaTaticsRoute() {
         }
       }
 
-      console.log('[TATICS] Iniciando exploraÃ§Ã£o da cidade de MarÃ©lia')
+      console.log('[TATICS] Iniciando exploração da cidade de Marélia')
       setCurrentDistrict('central')
       setCitySpawn(null)
       setFase('city')
@@ -203,23 +203,23 @@ export default function ArenaTaticsRoute() {
   }
 
   const handleDistrictTransition = (toDistrict, spawn) => {
-    console.log(`[TATICS] TransiÃ§Ã£o de distrito: ${currentDistrict} â†’ ${toDistrict}`)
+    console.log(`[TATICS] Transição de distrito: ${currentDistrict} → ${toDistrict}`)
     setCurrentDistrict(toDistrict)
     setCitySpawn(spawn)
     setVisitedDistricts(prev => prev.includes(toDistrict) ? prev : [...prev, toDistrict])
     cityStore.enterDistrict(toDistrict)
-    cityStore.advanceTime(30) // avanÃ§ar 30 min ao trocar de distrito
+    cityStore.advanceTime(30) // avançar 30 min ao trocar de distrito
   }
 
   const handleBackToMenu = () => {
     setFase('intro')
   }
 
-  // â”€â”€ Shift+D hotkey: bypass city, go straight to battle (test/admin only) â”€â”€
+  // --- Shift+D hotkey: bypass city, go straight to battle (test/admin only) ---
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.shiftKey && (e.key === 'd' || e.key === 'D')) {
-        console.log('[TATICS] Shift+D detectado â€” bypassando cidade, indo direto para batalha')
+        console.log('[TATICS] Shift+D detectado — bypassando cidade, indo direto para batalha')
         e.preventDefault()
 
         const st = useArenaTaticsStore.getState()
@@ -238,9 +238,9 @@ export default function ArenaTaticsRoute() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  // TESTE: simulaÃ§Ã£o direta sem login
+  // TESTE: simulação direta sem login
   const handleTesteSim = () => {
-    console.log('[TATICS] INICIANDO TESTE SIMULAÃ‡ÃƒO DIRETA')
+    console.log('[TATICS] INICIANDO TESTE SIMULAÇÃO DIRETA')
     const shuffled = [...TODAS_IAS].sort(() => Math.random() - 0.5)
     setSimConfig({ numChars: 3, numIAs: 2, ias: shuffled.slice(0, 2), speed: 1500 })
     setFase('batalhaSim')
@@ -265,7 +265,7 @@ export default function ArenaTaticsRoute() {
       {erro && fase === 'intro' && (
         <div className="tatics-error-overlay">
           <div className="tatics-error-box">
-            âš ï¸ {erro}
+            ⚠️ {erro}
           </div>
           <button onClick={() => setErro(null)} className="tatics-intro-btn tatics-error-btn">
             {t('tatics.voltar')}

@@ -8,7 +8,7 @@ import { ITENS_LOJA, ITEM_KEY_MAP } from '../data/itens_loja'
 export default function Loja({ onVoltar }) {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
-  const [saldo, setSaldo] = useState(store._isAdmin ? 'âˆž' : (store._dixSaldo || 0))
+  const [saldo, setSaldo] = useState(store._isAdmin ? '∞' : (store._dixSaldo || 0))
   const [msg, setMsg] = useState('')
   const inv = store.inventario || {}
 
@@ -20,7 +20,7 @@ export default function Loja({ onVoltar }) {
   }
 
   useEffect(() => {
-    if (store._userId) store.getSaldoDix(store._userId).then(s => setSaldo(store._isAdmin ? 'âˆž' : s))
+    if (store._userId) store.getSaldoDix(store._userId).then(s => setSaldo(store._isAdmin ? '∞' : s))
   }, [])
 
   const handleComprar = async (item) => {

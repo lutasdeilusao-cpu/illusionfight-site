@@ -1,5 +1,5 @@
 import { LDI_VERSION } from '../../../../config/version'
-console.log(`[LDI] versÃ£o carregada: ${LDI_VERSION}`)
+console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 
 import { create } from 'zustand'
 import { loadScene, filterChoices, getSceneFromCache, setScenesLocale } from '../engine/scenes'
@@ -105,7 +105,7 @@ export const useGameStore = create((set, get) => ({
         const sheet = get().sheet
         useCombatStore.getState().startCombat(enemy, sheet)
       } else {
-        console.error('[LDI] Inimigo nÃ£o encontrado:', enemyId)
+        console.error('[LDI] Inimigo não encontrado:', enemyId)
       }
       return
     }

@@ -1,6 +1,6 @@
 /**
- * ARENA TÃTICS â€” Zustand Store v2.1.0
- * Jogo novo e independente â€” nÃ£o mexe no LDI Arena original
+ * ARENA TÁTICS — Zustand Store v2.1.0
+ * Jogo novo e independente — não mexe no LDI Arena original
  */
 
 import { create } from 'zustand'
@@ -23,8 +23,8 @@ const INIT = {
   batalha: null, fase: 'intro',
   carregado: false, userId: null,
   personagensIds: [], // IDs salvos no Supabase
-  maxSlots: 2, // Slots iniciais, desbloqueia atÃ© 8
-  personagensDesbloqueados: [], // IDs disponÃ­veis para o jogador
+  maxSlots: 2, // Slots iniciais, desbloqueia até 8
+  personagensDesbloqueados: [], // IDs disponíveis para o jogador
   equipamentoMap: {}, // { [rosterId]: { arma: {...}, armadura: {...}, acessorio: {...} } }
   cartasObtidas: [], // array de ids das cartas que o jogador tem
   cartasOrdem: [], // array com ordem de recebimento
@@ -44,16 +44,15 @@ export const useArenaTaticsStore = create((set, get) => ({
   setEquipamentoMap: (m) => set({ equipamentoMap: m }),
 
   /**
-   * Inicia batalha com mÃºltiplos aliados do roster + 4 inimigos padrÃ£o
+   * Inicia batalha com múltiplos aliados do roster + 4 inimigos padrão
    */
   iniciarBatalha: (aliadosRoster) => set((s) => {
-    // Aplica equipamento do mapa aos personagens
     const applyEquip = (rosterId, p) => {
       const eq = s.equipamentoMap[rosterId]
       if (!eq) return p
       return { ...p, equipamento: { ...p.equipamento, ...eq } }
     }
-    // MÃ¡ximo 3 aliados, posicionados no lado esquerdo â€” nÃ­vel 99
+    // Máximo 3 aliados, posicionados no lado esquerdo — nível 99
     const posicoes = [[1, 3], [2, 7], [1, 11]]
     const aliados = aliadosRoster.slice(0, 3).map((rosterId, i) => {
       const entry = ROSTER.find(r => r.id === rosterId)
@@ -62,10 +61,10 @@ export const useArenaTaticsStore = create((set, get) => ({
       return p ? applyEquip(rosterId, p) : null
     }).filter(Boolean)
 
-    // 4 inimigos padrÃ£o â€” nÃ­vel 99
+    // 4 inimigos padrão — nível 99
     const inimigos = getInimigosPadrao(99)
 
-    // Gera obstÃ¡culos
+    // Gera obstáculos
     const todos = [...aliados, ...inimigos]
     const ocupadas = new Set(todos.map(t => `${t.x},${t.y}`))
     const obstrucoes = []
@@ -100,7 +99,7 @@ export const useArenaTaticsStore = create((set, get) => ({
 
   /**
    * Atualiza um personagem no estado da batalha (HP, energia, status, etc.)
-   * Garante que o Zustand detecte a mudanÃ§a e re-renderize a UI.
+   * Garante que o Zustand detecte a mudança e re-renderize a UI.
    */
   atualizarPersonagem: (lado, id, updates) => set((s) => {
     if (!s.batalha) return s
@@ -121,14 +120,14 @@ export const useArenaTaticsStore = create((set, get) => ({
   }),
   registrarDerrota: () => set((s) => ({ derrotas: s.derrotas + 1, streak: 0, fase: 'derrota', batalha: null })),
 
-  // â”€â”€ Sistema de Cartas â”€â”€
+  // — Sistema de Cartas —
 
   /**
    * Inicializa o pool: sorteia as 2 cartas iniciais e salva no Supabase
    */
   inicializarPool: async () => {
     const s = get()
-    if (s.cartasObtidas.length > 0) return // jÃ¡ inicializado
+    if (s.cartasObtidas.length > 0) return // já inicializado
 
     const carta1 = sortearCartaInicial1([])
     const cartasApos1 = carta1 ? [carta1.id] : []
@@ -139,7 +138,6 @@ export const useArenaTaticsStore = create((set, get) => ({
     if (carta1) { cartas.push(carta1.id); ordem.push(carta1.id) }
     if (carta2) { cartas.push(carta2.id); ordem.push(carta2.id) }
 
-    // Preenche evolucoesMap automaticamente
     const evoMap = {}
     cartas.forEach(id => {
       const p = ROSTER.find(r => r.id === id)
@@ -151,7 +149,7 @@ export const useArenaTaticsStore = create((set, get) => ({
   },
 
   /**
-   * Ganha uma carta ao vencer um andar â€” sorteia do pool restante
+   * Ganha uma carta ao vencer um andar — sorteia do pool restante
    */
   ganharCarta: async (andar) => {
     const s = get()
@@ -177,7 +175,7 @@ export const useArenaTaticsStore = create((set, get) => ({
   },
 
   /**
-   * Aplica evoluÃ§Ã£o prÃ©-definida ao atingir nÃ­vel 40 ou 70
+   * Aplica evolução pré-definida ao atingir nível 40 ou 70
    * @param {number} rosterId
    * @param {number} nivel
    */

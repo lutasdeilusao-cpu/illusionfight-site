@@ -19,7 +19,6 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
 
   return (
     <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
-      {/* PartÃ­culas de fundo */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div key={i}
@@ -34,7 +33,7 @@ export default function Vitoria({ sdrGanho, vitorias, streak, onContinuar }) {
 
       <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 200 }}
         style={{ fontSize: '4rem', marginBottom: '1rem' }}>
-        âš”ï¸
+        ⚔️
       </motion.div>
 
       <h1 style={{ fontFamily: 'Courier New', fontSize: '1.5rem', fontWeight: 900, color: '#FFD700', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>

@@ -17,9 +17,9 @@ import {
   getZonaNome,
 } from '../data/districts'
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════════════
    CONSTANTS
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════════════════ */
 const STEP        = 32
 const STEP_MS     = 80
 const SPRITE_W    = 32
@@ -34,9 +34,9 @@ function playerCollides(px, py, distrito) {
   return pts.some(([x,y]) => isSolid(distrito, Math.floor(x/STEP), Math.floor(y/STEP)))
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════════════
    COMPONENT
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════════════════ */
 export default function CityOverworld({
   districtId = 'central',
   onEnterBuilding,
@@ -71,7 +71,7 @@ export default function CityOverworld({
   const WORLD_H = distrito.mapH * STEP
   const TILE_COLORS = distrito.tileColors
 
-  // Resolve nome do prÃ©dio via i18n
+  // Resolve nome do prédio via i18n
   const buildingName = useCallback((b) => t(b.nameKey), [t])
   const zoneNameFn = useCallback((z) => t(z.nameKey), [t])
 
@@ -85,7 +85,7 @@ export default function CityOverworld({
     pendingExit: null,
   })
 
-  // Atualiza posiÃ§Ã£o quando spawnPoint muda (transiÃ§Ã£o entre distritos)
+  // Atualiza posição quando spawnPoint muda (transição entre distritos)
   useEffect(() => {
     if (spawnPoint?.x != null && spawnPoint?.y != null) {
       s.current.px = spawnPoint.x
@@ -112,7 +112,7 @@ export default function CityOverworld({
     return () => clearTimeout(zt)
   }, [spawnPoint, districtId, t])
 
-  /* â”€â”€ Draw map â”€â”€ */
+  /* --- Draw map --- */
   const drawMap = useCallback(() => {
     distritoRef.current = distrito
     const c = canvasRef.current; if (!c) return
@@ -160,7 +160,7 @@ export default function CityOverworld({
       ctx.fillStyle='#ffd700'; ctx.fillRect(lx-1,ly-2,4,3)
     })
 
-    // â”€â”€ Helper: draw 8 red squares (4Ã—2) â”€â”€
+    // --- Helper: draw 8 red squares (4x2) ---
     function drawRedSquares(ctx, startTx, endTx, startTy, endTy) {
       for (let ty = startTy; ty <= endTy; ty++) {
         for (let tx = startTx; tx <= endTx; tx++) {
@@ -177,7 +177,7 @@ export default function CityOverworld({
       }
     }
 
-    // â”€â”€ Draw building entrance red squares (4Ã—2 na porta) â”€â”€
+    // --- Draw building entrance red squares (4x2 na porta) ---
     distrito.buildings.forEach(b => {
       const r = getBuildingRedSquareRange(b)
       drawRedSquares(ctx, r.startTx, r.endTx, r.startTy, r.endTy)
@@ -186,10 +186,10 @@ export default function CityOverworld({
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 6px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText(`â†’ ${buildingName(b)}`, labelX, labelY)
+      ctx.fillText(`→ ${buildingName(b)}`, labelX, labelY)
     })
 
-    // â”€â”€ Draw exit zone red squares (4Ã—2 por saÃ­da de distrito) â”€â”€
+    // --- Draw exit zone red squares (4x2 por saída de distrito) ---
     Object.entries(distrito.exits).forEach(([dir, exitData]) => {
       const r = getExitRedSquareRange(dir, distrito)
       if (!r) return
@@ -212,11 +212,11 @@ export default function CityOverworld({
       ctx.fillStyle = '#ff6666'
       ctx.font = 'bold 7px monospace'
       ctx.textAlign = 'center'
-      ctx.fillText(`â†’ ${toName}`, labelX, labelY)
+      ctx.fillText(`→ ${toName}`, labelX, labelY)
     })
   },[districtId, buildingName, t, WORLD_W, WORLD_H, distrito])
 
-  /* â”€â”€ Init canvas + minimap â”€â”€ */
+  /* --- Init canvas + minimap --- */
   useEffect(() => {
     const c = canvasRef.current; if (!c) return
     c.width=WORLD_W; c.height=WORLD_H; drawMap()
@@ -232,7 +232,7 @@ export default function CityOverworld({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[drawMap, districtId])
 
-  /* â”€â”€ Game Loop â”€â”€ */
+  /* --- Game Loop --- */
   useEffect(() => {
     const player = playerRef.current, canvas = canvasRef.current, mmPlayer = mmPlayerRef.current
     if (!canvas||!player) return
@@ -260,11 +260,11 @@ export default function CityOverworld({
         else setZoneVisible(false)
       }
 
-      // Interagir com prÃ©dios
+      // Interagir com prédios
       const b = getBuildingAt(s.current.px, s.current.py, currentDistrito)
       if (b) { setInteractLabel(t('tatics.city.interact_enter', { name: buildingName(b) })); return }
 
-      // Interagir com saÃ­da de distrito
+      // Interagir com saída de distrito
       const exit = getExitAt(s.current.px, s.current.py, currentDistrito)
       if (exit) {
         const exitName = exit.to === 'central' ? t('tatics.zones.central')
@@ -308,7 +308,7 @@ export default function CityOverworld({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[districtId, onDistrictTransition, buildingName, zoneNameFn, t])
 
-  /* â”€â”€ GameControls callbacks â”€â”€ */
+  /* --- GameControls callbacks --- */
   const handleAnalogMove = useCallback((dx, dy) => {
     const st = s.current
     if (st.moving) return
@@ -330,7 +330,7 @@ export default function CityOverworld({
       return
     }
 
-    // SaÃ­da de distrito â€” SÃ“ se estiver NO quadrado vermelho
+    // Saída de distrito — SÓ se estiver NO quadrado vermelho
     const exitNow = getExitAt(s.current.px, s.current.py, d)
     if (exitNow && !s.current.transitioning) {
       s.current.transitioning = true
@@ -344,7 +344,7 @@ export default function CityOverworld({
       return
     }
 
-    // Entrar em prÃ©dio â€” SÃ“ se estiver NO quadrado vermelho
+    // Entrar em prédio — SÓ se estiver NO quadrado vermelho
     const b = getBuildingAt(s.current.px, s.current.py, d)
     if (b) onEnterBuilding(b.interiorMapId, buildingName(b))
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -388,11 +388,11 @@ export default function CityOverworld({
               <div>{t('tatics.city.hud_tile')}: {hudText.tile}</div>
             </div>
 
-            {/* â”€â”€ Weather overlays â”€â”€ */}
+            {/* --- Weather overlays --- */}
             {isNight && <div className="city-overlay-night" />}
             {isRaining && <div className="city-overlay-rain" />}
 
-            {/* â”€â”€ Particles (folhas caindo) â”€â”€ */}
+            {/* --- Particles (folhas caindo) --- */}
             {cityWeather === 'clear' && !isNight && (
               <div className="city-particles-leaves" />
             )}

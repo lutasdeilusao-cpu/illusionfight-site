@@ -43,7 +43,7 @@ export default function PersonagemDetalhe() {
   return (
     <section className="personagem-detail">
       <Helmet>
-        <title>{`${personagem.nome} â€” ${t('site.nome_curto')}`}</title>
+        <title>{`${personagem.nome} — ${t('site.nome_curto')}`}</title>
       </Helmet>
       <div className="container">
         <button className="personagem-detail__back" onClick={() => navigate('/personagens')}>
@@ -104,7 +104,7 @@ export default function PersonagemDetalhe() {
                   {personagem.relacoes.map((r, i) => (
                     <div key={i} className="personagem-detail__relacao">
                       <span className="personagem-detail__relacao-personagem">{r.personagem}</span>
-                      <span className="personagem-detail__relacao-tipo">â€” {r.tipo}</span>
+                      <span className="personagem-detail__relacao-tipo">— {r.tipo}</span>
                     </div>
                   ))}
                 </div>

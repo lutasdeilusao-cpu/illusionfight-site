@@ -1,5 +1,5 @@
 import { TAMA_VERSION } from '../../../config/version'
-console.log(`[TAMA] versÃ£o carregada: ${TAMA_VERSION}`)
+console.log(`[TAMA] versão carregada: ${TAMA_VERSION}`)
 
 import { useEffect, useState, useRef } from 'react'
 import { useAuth } from '../../../context/AuthContext'
@@ -44,11 +44,10 @@ export default function Tamagoshi() {
     store.setAdmin(isAdmin)
     store.loadFromCloud(uid, 1).then(() => {
       store.carregarSlots(uid)
-      // Usar getState() em vez de store (closure captura estado inicial)
       const latest = useTamagoshiStore.getState()
       const flags = latest.flags || {}
       setMostrarTermo(!flags.termo_aceito)
-      // Recalcular jÃ¡ Ã© stateless â€” barras calculadas dos timestamps
+      // Recalcular já é stateless — barras calculadas dos timestamps
       store.recalcular()
     })
   }, [user])
@@ -58,21 +57,21 @@ export default function Tamagoshi() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  // Decaimento durante sessÃ£o ativa: a cada 30s recalcula baseado no tempo real
-  // (lazy evaluation na entrada + decay contÃ­nuo enquanto estiver no site)
+  // Decaimento durante sessão ativa: a cada 30s recalcula baseado no tempo real
+  // (lazy evaluation na entrada + decay contínuo enquanto estiver no site)
   useEffect(() => {
     if (!store.criaturaId || (store.status !== 'vivo' && store.status !== 'critico')) return
     const id = setInterval(() => store.recalcular(), 30000)
     return () => clearInterval(id)
   }, [store.criaturaId, store.status])
 
-  // Log DIX periÃ³dico (mantido â€” nÃ£o afeta mÃ©tricas)
+  // Log DIX periódico (mantido — não afeta métricas)
   useEffect(() => {
     if (!store._userId) return
     const logDix = () => {
       store.getSaldoDix(store._userId).then(saldo => {
         const ts = new Date().toISOString().slice(11, 19)
-        const exibicao = store._isAdmin ? 'âˆž' : saldo
+        const exibicao = store._isAdmin ? '∞' : saldo
         console.log(`[TAMA:DIX] ${ts} saldo=${exibicao}`)
       })
     }

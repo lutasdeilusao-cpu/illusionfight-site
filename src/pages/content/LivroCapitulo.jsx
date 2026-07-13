@@ -35,7 +35,7 @@ export default function LivroCapitulo() {
   useEffect(() => { localStorage.setItem('ldi-livro-ultimo', id) }, [id])
 
   useEffect(() => {
-    if (id) registrarEvento('capitulo_lido', `Leu o capÃ­tulo ${id}`, Number(id))
+    if (id) registrarEvento('capitulo_lido', `Leu o capítulo ${id}`, Number(id))
   }, [id])
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export default function LivroCapitulo() {
     loadChapter()
   }, [id, chapter, isAdmin, locale])
 
-  // Sentinel: dispara achievement (logado) ou CTA (guest) ao final do capÃ­tulo 1
+  // Sentinel: dispara achievement (logado) ou CTA (guest) ao final do capítulo 1
   useEffect(() => {
     if (id !== 'capitulo-01' || !sentinelRef.current) return
     const obs = new IntersectionObserver(([entry]) => {
@@ -168,7 +168,7 @@ export default function LivroCapitulo() {
                     className="reader-settings-btn"
                     onClick={() => setFontSize(s => Math.max(14, s - 2))}
                   >
-                    Aâˆ’
+                    A−
                   </button>
                   <span className="reader-settings-value">{fontSize}px</span>
                   <button
@@ -180,7 +180,7 @@ export default function LivroCapitulo() {
                 </div>
               </div>
 
-              {/* FamÃ­lia da fonte */}
+              {/* Família da fonte */}
               <div className="reader-settings-row">
                 <span className="reader-settings-label">{t('pages.livro.tipo')}</span>
                 <div className="reader-settings-group">
@@ -196,7 +196,7 @@ export default function LivroCapitulo() {
                 </div>
               </div>
 
-              {/* Largura do conteÃºdo */}
+              {/* Largura do conteúdo */}
               <div className="reader-settings-row">
                 <span className="reader-settings-label">{t('pages.livro.largura')}</span>
                 <div className="reader-settings-group">
@@ -237,12 +237,12 @@ export default function LivroCapitulo() {
         <div className="livro-nav-flutuante">
           {anterior && (
             <Link to={`/livro/${anterior.id}`} className="livro-nav-btn">
-              â† {anterior[tituloKey]}
+              ← {anterior[tituloKey]}
             </Link>
           )}
           {proximo && (
             <Link to={`/livro/${proximo.id}`} className="livro-nav-btn livro-nav-btn--proximo">
-              {proximo[tituloKey]} â†’
+              {proximo[tituloKey]} →
             </Link>
           )}
         </div>
@@ -253,10 +253,10 @@ export default function LivroCapitulo() {
               className="livro-capitulo__nav-btn"
               onClick={() => navigate(`/livro/${prevPublished.id}`)}
             >
-              â† {prevPublished[tituloKey]}
+              ← {prevPublished[tituloKey]}
             </button>
           ) : (
-            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">â†</span>
+            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">←</span>
           )}
 
           {nextPublished ? (
@@ -264,10 +264,10 @@ export default function LivroCapitulo() {
               className="livro-capitulo__nav-btn"
               onClick={() => navigate(`/livro/${nextPublished.id}`)}
             >
-              {nextPublished[tituloKey]} â†’
+              {nextPublished[tituloKey]} →
             </button>
           ) : (
-            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">â†’</span>
+            <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">→</span>
           )}
         </div>
       </div>
