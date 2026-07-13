@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-13 (fix: mojibake residual DeckBuilder + Prototype + WebtoonEpisodio + v10.192.20)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-13 (fix: mojibake residual DeckBuilder + Prototype + WebtoonEpisodio + v10.192.20) → v10.192.21 (Graphify: grafo de conhecimento + skill OpenCode)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---

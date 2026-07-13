@@ -1,0 +1,11 @@
+.env
+.env.*
+*.pem
+*.key
+supabase/migrations/*secret*
+node_modules/
+dist/
+graphify-out/
+docs/ReportAI/
+public/webtoon/
+public/games/
