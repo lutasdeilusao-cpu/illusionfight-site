@@ -1,3 +1,7 @@
+import achievementsPt from '../data/achievements-pt.json'
+import achievementsEn from '../data/achievements-en.json'
+import achievementsEs from '../data/achievements-es.json'
+
 /**
  * NotificationManager — Fila Centralizada de Notificações
  *
@@ -22,6 +26,21 @@ export const NotificationType = {
   CTA_CONTA: 'cta_conta',
   LDI_TIP: 'ldi_tip',
   NINA_MUSIC: 'nina_music',
+}
+
+const legacyAchievements = [...achievementsPt, ...achievementsEn, ...achievementsEs]
+
+export function getNotificationAchievementId(item) {
+  if (item?.data?.achievementId) return item.data.achievementId
+  if (item?.type !== NotificationType.ACHIEVEMENT) return null
+
+  // Compatibilidade transitória: normaliza o payload anterior ao uso de achievementId.
+  const legacyMatch = legacyAchievements.find(achievement =>
+    achievement.nome === item.data?.nome &&
+    achievement.descricao === item.data?.descricao &&
+    achievement.icone === item.data?.icone
+  )
+  return legacyMatch?.id ?? null
 }
 
 export const notificationManager = {
@@ -142,10 +161,9 @@ export const notificationManager = {
   /** Remove somente itens ligados a uma conquista específica. */
   removeByAchievementId(achievementId) {
     const queue = this._getQueue()
-    const filtered = queue.filter(item => item.data?.achievementId !== achievementId)
-    if (filtered.length === queue.length) return
-    this._saveQueue(filtered)
-    this._notifyListeners()
+    const filtered = queue.filter(item => getNotificationAchievementId(item) !== achievementId)
+    if (filtered.length !== queue.length) this._saveQueue(filtered)
+    this._notifyListeners({ type: 'achievement-removed', achievementId })
   },
 
   /** Limpa a fila inteira */
@@ -195,9 +213,9 @@ export const notificationManager = {
     return () => this._listeners.delete(fn)
   },
 
-  _notifyListeners() {
+  _notifyListeners(event) {
     this._listeners.forEach(fn => {
-      try { fn() } catch (e) { /* silencioso */ }
+      try { fn(event) } catch (e) { /* silencioso */ }
     })
   },
 }

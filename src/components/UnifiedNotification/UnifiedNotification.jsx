@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { notificationManager, NotificationType } from '../../lib/notificationManager'
+import { getNotificationAchievementId, notificationManager, NotificationType } from '../../lib/notificationManager'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import jackImg from '../../assets/images/characters/jack-balloon.png'
@@ -29,6 +29,8 @@ export default function UnifiedNotification() {
   const autoTimerRef = useRef(null)
   const checkIntervalRef = useRef(null)
   const ninaCbRef = useRef(null)
+  const currentRef = useRef(current)
+  currentRef.current = current
 
   // Tenta puxar da fila — mas primeiro verifica notificação pendente da Nina
   const tryPull = useCallback(() => {
@@ -77,6 +79,14 @@ export default function UnifiedNotification() {
       unsub()
     }
   }, [tryPull])
+
+  useEffect(() => notificationManager.subscribe(event => {
+    if (event?.type !== 'achievement-removed') return
+    if (getNotificationAchievementId(currentRef.current) !== event.achievementId) return
+    clearTimeout(autoTimerRef.current)
+    setCurrent(null)
+    setIsClosing(false)
+  }), [])
 
   // Typewriter para nina_music
   useEffect(() => {

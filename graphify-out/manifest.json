@@ -430,8 +430,8 @@
     "semantic_hash": "cf1403ecec95175ca2b5f9c4b11fcd93"
   },
   "src/components/UnifiedNotification/UnifiedNotification.jsx": {
-    "mtime": 1784401195.4633992,
-    "ast_hash": "c77b6df97030c5fe536807c8ecbb49fc",
+    "mtime": 1784403745.3914711,
+    "ast_hash": "96694e35545e4c50ac11649224186d4e",
     "semantic_hash": ""
   },
   "src/config/fichas.js": {
@@ -455,13 +455,13 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1784401195.4613993,
-    "ast_hash": "35f765df4c16e7a60c8658599abae437",
+    "mtime": 1784403712.8814936,
+    "ast_hash": "5437cbf9bdfa1798a4998c03a28b1749",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
-    "mtime": 1784400394.0456612,
-    "ast_hash": "43ba694f0a48dec8e0e66650118571c0",
+    "mtime": 1784402912.9757,
+    "ast_hash": "56a3d9deff8eb07553886ae59ed0735d",
     "semantic_hash": ""
   },
   "src/context/AuthContext.jsx": {
@@ -765,8 +765,8 @@
     "semantic_hash": "fa1d3b18ee0c67026c55d4f8d2547043"
   },
   "src/lib/notificationManager.js": {
-    "mtime": 1784400419.0562737,
-    "ast_hash": "067a0c56424a07266149019b8eadc2ad",
+    "mtime": 1784403798.4219768,
+    "ast_hash": "2f8cc08ae790532ac7bf29ba2b62a631",
     "semantic_hash": ""
   },
   "src/lib/sfx.js": {
@@ -795,9 +795,9 @@
     "semantic_hash": "aed287f7c4bb5eb296a23e66ca91253e"
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1783911140.6818242,
-    "ast_hash": "4a0de91c3c368778348cfd05b94492e1",
-    "semantic_hash": "4a0de91c3c368778348cfd05b94492e1"
+    "mtime": 1784402926.685726,
+    "ast_hash": "598c552e382162fe9236128d425eec30",
+    "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
     "mtime": 1782447787.351583,
@@ -825,8 +825,8 @@
     "semantic_hash": "de16e4d30c8bfa32874e42cc2d0c3703"
   },
   "src/pages/content/WebtoonEpisodio.jsx": {
-    "mtime": 1784400372.5556686,
-    "ast_hash": "77df8ac66db7823434f0a9361f3c66e5",
+    "mtime": 1784402926.6837263,
+    "ast_hash": "c2afc43ca51d0b1e11f462fdedeec826",
     "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
@@ -3090,8 +3090,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1784401195.4623997,
-    "ast_hash": "36ef08f1829ba962da94b4aaa3fa28cc",
+    "mtime": 1784403712.883495,
+    "ast_hash": "f15433bbd83df418d06795e4e7fad71a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3682,6 +3682,11 @@
   "docs/Marketing/limpeza/Int/WhatsApp Image 2026-07-16 at 17.53.49.jpeg": {
     "mtime": 1784235252.2335236,
     "ast_hash": "ce121d4d39f43ac1babc2ec6d021d282",
+    "semantic_hash": ""
+  },
+  "src/hooks/useReadingCompletionGate.js": {
+    "mtime": 1784403745.3900664,
+    "ast_hash": "b7fb1899b4acb3a29cae425947fc8fd4",
     "semantic_hash": ""
   }
 }

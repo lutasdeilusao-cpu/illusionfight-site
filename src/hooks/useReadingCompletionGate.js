@@ -24,8 +24,19 @@ export function useReadingCompletionGate({ sentinelRef, contentKey, enabled, onC
     const sentinel = sentinelRef.current
     if (!enabled || !sentinel) return
 
+    const armIfClearlyBeforeEnd = () => {
+      if (stateRef.current !== NOT_ARMED) return
+      const sentinelTop = sentinel.getBoundingClientRect().top
+      const hasFullViewportBeforeEnd = sentinelTop - window.innerHeight >= window.innerHeight
+      if (!hasFullViewportBeforeEnd) return
+      stateRef.current = ARMED
+      hasDownwardMovementRef.current = false
+      lastScrollYRef.current = window.scrollY
+    }
+
     const onScroll = () => {
       const currentScrollY = window.scrollY
+      armIfClearlyBeforeEnd()
       if (stateRef.current === ARMED && currentScrollY > lastScrollYRef.current) {
         hasDownwardMovementRef.current = true
       }
@@ -36,7 +47,7 @@ export function useReadingCompletionGate({ sentinelRef, contentKey, enabled, onC
       if (hasTriggeredRef.current) return
 
       if (!entry.isIntersecting) {
-        if (stateRef.current === NOT_ARMED) stateRef.current = ARMED
+        armIfClearlyBeforeEnd()
         return
       }
 
