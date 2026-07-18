@@ -20,6 +20,9 @@ import img12 from '../../../../assets/images/cards/characters/card-12.png'
 import img13 from '../../../../assets/images/cards/characters/card-13.png'
 import img14 from '../../../../assets/images/cards/characters/card-14.png'
 import img15 from '../../../../assets/images/cards/characters/card-15.png'
+import img16 from '../../../../assets/images/cards/characters/card-16.png'
+import img17 from '../../../../assets/images/cards/characters/card-17.png'
+import img18 from '../../../../assets/images/cards/characters/card-18.png'
 import img21 from '../../../../assets/images/cards/characters/card-21.png'
 import img23 from '../../../../assets/images/cards/characters/card-23.png'
 
@@ -27,6 +30,7 @@ const CARD_IMAGES = {
   1: img01, 2: img02, 3: img03, 4: img04, 5: img05,
   6: img06, 7: img07, 8: img08, 9: img09, 10: img10,
   11: img11, 12: img12, 13: img13, 14: img14, 15: img15,
+  16: img16, 17: img17, 18: img18,
   21: img21, 23: img23,
 }
 

@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-18 — v10.192.26 (gate exige abandono claro da região final e limpa notificação ativa por achievementId)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-18 — v10.192.27 (novas artes oficiais das cartas 06 a 18 do Top Trumps)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -566,7 +566,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.26** | gate com abandono claro da região final e proteção da notificação ativa |
+| `SITE_VERSION` | **10.192.27** | novas artes oficiais das cartas 06 a 18 do Top Trumps |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -576,7 +576,7 @@
 | `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `TS_VERSION` | **5.44.8** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
+| `TS_VERSION` | **5.44.9** | Top Trumps — novas artes oficiais das cartas 06 a 18 |
 | `TM_VERSION` | **5.12.1** | Top Trumps MP — correção de encoding em comentários |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |

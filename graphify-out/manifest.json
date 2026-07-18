@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1784403712.8814936,
-    "ast_hash": "5437cbf9bdfa1798a4998c03a28b1749",
+    "mtime": 1784408607.8464751,
+    "ast_hash": "dd2078d93eb75c4f8429b6ba39c150f8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2055,9 +2055,9 @@
     "semantic_hash": "530861f6f6eee2df5780ba1cbf7e2a0c"
   },
   "src/pages/games/TopTrumps/TopTrumps.jsx": {
-    "mtime": 1782771349.1430302,
-    "ast_hash": "d2a8b900fcfa7a78859cf5a158f52b25",
-    "semantic_hash": "d2a8b900fcfa7a78859cf5a158f52b25"
+    "mtime": 1784408634.080431,
+    "ast_hash": "89fb8d3537cc3bf706a8c54922f12b7a",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsLobby.jsx": {
     "mtime": 1783914734.4918773,
@@ -2070,18 +2070,18 @@
     "semantic_hash": "990c423013e9a5cc366cbb694b89867c"
   },
   "src/pages/games/TopTrumps/components/CardViewerModal.jsx": {
-    "mtime": 1782494285.5134468,
-    "ast_hash": "722009df0c851c3271da8ff69dc2563a",
-    "semantic_hash": "722009df0c851c3271da8ff69dc2563a"
+    "mtime": 1784408634.0849447,
+    "ast_hash": "0537b3d090f55e5a321d4d4481d6d037",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/DeckBuilder.jsx": {
-    "mtime": 1783913002.6837132,
-    "ast_hash": "7302f13ff8a172a26e7979fdb6ebdd64",
-    "semantic_hash": "7302f13ff8a172a26e7979fdb6ebdd64"
+    "mtime": 1784408634.082433,
+    "ast_hash": "56d73a0cd4ad91a61788102462b90ff7",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/DeckStartModal.jsx": {
-    "mtime": 1783914678.7058632,
-    "ast_hash": "3a3fa996c38fa567ff960a06b20e2f69",
+    "mtime": 1784408634.0839384,
+    "ast_hash": "e4ef3827ed43d430154dd900940d0a26",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
@@ -2095,14 +2095,14 @@
     "semantic_hash": "0c4d8b4c4715cc615e01c52a6e77f304"
   },
   "src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx": {
-    "mtime": 1782771349.670935,
-    "ast_hash": "fb87a13800032c89c3c695a665a4cc74",
-    "semantic_hash": "fb87a13800032c89c3c695a665a4cc74"
+    "mtime": 1784408634.0814316,
+    "ast_hash": "48d460c04273f8ae67a0274c747c6f60",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/TopTrumpsSP_v2_RewardTest.jsx": {
-    "mtime": 1782771349.6719296,
-    "ast_hash": "16f606c8091cff54a14da43d299751a6",
-    "semantic_hash": "16f606c8091cff54a14da43d299751a6"
+    "mtime": 1784408634.082433,
+    "ast_hash": "e616346b132ac11d163a0dcc0bdfb449",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/BurstParticles/BurstParticles.jsx": {
     "mtime": 1782771349.6739316,
@@ -2535,9 +2535,9 @@
     "semantic_hash": "8185e6fbbcfa46f4b53092f0ea6d41de"
   },
   "src/pages/platform/Perfil/abas/PerfilColecao.jsx": {
-    "mtime": 1782447932.797536,
-    "ast_hash": "06d92d4e52bf507ee3613e1a7b0d8dc9",
-    "semantic_hash": "06d92d4e52bf507ee3613e1a7b0d8dc9"
+    "mtime": 1784408634.0859509,
+    "ast_hash": "7a9581bfebd38f7dcd26d48ba4b24377",
+    "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilConquistas.jsx": {
     "mtime": 1782963736.63752,
@@ -3090,8 +3090,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1784403712.883495,
-    "ast_hash": "f15433bbd83df418d06795e4e7fad71a",
+    "mtime": 1784408641.679754,
+    "ast_hash": "f7fab7c66adee493189270ee58fcc3a8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
