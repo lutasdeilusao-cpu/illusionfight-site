@@ -29,6 +29,8 @@ export default function UnifiedNotification() {
   const autoTimerRef = useRef(null)
   const checkIntervalRef = useRef(null)
   const ninaCbRef = useRef(null)
+  const currentRef = useRef(current)
+  currentRef.current = current
 
   // Tenta puxar da fila — mas primeiro verifica notificação pendente da Nina
   const tryPull = useCallback(() => {
@@ -114,13 +116,14 @@ export default function UnifiedNotification() {
   }, [current])
 
   const handleClose = useCallback(() => {
-    console.log('[ACH:TOAST_CLOSE]', { timestamp: new Date().toISOString(), type: current?.type ?? null, key: current?.data?.achievementId ?? current?.data?.nome ?? null, notificationId: current?.id ?? null, reason: 'close-requested' })
+    const activeNotification = currentRef.current
+    console.log('[ACH:TOAST_CLOSE]', { timestamp: new Date().toISOString(), type: activeNotification?.type ?? null, key: activeNotification?.data?.achievementId ?? activeNotification?.data?.nome ?? null, notificationId: activeNotification?.id ?? null, reason: 'close-requested' })
     setIsClosing(true)
     setTimeout(() => {
       setCurrent(null)
       setIsClosing(false)
     }, 300)
-  }, [current])
+  }, [])
 
   // Callback do Sim/Não da Nina
   const handleNinaSim = useCallback(() => {

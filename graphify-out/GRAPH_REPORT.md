@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-07-18)
 
 ## Corpus Check
-- 653 files · ~759,312 words
+- 653 files · ~759,323 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f6877866`
+- Built from commit: `1427c48b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -372,8 +372,8 @@ Cohesion: 0.12
 Nodes (31): DanoPopup(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), sortearIAs(), aplicarStatus(), FX_INFO (+23 more)
 
 ### Community 34 - "Community 34"
-Cohesion: 0.26
-Nodes (13): bgCarta(), CARD_IMAGES, DECK_CONFIG, DECK_LABELS, DeckBuilder(), carregarDeckTipo(), carregarNomeDeck(), DECK_SIZES (+5 more)
+Cohesion: 0.20
+Nodes (9): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, BurstParticles(), CurtainReveal(), FireParticles(), GameScreen() (+1 more)
 
 ### Community 35 - "Community 35"
 Cohesion: 0.21
@@ -412,8 +412,8 @@ Cohesion: 0.07
 Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.20
-Nodes (9): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, BurstParticles(), CurtainReveal(), FireParticles(), GameScreen() (+1 more)
+Cohesion: 0.26
+Nodes (13): bgCarta(), CARD_IMAGES, DECK_CONFIG, DECK_LABELS, DeckBuilder(), carregarDeckTipo(), carregarNomeDeck(), DECK_SIZES (+5 more)
 
 ### Community 45 - "Community 45"
 Cohesion: 0.25
@@ -461,7 +461,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
+Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
 
 ### Community 59 - "Community 59"
 Cohesion: 0.15
@@ -899,7 +899,7 @@ Nodes (3): 6. CALENDÁRIO DE PUBLICAÇÃO, Horários fixos (Nova York EDT), Sema
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 39` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 33`, `Community 34`, `Community 37`, `Community 38`, `Community 42`, `Community 45`, `Community 49`, `Community 50`, `Community 54`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 76`, `Passeio.jsx`, `Community 78`, `Community 80`, `Community 85`, `Community 87`, `Community 90`?**
+- **Why does `useLanguage()` connect `Community 39` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 33`, `Community 37`, `Community 38`, `Community 42`, `Community 44`, `Community 45`, `Community 49`, `Community 50`, `Community 54`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 76`, `Passeio.jsx`, `Community 78`, `Community 80`, `Community 85`, `Community 87`, `Community 90`?**
   _High betweenness centrality (0.155) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 7` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 37`, `Community 8`, `Community 12`, `Community 78`, `Community 16`, `Community 49`, `Community 17`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
