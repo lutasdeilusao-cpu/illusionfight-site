@@ -32,17 +32,21 @@ export const notificationManager = {
    */
   push(type, data) {
     const queue = this._getQueue()
+    const beforeLength = queue.length
     // Evita duplicatas do mesmo tipo consecutivas
     if (queue.length > 0 && queue[queue.length - 1].type === type) {
+      console.log('[NOTIF:ENQUEUE]', { timestamp: new Date().toISOString(), type, key: data?.achievementId ?? data?.nome ?? null, origin: 'push', queueBefore: beforeLength, queueAfter: queue.length, createdAt: null, ageMs: 0, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown: false, result: 'rejected-consecutive-duplicate' })
       return
     }
-    queue.push({
+    const item = {
       type,
       data,
       id: Date.now() + Math.random(),
       createdAt: Date.now(),
-    })
+    }
+    queue.push(item)
     this._saveQueue(queue)
+    console.log('[NOTIF:ENQUEUE]', { timestamp: new Date().toISOString(), type, key: data?.achievementId ?? data?.nome ?? null, origin: 'push', notificationId: item.id, queueBefore: beforeLength, queueAfter: queue.length, createdAt: item.createdAt, ageMs: 0, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown: false, result: 'enqueued' })
     this._notifyListeners()
   },
 
@@ -55,7 +59,11 @@ export const notificationManager = {
    */
   pull(bypassCooldown = false) {
     const queue = this._getQueue()
-    if (queue.length === 0) return null
+    console.log('[NOTIF:PULL_CHECK]', { timestamp: new Date().toISOString(), operation: 'pull', requestedType: null, queueBefore: queue.length, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown })
+    if (queue.length === 0) {
+      console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'pull', result: 'empty-queue', queueAfter: 0 })
+      return null
+    }
 
     const now = Date.now()
 
@@ -72,10 +80,12 @@ export const notificationManager = {
       queue.shift()
       this._saveQueue(queue)
       this._setLastTime(now)
+      console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'pull', result: 'selected', type: item.type, key: item.data?.achievementId ?? item.data?.nome ?? null, notificationId: item.id, createdAt: item.createdAt, ageMs: now - item.createdAt, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: 0, bypassCooldown, queueAfter: queue.length })
       return item
     }
 
     if (changed) this._saveQueue(queue)
+    console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'pull', result: 'cooldown-active', type: item.type, key: item.data?.achievementId ?? item.data?.nome ?? null, notificationId: item.id, createdAt: item.createdAt, ageMs: now - item.createdAt, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown, queueAfter: queue.length })
     return null // cooldown ativo
   },
 
@@ -105,6 +115,7 @@ export const notificationManager = {
   findAndPull(type, bypassCooldown = false) {
     const queue = this._getQueue()
     const now = Date.now()
+    console.log('[NOTIF:PULL_CHECK]', { timestamp: new Date().toISOString(), operation: 'findAndPull', requestedType: type, queueBefore: queue.length, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown })
 
     // Remove todos os itens expirados, independente de tipo
     const changed = this._purgeExpired(queue, now)
@@ -119,15 +130,18 @@ export const notificationManager = {
         queue.splice(i, 1)
         this._saveQueue(queue)
         this._setLastTime(now)
+        console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'findAndPull', result: 'selected', requestedType: type, type: valid.type, key: valid.data?.achievementId ?? valid.data?.nome ?? null, notificationId: valid.id, createdAt: valid.createdAt, ageMs: now - valid.createdAt, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: 0, bypassCooldown, queueAfter: queue.length })
         return valid
       }
       // Cooldown ativo — não retorna, mas não remove da fila
       if (changed) this._saveQueue(queue)
+      console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'findAndPull', result: 'cooldown-active', requestedType: type, type: queue[i].type, key: queue[i].data?.achievementId ?? queue[i].data?.nome ?? null, notificationId: queue[i].id, createdAt: queue[i].createdAt, ageMs: now - queue[i].createdAt, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown, queueAfter: queue.length })
       return null
     }
 
     // Nenhum item do tipo encontrado — salva remoções de expirados se houve
     if (changed) this._saveQueue(queue)
+    console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'findAndPull', result: changed ? 'expired-items-purged-no-match' : 'no-matching-type', requestedType: type, ttlMs: NOTIF_TTL_MS, cooldownRemainingMs: this.timeUntilNext(), bypassCooldown, queueAfter: queue.length })
     return null
   },
 

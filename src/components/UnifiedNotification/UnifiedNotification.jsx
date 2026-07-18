@@ -32,7 +32,11 @@ export default function UnifiedNotification() {
 
   // Tenta puxar da fila — mas primeiro verifica notificação pendente da Nina
   const tryPull = useCallback(() => {
-    if (current) return
+    console.log('[NOTIF:PULL_CHECK]', { timestamp: new Date().toISOString(), operation: 'UnifiedNotification.tryPull', mode: user ? 'authenticated' : 'guest', currentType: current?.type ?? null, queueLength: notificationManager.queueLength() })
+    if (current) {
+      console.log('[NOTIF:PULL_RESULT]', { timestamp: new Date().toISOString(), operation: 'UnifiedNotification.tryPull', result: 'active-notification-blocks-pull', currentType: current.type, queueLength: notificationManager.queueLength() })
+      return
+    }
 
     // Defesa: guest não pode ver achievement de jeito nenhum
     if (!user) {
@@ -60,6 +64,7 @@ export default function UnifiedNotification() {
       ? (notificationManager.findAndPull('achievement', true) || notificationManager.pull())
       : (notificationManager.findAndPull('cta_conta', true) || notificationManager.pull())
     if (item) {
+      console.log('[ACH:TOAST_SHOW]', { timestamp: new Date().toISOString(), type: item.type, key: item.data?.achievementId ?? item.data?.nome ?? null, notificationId: item.id, createdAt: item.createdAt, ageMs: Date.now() - item.createdAt, mode: user ? 'authenticated' : 'guest', reason: 'queue-item-selected' })
       setCurrent(item)
       setIsClosing(false)
       setTypedText('')
@@ -109,12 +114,13 @@ export default function UnifiedNotification() {
   }, [current])
 
   const handleClose = useCallback(() => {
+    console.log('[ACH:TOAST_CLOSE]', { timestamp: new Date().toISOString(), type: current?.type ?? null, key: current?.data?.achievementId ?? current?.data?.nome ?? null, notificationId: current?.id ?? null, reason: 'close-requested' })
     setIsClosing(true)
     setTimeout(() => {
       setCurrent(null)
       setIsClosing(false)
     }, 300)
-  }, [])
+  }, [current])
 
   // Callback do Sim/Não da Nina
   const handleNinaSim = useCallback(() => {

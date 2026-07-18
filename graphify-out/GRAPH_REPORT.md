@@ -1,16 +1,16 @@
-# Graph Report - SiteLDI  (2026-07-13)
+# Graph Report - SiteLDI  (2026-07-18)
 
 ## Corpus Check
-- 653 files · ~755,202 words
+- 653 files · ~759,312 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2200 nodes · 5551 edges · 161 communities (142 shown, 19 thin omitted)
+- 3005 nodes · 6272 edges · 259 communities (223 shown, 36 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5bf95119`
+- Built from commit: `f6877866`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -138,6 +138,81 @@
 - graphify reference: GitHub clone and cross-repo merge
 - graphify reference: transcribe video and audio
 - extraction-spec.md
+- 3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS
+- BLOCO A — BRAND ILLUSION FIGHT
+- CHAPTER 9: "Começando o treinamento?"
+- CHAPTER 11: "Bebendo com os amigos"
+- CHAPTER 14: "A mudança necessária!"
+- BONUS: "Sagas Primordiais I: O Início!"
+- Uso: RAG reference. Cada entrada é um chunk independente.
+- 📋 Workflow Obrigatório (nesta ordem)
+- ILLUSION FIGHT
+- CHARACTER: David Kronos
+- CHARACTER: Helena
+- CHARACTER: Jack
+- CHARACTER: Kim (Joaquim Leal Reis)
+- CHARACTER: Lisa
+- CHARACTER: Nina
+- CHARACTER: Pajé Yawanari
+- CHARACTER: Shuntaro Chirasu
+- CHAPTER 3: "Que tipo de briga é essa?"
+- CHAPTER 4: "O Pajé mais Cringe que existe?"
+- CHAPTER 5: "Não me julgue"
+- CHAPTER 6: "Não me julgue"
+- CHAPTER 7: "Conhecendo Dona Helena!"
+- CHAPTER 13: "Kim mostra sua lábia com o broto!"
+- BLOCO E — PR OUTREACH
+- Lutas de Ilusão (LDI) — Monetization
+- Relationship Arcs — Lutas de Ilusão
+- CHAPTER 10: "O preço do sucesso"
+- ILLUSION FIGHT — CONTROLE FINANCEIRO
+- Marketing-MAP.md
+- Primordial Power (Sangue Primordial)
+- CHAPTER 8: "Meu bebê? Que história é essa?"
+- CHAPTER 12: "Cuidado a gatinha tem garras"
+- ISA UNIVERSE — WRITING STYLE GUIDE
+- Kernel Games Test Report
+- 6. A PLATAFORMA TECNOLÓGICA
+- 🃏 Top Trumps — LDI: Todas as Cartas
+- 🟡 Lendário (6 cartas)
+- Bravara
+- ISA UNIVERSE — COMPLETE TIMELINE
+- 7. MONETIZAÇÃO — COMO O DINHEIRO ENTRA
+- 9. PR E DISTRIBUIÇÃO GLOBAL — 5.273 CONTATOS EM 50 PAÍSES
+- ⬛ Sombra (5 cartas)
+- 10. PROGRAMA DE PARCEIROS DE CONTEÚDO
+- 8. MARKETING E CRESCIMENTO ORGÂNICO
+- BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO
+- Passeio.jsx
+- 11. NUNTIUS GAMES — O BRAÇO INSTITUCIONAL
+- 13. FINANCEIRO REAL DO PROJETO
+- 14. ESTRUTURA SOCIETÁRIA E PROPOSTA DE INVESTIMENTO
+- 2. O UNIVERSO NARRATIVO — BRAVARA, LDI E O SANGUE PRIMORDIAL
+- 4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE
+- 7. TRÁFEGO PAGO — HISTÓRICO
+- BLOCO B — LINKEDIN PESSOAL ISAIAS
+- BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
+- E3. LISTAS NO BREVO
+- E8. TEMPLATES DE PR APROVADOS
+- 12. O TIME
+- 17. RISCOS E OPORTUNIDADES IDENTIFICADOS
+- 6. CALENDÁRIO DE PUBLICAÇÃO
+- SEASON1_30_CARDS.md
+- 08_universe_pitch.md
+- pixi.js
+- capitulo-01.md
+- capitulo-02.md
+- capitulo-03.md
+- capitulo-04.md
+- capitulo-05.md
+- capitulo-06.md
+- capitulo-01.md
+- capitulo-02.md
+- capitulo-03.md
+- capitulo-04.md
+- capitulo-05.md
+- capitulo-06.md
+- test_crash_report.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 366 edges
@@ -148,25 +223,25 @@
 6. `AudioManager` - 42 edges
 7. `useKpI18n()` - 39 edges
 8. `Phase6CombatV2()` - 34 edges
-9. `useJackStore` - 32 edges
-10. `supabase` - 31 edges
+9. `🟣 Elite (32 cartas)` - 33 edges
+10. `useJackStore` - 32 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `TeamSelect()` --indirect_call--> `eq()`  [INFERRED]
   src/pages/games/ArenaTatics/screens/TeamSelect.jsx → tests/paridade-exata.mjs
-- `OnomaPopup()` --indirect_call--> `t()`  [INFERRED]
-  src/pages/games/Arena/ArenaCombat.jsx → src/pages/games/PesadeloParticular/data/pp-i18n.js
-- `PowerReveal()` --indirect_call--> `t()`  [INFERRED]
-  src/pages/games/Arena/ArenaCombat.jsx → src/pages/games/PesadeloParticular/data/pp-i18n.js
-- `MusicCircle()` --calls--> `useLanguage()`  [EXTRACTED]
-  src/components/MusicSection.jsx → src/context/LanguageContext.jsx
 - `ManualBatalha()` --calls--> `useLanguage()`  [EXTRACTED]
   src/pages/games/Arena/ArenaCreate.jsx → src/context/LanguageContext.jsx
+- `NeoGuideIntro()` --calls--> `useLanguage()`  [EXTRACTED]
+  src/pages/games/Arena/ArenaLobby.jsx → src/context/LanguageContext.jsx
+- `HpBarDelta()` --calls--> `useLanguage()`  [EXTRACTED]
+  src/pages/games/ArenaTatics/components/CombatResultModal.jsx → src/context/LanguageContext.jsx
+- `AnimacaoInvestigacao()` --calls--> `useLanguage()`  [EXTRACTED]
+  src/pages/games/PesadeloParticular/PP.jsx → src/context/LanguageContext.jsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (161 total, 19 thin omitted)
+## Communities (259 total, 36 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -174,27 +249,27 @@ Nodes (53): KPAIWaitOverlay(), KPDefenseModal(), KPFieldSlot(), KPHandCard(), KP
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
-Nodes (45): BattleLog(), Board(), Card(), CardPreviewModal(), Hand(), LPDisplay(), StatusBar(), CARDS (+37 more)
+Nodes (45): BattleLog(), Board(), Card(), CardPreviewModal(), Hand(), LPDisplay(), CARDS, getCardByNum() (+37 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.11
-Nodes (23): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray(), CONFIGS, gerarAlvo(), PuzzleDecoder() (+15 more)
+Cohesion: 0.05
+Nodes (56): BANNER_URLS, BANNERS, HeroSlideshow(), SLIDE_KEYS, BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama() (+48 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.05
-Nodes (59): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+51 more)
+Cohesion: 0.04
+Nodes (62): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+54 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.14
-Nodes (14): BackToGamesBtn(), randomPick(), Derrota(), Intro(), LINES_EN, LINES_ES, LINES_PT, Vitoria() (+6 more)
+Cohesion: 0.09
+Nodes (22): BackToGamesBtn(), PuzzleSimonSays(), TypewriterPhrase(), useTypewriter(), allImages, Musicas(), shuffleArray(), Intro() (+14 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.07
-Nodes (40): App(), CookieBanner(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, ReaderProvider(), useReader(), ArenaTaticsRoute() (+32 more)
+Cohesion: 0.04
+Nodes (66): CookieBanner(), LDINotification(), PERSONAGENS, shuffle(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, ReaderProvider() (+58 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.13
-Nodes (24): DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast(), getDica(), IntroNoir(), PistaCard(), StatusBar() (+16 more)
+Cohesion: 0.06
+Nodes (46): FRASES, getFrase(), PALETTES, ResultCard(), DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast() (+38 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.14
@@ -205,36 +280,36 @@ Cohesion: 0.13
 Nodes (30): clearHighlight(), CharModal(), applyShake(), drawCanvasFlash(), drawFloatingTexts(), FlashPreset, HitStopPreset, isHitStopActive() (+22 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.12
-Nodes (17): hasFlag(), setFlag(), allScenes, filterChoices(), getSceneFromCache(), loadScene(), scenesCache, setScenesLocale() (+9 more)
+Cohesion: 0.06
+Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculista de Zylvaron, #35 — Ferro Vivo — Construto, #36 — Kimura — O Espelho, #37 — Doru — Trovão do Continente, #39 — Mako — Das Profundezas, #40 — Kei — Sombra Dupla, #42 — Tairo — Mestre do Solo (+25 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.12
 Nodes (21): ADV_COSTS, ArenaCreate(), ATTR_EMOJI, ATTRS, DIS_GAINS, MANUAL_KEYS, ManualBatalha(), PERK_COSTS (+13 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.08
-Nodes (28): CFG, hexAlpha(), PuzzleBulletHellRafael(), DIF_CFG, KEYBOARD_ROWS, pick(), PuzzleCodigoPerdido(), CFG (+20 more)
+Cohesion: 0.07
+Nodes (30): #14 — Helena — A Sobrevivente, #15 — Osvaldo — O Porteiro, #16 — Ryan — O Grato, #17 — Samuel — O Valentão, #18 — Roxy — A Mercenária, #19 — Brock — Capanga Líder, #1 — Kim — Briguento, #20 — Walter — O Diretor (+22 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.14
-Nodes (23): getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), _carregarRanking() (+15 more)
+Cohesion: 0.11
+Nodes (31): getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking (+23 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.11
-Nodes (22): ArenaCombat(), delay(), getOnomatopeia(), MODE_ICONS, MODE_LABELS, OnomaPopup(), ONOMATOPEIAS_ARMED, ONOMATOPEIAS_FISTS (+14 more)
+Cohesion: 0.07
+Nodes (32): ArenaCombat(), delay(), getOnomatopeia(), MODE_ICONS, MODE_LABELS, ONOMATOPEIAS_ARMED, ONOMATOPEIAS_FISTS, ONOMATOPEIAS_POWER (+24 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.11
-Nodes (30): GuestNotice(), LoginGate(), AchievementsContext, AchievementsProvider(), useAchievements(), AuthContext, AuthProvider(), useAuth() (+22 more)
+Cohesion: 0.08
+Nodes (43): App(), GuestNotice(), LoginGate(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), UnifiedNotification(), AchievementsContext (+35 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.15
-Nodes (23): atualizarMPStats(), atualizarSala(), carregarMPStats(), codigoSala(), confirmarAposta(), criarSala(), definirAposta(), encerrarSala() (+15 more)
+Cohesion: 0.06
+Nodes (46): Jokempo(), carregarDeck(), registrarPartida(), usePresence(), atualizarMPStats(), atualizarSala(), carregarMPStats(), codigoSala() (+38 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.12
-Nodes (12): DUNGEONS, FLAGS, ITENS, MONOLOGUES, DAMAGE_WORDS, Dungeon(), HIT_WORDS, rollD6() (+4 more)
+Cohesion: 0.07
+Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.17
@@ -245,8 +320,8 @@ Cohesion: 0.17
 Nodes (10): AttackAnimId, RangeAnimId, execute(), execute(), execute(), DefenseAnimId, getDefenseAnimation(), REGISTRY (+2 more)
 
 ### Community 21 - "Community 21"
-Cohesion: 0.15
-Nodes (17): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Grid(), Token(), EfeitoTag(), STATUS_ICONS_MAP (+9 more)
+Cohesion: 0.16
+Nodes (16): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Grid(), Token(), EfeitoTag(), STATUS_ICONS_MAP (+8 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.13
@@ -262,43 +337,43 @@ Nodes (15): agendarAcao(), avancarTurno(), CHAVES_ACAO, criarAcoes(), definirRes
 
 ### Community 25 - "Community 25"
 Cohesion: 0.24
-Nodes (11): ARROWS, closeInventoryPanel(), closeSwapPanel(), getActiveArrow(), getActiveArrowName(), isBowWeapon(), isDaggerWeapon(), isSwordWeapon() (+3 more)
+Nodes (12): closeInventoryPanel(), closeSwapPanel(), healSpellAvailable(), isBowWeapon(), isCajadoWeapon(), isDaggerWeapon(), isShieldWeapon(), isSwordWeapon() (+4 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.33
-Nodes (22): cancelTargeting(), castMagicArea(), castMagicResolved(), checkBattleEnd(), clearMagicQueue(), endTurn(), hideTargetSelector(), logDivider() (+14 more)
+Cohesion: 0.22
+Nodes (35): aiAct(), applyMagicEffect(), castMagicArea(), castMagicResolved(), checkBattleEnd(), clearMagicQueue(), DAMAGE_TIERS, damageSpellAvailable() (+27 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.08
-Nodes (34): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), ModalConfirmacaoFicha(), ModalSemFichas(), useDix(), ADMIN_EMAILS, FICHAS_POR_TIER (+26 more)
+Cohesion: 0.10
+Nodes (28): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), ModalConfirmacaoFicha(), ModalSemFichas(), useDix(), useFichas(), getHoje() (+20 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.13
-Nodes (20): badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, cancelarAssinatura(), getPriceDisplay(), iniciarCheckout() (+12 more)
+Cohesion: 0.19
+Nodes (12): TrialBanner(), ADMIN_EMAILS, cancelarAssinatura(), getPriceDisplay(), iniciarCheckout(), PRICE_DISPLAY, PRICES, Assinar() (+4 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.14
 Nodes (16): PuzzleDecoder(), generateReward(), PUZZLE_CONFIG, PuzzleRouter(), REWARDS, COLORS, PuzzleSimonSays(), generateGoal() (+8 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.16
-Nodes (15): BADGES, DIX_BOAS_VINDAS, TEXTOS_PARTIDA, BARRA_PARA_CAMPO, BASE_DECAY, calcBarra(), calcEstado(), defaultState (+7 more)
+Cohesion: 0.15
+Nodes (16): BADGES, calcularFase(), DIX_BOAS_VINDAS, TEXTOS_PARTIDA, BARRA_PARA_CAMPO, BASE_DECAY, calcBarra(), calcEstado() (+8 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.35
-Nodes (13): applyCounterAttack(), applyDamage(), atkBonus(), calcRawDmg(), calcRawDmgWithArrow(), defBonus(), getAttrTestMod(), getEffectMod() (+5 more)
+Cohesion: 0.18
+Nodes (25): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+17 more)
 
 ### Community 32 - "Community 32"
-Cohesion: 0.13
-Nodes (14): externalMap, Footer(), routeMap, LOCALES, Navbar(), SOCIAL_LINKS, SocialBar(), SITE_CONFIG (+6 more)
+Cohesion: 0.32
+Nodes (5): LanguageContext, getNested(), LanguageProvider(), LOCALE_LABELS, locales
 
 ### Community 33 - "Community 33"
-Cohesion: 0.19
-Nodes (17): DanoPopup(), resolverAcaoIA(), aplicarStatus(), FX_INFO, podeAgir(), podeMover(), processarStatus(), resolverAtaque() (+9 more)
+Cohesion: 0.12
+Nodes (31): DanoPopup(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), sortearIAs(), aplicarStatus(), FX_INFO (+23 more)
 
 ### Community 34 - "Community 34"
-Cohesion: 0.19
-Nodes (17): bgCarta(), CARD_IMAGES, DECK_CONFIG, DECK_LABELS, DeckBuilder(), bgCarta(), CARD_IMAGES, DeckStartModal() (+9 more)
+Cohesion: 0.26
+Nodes (13): bgCarta(), CARD_IMAGES, DECK_CONFIG, DECK_LABELS, DeckBuilder(), carregarDeckTipo(), carregarNomeDeck(), DECK_SIZES (+5 more)
 
 ### Community 35 - "Community 35"
 Cohesion: 0.21
@@ -309,60 +384,60 @@ Cohesion: 0.13
 Nodes (14): execute(), ONOMATOPEIAS, execute(), ONOMATOPEIAS, execute(), ONOMATOPEIAS, getAttackAnimation(), getRangeAnimation() (+6 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.29
-Nodes (8): calcularFase(), Alimentar(), Loja(), Ovo(), Passear(), Termo(), useTamagoshiStore, Tamagoshi()
+Cohesion: 0.22
+Nodes (14): getFala(), Alimentar(), Banhar(), Brincadeira(), getConfig(), PUZZLES, Criatura(), Loja() (+6 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.17
-Nodes (11): PowerChoiceModal(), ELEM_ICON, PowerCard(), PowerDescription(), ELEMENTOS, PowerFilterBar(), PowerGrid(), SortToggle() (+3 more)
+Cohesion: 0.20
+Nodes (10): PowerChoiceModal(), ELEM_ICON, PowerCard(), PowerDescription(), ELEMENTOS, PowerFilterBar(), PowerGrid(), SortToggle() (+2 more)
 
 ### Community 39 - "Community 39"
-Cohesion: 0.24
-Nodes (12): CharactersRow(), LatestEpisodes(), thumbMap, allImages, MusicCircle(), MusicSection(), shuffleArray(), NowLive() (+4 more)
+Cohesion: 0.06
+Nodes (52): AchievementToast(), BookChaptersRow(), capaMap, formatarData(), CharacterCard(), CharactersRow(), externalMap, Footer() (+44 more)
 
 ### Community 40 - "Community 40"
-Cohesion: 0.20
-Nodes (9): PP, t(), getItemDef(), ITEMS_CONSUMABLE, renderAreaTwoButtons(), selectItemUse(), showInventoryTargetSelector(), showTab() (+1 more)
+Cohesion: 0.12
+Nodes (19): OnomaPopup(), PowerReveal(), PP, t(), aliveEnemySide(), alivePlayerSide(), ARROWS, cancelTargeting() (+11 more)
 
 ### Community 41 - "Community 41"
 Cohesion: 0.12
 Nodes (26): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTivaraDisponiveis(), getPool(), poolCompleto(), sortearCartaInicial1(), sortearCartaInicial2() (+18 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.21
-Nodes (15): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, carregarFichas(), deletarFicha(), escreverNoStorage(), gerarId() (+7 more)
+Cohesion: 0.42
+Nodes (8): carregarFichas(), deletarFicha(), escreverNoStorage(), gerarId(), lerDoStorage(), salvarFicha(), podeSalvarNovaFicha(), Phase0Start()
 
 ### Community 43 - "Community 43"
-Cohesion: 0.19
-Nodes (11): BookChaptersRow(), capaMap, formatarData(), SearchModal(), estaDisponivel(), index, formatarData(), Livro() (+3 more)
+Cohesion: 0.07
+Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.13
-Nodes (13): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, attrNomeKey(), BurstParticles(), CurtainReveal(), FireParticles() (+5 more)
+Cohesion: 0.20
+Nodes (9): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, BurstParticles(), CurtainReveal(), FireParticles(), GameScreen() (+1 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.31
-Nodes (7): carregarDeck(), ATTR_KEYS, bgCarta(), CARD_IMAGES, CardViewerModal(), CARD_IMAGES, PerfilColecao()
+Cohesion: 0.25
+Nodes (8): ATTR_KEYS, bgCarta(), CARD_IMAGES, CardViewerModal(), bgCarta(), CARD_IMAGES, DeckStartModal(), MenuScreen()
 
 ### Community 46 - "Community 46"
-Cohesion: 0.17
-Nodes (15): ConfirmEndTurn(), STATUS_ICONS, StatusBar(), TurnoIndicator(), sortearIAs(), Batalha(), calcularCaminho(), getAlcanceMovimento() (+7 more)
+Cohesion: 0.10
+Nodes (20): Culture & Environment, David Kronos Connection, Diretor Walter, Elite Academy, Faculty & Staff, Infrastructure, Key Facts, NexusPhantasm (+12 more)
 
 ### Community 47 - "Community 47"
 Cohesion: 0.23
 Nodes (11): getPoderesDisponiveis(), getPoderesPorId(), PODERES_BASE, temPoderDisponivel(), executarMecanica(), MECANICAS, aplicarOrdemInterna(), aplicarResultadosCruzados() (+3 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.11
-Nodes (24): AchievementToast(), TypewriterPhrase(), useLanguage(), useTypewriter(), TrapActivator(), Monologue(), getTelefonema(), TELEFONEMA_PADRAO (+16 more)
+Cohesion: 0.10
+Nodes (19): Consequências realistas de cada golpe, Descrição de inimigos genéricos, Estilo Jack, Estilo Kim, Estilo Nina, Estrutura de uma luta, Exemplo de prompt ideal para gerar luta, Exemplo real: Kim vs Nina (Cap 5) (+11 more)
 
 ### Community 49 - "Community 49"
-Cohesion: 0.10
-Nodes (20): CACADOR, CONTROLADOR, COVARDE, ESPELHO, ESTRATEGISTA, EXTERMINADOR, getDescricaoIA(), KAMIKAZE (+12 more)
+Cohesion: 0.09
+Nodes (26): ArenaTaticsRoute(), randomPick(), CACADOR, CONTROLADOR, COVARDE, ESPELHO, ESTRATEGISTA, EXTERMINADOR (+18 more)
 
 ### Community 50 - "Community 50"
-Cohesion: 0.15
-Nodes (12): CRIATURAS_BASE, SPRITE_1, SPRITE_10, SPRITE_2, SPRITE_3, SPRITE_4, SPRITE_5, SPRITE_6 (+4 more)
+Cohesion: 0.13
+Nodes (15): CRIATURAS, CRIATURAS_BASE, SPRITE_1, SPRITE_10, SPRITE_2, SPRITE_3, SPRITE_4, SPRITE_5 (+7 more)
 
 ### Community 51 - "Community 51"
 Cohesion: 0.18
@@ -371,10 +446,6 @@ Nodes (11): executar(), init(), primitivos, _refs, EFFECTS_MAP, emit(), listener
 ### Community 52 - "Community 52"
 Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
-
-### Community 53 - "Community 53"
-Cohesion: 0.13
-Nodes (19): CHOICES, EMOJI, Jokempo(), carregarTentativas(), consumirTentativa(), marcarCartaGanha(), salvarCartasDeck(), substituirDeck() (+11 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.29
@@ -390,35 +461,31 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
-
-### Community 58 - "Community 58"
-Cohesion: 0.15
-Nodes (4): platformIconMap, allImages, Musicas(), shuffleArray()
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 59 - "Community 59"
-Cohesion: 0.25
-Nodes (13): CityHUD(), DISTRITOS, getBuildingAt(), getBuildingRedSquareRange(), getExitAt(), getExitRedSquareRange(), getNpcAt(), getTileColorName() (+5 more)
+Cohesion: 0.15
+Nodes (22): CityHUD(), GameControls(), DISTRITOS, getBuildingAt(), getBuildingRedSquareRange(), getExitAt(), getExitRedSquareRange(), getNpcAt() (+14 more)
 
 ### Community 60 - "Community 60"
-Cohesion: 0.26
-Nodes (9): CriaturaSprite(), ESTADO_ANIM, COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, Banhar(), getCtx(), sfx (+1 more)
+Cohesion: 0.29
+Nodes (8): CriaturaSprite(), ESTADO_ANIM, COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, getCtx(), sfx, tocar()
 
 ### Community 61 - "Community 61"
-Cohesion: 0.15
-Nodes (14): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+6 more)
+Cohesion: 0.20
+Nodes (9): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, FALAS_MAP, PERS_NOME_KEY, CRIATURAS_T1, Selecao(), shuffle() (+1 more)
 
 ### Community 62 - "Community 62"
 Cohesion: 0.29
 Nodes (10): gerarGrid(), drawHex(), hexCenter(), hexCorner(), pixelToHex(), SQRT3, useHexCanvas(), OBS3_HP_OPTIONS (+2 more)
 
 ### Community 63 - "Community 63"
-Cohesion: 0.20
-Nodes (12): CharacterCard(), DATA, GROUP_LABELS, GROUP_ORDER, usePersonagem(), usePersonagens(), usePersonagensAgrupados(), dataMap (+4 more)
+Cohesion: 0.11
+Nodes (17): Battle Formats, Combat Modes, Death & Recovery, Elemental Interactions, Elemental System, Energy System, Entry & Exit Rules, Free Hands Mode (+9 more)
 
 ### Community 64 - "Community 64"
-Cohesion: 0.24
-Nodes (10): GameControls(), BuildingInterior(), buildInterior(), EXIT_ZONE, getInteriorColliders(), getInteriorZone(), INTERIOR_NAMES, interiorSpawns (+2 more)
+Cohesion: 0.11
+Nodes (17): CAP 10 — "O preço do sucesso", CAP 11 — "Bebendo com os amigos", CAP 12 — "Cuidado a gatinha tem garras", CAP 13 — "Kim mostra sua lábia com o broto!", CAP 14 — "A mudança necessária!", CAP 1 — "Quem é esse cara?", CAP 2 — "A garota nova!!!", CAP 3 — "Que tipo de briga é essa?" (+9 more)
 
 ### Community 65 - "Community 65"
 Cohesion: 0.33
@@ -437,12 +504,12 @@ Cohesion: 0.31
 Nodes (9): ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento(), ELEM_COR, EMOJI (+1 more)
 
 ### Community 69 - "Community 69"
-Cohesion: 0.19
-Nodes (16): BANNER_URLS, BANNERS, HeroSlideshow(), SLIDE_KEYS, bfsPath(), gerarLabirinto(), MAZE_CONFIGS, PuzzleLabirinto() (+8 more)
+Cohesion: 0.12
+Nodes (16): 1. AS 6 CLASSES BASE, 2. OS 20 PERSONAGENS, 3. ÁRVORE COMPLETA DE EVOLUÇÃO (42 NÓS), 4. FORA DO POOL (Personagens 11-20), 5. CONTAGEM FINAL CONFIRMADA, 🌳 IGNIS (Sábio), 🌳 KARUAK (Cavaleiro), 🔴 KARUAK — Cavaleiro (Espadachim) (+8 more)
 
 ### Community 70 - "Community 70"
-Cohesion: 0.36
-Nodes (7): CIDADES, getCidade(), getCidadeNavegacao(), getLocaisVisiveis(), NPCS, MainMenu(), Vila()
+Cohesion: 0.12
+Nodes (16): Aftermath (1500 Invasion), History (1450 CE), Kawa (Young Warrior), Key Members, Law of Property, Nara (Matriarca), Pajé Yawanari (Guardian Shaman), Powa (Antagonist) (+8 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.25
@@ -453,8 +520,8 @@ Cohesion: 0.22
 Nodes (3): calcAtkWithTerrain(), calcDefWithTerrain(), getTerrainMods()
 
 ### Community 73 - "Community 73"
-Cohesion: 0.29
-Nodes (6): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), notificationManager, NotificationType
+Cohesion: 0.12
+Nodes (16): 🏆 BADGES (Medalhas), 🍖 COMO ALIMENTAR O KRONIKI, 🎭 COMO BRINCAR COM O KRONIKI, 🎮 COMO CHEGAR NO TAMAGOSHI, 🧼 COMO DAR BANHO NO KRONIKI, ⚡ COMO PASSEAR COM O KRONIKI, ❤️ COMO RESTAURAR A SAÚDE DO KRONIKI, 🏪 COMO USAR A LOJA (+8 more)
 
 ### Community 74 - "Community 74"
 Cohesion: 0.24
@@ -473,16 +540,16 @@ Cohesion: 0.12
 Nodes (16): 0. Antes de qualquer grep amplo — consultar o Graphify, 10. Decisões e Hurdles, 11. Infraestrutura, 12. Conduct Rules, 1. Filosofia, 2. Stack & Ambiente, 3. Workflow Obrigatório, 4. Layout & CSS (+8 more)
 
 ### Community 78 - "Community 78"
-Cohesion: 0.31
-Nodes (8): corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis(), nomeDisponivel(), NOMES_DISPONIVEIS, podeAdicionarPersonagemABatalha(), Phase2Customize()
+Cohesion: 0.17
+Nodes (16): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis() (+8 more)
 
 ### Community 79 - "Community 79"
-Cohesion: 0.13
-Nodes (27): applyBleed(), applyBleedNoStack(), applyDisease(), applyEffect(), applyMagicEffect(), applySupport(), castMagic(), clearLog() (+19 more)
+Cohesion: 0.28
+Nodes (9): applyDisease(), clearLog(), DISEASE_STAGES, getEffectiveMaxHP(), initBattle(), pickRandomEnemies(), processDiseaseProgression(), restartBattle() (+1 more)
 
 ### Community 80 - "Community 80"
-Cohesion: 0.29
-Nodes (6): BalloonFala(), MetricBar(), CRIATURAS, Criatura(), Partida(), TIPO_PARA_KEY
+Cohesion: 0.47
+Nodes (3): BalloonFala(), MetricBar(), PERSONALIDADES
 
 ### Community 81 - "Community 81"
 Cohesion: 0.29
@@ -493,8 +560,8 @@ Cohesion: 0.29
 Nodes (6): en, enDesc, es, esDesc, pt, ptNomes
 
 ### Community 83 - "Community 83"
-Cohesion: 0.57
-Nodes (4): FRASES, getFrase(), PALETTES, ResultCard()
+Cohesion: 0.13
+Nodes (14): Combat Mode: Silent Synchrony, Conflict Pattern: Triangle, Default State: Banter, Dynamic Patterns, Group Dynamics — Kim, Jack, Nina, Group Evolution by Chapter Arc, Jack — The Anchor / The Strategist, Key Locations for Group Interaction (+6 more)
 
 ### Community 84 - "Community 84"
 Cohesion: 0.27
@@ -505,8 +572,8 @@ Cohesion: 0.48
 Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionScreen()
 
 ### Community 86 - "Community 86"
-Cohesion: 0.38
-Nodes (6): Create(), ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
+Cohesion: 0.33
+Nodes (5): ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
 
 ### Community 87 - "Community 87"
 Cohesion: 0.38
@@ -549,8 +616,8 @@ Cohesion: 0.70
 Nodes (3): HeroEffect(), randomBetween(), useHeroEffect()
 
 ### Community 97 - "Community 97"
-Cohesion: 0.21
-Nodes (17): aiAct(), aliveEnemySide(), alivePlayerSide(), DAMAGE_TIERS, damageSpellAvailable(), damageSpellCost(), getAreaTargets(), HEAL_TIERS (+9 more)
+Cohesion: 0.14
+Nodes (13): 1. Orquestrador, 2. Componentes de Fase (phases/), 3. Componentes de UI Reutilizáveis/Auxiliares, 4. engine/ — Lógica pura, 5. data/ — Catálogos e armazenamento, 6. archive/ — Preservados (não ativos), 7. Documentação, 8. ⚪ engine/ai/index.js — Órfão com imports quebrados (+5 more)
 
 ### Community 100 - "Community 100"
 Cohesion: 0.50
@@ -561,12 +628,16 @@ Cohesion: 0.67
 Nodes (3): ENEMIES_BY_TIER, gerarTimeInimigo(), getInimigoPorSDR()
 
 ### Community 102 - "Community 102"
-Cohesion: 0.33
-Nodes (6): CooldownTimer(), getFala(), Brincadeira(), getConfig(), PUZZLES, Luto()
+Cohesion: 0.15
+Nodes (12): BEAT 1.10 — The Pink-Haired Variable, BEAT 1.11 — The Aftermath Settles, BEAT 1.1 — The Nightmare, BEAT 1.2 — The Waking World, BEAT 1.3 — The Living Room Battlefield, BEAT 1.4 — The Morning War, BEAT 1.5 — The Friend at the Door, BEAT 1.6 — The Candy Route (+4 more)
 
 ### Community 103 - "Community 103"
 Cohesion: 0.50
 Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
+
+### Community 113 - "Community 113"
+Cohesion: 0.15
+Nodes (12): BEAT 2.10 — The Fight, BEAT 2.11 — The Challenge, BEAT 2.1 — The Failed Conquest, BEAT 2.2 — The Doctor's Micro-Smile, BEAT 2.3 — Nina Watches, BEAT 2.4 — The Five Men, BEAT 2.5 — The Reversal, BEAT 2.6 — The Invitation (+4 more)
 
 ### Community 154 - "graphify reference: query, path, explain"
 Cohesion: 0.33
@@ -584,25 +655,261 @@ Nodes (3): For git commit hook, For native CLAUDE.md integration, graphify refer
 Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
+### Community 161 - "3. O PRODUTO — ONZE ENGINES DE JOGO FUNCIONAIS"
+Cohesion: 0.17
+Nodes (12): 3.10 MiniGames, 3.11 SRGRM (Sistema RPG 3v3), 3.1 Lendas do LDI (Visual Novel narrativa), 3.2 Jack Dream Candy (Detetive / Point-and-Click), 3.3 Pesadelo Particular (Detetive Narrativo), 3.4 Top Trumps — Super Trunfo, 3.5 Duelo — Campo de Batalha (Card Battle), 3.6 Tamagoshi — Criaturas Virtuais (+4 more)
+
+### Community 162 - "BLOCO A — BRAND ILLUSION FIGHT"
+Cohesion: 0.17
+Nodes (12): 1. IDENTIDADE DE MARCA, 2. VOZES OFICIAIS (ElevenLabs — imutáveis), 3. SISTEMA DE PERSONAGENS NAS REDES, 4. BANCO DE VÍDEOS — 15/15 PRONTOS ✅, 5. METODOLOGIA DE PRODUÇÃO DE VÍDEO, 8. ANALYTICS ORGÂNICO, 9. ANALYTICS PORTAL (site illusionfight.com), Baseline consolidado (28/06/2026) (+4 more)
+
+### Community 163 - "CHAPTER 9: "Começando o treinamento?""
+Cohesion: 0.18
+Nodes (10): BEAT 9.1 — The Private Room, BEAT 9.2 — The Recovery, BEAT 9.3 — Avatar Reveals, BEAT 9.4 — Two on One, BEAT 9.5 — The Xakixi Manifest, BEAT 9.6 — Yawanari's Warning, BEAT 9.7 — Nina Falls, BEAT 9.8 — Vitória Finals (+2 more)
+
+### Community 164 - "CHAPTER 11: "Bebendo com os amigos""
+Cohesion: 0.18
+Nodes (10): BEAT 11.1 — The Avatar Anomaly, BEAT 11.2 — The Rules, BEAT 11.3 — The Shadow, BEAT 11.4 — The Ambush, BEAT 11.5 — The Retreat, BEAT 11.6 — The Splitting, BEAT 11.7 — Kim vs. Roxy, BEAT 11.8 — Nina vs. The Predators (+2 more)
+
+### Community 165 - "CHAPTER 14: "A mudança necessária!""
+Cohesion: 0.18
+Nodes (10): BEAT 14.1 — The Challenger's Entrance, BEAT 14.2 — Kim's New Look, BEAT 14.3 — Multiple Water Balls, BEAT 14.4 — The Audience Reacts, BEAT 14.5 — The Break, BEAT 14.6 — Adaptation, BEAT 14.7 — The Uppercut, BEAT 14.8 — Rei Xamã (+2 more)
+
+### Community 166 - "BONUS: "Sagas Primordiais I: O Início!""
+Cohesion: 0.18
+Nodes (10): BEAT B.1 — The Golden Age, BEAT B.2 — The Omens, BEAT B.3 — Powa's Ambition, BEAT B.4 — The Betrayal, BEAT B.5 — The Sacrifice, BEAT B.6 — The Erasure, BEAT B.7 — The Invasion, BEAT B.8 — The Watcher's Descent (+2 more)
+
+### Community 167 - "Uso: RAG reference. Cada entrada é um chunk independente."
+Cohesion: 0.18
+Nodes (10): BLOCO 1 — SISTEMAS LDI (Monetização e Acesso), BLOCO 2 — ENTIDADES E ORGANIZAÇÕES, BLOCO 3 — MECÂNICAS DE COMBATE, BLOCO 4 — SISTEMA ELEMENTAL, BLOCO 5 — ARMAS NOMEADAS, BLOCO 6 — PODERES E TÉCNICAS ESPECIAIS, BLOCO 7 — MUNDO DE BRAVARA (Tecnologia e Serviços), BLOCO 8 — XAKAXI (Termos Históricos e Culturais) (+2 more)
+
+### Community 168 - "📋 Workflow Obrigatório (nesta ordem)"
+Cohesion: 0.18
+Nodes (10): 1. Bump de versão, 2. Build, 3. Commit, 4. Push, 5. Deploy, Agente LDI — Workflow Obrigatório de Versionamento e Deploy, ⚠️ REGRA DE OURO — NÃO EXISTE MICRO-COMMIT, 📊 Relatório Final (+2 more)
+
+### Community 169 - "ILLUSION FIGHT"
+Cohesion: 0.20
+Nodes (9): 15. USO DO INVESTIMENTO, 16. ROADMAP, 18. POR QUE AGORA, 1. A ORIGEM — 23 ANOS DE CONSTRUÇÃO, 5. A TRILHA SONORA — 36 FAIXAS ORIGINAIS, Apresentação completa para investidores, ILLUSION FIGHT, SUMÁRIO (+1 more)
+
+### Community 170 - "CHARACTER: David Kronos"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: David Kronos, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 171 - "CHARACTER: Helena"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Helena, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 172 - "CHARACTER: Jack"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Jack, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 173 - "CHARACTER: Kim (Joaquim Leal Reis)"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Kim (Joaquim Leal Reis), Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 174 - "CHARACTER: Lisa"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Lisa, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 175 - "CHARACTER: Nina"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Nina, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 176 - "CHARACTER: Pajé Yawanari"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Pajé Yawanari, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 177 - "CHARACTER: Shuntaro Chirasu"
+Cohesion: 0.20
+Nodes (9): Abilities / Skills, Background Summary, CHARACTER: Shuntaro Chirasu, Current Situation, Key Relationships, Narrative Arc, Personality Core, Physical Description (+1 more)
+
+### Community 178 - "CHAPTER 3: "Que tipo de briga é essa?""
+Cohesion: 0.20
+Nodes (9): BEAT 3.1 — The Setup, BEAT 3.2 — The Birth of Briguento, BEAT 3.3 — The Arena, BEAT 3.4 — The Torture Begins, BEAT 3.5 — The Checklist, BEAT 3.6 — Refusal, BEAT 3.7 — The Helpless Witness, BEAT 3.8 — The Threshold (+1 more)
+
+### Community 179 - "CHAPTER 4: "O Pajé mais Cringe que existe?""
+Cohesion: 0.20
+Nodes (9): BEAT 4.1 — The Spirit Realm, BEAT 4.2 — The Offer, BEAT 4.3 — The Transformation, BEAT 4.4 — The Reckoning, BEAT 4.5 — The Shockwave, BEAT 4.6 — Yohualticit Alarms, BEAT 4.7 — The Aftermath, BEAT 4.8 — The New Reality (+1 more)
+
+### Community 180 - "CHAPTER 5: "Não me julgue""
+Cohesion: 0.20
+Nodes (9): BEAT 5.1 — Post-Fight Calm, BEAT 5.2 — The Interruption, BEAT 5.3 — The Challenge, BEAT 5.4 — The Fight: Phase One, BEAT 5.5 — The Fight: Adaptation, BEAT 5.6 — The Distraction, BEAT 5.7 — Respect Earned, BEAT 5.8 — The Project (+1 more)
+
+### Community 181 - "CHAPTER 6: "Não me julgue""
+Cohesion: 0.20
+Nodes (9): BEAT 6.1 — The Beating, BEAT 6.2 — The Intervention, BEAT 6.3 — The Liquor Run, BEAT 6.4 — The Classroom, BEAT 6.5 — LDI 101, BEAT 6.6 — The Anonymity Question, BEAT 6.7 — Drunken Confessions, BEAT 6.8 — Walking Home (+1 more)
+
+### Community 182 - "CHAPTER 7: "Conhecendo Dona Helena!""
+Cohesion: 0.20
+Nodes (9): BEAT 7.1 — The Same Old Scene, BEAT 7.2 — The Demand, BEAT 7.3 — The Storm, BEAT 7.4 — The Calm, BEAT 7.5 — The Revelation, BEAT 7.6 — The Embrace, BEAT 7.7 — Rebuilding, BEAT 7.8 — A New Night (+1 more)
+
+### Community 183 - "CHAPTER 13: "Kim mostra sua lábia com o broto!""
+Cohesion: 0.20
+Nodes (9): BEAT 13.1 — The Awkward Exit, BEAT 13.2 — Dinner and a Show, BEAT 13.3 — The Club, BEAT 13.4 — The Calm Bouncer, BEAT 13.5 — The Weekend, BEAT 13.6 — The Visitor, BEAT 13.7 — The Warning, BEAT 13.8 — The Anticipation (+1 more)
+
+### Community 184 - "BLOCO E — PR OUTREACH"
+Cohesion: 0.22
+Nodes (9): BLOCO E — PR OUTREACH, E10. APRENDIZADOS DO DIA 28/06/2026, E1. VISÃO GERAL — RESULTADO REAL 28/06/2026, E2. COBERTURA GEOGRÁFICA COMPLETA, E4. QUALIFICAÇÃO POR TIER, E5. TAXA DE RESPOSTA ESPERADA, E6. CONFIGURAÇÃO BREVO, E7. SEQUÊNCIA DE DISPARO (+1 more)
+
+### Community 185 - "Lutas de Ilusão (LDI) — Monetization"
+Cohesion: 0.22
+Nodes (8): LT Currency (Moedas), Lutas de Ilusão (LDI) — Monetization, SAL — Sistema de Acesso Limitado (Limited Access System), SDA — Sistema de Apostas (Betting System), SDD — Sistema de Doações (Donation System), SDP — Sistema de Parcerias (Partnership System), STE — Sistema de Treinamento Exclusivo (Exclusive Training System), SVN — Sistema de Venda de NFTs (NFT Sale System)
+
+### Community 186 - "Relationship Arcs — Lutas de Ilusão"
+Cohesion: 0.22
+Nodes (8): Jack ↔ Nina, Kim ↔ David Kronos, Kim ↔ Helena, Kim ↔ Jack, Kim ↔ Lisa, Kim ↔ Nina, Kim ↔ Pajé Yawanari, Relationship Arcs — Lutas de Ilusão
+
+### Community 187 - "CHAPTER 10: "O preço do sucesso""
+Cohesion: 0.22
+Nodes (8): BEAT 10.1 — Floating Observer, BEAT 10.2 — The Argument, BEAT 10.3 — The Cuba de Pobre, BEAT 10.4 — Mental Energy, BEAT 10.5 — Weapon and Power Systems, BEAT 10.6 — The Prejudice Argument, BEAT 10.7 — Synthesis, CHAPTER 10: "O preço do sucesso"
+
+### Community 188 - "ILLUSION FIGHT — CONTROLE FINANCEIRO"
+Cohesion: 0.25
+Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
+
+### Community 189 - "Marketing-MAP.md"
+Cohesion: 0.25
+Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
+
+### Community 190 - "Primordial Power (Sangue Primordial)"
+Cohesion: 0.25
+Nodes (7): Kim Primordial Transformation Details, Manifestation in Kim, Origin, Primordial Power (Sangue Primordial), What It Is, Why David Kronos Wants It, Yohualticit Alarms
+
+### Community 191 - "CHAPTER 8: "Meu bebê? Que história é essa?""
+Cohesion: 0.25
+Nodes (7): BEAT 8.1 — The Unfamiliar Morning, BEAT 8.2 — The Story Shared, BEAT 8.3 — The Director's Warning, BEAT 8.4 — The Gift, BEAT 8.5 — The Viral Truth, BEAT 8.6 — The Decision, CHAPTER 8: "Meu bebê? Que história é essa?"
+
+### Community 192 - "CHAPTER 12: "Cuidado a gatinha tem garras""
+Cohesion: 0.25
+Nodes (7): BEAT 12.1 — Nina's Cunning, BEAT 12.2 — Jack's Breaking Point, BEAT 12.3 — Kim's Endurance, BEAT 12.4 — Reunion, BEAT 12.5 — The Job Offer, BEAT 12.6 — Awkward Silence, CHAPTER 12: "Cuidado a gatinha tem garras"
+
+### Community 193 - "ISA UNIVERSE — WRITING STYLE GUIDE"
+Cohesion: 0.25
+Nodes (7): Action Scenes, Cultural Notes, Dialogue Rules, ISA UNIVERSE — WRITING STYLE GUIDE, Prose Style, Voice & Tone, What to Avoid
+
+### Community 194 - "Kernel Games Test Report"
+Cohesion: 0.25
+Nodes (7): Bullet Hell Rafael, Código Perdido, Glitch Rafael, Kernel Games Test Report, Maze Rafael, Sliding Rafael, Stabilizer Rafael
+
+### Community 195 - "6. A PLATAFORMA TECNOLÓGICA"
+Cohesion: 0.29
+Nodes (7): 6.1 Stack, 6.2 Estrutura, 6.3 Banco de dados, 6.4 Pagamentos, 6.5 SEO e indexação, 6.6 Versionamento, 6. A PLATAFORMA TECNOLÓGICA
+
+### Community 196 - "🃏 Top Trumps — LDI: Todas as Cartas"
+Cohesion: 0.29
+Nodes (6): #10 — David Kronos — Primordial, #74 — Vale das Cinzas — Destruição, #75 — Kim Primordial — Forma Liberada, #76 — Alan — O Campeão, 🔴 Primordial (4 cartas), 🃏 Top Trumps — LDI: Todas as Cartas
+
+### Community 197 - "🟡 Lendário (6 cartas)"
+Cohesion: 0.29
+Nodes (7): #11 — Xakaxi — O Grande Cacique, #12 — Nara — A Guerreira, #13 — Powa — O Corrompido, #31 — Kawa — O Guerreiro Traído, #32 — Tawira — O Herdeiro, #33 — Iara — A Curandeira, 🟡 Lendário (6 cartas)
+
+### Community 198 - "Bravara"
+Cohesion: 0.29
+Nodes (6): Bravara, Culture, Geography, History, Society, Technology in 2030
+
+### Community 199 - "ISA UNIVERSE — COMPLETE TIMELINE"
+Cohesion: 0.29
+Nodes (6): Ancient History, Colonial Period, ISA UNIVERSE — COMPLETE TIMELINE, Modern History, Present (Book 1), The LDI Era
+
+### Community 200 - "7. MONETIZAÇÃO — COMO O DINHEIRO ENTRA"
+Cohesion: 0.33
+Nodes (6): 7.1 Princípio central, 7.2 Canal principal — venda direta via Stripe, 7.3 Steam — um canal adicional, não o principal, 7.4 Loja física e digital, 7.5 Moeda virtual (DIX / Fichas), 7. MONETIZAÇÃO — COMO O DINHEIRO ENTRA
+
+### Community 201 - "9. PR E DISTRIBUIÇÃO GLOBAL — 5.273 CONTATOS EM 50 PAÍSES"
+Cohesion: 0.33
+Nodes (6): 9.1 O que foi construído, 9.2 Cobertura geográfica, 9.3 A lista ESTRELAS — alto impacto, 9.4 Taxa de resposta esperada, 9.5 Infraestrutura de disparo, 9. PR E DISTRIBUIÇÃO GLOBAL — 5.273 CONTATOS EM 50 PAÍSES
+
+### Community 202 - "⬛ Sombra (5 cartas)"
+Cohesion: 0.33
+Nodes (6): #22 — IA NeoGuide — Sistema, #23 — O Narrador — Arauto da Arena, #34 — Garra Negra — Entidade, #48 — Ora — A Vidente, #66 — Sam — Oráculo de Dados, ⬛ Sombra (5 cartas)
+
+### Community 203 - "10. PROGRAMA DE PARCEIROS DE CONTEÚDO"
+Cohesion: 0.40
+Nodes (5): 10.1 O conceito, 10.2 Custo marginal, 10.3 Estrutura de arcos, 10.4 Níveis de parceria, 10. PROGRAMA DE PARCEIROS DE CONTEÚDO
+
+### Community 204 - "8. MARKETING E CRESCIMENTO ORGÂNICO"
+Cohesion: 0.40
+Nodes (5): 8.1 Redes sociais oficiais, 8.2 Testes de tráfego pago (dados reais), 8.3 Analytics orgânico (28/06/2026), 8.4 LinkedIn pessoal — Isaias Leal, 8. MARKETING E CRESCIMENTO ORGÂNICO
+
+### Community 205 - "BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO"
+Cohesion: 0.40
+Nodes (5): BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO, F1. CONCEITO, F2. COMO FUNCIONA, F3. BENEFÍCIOS POR NÍVEL, F4. ESTRATÉGIA DE ARCOS
+
+### Community 206 - "Passeio.jsx"
+Cohesion: 0.70
+Nodes (3): getPasseio(), PASSEIO_KEY_MAP, PASSEIOS
+
+### Community 207 - "11. NUNTIUS GAMES — O BRAÇO INSTITUCIONAL"
+Cohesion: 0.50
+Nodes (4): 11.1 Time completo da Nuntius, 11.2 Credenciais institucionais, 11.3 Por que isso importa para o Illusion Fight, 11. NUNTIUS GAMES — O BRAÇO INSTITUCIONAL
+
+### Community 208 - "13. FINANCEIRO REAL DO PROJETO"
+Cohesion: 0.50
+Nodes (4): 13.1 Custos diretos (desembolso real em dinheiro), 13.2 Horas investidas (valuation patrimonial), 13.3 Total depositado no projeto (até 25/06/2026), 13. FINANCEIRO REAL DO PROJETO
+
+### Community 209 - "14. ESTRUTURA SOCIETÁRIA E PROPOSTA DE INVESTIMENTO"
+Cohesion: 0.50
+Nodes (4): 14.1 Situação societária atual, 14.2 Valuation, 14.3 Proposta, 14. ESTRUTURA SOCIETÁRIA E PROPOSTA DE INVESTIMENTO
+
+### Community 210 - "2. O UNIVERSO NARRATIVO — BRAVARA, LDI E O SANGUE PRIMORDIAL"
+Cohesion: 0.50
+Nodes (4): 2.1 Premissa, 2.2 Protagonista, 2.3 O trio central, 2. O UNIVERSO NARRATIVO — BRAVARA, LDI E O SANGUE PRIMORDIAL
+
+### Community 211 - "4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE"
+Cohesion: 0.50
+Nodes (4): 4.1 Livro — Crônicas de Marelia, 4.2 Webtoon, 4.3 Mundo / Jackpedia, 4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE
+
+### Community 212 - "7. TRÁFEGO PAGO — HISTÓRICO"
+Cohesion: 0.50
+Nodes (4): 7. TRÁFEGO PAGO — HISTÓRICO, Campanha 1 — TikTok Ads (VID-001), Campanha 2 — TikTok Ads (VID-002 — segundo vídeo), Consolidado TikTok Ads
+
+### Community 213 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
+Cohesion: 0.50
+Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
+
+### Community 214 - "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL"
+Cohesion: 0.50
+Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
+
+### Community 215 - "E3. LISTAS NO BREVO"
+Cohesion: 0.50
+Nodes (4): E3. LISTAS NO BREVO, ESTRELAS (#10) — 794 contatos, PR-BR (#7) — 844 contatos, PR-INT (#9) — 3.635 contatos
+
+### Community 216 - "E8. TEMPLATES DE PR APROVADOS"
+Cohesion: 0.50
+Nodes (4): E8. TEMPLATES DE PR APROVADOS, Notas sobre os templates, Template Brasil — Português, Template Internacional — English
+
+### Community 218 - "12. O TIME"
+Cohesion: 0.67
+Nodes (3): 12.1 Isaias Leal — Fundador, 12.2 Rafael Morto — 15% da empresa, 12. O TIME
+
+### Community 219 - "17. RISCOS E OPORTUNIDADES IDENTIFICADOS"
+Cohesion: 0.67
+Nodes (3): 17. RISCOS E OPORTUNIDADES IDENTIFICADOS, Gaps atuais, Pontos fortes
+
+### Community 220 - "6. CALENDÁRIO DE PUBLICAÇÃO"
+Cohesion: 0.67
+Nodes (3): 6. CALENDÁRIO DE PUBLICAÇÃO, Horários fixos (Nova York EDT), Semana 2 em diante
+
 ## Knowledge Gaps
-- **430 isolated node(s):** `Índice`, `🗑️ Contador de Merda do Agente de Código — 1`, `0. Antes de qualquer grep amplo — consultar o Graphify`, `1. Filosofia`, `2. Stack & Ambiente` (+425 more)
+- **1049 isolated node(s):** `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES`, `name`, `private` (+1044 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 48` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 11`, `Community 12`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 18`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 32`, `Community 34`, `Community 37`, `Community 38`, `Community 39`, `Community 42`, `Community 43`, `Community 44`, `Community 45`, `Community 46`, `Community 49`, `Community 53`, `Community 54`, `Community 58`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 63`, `Community 64`, `Community 69`, `Community 70`, `Community 73`, `Community 76`, `Community 78`, `Community 80`, `Community 83`, `Community 85`, `Community 86`, `Community 87`, `Community 90`, `Community 102`?**
-  _High betweenness centrality (0.339) - this node is a cross-community bridge._
-- **Why does `SFX` connect `Community 6` to `Community 34`, `Community 12`, `Community 45`, `Community 13`, `Community 15`, `Community 44`, `Community 17`, `Community 53`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `Community 7` to `Community 0`, `Community 1`, `Community 4`, `Community 37`, `Community 8`, `Community 42`, `Community 12`, `Community 13`, `Community 16`, `Community 48`, `Community 17`, `Community 53`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **What connects `Índice`, `🗑️ Contador de Merda do Agente de Código — 1`, `0. Antes de qualquer grep amplo — consultar o Graphify` to the rest of the system?**
-  _430 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `useLanguage()` connect `Community 39` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 33`, `Community 34`, `Community 37`, `Community 38`, `Community 42`, `Community 45`, `Community 49`, `Community 50`, `Community 54`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 76`, `Passeio.jsx`, `Community 78`, `Community 80`, `Community 85`, `Community 87`, `Community 90`?**
+  _High betweenness centrality (0.155) - this node is a cross-community bridge._
+- **Why does `useReader()` connect `Community 7` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 37`, `Community 8`, `Community 12`, `Community 78`, `Community 16`, `Community 49`, `Community 17`?**
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `useAuth()` connect `Community 16` to `Community 1`, `Community 2`, `Community 4`, `Community 37`, `Community 39`, `Community 8`, `Community 7`, `Community 9`, `Community 12`, `Community 14`, `Community 49`, `Community 17`, `Community 27`, `Community 28`, `Community 30`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **What connects `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES` to the rest of the system?**
+  _1049 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05536568694463431 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.056140350877192984 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.11088709677419355 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05365296803652968 - nodes in this community are weakly interconnected._

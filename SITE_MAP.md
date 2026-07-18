@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-13 (fix: mojibake residual DeckBuilder + Prototype + WebtoonEpisodio + v10.192.20) → v10.192.21 (Graphify: grafo de conhecimento + skill OpenCode)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-18 — v10.192.22 (instrumentação de diagnóstico do timing da conquista do webtoon; comportamento não alterado)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -566,7 +566,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.17** | fix: purge completo de expirados em qualquer leitura da fila (preparação alta frequência) |
+| `SITE_VERSION` | **10.192.22** | diagnóstico: instrumentação do timing da conquista do webtoon (sem correção comportamental) |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |

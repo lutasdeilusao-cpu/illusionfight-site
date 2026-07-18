@@ -430,9 +430,9 @@
     "semantic_hash": "cf1403ecec95175ca2b5f9c4b11fcd93"
   },
   "src/components/UnifiedNotification/UnifiedNotification.jsx": {
-    "mtime": 1783179794.0590565,
-    "ast_hash": "18a36e982b45f44fb67e4c9a7413712c",
-    "semantic_hash": "18a36e982b45f44fb67e4c9a7413712c"
+    "mtime": 1784400429.689571,
+    "ast_hash": "d341ca7af8974eee7582982ac8dfb98d",
+    "semantic_hash": ""
   },
   "src/config/fichas.js": {
     "mtime": 1781365251.0598452,
@@ -455,14 +455,14 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1783913632.3617125,
-    "ast_hash": "0bf3741a2e0d06b4636f72fcfb992e4a",
+    "mtime": 1784400258.29387,
+    "ast_hash": "86ed09e043a33fb8771eee25518f46b9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
-    "mtime": 1783179770.2022922,
-    "ast_hash": "e9eab3b280b3c849d3fda61d6269855f",
-    "semantic_hash": "e9eab3b280b3c849d3fda61d6269855f"
+    "mtime": 1784400394.0456612,
+    "ast_hash": "43ba694f0a48dec8e0e66650118571c0",
+    "semantic_hash": ""
   },
   "src/context/AuthContext.jsx": {
     "mtime": 1782438457.5038016,
@@ -765,9 +765,9 @@
     "semantic_hash": "fa1d3b18ee0c67026c55d4f8d2547043"
   },
   "src/lib/notificationManager.js": {
-    "mtime": 1783798595.4586196,
-    "ast_hash": "a28aff6351facb2a537304a6c137771e",
-    "semantic_hash": "a28aff6351facb2a537304a6c137771e"
+    "mtime": 1784400419.0562737,
+    "ast_hash": "067a0c56424a07266149019b8eadc2ad",
+    "semantic_hash": ""
   },
   "src/lib/sfx.js": {
     "mtime": 1781198042.1680393,
@@ -825,9 +825,9 @@
     "semantic_hash": "de16e4d30c8bfa32874e42cc2d0c3703"
   },
   "src/pages/content/WebtoonEpisodio.jsx": {
-    "mtime": 1783913046.418377,
-    "ast_hash": "305ad86b3a49dad4cd337015a1b611b5",
-    "semantic_hash": "305ad86b3a49dad4cd337015a1b611b5"
+    "mtime": 1784400372.5556686,
+    "ast_hash": "77df8ac66db7823434f0a9361f3c66e5",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
     "mtime": 1783911201.8705778,
@@ -1245,9 +1245,9 @@
     "semantic_hash": "b516c053e4c2ac9a254b1a81cfd26e85"
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
-    "mtime": 1782447787.3791306,
-    "ast_hash": "80ae7767b5fba7bd23da985e26538120",
-    "semantic_hash": "80ae7767b5fba7bd23da985e26538120"
+    "mtime": 1783914772.5915308,
+    "ast_hash": "f715ec4ddb6454086fbac33ef1c81d3c",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/components/CombatLog.jsx": {
     "mtime": 1782441630.381048,
@@ -2060,9 +2060,9 @@
     "semantic_hash": "d2a8b900fcfa7a78859cf5a158f52b25"
   },
   "src/pages/games/TopTrumps/TopTrumpsLobby.jsx": {
-    "mtime": 1782494284.900076,
-    "ast_hash": "f93fe41347eda3249b1fffd79bdec850",
-    "semantic_hash": "f93fe41347eda3249b1fffd79bdec850"
+    "mtime": 1783914734.4918773,
+    "ast_hash": "593253136b943859c9c19f710fb8fbf9",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
     "mtime": 1782494305.2856295,
@@ -2080,9 +2080,9 @@
     "semantic_hash": "7302f13ff8a172a26e7979fdb6ebdd64"
   },
   "src/pages/games/TopTrumps/components/DeckStartModal.jsx": {
-    "mtime": 1782494286.7620537,
-    "ast_hash": "6d1e2199d96def1fc00d73693cc88ed5",
-    "semantic_hash": "6d1e2199d96def1fc00d73693cc88ed5"
+    "mtime": 1783914678.7058632,
+    "ast_hash": "3a3fa996c38fa567ff960a06b20e2f69",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
     "mtime": 1783912081.837471,
@@ -2465,9 +2465,9 @@
     "semantic_hash": "848a3270504f6d0092cd8bfe7aa0b23a"
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx": {
-    "mtime": 1782447787.4373178,
-    "ast_hash": "77ec118875d9c46891bf9c1a0136920a",
-    "semantic_hash": "77ec118875d9c46891bf9c1a0136920a"
+    "mtime": 1783914626.9603324,
+    "ast_hash": "bb607bbf240c1044ba0b7796fe0be849",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5bAnimDebug.jsx": {
     "mtime": 1782441630.4921124,
@@ -3090,8 +3090,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1783913643.374869,
-    "ast_hash": "e9aaa4f755b32ab54c849dcec4c13f7e",
+    "mtime": 1784400259.0997188,
+    "ast_hash": "96a9889cf4be26e843e46000b3830054",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3677,6 +3677,11 @@
   "public/og-image.jpg": {
     "mtime": 1780353149.8027072,
     "ast_hash": "06e0e6d4b5613e13394d3862504106f7",
+    "semantic_hash": ""
+  },
+  "docs/Marketing/limpeza/Int/WhatsApp Image 2026-07-16 at 17.53.49.jpeg": {
+    "mtime": 1784235252.2335236,
+    "ast_hash": "ce121d4d39f43ac1babc2ec6d021d282",
     "semantic_hash": ""
   }
 }
