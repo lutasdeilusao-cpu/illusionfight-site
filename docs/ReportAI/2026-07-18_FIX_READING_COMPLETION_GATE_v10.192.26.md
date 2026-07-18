@@ -1,7 +1,8 @@
 # FIX — troféu somente após leitura real no Webtoon e no Livro
 
 **Data:** 2026-07-18
-**Versão real do repositório:** 10.192.24 → **10.192.25**
+**Versão inicial da correção:** 10.192.24 → **10.192.25**
+**Versão desta complementação:** 10.192.25 → **10.192.26**
 **Relatório-base:** `docs/ReportAI/2026-07-18_INV_WEBTOON_TROPHY_TIMING_v10.192.23.md`
 **Status:** **CORRIGIDO — PENDENTE TESTE MANUAL**
 
@@ -1633,5 +1634,296 @@ Adicionar em decisões documentadas: leitores com conquista devem usar `useReadi
 4. Livro guest: `/livro/01` no topo sem modal; ao final, CTA `leitor_marelia`.
 5. Outro capítulo publicado: nenhuma conquista `leitor_marelia`.
 6. Autenticado sem as conquistas: topo sem persistência/modal; final com persistência/modal; segundo acesso sem novo modal.
+
+**Status final: CORRIGIDO — PENDENTE TESTE MANUAL**
+
+## Complementação v10.192.26 — restauração próxima e notificação ativa
+
+### Abandono claro da região final
+
+O estado `NOT_ARMED` agora só muda para `ARMED` quando o topo do sentinel está pelo menos **um viewport completo abaixo da borda inferior do viewport**. A medida usa a geometria real do sentinel e `window.innerHeight`, não altura fixa do documento nem percentual mágico. Assim:
+
+- restauração poucos pixels antes do sentinel + descida direta: permanece `NOT_ARMED`, sem disparo;
+- subida suficiente para deixar um viewport inteiro entre a tela e o sentinel: arma e zera direção;
+- descida posterior + nova interseção: conclui uma vez.
+
+| Passo específico | state | hasDownwardMovement | isIntersecting | hasTriggered | Resultado |
+|---|---|---:|---:|---:|---|
+| restaurado poucos pixels antes | `NOT_ARMED` | false | false | false | não dispara |
+| desce diretamente | `NOT_ARMED` | false | true | false | entrada ignorada |
+| sobe, mas ainda perto | `NOT_ARMED` | false | false | false | não arma |
+| sobe até sentinel ficar 1 viewport além da borda | `ARMED` | false | false | false | abandono claro provado |
+| volta descendo | `ARMED` | true | false | false | apto a concluir |
+| sentinel intersecta | `COMPLETED` | true | true | true | dispara uma vez |
+
+### Item já ativo em `UnifiedNotification.current`
+
+`removeByAchievementId` continua filtrando somente a fila pelo ID, mas agora também emite `{ type: 'achievement-removed', achievementId }`. `UnifiedNotification` mantém `currentRef` apenas para leitura do item ativo e assina esse evento. Ele limpa timer/estado exclusivamente quando `getNotificationAchievementId(current) === event.achievementId`; Nina, dicas e conquistas diferentes permanecem abertas.
+
+Itens modernos usam `data.achievementId`. Para itens antigos de `achievement` sem esse campo, `getNotificationAchievementId` realiza uma migração transitória por correspondência exata do payload completo (`nome + descricao + icone`) contra os catálogos PT/EN/ES e retorna o ID canônico. O nome traduzido não é persistido nem usado como identificador permanente. `cta_conta` já possuía `achievementId` historicamente.
+
+### Teste manual adicional obrigatório
+
+1. Abrir `/webtoon/00` ou `/livro/01` com scroll restaurado poucos pixels antes do sentinel.
+2. Descer diretamente: confirmar que nenhum modal aparece.
+3. Subir até uma região anterior, deixando ao menos uma tela completa antes do final.
+4. Voltar descendo: confirmar que o modal aparece uma única vez.
+5. Repetir com uma notificação correspondente já ativa ao entrar: ela deve fechar; uma notificação não relacionada deve permanecer.
+
+### Regra literal do Graphify
+
+`AGENTS.md:184`: `After modifying code, run graphify update . to keep the graph current (AST-only, no API cost).` O comando foi executado com exit 0 e os artefatos rastreados resultantes serão versionados, sem restauração posterior.
+
+```text
+Re-extracting code files in . (no LLM needed)...
+  AST extraction: 100/548 uncached files (18%) [24 workers]
+  AST extraction: 200/548 uncached files (36%) [24 workers]
+  AST extraction: 300/548 uncached files (54%) [24 workers]
+  AST extraction: 400/548 uncached files (72%) [24 workers]
+  AST extraction: 500/548 uncached files (91%) [24 workers]
+  AST extraction: 548/548 uncached files (100%) [24 workers]
+[graphify watch] Rebuilt: 3009 nodes, 6287 edges, 275 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in graphify-out
+Code graph updated.
+Exit code: 0
+```
+
+### Workflow v10.192.26
+
+### Output bruto completo do build v10.192.26
+
+```text
+
+> illusion-fight@1.0.0 build
+> vite build && node scripts/prerender-routes.js
+
+vite v8.0.16 building client environment for production...
+[2Ktransforming...✓ 1342 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                           5.00 kB │ gzip:   1.85 kB
+dist/assets/jack-balloon-DdljwY2J.png                   114.92 kB
+dist/assets/capitulo-03-D7o_hVwL.png                    115.02 kB
+dist/assets/capitulo-02-BTqvWGoQ.png                    116.92 kB
+dist/assets/capitulo-01-Bk9siYTB.png                    118.32 kB
+dist/assets/kroum-abandoned-Cu0kYSYQ.png                129.22 kB
+dist/assets/ninka-abandoned-C5PViYJ8.png                138.97 kB
+dist/assets/yawaru-abandoned-CycPBYcK.png               141.49 kB
+dist/assets/11-giICQLFZ.png                             150.24 kB
+dist/assets/indye-enjoy-Bnzm_sI6.png                    151.98 kB
+dist/assets/lenna-sleepy-fk62qfu4.png                   156.35 kB
+dist/assets/13-Dm9VLAXY.png                             156.63 kB
+dist/assets/nina-balloon-C8FTxLIx.png                   158.03 kB
+dist/assets/09-B_Px4sfP.png                             160.53 kB
+dist/assets/popystar-sleepy-DA8wgAqz.png                170.02 kB
+dist/assets/12-DmXEBNTl.png                             170.08 kB
+dist/assets/03-DMzYOI2l.png                             172.44 kB
+dist/assets/kaiser-sleepy-Dv0v5cgY.png                  172.66 kB
+dist/assets/TemplateBaseReutilizavel-02-Dlk0LVDD.png    174.92 kB
+dist/assets/01--vo5oxgm.png                             175.65 kB
+dist/assets/ninka-enjoy-Dk-H94Oy.png                    175.78 kB
+dist/assets/10-Dd-mf8pS.png                             177.06 kB
+dist/assets/alion-sick-B-8c20S-.png                     177.25 kB
+dist/assets/lenna-hungry-CqFbvrM5.png                   177.55 kB
+dist/assets/lenna-anger-B8QmD9pQ.png                    183.68 kB
+dist/assets/kroum-anger-Bo3pEbvq.png                    184.07 kB
+dist/assets/lenna-abandoned-CdvtAHCJ.png                186.15 kB
+dist/assets/kroum-sick-B7TwKwzN.png                     187.63 kB
+dist/assets/16-D5cFl8Wk.png                             188.19 kB
+dist/assets/lenna-happy-11ewZwpo.png                    190.51 kB
+dist/assets/kroniki-sleepy-De3MDUyh.png                 190.77 kB
+dist/assets/kroum-idle-DU2CKlPp.png                     193.97 kB
+dist/assets/05-Cy4uxI_4.png                             194.15 kB
+dist/assets/06-BrDGb6kN.png                             195.04 kB
+dist/assets/draken-idle-BI-MuiN8.png                    195.19 kB
+dist/assets/04-CfDnlv9H.png                             196.73 kB
+dist/assets/draken-enjoy-Dp7azmod.png                   196.87 kB
+dist/assets/14-DTxweA7l.png                             197.31 kB
+dist/assets/draken-hungry-D6FFEgvj.png                  197.57 kB
+dist/assets/07-zYX29F_m.png                             199.10 kB
+dist/assets/02-n9zEMPlP.png                             199.38 kB
+dist/assets/kaiser-dirty-fBMVhub6.png                   200.39 kB
+dist/assets/lenna-idle-BRGb1_6C.png                     200.79 kB
+dist/assets/alion-abandoned-CbAKdkCz.png                201.68 kB
+dist/assets/kroum-hungry-CIxAYiRO.png                   201.84 kB
+dist/assets/kaiser-abandoned-DncKzJzv.png               203.22 kB
+dist/assets/08-VcwMqPvb.png                             203.83 kB
+dist/assets/ninka-sick-DnfQoxSL.png                     204.30 kB
+dist/assets/card-04-CToPBtFj.png                        204.66 kB
+dist/assets/card-02-DhceELv5.png                        205.89 kB
+dist/assets/draken-abandoned-D3G_AJjH.png               206.97 kB
+dist/assets/popystar-idle-B709-F-7.png                  208.14 kB
+dist/assets/indye-sick-95Uy7E8f.png                     209.08 kB
+dist/assets/lenna-presentation-C2qJ-jp7.png             210.63 kB
+dist/assets/draken-presentation-CWXXc3zt.png            211.64 kB
+dist/assets/yawaru-enjoy-D2p3Yv28.png                   211.68 kB
+dist/assets/indye-sleepy-BdGtzNme.png                   211.85 kB
+dist/assets/yawaru-sick-BtdGxfLu.png                    214.34 kB
+dist/assets/popystar-sick-D2TEJ_Sb.png                  215.31 kB
+dist/assets/draken-dirty-y0gW_QYz.png                   217.43 kB
+dist/assets/popystar-dirty-t0DSAbCq.png                 219.66 kB
+dist/assets/lenna-sick-CoeO_zdi.png                     219.69 kB
+dist/assets/ninka-hungry-l-5rueko.png                   221.76 kB
+dist/assets/card-01-VY-znXh4.png                        222.08 kB
+dist/assets/draken-happy-5GWZRR56.png                   222.67 kB
+dist/assets/draken-sick-B1eM0Ghh.png                    223.78 kB
+dist/assets/ninka-angry-Kjpbn0iZ.png                    223.81 kB
+dist/assets/lenna-dirty-DUXT8cXH.png                    224.03 kB
+dist/assets/kroum-presentation-CqeKqPAH.png             226.36 kB
+dist/assets/popystar-presentation-Bt3EIwfU.png          227.92 kB
+dist/assets/indye-dirty-DlS4bXFe.png                    230.13 kB
+dist/assets/lenna-enjoy-BDtIqLX0.png                    233.41 kB
+dist/assets/kaiser-idle-BiBJ1H9v.png                    234.36 kB
+dist/assets/kroum-enjoy-CKLfaxBW.png                    235.95 kB
+dist/assets/card-07-B2CS5hNl.png                        236.10 kB
+dist/assets/popystar-abandoned-B4uUS0dq.png             237.14 kB
+dist/assets/card-03-DK01e2aM.png                        240.22 kB
+dist/assets/15-DtHQj9ak.png                             240.89 kB
+dist/assets/popystar-happy-DSjZVd8v.png                 240.99 kB
+dist/assets/ninka-idle-C-bumfNZ.png                     241.68 kB
+dist/assets/kroum-happy-hMPbIRit.png                    242.07 kB
+dist/assets/alion-sleepy-DYltcNPH.png                   242.16 kB
+dist/assets/kroniki-enjoy-Bwb7JZcT.png                  242.91 kB
+dist/assets/ninka-happy-C0WrN5fL.png                    244.24 kB
+dist/assets/kaiser-anger-BQ_IL0XG.png                   244.40 kB
+dist/assets/kroniki-abandoned-C-joR7E-.png              246.80 kB
+dist/assets/popystar-anger-m6N76Evu.png                 251.71 kB
+dist/assets/draken-anger-BIylJrxb.png                   253.09 kB
+dist/assets/card-11-77uXgF35.png                        255.69 kB
+dist/assets/kaiser-sick-tne7DuJ1.png                    256.57 kB
+dist/assets/kaiser-happy-Cos18ZNI.png                   256.61 kB
+dist/assets/card-13-oNzoa_Hz.png                        257.59 kB
+dist/assets/ninka-sleepy-CY51t_ar.png                   258.12 kB
+dist/assets/kaiser-hungry-CN4zaHeu.png                  263.84 kB
+dist/assets/indye-abandoned-Et3nbsB3.png                265.24 kB
+dist/assets/thumb-ep01-DXSWBiFE.png                     265.52 kB
+dist/assets/ninka-presentation-CtfBqpz3.png             266.06 kB
+dist/assets/kroniki-hungry-DhXyhsxG.png                 266.70 kB
+dist/assets/card-23-BEGIIHbo.png                        267.30 kB
+dist/assets/kaiser-presentation-TBLcUXKs.png            267.85 kB
+dist/assets/card-12-Dh3zyKy0.png                        268.57 kB
+dist/assets/popystar-hungry-DjarACux.png                268.83 kB
+dist/assets/card-09-BJgA4uCO.png                        268.89 kB
+dist/assets/popystar-enjoy-VhZMnlYP.png                 269.25 kB
+dist/assets/card-15-CYQe1cgY.png                        269.48 kB
+dist/assets/alion-enjoy-QDPIU843.png                    270.62 kB
+dist/assets/kaiser-enjoy-B6xVYlst.png                   272.43 kB
+dist/assets/card-05-BzIcxOne.png                        274.41 kB
+dist/assets/indye-happy-CN3Z8yP0.png                    274.65 kB
+dist/assets/yawaru-idle-DOmz3ouV.png                    275.05 kB
+dist/assets/yawaru-presentation-C-PRTYvu.png            280.13 kB
+dist/assets/kroniki-idle-D6YJC9f6.png                   280.41 kB
+dist/assets/card-08-8l5tA-dv.png                        283.29 kB
+dist/assets/CardInterrogation-DvI_m6h_.png              284.99 kB
+dist/assets/yawaru-dirty--eqUu8SG.png                   285.13 kB
+dist/assets/draken-sleepy-9kXKhpzq.png                  288.66 kB
+dist/assets/yawaru-happy-2ank_psw.png                   289.75 kB
+dist/assets/kroum-dirty-DzLW9uaB.png                    289.83 kB
+dist/assets/kroniki-happy-CX5TwBKy.png                  293.25 kB
+dist/assets/alion-hungry-CiLjTZUv.png                   294.30 kB
+dist/assets/thumb-ep00-JbNodZ72.png                     295.09 kB
+dist/assets/alion-idle-H2uGSb-w.png                     295.33 kB
+dist/assets/card-21-B9bgRSKu.png                        297.13 kB
+dist/assets/kroniki-anger-Ce0fRXxb.png                  297.98 kB
+dist/assets/alion-dirty-BLfxcPQ4.png                    298.11 kB
+dist/assets/ninka-dirty-QKvSCElb.png                    303.02 kB
+dist/assets/card-14-UcGuBKjH.png                        304.34 kB
+dist/assets/kroum-sleepy-G9UkEYzJ.png                   306.39 kB
+dist/assets/alion-anger-B1BQtK68.png                    307.28 kB
+dist/assets/kroniki-presentation-BH8n_pVb.png           308.17 kB
+dist/assets/indye-idle-CVdVTyFA.png                     310.68 kB
+dist/assets/TemplateBaseReutilizavel-03-D_qQngLO.png    314.60 kB
+dist/assets/kroniki-sick-B1IP_-mv.png                   315.89 kB
+dist/assets/yawaru-anger-De4s09EU.png                   320.53 kB
+dist/assets/alion-presentation-C16PWFCM.png             322.87 kB
+dist/assets/indye-hungry-n6ZDobjJ.png                   323.08 kB
+dist/assets/kroniki-dirty-QIIM_l8O.png                  326.89 kB
+dist/assets/yawaru-hungry-DchhORHb.png                  329.52 kB
+dist/assets/indye-anger-DDEZIFmA.png                    331.76 kB
+dist/assets/alion-happy-D6eZwgwY.png                    334.46 kB
+dist/assets/indye-presentation-DKzPzsUi.png             336.61 kB
+dist/assets/card-10-B9dDKsvw.png                        344.21 kB
+dist/assets/yawaru-sleepy-Cjuo1ZKg.png                  347.63 kB
+dist/assets/card-fallback-DvyD1qFW.png                  350.12 kB
+dist/assets/TemplateBaseReutilizavel-04-CwNg56Ya.png    352.24 kB
+dist/assets/TemplateBaseReutilizavel-05-CP58jBHL.png    361.63 kB
+dist/assets/TemplateBaseReutilizavel-C2HNTv3P.png       363.41 kB
+dist/assets/TemplateBaseReutilizavel-01-C7dkTu74.png    363.52 kB
+dist/assets/card-06-Coym9AWC.png                        374.75 kB
+dist/assets/banner-05-CCLwWla-.png                    1,680.13 kB
+dist/assets/banner-02-DJ6EZWtK.png                    1,728.37 kB
+dist/assets/banner-01-D-vcnxgn.png                    1,865.74 kB
+dist/assets/banner-03-BS9ebQac.png                    1,869.93 kB
+dist/assets/banner-04-DZHGTVAK.png                    1,991.70 kB
+dist/assets/ComingSoon-DLWdVy-s.png                   2,299.33 kB
+dist/assets/index-Bpm6D36i.css                          636.10 kB │ gzip: 102.75 kB
+dist/assets/rafael_en-C3lrkU59.js                         2.58 kB │ gzip:   1.30 kB │ map:     3.52 kB
+dist/assets/rafael_es-Bn4I9e3_.js                         2.74 kB │ gzip:   1.38 kB │ map:     3.68 kB
+dist/assets/rafael_pt-dothxrCS.js                         3.01 kB │ gzip:   1.52 kB │ map:     4.03 kB
+dist/assets/capitulo-08-Cc_m2CFL.js                       5.11 kB │ gzip:   2.43 kB │ map:     0.08 kB
+dist/assets/capitulo-02-CZxVVwqX.js                       5.94 kB │ gzip:   2.75 kB │ map:     0.08 kB
+dist/assets/capitulo-02-DnECldOi.js                       5.94 kB │ gzip:   2.73 kB │ map:     0.08 kB
+dist/assets/capitulo-02-BfWZU1R5.js                       5.98 kB │ gzip:   2.75 kB │ map:     0.08 kB
+dist/assets/act2-CmBheBlC.js                              6.70 kB │ gzip:   2.50 kB │ map:    11.38 kB
+dist/assets/capitulo-12-MuCu_I8X.js                       6.73 kB │ gzip:   2.76 kB │ map:     0.08 kB
+dist/assets/act4-C0aCy384.js                              6.76 kB │ gzip:   2.59 kB │ map:    11.00 kB
+dist/assets/act2-BWeZYRqB.js                              6.79 kB │ gzip:   2.55 kB │ map:    11.47 kB
+dist/assets/capitulo-15-Cv3g4lAe.js                       6.86 kB │ gzip:   3.00 kB │ map:     0.08 kB
+dist/assets/act4-B-MWPDRX.js                              6.93 kB │ gzip:   2.60 kB │ map:    11.17 kB
+dist/assets/capitulo-11-DYTXeWLe.js                       7.04 kB │ gzip:   2.98 kB │ map:     0.08 kB
+dist/assets/capitulo-07-BAFhnEDU.js                       7.11 kB │ gzip:   3.17 kB │ map:     0.08 kB
+dist/assets/capitulo-04-BdjknAIc.js                       9.05 kB │ gzip:   4.21 kB │ map:     0.08 kB
+dist/assets/capitulo-01-DMK3dABD.js                       9.11 kB │ gzip:   4.00 kB │ map:     0.08 kB
+dist/assets/capitulo-01-B0qoPPty.js                       9.14 kB │ gzip:   3.92 kB │ map:     0.08 kB
+dist/assets/capitulo-01-D1uDsOKz.js                       9.47 kB │ gzip:   4.11 kB │ map:     0.08 kB
+dist/assets/capitulo-04-JF6kZtvA.js                       9.59 kB │ gzip:   4.40 kB │ map:     0.08 kB
+dist/assets/capitulo-04-DjMM5y_r.js                       9.65 kB │ gzip:   4.50 kB │ map:     0.08 kB
+dist/assets/capitulo-05-iTlLIhSh.js                      12.03 kB │ gzip:   5.19 kB │ map:     0.08 kB
+dist/assets/act3-CUVmMsh-.js                             12.17 kB │ gzip:   3.88 kB │ map:    19.05 kB
+dist/assets/capitulo-09-v6PG6lag.js                      12.28 kB │ gzip:   5.24 kB │ map:     0.08 kB
+dist/assets/capitulo-16-BM8YUBnU.js                      12.44 kB │ gzip:   5.03 kB │ map:     0.08 kB
+dist/assets/capitulo-06-BZpn8v6O.js                      12.44 kB │ gzip:   5.17 kB │ map:     0.08 kB
+dist/assets/capitulo-05-Bf13x_ve.js                      12.65 kB │ gzip:   5.48 kB │ map:     0.08 kB
+dist/assets/capitulo-05-x0TKji8J.js                      12.65 kB │ gzip:   5.40 kB │ map:     0.08 kB
+dist/assets/capitulo-06-CAsyQEuk.js                      12.76 kB │ gzip:   5.28 kB │ map:     0.08 kB
+dist/assets/capitulo-14-dq1fe74y.js                      13.02 kB │ gzip:   5.25 kB │ map:     0.08 kB
+dist/assets/capitulo-10-CyoUds5L.js                      13.08 kB │ gzip:   5.19 kB │ map:     0.08 kB
+dist/assets/capitulo-06-ir-MOGBB.js                      13.19 kB │ gzip:   5.46 kB │ map:     0.08 kB
+dist/assets/act3-Dwjqq__X.js                             13.60 kB │ gzip:   4.28 kB │ map:    21.12 kB
+dist/assets/capitulo-13-Dzk_0_B0.js                      13.89 kB │ gzip:   5.45 kB │ map:     0.08 kB
+dist/assets/en-DRwXIVtS.js                               14.57 kB │ gzip:   5.92 kB │ map:    18.46 kB
+dist/assets/es-TRqg9LgO.js                               15.24 kB │ gzip:   6.09 kB │ map:    19.14 kB
+dist/assets/pt-D8u3qlYl.js                               15.59 kB │ gzip:   6.21 kB │ map:    19.48 kB
+dist/assets/act1-DqwazvLB.js                             16.30 kB │ gzip:   4.94 kB │ map:    26.69 kB
+dist/assets/act1-6z7BavtX.js                             16.66 kB │ gzip:   5.15 kB │ map:    27.06 kB
+dist/assets/act1-AXekDtd0.js                             16.72 kB │ gzip:   5.22 kB │ map:    27.12 kB
+dist/assets/capitulo-03-zqZKAoHX.js                      18.74 kB │ gzip:   7.84 kB │ map:     0.08 kB
+dist/assets/capitulo-03-2HBG5sda.js                      19.71 kB │ gzip:   8.15 kB │ map:     0.08 kB
+dist/assets/capitulo-03-CRfPQEq1.js                      19.90 kB │ gzip:   8.32 kB │ map:     0.08 kB
+dist/assets/index-BwoIMARy.js                         2,908.15 kB │ gzip: 848.95 kB │ map: 8,020.63 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/data/supertrunfo-pt.json is dynamically imported by src/context/AuthContext.jsx but also statically imported by src/lib/getDeck.js, src/pages/games/TopTrumps/TopTrumpsLobby.jsx, dynamic import will not move module into another chunk.
+
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/data/supertrunfo-en.json is dynamically imported by src/context/AuthContext.jsx but also statically imported by src/lib/getDeck.js, dynamic import will not move module into another chunk.
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/data/supertrunfo-es.json is dynamically imported by src/context/AuthContext.jsx but also statically imported by src/lib/getDeck.js, dynamic import will not move module into another chunk.
+
+✓ built in 2.00s
+[prerender] 26 rotas pré-renderizadas com index.html estático (status 200 nativo).
+BUILD_EXIT=0
+```
+
+| Item | Resultado |
+|---|---|
+| `SITE_VERSION` | 10.192.25 → **10.192.26** |
+| Build | `npm run build` → exit 0; 1342 módulos; 26 rotas pré-renderizadas; warnings reais de dynamic import e chunk >500 kB |
+| Commit funcional | `1ffb88612b326d849d4041a5adb8dfaa3b80c798` — `fix: cobrir restauracao proxima e notificacao ativa + v10.192.26` |
+| Push | `886fabce..1ffb8861 main -> main`; remoto confirmado em `1ffb88612b326d849d4041a5adb8dfaa3b80c798` |
+| Deploy | `gh-pages -d dist` → `Published` (exit 0); remoto `gh-pages` em `b5e6fbb4d1fc5b806e8b0773d3d3e408d2f9fdb3` |
 
 **Status final: CORRIGIDO — PENDENTE TESTE MANUAL**
