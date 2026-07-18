@@ -30,3 +30,7 @@ docs/ReportAI/
 kp-test-*.log
 .test-results.log
 .build-log.txt
+
+# Graphify — caches e snapshots incrementais regeneráveis
+graphify-out/cache/
+graphify-out/20??-??-??/

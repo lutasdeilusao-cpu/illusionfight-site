@@ -15,8 +15,8 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
   const [sortDir, setSortDir] = useState('crescente')
 
   // TODO: quando ModoJogo.CAMPANHA existir de verdade, filtrar characters
-  // para esconder time === 'ia' aqui. Hoje nÃ£o faz nada â€” Campanha nÃ£o estÃ¡
-  // disponÃ­vel para o jogador escolher ainda.
+  // para esconder time === 'ia' aqui. Hoje não faz nada — Campanha não está
+  // disponível para o jogador escolher ainda.
 
   const togglePoder = (charId, poderId, limite) => {
     setSelecoes(prev => {
@@ -95,7 +95,7 @@ export default function Phase5PowerSelect({ characters, onConfirm, onBack, modoJ
                 <span className="tab-power-char-limit">
                   {t('prototype.arena_testbed.power_limit', { n: escolhidos.length, max: limite })}
                 </span>
-                <span className="tab-power-chevron">{isExpanded ? 'â–²' : 'â–¼'}</span>
+                <span className="tab-power-chevron">{isExpanded ? '\u25B2' : '\u25BC'}</span>
               </button>
 
               {isExpanded && (

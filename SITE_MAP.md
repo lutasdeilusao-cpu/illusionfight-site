@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-18 — v10.192.23 (complemento documental da instrumentação do timing do troféu; callback sem alteração de identidade)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-18 — v10.192.24 (correção de encoding em comentários e chevrons; relatório Playwright v10.192.23)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -566,10 +566,10 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.23** | diagnóstico: entrega documental completa e callback instrumentado sem alterar identidade |
+| `SITE_VERSION` | **10.192.24** | encoding corrigido em arquivos de jogos e evidência Playwright v10.192.23 registrada |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
-| `JACK_VERSION` | **5.3.1** | Jack Dream Beer — guest aviso visual fix (centralizado, card, botão) |
+| `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
 | `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
@@ -577,10 +577,10 @@
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `TS_VERSION` | **5.44.8** | Top Trumps — revertido ao estado de 655604fd (v1 + v2 restaurados) |
-| `TM_VERSION` | **5.12.0** | Top Trumps MP — JSON v2: id numérico em vez de slug |
+| `TM_VERSION` | **5.12.1** | Top Trumps MP — correção de encoding em comentários |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
-| `ARENATESTBED_VERSION` | **6.22.0** | Migrado do JokenpoModal para Jokempo reutilizável |
+| `ARENATESTBED_VERSION` | **6.22.1** | correção de encoding em comentário e chevrons |
 | `KP_VERSION` | **1.4.1** | KPMenu: CSS extraído de inline style |
 | `MAZE_VERSION` | **1.1.4** | fix: getUnvisitedNeighbors usava mazeRef.current antes de ser atribuído |
 | `GLITCH_VERSION` | **1.1.7** | DIAG: console.log handleClick + endGame para depurar vitoria |

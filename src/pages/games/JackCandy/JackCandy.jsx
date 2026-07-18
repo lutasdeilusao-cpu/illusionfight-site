@@ -112,7 +112,7 @@ export default function JackCandy() {
     setSlotsData(updated)
   }, [user, store])
 
-  // Intervals â€” rodam com slot ativo (logado ou guest)
+  // Intervals — rodam com slot ativo (logado ou guest)
   useEffect(() => {
     if (!currentSlot) return
     const t1 = setInterval(() => {

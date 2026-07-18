@@ -57,7 +57,7 @@ export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onC
       const unicas = [...new Set(deckDisponivel.cartas)]
       onConfirm(unicas)
     } else {
-      // Random cards from collection â€” sem repetir
+      // Random cards from collection — sem repetir
       const disponiveis = deckIds.filter(id => {
         const n = Number(id)
         return deck.cartas.some(c => c.id === n)

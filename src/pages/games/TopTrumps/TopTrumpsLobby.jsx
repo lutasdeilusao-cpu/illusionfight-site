@@ -23,8 +23,8 @@ export default function TopTrumpsLobby() {
   const meuTier = perfil?.tier || 'free'
   const presencas = usePresence({ userId: user?.id, modo: 'lobby', tier: meuTier })
 
-  // Jogadores elegÃ­veis = outros usuÃ¡rios no canal (exclui o prÃ³prio)
-  // que estÃ£o em 'single' ou 'lobby' E sÃ£o elite/primordial (sÃ³ eles podem jogar modo apostado)
+  // Jogadores elegíveis = outros usuários no canal (exclui o próprio)
+  // que estão em 'single' ou 'lobby' E são elite/primordial (só eles podem jogar modo apostado)
   const jogadoresDisponiveis = presencas.filter(p =>
     (p.modo === 'single' || p.modo === 'lobby') &&
     (p.tier === 'elite' || p.tier === 'primordial')
@@ -113,7 +113,7 @@ export default function TopTrumpsLobby() {
     setTurnos(n)
     setEtapa('matchmaking')
     if (!user) return
-    // Multiplayer liberado para todos via ficha â€” sem limite diÃ¡rio
+    // Multiplayer liberado para todos via ficha — sem limite diário
     setLimiteInfo({ pode: true, usadas: 0, limite: 999 })
   }
 
