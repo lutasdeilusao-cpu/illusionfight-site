@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
@@ -9,6 +9,8 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
+import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
+import { notificationManager } from '../../lib/notificationManager'
 import index from '../../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -106,15 +108,16 @@ export default function LivroCapitulo() {
     loadChapter()
   }, [id, chapter, isAdmin, locale])
 
-  // Sentinel: dispara achievement (logado) ou CTA (guest) ao final do capítulo 1
-  useEffect(() => {
-    if (id !== 'capitulo-01' || !sentinelRef.current) return
-    const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) desbloquearOuConvidarRef.current('leitor_marelia')
-    }, { threshold: 0.1 })
-    obs.observe(sentinelRef.current)
-    return () => obs.disconnect()
-  }, [id, md])
+  useLayoutEffect(() => {
+    if (id === 'capitulo-01') notificationManager.removeByAchievementId('leitor_marelia')
+  }, [id])
+
+  useReadingCompletionGate({
+    sentinelRef,
+    contentKey: `livro:${id}`,
+    enabled: id === 'capitulo-01' && Boolean(md),
+    onComplete: () => desbloquearOuConvidarRef.current('leitor_marelia'),
+  })
 
   if (notFound) {
     return (
@@ -231,7 +234,7 @@ export default function LivroCapitulo() {
           }}
         >
           <ReactMarkdown>{md}</ReactMarkdown>
-          <div ref={sentinelRef} style={{ height: 1 }} />
+          <div ref={sentinelRef} className="livro-capitulo__sentinel" />
         </div>
 
         <div className="livro-nav-flutuante">

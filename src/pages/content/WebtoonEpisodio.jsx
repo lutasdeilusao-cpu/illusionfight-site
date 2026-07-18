@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -8,6 +8,8 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
+import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
+import { notificationManager } from '../../lib/notificationManager'
 import episodios from '../../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -22,7 +24,7 @@ export default function WebtoonEpisodio() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
-  const { user, perfil, carregando } = useAuth()
+  const { user, perfil } = useAuth()
   const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
   const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
@@ -30,17 +32,6 @@ export default function WebtoonEpisodio() {
   const desbloquearOuConvidarRef = useRef(desbloquearOuConvidar)
   useEffect(() => { desbloquearOuConvidarRef.current = desbloquearOuConvidar }, [desbloquearOuConvidar])
   const ultimaPaginaRef = useRef(null)
-
-  useEffect(() => {
-    const epAtual = episodios.find(e => e.id === id)
-    console.log('[WEBTOON:INIT]', {
-      timestamp: new Date().toISOString(), pathname: window.location.pathname,
-      episodeId: id, totalPages: epAtual?.paginas ?? 0, origin: 'mount',
-      scrollY: window.scrollY, innerHeight: window.innerHeight,
-      scrollHeight: document.documentElement.scrollHeight, completionGuard: 'none',
-      mode: carregando ? 'auth-loading' : user ? 'authenticated' : 'guest',
-    })
-  }, [id])
 
   useEffect(() => {
     setReaderMode(true)
@@ -58,33 +49,16 @@ export default function WebtoonEpisodio() {
     if (saved) window.scrollTo(0, parseInt(saved))
   }, [id])
 
-  useEffect(() => {
-    if (!ultimaPaginaRef.current) return
-    const observer = new IntersectionObserver(([entry]) => {
-      const scrollHeight = document.documentElement.scrollHeight
-      console.log('[WEBTOON:COMPLETE_CHECK]', {
-        timestamp: new Date().toISOString(), pathname: window.location.pathname,
-        episodeId: id, totalPages: episodios.find(e => e.id === id)?.paginas ?? 0,
-        origin: 'observer', scrollY: window.scrollY, innerHeight: window.innerHeight,
-        scrollHeight, distanceToEnd: scrollHeight - (window.scrollY + window.innerHeight),
-        isIntersecting: entry.isIntersecting, intersectionRatio: entry.intersectionRatio,
-        completionResult: entry.isIntersecting, completionGuard: 'none',
-        mode: carregando ? 'auth-loading' : user ? 'authenticated' : 'guest',
-      })
-      if (entry.isIntersecting) {
-        if (id === '00') {
-          console.trace('[WEBTOON:COMPLETE_TRIGGER]', {
-            timestamp: new Date().toISOString(), pathname: window.location.pathname,
-            episodeId: id, achievementId: 'episodio_zero', origin: 'observer',
-            mode: carregando ? 'auth-loading' : user ? 'authenticated' : 'guest',
-          })
-          desbloquearOuConvidarRef.current('episodio_zero')
-        }
-      }
-    }, { threshold: 0.1 })
-    observer.observe(ultimaPaginaRef.current)
-    return () => observer.disconnect()
+  useLayoutEffect(() => {
+    if (id === '00') notificationManager.removeByAchievementId('episodio_zero')
   }, [id])
+
+  useReadingCompletionGate({
+    sentinelRef: ultimaPaginaRef,
+    contentKey: `webtoon:${id}`,
+    enabled: id === '00',
+    onComplete: () => desbloquearOuConvidarRef.current('episodio_zero'),
+  })
 
   const ep = episodios.find(e => e.id === id)
   const idx = episodios.findIndex(e => e.id === id)

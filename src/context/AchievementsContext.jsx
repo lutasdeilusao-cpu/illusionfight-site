@@ -36,11 +36,6 @@ export function AchievementsProvider({ children }) {
   async function carregarDoSupabase() {
     const { data, error } = await supabase.from('user_achievements').select('achievement_id').eq('user_id', user.id)
     if (error) { console.error('Erro ao carregar achievements:', error); return }
-    console.log('[ACH:EXISTING_CHECK]', {
-      timestamp: new Date().toISOString(), source: 'supabase-load', mode: 'authenticated',
-      existingCount: data?.length ?? 0, requestedPersistence: false, requestedToast: false,
-      reason: 'existing-achievements-loaded-without-toast',
-    })
     if (data && data.length > 0) setDesbloqueados(data.map(d => d.achievement_id))
   }
 
@@ -53,30 +48,14 @@ export function AchievementsProvider({ children }) {
   }
 
   const desbloquear = useCallback(async (achievementId) => {
-    console.trace('[ACH:REQUEST]', {
-      timestamp: new Date().toISOString(), achievementId,
-      mode: user ? 'authenticated' : 'guest', alreadyExisting: desbloqueados.includes(achievementId),
-    })
     // Sem conta logada = não desbloqueia achievement
-    if (!user) {
-      console.log('[ACH:AUTH_PATH]', { timestamp: new Date().toISOString(), achievementId, mode: 'guest', requestedPersistence: false, requestedToast: false, reason: 'no-authenticated-user' })
-      return
-    }
-    if (desbloqueados.includes(achievementId)) {
-      console.log('[ACH:EXISTING_CHECK]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', alreadyExisting: true, requestedPersistence: false, requestedToast: false, reason: 'already-unlocked-in-state' })
-      return
-    }
+    if (!user) return
+    if (desbloqueados.includes(achievementId)) return
     const achievement = todosAchievements.find(a => a.id === achievementId)
-    if (!achievement) {
-      console.log('[ACH:AUTH_PATH]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', requestedPersistence: false, requestedToast: false, reason: 'achievement-definition-not-found' })
-      return
-    }
-    console.log('[ACH:EXISTING_CHECK]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', alreadyExisting: false, requestedPersistence: true, requestedToast: true, reason: 'new-unlock-request' })
-    console.log('[ACH:AUTH_PATH]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', requestedPersistence: true, requestedToast: true, reason: 'persisting-new-achievement' })
+    if (!achievement) return
     const { error } = await supabase.from('user_achievements').insert({ user_id: user.id, achievement_id: achievementId })
     if (error) {
       if (error.code === '23505') {
-        console.log('[ACH:EXISTING_CHECK]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', alreadyExisting: true, requestedPersistence: true, requestedToast: false, reason: 'database-duplicate' })
         setDesbloqueados(prev => prev.includes(achievementId) ? prev : [...prev, achievementId])
         return
       }
@@ -85,6 +64,7 @@ export function AchievementsProvider({ children }) {
     }
     setDesbloqueados(prev => prev.includes(achievementId) ? prev : [...prev, achievementId])
     notificationManager.push('achievement', {
+      achievementId,
       nome: achievement.nome,
       descricao: achievement.descricao,
       icone: achievement.icone,
@@ -106,16 +86,10 @@ export function AchievementsProvider({ children }) {
   }
 
   const desbloquearOuConvidar = useCallback((achievementId) => {
-    console.trace('[ACH:REQUEST]', {
-      timestamp: new Date().toISOString(), achievementId,
-      mode: user ? 'authenticated' : 'guest', entrypoint: 'desbloquearOuConvidar',
-    })
     if (!user) {
-      console.log('[ACH:GUEST_PATH]', { timestamp: new Date().toISOString(), achievementId, mode: 'guest', requestedPersistence: false, requestedToast: true, reason: 'guest-cta-enqueue' })
       notificationManager.push('cta_conta', { achievementId })
       return
     }
-    console.log('[ACH:AUTH_PATH]', { timestamp: new Date().toISOString(), achievementId, mode: 'authenticated', requestedPersistence: true, requestedToast: true, reason: 'delegating-to-unlock' })
     desbloquear(achievementId)
   }, [desbloquear, user])
 

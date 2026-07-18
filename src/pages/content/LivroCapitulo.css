@@ -238,3 +238,6 @@
     right: 1rem;
   }
 }
+.livro-capitulo__sentinel {
+  height: 1px;
+}
