@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { getDeck } from '../../../../lib/getDeck'
 import { carregarDeck } from '../../../../hooks/useLeaderboardDB'
-import DeckBuilder from '../../../games/TopTrumps/components/DeckBuilder'
-import CardViewerModal from '../../../games/TopTrumps/components/CardViewerModal'
+import DeckBuilder from '../../../games/TopTrumps/components/DeckBuilder/DeckBuilder'
+import CardViewerModal from '../../../games/TopTrumps/components/CardViewerModal/CardViewerModal'
 import { getTopTrumpsCardImage as bgCarta } from '../../../../lib/topTrumpsCardImages'
 
 

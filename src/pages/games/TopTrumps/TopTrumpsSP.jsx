@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
-import { useAuth } from '../../../../context/AuthContext'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { useAchievements } from '../../../../context/AchievementsContext'
-import { useEventos } from '../../../../context/EventosContext'
-import { useReader } from '../../../../context/ReaderContext'
-import { usePresence } from '../../../../hooks/usePresence'
-import { getDeck } from '../../../../lib/getDeck'
-import { registrarPartida, registrarPontuacaoRanking } from '../../../../hooks/useLeaderboardDB'
+import { useAuth } from '../../../context/AuthContext'
+import { useLanguage } from '../../../context/LanguageContext'
+import { useAchievements } from '../../../context/AchievementsContext'
+import { useEventos } from '../../../context/EventosContext'
+import { useReader } from '../../../context/ReaderContext'
+import { usePresence } from '../../../hooks/usePresence'
+import { getDeck } from '../../../lib/getDeck'
+import { registrarPartida, registrarPontuacaoRanking } from '../../../hooks/useLeaderboardDB'
 import { useTopTrumpsDeck } from './hooks/useTopTrumpsDeck'
 import { useTopTrumpsRewards } from './hooks/useTopTrumpsRewards'
 import { useTopTrumpsSP } from './hooks/useTopTrumpsSP'
@@ -16,11 +16,11 @@ import GameScreen from './components/GameScreen/GameScreen'
 import ResultScreen from './components/ResultScreen/ResultScreen'
 import RewardScreen from './components/RewardScreen/RewardScreen'
 import GameOverScreen from './components/GameOverScreen/GameOverScreen'
-import Jokempo from '../../../../components/Jokempo/Jokempo'
-import { attrNomeKey } from '../utils/attrNomeKey'
-import { getTopTrumpsCardImage as cardImage } from '../../../../lib/topTrumpsCardImages'
+import Jokempo from '../../../components/Jokempo/Jokempo'
+import { attrNomeKey } from './utils/attrNomeKey'
+import { getTopTrumpsCardImage as cardImage } from '../../../lib/topTrumpsCardImages'
 
-export default function TopTrumpsSP_v2() {
+export default function TopTrumpsSP() {
   const { user, perfil } = useAuth()
   const { tt, locale } = useLanguage()
   const { desbloquear } = useAchievements()

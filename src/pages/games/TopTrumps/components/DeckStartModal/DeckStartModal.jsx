@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { sfx } from '../../../../lib/sfx'
-import { listarDecksCompletos } from '../hooks/useTopTrumpsDeck'
-import { getTopTrumpsCardImage as bgCarta } from '../../../../lib/topTrumpsCardImages'
+import { useLanguage } from '../../../../../context/LanguageContext'
+import { sfx } from '../../../../../lib/sfx'
+import { listarDecksCompletos } from '../../hooks/deckPersistence'
+import { getTopTrumpsCardImage as bgCarta } from '../../../../../lib/topTrumpsCardImages'
 import './DeckStartModal.css'
 
 export default function DeckStartModal({ userId, deck, totalTurnos, deckIds, onConfirm, onCancel }) {

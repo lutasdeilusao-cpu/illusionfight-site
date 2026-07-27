@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { sfx } from '../../../../lib/sfx'
-import { salvarDeckTipo, salvarNomeDeck, carregarDeckTipo, carregarNomeDeck } from '../hooks/useTopTrumpsDeck'
-import TopTrumpsCard from '../../../../components/TopTrumpsCard/TopTrumpsCard'
-import { getTopTrumpsCardImage as bgCarta } from '../../../../lib/topTrumpsCardImages'
+import { useLanguage } from '../../../../../context/LanguageContext'
+import { sfx } from '../../../../../lib/sfx'
+import { salvarDeckTipo, salvarNomeDeck, carregarDeckTipo, carregarNomeDeck } from '../../hooks/deckPersistence'
+import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import { getTopTrumpsCardImage as bgCarta } from '../../../../../lib/topTrumpsCardImages'
 import './DeckBuilder.css'
 
 const DECK_LABELS = { deck_5: '5', deck_10: '10', deck_15: '15', deck_20: '20' }

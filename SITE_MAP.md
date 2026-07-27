@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.35 (investigação estrutural pós-v1 do Top Trumps)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.36 (estrutura pós-v1 do Top Trumps consolidada)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -256,12 +256,16 @@
     │   │   ├── PesadeloParticular/      # Pesadelo Particular
     │   │   ├── Tamagoshi/               # TAMA LDI
     │   │   └── TopTrumps/               # Top Trumps card game
+    │   │       ├── TopTrumpsSP.jsx       # Single-player oficial
+    │   │       ├── TopTrumpsRewardTest.jsx
     │   │       ├── TopTrumpsLobby.jsx
     │   │       ├── TopTrumpsLobby.css
     │   │       ├── TopTrumpsMP.jsx
     │   │       ├── TopTrumpsMP.css
-    │   │       ├── components/
-    │   │       └── hooks/
+    │   │       ├── components/           # Pasta por componente + CSS co-localizado
+    │   │       ├── hooks/                # Hooks SP + deckPersistence
+    │   │       ├── styles/               # tokens.css compartilhado
+    │   │       └── utils/
     │   │
     │   ├── KernelGames/                  # Rafael games + Kernel Panic
     │   │   ├── KernelGame.css            # Shared styles (result screens, scanlines)
@@ -563,7 +567,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.35** | investigação estrutural pós-v1 do Top Trumps |
+| `SITE_VERSION` | **10.192.36** | estrutura pós-v1 do Top Trumps consolidada |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -573,7 +577,7 @@
 | `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `TS_VERSION` | **5.44.12** | Top Trumps — 30 artes oficiais conectadas |
+| `TS_VERSION` | **5.44.13** | Top Trumps — estrutura pós-v1 consolidada |
 | `TM_VERSION` | **5.12.1** | Top Trumps MP — correção de encoding em comentários |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |

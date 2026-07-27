@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { sfx } from '../../../../../lib/sfx'
+import { sfx } from '../../../../lib/sfx'
 
 const ONOMATOPEIAS = [
   'KABOOM!', 'POW!', 'CRASH!', 'BOOM!', 'WHAM!',

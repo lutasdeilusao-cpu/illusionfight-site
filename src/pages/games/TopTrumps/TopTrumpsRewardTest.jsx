@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { getDeck } from '../../../../lib/getDeck'
-import { attrNomeKey } from '../utils/attrNomeKey'
+import { useLanguage } from '../../../context/LanguageContext'
+import { getDeck } from '../../../lib/getDeck'
+import { attrNomeKey } from './utils/attrNomeKey'
 import RewardScreen from './components/RewardScreen/RewardScreen'
-import { sfx } from '../../../../lib/sfx'
-import { getTopTrumpsCardImage as cardImage } from '../../../../lib/topTrumpsCardImages'
+import { sfx } from '../../../lib/sfx'
+import { getTopTrumpsCardImage as cardImage } from '../../../lib/topTrumpsCardImages'
 
-export default function TopTrumpsSP_v2_RewardTest() {
+export default function TopTrumpsRewardTest() {
   const { tt, locale } = useLanguage()
   const deck = getDeck(locale)
   const [opcoes] = useState(() => [...deck.cartas].sort(() => Math.random() - 0.5).slice(0, 3))

@@ -1,8 +1,8 @@
 import { useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLanguage } from '../../../../context/LanguageContext'
-import { sfx } from '../../../../lib/sfx'
-import { getTopTrumpsCardImage as bgCarta } from '../../../../lib/topTrumpsCardImages'
+import { useLanguage } from '../../../../../context/LanguageContext'
+import { sfx } from '../../../../../lib/sfx'
+import { getTopTrumpsCardImage as bgCarta } from '../../../../../lib/topTrumpsCardImages'
 import './CardViewerModal.css'
 
 const ATTR_KEYS = ['rank_sdr', 'poder_mental', 'velocidade', 'resistencia', 'nivel_xama', 'fator_caos', 'energia_base', 'poder_explosivo']
