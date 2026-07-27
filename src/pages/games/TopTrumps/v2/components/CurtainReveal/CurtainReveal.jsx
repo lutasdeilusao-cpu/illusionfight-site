@@ -1,3 +1,5 @@
+import './CurtainReveal.css'
+
 export default function CurtainReveal({ ativo, texto }) {
   if (!ativo) return null
   return (

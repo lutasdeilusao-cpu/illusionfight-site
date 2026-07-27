@@ -1,3 +1,4 @@
+import '../../styles/ResultScreen.css'
 import TopTrumpsCard from '../../../../../../components/TopTrumpsCard/TopTrumpsCard'
 import FireParticles from '../FireParticles/FireParticles'
 import BurstParticles from '../BurstParticles/BurstParticles'

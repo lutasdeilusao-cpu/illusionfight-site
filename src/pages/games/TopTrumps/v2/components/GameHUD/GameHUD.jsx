@@ -1,3 +1,5 @@
+import './GameHUD.css'
+
 export default function GameHUD({ rodada, totalTurnos, placarJogador, placarIA, labelVoce, labelIA }) {
   return (
     <div className="tt-game-header">

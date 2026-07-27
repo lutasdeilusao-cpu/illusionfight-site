@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../../styles/GameScreen.css'
 import TopTrumpsCard from '../../../../../../components/TopTrumpsCard/TopTrumpsCard'
 import FireParticles from '../FireParticles/FireParticles'
 import CurtainReveal from '../CurtainReveal/CurtainReveal'

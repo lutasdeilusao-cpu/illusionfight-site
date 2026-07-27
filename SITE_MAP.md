@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.29 (diagnóstico de fidelidade CSS modular v2 vs monólito Top Trumps)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.30 (v2 Top Trumps autossuficiente com CSS modular)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -506,8 +506,8 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | v2 single-player (versão atual) |
-| `/games/toptrumps/v2` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps |
+| `/games/toptrumps` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.10 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | v2 single-player autossuficiente com CSS modular |
+| `/games/toptrumps/v2` | TopTrumpsSP_v2 | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2.jsx` | ✅ v5.44.10 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
 | `/games/toptrumps/v2/reward-test` | TopTrumpsSP_v2_RewardTest | `src/pages/games/TopTrumps/v2/TopTrumpsSP_v2_RewardTest.jsx` | ✅ v5.44.8 | ✅ Teste de recompensa | ✅ PT ✅ EN ✅ ES | Tela de recompensa isolada para testes |
 | `/games/toptrumps/legacy` | TopTrumps | `src/pages/games/TopTrumps/TopTrumps.jsx` | ✅ v5.44.8 | ✅ 1ª temp. ✅ FichaGate | ✅ PT ✅ EN ✅ ES | v1 legado (acesso por FichaGateRoute) |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
@@ -566,7 +566,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.29** | diagnóstico de fidelidade CSS modular v2 vs monólito Top Trumps |
+| `SITE_VERSION` | **10.192.30** | v2 Top Trumps autossuficiente com CSS modular |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |

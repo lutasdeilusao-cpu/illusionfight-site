@@ -205,9 +205,9 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1783196773.2643683,
-    "ast_hash": "c2de16358744001eef25223c2217c554",
-    "semantic_hash": "c2de16358744001eef25223c2217c554"
+    "mtime": 1785167356.3078225,
+    "ast_hash": "2b2ab8d08c5fabf0ea016c902840a1bd",
+    "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
     "mtime": 1780853960.0629883,
@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785165250.666168,
-    "ast_hash": "741b118d0fec4af95195f2be21e37955",
+    "mtime": 1785166154.9131815,
+    "ast_hash": "dc24c361c099f83f36865ae9231e3d29",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2105,24 +2105,24 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/BurstParticles/BurstParticles.jsx": {
-    "mtime": 1782771349.6739316,
-    "ast_hash": "b6679fcdca062bdff47d504012f84d88",
-    "semantic_hash": "b6679fcdca062bdff47d504012f84d88"
+    "mtime": 1785166154.9151802,
+    "ast_hash": "570ceb7e1c6bf9efeff42d96cdfeb4db",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/CurtainReveal/CurtainReveal.jsx": {
-    "mtime": 1782771349.6749809,
-    "ast_hash": "c900baa80808065fabfdb0e4def9a7c7",
-    "semantic_hash": "c900baa80808065fabfdb0e4def9a7c7"
+    "mtime": 1785167356.3125098,
+    "ast_hash": "b8eace4f0553c5eeedbdbbae1e24f66a",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/FireParticles/FireParticles.jsx": {
-    "mtime": 1782771349.675979,
-    "ast_hash": "30d5eafebacf5beaf0173fa3190cd049",
-    "semantic_hash": "30d5eafebacf5beaf0173fa3190cd049"
+    "mtime": 1785166154.916181,
+    "ast_hash": "a8877cc896dd29f7233d62ad0ef50d17",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/GameHUD/GameHUD.jsx": {
-    "mtime": 1782771349.6769772,
-    "ast_hash": "288757e514542b731cd7abdd03490938",
-    "semantic_hash": "288757e514542b731cd7abdd03490938"
+    "mtime": 1785166154.9141812,
+    "ast_hash": "1d4c63fc0eff644e0b128ccc546cb3fd",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/GameOverScreen/GameOverScreen.jsx": {
     "mtime": 1782771349.6779714,
@@ -2130,19 +2130,19 @@
     "semantic_hash": "4617475b845fd6ccea46386217fa4ecd"
   },
   "src/pages/games/TopTrumps/v2/components/GameScreen/GameScreen.jsx": {
-    "mtime": 1782771349.6789687,
-    "ast_hash": "cf0881e4a950743d3978573a665b626c",
-    "semantic_hash": "cf0881e4a950743d3978573a665b626c"
+    "mtime": 1785167356.3088236,
+    "ast_hash": "d27a8203f1d1fae5b39e2dab7cb3f996",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/MenuScreen/MenuScreen.jsx": {
-    "mtime": 1782771349.6789687,
-    "ast_hash": "c326cfa2df5401cef0e0d6578b1c5992",
-    "semantic_hash": "c326cfa2df5401cef0e0d6578b1c5992"
+    "mtime": 1785167356.3100028,
+    "ast_hash": "edeab038c253509d3173441abb546881",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/ResultScreen/ResultScreen.jsx": {
-    "mtime": 1782771349.679977,
-    "ast_hash": "18921e2817b71f7492d2a87d900514b7",
-    "semantic_hash": "18921e2817b71f7492d2a87d900514b7"
+    "mtime": 1785167356.312002,
+    "ast_hash": "28984745d5f273c8b5ae5ca3bb5b4beb",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/components/RewardScreen/RewardScreen.jsx": {
     "mtime": 1782771349.680974,
@@ -2150,9 +2150,9 @@
     "semantic_hash": "f674fd690d541061ae7734e8b56f62a0"
   },
   "src/pages/games/TopTrumps/v2/components/SoundToggle/SoundToggle.jsx": {
-    "mtime": 1782771349.681973,
-    "ast_hash": "98e858cf797700a59b019f1fd725307c",
-    "semantic_hash": "98e858cf797700a59b019f1fd725307c"
+    "mtime": 1785166154.9141812,
+    "ast_hash": "aa61ecdf228f6a574424433c36747c40",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/v2/hooks/useGameEffects.js": {
     "mtime": 1782771349.681973,
@@ -3090,8 +3090,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785165250.6670907,
-    "ast_hash": "816bb08cdd6f673ca6fe8fe504b8a92c",
+    "mtime": 1785167394.974868,
+    "ast_hash": "ff5d49a6596f21eec3b0e25a9af49c5f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

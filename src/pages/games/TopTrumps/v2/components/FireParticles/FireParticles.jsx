@@ -1,3 +1,5 @@
+import './FireParticles.css'
+
 export default function FireParticles() {
   return (
     <div className="tt-fire-particles">

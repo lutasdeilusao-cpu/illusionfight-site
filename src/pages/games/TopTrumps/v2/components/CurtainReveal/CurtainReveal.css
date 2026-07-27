@@ -82,3 +82,9 @@
   80% { transform: scale(1.05) rotate(1deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
+
+@media (max-width: 768px) {
+  .tt-onoma-texto {
+    font-size: 3rem;
+  }
+}
