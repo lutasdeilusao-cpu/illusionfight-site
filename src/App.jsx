@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
@@ -67,8 +67,6 @@ import Custos from './pages/site/Custos'
 import NotFound from './pages/site/NotFound/NotFound'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
-const TopTrumps = lazy(() => import('./pages/games/TopTrumps/TopTrumps'))
-
 export default function App() {
   const { readerMode } = useReader()
   const [searchOpen, setSearchOpen] = useState(false)
@@ -102,7 +100,6 @@ export default function App() {
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/games/toptrumps/v2/reward-test" element={<TopTrumpsSP_v2_RewardTest />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP_v2 />} />
-        <Route path="/games/toptrumps/legacy" element={<FichaGateRoute gameId="top_trumps" feature="o Top Trumps LDI" nomeExibicao="Top Trumps LDI"><Suspense fallback={null}><TopTrumps /></Suspense></FichaGateRoute>} />
         <Route path="/games/toptrumps" element={<TopTrumpsSP_v2 />} />
         <Route path="/games/toptrumps/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o Top Trumps Multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsLobby /></FichaGateRoute>} />
         <Route path="/games/toptrumps/multiplayer" element={<FichaGateRoute gameId="top_trumps" feature="a partida multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsMP /></FichaGateRoute>} />
