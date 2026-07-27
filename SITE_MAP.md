@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.33 (regra de artes Top Trumps documentada)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.34 (resíduo documental da v1 Top Trumps removido)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -256,8 +256,6 @@
     │   │   ├── PesadeloParticular/      # Pesadelo Particular
     │   │   ├── Tamagoshi/               # TAMA LDI
     │   │   └── TopTrumps/               # Top Trumps card game
-    │   │       ├── TopTrumps.jsx
-    │   │       ├── TopTrumps.css
     │   │       ├── TopTrumpsLobby.jsx
     │   │       ├── TopTrumpsLobby.css
     │   │       ├── TopTrumpsMP.jsx
@@ -565,7 +563,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.33** | regra de artes Top Trumps documentada no AGENTS.md |
+| `SITE_VERSION` | **10.192.34** | resíduo documental da v1 Top Trumps removido |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
