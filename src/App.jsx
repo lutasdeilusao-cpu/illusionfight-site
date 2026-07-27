@@ -30,7 +30,6 @@ import Quiz from './pages/site/Quiz'
 import Games from './pages/games/Games'
 import MiniGames from './pages/games/MiniGames/MiniGames'
 import TopTrumpsSP from './pages/games/TopTrumps/TopTrumpsSP'
-import TopTrumpsRewardTest from './pages/games/TopTrumps/TopTrumpsRewardTest'
 import TopTrumpsLobby from './pages/games/TopTrumps/TopTrumpsLobby'
 import TopTrumpsMP from './pages/games/TopTrumps/TopTrumpsMP'
 import Leaderboard from './pages/platform/Leaderboard'
@@ -98,7 +97,6 @@ export default function App() {
         <Route path="/mundo" element={<Mundo />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
-        <Route path="/games/toptrumps/v2/reward-test" element={<TopTrumpsRewardTest />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o Top Trumps Multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsLobby /></FichaGateRoute>} />
