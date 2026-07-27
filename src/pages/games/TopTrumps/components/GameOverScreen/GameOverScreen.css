@@ -1,0 +1,259 @@
+@import '../../styles/tokens.css';
+
+.tt-btn-jogar {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+  padding: 14px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #e8853a;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+}
+
+.tt-btn-jogar:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.tt-btn-jogar--disabled,
+.tt-btn-jogar:disabled {
+  background: #2A2D31;
+  color: #4F5359;
+  cursor: default;
+  transform: none;
+  filter: none;
+}
+
+.tt-page {
+  height: 100dvh;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
+.tt-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  animation: tt-bg-cycle 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes tt-bg-cycle {
+  0%   { background-color: #0B0D0F; }
+  20%  { background-color: #1A0808; }
+  40%  { background-color: #080A1A; }
+  60%  { background-color: #1A1208; }
+  80%  { background-color: #0A0F1A; }
+  100% { background-color: #0B0D0F; }
+}
+
+.tt-fim-titulo--vitoria {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1ea064;
+}
+
+.tt-fim-titulo--empate {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e8853a;
+}
+
+.tt-fim-titulo--derrota {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+.tt-fim-aviso {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.8rem;
+  color: #e8853a;
+  margin-bottom: 1.5rem;
+}
+
+.tt-guest-cta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: #8B8F96;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tt-guest-cta a {
+  color: #F5A623;
+  text-decoration: underline;
+}
+
+.tt-fim-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tt-relatorio {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tt-relatorio-titulo {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin-bottom: 0.25rem;
+}
+
+.tt-relatorio-sub {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: #8B8F96;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.tt-relatorio-icone {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.tt-relatorio-resultado {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.tt-relatorio-placar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.tt-relatorio-placar-item { text-align: center; }
+
+.tt-relatorio-placar-valor {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #EAEAEA;
+}
+
+.tt-relatorio-placar-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #8B8F96;
+  letter-spacing: 0.08em;
+}
+
+.tt-relatorio-placar-divisor {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  color: #4F5359;
+}
+
+.tt-relatorio-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tt-relatorio-stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #2A2D31;
+  border-radius: 6px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.tt-relatorio-stat-valor {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #EAEAEA;
+  margin-bottom: 0.15rem;
+}
+
+.tt-relatorio-stat-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  color: #8B8F96;
+  letter-spacing: 0.06em;
+}
+
+.tt-relatorio-lista {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.tt-relatorio-lista-titulo {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: #4F5359;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.tt-relatorio-lista-item {
+  display: grid;
+  grid-template-columns: 20px 1fr 80px 70px;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.65rem;
+  color: #8B8F96;
+}
+
+.tt-relatorio-lista-icon {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.tt-relatorio-lista-nome {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tt-relatorio-lista-attr {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  color: #4F5359;
+}
+
+.tt-relatorio-lista-valor {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  text-align: right;
+}

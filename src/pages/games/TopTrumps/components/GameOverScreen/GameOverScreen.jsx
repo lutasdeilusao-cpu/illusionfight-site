@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGamesBtn'
+import './GameOverScreen.css'
 
 export default function GameOverScreen({
   placar, historicoRodadas, jaGanhouHoje, user, atributos, onJogarNovamente, tt

@@ -630,7 +630,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 126,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 126,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 57,
+      "community": 264,
       "norm_label": "pixi.js"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 57,
+      "community": 264,
       "norm_label": "pixi.js"
     },
     {
@@ -3540,7 +3540,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_carregardeck",
-      "community": 17,
+      "community": 126,
       "norm_label": "carregardeck()"
     },
     {
@@ -4300,7 +4300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_getdeck",
-      "community": 17,
+      "community": 126,
       "norm_label": "getdeck.js"
     },
     {
@@ -4310,7 +4310,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_getdeck_decks",
-      "community": 17,
+      "community": 126,
       "norm_label": "decks"
     },
     {
@@ -4320,7 +4320,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_lib_getdeck_getdeck",
-      "community": 17,
+      "community": 126,
       "norm_label": "getdeck()"
     },
     {
@@ -14397,7 +14397,7 @@
       "label": "GameOverScreen()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen",
       "community": 59,
@@ -19810,7 +19810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilcolecao",
-      "community": 17,
+      "community": 126,
       "norm_label": "perfilcolecao.jsx"
     },
     {
@@ -19820,7 +19820,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilcolecao_perfilcolecao",
-      "community": 17,
+      "community": 126,
       "norm_label": "perfilcolecao()"
     },
     {
@@ -72551,7 +72551,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen",
       "target": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen",
@@ -95785,5 +95785,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8ef65876a60ab0b37109f755bd4c6afd5e549263"
+  "built_at_commit": "0e75d322fba92f6a80bc7300cca77ba7cb8c7af1"
 }

@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-27)
 
 ## Corpus Check
-- 653 files · ~754,565 words
+- 653 files · ~754,576 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2992 nodes · 6205 edges · 268 communities (235 shown, 33 thin omitted)
+- 2992 nodes · 6205 edges · 269 communities (236 shown, 33 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8ef65876`
+- Built from commit: `0e75d322`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -219,6 +219,7 @@
 - regrasFicha.js
 - ResultCard.jsx
 - Passeio.jsx
+- pixi.js
 - sfx.js
 - classTree.js
 - Create
@@ -251,7 +252,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (268 total, 33 thin omitted)
+## Communities (269 total, 33 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -318,8 +319,8 @@ Cohesion: 0.53
 Nodes (5): CRIATURAS_T1_GACHA, Gacha(), isFreeSpinUsed(), marcarFreeSpinUsado(), sortearT1()
 
 ### Community 17 - "Community 17"
-Cohesion: 0.14
-Nodes (22): carregarDeck(), DECKS, getDeck(), cardModules, getTopTrumpsCardImage(), TOP_TRUMPS_CARD_IMAGES, ATTR_KEYS, CardViewerModal() (+14 more)
+Cohesion: 0.17
+Nodes (18): cardModules, getTopTrumpsCardImage(), TOP_TRUMPS_CARD_IMAGES, ATTR_KEYS, CardViewerModal(), DECK_CONFIG, DECK_LABELS, DeckBuilder() (+10 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.07
@@ -479,7 +480,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.15
@@ -660,6 +661,10 @@ Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
 ### Community 113 - "Community 113"
 Cohesion: 0.15
 Nodes (12): BEAT 2.10 — The Fight, BEAT 2.11 — The Challenge, BEAT 2.1 — The Failed Conquest, BEAT 2.2 — The Doctor's Micro-Smile, BEAT 2.3 — Nina Watches, BEAT 2.4 — The Five Men, BEAT 2.5 — The Reversal, BEAT 2.6 — The Invitation (+4 more)
+
+### Community 126 - "Community 126"
+Cohesion: 0.53
+Nodes (4): carregarDeck(), DECKS, getDeck(), PerfilColecao()
 
 ### Community 154 - "graphify reference: query, path, explain"
 Cohesion: 0.33
@@ -961,7 +966,7 @@ Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINK
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `BatalhaSimulacao.jsx` to `Community 0`, `Community 1`, `Community 2`, `AchievementsContext.jsx`, `Vila.jsx`, `Community 4`, `ResultCard.jsx`, `Community 6`, `Community 8`, `Community 7`, `Community 9`, `Passeio.jsx`, `Community 12`, `sfx.js`, `classTree.js`, `Community 15`, `Create`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `useEventos`, `regrasFicha.js`, `Community 37`, `Community 38`, `Community 39`, `Community 42`, `Community 44`, `Community 45`, `Community 49`, `Community 50`, `Community 10`, `Community 54`, `Community 58`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 68`, `SimulacaoAuto.jsx`, `Community 76`, `Passeio.jsx`, `Community 84`, `Community 85`, `Community 86`, `Community 87`, `Leaderboard.jsx`?**
+- **Why does `useLanguage()` connect `BatalhaSimulacao.jsx` to `Community 0`, `Community 1`, `Community 2`, `AchievementsContext.jsx`, `Vila.jsx`, `Community 4`, `ResultCard.jsx`, `Community 6`, `Community 8`, `Community 7`, `Community 9`, `Passeio.jsx`, `Community 12`, `sfx.js`, `classTree.js`, `Community 15`, `Create`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `useEventos`, `regrasFicha.js`, `Community 37`, `Community 38`, `Community 39`, `Community 42`, `Community 44`, `Community 45`, `Community 49`, `Community 50`, `Community 10`, `Community 54`, `Community 58`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 68`, `SimulacaoAuto.jsx`, `Community 76`, `Passeio.jsx`, `Community 84`, `Community 85`, `Community 86`, `Community 87`, `Leaderboard.jsx`, `Community 126`?**
   _High betweenness centrality (0.155) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 7` to `Community 0`, `Community 1`, `useEventos`, `Community 3`, `Community 37`, `Community 6`, `Community 8`, `sfx.js`, `SimulacaoAuto.jsx`, `Community 42`, `Community 12`, `BatalhaSimulacao.jsx`, `Community 59`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._

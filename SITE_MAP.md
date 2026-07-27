@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.37 (testbed de recompensa Top Trumps removido)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-27 — v10.192.38 (CSS fiel do Arena Report Top Trumps restaurado)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -507,8 +507,8 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.44.14 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial com as 30 artes conectadas |
-| `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.44.14 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
+| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.44.15 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial; Arena Report com CSS modular fiel |
+| `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.44.15 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
 | `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.0 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | JSON v2 — id numérico em vez de slug |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
@@ -565,7 +565,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.37** | testbed de recompensa Top Trumps removido |
+| `SITE_VERSION` | **10.192.38** | CSS fiel do Arena Report Top Trumps restaurado |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -575,7 +575,7 @@
 | `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `TS_VERSION` | **5.44.14** | Top Trumps — testbed de recompensa removido |
+| `TS_VERSION` | **5.44.15** | Top Trumps — CSS fiel do Arena Report restaurado |
 | `TM_VERSION` | **5.12.1** | Top Trumps MP — correção de encoding em comentários |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
