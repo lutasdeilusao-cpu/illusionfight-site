@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-27)
 
 ## Corpus Check
-- 654 files · ~754,764 words
+- 654 files · ~754,754 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2994 nodes · 6222 edges · 261 communities (225 shown, 36 thin omitted)
+- 2994 nodes · 6222 edges · 260 communities (224 shown, 36 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `59eb72a3`
+- Built from commit: `0e08f1b9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -49,7 +49,6 @@
 - Community 31
 - Community 32
 - Community 33
-- Community 34
 - Community 35
 - Community 36
 - Community 37
@@ -244,7 +243,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (261 total, 36 thin omitted)
+## Communities (260 total, 36 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -369,10 +368,6 @@ Nodes (10): GameControls(), BuildingInterior(), buildInterior(), EXIT_ZONE, getI
 ### Community 33 - "Community 33"
 Cohesion: 0.14
 Nodes (16): PuzzleDecoder(), generateReward(), PUZZLE_CONFIG, PuzzleRouter(), REWARDS, COLORS, PuzzleSimonSays(), generateGoal() (+8 more)
-
-### Community 34 - "Community 34"
-Cohesion: 0.50
-Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
 
 ### Community 35 - "Community 35"
 Cohesion: 0.21
@@ -767,8 +762,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.25
-Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
+Cohesion: 0.17
+Nodes (11): BLOCO C — STEAM, BLOCO D — TRENDS MAP, BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS (+3 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
