@@ -630,7 +630,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 90,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 90,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 57,
+      "community": 90,
       "norm_label": "pixi.js"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 57,
+      "community": 90,
       "norm_label": "pixi.js"
     },
     {
@@ -21597,7 +21597,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L173",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "agents_graphify",
       "community": 75,
@@ -88423,7 +88423,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L173",
+      "source_location": "L174",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_graphify",
@@ -95991,5 +95991,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c3a1833fbd1860275aa8e0bf11330ca3f4dad6d8"
+  "built_at_commit": "59eb72a3a0af597fd30a73e520ea1b80711115f0"
 }

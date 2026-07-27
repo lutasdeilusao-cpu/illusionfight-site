@@ -160,6 +160,7 @@ AGENTS.md **deve crescer** a cada problema novo resolvido no projeto. A cada tas
 
 ## Architecture notes
 
+- **Top Trumps: artes oficiais centralizadas** — toda arte de personagem deve usar o nome `card-NN.png` em `src/assets/images/cards/characters/`, com `NN` correspondente ao `id` existente nos catálogos `supertrunfo-pt.json`, `supertrunfo-en.json` e `supertrunfo-es.json`. Componentes devem resolver a imagem exclusivamente por `src/lib/topTrumpsCardImages.js`; é proibido recriar mapas manuais de imports por card. Ao adicionar uma arte, validar que os IDs dos três catálogos coincidem, que o resolvedor encontra todas as imagens e que nenhuma cai em `card-fallback.png`.
 - **Game pages** (`/games/ldi`, `/games/jackcandy`, `/games/toptrumps`, etc.) have their own data/, store/, components/ subdirectories with independent Zustand stores. They do not share state.
 - **i18n** uses `LanguageContext` (persisted as `ldi-locale` in localStorage) with JSON files in `src/i18n/`. The `t("key.path")` function resolves translations.
 - **ReaderContext** wraps the app — when `readerMode` is true, Navbar and TrialBanner are hidden (used by WebtoonEpisodio and LivroCapitulo).
