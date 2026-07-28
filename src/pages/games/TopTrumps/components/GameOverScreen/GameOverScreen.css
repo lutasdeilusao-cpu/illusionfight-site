@@ -53,6 +53,12 @@
   pointer-events: none;
 }
 
+.tt-gameover-page {
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 @keyframes tt-bg-cycle {
   0%   { background-color: #0B0D0F; }
   20%  { background-color: #1A0808; }
@@ -113,8 +119,12 @@
 
 .tt-relatorio {
   text-align: center;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  padding: max(0.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(0.5rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .tt-relatorio-titulo {
