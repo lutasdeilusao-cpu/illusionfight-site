@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { carregarDeck as carregarDeckDB, substituirDeck, salvarCartasDeck } from '../../../../hooks/useLeaderboardDB'
+import { filterTopTrumpsCardPool } from '../../../../lib/topTrumpsCardAccess'
 
 function embaralhar(arr) {
   return [...arr].sort(() => Math.random() - 0.5)
@@ -16,7 +17,8 @@ export function useTopTrumpsDeck({ user, perfil, todasCartas }) {
 
       if (idsUnicos.length > 0 && cartas.length < 5) {
         console.log('[TT] deck corrompido — apenas', cartas.length, 'cartas válidas de', idsUnicos.length, '. Gerando novo deck...')
-        const novas = embaralhar([...todasCartas]).slice(0, 5)
+        const poolPermitido = filterTopTrumpsCardPool(todasCartas, user, perfil)
+        const novas = embaralhar(poolPermitido).slice(0, 5)
         substituirDeck(user.id, novas.map(c => c.id)).then(() => {
           setDeckUsuario(novas)
         })
@@ -35,12 +37,13 @@ export function useTopTrumpsDeck({ user, perfil, todasCartas }) {
         }
       }
     })
-  }, [user])
+  }, [user, perfil?.tier, perfil?.role, perfil?.is_admin])
 
   useEffect(() => {
     if (user) return
     if (deckUsuario.length === 0) {
-      setDeckUsuario(embaralhar([...todasCartas]).slice(0, 5))
+      const poolGuest = filterTopTrumpsCardPool(todasCartas, null, null)
+      setDeckUsuario(embaralhar(poolGuest).slice(0, 5))
     }
   }, [user])
 

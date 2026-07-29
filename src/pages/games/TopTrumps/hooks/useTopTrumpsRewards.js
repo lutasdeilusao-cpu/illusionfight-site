@@ -4,10 +4,11 @@ import {
   salvarCartasDeck, marcarCartaGanha,
   verificarCartaGanhaHoje, registrarPartida
 } from '../../../../hooks/useLeaderboardDB'
+import { canAcquireTopTrumpsCard, getTopTrumpsAccessTier } from '../../../../lib/topTrumpsCardAccess'
 
 function getTierInicial(user, perfil) {
-  if (!user) return 'free'
-  return perfil?.role || 'free'
+  const tier = getTopTrumpsAccessTier(user, perfil)
+  return tier === 'guest' || tier === 'evento' ? 'free' : tier
 }
 
 function getDeckKey(user) {
@@ -30,7 +31,7 @@ export function useTopTrumpsRewards({
       setTentativasRestantes(Math.max(0, limite - usadas))
       setJaGanhouHoje(jaGanhou || false)
     })
-  }, [user])
+  }, [user, perfil?.tier])
 
   async function consumir() {
     if (!user) return
@@ -39,6 +40,11 @@ export function useTopTrumpsRewards({
   }
 
   async function escolherRecompensa(carta) {
+    if (!carta || !user || !canAcquireTopTrumpsCard(carta.id, user, perfil)) {
+      console.warn('[TT] recompensa fora do pool permitido bloqueada:', carta?.id)
+      onRecompensaConfirmada()
+      return
+    }
     if (user) {
       const jaGanhou = await verificarCartaGanhaHoje(user.id)
       if (jaGanhou) {

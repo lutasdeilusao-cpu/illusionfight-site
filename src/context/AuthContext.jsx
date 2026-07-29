@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { filterTopTrumpsInitialAccountPool } from '../lib/topTrumpsCardAccess'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://dvxfrzixtetdzmdrzkpx.supabase.co'
 
@@ -123,7 +124,7 @@ export function AuthProvider({ children }) {
     const path = `../data/supertrunfo-${locale}.json`
     const mod = await supertrunfoModules[path]()
     const todasCartas = mod.default
-    const cartasFree = todasCartas.cartas.filter(c => c.tier === 'free')
+    const cartasFree = filterTopTrumpsInitialAccountPool(todasCartas.cartas)
     const qtdInicial = 5
     const embaralhadas = cartasFree.sort(() => Math.random() - 0.5).slice(0, qtdInicial)
     const rows = embaralhadas.map(c => ({ user_id: userId, carta_id: c.id }))

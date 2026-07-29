@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
+import { filterTopTrumpsCardPool } from '../../../../lib/topTrumpsCardAccess'
 
 function embaralhar(arr) {
   return [...arr].sort(() => Math.random() - 0.5)
 }
 
 export function useTopTrumpsSP({
-  user, deckUsuario, todasCartas, atributos,
+  user, perfil, deckUsuario, todasCartas, atributos,
   jaGanhouHoje, tentativasMax,
   consumir, registrarPartida, registrarEvento, registrarPontuacaoRanking,
   desbloquear,
@@ -117,7 +118,8 @@ export function useTopTrumpsSP({
       const podeGanhar = (tentativasMax - usadasHoje) > 0 && !jaGanhouHoje
       if (podeGanhar) {
         const idsTem = new Set(deckUsuario.map(c => String(c.id)))
-        const pool = todasCartas.filter(c => !idsTem.has(String(c.id)))
+        const poolPermitido = filterTopTrumpsCardPool(todasCartas, user, perfil)
+        const pool = poolPermitido.filter(c => !idsTem.has(String(c.id)))
         if (pool.length > 0) {
           setRecompensaOpcoes(embaralhar(pool).slice(0, 3))
           setFase('recompensa')
