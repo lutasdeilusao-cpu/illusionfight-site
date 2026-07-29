@@ -270,7 +270,7 @@ const SPRITE_10 = {
 
 // IDs numéricos — 1=Kroniki, 2=Ninka, 3=Kroum, 4=Draken, 5=Kaiser, 6=Lenna, 7=Yawaru, 8=Alion, 9=Indye, 10=Popystar, ...
 const CRIATURAS_BASE = [
-  // ── Top 3: criaturas com sprite próprio ──
+  // ── Temporada 1: dez criaturas com conjunto completo de sprites ──
   { id: 1,  nome: 'Kroniki',     tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '⏰' },
   { id: 2,  nome: 'Ninka',       tipo: 'INDEPENDENTE', raridade: 'raro',     temporada: 1, emoji: '🐉' },
   { id: 3,  nome: 'Kroum',       tipo: 'AGRESSIVO',    raridade: 'raro',     temporada: 1, emoji: '👹' },
@@ -311,7 +311,7 @@ const CRIATURAS_BASE = [
   { id: 32, nome: 'Tatuki',      tipo: 'COMICO',       raridade: 'lendario', temporada: 2, emoji: '🦔' },
 ]
 
-// Anexa o sprite próprio a cada criatura que tem, senão usa Kroniki como fallback
+// Temporada 2 ainda não foi lançada e usa Kroniki somente como fallback preventivo
 const SPRITE_MAP = {
   2: SPRITE_2,
   3: SPRITE_3,

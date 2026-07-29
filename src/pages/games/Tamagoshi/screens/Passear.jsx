@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { sfx } from '../sfx'
+import { CRIATURAS } from '../data/criaturas'
 import { sfxMinigames, tom } from '../../../../components/Puzzles/sfx-minigames'
-import img1Idle from '../../../../assets/images/tamagoshi/01/kroniki-idle.png'
 
 const LANE_COUNT = 5, GAME_W = 360, GAME_H = 560
 const BASE_SPEED = 2, STAGE_COUNT = 10
@@ -29,10 +29,11 @@ export default function Passear({ onConcluir }) {
   const [historico, setHistorico] = useState([])
 
   useEffect(() => {
+    const criatura = CRIATURAS.find(c => c.id === store.criaturaId)
     const img = new Image()
-    img.src = img1Idle
+    img.src = criatura?.gifs?.idle || criatura?.imagem || ''
     img.onload = () => { imgRef.current = img }
-  }, [])
+  }, [store.criaturaId])
 
   function createState() {
     const vidas = getVidas(store.inventario)

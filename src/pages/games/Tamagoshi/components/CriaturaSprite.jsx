@@ -7,7 +7,25 @@ const ESTADO_ANIM = {
   morto: { scale: 0, y: 20 },
 }
 
-export default function CriaturaSprite({ criaturaId, status, estagio, criaturas }) {
+export function resolverEstadoVisualTama({ estadoVisual, status, metricas }) {
+  if (estadoVisual) return estadoVisual
+  if (status === 'critico' || status === 'morto') return 'abandonado'
+  if (!metricas) return 'idle'
+
+  const estadosPorMetrica = [
+    { valor: metricas.fome, estado: 'comendo' },
+    { valor: metricas.higiene, estado: 'sujo' },
+    { valor: metricas.energia, estado: 'sonolento' },
+    { valor: metricas.humor, estado: metricas.humor <= 20 ? 'abandonado' : 'raiva' },
+    { valor: metricas.saude, estado: 'doente' },
+  ].sort((a, b) => a.valor - b.valor)
+
+  if (estadosPorMetrica[0].valor < 60) return estadosPorMetrica[0].estado
+  if (estadosPorMetrica.every(metrica => metrica.valor >= 85)) return 'feliz'
+  return 'idle'
+}
+
+export default function CriaturaSprite({ criaturaId, status, estagio, criaturas, estadoVisual, metricas }) {
   const c = criaturas.find(x => x.id === criaturaId)
   const [pulando, setPulando] = useState(false)
   const [erroImg, setErroImg] = useState(false)
@@ -31,7 +49,9 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
 
   const anim = ESTADO_ANIM[status] || ESTADO_ANIM.vivo
   const tam = (estagio >= 2 ? 280 : estagio === 1 ? 220 : 160)
-  const temImagem = !!c.imagem && !erroImg
+  const estadoResolvido = resolverEstadoVisualTama({ estadoVisual, status, metricas })
+  const imagemEstado = c.gifs?.[estadoResolvido] || c.imagem
+  const temImagem = !!imagemEstado && !erroImg
   const filterVal = status === 'morto' ? 'grayscale(1) brightness(0.3)' : status === 'critico' ? 'brightness(0.7)' : 'none'
 
   const bounceVariants = {
@@ -42,7 +62,7 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={criaturaId}
+        key={`${criaturaId}-${estadoResolvido}`}
         className="tama-sprite"
         data-estagio={estagio}
         data-status={status}
@@ -55,12 +75,13 @@ export default function CriaturaSprite({ criaturaId, status, estagio, criaturas 
       >
         {temImagem ? (
           <img
-            src={c.imagem}
+            src={imagemEstado}
             alt={c.nome}
             draggable={false}
             onError={() => setErroImg(true)}
             className="tama-sprite-img"
             data-status={status}
+            data-estado-visual={estadoResolvido}
           />
         ) : (
           <div className="tama-sprite-emoji" data-estagio={estagio}>

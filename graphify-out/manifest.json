@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785344801.5404575,
-    "ast_hash": "9a3f06b104c18afd4b48fc834cecd8e0",
+    "mtime": 1785348951.432426,
+    "ast_hash": "ad88b4702b6016b590bdaf7da07b7769",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1910,9 +1910,9 @@
     "semantic_hash": "01c5ede90efd8ce838ed3f53771cae7e"
   },
   "src/pages/games/Tamagoshi/components/CriaturaSprite.jsx": {
-    "mtime": 1782441630.504183,
-    "ast_hash": "62a022f1fa085c4c143b836924eec17a",
-    "semantic_hash": "62a022f1fa085c4c143b836924eec17a"
+    "mtime": 1785349018.336902,
+    "ast_hash": "2d222129cdb26190ad5e17ce43a5214b",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/components/MetricBar.jsx": {
     "mtime": 1782441630.505183,
@@ -1920,9 +1920,9 @@
     "semantic_hash": "e58e98e60b48c9f60bd64c84e571d4ce"
   },
   "src/pages/games/Tamagoshi/data/criaturas.js": {
-    "mtime": 1782447844.1560543,
-    "ast_hash": "651652c141a7c5861b75f689f281e56d",
-    "semantic_hash": "651652c141a7c5861b75f689f281e56d"
+    "mtime": 1785349058.9578862,
+    "ast_hash": "3a8a6e4940852189ec54c1d2230069f7",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/data/evolucoes.js": {
     "mtime": 1782441630.5071838,
@@ -1970,29 +1970,29 @@
     "semantic_hash": "65f918b06130d1a49634baef222a7ef0"
   },
   "src/pages/games/Tamagoshi/screens/Alimentar.jsx": {
-    "mtime": 1782447844.2092445,
-    "ast_hash": "39e1ef426822f4d1820d959a81fcc867",
-    "semantic_hash": "39e1ef426822f4d1820d959a81fcc867"
+    "mtime": 1785349035.7963712,
+    "ast_hash": "cc37d0083f4d9c061a9073c88021bd66",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Banhar.jsx": {
-    "mtime": 1782447787.4124424,
-    "ast_hash": "f61b10090bc89722efe4fc647e3b5484",
-    "semantic_hash": "f61b10090bc89722efe4fc647e3b5484"
+    "mtime": 1785349035.7975633,
+    "ast_hash": "142da2cb44f2fad24f672bda0eadf751",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Brincadeira.jsx": {
-    "mtime": 1782447787.4134343,
-    "ast_hash": "02445cad67432fd922857bf9b080e732",
-    "semantic_hash": "02445cad67432fd922857bf9b080e732"
+    "mtime": 1785349035.799074,
+    "ast_hash": "f5953cf24086f6b7c083245d9cd572a0",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Criatura.jsx": {
-    "mtime": 1782447844.2388077,
-    "ast_hash": "be70a3562863c6737bf20dc96aa27acd",
-    "semantic_hash": "be70a3562863c6737bf20dc96aa27acd"
+    "mtime": 1785349018.337438,
+    "ast_hash": "5b95f9497a9c11f471169f8a8309b6fe",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Gacha.jsx": {
-    "mtime": 1782447844.2877939,
-    "ast_hash": "e4aab2bb289a3504ded96edc34944994",
-    "semantic_hash": "e4aab2bb289a3504ded96edc34944994"
+    "mtime": 1785349018.3389585,
+    "ast_hash": "45f0d7a358cee6200ee0ef6f44db4d55",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Loja.jsx": {
     "mtime": 1783911741.1088402,
@@ -2015,9 +2015,9 @@
     "semantic_hash": "bf4e31056d42f7ffab6c231ebea7cc43"
   },
   "src/pages/games/Tamagoshi/screens/Passear.jsx": {
-    "mtime": 1782447844.4217632,
-    "ast_hash": "4e346b9edb4972e8396846d9b9114c57",
-    "semantic_hash": "4e346b9edb4972e8396846d9b9114c57"
+    "mtime": 1785349046.1033804,
+    "ast_hash": "decc856b1b27e54f257930c7900a994d",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Passeio.jsx": {
     "mtime": 1782447787.4189553,
@@ -2025,14 +2025,14 @@
     "semantic_hash": "a16e84cd5de51b4d6148821bd0a6f491"
   },
   "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx": {
-    "mtime": 1782447844.4762821,
-    "ast_hash": "cdd8ca485a7de40f83429799994bd6b1",
-    "semantic_hash": "cdd8ca485a7de40f83429799994bd6b1"
+    "mtime": 1785349035.800085,
+    "ast_hash": "a2aafffdad12117ffa9a976e7674aa7e",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Selecao.jsx": {
-    "mtime": 1782447844.5287585,
-    "ast_hash": "971a3226b9b85c8619762498bbcbdf75",
-    "semantic_hash": "971a3226b9b85c8619762498bbcbdf75"
+    "mtime": 1785349018.3389585,
+    "ast_hash": "a717ffc296867d90331ac84615e28c45",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Termo.jsx": {
     "mtime": 1782447787.4209561,
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785344801.5420392,
-    "ast_hash": "7e55990fdb1487a30805929d7a0a8e30",
+    "mtime": 1785348951.435748,
+    "ast_hash": "3c68db7a0a0784239a08c5e64194f34d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-29 — v10.192.43 (pools numéricos por tier no Top Trumps)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-29 — v10.192.44 (estados visuais das criaturas TAMA)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -525,7 +525,7 @@
 | `/games/ldi-tatics` | ArenaTaticsRoute | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | ✅ v7.4.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Tático isométrico Canvas 2D + Cidade Marélia |
 | `/games/pesadelo` | PP | `src/pages/games/PesadeloParticular/PP.jsx` | ✅ v2.3.1 | ✅ 1ª temp. 🔒 | ✅ PT ✅ EN ✅ ES | 20 casos, 3 slots, guest mode, Supabase save |
 | `/games/duelo` | DueloRoute | `src/pages/games/Duelo/DueloRoute.jsx` | ✅ v2.8.0 | 🔒 Pós-lançamento (multiplayer pendente) | ✅ PT ✅ EN ✅ ES | Card game 1v1 vs IA — ataque direto Yu-Gi-Oh style |
-| `/games/tamagoshi` | Tamagoshi | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | ✅ v3.0.2 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | 32 criaturas em FALAS_CRIATURA ordenadas por ID (1-32), double-encoding corrigido |
+| `/games/tamagoshi` | Tamagoshi | `src/pages/games/Tamagoshi/Tamagoshi.jsx` | ✅ v3.4.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | T1 com 10 criaturas e 10 estados visuais conectados por criatura |
 | `/games/kernel-panic` | KernelPanic | `src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx` | ✅ v1.4.0 | ✅ Beta | ✅ PT ✅ EN ✅ ES | Jogo de cartas tático — Manual do operador + Voltar + aba kernel |
 | `/games/sliding-rafael` | SlidingRafael | `src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx` | ✅ **v1.4.0** | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Sliding Puzzle (Rafael port) — CSS Grid 1fr, safe area, fonte maior |
 | `/games/codigo-perdido` | CodigoPerdido | `src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx` | ✅ v1.3.0 | ✅ Lançado | ✅ PT ✅ EN ✅ ES | Código Perdido (Rafael port) — portrait container, padding mínimo, keyboard sem max-width |
@@ -565,12 +565,12 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.43** | Pools numéricos por tier no Top Trumps |
+| `SITE_VERSION` | **10.192.44** | Estados visuais das criaturas TAMA |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
 | `ARENA_VERSION` | **1.31.1** | ArenaVictory: CSS inline removido para classes (.arena-victory-screen, .arena-ko-text, .arena-unlock-badge, etc.) |
-| `TAMA_VERSION` | **3.3.3** | Tamagoshi LDI — fix: RestaurarSaude check inventário só na entrada (useState init) |
+| `TAMA_VERSION` | **3.4.0** | Tamagoshi LDI — 10 estados de arte conectados nas criaturas T1 |
 | `DUELO_VERSION` | **2.8.1** | TrapActivator: CSS inline extraído para TrapActivator.css (jogo inteiro em inline → classes) |
 | `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |

@@ -13,6 +13,7 @@ export default function Alimentar({ onConcluir }) {
   const store = useTamagoshiStore()
   const [progress, setProgress] = useState(0)
   const [animando, setAnimando] = useState(false)
+  const [concluido, setConcluido] = useState(false)
   const [ultimoItem, setUltimoItem] = useState(null)
 
   const tItem = (id) => t('games.tamagoshi.' + (ITEM_KEY_MAP[id] || id))
@@ -33,12 +34,15 @@ export default function Alimentar({ onConcluir }) {
     setAnimando(true)
     const novo = Math.min(progress + 25, 100)
     setProgress(novo)
+    await new Promise(resolve => setTimeout(resolve, 350))
     if (novo >= 100) {
       sfx.sucesso()
       try {
         if (itemId) await store.consumirItem(itemId)
         store.alimentar()
         store.ganharDix(store._userId, DIX_POR_ACAO, 'alimentou criatura')
+        setConcluido(true)
+        await new Promise(resolve => setTimeout(resolve, 800))
         onConcluir()
       } catch (e) { console.error(e) }
     }
@@ -73,6 +77,7 @@ export default function Alimentar({ onConcluir }) {
             status={store.status}
             estagio={store.estagio}
             criaturas={CRIATURAS}
+            estadoVisual={concluido ? 'satisfeito' : 'comendo'}
           />
         </div>
       </div>

@@ -185,7 +185,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
             >
               <div className="tama-gacha-resultado-emoji" data-tipo={sorteada.tipo}>
                 {sorteada.imagem ? (
-                  <img src={sorteada.imagem} alt={sorteada.nome} className="tama-gacha-resultado-img" draggable={false} />
+                  <img src={sorteada.gifs?.apresentacao || sorteada.imagem} alt={sorteada.nome} className="tama-gacha-resultado-img" draggable={false} />
                 ) : (
                   <span className="tama-gacha-emoji-grande">{sorteada.emoji}</span>
                 )}

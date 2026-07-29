@@ -11,6 +11,7 @@ export default function Banhar({ onConcluir }) {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
   const [progress, setProgress] = useState(0)
+  const [concluido, setConcluido] = useState(false)
   const [bolhas, setBolhas] = useState([])
   const acumulado = useRef(0)
   const lastY = useRef(null)
@@ -76,19 +77,21 @@ export default function Banhar({ onConcluir }) {
   }, [])
 
   useEffect(() => {
-    if (progress >= 100) {
+    if (progress >= 100 && !concluido) {
+      setConcluido(true)
       sfx.conclusao()
       const concluir = async () => {
         try {
           if (itemUsar) await store.consumirItem(itemUsar)
           store.banhar()
           store.ganharDix(store._userId, DIX_POR_ACAO, 'banhou criatura')
+          await new Promise(resolve => setTimeout(resolve, 800))
           onConcluir()
         } catch (e) { console.error(e) }
       }
       concluir()
     }
-  }, [progress])
+  }, [progress, concluido])
 
   const resetTracking = () => { lastY.current = null; acumulado.current = 0 }
 
@@ -112,6 +115,7 @@ export default function Banhar({ onConcluir }) {
             status={store.status}
             estagio={store.estagio}
             criaturas={CRIATURAS}
+            estadoVisual={concluido ? 'feliz' : 'sujo'}
           />
         </div>
         {bolhas.map(b => (

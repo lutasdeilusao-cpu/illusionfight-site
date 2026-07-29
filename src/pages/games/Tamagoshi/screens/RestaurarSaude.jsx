@@ -390,6 +390,7 @@ export default function RestaurarSaude({ onConcluir, onIrLoja }) {
             status={store.status}
             estagio={store.estagio}
             criaturas={CRIATURAS}
+            estadoVisual={concluido ? 'feliz' : 'doente'}
           />
         </div>
 
