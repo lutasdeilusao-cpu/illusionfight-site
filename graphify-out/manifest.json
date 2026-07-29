@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785348951.432426,
-    "ast_hash": "ad88b4702b6016b590bdaf7da07b7769",
+    "mtime": 1785350754.6140924,
+    "ast_hash": "ab684d5280c25952728c042c722b5c1c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1895,9 +1895,9 @@
     "semantic_hash": "0be5152814f16de9334f96864e74f08b"
   },
   "src/pages/games/Tamagoshi/Tamagoshi.jsx": {
-    "mtime": 1783911792.2399697,
-    "ast_hash": "532ff618ab696aae00c34dd0d8fc77be",
-    "semantic_hash": "532ff618ab696aae00c34dd0d8fc77be"
+    "mtime": 1785350754.6140924,
+    "ast_hash": "228795c0f867db60f1aef2f2ccf5036e",
+    "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/components/BalloonFala.jsx": {
     "mtime": 1782441630.5031838,
@@ -1990,8 +1990,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Gacha.jsx": {
-    "mtime": 1785349018.3389585,
-    "ast_hash": "45f0d7a358cee6200ee0ef6f44db4d55",
+    "mtime": 1785350297.499389,
+    "ast_hash": "a852dc941c379ef02a85d02ecc8d3bed",
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Loja.jsx": {
@@ -2030,8 +2030,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Selecao.jsx": {
-    "mtime": 1785349018.3389585,
-    "ast_hash": "a717ffc296867d90331ac84615e28c45",
+    "mtime": 1785350754.6130817,
+    "ast_hash": "f4987c2be94f42ca4ecd7c3ef26bbb68",
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Termo.jsx": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785348951.435748,
-    "ast_hash": "3c68db7a0a0784239a08c5e64194f34d",
+    "mtime": 1785350754.6161282,
+    "ast_hash": "834202e2d3d60d7a62032a7807bd890d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

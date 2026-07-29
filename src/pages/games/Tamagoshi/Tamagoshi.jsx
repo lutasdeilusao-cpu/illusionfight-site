@@ -11,7 +11,7 @@ import { supabase } from '../../../lib/supabase'
 import { calcularFase } from './data/moedas'
 import Termo from './screens/Termo'
 import Ovo from './screens/Ovo'
-import Selecao from './screens/Selecao'
+import Selecao, { gerarOpcoesSelecaoTama } from './screens/Selecao'
 import Criatura from './screens/Criatura'
 import Passeio from './screens/Passeio'
 import Brincadeira from './screens/Brincadeira'
@@ -33,6 +33,7 @@ export default function Tamagoshi() {
   const lastUserId = useRef(undefined)
   const [subFase, setSubFase] = useState(null)
   const [mostrarTermo, setMostrarTermo] = useState(false)
+  const [opcoesSelecao, setOpcoesSelecao] = useState([])
 
   const userTier = perfil?.role || 'free'
   const isAdmin = perfil?.is_admin === true || user?.email === 'isaiasgamedev@gmail.com' || user?.email === 'gramikgames@gmail.com'
@@ -89,6 +90,12 @@ export default function Tamagoshi() {
     }
   }, [store.nascidoEm])
 
+  useEffect(() => {
+    if (store.fase === 'selecao') {
+      setOpcoesSelecao(gerarOpcoesSelecaoTama(userTier))
+    }
+  }, [store.fase, userTier])
+
   const handleOvoEclodir = () => store.eclodir()
 
   const handleEscolher = async (criaturaId) => {
@@ -112,7 +119,10 @@ export default function Tamagoshi() {
 
   const handleGachaAbrir = () => setSubFase('gacha')
   const handleIrLoja = () => setSubFase('loja')
-  const handleGachaConcluir = () => setSubFase(null)
+  const handleGachaConcluir = async (criaturaId) => {
+    await handleEscolher(criaturaId)
+    setSubFase(null)
+  }
 
   const handleVoltarExtras = () => {
     navigate('/games')
@@ -162,7 +172,14 @@ export default function Tamagoshi() {
       <div className="tama-content">
         {fase === 'partida' && <Partida onSalaoFama={() => window.location.href = '/perfil?aba=tamagoshi'} onNovaAdocao={handleNovaAdocao} />}
         {(!fase || fase === 'ovo') && <Ovo onEclodir={handleOvoEclodir} />}
-        {fase === 'selecao' && <Selecao onEscolher={handleEscolher} userTier={userTier} onGacha={handleGachaAbrir} />}
+        {fase === 'selecao' && (
+          <Selecao
+            onEscolher={handleEscolher}
+            userTier={userTier}
+            onGacha={handleGachaAbrir}
+            opcoes={opcoesSelecao}
+          />
+        )}
         {fase === 'criatura' && <Criatura isAdmin={isAdmin} onAction={handleAction} onLoja={() => setSubFase('loja')} onVoltar={handleVoltarExtras} subFase={subFase} />}
         {fase === 'passeio' && <Passeio />}
         {fase === 'brincadeira' && <Brincadeira />}

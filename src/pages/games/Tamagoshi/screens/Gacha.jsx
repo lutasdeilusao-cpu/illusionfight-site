@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { CRIATURAS } from '../data/criaturas'
-import { PERSONALIDADES, PERS_NOME_KEY } from '../data/personalidades'
+import { PERS_NOME_KEY } from '../data/personalidades'
 import { useTamagoshiStore } from '../store/useTamagoshiStore'
 import { DIX_GACHA } from '../data/moedas'
 import SEASON_1 from '../data/tamagoshi-season1.json'
@@ -15,16 +15,6 @@ function sortearT1() {
   return disponiveis[Math.floor(Math.random() * disponiveis.length)]
 }
 
-const STORAGE_KEY = 'ldi_tama_gacha_free_used'
-
-function isFreeSpinUsed() {
-  try { return localStorage.getItem(STORAGE_KEY) === 'true' } catch { return false }
-}
-
-function marcarFreeSpinUsado() {
-  try { localStorage.setItem(STORAGE_KEY, 'true') } catch {}
-}
-
 export default function Gacha({ onConcluir, onVoltar }) {
   const { t } = useLanguage()
   const store = useTamagoshiStore()
@@ -34,6 +24,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
   const [girando, setGirando] = useState(false)
   const [erro, setErro] = useState('')
   const [aceita, setAceita] = useState(false)
+  const operacaoEmCurso = useRef(false)
 
   const TRADUZIR_ERRO_GACHA = {
     'usuario nao autenticado': 'erro_nao_autenticado',
@@ -42,64 +33,62 @@ export default function Gacha({ onConcluir, onVoltar }) {
   }
 
   const saldo = store._isAdmin ? Infinity : (store._dixSaldo || 0)
-  const primeiroGiroGratis = !isFreeSpinUsed()
-  const podePagar = store._isAdmin || primeiroGiroGratis || saldo >= DIX_GACHA
+  const podePagar = store._isAdmin || saldo >= DIX_GACHA
   const disponiveis = CRIATURAS_T1_GACHA
 
   const handleGirar = async () => {
-    if (girando) return
+    if (operacaoEmCurso.current) return
+    operacaoEmCurso.current = true
     setErro('')
     setSorteada(null)
     setAceita(false)
 
-    if (!store._isAdmin && !primeiroGiroGratis && saldo < DIX_GACHA) {
+    if (!store._isAdmin && saldo < DIX_GACHA) {
       setErro(t('games.tamagoshi.gacha_saldo_insuficiente'))
+      operacaoEmCurso.current = false
+      return
+    }
+
+    if (disponiveis.length === 0) {
+      setErro(t('games.tamagoshi.gacha_sem_criaturas'))
+      operacaoEmCurso.current = false
       return
     }
 
     setGirando(true)
 
-    // Animação de rolagem (simula 1.5s de "girando")
-    await new Promise(r => setTimeout(r, 1500))
-
-    const criatura = sortearT1()
-    if (!criatura) {
-      setErro(t('games.tamagoshi.gacha_sem_criaturas'))
-      setGirando(false)
-      return
-    }
-
-    // Primeiro giro é grátis; demais debitam DIX
-    if (!store._isAdmin && !primeiroGiroGratis) {
+    // O débito autoriza a rolagem: nenhuma criatura é sorteada antes da cobrança.
+    if (!store._isAdmin) {
       try {
         await store.gastarDix(store._userId, DIX_GACHA, `gacha temporada ${temporada}`)
       } catch (e) {
         setErro(t('games.tamagoshi.' + (TRADUZIR_ERRO_GACHA[e.message] || 'erro_desconhecido')))
         setGirando(false)
+        operacaoEmCurso.current = false
         return
       }
-    } else if (!store._isAdmin && primeiroGiroGratis) {
-      marcarFreeSpinUsado()
     }
 
+    // Animação de rolagem (simula 1.5s de "girando")
+    await new Promise(r => setTimeout(r, 1500))
+
+    const criatura = sortearT1()
     setSorteada(criatura)
     setGirando(false)
+    operacaoEmCurso.current = false
   }
 
   const handleAceitar = async () => {
     if (!sorteada) return
-    await store.escolherCriatura(sorteada.id)
     setAceita(true)
-    onConcluir()
+    await onConcluir(sorteada.id)
   }
-
-  const persSorteada = sorteada ? PERSONALIDADES[sorteada.tipo] : null
 
   return (
     <div className="tama-screen">
       <div className="tama-gacha">
         <h2 className="tama-gacha-title">{t('games.tamagoshi.gacha_titulo')}</h2>
-        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</p>
+        <p className="tama-gacha-sub">{t('games.tamagoshi.gacha_sub', { custo: DIX_GACHA })}</p>
 
         {/* Seletor de temporada — T1 disponível, T2 EM BREVE */}
         <div className="tama-gacha-temporadas">
@@ -120,10 +109,9 @@ export default function Gacha({ onConcluir, onVoltar }) {
           </button>
         </div>
 
-        {/* Saldo + badge de giro grátis */}
+        {/* Saldo */}
         <div className="tama-gacha-saldo">
           <span>{t('games.tamagoshi.dix_display', { saldo: store._isAdmin ? '∞' : saldo })}</span>
-          {primeiroGiroGratis && <span className="tama-gacha-gratis-badge">🎁 {t('games.tamagoshi.gacha_giro_gratis')}</span>}
         </div>
 
         {/* Erro */}
@@ -141,7 +129,7 @@ export default function Gacha({ onConcluir, onVoltar }) {
             {girando ? (
               <span className="tama-gacha-girando">{t('games.tamagoshi.gacha_girando')} 🎰</span>
             ) : (
-              <span>{t('games.tamagoshi.gacha_girar', { custo: primeiroGiroGratis ? t('games.tamagoshi.gacha_gratis') : DIX_GACHA })}</span>
+              <span>{t('games.tamagoshi.gacha_girar', { custo: DIX_GACHA })}</span>
             )}
           </motion.button>
         )}
