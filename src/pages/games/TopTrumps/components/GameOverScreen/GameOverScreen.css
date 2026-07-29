@@ -59,6 +59,14 @@
   overflow-y: auto;
 }
 
+.tt-gameover-page--vitoria .tt-relatorio-hero {
+  background: radial-gradient(circle at 50% 42%, rgba(30, 160, 100, 0.12), transparent 48%);
+}
+
+.tt-gameover-page--derrota .tt-relatorio-hero {
+  background: radial-gradient(circle at 50% 42%, rgba(113, 128, 150, 0.1), transparent 48%);
+}
+
 @keyframes tt-bg-cycle {
   0%   { background-color: #0B0D0F; }
   20%  { background-color: #1A0808; }
@@ -69,24 +77,15 @@
 }
 
 .tt-fim-titulo--vitoria {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1ea064;
+  color: var(--tt-win);
 }
 
 .tt-fim-titulo--empate {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #e8853a;
+  color: var(--tt-orange);
 }
 
 .tt-fim-titulo--derrota {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #e74c3c;
+  color: var(--tt-lose);
 }
 
 .tt-fim-aviso {
@@ -120,109 +119,220 @@
 .tt-relatorio {
   text-align: center;
   width: 100%;
-  max-width: 600px;
+  max-width: 480px;
   margin: 0 auto;
   padding: max(0.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(0.5rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
+.tt-relatorio-hero {
+  border-radius: 12px;
+  padding-top: 0.15rem;
+}
+
 .tt-relatorio-titulo {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #EAEAEA;
-  margin-bottom: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--tt-muted);
+  letter-spacing: 0.1em;
+  margin: 0 0 0.15rem;
 }
 
 .tt-relatorio-sub {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  color: #8B8F96;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--tt-dark);
   letter-spacing: 0.08em;
-  margin-bottom: 1.5rem;
+  margin: 0 0 0.75rem;
 }
 
 .tt-relatorio-icone {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3.25rem;
+  margin-bottom: 0.3rem;
   line-height: 1;
 }
 
+.tt-gameover-page--vitoria .tt-relatorio-icone {
+  filter: drop-shadow(0 0 11px rgba(30, 160, 100, 0.55));
+  animation: tt-gameover-victory-icon 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.tt-gameover-page--derrota .tt-relatorio-icone {
+  animation: tt-gameover-defeat-enter 0.32s ease-out both;
+}
+
+.tt-gameover-page--empate .tt-relatorio-icone {
+  filter: drop-shadow(0 0 8px rgba(232, 133, 58, 0.35));
+  animation: tt-gameover-draw-enter 0.36s ease-out both;
+}
+
 .tt-relatorio-resultado {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.5rem;
+  font-family: var(--font-rajdhani);
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  line-height: 1;
+  margin: 0 0 0.45rem;
+}
+
+.tt-gameover-page--vitoria .tt-relatorio-resultado {
+  text-shadow: 0 0 22px rgba(30, 160, 100, 0.32);
+  animation: tt-gameover-victory-title 0.42s 0.06s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.tt-gameover-page--derrota .tt-relatorio-resultado {
+  animation: tt-gameover-defeat-enter 0.32s 0.04s ease-out both;
+}
+
+.tt-gameover-page--empate .tt-relatorio-resultado {
+  animation: tt-gameover-draw-enter 0.36s 0.04s ease-out both;
 }
 
 .tt-relatorio-placar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  margin: 0 0 0.75rem;
 }
 
 .tt-relatorio-placar-item { text-align: center; }
 
 .tt-relatorio-placar-valor {
   display: block;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2rem;
+  font-family: var(--font-rajdhani);
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #EAEAEA;
+  line-height: 0.9;
+  color: var(--tt-text);
 }
 
 .tt-relatorio-placar-label {
   display: block;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem;
-  color: #8B8F96;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--tt-muted);
   letter-spacing: 0.08em;
 }
 
 .tt-relatorio-placar-divisor {
-  font-family: "Rajdhani", sans-serif;
+  font-family: var(--font-rajdhani);
   font-size: 1.5rem;
-  color: #4F5359;
+  color: var(--tt-dark);
+}
+
+.tt-relatorio-separador {
+  width: 72%;
+  max-width: 280px;
+  height: 1px;
+  margin: 0.75rem auto;
+  background: linear-gradient(90deg, transparent, var(--tt-dark), transparent);
+}
+
+.tt-gameover-page--vitoria .tt-relatorio-separador {
+  background: linear-gradient(90deg, transparent, var(--tt-win), transparent);
+  opacity: 0.65;
+}
+
+.tt-gameover-page--empate .tt-relatorio-separador {
+  background: linear-gradient(90deg, transparent, var(--tt-orange), transparent);
+  opacity: 0.65;
+}
+
+.tt-gameover-page--derrota .tt-relatorio-separador {
+  background: linear-gradient(90deg, transparent, var(--tt-defeat-muted), transparent);
+  opacity: 0.55;
 }
 
 .tt-relatorio-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .tt-relatorio-stat {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid #2A2D31;
+  position: relative;
+  background: var(--tt-bg-card);
+  border: 1px solid var(--tt-border);
   border-radius: 6px;
-  padding: 0.75rem 0.5rem;
+  padding: 0.55rem 0.25rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.tt-relatorio-stat--numerico {
+  min-height: 58px;
+}
+
+.tt-relatorio-stat--qualitativo {
+  grid-column: span 2;
+  min-height: 66px;
+  padding: 0.65rem 0.5rem 0.55rem;
+}
+
+.tt-relatorio-stat--qualitativo::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--tt-orange);
+}
+
+.tt-relatorio-stat--atributo {
+  border-color: rgba(232, 133, 58, 0.35);
+}
+
+.tt-relatorio-stat--melhor {
+  border-color: rgba(30, 160, 100, 0.35);
+}
+
+.tt-relatorio-stat--melhor::before {
+  background: var(--tt-win);
+}
+
+.tt-gameover-page--derrota .tt-relatorio-stat--melhor {
+  border-color: rgba(113, 128, 150, 0.4);
+}
+
+.tt-gameover-page--derrota .tt-relatorio-stat--melhor::before,
+.tt-relatorio-stat--vazio::before {
+  background: var(--tt-defeat-muted);
 }
 
 .tt-relatorio-stat-valor {
   display: block;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-rajdhani);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #EAEAEA;
+  color: var(--tt-text);
   margin-bottom: 0.15rem;
+}
+
+.tt-relatorio-stat--qualitativo .tt-relatorio-stat-valor {
+  display: -webkit-box;
+  min-height: 2.2em;
+  overflow: hidden;
+  font-size: 0.9rem;
+  line-height: 1.1;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .tt-relatorio-stat-label {
   display: block;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.55rem;
-  color: #8B8F96;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--tt-muted);
   letter-spacing: 0.06em;
 }
 
 .tt-relatorio-lista {
   text-align: left;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .tt-relatorio-lista-titulo {
@@ -235,20 +345,26 @@
 
 .tt-relatorio-lista-item {
   display: grid;
-  grid-template-columns: 20px 1fr 80px 70px;
+  grid-template-columns: 18px minmax(0, 1fr) 42px 48px;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.35rem 0;
+  min-height: 30px;
+  padding: 0.3rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.65rem;
-  color: #8B8F96;
+  font-family: var(--font-ibm);
+  font-size: 0.61rem;
+  color: var(--tt-muted);
+  box-sizing: border-box;
 }
 
 .tt-relatorio-lista-icon {
   font-size: 0.7rem;
   text-align: center;
 }
+
+.tt-relatorio-lista-item--ganhou .tt-relatorio-lista-icon { color: var(--tt-win); }
+.tt-relatorio-lista-item--perdeu .tt-relatorio-lista-icon { color: var(--tt-defeat-muted); }
+.tt-relatorio-lista-item--empate .tt-relatorio-lista-icon { color: var(--tt-orange); }
 
 .tt-relatorio-lista-nome {
   overflow: hidden;
@@ -257,13 +373,44 @@
 }
 
 .tt-relatorio-lista-attr {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.55rem;
-  color: #4F5359;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  color: var(--tt-dark);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tt-relatorio-lista-valor {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
   text-align: right;
+}
+
+@keyframes tt-gameover-victory-icon {
+  from { opacity: 0; transform: scale(0.72); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tt-gameover-victory-title {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tt-gameover-defeat-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tt-gameover-draw-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-gameover-page .tt-relatorio-icone,
+  .tt-gameover-page .tt-relatorio-resultado {
+    animation: none;
+  }
 }

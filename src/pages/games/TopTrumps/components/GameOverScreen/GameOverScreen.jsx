@@ -24,41 +24,45 @@ export default function GameOverScreen({
   })
   const icone = venceu ? '\uD83C\uDFC6' : empatou ? '\uD83E\uDD1D' : '\uD83D\uDC80'
   const titulo = venceu ? tt('result_voce_venceu') : empatou ? tt('result_empate') : tt('result_ia_venceu')
+  const variante = venceu ? 'vitoria' : empatou ? 'empate' : 'derrota'
 
   return (
-    <section className="tt-page tt-gameover-page">
+    <section className={`tt-page tt-gameover-page tt-gameover-page--${variante}`}>
       <div className="tt-relatorio">
-        <h2 className="tt-relatorio-titulo">{tt('relatorio_titulo')}</h2>
-        <p className="tt-relatorio-sub">{tt('relatorio_sub')}</p>
-        <div className="tt-relatorio-icone">{icone}</div>
-        <h3 className={`tt-relatorio-resultado${venceu ? ' tt-fim-titulo--vitoria' : empatou ? ' tt-fim-titulo--empate' : ' tt-fim-titulo--derrota'}`}>{titulo}</h3>
+        <div className="tt-relatorio-hero">
+          <h2 className="tt-relatorio-titulo">{tt('relatorio_titulo')}</h2>
+          <p className="tt-relatorio-sub">{tt('relatorio_sub')}</p>
+          <div className="tt-relatorio-icone" aria-hidden="true">{icone}</div>
+          <h3 className={`tt-relatorio-resultado tt-fim-titulo--${variante}`}>{titulo}</h3>
+          <div className="tt-relatorio-placar">
+            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.jogador}</span><span className="tt-relatorio-placar-label">{tt('relatorio_voce')}</span></div>
+            <span className="tt-relatorio-placar-divisor">{'\u00D7'}</span>
+            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.ia}</span><span className="tt-relatorio-placar-label">{tt('relatorio_ia_label')}</span></div>
+          </div>
+        </div>
         {!user && (
           <p className="tt-guest-cta">
             {tt('guest_cta_criar_conta')}{' '}
             <Link to="/cadastro">{tt('guest_cta_link')}</Link>
           </p>
         )}
-        <div className="tt-relatorio-placar">
-          <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.jogador}</span><span className="tt-relatorio-placar-label">{tt('relatorio_voce')}</span></div>
-          <span className="tt-relatorio-placar-divisor">{'\u00D7'}</span>
-          <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.ia}</span><span className="tt-relatorio-placar-label">{tt('relatorio_ia_label')}</span></div>
-        </div>
+        <div className="tt-relatorio-separador" aria-hidden="true" />
         <div className="tt-relatorio-stats">
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{rodadasJogadas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_rodadas')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{vitorias}</span><span className="tt-relatorio-stat-label">{tt('relatorio_vitorias')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_derrotas')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{tt('relatorio_empates')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido === '\u2014' ? attrMaisEscolhido : tt(attrMaisEscolhido)}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
-          <div className="tt-relatorio-stat"><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador?.nome || '\u2014'}</span><span className="tt-relatorio-stat-label">{tt('relatorio_melhor_vitoria')}</span></div>
+          <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{rodadasJogadas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_rodadas')}</span></div>
+          <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{vitorias}</span><span className="tt-relatorio-stat-label">{tt('relatorio_vitorias')}</span></div>
+          <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_derrotas')}</span></div>
+          <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{tt('relatorio_empates')}</span></div>
+          <div className="tt-relatorio-stat tt-relatorio-stat--qualitativo tt-relatorio-stat--atributo"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido === '\u2014' ? attrMaisEscolhido : tt(attrMaisEscolhido)}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
+          <div className={`tt-relatorio-stat tt-relatorio-stat--qualitativo tt-relatorio-stat--melhor${melhorRodada ? '' : ' tt-relatorio-stat--vazio'}`}><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador?.nome || '\u2014'}</span><span className="tt-relatorio-stat-label">{tt('relatorio_melhor_vitoria')}</span></div>
         </div>
         <div className="tt-relatorio-lista">
           <h4 className="tt-relatorio-lista-titulo">{tt('relatorio_confrontos')}</h4>
           {historicoRodadas?.map((h, i) => (
-            <div key={i} className="tt-relatorio-lista-item">
+            <div key={i} className={`tt-relatorio-lista-item tt-relatorio-lista-item--${h.resultado}`}>
               <span className="tt-relatorio-lista-icon">{h.resultado === 'ganhou' ? '\u2713' : h.resultado === 'perdeu' ? '\u2717' : '='}</span>
-              <span className="tt-relatorio-lista-nome">{h.cartaJogador?.nome} vs {h.cartaIA?.nome}</span>
+              <span className="tt-relatorio-lista-nome">{h.cartaJogador?.nome} {'\u00D7'} {h.cartaIA?.nome}</span>
               <span className="tt-relatorio-lista-attr">{tt(h.atributo)}</span>
-              <span className="tt-relatorio-lista-valor">{h.valorJogador} {'\u00D7'} {h.valorIA}</span>
+              <span className="tt-relatorio-lista-valor">{h.valorJogador}{'\u2013'}{h.valorIA}</span>
             </div>
           ))}
         </div>
