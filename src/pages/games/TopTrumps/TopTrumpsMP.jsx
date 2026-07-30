@@ -78,6 +78,7 @@ export default function TopTrumpsMP() {
   const [resultadoRodada, setResultadoRodada] = useState(null)
   const [ehMinhaVez, setEhMinhaVez] = useState(false)
   const [tempoRestante, setTempoRestante] = useState(30)
+  const [rodadaLiberada, setRodadaLiberada] = useState(false)
   const [movimentoRecebido, setMovimentoRecebido] = useState(false)
   const [ultimoMovimento, setUltimoMovimento] = useState(null)
   const [girando, setGirando] = useState(false)
@@ -86,7 +87,7 @@ export default function TopTrumpsMP() {
 
   // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
   useEffect(() => {
-    if (fase === 'jogando' && !jaMovi) {
+    if (fase === 'jogando' && rodadaLiberada && !jaMovi) {
       if (!__heartbeatRodando) {
         sfx.startHeartbeatLoop()
         __heartbeatRodando = true
@@ -96,7 +97,7 @@ export default function TopTrumpsMP() {
       __heartbeatRodando = false
     }
     return () => { sfx.stopHeartbeatLoop(); __heartbeatRodando = false }
-  }, [fase, jaMovi])
+  }, [fase, rodadaLiberada, jaMovi])
   const [meuPapel, setMeuPapel] = useState(null)
   const [deckLocal, setDeckLocal] = useState([])
   const [deckOponente, setDeckOponente] = useState([])
@@ -136,6 +137,27 @@ export default function TopTrumpsMP() {
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { faseRef.current = fase }, [fase])
   useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
+
+  useEffect(() => {
+    if (fase !== 'jogando' || !sala?.id || !sala?.turno_atual) {
+      setRodadaLiberada(false)
+      return
+    }
+    setRodadaLiberada(false)
+    logMP('BARREIRA_FECHADA', {
+      salaId: sala.id,
+      turno: sala.turno_atual,
+      duracaoMs: 5000
+    })
+    const timer = setTimeout(() => {
+      setRodadaLiberada(true)
+      logMP('BARREIRA_LIBERADA', {
+        salaId: sala.id,
+        turno: sala.turno_atual
+      })
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [fase, sala?.id, sala?.turno_atual])
 
   const placar = sala ? {
     eu: meuPapel === 'j1' ? (sala.pontos_j1 || 0) : (sala.pontos_j2 || 0),
@@ -230,7 +252,7 @@ export default function TopTrumpsMP() {
   }, [deckLocal, sala?.turno_atual])
 
   useEffect(() => {
-    if (!ehMinhaVez || fase !== 'jogando' || jaMovi || !sala || !cartaLocal) return
+    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || jaMovi || !sala || !cartaLocal) return
     setTempoRestante(30)
     const iv = setInterval(() => {
       setTempoRestante(t => {
@@ -258,7 +280,7 @@ export default function TopTrumpsMP() {
       })
     }, 1000)
     return () => clearInterval(iv)
-  }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
+  }, [rodadaLiberada, ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
   function seguirParaProximaRodada() {
     const s = salaPendenteRef.current || salaRef.current
@@ -293,7 +315,7 @@ export default function TopTrumpsMP() {
   }
 
   function jogarAtributo(atributoId) {
-    if (!ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
+    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
     sfx.click()
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
@@ -870,8 +892,8 @@ export default function TopTrumpsMP() {
             <div className="ttmp-card-atributos">
               {atributos.map(attr => (
                 <button key={attr.id}
-                  className={`ttmp-atributo-btn${!ehMinhaVez || jaMovi ? ' ttmp-atributo-btn--disabled' : ''}`}
-                  disabled={!ehMinhaVez || jaMovi}
+                  className={`ttmp-atributo-btn${!rodadaLiberada || !ehMinhaVez || jaMovi ? ' ttmp-atributo-btn--disabled' : ''}`}
+                  disabled={!rodadaLiberada || !ehMinhaVez || jaMovi}
                   onClick={() => jogarAtributo(attr.id)}
                   title={attr.descricao}>
                   <span className="ttmp-atributo-nome">{tt(attr.nomeKey)}</span>
