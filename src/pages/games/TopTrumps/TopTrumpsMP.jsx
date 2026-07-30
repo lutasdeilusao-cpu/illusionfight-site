@@ -254,7 +254,41 @@ export default function TopTrumpsMP() {
   }, [deckLocal, sala?.turno_atual])
 
   useEffect(() => {
-    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || jaMovi || !sala || !cartaLocal) return
+    if (!sala?.id || !sala?.turno_atual) return
+    setJaMovi(false)
+    setMovimentoRecebido(false)
+    setUltimoMovimento(null)
+    setTempoRestante(30)
+    logMP('TURNO_REARMADO', {
+      salaId: sala.id,
+      turno: sala.turno_atual,
+      jogadorDaVez: sala.jogador_da_vez,
+      meuJogadorId: user?.id
+    })
+  }, [sala?.id, sala?.turno_atual])
+
+  useEffect(() => {
+    const bloqueios = {
+      rodadaNaoLiberada: !rodadaLiberada,
+      naoEhMinhaVez: !ehMinhaVez,
+      faseInvalida: fase !== 'jogando',
+      jaMoveu: jaMovi,
+      salaAusente: !sala,
+      cartaAusente: !cartaLocal
+    }
+    logMP('TIMER_AVALIADO', {
+      salaId: sala?.id,
+      turno: sala?.turno_atual,
+      cartaId: cartaLocal?.id,
+      bloqueios
+    })
+    if (Object.values(bloqueios).some(Boolean)) return
+    logMP('TIMER_INICIADO', {
+      salaId: sala.id,
+      turno: sala.turno_atual,
+      cartaId: cartaLocal.id,
+      jogadorId: user?.id
+    })
     setTempoRestante(30)
     const iv = setInterval(() => {
       setTempoRestante(t => {
@@ -282,7 +316,7 @@ export default function TopTrumpsMP() {
       })
     }, 1000)
     return () => clearInterval(iv)
-  }, [rodadaLiberada, ehMinhaVez, fase, sala?.turno_atual, jaMovi])
+  }, [rodadaLiberada, ehMinhaVez, fase, sala?.id, sala?.turno_atual, jaMovi, cartaLocal?.id, user?.id])
 
   function seguirParaProximaRodada() {
     const s = salaPendenteRef.current || salaRef.current
@@ -316,7 +350,20 @@ export default function TopTrumpsMP() {
   }
 
   function jogarAtributo(atributoId) {
-    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) return
+    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) {
+      logMP('JOGADA_BLOQUEADA', {
+        atributo: atributoId,
+        salaId: sala?.id,
+        turno: sala?.turno_atual,
+        cartaId: cartaLocal?.id,
+        rodadaLiberada,
+        ehMinhaVez,
+        fase,
+        jaMovi,
+        girando
+      })
+      return
+    }
     sfx.click()
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
@@ -727,10 +774,21 @@ export default function TopTrumpsMP() {
       })
       setUltimoMovimento(mov)
 
-      if (mov.jogador_id === user.id) {
-        setJaMovi(true)
+      const turnoExibido = salaRef.current?.turno_atual
+      if (mov.turno === turnoExibido) {
+        if (mov.jogador_id === user.id) {
+          setJaMovi(true)
+        } else {
+          setMovimentoRecebido(true)
+        }
       } else {
-        setMovimentoRecebido(true)
+        logMP('MOVIMENTO_ATRASADO_IGNORADO', {
+          salaId,
+          turnoMovimento: mov.turno,
+          turnoExibido,
+          movimentoId: mov.id,
+          jogadorId: mov.jogador_id
+        })
       }
 
       resolverRodada(mov.turno, 'realtime')

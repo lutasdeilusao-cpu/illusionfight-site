@@ -630,7 +630,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 126,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 126,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 57,
+      "community": 67,
       "norm_label": "pixi.js"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 57,
+      "community": 67,
       "norm_label": "pixi.js"
     },
     {
@@ -14277,9 +14277,9 @@
       "label": "NOTE: Para Top Trumps (um jogador por rodada) n\u00e3o dependemos mais",
       "file_type": "rationale",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L590",
+      "source_location": "L637",
       "_origin": "ast",
-      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_590",
+      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_637",
       "community": 4,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
@@ -18120,7 +18120,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_isdaggerweapon",
-      "community": 3,
+      "community": 273,
       "norm_label": "isdaggerweapon()"
     },
     {
@@ -18130,7 +18130,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_isswordweapon",
-      "community": 3,
+      "community": 273,
       "norm_label": "isswordweapon()"
     },
     {
@@ -18140,7 +18140,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_isbowweapon",
-      "community": 3,
+      "community": 273,
       "norm_label": "isbowweapon()"
     },
     {
@@ -18150,7 +18150,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_weaponfamily",
-      "community": 3,
+      "community": 273,
       "norm_label": "weaponfamily()"
     },
     {
@@ -18160,7 +18160,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_items_consumable",
-      "community": 3,
+      "community": 38,
       "norm_label": "items_consumable"
     },
     {
@@ -18170,7 +18170,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_arrows",
-      "community": 3,
+      "community": 38,
       "norm_label": "arrows"
     },
     {
@@ -18200,7 +18200,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_makeinventory",
-      "community": 67,
+      "community": 3,
       "norm_label": "makeinventory()"
     },
     {
@@ -18210,7 +18210,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_getitemdef",
-      "community": 3,
+      "community": 38,
       "norm_label": "getitemdef()"
     },
     {
@@ -18240,7 +18240,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_makecombatant",
-      "community": 67,
+      "community": 3,
       "norm_label": "makecombatant()"
     },
     {
@@ -18480,7 +18480,7 @@
       "source_location": "L452",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_calchp",
-      "community": 67,
+      "community": 3,
       "norm_label": "calchp()"
     },
     {
@@ -18490,7 +18490,7 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_calcmp",
-      "community": 67,
+      "community": 3,
       "norm_label": "calcmp()"
     },
     {
@@ -18530,7 +18530,7 @@
       "source_location": "L491",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_confirmcreation",
-      "community": 67,
+      "community": 3,
       "norm_label": "confirmcreation()"
     },
     {
@@ -18570,7 +18570,7 @@
       "source_location": "L535",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_buildmainscreen",
-      "community": 67,
+      "community": 3,
       "norm_label": "buildmainscreen()"
     },
     {
@@ -18600,7 +18600,7 @@
       "source_location": "L589",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_xpneeded",
-      "community": 67,
+      "community": 3,
       "norm_label": "xpneeded()"
     },
     {
@@ -18610,7 +18610,7 @@
       "source_location": "L597",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_rendertestbuttons",
-      "community": 67,
+      "community": 3,
       "norm_label": "rendertestbuttons()"
     },
     {
@@ -18620,7 +18620,7 @@
       "source_location": "L614",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_runtest",
-      "community": 67,
+      "community": 3,
       "norm_label": "runtest()"
     },
     {
@@ -18680,7 +18680,7 @@
       "source_location": "L851",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_renderareatwobuttons",
-      "community": 3,
+      "community": 45,
       "norm_label": "renderareatwobuttons()"
     },
     {
@@ -18690,7 +18690,7 @@
       "source_location": "L877",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_toggleareatarget",
-      "community": 3,
+      "community": 45,
       "norm_label": "toggleareatarget()"
     },
     {
@@ -18700,7 +18700,7 @@
       "source_location": "L889",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_resolveareatwo",
-      "community": 3,
+      "community": 45,
       "norm_label": "resolveareatwo()"
     },
     {
@@ -18710,7 +18710,7 @@
       "source_location": "L899",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_canceltargeting",
-      "community": 3,
+      "community": 45,
       "norm_label": "canceltargeting()"
     },
     {
@@ -18720,7 +18720,7 @@
       "source_location": "L905",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_hidetargetselector",
-      "community": 3,
+      "community": 45,
       "norm_label": "hidetargetselector()"
     },
     {
@@ -18820,7 +18820,7 @@
       "source_location": "L1418",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_processturn",
-      "community": 38,
+      "community": 31,
       "norm_label": "processturn()"
     },
     {
@@ -18880,7 +18880,7 @@
       "source_location": "L1530",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_processeffects",
-      "community": 38,
+      "community": 31,
       "norm_label": "processeffects()"
     },
     {
@@ -18890,7 +18890,7 @@
       "source_location": "L1569",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_haseffect",
-      "community": 38,
+      "community": 31,
       "norm_label": "haseffect()"
     },
     {
@@ -18920,7 +18920,7 @@
       "source_location": "L1598",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_endround",
-      "community": 38,
+      "community": 31,
       "norm_label": "endround()"
     },
     {
@@ -18950,7 +18950,7 @@
       "source_location": "L1635",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_openswappanel",
-      "community": 3,
+      "community": 273,
       "norm_label": "openswappanel()"
     },
     {
@@ -18960,7 +18960,7 @@
       "source_location": "L1684",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_closeswappanel",
-      "community": 3,
+      "community": 273,
       "norm_label": "closeswappanel()"
     },
     {
@@ -19080,7 +19080,7 @@
       "source_location": "L1972",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_processweaponpassives",
-      "community": 38,
+      "community": 31,
       "norm_label": "processweaponpassives()"
     },
     {
@@ -19140,7 +19140,7 @@
       "source_location": "L2135",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_defendaction",
-      "community": 67,
+      "community": 3,
       "norm_label": "defendaction()"
     },
     {
@@ -19320,7 +19320,7 @@
       "source_location": "L2445",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_totalattrpoints",
-      "community": 67,
+      "community": 3,
       "norm_label": "totalattrpoints()"
     },
     {
@@ -19330,7 +19330,7 @@
       "source_location": "L2449",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_endbattle",
-      "community": 67,
+      "community": 3,
       "norm_label": "endbattle()"
     },
     {
@@ -19520,7 +19520,7 @@
       "source_location": "L2811",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_successchance",
-      "community": 67,
+      "community": 3,
       "norm_label": "successchance()"
     },
     {
@@ -19530,7 +19530,7 @@
       "source_location": "L2817",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_successcheck",
-      "community": 67,
+      "community": 3,
       "norm_label": "successcheck()"
     },
     {
@@ -19540,7 +19540,7 @@
       "source_location": "L2821",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_givexp",
-      "community": 67,
+      "community": 3,
       "norm_label": "givexp()"
     },
     {
@@ -19550,7 +19550,7 @@
       "source_location": "L2839",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_givexpto",
-      "community": 67,
+      "community": 3,
       "norm_label": "givexpto()"
     },
     {
@@ -19560,7 +19560,7 @@
       "source_location": "L2858",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_weaponxpattrs",
-      "community": 67,
+      "community": 3,
       "norm_label": "weaponxpattrs()"
     },
     {
@@ -19570,7 +19570,7 @@
       "source_location": "L2866",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_grantbattleendxp",
-      "community": 67,
+      "community": 3,
       "norm_label": "grantbattleendxp()"
     },
     {
@@ -19610,7 +19610,7 @@
       "source_location": "L2899",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_setbattlebuttons",
-      "community": 67,
+      "community": 3,
       "norm_label": "setbattlebuttons()"
     },
     {
@@ -19620,7 +19620,7 @@
       "source_location": "L2911",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_showscreen",
-      "community": 67,
+      "community": 3,
       "norm_label": "showscreen()"
     },
     {
@@ -49341,7 +49341,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L809",
+      "source_location": "L867",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_escolherppt"
@@ -49374,7 +49374,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L270",
+      "source_location": "L304",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_registrarmovimento"
@@ -49495,7 +49495,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L655",
+      "source_location": "L702",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetosala"
@@ -49517,7 +49517,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L718",
+      "source_location": "L765",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
@@ -72172,9 +72172,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L590",
+      "source_location": "L637",
       "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_590",
+      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_637",
       "target": "src_pages_games_toptrumps_toptrumpsmp",
       "confidence_score": 1.0
     },
@@ -96164,5 +96164,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9f30339515e9896479d58961b16b6a151c5aaea3"
+  "built_at_commit": "e0699cf71fda3fd9727fd9e65d17c3b21f276b36"
 }

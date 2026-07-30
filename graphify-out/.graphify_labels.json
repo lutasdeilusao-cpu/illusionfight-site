@@ -125,7 +125,6 @@
   "123": "Community 123",
   "124": "Community 124",
   "125": "Community 125",
-  "126": "Vila.jsx",
   "127": "Community 127",
   "128": "Community 128",
   "129": "Community 129",
@@ -266,5 +265,6 @@
   "264": "ResultCard.jsx",
   "270": "classTree.js",
   "271": "Create",
-  "272": "Criatura.jsx"
+  "272": "Criatura.jsx",
+  "273": "weaponFamily"
 }
