@@ -268,6 +268,23 @@ export default function TopTrumpsMP() {
   }, [sala?.id, sala?.turno_atual])
 
   useEffect(() => {
+    if (fase !== 'fim') return
+    const venceu = placar.eu > placar.oponente
+    const empatou = placar.eu === placar.oponente
+    if (venceu) sfx.win()
+    else if (empatou) sfx.draw()
+    else sfx.lose()
+    logMP('RETORNO_LOBBY_AGENDADO', {
+      salaId: sala?.id,
+      atrasoMs: 5000
+    })
+    const timer = setTimeout(() => {
+      navigate('/games/toptrumps/lobby', { replace: true })
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [fase, navigate, placar.eu, placar.oponente, sala?.id])
+
+  useEffect(() => {
     const bloqueios = {
       rodadaNaoLiberada: !rodadaLiberada,
       naoEhMinhaVez: !ehMinhaVez,
@@ -505,7 +522,15 @@ export default function TopTrumpsMP() {
         const fim = novoTurno > s.total_turnos
         const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
-        if (fim) {
+        const souAutoridade = user.id === s.jogador1_id
+        if (!souAutoridade) {
+          logMP('RODADA_AGUARDANDO_AUTORIDADE', {
+            salaId: s.id,
+            turno: turnoAlvo,
+            autoridadeId: s.jogador1_id,
+            meuJogadorId: user.id
+          })
+        } else if (fim) {
           const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
           const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
 
@@ -586,7 +611,15 @@ export default function TopTrumpsMP() {
         const fim = novoTurno > s.total_turnos
         const resultadoFinal = ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu'
 
-        if (fim) {
+        const souAutoridade = user.id === s.jogador1_id
+        if (!souAutoridade) {
+          logMP('RODADA_AGUARDANDO_AUTORIDADE', {
+            salaId: s.id,
+            turno: turnoAlvo,
+            autoridadeId: s.jogador1_id,
+            meuJogadorId: user.id
+          })
+        } else if (fim) {
           const vencedor = novosPontosJ1 > novosPontosJ2 ? s.jogador1_id : novosPontosJ2 > novosPontosJ1 ? s.jogador2_id : null
           const perdedor = vencedor === s.jogador1_id ? s.jogador2_id : s.jogador1_id
 
@@ -1119,13 +1152,6 @@ export default function TopTrumpsMP() {
     if (!sala) return null
     const venceu = placar.eu > placar.oponente
     const empatou = placar.eu === placar.oponente
-    // Play end sound once on mount
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      if (venceu) sfx.win()
-      else if (empatou) sfx.draw()
-      else sfx.lose()
-    }, [])
     return (
       <section className="ttmp-page">
         <div className="ttmp-fim">
