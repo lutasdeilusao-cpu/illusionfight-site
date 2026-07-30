@@ -108,6 +108,7 @@ export default function TopTrumpsMP() {
   ]
   const [onomaTexto, setOnomaTexto] = useState('KABOOM!')
   const [cortinaAtiva, setCortinaAtiva] = useState(false)
+  const [particulas, setParticulas] = useState([])
 
   function sortearOnomatopeia() {
     const idx = Math.floor(Math.random() * ONOMATOPEIAS.length)
