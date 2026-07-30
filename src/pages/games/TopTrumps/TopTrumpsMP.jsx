@@ -10,9 +10,9 @@ import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSa
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
-import FireParticles from './components/FireParticles/FireParticles'
-import BurstParticles from './components/BurstParticles/BurstParticles'
 import MultiplayerGameScreen from './components/multiplayer/MultiplayerGameScreen'
+import ResultScreen from './components/ResultScreen/ResultScreen'
+import { ordenarDeckDeterministico } from './utils/deterministicDeck'
 import './TopTrumpsMP.css'
 
 let __heartbeatRodando = false
@@ -87,6 +87,7 @@ export default function TopTrumpsMP() {
   const [girando, setGirando] = useState(false)
   const [cartaSelecionada, setCartaSelecionada] = useState(null)
   const [jaMovi, setJaMovi] = useState(false)
+  const [swipeRevealed, setSwipeRevealed] = useState(false)
   const ehMinhaVez = Boolean(user?.id && sala?.jogador_da_vez === user.id)
 
   // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
@@ -222,11 +223,11 @@ export default function TopTrumpsMP() {
         .filter(Boolean)
       if (!cartas.length) return
       // Embaralha para não usar sempre as mesmas cartas na ordem do banco
-      const embaralhadas = [...cartas].sort(() => Math.random() - 0.5)
+      const embaralhadas = ordenarDeckDeterministico(cartas, sala.id, user.id)
       const qtd = Math.min(sala.total_turnos, embaralhadas.length)
       setDeckLocal(embaralhadas.slice(0, qtd))
     })()
-  }, [user, sala?.total_turnos])
+  }, [user?.id, sala?.id, sala?.total_turnos])
 
   useEffect(() => {
     if (!salaId || !user) return
@@ -254,10 +255,10 @@ export default function TopTrumpsMP() {
         .map(id => todasCartas.find(c => c.id === id))
         .filter(Boolean)
       // Embaralha para variedade
-      const embaralhadas = [...cartasOpp].sort(() => Math.random() - 0.5)
+      const embaralhadas = ordenarDeckDeterministico(cartasOpp, s.id, opId)
       setDeckOponente(embaralhadas.slice(0, qtd))
     })()
-  }, [salaId, user, sala?.jogador2_id])
+  }, [salaId, user?.id, sala?.jogador1_id, sala?.jogador2_id])
 
   useEffect(() => {
     if (!deckLocal.length || !sala) return
@@ -375,6 +376,7 @@ export default function TopTrumpsMP() {
     setCartaOponente(null)
     setUltimoMovimento(null)
     setGirando(false)
+    setSwipeRevealed(false)
     setFase('jogando')
   }
 
@@ -431,6 +433,7 @@ export default function TopTrumpsMP() {
   }
 
   function iniciarRevelacao(resultadoFinal) {
+    setSwipeRevealed(false)
     sfx.cardFlip()
     sfx.vs()
     sfx.startHeartbeatLoop()
@@ -525,6 +528,7 @@ export default function TopTrumpsMP() {
 
         setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
         setAtributoEscolhido(movJ1.atributo)
+        setCartaLocal(papel === 'j1' ? cartaJ1 : cartaJ2)
         setCartaOponente(papel === 'j1' ? cartaJ2 : cartaJ1)
 
         const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
@@ -614,7 +618,9 @@ export default function TopTrumpsMP() {
 
         setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
         setAtributoEscolhido(mov.atributo)
-        setCartaOponente(papel === 'j1' ? (mov.jogador_id === s.jogador1_id ? cartaOponenteObj : cartaAtiva) : (mov.jogador_id === s.jogador2_id ? cartaOponenteObj : cartaAtiva))
+        const souAutorMovimento = mov.jogador_id === user.id
+        setCartaLocal(souAutorMovimento ? cartaAtiva : cartaOponenteObj)
+        setCartaOponente(souAutorMovimento ? cartaOponenteObj : cartaAtiva)
 
         const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
         const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
@@ -979,85 +985,35 @@ export default function TopTrumpsMP() {
 
   if (fase === 'revelacao') {
     if (!cartaLocal || !cartaOponente) return null
-    const attr = atributos.find(a => a.id === atributoEscolhido)
-    const vezTexto = sala?.jogador_da_vez === user.id ? tt('mp.revelacao_sua_vez') : tt('mp.revelacao_vez_oponente', { nome: oponenteNome })
+    const resultadoTexto = resultadoRodada === 'ganhou'
+      ? tt('mp.revelacao_voce_venceu')
+      : resultadoRodada === 'perdeu'
+        ? tt('mp.revelacao_oponente_venceu')
+        : tt('mp.revelacao_empate')
 
     return (
-      <>
-        <FireParticles />
-        <section className="ttmp-page">
-        <BurstParticles particulas={particulas} />
-        <div className="ttmp-revelacao-banner">
-          <div>
-            <span className="ttmp-revelacao-title">{tt('mp.revelacao_titulo')}</span>
-            <span className="ttmp-revelacao-subtitle">{vezTexto}</span>
-          </div>
-          <span className={`ttmp-resultado-badge ttmp-resultado--${resultadoRodada}`}>
-            {resultadoRodada === 'ganhou' ? tt('mp.revelacao_voce_venceu') : resultadoRodada === 'perdeu' ? tt('mp.revelacao_oponente_venceu') : tt('mp.revelacao_empate')}
-          </span>
-        </div>
-
-        <div className="ttmp-hud">
-          <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">{tt('mp.hud_voce')}</span>
-            <span className="ttmp-hud-placar-valor">{placar.eu}</span>
-          </div>
-          <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">{tt('mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
-            <span className="ttmp-revelacao-note">{tt('mp.atributo_escolhido', { nome: attr ? tt(attr.nomeKey) : '' })}</span>
-          </div>
-          <div className="ttmp-hud-oponente">
-            <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
-            <span className="ttmp-hud-placar-valor">{placar.oponente}</span>
-          </div>
-        </div>
-
-        <div className="ttmp-mesa ttmp-mesa--revelacao">
-          <div className="ttmp-card ttmp-card--revelado">
-            <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
-            </div>
-            <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
-            <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
-            <div className="ttmp-card-atributos">
-              {atributos.map(a => (
-                <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
-                  <span className="ttmp-atributo-valor">{cartaLocal.atributos[a.id]}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="ttmp-vs">
-            <span className={`ttmp-resultado-texto ttmp-resultado--${resultadoRodada}`}>
-              {resultadoRodada === 'ganhou' ? tt('mp.revelacao_voce_venceu_exclamacao') : resultadoRodada === 'perdeu' ? tt('mp.revelacao_oponente_venceu_exclamacao') : tt('mp.revelacao_empate_exclamacao')}
-            </span>
-            <span className="ttmp-resultado-atributo">{attr ? tt(attr.nomeKey) : ''}</span>
-          </div>
-
-          <div className="ttmp-card ttmp-card--revelado">
-            <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
-            </div>
-            <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
-            <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
-            <div className="ttmp-card-atributos">
-              {atributos.map(a => (
-                <div key={a.id} className={`ttmp-atributo-btn${a.id === atributoEscolhido ? ` ttmp-atributo--${resultadoRodada}` : ''}`}>
-                  <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
-                  <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <button className="ttmp-proxima-btn" onClick={seguirParaProximaRodada}>
-          {tt('mp.revelacao_proxima')}
-        </button>
-      </section>
-      </>
+      <ResultScreen
+        cartaJogador={cartaLocal}
+        cartaIA={cartaOponente}
+        cartaJogadorImg={getTopTrumpsCardImage(cartaLocal)}
+        cartaIAImg={getTopTrumpsCardImage(cartaOponente)}
+        atributoEscolhido={atributoEscolhido}
+        resultado={resultadoRodada}
+        resultadoTexto={resultadoTexto}
+        placar={{ jogador: placar.eu, ia: placar.oponente }}
+        rodada={sala?.turno_atual}
+        totalTurnos={sala?.total_turnos}
+        swipeRevealed={swipeRevealed}
+        onSwipeToggle={() => setSwipeRevealed(revelada => !revelada)}
+        onProximaRodada={seguirParaProximaRodada}
+        particulas={particulas}
+        templateIdxJogador={cartaLocal.id % 6}
+        templateIdxIA={cartaOponente.id % 6}
+        atributos={atributos}
+        locale={locale}
+        cartaOponenteTexto={oponenteNome}
+        tt={tt}
+      />
     )
   }
 

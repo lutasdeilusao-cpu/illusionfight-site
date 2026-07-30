@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785445766.6854753,
-    "ast_hash": "d0463cb95bc9d5ddd3a623beb75b415e",
+    "mtime": 1785455393.7231753,
+    "ast_hash": "6f2bb763adba062c309b4b56f74edbab",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2060,8 +2060,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
-    "mtime": 1785445900.7443018,
-    "ast_hash": "95bc96d7e687b772bae4b18217b60737",
+    "mtime": 1785455589.016318,
+    "ast_hash": "be085678c48b65dfe01a95881715ba0d",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785446000.247272,
-    "ast_hash": "35ea58c2f8874ca4c0cb461615e0f884",
+    "mtime": 1785455694.7716806,
+    "ast_hash": "8b0b1fbe73f28adc3c33d3de26f1c5fe",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3650,8 +3650,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/ResultScreen/ResultScreen.jsx": {
-    "mtime": 1785172596.3056102,
-    "ast_hash": "a5a48dfd3759bfa8f0c2cc873ac5759d",
+    "mtime": 1785455418.7979288,
+    "ast_hash": "8294affda44de30536083068ee0fa5ee",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/RewardScreen/RewardScreen.jsx": {
@@ -3690,13 +3690,18 @@
     "semantic_hash": ""
   },
   "docs/TOP_TRUMPS_MP_VISUAL_STUDY.md": {
-    "mtime": 1785445957.243046,
-    "ast_hash": "d4217ec7daf7be0c8fd39ea9fe2e30a3",
+    "mtime": 1785455689.7204652,
+    "ast_hash": "15570f56f9dab51cb201d033b966458f",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/multiplayer/MultiplayerGameScreen.jsx": {
     "mtime": 1785445900.7433093,
     "ast_hash": "d9e9bf727deb3b80feefe925acfbcc83",
+    "semantic_hash": ""
+  },
+  "src/pages/games/TopTrumps/utils/deterministicDeck.js": {
+    "mtime": 1785455418.7969382,
+    "ast_hash": "e0b94326c7ca0ff38833909ca35ef487",
     "semantic_hash": ""
   }
 }

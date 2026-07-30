@@ -1,5 +1,6 @@
 import './ResultScreen.css'
 import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
+import { useSwipe } from '../../../../../hooks/useSwipe'
 import FireParticles from '../FireParticles/FireParticles'
 import BurstParticles from '../BurstParticles/BurstParticles'
 
@@ -7,24 +8,23 @@ export default function ResultScreen({
   cartaJogador, cartaIA, cartaJogadorImg, cartaIAImg,
   atributoEscolhido, resultado, placar, rodada,
   totalTurnos, swipeRevealed, onSwipeToggle, onProximaRodada, particulas,
-  templateIdxJogador, templateIdxIA, atributos, locale, tt
+  templateIdxJogador, templateIdxIA, atributos, locale, tt,
+  resultadoTexto, cartaOponenteTexto, proximaRodadaTexto
 }) {
   const attr = atributos?.find(a => a.id === atributoEscolhido)
-  const localeStr = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
+  const localeStr = (locale || localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
   const vJ = cartaJogador?.atributos?.[atributoEscolhido]
   const vI = cartaIA?.atributos?.[atributoEscolhido]
+  const swipeHandlers = useSwipe({
+    onSwipeLeft: !swipeRevealed ? onSwipeToggle : undefined,
+    onSwipeRight: swipeRevealed ? onSwipeToggle : undefined,
+  })
 
   return (
     <>
-      <div className="tt-fire-particles">
-        {Array.from({ length: 25 }).map((_, i) => (
-          <div key={i} className="tt-fire-particle" />
-        ))}
-      </div>
+      <FireParticles />
       <section className="tt-page">
-        {particulas?.map(p => (
-          <div key={p.id} className={`tt-particula tt-particula--${p.tipo} tt-particula--v${p.variante}`} />
-        ))}
+        <BurstParticles particulas={particulas} />
         <div className="tt-result-container">
           <div className="tt-game-header">
             <div className="tt-game-round">{tt('hud_rodada', { n: rodada, total: totalTurnos })}</div>
@@ -38,8 +38,8 @@ export default function ResultScreen({
             resultado === 'ganhou' ? 'tt-result-win' :
             resultado === 'perdeu' ? 'tt-result-lose' : 'tt-result-draw'
           }`}>
-            {resultado === 'ganhou' ? tt('voce_venceu') :
-             resultado === 'perdeu' ? tt('ia_venceu') : tt('empate')}
+            {resultadoTexto || (resultado === 'ganhou' ? tt('voce_venceu') :
+             resultado === 'perdeu' ? tt('ia_venceu') : tt('empate'))}
           </div>
           {attr && (
             <div className="tt-result-attr-comparison">
@@ -51,7 +51,7 @@ export default function ResultScreen({
               </div>
             </div>
           )}
-          <div className="tt-cards-swipe-container">
+          <div className="tt-cards-swipe-container" {...swipeHandlers}>
             <div className={`tt-cards-swipe-track${swipeRevealed ? ' tt-cards-swipe-track--revealed' : ''}`}>
               <div className="tt-swipe-card-slot">
                 <span className="tt-swipe-label">{tt('sua_carta')}</span>
@@ -66,7 +66,7 @@ export default function ResultScreen({
                 />
               </div>
               <div className="tt-swipe-card-slot">
-                <span className="tt-swipe-label">{tt('carta_adversario')}</span>
+                <span className="tt-swipe-label">{cartaOponenteTexto || tt('carta_adversario')}</span>
                 <TopTrumpsCard
                   characterImage={cartaIAImg}
                   name={cartaIA?.nome}
@@ -87,7 +87,7 @@ export default function ResultScreen({
             </button>
           </div>
           <button className="tt-btn-next-round" onClick={onProximaRodada}>
-            {rodada >= totalTurnos ? tt('result_final') : tt('proxima_rodada')}
+            {proximaRodadaTexto || (rodada >= totalTurnos ? tt('result_final') : tt('proxima_rodada'))}
           </button>
         </div>
       </section>
