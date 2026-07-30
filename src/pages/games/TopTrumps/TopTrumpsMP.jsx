@@ -120,6 +120,9 @@ export default function TopTrumpsMP() {
   const meuPapelRef = useRef(meuPapel)
   const cartaLocalRef = useRef(cartaLocal)
   const deckOponenteRef = useRef(deckOponente)
+  const salaPendenteRef = useRef(null)
+  const turnosEmProcessamentoRef = useRef(new Set())
+  const turnosProcessadosRef = useRef(new Set())
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
@@ -245,8 +248,13 @@ export default function TopTrumpsMP() {
   }, [ehMinhaVez, fase, sala?.turno_atual, jaMovi])
 
   function seguirParaProximaRodada() {
-    const s = salaRef.current
+    const s = salaPendenteRef.current || salaRef.current
     if (!s) return
+    if (salaPendenteRef.current) {
+      salaPendenteRef.current = null
+      salaRef.current = s
+      setSala(s)
+    }
     sfx.click()
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
       sfx.nextRound()
@@ -314,15 +322,21 @@ export default function TopTrumpsMP() {
     }, 1800)
   }
 
-  async function resolverRodada() {
+  async function resolverRodada(turnoMovimento) {
+    let chaveTurno = null
     try {
-      const s = salaRef.current
-      if (!s) { return }
+      const salaAtual = salaRef.current
+      if (!salaAtual) { return }
+      const turnoAlvo = turnoMovimento ?? salaAtual.turno_atual
+      chaveTurno = `${salaAtual.id}:${turnoAlvo}`
+      if (turnosEmProcessamentoRef.current.has(chaveTurno) || turnosProcessadosRef.current.has(chaveTurno)) return
+      turnosEmProcessamentoRef.current.add(chaveTurno)
+      const s = { ...salaAtual, turno_atual: turnoAlvo }
       const { data: movs, error: errMovs } = await supabase
         .from('toptrumps_movimentos')
         .select('*')
         .eq('sala_id', s.id)
-        .eq('turno', s.turno_atual)
+        .eq('turno', turnoAlvo)
         .order('criado_em', { ascending: true })
       if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
 
@@ -386,10 +400,16 @@ export default function TopTrumpsMP() {
             turno_atual: novoTurno,
             jogador_da_vez: proximoJogador
           })
-          setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
-          setEhMinhaVez(proximoJogador === user.id)
+          salaPendenteRef.current = {
+            ...s,
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: novoTurno,
+            jogador_da_vez: proximoJogador
+          }
         }
 
+        turnosProcessadosRef.current.add(chaveTurno)
         iniciarRevelacao(resultadoFinal)
         return
       }
@@ -460,10 +480,16 @@ export default function TopTrumpsMP() {
             turno_atual: novoTurno,
             jogador_da_vez: proximoJogador
           })
-          setSala(prev => ({ ...prev, pontos_j1: novosPontosJ1, pontos_j2: novosPontosJ2, turno_atual: novoTurno, jogador_da_vez: proximoJogador }))
-          setEhMinhaVez(proximoJogador === user.id)
+          salaPendenteRef.current = {
+            ...s,
+            pontos_j1: novosPontosJ1,
+            pontos_j2: novosPontosJ2,
+            turno_atual: novoTurno,
+            jogador_da_vez: proximoJogador
+          }
         }
 
+        turnosProcessadosRef.current.add(chaveTurno)
         iniciarRevelacao(resultadoFinal)
         return
       }
@@ -471,6 +497,8 @@ export default function TopTrumpsMP() {
       return
     } catch (err) {
       console.error('[MP] resolverRodada erro crítico:', err)
+    } finally {
+      if (chaveTurno) turnosEmProcessamentoRef.current.delete(chaveTurno)
     }
   }
 
@@ -534,7 +562,17 @@ export default function TopTrumpsMP() {
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
       const anterior = salaRef.current
-      setSala(s)
+      const rodadaEmExibicao = faseRef.current === 'jogando' || faseRef.current === 'revelacao'
+      const deveReterSala = rodadaEmExibicao && (
+        (anterior && s.turno_atual !== anterior.turno_atual) ||
+        s.status === 'encerrada'
+      )
+      if (deveReterSala) {
+        salaPendenteRef.current = s
+      } else {
+        salaRef.current = s
+        setSala(s)
+      }
 
       // J2 entrou na sala → PPT phase para ambos os clientes
       if (s.status === 'em_jogo' && s.jogador2_id && (!anterior || !anterior.jogador2_id)) {
@@ -569,17 +607,7 @@ export default function TopTrumpsMP() {
         return
       }
 
-      if (anterior && s.turno_atual !== anterior.turno_atual && s.status === 'em_jogo' && faseRef.current !== 'revelacao' && faseRef.current !== 'fim') {
-        setFase('jogando')
-        setAtributoEscolhido(null)
-        setResultadoRodada(null)
-        setMovimentoRecebido(false)
-        setJaMovi(false)
-        setCartaOponente(null)
-        setUltimoMovimento(null)
-        setEhMinhaVez(s.jogador_da_vez === user.id)
-      }
-      if (s.status === 'encerrada' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') setFase('fim')
+      if (!deveReterSala && s.status === 'encerrada' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') setFase('fim')
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
       const mov = p.new
@@ -591,7 +619,7 @@ export default function TopTrumpsMP() {
         setMovimentoRecebido(true)
       }
 
-      resolverRodada()
+      resolverRodada(mov.turno)
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
   }, [salaId, user?.id])
