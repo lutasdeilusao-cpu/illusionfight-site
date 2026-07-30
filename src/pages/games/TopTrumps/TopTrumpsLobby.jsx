@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useLanguage } from '../../../context/LanguageContext'
-import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, subscribeToSala } from '../../../hooks/useTopTrumpsMP'
+import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, buscarSala, subscribeToSala } from '../../../hooks/useTopTrumpsMP'
 import { usePresence } from '../../../hooks/usePresence'
 import { carregarDeck as carregarDeckDB } from '../../../hooks/useLeaderboardDB'
 import { getDeck } from '../../../lib/getDeck'
@@ -64,6 +64,7 @@ export default function TopTrumpsLobby() {
   const [avisoApostadoConfirmado, setAvisoApostadoConfirmado] = useState(false)
   const [showAviso, setShowAviso] = useState(false)
   const timerRef = useRef(null)
+  const salaEntradaRef = useRef(false)
 
   // FRASES loaded from i18n keys below
 
@@ -89,19 +90,29 @@ export default function TopTrumpsLobby() {
   useEffect(() => {
     console.log('[LOBBY] useEffect subscription disparou, salaId:', salaId)
     if (!salaId) return
-    const sub = subscribeToSala(salaId, (payload) => {
-      setStatusSala(payload.new.status)
-      if (payload.new.jogador2_id && !salaEntradaRef.current) {
+    let ativo = true
+    const processarSala = (sala) => {
+      if (!ativo || !sala) return
+      setStatusSala(sala.status)
+      if (sala.jogador2_id && !salaEntradaRef.current) {
         salaEntradaRef.current = true
         setSalaAposEntrada(true)
       }
-      if (souJ1 && payload.new.aposta_confirmada_j2) setApostaOponente(true)
-      if (!souJ1 && payload.new.aposta_confirmada_j1) setApostaOponente(true)
-      if (payload.new.status === 'em_jogo') {
+      if (souJ1 && sala.aposta_confirmada_j2) setApostaOponente(true)
+      if (!souJ1 && sala.aposta_confirmada_j1) setApostaOponente(true)
+      if (sala.status === 'em_jogo') {
         navigate(`/games/toptrumps/multiplayer?sala=${salaId}`)
       }
-    })
-    return () => sub.unsubscribe()
+    }
+    const sub = subscribeToSala(
+      salaId,
+      (payload) => processarSala(payload.new),
+      async () => processarSala(await buscarSala(salaId))
+    )
+    return () => {
+      ativo = false
+      sub.unsubscribe()
+    }
   }, [salaId, souJ1, navigate])
 
   async function selecionarModo(m) {
@@ -150,10 +161,15 @@ export default function TopTrumpsLobby() {
     setErro('')
     const result = await entrarFilaPublica(user.id, modo, turnos)
     console.log('[LOBBY] resultado fila:', result)
+    if (!result?.salaId) {
+      setErro(tt('lobby.erro_criar'))
+      setAguardando(false)
+      return
+    }
+    salaEntradaRef.current = false
     setSalaId(result.salaId)
     console.log('[LOBBY] salaId setado:', result.salaId)
     setSouJ1(result.novo !== false)
-    salaEntradaRef.current = false
     if (result.novo) {
       setNaFila(true)
       setAguardando(false)

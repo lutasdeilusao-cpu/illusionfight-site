@@ -41,6 +41,16 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   return data
 }
 
+export async function buscarSala(salaId) {
+  const { data, error } = await supabase
+    .from('toptrumps_salas')
+    .select('*')
+    .eq('id', salaId)
+    .maybeSingle()
+  if (error) console.error('[MP] erro ao buscar sala:', error)
+  return error ? null : data
+}
+
 export async function definirAposta(salaId, userId, cartaId, ehJ1) {
   const campo = ehJ1 ? 'carta_aposta_j1' : 'carta_aposta_j2'
   await supabase.from('toptrumps_salas').update({ [campo]: cartaId }).eq('id', salaId)
@@ -141,12 +151,14 @@ export async function atualizarMPStats(userId, resultado) {
   }, { onConflict: 'user_id' })
 }
 
-export function subscribeToSala(salaId, callback) {
+export function subscribeToSala(salaId, callback, onSubscribed) {
   return supabase.channel(`sala-${salaId}`)
     .on('postgres_changes', { event: '*', schema: 'public', table: 'toptrumps_salas', filter: `id=eq.${salaId}` }, (payload) => {
       callback(payload)
     })
-    .subscribe()
+    .subscribe((status) => {
+      if (status === 'SUBSCRIBED') onSubscribed?.()
+    })
 }
 
 export function subscribeToMovimentos(salaId, callback) {
