@@ -12,8 +12,7 @@ import { sfx } from '../../../lib/sfx'
 import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
 import FireParticles from './components/FireParticles/FireParticles'
 import BurstParticles from './components/BurstParticles/BurstParticles'
-import CurtainReveal from './components/CurtainReveal/CurtainReveal'
-import SoundToggle from './components/SoundToggle/SoundToggle'
+import MultiplayerGameScreen from './components/multiplayer/MultiplayerGameScreen'
 import './TopTrumpsMP.css'
 
 let __heartbeatRodando = false
@@ -955,112 +954,26 @@ export default function TopTrumpsMP() {
       </section>
     )
     return (
-      <>
-        <FireParticles />
-        <section className="ttmp-page">
-        <SoundToggle
-          ativo={somAtivo}
-          onToggle={toggleSom}
-          labelAtivo={tt('som_desativar')}
-          labelInativo={tt('som_ativar')}
-          iconAtivo="🔊"
-          iconInativo="🔇"
-          className="ttmp-sound-toggle"
-        />
-        <div className="ttmp-hud">
-          <div className="ttmp-hud-jogador">
-            <span className="ttmp-hud-nome">{tt('mp.hud_voce')}</span>
-            <span className="ttmp-hud-placar-valor">{placar.eu}</span>
-          </div>
-          <div className="ttmp-hud-centro">
-            <span className="ttmp-hud-rodada">{tt('mp.hud_rodada', { n: sala?.turno_atual, total: sala?.total_turnos })}</span>
-            <div className={`ttmp-timer${tempoRestante <= 5 ? ' ttmp-timer--warn' : ''}`}>
-              <svg viewBox="0 0 60 60" className="ttmp-timer-svg">
-                <circle cx="30" cy="30" r="26" className="ttmp-timer-bg" />
-                <circle cx="30" cy="30" r="26" className="ttmp-timer-fill"
-                  transform="rotate(-90 30 30)" />
-              </svg>
-              <span className="ttmp-timer-texto">{tempoRestante}</span>
-            </div>
-          </div>
-          <div className="ttmp-hud-oponente">
-            <span className="ttmp-hud-nome">{oponenteNome.toUpperCase()}</span>
-            <span className="ttmp-hud-placar-valor">{placar.oponente}</span>
-          </div>
-        </div>
-        <div className="ttmp-mesa">
-          <div className="ttmp-card">
-            <div className="ttmp-card-avatar">
-              <span className="ttmp-card-avatar-iniciais">{cartaLocal.nome.split('—')[0].trim().charAt(0)}</span>
-            </div>
-            <h3 className="ttmp-card-nome">{cartaLocal.nome}</h3>
-            <p className="ttmp-card-elemental">{cartaLocal.elemental}</p>
-            <div className="ttmp-card-atributos">
-              {atributos.map(attr => (
-                <button key={attr.id}
-                  className={`ttmp-atributo-btn${!rodadaLiberada || !ehMinhaVez || jaMovi ? ' ttmp-atributo-btn--disabled' : ''}`}
-                  disabled={!rodadaLiberada || !ehMinhaVez || jaMovi}
-                  onClick={() => jogarAtributo(attr.id)}
-                  title={attr.descricao}>
-                  <span className="ttmp-atributo-nome">{tt(attr.nomeKey)}</span>
-                  <span className="ttmp-atributo-valor">{cartaLocal.atributos[attr.id]}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="ttmp-vs">
-            <span className="ttmp-vs-texto">{tt('mp.hud_vs')}</span>
-            {!ehMinhaVez && !jaMovi && (
-              <span className="ttmp-vez-message">{tt('mp.hud_adversario_escolhendo')}</span>
-            )}
-          </div>
-          <div className={`ttmp-card${girando ? ' ttmp-spinning-reveal' : ''}`}>
-            {cartaOponente ? (
-              <>
-                <div className="ttmp-card-avatar">
-                  <span className="ttmp-card-avatar-iniciais">{cartaOponente.nome.split('—')[0].trim().charAt(0)}</span>
-                </div>
-                <h3 className="ttmp-card-nome">{cartaOponente.nome}</h3>
-                <p className="ttmp-card-elemental">{cartaOponente.elemental}</p>
-                <div className="ttmp-card-atributos">
-                  {atributos.map(a => {
-                    let c = 'ttmp-atributo-btn ttmp-atributo-btn--disabled'
-                    if (a.id === atributoEscolhido) {
-                      if (resultadoRodada === 'ganhou') c += ' ttmp-atributo--perdeu'
-                      else if (resultadoRodada === 'perdeu') c += ' ttmp-atributo--ganhou'
-                      else c += ' ttmp-atributo--empate'
-                    }
-                    return (
-                      <div key={a.id} className={c}>
-                        <span className="ttmp-atributo-nome">{tt(a.nomeKey)}</span>
-                        <span className="ttmp-atributo-valor">{cartaOponente.atributos[a.id]}</span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </>
-            ) : (
-              <div className="ttmp-card--face-down">
-                <div className="ttmp-card-avatar ttmp-card-avatar--oponente">
-                  <span className="ttmp-card-avatar-iniciais">?</span>
-                </div>
-                <h3 className="ttmp-card-nome">???</h3>
-                <p className="ttmp-card-elemental">???</p>
-                <div className="ttmp-card-atributos">
-                  {atributos.map(attr => (
-                    <div key={attr.id} className="ttmp-atributo-btn ttmp-atributo-btn--disabled">
-                      <span className="ttmp-atributo-nome">{tt(attr.nomeKey)}</span>
-                      <span className="ttmp-atributo-valor">??</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-        <CurtainReveal ativo={cortinaAtiva} texto={onomaTexto} />
-      </section>
-      </>
+      <MultiplayerGameScreen
+        cartaLocal={cartaLocal}
+        cartaLocalImg={getTopTrumpsCardImage(cartaLocal)}
+        placar={placar}
+        rodada={sala?.turno_atual}
+        totalTurnos={sala?.total_turnos}
+        tempoRestante={tempoRestante}
+        oponenteNome={oponenteNome}
+        locale={locale}
+        rodadaLiberada={rodadaLiberada}
+        ehMinhaVez={ehMinhaVez}
+        jaMovi={jaMovi}
+        girando={girando}
+        somAtivo={somAtivo}
+        cortinaAtiva={cortinaAtiva}
+        onomaTexto={onomaTexto}
+        onToggleSom={toggleSom}
+        onJogarAtributo={jogarAtributo}
+        tt={tt}
+      />
     )
   }
 

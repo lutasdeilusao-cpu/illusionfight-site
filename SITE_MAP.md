@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-30 — v10.192.58 (infraestrutura visual compartilhada do Top Trumps MP)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-30 — v10.192.59 (gameplay oficial do Top Trumps MP)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -262,6 +262,7 @@
     │   │       ├── TopTrumpsMP.jsx
     │   │       ├── TopTrumpsMP.css
     │   │       ├── components/           # Pasta por componente + CSS co-localizado
+    │   │       │   └── multiplayer/      # MultiplayerGameScreen (gameplay oficial, sem regra de rede)
     │   │       ├── hooks/                # Hooks SP + deckPersistence
     │   │       ├── styles/               # tokens.css compartilhado
     │   │       └── utils/
@@ -510,7 +511,7 @@
 | `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial; pools 1–15 guest, 1–20 Free, 21–23 Elite, 24–26 Primordial e 27–30 Evento |
 | `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.13 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Multiplayer funcional; infraestrutura visual compartilhada |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.12.14 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Multiplayer funcional; gameplay com cartas oficiais |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
 | `/games/ldi/create` | LDICreate | `src/pages/games/LDI/Create.jsx` | ✅ v2.67 | ✅ | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
 | `/games/ldi/game` | LDIGame | `src/pages/games/LDI/Game.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
@@ -565,7 +566,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.58** | Infraestrutura visual compartilhada do Top Trumps MP |
+| `SITE_VERSION` | **10.192.59** | Gameplay com cartas oficiais no Top Trumps MP |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -576,7 +577,7 @@
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `TS_VERSION` | **5.45.0** | Top Trumps — pools numéricos por tier restaurados |
-| `TM_VERSION` | **5.12.13** | Top Trumps MP — infraestrutura visual compartilhada |
+| `TM_VERSION` | **5.12.14** | Top Trumps MP — gameplay com cartas oficiais |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.1** | correção de encoding em comentário e chevrons |

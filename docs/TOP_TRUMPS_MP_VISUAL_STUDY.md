@@ -2,19 +2,21 @@
 
 Data: 2026-07-30  
 Escopo analisado: Top Trumps single-player v5.45.0 e multiplayer v5.12.12  
-Status: Etapa 1 concluída em 2026-07-30; gameplay e cartas ainda mantêm o layout legado.
+Status: Etapa 2 concluída em 2026-07-30; gameplay usa cartas oficiais e o protocolo multiplayer permanece no container.
 
 ## Progresso
 
 - [x] Etapa 0 — baseline funcional validado em partida de cinco rodadas.
 - [x] Etapa 1 — infraestrutura visual compartilhada.
-- [ ] Etapa 2 — tela de gameplay com carta oficial.
+- [x] Etapa 2 — tela de gameplay com carta oficial.
 - [ ] Etapa 3 — revelação com swipe.
 - [ ] Etapa 4 — jokenpô controlado.
 - [ ] Etapa 5 — resultado final.
 - [ ] Etapa 6 — limpeza de CSS legado.
 
-Na Etapa 1, o multiplayer passou a consumir `FireParticles`, `BurstParticles`, `CurtainReveal` e `SoundToggle` compartilhados, importou os tokens oficiais e passou a pré-carregar as artes resolvidas exclusivamente por `topTrumpsCardImages.js`. As cartas genéricas continuam visíveis até a Etapa 2.
+Na Etapa 1, o multiplayer passou a consumir `FireParticles`, `BurstParticles`, `CurtainReveal` e `SoundToggle` compartilhados, importou os tokens oficiais e passou a pré-carregar as artes resolvidas exclusivamente por `topTrumpsCardImages.js`.
+
+Na Etapa 2, a fase `jogando` foi extraída para `MultiplayerGameScreen`, passou a renderizar a carta local com `TopTrumpsCard` e arte oficial, e adotou a carta `mystery + mini` para o adversário. Timer, barreira, turno, `jaMovi`, `girando` e o callback autoritativo `jogarAtributo` continuam controlados por `TopTrumpsMP.jsx`.
 
 ## 1. Objetivo
 

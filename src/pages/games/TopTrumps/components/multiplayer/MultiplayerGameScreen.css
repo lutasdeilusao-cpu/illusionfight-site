@@ -1,0 +1,221 @@
+@import '../../styles/tokens.css';
+
+.ttmp-page.ttmp-game-screen {
+  min-height: 100dvh;
+  height: 100dvh;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  padding: max(0.5rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.5rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ttmp-game-hud {
+  width: 100%;
+  min-height: 4.4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.ttmp-game-score {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ttmp-game-score--opponent {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ttmp-game-score-label,
+.ttmp-game-round > span,
+.ttmp-game-opponent-label {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--tt-muted);
+  text-transform: uppercase;
+}
+
+.ttmp-game-score-label {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ttmp-game-score strong {
+  font-family: var(--font-rajdhani);
+  color: var(--tt-text);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.ttmp-game-score--local strong {
+  color: var(--tt-orange);
+}
+
+.ttmp-game-round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.ttmp-game-status {
+  min-height: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--tt-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+.ttmp-game-status-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--tt-orange);
+  box-shadow: 0 0 0.65rem rgba(232, 133, 58, 0.7);
+  animation: ttmp-status-pulse 1.3s ease-in-out infinite;
+}
+
+.ttmp-game-status-dot--ready {
+  background: var(--tt-win);
+  box-shadow: 0 0 0.65rem rgba(77, 203, 113, 0.7);
+}
+
+.ttmp-game-board {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(6.5rem, 23dvh);
+  justify-items: center;
+  gap: 0.25rem;
+}
+
+.ttmp-game-local-card {
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.ttmp-game-local-card .tt-card-wrapper {
+  width: calc(550px * 0.54);
+  height: calc(720px * 0.54);
+  overflow: hidden;
+}
+
+.ttmp-game-local-card .tt-card-template {
+  transform: scale(0.54);
+  transform-origin: top left;
+}
+
+.ttmp-game-board--locked .ttmp-game-local-card {
+  filter: saturate(0.75);
+  opacity: 0.82;
+}
+
+.ttmp-game-opponent {
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ttmp-game-opponent-label {
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ttmp-game-opponent-card {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ttmp-game-opponent-card .tt-card-wrapper {
+  width: calc(550px * 0.22);
+  height: calc(720px * 0.22);
+  overflow: hidden;
+}
+
+.ttmp-game-opponent-card .tt-card-template {
+  transform: scale(0.22);
+  transform-origin: top left;
+}
+
+.ttmp-game-opponent-card .tt-card-wrapper.tt-card--mini {
+  transform: none;
+}
+
+@keyframes ttmp-status-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-height: 760px) {
+  .ttmp-game-screen {
+    gap: 0.15rem;
+  }
+
+  .ttmp-game-hud {
+    min-height: 3.8rem;
+  }
+
+  .ttmp-game-board {
+    grid-template-rows: minmax(0, 1fr) minmax(5rem, 19dvh);
+  }
+
+  .ttmp-game-local-card .tt-card-wrapper {
+    width: calc(550px * 0.46);
+    height: calc(720px * 0.46);
+  }
+
+  .ttmp-game-local-card .tt-card-template {
+    transform: scale(0.46);
+  }
+
+  .ttmp-game-opponent-card .tt-card-wrapper {
+    width: calc(550px * 0.18);
+    height: calc(720px * 0.18);
+  }
+
+  .ttmp-game-opponent-card .tt-card-template {
+    transform: scale(0.18);
+  }
+}
