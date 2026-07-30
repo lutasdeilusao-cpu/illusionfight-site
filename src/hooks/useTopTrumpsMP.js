@@ -1,6 +1,7 @@
 import { supabase } from '../lib/supabase'
 
 const LIMITES = { free: 1, elite: 5, primordial: 10 }
+let realtimeChannelSequence = 0
 
 function codigoSala() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
@@ -152,17 +153,21 @@ export async function atualizarMPStats(userId, resultado) {
 }
 
 export function subscribeToSala(salaId, callback, onSubscribed) {
-  return supabase.channel(`sala-${salaId}`)
+  const channelName = `sala-${salaId}-${++realtimeChannelSequence}`
+  return supabase.channel(channelName)
     .on('postgres_changes', { event: '*', schema: 'public', table: 'toptrumps_salas', filter: `id=eq.${salaId}` }, (payload) => {
       callback(payload)
     })
     .subscribe((status) => {
       if (status === 'SUBSCRIBED') onSubscribed?.()
+      if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+        console.warn(`[MP] canal da sala indisponível (${channelName}):`, status)
+      }
     })
 }
 
 export function subscribeToMovimentos(salaId, callback) {
-  return supabase.channel(`mov-${salaId}`)
+  return supabase.channel(`mov-${salaId}-${++realtimeChannelSequence}`)
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'toptrumps_movimentos', filter: `sala_id=eq.${salaId}` }, (payload) => {
       callback(payload)
     })

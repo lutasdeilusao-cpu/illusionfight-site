@@ -91,6 +91,7 @@ export default function TopTrumpsLobby() {
     console.log('[LOBBY] useEffect subscription disparou, salaId:', salaId)
     if (!salaId) return
     let ativo = true
+    let consultaEmAndamento = false
     const processarSala = (sala) => {
       if (!ativo || !sala) return
       setStatusSala(sala.status)
@@ -101,16 +102,30 @@ export default function TopTrumpsLobby() {
       if (souJ1 && sala.aposta_confirmada_j2) setApostaOponente(true)
       if (!souJ1 && sala.aposta_confirmada_j1) setApostaOponente(true)
       if (sala.status === 'em_jogo') {
+        console.log('[LOBBY] sala pronta, iniciando partida:', salaId)
+        setNaFila(false)
         navigate(`/games/toptrumps/multiplayer?sala=${salaId}`)
+      }
+    }
+    const reconciliarSala = async () => {
+      if (!ativo || consultaEmAndamento) return
+      consultaEmAndamento = true
+      try {
+        processarSala(await buscarSala(salaId))
+      } finally {
+        consultaEmAndamento = false
       }
     }
     const sub = subscribeToSala(
       salaId,
       (payload) => processarSala(payload.new),
-      async () => processarSala(await buscarSala(salaId))
+      reconciliarSala
     )
+    reconciliarSala()
+    const reconciliacaoInterval = setInterval(reconciliarSala, 2000)
     return () => {
       ativo = false
+      clearInterval(reconciliacaoInterval)
       sub.unsubscribe()
     }
   }, [salaId, souJ1, navigate])
