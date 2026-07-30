@@ -9,6 +9,11 @@ import { supabase } from '../../../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../../../hooks/useTopTrumpsMP'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
+import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
+import FireParticles from './components/FireParticles/FireParticles'
+import BurstParticles from './components/BurstParticles/BurstParticles'
+import CurtainReveal from './components/CurtainReveal/CurtainReveal'
+import SoundToggle from './components/SoundToggle/SoundToggle'
 import './TopTrumpsMP.css'
 
 let __heartbeatRodando = false
@@ -137,6 +142,14 @@ export default function TopTrumpsMP() {
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { faseRef.current = fase }, [fase])
   useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
+
+  useEffect(() => {
+    const cartas = [cartaLocal, cartaOponente].filter(Boolean)
+    cartas.forEach((carta) => {
+      const imagem = new Image()
+      imagem.src = getTopTrumpsCardImage(carta)
+    })
+  }, [cartaLocal, cartaOponente])
 
   useEffect(() => {
     if (fase !== 'jogando' || !sala?.id || !sala?.turno_atual) {
@@ -943,15 +956,17 @@ export default function TopTrumpsMP() {
     )
     return (
       <>
-        <div className="ttmp-fire-particles">
-          {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="ttmp-fire-particle" />
-          ))}
-        </div>
+        <FireParticles />
         <section className="ttmp-page">
-        <button className="ttmp-sound-toggle" onClick={toggleSom} title={somAtivo ? tt('som_desativar') : tt('som_ativar')}>
-          {somAtivo ? '🔊' : '🔇'}
-        </button>
+        <SoundToggle
+          ativo={somAtivo}
+          onToggle={toggleSom}
+          labelAtivo={tt('som_desativar')}
+          labelInativo={tt('som_ativar')}
+          iconAtivo="🔊"
+          iconInativo="🔇"
+          className="ttmp-sound-toggle"
+        />
         <div className="ttmp-hud">
           <div className="ttmp-hud-jogador">
             <span className="ttmp-hud-nome">{tt('mp.hud_voce')}</span>
@@ -1043,15 +1058,7 @@ export default function TopTrumpsMP() {
             )}
           </div>
         </div>
-        {/* Curtain overlay for animation */}
-        {cortinaAtiva && (
-          <div className="ttmp-curtain-overlay">
-            <div className="ttmp-curtain-inner" />
-            <div className="ttmp-curtain-onomatopeia">
-              <span className="ttmp-onoma-texto">{onomaTexto}</span>
-            </div>
-          </div>
-        )}
+        <CurtainReveal ativo={cortinaAtiva} texto={onomaTexto} />
       </section>
       </>
     )
@@ -1064,16 +1071,9 @@ export default function TopTrumpsMP() {
 
     return (
       <>
-        <div className="ttmp-fire-particles">
-          {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="ttmp-fire-particle" />
-          ))}
-        </div>
+        <FireParticles />
         <section className="ttmp-page">
-        {particulas.map(p => (
-          <div key={p.id}
-            className={`ttmp-particula ttmp-particula--${p.tipo} ttmp-particula--v${p.variante}`} />
-        ))}
+        <BurstParticles particulas={particulas} />
         <div className="ttmp-revelacao-banner">
           <div>
             <span className="ttmp-revelacao-title">{tt('mp.revelacao_titulo')}</span>
