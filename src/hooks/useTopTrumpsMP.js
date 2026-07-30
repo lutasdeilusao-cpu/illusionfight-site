@@ -42,6 +42,52 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   return data
 }
 
+export async function buscarSalaPublicaAtivaDoJogador(userId, modo) {
+  const limiteRecente = new Date(Date.now() - 15 * 60 * 1000).toISOString()
+  const filtroJogador = `jogador1_id.eq.${userId},jogador2_id.eq.${userId}`
+  const { data: emJogo, error: erroEmJogo } = await supabase
+    .from('toptrumps_salas')
+    .select('*')
+    .eq('tipo_sala', 'publica')
+    .eq('modo', modo)
+    .eq('status', 'em_jogo')
+    .gte('criada_em', limiteRecente)
+    .or(filtroJogador)
+    .order('atualizada_em', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+  if (erroEmJogo) {
+    console.error('[MP] erro ao reconciliar sala pública em jogo:', erroEmJogo)
+    return null
+  }
+  if (emJogo?.jogador1_id && emJogo?.jogador2_id) return emJogo
+
+  const { data: aguardando, error: erroAguardando } = await supabase
+    .from('toptrumps_salas')
+    .select('*')
+    .eq('tipo_sala', 'publica')
+    .eq('modo', modo)
+    .eq('status', 'aguardando')
+    .eq('jogador1_id', userId)
+    .gte('criada_em', limiteRecente)
+    .order('criada_em', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+  if (erroAguardando) console.error('[MP] erro ao reconciliar sala pública aguardando:', erroAguardando)
+  return erroAguardando ? null : aguardando
+}
+
+export async function sairFilaPublica(salaId, userId) {
+  if (!salaId || !userId) return
+  const { error } = await supabase
+    .from('toptrumps_salas')
+    .delete()
+    .eq('id', salaId)
+    .eq('status', 'aguardando')
+    .eq('jogador1_id', userId)
+  if (error) console.error('[MP] erro ao sair da fila pública:', error)
+}
+
 export async function buscarSala(salaId) {
   const { data, error } = await supabase
     .from('toptrumps_salas')

@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useLanguage } from '../../../context/LanguageContext'
-import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, buscarSala, subscribeToSala } from '../../../hooks/useTopTrumpsMP'
+import { criarSala, entrarSalaPorCodigo, entrarFilaPublica, buscarSalaPublicaAtivaDoJogador, sairFilaPublica, verificarLimiteDiario, incrementarPartidaDiaria, definirAposta, confirmarAposta, buscarSala, subscribeToSala } from '../../../hooks/useTopTrumpsMP'
 import { usePresence } from '../../../hooks/usePresence'
 import { carregarDeck as carregarDeckDB } from '../../../hooks/useLeaderboardDB'
 import { getDeck } from '../../../lib/getDeck'
@@ -130,6 +130,45 @@ export default function TopTrumpsLobby() {
     }
   }, [salaId, souJ1, navigate])
 
+  useEffect(() => {
+    if (!user?.id || !modo || !salaId) return
+    let ativo = true
+    let consultando = false
+    const reconciliarFila = async () => {
+      if (!ativo || consultando) return
+      consultando = true
+      try {
+        const salaCanonica = await buscarSalaPublicaAtivaDoJogador(user.id, modo)
+        if (!ativo || !salaCanonica) return
+        const papel = salaCanonica.jogador1_id === user.id ? 'j1' : salaCanonica.jogador2_id === user.id ? 'j2' : null
+        console.log('[LOBBY] reconciliação da fila:', {
+          salaRecebida: salaId,
+          salaCanonica: salaCanonica.id,
+          status: salaCanonica.status,
+          papel
+        })
+        if (!papel) return
+        if (salaCanonica.id !== salaId) {
+          salaEntradaRef.current = false
+          setSalaId(salaCanonica.id)
+          setSouJ1(papel === 'j1')
+        }
+        if (salaCanonica.status === 'em_jogo' && salaCanonica.jogador1_id && salaCanonica.jogador2_id) {
+          setNaFila(false)
+          navigate(`/games/toptrumps/multiplayer?sala=${salaCanonica.id}`)
+        }
+      } finally {
+        consultando = false
+      }
+    }
+    reconciliarFila()
+    const interval = setInterval(reconciliarFila, 2000)
+    return () => {
+      ativo = false
+      clearInterval(interval)
+    }
+  }, [user?.id, modo, salaId, navigate])
+
   async function selecionarModo(m) {
     setModo(m)
     setEtapa('turnos')
@@ -194,7 +233,8 @@ export default function TopTrumpsLobby() {
     }
   }
 
-  function handleSairFila() {
+  async function handleSairFila() {
+    await sairFilaPublica(salaId, user?.id)
     setNaFila(false)
     setSalaId(null)
     setFraseIdx(0)

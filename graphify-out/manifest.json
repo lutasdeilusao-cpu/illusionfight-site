@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785440403.080112,
-    "ast_hash": "0914cead74bfe81d88c1cc0f2b392bf1",
+    "mtime": 1785440846.040767,
+    "ast_hash": "d01bddc3513fedbad5533b5959c3aaae",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -675,8 +675,8 @@
     "semantic_hash": "211893e012f57dd99946615715d67b2a"
   },
   "src/hooks/useTopTrumpsMP.js": {
-    "mtime": 1785438414.5623577,
-    "ast_hash": "e6eb01e611f761ceaaa593b54c697c95",
+    "mtime": 1785440878.2513494,
+    "ast_hash": "2726c4b0456477c7eecaa7dc60fbb5a4",
     "semantic_hash": ""
   },
   "src/hooks/useTypewriter.js": {
@@ -2055,8 +2055,8 @@
     "semantic_hash": "530861f6f6eee2df5780ba1cbf7e2a0c"
   },
   "src/pages/games/TopTrumps/TopTrumpsLobby.jsx": {
-    "mtime": 1785436734.246601,
-    "ast_hash": "e22c5057236aeaa7d5632f2d80f5a9f0",
+    "mtime": 1785440878.252464,
+    "ast_hash": "f56399e008b0fbb9899837fb763906e0",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785440403.0816238,
-    "ast_hash": "c9113bf580f7b3a963fe9a8ebf6ddbc8",
+    "mtime": 1785440846.041767,
+    "ast_hash": "df5418a3db022c4e88feb3025771fbc6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
