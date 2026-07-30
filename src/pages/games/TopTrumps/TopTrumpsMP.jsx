@@ -76,7 +76,6 @@ export default function TopTrumpsMP() {
   const [cartaOponente, setCartaOponente] = useState(null)
   const [atributoEscolhido, setAtributoEscolhido] = useState(null)
   const [resultadoRodada, setResultadoRodada] = useState(null)
-  const [ehMinhaVez, setEhMinhaVez] = useState(false)
   const [tempoRestante, setTempoRestante] = useState(30)
   const [rodadaLiberada, setRodadaLiberada] = useState(false)
   const [movimentoRecebido, setMovimentoRecebido] = useState(false)
@@ -84,6 +83,7 @@ export default function TopTrumpsMP() {
   const [girando, setGirando] = useState(false)
   const [cartaSelecionada, setCartaSelecionada] = useState(null)
   const [jaMovi, setJaMovi] = useState(false)
+  const ehMinhaVez = Boolean(user?.id && sala?.jogador_da_vez === user.id)
 
   // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
   useEffect(() => {
@@ -153,7 +153,10 @@ export default function TopTrumpsMP() {
       setRodadaLiberada(true)
       logMP('BARREIRA_LIBERADA', {
         salaId: sala.id,
-        turno: sala.turno_atual
+        turno: sala.turno_atual,
+        jogadorDaVez: sala.jogador_da_vez,
+        meuJogadorId: user?.id,
+        ehMinhaVez: sala.jogador_da_vez === user?.id
       })
     }, 5000)
     return () => clearTimeout(timer)
@@ -172,7 +175,6 @@ export default function TopTrumpsMP() {
       setSala(data)
       const papel = data.jogador1_id === user.id ? 'j1' : data.jogador2_id === user.id ? 'j2' : null
       setMeuPapel(papel)
-      setEhMinhaVez(data.jogador_da_vez === user.id)
       if (data.status === 'em_jogo' && data.carta_aposta_j1 === -1) {
         setFase('jogando')
       } else if (data.status === 'em_jogo') {
@@ -310,7 +312,6 @@ export default function TopTrumpsMP() {
     setCartaOponente(null)
     setUltimoMovimento(null)
     setGirando(false)
-    setEhMinhaVez(s.jogador_da_vez === user.id)
     setFase('jogando')
   }
 
@@ -709,7 +710,6 @@ export default function TopTrumpsMP() {
         setJaMovi(false)
         setCartaOponente(null)
         setUltimoMovimento(null)
-        setEhMinhaVez(s.jogador_da_vez === user.id)
         return
       }
 

@@ -13100,7 +13100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala",
-      "community": 80,
+      "community": 272,
       "norm_label": "balloonfala.jsx"
     },
     {
@@ -13110,7 +13110,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala_balloonfala",
-      "community": 80,
+      "community": 272,
       "norm_label": "balloonfala()"
     },
     {
@@ -13180,7 +13180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar",
-      "community": 80,
+      "community": 272,
       "norm_label": "metricbar.jsx"
     },
     {
@@ -13190,7 +13190,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar_metricbar",
-      "community": 80,
+      "community": 272,
       "norm_label": "metricbar()"
     },
     {
@@ -13570,7 +13570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades_personalidades",
-      "community": 61,
+      "community": 272,
       "norm_label": "personalidades"
     },
     {
@@ -13690,7 +13690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_criatura",
-      "community": 80,
+      "community": 272,
       "norm_label": "criatura.jsx"
     },
     {
@@ -14277,9 +14277,9 @@
       "label": "NOTE: Para Top Trumps (um jogador por rodada) n\u00e3o dependemos mais",
       "file_type": "rationale",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L589",
+      "source_location": "L590",
       "_origin": "ast",
-      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_589",
+      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_590",
       "community": 4,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
@@ -49374,7 +49374,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L268",
+      "source_location": "L270",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_registrarmovimento"
@@ -49495,7 +49495,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L654",
+      "source_location": "L655",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetosala"
@@ -72172,9 +72172,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L589",
+      "source_location": "L590",
       "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_589",
+      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_590",
       "target": "src_pages_games_toptrumps_toptrumpsmp",
       "confidence_score": 1.0
     },
@@ -96164,5 +96164,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a25ea4e12c1cc4291a94a1834e8164bd9c57404d"
+  "built_at_commit": "9f30339515e9896479d58961b16b6a151c5aaea3"
 }

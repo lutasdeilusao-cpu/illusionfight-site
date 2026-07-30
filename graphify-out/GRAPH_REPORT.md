@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3001 nodes · 6232 edges · 267 communities (234 shown, 33 thin omitted)
+- 3001 nodes · 6232 edges · 268 communities (235 shown, 33 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a25ea4e1`
+- Built from commit: `9f303395`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -222,6 +222,7 @@
 - ResultCard.jsx
 - classTree.js
 - Create
+- Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 362 edges
@@ -250,7 +251,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (267 total, 33 thin omitted)
+## Communities (268 total, 33 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -493,8 +494,8 @@ Cohesion: 0.18
 Nodes (18): CRIATURAS, calcularFase(), Alimentar(), Banhar(), Criatura(), Loja(), Partida(), TIPO_PARA_KEY (+10 more)
 
 ### Community 61 - "Community 61"
-Cohesion: 0.16
-Nodes (12): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+4 more)
+Cohesion: 0.17
+Nodes (11): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+3 more)
 
 ### Community 62 - "Community 62"
 Cohesion: 0.29
@@ -569,8 +570,8 @@ Cohesion: 0.42
 Nodes (8): carregarFichas(), deletarFicha(), escreverNoStorage(), gerarId(), lerDoStorage(), salvarFicha(), podeSalvarNovaFicha(), Phase0Start()
 
 ### Community 80 - "TopTrumpsCard.jsx"
-Cohesion: 0.20
-Nodes (11): BalloonFala(), CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), MetricBar(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA (+3 more)
+Cohesion: 0.27
+Nodes (9): CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, getCtx(), sfx (+1 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.29
@@ -948,6 +949,10 @@ Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionSc
 Cohesion: 0.38
 Nodes (6): Create(), ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
 
+### Community 272 - "Criatura.jsx"
+Cohesion: 0.47
+Nodes (3): BalloonFala(), MetricBar(), PERSONALIDADES
+
 ## Knowledge Gaps
 - **1046 isolated node(s):** `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES`, `name`, `private` (+1041 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -956,7 +961,7 @@ Nodes (6): Create(), ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZA
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 25` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Quiz.jsx`, `Community 7`, `ResultCard.jsx`, `Community 8`, `Community 9`, `Community 6`, `Community 12`, `Passeio.jsx`, `classTree.js`, `Community 15`, `Community 16`, `Community 17`, `Create`, `Community 19`, `Community 14`, `Community 21`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 32`, `Community 33`, `Community 37`, `Community 39`, `PuzzleStealthGrid.jsx`, `Community 44`, `Community 49`, `Community 10`, `Gacha.jsx`, `Community 54`, `Community 58`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 68`, `Community 76`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `TypewriterPhrase.jsx`, `TopTrumpsCard.jsx`, `PuzzleStealthGrid.jsx`, `Community 86`, `ArenaTaticsRoute.jsx`, `Batalha.jsx`?**
+- **Why does `useLanguage()` connect `Community 25` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Quiz.jsx`, `Community 7`, `ResultCard.jsx`, `Community 8`, `Community 9`, `Community 6`, `Community 12`, `Passeio.jsx`, `classTree.js`, `Community 15`, `Community 16`, `Community 17`, `Create`, `Criatura.jsx`, `Community 19`, `Community 21`, `Community 14`, `Community 23`, `Community 27`, `Community 28`, `Community 30`, `Community 32`, `Community 33`, `Community 37`, `Community 39`, `PuzzleStealthGrid.jsx`, `Community 44`, `Community 49`, `Community 10`, `Gacha.jsx`, `Community 54`, `Community 58`, `Community 59`, `Community 60`, `Community 61`, `Community 62`, `Community 68`, `Community 76`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `TypewriterPhrase.jsx`, `TopTrumpsCard.jsx`, `PuzzleStealthGrid.jsx`, `Community 86`, `ArenaTaticsRoute.jsx`, `Batalha.jsx`?**
   _High betweenness centrality (0.157) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 16` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Passeio.jsx`, `Community 8`, `Community 12`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `Gacha.jsx`, `Community 23`, `Community 25`, `Community 59`, `Community 60`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
