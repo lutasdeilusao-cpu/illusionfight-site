@@ -13,6 +13,13 @@ import './TopTrumpsMP.css'
 
 let __heartbeatRodando = false
 
+function logMP(evento, detalhes = {}) {
+  console.log(`[TTMP:${evento}]`, {
+    horario: new Date().toISOString(),
+    ...detalhes
+  })
+}
+
 function attrNomeKey(id) {
   const map = {
     rank_sdr: 'atributo_rank_sdr',
@@ -236,8 +243,14 @@ export default function TopTrumpsMP() {
           const s = salaRef.current
           const idxOp = ((s.turno_atual || 1) - 1) % Math.max(deckOponenteRef.current.length, 1)
           const cartaOp = deckOponenteRef.current[idxOp] || null
-          registrarMovimento(s.id, user.id, cartaLocalRef.current?.id, rand, true, cartaOp?.id || null).then(() => {
-            setJaMovi(true)
+          registrarMovimento(s.id, user.id, cartaLocalRef.current?.id, rand, true, cartaOp?.id || null).then((resultado) => {
+            logMP('JOGADA_TIMEOUT', {
+              salaId: s.id,
+              turnoLocal: s.turno_atual,
+              movimento: resultado?.data,
+              erro: resultado?.error || null
+            })
+            if (!resultado?.error) setJaMovi(true)
           })
           return 0
         }
@@ -250,6 +263,12 @@ export default function TopTrumpsMP() {
   function seguirParaProximaRodada() {
     const s = salaPendenteRef.current || salaRef.current
     if (!s) return
+    logMP('PROXIMA_RODADA', {
+      salaId: s.id,
+      turno: s.turno_atual,
+      status: s.status,
+      tinhaSalaPendente: Boolean(salaPendenteRef.current)
+    })
     if (salaPendenteRef.current) {
       salaPendenteRef.current = null
       salaRef.current = s
@@ -279,8 +298,21 @@ export default function TopTrumpsMP() {
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
     const cartaOp = deckOponente[idxOp] || null
-    registrarMovimento(sala.id, user.id, cartaLocal.id, atributoId, false, cartaOp?.id || null).then(() => {
-      setJaMovi(true)
+    logMP('JOGADA_ENVIANDO', {
+      salaId: sala.id,
+      turnoLocal: sala.turno_atual,
+      jogadorId: user.id,
+      cartaId: cartaLocal.id,
+      atributo: atributoId
+    })
+    registrarMovimento(sala.id, user.id, cartaLocal.id, atributoId, false, cartaOp?.id || null).then((resultado) => {
+      logMP('JOGADA_CONFIRMADA', {
+        salaId: sala.id,
+        turnoLocal: sala.turno_atual,
+        movimento: resultado?.data,
+        erro: resultado?.error || null
+      })
+      if (!resultado?.error) setJaMovi(true)
     })
   }
 
@@ -322,15 +354,31 @@ export default function TopTrumpsMP() {
     }, 1800)
   }
 
-  async function resolverRodada(turnoMovimento) {
+  async function resolverRodada(turnoMovimento, origem = 'realtime') {
     let chaveTurno = null
     try {
       const salaAtual = salaRef.current
       if (!salaAtual) { return }
       const turnoAlvo = turnoMovimento ?? salaAtual.turno_atual
       chaveTurno = `${salaAtual.id}:${turnoAlvo}`
-      if (turnosEmProcessamentoRef.current.has(chaveTurno) || turnosProcessadosRef.current.has(chaveTurno)) return
+      if (turnosEmProcessamentoRef.current.has(chaveTurno) || turnosProcessadosRef.current.has(chaveTurno)) {
+        logMP('RODADA_IGNORADA', {
+          salaId: salaAtual.id,
+          turno: turnoAlvo,
+          origem,
+          processando: turnosEmProcessamentoRef.current.has(chaveTurno),
+          processada: turnosProcessadosRef.current.has(chaveTurno)
+        })
+        return
+      }
       turnosEmProcessamentoRef.current.add(chaveTurno)
+      logMP('RODADA_RESOLVENDO', {
+        salaId: salaAtual.id,
+        turno: turnoAlvo,
+        turnoSalaLocal: salaAtual.turno_atual,
+        fase: faseRef.current,
+        origem
+      })
       const s = { ...salaAtual, turno_atual: turnoAlvo }
       const { data: movs, error: errMovs } = await supabase
         .from('toptrumps_movimentos')
@@ -339,6 +387,18 @@ export default function TopTrumpsMP() {
         .eq('turno', turnoAlvo)
         .order('criado_em', { ascending: true })
       if (errMovs) { console.error('[MP] resolverRodada erro:', errMovs); return }
+      logMP('RODADA_MOVIMENTOS', {
+        salaId: s.id,
+        turno: turnoAlvo,
+        origem,
+        quantidade: movs?.length || 0,
+        movimentos: (movs || []).map(m => ({
+          id: m.id,
+          jogadorId: m.jogador_id,
+          atributo: m.atributo,
+          cartaId: m.carta_id
+        }))
+      })
 
       // Caso padrão: dois movimentos (ambos jogadores jogaram)
       if (movs && movs.length >= 2) {
@@ -410,6 +470,7 @@ export default function TopTrumpsMP() {
         }
 
         turnosProcessadosRef.current.add(chaveTurno)
+        logMP('RODADA_RESOLVIDA', { salaId: s.id, turno: turnoAlvo, origem, resultado: resultadoFinal, movimentos: 2 })
         iniciarRevelacao(resultadoFinal)
         return
       }
@@ -490,6 +551,7 @@ export default function TopTrumpsMP() {
         }
 
         turnosProcessadosRef.current.add(chaveTurno)
+        logMP('RODADA_RESOLVIDA', { salaId: s.id, turno: turnoAlvo, origem, resultado: resultadoFinal, movimentos: 1 })
         iniciarRevelacao(resultadoFinal)
         return
       }
@@ -506,6 +568,14 @@ export default function TopTrumpsMP() {
   // dos refs jaMovi/movimentoRecebido para decidir quando resolver a rodada.
   // A resolução é acionada imediatamente ao receber o INSERT na tabela
   // `toptrumps_movimentos` (veja subscribeToMovimentos abaixo).
+
+  useEffect(() => {
+    if (fase !== 'jogando' || !salaId || !sala?.turno_atual) return
+    const turnoMonitorado = sala.turno_atual
+    const reconciliar = () => resolverRodada(turnoMonitorado, 'reconciliacao')
+    const interval = setInterval(reconciliar, 2000)
+    return () => clearInterval(interval)
+  }, [fase, salaId, sala?.turno_atual])
 
   useEffect(() => {
     if (fase !== 'carregando' || !salaId) return
@@ -569,9 +639,23 @@ export default function TopTrumpsMP() {
       )
       if (deveReterSala) {
         salaPendenteRef.current = s
+        logMP('SALA_RETIDA', {
+          salaId,
+          turnoLocal: anterior?.turno_atual,
+          turnoRemoto: s.turno_atual,
+          statusRemoto: s.status,
+          fase: faseRef.current
+        })
+        if (anterior?.turno_atual) resolverRodada(anterior.turno_atual, 'sala-avancou')
       } else {
         salaRef.current = s
         setSala(s)
+        logMP('SALA_APLICADA', {
+          salaId,
+          turno: s.turno_atual,
+          status: s.status,
+          fase: faseRef.current
+        })
       }
 
       // J2 entrou na sala → PPT phase para ambos os clientes
@@ -611,6 +695,14 @@ export default function TopTrumpsMP() {
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
       const mov = p.new
+      logMP('MOVIMENTO_REALTIME', {
+        salaId,
+        turno: mov.turno,
+        movimentoId: mov.id,
+        jogadorId: mov.jogador_id,
+        fase: faseRef.current,
+        turnoLocal: salaRef.current?.turno_atual
+      })
       setUltimoMovimento(mov)
 
       if (mov.jogador_id === user.id) {
@@ -619,7 +711,7 @@ export default function TopTrumpsMP() {
         setMovimentoRecebido(true)
       }
 
-      resolverRodada(mov.turno)
+      resolverRodada(mov.turno, 'realtime')
     })
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
   }, [salaId, user?.id])
