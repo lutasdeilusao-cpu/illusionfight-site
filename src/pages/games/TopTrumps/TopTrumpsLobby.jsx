@@ -138,7 +138,7 @@ export default function TopTrumpsLobby() {
       if (!ativo || consultando) return
       consultando = true
       try {
-        const salaCanonica = await buscarSalaPublicaAtivaDoJogador(user.id, modo)
+        const salaCanonica = await buscarSalaPublicaAtivaDoJogador(user.id, modo, salaId)
         if (!ativo || !salaCanonica) return
         const papel = salaCanonica.jogador1_id === user.id ? 'j1' : salaCanonica.jogador2_id === user.id ? 'j2' : null
         console.log('[LOBBY] reconciliação da fila:', {

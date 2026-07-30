@@ -42,9 +42,30 @@ export async function entrarFilaPublica(userId, modo, turnosDesejados) {
   return data
 }
 
-export async function buscarSalaPublicaAtivaDoJogador(userId, modo) {
+export async function buscarSalaPublicaAtivaDoJogador(userId, modo, salaPreferidaId) {
   const limiteRecente = new Date(Date.now() - 15 * 60 * 1000).toISOString()
   const filtroJogador = `jogador1_id.eq.${userId},jogador2_id.eq.${userId}`
+  let salaPreferida = null
+  if (salaPreferidaId) {
+    const { data, error } = await supabase
+      .from('toptrumps_salas')
+      .select('*')
+      .eq('id', salaPreferidaId)
+      .or(filtroJogador)
+      .maybeSingle()
+    if (error) console.error('[MP] erro ao validar sala pública preferida:', error)
+    salaPreferida = data
+    if (
+      salaPreferida?.tipo_sala === 'publica' &&
+      salaPreferida?.modo === modo &&
+      salaPreferida?.status === 'em_jogo' &&
+      salaPreferida?.jogador1_id &&
+      salaPreferida?.jogador2_id
+    ) {
+      return salaPreferida
+    }
+  }
+
   const { data: emJogo, error: erroEmJogo } = await supabase
     .from('toptrumps_salas')
     .select('*')
@@ -52,8 +73,9 @@ export async function buscarSalaPublicaAtivaDoJogador(userId, modo) {
     .eq('modo', modo)
     .eq('status', 'em_jogo')
     .gte('criada_em', limiteRecente)
+    .gte('criada_em', salaPreferida?.criada_em || limiteRecente)
     .or(filtroJogador)
-    .order('atualizada_em', { ascending: false })
+    .order('criada_em', { ascending: false })
     .limit(1)
     .maybeSingle()
   if (erroEmJogo) {
@@ -61,6 +83,7 @@ export async function buscarSalaPublicaAtivaDoJogador(userId, modo) {
     return null
   }
   if (emJogo?.jogador1_id && emJogo?.jogador2_id) return emJogo
+  if (salaPreferida?.status === 'aguardando') return salaPreferida
 
   const { data: aguardando, error: erroAguardando } = await supabase
     .from('toptrumps_salas')
