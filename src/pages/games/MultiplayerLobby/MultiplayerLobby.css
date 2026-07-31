@@ -42,6 +42,10 @@
 .shared-lobby-status strong { font: 700 .85rem 'Ethnocentric', sans-serif; }
 .shared-lobby-status p,
 .shared-lobby-proof p { margin: 0; color: #8295aa; font-size: .8rem; }
+.shared-lobby-status small { max-width: 100%; color: #526b84; font-size: .6rem; overflow-wrap: anywhere; }
+.shared-lobby-status--matched strong { color: #52e6c2; }
+.shared-lobby-status--error strong { color: #ff7185; }
+.shared-lobby-status--error .shared-lobby-primary { width: min(100%, 260px); margin-top: 8px; padding: 0 18px; }
 .shared-lobby-spinner {
   width: 42px;
   height: 42px;

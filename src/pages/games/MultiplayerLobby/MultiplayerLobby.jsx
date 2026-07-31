@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
@@ -8,19 +8,22 @@ import './MultiplayerLobby.css'
 
 export default function MultiplayerLobby() {
   const { t } = useLanguage()
-  const { user, perfil } = useAuth()
+  const { user } = useAuth()
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const gameId = searchParams.get('game') || 'multiplayer-test'
-  const modeId = searchParams.get('mode') || 'parity'
-  const rulesVersion = searchParams.get('version') || '1.0.0'
-  const { state, queueKey, clientId, chooseNumber, resetRound } = useSharedLobbyMachine({
+  const gameId = searchParams.get('game') || 'toptrumps'
+  const modeId = searchParams.get('mode') || 'free'
+
+  const openMatch = useCallback((roomId) => {
+    navigate(`/games/toptrumps/multiplayer?sala=${roomId}`, { replace: true })
+  }, [navigate])
+
+  const { state, retry, cancel } = useSharedLobbyMachine({
     gameId,
     modeId,
-    rulesVersion,
-    user,
-    displayName: perfil?.nome || user?.email?.split('@')[0]
+    userId: user?.id,
+    onMatch: openMatch
   })
 
   useEffect(() => {
@@ -28,13 +31,10 @@ export default function MultiplayerLobby() {
     return () => setReaderMode(false)
   }, [setReaderMode])
 
-  const myIndex = state.players.findIndex(player => player.clientId === clientId)
-  const me = myIndex >= 0 ? state.players[myIndex] : null
-  const opponent = myIndex >= 0 ? state.players[myIndex === 0 ? 1 : 0] : null
-  const myChoice = state.choices[clientId] || null
-  const opponentChoice = opponent ? state.choices[opponent.clientId] || null : null
-  const myParity = myIndex === 0 ? 'even' : 'odd'
-  const iWon = state.result?.winnerId === clientId
+  const leaveLobby = async () => {
+    await cancel()
+    navigate('/games/toptrumps')
+  }
 
   return (
     <section className="shared-lobby-page">
@@ -46,68 +46,40 @@ export default function MultiplayerLobby() {
 
       <div className="shared-lobby-game-badge">
         <span>{t('multiplayer_lobby.origin')}</span>
-        <strong>{gameId}</strong>
-        <small>{modeId} · v{rulesVersion}</small>
+        <strong>Top Trumps</strong>
+        <small>{t('multiplayer_lobby.real_match')}</small>
       </div>
 
       <div className="shared-lobby-arena">
-        {state.connectionStatus !== 'subscribed' && (
-          <div className="shared-lobby-status">
-            <div className="shared-lobby-spinner" aria-hidden="true" />
-            <strong>{t('multiplayer_lobby.connecting')}</strong>
-          </div>
-        )}
-
-        {state.connectionStatus === 'subscribed' && state.phase === 'searching' && (
+        {(state.phase === 'connecting' || state.phase === 'searching') && (
           <div className="shared-lobby-status">
             <div className="shared-lobby-radar" aria-hidden="true"><span /></div>
-            <strong>{t('multiplayer_lobby.waiting_player')}</strong>
-            <p>{t('multiplayer_lobby.open_second_client')}</p>
+            <strong>{state.phase === 'connecting' ? t('multiplayer_lobby.connecting') : t('multiplayer_lobby.waiting_player')}</strong>
+            <p>{t('multiplayer_lobby.waiting_real_room')}</p>
+            {state.roomId && <small>{t('multiplayer_lobby.room_confirmed')} {state.roomId}</small>}
           </div>
         )}
 
-        {(state.phase === 'matched' || state.phase === 'result') && (
-          <>
-            <div className="shared-lobby-versus">
-              <div className="shared-lobby-player shared-lobby-player--me">
-                <span>{t('multiplayer_lobby.you')}</span>
-                <strong>{me?.displayName}</strong>
-                <small>{t(`multiplayer_lobby.${myParity}`)}</small>
-              </div>
-              <b>{t('multiplayer_lobby.versus')}</b>
-              <div className="shared-lobby-player">
-                <span>{t('multiplayer_lobby.opponent')}</span>
-                <strong>{opponent?.displayName}</strong>
-                <small>{t(`multiplayer_lobby.${myParity === 'even' ? 'odd' : 'even'}`)}</small>
-              </div>
-            </div>
+        {state.phase === 'matched' && (
+          <div className="shared-lobby-status shared-lobby-status--matched">
+            <strong>{t('multiplayer_lobby.match_ready')}</strong>
+            <p>{t('multiplayer_lobby.opening_toptrumps')}</p>
+          </div>
+        )}
 
-            <div className="shared-lobby-proof">
-              <h2>{t('multiplayer_lobby.choose_number')}</h2>
-              <div className="shared-lobby-numbers">
-                {[1, 2, 3, 4, 5].map(number => (
-                  <button key={number} className={myChoice === number ? 'is-selected' : ''} disabled={Boolean(myChoice)} onClick={() => chooseNumber(number)}>{number}</button>
-                ))}
-              </div>
-              {myChoice && !opponentChoice && <p>{t('multiplayer_lobby.waiting_choice')}</p>}
-            </div>
-
-            {state.phase === 'result' && (
-              <div className={`shared-lobby-result shared-lobby-result--${iWon ? 'win' : 'lose'}`}>
-                <span>{iWon ? t('multiplayer_lobby.you_won') : t('multiplayer_lobby.you_lost')}</span>
-                <strong>{myChoice} + {opponentChoice} = {state.result.sum}</strong>
-                <p>{t(`multiplayer_lobby.result_${state.result.parity}`)}</p>
-                <button className="shared-lobby-primary" onClick={resetRound}>{t('multiplayer_lobby.play_again')}</button>
-              </div>
-            )}
-          </>
+        {state.phase === 'error' && (
+          <div className="shared-lobby-status shared-lobby-status--error">
+            <strong>{t('multiplayer_lobby.connection_error')}</strong>
+            <p>{t('multiplayer_lobby.connection_error_detail')}</p>
+            <button className="shared-lobby-primary" onClick={retry}>{t('multiplayer_lobby.try_again')}</button>
+          </div>
         )}
       </div>
 
       <footer className="shared-lobby-footer">
-        <span>{t('multiplayer_lobby.realtime_connected')}</span>
-        <code>{queueKey}</code>
-        <button className="shared-lobby-back" onClick={() => navigate('/games')}>{t('multiplayer_lobby.back')}</button>
+        <span>{t('multiplayer_lobby.database_queue')}</span>
+        <code>{gameId}:{modeId}</code>
+        <button className="shared-lobby-back" onClick={leaveLobby}>{t('multiplayer_lobby.cancel')}</button>
       </footer>
     </section>
   )

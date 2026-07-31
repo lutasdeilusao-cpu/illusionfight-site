@@ -205,8 +205,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1785521316.6140738,
-    "ast_hash": "d6ca4a2194fa6b36be24d28f0e47ca3e",
+    "mtime": 1785527629.2700918,
+    "ast_hash": "a75e4aecb284df825dcffa579a367363",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785521830.7937405,
-    "ast_hash": "db54a2e1c48a7d000756b044b04ace6f",
+    "mtime": 1785527546.6976764,
+    "ast_hash": "cc18ae332fc5a43595d3b3b3abc0a936",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -710,13 +710,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785521999.6201894,
-    "ast_hash": "56f85b1be120d67215baf6d48c54b7ed",
+    "mtime": 1785527655.030162,
+    "ast_hash": "cbee4de9feb1ef4ae62caef8a2e1be6d",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785521999.622958,
-    "ast_hash": "8d6ec71699d93cbf1fc7f391a1fb93e7",
+    "mtime": 1785527655.0316718,
+    "ast_hash": "bf608db2587b16e70449a29ef0a9b382",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -740,8 +740,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785521999.6186473,
-    "ast_hash": "3643ac324aa60a72eacc9254cfae8076",
+    "mtime": 1785527655.0281558,
+    "ast_hash": "a86de6b37d0a4085c3bd3926f604da28",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2950,8 +2950,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785521999.6255577,
-    "ast_hash": "cf38810044ef4d205cbee90d46d4c6d9",
+    "mtime": 1785527689.155637,
+    "ast_hash": "87059d836ed8acb58b7102fd20e63a97",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785521830.800152,
-    "ast_hash": "396accf3efe14d0e64db96b4bf9fef80",
+    "mtime": 1785527689.1546192,
+    "ast_hash": "41ba4d72b5fa33a0971c04ce89c32817",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3710,13 +3710,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx": {
-    "mtime": 1785521999.616084,
-    "ast_hash": "455f0a9341138d34d885a4f80f593897",
+    "mtime": 1785527629.268933,
+    "ast_hash": "896085435324b6701ef7f8987fe66e47",
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js": {
-    "mtime": 1785521859.22965,
-    "ast_hash": "b3e301d22473865120ef02bd35916ed1",
+    "mtime": 1785527737.0484862,
+    "ast_hash": "493b9578ea441400de784ac864864532",
     "semantic_hash": ""
   }
 }
