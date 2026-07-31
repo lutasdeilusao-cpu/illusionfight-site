@@ -12,6 +12,7 @@ import { sfx } from '../../../lib/sfx'
 import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
 import MultiplayerGameScreen from './components/multiplayer/MultiplayerGameScreen'
 import ResultScreen from './components/ResultScreen/ResultScreen'
+import useMultiplayerTurnMachine from './hooks/useMultiplayerTurnMachine'
 import { ordenarDeckDeterministico } from './utils/deterministicDeck'
 import './TopTrumpsMP.css'
 
@@ -75,14 +76,12 @@ export default function TopTrumpsMP() {
   const salaId = searchParams.get('sala')
 
   const [sala, setSala] = useState(null)
-  const [fase, setFase] = useState('carregando')
+  const turnMachine = useMultiplayerTurnMachine({ salaId, log: logMP })
+  const { state: turnState, stateRef: turnStateRef, dispatch: dispatchTurn } = turnMachine
+  const fase = turnState.phase
   const [cartaLocal, setCartaLocal] = useState(null)
   const [cartaOponente, setCartaOponente] = useState(null)
-  const [cartaResultadoLocal, setCartaResultadoLocal] = useState(null)
-  const [cartaResultadoOponente, setCartaResultadoOponente] = useState(null)
-  const [resultadoTurno, setResultadoTurno] = useState(null)
   const [atributoEscolhido, setAtributoEscolhido] = useState(null)
-  const [resultadoRodada, setResultadoRodada] = useState(null)
   const [tempoRestante, setTempoRestante] = useState(30)
   const [rodadaLiberada, setRodadaLiberada] = useState(false)
   const [movimentoRecebido, setMovimentoRecebido] = useState(false)
@@ -91,9 +90,13 @@ export default function TopTrumpsMP() {
   const [cartaSelecionada, setCartaSelecionada] = useState(null)
   const [jaMovi, setJaMovi] = useState(false)
   const [swipeRevealed, setSwipeRevealed] = useState(false)
-  const [resultadoTempo, setResultadoTempo] = useState(30)
-  const [prontoLocal, setProntoLocal] = useState(false)
-  const [prontoOponente, setProntoOponente] = useState(false)
+  const cartaResultadoLocal = turnState.result?.localCard || null
+  const cartaResultadoOponente = turnState.result?.opponentCard || null
+  const resultadoTurno = turnState.result?.turn || null
+  const resultadoRodada = turnState.result?.outcome || null
+  const resultadoTempo = turnState.resultRemaining
+  const prontoLocal = turnState.localReady
+  const prontoOponente = turnState.opponentReady
   const ehMinhaVez = Boolean(user?.id && sala?.jogador_da_vez === user.id)
 
   // ── Heartbeat contínuo durante o jogo (igual ao SP) ──
@@ -135,7 +138,6 @@ export default function TopTrumpsMP() {
   }
 
   const salaRef = useRef(sala)
-  const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
   const cartaLocalRef = useRef(cartaLocal)
   const cartaOponenteRef = useRef(cartaOponente)
@@ -146,24 +148,12 @@ export default function TopTrumpsMP() {
   const jogadaEmEnvioRef = useRef(false)
   const presenceChannelRef = useRef(null)
   const rodadaAvancandoRef = useRef(false)
-  const resultadoIniciadoEmRef = useRef(null)
-  const resultadoTurnoRef = useRef(null)
-  const cartaResultadoLocalRef = useRef(null)
-  const cartaResultadoOponenteRef = useRef(null)
-  const prontoLocalRef = useRef(prontoLocal)
-  const prontoOponenteRef = useRef(prontoOponente)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { cartaOponenteRef.current = cartaOponente }, [cartaOponente])
-  useEffect(() => { faseRef.current = fase }, [fase])
   useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
-  useEffect(() => { prontoLocalRef.current = prontoLocal }, [prontoLocal])
-  useEffect(() => { prontoOponenteRef.current = prontoOponente }, [prontoOponente])
-  useEffect(() => { resultadoTurnoRef.current = resultadoTurno }, [resultadoTurno])
-  useEffect(() => { cartaResultadoLocalRef.current = cartaResultadoLocal }, [cartaResultadoLocal])
-  useEffect(() => { cartaResultadoOponenteRef.current = cartaResultadoOponente }, [cartaResultadoOponente])
 
   useEffect(() => {
     logMP('FASE_ALTERADA', {
@@ -217,14 +207,14 @@ export default function TopTrumpsMP() {
     if (!salaId || !user) return;
     (async () => {
       const { data } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).single()
-      if (!data) { setFase('fim'); return }
+      if (!data) { dispatchTurn({ type: 'FINISH_MATCH' }); return }
       setSala(data)
       const papel = data.jogador1_id === user.id ? 'j1' : data.jogador2_id === user.id ? 'j2' : null
       setMeuPapel(papel)
       if (data.status === 'em_jogo' && data.carta_aposta_j1 === -1) {
-        setFase('jogando')
+        dispatchTurn({ type: 'ENTER_PLAYING' })
       } else if (data.status === 'em_jogo') {
-        setFase('ppt')
+        dispatchTurn({ type: 'ENTER_PPT' })
         if (papel === 'j1' ? data.aposta_confirmada_j1 : data.aposta_confirmada_j2) {
           setPptEscolhi(true)
         }
@@ -236,7 +226,7 @@ export default function TopTrumpsMP() {
         if (profile?.nome) setOponenteNome(profile.nome)
       }
     })()
-  }, [salaId, user])
+  }, [dispatchTurn, salaId, user])
 
   useEffect(() => {
     if (!user || !sala?.total_turnos) return;
@@ -303,9 +293,6 @@ export default function TopTrumpsMP() {
     if (!sala?.id || !sala?.turno_atual) return
     jogadaEmEnvioRef.current = false
     rodadaAvancandoRef.current = false
-    setProntoLocal(false)
-    setProntoOponente(false)
-    setResultadoTempo(30)
     setJaMovi(false)
     setMovimentoRecebido(false)
     setUltimoMovimento(null)
@@ -388,28 +375,10 @@ export default function TopTrumpsMP() {
     return () => clearInterval(iv)
   }, [rodadaLiberada, ehMinhaVez, fase, sala?.id, sala?.turno_atual, jaMovi, cartaLocal?.id, user?.id])
 
-  function liberarProximaRodada(motivo) {
-    if (rodadaAvancandoRef.current) return
-    const decorridoMs = resultadoIniciadoEmRef.current ? Date.now() - resultadoIniciadoEmRef.current : 0
-    if (faseRef.current === 'revelacao' && decorridoMs < 30000) {
-      logMP('RESULTADO_LIBERACAO_BLOQUEADA', {
-        salaId: salaRef.current?.id,
-        turno: salaRef.current?.turno_atual,
-        motivo,
-        decorridoMs,
-        restanteMs: 30000 - decorridoMs
-      })
-      return
-    }
-    rodadaAvancandoRef.current = true
-    logMP('RESULTADO_LIBERADO', { salaId: salaRef.current?.id, turno: salaRef.current?.turno_atual, motivo })
-    seguirParaProximaRodada()
-  }
-
   function confirmarProximaRodada() {
-    const turno = resultadoTurnoRef.current
+    const turno = turnStateRef.current.result?.turn
     if (!turno || prontoLocal) return
-    setProntoLocal(true)
+    dispatchTurn({ type: 'LOCAL_READY' })
     logMP('RESULTADO_CONFIRMADO', { salaId, turno, jogadorId: user?.id })
     presenceChannelRef.current?.track({
       user_id: user.id,
@@ -419,18 +388,10 @@ export default function TopTrumpsMP() {
   }
 
   function seguirParaProximaRodada() {
-    const decorridoMs = resultadoIniciadoEmRef.current ? Date.now() - resultadoIniciadoEmRef.current : 0
-    if (faseRef.current === 'revelacao' && decorridoMs < 30000) {
-      logMP('PROXIMA_RODADA_BLOQUEADA', {
-        salaId: salaRef.current?.id,
-        turno: salaRef.current?.turno_atual,
-        decorridoMs,
-        restanteMs: 30000 - decorridoMs
-      })
-      return
-    }
+    if (!turnStateRef.current.advanceRequested || rodadaAvancandoRef.current) return
+    rodadaAvancandoRef.current = true
     const s = salaPendenteRef.current || salaRef.current
-    if (!s) return
+    if (!s) { rodadaAvancandoRef.current = false; return }
     logMP('PROXIMA_RODADA', {
       salaId: s.id,
       turno: s.turno_atual,
@@ -447,23 +408,24 @@ export default function TopTrumpsMP() {
     sfx.click()
     if (s.status === 'encerrada' || s.turno_atual > s.total_turnos) {
       sfx.nextRound()
-      setFase('fim')
+      dispatchTurn({ type: 'ADVANCE_APPLIED', finished: true })
       return
     }
     sfx.nextRound()
     setAtributoEscolhido(null)
-    setResultadoRodada(null)
     setMovimentoRecebido(false)
     setJaMovi(false)
     setCartaOponente(null)
     setUltimoMovimento(null)
     setGirando(false)
     setSwipeRevealed(false)
-    resultadoIniciadoEmRef.current = null
-    resultadoTurnoRef.current = null
-    setResultadoTurno(null)
-    setFase('jogando')
+    dispatchTurn({ type: 'ADVANCE_APPLIED', finished: false })
+    rodadaAvancandoRef.current = false
   }
+
+  useEffect(() => {
+    if (turnState.advanceRequested) seguirParaProximaRodada()
+  }, [turnState.advanceRequested])
 
   function jogarAtributo(atributoId) {
     if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || jogadaEmEnvioRef.current || !cartaLocal || girando) {
@@ -520,7 +482,9 @@ export default function TopTrumpsMP() {
     setTimeout(() => setParticulas([]), 1800)
   }
 
-  function iniciarRevelacao(resultadoFinal) {
+  function iniciarRevelacao(resultSnapshot) {
+    const iniciou = dispatchTurn({ type: 'START_RESULT', result: resultSnapshot, now: Date.now() })
+    if (!iniciou) return
     setSwipeRevealed(false)
     sfx.cardFlip()
     sfx.vs()
@@ -536,47 +500,20 @@ export default function TopTrumpsMP() {
       __heartbeatRodando = false
       setGirando(false)
       setCortinaAtiva(false)
-      if (resultadoFinal === 'ganhou') sfx.win()
-      else if (resultadoFinal === 'empate') sfx.draw()
+      if (resultSnapshot.outcome === 'ganhou') sfx.win()
+      else if (resultSnapshot.outcome === 'empate') sfx.draw()
       else sfx.lose()
-      gerarParticulasMP(resultadoFinal)
-      resultadoIniciadoEmRef.current = Date.now()
+      gerarParticulasMP(resultSnapshot.outcome)
       logMP('RESULTADO_ENTROU', {
         salaId: salaRef.current?.id,
-        turno: resultadoTurnoRef.current,
+        turno: resultSnapshot.turn,
         turnoSala: salaRef.current?.turno_atual,
-        cartaLocalId: cartaResultadoLocalRef.current?.id,
-        cartaOponenteId: cartaResultadoOponenteRef.current?.id,
+        cartaLocalId: resultSnapshot.localCard?.id,
+        cartaOponenteId: resultSnapshot.opponentCard?.id,
         duracaoObrigatoriaMs: 30000
       })
-      setFase('revelacao')
     }, 1800)
   }
-
-  useEffect(() => {
-    if (fase !== 'revelacao') return
-    if (!resultadoIniciadoEmRef.current) resultadoIniciadoEmRef.current = Date.now()
-    const atualizarContador = () => {
-      const decorridoMs = Date.now() - resultadoIniciadoEmRef.current
-      const restante = Math.max(0, Math.ceil((30000 - decorridoMs) / 1000))
-      setResultadoTempo(restante)
-      logMP('RESULTADO_TICK', {
-        salaId: salaRef.current?.id,
-        turno: resultadoTurnoRef.current,
-        turnoSala: salaRef.current?.turno_atual,
-        restante,
-        decorridoMs,
-        cartaLocalId: cartaResultadoLocalRef.current?.id,
-        cartaOponenteId: cartaResultadoOponenteRef.current?.id,
-        prontoLocal: prontoLocalRef.current,
-        prontoOponente: prontoOponenteRef.current
-      })
-      if (decorridoMs >= 30000) liberarProximaRodada('tempo-esgotado')
-    }
-    atualizarContador()
-    const interval = setInterval(atualizarContador, 1000)
-    return () => clearInterval(interval)
-  }, [fase, resultadoTurno])
 
   async function resolverRodada(turnoMovimento, origem = 'realtime') {
     let chaveTurno = null
@@ -600,7 +537,7 @@ export default function TopTrumpsMP() {
         salaId: salaAtual.id,
         turno: turnoAlvo,
         turnoSalaLocal: salaAtual.turno_atual,
-        fase: faseRef.current,
+        fase: turnStateRef.current.phase,
         origem
       })
       const s = { ...salaAtual, turno_atual: turnoAlvo }
@@ -659,18 +596,11 @@ export default function TopTrumpsMP() {
         const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
         const empatou = res === 'empate'
 
-        setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
         setAtributoEscolhido(movJ1.atributo)
         const minhaCartaResultado = papel === 'j1' ? cartaJ1 : cartaJ2
         const cartaOponenteResultado = papel === 'j1' ? cartaJ2 : cartaJ1
         setCartaLocal(minhaCartaResultado)
         setCartaOponente(cartaOponenteResultado)
-        cartaResultadoLocalRef.current = minhaCartaResultado
-        cartaResultadoOponenteRef.current = cartaOponenteResultado
-        resultadoTurnoRef.current = turnoAlvo
-        setCartaResultadoLocal(minhaCartaResultado)
-        setCartaResultadoOponente(cartaOponenteResultado)
-        setResultadoTurno(turnoAlvo)
 
         const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
         const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
@@ -723,7 +653,13 @@ export default function TopTrumpsMP() {
 
         turnosProcessadosRef.current.add(chaveTurno)
         logMP('RODADA_RESOLVIDA', { salaId: s.id, turno: turnoAlvo, origem, resultado: resultadoFinal, movimentos: 2 })
-        iniciarRevelacao(resultadoFinal)
+        iniciarRevelacao({
+          turn: turnoAlvo,
+          localCard: minhaCartaResultado,
+          opponentCard: cartaOponenteResultado,
+          outcome: resultadoFinal,
+          attribute: movJ1.atributo
+        })
         return
       }
 
@@ -757,19 +693,12 @@ export default function TopTrumpsMP() {
         const ganhei = (papel === 'j1' && res === 'j1_venceu') || (papel === 'j2' && res === 'j2_venceu')
         const empatou = res === 'empate'
 
-        setResultadoRodada(ganhei ? 'ganhou' : empatou ? 'empate' : 'perdeu')
         setAtributoEscolhido(mov.atributo)
         const souAutorMovimento = mov.jogador_id === user.id
         const minhaCartaResultado = souAutorMovimento ? cartaAtiva : cartaOponenteObj
         const cartaOponenteResultado = souAutorMovimento ? cartaOponenteObj : cartaAtiva
         setCartaLocal(minhaCartaResultado)
         setCartaOponente(cartaOponenteResultado)
-        cartaResultadoLocalRef.current = minhaCartaResultado
-        cartaResultadoOponenteRef.current = cartaOponenteResultado
-        resultadoTurnoRef.current = turnoAlvo
-        setCartaResultadoLocal(minhaCartaResultado)
-        setCartaResultadoOponente(cartaOponenteResultado)
-        setResultadoTurno(turnoAlvo)
 
         const novosPontosJ1 = (s.pontos_j1 || 0) + (res === 'j1_venceu' ? 1 : 0)
         const novosPontosJ2 = (s.pontos_j2 || 0) + (res === 'j2_venceu' ? 1 : 0)
@@ -822,7 +751,13 @@ export default function TopTrumpsMP() {
 
         turnosProcessadosRef.current.add(chaveTurno)
         logMP('RODADA_RESOLVIDA', { salaId: s.id, turno: turnoAlvo, origem, resultado: resultadoFinal, movimentos: 1 })
-        iniciarRevelacao(resultadoFinal)
+        iniciarRevelacao({
+          turn: turnoAlvo,
+          localCard: minhaCartaResultado,
+          opponentCard: cartaOponenteResultado,
+          outcome: resultadoFinal,
+          attribute: mov.atributo
+        })
         return
       }
 
@@ -902,7 +837,7 @@ export default function TopTrumpsMP() {
         const salaEncerrada = { ...s, status: 'encerrada', resultado: meuPapelRef.current === 'j1' ? 'j1_venceu' : 'j2_venceu' }
         salaRef.current = salaEncerrada
         setSala(salaEncerrada)
-        setFase('fim')
+        dispatchTurn({ type: 'FINISH_MATCH' })
       }
     }, 20000)
     return () => clearInterval(interval)
@@ -914,7 +849,7 @@ export default function TopTrumpsMP() {
     const channel = subscribeToMatchPresence(salaId, user.id, async (jogadorQueSaiu) => {
       const s = salaRef.current
       const oponenteId = meuPapelRef.current === 'j1' ? s?.jogador2_id : s?.jogador1_id
-      if (!s || jogadorQueSaiu !== oponenteId || s.status === 'encerrada' || faseRef.current === 'fim') return
+      if (!s || jogadorQueSaiu !== oponenteId || s.status === 'encerrada' || turnStateRef.current.phase === 'fim') return
       logMP('OPONENTE_SAIU', { salaId, jogadorQueSaiu })
       const { error } = await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
       if (error) {
@@ -924,10 +859,10 @@ export default function TopTrumpsMP() {
       const salaEncerrada = { ...s, status: 'encerrada', resultado: meuPapelRef.current === 'j1' ? 'j1_venceu' : 'j2_venceu' }
       salaRef.current = salaEncerrada
       setSala(salaEncerrada)
-      setFase('fim')
+      dispatchTurn({ type: 'FINISH_MATCH' })
     }, (presenceState) => {
       const s = salaRef.current
-      const turnoConfirmacao = resultadoTurnoRef.current || s?.turno_atual
+      const turnoConfirmacao = turnStateRef.current.result?.turn || s?.turno_atual
       if (!s || !turnoConfirmacao) return
       const oponenteId = meuPapelRef.current === 'j1' ? s.jogador2_id : s.jogador1_id
       const presencas = Object.values(presenceState).flat()
@@ -941,10 +876,9 @@ export default function TopTrumpsMP() {
         confirmouLocal,
         confirmouOponente
       })
-      setProntoLocal(confirmouLocal)
-      setProntoOponente(confirmouOponente)
-      if (confirmouLocal && confirmouOponente && faseRef.current === 'revelacao') {
-        liberarProximaRodada('ambos-confirmaram')
+      dispatchTurn({ type: 'PRESENCE_READY', turn: turnoConfirmacao, localReady: confirmouLocal, opponentReady: confirmouOponente })
+      if (confirmouLocal && confirmouOponente && turnStateRef.current.phase === 'revelacao') {
+        dispatchTurn({ type: 'REQUEST_ADVANCE', reason: 'ambos-confirmaram' })
       }
     })
     presenceChannelRef.current = channel
@@ -963,7 +897,7 @@ export default function TopTrumpsMP() {
       accessToken = data.session?.access_token || null
     })
     const handleUnload = () => {
-      if (notificou || faseRef.current === 'fim') return
+      if (notificou || turnStateRef.current.phase === 'fim') return
       const s = salaRef.current
       const vencedorId = meuPapelRef.current === 'j1' ? s?.jogador2_id : s?.jogador1_id
       if (!vencedorId || !accessToken) return
@@ -993,15 +927,15 @@ export default function TopTrumpsMP() {
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
       const anterior = salaRef.current
-      if (s.status === 'encerrada' && faseRef.current !== 'revelacao') {
+      if (s.status === 'encerrada' && turnStateRef.current.phase !== 'revelacao') {
         salaPendenteRef.current = null
         salaRef.current = s
         setSala(s)
-        setFase('fim')
+        dispatchTurn({ type: 'FINISH_MATCH' })
         logMP('SALA_ENCERRADA_APLICADA', { salaId, resultado: s.resultado })
         return
       }
-      const rodadaEmExibicao = faseRef.current === 'jogando' || faseRef.current === 'revelacao'
+      const rodadaEmExibicao = turnStateRef.current.phase === 'jogando' || turnStateRef.current.phase === 'revelacao'
       const deveReterSala = rodadaEmExibicao && (
         (anterior && s.turno_atual !== anterior.turno_atual) ||
         s.status === 'encerrada'
@@ -1013,7 +947,7 @@ export default function TopTrumpsMP() {
           turnoLocal: anterior?.turno_atual,
           turnoRemoto: s.turno_atual,
           statusRemoto: s.status,
-          fase: faseRef.current
+          fase: turnStateRef.current.phase
         })
         if (anterior?.turno_atual) resolverRodada(anterior.turno_atual, 'sala-avancou')
       } else {
@@ -1023,18 +957,18 @@ export default function TopTrumpsMP() {
           salaId,
           turno: s.turno_atual,
           status: s.status,
-          fase: faseRef.current
+          fase: turnStateRef.current.phase
         })
       }
 
       // J2 entrou na sala → PPT phase para ambos os clientes
       if (s.status === 'em_jogo' && s.jogador2_id && (!anterior || !anterior.jogador2_id)) {
-        setFase('ppt')
+        dispatchTurn({ type: 'ENTER_PPT' })
         return
       }
 
       // PPT: ambos escolheram
-      if (faseRef.current === 'ppt' && s.aposta_confirmada_j1 && s.aposta_confirmada_j2) {
+      if (turnStateRef.current.phase === 'ppt' && s.aposta_confirmada_j1 && s.aposta_confirmada_j2) {
         const escolhaJ1 = s.carta_aposta_j1
         const escolhaJ2 = s.carta_aposta_j2
         const ehJ1 = meuPapelRef.current === 'j1'
@@ -1049,9 +983,8 @@ export default function TopTrumpsMP() {
 
       // PPT finalizado -> jogando
       if (anterior && s.carta_aposta_j1 === -1 && anterior.carta_aposta_j1 !== -1) {
-        setFase('jogando')
+        dispatchTurn({ type: 'ENTER_PLAYING' })
         setAtributoEscolhido(null)
-        setResultadoRodada(null)
         setMovimentoRecebido(false)
         setJaMovi(false)
         setCartaOponente(null)
@@ -1059,7 +992,7 @@ export default function TopTrumpsMP() {
         return
       }
 
-      if (!deveReterSala && s.status === 'encerrada' && faseRef.current !== 'resultado' && faseRef.current !== 'revelacao') setFase('fim')
+      if (!deveReterSala && s.status === 'encerrada' && turnStateRef.current.phase !== 'revelacao') dispatchTurn({ type: 'FINISH_MATCH' })
     })
     const sub2 = subscribeToMovimentos(salaId, (p) => {
       const mov = p.new
@@ -1068,7 +1001,7 @@ export default function TopTrumpsMP() {
         turno: mov.turno,
         movimentoId: mov.id,
         jogadorId: mov.jogador_id,
-        fase: faseRef.current,
+        fase: turnStateRef.current.phase,
         turnoLocal: salaRef.current?.turno_atual
       })
       setUltimoMovimento(mov)

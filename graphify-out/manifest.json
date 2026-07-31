@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785514414.3976498,
-    "ast_hash": "6dded3b8ea30c069dbf38865a88d8478",
+    "mtime": 1785515104.4686544,
+    "ast_hash": "f342c1af6ac45d6ec89571d1252a0294",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2060,8 +2060,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
-    "mtime": 1785514784.7902412,
-    "ast_hash": "a00b1889de7710a26e6462fd62ed16ca",
+    "mtime": 1785515461.322202,
+    "ast_hash": "aff5e4fe0514e6a6cc3f8ae0e554d792",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
@@ -2950,8 +2950,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785171249.9581609,
-    "ast_hash": "d9241c837a1b9083680cabe03faa3ab1",
+    "mtime": 1785515442.2273278,
+    "ast_hash": "8f84d7adf5c5ce8a68bb693c11f5f93f",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785514414.398693,
-    "ast_hash": "51597ced24b130cbe8ae89407bda7316",
+    "mtime": 1785515442.2273278,
+    "ast_hash": "81d1b4d4b0007b7f40a9dc9499a84155",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3702,6 +3702,11 @@
   "src/pages/games/TopTrumps/utils/deterministicDeck.js": {
     "mtime": 1785455418.7969382,
     "ast_hash": "e0b94326c7ca0ff38833909ca35ef487",
+    "semantic_hash": ""
+  },
+  "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js": {
+    "mtime": 1785515178.9973502,
+    "ast_hash": "8f78eaf3ced3e003a45f48753440af72",
     "semantic_hash": ""
   }
 }
