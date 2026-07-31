@@ -183,7 +183,7 @@ export default function TopTrumpsMP() {
     logMP('BARREIRA_FECHADA', {
       salaId: sala.id,
       turno: sala.turno_atual,
-      duracaoMs: 5000
+      duracaoMs: 2000
     })
     const timer = setTimeout(() => {
       setRodadaLiberada(true)
@@ -194,7 +194,7 @@ export default function TopTrumpsMP() {
         meuJogadorId: user?.id,
         ehMinhaVez: sala.jogador_da_vez === user?.id
       })
-    }, 5000)
+    }, 2000)
     return () => clearTimeout(timer)
   }, [fase, sala?.id, sala?.turno_atual])
 

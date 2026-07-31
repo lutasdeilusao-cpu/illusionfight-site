@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 660 files · ~761,326 words
+- 660 files · ~761,384 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3057 nodes · 6342 edges · 265 communities (231 shown, 34 thin omitted)
+- 3057 nodes · 6342 edges · 264 communities (230 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f4dab48a`
+- Built from commit: `a81fd043`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -100,7 +100,6 @@
 - Community 82
 - Community 83
 - endBattle
-- Quiz.jsx
 - Phase0Start.jsx
 - TeamSelect.jsx
 - Community 88
@@ -192,7 +191,6 @@
 - 4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE
 - 7. TRÁFEGO PAGO — HISTÓRICO
 - paridade-exata.mjs
-- resolveDamageSpellWithEffect
 - E3. LISTAS NO BREVO
 - E8. TEMPLATES DE PR APROVADOS
 - particles.js
@@ -220,6 +218,7 @@
 - drawCombatBoard
 - PowerCard.jsx
 - Passeio.jsx
+- framer-motion
 - Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -249,7 +248,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (265 total, 34 thin omitted)
+## Communities (264 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -292,8 +291,8 @@ Cohesion: 0.06
 Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculista de Zylvaron, #35 — Ferro Vivo — Construto, #36 — Kimura — O Espelho, #37 — Doru — Trovão do Continente, #39 — Mako — Das Profundezas, #40 — Kei — Sombra Dupla, #42 — Tairo — Mestre do Solo (+25 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.09
-Nodes (32): GuestNotice(), TrialBanner(), ADMIN_EMAILS, AchievementsContext, AchievementsProvider(), AuthContext, AuthProvider(), useAuth() (+24 more)
+Cohesion: 0.08
+Nodes (38): GuestNotice(), LoginGate(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, AchievementsContext (+30 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.07
@@ -304,8 +303,8 @@ Cohesion: 0.17
 Nodes (19): getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking (+11 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.26
-Nodes (8): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), getNotificationAchievementId(), legacyAchievements, notificationManager, NotificationType
+Cohesion: 0.14
+Nodes (22): BookChaptersRow(), capaMap, formatarData(), estaDisponivel(), useAchievements(), useEventos(), useReadingCompletionGate(), formatarData() (+14 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.14
@@ -324,8 +323,8 @@ Cohesion: 0.14
 Nodes (21): carregarDeck(), DECKS, getDeck(), cardModules, TOP_TRUMPS_CARD_IMAGES, ATTR_KEYS, CardViewerModal(), DECK_CONFIG (+13 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.19
-Nodes (16): BookChaptersRow(), capaMap, formatarData(), estaDisponivel(), useAchievements(), useEventos(), useReadingCompletionGate(), formatarData() (+8 more)
+Cohesion: 0.26
+Nodes (8): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), getNotificationAchievementId(), legacyAchievements, notificationManager, NotificationType
 
 ### Community 21 - "Community 21"
 Cohesion: 0.07
@@ -404,8 +403,8 @@ Cohesion: 0.08
 Nodes (37): App(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, ReaderProvider(), useReader(), DueloRoute(), JackCandy() (+29 more)
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
-Cohesion: 0.14
-Nodes (24): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Token(), EfeitoTag(), STATUS_ICONS_MAP, StatusBadges() (+16 more)
+Cohesion: 0.19
+Nodes (14): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Token(), EfeitoTag(), STATUS_ICONS_MAP, StatusBadges() (+6 more)
 
 ### Community 41 - "deterministicDeck.js"
 Cohesion: 0.21
@@ -452,8 +451,8 @@ Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
 
 ### Community 53 - "Gacha.jsx"
-Cohesion: 0.12
-Nodes (23): DanoPopup(), Grid(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), aplicarStatus(), FX_INFO (+15 more)
+Cohesion: 0.11
+Nodes (33): DanoPopup(), Grid(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), sortearIAs(), aplicarStatus() (+25 more)
 
 ### Community 54 - "ArenaTaticsRoute.jsx"
 Cohesion: 0.22
@@ -469,11 +468,11 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
+Nodes (15): dependencies, playwright, react, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.06
-Nodes (48): AchievementToast(), CharacterCard(), CharactersRow(), CookieBanner(), LatestEpisodes(), thumbMap, allImages, MusicCircle() (+40 more)
+Cohesion: 0.07
+Nodes (43): AchievementToast(), CharacterCard(), CharactersRow(), CookieBanner(), LatestEpisodes(), thumbMap, allImages, MusicCircle() (+35 more)
 
 ### Community 59 - "Community 59"
 Cohesion: 0.15
@@ -578,10 +577,6 @@ Nodes (14): Combat Mode: Silent Synchrony, Conflict Pattern: Triangle, Default S
 ### Community 84 - "endBattle"
 Cohesion: 0.15
 Nodes (4): platformIconMap, allImages, Musicas(), shuffleArray()
-
-### Community 85 - "Quiz.jsx"
-Cohesion: 0.36
-Nodes (7): LoginGate(), calcularRank(), embaralhar(), gerarDicaGangue(), MODOS, Quiz(), selecionarPerguntas()
 
 ### Community 86 - "Phase0Start.jsx"
 Cohesion: 0.42
@@ -947,9 +942,9 @@ Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `ResultScreen.jsx`, `Community 62`, `getLineInDirection.js`, `Community 68`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `useSharedLobbyMachine.js`, `endBattle`, `Quiz.jsx`, `Phase0Start.jsx`, `Batalha.jsx`, `Community 116`?**
+- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `ResultScreen.jsx`, `Community 62`, `getLineInDirection.js`, `Community 68`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `useSharedLobbyMachine.js`, `endBattle`, `Phase0Start.jsx`, `Batalha.jsx`, `Community 116`?**
   _High betweenness centrality (0.139) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 2`, `initBattle`, `Community 7`, `Community 8`, `Passeio.jsx`, `Community 49`, `Community 20`, `Community 21`, `ArenaTaticsRoute.jsx`, `Community 27`, `Community 28`?**
+- **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 2`, `initBattle`, `Community 7`, `Community 8`, `Passeio.jsx`, `Community 15`, `Community 49`, `Community 21`, `ArenaTaticsRoute.jsx`, `Community 27`, `Community 28`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 6` to `initBattle`, `TopTrumpsMP.jsx`, `Community 17`, `Community 19`, `Community 21`, `Community 28`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._

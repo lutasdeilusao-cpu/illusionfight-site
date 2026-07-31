@@ -84,7 +84,6 @@
   "82": "Community 82",
   "83": "Community 83",
   "84": "endBattle",
-  "85": "Quiz.jsx",
   "86": "Phase0Start.jsx",
   "87": "TeamSelect.jsx",
   "88": "Community 88",
@@ -213,7 +212,6 @@
   "211": "4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE",
   "212": "7. TRÁFEGO PAGO — HISTÓRICO",
   "213": "paridade-exata.mjs",
-  "214": "resolveDamageSpellWithEffect",
   "215": "E3. LISTAS NO BREVO",
   "216": "E8. TEMPLATES DE PR APROVADOS",
   "217": "particles.js",
@@ -263,5 +261,6 @@
   "261": "drawCombatBoard",
   "262": "PowerCard.jsx",
   "263": "Passeio.jsx",
+  "266": "framer-motion",
   "267": "Criatura.jsx"
 }

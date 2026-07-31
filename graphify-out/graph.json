@@ -630,7 +630,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 57,
+      "community": 266,
       "norm_label": "framer-motion"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 57,
+      "community": 266,
       "norm_label": "framer-motion"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 214,
+      "community": 42,
       "norm_label": "pixi.js"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 214,
+      "community": 42,
       "norm_label": "pixi.js"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_react",
-      "community": 42,
+      "community": 57,
       "norm_label": "react"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "react",
-      "community": 42,
+      "community": 57,
       "norm_label": "react"
     },
     {
@@ -1470,7 +1470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_bookchaptersrow",
-      "community": 20,
+      "community": 15,
       "norm_label": "bookchaptersrow.jsx"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_components_bookchaptersrow_capamap",
-      "community": 20,
+      "community": 15,
       "norm_label": "capamap"
     },
     {
@@ -1490,7 +1490,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_bookchaptersrow_formatardata",
-      "community": 20,
+      "community": 15,
       "norm_label": "formatardata()"
     },
     {
@@ -1500,7 +1500,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_components_bookchaptersrow_bookchaptersrow",
-      "community": 20,
+      "community": 15,
       "norm_label": "bookchaptersrow()"
     },
     {
@@ -1790,7 +1790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification",
-      "community": 15,
+      "community": 20,
       "norm_label": "ldinotification.jsx"
     },
     {
@@ -1800,7 +1800,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_shuffle",
-      "community": 15,
+      "community": 20,
       "norm_label": "shuffle()"
     },
     {
@@ -1810,7 +1810,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_personagens",
-      "community": 15,
+      "community": 20,
       "norm_label": "personagens"
     },
     {
@@ -1820,7 +1820,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem",
-      "community": 15,
+      "community": 20,
       "norm_label": "pickpersonagem()"
     },
     {
@@ -1830,7 +1830,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_ldinotification",
-      "community": 15,
+      "community": 20,
       "norm_label": "ldinotification()"
     },
     {
@@ -1870,7 +1870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_logingate_logingate",
-      "community": 85,
+      "community": 12,
       "norm_label": "logingate.jsx"
     },
     {
@@ -1880,7 +1880,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_components_logingate_logingate_logingate",
-      "community": 85,
+      "community": 12,
       "norm_label": "logingate()"
     },
     {
@@ -2240,7 +2240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_produtodigitalcard_produtodigitalcard",
-      "community": 58,
+      "community": 12,
       "norm_label": "produtodigitalcard.jsx"
     },
     {
@@ -2250,7 +2250,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_components_produtodigitalcard_produtodigitalcard_badgecorclass",
-      "community": 58,
+      "community": 12,
       "norm_label": "badgecorclass()"
     },
     {
@@ -2260,7 +2260,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_produtodigitalcard_produtodigitalcard_produtodigitalcard",
-      "community": 58,
+      "community": 12,
       "norm_label": "produtodigitalcard()"
     },
     {
@@ -2810,7 +2810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_shopsection",
-      "community": 58,
+      "community": 12,
       "norm_label": "shopsection.jsx"
     },
     {
@@ -2820,7 +2820,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_components_shopsection_shopsection",
-      "community": 58,
+      "community": 12,
       "norm_label": "shopsection()"
     },
     {
@@ -2950,7 +2950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_unifiednotification_unifiednotification",
-      "community": 15,
+      "community": 20,
       "norm_label": "unifiednotification.jsx"
     },
     {
@@ -2960,7 +2960,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_components_unifiednotification_unifiednotification_unifiednotification",
-      "community": 15,
+      "community": 20,
       "norm_label": "unifiednotification()"
     },
     {
@@ -3000,7 +3000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_site",
-      "community": 20,
+      "community": 15,
       "norm_label": "site.js"
     },
     {
@@ -3020,7 +3020,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_config_site_estadisponivel",
-      "community": 20,
+      "community": 15,
       "norm_label": "estadisponivel()"
     },
     {
@@ -3030,7 +3030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_trial",
-      "community": 20,
+      "community": 15,
       "norm_label": "trial.js"
     },
     {
@@ -3080,7 +3080,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "src_context_achievementscontext_useachievements",
-      "community": 20,
+      "community": 15,
       "norm_label": "useachievements()"
     },
     {
@@ -3210,7 +3210,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "src_context_eventoscontext_useeventos",
-      "community": 20,
+      "community": 15,
       "norm_label": "useeventos()"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usereadingcompletiongate",
-      "community": 20,
+      "community": 15,
       "norm_label": "usereadingcompletiongate.js"
     },
     {
@@ -3890,7 +3890,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_hooks_usereadingcompletiongate_usereadingcompletiongate",
-      "community": 20,
+      "community": 15,
       "norm_label": "usereadingcompletiongate()"
     },
     {
@@ -4370,7 +4370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_notificationmanager",
-      "community": 15,
+      "community": 20,
       "norm_label": "notificationmanager.js"
     },
     {
@@ -4380,7 +4380,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_notificationtype",
-      "community": 15,
+      "community": 20,
       "norm_label": "notificationtype"
     },
     {
@@ -4390,7 +4390,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_legacyachievements",
-      "community": 15,
+      "community": 20,
       "norm_label": "legacyachievements"
     },
     {
@@ -4400,7 +4400,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_getnotificationachievementid",
-      "community": 15,
+      "community": 20,
       "norm_label": "getnotificationachievementid()"
     },
     {
@@ -4410,7 +4410,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_notificationmanager",
-      "community": 15,
+      "community": 20,
       "norm_label": "notificationmanager"
     },
     {
@@ -4870,7 +4870,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_lib_stripe_iniciarcheckoutloja",
-      "community": 58,
+      "community": 12,
       "norm_label": "iniciarcheckoutloja()"
     },
     {
@@ -5040,7 +5040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_livro",
-      "community": 20,
+      "community": 15,
       "norm_label": "livro.jsx"
     },
     {
@@ -5050,7 +5050,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_content_livro_formatardata",
-      "community": 20,
+      "community": 15,
       "norm_label": "formatardata()"
     },
     {
@@ -5060,7 +5060,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_content_livro_livro",
-      "community": 20,
+      "community": 15,
       "norm_label": "livro()"
     },
     {
@@ -5070,7 +5070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_livrocapitulo",
-      "community": 20,
+      "community": 15,
       "norm_label": "livrocapitulo.jsx"
     },
     {
@@ -5080,7 +5080,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_content_livrocapitulo_chapterloaders",
-      "community": 20,
+      "community": 15,
       "norm_label": "chapterloaders"
     },
     {
@@ -5090,7 +5090,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_content_livrocapitulo_livrocapitulo",
-      "community": 20,
+      "community": 15,
       "norm_label": "livrocapitulo()"
     },
     {
@@ -5220,7 +5220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_webtoon",
-      "community": 20,
+      "community": 15,
       "norm_label": "webtoon.jsx"
     },
     {
@@ -5230,7 +5230,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_content_webtoon_thumbmap",
-      "community": 20,
+      "community": 15,
       "norm_label": "thumbmap"
     },
     {
@@ -5240,7 +5240,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_content_webtoon_formatardata",
-      "community": 20,
+      "community": 15,
       "norm_label": "formatardata()"
     },
     {
@@ -5250,7 +5250,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_content_webtoon_webtoon",
-      "community": 20,
+      "community": 15,
       "norm_label": "webtoon()"
     },
     {
@@ -5260,7 +5260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_webtoonepisodio",
-      "community": 20,
+      "community": 15,
       "norm_label": "webtoonepisodio.jsx"
     },
     {
@@ -5270,7 +5270,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_content_webtoonepisodio_formatardata",
-      "community": 20,
+      "community": 15,
       "norm_label": "formatardata()"
     },
     {
@@ -5280,7 +5280,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_content_webtoonepisodio_webtoonepisodio",
-      "community": 20,
+      "community": 15,
       "norm_label": "webtoonepisodio()"
     },
     {
@@ -6020,7 +6020,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias",
-      "community": 40,
+      "community": 53,
       "norm_label": "sortearias()"
     },
     {
@@ -6870,7 +6870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha",
-      "community": 40,
+      "community": 53,
       "norm_label": "batalha.jsx"
     },
     {
@@ -6880,7 +6880,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills",
-      "community": 40,
+      "community": 53,
       "norm_label": "getskills()"
     },
     {
@@ -6890,7 +6890,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas",
-      "community": 40,
+      "community": 53,
       "norm_label": "getocupadas()"
     },
     {
@@ -6900,7 +6900,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento",
-      "community": 40,
+      "community": 53,
       "norm_label": "getalcancemovimento()"
     },
     {
@@ -6910,7 +6910,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao",
-      "community": 40,
+      "community": 53,
       "norm_label": "temlinhavisao()"
     },
     {
@@ -6920,7 +6920,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas",
-      "community": 40,
+      "community": 53,
       "norm_label": "getalvoocupadas()"
     },
     {
@@ -6930,7 +6930,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill",
-      "community": 40,
+      "community": 53,
       "norm_label": "getalcanceskill()"
     },
     {
@@ -6940,7 +6940,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance",
-      "community": 40,
+      "community": 53,
       "norm_label": "estahemalcance()"
     },
     {
@@ -6950,7 +6950,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho",
-      "community": 40,
+      "community": 53,
       "norm_label": "calcularcaminho()"
     },
     {
@@ -6960,7 +6960,7 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel",
-      "community": 40,
+      "community": 53,
       "norm_label": "getfaselabel()"
     },
     {
@@ -6970,7 +6970,7 @@
       "source_location": "L156",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha",
-      "community": 40,
+      "community": 53,
       "norm_label": "batalha()"
     },
     {
@@ -20320,7 +20320,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_site_loja_loja_loja",
-      "community": 58,
+      "community": 12,
       "norm_label": "loja()"
     },
     {
@@ -20350,7 +20350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_site_quiz",
-      "community": 85,
+      "community": 15,
       "norm_label": "quiz.jsx"
     },
     {
@@ -20360,7 +20360,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_site_quiz_modos",
-      "community": 85,
+      "community": 15,
       "norm_label": "modos"
     },
     {
@@ -20370,7 +20370,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_site_quiz_embaralhar",
-      "community": 85,
+      "community": 15,
       "norm_label": "embaralhar()"
     },
     {
@@ -20380,7 +20380,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_site_quiz_selecionarperguntas",
-      "community": 85,
+      "community": 15,
       "norm_label": "selecionarperguntas()"
     },
     {
@@ -20390,7 +20390,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_pages_site_quiz_gerardicagangue",
-      "community": 85,
+      "community": 15,
       "norm_label": "gerardicagangue()"
     },
     {
@@ -20400,7 +20400,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_site_quiz_calcularrank",
-      "community": 85,
+      "community": 15,
       "norm_label": "calcularrank()"
     },
     {
@@ -20410,7 +20410,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_pages_site_quiz_quiz",
-      "community": 85,
+      "community": 15,
       "norm_label": "quiz()"
     },
     {
@@ -21857,7 +21857,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L177",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "agents_graphify",
       "community": 75,
@@ -89956,7 +89956,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L177",
+      "source_location": "L178",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_graphify",
@@ -97884,5 +97884,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f4dab48abbfd2c1b3c39fda53ca1c3109a4919ac"
+  "built_at_commit": "a81fd043521463039cd30bae4e152e029d4daf43"
 }
