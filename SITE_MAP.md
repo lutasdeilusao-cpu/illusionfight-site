@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-31 — v10.192.70 (rota isolada do lobby multiplayer compartilhado)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-31 — v10.192.71 (matchmaking Realtime real e prova par ou ímpar)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -508,7 +508,7 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/multiplayer/lobby` | MultiplayerLobby | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | ✅ v1 | 🔒 Isolada | ✅ PT ✅ EN ✅ ES | Laboratório do lobby compartilhado, isolado por game/mode/rulesVersion |
+| `/games/multiplayer/lobby` | MultiplayerLobby | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | ✅ v2 | 🔒 Isolada | ✅ PT ✅ EN ✅ ES | Matchmaking Supabase Realtime real + prova sincronizada de par ou ímpar |
 | `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial; pools 1–15 guest, 1–20 Free, 21–23 Elite, 24–26 Primordial e 27–30 Evento |
 | `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
 | `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
@@ -567,7 +567,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.70** | Rota isolada do lobby multiplayer compartilhado |
+| `SITE_VERSION` | **10.192.71** | Matchmaking Realtime real e prova par ou ímpar |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
