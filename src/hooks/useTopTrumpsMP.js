@@ -239,6 +239,21 @@ export function subscribeToSala(salaId, callback, onSubscribed) {
     })
 }
 
+export function subscribeToMatchPresence(salaId, userId, onOpponentLeave) {
+  const channel = supabase.channel(`presenca-partida-${salaId}-${userId}`, {
+    config: { presence: { key: userId } }
+  })
+  channel.on('presence', { event: 'leave' }, ({ key }) => {
+    if (key && key !== userId) onOpponentLeave?.(key)
+  })
+  channel.subscribe(async (status) => {
+    if (status === 'SUBSCRIBED') {
+      await channel.track({ user_id: userId, online_at: new Date().toISOString() })
+    }
+  })
+  return channel
+}
+
 export function subscribeToMovimentos(salaId, callback) {
   return supabase.channel(`mov-${salaId}-${++realtimeChannelSequence}`)
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'toptrumps_movimentos', filter: `sala_id=eq.${salaId}` }, (payload) => {

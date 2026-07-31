@@ -6,7 +6,7 @@ import { getDeck } from '../../../lib/getDeck'
 import { useAchievements } from '../../../context/AchievementsContext'
 import { useReader } from '../../../context/ReaderContext'
 import { supabase } from '../../../lib/supabase'
-import { subscribeToSala, subscribeToMovimentos, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../../../hooks/useTopTrumpsMP'
+import { subscribeToSala, subscribeToMovimentos, subscribeToMatchPresence, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../../../hooks/useTopTrumpsMP'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
@@ -136,6 +136,7 @@ export default function TopTrumpsMP() {
   const salaPendenteRef = useRef(null)
   const turnosEmProcessamentoRef = useRef(new Set())
   const turnosProcessadosRef = useRef(new Set())
+  const jogadaEmEnvioRef = useRef(false)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
@@ -268,6 +269,7 @@ export default function TopTrumpsMP() {
 
   useEffect(() => {
     if (!sala?.id || !sala?.turno_atual) return
+    jogadaEmEnvioRef.current = false
     setJaMovi(false)
     setMovimentoRecebido(false)
     setUltimoMovimento(null)
@@ -385,7 +387,7 @@ export default function TopTrumpsMP() {
   }
 
   function jogarAtributo(atributoId) {
-    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || !cartaLocal || girando) {
+    if (!rodadaLiberada || !ehMinhaVez || fase !== 'jogando' || !sala || jaMovi || jogadaEmEnvioRef.current || !cartaLocal || girando) {
       logMP('JOGADA_BLOQUEADA', {
         atributo: atributoId,
         salaId: sala?.id,
@@ -395,10 +397,12 @@ export default function TopTrumpsMP() {
         ehMinhaVez,
         fase,
         jaMovi,
+        enviando: jogadaEmEnvioRef.current,
         girando
       })
       return
     }
+    jogadaEmEnvioRef.current = true
     sfx.click()
     sfx.select()
     const idxOp = ((sala.turno_atual || 1) - 1) % Math.max(deckOponente.length, 1)
@@ -418,6 +422,7 @@ export default function TopTrumpsMP() {
         erro: resultado?.error || null
       })
       if (!resultado?.error) setJaMovi(true)
+      else jogadaEmEnvioRef.current = false
     })
   }
 
@@ -505,11 +510,22 @@ export default function TopTrumpsMP() {
           cartaId: m.carta_id
         }))
       })
+      const movimentosUnicos = Array.from(
+        new Map((movs || []).map(movimento => [movimento.jogador_id, movimento])).values()
+      )
+      if (movimentosUnicos.length !== (movs?.length || 0)) {
+        logMP('RODADA_DUPLICATAS_DESCARTADAS', {
+          salaId: s.id,
+          turno: turnoAlvo,
+          recebidos: movs.length,
+          validos: movimentosUnicos.length
+        })
+      }
 
       // Caso padrão: dois movimentos (ambos jogadores jogaram)
-      if (movs && movs.length >= 2) {
-        const movJ1 = movs.find(m => m.jogador_id === s.jogador1_id)
-        const movJ2 = movs.find(m => m.jogador_id === s.jogador2_id)
+      if (movimentosUnicos.length >= 2) {
+        const movJ1 = movimentosUnicos.find(m => m.jogador_id === s.jogador1_id)
+        const movJ2 = movimentosUnicos.find(m => m.jogador_id === s.jogador2_id)
         if (!movJ1 || !movJ2) return
 
         const cartaJ1 = todasCartas.find(c => c.id === movJ1.carta_id)
@@ -590,8 +606,8 @@ export default function TopTrumpsMP() {
         return
       }
 
-      if (movs && movs.length === 1) {
-        const mov = movs[0]
+      if (movimentosUnicos.length === 1) {
+        const mov = movimentosUnicos[0]
         const cartaAtiva = todasCartas.find(c => c.id === mov.carta_id)
         if (!cartaAtiva) { return }
 
@@ -753,6 +769,27 @@ export default function TopTrumpsMP() {
     }, 20000)
     return () => clearInterval(interval)
   }, [salaId, user, fase, meuPapel])
+
+  // Presença realtime: encerra assim que o canal confirma a saída do oponente.
+  useEffect(() => {
+    if (!salaId || !user?.id || !meuPapelRef.current) return
+    const channel = subscribeToMatchPresence(salaId, user.id, async (jogadorQueSaiu) => {
+      const s = salaRef.current
+      const oponenteId = meuPapelRef.current === 'j1' ? s?.jogador2_id : s?.jogador1_id
+      if (!s || jogadorQueSaiu !== oponenteId || s.status === 'encerrada' || faseRef.current === 'fim') return
+      logMP('OPONENTE_SAIU', { salaId, jogadorQueSaiu })
+      const { error } = await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
+      if (error) {
+        console.error('[MP] erro ao encerrar saída realtime:', error)
+        return
+      }
+      const salaEncerrada = { ...s, status: 'encerrada', resultado: meuPapelRef.current === 'j1' ? 'j1_venceu' : 'j2_venceu' }
+      salaRef.current = salaEncerrada
+      setSala(salaEncerrada)
+      setFase('fim')
+    })
+    return () => channel.unsubscribe()
+  }, [salaId, user?.id, meuPapel])
 
   // beforeunload: jogador fechou o browser → ele perde
   useEffect(() => {
