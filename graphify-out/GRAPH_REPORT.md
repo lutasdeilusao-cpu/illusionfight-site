@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 658 files · ~759,707 words
+- 658 files · ~759,714 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3050 nodes · 6309 edges · 247 communities (213 shown, 34 thin omitted)
+- 3050 nodes · 6309 edges · 248 communities (214 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d5ecca23`
+- Built from commit: `fd94db0d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -49,9 +49,11 @@
 - Community 31
 - initBattle
 - Community 33
+- deterministicDeck.js
 - BLOCO B — LINKEDIN PESSOAL ISAIAS
 - Community 36
 - Community 37
+- framer-motion
 - PuzzleStealthGrid.jsx
 - Community 43
 - deterministicDeck.js
@@ -115,7 +117,6 @@
 - weaponFamily
 - Community 109
 - Community 113
-- Community 114
 - Community 115
 - Community 116
 - Community 118
@@ -231,7 +232,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (247 total, 34 thin omitted)
+## Communities (248 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -341,13 +342,17 @@ Nodes (34): atualizarMPStats(), atualizarSala(), buscarSala(), buscarSalaPublica
 Cohesion: 0.33
 Nodes (5): ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
 
+### Community 30 - "Community 30"
+Cohesion: 0.21
+Nodes (13): aiAct(), damageSpellAvailable(), endBattle(), grantBattleEndXP(), hasEffect(), healSpellAvailable(), isCajadoWeapon(), processTurn() (+5 more)
+
 ### Community 31 - "Community 31"
-Cohesion: 0.19
-Nodes (24): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+16 more)
+Cohesion: 0.20
+Nodes (23): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+15 more)
 
 ### Community 32 - "initBattle"
-Cohesion: 0.25
-Nodes (9): applyDisease(), ARROWS, DISEASE_STAGES, getEffectiveMaxHP(), getItemDef(), ITEMS_CONSUMABLE, processDiseaseProgression(), selectItemUse() (+1 more)
+Cohesion: 0.29
+Nodes (8): applyDisease(), DISEASE_STAGES, getEffectiveMaxHP(), getItemDef(), ITEMS_CONSUMABLE, processDiseaseProgression(), selectItemUse(), showInventoryTargetSelector()
 
 ### Community 33 - "Community 33"
 Cohesion: 0.14
@@ -419,7 +424,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
+Nodes (15): dependencies, playwright, react, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.07
@@ -586,8 +591,8 @@ Cohesion: 0.50
 Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
 
 ### Community 108 - "weaponFamily"
-Cohesion: 0.13
-Nodes (22): aiAct(), closeInventoryPanel(), closeSwapPanel(), damageSpellAvailable(), endBattle(), grantBattleEndXP(), hasEffect(), healSpellAvailable() (+14 more)
+Cohesion: 0.24
+Nodes (11): ARROWS, closeInventoryPanel(), closeSwapPanel(), getActiveArrow(), getActiveArrowName(), isBowWeapon(), isDaggerWeapon(), isSwordWeapon() (+3 more)
 
 ### Community 113 - "Community 113"
 Cohesion: 0.15

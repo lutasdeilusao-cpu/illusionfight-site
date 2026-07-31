@@ -3,7 +3,7 @@ import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGames
 import './GameOverScreen.css'
 
 export default function GameOverScreen({
-  placar, historicoRodadas, jaGanhouHoje, user, atributos, opponentLabel, onJogarNovamente, tt
+  placar, historicoRodadas, jaGanhouHoje, user, atributos, opponentLabel, actionLabel, onJogarNovamente, tt
 }) {
   const mostrarRelatorio = Array.isArray(historicoRodadas)
   const venceu = placar?.jogador > placar?.ia
@@ -69,7 +69,7 @@ export default function GameOverScreen({
         </div>}
         {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{tt('relatorio_ja_ganhou')}</p>}
         <div className="tt-fim-actions">
-          <button className="tt-btn-jogar" onClick={onJogarNovamente}>{tt('btn_jogar_novamente')}</button>
+          <button className="tt-btn-jogar" onClick={onJogarNovamente}>{actionLabel || tt('btn_jogar_novamente')}</button>
           <BackToGamesBtn label={tt('menu_voltar_menu')} />
         </div>
       </div>
