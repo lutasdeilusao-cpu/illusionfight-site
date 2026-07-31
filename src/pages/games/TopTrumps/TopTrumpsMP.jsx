@@ -282,8 +282,10 @@ export default function TopTrumpsMP() {
 
   useEffect(() => {
     if (fase !== 'fim') return
-    const venceu = placar.eu > placar.oponente
-    const empatou = placar.eu === placar.oponente
+    const resultadoMeu = meuPapel === 'j1' ? 'j1_venceu' : 'j2_venceu'
+    const temResultadoOficial = sala?.resultado === 'j1_venceu' || sala?.resultado === 'j2_venceu' || sala?.resultado === 'empate'
+    const venceu = temResultadoOficial ? sala.resultado === resultadoMeu : placar.eu > placar.oponente
+    const empatou = temResultadoOficial ? sala.resultado === 'empate' : placar.eu === placar.oponente
     if (venceu) sfx.win()
     else if (empatou) sfx.draw()
     else sfx.lose()
@@ -295,7 +297,7 @@ export default function TopTrumpsMP() {
       navigate('/games/toptrumps/lobby', { replace: true })
     }, 5000)
     return () => clearTimeout(timer)
-  }, [fase, navigate, placar.eu, placar.oponente, sala?.id])
+  }, [fase, navigate, placar.eu, placar.oponente, meuPapel, sala?.id, sala?.resultado])
 
   useEffect(() => {
     const bloqueios = {
@@ -360,6 +362,8 @@ export default function TopTrumpsMP() {
     if (salaPendenteRef.current) {
       salaPendenteRef.current = null
       salaRef.current = s
+      const idxCarta = Math.min((s.turno_atual || 1) - 1, deckLocal.length - 1)
+      if (deckLocal[idxCarta]) setCartaLocal(deckLocal[idxCarta])
       setSala(s)
     }
     sfx.click()
@@ -713,8 +717,12 @@ export default function TopTrumpsMP() {
   useEffect(() => {
     if (!salaId || !user || fase !== 'jogando' || !meuPapelRef.current) return
     const coluna = meuPapelRef.current === 'j1' ? 'ultimo_ping_j1' : 'ultimo_ping_j2'
-    const interval = setInterval(async () => {
+    const atualizarPing = async () => {
       await supabase.from('toptrumps_salas').update({ [coluna]: new Date().toISOString() }).eq('id', salaId)
+    }
+    atualizarPing()
+    const interval = setInterval(async () => {
+      await atualizarPing()
     }, 15000)
     return () => clearInterval(interval)
   }, [salaId, user, fase, meuPapel])
@@ -724,11 +732,22 @@ export default function TopTrumpsMP() {
     if (!salaId || !user || fase !== 'jogando' || !meuPapelRef.current) return
     const colunaOponente = meuPapelRef.current === 'j1' ? 'ultimo_ping_j2' : 'ultimo_ping_j1'
     const interval = setInterval(async () => {
-      const s = salaRef.current
+      const { data: s } = await supabase
+        .from('toptrumps_salas')
+        .select('*')
+        .eq('id', salaId)
+        .maybeSingle()
       if (!s) return
       const ultimoPing = s[colunaOponente]
       if (ultimoPing && Date.now() - new Date(ultimoPing).getTime() > 60000) {
-        await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
+        const { error } = await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
+        if (error) {
+          console.error('[MP] erro ao encerrar por desconexão:', error)
+          return
+        }
+        const salaEncerrada = { ...s, status: 'encerrada', resultado: meuPapelRef.current === 'j1' ? 'j1_venceu' : 'j2_venceu' }
+        salaRef.current = salaEncerrada
+        setSala(salaEncerrada)
         setFase('fim')
       }
     }, 20000)
@@ -753,6 +772,14 @@ export default function TopTrumpsMP() {
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
       const anterior = salaRef.current
+      if (s.status === 'encerrada' && faseRef.current !== 'revelacao') {
+        salaPendenteRef.current = null
+        salaRef.current = s
+        setSala(s)
+        setFase('fim')
+        logMP('SALA_ENCERRADA_APLICADA', { salaId, resultado: s.resultado })
+        return
+      }
       const rodadaEmExibicao = faseRef.current === 'jogando' || faseRef.current === 'revelacao'
       const deveReterSala = rodadaEmExibicao && (
         (anterior && s.turno_atual !== anterior.turno_atual) ||
@@ -1019,8 +1046,10 @@ export default function TopTrumpsMP() {
 
   if (fase === 'fim') {
     if (!sala) return null
-    const venceu = placar.eu > placar.oponente
-    const empatou = placar.eu === placar.oponente
+    const resultadoMeu = meuPapel === 'j1' ? 'j1_venceu' : 'j2_venceu'
+    const temResultadoOficial = sala.resultado === 'j1_venceu' || sala.resultado === 'j2_venceu' || sala.resultado === 'empate'
+    const venceu = temResultadoOficial ? sala.resultado === resultadoMeu : placar.eu > placar.oponente
+    const empatou = temResultadoOficial ? sala.resultado === 'empate' : placar.eu === placar.oponente
     return (
       <section className="ttmp-page">
         <div className="ttmp-fim">

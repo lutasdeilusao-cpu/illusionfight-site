@@ -1,16 +1,16 @@
-# Graph Report - SiteLDI  (2026-07-30)
+# Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 657 files · ~758,450 words
+- 657 files · ~758,626 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3045 nodes · 6298 edges · 264 communities (230 shown, 34 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.69)
+- 3045 nodes · 6299 edges · 263 communities (229 shown, 34 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ca35c9b8`
+- Built from commit: `1d447606`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -95,6 +95,7 @@
 - Community 77
 - BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
 - Games.jsx
+- AchievementsContext.jsx
 - Community 81
 - Community 82
 - Community 83
@@ -216,10 +217,8 @@
 - framer-motion
 - levelProgression.js
 - AchievementsContext.jsx
-- ArenaTaticsRoute.jsx
 - classTree.js
 - Create
-- SlidingRafael.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 362 edges
@@ -248,7 +247,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (264 total, 34 thin omitted)
+## Communities (263 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -319,12 +318,12 @@ Cohesion: 0.07
 Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.19
-Nodes (16): PERSONALIDADES, getPersonalidadePorId(), PERSONALIDADES_IA, acaoPersistente(), calcularPassos(), inimigoMenorHP(), melhorPoderParaAtaque(), podeAtacarAlvo() (+8 more)
+Cohesion: 0.21
+Nodes (15): PERSONALIDADES, getPersonalidadePorId(), PERSONALIDADES_IA, acaoPersistente(), calcularPassos(), inimigoMenorHP(), melhorPoderParaAtaque(), podeAtacarAlvo() (+7 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.21
-Nodes (12): getPoderesDisponiveis(), getPoderesPorId(), PODERES_BASE, temPoderDisponivel(), getCelulasAlcance(), executarMecanica(), MECANICAS, aplicarOrdemInterna() (+4 more)
+Cohesion: 0.23
+Nodes (11): getPoderesDisponiveis(), getPoderesPorId(), PODERES_BASE, temPoderDisponivel(), executarMecanica(), MECANICAS, aplicarOrdemInterna(), aplicarResultadosCruzados() (+3 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.08
@@ -511,8 +510,8 @@ Cohesion: 0.09
 Nodes (22): 1. ESTRUTURA DE PASTAS, 2. PÁGINAS E ROTAS, 3. VERSÕES, 4. COMPONENTES GLOBAIS (App.jsx), 5. STRIPE / ASSINATURAS, 6. SUPABASE, 7. TAMAGOSHI — Detalhamento, 8. NOTAS TÉCNICAS (+14 more)
 
 ### Community 67 - "getLineInDirection.js"
-Cohesion: 0.19
-Nodes (21): DIRECOES, getLineInDirection(), getPersonagensNaLinha(), PowerLinePreview(), acaoFujona(), avancarUmaCasa(), celulaMaisDistante(), inimigoMaisFracoEmAlcance() (+13 more)
+Cohesion: 0.17
+Nodes (23): DIRECOES, getLineInDirection(), getPersonagensNaLinha(), PowerLinePreview(), acaoFujona(), avancarUmaCasa(), celulaMaisDistante(), inimigoMaisFracoEmAlcance() (+15 more)
 
 ### Community 68 - "Community 68"
 Cohesion: 0.24
@@ -561,6 +560,10 @@ Nodes (10): dentroDoLosango(), drawChar(), ELEM_CORES, elemCor(), encontrarTile(
 ### Community 79 - "Games.jsx"
 Cohesion: 0.16
 Nodes (17): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), ModalConfirmacaoFicha(), ModalSemFichas(), getHoje(), isDesbloqueadoHoje(), marcarDesbloqueado() (+9 more)
+
+### Community 80 - "AchievementsContext.jsx"
+Cohesion: 0.50
+Nodes (4): getDescricaoIA(), TODAS_IAS, EMOJI, SimulacaoAuto()
 
 ### Community 81 - "Community 81"
 Cohesion: 0.29
@@ -775,8 +778,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.25
-Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
+Cohesion: 0.17
+Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -918,10 +921,6 @@ Nodes (10): aplicarBonusEvolucao(), aplicarBonusHpSp(), BASE_L1, calcAtributosNo
 Cohesion: 0.26
 Nodes (8): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), getNotificationAchievementId(), legacyAchievements, notificationManager, NotificationType
 
-### Community 267 - "ArenaTaticsRoute.jsx"
-Cohesion: 0.50
-Nodes (4): getDescricaoIA(), TODAS_IAS, EMOJI, SimulacaoAuto()
-
 ### Community 270 - "classTree.js"
 Cohesion: 0.48
 Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionScreen()
@@ -929,10 +928,6 @@ Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionSc
 ### Community 271 - "Create"
 Cohesion: 0.15
 Nodes (17): App(), useAchievements(), EventosContext, METAS_PROGRESSO, useEventos(), useReadingCompletionGate(), chapterLoaders, LivroCapitulo() (+9 more)
-
-### Community 272 - "SlidingRafael.jsx"
-Cohesion: 0.50
-Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
 
 ## Knowledge Gaps
 - **1076 isolated node(s):** `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES`, `name`, `private` (+1071 more)
@@ -942,7 +937,7 @@ Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINK
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 39` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `AchievementsContext.jsx`, `ArenaTaticsRoute.jsx`, `Community 12`, `Passeio.jsx`, `classTree.js`, `Community 15`, `Community 16`, `Create`, `Community 17`, `Community 10`, `Community 14`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `Community 33`, `useEventos`, `Community 35`, `PuzzleStealthGrid.jsx`, `Community 42`, `Community 44`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 58`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 68`, `Community 76`, `Games.jsx`, `PowerCard.jsx`, `Phase0Start.jsx`, `Batalha.jsx`?**
+- **Why does `useLanguage()` connect `Community 39` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 7`, `Community 8`, `Community 9`, `AchievementsContext.jsx`, `Passeio.jsx`, `Community 12`, `Community 10`, `classTree.js`, `Community 15`, `Community 16`, `Create`, `Community 17`, `Community 14`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `Community 33`, `useEventos`, `Community 35`, `PuzzleStealthGrid.jsx`, `Community 42`, `Community 44`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 58`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 68`, `Community 76`, `Games.jsx`, `AchievementsContext.jsx`, `PowerCard.jsx`, `Phase0Start.jsx`, `Batalha.jsx`?**
   _High betweenness centrality (0.147) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 21` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 39`, `Community 8`, `Passeio.jsx`, `Community 12`, `Create`, `Community 23`, `Community 25`, `Community 29`, `Community 30`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._

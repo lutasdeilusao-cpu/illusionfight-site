@@ -6000,7 +6000,7 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_aipersonalities_todas_ias",
-      "community": 267,
+      "community": 80,
       "norm_label": "todas_ias"
     },
     {
@@ -6030,7 +6030,7 @@
       "source_location": "L423",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_aipersonalities_getdescricaoia",
-      "community": 267,
+      "community": 80,
       "norm_label": "getdescricaoia()"
     },
     {
@@ -7310,7 +7310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto",
-      "community": 267,
+      "community": 80,
       "norm_label": "simulacaoauto.jsx"
     },
     {
@@ -7320,7 +7320,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_emoji",
-      "community": 267,
+      "community": 80,
       "norm_label": "emoji"
     },
     {
@@ -7330,7 +7330,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_simulacaoauto",
-      "community": 267,
+      "community": 80,
       "norm_label": "simulacaoauto()"
     },
     {
@@ -14297,9 +14297,9 @@
       "label": "NOTE: Para Top Trumps (um jogador por rodada) n\u00e3o dependemos mais",
       "file_type": "rationale",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L688",
+      "source_location": "L692",
       "_origin": "ast",
-      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_688",
+      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_692",
       "community": 4,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
@@ -15860,7 +15860,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_inimigomaisproximo",
-      "community": 19,
+      "community": 67,
       "norm_label": "inimigomaisproximo()"
     },
     {
@@ -17360,7 +17360,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcelulasalcance",
-      "community": 20,
+      "community": 67,
       "norm_label": "getcelulasalcance()"
     },
     {
@@ -23220,7 +23220,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_business_marketing_map_bloco_b_linkedin_pessoal_isaias",
-      "community": 272,
+      "community": 189,
       "norm_label": "bloco b \u2014 linkedin pessoal isaias"
     },
     {
@@ -23230,7 +23230,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b1_perfis",
-      "community": 272,
+      "community": 189,
       "norm_label": "b1. perfis"
     },
     {
@@ -23240,7 +23240,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b2_melhor_performance",
-      "community": 272,
+      "community": 189,
       "norm_label": "b2. melhor performance"
     },
     {
@@ -23250,7 +23250,7 @@
       "source_location": "L239",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b3_calend\u00e1rio",
-      "community": 272,
+      "community": 189,
       "norm_label": "b3. calendario"
     },
     {
@@ -49889,7 +49889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L918",
+      "source_location": "L945",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_escolherppt"
@@ -49922,7 +49922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L334",
+      "source_location": "L336",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_registrarmovimento"
@@ -50043,7 +50043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L753",
+      "source_location": "L772",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetosala"
@@ -50065,7 +50065,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L816",
+      "source_location": "L843",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
@@ -72819,9 +72819,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L688",
+      "source_location": "L692",
       "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_688",
+      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_692",
       "target": "src_pages_games_toptrumps_toptrumpsmp",
       "confidence_score": 1.0
     },
@@ -72857,6 +72857,17 @@
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_games_toptrumps_utils_deterministicdeck_ordenardeckdeterministico"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
+      "source_location": "L745",
+      "weight": 1.0,
+      "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
+      "target": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
     },
     {
       "relation": "imports_from",
@@ -97289,5 +97300,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ca35c9b86280d8dc05d7d35794f67e778b92f620"
+  "built_at_commit": "1d447606b78fb1d3523e760debbc5aadff4ef0e1"
 }
