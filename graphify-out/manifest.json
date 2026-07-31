@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785527546.6976764,
-    "ast_hash": "cc18ae332fc5a43595d3b3b3abc0a936",
+    "mtime": 1785528193.1606982,
+    "ast_hash": "3d5b90c55c3d267c514d46a5c60f0e80",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -675,7 +675,7 @@
     "semantic_hash": "211893e012f57dd99946615715d67b2a"
   },
   "src/hooks/useTopTrumpsMP.js": {
-    "mtime": 1785516682.5831947,
+    "mtime": 1785528243.2459853,
     "ast_hash": "8386dde502da6fc17143d5671a350ba7",
     "semantic_hash": ""
   },
@@ -2950,8 +2950,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785527689.155637,
-    "ast_hash": "87059d836ed8acb58b7102fd20e63a97",
+    "mtime": 1785528258.6373928,
+    "ast_hash": "04694e1cdeb4315beacf5ccb92faf8aa",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785527689.1546192,
-    "ast_hash": "41ba4d72b5fa33a0971c04ce89c32817",
+    "mtime": 1785528258.6373928,
+    "ast_hash": "ba634c817734bbed32b03a2274f987ed",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3715,8 +3715,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js": {
-    "mtime": 1785527737.0484862,
-    "ast_hash": "493b9578ea441400de784ac864864532",
+    "mtime": 1785528243.2474198,
+    "ast_hash": "f10b2e84c4ab7b32807c8e74c4fa71e2",
     "semantic_hash": ""
   }
 }

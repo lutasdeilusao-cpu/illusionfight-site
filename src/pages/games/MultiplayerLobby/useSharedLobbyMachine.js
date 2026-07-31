@@ -123,11 +123,10 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
     matchedRef.current = false
     console.log('[SHARED_LOBBY:FILA_ENTRANDO]', { gameId, modeId, userId })
     try {
-      const existingRoom = await buscarSalaPublicaAtivaDoJogador(userId, modeId)
-      const result = existingRoom ? null : normalizeMatchResult(await entrarFilaPublica(userId, modeId, 5))
-      const roomId = existingRoom?.id || result?.salaId || result?.sala_id
+      const result = normalizeMatchResult(await entrarFilaPublica(userId, modeId, 5))
+      const roomId = result?.salaId || result?.sala_id
       if (!roomId) throw new Error('queue_without_room')
-      console.log('[SHARED_LOBBY:FILA_CANONICA]', { gameId, modeId, userId, roomId, reused: Boolean(existingRoom), result })
+      console.log('[SHARED_LOBBY:FILA_CANONICA]', { gameId, modeId, userId, roomId, result })
       watchRoom(roomId)
     } catch (error) {
       console.error('[SHARED_LOBBY:ERRO]', { gameId, modeId, userId, error })

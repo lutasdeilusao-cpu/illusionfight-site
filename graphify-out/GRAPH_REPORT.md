@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 660 files · ~761,339 words
+- 660 files · ~761,326 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3057 nodes · 6342 edges · 263 communities (229 shown, 34 thin omitted)
+- 3057 nodes · 6342 edges · 265 communities (231 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b5d47aa0`
+- Built from commit: `f4dab48a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -69,6 +69,7 @@
 - Community 51
 - Community 52
 - Gacha.jsx
+- ArenaTaticsRoute.jsx
 - Community 55
 - Community 56
 - Community 57
@@ -94,10 +95,12 @@
 - Community 77
 - BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
 - Games.jsx
+- useSharedLobbyMachine.js
 - Community 81
 - Community 82
 - Community 83
 - endBattle
+- Quiz.jsx
 - Phase0Start.jsx
 - TeamSelect.jsx
 - Community 88
@@ -217,7 +220,6 @@
 - drawCombatBoard
 - PowerCard.jsx
 - Passeio.jsx
-- .stopHeartbeatLoop
 - Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -247,7 +249,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (263 total, 34 thin omitted)
+## Communities (265 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -258,20 +260,20 @@ Cohesion: 0.06
 Nodes (42): BattleLog(), Board(), Card(), CardPreviewModal(), Hand(), LPDisplay(), CARDS, getCardByNum() (+34 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.20
-Nodes (12): ALFABETO, BANCO, CONFIGS, filtrarPossíveis(), PuzzleForça(), shuffleArray(), COLORS, COR_NOME (+4 more)
+Cohesion: 0.17
+Nodes (17): CRIATURAS, calcularFase(), PERSONALIDADES, Alimentar(), Loja(), Ovo(), Partida(), TIPO_PARA_KEY (+9 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.04
-Nodes (70): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+62 more)
+Nodes (62): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+54 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.16
 Nodes (15): BADGES, DIX_BOAS_VINDAS, TEXTOS_PARTIDA, BARRA_PARA_CAMPO, BASE_DECAY, calcBarra(), calcEstado(), defaultState (+7 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.17
-Nodes (17): CRIATURAS, calcularFase(), PERSONALIDADES, Alimentar(), Loja(), Ovo(), Partida(), TIPO_PARA_KEY (+9 more)
+Cohesion: 0.13
+Nodes (18): getTelefonema(), TELEFONEMA_PADRAO, TELEFONEMA_POR_CASO, AnimacaoInvestigacao(), AVATARES, BatalhaView(), ConvoView(), getInimigo() (+10 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.06
@@ -290,8 +292,8 @@ Cohesion: 0.06
 Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculista de Zylvaron, #35 — Ferro Vivo — Construto, #36 — Kimura — O Espelho, #37 — Doru — Trovão do Continente, #39 — Mako — Das Profundezas, #40 — Kei — Sombra Dupla, #42 — Tairo — Mestre do Solo (+25 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.08
-Nodes (38): GuestNotice(), LoginGate(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, AchievementsContext (+30 more)
+Cohesion: 0.09
+Nodes (32): GuestNotice(), TrialBanner(), ADMIN_EMAILS, AchievementsContext, AchievementsProvider(), AuthContext, AuthProvider(), useAuth() (+24 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.07
@@ -318,12 +320,12 @@ Cohesion: 0.07
 Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.15
-Nodes (19): carregarDeck(), cardModules, TOP_TRUMPS_CARD_IMAGES, ATTR_KEYS, CardViewerModal(), DECK_CONFIG, DECK_LABELS, DeckBuilder() (+11 more)
+Cohesion: 0.14
+Nodes (21): carregarDeck(), DECKS, getDeck(), cardModules, TOP_TRUMPS_CARD_IMAGES, ATTR_KEYS, CardViewerModal(), DECK_CONFIG (+13 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.14
-Nodes (22): BookChaptersRow(), capaMap, formatarData(), estaDisponivel(), useAchievements(), useEventos(), useReadingCompletionGate(), formatarData() (+14 more)
+Cohesion: 0.19
+Nodes (16): BookChaptersRow(), capaMap, formatarData(), estaDisponivel(), useAchievements(), useEventos(), useReadingCompletionGate(), formatarData() (+8 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.07
@@ -334,8 +336,8 @@ Cohesion: 0.13
 Nodes (18): ATTR_LABELS, CharacterSheetView(), WEAPON_NAMES, CombatView(), FRASES_INIMIGO, MODE_ICONS, MODE_LABELS, DiceRollDisplay() (+10 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.17
-Nodes (15): escolherPPT(), registrarMovimento(), subscribeToMatchPresence(), subscribeToMovimentos(), getTopTrumpsCardImage(), GameOverScreen(), initialState, reduce() (+7 more)
+Cohesion: 0.20
+Nodes (11): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray(), CONFIGS, gerarAlvo(), PuzzleDecoder() (+3 more)
 
 ### Community 24 - "Community 24"
 Cohesion: 0.14
@@ -346,32 +348,32 @@ Cohesion: 0.16
 Nodes (12): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+4 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.24
-Nodes (29): applyMagicEffect(), castMagicArea(), castMagicResolved(), clearMagicQueue(), DAMAGE_TIERS, damageSpellAvailable(), damageSpellCost(), defendAction() (+21 more)
+Cohesion: 0.22
+Nodes (35): aiAct(), applyMagicEffect(), castMagicArea(), castMagicResolved(), checkBattleEnd(), clearMagicQueue(), DAMAGE_TIERS, damageSpellAvailable() (+27 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.16
 Nodes (23): atualizarMPStats(), atualizarSala(), buscarSala(), buscarSalaPublicaAtivaDoJogador(), carregarMPStats(), codigoSala(), confirmarAposta(), criarSala() (+15 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.21
-Nodes (10): registrarPartida(), registrarPontuacaoRanking(), usePresence(), DECKS, getDeck(), ONOMATOPEIAS, useGameEffects(), useTopTrumpsSP() (+2 more)
+Cohesion: 0.22
+Nodes (9): registrarPartida(), registrarPontuacaoRanking(), usePresence(), GameOverScreen(), ONOMATOPEIAS, useGameEffects(), useTopTrumpsSP(), TopTrumpsSP() (+1 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.14
-Nodes (14): OnomaPopup(), PowerReveal(), PP, t(), applyDisease(), ARROWS, DISEASE_STAGES, getEffectiveMaxHP() (+6 more)
+Cohesion: 0.12
+Nodes (19): OnomaPopup(), PowerReveal(), PP, t(), aliveEnemySide(), alivePlayerSide(), ARROWS, cancelTargeting() (+11 more)
 
 ### Community 30 - "PerfilColecao.jsx"
 Cohesion: 0.17
 Nodes (15): carregarTentativas(), consumirTentativa(), marcarCartaGanha(), salvarCartasDeck(), substituirDeck(), verificarCartaGanhaHoje(), canAcquireTopTrumpsCard(), filterTopTrumpsCardPool() (+7 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.19
-Nodes (24): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+16 more)
+Cohesion: 0.18
+Nodes (25): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+17 more)
 
 ### Community 32 - "initBattle"
-Cohesion: 0.26
-Nodes (13): aiAct(), aliveEnemySide(), alivePlayerSide(), checkBattleEnd(), endBattle(), getAreaTargets(), hasEffect(), processTurn() (+5 more)
+Cohesion: 0.20
+Nodes (14): escolherPPT(), registrarMovimento(), subscribeToMatchPresence(), subscribeToMovimentos(), getTopTrumpsCardImage(), initialState, reduce(), useMultiplayerTurnMachine() (+6 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.10
@@ -393,13 +395,17 @@ Nodes (14): execute(), ONOMATOPEIAS, execute(), ONOMATOPEIAS, execute(), ONOMATO
 Cohesion: 0.05
 Nodes (36): 10. Testes necessários por etapa, 11. Riscos e mitigação, 12. Arquivos que devem permanecer funcionalmente estáveis, 13. Avaliação de tamanho e extração, 14. Ordem recomendada, 15. Resultado esperado, 1. Objetivo, 2. Diagnóstico da implementação atual (+28 more)
 
+### Community 38 - "framer-motion"
+Cohesion: 0.24
+Nodes (10): CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, Banhar(), getCtx() (+2 more)
+
 ### Community 39 - "useMultiplayerTurnMachine.js"
 Cohesion: 0.08
 Nodes (37): App(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, ReaderProvider(), useReader(), DueloRoute(), JackCandy() (+29 more)
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
-Cohesion: 0.19
-Nodes (14): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Token(), EfeitoTag(), STATUS_ICONS_MAP, StatusBadges() (+6 more)
+Cohesion: 0.14
+Nodes (24): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Token(), EfeitoTag(), STATUS_ICONS_MAP, StatusBadges() (+16 more)
 
 ### Community 41 - "deterministicDeck.js"
 Cohesion: 0.21
@@ -414,8 +420,8 @@ Cohesion: 0.16
 Nodes (12): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, BurstParticles(), CurtainReveal(), FireParticles(), GameScreen() (+4 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.24
-Nodes (10): CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, Banhar(), getCtx() (+2 more)
+Cohesion: 0.20
+Nodes (12): ALFABETO, BANCO, CONFIGS, filtrarPossíveis(), PuzzleForça(), shuffleArray(), COLORS, COR_NOME (+4 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.10
@@ -446,8 +452,12 @@ Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
 
 ### Community 53 - "Gacha.jsx"
-Cohesion: 0.11
-Nodes (33): DanoPopup(), Grid(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), sortearIAs(), aplicarStatus() (+25 more)
+Cohesion: 0.12
+Nodes (23): DanoPopup(), Grid(), STATUS_ICONS, StatusBar(), TurnoIndicator(), resolverAcaoIA(), aplicarStatus(), FX_INFO (+15 more)
+
+### Community 54 - "ArenaTaticsRoute.jsx"
+Cohesion: 0.22
+Nodes (8): BackToGamesBtn(), Intro(), LINES_EN, LINES_ES, LINES_PT, formatTempo(), GAMES, STEALTH_CONFIG
 
 ### Community 55 - "Community 55"
 Cohesion: 0.19
@@ -459,11 +469,11 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.07
-Nodes (43): AchievementToast(), CharacterCard(), CharactersRow(), CookieBanner(), LatestEpisodes(), thumbMap, allImages, MusicCircle() (+35 more)
+Cohesion: 0.06
+Nodes (48): AchievementToast(), CharacterCard(), CharactersRow(), CookieBanner(), LatestEpisodes(), thumbMap, allImages, MusicCircle() (+40 more)
 
 ### Community 59 - "Community 59"
 Cohesion: 0.15
@@ -502,8 +512,8 @@ Cohesion: 0.17
 Nodes (23): DIRECOES, getLineInDirection(), getPersonagensNaLinha(), PowerLinePreview(), acaoFujona(), avancarUmaCasa(), celulaMaisDistante(), inimigoMaisFracoEmAlcance() (+15 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.13
-Nodes (18): getTelefonema(), TELEFONEMA_PADRAO, TELEFONEMA_POR_CASO, AnimacaoInvestigacao(), AVATARES, BatalhaView(), ConvoView(), getInimigo() (+10 more)
+Cohesion: 0.33
+Nodes (6): CooldownTimer(), getFala(), Brincadeira(), getConfig(), PUZZLES, Luto()
 
 ### Community 69 - "Community 69"
 Cohesion: 0.12
@@ -526,8 +536,8 @@ Cohesion: 0.12
 Nodes (16): 🏆 BADGES (Medalhas), 🍖 COMO ALIMENTAR O KRONIKI, 🎭 COMO BRINCAR COM O KRONIKI, 🎮 COMO CHEGAR NO TAMAGOSHI, 🧼 COMO DAR BANHO NO KRONIKI, ⚡ COMO PASSEAR COM O KRONIKI, ❤️ COMO RESTAURAR A SAÚDE DO KRONIKI, 🏪 COMO USAR A LOJA (+8 more)
 
 ### Community 74 - "SimulacaoAuto.jsx"
-Cohesion: 0.22
-Nodes (8): BackToGamesBtn(), Intro(), LINES_EN, LINES_ES, LINES_PT, formatTempo(), GAMES, STEALTH_CONFIG
+Cohesion: 0.28
+Nodes (9): applyDisease(), clearLog(), DISEASE_STAGES, getEffectiveMaxHP(), initBattle(), pickRandomEnemies(), processDiseaseProgression(), restartBattle() (+1 more)
 
 ### Community 75 - "Community 75"
 Cohesion: 0.12
@@ -549,6 +559,10 @@ Nodes (10): dentroDoLosango(), drawChar(), ELEM_CORES, elemCor(), encontrarTile(
 Cohesion: 0.38
 Nodes (6): Create(), ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
 
+### Community 80 - "useSharedLobbyMachine.js"
+Cohesion: 0.38
+Nodes (6): ACOES, gerarBolhas(), gerarParticulas(), ITEM_EMOJI, ITENS_SAUDE, RestaurarSaude()
+
 ### Community 81 - "Community 81"
 Cohesion: 0.29
 Nodes (7): scripts, build, deploy, dev, migration, predeploy, preview
@@ -564,6 +578,10 @@ Nodes (14): Combat Mode: Silent Synchrony, Conflict Pattern: Triangle, Default S
 ### Community 84 - "endBattle"
 Cohesion: 0.15
 Nodes (4): platformIconMap, allImages, Musicas(), shuffleArray()
+
+### Community 85 - "Quiz.jsx"
+Cohesion: 0.36
+Nodes (7): LoginGate(), calcularRank(), embaralhar(), gerarDicaGangue(), MODOS, Quiz(), selecionarPerguntas()
 
 ### Community 86 - "Phase0Start.jsx"
 Cohesion: 0.42
@@ -642,8 +660,8 @@ Cohesion: 0.17
 Nodes (10): AttackAnimId, RangeAnimId, execute(), execute(), execute(), DefenseAnimId, getDefenseAnimation(), REGISTRY (+2 more)
 
 ### Community 116 - "Community 116"
-Cohesion: 0.20
-Nodes (11): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray(), CONFIGS, gerarAlvo(), PuzzleDecoder() (+3 more)
+Cohesion: 0.47
+Nodes (3): BalloonFala(), MetricBar(), Criatura()
 
 ### Community 126 - "index.js"
 Cohesion: 0.27
@@ -778,8 +796,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.17
-Nodes (11): BLOCO C — STEAM, BLOCO D — TRENDS MAP, BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS (+3 more)
+Cohesion: 0.25
+Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -877,10 +895,6 @@ Nodes (4): 7. TRÁFEGO PAGO — HISTÓRICO, Campanha 1 — TikTok Ads (VID-001),
 Cohesion: 0.24
 Nodes (4): calcAtkWithTerrain(), calcDefWithTerrain(), eq(), getTerrainMods()
 
-### Community 214 - "resolveDamageSpellWithEffect"
-Cohesion: 0.33
-Nodes (6): CooldownTimer(), getFala(), Brincadeira(), getConfig(), PUZZLES, Luto()
-
 ### Community 215 - "E3. LISTAS NO BREVO"
 Cohesion: 0.50
 Nodes (4): E3. LISTAS NO BREVO, ESTRELAS (#10) — 794 contatos, PR-BR (#7) — 844 contatos, PR-INT (#9) — 3.635 contatos
@@ -921,13 +935,9 @@ Nodes (3): ELEM_ICON, PowerCard(), PowerDescription()
 Cohesion: 0.12
 Nodes (23): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, PowerChoiceModal(), ELEMENTOS, PowerFilterBar(), PowerGrid() (+15 more)
 
-### Community 264 - ".stopHeartbeatLoop"
-Cohesion: 0.38
-Nodes (6): ACOES, gerarBolhas(), gerarParticulas(), ITEM_EMOJI, ITENS_SAUDE, RestaurarSaude()
-
 ### Community 267 - "Criatura.jsx"
-Cohesion: 0.47
-Nodes (3): BalloonFala(), MetricBar(), Criatura()
+Cohesion: 0.50
+Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
 
 ## Knowledge Gaps
 - **1078 isolated node(s):** `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES`, `name`, `private` (+1073 more)
@@ -937,11 +947,11 @@ Nodes (3): BalloonFala(), MetricBar(), Criatura()
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `.stopHeartbeatLoop`, `Criatura.jsx`, `Community 12`, `Passeio.jsx`, `Community 10`, `Community 15`, `Community 14`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `Community 33`, `TopTrumpsMP.jsx`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Gacha.jsx`, `Community 59`, `ResultScreen.jsx`, `Community 62`, `getLineInDirection.js`, `Community 68`, `SimulacaoAuto.jsx`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `endBattle`, `resolveDamageSpellWithEffect`, `Phase0Start.jsx`, `Batalha.jsx`, `Community 116`?**
+- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `ResultScreen.jsx`, `Community 62`, `getLineInDirection.js`, `Community 68`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `useSharedLobbyMachine.js`, `endBattle`, `Quiz.jsx`, `Phase0Start.jsx`, `Batalha.jsx`, `Community 116`?**
   _High betweenness centrality (0.139) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 68`, `Community 7`, `Community 8`, `Passeio.jsx`, `SimulacaoAuto.jsx`, `Community 49`, `Community 20`, `Community 21`, `Community 23`, `Community 27`, `Community 28`?**
+- **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 2`, `initBattle`, `Community 7`, `Community 8`, `Passeio.jsx`, `Community 49`, `Community 20`, `Community 21`, `ArenaTaticsRoute.jsx`, `Community 27`, `Community 28`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `SFX` connect `Community 6` to `TopTrumpsMP.jsx`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 28`?**
+- **Why does `SFX` connect `Community 6` to `initBattle`, `TopTrumpsMP.jsx`, `Community 17`, `Community 19`, `Community 21`, `Community 28`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **What connects `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES` to the rest of the system?**
   _1078 weakly-connected nodes found - possible documentation gaps or missing edges._
@@ -950,4 +960,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.05594679186228482 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.041544952937358 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04346076458752515 - nodes in this community are weakly interconnected._
