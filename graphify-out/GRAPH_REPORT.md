@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 657 files · ~759,439 words
+- 657 files · ~759,548 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8b0bfb4a`
+- Built from commit: `fc71121d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -59,6 +59,7 @@
 - PuzzleStealthGrid.jsx
 - Community 42
 - Community 43
+- deterministicDeck.js
 - Community 45
 - Community 46
 - Community 48
@@ -210,7 +211,6 @@
 - cardPool.js
 - BLOCO B — LINKEDIN PESSOAL ISAIAS
 - Passeio.jsx
-- framer-motion
 - Create
 
 ## God Nodes (most connected - your core abstractions)
@@ -456,7 +456,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.15
