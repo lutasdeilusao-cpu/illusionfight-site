@@ -2692,6 +2692,27 @@
     "footer": "This page is updated when costs change.",
     "cta": "See plans"
   },
+  "multiplayer_lobby": {
+    "kicker": "SHARED INFRASTRUCTURE",
+    "title": "Multiplayer Lobby",
+    "description": "Isolated route for validating the shared queue before connecting it to any game.",
+    "game": "Game",
+    "mode": "Mode",
+    "rules_version": "Rules version",
+    "queue_identity": "Unique queue identity",
+    "queue_explanation": "Only players with these three identical values can be matched.",
+    "search": "FIND MATCH",
+    "searching": "SEARCHING FOR OPPONENT",
+    "searching_key": "Active queue: {key}",
+    "cancel": "CANCEL SEARCH",
+    "match_ready": "MATCH FOUND",
+    "room_created": "Simulated room: {room}",
+    "integration_pending": "Database and game integration will be added in the next stage.",
+    "test_again": "TEST AGAIN",
+    "back": "BACK TO GAMES",
+    "games": { "toptrumps": "Top Trumps", "duelo": "Duelo LDI" },
+    "modes": { "standard": "Standard", "ranked": "Ranked" }
+  },
   "prototype": {
     "title": "Prototype",
     "login_required": "Log in with an admin account to access.",

@@ -32,6 +32,7 @@ import MiniGames from './pages/games/MiniGames/MiniGames'
 import TopTrumpsSP from './pages/games/TopTrumps/TopTrumpsSP'
 import TopTrumpsLobby from './pages/games/TopTrumps/TopTrumpsLobby'
 import TopTrumpsMP from './pages/games/TopTrumps/TopTrumpsMP'
+import MultiplayerLobby from './pages/games/MultiplayerLobby/MultiplayerLobby'
 import Leaderboard from './pages/platform/Leaderboard'
 import Login from './pages/platform/Login'
 import Cadastro from './pages/platform/Cadastro'
@@ -101,6 +102,7 @@ export default function App() {
         <Route path="/games/toptrumps" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o Top Trumps Multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsLobby /></FichaGateRoute>} />
         <Route path="/games/toptrumps/multiplayer" element={<FichaGateRoute gameId="top_trumps" feature="a partida multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsMP /></FichaGateRoute>} />
+        <Route path="/games/multiplayer/lobby" element={<MultiplayerLobby />} />
         <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />
         <Route path="/games/ldi/create" element={<FichaGateRoute gameId="lendas_ldi" feature="a criação de personagem LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDICreate /></FichaGateRoute>} />
         <Route path="/games/ldi/game" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIGame /></FichaGateRoute>} />

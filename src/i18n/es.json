@@ -2691,6 +2691,27 @@
     "footer": "Esta página se actualiza cuando los costos cambian.",
     "cta": "Ver planes"
   },
+  "multiplayer_lobby": {
+    "kicker": "INFRAESTRUCTURA COMPARTIDA",
+    "title": "Lobby Multijugador",
+    "description": "Ruta aislada para validar la cola compartida antes de conectarla a cualquier juego.",
+    "game": "Juego",
+    "mode": "Modo",
+    "rules_version": "Versión de reglas",
+    "queue_identity": "Identidad única de la cola",
+    "queue_explanation": "Solo jugadores con estos tres valores idénticos pueden encontrarse.",
+    "search": "BUSCAR PARTIDA",
+    "searching": "BUSCANDO OPONENTE",
+    "searching_key": "Cola activa: {key}",
+    "cancel": "CANCELAR BÚSQUEDA",
+    "match_ready": "PARTIDA ENCONTRADA",
+    "room_created": "Sala simulada: {room}",
+    "integration_pending": "La integración con la base de datos y los juegos se hará en la próxima etapa.",
+    "test_again": "PROBAR DE NUEVO",
+    "back": "VOLVER A JUEGOS",
+    "games": { "toptrumps": "Top Trumps", "duelo": "Duelo LDI" },
+    "modes": { "standard": "Estándar", "ranked": "Clasificado" }
+  },
   "prototype": {
     "title": "Prototipo",
     "login_required": "Inicia sesión con una cuenta admin para acceder.",

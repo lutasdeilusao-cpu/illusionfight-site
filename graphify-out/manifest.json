@@ -205,8 +205,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1785173687.4345105,
-    "ast_hash": "7e61045bc768bbc2c8885ddda79ff797",
+    "mtime": 1785521316.6140738,
+    "ast_hash": "d6ca4a2194fa6b36be24d28f0e47ca3e",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785517475.8733258,
-    "ast_hash": "5a5393b1a0a1ff7fd0bf4b3b80c26f5b",
+    "mtime": 1785521208.9293718,
+    "ast_hash": "3b3d990087e4d06f0a1f0d2c11256be8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -710,14 +710,14 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1783196492.4390643,
-    "ast_hash": "7684974fe50dd9f4a652f3a1ffb8c5d6",
-    "semantic_hash": "7684974fe50dd9f4a652f3a1ffb8c5d6"
+    "mtime": 1785521316.6183991,
+    "ast_hash": "787fabb68b6463584a766b41f535fb37",
+    "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1783196495.3627298,
-    "ast_hash": "2ccefcd883c9d00cf19131204f5abb28",
-    "semantic_hash": "2ccefcd883c9d00cf19131204f5abb28"
+    "mtime": 1785521316.6237924,
+    "ast_hash": "6823fa82d1d48c80e43a4ec1329e4777",
+    "semantic_hash": ""
   },
   "src/i18n/locales.js": {
     "mtime": 1782492971.3881211,
@@ -740,9 +740,9 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1783196489.7838612,
-    "ast_hash": "9282932b2a6c36b3a2ae196d98b0e313",
-    "semantic_hash": "9282932b2a6c36b3a2ae196d98b0e313"
+    "mtime": 1785521316.6156898,
+    "ast_hash": "50a4279afc0258a78695bb988fb17879",
+    "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
     "mtime": 1785514057.3354993,
@@ -2950,8 +2950,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785516706.3968766,
-    "ast_hash": "2e2715f14a6f2535db5d5aae4d97fb3a",
+    "mtime": 1785521329.1030703,
+    "ast_hash": "feac9bb1d88608e8905288d3e4376883",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785517475.8739471,
-    "ast_hash": "43dec6d391c0dd2bdae5896d5c439d64",
+    "mtime": 1785521208.9320955,
+    "ast_hash": "e1520c4362ebbb48126da0c979ff97c3",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3707,6 +3707,16 @@
   "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js": {
     "mtime": 1785515178.9973502,
     "ast_hash": "8f78eaf3ced3e003a45f48753440af72",
+    "semantic_hash": ""
+  },
+  "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx": {
+    "mtime": 1785521271.541,
+    "ast_hash": "ebace7259819b5f43093b1390334aa7e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js": {
+    "mtime": 1785521271.5384877,
+    "ast_hash": "d43ae99bdd9ab853bec567bd23a41346",
     "semantic_hash": ""
   }
 }

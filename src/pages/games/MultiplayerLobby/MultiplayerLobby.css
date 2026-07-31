@@ -1,0 +1,76 @@
+.shared-lobby-page {
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 14px;
+  color: #eef7ff;
+  background: radial-gradient(circle at top, #172843 0, #080d18 48%, #03060c 100%);
+  font-family: 'Ethnocentric', sans-serif;
+}
+
+.shared-lobby-header { text-align: center; }
+.shared-lobby-kicker { color: #4fe1bb; font-size: .66rem; letter-spacing: .18em; }
+.shared-lobby-header h1 { margin: 10px 0; font-size: 1.45rem; }
+.shared-lobby-header p { margin: 0 auto 22px; color: #9fb0c8; font: .78rem/1.6 Arial, sans-serif; }
+
+.shared-lobby-panel {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #284563;
+  border-radius: 16px;
+  background: rgba(4, 12, 24, .88);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .38);
+}
+
+.shared-lobby-field { display: grid; gap: 7px; }
+.shared-lobby-field label { color: #8ba0bb; font-size: .62rem; letter-spacing: .1em; }
+.shared-lobby-field select,
+.shared-lobby-field input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #365572;
+  border-radius: 8px;
+  color: #fff;
+  background: #0b1726;
+  font: .82rem Arial, sans-serif;
+}
+.shared-lobby-field select:disabled,
+.shared-lobby-field input:disabled { opacity: .55; }
+
+.shared-lobby-queue {
+  padding: 13px;
+  border: 1px solid rgba(79, 225, 187, .25);
+  border-radius: 10px;
+  background: rgba(79, 225, 187, .06);
+}
+.shared-lobby-queue span { display: block; color: #83a2bd; font-size: .58rem; }
+.shared-lobby-queue code { display: block; margin: 8px 0; color: #4fe1bb; overflow-wrap: anywhere; }
+.shared-lobby-queue p,
+.shared-lobby-status p { margin: 5px 0; color: #9fb0c8; font: .75rem/1.5 Arial, sans-serif; }
+
+.shared-lobby-primary,
+.shared-lobby-secondary,
+.shared-lobby-back {
+  min-height: 46px;
+  border-radius: 8px;
+  font: 700 .72rem 'Ethnocentric', sans-serif;
+  cursor: pointer;
+}
+.shared-lobby-primary { border: 0; color: #04110e; background: #4fe1bb; }
+.shared-lobby-secondary { border: 1px solid #49627c; color: #d8e8f6; background: transparent; }
+.shared-lobby-back { width: 100%; margin-top: 14px; border: 0; color: #92a9c0; background: transparent; }
+
+.shared-lobby-status { display: grid; gap: 10px; text-align: center; }
+.shared-lobby-status--ready { color: #4fe1bb; }
+.shared-lobby-spinner {
+  width: 34px;
+  height: 34px;
+  margin: 4px auto;
+  border: 3px solid #1b3348;
+  border-top-color: #4fe1bb;
+  border-radius: 50%;
+  animation: shared-lobby-spin .8s linear infinite;
+}
+
+@keyframes shared-lobby-spin { to { transform: rotate(360deg); } }

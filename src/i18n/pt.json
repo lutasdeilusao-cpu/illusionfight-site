@@ -2718,6 +2718,27 @@
     "footer": "Esta página é atualizada quando os custos mudam.",
     "cta": "Ver planos"
   },
+  "multiplayer_lobby": {
+    "kicker": "INFRAESTRUTURA COMPARTILHADA",
+    "title": "Lobby Multiplayer",
+    "description": "Rota isolada para validar a fila compartilhada antes de conectá-la a qualquer jogo.",
+    "game": "Jogo",
+    "mode": "Modo",
+    "rules_version": "Versão das regras",
+    "queue_identity": "Identidade exclusiva da fila",
+    "queue_explanation": "Somente jogadores com estes três valores idênticos podem se encontrar.",
+    "search": "PROCURAR PARTIDA",
+    "searching": "PROCURANDO ADVERSÁRIO",
+    "searching_key": "Fila ativa: {key}",
+    "cancel": "CANCELAR BUSCA",
+    "match_ready": "PARTIDA ENCONTRADA",
+    "room_created": "Sala simulada: {room}",
+    "integration_pending": "A integração com banco e jogos será feita na próxima etapa.",
+    "test_again": "TESTAR NOVAMENTE",
+    "back": "VOLTAR AOS JOGOS",
+    "games": { "toptrumps": "Top Trumps", "duelo": "Duelo LDI" },
+    "modes": { "standard": "Padrão", "ranked": "Ranqueado" }
+  },
   "prototype": {
     "title": "Protótipo",
     "login_required": "Faça login com uma conta admin para acessar.",
