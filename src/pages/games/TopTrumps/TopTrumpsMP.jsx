@@ -779,7 +779,7 @@ export default function TopTrumpsMP() {
     if (fase !== 'carregando' || !salaId) return
     const timer = setTimeout(async () => {
       await supabase.from('toptrumps_salas').delete().eq('id', salaId)
-      navigate('/games/toptrumps/lobby', {
+      navigate('/games/multiplayer/lobby?game=toptrumps&mode=free', {
         state: { mensagem: tt('sem_oponente') }
       })
     }, 120000)

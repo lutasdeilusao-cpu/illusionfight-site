@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Navigate, Routes, Route } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
 import TrialBanner from './components/TrialBanner'
@@ -30,7 +30,6 @@ import Quiz from './pages/site/Quiz'
 import Games from './pages/games/Games'
 import MiniGames from './pages/games/MiniGames/MiniGames'
 import TopTrumpsSP from './pages/games/TopTrumps/TopTrumpsSP'
-import TopTrumpsLobby from './pages/games/TopTrumps/TopTrumpsLobby'
 import TopTrumpsMP from './pages/games/TopTrumps/TopTrumpsMP'
 import MultiplayerLobby from './pages/games/MultiplayerLobby/MultiplayerLobby'
 import Leaderboard from './pages/platform/Leaderboard'
@@ -100,7 +99,7 @@ export default function App() {
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps" element={<TopTrumpsSP />} />
-        <Route path="/games/toptrumps/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o Top Trumps Multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsLobby /></FichaGateRoute>} />
+        <Route path="/games/toptrumps/lobby" element={<Navigate to="/games/multiplayer/lobby?game=toptrumps&mode=free" replace />} />
         <Route path="/games/toptrumps/multiplayer" element={<FichaGateRoute gameId="top_trumps" feature="a partida multiplayer" nomeExibicao="Top Trumps LDI"><TopTrumpsMP /></FichaGateRoute>} />
         <Route path="/games/multiplayer/lobby" element={<FichaGateRoute gameId="top_trumps" feature="o lobby multiplayer" nomeExibicao="Top Trumps LDI"><MultiplayerLobby /></FichaGateRoute>} />
         <Route path="/games/ldi" element={<FichaGateRoute gameId="lendas_ldi" feature="o Lendas do LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDILobby /></FichaGateRoute>} />

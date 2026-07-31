@@ -257,8 +257,6 @@
     │   │   ├── Tamagoshi/               # TAMA LDI
     │   │   └── TopTrumps/               # Top Trumps card game
     │   │       ├── TopTrumpsSP.jsx       # Single-player oficial
-    │   │       ├── TopTrumpsLobby.jsx
-    │   │       ├── TopTrumpsLobby.css
     │   │       ├── TopTrumpsMP.jsx
     │   │       ├── TopTrumpsMP.css
     │   │       ├── components/           # Pasta por componente + CSS co-localizado
@@ -508,11 +506,11 @@
 > **📌 OBS:** Todas as 36 músicas oficiais do Isaias Leal estão lançadas na página `/musicas` com shuffle automático ao carregar. **Todas as thumbs oficiais criadas** — atualmente todas usam a capa de "Lutas de Ilusão" como placeholder até serem criadas as artes individuais.
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
-| `/games/multiplayer/lobby` | MultiplayerLobby | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | ✅ v4 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Delega entrada à RPC oficial do Top Trumps sem reutilizar sala antiga no cliente |
+| `/games/multiplayer/lobby` | MultiplayerLobby | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | ✅ v5 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Entrada multiplayer oficial compartilhada; cada jogo fornece seu adaptador de fila |
 | `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial; pools 1–15 guest, 1–20 Free, 21–23 Elite, 24–26 Primordial e 27–30 Evento |
 | `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.0 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
-| `/games/toptrumps/lobby` | TopTrumpsLobby | `src/pages/games/TopTrumps/TopTrumpsLobby.jsx` | — | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Lobby multiplayer com matchmaking |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.13.6 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Multiplayer funcional; conciliação protege cada rodada por 2s antes dos 30s de escolha |
+| `/games/toptrumps/lobby` | Redirect legado | `src/App.jsx` | — | ↪️ | — | Redireciona links antigos ao lobby compartilhado oficial com adaptador Top Trumps |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.13.7 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Partida específica; entrada e reconexão passam pelo lobby compartilhado oficial |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
 | `/games/ldi/create` | LDICreate | `src/pages/games/LDI/Create.jsx` | ✅ v2.67 | ✅ | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
 | `/games/ldi/game` | LDIGame | `src/pages/games/LDI/Game.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
@@ -549,7 +547,7 @@
 | `*` (catch-all) | NotFound | `src/pages/site/NotFound/NotFound.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | 404 com contador 5s + redirect automático p/ home + noindex |
 
 > **📌 SE0 e Indexação:**
-> - **Sitemap público** (`public/sitemap.xml`) contém **18 URLs** — as páginas públicas listadas acima. Rotas privadas (`/login`, `/cadastro`, `/perfil`, `/admin`, `/assinar`, `/custos`, `/prototype`) e multiplayer (`/games/toptrumps/lobby`, `/games/toptrumps/multiplayer`) **não estão no sitemap**.
+> - **Sitemap público** (`public/sitemap.xml`) contém **18 URLs** — as páginas públicas listadas acima. Rotas privadas (`/login`, `/cadastro`, `/perfil`, `/admin`, `/assinar`, `/custos`, `/prototype`) e multiplayer (`/games/multiplayer/lobby`, `/games/toptrumps/multiplayer`) **não estão no sitemap**.
 > - **`robots.txt`** existe e aponta para `https://illusionfight.com/sitemap.xml`.
 > - **`_redirects`** agora cobre também as subpáginas de games (17 regras no total, todas 301).
 > - **Páginas estáticas criadas:** `public/autor/index.html` e `public/games/toptrumps/index.html` para eliminar 404.**.
@@ -557,7 +555,7 @@
 > - **15 arquivos HTML estáticos** em `public/*/index.html` são servidos pelo GitHub Pages para crawlers que não executam JS — cada um com `<meta http-equiv="refresh">` redirecionando para a SPA real + `<title>` e `<meta description>` específicos.
 > - **`public/_redirects`** — 10 regras de trailing slash (301) para rotas sem barra → com barra.
 > - **`index.html` raiz** — JSON-LD schema.org/WebSite, meta tags sem "brasileiro" ou "autor".
-> - **Rotas protegidas por autenticação** (`🔒` na tabela acima) usam `<FichaGateRoute>` para verificar login + fichas antes de liberar o jogo. `/games/toptrumps/lobby` e `/games/toptrumps/multiplayer` exigem conta.
+> - **Rotas protegidas por autenticação** (`🔒` na tabela acima) usam `<FichaGateRoute>` para verificar login + fichas antes de liberar o jogo. `/games/multiplayer/lobby` aplica o gate do adaptador atualmente integrado (Top Trumps), e a partida `/games/toptrumps/multiplayer` exige conta.
 
 ---
 
@@ -567,7 +565,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.74** | Barreira inicial de cada rodada multiplayer reduzida de 5s para 2s |
+| `SITE_VERSION` | **10.192.75** | Lobby compartilhado torna-se a entrada multiplayer oficial |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -578,7 +576,7 @@
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
 | `TS_VERSION` | **5.45.0** | Top Trumps — pools numéricos por tier restaurados |
-| `TM_VERSION` | **5.13.6** | Top Trumps MP — mantém conciliação com espera reduzida para 2 segundos |
+| `TM_VERSION` | **5.13.7** | Top Trumps MP — lobby antigo removido e menu ligado ao lobby compartilhado |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.1** | correção de encoding em comentário e chevrons |

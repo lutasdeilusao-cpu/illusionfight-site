@@ -205,8 +205,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1785527629.2700918,
-    "ast_hash": "a75e4aecb284df825dcffa579a367363",
+    "mtime": 1785529593.0335498,
+    "ast_hash": "0a75e7dfa8947b58adaa743e071975fa",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785528569.9708145,
-    "ast_hash": "a75d71358ccae70ad4bc95a7837e2c74",
+    "mtime": 1785529564.0489988,
+    "ast_hash": "6b690b1e60345e4a6868249b418e8c35",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2054,14 +2054,9 @@
     "ast_hash": "530861f6f6eee2df5780ba1cbf7e2a0c",
     "semantic_hash": "530861f6f6eee2df5780ba1cbf7e2a0c"
   },
-  "src/pages/games/TopTrumps/TopTrumpsLobby.jsx": {
-    "mtime": 1785441246.0300033,
-    "ast_hash": "88d070400e030910d621640a9e02bbc7",
-    "semantic_hash": ""
-  },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
-    "mtime": 1785528569.9723206,
-    "ast_hash": "157d04f12a6726dd9189a39ba1b67cb0",
+    "mtime": 1785529593.0370083,
+    "ast_hash": "264d8102f967aef4f836841779af5710",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
@@ -2950,8 +2945,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785528569.9738317,
-    "ast_hash": "dc0350cc0dea8716c9fb8115bdc41cfd",
+    "mtime": 1785529593.0415409,
+    "ast_hash": "228ff68363a88b597b1f0b5148b90036",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2985,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785528569.9733264,
-    "ast_hash": "8a4ce3484631a13c56aaacd53a5caae9",
+    "mtime": 1785529624.5994017,
+    "ast_hash": "4aeece80e97da406a029dc07a5c5d636",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3645,8 +3640,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/MenuScreen/MenuScreen.jsx": {
-    "mtime": 1785172596.3046117,
-    "ast_hash": "f6e19e7ecc1ff1d8dd2deb4fb09bd139",
+    "mtime": 1785529593.0349913,
+    "ast_hash": "1f2c406ea57a5757b7d838b29654eadb",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/ResultScreen/ResultScreen.jsx": {

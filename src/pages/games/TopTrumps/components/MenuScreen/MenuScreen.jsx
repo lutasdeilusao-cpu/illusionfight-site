@@ -47,7 +47,7 @@ export default function MenuScreen({
                 <h3 className="tt-modo-titulo">{tt('menu_single_player')}</h3><p className="tt-modo-desc">{tt('menu_single_desc')}</p>
               </div>
               {user ? (
-                <Link to="/games/toptrumps/lobby" className="tt-modo-card">
+                <Link to="/games/multiplayer/lobby?game=toptrumps&mode=free" className="tt-modo-card">
                   <h3 className="tt-modo-titulo">{tt('menu_multiplayer')}</h3><p className="tt-modo-desc">{tt('menu_multi_desc')}</p>
                 </Link>
               ) : (
