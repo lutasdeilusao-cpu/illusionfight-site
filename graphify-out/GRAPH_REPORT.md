@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 657 files · ~758,851 words
+- 657 files · ~759,109 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3046 nodes · 6302 edges · 254 communities (220 shown, 34 thin omitted)
+- 3046 nodes · 6302 edges · 255 communities (221 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0308cef0`
+- Built from commit: `38927763`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -54,6 +54,8 @@
 - Community 36
 - Community 37
 - Community 38
+- TopTrumpsCard.jsx
+- PuzzleStealthGrid.jsx
 - PuzzleStealthGrid.jsx
 - Community 42
 - Community 43
@@ -90,6 +92,7 @@
 - Community 77
 - BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
 - Games.jsx
+- BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
 - Community 81
 - Community 82
 - Community 83
@@ -181,7 +184,6 @@
 - 2. O UNIVERSO NARRATIVO — BRAVARA, LDI E O SANGUE PRIMORDIAL
 - 4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE
 - 7. TRÁFEGO PAGO — HISTÓRICO
-- BLOCO B — LINKEDIN PESSOAL ISAIAS
 - PowerCard.jsx
 - E3. LISTAS NO BREVO
 - E8. TEMPLATES DE PR APROVADOS
@@ -207,7 +209,6 @@
 - drawCombatBoard
 - cardPool.js
 - Passeio.jsx
-- framer-motion
 - classTree.js
 - Create
 
@@ -238,7 +239,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (254 total, 34 thin omitted)
+## Communities (255 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -333,8 +334,8 @@ Cohesion: 0.14
 Nodes (15): agendarAcao(), avancarTurno(), CHAVES_ACAO, criarAcoes(), definirRestricao(), inicializar(), log(), marcarMorto() (+7 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.12
-Nodes (17): ArenaTaticsRoute(), randomPick(), ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento() (+9 more)
+Cohesion: 0.19
+Nodes (8): ArenaTaticsRoute(), randomPick(), Intro(), LINES_EN, LINES_ES, LINES_PT, useArenaTaticsStore, useCityStore
 
 ### Community 26 - "Community 26"
 Cohesion: 0.26
@@ -387,6 +388,10 @@ Nodes (36): 10. Testes necessários por etapa, 11. Riscos e mitigação, 12. Arq
 ### Community 38 - "Community 38"
 Cohesion: 0.19
 Nodes (13): aiAct(), aliveEnemySide(), alivePlayerSide(), damageSpellAvailable(), endRound(), getAreaTargets(), hasEffect(), isCajadoWeapon() (+5 more)
+
+### Community 39 - "TopTrumpsCard.jsx"
+Cohesion: 0.24
+Nodes (4): calcAtkWithTerrain(), calcDefWithTerrain(), eq(), getTerrainMods()
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.16
@@ -446,7 +451,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.15
@@ -532,6 +537,10 @@ Nodes (10): dentroDoLosango(), drawChar(), ELEM_CORES, elemCor(), encontrarTile(
 Cohesion: 0.18
 Nodes (10): AchievementsProvider(), AuthProvider(), DixProvider(), EventosProvider(), LanguageContext, getNested(), LanguageProvider(), ReaderProvider() (+2 more)
 
+### Community 80 - "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL"
+Cohesion: 0.50
+Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
+
 ### Community 81 - "Community 81"
 Cohesion: 0.29
 Nodes (7): scripts, build, deploy, dev, migration, predeploy, preview
@@ -545,8 +554,8 @@ Cohesion: 0.13
 Nodes (14): Combat Mode: Silent Synchrony, Conflict Pattern: Triangle, Default State: Banter, Dynamic Patterns, Group Dynamics — Kim, Jack, Nina, Group Evolution by Chapter Arc, Jack — The Anchor / The Strategist, Key Locations for Group Interaction (+6 more)
 
 ### Community 84 - "endBattle"
-Cohesion: 0.24
-Nodes (4): calcAtkWithTerrain(), calcDefWithTerrain(), eq(), getTerrainMods()
+Cohesion: 0.31
+Nodes (9): ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento(), ELEM_COR, EMOJI (+1 more)
 
 ### Community 86 - "Phase0Start.jsx"
 Cohesion: 0.42
@@ -746,7 +755,7 @@ Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSIO
 
 ### Community 189 - "Marketing-MAP.md"
 Cohesion: 0.17
-Nodes (11): BLOCO C — STEAM, BLOCO D — TRENDS MAP, BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS (+3 more)
+Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -835,10 +844,6 @@ Nodes (4): 4.1 Livro — Crônicas de Marelia, 4.2 Webtoon, 4.3 Mundo / Jackpedi
 ### Community 212 - "7. TRÁFEGO PAGO — HISTÓRICO"
 Cohesion: 0.50
 Nodes (4): 7. TRÁFEGO PAGO — HISTÓRICO, Campanha 1 — TikTok Ads (VID-001), Campanha 2 — TikTok Ads (VID-002 — segundo vídeo), Consolidado TikTok Ads
-
-### Community 213 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
-Cohesion: 0.50
-Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
 
 ### Community 214 - "PowerCard.jsx"
 Cohesion: 0.47

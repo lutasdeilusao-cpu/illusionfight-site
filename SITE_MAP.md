@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-31 — v10.192.62 (envio único por turno e presença realtime no Top Trumps MP)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-07-31 — v10.192.63 (tela de resultado sincronizada por 30 segundos no Top Trumps MP)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---

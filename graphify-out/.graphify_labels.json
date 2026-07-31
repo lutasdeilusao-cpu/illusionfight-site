@@ -38,7 +38,9 @@
   "36": "Community 36",
   "37": "Community 37",
   "38": "Community 38",
+  "39": "TopTrumpsCard.jsx",
   "40": "PuzzleStealthGrid.jsx",
+  "41": "PuzzleStealthGrid.jsx",
   "42": "Community 42",
   "43": "Community 43",
   "45": "Community 45",
@@ -74,6 +76,7 @@
   "77": "Community 77",
   "78": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
   "79": "Games.jsx",
+  "80": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
   "81": "Community 81",
   "82": "Community 82",
   "83": "Community 83",
@@ -202,7 +205,6 @@
   "210": "2. O UNIVERSO NARRATIVO — BRAVARA, LDI E O SANGUE PRIMORDIAL",
   "211": "4. A NARRATIVA EXPANDIDA — LIVRO, WEBTOON E LORE",
   "212": "7. TRÁFEGO PAGO — HISTÓRICO",
-  "213": "BLOCO B — LINKEDIN PESSOAL ISAIAS",
   "214": "PowerCard.jsx",
   "215": "E3. LISTAS NO BREVO",
   "216": "E8. TEMPLATES DE PR APROVADOS",
@@ -250,7 +252,6 @@
   "259": "drawCombatBoard",
   "260": "cardPool.js",
   "263": "Passeio.jsx",
-  "264": "framer-motion",
   "270": "classTree.js",
   "271": "Create"
 }

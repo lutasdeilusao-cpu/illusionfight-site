@@ -200,6 +200,8 @@
         "revelacao_voce_venceu_exclamacao": "💥 ¡TÚ GANAS!",
         "revelacao_oponente_venceu_exclamacao": "💥 ¡OPONENTE GANA!",
         "revelacao_empate_exclamacao": "⚡ ¡EMPATE!",
+        "revelacao_proxima": "SIGUIENTE RONDA",
+        "revelacao_aguardando": "ESPERANDO AL OTRO JUGADOR...",
         "atributo_escolhido": "Atributo: {nome}"
       }
     }

@@ -239,16 +239,19 @@ export function subscribeToSala(salaId, callback, onSubscribed) {
     })
 }
 
-export function subscribeToMatchPresence(salaId, userId, onOpponentLeave) {
+export function subscribeToMatchPresence(salaId, userId, onOpponentLeave, onPresenceSync) {
   const channel = supabase.channel(`presenca-partida-${salaId}-${userId}`, {
     config: { presence: { key: userId } }
   })
   channel.on('presence', { event: 'leave' }, ({ key }) => {
     if (key && key !== userId) onOpponentLeave?.(key)
   })
+  channel.on('presence', { event: 'sync' }, () => {
+    onPresenceSync?.(channel.presenceState())
+  })
   channel.subscribe(async (status) => {
     if (status === 'SUBSCRIBED') {
-      await channel.track({ user_id: userId, online_at: new Date().toISOString() })
+      await channel.track({ user_id: userId, ready_turn: null, online_at: new Date().toISOString() })
     }
   })
   return channel

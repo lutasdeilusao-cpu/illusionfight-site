@@ -33,3 +33,5 @@
 .tt-swipe-btn--left { left: 15px; }
 .tt-btn-next-round { width: 100%; max-width: 360px; padding: 0.65rem; background: var(--color-accent, #f90); color: #000; border: none; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer; margin-top: 0.3rem; flex-shrink: 0; transition: opacity 0.2s; }
 .tt-btn-next-round:hover, .tt-btn-next-round:active { opacity: 0.85; }
+.tt-btn-next-round:disabled { cursor: wait; opacity: 0.58; }
+.tt-result-ready-status { min-height: 1rem; margin-top: 0.2rem; color: var(--color-text-muted, #999); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-align: center; text-transform: uppercase; }

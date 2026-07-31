@@ -200,6 +200,8 @@
         "revelacao_voce_venceu_exclamacao": "💥 YOU WIN!",
         "revelacao_oponente_venceu_exclamacao": "💥 OPPONENT WINS!",
         "revelacao_empate_exclamacao": "⚡ DRAW!",
+        "revelacao_proxima": "NEXT ROUND",
+        "revelacao_aguardando": "WAITING FOR THE OTHER PLAYER...",
         "atributo_escolhido": "Attribute: {nome}"
       }
     }
