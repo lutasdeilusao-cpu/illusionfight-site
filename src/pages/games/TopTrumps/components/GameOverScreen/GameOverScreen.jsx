@@ -3,8 +3,9 @@ import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGames
 import './GameOverScreen.css'
 
 export default function GameOverScreen({
-  placar, historicoRodadas, jaGanhouHoje, user, atributos, onJogarNovamente, tt
+  placar, historicoRodadas, jaGanhouHoje, user, atributos, opponentLabel, onJogarNovamente, tt
 }) {
+  const mostrarRelatorio = Array.isArray(historicoRodadas)
   const venceu = placar?.jogador > placar?.ia
   const empatou = placar?.jogador === placar?.ia
   const rodadasJogadas = historicoRodadas?.length || 0
@@ -37,7 +38,7 @@ export default function GameOverScreen({
           <div className="tt-relatorio-placar">
             <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.jogador}</span><span className="tt-relatorio-placar-label">{tt('relatorio_voce')}</span></div>
             <span className="tt-relatorio-placar-divisor">{'\u00D7'}</span>
-            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.ia}</span><span className="tt-relatorio-placar-label">{tt('relatorio_ia_label')}</span></div>
+            <div className="tt-relatorio-placar-item"><span className="tt-relatorio-placar-valor">{placar?.ia}</span><span className="tt-relatorio-placar-label">{opponentLabel || tt('relatorio_ia_label')}</span></div>
           </div>
         </div>
         {!user && (
@@ -46,16 +47,16 @@ export default function GameOverScreen({
             <Link to="/cadastro">{tt('guest_cta_link')}</Link>
           </p>
         )}
-        <div className="tt-relatorio-separador" aria-hidden="true" />
-        <div className="tt-relatorio-stats">
+        {mostrarRelatorio && <div className="tt-relatorio-separador" aria-hidden="true" />}
+        {mostrarRelatorio && <div className="tt-relatorio-stats">
           <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{rodadasJogadas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_rodadas')}</span></div>
           <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{vitorias}</span><span className="tt-relatorio-stat-label">{tt('relatorio_vitorias')}</span></div>
           <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{derrotas}</span><span className="tt-relatorio-stat-label">{tt('relatorio_derrotas')}</span></div>
           <div className="tt-relatorio-stat tt-relatorio-stat--numerico"><span className="tt-relatorio-stat-valor">{empates}</span><span className="tt-relatorio-stat-label">{tt('relatorio_empates')}</span></div>
           <div className="tt-relatorio-stat tt-relatorio-stat--qualitativo tt-relatorio-stat--atributo"><span className="tt-relatorio-stat-valor">{attrMaisEscolhido === '\u2014' ? attrMaisEscolhido : tt(attrMaisEscolhido)}</span><span className="tt-relatorio-stat-label">{tt('relatorio_attr_usado')}</span></div>
           <div className={`tt-relatorio-stat tt-relatorio-stat--qualitativo tt-relatorio-stat--melhor${melhorRodada ? '' : ' tt-relatorio-stat--vazio'}`}><span className="tt-relatorio-stat-valor">{melhorRodada?.cartaJogador?.nome || '\u2014'}</span><span className="tt-relatorio-stat-label">{tt('relatorio_melhor_vitoria')}</span></div>
-        </div>
-        <div className="tt-relatorio-lista">
+        </div>}
+        {mostrarRelatorio && <div className="tt-relatorio-lista">
           <h4 className="tt-relatorio-lista-titulo">{tt('relatorio_confrontos')}</h4>
           {historicoRodadas?.map((h, i) => (
             <div key={i} className={`tt-relatorio-lista-item tt-relatorio-lista-item--${h.resultado}`}>
@@ -65,7 +66,7 @@ export default function GameOverScreen({
               <span className="tt-relatorio-lista-valor">{h.valorJogador}{'\u2013'}{h.valorIA}</span>
             </div>
           ))}
-        </div>
+        </div>}
         {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{tt('relatorio_ja_ganhou')}</p>}
         <div className="tt-fim-actions">
           <button className="tt-btn-jogar" onClick={onJogarNovamente}>{tt('btn_jogar_novamente')}</button>

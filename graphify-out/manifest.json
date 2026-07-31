@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785515104.4686544,
-    "ast_hash": "f342c1af6ac45d6ec89571d1252a0294",
+    "mtime": 1785516624.181954,
+    "ast_hash": "c624540a1dbb38ae68bbd6836fa7dfa5",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -675,8 +675,8 @@
     "semantic_hash": "211893e012f57dd99946615715d67b2a"
   },
   "src/hooks/useTopTrumpsMP.js": {
-    "mtime": 1785512191.9447403,
-    "ast_hash": "9d45e07f1ee337521e0f58a707eab32f",
+    "mtime": 1785516682.5831947,
+    "ast_hash": "8386dde502da6fc17143d5671a350ba7",
     "semantic_hash": ""
   },
   "src/hooks/useTypewriter.js": {
@@ -2060,8 +2060,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
-    "mtime": 1785515461.322202,
-    "ast_hash": "aff5e4fe0514e6a6cc3f8ae0e554d792",
+    "mtime": 1785516698.1843305,
+    "ast_hash": "b0e5861efbc1568ad4b040cbc06b2e7f",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsDeck.js": {
@@ -2950,8 +2950,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785515442.2273278,
-    "ast_hash": "8f84d7adf5c5ce8a68bb693c11f5f93f",
+    "mtime": 1785516706.3968766,
+    "ast_hash": "2e2715f14a6f2535db5d5aae4d97fb3a",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2990,8 +2990,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785515442.2273278,
-    "ast_hash": "81d1b4d4b0007b7f40a9dc9499a84155",
+    "mtime": 1785516624.1872592,
+    "ast_hash": "7b354caf669df9223656eb6044c80527",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3635,8 +3635,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx": {
-    "mtime": 1785343309.0076656,
-    "ast_hash": "f7120f8188d73372cbfe426b278a6ba5",
+    "mtime": 1785516682.5862122,
+    "ast_hash": "78c375a4d092007d4f94bfd5bce0562d",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/GameScreen/GameScreen.jsx": {

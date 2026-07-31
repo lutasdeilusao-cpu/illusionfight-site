@@ -7,11 +7,11 @@ import { useAchievements } from '../../../context/AchievementsContext'
 import { useReader } from '../../../context/ReaderContext'
 import { supabase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../../../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, subscribeToMatchPresence, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../../../hooks/useTopTrumpsMP'
-import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 import { getTopTrumpsCardImage } from '../../../lib/topTrumpsCardImages'
 import MultiplayerGameScreen from './components/multiplayer/MultiplayerGameScreen'
 import ResultScreen from './components/ResultScreen/ResultScreen'
+import GameOverScreen from './components/GameOverScreen/GameOverScreen'
 import useMultiplayerTurnMachine from './hooks/useMultiplayerTurnMachine'
 import { ordenarDeckDeterministico } from './utils/deterministicDeck'
 import './TopTrumpsMP.css'
@@ -314,15 +314,8 @@ export default function TopTrumpsMP() {
     if (venceu) sfx.win()
     else if (empatou) sfx.draw()
     else sfx.lose()
-    logMP('RETORNO_LOBBY_AGENDADO', {
-      salaId: sala?.id,
-      atrasoMs: 5000
-    })
-    const timer = setTimeout(() => {
-      navigate('/games/toptrumps/lobby', { replace: true })
-    }, 5000)
-    return () => clearTimeout(timer)
-  }, [fase, navigate, placar.eu, placar.oponente, meuPapel, sala?.id, sala?.resultado])
+    logMP('RESULTADO_FINAL_EXIBIDO', { salaId: sala?.id, venceu, empatou, retornoAutomatico: false })
+  }, [fase, placar.eu, placar.oponente, meuPapel, sala?.id, sala?.resultado])
 
   useEffect(() => {
     const bloqueios = {
@@ -927,14 +920,6 @@ export default function TopTrumpsMP() {
     const sub1 = subscribeToSala(salaId, (p) => {
       const s = p.new
       const anterior = salaRef.current
-      if (s.status === 'encerrada' && turnStateRef.current.phase !== 'revelacao') {
-        salaPendenteRef.current = null
-        salaRef.current = s
-        setSala(s)
-        dispatchTurn({ type: 'FINISH_MATCH' })
-        logMP('SALA_ENCERRADA_APLICADA', { salaId, resultado: s.resultado })
-        return
-      }
       const rodadaEmExibicao = turnStateRef.current.phase === 'jogando' || turnStateRef.current.phase === 'revelacao'
       const deveReterSala = rodadaEmExibicao && (
         (anterior && s.turno_atual !== anterior.turno_atual) ||
@@ -1206,36 +1191,15 @@ export default function TopTrumpsMP() {
 
   if (fase === 'fim') {
     if (!sala) return null
-    const resultadoMeu = meuPapel === 'j1' ? 'j1_venceu' : 'j2_venceu'
-    const temResultadoOficial = sala.resultado === 'j1_venceu' || sala.resultado === 'j2_venceu' || sala.resultado === 'empate'
-    const venceu = temResultadoOficial ? sala.resultado === resultadoMeu : placar.eu > placar.oponente
-    const empatou = temResultadoOficial ? sala.resultado === 'empate' : placar.eu === placar.oponente
     return (
-      <section className="ttmp-page">
-        <div className="ttmp-fim">
-          <h2 className="ttmp-fim-titulo">{tt('mp.fim_titulo')}</h2>
-          <div className={`ttmp-fim-icone${venceu ? ' ttmp-fim-icone--vitoria' : empatou ? ' ttmp-fim-icone--empate' : ' ttmp-fim-icone--derrota'}`}>
-            {venceu ? '🏆' : empatou ? '🤝' : '💀'}
-          </div>
-          <h3 className={`ttmp-fim-resultado${venceu ? ' ttmp-fim-titulo--vitoria' : empatou ? ' ttmp-fim-titulo--empate' : ' ttmp-fim-titulo--derrota'}`}>
-            {venceu ? tt('mp.fim_voce_venceu') : empatou ? tt('mp.fim_empate') : tt('mp.fim_voce_perdeu')}
-          </h3>
-          <div className="ttmp-fim-placar">
-            <div className="ttmp-fim-placar-item">
-              <span className="ttmp-fim-placar-valor">{placar.eu}</span>
-              <span className="ttmp-fim-placar-label">{tt('mp.fim_voce')}</span>
-            </div>
-            <span className="ttmp-fim-placar-divisor">×</span>
-            <div className="ttmp-fim-placar-item">
-              <span className="ttmp-fim-placar-valor">{placar.oponente}</span>
-              <span className="ttmp-fim-placar-label">{oponenteNome.toUpperCase()}</span>
-            </div>
-          </div>
-          <div className="ttmp-fim-actions">
-            <BackToGamesBtn to="/" onClick={() => sfx.click()} label={tt('mp.fim_voltar_games')} />
-          </div>
-        </div>
-      </section>
+      <GameOverScreen
+        placar={{ jogador: placar.eu, ia: placar.oponente }}
+        user={user}
+        atributos={atributos}
+        opponentLabel={oponenteNome.toUpperCase()}
+        onJogarNovamente={() => navigate('/games/toptrumps/lobby', { replace: true })}
+        tt={tt}
+      />
     )
   }
 

@@ -240,7 +240,7 @@ export function subscribeToSala(salaId, callback, onSubscribed) {
 }
 
 export function subscribeToMatchPresence(salaId, userId, onOpponentLeave, onPresenceSync) {
-  const channel = supabase.channel(`presenca-partida-${salaId}-${userId}`, {
+  const channel = supabase.channel(`presenca-partida-${salaId}`, {
     config: { presence: { key: userId } }
   })
   channel.on('presence', { event: 'leave' }, ({ key }) => {

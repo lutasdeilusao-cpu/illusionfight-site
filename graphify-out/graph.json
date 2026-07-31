@@ -14307,9 +14307,9 @@
       "label": "NOTE: Para Top Trumps (um jogador por rodada) n\u00e3o dependemos mais",
       "file_type": "rationale",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L775",
+      "source_location": "L765",
       "_origin": "ast",
-      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_775",
+      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_765",
       "community": 27,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
@@ -18280,7 +18280,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_items_consumable",
-      "community": 45,
+      "community": 32,
       "norm_label": "items_consumable"
     },
     {
@@ -18290,7 +18290,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_arrows",
-      "community": 45,
+      "community": 32,
       "norm_label": "arrows"
     },
     {
@@ -18330,7 +18330,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_getitemdef",
-      "community": 45,
+      "community": 32,
       "norm_label": "getitemdef()"
     },
     {
@@ -18660,7 +18660,7 @@
       "source_location": "L530",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_aliveplayerside",
-      "community": 38,
+      "community": 45,
       "norm_label": "aliveplayerside()"
     },
     {
@@ -18670,7 +18670,7 @@
       "source_location": "L531",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_aliveenemyside",
-      "community": 38,
+      "community": 45,
       "norm_label": "aliveenemyside()"
     },
     {
@@ -18790,7 +18790,7 @@
       "source_location": "L805",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_starttargeting",
-      "community": 38,
+      "community": 45,
       "norm_label": "starttargeting()"
     },
     {
@@ -18800,7 +18800,7 @@
       "source_location": "L851",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_renderareatwobuttons",
-      "community": 3,
+      "community": 45,
       "norm_label": "renderareatwobuttons()"
     },
     {
@@ -18810,7 +18810,7 @@
       "source_location": "L877",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_toggleareatarget",
-      "community": 3,
+      "community": 45,
       "norm_label": "toggleareatarget()"
     },
     {
@@ -18820,7 +18820,7 @@
       "source_location": "L889",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_resolveareatwo",
-      "community": 3,
+      "community": 45,
       "norm_label": "resolveareatwo()"
     },
     {
@@ -18830,7 +18830,7 @@
       "source_location": "L899",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_canceltargeting",
-      "community": 3,
+      "community": 45,
       "norm_label": "canceltargeting()"
     },
     {
@@ -18840,7 +18840,7 @@
       "source_location": "L905",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_hidetargetselector",
-      "community": 3,
+      "community": 45,
       "norm_label": "hidetargetselector()"
     },
     {
@@ -18930,7 +18930,7 @@
       "source_location": "L1397",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_startround",
-      "community": 38,
+      "community": 26,
       "norm_label": "startround()"
     },
     {
@@ -18940,7 +18940,7 @@
       "source_location": "L1418",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_processturn",
-      "community": 38,
+      "community": 108,
       "norm_label": "processturn()"
     },
     {
@@ -18960,7 +18960,7 @@
       "source_location": "L1495",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_checkbattleend",
-      "community": 38,
+      "community": 26,
       "norm_label": "checkbattleend()"
     },
     {
@@ -19010,7 +19010,7 @@
       "source_location": "L1569",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_haseffect",
-      "community": 38,
+      "community": 108,
       "norm_label": "haseffect()"
     },
     {
@@ -19250,7 +19250,7 @@
       "source_location": "L2066",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_aiact",
-      "community": 38,
+      "community": 108,
       "norm_label": "aiact()"
     },
     {
@@ -19290,7 +19290,7 @@
       "source_location": "L2220",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_damagespellavailable",
-      "community": 26,
+      "community": 108,
       "norm_label": "damagespellavailable()"
     },
     {
@@ -19310,7 +19310,7 @@
       "source_location": "L2230",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_resolvedamagespell",
-      "community": 38,
+      "community": 108,
       "norm_label": "resolvedamagespell()"
     },
     {
@@ -19370,7 +19370,7 @@
       "source_location": "L2347",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_getareatargets",
-      "community": 38,
+      "community": 45,
       "norm_label": "getareatargets()"
     },
     {
@@ -19430,7 +19430,7 @@
       "source_location": "L2443",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_endplayerturn",
-      "community": 26,
+      "community": 3,
       "norm_label": "endplayerturn()"
     },
     {
@@ -19440,7 +19440,7 @@
       "source_location": "L2445",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_totalattrpoints",
-      "community": 38,
+      "community": 108,
       "norm_label": "totalattrpoints()"
     },
     {
@@ -19450,7 +19450,7 @@
       "source_location": "L2449",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_endbattle",
-      "community": 38,
+      "community": 108,
       "norm_label": "endbattle()"
     },
     {
@@ -19470,7 +19470,7 @@
       "source_location": "L2505",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_disease_stages",
-      "community": 45,
+      "community": 32,
       "norm_label": "disease_stages"
     },
     {
@@ -19500,7 +19500,7 @@
       "source_location": "L2509",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_geteffectivemaxhp",
-      "community": 45,
+      "community": 32,
       "norm_label": "geteffectivemaxhp()"
     },
     {
@@ -19510,7 +19510,7 @@
       "source_location": "L2516",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_applydisease",
-      "community": 45,
+      "community": 32,
       "norm_label": "applydisease()"
     },
     {
@@ -19520,7 +19520,7 @@
       "source_location": "L2526",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_processdiseaseprogression",
-      "community": 45,
+      "community": 32,
       "norm_label": "processdiseaseprogression()"
     },
     {
@@ -19590,7 +19590,7 @@
       "source_location": "L2682",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_selectitemuse",
-      "community": 45,
+      "community": 32,
       "norm_label": "selectitemuse()"
     },
     {
@@ -19600,7 +19600,7 @@
       "source_location": "L2704",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_showinventorytargetselector",
-      "community": 45,
+      "community": 32,
       "norm_label": "showinventorytargetselector()"
     },
     {
@@ -19680,7 +19680,7 @@
       "source_location": "L2858",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_weaponxpattrs",
-      "community": 3,
+      "community": 108,
       "norm_label": "weaponxpattrs()"
     },
     {
@@ -19690,7 +19690,7 @@
       "source_location": "L2866",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_grantbattleendxp",
-      "community": 3,
+      "community": 108,
       "norm_label": "grantbattleendxp()"
     },
     {
@@ -19730,7 +19730,7 @@
       "source_location": "L2899",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_setbattlebuttons",
-      "community": 38,
+      "community": 108,
       "norm_label": "setbattlebuttons()"
     },
     {
@@ -23270,7 +23270,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_business_marketing_map_bloco_b_linkedin_pessoal_isaias",
-      "community": 189,
+      "community": 35,
       "norm_label": "bloco b \u2014 linkedin pessoal isaias"
     },
     {
@@ -23280,7 +23280,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b1_perfis",
-      "community": 189,
+      "community": 35,
       "norm_label": "b1. perfis"
     },
     {
@@ -23290,7 +23290,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b2_melhor_performance",
-      "community": 189,
+      "community": 35,
       "norm_label": "b2. melhor performance"
     },
     {
@@ -23300,7 +23300,7 @@
       "source_location": "L239",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b3_calend\u00e1rio",
-      "community": 189,
+      "community": 35,
       "norm_label": "b3. calendario"
     },
     {
@@ -33497,17 +33497,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp",
-      "target": "src_components_backtogamesbtn_backtogamesbtn",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -33713,17 +33702,6 @@
       "source_location": "L4",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_components_menuscreen_menuscreen",
-      "target": "src_components_backtogamesbtn_backtogamesbtn_backtogamesbtn",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_components_backtogamesbtn_backtogamesbtn_backtogamesbtn",
       "confidence_score": 1.0
     },
@@ -49949,7 +49927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L1102",
+      "source_location": "L1084",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_escolherppt"
@@ -49982,7 +49960,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L364",
+      "source_location": "L354",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_registrarmovimento"
@@ -50103,7 +50081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L930",
+      "source_location": "L920",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetosala"
@@ -50125,7 +50103,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L852",
+      "source_location": "L842",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomatchpresence"
@@ -50147,7 +50125,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L1000",
+      "source_location": "L982",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
@@ -50692,7 +50670,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L11",
+      "source_location": "L10",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_lib_sfx",
@@ -51258,7 +51236,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L11",
+      "source_location": "L10",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_lib_sfx_sfx",
@@ -52716,7 +52694,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_lib_toptrumpscardimages",
@@ -52782,7 +52760,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_lib_toptrumpscardimages_gettoptrumpscardimage",
@@ -72796,7 +72774,29 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_games_toptrumps_toptrumpsmp",
+      "target": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_games_toptrumps_toptrumpsmp",
+      "target": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_components_multiplayer_multiplayergamescreen",
@@ -72807,7 +72807,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_components_multiplayer_multiplayergamescreen_multiplayergamescreen",
@@ -72818,7 +72818,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_components_resultscreen_resultscreen",
@@ -72829,7 +72829,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_components_resultscreen_resultscreen_resultscreen",
@@ -72923,9 +72923,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L775",
+      "source_location": "L765",
       "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_775",
+      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_765",
       "target": "src_pages_games_toptrumps_toptrumpsmp",
       "confidence_score": 1.0
     },
@@ -72979,7 +72979,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L837",
+      "source_location": "L827",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
@@ -97456,5 +97456,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "be552c136465982cf92e61da9d65603d117818ef"
+  "built_at_commit": "d5ecca23097744cc205d86e81ab9252a8d2c0f4a"
 }

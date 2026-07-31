@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 658 files · ~759,833 words
+- 658 files · ~759,707 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3050 nodes · 6309 edges · 246 communities (212 shown, 34 thin omitted)
+- 3050 nodes · 6309 edges · 247 communities (213 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `be552c13`
+- Built from commit: `d5ecca23`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,10 +47,11 @@
 - Community 29
 - Community 30
 - Community 31
+- initBattle
 - Community 33
+- BLOCO B — LINKEDIN PESSOAL ISAIAS
 - Community 36
 - Community 37
-- Community 38
 - PuzzleStealthGrid.jsx
 - Community 43
 - deterministicDeck.js
@@ -230,7 +231,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (246 total, 34 thin omitted)
+## Communities (247 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -246,7 +247,7 @@ Nodes (18): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray()
 
 ### Community 3 - "Community 3"
 Cohesion: 0.04
-Nodes (70): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+62 more)
+Nodes (64): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, ARROW_DEFAULT_ORDER, ATK_VS_DEF_ATTR, ATTRS, BLEED_EFFECT (+56 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
@@ -329,8 +330,8 @@ Cohesion: 0.22
 Nodes (14): TurnoIndicator(), sortearIAs(), flashCelula(), screenShake(), Batalha(), calcularCaminho(), getAlcanceMovimento(), getAlcanceSkill() (+6 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.24
-Nodes (29): applyMagicEffect(), castMagicArea(), castMagicResolved(), clearMagicQueue(), DAMAGE_TIERS, damageSpellAvailable(), damageSpellCost(), defendAction() (+21 more)
+Cohesion: 0.26
+Nodes (29): applyMagicEffect(), castMagicArea(), castMagicResolved(), checkBattleEnd(), clearMagicQueue(), DAMAGE_TIERS, damageSpellCost(), defendAction() (+21 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.10
@@ -344,9 +345,17 @@ Nodes (5): ADVANTAGES, ATTR_TOOLTIPS, DISADVANTAGES, PERKS, SPECIALIZATIONS
 Cohesion: 0.19
 Nodes (24): applyBleed(), applyBleedNoStack(), applyCounterAttack(), applyDamage(), applyEffect(), applySupport(), atkBonus(), calcRawDmg() (+16 more)
 
+### Community 32 - "initBattle"
+Cohesion: 0.25
+Nodes (9): applyDisease(), ARROWS, DISEASE_STAGES, getEffectiveMaxHP(), getItemDef(), ITEMS_CONSUMABLE, processDiseaseProgression(), selectItemUse() (+1 more)
+
 ### Community 33 - "Community 33"
 Cohesion: 0.14
 Nodes (20): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), useDix(), ADMIN_EMAILS, FICHAS_POR_TIER, FichasContext, FichasProvider() (+12 more)
+
+### Community 35 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
+Cohesion: 0.50
+Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
 
 ### Community 36 - "Community 36"
 Cohesion: 0.11
@@ -355,10 +364,6 @@ Nodes (18): execute(), ONOMATOPEIAS, execute(), ONOMATOPEIAS, execute(), ONOMATO
 ### Community 37 - "Community 37"
 Cohesion: 0.05
 Nodes (36): 10. Testes necessários por etapa, 11. Riscos e mitigação, 12. Arquivos que devem permanecer funcionalmente estáveis, 13. Avaliação de tamanho e extração, 14. Ordem recomendada, 15. Resultado esperado, 1. Objetivo, 2. Diagnóstico da implementação atual (+28 more)
-
-### Community 38 - "Community 38"
-Cohesion: 0.26
-Nodes (13): aiAct(), aliveEnemySide(), alivePlayerSide(), checkBattleEnd(), endBattle(), getAreaTargets(), hasEffect(), processTurn() (+5 more)
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.15
@@ -373,8 +378,8 @@ Cohesion: 0.19
 Nodes (10): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, CurtainReveal(), FireParticles(), GameScreen(), MultiplayerGameScreen() (+2 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.14
-Nodes (14): OnomaPopup(), PowerReveal(), PP, t(), applyDisease(), ARROWS, DISEASE_STAGES, getEffectiveMaxHP() (+6 more)
+Cohesion: 0.15
+Nodes (14): OnomaPopup(), PowerReveal(), PP, t(), aliveEnemySide(), alivePlayerSide(), cancelTargeting(), getAreaTargets() (+6 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.10
@@ -581,8 +586,8 @@ Cohesion: 0.50
 Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
 
 ### Community 108 - "weaponFamily"
-Cohesion: 0.24
-Nodes (12): closeInventoryPanel(), closeSwapPanel(), healSpellAvailable(), isBowWeapon(), isCajadoWeapon(), isDaggerWeapon(), isShieldWeapon(), isSwordWeapon() (+4 more)
+Cohesion: 0.13
+Nodes (22): aiAct(), closeInventoryPanel(), closeSwapPanel(), damageSpellAvailable(), endBattle(), grantBattleEndXP(), hasEffect(), healSpellAvailable() (+14 more)
 
 ### Community 113 - "Community 113"
 Cohesion: 0.15
@@ -717,8 +722,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.17
-Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
+Cohesion: 0.25
+Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
