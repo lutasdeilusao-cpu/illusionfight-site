@@ -5,7 +5,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { getDeck } from '../../../lib/getDeck'
 import { useAchievements } from '../../../context/AchievementsContext'
 import { useReader } from '../../../context/ReaderContext'
-import { supabase } from '../../../lib/supabase'
+import { supabase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../../../lib/supabase'
 import { subscribeToSala, subscribeToMovimentos, subscribeToMatchPresence, registrarMovimento, atualizarSala, encerrarSala, incrementarPartidaDiaria, atualizarMPStats, escolherPPT, finalizarPPT } from '../../../hooks/useTopTrumpsMP'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
@@ -135,6 +135,7 @@ export default function TopTrumpsMP() {
   const faseRef = useRef(fase)
   const meuPapelRef = useRef(meuPapel)
   const cartaLocalRef = useRef(cartaLocal)
+  const cartaOponenteRef = useRef(cartaOponente)
   const deckOponenteRef = useRef(deckOponente)
   const salaPendenteRef = useRef(null)
   const turnosEmProcessamentoRef = useRef(new Set())
@@ -142,12 +143,29 @@ export default function TopTrumpsMP() {
   const jogadaEmEnvioRef = useRef(false)
   const presenceChannelRef = useRef(null)
   const rodadaAvancandoRef = useRef(false)
+  const resultadoIniciadoEmRef = useRef(null)
+  const prontoLocalRef = useRef(prontoLocal)
+  const prontoOponenteRef = useRef(prontoOponente)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
+  useEffect(() => { cartaOponenteRef.current = cartaOponente }, [cartaOponente])
   useEffect(() => { faseRef.current = fase }, [fase])
   useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
+  useEffect(() => { prontoLocalRef.current = prontoLocal }, [prontoLocal])
+  useEffect(() => { prontoOponenteRef.current = prontoOponente }, [prontoOponente])
+
+  useEffect(() => {
+    logMP('FASE_ALTERADA', {
+      salaId: salaRef.current?.id,
+      fase,
+      turno: salaRef.current?.turno_atual,
+      cartaLocalId: cartaLocalRef.current?.id,
+      cartaOponenteId: cartaOponenteRef.current?.id,
+      salaPendenteTurno: salaPendenteRef.current?.turno_atual
+    })
+  }, [fase])
 
   useEffect(() => {
     const cartas = [cartaLocal, cartaOponente].filter(Boolean)
@@ -276,6 +294,7 @@ export default function TopTrumpsMP() {
     if (!sala?.id || !sala?.turno_atual) return
     jogadaEmEnvioRef.current = false
     rodadaAvancandoRef.current = false
+    resultadoIniciadoEmRef.current = null
     setProntoLocal(false)
     setProntoOponente(false)
     setResultadoTempo(30)
@@ -363,6 +382,17 @@ export default function TopTrumpsMP() {
 
   function liberarProximaRodada(motivo) {
     if (rodadaAvancandoRef.current) return
+    const decorridoMs = resultadoIniciadoEmRef.current ? Date.now() - resultadoIniciadoEmRef.current : 0
+    if (faseRef.current === 'revelacao' && decorridoMs < 30000) {
+      logMP('RESULTADO_LIBERACAO_BLOQUEADA', {
+        salaId: salaRef.current?.id,
+        turno: salaRef.current?.turno_atual,
+        motivo,
+        decorridoMs,
+        restanteMs: 30000 - decorridoMs
+      })
+      return
+    }
     rodadaAvancandoRef.current = true
     logMP('RESULTADO_LIBERADO', { salaId: salaRef.current?.id, turno: salaRef.current?.turno_atual, motivo })
     seguirParaProximaRodada()
@@ -381,6 +411,16 @@ export default function TopTrumpsMP() {
   }
 
   function seguirParaProximaRodada() {
+    const decorridoMs = resultadoIniciadoEmRef.current ? Date.now() - resultadoIniciadoEmRef.current : 0
+    if (faseRef.current === 'revelacao' && decorridoMs < 30000) {
+      logMP('PROXIMA_RODADA_BLOQUEADA', {
+        salaId: salaRef.current?.id,
+        turno: salaRef.current?.turno_atual,
+        decorridoMs,
+        restanteMs: 30000 - decorridoMs
+      })
+      return
+    }
     const s = salaPendenteRef.current || salaRef.current
     if (!s) return
     logMP('PROXIMA_RODADA', {
@@ -489,23 +529,39 @@ export default function TopTrumpsMP() {
       else if (resultadoFinal === 'empate') sfx.draw()
       else sfx.lose()
       gerarParticulasMP(resultadoFinal)
+      resultadoIniciadoEmRef.current = Date.now()
+      logMP('RESULTADO_ENTROU', {
+        salaId: salaRef.current?.id,
+        turno: salaRef.current?.turno_atual,
+        cartaLocalId: cartaLocalRef.current?.id,
+        cartaOponenteId: cartaOponenteRef.current?.id,
+        duracaoObrigatoriaMs: 30000
+      })
       setFase('revelacao')
     }, 1800)
   }
 
   useEffect(() => {
     if (fase !== 'revelacao') return
-    setResultadoTempo(30)
-    const interval = setInterval(() => {
-      setResultadoTempo(tempo => {
-        if (tempo <= 1) {
-          clearInterval(interval)
-          liberarProximaRodada('tempo-esgotado')
-          return 0
-        }
-        return tempo - 1
+    if (!resultadoIniciadoEmRef.current) resultadoIniciadoEmRef.current = Date.now()
+    const atualizarContador = () => {
+      const decorridoMs = Date.now() - resultadoIniciadoEmRef.current
+      const restante = Math.max(0, Math.ceil((30000 - decorridoMs) / 1000))
+      setResultadoTempo(restante)
+      logMP('RESULTADO_TICK', {
+        salaId: salaRef.current?.id,
+        turno: salaRef.current?.turno_atual,
+        restante,
+        decorridoMs,
+        cartaLocalId: cartaLocalRef.current?.id,
+        cartaOponenteId: cartaOponenteRef.current?.id,
+        prontoLocal: prontoLocalRef.current,
+        prontoOponente: prontoOponenteRef.current
       })
-    }, 1000)
+      if (decorridoMs >= 30000) liberarProximaRodada('tempo-esgotado')
+    }
+    atualizarContador()
+    const interval = setInterval(atualizarContador, 1000)
     return () => clearInterval(interval)
   }, [fase, sala?.turno_atual])
 
@@ -778,7 +834,9 @@ export default function TopTrumpsMP() {
     if (!salaId || !user || fase !== 'jogando' || !meuPapelRef.current) return
     const coluna = meuPapelRef.current === 'j1' ? 'ultimo_ping_j1' : 'ultimo_ping_j2'
     const atualizarPing = async () => {
-      await supabase.from('toptrumps_salas').update({ [coluna]: new Date().toISOString() }).eq('id', salaId)
+      const ping = new Date().toISOString()
+      const { error } = await supabase.from('toptrumps_salas').update({ [coluna]: ping }).eq('id', salaId)
+      logMP('PING_ENVIADO', { salaId, coluna, ping, erro: error || null })
     }
     atualizarPing()
     const interval = setInterval(async () => {
@@ -799,6 +857,13 @@ export default function TopTrumpsMP() {
         .maybeSingle()
       if (!s) return
       const ultimoPing = s[colunaOponente]
+      logMP('DESCONEXAO_AVALIADA', {
+        salaId,
+        colunaOponente,
+        ultimoPing,
+        idadePingMs: ultimoPing ? Date.now() - new Date(ultimoPing).getTime() : null,
+        status: s.status
+      })
       if (ultimoPing && Date.now() - new Date(ultimoPing).getTime() > 60000) {
         const { error } = await supabase.rpc('encerrar_por_desconexao', { p_sala_id: salaId, p_user_id: user.id })
         if (error) {
@@ -838,6 +903,13 @@ export default function TopTrumpsMP() {
       const presencas = Object.values(presenceState).flat()
       const confirmouLocal = presencas.some(p => p.user_id === user.id && Number(p.ready_turn) === s.turno_atual)
       const confirmouOponente = presencas.some(p => p.user_id === oponenteId && Number(p.ready_turn) === s.turno_atual)
+      logMP('PRESENCA_SINCRONIZADA', {
+        salaId,
+        turno: s.turno_atual,
+        usuarios: presencas.map(p => ({ userId: p.user_id, readyTurn: p.ready_turn })),
+        confirmouLocal,
+        confirmouOponente
+      })
       setProntoLocal(confirmouLocal)
       setProntoOponente(confirmouOponente)
       if (confirmouLocal && confirmouOponente && faseRef.current === 'revelacao') {
@@ -851,18 +923,39 @@ export default function TopTrumpsMP() {
     }
   }, [salaId, user?.id, meuPapel])
 
-  // beforeunload: jogador fechou o browser → ele perde
+  // pagehide/beforeunload: avisa a saída com autenticação e keepalive.
   useEffect(() => {
-    if (!salaId || !user) return
+    if (!salaId || !user?.id || !meuPapel) return
+    let accessToken = null
+    let notificou = false
+    supabase.auth.getSession().then(({ data }) => {
+      accessToken = data.session?.access_token || null
+    })
     const handleUnload = () => {
-      navigator.sendBeacon(
-        'https://dvxfrzixtetdzmdrzkpx.supabase.co/rest/v1/rpc/encerrar_por_desconexao',
-        JSON.stringify({ p_sala_id: salaId, p_user_id: user.id })
-      )
+      if (notificou || faseRef.current === 'fim') return
+      const s = salaRef.current
+      const vencedorId = meuPapelRef.current === 'j1' ? s?.jogador2_id : s?.jogador1_id
+      if (!vencedorId || !accessToken) return
+      notificou = true
+      logMP('SAIDA_NOTIFICADA', { salaId, jogadorQueSaiu: user.id, vencedorId })
+      fetch(`${SUPABASE_URL}/rest/v1/rpc/encerrar_por_desconexao`, {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ p_sala_id: salaId, p_user_id: vencedorId })
+      })
     }
+    window.addEventListener('pagehide', handleUnload)
     window.addEventListener('beforeunload', handleUnload)
-    return () => window.removeEventListener('beforeunload', handleUnload)
-  }, [salaId, user])
+    return () => {
+      window.removeEventListener('pagehide', handleUnload)
+      window.removeEventListener('beforeunload', handleUnload)
+    }
+  }, [salaId, user?.id, meuPapel])
 
   useEffect(() => {
     if (!salaId) return
@@ -1138,6 +1231,7 @@ export default function TopTrumpsMP() {
         cartaOponenteTexto={oponenteNome}
         proximaRodadaTexto={tt('mp.revelacao_proxima')}
         aguardandoOponenteTexto={tt('mp.revelacao_aguardando')}
+        contadorResultadoTexto={tt('mp.revelacao_contador', { n: resultadoTempo })}
         resultadoTempo={resultadoTempo}
         prontoLocal={prontoLocal}
         prontoOponente={prontoOponente}

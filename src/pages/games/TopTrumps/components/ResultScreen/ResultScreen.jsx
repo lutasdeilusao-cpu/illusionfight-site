@@ -10,7 +10,8 @@ export default function ResultScreen({
   totalTurnos, swipeRevealed, onSwipeToggle, onProximaRodada, particulas,
   templateIdxJogador, templateIdxIA, atributos, locale, tt,
   resultadoTexto, cartaOponenteTexto, proximaRodadaTexto,
-  resultadoTempo, prontoLocal = false, prontoOponente = false, aguardandoOponenteTexto
+  resultadoTempo, prontoLocal = false, prontoOponente = false, aguardandoOponenteTexto,
+  contadorResultadoTexto
 }) {
   const attr = atributos?.find(a => a.id === atributoEscolhido)
   const localeStr = (locale || localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
@@ -89,9 +90,8 @@ export default function ResultScreen({
           </div>
           {Number.isFinite(resultadoTempo) && (
             <div className="tt-result-ready-status">
-              {prontoLocal && !prontoOponente
-                ? aguardandoOponenteTexto
-                : `${resultadoTempo}s`}
+              <span className="tt-result-countdown">{contadorResultadoTexto || `${resultadoTempo}s`}</span>
+              {prontoLocal && !prontoOponente && <span>{aguardandoOponenteTexto}</span>}
             </div>
           )}
           <button className="tt-btn-next-round" onClick={onProximaRodada} disabled={prontoLocal}>

@@ -202,6 +202,7 @@
         "revelacao_empate_exclamacao": "⚡ EMPATE!",
         "revelacao_proxima": "PRÓXIMA RODADA",
         "revelacao_aguardando": "AGUARDANDO O OUTRO JOGADOR...",
+        "revelacao_contador": "RESULTADO BLOQUEADO: {n}s",
         "atributo_escolhido": "Atributo: {nome}"
       }
     }

@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-07-31)
 
 ## Corpus Check
-- 657 files · ~759,109 words
+- 657 files · ~759,439 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3046 nodes · 6302 edges · 255 communities (221 shown, 34 thin omitted)
+- 3046 nodes · 6302 edges · 256 communities (222 shown, 34 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `38927763`
+- Built from commit: `8b0bfb4a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -208,8 +208,9 @@
 - test_crash_report.md
 - drawCombatBoard
 - cardPool.js
+- BLOCO B — LINKEDIN PESSOAL ISAIAS
 - Passeio.jsx
-- classTree.js
+- framer-motion
 - Create
 
 ## God Nodes (most connected - your core abstractions)
@@ -239,7 +240,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (255 total, 34 thin omitted)
+## Communities (256 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -397,6 +398,10 @@ Nodes (4): calcAtkWithTerrain(), calcDefWithTerrain(), eq(), getTerrainMods()
 Cohesion: 0.16
 Nodes (16): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Grid(), Token(), EfeitoTag(), STATUS_ICONS_MAP (+8 more)
 
+### Community 41 - "PuzzleStealthGrid.jsx"
+Cohesion: 0.48
+Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionScreen()
+
 ### Community 42 - "Community 42"
 Cohesion: 0.29
 Nodes (13): decidirAcaoIA(), calcularFA(), calcularFD(), criarPersonagem(), getCasasMovimento(), getHP(), getMP(), resolverAtaque() (+5 more)
@@ -451,7 +456,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
+Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.15
@@ -754,8 +759,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.17
-Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
+Cohesion: 0.25
+Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -877,13 +882,13 @@ Nodes (3): CHOICES, EMOJI, Jokempo()
 Cohesion: 0.12
 Nodes (26): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTivaraDisponiveis(), getPool(), poolCompleto(), sortearCartaInicial1(), sortearCartaInicial2() (+18 more)
 
+### Community 261 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
+Cohesion: 0.50
+Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
+
 ### Community 263 - "Passeio.jsx"
 Cohesion: 0.12
 Nodes (23): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, PowerChoiceModal(), ELEMENTOS, PowerFilterBar(), PowerGrid() (+15 more)
-
-### Community 270 - "classTree.js"
-Cohesion: 0.48
-Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionScreen()
 
 ### Community 271 - "Create"
 Cohesion: 0.09
@@ -897,7 +902,7 @@ Nodes (31): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), Ac
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 68` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Passeio.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `classTree.js`, `Community 15`, `Community 16`, `Create`, `Community 17`, `Community 14`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `Community 33`, `useEventos`, `Community 35`, `PuzzleStealthGrid.jsx`, `Community 42`, `Community 49`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 58`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 76`, `PowerCard.jsx`, `Phase0Start.jsx`, `Batalha.jsx`?**
+- **Why does `useLanguage()` connect `Community 68` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Passeio.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 16`, `Create`, `Community 17`, `Community 21`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `Community 29`, `Community 30`, `Community 32`, `Community 33`, `useEventos`, `Community 35`, `PuzzleStealthGrid.jsx`, `PuzzleStealthGrid.jsx`, `Community 42`, `Community 49`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 58`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 76`, `PowerCard.jsx`, `Phase0Start.jsx`, `Batalha.jsx`?**
   _High betweenness centrality (0.145) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 21` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Passeio.jsx`, `Community 8`, `Community 12`, `Create`, `Community 23`, `Community 25`, `Community 27`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
