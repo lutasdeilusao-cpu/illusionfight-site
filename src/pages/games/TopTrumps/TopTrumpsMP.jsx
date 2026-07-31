@@ -1198,7 +1198,7 @@ export default function TopTrumpsMP() {
         atributos={atributos}
         opponentLabel={oponenteNome.toUpperCase()}
         actionLabel={tt('mp.fim_voltar_games')}
-        onJogarNovamente={() => navigate('/games', { replace: true })}
+        onJogarNovamente={() => navigate('/games/toptrumps', { replace: true })}
         tt={tt}
       />
     )
