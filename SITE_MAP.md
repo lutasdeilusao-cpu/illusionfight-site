@@ -1,6 +1,6 @@
 # ILLUSIONFIGHT.COM — SITE MAP
 
-> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-08-01 — v10.192.79 (cabeçalho do lobby em coluna e isolamento do CSS do Kernel Panic)
+> **⚠️ Este documento deve ser mantido atualizado a cada nova task concluída.** Última atualização: 2026-08-01 — v10.192.80 (lançamento final Top Trumps 6.0.0 single e multiplayer)
 > **🔒 Lista de arquivos proibidos:** ver `AGENTS.md` → "Arquivos proibidos — nunca tocar"
 
 ---
@@ -507,10 +507,10 @@
 | `/mundo` | Mundo | `src/pages/content/Mundo.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Lore: Bravara, LDI, Xakaxi, Timeline, Glossário |
 | `/games` | Games | `src/pages/games/Games.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Hub central de todos os jogos |
 | `/games/multiplayer/lobby` | MultiplayerLobby | `src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx` | ✅ v6 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Entrada oficial com busca, confirmação do rival, sincronização e contagem 5–1 |
-| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.1 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Versão oficial; tela final portrait com ações empilhadas e retorno ao menu do jogo |
-| `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ v5.45.1 | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
+| `/games/toptrumps` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ **v6.0.0 FINAL** | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Release oficial; single player e multiplayer alinhados, estrutura e arte finalizadas |
+| `/games/toptrumps/v2` | TopTrumpsSP | `src/pages/games/TopTrumps/TopTrumpsSP.jsx` | ✅ **v6.0.0 FINAL** | ✅ 1ª temp. ✅ Deck Build | ✅ PT ✅ EN ✅ ES | Alias para /games/toptrumps; CSS modular |
 | `/games/toptrumps/lobby` | Redirect legado | `src/App.jsx` | — | ↪️ | — | Redireciona links antigos ao lobby compartilhado oficial com adaptador Top Trumps |
-| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ v5.13.9 | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | PPT escolhe no timeout; resultado final dura até 30s e URL encerrada retorna ao menu |
+| `/games/toptrumps/multiplayer` | TopTrumpsMP | `src/pages/games/TopTrumps/TopTrumpsMP.jsx` | ✅ **v6.0.0 FINAL** | ✅ 🔒 | ✅ PT ✅ EN ✅ ES | Release oficial; lobby compartilhado e fluxo multiplayer sincronizado |
 | `/games/ldi` | LDILobby | `src/pages/games/LDI/Lobby.jsx` | ✅ v2.67 | ✅ 1ª temp. | ✅ PT ✅ EN ✅ ES | RPG narrativo — lobby |
 | `/games/ldi/create` | LDICreate | `src/pages/games/LDI/Create.jsx` | ✅ v2.67 | ✅ | ✅ PT ✅ EN ✅ ES | NeoGuide + Ficha Completa |
 | `/games/ldi/game` | LDIGame | `src/pages/games/LDI/Game.jsx` | — | ✅ | ✅ PT ✅ EN ✅ ES | Cena narrativa + typewriter |
@@ -565,7 +565,7 @@
 
 | Constante | Versão | Descrição |
 |---|---|---|
-| `SITE_VERSION` | **10.192.79** | Cabeçalho do lobby multiplayer centralizado em coluna |
+| `SITE_VERSION` | **10.192.80** | Lançamento final do Top Trumps 6.0.0 |
 | `PP_VERSION` | **2.3.1** | Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json |
 | `LDI_VERSION` | **2.0.1** | Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro) |
 | `JACK_VERSION` | **5.3.2** | Jack Dream Beer — correção de encoding em comentário |
@@ -575,8 +575,8 @@
 | `MINIGAMES_VERSION` | **4.3.4** | Glitch: safe-area lateral no grid-wrap |
 | `SLIDING_VERSION` | **1.4.4** | fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado |
 | `CODIGO_VERSION` | **1.3.3** | merge wrapper+puzzle em 1 arquivo + fix commit |
-| `TS_VERSION` | **5.45.1** | Top Trumps — tela final responsiva e retorno ao início do próprio jogo |
-| `TM_VERSION` | **5.13.9** | Top Trumps MP — final expira em 30s e PPT possui escolha automática |
+| `TS_VERSION` | **6.0.0** | Top Trumps Single Player — release final |
+| `TM_VERSION` | **6.0.0** | Top Trumps Multiplayer — release final |
 | `TATICS_VERSION` | **7.5.0** | Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW) |
 | `SRGRM_VERSION` | **3.5.0** | SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas |
 | `ARENATESTBED_VERSION` | **6.22.1** | correção de encoding em comentário e chevrons |
