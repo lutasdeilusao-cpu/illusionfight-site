@@ -14,41 +14,6 @@
     "ast_hash": "c332cc29242a8107ec6123c246cbb3c5",
     "semantic_hash": "c332cc29242a8107ec6123c246cbb3c5"
   },
-  "TilemapReact/App.jsx": {
-    "mtime": 1780786376.0,
-    "ast_hash": "d3a0c670f6e1bb673bf2900f5c7a3b23",
-    "semantic_hash": "d3a0c670f6e1bb673bf2900f5c7a3b23"
-  },
-  "TilemapReact/TiledMap.jsx": {
-    "mtime": 1780786376.0,
-    "ast_hash": "04b05b374e3ca01caddf66518fe6e24b",
-    "semantic_hash": "04b05b374e3ca01caddf66518fe6e24b"
-  },
-  "TilemapReact/sample-map.json": {
-    "mtime": 1780775419.771369,
-    "ast_hash": "e57d31b5dbf5f053a5285585918ee48e",
-    "semantic_hash": "e57d31b5dbf5f053a5285585918ee48e"
-  },
-  "check_biblia.mjs": {
-    "mtime": 1783269273.8680842,
-    "ast_hash": "98da9339b2cff52893d229710b3dedc8",
-    "semantic_hash": "98da9339b2cff52893d229710b3dedc8"
-  },
-  "check_layout.mjs": {
-    "mtime": 1783269181.6926494,
-    "ast_hash": "f1c4e1904665dca8a9d76f27c43c94f0",
-    "semantic_hash": "f1c4e1904665dca8a9d76f27c43c94f0"
-  },
-  "check_visual.mjs": {
-    "mtime": 1783269467.8023806,
-    "ast_hash": "bd22e14ff3ef2919ec0b389fc5f95ecd",
-    "semantic_hash": "bd22e14ff3ef2919ec0b389fc5f95ecd"
-  },
-  "deploy.py": {
-    "mtime": 1783278970.503376,
-    "ast_hash": "cc3c5229356c2b88521cfd30990c9b07",
-    "semantic_hash": "cc3c5229356c2b88521cfd30990c9b07"
-  },
   "docs/LDI/Conhecimento_Otimizado/02_characters/sample-sheet.tsx": {
     "mtime": 1681468861.3020475,
     "ast_hash": "26646f44815e874603ddcfe78c1b9219",
@@ -113,16 +78,6 @@
     "mtime": 1780962261.0624733,
     "ast_hash": "bedfaba38706f0f545c14863c313bcc3",
     "semantic_hash": "bedfaba38706f0f545c14863c313bcc3"
-  },
-  "sandbox/apply-migration-023.mjs": {
-    "mtime": 1782961423.0830626,
-    "ast_hash": "0a16dcbb9fb86e19193df49faf5448d1",
-    "semantic_hash": "0a16dcbb9fb86e19193df49faf5448d1"
-  },
-  "sandbox/test-capitulo1.mjs": {
-    "mtime": 1782941417.8716066,
-    "ast_hash": "aa91f5c12809a55e4db023945aba5004",
-    "semantic_hash": "aa91f5c12809a55e4db023945aba5004"
   },
   "scripts/analyze.py": {
     "mtime": 1780971583.67328,
@@ -455,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785613746.70958,
-    "ast_hash": "4ddc452d070b23ca66f7f2b9ba6959f2",
+    "mtime": 1785614456.026359,
+    "ast_hash": "05eaf4b2010d2c184cdb042235afd9c1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2039,11 +1994,6 @@
     "ast_hash": "0d8e7902cec7d4067bee21efaa2a978b",
     "semantic_hash": "0d8e7902cec7d4067bee21efaa2a978b"
   },
-  "src/pages/games/Tamagoshi/screens/temp_gen.js": {
-    "mtime": 1782441630.5206933,
-    "ast_hash": "d48439ee3898071435b8829f23ebe488",
-    "semantic_hash": "d48439ee3898071435b8829f23ebe488"
-  },
   "src/pages/games/Tamagoshi/sfx.js": {
     "mtime": 1782441630.5219378,
     "ast_hash": "71a04e88957b14dd5505b7db069700e0",
@@ -2073,16 +2023,6 @@
     "mtime": 1782585566.2077172,
     "ast_hash": "ca5f91ee27901cca477dc26645ee4dc8",
     "semantic_hash": "ca5f91ee27901cca477dc26645ee4dc8"
-  },
-  "src/pages/lab/Prototype/ArenaTestbed/archive/PowerLinePreview.jsx": {
-    "mtime": 1782449819.4659562,
-    "ast_hash": "9d8aba76097642731ee917e3ed1c8f5e",
-    "semantic_hash": "9d8aba76097642731ee917e3ed1c8f5e"
-  },
-  "src/pages/lab/Prototype/ArenaTestbed/archive/getLineInDirection.js": {
-    "mtime": 1782449818.7818656,
-    "ast_hash": "7b199327a1ac8a12d7d27197b8580ecf",
-    "semantic_hash": "7b199327a1ac8a12d7d27197b8580ecf"
   },
   "src/pages/lab/Prototype/ArenaTestbed/components/effects/EffectRenderer.js": {
     "mtime": 1782441630.4473019,
@@ -2634,26 +2574,6 @@
     "ast_hash": "47bd8d027a237ed1d597797cf9bb3317",
     "semantic_hash": "47bd8d027a237ed1d597797cf9bb3317"
   },
-  "test_diag.mjs": {
-    "mtime": 1783273270.8352249,
-    "ast_hash": "0ba7ab7f10a1dd0d3f39b5859fc02e09",
-    "semantic_hash": "0ba7ab7f10a1dd0d3f39b5859fc02e09"
-  },
-  "test_diag2.mjs": {
-    "mtime": 1783273324.6751485,
-    "ast_hash": "93ede4a5e7f64fd1f9876a6bdd009c64",
-    "semantic_hash": "93ede4a5e7f64fd1f9876a6bdd009c64"
-  },
-  "test_kernel_crash.mjs": {
-    "mtime": 1783202928.901759,
-    "ast_hash": "f24f3d7e153641109770dfdfc09cb67f",
-    "semantic_hash": "f24f3d7e153641109770dfdfc09cb67f"
-  },
-  "test_kernel_games.mjs": {
-    "mtime": 1783200682.4868703,
-    "ast_hash": "94a51ed5f3ac3d8232f4d5ea0f641d3e",
-    "semantic_hash": "94a51ed5f3ac3d8232f4d5ea0f641d3e"
-  },
   "tests/kernel-panic-paridade.mjs": {
     "mtime": 1783022509.371342,
     "ast_hash": "29bb690a6d5e014af62e4091fdee0ae5",
@@ -2668,11 +2588,6 @@
     "mtime": 1783022373.5422566,
     "ast_hash": "31db883e4c2a874f607640a28016b53b",
     "semantic_hash": "31db883e4c2a874f607640a28016b53b"
-  },
-  "verify_grid.mjs": {
-    "mtime": 1783269739.2429092,
-    "ast_hash": "7f424450f4d229d2189158cb0a27e8c3",
-    "semantic_hash": "7f424450f4d229d2189158cb0a27e8c3"
   },
   "vite.config.js": {
     "mtime": 1782231306.0686662,
@@ -2945,8 +2860,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785613245.8433182,
-    "ast_hash": "5e085626d745fef59b4414d15efb1f4e",
+    "mtime": 1785614524.0831976,
+    "ast_hash": "d03e2f942f86094c7722d8888e5d9c28",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2985,13 +2900,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785613867.1123688,
-    "ast_hash": "d1435c3675b3b6ce4235043f6cb25a71",
+    "mtime": 1785614524.085202,
+    "ast_hash": "136eb7db06942b6c9da361209742535f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1783914240.3031423,
-    "ast_hash": "01a996dc26f98bcae17b53836aa05736",
+    "mtime": 1785614524.0842018,
+    "ast_hash": "981e49bf13f73ff3012339003b140f77",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -3314,11 +3229,6 @@
     "ast_hash": "6e568a1ad854a97211acb2d9fdc5a222",
     "semantic_hash": ""
   },
-  "docs/TUTORIAL_TAMAGOSHI.md": {
-    "mtime": 1781030708.2634277,
-    "ast_hash": "fb3512805f99cf9036977cf58a992238",
-    "semantic_hash": ""
-  },
   "docs/importantes/MANUAL_BATALHA_LDI.md": {
     "mtime": 1780597720.9490514,
     "ast_hash": "c8a00861c10f4d8edb6f3c8ece86a5f9",
@@ -3525,18 +3435,8 @@
     "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md": {
-    "mtime": 1782441630.442303,
-    "ast_hash": "3e49458ed78d2adf66354e34cde170de",
-    "semantic_hash": ""
-  },
-  "test_crash_report.md": {
-    "mtime": 1783268709.9287307,
-    "ast_hash": "80f87e6b22d763050a5911b9c77517ed",
-    "semantic_hash": ""
-  },
-  "test_report.md": {
-    "mtime": 1783200740.208422,
-    "ast_hash": "bd9df23ca1c42802ad43d7e2445ff632",
+    "mtime": 1785614524.0867054,
+    "ast_hash": "4ebbfc68b650c6da80bc7d381d2bdbdc",
     "semantic_hash": ""
   },
   "Jogos_Rafael/26.06.03.Anexo III \u2013Segmentos da Lei Rouanet (1).pdf": {
@@ -3682,11 +3582,6 @@
   "src/lib/topTrumpsCardAccess.js": {
     "mtime": 1785344903.8950171,
     "ast_hash": "898bc5a1fc9471b3641977740cfca9b1",
-    "semantic_hash": ""
-  },
-  "docs/TOP_TRUMPS_MP_VISUAL_STUDY.md": {
-    "mtime": 1785455689.7204652,
-    "ast_hash": "15570f56f9dab51cb201d033b966458f",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/multiplayer/MultiplayerGameScreen.jsx": {

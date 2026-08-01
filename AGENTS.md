@@ -85,10 +85,6 @@ Each logs to console on mount: `[LDI] versão carregada: X.X.X`, etc.
 
 
 
-**Automation:** `python deploy.py -g <game> -m "description"` does steps 1-6 in one command. Use `--minor` or `--major` for non-patch bumps. Accepts multiple `-g` values.
-
-> **⚠️ deploy.py restaurado em 2026-07-05** — havia sido deletado na sanitização de documentos (commit `4325d47f`). O script foi reescrito para apontar para `src/config/version.js` (versões centralizadas). Se um agente disser que o deploy.py não existe, é porque não fez `git pull` da versão mais recente.
-
 At the end of every task, deliver a **report table** with the version changes **highlighted**:
 
 ```
@@ -136,8 +132,7 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 - **CSS de jogo nunca pode usar seletor de elemento global** — regras como `header {}` vazam porque os CSS importados pelo Vite são globais. Sempre limitar pelo wrapper do jogo (`.kp-wrapper header`) e manter classes prefixadas; um `header { display:flex }` do Kernel Panic quebrou o cabeçalho do lobby multiplayer.
 - **Kernel Games: hierarquia de botão Voltar** — dentro do gameplay: `setPhase('select')` + cleanup (volta ao menu de dificuldade). No menu de dificuldade: `onBack` prop → `navigate('/games')` (volta ao catálogo Kernel Games).
 - **Isaias exige revisão visual real, não checklist burocrática** — toda mudança de CSS/layout deve ser pensada e testada visualmente. Valores arbitrários sem intenção de uso de espaço serão rejeitados. Se o agente não tem certeza do resultado visual, deve ler os CSS existentes e entender o fluxo de layout antes de editar.
-- **deploy.py foi deletado silenciosamente na sanitização de docs (commit `4325d47f`)** — AGENTS.md e BÍBLIA.md continuavam referenciando `python deploy.py` como automação, mas o arquivo não existia. Agentes que tentavam usar recebiam `FileNotFoundError` e "deploy falhou silenciosamente". O script foi reescrito em 2026-07-05 para apontar para `src/config/version.js` (versões centralizadas). Sempre verificar se `deploy.py` existe antes de confiar na documentação. Se sumir de novo, restaurar do histórico do git (`git restore deploy.py`).
-- **Deploy sem commit = deploy perdido** — AGENTS.md workflow diz: bump → build → commit → push → deploy. Pular commit/push faz o código fonte sumir para sempre. O gh-pages recebe o build, mas main não tem o fonte. O script `deploy.py` executa commit+push AUTOMATICAMENTE, evitando esse erro humano. Se o agente estiver fazendo deploy manual, NUNCA pular `git add -A && git commit && git push` antes de `npm run deploy`.
+- **Deploy sem commit = deploy perdido** — o workflow obrigatório é bump → build → commit → push → deploy. Pular commit/push faz o código-fonte não acompanhar o build publicado. NUNCA pular `git add -A && git commit && git push` antes de `npm run deploy`.
 
 ## Regra Anti-Over-Engineering
 

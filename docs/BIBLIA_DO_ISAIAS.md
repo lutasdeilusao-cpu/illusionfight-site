@@ -97,8 +97,6 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 7. Verificar que o deploy publicou sem erros
 ```
 
-Automação: `python deploy.py -g <game> -m "descrição"` (bump+build+commit+push+deploy num comando; `--minor`/`--major` para bumps não-patch; aceita múltiplos `-g`).
-
 **Relatório obrigatório ao final de toda task:**
 ```
 | Arquivo | O que mudou | Versão |
@@ -181,7 +179,7 @@ Zero CSS-in-JS — cada componente tem um `.css`. Classes kebab-case/BEM-like co
 /
 ├── index.html, package.json, vite.config.js, AGENTS.md, SITE_MAP.md
 ├── docs/                  # Bíblia, ReportAI/
-├── scripts/, deploy.py, .env(.production)
+├── scripts/, .env(.production)
 ├── public/                # 404.html (SPA redirect), CNAME, _redirects,
 │                           sitemap.xml, sw.js, assets/, games/ (15 HTML SEO), webtoon/
 ├── supabase/               # migrations/ (004-022), functions/ (3 Stripe Edge Functions)

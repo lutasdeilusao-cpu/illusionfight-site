@@ -83,7 +83,7 @@
 | `engine/ai/personalidades/persistente.js` | Fixa alvo via `alvoFixadoId`, só troca se outro ficar mais fraco | Via `personalidades/index.js` | 🟢 |
 | `engine/combat.js` | Motor de combate: FA, FD, `resolverAtaque`, `criarPersonagem`, `rolarD6` | `phases/Phase6Combat.jsx`, `phases/Phase1SheetBuilder.jsx`, `engine/ai.js`, personalidades | 🟢 |
 | `engine/drawCombatBoard.js` | Função pura de desenho do canvas de combate | `phases/Phase6Combat.jsx` | 🟢 |
-| `engine/hexUtils.js` | Utilitários de grid hexagonal (odd-r offset): distância, vizinhos, linha de visão, BFS pathfinding | Fases 4+6, personalidades, `engine/ai.js`, `archive/getLineInDirection.js` | 🟢 |
+| `engine/hexUtils.js` | Utilitários de grid hexagonal (odd-r offset): distância, vizinhos, linha de visão, BFS pathfinding | Fases 4+6, personalidades, `engine/ai.js` | 🟢 |
 | `engine/mecanicasPoder.js` | Camada 2 de poderes: lookup `MECANICAS` + `executarMecanica()` + `bonusAtributo` | `phases/Phase6Combat.jsx` | 🟢 |
 | `engine/regrasFicha.js` | Validação: limite de fichas (9), personagens (3), cores, nomes | `phases/Phase0Start.jsx`, `phases/Phase2Customize.jsx` | 🟢 |
 | `engine/TurnController.js` | Orquestrador único de turno: ordem, avanço, restrições, agendamentos, `TipoAcao` | `phases/Phase6Combat.jsx` | 🟢 |
@@ -102,17 +102,7 @@
 
 ---
 
-## 6. archive/ — Preservados (não ativos)
-
-| Arquivo | Origem | Motivo |
-|---------|--------|--------|
-| `archive/PowerLinePreview.jsx` | `components/PowerLinePreview.jsx` original | Preservado para reconstrução futura da Investida |
-| `archive/PowerLinePreview.css` | `components/PowerLinePreview.css` original | Preservado |
-| `archive/getLineInDirection.js` | `engine/getLineInDirection.js` | Preservado para reconstrução futura da Investida |
-
----
-
-## 7. Documentação
+## 6. Documentação
 
 | Arquivo | Responsabilidade |
 |---------|-----------------|
@@ -121,7 +111,7 @@
 
 ---
 
-## 8. ⚪ engine/ai/index.js — Órfão com imports quebrados
+## 7. ⚪ engine/ai/index.js — Órfão com imports quebrados
 
 O arquivo `engine/ai/index.js` foi substituído por `engine/ai/personalidades/index.js` mas não foi deletado. Ele ainda importa de `./sanguinaria`, `./fujona`, `./persistente` (caminhos errados — estão em `./personalidades/`). Não é importado por ninguém ativamente. **Pode ser deletado.**
 
@@ -136,6 +126,5 @@ O arquivo `engine/ai/index.js` foi substituído por `engine/ai/personalidades/in
 | UI Reutilizáveis (modals + power-selection + effects) | 17 | 1 | 18 |
 | engine/ | 15 | 1 | 16 |
 | data/ | 2 | 0 | 2 |
-| archive/ | 0 | 3 | 3 |
 | Documentação | 2 | 0 | 2 |
-| **Total** | **52** | **5** | **57** |
+| **Total** | **52** | **2** | **54** |
