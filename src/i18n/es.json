@@ -2692,9 +2692,9 @@
     "cta": "Ver planes"
   },
   "multiplayer_lobby": {
-    "live_kicker": "ARENA MULTIJUGADOR",
+    "live_kicker": "MULTIPLAYER ARENA",
     "live_title": "Prepárate para el duelo",
-    "live_description": "Estamos buscando un adversario a tu altura.",
+    "live_description": "Estamos buscando un oponente para ti.",
     "origin": "Modo de juego",
     "real_match": "Enfrentamiento online",
     "connecting": "CONECTANDO AL SERVIDOR",

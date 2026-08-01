@@ -2695,7 +2695,7 @@
   "multiplayer_lobby": {
     "live_kicker": "MULTIPLAYER ARENA",
     "live_title": "Prepare for the duel",
-    "live_description": "We are searching for a worthy opponent.",
+    "live_description": "We are looking for an opponent for you.",
     "origin": "Game mode",
     "real_match": "Online match",
     "connecting": "CONNECTING TO SERVER",

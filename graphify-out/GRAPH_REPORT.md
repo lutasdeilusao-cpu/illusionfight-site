@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-08-01)
 
 ## Corpus Check
-- 659 files · ~760,850 words
+- 659 files · ~760,844 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7e037824`
+- Built from commit: `0cae3dcf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -60,6 +60,7 @@
 - react
 - Community 43
 - deterministicDeck.js
+- pixi.js
 - Community 46
 - PuzzleStealthGrid.jsx
 - Community 48
@@ -219,7 +220,6 @@
 - drawCombatBoard
 - PowerCard.jsx
 - Passeio.jsx
-- Footer.jsx
 - Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -293,7 +293,7 @@ Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculi
 
 ### Community 12 - "Community 12"
 Cohesion: 0.07
-Nodes (35): badgeCorClass(), ProdutoDigitalCard(), ShopSection(), ADMIN_EMAILS, AchievementsProvider(), AuthContext, AuthProvider(), DixContext (+27 more)
+Nodes (36): badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, AchievementsProvider(), AuthContext, AuthProvider() (+28 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.07
@@ -401,7 +401,7 @@ Nodes (16): CRIATURAS, CRIATURAS_BASE, SPRITE_1, SPRITE_10, SPRITE_2, SPRITE_3, 
 
 ### Community 39 - "useMultiplayerTurnMachine.js"
 Cohesion: 0.04
-Nodes (72): CookieBanner(), ScrollToTop(), ScrollToTopOnNav(), SearchModal(), ReaderContext, useReader(), index, BulletHellRafael() (+64 more)
+Nodes (70): CookieBanner(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, useReader(), BulletHellRafael(), CFG, hexAlpha() (+62 more)
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.16
@@ -469,7 +469,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.08
@@ -861,7 +861,7 @@ Nodes (5): BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO, F1. CONCEITO, F2. COM
 
 ### Community 206 - "Phase2Customize.jsx"
 Cohesion: 0.08
-Nodes (24): BookChaptersRow(), capaMap, formatarData(), externalMap, Footer(), routeMap, LOCALES, Navbar() (+16 more)
+Nodes (25): BookChaptersRow(), capaMap, formatarData(), externalMap, Footer(), routeMap, LOCALES, Navbar() (+17 more)
 
 ### Community 207 - "11. NUNTIUS GAMES — O BRAÇO INSTITUCIONAL"
 Cohesion: 0.50

@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785612181.6663702,
-    "ast_hash": "8a198dc1809890e4ca73298170028be7",
+    "mtime": 1785612941.359771,
+    "ast_hash": "1d8645dad0f92a4b7bcf357af3420b67",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -710,13 +710,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785611352.427992,
-    "ast_hash": "ff1f37b03f64d6a0a3e4440969dd03c9",
+    "mtime": 1785612974.8233118,
+    "ast_hash": "25345a66882cd36c38b6a5943d704682",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785611352.4294543,
-    "ast_hash": "cbac158130e9d4a8b15496aa7e77d876",
+    "mtime": 1785612974.825727,
+    "ast_hash": "7c510c32ff9bd73765eb1527465e0af7",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -740,8 +740,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785611352.4264874,
-    "ast_hash": "dd3b03e2c7651220e35fea66b62346c1",
+    "mtime": 1785612974.820993,
+    "ast_hash": "a26c69a201c403ac36f33e546d01c9fe",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2985,8 +2985,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785612400.5788248,
-    "ast_hash": "6db239dc5a2649ee1235741e310640e8",
+    "mtime": 1785612974.8267407,
+    "ast_hash": "d7f722cce131595b56eeb4cf9ce0fb19",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3705,8 +3705,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx": {
-    "mtime": 1785611278.7050648,
-    "ast_hash": "b174e75f02741afd5d473a112863f4f1",
+    "mtime": 1785612974.8180423,
+    "ast_hash": "b55ccd59a51e8a09a561f325a42ead26",
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js": {

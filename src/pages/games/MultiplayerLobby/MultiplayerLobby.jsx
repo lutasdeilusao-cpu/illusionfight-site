@@ -39,8 +39,7 @@ export default function MultiplayerLobby() {
   return (
     <section className="shared-lobby-page">
       <header className="shared-lobby-header">
-        <span className="shared-lobby-kicker">{t('multiplayer_lobby.live_kicker')}</span>
-        <h1>{t('multiplayer_lobby.live_title')}</h1>
+        <h1>{t('multiplayer_lobby.live_kicker')}</h1>
         <p>{t('multiplayer_lobby.live_description')}</p>
       </header>
 
