@@ -2695,6 +2695,7 @@
     "live_kicker": "MULTIPLAYER ARENA",
     "live_title": "Prepárate para el duelo",
     "live_description": "Estamos buscando un oponente para ti.",
+    "versus": "VS",
     "origin": "Modo de juego",
     "real_match": "Enfrentamiento online",
     "connecting": "CONECTANDO AL SERVIDOR",

@@ -62,7 +62,7 @@
   background-size: 30px 30px, 30px 30px, 100vw 100vh, 100vw 100vh;
 }
 
-header {
+.kp-wrapper header {
   display: flex;
   align-items: center;
   justify-content: space-between;

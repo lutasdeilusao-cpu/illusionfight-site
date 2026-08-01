@@ -45,7 +45,7 @@ export default function MultiplayerLobby() {
 
       <div className="shared-lobby-game-badge">
         <span>{t('multiplayer_lobby.origin')}</span>
-        <strong>Top Trumps</strong>
+        <strong>{t('multiplayer_lobby.games.toptrumps')}</strong>
         <small>{t('multiplayer_lobby.real_match')}</small>
       </div>
 
@@ -61,7 +61,7 @@ export default function MultiplayerLobby() {
 
         {state.phase === 'matched' && (
           <div className="shared-lobby-status shared-lobby-status--matched">
-            <div className="shared-lobby-match-icon" aria-hidden="true"><span>VS</span></div>
+            <div className="shared-lobby-match-icon" aria-hidden="true"><span>{t('multiplayer_lobby.versus')}</span></div>
             <strong>{t('multiplayer_lobby.match_ready')}</strong>
             <p>{t('multiplayer_lobby.syncing_players')}</p>
             <div className="shared-lobby-countdown" key={state.countdown}>{state.countdown}</div>

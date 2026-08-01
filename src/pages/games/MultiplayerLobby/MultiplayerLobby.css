@@ -11,10 +11,22 @@
   overflow: hidden;
 }
 
-.shared-lobby-header { max-width: 390px; margin: 0 auto 22px; text-align: center; }
+.shared-lobby-header {
+  display: flex;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto 22px;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 0;
+  text-align: center;
+}
 .shared-lobby-kicker { color: #55e7c4; font: 700 .62rem 'Ethnocentric', sans-serif; letter-spacing: .2em; }
 .shared-lobby-header h1 { margin: 12px 0 10px; color: #f0c95f; font: 700 1.55rem/1.2 'Ethnocentric', sans-serif; letter-spacing: .025em; }
-.shared-lobby-header p { margin: 0 auto; color: #9eb0c4; font-size: .88rem; line-height: 1.55; }
+.shared-lobby-header p { width: 100%; margin: 0 auto; color: #9eb0c4; font-size: .88rem; line-height: 1.55; text-align: center; }
 
 .shared-lobby-game-badge {
   display: flex;

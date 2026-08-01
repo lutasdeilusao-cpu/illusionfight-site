@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-08-01)
 
 ## Corpus Check
-- 659 files · ~760,844 words
+- 659 files · ~760,912 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3055 nodes · 6306 edges · 265 communities (230 shown, 35 thin omitted)
+- 3055 nodes · 6306 edges · 266 communities (231 shown, 35 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0cae3dcf`
+- Built from commit: `fe44fd51`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -220,6 +220,7 @@
 - drawCombatBoard
 - PowerCard.jsx
 - Passeio.jsx
+- BLOCO B — LINKEDIN PESSOAL ISAIAS
 - Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -249,7 +250,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (265 total, 35 thin omitted)
+## Communities (266 total, 35 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -260,8 +261,8 @@ Cohesion: 0.06
 Nodes (45): BattleLog(), Board(), Card(), CardPreviewModal(), Hand(), LPDisplay(), StatusBar(), CARDS (+37 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.12
-Nodes (17): hasFlag(), setFlag(), allScenes, filterChoices(), getSceneFromCache(), loadScene(), scenesCache, setScenesLocale() (+9 more)
+Cohesion: 0.07
+Nodes (40): ReaderContext, useReader(), Clues(), Combat(), ClueBook(), drawer, ManualDrawer(), ACHIEVEMENTS (+32 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.05
@@ -293,7 +294,7 @@ Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculi
 
 ### Community 12 - "Community 12"
 Cohesion: 0.07
-Nodes (36): badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, AchievementsProvider(), AuthContext, AuthProvider() (+28 more)
+Nodes (35): badgeCorClass(), ProdutoDigitalCard(), ShopSection(), ADMIN_EMAILS, AchievementsProvider(), AuthContext, AuthProvider(), DixContext (+27 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.07
@@ -400,8 +401,8 @@ Cohesion: 0.12
 Nodes (16): CRIATURAS, CRIATURAS_BASE, SPRITE_1, SPRITE_10, SPRITE_2, SPRITE_3, SPRITE_4, SPRITE_5 (+8 more)
 
 ### Community 39 - "useMultiplayerTurnMachine.js"
-Cohesion: 0.04
-Nodes (70): CookieBanner(), ScrollToTop(), ScrollToTopOnNav(), ReaderContext, useReader(), BulletHellRafael(), CFG, hexAlpha() (+62 more)
+Cohesion: 0.07
+Nodes (33): BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael(), CodigoPerdido(), DIF_CFG, KEYBOARD_ROWS, pick() (+25 more)
 
 ### Community 40 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.16
@@ -556,8 +557,8 @@ Cohesion: 0.40
 Nodes (6): COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, getCtx(), sfx, tocar()
 
 ### Community 80 - "Quiz.jsx"
-Cohesion: 0.36
-Nodes (7): LoginGate(), calcularRank(), embaralhar(), gerarDicaGangue(), MODOS, Quiz(), selecionarPerguntas()
+Cohesion: 0.09
+Nodes (23): CookieBanner(), LoginGate(), ScrollToTop(), ScrollToTopOnNav(), SearchModal(), index, Create(), ADVANTAGES (+15 more)
 
 ### Community 81 - "Community 81"
 Cohesion: 0.29
@@ -792,8 +793,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.17
-Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
+Cohesion: 0.25
+Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -861,7 +862,7 @@ Nodes (5): BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO, F1. CONCEITO, F2. COM
 
 ### Community 206 - "Phase2Customize.jsx"
 Cohesion: 0.08
-Nodes (25): BookChaptersRow(), capaMap, formatarData(), externalMap, Footer(), routeMap, LOCALES, Navbar() (+17 more)
+Nodes (24): BookChaptersRow(), capaMap, formatarData(), externalMap, Footer(), routeMap, LOCALES, Navbar() (+16 more)
 
 ### Community 207 - "11. NUNTIUS GAMES — O BRAÇO INSTITUCIONAL"
 Cohesion: 0.50
@@ -931,6 +932,10 @@ Nodes (10): PowerChoiceModal(), ELEM_ICON, PowerCard(), PowerDescription(), ELEM
 Cohesion: 0.14
 Nodes (24): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, carregarFichas(), deletarFicha(), escreverNoStorage(), gerarId() (+16 more)
 
+### Community 264 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
+Cohesion: 0.50
+Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
+
 ### Community 267 - "Criatura.jsx"
 Cohesion: 0.50
 Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
@@ -945,7 +950,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `PerfilColecao.jsx`, `initBattle`, `TopTrumpsMP.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `PuzzleStealthGrid.jsx`, `Community 49`, `Mundo.jsx`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `Quiz.jsx`, `endBattle`, `ResultCard.jsx`, `TypewriterPhrase.jsx`, `Phase0Start.jsx`, `Batalha.jsx`, `Phase1SheetBuilder.jsx`?**
   _High betweenness centrality (0.141) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `initBattle`, `Passeio.jsx`, `Community 8`, `Community 9`, `Community 15`, `Community 49`, `Community 58`, `Community 27`, `Community 28`?**
+- **Why does `useReader()` connect `Community 2` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `initBattle`, `useMultiplayerTurnMachine.js`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 15`, `Quiz.jsx`, `Community 49`, `Community 58`, `Community 27`, `Community 28`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 6` to `TopTrumpsMP.jsx`, `useMultiplayerTurnMachine.js`, `Community 17`, `Community 19`, `Community 27`, `Community 28`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
@@ -956,4 +961,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.05536568694463431 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.12307692307692308 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06597222222222222 - nodes in this community are weakly interconnected._
