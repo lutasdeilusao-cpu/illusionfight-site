@@ -1,224 +1,115 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
+import { ARENA_STYLES, ARENA_TECHNIQUES, ARENA_WEAKNESSES, STYLE_WEAPONS } from './data/arenaLoadout.js'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
-import { useEventos } from '../../../context/EventosContext'
 import { sfx } from '../../../lib/sfx'
 
 const ATTRS = ['F', 'H', 'R', 'A', 'PdF']
 const ATTR_EMOJI = { F: '💪', H: '🎯', R: '🛡️', A: '🦾', PdF: '✨' }
-
-const ADV_COSTS = [1,1,2,1,2,2,1,1,1,1,1,2,1,2,1,2,2,4,1,2,1,2,1,1,3,1,1,2,1,2,1]
-const DIS_GAINS = [1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1]
-const PERK_COSTS = [1,1,1,1,1,1]
-
-const MANUAL_KEYS = ['fundamentos', 'atributos', 'combate', 'elementais', 'vantagens']
-
-function ManualBatalha() {
-  const { t } = useLanguage()
-  const [aberta, setAberta] = useState(null)
-  return (
-    <div className="arena-manual-sections">
-      {MANUAL_KEYS.map(id => {
-        const sec = t(`games.arena.manual.${id}`, { returnObjects: true })
-        if (!sec) return null
-        return (
-          <div key={id} className="arena-manual-section">
-            <button className={`arena-manual-section-btn ${aberta === id ? 'arena-manual-section-btn--open' : ''}`}
-              onClick={() => setAberta(aberta === id ? null : id)}>
-              {sec.titulo}
-              <span className="arena-manual-section-arrow">{aberta === id ? '▲' : '▼'}</span>
-            </button>
-            {aberta === id && (
-              <div className="arena-manual-section-body">
-                {sec.conteudo && <pre className="arena-manual-pre">{sec.conteudo}</pre>}
-                {sec.tabela && (
-                  <table className="arena-manual-table"><tbody>
-                    {sec.tabela.map((row, i) => (
-                      <tr key={i}>
-                        <td className="arena-manual-td-key">{row[0]}</td>
-                        <td className="arena-manual-td-val">{row[1]}</td>
-                      </tr>
-                    ))}
-                  </tbody></table>
-                )}
-                {sec.extra && <pre className="arena-manual-pre arena-manual-pre--extra">{sec.extra}</pre>}
-              </div>
-            )}
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
-function AdvTooltip({ label, desc, x, y }) {
-  const style = {
-    left: Math.min(x, window.innerWidth - 260),
-    top: y - 8,
-  }
-  return (
-    <div className="arena-adv-tooltip" style={style}>
-      <div className="arena-adv-tooltip-label">{label}</div>
-      <div className="arena-adv-tooltip-desc">{desc}</div>
-    </div>
-  )
-}
+const STEPS = ['attrs', 'identity', 'loadout']
 
 export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit }) {
   const { t } = useLanguage()
-  const navigate = useNavigate()
   const { user } = useAuth()
-  const { registrarEvento } = useEventos()
+  const navigate = useNavigate()
   const store = useArenaStore()
   const [step, setStep] = useState(skipIntro ? 'attrs' : 'intro')
   const [errors, setErrors] = useState({})
-  const [manualOpen, setManualOpen] = useState(false)
-  const [tooltip, setTooltip] = useState(null)
-  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   const [guestSaveModal, setGuestSaveModal] = useState(false)
-  const longPressRef = useRef(null)
 
   useEffect(() => {
-    if (!skipIntro && onFirstVisit) onFirstVisit()
+    if (!skipIntro) onFirstVisit?.()
   }, [])
 
-  const s = store.sheet
-  const attrs = s.attributes
+  const sheet = store.sheet
+  const attrs = sheet.attributes
   const points = store.points_available
+  const stepIndex = STEPS.indexOf(step)
 
-  const NEUTRO_COR = '#00B4D8'
-  const NEUTRO_GLOW = 'rgba(0,180,216,0.15)'
-
-  const validateStep = () => {
-    const e = {}
-    if (step === 'attrs' && points > 0) e.points = t('games.arena.erro_pontos')
-    if (step === 'attrs' && attrs.R < 1) e.r_min = t('games.arena.erro_r_min')
-    if (step === 'sheet_name' && !s.sheet_name?.trim()) e.name = t('games.arena.erro_nome')
-    setErrors(e)
-    return Object.keys(e).length === 0
-  }
-
-  const handleAttrChange = (attr, delta) => {
+  const changeAttribute = (attr, delta) => {
     if (delta > 0 && points <= 0) return
     if (delta < 0 && attrs[attr] <= 0) return
-    const newVal = attrs[attr] + delta
-    if (newVal > 5) return
-    store.updateSheet({ attributes: { ...attrs, [attr]: newVal } })
-    if (delta > 0) { store.spendPoints(1); sfx.select() }
-    else { store.gainPoints(1); sfx.cancel() }
-  }
-
-  const toggleFromList = (key, item) => {
-    const list = s[key] || []
-    const exists = list.find(x => x.label === item.label)
-    if (exists) { sfx.cancel(); store.updateSheet({ [key]: list.filter(x => x.label !== item.label) }); return }
-    // Desvantagens: máximo 3 pontos acumulados
-    if (key === 'disadvantages') {
-      const currentGain = (s.disadvantages || []).reduce((sum, x) => sum + (x.gain || 0), 0)
-      if (currentGain + (item.gain || 0) > 3) return
-    }
+    const value = attrs[attr] + delta
+    if (value > 5) return
+    store.updateSheet({ attributes: { ...attrs, [attr]: value } })
+    if (delta > 0) store.spendPoints(1)
+    else store.gainPoints(1)
     sfx.select()
-    store.updateSheet({ [key]: [...list, item] })
   }
 
-  const costMap = (list) => list.reduce((sum, x) => sum + (x.cost || x.gain || 0), 0)
-  const advantageCost = costMap(s.advantages || [])
-  const disadvantageGain = costMap(s.disadvantages || [])
-  const perkCost = costMap(s.perks || [])
-  const totalPoints = advantageCost + perkCost - disadvantageGain
-
-  const handleAdvEnter = (e, item) => {
-    const r = e.currentTarget.getBoundingClientRect()
-    setTooltip({ label: item.label, desc: item.desc, x: r.left, y: r.top })
+  const selectStyle = (id) => {
+    sfx.select()
+    store.updateSheet({ combat_style: id, weapon: STYLE_WEAPONS[id].weapon, loadout_version: 1 })
   }
-  const handleAdvLeave = () => setTooltip(null)
-  const handleAdvPointerDown = (e, item) => {
-    longPressRef.current = setTimeout(() => {
-      const r = e.currentTarget.getBoundingClientRect()
-      setTooltip({ label: item.label, desc: item.desc, x: r.left, y: r.top })
-    }, 400)
-  }
-  const handleAdvPointerUp = () => clearTimeout(longPressRef.current)
 
-  const handleSalvar = async () => {
-    if (!s.sheet_name?.trim()) { setErrors({ name: t('games.arena.erro_nome') }); setStep('sheet_name'); return }
-    if (s.attributes?.R < 1) { setErrors({ r_min: t('games.arena.erro_r_min') }); setStep('attrs'); return }
-    if (totalPoints > 0) { setErrors({ cost: t('games.arena.erro_custo_pos') }); return }
-    if (totalPoints < 0) { setErrors({ cost: t('games.arena.erro_custo_neg') }); return }
-    if (!user) {
-      setGuestSaveModal(true)
+  const toggleTechnique = (id) => {
+    const current = sheet.technique_ids || []
+    if (current.includes(id)) {
+      store.updateSheet({ technique_ids: current.filter(item => item !== id) })
+      sfx.cancel()
       return
     }
+    if (current.length >= 2) return
+    store.updateSheet({ technique_ids: [...current, id] })
+    sfx.select()
+  }
+
+  const nextFromAttributes = () => {
+    const nextErrors = {}
+    if (points > 0) nextErrors.points = t('games.arena.erro_pontos')
+    if (attrs.R < 1) nextErrors.resistance = t('games.arena.erro_r_min')
+    setErrors(nextErrors)
+    if (!Object.keys(nextErrors).length) setStep('identity')
+  }
+
+  const nextFromIdentity = () => {
+    if (!sheet.sheet_name?.trim()) { setErrors({ name: t('games.arena.erro_nome') }); return }
+    setErrors({})
+    setStep('loadout')
+  }
+
+  const save = async () => {
+    const nextErrors = {}
+    if (!sheet.combat_style) nextErrors.style = t('games.arena.loadout.errors.style')
+    if ((sheet.technique_ids || []).length !== 2) nextErrors.techniques = t('games.arena.loadout.errors.techniques')
+    if (!sheet.weakness_id) nextErrors.weakness = t('games.arena.loadout.errors.weakness')
+    setErrors(nextErrors)
+    if (Object.keys(nextErrors).length) return
+    if (!user) { setGuestSaveModal(true); return }
     await store.saveToCloud(user.id)
     onNavigate('lobby')
   }
 
-  const handleGuestContinue = () => {
-    setGuestSaveModal(false)
-    onNavigate('lobby')
+  if (step === 'intro') {
+    return (
+      <div className="arena-create arena-lobby arena-lobby--intro">
+        <div className="arena-lobby-hero">
+          <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
+          <h1 className="arena-lobby-nome arena-lobby-nome--lg">{t('games.arena.nova_ficha')}</h1>
+          <p className="arena-lobby-sub">{t('games.arena.loadout.intro')}</p>
+        </div>
+        <button className="arc-btn-primary arc-btn-primary--intro" onClick={() => setStep('attrs')}>{t('games.arena.intro_criar_direto')}</button>
+        <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} />
+      </div>
+    )
   }
-
-  const handleGuestCreateAccount = () => {
-    setGuestSaveModal(false)
-    navigate('/cadastro')
-  }
-
-  const stepIndex = ['attrs', 'sheet_name', 'specs'].indexOf(step)
 
   return (
     <div className="arena-create">
-
-      {/* INTRO */}
-      {step === 'intro' && (
-        <div className="arena-lobby arena-lobby--intro">
-          <div className="arena-lobby-hero">
-            <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
-            <h1 className="arena-lobby-nome arena-lobby-nome--lg">{t('games.arena.nova_ficha')}</h1>
-            <p className="arena-lobby-sub">{t('games.arena.intro_sabe_sistema')}</p>
-          </div>
-          <div className="arena-lobby-divider" />
-          <div className="arc-intro-grid">
-            <div className="arc-intro-card" onClick={() => { sfx.click(); setManualOpen(true) }}>
-              <div className="arc-intro-card-icon">📖</div>
-              <div className="arc-intro-card-titulo">{t('games.arena.intro_ler_manual')}</div>
-              <div className="arc-intro-card-sub">{t('games.arena.intro_ler_manual_sub')}</div>
-            </div>
-            <div className="arc-intro-card arc-intro-card--primary" onClick={() => { sfx.click(); setStep('attrs') }}>
-              <div className="arc-intro-card-icon">⚔️</div>
-              <div className="arc-intro-card-titulo">{t('games.arena.intro_criar_direto')}</div>
-              <div className="arc-intro-card-sub">{t('games.arena.intro_criar_direto_sub')}</div>
-            </div>
-          </div>
-          <p className="arc-intro-hint" dangerouslySetInnerHTML={{ __html: t('games.arena.intro_dica_manual') }} />
-          <div className="arc-nav">
-            <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
-          </div>
+      <div className="arc-header">
+        <div className="arc-header-center">
+          <p className="arena-lobby-titulo arena-lobby-titulo--sm">{t('games.arena.nova_ficha')}</p>
+          {sheet.sheet_name && <p className="arc-header-name">{sheet.sheet_name}</p>}
         </div>
-      )}
-
-      {/* HEADER steps */}
-      {step !== 'intro' && (
-        <div className="arc-header">
-          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
-            {sfx.enabled ? '🔊' : '🔇'}
-          </button>
-          <div className="arc-header-center">
-            <p className="arena-lobby-titulo arena-lobby-titulo--sm">{t('games.arena.nova_ficha')}</p>
-            {s.sheet_name && <p className="arc-header-name">{s.sheet_name}</p>}
-          </div>
-          <div className="arena-create-steps">
-            {['attrs','sheet_name','specs'].map((st, i) => (
-              <div key={st} className={`arena-create-step-dot ${step === st ? 'arena-create-step-dot--active' : i < stepIndex ? 'arena-create-step-dot--done' : ''}`} />
-            ))}
-          </div>
+        <div className="arena-create-steps">
+          {STEPS.map((item, index) => <div key={item} className={`arena-create-step-dot ${step === item ? 'arena-create-step-dot--active' : index < stepIndex ? 'arena-create-step-dot--done' : ''}`} />)}
         </div>
-      )}
+      </div>
 
-      {/* STEP ATTRS */}
       {step === 'attrs' && (
         <div className="arc-step">
           <div className="arc-section-label">{t('games.arena.pag_atributos')} <span className="arc-pontos">{t('games.arena.attrs_pontos_restantes', { n: points })}</span></div>
@@ -226,191 +117,55 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             {ATTRS.map(attr => (
               <div key={attr} className="arc-attr-card">
                 <div className="arc-attr-avatar">{ATTR_EMOJI[attr]}</div>
-                <div className="arc-attr-info">
-                  <div className="arc-attr-name">{t(`games.arena.attr_labels.${attr}`)}</div>
-                  <div className="arc-attr-desc">{t(`games.arena.attr_desc.${attr}`)}</div>
-                </div>
+                <div className="arc-attr-info"><div className="arc-attr-name">{t(`games.arena.attr_labels.${attr}`)}</div><div className="arc-attr-desc">{t(`games.arena.attr_desc.${attr}`)}</div></div>
                 <div className="arc-attr-controls">
-                  <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, -1)} disabled={attrs[attr] <= 0}>−</button>
+                  <button className="arc-attr-btn" onClick={() => changeAttribute(attr, -1)} disabled={attrs[attr] <= 0}>−</button>
                   <span className="arc-attr-val">{attrs[attr]}</span>
-                  <button className="arc-attr-btn" onClick={() => handleAttrChange(attr, 1)} disabled={attrs[attr] >= 5 || points <= 0}>+</button>
+                  <button className="arc-attr-btn" onClick={() => changeAttribute(attr, 1)} disabled={attrs[attr] >= 5 || points <= 0}>+</button>
                 </div>
               </div>
             ))}
           </div>
-          {errors.points && <p className="arena-err">{errors.points}</p>}
-          {errors.r_min && <p className="arena-err">{errors.r_min}</p>}
-          <div className="arc-nav">
-            <BackToGamesBtn onClick={() => { sfx.click(); onNavigate('lobby') }} label={t('games.arena.btn_voltar')} />
-            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('sheet_name') }}>{t('games.arena.btn_proximo')}</button>
-          </div>
+          {Object.values(errors).map(error => <p className="arena-err" key={error}>{error}</p>)}
+          <div className="arc-nav"><BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} /><button className="arc-btn-primary" onClick={nextFromAttributes}>{t('games.arena.btn_proximo')}</button></div>
         </div>
       )}
 
-      {/* STEP SHEET NAME */}
-      {step === 'sheet_name' && (
+      {step === 'identity' && (
         <div className="arc-step">
           <div className="arc-section-label">{t('games.arena.pag_identidade')}</div>
-
-          <div className="arc-name-hero">
-            <div className="arc-name-avatar" style={{ '--elem-cor': NEUTRO_COR, '--elem-glow': NEUTRO_GLOW, background: `radial-gradient(circle at 35% 35%, ${NEUTRO_COR}, #0a0a0a)`, boxShadow: `0 0 32px ${NEUTRO_GLOW}` }}>
-              {s.sheet_name ? s.sheet_name[0].toUpperCase() : '?'}
-            </div>
-            <input
-              className="arc-name-input"
-              value={s.sheet_name || ''}
-              onChange={e => { store.updateSheet({ sheet_name: e.target.value }); setErrors({}) }}
-              placeholder={t('games.arena.placeholder_nome')}
-              autoFocus
-            />
-            {errors.name && <p className="arena-err">{errors.name}</p>}
+          <div className="arc-name-hero arc-name-hero--simple">
+            <div className="arc-name-avatar arc-name-avatar--neutral">{sheet.sheet_name ? sheet.sheet_name[0].toUpperCase() : '?'}</div>
+            <input className="arc-name-input" value={sheet.sheet_name || ''} onChange={event => store.updateSheet({ sheet_name: event.target.value })} placeholder={t('games.arena.placeholder_nome')} autoFocus />
           </div>
-
-          <div className="arc-section-label">{t('games.arena.arma')}</div>
-          <input className="arc-text-input" value={s.weapon || ''} onChange={e => store.updateSheet({ weapon: e.target.value })} placeholder={t('games.arena.ex_arma')} />
-
-          <div className="arc-nav">
-            <BackToGamesBtn onClick={() => { sfx.click(); setStep('attrs') }} label={t('games.arena.btn_voltar')} />
-            <button className="arc-btn-primary" onClick={() => { if (validateStep()) setStep('specs') }}>{t('games.arena.btn_proximo')}</button>
-          </div>
+          {errors.name && <p className="arena-err">{errors.name}</p>}
+          <div className="arc-nav"><BackToGamesBtn onClick={() => setStep('attrs')} label={t('games.arena.btn_voltar')} /><button className="arc-btn-primary" onClick={nextFromIdentity}>{t('games.arena.btn_proximo')}</button></div>
         </div>
       )}
 
-      {/* STEP SPECS */}
-      {step === 'specs' && (
+      {step === 'loadout' && (
         <div className="arc-step">
-          <div className="arc-section-label">{t('games.arena.pag_pericias')}</div>
-          <div className="arc-chip-grid">
-            {[0,1,2,3,4,5,6,7,8,9].map(i => {
-              const spec = t(`games.arena.specializations[${i}]`)
-              const active = (s.specializations || []).includes(spec)
-              return (
-                <div key={spec} className={`arc-chip ${active ? 'arc-chip--active' : ''}`}
-                  onClick={() => {
-                    const list = s.specializations || []
-                    if (active) sfx.cancel()
-                    else sfx.select()
-                    store.updateSheet({ specializations: active ? list.filter(x => x !== spec) : [...list, spec] })
-                  }}>
-                  {spec}
-                </div>
-              )
-            })}
+          <div className="arc-section-label">{t('games.arena.loadout.style_title')}</div>
+          <div className="arc-loadout-grid arc-loadout-grid--styles">
+            {ARENA_STYLES.map(id => <button key={id} className={`arc-loadout-card ${sheet.combat_style === id ? 'arc-loadout-card--active' : ''}`} onClick={() => selectStyle(id)}><strong>{t(`games.arena.loadout.styles.${id}.name`)}</strong><span>{t(`games.arena.loadout.styles.${id}.desc`)}</span></button>)}
           </div>
 
-          <div className="arc-section-label">{t('games.arena.vantagens')} <span className="arc-pontos">{advantageCost} pts</span></div>
-          <div className="arc-chip-grid">
-            {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30].map(i => {
-              const advData = t(`games.arena.advantages[${i}]`, { returnObjects: true })
-              if (!advData) return null
-              const adv = { label: advData.label, desc: advData.desc, cost: ADV_COSTS[i] || 1 }
-              const has = (s.advantages || []).find(x => x.label === adv.label)
-              return (
-                <div key={adv.label}
-                  className={`arc-chip arc-chip--adv ${has ? 'arc-chip--adv-active' : ''}`}
-                  onClick={() => toggleFromList('advantages', adv)}
-                  onMouseEnter={e => handleAdvEnter(e, adv)}
-                  onMouseLeave={handleAdvLeave}
-                  onPointerDown={e => handleAdvPointerDown(e, adv)}
-                  onPointerUp={handleAdvPointerUp}>
-                  <span className="arc-chip-cost">{adv.cost}</span> {adv.label}
-                </div>
-              )
-            })}
+          <div className="arc-section-label">{t('games.arena.loadout.techniques_title')} <span className="arc-pontos">{(sheet.technique_ids || []).length}/2</span></div>
+          <div className="arc-loadout-grid">
+            {ARENA_TECHNIQUES.map(id => <button key={id} className={`arc-loadout-card ${(sheet.technique_ids || []).includes(id) ? 'arc-loadout-card--active' : ''}`} onClick={() => toggleTechnique(id)}><strong>{t(`games.arena.loadout.techniques.${id}.name`)}</strong><span>{t(`games.arena.loadout.techniques.${id}.desc`)}</span></button>)}
           </div>
 
-          <div className="arc-section-label">{t('games.arena.desvantagens')} <span className="arc-pontos arc-pontos--gain">+{disadvantageGain} pts</span></div>
-          <div className="arc-chip-grid">
-            {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].map(i => {
-              const disData = t(`games.arena.disadvantages[${i}]`, { returnObjects: true })
-              if (!disData) return null
-              const dis = { label: disData.label, desc: disData.desc, gain: DIS_GAINS[i] || 1 }
-              const has = (s.disadvantages || []).find(x => x.label === dis.label)
-              return (
-                <div key={dis.label}
-                  className={`arc-chip arc-chip--dis ${has ? 'arc-chip--dis-active' : ''}`}
-                  onClick={() => toggleFromList('disadvantages', dis)}
-                  onMouseEnter={e => handleAdvEnter(e, dis)}
-                  onMouseLeave={handleAdvLeave}
-                  onPointerDown={e => handleAdvPointerDown(e, dis)}
-                  onPointerUp={handleAdvPointerUp}>
-                  <span className="arc-chip-cost">+{dis.gain}</span> {dis.label}
-                </div>
-              )
-            })}
+          <div className="arc-section-label">{t('games.arena.loadout.weakness_title')}</div>
+          <div className="arc-loadout-grid">
+            {ARENA_WEAKNESSES.map(id => <button key={id} className={`arc-loadout-card arc-loadout-card--weakness ${sheet.weakness_id === id ? 'arc-loadout-card--active' : ''}`} onClick={() => store.updateSheet({ weakness_id: id })}><strong>{t(`games.arena.loadout.weaknesses.${id}.name`)}</strong><span>{t(`games.arena.loadout.weaknesses.${id}.desc`)}</span></button>)}
           </div>
-
-          <div className="arc-section-label">{t('games.arena.unicas')} <span className="arc-pontos">{perkCost} pts</span></div>
-          <div className="arc-chip-grid">
-            {[0,1,2,3,4,5].map(i => {
-              const pData = t(`games.arena.perks[${i}]`, { returnObjects: true })
-              if (!pData) return null
-              const p = { label: pData.label, desc: pData.desc, cost: PERK_COSTS[i] || 1 }
-              const has = (s.perks || []).find(x => x.label === p.label)
-              return (
-                <div key={p.label}
-                  className={`arc-chip arc-chip--adv ${has ? 'arc-chip--adv-active' : ''}`}
-                  onClick={() => toggleFromList('perks', p)}
-                  onMouseEnter={e => handleAdvEnter(e, p)}
-                  onMouseLeave={handleAdvLeave}
-                  onPointerDown={e => handleAdvPointerDown(e, p)}
-                  onPointerUp={handleAdvPointerUp}>
-                  <span className="arc-chip-cost">{p.cost}</span> {p.label}
-                </div>
-              )
-            })}
-          </div>
-
-          {errors.cost && <p className="arena-err">{errors.cost}</p>}
-          <div className="arc-balance">
-            {t('games.arena.balanco', { v: advantageCost, p: perkCost, d: disadvantageGain, total: totalPoints })}
-          </div>
-
-          <div className="arc-nav">
-            <BackToGamesBtn onClick={() => { sfx.click(); setStep('sheet_name') }} label={t('games.arena.btn_voltar')} />
-            <button className="arc-btn-salvar" onClick={handleSalvar}>{t('games.arena.btn_salvar_lutar')}</button>
-          </div>
+          {Object.values(errors).map(error => <p className="arena-err" key={error}>{error}</p>)}
+          <div className="arc-nav"><BackToGamesBtn onClick={() => setStep('identity')} label={t('games.arena.btn_voltar')} /><button className="arc-btn-salvar" onClick={save}>{t('games.arena.btn_salvar_lutar')}</button></div>
         </div>
       )}
 
-      {/* botão ? */}
-      {step !== 'intro' && (
-        <button className="arena-manual-btn" onClick={() => setManualOpen(true)} title={t('games.arena.manual_titulo')}>?</button>
-      )}
-
-      {/* drawer */}
-      <div className={`arena-manual-drawer ${manualOpen ? 'arena-manual-drawer--open' : ''}`}>
-        <div className="arena-manual-drawer-header">
-          <span className="arena-manual-drawer-titulo">{t('games.arena.manual_titulo')}</span>
-          <button className="arena-manual-drawer-close" onClick={() => setManualOpen(false)}>✕</button>
-        </div>
-        <div className="arena-manual-drawer-body"><ManualBatalha /></div>
-      </div>
-      {manualOpen && <div className="arena-manual-overlay" onClick={() => setManualOpen(false)} />}
-
-      {tooltip && <AdvTooltip {...tooltip} />}
-
-      {/* Guest save prompt modal */}
       <AnimatePresence>
-        {guestSaveModal && (
-          <motion.div className="arena-guest-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setGuestSaveModal(false)}>
-            <motion.div className="arena-guest-modal" initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.85, opacity: 0 }} onClick={e => e.stopPropagation()}>
-              <div className="arena-guest-modal-inner">
-                <div className="arena-guest-modal-emoji">🔒</div>
-                <h2 className="arena-guest-modal-titulo">{t('games.arena.guest_save_prompt_title')}</h2>
-                <p className="arena-guest-modal-desc">{t('games.arena.guest_save_prompt_desc')}</p>
-                <div className="arena-guest-modal-btns">
-                  <button className="arena-guest-modal-btn arena-guest-modal-btn--primary" onClick={handleGuestCreateAccount}>
-                    {t('games.arena.guest_create_account')}
-                  </button>
-                  <button className="arena-guest-modal-btn" onClick={handleGuestContinue}>
-                    {t('games.arena.guest_continue_without_saving')}
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
+        {guestSaveModal && <motion.div className="arena-guest-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setGuestSaveModal(false)}><motion.div className="arena-guest-modal" onClick={event => event.stopPropagation()}><div className="arena-guest-modal-inner"><div className="arena-guest-modal-emoji">🔒</div><h2 className="arena-guest-modal-titulo">{t('games.arena.guest_save_prompt_title')}</h2><p className="arena-guest-modal-desc">{t('games.arena.guest_save_prompt_desc')}</p><div className="arena-guest-modal-btns"><button className="arena-guest-modal-btn arena-guest-modal-btn--primary" onClick={() => navigate('/cadastro')}>{t('games.arena.guest_create_account')}</button><button className="arena-guest-modal-btn" onClick={() => onNavigate('lobby')}>{t('games.arena.guest_continue_without_saving')}</button></div></div></motion.div></motion.div>}
       </AnimatePresence>
     </div>
   )

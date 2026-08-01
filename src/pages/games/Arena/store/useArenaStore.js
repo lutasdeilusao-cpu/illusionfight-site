@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { getArenaProgression } from '../utils/arenaProgression'
+import { normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
 /**
  * Retorna o limite máximo de fichas de personagem por tier.
@@ -29,6 +30,10 @@ const defaultSheet = () => ({
   specializations: [],
   weapon: '',
   elemental: 'neutro',
+  combat_style: null,
+  technique_ids: [],
+  weakness_id: null,
+  loadout_version: 1,
   xp_total: 0,
   attribute_points_gained: 0,
   enemies_unlocked: ['treinamento'],
@@ -49,7 +54,7 @@ export const useArenaStore = create((set, get) => ({
   loadSheet: (data) => {
     const pv = Math.max(1, (data.attributes?.R || 0) * 5)
     const pm = Math.max(2, (data.attributes?.PdF || 0) * 5)
-    set({ sheet: { ...defaultSheet(), ...data }, match: { enemy_id: null, pv_current: pv, pm_current: pm, score: 0, status: 'idle' } })
+    set({ sheet: { ...defaultSheet(), ...data, ...normalizeArenaLoadout(data) }, match: { enemy_id: null, pv_current: pv, pm_current: pm, score: 0, status: 'idle' } })
   },
 
   setUserId: (id) => set({ _userId: id }),
@@ -106,17 +111,17 @@ export const useArenaStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
+    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, combat_style: s.combat_style, technique_ids: s.technique_ids, weakness_id: s.weakness_id, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
     if (s.id) await supabase.from('character_sheets').update(payload).eq('id', s.id)
     else {
-      const { data } = await supabase.from('character_sheets').insert(payload).select('id').single()
+      const { data } = await supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
     }
   },
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
+    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, combat_style, technique_ids, weakness_id, loadout_version, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
     return Array.isArray(data) ? data : []
   },
 

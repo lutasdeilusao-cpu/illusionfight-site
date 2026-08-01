@@ -1201,6 +1201,44 @@
       "proximo": "NEXT →",
       "voltar": "BACK",
       "modo_standalone": "standalone mode",
+      "loadout": {
+        "intro": "Build a direct combat style: attributes, style, two techniques and one weakness. Every choice changes the battle.",
+        "style_title": "COMBAT STYLE",
+        "techniques_title": "TECHNIQUES — CHOOSE 2",
+        "weakness_title": "WEAKNESS — CHOOSE 1",
+        "styles": {
+          "brutamontes": { "name": "Bruiser", "desc": "+2 AF on unarmed attacks. Fights with bare hands." },
+          "duelista": { "name": "Duelist", "desc": "+2 AF and weapon bonus 2 on armed attacks." },
+          "canalizador": { "name": "Channeler", "desc": "+2 AF when using powers. An arcane focus is your weapon." }
+        },
+        "techniques": {
+          "bloqueio": { "name": "Block", "desc": "Spend your action to reduce the next incoming damage by 3." },
+          "esquiva": { "name": "Dodge", "desc": "+2 DF against every attack." },
+          "furia": { "name": "Fury", "desc": "Spend 2 MP for +2 AF on one unarmed attack." },
+          "regeneracao": { "name": "Regeneration", "desc": "Recover 1 HP at the end of every round." },
+          "mira_letal": { "name": "Deadly Aim", "desc": "Spend your action aiming; the next attack gains +3 AF." },
+          "contra_ataque": { "name": "Counterattack", "desc": "After taking damage, immediately deal 1 damage back." }
+        },
+        "weaknesses": {
+          "lento": { "name": "Slow", "desc": "−2 initiative." },
+          "franzino": { "name": "Frail", "desc": "−1 AF on physical attacks." },
+          "sedento": { "name": "Thirsty", "desc": "Powers cost 1 additional MP." },
+          "sensivel": { "name": "Sensitive", "desc": "Take +2 damage from elemental powers." }
+        },
+        "errors": { "style": "Choose a style.", "techniques": "Choose exactly two techniques.", "weakness": "Choose a weakness." },
+        "technique_action": "USE {name}",
+        "passive": "PASSIVE",
+        "round": "ROUND {n}",
+        "effect": "Effect: {name}",
+        "round_heal_player": "You recovered {n} HP",
+        "round_heal_enemy": "{enemyName} recovered {n} HP",
+        "effect_labels": {
+          "thunder_charge": "Electric charge",
+          "thunder_discharge": "Electric discharge",
+          "kaeda_momentum": "Aggressive momentum",
+          "elemental": "Elemental impact"
+        }
+      },
       "lobby_sub": "create your sheet · fight the CPU · climb the ranking",
       "suas_fichas": "your sheets",
       "carregando": "loading...",

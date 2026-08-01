@@ -1201,6 +1201,44 @@
       "proximo": "SIGUIENTE →",
       "voltar": "VOLVER",
       "modo_standalone": "modo independiente",
+      "loadout": {
+        "intro": "Crea un estilo de combate directo: atributos, estilo, dos técnicas y una debilidad. Cada elección cambia la batalla.",
+        "style_title": "ESTILO DE COMBATE",
+        "techniques_title": "TÉCNICAS — ELIGE 2",
+        "weakness_title": "DEBILIDAD — ELIGE 1",
+        "styles": {
+          "brutamontes": { "name": "Brutamontes", "desc": "+2 FA en ataques desarmados. Lucha con los puños." },
+          "duelista": { "name": "Duelista", "desc": "+2 FA y bono de arma 2 en ataques armados." },
+          "canalizador": { "name": "Canalizador", "desc": "+2 FA al usar poderes. Tu foco arcano es el arma." }
+        },
+        "techniques": {
+          "bloqueio": { "name": "Bloqueo", "desc": "Gasta la acción para reducir en 3 el próximo daño recibido." },
+          "esquiva": { "name": "Esquiva", "desc": "+2 FD contra todos los ataques." },
+          "furia": { "name": "Furia", "desc": "Gasta 2 PM para recibir +2 FA en un ataque desarmado." },
+          "regeneracao": { "name": "Regeneración", "desc": "Recupera 1 PV al final de cada ronda." },
+          "mira_letal": { "name": "Mira Letal", "desc": "Gasta la acción apuntando; el próximo ataque recibe +3 FA." },
+          "contra_ataque": { "name": "Contraataque", "desc": "Al recibir daño, devuelve inmediatamente 1 de daño." }
+        },
+        "weaknesses": {
+          "lento": { "name": "Lento", "desc": "−2 en iniciativa." },
+          "franzino": { "name": "Frágil", "desc": "−1 FA en ataques físicos." },
+          "sedento": { "name": "Sediento", "desc": "Los poderes cuestan 1 PM adicional." },
+          "sensivel": { "name": "Sensible", "desc": "Recibe +2 de daño de poderes elementales." }
+        },
+        "errors": { "style": "Elige un estilo.", "techniques": "Elige exactamente dos técnicas.", "weakness": "Elige una debilidad." },
+        "technique_action": "USAR {name}",
+        "passive": "PASIVA",
+        "round": "RONDA {n}",
+        "effect": "Efecto: {name}",
+        "round_heal_player": "Recuperaste {n} PV",
+        "round_heal_enemy": "{enemyName} recuperó {n} PV",
+        "effect_labels": {
+          "thunder_charge": "Carga eléctrica",
+          "thunder_discharge": "Descarga eléctrica",
+          "kaeda_momentum": "Ímpetu agresivo",
+          "elemental": "Impacto elemental"
+        }
+      },
       "lobby_sub": "crea tu ficha · lucha contra la CPU · sube en el ranking",
       "suas_fichas": "tus fichas",
       "carregando": "cargando...",

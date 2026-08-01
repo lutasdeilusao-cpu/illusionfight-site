@@ -1454,3 +1454,261 @@
 .arena-guest-modal-btn--primary:hover {
   background: rgba(245,166,35,0.1);
 }
+
+/* Arena 2.0 — criação de loadout */
+.arc-btn-primary--intro {
+  margin: 24px auto;
+}
+
+.arc-name-hero--simple {
+  padding-top: 24px;
+}
+
+.arc-name-avatar--neutral {
+  background: radial-gradient(circle at 35% 35%, #00b4d8, #0a0a0a);
+  box-shadow: 0 0 32px rgba(0, 180, 216, 0.15);
+}
+
+.arc-loadout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.arc-loadout-grid--styles {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.arc-loadout-card {
+  min-height: 110px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d8d8d8;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.arc-loadout-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 180, 216, 0.55);
+}
+
+.arc-loadout-card strong,
+.arc-loadout-card span {
+  display: block;
+}
+
+.arc-loadout-card strong {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.arc-loadout-card span {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.arc-loadout-card--active {
+  border-color: #00b4d8;
+  background: rgba(0, 180, 216, 0.12);
+  box-shadow: 0 0 18px rgba(0, 180, 216, 0.12);
+}
+
+.arc-loadout-card--weakness.arc-loadout-card--active {
+  border-color: #e05252;
+  background: rgba(224, 82, 82, 0.12);
+  box-shadow: 0 0 18px rgba(224, 82, 82, 0.12);
+}
+
+@media (max-width: 620px) {
+  .arc-loadout-grid,
+  .arc-loadout-grid--styles {
+    grid-template-columns: 1fr;
+  }
+
+  .arc-loadout-card {
+    min-height: 88px;
+  }
+}
+
+/* Arena 2.0 — combate orientado pela máquina de turno */
+.arena2-combat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arena2-fighter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(0, 180, 216, 0.28);
+  border-radius: 12px;
+  background: rgba(0, 180, 216, 0.06);
+}
+
+.arena2-fighter--enemy {
+  border-color: rgba(224, 82, 82, 0.3);
+  background: rgba(224, 82, 82, 0.06);
+}
+
+.arena2-fighter-avatar {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-weight: 900;
+}
+
+.arena2-fighter-data {
+  flex: 1;
+  min-width: 0;
+}
+
+.arena2-fighter-data > strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.arena2-meter {
+  display: grid;
+  grid-template-columns: 26px 1fr 60px;
+  align-items: center;
+  gap: 6px;
+  color: #aaa;
+  font-size: 11px;
+}
+
+.arena2-meter progress {
+  width: 100%;
+  height: 8px;
+  accent-color: #22c55e;
+}
+
+.arena2-meter--pm progress {
+  accent-color: #00b4d8;
+}
+
+.arena2-meter b {
+  color: #ddd;
+  text-align: right;
+}
+
+.arena2-turn {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.arena2-turn strong {
+  color: #f5a623;
+}
+
+.arena2-log {
+  display: flex;
+  min-height: 170px;
+  max-height: 260px;
+  flex-direction: column;
+  gap: 7px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.arena2-log-system,
+.arena2-log-line {
+  margin: 0;
+  color: #999;
+  font-size: 11px;
+  text-align: center;
+}
+
+.arena2-log-card {
+  display: grid;
+  align-self: flex-start;
+  gap: 3px;
+  max-width: 85%;
+  padding: 9px 11px;
+  border-radius: 10px;
+  background: rgba(224, 82, 82, 0.12);
+  color: #bbb;
+  font-size: 11px;
+}
+
+.arena2-log-card--player {
+  align-self: flex-end;
+  background: rgba(0, 180, 216, 0.12);
+  text-align: right;
+}
+
+.arena2-log-card strong,
+.arena2-log-card b {
+  color: #fff;
+}
+
+.arena2-log-card small {
+  color: #f5a623;
+}
+
+.arena2-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.arena2-techniques {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.arena2-technique-btn,
+.arena2-passive {
+  flex: 1 1 150px;
+  padding: 9px;
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.08);
+  color: #f5a623;
+  font-size: 10px;
+  text-align: center;
+}
+
+.arena2-technique-btn {
+  cursor: pointer;
+}
+
+.arena2-technique-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.arena2-enemy-thinking,
+.arena2-initiative-preview {
+  padding: 10px;
+  color: #f5a623;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
