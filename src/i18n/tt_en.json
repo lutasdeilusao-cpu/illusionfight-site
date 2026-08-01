@@ -203,6 +203,12 @@
         "revelacao_proxima": "NEXT ROUND",
         "revelacao_aguardando": "WAITING FOR THE OTHER PLAYER...",
         "revelacao_contador": "RESULT LOCKED: {n}s",
+        "fim_voce_venceu": "YOU WON!",
+        "fim_empate": "DRAW!",
+        "fim_voce_perdeu": "YOU LOST!",
+        "fim_voltar_games": "BACK TO MENU",
+        "fim_retorno_automatico": "Returning to the menu automatically in {n}s",
+        "ppt_tempo": "CHOOSE IN {n}s",
         "atributo_escolhido": "Attribute: {nome}"
       }
     }

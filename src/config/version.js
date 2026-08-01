@@ -8,7 +8,7 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.76'
+export const SITE_VERSION = '10.192.77'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
@@ -18,8 +18,8 @@ export const ARENA_VERSION     = '1.31.1'  // ArenaVictory: CSS extraído de inl
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
-export const TS_VERSION        = '5.45.0'   // Top Trumps — pools numéricos por tier restaurados
-export const TM_VERSION        = '5.13.8'  // Top Trumps MP — lobby oficial ganha preparação e contagem regressiva
+export const TS_VERSION        = '5.45.1'   // Top Trumps — ações da tela final corrigidas no portrait
+export const TM_VERSION        = '5.13.9'  // Top Trumps MP — encerramento expira URL e PPT ganha timeout de 30s
 export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
 export const ARENATESTBED_VERSION = '6.22.1' // correção de encoding em comentário e chevrons

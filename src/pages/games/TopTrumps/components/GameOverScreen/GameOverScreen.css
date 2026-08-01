@@ -3,7 +3,7 @@
 .tt-btn-jogar {
   width: 100%;
   box-sizing: border-box;
-  margin-top: 1.5rem;
+  margin: 0;
   padding: 14px;
   font-family: "Rajdhani", sans-serif;
   font-size: 1.1rem;
@@ -110,10 +110,26 @@
 }
 
 .tt-fim-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.65rem;
   margin-top: 1.5rem;
+}
+
+.tt-fim-actions .back-to-games-btn {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.tt-fim-retorno {
+  margin: 1rem 0 0;
+  color: var(--tt-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .tt-relatorio {

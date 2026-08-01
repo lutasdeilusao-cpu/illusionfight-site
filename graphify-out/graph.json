@@ -630,7 +630,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 57,
+      "community": 264,
       "norm_label": "framer-motion"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 57,
+      "community": 264,
       "norm_label": "framer-motion"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 264,
+      "community": 57,
       "norm_label": "pixi.js"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 264,
+      "community": 57,
       "norm_label": "pixi.js"
     },
     {
@@ -4030,7 +4030,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_entrarfilapublica",
-      "community": 45,
+      "community": 35,
       "norm_label": "entrarfilapublica()"
     },
     {
@@ -4040,7 +4040,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_buscarsalapublicaativadojogador",
-      "community": 45,
+      "community": 35,
       "norm_label": "buscarsalapublicaativadojogador()"
     },
     {
@@ -4050,7 +4050,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_sairfilapublica",
-      "community": 45,
+      "community": 35,
       "norm_label": "sairfilapublica()"
     },
     {
@@ -4060,7 +4060,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_buscarsala",
-      "community": 45,
+      "community": 35,
       "norm_label": "buscarsala()"
     },
     {
@@ -4180,7 +4180,7 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_subscribetosala",
-      "community": 45,
+      "community": 35,
       "norm_label": "subscribetosala()"
     },
     {
@@ -12460,7 +12460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby",
-      "community": 45,
+      "community": 35,
       "norm_label": "multiplayerlobby.jsx"
     },
     {
@@ -12470,7 +12470,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby",
-      "community": 45,
+      "community": 35,
       "norm_label": "multiplayerlobby()"
     },
     {
@@ -12480,7 +12480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine",
-      "community": 45,
+      "community": 35,
       "norm_label": "usesharedlobbymachine.js"
     },
     {
@@ -12490,7 +12490,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_initialstate",
-      "community": 45,
+      "community": 35,
       "norm_label": "initialstate"
     },
     {
@@ -12500,7 +12500,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_reducer",
-      "community": 45,
+      "community": 35,
       "norm_label": "reducer()"
     },
     {
@@ -12510,7 +12510,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_normalizematchresult",
-      "community": 45,
+      "community": 35,
       "norm_label": "normalizematchresult()"
     },
     {
@@ -12520,7 +12520,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_usesharedlobbymachine",
-      "community": 45,
+      "community": 35,
       "norm_label": "usesharedlobbymachine()"
     },
     {
@@ -14317,7 +14317,7 @@
       "label": "logMP()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L21",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_logmp",
       "community": 27,
@@ -14327,7 +14327,7 @@
       "label": "attrNomeKey()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey",
       "community": 27,
@@ -14337,7 +14337,7 @@
       "label": "avatarCor()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_avatarcor",
       "community": 27,
@@ -14347,7 +14347,7 @@
       "label": "TopTrumpsMP()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L47",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "community": 27,
@@ -14357,9 +14357,9 @@
       "label": "NOTE: Para Top Trumps (um jogador por rodada) n\u00e3o dependemos mais",
       "file_type": "rationale",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L765",
+      "source_location": "L815",
       "_origin": "ast",
-      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_765",
+      "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_815",
       "community": 27,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
@@ -14847,7 +14847,7 @@
       "label": "useMultiplayerTurnMachine()",
       "file_type": "code",
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
-      "source_location": "L59",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine",
       "community": 27,
@@ -21837,7 +21837,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L179",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "agents_graphify",
       "community": 75,
@@ -23320,7 +23320,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_business_marketing_map_bloco_b_linkedin_pessoal_isaias",
-      "community": 35,
+      "community": 189,
       "norm_label": "bloco b \u2014 linkedin pessoal isaias"
     },
     {
@@ -23330,7 +23330,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b1_perfis",
-      "community": 35,
+      "community": 189,
       "norm_label": "b1. perfis"
     },
     {
@@ -23340,7 +23340,7 @@
       "source_location": "L231",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b2_melhor_performance",
-      "community": 35,
+      "community": 189,
       "norm_label": "b2. melhor performance"
     },
     {
@@ -23350,7 +23350,7 @@
       "source_location": "L239",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b3_calend\u00e1rio",
-      "community": 35,
+      "community": 189,
       "norm_label": "b3. calendario"
     },
     {
@@ -39324,7 +39324,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L46",
+      "source_location": "L48",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_config_version",
@@ -39641,7 +39641,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_context_achievementscontext_useachievements"
@@ -40947,7 +40947,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L58",
+      "source_location": "L60",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_context_authcontext_useauth"
@@ -46146,7 +46146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_context_languagecontext_uselanguage"
@@ -47835,7 +47835,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_context_readercontext_usereader"
@@ -49895,17 +49895,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L1084",
-      "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
-      "target": "src_hooks_usetoptrumpsmp_escolherppt"
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -49933,7 +49922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L354",
+      "source_location": "L399",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_registrarmovimento"
@@ -50032,7 +50021,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L920",
+      "source_location": "L970",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetosala"
@@ -50054,7 +50043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L842",
+      "source_location": "L892",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomatchpresence"
@@ -50076,7 +50065,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L982",
+      "source_location": "L1045",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
@@ -50231,7 +50220,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L49",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_lib_getdeck_getdeck"
@@ -52690,7 +52679,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L173",
+      "source_location": "L180",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_lib_toptrumpscardimages_gettoptrumpscardimage"
@@ -72885,7 +72874,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey",
@@ -72895,7 +72884,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_avatarcor",
@@ -72905,7 +72894,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_logmp",
@@ -72915,7 +72904,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
@@ -72947,9 +72936,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L765",
+      "source_location": "L815",
       "weight": 1.0,
-      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_765",
+      "source": "src_pages_games_toptrumps_toptrumpsmp_rationale_815",
       "target": "src_pages_games_toptrumps_toptrumpsmp",
       "confidence_score": 1.0
     },
@@ -72958,7 +72947,7 @@
       "context": "collection",
       "confidence": "INFERRED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L79",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_logmp",
@@ -72969,7 +72958,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L52",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey",
@@ -72981,7 +72970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L79",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine"
@@ -72992,7 +72981,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L249",
+      "source_location": "L273",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_games_toptrumps_utils_deterministicdeck_ordenardeckdeterministico"
@@ -73003,7 +72992,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
-      "source_location": "L827",
+      "source_location": "L877",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
       "target": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
@@ -74027,7 +74016,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
-      "source_location": "L59",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine",
       "target": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine",
@@ -74038,7 +74027,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
-      "source_location": "L60",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine",
       "target": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_reduce",
@@ -89552,7 +89541,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L179",
+      "source_location": "L181",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_graphify",
@@ -97480,5 +97469,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c1b4dab710e5b398bb914df10ac9f9788fc3071"
+  "built_at_commit": "7e0378247b13e75bf2545218df32d1052d6537b3"
 }

@@ -3,7 +3,8 @@ import BackToGamesBtn from '../../../../../components/BackToGamesBtn/BackToGames
 import './GameOverScreen.css'
 
 export default function GameOverScreen({
-  placar, historicoRodadas, jaGanhouHoje, user, atributos, opponentLabel, actionLabel, onJogarNovamente, tt
+  placar, historicoRodadas, jaGanhouHoje, user, atributos, opponentLabel, actionLabel, resultTitle,
+  autoReturnLabel, hideBackToGames = false, onJogarNovamente, tt
 }) {
   const mostrarRelatorio = Array.isArray(historicoRodadas)
   const venceu = placar?.jogador > placar?.ia
@@ -24,7 +25,7 @@ export default function GameOverScreen({
     }
   })
   const icone = venceu ? '\uD83C\uDFC6' : empatou ? '\uD83E\uDD1D' : '\uD83D\uDC80'
-  const titulo = venceu ? tt('result_voce_venceu') : empatou ? tt('result_empate') : tt('result_ia_venceu')
+  const titulo = resultTitle || (venceu ? tt('result_voce_venceu') : empatou ? tt('result_empate') : tt('result_ia_venceu'))
   const variante = venceu ? 'vitoria' : empatou ? 'empate' : 'derrota'
 
   return (
@@ -68,9 +69,10 @@ export default function GameOverScreen({
           ))}
         </div>}
         {venceu && jaGanhouHoje && <p className="tt-fim-aviso">{tt('relatorio_ja_ganhou')}</p>}
+        {autoReturnLabel && <p className="tt-fim-retorno">{autoReturnLabel}</p>}
         <div className="tt-fim-actions">
           <button className="tt-btn-jogar" onClick={onJogarNovamente}>{actionLabel || tt('btn_jogar_novamente')}</button>
-          <BackToGamesBtn label={tt('menu_voltar_menu')} />
+          {!hideBackToGames && <BackToGamesBtn to="/games/toptrumps" label={tt('menu_voltar_menu')} />}
         </div>
       </div>
     </section>

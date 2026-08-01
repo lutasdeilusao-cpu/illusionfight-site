@@ -203,6 +203,12 @@
         "revelacao_proxima": "PRÓXIMA RODADA",
         "revelacao_aguardando": "AGUARDANDO O OUTRO JOGADOR...",
         "revelacao_contador": "RESULTADO BLOQUEADO: {n}s",
+        "fim_voce_venceu": "VOCÊ VENCEU!",
+        "fim_empate": "EMPATE!",
+        "fim_voce_perdeu": "VOCÊ PERDEU!",
+        "fim_voltar_games": "VOLTAR AO MENU",
+        "fim_retorno_automatico": "Retorno automático ao menu em {n}s",
+        "ppt_tempo": "ESCOLHA EM {n}s",
         "atributo_escolhido": "Atributo: {nome}"
       }
     }

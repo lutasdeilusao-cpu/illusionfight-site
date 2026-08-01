@@ -17,6 +17,8 @@ import { ordenarDeckDeterministico } from './utils/deterministicDeck'
 import './TopTrumpsMP.css'
 
 let __heartbeatRodando = false
+const PPT_CHOICE_SECONDS = 30
+const FINAL_RETURN_MS = 30000
 
 function logMP(evento, detalhes = {}) {
   console.log(`[TTMP:${evento}]`, {
@@ -120,6 +122,8 @@ export default function TopTrumpsMP() {
   const [pptEscolhaOponente, setPptEscolhaOponente] = useState(null)
   const [pptResultado, setPptResultado] = useState(null)
   const [pptAmbosEscolheram, setPptAmbosEscolheram] = useState(false)
+  const [pptTempoRestante, setPptTempoRestante] = useState(PPT_CHOICE_SECONDS)
+  const [fimTempoRestante, setFimTempoRestante] = useState(30)
 
   // Onomatopoeias da cortina
   const ONOMATOPEIAS = [
@@ -148,12 +152,15 @@ export default function TopTrumpsMP() {
   const jogadaEmEnvioRef = useRef(false)
   const presenceChannelRef = useRef(null)
   const rodadaAvancandoRef = useRef(false)
+  const pptEscolhiRef = useRef(false)
+  const finalDeadlineRef = useRef(null)
 
   useEffect(() => { salaRef.current = sala }, [sala])
   useEffect(() => { meuPapelRef.current = meuPapel }, [meuPapel])
   useEffect(() => { cartaLocalRef.current = cartaLocal }, [cartaLocal])
   useEffect(() => { cartaOponenteRef.current = cartaOponente }, [cartaOponente])
   useEffect(() => { deckOponenteRef.current = deckOponente }, [deckOponente])
+  useEffect(() => { pptEscolhiRef.current = pptEscolhi }, [pptEscolhi])
 
   useEffect(() => {
     logMP('FASE_ALTERADA', {
@@ -206,8 +213,23 @@ export default function TopTrumpsMP() {
   useEffect(() => {
     if (!salaId || !user) return;
     (async () => {
-      const { data } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).single()
-      if (!data) { dispatchTurn({ type: 'FINISH_MATCH' }); return }
+      const { data } = await supabase.from('toptrumps_salas').select('*').eq('id', salaId).maybeSingle()
+      if (!data) {
+        logMP('SALA_INDISPONIVEL_REDIRECT', { salaId })
+        navigate('/games/toptrumps', { replace: true })
+        return
+      }
+      if (data.status === 'encerrada') {
+        let deadline = null
+        try { deadline = Number(sessionStorage.getItem(`ttmp-final-${salaId}`)) }
+        catch { deadline = null }
+        if (!Number.isFinite(deadline) || Date.now() >= deadline) {
+          logMP('SALA_EXPIRADA_REDIRECT', { salaId, motivo: 'sem-final-ativo-na-sessao' })
+          navigate('/games/toptrumps', { replace: true })
+          return
+        }
+        finalDeadlineRef.current = deadline
+      }
       setSala(data)
       const papel = data.jogador1_id === user.id ? 'j1' : data.jogador2_id === user.id ? 'j2' : null
       setMeuPapel(papel)
@@ -218,6 +240,8 @@ export default function TopTrumpsMP() {
         if (papel === 'j1' ? data.aposta_confirmada_j1 : data.aposta_confirmada_j2) {
           setPptEscolhi(true)
         }
+      } else if (data.status === 'encerrada') {
+        dispatchTurn({ type: 'FINISH_MATCH' })
       }
 
       const opId = data.jogador1_id === user.id ? data.jogador2_id : data.jogador1_id
@@ -226,7 +250,7 @@ export default function TopTrumpsMP() {
         if (profile?.nome) setOponenteNome(profile.nome)
       }
     })()
-  }, [dispatchTurn, salaId, user])
+  }, [dispatchTurn, navigate, salaId, user])
 
   useEffect(() => {
     if (!user || !sala?.total_turnos) return;
@@ -314,8 +338,29 @@ export default function TopTrumpsMP() {
     if (venceu) sfx.win()
     else if (empatou) sfx.draw()
     else sfx.lose()
-    logMP('RESULTADO_FINAL_EXIBIDO', { salaId: sala?.id, venceu, empatou, retornoAutomatico: false })
+    logMP('RESULTADO_FINAL_EXIBIDO', { salaId: sala?.id, venceu, empatou, retornoAutomatico: true, duracaoMs: FINAL_RETURN_MS })
   }, [fase, placar.eu, placar.oponente, meuPapel, sala?.id, sala?.resultado])
+
+  useEffect(() => {
+    if (fase !== 'fim' || !sala?.id) return
+    if (!finalDeadlineRef.current) {
+      finalDeadlineRef.current = Date.now() + FINAL_RETURN_MS
+      try { sessionStorage.setItem(`ttmp-final-${sala.id}`, String(finalDeadlineRef.current)) } catch {}
+    }
+    const tick = () => {
+      const restante = Math.max(0, Math.ceil((finalDeadlineRef.current - Date.now()) / 1000))
+      setFimTempoRestante(restante)
+      logMP('RESULTADO_FINAL_TICK', { salaId: sala.id, restante })
+      if (restante === 0) {
+        logMP('RESULTADO_FINAL_REDIRECT', { salaId: sala.id, destino: '/games/toptrumps' })
+        try { sessionStorage.removeItem(`ttmp-final-${sala.id}`) } catch {}
+        navigate('/games/toptrumps', { replace: true })
+      }
+    }
+    tick()
+    const interval = setInterval(tick, 1000)
+    return () => clearInterval(interval)
+  }, [fase, navigate, sala?.id])
 
   useEffect(() => {
     const bloqueios = {
@@ -497,13 +542,19 @@ export default function TopTrumpsMP() {
       else if (resultSnapshot.outcome === 'empate') sfx.draw()
       else sfx.lose()
       gerarParticulasMP(resultSnapshot.outcome)
+      const salaFinal = salaPendenteRef.current || salaRef.current
+      if (salaFinal?.status === 'encerrada') {
+        logMP('RESULTADO_FINAL_LIBERADO', { salaId: salaFinal.id, turno: resultSnapshot.turn })
+        dispatchTurn({ type: 'FINAL_RESULT_READY', turn: resultSnapshot.turn })
+      }
       logMP('RESULTADO_ENTROU', {
         salaId: salaRef.current?.id,
         turno: resultSnapshot.turn,
         turnoSala: salaRef.current?.turno_atual,
         cartaLocalId: resultSnapshot.localCard?.id,
         cartaOponenteId: resultSnapshot.opponentCard?.id,
-        duracaoObrigatoriaMs: 30000
+        duracaoMaximaMs: 30000,
+        resultadoFinal: salaFinal?.status === 'encerrada'
       })
     }, 1800)
   }
@@ -934,7 +985,20 @@ export default function TopTrumpsMP() {
           statusRemoto: s.status,
           fase: turnStateRef.current.phase
         })
-        if (anterior?.turno_atual) resolverRodada(anterior.turno_atual, 'sala-avancou')
+        if (anterior?.turno_atual) {
+          const turnoEncerrado = anterior.turno_atual
+          resolverRodada(turnoEncerrado, 'sala-avancou')
+          if (s.status === 'encerrada') {
+            for (const atrasoMs of [300, 1000]) {
+              setTimeout(() => {
+                if (turnStateRef.current.phase === 'jogando' && salaRef.current?.id === s.id) {
+                  logMP('RESULTADO_FINAL_RECONCILIANDO', { salaId: s.id, turno: turnoEncerrado, atrasoMs })
+                  resolverRodada(turnoEncerrado, 'encerramento-reconciliacao')
+                }
+              }, atrasoMs)
+            }
+          }
+        }
       } else {
         salaRef.current = s
         setSala(s)
@@ -1013,6 +1077,33 @@ export default function TopTrumpsMP() {
     return () => { sub1.unsubscribe(); sub2.unsubscribe() }
   }, [salaId, user?.id])
 
+  function enviarEscolhaPPT(valor, origem = 'manual') {
+    if (pptEscolhiRef.current || turnStateRef.current.phase !== 'ppt' || !salaId || !user?.id || !meuPapelRef.current) return
+    pptEscolhiRef.current = true
+    setPptEscolhi(true)
+    sfx.pptChoice()
+    logMP('PPT_ESCOLHA_ENVIADA', { salaId, jogadorId: user.id, valor, origem })
+    escolherPPT(salaId, user.id, valor, meuPapelRef.current === 'j1')
+  }
+
+  useEffect(() => {
+    if (fase !== 'ppt' || pptEscolhi || pptAmbosEscolheram || !salaId || !user?.id || !meuPapel) return
+    const inicio = Date.now()
+    setPptTempoRestante(PPT_CHOICE_SECONDS)
+    logMP('PPT_TIMER_INICIADO', { salaId, jogadorId: user.id, duracaoSegundos: PPT_CHOICE_SECONDS })
+    const interval = setInterval(() => {
+      const restante = Math.max(0, PPT_CHOICE_SECONDS - Math.floor((Date.now() - inicio) / 1000))
+      setPptTempoRestante(restante)
+      if (restante === 0 && !pptEscolhiRef.current) {
+        clearInterval(interval)
+        const escolhaAleatoria = Math.floor(Math.random() * 3)
+        logMP('PPT_TIMEOUT', { salaId, jogadorId: user.id, escolhaAleatoria })
+        enviarEscolhaPPT(escolhaAleatoria, 'timeout')
+      }
+    }, 250)
+    return () => clearInterval(interval)
+  }, [fase, meuPapel, pptAmbosEscolheram, pptEscolhi, salaId, user?.id])
+
   useEffect(() => {
     if (!pptAmbosEscolheram || !salaId) return
     const s = salaRef.current
@@ -1073,16 +1164,15 @@ export default function TopTrumpsMP() {
           <p className="ttmp-ppt-subtitulo">{tt('mp.ppt_subtitulo')}</p>
           {!pptAmbosEscolheram ? (
             <>
+              <div className={`ttmp-ppt-timer${pptTempoRestante <= 5 ? ' ttmp-ppt-timer--warn' : ''}`}>
+                {tt('mp.ppt_tempo', { n: pptTempoRestante })}
+              </div>
               <div className="ttmp-ppt-opcoes">
                 {opcoes.map(op => (
                   <button key={op.valor}
                     className="ttmp-ppt-btn"
                     disabled={pptEscolhi}
-                    onClick={() => {
-                      sfx.pptChoice()
-                      setPptEscolhi(true)
-                      escolherPPT(salaId, user.id, op.valor, meuPapel === 'j1')
-                    }}>
+                    onClick={() => enviarEscolhaPPT(op.valor)}>
                     <span className="ttmp-ppt-icone">{op.icone}</span>
                     <span className="ttmp-ppt-nome">{op.nome}</span>
                   </button>
@@ -1191,14 +1281,21 @@ export default function TopTrumpsMP() {
 
   if (fase === 'fim') {
     if (!sala) return null
+    const voltarAoTopTrumps = () => {
+      try { sessionStorage.removeItem(`ttmp-final-${sala.id}`) } catch {}
+      navigate('/games/toptrumps', { replace: true })
+    }
     return (
       <GameOverScreen
         placar={{ jogador: placar.eu, ia: placar.oponente }}
         user={user}
         atributos={atributos}
         opponentLabel={oponenteNome.toUpperCase()}
+        resultTitle={placar.eu > placar.oponente ? tt('mp.fim_voce_venceu') : placar.eu === placar.oponente ? tt('mp.fim_empate') : tt('mp.fim_voce_perdeu')}
         actionLabel={tt('mp.fim_voltar_games')}
-        onJogarNovamente={() => navigate('/games/toptrumps', { replace: true })}
+        autoReturnLabel={tt('mp.fim_retorno_automatico', { n: fimTempoRestante })}
+        hideBackToGames={true}
+        onJogarNovamente={voltarAoTopTrumps}
         tt={tt}
       />
     )

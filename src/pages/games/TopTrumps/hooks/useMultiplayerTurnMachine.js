@@ -46,6 +46,9 @@ function reduce(state, event) {
       if (state.phase !== 'revelacao') return state
       if (state.resultRemaining > 0 && !(state.localReady && state.opponentReady)) return state
       return { ...state, advanceRequested: true }
+    case 'FINAL_RESULT_READY':
+      if (state.phase !== 'revelacao' || Number(event.turn) !== Number(state.result?.turn)) return state
+      return { ...state, advanceRequested: true }
     case 'ADVANCE_APPLIED':
       if (state.phase !== 'revelacao' || !state.advanceRequested) return state
       return { ...initialState, phase: event.finished ? 'fim' : 'jogando' }
