@@ -264,5 +264,16 @@
   "262": "PowerCard.jsx",
   "263": "Passeio.jsx",
   "264": "BLOCO B — LINKEDIN PESSOAL ISAIAS",
-  "267": "Criatura.jsx"
+  "265": "ArenaCreate.jsx",
+  "266": "MazeRafael.jsx",
+  "267": "Criatura.jsx",
+  "268": "LanguageProvider.jsx",
+  "269": "ArenaVictory.jsx",
+  "270": "Footer.jsx",
+  "271": "Create",
+  "272": "CodigoPerdido.jsx",
+  "273": "endBattle",
+  "274": "Cadastro.jsx",
+  "275": "PuzzleSlidingTiles.jsx",
+  "276": "framer-motion"
 }
