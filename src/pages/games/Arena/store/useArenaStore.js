@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
+import { getArenaProgression } from '../utils/arenaProgression'
 
 /**
  * Retorna o limite máximo de fichas de personagem por tier.
@@ -70,12 +71,15 @@ export const useArenaStore = create((set, get) => ({
 
   gainXp: (amount) => set(state => {
     const newXp = (state.sheet.xp_total || 0) + amount
-    const pointsGained = state.sheet.attribute_points_gained || 0
-    const cost = 10 + pointsGained * 2
-    if (newXp >= cost) {
-      return { sheet: { ...state.sheet, xp_total: newXp, attribute_points_gained: pointsGained + 1 }, level_up_active: true, temp_attributes: { ...state.sheet.attributes } }
+    const progression = getArenaProgression(newXp)
+    return {
+      sheet: {
+        ...state.sheet,
+        xp_total: newXp,
+        attribute_points_gained: progression.completedLevels,
+      },
+      level_up_active: false,
     }
-    return { sheet: { ...state.sheet, xp_total: newXp } }
   }),
 
   incrementTempAttr: (attr) => set(state => {

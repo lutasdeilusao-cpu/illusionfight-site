@@ -15,7 +15,7 @@ const ADV_COSTS = [1,1,2,1,2,2,1,1,1,1,1,2,1,2,1,2,2,4,1,2,1,2,1,1,3,1,1,2,1,2,1
 const DIS_GAINS = [1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1]
 const PERK_COSTS = [1,1,1,1,1,1]
 
-const MANUAL_KEYS = ['fundamentos', 'atributos', 'combate', 'elementais', 'vantagens', 'xp']
+const MANUAL_KEYS = ['fundamentos', 'atributos', 'combate', 'elementais', 'vantagens']
 
 function ManualBatalha() {
   const { t } = useLanguage()

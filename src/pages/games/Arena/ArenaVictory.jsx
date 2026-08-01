@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useArenaStore } from './store/useArenaStore'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
-import { useEventos } from '../../../context/EventosContext'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import ArenaXpBar from './components/ArenaXpBar'
 import { sfx } from '../../../lib/sfx'
@@ -16,14 +15,13 @@ export default function ArenaVictory({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
-  const { registrarEvento } = useEventos()
   const store = useArenaStore()
   const { sheet, match } = store
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   const enemy = match.enemy
 
   const isVitoria = match.status === 'victory'
-  const xpGain = isVitoria ? 10 : 0
+  const xpGain = isVitoria ? 10 : 1
 
   const pv = (sheet.attributes?.R || 0) * 5
   const pm = (sheet.attributes?.PdF || 0) * 5
@@ -32,6 +30,7 @@ export default function ArenaVictory({ onNavigate }) {
   const [fase, setFase] = useState('mensagem')
   const [hpAtual, setHpAtual] = useState(pvMax)
   const [nextUnlock, setNextUnlock] = useState(null)
+  const processedResultRef = useRef(false)
 
   // Tocar som de vitória ou derrota na montagem
   useEffect(() => {
@@ -73,29 +72,25 @@ export default function ArenaVictory({ onNavigate }) {
     return () => cancelAnimationFrame(frame)
   }, [fase, pvMax])
 
-  // Ganhar XP + desbloquear próximo inimigo na vitória
+  // Processar recompensa uma única vez; derrota justa também concede 1 XP.
   useEffect(() => {
-    if (!isVitoria || fase !== 'resultado') return
-    // 1. Ganhar XP (síncrono — Zustand set é sync)
-    const pointsAntes = sheet.attribute_points_gained || 0
+    if (processedResultRef.current) return
+    processedResultRef.current = true
     store.gainXp(xpGain)
-    const pointsDepois = (useArenaStore.getState().sheet?.attribute_points_gained) || 0
-    if (pointsDepois > pointsAntes) {
-      const novoNivel = pointsDepois + 1
-      registrarEvento('arena_levelup', `Subiu para nível ${novoNivel} na Arena`, novoNivel)
+
+    if (isVitoria) {
+      const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
+      const nextId = ENEMY_ORDER[defeatedIdx + 1]
+      const before = sheet.enemies_unlocked || ['treinamento']
+      store.unlockNextEnemy(match.enemy_id)
+      if (nextId && !before.includes(nextId)) {
+        setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
+      }
+      if (user?.id) registrarPontuacaoArenaRanking(user.id)
     }
-    // 2. Desbloquear próximo inimigo
-    const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
-    const nextId = ENEMY_ORDER[defeatedIdx + 1]
-    const before = sheet.enemies_unlocked || ['treinamento']
-    store.unlockNextEnemy(match.enemy_id)
-    if (nextId && !before.includes(nextId)) {
-      setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
-    }
-    // 3. Persistir no Supabase (pega o state já atualizado)
+
     setTimeout(() => store.saveToCloud(user?.id), 400)
-    if (user?.id) registrarPontuacaoArenaRanking(user.id)
-  }, [fase, isVitoria])
+  }, [])
 
   if (!isVitoria) {
     return (
@@ -141,6 +136,10 @@ export default function ArenaVictory({ onNavigate }) {
             <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
             <div className="arena-victory-attr"><span>PdF</span>{sheet.attributes.PdF}</div>
           </div>
+          <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }}>
+            {t('games.arena.xp_gain', { n: xpGain })}
+          </motion.div>
+          <ArenaXpBar xpTotal={sheet.xp_total || 0} t={t} compact />
         </div>
         <div className="arena-victory-btns">
           <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>

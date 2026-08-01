@@ -16,6 +16,7 @@ const ONOMATOPEIAS_ARMED = ['SLASH!', 'CLANG!', 'THWACK!']
 const ONOMATOPEIAS_POWER = ['BOOM!', 'ZAP!', 'FWOOSH!']
 const MODE_ICONS = { fists: '✊', armed: '⚔️', power: '⚡' }
 const MODE_LABELS = {}
+const PLAYER_WEAPON_BONUS = 1
 
 const delay = ms => new Promise(res => setTimeout(res, ms))
 
@@ -283,6 +284,7 @@ export default function ArenaCombat({ onNavigate }) {
   const saidEnemyLow = useRef(false)
   const chatQueue = useRef(Promise.resolve())
   const npcPersonality = useRef(null)
+  const enemyStartsRef = useRef(false)
 
   const logRef = useRef(null)
   const logAreaRef = useRef(null)
@@ -298,6 +300,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (!enemy) { onNavigate('lobby'); return }
     const pInit = calcInitiative(sheet)
     const eInit = calcInitiative({ attributes: enemy.stats })
+    enemyStartsRef.current = eInit > pInit
     const eName = t('games.arena.enemy_names.' + enemy.id) || enemy.name
     setLog([{ type: 'system', text: t('games.arena.log_iniciativa', { pInit, enemyName: eName, eInit }), id: Date.now() }])
     sfx.notification()
@@ -441,6 +444,33 @@ export default function ArenaCombat({ onNavigate }) {
     return { attributes: { F: Number(a.F)||0, H: Number(a.H)||0, R: Number(a.R)||0, A: Number(a.A)||0, PdF: Number(a.PdF)||0 } }
   }
 
+  const startEnemyOpeningTurn = () => {
+    const eMode = enemy.preferred_mode || 'fists'
+    const eBonus = Number(enemy.weapon_damage) || 0
+    const eFA = calcFA(eMode, getEnemySheet(), eBonus)
+    const eFD = calcFD(getPlayerSheet(), true)
+    const eDmg = Math.max(0, calcDamage(Number(eFA.value) || 0, Number(eFD.value) || 0))
+
+    dadosRef.current = {
+      eRoll: eFA.roll,
+      eDmg,
+      eBreak: eFA.breakdown,
+      eFD: eFD.value,
+      eDado: eFA.roll,
+      eMode,
+    }
+    setAtkDisabled(true)
+    setTurnOverlay(true)
+    stepRef.current = 2
+    timerRef.current = setTimeout(nextStep, 1200)
+  }
+
+  const enterCombat = () => {
+    sfx.click()
+    setShowPowerSelect(false)
+    if (enemyStartsRef.current) startEnemyOpeningTurn()
+  }
+
   const nextStep = useCallback(() => {
     const s = stepRef.current
     const d = dadosRef.current
@@ -554,7 +584,7 @@ export default function ArenaCombat({ onNavigate }) {
     if (stepRef.current >= 0) return
     sfx.click()
 
-    const wBonus = Number(enemy?.weapon_damage) || 0
+    const wBonus = sheet?.weapon?.trim() ? PLAYER_WEAPON_BONUS : 0
     const pBonus = Number(powerCost) * 2
     const fa = calcFA(mode, getPlayerSheet(), wBonus)
     const fd = calcFD(getEnemySheet(), true)
@@ -649,7 +679,7 @@ export default function ArenaCombat({ onNavigate }) {
             </span>
             <div className="arena-power-footer-btns">
               <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} />
-              <button className="arena-btn-primary" onClick={() => { sfx.click(); setShowPowerSelect(false) }}>
+              <button className="arena-btn-primary" onClick={enterCombat}>
                 {selectedPowers.length === 0 ? t('games.arena.combat_entrar_sem') : t('games.arena.combat_entrar_com', { n: selectedPowers.length })}
             </button>
             </div>
