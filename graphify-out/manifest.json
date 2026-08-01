@@ -455,8 +455,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785529564.0489988,
-    "ast_hash": "6b690b1e60345e4a6868249b418e8c35",
+    "mtime": 1785611240.5895903,
+    "ast_hash": "127697eb56bea20d0bdc9b9c5492069f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -710,13 +710,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785527655.030162,
-    "ast_hash": "cbee4de9feb1ef4ae62caef8a2e1be6d",
+    "mtime": 1785611352.427992,
+    "ast_hash": "ff1f37b03f64d6a0a3e4440969dd03c9",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785527655.0316718,
-    "ast_hash": "bf608db2587b16e70449a29ef0a9b382",
+    "mtime": 1785611352.4294543,
+    "ast_hash": "cbac158130e9d4a8b15496aa7e77d876",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -740,8 +740,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785527655.0281558,
-    "ast_hash": "a86de6b37d0a4085c3bd3926f604da28",
+    "mtime": 1785611352.4264874,
+    "ast_hash": "dd3b03e2c7651220e35fea66b62346c1",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2945,8 +2945,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785529593.0415409,
-    "ast_hash": "228ff68363a88b597b1f0b5148b90036",
+    "mtime": 1785611352.4309592,
+    "ast_hash": "69669e67963262e636e39f9de49084be",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2985,8 +2985,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785529624.5994017,
-    "ast_hash": "4aeece80e97da406a029dc07a5c5d636",
+    "mtime": 1785611254.8517969,
+    "ast_hash": "0a17de2f6b6b19f662b6d2952b99cd50",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3705,13 +3705,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx": {
-    "mtime": 1785527629.268933,
-    "ast_hash": "896085435324b6701ef7f8987fe66e47",
+    "mtime": 1785611278.7050648,
+    "ast_hash": "b174e75f02741afd5d473a112863f4f1",
     "semantic_hash": ""
   },
   "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js": {
-    "mtime": 1785528243.2474198,
-    "ast_hash": "f10b2e84c4ab7b32807c8e74c4fa71e2",
+    "mtime": 1785611362.622813,
+    "ast_hash": "ccadc36f9149447cf8cae5de8cf000b7",
     "semantic_hash": ""
   }
 }

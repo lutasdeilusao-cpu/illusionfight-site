@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-07-31)
+# Graph Report - SiteLDI  (2026-08-01)
 
 ## Corpus Check
-- 659 files · ~760,018 words
+- 659 files · ~760,200 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `61a2f977`
+- Built from commit: `8c1b4dab`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -220,7 +220,7 @@
 - drawCombatBoard
 - PowerCard.jsx
 - Passeio.jsx
-- framer-motion
+- Footer.jsx
 - Criatura.jsx
 
 ## God Nodes (most connected - your core abstractions)
@@ -301,8 +301,8 @@ Cohesion: 0.07
 Nodes (30): #14 — Helena — A Sobrevivente, #15 — Osvaldo — O Porteiro, #16 — Ryan — O Grato, #17 — Samuel — O Valentão, #18 — Roxy — A Mercenária, #19 — Brock — Capanga Líder, #1 — Kim — Briguento, #20 — Walter — O Diretor (+22 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.19
-Nodes (17): atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking, carregarRankingArena(), carregarRankingTama() (+9 more)
+Cohesion: 0.08
+Nodes (33): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), ModalConfirmacaoFicha(), ModalSemFichas(), useDix(), ADMIN_EMAILS, FICHAS_POR_TIER (+25 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.15
@@ -365,20 +365,20 @@ Cohesion: 0.20
 Nodes (9): PP, t(), getItemDef(), ITEMS_CONSUMABLE, renderAreaTwoButtons(), selectItemUse(), showInventoryTargetSelector(), showTab() (+1 more)
 
 ### Community 30 - "PerfilColecao.jsx"
-Cohesion: 0.17
-Nodes (15): carregarTentativas(), consumirTentativa(), marcarCartaGanha(), salvarCartasDeck(), substituirDeck(), verificarCartaGanhaHoje(), canAcquireTopTrumpsCard(), filterTopTrumpsCardPool() (+7 more)
+Cohesion: 0.19
+Nodes (17): atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking, carregarRankingArena(), carregarRankingTama() (+9 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.35
-Nodes (13): applyCounterAttack(), applyDamage(), atkBonus(), calcRawDmg(), calcRawDmgWithArrow(), defBonus(), getAttrTestMod(), getEffectMod() (+5 more)
+Cohesion: 0.17
+Nodes (15): carregarTentativas(), consumirTentativa(), marcarCartaGanha(), salvarCartasDeck(), substituirDeck(), verificarCartaGanhaHoje(), canAcquireTopTrumpsCard(), filterTopTrumpsCardPool() (+7 more)
 
 ### Community 32 - "initBattle"
 Cohesion: 0.24
 Nodes (12): calcularFase(), Alimentar(), Loja(), Ovo(), CRIATURAS_T1, gerarOpcoesSelecaoTama(), Selecao(), shuffle() (+4 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.08
-Nodes (33): FichaGateRoute(), getHoje(), isDesbloqueadoHoje(), ModalConfirmacaoFicha(), ModalSemFichas(), useDix(), ADMIN_EMAILS, FICHAS_POR_TIER (+25 more)
+Cohesion: 0.35
+Nodes (13): applyCounterAttack(), applyDamage(), atkBonus(), calcRawDmg(), calcRawDmgWithArrow(), defBonus(), getAttrTestMod(), getEffectMod() (+5 more)
 
 ### Community 34 - "TopTrumpsMP.jsx"
 Cohesion: 0.12
@@ -474,7 +474,7 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): framer-motion, dependencies, framer-motion, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc (+7 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.08
@@ -948,7 +948,7 @@ Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Mundo.jsx`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `Quiz.jsx`, `endBattle`, `ResultCard.jsx`, `TypewriterPhrase.jsx`, `Phase0Start.jsx`, `Batalha.jsx`, `Phase1SheetBuilder.jsx`?**
+- **Why does `useLanguage()` connect `Community 58` to `Community 0`, `Community 1`, `Community 2`, `classTree.js`, `Community 4`, `PowerCard.jsx`, `Community 7`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `Community 14`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 23`, `Community 25`, `Community 27`, `Community 28`, `PerfilColecao.jsx`, `initBattle`, `TopTrumpsMP.jsx`, `framer-motion`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `Community 45`, `PuzzleStealthGrid.jsx`, `Community 49`, `Mundo.jsx`, `Gacha.jsx`, `ArenaTaticsRoute.jsx`, `Community 59`, `Community 62`, `getLineInDirection.js`, `Community 76`, `Phase2Customize.jsx`, `Games.jsx`, `Quiz.jsx`, `endBattle`, `ResultCard.jsx`, `TypewriterPhrase.jsx`, `Phase0Start.jsx`, `Batalha.jsx`, `Phase1SheetBuilder.jsx`?**
   _High betweenness centrality (0.141) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `useMultiplayerTurnMachine.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `initBattle`, `Passeio.jsx`, `Community 8`, `Community 9`, `Community 45`, `Community 15`, `Community 49`, `Community 58`, `Community 27`, `Community 28`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._

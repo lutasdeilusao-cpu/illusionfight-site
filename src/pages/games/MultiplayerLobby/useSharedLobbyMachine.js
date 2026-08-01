@@ -12,6 +12,7 @@ const initialState = {
   roomId: null,
   playerRole: null,
   opponentId: null,
+  countdown: null,
   error: null
 }
 
@@ -26,8 +27,11 @@ function reducer(state, event) {
         roomId: event.roomId,
         playerRole: event.playerRole,
         opponentId: event.opponentId,
+        countdown: 5,
         error: null
       }
+    case 'COUNTDOWN_TICK':
+      return { ...state, countdown: Math.max(0, state.countdown - 1) }
     case 'ERROR':
       return { ...state, phase: 'error', error: event.error }
     case 'CANCELLED':
@@ -52,6 +56,7 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
   const pollRef = useRef(null)
   const startedRef = useRef(false)
   const matchedRef = useRef(false)
+  const matchStartedRef = useRef(false)
   const onMatchRef = useRef(onMatch)
   onMatchRef.current = onMatch
 
@@ -84,7 +89,6 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
       stopWatching()
       dispatch({ type: 'MATCHED', roomId: room.id, playerRole, opponentId })
       console.log('[SHARED_LOBBY:MATCH_REAL]', { gameId, modeId, roomId: room.id, jogador1: room.jogador1_id, jogador2: room.jogador2_id })
-      onMatchRef.current?.(room.id)
       return
     }
     dispatch({ type: 'SEARCHING', roomId: room.id, playerRole })
@@ -121,6 +125,7 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
     }
     startedRef.current = true
     matchedRef.current = false
+    matchStartedRef.current = false
     console.log('[SHARED_LOBBY:FILA_ENTRANDO]', { gameId, modeId, userId })
     try {
       const result = normalizeMatchResult(await entrarFilaPublica(userId, modeId, 5))
@@ -141,6 +146,7 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
     roomIdRef.current = null
     startedRef.current = false
     matchedRef.current = false
+    matchStartedRef.current = false
     if (roomId) await sairFilaPublica(roomId, userId)
     console.log('[SHARED_LOBBY:FILA_CANCELADA]', { gameId, modeId, userId, roomId })
     dispatch({ type: 'CANCELLED' })
@@ -150,6 +156,20 @@ export default function useSharedLobbyMachine({ gameId, modeId, userId, onMatch 
     joinQueue()
     return stopWatching
   }, [joinQueue, stopWatching])
+
+  useEffect(() => {
+    if (state.phase !== 'matched' || !state.roomId) return
+    if (state.countdown === 0) {
+      if (matchStartedRef.current) return
+      matchStartedRef.current = true
+      console.log('[SHARED_LOBBY:PARTIDA_INICIANDO]', { gameId, modeId, roomId: state.roomId })
+      onMatchRef.current?.(state.roomId)
+      return
+    }
+    console.log('[SHARED_LOBBY:CONTAGEM]', { gameId, modeId, roomId: state.roomId, restante: state.countdown })
+    const timer = setTimeout(() => dispatch({ type: 'COUNTDOWN_TICK' }), 1000)
+    return () => clearTimeout(timer)
+  }, [gameId, modeId, state.countdown, state.phase, state.roomId])
 
   return { state, retry: joinQueue, cancel }
 }

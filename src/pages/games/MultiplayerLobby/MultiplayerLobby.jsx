@@ -56,14 +56,17 @@ export default function MultiplayerLobby() {
             <div className="shared-lobby-radar" aria-hidden="true"><span /></div>
             <strong>{state.phase === 'connecting' ? t('multiplayer_lobby.connecting') : t('multiplayer_lobby.waiting_player')}</strong>
             <p>{t('multiplayer_lobby.waiting_real_room')}</p>
-            {state.roomId && <small>{t('multiplayer_lobby.room_confirmed')} {state.roomId}</small>}
+            <div className="shared-lobby-search-dots" aria-hidden="true"><i /><i /><i /></div>
           </div>
         )}
 
         {state.phase === 'matched' && (
           <div className="shared-lobby-status shared-lobby-status--matched">
+            <div className="shared-lobby-match-icon" aria-hidden="true"><span>VS</span></div>
             <strong>{t('multiplayer_lobby.match_ready')}</strong>
-            <p>{t('multiplayer_lobby.opening_toptrumps')}</p>
+            <p>{t('multiplayer_lobby.syncing_players')}</p>
+            <div className="shared-lobby-countdown" key={state.countdown}>{state.countdown}</div>
+            <small>{t('multiplayer_lobby.starting_in')}</small>
           </div>
         )}
 
@@ -77,9 +80,12 @@ export default function MultiplayerLobby() {
       </div>
 
       <footer className="shared-lobby-footer">
-        <span>{t('multiplayer_lobby.database_queue')}</span>
-        <code>{gameId}:{modeId}</code>
-        <button className="shared-lobby-back" onClick={leaveLobby}>{t('multiplayer_lobby.cancel')}</button>
+        {state.phase !== 'matched' && (
+          <>
+            <span>{t('multiplayer_lobby.search_active')}</span>
+            <button className="shared-lobby-back" onClick={leaveLobby}>{t('multiplayer_lobby.cancel')}</button>
+          </>
+        )}
       </footer>
     </section>
   )
