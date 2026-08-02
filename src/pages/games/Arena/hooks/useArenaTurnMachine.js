@@ -18,8 +18,8 @@ function makeEnemy(enemy = {}) {
   return {
     ...enemy,
     attributes: enemy.stats || {},
-    combat_style: enemy.preferred_mode === 'armed' ? 'duelista' : enemy.preferred_mode === 'power' ? 'canalizador' : 'brutamontes',
-    technique_ids: [], weakness_id: null, statuses: [], loadout_version: 1,
+    combat_path: enemy.preferred_mode === 'power' ? 'mistico' : enemy.preferred_mode === 'armed' ? 'defensor' : 'atacante',
+    statuses: [], loadout_version: 2,
   }
 }
 
@@ -27,10 +27,10 @@ export default function useArenaTurnMachine({ sheet, enemy, onFinish, roll = d6 
   const [player, setPlayer] = useState(() => makePlayer(sheet))
   const [opponent, setOpponent] = useState(() => makeEnemy(enemy || {}))
   const playerMaxPv = Math.max(1, (sheet.attributes?.R || 0) * 5)
-  const playerMaxPm = Math.max(2, (sheet.attributes?.PdF || 0) * 5)
+  const playerMaxPm = 0
   const enemyMaxPv = Number(enemy?.pv_max) || 10
   const [playerPv, setPlayerPv] = useState(playerMaxPv)
-  const [playerPm, setPlayerPm] = useState(playerMaxPm)
+  const [playerPm, setPlayerPm] = useState(0)
   const [enemyPv, setEnemyPv] = useState(enemyMaxPv)
   const [phase, setPhase] = useState('select')
   const [round, setRound] = useState(1)
@@ -97,11 +97,11 @@ export default function useArenaTurnMachine({ sheet, enemy, onFinish, roll = d6 
 
   const playerAction = useCallback((action) => {
     if (phase !== 'player' || pending) return false
-    const anticipatedCost = (action.powerCost || 0) + (action.techniqueId === 'furia' ? 2 : 0) + (player.weakness_id === 'sedento' && action.mode === 'power' ? 1 : 0)
+    const anticipatedCost = action.powerCost || 0
     if (playerPm < anticipatedCost) return false
     resolveForSide('player', action)
     return true
-  }, [phase, pending, playerPm, player.weakness_id, resolveForSide])
+  }, [phase, pending, playerPm, resolveForSide])
 
   const completePending = useCallback(() => {
     if (!pending) return

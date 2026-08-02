@@ -24,7 +24,6 @@ export default function ArenaVictory({ onNavigate }) {
   const xpGain = isVitoria ? 10 : 1
 
   const pv = (sheet.attributes?.R || 0) * 5
-  const pm = (sheet.attributes?.PdF || 0) * 5
   const pvMax = enemy?.pv_max || 10
 
   const [fase, setFase] = useState('mensagem')
@@ -130,11 +129,10 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-card">
           <div className="arena-victory-sheet-name">{sheet.sheet_name}</div>
           <div className="arena-victory-attrs">
-            <div className="arena-victory-attr"><span>F</span>{sheet.attributes.F}</div>
+            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
             <div className="arena-victory-attr"><span>H</span>{sheet.attributes.H}</div>
             <div className="arena-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="arena-victory-attr"><span>PdF</span>{sheet.attributes.PdF}</div>
+            <div className="arena-victory-attr"><span>D</span>{sheet.attributes.D}</div>
           </div>
           <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }}>
             {t('games.arena.xp_gain', { n: xpGain })}
@@ -249,15 +247,13 @@ export default function ArenaVictory({ onNavigate }) {
         <div className="arena-victory-card">
           <div className="arena-victory-sheet-name">{sheet.sheet_name}</div>
           <div className="arena-victory-attrs">
-            <div className="arena-victory-attr"><span>F</span>{sheet.attributes.F}</div>
+            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
             <div className="arena-victory-attr"><span>H</span>{sheet.attributes.H}</div>
             <div className="arena-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="arena-victory-attr"><span>PdF</span>{sheet.attributes.PdF}</div>
+            <div className="arena-victory-attr"><span>D</span>{sheet.attributes.D}</div>
           </div>
           <div className="arena-victory-stats">
             <span>{t('games.arena.pv', { n: pv })}</span>
-            <span>{t('games.arena.pm', { n: pm })}</span>
             <span>{t('games.arena.xp', { n: sheet.xp_total || 0 })}</span>
           </div>
           <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>

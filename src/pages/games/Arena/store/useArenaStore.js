@@ -3,6 +3,9 @@ import { supabase } from '../../../../lib/supabase'
 import { getArenaProgression } from '../utils/arenaProgression'
 import { normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
+const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
+const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
+
 /**
  * Retorna o limite máximo de fichas de personagem por tier.
  */
@@ -23,17 +26,10 @@ export function podeCriarFicha(perfil, totalFichas) {
 const defaultSheet = () => ({
   id: null,
   sheet_name: '',
-  attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 },
-  advantages: [],
-  disadvantages: [],
-  perks: [],
-  specializations: [],
-  weapon: '',
+  attributes: { A: 0, H: 0, R: 0, D: 0 },
   elemental: 'neutro',
-  combat_style: null,
-  technique_ids: [],
-  weakness_id: null,
-  loadout_version: 1,
+  combat_path: null,
+  loadout_version: 2,
   xp_total: 0,
   attribute_points_gained: 0,
   enemies_unlocked: ['treinamento'],
@@ -42,19 +38,19 @@ const defaultSheet = () => ({
 export const useArenaStore = create((set, get) => ({
   sheet: defaultSheet(),
   match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' },
-  points_available: 5,
-  temp_attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 },
+  points_available: 0,
+  temp_attributes: { A: 0, H: 0, R: 0, D: 0 },
   level_up_active: false,
   _userId: null,
 
-  newSheet: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' }, points_available: 5, temp_attributes: { F: 0, H: 0, R: 0, A: 0, PdF: 0 }, level_up_active: false }),
+  newSheet: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' }, points_available: 0, temp_attributes: { A: 0, H: 0, R: 0, D: 0 }, level_up_active: false }),
 
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
     const pv = Math.max(1, (data.attributes?.R || 0) * 5)
-    const pm = Math.max(2, (data.attributes?.PdF || 0) * 5)
-    set({ sheet: { ...defaultSheet(), ...data, ...normalizeArenaLoadout(data) }, match: { enemy_id: null, pv_current: pv, pm_current: pm, score: 0, status: 'idle' } })
+    const normalized = normalizeArenaLoadout(data)
+    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, pv_current: pv, pm_current: 0, score: 0, status: 'idle' } })
   },
 
   setUserId: (id) => set({ _userId: id }),
@@ -62,8 +58,7 @@ export const useArenaStore = create((set, get) => ({
   startMatch: (enemy) => {
     const s = get().sheet
     const pv = Math.max(1, (s.attributes?.R || 0) * 5)
-    const pm = Math.max(2, (s.attributes?.PdF || 0) * 5)
-    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: pv, pm_current: pm, score: 0, status: 'fighting' } })
+    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: pv, pm_current: 0, score: 0, status: 'fighting' } })
   },
 
   setMatchPV: (pv) => set(state => ({ match: { ...state.match, pv_current: Math.max(0, pv) } })),
@@ -111,18 +106,38 @@ export const useArenaStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, advantages: s.advantages, disadvantages: s.disadvantages, perks: s.perks, specializations: s.specializations, weapon: s.weapon, elemental: s.elemental, combat_style: s.combat_style, technique_ids: s.technique_ids, weakness_id: s.weakness_id, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
-    if (s.id) await supabase.from('character_sheets').update(payload).eq('id', s.id)
-    else {
-      const { data } = await supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
+    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
+    const request = s.id
+      ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
+      : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
+    let { data, error } = await request
+
+    // Compatibilidade curta até a migration 025 ser aplicada no Supabase oficial.
+    if (error && /combat_path/i.test(error.message || '')) {
+      const legacyPayload = { ...payload, combat_style: LEGACY_PATH_STORAGE[s.combat_path] }
+      delete legacyPayload.combat_path
+      const fallback = s.id
+        ? await supabase.from('character_sheets').update(legacyPayload).eq('id', s.id).select('id').maybeSingle()
+        : await supabase.from('character_sheets').insert(legacyPayload).select('id').maybeSingle()
+      data = fallback.data
+      error = fallback.error
+    }
+    if (error) console.error('[ARENA] Falha ao salvar ficha:', error.message)
+    if (!s.id && data) {
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
     }
   },
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    const { data } = await supabase.from('character_sheets').select('id, sheet_name, attributes, weapon, elemental, combat_style, technique_ids, weakness_id, loadout_version, xp_total, advantages, disadvantages, perks, specializations, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
-    return Array.isArray(data) ? data : []
+    let { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
+    if (error && /combat_path/i.test(error.message || '')) {
+      const legacy = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_style, loadout_version, xp_total, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
+      data = (legacy.data || []).map(item => ({ ...item, combat_path: LEGACY_STYLE_PATH[item.combat_style] || null }))
+      error = legacy.error
+    }
+    if (error) console.error('[ARENA] Falha ao carregar fichas:', error.message)
+    return Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeArenaLoadout(item) })) : []
   },
 
   deleteSheet: async (sheetId) => {

@@ -1202,7 +1202,14 @@
       "voltar": "VOLVER",
       "modo_standalone": "modo independiente",
       "loadout": {
-        "intro": "Crea un estilo de combate directo: atributos, estilo, dos técnicas y una debilidad. Cada elección cambia la batalla.",
+        "intro": "Elige el camino inicial de tu personaje. Esta es la única decisión de la ficha en esta fase.",
+        "path_title": "ELIGE TU CAMINO",
+        "path_intro": "A es Ataque, H es Habilidad, R es Resistencia y D es Defensa.",
+        "paths": {
+          "atacante": { "name": "Atacante", "desc": "Presión ofensiva. A 3 · H 1 · R 1 · D 0" },
+          "defensor": { "name": "Defensor", "desc": "Resistencia y protección. A 1 · H 0 · R 2 · D 2" },
+          "mistico": { "name": "Místico", "desc": "Camino equilibrado hacia las artes místicas. A 2 · H 1 · R 1 · D 1" }
+        },
         "style_title": "ESTILO DE COMBATE",
         "techniques_title": "TÉCNICAS — ELIGE 2",
         "weakness_title": "DEBILIDAD — ELIGE 1",
@@ -1225,7 +1232,7 @@
           "sedento": { "name": "Sediento", "desc": "Los poderes cuestan 1 PM adicional." },
           "sensivel": { "name": "Sensible", "desc": "Recibe +2 de daño de poderes elementales." }
         },
-        "errors": { "style": "Elige un estilo.", "techniques": "Elige exactamente dos técnicas.", "weakness": "Elige una debilidad." },
+        "errors": { "path": "Elige Atacante, Defensor o Místico.", "style": "Elige un estilo.", "techniques": "Elige exactamente dos técnicas.", "weakness": "Elige una debilidad." },
         "technique_action": "USAR {name}",
         "passive": "PASIVA",
         "round": "RONDA {n}",

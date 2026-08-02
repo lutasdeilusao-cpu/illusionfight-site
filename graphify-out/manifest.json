@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785617145.9964123,
-    "ast_hash": "c21dd96ae453c877778389b116018019",
+    "mtime": 1785699347.9774804,
+    "ast_hash": "c8b15b74088337aa2fefc2df6b5b1e41",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -665,13 +665,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785617731.9999056,
-    "ast_hash": "ecdcfa998e3e9a700001918c6483a4c9",
+    "mtime": 1785699614.0922759,
+    "ast_hash": "7d847424b371a152817855735f0e9cf4",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785617732.0029118,
-    "ast_hash": "804556259872a348b377f1306fb5ab09",
+    "mtime": 1785699614.0962737,
+    "ast_hash": "df0db9476f8a2872911485fe9401c49d",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -695,8 +695,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785617731.9988987,
-    "ast_hash": "a5f193eb588d20f5110be1c9f9334c22",
+    "mtime": 1785699614.0912745,
+    "ast_hash": "5483604dc7c8cdc4e8f5fe52e965c7c9",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -1030,18 +1030,18 @@
     "semantic_hash": "13b16af9d521ebda58a6b9efc00fde3e"
   },
   "src/pages/games/Arena/ArenaCombat.jsx": {
-    "mtime": 1785617731.9973934,
-    "ast_hash": "a2f733cbaebd712e2d5adf5bbf6a7b9f",
+    "mtime": 1785699499.873438,
+    "ast_hash": "932af053d69539c44b885c0c84312304",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaCreate.jsx": {
-    "mtime": 1785617731.9953928,
-    "ast_hash": "bdb274cadc5522a972446ca62475d7b1",
+    "mtime": 1785699665.2176547,
+    "ast_hash": "017aeed5f8da82d15dcc9341009188ee",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaLobby.jsx": {
-    "mtime": 1785616322.0643551,
-    "ast_hash": "b7d1135d731b90c8ebd6be631c112104",
+    "mtime": 1785699665.22006,
+    "ast_hash": "53f513fb495f9638c3a3b44b1dd75cf2",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaRoute.jsx": {
@@ -1050,8 +1050,8 @@
     "semantic_hash": "38a67fe2e0f0928c51b93b1f714b4c71"
   },
   "src/pages/games/Arena/ArenaVictory.jsx": {
-    "mtime": 1785616282.2883875,
-    "ast_hash": "2212b7e04f2ff0e5c09e2f842077e025",
+    "mtime": 1785699579.2734733,
+    "ast_hash": "61c4da609ef2d1f9b277c70834e0692b",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/components/ArenaXpBar.jsx": {
@@ -1065,9 +1065,9 @@
     "semantic_hash": "93088f3d1b70451e4bf92f572b496c8b"
   },
   "src/pages/games/Arena/data/arena-enemies.json": {
-    "mtime": 1782441630.3381162,
-    "ast_hash": "0051aa716d74994c50f7b1c9350c40cd",
-    "semantic_hash": "0051aa716d74994c50f7b1c9350c40cd"
+    "mtime": 1785699579.2744725,
+    "ast_hash": "3537ee9b2419afd5f359ffd511b8f088",
+    "semantic_hash": ""
   },
   "src/pages/games/Arena/data/trash_talk.json": {
     "mtime": 1782441630.3381162,
@@ -1075,8 +1075,8 @@
     "semantic_hash": "dd71ce42279a012289f6f8fe405d79e0"
   },
   "src/pages/games/Arena/store/useArenaStore.js": {
-    "mtime": 1785617651.3036659,
-    "ast_hash": "3d6ec33fdbc38892ff1a06dd5d2a6923",
+    "mtime": 1785699826.214924,
+    "ast_hash": "8b166226aee485a09c339db11463304d",
     "semantic_hash": ""
   },
   "src/pages/games/Duelo/DueloRoute.jsx": {
@@ -2900,8 +2900,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785617145.998428,
-    "ast_hash": "25b7cafa3860e784679d03173052938e",
+    "mtime": 1785699347.9784808,
+    "ast_hash": "17a8e717ff08f6ef6df7fb4d6c365cb8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3615,28 +3615,33 @@
     "semantic_hash": ""
   },
   "scripts/test-arena-refactor.mjs": {
-    "mtime": 1785617569.9147608,
-    "ast_hash": "dafe9deb7f56c84b42927873671e6d12",
+    "mtime": 1785699728.803037,
+    "ast_hash": "22b86c1ab4fe76c867a52c42b666fad4",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/data/arenaLoadout.js": {
-    "mtime": 1785617199.612764,
-    "ast_hash": "4fc9cacc3576be84ac01031532776061",
+    "mtime": 1785699665.2176547,
+    "ast_hash": "cd7a4bcc2a63196c59e043f41d00f36e",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/engine/arenaCombatResolver.js": {
-    "mtime": 1785617651.3026671,
-    "ast_hash": "1b76958ef95f789ec329aa2857e0c827",
+    "mtime": 1785699689.3676753,
+    "ast_hash": "d6f467934feb396f02d6496dacc1a4cc",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/hooks/useArenaTurnMachine.js": {
-    "mtime": 1785617731.9963923,
-    "ast_hash": "e5bed94414d72c2abb1a0a8c74c6398f",
+    "mtime": 1785699689.3676753,
+    "ast_hash": "b37070aa6a385aa0b961734f44759c85",
     "semantic_hash": ""
   },
   "supabase/migrations/024_arena_combat_loadout.sql": {
     "mtime": 1785617199.6157632,
     "ast_hash": "22c643c98936c42a285000285660e5f2",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/025_arena_character_paths.sql": {
+    "mtime": 1785699665.222059,
+    "ast_hash": "bb04999980f9d50bef958cc454512e31",
     "semantic_hash": ""
   }
 }

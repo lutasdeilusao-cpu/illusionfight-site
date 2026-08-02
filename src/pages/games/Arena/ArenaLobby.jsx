@@ -182,7 +182,7 @@ export default function ArenaLobby({ onNavigate }) {
           <p className="arena-lobby-titulo">{t('games.arena.lobby_titulo')}</p>
           <h1 className="arena-lobby-nome arena-lobby-nome--enemy">{selectedSheet.sheet_name}</h1>
           <p className="arena-lobby-sub">
-            {['F','H','R','A','PdF'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
+            {t(`games.arena.loadout.paths.${selectedSheet.combat_path}.name`)} · {['A','H','R','D'].map(a => `${a}:${selectedSheet.attributes?.[a]||0}`).join(' ')}
           </p>
         </div>
 
@@ -212,7 +212,7 @@ export default function ArenaLobby({ onNavigate }) {
                     rank #{enemy.rank} · tier {enemy.tier} · {t('games.arena.diff_' + (enemy.difficulty || 'easy'))}
                   </div>
                   <div className="arena-sheet-stats">
-                    {['F','H','R','A','PdF'].map(attr => (
+                    {['A','H','R','D'].map(attr => (
                       <div key={attr} className="arena-sheet-stat">
                         <span className="arena-sheet-stat-label">{attr}</span>
                         <span className="arena-sheet-stat-val" style={{ color: dc.cor }}>
@@ -290,7 +290,7 @@ export default function ArenaLobby({ onNavigate }) {
                     compact
                   />
                   <div className="arena-sheet-stats">
-                    {['F','H','R','A','PdF'].map(attr => (
+                    {['A','H','R','D'].map(attr => (
                       <div key={attr} className="arena-sheet-stat">
                         <span className="arena-sheet-stat-label">{attr}</span>
                         <span className="arena-sheet-stat-val">{s.attributes?.[attr] ?? 0}</span>
