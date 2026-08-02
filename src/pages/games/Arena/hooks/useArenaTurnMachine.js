@@ -6,7 +6,7 @@ import {
   resolveArenaInitiative,
   resolveArenaRoundClose,
 } from '../engine/arenaCombatResolver.js'
-import { normalizeArenaLoadout } from '../data/arenaLoadout.js'
+import { getArenaResources, normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
 const d6 = () => Math.floor(Math.random() * 6) + 1
 
@@ -26,11 +26,12 @@ function makeEnemy(enemy = {}) {
 export default function useArenaTurnMachine({ sheet, enemy, onFinish, roll = d6 }) {
   const [player, setPlayer] = useState(() => makePlayer(sheet))
   const [opponent, setOpponent] = useState(() => makeEnemy(enemy || {}))
-  const playerMaxPv = Math.max(1, (sheet.attributes?.R || 0) * 5)
-  const playerMaxPm = 0
+  const playerResources = getArenaResources(sheet.combat_path, sheet.attributes?.R)
+  const playerMaxPv = playerResources.pvMax
+  const playerMaxPm = playerResources.pmMax
   const enemyMaxPv = Number(enemy?.pv_max) || 10
   const [playerPv, setPlayerPv] = useState(playerMaxPv)
-  const [playerPm, setPlayerPm] = useState(0)
+  const [playerPm, setPlayerPm] = useState(playerMaxPm)
   const [enemyPv, setEnemyPv] = useState(enemyMaxPv)
   const [phase, setPhase] = useState('select')
   const [round, setRound] = useState(1)

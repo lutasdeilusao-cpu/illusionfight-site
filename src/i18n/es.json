@@ -1205,6 +1205,7 @@
         "intro": "Elige el camino inicial de tu personaje. Esta es la única decisión de la ficha en esta fase.",
         "path_title": "ELIGE TU CAMINO",
         "path_intro": "A es Ataque, H es Habilidad, R es Resistencia y D es Defensa.",
+        "resource_rate": "Cada R otorga {pvPerR} PV y {pmPerR} PM.",
         "paths": {
           "atacante": { "name": "Atacante", "desc": "Presión ofensiva. A 3 · H 1 · R 1 · D 0" },
           "defensor": { "name": "Defensor", "desc": "Resistencia y protección. A 1 · H 0 · R 2 · D 2" },

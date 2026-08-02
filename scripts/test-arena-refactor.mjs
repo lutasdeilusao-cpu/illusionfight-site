@@ -8,12 +8,22 @@ import {
 import {
   ARENA_PATHS,
   ARENA_PATH_PRESETS,
+  getArenaResources,
   normalizeArenaLoadout,
 } from '../src/pages/games/Arena/data/arenaLoadout.js'
 
 function log(name, data) {
   console.log(`✅ ${name} | ${JSON.stringify(data)}`)
 }
+
+assert.deepEqual(getArenaResources('atacante', 3), { pvMax: 9, pmMax: 9, pvPerR: 3, pmPerR: 3 })
+assert.deepEqual(getArenaResources('defensor', 3), { pvMax: 12, pmMax: 6, pvPerR: 4, pmPerR: 2 })
+assert.deepEqual(getArenaResources('mistico', 3), { pvMax: 6, pmMax: 12, pvPerR: 2, pmPerR: 4 })
+log('Resistência por caminho com R 3', {
+  atacante: getArenaResources('atacante', 3),
+  defensor: getArenaResources('defensor', 3),
+  mistico: getArenaResources('mistico', 3),
+})
 
 for (const path of ARENA_PATHS) {
   const attributes = ARENA_PATH_PRESETS[path]

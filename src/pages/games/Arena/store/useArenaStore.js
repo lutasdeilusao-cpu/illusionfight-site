@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { getArenaProgression } from '../utils/arenaProgression'
-import { normalizeArenaLoadout } from '../data/arenaLoadout.js'
+import { getArenaResources, normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -48,17 +48,17 @@ export const useArenaStore = create((set, get) => ({
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
-    const pv = Math.max(1, (data.attributes?.R || 0) * 5)
     const normalized = normalizeArenaLoadout(data)
-    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, pv_current: pv, pm_current: 0, score: 0, status: 'idle' } })
+    const resources = getArenaResources(normalized.combat_path, normalized.attributes.R)
+    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, pv_current: resources.pvMax, pm_current: resources.pmMax, score: 0, status: 'idle' } })
   },
 
   setUserId: (id) => set({ _userId: id }),
 
   startMatch: (enemy) => {
     const s = get().sheet
-    const pv = Math.max(1, (s.attributes?.R || 0) * 5)
-    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: pv, pm_current: 0, score: 0, status: 'fighting' } })
+    const resources = getArenaResources(s.combat_path, s.attributes?.R)
+    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: resources.pvMax, pm_current: resources.pmMax, score: 0, status: 'fighting' } })
   },
 
   setMatchPV: (pv) => set(state => ({ match: { ...state.match, pv_current: Math.max(0, pv) } })),

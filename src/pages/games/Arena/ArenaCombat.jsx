@@ -12,13 +12,14 @@ function pct(value, max) {
   return Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100))
 }
 
-function CombatantPanel({ name, pv, pvMax, enemy = false }) {
+function CombatantPanel({ name, pv, pvMax, pm, pmMax, enemy = false }) {
   return (
     <section className={`arena2-fighter ${enemy ? 'arena2-fighter--enemy' : ''}`}>
       <div className="arena2-fighter-avatar">{(name || '?')[0].toUpperCase()}</div>
       <div className="arena2-fighter-data">
         <strong>{name}</strong>
         <div className="arena2-meter"><span>PV</span><progress max="100" value={pct(pv, pvMax)} /><b>{pv}/{pvMax}</b></div>
+        {pm != null && <div className="arena2-meter arena2-meter--pm"><span>PM</span><progress max="100" value={pct(pm, pmMax)} /><b>{pm}/{pmMax}</b></div>}
       </div>
     </section>
   )
@@ -90,7 +91,7 @@ export default function ArenaCombat({ onNavigate }) {
         {result && <ResultOverlay result={result} t={t} onNext={() => onNavigate('victory')} />}
       </AnimatePresence>
 
-      <CombatantPanel name={sheet.sheet_name} pv={machine.playerPv} pvMax={machine.playerMaxPv} />
+      <CombatantPanel name={sheet.sheet_name} pv={machine.playerPv} pvMax={machine.playerMaxPv} pm={machine.playerPm} pmMax={machine.playerMaxPm} />
       <div className="arena2-turn"><span>{t('games.arena.loadout.round', { n: machine.round })}</span><strong>{machine.phase === 'player' ? t('games.arena.card_ataque') : t('games.arena.combat_vez_inimigo')}</strong></div>
       <CombatantPanel name={enemyName} pv={machine.enemyPv} pvMax={machine.enemyMaxPv} enemy />
 

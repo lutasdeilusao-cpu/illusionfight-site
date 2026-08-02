@@ -1205,6 +1205,7 @@
         "intro": "Choose your character's starting path. This is the sheet's only decision in this phase.",
         "path_title": "CHOOSE YOUR PATH",
         "path_intro": "A is Attack, H is Skill, R is Resistance and D is Defense.",
+        "resource_rate": "Each R grants {pvPerR} HP and {pmPerR} MP.",
         "paths": {
           "atacante": { "name": "Attacker", "desc": "Offensive pressure. A 3 · H 1 · R 1 · D 0" },
           "defensor": { "name": "Defender", "desc": "Resistance and protection. A 1 · H 0 · R 2 · D 2" },

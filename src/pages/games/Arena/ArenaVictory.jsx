@@ -8,6 +8,7 @@ import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import ArenaXpBar from './components/ArenaXpBar'
 import { sfx } from '../../../lib/sfx'
+import { getArenaResources } from './data/arenaLoadout.js'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
 
@@ -23,7 +24,7 @@ export default function ArenaVictory({ onNavigate }) {
   const isVitoria = match.status === 'victory'
   const xpGain = isVitoria ? 10 : 1
 
-  const pv = (sheet.attributes?.R || 0) * 5
+  const { pvMax: pv, pmMax: pm } = getArenaResources(sheet.combat_path, sheet.attributes?.R)
   const pvMax = enemy?.pv_max || 10
 
   const [fase, setFase] = useState('mensagem')
@@ -254,6 +255,7 @@ export default function ArenaVictory({ onNavigate }) {
           </div>
           <div className="arena-victory-stats">
             <span>{t('games.arena.pv', { n: pv })}</span>
+            <span>{t('games.arena.pm', { n: pm })}</span>
             <span>{t('games.arena.xp', { n: sheet.xp_total || 0 })}</span>
           </div>
           <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>

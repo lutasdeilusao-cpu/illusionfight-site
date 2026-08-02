@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useArenaStore } from './store/useArenaStore'
-import { ARENA_PATHS, ARENA_PATH_PRESETS } from './data/arenaLoadout.js'
+import { ARENA_PATHS, ARENA_PATH_PRESETS, getArenaResources } from './data/arenaLoadout.js'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 
@@ -83,6 +83,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
             <button key={id} className={`arc-loadout-card ${sheet.combat_path === id ? 'arc-loadout-card--active' : ''}`} onClick={() => selectPath(id)}>
               <strong>{PATH_ICONS[id]} {t(`games.arena.loadout.paths.${id}.name`)}</strong>
               <span>{t(`games.arena.loadout.paths.${id}.desc`)}</span>
+              <span>{t('games.arena.loadout.resource_rate', getArenaResources(id, 1))}</span>
             </button>
           ))}
         </div>
