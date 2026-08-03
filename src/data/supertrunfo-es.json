@@ -37,7 +37,7 @@
     {
       "id": 3,
       "nome": "Kim Ensayo",
-      "tier": "free",
+      "tier": "elite",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
       "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
@@ -46,7 +46,7 @@
     {
       "id": 4,
       "nome": "Kim Show",
-      "tier": "free",
+      "tier": "primordial",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
       "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
@@ -55,7 +55,7 @@
     {
       "id": 5,
       "nome": "Kim Superconcierto",
-      "tier": "free",
+      "tier": "primordial",
       "elemental": "Trevas (manifestado) / Fogo (nativo)",
       "descricao": "Descendiente Xakaxi portador de la Sangre Primordial. Llegó al rank 1201 en su primera batalla. Vive en una casa invadida, vende dulces en el autobús, cuida a su madre. Tiene más poder del que entiende. Cuando pierde el control, algo mucho más antiguo que él toma el mando.",
       "frase_iconica": "¿La única regla en una pelea callejera? No hay reglas.",
@@ -82,7 +82,7 @@
     {
       "id": 8,
       "nome": "Jack Ensayo",
-      "tier": "free",
+      "tier": "elite",
       "elemental": "Terra / Pedra",
       "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
       "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
@@ -91,7 +91,7 @@
     {
       "id": 9,
       "nome": "Jack Show",
-      "tier": "free",
+      "tier": "primordial",
       "elemental": "Terra / Pedra",
       "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
       "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
@@ -100,7 +100,7 @@
     {
       "id": 10,
       "nome": "Jack Superconcierto",
-      "tier": "free",
+      "tier": "primordial",
       "elemental": "Terra / Pedra",
       "descricao": "Mejor amigo de Kim desde siempre. Extrovertido, teatral, nunca genuinamente asustado. Combina encanto y violencia con eficiencia desconcertante. Usa cualquier ambiente a su favor. Entrenamiento en 3 etapas — letal cuando completo, vulnerable durante la carga.",
       "frase_iconica": "Nunca dejes para mañana lo que puedas hacer que Kim haga hoy.",
@@ -127,7 +127,7 @@
     {
       "id": 13,
       "nome": "Nina Ensayo",
-      "tier": "free",
+      "tier": "elite",
       "elemental": "Luz",
       "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
       "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
@@ -136,7 +136,7 @@
     {
       "id": 14,
       "nome": "Nina Show",
-      "tier": "free",
+      "tier": "primordial",
       "elemental": "Luz",
       "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
       "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
@@ -145,7 +145,7 @@
     {
       "id": 15,
       "nome": "Nina Superconcierto",
-      "tier": "free",
+      "tier": "elite",
       "elemental": "Luz",
       "descricao": "Muay Thai y katana desde los 12 años en el circuito profesional. Pasó años fuera de Bravara. Cuando habla, la escena cambia. Competitiva al extremo — prefiere morir antes que pedir ayuda en una pelea.",
       "frase_iconica": "Necesitas esforzarte mucho más para merecer a una mujer como yo.",
@@ -172,7 +172,7 @@
     {
       "id": 18,
       "nome": "Lenna",
-      "tier": "free",
+      "tier": "evento",
       "elemental": "Vento",
       "descricao": "Top 500 en el ranking. Se interesó en Kim tras el video viral. Segura, enigmática, competitiva pero justa. Evalúa a los oponentes con frialdad antes de actuar.",
       "frase_iconica": "No peleo para demostrar algo. Peleo para saber.",
@@ -190,7 +190,7 @@
     {
       "id": 20,
       "nome": "Pajé Yawanari",
-      "tier": "free",
+      "tier": "evento",
       "elemental": "Todos os elementais primários",
       "descricao": "Chamán inmortal de la tribu Xakaxi. Quinientos años observando a la humanidad. Presenció guerras mundiales, pandemias, colonización y redes sociales. Completamente loco. Habla en jerga moderna mezclada con sabiduría ancestral. Tiene amigos imaginarios.",
       "frase_iconica": "¡Vine a brillar! Soy el 10/10 que se quedó cuidando los poderes sagrados de este mundo loco.",
@@ -208,7 +208,7 @@
     {
       "id": 22,
       "nome": "David Kronos",
-      "tier": "elite",
+      "tier": "evento",
       "elemental": "Escuridão Corrompida",
       "descricao": "Espíritu ancestral corrompido de Powa, hijo del Pajé Yawanari. Cinco siglos esperando el Cuerpo Primordial — el descendiente que lleve la Sangre Primordial para usarlo como huésped permanente. Cada posesión deteriora al huésped. Creó el LDI como trampa.",
       "frase_iconica": "Por fin… Cuánto he esperado este momento.",
@@ -217,7 +217,7 @@
     {
       "id": 23,
       "nome": "Helena",
-      "tier": "elite",
+      "tier": "free",
       "elemental": "Nenhum",
       "descricao": "La madre de Kim — o más bien, la mujer que lo salvó cuando tenía 12 años y él era un bebé. Sobrevivió lo que no debía y crió a Kim sola desde cero. Complicada, compleja, alcohólica. Pero cuando importó, no lo abandonó.",
       "frase_iconica": "A los 18 ya no me necesitarás. Y yo finalmente podré librarme de ti.",
@@ -226,7 +226,7 @@
     {
       "id": 24,
       "nome": "Osvaldo",
-      "tier": "primordial",
+      "tier": "free",
       "elemental": "Terra",
       "descricao": "Portero de la academia de élite. Le enseñó guitarra a Kim durante tres años. Usó su influencia para conseguir una beca del 50% para Kim y Jack. Vio potencial donde todos veían un problema.",
       "frase_iconica": "Entren rápido, antes de que el director me vea.",
@@ -235,7 +235,7 @@
     {
       "id": 25,
       "nome": "Brock",
-      "tier": "primordial",
+      "tier": "free",
       "elemental": "Nenhum",
       "descricao": "Líder del grupo de matones contratados por Thunderbolt. Alto, musculoso, tatuajes que cuentan historias de violencia. Trató el trabajo con profesionalismo hasta que lo doblaron sobre una mesa en 3 segundos.",
       "frase_iconica": "Solo soy un profesional haciendo mi trabajo — no lo tomes personal.",
@@ -244,7 +244,7 @@
     {
       "id": 26,
       "nome": "Walter",
-      "tier": "primordial",
+      "tier": "free",
       "elemental": "Nenhum",
       "descricao": "Director de la academia de élite. Intenta mantener el orden en una escuela llena de conflictos. Amenaza periódicamente a Kim y Jack con sus becas. Nunca consigue pruebas suficientes para actuar.",
       "frase_iconica": "Tengan cuidado. Mucho cuidado de no perder sus becas.",
@@ -253,7 +253,7 @@
     {
       "id": 27,
       "nome": "La Máquina",
-      "tier": "evento",
+      "tier": "free",
       "elemental": "Nenhum",
       "descricao": "Profesor de matemáticas de la academia de élite. Escribe ecuaciones en el aire con el bolígrafo. Nunca sonríe — excepto una vez, imperceptiblemente, cuando Nina destruyó a Jack. Considerado uno de los pocos elegidos para dar clases en la institución.",
       "frase_iconica": "Buenos días.",
@@ -262,7 +262,7 @@
     {
       "id": 28,
       "nome": "IA NeoGuide",
-      "tier": "evento",
+      "tier": "free",
       "elemental": "Digital",
       "descricao": "La inteligencia artificial del LDI que gestiona las batallas, comunica el estado y crea avatares. Habla directamente en la mente de los jugadores. Puede ocultar información al oponente. Su lealtad es al sistema — ¿o a algo más?",
       "frase_iconica": "Bienvenido al Sistema de Lutas de Ilusão. Iniciando protocolo de integración neural.",
