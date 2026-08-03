@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785772060.0929153,
-    "ast_hash": "fc1ef30cbbbaadcf4b271787e5ab5dfc",
+    "mtime": 1785772554.1963158,
+    "ast_hash": "f334cc928ba7453840444df0dd50cd8f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -665,13 +665,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785772268.7607605,
-    "ast_hash": "db0e2d009b9ff4cc1d3154cf27e734e9",
+    "mtime": 1785772614.369718,
+    "ast_hash": "40750f7e45dd7132e50bc10805e2259a",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785772268.7617617,
-    "ast_hash": "7a17dedfb0d6a7de789cf3212f6fa71b",
+    "mtime": 1785772614.3717287,
+    "ast_hash": "bdaba517e209cc0f498f7abb0b9d9911",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -695,8 +695,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785772268.7584188,
-    "ast_hash": "f9255562cbf91dde427d82fe38400b9e",
+    "mtime": 1785772614.368373,
+    "ast_hash": "20988e01ee9e04aedb6014ee0eccb5d9",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -1035,8 +1035,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaCreate.jsx": {
-    "mtime": 1785772268.7564256,
-    "ast_hash": "7c6351fbd652aecb2d5e3be142be0417",
+    "mtime": 1785772614.3673718,
+    "ast_hash": "6c4e3e0f12cfdb751a68cf8539019ece",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaLobby.jsx": {
@@ -1075,8 +1075,8 @@
     "semantic_hash": "dd71ce42279a012289f6f8fe405d79e0"
   },
   "src/pages/games/Arena/store/useArenaStore.js": {
-    "mtime": 1785771578.993631,
-    "ast_hash": "a491e901e8f0ab0c180a36cc7e4b4340",
+    "mtime": 1785772614.366371,
+    "ast_hash": "6d941f0c119af0425ab0518ea2e9e46a",
     "semantic_hash": ""
   },
   "src/pages/games/Duelo/DueloRoute.jsx": {
@@ -2900,8 +2900,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785772060.0952594,
-    "ast_hash": "ed1c646165e53e78132e7f2547e4e509",
+    "mtime": 1785772666.2717736,
+    "ast_hash": "7538c396c9fb37089052b2942a5c7906",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3642,6 +3642,11 @@
   "supabase/migrations/025_arena_character_paths.sql": {
     "mtime": 1785699665.222059,
     "ast_hash": "bb04999980f9d50bef958cc454512e31",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/026_arena_clean_character_model.sql": {
+    "mtime": 1785772666.2687774,
+    "ast_hash": "3f39240997a93176a03ff4dd95cfa125",
     "semantic_hash": ""
   }
 }

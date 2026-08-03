@@ -8,7 +8,7 @@ import { ARENA_PATHS, ARENA_PATH_PRESETS, getArenaResources } from './data/arena
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 
-const PATH_ICONS = { atacante: '⚔️', defensor: '🛡️', mistico: '✨' }
+const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
 export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit, blockedPaths = [], creationNumber = 1, onCreated }) {
   const { t } = useLanguage()
@@ -45,7 +45,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       return
     }
     const saved = user ? await store.saveToCloud(user.id) : store.addLocalSheet(sheet)
-    if (!saved) return
+    if (!saved) { setError(t('games.arena.party.save_error')); return }
     onCreated?.(saved)
     if (!onCreated) onNavigate('lobby')
   }
@@ -76,14 +76,16 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
           <input className="arc-name-input" value={sheet.sheet_name || ''} onChange={event => store.updateSheet({ sheet_name: event.target.value })} placeholder={t('games.arena.placeholder_nome')} autoFocus />
         </div>
 
-        <p className="arena-lobby-sub">{t('games.arena.loadout.path_intro')}</p>
         <div className="arc-loadout-grid arc-loadout-grid--styles">
           {ARENA_PATHS.map(id => (
             <button key={id} disabled={blockedPaths.includes(id)} className={`arc-loadout-card ${sheet.combat_path === id ? 'arc-loadout-card--active' : ''}`} onClick={() => selectPath(id)}>
-              <strong>{PATH_ICONS[id]} {t(`games.arena.loadout.paths.${id}.name`)}</strong>
-              <span>{t(`games.arena.loadout.paths.${id}.desc`)}</span>
-              <span>{t('games.arena.loadout.resource_rate', getArenaResources(id, 1))}</span>
-              {blockedPaths.includes(id) && <span>{t('games.arena.party.path_unavailable')}</span>}
+              <span className="arc-path-mark">{PATH_MARKS[id]}</span>
+              <span className="arc-path-copy">
+                <strong>{t(`games.arena.loadout.paths.${id}.name`)}</strong>
+                <span className="arc-path-resource">{t('games.arena.loadout.resource_rate', getArenaResources(id, 1))}</span>
+                {blockedPaths.includes(id) && <span className="arc-path-blocked">{t('games.arena.party.path_unavailable')}</span>}
+              </span>
+              <span className="arc-path-check">{sheet.combat_path === id ? '✓' : '→'}</span>
             </button>
           ))}
         </div>

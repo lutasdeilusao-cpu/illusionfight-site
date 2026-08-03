@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-03 — `SITE_VERSION` **10.192.91**.
+> Atualizado em 2026-08-03 — `SITE_VERSION` **10.192.92**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -235,7 +235,7 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
-- Migrações locais: `supabase/migrations/004_*.sql` até `025_arena_character_paths.sql`; os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
+- Migrações locais: `supabase/migrations/004_*.sql` até `026_arena_clean_character_model.sql`; os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
 - Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps e submissões compartilhadas.
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
@@ -276,11 +276,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.192.91** |
+| `SITE_VERSION` | Site global | **10.192.92** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `ARENA_VERSION` | Arena LDI | 3.0.1 |
+| `ARENA_VERSION` | Arena LDI | 3.0.2 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |

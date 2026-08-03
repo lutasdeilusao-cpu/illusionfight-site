@@ -1507,7 +1507,7 @@
         "single_title": "TEAM BATTLE", "single_desc": "Current foundation: your duo faces an enemy duo.", "battle_ready": "CHOOSE BATTLE ({n}/2)",
         "multiplayer_title": "GROUP MULTIPLAYER", "multiplayer_locked": "Exclusive to Elite and Primordial subscribers.", "multiplayer_subscriber": "Your plan unlocks multiplayer formats.",
         "multiplayer_size": "{n} PLAYERS", "multiplayer_coming": "Formats reserved; group matchmaking arrives in the next stage.", "see_plans": "SEE PLANS",
-        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_arena": "ENTER THE ARENA", "save_member": "CONFIRM FIGHTER"
+        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_arena": "ENTER THE ARENA", "save_member": "CONFIRM FIGHTER", "save_error": "The fighter could not be saved. Please try again."
       },
       "limite": {
         "titulo": "SHEET LIMIT",

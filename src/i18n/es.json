@@ -1507,7 +1507,7 @@
         "single_title": "BATALLA EN EQUIPO", "single_desc": "Base actual: tu dúo enfrenta a un dúo enemigo.", "battle_ready": "ELEGIR BATALLA ({n}/2)",
         "multiplayer_title": "MULTIJUGADOR EN GRUPO", "multiplayer_locked": "Exclusivo para suscriptores Élite y Primordial.", "multiplayer_subscriber": "Tu plan desbloquea los formatos multijugador.",
         "multiplayer_size": "{n} JUGADORES", "multiplayer_coming": "Formatos reservados; el matchmaking grupal llega en la próxima etapa.", "see_plans": "VER PLANES",
-        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO", "start": "INICIAR CREACIÓN", "continue": "CREAR SEGUNDO LUCHADOR", "enter_arena": "ENTRAR EN LA ARENA", "save_member": "CONFIRMAR LUCHADOR"
+        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO", "start": "INICIAR CREACIÓN", "continue": "CREAR SEGUNDO LUCHADOR", "enter_arena": "ENTRAR EN LA ARENA", "save_member": "CONFIRMAR LUCHADOR", "save_error": "No se pudo guardar el luchador. Inténtalo de nuevo."
       },
       "limite": {
         "titulo": "LÍMITE DE FICHAS",

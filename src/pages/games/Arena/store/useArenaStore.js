@@ -129,7 +129,15 @@ export const useArenaStore = create((set, get) => ({
 
     // Compatibilidade curta até a migration 025 ser aplicada no Supabase oficial.
     if (error && /combat_path/i.test(error.message || '')) {
-      const legacyPayload = { ...payload, combat_style: LEGACY_PATH_STORAGE[s.combat_path] }
+      const legacyPayload = {
+        ...payload,
+        combat_style: LEGACY_PATH_STORAGE[s.combat_path],
+        weapon: 'none',
+        advantages: [],
+        disadvantages: [],
+        perks: [],
+        specializations: [],
+      }
       delete legacyPayload.combat_path
       const fallback = s.id
         ? await supabase.from('character_sheets').update(legacyPayload).eq('id', s.id).select('id').maybeSingle()
