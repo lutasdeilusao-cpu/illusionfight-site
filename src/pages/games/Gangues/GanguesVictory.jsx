@@ -1,294 +1,85 @@
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
-import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
-import GanguesXpBar from './components/GanguesXpBar'
 import { sfx } from '../../../lib/sfx'
-import { getGanguesResources } from './data/ganguesLoadout.js'
 
-const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
+function combatantName(t, member) {
+  return member?.side === 'enemy' ? (t(`games.gangues.enemy_names.${member.id}`) || member.name) : member?.sheet_name
+}
 
 export default function GanguesVictory({ onNavigate }) {
   const { t } = useLanguage()
-  const navigate = useNavigate()
   const { user } = useAuth()
   const store = useGanguesStore()
-  const { sheet, match } = store
-  const [somAtivo, setSomAtivo] = useState(sfx.enabled)
-  const enemy = match.enemy
+  const { match } = store
+  const report = match.battleReport || { outcome: match.status, entries: [], initiative: [], combatants: [], rounds: 0 }
+  const victory = report.outcome === 'victory'
+  const processed = useRef(false)
+  const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
+  const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
+  const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
 
-  const isVitoria = match.status === 'victory'
-  const xpGain = isVitoria ? 10 : 1
-
-  const { pvMax: pv, pmMax: pm } = getGanguesResources(sheet.combat_path, sheet.attributes?.R)
-  const pvMax = enemy?.pv_max || 10
-
-  const [fase, setFase] = useState('mensagem')
-  const [hpAtual, setHpAtual] = useState(pvMax)
-  const [nextUnlock, setNextUnlock] = useState(null)
-  const processedResultRef = useRef(false)
-
-  // Tocar som de vitória ou derrota na montagem
   useEffect(() => {
-    if (isVitoria) {
-      sfx.win()
-      sfx.explosion()
-    } else {
-      sfx.lose()
-      sfx.explosion()
-    }
-  }, [isVitoria])
-
-  // Fase 1 — mensagem final do inimigo
-  useEffect(() => {
-    if (fase !== 'mensagem') return
-    const t = setTimeout(() => setFase('hpzero'), 2500)
-    return () => clearTimeout(t)
-  }, [fase])
-
-  // Fase 2 — HP indo a zero
-  useEffect(() => {
-    if (fase !== 'hpzero') return
-    const duracao = 1500
-    const start = Date.now()
-    const startHp = pvMax
-    let frame
-    function step() {
-      const elapsed = Date.now() - start
-      const pct = Math.min(1, elapsed / duracao)
-      setHpAtual(Math.round(startHp * (1 - pct)))
-      if (pct < 1) frame = requestAnimationFrame(step)
-      else {
-        // Ao chegar em 0 HP, toca explosão final
-        sfx.explosion()
-        setTimeout(() => setFase('resultado'), 400)
-      }
-    }
-    frame = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(frame)
-  }, [fase, pvMax])
-
-  // Processar recompensa uma única vez; derrota justa também concede 1 XP.
-  useEffect(() => {
-    if (processedResultRef.current) return
-    processedResultRef.current = true
-    store.gainXp(xpGain)
-
-    if (isVitoria) {
-      const defeatedIdx = ENEMY_ORDER.indexOf(match.enemy_id)
-      const nextId = ENEMY_ORDER[defeatedIdx + 1]
-      const before = sheet.enemies_unlocked || ['treinamento']
+    if (processed.current) return
+    processed.current = true
+    const xp = victory ? 10 : 1
+    store.gainXp(xp)
+    if (victory) {
       store.unlockNextEnemy(match.enemy_id)
-      if (nextId && !before.includes(nextId)) {
-        setNextUnlock(t(`games.gangues.enemy_names.${nextId}`) || nextId)
-      }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
-    }
-
-    setTimeout(() => store.saveToCloud(user?.id), 400)
+      sfx.win()
+    } else sfx.lose()
+    const timer = setTimeout(() => store.saveToCloud(user?.id), 400)
+    return () => clearTimeout(timer)
   }, [])
 
-  if (!isVitoria) {
-    return (
-      <div className="gang-victory gang-container">
-        {/* Partículas de explosão — derrota */}
-        <div className="gang-victory-particles gang-victory-particles--defeat">
-          {[...Array(20)].map((_, i) => (
-            <motion.span
-              key={i}
-              className="gang-particle"
-              initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-              animate={{
-                x: (Math.random() - 0.5) * 400,
-                y: (Math.random() - 0.5) * 400,
-                opacity: 0,
-                scale: 0,
-              }}
-              transition={{ duration: 1.2 + Math.random() * 0.8, ease: 'easeOut' }}
-              style={{
-                background: ['#DC143C', '#8B0000', '#FF4500', '#FF6347'][i % 4],
-                width: 6 + Math.random() * 8,
-                height: 6 + Math.random() * 8,
-                borderRadius: Math.random() > 0.5 ? '50%' : '2px',
-                position: 'fixed',
-                top: '50%',
-                left: '50%',
-                pointerEvents: 'none',
-                zIndex: 10,
-              }}
-            />
-          ))}
-        </div>
-        <div className="gang-victory-header">
-          <h1 className="gang-victory-title gang-victory-lose">{t('games.gangues.derrota')}</h1>
-          <p className="gang-victory-sub">{t('games.gangues.derrota_sub')}</p>
-        </div>
-        <div className="gang-victory-card">
-          <div className="gang-victory-sheet-name">{sheet.sheet_name}</div>
-          <div className="gang-victory-attrs">
-            <div className="gang-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="gang-victory-attr"><span>H</span>{sheet.attributes.H}</div>
-            <div className="gang-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="gang-victory-attr"><span>D</span>{sheet.attributes.D}</div>
-          </div>
-          <motion.div className="gang-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }}>
-            {t('games.gangues.xp_gain', { n: xpGain })}
-          </motion.div>
-          <GanguesXpBar xpTotal={sheet.xp_total || 0} t={t} compact />
-        </div>
-        <div className="gang-victory-btns">
-          <button className="gang-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.lutar_novamente')}</button>
-          <button className="gang-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.gangues.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.gangues.escolher_oponente')} />
-          <button className="gang-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.gangues.sfx_toggle')}>
-            {sfx.enabled ? '🔊' : '🔇'}
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  // Fase 1 — mensagem do inimigo derrotado
-  if (fase === 'mensagem') {
-    const defeatPhrases = enemy?.trash_talk?.defeat || enemy?.trash_talk?.enemy_near_death
-    const fallbacks = [0,1,2].map(i => t(`games.gangues.defeat_fallbacks[${i}]`))
-    const line = defeatPhrases?.length
-      ? defeatPhrases[Math.floor(Math.random() * defeatPhrases.length)]
-      : fallbacks[Math.floor(Math.random() * fallbacks.length)]
-
-    return (
-      <div className="gang-victory gang-container gang-victory-screen">
-        <div className="gang-victory-body">
-          <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
-            <div className="gang-chat-msg">
-              <div className="gang-chat-avatar gang-chat-avatar--trash">{(t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name || 'I')[0]}</div>
-              <div className="gang-chat-bubble gang-chat-bubble--trash gang-chat-bubble--trash-victory">
-                {line}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    )
-  }
-
-  // Fase 2 — HP indo a zero + K.O.
-  if (fase === 'hpzero') {
-    const hpPct = Math.max(0, (hpAtual / pvMax) * 100)
-    return (
-      <div className="gang-victory gang-container gang-victory-screen">
-        <div className="gang-victory-body gang-victory-body--center">
-          <h3 className="gang-hp-enemy-name">{t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
-          <div className="gang-bar-wrap gang-hp-bar-wrap">
-            <div className="gang-bar gang-hp-bar">
-              <motion.div className="gang-bar-fill gang-bar-red gang-hp-bar-fill"
-                animate={{ width: `${hpPct}%` }}
-                transition={{ duration: 0.05 }} />
-            </div>
-            <span className="gang-hp-label">
-              {hpAtual} / {pvMax}
-            </span>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  // Fase 3 — vitória
   return (
-    <div className="gang-victory gang-container">
-      {/* Partículas de comemoração — vitória */}
-      <div className="gang-victory-particles gang-victory-particles--victory">
-        {[...Array(30)].map((_, i) => (
-          <motion.span
-            key={i}
-            className="gang-particle"
-            initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-            animate={{
-              x: (Math.random() - 0.5) * 500,
-              y: (Math.random() - 0.5) * 500,
-              opacity: 0,
-              scale: 0,
-            }}
-            transition={{ duration: 1.5 + Math.random() * 1, ease: 'easeOut', delay: Math.random() * 0.3 }}
-            style={{
-              background: ['#F5A623', '#FFD700', '#FF6B9D', '#00B4D8', '#FF4500', '#ADFF2F'][i % 6],
-              width: 5 + Math.random() * 10,
-              height: 5 + Math.random() * 10,
-              borderRadius: ['50%', '2px', '50%', '1px'][i % 4],
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              pointerEvents: 'none',
-              zIndex: 10,
-              boxShadow: '0 0 6px currentColor',
-              color: ['#F5A623', '#FFD700', '#FF6B9D', '#00B4D8'][i % 4],
-            }}
-          />
-        ))}
-      </div>
-      <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
-          <motion.div
-            className="gang-ko-text"
-            initial={{ scale: 0.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
-          >
-          {t('games.gangues.ko')}
-        </motion.div>
-        <div className="gang-victory-header">
-          <h1 className="gang-victory-title gang-victory-win">{t('games.gangues.vitoria')}</h1>
-          <p className="gang-victory-sub" dangerouslySetInnerHTML={{ __html: t('games.gangues.vitoria_sub', { name: t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name }) }} />
-        </div>
+    <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'}`}>
+      <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
+        <span className="gang-report-code">{victory ? t('games.gangues.report.mission_complete') : t('games.gangues.report.mission_failed')}</span>
+        <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
+        <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
+      </motion.header>
 
-        <div className="gang-victory-card">
-          <div className="gang-victory-sheet-name">{sheet.sheet_name}</div>
-          <div className="gang-victory-attrs">
-            <div className="gang-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="gang-victory-attr"><span>H</span>{sheet.attributes.H}</div>
-            <div className="gang-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="gang-victory-attr"><span>D</span>{sheet.attributes.D}</div>
-          </div>
-          <div className="gang-victory-stats">
-            <span>{t('games.gangues.pv', { n: pv })}</span>
-            <span>{t('games.gangues.pm', { n: pm })}</span>
-            <span>{t('games.gangues.xp', { n: sheet.xp_total || 0 })}</span>
-          </div>
-          <motion.div className="gang-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>
-            {t('games.gangues.xp_gain', { n: xpGain })}
-          </motion.div>
-          {/* XP Progress Bar */}
-          <GanguesXpBar
-            xpTotal={sheet.xp_total || 0}
-            t={t}
-            animated
-          />
-        </div>
+      <section className="gang-report-summary">
+        <div><span>{t('games.gangues.report.rounds')}</span><strong>{report.rounds}</strong></div>
+        <div><span>{t('games.gangues.report.attacks')}</span><strong>{attacks.length}</strong></div>
+        <div><span>{t('games.gangues.report.damage_dealt')}</span><strong>{playerDamage}</strong></div>
+        <div><span>{t('games.gangues.report.damage_taken')}</span><strong>{enemyDamage}</strong></div>
+      </section>
 
-        {nextUnlock && (
-          <motion.div
-            className="gang-unlock-badge"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            {t('games.gangues.novo_oponente', { name: nextUnlock })}
-          </motion.div>
-        )}
-
-        <div className="gang-victory-btns">
-          <button className="gang-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.escolher_outra')}</button>
-          <button className="gang-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.gangues.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.gangues.escolher_oponente')} />
-          <button className="gang-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.gangues.sfx_toggle')}>
-            {sfx.enabled ? '🔊' : '🔇'}
-          </button>
+      <section className="gang-report-section">
+        <h2>{t('games.gangues.report.final_state')}</h2>
+        <div className="gang-report-roster">
+          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? t('games.gangues.report.your_gang') : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
         </div>
-      </motion.div>
-    </div>
+      </section>
+
+      <section className="gang-report-section">
+        <h2>{t('games.gangues.report.initiative_order')}</h2>
+        <div className="gang-report-initiative">
+          {report.initiative.map((item, index) => {
+            const member = report.combatants.find(entry => entry.key === item.key)
+            return <div key={item.key}><b>{index + 1}</b><span>{combatantName(t, member)}</span><small>H {item.ability} + d3 {item.die}</small><strong>{item.total}</strong></div>
+          })}
+        </div>
+      </section>
+
+      <section className="gang-report-section gang-report-section--log">
+        <h2>{t('games.gangues.report.complete_log')}</h2>
+        <div className="gang-report-log">
+          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D6 {entry.dice}</p></div><b>−{entry.dmg} PV</b></article>)}
+          {!attacks.length && <p className="gang-report-empty">{t('games.gangues.report.no_log')}</p>}
+        </div>
+      </section>
+
+      <footer className="gang-report-actions">
+        <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
+        <button className="gang-report-secondary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.new_battle')}</button>
+      </footer>
+    </main>
   )
 }

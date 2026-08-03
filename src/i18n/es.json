@@ -1171,6 +1171,15 @@
       "derrota_sub": "La derrota solo fortalece al guerrero.",
       "vitoria": "VICTORIA",
       "vitoria_sub": "Derrotaste a <strong>{name}</strong> y probaste tu valor en la arena.",
+      "report": {
+        "enemy_thinking": "EL ENEMIGO ESTÁ PENSANDO", "enemy_strategy": "Analizando el último ataque y eligiendo la mejor estrategia...",
+        "initiative": "ORDEN DE INICIATIVA", "mission_complete": "INFORME // OPERACIÓN COMPLETADA", "mission_failed": "INFORME // OPERACIÓN FALLIDA",
+        "victory_message": "Tu pandilla controló el combate. Analiza cada decisión abajo.", "defeat_message": "La pandilla cayó, pero el registro muestra dónde se perdió la lucha.",
+        "rounds": "RONDAS", "attacks": "ATAQUES", "damage_dealt": "DAÑO CAUSADO", "damage_taken": "DAÑO RECIBIDO",
+        "final_state": "ESTADO FINAL DE LAS PANDILLAS", "your_gang": "TU PANDILLA", "enemy_gang": "PANDILLA ENEMIGA", "initiative_order": "INICIATIVA — H + D3",
+        "complete_log": "REGISTRO COMPLETO DEL COMBATE", "round_number": "RONDA {n}", "no_log": "No hay ataques registrados.",
+        "back_to_gang": "VOLVER A LA PANDILLA", "new_battle": "NUEVA BATALLA"
+      },
       "ko": "¡K.O.!",
       "lutar_novamente": "LUCHAR DE NUEVO",
       "pv": "PV: {n}",

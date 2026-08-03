@@ -1171,6 +1171,15 @@
       "derrota_sub": "Defeat only makes the warrior stronger.",
       "vitoria": "VICTORY",
       "vitoria_sub": "You defeated <strong>{name}</strong> and proved your worth in the arena.",
+      "report": {
+        "enemy_thinking": "ENEMY IS THINKING", "enemy_strategy": "Analyzing the last attack and choosing the best strategy...",
+        "initiative": "INITIATIVE ORDER", "mission_complete": "REPORT // OPERATION COMPLETE", "mission_failed": "REPORT // OPERATION FAILED",
+        "victory_message": "Your gang controlled the fight. Analyze every decision below.", "defeat_message": "The gang fell, but the record shows where the fight was lost.",
+        "rounds": "ROUNDS", "attacks": "ATTACKS", "damage_dealt": "DAMAGE DEALT", "damage_taken": "DAMAGE TAKEN",
+        "final_state": "FINAL GANG STATUS", "your_gang": "YOUR GANG", "enemy_gang": "ENEMY GANG", "initiative_order": "INITIATIVE — H + D3",
+        "complete_log": "COMPLETE BATTLE LOG", "round_number": "ROUND {n}", "no_log": "No attacks recorded.",
+        "back_to_gang": "BACK TO GANG", "new_battle": "NEW BATTLE"
+      },
       "ko": "K.O.!",
       "lutar_novamente": "FIGHT AGAIN",
       "pv": "HP: {n}",

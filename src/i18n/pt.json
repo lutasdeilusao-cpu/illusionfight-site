@@ -1171,6 +1171,15 @@
       "derrota_sub": "A derrota só fortalece o guerreiro.",
       "vitoria": "VITÓRIA",
       "vitoria_sub": "Você derrotou <strong>{name}</strong> e provou seu valor na arena.",
+      "report": {
+        "enemy_thinking": "INIMIGO ESTÁ PENSANDO", "enemy_strategy": "Analisando o último ataque e escolhendo a melhor estratégia...",
+        "initiative": "ORDEM DE INICIATIVA", "mission_complete": "RELATÓRIO // OPERAÇÃO CONCLUÍDA", "mission_failed": "RELATÓRIO // OPERAÇÃO FRACASSADA",
+        "victory_message": "Sua gangue controlou o combate. Analise cada decisão abaixo.", "defeat_message": "A gangue caiu, mas o registro mostra onde a luta foi perdida.",
+        "rounds": "RODADAS", "attacks": "ATAQUES", "damage_dealt": "DANO CAUSADO", "damage_taken": "DANO RECEBIDO",
+        "final_state": "ESTADO FINAL DAS GANGUES", "your_gang": "SUA GANGUE", "enemy_gang": "GANGUE INIMIGA", "initiative_order": "INICIATIVA — H + D3",
+        "complete_log": "LOG COMPLETO DA BATALHA", "round_number": "RODADA {n}", "no_log": "Nenhum ataque registrado.",
+        "back_to_gang": "VOLTAR À GANGUE", "new_battle": "NOVA BATALHA"
+      },
       "ko": "K.O.!",
       "lutar_novamente": "LUTAR DE NOVO",
       "pv": "PV: {n}",

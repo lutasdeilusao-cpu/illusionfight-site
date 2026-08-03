@@ -1,95 +1,30 @@
 import assert from 'node:assert/strict'
-import {
-  buildArenaModifiers,
-  resolveArenaAction,
-  resolveArenaInitiative,
-} from '../src/pages/games/Arena/engine/arenaCombatResolver.js'
-import {
-  ARENA_PATHS,
-  ARENA_PATH_PRESETS,
-  ARENA_CREATION_POINTS,
-  ARENA_ATTRIBUTE_MAX,
-  ARENA_INITIAL_PARTY_SIZE,
-  ARENA_MAX_PARTY_SIZE,
-  ARENA_MULTIPLAYER_SIZES,
-  getArenaRosterLimit,
-  hasArenaMultiplayer,
-  getArenaResources,
-  normalizeArenaLoadout,
-} from '../src/pages/games/Arena/data/arenaLoadout.js'
+import { resolveGanguesAction, resolveGanguesInitiative } from '../src/pages/games/Gangues/engine/ganguesCombatResolver.js'
+import { GANGUES_CREATION_POINTS, GANGUES_PATHS, getGanguesResources, normalizeGanguesLoadout } from '../src/pages/games/Gangues/data/ganguesLoadout.js'
 
-assert.equal(ARENA_INITIAL_PARTY_SIZE, 2)
-assert.equal(ARENA_CREATION_POINTS, 5)
-assert.equal(ARENA_ATTRIBUTE_MAX, 5)
-assert.equal(ARENA_MAX_PARTY_SIZE, 5)
-assert.deepEqual(ARENA_MULTIPLAYER_SIZES, [2, 3, 4])
-assert.deepEqual(['free', 'elite', 'primordial'].map(getArenaRosterLimit), [3, 5, 7])
-assert.equal(hasArenaMultiplayer('free'), false)
-assert.equal(hasArenaMultiplayer('elite'), true)
-assert.equal(hasArenaMultiplayer('primordial'), true)
-log('Base de produto e equipes', { party: 2, futureMax: 5, roster: [3, 5, 7], multiplayer: [2, 3, 4] })
+const log = (name, value) => console.log(`✅ ${name} | ${JSON.stringify(value)}`)
 
-function log(name, data) {
-  console.log(`✅ ${name} | ${JSON.stringify(data)}`)
+assert.equal(GANGUES_CREATION_POINTS, 5)
+for (const path of GANGUES_PATHS) {
+  assert.deepEqual(normalizeGanguesLoadout({ combat_path: path }).attributes, { A: 0, H: 0, R: 0, D: 0 })
 }
+assert.deepEqual(normalizeGanguesLoadout({ combat_path: 'atacante', attributes: { A: 3, H: 0, R: 2, D: 0 } }).attributes, { A: 3, H: 0, R: 2, D: 0 })
+log('distribuição manual preservada', { A: 3, H: 0, R: 2, D: 0 })
 
-assert.deepEqual(getArenaResources('atacante', 3), { pvMax: 9, pmMax: 9, pvPerR: 3, pmPerR: 3 })
-assert.deepEqual(getArenaResources('defensor', 3), { pvMax: 12, pmMax: 6, pvPerR: 4, pmPerR: 2 })
-assert.deepEqual(getArenaResources('mistico', 3), { pvMax: 6, pmMax: 12, pvPerR: 2, pmPerR: 4 })
-log('Resistência por caminho com R 3', {
-  atacante: getArenaResources('atacante', 3),
-  defensor: getArenaResources('defensor', 3),
-  mistico: getArenaResources('mistico', 3),
-})
+assert.deepEqual(getGanguesResources('atacante', 2), { pvMax: 6, pmMax: 6, pvPerR: 3, pmPerR: 3 })
+assert.deepEqual(getGanguesResources('defensor', 2), { pvMax: 8, pmMax: 4, pvPerR: 4, pmPerR: 2 })
+assert.deepEqual(getGanguesResources('mistico', 2), { pvMax: 4, pmMax: 8, pvPerR: 2, pmPerR: 4 })
 
-for (const path of ARENA_PATHS) {
-  const attributes = ARENA_PATH_PRESETS[path]
-  assert.deepEqual(Object.keys(attributes), ['A', 'H', 'R', 'D'])
-  assert.equal(Object.values(attributes).reduce((sum, value) => sum + value, 0), 0)
-  assert.equal('F' in attributes, false)
-  assert.equal('PdF' in attributes, false)
-  assert.deepEqual(normalizeArenaLoadout({ combat_path: path }).attributes, attributes)
-  log(`caminho ${path} começa sem distribuição automática`, attributes)
-}
+const fast = resolveGanguesInitiative({ combatant: { attributes: { H: 4 } }, roll: 1 })
+const lucky = resolveGanguesInitiative({ combatant: { attributes: { H: 1 } }, roll: 3 })
+assert.deepEqual(fast, { ability: 4, die: 1, total: 5 })
+assert.deepEqual(lucky, { ability: 1, die: 3, total: 4 })
+log('iniciativa usa H + d3', { fast, lucky })
 
-assert.deepEqual(
-  normalizeArenaLoadout({ combat_path: 'atacante', attributes: { A: 1, H: 1, R: 2, D: 1 } }).attributes,
-  { A: 1, H: 1, R: 2, D: 1 },
-)
-log('distribuição manual preservada', { A: 1, H: 1, R: 2, D: 1 })
+const attack = resolveGanguesAction({ attacker: { attributes: { A: 3, H: 2 }, statuses: [] }, defender: { attributes: { D: 2 }, statuses: [] }, action: { type: 'attack' }, rolls: { fa: 4 } })
+assert.equal(attack.fa, 8)
+assert.equal(attack.fd, 2)
+assert.equal(attack.damage, 6)
+log('ataque básico', attack)
 
-const attacker = {
-  attributes: { A: 3, H: 1, R: 1, D: 0 },
-  combat_path: 'atacante', elemental: 'neutro', statuses: [],
-}
-const defender = {
-  attributes: { A: 1, H: 0, R: 2, D: 2 },
-  combat_path: 'defensor', elemental: 'neutro', statuses: [],
-}
-
-const resolveMode = mode => resolveArenaAction({
-  attacker,
-  defender,
-  action: { type: 'attack', mode },
-  rolls: { fa: 4, fd: 2 },
-  activeModifiers: {
-    attacker: buildArenaModifiers(attacker),
-    defender: buildArenaModifiers(defender),
-  },
-})
-
-const simple = resolveMode('simple')
-const ranged = resolveMode('ranged')
-const mystical = resolveMode('mystical')
-assert.equal(simple.fa, 7) // A 3 + metade de H arredondada para baixo + dado 4
-assert.equal(simple.fd, 4) // D 2 + H 0 + dado 2
-assert.equal(simple.damage, 3)
-assert.equal(ranged.damage, simple.damage)
-assert.equal(mystical.damage, simple.damage)
-log('Ataque e defesa usam metade de H, sem diferença de alcance', { fa: simple.fa, fd: simple.fd, damage: simple.damage })
-
-const initiative = resolveArenaInitiative({ combatant: attacker, roll: 5, modifiers: buildArenaModifiers(attacker) })
-assert.equal(initiative.value, 6)
-log('H é habilidade e iniciativa', initiative)
-
-console.log('ARENA_PATH_MODEL_TESTS_OK')
+console.log('GANGUES_COMBAT_TESTS_OK')

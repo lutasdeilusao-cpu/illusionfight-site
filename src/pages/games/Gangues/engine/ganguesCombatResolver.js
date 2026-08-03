@@ -5,6 +5,11 @@ export function buildGanguesModifiers(combatant = {}) {
   return loadout.combat_path ? [`path:${loadout.combat_path}`] : []
 }
 
+export function resolveGanguesInitiative({ combatant, roll }) {
+  const ability = Number(combatant.attributes?.H) || 0
+  return { ability, die: roll, total: ability + roll }
+}
+
 // Dano mínimo garantido de 1: com um único d6 do lado do atacante, a defesa reduz
 // mas não consegue mais anular o ataque, evitando as rodadas de "dano zero" que
 // arrastavam o combate por dezenas de turnos no modelo anterior (fa vs fd com 2 dados).

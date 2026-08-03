@@ -37,7 +37,7 @@ export const useGanguesStore = create((set, get) => ({
   sheet: defaultSheet(),
   roster: [],
   activeParty: [],
-  match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle' },
+  match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null },
   points_available: 0,
   temp_attributes: { A: 0, H: 0, R: 0, D: 0 },
   level_up_active: false,
@@ -69,8 +69,10 @@ export const useGanguesStore = create((set, get) => ({
 
   startMatch: (enemy, enemyTeam = [enemy]) => {
     const playerTeam = get().activeParty
-    set({ match: { playerTeam, enemyTeam, enemy, enemy_id: enemy.id, score: 0, status: 'fighting' } })
+    set({ match: { playerTeam, enemyTeam, enemy, enemy_id: enemy.id, score: 0, status: 'fighting', battleReport: null } })
   },
+
+  setBattleReport: (battleReport) => set(state => ({ match: { ...state.match, battleReport } })),
 
   setEnemyCatalog: (_enemyCatalog) => set({ _enemyCatalog }),
 
@@ -180,5 +182,5 @@ export const useGanguesStore = create((set, get) => ({
     return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
   }),
 
-  reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle' } }),
+  reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
 }))

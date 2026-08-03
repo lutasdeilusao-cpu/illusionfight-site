@@ -43,7 +43,7 @@ function Roster({ title, members, side, selectable, selectedKey, onSelect, t }) 
               <div className="gang-fighter-card-avatar">{fighterName(t, member)[0]}</div>
               <div className="gang-fighter-card-info">
                 <strong>{fighterName(t, member)}</strong>
-                <div className="gang-fighter-card-bar"><span style={{ width: `${pct(member.pv, member.pvMax)}%` }} /></div>
+                <progress className="gang-fighter-card-bar" max="100" value={pct(member.pv, member.pvMax)} />
                 <small>{member.pv}/{member.pvMax} PV</small>
               </div>
               {acted && <span className="gang-fighter-card-tag">✓</span>}
@@ -112,13 +112,17 @@ export default function GanguesCombat({ onNavigate }) {
           next = [...next, { id: event.id, kind: 'system', text: t('games.gangues.log_batalha_inicio') }]
           continue
         }
+        if (event.type === 'initiative') {
+          next = [...next, { id: event.id, kind: 'initiative', order: event.order.map(item => ({ ...item, name: fighterName(t, machine.combatants.find(member => member.key === item.key)) })) }]
+          continue
+        }
         if (event.type !== 'attack') continue
         const actor = machine.combatants.find(item => item.key === event.actorKey) || { side: event.side }
         const target = machine.combatants.find(item => item.key === event.targetKey)
         const isPlayer = event.side === 'player'
         next = [...next, {
           id: event.id, kind: 'attack_card', side: event.side,
-          actorName: fighterName(t, actor), fa: event.result.fa, fd: event.result.fd,
+          actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round, fa: event.result.fa, fd: event.result.fd,
           dice: event.result.rolls.fa, dmg: event.result.damage, onoma: randomOnoma(),
         }]
 
@@ -148,6 +152,11 @@ export default function GanguesCombat({ onNavigate }) {
     machine.playerAction(selectedActor, selectedTarget)
   }
 
+  const openBattleReport = () => {
+    store.setBattleReport({ outcome: result, entries: log, initiative: machine.initiative, combatants: machine.combatants, rounds: machine.round })
+    onNavigate('victory')
+  }
+
   if (!store.match.playerTeam?.length) return null
 
   return (
@@ -165,7 +174,7 @@ export default function GanguesCombat({ onNavigate }) {
           <motion.div className="gang-match-result" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="gang-match-result-content">
               <h1>{t(`games.gangues.${result === 'victory' ? 'vitoria' : 'derrota'}`)}</h1>
-              <button className="gang-match-result-btn" onClick={() => onNavigate(result === 'victory' ? 'victory' : 'lobby')}>
+              <button className="gang-match-result-btn" onClick={openBattleReport}>
                 {t('games.gangues.btn_proximo')}
               </button>
             </div>
@@ -205,17 +214,25 @@ export default function GanguesCombat({ onNavigate }) {
               </motion.div>
             )
           }
+          if (entry.kind === 'initiative') {
+            return (
+              <motion.div key={entry.id} className="gang-initiative-log" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <strong>{t('games.gangues.report.initiative')}</strong>
+                {entry.order.map((item, index) => <span key={item.key}><b>{index + 1}</b>{item.name}<small>H {item.ability} + d3 {item.die} = {item.total}</small></span>)}
+              </motion.div>
+            )
+          }
           const isPlayer = entry.side === 'player'
           return (
             <motion.div key={entry.id} className={`gang-msg-wrap ${isPlayer ? 'gang-msg-wrap--player' : ''}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
               <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}`}>{entry.actorName[0]}</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <div className="gang-attack-stack">
                 <div className={`gang-attack-card gang-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
                   <div className="gang-attack-card-header">{entry.actorName}</div>
                   <div className="gang-attack-card-body">
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FA</span><span className="gang-attack-card-val">{entry.fa}</span></div>
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FD</span><span className="gang-attack-card-val">{entry.fd}</span></div>
-                    <div className="gang-attack-card-row"><span className="gang-attack-card-key">🎲</span><span className="gang-attack-card-val" style={{ color: entry.dice === 6 ? '#F5A623' : '#888', fontWeight: 700 }}>{entry.dice}</span></div>
+                    <div className="gang-attack-card-row"><span className="gang-attack-card-key">D6</span><span className={`gang-attack-card-val ${entry.dice === 6 ? 'gang-attack-card-val--max' : ''}`}>{entry.dice}</span></div>
                     <div className="gang-attack-card-divider" />
                     <div className="gang-attack-card-damage">
                       <span className="gang-attack-card-damage-label">{t('games.gangues.card_dano')}</span>
@@ -223,7 +240,7 @@ export default function GanguesCombat({ onNavigate }) {
                     </div>
                   </div>
                 </div>
-                <motion.div initial={{ scale: 0.3, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} style={{ textAlign: 'center', fontFamily: "'Impact','Arial Black',sans-serif", fontSize: 20, color: '#F5A623', textShadow: '2px 2px 0 #8B0000, 0 0 16px rgba(245,166,35,0.6)', letterSpacing: 3 }}>
+                <motion.div className="gang-attack-onoma" initial={{ scale: 0.3, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
                   {entry.onoma}
                 </motion.div>
               </div>
@@ -261,7 +278,7 @@ export default function GanguesCombat({ onNavigate }) {
           </div>
         </div>
       )}
-      {machine.phase === 'enemy' && <p className="gang2-enemy-thinking">{t('games.gangues.combat_vez_inimigo')}</p>}
+      {machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
     </div>
   )
 }
