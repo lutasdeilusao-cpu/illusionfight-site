@@ -1,4 +1,16 @@
 export const ARENA_PATHS = ['atacante', 'defensor', 'mistico']
+export const ARENA_INITIAL_PARTY_SIZE = 2
+export const ARENA_MAX_PARTY_SIZE = 5
+export const ARENA_MULTIPLAYER_SIZES = [2, 3, 4]
+export const ARENA_ROSTER_LIMITS = { free: 3, elite: 5, primordial: 7 }
+
+export function getArenaRosterLimit(tier) {
+  return ARENA_ROSTER_LIMITS[tier] || ARENA_ROSTER_LIMITS.free
+}
+
+export function hasArenaMultiplayer(tier) {
+  return tier === 'elite' || tier === 'primordial'
+}
 
 // Cinco pontos iniciais distribuídos automaticamente. O jogador escolhe somente o caminho.
 export const ARENA_PATH_PRESETS = {

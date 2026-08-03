@@ -1499,6 +1499,16 @@
           "sobrecarga": { "name": "Overload", "desc": "Overloads your circuits. Next attack deals +3 damage." }
         }
       },
+      "party": {
+        "title": "BUILD YOUR TEAM", "subtitle": "Two characters, different paths, one shared strategy.",
+        "roster": "YOUR ROSTER", "onboarding": "Create your first two characters. The second must follow a different path.",
+        "create_team": "CREATE STARTING TEAM", "create_member": "CREATE CHARACTER {n}", "path_unavailable": "Path already used by this team",
+        "selected": "ON TEAM", "select": "SELECT", "progression": "The team starts with 2 slots and may grow to {max} through progression.",
+        "single_title": "TEAM BATTLE", "single_desc": "Current foundation: your duo faces an enemy duo.", "battle_ready": "CHOOSE BATTLE ({n}/2)",
+        "multiplayer_title": "GROUP MULTIPLAYER", "multiplayer_locked": "Exclusive to Elite and Primordial subscribers.", "multiplayer_subscriber": "Your plan unlocks multiplayer formats.",
+        "multiplayer_size": "{n} PLAYERS", "multiplayer_coming": "Formats reserved; group matchmaking arrives in the next stage.", "see_plans": "SEE PLANS",
+        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM"
+      },
       "limite": {
         "titulo": "SHEET LIMIT",
         "fichas_usadas": "{n}/{limite} sheets",

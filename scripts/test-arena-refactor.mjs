@@ -1,16 +1,29 @@
 import assert from 'node:assert/strict'
 import {
   buildArenaModifiers,
-  chooseArenaEnemyAction,
   resolveArenaAction,
   resolveArenaInitiative,
 } from '../src/pages/games/Arena/engine/arenaCombatResolver.js'
 import {
   ARENA_PATHS,
   ARENA_PATH_PRESETS,
+  ARENA_INITIAL_PARTY_SIZE,
+  ARENA_MAX_PARTY_SIZE,
+  ARENA_MULTIPLAYER_SIZES,
+  getArenaRosterLimit,
+  hasArenaMultiplayer,
   getArenaResources,
   normalizeArenaLoadout,
 } from '../src/pages/games/Arena/data/arenaLoadout.js'
+
+assert.equal(ARENA_INITIAL_PARTY_SIZE, 2)
+assert.equal(ARENA_MAX_PARTY_SIZE, 5)
+assert.deepEqual(ARENA_MULTIPLAYER_SIZES, [2, 3, 4])
+assert.deepEqual(['free', 'elite', 'primordial'].map(getArenaRosterLimit), [3, 5, 7])
+assert.equal(hasArenaMultiplayer('free'), false)
+assert.equal(hasArenaMultiplayer('elite'), true)
+assert.equal(hasArenaMultiplayer('primordial'), true)
+log('Base de produto e equipes', { party: 2, futureMax: 5, roster: [3, 5, 7], multiplayer: [2, 3, 4] })
 
 function log(name, data) {
   console.log(`✅ ${name} | ${JSON.stringify(data)}`)
@@ -58,25 +71,15 @@ const resolveMode = mode => resolveArenaAction({
 const simple = resolveMode('simple')
 const ranged = resolveMode('ranged')
 const mystical = resolveMode('mystical')
-assert.equal(simple.fa, 8) // A 3 + H 1 + dado 4
+assert.equal(simple.fa, 7) // A 3 + metade de H arredondada para baixo + dado 4
 assert.equal(simple.fd, 4) // D 2 + H 0 + dado 2
-assert.equal(simple.damage, 4)
+assert.equal(simple.damage, 3)
 assert.equal(ranged.damage, simple.damage)
 assert.equal(mystical.damage, simple.damage)
-log('A é ataque e D é defesa, sem diferença de alcance', { fa: simple.fa, fd: simple.fd, damage: simple.damage })
+log('Ataque e defesa usam metade de H, sem diferença de alcance', { fa: simple.fa, fd: simple.fd, damage: simple.damage })
 
 const initiative = resolveArenaInitiative({ combatant: attacker, roll: 5, modifiers: buildArenaModifiers(attacker) })
 assert.equal(initiative.value, 6)
 log('H é habilidade e iniciativa', initiative)
-
-const bot = chooseArenaEnemyAction({ id: 'treinamento', preferred_mode: 'fists' }, {})
-const kaeda = chooseArenaEnemyAction({ id: 'kaeda', preferred_mode: 'armed' }, { lastAttackHit: true })
-const thunderCharge = chooseArenaEnemyAction({ id: 'thunderbolt', preferred_mode: 'power' }, { charged: false })
-const thunderDischarge = chooseArenaEnemyAction({ id: 'thunderbolt', preferred_mode: 'power' }, { charged: true })
-assert.equal(bot.aiModifier, 'ai:training_soft')
-assert.equal(kaeda.aiModifier, 'ai:kaeda_momentum')
-assert.equal(thunderCharge.type, 'charge')
-assert.equal(thunderDischarge.type, 'attack')
-log('IA preservada', { bot, kaeda, thunderCharge, thunderDischarge })
 
 console.log('ARENA_PATH_MODEL_TESTS_OK')

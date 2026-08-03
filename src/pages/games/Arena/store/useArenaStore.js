@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { getArenaProgression } from '../utils/arenaProgression'
-import { getArenaResources, normalizeArenaLoadout } from '../data/arenaLoadout.js'
+import { getArenaResources, getArenaRosterLimit, normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -10,9 +10,7 @@ const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canal
  * Retorna o limite máximo de fichas de personagem por tier.
  */
 export function limiteFichasPorTier(tier) {
-  if (tier === 'primordial') return 5
-  if (tier === 'elite') return 3
-  return 1 // ranqueado / free / null
+  return getArenaRosterLimit(tier)
 }
 
 /**
@@ -37,13 +35,15 @@ const defaultSheet = () => ({
 
 export const useArenaStore = create((set, get) => ({
   sheet: defaultSheet(),
-  match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' },
+  roster: [],
+  activeParty: [],
+  match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle' },
   points_available: 0,
   temp_attributes: { A: 0, H: 0, R: 0, D: 0 },
   level_up_active: false,
   _userId: null,
 
-  newSheet: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' }, points_available: 0, temp_attributes: { A: 0, H: 0, R: 0, D: 0 }, level_up_active: false }),
+  newSheet: () => set({ sheet: defaultSheet(), points_available: 0, temp_attributes: { A: 0, H: 0, R: 0, D: 0 }, level_up_active: false }),
 
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
@@ -55,11 +55,26 @@ export const useArenaStore = create((set, get) => ({
 
   setUserId: (id) => set({ _userId: id }),
 
-  startMatch: (enemy) => {
-    const s = get().sheet
-    const resources = getArenaResources(s.combat_path, s.attributes?.R)
-    set({ match: { enemy: { ...enemy, pv_current: enemy.pv_max }, enemy_id: enemy.id, pv_current: resources.pvMax, pm_current: resources.pmMax, score: 0, status: 'fighting' } })
+  setRoster: (roster) => set(state => {
+    const ids = new Set(roster.map(item => item.id))
+    return { roster, activeParty: state.activeParty.filter(item => ids.has(item.id)).slice(0, 2) }
+  }),
+
+  setActiveParty: (activeParty) => set({ activeParty: activeParty.slice(0, 2) }),
+  addLocalSheet: (sheet) => {
+    const saved = { ...sheet, id: sheet.id || `local-${Date.now()}` }
+    set(state => ({ sheet: saved, roster: [...state.roster, saved] }))
+    return saved
   },
+
+  startMatch: (enemy, enemyPool = []) => {
+    const playerTeam = get().activeParty
+    const allEnemies = enemyPool.length ? enemyPool : get()._enemyCatalog || []
+    const ally = allEnemies.find(item => item.id !== enemy.id) || enemy
+    set({ match: { playerTeam, enemyTeam: [enemy, ally], enemy, enemy_id: enemy.id, score: 0, status: 'fighting' } })
+  },
+
+  setEnemyCatalog: (_enemyCatalog) => set({ _enemyCatalog }),
 
   setMatchPV: (pv) => set(state => ({ match: { ...state.match, pv_current: Math.max(0, pv) } })),
   setMatchPM: (pm) => set(state => ({ match: { ...state.match, pm_current: Math.max(0, pm) } })),
@@ -104,7 +119,7 @@ export const useArenaStore = create((set, get) => ({
 
   saveToCloud: async (userId) => {
     const uid = userId || get()._userId
-    if (!uid) return
+    if (!uid) return null
     const s = get().sheet
     const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
     const request = s.id
@@ -122,10 +137,13 @@ export const useArenaStore = create((set, get) => ({
       data = fallback.data
       error = fallback.error
     }
-    if (error) console.error('[ARENA] Falha ao salvar ficha:', error.message)
+    if (error) { console.error('[ARENA] Falha ao salvar ficha:', error.message); return null }
     if (!s.id && data) {
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
     }
+    const saved = { ...get().sheet, id: s.id || data?.id }
+    set(state => ({ roster: [...state.roster.filter(item => item.id !== saved.id), saved] }))
+    return saved
   },
 
   loadSheets: async (userId) => {
@@ -137,7 +155,9 @@ export const useArenaStore = create((set, get) => ({
       error = legacy.error
     }
     if (error) console.error('[ARENA] Falha ao carregar fichas:', error.message)
-    return Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeArenaLoadout(item) })) : []
+    const roster = Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeArenaLoadout(item) })) : []
+    set({ roster })
+    return roster
   },
 
   deleteSheet: async (sheetId) => {
@@ -154,5 +174,5 @@ export const useArenaStore = create((set, get) => ({
     return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
   }),
 
-  reset: () => set({ sheet: defaultSheet(), match: { enemy: null, enemy_id: null, pv_current: 0, pm_current: 0, score: 0, status: 'idle' } }),
+  reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle' } }),
 }))

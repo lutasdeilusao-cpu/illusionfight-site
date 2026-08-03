@@ -1,162 +1,99 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import {
-  buildArenaModifiers,
-  chooseArenaEnemyAction,
-  resolveArenaAction,
-  resolveArenaInitiative,
-  resolveArenaRoundClose,
-} from '../engine/arenaCombatResolver.js'
+import { buildArenaModifiers, resolveArenaAction, resolveArenaInitiative } from '../engine/arenaCombatResolver.js'
 import { getArenaResources, normalizeArenaLoadout } from '../data/arenaLoadout.js'
 
 const d6 = () => Math.floor(Math.random() * 6) + 1
 
-function makePlayer(sheet) {
-  return { ...sheet, ...normalizeArenaLoadout(sheet), statuses: [] }
+function prepare(combatant, side, index) {
+  const enemy = side === 'enemy'
+  const normalized = enemy ? {
+    ...combatant,
+    attributes: combatant.stats || combatant.attributes || {},
+    combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante',
+  } : { ...combatant, ...normalizeArenaLoadout(combatant) }
+  const resources = enemy
+    ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 }
+    : getArenaResources(normalized.combat_path, normalized.attributes?.R)
+  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax }
 }
 
-function makeEnemy(enemy = {}) {
-  return {
-    ...enemy,
-    attributes: enemy.stats || {},
-    combat_path: enemy.preferred_mode === 'power' ? 'mistico' : enemy.preferred_mode === 'armed' ? 'defensor' : 'atacante',
-    statuses: [], loadout_version: 2,
-  }
-}
-
-export default function useArenaTurnMachine({ sheet, enemy, onFinish, roll = d6 }) {
-  const [player, setPlayer] = useState(() => makePlayer(sheet))
-  const [opponent, setOpponent] = useState(() => makeEnemy(enemy || {}))
-  const playerResources = getArenaResources(sheet.combat_path, sheet.attributes?.R)
-  const playerMaxPv = playerResources.pvMax
-  const playerMaxPm = playerResources.pmMax
-  const enemyMaxPv = Number(enemy?.pv_max) || 10
-  const [playerPv, setPlayerPv] = useState(playerMaxPv)
-  const [playerPm, setPlayerPm] = useState(playerMaxPm)
-  const [enemyPv, setEnemyPv] = useState(enemyMaxPv)
-  const [phase, setPhase] = useState('select')
-  const [round, setRound] = useState(1)
+export default function useArenaTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, roll = d6 }) {
+  const initial = useMemo(() => [
+    ...playerTeam.map((member, index) => prepare(member, 'player', index)),
+    ...enemyTeam.map((member, index) => prepare(member, 'enemy', index)),
+  ], [])
+  const [combatants, setCombatants] = useState(initial)
   const [turnIndex, setTurnIndex] = useState(0)
+  const [round, setRound] = useState(1)
   const [pending, setPending] = useState(null)
   const [events, setEvents] = useState([])
-  const [aiState, setAiState] = useState({ lastAttackHit: false, charged: false })
-  const enemyQueuedRef = useRef(false)
+  const [started, setStarted] = useState(false)
+  const aiQueued = useRef(false)
 
-  const initiative = useMemo(() => {
-    const p = resolveArenaInitiative({ combatant: player, roll: roll(), modifiers: buildArenaModifiers(player) })
-    const e = resolveArenaInitiative({ combatant: opponent, roll: roll(), modifiers: buildArenaModifiers(opponent) })
-    return { player: p, enemy: e, order: e.value > p.value ? ['enemy', 'player'] : ['player', 'enemy'] }
-  }, [])
+  const initiative = useMemo(() => initial.map(combatant => ({
+    key: combatant.key,
+    side: combatant.side,
+    value: resolveArenaInitiative({ combatant, roll: roll(), modifiers: buildArenaModifiers(combatant) }).value,
+  })).sort((a, b) => b.value - a.value), [])
 
-  const record = useCallback((event) => setEvents(current => [...current, { ...event, id: Date.now() + Math.random() }]), [])
+  const currentTurn = initiative[turnIndex]
+  const currentActor = combatants.find(item => item.key === currentTurn?.key)
+  const phase = !started ? 'select' : pending ? 'rolling' : currentActor?.side || 'finished'
+  const record = useCallback(event => setEvents(list => [...list, { ...event, id: `${Date.now()}-${Math.random()}` }]), [])
 
-  const closeRound = useCallback((nextPlayer = player, nextEnemy = opponent, nextPlayerPv = playerPv, nextEnemyPv = enemyPv) => {
-    const playerClose = resolveArenaRoundClose({ combatant: nextPlayer, pv: nextPlayerPv, pvMax: playerMaxPv })
-    const enemyClose = resolveArenaRoundClose({ combatant: nextEnemy, pv: nextEnemyPv, pvMax: enemyMaxPv })
-    if (playerClose.heal || enemyClose.heal) record({ type: 'round_close', playerHeal: playerClose.heal, enemyHeal: enemyClose.heal, round })
-    setPlayerPv(playerClose.pv)
-    setEnemyPv(enemyClose.pv)
-    setRound(value => value + 1)
-  }, [player, opponent, playerPv, enemyPv, playerMaxPv, enemyMaxPv, record, round])
+  const finishOrAdvance = useCallback((next) => {
+    const playersAlive = next.some(item => item.side === 'player' && item.pv > 0)
+    const enemiesAlive = next.some(item => item.side === 'enemy' && item.pv > 0)
+    if (!playersAlive || !enemiesAlive) { onFinish(enemiesAlive ? 'defeat' : 'victory'); return }
+    let nextIndex = turnIndex
+    do nextIndex = (nextIndex + 1) % initiative.length
+    while ((next.find(item => item.key === initiative[nextIndex].key)?.pv || 0) <= 0)
+    if (nextIndex <= turnIndex) setRound(value => value + 1)
+    setTurnIndex(nextIndex)
+  }, [initiative, onFinish, turnIndex])
 
-  const advanceTurn = useCallback((nextState = {}) => {
-    const atRoundEnd = turnIndex === initiative.order.length - 1
-    if (atRoundEnd) {
-      closeRound(nextState.player, nextState.opponent, nextState.playerPv, nextState.enemyPv)
-      setTurnIndex(0)
-      setPhase(initiative.order[0])
-    } else {
-      setTurnIndex(value => value + 1)
-      setPhase(initiative.order[turnIndex + 1])
-    }
-  }, [turnIndex, initiative.order, closeRound])
-
-  const resolveForSide = useCallback((side, action, aiModifier = null) => {
-    const attacker = side === 'player' ? player : opponent
-    const defender = side === 'player' ? opponent : player
+  const queueAction = useCallback((actor, target, action) => {
+    if (!actor || !target || pending) return false
     const result = resolveArenaAction({
-      attacker, defender, action,
+      attacker: actor,
+      defender: target,
+      action,
       rolls: { fa: roll(), fd: roll() },
-      activeModifiers: {
-        attacker: buildArenaModifiers(attacker, { aiModifier }),
-        defender: buildArenaModifiers(defender),
-      },
+      activeModifiers: { attacker: buildArenaModifiers(actor, { aiModifier: action.aiModifier }), defender: buildArenaModifiers(target) },
     })
-
-    if (result.skipped) {
-      const updated = { ...attacker, statuses: result.attackerStatuses }
-      if (side === 'player') setPlayer(updated)
-      else {
-        setOpponent(updated)
-        if (action.type === 'charge') setAiState(state => ({ ...state, charged: true }))
-      }
-      record({ type: 'action', side, result, round })
-      advanceTurn(side === 'player' ? { player: updated } : { opponent: updated })
-      return
-    }
-    setPending({ side, result, round })
-  }, [player, opponent, roll, record, round, advanceTurn])
-
-  const playerAction = useCallback((action) => {
-    if (phase !== 'player' || pending) return false
-    const anticipatedCost = action.powerCost || 0
-    if (playerPm < anticipatedCost) return false
-    resolveForSide('player', action)
+    setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
-  }, [phase, pending, playerPm, resolveForSide])
+  }, [pending, roll])
+
+  const playerAction = useCallback((targetKey) => {
+    if (phase !== 'player') return false
+    return queueAction(currentActor, combatants.find(item => item.key === targetKey && item.pv > 0), { type: 'attack', mode: 'attack' })
+  }, [phase, currentActor, combatants, queueAction])
 
   const completePending = useCallback(() => {
     if (!pending) return
-    const { side, result } = pending
+    const next = combatants.map(item => {
+      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost) }
+      if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage) }
+      return item
+    })
+    record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round })
+    setCombatants(next)
     setPending(null)
-    if (side === 'player') {
-      const nextEnemyPv = Math.max(0, enemyPv - result.damage)
-      const nextPlayerPv = Math.max(0, playerPv - result.counterDamage)
-      const nextPlayer = { ...player, statuses: result.attackerStatuses }
-      const nextEnemy = { ...opponent, statuses: result.defenderStatuses }
-      setPlayer(nextPlayer); setOpponent(nextEnemy)
-      setPlayerPm(value => Math.max(0, value - result.pmCost))
-      setEnemyPv(nextEnemyPv); setPlayerPv(nextPlayerPv)
-      record({ type: 'attack', side, result, playerPv: nextPlayerPv, enemyPv: nextEnemyPv, round })
-      if (nextEnemyPv <= 0) { setPhase('finished'); onFinish('victory'); return }
-      if (nextPlayerPv <= 0) { setPhase('finished'); onFinish('defeat'); return }
-      advanceTurn({ player: nextPlayer, opponent: nextEnemy, playerPv: nextPlayerPv, enemyPv: nextEnemyPv })
-    } else {
-      const nextPlayerPv = Math.max(0, playerPv - result.damage)
-      const nextEnemyPv = Math.max(0, enemyPv - result.counterDamage)
-      const nextEnemy = { ...opponent, statuses: result.attackerStatuses }
-      const nextPlayer = { ...player, statuses: result.defenderStatuses }
-      setOpponent(nextEnemy); setPlayer(nextPlayer)
-      setPlayerPv(nextPlayerPv); setEnemyPv(nextEnemyPv)
-      setAiState(state => ({ ...state, lastAttackHit: result.damage > 0, charged: false }))
-      record({ type: 'attack', side, result, playerPv: nextPlayerPv, enemyPv: nextEnemyPv, round })
-      if (nextPlayerPv <= 0) { setPhase('finished'); onFinish('defeat'); return }
-      if (nextEnemyPv <= 0) { setPhase('finished'); onFinish('victory'); return }
-      advanceTurn({ player: nextPlayer, opponent: nextEnemy, playerPv: nextPlayerPv, enemyPv: nextEnemyPv })
-    }
-  }, [pending, player, opponent, playerPv, enemyPv, record, round, advanceTurn, onFinish])
+    finishOrAdvance(next)
+  }, [pending, combatants, finishOrAdvance, record, round])
 
   useEffect(() => {
-    if (phase !== 'enemy' || pending || enemyQueuedRef.current) return
-    enemyQueuedRef.current = true
+    if (phase !== 'enemy' || aiQueued.current) return
+    aiQueued.current = true
     const timer = setTimeout(() => {
-      const action = chooseArenaEnemyAction(enemy, aiState)
-      enemyQueuedRef.current = false
-      resolveForSide('enemy', action, action.aiModifier)
+      const targets = combatants.filter(item => item.side === 'player' && item.pv > 0).sort((a, b) => a.pv - b.pv)
+      queueAction(currentActor, targets[0], { type: 'attack', mode: 'attack' })
+      aiQueued.current = false
     }, 650)
-    return () => { clearTimeout(timer); enemyQueuedRef.current = false }
-  }, [phase, pending, enemy, aiState, resolveForSide])
+    return () => { clearTimeout(timer); aiQueued.current = false }
+  }, [phase, currentActor, combatants, queueAction])
 
-  const enterCombat = useCallback(() => {
-    if (phase !== 'select') return
-    setTurnIndex(0)
-    setPhase(initiative.order[0])
-    record({ type: 'initiative', initiative })
-  }, [phase, initiative, record])
-
-  return {
-    player, opponent, playerPv, playerPm, enemyPv,
-    playerMaxPv, playerMaxPm, enemyMaxPv,
-    phase, round, pending, events, initiative,
-    enterCombat, playerAction, completePending,
-  }
+  const enterCombat = useCallback(() => { setStarted(true); record({ type: 'initiative', initiative }) }, [initiative, record])
+  return { combatants, currentActor, phase, round, pending, events, initiative, enterCombat, playerAction, completePending }
 }

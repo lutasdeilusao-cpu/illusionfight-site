@@ -10,7 +10,7 @@ import { sfx } from '../../../lib/sfx'
 
 const PATH_ICONS = { atacante: '⚔️', defensor: '🛡️', mistico: '✨' }
 
-export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit }) {
+export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisit, blockedPaths = [], creationNumber = 1, onCreated }) {
   const { t } = useLanguage()
   const { user } = useAuth()
   const navigate = useNavigate()
@@ -25,6 +25,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
   }, [])
 
   const selectPath = (id) => {
+    if (blockedPaths.includes(id)) return
     sfx.select()
     setError('')
     store.updateSheet({
@@ -43,12 +44,10 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       setError(t('games.arena.loadout.errors.path'))
       return
     }
-    if (!user) {
-      setGuestSaveModal(true)
-      return
-    }
-    await store.saveToCloud(user.id)
-    onNavigate('lobby')
+    const saved = user ? await store.saveToCloud(user.id) : store.addLocalSheet(sheet)
+    if (!saved) return
+    onCreated?.(saved)
+    if (!onCreated) onNavigate('lobby')
   }
 
   if (step === 'intro') {
@@ -56,7 +55,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
       <div className="arena-create arena-lobby arena-lobby--intro">
         <div className="arena-lobby-hero">
           <p className="arena-lobby-titulo">{t('games.arena.modo_standalone')}</p>
-          <h1 className="arena-lobby-nome arena-lobby-nome--lg">{t('games.arena.nova_ficha')}</h1>
+          <h1 className="arena-lobby-nome arena-lobby-nome--lg">{t('games.arena.party.create_member', { n: creationNumber })}</h1>
           <p className="arena-lobby-sub">{t('games.arena.loadout.intro')}</p>
         </div>
         <button className="arc-btn-primary arc-btn-primary--intro" onClick={() => setStep('path')}>{t('games.arena.intro_criar_direto')}</button>
@@ -80,10 +79,11 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
         <p className="arena-lobby-sub">{t('games.arena.loadout.path_intro')}</p>
         <div className="arc-loadout-grid arc-loadout-grid--styles">
           {ARENA_PATHS.map(id => (
-            <button key={id} className={`arc-loadout-card ${sheet.combat_path === id ? 'arc-loadout-card--active' : ''}`} onClick={() => selectPath(id)}>
+            <button key={id} disabled={blockedPaths.includes(id)} className={`arc-loadout-card ${sheet.combat_path === id ? 'arc-loadout-card--active' : ''}`} onClick={() => selectPath(id)}>
               <strong>{PATH_ICONS[id]} {t(`games.arena.loadout.paths.${id}.name`)}</strong>
               <span>{t(`games.arena.loadout.paths.${id}.desc`)}</span>
               <span>{t('games.arena.loadout.resource_rate', getArenaResources(id, 1))}</span>
+              {blockedPaths.includes(id) && <span>{t('games.arena.party.path_unavailable')}</span>}
             </button>
           ))}
         </div>
