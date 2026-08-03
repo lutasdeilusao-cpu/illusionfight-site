@@ -1316,14 +1316,16 @@
         "F": "Fuerza",
         "H": "Habilidad",
         "R": "Resistencia",
-        "A": "Armadura",
+        "A": "Ataque",
+        "D": "Defensa",
         "PdF": "Poder Elemental"
       },
       "attr_desc": {
         "F": "daño cuerpo a cuerpo",
-        "H": "iniciativa y esquiva",
+        "H": "iniciativa y apoyo de combate",
         "R": "PV y PM base",
-        "A": "absorción de daño",
+        "A": "fuerza de los ataques físicos",
+        "D": "protección contra ataques físicos",
         "PdF": "ataques elementales"
       },
       "elements": {
@@ -1507,7 +1509,7 @@
         "single_title": "BATALLA EN EQUIPO", "single_desc": "Base actual: tu dúo enfrenta a un dúo enemigo.", "battle_ready": "ELEGIR BATALLA ({n}/2)",
         "multiplayer_title": "MULTIJUGADOR EN GRUPO", "multiplayer_locked": "Exclusivo para suscriptores Élite y Primordial.", "multiplayer_subscriber": "Tu plan desbloquea los formatos multijugador.",
         "multiplayer_size": "{n} JUGADORES", "multiplayer_coming": "Formatos reservados; el matchmaking grupal llega en la próxima etapa.", "see_plans": "VER PLANES",
-        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO", "start": "INICIAR CREACIÓN", "continue": "CREAR SEGUNDO LUCHADOR", "enter_arena": "ENTRAR EN LA ARENA", "save_member": "CONFIRMAR LUCHADOR", "save_error": "No se pudo guardar el luchador. Inténtalo de nuevo."
+        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO", "start": "INICIAR CREACIÓN", "continue": "CREAR SEGUNDO LUCHADOR", "enter_arena": "ENTRAR EN LA ARENA", "save_member": "CONFIRMAR LUCHADOR", "save_error": "No se pudo guardar el luchador. Inténtalo de nuevo.", "distribute_title": "DISTRIBUYE TUS PUNTOS", "points_remaining": "PUNTOS RESTANTES", "spend_all": "Distribuye los {n} punto(s) restantes.", "resistance_required": "El personaje necesita al menos 1 punto de Resistencia.", "finish_member": "FINALIZAR FICHA"
       },
       "limite": {
         "titulo": "LÍMITE DE FICHAS",

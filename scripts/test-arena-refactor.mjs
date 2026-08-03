@@ -7,6 +7,8 @@ import {
 import {
   ARENA_PATHS,
   ARENA_PATH_PRESETS,
+  ARENA_CREATION_POINTS,
+  ARENA_ATTRIBUTE_MAX,
   ARENA_INITIAL_PARTY_SIZE,
   ARENA_MAX_PARTY_SIZE,
   ARENA_MULTIPLAYER_SIZES,
@@ -17,6 +19,8 @@ import {
 } from '../src/pages/games/Arena/data/arenaLoadout.js'
 
 assert.equal(ARENA_INITIAL_PARTY_SIZE, 2)
+assert.equal(ARENA_CREATION_POINTS, 5)
+assert.equal(ARENA_ATTRIBUTE_MAX, 5)
 assert.equal(ARENA_MAX_PARTY_SIZE, 5)
 assert.deepEqual(ARENA_MULTIPLAYER_SIZES, [2, 3, 4])
 assert.deepEqual(['free', 'elite', 'primordial'].map(getArenaRosterLimit), [3, 5, 7])
@@ -41,12 +45,18 @@ log('Resistência por caminho com R 3', {
 for (const path of ARENA_PATHS) {
   const attributes = ARENA_PATH_PRESETS[path]
   assert.deepEqual(Object.keys(attributes), ['A', 'H', 'R', 'D'])
-  assert.equal(Object.values(attributes).reduce((sum, value) => sum + value, 0), 5)
+  assert.equal(Object.values(attributes).reduce((sum, value) => sum + value, 0), 0)
   assert.equal('F' in attributes, false)
   assert.equal('PdF' in attributes, false)
   assert.deepEqual(normalizeArenaLoadout({ combat_path: path }).attributes, attributes)
-  log(`caminho ${path}`, attributes)
+  log(`caminho ${path} começa sem distribuição automática`, attributes)
 }
+
+assert.deepEqual(
+  normalizeArenaLoadout({ combat_path: 'atacante', attributes: { A: 1, H: 1, R: 2, D: 1 } }).attributes,
+  { A: 1, H: 1, R: 2, D: 1 },
+)
+log('distribuição manual preservada', { A: 1, H: 1, R: 2, D: 1 })
 
 const attacker = {
   attributes: { A: 3, H: 1, R: 1, D: 0 },

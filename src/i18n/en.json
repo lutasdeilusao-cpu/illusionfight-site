@@ -1316,14 +1316,16 @@
         "F": "Strength",
         "H": "Skill",
         "R": "Resistance",
-        "A": "Armor",
+        "A": "Attack",
+        "D": "Defense",
         "PdF": "Elemental Power"
       },
       "attr_desc": {
         "F": "melee damage",
-        "H": "initiative and dodge",
+        "H": "initiative and combat support",
         "R": "HP and MP base",
-        "A": "damage absorption",
+        "A": "physical attack strength",
+        "D": "protection from physical attacks",
         "PdF": "elemental attacks"
       },
       "elements": {
@@ -1507,7 +1509,7 @@
         "single_title": "TEAM BATTLE", "single_desc": "Current foundation: your duo faces an enemy duo.", "battle_ready": "CHOOSE BATTLE ({n}/2)",
         "multiplayer_title": "GROUP MULTIPLAYER", "multiplayer_locked": "Exclusive to Elite and Primordial subscribers.", "multiplayer_subscriber": "Your plan unlocks multiplayer formats.",
         "multiplayer_size": "{n} PLAYERS", "multiplayer_coming": "Formats reserved; group matchmaking arrives in the next stage.", "see_plans": "SEE PLANS",
-        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_arena": "ENTER THE ARENA", "save_member": "CONFIRM FIGHTER", "save_error": "The fighter could not be saved. Please try again."
+        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_arena": "ENTER THE ARENA", "save_member": "CONFIRM FIGHTER", "save_error": "The fighter could not be saved. Please try again.", "distribute_title": "DISTRIBUTE YOUR POINTS", "points_remaining": "POINTS REMAINING", "spend_all": "Distribute the remaining {n} point(s).", "resistance_required": "The character needs at least 1 Resistance point.", "finish_member": "FINISH SHEET"
       },
       "limite": {
         "titulo": "SHEET LIMIT",
