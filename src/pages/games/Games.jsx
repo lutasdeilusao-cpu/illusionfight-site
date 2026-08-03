@@ -13,7 +13,7 @@ export const JOGOS = [
   { id: 'toptrumps', nomeKey: 'site.games.nomes.trumps', tagKey: 'site.games.taglines.trumps', emoji: '🃏', cor: '#A855F4', rota: '/games/toptrumps', badgeKey: 'site.games.badges.lancado' },
   { id: 'tamagoshi', nomeKey: 'site.games.nomes.tama', tagKey: 'site.games.taglines.tama', emoji: '🥚', cor: '#00B4D8', rota: '/games/tamagoshi', badgeKey: 'site.games.badges.lancado' },
   { id: 'minigames', nomeKey: 'site.games.nomes.minigames', tagKey: 'site.games.taglines.minigames', emoji: '🎮', cor: '#22C55E', rota: '/games/minigames', badgeKey: 'site.games.badges.lancado' },
-  { id: 'arena', nomeKey: 'site.games.nomes.arena', tagKey: 'site.games.taglines.arena', emoji: '🏟️', cor: '#8B0000', rota: '/games/ldi-arena', badgeKey: 'site.games.badges.beta' },
+  { id: 'gangues', nomeKey: 'site.games.nomes.gangues', tagKey: 'site.games.taglines.gangues', emoji: '🥊', cor: '#8B0000', rota: '/games/ldi-gangues', badgeKey: 'site.games.badges.beta' },
   { id: 'ldi', nomeKey: 'site.games.nomes.ldi', tagKey: 'site.games.taglines.ldi', emoji: '⚔️', cor: '#00B4D8', rota: '/games/ldi', badgeKey: 'site.games.badges.beta' },
   { id: 'jackcandy', nomeKey: 'site.games.nomes.jack', tagKey: 'site.games.taglines.jack', emoji: '🍺', cor: '#F5A623', rota: '/games/jackcandy', badgeKey: 'site.games.badges.beta' },
   { id: 'pesadelo', nomeKey: 'site.games.nomes.pesadelo', tagKey: 'site.games.taglines.pesadelo', emoji: '🕵️', cor: '#EC4899', rota: '/games/pesadelo', badgeKey: 'site.games.badges.beta' },
@@ -44,7 +44,7 @@ const CONTEUDO = [
 ]
 
 // Games that require ficha (not FREE badge)
-const FICHA_GAMES = ['toptrumps', 'arena', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo']
+const FICHA_GAMES = ['toptrumps', 'gangues', 'ldi', 'tamagoshi', 'jackcandy', 'pesadelo', 'minigames', 'tatics', 'duelo']
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 

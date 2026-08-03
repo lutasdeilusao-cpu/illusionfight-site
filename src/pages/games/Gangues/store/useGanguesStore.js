@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { getArenaProgression } from '../utils/arenaProgression'
-import { getArenaResources, getArenaRosterLimit, normalizeArenaLoadout } from '../data/arenaLoadout.js'
+import { getGanguesProgression } from '../utils/ganguesProgression'
+import { getGanguesResources, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -10,7 +10,7 @@ const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canal
  * Retorna o limite máximo de fichas de personagem por tier.
  */
 export function limiteFichasPorTier(tier) {
-  return getArenaRosterLimit(tier)
+  return getGanguesRosterLimit(tier)
 }
 
 /**
@@ -33,7 +33,7 @@ const defaultSheet = () => ({
   enemies_unlocked: ['treinamento'],
 })
 
-export const useArenaStore = create((set, get) => ({
+export const useGanguesStore = create((set, get) => ({
   sheet: defaultSheet(),
   roster: [],
   activeParty: [],
@@ -48,8 +48,8 @@ export const useArenaStore = create((set, get) => ({
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
-    const normalized = normalizeArenaLoadout(data)
-    const resources = getArenaResources(normalized.combat_path, normalized.attributes.R)
+    const normalized = normalizeGanguesLoadout(data)
+    const resources = getGanguesResources(normalized.combat_path, normalized.attributes.R)
     set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, pv_current: resources.pvMax, pm_current: resources.pmMax, score: 0, status: 'idle' } })
   },
 
@@ -57,21 +57,19 @@ export const useArenaStore = create((set, get) => ({
 
   setRoster: (roster) => set(state => {
     const ids = new Set(roster.map(item => item.id))
-    return { roster, activeParty: state.activeParty.filter(item => ids.has(item.id)).slice(0, 2) }
+    return { roster, activeParty: state.activeParty.filter(item => ids.has(item.id)) }
   }),
 
-  setActiveParty: (activeParty) => set({ activeParty: activeParty.slice(0, 2) }),
+  setActiveParty: (activeParty) => set({ activeParty }),
   addLocalSheet: (sheet) => {
     const saved = { ...sheet, id: sheet.id || `local-${Date.now()}` }
     set(state => ({ sheet: saved, roster: [...state.roster, saved] }))
     return saved
   },
 
-  startMatch: (enemy, enemyPool = []) => {
+  startMatch: (enemy, enemyTeam = [enemy]) => {
     const playerTeam = get().activeParty
-    const allEnemies = enemyPool.length ? enemyPool : get()._enemyCatalog || []
-    const ally = allEnemies.find(item => item.id !== enemy.id) || enemy
-    set({ match: { playerTeam, enemyTeam: [enemy, ally], enemy, enemy_id: enemy.id, score: 0, status: 'fighting' } })
+    set({ match: { playerTeam, enemyTeam, enemy, enemy_id: enemy.id, score: 0, status: 'fighting' } })
   },
 
   setEnemyCatalog: (_enemyCatalog) => set({ _enemyCatalog }),
@@ -86,7 +84,7 @@ export const useArenaStore = create((set, get) => ({
 
   gainXp: (amount) => set(state => {
     const newXp = (state.sheet.xp_total || 0) + amount
-    const progression = getArenaProgression(newXp)
+    const progression = getGanguesProgression(newXp)
     return {
       sheet: {
         ...state.sheet,
@@ -145,7 +143,7 @@ export const useArenaStore = create((set, get) => ({
       data = fallback.data
       error = fallback.error
     }
-    if (error) { console.error('[ARENA] Falha ao salvar ficha:', error.message); return null }
+    if (error) { console.error('[GANGUES] Falha ao salvar ficha:', error.message); return null }
     if (!s.id && data) {
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
     }
@@ -162,8 +160,8 @@ export const useArenaStore = create((set, get) => ({
       data = (legacy.data || []).map(item => ({ ...item, combat_path: LEGACY_STYLE_PATH[item.combat_style] || null }))
       error = legacy.error
     }
-    if (error) console.error('[ARENA] Falha ao carregar fichas:', error.message)
-    const roster = Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeArenaLoadout(item) })) : []
+    if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
+    const roster = Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeGanguesLoadout(item) })) : []
     set({ roster })
     return roster
   },

@@ -7,8 +7,8 @@ import pp_es from './pp_es.json'
 import tt_pt from './tt_pt.json'
 import tt_en from './tt_en.json'
 import tt_es from './tt_es.json'
-import trash_en from './arena-trash-en.json'
-import trash_es from './arena-trash-es.json'
+import trash_en from './gangues-trash-en.json'
+import trash_es from './gangues-trash-es.json'
 
 function deepMerge(target, ...sources) {
   const result = { ...target }

@@ -677,7 +677,7 @@
         "ldi": "LDI LEGENDS",
         "jack": "Jack Dream Beer",
         "pesadelo": "PARTICULAR NIGHTMARE",
-        "arena": "LDI ARENA",
+        "gangues": "LDI GANGUES",
         "tama": "LDI TAMA",
         "trumps": "LDI TRUMPS",
         "tatics": "LDI TATICS",
@@ -697,7 +697,7 @@
         "ldi": "NARRATIVE RPG, create your avatar, make your choices, face your battles, discover the truth!",
         "jack": "idle noir. dreams have no logic. this one has beer.",
         "pesadelo": "20 cases. a conspiracy. a friend in danger.",
-        "arena": "Classic TURN-BASED combat building a sheet and rolling dice. Single Player and Online Multiplayer.",
+        "gangues": "Classic TURN-BASED combat building a sheet and rolling dice. Single Player and Online Multiplayer.",
         "tama": "There's no way you can resist this cute thing, but if you're going to have one, you have to take care of it responsibly.",
         "trumps": "Collectible cards on your account. Build your deck. Single Player and Online Multiplayer.",
         "tatics": "Ever thought of playing Pokémon but with tactical battles? That's right, and I'm testing it. I'll release it for everyone soon.",
@@ -715,7 +715,7 @@
       }
     },
     "leaderboard": {
-      "titulo": "ARENA — GLOBAL RANKING",
+      "titulo": "GLOBAL RANKING",
       "subtitulo": "The best Top Trumps players in the LDI universe",
       "abas": {
         "toptrumps": "Top Trumps",
@@ -753,7 +753,7 @@
       "admin_reset_resetando": "RESETTING...",
       "meu_perfil": "My Profile",
       "abas_conquistas": "Achievements",
-      "abas_arena": "Arena",
+      "abas_gangues": "Gangues",
       "abas_colecao": "TOP TRUMPS CARDS",
       "abas_conta": "Account",
       "abas_recompensas": "Rewards",
@@ -832,13 +832,13 @@
       "slot_2": "Slot 2",
       "troca_notif_ver": "view tamagoshi",
 
-      "arena_titulo": "�️ LDI ARENA",
-      "arena_fichas": "Sheets",
-      "arena_xp_total": "Total XP",
-      "arena_inimigos": "Unlocked Enemies",
-      "arena_sem_fichas": "No character sheets yet — create your fighter!",
-      "arena_ir_para": "GO TO LDI ARENA →",
-      "arena_atributos": "Attributes",
+      "gangues_titulo": "🥊 LDI GANGUES",
+      "gangues_fichas": "Sheets",
+      "gangues_xp_total": "Total XP",
+      "gangues_inimigos": "Unlocked Enemies",
+      "gangues_sem_fichas": "No character sheets yet — create your fighter!",
+      "gangues_ir_para": "GO TO LDI GANGUES →",
+      "gangues_atributos": "Attributes",
 
       "colecao_season_1": "SEASON 1",
       "colecao_season_2": "SEASON 2",
@@ -1155,8 +1155,13 @@
       "tier": "Tier",
       "iniciar_batalha": "START BATTLE"
     },
-    "arena": {
-      "titulo": "LDI ARENA",
+    "gangues": {
+      "titulo": "LDI GANGUES",
+      "escolha_lutador": "CHOOSE YOUR FIGHTER",
+      "escolha_alvo": "CHOOSE A TARGET",
+      "log_batalha_inicio": "The fight has begun.",
+      "party_size_atual": "Current gang: {n}/{max}",
+      "party_size_bloqueado": "Win more battles to unlock another gang slot.",
       "nova_ficha": "NEW SHEET",
       "inserir_ficha": "INSERT TOKEN",
       "escolher_outra": "CHOOSE ANOTHER SHEET",
@@ -1251,7 +1256,7 @@
       "suas_fichas": "your sheets",
       "carregando": "loading...",
       "inimigos_desbloqueados": "unlocked enemies",
-      "intro_linha1": "Welcome to LDI Arena, fighter.",
+      "intro_linha1": "Welcome to LDI Gangues, fighter.",
       "intro_linha2": "Here, every battle is real. Choose your sheet or build a new warrior.",
       "mostrar_fichas": "SHOW SHEETS",
       "confirmar_excluir": "Delete this sheet permanently?",
@@ -1509,7 +1514,7 @@
         "single_title": "TEAM BATTLE", "single_desc": "Current foundation: your duo faces an enemy duo.", "battle_ready": "CHOOSE BATTLE ({n}/2)",
         "multiplayer_title": "GROUP MULTIPLAYER", "multiplayer_locked": "Exclusive to Elite and Primordial subscribers.", "multiplayer_subscriber": "Your plan unlocks multiplayer formats.",
         "multiplayer_size": "{n} PLAYERS", "multiplayer_coming": "Formats reserved; group matchmaking arrives in the next stage.", "see_plans": "SEE PLANS",
-        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_arena": "ENTER THE ARENA", "save_member": "CONFIRM FIGHTER", "save_error": "The fighter could not be saved. Please try again.", "distribute_title": "DISTRIBUTE YOUR POINTS", "points_remaining": "POINTS REMAINING", "spend_all": "Distribute the remaining {n} point(s).", "resistance_required": "The character needs at least 1 Resistance point.", "finish_member": "FINISH SHEET"
+        "enemy_team_desc": "Each opponent enters with another unlocked fighter.", "enemy_duo": "ENEMY DUO", "your_team": "YOUR TEAM", "enemy_team": "ENEMY TEAM", "start": "START CREATION", "continue": "CREATE SECOND FIGHTER", "enter_gangues": "START BATTLE", "save_member": "CONFIRM FIGHTER", "save_error": "The fighter could not be saved. Please try again.", "distribute_title": "DISTRIBUTE YOUR POINTS", "points_remaining": "POINTS REMAINING", "spend_all": "Distribute the remaining {n} point(s).", "resistance_required": "The character needs at least 1 Resistance point.", "finish_member": "FINISH SHEET"
       },
       "limite": {
         "titulo": "SHEET LIMIT",
@@ -1524,7 +1529,7 @@
       "multiplayer": {
         "apenas_elite": "Available for Elite and Primordial subscribers",
         "modal_titulo": "Multiplayer restricted",
-        "modal_body": "Arena Multiplayer mode is only available for Elite and Primordial subscribers.",
+        "modal_body": "Gangues Multiplayer mode is only available for Elite and Primordial subscribers.",
         "modal_btn": "UPGRADE NOW"
       }
     },

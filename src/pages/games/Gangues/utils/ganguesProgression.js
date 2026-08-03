@@ -1,4 +1,4 @@
-export function getArenaProgression(xpTotal = 0) {
+export function getGanguesProgression(xpTotal = 0) {
   const xp = Math.max(0, Number(xpTotal) || 0)
   let completedLevels = 0
   let levelStartXp = 0

@@ -73,7 +73,7 @@ git push             # push main branch source
 | Pesadelo Particular | `PP_VERSION` | `src/config/version.js` |
 | Lendas do LDI | `LDI_VERSION` | `src/config/version.js` |
 | Jack Dream Candy | `JACK_VERSION` | `src/config/version.js` |
-| Arena Mode | `ARENA_VERSION` | `src/config/version.js` |
+| LDI Gangues | `GANGUES_VERSION` | `src/config/version.js` |
 | Arena LDI Tatics | `TATICS_VERSION` | `src/config/version.js` |
 | MiniGames | `MINIGAMES_VERSION` | `src/config/version.js` |
 | Top Trumps SP | `TS_VERSION` | `src/config/version.js` |

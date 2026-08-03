@@ -120,7 +120,7 @@ export default function Leaderboard() {
   }, [aba, scopeTT, user])
 
   useEffect(() => {
-    if (aba !== 'arena') return
+    if (aba !== 'gangues') return
     setCarregandoArena(true)
     carregarRankingArena(scopeArena).then(data => { setRankArena(data); setCarregandoArena(false) })
     if (user?.id) carregarPosicaoUsuarioArena(user.id, scopeArena).then(setPosicaoArena)
@@ -139,10 +139,10 @@ export default function Leaderboard() {
       <p className="lb-sub">{t('site.leaderboard.subtitulo')}</p>
 
       <div className="lb-abas">
-        {['toptrumps', 'arena', 'cuidadores'].map(a => (
+        {['toptrumps', 'gangues', 'cuidadores'].map(a => (
           <button key={a} className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`} onClick={() => setAba(a)}>
             {a === 'toptrumps' ? 'TOP TRUMPS'
-              : a === 'arena' ? 'LDI ARENA'
+              : a === 'gangues' ? 'LDI GANGUES'
               : 'CUIDADORES'}
           </button>
         ))}
@@ -160,13 +160,13 @@ export default function Leaderboard() {
           />
         )}
 
-        {aba === 'arena' && (
+        {aba === 'gangues' && (
           <RankingSection
             rank={rankArena} carregando={carregandoArena} posicao={posicaoArena}
             scope={scopeArena} setScope={setScopeArena}
             user={user} perfil={perfil} t={t} locale={locale}
             msgVazio="Nenhuma vitória ranqueada este mês ainda. Seja o primeiro!"
-            msgSemPosicao="Você ainda não pontuou este mês. Vença uma batalha na Arena!"
+            msgSemPosicao="Você ainda não pontuou este mês. Vença uma batalha de gangue!"
           />
         )}
 

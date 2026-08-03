@@ -8,13 +8,13 @@
  */
 
 // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.192.93'
+export const SITE_VERSION = '10.193.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const ARENA_VERSION     = '3.1.0'  // Arena: distribuição manual de atributos por personagem
+export const GANGUES_VERSION   = '1.0.0'  // LDI Gangues: renomeado de Arena, gangues de tamanho variável, motor de turno com escolha de atacante e visual de chat restaurado
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
@@ -36,7 +36,7 @@ console.log(`[SITE] versão carregada: ${SITE_VERSION}`)
 console.log(`[PP] versão carregada: ${PP_VERSION}`)
 console.log(`[LDI] versão carregada: ${LDI_VERSION}`)
 console.log(`[JACK] versão carregada: ${JACK_VERSION}`)
-console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
+console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 console.log(`[TATICS] versão carregada: ${TATICS_VERSION}`)
 console.log(`[SRGRM] versão carregada: ${SRGRM_VERSION}`)
 console.log(`[ARENATESTBED] versão carregada: ${ARENATESTBED_VERSION}`)

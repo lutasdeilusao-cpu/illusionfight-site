@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
-import { useArenaStore } from './store/useArenaStore'
-import ArenaLobby from './ArenaLobby'
-import ArenaCreate from './ArenaCreate'
-import ArenaCombat from './ArenaCombat'
-import ArenaVictory from './ArenaVictory'
+import { useGanguesStore } from './store/useGanguesStore'
+import GanguesLobby from './GanguesLobby'
+import GanguesCreate from './GanguesCreate'
+import GanguesCombat from './GanguesCombat'
+import GanguesVictory from './GanguesVictory'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
-import './Arena.css'
+import './Gangues.css'
 
-import { ARENA_VERSION } from '../../../config/version'
-console.log(`[ARENA] versão carregada: ${ARENA_VERSION}`)
+import { GANGUES_VERSION } from '../../../config/version'
+console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 
-export default function ArenaRoute() {
+export default function GanguesRoute() {
   const { user } = useAuth()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
-  const store = useArenaStore()
+  const store = useGanguesStore()
   const [fase, setFase] = useState('lobby')
   const [creationParty, setCreationParty] = useState([])
 
@@ -31,11 +31,11 @@ export default function ArenaRoute() {
   }, [setReaderMode])
 
   return (
-    <div className="arena-page">
+    <div className="gang-page">
       <GuestNotice />
-      {fase === 'lobby' && <ArenaLobby onNavigate={setFase} />}
+      {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (
-        <ArenaCreate
+        <GanguesCreate
           onNavigate={setFase}
           skipIntro
           creationNumber={creationParty.length ? creationParty.length + 1 : store.roster.length === 1 ? 2 : 1}
@@ -54,8 +54,8 @@ export default function ArenaRoute() {
           }}
         />
       )}
-      {fase === 'combat' && <ArenaCombat onNavigate={setFase} />}
-      {fase === 'victory' && <ArenaVictory onNavigate={setFase} />}
+      {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
+      {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
     </div>
   )
 }

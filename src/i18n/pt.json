@@ -677,7 +677,7 @@
         "ldi": "LDI LENDAS",
         "jack": "Jack Dream Beer",
         "pesadelo": "PRESADELO PARTICULAR",
-        "arena": "LDI ARENA",
+        "gangues": "LDI GANGUES",
         "tama": "LDI TAMA",
         "trumps": "LDI SUPER TRUNFO",
         "tatics": "LDI TATICS",
@@ -697,7 +697,7 @@
         "ldi": "RPG NARRATIVO, crie seu avatar, faça suas escolhas, enfrente suas batalhas descubra a verdade!",
         "jack": "idle noir. sonhos não têm lógica. esse tem cervejas.",
         "pesadelo": "20 casos. uma conspiração. um amigo em perigo.",
-        "arena": "Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.",
+        "gangues": "Combate TURNO A TURNO clássico montando ficha e jogando dados. Single Player e Multiplayer Online.",
         "tama": "Não existe como você resistir esse coisa fofa, mas se for ter um tem que cuidar com responsabilidade.",
         "trumps": "Cartas colecionáveis na sua conta. Monte seu deck. Single Player e Multiplayer Online.",
         "tatics": "Já pensou em jogar Pokémon só que com batalhas táticas? Pois é, e estou testando. Logo libero para todos vocês.",
@@ -715,7 +715,7 @@
       }
     },
     "leaderboard": {
-      "titulo": "ARENA — RANKING GLOBAL",
+      "titulo": "RANKING GLOBAL",
       "subtitulo": "Os melhores jogadores de Top Trumps do universo LDI",
       "abas": {
         "toptrumps": "Top Trumps",
@@ -753,7 +753,7 @@
       "admin_reset_resetando": "RESETANDO...",
       "meu_perfil": "Meu Perfil",
       "abas_conquistas": "Conquistas",
-      "abas_arena": "Arena",
+      "abas_gangues": "Gangues",
       "abas_colecao": "CARTAS SUPER TRUNFO",
       "abas_conta": "Conta",
       "abas_recompensas": "Recompensas",
@@ -832,13 +832,13 @@
       "slot_2": "Slot 2",
       "troca_notif_ver": "ver tamagoshi",
 
-      "arena_titulo": "�️ LDI ARENA",
-      "arena_fichas": "Fichas",
-      "arena_xp_total": "XP Total",
-      "arena_inimigos": "Inimigos Desbloqueados",
-      "arena_sem_fichas": "Nenhuma ficha de personagem ainda — crie seu lutador!",
-      "arena_ir_para": "IR PARA LDI ARENA →",
-      "arena_atributos": "Atributos",
+      "gangues_titulo": "🥊 LDI GANGUES",
+      "gangues_fichas": "Fichas",
+      "gangues_xp_total": "XP Total",
+      "gangues_inimigos": "Inimigos Desbloqueados",
+      "gangues_sem_fichas": "Nenhuma ficha de personagem ainda — crie seu lutador!",
+      "gangues_ir_para": "IR PARA LDI GANGUES →",
+      "gangues_atributos": "Atributos",
 
       "colecao_season_1": "1ª TEMPORADA",
       "colecao_season_2": "2ª TEMPORADA",
@@ -1155,8 +1155,13 @@
       "tier": "Tier",
       "iniciar_batalha": "INICIAR BATALHA"
     },
-    "arena": {
-      "titulo": "LDI ARENA",
+    "gangues": {
+      "titulo": "LDI GANGUES",
+      "escolha_lutador": "ESCOLHA SEU LUTADOR",
+      "escolha_alvo": "ESCOLHA O ALVO",
+      "log_batalha_inicio": "A briga começou.",
+      "party_size_atual": "Gangue atual: {n}/{max}",
+      "party_size_bloqueado": "Vença mais batalhas para liberar mais um lugar na gangue.",
       "nova_ficha": "NOVA FICHA",
       "inserir_ficha": "INSERIR FICHA",
       "escolher_outra": "ESCOLHER OUTRA FICHA",
@@ -1251,7 +1256,7 @@
       "suas_fichas": "suas fichas",
       "carregando": "carregando...",
       "inimigos_desbloqueados": "inimigos desbloqueados",
-      "intro_linha1": "Bem-vindo ao LDI Arena, lutador.",
+      "intro_linha1": "Bem-vindo ao LDI Gangues, lutador.",
       "intro_linha2": "Aqui, cada batalha é real. Escolha sua ficha ou monte um novo guerreiro.",
       "mostrar_fichas": "MOSTRAR FICHAS",
       "confirmar_excluir": "Excluir esta ficha permanentemente?",
@@ -1536,7 +1541,7 @@
         "single_title": "BATALHA EM EQUIPE", "single_desc": "Base atual: sua dupla enfrenta uma dupla inimiga.", "battle_ready": "ESCOLHER BATALHA ({n}/2)",
         "multiplayer_title": "MULTIPLAYER EM GRUPO", "multiplayer_locked": "Exclusivo para assinantes Elite e Primordial.", "multiplayer_subscriber": "Seu plano libera os formatos multiplayer.",
         "multiplayer_size": "{n} JOGADORES", "multiplayer_coming": "Formatos reservados; matchmaking em grupo entra na próxima etapa.", "see_plans": "VER PLANOS",
-        "enemy_team_desc": "Cada oponente entra acompanhado por outro lutador desbloqueado.", "enemy_duo": "DUPLA INIMIGA", "your_team": "SUA EQUIPE", "enemy_team": "EQUIPE INIMIGA", "start": "INICIAR CRIAÇÃO", "continue": "CRIAR SEGUNDO LUTADOR", "enter_arena": "ENTRAR NA ARENA", "save_member": "CONFIRMAR LUTADOR", "save_error": "Não foi possível salvar o lutador. Tente novamente.", "distribute_title": "DISTRIBUA SEUS PONTOS", "points_remaining": "PONTOS RESTANTES", "spend_all": "Distribua os {n} ponto(s) restantes.", "resistance_required": "O personagem precisa de pelo menos 1 ponto em Resistência.", "finish_member": "FINALIZAR FICHA"
+        "enemy_team_desc": "Cada oponente entra acompanhado por outro lutador desbloqueado.", "enemy_duo": "DUPLA INIMIGA", "your_team": "SUA EQUIPE", "enemy_team": "EQUIPE INIMIGA", "start": "INICIAR CRIAÇÃO", "continue": "CRIAR SEGUNDO LUTADOR", "enter_gangues": "INICIAR BATALHA", "save_member": "CONFIRMAR LUTADOR", "save_error": "Não foi possível salvar o lutador. Tente novamente.", "distribute_title": "DISTRIBUA SEUS PONTOS", "points_remaining": "PONTOS RESTANTES", "spend_all": "Distribua os {n} ponto(s) restantes.", "resistance_required": "O personagem precisa de pelo menos 1 ponto em Resistência.", "finish_member": "FINALIZAR FICHA"
       },
       "limite": {
         "titulo": "LIMITE DE FICHAS",
@@ -1551,7 +1556,7 @@
       "multiplayer": {
         "apenas_elite": "Disponível para assinantes Elite e Primordial",
         "modal_titulo": "Multiplayer restrito",
-        "modal_body": "O modo Multiplayer da Arena está disponível apenas para assinantes Elite e Primordial.",
+        "modal_body": "O modo Multiplayer do Gangues está disponível apenas para assinantes Elite e Primordial.",
         "modal_btn": "FAZER UPGRADE"
       }
     },

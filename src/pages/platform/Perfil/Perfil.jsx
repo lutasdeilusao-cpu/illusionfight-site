@@ -6,7 +6,7 @@ import { useFichas } from '../../../context/FichasContext'
 import { useDix } from '../../../context/DixContext'
 import { FICHAS_GATE_ATIVO } from '../../../config/fichas'
 import PerfilConquistas from './abas/PerfilConquistas'
-import PerfilArena from './abas/PerfilArena'
+import PerfilGangues from './abas/PerfilGangues'
 import PerfilColecao from './abas/PerfilColecao'
 import PerfilConta from './abas/PerfilConta'
 import Recompensas from './abas/Recompensas'
@@ -23,7 +23,7 @@ const TIER_CONFIG = {
 const SECOES = [
   { id: 'colecao',    icone: '🃏', labelKey: 'site.perfil.abas_colecao' },
   { id: 'tamagoshi',  icone: '🥚', labelKey: 'site.perfil.abas_tamagoshi' },
-  { id: 'arena',      icone: '⚔️', labelKey: 'site.perfil.abas_arena' },
+  { id: 'gangues',    icone: '🥊', labelKey: 'site.perfil.abas_gangues' },
   { id: 'conquistas', icone: '🏆', labelKey: 'site.perfil.abas_conquistas' },
   { id: 'recompensas',icone: '🎰', labelKey: 'site.perfil.abas_recompensas' },
   { id: 'conta',      icone: '⚙️', labelKey: 'site.perfil.abas_conta' },
@@ -125,7 +125,7 @@ export default function Perfil() {
                 <div className="perfil-secao-conteudo">
                   {secao.id === 'recompensas' && <Recompensas />}
                   {secao.id === 'conquistas' && <PerfilConquistas />}
-                  {secao.id === 'arena' && <PerfilArena userId={user.id} />}
+                  {secao.id === 'gangues' && <PerfilGangues userId={user.id} />}
                   {secao.id === 'colecao' && <PerfilColecao userId={user.id} />}
                   {secao.id === 'tamagoshi' && <PerfilTamagoshi />}
                   {secao.id === 'conta' && <PerfilConta />}

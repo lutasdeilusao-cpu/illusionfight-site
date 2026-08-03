@@ -12,8 +12,8 @@ import './FichaGateRoute.css'
  * FichaGateRoute — proteção de rota que combina LoginGate + FichaGate.
  *
  * Props:
- *   gameId       — identificador do jogo (ex: 'arena', 'jack_dream_beer')
- *   feature      — descrição para o LoginGate (ex: 'a Arena LDI')
+ *   gameId       — identificador do jogo (ex: 'gangues', 'jack_dream_beer')
+ *   feature      — descrição para o LoginGate (ex: 'o LDI Gangues')
  *   nomeExibicao — nome para exibir nos modais (ex: 'Arena LDI')
  *   isFree       — se true, não cobra ficha (só login)
  *   children     — componente do jogo (renderizado só após passar pelo gate)

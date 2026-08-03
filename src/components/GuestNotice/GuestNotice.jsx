@@ -12,10 +12,10 @@ export default function GuestNotice() {
   return (
     <div className="guest-notice">
       <span className="guest-notice__text">
-        {t('games.arena.guest_banner')}
+        {t('games.gangues.guest_banner')}
       </span>
       <Link to="/cadastro" className="guest-notice__cta">
-        {t('games.arena.guest_create_account')}
+        {t('games.gangues.guest_create_account')}
       </Link>
     </div>
   )

@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-03 — `SITE_VERSION` **10.192.93**.
+> Atualizado em 2026-08-03 — `SITE_VERSION` **10.193.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -101,7 +101,8 @@ Componentes montados globalmente por `App.jsx`: `ScrollToTopOnNav`, `Navbar`, `S
 | `/games/ldi/puzzle` | Puzzle LDI | `src/pages/games/LDI/PuzzlePage.jsx` | 🔒 gratuito |
 | `/games/jackcandy` | Jack Dream Beer | `src/pages/games/JackCandy/JackCandy.jsx` | 🔒 |
 | `/games/minigames` | Coleção MiniGames | `src/pages/games/MiniGames/MiniGames.jsx` | 🔒 gratuito |
-| `/games/ldi-arena` | Arena LDI | `src/pages/games/Arena/ArenaRoute.jsx` | 🔒 |
+| `/games/ldi-gangues` | LDI Gangues | `src/pages/games/Gangues/GanguesRoute.jsx` | 🔒 |
+| `/games/ldi-arena` | Redirect legado para LDI Gangues | `Navigate` em `src/App.jsx` | Redirect |
 | `/games/ldi-tatics` | Arena LDI Tatics | `src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx` | 🔒 |
 | `/games/pesadelo` | Pesadelo Particular | `src/pages/games/PesadeloParticular/PP.jsx` | 🔒 |
 | `/games/duelo` | Duelo LDI | `src/pages/games/Duelo/DueloRoute.jsx` | 🔒 |
@@ -152,7 +153,7 @@ src/
     └── site/               # home, autor, loja, quiz, custos e 404
 ```
 
-Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de seu diretório quando necessário. Stores Zustand atuais incluem Arena, Arena Tatics, Duelo, JackCandy, LDI, Pesadelo Particular e Tamagoshi. Top Trumps concentra sua lógica em hooks e componentes próprios.
+Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de seu diretório quando necessário. Stores Zustand atuais incluem Gangues, Arena Tatics, Duelo, JackCandy, LDI, Pesadelo Particular e Tamagoshi. Top Trumps concentra sua lógica em hooks e componentes próprios.
 
 ## 5. Módulos globais importantes
 
@@ -220,7 +221,7 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 - Site geral: `src/i18n/pt.json`, `en.json`, `es.json`.
 - Pesadelo Particular: `src/i18n/pp_{pt,en,es}.json`.
 - Top Trumps: `src/i18n/tt_{pt,en,es}.json`.
-- Arena trash talk: `src/i18n/arena-trash-{en,es}.json` e dados locais do jogo.
+- Gangues trash talk: `src/i18n/gangues-trash-{en,es}.json` e dados locais do jogo.
 - Kernel Games: `src/pages/games/KernelGames/_shared/i18n/` e i18n próprio do Kernel Panic.
 
 ## 7. Multiplayer e persistência dos jogos
@@ -276,11 +277,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.192.93** |
+| `SITE_VERSION` | Site global | **10.193.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `ARENA_VERSION` | Arena LDI | 3.1.0 |
+| `GANGUES_VERSION` | LDI Gangues | 1.0.0 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |

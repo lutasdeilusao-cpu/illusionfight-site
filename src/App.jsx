@@ -49,7 +49,7 @@ import LDIClues from './pages/games/LDI/Clues'
 import LDIEnd from './pages/games/LDI/End'
 import LDIPuzzle from './pages/games/LDI/PuzzlePage'
 import JackCandy from './pages/games/JackCandy/JackCandy'
-import ArenaRoute from './pages/games/Arena/ArenaRoute'
+import GanguesRoute from './pages/games/Gangues/GanguesRoute'
 import ArenaTaticsRoute from './pages/games/ArenaTatics/ArenaTaticsRoute'
 import PP from './pages/games/PesadeloParticular/PP'
 import DueloRoute from './pages/games/Duelo/DueloRoute'
@@ -112,7 +112,8 @@ export default function App() {
         <Route path="/games/ldi/puzzle" element={<FichaGateRoute gameId="lendas_ldi" feature="o puzzle LDI" nomeExibicao="Lendas do LDI" isFree={true}><LDIPuzzle /></FichaGateRoute>} />
         <Route path="/games/jackcandy" element={<FichaGateRoute gameId="jack_dream_beer" feature="o Jack Dream Beer" nomeExibicao="Jack Dream Beer"><JackCandy /></FichaGateRoute>} />
         <Route path="/games/minigames" element={<FichaGateRoute gameId="minigames" feature="os MiniGames" nomeExibicao="MiniGames" isFree={true}><MiniGames /></FichaGateRoute>} />
-        <Route path="/games/ldi-arena" element={<FichaGateRoute gameId="arena" feature="a Arena LDI" nomeExibicao="Arena LDI"><ArenaRoute /></FichaGateRoute>} />
+        <Route path="/games/ldi-gangues" element={<FichaGateRoute gameId="gangues" feature="o LDI Gangues" nomeExibicao="LDI Gangues"><GanguesRoute /></FichaGateRoute>} />
+        <Route path="/games/ldi-arena" element={<Navigate to="/games/ldi-gangues" replace />} />
         <Route path="/games/ldi-tatics" element={<FichaGateRoute gameId="tatics" feature="o LDI Tactics" nomeExibicao="LDI Tactics"><ArenaTaticsRoute /></FichaGateRoute>} />
         <Route path="/games/pesadelo" element={<FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute>} />
         <Route path="/games/duelo" element={<FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute>} />

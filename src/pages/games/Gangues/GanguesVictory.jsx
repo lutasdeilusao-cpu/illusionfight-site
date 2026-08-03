@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
-import { useArenaStore } from './store/useArenaStore'
+import { useGanguesStore } from './store/useGanguesStore'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
-import ArenaXpBar from './components/ArenaXpBar'
+import GanguesXpBar from './components/GanguesXpBar'
 import { sfx } from '../../../lib/sfx'
-import { getArenaResources } from './data/arenaLoadout.js'
+import { getGanguesResources } from './data/ganguesLoadout.js'
 
 const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
 
-export default function ArenaVictory({ onNavigate }) {
+export default function GanguesVictory({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user } = useAuth()
-  const store = useArenaStore()
+  const store = useGanguesStore()
   const { sheet, match } = store
   const [somAtivo, setSomAtivo] = useState(sfx.enabled)
   const enemy = match.enemy
@@ -24,7 +24,7 @@ export default function ArenaVictory({ onNavigate }) {
   const isVitoria = match.status === 'victory'
   const xpGain = isVitoria ? 10 : 1
 
-  const { pvMax: pv, pmMax: pm } = getArenaResources(sheet.combat_path, sheet.attributes?.R)
+  const { pvMax: pv, pmMax: pm } = getGanguesResources(sheet.combat_path, sheet.attributes?.R)
   const pvMax = enemy?.pv_max || 10
 
   const [fase, setFase] = useState('mensagem')
@@ -84,7 +84,7 @@ export default function ArenaVictory({ onNavigate }) {
       const before = sheet.enemies_unlocked || ['treinamento']
       store.unlockNextEnemy(match.enemy_id)
       if (nextId && !before.includes(nextId)) {
-        setNextUnlock(t(`games.arena.enemy_names.${nextId}`) || nextId)
+        setNextUnlock(t(`games.gangues.enemy_names.${nextId}`) || nextId)
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
     }
@@ -94,13 +94,13 @@ export default function ArenaVictory({ onNavigate }) {
 
   if (!isVitoria) {
     return (
-      <div className="arena-victory arena-container">
+      <div className="gang-victory gang-container">
         {/* Partículas de explosão — derrota */}
-        <div className="arena-victory-particles arena-victory-particles--defeat">
+        <div className="gang-victory-particles gang-victory-particles--defeat">
           {[...Array(20)].map((_, i) => (
             <motion.span
               key={i}
-              className="arena-particle"
+              className="gang-particle"
               initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
               animate={{
                 x: (Math.random() - 0.5) * 400,
@@ -123,28 +123,28 @@ export default function ArenaVictory({ onNavigate }) {
             />
           ))}
         </div>
-        <div className="arena-victory-header">
-          <h1 className="arena-victory-title arena-victory-lose">{t('games.arena.derrota')}</h1>
-          <p className="arena-victory-sub">{t('games.arena.derrota_sub')}</p>
+        <div className="gang-victory-header">
+          <h1 className="gang-victory-title gang-victory-lose">{t('games.gangues.derrota')}</h1>
+          <p className="gang-victory-sub">{t('games.gangues.derrota_sub')}</p>
         </div>
-        <div className="arena-victory-card">
-          <div className="arena-victory-sheet-name">{sheet.sheet_name}</div>
-          <div className="arena-victory-attrs">
-            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="arena-victory-attr"><span>H</span>{sheet.attributes.H}</div>
-            <div className="arena-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="arena-victory-attr"><span>D</span>{sheet.attributes.D}</div>
+        <div className="gang-victory-card">
+          <div className="gang-victory-sheet-name">{sheet.sheet_name}</div>
+          <div className="gang-victory-attrs">
+            <div className="gang-victory-attr"><span>A</span>{sheet.attributes.A}</div>
+            <div className="gang-victory-attr"><span>H</span>{sheet.attributes.H}</div>
+            <div className="gang-victory-attr"><span>R</span>{sheet.attributes.R}</div>
+            <div className="gang-victory-attr"><span>D</span>{sheet.attributes.D}</div>
           </div>
-          <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }}>
-            {t('games.arena.xp_gain', { n: xpGain })}
+          <motion.div className="gang-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }}>
+            {t('games.gangues.xp_gain', { n: xpGain })}
           </motion.div>
-          <ArenaXpBar xpTotal={sheet.xp_total || 0} t={t} compact />
+          <GanguesXpBar xpTotal={sheet.xp_total || 0} t={t} compact />
         </div>
-        <div className="arena-victory-btns">
-          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.lutar_novamente')}</button>
-          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.escolher_oponente')} />
-          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
+        <div className="gang-victory-btns">
+          <button className="gang-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.lutar_novamente')}</button>
+          <button className="gang-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.gangues.escolher_outra')}</button>
+          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.gangues.escolher_oponente')} />
+          <button className="gang-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.gangues.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
         </div>
@@ -155,18 +155,18 @@ export default function ArenaVictory({ onNavigate }) {
   // Fase 1 — mensagem do inimigo derrotado
   if (fase === 'mensagem') {
     const defeatPhrases = enemy?.trash_talk?.defeat || enemy?.trash_talk?.enemy_near_death
-    const fallbacks = [0,1,2].map(i => t(`games.arena.defeat_fallbacks[${i}]`))
+    const fallbacks = [0,1,2].map(i => t(`games.gangues.defeat_fallbacks[${i}]`))
     const line = defeatPhrases?.length
       ? defeatPhrases[Math.floor(Math.random() * defeatPhrases.length)]
       : fallbacks[Math.floor(Math.random() * fallbacks.length)]
 
     return (
-      <div className="arena-victory arena-container arena-victory-screen">
-        <div className="arena-victory-body">
+      <div className="gang-victory gang-container gang-victory-screen">
+        <div className="gang-victory-body">
           <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.4 }}>
-            <div className="arena-chat-msg">
-              <div className="arena-chat-avatar arena-chat-avatar--trash">{(t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name || 'I')[0]}</div>
-              <div className="arena-chat-bubble arena-chat-bubble--trash arena-chat-bubble--trash-victory">
+            <div className="gang-chat-msg">
+              <div className="gang-chat-avatar gang-chat-avatar--trash">{(t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name || 'I')[0]}</div>
+              <div className="gang-chat-bubble gang-chat-bubble--trash gang-chat-bubble--trash-victory">
                 {line}
               </div>
             </div>
@@ -180,16 +180,16 @@ export default function ArenaVictory({ onNavigate }) {
   if (fase === 'hpzero') {
     const hpPct = Math.max(0, (hpAtual / pvMax) * 100)
     return (
-      <div className="arena-victory arena-container arena-victory-screen">
-        <div className="arena-victory-body arena-victory-body--center">
-          <h3 className="arena-hp-enemy-name">{t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
-          <div className="arena-bar-wrap arena-hp-bar-wrap">
-            <div className="arena-bar arena-hp-bar">
-              <motion.div className="arena-bar-fill arena-bar-red arena-hp-bar-fill"
+      <div className="gang-victory gang-container gang-victory-screen">
+        <div className="gang-victory-body gang-victory-body--center">
+          <h3 className="gang-hp-enemy-name">{t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name}</h3>
+          <div className="gang-bar-wrap gang-hp-bar-wrap">
+            <div className="gang-bar gang-hp-bar">
+              <motion.div className="gang-bar-fill gang-bar-red gang-hp-bar-fill"
                 animate={{ width: `${hpPct}%` }}
                 transition={{ duration: 0.05 }} />
             </div>
-            <span className="arena-hp-label">
+            <span className="gang-hp-label">
               {hpAtual} / {pvMax}
             </span>
           </div>
@@ -200,13 +200,13 @@ export default function ArenaVictory({ onNavigate }) {
 
   // Fase 3 — vitória
   return (
-    <div className="arena-victory arena-container">
+    <div className="gang-victory gang-container">
       {/* Partículas de comemoração — vitória */}
-      <div className="arena-victory-particles arena-victory-particles--victory">
+      <div className="gang-victory-particles gang-victory-particles--victory">
         {[...Array(30)].map((_, i) => (
           <motion.span
             key={i}
-            className="arena-particle"
+            className="gang-particle"
             initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
             animate={{
               x: (Math.random() - 0.5) * 500,
@@ -233,36 +233,36 @@ export default function ArenaVictory({ onNavigate }) {
       </div>
       <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:0.4 }}>
           <motion.div
-            className="arena-ko-text"
+            className="gang-ko-text"
             initial={{ scale: 0.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
           >
-          {t('games.arena.ko')}
+          {t('games.gangues.ko')}
         </motion.div>
-        <div className="arena-victory-header">
-          <h1 className="arena-victory-title arena-victory-win">{t('games.arena.vitoria')}</h1>
-          <p className="arena-victory-sub" dangerouslySetInnerHTML={{ __html: t('games.arena.vitoria_sub', { name: t('games.arena.enemy_names.' + (enemy?.id || '')) || enemy?.name }) }} />
+        <div className="gang-victory-header">
+          <h1 className="gang-victory-title gang-victory-win">{t('games.gangues.vitoria')}</h1>
+          <p className="gang-victory-sub" dangerouslySetInnerHTML={{ __html: t('games.gangues.vitoria_sub', { name: t('games.gangues.enemy_names.' + (enemy?.id || '')) || enemy?.name }) }} />
         </div>
 
-        <div className="arena-victory-card">
-          <div className="arena-victory-sheet-name">{sheet.sheet_name}</div>
-          <div className="arena-victory-attrs">
-            <div className="arena-victory-attr"><span>A</span>{sheet.attributes.A}</div>
-            <div className="arena-victory-attr"><span>H</span>{sheet.attributes.H}</div>
-            <div className="arena-victory-attr"><span>R</span>{sheet.attributes.R}</div>
-            <div className="arena-victory-attr"><span>D</span>{sheet.attributes.D}</div>
+        <div className="gang-victory-card">
+          <div className="gang-victory-sheet-name">{sheet.sheet_name}</div>
+          <div className="gang-victory-attrs">
+            <div className="gang-victory-attr"><span>A</span>{sheet.attributes.A}</div>
+            <div className="gang-victory-attr"><span>H</span>{sheet.attributes.H}</div>
+            <div className="gang-victory-attr"><span>R</span>{sheet.attributes.R}</div>
+            <div className="gang-victory-attr"><span>D</span>{sheet.attributes.D}</div>
           </div>
-          <div className="arena-victory-stats">
-            <span>{t('games.arena.pv', { n: pv })}</span>
-            <span>{t('games.arena.pm', { n: pm })}</span>
-            <span>{t('games.arena.xp', { n: sheet.xp_total || 0 })}</span>
+          <div className="gang-victory-stats">
+            <span>{t('games.gangues.pv', { n: pv })}</span>
+            <span>{t('games.gangues.pm', { n: pm })}</span>
+            <span>{t('games.gangues.xp', { n: sheet.xp_total || 0 })}</span>
           </div>
-          <motion.div className="arena-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>
-            {t('games.arena.xp_gain', { n: xpGain })}
+          <motion.div className="gang-xp-gain" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', delay: 0.3 }}>
+            {t('games.gangues.xp_gain', { n: xpGain })}
           </motion.div>
           {/* XP Progress Bar */}
-          <ArenaXpBar
+          <GanguesXpBar
             xpTotal={sheet.xp_total || 0}
             t={t}
             animated
@@ -271,20 +271,20 @@ export default function ArenaVictory({ onNavigate }) {
 
         {nextUnlock && (
           <motion.div
-            className="arena-unlock-badge"
+            className="gang-unlock-badge"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            {t('games.arena.novo_oponente', { name: nextUnlock })}
+            {t('games.gangues.novo_oponente', { name: nextUnlock })}
           </motion.div>
         )}
 
-        <div className="arena-victory-btns">
-          <button className="arena-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.arena.escolher_outra')}</button>
-          <button className="arena-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.arena.escolher_outra')}</button>
-          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.escolher_oponente')} />
-          <button className="arena-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.arena.sfx_toggle')}>
+        <div className="gang-victory-btns">
+          <button className="gang-btn-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.escolher_outra')}</button>
+          <button className="gang-btn-sair" onClick={() => { store.updateSheet({}); onNavigate('lobby') }}>{t('games.gangues.escolher_outra')}</button>
+          <BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.gangues.escolher_oponente')} />
+          <button className="gang-sfx-toggle" onClick={() => { sfx.toggle(); setSomAtivo(sfx.enabled) }} title={t('games.gangues.sfx_toggle')}>
             {sfx.enabled ? '🔊' : '🔇'}
           </button>
         </div>
