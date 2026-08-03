@@ -19,7 +19,6 @@ export default function ArenaRoute() {
   const { setReaderMode } = useReader()
   const store = useArenaStore()
   const [fase, setFase] = useState('lobby')
-  const [createVisited, setCreateVisited] = useState(false)
   const [creationParty, setCreationParty] = useState([])
 
   useEffect(() => {
@@ -38,9 +37,8 @@ export default function ArenaRoute() {
       {fase === 'create' && (
         <ArenaCreate
           onNavigate={setFase}
-          skipIntro={createVisited}
-          onFirstVisit={() => setCreateVisited(true)}
-          creationNumber={creationParty.length + (store.roster.length === 1 ? 2 : 1)}
+          skipIntro
+          creationNumber={creationParty.length ? creationParty.length + 1 : store.roster.length === 1 ? 2 : 1}
           blockedPaths={(creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []).map(member => member.combat_path)}
           onCreated={(member) => {
             const base = creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []

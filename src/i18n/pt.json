@@ -1528,13 +1528,13 @@
 
       "party": {
         "title": "MONTE SUA EQUIPE", "subtitle": "Dois personagens, caminhos diferentes e uma estratégia em comum.",
-        "roster": "SEU ELENCO", "onboarding": "Crie os dois primeiros personagens. O segundo precisa seguir um caminho diferente do primeiro.",
+        "roster": "SEU ELENCO", "onboarding": "Crie os dois primeiros personagens. O segundo precisa seguir um caminho diferente do primeiro.", "second_member": "Primeiro lutador confirmado. Agora escolha um caminho diferente para completar sua dupla.",
         "create_team": "CRIAR EQUIPE INICIAL", "create_member": "CRIAR PERSONAGEM {n}", "path_unavailable": "Caminho já usado nesta equipe",
         "selected": "NA EQUIPE", "select": "SELECIONAR", "progression": "A equipe começa com 2 vagas e poderá crescer até {max} conforme a progressão.",
         "single_title": "BATALHA EM EQUIPE", "single_desc": "Base atual: sua dupla enfrenta uma dupla inimiga.", "battle_ready": "ESCOLHER BATALHA ({n}/2)",
         "multiplayer_title": "MULTIPLAYER EM GRUPO", "multiplayer_locked": "Exclusivo para assinantes Elite e Primordial.", "multiplayer_subscriber": "Seu plano libera os formatos multiplayer.",
         "multiplayer_size": "{n} JOGADORES", "multiplayer_coming": "Formatos reservados; matchmaking em grupo entra na próxima etapa.", "see_plans": "VER PLANOS",
-        "enemy_team_desc": "Cada oponente entra acompanhado por outro lutador desbloqueado.", "enemy_duo": "DUPLA INIMIGA", "your_team": "SUA EQUIPE", "enemy_team": "EQUIPE INIMIGA"
+        "enemy_team_desc": "Cada oponente entra acompanhado por outro lutador desbloqueado.", "enemy_duo": "DUPLA INIMIGA", "your_team": "SUA EQUIPE", "enemy_team": "EQUIPE INIMIGA", "start": "INICIAR CRIAÇÃO", "continue": "CRIAR SEGUNDO LUTADOR", "enter_arena": "ENTRAR NA ARENA", "save_member": "CONFIRMAR LUTADOR"
       },
       "limite": {
         "titulo": "LIMITE DE FICHAS",

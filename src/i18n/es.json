@@ -1501,13 +1501,13 @@
       },
       "party": {
         "title": "FORMA TU EQUIPO", "subtitle": "Dos personajes, caminos diferentes y una estrategia común.",
-        "roster": "TU PLANTILLA", "onboarding": "Crea tus dos primeros personajes. El segundo debe seguir un camino diferente.",
+        "roster": "TU PLANTILLA", "onboarding": "Crea tus dos primeros personajes. El segundo debe seguir un camino diferente.", "second_member": "Primer luchador confirmado. Ahora elige un camino diferente para completar tu dúo.",
         "create_team": "CREAR EQUIPO INICIAL", "create_member": "CREAR PERSONAJE {n}", "path_unavailable": "Camino ya usado por este equipo",
         "selected": "EN EL EQUIPO", "select": "SELECCIONAR", "progression": "El equipo comienza con 2 plazas y podrá crecer hasta {max} con la progresión.",
         "single_title": "BATALLA EN EQUIPO", "single_desc": "Base actual: tu dúo enfrenta a un dúo enemigo.", "battle_ready": "ELEGIR BATALLA ({n}/2)",
         "multiplayer_title": "MULTIJUGADOR EN GRUPO", "multiplayer_locked": "Exclusivo para suscriptores Élite y Primordial.", "multiplayer_subscriber": "Tu plan desbloquea los formatos multijugador.",
         "multiplayer_size": "{n} JUGADORES", "multiplayer_coming": "Formatos reservados; el matchmaking grupal llega en la próxima etapa.", "see_plans": "VER PLANES",
-        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO"
+        "enemy_team_desc": "Cada oponente entra acompañado por otro luchador desbloqueado.", "enemy_duo": "DÚO ENEMIGO", "your_team": "TU EQUIPO", "enemy_team": "EQUIPO ENEMIGO", "start": "INICIAR CREACIÓN", "continue": "CREAR SEGUNDO LUCHADOR", "enter_arena": "ENTRAR EN LA ARENA", "save_member": "CONFIRMAR LUCHADOR"
       },
       "limite": {
         "titulo": "LÍMITE DE FICHAS",

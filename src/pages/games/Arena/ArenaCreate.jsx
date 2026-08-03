@@ -89,7 +89,7 @@ export default function ArenaCreate({ onNavigate, skipIntro = false, onFirstVisi
         </div>
 
         {error && <p className="arena-err">{error}</p>}
-        <div className="arc-nav"><BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} /><button className="arc-btn-salvar" onClick={save}>{t('games.arena.btn_salvar_lutar')}</button></div>
+        <div className="arc-nav"><BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.arena.btn_voltar')} /><button className="arc-btn-salvar" onClick={save}>{t('games.arena.party.save_member')}</button></div>
       </div>
 
       <AnimatePresence>

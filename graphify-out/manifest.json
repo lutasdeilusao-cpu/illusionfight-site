@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785771295.418983,
-    "ast_hash": "1c69d598968dcd0648b7e7cdf9b4a2b9",
+    "mtime": 1785772060.0929153,
+    "ast_hash": "fc1ef30cbbbaadcf4b271787e5ab5dfc",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -665,13 +665,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785771499.2542202,
-    "ast_hash": "b5d9cd201f0938a242fa6d7b2e5ad30e",
+    "mtime": 1785772268.7607605,
+    "ast_hash": "db0e2d009b9ff4cc1d3154cf27e734e9",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785771499.2552185,
-    "ast_hash": "44ebd5dcae7a7a120a9fe929b7391a19",
+    "mtime": 1785772268.7617617,
+    "ast_hash": "7a17dedfb0d6a7de789cf3212f6fa71b",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -695,8 +695,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785771499.2519932,
-    "ast_hash": "da18592333c8a8c8a15c3b7f787835a7",
+    "mtime": 1785772268.7584188,
+    "ast_hash": "f9255562cbf91dde427d82fe38400b9e",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -1035,18 +1035,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaCreate.jsx": {
-    "mtime": 1785771367.8327684,
-    "ast_hash": "ac429f3c4c4a2a7ccffc938e3edfbcd1",
+    "mtime": 1785772268.7564256,
+    "ast_hash": "7c6351fbd652aecb2d5e3be142be0417",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaLobby.jsx": {
-    "mtime": 1785771578.9950402,
-    "ast_hash": "139ab2d96ae49f8acfd7a260ccb76048",
+    "mtime": 1785772130.8303945,
+    "ast_hash": "e9fa1b926dfb1503f9dc50b4e16a4e8f",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaRoute.jsx": {
-    "mtime": 1785771567.5461524,
-    "ast_hash": "f7b71bc465ee516e46c3f55003bb9d94",
+    "mtime": 1785772283.0558531,
+    "ast_hash": "17d86ad80519ac986f79e61f34e93465",
     "semantic_hash": ""
   },
   "src/pages/games/Arena/ArenaVictory.jsx": {
@@ -2900,8 +2900,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785771295.4199834,
-    "ast_hash": "7c3200a671f3c3dc22bb9ceba1e757b6",
+    "mtime": 1785772060.0952594,
+    "ast_hash": "ed1c646165e53e78132e7f2547e4e509",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

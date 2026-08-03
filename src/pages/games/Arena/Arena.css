@@ -160,7 +160,20 @@
   display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 .arena-new-sheet:hover { background: rgba(245,166,35,0.04); border-color: rgba(245,166,35,0.5); }
+.arena-new-sheet:disabled { opacity: 0.28; cursor: not-allowed; }
+.arena-new-sheet--primary { margin-top: 22px; border-color: #00B4D8; color: #00B4D8; box-shadow: 0 0 24px rgba(0,180,216,0.08); }
+.arena-new-sheet--primary:not(:disabled):hover { background: rgba(0,180,216,0.08); box-shadow: 0 0 32px rgba(0,180,216,0.18); }
 .arena-new-sheet-icon { font-size: 18px; line-height: 1; }
+
+.arena-onboarding-panel { width: 100%; max-width: 560px; padding: 32px; border: 1px solid rgba(0,180,216,0.2); background: linear-gradient(135deg, rgba(0,180,216,0.06), rgba(255,255,255,0.01)); box-shadow: 0 0 50px rgba(0,180,216,0.05); text-align: center; }
+.arena-onboarding-step { color: #00B4D8; font-size: 10px; letter-spacing: 5px; }
+.arena-onboarding-panel h2 { margin: 14px 0 10px; color: #F5A623; font: 800 26px 'Rajdhani', sans-serif; letter-spacing: 5px; text-transform: uppercase; }
+.arena-onboarding-panel p { margin: 0 auto; max-width: 420px; color: #718089; font-size: 11px; line-height: 1.8; letter-spacing: 1px; }
+.arena-sheet-card-v--selected { border-color: rgba(0,180,216,0.45); background: rgba(0,180,216,0.07); box-shadow: -6px 0 32px rgba(0,180,216,0.16); }
+.arena-sheet-card-v:disabled { opacity: 0.28; cursor: not-allowed; transform: none; }
+.arena-sheet-card-v--enemy { width: 100%; color: inherit; text-align: left; }
+.arena-party-status { color: #00B4D8; font: 800 24px 'Rajdhani', sans-serif; }
+.arena-party-counter { color: #66747b; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
 
 .arena-sheet-card-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .arena-sheet-delete-btn {
