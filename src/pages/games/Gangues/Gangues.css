@@ -394,6 +394,15 @@
 .gc-attr-list { display: flex; flex-direction: column; gap: 6px; }
 .gc-attr-card { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid rgba(245,166,35,0.3); padding: 14px 16px; transition: all 0.2s; backdrop-filter: blur(10px); }
 .gc-attr-card:hover { background: rgba(255,255,255,0.04); border-left-color: #F5A623; }
+.gc-attr-card--tip-active {
+  position: relative; z-index: 2; border-color: rgba(0,180,216,0.5); border-left-color: #00B4D8;
+  background: rgba(0, 180, 216, 0.06);
+  animation: gc-attr-tip-pulse 1.4s ease-in-out infinite;
+}
+@keyframes gc-attr-tip-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(0,180,216,0.3), 0 0 14px rgba(0,180,216,0.2); }
+  50% { box-shadow: 0 0 0 1px rgba(0,180,216,0.55), 0 0 26px rgba(0,180,216,0.45); }
+}
 .gc-attr-avatar { font-size: 22px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(245,166,35,0.05); border: 1px solid rgba(245,166,35,0.1); border-radius: 50%; flex-shrink: 0; }
 .gc-attr-info { flex: 1; }
 .gc-attr-name { font-size: 13px; color: #ccc; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1px; }
@@ -1937,3 +1946,38 @@
 .neoguide-next:hover { background: rgba(0, 180, 216, 0.22); }
 @keyframes neoguide-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(0,180,216,0); } 50% { box-shadow: 0 0 12px rgba(0,180,216,0.4); } }
 @media (max-width: 420px) { .neoguide-portrait-frame { width: 82vw; } .neoguide-text { font-size: 14px; } }
+
+/* ===== NEOGUIDE — dica lateral (tutorial guiado) ===== */
+.neoguide-tip {
+  position: fixed; z-index: 500; bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex; align-items: flex-end; gap: 6px; max-width: 94vw;
+}
+.neoguide-tip--right { right: 6px; flex-direction: row-reverse; }
+.neoguide-tip--left { left: 6px; flex-direction: row; }
+.neoguide-tip-portrait {
+  width: 78px; height: auto; max-height: 26vh; object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(0, 180, 216, 0.45)) drop-shadow(0 10px 16px rgba(0,0,0,0.5));
+  pointer-events: none; user-select: none; flex-shrink: 0;
+}
+.neoguide-tip-bubble {
+  position: relative; max-width: 220px; padding: 12px 14px 42px;
+  background: linear-gradient(180deg, rgba(6, 14, 18, 0.95), rgba(3, 8, 10, 0.98));
+  border: 1px solid rgba(0, 180, 216, 0.4); border-radius: 10px;
+  box-shadow: 0 0 24px rgba(0, 180, 216, 0.15);
+}
+.neoguide-tip-skip {
+  position: absolute; top: 6px; right: 8px; padding: 0;
+  background: none; border: none; color: rgba(255,255,255,0.35);
+  font: 700 8px 'Courier New', monospace; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer;
+}
+.neoguide-tip-skip:hover { color: #fff; }
+.neoguide-tip-text { margin: 4px 0 0; color: #e4edf0; font-size: 12.5px; line-height: 1.5; }
+.neoguide-tip-next {
+  position: absolute; bottom: 8px; right: 10px; padding: 6px 12px;
+  border: 1px solid #00B4D8; border-radius: 4px; background: rgba(0, 180, 216, 0.14);
+  color: #00B4D8; font: 800 9px 'Rajdhani', sans-serif; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer;
+}
+.neoguide-tip-next:hover { background: rgba(0, 180, 216, 0.24); }
+@media (max-width: 420px) { .neoguide-tip-portrait { width: 64px; } .neoguide-tip-bubble { max-width: 180px; font-size: 12px; } }

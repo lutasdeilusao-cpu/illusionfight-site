@@ -1177,6 +1177,14 @@
       "bonus_defesa": "defense bonus",
       "bonus_falhou": "didn't trigger",
       "critico": "CRITICAL",
+      "tutorial_attrs": [
+        "You have 5 points to spend across 4 attributes. Let me walk you through each one.",
+        "ATTACK increases the damage you deal with every hit. More points here, harder your punch.",
+        "ABILITY decides who acts first each round and also gives your attack an extra bonus.",
+        "RESISTANCE sets your max PV and PM. Without at least 1 point here, you go down on the first hit.",
+        "DEFENSE reduces the damage you take when attacked.",
+        "Each path — Attacker, Defender or Mystic — also has its own bonus. Now it's your turn: build your sheet!"
+      ],
       "nova_ficha": "NEW SHEET",
       "inserir_ficha": "INSERT TOKEN",
       "escolher_outra": "CHOOSE ANOTHER SHEET",

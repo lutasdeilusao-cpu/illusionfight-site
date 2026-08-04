@@ -1177,6 +1177,14 @@
       "bonus_defesa": "bono de defensa",
       "bonus_falhou": "no se activó",
       "critico": "CRÍTICO",
+      "tutorial_attrs": [
+        "Tienes 5 puntos para repartir entre 4 atributos. Déjame explicarte cada uno rapidito.",
+        "ATAQUE aumenta el daño que causas en cada golpe. Más puntos aquí, más fuerte tu golpe.",
+        "HABILIDAD decide quién actúa primero en la ronda y además da un bono extra a tu ataque.",
+        "RESISTENCIA define tu PV y PM máximos. Sin al menos 1 punto aquí, caes en el primer golpe.",
+        "DEFENSA reduce el daño que recibes al ser atacada.",
+        "Cada camino — Atacante, Defensor o Místico — también tiene su propio bono. ¡Ahora te toca a ti: arma tu ficha!"
+      ],
       "nova_ficha": "NUEVA FICHA",
       "inserir_ficha": "INSERTAR FICHA",
       "escolher_outra": "ELEGIR OTRA FICHA",

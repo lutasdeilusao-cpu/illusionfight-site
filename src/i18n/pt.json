@@ -1177,6 +1177,14 @@
       "bonus_defesa": "bônus de defesa",
       "bonus_falhou": "não ativou",
       "critico": "CRÍTICO",
+      "tutorial_attrs": [
+        "Você tem 5 pontos pra distribuir entre 4 atributos. Deixa eu te explicar cada um rapidinho.",
+        "ATAQUE aumenta o dano que você causa em cada golpe. Quanto mais pontos aqui, mais forte seu soco.",
+        "HABILIDADE decide quem age primeiro na rodada e ainda dá um bônus extra no seu ataque.",
+        "RESISTÊNCIA define seu PV e PM máximos. Sem pelo menos 1 ponto aqui, você cai no primeiro golpe.",
+        "DEFESA reduz o dano que você recebe quando é atacada.",
+        "Cada caminho — Atacante, Defensor ou Místico — também tem um bônus próprio. Agora é sua vez: monte sua ficha!"
+      ],
       "nova_ficha": "NOVA FICHA",
       "inserir_ficha": "INSERIR FICHA",
       "escolher_outra": "ESCOLHER OUTRA FICHA",

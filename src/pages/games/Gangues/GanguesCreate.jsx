@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_ATTRIBUTE_MAX, GANGUES_CREATION_POINTS, GANGUES_PATHS, getGanguesResources } from './data/ganguesLoadout.js'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
+import NeoGuideTip from './components/NeoGuideTip'
 import { sfx } from '../../../lib/sfx'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 const ATTRS = ['A', 'H', 'R', 'D']
+const TUTORIAL_KEY = 'ldi-gangues-tutorial-attrs-seen'
+const TUTORIAL_ATTR_BY_STEP = [null, 'A', 'H', 'R', 'D', null]
+const TUTORIAL_SIDE_BY_STEP = ['right', 'left', 'right', 'left', 'right', 'right']
 
 export default function GanguesCreate({ onNavigate, blockedPaths = [], creationNumber = 1, onCreated }) {
   const { t } = useLanguage()
@@ -16,10 +21,31 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
   const sheet = store.sheet
   const [step, setStep] = useState('path')
   const [error, setError] = useState('')
+  const [tutorialActive, setTutorialActive] = useState(false)
+  const [tutorialStep, setTutorialStep] = useState(0)
   const spent = ATTRS.reduce((sum, attr) => sum + (sheet.attributes?.[attr] || 0), 0)
   const remaining = GANGUES_CREATION_POINTS - spent
 
   useEffect(() => { setStep('path'); setError('') }, [creationNumber])
+
+  useEffect(() => {
+    if (step !== 'attributes') return
+    try {
+      if (!localStorage.getItem(TUTORIAL_KEY)) { setTutorialActive(true); setTutorialStep(0) }
+    } catch { setTutorialActive(true); setTutorialStep(0) }
+  }, [step])
+
+  const dismissTutorial = () => {
+    try { localStorage.setItem(TUTORIAL_KEY, '1') } catch {}
+    setTutorialActive(false)
+  }
+
+  const advanceTutorial = () => {
+    if (tutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1) { dismissTutorial(); return }
+    setTutorialStep(value => value + 1)
+  }
+
+  const highlightedAttr = tutorialActive ? TUTORIAL_ATTR_BY_STEP[tutorialStep] : null
 
   const selectPath = (id) => {
     if (blockedPaths.includes(id)) return
@@ -54,12 +80,25 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
 
   if (step === 'attributes') {
     const resources = getGanguesResources(sheet.combat_path, sheet.attributes?.R)
+    const tutorialLines = t('games.gangues.tutorial_attrs')
     return <div className="gang-create">
+      <AnimatePresence mode="wait">
+        {tutorialActive && (
+          <NeoGuideTip
+            key={tutorialStep}
+            text={Array.isArray(tutorialLines) ? tutorialLines[tutorialStep] : ''}
+            side={TUTORIAL_SIDE_BY_STEP[tutorialStep]}
+            isLast={tutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1}
+            onNext={advanceTutorial}
+            onSkip={dismissTutorial}
+          />
+        )}
+      </AnimatePresence>
       <div className="gc-header"><div className="gc-header-center"><p className="gang-lobby-titulo gang-lobby-titulo--sm">{t('games.gangues.party.distribute_title')}</p><p className="gc-header-name">{sheet.sheet_name}</p></div></div>
       <div className="gc-step">
         <div className="gc-points-console"><span>{t(`games.gangues.loadout.paths.${sheet.combat_path}.name`)}</span><strong>{remaining}</strong><small>{t('games.gangues.party.points_remaining')}</small></div>
         <div className="gc-attr-list">
-          {ATTRS.map(attr => <div key={attr} className="gc-attr-card"><div className="gc-attr-avatar">{attr}</div><div className="gc-attr-info"><div className="gc-attr-name">{t(`games.gangues.attr_labels.${attr}`)}</div><div className="gc-attr-desc">{t(`games.gangues.attr_desc.${attr}`)}</div></div><div className="gc-attr-controls"><button className="gc-attr-btn" disabled={(sheet.attributes?.[attr] || 0) <= 0} onClick={() => changeAttribute(attr, -1)}>−</button><span className="gc-attr-val">{sheet.attributes?.[attr] || 0}</span><button className="gc-attr-btn" disabled={remaining <= 0 || (sheet.attributes?.[attr] || 0) >= GANGUES_ATTRIBUTE_MAX} onClick={() => changeAttribute(attr, 1)}>+</button></div></div>)}
+          {ATTRS.map(attr => <div key={attr} className={`gc-attr-card ${highlightedAttr === attr ? 'gc-attr-card--tip-active' : ''}`}><div className="gc-attr-avatar">{attr}</div><div className="gc-attr-info"><div className="gc-attr-name">{t(`games.gangues.attr_labels.${attr}`)}</div><div className="gc-attr-desc">{t(`games.gangues.attr_desc.${attr}`)}</div></div><div className="gc-attr-controls"><button className="gc-attr-btn" disabled={(sheet.attributes?.[attr] || 0) <= 0} onClick={() => changeAttribute(attr, -1)}>−</button><span className="gc-attr-val">{sheet.attributes?.[attr] || 0}</span><button className="gc-attr-btn" disabled={remaining <= 0 || (sheet.attributes?.[attr] || 0) >= GANGUES_ATTRIBUTE_MAX} onClick={() => changeAttribute(attr, 1)}>+</button></div></div>)}
         </div>
         <div className="gc-resource-preview"><span>PV <b>{resources.pvMax}</b></span><span>PM <b>{resources.pmMax}</b></span></div>
         {error && <p className="gang-err">{error}</p>}

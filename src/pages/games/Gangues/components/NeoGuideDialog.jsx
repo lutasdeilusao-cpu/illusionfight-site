@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
-import neoGuidePortrait from '../assets/NeoGuideDialogAlpha.png'
+import neoGuidePortrait from '../assets/neoguide-frontal.png'
 
 const TYPE_SPEED = 22
 

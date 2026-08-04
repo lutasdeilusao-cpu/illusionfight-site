@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785871327.53574,
-    "ast_hash": "80c24022d2b818cfe0964e0ba57fbe51",
+    "mtime": 1785872038.4603722,
+    "ast_hash": "c53a4ac41c2e2fc868eb4cdeaa5030f2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785870649.073543,
-    "ast_hash": "3643419ecbccf4c4d88683473d0f9a99",
+    "mtime": 1785871867.6786177,
+    "ast_hash": "16ae3b0153350bc5c5858658240f5e54",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785870658.0589797,
-    "ast_hash": "06bdbfd3e5c786a3d4528a60b3507ca9",
+    "mtime": 1785871879.8742814,
+    "ast_hash": "6e6ee1ced305f7b0e5db70e862894a34",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785870641.9347534,
-    "ast_hash": "5852007b2a2e690072bbddbcbb6183b6",
+    "mtime": 1785871852.0041006,
+    "ast_hash": "0225e51882ac7aeae2cef0a913c5e5ca",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785871334.5457916,
-    "ast_hash": "29a610e7fa094416269e15a7c6aa152f",
+    "mtime": 1785872044.3912892,
+    "ast_hash": "3cc9147f8e8caaf29bcf594eddb2942a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3580,8 +3580,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
-    "mtime": 1785868227.7467,
-    "ast_hash": "6bee3c94f579ca83e66792b24a1abd08",
+    "mtime": 1785871833.0150094,
+    "ast_hash": "94958e9b2e4700709fe2907a083e6cd3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesLobby.jsx": {
@@ -3650,8 +3650,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/NeoGuideDialog.jsx": {
-    "mtime": 1785871212.24668,
-    "ast_hash": "a527d5454339fe696f8a3f40277675e1",
+    "mtime": 1785871746.9928784,
+    "ast_hash": "f7080975e29c517a4e3e7990b413baf7",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/NeoGuideTip.jsx": {
+    "mtime": 1785871804.4341452,
+    "ast_hash": "74b264cb04dd5f3cc5ec3c1a3d7234dd",
     "semantic_hash": ""
   }
 }
