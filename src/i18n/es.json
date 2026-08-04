@@ -1224,9 +1224,9 @@
         "path_intro": "A es Ataque, H es Habilidad, R es Resistencia y D es Defensa.",
         "resource_rate": "Cada R otorga {pvPerR} PV y {pmPerR} PM.",
         "paths": {
-          "atacante": { "name": "Atacante", "desc": "Presión ofensiva. A 3 · H 1 · R 1 · D 0" },
-          "defensor": { "name": "Defensor", "desc": "Resistencia y protección. A 1 · H 0 · R 2 · D 2" },
-          "mistico": { "name": "Místico", "desc": "Camino equilibrado hacia las artes místicas. A 2 · H 1 · R 1 · D 1" }
+          "atacante": { "name": "Atacante", "desc": "Presión ofensiva. A 3 · H 1 · R 1 · D 0", "bonus": "⚡ Bono: +1 en ataque, por suerte (~50%)" },
+          "defensor": { "name": "Defensor", "desc": "Resistencia y protección. A 1 · H 0 · R 2 · D 2", "bonus": "🛡️ Bono: +1 en defensa, por suerte (~50%)" },
+          "mistico": { "name": "Místico", "desc": "Camino equilibrado hacia las artes místicas. A 2 · H 1 · R 1 · D 1", "bonus": "✨ Bono: +1 en ataque garantizado (magia) · +1 en defensa contra otro Místico" }
         },
         "style_title": "ESTILO DE COMBATE",
         "techniques_title": "TÉCNICAS — ELIGE 2",

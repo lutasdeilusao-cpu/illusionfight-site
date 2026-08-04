@@ -1224,9 +1224,9 @@
         "path_intro": "A is Attack, H is Skill, R is Resistance and D is Defense.",
         "resource_rate": "Each R grants {pvPerR} HP and {pmPerR} MP.",
         "paths": {
-          "atacante": { "name": "Attacker", "desc": "Offensive pressure. A 3 · H 1 · R 1 · D 0" },
-          "defensor": { "name": "Defender", "desc": "Resistance and protection. A 1 · H 0 · R 2 · D 2" },
-          "mistico": { "name": "Mystic", "desc": "A balanced path into the mystic arts. A 2 · H 1 · R 1 · D 1" }
+          "atacante": { "name": "Attacker", "desc": "Offensive pressure. A 3 · H 1 · R 1 · D 0", "bonus": "⚡ Bonus: +1 on attack, by luck (~50%)" },
+          "defensor": { "name": "Defender", "desc": "Resistance and protection. A 1 · H 0 · R 2 · D 2", "bonus": "🛡️ Bonus: +1 on defense, by luck (~50%)" },
+          "mistico": { "name": "Mystic", "desc": "A balanced path into the mystic arts. A 2 · H 1 · R 1 · D 1", "bonus": "✨ Bonus: guaranteed +1 on attack (magic) · +1 on defense vs another Mystic" }
         },
         "style_title": "COMBAT STYLE",
         "techniques_title": "TECHNIQUES — CHOOSE 2",
