@@ -41,11 +41,13 @@ export default function NeoGuideDialog({ lines = [], onFinish, onSkip }) {
     <motion.div className="neoguide-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={advance}>
       <button className="neoguide-skip" onClick={skip}>{t('games.gangues.neoguide.pular')} ✕</button>
 
-      <motion.img
-        src={neoGuidePortrait} alt="NeoGuide" className="neoguide-portrait"
-        initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.175, 0.885, 0.32, 1.275] }}
-      />
+      <div className="neoguide-portrait-frame">
+        <motion.img
+          src={neoGuidePortrait} alt="NeoGuide" className="neoguide-portrait"
+          initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.175, 0.885, 0.32, 1.275] }}
+        />
+      </div>
 
       <motion.div
         className="neoguide-box" onClick={event => event.stopPropagation()}

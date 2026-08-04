@@ -1898,10 +1898,13 @@
   cursor: pointer;
 }
 .neoguide-skip:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
-.neoguide-portrait {
-  max-width: min(70vw, 340px); max-height: 58vh; width: auto; height: auto;
-  object-fit: contain; margin-bottom: -8px;
+.neoguide-portrait-frame {
+  width: min(76vw, 360px); aspect-ratio: 337 / 430; overflow: hidden;
+  margin: 0 auto -8px; position: relative;
   filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.35)) drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+}
+.neoguide-portrait {
+  position: absolute; top: 0; left: 0; width: 100%; height: auto;
   pointer-events: none; user-select: none;
 }
 .neoguide-box {
@@ -1933,4 +1936,4 @@
 }
 .neoguide-next:hover { background: rgba(0, 180, 216, 0.22); }
 @keyframes neoguide-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(0,180,216,0); } 50% { box-shadow: 0 0 12px rgba(0,180,216,0.4); } }
-@media (max-width: 420px) { .neoguide-portrait { max-height: 50vh; } .neoguide-text { font-size: 14px; } }
+@media (max-width: 420px) { .neoguide-portrait-frame { width: 82vw; } .neoguide-text { font-size: 14px; } }

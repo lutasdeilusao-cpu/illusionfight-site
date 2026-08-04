@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785870930.5637376,
-    "ast_hash": "e4f31092b48c7b2f8b23a27f4180383c",
+    "mtime": 1785871327.53574,
+    "ast_hash": "80c24022d2b818cfe0964e0ba57fbe51",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785870939.9281757,
-    "ast_hash": "4e5f6a3307498d7e296a1e30a5c8dac5",
+    "mtime": 1785871334.5457916,
+    "ast_hash": "29a610e7fa094416269e15a7c6aa152f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3650,8 +3650,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/NeoGuideDialog.jsx": {
-    "mtime": 1785870627.896702,
-    "ast_hash": "677ed2dccf24af04e0521b060694f75e",
+    "mtime": 1785871212.24668,
+    "ast_hash": "a527d5454339fe696f8a3f40277675e1",
     "semantic_hash": ""
   }
 }

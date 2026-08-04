@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-08-04)
 
 ## Corpus Check
-- 647 files · ~743,346 words
+- 647 files · ~743,351 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b82deca1`
+- Built from commit: `a95fa152`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -124,7 +124,7 @@
 - Community 107
 - pixi.js
 - Community 109
-- PowerCard.jsx
+- Mundo.jsx
 - combat.js
 - classTree.js
 - Community 113
@@ -339,8 +339,8 @@ Cohesion: 0.13
 Nodes (18): ATTR_LABELS, CharacterSheetView(), WEAPON_NAMES, CombatView(), FRASES_INIMIGO, MODE_ICONS, MODE_LABELS, DiceRollDisplay() (+10 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.18
-Nodes (15): ConfirmEndTurn(), DanoPopup(), TurnoIndicator(), sortearIAs(), podeMover(), temStatus(), Batalha(), calcularCaminho() (+7 more)
+Cohesion: 0.15
+Nodes (18): BANNER_URLS, BANNERS, HeroSlideshow(), SLIDE_KEYS, bfsPath(), gerarLabirinto(), MAZE_CONFIGS, PuzzleLabirinto() (+10 more)
 
 ### Community 24 - "Community 24"
 Cohesion: 0.14
@@ -455,8 +455,8 @@ Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
 
 ### Community 53 - "persistente.js"
-Cohesion: 0.15
-Nodes (18): BANNER_URLS, BANNERS, HeroSlideshow(), SLIDE_KEYS, bfsPath(), gerarLabirinto(), MAZE_CONFIGS, PuzzleLabirinto() (+10 more)
+Cohesion: 0.18
+Nodes (15): ConfirmEndTurn(), DanoPopup(), TurnoIndicator(), sortearIAs(), podeMover(), temStatus(), Batalha(), calcularCaminho() (+7 more)
 
 ### Community 54 - "Footer.jsx"
 Cohesion: 0.47
@@ -654,7 +654,7 @@ Nodes (12): BEAT 1.10 — The Pink-Haired Variable, BEAT 1.11 — The Aftermath 
 Cohesion: 0.50
 Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
 
-### Community 110 - "PowerCard.jsx"
+### Community 110 - "Mundo.jsx"
 Cohesion: 0.20
 Nodes (12): CharacterCard(), DATA, GROUP_LABELS, GROUP_ORDER, usePersonagem(), usePersonagens(), usePersonagensAgrupados(), dataMap (+4 more)
 
@@ -954,7 +954,7 @@ Nodes (8): carregarFichas(), deletarFicha(), escreverNoStorage(), gerarId(), ler
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `GanguesCombat.jsx`, `MazeRafael.jsx`, `Community 2`, `Community 4`, `Community 6`, `PowerCard.jsx`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `endBattle`, `Community 17`, `Community 19`, `Community 20`, `ResultCard.jsx`, `Community 23`, `ResultScreen.jsx`, `initBattle`, `Community 33`, `BatalhaSimulacao.jsx`, `ResultScreen.jsx`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `TopTrumpsSP.jsx`, `PuzzleStealthGrid.jsx`, `persistente.js`, `Footer.jsx`, `Community 58`, `ResultScreen.jsx`, `Community 62`, `TypewriterPhrase.jsx`, `Alimentar.jsx`, `criaturas.js`, `Quiz.jsx`, `Community 76`, `CityOverworld.jsx`, `endBattle`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `LDINotification.jsx`, `Quiz.jsx`, `MiniGames.jsx`, `PowerCard.jsx`, `classTree.js`, `ArenaTaticsRoute.jsx`, `Investigacao.jsx`?**
+- **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `GanguesCombat.jsx`, `MazeRafael.jsx`, `Community 2`, `Community 4`, `Community 6`, `PowerCard.jsx`, `Community 8`, `Community 9`, `Passeio.jsx`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `endBattle`, `Community 17`, `Community 19`, `Community 20`, `Community 23`, `ResultCard.jsx`, `ResultScreen.jsx`, `initBattle`, `Community 33`, `BatalhaSimulacao.jsx`, `ResultScreen.jsx`, `useMultiplayerTurnMachine.js`, `PuzzleStealthGrid.jsx`, `TopTrumpsSP.jsx`, `PuzzleStealthGrid.jsx`, `persistente.js`, `Footer.jsx`, `Community 58`, `ResultScreen.jsx`, `Community 62`, `TypewriterPhrase.jsx`, `Alimentar.jsx`, `criaturas.js`, `Quiz.jsx`, `Community 76`, `CityOverworld.jsx`, `endBattle`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `LDINotification.jsx`, `Quiz.jsx`, `MiniGames.jsx`, `Mundo.jsx`, `classTree.js`, `ArenaTaticsRoute.jsx`, `Investigacao.jsx`?**
   _High betweenness centrality (0.166) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 7` to `GanguesCombat.jsx`, `MazeRafael.jsx`, `Community 4`, `BatalhaSimulacao.jsx`, `Community 8`, `endBattle`, `sfx.js`, `Community 19`, `Community 58`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
