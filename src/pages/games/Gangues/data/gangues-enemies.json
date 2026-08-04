@@ -4,7 +4,7 @@
     "name": "Bot de Treinamento",
     "rank": 999999,
     "stats": { "A": 1, "H": 1, "R": 1, "D": 1 },
-    "pv_max": 10, "pm_max": 5,
+    "pv_max": 5, "pm_max": 5,
     "weapon": "punhos", "weapon_damage": 1,
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "básico",
