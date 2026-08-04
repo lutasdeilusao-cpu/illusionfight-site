@@ -7,15 +7,15 @@ import './DramaticDice.css'
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
  * com efeito cinematográfico (começa rápido, desacelera, revela o número).
  *
- * @param {{ finalValue: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string }} props
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string }} props
  */
-export default function DramaticDice({ finalValue, side, onComplete, powerName }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName }) {
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
   const lastSoundRef = useRef(0)
   const phaseRef = useRef('intro')
-  const isCritical = finalValue === 6
+  const isCritical = finalValue === sides
 
   // Mantém phaseRef sincronizado com o state phase (evita stale closure no rAF)
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
         // Sorteia um número diferente do atual (usa ref p/ não causar loop)
         let next
         do {
-          next = Math.floor(Math.random() * 6) + 1
+          next = Math.floor(Math.random() * sides) + 1
         } while (next === displayRef.current && steps.length > 3)
         displayRef.current = next
         setDisplay(next)
@@ -97,7 +97,7 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
 
     frameId = requestAnimationFrame(tick)
     return () => { stopped = true; cancelAnimationFrame(frameId) }
-  }, [phase, finalValue]) // ← sem display! ref evita o loop infinito
+  }, [phase, finalValue, sides]) // ← sem display! ref evita o loop infinito
 
   // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete
   useEffect(() => {
@@ -116,11 +116,11 @@ export default function DramaticDice({ finalValue, side, onComplete, powerName }
   const dramaticPhrases = {
     player: {
       rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÍTICO!', '6!', 'PERFEITO!'],
+      critical: ['CRÍTICO!', `${sides}!`, 'PERFEITO!'],
     },
     enemy: {
       rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÍTICO!', '6!', 'FATAL!'],
+      critical: ['CRÍTICO!', `${sides}!`, 'FATAL!'],
     }
   }
 

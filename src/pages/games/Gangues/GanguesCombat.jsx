@@ -124,12 +124,13 @@ export default function GanguesCombat({ onNavigate }) {
         next = [...next, {
           id: event.id, kind: 'attack_card', side: event.side,
           actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round, fa: event.result.fa, fd: event.result.fd,
-          dice: event.result.rolls.fa, dmg: event.result.damage, onoma: randomOnoma(),
+          dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd, dmg: event.result.damage, onoma: randomOnoma(),
+          attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
         }]
 
         const enemyCombatant = isPlayer ? target : actor
         if (enemyCombatant?.trash_talk) {
-          const category = event.result.rolls.fa === 6 ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
+          const category = event.result.rolls.fa === 3 ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
           if (Math.random() < 0.6) {
             const line = pickTrash(t, enemyCombatant, category)
             if (line) next = [...next, { id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), text: line }]
@@ -173,6 +174,7 @@ export default function GanguesCombat({ onNavigate }) {
           <DramaticDice
             key={`${machine.pending.actorKey}-${machine.round}`}
             finalValue={machine.pending.result.rolls.fa}
+            sides={3}
             side={machine.pending.side}
             onComplete={machine.completePending}
           />
@@ -267,7 +269,18 @@ export default function GanguesCombat({ onNavigate }) {
                   <div className="gang-attack-card-body">
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FA</span><span className="gang-attack-card-val">{entry.fa}</span></div>
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FD</span><span className="gang-attack-card-val">{entry.fd}</span></div>
-                    <div className="gang-attack-card-row"><span className="gang-attack-card-key">D6</span><span className={`gang-attack-card-val ${entry.dice === 6 ? 'gang-attack-card-val--max' : ''}`}>{entry.dice}</span></div>
+                    <div className="gang-attack-card-row"><span className="gang-attack-card-key">D3 ATQ</span><span className={`gang-attack-card-val ${entry.dice === 3 ? 'gang-attack-card-val--max' : ''}`}>{entry.dice}</span></div>
+                    <div className="gang-attack-card-row"><span className="gang-attack-card-key">D3 DEF</span><span className={`gang-attack-card-val ${entry.defenseDice === 3 ? 'gang-attack-card-val--max' : ''}`}>{entry.defenseDice}</span></div>
+                    {entry.attackerBonus?.path && (
+                      <div className={`gang-attack-card-bonus ${entry.attackerBonus.applied ? 'gang-attack-card-bonus--hit' : 'gang-attack-card-bonus--miss'}`}>
+                        {entry.attackerBonus.applied ? '⚡' : '✕'} {t(`games.gangues.loadout.paths.${entry.attackerBonus.path}.name`)} {t('games.gangues.bonus_ataque')} {entry.attackerBonus.applied ? `+${entry.attackerBonus.amount}` : t('games.gangues.bonus_falhou')}
+                      </div>
+                    )}
+                    {entry.defenderBonus?.path && (
+                      <div className={`gang-attack-card-bonus ${entry.defenderBonus.applied ? 'gang-attack-card-bonus--hit' : 'gang-attack-card-bonus--miss'}`}>
+                        {entry.defenderBonus.applied ? '🛡️' : '✕'} {t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} {t('games.gangues.bonus_defesa')} {entry.defenderBonus.applied ? `+${entry.defenderBonus.amount}` : t('games.gangues.bonus_falhou')}
+                      </div>
+                    )}
                     <div className="gang-attack-card-divider" />
                     <div className="gang-attack-card-damage">
                       <span className="gang-attack-card-damage-label">{t('games.gangues.card_dano')}</span>

@@ -2,8 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { buildGanguesModifiers, resolveGanguesAction, resolveGanguesInitiative } from '../engine/ganguesCombatResolver.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 
-const d6 = () => Math.floor(Math.random() * 6) + 1
 const d3 = () => Math.floor(Math.random() * 3) + 1
+const coin = () => Math.random() < 0.5
 
 function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
@@ -12,7 +12,7 @@ function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d6, initiativeRoll = d3, enemyDelay = 2200 }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, enemyDelay = 2200 }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
   const initiative = useMemo(() => initial.map(combatant => {
     const die = initiativeRoll()
@@ -47,10 +47,14 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
 
   const queueAction = useCallback((actor, target) => {
     if (!actor || !target || pending) return false
-    const result = resolveGanguesAction({ attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' }, rolls: { fa: attackRoll() }, activeModifiers: { attacker: buildGanguesModifiers(actor), defender: buildGanguesModifiers(target) } })
+    const result = resolveGanguesAction({
+      attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
+      rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
+      activeModifiers: { attacker: buildGanguesModifiers(actor), defender: buildGanguesModifiers(target) },
+    })
     setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
-  }, [attackRoll, pending])
+  }, [attackRoll, defenseRoll, bonusRoll, pending])
 
   const playerAction = useCallback((actorKey, targetKey) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
