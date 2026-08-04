@@ -693,6 +693,7 @@
 .gang-attack-card-bonus { display: flex; align-items: center; gap: 5px; padding: 4px 6px; margin-top: 2px; border-radius: 4px; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; }
 .gang-attack-card-bonus--hit { background: rgba(245, 166, 35, 0.12); color: #F5A623; }
 .gang-attack-card-bonus--miss { background: rgba(255, 255, 255, 0.03); color: #555; text-decoration: line-through; }
+.gang-attack-card-bonus--critical { background: rgba(220, 45, 55, 0.15); color: #ff6b6b; font-weight: 700; }
 .gang-attack-card-damage-val--zero { color: #333 !important; font-size: 16px; }
 
 /* --- Player Trash Talk Options --- */

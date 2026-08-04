@@ -31,6 +31,11 @@ function resolveDefenderBonus(defenderPath, attackerPath, bonusRoll) {
   return { path: null, applied: false, amount: 0 }
 }
 
+// O dado de ataque é um d3 (1-3). Tirar o valor máximo (3) é crítico: soma +2 na rolagem
+// do ataque (então um 3 crítico vale 5 no cálculo de FA). Só o ataque critica, não a defesa.
+export const ATTACK_DIE_SIDES = 3
+export const CRITICAL_BONUS = 2
+
 // Dano mínimo garantido de 1: mesmo com defesa agora rolando d3 também, um golpe nunca
 // é totalmente anulado — evita as rodadas de "dano zero" que arrastavam o combate.
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeModifiers = {} }) {
@@ -41,13 +46,16 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
   const defenderBonus = resolveDefenderBonus(defender.combat_path, attacker.combat_path, rolls.defenderBonus)
 
-  const fa = attack + agility + rolls.fa + (attackerBonus.applied ? attackerBonus.amount : 0)
+  const critical = rolls.fa === ATTACK_DIE_SIDES
+  const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
+
+  const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0)
   const fd = defense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0)
   const damage = Math.max(1, fa - fd)
 
   return {
     action, mode: 'attack', fa, fd, damage, counterDamage: 0,
-    rolls: { ...rolls }, attackerBonus, defenderBonus, pmCost: 0,
+    rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0, pmCost: 0,
     attackerStatuses: [...(attacker.statuses || [])],
     defenderStatuses: [...(defender.statuses || [])],
     modifiers: activeModifiers, effects: [], skipped: false,

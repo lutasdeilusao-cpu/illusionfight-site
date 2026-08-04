@@ -1165,6 +1165,7 @@
       "bonus_ataque": "attack bonus",
       "bonus_defesa": "defense bonus",
       "bonus_falhou": "didn't trigger",
+      "critico": "CRITICAL",
       "nova_ficha": "NEW SHEET",
       "inserir_ficha": "INSERT TOKEN",
       "escolher_outra": "CHOOSE ANOTHER SHEET",
