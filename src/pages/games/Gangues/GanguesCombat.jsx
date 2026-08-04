@@ -60,6 +60,7 @@ export default function GanguesCombat({ onNavigate }) {
   const { registrarEvento } = useEventos()
   const store = useGanguesStore()
   const [result, setResult] = useState(null)
+  const [showResultBtn, setShowResultBtn] = useState(false)
   const [selectedActor, setSelectedActor] = useState(null)
   const [selectedTarget, setSelectedTarget] = useState(null)
   const [log, setLog] = useState([])
@@ -152,6 +153,12 @@ export default function GanguesCombat({ onNavigate }) {
     machine.playerAction(selectedActor, selectedTarget)
   }
 
+  useEffect(() => {
+    if (!result) { setShowResultBtn(false); return }
+    const timer = setTimeout(() => setShowResultBtn(true), 1400)
+    return () => clearTimeout(timer)
+  }, [result])
+
   const openBattleReport = () => {
     store.setBattleReport({ outcome: result, entries: log, initiative: machine.initiative, combatants: machine.combatants, rounds: machine.round })
     onNavigate('victory')
@@ -172,11 +179,39 @@ export default function GanguesCombat({ onNavigate }) {
         )}
         {result && (
           <motion.div className="gang-match-result" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <div className="gang-match-result-bg" />
             <div className="gang-match-result-content">
-              <h1>{t(`games.gangues.${result === 'victory' ? 'vitoria' : 'derrota'}`)}</h1>
-              <button className="gang-match-result-btn" onClick={openBattleReport}>
-                {t('games.gangues.btn_proximo')}
-              </button>
+              <motion.div
+                className={`gang-match-result-icon gang-match-result-icon--${result === 'victory' ? 'win' : 'lose'}`}
+                initial={{ scale: 0, rotate: -15 }} animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 14, delay: 0.1 }}
+              >
+                {result === 'victory' ? '🏆' : '💀'}
+              </motion.div>
+              <motion.h1
+                className={`gang-match-result-title gang-match-result-title--${result === 'victory' ? 'win' : 'lose'}`}
+                initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.35 }}
+              >
+                {t(`games.gangues.${result === 'victory' ? 'vitoria' : 'derrota'}`)}
+              </motion.h1>
+              {result === 'victory' ? (
+                <motion.p className="gang-match-result-sub" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
+                  dangerouslySetInnerHTML={{ __html: t('games.gangues.vitoria_sub', { name: fighterName(t, store.match.enemy && { ...store.match.enemy, side: 'enemy' }) }) }} />
+              ) : (
+                <motion.p className="gang-match-result-sub" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}>
+                  {t('games.gangues.derrota_sub')}
+                </motion.p>
+              )}
+              {showResultBtn && (
+                <motion.button
+                  className="gang-match-result-btn" onClick={openBattleReport}
+                  initial={{ scale: 0, y: 20 }} animate={{ scale: 1, y: 0 }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 15 }}
+                  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                >
+                  {t('games.gangues.btn_proximo')}
+                </motion.button>
+              )}
             </div>
           </motion.div>
         )}
