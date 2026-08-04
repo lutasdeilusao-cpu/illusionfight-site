@@ -1881,3 +1881,56 @@
 .gang-report--defeat .gang-report-primary { border-color: #dc3b45; background: rgba(220,59,69,0.08); color: #dc5961; }
 .gang-report-secondary { border: 1px solid rgba(245,166,35,0.35); background: transparent; color: #F5A623; }
 @media (max-width: 520px) { .gang-report { padding-inline: 10px; } .gang-report-summary { grid-template-columns: repeat(2, 1fr); } .gang-report-summary div:nth-child(2) { border-right: 0; } .gang-report-roster { grid-template-columns: 1fr; } }
+
+/* ===== NEOGUIDE — diálogo vertical ===== */
+.neoguide-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  background: radial-gradient(ellipse at 50% 30%, rgba(0, 40, 55, 0.55) 0%, rgba(2, 4, 6, 0.94) 70%);
+  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+.neoguide-skip {
+  position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px;
+  padding: 6px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
+  background: rgba(0,0,0,0.4); color: rgba(255,255,255,0.6);
+  font: 700 9px 'Courier New', monospace; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer;
+}
+.neoguide-skip:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
+.neoguide-portrait {
+  max-width: min(70vw, 340px); max-height: 58vh; width: auto; height: auto;
+  object-fit: contain; margin-bottom: -8px;
+  filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.35)) drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+  pointer-events: none; user-select: none;
+}
+.neoguide-box {
+  position: relative; z-index: 1; width: 100%; max-width: 480px;
+  margin: 0 auto; padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(6, 14, 18, 0.88), rgba(3, 8, 10, 0.97));
+  border-top: 2px solid #00B4D8; box-shadow: 0 -8px 30px rgba(0, 180, 216, 0.12);
+  cursor: default;
+}
+.neoguide-name {
+  display: inline-block; padding: 3px 10px; margin-bottom: 8px; border-radius: 3px;
+  background: rgba(0, 180, 216, 0.15); border: 1px solid rgba(0, 180, 216, 0.4);
+  color: #00B4D8; font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 3px;
+}
+.neoguide-text {
+  min-height: 52px; margin: 0; color: #e4edf0; font-size: 15px; line-height: 1.55;
+  letter-spacing: 0.2px;
+}
+.neoguide-cursor { color: #00B4D8; margin-left: 1px; }
+.neoguide-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+.neoguide-dots { display: flex; gap: 5px; }
+.neoguide-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+.neoguide-dot--active { background: #00B4D8; box-shadow: 0 0 6px rgba(0,180,216,0.7); }
+.neoguide-next {
+  padding: 8px 18px; border: 1px solid #00B4D8; border-radius: 4px;
+  background: rgba(0, 180, 216, 0.12); color: #00B4D8;
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; animation: neoguide-pulse 1.6s ease-in-out infinite;
+}
+.neoguide-next:hover { background: rgba(0, 180, 216, 0.22); }
+@keyframes neoguide-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(0,180,216,0); } 50% { box-shadow: 0 0 12px rgba(0,180,216,0.4); } }
+@media (max-width: 420px) { .neoguide-portrait { max-height: 50vh; } .neoguide-text { font-size: 14px; } }

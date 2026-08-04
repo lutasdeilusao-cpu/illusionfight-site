@@ -1160,6 +1160,17 @@
       "escolha_lutador": "ELIGE A TU LUCHADOR",
       "escolha_alvo": "ELIGE UN OBJETIVO",
       "log_batalha_inicio": "La pelea ha comenzado.",
+      "neoguide": {
+        "pular": "SALTAR",
+        "proximo": "SIGUIENTE ▸",
+        "comecar": "EMPEZAR →",
+        "intro": [
+          "¡Hola! Soy NeoGuide.",
+          "Bienvenida a LDI Gangues, guerrera.",
+          "Aquí, las pandillas se enfrentan en las calles — cada golpe cuenta, cada aliado importa.",
+          "¿Armamos tu primera pandilla?"
+        ]
+      },
       "party_size_atual": "Pandilla actual: {n}/{max}",
       "party_size_bloqueado": "Gana más batallas para liberar otro lugar en la pandilla.",
       "bonus_ataque": "bono de ataque",

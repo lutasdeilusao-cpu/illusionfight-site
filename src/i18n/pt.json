@@ -1160,6 +1160,17 @@
       "escolha_lutador": "ESCOLHA SEU LUTADOR",
       "escolha_alvo": "ESCOLHA O ALVO",
       "log_batalha_inicio": "A briga começou.",
+      "neoguide": {
+        "pular": "PULAR",
+        "proximo": "PRÓXIMO ▸",
+        "comecar": "COMEÇAR →",
+        "intro": [
+          "Olá! Eu sou a NeoGuide.",
+          "Seja bem-vinda ao LDI Gangues, guerreira.",
+          "Aqui, gangues se enfrentam nas ruas — cada golpe conta, cada aliado importa.",
+          "Vamos montar sua primeira gangue?"
+        ]
+      },
       "party_size_atual": "Gangue atual: {n}/{max}",
       "party_size_bloqueado": "Vença mais batalhas para liberar mais um lugar na gangue.",
       "bonus_ataque": "bônus de ataque",

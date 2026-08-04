@@ -1160,6 +1160,17 @@
       "escolha_lutador": "CHOOSE YOUR FIGHTER",
       "escolha_alvo": "CHOOSE A TARGET",
       "log_batalha_inicio": "The fight has begun.",
+      "neoguide": {
+        "pular": "SKIP",
+        "proximo": "NEXT ▸",
+        "comecar": "START →",
+        "intro": [
+          "Hi! I'm NeoGuide.",
+          "Welcome to LDI Gangues, fighter.",
+          "Here, gangs clash in the streets — every hit counts, every ally matters.",
+          "Let's put together your first gang?"
+        ]
+      },
       "party_size_atual": "Current gang: {n}/{max}",
       "party_size_bloqueado": "Win more battles to unlock another gang slot.",
       "bonus_ataque": "attack bonus",
