@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1785872038.4603722,
-    "ast_hash": "c53a4ac41c2e2fc868eb4cdeaa5030f2",
+    "mtime": 1785936576.065266,
+    "ast_hash": "645cff8ce372af63c5f174f29c7887ba",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1785871867.6786177,
-    "ast_hash": "16ae3b0153350bc5c5858658240f5e54",
+    "mtime": 1785936390.9354906,
+    "ast_hash": "5f2e38d6df7b1386feb7e58c96fb0b4a",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1785871879.8742814,
-    "ast_hash": "6e6ee1ced305f7b0e5db70e862894a34",
+    "mtime": 1785936415.1022725,
+    "ast_hash": "d0c808103a2ef9a24fca98fa506b1e8b",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1785871852.0041006,
-    "ast_hash": "0225e51882ac7aeae2cef0a913c5e5ca",
+    "mtime": 1785936383.3711834,
+    "ast_hash": "e2550d8c56256afbb6dd5762ee88e4a2",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1785872044.3912892,
-    "ast_hash": "3cc9147f8e8caaf29bcf594eddb2942a",
+    "mtime": 1785936592.252562,
+    "ast_hash": "e40a0b06573b1512564c7e74e08e5246",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3580,8 +3580,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
-    "mtime": 1785871833.0150094,
-    "ast_hash": "94958e9b2e4700709fe2907a083e6cd3",
+    "mtime": 1785936366.846504,
+    "ast_hash": "610539f557afc8f407a2b988accb5329",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesLobby.jsx": {
@@ -3655,8 +3655,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/NeoGuideTip.jsx": {
-    "mtime": 1785871804.4341452,
-    "ast_hash": "74b264cb04dd5f3cc5ec3c1a3d7234dd",
+    "mtime": 1785936292.5175486,
+    "ast_hash": "9a2a492c4a6785cc68d852a3075e2a07",
     "semantic_hash": ""
   }
 }

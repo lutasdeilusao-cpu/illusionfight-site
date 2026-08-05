@@ -1177,6 +1177,13 @@
       "bonus_defesa": "defense bonus",
       "bonus_falhou": "didn't trigger",
       "critico": "CRITICAL",
+      "tutorial_paths": [
+        "First things first: pick a combat path for your fighter. Each one fights differently.",
+        "ATTACKER is pure offense: less health, but hits that really hurt. Great for fast strikes.",
+        "DEFENDER takes more punishment and even has a chance to block part of the damage.",
+        "MYSTIC is balanced and uses magic: every attack already comes with a guaranteed bonus.",
+        "Pick whatever fits your style — you can go different on the next character."
+      ],
       "tutorial_attrs": [
         "You have 5 points to spend across 4 attributes. Let me walk you through each one.",
         "ATTACK increases the damage you deal with every hit. More points here, harder your punch.",

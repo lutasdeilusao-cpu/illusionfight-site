@@ -10,9 +10,14 @@ import { sfx } from '../../../lib/sfx'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 const ATTRS = ['A', 'H', 'R', 'D']
-const TUTORIAL_KEY = 'ldi-gangues-tutorial-attrs-seen'
+
+const TUTORIAL_PATHS_KEY = 'ldi-gangues-tutorial-paths-seen'
+const TUTORIAL_PATH_BY_STEP = [null, 'atacante', 'defensor', 'mistico', null]
+const TUTORIAL_PATH_SIDE_BY_STEP = ['right', 'left', 'right', 'left', 'right']
+
+const TUTORIAL_ATTRS_KEY = 'ldi-gangues-tutorial-attrs-seen'
 const TUTORIAL_ATTR_BY_STEP = [null, 'A', 'H', 'R', 'D', null]
-const TUTORIAL_SIDE_BY_STEP = ['right', 'left', 'right', 'left', 'right', 'right']
+const TUTORIAL_ATTR_SIDE_BY_STEP = ['right', 'left', 'right', 'left', 'right', 'right']
 
 export default function GanguesCreate({ onNavigate, blockedPaths = [], creationNumber = 1, onCreated }) {
   const { t } = useLanguage()
@@ -21,31 +26,51 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
   const sheet = store.sheet
   const [step, setStep] = useState('path')
   const [error, setError] = useState('')
-  const [tutorialActive, setTutorialActive] = useState(false)
-  const [tutorialStep, setTutorialStep] = useState(0)
+  const [pathTutorialActive, setPathTutorialActive] = useState(false)
+  const [pathTutorialStep, setPathTutorialStep] = useState(0)
+  const [attrTutorialActive, setAttrTutorialActive] = useState(false)
+  const [attrTutorialStep, setAttrTutorialStep] = useState(0)
   const spent = ATTRS.reduce((sum, attr) => sum + (sheet.attributes?.[attr] || 0), 0)
   const remaining = GANGUES_CREATION_POINTS - spent
 
   useEffect(() => { setStep('path'); setError('') }, [creationNumber])
 
   useEffect(() => {
-    if (step !== 'attributes') return
+    if (step !== 'path') return
     try {
-      if (!localStorage.getItem(TUTORIAL_KEY)) { setTutorialActive(true); setTutorialStep(0) }
-    } catch { setTutorialActive(true); setTutorialStep(0) }
+      if (!localStorage.getItem(TUTORIAL_PATHS_KEY)) { setPathTutorialActive(true); setPathTutorialStep(0) }
+    } catch { setPathTutorialActive(true); setPathTutorialStep(0) }
   }, [step])
 
-  const dismissTutorial = () => {
-    try { localStorage.setItem(TUTORIAL_KEY, '1') } catch {}
-    setTutorialActive(false)
+  useEffect(() => {
+    if (step !== 'attributes') return
+    try {
+      if (!localStorage.getItem(TUTORIAL_ATTRS_KEY)) { setAttrTutorialActive(true); setAttrTutorialStep(0) }
+    } catch { setAttrTutorialActive(true); setAttrTutorialStep(0) }
+  }, [step])
+
+  const dismissPathTutorial = () => {
+    try { localStorage.setItem(TUTORIAL_PATHS_KEY, '1') } catch {}
+    setPathTutorialActive(false)
   }
 
-  const advanceTutorial = () => {
-    if (tutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1) { dismissTutorial(); return }
-    setTutorialStep(value => value + 1)
+  const advancePathTutorial = () => {
+    if (pathTutorialStep >= TUTORIAL_PATH_BY_STEP.length - 1) { dismissPathTutorial(); return }
+    setPathTutorialStep(value => value + 1)
   }
 
-  const highlightedAttr = tutorialActive ? TUTORIAL_ATTR_BY_STEP[tutorialStep] : null
+  const dismissAttrTutorial = () => {
+    try { localStorage.setItem(TUTORIAL_ATTRS_KEY, '1') } catch {}
+    setAttrTutorialActive(false)
+  }
+
+  const advanceAttrTutorial = () => {
+    if (attrTutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1) { dismissAttrTutorial(); return }
+    setAttrTutorialStep(value => value + 1)
+  }
+
+  const highlightedPath = pathTutorialActive ? TUTORIAL_PATH_BY_STEP[pathTutorialStep] : null
+  const highlightedAttr = attrTutorialActive ? TUTORIAL_ATTR_BY_STEP[attrTutorialStep] : null
 
   const selectPath = (id) => {
     if (blockedPaths.includes(id)) return
@@ -83,14 +108,14 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
     const tutorialLines = t('games.gangues.tutorial_attrs')
     return <div className="gang-create">
       <AnimatePresence mode="wait">
-        {tutorialActive && (
+        {attrTutorialActive && (
           <NeoGuideTip
-            key={tutorialStep}
-            text={Array.isArray(tutorialLines) ? tutorialLines[tutorialStep] : ''}
-            side={TUTORIAL_SIDE_BY_STEP[tutorialStep]}
-            isLast={tutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1}
-            onNext={advanceTutorial}
-            onSkip={dismissTutorial}
+            key={attrTutorialStep}
+            text={Array.isArray(tutorialLines) ? tutorialLines[attrTutorialStep] : ''}
+            side={TUTORIAL_ATTR_SIDE_BY_STEP[attrTutorialStep]}
+            isLast={attrTutorialStep >= TUTORIAL_ATTR_BY_STEP.length - 1}
+            onNext={advanceAttrTutorial}
+            onSkip={dismissAttrTutorial}
           />
         )}
       </AnimatePresence>
@@ -107,11 +132,24 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
     </div>
   }
 
+  const pathTutorialLines = t('games.gangues.tutorial_paths')
   return <div className="gang-create">
+    <AnimatePresence mode="wait">
+      {pathTutorialActive && (
+        <NeoGuideTip
+          key={pathTutorialStep}
+          text={Array.isArray(pathTutorialLines) ? pathTutorialLines[pathTutorialStep] : ''}
+          side={TUTORIAL_PATH_SIDE_BY_STEP[pathTutorialStep]}
+          isLast={pathTutorialStep >= TUTORIAL_PATH_BY_STEP.length - 1}
+          onNext={advancePathTutorial}
+          onSkip={dismissPathTutorial}
+        />
+      )}
+    </AnimatePresence>
     <div className="gc-header"><div className="gc-header-center"><p className="gang-lobby-titulo gang-lobby-titulo--sm">{t('games.gangues.loadout.path_title')}</p></div></div>
     <div className="gc-step">
       <div className="gc-name-hero gc-name-hero--simple"><div className="gc-name-avatar gc-name-avatar--neutral">{sheet.sheet_name ? sheet.sheet_name[0].toUpperCase() : '?'}</div><input className="gc-name-input" value={sheet.sheet_name || ''} onChange={event => store.updateSheet({ sheet_name: event.target.value })} placeholder={t('games.gangues.placeholder_nome')} autoFocus /></div>
-      <div className="gc-loadout-grid gc-loadout-grid--styles">{GANGUES_PATHS.map(id => <button key={id} disabled={blockedPaths.includes(id)} className={`gc-loadout-card ${sheet.combat_path === id ? 'gc-loadout-card--active' : ''}`} onClick={() => selectPath(id)}><span className="gc-path-mark">{PATH_MARKS[id]}</span><span className="gc-path-copy"><strong>{t(`games.gangues.loadout.paths.${id}.name`)}</strong><span className="gc-path-resource">{t('games.gangues.loadout.resource_rate', getGanguesResources(id, 1))}</span><span className="gc-path-bonus">{t(`games.gangues.loadout.paths.${id}.bonus`)}</span>{blockedPaths.includes(id) && <span className="gc-path-blocked">{t('games.gangues.party.path_unavailable')}</span>}</span><span className="gc-path-check">{sheet.combat_path === id ? '✓' : '→'}</span></button>)}</div>
+      <div className="gc-loadout-grid gc-loadout-grid--styles">{GANGUES_PATHS.map(id => <button key={id} disabled={blockedPaths.includes(id)} className={`gc-loadout-card ${sheet.combat_path === id ? 'gc-loadout-card--active' : ''} ${highlightedPath === id ? 'gc-loadout-card--tip-active' : ''}`} onClick={() => selectPath(id)}><span className="gc-path-mark">{PATH_MARKS[id]}</span><span className="gc-path-copy"><strong>{t(`games.gangues.loadout.paths.${id}.name`)}</strong><span className="gc-path-resource">{t('games.gangues.loadout.resource_rate', getGanguesResources(id, 1))}</span><span className="gc-path-bonus">{t(`games.gangues.loadout.paths.${id}.bonus`)}</span>{blockedPaths.includes(id) && <span className="gc-path-blocked">{t('games.gangues.party.path_unavailable')}</span>}</span><span className="gc-path-check">{sheet.combat_path === id ? '✓' : '→'}</span></button>)}</div>
       {error && <p className="gang-err">{error}</p>}
       <div className="gc-nav"><BackToGamesBtn onClick={() => onNavigate('lobby')} label={t('games.gangues.btn_voltar')} /><button className="gc-btn-salvar" onClick={continueToAttributes}>{t('games.gangues.btn_proximo')}</button></div>
     </div>

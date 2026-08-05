@@ -1177,6 +1177,13 @@
       "bonus_defesa": "bono de defensa",
       "bonus_falhou": "no se activó",
       "critico": "CRÍTICO",
+      "tutorial_paths": [
+        "Antes que nada, elige un camino de combate para tu guerrera. Cada uno lucha de forma distinta.",
+        "ATACANTE es ofensivo puro: menos vida, pero golpes que duelen mucho. Ideal para golpes rápidos.",
+        "DEFENSOR aguanta más daño y además tiene chance de bloquear parte de lo que recibe.",
+        "MÍSTICO es equilibrado y usa magia: todo su ataque ya viene con bono garantizado.",
+        "Elige lo que combine con tu estilo — puedes variar en el próximo personaje."
+      ],
       "tutorial_attrs": [
         "Tienes 5 puntos para repartir entre 4 atributos. Déjame explicarte cada uno rapidito.",
         "ATAQUE aumenta el daño que causas en cada golpe. Más puntos aquí, más fuerte tu golpe.",

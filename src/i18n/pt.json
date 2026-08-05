@@ -1177,6 +1177,13 @@
       "bonus_defesa": "bônus de defesa",
       "bonus_falhou": "não ativou",
       "critico": "CRÍTICO",
+      "tutorial_paths": [
+        "Antes de tudo, escolha um caminho de combate pra sua guerreira. Cada um luta de um jeito diferente.",
+        "ATACANTE é ofensivo puro: menos vida, mas ataques que doem muito. Ideal pra golpe rápido.",
+        "DEFENSOR aguenta mais dano e ainda tem chance de bloquear parte do que recebe.",
+        "MÍSTICO é equilibrado e usa magia: todo ataque dele já vem com bônus garantido.",
+        "Escolhe o que combina com seu estilo — dá pra variar no próximo personagem."
+      ],
       "tutorial_attrs": [
         "Você tem 5 pontos pra distribuir entre 4 atributos. Deixa eu te explicar cada um rapidinho.",
         "ATAQUE aumenta o dano que você causa em cada golpe. Quanto mais pontos aqui, mais forte seu soco.",

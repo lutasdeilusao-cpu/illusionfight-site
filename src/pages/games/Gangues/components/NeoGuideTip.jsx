@@ -18,7 +18,7 @@ export default function NeoGuideTip({ text, side = 'right', isLast, onNext, onSk
       exit={{ opacity: 0, x: fromRight ? 40 : -40 }}
       transition={{ duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
     >
-      <img src={neoGuideProfile} alt="NeoGuide" className="neoguide-tip-portrait" style={fromRight ? undefined : { transform: 'scaleX(-1)' }} />
+      <img src={neoGuideProfile} alt="NeoGuide" className="neoguide-tip-portrait" style={fromRight ? { transform: 'scaleX(-1)' } : undefined} />
       <div className="neoguide-tip-bubble">
         <button className="neoguide-tip-skip" onClick={skip}>{t('games.gangues.neoguide.pular')} ✕</button>
         <p className="neoguide-tip-text">{text}</p>

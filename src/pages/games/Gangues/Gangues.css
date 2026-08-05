@@ -1593,6 +1593,11 @@
   box-shadow: -5px 0 26px rgba(0, 180, 216, 0.16);
 }
 
+.gc-loadout-card--tip-active {
+  position: relative; z-index: 2; border-color: rgba(0,180,216,0.55);
+  animation: gc-attr-tip-pulse 1.4s ease-in-out infinite;
+}
+
 .gc-loadout-card--weakness.gc-loadout-card--active {
   border-color: #e05252;
   background: rgba(224, 82, 82, 0.12);
