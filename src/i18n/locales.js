@@ -7,8 +7,8 @@ import pp_es from './pp_es.json'
 import tt_pt from './tt_pt.json'
 import tt_en from './tt_en.json'
 import tt_es from './tt_es.json'
-import trash_en from './gangues-trash-en.json'
-import trash_es from './gangues-trash-es.json'
+// games.gangues.* não entra aqui — é carregado sob demanda por useGanguesI18n()
+// só quando o jogador abre o LDI Gangues, pra não engordar o bundle geral.
 
 function deepMerge(target, ...sources) {
   const result = { ...target }
@@ -30,8 +30,8 @@ function deepMerge(target, ...sources) {
 
 export const locales = {
   pt: deepMerge({ ...pt, ...pp_pt }, tt_pt),
-  es: deepMerge({ ...es, ...pp_es }, trash_es, tt_es),
-  en: deepMerge({ ...en, ...pp_en }, trash_en, tt_en),
+  es: deepMerge({ ...es, ...pp_es }, tt_es),
+  en: deepMerge({ ...en, ...pp_en }, tt_en),
 }
 
 export const LOCALE_LABELS = {

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { buildGanguesModifiers, resolveGanguesAction, resolveGanguesInitiative } from '../engine/ganguesCombatResolver.js'
+import { resolveGanguesAction, resolveGanguesInitiative } from '../engine/ganguesCombatResolver.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
@@ -50,7 +50,6 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
-      activeModifiers: { attacker: buildGanguesModifiers(actor), defender: buildGanguesModifiers(target) },
     })
     setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
@@ -93,5 +92,5 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     record({ type: 'initiative', order: initiative })
   }, [started, initiative, record])
 
-  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enemyActors: combatants.filter(item => item.side === 'enemy' && item.pv > 0), enterCombat, playerAction, completePending }
+  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending }
 }

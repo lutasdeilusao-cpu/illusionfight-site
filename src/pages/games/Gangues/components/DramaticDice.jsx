@@ -112,18 +112,6 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
 
   const isPlayer = side === 'player'
 
-  // Variações das frases dramáticas
-  const dramaticPhrases = {
-    player: {
-      rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÍTICO!', `${sides}!`, 'PERFEITO!'],
-    },
-    enemy: {
-      rolling: ['GIRANDO', 'ROLANDO', 'SORTEANDO'],
-      critical: ['CRÍTICO!', `${sides}!`, 'FATAL!'],
-    }
-  }
-
   return (
     <AnimatePresence>
       <motion.div

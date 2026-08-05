@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { getGanguesProgression } from '../utils/ganguesProgression'
-import { getGanguesResources, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -29,7 +28,6 @@ const defaultSheet = () => ({
   combat_path: null,
   loadout_version: 2,
   xp_total: 0,
-  attribute_points_gained: 0,
   enemies_unlocked: ['treinamento'],
 })
 
@@ -38,19 +36,15 @@ export const useGanguesStore = create((set, get) => ({
   roster: [],
   activeParty: [],
   match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null },
-  points_available: 0,
-  temp_attributes: { A: 0, H: 0, R: 0, D: 0 },
-  level_up_active: false,
   _userId: null,
 
-  newSheet: () => set({ sheet: defaultSheet(), points_available: 0, temp_attributes: { A: 0, H: 0, R: 0, D: 0 }, level_up_active: false }),
+  newSheet: () => set({ sheet: defaultSheet() }),
 
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
     const normalized = normalizeGanguesLoadout(data)
-    const resources = getGanguesResources(normalized.combat_path, normalized.attributes.R)
-    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, pv_current: resources.pvMax, pm_current: resources.pmMax, score: 0, status: 'idle' } })
+    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, score: 0, status: 'idle' } })
   },
 
   setUserId: (id) => set({ _userId: id }),
@@ -76,46 +70,14 @@ export const useGanguesStore = create((set, get) => ({
 
   setEnemyCatalog: (_enemyCatalog) => set({ _enemyCatalog }),
 
-  setMatchPV: (pv) => set(state => ({ match: { ...state.match, pv_current: Math.max(0, pv) } })),
-  setMatchPM: (pm) => set(state => ({ match: { ...state.match, pm_current: Math.max(0, pm) } })),
-
   endMatch: (result) => set(state => {
     const newScore = result === 'victory' ? state.match.score + 1 : state.match.score
     return { match: { ...state.match, score: newScore, status: result === 'victory' ? 'victory' : 'defeat' } }
   }),
 
-  gainXp: (amount) => set(state => {
-    const newXp = (state.sheet.xp_total || 0) + amount
-    const progression = getGanguesProgression(newXp)
-    return {
-      sheet: {
-        ...state.sheet,
-        xp_total: newXp,
-        attribute_points_gained: progression.completedLevels,
-      },
-      level_up_active: false,
-    }
-  }),
-
-  incrementTempAttr: (attr) => set(state => {
-    if (state.temp_attributes[attr] >= 5) return state
-    return { temp_attributes: { ...state.temp_attributes, [attr]: state.temp_attributes[attr] + 1 }, points_available: Math.max(0, state.points_available - 1) }
-  }),
-
-  decrementTempAttr: (attr) => set(state => {
-    if (state.temp_attributes[attr] <= (state.sheet.attributes[attr] || 0)) return state
-    return { temp_attributes: { ...state.temp_attributes, [attr]: state.temp_attributes[attr] - 1 }, points_available: state.points_available + 1 }
-  }),
-
-  confirmLevelUp: () => set(state => ({
-    sheet: { ...state.sheet, attributes: { ...state.temp_attributes }, level_up_active: false },
-    level_up_active: false,
+  gainXp: (amount) => set(state => ({
+    sheet: { ...state.sheet, xp_total: (state.sheet.xp_total || 0) + amount },
   })),
-
-  clearLevelUp: () => set({ level_up_active: false }),
-
-  spendPoints: (pts) => set(state => ({ points_available: Math.max(0, state.points_available - pts) })),
-  gainPoints: (pts) => set(state => ({ points_available: state.points_available + pts })),
 
   saveToCloud: async (userId) => {
     const uid = userId || get()._userId

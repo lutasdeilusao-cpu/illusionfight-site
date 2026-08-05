@@ -1,10 +1,3 @@
-import { normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
-
-export function buildGanguesModifiers(combatant = {}) {
-  const loadout = normalizeGanguesLoadout(combatant)
-  return loadout.combat_path ? [`path:${loadout.combat_path}`] : []
-}
-
 export function resolveGanguesInitiative({ combatant, roll }) {
   const ability = Number(combatant.attributes?.H) || 0
   return { ability, die: roll, total: ability + roll }
@@ -38,7 +31,7 @@ export const CRITICAL_BONUS = 2
 
 // Dano mínimo garantido de 1: mesmo com defesa agora rolando d3 também, um golpe nunca
 // é totalmente anulado — evita as rodadas de "dano zero" que arrastavam o combate.
-export function resolveGanguesAction({ attacker, defender, action, rolls, activeModifiers = {} }) {
+export function resolveGanguesAction({ attacker, defender, action, rolls }) {
   const attack = Number(attacker.attributes?.A) || 0
   const agility = Math.floor((Number(attacker.attributes?.H) || 0) / 2)
   const defense = Number(defender.attributes?.D) || 0
@@ -54,10 +47,9 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const damage = Math.max(1, fa - fd)
 
   return {
-    action, mode: 'attack', fa, fd, damage, counterDamage: 0,
-    rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0, pmCost: 0,
+    action, mode: 'attack', fa, fd, damage, pmCost: 0,
+    rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: [...(attacker.statuses || [])],
     defenderStatuses: [...(defender.statuses || [])],
-    modifiers: activeModifiers, effects: [], skipped: false,
   }
 }

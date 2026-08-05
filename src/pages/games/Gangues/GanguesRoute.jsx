@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useGanguesStore } from './store/useGanguesStore'
+import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './GanguesLobby'
 import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
@@ -18,6 +19,7 @@ export default function GanguesRoute() {
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
+  const i18nReady = useGanguesI18n()
   const [fase, setFase] = useState('lobby')
   const [creationParty, setCreationParty] = useState([])
 
@@ -29,6 +31,8 @@ export default function GanguesRoute() {
     setReaderMode(true)
     return () => setReaderMode(false)
   }, [setReaderMode])
+
+  if (!i18nReady) return <div className="gang-page" />
 
   return (
     <div className="gang-page">

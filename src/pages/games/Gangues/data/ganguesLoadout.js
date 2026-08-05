@@ -25,17 +25,6 @@ export function getGanguesRosterLimit(tier) {
   return GANGUES_ROSTER_LIMITS[tier] || GANGUES_ROSTER_LIMITS.free
 }
 
-export function hasGanguesMultiplayer(tier) {
-  return tier === 'elite' || tier === 'primordial'
-}
-
-// O caminho não distribui atributos: todos os personagens começam com 5 pontos livres.
-export const GANGUES_PATH_PRESETS = {
-  atacante: { A: 0, H: 0, R: 0, D: 0 },
-  defensor: { A: 0, H: 0, R: 0, D: 0 },
-  mistico: { A: 0, H: 0, R: 0, D: 0 },
-}
-
 export const GANGUES_RESOURCE_RATES = {
   atacante: { pvPerR: 3, pmPerR: 3 },
   defensor: { pvPerR: 4, pmPerR: 2 },
