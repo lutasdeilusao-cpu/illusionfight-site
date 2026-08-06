@@ -5,6 +5,17 @@ import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoa
 const d3 = () => Math.floor(Math.random() * 3) + 1
 const coin = () => Math.random() < 0.5
 
+// IA de alvo: evita bater sempre no mesmo alvo quando há outro vivo — alterna entre focar
+// quem está com menos PV (foco) e escolher alguém aleatório entre os outros vivos.
+function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
+  const targets = combatants.filter(item => item.side === 'player' && item.pv > 0)
+  if (targets.length <= 1) return targets[0] || null
+  const others = targets.filter(item => item.key !== lastTargetKey)
+  const pool = others.length ? others : targets
+  if (roll() < 0.55) return [...pool].sort((a, b) => a.pv - b.pv)[0]
+  return pool[Math.floor(roll() * pool.length)]
+}
+
 function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
   const normalized = enemy ? { ...combatant, attributes: combatant.stats || combatant.attributes || {}, combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante' } : { ...combatant, ...normalizeGanguesLoadout(combatant) }
@@ -12,7 +23,7 @@ function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, enemyDelay = 2200 }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
   const initiative = useMemo(() => initial.map(combatant => {
     const die = initiativeRoll()
@@ -26,6 +37,8 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   const [pending, setPending] = useState(null)
   const [events, setEvents] = useState([])
   const aiQueued = useRef(false)
+  const lastEnemyTargetKey = useRef(null)
+  const entered = useRef(false)
   const currentTurn = initiative[turnIndex]
   const currentActor = combatants.find(item => item.key === currentTurn?.key)
   const phase = !started ? 'select' : pending ? 'rolling' : currentActor?.side || 'finished'
@@ -78,19 +91,21 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     if (phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
     aiQueued.current = true
     const timer = setTimeout(() => {
-      const targets = combatants.filter(item => item.side === 'player' && item.pv > 0).sort((a, b) => a.pv - b.pv)
-      queueAction(currentActor, targets[0])
+      const target = pickEnemyTarget(combatants, lastEnemyTargetKey.current, targetRoll)
+      lastEnemyTargetKey.current = target?.key || null
+      queueAction(currentActor, target)
       aiQueued.current = false
     }, enemyDelay)
     return () => { clearTimeout(timer); aiQueued.current = false }
-  }, [phase, pending, currentActor, combatants, queueAction, enemyDelay])
+  }, [phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
 
   const enterCombat = useCallback(() => {
-    if (started) return
+    if (entered.current) return
+    entered.current = true
     setStarted(true)
     record({ type: 'battle_start' })
     record({ type: 'initiative', order: initiative })
-  }, [started, initiative, record])
+  }, [initiative, record])
 
   return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending }
 }

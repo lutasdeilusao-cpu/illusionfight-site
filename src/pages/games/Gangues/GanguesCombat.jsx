@@ -10,6 +10,7 @@ import { sfx } from '../../../lib/sfx'
 const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWACK!']
 const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
 const pct = (value, max) => Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100))
+const PATH_ICON = { atacante: '⚔️', defensor: '🛡️', mistico: '✨' }
 
 function fighterName(t, member) {
   if (!member) return '?'
@@ -32,17 +33,22 @@ function Roster({ title, members, side, selectable, selectedKey, onSelect, t }) 
           const dead = member.pv <= 0
           const acted = side === 'player' && member.actedThisRound
           const disabled = dead || acted || !selectable
+          const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
           return (
             <button
               key={member.key}
               type="button"
               disabled={disabled}
-              className={`gang-fighter-card ${side === 'enemy' ? 'gang-fighter-card--enemy' : ''} ${selectedKey === member.key ? 'gang-fighter-card--selected' : ''} ${dead ? 'gang-fighter-card--dead' : ''}`}
+              className={`gang-fighter-card ${pathClass} ${side === 'enemy' ? 'gang-fighter-card--enemy' : ''} ${selectedKey === member.key ? 'gang-fighter-card--selected' : ''} ${dead ? 'gang-fighter-card--dead' : ''}`}
               onClick={() => onSelect?.(member.key)}
             >
-              <div className="gang-fighter-card-avatar">{fighterName(t, member)[0]}</div>
+              <div className="gang-fighter-card-avatar">
+                {fighterName(t, member)[0]}
+                {member.combat_path && <span className="gang-fighter-card-path-icon">{PATH_ICON[member.combat_path]}</span>}
+              </div>
               <div className="gang-fighter-card-info">
                 <strong>{fighterName(t, member)}</strong>
+                {member.combat_path && <span className="gang-fighter-card-path-label">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span>}
                 <progress className="gang-fighter-card-bar" max="100" value={pct(member.pv, member.pvMax)} />
                 <small>{member.pv}/{member.pvMax} PV</small>
               </div>

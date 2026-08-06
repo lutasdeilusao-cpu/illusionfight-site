@@ -1812,17 +1812,35 @@
 .gang-fighter-card--selected { border-color: #F5A623; background: rgba(245, 166, 35, 0.08); box-shadow: 0 0 12px rgba(245, 166, 35, 0.25); }
 .gang-fighter-card--dead { opacity: 0.25; filter: grayscale(1); }
 
+/* Identidade visual por caminho — atacante vermelho, defensor azul, místico roxo,
+   pra dar de cara pra ver quem é quem no time sem precisar ler o nome. */
+.gang-fighter-card.gang-path--atacante { border-left: 3px solid #e05252; }
+.gang-fighter-card.gang-path--atacante .gang-fighter-card-avatar { background: rgba(224, 82, 82, 0.16); color: #ff6b6b; }
+.gang-fighter-card.gang-path--atacante .gang-fighter-card-path-label { color: #ff6b6b; }
+.gang-fighter-card.gang-path--defensor { border-left: 3px solid #3b82f6; }
+.gang-fighter-card.gang-path--defensor .gang-fighter-card-avatar { background: rgba(59, 130, 246, 0.16); color: #6fa8ff; }
+.gang-fighter-card.gang-path--defensor .gang-fighter-card-path-label { color: #6fa8ff; }
+.gang-fighter-card.gang-path--mistico { border-left: 3px solid #a855f4; }
+.gang-fighter-card.gang-path--mistico .gang-fighter-card-avatar { background: rgba(168, 85, 244, 0.16); color: #c084fc; }
+.gang-fighter-card.gang-path--mistico .gang-fighter-card-path-label { color: #c084fc; }
+
 .gang-fighter-card-avatar {
+  position: relative;
   width: 32px; height: 32px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: rgba(0, 180, 216, 0.15); color: #00B4D8;
   font-weight: 700; font-size: 14px; flex-shrink: 0;
 }
 .gang-fighter-card--enemy .gang-fighter-card-avatar { background: rgba(139, 0, 0, 0.15); color: #cc4444; }
+.gang-fighter-card-path-icon {
+  position: absolute; bottom: -3px; right: -3px; font-size: 11px; line-height: 1;
+  filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 2px #000);
+}
 
 .gang-fighter-card-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
 .gang-fighter-card-info strong { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gang-fighter-card-info small { font-size: 9px; color: #666; }
+.gang-fighter-card-path-label { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.9; }
 .gang-fighter-card-bar { width: 100%; height: 4px; border: 0; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; appearance: none; }
 .gang-fighter-card-bar::-webkit-progress-bar { background: rgba(255,255,255,0.08); }
 .gang-fighter-card-bar::-webkit-progress-value { background: #00B4D8; }
