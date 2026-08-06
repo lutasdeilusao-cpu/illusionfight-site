@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-05 — `SITE_VERSION` **10.198.0**.
+> Atualizado em 2026-08-05 — `SITE_VERSION` **10.198.1**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -277,7 +277,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.0** |
+| `SITE_VERSION` | Site global | **10.198.1** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
@@ -313,3 +313,4 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | Assinaturas | `src/lib/stripe.js` e `supabase/functions/` |
 | SEO indexável | `public/sitemap.xml` e `scripts/prerender-routes.js` |
 | Mapa detalhado do Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
+| Regras e estado atual do LDI Gangues | `src/pages/games/Gangues/GANGUES_DESIGN.md` |
