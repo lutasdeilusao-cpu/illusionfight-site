@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
+import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -23,7 +23,7 @@ export function podeCriarFicha(perfil, totalFichas) {
 const defaultSheet = () => ({
   id: null,
   sheet_name: '',
-  attributes: { A: 0, H: 0, R: 0, D: 0 },
+  attributes: { A: 0, H: 0, R: 0, D: 0, progression: defaultGanguesProgression() },
   elemental: 'neutro',
   combat_path: null,
   loadout_version: 2,
@@ -75,9 +75,16 @@ export const useGanguesStore = create((set, get) => ({
     return { match: { ...state.match, score: newScore, status: result === 'victory' ? 'victory' : 'defeat' } }
   }),
 
-  gainXp: (amount) => set(state => ({
-    sheet: { ...state.sheet, xp_total: (state.sheet.xp_total || 0) + amount },
-  })),
+  gainAp: (amount) => set(state => {
+    const { progression, earnedXp } = addGanguesAp(state.sheet, amount)
+    return { sheet: { ...state.sheet, attributes: { ...state.sheet.attributes, progression }, xp_total: (state.sheet.xp_total || 0) + earnedXp } }
+  }),
+
+  updateRosterSheet: (sheetId, partial) => set(state => {
+    const roster = state.roster.map(member => member.id === sheetId ? { ...member, ...partial } : member)
+    const sheet = state.sheet.id === sheetId ? { ...state.sheet, ...partial } : state.sheet
+    return { roster, activeParty: state.activeParty.map(member => member.id === sheetId ? { ...member, ...partial } : member), sheet }
+  }),
 
   saveToCloud: async (userId) => {
     const uid = userId || get()._userId
@@ -112,7 +119,7 @@ export const useGanguesStore = create((set, get) => ({
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
     }
     const saved = { ...get().sheet, id: s.id || data?.id }
-    set(state => ({ roster: [...state.roster.filter(item => item.id !== saved.id), saved] }))
+    set(state => ({ roster: [...state.roster.filter(item => item.id !== saved.id), saved], activeParty: state.activeParty.map(item => item.id === saved.id ? saved : item) }))
     return saved
   },
 

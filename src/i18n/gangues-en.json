@@ -76,6 +76,7 @@
       "xp_gain": "+{n} XP",
       "xp_faltam": "{n} XP until next level",
       "xp_level_up_ready": "⚡ READY TO LEVEL UP!",
+      "progression": { "title": "SHEET PROGRESSION", "ap": "AP: {n}/10", "xp_available": "XP available: {n}", "attributes": "Advanced attributes", "specials": "Attacker specializations", "loadout": "Equipped: {n}/2", "upgrade": "UPGRADE ({n} XP)", "equip": "EQUIP", "unequip": "REMOVE", "active": "active", "passive": "passive", "soco_de_ferro": "Iron Fist", "investida": "Charge", "peso_bruto": "Heavyweight", "marreta": "Hammer", "fim_de_linha": "End of the Line" },
       "novo_oponente": "🔓 NEW OPPONENT UNLOCKED: {name}",
       "sem_fichas": "NO TOKENS",
       "criar_ficha": "CREATE SHEET",

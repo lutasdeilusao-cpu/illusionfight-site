@@ -1,6 +1,9 @@
 export const GANGUES_PATHS = ['atacante', 'defensor', 'mistico']
 export const GANGUES_CREATION_POINTS = 5
 export const GANGUES_ATTRIBUTE_MAX = 5
+export const GANGUES_AP_PER_XP = 10
+export const GANGUES_ATTRIBUTE_XP_COSTS = { 5: 3, 6: 5, 7: 7, 8: 9, 9: 12 }
+export const GANGUES_SPECIAL_COSTS = { 0: 1, 1: 2, 2: 3 }
 export const GANGUES_INITIAL_PARTY_SIZE = 2
 export const GANGUES_MAX_PARTY_SIZE = 5
 export const GANGUES_ROSTER_LIMITS = { free: 3, elite: 5, primordial: 7 }
@@ -31,6 +34,57 @@ export const GANGUES_RESOURCE_RATES = {
   mistico: { pvPerR: 2, pmPerR: 4 },
 }
 
+export const GANGUES_ATTACKER_SPECIALS = [
+  { id: 'soco_de_ferro', kind: 'active' },
+  { id: 'investida', kind: 'active' },
+  { id: 'peso_bruto', kind: 'passive' },
+  { id: 'marreta', kind: 'active' },
+  { id: 'fim_de_linha', kind: 'active' },
+]
+
+export function defaultGanguesProgression() {
+  return { ap: 0, xp_unspent: 0, special_levels: {}, selected_specials: [] }
+}
+
+export function getGanguesProgression(sheet = {}) {
+  const source = sheet.attributes?.progression || sheet.progression || {}
+  const specialLevels = Object.fromEntries(Object.entries(source.special_levels || {}).map(([id, level]) => [id, Math.max(0, Math.min(3, Number(level) || 0))]))
+  const selected = Array.isArray(source.selected_specials) ? source.selected_specials.filter(id => specialLevels[id] > 0).slice(0, 2) : []
+  return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_levels: specialLevels, selected_specials: selected }
+}
+
+export function addGanguesAp(sheet, amount) {
+  const progression = getGanguesProgression(sheet)
+  const ap = progression.ap + Math.max(0, Number(amount) || 0)
+  const earnedXp = Math.floor(ap / GANGUES_AP_PER_XP)
+  return { progression: { ...progression, ap: ap % GANGUES_AP_PER_XP, xp_unspent: progression.xp_unspent + earnedXp }, earnedXp }
+}
+
+export function upgradeGanguesAttribute(sheet, attribute) {
+  const current = Number(sheet.attributes?.[attribute]) || 0
+  const cost = GANGUES_ATTRIBUTE_XP_COSTS[current]
+  const progression = getGanguesProgression(sheet)
+  if (!cost || progression.xp_unspent < cost) return null
+  return { attributes: { ...sheet.attributes, [attribute]: current + 1, progression: { ...progression, xp_unspent: progression.xp_unspent - cost } } }
+}
+
+export function upgradeGanguesSpecial(sheet, specialId) {
+  const progression = getGanguesProgression(sheet)
+  const level = progression.special_levels[specialId] || 0
+  const cost = GANGUES_SPECIAL_COSTS[level]
+  if (!cost || progression.xp_unspent < cost) return null
+  return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - cost, special_levels: { ...progression.special_levels, [specialId]: level + 1 } } } }
+}
+
+export function toggleGanguesSpecial(sheet, specialId) {
+  const progression = getGanguesProgression(sheet)
+  if (!progression.special_levels[specialId]) return null
+  const selected = progression.selected_specials.includes(specialId)
+    ? progression.selected_specials.filter(id => id !== specialId)
+    : progression.selected_specials.length < 2 ? [...progression.selected_specials, specialId] : progression.selected_specials
+  return { attributes: { ...sheet.attributes, progression: { ...progression, selected_specials: selected } } }
+}
+
 export function getGanguesResources(combatPath, resistance = 0) {
   const rate = GANGUES_RESOURCE_RATES[combatPath] || { pvPerR: 0, pmPerR: 0 }
   const safeResistance = Math.max(0, Number(resistance) || 0)
@@ -47,7 +101,7 @@ export function normalizeGanguesLoadout(sheet = {}) {
 
   return {
     combat_path: combatPath,
-    attributes: Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])),
+    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ attributes: source, progression: sheet.progression }) },
     loadout_version: 2,
   }
 }

@@ -25,8 +25,8 @@ export default function GanguesVictory({ onNavigate }) {
   useEffect(() => {
     if (processed.current) return
     processed.current = true
-    const xp = victory ? 10 : 1
-    store.gainXp(xp)
+    const ap = victory ? 10 : 1
+    store.gainAp(ap)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
       if (user?.id) registrarPontuacaoArenaRanking(user.id)

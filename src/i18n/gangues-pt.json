@@ -76,6 +76,7 @@
       "xp_gain": "+{n} XP",
       "xp_faltam": "faltam {n} XP para o próximo nível",
       "xp_level_up_ready": "⚡ PRONTO PARA EVOLUIR!",
+      "progression": { "title": "PROGRESSÃO DA FICHA", "ap": "AP: {n}/10", "xp_available": "XP disponível: {n}", "attributes": "Atributos avançados", "specials": "Especializações do Atacante", "loadout": "Equipados: {n}/2", "upgrade": "EVOLUIR ({n} XP)", "equip": "EQUIPAR", "unequip": "REMOVER", "active": "ativo", "passive": "passivo", "soco_de_ferro": "Soco de Ferro", "investida": "Investida", "peso_bruto": "Peso Bruto", "marreta": "Marreta", "fim_de_linha": "Fim de Linha" },
       "novo_oponente": "🔓 NOVO OPONENTE DESBLOQUEADO: {name}",
       "sem_fichas": "SEM FICHAS",
       "criar_ficha": "CRIAR FICHA",
