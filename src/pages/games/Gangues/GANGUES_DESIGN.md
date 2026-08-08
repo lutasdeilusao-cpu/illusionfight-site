@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.9.0** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.10.1** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -136,9 +136,38 @@ avança ao vencer o inimigo atual):
 Cada inimigo carrega `trash_talk` com falas por categoria (`attack_miss`, `attack_hit`,
 `take_damage`, `take_critical`, `player_near_death`, `enemy_near_death`, `defeat`) — hoje só em
 português, é o fallback usado quando a chave i18n `trash_talk_npc.<id>` não existe (ela não
-existe pra nenhum inimigo atual — foi escrita pra NPCs de outra leva de conteúdo, ver seção 9).
+existe pra nenhum inimigo atual — foi escrita pra NPCs de outra leva de conteúdo, ver seção 10).
 
-## 7. Chat de batalha e trash talk
+## 7. Progressão pós-criação (AP, XP e especializações)
+
+Sistema separado da criação inicial (seção 2) — evolui a ficha **depois** que ela já existe,
+com XP ganho em batalha. Regras e funções em `data/ganguesLoadout.js`, estado em
+`sheet.attributes.progression` (também salvo dentro de `attributes` no Supabase, não é coluna
+própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do CSS), mostrado pro
+`party[0]` (primeiro personagem da gangue ativa) sempre que o roster já tem 2+ fichas.
+
+- **AP → XP**: toda batalha concede AP ao primeiro personagem da gangue ativa —
+  **10 AP** na vitória, **1 AP** na derrota (`GanguesVictory.jsx`). A cada **10 AP**
+  (`GANGUES_AP_PER_XP`), vira **1 XP disponível** pra gastar (`addGanguesAp`). O resto fica
+  guardado como AP parcial (mostrado como barrinha `AP: n/10`).
+- **Atributos avançados**: dá pra continuar subindo A/H/R/D **além** do que foi gasto na
+  criação, mas só a partir do valor **5** pra cima — custos crescentes por XP
+  (`GANGUES_ATTRIBUTE_XP_COSTS`): 5→6 custa 3, 6→7 custa 5, 7→8 custa 7, 8→9 custa 9, 9→10
+  custa 12. Como a criação limita a 5 pontos totais entre 4 atributos e exige R≥1, hoje **não
+  dá pra chegar a um atributo em 5 só na criação** — esse caminho de evolução só destrava se
+  o jogador puser tudo num atributo só nas fichas que já existem via outro meio, ou é um ponto
+  a revisar (ver seção 13).
+- **Especializações do Atacante**: só existe pro caminho **atacante** por enquanto
+  (`GANGUES_ATTACKER_SPECIALS`) — 5 habilidades: Soco de Ferro, Investida, Marreta e Fim de
+  Linha (ativas), Peso Bruto (passiva). Cada uma tem **3 níveis**, custando XP crescente por
+  nível (`GANGUES_SPECIAL_COSTS`: nível 0→1 custa 1, 1→2 custa 2, 2→3 custa 3). Só dá pra
+  **equipar 2 especializações por vez** (`selected_specials`, máximo 2) — subir de nível não
+  exige estar equipada, mas só faz efeito em combate se estiver. **Nenhuma dessas
+  especializações tem efeito em batalha ainda** — o sistema de pontos/equipar está pronto, mas
+  `ganguesCombatResolver.js` não lê `selected_specials` em lugar nenhum (ver seção 13).
+- Defensor e Místico não têm árvore de especialização própria ainda — só atributos avançados.
+
+## 9. Chat de batalha e trash talk
 
 Tela de combate renderiza um log estilo chat (bolhas), com:
 - Card de ataque por golpe: FA, FD, dado de ataque/defesa, bônus de caminho (ativado ou não),
@@ -148,7 +177,7 @@ Tela de combate renderiza um log estilo chat (bolhas), com:
 - Jogador pode mandar trash talk próprio a qualquer momento na fase dele (3 frases sorteadas
   de `games.gangues.trash_talk_player`, refeitas a cada rodada).
 
-## 8. NeoGuide — diálogo e tutoriais guiados
+## 10. NeoGuide — diálogo e tutoriais guiados
 
 NeoGuide é a mascote/guia oficial do universo LDI (já existia em outros jogos do site,
 cor de identidade `#00B4D8`). Dois assets: `assets/neoguide-frontal.png` (corpo, cortado pra
@@ -169,7 +198,7 @@ laterais — espelhado via CSS conforme o lado pra sempre olhar em direção ao 
   Object.keys(localStorage).filter(k => k.startsWith('ldi-gangues')).forEach(k => localStorage.removeItem(k))
   ```
 
-## 9. i18n
+## 11. i18n
 
 Todo o texto do jogo vive em `games.gangues.*`, mas **não** está mais dentro de
 `src/i18n/{pt,en,es}.json` (o "geral" do site) — foi extraído pra arquivos dedicados
@@ -186,7 +215,7 @@ lore do site (Marelia, Karnazar, etc.) mas **não existe nenhum inimigo atual co
 tempo de execução — hoje é conteúdo morto/adiantado, não uma ficha real. Fica registrado aqui
 pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos futuros, ou remove.
 
-## 10. Persistência
+## 12. Persistência
 
 - Usuário logado: ficha salva em Supabase, tabela `character_sheets` (`saveToCloud`/`loadSheets`
   em `store/useGanguesStore.js`). Tem fallback de compatibilidade pra schema antigo
@@ -195,7 +224,7 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
 - Progresso de "gangue" (`activeParty`, tamanho liberado) depende do XP salvo nas fichas —
   se joga sem conta, some ao recarregar a página.
 
-## 11. Estrutura de arquivos
+## 13. Estrutura de arquivos
 
 ```
 src/pages/games/Gangues/
@@ -222,7 +251,7 @@ src/pages/games/Gangues/
     └── useGanguesStore.js    # zustand: ficha, roster, partida, Supabase
 ```
 
-## 12. Pontos em aberto / ideias pra continuar
+## 14. Pontos em aberto / ideias pra continuar
 
 - `trash_talk_npc` no i18n tem conteúdo de facções (Marelia, Karnazar, Azuma, Bravara, SDR,
   Xakaxi) que não corresponde a nenhum inimigo do roster atual — dá pra criar novos inimigos

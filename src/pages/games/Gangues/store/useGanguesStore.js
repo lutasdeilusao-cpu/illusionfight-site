@@ -75,9 +75,18 @@ export const useGanguesStore = create((set, get) => ({
     return { match: { ...state.match, score: newScore, status: result === 'victory' ? 'victory' : 'defeat' } }
   }),
 
+  // Atualiza sheet, roster e activeParty juntos — senão o XP ganho na vitória fica preso
+  // na ficha solta e o painel de progressão do lobby (que lê de activeParty) nunca reflete o ganho.
   gainAp: (amount) => set(state => {
     const { progression, earnedXp } = addGanguesAp(state.sheet, amount)
-    return { sheet: { ...state.sheet, attributes: { ...state.sheet.attributes, progression }, xp_total: (state.sheet.xp_total || 0) + earnedXp } }
+    const attributes = { ...state.sheet.attributes, progression }
+    const xp_total = (state.sheet.xp_total || 0) + earnedXp
+    const sheetId = state.sheet.id
+    return {
+      sheet: { ...state.sheet, attributes, xp_total },
+      roster: state.roster.map(member => member.id === sheetId ? { ...member, attributes, xp_total } : member),
+      activeParty: state.activeParty.map(member => member.id === sheetId ? { ...member, attributes, xp_total } : member),
+    }
   }),
 
   updateRosterSheet: (sheetId, partial) => set(state => {

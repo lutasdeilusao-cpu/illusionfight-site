@@ -2004,3 +2004,83 @@
 }
 .neoguide-tip-next:hover { background: rgba(0, 180, 216, 0.24); }
 @media (max-width: 420px) { .neoguide-tip-portrait { width: 64px; } .neoguide-tip-bubble { max-width: 180px; font-size: 12px; } }
+
+/* ===== PROGRESSÃO DA FICHA — painel + skill tree ===== */
+.gang-progression {
+  margin: 16px 0; padding: 16px;
+  background: linear-gradient(165deg, rgba(0, 180, 216, 0.05), rgba(3, 8, 10, 0.85));
+  border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 12px;
+}
+.gang-progression-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.gang-progression-avatar {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 180, 216, 0.15); color: #00B4D8;
+  font: 800 18px 'Rajdhani', sans-serif; border: 2px solid rgba(0, 180, 216, 0.4);
+}
+.gang-progression-headline h2 { margin: 0; font: 800 14px 'Rajdhani', sans-serif; letter-spacing: 2px; color: #eef4f6; text-transform: uppercase; }
+.gang-progression-headline p { margin: 2px 0 0; font-size: 10px; color: #7b898f; letter-spacing: 0.5px; }
+
+.gang-progression-stats { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+.gang-progression-ap { flex: 1; min-width: 140px; }
+.gang-progression-ap span { display: block; margin-bottom: 4px; font-size: 9px; letter-spacing: 1px; color: #7b898f; text-transform: uppercase; }
+.gang-progression-ap-bar { width: 100%; height: 6px; border: 0; border-radius: 3px; appearance: none; }
+.gang-progression-ap-bar::-webkit-progress-bar { background: rgba(255,255,255,0.08); border-radius: 3px; }
+.gang-progression-ap-bar::-webkit-progress-value { background: linear-gradient(90deg, #00B4D8, #66e0ff); border-radius: 3px; }
+.gang-progression-ap-bar::-moz-progress-bar { background: linear-gradient(90deg, #00B4D8, #66e0ff); border-radius: 3px; }
+.gang-progression-xp {
+  padding: 5px 12px; border-radius: 20px; white-space: nowrap;
+  background: rgba(245, 166, 35, 0.12); border: 1px solid rgba(245, 166, 35, 0.4);
+  color: #F5A623; font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 1px;
+}
+
+.gang-progression-section-title {
+  display: flex; align-items: center; gap: 8px; margin: 14px 0 8px;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #7b898f;
+}
+.gang-progression-loadout { color: #F5A623; font-weight: 700; }
+
+.gang-attr-upgrade-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.gang-attr-upgrade-card {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 10px 6px; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,180,216,0.2); border-radius: 8px;
+  cursor: pointer; transition: border-color 0.2s, background 0.2s;
+}
+.gang-attr-upgrade-card:hover:not(:disabled) { border-color: rgba(0,180,216,0.6); background: rgba(0,180,216,0.06); }
+.gang-attr-upgrade-card:disabled { opacity: 0.35; cursor: not-allowed; }
+.gang-attr-upgrade-letter { color: #00B4D8; font: 800 15px 'Rajdhani', sans-serif; }
+.gang-attr-upgrade-values { font-size: 11px; color: #ccd6d9; }
+.gang-attr-upgrade-values b { color: #F5A623; font-weight: 700; }
+.gang-attr-upgrade-cost { font-size: 8px; letter-spacing: 1px; color: #7b898f; text-transform: uppercase; }
+
+.gang-skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+.gang-skill-node {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 8px 10px; text-align: center;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+.gang-skill-node--locked { opacity: 0.55; filter: grayscale(0.6); }
+.gang-skill-node--equipped {
+  border-color: #F5A623; background: rgba(245, 166, 35, 0.08);
+  box-shadow: 0 0 16px rgba(245, 166, 35, 0.3);
+}
+.gang-skill-node-icon { font-size: 22px; line-height: 1; }
+.gang-skill-node-name { font-size: 10px; letter-spacing: 0.5px; color: #eef4f6; }
+.gang-skill-node-kind { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: #00B4D8; }
+.gang-skill-node--equipped .gang-skill-node-kind { color: #F5A623; }
+.gang-skill-node-pips { display: flex; gap: 4px; margin: 2px 0; }
+.gang-skill-pip { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+.gang-skill-pip--filled { background: #00B4D8; box-shadow: 0 0 5px rgba(0,180,216,0.7); }
+.gang-skill-node--equipped .gang-skill-pip--filled { background: #F5A623; box-shadow: 0 0 5px rgba(245,166,35,0.7); }
+.gang-skill-node-actions { display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 4px; }
+.gang-skill-node-actions button {
+  padding: 5px 4px; border-radius: 5px; border: 1px solid rgba(0,180,216,0.35);
+  background: rgba(0,180,216,0.08); color: #00B4D8;
+  font: 700 8px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+}
+.gang-skill-node-actions button:hover:not(:disabled) { background: rgba(0,180,216,0.18); }
+.gang-skill-node-actions button:disabled { opacity: 0.3; cursor: not-allowed; }
+.gang-skill-node-toggle { border-color: rgba(245,166,35,0.4) !important; background: rgba(245,166,35,0.1) !important; color: #F5A623 !important; }
+.gang-skill-node-toggle:hover:not(:disabled) { background: rgba(245,166,35,0.2) !important; }

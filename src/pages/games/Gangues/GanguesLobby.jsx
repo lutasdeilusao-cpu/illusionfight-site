@@ -6,10 +6,11 @@ import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import NeoGuideDialog from './components/NeoGuideDialog'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
-import { GANGUES_ATTACKER_SPECIALS, GANGUES_ATTRIBUTE_XP_COSTS, GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression, toggleGanguesSpecial, upgradeGanguesAttribute, upgradeGanguesSpecial } from './data/ganguesLoadout.js'
+import { GANGUES_ATTACKER_SPECIALS, GANGUES_ATTRIBUTE_XP_COSTS, GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, GANGUES_SPECIAL_COSTS, getGanguesPartySizeLimit, getGanguesProgression, toggleGanguesSpecial, upgradeGanguesAttribute, upgradeGanguesSpecial } from './data/ganguesLoadout.js'
 import enemiesData from './data/gangues-enemies.json'
 
 const NEOGUIDE_SEEN_KEY = 'ldi-gangues-neoguide-seen'
+const SPECIAL_ICON = { soco_de_ferro: '👊', investida: '💨', peso_bruto: '🗿', marreta: '🔨', fim_de_linha: '🎯' }
 
 function pickEnemyTeam(pool, size) {
   const shuffled = [...pool].sort(() => Math.random() - 0.5)
@@ -153,28 +154,82 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
-          {progressionMember && <section className="gang-report-section">
-            <h2>{t('games.gangues.progression.title')} — {progressionMember.sheet_name}</h2>
-            <p className="gang-party-counter">{t('games.gangues.progression.ap', { n: progression.ap })} · {t('games.gangues.progression.xp_available', { n: progression.xp_unspent })}</p>
-            <h3>{t('games.gangues.progression.attributes')}</h3>
-            <div className="gang-report-actions">
-              {['A', 'H', 'R', 'D'].map(attribute => {
-                const cost = GANGUES_ATTRIBUTE_XP_COSTS[progressionMember.attributes?.[attribute]]
-                return <button key={attribute} className="gang-report-secondary" disabled={!cost || progression.xp_unspent < cost} onClick={() => applyProgression(progressionMember, upgradeGanguesAttribute(progressionMember, attribute))}>{attribute} {progressionMember.attributes?.[attribute]} → {(progressionMember.attributes?.[attribute] || 0) + 1} · {t('games.gangues.progression.upgrade', { n: cost || '—' })}</button>
-              })}
-            </div>
-            {progressionMember.combat_path === 'atacante' && <>
-              <h3>{t('games.gangues.progression.specials')} · {t('games.gangues.progression.loadout', { n: progression.selected_specials.length })}</h3>
-              <div className="gang-report-actions">
-                {GANGUES_ATTACKER_SPECIALS.map(special => {
-                  const level = progression.special_levels[special.id] || 0
-                  const equipped = progression.selected_specials.includes(special.id)
-                  const specialCost = [1, 2, 3][level]
-                  return <div key={special.id}><strong>{t(`games.gangues.progression.${special.id}`)} · Nv {level}/3 · {t(`games.gangues.progression.${special.kind}`)}</strong><button className="gang-report-secondary" disabled={!specialCost || progression.xp_unspent < specialCost} onClick={() => applyProgression(progressionMember, upgradeGanguesSpecial(progressionMember, special.id))}>{t('games.gangues.progression.upgrade', { n: specialCost || '—' })}</button>{level > 0 && <button className="gang-report-secondary" disabled={!equipped && progression.selected_specials.length >= 2} onClick={() => applyProgression(progressionMember, toggleGanguesSpecial(progressionMember, special.id))}>{t(`games.gangues.progression.${equipped ? 'unequip' : 'equip'}`)}</button>}</div>
+          {progressionMember && (
+            <section className="gang-progression">
+              <div className="gang-progression-header">
+                <span className={`gang-progression-avatar gang-path--${progressionMember.combat_path}`}>{progressionMember.sheet_name[0].toUpperCase()}</span>
+                <div className="gang-progression-headline">
+                  <h2>{t('games.gangues.progression.title')}</h2>
+                  <p>{progressionMember.sheet_name} · {t(`games.gangues.loadout.paths.${progressionMember.combat_path}.name`)}</p>
+                </div>
+              </div>
+
+              <div className="gang-progression-stats">
+                <div className="gang-progression-ap">
+                  <span>{t('games.gangues.progression.ap', { n: progression.ap })}</span>
+                  <progress className="gang-progression-ap-bar" max="10" value={progression.ap} />
+                </div>
+                <div className="gang-progression-xp">✦ {t('games.gangues.progression.xp_available', { n: progression.xp_unspent })}</div>
+              </div>
+
+              <h3 className="gang-progression-section-title">{t('games.gangues.progression.attributes')}</h3>
+              <div className="gang-attr-upgrade-grid">
+                {['A', 'H', 'R', 'D'].map(attribute => {
+                  const value = progressionMember.attributes?.[attribute] || 0
+                  const cost = GANGUES_ATTRIBUTE_XP_COSTS[value]
+                  const canAfford = Boolean(cost) && progression.xp_unspent >= cost
+                  return (
+                    <button
+                      key={attribute} className="gang-attr-upgrade-card" disabled={!canAfford}
+                      onClick={() => applyProgression(progressionMember, upgradeGanguesAttribute(progressionMember, attribute))}
+                    >
+                      <span className="gang-attr-upgrade-letter">{attribute}</span>
+                      <span className="gang-attr-upgrade-values">{value} <b>→</b> {value + 1}</span>
+                      <span className="gang-attr-upgrade-cost">{cost ? t('games.gangues.progression.upgrade', { n: cost }) : '—'}</span>
+                    </button>
+                  )
                 })}
               </div>
-            </>}
-          </section>}
+
+              {progressionMember.combat_path === 'atacante' && (
+                <>
+                  <h3 className="gang-progression-section-title">
+                    {t('games.gangues.progression.specials')}
+                    <span className="gang-progression-loadout">{t('games.gangues.progression.loadout', { n: progression.selected_specials.length })}</span>
+                  </h3>
+                  <div className="gang-skill-grid">
+                    {GANGUES_ATTACKER_SPECIALS.map(special => {
+                      const level = progression.special_levels[special.id] || 0
+                      const equipped = progression.selected_specials.includes(special.id)
+                      const specialCost = GANGUES_SPECIAL_COSTS[level]
+                      const canAfford = Boolean(specialCost) && progression.xp_unspent >= specialCost
+                      return (
+                        <div key={special.id} className={`gang-skill-node ${equipped ? 'gang-skill-node--equipped' : ''} ${level === 0 ? 'gang-skill-node--locked' : ''}`}>
+                          <div className="gang-skill-node-icon">{SPECIAL_ICON[special.id] || '★'}</div>
+                          <strong className="gang-skill-node-name">{t(`games.gangues.progression.${special.id}`)}</strong>
+                          <span className="gang-skill-node-kind">{t(`games.gangues.progression.${special.kind}`)}</span>
+                          <div className="gang-skill-node-pips">{[0, 1, 2].map(pip => <i key={pip} className={pip < level ? 'gang-skill-pip gang-skill-pip--filled' : 'gang-skill-pip'} />)}</div>
+                          <div className="gang-skill-node-actions">
+                            <button disabled={!canAfford} onClick={() => applyProgression(progressionMember, upgradeGanguesSpecial(progressionMember, special.id))}>
+                              {specialCost ? t('games.gangues.progression.upgrade', { n: specialCost }) : '—'}
+                            </button>
+                            {level > 0 && (
+                              <button
+                                className="gang-skill-node-toggle" disabled={!equipped && progression.selected_specials.length >= 2}
+                                onClick={() => applyProgression(progressionMember, toggleGanguesSpecial(progressionMember, special.id))}
+                              >
+                                {t(`games.gangues.progression.${equipped ? 'unequip' : 'equip'}`)}
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </>
+              )}
+            </section>
+          )}
           <button className="gang-new-sheet gang-new-sheet--primary" disabled={party.length < GANGUES_INITIAL_PARTY_SIZE} onClick={() => setChoosingEnemy(true)}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
         </>
