@@ -370,7 +370,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 57,
+      "community": 19,
       "norm_label": "framer-motion"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 57,
+      "community": 19,
       "norm_label": "framer-motion"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 78,
+      "community": 80,
       "norm_label": "pixi.js"
     },
     {
@@ -400,7 +400,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 78,
+      "community": 80,
       "norm_label": "pixi.js"
     },
     {
@@ -430,7 +430,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_react",
-      "community": 108,
+      "community": 57,
       "norm_label": "react"
     },
     {
@@ -440,7 +440,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "react",
-      "community": 108,
+      "community": 57,
       "norm_label": "react"
     },
     {
@@ -3060,7 +3060,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_context_languagecontext_languagecontext",
-      "community": 214,
+      "community": 78,
       "norm_label": "languagecontext"
     },
     {
@@ -3080,7 +3080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_languageprovider",
-      "community": 214,
+      "community": 78,
       "norm_label": "languageprovider.jsx"
     },
     {
@@ -3090,7 +3090,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_languageprovider_getnested",
-      "community": 214,
+      "community": 78,
       "norm_label": "getnested()"
     },
     {
@@ -3100,7 +3100,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_context_languageprovider_deepmerge",
-      "community": 214,
+      "community": 78,
       "norm_label": "deepmerge()"
     },
     {
@@ -3110,7 +3110,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_context_languageprovider_languageprovider",
-      "community": 214,
+      "community": 78,
       "norm_label": "languageprovider()"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoranking",
-      "community": 34,
+      "community": 59,
       "norm_label": "registrarpontuacaoranking()"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_registrarmovimento",
-      "community": 19,
+      "community": 6,
       "norm_label": "registrarmovimento()"
     },
     {
@@ -3960,7 +3960,7 @@
       "source_location": "L242",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_subscribetomatchpresence",
-      "community": 19,
+      "community": 6,
       "norm_label": "subscribetomatchpresence()"
     },
     {
@@ -3970,7 +3970,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_subscribetomovimentos",
-      "community": 19,
+      "community": 6,
       "norm_label": "subscribetomovimentos()"
     },
     {
@@ -4070,7 +4070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_i18n_locales",
-      "community": 214,
+      "community": 78,
       "norm_label": "locales.js"
     },
     {
@@ -4080,7 +4080,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_i18n_locales_deepmerge",
-      "community": 214,
+      "community": 78,
       "norm_label": "deepmerge()"
     },
     {
@@ -4090,7 +4090,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_i18n_locales_locales",
-      "community": 214,
+      "community": 78,
       "norm_label": "locales"
     },
     {
@@ -4100,7 +4100,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_i18n_locales_locale_labels",
-      "community": 214,
+      "community": 78,
       "norm_label": "locale_labels"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_getdeck",
-      "community": 19,
+      "community": 6,
       "norm_label": "getdeck.js"
     },
     {
@@ -4120,7 +4120,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_getdeck_decks",
-      "community": 19,
+      "community": 6,
       "norm_label": "decks"
     },
     {
@@ -4130,7 +4130,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_lib_getdeck_getdeck",
-      "community": 19,
+      "community": 6,
       "norm_label": "getdeck()"
     },
     {
@@ -4820,7 +4820,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardimages_gettoptrumpscardimage",
-      "community": 19,
+      "community": 6,
       "norm_label": "gettoptrumpscardimage()"
     },
     {
@@ -8850,7 +8850,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "src_pages_games_gangues_data_ganguesspecials_path",
-      "community": 214,
+      "community": 78,
       "norm_label": "path()"
     },
     {
@@ -14490,7 +14490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp",
-      "community": 19,
+      "community": 6,
       "norm_label": "toptrumpsmp.jsx"
     },
     {
@@ -14500,7 +14500,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_logmp",
-      "community": 19,
+      "community": 6,
       "norm_label": "logmp()"
     },
     {
@@ -14510,7 +14510,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey",
-      "community": 19,
+      "community": 6,
       "norm_label": "attrnomekey()"
     },
     {
@@ -14520,7 +14520,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_avatarcor",
-      "community": 19,
+      "community": 6,
       "norm_label": "avatarcor()"
     },
     {
@@ -14530,7 +14530,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp",
-      "community": 19,
+      "community": 6,
       "norm_label": "toptrumpsmp()"
     },
     {
@@ -14540,7 +14540,7 @@
       "source_location": "L816",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_816",
-      "community": 19,
+      "community": 6,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais"
     },
     {
@@ -15000,7 +15000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine",
-      "community": 19,
+      "community": 6,
       "norm_label": "usemultiplayerturnmachine.js"
     },
     {
@@ -15010,7 +15010,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_initialstate",
-      "community": 19,
+      "community": 6,
       "norm_label": "initialstate"
     },
     {
@@ -15020,7 +15020,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_reduce",
-      "community": 19,
+      "community": 6,
       "norm_label": "reduce()"
     },
     {
@@ -15030,7 +15030,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine",
-      "community": 19,
+      "community": 6,
       "norm_label": "usemultiplayerturnmachine()"
     },
     {
@@ -15160,7 +15160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck",
-      "community": 19,
+      "community": 6,
       "norm_label": "deterministicdeck.js"
     },
     {
@@ -15170,7 +15170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_hashseed",
-      "community": 19,
+      "community": 6,
       "norm_label": "hashseed()"
     },
     {
@@ -15180,7 +15180,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_ordenardeckdeterministico",
-      "community": 19,
+      "community": 6,
       "norm_label": "ordenardeckdeterministico()"
     },
     {
@@ -29887,7 +29887,7 @@
       "label": "13. Estrutura de arquivos",
       "file_type": "document",
       "source_file": "src/pages/games/Gangues/GANGUES_DESIGN.md",
-      "source_location": "L242",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "src_pages_games_gangues_gangues_design_13_estrutura_de_arquivos",
       "community": 25,
@@ -29897,7 +29897,7 @@
       "label": "14. Pontos em aberto / ideias pra continuar",
       "file_type": "document",
       "source_file": "src/pages/games/Gangues/GANGUES_DESIGN.md",
-      "source_location": "L273",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "src_pages_games_gangues_gangues_design_14_pontos_em_aberto_ideias_pra_continuar",
       "community": 25,
@@ -97063,7 +97063,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GANGUES_DESIGN.md",
-      "source_location": "L242",
+      "source_location": "L245",
       "weight": 1.0,
       "source": "src_pages_games_gangues_gangues_design_ldi_gangues_estado_atual_do_jogo",
       "target": "src_pages_games_gangues_gangues_design_13_estrutura_de_arquivos",
@@ -97073,7 +97073,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GANGUES_DESIGN.md",
-      "source_location": "L273",
+      "source_location": "L276",
       "weight": 1.0,
       "source": "src_pages_games_gangues_gangues_design_ldi_gangues_estado_atual_do_jogo",
       "target": "src_pages_games_gangues_gangues_design_14_pontos_em_aberto_ideias_pra_continuar",
@@ -97321,5 +97321,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c4aaf2cbbb58fdc788385d17c528fa4b7d2dfe20"
+  "built_at_commit": "f6b1cc848fcb4065148e41716074248893c9ac33"
 }

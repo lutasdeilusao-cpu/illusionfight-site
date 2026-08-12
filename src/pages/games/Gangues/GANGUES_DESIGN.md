@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.0** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.1** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -238,6 +238,9 @@ até duas especializações equipadas. **Aplicar e salvar** atualiza `sheet`, `r
 podem alternar entre suas cinco árvores e configurar todos os 50 poderes correspondentes;
 **Restaurar valores** recupera
 no formulário o snapshot capturado ao selecionar a ficha, exigindo confirmação para persistir.
+O layout da zona é mobile-first e permanece em um container portrait de até 480 px: campos de
+toque têm no mínimo 48 px, experiência usa grade 2+1, atributos ficam em 2×2, poderes são sempre
+empilhados em uma coluna e as ações salvar/restaurar permanecem acessíveis durante a rolagem.
 
 ## 13. Estrutura de arquivos
 

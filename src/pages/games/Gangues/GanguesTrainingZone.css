@@ -1,41 +1,92 @@
-.gang-training { width: min(100%, 720px); min-height: 100vh; margin: 0 auto; padding: 24px 16px 48px; color: #eef4f6; font-family: 'Rajdhani', sans-serif; }
-.gang-training__hero { border-left: 3px solid #f5a623; padding: 4px 0 4px 16px; margin-bottom: 24px; }
-.gang-training__hero span { color: #f5a623; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
-.gang-training__hero h1 { margin: 4px 0; font-size: clamp(28px, 7vw, 44px); letter-spacing: 2px; }
-.gang-training__hero p { margin: 0; color: #91a0a6; font-size: 13px; }
-.gang-training__select-label { display: block; margin-bottom: 5px; color: #7b898f; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
-.gang-training__select, .gang-training input, .gang-training__power select { width: 100%; border: 1px solid #34444b; border-radius: 3px; background: #111a1e; color: #fff; padding: 10px; font: 700 14px 'Rajdhani', sans-serif; }
-.gang-training__select { margin-bottom: 14px; }
-.gang-training__console { border: 1px solid #2a383e; background: rgba(10,16,19,.94); padding: 16px; box-shadow: inset 0 0 35px rgba(0,180,216,.035); }
-.gang-training__console h2 { display: flex; justify-content: space-between; margin: 18px 0 9px; color: #00b4d8; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; }
-.gang-training__console h2:first-child { margin-top: 0; }
-.gang-training__console h2 small { color: #f5a623; font-size: 10px; }
-.gang-training__fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.gang-training__fields--attributes { grid-template-columns: repeat(4, 1fr); }
-.gang-training__fields label, .gang-training__power label { color: #91a0a6; font-size: 10px; letter-spacing: .8px; text-transform: uppercase; }
-.gang-training input { margin-top: 4px; }
-.gang-training__powers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.gang-training__power { display: grid; grid-template-columns: 1fr 76px; gap: 7px; align-items: end; border: 1px solid #29373d; padding: 10px; background: #131c20; }
-.gang-training__power--equipped { border-color: #f5a623; box-shadow: inset 3px 0 #f5a623; }
-.gang-training__power strong { align-self: center; font-size: 12px; }
-.gang-training__power button, .gang-training__actions button, .gang-training__back, .gang-training--blocked button { border: 1px solid #415158; background: transparent; color: #d9e2e5; padding: 9px; font: 800 10px 'Rajdhani', sans-serif; letter-spacing: 1px; cursor: pointer; text-transform: uppercase; }
-.gang-training__power button { grid-column: 1 / -1; }
-.gang-training button:disabled { opacity: .35; cursor: not-allowed; }
-.gang-training__actions { display: flex; gap: 8px; margin-top: 18px; }
-.gang-training__actions button { flex: 1; }
-.gang-training__actions .gang-training__save { border-color: #00b4d8; background: #00b4d8; color: #061014; }
-.gang-training__status { color: #6ce5a8; font-size: 12px; text-align: center; }
-.gang-training__back { width: 100%; margin-top: 16px; }
+.gang-training {
+  width: 100%; max-width: 480px; min-height: 100vh; margin: 0 auto;
+  padding: 16px 12px calc(32px + env(safe-area-inset-bottom));
+  color: #eef4f6; font-family: 'Rajdhani', sans-serif;
+}
+.gang-training__hero {
+  position: relative; overflow: hidden; margin-bottom: 18px; padding: 18px 16px;
+  border: 1px solid rgba(245,166,35,.38); border-radius: 8px;
+  background: radial-gradient(circle at 100% 0, rgba(245,166,35,.14), transparent 42%), #0d171b;
+  box-shadow: 0 12px 30px rgba(0,0,0,.24);
+}
+.gang-training__hero::after { content: ''; position: absolute; inset: auto 0 0; height: 3px; background: linear-gradient(90deg, #f5a623, #00b4d8); }
+.gang-training__hero span { display: block; color: #f5a623; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
+.gang-training__hero h1 { margin: 5px 0 7px; font-size: clamp(25px, 8vw, 34px); line-height: .95; letter-spacing: 1.5px; }
+.gang-training__hero p { max-width: 36ch; margin: 0; color: #9cacb2; font-size: 12px; line-height: 1.45; }
+.gang-training__select-label { display: block; margin: 0 0 6px 4px; color: #8b9ba1; font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
+.gang-training__select, .gang-training input, .gang-training__power select {
+  width: 100%; min-height: 50px; border: 1px solid #35464d; border-radius: 6px;
+  background: #121d21; color: #fff; padding: 0 13px; font: 800 16px 'Rajdhani', sans-serif;
+  outline: none; transition: border-color .18s, box-shadow .18s, background .18s;
+}
+.gang-training__select:focus, .gang-training input:focus, .gang-training__power select:focus { border-color: #00b4d8; box-shadow: 0 0 0 3px rgba(0,180,216,.14); background: #152329; }
+.gang-training input[type='number'] { appearance: textfield; }
+.gang-training input[type='number']::-webkit-inner-spin-button, .gang-training input[type='number']::-webkit-outer-spin-button { margin: 0; appearance: none; }
+.gang-training__select { margin-bottom: 12px; }
+.gang-training__console { border: 0; border-radius: 8px; background: transparent; padding: 0 0 70px; box-shadow: none; }
+.gang-training__console h2 {
+  display: flex; align-items: center; justify-content: flex-start; gap: 8px;
+  margin: 20px 2px 9px; color: #65dff4; font-size: 12px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.gang-training__console h2::before { content: ''; width: 4px; height: 14px; border-radius: 2px; background: #00b4d8; box-shadow: 0 0 10px rgba(0,180,216,.55); }
+.gang-training__console h2:first-child { margin-top: 8px; }
+.gang-training__console h2 small { margin-left: auto; color: #f5a623; font-size: 10px; letter-spacing: .8px; }
+.gang-training__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.gang-training__fields label, .gang-training__power label {
+  min-width: 0; color: #91a0a6; font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+}
+.gang-training__fields label:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.gang-training__fields--attributes { grid-template-columns: 1fr 1fr; }
+.gang-training__fields--attributes label:last-child:nth-child(odd) { grid-column: auto; }
+.gang-training input { margin-top: 5px; }
+.gang-training__powers { display: grid; grid-template-columns: 1fr; gap: 9px; }
+.gang-training__power {
+  display: grid; grid-template-columns: minmax(0, 1fr) 86px; gap: 9px; align-items: end;
+  min-height: 126px; border: 1px solid #2d3e45; border-radius: 7px; padding: 13px;
+  background: linear-gradient(135deg, #142126, #0f191d); box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+.gang-training__power--equipped { border-color: #f5a623; background: linear-gradient(135deg, rgba(245,166,35,.12), #111b1f 58%); box-shadow: inset 4px 0 #f5a623, 0 8px 24px rgba(0,0,0,.22); }
+.gang-training__power strong { align-self: center; overflow-wrap: anywhere; color: #f4f8f9; font-size: 15px; line-height: 1.1; }
+.gang-training__power select { min-height: 46px; padding: 0 10px; }
+.gang-training__power button, .gang-training__actions button, .gang-training__back, .gang-training--blocked button {
+  min-height: 48px; border: 1px solid #41545c; border-radius: 5px; background: #101a1e;
+  color: #e4ecee; padding: 10px; font: 800 11px 'Rajdhani', sans-serif;
+  letter-spacing: 1px; cursor: pointer; text-transform: uppercase;
+}
+.gang-training__power button { grid-column: 1 / -1; color: #f5a623; border-color: rgba(245,166,35,.45); }
+.gang-training button:disabled { opacity: .35; cursor: not-allowed; filter: grayscale(.7); }
+.gang-training__actions {
+  position: sticky; z-index: 4; bottom: 8px; display: grid; grid-template-columns: 1.25fr 1fr;
+  gap: 7px; margin-top: 18px; padding: 8px; border: 1px solid rgba(68,86,94,.8); border-radius: 8px;
+  background: rgba(8,15,18,.94); box-shadow: 0 -10px 28px rgba(0,0,0,.42); backdrop-filter: blur(10px);
+}
+.gang-training__actions .gang-training__save { border-color: #00b4d8; background: #00b4d8; color: #041014; box-shadow: 0 0 18px rgba(0,180,216,.2); }
+.gang-training__status { margin: 14px 0 0; color: #6ce5a8; font-size: 12px; text-align: center; }
+.gang-training__back { width: 100%; margin-top: 14px; background: transparent; }
 .gang-training__empty, .gang-training--blocked { text-align: center; }
-.gang-training-entry { width: 100%; display: grid; grid-template-columns: 38px 1fr auto; gap: 10px; align-items: center; margin: 0 0 18px; border: 1px solid rgba(245,166,35,.45); background: linear-gradient(90deg, rgba(245,166,35,.13), rgba(0,180,216,.04)); color: #eef4f6; padding: 12px; text-align: left; cursor: pointer; }
+.gang-training-entry {
+  width: 100%; display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center;
+  margin: 0 0 18px; border: 1px solid rgba(245,166,35,.45); border-radius: 6px;
+  background: linear-gradient(90deg, rgba(245,166,35,.13), rgba(0,180,216,.04)); color: #eef4f6;
+  padding: 12px; text-align: left; cursor: pointer;
+}
 .gang-training-entry > span:first-child { color: #f5a623; font-size: 24px; text-align: center; }
 .gang-training-entry strong, .gang-training-entry small { display: block; }
 .gang-training-entry strong { color: #f5a623; font: 800 13px 'Rajdhani', sans-serif; letter-spacing: 1.5px; }
 .gang-training-entry small { margin-top: 2px; color: #89989e; font-size: 10px; }
 .gang-training-entry b { color: #f5a623; }
-.gang-special-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 7px; margin-bottom: 14px; }
-.gang-special-path { display: flex; min-height: 46px; align-items: center; justify-content: center; gap: 6px; border: 1px solid #34444b; background: #111a1e; color: #91a0a6; padding: 8px 6px; font: 800 10px 'Rajdhani', sans-serif; letter-spacing: .7px; text-transform: uppercase; cursor: pointer; }
-.gang-special-path span { color: #00b4d8; font-size: 15px; }
-.gang-special-path--selected { border-color: #f5a623; background: rgba(245,166,35,.09); color: #fff; box-shadow: inset 0 -2px #f5a623; }
+.gang-special-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 14px; }
+.gang-special-path {
+  display: flex; min-height: 50px; align-items: center; justify-content: flex-start; gap: 8px;
+  border: 1px solid #34444b; border-radius: 5px; background: #111a1e; color: #91a0a6;
+  padding: 9px; font: 800 10px 'Rajdhani', sans-serif; letter-spacing: .7px; text-transform: uppercase; cursor: pointer;
+}
+.gang-special-path span { color: #00b4d8; font-size: 16px; }
+.gang-special-path--selected { border-color: #f5a623; background: rgba(245,166,35,.09); color: #fff; box-shadow: inset 0 -3px #f5a623; }
 .gang-special-path--selected span { color: #f5a623; }
-@media (max-width: 520px) { .gang-training__fields { grid-template-columns: 1fr 1fr; } .gang-training__fields--attributes { grid-template-columns: repeat(4, 1fr); } .gang-training__powers { grid-template-columns: 1fr; } }
+
+@media (min-width: 600px) {
+  .gang-training { padding-top: 24px; }
+  .gang-training__hero { padding: 22px 20px; }
+}
