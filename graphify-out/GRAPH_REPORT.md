@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-08-12)
 
 ## Corpus Check
-- 652 files · ~749,546 words
+- 652 files · ~749,597 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f6b1cc84`
+- Built from commit: `9a1c60a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -257,8 +257,8 @@ Cohesion: 0.19
 Nodes (13): ActionMenu(), SkillModal(), CLASSES, getClassesDisponiveis(), EFEITO_AURA, getCorPorElemental(), PALETAS_CORES, ELEMENTAIS (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.08
-Nodes (34): atualizarMPStats(), atualizarSala(), buscarSala(), buscarSalaPublicaAtivaDoJogador(), carregarMPStats(), codigoSala(), criarSala(), encerrarSala() (+26 more)
+Cohesion: 0.13
+Nodes (19): atualizarMPStats(), atualizarSala(), buscarSala(), buscarSalaPublicaAtivaDoJogador(), carregarMPStats(), codigoSala(), criarSala(), encerrarSala() (+11 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.15
@@ -345,8 +345,8 @@ Cohesion: 0.16
 Nodes (14): PP, t(), applyDisease(), clearLog(), DISEASE_STAGES, getEffectiveMaxHP(), initBattle(), pickRandomEnemies() (+6 more)
 
 ### Community 30 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
-Cohesion: 0.50
-Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
+Cohesion: 0.17
+Nodes (15): registrarMovimento(), subscribeToMatchPresence(), subscribeToMovimentos(), DECKS, getDeck(), getTopTrumpsCardImage(), initialState, reduce() (+7 more)
 
 ### Community 31 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.25
@@ -361,8 +361,8 @@ Cohesion: 0.14
 Nodes (19): carregarTentativas(), consumirTentativa(), marcarCartaGanha(), salvarCartasDeck(), substituirDeck(), verificarCartaGanhaHoje(), ACCESS_RANK, canAcquireTopTrumpsCard() (+11 more)
 
 ### Community 34 - "TopTrumpsMP.jsx"
-Cohesion: 0.20
-Nodes (10): CHOICES, EMOJI, Jokempo(), registrarPartida(), usePresence(), ONOMATOPEIAS, useGameEffects(), useTopTrumpsSP() (+2 more)
+Cohesion: 0.19
+Nodes (11): CHOICES, EMOJI, Jokempo(), registrarPartida(), registrarPontuacaoRanking(), usePresence(), ONOMATOPEIAS, useGameEffects() (+3 more)
 
 ### Community 35 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
 Cohesion: 0.17
@@ -450,15 +450,15 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 
 ### Community 57 - "Community 57"
 Cohesion: 0.13
-Nodes (15): dependencies, playwright, react, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
+Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
 
 ### Community 58 - "Vila.jsx"
 Cohesion: 0.13
 Nodes (30): DanoPopup(), STATUS_ICONS, StatusBar(), resolverAcaoIA(), sortearIAs(), aplicarStatus(), FX_INFO, podeAgir() (+22 more)
 
 ### Community 59 - "useTopTrumpsRewards.js"
-Cohesion: 0.16
-Nodes (20): getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking (+12 more)
+Cohesion: 0.17
+Nodes (19): getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking (+11 more)
 
 ### Community 60 - "GanguesCombat.jsx"
 Cohesion: 0.29
@@ -753,8 +753,8 @@ Cohesion: 0.25
 Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSION FIGHT — CONTROLE FINANCEIRO, META DE RETORNO (custos diretos), RECEITAS, RESUMO GERAL
 
 ### Community 189 - "Marketing-MAP.md"
-Cohesion: 0.25
-Nodes (7): BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), ILLUSION FIGHT — MARKETING MAP v4.0, ÍNDICE
+Cohesion: 0.17
+Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -876,11 +876,11 @@ Nodes (15): ArenaTestbed(), FaseArena, ModoJogo, ORDEM_FASES, carregarFichas(), 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 12` to `Community 0`, `Community 1`, `Community 4`, `Community 6`, `PowerCard.jsx`, `Community 8`, `Community 9`, `Community 10`, `useFichaGate.js`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Community 20`, `PuzzleWrapper.jsx`, `Batalha.jsx`, `levelProgression.js`, `PuzzleStealthGrid.jsx`, `initBattle`, `TopTrumpsMP.jsx`, `levelProgression.js`, `PuzzleForça.jsx`, `classTree.js`, `PuzzleStealthGrid.jsx`, `PuzzleForça.jsx`, `GanguesLobby.jsx`, `Vila.jsx`, `useTopTrumpsRewards.js`, `GanguesCombat.jsx`, `Community 62`, `criaturas.js`, `Community 76`, `Navbar.jsx`, `endBattle`, `MiniGames.jsx`, `regrasFicha.js`?**
+- **Why does `useLanguage()` connect `Community 12` to `Community 0`, `Community 1`, `Community 4`, `PowerCard.jsx`, `Community 8`, `Community 9`, `Community 10`, `useFichaGate.js`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Community 20`, `PuzzleWrapper.jsx`, `Batalha.jsx`, `levelProgression.js`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `initBattle`, `TopTrumpsMP.jsx`, `levelProgression.js`, `PuzzleForça.jsx`, `classTree.js`, `PuzzleStealthGrid.jsx`, `PuzzleForça.jsx`, `GanguesLobby.jsx`, `Vila.jsx`, `useTopTrumpsRewards.js`, `GanguesCombat.jsx`, `Community 62`, `criaturas.js`, `Community 76`, `Navbar.jsx`, `endBattle`, `MiniGames.jsx`, `regrasFicha.js`?**
   _High betweenness centrality (0.147) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `sfx.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 3`, `Community 6`, `PowerCard.jsx`, `Community 12`, `Navbar.jsx`, `PuzzleStealthGrid.jsx`, `CityOverworld.jsx`, `Community 20`, `PuzzleWrapper.jsx`, `levelProgression.js`?**
+- **Why does `useReader()` connect `sfx.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 3`, `PowerCard.jsx`, `Community 12`, `Navbar.jsx`, `PuzzleStealthGrid.jsx`, `CityOverworld.jsx`, `Community 20`, `PuzzleWrapper.jsx`, `levelProgression.js`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **Why does `SFX` connect `Community 7` to `TopTrumpsMP.jsx`, `Community 6`, `Community 8`, `Community 12`, `CityOverworld.jsx`, `GanguesLobby.jsx`, `GanguesCombat.jsx`?**
+- **Why does `SFX` connect `Community 7` to `TopTrumpsMP.jsx`, `Community 8`, `Community 12`, `CityOverworld.jsx`, `GanguesLobby.jsx`, `GanguesCombat.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **What connects `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES` to the rest of the system?**
   _1050 weakly-connected nodes found - possible documentation gaps or missing edges._

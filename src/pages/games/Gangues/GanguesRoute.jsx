@@ -36,7 +36,7 @@ export default function GanguesRoute() {
   if (!i18nReady) return <div className="gang-page" />
 
   return (
-    <div className="gang-page">
+    <div className={`gang-page ${fase === 'training' ? 'gang-page--training' : ''}`}>
       <GuestNotice />
       {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (

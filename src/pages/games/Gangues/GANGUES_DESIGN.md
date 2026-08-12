@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.1** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.2** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -241,6 +241,9 @@ no formulário o snapshot capturado ao selecionar a ficha, exigindo confirmaçã
 O layout da zona é mobile-first e permanece em um container portrait de até 480 px: campos de
 toque têm no mínimo 48 px, experiência usa grade 2+1, atributos ficam em 2×2, poderes são sempre
 empilhados em uma coluna e as ações salvar/restaurar permanecem acessíveis durante a rolagem.
+A fase `training` adiciona o modificador `.gang-page--training` ao shell do jogo para substituir
+o `overflow: hidden` necessário nas arenas por um scroll vertical próprio, com gesto `pan-y` e
+rolagem inercial no iOS. Esse modificador nunca é aplicado ao lobby, criação ou combate.
 
 ## 13. Estrutura de arquivos
 
