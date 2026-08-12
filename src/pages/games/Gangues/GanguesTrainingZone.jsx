@@ -10,7 +10,18 @@ import './GanguesTrainingZone.css'
 const ATTRIBUTES = ['A', 'H', 'R', 'D']
 const clamp = (value, min, max) => Math.min(max, Math.max(min, Number(value) || 0))
 
-export default function GanguesTrainingZone({ onNavigate }) {
+const createPublicTestSheet = (sheetName) => ({
+  id: 'public-training-character',
+  sheet_name: sheetName,
+  attributes: { A: 1, H: 1, R: 1, D: 1, progression: {} },
+  elemental: 'neutro',
+  combat_path: 'defensor',
+  loadout_version: 2,
+  xp_total: 0,
+  enemies_unlocked: ['treinamento'],
+})
+
+export default function GanguesTrainingZone({ onNavigate, publicAccess = false }) {
   const { user } = useAuth()
   const { isAdmin, loading } = useFichas()
   const { t } = useLanguage()
@@ -20,6 +31,12 @@ export default function GanguesTrainingZone({ onNavigate }) {
   const [snapshot, setSnapshot] = useState(null)
   const [status, setStatus] = useState('')
   const selected = useMemo(() => store.roster.find(member => member.id === selectedId), [store.roster, selectedId])
+
+  useEffect(() => {
+    if (!publicAccess || store.roster.length) return
+    const testSheet = store.addLocalSheet(createPublicTestSheet(t('games.gangues.training.character')))
+    setSelectedId(testSheet.id)
+  }, [publicAccess, store.roster.length, t])
 
   useEffect(() => {
     if (!selected) return
@@ -38,8 +55,8 @@ export default function GanguesTrainingZone({ onNavigate }) {
     setStatus('')
   }, [selectedId, selected])
 
-  if (loading) return <main className="gang-training"><p>{t('games.gangues.carregando')}</p></main>
-  if (!isAdmin) return <main className="gang-training gang-training--blocked"><h1>{t('games.gangues.training.denied')}</h1><button onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_voltar')}</button></main>
+  if (!publicAccess && loading) return <main className="gang-training"><p>{t('games.gangues.carregando')}</p></main>
+  if (!publicAccess && !isAdmin) return <main className="gang-training gang-training--blocked"><h1>{t('games.gangues.training.denied')}</h1><button onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_voltar')}</button></main>
 
   const updateNumber = (field, value, max = 999999) => setDraft(current => ({ ...current, [field]: clamp(value, 0, max) }))
   const updateAttribute = (attribute, value) => setDraft(current => ({ ...current, attributes: { ...current.attributes, [attribute]: clamp(value, 0, 99) } }))

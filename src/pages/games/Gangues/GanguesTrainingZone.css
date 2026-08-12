@@ -1,13 +1,15 @@
-.gang-page--training {
+.gang-page.gang-page--training {
+  display: block;
+  height: auto;
+  min-height: 100dvh;
   align-items: flex-start;
   justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-  touch-action: pan-y;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: clip;
+  overflow-y: visible;
+  overscroll-behavior-y: auto;
+  touch-action: auto;
 }
-.gang-page--training .gang-training { flex: 0 0 auto; }
+.gang-page.gang-page--training .gang-training { flex: 0 0 auto; }
 
 .gang-training {
   width: 100%; max-width: 480px; min-height: 100vh; margin: 0 auto;

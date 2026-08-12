@@ -15,13 +15,13 @@ import './Gangues.css'
 import { GANGUES_VERSION } from '../../../config/version'
 console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 
-export default function GanguesRoute() {
+export default function GanguesRoute({ publicTraining = false }) {
   const { user } = useAuth()
   const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
-  const [fase, setFase] = useState('lobby')
+  const [fase, setFase] = useState(publicTraining ? 'training' : 'lobby')
   const [creationParty, setCreationParty] = useState([])
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function GanguesRoute() {
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
-      {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} />}
+      {fase === 'training' && <GanguesTrainingZone onNavigate={publicTraining ? () => navigate('/games') : setFase} publicAccess={publicTraining} />}
     </div>
   )
 }

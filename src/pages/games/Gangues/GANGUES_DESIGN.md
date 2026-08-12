@@ -289,3 +289,8 @@ src/pages/games/Gangues/
 - Sem sistema de habilidades/poderes especiais além do bônus passivo do caminho — é só ataque
   básico. Se quiser variedade tática, dá pra pensar em golpes especiais que gastam PM.
 - Multiplayer real (PvP) não existe — todo combate é contra IA.
+## Zona de Treinamento pública
+
+A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de progressão sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
+
+A Zona de Treinamento não cria um scroll interno: o primeiro container (`.gang-page`) recebe altura automática e overflow vertical visível para que `html/body` mantenham o gesto nativo do navegador. O modificador usa o seletor composto `.gang-page.gang-page--training`, pois o CSS importado pelo componente filho pode aparecer antes de `Gangues.css` no bundle do Vite. A especificidade impede que `height: 100dvh` e `overflow: hidden` da regra base voltem a travar a página.
