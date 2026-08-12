@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useFichas } from '../../../context/FichasContext'
 import { useLanguage } from '../../../context/LanguageContext'
-import { GANGUES_ATTACKER_SPECIALS, getGanguesProgression } from './data/ganguesLoadout.js'
+import { getGanguesProgression } from './data/ganguesLoadout.js'
+import { GANGUES_ALL_SPECIALS, getGanguesSpecialPath, getGanguesSpecialPaths } from './data/ganguesSpecials.js'
 import { useGanguesStore } from './store/useGanguesStore.js'
 import './GanguesTrainingZone.css'
 
@@ -27,8 +28,9 @@ export default function GanguesTrainingZone({ onNavigate }) {
       xp_total: selected.xp_total || 0,
       ap: progression.ap,
       xp_unspent: progression.xp_unspent,
+      special_path: progression.special_path,
       attributes: Object.fromEntries(ATTRIBUTES.map(attribute => [attribute, selected.attributes?.[attribute] || 0])),
-      special_levels: Object.fromEntries(GANGUES_ATTACKER_SPECIALS.map(special => [special.id, progression.special_levels[special.id] || 0])),
+      special_levels: Object.fromEntries(GANGUES_ALL_SPECIALS.map(special => [special.id, progression.special_levels[special.id] || 0])),
       selected_specials: progression.selected_specials,
     }
     setDraft(next)
@@ -49,6 +51,7 @@ export default function GanguesTrainingZone({ onNavigate }) {
       selected_specials: level === 0 ? current.selected_specials.filter(id => id !== specialId) : current.selected_specials,
     }
   })
+  const updateSpecialPath = (specialPath) => setDraft(current => ({ ...current, special_path: specialPath, selected_specials: [] }))
   const toggleSpecial = (specialId) => setDraft(current => {
     const equipped = current.selected_specials.includes(specialId)
     if (!equipped && (!current.special_levels[specialId] || current.selected_specials.length >= 2)) return current
@@ -61,6 +64,7 @@ export default function GanguesTrainingZone({ onNavigate }) {
       ...getGanguesProgression(selected),
       ap: values.ap,
       xp_unspent: values.xp_unspent,
+      special_path: values.special_path,
       special_levels: values.special_levels,
       selected_specials: values.selected_specials,
     }
@@ -99,13 +103,18 @@ export default function GanguesTrainingZone({ onNavigate }) {
               {ATTRIBUTES.map(attribute => <label key={attribute}>{attribute}<input type="number" min="0" max="99" value={draft.attributes[attribute]} onChange={event => updateAttribute(attribute, event.target.value)} /></label>)}
             </div>
 
+            <h2>{t('games.gangues.progression.special_path')}</h2>
+            <select className="gang-training__select" value={draft.special_path || ''} onChange={event => updateSpecialPath(event.target.value)}>
+              {getGanguesSpecialPaths(selected.combat_path).map(item => <option key={item.id} value={item.id}>{t(`games.gangues.progression.paths.${item.id}`)}</option>)}
+            </select>
+
             <h2>{t('games.gangues.training.powers')} <small>{t('games.gangues.training.equipped', { n: draft.selected_specials.length })}</small></h2>
             <div className="gang-training__powers">
-              {GANGUES_ATTACKER_SPECIALS.map(special => {
+              {(getGanguesSpecialPath(selected.combat_path, draft.special_path)?.specials || []).map(special => {
                 const level = draft.special_levels[special.id]
                 const equipped = draft.selected_specials.includes(special.id)
                 return <article key={special.id} className={equipped ? 'gang-training__power gang-training__power--equipped' : 'gang-training__power'}>
-                  <strong>{t(`games.gangues.progression.${special.id}`)}</strong>
+                  <strong>{t(`games.gangues.progression.skills.${special.id}`)}</strong>
                   <label>{t('games.gangues.training.level')}<select value={level} onChange={event => updateSpecial(special.id, event.target.value)}>{[0, 1, 2, 3].map(value => <option key={value} value={value}>{value}</option>)}</select></label>
                   <button disabled={!level || (!equipped && draft.selected_specials.length >= 2)} onClick={() => toggleSpecial(special.id)}>{t(`games.gangues.progression.${equipped ? 'unequip' : 'equip'}`)}</button>
                 </article>

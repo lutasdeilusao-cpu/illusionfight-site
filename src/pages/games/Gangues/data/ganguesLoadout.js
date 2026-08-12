@@ -34,23 +34,26 @@ export const GANGUES_RESOURCE_RATES = {
   mistico: { pvPerR: 2, pmPerR: 4 },
 }
 
-export const GANGUES_ATTACKER_SPECIALS = [
-  { id: 'soco_de_ferro', kind: 'active' },
-  { id: 'investida', kind: 'active' },
-  { id: 'peso_bruto', kind: 'passive' },
-  { id: 'marreta', kind: 'active' },
-  { id: 'fim_de_linha', kind: 'active' },
-]
+export const GANGUES_ATTACKER_SPECIALS = GANGUES_SPECIAL_PATHS.atacante[0].specials
 
 export function defaultGanguesProgression() {
-  return { ap: 0, xp_unspent: 0, special_levels: {}, selected_specials: [] }
+  return { ap: 0, xp_unspent: 0, special_path: null, special_levels: {}, selected_specials: [] }
 }
 
 export function getGanguesProgression(sheet = {}) {
   const source = sheet.attributes?.progression || sheet.progression || {}
   const specialLevels = Object.fromEntries(Object.entries(source.special_levels || {}).map(([id, level]) => [id, Math.max(0, Math.min(3, Number(level) || 0))]))
-  const selected = Array.isArray(source.selected_specials) ? source.selected_specials.filter(id => specialLevels[id] > 0).slice(0, 2) : []
-  return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_levels: specialLevels, selected_specials: selected }
+  const combatPath = sheet.combat_path || null
+  const selectedPath = getGanguesSpecialPath(combatPath, source.special_path)?.id || null
+  const selected = Array.isArray(source.selected_specials) ? source.selected_specials.filter(id => specialLevels[id] > 0 && isGanguesSpecialAllowed(combatPath, selectedPath, id)).slice(0, 2) : []
+  return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_path: selectedPath, special_levels: specialLevels, selected_specials: selected }
+}
+
+export function selectGanguesSpecialPath(sheet, specialPath) {
+  const progression = getGanguesProgression(sheet)
+  const nextPath = getGanguesSpecialPath(sheet.combat_path, specialPath)
+  if (!nextPath) return null
+  return { attributes: { ...sheet.attributes, progression: { ...progression, special_path: nextPath.id, selected_specials: progression.selected_specials.filter(id => nextPath.specials.some(item => item.id === id)) } } }
 }
 
 export function addGanguesAp(sheet, amount) {
@@ -70,6 +73,7 @@ export function upgradeGanguesAttribute(sheet, attribute) {
 
 export function upgradeGanguesSpecial(sheet, specialId) {
   const progression = getGanguesProgression(sheet)
+  if (!isGanguesSpecialAllowed(sheet.combat_path, progression.special_path, specialId)) return null
   const level = progression.special_levels[specialId] || 0
   const cost = GANGUES_SPECIAL_COSTS[level]
   if (!cost || progression.xp_unspent < cost) return null
@@ -78,7 +82,7 @@ export function upgradeGanguesSpecial(sheet, specialId) {
 
 export function toggleGanguesSpecial(sheet, specialId) {
   const progression = getGanguesProgression(sheet)
-  if (!progression.special_levels[specialId]) return null
+  if (!progression.special_levels[specialId] || !isGanguesSpecialAllowed(sheet.combat_path, progression.special_path, specialId)) return null
   const selected = progression.selected_specials.includes(specialId)
     ? progression.selected_specials.filter(id => id !== specialId)
     : progression.selected_specials.length < 2 ? [...progression.selected_specials, specialId] : progression.selected_specials
@@ -101,7 +105,8 @@ export function normalizeGanguesLoadout(sheet = {}) {
 
   return {
     combat_path: combatPath,
-    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ attributes: source, progression: sheet.progression }) },
+    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }) },
     loadout_version: 2,
   }
 }
+import { GANGUES_SPECIAL_PATHS, getGanguesSpecialPath, isGanguesSpecialAllowed } from './ganguesSpecials.js'

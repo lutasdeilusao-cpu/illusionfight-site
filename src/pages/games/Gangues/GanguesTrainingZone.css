@@ -33,4 +33,9 @@
 .gang-training-entry strong { color: #f5a623; font: 800 13px 'Rajdhani', sans-serif; letter-spacing: 1.5px; }
 .gang-training-entry small { margin-top: 2px; color: #89989e; font-size: 10px; }
 .gang-training-entry b { color: #f5a623; }
+.gang-special-paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 7px; margin-bottom: 14px; }
+.gang-special-path { display: flex; min-height: 46px; align-items: center; justify-content: center; gap: 6px; border: 1px solid #34444b; background: #111a1e; color: #91a0a6; padding: 8px 6px; font: 800 10px 'Rajdhani', sans-serif; letter-spacing: .7px; text-transform: uppercase; cursor: pointer; }
+.gang-special-path span { color: #00b4d8; font-size: 15px; }
+.gang-special-path--selected { border-color: #f5a623; background: rgba(245,166,35,.09); color: #fff; box-shadow: inset 0 -2px #f5a623; }
+.gang-special-path--selected span { color: #f5a623; }
 @media (max-width: 520px) { .gang-training__fields { grid-template-columns: 1fr 1fr; } .gang-training__fields--attributes { grid-template-columns: repeat(4, 1fr); } .gang-training__powers { grid-template-columns: 1fr; } }

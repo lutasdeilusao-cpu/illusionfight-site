@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.10.2** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.0** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -157,15 +157,18 @@ própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do C
   dá pra chegar a um atributo em 5 só na criação** — esse caminho de evolução só destrava se
   o jogador puser tudo num atributo só nas fichas que já existem via outro meio, ou é um ponto
   a revisar (ver seção 13).
-- **Especializações do Atacante**: só existe pro caminho **atacante** por enquanto
-  (`GANGUES_ATTACKER_SPECIALS`) — 5 habilidades: Soco de Ferro, Investida, Marreta e Fim de
-  Linha (ativas), Peso Bruto (passiva). Cada uma tem **3 níveis**, custando XP crescente por
+- **Especializações por caminho**: Atacante possui sua árvore original com 5 habilidades.
+  Defensor escolhe entre Muralha, Guardião, Provocador, Reativo e Resiliente; cada árvore tem
+  3 passivas e 2 ativas. Místico escolhe entre Ígneo, Aquático, Terreno, Tempestade e Ilusório;
+  cada árvore tem 1 passiva e 4 ativas. São **55 poderes catalogados** ao todo. Cada poder tem
+  **3 níveis**, custando XP crescente por
   nível (`GANGUES_SPECIAL_COSTS`: nível 0→1 custa 1, 1→2 custa 2, 2→3 custa 3). Só dá pra
   **equipar 2 especializações por vez** (`selected_specials`, máximo 2) — subir de nível não
   exige estar equipada, mas só faz efeito em combate se estiver. **Nenhuma dessas
   especializações tem efeito em batalha ainda** — o sistema de pontos/equipar está pronto, mas
-  `ganguesCombatResolver.js` não lê `selected_specials` em lugar nenhum (ver seção 13).
-- Defensor e Místico não têm árvore de especialização própria ainda — só atributos avançados.
+  `ganguesCombatResolver.js` ainda não lê `selected_specials`: esta entrega completa aquisição,
+  subcaminhos, persistência, loadout e ambiente de teste; os efeitos numéricos em batalha exigem
+  uma especificação de balanceamento separada para converter termos qualitativos em valores.
 
 ## 9. Chat de batalha e trash talk
 
@@ -231,7 +234,9 @@ usuário. A fase `training` repete essa autorização, portanto não pode ser ab
 o estado da interface. O console permite selecionar qualquer ficha do roster e configurar XP
 total, XP disponível, AP parcial, A/H/R/D, níveis 0–3 de todas as especializações existentes e
 até duas especializações equipadas. **Aplicar e salvar** atualiza `sheet`, `roster` e
-`activeParty` e persiste pela operação normal de `saveToCloud`; **Restaurar valores** recupera
+`activeParty` e persiste pela operação normal de `saveToCloud`. Defensores e Místicos também
+podem alternar entre suas cinco árvores e configurar todos os 50 poderes correspondentes;
+**Restaurar valores** recupera
 no formulário o snapshot capturado ao selecionar a ficha, exigindo confirmação para persistir.
 
 ## 13. Estrutura de arquivos
@@ -250,9 +255,11 @@ src/pages/games/Gangues/
 ├── components/
 │   ├── DramaticDice.jsx/css  # dado cinematográfico (genérico, sides configurável)
 │   ├── NeoGuideDialog.jsx    # diálogo full-screen (intro)
-│   └── NeoGuideTip.jsx       # dica lateral (tutoriais guiados)
+│   ├── NeoGuideTip.jsx       # dica lateral (tutoriais guiados)
+│   └── GanguesProgressionPanel.jsx # painel reutilizável das árvores de progressão
 ├── data/
 │   ├── ganguesLoadout.js     # regras de pontos/atributos/recursos/tamanho de gangue
+│   ├── ganguesSpecials.js    # catálogo das 11 árvores e 55 poderes
 │   └── gangues-enemies.json  # roster de inimigos
 ├── engine/
 │   └── ganguesCombatResolver.js  # dado, crítico, bônus de caminho, dano
