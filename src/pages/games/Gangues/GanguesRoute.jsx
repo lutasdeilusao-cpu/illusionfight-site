@@ -8,6 +8,7 @@ import GanguesLobby from './GanguesLobby'
 import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
+import GanguesTrainingZone from './GanguesTrainingZone'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import './Gangues.css'
 
@@ -60,6 +61,7 @@ export default function GanguesRoute() {
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
+      {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} />}
     </div>
   )
 }

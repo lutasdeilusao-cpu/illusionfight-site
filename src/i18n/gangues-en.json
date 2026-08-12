@@ -77,6 +77,7 @@
       "xp_faltam": "{n} XP until next level",
       "xp_level_up_ready": "⚡ READY TO LEVEL UP!",
       "progression": { "title": "SHEET PROGRESSION", "ap": "AP: {n}/10", "xp_available": "XP available: {n}", "attributes": "Advanced attributes", "specials": "Attacker specializations", "loadout": "Equipped: {n}/2", "upgrade": "UPGRADE ({n} XP)", "equip": "EQUIP", "unequip": "REMOVE", "active": "active", "passive": "passive", "soco_de_ferro": "Iron Fist", "investida": "Charge", "peso_bruto": "Heavyweight", "marreta": "Hammer", "fim_de_linha": "End of the Line" },
+      "training": { "entry": "TRAINING ZONE", "entry_desc": "Admin-only progression testing console", "admin_badge": "ADMIN ACCESS", "title": "TRAINING ZONE", "subtitle": "Freely configure any character's progression and test every available game path.", "denied": "RESTRICTED ACCESS", "empty": "Create at least one character to use the console.", "character": "Test character", "experience": "Experience and progression", "total_xp": "Total XP", "available_xp": "Available XP", "ap": "Partial AP", "attributes": "Attributes", "powers": "Created powers", "equipped": "Equipped: {n}/2", "level": "Level", "save": "APPLY AND SAVE", "restore": "RESTORE VALUES", "saved": "Configuration saved to the character sheet.", "save_error": "The configuration could not be saved.", "restored": "Previous values restored in the console. Save to apply them." },
       "novo_oponente": "🔓 NEW OPPONENT UNLOCKED: {name}",
       "sem_fichas": "NO TOKENS",
       "criar_ficha": "CREATE SHEET",

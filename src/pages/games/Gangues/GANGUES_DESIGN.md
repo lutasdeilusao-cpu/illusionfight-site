@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.10.1** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.10.2** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -224,6 +224,16 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
 - Progresso de "gangue" (`activeParty`, tamanho liberado) depende do XP salvo nas fichas —
   se joga sem conta, some ao recarregar a página.
 
+### Zona de Treinamento administrativa
+
+O lobby exibe o botão **Zona de Treinamento** apenas quando `FichasContext.isAdmin` confirma o
+usuário. A fase `training` repete essa autorização, portanto não pode ser aberta apenas forçando
+o estado da interface. O console permite selecionar qualquer ficha do roster e configurar XP
+total, XP disponível, AP parcial, A/H/R/D, níveis 0–3 de todas as especializações existentes e
+até duas especializações equipadas. **Aplicar e salvar** atualiza `sheet`, `roster` e
+`activeParty` e persiste pela operação normal de `saveToCloud`; **Restaurar valores** recupera
+no formulário o snapshot capturado ao selecionar a ficha, exigindo confirmação para persistir.
+
 ## 13. Estrutura de arquivos
 
 ```
@@ -233,6 +243,8 @@ src/pages/games/Gangues/
 ├── GanguesCreate.jsx         # criação: caminho → atributos (+ tutoriais NeoGuide)
 ├── GanguesCombat.jsx         # tela de batalha (chat, roster, ataque)
 ├── GanguesVictory.jsx        # relatório pós-batalha (vitória e derrota)
+├── GanguesTrainingZone.jsx   # console de progressão exclusivo para administradores
+├── GanguesTrainingZone.css   # estilos isolados do console administrativo
 ├── Gangues.css               # todo o CSS do módulo
 ├── assets/                   # neoguide-frontal.png, neoguide-perfil.png
 ├── components/

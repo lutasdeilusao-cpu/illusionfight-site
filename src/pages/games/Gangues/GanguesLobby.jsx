@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
+import { useFichas } from '../../../context/FichasContext'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import NeoGuideDialog from './components/NeoGuideDialog'
 import { sfx } from '../../../lib/sfx'
@@ -22,6 +23,7 @@ function pickEnemyTeam(pool, size) {
 export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
   const { user, perfil } = useAuth()
+  const { isAdmin } = useFichas()
   const store = useGanguesStore()
   const [loading, setLoading] = useState(Boolean(user))
   const [choosingEnemy, setChoosingEnemy] = useState(false)
@@ -126,6 +128,14 @@ export default function GanguesLobby({ onNavigate }) {
         <p className="gang-lobby-sub">{roster.length < GANGUES_INITIAL_PARTY_SIZE ? t('games.gangues.party.subtitle') : t('games.gangues.party.single_desc')}</p>
       </header>
       <div className="gang-lobby-divider" />
+
+      {isAdmin && (
+        <button className="gang-training-entry" onClick={() => onNavigate('training')}>
+          <span>⚙</span>
+          <span><strong>{t('games.gangues.training.entry')}</strong><small>{t('games.gangues.training.entry_desc')}</small></span>
+          <b>→</b>
+        </button>
+      )}
 
       {roster.length < GANGUES_INITIAL_PARTY_SIZE ? (
         <section className="gang-onboarding-panel">
