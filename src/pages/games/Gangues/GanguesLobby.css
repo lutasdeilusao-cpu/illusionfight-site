@@ -1,0 +1,9 @@
+.gang-page.gang-page--lobby {
+  display: block;
+  height: auto;
+  min-height: 100dvh;
+  overflow-x: clip;
+  overflow-y: visible;
+  overscroll-behavior-y: auto;
+  touch-action: auto;
+}

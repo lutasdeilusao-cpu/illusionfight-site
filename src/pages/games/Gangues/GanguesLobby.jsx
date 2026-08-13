@@ -10,6 +10,7 @@ import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit } from './data/ganguesLoadout.js'
 import enemiesData from './data/gangues-enemies.json'
+import './GanguesLobby.css'
 
 const NEOGUIDE_SEEN_KEY = 'ldi-gangues-neoguide-seen'
 

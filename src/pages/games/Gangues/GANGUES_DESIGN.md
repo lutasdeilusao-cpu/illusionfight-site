@@ -294,3 +294,5 @@ src/pages/games/Gangues/
 A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de progressão sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
 
 A Zona de Treinamento não cria um scroll interno: o primeiro container (`.gang-page`) recebe altura automática e overflow vertical visível para que `html/body` mantenham o gesto nativo do navegador. O modificador usa o seletor composto `.gang-page.gang-page--training`, pois o CSS importado pelo componente filho pode aparecer antes de `Gangues.css` no bundle do Vite. A especificidade impede que `height: 100dvh` e `overflow: hidden` da regra base voltem a travar a página.
+
+O lobby segue a mesma estratégia por meio de `.gang-page.gang-page--lobby`. Isso é necessário porque o painel de progressão pode tornar o lobby maior que a viewport; a rolagem permanece no documento e não interfere nas telas fechadas de criação e combate.
